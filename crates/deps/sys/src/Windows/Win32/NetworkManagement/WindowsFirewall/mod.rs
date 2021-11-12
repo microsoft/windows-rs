@@ -42,15 +42,64 @@ pub struct INATEventManager(pub *mut ::core::ffi::c_void);
 pub struct INATExternalIPAddressCallback(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct INATNumberOfEntriesCallback(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+pub struct INET_FIREWALL_AC_BINARIES {
+    pub count: u32,
+    pub binaries: *mut super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for INET_FIREWALL_AC_BINARIES {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for INET_FIREWALL_AC_BINARIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct INET_FIREWALL_AC_BINARIES(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[repr(C)]
-pub struct INET_FIREWALL_AC_CAPABILITIES(i32);
+pub struct INET_FIREWALL_AC_CAPABILITIES {
+    pub count: u32,
+    pub capabilities: *mut super::super::Security::SID_AND_ATTRIBUTES,
+}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::marker::Copy for INET_FIREWALL_AC_CAPABILITIES {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::clone::Clone for INET_FIREWALL_AC_CAPABILITIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct INET_FIREWALL_AC_CHANGE(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+pub struct INET_FIREWALL_AC_CHANGE {
+    pub changeType: INET_FIREWALL_AC_CHANGE_TYPE,
+    pub createType: INET_FIREWALL_AC_CREATION_TYPE,
+    pub appContainerSid: *mut super::super::Security::SID,
+    pub userSid: *mut super::super::Security::SID,
+    pub displayName: super::super::Foundation::PWSTR,
+    pub Anonymous: INET_FIREWALL_AC_CHANGE_0,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::marker::Copy for INET_FIREWALL_AC_CHANGE {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::clone::Clone for INET_FIREWALL_AC_CHANGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+pub union INET_FIREWALL_AC_CHANGE_0 {
+    pub capabilities: INET_FIREWALL_AC_CAPABILITIES,
+    pub binaries: INET_FIREWALL_AC_BINARIES,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::clone::Clone for INET_FIREWALL_AC_CHANGE_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct INET_FIREWALL_AC_CHANGE_TYPE(pub i32);
 pub const INET_FIREWALL_AC_CHANGE_INVALID: INET_FIREWALL_AC_CHANGE_TYPE = INET_FIREWALL_AC_CHANGE_TYPE(0i32);
@@ -63,9 +112,27 @@ pub const INET_FIREWALL_AC_NONE: INET_FIREWALL_AC_CREATION_TYPE = INET_FIREWALL_
 pub const INET_FIREWALL_AC_PACKAGE_ID_ONLY: INET_FIREWALL_AC_CREATION_TYPE = INET_FIREWALL_AC_CREATION_TYPE(1i32);
 pub const INET_FIREWALL_AC_BINARY: INET_FIREWALL_AC_CREATION_TYPE = INET_FIREWALL_AC_CREATION_TYPE(2i32);
 pub const INET_FIREWALL_AC_MAX: INET_FIREWALL_AC_CREATION_TYPE = INET_FIREWALL_AC_CREATION_TYPE(4i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[repr(C)]
-pub struct INET_FIREWALL_APP_CONTAINER(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+pub struct INET_FIREWALL_APP_CONTAINER {
+    pub appContainerSid: *mut super::super::Security::SID,
+    pub userSid: *mut super::super::Security::SID,
+    pub appContainerName: super::super::Foundation::PWSTR,
+    pub displayName: super::super::Foundation::PWSTR,
+    pub description: super::super::Foundation::PWSTR,
+    pub capabilities: INET_FIREWALL_AC_CAPABILITIES,
+    pub binaries: INET_FIREWALL_AC_BINARIES,
+    pub workingDirectory: super::super::Foundation::PWSTR,
+    pub packageFullName: super::super::Foundation::PWSTR,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::marker::Copy for INET_FIREWALL_APP_CONTAINER {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::clone::Clone for INET_FIREWALL_APP_CONTAINER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct INetConnection(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -179,9 +246,26 @@ pub const NCM_PPPOE: NETCON_MEDIATYPE = NETCON_MEDIATYPE(6i32);
 pub const NCM_BRIDGE: NETCON_MEDIATYPE = NETCON_MEDIATYPE(7i32);
 pub const NCM_SHAREDACCESSHOST_LAN: NETCON_MEDIATYPE = NETCON_MEDIATYPE(8i32);
 pub const NCM_SHAREDACCESSHOST_RAS: NETCON_MEDIATYPE = NETCON_MEDIATYPE(9i32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct NETCON_PROPERTIES(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct NETCON_PROPERTIES {
+    pub guidId: ::windows_sys::core::GUID,
+    pub pszwName: super::super::Foundation::PWSTR,
+    pub pszwDeviceName: super::super::Foundation::PWSTR,
+    pub Status: NETCON_STATUS,
+    pub MediaType: NETCON_MEDIATYPE,
+    pub dwCharacter: u32,
+    pub clsidThisObject: ::windows_sys::core::GUID,
+    pub clsidUiObject: ::windows_sys::core::GUID,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for NETCON_PROPERTIES {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for NETCON_PROPERTIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct NETCON_STATUS(pub i32);
 pub const NCS_DISCONNECTED: NETCON_STATUS = NETCON_STATUS(0i32);
@@ -352,12 +436,38 @@ pub const UPnPNAT: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data3: 16444,
     data4: [138, 39, 43, 189, 195, 12, 208, 225],
 };
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct _tag_FW_DYNAMIC_KEYWORD_ADDRESS0(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct _tag_FW_DYNAMIC_KEYWORD_ADDRESS0 {
+    pub id: ::windows_sys::core::GUID,
+    pub keyword: super::super::Foundation::PWSTR,
+    pub flags: u32,
+    pub addresses: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for _tag_FW_DYNAMIC_KEYWORD_ADDRESS0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for _tag_FW_DYNAMIC_KEYWORD_ADDRESS0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct _tag_FW_DYNAMIC_KEYWORD_ADDRESS_DATA0(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct _tag_FW_DYNAMIC_KEYWORD_ADDRESS_DATA0 {
+    pub dynamicKeywordAddress: _tag_FW_DYNAMIC_KEYWORD_ADDRESS0,
+    pub next: *mut _tag_FW_DYNAMIC_KEYWORD_ADDRESS_DATA0,
+    pub schemaVersion: u16,
+    pub originType: _tag_FW_DYNAMIC_KEYWORD_ORIGIN_TYPE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for _tag_FW_DYNAMIC_KEYWORD_ADDRESS_DATA0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for _tag_FW_DYNAMIC_KEYWORD_ADDRESS_DATA0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct _tag_FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS(pub i32);
 pub const FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS_AUTO_RESOLVE: _tag_FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS = _tag_FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS(1i32);

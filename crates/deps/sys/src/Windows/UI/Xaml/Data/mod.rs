@@ -89,7 +89,15 @@ pub struct IValueConverter(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ItemIndexRange(pub *mut ::core::ffi::c_void);
 #[repr(C)]
-pub struct LoadMoreItemsResult(i32);
+pub struct LoadMoreItemsResult {
+    pub Count: u32,
+}
+impl ::core::marker::Copy for LoadMoreItemsResult {}
+impl ::core::clone::Clone for LoadMoreItemsResult {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PropertyChangedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

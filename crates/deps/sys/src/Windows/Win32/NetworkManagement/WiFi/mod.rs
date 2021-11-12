@@ -360,7 +360,19 @@ pub const DISCOVERY_FILTER_BITMASK_ANY: u32 = 15u32;
 pub const DISCOVERY_FILTER_BITMASK_DEVICE: u32 = 1u32;
 pub const DISCOVERY_FILTER_BITMASK_GO: u32 = 2u32;
 #[repr(C)]
-pub struct DOT11_ACCESSNETWORKOPTIONS(i32);
+pub struct DOT11_ACCESSNETWORKOPTIONS {
+    pub AccessNetworkType: u8,
+    pub Internet: u8,
+    pub ASRA: u8,
+    pub ESR: u8,
+    pub UESA: u8,
+}
+impl ::core::marker::Copy for DOT11_ACCESSNETWORKOPTIONS {}
+impl ::core::clone::Clone for DOT11_ACCESSNETWORKOPTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DOT11_AC_PARAM(pub i32);
 pub const dot11_AC_param_BE: DOT11_AC_PARAM = DOT11_AC_PARAM(0i32);
@@ -368,9 +380,23 @@ pub const dot11_AC_param_BK: DOT11_AC_PARAM = DOT11_AC_PARAM(1i32);
 pub const dot11_AC_param_VI: DOT11_AC_PARAM = DOT11_AC_PARAM(2i32);
 pub const dot11_AC_param_VO: DOT11_AC_PARAM = DOT11_AC_PARAM(3i32);
 pub const dot11_AC_param_max: DOT11_AC_PARAM = DOT11_AC_PARAM(4i32);
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 #[repr(C)]
-pub struct DOT11_ADDITIONAL_IE(i32);
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+pub struct DOT11_ADDITIONAL_IE {
+    pub Header: super::Ndis::NDIS_OBJECT_HEADER,
+    pub uBeaconIEsOffset: u32,
+    pub uBeaconIEsLength: u32,
+    pub uResponseIEsOffset: u32,
+    pub uResponseIEsLength: u32,
+}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::marker::Copy for DOT11_ADDITIONAL_IE {}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::clone::Clone for DOT11_ADDITIONAL_IE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_ADDITIONAL_IE_REVISION_1: u32 = 1u32;
 #[repr(transparent)]
 pub struct DOT11_ADHOC_AUTH_ALGORITHM(pub i32);
@@ -395,9 +421,22 @@ pub const DOT11_ADHOC_NETWORK_CONNECTION_STATUS_DISCONNECTED: DOT11_ADHOC_NETWOR
 pub const DOT11_ADHOC_NETWORK_CONNECTION_STATUS_CONNECTING: DOT11_ADHOC_NETWORK_CONNECTION_STATUS = DOT11_ADHOC_NETWORK_CONNECTION_STATUS(12i32);
 pub const DOT11_ADHOC_NETWORK_CONNECTION_STATUS_CONNECTED: DOT11_ADHOC_NETWORK_CONNECTION_STATUS = DOT11_ADHOC_NETWORK_CONNECTION_STATUS(13i32);
 pub const DOT11_ADHOC_NETWORK_CONNECTION_STATUS_FORMED: DOT11_ADHOC_NETWORK_CONNECTION_STATUS = DOT11_ADHOC_NETWORK_CONNECTION_STATUS(14i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 #[repr(C)]
-pub struct DOT11_ANQP_QUERY_COMPLETE_PARAMETERS(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
+pub struct DOT11_ANQP_QUERY_COMPLETE_PARAMETERS {
+    pub Header: super::Ndis::NDIS_OBJECT_HEADER,
+    pub Status: DOT11_ANQP_QUERY_RESULT,
+    pub hContext: super::super::Foundation::HANDLE,
+    pub uResponseLength: u32,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
+impl ::core::marker::Copy for DOT11_ANQP_QUERY_COMPLETE_PARAMETERS {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
+impl ::core::clone::Clone for DOT11_ANQP_QUERY_COMPLETE_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_ANQP_QUERY_COMPLETE_PARAMETERS_REVISION_1: u32 = 1u32;
 #[repr(transparent)]
 pub struct DOT11_ANQP_QUERY_RESULT(pub i32);
@@ -410,25 +449,131 @@ pub const dot11_ANQP_query_result_gas_protocol_failure: DOT11_ANQP_QUERY_RESULT 
 pub const dot11_ANQP_query_result_advertisement_server_not_responding: DOT11_ANQP_QUERY_RESULT = DOT11_ANQP_QUERY_RESULT(6i32);
 pub const dot11_ANQP_query_result_access_issues: DOT11_ANQP_QUERY_RESULT = DOT11_ANQP_QUERY_RESULT(7i32);
 #[repr(C)]
-pub struct DOT11_AP_JOIN_REQUEST(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
+pub struct DOT11_AP_JOIN_REQUEST {
+    pub uJoinFailureTimeout: u32,
+    pub OperationalRateSet: DOT11_RATE_SET,
+    pub uChCenterFrequency: u32,
+    pub dot11BSSDescription: DOT11_BSS_DESCRIPTION,
+}
+impl ::core::marker::Copy for DOT11_AP_JOIN_REQUEST {}
+impl ::core::clone::Clone for DOT11_AP_JOIN_REQUEST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DOT11_ASSOCIATION_COMPLETION_PARAMETERS(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
+pub struct DOT11_ASSOCIATION_COMPLETION_PARAMETERS {
+    pub Header: super::Ndis::NDIS_OBJECT_HEADER,
+    pub MacAddr: [u8; 6],
+    pub uStatus: u32,
+    pub bReAssocReq: super::super::Foundation::BOOLEAN,
+    pub bReAssocResp: super::super::Foundation::BOOLEAN,
+    pub uAssocReqOffset: u32,
+    pub uAssocReqSize: u32,
+    pub uAssocRespOffset: u32,
+    pub uAssocRespSize: u32,
+    pub uBeaconOffset: u32,
+    pub uBeaconSize: u32,
+    pub uIHVDataOffset: u32,
+    pub uIHVDataSize: u32,
+    pub AuthAlgo: DOT11_AUTH_ALGORITHM,
+    pub UnicastCipher: DOT11_CIPHER_ALGORITHM,
+    pub MulticastCipher: DOT11_CIPHER_ALGORITHM,
+    pub uActivePhyListOffset: u32,
+    pub uActivePhyListSize: u32,
+    pub bFourAddressSupported: super::super::Foundation::BOOLEAN,
+    pub bPortAuthorized: super::super::Foundation::BOOLEAN,
+    pub ucActiveQoSProtocol: u8,
+    pub DSInfo: DOT11_DS_INFO,
+    pub uEncapTableOffset: u32,
+    pub uEncapTableSize: u32,
+    pub MulticastMgmtCipher: DOT11_CIPHER_ALGORITHM,
+    pub uAssocComebackTime: u32,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
+impl ::core::marker::Copy for DOT11_ASSOCIATION_COMPLETION_PARAMETERS {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
+impl ::core::clone::Clone for DOT11_ASSOCIATION_COMPLETION_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_ASSOCIATION_COMPLETION_PARAMETERS_REVISION_1: u32 = 1u32;
 pub const DOT11_ASSOCIATION_COMPLETION_PARAMETERS_REVISION_2: u32 = 2u32;
 #[repr(C)]
-pub struct DOT11_ASSOCIATION_INFO_EX(i32);
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+pub struct DOT11_ASSOCIATION_INFO_EX {
+    pub PeerMacAddress: [u8; 6],
+    pub BSSID: [u8; 6],
+    pub usCapabilityInformation: u16,
+    pub usListenInterval: u16,
+    pub ucPeerSupportedRates: [u8; 255],
+    pub usAssociationID: u16,
+    pub dot11AssociationState: DOT11_ASSOCIATION_STATE,
+    pub dot11PowerMode: DOT11_POWER_MODE,
+    pub liAssociationUpTime: i64,
+    pub ullNumOfTxPacketSuccesses: u64,
+    pub ullNumOfTxPacketFailures: u64,
+    pub ullNumOfRxPacketSuccesses: u64,
+    pub ullNumOfRxPacketFailures: u64,
+}
+impl ::core::marker::Copy for DOT11_ASSOCIATION_INFO_EX {}
+impl ::core::clone::Clone for DOT11_ASSOCIATION_INFO_EX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DOT11_ASSOCIATION_INFO_LIST(i32);
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+pub struct DOT11_ASSOCIATION_INFO_LIST {
+    pub Header: super::Ndis::NDIS_OBJECT_HEADER,
+    pub uNumOfEntries: u32,
+    pub uTotalNumOfEntries: u32,
+    pub dot11AssocInfo: [DOT11_ASSOCIATION_INFO_EX; 1],
+}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::marker::Copy for DOT11_ASSOCIATION_INFO_LIST {}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::clone::Clone for DOT11_ASSOCIATION_INFO_LIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_ASSOCIATION_INFO_LIST_REVISION_1: u32 = 1u32;
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 #[repr(C)]
-pub struct DOT11_ASSOCIATION_PARAMS(i32);
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+pub struct DOT11_ASSOCIATION_PARAMS {
+    pub Header: super::Ndis::NDIS_OBJECT_HEADER,
+    pub BSSID: [u8; 6],
+    pub uAssocRequestIEsOffset: u32,
+    pub uAssocRequestIEsLength: u32,
+}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::marker::Copy for DOT11_ASSOCIATION_PARAMS {}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::clone::Clone for DOT11_ASSOCIATION_PARAMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_ASSOCIATION_PARAMS_REVISION_1: u32 = 1u32;
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 #[repr(C)]
-pub struct DOT11_ASSOCIATION_START_PARAMETERS(i32);
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+pub struct DOT11_ASSOCIATION_START_PARAMETERS {
+    pub Header: super::Ndis::NDIS_OBJECT_HEADER,
+    pub MacAddr: [u8; 6],
+    pub SSID: DOT11_SSID,
+    pub uIHVDataOffset: u32,
+    pub uIHVDataSize: u32,
+}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::marker::Copy for DOT11_ASSOCIATION_START_PARAMETERS {}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::clone::Clone for DOT11_ASSOCIATION_START_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_ASSOCIATION_START_PARAMETERS_REVISION_1: u32 = 1u32;
 #[repr(transparent)]
 pub struct DOT11_ASSOCIATION_STATE(pub i32);
@@ -456,24 +601,85 @@ pub const DOT11_AUTH_ALGO_OWE: DOT11_AUTH_ALGORITHM = DOT11_AUTH_ALGORITHM(10i32
 pub const DOT11_AUTH_ALGO_WPA3_ENT: DOT11_AUTH_ALGORITHM = DOT11_AUTH_ALGORITHM(11i32);
 pub const DOT11_AUTH_ALGO_IHV_START: DOT11_AUTH_ALGORITHM = DOT11_AUTH_ALGORITHM(-2147483648i32);
 pub const DOT11_AUTH_ALGO_IHV_END: DOT11_AUTH_ALGORITHM = DOT11_AUTH_ALGORITHM(-1i32);
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 #[repr(C)]
-pub struct DOT11_AUTH_ALGORITHM_LIST(i32);
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+pub struct DOT11_AUTH_ALGORITHM_LIST {
+    pub Header: super::Ndis::NDIS_OBJECT_HEADER,
+    pub uNumOfEntries: u32,
+    pub uTotalNumOfEntries: u32,
+    pub AlgorithmIds: [DOT11_AUTH_ALGORITHM; 1],
+}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::marker::Copy for DOT11_AUTH_ALGORITHM_LIST {}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::clone::Clone for DOT11_AUTH_ALGORITHM_LIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_AUTH_ALGORITHM_LIST_REVISION_1: u32 = 1u32;
 pub const DOT11_AUTH_ALGO_MICHAEL: u32 = 1u32;
 #[repr(C)]
-pub struct DOT11_AUTH_CIPHER_PAIR(i32);
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+pub struct DOT11_AUTH_CIPHER_PAIR {
+    pub AuthAlgoId: DOT11_AUTH_ALGORITHM,
+    pub CipherAlgoId: DOT11_CIPHER_ALGORITHM,
+}
+impl ::core::marker::Copy for DOT11_AUTH_CIPHER_PAIR {}
+impl ::core::clone::Clone for DOT11_AUTH_CIPHER_PAIR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DOT11_AUTH_CIPHER_PAIR_LIST(i32);
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+pub struct DOT11_AUTH_CIPHER_PAIR_LIST {
+    pub Header: super::Ndis::NDIS_OBJECT_HEADER,
+    pub uNumOfEntries: u32,
+    pub uTotalNumOfEntries: u32,
+    pub AuthCipherPairs: [DOT11_AUTH_CIPHER_PAIR; 1],
+}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::marker::Copy for DOT11_AUTH_CIPHER_PAIR_LIST {}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::clone::Clone for DOT11_AUTH_CIPHER_PAIR_LIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_AUTH_CIPHER_PAIR_LIST_REVISION_1: u32 = 1u32;
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 #[repr(C)]
-pub struct DOT11_AVAILABLE_CHANNEL_LIST(i32);
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+pub struct DOT11_AVAILABLE_CHANNEL_LIST {
+    pub Header: super::Ndis::NDIS_OBJECT_HEADER,
+    pub uNumOfEntries: u32,
+    pub uTotalNumOfEntries: u32,
+    pub uChannelNumber: [u32; 1],
+}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::marker::Copy for DOT11_AVAILABLE_CHANNEL_LIST {}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::clone::Clone for DOT11_AVAILABLE_CHANNEL_LIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_AVAILABLE_CHANNEL_LIST_REVISION_1: u32 = 1u32;
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 #[repr(C)]
-pub struct DOT11_AVAILABLE_FREQUENCY_LIST(i32);
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+pub struct DOT11_AVAILABLE_FREQUENCY_LIST {
+    pub Header: super::Ndis::NDIS_OBJECT_HEADER,
+    pub uNumOfEntries: u32,
+    pub uTotalNumOfEntries: u32,
+    pub uFrequencyValue: [u32; 1],
+}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::marker::Copy for DOT11_AVAILABLE_FREQUENCY_LIST {}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::clone::Clone for DOT11_AVAILABLE_FREQUENCY_LIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_AVAILABLE_FREQUENCY_LIST_REVISION_1: u32 = 1u32;
 #[repr(transparent)]
 pub struct DOT11_BAND(pub i32);
@@ -481,30 +687,133 @@ pub const dot11_band_2p4g: DOT11_BAND = DOT11_BAND(1i32);
 pub const dot11_band_4p9g: DOT11_BAND = DOT11_BAND(2i32);
 pub const dot11_band_5g: DOT11_BAND = DOT11_BAND(3i32);
 #[repr(C)]
-pub struct DOT11_BSSID_CANDIDATE(i32);
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+pub struct DOT11_BSSID_CANDIDATE {
+    pub BSSID: [u8; 6],
+    pub uFlags: u32,
+}
+impl ::core::marker::Copy for DOT11_BSSID_CANDIDATE {}
+impl ::core::clone::Clone for DOT11_BSSID_CANDIDATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DOT11_BSSID_LIST(i32);
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+pub struct DOT11_BSSID_LIST {
+    pub Header: super::Ndis::NDIS_OBJECT_HEADER,
+    pub uNumOfEntries: u32,
+    pub uTotalNumOfEntries: u32,
+    pub BSSIDs: [u8; 6],
+}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::marker::Copy for DOT11_BSSID_LIST {}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::clone::Clone for DOT11_BSSID_LIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_BSSID_LIST_REVISION_1: u32 = 1u32;
 #[repr(C)]
-pub struct DOT11_BSS_DESCRIPTION(i32);
-#[cfg(feature = "Win32_Foundation")]
+pub struct DOT11_BSS_DESCRIPTION {
+    pub uReserved: u32,
+    pub dot11BSSID: [u8; 6],
+    pub dot11BSSType: DOT11_BSS_TYPE,
+    pub usBeaconPeriod: u16,
+    pub ullTimestamp: u64,
+    pub usCapabilityInformation: u16,
+    pub uBufferLength: u32,
+    pub ucBuffer: [u8; 1],
+}
+impl ::core::marker::Copy for DOT11_BSS_DESCRIPTION {}
+impl ::core::clone::Clone for DOT11_BSS_DESCRIPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DOT11_BSS_ENTRY(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct DOT11_BSS_ENTRY {
+    pub uPhyId: u32,
+    pub PhySpecificInfo: DOT11_BSS_ENTRY_PHY_SPECIFIC_INFO,
+    pub dot11BSSID: [u8; 6],
+    pub dot11BSSType: DOT11_BSS_TYPE,
+    pub lRSSI: i32,
+    pub uLinkQuality: u32,
+    pub bInRegDomain: super::super::Foundation::BOOLEAN,
+    pub usBeaconPeriod: u16,
+    pub ullTimestamp: u64,
+    pub ullHostTimestamp: u64,
+    pub usCapabilityInformation: u16,
+    pub uBufferLength: u32,
+    pub ucBuffer: [u8; 1],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DOT11_BSS_ENTRY {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DOT11_BSS_ENTRY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_BSS_ENTRY_BYTE_ARRAY_REVISION_1: u32 = 1u32;
 #[repr(C)]
-pub struct DOT11_BSS_ENTRY_PHY_SPECIFIC_INFO(i32);
+pub union DOT11_BSS_ENTRY_PHY_SPECIFIC_INFO {
+    pub uChCenterFrequency: u32,
+    pub FHSS: DOT11_BSS_ENTRY_PHY_SPECIFIC_INFO_0,
+}
+impl ::core::clone::Clone for DOT11_BSS_ENTRY_PHY_SPECIFIC_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct DOT11_BSS_ENTRY_PHY_SPECIFIC_INFO_0 {
+    pub uHopPattern: u32,
+    pub uHopSet: u32,
+    pub uDwellTime: u32,
+}
+impl ::core::marker::Copy for DOT11_BSS_ENTRY_PHY_SPECIFIC_INFO_0 {}
+impl ::core::clone::Clone for DOT11_BSS_ENTRY_PHY_SPECIFIC_INFO_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DOT11_BSS_TYPE(pub i32);
 pub const dot11_BSS_type_infrastructure: DOT11_BSS_TYPE = DOT11_BSS_TYPE(1i32);
 pub const dot11_BSS_type_independent: DOT11_BSS_TYPE = DOT11_BSS_TYPE(2i32);
 pub const dot11_BSS_type_any: DOT11_BSS_TYPE = DOT11_BSS_TYPE(3i32);
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 #[repr(C)]
-pub struct DOT11_BYTE_ARRAY(i32);
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+pub struct DOT11_BYTE_ARRAY {
+    pub Header: super::Ndis::NDIS_OBJECT_HEADER,
+    pub uNumOfBytes: u32,
+    pub uTotalNumOfBytes: u32,
+    pub ucBuffer: [u8; 1],
+}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::marker::Copy for DOT11_BYTE_ARRAY {}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::clone::Clone for DOT11_BYTE_ARRAY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DOT11_CAN_SUSTAIN_AP_PARAMETERS(i32);
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+pub struct DOT11_CAN_SUSTAIN_AP_PARAMETERS {
+    pub Header: super::Ndis::NDIS_OBJECT_HEADER,
+    pub ulReason: u32,
+}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::marker::Copy for DOT11_CAN_SUSTAIN_AP_PARAMETERS {}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::clone::Clone for DOT11_CAN_SUSTAIN_AP_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_CAN_SUSTAIN_AP_PARAMETERS_REVISION_1: u32 = 1u32;
 pub const DOT11_CAN_SUSTAIN_AP_REASON_IHV_END: u32 = 4294967295u32;
 pub const DOT11_CAN_SUSTAIN_AP_REASON_IHV_START: u32 = 4278190080u32;
@@ -524,7 +833,16 @@ pub const DOT11_CCA_MODE_ED_ONLY: u32 = 1u32;
 pub const DOT11_CCA_MODE_ED_and_CS: u32 = 4u32;
 pub const DOT11_CCA_MODE_HRCS_AND_ED: u32 = 16u32;
 #[repr(C)]
-pub struct DOT11_CHANNEL_HINT(i32);
+pub struct DOT11_CHANNEL_HINT {
+    pub Dot11PhyType: DOT11_PHY_TYPE,
+    pub uChannelNumber: u32,
+}
+impl ::core::marker::Copy for DOT11_CHANNEL_HINT {}
+impl ::core::clone::Clone for DOT11_CHANNEL_HINT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DOT11_CIPHER_ALGORITHM(pub i32);
 pub const DOT11_CIPHER_ALGO_NONE: DOT11_CIPHER_ALGORITHM = DOT11_CIPHER_ALGORITHM(0i32);
@@ -544,74 +862,318 @@ pub const DOT11_CIPHER_ALGO_RSN_USE_GROUP: DOT11_CIPHER_ALGORITHM = DOT11_CIPHER
 pub const DOT11_CIPHER_ALGO_WEP: DOT11_CIPHER_ALGORITHM = DOT11_CIPHER_ALGORITHM(257i32);
 pub const DOT11_CIPHER_ALGO_IHV_START: DOT11_CIPHER_ALGORITHM = DOT11_CIPHER_ALGORITHM(-2147483648i32);
 pub const DOT11_CIPHER_ALGO_IHV_END: DOT11_CIPHER_ALGORITHM = DOT11_CIPHER_ALGORITHM(-1i32);
+#[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-#[repr(C)]
-pub struct DOT11_CIPHER_ALGORITHM_LIST(i32);
+pub struct DOT11_CIPHER_ALGORITHM_LIST {
+    pub Header: super::Ndis::NDIS_OBJECT_HEADER,
+    pub uNumOfEntries: u32,
+    pub uTotalNumOfEntries: u32,
+    pub AlgorithmIds: [DOT11_CIPHER_ALGORITHM; 1],
+}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::marker::Copy for DOT11_CIPHER_ALGORITHM_LIST {}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::clone::Clone for DOT11_CIPHER_ALGORITHM_LIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_CIPHER_ALGORITHM_LIST_REVISION_1: u32 = 1u32;
+#[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
-#[repr(C)]
-pub struct DOT11_CIPHER_DEFAULT_KEY_VALUE(i32);
+pub struct DOT11_CIPHER_DEFAULT_KEY_VALUE {
+    pub Header: super::Ndis::NDIS_OBJECT_HEADER,
+    pub uKeyIndex: u32,
+    pub AlgorithmId: DOT11_CIPHER_ALGORITHM,
+    pub MacAddr: [u8; 6],
+    pub bDelete: super::super::Foundation::BOOLEAN,
+    pub bStatic: super::super::Foundation::BOOLEAN,
+    pub usKeyLength: u16,
+    pub ucKey: [u8; 1],
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
+impl ::core::marker::Copy for DOT11_CIPHER_DEFAULT_KEY_VALUE {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
+impl ::core::clone::Clone for DOT11_CIPHER_DEFAULT_KEY_VALUE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_CIPHER_DEFAULT_KEY_VALUE_REVISION_1: u32 = 1u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct DOT11_CIPHER_KEY_MAPPING_KEY_VALUE(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct DOT11_CIPHER_KEY_MAPPING_KEY_VALUE {
+    pub PeerMacAddr: [u8; 6],
+    pub AlgorithmId: DOT11_CIPHER_ALGORITHM,
+    pub Direction: DOT11_DIRECTION,
+    pub bDelete: super::super::Foundation::BOOLEAN,
+    pub bStatic: super::super::Foundation::BOOLEAN,
+    pub usKeyLength: u16,
+    pub ucKey: [u8; 1],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DOT11_CIPHER_KEY_MAPPING_KEY_VALUE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DOT11_CIPHER_KEY_MAPPING_KEY_VALUE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_CIPHER_KEY_MAPPING_KEY_VALUE_BYTE_ARRAY_REVISION_1: u32 = 1u32;
 pub const DOT11_CONF_ALGO_TKIP: u32 = 2u32;
 pub const DOT11_CONF_ALGO_WEP_RC4: u32 = 1u32;
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 #[repr(C)]
-pub struct DOT11_CONNECTION_COMPLETION_PARAMETERS(i32);
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+pub struct DOT11_CONNECTION_COMPLETION_PARAMETERS {
+    pub Header: super::Ndis::NDIS_OBJECT_HEADER,
+    pub uStatus: u32,
+}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::marker::Copy for DOT11_CONNECTION_COMPLETION_PARAMETERS {}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::clone::Clone for DOT11_CONNECTION_COMPLETION_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_CONNECTION_COMPLETION_PARAMETERS_REVISION_1: u32 = 1u32;
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 #[repr(C)]
-pub struct DOT11_CONNECTION_START_PARAMETERS(i32);
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+pub struct DOT11_CONNECTION_START_PARAMETERS {
+    pub Header: super::Ndis::NDIS_OBJECT_HEADER,
+    pub BSSType: DOT11_BSS_TYPE,
+    pub AdhocBSSID: [u8; 6],
+    pub AdhocSSID: DOT11_SSID,
+}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::marker::Copy for DOT11_CONNECTION_START_PARAMETERS {}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::clone::Clone for DOT11_CONNECTION_START_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_CONNECTION_START_PARAMETERS_REVISION_1: u32 = 1u32;
 pub const DOT11_CONNECTION_STATUS_SUCCESS: u32 = 0u32;
 #[repr(C)]
-pub struct DOT11_COUNTERS_ENTRY(i32);
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+pub struct DOT11_COUNTERS_ENTRY {
+    pub uTransmittedFragmentCount: u32,
+    pub uMulticastTransmittedFrameCount: u32,
+    pub uFailedCount: u32,
+    pub uRetryCount: u32,
+    pub uMultipleRetryCount: u32,
+    pub uFrameDuplicateCount: u32,
+    pub uRTSSuccessCount: u32,
+    pub uRTSFailureCount: u32,
+    pub uACKFailureCount: u32,
+    pub uReceivedFragmentCount: u32,
+    pub uMulticastReceivedFrameCount: u32,
+    pub uFCSErrorCount: u32,
+    pub uTransmittedFrameCount: u32,
+}
+impl ::core::marker::Copy for DOT11_COUNTERS_ENTRY {}
+impl ::core::clone::Clone for DOT11_COUNTERS_ENTRY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DOT11_COUNTRY_OR_REGION_STRING_LIST(i32);
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+pub struct DOT11_COUNTRY_OR_REGION_STRING_LIST {
+    pub Header: super::Ndis::NDIS_OBJECT_HEADER,
+    pub uNumOfEntries: u32,
+    pub uTotalNumOfEntries: u32,
+    pub CountryOrRegionStrings: [u8; 3],
+}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::marker::Copy for DOT11_COUNTRY_OR_REGION_STRING_LIST {}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::clone::Clone for DOT11_COUNTRY_OR_REGION_STRING_LIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_COUNTRY_OR_REGION_STRING_LIST_REVISION_1: u32 = 1u32;
 #[repr(C)]
-pub struct DOT11_CURRENT_OFFLOAD_CAPABILITY(i32);
+pub struct DOT11_CURRENT_OFFLOAD_CAPABILITY {
+    pub uReserved: u32,
+    pub uFlags: u32,
+}
+impl ::core::marker::Copy for DOT11_CURRENT_OFFLOAD_CAPABILITY {}
+impl ::core::clone::Clone for DOT11_CURRENT_OFFLOAD_CAPABILITY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DOT11_CURRENT_OPERATION_MODE(i32);
+pub struct DOT11_CURRENT_OPERATION_MODE {
+    pub uReserved: u32,
+    pub uCurrentOpMode: u32,
+}
+impl ::core::marker::Copy for DOT11_CURRENT_OPERATION_MODE {}
+impl ::core::clone::Clone for DOT11_CURRENT_OPERATION_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+pub struct DOT11_CURRENT_OPTIONAL_CAPABILITY {
+    pub uReserved: u32,
+    pub bDot11CFPollable: super::super::Foundation::BOOLEAN,
+    pub bDot11PCF: super::super::Foundation::BOOLEAN,
+    pub bDot11PCFMPDUTransferToPC: super::super::Foundation::BOOLEAN,
+    pub bStrictlyOrderedServiceClass: super::super::Foundation::BOOLEAN,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DOT11_CURRENT_OPTIONAL_CAPABILITY {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DOT11_CURRENT_OPTIONAL_CAPABILITY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DOT11_CURRENT_OPTIONAL_CAPABILITY(i32);
+pub struct DOT11_DATA_RATE_MAPPING_ENTRY {
+    pub ucDataRateIndex: u8,
+    pub ucDataRateFlag: u8,
+    pub usDataRateValue: u16,
+}
+impl ::core::marker::Copy for DOT11_DATA_RATE_MAPPING_ENTRY {}
+impl ::core::clone::Clone for DOT11_DATA_RATE_MAPPING_ENTRY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DOT11_DATA_RATE_MAPPING_ENTRY(i32);
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-#[repr(C)]
-pub struct DOT11_DATA_RATE_MAPPING_TABLE(i32);
+pub struct DOT11_DATA_RATE_MAPPING_TABLE {
+    pub Header: super::Ndis::NDIS_OBJECT_HEADER,
+    pub uDataRateMappingLength: u32,
+    pub DataRateMappingEntries: [DOT11_DATA_RATE_MAPPING_ENTRY; 126],
+}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::marker::Copy for DOT11_DATA_RATE_MAPPING_TABLE {}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::clone::Clone for DOT11_DATA_RATE_MAPPING_TABLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_DATA_RATE_MAPPING_TABLE_REVISION_1: u32 = 1u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct DOT11_DEFAULT_WEP_OFFLOAD(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct DOT11_DEFAULT_WEP_OFFLOAD {
+    pub uReserved: u32,
+    pub hOffloadContext: super::super::Foundation::HANDLE,
+    pub hOffload: super::super::Foundation::HANDLE,
+    pub dwIndex: u32,
+    pub dot11OffloadType: DOT11_OFFLOAD_TYPE,
+    pub dwAlgorithm: u32,
+    pub uFlags: u32,
+    pub dot11KeyDirection: DOT11_KEY_DIRECTION,
+    pub ucMacAddress: [u8; 6],
+    pub uNumOfRWsOnMe: u32,
+    pub dot11IV48Counters: [DOT11_IV48_COUNTER; 16],
+    pub usDot11RWBitMaps: [u16; 16],
+    pub usKeyLength: u16,
+    pub ucKey: [u8; 1],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DOT11_DEFAULT_WEP_OFFLOAD {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DOT11_DEFAULT_WEP_OFFLOAD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DOT11_DEFAULT_WEP_UPLOAD(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct DOT11_DEFAULT_WEP_UPLOAD {
+    pub uReserved: u32,
+    pub dot11OffloadType: DOT11_OFFLOAD_TYPE,
+    pub hOffload: super::super::Foundation::HANDLE,
+    pub uNumOfRWsUsed: u32,
+    pub dot11IV48Counters: [DOT11_IV48_COUNTER; 16],
+    pub usDot11RWBitMaps: [u16; 16],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DOT11_DEFAULT_WEP_UPLOAD {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DOT11_DEFAULT_WEP_UPLOAD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_DEVICE_ENTRY_BYTE_ARRAY_REVISION_1: u32 = 1u32;
 #[repr(transparent)]
 pub struct DOT11_DIRECTION(pub i32);
 pub const DOT11_DIR_INBOUND: DOT11_DIRECTION = DOT11_DIRECTION(1i32);
 pub const DOT11_DIR_OUTBOUND: DOT11_DIRECTION = DOT11_DIRECTION(2i32);
 pub const DOT11_DIR_BOTH: DOT11_DIRECTION = DOT11_DIRECTION(3i32);
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 #[repr(C)]
-pub struct DOT11_DISASSOCIATE_PEER_REQUEST(i32);
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+pub struct DOT11_DISASSOCIATE_PEER_REQUEST {
+    pub Header: super::Ndis::NDIS_OBJECT_HEADER,
+    pub PeerMacAddr: [u8; 6],
+    pub usReason: u16,
+}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::marker::Copy for DOT11_DISASSOCIATE_PEER_REQUEST {}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::clone::Clone for DOT11_DISASSOCIATE_PEER_REQUEST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_DISASSOCIATE_PEER_REQUEST_REVISION_1: u32 = 1u32;
+#[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-#[repr(C)]
-pub struct DOT11_DISASSOCIATION_PARAMETERS(i32);
+pub struct DOT11_DISASSOCIATION_PARAMETERS {
+    pub Header: super::Ndis::NDIS_OBJECT_HEADER,
+    pub MacAddr: [u8; 6],
+    pub uReason: u32,
+    pub uIHVDataOffset: u32,
+    pub uIHVDataSize: u32,
+}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::marker::Copy for DOT11_DISASSOCIATION_PARAMETERS {}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::clone::Clone for DOT11_DISASSOCIATION_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_DISASSOCIATION_PARAMETERS_REVISION_1: u32 = 1u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct DOT11_DIVERSITY_SELECTION_RX(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct DOT11_DIVERSITY_SELECTION_RX {
+    pub uAntennaListIndex: u32,
+    pub bDiversitySelectionRX: super::super::Foundation::BOOLEAN,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DOT11_DIVERSITY_SELECTION_RX {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DOT11_DIVERSITY_SELECTION_RX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DOT11_DIVERSITY_SELECTION_RX_LIST(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct DOT11_DIVERSITY_SELECTION_RX_LIST {
+    pub uNumOfEntries: u32,
+    pub uTotalNumOfEntries: u32,
+    pub dot11DiversitySelectionRx: [DOT11_DIVERSITY_SELECTION_RX; 1],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DOT11_DIVERSITY_SELECTION_RX_LIST {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DOT11_DIVERSITY_SELECTION_RX_LIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DOT11_DIVERSITY_SUPPORT(pub i32);
 pub const dot11_diversity_support_unknown: DOT11_DIVERSITY_SUPPORT = DOT11_DIVERSITY_SUPPORT(0i32);
@@ -625,26 +1187,114 @@ pub const DOT11_DS_UNCHANGED: DOT11_DS_INFO = DOT11_DS_INFO(1i32);
 pub const DOT11_DS_UNKNOWN: DOT11_DS_INFO = DOT11_DS_INFO(2i32);
 pub const DOT11_ENCAP_802_1H: u32 = 2u32;
 #[repr(C)]
-pub struct DOT11_ENCAP_ENTRY(i32);
+pub struct DOT11_ENCAP_ENTRY {
+    pub usEtherType: u16,
+    pub usEncapType: u16,
+}
+impl ::core::marker::Copy for DOT11_ENCAP_ENTRY {}
+impl ::core::clone::Clone for DOT11_ENCAP_ENTRY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_ENCAP_RFC_1042: u32 = 1u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct DOT11_ERP_PHY_ATTRIBUTES(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct DOT11_ERP_PHY_ATTRIBUTES {
+    pub HRDSSSAttributes: DOT11_HRDSSS_PHY_ATTRIBUTES,
+    pub bERPPBCCOptionImplemented: super::super::Foundation::BOOLEAN,
+    pub bDSSSOFDMOptionImplemented: super::super::Foundation::BOOLEAN,
+    pub bShortSlotTimeOptionImplemented: super::super::Foundation::BOOLEAN,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DOT11_ERP_PHY_ATTRIBUTES {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DOT11_ERP_PHY_ATTRIBUTES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_EXEMPT_ALWAYS: u32 = 1u32;
 pub const DOT11_EXEMPT_BOTH: u32 = 3u32;
 pub const DOT11_EXEMPT_MULTICAST: u32 = 2u32;
 pub const DOT11_EXEMPT_NO_EXEMPTION: u32 = 0u32;
 pub const DOT11_EXEMPT_ON_KEY_MAPPING_KEY_UNAVAILABLE: u32 = 2u32;
 pub const DOT11_EXEMPT_UNICAST: u32 = 1u32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 #[repr(C)]
-pub struct DOT11_EXTAP_ATTRIBUTES(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
+pub struct DOT11_EXTAP_ATTRIBUTES {
+    pub Header: super::Ndis::NDIS_OBJECT_HEADER,
+    pub uScanSSIDListSize: u32,
+    pub uDesiredSSIDListSize: u32,
+    pub uPrivacyExemptionListSize: u32,
+    pub uAssociationTableSize: u32,
+    pub uDefaultKeyTableSize: u32,
+    pub uWEPKeyValueMaxLength: u32,
+    pub bStrictlyOrderedServiceClassImplemented: super::super::Foundation::BOOLEAN,
+    pub uNumSupportedCountryOrRegionStrings: u32,
+    pub pSupportedCountryOrRegionStrings: *mut u8,
+    pub uInfraNumSupportedUcastAlgoPairs: u32,
+    pub pInfraSupportedUcastAlgoPairs: *mut DOT11_AUTH_CIPHER_PAIR,
+    pub uInfraNumSupportedMcastAlgoPairs: u32,
+    pub pInfraSupportedMcastAlgoPairs: *mut DOT11_AUTH_CIPHER_PAIR,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
+impl ::core::marker::Copy for DOT11_EXTAP_ATTRIBUTES {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
+impl ::core::clone::Clone for DOT11_EXTAP_ATTRIBUTES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_EXTAP_ATTRIBUTES_REVISION_1: u32 = 1u32;
 pub const DOT11_EXTAP_RECV_CONTEXT_REVISION_1: u32 = 1u32;
 pub const DOT11_EXTAP_SEND_CONTEXT_REVISION_1: u32 = 1u32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 #[repr(C)]
-pub struct DOT11_EXTSTA_ATTRIBUTES(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
+pub struct DOT11_EXTSTA_ATTRIBUTES {
+    pub Header: super::Ndis::NDIS_OBJECT_HEADER,
+    pub uScanSSIDListSize: u32,
+    pub uDesiredBSSIDListSize: u32,
+    pub uDesiredSSIDListSize: u32,
+    pub uExcludedMacAddressListSize: u32,
+    pub uPrivacyExemptionListSize: u32,
+    pub uKeyMappingTableSize: u32,
+    pub uDefaultKeyTableSize: u32,
+    pub uWEPKeyValueMaxLength: u32,
+    pub uPMKIDCacheSize: u32,
+    pub uMaxNumPerSTADefaultKeyTables: u32,
+    pub bStrictlyOrderedServiceClassImplemented: super::super::Foundation::BOOLEAN,
+    pub ucSupportedQoSProtocolFlags: u8,
+    pub bSafeModeImplemented: super::super::Foundation::BOOLEAN,
+    pub uNumSupportedCountryOrRegionStrings: u32,
+    pub pSupportedCountryOrRegionStrings: *mut u8,
+    pub uInfraNumSupportedUcastAlgoPairs: u32,
+    pub pInfraSupportedUcastAlgoPairs: *mut DOT11_AUTH_CIPHER_PAIR,
+    pub uInfraNumSupportedMcastAlgoPairs: u32,
+    pub pInfraSupportedMcastAlgoPairs: *mut DOT11_AUTH_CIPHER_PAIR,
+    pub uAdhocNumSupportedUcastAlgoPairs: u32,
+    pub pAdhocSupportedUcastAlgoPairs: *mut DOT11_AUTH_CIPHER_PAIR,
+    pub uAdhocNumSupportedMcastAlgoPairs: u32,
+    pub pAdhocSupportedMcastAlgoPairs: *mut DOT11_AUTH_CIPHER_PAIR,
+    pub bAutoPowerSaveMode: super::super::Foundation::BOOLEAN,
+    pub uMaxNetworkOffloadListSize: u32,
+    pub bMFPCapable: super::super::Foundation::BOOLEAN,
+    pub uInfraNumSupportedMcastMgmtAlgoPairs: u32,
+    pub pInfraSupportedMcastMgmtAlgoPairs: *mut DOT11_AUTH_CIPHER_PAIR,
+    pub bNeighborReportSupported: super::super::Foundation::BOOLEAN,
+    pub bAPChannelReportSupported: super::super::Foundation::BOOLEAN,
+    pub bActionFramesSupported: super::super::Foundation::BOOLEAN,
+    pub bANQPQueryOffloadSupported: super::super::Foundation::BOOLEAN,
+    pub bHESSIDConnectionSupported: super::super::Foundation::BOOLEAN,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
+impl ::core::marker::Copy for DOT11_EXTSTA_ATTRIBUTES {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
+impl ::core::clone::Clone for DOT11_EXTSTA_ATTRIBUTES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_EXTSTA_ATTRIBUTES_REVISION_1: u32 = 1u32;
 pub const DOT11_EXTSTA_ATTRIBUTES_REVISION_2: u32 = 2u32;
 pub const DOT11_EXTSTA_ATTRIBUTES_REVISION_3: u32 = 3u32;
@@ -652,17 +1302,71 @@ pub const DOT11_EXTSTA_ATTRIBUTES_REVISION_4: u32 = 4u32;
 pub const DOT11_EXTSTA_ATTRIBUTES_SAFEMODE_CERTIFIED: u32 = 2u32;
 pub const DOT11_EXTSTA_ATTRIBUTES_SAFEMODE_OID_SUPPORTED: u32 = 1u32;
 pub const DOT11_EXTSTA_ATTRIBUTES_SAFEMODE_RESERVED: u32 = 12u32;
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 #[repr(C)]
-pub struct DOT11_EXTSTA_CAPABILITY(i32);
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+pub struct DOT11_EXTSTA_CAPABILITY {
+    pub Header: super::Ndis::NDIS_OBJECT_HEADER,
+    pub uScanSSIDListSize: u32,
+    pub uDesiredBSSIDListSize: u32,
+    pub uDesiredSSIDListSize: u32,
+    pub uExcludedMacAddressListSize: u32,
+    pub uPrivacyExemptionListSize: u32,
+    pub uKeyMappingTableSize: u32,
+    pub uDefaultKeyTableSize: u32,
+    pub uWEPKeyValueMaxLength: u32,
+    pub uPMKIDCacheSize: u32,
+    pub uMaxNumPerSTADefaultKeyTables: u32,
+}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::marker::Copy for DOT11_EXTSTA_CAPABILITY {}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::clone::Clone for DOT11_EXTSTA_CAPABILITY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_EXTSTA_CAPABILITY_REVISION_1: u32 = 1u32;
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 #[repr(C)]
-pub struct DOT11_EXTSTA_RECV_CONTEXT(i32);
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+pub struct DOT11_EXTSTA_RECV_CONTEXT {
+    pub Header: super::Ndis::NDIS_OBJECT_HEADER,
+    pub uReceiveFlags: u32,
+    pub uPhyId: u32,
+    pub uChCenterFrequency: u32,
+    pub usNumberOfMPDUsReceived: u16,
+    pub lRSSI: i32,
+    pub ucDataRate: u8,
+    pub uSizeMediaSpecificInfo: u32,
+    pub pvMediaSpecificInfo: *mut ::core::ffi::c_void,
+    pub ullTimestamp: u64,
+}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::marker::Copy for DOT11_EXTSTA_RECV_CONTEXT {}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::clone::Clone for DOT11_EXTSTA_RECV_CONTEXT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_EXTSTA_RECV_CONTEXT_REVISION_1: u32 = 1u32;
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 #[repr(C)]
-pub struct DOT11_EXTSTA_SEND_CONTEXT(i32);
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+pub struct DOT11_EXTSTA_SEND_CONTEXT {
+    pub Header: super::Ndis::NDIS_OBJECT_HEADER,
+    pub usExemptionActionType: u16,
+    pub uPhyId: u32,
+    pub uDelayedSleepValue: u32,
+    pub pvMediaSpecificInfo: *mut ::core::ffi::c_void,
+    pub uSendFlags: u32,
+}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::marker::Copy for DOT11_EXTSTA_SEND_CONTEXT {}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::clone::Clone for DOT11_EXTSTA_SEND_CONTEXT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_EXTSTA_SEND_CONTEXT_REVISION_1: u32 = 1u32;
 pub const DOT11_FLAGS_80211B_CHANNEL_AGILITY: u32 = 4u32;
 pub const DOT11_FLAGS_80211B_PBCC: u32 = 2u32;
@@ -673,35 +1377,121 @@ pub const DOT11_FLAGS_80211G_NON_ERP_PRESENT: u32 = 64u32;
 pub const DOT11_FLAGS_80211G_USE_PROTECTION: u32 = 32u32;
 pub const DOT11_FLAGS_PS_ON: u32 = 8u32;
 #[repr(C)]
-pub struct DOT11_FRAGMENT_DESCRIPTOR(i32);
+pub struct DOT11_FRAGMENT_DESCRIPTOR {
+    pub uOffset: u32,
+    pub uLength: u32,
+}
+impl ::core::marker::Copy for DOT11_FRAGMENT_DESCRIPTOR {}
+impl ::core::clone::Clone for DOT11_FRAGMENT_DESCRIPTOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_FREQUENCY_BANDS_LOWER: u32 = 1u32;
 pub const DOT11_FREQUENCY_BANDS_MIDDLE: u32 = 2u32;
 pub const DOT11_FREQUENCY_BANDS_UPPER: u32 = 4u32;
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 #[repr(C)]
-pub struct DOT11_GO_NEGOTIATION_CONFIRMATION_SEND_COMPLETE_PARAMETERS(i32);
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+pub struct DOT11_GO_NEGOTIATION_CONFIRMATION_SEND_COMPLETE_PARAMETERS {
+    pub Header: super::Ndis::NDIS_OBJECT_HEADER,
+    pub PeerDeviceAddress: [u8; 6],
+    pub DialogToken: u8,
+    pub Status: i32,
+    pub uIEsOffset: u32,
+    pub uIEsLength: u32,
+}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::marker::Copy for DOT11_GO_NEGOTIATION_CONFIRMATION_SEND_COMPLETE_PARAMETERS {}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::clone::Clone for DOT11_GO_NEGOTIATION_CONFIRMATION_SEND_COMPLETE_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_GO_NEGOTIATION_CONFIRMATION_SEND_COMPLETE_PARAMETERS_REVISION_1: u32 = 1u32;
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 #[repr(C)]
-pub struct DOT11_GO_NEGOTIATION_REQUEST_SEND_COMPLETE_PARAMETERS(i32);
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+pub struct DOT11_GO_NEGOTIATION_REQUEST_SEND_COMPLETE_PARAMETERS {
+    pub Header: super::Ndis::NDIS_OBJECT_HEADER,
+    pub PeerDeviceAddress: [u8; 6],
+    pub DialogToken: u8,
+    pub Status: i32,
+    pub uIEsOffset: u32,
+    pub uIEsLength: u32,
+}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::marker::Copy for DOT11_GO_NEGOTIATION_REQUEST_SEND_COMPLETE_PARAMETERS {}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::clone::Clone for DOT11_GO_NEGOTIATION_REQUEST_SEND_COMPLETE_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_GO_NEGOTIATION_REQUEST_SEND_COMPLETE_PARAMETERS_REVISION_1: u32 = 1u32;
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 #[repr(C)]
-pub struct DOT11_GO_NEGOTIATION_RESPONSE_SEND_COMPLETE_PARAMETERS(i32);
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+pub struct DOT11_GO_NEGOTIATION_RESPONSE_SEND_COMPLETE_PARAMETERS {
+    pub Header: super::Ndis::NDIS_OBJECT_HEADER,
+    pub PeerDeviceAddress: [u8; 6],
+    pub DialogToken: u8,
+    pub Status: i32,
+    pub uIEsOffset: u32,
+    pub uIEsLength: u32,
+}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::marker::Copy for DOT11_GO_NEGOTIATION_RESPONSE_SEND_COMPLETE_PARAMETERS {}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::clone::Clone for DOT11_GO_NEGOTIATION_RESPONSE_SEND_COMPLETE_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_GO_NEGOTIATION_RESPONSE_SEND_COMPLETE_PARAMETERS_REVISION_1: u32 = 1u32;
 pub const DOT11_HESSID_LENGTH: u32 = 6u32;
 #[repr(C)]
-pub struct DOT11_HOPPING_PATTERN_ENTRY(i32);
+pub struct DOT11_HOPPING_PATTERN_ENTRY {
+    pub uHoppingPatternIndex: u32,
+    pub uRandomTableFieldNumber: u32,
+}
+impl ::core::marker::Copy for DOT11_HOPPING_PATTERN_ENTRY {}
+impl ::core::clone::Clone for DOT11_HOPPING_PATTERN_ENTRY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DOT11_HOPPING_PATTERN_ENTRY_LIST(i32);
+pub struct DOT11_HOPPING_PATTERN_ENTRY_LIST {
+    pub uNumOfEntries: u32,
+    pub uTotalNumOfEntries: u32,
+    pub dot11HoppingPatternEntry: [DOT11_HOPPING_PATTERN_ENTRY; 1],
+}
+impl ::core::marker::Copy for DOT11_HOPPING_PATTERN_ENTRY_LIST {}
+impl ::core::clone::Clone for DOT11_HOPPING_PATTERN_ENTRY_LIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DOT11_HOP_ALGO_ADOPTED(pub i32);
 pub const dot11_hop_algo_current: DOT11_HOP_ALGO_ADOPTED = DOT11_HOP_ALGO_ADOPTED(0i32);
 pub const dot11_hop_algo_hop_index: DOT11_HOP_ALGO_ADOPTED = DOT11_HOP_ALGO_ADOPTED(1i32);
 pub const dot11_hop_algo_hcc: DOT11_HOP_ALGO_ADOPTED = DOT11_HOP_ALGO_ADOPTED(2i32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct DOT11_HRDSSS_PHY_ATTRIBUTES(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct DOT11_HRDSSS_PHY_ATTRIBUTES {
+    pub bShortPreambleOptionImplemented: super::super::Foundation::BOOLEAN,
+    pub bPBCCOptionImplemented: super::super::Foundation::BOOLEAN,
+    pub bChannelAgilityPresent: super::super::Foundation::BOOLEAN,
+    pub uHRCCAModeSupported: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DOT11_HRDSSS_PHY_ATTRIBUTES {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DOT11_HRDSSS_PHY_ATTRIBUTES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_HR_CCA_MODE_CS_AND_ED: u32 = 4u32;
 pub const DOT11_HR_CCA_MODE_CS_ONLY: u32 = 2u32;
 pub const DOT11_HR_CCA_MODE_CS_WITH_TIMER: u32 = 8u32;
@@ -713,81 +1503,377 @@ pub const DOT11_HW_MSDU_AUTH_SUPPORTED_RX: u32 = 32u32;
 pub const DOT11_HW_MSDU_AUTH_SUPPORTED_TX: u32 = 16u32;
 pub const DOT11_HW_WEP_SUPPORTED_RX: u32 = 2u32;
 pub const DOT11_HW_WEP_SUPPORTED_TX: u32 = 1u32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 #[repr(C)]
-pub struct DOT11_IBSS_PARAMS(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
+pub struct DOT11_IBSS_PARAMS {
+    pub Header: super::Ndis::NDIS_OBJECT_HEADER,
+    pub bJoinOnly: super::super::Foundation::BOOLEAN,
+    pub uIEsOffset: u32,
+    pub uIEsLength: u32,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
+impl ::core::marker::Copy for DOT11_IBSS_PARAMS {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
+impl ::core::clone::Clone for DOT11_IBSS_PARAMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_IBSS_PARAMS_REVISION_1: u32 = 1u32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 #[repr(C)]
-pub struct DOT11_INCOMING_ASSOC_COMPLETION_PARAMETERS(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
+pub struct DOT11_INCOMING_ASSOC_COMPLETION_PARAMETERS {
+    pub Header: super::Ndis::NDIS_OBJECT_HEADER,
+    pub PeerMacAddr: [u8; 6],
+    pub uStatus: u32,
+    pub ucErrorSource: u8,
+    pub bReAssocReq: super::super::Foundation::BOOLEAN,
+    pub bReAssocResp: super::super::Foundation::BOOLEAN,
+    pub uAssocReqOffset: u32,
+    pub uAssocReqSize: u32,
+    pub uAssocRespOffset: u32,
+    pub uAssocRespSize: u32,
+    pub AuthAlgo: DOT11_AUTH_ALGORITHM,
+    pub UnicastCipher: DOT11_CIPHER_ALGORITHM,
+    pub MulticastCipher: DOT11_CIPHER_ALGORITHM,
+    pub uActivePhyListOffset: u32,
+    pub uActivePhyListSize: u32,
+    pub uBeaconOffset: u32,
+    pub uBeaconSize: u32,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
+impl ::core::marker::Copy for DOT11_INCOMING_ASSOC_COMPLETION_PARAMETERS {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
+impl ::core::clone::Clone for DOT11_INCOMING_ASSOC_COMPLETION_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_INCOMING_ASSOC_COMPLETION_PARAMETERS_REVISION_1: u32 = 1u32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 #[repr(C)]
-pub struct DOT11_INCOMING_ASSOC_DECISION(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
+pub struct DOT11_INCOMING_ASSOC_DECISION {
+    pub Header: super::Ndis::NDIS_OBJECT_HEADER,
+    pub PeerMacAddr: [u8; 6],
+    pub bAccept: super::super::Foundation::BOOLEAN,
+    pub usReasonCode: u16,
+    pub uAssocResponseIEsOffset: u32,
+    pub uAssocResponseIEsLength: u32,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
+impl ::core::marker::Copy for DOT11_INCOMING_ASSOC_DECISION {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
+impl ::core::clone::Clone for DOT11_INCOMING_ASSOC_DECISION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_INCOMING_ASSOC_DECISION_REVISION_1: u32 = 1u32;
 pub const DOT11_INCOMING_ASSOC_DECISION_REVISION_2: u32 = 2u32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 #[repr(C)]
-pub struct DOT11_INCOMING_ASSOC_DECISION_V2(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
+pub struct DOT11_INCOMING_ASSOC_DECISION_V2 {
+    pub Header: super::Ndis::NDIS_OBJECT_HEADER,
+    pub PeerMacAddr: [u8; 6],
+    pub bAccept: super::super::Foundation::BOOLEAN,
+    pub usReasonCode: u16,
+    pub uAssocResponseIEsOffset: u32,
+    pub uAssocResponseIEsLength: u32,
+    pub WFDStatus: u8,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
+impl ::core::marker::Copy for DOT11_INCOMING_ASSOC_DECISION_V2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
+impl ::core::clone::Clone for DOT11_INCOMING_ASSOC_DECISION_V2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DOT11_INCOMING_ASSOC_REQUEST_RECEIVED_PARAMETERS(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
+pub struct DOT11_INCOMING_ASSOC_REQUEST_RECEIVED_PARAMETERS {
+    pub Header: super::Ndis::NDIS_OBJECT_HEADER,
+    pub PeerMacAddr: [u8; 6],
+    pub bReAssocReq: super::super::Foundation::BOOLEAN,
+    pub uAssocReqOffset: u32,
+    pub uAssocReqSize: u32,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
+impl ::core::marker::Copy for DOT11_INCOMING_ASSOC_REQUEST_RECEIVED_PARAMETERS {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
+impl ::core::clone::Clone for DOT11_INCOMING_ASSOC_REQUEST_RECEIVED_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_INCOMING_ASSOC_REQUEST_RECEIVED_PARAMETERS_REVISION_1: u32 = 1u32;
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 #[repr(C)]
-pub struct DOT11_INCOMING_ASSOC_STARTED_PARAMETERS(i32);
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+pub struct DOT11_INCOMING_ASSOC_STARTED_PARAMETERS {
+    pub Header: super::Ndis::NDIS_OBJECT_HEADER,
+    pub PeerMacAddr: [u8; 6],
+}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::marker::Copy for DOT11_INCOMING_ASSOC_STARTED_PARAMETERS {}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::clone::Clone for DOT11_INCOMING_ASSOC_STARTED_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_INCOMING_ASSOC_STARTED_PARAMETERS_REVISION_1: u32 = 1u32;
 pub const DOT11_INVALID_CHANNEL_NUMBER: u32 = 0u32;
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 #[repr(C)]
-pub struct DOT11_INVITATION_REQUEST_SEND_COMPLETE_PARAMETERS(i32);
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+pub struct DOT11_INVITATION_REQUEST_SEND_COMPLETE_PARAMETERS {
+    pub Header: super::Ndis::NDIS_OBJECT_HEADER,
+    pub PeerDeviceAddress: [u8; 6],
+    pub ReceiverAddress: [u8; 6],
+    pub DialogToken: u8,
+    pub Status: i32,
+    pub uIEsOffset: u32,
+    pub uIEsLength: u32,
+}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::marker::Copy for DOT11_INVITATION_REQUEST_SEND_COMPLETE_PARAMETERS {}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::clone::Clone for DOT11_INVITATION_REQUEST_SEND_COMPLETE_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_INVITATION_REQUEST_SEND_COMPLETE_PARAMETERS_REVISION_1: u32 = 1u32;
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 #[repr(C)]
-pub struct DOT11_INVITATION_RESPONSE_SEND_COMPLETE_PARAMETERS(i32);
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+pub struct DOT11_INVITATION_RESPONSE_SEND_COMPLETE_PARAMETERS {
+    pub Header: super::Ndis::NDIS_OBJECT_HEADER,
+    pub ReceiverDeviceAddress: [u8; 6],
+    pub DialogToken: u8,
+    pub Status: i32,
+    pub uIEsOffset: u32,
+    pub uIEsLength: u32,
+}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::marker::Copy for DOT11_INVITATION_RESPONSE_SEND_COMPLETE_PARAMETERS {}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::clone::Clone for DOT11_INVITATION_RESPONSE_SEND_COMPLETE_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_INVITATION_RESPONSE_SEND_COMPLETE_PARAMETERS_REVISION_1: u32 = 1u32;
 #[repr(C)]
-pub struct DOT11_IV48_COUNTER(i32);
+pub struct DOT11_IV48_COUNTER {
+    pub uIV32Counter: u32,
+    pub usIV16Counter: u16,
+}
+impl ::core::marker::Copy for DOT11_IV48_COUNTER {}
+impl ::core::clone::Clone for DOT11_IV48_COUNTER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DOT11_JOIN_REQUEST(i32);
+pub struct DOT11_JOIN_REQUEST {
+    pub uJoinFailureTimeout: u32,
+    pub OperationalRateSet: DOT11_RATE_SET,
+    pub uChCenterFrequency: u32,
+    pub dot11BSSDescription: DOT11_BSS_DESCRIPTION,
+}
+impl ::core::marker::Copy for DOT11_JOIN_REQUEST {}
+impl ::core::clone::Clone for DOT11_JOIN_REQUEST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DOT11_KEY_ALGO_BIP(i32);
+pub struct DOT11_KEY_ALGO_BIP {
+    pub ucIPN: [u8; 6],
+    pub ulBIPKeyLength: u32,
+    pub ucBIPKey: [u8; 1],
+}
+impl ::core::marker::Copy for DOT11_KEY_ALGO_BIP {}
+impl ::core::clone::Clone for DOT11_KEY_ALGO_BIP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DOT11_KEY_ALGO_BIP_GMAC_256(i32);
+pub struct DOT11_KEY_ALGO_BIP_GMAC_256 {
+    pub ucIPN: [u8; 6],
+    pub ulBIPGmac256KeyLength: u32,
+    pub ucBIPGmac256Key: [u8; 1],
+}
+impl ::core::marker::Copy for DOT11_KEY_ALGO_BIP_GMAC_256 {}
+impl ::core::clone::Clone for DOT11_KEY_ALGO_BIP_GMAC_256 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DOT11_KEY_ALGO_CCMP(i32);
+pub struct DOT11_KEY_ALGO_CCMP {
+    pub ucIV48Counter: [u8; 6],
+    pub ulCCMPKeyLength: u32,
+    pub ucCCMPKey: [u8; 1],
+}
+impl ::core::marker::Copy for DOT11_KEY_ALGO_CCMP {}
+impl ::core::clone::Clone for DOT11_KEY_ALGO_CCMP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DOT11_KEY_ALGO_GCMP(i32);
+pub struct DOT11_KEY_ALGO_GCMP {
+    pub ucIV48Counter: [u8; 6],
+    pub ulGCMPKeyLength: u32,
+    pub ucGCMPKey: [u8; 1],
+}
+impl ::core::marker::Copy for DOT11_KEY_ALGO_GCMP {}
+impl ::core::clone::Clone for DOT11_KEY_ALGO_GCMP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DOT11_KEY_ALGO_GCMP_256(i32);
+pub struct DOT11_KEY_ALGO_GCMP_256 {
+    pub ucIV48Counter: [u8; 6],
+    pub ulGCMP256KeyLength: u32,
+    pub ucGCMP256Key: [u8; 1],
+}
+impl ::core::marker::Copy for DOT11_KEY_ALGO_GCMP_256 {}
+impl ::core::clone::Clone for DOT11_KEY_ALGO_GCMP_256 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DOT11_KEY_ALGO_TKIP_MIC(i32);
+pub struct DOT11_KEY_ALGO_TKIP_MIC {
+    pub ucIV48Counter: [u8; 6],
+    pub ulTKIPKeyLength: u32,
+    pub ulMICKeyLength: u32,
+    pub ucTKIPMICKeys: [u8; 1],
+}
+impl ::core::marker::Copy for DOT11_KEY_ALGO_TKIP_MIC {}
+impl ::core::clone::Clone for DOT11_KEY_ALGO_TKIP_MIC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DOT11_KEY_DIRECTION(pub i32);
 pub const dot11_key_direction_both: DOT11_KEY_DIRECTION = DOT11_KEY_DIRECTION(1i32);
 pub const dot11_key_direction_inbound: DOT11_KEY_DIRECTION = DOT11_KEY_DIRECTION(2i32);
 pub const dot11_key_direction_outbound: DOT11_KEY_DIRECTION = DOT11_KEY_DIRECTION(3i32);
 #[repr(C)]
-pub struct DOT11_LINK_QUALITY_ENTRY(i32);
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+pub struct DOT11_LINK_QUALITY_ENTRY {
+    pub PeerMacAddr: [u8; 6],
+    pub ucLinkQuality: u8,
+}
+impl ::core::marker::Copy for DOT11_LINK_QUALITY_ENTRY {}
+impl ::core::clone::Clone for DOT11_LINK_QUALITY_ENTRY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DOT11_LINK_QUALITY_PARAMETERS(i32);
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+pub struct DOT11_LINK_QUALITY_PARAMETERS {
+    pub Header: super::Ndis::NDIS_OBJECT_HEADER,
+    pub uLinkQualityListSize: u32,
+    pub uLinkQualityListOffset: u32,
+}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::marker::Copy for DOT11_LINK_QUALITY_PARAMETERS {}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::clone::Clone for DOT11_LINK_QUALITY_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_LINK_QUALITY_PARAMETERS_REVISION_1: u32 = 1u32;
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 #[repr(C)]
-pub struct DOT11_MAC_ADDRESS_LIST(i32);
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+pub struct DOT11_MAC_ADDRESS_LIST {
+    pub Header: super::Ndis::NDIS_OBJECT_HEADER,
+    pub uNumOfEntries: u32,
+    pub uTotalNumOfEntries: u32,
+    pub MacAddrs: [u8; 6],
+}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::marker::Copy for DOT11_MAC_ADDRESS_LIST {}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::clone::Clone for DOT11_MAC_ADDRESS_LIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_MAC_ADDRESS_LIST_REVISION_1: u32 = 1u32;
 #[repr(C)]
-pub struct DOT11_MAC_FRAME_STATISTICS(i32);
+pub struct DOT11_MAC_FRAME_STATISTICS {
+    pub ullTransmittedFrameCount: u64,
+    pub ullReceivedFrameCount: u64,
+    pub ullTransmittedFailureFrameCount: u64,
+    pub ullReceivedFailureFrameCount: u64,
+    pub ullWEPExcludedCount: u64,
+    pub ullTKIPLocalMICFailures: u64,
+    pub ullTKIPReplays: u64,
+    pub ullTKIPICVErrorCount: u64,
+    pub ullCCMPReplays: u64,
+    pub ullCCMPDecryptErrors: u64,
+    pub ullWEPUndecryptableCount: u64,
+    pub ullWEPICVErrorCount: u64,
+    pub ullDecryptSuccessCount: u64,
+    pub ullDecryptFailureCount: u64,
+}
+impl ::core::marker::Copy for DOT11_MAC_FRAME_STATISTICS {}
+impl ::core::clone::Clone for DOT11_MAC_FRAME_STATISTICS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DOT11_MAC_INFO(i32);
+pub struct DOT11_MAC_INFO {
+    pub uReserved: u32,
+    pub uNdisPortNumber: u32,
+    pub MacAddr: [u8; 6],
+}
+impl ::core::marker::Copy for DOT11_MAC_INFO {}
+impl ::core::clone::Clone for DOT11_MAC_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-#[repr(C)]
-pub struct DOT11_MAC_PARAMETERS(i32);
+pub struct DOT11_MAC_PARAMETERS {
+    pub Header: super::Ndis::NDIS_OBJECT_HEADER,
+    pub uOpmodeMask: u32,
+}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::marker::Copy for DOT11_MAC_PARAMETERS {}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::clone::Clone for DOT11_MAC_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_MAC_PARAMETERS_REVISION_1: u32 = 1u32;
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 #[repr(C)]
-pub struct DOT11_MANUFACTURING_CALLBACK_PARAMETERS(i32);
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+pub struct DOT11_MANUFACTURING_CALLBACK_PARAMETERS {
+    pub Header: super::Ndis::NDIS_OBJECT_HEADER,
+    pub dot11ManufacturingCallbackType: DOT11_MANUFACTURING_CALLBACK_TYPE,
+    pub uStatus: u32,
+    pub pvContext: *mut ::core::ffi::c_void,
+}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::marker::Copy for DOT11_MANUFACTURING_CALLBACK_PARAMETERS {}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::clone::Clone for DOT11_MANUFACTURING_CALLBACK_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_MANUFACTURING_CALLBACK_REVISION_1: u32 = 1u32;
 #[repr(transparent)]
 pub struct DOT11_MANUFACTURING_CALLBACK_TYPE(pub i32);
@@ -797,32 +1883,141 @@ pub const dot11_manufacturing_callback_sleep_complete: DOT11_MANUFACTURING_CALLB
 pub const dot11_manufacturing_callback_IHV_start: DOT11_MANUFACTURING_CALLBACK_TYPE = DOT11_MANUFACTURING_CALLBACK_TYPE(-2147483648i32);
 pub const dot11_manufacturing_callback_IHV_end: DOT11_MANUFACTURING_CALLBACK_TYPE = DOT11_MANUFACTURING_CALLBACK_TYPE(-1i32);
 #[repr(C)]
-pub struct DOT11_MANUFACTURING_FUNCTIONAL_TEST_QUERY_ADC(i32);
+pub struct DOT11_MANUFACTURING_FUNCTIONAL_TEST_QUERY_ADC {
+    pub Dot11Band: DOT11_BAND,
+    pub uChannel: u32,
+    pub ADCPowerLevel: i32,
+}
+impl ::core::marker::Copy for DOT11_MANUFACTURING_FUNCTIONAL_TEST_QUERY_ADC {}
+impl ::core::clone::Clone for DOT11_MANUFACTURING_FUNCTIONAL_TEST_QUERY_ADC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct DOT11_MANUFACTURING_FUNCTIONAL_TEST_RX(i32);
+pub struct DOT11_MANUFACTURING_FUNCTIONAL_TEST_RX {
+    pub bEnabled: super::super::Foundation::BOOLEAN,
+    pub Dot11Band: DOT11_BAND,
+    pub uChannel: u32,
+    pub PowerLevel: i32,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct DOT11_MANUFACTURING_FUNCTIONAL_TEST_TX(i32);
+impl ::core::marker::Copy for DOT11_MANUFACTURING_FUNCTIONAL_TEST_RX {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DOT11_MANUFACTURING_FUNCTIONAL_TEST_RX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DOT11_MANUFACTURING_SELF_TEST_QUERY_RESULTS(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct DOT11_MANUFACTURING_FUNCTIONAL_TEST_TX {
+    pub bEnable: super::super::Foundation::BOOLEAN,
+    pub bOpenLoop: super::super::Foundation::BOOLEAN,
+    pub Dot11Band: DOT11_BAND,
+    pub uChannel: u32,
+    pub uSetPowerLevel: u32,
+    pub ADCPowerLevel: i32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DOT11_MANUFACTURING_FUNCTIONAL_TEST_TX {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DOT11_MANUFACTURING_FUNCTIONAL_TEST_TX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DOT11_MANUFACTURING_SELF_TEST_SET_PARAMS(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct DOT11_MANUFACTURING_SELF_TEST_QUERY_RESULTS {
+    pub SelfTestType: DOT11_MANUFACTURING_SELF_TEST_TYPE,
+    pub uTestID: u32,
+    pub bResult: super::super::Foundation::BOOLEAN,
+    pub uPinFailedBitMask: u32,
+    pub pvContext: *mut ::core::ffi::c_void,
+    pub uBytesWrittenOut: u32,
+    pub ucBufferOut: [u8; 1],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DOT11_MANUFACTURING_SELF_TEST_QUERY_RESULTS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DOT11_MANUFACTURING_SELF_TEST_QUERY_RESULTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct DOT11_MANUFACTURING_SELF_TEST_SET_PARAMS {
+    pub SelfTestType: DOT11_MANUFACTURING_SELF_TEST_TYPE,
+    pub uTestID: u32,
+    pub uPinBitMask: u32,
+    pub pvContext: *mut ::core::ffi::c_void,
+    pub uBufferLength: u32,
+    pub ucBufferIn: [u8; 1],
+}
+impl ::core::marker::Copy for DOT11_MANUFACTURING_SELF_TEST_SET_PARAMS {}
+impl ::core::clone::Clone for DOT11_MANUFACTURING_SELF_TEST_SET_PARAMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DOT11_MANUFACTURING_SELF_TEST_TYPE(pub i32);
 pub const DOT11_MANUFACTURING_SELF_TEST_TYPE_INTERFACE: DOT11_MANUFACTURING_SELF_TEST_TYPE = DOT11_MANUFACTURING_SELF_TEST_TYPE(1i32);
 pub const DOT11_MANUFACTURING_SELF_TEST_TYPE_RF_INTERFACE: DOT11_MANUFACTURING_SELF_TEST_TYPE = DOT11_MANUFACTURING_SELF_TEST_TYPE(2i32);
 pub const DOT11_MANUFACTURING_SELF_TEST_TYPE_BT_COEXISTENCE: DOT11_MANUFACTURING_SELF_TEST_TYPE = DOT11_MANUFACTURING_SELF_TEST_TYPE(3i32);
 #[repr(C)]
-pub struct DOT11_MANUFACTURING_TEST(i32);
+pub struct DOT11_MANUFACTURING_TEST {
+    pub dot11ManufacturingTestType: DOT11_MANUFACTURING_TEST_TYPE,
+    pub uBufferLength: u32,
+    pub ucBuffer: [u8; 1],
+}
+impl ::core::marker::Copy for DOT11_MANUFACTURING_TEST {}
+impl ::core::clone::Clone for DOT11_MANUFACTURING_TEST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DOT11_MANUFACTURING_TEST_QUERY_DATA(i32);
+pub struct DOT11_MANUFACTURING_TEST_QUERY_DATA {
+    pub uKey: u32,
+    pub uOffset: u32,
+    pub uBufferLength: u32,
+    pub uBytesRead: u32,
+    pub ucBufferOut: [u8; 1],
+}
+impl ::core::marker::Copy for DOT11_MANUFACTURING_TEST_QUERY_DATA {}
+impl ::core::clone::Clone for DOT11_MANUFACTURING_TEST_QUERY_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_MANUFACTURING_TEST_REVISION_1: u32 = 1u32;
 #[repr(C)]
-pub struct DOT11_MANUFACTURING_TEST_SET_DATA(i32);
+pub struct DOT11_MANUFACTURING_TEST_SET_DATA {
+    pub uKey: u32,
+    pub uOffset: u32,
+    pub uBufferLength: u32,
+    pub ucBufferIn: [u8; 1],
+}
+impl ::core::marker::Copy for DOT11_MANUFACTURING_TEST_SET_DATA {}
+impl ::core::clone::Clone for DOT11_MANUFACTURING_TEST_SET_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DOT11_MANUFACTURING_TEST_SLEEP(i32);
+pub struct DOT11_MANUFACTURING_TEST_SLEEP {
+    pub uSleepTime: u32,
+    pub pvContext: *mut ::core::ffi::c_void,
+}
+impl ::core::marker::Copy for DOT11_MANUFACTURING_TEST_SLEEP {}
+impl ::core::clone::Clone for DOT11_MANUFACTURING_TEST_SLEEP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DOT11_MANUFACTURING_TEST_TYPE(pub i32);
 pub const dot11_manufacturing_test_unknown: DOT11_MANUFACTURING_TEST_TYPE = DOT11_MANUFACTURING_TEST_TYPE(0i32);
@@ -844,48 +2039,192 @@ pub const DOT11_MAX_NUM_OF_FRAGMENTS: u32 = 16u32;
 pub const DOT11_MAX_PDU_SIZE: u32 = 2346u32;
 pub const DOT11_MAX_REQUESTED_SERVICE_INFORMATION_LENGTH: u32 = 255u32;
 #[repr(C)]
-pub struct DOT11_MD_CAPABILITY_ENTRY_LIST(i32);
+pub struct DOT11_MD_CAPABILITY_ENTRY_LIST {
+    pub uNumOfEntries: u32,
+    pub uTotalNumOfEntries: u32,
+    pub dot11MDCapabilityEntry: [DOT11_MULTI_DOMAIN_CAPABILITY_ENTRY; 1],
+}
+impl ::core::marker::Copy for DOT11_MD_CAPABILITY_ENTRY_LIST {}
+impl ::core::clone::Clone for DOT11_MD_CAPABILITY_ENTRY_LIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_MIN_PDU_SIZE: u32 = 256u32;
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 #[repr(C)]
-pub struct DOT11_MPDU_MAX_LENGTH_INDICATION(i32);
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+pub struct DOT11_MPDU_MAX_LENGTH_INDICATION {
+    pub Header: super::Ndis::NDIS_OBJECT_HEADER,
+    pub uPhyId: u32,
+    pub uMPDUMaxLength: u32,
+}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::marker::Copy for DOT11_MPDU_MAX_LENGTH_INDICATION {}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::clone::Clone for DOT11_MPDU_MAX_LENGTH_INDICATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_MPDU_MAX_LENGTH_INDICATION_REVISION_1: u32 = 1u32;
 #[repr(C)]
-pub struct DOT11_MULTI_DOMAIN_CAPABILITY_ENTRY(i32);
+pub struct DOT11_MULTI_DOMAIN_CAPABILITY_ENTRY {
+    pub uMultiDomainCapabilityIndex: u32,
+    pub uFirstChannelNumber: u32,
+    pub uNumberOfChannels: u32,
+    pub lMaximumTransmitPowerLevel: i32,
+}
+impl ::core::marker::Copy for DOT11_MULTI_DOMAIN_CAPABILITY_ENTRY {}
+impl ::core::clone::Clone for DOT11_MULTI_DOMAIN_CAPABILITY_ENTRY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DOT11_NETWORK(i32);
+pub struct DOT11_NETWORK {
+    pub dot11Ssid: DOT11_SSID,
+    pub dot11BssType: DOT11_BSS_TYPE,
+}
+impl ::core::marker::Copy for DOT11_NETWORK {}
+impl ::core::clone::Clone for DOT11_NETWORK {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DOT11_NETWORK_LIST(i32);
+pub struct DOT11_NETWORK_LIST {
+    pub dwNumberOfItems: u32,
+    pub dwIndex: u32,
+    pub Network: [DOT11_NETWORK; 1],
+}
+impl ::core::marker::Copy for DOT11_NETWORK_LIST {}
+impl ::core::clone::Clone for DOT11_NETWORK_LIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DOT11_NIC_SPECIFIC_EXTENSION(i32);
+pub struct DOT11_NIC_SPECIFIC_EXTENSION {
+    pub uBufferLength: u32,
+    pub uTotalBufferLength: u32,
+    pub ucBuffer: [u8; 1],
+}
+impl ::core::marker::Copy for DOT11_NIC_SPECIFIC_EXTENSION {}
+impl ::core::clone::Clone for DOT11_NIC_SPECIFIC_EXTENSION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_NLO_FLAG_SCAN_AT_SYSTEM_RESUME: u32 = 4u32;
 pub const DOT11_NLO_FLAG_SCAN_ON_AOAC_PLATFORM: u32 = 2u32;
 pub const DOT11_NLO_FLAG_STOP_NLO_INDICATION: u32 = 1u32;
 #[repr(C)]
-pub struct DOT11_OFDM_PHY_ATTRIBUTES(i32);
+pub struct DOT11_OFDM_PHY_ATTRIBUTES {
+    pub uFrequencyBandsSupported: u32,
+}
+impl ::core::marker::Copy for DOT11_OFDM_PHY_ATTRIBUTES {}
+impl ::core::clone::Clone for DOT11_OFDM_PHY_ATTRIBUTES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DOT11_OFFLOAD_CAPABILITY(i32);
+pub struct DOT11_OFFLOAD_CAPABILITY {
+    pub uReserved: u32,
+    pub uFlags: u32,
+    pub uSupportedWEPAlgorithms: u32,
+    pub uNumOfReplayWindows: u32,
+    pub uMaxWEPKeyMappingLength: u32,
+    pub uSupportedAuthAlgorithms: u32,
+    pub uMaxAuthKeyMappingLength: u32,
+}
+impl ::core::marker::Copy for DOT11_OFFLOAD_CAPABILITY {}
+impl ::core::clone::Clone for DOT11_OFFLOAD_CAPABILITY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DOT11_OFFLOAD_NETWORK(i32);
+pub struct DOT11_OFFLOAD_NETWORK {
+    pub Ssid: DOT11_SSID,
+    pub UnicastCipher: DOT11_CIPHER_ALGORITHM,
+    pub AuthAlgo: DOT11_AUTH_ALGORITHM,
+    pub Dot11ChannelHints: [DOT11_CHANNEL_HINT; 4],
+}
+impl ::core::marker::Copy for DOT11_OFFLOAD_NETWORK {}
+impl ::core::clone::Clone for DOT11_OFFLOAD_NETWORK {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-#[repr(C)]
-pub struct DOT11_OFFLOAD_NETWORK_LIST_INFO(i32);
+pub struct DOT11_OFFLOAD_NETWORK_LIST_INFO {
+    pub Header: super::Ndis::NDIS_OBJECT_HEADER,
+    pub ulFlags: u32,
+    pub FastScanPeriod: u32,
+    pub FastScanIterations: u32,
+    pub SlowScanPeriod: u32,
+    pub uNumOfEntries: u32,
+    pub offloadNetworkList: [DOT11_OFFLOAD_NETWORK; 1],
+}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::marker::Copy for DOT11_OFFLOAD_NETWORK_LIST_INFO {}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::clone::Clone for DOT11_OFFLOAD_NETWORK_LIST_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_OFFLOAD_NETWORK_LIST_REVISION_1: u32 = 1u32;
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 #[repr(C)]
-pub struct DOT11_OFFLOAD_NETWORK_STATUS_PARAMETERS(i32);
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+pub struct DOT11_OFFLOAD_NETWORK_STATUS_PARAMETERS {
+    pub Header: super::Ndis::NDIS_OBJECT_HEADER,
+    pub Status: i32,
+}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::marker::Copy for DOT11_OFFLOAD_NETWORK_STATUS_PARAMETERS {}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::clone::Clone for DOT11_OFFLOAD_NETWORK_STATUS_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_OFFLOAD_NETWORK_STATUS_PARAMETERS_REVISION_1: u32 = 1u32;
 #[repr(transparent)]
 pub struct DOT11_OFFLOAD_TYPE(pub i32);
 pub const dot11_offload_type_wep: DOT11_OFFLOAD_TYPE = DOT11_OFFLOAD_TYPE(1i32);
 pub const dot11_offload_type_auth: DOT11_OFFLOAD_TYPE = DOT11_OFFLOAD_TYPE(2i32);
 #[repr(C)]
-pub struct DOT11_OI(i32);
+pub struct DOT11_OI {
+    pub OILength: u16,
+    pub OI: [u8; 5],
+}
+impl ::core::marker::Copy for DOT11_OI {}
+impl ::core::clone::Clone for DOT11_OI {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_OI_MAX_LENGTH: u32 = 5u32;
 pub const DOT11_OI_MIN_LENGTH: u32 = 3u32;
 pub const DOT11_OPERATION_MODE_AP: u32 = 2u32;
 #[repr(C)]
-pub struct DOT11_OPERATION_MODE_CAPABILITY(i32);
+pub struct DOT11_OPERATION_MODE_CAPABILITY {
+    pub uReserved: u32,
+    pub uMajorVersion: u32,
+    pub uMinorVersion: u32,
+    pub uNumOfTXBuffers: u32,
+    pub uNumOfRXBuffers: u32,
+    pub uOpModeCapability: u32,
+}
+impl ::core::marker::Copy for DOT11_OPERATION_MODE_CAPABILITY {}
+impl ::core::clone::Clone for DOT11_OPERATION_MODE_CAPABILITY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_OPERATION_MODE_EXTENSIBLE_AP: u32 = 8u32;
 pub const DOT11_OPERATION_MODE_EXTENSIBLE_STATION: u32 = 4u32;
 pub const DOT11_OPERATION_MODE_MANUFACTURING: u32 = 1073741824u32;
@@ -895,9 +2234,22 @@ pub const DOT11_OPERATION_MODE_UNKNOWN: u32 = 0u32;
 pub const DOT11_OPERATION_MODE_WFD_CLIENT: u32 = 64u32;
 pub const DOT11_OPERATION_MODE_WFD_DEVICE: u32 = 16u32;
 pub const DOT11_OPERATION_MODE_WFD_GROUP_OWNER: u32 = 32u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct DOT11_OPTIONAL_CAPABILITY(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct DOT11_OPTIONAL_CAPABILITY {
+    pub uReserved: u32,
+    pub bDot11PCF: super::super::Foundation::BOOLEAN,
+    pub bDot11PCFMPDUTransferToPC: super::super::Foundation::BOOLEAN,
+    pub bStrictlyOrderedServiceClass: super::super::Foundation::BOOLEAN,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DOT11_OPTIONAL_CAPABILITY {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DOT11_OPTIONAL_CAPABILITY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_PACKET_TYPE_ALL_MULTICAST_CTRL: u32 = 4096u32;
 pub const DOT11_PACKET_TYPE_ALL_MULTICAST_DATA: u32 = 16384u32;
 pub const DOT11_PACKET_TYPE_ALL_MULTICAST_MGMT: u32 = 8192u32;
@@ -913,34 +2265,205 @@ pub const DOT11_PACKET_TYPE_MULTICAST_MGMT: u32 = 16u32;
 pub const DOT11_PACKET_TYPE_PROMISCUOUS_CTRL: u32 = 512u32;
 pub const DOT11_PACKET_TYPE_PROMISCUOUS_DATA: u32 = 2048u32;
 pub const DOT11_PACKET_TYPE_PROMISCUOUS_MGMT: u32 = 1024u32;
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+pub struct DOT11_PEER_INFO {
+    pub MacAddress: [u8; 6],
+    pub usCapabilityInformation: u16,
+    pub AuthAlgo: DOT11_AUTH_ALGORITHM,
+    pub UnicastCipherAlgo: DOT11_CIPHER_ALGORITHM,
+    pub MulticastCipherAlgo: DOT11_CIPHER_ALGORITHM,
+    pub bWpsEnabled: super::super::Foundation::BOOLEAN,
+    pub usListenInterval: u16,
+    pub ucSupportedRates: [u8; 255],
+    pub usAssociationID: u16,
+    pub AssociationState: DOT11_ASSOCIATION_STATE,
+    pub PowerMode: DOT11_POWER_MODE,
+    pub liAssociationUpTime: i64,
+    pub Statistics: DOT11_PEER_STATISTICS,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DOT11_PEER_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DOT11_PEER_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DOT11_PEER_INFO(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
-#[repr(C)]
-pub struct DOT11_PEER_INFO_LIST(i32);
+pub struct DOT11_PEER_INFO_LIST {
+    pub Header: super::Ndis::NDIS_OBJECT_HEADER,
+    pub uNumOfEntries: u32,
+    pub uTotalNumOfEntries: u32,
+    pub PeerInfo: [DOT11_PEER_INFO; 1],
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
+impl ::core::marker::Copy for DOT11_PEER_INFO_LIST {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
+impl ::core::clone::Clone for DOT11_PEER_INFO_LIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_PEER_INFO_LIST_REVISION_1: u32 = 1u32;
 #[repr(C)]
-pub struct DOT11_PEER_STATISTICS(i32);
+pub struct DOT11_PEER_STATISTICS {
+    pub ullDecryptSuccessCount: u64,
+    pub ullDecryptFailureCount: u64,
+    pub ullTxPacketSuccessCount: u64,
+    pub ullTxPacketFailureCount: u64,
+    pub ullRxPacketSuccessCount: u64,
+    pub ullRxPacketFailureCount: u64,
+}
+impl ::core::marker::Copy for DOT11_PEER_STATISTICS {}
+impl ::core::clone::Clone for DOT11_PEER_STATISTICS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DOT11_PER_MSDU_COUNTERS(i32);
+pub struct DOT11_PER_MSDU_COUNTERS {
+    pub uTransmittedFragmentCount: u32,
+    pub uRetryCount: u32,
+    pub uRTSSuccessCount: u32,
+    pub uRTSFailureCount: u32,
+    pub uACKFailureCount: u32,
+}
+impl ::core::marker::Copy for DOT11_PER_MSDU_COUNTERS {}
+impl ::core::clone::Clone for DOT11_PER_MSDU_COUNTERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
+pub struct DOT11_PHY_ATTRIBUTES {
+    pub Header: super::Ndis::NDIS_OBJECT_HEADER,
+    pub PhyType: DOT11_PHY_TYPE,
+    pub bHardwarePhyState: super::super::Foundation::BOOLEAN,
+    pub bSoftwarePhyState: super::super::Foundation::BOOLEAN,
+    pub bCFPollable: super::super::Foundation::BOOLEAN,
+    pub uMPDUMaxLength: u32,
+    pub TempType: DOT11_TEMP_TYPE,
+    pub DiversitySupport: DOT11_DIVERSITY_SUPPORT,
+    pub PhySpecificAttributes: DOT11_PHY_ATTRIBUTES_0,
+    pub uNumberSupportedPowerLevels: u32,
+    pub TxPowerLevels: [u32; 8],
+    pub uNumDataRateMappingEntries: u32,
+    pub DataRateMappingEntries: [DOT11_DATA_RATE_MAPPING_ENTRY; 126],
+    pub SupportedDataRatesValue: DOT11_SUPPORTED_DATA_RATES_VALUE_V2,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
+impl ::core::marker::Copy for DOT11_PHY_ATTRIBUTES {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
+impl ::core::clone::Clone for DOT11_PHY_ATTRIBUTES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DOT11_PHY_ATTRIBUTES(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
+pub union DOT11_PHY_ATTRIBUTES_0 {
+    pub HRDSSSAttributes: DOT11_HRDSSS_PHY_ATTRIBUTES,
+    pub OFDMAttributes: DOT11_OFDM_PHY_ATTRIBUTES,
+    pub ERPAttributes: DOT11_ERP_PHY_ATTRIBUTES,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
+impl ::core::clone::Clone for DOT11_PHY_ATTRIBUTES_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_PHY_ATTRIBUTES_REVISION_1: u32 = 1u32;
 #[repr(C)]
-pub struct DOT11_PHY_FRAME_STATISTICS(i32);
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+pub struct DOT11_PHY_FRAME_STATISTICS {
+    pub ullTransmittedFrameCount: u64,
+    pub ullMulticastTransmittedFrameCount: u64,
+    pub ullFailedCount: u64,
+    pub ullRetryCount: u64,
+    pub ullMultipleRetryCount: u64,
+    pub ullMaxTXLifetimeExceededCount: u64,
+    pub ullTransmittedFragmentCount: u64,
+    pub ullRTSSuccessCount: u64,
+    pub ullRTSFailureCount: u64,
+    pub ullACKFailureCount: u64,
+    pub ullReceivedFrameCount: u64,
+    pub ullMulticastReceivedFrameCount: u64,
+    pub ullPromiscuousReceivedFrameCount: u64,
+    pub ullMaxRXLifetimeExceededCount: u64,
+    pub ullFrameDuplicateCount: u64,
+    pub ullReceivedFragmentCount: u64,
+    pub ullPromiscuousReceivedFragmentCount: u64,
+    pub ullFCSErrorCount: u64,
+}
+impl ::core::marker::Copy for DOT11_PHY_FRAME_STATISTICS {}
+impl ::core::clone::Clone for DOT11_PHY_FRAME_STATISTICS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS(i32);
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+pub struct DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS {
+    pub Header: super::Ndis::NDIS_OBJECT_HEADER,
+    pub ulPhyId: u32,
+    pub Anonymous: DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS_0,
+}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::marker::Copy for DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS {}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::clone::Clone for DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+pub union DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS_0 {
+    pub ulChannel: u32,
+    pub ulFrequency: u32,
+}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::clone::Clone for DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS_REVISION_1: u32 = 1u32;
+#[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-#[repr(C)]
-pub struct DOT11_PHY_ID_LIST(i32);
+pub struct DOT11_PHY_ID_LIST {
+    pub Header: super::Ndis::NDIS_OBJECT_HEADER,
+    pub uNumOfEntries: u32,
+    pub uTotalNumOfEntries: u32,
+    pub dot11PhyId: [u32; 1],
+}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::marker::Copy for DOT11_PHY_ID_LIST {}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::clone::Clone for DOT11_PHY_ID_LIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_PHY_ID_LIST_REVISION_1: u32 = 1u32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 #[repr(C)]
-pub struct DOT11_PHY_STATE_PARAMETERS(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
+pub struct DOT11_PHY_STATE_PARAMETERS {
+    pub Header: super::Ndis::NDIS_OBJECT_HEADER,
+    pub uPhyId: u32,
+    pub bHardwarePhyState: super::super::Foundation::BOOLEAN,
+    pub bSoftwarePhyState: super::super::Foundation::BOOLEAN,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
+impl ::core::marker::Copy for DOT11_PHY_STATE_PARAMETERS {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
+impl ::core::clone::Clone for DOT11_PHY_STATE_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_PHY_STATE_PARAMETERS_REVISION_1: u32 = 1u32;
 #[repr(transparent)]
 pub struct DOT11_PHY_TYPE(pub i32);
@@ -958,37 +2481,152 @@ pub const dot11_phy_type_dmg: DOT11_PHY_TYPE = DOT11_PHY_TYPE(9i32);
 pub const dot11_phy_type_he: DOT11_PHY_TYPE = DOT11_PHY_TYPE(10i32);
 pub const dot11_phy_type_IHV_start: DOT11_PHY_TYPE = DOT11_PHY_TYPE(-2147483648i32);
 pub const dot11_phy_type_IHV_end: DOT11_PHY_TYPE = DOT11_PHY_TYPE(-1i32);
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+pub struct DOT11_PHY_TYPE_INFO {
+    pub dot11PhyType: DOT11_PHY_TYPE,
+    pub bUseParameters: super::super::Foundation::BOOLEAN,
+    pub uProbeDelay: u32,
+    pub uMinChannelTime: u32,
+    pub uMaxChannelTime: u32,
+    pub ChDescriptionType: CH_DESCRIPTION_TYPE,
+    pub uChannelListSize: u32,
+    pub ucChannelListBuffer: [u8; 1],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DOT11_PHY_TYPE_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DOT11_PHY_TYPE_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DOT11_PHY_TYPE_INFO(i32);
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-#[repr(C)]
-pub struct DOT11_PHY_TYPE_LIST(i32);
+pub struct DOT11_PHY_TYPE_LIST {
+    pub Header: super::Ndis::NDIS_OBJECT_HEADER,
+    pub uNumOfEntries: u32,
+    pub uTotalNumOfEntries: u32,
+    pub dot11PhyType: [DOT11_PHY_TYPE; 1],
+}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::marker::Copy for DOT11_PHY_TYPE_LIST {}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::clone::Clone for DOT11_PHY_TYPE_LIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_PHY_TYPE_LIST_REVISION_1: u32 = 1u32;
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 #[repr(C)]
-pub struct DOT11_PMKID_CANDIDATE_LIST_PARAMETERS(i32);
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+pub struct DOT11_PMKID_CANDIDATE_LIST_PARAMETERS {
+    pub Header: super::Ndis::NDIS_OBJECT_HEADER,
+    pub uCandidateListSize: u32,
+    pub uCandidateListOffset: u32,
+}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::marker::Copy for DOT11_PMKID_CANDIDATE_LIST_PARAMETERS {}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::clone::Clone for DOT11_PMKID_CANDIDATE_LIST_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_PMKID_CANDIDATE_LIST_PARAMETERS_REVISION_1: u32 = 1u32;
 #[repr(C)]
-pub struct DOT11_PMKID_ENTRY(i32);
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+pub struct DOT11_PMKID_ENTRY {
+    pub BSSID: [u8; 6],
+    pub PMKID: [u8; 16],
+    pub uFlags: u32,
+}
+impl ::core::marker::Copy for DOT11_PMKID_ENTRY {}
+impl ::core::clone::Clone for DOT11_PMKID_ENTRY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DOT11_PMKID_LIST(i32);
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+pub struct DOT11_PMKID_LIST {
+    pub Header: super::Ndis::NDIS_OBJECT_HEADER,
+    pub uNumOfEntries: u32,
+    pub uTotalNumOfEntries: u32,
+    pub PMKIDs: [DOT11_PMKID_ENTRY; 1],
+}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::marker::Copy for DOT11_PMKID_LIST {}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::clone::Clone for DOT11_PMKID_LIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_PMKID_LIST_REVISION_1: u32 = 1u32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 #[repr(C)]
-pub struct DOT11_PORT_STATE_NOTIFICATION(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
+pub struct DOT11_PORT_STATE_NOTIFICATION {
+    pub Header: super::Ndis::NDIS_OBJECT_HEADER,
+    pub PeerMac: [u8; 6],
+    pub bOpen: super::super::Foundation::BOOLEAN,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
+impl ::core::marker::Copy for DOT11_PORT_STATE_NOTIFICATION {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
+impl ::core::clone::Clone for DOT11_PORT_STATE_NOTIFICATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_PORT_STATE_NOTIFICATION_REVISION_1: u32 = 1u32;
+#[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
-#[repr(C)]
-pub struct DOT11_POWER_MGMT_AUTO_MODE_ENABLED_INFO(i32);
+pub struct DOT11_POWER_MGMT_AUTO_MODE_ENABLED_INFO {
+    pub Header: super::Ndis::NDIS_OBJECT_HEADER,
+    pub bEnabled: super::super::Foundation::BOOLEAN,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
+impl ::core::marker::Copy for DOT11_POWER_MGMT_AUTO_MODE_ENABLED_INFO {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
+impl ::core::clone::Clone for DOT11_POWER_MGMT_AUTO_MODE_ENABLED_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_POWER_MGMT_AUTO_MODE_ENABLED_REVISION_1: u32 = 1u32;
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+pub struct DOT11_POWER_MGMT_MODE {
+    pub dot11PowerMode: DOT11_POWER_MODE,
+    pub uPowerSaveLevel: u32,
+    pub usListenInterval: u16,
+    pub usAID: u16,
+    pub bReceiveDTIMs: super::super::Foundation::BOOLEAN,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DOT11_POWER_MGMT_MODE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DOT11_POWER_MGMT_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DOT11_POWER_MGMT_MODE(i32);
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-#[repr(C)]
-pub struct DOT11_POWER_MGMT_MODE_STATUS_INFO(i32);
+pub struct DOT11_POWER_MGMT_MODE_STATUS_INFO {
+    pub Header: super::Ndis::NDIS_OBJECT_HEADER,
+    pub PowerSaveMode: DOT11_POWER_MODE,
+    pub uPowerSaveLevel: u32,
+    pub Reason: DOT11_POWER_MODE_REASON,
+}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::marker::Copy for DOT11_POWER_MGMT_MODE_STATUS_INFO {}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::clone::Clone for DOT11_POWER_MGMT_MODE_STATUS_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_POWER_MGMT_MODE_STATUS_INFO_REVISION_1: u32 = 1u32;
 #[repr(transparent)]
 pub struct DOT11_POWER_MODE(pub i32);
@@ -1012,78 +2650,381 @@ pub const DOT11_POWER_SAVING_NO_POWER_SAVING: u32 = 0u32;
 pub const DOT11_PRIORITY_CONTENTION: u32 = 0u32;
 pub const DOT11_PRIORITY_CONTENTION_FREE: u32 = 1u32;
 #[repr(C)]
-pub struct DOT11_PRIVACY_EXEMPTION(i32);
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+pub struct DOT11_PRIVACY_EXEMPTION {
+    pub usEtherType: u16,
+    pub usExemptionActionType: u16,
+    pub usExemptionPacketType: u16,
+}
+impl ::core::marker::Copy for DOT11_PRIVACY_EXEMPTION {}
+impl ::core::clone::Clone for DOT11_PRIVACY_EXEMPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DOT11_PRIVACY_EXEMPTION_LIST(i32);
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+pub struct DOT11_PRIVACY_EXEMPTION_LIST {
+    pub Header: super::Ndis::NDIS_OBJECT_HEADER,
+    pub uNumOfEntries: u32,
+    pub uTotalNumOfEntries: u32,
+    pub PrivacyExemptionEntries: [DOT11_PRIVACY_EXEMPTION; 1],
+}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::marker::Copy for DOT11_PRIVACY_EXEMPTION_LIST {}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::clone::Clone for DOT11_PRIVACY_EXEMPTION_LIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_PRIVACY_EXEMPTION_LIST_REVISION_1: u32 = 1u32;
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 #[repr(C)]
-pub struct DOT11_PROVISION_DISCOVERY_REQUEST_SEND_COMPLETE_PARAMETERS(i32);
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+pub struct DOT11_PROVISION_DISCOVERY_REQUEST_SEND_COMPLETE_PARAMETERS {
+    pub Header: super::Ndis::NDIS_OBJECT_HEADER,
+    pub PeerDeviceAddress: [u8; 6],
+    pub ReceiverAddress: [u8; 6],
+    pub DialogToken: u8,
+    pub Status: i32,
+    pub uIEsOffset: u32,
+    pub uIEsLength: u32,
+}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::marker::Copy for DOT11_PROVISION_DISCOVERY_REQUEST_SEND_COMPLETE_PARAMETERS {}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::clone::Clone for DOT11_PROVISION_DISCOVERY_REQUEST_SEND_COMPLETE_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_PROVISION_DISCOVERY_REQUEST_SEND_COMPLETE_PARAMETERS_REVISION_1: u32 = 1u32;
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 #[repr(C)]
-pub struct DOT11_PROVISION_DISCOVERY_RESPONSE_SEND_COMPLETE_PARAMETERS(i32);
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+pub struct DOT11_PROVISION_DISCOVERY_RESPONSE_SEND_COMPLETE_PARAMETERS {
+    pub Header: super::Ndis::NDIS_OBJECT_HEADER,
+    pub ReceiverDeviceAddress: [u8; 6],
+    pub DialogToken: u8,
+    pub Status: i32,
+    pub uIEsOffset: u32,
+    pub uIEsLength: u32,
+}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::marker::Copy for DOT11_PROVISION_DISCOVERY_RESPONSE_SEND_COMPLETE_PARAMETERS {}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::clone::Clone for DOT11_PROVISION_DISCOVERY_RESPONSE_SEND_COMPLETE_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_PROVISION_DISCOVERY_RESPONSE_SEND_COMPLETE_PARAMETERS_REVISION_1: u32 = 1u32;
 pub const DOT11_PSD_IE_MAX_DATA_SIZE: u32 = 240u32;
 pub const DOT11_PSD_IE_MAX_ENTRY_NUMBER: u32 = 5u32;
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 #[repr(C)]
-pub struct DOT11_QOS_PARAMS(i32);
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+pub struct DOT11_QOS_PARAMS {
+    pub Header: super::Ndis::NDIS_OBJECT_HEADER,
+    pub ucEnabledQoSProtocolFlags: u8,
+}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::marker::Copy for DOT11_QOS_PARAMS {}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::clone::Clone for DOT11_QOS_PARAMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_QOS_PARAMS_REVISION_1: u32 = 1u32;
 #[repr(C)]
-pub struct DOT11_QOS_TX_DURATION(i32);
+pub struct DOT11_QOS_TX_DURATION {
+    pub uNominalMSDUSize: u32,
+    pub uMinPHYRate: u32,
+    pub uDuration: u32,
+}
+impl ::core::marker::Copy for DOT11_QOS_TX_DURATION {}
+impl ::core::clone::Clone for DOT11_QOS_TX_DURATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DOT11_QOS_TX_MEDIUM_TIME(i32);
+pub struct DOT11_QOS_TX_MEDIUM_TIME {
+    pub dot11PeerAddress: [u8; 6],
+    pub ucQoSPriority: u8,
+    pub uMediumTimeAdmited: u32,
+}
+impl ::core::marker::Copy for DOT11_QOS_TX_MEDIUM_TIME {}
+impl ::core::clone::Clone for DOT11_QOS_TX_MEDIUM_TIME {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DOT11_RADIO_STATE(pub i32);
 pub const dot11_radio_state_unknown: DOT11_RADIO_STATE = DOT11_RADIO_STATE(0i32);
 pub const dot11_radio_state_on: DOT11_RADIO_STATE = DOT11_RADIO_STATE(1i32);
 pub const dot11_radio_state_off: DOT11_RADIO_STATE = DOT11_RADIO_STATE(2i32);
 #[repr(C)]
-pub struct DOT11_RATE_SET(i32);
+pub struct DOT11_RATE_SET {
+    pub uRateSetLength: u32,
+    pub ucRateSet: [u8; 126],
+}
+impl ::core::marker::Copy for DOT11_RATE_SET {}
+impl ::core::clone::Clone for DOT11_RATE_SET {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_RATE_SET_MAX_LENGTH: u32 = 126u32;
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 #[repr(C)]
-pub struct DOT11_RECEIVED_GO_NEGOTIATION_CONFIRMATION_PARAMETERS(i32);
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+pub struct DOT11_RECEIVED_GO_NEGOTIATION_CONFIRMATION_PARAMETERS {
+    pub Header: super::Ndis::NDIS_OBJECT_HEADER,
+    pub PeerDeviceAddress: [u8; 6],
+    pub DialogToken: u8,
+    pub uIEsOffset: u32,
+    pub uIEsLength: u32,
+}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::marker::Copy for DOT11_RECEIVED_GO_NEGOTIATION_CONFIRMATION_PARAMETERS {}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::clone::Clone for DOT11_RECEIVED_GO_NEGOTIATION_CONFIRMATION_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_RECEIVED_GO_NEGOTIATION_CONFIRMATION_PARAMETERS_REVISION_1: u32 = 1u32;
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 #[repr(C)]
-pub struct DOT11_RECEIVED_GO_NEGOTIATION_REQUEST_PARAMETERS(i32);
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+pub struct DOT11_RECEIVED_GO_NEGOTIATION_REQUEST_PARAMETERS {
+    pub Header: super::Ndis::NDIS_OBJECT_HEADER,
+    pub PeerDeviceAddress: [u8; 6],
+    pub DialogToken: u8,
+    pub RequestContext: *mut ::core::ffi::c_void,
+    pub uIEsOffset: u32,
+    pub uIEsLength: u32,
+}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::marker::Copy for DOT11_RECEIVED_GO_NEGOTIATION_REQUEST_PARAMETERS {}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::clone::Clone for DOT11_RECEIVED_GO_NEGOTIATION_REQUEST_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_RECEIVED_GO_NEGOTIATION_REQUEST_PARAMETERS_REVISION_1: u32 = 1u32;
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 #[repr(C)]
-pub struct DOT11_RECEIVED_GO_NEGOTIATION_RESPONSE_PARAMETERS(i32);
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+pub struct DOT11_RECEIVED_GO_NEGOTIATION_RESPONSE_PARAMETERS {
+    pub Header: super::Ndis::NDIS_OBJECT_HEADER,
+    pub PeerDeviceAddress: [u8; 6],
+    pub DialogToken: u8,
+    pub ResponseContext: *mut ::core::ffi::c_void,
+    pub uIEsOffset: u32,
+    pub uIEsLength: u32,
+}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::marker::Copy for DOT11_RECEIVED_GO_NEGOTIATION_RESPONSE_PARAMETERS {}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::clone::Clone for DOT11_RECEIVED_GO_NEGOTIATION_RESPONSE_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_RECEIVED_GO_NEGOTIATION_RESPONSE_PARAMETERS_REVISION_1: u32 = 1u32;
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 #[repr(C)]
-pub struct DOT11_RECEIVED_INVITATION_REQUEST_PARAMETERS(i32);
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+pub struct DOT11_RECEIVED_INVITATION_REQUEST_PARAMETERS {
+    pub Header: super::Ndis::NDIS_OBJECT_HEADER,
+    pub TransmitterDeviceAddress: [u8; 6],
+    pub BSSID: [u8; 6],
+    pub DialogToken: u8,
+    pub RequestContext: *mut ::core::ffi::c_void,
+    pub uIEsOffset: u32,
+    pub uIEsLength: u32,
+}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::marker::Copy for DOT11_RECEIVED_INVITATION_REQUEST_PARAMETERS {}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::clone::Clone for DOT11_RECEIVED_INVITATION_REQUEST_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_RECEIVED_INVITATION_REQUEST_PARAMETERS_REVISION_1: u32 = 1u32;
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 #[repr(C)]
-pub struct DOT11_RECEIVED_INVITATION_RESPONSE_PARAMETERS(i32);
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+pub struct DOT11_RECEIVED_INVITATION_RESPONSE_PARAMETERS {
+    pub Header: super::Ndis::NDIS_OBJECT_HEADER,
+    pub TransmitterDeviceAddress: [u8; 6],
+    pub BSSID: [u8; 6],
+    pub DialogToken: u8,
+    pub uIEsOffset: u32,
+    pub uIEsLength: u32,
+}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::marker::Copy for DOT11_RECEIVED_INVITATION_RESPONSE_PARAMETERS {}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::clone::Clone for DOT11_RECEIVED_INVITATION_RESPONSE_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_RECEIVED_INVITATION_RESPONSE_PARAMETERS_REVISION_1: u32 = 1u32;
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 #[repr(C)]
-pub struct DOT11_RECEIVED_PROVISION_DISCOVERY_REQUEST_PARAMETERS(i32);
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+pub struct DOT11_RECEIVED_PROVISION_DISCOVERY_REQUEST_PARAMETERS {
+    pub Header: super::Ndis::NDIS_OBJECT_HEADER,
+    pub TransmitterDeviceAddress: [u8; 6],
+    pub BSSID: [u8; 6],
+    pub DialogToken: u8,
+    pub RequestContext: *mut ::core::ffi::c_void,
+    pub uIEsOffset: u32,
+    pub uIEsLength: u32,
+}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::marker::Copy for DOT11_RECEIVED_PROVISION_DISCOVERY_REQUEST_PARAMETERS {}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::clone::Clone for DOT11_RECEIVED_PROVISION_DISCOVERY_REQUEST_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_RECEIVED_PROVISION_DISCOVERY_REQUEST_PARAMETERS_REVISION_1: u32 = 1u32;
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 #[repr(C)]
-pub struct DOT11_RECEIVED_PROVISION_DISCOVERY_RESPONSE_PARAMETERS(i32);
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+pub struct DOT11_RECEIVED_PROVISION_DISCOVERY_RESPONSE_PARAMETERS {
+    pub Header: super::Ndis::NDIS_OBJECT_HEADER,
+    pub TransmitterDeviceAddress: [u8; 6],
+    pub BSSID: [u8; 6],
+    pub DialogToken: u8,
+    pub uIEsOffset: u32,
+    pub uIEsLength: u32,
+}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::marker::Copy for DOT11_RECEIVED_PROVISION_DISCOVERY_RESPONSE_PARAMETERS {}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::clone::Clone for DOT11_RECEIVED_PROVISION_DISCOVERY_RESPONSE_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_RECEIVED_PROVISION_DISCOVERY_RESPONSE_PARAMETERS_REVISION_1: u32 = 1u32;
 pub const DOT11_RECV_CONTEXT_REVISION_1: u32 = 1u32;
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct DOT11_RECV_EXTENSION_INFO(i32);
+pub struct DOT11_RECV_EXTENSION_INFO {
+    pub uVersion: u32,
+    pub pvReserved: *mut ::core::ffi::c_void,
+    pub dot11PhyType: DOT11_PHY_TYPE,
+    pub uChCenterFrequency: u32,
+    pub lRSSI: i32,
+    pub lRSSIMin: i32,
+    pub lRSSIMax: i32,
+    pub uRSSI: u32,
+    pub ucPriority: u8,
+    pub ucDataRate: u8,
+    pub ucPeerMacAddress: [u8; 6],
+    pub dwExtendedStatus: u32,
+    pub hWEPOffloadContext: super::super::Foundation::HANDLE,
+    pub hAuthOffloadContext: super::super::Foundation::HANDLE,
+    pub usWEPAppliedMask: u16,
+    pub usWPAMSDUPriority: u16,
+    pub dot11LowestIV48Counter: DOT11_IV48_COUNTER,
+    pub usDot11LeftRWBitMap: u16,
+    pub dot11HighestIV48Counter: DOT11_IV48_COUNTER,
+    pub usDot11RightRWBitMap: u16,
+    pub usNumberOfMPDUsReceived: u16,
+    pub usNumberOfFragments: u16,
+    pub pNdisPackets: [*mut ::core::ffi::c_void; 1],
+}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DOT11_RECV_EXTENSION_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DOT11_RECV_EXTENSION_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DOT11_RECV_EXTENSION_INFO_V2(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct DOT11_RECV_EXTENSION_INFO_V2 {
+    pub uVersion: u32,
+    pub pvReserved: *mut ::core::ffi::c_void,
+    pub dot11PhyType: DOT11_PHY_TYPE,
+    pub uChCenterFrequency: u32,
+    pub lRSSI: i32,
+    pub uRSSI: u32,
+    pub ucPriority: u8,
+    pub ucDataRate: u8,
+    pub ucPeerMacAddress: [u8; 6],
+    pub dwExtendedStatus: u32,
+    pub hWEPOffloadContext: super::super::Foundation::HANDLE,
+    pub hAuthOffloadContext: super::super::Foundation::HANDLE,
+    pub usWEPAppliedMask: u16,
+    pub usWPAMSDUPriority: u16,
+    pub dot11LowestIV48Counter: DOT11_IV48_COUNTER,
+    pub usDot11LeftRWBitMap: u16,
+    pub dot11HighestIV48Counter: DOT11_IV48_COUNTER,
+    pub usDot11RightRWBitMap: u16,
+    pub usNumberOfMPDUsReceived: u16,
+    pub usNumberOfFragments: u16,
+    pub pNdisPackets: [*mut ::core::ffi::c_void; 1],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DOT11_RECV_EXTENSION_INFO_V2 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DOT11_RECV_EXTENSION_INFO_V2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DOT11_RECV_SENSITIVITY(i32);
+pub struct DOT11_RECV_SENSITIVITY {
+    pub ucDataRate: u8,
+    pub lRSSIMin: i32,
+    pub lRSSIMax: i32,
+}
+impl ::core::marker::Copy for DOT11_RECV_SENSITIVITY {}
+impl ::core::clone::Clone for DOT11_RECV_SENSITIVITY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DOT11_RECV_SENSITIVITY_LIST(i32);
+pub struct DOT11_RECV_SENSITIVITY_LIST {
+    pub Anonymous: DOT11_RECV_SENSITIVITY_LIST_0,
+    pub uNumOfEntries: u32,
+    pub uTotalNumOfEntries: u32,
+    pub dot11RecvSensitivity: [DOT11_RECV_SENSITIVITY; 1],
+}
+impl ::core::marker::Copy for DOT11_RECV_SENSITIVITY_LIST {}
+impl ::core::clone::Clone for DOT11_RECV_SENSITIVITY_LIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DOT11_REG_DOMAINS_SUPPORT_VALUE(i32);
+pub union DOT11_RECV_SENSITIVITY_LIST_0 {
+    pub dot11PhyType: DOT11_PHY_TYPE,
+    pub uPhyId: u32,
+}
+impl ::core::clone::Clone for DOT11_RECV_SENSITIVITY_LIST_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct DOT11_REG_DOMAINS_SUPPORT_VALUE {
+    pub uNumOfEntries: u32,
+    pub uTotalNumOfEntries: u32,
+    pub dot11RegDomainValue: [DOT11_REG_DOMAIN_VALUE; 1],
+}
+impl ::core::marker::Copy for DOT11_REG_DOMAINS_SUPPORT_VALUE {}
+impl ::core::clone::Clone for DOT11_REG_DOMAINS_SUPPORT_VALUE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_REG_DOMAIN_DOC: u32 = 32u32;
 pub const DOT11_REG_DOMAIN_ETSI: u32 = 48u32;
 pub const DOT11_REG_DOMAIN_FCC: u32 = 16u32;
@@ -1092,31 +3033,131 @@ pub const DOT11_REG_DOMAIN_MKK: u32 = 64u32;
 pub const DOT11_REG_DOMAIN_OTHER: u32 = 0u32;
 pub const DOT11_REG_DOMAIN_SPAIN: u32 = 49u32;
 #[repr(C)]
-pub struct DOT11_REG_DOMAIN_VALUE(i32);
-#[cfg(feature = "Win32_Foundation")]
+pub struct DOT11_REG_DOMAIN_VALUE {
+    pub uRegDomainsSupportIndex: u32,
+    pub uRegDomainsSupportValue: u32,
+}
+impl ::core::marker::Copy for DOT11_REG_DOMAIN_VALUE {}
+impl ::core::clone::Clone for DOT11_REG_DOMAIN_VALUE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DOT11_RESET_REQUEST(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct DOT11_RESET_REQUEST {
+    pub dot11ResetType: DOT11_RESET_TYPE,
+    pub dot11MacAddress: [u8; 6],
+    pub bSetDefaultMIB: super::super::Foundation::BOOLEAN,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DOT11_RESET_REQUEST {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DOT11_RESET_REQUEST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DOT11_RESET_TYPE(pub i32);
 pub const dot11_reset_type_phy: DOT11_RESET_TYPE = DOT11_RESET_TYPE(1i32);
 pub const dot11_reset_type_mac: DOT11_RESET_TYPE = DOT11_RESET_TYPE(2i32);
 pub const dot11_reset_type_phy_and_mac: DOT11_RESET_TYPE = DOT11_RESET_TYPE(3i32);
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 #[repr(C)]
-pub struct DOT11_ROAMING_COMPLETION_PARAMETERS(i32);
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+pub struct DOT11_ROAMING_COMPLETION_PARAMETERS {
+    pub Header: super::Ndis::NDIS_OBJECT_HEADER,
+    pub uStatus: u32,
+}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::marker::Copy for DOT11_ROAMING_COMPLETION_PARAMETERS {}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::clone::Clone for DOT11_ROAMING_COMPLETION_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_ROAMING_COMPLETION_PARAMETERS_REVISION_1: u32 = 1u32;
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 #[repr(C)]
-pub struct DOT11_ROAMING_START_PARAMETERS(i32);
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+pub struct DOT11_ROAMING_START_PARAMETERS {
+    pub Header: super::Ndis::NDIS_OBJECT_HEADER,
+    pub AdhocBSSID: [u8; 6],
+    pub AdhocSSID: DOT11_SSID,
+    pub uRoamingReason: u32,
+}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::marker::Copy for DOT11_ROAMING_START_PARAMETERS {}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::clone::Clone for DOT11_ROAMING_START_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_ROAMING_START_PARAMETERS_REVISION_1: u32 = 1u32;
 #[repr(C)]
-pub struct DOT11_RSSI_RANGE(i32);
-#[cfg(feature = "Win32_Foundation")]
+pub struct DOT11_RSSI_RANGE {
+    pub dot11PhyType: DOT11_PHY_TYPE,
+    pub uRSSIMin: u32,
+    pub uRSSIMax: u32,
+}
+impl ::core::marker::Copy for DOT11_RSSI_RANGE {}
+impl ::core::clone::Clone for DOT11_RSSI_RANGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DOT11_SCAN_REQUEST(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct DOT11_SCAN_REQUEST {
+    pub dot11BSSType: DOT11_BSS_TYPE,
+    pub dot11BSSID: [u8; 6],
+    pub dot11SSID: DOT11_SSID,
+    pub dot11ScanType: DOT11_SCAN_TYPE,
+    pub bRestrictedScan: super::super::Foundation::BOOLEAN,
+    pub bUseRequestIE: super::super::Foundation::BOOLEAN,
+    pub uRequestIDsOffset: u32,
+    pub uNumOfRequestIDs: u32,
+    pub uPhyTypesOffset: u32,
+    pub uNumOfPhyTypes: u32,
+    pub uIEsOffset: u32,
+    pub uIEsLength: u32,
+    pub ucBuffer: [u8; 1],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DOT11_SCAN_REQUEST {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DOT11_SCAN_REQUEST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DOT11_SCAN_REQUEST_V2(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct DOT11_SCAN_REQUEST_V2 {
+    pub dot11BSSType: DOT11_BSS_TYPE,
+    pub dot11BSSID: [u8; 6],
+    pub dot11ScanType: DOT11_SCAN_TYPE,
+    pub bRestrictedScan: super::super::Foundation::BOOLEAN,
+    pub udot11SSIDsOffset: u32,
+    pub uNumOfdot11SSIDs: u32,
+    pub bUseRequestIE: super::super::Foundation::BOOLEAN,
+    pub uRequestIDsOffset: u32,
+    pub uNumOfRequestIDs: u32,
+    pub uPhyTypeInfosOffset: u32,
+    pub uNumOfPhyTypeInfos: u32,
+    pub uIEsOffset: u32,
+    pub uIEsLength: u32,
+    pub ucBuffer: [u8; 1],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DOT11_SCAN_REQUEST_V2 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DOT11_SCAN_REQUEST_V2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DOT11_SCAN_TYPE(pub i32);
 pub const dot11_scan_type_active: DOT11_SCAN_TYPE = DOT11_SCAN_TYPE(1i32);
@@ -1124,48 +3165,238 @@ pub const dot11_scan_type_passive: DOT11_SCAN_TYPE = DOT11_SCAN_TYPE(2i32);
 pub const dot11_scan_type_auto: DOT11_SCAN_TYPE = DOT11_SCAN_TYPE(3i32);
 pub const dot11_scan_type_forced: DOT11_SCAN_TYPE = DOT11_SCAN_TYPE(-2147483648i32);
 pub const DOT11_SEND_CONTEXT_REVISION_1: u32 = 1u32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 #[repr(C)]
-pub struct DOT11_SEND_GO_NEGOTIATION_CONFIRMATION_PARAMETERS(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
+pub struct DOT11_SEND_GO_NEGOTIATION_CONFIRMATION_PARAMETERS {
+    pub Header: super::Ndis::NDIS_OBJECT_HEADER,
+    pub PeerDeviceAddress: [u8; 6],
+    pub DialogToken: u8,
+    pub ResponseContext: *mut ::core::ffi::c_void,
+    pub uSendTimeout: u32,
+    pub Status: u8,
+    pub GroupCapability: u8,
+    pub GroupID: DOT11_WFD_GROUP_ID,
+    pub bUseGroupID: super::super::Foundation::BOOLEAN,
+    pub uIEsOffset: u32,
+    pub uIEsLength: u32,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
+impl ::core::marker::Copy for DOT11_SEND_GO_NEGOTIATION_CONFIRMATION_PARAMETERS {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
+impl ::core::clone::Clone for DOT11_SEND_GO_NEGOTIATION_CONFIRMATION_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_SEND_GO_NEGOTIATION_CONFIRMATION_PARAMETERS_REVISION_1: u32 = 1u32;
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 #[repr(C)]
-pub struct DOT11_SEND_GO_NEGOTIATION_REQUEST_PARAMETERS(i32);
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+pub struct DOT11_SEND_GO_NEGOTIATION_REQUEST_PARAMETERS {
+    pub Header: super::Ndis::NDIS_OBJECT_HEADER,
+    pub PeerDeviceAddress: [u8; 6],
+    pub DialogToken: u8,
+    pub uSendTimeout: u32,
+    pub GroupOwnerIntent: DOT11_WFD_GO_INTENT,
+    pub MinimumConfigTimeout: DOT11_WFD_CONFIGURATION_TIMEOUT,
+    pub IntendedInterfaceAddress: [u8; 6],
+    pub GroupCapability: u8,
+    pub uIEsOffset: u32,
+    pub uIEsLength: u32,
+}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::marker::Copy for DOT11_SEND_GO_NEGOTIATION_REQUEST_PARAMETERS {}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::clone::Clone for DOT11_SEND_GO_NEGOTIATION_REQUEST_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_SEND_GO_NEGOTIATION_REQUEST_PARAMETERS_REVISION_1: u32 = 1u32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 #[repr(C)]
-pub struct DOT11_SEND_GO_NEGOTIATION_RESPONSE_PARAMETERS(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
+pub struct DOT11_SEND_GO_NEGOTIATION_RESPONSE_PARAMETERS {
+    pub Header: super::Ndis::NDIS_OBJECT_HEADER,
+    pub PeerDeviceAddress: [u8; 6],
+    pub DialogToken: u8,
+    pub RequestContext: *mut ::core::ffi::c_void,
+    pub uSendTimeout: u32,
+    pub Status: u8,
+    pub GroupOwnerIntent: DOT11_WFD_GO_INTENT,
+    pub MinimumConfigTimeout: DOT11_WFD_CONFIGURATION_TIMEOUT,
+    pub IntendedInterfaceAddress: [u8; 6],
+    pub GroupCapability: u8,
+    pub GroupID: DOT11_WFD_GROUP_ID,
+    pub bUseGroupID: super::super::Foundation::BOOLEAN,
+    pub uIEsOffset: u32,
+    pub uIEsLength: u32,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
+impl ::core::marker::Copy for DOT11_SEND_GO_NEGOTIATION_RESPONSE_PARAMETERS {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
+impl ::core::clone::Clone for DOT11_SEND_GO_NEGOTIATION_RESPONSE_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_SEND_GO_NEGOTIATION_RESPONSE_PARAMETERS_REVISION_1: u32 = 1u32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 #[repr(C)]
-pub struct DOT11_SEND_INVITATION_REQUEST_PARAMETERS(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
+pub struct DOT11_SEND_INVITATION_REQUEST_PARAMETERS {
+    pub Header: super::Ndis::NDIS_OBJECT_HEADER,
+    pub DialogToken: u8,
+    pub PeerDeviceAddress: [u8; 6],
+    pub uSendTimeout: u32,
+    pub MinimumConfigTimeout: DOT11_WFD_CONFIGURATION_TIMEOUT,
+    pub InvitationFlags: DOT11_WFD_INVITATION_FLAGS,
+    pub GroupBSSID: [u8; 6],
+    pub bUseGroupBSSID: super::super::Foundation::BOOLEAN,
+    pub OperatingChannel: DOT11_WFD_CHANNEL,
+    pub bUseSpecifiedOperatingChannel: super::super::Foundation::BOOLEAN,
+    pub GroupID: DOT11_WFD_GROUP_ID,
+    pub bLocalGO: super::super::Foundation::BOOLEAN,
+    pub uIEsOffset: u32,
+    pub uIEsLength: u32,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
+impl ::core::marker::Copy for DOT11_SEND_INVITATION_REQUEST_PARAMETERS {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
+impl ::core::clone::Clone for DOT11_SEND_INVITATION_REQUEST_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_SEND_INVITATION_REQUEST_PARAMETERS_REVISION_1: u32 = 1u32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 #[repr(C)]
-pub struct DOT11_SEND_INVITATION_RESPONSE_PARAMETERS(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
+pub struct DOT11_SEND_INVITATION_RESPONSE_PARAMETERS {
+    pub Header: super::Ndis::NDIS_OBJECT_HEADER,
+    pub ReceiverDeviceAddress: [u8; 6],
+    pub DialogToken: u8,
+    pub RequestContext: *mut ::core::ffi::c_void,
+    pub uSendTimeout: u32,
+    pub Status: u8,
+    pub MinimumConfigTimeout: DOT11_WFD_CONFIGURATION_TIMEOUT,
+    pub GroupBSSID: [u8; 6],
+    pub bUseGroupBSSID: super::super::Foundation::BOOLEAN,
+    pub OperatingChannel: DOT11_WFD_CHANNEL,
+    pub bUseSpecifiedOperatingChannel: super::super::Foundation::BOOLEAN,
+    pub uIEsOffset: u32,
+    pub uIEsLength: u32,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
+impl ::core::marker::Copy for DOT11_SEND_INVITATION_RESPONSE_PARAMETERS {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
+impl ::core::clone::Clone for DOT11_SEND_INVITATION_RESPONSE_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_SEND_INVITATION_RESPONSE_PARAMETERS_REVISION_1: u32 = 1u32;
+#[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
-#[repr(C)]
-pub struct DOT11_SEND_PROVISION_DISCOVERY_REQUEST_PARAMETERS(i32);
+pub struct DOT11_SEND_PROVISION_DISCOVERY_REQUEST_PARAMETERS {
+    pub Header: super::Ndis::NDIS_OBJECT_HEADER,
+    pub DialogToken: u8,
+    pub PeerDeviceAddress: [u8; 6],
+    pub uSendTimeout: u32,
+    pub GroupCapability: u8,
+    pub GroupID: DOT11_WFD_GROUP_ID,
+    pub bUseGroupID: super::super::Foundation::BOOLEAN,
+    pub uIEsOffset: u32,
+    pub uIEsLength: u32,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
+impl ::core::marker::Copy for DOT11_SEND_PROVISION_DISCOVERY_REQUEST_PARAMETERS {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
+impl ::core::clone::Clone for DOT11_SEND_PROVISION_DISCOVERY_REQUEST_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_SEND_PROVISION_DISCOVERY_REQUEST_PARAMETERS_REVISION_1: u32 = 1u32;
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 #[repr(C)]
-pub struct DOT11_SEND_PROVISION_DISCOVERY_RESPONSE_PARAMETERS(i32);
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+pub struct DOT11_SEND_PROVISION_DISCOVERY_RESPONSE_PARAMETERS {
+    pub Header: super::Ndis::NDIS_OBJECT_HEADER,
+    pub ReceiverDeviceAddress: [u8; 6],
+    pub DialogToken: u8,
+    pub RequestContext: *mut ::core::ffi::c_void,
+    pub uSendTimeout: u32,
+    pub uIEsOffset: u32,
+    pub uIEsLength: u32,
+}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::marker::Copy for DOT11_SEND_PROVISION_DISCOVERY_RESPONSE_PARAMETERS {}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::clone::Clone for DOT11_SEND_PROVISION_DISCOVERY_RESPONSE_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_SEND_PROVISION_DISCOVERY_RESPONSE_PARAMETERS_REVISION_1: u32 = 1u32;
 pub const DOT11_SERVICE_CLASS_REORDERABLE_MULTICAST: u32 = 0u32;
 pub const DOT11_SERVICE_CLASS_STRICTLY_ORDERED: u32 = 1u32;
 #[repr(C)]
-pub struct DOT11_SSID(i32);
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+pub struct DOT11_SSID {
+    pub uSSIDLength: u32,
+    pub ucSSID: [u8; 32],
+}
+impl ::core::marker::Copy for DOT11_SSID {}
+impl ::core::clone::Clone for DOT11_SSID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DOT11_SSID_LIST(i32);
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+pub struct DOT11_SSID_LIST {
+    pub Header: super::Ndis::NDIS_OBJECT_HEADER,
+    pub uNumOfEntries: u32,
+    pub uTotalNumOfEntries: u32,
+    pub SSIDs: [DOT11_SSID; 1],
+}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::marker::Copy for DOT11_SSID_LIST {}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::clone::Clone for DOT11_SSID_LIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_SSID_LIST_REVISION_1: u32 = 1u32;
 pub const DOT11_SSID_MAX_LENGTH: u32 = 32u32;
 #[repr(C)]
-pub struct DOT11_START_REQUEST(i32);
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+pub struct DOT11_START_REQUEST {
+    pub uStartFailureTimeout: u32,
+    pub OperationalRateSet: DOT11_RATE_SET,
+    pub uChCenterFrequency: u32,
+    pub dot11BSSDescription: DOT11_BSS_DESCRIPTION,
+}
+impl ::core::marker::Copy for DOT11_START_REQUEST {}
+impl ::core::clone::Clone for DOT11_START_REQUEST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DOT11_STATISTICS(i32);
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+pub struct DOT11_STATISTICS {
+    pub Header: super::Ndis::NDIS_OBJECT_HEADER,
+    pub ullFourWayHandshakeFailures: u64,
+    pub ullTKIPCounterMeasuresInvoked: u64,
+    pub ullReserved: u64,
+    pub MacUcastCounters: DOT11_MAC_FRAME_STATISTICS,
+    pub MacMcastCounters: DOT11_MAC_FRAME_STATISTICS,
+    pub PhyCounters: [DOT11_PHY_FRAME_STATISTICS; 1],
+}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::marker::Copy for DOT11_STATISTICS {}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::clone::Clone for DOT11_STATISTICS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_STATISTICS_REVISION_1: u32 = 1u32;
 pub const DOT11_STATUS_AP_JOIN_CONFIRM: u32 = 5u32;
 pub const DOT11_STATUS_AUTH_FAILED: u32 = 131072u32;
@@ -1176,7 +3407,16 @@ pub const DOT11_STATUS_EXCESSIVE_DATA_LENGTH: u32 = 256u32;
 pub const DOT11_STATUS_GENERATE_AUTH_FAILED: u32 = 16384u32;
 pub const DOT11_STATUS_ICV_VERIFIED: u32 = 2048u32;
 #[repr(C)]
-pub struct DOT11_STATUS_INDICATION(i32);
+pub struct DOT11_STATUS_INDICATION {
+    pub uStatusType: u32,
+    pub ndisStatus: i32,
+}
+impl ::core::marker::Copy for DOT11_STATUS_INDICATION {}
+impl ::core::clone::Clone for DOT11_STATUS_INDICATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_STATUS_JOIN_CONFIRM: u32 = 2u32;
 pub const DOT11_STATUS_MPDU_MAX_LENGTH_CHANGED: u32 = 6u32;
 pub const DOT11_STATUS_PACKET_NOT_REASSEMBLED: u32 = 8192u32;
@@ -1194,101 +3434,438 @@ pub const DOT11_STATUS_UNSUPPORTED_PRIORITY: u32 = 4u32;
 pub const DOT11_STATUS_UNSUPPORTED_SERVICE_CLASS: u32 = 8u32;
 pub const DOT11_STATUS_WEP_KEY_UNAVAILABLE: u32 = 1024u32;
 pub const DOT11_STATUS_XMIT_MSDU_TIMER_EXPIRED: u32 = 64u32;
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 #[repr(C)]
-pub struct DOT11_STOP_AP_PARAMETERS(i32);
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+pub struct DOT11_STOP_AP_PARAMETERS {
+    pub Header: super::Ndis::NDIS_OBJECT_HEADER,
+    pub ulReason: u32,
+}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::marker::Copy for DOT11_STOP_AP_PARAMETERS {}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::clone::Clone for DOT11_STOP_AP_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_STOP_AP_PARAMETERS_REVISION_1: u32 = 1u32;
 pub const DOT11_STOP_AP_REASON_AP_ACTIVE: u32 = 3u32;
 pub const DOT11_STOP_AP_REASON_CHANNEL_NOT_AVAILABLE: u32 = 2u32;
 pub const DOT11_STOP_AP_REASON_FREQUENCY_NOT_AVAILABLE: u32 = 1u32;
 pub const DOT11_STOP_AP_REASON_IHV_END: u32 = 4294967295u32;
 pub const DOT11_STOP_AP_REASON_IHV_START: u32 = 4278190080u32;
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct DOT11_SUPPORTED_ANTENNA(i32);
+pub struct DOT11_SUPPORTED_ANTENNA {
+    pub uAntennaListIndex: u32,
+    pub bSupportedAntenna: super::super::Foundation::BOOLEAN,
+}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DOT11_SUPPORTED_ANTENNA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DOT11_SUPPORTED_ANTENNA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DOT11_SUPPORTED_ANTENNA_LIST(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct DOT11_SUPPORTED_ANTENNA_LIST {
+    pub uNumOfEntries: u32,
+    pub uTotalNumOfEntries: u32,
+    pub dot11SupportedAntenna: [DOT11_SUPPORTED_ANTENNA; 1],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DOT11_SUPPORTED_ANTENNA_LIST {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DOT11_SUPPORTED_ANTENNA_LIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DOT11_SUPPORTED_DATA_RATES_VALUE(i32);
+pub struct DOT11_SUPPORTED_DATA_RATES_VALUE {
+    pub ucSupportedTxDataRatesValue: [u8; 8],
+    pub ucSupportedRxDataRatesValue: [u8; 8],
+}
+impl ::core::marker::Copy for DOT11_SUPPORTED_DATA_RATES_VALUE {}
+impl ::core::clone::Clone for DOT11_SUPPORTED_DATA_RATES_VALUE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DOT11_SUPPORTED_DATA_RATES_VALUE_V2(i32);
+pub struct DOT11_SUPPORTED_DATA_RATES_VALUE_V2 {
+    pub ucSupportedTxDataRatesValue: [u8; 255],
+    pub ucSupportedRxDataRatesValue: [u8; 255],
+}
+impl ::core::marker::Copy for DOT11_SUPPORTED_DATA_RATES_VALUE_V2 {}
+impl ::core::clone::Clone for DOT11_SUPPORTED_DATA_RATES_VALUE_V2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DOT11_SUPPORTED_DSSS_CHANNEL(i32);
+pub struct DOT11_SUPPORTED_DSSS_CHANNEL {
+    pub uChannel: u32,
+}
+impl ::core::marker::Copy for DOT11_SUPPORTED_DSSS_CHANNEL {}
+impl ::core::clone::Clone for DOT11_SUPPORTED_DSSS_CHANNEL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DOT11_SUPPORTED_DSSS_CHANNEL_LIST(i32);
+pub struct DOT11_SUPPORTED_DSSS_CHANNEL_LIST {
+    pub uNumOfEntries: u32,
+    pub uTotalNumOfEntries: u32,
+    pub dot11SupportedDSSSChannel: [DOT11_SUPPORTED_DSSS_CHANNEL; 1],
+}
+impl ::core::marker::Copy for DOT11_SUPPORTED_DSSS_CHANNEL_LIST {}
+impl ::core::clone::Clone for DOT11_SUPPORTED_DSSS_CHANNEL_LIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DOT11_SUPPORTED_OFDM_FREQUENCY(i32);
+pub struct DOT11_SUPPORTED_OFDM_FREQUENCY {
+    pub uCenterFrequency: u32,
+}
+impl ::core::marker::Copy for DOT11_SUPPORTED_OFDM_FREQUENCY {}
+impl ::core::clone::Clone for DOT11_SUPPORTED_OFDM_FREQUENCY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DOT11_SUPPORTED_OFDM_FREQUENCY_LIST(i32);
+pub struct DOT11_SUPPORTED_OFDM_FREQUENCY_LIST {
+    pub uNumOfEntries: u32,
+    pub uTotalNumOfEntries: u32,
+    pub dot11SupportedOFDMFrequency: [DOT11_SUPPORTED_OFDM_FREQUENCY; 1],
+}
+impl ::core::marker::Copy for DOT11_SUPPORTED_OFDM_FREQUENCY_LIST {}
+impl ::core::clone::Clone for DOT11_SUPPORTED_OFDM_FREQUENCY_LIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DOT11_SUPPORTED_PHY_TYPES(i32);
+pub struct DOT11_SUPPORTED_PHY_TYPES {
+    pub uNumOfEntries: u32,
+    pub uTotalNumOfEntries: u32,
+    pub dot11PHYType: [DOT11_PHY_TYPE; 1],
+}
+impl ::core::marker::Copy for DOT11_SUPPORTED_PHY_TYPES {}
+impl ::core::clone::Clone for DOT11_SUPPORTED_PHY_TYPES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DOT11_SUPPORTED_POWER_LEVELS(i32);
+pub struct DOT11_SUPPORTED_POWER_LEVELS {
+    pub uNumOfSupportedPowerLevels: u32,
+    pub uTxPowerLevelValues: [u32; 8],
+}
+impl ::core::marker::Copy for DOT11_SUPPORTED_POWER_LEVELS {}
+impl ::core::clone::Clone for DOT11_SUPPORTED_POWER_LEVELS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DOT11_TEMP_TYPE(pub i32);
 pub const dot11_temp_type_unknown: DOT11_TEMP_TYPE = DOT11_TEMP_TYPE(0i32);
 pub const dot11_temp_type_1: DOT11_TEMP_TYPE = DOT11_TEMP_TYPE(1i32);
 pub const dot11_temp_type_2: DOT11_TEMP_TYPE = DOT11_TEMP_TYPE(2i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 #[repr(C)]
-pub struct DOT11_TKIPMIC_FAILURE_PARAMETERS(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
+pub struct DOT11_TKIPMIC_FAILURE_PARAMETERS {
+    pub Header: super::Ndis::NDIS_OBJECT_HEADER,
+    pub bDefaultKeyFailure: super::super::Foundation::BOOLEAN,
+    pub uKeyIndex: u32,
+    pub PeerMac: [u8; 6],
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
+impl ::core::marker::Copy for DOT11_TKIPMIC_FAILURE_PARAMETERS {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
+impl ::core::clone::Clone for DOT11_TKIPMIC_FAILURE_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_TKIPMIC_FAILURE_PARAMETERS_REVISION_1: u32 = 1u32;
 #[repr(C)]
-pub struct DOT11_UPDATE_IE(i32);
+pub struct DOT11_UPDATE_IE {
+    pub dot11UpdateIEOp: DOT11_UPDATE_IE_OP,
+    pub uBufferLength: u32,
+    pub ucBuffer: [u8; 1],
+}
+impl ::core::marker::Copy for DOT11_UPDATE_IE {}
+impl ::core::clone::Clone for DOT11_UPDATE_IE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DOT11_UPDATE_IE_OP(pub i32);
 pub const dot11_update_ie_op_create_replace: DOT11_UPDATE_IE_OP = DOT11_UPDATE_IE_OP(1i32);
 pub const dot11_update_ie_op_delete: DOT11_UPDATE_IE_OP = DOT11_UPDATE_IE_OP(2i32);
 #[repr(C)]
-pub struct DOT11_VENUEINFO(i32);
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+pub struct DOT11_VENUEINFO {
+    pub VenueGroup: u8,
+    pub VenueType: u8,
+}
+impl ::core::marker::Copy for DOT11_VENUEINFO {}
+impl ::core::clone::Clone for DOT11_VENUEINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DOT11_VWIFI_ATTRIBUTES(i32);
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+pub struct DOT11_VWIFI_ATTRIBUTES {
+    pub Header: super::Ndis::NDIS_OBJECT_HEADER,
+    pub uTotalNumOfEntries: u32,
+    pub Combinations: [DOT11_VWIFI_COMBINATION; 1],
+}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::marker::Copy for DOT11_VWIFI_ATTRIBUTES {}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::clone::Clone for DOT11_VWIFI_ATTRIBUTES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_VWIFI_ATTRIBUTES_REVISION_1: u32 = 1u32;
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 #[repr(C)]
-pub struct DOT11_VWIFI_COMBINATION(i32);
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+pub struct DOT11_VWIFI_COMBINATION {
+    pub Header: super::Ndis::NDIS_OBJECT_HEADER,
+    pub uNumInfrastructure: u32,
+    pub uNumAdhoc: u32,
+    pub uNumSoftAP: u32,
+}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::marker::Copy for DOT11_VWIFI_COMBINATION {}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::clone::Clone for DOT11_VWIFI_COMBINATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_VWIFI_COMBINATION_REVISION_1: u32 = 1u32;
 pub const DOT11_VWIFI_COMBINATION_REVISION_2: u32 = 2u32;
 pub const DOT11_VWIFI_COMBINATION_REVISION_3: u32 = 3u32;
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 #[repr(C)]
-pub struct DOT11_VWIFI_COMBINATION_V2(i32);
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
+pub struct DOT11_VWIFI_COMBINATION_V2 {
+    pub Header: super::Ndis::NDIS_OBJECT_HEADER,
+    pub uNumInfrastructure: u32,
+    pub uNumAdhoc: u32,
+    pub uNumSoftAP: u32,
+    pub uNumVirtualStation: u32,
+}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::marker::Copy for DOT11_VWIFI_COMBINATION_V2 {}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::clone::Clone for DOT11_VWIFI_COMBINATION_V2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DOT11_VWIFI_COMBINATION_V3(i32);
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+pub struct DOT11_VWIFI_COMBINATION_V3 {
+    pub Header: super::Ndis::NDIS_OBJECT_HEADER,
+    pub uNumInfrastructure: u32,
+    pub uNumAdhoc: u32,
+    pub uNumSoftAP: u32,
+    pub uNumVirtualStation: u32,
+    pub uNumWFDGroup: u32,
+}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::marker::Copy for DOT11_VWIFI_COMBINATION_V3 {}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::clone::Clone for DOT11_VWIFI_COMBINATION_V3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct DOT11_WEP_OFFLOAD(i32);
+pub struct DOT11_WEP_OFFLOAD {
+    pub uReserved: u32,
+    pub hOffloadContext: super::super::Foundation::HANDLE,
+    pub hOffload: super::super::Foundation::HANDLE,
+    pub dot11OffloadType: DOT11_OFFLOAD_TYPE,
+    pub dwAlgorithm: u32,
+    pub bRowIsOutbound: super::super::Foundation::BOOLEAN,
+    pub bUseDefault: super::super::Foundation::BOOLEAN,
+    pub uFlags: u32,
+    pub ucMacAddress: [u8; 6],
+    pub uNumOfRWsOnPeer: u32,
+    pub uNumOfRWsOnMe: u32,
+    pub dot11IV48Counters: [DOT11_IV48_COUNTER; 16],
+    pub usDot11RWBitMaps: [u16; 16],
+    pub usKeyLength: u16,
+    pub ucKey: [u8; 1],
+}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DOT11_WEP_OFFLOAD {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DOT11_WEP_OFFLOAD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DOT11_WEP_UPLOAD(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct DOT11_WEP_UPLOAD {
+    pub uReserved: u32,
+    pub dot11OffloadType: DOT11_OFFLOAD_TYPE,
+    pub hOffload: super::super::Foundation::HANDLE,
+    pub uNumOfRWsUsed: u32,
+    pub dot11IV48Counters: [DOT11_IV48_COUNTER; 16],
+    pub usDot11RWBitMaps: [u16; 16],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DOT11_WEP_UPLOAD {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DOT11_WEP_UPLOAD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-#[repr(C)]
-pub struct DOT11_WFD_ADDITIONAL_IE(i32);
+pub struct DOT11_WFD_ADDITIONAL_IE {
+    pub Header: super::Ndis::NDIS_OBJECT_HEADER,
+    pub uBeaconIEsOffset: u32,
+    pub uBeaconIEsLength: u32,
+    pub uProbeResponseIEsOffset: u32,
+    pub uProbeResponseIEsLength: u32,
+    pub uDefaultRequestIEsOffset: u32,
+    pub uDefaultRequestIEsLength: u32,
+}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::marker::Copy for DOT11_WFD_ADDITIONAL_IE {}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::clone::Clone for DOT11_WFD_ADDITIONAL_IE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_WFD_ADDITIONAL_IE_REVISION_1: u32 = 1u32;
 #[repr(C)]
-pub struct DOT11_WFD_ADVERTISED_SERVICE_DESCRIPTOR(i32);
+pub struct DOT11_WFD_ADVERTISED_SERVICE_DESCRIPTOR {
+    pub AdvertisementID: u32,
+    pub ConfigMethods: u16,
+    pub ServiceNameLength: u8,
+    pub ServiceName: [u8; 255],
+}
+impl ::core::marker::Copy for DOT11_WFD_ADVERTISED_SERVICE_DESCRIPTOR {}
+impl ::core::clone::Clone for DOT11_WFD_ADVERTISED_SERVICE_DESCRIPTOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DOT11_WFD_ADVERTISED_SERVICE_LIST(i32);
+pub struct DOT11_WFD_ADVERTISED_SERVICE_LIST {
+    pub ServiceCount: u16,
+    pub AdvertisedService: [DOT11_WFD_ADVERTISED_SERVICE_DESCRIPTOR; 1],
+}
+impl ::core::marker::Copy for DOT11_WFD_ADVERTISED_SERVICE_LIST {}
+impl ::core::clone::Clone for DOT11_WFD_ADVERTISED_SERVICE_LIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DOT11_WFD_ADVERTISEMENT_ID(i32);
+pub struct DOT11_WFD_ADVERTISEMENT_ID {
+    pub AdvertisementID: u32,
+    pub ServiceAddress: [u8; 6],
+}
+impl ::core::marker::Copy for DOT11_WFD_ADVERTISEMENT_ID {}
+impl ::core::clone::Clone for DOT11_WFD_ADVERTISEMENT_ID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_WFD_APS2_SERVICE_TYPE_MAX_LENGTH: u32 = 21u32;
 pub const DOT11_WFD_ASP2_INSTANCE_NAME_MAX_LENGTH: u32 = 63u32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 #[repr(C)]
-pub struct DOT11_WFD_ATTRIBUTES(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
+pub struct DOT11_WFD_ATTRIBUTES {
+    pub Header: super::Ndis::NDIS_OBJECT_HEADER,
+    pub uNumConcurrentGORole: u32,
+    pub uNumConcurrentClientRole: u32,
+    pub WPSVersionsSupported: u32,
+    pub bServiceDiscoverySupported: super::super::Foundation::BOOLEAN,
+    pub bClientDiscoverabilitySupported: super::super::Foundation::BOOLEAN,
+    pub bInfrastructureManagementSupported: super::super::Foundation::BOOLEAN,
+    pub uMaxSecondaryDeviceTypeListSize: u32,
+    pub DeviceAddress: [u8; 6],
+    pub uInterfaceAddressListCount: u32,
+    pub pInterfaceAddressList: *mut u8,
+    pub uNumSupportedCountryOrRegionStrings: u32,
+    pub pSupportedCountryOrRegionStrings: *mut u8,
+    pub uDiscoveryFilterListSize: u32,
+    pub uGORoleClientTableSize: u32,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
+impl ::core::marker::Copy for DOT11_WFD_ATTRIBUTES {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
+impl ::core::clone::Clone for DOT11_WFD_ATTRIBUTES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_WFD_ATTRIBUTES_REVISION_1: u32 = 1u32;
 #[repr(C)]
-pub struct DOT11_WFD_CHANNEL(i32);
+pub struct DOT11_WFD_CHANNEL {
+    pub CountryRegionString: [u8; 3],
+    pub OperatingClass: u8,
+    pub ChannelNumber: u8,
+}
+impl ::core::marker::Copy for DOT11_WFD_CHANNEL {}
+impl ::core::clone::Clone for DOT11_WFD_CHANNEL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DOT11_WFD_CONFIGURATION_TIMEOUT(i32);
+pub struct DOT11_WFD_CONFIGURATION_TIMEOUT {
+    pub GOTimeout: u8,
+    pub ClientTimeout: u8,
+}
+impl ::core::marker::Copy for DOT11_WFD_CONFIGURATION_TIMEOUT {}
+impl ::core::clone::Clone for DOT11_WFD_CONFIGURATION_TIMEOUT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_WFD_DEVICE_AUTO_AVAILABILITY: u32 = 16u32;
 pub const DOT11_WFD_DEVICE_CAPABILITY_CONCURRENT_OPERATION: u32 = 4u32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 #[repr(C)]
-pub struct DOT11_WFD_DEVICE_CAPABILITY_CONFIG(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
+pub struct DOT11_WFD_DEVICE_CAPABILITY_CONFIG {
+    pub Header: super::Ndis::NDIS_OBJECT_HEADER,
+    pub bServiceDiscoveryEnabled: super::super::Foundation::BOOLEAN,
+    pub bClientDiscoverabilityEnabled: super::super::Foundation::BOOLEAN,
+    pub bConcurrentOperationSupported: super::super::Foundation::BOOLEAN,
+    pub bInfrastructureManagementEnabled: super::super::Foundation::BOOLEAN,
+    pub bDeviceLimitReached: super::super::Foundation::BOOLEAN,
+    pub bInvitationProcedureEnabled: super::super::Foundation::BOOLEAN,
+    pub WPSVersionsEnabled: u32,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
+impl ::core::marker::Copy for DOT11_WFD_DEVICE_CAPABILITY_CONFIG {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
+impl ::core::clone::Clone for DOT11_WFD_DEVICE_CAPABILITY_CONFIG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_WFD_DEVICE_CAPABILITY_CONFIG_REVISION_1: u32 = 1u32;
 pub const DOT11_WFD_DEVICE_CAPABILITY_P2P_CLIENT_DISCOVERABILITY: u32 = 2u32;
 pub const DOT11_WFD_DEVICE_CAPABILITY_P2P_DEVICE_LIMIT: u32 = 16u32;
@@ -1298,29 +3875,130 @@ pub const DOT11_WFD_DEVICE_CAPABILITY_RESERVED_6: u32 = 64u32;
 pub const DOT11_WFD_DEVICE_CAPABILITY_RESERVED_7: u32 = 128u32;
 pub const DOT11_WFD_DEVICE_CAPABILITY_SERVICE_DISCOVERY: u32 = 1u32;
 #[repr(C)]
-pub struct DOT11_WFD_DEVICE_ENTRY(i32);
+pub struct DOT11_WFD_DEVICE_ENTRY {
+    pub uPhyId: u32,
+    pub PhySpecificInfo: DOT11_BSS_ENTRY_PHY_SPECIFIC_INFO,
+    pub dot11BSSID: [u8; 6],
+    pub dot11BSSType: DOT11_BSS_TYPE,
+    pub TransmitterAddress: [u8; 6],
+    pub lRSSI: i32,
+    pub uLinkQuality: u32,
+    pub usBeaconPeriod: u16,
+    pub ullTimestamp: u64,
+    pub ullBeaconHostTimestamp: u64,
+    pub ullProbeResponseHostTimestamp: u64,
+    pub usCapabilityInformation: u16,
+    pub uBeaconIEsOffset: u32,
+    pub uBeaconIEsLength: u32,
+    pub uProbeResponseIEsOffset: u32,
+    pub uProbeResponseIEsLength: u32,
+}
+impl ::core::marker::Copy for DOT11_WFD_DEVICE_ENTRY {}
+impl ::core::clone::Clone for DOT11_WFD_DEVICE_ENTRY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_WFD_DEVICE_HIGH_AVAILABILITY: u32 = 24u32;
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 #[repr(C)]
-pub struct DOT11_WFD_DEVICE_INFO(i32);
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+pub struct DOT11_WFD_DEVICE_INFO {
+    pub Header: super::Ndis::NDIS_OBJECT_HEADER,
+    pub DeviceAddress: [u8; 6],
+    pub ConfigMethods: u16,
+    pub PrimaryDeviceType: DOT11_WFD_DEVICE_TYPE,
+    pub DeviceName: DOT11_WPS_DEVICE_NAME,
+}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::marker::Copy for DOT11_WFD_DEVICE_INFO {}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::clone::Clone for DOT11_WFD_DEVICE_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_WFD_DEVICE_INFO_REVISION_1: u32 = 1u32;
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 #[repr(C)]
-pub struct DOT11_WFD_DEVICE_LISTEN_CHANNEL(i32);
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+pub struct DOT11_WFD_DEVICE_LISTEN_CHANNEL {
+    pub Header: super::Ndis::NDIS_OBJECT_HEADER,
+    pub ChannelNumber: u8,
+}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::marker::Copy for DOT11_WFD_DEVICE_LISTEN_CHANNEL {}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::clone::Clone for DOT11_WFD_DEVICE_LISTEN_CHANNEL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_WFD_DEVICE_LISTEN_CHANNEL_REVISION_1: u32 = 1u32;
 pub const DOT11_WFD_DEVICE_NOT_DISCOVERABLE: u32 = 0u32;
 #[repr(C)]
-pub struct DOT11_WFD_DEVICE_TYPE(i32);
+pub struct DOT11_WFD_DEVICE_TYPE {
+    pub CategoryID: u16,
+    pub SubCategoryID: u16,
+    pub OUI: [u8; 4],
+}
+impl ::core::marker::Copy for DOT11_WFD_DEVICE_TYPE {}
+impl ::core::clone::Clone for DOT11_WFD_DEVICE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_WFD_DISCOVER_COMPLETE_MAX_LIST_SIZE: u32 = 128u32;
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 #[repr(C)]
-pub struct DOT11_WFD_DISCOVER_COMPLETE_PARAMETERS(i32);
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+pub struct DOT11_WFD_DISCOVER_COMPLETE_PARAMETERS {
+    pub Header: super::Ndis::NDIS_OBJECT_HEADER,
+    pub Status: i32,
+    pub uNumOfEntries: u32,
+    pub uTotalNumOfEntries: u32,
+    pub uListOffset: u32,
+    pub uListLength: u32,
+}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::marker::Copy for DOT11_WFD_DISCOVER_COMPLETE_PARAMETERS {}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::clone::Clone for DOT11_WFD_DISCOVER_COMPLETE_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_WFD_DISCOVER_COMPLETE_PARAMETERS_REVISION_1: u32 = 1u32;
 #[repr(C)]
-pub struct DOT11_WFD_DISCOVER_DEVICE_FILTER(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
+pub struct DOT11_WFD_DISCOVER_DEVICE_FILTER {
+    pub DeviceID: [u8; 6],
+    pub ucBitmask: u8,
+    pub GroupSSID: DOT11_SSID,
+}
+impl ::core::marker::Copy for DOT11_WFD_DISCOVER_DEVICE_FILTER {}
+impl ::core::clone::Clone for DOT11_WFD_DISCOVER_DEVICE_FILTER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DOT11_WFD_DISCOVER_REQUEST(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
+pub struct DOT11_WFD_DISCOVER_REQUEST {
+    pub Header: super::Ndis::NDIS_OBJECT_HEADER,
+    pub DiscoverType: DOT11_WFD_DISCOVER_TYPE,
+    pub ScanType: DOT11_WFD_SCAN_TYPE,
+    pub uDiscoverTimeout: u32,
+    pub uDeviceFilterListOffset: u32,
+    pub uNumDeviceFilters: u32,
+    pub uIEsOffset: u32,
+    pub uIEsLength: u32,
+    pub bForceScanLegacyNetworks: super::super::Foundation::BOOLEAN,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
+impl ::core::marker::Copy for DOT11_WFD_DISCOVER_REQUEST {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
+impl ::core::clone::Clone for DOT11_WFD_DISCOVER_REQUEST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_WFD_DISCOVER_REQUEST_REVISION_1: u32 = 1u32;
 #[repr(transparent)]
 pub struct DOT11_WFD_DISCOVER_TYPE(pub i32);
@@ -1330,7 +4008,15 @@ pub const dot11_wfd_discover_type_auto: DOT11_WFD_DISCOVER_TYPE = DOT11_WFD_DISC
 pub const dot11_wfd_discover_type_scan_social_channels: DOT11_WFD_DISCOVER_TYPE = DOT11_WFD_DISCOVER_TYPE(4i32);
 pub const dot11_wfd_discover_type_forced: DOT11_WFD_DISCOVER_TYPE = DOT11_WFD_DISCOVER_TYPE(-2147483648i32);
 #[repr(C)]
-pub struct DOT11_WFD_GO_INTENT(i32);
+pub struct DOT11_WFD_GO_INTENT {
+    pub _bitfield: u8,
+}
+impl ::core::marker::Copy for DOT11_WFD_GO_INTENT {}
+impl ::core::clone::Clone for DOT11_WFD_GO_INTENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_WFD_GROUP_CAPABILITY_CROSS_CONNECTION_SUPPORTED: u32 = 16u32;
 pub const DOT11_WFD_GROUP_CAPABILITY_EAPOL_KEY_IP_ADDRESS_ALLOCATION_SUPPORTED: u32 = 128u32;
 pub const DOT11_WFD_GROUP_CAPABILITY_GROUP_LIMIT_REACHED: u32 = 4u32;
@@ -1342,25 +4028,100 @@ pub const DOT11_WFD_GROUP_CAPABILITY_PERSISTENT_GROUP: u32 = 2u32;
 pub const DOT11_WFD_GROUP_CAPABILITY_PERSISTENT_RECONNECT_SUPPORTED: u32 = 32u32;
 pub const DOT11_WFD_GROUP_CAPABILITY_RESERVED_7: u32 = 128u32;
 #[repr(C)]
-pub struct DOT11_WFD_GROUP_ID(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
+pub struct DOT11_WFD_GROUP_ID {
+    pub DeviceAddress: [u8; 6],
+    pub SSID: DOT11_SSID,
+}
+impl ::core::marker::Copy for DOT11_WFD_GROUP_ID {}
+impl ::core::clone::Clone for DOT11_WFD_GROUP_ID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DOT11_WFD_GROUP_JOIN_PARAMETERS(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
+pub struct DOT11_WFD_GROUP_JOIN_PARAMETERS {
+    pub Header: super::Ndis::NDIS_OBJECT_HEADER,
+    pub GOOperatingChannel: DOT11_WFD_CHANNEL,
+    pub GOConfigTime: u32,
+    pub bInGroupFormation: super::super::Foundation::BOOLEAN,
+    pub bWaitForWPSReady: super::super::Foundation::BOOLEAN,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
+impl ::core::marker::Copy for DOT11_WFD_GROUP_JOIN_PARAMETERS {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
+impl ::core::clone::Clone for DOT11_WFD_GROUP_JOIN_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_WFD_GROUP_JOIN_PARAMETERS_REVISION_1: u32 = 1u32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 #[repr(C)]
-pub struct DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
+pub struct DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG {
+    pub Header: super::Ndis::NDIS_OBJECT_HEADER,
+    pub bPersistentGroupEnabled: super::super::Foundation::BOOLEAN,
+    pub bIntraBSSDistributionSupported: super::super::Foundation::BOOLEAN,
+    pub bCrossConnectionSupported: super::super::Foundation::BOOLEAN,
+    pub bPersistentReconnectSupported: super::super::Foundation::BOOLEAN,
+    pub bGroupFormationEnabled: super::super::Foundation::BOOLEAN,
+    pub uMaximumGroupLimit: u32,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
+impl ::core::marker::Copy for DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
+impl ::core::clone::Clone for DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG_REVISION_1: u32 = 1u32;
 pub const DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG_REVISION_2: u32 = 2u32;
+#[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
+pub struct DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG_V2 {
+    pub Header: super::Ndis::NDIS_OBJECT_HEADER,
+    pub bPersistentGroupEnabled: super::super::Foundation::BOOLEAN,
+    pub bIntraBSSDistributionSupported: super::super::Foundation::BOOLEAN,
+    pub bCrossConnectionSupported: super::super::Foundation::BOOLEAN,
+    pub bPersistentReconnectSupported: super::super::Foundation::BOOLEAN,
+    pub bGroupFormationEnabled: super::super::Foundation::BOOLEAN,
+    pub uMaximumGroupLimit: u32,
+    pub bEapolKeyIpAddressAllocationSupported: super::super::Foundation::BOOLEAN,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
+impl ::core::marker::Copy for DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG_V2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
+impl ::core::clone::Clone for DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG_V2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG_V2(i32);
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
-#[repr(C)]
-pub struct DOT11_WFD_GROUP_START_PARAMETERS(i32);
+pub struct DOT11_WFD_GROUP_START_PARAMETERS {
+    pub Header: super::Ndis::NDIS_OBJECT_HEADER,
+    pub AdvertisedOperatingChannel: DOT11_WFD_CHANNEL,
+}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::marker::Copy for DOT11_WFD_GROUP_START_PARAMETERS {}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::clone::Clone for DOT11_WFD_GROUP_START_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_WFD_GROUP_START_PARAMETERS_REVISION_1: u32 = 1u32;
 #[repr(C)]
-pub struct DOT11_WFD_INVITATION_FLAGS(i32);
+pub struct DOT11_WFD_INVITATION_FLAGS {
+    pub _bitfield: u8,
+}
+impl ::core::marker::Copy for DOT11_WFD_INVITATION_FLAGS {}
+impl ::core::clone::Clone for DOT11_WFD_INVITATION_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_WFD_MINOR_REASON_DISASSOCIATED_FROM_WLAN_CROSS_CONNECTION_POLICY: u32 = 1u32;
 pub const DOT11_WFD_MINOR_REASON_DISASSOCIATED_INFRASTRUCTURE_MANAGED_POLICY: u32 = 4u32;
 pub const DOT11_WFD_MINOR_REASON_DISASSOCIATED_NOT_MANAGED_INFRASTRUCTURE_CAPABLE: u32 = 2u32;
@@ -1371,18 +4132,58 @@ pub struct DOT11_WFD_SCAN_TYPE(pub i32);
 pub const dot11_wfd_scan_type_active: DOT11_WFD_SCAN_TYPE = DOT11_WFD_SCAN_TYPE(1i32);
 pub const dot11_wfd_scan_type_passive: DOT11_WFD_SCAN_TYPE = DOT11_WFD_SCAN_TYPE(2i32);
 pub const dot11_wfd_scan_type_auto: DOT11_WFD_SCAN_TYPE = DOT11_WFD_SCAN_TYPE(3i32);
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 #[repr(C)]
-pub struct DOT11_WFD_SECONDARY_DEVICE_TYPE_LIST(i32);
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+pub struct DOT11_WFD_SECONDARY_DEVICE_TYPE_LIST {
+    pub Header: super::Ndis::NDIS_OBJECT_HEADER,
+    pub uNumOfEntries: u32,
+    pub uTotalNumOfEntries: u32,
+    pub SecondaryDeviceTypes: [DOT11_WFD_DEVICE_TYPE; 1],
+}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::marker::Copy for DOT11_WFD_SECONDARY_DEVICE_TYPE_LIST {}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::clone::Clone for DOT11_WFD_SECONDARY_DEVICE_TYPE_LIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_WFD_SECONDARY_DEVICE_TYPE_LIST_REVISION_1: u32 = 1u32;
 #[repr(C)]
-pub struct DOT11_WFD_SERVICE_HASH_LIST(i32);
+pub struct DOT11_WFD_SERVICE_HASH_LIST {
+    pub ServiceHashCount: u16,
+    pub ServiceHash: [u8; 6],
+}
+impl ::core::marker::Copy for DOT11_WFD_SERVICE_HASH_LIST {}
+impl ::core::clone::Clone for DOT11_WFD_SERVICE_HASH_LIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_WFD_SERVICE_INFORMATION_MAX_LENGTH: u32 = 65535u32;
 pub const DOT11_WFD_SERVICE_NAME_MAX_LENGTH: u32 = 255u32;
 #[repr(C)]
-pub struct DOT11_WFD_SESSION_ID(i32);
+pub struct DOT11_WFD_SESSION_ID {
+    pub SessionID: u32,
+    pub SessionAddress: [u8; 6],
+}
+impl ::core::marker::Copy for DOT11_WFD_SESSION_ID {}
+impl ::core::clone::Clone for DOT11_WFD_SESSION_ID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DOT11_WFD_SESSION_INFO(i32);
+pub struct DOT11_WFD_SESSION_INFO {
+    pub uSessionInfoLength: u16,
+    pub ucSessionInfo: [u8; 144],
+}
+impl ::core::marker::Copy for DOT11_WFD_SESSION_INFO {}
+impl ::core::clone::Clone for DOT11_WFD_SESSION_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_WFD_SESSION_INFO_MAX_LENGTH: u32 = 144u32;
 pub const DOT11_WFD_STATUS_FAILED_INCOMPATIBLE_PARAMETERS: u32 = 2u32;
 pub const DOT11_WFD_STATUS_FAILED_INCOMPATIBLE_PROVISIONING_METHOD: u32 = 10u32;
@@ -1398,13 +4199,51 @@ pub const DOT11_WFD_STATUS_FAILED_UNKNOWN_WFD_GROUP: u32 = 8u32;
 pub const DOT11_WFD_STATUS_SUCCESS: u32 = 0u32;
 pub const DOT11_WFD_STATUS_SUCCESS_ACCEPTED_BY_USER: u32 = 12u32;
 #[repr(C)]
-pub struct DOT11_WME_AC_PARAMETERS(i32);
+pub struct DOT11_WME_AC_PARAMETERS {
+    pub ucAccessCategoryIndex: u8,
+    pub ucAIFSN: u8,
+    pub ucECWmin: u8,
+    pub ucECWmax: u8,
+    pub usTXOPLimit: u16,
+}
+impl ::core::marker::Copy for DOT11_WME_AC_PARAMETERS {}
+impl ::core::clone::Clone for DOT11_WME_AC_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_WME_PACKET: u32 = 256u32;
 #[repr(C)]
-pub struct DOT11_WME_UPDATE_IE(i32);
-#[cfg(feature = "Win32_Foundation")]
+pub struct DOT11_WME_UPDATE_IE {
+    pub uParamElemMinBeaconIntervals: u32,
+    pub uWMEInfoElemOffset: u32,
+    pub uWMEInfoElemLength: u32,
+    pub uWMEParamElemOffset: u32,
+    pub uWMEParamElemLength: u32,
+    pub ucBuffer: [u8; 1],
+}
+impl ::core::marker::Copy for DOT11_WME_UPDATE_IE {}
+impl ::core::clone::Clone for DOT11_WME_UPDATE_IE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DOT11_WPA_TSC(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct DOT11_WPA_TSC {
+    pub uReserved: u32,
+    pub dot11OffloadType: DOT11_OFFLOAD_TYPE,
+    pub hOffload: super::super::Foundation::HANDLE,
+    pub dot11IV48Counter: DOT11_IV48_COUNTER,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DOT11_WPA_TSC {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DOT11_WPA_TSC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DOT11_WPS_CONFIG_METHOD(pub i32);
 pub const DOT11_WPS_CONFIG_METHOD_NULL: DOT11_WPS_CONFIG_METHOD = DOT11_WPS_CONFIG_METHOD(0i32);
@@ -1415,7 +4254,16 @@ pub const DOT11_WPS_CONFIG_METHOD_PUSHBUTTON: DOT11_WPS_CONFIG_METHOD = DOT11_WP
 pub const DOT11_WPS_CONFIG_METHOD_KEYPAD: DOT11_WPS_CONFIG_METHOD = DOT11_WPS_CONFIG_METHOD(256i32);
 pub const DOT11_WPS_CONFIG_METHOD_WFDS_DEFAULT: DOT11_WPS_CONFIG_METHOD = DOT11_WPS_CONFIG_METHOD(4096i32);
 #[repr(C)]
-pub struct DOT11_WPS_DEVICE_NAME(i32);
+pub struct DOT11_WPS_DEVICE_NAME {
+    pub uDeviceNameLength: u32,
+    pub ucDeviceName: [u8; 32],
+}
+impl ::core::marker::Copy for DOT11_WPS_DEVICE_NAME {}
+impl ::core::clone::Clone for DOT11_WPS_DEVICE_NAME {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOT11_WPS_DEVICE_NAME_MAX_LENGTH: u32 = 32u32;
 #[repr(transparent)]
 pub struct DOT11_WPS_DEVICE_PASSWORD_ID(pub i32);
@@ -1565,7 +4413,19 @@ pub struct IEnumDot11AdHocSecuritySettings(pub *mut ::core::ffi::c_void);
 pub const L2_NOTIFICATION_CODE_GROUP_SIZE: u32 = 4096u32;
 pub const L2_NOTIFICATION_CODE_PUBLIC_BEGIN: u32 = 0u32;
 #[repr(C)]
-pub struct L2_NOTIFICATION_DATA(i32);
+pub struct L2_NOTIFICATION_DATA {
+    pub NotificationSource: u32,
+    pub NotificationCode: u32,
+    pub InterfaceGuid: ::windows_sys::core::GUID,
+    pub dwDataSize: u32,
+    pub pData: *mut ::core::ffi::c_void,
+}
+impl ::core::marker::Copy for L2_NOTIFICATION_DATA {}
+impl ::core::clone::Clone for L2_NOTIFICATION_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const L2_NOTIFICATION_SOURCE_ALL: u32 = 65535u32;
 pub const L2_NOTIFICATION_SOURCE_DOT3_AUTO_CONFIG: u32 = 1u32;
 pub const L2_NOTIFICATION_SOURCE_NONE: u32 = 0u32;
@@ -1728,9 +4588,29 @@ pub const OneXAuthIdentityUser: ONEX_AUTH_IDENTITY = ONEX_AUTH_IDENTITY(2i32);
 pub const OneXAuthIdentityExplicitUser: ONEX_AUTH_IDENTITY = ONEX_AUTH_IDENTITY(3i32);
 pub const OneXAuthIdentityGuest: ONEX_AUTH_IDENTITY = ONEX_AUTH_IDENTITY(4i32);
 pub const OneXAuthIdentityInvalid: ONEX_AUTH_IDENTITY = ONEX_AUTH_IDENTITY(5i32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct ONEX_AUTH_PARAMS(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct ONEX_AUTH_PARAMS {
+    pub fUpdatePending: super::super::Foundation::BOOL,
+    pub oneXConnProfile: ONEX_VARIABLE_BLOB,
+    pub authIdentity: ONEX_AUTH_IDENTITY,
+    pub dwQuarantineState: u32,
+    pub _bitfield: u32,
+    pub dwSessionId: u32,
+    pub hUserToken: super::super::Foundation::HANDLE,
+    pub OneXUserProfile: ONEX_VARIABLE_BLOB,
+    pub Identity: ONEX_VARIABLE_BLOB,
+    pub UserName: ONEX_VARIABLE_BLOB,
+    pub Domain: ONEX_VARIABLE_BLOB,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ONEX_AUTH_PARAMS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ONEX_AUTH_PARAMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ONEX_AUTH_RESTART_REASON(pub i32);
 pub const OneXRestartReasonPeerInitiated: ONEX_AUTH_RESTART_REASON = ONEX_AUTH_RESTART_REASON(0i32);
@@ -1750,9 +4630,27 @@ pub const OneXAuthNoAuthenticatorFound: ONEX_AUTH_STATUS = ONEX_AUTH_STATUS(2i32
 pub const OneXAuthSuccess: ONEX_AUTH_STATUS = ONEX_AUTH_STATUS(3i32);
 pub const OneXAuthFailure: ONEX_AUTH_STATUS = ONEX_AUTH_STATUS(4i32);
 pub const OneXAuthInvalid: ONEX_AUTH_STATUS = ONEX_AUTH_STATUS(5i32);
-#[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
 #[repr(C)]
-pub struct ONEX_EAP_ERROR(i32);
+#[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
+pub struct ONEX_EAP_ERROR {
+    pub dwWinError: u32,
+    pub r#type: super::super::Security::ExtensibleAuthenticationProtocol::EAP_METHOD_TYPE,
+    pub dwReasonCode: u32,
+    pub rootCauseGuid: ::windows_sys::core::GUID,
+    pub repairGuid: ::windows_sys::core::GUID,
+    pub helpLinkGuid: ::windows_sys::core::GUID,
+    pub _bitfield: u32,
+    pub RootCauseString: ONEX_VARIABLE_BLOB,
+    pub RepairString: ONEX_VARIABLE_BLOB,
+}
+#[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
+impl ::core::marker::Copy for ONEX_EAP_ERROR {}
+#[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
+impl ::core::clone::Clone for ONEX_EAP_ERROR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ONEX_EAP_METHOD_BACKEND_SUPPORT(pub i32);
 pub const OneXEapMethodBackendSupportUnknown: ONEX_EAP_METHOD_BACKEND_SUPPORT = ONEX_EAP_METHOD_BACKEND_SUPPORT(0i32);
@@ -1789,25 +4687,91 @@ pub const ONEX_UI_CANCELLED: ONEX_REASON_CODE = ONEX_REASON_CODE(327697i32);
 pub const ONEX_PROFILE_INVALID_EXPLICIT_CREDENTIALS: ONEX_REASON_CODE = ONEX_REASON_CODE(327698i32);
 pub const ONEX_PROFILE_EXPIRED_EXPLICIT_CREDENTIALS: ONEX_REASON_CODE = ONEX_REASON_CODE(327699i32);
 pub const ONEX_UI_NOT_PERMITTED: ONEX_REASON_CODE = ONEX_REASON_CODE(327700i32);
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct ONEX_RESULT_UPDATE_DATA(i32);
-#[repr(C)]
-pub struct ONEX_STATUS(i32);
-#[repr(C)]
-pub struct ONEX_USER_INFO(i32);
-#[repr(C)]
-pub struct ONEX_VARIABLE_BLOB(i32);
+pub struct ONEX_RESULT_UPDATE_DATA {
+    pub oneXStatus: ONEX_STATUS,
+    pub BackendSupport: ONEX_EAP_METHOD_BACKEND_SUPPORT,
+    pub fBackendEngaged: super::super::Foundation::BOOL,
+    pub _bitfield: u32,
+    pub authParams: ONEX_VARIABLE_BLOB,
+    pub eapError: ONEX_VARIABLE_BLOB,
+}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ONEX_RESULT_UPDATE_DATA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ONEX_RESULT_UPDATE_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WFDSVC_CONNECTION_CAPABILITY(i32);
+pub struct ONEX_STATUS {
+    pub authStatus: ONEX_AUTH_STATUS,
+    pub dwReason: u32,
+    pub dwError: u32,
+}
+impl ::core::marker::Copy for ONEX_STATUS {}
+impl ::core::clone::Clone for ONEX_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct ONEX_USER_INFO {
+    pub authIdentity: ONEX_AUTH_IDENTITY,
+    pub _bitfield: u32,
+    pub UserName: ONEX_VARIABLE_BLOB,
+    pub DomainName: ONEX_VARIABLE_BLOB,
+}
+impl ::core::marker::Copy for ONEX_USER_INFO {}
+impl ::core::clone::Clone for ONEX_USER_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct ONEX_VARIABLE_BLOB {
+    pub dwSize: u32,
+    pub dwOffset: u32,
+}
+impl ::core::marker::Copy for ONEX_VARIABLE_BLOB {}
+impl ::core::clone::Clone for ONEX_VARIABLE_BLOB {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct WFDSVC_CONNECTION_CAPABILITY {
+    pub bNew: super::super::Foundation::BOOLEAN,
+    pub bClient: super::super::Foundation::BOOLEAN,
+    pub bGO: super::super::Foundation::BOOLEAN,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WFDSVC_CONNECTION_CAPABILITY {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WFDSVC_CONNECTION_CAPABILITY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WFDSVC_CONNECTION_CAPABILITY_CLIENT: u32 = 2u32;
 pub const WFDSVC_CONNECTION_CAPABILITY_GO: u32 = 4u32;
 pub const WFDSVC_CONNECTION_CAPABILITY_NEW: u32 = 1u32;
 pub const WFD_API_VERSION: u32 = 1u32;
 pub const WFD_API_VERSION_1_0: u32 = 1u32;
 #[repr(C)]
-pub struct WFD_GROUP_ID(i32);
+pub struct WFD_GROUP_ID {
+    pub DeviceAddress: [u8; 6],
+    pub GroupSSID: DOT11_SSID,
+}
+impl ::core::marker::Copy for WFD_GROUP_ID {}
+impl ::core::clone::Clone for WFD_GROUP_ID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[cfg(feature = "Win32_Foundation")]
 pub type WFD_OPEN_SESSION_COMPLETE_CALLBACK = unsafe extern "system" fn(hsessionhandle: super::super::Foundation::HANDLE, pvcontext: *const ::core::ffi::c_void, guidsessioninterface: ::windows_sys::core::GUID, dwerror: u32, dwreasoncode: u32);
 #[repr(transparent)]
@@ -1825,9 +4789,33 @@ pub const WLAN_API_VERSION: u32 = 2u32;
 pub const WLAN_API_VERSION_1_0: u32 = 1u32;
 pub const WLAN_API_VERSION_2_0: u32 = 2u32;
 #[repr(C)]
-pub struct WLAN_ASSOCIATION_ATTRIBUTES(i32);
+pub struct WLAN_ASSOCIATION_ATTRIBUTES {
+    pub dot11Ssid: DOT11_SSID,
+    pub dot11BssType: DOT11_BSS_TYPE,
+    pub dot11Bssid: [u8; 6],
+    pub dot11PhyType: DOT11_PHY_TYPE,
+    pub uDot11PhyIndex: u32,
+    pub wlanSignalQuality: u32,
+    pub ulRxRate: u32,
+    pub ulTxRate: u32,
+}
+impl ::core::marker::Copy for WLAN_ASSOCIATION_ATTRIBUTES {}
+impl ::core::clone::Clone for WLAN_ASSOCIATION_ATTRIBUTES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WLAN_AUTH_CIPHER_PAIR_LIST(i32);
+pub struct WLAN_AUTH_CIPHER_PAIR_LIST {
+    pub dwNumberOfItems: u32,
+    pub pAuthCipherPairList: [DOT11_AUTH_CIPHER_PAIR; 1],
+}
+impl ::core::marker::Copy for WLAN_AUTH_CIPHER_PAIR_LIST {}
+impl ::core::clone::Clone for WLAN_AUTH_CIPHER_PAIR_LIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WLAN_AUTOCONF_OPCODE(pub i32);
 pub const wlan_autoconf_opcode_start: WLAN_AUTOCONF_OPCODE = WLAN_AUTOCONF_OPCODE(0i32);
@@ -1838,9 +4826,33 @@ pub const wlan_autoconf_opcode_allow_explicit_creds: WLAN_AUTOCONF_OPCODE = WLAN
 pub const wlan_autoconf_opcode_block_period: WLAN_AUTOCONF_OPCODE = WLAN_AUTOCONF_OPCODE(5i32);
 pub const wlan_autoconf_opcode_allow_virtual_station_extensibility: WLAN_AUTOCONF_OPCODE = WLAN_AUTOCONF_OPCODE(6i32);
 pub const wlan_autoconf_opcode_end: WLAN_AUTOCONF_OPCODE = WLAN_AUTOCONF_OPCODE(7i32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct WLAN_AVAILABLE_NETWORK(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct WLAN_AVAILABLE_NETWORK {
+    pub strProfileName: [u16; 256],
+    pub dot11Ssid: DOT11_SSID,
+    pub dot11BssType: DOT11_BSS_TYPE,
+    pub uNumberOfBssids: u32,
+    pub bNetworkConnectable: super::super::Foundation::BOOL,
+    pub wlanNotConnectableReason: u32,
+    pub uNumberOfPhyTypes: u32,
+    pub dot11PhyTypes: [DOT11_PHY_TYPE; 8],
+    pub bMorePhyTypes: super::super::Foundation::BOOL,
+    pub wlanSignalQuality: u32,
+    pub bSecurityEnabled: super::super::Foundation::BOOL,
+    pub dot11DefaultAuthAlgorithm: DOT11_AUTH_ALGORITHM,
+    pub dot11DefaultCipherAlgorithm: DOT11_CIPHER_ALGORITHM,
+    pub dwFlags: u32,
+    pub dwReserved: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WLAN_AVAILABLE_NETWORK {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WLAN_AVAILABLE_NETWORK {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WLAN_AVAILABLE_NETWORK_ANQP_SUPPORTED: u32 = 32u32;
 pub const WLAN_AVAILABLE_NETWORK_AUTO_CONNECT_FAILED: u32 = 256u32;
 pub const WLAN_AVAILABLE_NETWORK_CONNECTED: u32 = 1u32;
@@ -1852,25 +4864,127 @@ pub const WLAN_AVAILABLE_NETWORK_HOTSPOT2_ROAMING: u32 = 128u32;
 pub const WLAN_AVAILABLE_NETWORK_INCLUDE_ALL_ADHOC_PROFILES: u32 = 1u32;
 pub const WLAN_AVAILABLE_NETWORK_INCLUDE_ALL_MANUAL_HIDDEN_PROFILES: u32 = 2u32;
 pub const WLAN_AVAILABLE_NETWORK_INTERWORKING_SUPPORTED: u32 = 8u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct WLAN_AVAILABLE_NETWORK_LIST(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct WLAN_AVAILABLE_NETWORK_LIST_V2(i32);
+pub struct WLAN_AVAILABLE_NETWORK_LIST {
+    pub dwNumberOfItems: u32,
+    pub dwIndex: u32,
+    pub Network: [WLAN_AVAILABLE_NETWORK; 1],
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct WLAN_AVAILABLE_NETWORK_V2(i32);
+impl ::core::marker::Copy for WLAN_AVAILABLE_NETWORK_LIST {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WLAN_AVAILABLE_NETWORK_LIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WLAN_BSS_ENTRY(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct WLAN_AVAILABLE_NETWORK_LIST_V2 {
+    pub dwNumberOfItems: u32,
+    pub dwIndex: u32,
+    pub Network: [WLAN_AVAILABLE_NETWORK_V2; 1],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WLAN_AVAILABLE_NETWORK_LIST_V2 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WLAN_AVAILABLE_NETWORK_LIST_V2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WLAN_BSS_LIST(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct WLAN_AVAILABLE_NETWORK_V2 {
+    pub strProfileName: [u16; 256],
+    pub dot11Ssid: DOT11_SSID,
+    pub dot11BssType: DOT11_BSS_TYPE,
+    pub uNumberOfBssids: u32,
+    pub bNetworkConnectable: super::super::Foundation::BOOL,
+    pub wlanNotConnectableReason: u32,
+    pub uNumberOfPhyTypes: u32,
+    pub dot11PhyTypes: [DOT11_PHY_TYPE; 8],
+    pub bMorePhyTypes: super::super::Foundation::BOOL,
+    pub wlanSignalQuality: u32,
+    pub bSecurityEnabled: super::super::Foundation::BOOL,
+    pub dot11DefaultAuthAlgorithm: DOT11_AUTH_ALGORITHM,
+    pub dot11DefaultCipherAlgorithm: DOT11_CIPHER_ALGORITHM,
+    pub dwFlags: u32,
+    pub AccessNetworkOptions: DOT11_ACCESSNETWORKOPTIONS,
+    pub dot11HESSID: [u8; 6],
+    pub VenueInfo: DOT11_VENUEINFO,
+    pub dwReserved: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WLAN_AVAILABLE_NETWORK_V2 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WLAN_AVAILABLE_NETWORK_V2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct WLAN_BSS_ENTRY {
+    pub dot11Ssid: DOT11_SSID,
+    pub uPhyId: u32,
+    pub dot11Bssid: [u8; 6],
+    pub dot11BssType: DOT11_BSS_TYPE,
+    pub dot11BssPhyType: DOT11_PHY_TYPE,
+    pub lRssi: i32,
+    pub uLinkQuality: u32,
+    pub bInRegDomain: super::super::Foundation::BOOLEAN,
+    pub usBeaconPeriod: u16,
+    pub ullTimestamp: u64,
+    pub ullHostTimestamp: u64,
+    pub usCapabilityInformation: u16,
+    pub ulChCenterFrequency: u32,
+    pub wlanRateSet: WLAN_RATE_SET,
+    pub ulIeOffset: u32,
+    pub ulIeSize: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WLAN_BSS_ENTRY {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WLAN_BSS_ENTRY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct WLAN_BSS_LIST {
+    pub dwTotalSize: u32,
+    pub dwNumberOfItems: u32,
+    pub wlanBssEntries: [WLAN_BSS_ENTRY; 1],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WLAN_BSS_LIST {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WLAN_BSS_LIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WLAN_CONNECTION_ADHOC_JOIN_ONLY: u32 = 2u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct WLAN_CONNECTION_ATTRIBUTES(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct WLAN_CONNECTION_ATTRIBUTES {
+    pub isState: WLAN_INTERFACE_STATE,
+    pub wlanConnectionMode: WLAN_CONNECTION_MODE,
+    pub strProfileName: [u16; 256],
+    pub wlanAssociationAttributes: WLAN_ASSOCIATION_ATTRIBUTES,
+    pub wlanSecurityAttributes: WLAN_SECURITY_ATTRIBUTES,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WLAN_CONNECTION_ATTRIBUTES {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WLAN_CONNECTION_ATTRIBUTES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WLAN_CONNECTION_EAPOL_PASSTHROUGH: u32 = 8u32;
 pub const WLAN_CONNECTION_HIDDEN_NETWORK: u32 = 1u32;
 pub const WLAN_CONNECTION_IGNORE_PRIVACY_BIT: u32 = 4u32;
@@ -1882,28 +4996,107 @@ pub const wlan_connection_mode_discovery_secure: WLAN_CONNECTION_MODE = WLAN_CON
 pub const wlan_connection_mode_discovery_unsecure: WLAN_CONNECTION_MODE = WLAN_CONNECTION_MODE(3i32);
 pub const wlan_connection_mode_auto: WLAN_CONNECTION_MODE = WLAN_CONNECTION_MODE(4i32);
 pub const wlan_connection_mode_invalid: WLAN_CONNECTION_MODE = WLAN_CONNECTION_MODE(5i32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct WLAN_CONNECTION_NOTIFICATION_DATA(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct WLAN_CONNECTION_NOTIFICATION_DATA {
+    pub wlanConnectionMode: WLAN_CONNECTION_MODE,
+    pub strProfileName: [u16; 256],
+    pub dot11Ssid: DOT11_SSID,
+    pub dot11BssType: DOT11_BSS_TYPE,
+    pub bSecurityEnabled: super::super::Foundation::BOOL,
+    pub wlanReasonCode: u32,
+    pub dwFlags: WLAN_CONNECTION_NOTIFICATION_FLAGS,
+    pub strProfileXml: [u16; 1],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WLAN_CONNECTION_NOTIFICATION_DATA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WLAN_CONNECTION_NOTIFICATION_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WLAN_CONNECTION_NOTIFICATION_FLAGS(pub u32);
 pub const WLAN_CONNECTION_NOTIFICATION_ADHOC_NETWORK_FORMED: WLAN_CONNECTION_NOTIFICATION_FLAGS = WLAN_CONNECTION_NOTIFICATION_FLAGS(1u32);
 pub const WLAN_CONNECTION_NOTIFICATION_CONSOLE_USER_PROFILE: WLAN_CONNECTION_NOTIFICATION_FLAGS = WLAN_CONNECTION_NOTIFICATION_FLAGS(4u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 #[repr(C)]
-pub struct WLAN_CONNECTION_PARAMETERS(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
+pub struct WLAN_CONNECTION_PARAMETERS {
+    pub wlanConnectionMode: WLAN_CONNECTION_MODE,
+    pub strProfile: super::super::Foundation::PWSTR,
+    pub pDot11Ssid: *mut DOT11_SSID,
+    pub pDesiredBssidList: *mut DOT11_BSSID_LIST,
+    pub dot11BssType: DOT11_BSS_TYPE,
+    pub dwFlags: u32,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
+impl ::core::marker::Copy for WLAN_CONNECTION_PARAMETERS {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
+impl ::core::clone::Clone for WLAN_CONNECTION_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WLAN_CONNECTION_PARAMETERS_V2(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
+pub struct WLAN_CONNECTION_PARAMETERS_V2 {
+    pub wlanConnectionMode: WLAN_CONNECTION_MODE,
+    pub strProfile: super::super::Foundation::PWSTR,
+    pub pDot11Ssid: *mut DOT11_SSID,
+    pub pDot11Hessid: *mut u8,
+    pub pDesiredBssidList: *mut DOT11_BSSID_LIST,
+    pub dot11BssType: DOT11_BSS_TYPE,
+    pub dwFlags: u32,
+    pub pDot11AccessNetworkOptions: *mut DOT11_ACCESSNETWORKOPTIONS,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
+impl ::core::marker::Copy for WLAN_CONNECTION_PARAMETERS_V2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
+impl ::core::clone::Clone for WLAN_CONNECTION_PARAMETERS_V2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WLAN_CONNECTION_PERSIST_DISCOVERY_PROFILE: u32 = 16u32;
 pub const WLAN_CONNECTION_PERSIST_DISCOVERY_PROFILE_CONNECTION_MODE_AUTO: u32 = 32u32;
 pub const WLAN_CONNECTION_PERSIST_DISCOVERY_PROFILE_OVERWRITE_EXISTING: u32 = 64u32;
 #[repr(C)]
-pub struct WLAN_COUNTRY_OR_REGION_STRING_LIST(i32);
+pub struct WLAN_COUNTRY_OR_REGION_STRING_LIST {
+    pub dwNumberOfItems: u32,
+    pub pCountryOrRegionStringList: [u8; 3],
+}
+impl ::core::marker::Copy for WLAN_COUNTRY_OR_REGION_STRING_LIST {}
+impl ::core::clone::Clone for WLAN_COUNTRY_OR_REGION_STRING_LIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WLAN_DEVICE_SERVICE_GUID_LIST(i32);
+pub struct WLAN_DEVICE_SERVICE_GUID_LIST {
+    pub dwNumberOfItems: u32,
+    pub dwIndex: u32,
+    pub DeviceService: [::windows_sys::core::GUID; 1],
+}
+impl ::core::marker::Copy for WLAN_DEVICE_SERVICE_GUID_LIST {}
+impl ::core::clone::Clone for WLAN_DEVICE_SERVICE_GUID_LIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WLAN_DEVICE_SERVICE_NOTIFICATION_DATA(i32);
+pub struct WLAN_DEVICE_SERVICE_NOTIFICATION_DATA {
+    pub DeviceService: ::windows_sys::core::GUID,
+    pub dwOpCode: u32,
+    pub dwDataSize: u32,
+    pub DataBlob: [u8; 1],
+}
+impl ::core::marker::Copy for WLAN_DEVICE_SERVICE_NOTIFICATION_DATA {}
+impl ::core::clone::Clone for WLAN_DEVICE_SERVICE_NOTIFICATION_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WLAN_FILTER_LIST_TYPE(pub i32);
 pub const wlan_filter_list_type_gp_permit: WLAN_FILTER_LIST_TYPE = WLAN_FILTER_LIST_TYPE(0i32);
@@ -1911,9 +5104,28 @@ pub const wlan_filter_list_type_gp_deny: WLAN_FILTER_LIST_TYPE = WLAN_FILTER_LIS
 pub const wlan_filter_list_type_user_permit: WLAN_FILTER_LIST_TYPE = WLAN_FILTER_LIST_TYPE(2i32);
 pub const wlan_filter_list_type_user_deny: WLAN_FILTER_LIST_TYPE = WLAN_FILTER_LIST_TYPE(3i32);
 #[repr(C)]
-pub struct WLAN_HOSTED_NETWORK_CONNECTION_SETTINGS(i32);
+pub struct WLAN_HOSTED_NETWORK_CONNECTION_SETTINGS {
+    pub hostedNetworkSSID: DOT11_SSID,
+    pub dwMaxNumberOfPeers: u32,
+}
+impl ::core::marker::Copy for WLAN_HOSTED_NETWORK_CONNECTION_SETTINGS {}
+impl ::core::clone::Clone for WLAN_HOSTED_NETWORK_CONNECTION_SETTINGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WLAN_HOSTED_NETWORK_DATA_PEER_STATE_CHANGE(i32);
+pub struct WLAN_HOSTED_NETWORK_DATA_PEER_STATE_CHANGE {
+    pub OldState: WLAN_HOSTED_NETWORK_PEER_STATE,
+    pub NewState: WLAN_HOSTED_NETWORK_PEER_STATE,
+    pub PeerStateChangeReason: WLAN_HOSTED_NETWORK_REASON,
+}
+impl ::core::marker::Copy for WLAN_HOSTED_NETWORK_DATA_PEER_STATE_CHANGE {}
+impl ::core::clone::Clone for WLAN_HOSTED_NETWORK_DATA_PEER_STATE_CHANGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WLAN_HOSTED_NETWORK_NOTIFICATION_CODE(pub i32);
 pub const wlan_hosted_network_state_change: WLAN_HOSTED_NETWORK_NOTIFICATION_CODE = WLAN_HOSTED_NETWORK_NOTIFICATION_CODE(4096i32);
@@ -1930,9 +5142,27 @@ pub struct WLAN_HOSTED_NETWORK_PEER_AUTH_STATE(pub i32);
 pub const wlan_hosted_network_peer_state_invalid: WLAN_HOSTED_NETWORK_PEER_AUTH_STATE = WLAN_HOSTED_NETWORK_PEER_AUTH_STATE(0i32);
 pub const wlan_hosted_network_peer_state_authenticated: WLAN_HOSTED_NETWORK_PEER_AUTH_STATE = WLAN_HOSTED_NETWORK_PEER_AUTH_STATE(1i32);
 #[repr(C)]
-pub struct WLAN_HOSTED_NETWORK_PEER_STATE(i32);
+pub struct WLAN_HOSTED_NETWORK_PEER_STATE {
+    pub PeerMacAddress: [u8; 6],
+    pub PeerAuthState: WLAN_HOSTED_NETWORK_PEER_AUTH_STATE,
+}
+impl ::core::marker::Copy for WLAN_HOSTED_NETWORK_PEER_STATE {}
+impl ::core::clone::Clone for WLAN_HOSTED_NETWORK_PEER_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WLAN_HOSTED_NETWORK_RADIO_STATE(i32);
+pub struct WLAN_HOSTED_NETWORK_RADIO_STATE {
+    pub dot11SoftwareRadioState: DOT11_RADIO_STATE,
+    pub dot11HardwareRadioState: DOT11_RADIO_STATE,
+}
+impl ::core::marker::Copy for WLAN_HOSTED_NETWORK_RADIO_STATE {}
+impl ::core::clone::Clone for WLAN_HOSTED_NETWORK_RADIO_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WLAN_HOSTED_NETWORK_REASON(pub i32);
 pub const wlan_hosted_network_reason_success: WLAN_HOSTED_NETWORK_REASON = WLAN_HOSTED_NETWORK_REASON(0i32);
@@ -1965,27 +5195,95 @@ pub const wlan_hosted_network_reason_properties_change: WLAN_HOSTED_NETWORK_REAS
 pub const wlan_hosted_network_reason_virtual_station_blocking_use: WLAN_HOSTED_NETWORK_REASON = WLAN_HOSTED_NETWORK_REASON(27i32);
 pub const wlan_hosted_network_reason_service_available_on_virtual_station: WLAN_HOSTED_NETWORK_REASON = WLAN_HOSTED_NETWORK_REASON(28i32);
 #[repr(C)]
-pub struct WLAN_HOSTED_NETWORK_SECURITY_SETTINGS(i32);
+pub struct WLAN_HOSTED_NETWORK_SECURITY_SETTINGS {
+    pub dot11AuthAlgo: DOT11_AUTH_ALGORITHM,
+    pub dot11CipherAlgo: DOT11_CIPHER_ALGORITHM,
+}
+impl ::core::marker::Copy for WLAN_HOSTED_NETWORK_SECURITY_SETTINGS {}
+impl ::core::clone::Clone for WLAN_HOSTED_NETWORK_SECURITY_SETTINGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WLAN_HOSTED_NETWORK_STATE(pub i32);
 pub const wlan_hosted_network_unavailable: WLAN_HOSTED_NETWORK_STATE = WLAN_HOSTED_NETWORK_STATE(0i32);
 pub const wlan_hosted_network_idle: WLAN_HOSTED_NETWORK_STATE = WLAN_HOSTED_NETWORK_STATE(1i32);
 pub const wlan_hosted_network_active: WLAN_HOSTED_NETWORK_STATE = WLAN_HOSTED_NETWORK_STATE(2i32);
 #[repr(C)]
-pub struct WLAN_HOSTED_NETWORK_STATE_CHANGE(i32);
+pub struct WLAN_HOSTED_NETWORK_STATE_CHANGE {
+    pub OldState: WLAN_HOSTED_NETWORK_STATE,
+    pub NewState: WLAN_HOSTED_NETWORK_STATE,
+    pub StateChangeReason: WLAN_HOSTED_NETWORK_REASON,
+}
+impl ::core::marker::Copy for WLAN_HOSTED_NETWORK_STATE_CHANGE {}
+impl ::core::clone::Clone for WLAN_HOSTED_NETWORK_STATE_CHANGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WLAN_HOSTED_NETWORK_STATUS(i32);
+pub struct WLAN_HOSTED_NETWORK_STATUS {
+    pub HostedNetworkState: WLAN_HOSTED_NETWORK_STATE,
+    pub IPDeviceID: ::windows_sys::core::GUID,
+    pub wlanHostedNetworkBSSID: [u8; 6],
+    pub dot11PhyType: DOT11_PHY_TYPE,
+    pub ulChannelFrequency: u32,
+    pub dwNumberOfPeers: u32,
+    pub PeerList: [WLAN_HOSTED_NETWORK_PEER_STATE; 1],
+}
+impl ::core::marker::Copy for WLAN_HOSTED_NETWORK_STATUS {}
+impl ::core::clone::Clone for WLAN_HOSTED_NETWORK_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WLAN_IHV_CONTROL_TYPE(pub i32);
 pub const wlan_ihv_control_type_service: WLAN_IHV_CONTROL_TYPE = WLAN_IHV_CONTROL_TYPE(0i32);
 pub const wlan_ihv_control_type_driver: WLAN_IHV_CONTROL_TYPE = WLAN_IHV_CONTROL_TYPE(1i32);
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+pub struct WLAN_INTERFACE_CAPABILITY {
+    pub interfaceType: WLAN_INTERFACE_TYPE,
+    pub bDot11DSupported: super::super::Foundation::BOOL,
+    pub dwMaxDesiredSsidListSize: u32,
+    pub dwMaxDesiredBssidListSize: u32,
+    pub dwNumberOfSupportedPhys: u32,
+    pub dot11PhyTypes: [DOT11_PHY_TYPE; 64],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WLAN_INTERFACE_CAPABILITY {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WLAN_INTERFACE_CAPABILITY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WLAN_INTERFACE_CAPABILITY(i32);
+pub struct WLAN_INTERFACE_INFO {
+    pub InterfaceGuid: ::windows_sys::core::GUID,
+    pub strInterfaceDescription: [u16; 256],
+    pub isState: WLAN_INTERFACE_STATE,
+}
+impl ::core::marker::Copy for WLAN_INTERFACE_INFO {}
+impl ::core::clone::Clone for WLAN_INTERFACE_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WLAN_INTERFACE_INFO(i32);
-#[repr(C)]
-pub struct WLAN_INTERFACE_INFO_LIST(i32);
+pub struct WLAN_INTERFACE_INFO_LIST {
+    pub dwNumberOfItems: u32,
+    pub dwIndex: u32,
+    pub InterfaceInfo: [WLAN_INTERFACE_INFO; 1],
+}
+impl ::core::marker::Copy for WLAN_INTERFACE_INFO_LIST {}
+impl ::core::clone::Clone for WLAN_INTERFACE_INFO_LIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WLAN_INTERFACE_STATE(pub i32);
 pub const wlan_interface_state_not_ready: WLAN_INTERFACE_STATE = WLAN_INTERFACE_STATE(0i32);
@@ -2032,13 +5330,50 @@ pub const wlan_intf_opcode_security_end: WLAN_INTF_OPCODE = WLAN_INTF_OPCODE(805
 pub const wlan_intf_opcode_ihv_start: WLAN_INTF_OPCODE = WLAN_INTF_OPCODE(805306368i32);
 pub const wlan_intf_opcode_ihv_end: WLAN_INTF_OPCODE = WLAN_INTF_OPCODE(1073741823i32);
 #[repr(C)]
-pub struct WLAN_MAC_FRAME_STATISTICS(i32);
+pub struct WLAN_MAC_FRAME_STATISTICS {
+    pub ullTransmittedFrameCount: u64,
+    pub ullReceivedFrameCount: u64,
+    pub ullWEPExcludedCount: u64,
+    pub ullTKIPLocalMICFailures: u64,
+    pub ullTKIPReplays: u64,
+    pub ullTKIPICVErrorCount: u64,
+    pub ullCCMPReplays: u64,
+    pub ullCCMPDecryptErrors: u64,
+    pub ullWEPUndecryptableCount: u64,
+    pub ullWEPICVErrorCount: u64,
+    pub ullDecryptSuccessCount: u64,
+    pub ullDecryptFailureCount: u64,
+}
+impl ::core::marker::Copy for WLAN_MAC_FRAME_STATISTICS {}
+impl ::core::clone::Clone for WLAN_MAC_FRAME_STATISTICS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WLAN_MAX_NAME_LENGTH: u32 = 256u32;
 pub const WLAN_MAX_PHY_INDEX: u32 = 64u32;
 pub const WLAN_MAX_PHY_TYPE_NUMBER: u32 = 8u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct WLAN_MSM_NOTIFICATION_DATA(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct WLAN_MSM_NOTIFICATION_DATA {
+    pub wlanConnectionMode: WLAN_CONNECTION_MODE,
+    pub strProfileName: [u16; 256],
+    pub dot11Ssid: DOT11_SSID,
+    pub dot11BssType: DOT11_BSS_TYPE,
+    pub dot11MacAddr: [u8; 6],
+    pub bSecurityEnabled: super::super::Foundation::BOOL,
+    pub bFirstPeer: super::super::Foundation::BOOL,
+    pub bLastPeer: super::super::Foundation::BOOL,
+    pub wlanReasonCode: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WLAN_MSM_NOTIFICATION_DATA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WLAN_MSM_NOTIFICATION_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WLAN_NOTIFICATION_ACM(pub i32);
 pub const wlan_notification_acm_start: WLAN_NOTIFICATION_ACM = WLAN_NOTIFICATION_ACM(0i32);
@@ -2118,9 +5453,44 @@ pub const wlan_operational_state_on: WLAN_OPERATIONAL_STATE = WLAN_OPERATIONAL_S
 pub const wlan_operational_state_going_off: WLAN_OPERATIONAL_STATE = WLAN_OPERATIONAL_STATE(3i32);
 pub const wlan_operational_state_going_on: WLAN_OPERATIONAL_STATE = WLAN_OPERATIONAL_STATE(4i32);
 #[repr(C)]
-pub struct WLAN_PHY_FRAME_STATISTICS(i32);
+pub struct WLAN_PHY_FRAME_STATISTICS {
+    pub ullTransmittedFrameCount: u64,
+    pub ullMulticastTransmittedFrameCount: u64,
+    pub ullFailedCount: u64,
+    pub ullRetryCount: u64,
+    pub ullMultipleRetryCount: u64,
+    pub ullMaxTXLifetimeExceededCount: u64,
+    pub ullTransmittedFragmentCount: u64,
+    pub ullRTSSuccessCount: u64,
+    pub ullRTSFailureCount: u64,
+    pub ullACKFailureCount: u64,
+    pub ullReceivedFrameCount: u64,
+    pub ullMulticastReceivedFrameCount: u64,
+    pub ullPromiscuousReceivedFrameCount: u64,
+    pub ullMaxRXLifetimeExceededCount: u64,
+    pub ullFrameDuplicateCount: u64,
+    pub ullReceivedFragmentCount: u64,
+    pub ullPromiscuousReceivedFragmentCount: u64,
+    pub ullFCSErrorCount: u64,
+}
+impl ::core::marker::Copy for WLAN_PHY_FRAME_STATISTICS {}
+impl ::core::clone::Clone for WLAN_PHY_FRAME_STATISTICS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WLAN_PHY_RADIO_STATE(i32);
+pub struct WLAN_PHY_RADIO_STATE {
+    pub dwPhyIndex: u32,
+    pub dot11SoftwareRadioState: DOT11_RADIO_STATE,
+    pub dot11HardwareRadioState: DOT11_RADIO_STATE,
+}
+impl ::core::marker::Copy for WLAN_PHY_RADIO_STATE {}
+impl ::core::clone::Clone for WLAN_PHY_RADIO_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WLAN_POWER_SETTING(pub i32);
 pub const wlan_power_setting_no_saving: WLAN_POWER_SETTING = WLAN_POWER_SETTING(0i32);
@@ -2133,18 +5503,85 @@ pub const WLAN_PROFILE_CONNECTION_MODE_SET_BY_CLIENT: u32 = 65536u32;
 pub const WLAN_PROFILE_GET_PLAINTEXT_KEY: u32 = 4u32;
 pub const WLAN_PROFILE_GROUP_POLICY: u32 = 1u32;
 #[repr(C)]
-pub struct WLAN_PROFILE_INFO(i32);
+pub struct WLAN_PROFILE_INFO {
+    pub strProfileName: [u16; 256],
+    pub dwFlags: u32,
+}
+impl ::core::marker::Copy for WLAN_PROFILE_INFO {}
+impl ::core::clone::Clone for WLAN_PROFILE_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WLAN_PROFILE_INFO_LIST(i32);
+pub struct WLAN_PROFILE_INFO_LIST {
+    pub dwNumberOfItems: u32,
+    pub dwIndex: u32,
+    pub ProfileInfo: [WLAN_PROFILE_INFO; 1],
+}
+impl ::core::marker::Copy for WLAN_PROFILE_INFO_LIST {}
+impl ::core::clone::Clone for WLAN_PROFILE_INFO_LIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WLAN_PROFILE_USER: u32 = 2u32;
 #[repr(C)]
-pub struct WLAN_RADIO_STATE(i32);
+pub struct WLAN_RADIO_STATE {
+    pub dwNumberOfPhys: u32,
+    pub PhyRadioState: [WLAN_PHY_RADIO_STATE; 64],
+}
+impl ::core::marker::Copy for WLAN_RADIO_STATE {}
+impl ::core::clone::Clone for WLAN_RADIO_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WLAN_RATE_SET(i32);
+pub struct WLAN_RATE_SET {
+    pub uRateSetLength: u32,
+    pub usRateSet: [u16; 126],
+}
+impl ::core::marker::Copy for WLAN_RATE_SET {}
+impl ::core::clone::Clone for WLAN_RATE_SET {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WLAN_RAW_DATA(i32);
+pub struct WLAN_RAW_DATA {
+    pub dwDataSize: u32,
+    pub DataBlob: [u8; 1],
+}
+impl ::core::marker::Copy for WLAN_RAW_DATA {}
+impl ::core::clone::Clone for WLAN_RAW_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WLAN_RAW_DATA_LIST(i32);
+pub struct WLAN_RAW_DATA_LIST {
+    pub dwTotalSize: u32,
+    pub dwNumberOfItems: u32,
+    pub DataList: [WLAN_RAW_DATA_LIST_0; 1],
+}
+impl ::core::marker::Copy for WLAN_RAW_DATA_LIST {}
+impl ::core::clone::Clone for WLAN_RAW_DATA_LIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct WLAN_RAW_DATA_LIST_0 {
+    pub dwDataOffset: u32,
+    pub dwDataSize: u32,
+}
+impl ::core::marker::Copy for WLAN_RAW_DATA_LIST_0 {}
+impl ::core::clone::Clone for WLAN_RAW_DATA_LIST_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WLAN_REASON_CODE_AC_BASE: u32 = 131072u32;
 pub const WLAN_REASON_CODE_AC_CONNECT_BASE: u32 = 163840u32;
 pub const WLAN_REASON_CODE_AC_END: u32 = 196607u32;
@@ -2320,14 +5757,41 @@ pub const wlan_secure_hosted_network_elevated_access: WLAN_SECURABLE_OBJECT = WL
 pub const wlan_secure_virtual_station_extensibility: WLAN_SECURABLE_OBJECT = WLAN_SECURABLE_OBJECT(15i32);
 pub const wlan_secure_wfd_elevated_access: WLAN_SECURABLE_OBJECT = WLAN_SECURABLE_OBJECT(16i32);
 pub const WLAN_SECURABLE_OBJECT_COUNT: WLAN_SECURABLE_OBJECT = WLAN_SECURABLE_OBJECT(17i32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct WLAN_SECURITY_ATTRIBUTES(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct WLAN_SECURITY_ATTRIBUTES {
+    pub bSecurityEnabled: super::super::Foundation::BOOL,
+    pub bOneXEnabled: super::super::Foundation::BOOL,
+    pub dot11AuthAlgorithm: DOT11_AUTH_ALGORITHM,
+    pub dot11CipherAlgorithm: DOT11_CIPHER_ALGORITHM,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WLAN_SECURITY_ATTRIBUTES {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WLAN_SECURITY_ATTRIBUTES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WLAN_SET_EAPHOST_FLAGS(pub u32);
 pub const WLAN_SET_EAPHOST_DATA_ALL_USERS: WLAN_SET_EAPHOST_FLAGS = WLAN_SET_EAPHOST_FLAGS(1u32);
 #[repr(C)]
-pub struct WLAN_STATISTICS(i32);
+pub struct WLAN_STATISTICS {
+    pub ullFourWayHandshakeFailures: u64,
+    pub ullTKIPCounterMeasuresInvoked: u64,
+    pub ullReserved: u64,
+    pub MacUcastCounters: WLAN_MAC_FRAME_STATISTICS,
+    pub MacMcastCounters: WLAN_MAC_FRAME_STATISTICS,
+    pub dwNumberOfPhys: u32,
+    pub PhyCounters: [WLAN_PHY_FRAME_STATISTICS; 1],
+}
+impl ::core::marker::Copy for WLAN_STATISTICS {}
+impl ::core::clone::Clone for WLAN_STATISTICS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WLAN_UI_API_INITIAL_VERSION: u32 = 1u32;
 pub const WLAN_UI_API_VERSION: u32 = 1u32;
 #[repr(transparent)]
@@ -2336,4 +5800,14 @@ pub const WLConnectionPage: WL_DISPLAY_PAGES = WL_DISPLAY_PAGES(0i32);
 pub const WLSecurityPage: WL_DISPLAY_PAGES = WL_DISPLAY_PAGES(1i32);
 pub const WLAdvPage: WL_DISPLAY_PAGES = WL_DISPLAY_PAGES(2i32);
 #[repr(C)]
-pub struct _DOT11_WME_AC_PARAMTERS_LIST(i32);
+pub struct _DOT11_WME_AC_PARAMTERS_LIST {
+    pub uNumOfEntries: u32,
+    pub uTotalNumOfEntries: u32,
+    pub dot11WMEACParameters: [DOT11_WME_AC_PARAMETERS; 1],
+}
+impl ::core::marker::Copy for _DOT11_WME_AC_PARAMTERS_LIST {}
+impl ::core::clone::Clone for _DOT11_WME_AC_PARAMTERS_LIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

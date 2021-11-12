@@ -889,7 +889,16 @@ pub const XHR_AUTH_ALL: XHR_AUTH = XHR_AUTH(0i32);
 pub const XHR_AUTH_NONE: XHR_AUTH = XHR_AUTH(1i32);
 pub const XHR_AUTH_PROXY: XHR_AUTH = XHR_AUTH(2i32);
 #[repr(C)]
-pub struct XHR_CERT(i32);
+pub struct XHR_CERT {
+    pub cbCert: u32,
+    pub pbCert: *mut u8,
+}
+impl ::core::marker::Copy for XHR_CERT {}
+impl ::core::clone::Clone for XHR_CERT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct XHR_CERT_ERROR_FLAG(pub u32);
 pub const XHR_CERT_ERROR_REVOCATION_FAILED: XHR_CERT_ERROR_FLAG = XHR_CERT_ERROR_FLAG(8388608u32);
@@ -904,9 +913,24 @@ pub const XHR_CERT_IGNORE_UNKNOWN_CA: XHR_CERT_IGNORE_FLAG = XHR_CERT_IGNORE_FLA
 pub const XHR_CERT_IGNORE_CERT_CN_INVALID: XHR_CERT_IGNORE_FLAG = XHR_CERT_IGNORE_FLAG(4096u32);
 pub const XHR_CERT_IGNORE_CERT_DATE_INVALID: XHR_CERT_IGNORE_FLAG = XHR_CERT_IGNORE_FLAG(8192u32);
 pub const XHR_CERT_IGNORE_ALL_SERVER_ERRORS: XHR_CERT_IGNORE_FLAG = XHR_CERT_IGNORE_FLAG(12672u32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct XHR_COOKIE(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct XHR_COOKIE {
+    pub pwszUrl: super::super::super::Foundation::PWSTR,
+    pub pwszName: super::super::super::Foundation::PWSTR,
+    pub pwszValue: super::super::super::Foundation::PWSTR,
+    pub pwszP3PPolicy: super::super::super::Foundation::PWSTR,
+    pub ftExpires: super::super::super::Foundation::FILETIME,
+    pub dwFlags: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for XHR_COOKIE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for XHR_COOKIE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct XHR_COOKIE_FLAG(pub i32);
 pub const XHR_COOKIE_IS_SECURE: XHR_COOKIE_FLAG = XHR_COOKIE_FLAG(1i32);
@@ -966,9 +990,55 @@ pub const XMLELEMTYPE_OTHER: XMLEMEM_TYPE = XMLEMEM_TYPE(6i32);
 pub const XMLHTTP60: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2295949834, data2: 61842, data3: 4564, data4: [166, 95, 0, 64, 150, 50, 81, 229] };
 pub const XMLHTTPRequest: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3985379470, data2: 17225, data3: 4562, data4: [145, 164, 0, 192, 79, 121, 105, 232] };
 pub const XMLSchemaCache60: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2295949831, data2: 61842, data3: 4564, data4: [166, 95, 0, 64, 150, 50, 81, 229] };
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct XML_ERROR(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct XML_ERROR {
+    pub _nLine: u32,
+    pub _pchBuf: super::super::super::Foundation::BSTR,
+    pub _cchBuf: u32,
+    pub _ich: u32,
+    pub _pszFound: super::super::super::Foundation::BSTR,
+    pub _pszExpected: super::super::super::Foundation::BSTR,
+    pub _reserved1: u32,
+    pub _reserved2: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for XML_ERROR {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for XML_ERROR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const XSLTemplate60: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2295949832, data2: 61842, data3: 4564, data4: [166, 95, 0, 64, 150, 50, 81, 229] };
 #[repr(C)]
-pub struct __msxml6_ReferenceRemainingTypes__(i32);
+pub struct __msxml6_ReferenceRemainingTypes__ {
+    pub __tagDomNodeType__: DOMNodeType,
+    pub __domNodeType__: DOMNodeType,
+    pub __serverXmlHttpOptionEnum__: SERVERXMLHTTP_OPTION,
+    pub __serverXmlHttpOption__: SERVERXMLHTTP_OPTION,
+    pub __serverCertOptionEnum__: SXH_SERVER_CERT_OPTION,
+    pub __serverCertOption__: SXH_SERVER_CERT_OPTION,
+    pub __proxySettingEnum__: SXH_PROXY_SETTING,
+    pub __proxySetting__: SXH_PROXY_SETTING,
+    pub __somItemTypeEnum__: SOMITEMTYPE,
+    pub __somItemType__: SOMITEMTYPE,
+    pub __schemaUseEnum__: SCHEMAUSE,
+    pub __schemaUse__: SCHEMAUSE,
+    pub __schemaDerivationMethodEnum__: SCHEMADERIVATIONMETHOD,
+    pub __schemaDerivationMethod__: SCHEMADERIVATIONMETHOD,
+    pub __schemaContentTypeEnum__: SCHEMACONTENTTYPE,
+    pub __schemaContentType__: SCHEMACONTENTTYPE,
+    pub __schemaProcessContentsEnum__: SCHEMAPROCESSCONTENTS,
+    pub __schemaProcessContents__: SCHEMAPROCESSCONTENTS,
+    pub __schemaWhitespaceEnum__: SCHEMAWHITESPACE,
+    pub __schemaWhitespace__: SCHEMAWHITESPACE,
+    pub __schemaTypeVarietyEnum__: SCHEMATYPEVARIETY,
+    pub __schemaTypeVariety__: SCHEMATYPEVARIETY,
+}
+impl ::core::marker::Copy for __msxml6_ReferenceRemainingTypes__ {}
+impl ::core::clone::Clone for __msxml6_ReferenceRemainingTypes__ {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

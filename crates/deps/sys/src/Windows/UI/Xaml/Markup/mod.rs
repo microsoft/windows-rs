@@ -44,7 +44,17 @@ pub struct MarkupExtension(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct XamlBinaryWriter(pub *mut ::core::ffi::c_void);
 #[repr(C)]
-pub struct XamlBinaryWriterErrorInformation(i32);
+pub struct XamlBinaryWriterErrorInformation {
+    pub InputStreamIndex: u32,
+    pub LineNumber: u32,
+    pub LinePosition: u32,
+}
+impl ::core::marker::Copy for XamlBinaryWriterErrorInformation {}
+impl ::core::clone::Clone for XamlBinaryWriterErrorInformation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct XamlBindingHelper(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -52,4 +62,13 @@ pub struct XamlMarkupHelper(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct XamlReader(pub *mut ::core::ffi::c_void);
 #[repr(C)]
-pub struct XmlnsDefinition(i32);
+pub struct XmlnsDefinition {
+    pub XmlNamespace: ::windows_sys::core::HSTRING,
+    pub Namespace: ::windows_sys::core::HSTRING,
+}
+impl ::core::marker::Copy for XmlnsDefinition {}
+impl ::core::clone::Clone for XmlnsDefinition {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

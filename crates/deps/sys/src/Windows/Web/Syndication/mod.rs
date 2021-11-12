@@ -48,7 +48,16 @@ pub struct ISyndicationText(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ISyndicationTextFactory(pub *mut ::core::ffi::c_void);
 #[repr(C)]
-pub struct RetrievalProgress(i32);
+pub struct RetrievalProgress {
+    pub BytesRetrieved: u32,
+    pub TotalBytesToRetrieve: u32,
+}
+impl ::core::marker::Copy for RetrievalProgress {}
+impl ::core::clone::Clone for RetrievalProgress {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SyndicationAttribute(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -99,4 +108,15 @@ impl SyndicationTextType {
     pub const Xhtml: Self = Self(2i32);
 }
 #[repr(C)]
-pub struct TransferProgress(i32);
+pub struct TransferProgress {
+    pub BytesSent: u32,
+    pub TotalBytesToSend: u32,
+    pub BytesRetrieved: u32,
+    pub TotalBytesToRetrieve: u32,
+}
+impl ::core::marker::Copy for TransferProgress {}
+impl ::core::clone::Clone for TransferProgress {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

@@ -155,20 +155,57 @@ pub const APPX_COMPRESSION_OPTION_NORMAL: APPX_COMPRESSION_OPTION = APPX_COMPRES
 pub const APPX_COMPRESSION_OPTION_MAXIMUM: APPX_COMPRESSION_OPTION = APPX_COMPRESSION_OPTION(2i32);
 pub const APPX_COMPRESSION_OPTION_FAST: APPX_COMPRESSION_OPTION = APPX_COMPRESSION_OPTION(3i32);
 pub const APPX_COMPRESSION_OPTION_SUPERFAST: APPX_COMPRESSION_OPTION = APPX_COMPRESSION_OPTION(4i32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct APPX_ENCRYPTED_EXEMPTIONS(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct APPX_ENCRYPTED_EXEMPTIONS {
+    pub count: u32,
+    pub plainTextFiles: *mut super::super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for APPX_ENCRYPTED_EXEMPTIONS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for APPX_ENCRYPTED_EXEMPTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct APPX_ENCRYPTED_PACKAGE_OPTIONS(pub u32);
 pub const APPX_ENCRYPTED_PACKAGE_OPTION_NONE: APPX_ENCRYPTED_PACKAGE_OPTIONS = APPX_ENCRYPTED_PACKAGE_OPTIONS(0u32);
 pub const APPX_ENCRYPTED_PACKAGE_OPTION_DIFFUSION: APPX_ENCRYPTED_PACKAGE_OPTIONS = APPX_ENCRYPTED_PACKAGE_OPTIONS(1u32);
 pub const APPX_ENCRYPTED_PACKAGE_OPTION_PAGE_HASHING: APPX_ENCRYPTED_PACKAGE_OPTIONS = APPX_ENCRYPTED_PACKAGE_OPTIONS(2u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[repr(C)]
-pub struct APPX_ENCRYPTED_PACKAGE_SETTINGS(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+pub struct APPX_ENCRYPTED_PACKAGE_SETTINGS {
+    pub keyLength: u32,
+    pub encryptionAlgorithm: super::super::super::Foundation::PWSTR,
+    pub useDiffusion: super::super::super::Foundation::BOOL,
+    pub blockMapHashAlgorithm: ::core::option::Option<super::super::super::System::Com::IUri>,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::marker::Copy for APPX_ENCRYPTED_PACKAGE_SETTINGS {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::clone::Clone for APPX_ENCRYPTED_PACKAGE_SETTINGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct APPX_ENCRYPTED_PACKAGE_SETTINGS2(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+pub struct APPX_ENCRYPTED_PACKAGE_SETTINGS2 {
+    pub keyLength: u32,
+    pub encryptionAlgorithm: super::super::super::Foundation::PWSTR,
+    pub blockMapHashAlgorithm: ::core::option::Option<super::super::super::System::Com::IUri>,
+    pub options: u32,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::marker::Copy for APPX_ENCRYPTED_PACKAGE_SETTINGS2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::clone::Clone for APPX_ENCRYPTED_PACKAGE_SETTINGS2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct APPX_FOOTPRINT_FILE_TYPE(pub i32);
 pub const APPX_FOOTPRINT_FILE_TYPE_MANIFEST: APPX_FOOTPRINT_FILE_TYPE = APPX_FOOTPRINT_FILE_TYPE(0i32);
@@ -177,7 +214,18 @@ pub const APPX_FOOTPRINT_FILE_TYPE_SIGNATURE: APPX_FOOTPRINT_FILE_TYPE = APPX_FO
 pub const APPX_FOOTPRINT_FILE_TYPE_CODEINTEGRITY: APPX_FOOTPRINT_FILE_TYPE = APPX_FOOTPRINT_FILE_TYPE(3i32);
 pub const APPX_FOOTPRINT_FILE_TYPE_CONTENTGROUPMAP: APPX_FOOTPRINT_FILE_TYPE = APPX_FOOTPRINT_FILE_TYPE(4i32);
 #[repr(C)]
-pub struct APPX_KEY_INFO(i32);
+pub struct APPX_KEY_INFO {
+    pub keyLength: u32,
+    pub keyIdLength: u32,
+    pub key: *mut u8,
+    pub keyId: *mut u8,
+}
+impl ::core::marker::Copy for APPX_KEY_INFO {}
+impl ::core::clone::Clone for APPX_KEY_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct APPX_PACKAGE_ARCHITECTURE(pub i32);
 pub const APPX_PACKAGE_ARCHITECTURE_X86: APPX_PACKAGE_ARCHITECTURE = APPX_PACKAGE_ARCHITECTURE(0i32);
@@ -202,12 +250,36 @@ pub const APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTION_LOCALIZED: APPX_PAC
 #[repr(transparent)]
 pub struct APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION(pub i32);
 pub const APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION_APPEND_DELTA: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION = APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION(0i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[repr(C)]
-pub struct APPX_PACKAGE_SETTINGS(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+pub struct APPX_PACKAGE_SETTINGS {
+    pub forceZip32: super::super::super::Foundation::BOOL,
+    pub hashMethod: ::core::option::Option<super::super::super::System::Com::IUri>,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::marker::Copy for APPX_PACKAGE_SETTINGS {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::clone::Clone for APPX_PACKAGE_SETTINGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct APPX_PACKAGE_WRITER_PAYLOAD_STREAM(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+pub struct APPX_PACKAGE_WRITER_PAYLOAD_STREAM {
+    pub inputStream: ::core::option::Option<super::super::super::System::Com::IStream>,
+    pub fileName: super::super::super::Foundation::PWSTR,
+    pub contentType: super::super::super::Foundation::PWSTR,
+    pub compressionOption: APPX_COMPRESSION_OPTION,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::marker::Copy for APPX_PACKAGE_WRITER_PAYLOAD_STREAM {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::clone::Clone for APPX_PACKAGE_WRITER_PAYLOAD_STREAM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct APPX_PACKAGING_CONTEXT_CHANGE_TYPE(pub i32);
 pub const APPX_PACKAGING_CONTEXT_CHANGE_TYPE_START: APPX_PACKAGING_CONTEXT_CHANGE_TYPE = APPX_PACKAGING_CONTEXT_CHANGE_TYPE(0i32);
@@ -458,7 +530,15 @@ pub struct IAppxPackagingDiagnosticEventSinkManager(pub *mut ::core::ffi::c_void
 #[repr(transparent)]
 pub struct IAppxSourceContentGroupMapReader(pub *mut ::core::ffi::c_void);
 #[repr(C)]
-pub struct PACKAGEDEPENDENCY_CONTEXT__(i32);
+pub struct PACKAGEDEPENDENCY_CONTEXT__ {
+    pub unused: i32,
+}
+impl ::core::marker::Copy for PACKAGEDEPENDENCY_CONTEXT__ {}
+impl ::core::clone::Clone for PACKAGEDEPENDENCY_CONTEXT__ {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const PACKAGE_DEPENDENCY_RANK_DEFAULT: u32 = 0u32;
 pub const PACKAGE_FILTER_ALL_LOADED: u32 = 0u32;
 pub const PACKAGE_FILTER_BUNDLE: u32 = 128u32;
@@ -470,12 +550,43 @@ pub const PACKAGE_FILTER_IS_IN_RELATED_SET: u32 = 262144u32;
 pub const PACKAGE_FILTER_OPTIONAL: u32 = 131072u32;
 pub const PACKAGE_FILTER_RESOURCE: u32 = 64u32;
 pub const PACKAGE_FILTER_STATIC: u32 = 524288u32;
+#[repr(C, packed(4))]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct PACKAGE_ID(i32);
+pub struct PACKAGE_ID {
+    pub reserved: u32,
+    pub processorArchitecture: u32,
+    pub version: PACKAGE_VERSION,
+    pub name: super::super::super::Foundation::PWSTR,
+    pub publisher: super::super::super::Foundation::PWSTR,
+    pub resourceId: super::super::super::Foundation::PWSTR,
+    pub publisherId: super::super::super::Foundation::PWSTR,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct PACKAGE_INFO(i32);
+impl ::core::marker::Copy for PACKAGE_ID {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for PACKAGE_ID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(4))]
+#[cfg(feature = "Win32_Foundation")]
+pub struct PACKAGE_INFO {
+    pub reserved: u32,
+    pub flags: u32,
+    pub path: super::super::super::Foundation::PWSTR,
+    pub packageFullName: super::super::super::Foundation::PWSTR,
+    pub packageFamilyName: super::super::super::Foundation::PWSTR,
+    pub packageId: PACKAGE_ID,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for PACKAGE_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for PACKAGE_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const PACKAGE_INFORMATION_BASIC: u32 = 0u32;
 pub const PACKAGE_INFORMATION_FULL: u32 = 256u32;
 pub const PACKAGE_PROPERTY_BUNDLE: u32 = 4u32;
@@ -488,9 +599,48 @@ pub const PACKAGE_PROPERTY_OPTIONAL: u32 = 8u32;
 pub const PACKAGE_PROPERTY_RESOURCE: u32 = 2u32;
 pub const PACKAGE_PROPERTY_STATIC: u32 = 524288u32;
 #[repr(C)]
-pub struct PACKAGE_VERSION(i32);
+pub struct PACKAGE_VERSION {
+    pub Anonymous: PACKAGE_VERSION_0,
+}
+impl ::core::marker::Copy for PACKAGE_VERSION {}
+impl ::core::clone::Clone for PACKAGE_VERSION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(4))]
+pub union PACKAGE_VERSION_0 {
+    pub Version: u64,
+    pub Anonymous: PACKAGE_VERSION_0_0,
+}
+impl ::core::clone::Clone for PACKAGE_VERSION_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__(i32);
+pub struct PACKAGE_VERSION_0_0 {
+    pub Revision: u16,
+    pub Build: u16,
+    pub Minor: u16,
+    pub Major: u16,
+}
+impl ::core::marker::Copy for PACKAGE_VERSION_0_0 {}
+impl ::core::clone::Clone for PACKAGE_VERSION_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__ {
+    pub unused: i32,
+}
+impl ::core::marker::Copy for PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__ {}
+impl ::core::clone::Clone for PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__ {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PackageDependencyLifetimeKind(pub i32);
 pub const PackageDependencyLifetimeKind_Process: PackageDependencyLifetimeKind = PackageDependencyLifetimeKind(0i32);
@@ -523,4 +673,12 @@ pub const PackagePathType_MachineExternal: PackagePathType = PackagePathType(3i3
 pub const PackagePathType_UserExternal: PackagePathType = PackagePathType(4i32);
 pub const PackagePathType_EffectiveExternal: PackagePathType = PackagePathType(5i32);
 #[repr(C)]
-pub struct _PACKAGE_INFO_REFERENCE(i32);
+pub struct _PACKAGE_INFO_REFERENCE {
+    pub reserved: *mut ::core::ffi::c_void,
+}
+impl ::core::marker::Copy for _PACKAGE_INFO_REFERENCE {}
+impl ::core::clone::Clone for _PACKAGE_INFO_REFERENCE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

@@ -145,12 +145,79 @@ pub const BDIF_SSP_SUPPORTED: u32 = 256u32;
 pub const BDIF_TX_POWER: u32 = 2147483648u32;
 pub const BDIF_VISIBLE: u32 = 128u32;
 #[repr(C)]
-pub struct BLUETOOTH_ADDRESS(i32);
+pub struct BLUETOOTH_ADDRESS {
+    pub Anonymous: BLUETOOTH_ADDRESS_0,
+}
+impl ::core::marker::Copy for BLUETOOTH_ADDRESS {}
+impl ::core::clone::Clone for BLUETOOTH_ADDRESS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct BLUETOOTH_AUTHENTICATE_RESPONSE(i32);
+pub union BLUETOOTH_ADDRESS_0 {
+    pub ullLong: u64,
+    pub rgBytes: [u8; 6],
+}
+impl ::core::clone::Clone for BLUETOOTH_ADDRESS_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct BLUETOOTH_AUTHENTICATE_RESPONSE {
+    pub bthAddressRemote: BLUETOOTH_ADDRESS,
+    pub authMethod: BLUETOOTH_AUTHENTICATION_METHOD,
+    pub Anonymous: BLUETOOTH_AUTHENTICATE_RESPONSE_0,
+    pub negativeResponse: u8,
+}
+impl ::core::marker::Copy for BLUETOOTH_AUTHENTICATE_RESPONSE {}
+impl ::core::clone::Clone for BLUETOOTH_AUTHENTICATE_RESPONSE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub union BLUETOOTH_AUTHENTICATE_RESPONSE_0 {
+    pub pinInfo: BLUETOOTH_PIN_INFO,
+    pub oobInfo: BLUETOOTH_OOB_DATA_INFO,
+    pub numericCompInfo: BLUETOOTH_NUMERIC_COMPARISON_INFO,
+    pub passkeyInfo: BLUETOOTH_PASSKEY_INFO,
+}
+impl ::core::clone::Clone for BLUETOOTH_AUTHENTICATE_RESPONSE_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+pub struct BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS {
+    pub deviceInfo: BLUETOOTH_DEVICE_INFO,
+    pub authenticationMethod: BLUETOOTH_AUTHENTICATION_METHOD,
+    pub ioCapability: BLUETOOTH_IO_CAPABILITY,
+    pub authenticationRequirements: BLUETOOTH_AUTHENTICATION_REQUIREMENTS,
+    pub Anonymous: BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS_0,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub union BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS_0 {
+    pub Numeric_Value: u32,
+    pub Passkey: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct BLUETOOTH_AUTHENTICATION_METHOD(pub i32);
 pub const BLUETOOTH_AUTHENTICATION_METHOD_LEGACY: BLUETOOTH_AUTHENTICATION_METHOD = BLUETOOTH_AUTHENTICATION_METHOD(1i32);
@@ -167,18 +234,72 @@ pub const BLUETOOTH_MITM_ProtectionRequiredBonding: BLUETOOTH_AUTHENTICATION_REQ
 pub const BLUETOOTH_MITM_ProtectionNotRequiredGeneralBonding: BLUETOOTH_AUTHENTICATION_REQUIREMENTS = BLUETOOTH_AUTHENTICATION_REQUIREMENTS(4i32);
 pub const BLUETOOTH_MITM_ProtectionRequiredGeneralBonding: BLUETOOTH_AUTHENTICATION_REQUIREMENTS = BLUETOOTH_AUTHENTICATION_REQUIREMENTS(5i32);
 pub const BLUETOOTH_MITM_ProtectionNotDefined: BLUETOOTH_AUTHENTICATION_REQUIREMENTS = BLUETOOTH_AUTHENTICATION_REQUIREMENTS(255i32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct BLUETOOTH_COD_PAIRS(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct BLUETOOTH_COD_PAIRS {
+    pub ulCODMask: u32,
+    pub pcszDescription: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for BLUETOOTH_COD_PAIRS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for BLUETOOTH_COD_PAIRS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct BLUETOOTH_DEVICE_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct BLUETOOTH_DEVICE_INFO {
+    pub dwSize: u32,
+    pub Address: BLUETOOTH_ADDRESS,
+    pub ulClassofDevice: u32,
+    pub fConnected: super::super::Foundation::BOOL,
+    pub fRemembered: super::super::Foundation::BOOL,
+    pub fAuthenticated: super::super::Foundation::BOOL,
+    pub stLastSeen: super::super::Foundation::SYSTEMTIME,
+    pub stLastUsed: super::super::Foundation::SYSTEMTIME,
+    pub szName: [u16; 248],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for BLUETOOTH_DEVICE_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for BLUETOOTH_DEVICE_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const BLUETOOTH_DEVICE_NAME_SIZE: u32 = 256u32;
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+pub struct BLUETOOTH_DEVICE_SEARCH_PARAMS {
+    pub dwSize: u32,
+    pub fReturnAuthenticated: super::super::Foundation::BOOL,
+    pub fReturnRemembered: super::super::Foundation::BOOL,
+    pub fReturnUnknown: super::super::Foundation::BOOL,
+    pub fReturnConnected: super::super::Foundation::BOOL,
+    pub fIssueInquiry: super::super::Foundation::BOOL,
+    pub cTimeoutMultiplier: u8,
+    pub hRadio: super::super::Foundation::HANDLE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for BLUETOOTH_DEVICE_SEARCH_PARAMS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for BLUETOOTH_DEVICE_SEARCH_PARAMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct BLUETOOTH_DEVICE_SEARCH_PARAMS(i32);
-#[repr(C)]
-pub struct BLUETOOTH_FIND_RADIO_PARAMS(i32);
+pub struct BLUETOOTH_FIND_RADIO_PARAMS {
+    pub dwSize: u32,
+}
+impl ::core::marker::Copy for BLUETOOTH_FIND_RADIO_PARAMS {}
+impl ::core::clone::Clone for BLUETOOTH_FIND_RADIO_PARAMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const BLUETOOTH_GATT_FLAG_CONNECTION_AUTHENTICATED: u32 = 2u32;
 pub const BLUETOOTH_GATT_FLAG_CONNECTION_ENCRYPTED: u32 = 1u32;
 pub const BLUETOOTH_GATT_FLAG_FORCE_READ_FROM_CACHE: u32 = 8u32;
@@ -194,26 +315,110 @@ pub const BLUETOOTH_IO_CAPABILITY_DISPLAYYESNO: BLUETOOTH_IO_CAPABILITY = BLUETO
 pub const BLUETOOTH_IO_CAPABILITY_KEYBOARDONLY: BLUETOOTH_IO_CAPABILITY = BLUETOOTH_IO_CAPABILITY(2i32);
 pub const BLUETOOTH_IO_CAPABILITY_NOINPUTNOOUTPUT: BLUETOOTH_IO_CAPABILITY = BLUETOOTH_IO_CAPABILITY(3i32);
 pub const BLUETOOTH_IO_CAPABILITY_UNDEFINED: BLUETOOTH_IO_CAPABILITY = BLUETOOTH_IO_CAPABILITY(255i32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct BLUETOOTH_LOCAL_SERVICE_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct BLUETOOTH_LOCAL_SERVICE_INFO {
+    pub Enabled: super::super::Foundation::BOOL,
+    pub btAddr: BLUETOOTH_ADDRESS,
+    pub szName: [u16; 256],
+    pub szDeviceString: [u16; 256],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for BLUETOOTH_LOCAL_SERVICE_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for BLUETOOTH_LOCAL_SERVICE_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const BLUETOOTH_MAX_NAME_SIZE: u32 = 248u32;
 pub const BLUETOOTH_MAX_PASSKEY_BUFFER_SIZE: u32 = 17u32;
 pub const BLUETOOTH_MAX_PASSKEY_SIZE: u32 = 16u32;
 pub const BLUETOOTH_MAX_SERVICE_NAME_SIZE: u32 = 256u32;
 #[repr(C)]
-pub struct BLUETOOTH_NUMERIC_COMPARISON_INFO(i32);
+pub struct BLUETOOTH_NUMERIC_COMPARISON_INFO {
+    pub NumericValue: u32,
+}
+impl ::core::marker::Copy for BLUETOOTH_NUMERIC_COMPARISON_INFO {}
+impl ::core::clone::Clone for BLUETOOTH_NUMERIC_COMPARISON_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct BLUETOOTH_OOB_DATA_INFO(i32);
+pub struct BLUETOOTH_OOB_DATA_INFO {
+    pub C: [u8; 16],
+    pub R: [u8; 16],
+}
+impl ::core::marker::Copy for BLUETOOTH_OOB_DATA_INFO {}
+impl ::core::clone::Clone for BLUETOOTH_OOB_DATA_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct BLUETOOTH_PASSKEY_INFO(i32);
+pub struct BLUETOOTH_PASSKEY_INFO {
+    pub passkey: u32,
+}
+impl ::core::marker::Copy for BLUETOOTH_PASSKEY_INFO {}
+impl ::core::clone::Clone for BLUETOOTH_PASSKEY_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct BLUETOOTH_PIN_INFO(i32);
+pub struct BLUETOOTH_PIN_INFO {
+    pub pin: [u8; 16],
+    pub pinLength: u8,
+}
+impl ::core::marker::Copy for BLUETOOTH_PIN_INFO {}
+impl ::core::clone::Clone for BLUETOOTH_PIN_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct BLUETOOTH_RADIO_INFO(i32);
+pub struct BLUETOOTH_RADIO_INFO {
+    pub dwSize: u32,
+    pub address: BLUETOOTH_ADDRESS,
+    pub szName: [u16; 248],
+    pub ulClassofDevice: u32,
+    pub lmpSubversion: u16,
+    pub manufacturer: u16,
+}
+impl ::core::marker::Copy for BLUETOOTH_RADIO_INFO {}
+impl ::core::clone::Clone for BLUETOOTH_RADIO_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct BLUETOOTH_SELECT_DEVICE_PARAMS(i32);
+pub struct BLUETOOTH_SELECT_DEVICE_PARAMS {
+    pub dwSize: u32,
+    pub cNumOfClasses: u32,
+    pub prgClassOfDevices: *mut BLUETOOTH_COD_PAIRS,
+    pub pszInfo: super::super::Foundation::PWSTR,
+    pub hwndParent: super::super::Foundation::HWND,
+    pub fForceAuthentication: super::super::Foundation::BOOL,
+    pub fShowAuthenticated: super::super::Foundation::BOOL,
+    pub fShowRemembered: super::super::Foundation::BOOL,
+    pub fShowUnknown: super::super::Foundation::BOOL,
+    pub fAddNewDeviceWizard: super::super::Foundation::BOOL,
+    pub fSkipServicesPage: super::super::Foundation::BOOL,
+    pub pfnDeviceCallback: ::core::option::Option<PFN_DEVICE_CALLBACK>,
+    pub pvParam: *mut ::core::ffi::c_void,
+    pub cNumDevices: u32,
+    pub pDevices: *mut BLUETOOTH_DEVICE_INFO,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for BLUETOOTH_SELECT_DEVICE_PARAMS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for BLUETOOTH_SELECT_DEVICE_PARAMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const BLUETOOTH_SERVICE_DISABLE: u32 = 0u32;
 pub const BLUETOOTH_SERVICE_ENABLE: u32 = 1u32;
 pub const BNEP_PROTOCOL_UUID16: u32 = 15u32;
@@ -231,9 +436,22 @@ pub const BTH_ADDR_IAC_FIRST: u32 = 10390272u32;
 pub const BTH_ADDR_IAC_LAST: u32 = 10390335u32;
 pub const BTH_ADDR_LIAC: u32 = 10390272u32;
 pub const BTH_ADDR_STRING_SIZE: u32 = 12u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct BTH_DEVICE_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct BTH_DEVICE_INFO {
+    pub flags: u32,
+    pub address: u64,
+    pub classOfDevice: u32,
+    pub name: [super::super::Foundation::CHAR; 248],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for BTH_DEVICE_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for BTH_DEVICE_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const BTH_EIR_128_UUIDS_COMPLETE_ID: u32 = 7u32;
 pub const BTH_EIR_128_UUIDS_PARTIAL_ID: u32 = 6u32;
 pub const BTH_EIR_16_UUIDS_COMPLETE_ID: u32 = 3u32;
@@ -320,19 +538,69 @@ pub const BTH_ERROR_UNSUPPORTED_FEATURE_OR_PARAMETER: u32 = 17u32;
 pub const BTH_ERROR_UNSUPPORTED_LMP_PARM_VALUE: u32 = 32u32;
 pub const BTH_ERROR_UNSUPPORTED_REMOTE_FEATURE: u32 = 26u32;
 #[repr(C)]
-pub struct BTH_HCI_EVENT_INFO(i32);
+pub struct BTH_HCI_EVENT_INFO {
+    pub bthAddress: u64,
+    pub connectionType: u8,
+    pub connected: u8,
+}
+impl ::core::marker::Copy for BTH_HCI_EVENT_INFO {}
+impl ::core::clone::Clone for BTH_HCI_EVENT_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const BTH_HOST_FEATURE_ENHANCED_RETRANSMISSION_MODE: u64 = 1u64;
 pub const BTH_HOST_FEATURE_LOW_ENERGY: u64 = 4u64;
 pub const BTH_HOST_FEATURE_SCO_HCI: u64 = 8u64;
 pub const BTH_HOST_FEATURE_SCO_HCIBYPASS: u64 = 16u64;
 pub const BTH_HOST_FEATURE_STREAMING_MODE: u64 = 2u64;
-#[repr(C)]
-pub struct BTH_INFO_REQ(i32);
-#[repr(C)]
-pub struct BTH_INFO_RSP(i32);
+#[repr(C, packed(1))]
+pub struct BTH_INFO_REQ {
+    pub btAddr: u64,
+    pub infoType: u16,
+}
+impl ::core::marker::Copy for BTH_INFO_REQ {}
+impl ::core::clone::Clone for BTH_INFO_REQ {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub struct BTH_INFO_RSP {
+    pub result: u16,
+    pub dataLen: u8,
+    pub Anonymous: BTH_INFO_RSP_0,
+}
+impl ::core::marker::Copy for BTH_INFO_RSP {}
+impl ::core::clone::Clone for BTH_INFO_RSP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub union BTH_INFO_RSP_0 {
+    pub connectionlessMTU: u16,
+    pub data: [u8; 44],
+}
+impl ::core::clone::Clone for BTH_INFO_RSP_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const BTH_IOCTL_BASE: u32 = 0u32;
 #[repr(C)]
-pub struct BTH_L2CAP_EVENT_INFO(i32);
+pub struct BTH_L2CAP_EVENT_INFO {
+    pub bthAddress: u64,
+    pub psm: u16,
+    pub connected: u8,
+    pub initiated: u8,
+}
+impl ::core::marker::Copy for BTH_L2CAP_EVENT_INFO {}
+impl ::core::clone::Clone for BTH_L2CAP_EVENT_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const BTH_LE_ATT_BLUETOOTH_BASE_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 0, data2: 0, data3: 4096, data4: [128, 0, 0, 128, 95, 155, 52, 251] };
 pub const BTH_LE_ATT_CID: u32 = 4u32;
 pub const BTH_LE_ATT_MAX_VALUE_SIZE: u32 = 512u32;
@@ -483,21 +751,87 @@ pub const BTH_MFG_WAVEPLUS_TECHNOLOGY_CO: u32 = 35u32;
 pub const BTH_MFG_WIDCOMM: u32 = 17u32;
 pub const BTH_MFG_ZEEVO: u32 = 18u32;
 pub const BTH_MINORVERSION: u32 = 1u32;
+#[repr(C, packed(1))]
+pub struct BTH_PING_REQ {
+    pub btAddr: u64,
+    pub dataLen: u8,
+    pub data: [u8; 44],
+}
+impl ::core::marker::Copy for BTH_PING_REQ {}
+impl ::core::clone::Clone for BTH_PING_REQ {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct BTH_PING_REQ(i32);
+pub struct BTH_PING_RSP {
+    pub dataLen: u8,
+    pub data: [u8; 44],
+}
+impl ::core::marker::Copy for BTH_PING_RSP {}
+impl ::core::clone::Clone for BTH_PING_RSP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub struct BTH_QUERY_DEVICE {
+    pub LAP: u32,
+    pub length: u8,
+}
+impl ::core::marker::Copy for BTH_QUERY_DEVICE {}
+impl ::core::clone::Clone for BTH_QUERY_DEVICE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub struct BTH_QUERY_SERVICE {
+    pub r#type: u32,
+    pub serviceHandle: u32,
+    pub uuids: [SdpQueryUuid; 12],
+    pub numRange: u32,
+    pub pRange: [SdpAttributeRange; 1],
+}
+impl ::core::marker::Copy for BTH_QUERY_SERVICE {}
+impl ::core::clone::Clone for BTH_QUERY_SERVICE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct BTH_PING_RSP(i32);
-#[repr(C)]
-pub struct BTH_QUERY_DEVICE(i32);
-#[repr(C)]
-pub struct BTH_QUERY_SERVICE(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct BTH_RADIO_IN_RANGE(i32);
+pub struct BTH_RADIO_IN_RANGE {
+    pub deviceInfo: BTH_DEVICE_INFO,
+    pub previousDeviceFlags: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for BTH_RADIO_IN_RANGE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for BTH_RADIO_IN_RANGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const BTH_SDP_VERSION: u32 = 1u32;
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct BTH_SET_SERVICE(i32);
+pub struct BTH_SET_SERVICE {
+    pub pSdpVersion: *mut u32,
+    pub pRecordHandle: *mut super::super::Foundation::HANDLE,
+    pub fCodService: u32,
+    pub Reserved: [u32; 5],
+    pub ulRecordLength: u32,
+    pub pRecord: [u8; 1],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for BTH_SET_SERVICE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for BTH_SET_SERVICE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const BTH_VID_DEFAULT_VALUE: u32 = 65535u32;
 pub const BT_PORT_DYN_FIRST: u32 = 4097u32;
 pub const BT_PORT_MAX: u32 = 65535u32;
@@ -690,7 +1024,15 @@ pub const GenericFileTransferServiceClassID_UUID16: u32 = 4610u32;
 pub const GenericNetworkingServiceClassID_UUID16: u32 = 4609u32;
 pub const GenericTelephonyServiceClassID_UUID16: u32 = 4612u32;
 #[repr(C)]
-pub struct HANDLE_SDP_TYPE(i32);
+pub struct HANDLE_SDP_TYPE {
+    pub Value: u64,
+}
+impl ::core::marker::Copy for HANDLE_SDP_TYPE {}
+impl ::core::clone::Clone for HANDLE_SDP_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const HCCC_PROTOCOL_UUID16: u32 = 18u32;
 pub const HCDC_PROTOCOL_UUID16: u32 = 20u32;
 pub const HCI_CONNECTION_TYPE_ACL: u32 = 1u32;
@@ -803,17 +1145,68 @@ pub const RFCOMM_CMD_RLS: u32 = 2u32;
 pub const RFCOMM_CMD_RPN: u32 = 3u32;
 pub const RFCOMM_CMD_RPN_REQUEST: u32 = 4u32;
 pub const RFCOMM_CMD_RPN_RESPONSE: u32 = 5u32;
+#[repr(C, packed(1))]
+pub struct RFCOMM_COMMAND {
+    pub CmdType: u32,
+    pub Data: RFCOMM_COMMAND_0,
+}
+impl ::core::marker::Copy for RFCOMM_COMMAND {}
+impl ::core::clone::Clone for RFCOMM_COMMAND {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct RFCOMM_COMMAND(i32);
+pub union RFCOMM_COMMAND_0 {
+    pub MSC: RFCOMM_MSC_DATA,
+    pub RLS: RFCOMM_RLS_DATA,
+    pub RPN: RFCOMM_RPN_DATA,
+}
+impl ::core::clone::Clone for RFCOMM_COMMAND_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const RFCOMM_MAX_MTU: u32 = 1011u32;
 pub const RFCOMM_MIN_MTU: u32 = 23u32;
 #[repr(C)]
-pub struct RFCOMM_MSC_DATA(i32);
+pub struct RFCOMM_MSC_DATA {
+    pub Signals: u8,
+    pub Break: u8,
+}
+impl ::core::marker::Copy for RFCOMM_MSC_DATA {}
+impl ::core::clone::Clone for RFCOMM_MSC_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const RFCOMM_PROTOCOL_UUID16: u32 = 3u32;
 #[repr(C)]
-pub struct RFCOMM_RLS_DATA(i32);
+pub struct RFCOMM_RLS_DATA {
+    pub LineStatus: u8,
+}
+impl ::core::marker::Copy for RFCOMM_RLS_DATA {}
+impl ::core::clone::Clone for RFCOMM_RLS_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct RFCOMM_RPN_DATA(i32);
+pub struct RFCOMM_RPN_DATA {
+    pub Baud: u8,
+    pub Data: u8,
+    pub FlowControl: u8,
+    pub XonChar: u8,
+    pub XoffChar: u8,
+    pub ParameterMask1: u8,
+    pub ParameterMask2: u8,
+}
+impl ::core::marker::Copy for RFCOMM_RPN_DATA {}
+impl ::core::clone::Clone for RFCOMM_RPN_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const RLS_ERROR: u32 = 1u32;
 pub const RLS_FRAMING: u32 = 8u32;
 pub const RLS_OVERRUN: u32 = 2u32;
@@ -929,9 +1322,105 @@ pub const SDP_CONNECT_ALLOW_PIN: u32 = 2u32;
 pub const SDP_CONNECT_CACHE: u32 = 1u32;
 pub const SDP_DEFAULT_INQUIRY_MAX_RESPONSES: u32 = 255u32;
 pub const SDP_DEFAULT_INQUIRY_SECONDS: u32 = 6u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct SDP_ELEMENT_DATA(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct SDP_ELEMENT_DATA {
+    pub r#type: SDP_TYPE,
+    pub specificType: SDP_SPECIFICTYPE,
+    pub data: SDP_ELEMENT_DATA_0,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SDP_ELEMENT_DATA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SDP_ELEMENT_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub union SDP_ELEMENT_DATA_0 {
+    pub int128: SDP_LARGE_INTEGER_16,
+    pub int64: i64,
+    pub int32: i32,
+    pub int16: i16,
+    pub int8: super::super::Foundation::CHAR,
+    pub uint128: SDP_ULARGE_INTEGER_16,
+    pub uint64: u64,
+    pub uint32: u32,
+    pub uint16: u16,
+    pub uint8: u8,
+    pub booleanVal: u8,
+    pub uuid128: ::windows_sys::core::GUID,
+    pub uuid32: u32,
+    pub uuid16: u16,
+    pub string: SDP_ELEMENT_DATA_0_2,
+    pub url: SDP_ELEMENT_DATA_0_3,
+    pub sequence: SDP_ELEMENT_DATA_0_1,
+    pub alternative: SDP_ELEMENT_DATA_0_0,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SDP_ELEMENT_DATA_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct SDP_ELEMENT_DATA_0_0 {
+    pub value: *mut u8,
+    pub length: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SDP_ELEMENT_DATA_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SDP_ELEMENT_DATA_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct SDP_ELEMENT_DATA_0_1 {
+    pub value: *mut u8,
+    pub length: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SDP_ELEMENT_DATA_0_1 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SDP_ELEMENT_DATA_0_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct SDP_ELEMENT_DATA_0_2 {
+    pub value: *mut u8,
+    pub length: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SDP_ELEMENT_DATA_0_2 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SDP_ELEMENT_DATA_0_2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct SDP_ELEMENT_DATA_0_3 {
+    pub value: *mut u8,
+    pub length: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SDP_ELEMENT_DATA_0_3 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SDP_ELEMENT_DATA_0_3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SDP_ERROR_INSUFFICIENT_RESOURCES: u32 = 6u32;
 pub const SDP_ERROR_INVALID_CONTINUATION_STATE: u32 = 5u32;
 pub const SDP_ERROR_INVALID_PDU_SIZE: u32 = 4u32;
@@ -939,7 +1428,16 @@ pub const SDP_ERROR_INVALID_RECORD_HANDLE: u32 = 2u32;
 pub const SDP_ERROR_INVALID_REQUEST_SYNTAX: u32 = 3u32;
 pub const SDP_ERROR_INVALID_SDP_VERSION: u32 = 1u32;
 #[repr(C)]
-pub struct SDP_LARGE_INTEGER_16(i32);
+pub struct SDP_LARGE_INTEGER_16 {
+    pub LowPart: u64,
+    pub HighPart: i64,
+}
+impl ::core::marker::Copy for SDP_LARGE_INTEGER_16 {}
+impl ::core::clone::Clone for SDP_LARGE_INTEGER_16 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SDP_MAX_INQUIRY_SECONDS: u32 = 60u32;
 pub const SDP_PROTOCOL_UUID16: u32 = 1u32;
 pub const SDP_REQUEST_TO_DEFAULT: u32 = 0u32;
@@ -967,7 +1465,17 @@ pub const SDP_ST_UUID16: SDP_SPECIFICTYPE = SDP_SPECIFICTYPE(304i32);
 pub const SDP_ST_UUID32: SDP_SPECIFICTYPE = SDP_SPECIFICTYPE(544i32);
 pub const SDP_ST_UUID128: SDP_SPECIFICTYPE = SDP_SPECIFICTYPE(1072i32);
 #[repr(C)]
-pub struct SDP_STRING_TYPE_DATA(i32);
+pub struct SDP_STRING_TYPE_DATA {
+    pub encoding: u16,
+    pub mibeNum: u16,
+    pub attributeId: u16,
+}
+impl ::core::marker::Copy for SDP_STRING_TYPE_DATA {}
+impl ::core::clone::Clone for SDP_STRING_TYPE_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SDP_TYPE(pub i32);
 pub const SDP_TYPE_NIL: SDP_TYPE = SDP_TYPE(0i32);
@@ -981,7 +1489,16 @@ pub const SDP_TYPE_ALTERNATIVE: SDP_TYPE = SDP_TYPE(7i32);
 pub const SDP_TYPE_URL: SDP_TYPE = SDP_TYPE(8i32);
 pub const SDP_TYPE_CONTAINER: SDP_TYPE = SDP_TYPE(32i32);
 #[repr(C)]
-pub struct SDP_ULARGE_INTEGER_16(i32);
+pub struct SDP_ULARGE_INTEGER_16 {
+    pub LowPart: u64,
+    pub HighPart: u64,
+}
+impl ::core::marker::Copy for SDP_ULARGE_INTEGER_16 {}
+impl ::core::clone::Clone for SDP_ULARGE_INTEGER_16 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SERVICE_OPTION_DO_NOT_PUBLISH: u32 = 2u32;
 pub const SERVICE_OPTION_DO_NOT_PUBLISH_EIR: u32 = 8u32;
 pub const SERVICE_OPTION_NO_PUBLIC_BROWSE: u32 = 4u32;
@@ -993,8 +1510,19 @@ pub const SERVICE_SECURITY_ENCRYPT_REQUIRED: u32 = 16u32;
 pub const SERVICE_SECURITY_NONE: u32 = 1u32;
 pub const SERVICE_SECURITY_NO_ASK: u32 = 536870912u32;
 pub const SERVICE_SECURITY_USE_DEFAULTS: u32 = 0u32;
-#[repr(C)]
-pub struct SOCKADDR_BTH(i32);
+#[repr(C, packed(1))]
+pub struct SOCKADDR_BTH {
+    pub addressFamily: u16,
+    pub btAddr: u64,
+    pub serviceClassId: ::windows_sys::core::GUID,
+    pub port: u32,
+}
+impl ::core::marker::Copy for SOCKADDR_BTH {}
+impl ::core::clone::Clone for SOCKADDR_BTH {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SOL_L2CAP: u32 = 256u32;
 pub const SOL_RFCOMM: u32 = 3u32;
 pub const SOL_SDP: u32 = 257u32;
@@ -1012,11 +1540,38 @@ pub const SYNCH_DATA_STORE_MESSAGES: u32 = 6u32;
 pub const SYNCH_DATA_STORE_NOTES: u32 = 5u32;
 pub const SYNCH_DATA_STORE_PHONEBOOK: u32 = 1u32;
 #[repr(C)]
-pub struct SdpAttributeRange(i32);
+pub struct SdpAttributeRange {
+    pub minAttribute: u16,
+    pub maxAttribute: u16,
+}
+impl ::core::marker::Copy for SdpAttributeRange {}
+impl ::core::clone::Clone for SdpAttributeRange {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct SdpQueryUuid(i32);
+pub struct SdpQueryUuid {
+    pub u: SdpQueryUuidUnion,
+    pub uuidType: u16,
+}
+impl ::core::marker::Copy for SdpQueryUuid {}
+impl ::core::clone::Clone for SdpQueryUuid {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct SdpQueryUuidUnion(i32);
+pub union SdpQueryUuidUnion {
+    pub uuid128: ::windows_sys::core::GUID,
+    pub uuid32: u32,
+    pub uuid16: u16,
+}
+impl ::core::clone::Clone for SdpQueryUuidUnion {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SerialPortServiceClassID_UUID16: u32 = 4353u32;
 pub const ServiceDiscoveryServerServiceClassID_UUID16: u32 = 4096u32;
 pub const SimAccessServiceClassID_UUID16: u32 = 4397u32;

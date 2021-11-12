@@ -2,7 +2,18 @@
 #[link(name = "windows")]
 extern "system" {}
 #[repr(C)]
-pub struct AUDIO_ENDPOINT_SHARED_CREATE_PARAMS(i32);
+pub struct AUDIO_ENDPOINT_SHARED_CREATE_PARAMS {
+    pub u32Size: u32,
+    pub u32TSSessionId: u32,
+    pub targetEndpointConnectorType: EndpointConnectorType,
+    pub wfxDeviceFormat: super::WAVEFORMATEX,
+}
+impl ::core::marker::Copy for AUDIO_ENDPOINT_SHARED_CREATE_PARAMS {}
+impl ::core::clone::Clone for AUDIO_ENDPOINT_SHARED_CREATE_PARAMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DEVINTERFACE_AUDIOENDPOINTPLUGIN: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 2670689126,
     data2: 26028,

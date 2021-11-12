@@ -16,16 +16,74 @@ pub const APOERR_INVALID_OUTPUT_MAXFRAMECOUNT: ::windows_sys::core::HRESULT = ::
 pub const APOERR_NOT_INITIALIZED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2005073918i32 as _);
 pub const APOERR_NUM_CONNECTIONS_INVALID: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2005073913i32 as _);
 #[repr(C)]
-pub struct APOInitBaseStruct(i32);
+pub struct APOInitBaseStruct {
+    pub cbSize: u32,
+    pub clsid: ::windows_sys::core::GUID,
+}
+impl ::core::marker::Copy for APOInitBaseStruct {}
+impl ::core::clone::Clone for APOInitBaseStruct {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+pub struct APOInitSystemEffects {
+    pub APOInit: APOInitBaseStruct,
+    pub pAPOEndpointProperties: ::core::option::Option<super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>,
+    pub pAPOSystemEffectsProperties: ::core::option::Option<super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>,
+    pub pReserved: *mut ::core::ffi::c_void,
+    pub pDeviceCollection: ::core::option::Option<super::IMMDeviceCollection>,
+}
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+impl ::core::marker::Copy for APOInitSystemEffects {}
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+impl ::core::clone::Clone for APOInitSystemEffects {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct APOInitSystemEffects(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
+pub struct APOInitSystemEffects2 {
+    pub APOInit: APOInitBaseStruct,
+    pub pAPOEndpointProperties: ::core::option::Option<super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>,
+    pub pAPOSystemEffectsProperties: ::core::option::Option<super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>,
+    pub pReserved: *mut ::core::ffi::c_void,
+    pub pDeviceCollection: ::core::option::Option<super::IMMDeviceCollection>,
+    pub nSoftwareIoDeviceInCollection: u32,
+    pub nSoftwareIoConnectorIndex: u32,
+    pub AudioProcessingMode: ::windows_sys::core::GUID,
+    pub InitializeForDiscoveryOnly: super::super::super::Foundation::BOOL,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
+impl ::core::marker::Copy for APOInitSystemEffects2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
+impl ::core::clone::Clone for APOInitSystemEffects2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct APOInitSystemEffects2(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
-#[repr(C)]
-pub struct APOInitSystemEffects3(i32);
+pub struct APOInitSystemEffects3 {
+    pub APOInit: APOInitBaseStruct,
+    pub pAPOEndpointProperties: ::core::option::Option<super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>,
+    pub pServiceProvider: ::core::option::Option<super::super::super::System::Com::IServiceProvider>,
+    pub pDeviceCollection: ::core::option::Option<super::IMMDeviceCollection>,
+    pub nSoftwareIoDeviceInCollection: u32,
+    pub nSoftwareIoConnectorIndex: u32,
+    pub AudioProcessingMode: ::windows_sys::core::GUID,
+    pub InitializeForDiscoveryOnly: super::super::super::Foundation::BOOL,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
+impl ::core::marker::Copy for APOInitSystemEffects3 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
+impl ::core::clone::Clone for APOInitSystemEffects3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct APO_BUFFER_FLAGS(pub i32);
 pub const BUFFER_INVALID: APO_BUFFER_FLAGS = APO_BUFFER_FLAGS(0i32);
@@ -37,11 +95,43 @@ pub const APO_CONNECTION_BUFFER_TYPE_ALLOCATED: APO_CONNECTION_BUFFER_TYPE = APO
 pub const APO_CONNECTION_BUFFER_TYPE_EXTERNAL: APO_CONNECTION_BUFFER_TYPE = APO_CONNECTION_BUFFER_TYPE(1i32);
 pub const APO_CONNECTION_BUFFER_TYPE_DEPENDANT: APO_CONNECTION_BUFFER_TYPE = APO_CONNECTION_BUFFER_TYPE(2i32);
 #[repr(C)]
-pub struct APO_CONNECTION_DESCRIPTOR(i32);
+pub struct APO_CONNECTION_DESCRIPTOR {
+    pub Type: APO_CONNECTION_BUFFER_TYPE,
+    pub pBuffer: usize,
+    pub u32MaxFrameCount: u32,
+    pub pFormat: ::core::option::Option<IAudioMediaType>,
+    pub u32Signature: u32,
+}
+impl ::core::marker::Copy for APO_CONNECTION_DESCRIPTOR {}
+impl ::core::clone::Clone for APO_CONNECTION_DESCRIPTOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct APO_CONNECTION_PROPERTY(i32);
+pub struct APO_CONNECTION_PROPERTY {
+    pub pBuffer: usize,
+    pub u32ValidFrameCount: u32,
+    pub u32BufferFlags: APO_BUFFER_FLAGS,
+    pub u32Signature: u32,
+}
+impl ::core::marker::Copy for APO_CONNECTION_PROPERTY {}
+impl ::core::clone::Clone for APO_CONNECTION_PROPERTY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct APO_CONNECTION_PROPERTY_V2(i32);
+pub struct APO_CONNECTION_PROPERTY_V2 {
+    pub property: APO_CONNECTION_PROPERTY,
+    pub u64QPCTime: u64,
+}
+impl ::core::marker::Copy for APO_CONNECTION_PROPERTY_V2 {}
+impl ::core::clone::Clone for APO_CONNECTION_PROPERTY_V2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct APO_FLAG(pub i32);
 pub const APO_FLAG_NONE: APO_FLAG = APO_FLAG(0i32);
@@ -59,11 +149,55 @@ pub const APO_LOG_LEVEL_ERROR: APO_LOG_LEVEL = APO_LOG_LEVEL(2i32);
 pub const APO_LOG_LEVEL_WARNING: APO_LOG_LEVEL = APO_LOG_LEVEL(3i32);
 pub const APO_LOG_LEVEL_INFO: APO_LOG_LEVEL = APO_LOG_LEVEL(4i32);
 pub const APO_LOG_LEVEL_VERBOSE: APO_LOG_LEVEL = APO_LOG_LEVEL(5i32);
+#[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
+pub struct APO_NOTIFICATION {
+    pub r#type: APO_NOTIFICATION_TYPE,
+    pub Anonymous: APO_NOTIFICATION_0,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
+impl ::core::marker::Copy for APO_NOTIFICATION {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
+impl ::core::clone::Clone for APO_NOTIFICATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct APO_NOTIFICATION(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
+pub union APO_NOTIFICATION_0 {
+    pub audioEndpointVolumeChange: AUDIO_ENDPOINT_VOLUME_CHANGE_NOTIFICATION,
+    pub audioEndpointPropertyChange: AUDIO_ENDPOINT_PROPERTY_CHANGE_NOTIFICATION,
+    pub audioSystemEffectsPropertyChange: AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_NOTIFICATION,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
+impl ::core::clone::Clone for APO_NOTIFICATION_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct APO_NOTIFICATION_DESCRIPTOR(i32);
+pub struct APO_NOTIFICATION_DESCRIPTOR {
+    pub r#type: APO_NOTIFICATION_TYPE,
+    pub Anonymous: APO_NOTIFICATION_DESCRIPTOR_0,
+}
+impl ::core::marker::Copy for APO_NOTIFICATION_DESCRIPTOR {}
+impl ::core::clone::Clone for APO_NOTIFICATION_DESCRIPTOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub union APO_NOTIFICATION_DESCRIPTOR_0 {
+    pub audioEndpointVolume: AUDIO_ENDPOINT_VOLUME_APO_NOTIFICATION_DESCRIPTOR,
+    pub audioEndpointPropertyChange: AUDIO_ENDPOINT_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR,
+    pub audioSystemEffectsPropertyChange: AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR,
+}
+impl ::core::clone::Clone for APO_NOTIFICATION_DESCRIPTOR_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct APO_NOTIFICATION_TYPE(pub i32);
 pub const APO_NOTIFICATION_TYPE_NONE: APO_NOTIFICATION_TYPE = APO_NOTIFICATION_TYPE(0i32);
@@ -71,20 +205,79 @@ pub const APO_NOTIFICATION_TYPE_ENDPOINT_VOLUME: APO_NOTIFICATION_TYPE = APO_NOT
 pub const APO_NOTIFICATION_TYPE_ENDPOINT_PROPERTY_CHANGE: APO_NOTIFICATION_TYPE = APO_NOTIFICATION_TYPE(2i32);
 pub const APO_NOTIFICATION_TYPE_SYSTEM_EFFECTS_PROPERTY_CHANGE: APO_NOTIFICATION_TYPE = APO_NOTIFICATION_TYPE(3i32);
 #[repr(C)]
-pub struct APO_REG_PROPERTIES(i32);
+pub struct APO_REG_PROPERTIES {
+    pub clsid: ::windows_sys::core::GUID,
+    pub Flags: APO_FLAG,
+    pub szFriendlyName: [u16; 256],
+    pub szCopyrightInfo: [u16; 256],
+    pub u32MajorVersion: u32,
+    pub u32MinorVersion: u32,
+    pub u32MinInputConnections: u32,
+    pub u32MaxInputConnections: u32,
+    pub u32MinOutputConnections: u32,
+    pub u32MaxOutputConnections: u32,
+    pub u32MaxInstances: u32,
+    pub u32NumAPOInterfaces: u32,
+    pub iidAPOInterfaceList: [::windows_sys::core::GUID; 1],
+}
+impl ::core::marker::Copy for APO_REG_PROPERTIES {}
+impl ::core::clone::Clone for APO_REG_PROPERTIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const AUDIOMEDIATYPE_EQUAL_FORMAT_DATA: u32 = 4u32;
 pub const AUDIOMEDIATYPE_EQUAL_FORMAT_TYPES: u32 = 2u32;
 pub const AUDIOMEDIATYPE_EQUAL_FORMAT_USER_DATA: u32 = 8u32;
 #[repr(C)]
-pub struct AUDIO_ENDPOINT_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR(i32);
+pub struct AUDIO_ENDPOINT_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR {
+    pub device: ::core::option::Option<super::IMMDevice>,
+}
+impl ::core::marker::Copy for AUDIO_ENDPOINT_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR {}
+impl ::core::clone::Clone for AUDIO_ENDPOINT_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+pub struct AUDIO_ENDPOINT_PROPERTY_CHANGE_NOTIFICATION {
+    pub endpoint: ::core::option::Option<super::IMMDevice>,
+    pub propertyStore: ::core::option::Option<super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>,
+    pub propertyKey: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY,
+}
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+impl ::core::marker::Copy for AUDIO_ENDPOINT_PROPERTY_CHANGE_NOTIFICATION {}
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+impl ::core::clone::Clone for AUDIO_ENDPOINT_PROPERTY_CHANGE_NOTIFICATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct AUDIO_ENDPOINT_PROPERTY_CHANGE_NOTIFICATION(i32);
+pub struct AUDIO_ENDPOINT_VOLUME_APO_NOTIFICATION_DESCRIPTOR {
+    pub device: ::core::option::Option<super::IMMDevice>,
+}
+impl ::core::marker::Copy for AUDIO_ENDPOINT_VOLUME_APO_NOTIFICATION_DESCRIPTOR {}
+impl ::core::clone::Clone for AUDIO_ENDPOINT_VOLUME_APO_NOTIFICATION_DESCRIPTOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct AUDIO_ENDPOINT_VOLUME_APO_NOTIFICATION_DESCRIPTOR(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct AUDIO_ENDPOINT_VOLUME_CHANGE_NOTIFICATION(i32);
+pub struct AUDIO_ENDPOINT_VOLUME_CHANGE_NOTIFICATION {
+    pub endpoint: ::core::option::Option<super::IMMDevice>,
+    pub volume: *mut super::AUDIO_VOLUME_NOTIFICATION_DATA,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for AUDIO_ENDPOINT_VOLUME_CHANGE_NOTIFICATION {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for AUDIO_ENDPOINT_VOLUME_CHANGE_NOTIFICATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AUDIO_FLOW_TYPE(pub i32);
 pub const AUDIO_FLOW_PULL: AUDIO_FLOW_TYPE = AUDIO_FLOW_TYPE(0i32);
@@ -93,21 +286,68 @@ pub const AUDIO_MAX_CHANNELS: u32 = 4096u32;
 pub const AUDIO_MAX_FRAMERATE: f64 = 384000f64;
 pub const AUDIO_MIN_CHANNELS: u32 = 1u32;
 pub const AUDIO_MIN_FRAMERATE: f64 = 10f64;
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+pub struct AUDIO_SYSTEMEFFECT {
+    pub id: ::windows_sys::core::GUID,
+    pub canSetState: super::super::super::Foundation::BOOL,
+    pub state: AUDIO_SYSTEMEFFECT_STATE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for AUDIO_SYSTEMEFFECT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for AUDIO_SYSTEMEFFECT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct AUDIO_SYSTEMEFFECT(i32);
+pub struct AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR {
+    pub device: ::core::option::Option<super::IMMDevice>,
+    pub propertyStoreContext: ::windows_sys::core::GUID,
+}
+impl ::core::marker::Copy for AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR {}
+impl ::core::clone::Clone for AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR(i32);
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[repr(C)]
-pub struct AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_NOTIFICATION(i32);
+pub struct AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_NOTIFICATION {
+    pub endpoint: ::core::option::Option<super::IMMDevice>,
+    pub propertyStoreContext: ::windows_sys::core::GUID,
+    pub propertyStoreType: super::__MIDL___MIDL_itf_mmdeviceapi_0000_0008_0002,
+    pub propertyStore: ::core::option::Option<super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>,
+    pub propertyKey: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY,
+}
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+impl ::core::marker::Copy for AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_NOTIFICATION {}
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+impl ::core::clone::Clone for AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_NOTIFICATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AUDIO_SYSTEMEFFECT_STATE(pub i32);
 pub const AUDIO_SYSTEMEFFECT_STATE_OFF: AUDIO_SYSTEMEFFECT_STATE = AUDIO_SYSTEMEFFECT_STATE(0i32);
 pub const AUDIO_SYSTEMEFFECT_STATE_ON: AUDIO_SYSTEMEFFECT_STATE = AUDIO_SYSTEMEFFECT_STATE(1i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
 #[repr(C)]
-pub struct AudioFXExtensionParams(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
+pub struct AudioFXExtensionParams {
+    pub AddPageParam: super::super::super::Foundation::LPARAM,
+    pub pwstrEndpointID: super::super::super::Foundation::PWSTR,
+    pub pFxProperties: ::core::option::Option<super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
+impl ::core::marker::Copy for AudioFXExtensionParams {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
+impl ::core::clone::Clone for AudioFXExtensionParams {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct EAudioConstriction(pub i32);
 pub const eAudioConstrictionOff: EAudioConstriction = EAudioConstriction(0i32);
@@ -306,4 +546,17 @@ pub const SID_AudioProcessingObjectLoggingService: ::windows_sys::core::GUID = :
 };
 pub const SID_AudioProcessingObjectRTQueue: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1166809631, data2: 26777, data3: 19474, data4: [153, 172, 226, 230, 172, 37, 49, 4] };
 #[repr(C)]
-pub struct UNCOMPRESSEDAUDIOFORMAT(i32);
+pub struct UNCOMPRESSEDAUDIOFORMAT {
+    pub guidFormatType: ::windows_sys::core::GUID,
+    pub dwSamplesPerFrame: u32,
+    pub dwBytesPerSampleContainer: u32,
+    pub dwValidBitsPerSample: u32,
+    pub fFramesPerSecond: f32,
+    pub dwChannelMask: u32,
+}
+impl ::core::marker::Copy for UNCOMPRESSEDAUDIOFORMAT {}
+impl ::core::clone::Clone for UNCOMPRESSEDAUDIOFORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

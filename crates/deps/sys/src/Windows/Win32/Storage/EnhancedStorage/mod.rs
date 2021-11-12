@@ -2,7 +2,15 @@
 #[link(name = "windows")]
 extern "system" {}
 #[repr(C)]
-pub struct ACT_AUTHORIZATION_STATE(i32);
+pub struct ACT_AUTHORIZATION_STATE {
+    pub ulState: u32,
+}
+impl ::core::marker::Copy for ACT_AUTHORIZATION_STATE {}
+impl ::core::clone::Clone for ACT_AUTHORIZATION_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ACT_AUTHORIZATION_STATE_VALUE(pub i32);
 pub const ACT_UNAUTHORIZED: ACT_AUTHORIZATION_STATE_VALUE = ACT_AUTHORIZATION_STATE_VALUE(0i32);
@@ -344,9 +352,44 @@ pub const ENHANCED_STORAGE_COMMAND_SILO_IS_AUTHENTICATION_SILO: super::super::UI
     },
     pid: 6u32,
 };
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct ENHANCED_STORAGE_PASSWORD_SILO_INFORMATION(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct ENHANCED_STORAGE_PASSWORD_SILO_INFORMATION {
+    pub CurrentAdminFailures: u8,
+    pub CurrentUserFailures: u8,
+    pub TotalUserAuthenticationCount: u32,
+    pub TotalAdminAuthenticationCount: u32,
+    pub FipsCompliant: super::super::Foundation::BOOL,
+    pub SecurityIDAvailable: super::super::Foundation::BOOL,
+    pub InitializeInProgress: super::super::Foundation::BOOL,
+    pub ITMSArmed: super::super::Foundation::BOOL,
+    pub ITMSArmable: super::super::Foundation::BOOL,
+    pub UserCreated: super::super::Foundation::BOOL,
+    pub ResetOnPORDefault: super::super::Foundation::BOOL,
+    pub ResetOnPORCurrent: super::super::Foundation::BOOL,
+    pub MaxAdminFailures: u8,
+    pub MaxUserFailures: u8,
+    pub TimeToCompleteInitialization: u32,
+    pub TimeRemainingToCompleteInitialization: u32,
+    pub MinTimeToAuthenticate: u32,
+    pub MaxAdminPasswordSize: u8,
+    pub MinAdminPasswordSize: u8,
+    pub MaxAdminHintSize: u8,
+    pub MaxUserPasswordSize: u8,
+    pub MinUserPasswordSize: u8,
+    pub MaxUserHintSize: u8,
+    pub MaxUserNameSize: u8,
+    pub MaxSiloNameSize: u8,
+    pub MaxChallengeSize: u16,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ENHANCED_STORAGE_PASSWORD_SILO_INFORMATION {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ENHANCED_STORAGE_PASSWORD_SILO_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const ENHANCED_STORAGE_PROPERTY_ADMIN_HINT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
@@ -8261,7 +8304,21 @@ pub const SHARINGSTATUS_NOTSHARED: u32 = 0u32;
 pub const SHARINGSTATUS_PRIVATE: u32 = 2u32;
 pub const SHARINGSTATUS_SHARED: u32 = 1u32;
 #[repr(C)]
-pub struct SILO_INFO(i32);
+pub struct SILO_INFO {
+    pub ulSTID: u32,
+    pub SpecificationMajor: u8,
+    pub SpecificationMinor: u8,
+    pub ImplementationMajor: u8,
+    pub ImplementationMinor: u8,
+    pub r#type: u8,
+    pub capabilities: u8,
+}
+impl ::core::marker::Copy for SILO_INFO {}
+impl ::core::clone::Clone for SILO_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const STORAGE_PROVIDER_SHARINGSTATUS_NOTSHARED: u32 = 0u32;
 pub const STORAGE_PROVIDER_SHARINGSTATUS_PRIVATE: u32 = 2u32;
 pub const STORAGE_PROVIDER_SHARINGSTATUS_PUBLIC: u32 = 3u32;

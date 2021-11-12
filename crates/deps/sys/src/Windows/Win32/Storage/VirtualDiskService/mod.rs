@@ -90,7 +90,113 @@ pub const MAX_FS_ALLOWED_CLUSTER_SIZES_SIZE: u32 = 32u32;
 pub const MAX_FS_FORMAT_SUPPORT_NAME_SIZE: u32 = 32u32;
 pub const MAX_FS_NAME_SIZE: u32 = 8u32;
 #[repr(C)]
-pub struct VDS_ASYNC_OUTPUT(i32);
+pub struct VDS_ASYNC_OUTPUT {
+    pub r#type: VDS_ASYNC_OUTPUT_TYPE,
+    pub Anonymous: VDS_ASYNC_OUTPUT_0,
+}
+impl ::core::marker::Copy for VDS_ASYNC_OUTPUT {}
+impl ::core::clone::Clone for VDS_ASYNC_OUTPUT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub union VDS_ASYNC_OUTPUT_0 {
+    pub cp: VDS_ASYNC_OUTPUT_0_2,
+    pub cv: VDS_ASYNC_OUTPUT_0_5,
+    pub bvp: VDS_ASYNC_OUTPUT_0_0,
+    pub sv: VDS_ASYNC_OUTPUT_0_7,
+    pub cl: VDS_ASYNC_OUTPUT_0_1,
+    pub ct: VDS_ASYNC_OUTPUT_0_4,
+    pub cpg: VDS_ASYNC_OUTPUT_0_3,
+    pub cvd: VDS_ASYNC_OUTPUT_0_6,
+}
+impl ::core::clone::Clone for VDS_ASYNC_OUTPUT_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct VDS_ASYNC_OUTPUT_0_0 {
+    pub pVolumeUnk: ::core::option::Option<::windows_sys::core::IUnknown>,
+}
+impl ::core::marker::Copy for VDS_ASYNC_OUTPUT_0_0 {}
+impl ::core::clone::Clone for VDS_ASYNC_OUTPUT_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct VDS_ASYNC_OUTPUT_0_1 {
+    pub pLunUnk: ::core::option::Option<::windows_sys::core::IUnknown>,
+}
+impl ::core::marker::Copy for VDS_ASYNC_OUTPUT_0_1 {}
+impl ::core::clone::Clone for VDS_ASYNC_OUTPUT_0_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct VDS_ASYNC_OUTPUT_0_2 {
+    pub ullOffset: u64,
+    pub volumeId: ::windows_sys::core::GUID,
+}
+impl ::core::marker::Copy for VDS_ASYNC_OUTPUT_0_2 {}
+impl ::core::clone::Clone for VDS_ASYNC_OUTPUT_0_2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct VDS_ASYNC_OUTPUT_0_3 {
+    pub pPortalGroupUnk: ::core::option::Option<::windows_sys::core::IUnknown>,
+}
+impl ::core::marker::Copy for VDS_ASYNC_OUTPUT_0_3 {}
+impl ::core::clone::Clone for VDS_ASYNC_OUTPUT_0_3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct VDS_ASYNC_OUTPUT_0_4 {
+    pub pTargetUnk: ::core::option::Option<::windows_sys::core::IUnknown>,
+}
+impl ::core::marker::Copy for VDS_ASYNC_OUTPUT_0_4 {}
+impl ::core::clone::Clone for VDS_ASYNC_OUTPUT_0_4 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct VDS_ASYNC_OUTPUT_0_5 {
+    pub pVolumeUnk: ::core::option::Option<::windows_sys::core::IUnknown>,
+}
+impl ::core::marker::Copy for VDS_ASYNC_OUTPUT_0_5 {}
+impl ::core::clone::Clone for VDS_ASYNC_OUTPUT_0_5 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct VDS_ASYNC_OUTPUT_0_6 {
+    pub pVDiskUnk: ::core::option::Option<::windows_sys::core::IUnknown>,
+}
+impl ::core::marker::Copy for VDS_ASYNC_OUTPUT_0_6 {}
+impl ::core::clone::Clone for VDS_ASYNC_OUTPUT_0_6 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct VDS_ASYNC_OUTPUT_0_7 {
+    pub ullReclaimedBytes: u64,
+}
+impl ::core::marker::Copy for VDS_ASYNC_OUTPUT_0_7 {}
+impl ::core::clone::Clone for VDS_ASYNC_OUTPUT_0_7 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct VDS_ASYNC_OUTPUT_TYPE(pub i32);
 pub const VDS_ASYNCOUT_UNKNOWN: VDS_ASYNC_OUTPUT_TYPE = VDS_ASYNC_OUTPUT_TYPE(0i32);
@@ -127,10 +233,34 @@ pub const VDS_ASYNCOUT_MERGE_VDISK: VDS_ASYNC_OUTPUT_TYPE = VDS_ASYNC_OUTPUT_TYP
 pub const VDS_ASYNCOUT_EXPAND_VDISK: VDS_ASYNC_OUTPUT_TYPE = VDS_ASYNC_OUTPUT_TYPE(204i32);
 pub const VDS_ATTACH_VIRTUAL_DISK_FLAG_USE_FILE_ACL: u32 = 1u32;
 #[repr(C)]
-pub struct VDS_CONTROLLER_NOTIFICATION(i32);
-#[cfg(feature = "Win32_Foundation")]
+pub struct VDS_CONTROLLER_NOTIFICATION {
+    pub ulEvent: VDS_NF_CONTROLLER,
+    pub controllerId: ::windows_sys::core::GUID,
+}
+impl ::core::marker::Copy for VDS_CONTROLLER_NOTIFICATION {}
+impl ::core::clone::Clone for VDS_CONTROLLER_NOTIFICATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct VDS_CONTROLLER_PROP(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct VDS_CONTROLLER_PROP {
+    pub id: ::windows_sys::core::GUID,
+    pub pwszFriendlyName: super::super::Foundation::PWSTR,
+    pub pwszIdentification: super::super::Foundation::PWSTR,
+    pub status: VDS_CONTROLLER_STATUS,
+    pub health: VDS_HEALTH,
+    pub sNumberOfPorts: i16,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for VDS_CONTROLLER_PROP {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for VDS_CONTROLLER_PROP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct VDS_CONTROLLER_STATUS(pub i32);
 pub const VDS_CS_UNKNOWN: VDS_CONTROLLER_STATUS = VDS_CONTROLLER_STATUS(0i32);
@@ -140,10 +270,32 @@ pub const VDS_CS_OFFLINE: VDS_CONTROLLER_STATUS = VDS_CONTROLLER_STATUS(4i32);
 pub const VDS_CS_FAILED: VDS_CONTROLLER_STATUS = VDS_CONTROLLER_STATUS(5i32);
 pub const VDS_CS_REMOVED: VDS_CONTROLLER_STATUS = VDS_CONTROLLER_STATUS(8i32);
 #[repr(C)]
-pub struct VDS_DISK_NOTIFICATION(i32);
-#[cfg(feature = "Win32_Foundation")]
+pub struct VDS_DISK_NOTIFICATION {
+    pub ulEvent: VDS_NF_DISK,
+    pub diskId: ::windows_sys::core::GUID,
+}
+impl ::core::marker::Copy for VDS_DISK_NOTIFICATION {}
+impl ::core::clone::Clone for VDS_DISK_NOTIFICATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct VDS_DRIVE_EXTENT(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct VDS_DRIVE_EXTENT {
+    pub id: ::windows_sys::core::GUID,
+    pub LunId: ::windows_sys::core::GUID,
+    pub ullSize: u64,
+    pub bUsed: super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for VDS_DRIVE_EXTENT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for VDS_DRIVE_EXTENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct VDS_DRIVE_FLAG(pub i32);
 pub const VDS_DRF_HOTSPARE: VDS_DRIVE_FLAG = VDS_DRIVE_FLAG(1i32);
@@ -152,15 +304,73 @@ pub const VDS_DRF_UNASSIGNED: VDS_DRIVE_FLAG = VDS_DRIVE_FLAG(4i32);
 pub const VDS_DRF_HOTSPARE_IN_USE: VDS_DRIVE_FLAG = VDS_DRIVE_FLAG(8i32);
 pub const VDS_DRF_HOTSPARE_STANDBY: VDS_DRIVE_FLAG = VDS_DRIVE_FLAG(16i32);
 #[repr(C)]
-pub struct VDS_DRIVE_LETTER_NOTIFICATION(i32);
+pub struct VDS_DRIVE_LETTER_NOTIFICATION {
+    pub ulEvent: u32,
+    pub wcLetter: u16,
+    pub volumeId: ::windows_sys::core::GUID,
+}
+impl ::core::marker::Copy for VDS_DRIVE_LETTER_NOTIFICATION {}
+impl ::core::clone::Clone for VDS_DRIVE_LETTER_NOTIFICATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct VDS_DRIVE_NOTIFICATION(i32);
+pub struct VDS_DRIVE_NOTIFICATION {
+    pub ulEvent: VDS_NF_DRIVE,
+    pub driveId: ::windows_sys::core::GUID,
+}
+impl ::core::marker::Copy for VDS_DRIVE_NOTIFICATION {}
+impl ::core::clone::Clone for VDS_DRIVE_NOTIFICATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct VDS_DRIVE_PROP(i32);
+pub struct VDS_DRIVE_PROP {
+    pub id: ::windows_sys::core::GUID,
+    pub ullSize: u64,
+    pub pwszFriendlyName: super::super::Foundation::PWSTR,
+    pub pwszIdentification: super::super::Foundation::PWSTR,
+    pub ulFlags: u32,
+    pub status: VDS_DRIVE_STATUS,
+    pub health: VDS_HEALTH,
+    pub sInternalBusNumber: i16,
+    pub sSlotNumber: i16,
+}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for VDS_DRIVE_PROP {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for VDS_DRIVE_PROP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct VDS_DRIVE_PROP2(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct VDS_DRIVE_PROP2 {
+    pub id: ::windows_sys::core::GUID,
+    pub ullSize: u64,
+    pub pwszFriendlyName: super::super::Foundation::PWSTR,
+    pub pwszIdentification: super::super::Foundation::PWSTR,
+    pub ulFlags: u32,
+    pub status: VDS_DRIVE_STATUS,
+    pub health: VDS_HEALTH,
+    pub sInternalBusNumber: i16,
+    pub sSlotNumber: i16,
+    pub ulEnclosureNumber: u32,
+    pub busType: VDS_STORAGE_BUS_TYPE,
+    pub ulSpindleSpeed: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for VDS_DRIVE_PROP2 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for VDS_DRIVE_PROP2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct VDS_DRIVE_STATUS(pub i32);
 pub const VDS_DRS_UNKNOWN: VDS_DRIVE_STATUS = VDS_DRIVE_STATUS(0i32);
@@ -519,7 +729,17 @@ pub const VDS_E_VOLUME_TEMPORARILY_DISMOUNTED: ::windows_sys::core::HRESULT = ::
 pub const VDS_E_VOLUME_TOO_BIG: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147212243i32 as _);
 pub const VDS_E_VOLUME_TOO_SMALL: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147212244i32 as _);
 #[repr(C)]
-pub struct VDS_FILE_SYSTEM_NOTIFICATION(i32);
+pub struct VDS_FILE_SYSTEM_NOTIFICATION {
+    pub ulEvent: VDS_NF_FILE_SYSTEM,
+    pub volumeId: ::windows_sys::core::GUID,
+    pub dwPercentCompleted: u32,
+}
+impl ::core::marker::Copy for VDS_FILE_SYSTEM_NOTIFICATION {}
+impl ::core::clone::Clone for VDS_FILE_SYSTEM_NOTIFICATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct VDS_FILE_SYSTEM_TYPE(pub i32);
 pub const VDS_FST_UNKNOWN: VDS_FILE_SYSTEM_TYPE = VDS_FILE_SYSTEM_TYPE(0i32);
@@ -533,7 +753,21 @@ pub const VDS_FST_EXFAT: VDS_FILE_SYSTEM_TYPE = VDS_FILE_SYSTEM_TYPE(7i32);
 pub const VDS_FST_CSVFS: VDS_FILE_SYSTEM_TYPE = VDS_FILE_SYSTEM_TYPE(8i32);
 pub const VDS_FST_REFS: VDS_FILE_SYSTEM_TYPE = VDS_FILE_SYSTEM_TYPE(9i32);
 #[repr(C)]
-pub struct VDS_HBAPORT_PROP(i32);
+pub struct VDS_HBAPORT_PROP {
+    pub id: ::windows_sys::core::GUID,
+    pub wwnNode: VDS_WWN,
+    pub wwnPort: VDS_WWN,
+    pub r#type: VDS_HBAPORT_TYPE,
+    pub status: VDS_HBAPORT_STATUS,
+    pub ulPortSpeed: u32,
+    pub ulSupportedPortSpeed: u32,
+}
+impl ::core::marker::Copy for VDS_HBAPORT_PROP {}
+impl ::core::clone::Clone for VDS_HBAPORT_PROP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct VDS_HBAPORT_SPEED_FLAG(pub i32);
 pub const VDS_HSF_UNKNOWN: VDS_HBAPORT_SPEED_FLAG = VDS_HBAPORT_SPEED_FLAG(0i32);
@@ -579,12 +813,79 @@ pub const VDS_H_FAILED: VDS_HEALTH = VDS_HEALTH(8i32);
 pub const VDS_H_REPLACED: VDS_HEALTH = VDS_HEALTH(9i32);
 pub const VDS_H_PENDING_FAILURE: VDS_HEALTH = VDS_HEALTH(10i32);
 pub const VDS_H_DEGRADED: VDS_HEALTH = VDS_HEALTH(11i32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct VDS_HINTS(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct VDS_HINTS {
+    pub ullHintMask: u64,
+    pub ullExpectedMaximumSize: u64,
+    pub ulOptimalReadSize: u32,
+    pub ulOptimalReadAlignment: u32,
+    pub ulOptimalWriteSize: u32,
+    pub ulOptimalWriteAlignment: u32,
+    pub ulMaximumDriveCount: u32,
+    pub ulStripeSize: u32,
+    pub bFastCrashRecoveryRequired: super::super::Foundation::BOOL,
+    pub bMostlyReads: super::super::Foundation::BOOL,
+    pub bOptimizeForSequentialReads: super::super::Foundation::BOOL,
+    pub bOptimizeForSequentialWrites: super::super::Foundation::BOOL,
+    pub bRemapEnabled: super::super::Foundation::BOOL,
+    pub bReadBackVerifyEnabled: super::super::Foundation::BOOL,
+    pub bWriteThroughCachingEnabled: super::super::Foundation::BOOL,
+    pub bHardwareChecksumEnabled: super::super::Foundation::BOOL,
+    pub bIsYankable: super::super::Foundation::BOOL,
+    pub sRebuildPriority: i16,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for VDS_HINTS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for VDS_HINTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct VDS_HINTS2(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct VDS_HINTS2 {
+    pub ullHintMask: u64,
+    pub ullExpectedMaximumSize: u64,
+    pub ulOptimalReadSize: u32,
+    pub ulOptimalReadAlignment: u32,
+    pub ulOptimalWriteSize: u32,
+    pub ulOptimalWriteAlignment: u32,
+    pub ulMaximumDriveCount: u32,
+    pub ulStripeSize: u32,
+    pub ulReserved1: u32,
+    pub ulReserved2: u32,
+    pub ulReserved3: u32,
+    pub bFastCrashRecoveryRequired: super::super::Foundation::BOOL,
+    pub bMostlyReads: super::super::Foundation::BOOL,
+    pub bOptimizeForSequentialReads: super::super::Foundation::BOOL,
+    pub bOptimizeForSequentialWrites: super::super::Foundation::BOOL,
+    pub bRemapEnabled: super::super::Foundation::BOOL,
+    pub bReadBackVerifyEnabled: super::super::Foundation::BOOL,
+    pub bWriteThroughCachingEnabled: super::super::Foundation::BOOL,
+    pub bHardwareChecksumEnabled: super::super::Foundation::BOOL,
+    pub bIsYankable: super::super::Foundation::BOOL,
+    pub bAllocateHotSpare: super::super::Foundation::BOOL,
+    pub bUseMirroredCache: super::super::Foundation::BOOL,
+    pub bReadCachingEnabled: super::super::Foundation::BOOL,
+    pub bWriteCachingEnabled: super::super::Foundation::BOOL,
+    pub bMediaScanEnabled: super::super::Foundation::BOOL,
+    pub bConsistencyCheckEnabled: super::super::Foundation::BOOL,
+    pub BusType: VDS_STORAGE_BUS_TYPE,
+    pub bReserved1: super::super::Foundation::BOOL,
+    pub bReserved2: super::super::Foundation::BOOL,
+    pub bReserved3: super::super::Foundation::BOOL,
+    pub sRebuildPriority: i16,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for VDS_HINTS2 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for VDS_HINTS2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const VDS_HINT_ALLOCATEHOTSPARE: i32 = 512i32;
 pub const VDS_HINT_BUSTYPE: i32 = 1024i32;
 pub const VDS_HINT_CONSISTENCYCHECKENABLED: i32 = 32768i32;
@@ -610,7 +911,19 @@ pub const VDS_HWT_ISCSI: VDS_HWPROVIDER_TYPE = VDS_HWPROVIDER_TYPE(3i32);
 pub const VDS_HWT_SAS: VDS_HWPROVIDER_TYPE = VDS_HWPROVIDER_TYPE(4i32);
 pub const VDS_HWT_HYBRID: VDS_HWPROVIDER_TYPE = VDS_HWPROVIDER_TYPE(5i32);
 #[repr(C)]
-pub struct VDS_INTERCONNECT(i32);
+pub struct VDS_INTERCONNECT {
+    pub m_addressType: VDS_INTERCONNECT_ADDRESS_TYPE,
+    pub m_cbPort: u32,
+    pub m_pbPort: *mut u8,
+    pub m_cbAddress: u32,
+    pub m_pbAddress: *mut u8,
+}
+impl ::core::marker::Copy for VDS_INTERCONNECT {}
+impl ::core::clone::Clone for VDS_INTERCONNECT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct VDS_INTERCONNECT_ADDRESS_TYPE(pub i32);
 pub const VDS_IA_UNKNOWN: VDS_INTERCONNECT_ADDRESS_TYPE = VDS_INTERCONNECT_ADDRESS_TYPE(0i32);
@@ -626,7 +939,21 @@ pub const VDS_ITF_FIBRE_CHANNEL: VDS_INTERCONNECT_FLAG = VDS_INTERCONNECT_FLAG(2
 pub const VDS_ITF_ISCSI: VDS_INTERCONNECT_FLAG = VDS_INTERCONNECT_FLAG(4i32);
 pub const VDS_ITF_SAS: VDS_INTERCONNECT_FLAG = VDS_INTERCONNECT_FLAG(8i32);
 #[repr(C)]
-pub struct VDS_IPADDRESS(i32);
+pub struct VDS_IPADDRESS {
+    pub r#type: VDS_IPADDRESS_TYPE,
+    pub ipv4Address: u32,
+    pub ipv6Address: [u8; 16],
+    pub ulIpv6FlowInfo: u32,
+    pub ulIpv6ScopeId: u32,
+    pub wszTextAddress: [u16; 257],
+    pub ulPort: u32,
+}
+impl ::core::marker::Copy for VDS_IPADDRESS {}
+impl ::core::clone::Clone for VDS_IPADDRESS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct VDS_IPADDRESS_TYPE(pub i32);
 pub const VDS_IPT_TEXT: VDS_IPADDRESS_TYPE = VDS_IPADDRESS_TYPE(0i32);
@@ -638,11 +965,32 @@ pub struct VDS_ISCSI_AUTH_TYPE(pub i32);
 pub const VDS_IAT_NONE: VDS_ISCSI_AUTH_TYPE = VDS_ISCSI_AUTH_TYPE(0i32);
 pub const VDS_IAT_CHAP: VDS_ISCSI_AUTH_TYPE = VDS_ISCSI_AUTH_TYPE(1i32);
 pub const VDS_IAT_MUTUAL_CHAP: VDS_ISCSI_AUTH_TYPE = VDS_ISCSI_AUTH_TYPE(2i32);
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+pub struct VDS_ISCSI_INITIATOR_ADAPTER_PROP {
+    pub id: ::windows_sys::core::GUID,
+    pub pwszName: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for VDS_ISCSI_INITIATOR_ADAPTER_PROP {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for VDS_ISCSI_INITIATOR_ADAPTER_PROP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct VDS_ISCSI_INITIATOR_ADAPTER_PROP(i32);
-#[repr(C)]
-pub struct VDS_ISCSI_INITIATOR_PORTAL_PROP(i32);
+pub struct VDS_ISCSI_INITIATOR_PORTAL_PROP {
+    pub id: ::windows_sys::core::GUID,
+    pub address: VDS_IPADDRESS,
+    pub ulPortIndex: u32,
+}
+impl ::core::marker::Copy for VDS_ISCSI_INITIATOR_PORTAL_PROP {}
+impl ::core::clone::Clone for VDS_ISCSI_INITIATOR_PORTAL_PROP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct VDS_ISCSI_IPSEC_FLAG(pub i32);
 pub const VDS_IIF_VALID: VDS_ISCSI_IPSEC_FLAG = VDS_ISCSI_IPSEC_FLAG(1i32);
@@ -653,7 +1001,16 @@ pub const VDS_IIF_PFS_ENABLE: VDS_ISCSI_IPSEC_FLAG = VDS_ISCSI_IPSEC_FLAG(16i32)
 pub const VDS_IIF_TRANSPORT_MODE_PREFERRED: VDS_ISCSI_IPSEC_FLAG = VDS_ISCSI_IPSEC_FLAG(32i32);
 pub const VDS_IIF_TUNNEL_MODE_PREFERRED: VDS_ISCSI_IPSEC_FLAG = VDS_ISCSI_IPSEC_FLAG(64i32);
 #[repr(C)]
-pub struct VDS_ISCSI_IPSEC_KEY(i32);
+pub struct VDS_ISCSI_IPSEC_KEY {
+    pub pKey: *mut u8,
+    pub ulKeySize: u32,
+}
+impl ::core::marker::Copy for VDS_ISCSI_IPSEC_KEY {}
+impl ::core::clone::Clone for VDS_ISCSI_IPSEC_KEY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct VDS_ISCSI_LOGIN_FLAG(pub i32);
 pub const VDS_ILF_REQUIRE_IPSEC: VDS_ISCSI_LOGIN_FLAG = VDS_ISCSI_LOGIN_FLAG(1i32);
@@ -664,9 +1021,28 @@ pub const VDS_ILT_MANUAL: VDS_ISCSI_LOGIN_TYPE = VDS_ISCSI_LOGIN_TYPE(0i32);
 pub const VDS_ILT_PERSISTENT: VDS_ISCSI_LOGIN_TYPE = VDS_ISCSI_LOGIN_TYPE(1i32);
 pub const VDS_ILT_BOOT: VDS_ISCSI_LOGIN_TYPE = VDS_ISCSI_LOGIN_TYPE(2i32);
 #[repr(C)]
-pub struct VDS_ISCSI_PORTALGROUP_PROP(i32);
+pub struct VDS_ISCSI_PORTALGROUP_PROP {
+    pub id: ::windows_sys::core::GUID,
+    pub tag: u16,
+}
+impl ::core::marker::Copy for VDS_ISCSI_PORTALGROUP_PROP {}
+impl ::core::clone::Clone for VDS_ISCSI_PORTALGROUP_PROP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct VDS_ISCSI_PORTAL_PROP(i32);
+pub struct VDS_ISCSI_PORTAL_PROP {
+    pub id: ::windows_sys::core::GUID,
+    pub address: VDS_IPADDRESS,
+    pub status: VDS_ISCSI_PORTAL_STATUS,
+}
+impl ::core::marker::Copy for VDS_ISCSI_PORTAL_PROP {}
+impl ::core::clone::Clone for VDS_ISCSI_PORTAL_PROP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct VDS_ISCSI_PORTAL_STATUS(pub i32);
 pub const VDS_IPS_UNKNOWN: VDS_ISCSI_PORTAL_STATUS = VDS_ISCSI_PORTAL_STATUS(0i32);
@@ -675,10 +1051,32 @@ pub const VDS_IPS_NOT_READY: VDS_ISCSI_PORTAL_STATUS = VDS_ISCSI_PORTAL_STATUS(2
 pub const VDS_IPS_OFFLINE: VDS_ISCSI_PORTAL_STATUS = VDS_ISCSI_PORTAL_STATUS(4i32);
 pub const VDS_IPS_FAILED: VDS_ISCSI_PORTAL_STATUS = VDS_ISCSI_PORTAL_STATUS(5i32);
 #[repr(C)]
-pub struct VDS_ISCSI_SHARED_SECRET(i32);
-#[cfg(feature = "Win32_Foundation")]
+pub struct VDS_ISCSI_SHARED_SECRET {
+    pub pSharedSecret: *mut u8,
+    pub ulSharedSecretSize: u32,
+}
+impl ::core::marker::Copy for VDS_ISCSI_SHARED_SECRET {}
+impl ::core::clone::Clone for VDS_ISCSI_SHARED_SECRET {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct VDS_ISCSI_TARGET_PROP(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct VDS_ISCSI_TARGET_PROP {
+    pub id: ::windows_sys::core::GUID,
+    pub pwszIscsiName: super::super::Foundation::PWSTR,
+    pub pwszFriendlyName: super::super::Foundation::PWSTR,
+    pub bChapEnabled: super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for VDS_ISCSI_TARGET_PROP {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for VDS_ISCSI_TARGET_PROP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct VDS_LOADBALANCE_POLICY_ENUM(pub i32);
 pub const VDS_LBP_UNKNOWN: VDS_LOADBALANCE_POLICY_ENUM = VDS_LOADBALANCE_POLICY_ENUM(0i32);
@@ -700,16 +1098,63 @@ pub const VDS_LF_WRITE_CACHE_ENABLED: VDS_LUN_FLAG = VDS_LUN_FLAG(32i32);
 pub const VDS_LF_MEDIA_SCAN_ENABLED: VDS_LUN_FLAG = VDS_LUN_FLAG(64i32);
 pub const VDS_LF_CONSISTENCY_CHECK_ENABLED: VDS_LUN_FLAG = VDS_LUN_FLAG(128i32);
 pub const VDS_LF_SNAPSHOT: VDS_LUN_FLAG = VDS_LUN_FLAG(256i32);
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+pub struct VDS_LUN_INFORMATION {
+    pub m_version: u32,
+    pub m_DeviceType: u8,
+    pub m_DeviceTypeModifier: u8,
+    pub m_bCommandQueueing: super::super::Foundation::BOOL,
+    pub m_BusType: VDS_STORAGE_BUS_TYPE,
+    pub m_szVendorId: *mut u8,
+    pub m_szProductId: *mut u8,
+    pub m_szProductRevision: *mut u8,
+    pub m_szSerialNumber: *mut u8,
+    pub m_diskSignature: ::windows_sys::core::GUID,
+    pub m_deviceIdDescriptor: VDS_STORAGE_DEVICE_ID_DESCRIPTOR,
+    pub m_cInterconnects: u32,
+    pub m_rgInterconnects: *mut VDS_INTERCONNECT,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for VDS_LUN_INFORMATION {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for VDS_LUN_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct VDS_LUN_INFORMATION(i32);
-#[repr(C)]
-pub struct VDS_LUN_NOTIFICATION(i32);
+pub struct VDS_LUN_NOTIFICATION {
+    pub ulEvent: VDS_NF_LUN,
+    pub LunId: ::windows_sys::core::GUID,
+}
+impl ::core::marker::Copy for VDS_LUN_NOTIFICATION {}
+impl ::core::clone::Clone for VDS_LUN_NOTIFICATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct VDS_LUN_PLEX_FLAG(pub i32);
 pub const VDS_LPF_LBN_REMAP_ENABLED: VDS_LUN_PLEX_FLAG = VDS_LUN_PLEX_FLAG(1i32);
 #[repr(C)]
-pub struct VDS_LUN_PLEX_PROP(i32);
+pub struct VDS_LUN_PLEX_PROP {
+    pub id: ::windows_sys::core::GUID,
+    pub ullSize: u64,
+    pub r#type: VDS_LUN_PLEX_TYPE,
+    pub status: VDS_LUN_PLEX_STATUS,
+    pub health: VDS_HEALTH,
+    pub TransitionState: VDS_TRANSITION_STATE,
+    pub ulFlags: u32,
+    pub ulStripeSize: u32,
+    pub sRebuildPriority: i16,
+}
+impl ::core::marker::Copy for VDS_LUN_PLEX_PROP {}
+impl ::core::clone::Clone for VDS_LUN_PLEX_PROP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct VDS_LUN_PLEX_STATUS(pub i32);
 pub const VDS_LPS_UNKNOWN: VDS_LUN_PLEX_STATUS = VDS_LUN_PLEX_STATUS(0i32);
@@ -737,9 +1182,29 @@ pub const VDS_LPT_RAID30: VDS_LUN_PLEX_TYPE = VDS_LUN_PLEX_TYPE(25i32);
 pub const VDS_LPT_RAID50: VDS_LUN_PLEX_TYPE = VDS_LUN_PLEX_TYPE(26i32);
 pub const VDS_LPT_RAID53: VDS_LUN_PLEX_TYPE = VDS_LUN_PLEX_TYPE(28i32);
 pub const VDS_LPT_RAID60: VDS_LUN_PLEX_TYPE = VDS_LUN_PLEX_TYPE(29i32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct VDS_LUN_PROP(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct VDS_LUN_PROP {
+    pub id: ::windows_sys::core::GUID,
+    pub ullSize: u64,
+    pub pwszFriendlyName: super::super::Foundation::PWSTR,
+    pub pwszIdentification: super::super::Foundation::PWSTR,
+    pub pwszUnmaskingList: super::super::Foundation::PWSTR,
+    pub ulFlags: u32,
+    pub r#type: VDS_LUN_TYPE,
+    pub status: VDS_LUN_STATUS,
+    pub health: VDS_HEALTH,
+    pub TransitionState: VDS_TRANSITION_STATE,
+    pub sRebuildPriority: i16,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for VDS_LUN_PROP {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for VDS_LUN_PROP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct VDS_LUN_STATUS(pub i32);
 pub const VDS_LS_UNKNOWN: VDS_LUN_STATUS = VDS_LUN_STATUS(0i32);
@@ -782,7 +1247,16 @@ pub const SpinDown: VDS_MAINTENANCE_OPERATION = VDS_MAINTENANCE_OPERATION(3i32);
 pub const SpinUp: VDS_MAINTENANCE_OPERATION = VDS_MAINTENANCE_OPERATION(4i32);
 pub const Ping: VDS_MAINTENANCE_OPERATION = VDS_MAINTENANCE_OPERATION(5i32);
 #[repr(C)]
-pub struct VDS_MOUNT_POINT_NOTIFICATION(i32);
+pub struct VDS_MOUNT_POINT_NOTIFICATION {
+    pub ulEvent: u32,
+    pub volumeId: ::windows_sys::core::GUID,
+}
+impl ::core::marker::Copy for VDS_MOUNT_POINT_NOTIFICATION {}
+impl ::core::clone::Clone for VDS_MOUNT_POINT_NOTIFICATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct VDS_NF_CONTROLLER(pub u32);
 pub const VDS_NF_CONTROLLER_ARRIVE: VDS_NF_CONTROLLER = VDS_NF_CONTROLLER(103u32);
@@ -845,7 +1319,40 @@ pub const VDS_NF_VOLUME_DEPART: u32 = 5u32;
 pub const VDS_NF_VOLUME_MODIFY: u32 = 6u32;
 pub const VDS_NF_VOLUME_REBUILDING_PROGRESS: u32 = 7u32;
 #[repr(C)]
-pub struct VDS_NOTIFICATION(i32);
+pub struct VDS_NOTIFICATION {
+    pub objectType: VDS_NOTIFICATION_TARGET_TYPE,
+    pub Anonymous: VDS_NOTIFICATION_0,
+}
+impl ::core::marker::Copy for VDS_NOTIFICATION {}
+impl ::core::clone::Clone for VDS_NOTIFICATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub union VDS_NOTIFICATION_0 {
+    pub Pack: VDS_PACK_NOTIFICATION,
+    pub Disk: VDS_DISK_NOTIFICATION,
+    pub Volume: VDS_VOLUME_NOTIFICATION,
+    pub Partition: VDS_PARTITION_NOTIFICATION,
+    pub Letter: VDS_DRIVE_LETTER_NOTIFICATION,
+    pub FileSystem: VDS_FILE_SYSTEM_NOTIFICATION,
+    pub MountPoint: VDS_MOUNT_POINT_NOTIFICATION,
+    pub SubSystem: VDS_SUB_SYSTEM_NOTIFICATION,
+    pub Controller: VDS_CONTROLLER_NOTIFICATION,
+    pub Drive: VDS_DRIVE_NOTIFICATION,
+    pub Lun: VDS_LUN_NOTIFICATION,
+    pub Port: VDS_PORT_NOTIFICATION,
+    pub Portal: VDS_PORTAL_NOTIFICATION,
+    pub Target: VDS_TARGET_NOTIFICATION,
+    pub PortalGroup: VDS_PORTAL_GROUP_NOTIFICATION,
+    pub Service: VDS_SERVICE_NOTIFICATION,
+}
+impl ::core::clone::Clone for VDS_NOTIFICATION_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct VDS_NOTIFICATION_TARGET_TYPE(pub i32);
 pub const VDS_NTT_UNKNOWN: VDS_NOTIFICATION_TARGET_TYPE = VDS_NOTIFICATION_TARGET_TYPE(0i32);
@@ -891,25 +1398,155 @@ pub const VDS_OT_ENUM: VDS_OBJECT_TYPE = VDS_OBJECT_TYPE(101i32);
 pub const VDS_OT_VDISK: VDS_OBJECT_TYPE = VDS_OBJECT_TYPE(200i32);
 pub const VDS_OT_OPEN_VDISK: VDS_OBJECT_TYPE = VDS_OBJECT_TYPE(201i32);
 #[repr(C)]
-pub struct VDS_PACK_NOTIFICATION(i32);
+pub struct VDS_PACK_NOTIFICATION {
+    pub ulEvent: VDS_NF_PACK,
+    pub packId: ::windows_sys::core::GUID,
+}
+impl ::core::marker::Copy for VDS_PACK_NOTIFICATION {}
+impl ::core::clone::Clone for VDS_PACK_NOTIFICATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct VDS_PARTITION_NOTIFICATION(i32);
+pub struct VDS_PARTITION_NOTIFICATION {
+    pub ulEvent: u32,
+    pub diskId: ::windows_sys::core::GUID,
+    pub ullOffset: u64,
+}
+impl ::core::marker::Copy for VDS_PARTITION_NOTIFICATION {}
+impl ::core::clone::Clone for VDS_PARTITION_NOTIFICATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct VDS_PATH_ID(i32);
+pub struct VDS_PATH_ID {
+    pub ullSourceId: u64,
+    pub ullPathId: u64,
+}
+impl ::core::marker::Copy for VDS_PATH_ID {}
+impl ::core::clone::Clone for VDS_PATH_ID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct VDS_PATH_INFO(i32);
+pub struct VDS_PATH_INFO {
+    pub pathId: VDS_PATH_ID,
+    pub r#type: VDS_HWPROVIDER_TYPE,
+    pub status: VDS_PATH_STATUS,
+    pub Anonymous1: VDS_PATH_INFO_0,
+    pub Anonymous2: VDS_PATH_INFO_1,
+    pub Anonymous3: VDS_PATH_INFO_2,
+}
+impl ::core::marker::Copy for VDS_PATH_INFO {}
+impl ::core::clone::Clone for VDS_PATH_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub union VDS_PATH_INFO_0 {
+    pub controllerPortId: ::windows_sys::core::GUID,
+    pub targetPortalId: ::windows_sys::core::GUID,
+}
+impl ::core::clone::Clone for VDS_PATH_INFO_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub union VDS_PATH_INFO_1 {
+    pub hbaPortId: ::windows_sys::core::GUID,
+    pub initiatorAdapterId: ::windows_sys::core::GUID,
+}
+impl ::core::clone::Clone for VDS_PATH_INFO_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub union VDS_PATH_INFO_2 {
+    pub pHbaPortProp: *mut VDS_HBAPORT_PROP,
+    pub pInitiatorPortalIpAddr: *mut VDS_IPADDRESS,
+}
+impl ::core::clone::Clone for VDS_PATH_INFO_2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct VDS_PATH_POLICY(i32);
+pub struct VDS_PATH_POLICY {
+    pub pathId: VDS_PATH_ID,
+    pub bPrimaryPath: super::super::Foundation::BOOL,
+    pub ulWeight: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for VDS_PATH_POLICY {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for VDS_PATH_POLICY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct VDS_PATH_STATUS(pub i32);
 pub const VDS_MPS_UNKNOWN: VDS_PATH_STATUS = VDS_PATH_STATUS(0i32);
 pub const VDS_MPS_ONLINE: VDS_PATH_STATUS = VDS_PATH_STATUS(1i32);
 pub const VDS_MPS_FAILED: VDS_PATH_STATUS = VDS_PATH_STATUS(5i32);
 pub const VDS_MPS_STANDBY: VDS_PATH_STATUS = VDS_PATH_STATUS(7i32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct VDS_POOL_ATTRIBUTES(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct VDS_POOL_ATTRIBUTES {
+    pub ullAttributeMask: u64,
+    pub raidType: VDS_RAID_TYPE,
+    pub busType: VDS_STORAGE_BUS_TYPE,
+    pub pwszIntendedUsage: super::super::Foundation::PWSTR,
+    pub bSpinDown: super::super::Foundation::BOOL,
+    pub bIsThinProvisioned: super::super::Foundation::BOOL,
+    pub ullProvisionedSpace: u64,
+    pub bNoSinglePointOfFailure: super::super::Foundation::BOOL,
+    pub ulDataRedundancyMax: u32,
+    pub ulDataRedundancyMin: u32,
+    pub ulDataRedundancyDefault: u32,
+    pub ulPackageRedundancyMax: u32,
+    pub ulPackageRedundancyMin: u32,
+    pub ulPackageRedundancyDefault: u32,
+    pub ulStripeSize: u32,
+    pub ulStripeSizeMax: u32,
+    pub ulStripeSizeMin: u32,
+    pub ulDefaultStripeSize: u32,
+    pub ulNumberOfColumns: u32,
+    pub ulNumberOfColumnsMax: u32,
+    pub ulNumberOfColumnsMin: u32,
+    pub ulDefaultNumberofColumns: u32,
+    pub ulDataAvailabilityHint: u32,
+    pub ulAccessRandomnessHint: u32,
+    pub ulAccessDirectionHint: u32,
+    pub ulAccessSizeHint: u32,
+    pub ulAccessLatencyHint: u32,
+    pub ulAccessBandwidthWeightHint: u32,
+    pub ulStorageCostHint: u32,
+    pub ulStorageEfficiencyHint: u32,
+    pub ulNumOfCustomAttributes: u32,
+    pub pPoolCustomAttributes: *mut VDS_POOL_CUSTOM_ATTRIBUTES,
+    pub bReserved1: super::super::Foundation::BOOL,
+    pub bReserved2: super::super::Foundation::BOOL,
+    pub ulReserved1: u32,
+    pub ulReserved2: u32,
+    pub ullReserved1: u64,
+    pub ullReserved2: u64,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for VDS_POOL_ATTRIBUTES {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for VDS_POOL_ATTRIBUTES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const VDS_POOL_ATTRIB_ACCS_BDW_WT_HINT: i32 = 16777216i32;
 pub const VDS_POOL_ATTRIB_ACCS_DIR_HINT: i32 = 2097152i32;
 pub const VDS_POOL_ATTRIB_ACCS_LTNCY_HINT: i32 = 8388608i32;
@@ -938,18 +1575,69 @@ pub const VDS_POOL_ATTRIB_STRIPE_SIZE_DEF: i32 = 16384i32;
 pub const VDS_POOL_ATTRIB_STRIPE_SIZE_MAX: i32 = 4096i32;
 pub const VDS_POOL_ATTRIB_STRIPE_SIZE_MIN: i32 = 8192i32;
 pub const VDS_POOL_ATTRIB_THIN_PROVISION: i32 = 8i32;
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct VDS_POOL_CUSTOM_ATTRIBUTES(i32);
-#[repr(C)]
-pub struct VDS_PORTAL_GROUP_NOTIFICATION(i32);
-#[repr(C)]
-pub struct VDS_PORTAL_NOTIFICATION(i32);
-#[repr(C)]
-pub struct VDS_PORT_NOTIFICATION(i32);
+pub struct VDS_POOL_CUSTOM_ATTRIBUTES {
+    pub pwszName: super::super::Foundation::PWSTR,
+    pub pwszValue: super::super::Foundation::PWSTR,
+}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for VDS_POOL_CUSTOM_ATTRIBUTES {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for VDS_POOL_CUSTOM_ATTRIBUTES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct VDS_PORT_PROP(i32);
+pub struct VDS_PORTAL_GROUP_NOTIFICATION {
+    pub ulEvent: u32,
+    pub portalGroupId: ::windows_sys::core::GUID,
+}
+impl ::core::marker::Copy for VDS_PORTAL_GROUP_NOTIFICATION {}
+impl ::core::clone::Clone for VDS_PORTAL_GROUP_NOTIFICATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct VDS_PORTAL_NOTIFICATION {
+    pub ulEvent: u32,
+    pub portalId: ::windows_sys::core::GUID,
+}
+impl ::core::marker::Copy for VDS_PORTAL_NOTIFICATION {}
+impl ::core::clone::Clone for VDS_PORTAL_NOTIFICATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct VDS_PORT_NOTIFICATION {
+    pub ulEvent: VDS_NF_PORT,
+    pub portId: ::windows_sys::core::GUID,
+}
+impl ::core::marker::Copy for VDS_PORT_NOTIFICATION {}
+impl ::core::clone::Clone for VDS_PORT_NOTIFICATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct VDS_PORT_PROP {
+    pub id: ::windows_sys::core::GUID,
+    pub pwszFriendlyName: super::super::Foundation::PWSTR,
+    pub pwszIdentification: super::super::Foundation::PWSTR,
+    pub status: VDS_PORT_STATUS,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for VDS_PORT_PROP {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for VDS_PORT_PROP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct VDS_PORT_STATUS(pub i32);
 pub const VDS_PRS_UNKNOWN: VDS_PORT_STATUS = VDS_PORT_STATUS(0i32);
@@ -979,9 +1667,26 @@ pub const VDS_LBF_DYN_LEAST_QUEUE_DEPTH: VDS_PROVIDER_LBSUPPORT_FLAG = VDS_PROVI
 pub const VDS_LBF_WEIGHTED_PATHS: VDS_PROVIDER_LBSUPPORT_FLAG = VDS_PROVIDER_LBSUPPORT_FLAG(16i32);
 pub const VDS_LBF_LEAST_BLOCKS: VDS_PROVIDER_LBSUPPORT_FLAG = VDS_PROVIDER_LBSUPPORT_FLAG(32i32);
 pub const VDS_LBF_VENDOR_SPECIFIC: VDS_PROVIDER_LBSUPPORT_FLAG = VDS_PROVIDER_LBSUPPORT_FLAG(64i32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct VDS_PROVIDER_PROP(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct VDS_PROVIDER_PROP {
+    pub id: ::windows_sys::core::GUID,
+    pub pwszName: super::super::Foundation::PWSTR,
+    pub guidVersionId: ::windows_sys::core::GUID,
+    pub pwszVersion: super::super::Foundation::PWSTR,
+    pub r#type: VDS_PROVIDER_TYPE,
+    pub ulFlags: u32,
+    pub ulStripeSizeFlags: u32,
+    pub sRebuildPriority: i16,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for VDS_PROVIDER_PROP {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for VDS_PROVIDER_PROP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct VDS_PROVIDER_TYPE(pub i32);
 pub const VDS_PT_UNKNOWN: VDS_PROVIDER_TYPE = VDS_PROVIDER_TYPE(0i32);
@@ -1018,7 +1723,16 @@ pub const VDS_RA_UNKNOWN: VDS_RECOVER_ACTION = VDS_RECOVER_ACTION(0i32);
 pub const VDS_RA_REFRESH: VDS_RECOVER_ACTION = VDS_RECOVER_ACTION(1i32);
 pub const VDS_RA_RESTART: VDS_RECOVER_ACTION = VDS_RECOVER_ACTION(2i32);
 #[repr(C)]
-pub struct VDS_SERVICE_NOTIFICATION(i32);
+pub struct VDS_SERVICE_NOTIFICATION {
+    pub ulEvent: u32,
+    pub action: VDS_RECOVER_ACTION,
+}
+impl ::core::marker::Copy for VDS_SERVICE_NOTIFICATION {}
+impl ::core::clone::Clone for VDS_SERVICE_NOTIFICATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct VDS_STORAGE_BUS_TYPE(pub i32);
 pub const VDSBusTypeUnknown: VDS_STORAGE_BUS_TYPE = VDS_STORAGE_BUS_TYPE(0i32);
@@ -1044,9 +1758,30 @@ pub const VDSBusTypeScm: VDS_STORAGE_BUS_TYPE = VDS_STORAGE_BUS_TYPE(18i32);
 pub const VDSBusTypeUfs: VDS_STORAGE_BUS_TYPE = VDS_STORAGE_BUS_TYPE(19i32);
 pub const VDSBusTypeMaxReserved: VDS_STORAGE_BUS_TYPE = VDS_STORAGE_BUS_TYPE(127i32);
 #[repr(C)]
-pub struct VDS_STORAGE_DEVICE_ID_DESCRIPTOR(i32);
+pub struct VDS_STORAGE_DEVICE_ID_DESCRIPTOR {
+    pub m_version: u32,
+    pub m_cIdentifiers: u32,
+    pub m_rgIdentifiers: *mut VDS_STORAGE_IDENTIFIER,
+}
+impl ::core::marker::Copy for VDS_STORAGE_DEVICE_ID_DESCRIPTOR {}
+impl ::core::clone::Clone for VDS_STORAGE_DEVICE_ID_DESCRIPTOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct VDS_STORAGE_IDENTIFIER(i32);
+pub struct VDS_STORAGE_IDENTIFIER {
+    pub m_CodeSet: VDS_STORAGE_IDENTIFIER_CODE_SET,
+    pub m_Type: VDS_STORAGE_IDENTIFIER_TYPE,
+    pub m_cbIdentifier: u32,
+    pub m_rgbIdentifier: *mut u8,
+}
+impl ::core::marker::Copy for VDS_STORAGE_IDENTIFIER {}
+impl ::core::clone::Clone for VDS_STORAGE_IDENTIFIER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct VDS_STORAGE_IDENTIFIER_CODE_SET(pub i32);
 pub const VDSStorageIdCodeSetReserved: VDS_STORAGE_IDENTIFIER_CODE_SET = VDS_STORAGE_IDENTIFIER_CODE_SET(0i32);
@@ -1064,12 +1799,42 @@ pub const VDSStorageIdTypeTargetPortGroup: VDS_STORAGE_IDENTIFIER_TYPE = VDS_STO
 pub const VDSStorageIdTypeLogicalUnitGroup: VDS_STORAGE_IDENTIFIER_TYPE = VDS_STORAGE_IDENTIFIER_TYPE(6i32);
 pub const VDSStorageIdTypeMD5LogicalUnitIdentifier: VDS_STORAGE_IDENTIFIER_TYPE = VDS_STORAGE_IDENTIFIER_TYPE(7i32);
 pub const VDSStorageIdTypeScsiNameString: VDS_STORAGE_IDENTIFIER_TYPE = VDS_STORAGE_IDENTIFIER_TYPE(8i32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct VDS_STORAGE_POOL_DRIVE_EXTENT(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct VDS_STORAGE_POOL_DRIVE_EXTENT {
+    pub id: ::windows_sys::core::GUID,
+    pub ullSize: u64,
+    pub bUsed: super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for VDS_STORAGE_POOL_DRIVE_EXTENT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for VDS_STORAGE_POOL_DRIVE_EXTENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct VDS_STORAGE_POOL_PROP(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct VDS_STORAGE_POOL_PROP {
+    pub id: ::windows_sys::core::GUID,
+    pub status: VDS_STORAGE_POOL_STATUS,
+    pub health: VDS_HEALTH,
+    pub r#type: VDS_STORAGE_POOL_TYPE,
+    pub pwszName: super::super::Foundation::PWSTR,
+    pub pwszDescription: super::super::Foundation::PWSTR,
+    pub ullTotalConsumedSpace: u64,
+    pub ullTotalManagedSpace: u64,
+    pub ullRemainingFreeSpace: u64,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for VDS_STORAGE_POOL_PROP {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for VDS_STORAGE_POOL_PROP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct VDS_STORAGE_POOL_STATUS(pub i32);
 pub const VDS_SPS_UNKNOWN: VDS_STORAGE_POOL_STATUS = VDS_STORAGE_POOL_STATUS(0i32);
@@ -1108,13 +1873,64 @@ pub const VDS_SF_WRITE_CACHING_CAPABLE: VDS_SUB_SYSTEM_FLAG = VDS_SUB_SYSTEM_FLA
 pub const VDS_SF_MEDIA_SCAN_CAPABLE: VDS_SUB_SYSTEM_FLAG = VDS_SUB_SYSTEM_FLAG(8388608i32);
 pub const VDS_SF_CONSISTENCY_CHECK_CAPABLE: VDS_SUB_SYSTEM_FLAG = VDS_SUB_SYSTEM_FLAG(16777216i32);
 #[repr(C)]
-pub struct VDS_SUB_SYSTEM_NOTIFICATION(i32);
-#[cfg(feature = "Win32_Foundation")]
+pub struct VDS_SUB_SYSTEM_NOTIFICATION {
+    pub ulEvent: u32,
+    pub subSystemId: ::windows_sys::core::GUID,
+}
+impl ::core::marker::Copy for VDS_SUB_SYSTEM_NOTIFICATION {}
+impl ::core::clone::Clone for VDS_SUB_SYSTEM_NOTIFICATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct VDS_SUB_SYSTEM_PROP(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct VDS_SUB_SYSTEM_PROP {
+    pub id: ::windows_sys::core::GUID,
+    pub pwszFriendlyName: super::super::Foundation::PWSTR,
+    pub pwszIdentification: super::super::Foundation::PWSTR,
+    pub ulFlags: u32,
+    pub ulStripeSizeFlags: u32,
+    pub status: VDS_SUB_SYSTEM_STATUS,
+    pub health: VDS_HEALTH,
+    pub sNumberOfInternalBuses: i16,
+    pub sMaxNumberOfSlotsEachBus: i16,
+    pub sMaxNumberOfControllers: i16,
+    pub sRebuildPriority: i16,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for VDS_SUB_SYSTEM_PROP {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for VDS_SUB_SYSTEM_PROP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct VDS_SUB_SYSTEM_PROP2(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct VDS_SUB_SYSTEM_PROP2 {
+    pub id: ::windows_sys::core::GUID,
+    pub pwszFriendlyName: super::super::Foundation::PWSTR,
+    pub pwszIdentification: super::super::Foundation::PWSTR,
+    pub ulFlags: u32,
+    pub ulStripeSizeFlags: u32,
+    pub ulSupportedRaidTypeFlags: u32,
+    pub status: VDS_SUB_SYSTEM_STATUS,
+    pub health: VDS_HEALTH,
+    pub sNumberOfInternalBuses: i16,
+    pub sMaxNumberOfSlotsEachBus: i16,
+    pub sMaxNumberOfControllers: i16,
+    pub sRebuildPriority: i16,
+    pub ulNumberOfEnclosures: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for VDS_SUB_SYSTEM_PROP2 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for VDS_SUB_SYSTEM_PROP2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct VDS_SUB_SYSTEM_STATUS(pub i32);
 pub const VDS_SSS_UNKNOWN: VDS_SUB_SYSTEM_STATUS = VDS_SUB_SYSTEM_STATUS(0i32);
@@ -1176,7 +1992,16 @@ pub const VDS_S_VSS_FLUSH_AND_HOLD_WRITES: ::windows_sys::core::HRESULT = ::wind
 pub const VDS_S_VSS_RELEASE_WRITES: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(271746i32 as _);
 pub const VDS_S_WINPE_BOOTENTRY: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(271758i32 as _);
 #[repr(C)]
-pub struct VDS_TARGET_NOTIFICATION(i32);
+pub struct VDS_TARGET_NOTIFICATION {
+    pub ulEvent: u32,
+    pub targetId: ::windows_sys::core::GUID,
+}
+impl ::core::marker::Copy for VDS_TARGET_NOTIFICATION {}
+impl ::core::clone::Clone for VDS_TARGET_NOTIFICATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct VDS_TRANSITION_STATE(pub i32);
 pub const VDS_TS_UNKNOWN: VDS_TRANSITION_STATE = VDS_TRANSITION_STATE(0i32);
@@ -1193,7 +2018,26 @@ pub const VDS_VSF_2_0: VDS_VERSION_SUPPORT_FLAG = VDS_VERSION_SUPPORT_FLAG(4i32)
 pub const VDS_VSF_2_1: VDS_VERSION_SUPPORT_FLAG = VDS_VERSION_SUPPORT_FLAG(8i32);
 pub const VDS_VSF_3_0: VDS_VERSION_SUPPORT_FLAG = VDS_VERSION_SUPPORT_FLAG(16i32);
 #[repr(C)]
-pub struct VDS_VOLUME_NOTIFICATION(i32);
+pub struct VDS_VOLUME_NOTIFICATION {
+    pub ulEvent: u32,
+    pub volumeId: ::windows_sys::core::GUID,
+    pub plexId: ::windows_sys::core::GUID,
+    pub ulPercentCompleted: u32,
+}
+impl ::core::marker::Copy for VDS_VOLUME_NOTIFICATION {}
+impl ::core::clone::Clone for VDS_VOLUME_NOTIFICATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct VDS_WWN(i32);
+pub struct VDS_WWN {
+    pub rguchWwn: [u8; 8],
+}
+impl ::core::marker::Copy for VDS_WWN {}
+impl ::core::clone::Clone for VDS_WWN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const VER_VDS_LUN_INFORMATION: u32 = 1u32;

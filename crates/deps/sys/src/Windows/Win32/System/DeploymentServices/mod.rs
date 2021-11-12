@@ -273,7 +273,28 @@ pub type PFN_WdsTransportClientSessionStart = unsafe extern "system" fn(hsession
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_WdsTransportClientSessionStartEx = unsafe extern "system" fn(hsessionkey: super::super::Foundation::HANDLE, pcallerdata: *const ::core::ffi::c_void, info: *const TRANSPORTCLIENT_SESSION_INFO);
 #[repr(C)]
-pub struct PXE_ADDRESS(i32);
+pub struct PXE_ADDRESS {
+    pub uFlags: u32,
+    pub Anonymous: PXE_ADDRESS_0,
+    pub uAddrLen: u32,
+    pub uPort: u16,
+}
+impl ::core::marker::Copy for PXE_ADDRESS {}
+impl ::core::clone::Clone for PXE_ADDRESS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub union PXE_ADDRESS_0 {
+    pub bAddress: [u8; 16],
+    pub uIpAddress: u32,
+}
+impl ::core::clone::Clone for PXE_ADDRESS_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const PXE_ADDR_BROADCAST: u32 = 1u32;
 pub const PXE_ADDR_USE_ADDR: u32 = 4u32;
 pub const PXE_ADDR_USE_DHCP_RULES: u32 = 8u32;
@@ -288,33 +309,144 @@ pub const PXE_CALLBACK_SERVICE_CONTROL: u32 = 2u32;
 pub const PXE_CALLBACK_SHUTDOWN: u32 = 1u32;
 pub const PXE_DHCPV6_CLIENT_PORT: u32 = 546u32;
 #[repr(C)]
-pub struct PXE_DHCPV6_MESSAGE(i32);
+pub struct PXE_DHCPV6_MESSAGE {
+    pub MessageType: u8,
+    pub TransactionIDByte1: u8,
+    pub TransactionIDByte2: u8,
+    pub TransactionIDByte3: u8,
+    pub Options: [PXE_DHCPV6_OPTION; 1],
+}
+impl ::core::marker::Copy for PXE_DHCPV6_MESSAGE {}
+impl ::core::clone::Clone for PXE_DHCPV6_MESSAGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct PXE_DHCPV6_MESSAGE_HEADER(i32);
+pub struct PXE_DHCPV6_MESSAGE_HEADER {
+    pub MessageType: u8,
+    pub Message: [u8; 1],
+}
+impl ::core::marker::Copy for PXE_DHCPV6_MESSAGE_HEADER {}
+impl ::core::clone::Clone for PXE_DHCPV6_MESSAGE_HEADER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct PXE_DHCPV6_NESTED_RELAY_MESSAGE(i32);
-#[repr(C)]
-pub struct PXE_DHCPV6_OPTION(i32);
+pub struct PXE_DHCPV6_NESTED_RELAY_MESSAGE {
+    pub pRelayMessage: *mut PXE_DHCPV6_RELAY_MESSAGE,
+    pub cbRelayMessage: u32,
+    pub pInterfaceIdOption: *mut ::core::ffi::c_void,
+    pub cbInterfaceIdOption: u16,
+}
+impl ::core::marker::Copy for PXE_DHCPV6_NESTED_RELAY_MESSAGE {}
+impl ::core::clone::Clone for PXE_DHCPV6_NESTED_RELAY_MESSAGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub struct PXE_DHCPV6_OPTION {
+    pub OptionCode: u16,
+    pub DataLength: u16,
+    pub Data: [u8; 1],
+}
+impl ::core::marker::Copy for PXE_DHCPV6_OPTION {}
+impl ::core::clone::Clone for PXE_DHCPV6_OPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const PXE_DHCPV6_RELAY_HOP_COUNT_LIMIT: u32 = 32u32;
 #[repr(C)]
-pub struct PXE_DHCPV6_RELAY_MESSAGE(i32);
+pub struct PXE_DHCPV6_RELAY_MESSAGE {
+    pub MessageType: u8,
+    pub HopCount: u8,
+    pub LinkAddress: [u8; 16],
+    pub PeerAddress: [u8; 16],
+    pub Options: [PXE_DHCPV6_OPTION; 1],
+}
+impl ::core::marker::Copy for PXE_DHCPV6_RELAY_MESSAGE {}
+impl ::core::clone::Clone for PXE_DHCPV6_RELAY_MESSAGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const PXE_DHCPV6_SERVER_PORT: u32 = 547u32;
 pub const PXE_DHCP_CLIENT_PORT: u32 = 68u32;
 pub const PXE_DHCP_FILE_SIZE: u32 = 128u32;
 pub const PXE_DHCP_HWAADR_SIZE: u32 = 16u32;
 pub const PXE_DHCP_MAGIC_COOKIE_SIZE: u32 = 4u32;
+#[repr(C, packed(1))]
+pub struct PXE_DHCP_MESSAGE {
+    pub Operation: u8,
+    pub HardwareAddressType: u8,
+    pub HardwareAddressLength: u8,
+    pub HopCount: u8,
+    pub TransactionID: u32,
+    pub SecondsSinceBoot: u16,
+    pub Reserved: u16,
+    pub ClientIpAddress: u32,
+    pub YourIpAddress: u32,
+    pub BootstrapServerAddress: u32,
+    pub RelayAgentIpAddress: u32,
+    pub HardwareAddress: [u8; 16],
+    pub HostName: [u8; 64],
+    pub BootFileName: [u8; 128],
+    pub Anonymous: PXE_DHCP_MESSAGE_0,
+    pub Option: PXE_DHCP_OPTION,
+}
+impl ::core::marker::Copy for PXE_DHCP_MESSAGE {}
+impl ::core::clone::Clone for PXE_DHCP_MESSAGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub union PXE_DHCP_MESSAGE_0 {
+    pub bMagicCookie: [u8; 4],
+    pub uMagicCookie: u32,
+}
+impl ::core::clone::Clone for PXE_DHCP_MESSAGE_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct PXE_DHCP_MESSAGE(i32);
-#[repr(C)]
-pub struct PXE_DHCP_OPTION(i32);
+pub struct PXE_DHCP_OPTION {
+    pub OptionType: u8,
+    pub OptionLength: u8,
+    pub OptionValue: [u8; 1],
+}
+impl ::core::marker::Copy for PXE_DHCP_OPTION {}
+impl ::core::clone::Clone for PXE_DHCP_OPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const PXE_DHCP_SERVER_PORT: u32 = 67u32;
 pub const PXE_DHCP_SERVER_SIZE: u32 = 64u32;
 pub const PXE_GSI_SERVER_DUID: u32 = 2u32;
 pub const PXE_GSI_TRACE_ENABLED: u32 = 1u32;
 pub const PXE_MAX_ADDRESS: u32 = 16u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct PXE_PROVIDER(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct PXE_PROVIDER {
+    pub uSizeOfStruct: u32,
+    pub pwszName: super::super::Foundation::PWSTR,
+    pub pwszFilePath: super::super::Foundation::PWSTR,
+    pub bIsCritical: super::super::Foundation::BOOL,
+    pub uIndex: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for PXE_PROVIDER {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for PXE_PROVIDER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const PXE_PROV_ATTR_FILTER: u32 = 0u32;
 pub const PXE_PROV_ATTR_FILTER_IPV6: u32 = 1u32;
 pub const PXE_PROV_ATTR_IPV6_CAPABLE: u32 = 2u32;
@@ -339,7 +471,17 @@ pub const WDS_TRANSPORTCLIENT_SESSION_STARTEX: TRANSPORTCLIENT_CALLBACK_ID = TRA
 pub const WDS_TRANSPORTCLIENT_SESSION_NEGOTIATE: TRANSPORTCLIENT_CALLBACK_ID = TRANSPORTCLIENT_CALLBACK_ID(5i32);
 pub const WDS_TRANSPORTCLIENT_MAX_CALLBACKS: TRANSPORTCLIENT_CALLBACK_ID = TRANSPORTCLIENT_CALLBACK_ID(6i32);
 #[repr(C)]
-pub struct TRANSPORTCLIENT_SESSION_INFO(i32);
+pub struct TRANSPORTCLIENT_SESSION_INFO {
+    pub ulStructureLength: u32,
+    pub ullFileSize: u64,
+    pub ulBlockSize: u32,
+}
+impl ::core::marker::Copy for TRANSPORTCLIENT_SESSION_INFO {}
+impl ::core::clone::Clone for TRANSPORTCLIENT_SESSION_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TRANSPORTPROVIDER_CALLBACK_ID(pub i32);
 pub const WDS_TRANSPORTPROVIDER_CREATE_INSTANCE: TRANSPORTPROVIDER_CALLBACK_ID = TRANSPORTPROVIDER_CALLBACK_ID(0i32);
@@ -508,9 +650,21 @@ pub const WdsTptTftpCapVariableWindow: WDSTRANSPORT_TFTP_CAPABILITY = WDSTRANSPO
 pub struct WDSTRANSPORT_UDP_PORT_POLICY(pub i32);
 pub const WdsTptUdpPortPolicyDynamic: WDSTRANSPORT_UDP_PORT_POLICY = WDSTRANSPORT_UDP_PORT_POLICY(0i32);
 pub const WdsTptUdpPortPolicyFixed: WDSTRANSPORT_UDP_PORT_POLICY = WDSTRANSPORT_UDP_PORT_POLICY(1i32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct WDS_CLI_CRED(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct WDS_CLI_CRED {
+    pub pwszUserName: super::super::Foundation::PWSTR,
+    pub pwszDomain: super::super::Foundation::PWSTR,
+    pub pwszPassword: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WDS_CLI_CRED {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WDS_CLI_CRED {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WDS_CLI_FIRMWARE_TYPE(pub i32);
 pub const WDS_CLI_FIRMWARE_UNKNOWN: WDS_CLI_FIRMWARE_TYPE = WDS_CLI_FIRMWARE_TYPE(0i32);
@@ -562,15 +716,49 @@ pub const WDS_MC_TRACE_FATAL: u32 = 1048576u32;
 pub const WDS_MC_TRACE_INFO: u32 = 131072u32;
 pub const WDS_MC_TRACE_VERBOSE: u32 = 65536u32;
 pub const WDS_MC_TRACE_WARNING: u32 = 262144u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct WDS_TRANSPORTCLIENT_CALLBACKS(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct WDS_TRANSPORTCLIENT_CALLBACKS {
+    pub SessionStart: ::core::option::Option<PFN_WdsTransportClientSessionStart>,
+    pub SessionStartEx: ::core::option::Option<PFN_WdsTransportClientSessionStartEx>,
+    pub ReceiveContents: ::core::option::Option<PFN_WdsTransportClientReceiveContents>,
+    pub ReceiveMetadata: ::core::option::Option<PFN_WdsTransportClientReceiveMetadata>,
+    pub SessionComplete: ::core::option::Option<PFN_WdsTransportClientSessionComplete>,
+    pub SessionNegotiate: ::core::option::Option<PFN_WdsTransportClientSessionNegotiate>,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WDS_TRANSPORTCLIENT_CALLBACKS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WDS_TRANSPORTCLIENT_CALLBACKS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WDS_TRANSPORTCLIENT_CURRENT_API_VERSION: u32 = 1u32;
 pub const WDS_TRANSPORTCLIENT_NO_CACHE: u32 = 0u32;
 pub const WDS_TRANSPORTCLIENT_PROTOCOL_MULTICAST: u32 = 1u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct WDS_TRANSPORTCLIENT_REQUEST(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct WDS_TRANSPORTCLIENT_REQUEST {
+    pub ulLength: u32,
+    pub ulApiVersion: u32,
+    pub ulAuthLevel: WDS_TRANSPORTCLIENT_REQUEST_AUTH_LEVEL,
+    pub pwszServer: super::super::Foundation::PWSTR,
+    pub pwszNamespace: super::super::Foundation::PWSTR,
+    pub pwszObjectName: super::super::Foundation::PWSTR,
+    pub ulCacheSize: u32,
+    pub ulProtocol: u32,
+    pub pvProtocolData: *mut ::core::ffi::c_void,
+    pub ulProtocolDataLength: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WDS_TRANSPORTCLIENT_REQUEST {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WDS_TRANSPORTCLIENT_REQUEST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WDS_TRANSPORTCLIENT_REQUEST_AUTH_LEVEL(pub u32);
 pub const WDS_TRANSPORTCLIENT_AUTH: WDS_TRANSPORTCLIENT_REQUEST_AUTH_LEVEL = WDS_TRANSPORTCLIENT_REQUEST_AUTH_LEVEL(1u32);
@@ -578,11 +766,33 @@ pub const WDS_TRANSPORTCLIENT_NO_AUTH: WDS_TRANSPORTCLIENT_REQUEST_AUTH_LEVEL = 
 pub const WDS_TRANSPORTCLIENT_STATUS_FAILURE: u32 = 3u32;
 pub const WDS_TRANSPORTCLIENT_STATUS_IN_PROGRESS: u32 = 1u32;
 pub const WDS_TRANSPORTCLIENT_STATUS_SUCCESS: u32 = 2u32;
+#[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+pub struct WDS_TRANSPORTPROVIDER_INIT_PARAMS {
+    pub ulLength: u32,
+    pub ulMcServerVersion: u32,
+    pub hRegistryKey: super::Registry::HKEY,
+    pub hProvider: super::super::Foundation::HANDLE,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+impl ::core::marker::Copy for WDS_TRANSPORTPROVIDER_INIT_PARAMS {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+impl ::core::clone::Clone for WDS_TRANSPORTPROVIDER_INIT_PARAMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WDS_TRANSPORTPROVIDER_INIT_PARAMS(i32);
-#[repr(C)]
-pub struct WDS_TRANSPORTPROVIDER_SETTINGS(i32);
+pub struct WDS_TRANSPORTPROVIDER_SETTINGS {
+    pub ulLength: u32,
+    pub ulProviderVersion: u32,
+}
+impl ::core::marker::Copy for WDS_TRANSPORTPROVIDER_SETTINGS {}
+impl ::core::clone::Clone for WDS_TRANSPORTPROVIDER_SETTINGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WdsCliFlagEnumFilterFirmware: i32 = 2i32;
 pub const WdsCliFlagEnumFilterVersion: i32 = 1i32;
 pub const WdsTransportCacheable: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1884883734, data2: 61766, data3: 18109, data4: [189, 157, 74, 170, 144, 8, 75, 245] };

@@ -604,7 +604,16 @@ pub struct ReceiptPrintJob(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ReceiptPrinterCapabilities(pub *mut ::core::ffi::c_void);
 #[repr(C)]
-pub struct SizeUInt32(i32);
+pub struct SizeUInt32 {
+    pub Width: u32,
+    pub Height: u32,
+}
+impl ::core::marker::Copy for SizeUInt32 {}
+impl ::core::clone::Clone for SizeUInt32 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SlipPrintJob(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

@@ -732,7 +732,15 @@ pub const IMMPID_RP_ADDRESS_OTHER: IMMPID_RP_ENUM = IMMPID_RP_ENUM(8211i32);
 pub const IMMPID_RP_DISPLAY_NAME: IMMPID_RP_ENUM = IMMPID_RP_ENUM(8212i32);
 pub const IMMPID_RP_AFTER__: IMMPID_RP_ENUM = IMMPID_RP_ENUM(8213i32);
 #[repr(C)]
-pub struct IMMP_MPV_STORE_DRIVER_HANDLE(i32);
+pub struct IMMP_MPV_STORE_DRIVER_HANDLE {
+    pub guidSignature: ::windows_sys::core::GUID,
+}
+impl ::core::marker::Copy for IMMP_MPV_STORE_DRIVER_HANDLE {}
+impl ::core::clone::Clone for IMMP_MPV_STORE_DRIVER_HANDLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMultisession(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -863,12 +871,31 @@ pub const RP_REMOTE_MTA_NO_DSN: u32 = 524288u32;
 pub const RP_UNRESOLVED: u32 = 4144u32;
 pub const RP_VOLATILE_FLAGS_MASK: u32 = 4026531840u32;
 #[repr(C)]
-pub struct SPropAttrArray(i32);
+pub struct SPropAttrArray {
+    pub cValues: u32,
+    pub aPropAttr: [u32; 1],
+}
+impl ::core::marker::Copy for SPropAttrArray {}
+impl ::core::clone::Clone for SPropAttrArray {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct _MSGSESS(pub u8);
 pub const tagIMMPID_CPV_STRUCT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2728880938, data2: 58669, data3: 4561, data4: [170, 100, 0, 192, 79, 163, 91, 130] };
 #[repr(C)]
-pub struct tagIMMPID_GUIDLIST_ITEM(i32);
+pub struct tagIMMPID_GUIDLIST_ITEM {
+    pub pguid: *mut ::windows_sys::core::GUID,
+    pub dwStart: u32,
+    pub dwLast: u32,
+}
+impl ::core::marker::Copy for tagIMMPID_GUIDLIST_ITEM {}
+impl ::core::clone::Clone for tagIMMPID_GUIDLIST_ITEM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const tagIMMPID_MPV_STRUCT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3420886790, data2: 51645, data3: 4561, data4: [159, 242, 0, 192, 79, 163, 115, 72] };
 pub const tagIMMPID_MP_STRUCT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 322456816, data2: 46020, data3: 4561, data4: [170, 146, 0, 170, 0, 107, 200, 11] };
 pub const tagIMMPID_NMP_STRUCT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1949542826, data2: 8418, data3: 4562, data4: [148, 214, 0, 192, 79, 163, 121, 241] };

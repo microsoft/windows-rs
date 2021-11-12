@@ -26,17 +26,75 @@ pub const DWRITE_BREAK_CONDITION_CAN_BREAK: DWRITE_BREAK_CONDITION = DWRITE_BREA
 pub const DWRITE_BREAK_CONDITION_MAY_NOT_BREAK: DWRITE_BREAK_CONDITION = DWRITE_BREAK_CONDITION(2i32);
 pub const DWRITE_BREAK_CONDITION_MUST_BREAK: DWRITE_BREAK_CONDITION = DWRITE_BREAK_CONDITION(3i32);
 #[repr(C)]
-pub struct DWRITE_CARET_METRICS(i32);
+pub struct DWRITE_CARET_METRICS {
+    pub slopeRise: i16,
+    pub slopeRun: i16,
+    pub offset: i16,
+}
+impl ::core::marker::Copy for DWRITE_CARET_METRICS {}
+impl ::core::clone::Clone for DWRITE_CARET_METRICS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DWRITE_CLUSTER_METRICS(i32);
+pub struct DWRITE_CLUSTER_METRICS {
+    pub width: f32,
+    pub length: u16,
+    pub _bitfield: u16,
+}
+impl ::core::marker::Copy for DWRITE_CLUSTER_METRICS {}
+impl ::core::clone::Clone for DWRITE_CLUSTER_METRICS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DWRITE_COLOR_F(i32);
+pub struct DWRITE_COLOR_F {
+    pub r: f32,
+    pub g: f32,
+    pub b: f32,
+    pub a: f32,
+}
+impl ::core::marker::Copy for DWRITE_COLOR_F {}
+impl ::core::clone::Clone for DWRITE_COLOR_F {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct DWRITE_COLOR_GLYPH_RUN(i32);
+pub struct DWRITE_COLOR_GLYPH_RUN {
+    pub glyphRun: DWRITE_GLYPH_RUN,
+    pub glyphRunDescription: *mut DWRITE_GLYPH_RUN_DESCRIPTION,
+    pub baselineOriginX: f32,
+    pub baselineOriginY: f32,
+    pub runColor: DWRITE_COLOR_F,
+    pub paletteIndex: u16,
+}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DWRITE_COLOR_GLYPH_RUN {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DWRITE_COLOR_GLYPH_RUN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DWRITE_COLOR_GLYPH_RUN1(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct DWRITE_COLOR_GLYPH_RUN1 {
+    pub Base: DWRITE_COLOR_GLYPH_RUN,
+    pub glyphImageFormat: DWRITE_GLYPH_IMAGE_FORMATS,
+    pub measuringMode: DWRITE_MEASURING_MODE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DWRITE_COLOR_GLYPH_RUN1 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DWRITE_COLOR_GLYPH_RUN1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DWRITE_CONTAINER_TYPE(pub i32);
 pub const DWRITE_CONTAINER_TYPE_UNKNOWN: DWRITE_CONTAINER_TYPE = DWRITE_CONTAINER_TYPE(0i32);
@@ -52,7 +110,16 @@ pub struct DWRITE_FACTORY_TYPE(pub i32);
 pub const DWRITE_FACTORY_TYPE_SHARED: DWRITE_FACTORY_TYPE = DWRITE_FACTORY_TYPE(0i32);
 pub const DWRITE_FACTORY_TYPE_ISOLATED: DWRITE_FACTORY_TYPE = DWRITE_FACTORY_TYPE(1i32);
 #[repr(C)]
-pub struct DWRITE_FILE_FRAGMENT(i32);
+pub struct DWRITE_FILE_FRAGMENT {
+    pub fileOffset: u64,
+    pub fragmentSize: u64,
+}
+impl ::core::marker::Copy for DWRITE_FILE_FRAGMENT {}
+impl ::core::clone::Clone for DWRITE_FILE_FRAGMENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DWRITE_FLOW_DIRECTION(pub i32);
 pub const DWRITE_FLOW_DIRECTION_TOP_TO_BOTTOM: DWRITE_FLOW_DIRECTION = DWRITE_FLOW_DIRECTION(0i32);
@@ -65,7 +132,17 @@ pub const DWRITE_FONT_AXIS_ATTRIBUTES_NONE: DWRITE_FONT_AXIS_ATTRIBUTES = DWRITE
 pub const DWRITE_FONT_AXIS_ATTRIBUTES_VARIABLE: DWRITE_FONT_AXIS_ATTRIBUTES = DWRITE_FONT_AXIS_ATTRIBUTES(1u32);
 pub const DWRITE_FONT_AXIS_ATTRIBUTES_HIDDEN: DWRITE_FONT_AXIS_ATTRIBUTES = DWRITE_FONT_AXIS_ATTRIBUTES(2u32);
 #[repr(C)]
-pub struct DWRITE_FONT_AXIS_RANGE(i32);
+pub struct DWRITE_FONT_AXIS_RANGE {
+    pub axisTag: DWRITE_FONT_AXIS_TAG,
+    pub minValue: f32,
+    pub maxValue: f32,
+}
+impl ::core::marker::Copy for DWRITE_FONT_AXIS_RANGE {}
+impl ::core::clone::Clone for DWRITE_FONT_AXIS_RANGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DWRITE_FONT_AXIS_TAG(pub u32);
 pub const DWRITE_FONT_AXIS_TAG_WEIGHT: DWRITE_FONT_AXIS_TAG = DWRITE_FONT_AXIS_TAG(1952999287u32);
@@ -74,7 +151,16 @@ pub const DWRITE_FONT_AXIS_TAG_SLANT: DWRITE_FONT_AXIS_TAG = DWRITE_FONT_AXIS_TA
 pub const DWRITE_FONT_AXIS_TAG_OPTICAL_SIZE: DWRITE_FONT_AXIS_TAG = DWRITE_FONT_AXIS_TAG(2054385775u32);
 pub const DWRITE_FONT_AXIS_TAG_ITALIC: DWRITE_FONT_AXIS_TAG = DWRITE_FONT_AXIS_TAG(1818326121u32);
 #[repr(C)]
-pub struct DWRITE_FONT_AXIS_VALUE(i32);
+pub struct DWRITE_FONT_AXIS_VALUE {
+    pub axisTag: DWRITE_FONT_AXIS_TAG,
+    pub value: f32,
+}
+impl ::core::marker::Copy for DWRITE_FONT_AXIS_VALUE {}
+impl ::core::clone::Clone for DWRITE_FONT_AXIS_VALUE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DWRITE_FONT_FACE_TYPE(pub i32);
 pub const DWRITE_FONT_FACE_TYPE_CFF: DWRITE_FONT_FACE_TYPE = DWRITE_FONT_FACE_TYPE(0i32);
@@ -91,7 +177,16 @@ pub struct DWRITE_FONT_FAMILY_MODEL(pub i32);
 pub const DWRITE_FONT_FAMILY_MODEL_TYPOGRAPHIC: DWRITE_FONT_FAMILY_MODEL = DWRITE_FONT_FAMILY_MODEL(0i32);
 pub const DWRITE_FONT_FAMILY_MODEL_WEIGHT_STRETCH_STYLE: DWRITE_FONT_FAMILY_MODEL = DWRITE_FONT_FAMILY_MODEL(1i32);
 #[repr(C)]
-pub struct DWRITE_FONT_FEATURE(i32);
+pub struct DWRITE_FONT_FEATURE {
+    pub nameTag: DWRITE_FONT_FEATURE_TAG,
+    pub parameter: u32,
+}
+impl ::core::marker::Copy for DWRITE_FONT_FEATURE {}
+impl ::core::clone::Clone for DWRITE_FONT_FEATURE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DWRITE_FONT_FEATURE_TAG(pub u32);
 pub const DWRITE_FONT_FEATURE_TAG_ALTERNATIVE_FRACTIONS: DWRITE_FONT_FEATURE_TAG = DWRITE_FONT_FEATURE_TAG(1668441697u32);
@@ -192,13 +287,65 @@ pub const DWRITE_FONT_LINE_GAP_USAGE_DEFAULT: DWRITE_FONT_LINE_GAP_USAGE = DWRIT
 pub const DWRITE_FONT_LINE_GAP_USAGE_DISABLED: DWRITE_FONT_LINE_GAP_USAGE = DWRITE_FONT_LINE_GAP_USAGE(1i32);
 pub const DWRITE_FONT_LINE_GAP_USAGE_ENABLED: DWRITE_FONT_LINE_GAP_USAGE = DWRITE_FONT_LINE_GAP_USAGE(2i32);
 #[repr(C)]
-pub struct DWRITE_FONT_METRICS(i32);
-#[cfg(feature = "Win32_Foundation")]
+pub struct DWRITE_FONT_METRICS {
+    pub designUnitsPerEm: u16,
+    pub ascent: u16,
+    pub descent: u16,
+    pub lineGap: i16,
+    pub capHeight: u16,
+    pub xHeight: u16,
+    pub underlinePosition: i16,
+    pub underlineThickness: u16,
+    pub strikethroughPosition: i16,
+    pub strikethroughThickness: u16,
+}
+impl ::core::marker::Copy for DWRITE_FONT_METRICS {}
+impl ::core::clone::Clone for DWRITE_FONT_METRICS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DWRITE_FONT_METRICS1(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct DWRITE_FONT_METRICS1 {
+    pub __AnonymousBase_DWrite_1_L627_C38: DWRITE_FONT_METRICS,
+    pub glyphBoxLeft: i16,
+    pub glyphBoxTop: i16,
+    pub glyphBoxRight: i16,
+    pub glyphBoxBottom: i16,
+    pub subscriptPositionX: i16,
+    pub subscriptPositionY: i16,
+    pub subscriptSizeX: i16,
+    pub subscriptSizeY: i16,
+    pub superscriptPositionX: i16,
+    pub superscriptPositionY: i16,
+    pub superscriptSizeX: i16,
+    pub superscriptSizeY: i16,
+    pub hasTypographicMetrics: super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DWRITE_FONT_METRICS1 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DWRITE_FONT_METRICS1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DWRITE_FONT_PROPERTY(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct DWRITE_FONT_PROPERTY {
+    pub propertyId: DWRITE_FONT_PROPERTY_ID,
+    pub propertyValue: super::super::Foundation::PWSTR,
+    pub localeName: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DWRITE_FONT_PROPERTY {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DWRITE_FONT_PROPERTY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DWRITE_FONT_PROPERTY_ID(pub i32);
 pub const DWRITE_FONT_PROPERTY_ID_NONE: DWRITE_FONT_PROPERTY_ID = DWRITE_FONT_PROPERTY_ID(0i32);
@@ -269,9 +416,27 @@ pub const DWRITE_FONT_WEIGHT_BLACK: DWRITE_FONT_WEIGHT = DWRITE_FONT_WEIGHT(900i
 pub const DWRITE_FONT_WEIGHT_HEAVY: DWRITE_FONT_WEIGHT = DWRITE_FONT_WEIGHT(900i32);
 pub const DWRITE_FONT_WEIGHT_EXTRA_BLACK: DWRITE_FONT_WEIGHT = DWRITE_FONT_WEIGHT(950i32);
 pub const DWRITE_FONT_WEIGHT_ULTRA_BLACK: DWRITE_FONT_WEIGHT = DWRITE_FONT_WEIGHT(950i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
 #[repr(C)]
-pub struct DWRITE_GLYPH_IMAGE_DATA(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
+pub struct DWRITE_GLYPH_IMAGE_DATA {
+    pub imageData: *mut ::core::ffi::c_void,
+    pub imageDataSize: u32,
+    pub uniqueDataId: u32,
+    pub pixelsPerEm: u32,
+    pub pixelSize: super::Direct2D::Common::D2D_SIZE_U,
+    pub horizontalLeftOrigin: super::super::Foundation::POINT,
+    pub horizontalRightOrigin: super::super::Foundation::POINT,
+    pub verticalTopOrigin: super::super::Foundation::POINT,
+    pub verticalBottomOrigin: super::super::Foundation::POINT,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
+impl ::core::marker::Copy for DWRITE_GLYPH_IMAGE_DATA {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
+impl ::core::clone::Clone for DWRITE_GLYPH_IMAGE_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DWRITE_GLYPH_IMAGE_FORMATS(pub u32);
 pub const DWRITE_GLYPH_IMAGE_FORMATS_NONE: DWRITE_GLYPH_IMAGE_FORMATS = DWRITE_GLYPH_IMAGE_FORMATS(0u32);
@@ -284,29 +449,101 @@ pub const DWRITE_GLYPH_IMAGE_FORMATS_JPEG: DWRITE_GLYPH_IMAGE_FORMATS = DWRITE_G
 pub const DWRITE_GLYPH_IMAGE_FORMATS_TIFF: DWRITE_GLYPH_IMAGE_FORMATS = DWRITE_GLYPH_IMAGE_FORMATS(64u32);
 pub const DWRITE_GLYPH_IMAGE_FORMATS_PREMULTIPLIED_B8G8R8A8: DWRITE_GLYPH_IMAGE_FORMATS = DWRITE_GLYPH_IMAGE_FORMATS(128u32);
 #[repr(C)]
-pub struct DWRITE_GLYPH_METRICS(i32);
+pub struct DWRITE_GLYPH_METRICS {
+    pub leftSideBearing: i32,
+    pub advanceWidth: u32,
+    pub rightSideBearing: i32,
+    pub topSideBearing: i32,
+    pub advanceHeight: u32,
+    pub bottomSideBearing: i32,
+    pub verticalOriginY: i32,
+}
+impl ::core::marker::Copy for DWRITE_GLYPH_METRICS {}
+impl ::core::clone::Clone for DWRITE_GLYPH_METRICS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DWRITE_GLYPH_OFFSET(i32);
+pub struct DWRITE_GLYPH_OFFSET {
+    pub advanceOffset: f32,
+    pub ascenderOffset: f32,
+}
+impl ::core::marker::Copy for DWRITE_GLYPH_OFFSET {}
+impl ::core::clone::Clone for DWRITE_GLYPH_OFFSET {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DWRITE_GLYPH_ORIENTATION_ANGLE(pub i32);
 pub const DWRITE_GLYPH_ORIENTATION_ANGLE_0_DEGREES: DWRITE_GLYPH_ORIENTATION_ANGLE = DWRITE_GLYPH_ORIENTATION_ANGLE(0i32);
 pub const DWRITE_GLYPH_ORIENTATION_ANGLE_90_DEGREES: DWRITE_GLYPH_ORIENTATION_ANGLE = DWRITE_GLYPH_ORIENTATION_ANGLE(1i32);
 pub const DWRITE_GLYPH_ORIENTATION_ANGLE_180_DEGREES: DWRITE_GLYPH_ORIENTATION_ANGLE = DWRITE_GLYPH_ORIENTATION_ANGLE(2i32);
 pub const DWRITE_GLYPH_ORIENTATION_ANGLE_270_DEGREES: DWRITE_GLYPH_ORIENTATION_ANGLE = DWRITE_GLYPH_ORIENTATION_ANGLE(3i32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct DWRITE_GLYPH_RUN(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct DWRITE_GLYPH_RUN {
+    pub fontFace: ::core::option::Option<IDWriteFontFace>,
+    pub fontEmSize: f32,
+    pub glyphCount: u32,
+    pub glyphIndices: *mut u16,
+    pub glyphAdvances: *mut f32,
+    pub glyphOffsets: *mut DWRITE_GLYPH_OFFSET,
+    pub isSideways: super::super::Foundation::BOOL,
+    pub bidiLevel: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DWRITE_GLYPH_RUN {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DWRITE_GLYPH_RUN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DWRITE_GLYPH_RUN_DESCRIPTION(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct DWRITE_GLYPH_RUN_DESCRIPTION {
+    pub localeName: super::super::Foundation::PWSTR,
+    pub string: super::super::Foundation::PWSTR,
+    pub stringLength: u32,
+    pub clusterMap: *mut u16,
+    pub textPosition: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DWRITE_GLYPH_RUN_DESCRIPTION {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DWRITE_GLYPH_RUN_DESCRIPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DWRITE_GRID_FIT_MODE(pub i32);
 pub const DWRITE_GRID_FIT_MODE_DEFAULT: DWRITE_GRID_FIT_MODE = DWRITE_GRID_FIT_MODE(0i32);
 pub const DWRITE_GRID_FIT_MODE_DISABLED: DWRITE_GRID_FIT_MODE = DWRITE_GRID_FIT_MODE(1i32);
 pub const DWRITE_GRID_FIT_MODE_ENABLED: DWRITE_GRID_FIT_MODE = DWRITE_GRID_FIT_MODE(2i32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct DWRITE_HIT_TEST_METRICS(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct DWRITE_HIT_TEST_METRICS {
+    pub textPosition: u32,
+    pub length: u32,
+    pub left: f32,
+    pub top: f32,
+    pub width: f32,
+    pub height: f32,
+    pub bidiLevel: u32,
+    pub isText: super::super::Foundation::BOOL,
+    pub isTrimmed: super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DWRITE_HIT_TEST_METRICS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DWRITE_HIT_TEST_METRICS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DWRITE_INFORMATIONAL_STRING_ID(pub i32);
 pub const DWRITE_INFORMATIONAL_STRING_NONE: DWRITE_INFORMATIONAL_STRING_ID = DWRITE_INFORMATIONAL_STRING_ID(0i32);
@@ -334,21 +571,92 @@ pub const DWRITE_INFORMATIONAL_STRING_SUPPORTED_SCRIPT_LANGUAGE_TAG: DWRITE_INFO
 pub const DWRITE_INFORMATIONAL_STRING_PREFERRED_FAMILY_NAMES: DWRITE_INFORMATIONAL_STRING_ID = DWRITE_INFORMATIONAL_STRING_ID(13i32);
 pub const DWRITE_INFORMATIONAL_STRING_PREFERRED_SUBFAMILY_NAMES: DWRITE_INFORMATIONAL_STRING_ID = DWRITE_INFORMATIONAL_STRING_ID(14i32);
 pub const DWRITE_INFORMATIONAL_STRING_WWS_FAMILY_NAME: DWRITE_INFORMATIONAL_STRING_ID = DWRITE_INFORMATIONAL_STRING_ID(19i32);
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct DWRITE_INLINE_OBJECT_METRICS(i32);
-#[repr(C)]
-pub struct DWRITE_JUSTIFICATION_OPPORTUNITY(i32);
-#[repr(C)]
-pub struct DWRITE_LINE_BREAKPOINT(i32);
+pub struct DWRITE_INLINE_OBJECT_METRICS {
+    pub width: f32,
+    pub height: f32,
+    pub baseline: f32,
+    pub supportsSideways: super::super::Foundation::BOOL,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct DWRITE_LINE_METRICS(i32);
+impl ::core::marker::Copy for DWRITE_INLINE_OBJECT_METRICS {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DWRITE_INLINE_OBJECT_METRICS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DWRITE_LINE_METRICS1(i32);
+pub struct DWRITE_JUSTIFICATION_OPPORTUNITY {
+    pub expansionMinimum: f32,
+    pub expansionMaximum: f32,
+    pub compressionMaximum: f32,
+    pub _bitfield: u32,
+}
+impl ::core::marker::Copy for DWRITE_JUSTIFICATION_OPPORTUNITY {}
+impl ::core::clone::Clone for DWRITE_JUSTIFICATION_OPPORTUNITY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DWRITE_LINE_SPACING(i32);
+pub struct DWRITE_LINE_BREAKPOINT {
+    pub _bitfield: u8,
+}
+impl ::core::marker::Copy for DWRITE_LINE_BREAKPOINT {}
+impl ::core::clone::Clone for DWRITE_LINE_BREAKPOINT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DWRITE_LINE_METRICS {
+    pub length: u32,
+    pub trailingWhitespaceLength: u32,
+    pub newlineLength: u32,
+    pub height: f32,
+    pub baseline: f32,
+    pub isTrimmed: super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DWRITE_LINE_METRICS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DWRITE_LINE_METRICS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DWRITE_LINE_METRICS1 {
+    pub Base: DWRITE_LINE_METRICS,
+    pub leadingBefore: f32,
+    pub leadingAfter: f32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DWRITE_LINE_METRICS1 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DWRITE_LINE_METRICS1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct DWRITE_LINE_SPACING {
+    pub method: DWRITE_LINE_SPACING_METHOD,
+    pub height: f32,
+    pub baseline: f32,
+    pub leadingBefore: f32,
+    pub fontLineGapUsage: DWRITE_FONT_LINE_GAP_USAGE,
+}
+impl ::core::marker::Copy for DWRITE_LINE_SPACING {}
+impl ::core::clone::Clone for DWRITE_LINE_SPACING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DWRITE_LINE_SPACING_METHOD(pub i32);
 pub const DWRITE_LINE_SPACING_METHOD_DEFAULT: DWRITE_LINE_SPACING_METHOD = DWRITE_LINE_SPACING_METHOD(0i32);
@@ -360,7 +668,20 @@ pub const DWRITE_LOCALITY_REMOTE: DWRITE_LOCALITY = DWRITE_LOCALITY(0i32);
 pub const DWRITE_LOCALITY_PARTIAL: DWRITE_LOCALITY = DWRITE_LOCALITY(1i32);
 pub const DWRITE_LOCALITY_LOCAL: DWRITE_LOCALITY = DWRITE_LOCALITY(2i32);
 #[repr(C)]
-pub struct DWRITE_MATRIX(i32);
+pub struct DWRITE_MATRIX {
+    pub m11: f32,
+    pub m12: f32,
+    pub m21: f32,
+    pub m22: f32,
+    pub dx: f32,
+    pub dy: f32,
+}
+impl ::core::marker::Copy for DWRITE_MATRIX {}
+impl ::core::clone::Clone for DWRITE_MATRIX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DWRITE_MEASURING_MODE(pub i32);
 pub const DWRITE_MEASURING_MODE_NATURAL: DWRITE_MEASURING_MODE = DWRITE_MEASURING_MODE(0i32);
@@ -382,9 +703,108 @@ pub struct DWRITE_OUTLINE_THRESHOLD(pub i32);
 pub const DWRITE_OUTLINE_THRESHOLD_ANTIALIASED: DWRITE_OUTLINE_THRESHOLD = DWRITE_OUTLINE_THRESHOLD(0i32);
 pub const DWRITE_OUTLINE_THRESHOLD_ALIASED: DWRITE_OUTLINE_THRESHOLD = DWRITE_OUTLINE_THRESHOLD(1i32);
 #[repr(C)]
-pub struct DWRITE_OVERHANG_METRICS(i32);
+pub struct DWRITE_OVERHANG_METRICS {
+    pub left: f32,
+    pub top: f32,
+    pub right: f32,
+    pub bottom: f32,
+}
+impl ::core::marker::Copy for DWRITE_OVERHANG_METRICS {}
+impl ::core::clone::Clone for DWRITE_OVERHANG_METRICS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DWRITE_PANOSE(i32);
+pub union DWRITE_PANOSE {
+    pub values: [u8; 10],
+    pub familyKind: u8,
+    pub text: DWRITE_PANOSE_3,
+    pub script: DWRITE_PANOSE_1,
+    pub decorative: DWRITE_PANOSE_0,
+    pub symbol: DWRITE_PANOSE_2,
+}
+impl ::core::clone::Clone for DWRITE_PANOSE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct DWRITE_PANOSE_0 {
+    pub familyKind: u8,
+    pub decorativeClass: u8,
+    pub weight: u8,
+    pub aspect: u8,
+    pub contrast: u8,
+    pub serifVariant: u8,
+    pub fill: u8,
+    pub lining: u8,
+    pub decorativeTopology: u8,
+    pub characterRange: u8,
+}
+impl ::core::marker::Copy for DWRITE_PANOSE_0 {}
+impl ::core::clone::Clone for DWRITE_PANOSE_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct DWRITE_PANOSE_1 {
+    pub familyKind: u8,
+    pub toolKind: u8,
+    pub weight: u8,
+    pub spacing: u8,
+    pub aspectRatio: u8,
+    pub contrast: u8,
+    pub scriptTopology: u8,
+    pub scriptForm: u8,
+    pub finials: u8,
+    pub xAscent: u8,
+}
+impl ::core::marker::Copy for DWRITE_PANOSE_1 {}
+impl ::core::clone::Clone for DWRITE_PANOSE_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct DWRITE_PANOSE_2 {
+    pub familyKind: u8,
+    pub symbolKind: u8,
+    pub weight: u8,
+    pub spacing: u8,
+    pub aspectRatioAndContrast: u8,
+    pub aspectRatio94: u8,
+    pub aspectRatio119: u8,
+    pub aspectRatio157: u8,
+    pub aspectRatio163: u8,
+    pub aspectRatio211: u8,
+}
+impl ::core::marker::Copy for DWRITE_PANOSE_2 {}
+impl ::core::clone::Clone for DWRITE_PANOSE_2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct DWRITE_PANOSE_3 {
+    pub familyKind: u8,
+    pub serifStyle: u8,
+    pub weight: u8,
+    pub proportion: u8,
+    pub contrast: u8,
+    pub strokeVariation: u8,
+    pub armStyle: u8,
+    pub letterform: u8,
+    pub midline: u8,
+    pub xHeight: u8,
+}
+impl ::core::marker::Copy for DWRITE_PANOSE_3 {}
+impl ::core::clone::Clone for DWRITE_PANOSE_3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DWRITE_PANOSE_ARM_STYLE(pub i32);
 pub const DWRITE_PANOSE_ARM_STYLE_ANY: DWRITE_PANOSE_ARM_STYLE = DWRITE_PANOSE_ARM_STYLE(0i32);
@@ -760,20 +1180,73 @@ pub const DWRITE_RENDERING_MODE1_NATURAL_SYMMETRIC: DWRITE_RENDERING_MODE1 = DWR
 pub const DWRITE_RENDERING_MODE1_OUTLINE: DWRITE_RENDERING_MODE1 = DWRITE_RENDERING_MODE1(6i32);
 pub const DWRITE_RENDERING_MODE1_NATURAL_SYMMETRIC_DOWNSAMPLED: DWRITE_RENDERING_MODE1 = DWRITE_RENDERING_MODE1(7i32);
 #[repr(C)]
-pub struct DWRITE_SCRIPT_ANALYSIS(i32);
+pub struct DWRITE_SCRIPT_ANALYSIS {
+    pub script: u16,
+    pub shapes: DWRITE_SCRIPT_SHAPES,
+}
+impl ::core::marker::Copy for DWRITE_SCRIPT_ANALYSIS {}
+impl ::core::clone::Clone for DWRITE_SCRIPT_ANALYSIS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DWRITE_SCRIPT_PROPERTIES(i32);
+pub struct DWRITE_SCRIPT_PROPERTIES {
+    pub isoScriptCode: u32,
+    pub isoScriptNumber: u32,
+    pub clusterLookahead: u32,
+    pub justificationCharacter: u32,
+    pub _bitfield: u32,
+}
+impl ::core::marker::Copy for DWRITE_SCRIPT_PROPERTIES {}
+impl ::core::clone::Clone for DWRITE_SCRIPT_PROPERTIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DWRITE_SCRIPT_SHAPES(pub u32);
 pub const DWRITE_SCRIPT_SHAPES_DEFAULT: DWRITE_SCRIPT_SHAPES = DWRITE_SCRIPT_SHAPES(0u32);
 pub const DWRITE_SCRIPT_SHAPES_NO_VISUAL: DWRITE_SCRIPT_SHAPES = DWRITE_SCRIPT_SHAPES(1u32);
 #[repr(C)]
-pub struct DWRITE_SHAPING_GLYPH_PROPERTIES(i32);
+pub struct DWRITE_SHAPING_GLYPH_PROPERTIES {
+    pub _bitfield: u16,
+}
+impl ::core::marker::Copy for DWRITE_SHAPING_GLYPH_PROPERTIES {}
+impl ::core::clone::Clone for DWRITE_SHAPING_GLYPH_PROPERTIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DWRITE_SHAPING_TEXT_PROPERTIES(i32);
+pub struct DWRITE_SHAPING_TEXT_PROPERTIES {
+    pub _bitfield: u16,
+}
+impl ::core::marker::Copy for DWRITE_SHAPING_TEXT_PROPERTIES {}
+impl ::core::clone::Clone for DWRITE_SHAPING_TEXT_PROPERTIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct DWRITE_STRIKETHROUGH(i32);
+pub struct DWRITE_STRIKETHROUGH {
+    pub width: f32,
+    pub thickness: f32,
+    pub offset: f32,
+    pub readingDirection: DWRITE_READING_DIRECTION,
+    pub flowDirection: DWRITE_FLOW_DIRECTION,
+    pub localeName: super::super::Foundation::PWSTR,
+    pub measuringMode: DWRITE_MEASURING_MODE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DWRITE_STRIKETHROUGH {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DWRITE_STRIKETHROUGH {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DWRITE_TEXTURE_TYPE(pub i32);
 pub const DWRITE_TEXTURE_ALIASED_1x1: DWRITE_TEXTURE_TYPE = DWRITE_TEXTURE_TYPE(0i32);
@@ -789,25 +1262,104 @@ pub struct DWRITE_TEXT_ANTIALIAS_MODE(pub i32);
 pub const DWRITE_TEXT_ANTIALIAS_MODE_CLEARTYPE: DWRITE_TEXT_ANTIALIAS_MODE = DWRITE_TEXT_ANTIALIAS_MODE(0i32);
 pub const DWRITE_TEXT_ANTIALIAS_MODE_GRAYSCALE: DWRITE_TEXT_ANTIALIAS_MODE = DWRITE_TEXT_ANTIALIAS_MODE(1i32);
 #[repr(C)]
-pub struct DWRITE_TEXT_METRICS(i32);
+pub struct DWRITE_TEXT_METRICS {
+    pub left: f32,
+    pub top: f32,
+    pub width: f32,
+    pub widthIncludingTrailingWhitespace: f32,
+    pub height: f32,
+    pub layoutWidth: f32,
+    pub layoutHeight: f32,
+    pub maxBidiReorderingDepth: u32,
+    pub lineCount: u32,
+}
+impl ::core::marker::Copy for DWRITE_TEXT_METRICS {}
+impl ::core::clone::Clone for DWRITE_TEXT_METRICS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DWRITE_TEXT_METRICS1(i32);
+pub struct DWRITE_TEXT_METRICS1 {
+    pub Base: DWRITE_TEXT_METRICS,
+    pub heightIncludingTrailingWhitespace: f32,
+}
+impl ::core::marker::Copy for DWRITE_TEXT_METRICS1 {}
+impl ::core::clone::Clone for DWRITE_TEXT_METRICS1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DWRITE_TEXT_RANGE(i32);
+pub struct DWRITE_TEXT_RANGE {
+    pub startPosition: u32,
+    pub length: u32,
+}
+impl ::core::marker::Copy for DWRITE_TEXT_RANGE {}
+impl ::core::clone::Clone for DWRITE_TEXT_RANGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DWRITE_TRIMMING(i32);
+pub struct DWRITE_TRIMMING {
+    pub granularity: DWRITE_TRIMMING_GRANULARITY,
+    pub delimiter: u32,
+    pub delimiterCount: u32,
+}
+impl ::core::marker::Copy for DWRITE_TRIMMING {}
+impl ::core::clone::Clone for DWRITE_TRIMMING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DWRITE_TRIMMING_GRANULARITY(pub i32);
 pub const DWRITE_TRIMMING_GRANULARITY_NONE: DWRITE_TRIMMING_GRANULARITY = DWRITE_TRIMMING_GRANULARITY(0i32);
 pub const DWRITE_TRIMMING_GRANULARITY_CHARACTER: DWRITE_TRIMMING_GRANULARITY = DWRITE_TRIMMING_GRANULARITY(1i32);
 pub const DWRITE_TRIMMING_GRANULARITY_WORD: DWRITE_TRIMMING_GRANULARITY = DWRITE_TRIMMING_GRANULARITY(2i32);
 #[repr(C)]
-pub struct DWRITE_TYPOGRAPHIC_FEATURES(i32);
+pub struct DWRITE_TYPOGRAPHIC_FEATURES {
+    pub features: *mut DWRITE_FONT_FEATURE,
+    pub featureCount: u32,
+}
+impl ::core::marker::Copy for DWRITE_TYPOGRAPHIC_FEATURES {}
+impl ::core::clone::Clone for DWRITE_TYPOGRAPHIC_FEATURES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+pub struct DWRITE_UNDERLINE {
+    pub width: f32,
+    pub thickness: f32,
+    pub offset: f32,
+    pub runHeight: f32,
+    pub readingDirection: DWRITE_READING_DIRECTION,
+    pub flowDirection: DWRITE_FLOW_DIRECTION,
+    pub localeName: super::super::Foundation::PWSTR,
+    pub measuringMode: DWRITE_MEASURING_MODE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DWRITE_UNDERLINE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DWRITE_UNDERLINE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DWRITE_UNDERLINE(i32);
-#[repr(C)]
-pub struct DWRITE_UNICODE_RANGE(i32);
+pub struct DWRITE_UNICODE_RANGE {
+    pub first: u32,
+    pub last: u32,
+}
+impl ::core::marker::Copy for DWRITE_UNICODE_RANGE {}
+impl ::core::clone::Clone for DWRITE_UNICODE_RANGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DWRITE_VERTICAL_GLYPH_ORIENTATION(pub i32);
 pub const DWRITE_VERTICAL_GLYPH_ORIENTATION_DEFAULT: DWRITE_VERTICAL_GLYPH_ORIENTATION = DWRITE_VERTICAL_GLYPH_ORIENTATION(0i32);

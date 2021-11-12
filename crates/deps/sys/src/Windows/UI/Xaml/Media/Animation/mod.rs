@@ -429,9 +429,19 @@ pub struct ITransition(pub *mut ::core::ffi::c_void);
 pub struct ITransitionFactory(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct KeySpline(pub *mut ::core::ffi::c_void);
-#[cfg(feature = "Foundation")]
 #[repr(C)]
-pub struct KeyTime(i32);
+#[cfg(feature = "Foundation")]
+pub struct KeyTime {
+    pub TimeSpan: super::super::super::super::Foundation::TimeSpan,
+}
+#[cfg(feature = "Foundation")]
+impl ::core::marker::Copy for KeyTime {}
+#[cfg(feature = "Foundation")]
+impl ::core::clone::Clone for KeyTime {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct KeyTimeHelper(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -480,9 +490,21 @@ pub struct QuarticEase(pub *mut ::core::ffi::c_void);
 pub struct QuinticEase(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ReorderThemeTransition(pub *mut ::core::ffi::c_void);
-#[cfg(feature = "Foundation")]
 #[repr(C)]
-pub struct RepeatBehavior(i32);
+#[cfg(feature = "Foundation")]
+pub struct RepeatBehavior {
+    pub Count: f64,
+    pub Duration: super::super::super::super::Foundation::TimeSpan,
+    pub Type: RepeatBehaviorType,
+}
+#[cfg(feature = "Foundation")]
+impl ::core::marker::Copy for RepeatBehavior {}
+#[cfg(feature = "Foundation")]
+impl ::core::clone::Clone for RepeatBehavior {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RepeatBehaviorHelper(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

@@ -15,7 +15,17 @@ pub const AURL_ENABLEURL: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
 pub type AutoCorrectProc = unsafe extern "system" fn(langid: u16, pszbefore: super::super::super::Foundation::PWSTR, pszafter: super::super::super::Foundation::PWSTR, cchafter: i32, pcchreplaced: *mut i32) -> i32;
 #[repr(C)]
-pub struct BIDIOPTIONS(i32);
+pub struct BIDIOPTIONS {
+    pub cbSize: u32,
+    pub wMask: u16,
+    pub wEffects: u16,
+}
+impl ::core::marker::Copy for BIDIOPTIONS {}
+impl ::core::clone::Clone for BIDIOPTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const BOE_CONTEXTALIGNMENT: u32 = 16u32;
 pub const BOE_CONTEXTREADING: u32 = 8u32;
 pub const BOE_FORCERECALC: u32 = 32u32;
@@ -39,9 +49,18 @@ pub const CARET_RTL: CARET_FLAGS = CARET_FLAGS(2i32);
 pub const CARET_ITALIC: CARET_FLAGS = CARET_FLAGS(32i32);
 pub const CARET_NULL: CARET_FLAGS = CARET_FLAGS(64i32);
 pub const CARET_ROTATE90: CARET_FLAGS = CARET_FLAGS(128i32);
-#[cfg(feature = "Win32_Graphics_Gdi")]
 #[repr(C)]
-pub struct CARET_INFO(i32);
+#[cfg(feature = "Win32_Graphics_Gdi")]
+pub union CARET_INFO {
+    pub hbitmap: super::super::super::Graphics::Gdi::HBITMAP,
+    pub caretFlags: CARET_FLAGS,
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::core::clone::Clone for CARET_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CFE_EFFECTS(pub u32);
 pub const CFE_ALLCAPS: CFE_EFFECTS = CFE_EFFECTS(128u32);
@@ -115,30 +134,165 @@ pub const CFM_MATH: CFM_MASK = CFM_MASK(268435456u32);
 pub const CFM_MATHORDINARY: CFM_MASK = CFM_MASK(536870912u32);
 pub const CFM_ALLEFFECTS: CFM_MASK = CFM_MASK(2115207167u32);
 #[repr(C)]
-pub struct CHANGENOTIFY(i32);
+pub struct CHANGENOTIFY {
+    pub dwChangeType: CHANGETYPE,
+    pub pvCookieData: *mut ::core::ffi::c_void,
+}
+impl ::core::marker::Copy for CHANGENOTIFY {}
+impl ::core::clone::Clone for CHANGENOTIFY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CHANGETYPE(pub i32);
 pub const CN_GENERIC: CHANGETYPE = CHANGETYPE(0i32);
 pub const CN_TEXTCHANGED: CHANGETYPE = CHANGETYPE(1i32);
 pub const CN_NEWUNDO: CHANGETYPE = CHANGETYPE(2i32);
 pub const CN_NEWREDO: CHANGETYPE = CHANGETYPE(4i32);
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct CHARFORMAT2A(i32);
-#[repr(C)]
-pub struct CHARFORMAT2W(i32);
+pub struct CHARFORMAT2A {
+    pub __AnonymousBase_richedit_L736_C23: CHARFORMATA,
+    pub wWeight: u16,
+    pub sSpacing: i16,
+    pub crBackColor: u32,
+    pub lcid: u32,
+    pub Anonymous: CHARFORMAT2A_0,
+    pub sStyle: i16,
+    pub wKerning: u16,
+    pub bUnderlineType: u8,
+    pub bAnimation: u8,
+    pub bRevAuthor: u8,
+    pub bUnderlineColor: u8,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct CHARFORMATA(i32);
-#[repr(C)]
-pub struct CHARFORMATW(i32);
-#[repr(C)]
-pub struct CHARRANGE(i32);
+impl ::core::marker::Copy for CHARFORMAT2A {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CHARFORMAT2A {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CLIPBOARDFORMAT(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub union CHARFORMAT2A_0 {
+    pub dwReserved: u32,
+    pub dwCookie: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CHARFORMAT2A_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct COMPCOLOR(i32);
+pub struct CHARFORMAT2W {
+    pub __AnonymousBase_richedit_L711_C23: CHARFORMATW,
+    pub wWeight: u16,
+    pub sSpacing: i16,
+    pub crBackColor: u32,
+    pub lcid: u32,
+    pub Anonymous: CHARFORMAT2W_0,
+    pub sStyle: i16,
+    pub wKerning: u16,
+    pub bUnderlineType: u8,
+    pub bAnimation: u8,
+    pub bRevAuthor: u8,
+    pub bUnderlineColor: u8,
+}
+impl ::core::marker::Copy for CHARFORMAT2W {}
+impl ::core::clone::Clone for CHARFORMAT2W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub union CHARFORMAT2W_0 {
+    pub dwReserved: u32,
+    pub dwCookie: u32,
+}
+impl ::core::clone::Clone for CHARFORMAT2W_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct CHARFORMATA {
+    pub cbSize: u32,
+    pub dwMask: CFM_MASK,
+    pub dwEffects: CFE_EFFECTS,
+    pub yHeight: i32,
+    pub yOffset: i32,
+    pub crTextColor: u32,
+    pub bCharSet: u8,
+    pub bPitchAndFamily: u8,
+    pub szFaceName: [super::super::super::Foundation::CHAR; 32],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CHARFORMATA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CHARFORMATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct CHARFORMATW {
+    pub cbSize: u32,
+    pub dwMask: CFM_MASK,
+    pub dwEffects: CFE_EFFECTS,
+    pub yHeight: i32,
+    pub yOffset: i32,
+    pub crTextColor: u32,
+    pub bCharSet: u8,
+    pub bPitchAndFamily: u8,
+    pub szFaceName: [u16; 32],
+}
+impl ::core::marker::Copy for CHARFORMATW {}
+impl ::core::clone::Clone for CHARFORMATW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct CHARRANGE {
+    pub cpMin: i32,
+    pub cpMax: i32,
+}
+impl ::core::marker::Copy for CHARRANGE {}
+impl ::core::clone::Clone for CHARRANGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(4))]
+#[cfg(feature = "Win32_Foundation")]
+pub struct CLIPBOARDFORMAT {
+    pub nmhdr: super::NMHDR,
+    pub cf: u16,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CLIPBOARDFORMAT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CLIPBOARDFORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct COMPCOLOR {
+    pub crText: u32,
+    pub crBackground: u32,
+    pub dwEffects: u32,
+}
+impl ::core::marker::Copy for COMPCOLOR {}
+impl ::core::clone::Clone for COMPCOLOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CTFMODEBIAS_CONVERSATION: u32 = 5u32;
 pub const CTFMODEBIAS_DATETIME: u32 = 4u32;
 pub const CTFMODEBIAS_DEFAULT: u32 = 0u32;
@@ -165,8 +319,18 @@ pub const ECO_SAVESEL: u32 = 32768u32;
 pub const ECO_SELECTIONBAR: u32 = 16777216u32;
 pub const ECO_VERTICAL: u32 = 4194304u32;
 pub const ECO_WANTRETURN: u32 = 4096u32;
-#[repr(C)]
-pub struct EDITSTREAM(i32);
+#[repr(C, packed(4))]
+pub struct EDITSTREAM {
+    pub dwCookie: usize,
+    pub dwError: u32,
+    pub pfnCallback: ::core::option::Option<EDITSTREAMCALLBACK>,
+}
+impl ::core::marker::Copy for EDITSTREAM {}
+impl ::core::clone::Clone for EDITSTREAM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub type EDITSTREAMCALLBACK = unsafe extern "system" fn(dwcookie: usize, pbbuff: *mut u8, cb: i32, pcb: *mut i32) -> u32;
 #[cfg(feature = "Win32_Foundation")]
 pub type EDITWORDBREAKPROCEX = unsafe extern "system" fn(pchtext: super::super::super::Foundation::PSTR, cchtext: i32, bcharset: u8, action: i32) -> i32;
@@ -292,25 +456,86 @@ pub const EM_SHOWSCROLLBAR: u32 = 1120u32;
 pub const EM_STOPGROUPTYPING: u32 = 1112u32;
 pub const EM_STREAMIN: u32 = 1097u32;
 pub const EM_STREAMOUT: u32 = 1098u32;
+#[repr(C, packed(4))]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct ENCORRECTTEXT(i32);
+pub struct ENCORRECTTEXT {
+    pub nmhdr: super::NMHDR,
+    pub chrg: CHARRANGE,
+    pub seltyp: RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct ENDCOMPOSITIONNOTIFY(i32);
+impl ::core::marker::Copy for ENCORRECTTEXT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ENCORRECTTEXT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(4))]
+#[cfg(feature = "Win32_Foundation")]
+pub struct ENDCOMPOSITIONNOTIFY {
+    pub nmhdr: super::NMHDR,
+    pub dwCode: ENDCOMPOSITIONNOTIFY_CODE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ENDCOMPOSITIONNOTIFY {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ENDCOMPOSITIONNOTIFY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ENDCOMPOSITIONNOTIFY_CODE(pub u32);
 pub const ECN_ENDCOMPOSITION: ENDCOMPOSITIONNOTIFY_CODE = ENDCOMPOSITIONNOTIFY_CODE(1u32);
 pub const ECN_NEWTEXT: ENDCOMPOSITIONNOTIFY_CODE = ENDCOMPOSITIONNOTIFY_CODE(2u32);
+#[repr(C, packed(4))]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct ENDROPFILES(i32);
+pub struct ENDROPFILES {
+    pub nmhdr: super::NMHDR,
+    pub hDrop: super::super::super::Foundation::HANDLE,
+    pub cp: i32,
+    pub fProtected: super::super::super::Foundation::BOOL,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct ENLINK(i32);
+impl ::core::marker::Copy for ENDROPFILES {}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct ENLOWFIRTF(i32);
+impl ::core::clone::Clone for ENDROPFILES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(4))]
+#[cfg(feature = "Win32_Foundation")]
+pub struct ENLINK {
+    pub nmhdr: super::NMHDR,
+    pub msg: u32,
+    pub wParam: super::super::super::Foundation::WPARAM,
+    pub lParam: super::super::super::Foundation::LPARAM,
+    pub chrg: CHARRANGE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ENLINK {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ENLINK {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(4))]
+#[cfg(feature = "Win32_Foundation")]
+pub struct ENLOWFIRTF {
+    pub nmhdr: super::NMHDR,
+    pub szControl: super::super::super::Foundation::PSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ENLOWFIRTF {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ENLOWFIRTF {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const ENM_CHANGE: u32 = 1u32;
 pub const ENM_CLIPFORMAT: u32 = 128u32;
 pub const ENM_CORRECTTEXT: u32 = 4194304u32;
@@ -336,15 +561,54 @@ pub const ENM_SCROLLEVENTS: u32 = 8u32;
 pub const ENM_SELCHANGE: u32 = 524288u32;
 pub const ENM_STARTCOMPOSITION: u32 = 268435456u32;
 pub const ENM_UPDATE: u32 = 2u32;
+#[repr(C, packed(4))]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct ENOLEOPFAILED(i32);
+pub struct ENOLEOPFAILED {
+    pub nmhdr: super::NMHDR,
+    pub iob: i32,
+    pub lOper: i32,
+    pub hr: ::windows_sys::core::HRESULT,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct ENPROTECTED(i32);
+impl ::core::marker::Copy for ENOLEOPFAILED {}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct ENSAVECLIPBOARD(i32);
+impl ::core::clone::Clone for ENOLEOPFAILED {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(4))]
+#[cfg(feature = "Win32_Foundation")]
+pub struct ENPROTECTED {
+    pub nmhdr: super::NMHDR,
+    pub msg: u32,
+    pub wParam: super::super::super::Foundation::WPARAM,
+    pub lParam: super::super::super::Foundation::LPARAM,
+    pub chrg: CHARRANGE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ENPROTECTED {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ENPROTECTED {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(4))]
+#[cfg(feature = "Win32_Foundation")]
+pub struct ENSAVECLIPBOARD {
+    pub nmhdr: super::NMHDR,
+    pub cObjectCount: i32,
+    pub cch: i32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ENSAVECLIPBOARD {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ENSAVECLIPBOARD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const EN_ALIGNLTR: u32 = 1808u32;
 pub const EN_ALIGNRTL: u32 = 1809u32;
 pub const EN_CLIPFORMAT: u32 = 1810u32;
@@ -380,21 +644,81 @@ pub const ES_SELECTIONBAR: u32 = 16777216u32;
 pub const ES_SELFIME: u32 = 262144u32;
 pub const ES_SUNKEN: u32 = 16384u32;
 pub const ES_VERTICAL: u32 = 4194304u32;
+#[repr(C, packed(4))]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct FINDTEXTA(i32);
+pub struct FINDTEXTA {
+    pub chrg: CHARRANGE,
+    pub lpstrText: super::super::super::Foundation::PSTR,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct FINDTEXTEXA(i32);
+impl ::core::marker::Copy for FINDTEXTA {}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct FINDTEXTEXW(i32);
+impl ::core::clone::Clone for FINDTEXTA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(4))]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct FINDTEXTW(i32);
+pub struct FINDTEXTEXA {
+    pub chrg: CHARRANGE,
+    pub lpstrText: super::super::super::Foundation::PSTR,
+    pub chrgText: CHARRANGE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for FINDTEXTEXA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for FINDTEXTEXA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(4))]
+#[cfg(feature = "Win32_Foundation")]
+pub struct FINDTEXTEXW {
+    pub chrg: CHARRANGE,
+    pub lpstrText: super::super::super::Foundation::PWSTR,
+    pub chrgText: CHARRANGE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for FINDTEXTEXW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for FINDTEXTEXW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(4))]
+#[cfg(feature = "Win32_Foundation")]
+pub struct FINDTEXTW {
+    pub chrg: CHARRANGE,
+    pub lpstrText: super::super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for FINDTEXTW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for FINDTEXTW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(4))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-#[repr(C)]
-pub struct FORMATRANGE(i32);
+pub struct FORMATRANGE {
+    pub hdc: super::super::super::Graphics::Gdi::HDC,
+    pub hdcTarget: super::super::super::Graphics::Gdi::HDC,
+    pub rc: super::super::super::Foundation::RECT,
+    pub rcPage: super::super::super::Foundation::RECT,
+    pub chrg: CHARRANGE,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::marker::Copy for FORMATRANGE {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::clone::Clone for FORMATRANGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const FR_MATCHALEFHAMZA: u32 = 2147483648u32;
 pub const FR_MATCHDIAC: u32 = 536870912u32;
 pub const FR_MATCHKASHIDA: u32 = 1073741824u32;
@@ -404,12 +728,39 @@ pub const GCMF_SPELLING: u32 = 2u32;
 pub const GCMF_TOUCHMENU: u32 = 16384u32;
 pub const GCM_MOUSEMENU: u32 = 8192u32;
 pub const GCM_TOUCHMENU: u32 = 16384u32;
+#[repr(C, packed(4))]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct GETCONTEXTMENUEX(i32);
+pub struct GETCONTEXTMENUEX {
+    pub chrg: CHARRANGE,
+    pub dwFlags: u32,
+    pub pt: super::super::super::Foundation::POINT,
+    pub pvReserved: *mut ::core::ffi::c_void,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct GETTEXTEX(i32);
+impl ::core::marker::Copy for GETCONTEXTMENUEX {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for GETCONTEXTMENUEX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(4))]
+#[cfg(feature = "Win32_Foundation")]
+pub struct GETTEXTEX {
+    pub cb: u32,
+    pub flags: GETTEXTEX_FLAGS,
+    pub codepage: u32,
+    pub lpDefaultChar: super::super::super::Foundation::PSTR,
+    pub lpUsedDefChar: *mut i32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for GETTEXTEX {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for GETTEXTEX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct GETTEXTEX_FLAGS(pub u32);
 pub const GT_DEFAULT: GETTEXTEX_FLAGS = GETTEXTEX_FLAGS(0u32);
@@ -418,7 +769,16 @@ pub const GT_RAWTEXT: GETTEXTEX_FLAGS = GETTEXTEX_FLAGS(4u32);
 pub const GT_SELECTION: GETTEXTEX_FLAGS = GETTEXTEX_FLAGS(2u32);
 pub const GT_USECRLF: GETTEXTEX_FLAGS = GETTEXTEX_FLAGS(1u32);
 #[repr(C)]
-pub struct GETTEXTLENGTHEX(i32);
+pub struct GETTEXTLENGTHEX {
+    pub flags: GETTEXTLENGTHEX_FLAGS,
+    pub codepage: u32,
+}
+impl ::core::marker::Copy for GETTEXTLENGTHEX {}
+impl ::core::clone::Clone for GETTEXTLENGTHEX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct GETTEXTLENGTHEX_FLAGS(pub u32);
 pub const GTL_DEFAULT: GETTEXTLENGTHEX_FLAGS = GETTEXTLENGTHEX_FLAGS(0u32);
@@ -427,8 +787,18 @@ pub const GTL_PRECISE: GETTEXTLENGTHEX_FLAGS = GETTEXTLENGTHEX_FLAGS(2u32);
 pub const GTL_CLOSE: GETTEXTLENGTHEX_FLAGS = GETTEXTLENGTHEX_FLAGS(4u32);
 pub const GTL_NUMCHARS: GETTEXTLENGTHEX_FLAGS = GETTEXTLENGTHEX_FLAGS(8u32);
 pub const GTL_NUMBYTES: GETTEXTLENGTHEX_FLAGS = GETTEXTLENGTHEX_FLAGS(16u32);
-#[repr(C)]
-pub struct HYPHENATEINFO(i32);
+#[repr(C, packed(4))]
+pub struct HYPHENATEINFO {
+    pub cbSize: i16,
+    pub dxHyphenateZone: i16,
+    pub pfnHyphenate: isize,
+}
+impl ::core::marker::Copy for HYPHENATEINFO {}
+impl ::core::clone::Clone for HYPHENATEINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const ICM_CTF: u32 = 5u32;
 pub const ICM_LEVEL2: u32 = 2u32;
 pub const ICM_LEVEL2_5: u32 = 3u32;
@@ -436,7 +806,16 @@ pub const ICM_LEVEL2_SUI: u32 = 4u32;
 pub const ICM_LEVEL3: u32 = 1u32;
 pub const ICM_NOTOPEN: u32 = 0u32;
 #[repr(C)]
-pub struct IMECOMPTEXT(i32);
+pub struct IMECOMPTEXT {
+    pub cb: i32,
+    pub flags: IMECOMPTEXT_FLAGS,
+}
+impl ::core::marker::Copy for IMECOMPTEXT {}
+impl ::core::clone::Clone for IMECOMPTEXT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMECOMPTEXT_FLAGS(pub u32);
 pub const ICT_RESULTREADSTR: IMECOMPTEXT_FLAGS = IMECOMPTEXT_FLAGS(1u32);
@@ -541,12 +920,37 @@ pub const MLOOP: MANCODE = MANCODE(11i32);
 pub const MOPENA: MANCODE = MANCODE(12i32);
 pub const MAX_TABLE_CELLS: u32 = 63u32;
 pub const MAX_TAB_STOPS: u32 = 32u32;
+#[repr(C, packed(4))]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct MSGFILTER(i32);
+pub struct MSGFILTER {
+    pub nmhdr: super::NMHDR,
+    pub msg: u32,
+    pub wParam: super::super::super::Foundation::WPARAM,
+    pub lParam: super::super::super::Foundation::LPARAM,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct OBJECTPOSITIONS(i32);
+impl ::core::marker::Copy for MSGFILTER {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MSGFILTER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(4))]
+#[cfg(feature = "Win32_Foundation")]
+pub struct OBJECTPOSITIONS {
+    pub nmhdr: super::NMHDR,
+    pub cObjectCount: i32,
+    pub pcpPositions: *mut i32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for OBJECTPOSITIONS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for OBJECTPOSITIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct OBJECTTYPE(pub i32);
 pub const tomSimpleText: OBJECTTYPE = OBJECTTYPE(0i32);
@@ -582,9 +986,58 @@ pub const tomUpperLimit: OBJECTTYPE = OBJECTTYPE(33i32);
 pub const tomObjectMax: OBJECTTYPE = OBJECTTYPE(33i32);
 pub const OLEOP_DOVERB: u32 = 1u32;
 #[repr(C)]
-pub struct PARAFORMAT(i32);
+pub struct PARAFORMAT {
+    pub cbSize: u32,
+    pub dwMask: PARAFORMAT_MASK,
+    pub wNumbering: u16,
+    pub Anonymous: PARAFORMAT_0,
+    pub dxStartIndent: i32,
+    pub dxRightIndent: i32,
+    pub dxOffset: i32,
+    pub wAlignment: PARAFORMAT_ALIGNMENT,
+    pub cTabCount: i16,
+    pub rgxTabs: [u32; 32],
+}
+impl ::core::marker::Copy for PARAFORMAT {}
+impl ::core::clone::Clone for PARAFORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct PARAFORMAT2(i32);
+pub union PARAFORMAT_0 {
+    pub wReserved: u16,
+    pub wEffects: u16,
+}
+impl ::core::clone::Clone for PARAFORMAT_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct PARAFORMAT2 {
+    pub __AnonymousBase_richedit_L1149_C22: PARAFORMAT,
+    pub dySpaceBefore: i32,
+    pub dySpaceAfter: i32,
+    pub dyLineSpacing: i32,
+    pub sStyle: i16,
+    pub bLineSpacingRule: u8,
+    pub bOutlineLevel: u8,
+    pub wShadingWeight: u16,
+    pub wShadingStyle: PARAFORMAT_SHADING_STYLE,
+    pub wNumberingStart: u16,
+    pub wNumberingStyle: PARAFORMAT_NUMBERING_STYLE,
+    pub wNumberingTab: u16,
+    pub wBorderSpace: u16,
+    pub wBorderWidth: u16,
+    pub wBorders: PARAFORMAT_BORDERS,
+}
+impl ::core::marker::Copy for PARAFORMAT2 {}
+impl ::core::clone::Clone for PARAFORMAT2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PARAFORMAT_ALIGNMENT(pub u16);
 pub const PFA_CENTER: PARAFORMAT_ALIGNMENT = PARAFORMAT_ALIGNMENT(3u16);
@@ -673,17 +1126,47 @@ pub const PFN_LCROMAN: u32 = 5u32;
 pub const PFN_UCLETTER: u32 = 4u32;
 pub const PFN_UCROMAN: u32 = 6u32;
 pub type PShutdownTextServices = unsafe extern "system" fn(ptextservices: ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT;
+#[repr(C, packed(4))]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct PUNCTUATION(i32);
+pub struct PUNCTUATION {
+    pub iSize: u32,
+    pub szPunctuation: super::super::super::Foundation::PSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for PUNCTUATION {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for PUNCTUATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const RECO_COPY: i32 = 2i32;
 pub const RECO_CUT: i32 = 3i32;
 pub const RECO_DRAG: i32 = 4i32;
 pub const RECO_DROP: i32 = 1i32;
 pub const RECO_PASTE: i32 = 0i32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
 #[repr(C)]
-pub struct REOBJECT(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
+pub struct REOBJECT {
+    pub cbStruct: u32,
+    pub cp: i32,
+    pub clsid: ::windows_sys::core::GUID,
+    pub poleobj: ::core::option::Option<super::super::super::System::Ole::IOleObject>,
+    pub pstg: ::core::option::Option<super::super::super::System::Com::StructuredStorage::IStorage>,
+    pub polesite: ::core::option::Option<super::super::super::System::Ole::IOleClientSite>,
+    pub sizel: super::super::super::Foundation::SIZE,
+    pub dvaspect: u32,
+    pub dwFlags: REOBJECT_FLAGS,
+    pub dwUser: u32,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
+impl ::core::marker::Copy for REOBJECT {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
+impl ::core::clone::Clone for REOBJECT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct REOBJECT_FLAGS(pub u32);
 pub const REO_ALIGNTORIGHT: REOBJECT_FLAGS = REOBJECT_FLAGS(256u32);
@@ -707,15 +1190,52 @@ pub const REO_USEASBACKGROUND: REOBJECT_FLAGS = REOBJECT_FLAGS(1024u32);
 pub const REO_WRAPTEXTAROUND: REOBJECT_FLAGS = REOBJECT_FLAGS(512u32);
 pub const REO_NULL: i32 = 0i32;
 pub const REO_READWRITEMASK: i32 = 2047i32;
+#[repr(C, packed(4))]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(C)]
-pub struct REPASTESPECIAL(i32);
+pub struct REPASTESPECIAL {
+    pub dwAspect: super::super::super::System::Com::DVASPECT,
+    pub dwParam: usize,
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::marker::Copy for REPASTESPECIAL {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for REPASTESPECIAL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(4))]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct REQRESIZE(i32);
+pub struct REQRESIZE {
+    pub nmhdr: super::NMHDR,
+    pub rc: super::super::super::Foundation::RECT,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for REQRESIZE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for REQRESIZE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(4))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
-#[repr(C)]
-pub struct RICHEDIT_IMAGE_PARAMETERS(i32);
+pub struct RICHEDIT_IMAGE_PARAMETERS {
+    pub xWidth: i32,
+    pub yHeight: i32,
+    pub Ascent: i32,
+    pub Type: super::super::super::Graphics::Gdi::TEXT_ALIGN_OPTIONS,
+    pub pwszAlternateText: super::super::super::Foundation::PWSTR,
+    pub pIStream: ::core::option::Option<super::super::super::System::Com::IStream>,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
+impl ::core::marker::Copy for RICHEDIT_IMAGE_PARAMETERS {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
+impl ::core::clone::Clone for RICHEDIT_IMAGE_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE(pub u16);
 pub const SEL_EMPTY: RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE = RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE(0u16);
@@ -744,9 +1264,21 @@ pub const SCF_SELECTION: u32 = 1u32;
 pub const SCF_SMARTFONT: u32 = 128u32;
 pub const SCF_USEUIRULES: u32 = 8u32;
 pub const SCF_WORD: u32 = 2u32;
+#[repr(C, packed(4))]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct SELCHANGE(i32);
+pub struct SELCHANGE {
+    pub nmhdr: super::NMHDR,
+    pub chrg: CHARRANGE,
+    pub seltyp: RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SELCHANGE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SELCHANGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SES_ALLOWBEEPS: u32 = 256u32;
 pub const SES_BEEPONMAXTEXT: u32 = 2u32;
 pub const SES_BIDI: u32 = 4096u32;
@@ -791,7 +1323,16 @@ pub const SES_USECTF: u32 = 65536u32;
 pub const SES_WORDDRAGDROP: u32 = 33554432u32;
 pub const SES_XLTCRCRLFTOCR: u32 = 16384u32;
 #[repr(C)]
-pub struct SETTEXTEX(i32);
+pub struct SETTEXTEX {
+    pub flags: u32,
+    pub codepage: u32,
+}
+impl ::core::marker::Copy for SETTEXTEX {}
+impl ::core::clone::Clone for SETTEXTEX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SFF_KEEPDOCINFO: u32 = 4096u32;
 pub const SFF_PERSISTVIEWSCALE: u32 = 8192u32;
 pub const SFF_PLAINRTF: u32 = 16384u32;
@@ -815,9 +1356,47 @@ pub const ST_SELECTION: u32 = 2u32;
 pub const ST_UNICODE: u32 = 8u32;
 pub const S_MSG_KEY_IGNORED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(262657i32 as _);
 #[repr(C)]
-pub struct TABLECELLPARMS(i32);
+pub struct TABLECELLPARMS {
+    pub dxWidth: i32,
+    pub _bitfield: u16,
+    pub wShading: u16,
+    pub dxBrdrLeft: i16,
+    pub dyBrdrTop: i16,
+    pub dxBrdrRight: i16,
+    pub dyBrdrBottom: i16,
+    pub crBrdrLeft: u32,
+    pub crBrdrTop: u32,
+    pub crBrdrRight: u32,
+    pub crBrdrBottom: u32,
+    pub crBackPat: u32,
+    pub crForePat: u32,
+}
+impl ::core::marker::Copy for TABLECELLPARMS {}
+impl ::core::clone::Clone for TABLECELLPARMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct TABLEROWPARMS(i32);
+pub struct TABLEROWPARMS {
+    pub cbRow: u8,
+    pub cbCell: u8,
+    pub cCell: u8,
+    pub cRow: u8,
+    pub dxCellMargin: i32,
+    pub dxIndent: i32,
+    pub dyHeight: i32,
+    pub _bitfield: u32,
+    pub cpStartRow: i32,
+    pub bTableLevel: u8,
+    pub iCell: u8,
+}
+impl ::core::marker::Copy for TABLEROWPARMS {}
+impl ::core::clone::Clone for TABLEROWPARMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TEXTMODE(pub i32);
 pub const TM_PLAINTEXT: TEXTMODE = TEXTMODE(1i32);
@@ -826,12 +1405,34 @@ pub const TM_SINGLELEVELUNDO: TEXTMODE = TEXTMODE(4i32);
 pub const TM_MULTILEVELUNDO: TEXTMODE = TEXTMODE(8i32);
 pub const TM_SINGLECODEPAGE: TEXTMODE = TEXTMODE(16i32);
 pub const TM_MULTICODEPAGE: TEXTMODE = TEXTMODE(32i32);
+#[repr(C, packed(4))]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct TEXTRANGEA(i32);
+pub struct TEXTRANGEA {
+    pub chrg: CHARRANGE,
+    pub lpstrText: super::super::super::Foundation::PSTR,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct TEXTRANGEW(i32);
+impl ::core::marker::Copy for TEXTRANGEA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for TEXTRANGEA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(4))]
+#[cfg(feature = "Win32_Foundation")]
+pub struct TEXTRANGEW {
+    pub chrg: CHARRANGE,
+    pub lpstrText: super::super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for TEXTRANGEW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for TEXTRANGEW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const TO_ADVANCEDLAYOUT: u32 = 8u32;
 pub const TO_ADVANCEDTYPOGRAPHY: u32 = 1u32;
 pub const TO_DISABLECUSTOMTEXTOUT: u32 = 4u32;
@@ -916,11 +1517,32 @@ pub const WM_CONTEXTMENU: u32 = 123u32;
 pub const WM_NOTIFY: u32 = 78u32;
 pub const WM_PRINTCLIENT: u32 = 792u32;
 pub const WM_UNICHAR: u32 = 265u32;
+#[repr(C, packed(4))]
 #[cfg(feature = "Win32_Foundation")]
+pub struct _grouptypingchange {
+    pub nmhdr: super::NMHDR,
+    pub fGroupTyping: super::super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for _grouptypingchange {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for _grouptypingchange {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct _grouptypingchange(i32);
-#[repr(C)]
-pub struct hyphresult(i32);
+pub struct hyphresult {
+    pub khyph: KHYPH,
+    pub ichHyph: i32,
+    pub chHyph: u16,
+}
+impl ::core::marker::Copy for hyphresult {}
+impl ::core::clone::Clone for hyphresult {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct tomConstants(pub i32);
 pub const tomFalse: tomConstants = tomConstants(0i32);

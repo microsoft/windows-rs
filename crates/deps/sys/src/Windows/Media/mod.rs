@@ -178,9 +178,20 @@ impl MediaPlaybackType {
 }
 #[repr(transparent)]
 pub struct MediaProcessingTriggerDetails(pub *mut ::core::ffi::c_void);
-#[cfg(feature = "Foundation")]
 #[repr(C)]
-pub struct MediaTimeRange(i32);
+#[cfg(feature = "Foundation")]
+pub struct MediaTimeRange {
+    pub Start: super::Foundation::TimeSpan,
+    pub End: super::Foundation::TimeSpan,
+}
+#[cfg(feature = "Foundation")]
+impl ::core::marker::Copy for MediaTimeRange {}
+#[cfg(feature = "Foundation")]
+impl ::core::clone::Clone for MediaTimeRange {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MediaTimelineController(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

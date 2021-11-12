@@ -358,9 +358,22 @@ impl PrintOrientation {
     pub const Landscape: Self = Self(5i32);
     pub const LandscapeFlipped: Self = Self(6i32);
 }
-#[cfg(feature = "Foundation")]
 #[repr(C)]
-pub struct PrintPageDescription(i32);
+#[cfg(feature = "Foundation")]
+pub struct PrintPageDescription {
+    pub PageSize: super::super::Foundation::Size,
+    pub ImageableRect: super::super::Foundation::Rect,
+    pub DpiX: u32,
+    pub DpiY: u32,
+}
+#[cfg(feature = "Foundation")]
+impl ::core::marker::Copy for PrintPageDescription {}
+#[cfg(feature = "Foundation")]
+impl ::core::clone::Clone for PrintPageDescription {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PrintPageInfo(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

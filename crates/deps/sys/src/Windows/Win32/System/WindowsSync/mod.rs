@@ -44,12 +44,36 @@ pub struct ICoreFragment(pub *mut ::core::ffi::c_void);
 pub struct ICoreFragmentInspector(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ICustomFilterInfo(pub *mut ::core::ffi::c_void);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct ID_PARAMETERS(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct ID_PARAMETERS {
+    pub dwSize: u32,
+    pub replicaId: ID_PARAMETER_PAIR,
+    pub itemId: ID_PARAMETER_PAIR,
+    pub changeUnitId: ID_PARAMETER_PAIR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ID_PARAMETERS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ID_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct ID_PARAMETER_PAIR(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct ID_PARAMETER_PAIR {
+    pub fIsVariable: super::super::Foundation::BOOL,
+    pub cbIdSize: u16,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ID_PARAMETER_PAIR {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ID_PARAMETER_PAIR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDataRetrieverCallback(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -422,9 +446,20 @@ pub const SCRA_TRANSFER_AND_DEFER: SYNC_CONSTRAINT_RESOLVE_ACTION = SYNC_CONSTRA
 pub const SCRA_MERGE: SYNC_CONSTRAINT_RESOLVE_ACTION = SYNC_CONSTRAINT_RESOLVE_ACTION(4i32);
 pub const SCRA_RENAME_SOURCE: SYNC_CONSTRAINT_RESOLVE_ACTION = SYNC_CONSTRAINT_RESOLVE_ACTION(5i32);
 pub const SCRA_RENAME_DESTINATION: SYNC_CONSTRAINT_RESOLVE_ACTION = SYNC_CONSTRAINT_RESOLVE_ACTION(6i32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct SYNC_FILTER_CHANGE(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct SYNC_FILTER_CHANGE {
+    pub fMoveIn: super::super::Foundation::BOOL,
+    pub moveVersion: SYNC_VERSION,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SYNC_FILTER_CHANGE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SYNC_FILTER_CHANGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SYNC_FILTER_INFO_COMBINED: u32 = 8u32;
 pub const SYNC_FILTER_INFO_FLAG_CHANGE_UNIT_LIST: u32 = 2u32;
 pub const SYNC_FILTER_INFO_FLAG_CUSTOM: u32 = 4u32;
@@ -444,7 +479,16 @@ pub struct SYNC_PROVIDER_ROLE(pub i32);
 pub const SPR_SOURCE: SYNC_PROVIDER_ROLE = SYNC_PROVIDER_ROLE(0i32);
 pub const SPR_DESTINATION: SYNC_PROVIDER_ROLE = SYNC_PROVIDER_ROLE(1i32);
 #[repr(C)]
-pub struct SYNC_RANGE(i32);
+pub struct SYNC_RANGE {
+    pub pbClosedLowerBound: *mut u8,
+    pub pbClosedUpperBound: *mut u8,
+}
+impl ::core::marker::Copy for SYNC_RANGE {}
+impl ::core::clone::Clone for SYNC_RANGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SYNC_REGISTRATION_EVENT(pub i32);
 pub const SRE_PROVIDER_ADDED: SYNC_REGISTRATION_EVENT = SYNC_REGISTRATION_EVENT(0i32);
@@ -469,19 +513,76 @@ pub const SYNC_SERIALIZATION_VERSION_V2: SYNC_SERIALIZATION_VERSION = SYNC_SERIA
 pub const SYNC_SERIALIZATION_VERSION_V3: SYNC_SERIALIZATION_VERSION = SYNC_SERIALIZATION_VERSION(5i32);
 pub const SYNC_SERIALIZE_REPLICA_KEY_MAP: u32 = 1u32;
 #[repr(C)]
-pub struct SYNC_SESSION_STATISTICS(i32);
+pub struct SYNC_SESSION_STATISTICS {
+    pub dwChangesApplied: u32,
+    pub dwChangesFailed: u32,
+}
+impl ::core::marker::Copy for SYNC_SESSION_STATISTICS {}
+impl ::core::clone::Clone for SYNC_SESSION_STATISTICS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SYNC_STATISTICS(pub i32);
 pub const SYNC_STATISTICS_RANGE_COUNT: SYNC_STATISTICS = SYNC_STATISTICS(0i32);
 #[repr(C)]
-pub struct SYNC_TIME(i32);
+pub struct SYNC_TIME {
+    pub dwDate: u32,
+    pub dwTime: u32,
+}
+impl ::core::marker::Copy for SYNC_TIME {}
+impl ::core::clone::Clone for SYNC_TIME {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct SYNC_VERSION(i32);
+pub struct SYNC_VERSION {
+    pub dwLastUpdatingReplicaKey: u32,
+    pub ullTickCount: u64,
+}
+impl ::core::marker::Copy for SYNC_VERSION {}
+impl ::core::clone::Clone for SYNC_VERSION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SYNC_VERSION_FLAG_FROM_FEED: u32 = 1u32;
 pub const SYNC_VERSION_FLAG_HAS_BY: u32 = 2u32;
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+pub struct SyncProviderConfigUIConfiguration {
+    pub dwVersion: u32,
+    pub guidInstanceId: ::windows_sys::core::GUID,
+    pub clsidConfigUI: ::windows_sys::core::GUID,
+    pub guidContentType: ::windows_sys::core::GUID,
+    pub dwCapabilities: u32,
+    pub dwSupportedArchitecture: u32,
+    pub fIsGlobal: super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SyncProviderConfigUIConfiguration {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SyncProviderConfigUIConfiguration {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct SyncProviderConfigUIConfiguration(i32);
-#[repr(C)]
-pub struct SyncProviderConfiguration(i32);
+pub struct SyncProviderConfiguration {
+    pub dwVersion: u32,
+    pub guidInstanceId: ::windows_sys::core::GUID,
+    pub clsidProvider: ::windows_sys::core::GUID,
+    pub guidConfigUIInstanceId: ::windows_sys::core::GUID,
+    pub guidContentType: ::windows_sys::core::GUID,
+    pub dwCapabilities: u32,
+    pub dwSupportedArchitecture: u32,
+}
+impl ::core::marker::Copy for SyncProviderConfiguration {}
+impl ::core::clone::Clone for SyncProviderConfiguration {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SyncProviderRegistration: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4163587825, data2: 37801, data3: 19934, data4: [128, 21, 247, 149, 10, 26, 110, 49] };

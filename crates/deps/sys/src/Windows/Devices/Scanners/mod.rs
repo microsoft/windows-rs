@@ -52,7 +52,16 @@ impl ImageScannerFormat {
 #[repr(transparent)]
 pub struct ImageScannerPreviewResult(pub *mut ::core::ffi::c_void);
 #[repr(C)]
-pub struct ImageScannerResolution(i32);
+pub struct ImageScannerResolution {
+    pub DpiX: f32,
+    pub DpiY: f32,
+}
+impl ::core::marker::Copy for ImageScannerResolution {}
+impl ::core::clone::Clone for ImageScannerResolution {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ImageScannerScanResult(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

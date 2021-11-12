@@ -100,7 +100,16 @@ impl IndexerOption {
 #[repr(transparent)]
 pub struct QueryOptions(pub *mut ::core::ffi::c_void);
 #[repr(C)]
-pub struct SortEntry(i32);
+pub struct SortEntry {
+    pub PropertyName: ::windows_sys::core::HSTRING,
+    pub AscendingOrder: bool,
+}
+impl ::core::marker::Copy for SortEntry {}
+impl ::core::clone::Clone for SortEntry {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SortEntryVector(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

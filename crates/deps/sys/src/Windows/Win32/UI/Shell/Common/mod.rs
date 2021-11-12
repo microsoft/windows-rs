@@ -1,9 +1,20 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {}
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct COMDLG_FILTERSPEC(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct COMDLG_FILTERSPEC {
+    pub pszName: super::super::super::Foundation::PWSTR,
+    pub pszSpec: super::super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for COMDLG_FILTERSPEC {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for COMDLG_FILTERSPEC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DEVICE_SCALE_FACTOR(pub i32);
 pub const DEVICE_SCALE_FACTOR_INVALID: DEVICE_SCALE_FACTOR = DEVICE_SCALE_FACTOR(0i32);
@@ -28,7 +39,15 @@ pub struct IObjectArray(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IObjectCollection(pub *mut ::core::ffi::c_void);
 #[repr(C)]
-pub struct ITEMIDLIST(i32);
+pub struct ITEMIDLIST {
+    pub mkid: SHITEMID,
+}
+impl ::core::marker::Copy for ITEMIDLIST {}
+impl ::core::clone::Clone for ITEMIDLIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PERCEIVED(pub i32);
 pub const PERCEIVED_TYPE_FIRST: PERCEIVED = PERCEIVED(-3i32);
@@ -76,14 +95,59 @@ pub const SHCOLSTATE_FIXED_WIDTH: SHCOLSTATE = SHCOLSTATE(4096i32);
 pub const SHCOLSTATE_NODPISCALE: SHCOLSTATE = SHCOLSTATE(8192i32);
 pub const SHCOLSTATE_FIXED_RATIO: SHCOLSTATE = SHCOLSTATE(16384i32);
 pub const SHCOLSTATE_DISPLAYMASK: SHCOLSTATE = SHCOLSTATE(61440i32);
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct SHELLDETAILS(i32);
-#[repr(C)]
-pub struct SHITEMID(i32);
+pub struct SHELLDETAILS {
+    pub fmt: i32,
+    pub cxChar: i32,
+    pub str: STRRET,
+}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SHELLDETAILS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SHELLDETAILS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub struct SHITEMID {
+    pub cb: u16,
+    pub abID: [u8; 1],
+}
+impl ::core::marker::Copy for SHITEMID {}
+impl ::core::clone::Clone for SHITEMID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct STRRET(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct STRRET {
+    pub uType: u32,
+    pub Anonymous: STRRET_0,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for STRRET {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for STRRET {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub union STRRET_0 {
+    pub pOleStr: super::super::super::Foundation::PWSTR,
+    pub uOffset: u32,
+    pub cStr: [u8; 260],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for STRRET_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct STRRET_TYPE(pub i32);
 pub const STRRET_WSTR: STRRET_TYPE = STRRET_TYPE(0i32);

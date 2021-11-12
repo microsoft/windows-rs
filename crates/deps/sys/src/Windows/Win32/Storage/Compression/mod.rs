@@ -27,7 +27,15 @@ extern "system" {
     pub fn SetDecompressorInformation(decompressorhandle: isize, compressinformationclass: COMPRESS_INFORMATION_CLASS, compressinformation: *const ::core::ffi::c_void, compressinformationsize: usize) -> super::super::Foundation::BOOL;
 }
 #[repr(C)]
-pub struct COMPRESSOR_HANDLE(i32);
+pub struct COMPRESSOR_HANDLE {
+    pub Value: isize,
+}
+impl ::core::marker::Copy for COMPRESSOR_HANDLE {}
+impl ::core::clone::Clone for COMPRESSOR_HANDLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct COMPRESS_ALGORITHM(pub u32);
 pub const COMPRESS_ALGORITHM_MSZIP: COMPRESS_ALGORITHM = COMPRESS_ALGORITHM(2u32);
@@ -38,7 +46,17 @@ pub const COMPRESS_ALGORITHM_INVALID: u32 = 0u32;
 pub const COMPRESS_ALGORITHM_MAX: u32 = 6u32;
 pub const COMPRESS_ALGORITHM_NULL: u32 = 1u32;
 #[repr(C)]
-pub struct COMPRESS_ALLOCATION_ROUTINES(i32);
+pub struct COMPRESS_ALLOCATION_ROUTINES {
+    pub Allocate: ::core::option::Option<PFN_COMPRESS_ALLOCATE>,
+    pub Free: ::core::option::Option<PFN_COMPRESS_FREE>,
+    pub UserContext: *mut ::core::ffi::c_void,
+}
+impl ::core::marker::Copy for COMPRESS_ALLOCATION_ROUTINES {}
+impl ::core::clone::Clone for COMPRESS_ALLOCATION_ROUTINES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct COMPRESS_INFORMATION_CLASS(pub i32);
 pub const COMPRESS_INFORMATION_CLASS_INVALID: COMPRESS_INFORMATION_CLASS = COMPRESS_INFORMATION_CLASS(0i32);

@@ -3,9 +3,20 @@
 pub mod Provider;
 #[link(name = "windows")]
 extern "system" {}
-#[cfg(feature = "Foundation")]
 #[repr(C)]
-pub struct GpioChangeCount(i32);
+#[cfg(feature = "Foundation")]
+pub struct GpioChangeCount {
+    pub Count: u64,
+    pub RelativeTime: super::super::Foundation::TimeSpan,
+}
+#[cfg(feature = "Foundation")]
+impl ::core::marker::Copy for GpioChangeCount {}
+#[cfg(feature = "Foundation")]
+impl ::core::clone::Clone for GpioChangeCount {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct GpioChangeCounter(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -17,9 +28,20 @@ impl GpioChangePolarity {
 }
 #[repr(transparent)]
 pub struct GpioChangeReader(pub *mut ::core::ffi::c_void);
-#[cfg(feature = "Foundation")]
 #[repr(C)]
-pub struct GpioChangeRecord(i32);
+#[cfg(feature = "Foundation")]
+pub struct GpioChangeRecord {
+    pub RelativeTime: super::super::Foundation::TimeSpan,
+    pub Edge: GpioPinEdge,
+}
+#[cfg(feature = "Foundation")]
+impl ::core::marker::Copy for GpioChangeRecord {}
+#[cfg(feature = "Foundation")]
+impl ::core::clone::Clone for GpioChangeRecord {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct GpioController(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

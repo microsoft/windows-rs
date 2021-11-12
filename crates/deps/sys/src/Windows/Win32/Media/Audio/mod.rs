@@ -253,12 +253,62 @@ pub const ACMDM_STREAM_SIZE: u32 = 24654u32;
 pub const ACMDM_STREAM_UNPREPARE: u32 = 24658u32;
 pub const ACMDM_STREAM_UPDATE: u32 = 24659u32;
 pub const ACMDM_USER: u32 = 16384u32;
+#[repr(C, packed(1))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-#[repr(C)]
-pub struct ACMDRIVERDETAILSA(i32);
+pub struct ACMDRIVERDETAILSA {
+    pub cbStruct: u32,
+    pub fccType: u32,
+    pub fccComp: u32,
+    pub wMid: u16,
+    pub wPid: u16,
+    pub vdwACM: u32,
+    pub vdwDriver: u32,
+    pub fdwSupport: u32,
+    pub cFormatTags: u32,
+    pub cFilterTags: u32,
+    pub hicon: super::super::UI::WindowsAndMessaging::HICON,
+    pub szShortName: [super::super::Foundation::CHAR; 32],
+    pub szLongName: [super::super::Foundation::CHAR; 128],
+    pub szCopyright: [super::super::Foundation::CHAR; 80],
+    pub szLicensing: [super::super::Foundation::CHAR; 128],
+    pub szFeatures: [super::super::Foundation::CHAR; 512],
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::core::marker::Copy for ACMDRIVERDETAILSA {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::core::clone::Clone for ACMDRIVERDETAILSA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[repr(C)]
-pub struct ACMDRIVERDETAILSW(i32);
+pub struct ACMDRIVERDETAILSW {
+    pub cbStruct: u32,
+    pub fccType: u32,
+    pub fccComp: u32,
+    pub wMid: u16,
+    pub wPid: u16,
+    pub vdwACM: u32,
+    pub vdwDriver: u32,
+    pub fdwSupport: u32,
+    pub cFormatTags: u32,
+    pub cFilterTags: u32,
+    pub hicon: super::super::UI::WindowsAndMessaging::HICON,
+    pub szShortName: [u16; 32],
+    pub szLongName: [u16; 128],
+    pub szCopyright: [u16; 80],
+    pub szLicensing: [u16; 128],
+    pub szFeatures: [u16; 512],
+}
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl ::core::marker::Copy for ACMDRIVERDETAILSW {}
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl ::core::clone::Clone for ACMDRIVERDETAILSW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const ACMDRIVERDETAILS_COPYRIGHT_CHARS: u32 = 80u32;
 pub const ACMDRIVERDETAILS_FEATURES_CHARS: u32 = 512u32;
 pub const ACMDRIVERDETAILS_LICENSING_CHARS: u32 = 128u32;
@@ -273,95 +323,412 @@ pub const ACMDRIVERDETAILS_SUPPORTF_HARDWARE: i32 = 8i32;
 pub const ACMDRIVERDETAILS_SUPPORTF_LOCAL: i32 = 1073741824i32;
 #[cfg(feature = "Win32_Foundation")]
 pub type ACMDRIVERENUMCB = unsafe extern "system" fn(hadid: HACMDRIVERID, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL;
-#[repr(C)]
-pub struct ACMDRVFORMATSUGGEST(i32);
-#[repr(C)]
-pub struct ACMDRVSTREAMHEADER(i32);
-#[repr(C)]
-pub struct ACMDRVSTREAMINSTANCE(i32);
-#[repr(C)]
-pub struct ACMDRVSTREAMSIZE(i32);
+#[repr(C, packed(1))]
+pub struct ACMDRVFORMATSUGGEST {
+    pub cbStruct: u32,
+    pub fdwSuggest: u32,
+    pub pwfxSrc: *mut WAVEFORMATEX,
+    pub cbwfxSrc: u32,
+    pub pwfxDst: *mut WAVEFORMATEX,
+    pub cbwfxDst: u32,
+}
+impl ::core::marker::Copy for ACMDRVFORMATSUGGEST {}
+impl ::core::clone::Clone for ACMDRVFORMATSUGGEST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub struct ACMDRVSTREAMHEADER {
+    pub cbStruct: u32,
+    pub fdwStatus: u32,
+    pub dwUser: usize,
+    pub pbSrc: *mut u8,
+    pub cbSrcLength: u32,
+    pub cbSrcLengthUsed: u32,
+    pub dwSrcUser: usize,
+    pub pbDst: *mut u8,
+    pub cbDstLength: u32,
+    pub cbDstLengthUsed: u32,
+    pub dwDstUser: usize,
+    pub fdwConvert: u32,
+    pub padshNext: *mut ACMDRVSTREAMHEADER,
+    pub fdwDriver: u32,
+    pub dwDriver: usize,
+    pub fdwPrepared: u32,
+    pub dwPrepared: usize,
+    pub pbPreparedSrc: *mut u8,
+    pub cbPreparedSrcLength: u32,
+    pub pbPreparedDst: *mut u8,
+    pub cbPreparedDstLength: u32,
+}
+impl ::core::marker::Copy for ACMDRVSTREAMHEADER {}
+impl ::core::clone::Clone for ACMDRVSTREAMHEADER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub struct ACMDRVSTREAMINSTANCE {
+    pub cbStruct: u32,
+    pub pwfxSrc: *mut WAVEFORMATEX,
+    pub pwfxDst: *mut WAVEFORMATEX,
+    pub pwfltr: *mut WAVEFILTER,
+    pub dwCallback: usize,
+    pub dwInstance: usize,
+    pub fdwOpen: u32,
+    pub fdwDriver: u32,
+    pub dwDriver: usize,
+    pub has: HACMSTREAM,
+}
+impl ::core::marker::Copy for ACMDRVSTREAMINSTANCE {}
+impl ::core::clone::Clone for ACMDRVSTREAMINSTANCE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub struct ACMDRVSTREAMSIZE {
+    pub cbStruct: u32,
+    pub fdwSize: u32,
+    pub cbSrcLength: u32,
+    pub cbDstLength: u32,
+}
+impl ::core::marker::Copy for ACMDRVSTREAMSIZE {}
+impl ::core::clone::Clone for ACMDRVSTREAMSIZE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const ACMERR_BASE: u32 = 512u32;
 pub const ACMERR_BUSY: u32 = 513u32;
 pub const ACMERR_CANCELED: u32 = 515u32;
 pub const ACMERR_NOTPOSSIBLE: u32 = 512u32;
 pub const ACMERR_UNPREPARED: u32 = 514u32;
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct ACMFILTERCHOOSEA(i32);
+pub struct ACMFILTERCHOOSEA {
+    pub cbStruct: u32,
+    pub fdwStyle: u32,
+    pub hwndOwner: super::super::Foundation::HWND,
+    pub pwfltr: *mut WAVEFILTER,
+    pub cbwfltr: u32,
+    pub pszTitle: super::super::Foundation::PSTR,
+    pub szFilterTag: [super::super::Foundation::CHAR; 48],
+    pub szFilter: [super::super::Foundation::CHAR; 128],
+    pub pszName: super::super::Foundation::PSTR,
+    pub cchName: u32,
+    pub fdwEnum: u32,
+    pub pwfltrEnum: *mut WAVEFILTER,
+    pub hInstance: super::super::Foundation::HINSTANCE,
+    pub pszTemplateName: super::super::Foundation::PSTR,
+    pub lCustData: super::super::Foundation::LPARAM,
+    pub pfnHook: ::core::option::Option<ACMFILTERCHOOSEHOOKPROCA>,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ACMFILTERCHOOSEA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ACMFILTERCHOOSEA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[cfg(feature = "Win32_Foundation")]
 pub type ACMFILTERCHOOSEHOOKPROCA = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> u32;
 #[cfg(feature = "Win32_Foundation")]
 pub type ACMFILTERCHOOSEHOOKPROCW = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> u32;
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct ACMFILTERCHOOSEW(i32);
+pub struct ACMFILTERCHOOSEW {
+    pub cbStruct: u32,
+    pub fdwStyle: u32,
+    pub hwndOwner: super::super::Foundation::HWND,
+    pub pwfltr: *mut WAVEFILTER,
+    pub cbwfltr: u32,
+    pub pszTitle: super::super::Foundation::PWSTR,
+    pub szFilterTag: [u16; 48],
+    pub szFilter: [u16; 128],
+    pub pszName: super::super::Foundation::PWSTR,
+    pub cchName: u32,
+    pub fdwEnum: u32,
+    pub pwfltrEnum: *mut WAVEFILTER,
+    pub hInstance: super::super::Foundation::HINSTANCE,
+    pub pszTemplateName: super::super::Foundation::PWSTR,
+    pub lCustData: super::super::Foundation::LPARAM,
+    pub pfnHook: ::core::option::Option<ACMFILTERCHOOSEHOOKPROCW>,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ACMFILTERCHOOSEW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ACMFILTERCHOOSEW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const ACMFILTERCHOOSE_STYLEF_CONTEXTHELP: i32 = 128i32;
 pub const ACMFILTERCHOOSE_STYLEF_ENABLEHOOK: i32 = 8i32;
 pub const ACMFILTERCHOOSE_STYLEF_ENABLETEMPLATE: i32 = 16i32;
 pub const ACMFILTERCHOOSE_STYLEF_ENABLETEMPLATEHANDLE: i32 = 32i32;
 pub const ACMFILTERCHOOSE_STYLEF_INITTOFILTERSTRUCT: i32 = 64i32;
 pub const ACMFILTERCHOOSE_STYLEF_SHOWHELP: i32 = 4i32;
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct ACMFILTERDETAILSA(i32);
-#[repr(C)]
-pub struct ACMFILTERDETAILSW(i32);
+pub struct ACMFILTERDETAILSA {
+    pub cbStruct: u32,
+    pub dwFilterIndex: u32,
+    pub dwFilterTag: u32,
+    pub fdwSupport: u32,
+    pub pwfltr: *mut WAVEFILTER,
+    pub cbwfltr: u32,
+    pub szFilter: [super::super::Foundation::CHAR; 128],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ACMFILTERDETAILSA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ACMFILTERDETAILSA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub struct ACMFILTERDETAILSW {
+    pub cbStruct: u32,
+    pub dwFilterIndex: u32,
+    pub dwFilterTag: u32,
+    pub fdwSupport: u32,
+    pub pwfltr: *mut WAVEFILTER,
+    pub cbwfltr: u32,
+    pub szFilter: [u16; 128],
+}
+impl ::core::marker::Copy for ACMFILTERDETAILSW {}
+impl ::core::clone::Clone for ACMFILTERDETAILSW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const ACMFILTERDETAILS_FILTER_CHARS: u32 = 128u32;
 #[cfg(feature = "Win32_Foundation")]
 pub type ACMFILTERENUMCBA = unsafe extern "system" fn(hadid: HACMDRIVERID, pafd: *mut ACMFILTERDETAILSA, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
 pub type ACMFILTERENUMCBW = unsafe extern "system" fn(hadid: HACMDRIVERID, pafd: *mut ACMFILTERDETAILSW, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL;
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct ACMFILTERTAGDETAILSA(i32);
-#[repr(C)]
-pub struct ACMFILTERTAGDETAILSW(i32);
+pub struct ACMFILTERTAGDETAILSA {
+    pub cbStruct: u32,
+    pub dwFilterTagIndex: u32,
+    pub dwFilterTag: u32,
+    pub cbFilterSize: u32,
+    pub fdwSupport: u32,
+    pub cStandardFilters: u32,
+    pub szFilterTag: [super::super::Foundation::CHAR; 48],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ACMFILTERTAGDETAILSA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ACMFILTERTAGDETAILSA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub struct ACMFILTERTAGDETAILSW {
+    pub cbStruct: u32,
+    pub dwFilterTagIndex: u32,
+    pub dwFilterTag: u32,
+    pub cbFilterSize: u32,
+    pub fdwSupport: u32,
+    pub cStandardFilters: u32,
+    pub szFilterTag: [u16; 48],
+}
+impl ::core::marker::Copy for ACMFILTERTAGDETAILSW {}
+impl ::core::clone::Clone for ACMFILTERTAGDETAILSW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const ACMFILTERTAGDETAILS_FILTERTAG_CHARS: u32 = 48u32;
 #[cfg(feature = "Win32_Foundation")]
 pub type ACMFILTERTAGENUMCBA = unsafe extern "system" fn(hadid: HACMDRIVERID, paftd: *mut ACMFILTERTAGDETAILSA, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
 pub type ACMFILTERTAGENUMCBW = unsafe extern "system" fn(hadid: HACMDRIVERID, paftd: *mut ACMFILTERTAGDETAILSW, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL;
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct ACMFORMATCHOOSEA(i32);
+pub struct ACMFORMATCHOOSEA {
+    pub cbStruct: u32,
+    pub fdwStyle: u32,
+    pub hwndOwner: super::super::Foundation::HWND,
+    pub pwfx: *mut WAVEFORMATEX,
+    pub cbwfx: u32,
+    pub pszTitle: super::super::Foundation::PSTR,
+    pub szFormatTag: [super::super::Foundation::CHAR; 48],
+    pub szFormat: [super::super::Foundation::CHAR; 128],
+    pub pszName: super::super::Foundation::PSTR,
+    pub cchName: u32,
+    pub fdwEnum: u32,
+    pub pwfxEnum: *mut WAVEFORMATEX,
+    pub hInstance: super::super::Foundation::HINSTANCE,
+    pub pszTemplateName: super::super::Foundation::PSTR,
+    pub lCustData: super::super::Foundation::LPARAM,
+    pub pfnHook: ::core::option::Option<ACMFORMATCHOOSEHOOKPROCA>,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ACMFORMATCHOOSEA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ACMFORMATCHOOSEA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[cfg(feature = "Win32_Foundation")]
 pub type ACMFORMATCHOOSEHOOKPROCA = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> u32;
 #[cfg(feature = "Win32_Foundation")]
 pub type ACMFORMATCHOOSEHOOKPROCW = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> u32;
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct ACMFORMATCHOOSEW(i32);
+pub struct ACMFORMATCHOOSEW {
+    pub cbStruct: u32,
+    pub fdwStyle: u32,
+    pub hwndOwner: super::super::Foundation::HWND,
+    pub pwfx: *mut WAVEFORMATEX,
+    pub cbwfx: u32,
+    pub pszTitle: super::super::Foundation::PWSTR,
+    pub szFormatTag: [u16; 48],
+    pub szFormat: [u16; 128],
+    pub pszName: super::super::Foundation::PWSTR,
+    pub cchName: u32,
+    pub fdwEnum: u32,
+    pub pwfxEnum: *mut WAVEFORMATEX,
+    pub hInstance: super::super::Foundation::HINSTANCE,
+    pub pszTemplateName: super::super::Foundation::PWSTR,
+    pub lCustData: super::super::Foundation::LPARAM,
+    pub pfnHook: ::core::option::Option<ACMFORMATCHOOSEHOOKPROCW>,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ACMFORMATCHOOSEW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ACMFORMATCHOOSEW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const ACMFORMATCHOOSE_STYLEF_CONTEXTHELP: i32 = 128i32;
 pub const ACMFORMATCHOOSE_STYLEF_ENABLEHOOK: i32 = 8i32;
 pub const ACMFORMATCHOOSE_STYLEF_ENABLETEMPLATE: i32 = 16i32;
 pub const ACMFORMATCHOOSE_STYLEF_ENABLETEMPLATEHANDLE: i32 = 32i32;
 pub const ACMFORMATCHOOSE_STYLEF_INITTOWFXSTRUCT: i32 = 64i32;
 pub const ACMFORMATCHOOSE_STYLEF_SHOWHELP: i32 = 4i32;
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct ACMFORMATDETAILSA(i32);
+pub struct ACMFORMATDETAILSA {
+    pub cbStruct: u32,
+    pub dwFormatIndex: u32,
+    pub dwFormatTag: u32,
+    pub fdwSupport: u32,
+    pub pwfx: *mut WAVEFORMATEX,
+    pub cbwfx: u32,
+    pub szFormat: [super::super::Foundation::CHAR; 128],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ACMFORMATDETAILSA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ACMFORMATDETAILSA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const ACMFORMATDETAILS_FORMAT_CHARS: u32 = 128u32;
 #[cfg(feature = "Win32_Foundation")]
 pub type ACMFORMATENUMCBA = unsafe extern "system" fn(hadid: HACMDRIVERID, pafd: *mut ACMFORMATDETAILSA, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
 pub type ACMFORMATENUMCBW = unsafe extern "system" fn(hadid: HACMDRIVERID, pafd: *mut tACMFORMATDETAILSW, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL;
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct ACMFORMATTAGDETAILSA(i32);
-#[repr(C)]
-pub struct ACMFORMATTAGDETAILSW(i32);
+pub struct ACMFORMATTAGDETAILSA {
+    pub cbStruct: u32,
+    pub dwFormatTagIndex: u32,
+    pub dwFormatTag: u32,
+    pub cbFormatSize: u32,
+    pub fdwSupport: u32,
+    pub cStandardFormats: u32,
+    pub szFormatTag: [super::super::Foundation::CHAR; 48],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ACMFORMATTAGDETAILSA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ACMFORMATTAGDETAILSA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub struct ACMFORMATTAGDETAILSW {
+    pub cbStruct: u32,
+    pub dwFormatTagIndex: u32,
+    pub dwFormatTag: u32,
+    pub cbFormatSize: u32,
+    pub fdwSupport: u32,
+    pub cStandardFormats: u32,
+    pub szFormatTag: [u16; 48],
+}
+impl ::core::marker::Copy for ACMFORMATTAGDETAILSW {}
+impl ::core::clone::Clone for ACMFORMATTAGDETAILSW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const ACMFORMATTAGDETAILS_FORMATTAG_CHARS: u32 = 48u32;
 #[cfg(feature = "Win32_Foundation")]
 pub type ACMFORMATTAGENUMCBA = unsafe extern "system" fn(hadid: HACMDRIVERID, paftd: *mut ACMFORMATTAGDETAILSA, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
 pub type ACMFORMATTAGENUMCBW = unsafe extern "system" fn(hadid: HACMDRIVERID, paftd: *mut ACMFORMATTAGDETAILSW, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL;
+#[repr(C, packed(1))]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-#[repr(C)]
-pub struct ACMSTREAMHEADER(i32);
+pub struct ACMSTREAMHEADER {
+    pub cbStruct: u32,
+    pub fdwStatus: u32,
+    pub dwUser: usize,
+    pub pbSrc: *mut u8,
+    pub cbSrcLength: u32,
+    pub cbSrcLengthUsed: u32,
+    pub dwSrcUser: usize,
+    pub pbDst: *mut u8,
+    pub cbDstLength: u32,
+    pub cbDstLengthUsed: u32,
+    pub dwDstUser: usize,
+    pub dwReservedDriver: [u32; 15],
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::marker::Copy for ACMSTREAMHEADER {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::clone::Clone for ACMSTREAMHEADER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
 #[cfg(any(target_arch = "x86",))]
-#[repr(C)]
-pub struct ACMSTREAMHEADER(i32);
+pub struct ACMSTREAMHEADER {
+    pub cbStruct: u32,
+    pub fdwStatus: u32,
+    pub dwUser: usize,
+    pub pbSrc: *mut u8,
+    pub cbSrcLength: u32,
+    pub cbSrcLengthUsed: u32,
+    pub dwSrcUser: usize,
+    pub pbDst: *mut u8,
+    pub cbDstLength: u32,
+    pub cbDstLengthUsed: u32,
+    pub dwDstUser: usize,
+    pub dwReservedDriver: [u32; 10],
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::core::marker::Copy for ACMSTREAMHEADER {}
+#[cfg(any(target_arch = "x86",))]
+impl ::core::clone::Clone for ACMSTREAMHEADER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const ACMSTREAMHEADER_STATUSF_DONE: i32 = 65536i32;
 pub const ACMSTREAMHEADER_STATUSF_INQUEUE: i32 = 1048576i32;
 pub const ACMSTREAMHEADER_STATUSF_PREPARED: i32 = 131072i32;
@@ -442,7 +809,22 @@ pub struct AMBISONICS_NORMALIZATION(pub i32);
 pub const AMBISONICS_NORMALIZATION_SN3D: AMBISONICS_NORMALIZATION = AMBISONICS_NORMALIZATION(0i32);
 pub const AMBISONICS_NORMALIZATION_N3D: AMBISONICS_NORMALIZATION = AMBISONICS_NORMALIZATION(1i32);
 #[repr(C)]
-pub struct AMBISONICS_PARAMS(i32);
+pub struct AMBISONICS_PARAMS {
+    pub u32Size: u32,
+    pub u32Version: u32,
+    pub u32Type: AMBISONICS_TYPE,
+    pub u32ChannelOrdering: AMBISONICS_CHANNEL_ORDERING,
+    pub u32Normalization: AMBISONICS_NORMALIZATION,
+    pub u32Order: u32,
+    pub u32NumChannels: u32,
+    pub pu32ChannelMap: *mut u32,
+}
+impl ::core::marker::Copy for AMBISONICS_PARAMS {}
+impl ::core::clone::Clone for AMBISONICS_PARAMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const AMBISONICS_PARAM_VERSION_1: u32 = 1u32;
 #[repr(transparent)]
 pub struct AMBISONICS_TYPE(pub i32);
@@ -509,21 +891,60 @@ pub const AUDCLNT_S_BUFFER_EMPTY: ::windows_sys::core::HRESULT = ::windows_sys::
 pub const AUDCLNT_S_POSITION_STALLED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(143196163i32 as _);
 pub const AUDCLNT_S_THREAD_ALREADY_REGISTERED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(143196162i32 as _);
 #[repr(C)]
-pub struct AUDIOCLIENT_ACTIVATION_PARAMS(i32);
+pub struct AUDIOCLIENT_ACTIVATION_PARAMS {
+    pub ActivationType: AUDIOCLIENT_ACTIVATION_TYPE,
+    pub Anonymous: AUDIOCLIENT_ACTIVATION_PARAMS_0,
+}
+impl ::core::marker::Copy for AUDIOCLIENT_ACTIVATION_PARAMS {}
+impl ::core::clone::Clone for AUDIOCLIENT_ACTIVATION_PARAMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub union AUDIOCLIENT_ACTIVATION_PARAMS_0 {
+    pub ProcessLoopbackParams: AUDIOCLIENT_PROCESS_LOOPBACK_PARAMS,
+}
+impl ::core::clone::Clone for AUDIOCLIENT_ACTIVATION_PARAMS_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AUDIOCLIENT_ACTIVATION_TYPE(pub i32);
 pub const AUDIOCLIENT_ACTIVATION_TYPE_DEFAULT: AUDIOCLIENT_ACTIVATION_TYPE = AUDIOCLIENT_ACTIVATION_TYPE(0i32);
 pub const AUDIOCLIENT_ACTIVATION_TYPE_PROCESS_LOOPBACK: AUDIOCLIENT_ACTIVATION_TYPE = AUDIOCLIENT_ACTIVATION_TYPE(1i32);
 #[repr(C)]
-pub struct AUDIOCLIENT_PROCESS_LOOPBACK_PARAMS(i32);
+pub struct AUDIOCLIENT_PROCESS_LOOPBACK_PARAMS {
+    pub TargetProcessId: u32,
+    pub ProcessLoopbackMode: PROCESS_LOOPBACK_MODE,
+}
+impl ::core::marker::Copy for AUDIOCLIENT_PROCESS_LOOPBACK_PARAMS {}
+impl ::core::clone::Clone for AUDIOCLIENT_PROCESS_LOOPBACK_PARAMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const AUDIOCLOCK_CHARACTERISTIC_FIXED_FREQ: u32 = 1u32;
 #[repr(transparent)]
 pub struct AUDIO_DUCKING_OPTIONS(pub u32);
 pub const AUDIO_DUCKING_OPTIONS_DEFAULT: AUDIO_DUCKING_OPTIONS = AUDIO_DUCKING_OPTIONS(0u32);
 pub const AUDIO_DUCKING_OPTIONS_DO_NOT_DUCK_OTHER_STREAMS: AUDIO_DUCKING_OPTIONS = AUDIO_DUCKING_OPTIONS(1u32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct AUDIO_EFFECT(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct AUDIO_EFFECT {
+    pub id: ::windows_sys::core::GUID,
+    pub canSetState: super::super::Foundation::BOOL,
+    pub state: AUDIO_EFFECT_STATE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for AUDIO_EFFECT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for AUDIO_EFFECT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AUDIO_EFFECT_STATE(pub i32);
 pub const AUDIO_EFFECT_STATE_OFF: AUDIO_EFFECT_STATE = AUDIO_EFFECT_STATE(0i32);
@@ -544,31 +965,145 @@ pub const AudioCategory_Media: AUDIO_STREAM_CATEGORY = AUDIO_STREAM_CATEGORY(11i
 pub const AudioCategory_FarFieldSpeech: AUDIO_STREAM_CATEGORY = AUDIO_STREAM_CATEGORY(12i32);
 pub const AudioCategory_UniformSpeech: AUDIO_STREAM_CATEGORY = AUDIO_STREAM_CATEGORY(13i32);
 pub const AudioCategory_VoiceTyping: AUDIO_STREAM_CATEGORY = AUDIO_STREAM_CATEGORY(14i32);
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct AUDIO_VOLUME_NOTIFICATION_DATA(i32);
+pub struct AUDIO_VOLUME_NOTIFICATION_DATA {
+    pub guidEventContext: ::windows_sys::core::GUID,
+    pub bMuted: super::super::Foundation::BOOL,
+    pub fMasterVolume: f32,
+    pub nChannels: u32,
+    pub afChannelVolumes: [f32; 1],
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct AUXCAPS2A(i32);
-#[repr(C)]
-pub struct AUXCAPS2W(i32);
+impl ::core::marker::Copy for AUDIO_VOLUME_NOTIFICATION_DATA {}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct AUXCAPSA(i32);
-#[repr(C)]
-pub struct AUXCAPSW(i32);
+impl ::core::clone::Clone for AUDIO_VOLUME_NOTIFICATION_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Foundation")]
+pub struct AUXCAPS2A {
+    pub wMid: u16,
+    pub wPid: u16,
+    pub vDriverVersion: u32,
+    pub szPname: [super::super::Foundation::CHAR; 32],
+    pub wTechnology: u16,
+    pub wReserved1: u16,
+    pub dwSupport: u32,
+    pub ManufacturerGuid: ::windows_sys::core::GUID,
+    pub ProductGuid: ::windows_sys::core::GUID,
+    pub NameGuid: ::windows_sys::core::GUID,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for AUXCAPS2A {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for AUXCAPS2A {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub struct AUXCAPS2W {
+    pub wMid: u16,
+    pub wPid: u16,
+    pub vDriverVersion: u32,
+    pub szPname: [u16; 32],
+    pub wTechnology: u16,
+    pub wReserved1: u16,
+    pub dwSupport: u32,
+    pub ManufacturerGuid: ::windows_sys::core::GUID,
+    pub ProductGuid: ::windows_sys::core::GUID,
+    pub NameGuid: ::windows_sys::core::GUID,
+}
+impl ::core::marker::Copy for AUXCAPS2W {}
+impl ::core::clone::Clone for AUXCAPS2W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Foundation")]
+pub struct AUXCAPSA {
+    pub wMid: u16,
+    pub wPid: u16,
+    pub vDriverVersion: u32,
+    pub szPname: [super::super::Foundation::CHAR; 32],
+    pub wTechnology: u16,
+    pub wReserved1: u16,
+    pub dwSupport: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for AUXCAPSA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for AUXCAPSA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub struct AUXCAPSW {
+    pub wMid: u16,
+    pub wPid: u16,
+    pub vDriverVersion: u32,
+    pub szPname: [u16; 32],
+    pub wTechnology: u16,
+    pub wReserved1: u16,
+    pub dwSupport: u32,
+}
+impl ::core::marker::Copy for AUXCAPSW {}
+impl ::core::clone::Clone for AUXCAPSW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const AUXCAPS_AUXIN: u32 = 2u32;
 pub const AUXCAPS_CDAUDIO: u32 = 1u32;
 pub const AUXCAPS_LRVOLUME: u32 = 2u32;
 pub const AUXCAPS_VOLUME: u32 = 1u32;
 #[repr(C)]
-pub struct AudioClient3ActivationParams(i32);
-#[cfg(feature = "Win32_Foundation")]
+pub struct AudioClient3ActivationParams {
+    pub tracingContextId: ::windows_sys::core::GUID,
+}
+impl ::core::marker::Copy for AudioClient3ActivationParams {}
+impl ::core::clone::Clone for AudioClient3ActivationParams {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct AudioClientProperties(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct AudioClientProperties {
+    pub cbSize: u32,
+    pub bIsOffload: super::super::Foundation::BOOL,
+    pub eCategory: AUDIO_STREAM_CATEGORY,
+    pub Options: AUDCLNT_STREAMOPTIONS,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for AudioClientProperties {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for AudioClientProperties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct AudioExtensionParams(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct AudioExtensionParams {
+    pub AddPageParam: super::super::Foundation::LPARAM,
+    pub pEndpoint: ::core::option::Option<IMMDevice>,
+    pub pPnpInterface: ::core::option::Option<IMMDevice>,
+    pub pPnpDevnode: ::core::option::Option<IMMDevice>,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for AudioExtensionParams {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for AudioExtensionParams {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AudioObjectType(pub u32);
 pub const AudioObjectType_None: AudioObjectType = AudioObjectType(0u32);
@@ -638,7 +1173,17 @@ pub const DEVINTERFACE_MIDI_OUTPUT: ::windows_sys::core::GUID = ::windows_sys::G
     data4: [128, 212, 187, 179, 235, 191, 40, 20],
 };
 #[repr(C)]
-pub struct DIRECTX_AUDIO_ACTIVATION_PARAMS(i32);
+pub struct DIRECTX_AUDIO_ACTIVATION_PARAMS {
+    pub cbDirectXAudioActivationParams: u32,
+    pub guidAudioSession: ::windows_sys::core::GUID,
+    pub dwAudioStreamFlags: u32,
+}
+impl ::core::marker::Copy for DIRECTX_AUDIO_ACTIVATION_PARAMS {}
+impl ::core::clone::Clone for DIRECTX_AUDIO_ACTIVATION_PARAMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DRVM_MAPPER: u32 = 8192u32;
 pub const DRVM_MAPPER_STATUS: u32 = 8192u32;
 pub const DRV_MAPPER_PREFERRED_INPUT_GET: u32 = 16384u32;
@@ -653,8 +1198,18 @@ pub const DeviceTopology: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data3: 18346,
     data4: [147, 121, 130, 141, 193, 170, 140, 89],
 };
-#[repr(C)]
-pub struct ECHOWAVEFILTER(i32);
+#[repr(C, packed(1))]
+pub struct ECHOWAVEFILTER {
+    pub wfltr: WAVEFILTER,
+    pub dwVolume: u32,
+    pub dwDelay: u32,
+}
+impl ::core::marker::Copy for ECHOWAVEFILTER {}
+impl ::core::clone::Clone for ECHOWAVEFILTER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct EDataFlow(pub i32);
 pub const eRender: EDataFlow = EDataFlow(0i32);
@@ -697,31 +1252,135 @@ pub const FORMATCHOOSE_FORMATTAG_VERIFY: u32 = 0u32;
 pub const FORMATCHOOSE_FORMAT_VERIFY: u32 = 1u32;
 pub const FORMATCHOOSE_MESSAGE: u32 = 0u32;
 #[repr(C)]
-pub struct HACMDRIVER(i32);
+pub struct HACMDRIVER {
+    pub Value: isize,
+}
+impl ::core::marker::Copy for HACMDRIVER {}
+impl ::core::clone::Clone for HACMDRIVER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct HACMDRIVERID(i32);
+pub struct HACMDRIVERID {
+    pub Value: isize,
+}
+impl ::core::marker::Copy for HACMDRIVERID {}
+impl ::core::clone::Clone for HACMDRIVERID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct HACMOBJ(i32);
+pub struct HACMOBJ {
+    pub Value: isize,
+}
+impl ::core::marker::Copy for HACMOBJ {}
+impl ::core::clone::Clone for HACMOBJ {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct HACMSTREAM(i32);
+pub struct HACMSTREAM {
+    pub Value: isize,
+}
+impl ::core::marker::Copy for HACMSTREAM {}
+impl ::core::clone::Clone for HACMSTREAM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct HMIDI(i32);
+pub struct HMIDI {
+    pub Value: isize,
+}
+impl ::core::marker::Copy for HMIDI {}
+impl ::core::clone::Clone for HMIDI {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct HMIDIIN(i32);
+pub struct HMIDIIN {
+    pub Value: isize,
+}
+impl ::core::marker::Copy for HMIDIIN {}
+impl ::core::clone::Clone for HMIDIIN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct HMIDIOUT(i32);
+pub struct HMIDIOUT {
+    pub Value: isize,
+}
+impl ::core::marker::Copy for HMIDIOUT {}
+impl ::core::clone::Clone for HMIDIOUT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct HMIDISTRM(i32);
+pub struct HMIDISTRM {
+    pub Value: isize,
+}
+impl ::core::marker::Copy for HMIDISTRM {}
+impl ::core::clone::Clone for HMIDISTRM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct HMIXER(i32);
+pub struct HMIXER {
+    pub Value: isize,
+}
+impl ::core::marker::Copy for HMIXER {}
+impl ::core::clone::Clone for HMIXER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct HMIXEROBJ(i32);
+pub struct HMIXEROBJ {
+    pub Value: isize,
+}
+impl ::core::marker::Copy for HMIXEROBJ {}
+impl ::core::clone::Clone for HMIXEROBJ {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct HWAVE(i32);
+pub struct HWAVE {
+    pub Value: isize,
+}
+impl ::core::marker::Copy for HWAVE {}
+impl ::core::clone::Clone for HWAVE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct HWAVEIN(i32);
+pub struct HWAVEIN {
+    pub Value: isize,
+}
+impl ::core::marker::Copy for HWAVEIN {}
+impl ::core::clone::Clone for HWAVEIN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct HWAVEOUT(i32);
+pub struct HWAVEOUT {
+    pub Value: isize,
+}
+impl ::core::marker::Copy for HWAVEOUT {}
+impl ::core::clone::Clone for HWAVEOUT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IActivateAudioInterfaceAsyncOperation(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -896,42 +1555,231 @@ pub const MIDIERR_NOMAP: u32 = 66u32;
 pub const MIDIERR_NOTREADY: u32 = 67u32;
 pub const MIDIERR_STILLPLAYING: u32 = 65u32;
 pub const MIDIERR_UNPREPARED: u32 = 64u32;
-#[repr(C)]
-pub struct MIDIEVENT(i32);
+#[repr(C, packed(1))]
+pub struct MIDIEVENT {
+    pub dwDeltaTime: u32,
+    pub dwStreamID: u32,
+    pub dwEvent: u32,
+    pub dwParms: [u32; 1],
+}
+impl ::core::marker::Copy for MIDIEVENT {}
+impl ::core::clone::Clone for MIDIEVENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct MIDIHDR(i32);
+pub struct MIDIHDR {
+    pub lpData: super::super::Foundation::PSTR,
+    pub dwBufferLength: u32,
+    pub dwBytesRecorded: u32,
+    pub dwUser: usize,
+    pub dwFlags: u32,
+    pub lpNext: *mut MIDIHDR,
+    pub reserved: usize,
+    pub dwOffset: u32,
+    pub dwReserved: [usize; 8],
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct MIDIINCAPS2A(i32);
-#[repr(C)]
-pub struct MIDIINCAPS2W(i32);
+impl ::core::marker::Copy for MIDIHDR {}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct MIDIINCAPSA(i32);
-#[repr(C)]
-pub struct MIDIINCAPSW(i32);
+impl ::core::clone::Clone for MIDIHDR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct MIDIOUTCAPS2A(i32);
-#[repr(C)]
-pub struct MIDIOUTCAPS2W(i32);
+pub struct MIDIINCAPS2A {
+    pub wMid: u16,
+    pub wPid: u16,
+    pub vDriverVersion: u32,
+    pub szPname: [super::super::Foundation::CHAR; 32],
+    pub dwSupport: u32,
+    pub ManufacturerGuid: ::windows_sys::core::GUID,
+    pub ProductGuid: ::windows_sys::core::GUID,
+    pub NameGuid: ::windows_sys::core::GUID,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct MIDIOUTCAPSA(i32);
-#[repr(C)]
-pub struct MIDIOUTCAPSW(i32);
+impl ::core::marker::Copy for MIDIINCAPS2A {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MIDIINCAPS2A {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub struct MIDIINCAPS2W {
+    pub wMid: u16,
+    pub wPid: u16,
+    pub vDriverVersion: u32,
+    pub szPname: [u16; 32],
+    pub dwSupport: u32,
+    pub ManufacturerGuid: ::windows_sys::core::GUID,
+    pub ProductGuid: ::windows_sys::core::GUID,
+    pub NameGuid: ::windows_sys::core::GUID,
+}
+impl ::core::marker::Copy for MIDIINCAPS2W {}
+impl ::core::clone::Clone for MIDIINCAPS2W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Foundation")]
+pub struct MIDIINCAPSA {
+    pub wMid: u16,
+    pub wPid: u16,
+    pub vDriverVersion: u32,
+    pub szPname: [super::super::Foundation::CHAR; 32],
+    pub dwSupport: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MIDIINCAPSA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MIDIINCAPSA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub struct MIDIINCAPSW {
+    pub wMid: u16,
+    pub wPid: u16,
+    pub vDriverVersion: u32,
+    pub szPname: [u16; 32],
+    pub dwSupport: u32,
+}
+impl ::core::marker::Copy for MIDIINCAPSW {}
+impl ::core::clone::Clone for MIDIINCAPSW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Foundation")]
+pub struct MIDIOUTCAPS2A {
+    pub wMid: u16,
+    pub wPid: u16,
+    pub vDriverVersion: u32,
+    pub szPname: [super::super::Foundation::CHAR; 32],
+    pub wTechnology: u16,
+    pub wVoices: u16,
+    pub wNotes: u16,
+    pub wChannelMask: u16,
+    pub dwSupport: u32,
+    pub ManufacturerGuid: ::windows_sys::core::GUID,
+    pub ProductGuid: ::windows_sys::core::GUID,
+    pub NameGuid: ::windows_sys::core::GUID,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MIDIOUTCAPS2A {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MIDIOUTCAPS2A {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub struct MIDIOUTCAPS2W {
+    pub wMid: u16,
+    pub wPid: u16,
+    pub vDriverVersion: u32,
+    pub szPname: [u16; 32],
+    pub wTechnology: u16,
+    pub wVoices: u16,
+    pub wNotes: u16,
+    pub wChannelMask: u16,
+    pub dwSupport: u32,
+    pub ManufacturerGuid: ::windows_sys::core::GUID,
+    pub ProductGuid: ::windows_sys::core::GUID,
+    pub NameGuid: ::windows_sys::core::GUID,
+}
+impl ::core::marker::Copy for MIDIOUTCAPS2W {}
+impl ::core::clone::Clone for MIDIOUTCAPS2W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Foundation")]
+pub struct MIDIOUTCAPSA {
+    pub wMid: u16,
+    pub wPid: u16,
+    pub vDriverVersion: u32,
+    pub szPname: [super::super::Foundation::CHAR; 32],
+    pub wTechnology: u16,
+    pub wVoices: u16,
+    pub wNotes: u16,
+    pub wChannelMask: u16,
+    pub dwSupport: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MIDIOUTCAPSA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MIDIOUTCAPSA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub struct MIDIOUTCAPSW {
+    pub wMid: u16,
+    pub wPid: u16,
+    pub vDriverVersion: u32,
+    pub szPname: [u16; 32],
+    pub wTechnology: u16,
+    pub wVoices: u16,
+    pub wNotes: u16,
+    pub wChannelMask: u16,
+    pub dwSupport: u32,
+}
+impl ::core::marker::Copy for MIDIOUTCAPSW {}
+impl ::core::clone::Clone for MIDIOUTCAPSW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MIDIPATCHSIZE: u32 = 128u32;
-#[repr(C)]
-pub struct MIDIPROPTEMPO(i32);
-#[repr(C)]
-pub struct MIDIPROPTIMEDIV(i32);
+#[repr(C, packed(1))]
+pub struct MIDIPROPTEMPO {
+    pub cbStruct: u32,
+    pub dwTempo: u32,
+}
+impl ::core::marker::Copy for MIDIPROPTEMPO {}
+impl ::core::clone::Clone for MIDIPROPTEMPO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub struct MIDIPROPTIMEDIV {
+    pub cbStruct: u32,
+    pub dwTimeDiv: u32,
+}
+impl ::core::marker::Copy for MIDIPROPTIMEDIV {}
+impl ::core::clone::Clone for MIDIPROPTIMEDIV {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MIDIPROP_GET: i32 = 1073741824i32;
 pub const MIDIPROP_SET: i32 = -2147483648i32;
 pub const MIDIPROP_TEMPO: i32 = 2i32;
 pub const MIDIPROP_TIMEDIV: i32 = 1i32;
-#[repr(C)]
-pub struct MIDISTRMBUFFVER(i32);
+#[repr(C, packed(1))]
+pub struct MIDISTRMBUFFVER {
+    pub dwVersion: u32,
+    pub dwMid: u32,
+    pub dwOEMVersion: u32,
+}
+impl ::core::marker::Copy for MIDISTRMBUFFVER {}
+impl ::core::clone::Clone for MIDISTRMBUFFVER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MIDISTRM_ERROR: i32 = -2i32;
 pub const MIDI_CACHE_ALL: u32 = 1u32;
 pub const MIDI_CACHE_BESTFIT: u32 = 2u32;
@@ -953,35 +1801,302 @@ pub const WAVE_FORMAT_DIRECT: MIDI_WAVE_OPEN_TYPE = MIDI_WAVE_OPEN_TYPE(8u32);
 pub const WAVE_FORMAT_DIRECT_QUERY: MIDI_WAVE_OPEN_TYPE = MIDI_WAVE_OPEN_TYPE(9u32);
 pub const WAVE_MAPPED_DEFAULT_COMMUNICATION_DEVICE: MIDI_WAVE_OPEN_TYPE = MIDI_WAVE_OPEN_TYPE(16u32);
 pub const MIDI_IO_STATUS: MIDI_WAVE_OPEN_TYPE = MIDI_WAVE_OPEN_TYPE(32u32);
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct MIXERCAPS2A(i32);
-#[repr(C)]
-pub struct MIXERCAPS2W(i32);
+pub struct MIXERCAPS2A {
+    pub wMid: u16,
+    pub wPid: u16,
+    pub vDriverVersion: u32,
+    pub szPname: [super::super::Foundation::CHAR; 32],
+    pub fdwSupport: u32,
+    pub cDestinations: u32,
+    pub ManufacturerGuid: ::windows_sys::core::GUID,
+    pub ProductGuid: ::windows_sys::core::GUID,
+    pub NameGuid: ::windows_sys::core::GUID,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct MIXERCAPSA(i32);
-#[repr(C)]
-pub struct MIXERCAPSW(i32);
+impl ::core::marker::Copy for MIXERCAPS2A {}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct MIXERCONTROLA(i32);
+impl ::core::clone::Clone for MIXERCAPS2A {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub struct MIXERCAPS2W {
+    pub wMid: u16,
+    pub wPid: u16,
+    pub vDriverVersion: u32,
+    pub szPname: [u16; 32],
+    pub fdwSupport: u32,
+    pub cDestinations: u32,
+    pub ManufacturerGuid: ::windows_sys::core::GUID,
+    pub ProductGuid: ::windows_sys::core::GUID,
+    pub NameGuid: ::windows_sys::core::GUID,
+}
+impl ::core::marker::Copy for MIXERCAPS2W {}
+impl ::core::clone::Clone for MIXERCAPS2W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct MIXERCONTROLDETAILS(i32);
-#[repr(C)]
-pub struct MIXERCONTROLDETAILS_BOOLEAN(i32);
+pub struct MIXERCAPSA {
+    pub wMid: u16,
+    pub wPid: u16,
+    pub vDriverVersion: u32,
+    pub szPname: [super::super::Foundation::CHAR; 32],
+    pub fdwSupport: u32,
+    pub cDestinations: u32,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct MIXERCONTROLDETAILS_LISTTEXTA(i32);
-#[repr(C)]
-pub struct MIXERCONTROLDETAILS_LISTTEXTW(i32);
-#[repr(C)]
-pub struct MIXERCONTROLDETAILS_SIGNED(i32);
-#[repr(C)]
-pub struct MIXERCONTROLDETAILS_UNSIGNED(i32);
-#[repr(C)]
-pub struct MIXERCONTROLW(i32);
+impl ::core::marker::Copy for MIXERCAPSA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MIXERCAPSA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub struct MIXERCAPSW {
+    pub wMid: u16,
+    pub wPid: u16,
+    pub vDriverVersion: u32,
+    pub szPname: [u16; 32],
+    pub fdwSupport: u32,
+    pub cDestinations: u32,
+}
+impl ::core::marker::Copy for MIXERCAPSW {}
+impl ::core::clone::Clone for MIXERCAPSW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Foundation")]
+pub struct MIXERCONTROLA {
+    pub cbStruct: u32,
+    pub dwControlID: u32,
+    pub dwControlType: u32,
+    pub fdwControl: u32,
+    pub cMultipleItems: u32,
+    pub szShortName: [super::super::Foundation::CHAR; 16],
+    pub szName: [super::super::Foundation::CHAR; 64],
+    pub Bounds: MIXERCONTROLA_0,
+    pub Metrics: MIXERCONTROLA_1,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MIXERCONTROLA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MIXERCONTROLA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Foundation")]
+pub union MIXERCONTROLA_0 {
+    pub Anonymous1: MIXERCONTROLA_0_0,
+    pub Anonymous2: MIXERCONTROLA_0_1,
+    pub dwReserved: [u32; 6],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MIXERCONTROLA_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Foundation")]
+pub struct MIXERCONTROLA_0_0 {
+    pub lMinimum: i32,
+    pub lMaximum: i32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MIXERCONTROLA_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MIXERCONTROLA_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Foundation")]
+pub struct MIXERCONTROLA_0_1 {
+    pub dwMinimum: u32,
+    pub dwMaximum: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MIXERCONTROLA_0_1 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MIXERCONTROLA_0_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Foundation")]
+pub union MIXERCONTROLA_1 {
+    pub cSteps: u32,
+    pub cbCustomData: u32,
+    pub dwReserved: [u32; 6],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MIXERCONTROLA_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Foundation")]
+pub struct MIXERCONTROLDETAILS {
+    pub cbStruct: u32,
+    pub dwControlID: u32,
+    pub cChannels: u32,
+    pub Anonymous: MIXERCONTROLDETAILS_0,
+    pub cbDetails: u32,
+    pub paDetails: *mut ::core::ffi::c_void,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MIXERCONTROLDETAILS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MIXERCONTROLDETAILS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Foundation")]
+pub union MIXERCONTROLDETAILS_0 {
+    pub hwndOwner: super::super::Foundation::HWND,
+    pub cMultipleItems: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MIXERCONTROLDETAILS_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub struct MIXERCONTROLDETAILS_BOOLEAN {
+    pub fValue: i32,
+}
+impl ::core::marker::Copy for MIXERCONTROLDETAILS_BOOLEAN {}
+impl ::core::clone::Clone for MIXERCONTROLDETAILS_BOOLEAN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Foundation")]
+pub struct MIXERCONTROLDETAILS_LISTTEXTA {
+    pub dwParam1: u32,
+    pub dwParam2: u32,
+    pub szName: [super::super::Foundation::CHAR; 64],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MIXERCONTROLDETAILS_LISTTEXTA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MIXERCONTROLDETAILS_LISTTEXTA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub struct MIXERCONTROLDETAILS_LISTTEXTW {
+    pub dwParam1: u32,
+    pub dwParam2: u32,
+    pub szName: [u16; 64],
+}
+impl ::core::marker::Copy for MIXERCONTROLDETAILS_LISTTEXTW {}
+impl ::core::clone::Clone for MIXERCONTROLDETAILS_LISTTEXTW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub struct MIXERCONTROLDETAILS_SIGNED {
+    pub lValue: i32,
+}
+impl ::core::marker::Copy for MIXERCONTROLDETAILS_SIGNED {}
+impl ::core::clone::Clone for MIXERCONTROLDETAILS_SIGNED {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub struct MIXERCONTROLDETAILS_UNSIGNED {
+    pub dwValue: u32,
+}
+impl ::core::marker::Copy for MIXERCONTROLDETAILS_UNSIGNED {}
+impl ::core::clone::Clone for MIXERCONTROLDETAILS_UNSIGNED {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub struct MIXERCONTROLW {
+    pub cbStruct: u32,
+    pub dwControlID: u32,
+    pub dwControlType: u32,
+    pub fdwControl: u32,
+    pub cMultipleItems: u32,
+    pub szShortName: [u16; 16],
+    pub szName: [u16; 64],
+    pub Bounds: MIXERCONTROLW_0,
+    pub Metrics: MIXERCONTROLW_1,
+}
+impl ::core::marker::Copy for MIXERCONTROLW {}
+impl ::core::clone::Clone for MIXERCONTROLW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub union MIXERCONTROLW_0 {
+    pub Anonymous1: MIXERCONTROLW_0_0,
+    pub Anonymous2: MIXERCONTROLW_0_1,
+    pub dwReserved: [u32; 6],
+}
+impl ::core::clone::Clone for MIXERCONTROLW_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub struct MIXERCONTROLW_0_0 {
+    pub lMinimum: i32,
+    pub lMaximum: i32,
+}
+impl ::core::marker::Copy for MIXERCONTROLW_0_0 {}
+impl ::core::clone::Clone for MIXERCONTROLW_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub struct MIXERCONTROLW_0_1 {
+    pub dwMinimum: u32,
+    pub dwMaximum: u32,
+}
+impl ::core::marker::Copy for MIXERCONTROLW_0_1 {}
+impl ::core::clone::Clone for MIXERCONTROLW_0_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub union MIXERCONTROLW_1 {
+    pub cSteps: u32,
+    pub cbCustomData: u32,
+    pub dwReserved: [u32; 6],
+}
+impl ::core::clone::Clone for MIXERCONTROLW_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MIXERCONTROL_CONTROLF_DISABLED: i32 = -2147483648i32;
 pub const MIXERCONTROL_CONTROLF_MULTIPLE: i32 = 2i32;
 pub const MIXERCONTROL_CONTROLF_UNIFORM: i32 = 1i32;
@@ -1040,16 +2155,141 @@ pub const MIXERCONTROL_CT_UNITS_MASK: i32 = 16711680i32;
 pub const MIXERCONTROL_CT_UNITS_PERCENT: i32 = 327680i32;
 pub const MIXERCONTROL_CT_UNITS_SIGNED: i32 = 131072i32;
 pub const MIXERCONTROL_CT_UNITS_UNSIGNED: i32 = 196608i32;
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct MIXERLINEA(i32);
+pub struct MIXERLINEA {
+    pub cbStruct: u32,
+    pub dwDestination: u32,
+    pub dwSource: u32,
+    pub dwLineID: u32,
+    pub fdwLine: u32,
+    pub dwUser: usize,
+    pub dwComponentType: MIXERLINE_COMPONENTTYPE,
+    pub cChannels: u32,
+    pub cConnections: u32,
+    pub cControls: u32,
+    pub szShortName: [super::super::Foundation::CHAR; 16],
+    pub szName: [super::super::Foundation::CHAR; 64],
+    pub Target: MIXERLINEA_0,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct MIXERLINECONTROLSA(i32);
-#[repr(C)]
-pub struct MIXERLINECONTROLSW(i32);
-#[repr(C)]
-pub struct MIXERLINEW(i32);
+impl ::core::marker::Copy for MIXERLINEA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MIXERLINEA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Foundation")]
+pub struct MIXERLINEA_0 {
+    pub dwType: u32,
+    pub dwDeviceID: u32,
+    pub wMid: u16,
+    pub wPid: u16,
+    pub vDriverVersion: u32,
+    pub szPname: [super::super::Foundation::CHAR; 32],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MIXERLINEA_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MIXERLINEA_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Foundation")]
+pub struct MIXERLINECONTROLSA {
+    pub cbStruct: u32,
+    pub dwLineID: u32,
+    pub Anonymous: MIXERLINECONTROLSA_0,
+    pub cControls: u32,
+    pub cbmxctrl: u32,
+    pub pamxctrl: *mut MIXERCONTROLA,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MIXERLINECONTROLSA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MIXERLINECONTROLSA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Foundation")]
+pub union MIXERLINECONTROLSA_0 {
+    pub dwControlID: u32,
+    pub dwControlType: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MIXERLINECONTROLSA_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub struct MIXERLINECONTROLSW {
+    pub cbStruct: u32,
+    pub dwLineID: u32,
+    pub Anonymous: MIXERLINECONTROLSW_0,
+    pub cControls: u32,
+    pub cbmxctrl: u32,
+    pub pamxctrl: *mut MIXERCONTROLW,
+}
+impl ::core::marker::Copy for MIXERLINECONTROLSW {}
+impl ::core::clone::Clone for MIXERLINECONTROLSW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub union MIXERLINECONTROLSW_0 {
+    pub dwControlID: u32,
+    pub dwControlType: u32,
+}
+impl ::core::clone::Clone for MIXERLINECONTROLSW_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub struct MIXERLINEW {
+    pub cbStruct: u32,
+    pub dwDestination: u32,
+    pub dwSource: u32,
+    pub dwLineID: u32,
+    pub fdwLine: u32,
+    pub dwUser: usize,
+    pub dwComponentType: MIXERLINE_COMPONENTTYPE,
+    pub cChannels: u32,
+    pub cConnections: u32,
+    pub cControls: u32,
+    pub szShortName: [u16; 16],
+    pub szName: [u16; 64],
+    pub Target: MIXERLINEW_0,
+}
+impl ::core::marker::Copy for MIXERLINEW {}
+impl ::core::clone::Clone for MIXERLINEW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub struct MIXERLINEW_0 {
+    pub dwType: u32,
+    pub dwDeviceID: u32,
+    pub wMid: u16,
+    pub wPid: u16,
+    pub vDriverVersion: u32,
+    pub szPname: [u16; 32],
+}
+impl ::core::marker::Copy for MIXERLINEW_0 {}
+impl ::core::clone::Clone for MIXERLINEW_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MIXERLINE_COMPONENTTYPE(pub u32);
 pub const MIXERLINE_COMPONENTTYPE_DST_DIGITAL: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(1u32);
@@ -1130,8 +2370,17 @@ pub const MOD_SWSYNTH: u32 = 7u32;
 pub const MOD_SYNTH: u32 = 2u32;
 pub const MOD_WAVETABLE: u32 = 6u32;
 pub type PAudioStateMonitorCallback = unsafe extern "system" fn(audiostatemonitor: IAudioStateMonitor, context: *const ::core::ffi::c_void);
-#[repr(C)]
-pub struct PCMWAVEFORMAT(i32);
+#[repr(C, packed(1))]
+pub struct PCMWAVEFORMAT {
+    pub wf: WAVEFORMAT,
+    pub wBitsPerSample: u16,
+}
+impl ::core::marker::Copy for PCMWAVEFORMAT {}
+impl ::core::clone::Clone for PCMWAVEFORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_AudioEndpointLogo_IconEffects: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
@@ -1348,28 +2597,131 @@ pub const SPTLAUD_MD_CLNT_E_NO_MORE_ITEMS: ::windows_sys::core::HRESULT = ::wind
 pub const SPTLAUD_MD_CLNT_E_OBJECT_NOT_INITIALIZED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2004286975i32 as _);
 pub const SPTLAUD_MD_CLNT_E_VALUE_BUFFER_INCORRECT_SIZE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2004286972i32 as _);
 #[repr(C)]
-pub struct SpatialAudioClientActivationParams(i32);
+pub struct SpatialAudioClientActivationParams {
+    pub tracingContextId: ::windows_sys::core::GUID,
+    pub appId: ::windows_sys::core::GUID,
+    pub majorVersion: i32,
+    pub minorVersion1: i32,
+    pub minorVersion2: i32,
+    pub minorVersion3: i32,
+}
+impl ::core::marker::Copy for SpatialAudioClientActivationParams {}
+impl ::core::clone::Clone for SpatialAudioClientActivationParams {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct SpatialAudioHrtfActivationParams(i32);
+pub struct SpatialAudioHrtfActivationParams {
+    pub ObjectFormat: *mut WAVEFORMATEX,
+    pub StaticObjectTypeMask: AudioObjectType,
+    pub MinDynamicObjectCount: u32,
+    pub MaxDynamicObjectCount: u32,
+    pub Category: AUDIO_STREAM_CATEGORY,
+    pub EventHandle: super::super::Foundation::HANDLE,
+    pub NotifyObject: ::core::option::Option<ISpatialAudioObjectRenderStreamNotify>,
+    pub DistanceDecay: *mut SpatialAudioHrtfDistanceDecay,
+    pub Directivity: *mut SpatialAudioHrtfDirectivityUnion,
+    pub Environment: *mut SpatialAudioHrtfEnvironmentType,
+    pub Orientation: *mut f32,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct SpatialAudioHrtfActivationParams2(i32);
-#[repr(C)]
-pub struct SpatialAudioHrtfDirectivity(i32);
-#[repr(C)]
-pub struct SpatialAudioHrtfDirectivityCardioid(i32);
-#[repr(C)]
-pub struct SpatialAudioHrtfDirectivityCone(i32);
+impl ::core::marker::Copy for SpatialAudioHrtfActivationParams {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SpatialAudioHrtfActivationParams {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Foundation")]
+pub struct SpatialAudioHrtfActivationParams2 {
+    pub ObjectFormat: *mut WAVEFORMATEX,
+    pub StaticObjectTypeMask: AudioObjectType,
+    pub MinDynamicObjectCount: u32,
+    pub MaxDynamicObjectCount: u32,
+    pub Category: AUDIO_STREAM_CATEGORY,
+    pub EventHandle: super::super::Foundation::HANDLE,
+    pub NotifyObject: ::core::option::Option<ISpatialAudioObjectRenderStreamNotify>,
+    pub DistanceDecay: *mut SpatialAudioHrtfDistanceDecay,
+    pub Directivity: *mut SpatialAudioHrtfDirectivityUnion,
+    pub Environment: *mut SpatialAudioHrtfEnvironmentType,
+    pub Orientation: *mut f32,
+    pub Options: SPATIAL_AUDIO_STREAM_OPTIONS,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SpatialAudioHrtfActivationParams2 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SpatialAudioHrtfActivationParams2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub struct SpatialAudioHrtfDirectivity {
+    pub Type: SpatialAudioHrtfDirectivityType,
+    pub Scaling: f32,
+}
+impl ::core::marker::Copy for SpatialAudioHrtfDirectivity {}
+impl ::core::clone::Clone for SpatialAudioHrtfDirectivity {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub struct SpatialAudioHrtfDirectivityCardioid {
+    pub directivity: SpatialAudioHrtfDirectivity,
+    pub Order: f32,
+}
+impl ::core::marker::Copy for SpatialAudioHrtfDirectivityCardioid {}
+impl ::core::clone::Clone for SpatialAudioHrtfDirectivityCardioid {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub struct SpatialAudioHrtfDirectivityCone {
+    pub directivity: SpatialAudioHrtfDirectivity,
+    pub InnerAngle: f32,
+    pub OuterAngle: f32,
+}
+impl ::core::marker::Copy for SpatialAudioHrtfDirectivityCone {}
+impl ::core::clone::Clone for SpatialAudioHrtfDirectivityCone {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SpatialAudioHrtfDirectivityType(pub i32);
 pub const SpatialAudioHrtfDirectivity_OmniDirectional: SpatialAudioHrtfDirectivityType = SpatialAudioHrtfDirectivityType(0i32);
 pub const SpatialAudioHrtfDirectivity_Cardioid: SpatialAudioHrtfDirectivityType = SpatialAudioHrtfDirectivityType(1i32);
 pub const SpatialAudioHrtfDirectivity_Cone: SpatialAudioHrtfDirectivityType = SpatialAudioHrtfDirectivityType(2i32);
 #[repr(C)]
-pub struct SpatialAudioHrtfDirectivityUnion(i32);
-#[repr(C)]
-pub struct SpatialAudioHrtfDistanceDecay(i32);
+pub union SpatialAudioHrtfDirectivityUnion {
+    pub Cone: SpatialAudioHrtfDirectivityCone,
+    pub Cardiod: SpatialAudioHrtfDirectivityCardioid,
+    pub Omni: SpatialAudioHrtfDirectivity,
+}
+impl ::core::clone::Clone for SpatialAudioHrtfDirectivityUnion {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub struct SpatialAudioHrtfDistanceDecay {
+    pub Type: SpatialAudioHrtfDistanceDecayType,
+    pub MaxGain: f32,
+    pub MinGain: f32,
+    pub UnityGainDistance: f32,
+    pub CutoffDistance: f32,
+}
+impl ::core::marker::Copy for SpatialAudioHrtfDistanceDecay {}
+impl ::core::clone::Clone for SpatialAudioHrtfDistanceDecay {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SpatialAudioHrtfDistanceDecayType(pub i32);
 pub const SpatialAudioHrtfDistanceDecay_NaturalDecay: SpatialAudioHrtfDistanceDecayType = SpatialAudioHrtfDistanceDecayType(0i32);
@@ -1387,67 +2739,371 @@ pub const SpatialAudioMetadataCopy_Overwrite: SpatialAudioMetadataCopyMode = Spa
 pub const SpatialAudioMetadataCopy_Append: SpatialAudioMetadataCopyMode = SpatialAudioMetadataCopyMode(1i32);
 pub const SpatialAudioMetadataCopy_AppendMergeWithLast: SpatialAudioMetadataCopyMode = SpatialAudioMetadataCopyMode(2i32);
 pub const SpatialAudioMetadataCopy_AppendMergeWithFirst: SpatialAudioMetadataCopyMode = SpatialAudioMetadataCopyMode(3i32);
-#[repr(C)]
-pub struct SpatialAudioMetadataItemsInfo(i32);
+#[repr(C, packed(1))]
+pub struct SpatialAudioMetadataItemsInfo {
+    pub FrameCount: u16,
+    pub ItemCount: u16,
+    pub MaxItemCount: u16,
+    pub MaxValueBufferLength: u32,
+}
+impl ::core::marker::Copy for SpatialAudioMetadataItemsInfo {}
+impl ::core::clone::Clone for SpatialAudioMetadataItemsInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SpatialAudioMetadataWriterOverflowMode(pub i32);
 pub const SpatialAudioMetadataWriterOverflow_Fail: SpatialAudioMetadataWriterOverflowMode = SpatialAudioMetadataWriterOverflowMode(0i32);
 pub const SpatialAudioMetadataWriterOverflow_MergeWithNew: SpatialAudioMetadataWriterOverflowMode = SpatialAudioMetadataWriterOverflowMode(1i32);
 pub const SpatialAudioMetadataWriterOverflow_MergeWithLast: SpatialAudioMetadataWriterOverflowMode = SpatialAudioMetadataWriterOverflowMode(2i32);
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct SpatialAudioObjectRenderStreamActivationParams(i32);
+pub struct SpatialAudioObjectRenderStreamActivationParams {
+    pub ObjectFormat: *mut WAVEFORMATEX,
+    pub StaticObjectTypeMask: AudioObjectType,
+    pub MinDynamicObjectCount: u32,
+    pub MaxDynamicObjectCount: u32,
+    pub Category: AUDIO_STREAM_CATEGORY,
+    pub EventHandle: super::super::Foundation::HANDLE,
+    pub NotifyObject: ::core::option::Option<ISpatialAudioObjectRenderStreamNotify>,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct SpatialAudioObjectRenderStreamActivationParams2(i32);
+impl ::core::marker::Copy for SpatialAudioObjectRenderStreamActivationParams {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SpatialAudioObjectRenderStreamActivationParams {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Foundation")]
+pub struct SpatialAudioObjectRenderStreamActivationParams2 {
+    pub ObjectFormat: *mut WAVEFORMATEX,
+    pub StaticObjectTypeMask: AudioObjectType,
+    pub MinDynamicObjectCount: u32,
+    pub MaxDynamicObjectCount: u32,
+    pub Category: AUDIO_STREAM_CATEGORY,
+    pub EventHandle: super::super::Foundation::HANDLE,
+    pub NotifyObject: ::core::option::Option<ISpatialAudioObjectRenderStreamNotify>,
+    pub Options: SPATIAL_AUDIO_STREAM_OPTIONS,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SpatialAudioObjectRenderStreamActivationParams2 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SpatialAudioObjectRenderStreamActivationParams2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-#[repr(C)]
-pub struct SpatialAudioObjectRenderStreamForMetadataActivationParams(i32);
+pub struct SpatialAudioObjectRenderStreamForMetadataActivationParams {
+    pub ObjectFormat: *mut WAVEFORMATEX,
+    pub StaticObjectTypeMask: AudioObjectType,
+    pub MinDynamicObjectCount: u32,
+    pub MaxDynamicObjectCount: u32,
+    pub Category: AUDIO_STREAM_CATEGORY,
+    pub EventHandle: super::super::Foundation::HANDLE,
+    pub MetadataFormatId: ::windows_sys::core::GUID,
+    pub MaxMetadataItemCount: u16,
+    pub MetadataActivationParams: *mut super::super::System::Com::StructuredStorage::PROPVARIANT,
+    pub NotifyObject: ::core::option::Option<ISpatialAudioObjectRenderStreamNotify>,
+}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-#[repr(C)]
-pub struct SpatialAudioObjectRenderStreamForMetadataActivationParams2(i32);
-#[repr(C)]
-pub struct VOLUMEWAVEFILTER(i32);
+impl ::core::marker::Copy for SpatialAudioObjectRenderStreamForMetadataActivationParams {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+impl ::core::clone::Clone for SpatialAudioObjectRenderStreamForMetadataActivationParams {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+pub struct SpatialAudioObjectRenderStreamForMetadataActivationParams2 {
+    pub ObjectFormat: *mut WAVEFORMATEX,
+    pub StaticObjectTypeMask: AudioObjectType,
+    pub MinDynamicObjectCount: u32,
+    pub MaxDynamicObjectCount: u32,
+    pub Category: AUDIO_STREAM_CATEGORY,
+    pub EventHandle: super::super::Foundation::HANDLE,
+    pub MetadataFormatId: ::windows_sys::core::GUID,
+    pub MaxMetadataItemCount: u32,
+    pub MetadataActivationParams: *mut super::super::System::Com::StructuredStorage::PROPVARIANT,
+    pub NotifyObject: ::core::option::Option<ISpatialAudioObjectRenderStreamNotify>,
+    pub Options: SPATIAL_AUDIO_STREAM_OPTIONS,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+impl ::core::marker::Copy for SpatialAudioObjectRenderStreamForMetadataActivationParams2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+impl ::core::clone::Clone for SpatialAudioObjectRenderStreamForMetadataActivationParams2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub struct VOLUMEWAVEFILTER {
+    pub wfltr: WAVEFILTER,
+    pub dwVolume: u32,
+}
+impl ::core::marker::Copy for VOLUMEWAVEFILTER {}
+impl ::core::clone::Clone for VOLUMEWAVEFILTER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WAVECAPS_LRVOLUME: u32 = 8u32;
 pub const WAVECAPS_PITCH: u32 = 1u32;
 pub const WAVECAPS_PLAYBACKRATE: u32 = 2u32;
 pub const WAVECAPS_SAMPLEACCURATE: u32 = 32u32;
 pub const WAVECAPS_SYNC: u32 = 16u32;
 pub const WAVECAPS_VOLUME: u32 = 4u32;
-#[repr(C)]
-pub struct WAVEFILTER(i32);
-#[repr(C)]
-pub struct WAVEFORMAT(i32);
-#[repr(C)]
-pub struct WAVEFORMATEX(i32);
-#[repr(C)]
-pub struct WAVEFORMATEXTENSIBLE(i32);
+#[repr(C, packed(1))]
+pub struct WAVEFILTER {
+    pub cbStruct: u32,
+    pub dwFilterTag: u32,
+    pub fdwFilter: u32,
+    pub dwReserved: [u32; 5],
+}
+impl ::core::marker::Copy for WAVEFILTER {}
+impl ::core::clone::Clone for WAVEFILTER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub struct WAVEFORMAT {
+    pub wFormatTag: u16,
+    pub nChannels: u16,
+    pub nSamplesPerSec: u32,
+    pub nAvgBytesPerSec: u32,
+    pub nBlockAlign: u16,
+}
+impl ::core::marker::Copy for WAVEFORMAT {}
+impl ::core::clone::Clone for WAVEFORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub struct WAVEFORMATEX {
+    pub wFormatTag: u16,
+    pub nChannels: u16,
+    pub nSamplesPerSec: u32,
+    pub nAvgBytesPerSec: u32,
+    pub nBlockAlign: u16,
+    pub wBitsPerSample: u16,
+    pub cbSize: u16,
+}
+impl ::core::marker::Copy for WAVEFORMATEX {}
+impl ::core::clone::Clone for WAVEFORMATEX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub struct WAVEFORMATEXTENSIBLE {
+    pub Format: WAVEFORMATEX,
+    pub Samples: WAVEFORMATEXTENSIBLE_0,
+    pub dwChannelMask: u32,
+    pub SubFormat: ::windows_sys::core::GUID,
+}
+impl ::core::marker::Copy for WAVEFORMATEXTENSIBLE {}
+impl ::core::clone::Clone for WAVEFORMATEXTENSIBLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub union WAVEFORMATEXTENSIBLE_0 {
+    pub wValidBitsPerSample: u16,
+    pub wSamplesPerBlock: u16,
+    pub wReserved: u16,
+}
+impl ::core::clone::Clone for WAVEFORMATEXTENSIBLE_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct WAVEHDR(i32);
+pub struct WAVEHDR {
+    pub lpData: super::super::Foundation::PSTR,
+    pub dwBufferLength: u32,
+    pub dwBytesRecorded: u32,
+    pub dwUser: usize,
+    pub dwFlags: u32,
+    pub dwLoops: u32,
+    pub lpNext: *mut WAVEHDR,
+    pub reserved: usize,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct WAVEINCAPS2A(i32);
-#[repr(C)]
-pub struct WAVEINCAPS2W(i32);
+impl ::core::marker::Copy for WAVEHDR {}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct WAVEINCAPSA(i32);
-#[repr(C)]
-pub struct WAVEINCAPSW(i32);
+impl ::core::clone::Clone for WAVEHDR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Foundation")]
+pub struct WAVEINCAPS2A {
+    pub wMid: u16,
+    pub wPid: u16,
+    pub vDriverVersion: u32,
+    pub szPname: [super::super::Foundation::CHAR; 32],
+    pub dwFormats: u32,
+    pub wChannels: u16,
+    pub wReserved1: u16,
+    pub ManufacturerGuid: ::windows_sys::core::GUID,
+    pub ProductGuid: ::windows_sys::core::GUID,
+    pub NameGuid: ::windows_sys::core::GUID,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WAVEINCAPS2A {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WAVEINCAPS2A {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub struct WAVEINCAPS2W {
+    pub wMid: u16,
+    pub wPid: u16,
+    pub vDriverVersion: u32,
+    pub szPname: [u16; 32],
+    pub dwFormats: u32,
+    pub wChannels: u16,
+    pub wReserved1: u16,
+    pub ManufacturerGuid: ::windows_sys::core::GUID,
+    pub ProductGuid: ::windows_sys::core::GUID,
+    pub NameGuid: ::windows_sys::core::GUID,
+}
+impl ::core::marker::Copy for WAVEINCAPS2W {}
+impl ::core::clone::Clone for WAVEINCAPS2W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Foundation")]
+pub struct WAVEINCAPSA {
+    pub wMid: u16,
+    pub wPid: u16,
+    pub vDriverVersion: u32,
+    pub szPname: [super::super::Foundation::CHAR; 32],
+    pub dwFormats: u32,
+    pub wChannels: u16,
+    pub wReserved1: u16,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WAVEINCAPSA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WAVEINCAPSA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub struct WAVEINCAPSW {
+    pub wMid: u16,
+    pub wPid: u16,
+    pub vDriverVersion: u32,
+    pub szPname: [u16; 32],
+    pub dwFormats: u32,
+    pub wChannels: u16,
+    pub wReserved1: u16,
+}
+impl ::core::marker::Copy for WAVEINCAPSW {}
+impl ::core::clone::Clone for WAVEINCAPSW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WAVEIN_MAPPER_STATUS_DEVICE: u32 = 0u32;
 pub const WAVEIN_MAPPER_STATUS_FORMAT: u32 = 2u32;
 pub const WAVEIN_MAPPER_STATUS_MAPPED: u32 = 1u32;
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct WAVEOUTCAPS2A(i32);
-#[repr(C)]
-pub struct WAVEOUTCAPS2W(i32);
+pub struct WAVEOUTCAPS2A {
+    pub wMid: u16,
+    pub wPid: u16,
+    pub vDriverVersion: u32,
+    pub szPname: [super::super::Foundation::CHAR; 32],
+    pub dwFormats: u32,
+    pub wChannels: u16,
+    pub wReserved1: u16,
+    pub dwSupport: u32,
+    pub ManufacturerGuid: ::windows_sys::core::GUID,
+    pub ProductGuid: ::windows_sys::core::GUID,
+    pub NameGuid: ::windows_sys::core::GUID,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct WAVEOUTCAPSA(i32);
-#[repr(C)]
-pub struct WAVEOUTCAPSW(i32);
+impl ::core::marker::Copy for WAVEOUTCAPS2A {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WAVEOUTCAPS2A {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub struct WAVEOUTCAPS2W {
+    pub wMid: u16,
+    pub wPid: u16,
+    pub vDriverVersion: u32,
+    pub szPname: [u16; 32],
+    pub dwFormats: u32,
+    pub wChannels: u16,
+    pub wReserved1: u16,
+    pub dwSupport: u32,
+    pub ManufacturerGuid: ::windows_sys::core::GUID,
+    pub ProductGuid: ::windows_sys::core::GUID,
+    pub NameGuid: ::windows_sys::core::GUID,
+}
+impl ::core::marker::Copy for WAVEOUTCAPS2W {}
+impl ::core::clone::Clone for WAVEOUTCAPS2W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Foundation")]
+pub struct WAVEOUTCAPSA {
+    pub wMid: u16,
+    pub wPid: u16,
+    pub vDriverVersion: u32,
+    pub szPname: [super::super::Foundation::CHAR; 32],
+    pub dwFormats: u32,
+    pub wChannels: u16,
+    pub wReserved1: u16,
+    pub dwSupport: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WAVEOUTCAPSA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WAVEOUTCAPSA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub struct WAVEOUTCAPSW {
+    pub wMid: u16,
+    pub wPid: u16,
+    pub vDriverVersion: u32,
+    pub szPname: [u16; 32],
+    pub dwFormats: u32,
+    pub wChannels: u16,
+    pub wReserved1: u16,
+    pub dwSupport: u32,
+}
+impl ::core::marker::Copy for WAVEOUTCAPSW {}
+impl ::core::clone::Clone for WAVEOUTCAPSW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WAVEOUT_MAPPER_STATUS_DEVICE: u32 = 0u32;
 pub const WAVEOUT_MAPPER_STATUS_FORMAT: u32 = 2u32;
 pub const WAVEOUT_MAPPER_STATUS_MAPPED: u32 = 1u32;
@@ -1501,11 +3157,61 @@ pub const AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE_DEFAULT: __MIDL___MIDL_itf_mmde
 pub const AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE_USER: __MIDL___MIDL_itf_mmdeviceapi_0000_0008_0002 = __MIDL___MIDL_itf_mmdeviceapi_0000_0008_0002(1i32);
 pub const AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE_VOLATILE: __MIDL___MIDL_itf_mmdeviceapi_0000_0008_0002 = __MIDL___MIDL_itf_mmdeviceapi_0000_0008_0002(2i32);
 pub const AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE_ENUM_COUNT: __MIDL___MIDL_itf_mmdeviceapi_0000_0008_0002 = __MIDL___MIDL_itf_mmdeviceapi_0000_0008_0002(3i32);
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct tACMDRVOPENDESCA(i32);
+pub struct tACMDRVOPENDESCA {
+    pub cbStruct: u32,
+    pub fccType: u32,
+    pub fccComp: u32,
+    pub dwVersion: u32,
+    pub dwFlags: u32,
+    pub dwError: u32,
+    pub pszSectionName: super::super::Foundation::PSTR,
+    pub pszAliasName: super::super::Foundation::PSTR,
+    pub dnDevNode: u32,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct tACMDRVOPENDESCW(i32);
-#[repr(C)]
-pub struct tACMFORMATDETAILSW(i32);
+impl ::core::marker::Copy for tACMDRVOPENDESCA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for tACMDRVOPENDESCA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Foundation")]
+pub struct tACMDRVOPENDESCW {
+    pub cbStruct: u32,
+    pub fccType: u32,
+    pub fccComp: u32,
+    pub dwVersion: u32,
+    pub dwFlags: u32,
+    pub dwError: u32,
+    pub pszSectionName: super::super::Foundation::PWSTR,
+    pub pszAliasName: super::super::Foundation::PWSTR,
+    pub dnDevNode: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for tACMDRVOPENDESCW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for tACMDRVOPENDESCW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub struct tACMFORMATDETAILSW {
+    pub cbStruct: u32,
+    pub dwFormatIndex: u32,
+    pub dwFormatTag: u32,
+    pub fdwSupport: u32,
+    pub pwfx: *mut WAVEFORMATEX,
+    pub cbwfx: u32,
+    pub szFormat: [u16; 128],
+}
+impl ::core::marker::Copy for tACMFORMATDETAILSW {}
+impl ::core::clone::Clone for tACMFORMATDETAILSW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

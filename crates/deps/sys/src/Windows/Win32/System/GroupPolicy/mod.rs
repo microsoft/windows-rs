@@ -90,7 +90,15 @@ pub const CLSID_RSOPSnapIn: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data4: [173, 176, 154, 7, 226, 174, 31, 162],
 };
 #[repr(C)]
-pub struct CriticalPolicySectionHandle(i32);
+pub struct CriticalPolicySectionHandle {
+    pub Value: isize,
+}
+impl ::core::marker::Copy for CriticalPolicySectionHandle {}
+impl ::core::clone::Clone for CriticalPolicySectionHandle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const FLAG_ASSUME_COMP_WQLFILTER_TRUE: u32 = 33554432u32;
 pub const FLAG_ASSUME_SLOW_LINK: u32 = 536870912u32;
 pub const FLAG_ASSUME_USER_WQLFILTER_TRUE: u32 = 67108864u32;
@@ -332,9 +340,29 @@ pub const GPM_MIGRATIONTABLE_ONLY: u32 = 1u32;
 pub const GPM_PROCESS_SECURITY: u32 = 2u32;
 pub const GPM_USE_ANYDC: u32 = 1u32;
 pub const GPM_USE_PDC: u32 = 0u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct GPOBROWSEINFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct GPOBROWSEINFO {
+    pub dwSize: u32,
+    pub dwFlags: u32,
+    pub hwndOwner: super::super::Foundation::HWND,
+    pub lpTitle: super::super::Foundation::PWSTR,
+    pub lpInitialOU: super::super::Foundation::PWSTR,
+    pub lpDSPath: super::super::Foundation::PWSTR,
+    pub dwDSPathSize: u32,
+    pub lpName: super::super::Foundation::PWSTR,
+    pub dwNameSize: u32,
+    pub gpoType: GROUP_POLICY_OBJECT_TYPE,
+    pub gpoHint: GROUP_POLICY_HINT_TYPE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for GPOBROWSEINFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for GPOBROWSEINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const GPO_BROWSE_DISABLENEW: u32 = 1u32;
 pub const GPO_BROWSE_INITTOALL: u32 = 16u32;
 pub const GPO_BROWSE_NOCOMPUTERS: u32 = 2u32;
@@ -379,12 +407,56 @@ pub const GPHintMachine: GROUP_POLICY_HINT_TYPE = GROUP_POLICY_HINT_TYPE(1i32);
 pub const GPHintSite: GROUP_POLICY_HINT_TYPE = GROUP_POLICY_HINT_TYPE(2i32);
 pub const GPHintDomain: GROUP_POLICY_HINT_TYPE = GROUP_POLICY_HINT_TYPE(3i32);
 pub const GPHintOrganizationalUnit: GROUP_POLICY_HINT_TYPE = GROUP_POLICY_HINT_TYPE(4i32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct GROUP_POLICY_OBJECTA(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct GROUP_POLICY_OBJECTA {
+    pub dwOptions: u32,
+    pub dwVersion: u32,
+    pub lpDSPath: super::super::Foundation::PSTR,
+    pub lpFileSysPath: super::super::Foundation::PSTR,
+    pub lpDisplayName: super::super::Foundation::PSTR,
+    pub szGPOName: [super::super::Foundation::CHAR; 50],
+    pub GPOLink: GPO_LINK,
+    pub lParam: super::super::Foundation::LPARAM,
+    pub pNext: *mut GROUP_POLICY_OBJECTA,
+    pub pPrev: *mut GROUP_POLICY_OBJECTA,
+    pub lpExtensions: super::super::Foundation::PSTR,
+    pub lParam2: super::super::Foundation::LPARAM,
+    pub lpLink: super::super::Foundation::PSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for GROUP_POLICY_OBJECTA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for GROUP_POLICY_OBJECTA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct GROUP_POLICY_OBJECTW(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct GROUP_POLICY_OBJECTW {
+    pub dwOptions: u32,
+    pub dwVersion: u32,
+    pub lpDSPath: super::super::Foundation::PWSTR,
+    pub lpFileSysPath: super::super::Foundation::PWSTR,
+    pub lpDisplayName: super::super::Foundation::PWSTR,
+    pub szGPOName: [u16; 50],
+    pub GPOLink: GPO_LINK,
+    pub lParam: super::super::Foundation::LPARAM,
+    pub pNext: *mut GROUP_POLICY_OBJECTW,
+    pub pPrev: *mut GROUP_POLICY_OBJECTW,
+    pub lpExtensions: super::super::Foundation::PWSTR,
+    pub lParam2: super::super::Foundation::LPARAM,
+    pub lpLink: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for GROUP_POLICY_OBJECTW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for GROUP_POLICY_OBJECTW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct GROUP_POLICY_OBJECT_TYPE(pub i32);
 pub const GPOTypeLocal: GROUP_POLICY_OBJECT_TYPE = GROUP_POLICY_OBJECT_TYPE(0i32);
@@ -478,12 +550,62 @@ pub struct IGPMWMIFilter(pub *mut ::core::ffi::c_void);
 pub struct IGPMWMIFilterCollection(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IGroupPolicyObject(pub *mut ::core::ffi::c_void);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct INSTALLDATA(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct INSTALLDATA {
+    pub Type: INSTALLSPECTYPE,
+    pub Spec: INSTALLSPEC,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for INSTALLDATA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for INSTALLDATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct INSTALLSPEC(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub union INSTALLSPEC {
+    pub AppName: INSTALLSPEC_0,
+    pub FileExt: super::super::Foundation::PWSTR,
+    pub ProgId: super::super::Foundation::PWSTR,
+    pub COMClass: INSTALLSPEC_1,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for INSTALLSPEC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct INSTALLSPEC_0 {
+    pub Name: super::super::Foundation::PWSTR,
+    pub GPOId: ::windows_sys::core::GUID,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for INSTALLSPEC_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for INSTALLSPEC_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct INSTALLSPEC_1 {
+    pub Clsid: ::windows_sys::core::GUID,
+    pub ClsCtx: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for INSTALLSPEC_1 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for INSTALLSPEC_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct INSTALLSPECTYPE(pub i32);
 pub const APPNAME: INSTALLSPECTYPE = INSTALLSPECTYPE(1i32);
@@ -492,9 +614,22 @@ pub const PROGID: INSTALLSPECTYPE = INSTALLSPECTYPE(3i32);
 pub const COMCLASS: INSTALLSPECTYPE = INSTALLSPECTYPE(4i32);
 #[repr(transparent)]
 pub struct IRSOPInformation(pub *mut ::core::ffi::c_void);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct LOCALMANAGEDAPPLICATION(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct LOCALMANAGEDAPPLICATION {
+    pub pszDeploymentName: super::super::Foundation::PWSTR,
+    pub pszPolicyName: super::super::Foundation::PWSTR,
+    pub pszProductId: super::super::Foundation::PWSTR,
+    pub dwState: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for LOCALMANAGEDAPPLICATION {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for LOCALMANAGEDAPPLICATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const LOCALSTATE_ASSIGNED: u32 = 1u32;
 pub const LOCALSTATE_ORPHANED: u32 = 32u32;
 pub const LOCALSTATE_POLICYREMOVE_ORPHAN: u32 = 8u32;
@@ -502,9 +637,34 @@ pub const LOCALSTATE_POLICYREMOVE_UNINSTALL: u32 = 16u32;
 pub const LOCALSTATE_PUBLISHED: u32 = 2u32;
 pub const LOCALSTATE_UNINSTALLED: u32 = 64u32;
 pub const LOCALSTATE_UNINSTALL_UNMANAGED: u32 = 4u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct MANAGEDAPPLICATION(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct MANAGEDAPPLICATION {
+    pub pszPackageName: super::super::Foundation::PWSTR,
+    pub pszPublisher: super::super::Foundation::PWSTR,
+    pub dwVersionHi: u32,
+    pub dwVersionLo: u32,
+    pub dwRevision: u32,
+    pub GpoId: ::windows_sys::core::GUID,
+    pub pszPolicyName: super::super::Foundation::PWSTR,
+    pub ProductId: ::windows_sys::core::GUID,
+    pub Language: u16,
+    pub pszOwner: super::super::Foundation::PWSTR,
+    pub pszCompany: super::super::Foundation::PWSTR,
+    pub pszComments: super::super::Foundation::PWSTR,
+    pub pszContact: super::super::Foundation::PWSTR,
+    pub pszSupportUrl: super::super::Foundation::PWSTR,
+    pub dwPathType: u32,
+    pub bInstalled: super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MANAGEDAPPLICATION {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MANAGEDAPPLICATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MANAGED_APPS_FROMCATEGORY: u32 = 2u32;
 pub const MANAGED_APPS_INFOLEVEL_DEFAULT: u32 = 65536u32;
 pub const MANAGED_APPS_USERAPPLICATIONS: u32 = 1u32;
@@ -544,9 +704,25 @@ pub type PFNPROCESSGROUPPOLICYEX = unsafe extern "system" fn(dwflags: u32, htoke
 pub type PFNSTATUSMESSAGECALLBACK = unsafe extern "system" fn(bverbose: super::super::Foundation::BOOL, lpmessage: super::super::Foundation::PWSTR) -> u32;
 pub const PI_APPLYPOLICY: u32 = 2u32;
 pub const PI_NOUI: u32 = 1u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct POLICYSETTINGSTATUSINFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct POLICYSETTINGSTATUSINFO {
+    pub szKey: super::super::Foundation::PWSTR,
+    pub szEventSource: super::super::Foundation::PWSTR,
+    pub szEventLogName: super::super::Foundation::PWSTR,
+    pub dwEventID: u32,
+    pub dwErrorCode: u32,
+    pub status: SETTINGSTATUS,
+    pub timeLogged: super::super::Foundation::SYSTEMTIME,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for POLICYSETTINGSTATUSINFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for POLICYSETTINGSTATUSINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const PT_MANDATORY: u32 = 4u32;
 pub const PT_ROAMING: u32 = 2u32;
 pub const PT_ROAMING_PREEXISTING: u32 = 8u32;
@@ -562,9 +738,24 @@ pub const RSOP_PLANNING_ASSUME_LOOPBACK_MERGE: u32 = 2u32;
 pub const RSOP_PLANNING_ASSUME_LOOPBACK_REPLACE: u32 = 4u32;
 pub const RSOP_PLANNING_ASSUME_SLOW_LINK: u32 = 1u32;
 pub const RSOP_PLANNING_ASSUME_USER_WQLFILTER_TRUE: u32 = 8u32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Wmi"))]
 #[repr(C)]
-pub struct RSOP_TARGET(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Wmi"))]
+pub struct RSOP_TARGET {
+    pub pwszAccountName: super::super::Foundation::PWSTR,
+    pub pwszNewSOM: super::super::Foundation::PWSTR,
+    pub psaSecurityGroups: *mut super::Com::SAFEARRAY,
+    pub pRsopToken: *mut ::core::ffi::c_void,
+    pub pGPOList: *mut GROUP_POLICY_OBJECTA,
+    pub pWbemServices: ::core::option::Option<super::Wmi::IWbemServices>,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Wmi"))]
+impl ::core::marker::Copy for RSOP_TARGET {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Wmi"))]
+impl ::core::clone::Clone for RSOP_TARGET {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const RSOP_TEMPNAMESPACE_EXISTS: u32 = 4u32;
 pub const RSOP_USER_ACCESS_DENIED: u32 = 1u32;
 #[repr(transparent)]

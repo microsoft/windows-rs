@@ -725,7 +725,16 @@ pub struct RangeBaseAutomationPeer(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct RatingControlAutomationPeer(pub *mut ::core::ffi::c_void);
 #[repr(C)]
-pub struct RawElementProviderRuntimeId(i32);
+pub struct RawElementProviderRuntimeId {
+    pub Part1: u32,
+    pub Part2: u32,
+}
+impl ::core::marker::Copy for RawElementProviderRuntimeId {}
+impl ::core::clone::Clone for RawElementProviderRuntimeId {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RepeatButtonAutomationPeer(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

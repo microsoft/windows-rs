@@ -436,7 +436,16 @@ impl MapWatermarkMode {
     pub const On: Self = Self(1i32);
 }
 #[repr(C)]
-pub struct MapZoomLevelRange(i32);
+pub struct MapZoomLevelRange {
+    pub Min: f64,
+    pub Max: f64,
+}
+impl ::core::marker::Copy for MapZoomLevelRange {}
+impl ::core::clone::Clone for MapZoomLevelRange {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct StreetsideExperience(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

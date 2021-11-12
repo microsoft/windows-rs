@@ -31,7 +31,38 @@ pub const WEB_SOCKET_SEND_ACTION_QUEUE: WEB_SOCKET_ACTION_QUEUE = WEB_SOCKET_ACT
 pub const WEB_SOCKET_RECEIVE_ACTION_QUEUE: WEB_SOCKET_ACTION_QUEUE = WEB_SOCKET_ACTION_QUEUE(2i32);
 pub const WEB_SOCKET_ALL_ACTION_QUEUE: WEB_SOCKET_ACTION_QUEUE = WEB_SOCKET_ACTION_QUEUE(3i32);
 #[repr(C)]
-pub struct WEB_SOCKET_BUFFER(i32);
+pub union WEB_SOCKET_BUFFER {
+    pub Data: WEB_SOCKET_BUFFER_1,
+    pub CloseStatus: WEB_SOCKET_BUFFER_0,
+}
+impl ::core::clone::Clone for WEB_SOCKET_BUFFER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct WEB_SOCKET_BUFFER_0 {
+    pub pbReason: *mut u8,
+    pub ulReasonLength: u32,
+    pub usStatus: u16,
+}
+impl ::core::marker::Copy for WEB_SOCKET_BUFFER_0 {}
+impl ::core::clone::Clone for WEB_SOCKET_BUFFER_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct WEB_SOCKET_BUFFER_1 {
+    pub pbBuffer: *mut u8,
+    pub ulBufferLength: u32,
+}
+impl ::core::marker::Copy for WEB_SOCKET_BUFFER_1 {}
+impl ::core::clone::Clone for WEB_SOCKET_BUFFER_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WEB_SOCKET_BUFFER_TYPE(pub i32);
 pub const WEB_SOCKET_UTF8_MESSAGE_BUFFER_TYPE: WEB_SOCKET_BUFFER_TYPE = WEB_SOCKET_BUFFER_TYPE(-2147483648i32);
@@ -56,13 +87,44 @@ pub const WEB_SOCKET_UNSUPPORTED_EXTENSIONS_CLOSE_STATUS: WEB_SOCKET_CLOSE_STATU
 pub const WEB_SOCKET_SERVER_ERROR_CLOSE_STATUS: WEB_SOCKET_CLOSE_STATUS = WEB_SOCKET_CLOSE_STATUS(1011i32);
 pub const WEB_SOCKET_SECURE_HANDSHAKE_ERROR_CLOSE_STATUS: WEB_SOCKET_CLOSE_STATUS = WEB_SOCKET_CLOSE_STATUS(1015i32);
 #[repr(C)]
-pub struct WEB_SOCKET_HANDLE(i32);
-#[cfg(feature = "Win32_Foundation")]
+pub struct WEB_SOCKET_HANDLE {
+    pub Value: isize,
+}
+impl ::core::marker::Copy for WEB_SOCKET_HANDLE {}
+impl ::core::clone::Clone for WEB_SOCKET_HANDLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WEB_SOCKET_HTTP_HEADER(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct WEB_SOCKET_HTTP_HEADER {
+    pub pcName: super::super::Foundation::PSTR,
+    pub ulNameLength: u32,
+    pub pcValue: super::super::Foundation::PSTR,
+    pub ulValueLength: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WEB_SOCKET_HTTP_HEADER {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WEB_SOCKET_HTTP_HEADER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WEB_SOCKET_MAX_CLOSE_REASON_LENGTH: u32 = 123u32;
 #[repr(C)]
-pub struct WEB_SOCKET_PROPERTY(i32);
+pub struct WEB_SOCKET_PROPERTY {
+    pub Type: WEB_SOCKET_PROPERTY_TYPE,
+    pub pvValue: *mut ::core::ffi::c_void,
+    pub ulValueSize: u32,
+}
+impl ::core::marker::Copy for WEB_SOCKET_PROPERTY {}
+impl ::core::clone::Clone for WEB_SOCKET_PROPERTY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WEB_SOCKET_PROPERTY_TYPE(pub i32);
 pub const WEB_SOCKET_RECEIVE_BUFFER_SIZE_PROPERTY_TYPE: WEB_SOCKET_PROPERTY_TYPE = WEB_SOCKET_PROPERTY_TYPE(0i32);

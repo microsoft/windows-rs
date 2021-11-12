@@ -248,7 +248,15 @@ impl PackageContentGroupState {
 #[repr(transparent)]
 pub struct PackageId(pub *mut ::core::ffi::c_void);
 #[repr(C)]
-pub struct PackageInstallProgress(i32);
+pub struct PackageInstallProgress {
+    pub PercentComplete: u32,
+}
+impl ::core::marker::Copy for PackageInstallProgress {}
+impl ::core::clone::Clone for PackageInstallProgress {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PackageInstallingEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -282,7 +290,18 @@ pub struct PackageUpdateAvailabilityResult(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PackageUpdatingEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(C)]
-pub struct PackageVersion(i32);
+pub struct PackageVersion {
+    pub Major: u16,
+    pub Minor: u16,
+    pub Build: u16,
+    pub Revision: u16,
+}
+impl ::core::marker::Copy for PackageVersion {}
+impl ::core::clone::Clone for PackageVersion {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct StartupTask(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

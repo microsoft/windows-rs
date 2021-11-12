@@ -4,7 +4,15 @@ extern "system" {}
 pub const CLSID_CTask: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 344708384, data2: 41643, data3: 4558, data4: [177, 31, 0, 170, 0, 83, 5, 3] };
 pub const CLSID_CTaskScheduler: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 344708394, data2: 41643, data3: 4558, data4: [177, 31, 0, 170, 0, 83, 5, 3] };
 #[repr(C)]
-pub struct DAILY(i32);
+pub struct DAILY {
+    pub DaysInterval: u16,
+}
+impl ::core::marker::Copy for DAILY {}
+impl ::core::clone::Clone for DAILY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAction(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -104,9 +112,28 @@ pub struct ITriggerCollection(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IWeeklyTrigger(pub *mut ::core::ffi::c_void);
 #[repr(C)]
-pub struct MONTHLYDATE(i32);
+pub struct MONTHLYDATE {
+    pub rgfDays: u32,
+    pub rgfMonths: u16,
+}
+impl ::core::marker::Copy for MONTHLYDATE {}
+impl ::core::clone::Clone for MONTHLYDATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct MONTHLYDOW(i32);
+pub struct MONTHLYDOW {
+    pub wWhichWeek: u16,
+    pub rgfDaysOfTheWeek: u16,
+    pub rgfMonths: u16,
+}
+impl ::core::marker::Copy for MONTHLYDOW {}
+impl ::core::clone::Clone for MONTHLYDOW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TASKPAGE(pub i32);
 pub const TASKPAGE_TASK: TASKPAGE = TASKPAGE(0i32);
@@ -222,7 +249,31 @@ pub const TASK_SUNDAY: u32 = 1u32;
 pub const TASK_THIRD_WEEK: u32 = 3u32;
 pub const TASK_THURSDAY: u32 = 16u32;
 #[repr(C)]
-pub struct TASK_TRIGGER(i32);
+pub struct TASK_TRIGGER {
+    pub cbTriggerSize: u16,
+    pub Reserved1: u16,
+    pub wBeginYear: u16,
+    pub wBeginMonth: u16,
+    pub wBeginDay: u16,
+    pub wEndYear: u16,
+    pub wEndMonth: u16,
+    pub wEndDay: u16,
+    pub wStartHour: u16,
+    pub wStartMinute: u16,
+    pub MinutesDuration: u32,
+    pub MinutesInterval: u32,
+    pub rgFlags: u32,
+    pub TriggerType: TASK_TRIGGER_TYPE,
+    pub Type: TRIGGER_TYPE_UNION,
+    pub Reserved2: u16,
+    pub wRandomMinutesInterval: u16,
+}
+impl ::core::marker::Copy for TASK_TRIGGER {}
+impl ::core::clone::Clone for TASK_TRIGGER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const TASK_TRIGGER_FLAG_DISABLED: u32 = 4u32;
 pub const TASK_TRIGGER_FLAG_HAS_END_DATE: u32 = 1u32;
 pub const TASK_TRIGGER_FLAG_KILL_AT_DURATION_END: u32 = 2u32;
@@ -253,7 +304,17 @@ pub const TASK_TRIGGER_CUSTOM_TRIGGER_01: TASK_TRIGGER_TYPE2 = TASK_TRIGGER_TYPE
 pub const TASK_TUESDAY: u32 = 4u32;
 pub const TASK_WEDNESDAY: u32 = 8u32;
 #[repr(C)]
-pub struct TRIGGER_TYPE_UNION(i32);
+pub union TRIGGER_TYPE_UNION {
+    pub Daily: DAILY,
+    pub Weekly: WEEKLY,
+    pub MonthlyDate: MONTHLYDATE,
+    pub MonthlyDOW: MONTHLYDOW,
+}
+impl ::core::clone::Clone for TRIGGER_TYPE_UNION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const TaskHandlerPS: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 4071005623,
     data2: 55852,
@@ -268,4 +329,13 @@ pub const TaskHandlerStatusPS: ::windows_sys::core::GUID = ::windows_sys::GUID {
 };
 pub const TaskScheduler: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 260519583, data2: 42213, data3: 19708, data4: [189, 62, 115, 230, 21, 69, 114, 221] };
 #[repr(C)]
-pub struct WEEKLY(i32);
+pub struct WEEKLY {
+    pub WeeksInterval: u16,
+    pub rgfDaysOfTheWeek: u16,
+}
+impl ::core::marker::Copy for WEEKLY {}
+impl ::core::clone::Clone for WEEKLY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

@@ -127,7 +127,15 @@ pub const ACTIVATIONTYPE_FROM_STORAGE: ACTIVATIONTYPE = ACTIVATIONTYPE(4i32);
 pub const ACTIVATIONTYPE_FROM_STREAM: ACTIVATIONTYPE = ACTIVATIONTYPE(8i32);
 pub const ACTIVATIONTYPE_FROM_FILE: ACTIVATIONTYPE = ACTIVATIONTYPE(16i32);
 #[repr(C)]
-pub struct APARTMENT_SHUTDOWN_REGISTRATION_COOKIE(i32);
+pub struct APARTMENT_SHUTDOWN_REGISTRATION_COOKIE {
+    pub Value: isize,
+}
+impl ::core::marker::Copy for APARTMENT_SHUTDOWN_REGISTRATION_COOKIE {}
+impl ::core::clone::Clone for APARTMENT_SHUTDOWN_REGISTRATION_COOKIE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AgileReferenceOptions(pub i32);
 pub const AGILEREFERENCE_DEFAULT: AgileReferenceOptions = AgileReferenceOptions(0i32);
@@ -165,14 +173,62 @@ pub struct DISPATCHERQUEUE_THREAD_TYPE(pub i32);
 pub const DQTYPE_THREAD_DEDICATED: DISPATCHERQUEUE_THREAD_TYPE = DISPATCHERQUEUE_THREAD_TYPE(1i32);
 pub const DQTYPE_THREAD_CURRENT: DISPATCHERQUEUE_THREAD_TYPE = DISPATCHERQUEUE_THREAD_TYPE(2i32);
 #[repr(C)]
-pub struct DispatcherQueueOptions(i32);
+pub struct DispatcherQueueOptions {
+    pub dwSize: u32,
+    pub threadType: DISPATCHERQUEUE_THREAD_TYPE,
+    pub apartmentType: DISPATCHERQUEUE_THREAD_APARTMENTTYPE,
+}
+impl ::core::marker::Copy for DispatcherQueueOptions {}
+impl ::core::clone::Clone for DispatcherQueueOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct EventRegistrationToken(i32);
+pub struct EventRegistrationToken {
+    pub value: i64,
+}
+impl ::core::marker::Copy for EventRegistrationToken {}
+impl ::core::clone::Clone for EventRegistrationToken {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct HSTRING_BUFFER(i32);
+pub struct HSTRING_BUFFER {
+    pub Value: isize,
+}
+impl ::core::marker::Copy for HSTRING_BUFFER {}
+impl ::core::clone::Clone for HSTRING_BUFFER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+pub struct HSTRING_HEADER {
+    pub Reserved: HSTRING_HEADER_0,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for HSTRING_HEADER {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for HSTRING_HEADER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct HSTRING_HEADER(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub union HSTRING_HEADER_0 {
+    pub Reserved1: *mut ::core::ffi::c_void,
+    pub Reserved2: [super::super::Foundation::CHAR; 24],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for HSTRING_HEADER_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAccountsSettingsPaneInterop(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -250,7 +306,15 @@ pub type PINSPECT_HSTRING_CALLBACK = unsafe extern "system" fn(context: *const :
 pub type PINSPECT_HSTRING_CALLBACK2 = unsafe extern "system" fn(context: *const ::core::ffi::c_void, readaddress: u64, length: u32, buffer: *mut u8) -> ::windows_sys::core::HRESULT;
 pub type PINSPECT_MEMORY_CALLBACK = unsafe extern "system" fn(context: *const ::core::ffi::c_void, readaddress: usize, length: u32, buffer: *mut u8) -> ::windows_sys::core::HRESULT;
 #[repr(C)]
-pub struct ROPARAMIIDHANDLE(i32);
+pub struct ROPARAMIIDHANDLE {
+    pub Value: isize,
+}
+impl ::core::marker::Copy for ROPARAMIIDHANDLE {}
+impl ::core::clone::Clone for ROPARAMIIDHANDLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RO_ERROR_REPORTING_FLAGS(pub u32);
 pub const RO_ERROR_REPORTING_NONE: RO_ERROR_REPORTING_FLAGS = RO_ERROR_REPORTING_FLAGS(0u32);
@@ -263,7 +327,17 @@ pub struct RO_INIT_TYPE(pub i32);
 pub const RO_INIT_SINGLETHREADED: RO_INIT_TYPE = RO_INIT_TYPE(0i32);
 pub const RO_INIT_MULTITHREADED: RO_INIT_TYPE = RO_INIT_TYPE(1i32);
 #[repr(C)]
-pub struct ServerInformation(i32);
+pub struct ServerInformation {
+    pub dwServerPid: u32,
+    pub dwServerTid: u32,
+    pub ui64ServerAddress: u64,
+}
+impl ::core::marker::Copy for ServerInformation {}
+impl ::core::clone::Clone for ServerInformation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TrustLevel(pub i32);
 pub const BaseTrust: TrustLevel = TrustLevel(0i32);

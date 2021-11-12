@@ -176,7 +176,16 @@ pub struct TextHighlighterBase(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct TextPointer(pub *mut ::core::ffi::c_void);
 #[repr(C)]
-pub struct TextRange(i32);
+pub struct TextRange {
+    pub StartIndex: i32,
+    pub Length: i32,
+}
+impl ::core::marker::Copy for TextRange {}
+impl ::core::clone::Clone for TextRange {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct Typography(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

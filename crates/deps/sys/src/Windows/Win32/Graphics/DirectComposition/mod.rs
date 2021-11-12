@@ -29,15 +29,62 @@ pub const COMPOSITION_FRAME_ID_CREATED: COMPOSITION_FRAME_ID_TYPE = COMPOSITION_
 pub const COMPOSITION_FRAME_ID_CONFIRMED: COMPOSITION_FRAME_ID_TYPE = COMPOSITION_FRAME_ID_TYPE(1i32);
 pub const COMPOSITION_FRAME_ID_COMPLETED: COMPOSITION_FRAME_ID_TYPE = COMPOSITION_FRAME_ID_TYPE(2i32);
 #[repr(C)]
-pub struct COMPOSITION_FRAME_STATS(i32);
+pub struct COMPOSITION_FRAME_STATS {
+    pub startTime: u64,
+    pub targetTime: u64,
+    pub framePeriod: u64,
+}
+impl ::core::marker::Copy for COMPOSITION_FRAME_STATS {}
+impl ::core::clone::Clone for COMPOSITION_FRAME_STATS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct COMPOSITION_STATS(i32);
+pub struct COMPOSITION_STATS {
+    pub presentCount: u32,
+    pub refreshCount: u32,
+    pub virtualRefreshCount: u32,
+    pub time: u64,
+}
+impl ::core::marker::Copy for COMPOSITION_STATS {}
+impl ::core::clone::Clone for COMPOSITION_STATS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const COMPOSITION_STATS_MAX_TARGETS: u32 = 256u32;
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+pub struct COMPOSITION_TARGET_ID {
+    pub displayAdapterLuid: super::super::Foundation::LUID,
+    pub renderAdapterLuid: super::super::Foundation::LUID,
+    pub vidPnSourceId: u32,
+    pub vidPnTargetId: u32,
+    pub uniqueId: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for COMPOSITION_TARGET_ID {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for COMPOSITION_TARGET_ID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct COMPOSITION_TARGET_ID(i32);
-#[repr(C)]
-pub struct COMPOSITION_TARGET_STATS(i32);
+pub struct COMPOSITION_TARGET_STATS {
+    pub outstandingPresents: u32,
+    pub presentTime: u64,
+    pub vblankDuration: u64,
+    pub presentedStats: COMPOSITION_STATS,
+    pub completedStats: COMPOSITION_STATS,
+}
+impl ::core::marker::Copy for COMPOSITION_TARGET_STATS {}
+impl ::core::clone::Clone for COMPOSITION_TARGET_STATS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DCOMPOSITION_BACKFACE_VISIBILITY(pub i32);
 pub const DCOMPOSITION_BACKFACE_VISIBILITY_VISIBLE: DCOMPOSITION_BACKFACE_VISIBILITY = DCOMPOSITION_BACKFACE_VISIBILITY(0i32);
@@ -65,9 +112,23 @@ pub const DCOMPOSITION_DEPTH_MODE_TREE: DCOMPOSITION_DEPTH_MODE = DCOMPOSITION_D
 pub const DCOMPOSITION_DEPTH_MODE_SPATIAL: DCOMPOSITION_DEPTH_MODE = DCOMPOSITION_DEPTH_MODE(1i32);
 pub const DCOMPOSITION_DEPTH_MODE_SORTED: DCOMPOSITION_DEPTH_MODE = DCOMPOSITION_DEPTH_MODE(3i32);
 pub const DCOMPOSITION_DEPTH_MODE_INHERIT: DCOMPOSITION_DEPTH_MODE = DCOMPOSITION_DEPTH_MODE(-1i32);
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 #[repr(C)]
-pub struct DCOMPOSITION_FRAME_STATISTICS(i32);
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+pub struct DCOMPOSITION_FRAME_STATISTICS {
+    pub lastFrameTime: i64,
+    pub currentCompositionRate: super::Dxgi::Common::DXGI_RATIONAL,
+    pub currentTime: i64,
+    pub timeFrequency: i64,
+    pub nextEstimatedFrameTime: i64,
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::marker::Copy for DCOMPOSITION_FRAME_STATISTICS {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::clone::Clone for DCOMPOSITION_FRAME_STATISTICS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DCOMPOSITION_MAX_WAITFORCOMPOSITORCLOCK_OBJECTS: u32 = 32u32;
 #[repr(transparent)]
 pub struct DCOMPOSITION_OPACITY_MODE(pub i32);
@@ -75,7 +136,17 @@ pub const DCOMPOSITION_OPACITY_MODE_LAYER: DCOMPOSITION_OPACITY_MODE = DCOMPOSIT
 pub const DCOMPOSITION_OPACITY_MODE_MULTIPLY: DCOMPOSITION_OPACITY_MODE = DCOMPOSITION_OPACITY_MODE(1i32);
 pub const DCOMPOSITION_OPACITY_MODE_INHERIT: DCOMPOSITION_OPACITY_MODE = DCOMPOSITION_OPACITY_MODE(-1i32);
 #[repr(C)]
-pub struct DCompositionInkTrailPoint(i32);
+pub struct DCompositionInkTrailPoint {
+    pub x: f32,
+    pub y: f32,
+    pub radius: f32,
+}
+impl ::core::marker::Copy for DCompositionInkTrailPoint {}
+impl ::core::clone::Clone for DCompositionInkTrailPoint {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDCompositionAffineTransform2DEffect(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

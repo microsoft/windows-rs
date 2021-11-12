@@ -599,77 +599,336 @@ pub struct IWSManResourceLocatorInternal(pub *mut ::core::ffi::c_void);
 pub struct IWSManSession(pub *mut ::core::ffi::c_void);
 #[repr(C)]
 pub struct WSMAN_API(pub u8);
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct WSMAN_AUTHENTICATION_CREDENTIALS(i32);
-#[repr(C)]
-pub struct WSMAN_AUTHZ_QUOTA(i32);
+pub struct WSMAN_AUTHENTICATION_CREDENTIALS {
+    pub authenticationMechanism: u32,
+    pub Anonymous: WSMAN_AUTHENTICATION_CREDENTIALS_0,
+}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WSMAN_AUTHENTICATION_CREDENTIALS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WSMAN_AUTHENTICATION_CREDENTIALS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WSMAN_CERTIFICATE_DETAILS(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub union WSMAN_AUTHENTICATION_CREDENTIALS_0 {
+    pub userAccount: WSMAN_USERNAME_PASSWORD_CREDS,
+    pub certificateThumbprint: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WSMAN_AUTHENTICATION_CREDENTIALS_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct WSMAN_AUTHZ_QUOTA {
+    pub maxAllowedConcurrentShells: u32,
+    pub maxAllowedConcurrentOperations: u32,
+    pub timeslotSize: u32,
+    pub maxAllowedOperationsPerTimeslot: u32,
+}
+impl ::core::marker::Copy for WSMAN_AUTHZ_QUOTA {}
+impl ::core::clone::Clone for WSMAN_AUTHZ_QUOTA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct WSMAN_CERTIFICATE_DETAILS {
+    pub subject: super::super::Foundation::PWSTR,
+    pub issuerName: super::super::Foundation::PWSTR,
+    pub issuerThumbprint: super::super::Foundation::PWSTR,
+    pub subjectName: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WSMAN_CERTIFICATE_DETAILS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WSMAN_CERTIFICATE_DETAILS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct WSMAN_COMMAND(pub u8);
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct WSMAN_COMMAND_ARG_SET(i32);
+pub struct WSMAN_COMMAND_ARG_SET {
+    pub argsCount: u32,
+    pub args: *mut super::super::Foundation::PWSTR,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct WSMAN_CONNECT_DATA(i32);
+impl ::core::marker::Copy for WSMAN_COMMAND_ARG_SET {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WSMAN_COMMAND_ARG_SET {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WSMAN_CREATE_SHELL_DATA(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct WSMAN_DATA(i32);
-#[repr(C)]
-pub struct WSMAN_DATA_BINARY(i32);
+pub struct WSMAN_CONNECT_DATA {
+    pub data: WSMAN_DATA,
+}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WSMAN_CONNECT_DATA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WSMAN_CONNECT_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WSMAN_DATA_TEXT(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct WSMAN_CREATE_SHELL_DATA {
+    pub data: WSMAN_DATA,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WSMAN_CREATE_SHELL_DATA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WSMAN_CREATE_SHELL_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct WSMAN_DATA {
+    pub r#type: WSManDataType,
+    pub Anonymous: WSMAN_DATA_0,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WSMAN_DATA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WSMAN_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub union WSMAN_DATA_0 {
+    pub text: WSMAN_DATA_TEXT,
+    pub binaryData: WSMAN_DATA_BINARY,
+    pub number: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WSMAN_DATA_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct WSMAN_DATA_BINARY {
+    pub dataLength: u32,
+    pub data: *mut u8,
+}
+impl ::core::marker::Copy for WSMAN_DATA_BINARY {}
+impl ::core::clone::Clone for WSMAN_DATA_BINARY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct WSMAN_DATA_TEXT {
+    pub bufferLength: u32,
+    pub buffer: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WSMAN_DATA_TEXT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WSMAN_DATA_TEXT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WSMAN_DEFAULT_TIMEOUT_MS: u32 = 60000u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct WSMAN_ENVIRONMENT_VARIABLE(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct WSMAN_ENVIRONMENT_VARIABLE_SET(i32);
+pub struct WSMAN_ENVIRONMENT_VARIABLE {
+    pub name: super::super::Foundation::PWSTR,
+    pub value: super::super::Foundation::PWSTR,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct WSMAN_ERROR(i32);
+impl ::core::marker::Copy for WSMAN_ENVIRONMENT_VARIABLE {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WSMAN_ENVIRONMENT_VARIABLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WSMAN_FILTER(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct WSMAN_ENVIRONMENT_VARIABLE_SET {
+    pub varsCount: u32,
+    pub vars: *mut WSMAN_ENVIRONMENT_VARIABLE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WSMAN_ENVIRONMENT_VARIABLE_SET {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WSMAN_ENVIRONMENT_VARIABLE_SET {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct WSMAN_ERROR {
+    pub code: u32,
+    pub errorDetail: super::super::Foundation::PWSTR,
+    pub language: super::super::Foundation::PWSTR,
+    pub machineName: super::super::Foundation::PWSTR,
+    pub pluginName: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WSMAN_ERROR {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WSMAN_ERROR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct WSMAN_FILTER {
+    pub filter: super::super::Foundation::PWSTR,
+    pub dialect: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WSMAN_FILTER {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WSMAN_FILTER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WSMAN_FLAG_RECEIVE_FLUSH: u32 = 2u32;
 pub const WSMAN_FLAG_RECEIVE_RESULT_DATA_BOUNDARY: u32 = 4u32;
 pub const WSMAN_FLAG_RECEIVE_RESULT_NO_MORE_DATA: u32 = 1u32;
 pub const WSMAN_FLAG_REQUESTED_API_VERSION_1_0: u32 = 0u32;
 pub const WSMAN_FLAG_REQUESTED_API_VERSION_1_1: u32 = 1u32;
 pub const WSMAN_FLAG_SEND_NO_MORE_DATA: u32 = 1u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct WSMAN_FRAGMENT(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct WSMAN_FRAGMENT {
+    pub path: super::super::Foundation::PWSTR,
+    pub dialect: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WSMAN_FRAGMENT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WSMAN_FRAGMENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WSMAN_KEY(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct WSMAN_KEY {
+    pub key: super::super::Foundation::PWSTR,
+    pub value: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WSMAN_KEY {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WSMAN_KEY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct WSMAN_OPERATION(pub u8);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct WSMAN_OPERATION_INFO(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct WSMAN_OPERATION_INFO {
+    pub fragment: WSMAN_FRAGMENT,
+    pub filter: WSMAN_FILTER,
+    pub selectorSet: WSMAN_SELECTOR_SET,
+    pub optionSet: WSMAN_OPTION_SET,
+    pub reserved: *mut ::core::ffi::c_void,
+    pub version: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WSMAN_OPERATION_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WSMAN_OPERATION_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WSMAN_OPERATION_INFOEX(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct WSMAN_OPERATION_INFOEX {
+    pub fragment: WSMAN_FRAGMENT,
+    pub filter: WSMAN_FILTER,
+    pub selectorSet: WSMAN_SELECTOR_SET,
+    pub optionSet: WSMAN_OPTION_SETEX,
+    pub version: u32,
+    pub uiLocale: super::super::Foundation::PWSTR,
+    pub dataLocale: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WSMAN_OPERATION_INFOEX {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WSMAN_OPERATION_INFOEX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WSMAN_OPERATION_INFOV1: u32 = 0u32;
 pub const WSMAN_OPERATION_INFOV2: u32 = 2864434397u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct WSMAN_OPTION(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct WSMAN_OPTION_SET(i32);
+pub struct WSMAN_OPTION {
+    pub name: super::super::Foundation::PWSTR,
+    pub value: super::super::Foundation::PWSTR,
+    pub mustComply: super::super::Foundation::BOOL,
+}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WSMAN_OPTION {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WSMAN_OPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WSMAN_OPTION_SETEX(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct WSMAN_OPTION_SET {
+    pub optionsCount: u32,
+    pub options: *mut WSMAN_OPTION,
+    pub optionsMustUnderstand: super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WSMAN_OPTION_SET {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WSMAN_OPTION_SET {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct WSMAN_OPTION_SETEX {
+    pub optionsCount: u32,
+    pub options: *mut WSMAN_OPTION,
+    pub optionsMustUnderstand: super::super::Foundation::BOOL,
+    pub optionTypes: *mut super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WSMAN_OPTION_SETEX {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WSMAN_OPTION_SETEX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[cfg(feature = "Win32_Foundation")]
 pub type WSMAN_PLUGIN_AUTHORIZE_OPERATION = unsafe extern "system" fn(plugincontext: *const ::core::ffi::c_void, senderdetails: *const WSMAN_SENDER_DETAILS, flags: u32, operation: u32, action: super::super::Foundation::PWSTR, resourceuri: super::super::Foundation::PWSTR);
 #[cfg(feature = "Win32_Foundation")]
@@ -696,9 +955,25 @@ pub const WSMAN_PLUGIN_PARAMS_TIMEOUT: u32 = 2u32;
 pub type WSMAN_PLUGIN_RECEIVE = unsafe extern "system" fn(requestdetails: *const WSMAN_PLUGIN_REQUEST, flags: u32, shellcontext: *const ::core::ffi::c_void, commandcontext: *const ::core::ffi::c_void, streamset: *const WSMAN_STREAM_ID_SET);
 pub type WSMAN_PLUGIN_RELEASE_COMMAND_CONTEXT = unsafe extern "system" fn(shellcontext: *const ::core::ffi::c_void, commandcontext: *const ::core::ffi::c_void);
 pub type WSMAN_PLUGIN_RELEASE_SHELL_CONTEXT = unsafe extern "system" fn(shellcontext: *const ::core::ffi::c_void);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct WSMAN_PLUGIN_REQUEST(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct WSMAN_PLUGIN_REQUEST {
+    pub senderDetails: *mut WSMAN_SENDER_DETAILS,
+    pub locale: super::super::Foundation::PWSTR,
+    pub resourceUri: super::super::Foundation::PWSTR,
+    pub operationInfo: *mut WSMAN_OPERATION_INFO,
+    pub shutdownNotification: i32,
+    pub shutdownNotificationHandle: super::super::Foundation::HANDLE,
+    pub dataLocale: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WSMAN_PLUGIN_REQUEST {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WSMAN_PLUGIN_REQUEST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[cfg(feature = "Win32_Foundation")]
 pub type WSMAN_PLUGIN_SEND = unsafe extern "system" fn(requestdetails: *const WSMAN_PLUGIN_REQUEST, flags: u32, shellcontext: *const ::core::ffi::c_void, commandcontext: *const ::core::ffi::c_void, stream: super::super::Foundation::PWSTR, inbounddata: *const WSMAN_DATA);
 #[cfg(feature = "Win32_Foundation")]
@@ -715,44 +990,169 @@ pub type WSMAN_PLUGIN_STARTUP = unsafe extern "system" fn(flags: u32, applicatio
 pub const WSMAN_PLUGIN_STARTUP_AUTORESTARTED_CRASH: u32 = 2u32;
 pub const WSMAN_PLUGIN_STARTUP_AUTORESTARTED_REBOOT: u32 = 1u32;
 pub const WSMAN_PLUGIN_STARTUP_REQUEST_RECEIVED: u32 = 0u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct WSMAN_PROXY_INFO(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct WSMAN_RECEIVE_DATA_RESULT(i32);
+pub struct WSMAN_PROXY_INFO {
+    pub accessType: u32,
+    pub authenticationCredentials: WSMAN_AUTHENTICATION_CREDENTIALS,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct WSMAN_RESPONSE_DATA(i32);
+impl ::core::marker::Copy for WSMAN_PROXY_INFO {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WSMAN_PROXY_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WSMAN_SELECTOR_SET(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct WSMAN_RECEIVE_DATA_RESULT {
+    pub streamId: super::super::Foundation::PWSTR,
+    pub streamData: WSMAN_DATA,
+    pub commandState: super::super::Foundation::PWSTR,
+    pub exitCode: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WSMAN_RECEIVE_DATA_RESULT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WSMAN_RECEIVE_DATA_RESULT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WSMAN_SENDER_DETAILS(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub union WSMAN_RESPONSE_DATA {
+    pub receiveData: WSMAN_RECEIVE_DATA_RESULT,
+    pub connectData: WSMAN_CONNECT_DATA,
+    pub createData: WSMAN_CREATE_SHELL_DATA,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WSMAN_RESPONSE_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct WSMAN_SELECTOR_SET {
+    pub numberKeys: u32,
+    pub keys: *mut WSMAN_KEY,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WSMAN_SELECTOR_SET {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WSMAN_SELECTOR_SET {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct WSMAN_SENDER_DETAILS {
+    pub senderName: super::super::Foundation::PWSTR,
+    pub authenticationMechanism: super::super::Foundation::PWSTR,
+    pub certificateDetails: *mut WSMAN_CERTIFICATE_DETAILS,
+    pub clientToken: super::super::Foundation::HANDLE,
+    pub httpURL: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WSMAN_SENDER_DETAILS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WSMAN_SENDER_DETAILS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct WSMAN_SESSION(pub u8);
 #[repr(C)]
 pub struct WSMAN_SHELL(pub u8);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct WSMAN_SHELL_ASYNC(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct WSMAN_SHELL_ASYNC {
+    pub operationContext: *mut ::core::ffi::c_void,
+    pub completionFunction: ::core::option::Option<WSMAN_SHELL_COMPLETION_FUNCTION>,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WSMAN_SHELL_ASYNC {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WSMAN_SHELL_ASYNC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[cfg(feature = "Win32_Foundation")]
 pub type WSMAN_SHELL_COMPLETION_FUNCTION = unsafe extern "system" fn(operationcontext: *const ::core::ffi::c_void, flags: u32, error: *const WSMAN_ERROR, shell: *const WSMAN_SHELL, command: *const WSMAN_COMMAND, operationhandle: *const WSMAN_OPERATION, data: *const WSMAN_RESPONSE_DATA);
 #[repr(C)]
-pub struct WSMAN_SHELL_DISCONNECT_INFO(i32);
-#[cfg(feature = "Win32_Foundation")]
+pub struct WSMAN_SHELL_DISCONNECT_INFO {
+    pub idleTimeoutMs: u32,
+}
+impl ::core::marker::Copy for WSMAN_SHELL_DISCONNECT_INFO {}
+impl ::core::clone::Clone for WSMAN_SHELL_DISCONNECT_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WSMAN_SHELL_STARTUP_INFO_V10(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct WSMAN_SHELL_STARTUP_INFO_V11(i32);
+pub struct WSMAN_SHELL_STARTUP_INFO_V10 {
+    pub inputStreamSet: *mut WSMAN_STREAM_ID_SET,
+    pub outputStreamSet: *mut WSMAN_STREAM_ID_SET,
+    pub idleTimeoutMs: u32,
+    pub workingDirectory: super::super::Foundation::PWSTR,
+    pub variableSet: *mut WSMAN_ENVIRONMENT_VARIABLE_SET,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct WSMAN_STREAM_ID_SET(i32);
+impl ::core::marker::Copy for WSMAN_SHELL_STARTUP_INFO_V10 {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WSMAN_SHELL_STARTUP_INFO_V10 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WSMAN_USERNAME_PASSWORD_CREDS(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct WSMAN_SHELL_STARTUP_INFO_V11 {
+    pub __AnonymousBase_wsman_L665_C48: WSMAN_SHELL_STARTUP_INFO_V10,
+    pub name: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WSMAN_SHELL_STARTUP_INFO_V11 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WSMAN_SHELL_STARTUP_INFO_V11 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct WSMAN_STREAM_ID_SET {
+    pub streamIDsCount: u32,
+    pub streamIDs: *mut super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WSMAN_STREAM_ID_SET {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WSMAN_STREAM_ID_SET {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct WSMAN_USERNAME_PASSWORD_CREDS {
+    pub username: super::super::Foundation::PWSTR,
+    pub password: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WSMAN_USERNAME_PASSWORD_CREDS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WSMAN_USERNAME_PASSWORD_CREDS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WSMan: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 3169673595,
     data2: 60419,

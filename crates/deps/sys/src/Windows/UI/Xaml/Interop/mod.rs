@@ -40,4 +40,13 @@ impl TypeKind {
     pub const Custom: Self = Self(2i32);
 }
 #[repr(C)]
-pub struct TypeName(i32);
+pub struct TypeName {
+    pub Name: ::windows_sys::core::HSTRING,
+    pub Kind: TypeKind,
+}
+impl ::core::marker::Copy for TypeName {}
+impl ::core::clone::Clone for TypeName {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

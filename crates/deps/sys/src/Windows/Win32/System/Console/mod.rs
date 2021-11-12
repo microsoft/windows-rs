@@ -190,9 +190,32 @@ pub const BACKGROUND_GREEN: u32 = 32u32;
 pub const BACKGROUND_INTENSITY: u32 = 128u32;
 pub const BACKGROUND_RED: u32 = 64u32;
 pub const CAPSLOCK_ON: u32 = 128u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CHAR_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CHAR_INFO {
+    pub Char: CHAR_INFO_0,
+    pub Attributes: u16,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CHAR_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CHAR_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub union CHAR_INFO_0 {
+    pub UnicodeChar: u16,
+    pub AsciiChar: super::super::Foundation::CHAR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CHAR_INFO_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const COMMON_LVB_GRID_HORIZONTAL: u32 = 1024u32;
 pub const COMMON_LVB_GRID_LVERTICAL: u32 = 2048u32;
 pub const COMMON_LVB_GRID_RVERTICAL: u32 = 4096u32;
@@ -201,18 +224,62 @@ pub const COMMON_LVB_REVERSE_VIDEO: u32 = 16384u32;
 pub const COMMON_LVB_SBCSDBCS: u32 = 768u32;
 pub const COMMON_LVB_TRAILING_BYTE: u32 = 512u32;
 pub const COMMON_LVB_UNDERSCORE: u32 = 32768u32;
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+pub struct CONSOLE_CURSOR_INFO {
+    pub dwSize: u32,
+    pub bVisible: super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CONSOLE_CURSOR_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CONSOLE_CURSOR_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CONSOLE_CURSOR_INFO(i32);
+pub struct CONSOLE_FONT_INFO {
+    pub nFont: u32,
+    pub dwFontSize: COORD,
+}
+impl ::core::marker::Copy for CONSOLE_FONT_INFO {}
+impl ::core::clone::Clone for CONSOLE_FONT_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CONSOLE_FONT_INFO(i32);
-#[repr(C)]
-pub struct CONSOLE_FONT_INFOEX(i32);
+pub struct CONSOLE_FONT_INFOEX {
+    pub cbSize: u32,
+    pub nFont: u32,
+    pub dwFontSize: COORD,
+    pub FontFamily: u32,
+    pub FontWeight: u32,
+    pub FaceName: [u16; 32],
+}
+impl ::core::marker::Copy for CONSOLE_FONT_INFOEX {}
+impl ::core::clone::Clone for CONSOLE_FONT_INFOEX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CONSOLE_FULLSCREEN: u32 = 1u32;
 pub const CONSOLE_FULLSCREEN_HARDWARE: u32 = 2u32;
 pub const CONSOLE_FULLSCREEN_MODE: u32 = 1u32;
 #[repr(C)]
-pub struct CONSOLE_HISTORY_INFO(i32);
+pub struct CONSOLE_HISTORY_INFO {
+    pub cbSize: u32,
+    pub HistoryBufferSize: u32,
+    pub NumberOfHistoryBuffers: u32,
+    pub dwFlags: u32,
+}
+impl ::core::marker::Copy for CONSOLE_HISTORY_INFO {}
+impl ::core::clone::Clone for CONSOLE_HISTORY_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CONSOLE_MODE(pub u32);
 pub const ENABLE_PROCESSED_INPUT: CONSOLE_MODE = CONSOLE_MODE(1u32);
@@ -234,20 +301,80 @@ pub const CONSOLE_MOUSE_DOWN: u32 = 8u32;
 pub const CONSOLE_MOUSE_SELECTION: u32 = 4u32;
 pub const CONSOLE_NO_SELECTION: u32 = 0u32;
 #[repr(C)]
-pub struct CONSOLE_READCONSOLE_CONTROL(i32);
+pub struct CONSOLE_READCONSOLE_CONTROL {
+    pub nLength: u32,
+    pub nInitialChars: u32,
+    pub dwCtrlWakeupMask: u32,
+    pub dwControlKeyState: u32,
+}
+impl ::core::marker::Copy for CONSOLE_READCONSOLE_CONTROL {}
+impl ::core::clone::Clone for CONSOLE_READCONSOLE_CONTROL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CONSOLE_SCREEN_BUFFER_INFO(i32);
+pub struct CONSOLE_SCREEN_BUFFER_INFO {
+    pub dwSize: COORD,
+    pub dwCursorPosition: COORD,
+    pub wAttributes: u16,
+    pub srWindow: SMALL_RECT,
+    pub dwMaximumWindowSize: COORD,
+}
+impl ::core::marker::Copy for CONSOLE_SCREEN_BUFFER_INFO {}
+impl ::core::clone::Clone for CONSOLE_SCREEN_BUFFER_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+pub struct CONSOLE_SCREEN_BUFFER_INFOEX {
+    pub cbSize: u32,
+    pub dwSize: COORD,
+    pub dwCursorPosition: COORD,
+    pub wAttributes: u16,
+    pub srWindow: SMALL_RECT,
+    pub dwMaximumWindowSize: COORD,
+    pub wPopupAttributes: u16,
+    pub bFullscreenSupported: super::super::Foundation::BOOL,
+    pub ColorTable: [u32; 16],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CONSOLE_SCREEN_BUFFER_INFOEX {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CONSOLE_SCREEN_BUFFER_INFOEX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CONSOLE_SCREEN_BUFFER_INFOEX(i32);
-#[repr(C)]
-pub struct CONSOLE_SELECTION_INFO(i32);
+pub struct CONSOLE_SELECTION_INFO {
+    pub dwFlags: u32,
+    pub dwSelectionAnchor: COORD,
+    pub srSelection: SMALL_RECT,
+}
+impl ::core::marker::Copy for CONSOLE_SELECTION_INFO {}
+impl ::core::clone::Clone for CONSOLE_SELECTION_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CONSOLE_SELECTION_IN_PROGRESS: u32 = 1u32;
 pub const CONSOLE_SELECTION_NOT_EMPTY: u32 = 2u32;
 pub const CONSOLE_TEXTMODE_BUFFER: u32 = 1u32;
 pub const CONSOLE_WINDOWED_MODE: u32 = 2u32;
 #[repr(C)]
-pub struct COORD(i32);
+pub struct COORD {
+    pub X: i16,
+    pub Y: i16,
+}
+impl ::core::marker::Copy for COORD {}
+impl ::core::clone::Clone for COORD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CTRL_BREAK_EVENT: u32 = 1u32;
 pub const CTRL_CLOSE_EVENT: u32 = 2u32;
 pub const CTRL_C_EVENT: u32 = 0u32;
@@ -256,9 +383,19 @@ pub const CTRL_SHUTDOWN_EVENT: u32 = 6u32;
 pub const DOUBLE_CLICK: u32 = 2u32;
 pub const ENHANCED_KEY: u32 = 256u32;
 pub const FOCUS_EVENT: u32 = 16u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct FOCUS_EVENT_RECORD(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct FOCUS_EVENT_RECORD {
+    pub bSetFocus: super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for FOCUS_EVENT_RECORD {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for FOCUS_EVENT_RECORD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const FOREGROUND_BLUE: u32 = 1u32;
 pub const FOREGROUND_GREEN: u32 = 2u32;
 pub const FOREGROUND_INTENSITY: u32 = 8u32;
@@ -269,22 +406,102 @@ pub const FROM_LEFT_3RD_BUTTON_PRESSED: u32 = 8u32;
 pub const FROM_LEFT_4TH_BUTTON_PRESSED: u32 = 16u32;
 pub const HISTORY_NO_DUP_FLAG: u32 = 1u32;
 #[repr(C)]
-pub struct HPCON(i32);
-#[cfg(feature = "Win32_Foundation")]
+pub struct HPCON {
+    pub Value: isize,
+}
+impl ::core::marker::Copy for HPCON {}
+impl ::core::clone::Clone for HPCON {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct INPUT_RECORD(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct INPUT_RECORD {
+    pub EventType: u16,
+    pub Event: INPUT_RECORD_0,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for INPUT_RECORD {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for INPUT_RECORD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub union INPUT_RECORD_0 {
+    pub KeyEvent: KEY_EVENT_RECORD,
+    pub MouseEvent: MOUSE_EVENT_RECORD,
+    pub WindowBufferSizeEvent: WINDOW_BUFFER_SIZE_RECORD,
+    pub MenuEvent: MENU_EVENT_RECORD,
+    pub FocusEvent: FOCUS_EVENT_RECORD,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for INPUT_RECORD_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const KEY_EVENT: u32 = 1u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct KEY_EVENT_RECORD(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct KEY_EVENT_RECORD {
+    pub bKeyDown: super::super::Foundation::BOOL,
+    pub wRepeatCount: u16,
+    pub wVirtualKeyCode: u16,
+    pub wVirtualScanCode: u16,
+    pub uChar: KEY_EVENT_RECORD_0,
+    pub dwControlKeyState: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for KEY_EVENT_RECORD {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for KEY_EVENT_RECORD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub union KEY_EVENT_RECORD_0 {
+    pub UnicodeChar: u16,
+    pub AsciiChar: super::super::Foundation::CHAR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for KEY_EVENT_RECORD_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const LEFT_ALT_PRESSED: u32 = 2u32;
 pub const LEFT_CTRL_PRESSED: u32 = 8u32;
 pub const MENU_EVENT: u32 = 8u32;
 #[repr(C)]
-pub struct MENU_EVENT_RECORD(i32);
+pub struct MENU_EVENT_RECORD {
+    pub dwCommandId: u32,
+}
+impl ::core::marker::Copy for MENU_EVENT_RECORD {}
+impl ::core::clone::Clone for MENU_EVENT_RECORD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MOUSE_EVENT: u32 = 2u32;
 #[repr(C)]
-pub struct MOUSE_EVENT_RECORD(i32);
+pub struct MOUSE_EVENT_RECORD {
+    pub dwMousePosition: COORD,
+    pub dwButtonState: u32,
+    pub dwControlKeyState: u32,
+    pub dwEventFlags: u32,
+}
+impl ::core::marker::Copy for MOUSE_EVENT_RECORD {}
+impl ::core::clone::Clone for MOUSE_EVENT_RECORD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MOUSE_HWHEELED: u32 = 8u32;
 pub const MOUSE_MOVED: u32 = 1u32;
 pub const MOUSE_WHEELED: u32 = 4u32;
@@ -305,7 +522,18 @@ pub const RIGHT_CTRL_PRESSED: u32 = 4u32;
 pub const SCROLLLOCK_ON: u32 = 64u32;
 pub const SHIFT_PRESSED: u32 = 16u32;
 #[repr(C)]
-pub struct SMALL_RECT(i32);
+pub struct SMALL_RECT {
+    pub Left: i16,
+    pub Top: i16,
+    pub Right: i16,
+    pub Bottom: i16,
+}
+impl ::core::marker::Copy for SMALL_RECT {}
+impl ::core::clone::Clone for SMALL_RECT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct STD_HANDLE(pub u32);
 pub const STD_INPUT_HANDLE: STD_HANDLE = STD_HANDLE(4294967286u32);
@@ -313,4 +541,12 @@ pub const STD_OUTPUT_HANDLE: STD_HANDLE = STD_HANDLE(4294967285u32);
 pub const STD_ERROR_HANDLE: STD_HANDLE = STD_HANDLE(4294967284u32);
 pub const WINDOW_BUFFER_SIZE_EVENT: u32 = 4u32;
 #[repr(C)]
-pub struct WINDOW_BUFFER_SIZE_RECORD(i32);
+pub struct WINDOW_BUFFER_SIZE_RECORD {
+    pub dwSize: COORD,
+}
+impl ::core::marker::Copy for WINDOW_BUFFER_SIZE_RECORD {}
+impl ::core::clone::Clone for WINDOW_BUFFER_SIZE_RECORD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

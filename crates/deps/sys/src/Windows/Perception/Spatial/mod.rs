@@ -81,18 +81,67 @@ pub struct SpatialAnchorExporter(pub *mut ::core::ffi::c_void);
 pub struct SpatialAnchorRawCoordinateSystemAdjustedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct SpatialAnchorStore(pub *mut ::core::ffi::c_void);
-#[cfg(feature = "Foundation_Numerics")]
 #[repr(C)]
-pub struct SpatialBoundingBox(i32);
 #[cfg(feature = "Foundation_Numerics")]
-#[repr(C)]
-pub struct SpatialBoundingFrustum(i32);
+pub struct SpatialBoundingBox {
+    pub Center: super::super::Foundation::Numerics::Vector3,
+    pub Extents: super::super::Foundation::Numerics::Vector3,
+}
 #[cfg(feature = "Foundation_Numerics")]
-#[repr(C)]
-pub struct SpatialBoundingOrientedBox(i32);
+impl ::core::marker::Copy for SpatialBoundingBox {}
 #[cfg(feature = "Foundation_Numerics")]
+impl ::core::clone::Clone for SpatialBoundingBox {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct SpatialBoundingSphere(i32);
+#[cfg(feature = "Foundation_Numerics")]
+pub struct SpatialBoundingFrustum {
+    pub Near: super::super::Foundation::Numerics::Plane,
+    pub Far: super::super::Foundation::Numerics::Plane,
+    pub Right: super::super::Foundation::Numerics::Plane,
+    pub Left: super::super::Foundation::Numerics::Plane,
+    pub Top: super::super::Foundation::Numerics::Plane,
+    pub Bottom: super::super::Foundation::Numerics::Plane,
+}
+#[cfg(feature = "Foundation_Numerics")]
+impl ::core::marker::Copy for SpatialBoundingFrustum {}
+#[cfg(feature = "Foundation_Numerics")]
+impl ::core::clone::Clone for SpatialBoundingFrustum {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Foundation_Numerics")]
+pub struct SpatialBoundingOrientedBox {
+    pub Center: super::super::Foundation::Numerics::Vector3,
+    pub Extents: super::super::Foundation::Numerics::Vector3,
+    pub Orientation: super::super::Foundation::Numerics::Quaternion,
+}
+#[cfg(feature = "Foundation_Numerics")]
+impl ::core::marker::Copy for SpatialBoundingOrientedBox {}
+#[cfg(feature = "Foundation_Numerics")]
+impl ::core::clone::Clone for SpatialBoundingOrientedBox {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Foundation_Numerics")]
+pub struct SpatialBoundingSphere {
+    pub Center: super::super::Foundation::Numerics::Vector3,
+    pub Radius: f32,
+}
+#[cfg(feature = "Foundation_Numerics")]
+impl ::core::marker::Copy for SpatialBoundingSphere {}
+#[cfg(feature = "Foundation_Numerics")]
+impl ::core::clone::Clone for SpatialBoundingSphere {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SpatialBoundingVolume(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -156,9 +205,20 @@ impl SpatialPerceptionAccessStatus {
     pub const DeniedByUser: Self = Self(2i32);
     pub const DeniedBySystem: Self = Self(3i32);
 }
-#[cfg(feature = "Foundation_Numerics")]
 #[repr(C)]
-pub struct SpatialRay(i32);
+#[cfg(feature = "Foundation_Numerics")]
+pub struct SpatialRay {
+    pub Origin: super::super::Foundation::Numerics::Vector3,
+    pub Direction: super::super::Foundation::Numerics::Vector3,
+}
+#[cfg(feature = "Foundation_Numerics")]
+impl ::core::marker::Copy for SpatialRay {}
+#[cfg(feature = "Foundation_Numerics")]
+impl ::core::clone::Clone for SpatialRay {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SpatialStageFrameOfReference(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

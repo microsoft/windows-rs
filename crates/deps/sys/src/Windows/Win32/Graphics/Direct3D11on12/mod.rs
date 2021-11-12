@@ -5,7 +5,18 @@ extern "system" {
     pub fn D3D11On12CreateDevice(pdevice: ::windows_sys::core::IUnknown, flags: u32, pfeaturelevels: *const super::Direct3D::D3D_FEATURE_LEVEL, featurelevels: u32, ppcommandqueues: *const ::windows_sys::core::IUnknown, numqueues: u32, nodemask: u32, ppdevice: *mut super::Direct3D11::ID3D11Device, ppimmediatecontext: *mut super::Direct3D11::ID3D11DeviceContext, pchosenfeaturelevel: *mut super::Direct3D::D3D_FEATURE_LEVEL) -> ::windows_sys::core::HRESULT;
 }
 #[repr(C)]
-pub struct D3D11_RESOURCE_FLAGS(i32);
+pub struct D3D11_RESOURCE_FLAGS {
+    pub BindFlags: u32,
+    pub MiscFlags: u32,
+    pub CPUAccessFlags: u32,
+    pub StructureByteStride: u32,
+}
+impl ::core::marker::Copy for D3D11_RESOURCE_FLAGS {}
+impl ::core::clone::Clone for D3D11_RESOURCE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D11On12Device(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

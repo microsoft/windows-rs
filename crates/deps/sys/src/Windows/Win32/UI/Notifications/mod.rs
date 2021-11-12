@@ -3,6 +3,17 @@
 extern "system" {}
 #[repr(transparent)]
 pub struct INotificationActivationCallback(pub *mut ::core::ffi::c_void);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct NOTIFICATION_USER_INPUT_DATA(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct NOTIFICATION_USER_INPUT_DATA {
+    pub Key: super::super::Foundation::PWSTR,
+    pub Value: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for NOTIFICATION_USER_INPUT_DATA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for NOTIFICATION_USER_INPUT_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

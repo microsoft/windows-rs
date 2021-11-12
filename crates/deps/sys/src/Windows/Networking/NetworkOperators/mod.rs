@@ -93,7 +93,16 @@ impl ESimProfileClass {
     pub const Provisioning: Self = Self(2i32);
 }
 #[repr(C)]
-pub struct ESimProfileInstallProgress(i32);
+pub struct ESimProfileInstallProgress {
+    pub TotalSizeInBytes: i32,
+    pub InstalledSizeInBytes: i32,
+}
+impl ::core::marker::Copy for ESimProfileInstallProgress {}
+impl ::core::clone::Clone for ESimProfileInstallProgress {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ESimProfileMetadata(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -618,9 +627,20 @@ impl ProfileMediaType {
     pub const Wlan: Self = Self(0i32);
     pub const Wwan: Self = Self(1i32);
 }
-#[cfg(feature = "Foundation")]
 #[repr(C)]
-pub struct ProfileUsage(i32);
+#[cfg(feature = "Foundation")]
+pub struct ProfileUsage {
+    pub UsageInMegabytes: u32,
+    pub LastSyncTime: super::super::Foundation::DateTime,
+}
+#[cfg(feature = "Foundation")]
+impl ::core::marker::Copy for ProfileUsage {}
+#[cfg(feature = "Foundation")]
+impl ::core::clone::Clone for ProfileUsage {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ProvisionFromXmlDocumentResults(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

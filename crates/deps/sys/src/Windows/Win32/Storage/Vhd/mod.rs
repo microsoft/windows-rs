@@ -65,7 +65,36 @@ pub struct APPLY_SNAPSHOT_VHDSET_FLAG(pub u32);
 pub const APPLY_SNAPSHOT_VHDSET_FLAG_NONE: APPLY_SNAPSHOT_VHDSET_FLAG = APPLY_SNAPSHOT_VHDSET_FLAG(0u32);
 pub const APPLY_SNAPSHOT_VHDSET_FLAG_WRITEABLE: APPLY_SNAPSHOT_VHDSET_FLAG = APPLY_SNAPSHOT_VHDSET_FLAG(1u32);
 #[repr(C)]
-pub struct APPLY_SNAPSHOT_VHDSET_PARAMETERS(i32);
+pub struct APPLY_SNAPSHOT_VHDSET_PARAMETERS {
+    pub Version: APPLY_SNAPSHOT_VHDSET_VERSION,
+    pub Anonymous: APPLY_SNAPSHOT_VHDSET_PARAMETERS_0,
+}
+impl ::core::marker::Copy for APPLY_SNAPSHOT_VHDSET_PARAMETERS {}
+impl ::core::clone::Clone for APPLY_SNAPSHOT_VHDSET_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub union APPLY_SNAPSHOT_VHDSET_PARAMETERS_0 {
+    pub Version1: APPLY_SNAPSHOT_VHDSET_PARAMETERS_0_0,
+}
+impl ::core::clone::Clone for APPLY_SNAPSHOT_VHDSET_PARAMETERS_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct APPLY_SNAPSHOT_VHDSET_PARAMETERS_0_0 {
+    pub SnapshotId: ::windows_sys::core::GUID,
+    pub LeafSnapshotId: ::windows_sys::core::GUID,
+}
+impl ::core::marker::Copy for APPLY_SNAPSHOT_VHDSET_PARAMETERS_0_0 {}
+impl ::core::clone::Clone for APPLY_SNAPSHOT_VHDSET_PARAMETERS_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct APPLY_SNAPSHOT_VHDSET_VERSION(pub i32);
 pub const APPLY_SNAPSHOT_VHDSET_VERSION_UNSPECIFIED: APPLY_SNAPSHOT_VHDSET_VERSION = APPLY_SNAPSHOT_VHDSET_VERSION(0i32);
@@ -84,7 +113,47 @@ pub const ATTACH_VIRTUAL_DISK_FLAG_RESTRICTED_RANGE: ATTACH_VIRTUAL_DISK_FLAG = 
 pub const ATTACH_VIRTUAL_DISK_FLAG_SINGLE_PARTITION: ATTACH_VIRTUAL_DISK_FLAG = ATTACH_VIRTUAL_DISK_FLAG(256u32);
 pub const ATTACH_VIRTUAL_DISK_FLAG_REGISTER_VOLUME: ATTACH_VIRTUAL_DISK_FLAG = ATTACH_VIRTUAL_DISK_FLAG(512u32);
 #[repr(C)]
-pub struct ATTACH_VIRTUAL_DISK_PARAMETERS(i32);
+pub struct ATTACH_VIRTUAL_DISK_PARAMETERS {
+    pub Version: ATTACH_VIRTUAL_DISK_VERSION,
+    pub Anonymous: ATTACH_VIRTUAL_DISK_PARAMETERS_0,
+}
+impl ::core::marker::Copy for ATTACH_VIRTUAL_DISK_PARAMETERS {}
+impl ::core::clone::Clone for ATTACH_VIRTUAL_DISK_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub union ATTACH_VIRTUAL_DISK_PARAMETERS_0 {
+    pub Version1: ATTACH_VIRTUAL_DISK_PARAMETERS_0_0,
+    pub Version2: ATTACH_VIRTUAL_DISK_PARAMETERS_0_1,
+}
+impl ::core::clone::Clone for ATTACH_VIRTUAL_DISK_PARAMETERS_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct ATTACH_VIRTUAL_DISK_PARAMETERS_0_0 {
+    pub Reserved: u32,
+}
+impl ::core::marker::Copy for ATTACH_VIRTUAL_DISK_PARAMETERS_0_0 {}
+impl ::core::clone::Clone for ATTACH_VIRTUAL_DISK_PARAMETERS_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct ATTACH_VIRTUAL_DISK_PARAMETERS_0_1 {
+    pub RestrictedOffset: u64,
+    pub RestrictedLength: u64,
+}
+impl ::core::marker::Copy for ATTACH_VIRTUAL_DISK_PARAMETERS_0_1 {}
+impl ::core::clone::Clone for ATTACH_VIRTUAL_DISK_PARAMETERS_0_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ATTACH_VIRTUAL_DISK_VERSION(pub i32);
 pub const ATTACH_VIRTUAL_DISK_VERSION_UNSPECIFIED: ATTACH_VIRTUAL_DISK_VERSION = ATTACH_VIRTUAL_DISK_VERSION(0i32);
@@ -96,7 +165,35 @@ pub const COMPACT_VIRTUAL_DISK_FLAG_NONE: COMPACT_VIRTUAL_DISK_FLAG = COMPACT_VI
 pub const COMPACT_VIRTUAL_DISK_FLAG_NO_ZERO_SCAN: COMPACT_VIRTUAL_DISK_FLAG = COMPACT_VIRTUAL_DISK_FLAG(1u32);
 pub const COMPACT_VIRTUAL_DISK_FLAG_NO_BLOCK_MOVES: COMPACT_VIRTUAL_DISK_FLAG = COMPACT_VIRTUAL_DISK_FLAG(2u32);
 #[repr(C)]
-pub struct COMPACT_VIRTUAL_DISK_PARAMETERS(i32);
+pub struct COMPACT_VIRTUAL_DISK_PARAMETERS {
+    pub Version: COMPACT_VIRTUAL_DISK_VERSION,
+    pub Anonymous: COMPACT_VIRTUAL_DISK_PARAMETERS_0,
+}
+impl ::core::marker::Copy for COMPACT_VIRTUAL_DISK_PARAMETERS {}
+impl ::core::clone::Clone for COMPACT_VIRTUAL_DISK_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub union COMPACT_VIRTUAL_DISK_PARAMETERS_0 {
+    pub Version1: COMPACT_VIRTUAL_DISK_PARAMETERS_0_0,
+}
+impl ::core::clone::Clone for COMPACT_VIRTUAL_DISK_PARAMETERS_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct COMPACT_VIRTUAL_DISK_PARAMETERS_0_0 {
+    pub Reserved: u32,
+}
+impl ::core::marker::Copy for COMPACT_VIRTUAL_DISK_PARAMETERS_0_0 {}
+impl ::core::clone::Clone for COMPACT_VIRTUAL_DISK_PARAMETERS_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct COMPACT_VIRTUAL_DISK_VERSION(pub i32);
 pub const COMPACT_VIRTUAL_DISK_VERSION_UNSPECIFIED: COMPACT_VIRTUAL_DISK_VERSION = COMPACT_VIRTUAL_DISK_VERSION(0i32);
@@ -115,9 +212,127 @@ pub const CREATE_VIRTUAL_DISK_FLAG_SPARSE_FILE: CREATE_VIRTUAL_DISK_FLAG = CREAT
 pub const CREATE_VIRTUAL_DISK_FLAG_PMEM_COMPATIBLE: CREATE_VIRTUAL_DISK_FLAG = CREATE_VIRTUAL_DISK_FLAG(256u32);
 pub const CREATE_VIRTUAL_DISK_FLAG_SUPPORT_COMPRESSED_VOLUMES: CREATE_VIRTUAL_DISK_FLAG = CREATE_VIRTUAL_DISK_FLAG(512u32);
 pub const CREATE_VIRTUAL_DISK_FLAG_SUPPORT_SPARSE_FILES_ANY_FS: CREATE_VIRTUAL_DISK_FLAG = CREATE_VIRTUAL_DISK_FLAG(1024u32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CREATE_VIRTUAL_DISK_PARAMETERS(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CREATE_VIRTUAL_DISK_PARAMETERS {
+    pub Version: CREATE_VIRTUAL_DISK_VERSION,
+    pub Anonymous: CREATE_VIRTUAL_DISK_PARAMETERS_0,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CREATE_VIRTUAL_DISK_PARAMETERS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CREATE_VIRTUAL_DISK_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub union CREATE_VIRTUAL_DISK_PARAMETERS_0 {
+    pub Version1: CREATE_VIRTUAL_DISK_PARAMETERS_0_0,
+    pub Version2: CREATE_VIRTUAL_DISK_PARAMETERS_0_1,
+    pub Version3: CREATE_VIRTUAL_DISK_PARAMETERS_0_2,
+    pub Version4: CREATE_VIRTUAL_DISK_PARAMETERS_0_3,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CREATE_VIRTUAL_DISK_PARAMETERS_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct CREATE_VIRTUAL_DISK_PARAMETERS_0_0 {
+    pub UniqueId: ::windows_sys::core::GUID,
+    pub MaximumSize: u64,
+    pub BlockSizeInBytes: u32,
+    pub SectorSizeInBytes: u32,
+    pub ParentPath: super::super::Foundation::PWSTR,
+    pub SourcePath: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CREATE_VIRTUAL_DISK_PARAMETERS_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CREATE_VIRTUAL_DISK_PARAMETERS_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct CREATE_VIRTUAL_DISK_PARAMETERS_0_1 {
+    pub UniqueId: ::windows_sys::core::GUID,
+    pub MaximumSize: u64,
+    pub BlockSizeInBytes: u32,
+    pub SectorSizeInBytes: u32,
+    pub PhysicalSectorSizeInBytes: u32,
+    pub ParentPath: super::super::Foundation::PWSTR,
+    pub SourcePath: super::super::Foundation::PWSTR,
+    pub OpenFlags: OPEN_VIRTUAL_DISK_FLAG,
+    pub ParentVirtualStorageType: VIRTUAL_STORAGE_TYPE,
+    pub SourceVirtualStorageType: VIRTUAL_STORAGE_TYPE,
+    pub ResiliencyGuid: ::windows_sys::core::GUID,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CREATE_VIRTUAL_DISK_PARAMETERS_0_1 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CREATE_VIRTUAL_DISK_PARAMETERS_0_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct CREATE_VIRTUAL_DISK_PARAMETERS_0_2 {
+    pub UniqueId: ::windows_sys::core::GUID,
+    pub MaximumSize: u64,
+    pub BlockSizeInBytes: u32,
+    pub SectorSizeInBytes: u32,
+    pub PhysicalSectorSizeInBytes: u32,
+    pub ParentPath: super::super::Foundation::PWSTR,
+    pub SourcePath: super::super::Foundation::PWSTR,
+    pub OpenFlags: OPEN_VIRTUAL_DISK_FLAG,
+    pub ParentVirtualStorageType: VIRTUAL_STORAGE_TYPE,
+    pub SourceVirtualStorageType: VIRTUAL_STORAGE_TYPE,
+    pub ResiliencyGuid: ::windows_sys::core::GUID,
+    pub SourceLimitPath: super::super::Foundation::PWSTR,
+    pub BackingStorageType: VIRTUAL_STORAGE_TYPE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CREATE_VIRTUAL_DISK_PARAMETERS_0_2 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CREATE_VIRTUAL_DISK_PARAMETERS_0_2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct CREATE_VIRTUAL_DISK_PARAMETERS_0_3 {
+    pub UniqueId: ::windows_sys::core::GUID,
+    pub MaximumSize: u64,
+    pub BlockSizeInBytes: u32,
+    pub SectorSizeInBytes: u32,
+    pub PhysicalSectorSizeInBytes: u32,
+    pub ParentPath: super::super::Foundation::PWSTR,
+    pub SourcePath: super::super::Foundation::PWSTR,
+    pub OpenFlags: OPEN_VIRTUAL_DISK_FLAG,
+    pub ParentVirtualStorageType: VIRTUAL_STORAGE_TYPE,
+    pub SourceVirtualStorageType: VIRTUAL_STORAGE_TYPE,
+    pub ResiliencyGuid: ::windows_sys::core::GUID,
+    pub SourceLimitPath: super::super::Foundation::PWSTR,
+    pub BackingStorageType: VIRTUAL_STORAGE_TYPE,
+    pub PmemAddressAbstractionType: ::windows_sys::core::GUID,
+    pub DataAlignment: u64,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CREATE_VIRTUAL_DISK_PARAMETERS_0_3 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CREATE_VIRTUAL_DISK_PARAMETERS_0_3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CREATE_VIRTUAL_DISK_PARAMETERS_DEFAULT_BLOCK_SIZE: u32 = 0u32;
 pub const CREATE_VIRTUAL_DISK_PARAMETERS_DEFAULT_SECTOR_SIZE: u32 = 0u32;
 #[repr(transparent)]
@@ -132,7 +347,35 @@ pub struct DELETE_SNAPSHOT_VHDSET_FLAG(pub u32);
 pub const DELETE_SNAPSHOT_VHDSET_FLAG_NONE: DELETE_SNAPSHOT_VHDSET_FLAG = DELETE_SNAPSHOT_VHDSET_FLAG(0u32);
 pub const DELETE_SNAPSHOT_VHDSET_FLAG_PERSIST_RCT: DELETE_SNAPSHOT_VHDSET_FLAG = DELETE_SNAPSHOT_VHDSET_FLAG(1u32);
 #[repr(C)]
-pub struct DELETE_SNAPSHOT_VHDSET_PARAMETERS(i32);
+pub struct DELETE_SNAPSHOT_VHDSET_PARAMETERS {
+    pub Version: DELETE_SNAPSHOT_VHDSET_VERSION,
+    pub Anonymous: DELETE_SNAPSHOT_VHDSET_PARAMETERS_0,
+}
+impl ::core::marker::Copy for DELETE_SNAPSHOT_VHDSET_PARAMETERS {}
+impl ::core::clone::Clone for DELETE_SNAPSHOT_VHDSET_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub union DELETE_SNAPSHOT_VHDSET_PARAMETERS_0 {
+    pub Version1: DELETE_SNAPSHOT_VHDSET_PARAMETERS_0_0,
+}
+impl ::core::clone::Clone for DELETE_SNAPSHOT_VHDSET_PARAMETERS_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct DELETE_SNAPSHOT_VHDSET_PARAMETERS_0_0 {
+    pub SnapshotId: ::windows_sys::core::GUID,
+}
+impl ::core::marker::Copy for DELETE_SNAPSHOT_VHDSET_PARAMETERS_0_0 {}
+impl ::core::clone::Clone for DELETE_SNAPSHOT_VHDSET_PARAMETERS_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DELETE_SNAPSHOT_VHDSET_VERSION(pub i32);
 pub const DELETE_SNAPSHOT_VHDSET_VERSION_UNSPECIFIED: DELETE_SNAPSHOT_VHDSET_VERSION = DELETE_SNAPSHOT_VHDSET_VERSION(0i32);
@@ -162,7 +405,35 @@ pub struct EXPAND_VIRTUAL_DISK_FLAG(pub u32);
 pub const EXPAND_VIRTUAL_DISK_FLAG_NONE: EXPAND_VIRTUAL_DISK_FLAG = EXPAND_VIRTUAL_DISK_FLAG(0u32);
 pub const EXPAND_VIRTUAL_DISK_FLAG_NOTIFY_CHANGE: EXPAND_VIRTUAL_DISK_FLAG = EXPAND_VIRTUAL_DISK_FLAG(1u32);
 #[repr(C)]
-pub struct EXPAND_VIRTUAL_DISK_PARAMETERS(i32);
+pub struct EXPAND_VIRTUAL_DISK_PARAMETERS {
+    pub Version: EXPAND_VIRTUAL_DISK_VERSION,
+    pub Anonymous: EXPAND_VIRTUAL_DISK_PARAMETERS_0,
+}
+impl ::core::marker::Copy for EXPAND_VIRTUAL_DISK_PARAMETERS {}
+impl ::core::clone::Clone for EXPAND_VIRTUAL_DISK_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub union EXPAND_VIRTUAL_DISK_PARAMETERS_0 {
+    pub Version1: EXPAND_VIRTUAL_DISK_PARAMETERS_0_0,
+}
+impl ::core::clone::Clone for EXPAND_VIRTUAL_DISK_PARAMETERS_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct EXPAND_VIRTUAL_DISK_PARAMETERS_0_0 {
+    pub NewSize: u64,
+}
+impl ::core::marker::Copy for EXPAND_VIRTUAL_DISK_PARAMETERS_0_0 {}
+impl ::core::clone::Clone for EXPAND_VIRTUAL_DISK_PARAMETERS_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct EXPAND_VIRTUAL_DISK_VERSION(pub i32);
 pub const EXPAND_VIRTUAL_DISK_VERSION_UNSPECIFIED: EXPAND_VIRTUAL_DISK_VERSION = EXPAND_VIRTUAL_DISK_VERSION(0i32);
@@ -171,9 +442,44 @@ pub const EXPAND_VIRTUAL_DISK_VERSION_1: EXPAND_VIRTUAL_DISK_VERSION = EXPAND_VI
 pub struct FORK_VIRTUAL_DISK_FLAG(pub u32);
 pub const FORK_VIRTUAL_DISK_FLAG_NONE: FORK_VIRTUAL_DISK_FLAG = FORK_VIRTUAL_DISK_FLAG(0u32);
 pub const FORK_VIRTUAL_DISK_FLAG_EXISTING_FILE: FORK_VIRTUAL_DISK_FLAG = FORK_VIRTUAL_DISK_FLAG(1u32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct FORK_VIRTUAL_DISK_PARAMETERS(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct FORK_VIRTUAL_DISK_PARAMETERS {
+    pub Version: FORK_VIRTUAL_DISK_VERSION,
+    pub Anonymous: FORK_VIRTUAL_DISK_PARAMETERS_0,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for FORK_VIRTUAL_DISK_PARAMETERS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for FORK_VIRTUAL_DISK_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub union FORK_VIRTUAL_DISK_PARAMETERS_0 {
+    pub Version1: FORK_VIRTUAL_DISK_PARAMETERS_0_0,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for FORK_VIRTUAL_DISK_PARAMETERS_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct FORK_VIRTUAL_DISK_PARAMETERS_0_0 {
+    pub ForkedVirtualDiskPath: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for FORK_VIRTUAL_DISK_PARAMETERS_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for FORK_VIRTUAL_DISK_PARAMETERS_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct FORK_VIRTUAL_DISK_VERSION(pub i32);
 pub const FORK_VIRTUAL_DISK_VERSION_UNSPECIFIED: FORK_VIRTUAL_DISK_VERSION = FORK_VIRTUAL_DISK_VERSION(0i32);
@@ -183,9 +489,105 @@ pub struct GET_STORAGE_DEPENDENCY_FLAG(pub u32);
 pub const GET_STORAGE_DEPENDENCY_FLAG_NONE: GET_STORAGE_DEPENDENCY_FLAG = GET_STORAGE_DEPENDENCY_FLAG(0u32);
 pub const GET_STORAGE_DEPENDENCY_FLAG_HOST_VOLUMES: GET_STORAGE_DEPENDENCY_FLAG = GET_STORAGE_DEPENDENCY_FLAG(1u32);
 pub const GET_STORAGE_DEPENDENCY_FLAG_DISK_HANDLE: GET_STORAGE_DEPENDENCY_FLAG = GET_STORAGE_DEPENDENCY_FLAG(2u32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct GET_VIRTUAL_DISK_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct GET_VIRTUAL_DISK_INFO {
+    pub Version: GET_VIRTUAL_DISK_INFO_VERSION,
+    pub Anonymous: GET_VIRTUAL_DISK_INFO_0,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for GET_VIRTUAL_DISK_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for GET_VIRTUAL_DISK_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub union GET_VIRTUAL_DISK_INFO_0 {
+    pub Size: GET_VIRTUAL_DISK_INFO_0_3,
+    pub Identifier: ::windows_sys::core::GUID,
+    pub ParentLocation: GET_VIRTUAL_DISK_INFO_0_1,
+    pub ParentIdentifier: ::windows_sys::core::GUID,
+    pub ParentTimestamp: u32,
+    pub VirtualStorageType: VIRTUAL_STORAGE_TYPE,
+    pub ProviderSubtype: u32,
+    pub Is4kAligned: super::super::Foundation::BOOL,
+    pub IsLoaded: super::super::Foundation::BOOL,
+    pub PhysicalDisk: GET_VIRTUAL_DISK_INFO_0_2,
+    pub VhdPhysicalSectorSize: u32,
+    pub SmallestSafeVirtualSize: u64,
+    pub FragmentationPercentage: u32,
+    pub VirtualDiskId: ::windows_sys::core::GUID,
+    pub ChangeTrackingState: GET_VIRTUAL_DISK_INFO_0_0,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for GET_VIRTUAL_DISK_INFO_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct GET_VIRTUAL_DISK_INFO_0_0 {
+    pub Enabled: super::super::Foundation::BOOL,
+    pub NewerChanges: super::super::Foundation::BOOL,
+    pub MostRecentId: [u16; 1],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for GET_VIRTUAL_DISK_INFO_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for GET_VIRTUAL_DISK_INFO_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct GET_VIRTUAL_DISK_INFO_0_1 {
+    pub ParentResolved: super::super::Foundation::BOOL,
+    pub ParentLocationBuffer: [u16; 1],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for GET_VIRTUAL_DISK_INFO_0_1 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for GET_VIRTUAL_DISK_INFO_0_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct GET_VIRTUAL_DISK_INFO_0_2 {
+    pub LogicalSectorSize: u32,
+    pub PhysicalSectorSize: u32,
+    pub IsRemote: super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for GET_VIRTUAL_DISK_INFO_0_2 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for GET_VIRTUAL_DISK_INFO_0_2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct GET_VIRTUAL_DISK_INFO_0_3 {
+    pub VirtualSize: u64,
+    pub PhysicalSize: u64,
+    pub BlockSize: u32,
+    pub SectorSize: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for GET_VIRTUAL_DISK_INFO_0_3 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for GET_VIRTUAL_DISK_INFO_0_3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct GET_VIRTUAL_DISK_INFO_VERSION(pub i32);
 pub const GET_VIRTUAL_DISK_INFO_UNSPECIFIED: GET_VIRTUAL_DISK_INFO_VERSION = GET_VIRTUAL_DISK_INFO_VERSION(0i32);
@@ -209,7 +611,47 @@ pub const MERGE_VIRTUAL_DISK_DEFAULT_MERGE_DEPTH: u32 = 1u32;
 pub struct MERGE_VIRTUAL_DISK_FLAG(pub u32);
 pub const MERGE_VIRTUAL_DISK_FLAG_NONE: MERGE_VIRTUAL_DISK_FLAG = MERGE_VIRTUAL_DISK_FLAG(0u32);
 #[repr(C)]
-pub struct MERGE_VIRTUAL_DISK_PARAMETERS(i32);
+pub struct MERGE_VIRTUAL_DISK_PARAMETERS {
+    pub Version: MERGE_VIRTUAL_DISK_VERSION,
+    pub Anonymous: MERGE_VIRTUAL_DISK_PARAMETERS_0,
+}
+impl ::core::marker::Copy for MERGE_VIRTUAL_DISK_PARAMETERS {}
+impl ::core::clone::Clone for MERGE_VIRTUAL_DISK_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub union MERGE_VIRTUAL_DISK_PARAMETERS_0 {
+    pub Version1: MERGE_VIRTUAL_DISK_PARAMETERS_0_0,
+    pub Version2: MERGE_VIRTUAL_DISK_PARAMETERS_0_1,
+}
+impl ::core::clone::Clone for MERGE_VIRTUAL_DISK_PARAMETERS_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct MERGE_VIRTUAL_DISK_PARAMETERS_0_0 {
+    pub MergeDepth: u32,
+}
+impl ::core::marker::Copy for MERGE_VIRTUAL_DISK_PARAMETERS_0_0 {}
+impl ::core::clone::Clone for MERGE_VIRTUAL_DISK_PARAMETERS_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct MERGE_VIRTUAL_DISK_PARAMETERS_0_1 {
+    pub MergeSourceDepth: u32,
+    pub MergeTargetDepth: u32,
+}
+impl ::core::marker::Copy for MERGE_VIRTUAL_DISK_PARAMETERS_0_1 {}
+impl ::core::clone::Clone for MERGE_VIRTUAL_DISK_PARAMETERS_0_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MERGE_VIRTUAL_DISK_VERSION(pub i32);
 pub const MERGE_VIRTUAL_DISK_VERSION_UNSPECIFIED: MERGE_VIRTUAL_DISK_VERSION = MERGE_VIRTUAL_DISK_VERSION(0i32);
@@ -222,9 +664,44 @@ pub const MIRROR_VIRTUAL_DISK_FLAG_EXISTING_FILE: MIRROR_VIRTUAL_DISK_FLAG = MIR
 pub const MIRROR_VIRTUAL_DISK_FLAG_SKIP_MIRROR_ACTIVATION: MIRROR_VIRTUAL_DISK_FLAG = MIRROR_VIRTUAL_DISK_FLAG(2u32);
 pub const MIRROR_VIRTUAL_DISK_FLAG_ENABLE_SMB_COMPRESSION: MIRROR_VIRTUAL_DISK_FLAG = MIRROR_VIRTUAL_DISK_FLAG(4u32);
 pub const MIRROR_VIRTUAL_DISK_FLAG_IS_LIVE_MIGRATION: MIRROR_VIRTUAL_DISK_FLAG = MIRROR_VIRTUAL_DISK_FLAG(8u32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct MIRROR_VIRTUAL_DISK_PARAMETERS(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct MIRROR_VIRTUAL_DISK_PARAMETERS {
+    pub Version: MIRROR_VIRTUAL_DISK_VERSION,
+    pub Anonymous: MIRROR_VIRTUAL_DISK_PARAMETERS_0,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MIRROR_VIRTUAL_DISK_PARAMETERS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MIRROR_VIRTUAL_DISK_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub union MIRROR_VIRTUAL_DISK_PARAMETERS_0 {
+    pub Version1: MIRROR_VIRTUAL_DISK_PARAMETERS_0_0,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MIRROR_VIRTUAL_DISK_PARAMETERS_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct MIRROR_VIRTUAL_DISK_PARAMETERS_0_0 {
+    pub MirrorVirtualDiskPath: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MIRROR_VIRTUAL_DISK_PARAMETERS_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MIRROR_VIRTUAL_DISK_PARAMETERS_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MIRROR_VIRTUAL_DISK_VERSION(pub i32);
 pub const MIRROR_VIRTUAL_DISK_VERSION_UNSPECIFIED: MIRROR_VIRTUAL_DISK_VERSION = MIRROR_VIRTUAL_DISK_VERSION(0i32);
@@ -233,9 +710,47 @@ pub const MIRROR_VIRTUAL_DISK_VERSION_1: MIRROR_VIRTUAL_DISK_VERSION = MIRROR_VI
 pub struct MODIFY_VHDSET_FLAG(pub u32);
 pub const MODIFY_VHDSET_FLAG_NONE: MODIFY_VHDSET_FLAG = MODIFY_VHDSET_FLAG(0u32);
 pub const MODIFY_VHDSET_FLAG_WRITEABLE_SNAPSHOT: MODIFY_VHDSET_FLAG = MODIFY_VHDSET_FLAG(1u32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct MODIFY_VHDSET_PARAMETERS(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct MODIFY_VHDSET_PARAMETERS {
+    pub Version: MODIFY_VHDSET_VERSION,
+    pub Anonymous: MODIFY_VHDSET_PARAMETERS_0,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MODIFY_VHDSET_PARAMETERS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MODIFY_VHDSET_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub union MODIFY_VHDSET_PARAMETERS_0 {
+    pub SnapshotPath: MODIFY_VHDSET_PARAMETERS_0_0,
+    pub SnapshotId: ::windows_sys::core::GUID,
+    pub DefaultFilePath: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MODIFY_VHDSET_PARAMETERS_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct MODIFY_VHDSET_PARAMETERS_0_0 {
+    pub SnapshotId: ::windows_sys::core::GUID,
+    pub SnapshotFilePath: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MODIFY_VHDSET_PARAMETERS_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MODIFY_VHDSET_PARAMETERS_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MODIFY_VHDSET_VERSION(pub i32);
 pub const MODIFY_VHDSET_UNSPECIFIED: MODIFY_VHDSET_VERSION = MODIFY_VHDSET_VERSION(0i32);
@@ -257,9 +772,77 @@ pub const OPEN_VIRTUAL_DISK_FLAG_NO_WRITE_HARDENING: OPEN_VIRTUAL_DISK_FLAG = OP
 pub const OPEN_VIRTUAL_DISK_FLAG_SUPPORT_COMPRESSED_VOLUMES: OPEN_VIRTUAL_DISK_FLAG = OPEN_VIRTUAL_DISK_FLAG(512u32);
 pub const OPEN_VIRTUAL_DISK_FLAG_SUPPORT_SPARSE_FILES_ANY_FS: OPEN_VIRTUAL_DISK_FLAG = OPEN_VIRTUAL_DISK_FLAG(1024u32);
 pub const OPEN_VIRTUAL_DISK_FLAG_SUPPORT_ENCRYPTED_FILES: OPEN_VIRTUAL_DISK_FLAG = OPEN_VIRTUAL_DISK_FLAG(2048u32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct OPEN_VIRTUAL_DISK_PARAMETERS(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct OPEN_VIRTUAL_DISK_PARAMETERS {
+    pub Version: OPEN_VIRTUAL_DISK_VERSION,
+    pub Anonymous: OPEN_VIRTUAL_DISK_PARAMETERS_0,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for OPEN_VIRTUAL_DISK_PARAMETERS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for OPEN_VIRTUAL_DISK_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub union OPEN_VIRTUAL_DISK_PARAMETERS_0 {
+    pub Version1: OPEN_VIRTUAL_DISK_PARAMETERS_0_0,
+    pub Version2: OPEN_VIRTUAL_DISK_PARAMETERS_0_1,
+    pub Version3: OPEN_VIRTUAL_DISK_PARAMETERS_0_2,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for OPEN_VIRTUAL_DISK_PARAMETERS_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct OPEN_VIRTUAL_DISK_PARAMETERS_0_0 {
+    pub RWDepth: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for OPEN_VIRTUAL_DISK_PARAMETERS_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for OPEN_VIRTUAL_DISK_PARAMETERS_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct OPEN_VIRTUAL_DISK_PARAMETERS_0_1 {
+    pub GetInfoOnly: super::super::Foundation::BOOL,
+    pub ReadOnly: super::super::Foundation::BOOL,
+    pub ResiliencyGuid: ::windows_sys::core::GUID,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for OPEN_VIRTUAL_DISK_PARAMETERS_0_1 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for OPEN_VIRTUAL_DISK_PARAMETERS_0_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct OPEN_VIRTUAL_DISK_PARAMETERS_0_2 {
+    pub GetInfoOnly: super::super::Foundation::BOOL,
+    pub ReadOnly: super::super::Foundation::BOOL,
+    pub ResiliencyGuid: ::windows_sys::core::GUID,
+    pub SnapshotId: ::windows_sys::core::GUID,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for OPEN_VIRTUAL_DISK_PARAMETERS_0_2 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for OPEN_VIRTUAL_DISK_PARAMETERS_0_2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const OPEN_VIRTUAL_DISK_RW_DEPTH_DEFAULT: u32 = 1u32;
 #[repr(transparent)]
 pub struct OPEN_VIRTUAL_DISK_VERSION(pub i32);
@@ -271,15 +854,98 @@ pub const OPEN_VIRTUAL_DISK_VERSION_3: OPEN_VIRTUAL_DISK_VERSION = OPEN_VIRTUAL_
 pub struct QUERY_CHANGES_VIRTUAL_DISK_FLAG(pub u32);
 pub const QUERY_CHANGES_VIRTUAL_DISK_FLAG_NONE: QUERY_CHANGES_VIRTUAL_DISK_FLAG = QUERY_CHANGES_VIRTUAL_DISK_FLAG(0u32);
 #[repr(C)]
-pub struct QUERY_CHANGES_VIRTUAL_DISK_RANGE(i32);
+pub struct QUERY_CHANGES_VIRTUAL_DISK_RANGE {
+    pub ByteOffset: u64,
+    pub ByteLength: u64,
+    pub Reserved: u64,
+}
+impl ::core::marker::Copy for QUERY_CHANGES_VIRTUAL_DISK_RANGE {}
+impl ::core::clone::Clone for QUERY_CHANGES_VIRTUAL_DISK_RANGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RAW_SCSI_VIRTUAL_DISK_FLAG(pub u32);
 pub const RAW_SCSI_VIRTUAL_DISK_FLAG_NONE: RAW_SCSI_VIRTUAL_DISK_FLAG = RAW_SCSI_VIRTUAL_DISK_FLAG(0u32);
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+pub struct RAW_SCSI_VIRTUAL_DISK_PARAMETERS {
+    pub Version: RAW_SCSI_VIRTUAL_DISK_VERSION,
+    pub Anonymous: RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for RAW_SCSI_VIRTUAL_DISK_PARAMETERS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for RAW_SCSI_VIRTUAL_DISK_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct RAW_SCSI_VIRTUAL_DISK_PARAMETERS(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub union RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0 {
+    pub Version1: RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0_0,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct RAW_SCSI_VIRTUAL_DISK_RESPONSE(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0_0 {
+    pub RSVDHandle: super::super::Foundation::BOOL,
+    pub DataIn: u8,
+    pub CdbLength: u8,
+    pub SenseInfoLength: u8,
+    pub SrbFlags: u32,
+    pub DataTransferLength: u32,
+    pub DataBuffer: *mut ::core::ffi::c_void,
+    pub SenseInfo: *mut u8,
+    pub Cdb: *mut u8,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct RAW_SCSI_VIRTUAL_DISK_RESPONSE {
+    pub Version: RAW_SCSI_VIRTUAL_DISK_VERSION,
+    pub Anonymous: RAW_SCSI_VIRTUAL_DISK_RESPONSE_0,
+}
+impl ::core::marker::Copy for RAW_SCSI_VIRTUAL_DISK_RESPONSE {}
+impl ::core::clone::Clone for RAW_SCSI_VIRTUAL_DISK_RESPONSE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub union RAW_SCSI_VIRTUAL_DISK_RESPONSE_0 {
+    pub Version1: RAW_SCSI_VIRTUAL_DISK_RESPONSE_0_0,
+}
+impl ::core::clone::Clone for RAW_SCSI_VIRTUAL_DISK_RESPONSE_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct RAW_SCSI_VIRTUAL_DISK_RESPONSE_0_0 {
+    pub ScsiStatus: u8,
+    pub SenseInfoLength: u8,
+    pub DataTransferLength: u32,
+}
+impl ::core::marker::Copy for RAW_SCSI_VIRTUAL_DISK_RESPONSE_0_0 {}
+impl ::core::clone::Clone for RAW_SCSI_VIRTUAL_DISK_RESPONSE_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RAW_SCSI_VIRTUAL_DISK_VERSION(pub i32);
 pub const RAW_SCSI_VIRTUAL_DISK_VERSION_UNSPECIFIED: RAW_SCSI_VIRTUAL_DISK_VERSION = RAW_SCSI_VIRTUAL_DISK_VERSION(0i32);
@@ -290,14 +956,98 @@ pub const RESIZE_VIRTUAL_DISK_FLAG_NONE: RESIZE_VIRTUAL_DISK_FLAG = RESIZE_VIRTU
 pub const RESIZE_VIRTUAL_DISK_FLAG_ALLOW_UNSAFE_VIRTUAL_SIZE: RESIZE_VIRTUAL_DISK_FLAG = RESIZE_VIRTUAL_DISK_FLAG(1u32);
 pub const RESIZE_VIRTUAL_DISK_FLAG_RESIZE_TO_SMALLEST_SAFE_VIRTUAL_SIZE: RESIZE_VIRTUAL_DISK_FLAG = RESIZE_VIRTUAL_DISK_FLAG(2u32);
 #[repr(C)]
-pub struct RESIZE_VIRTUAL_DISK_PARAMETERS(i32);
+pub struct RESIZE_VIRTUAL_DISK_PARAMETERS {
+    pub Version: RESIZE_VIRTUAL_DISK_VERSION,
+    pub Anonymous: RESIZE_VIRTUAL_DISK_PARAMETERS_0,
+}
+impl ::core::marker::Copy for RESIZE_VIRTUAL_DISK_PARAMETERS {}
+impl ::core::clone::Clone for RESIZE_VIRTUAL_DISK_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub union RESIZE_VIRTUAL_DISK_PARAMETERS_0 {
+    pub Version1: RESIZE_VIRTUAL_DISK_PARAMETERS_0_0,
+}
+impl ::core::clone::Clone for RESIZE_VIRTUAL_DISK_PARAMETERS_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct RESIZE_VIRTUAL_DISK_PARAMETERS_0_0 {
+    pub NewSize: u64,
+}
+impl ::core::marker::Copy for RESIZE_VIRTUAL_DISK_PARAMETERS_0_0 {}
+impl ::core::clone::Clone for RESIZE_VIRTUAL_DISK_PARAMETERS_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RESIZE_VIRTUAL_DISK_VERSION(pub i32);
 pub const RESIZE_VIRTUAL_DISK_VERSION_UNSPECIFIED: RESIZE_VIRTUAL_DISK_VERSION = RESIZE_VIRTUAL_DISK_VERSION(0i32);
 pub const RESIZE_VIRTUAL_DISK_VERSION_1: RESIZE_VIRTUAL_DISK_VERSION = RESIZE_VIRTUAL_DISK_VERSION(1i32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct SET_VIRTUAL_DISK_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct SET_VIRTUAL_DISK_INFO {
+    pub Version: SET_VIRTUAL_DISK_INFO_VERSION,
+    pub Anonymous: SET_VIRTUAL_DISK_INFO_0,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SET_VIRTUAL_DISK_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SET_VIRTUAL_DISK_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub union SET_VIRTUAL_DISK_INFO_0 {
+    pub ParentFilePath: super::super::Foundation::PWSTR,
+    pub UniqueIdentifier: ::windows_sys::core::GUID,
+    pub ParentPathWithDepthInfo: SET_VIRTUAL_DISK_INFO_0_1,
+    pub VhdPhysicalSectorSize: u32,
+    pub VirtualDiskId: ::windows_sys::core::GUID,
+    pub ChangeTrackingEnabled: super::super::Foundation::BOOL,
+    pub ParentLocator: SET_VIRTUAL_DISK_INFO_0_0,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SET_VIRTUAL_DISK_INFO_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct SET_VIRTUAL_DISK_INFO_0_0 {
+    pub LinkageId: ::windows_sys::core::GUID,
+    pub ParentFilePath: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SET_VIRTUAL_DISK_INFO_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SET_VIRTUAL_DISK_INFO_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct SET_VIRTUAL_DISK_INFO_0_1 {
+    pub ChildDepth: u32,
+    pub ParentFilePath: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SET_VIRTUAL_DISK_INFO_0_1 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SET_VIRTUAL_DISK_INFO_0_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SET_VIRTUAL_DISK_INFO_VERSION(pub i32);
 pub const SET_VIRTUAL_DISK_INFO_UNSPECIFIED: SET_VIRTUAL_DISK_INFO_VERSION = SET_VIRTUAL_DISK_INFO_VERSION(0i32);
@@ -308,14 +1058,65 @@ pub const SET_VIRTUAL_DISK_INFO_PHYSICAL_SECTOR_SIZE: SET_VIRTUAL_DISK_INFO_VERS
 pub const SET_VIRTUAL_DISK_INFO_VIRTUAL_DISK_ID: SET_VIRTUAL_DISK_INFO_VERSION = SET_VIRTUAL_DISK_INFO_VERSION(5i32);
 pub const SET_VIRTUAL_DISK_INFO_CHANGE_TRACKING_STATE: SET_VIRTUAL_DISK_INFO_VERSION = SET_VIRTUAL_DISK_INFO_VERSION(6i32);
 pub const SET_VIRTUAL_DISK_INFO_PARENT_LOCATOR: SET_VIRTUAL_DISK_INFO_VERSION = SET_VIRTUAL_DISK_INFO_VERSION(7i32);
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct STORAGE_DEPENDENCY_INFO(i32);
-#[repr(C)]
-pub struct STORAGE_DEPENDENCY_INFO_TYPE_1(i32);
+pub struct STORAGE_DEPENDENCY_INFO {
+    pub Version: STORAGE_DEPENDENCY_INFO_VERSION,
+    pub NumberEntries: u32,
+    pub Anonymous: STORAGE_DEPENDENCY_INFO_0,
+}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for STORAGE_DEPENDENCY_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for STORAGE_DEPENDENCY_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct STORAGE_DEPENDENCY_INFO_TYPE_2(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub union STORAGE_DEPENDENCY_INFO_0 {
+    pub Version1Entries: [STORAGE_DEPENDENCY_INFO_TYPE_1; 1],
+    pub Version2Entries: [STORAGE_DEPENDENCY_INFO_TYPE_2; 1],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for STORAGE_DEPENDENCY_INFO_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct STORAGE_DEPENDENCY_INFO_TYPE_1 {
+    pub DependencyTypeFlags: DEPENDENT_DISK_FLAG,
+    pub ProviderSpecificFlags: u32,
+    pub VirtualStorageType: VIRTUAL_STORAGE_TYPE,
+}
+impl ::core::marker::Copy for STORAGE_DEPENDENCY_INFO_TYPE_1 {}
+impl ::core::clone::Clone for STORAGE_DEPENDENCY_INFO_TYPE_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct STORAGE_DEPENDENCY_INFO_TYPE_2 {
+    pub DependencyTypeFlags: DEPENDENT_DISK_FLAG,
+    pub ProviderSpecificFlags: u32,
+    pub VirtualStorageType: VIRTUAL_STORAGE_TYPE,
+    pub AncestorLevel: u32,
+    pub DependencyDeviceName: super::super::Foundation::PWSTR,
+    pub HostVolumeName: super::super::Foundation::PWSTR,
+    pub DependentVolumeName: super::super::Foundation::PWSTR,
+    pub DependentVolumeRelativePath: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for STORAGE_DEPENDENCY_INFO_TYPE_2 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for STORAGE_DEPENDENCY_INFO_TYPE_2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct STORAGE_DEPENDENCY_INFO_VERSION(pub i32);
 pub const STORAGE_DEPENDENCY_INFO_VERSION_UNSPECIFIED: STORAGE_DEPENDENCY_INFO_VERSION = STORAGE_DEPENDENCY_INFO_VERSION(0i32);
@@ -326,7 +1127,35 @@ pub struct TAKE_SNAPSHOT_VHDSET_FLAG(pub u32);
 pub const TAKE_SNAPSHOT_VHDSET_FLAG_NONE: TAKE_SNAPSHOT_VHDSET_FLAG = TAKE_SNAPSHOT_VHDSET_FLAG(0u32);
 pub const TAKE_SNAPSHOT_VHDSET_FLAG_WRITEABLE: TAKE_SNAPSHOT_VHDSET_FLAG = TAKE_SNAPSHOT_VHDSET_FLAG(1u32);
 #[repr(C)]
-pub struct TAKE_SNAPSHOT_VHDSET_PARAMETERS(i32);
+pub struct TAKE_SNAPSHOT_VHDSET_PARAMETERS {
+    pub Version: TAKE_SNAPSHOT_VHDSET_VERSION,
+    pub Anonymous: TAKE_SNAPSHOT_VHDSET_PARAMETERS_0,
+}
+impl ::core::marker::Copy for TAKE_SNAPSHOT_VHDSET_PARAMETERS {}
+impl ::core::clone::Clone for TAKE_SNAPSHOT_VHDSET_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub union TAKE_SNAPSHOT_VHDSET_PARAMETERS_0 {
+    pub Version1: TAKE_SNAPSHOT_VHDSET_PARAMETERS_0_0,
+}
+impl ::core::clone::Clone for TAKE_SNAPSHOT_VHDSET_PARAMETERS_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct TAKE_SNAPSHOT_VHDSET_PARAMETERS_0_0 {
+    pub SnapshotId: ::windows_sys::core::GUID,
+}
+impl ::core::marker::Copy for TAKE_SNAPSHOT_VHDSET_PARAMETERS_0_0 {}
+impl ::core::clone::Clone for TAKE_SNAPSHOT_VHDSET_PARAMETERS_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TAKE_SNAPSHOT_VHDSET_VERSION(pub i32);
 pub const TAKE_SNAPSHOT_VHDSET_VERSION_UNSPECIFIED: TAKE_SNAPSHOT_VHDSET_VERSION = TAKE_SNAPSHOT_VHDSET_VERSION(0i32);
@@ -345,9 +1174,28 @@ pub const VIRTUAL_DISK_ACCESS_ALL: VIRTUAL_DISK_ACCESS_MASK = VIRTUAL_DISK_ACCES
 pub const VIRTUAL_DISK_ACCESS_WRITABLE: VIRTUAL_DISK_ACCESS_MASK = VIRTUAL_DISK_ACCESS_MASK(3276800u32);
 pub const VIRTUAL_DISK_MAXIMUM_CHANGE_TRACKING_ID_LENGTH: u32 = 256u32;
 #[repr(C)]
-pub struct VIRTUAL_DISK_PROGRESS(i32);
+pub struct VIRTUAL_DISK_PROGRESS {
+    pub OperationStatus: u32,
+    pub CurrentValue: u64,
+    pub CompletionValue: u64,
+}
+impl ::core::marker::Copy for VIRTUAL_DISK_PROGRESS {}
+impl ::core::clone::Clone for VIRTUAL_DISK_PROGRESS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct VIRTUAL_STORAGE_TYPE(i32);
+pub struct VIRTUAL_STORAGE_TYPE {
+    pub DeviceId: u32,
+    pub VendorId: ::windows_sys::core::GUID,
+}
+impl ::core::marker::Copy for VIRTUAL_STORAGE_TYPE {}
+impl ::core::clone::Clone for VIRTUAL_STORAGE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const VIRTUAL_STORAGE_TYPE_DEVICE_ISO: u32 = 1u32;
 pub const VIRTUAL_STORAGE_TYPE_DEVICE_UNKNOWN: u32 = 0u32;
 pub const VIRTUAL_STORAGE_TYPE_DEVICE_VHD: u32 = 2u32;

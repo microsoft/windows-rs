@@ -27,12 +27,45 @@ pub const CB_MAX_CAB_PATH: u32 = 256u32;
 pub const CB_MAX_DISK: i32 = 2147483647i32;
 pub const CB_MAX_DISK_NAME: u32 = 256u32;
 pub const CB_MAX_FILENAME: u32 = 256u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CCAB(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct CCAB {
+    pub cb: u32,
+    pub cbFolderThresh: u32,
+    pub cbReserveCFHeader: u32,
+    pub cbReserveCFFolder: u32,
+    pub cbReserveCFData: u32,
+    pub iCab: i32,
+    pub iDisk: i32,
+    pub fFailOnIncompressible: i32,
+    pub setID: u16,
+    pub szDisk: [super::super::Foundation::CHAR; 256],
+    pub szCab: [super::super::Foundation::CHAR; 256],
+    pub szCabPath: [super::super::Foundation::CHAR; 256],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CCAB {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CCAB {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct ERF(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct ERF {
+    pub erfOper: i32,
+    pub erfType: i32,
+    pub fError: super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ERF {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ERF {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct FCIERROR(pub i32);
 pub const FCIERR_NONE: FCIERROR = FCIERROR(0i32);
@@ -45,16 +78,107 @@ pub const FCIERR_CAB_FILE: FCIERROR = FCIERROR(6i32);
 pub const FCIERR_USER_ABORT: FCIERROR = FCIERROR(7i32);
 pub const FCIERR_MCI_FAIL: FCIERROR = FCIERROR(8i32);
 pub const FCIERR_CAB_FORMAT_LIMIT: FCIERROR = FCIERROR(9i32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct FDICABINETINFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct FDICABINETINFO {
+    pub cbCabinet: i32,
+    pub cFolders: u16,
+    pub cFiles: u16,
+    pub setID: u16,
+    pub iCabinet: u16,
+    pub fReserve: super::super::Foundation::BOOL,
+    pub hasprev: super::super::Foundation::BOOL,
+    pub hasnext: super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for FDICABINETINFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for FDICABINETINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct FDICREATE_CPU_TYPE(pub u32);
 pub const cpu80286: FDICREATE_CPU_TYPE = FDICREATE_CPU_TYPE(0u32);
 pub const cpu80386: FDICREATE_CPU_TYPE = FDICREATE_CPU_TYPE(1u32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct FDIDECRYPT(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct FDIDECRYPT {
+    pub fdidt: FDIDECRYPTTYPE,
+    pub pvUser: *mut ::core::ffi::c_void,
+    pub Anonymous: FDIDECRYPT_0,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for FDIDECRYPT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for FDIDECRYPT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub union FDIDECRYPT_0 {
+    pub cabinet: FDIDECRYPT_0_0,
+    pub folder: FDIDECRYPT_0_2,
+    pub decrypt: FDIDECRYPT_0_1,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for FDIDECRYPT_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct FDIDECRYPT_0_0 {
+    pub pHeaderReserve: *mut ::core::ffi::c_void,
+    pub cbHeaderReserve: u16,
+    pub setID: u16,
+    pub iCabinet: i32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for FDIDECRYPT_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for FDIDECRYPT_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct FDIDECRYPT_0_1 {
+    pub pDataReserve: *mut ::core::ffi::c_void,
+    pub cbDataReserve: u16,
+    pub pbData: *mut ::core::ffi::c_void,
+    pub cbData: u16,
+    pub fSplit: super::super::Foundation::BOOL,
+    pub cbPartial: u16,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for FDIDECRYPT_0_1 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for FDIDECRYPT_0_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct FDIDECRYPT_0_2 {
+    pub pFolderReserve: *mut ::core::ffi::c_void,
+    pub cbFolderReserve: u16,
+    pub iFolder: u16,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for FDIDECRYPT_0_2 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for FDIDECRYPT_0_2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct FDIDECRYPTTYPE(pub i32);
 pub const fdidtNEW_CABINET: FDIDECRYPTTYPE = FDIDECRYPTTYPE(0i32);
@@ -75,9 +199,31 @@ pub const FDIERROR_RESERVE_MISMATCH: FDIERROR = FDIERROR(9i32);
 pub const FDIERROR_WRONG_CABINET: FDIERROR = FDIERROR(10i32);
 pub const FDIERROR_USER_ABORT: FDIERROR = FDIERROR(11i32);
 pub const FDIERROR_EOF: FDIERROR = FDIERROR(12i32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct FDINOTIFICATION(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct FDINOTIFICATION {
+    pub cb: i32,
+    pub psz1: super::super::Foundation::PSTR,
+    pub psz2: super::super::Foundation::PSTR,
+    pub psz3: super::super::Foundation::PSTR,
+    pub pv: *mut ::core::ffi::c_void,
+    pub hf: isize,
+    pub date: u16,
+    pub time: u16,
+    pub attribs: u16,
+    pub setID: u16,
+    pub iCabinet: u16,
+    pub iFolder: u16,
+    pub fdie: FDIERROR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for FDINOTIFICATION {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for FDINOTIFICATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct FDINOTIFICATIONTYPE(pub i32);
 pub const fdintCABINET_INFO: FDINOTIFICATIONTYPE = FDINOTIFICATIONTYPE(0i32);
@@ -86,14 +232,40 @@ pub const fdintCOPY_FILE: FDINOTIFICATIONTYPE = FDINOTIFICATIONTYPE(2i32);
 pub const fdintCLOSE_FILE_INFO: FDINOTIFICATIONTYPE = FDINOTIFICATIONTYPE(3i32);
 pub const fdintNEXT_CABINET: FDINOTIFICATIONTYPE = FDINOTIFICATIONTYPE(4i32);
 pub const fdintENUMERATE: FDINOTIFICATIONTYPE = FDINOTIFICATIONTYPE(5i32);
+#[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct FDISPILLFILE(i32);
+pub struct FDISPILLFILE {
+    pub ach: [super::super::Foundation::CHAR; 2],
+    pub cbFile: i32,
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for FDISPILLFILE {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for FDISPILLFILE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct FDISPILLFILE(i32);
+pub struct FDISPILLFILE {
+    pub ach: [super::super::Foundation::CHAR; 2],
+    pub cbFile: i32,
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for FDISPILLFILE {}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for FDISPILLFILE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const INCLUDED_FCI: u32 = 1u32;
 pub const INCLUDED_FDI: u32 = 1u32;
 pub const INCLUDED_TYPES_FCI_FDI: u32 = 1u32;

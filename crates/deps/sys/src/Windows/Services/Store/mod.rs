@@ -148,7 +148,20 @@ impl StorePackageUpdateState {
     pub const ErrorWiFiRequired: Self = Self(8i32);
 }
 #[repr(C)]
-pub struct StorePackageUpdateStatus(i32);
+pub struct StorePackageUpdateStatus {
+    pub PackageFamilyName: ::windows_sys::core::HSTRING,
+    pub PackageDownloadSizeInBytes: u64,
+    pub PackageBytesDownloaded: u64,
+    pub PackageDownloadProgress: f64,
+    pub TotalDownloadProgress: f64,
+    pub PackageUpdateState: StorePackageUpdateState,
+}
+impl ::core::marker::Copy for StorePackageUpdateStatus {}
+impl ::core::clone::Clone for StorePackageUpdateStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct StorePrice(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

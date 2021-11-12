@@ -10,7 +10,26 @@ impl HdmiDisplayColorSpace {
     pub const BT709: Self = Self(3i32);
 }
 #[repr(C)]
-pub struct HdmiDisplayHdr2086Metadata(i32);
+pub struct HdmiDisplayHdr2086Metadata {
+    pub RedPrimaryX: u16,
+    pub RedPrimaryY: u16,
+    pub GreenPrimaryX: u16,
+    pub GreenPrimaryY: u16,
+    pub BluePrimaryX: u16,
+    pub BluePrimaryY: u16,
+    pub WhitePointX: u16,
+    pub WhitePointY: u16,
+    pub MaxMasteringLuminance: u16,
+    pub MinMasteringLuminance: u16,
+    pub MaxContentLightLevel: u16,
+    pub MaxFrameAverageLightLevel: u16,
+}
+impl ::core::marker::Copy for HdmiDisplayHdr2086Metadata {}
+impl ::core::clone::Clone for HdmiDisplayHdr2086Metadata {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct HdmiDisplayHdrOption(pub i32);
 impl HdmiDisplayHdrOption {

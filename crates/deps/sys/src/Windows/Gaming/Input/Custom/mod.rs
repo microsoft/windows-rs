@@ -2,9 +2,29 @@
 #[link(name = "windows")]
 extern "system" {}
 #[repr(C)]
-pub struct GameControllerVersionInfo(i32);
+pub struct GameControllerVersionInfo {
+    pub Major: u16,
+    pub Minor: u16,
+    pub Build: u16,
+    pub Revision: u16,
+}
+impl ::core::marker::Copy for GameControllerVersionInfo {}
+impl ::core::clone::Clone for GameControllerVersionInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct GipFirmwareUpdateProgress(i32);
+pub struct GipFirmwareUpdateProgress {
+    pub PercentCompleted: f64,
+    pub CurrentComponentId: u32,
+}
+impl ::core::marker::Copy for GipFirmwareUpdateProgress {}
+impl ::core::clone::Clone for GipFirmwareUpdateProgress {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct GipFirmwareUpdateResult(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

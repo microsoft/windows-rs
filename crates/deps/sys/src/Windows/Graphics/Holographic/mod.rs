@@ -2,7 +2,16 @@
 #[link(name = "windows")]
 extern "system" {}
 #[repr(C)]
-pub struct HolographicAdapterId(i32);
+pub struct HolographicAdapterId {
+    pub LowPart: u32,
+    pub HighPart: i32,
+}
+impl ::core::marker::Copy for HolographicAdapterId {}
+impl ::core::clone::Clone for HolographicAdapterId {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct HolographicCamera(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -22,7 +31,15 @@ pub struct HolographicDisplay(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HolographicFrame(pub *mut ::core::ffi::c_void);
 #[repr(C)]
-pub struct HolographicFrameId(i32);
+pub struct HolographicFrameId {
+    pub Value: u64,
+}
+impl ::core::marker::Copy for HolographicFrameId {}
+impl ::core::clone::Clone for HolographicFrameId {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct HolographicFramePrediction(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -71,9 +88,20 @@ impl HolographicSpaceUserPresence {
     pub const PresentPassive: Self = Self(1i32);
     pub const PresentActive: Self = Self(2i32);
 }
-#[cfg(feature = "Foundation_Numerics")]
 #[repr(C)]
-pub struct HolographicStereoTransform(i32);
+#[cfg(feature = "Foundation_Numerics")]
+pub struct HolographicStereoTransform {
+    pub Left: super::super::Foundation::Numerics::Matrix4x4,
+    pub Right: super::super::Foundation::Numerics::Matrix4x4,
+}
+#[cfg(feature = "Foundation_Numerics")]
+impl ::core::marker::Copy for HolographicStereoTransform {}
+#[cfg(feature = "Foundation_Numerics")]
+impl ::core::clone::Clone for HolographicStereoTransform {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct HolographicViewConfiguration(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

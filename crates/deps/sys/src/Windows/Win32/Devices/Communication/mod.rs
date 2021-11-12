@@ -68,11 +68,53 @@ pub const CE_FRAME: CLEAR_COMM_ERROR_FLAGS = CLEAR_COMM_ERROR_FLAGS(8u32);
 pub const CE_OVERRUN: CLEAR_COMM_ERROR_FLAGS = CLEAR_COMM_ERROR_FLAGS(2u32);
 pub const CE_RXOVER: CLEAR_COMM_ERROR_FLAGS = CLEAR_COMM_ERROR_FLAGS(1u32);
 pub const CE_RXPARITY: CLEAR_COMM_ERROR_FLAGS = CLEAR_COMM_ERROR_FLAGS(4u32);
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+pub struct COMMCONFIG {
+    pub dwSize: u32,
+    pub wVersion: u16,
+    pub wReserved: u16,
+    pub dcb: DCB,
+    pub dwProviderSubType: u32,
+    pub dwProviderOffset: u32,
+    pub dwProviderSize: u32,
+    pub wcProviderData: [u16; 1],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for COMMCONFIG {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for COMMCONFIG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct COMMCONFIG(i32);
-#[repr(C)]
-pub struct COMMPROP(i32);
+pub struct COMMPROP {
+    pub wPacketLength: u16,
+    pub wPacketVersion: u16,
+    pub dwServiceMask: u32,
+    pub dwReserved1: u32,
+    pub dwMaxTxQueue: u32,
+    pub dwMaxRxQueue: u32,
+    pub dwMaxBaud: u32,
+    pub dwProvSubType: u32,
+    pub dwProvCapabilities: u32,
+    pub dwSettableParams: u32,
+    pub dwSettableBaud: u32,
+    pub wSettableData: u16,
+    pub wSettableStopParity: COMMPROP_STOP_PARITY,
+    pub dwCurrentTxQueue: u32,
+    pub dwCurrentRxQueue: u32,
+    pub dwProvSpec1: u32,
+    pub dwProvSpec2: u32,
+    pub wcProvChar: [u16; 1],
+}
+impl ::core::marker::Copy for COMMPROP {}
+impl ::core::clone::Clone for COMMPROP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct COMMPROP_STOP_PARITY(pub u16);
 pub const STOPBITS_10: COMMPROP_STOP_PARITY = COMMPROP_STOP_PARITY(1u16);
@@ -84,7 +126,19 @@ pub const PARITY_EVEN: COMMPROP_STOP_PARITY = COMMPROP_STOP_PARITY(1024u16);
 pub const PARITY_MARK: COMMPROP_STOP_PARITY = COMMPROP_STOP_PARITY(2048u16);
 pub const PARITY_SPACE: COMMPROP_STOP_PARITY = COMMPROP_STOP_PARITY(4096u16);
 #[repr(C)]
-pub struct COMMTIMEOUTS(i32);
+pub struct COMMTIMEOUTS {
+    pub ReadIntervalTimeout: u32,
+    pub ReadTotalTimeoutMultiplier: u32,
+    pub ReadTotalTimeoutConstant: u32,
+    pub WriteTotalTimeoutMultiplier: u32,
+    pub WriteTotalTimeoutConstant: u32,
+}
+impl ::core::marker::Copy for COMMTIMEOUTS {}
+impl ::core::clone::Clone for COMMTIMEOUTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct COMM_EVENT_MASK(pub u32);
 pub const EV_BREAK: COMM_EVENT_MASK = COMM_EVENT_MASK(64u32);
@@ -101,10 +155,44 @@ pub const EV_RXCHAR: COMM_EVENT_MASK = COMM_EVENT_MASK(1u32);
 pub const EV_RXFLAG: COMM_EVENT_MASK = COMM_EVENT_MASK(2u32);
 pub const EV_TXEMPTY: COMM_EVENT_MASK = COMM_EVENT_MASK(4u32);
 #[repr(C)]
-pub struct COMSTAT(i32);
-#[cfg(feature = "Win32_Foundation")]
+pub struct COMSTAT {
+    pub _bitfield: u32,
+    pub cbInQue: u32,
+    pub cbOutQue: u32,
+}
+impl ::core::marker::Copy for COMSTAT {}
+impl ::core::clone::Clone for COMSTAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DCB(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct DCB {
+    pub DCBlength: u32,
+    pub BaudRate: u32,
+    pub _bitfield: u32,
+    pub wReserved: u16,
+    pub XonLim: u16,
+    pub XoffLim: u16,
+    pub ByteSize: u8,
+    pub Parity: u8,
+    pub StopBits: u8,
+    pub XonChar: super::super::Foundation::CHAR,
+    pub XoffChar: super::super::Foundation::CHAR,
+    pub ErrorChar: super::super::Foundation::CHAR,
+    pub EofChar: super::super::Foundation::CHAR,
+    pub EvtChar: super::super::Foundation::CHAR,
+    pub wReserved1: u16,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DCB {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DCB {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ESCAPE_COMM_FUNCTION(pub u32);
 pub const CLRBREAK: ESCAPE_COMM_FUNCTION = ESCAPE_COMM_FUNCTION(9u32);
@@ -207,7 +295,34 @@ pub const MDM_X75_DATA_BTX: u32 = 4u32;
 pub const MDM_X75_DATA_DEFAULT: u32 = 0u32;
 pub const MDM_X75_DATA_T_70: u32 = 3u32;
 #[repr(C)]
-pub struct MODEMDEVCAPS(i32);
+pub struct MODEMDEVCAPS {
+    pub dwActualSize: u32,
+    pub dwRequiredSize: u32,
+    pub dwDevSpecificOffset: u32,
+    pub dwDevSpecificSize: u32,
+    pub dwModemProviderVersion: u32,
+    pub dwModemManufacturerOffset: u32,
+    pub dwModemManufacturerSize: u32,
+    pub dwModemModelOffset: u32,
+    pub dwModemModelSize: u32,
+    pub dwModemVersionOffset: u32,
+    pub dwModemVersionSize: u32,
+    pub dwDialOptions: MODEMDEVCAPS_DIAL_OPTIONS,
+    pub dwCallSetupFailTimer: u32,
+    pub dwInactivityTimeout: u32,
+    pub dwSpeakerVolume: MODEMDEVCAPS_SPEAKER_VOLUME,
+    pub dwSpeakerMode: MODEMDEVCAPS_SPEAKER_MODE,
+    pub dwModemOptions: u32,
+    pub dwMaxDTERate: u32,
+    pub dwMaxDCERate: u32,
+    pub abVariablePortion: [u8; 1],
+}
+impl ::core::marker::Copy for MODEMDEVCAPS {}
+impl ::core::clone::Clone for MODEMDEVCAPS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MODEMDEVCAPS_DIAL_OPTIONS(pub u32);
 pub const DIALOPTION_BILLING: MODEMDEVCAPS_DIAL_OPTIONS = MODEMDEVCAPS_DIAL_OPTIONS(64u32);
@@ -225,7 +340,26 @@ pub const MDMVOLFLAG_HIGH: MODEMDEVCAPS_SPEAKER_VOLUME = MODEMDEVCAPS_SPEAKER_VO
 pub const MDMVOLFLAG_LOW: MODEMDEVCAPS_SPEAKER_VOLUME = MODEMDEVCAPS_SPEAKER_VOLUME(1u32);
 pub const MDMVOLFLAG_MEDIUM: MODEMDEVCAPS_SPEAKER_VOLUME = MODEMDEVCAPS_SPEAKER_VOLUME(2u32);
 #[repr(C)]
-pub struct MODEMSETTINGS(i32);
+pub struct MODEMSETTINGS {
+    pub dwActualSize: u32,
+    pub dwRequiredSize: u32,
+    pub dwDevSpecificOffset: u32,
+    pub dwDevSpecificSize: u32,
+    pub dwCallSetupFailTimer: u32,
+    pub dwInactivityTimeout: u32,
+    pub dwSpeakerVolume: MODEM_SPEAKER_VOLUME,
+    pub dwSpeakerMode: MODEMSETTINGS_SPEAKER_MODE,
+    pub dwPreferredModemOptions: u32,
+    pub dwNegotiatedModemOptions: u32,
+    pub dwNegotiatedDCERate: u32,
+    pub abVariablePortion: [u8; 1],
+}
+impl ::core::marker::Copy for MODEMSETTINGS {}
+impl ::core::clone::Clone for MODEMSETTINGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MODEMSETTINGS_SPEAKER_MODE(pub u32);
 pub const MDMSPKR_CALLSETUP: MODEMSETTINGS_SPEAKER_MODE = MODEMSETTINGS_SPEAKER_MODE(8u32);

@@ -100,7 +100,24 @@ pub const CAIF_REGISTRY: u32 = 4u32;
 pub const CAIF_REGISTRYPARENT: u32 = 16u32;
 pub const CAIF_SHAREDFOLDERENTRY: u32 = 2u32;
 #[repr(C)]
-pub struct CAINFO(i32);
+pub struct CAINFO {
+    pub cbSize: u32,
+    pub CAType: ENUM_CATYPES,
+    pub cCASignatureCerts: u32,
+    pub cCAExchangeCerts: u32,
+    pub cExitModules: u32,
+    pub lPropIdMax: i32,
+    pub lRoleSeparationEnabled: i32,
+    pub cKRACertUsedCount: u32,
+    pub cKRACertCount: u32,
+    pub fAdvancedServer: u32,
+}
+impl ::core::marker::Copy for CAINFO {}
+impl ::core::clone::Clone for CAINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CAPATHLENGTH_INFINITE: u32 = 4294967295u32;
 pub const CA_ACCESS_MASKROLES: u32 = 255u32;
 pub const CA_CRL_BASE: u32 = 1u32;
@@ -704,9 +721,30 @@ pub const XCN_CERT_FIRST_USER_PROP_ID: CERTENROLL_PROPERTYID = CERTENROLL_PROPER
 pub const XCN_CERT_LAST_USER_PROP_ID: CERTENROLL_PROPERTYID = CERTENROLL_PROPERTYID(65535i32);
 pub const XCN_CERT_STORE_LOCALIZED_NAME_PROP_ID: CERTENROLL_PROPERTYID = CERTENROLL_PROPERTYID(4096i32);
 #[repr(C)]
-pub struct CERTTRANSBLOB(i32);
+pub struct CERTTRANSBLOB {
+    pub cb: u32,
+    pub pb: *mut u8,
+}
+impl ::core::marker::Copy for CERTTRANSBLOB {}
+impl ::core::clone::Clone for CERTTRANSBLOB {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CERTVIEWRESTRICTION(i32);
+pub struct CERTVIEWRESTRICTION {
+    pub ColumnIndex: u32,
+    pub SeekOperator: i32,
+    pub SortOrder: i32,
+    pub pbValue: *mut u8,
+    pub cbValue: u32,
+}
+impl ::core::marker::Copy for CERTVIEWRESTRICTION {}
+impl ::core::clone::Clone for CERTVIEWRESTRICTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CERT_ALT_NAME(pub u32);
 pub const CERT_ALT_NAME_RFC822_NAME: CERT_ALT_NAME = CERT_ALT_NAME(2u32);
@@ -953,9 +991,20 @@ pub const CSBFT_LOG_DIRECTORY: u32 = 32u32;
 pub const CSCONTROL_RESTART: u64 = 3u64;
 pub const CSCONTROL_SHUTDOWN: u64 = 1u64;
 pub const CSCONTROL_SUSPEND: u64 = 2u64;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CSEDB_RSTMAPW(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CSEDB_RSTMAPW {
+    pub pwszDatabaseName: super::super::super::Foundation::PWSTR,
+    pub pwszNewDatabaseName: super::super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CSEDB_RSTMAPW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CSEDB_RSTMAPW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CSRESTORE_TYPE_CATCHUP: u32 = 4u32;
 pub const CSRESTORE_TYPE_FULL: u32 = 1u32;
 pub const CSRESTORE_TYPE_MASK: u32 = 5u32;

@@ -110,7 +110,16 @@ pub struct CoreTextLayoutRequest(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct CoreTextLayoutRequestedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(C)]
-pub struct CoreTextRange(i32);
+pub struct CoreTextRange {
+    pub StartCaretPosition: i32,
+    pub EndCaretPosition: i32,
+}
+impl ::core::marker::Copy for CoreTextRange {}
+impl ::core::clone::Clone for CoreTextRange {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CoreTextSelectionRequest(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

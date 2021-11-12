@@ -1765,7 +1765,17 @@ pub const CAL_UMALQURA: u32 = 23u32;
 pub const CAL_USE_CP_ACP: u32 = 1073741824u32;
 pub const CANITER_SKIP_ZEROES: u32 = 1u32;
 #[repr(C)]
-pub struct CHARSETINFO(i32);
+pub struct CHARSETINFO {
+    pub ciCharset: u32,
+    pub ciACP: u32,
+    pub fs: FONTSIGNATURE,
+}
+impl ::core::marker::Copy for CHARSETINFO {}
+impl ::core::clone::Clone for CHARSETINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CMLangConvertCharset: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3597496217, data2: 52650, data3: 4560, data4: [184, 34, 0, 192, 79, 201, 179, 31] };
 pub const CMLangString: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3226297807, data2: 46861, data3: 4560, data4: [177, 136, 0, 170, 0, 56, 201, 105] };
 pub const CMultiLanguage: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 660349922, data2: 14151, data3: 4560, data4: [159, 234, 0, 170, 0, 63, 134, 70] };
@@ -1792,12 +1802,50 @@ pub const CORRECTIVE_ACTION_GET_SUGGESTIONS: CORRECTIVE_ACTION = CORRECTIVE_ACTI
 pub const CORRECTIVE_ACTION_REPLACE: CORRECTIVE_ACTION = CORRECTIVE_ACTION(2i32);
 pub const CORRECTIVE_ACTION_DELETE: CORRECTIVE_ACTION = CORRECTIVE_ACTION(3i32);
 #[repr(C)]
-pub struct CPINFO(i32);
+pub struct CPINFO {
+    pub MaxCharSize: u32,
+    pub DefaultChar: [u8; 2],
+    pub LeadByte: [u8; 12],
+}
+impl ::core::marker::Copy for CPINFO {}
+impl ::core::clone::Clone for CPINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+pub struct CPINFOEXA {
+    pub MaxCharSize: u32,
+    pub DefaultChar: [u8; 2],
+    pub LeadByte: [u8; 12],
+    pub UnicodeDefaultChar: u16,
+    pub CodePage: u32,
+    pub CodePageName: [super::Foundation::CHAR; 260],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CPINFOEXA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CPINFOEXA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CPINFOEXA(i32);
-#[repr(C)]
-pub struct CPINFOEXW(i32);
+pub struct CPINFOEXW {
+    pub MaxCharSize: u32,
+    pub DefaultChar: [u8; 2],
+    pub LeadByte: [u8; 12],
+    pub UnicodeDefaultChar: u16,
+    pub CodePage: u32,
+    pub CodePageName: [u16; 260],
+}
+impl ::core::marker::Copy for CPINFOEXW {}
+impl ::core::clone::Clone for CPINFOEXW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CPIOD_FORCE_PROMPT: i32 = -2147483648i32;
 pub const CPIOD_PEEK: i32 = 1073741824i32;
 pub const CP_ACP: u32 = 0u32;
@@ -1925,12 +1973,46 @@ pub const CTRY_ZIMBABWE: u32 = 263u32;
 pub const CT_CTYPE1: u32 = 1u32;
 pub const CT_CTYPE2: u32 = 2u32;
 pub const CT_CTYPE3: u32 = 4u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CURRENCYFMTA(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct CURRENCYFMTA {
+    pub NumDigits: u32,
+    pub LeadingZero: u32,
+    pub Grouping: u32,
+    pub lpDecimalSep: super::Foundation::PSTR,
+    pub lpThousandSep: super::Foundation::PSTR,
+    pub NegativeOrder: u32,
+    pub PositiveOrder: u32,
+    pub lpCurrencySymbol: super::Foundation::PSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CURRENCYFMTA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CURRENCYFMTA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CURRENCYFMTW(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CURRENCYFMTW {
+    pub NumDigits: u32,
+    pub LeadingZero: u32,
+    pub Grouping: u32,
+    pub lpDecimalSep: super::Foundation::PWSTR,
+    pub lpThousandSep: super::Foundation::PWSTR,
+    pub NegativeOrder: u32,
+    pub PositiveOrder: u32,
+    pub lpCurrencySymbol: super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CURRENCYFMTW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CURRENCYFMTW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[cfg(feature = "Win32_Foundation")]
 pub type DATEFMT_ENUMPROCA = unsafe extern "system" fn(param0: super::Foundation::PSTR) -> super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
@@ -1942,7 +2024,18 @@ pub type DATEFMT_ENUMPROCEXW = unsafe extern "system" fn(param0: super::Foundati
 #[cfg(feature = "Win32_Foundation")]
 pub type DATEFMT_ENUMPROCW = unsafe extern "system" fn(param0: super::Foundation::PWSTR) -> super::Foundation::BOOL;
 #[repr(C)]
-pub struct DetectEncodingInfo(i32);
+pub struct DetectEncodingInfo {
+    pub nLangID: u32,
+    pub nCodePage: u32,
+    pub nDocPercent: i32,
+    pub nConfidence: i32,
+}
+impl ::core::marker::Copy for DetectEncodingInfo {}
+impl ::core::clone::Clone for DetectEncodingInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const ELS_GUID_LANGUAGE_DETECTION: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3481141425, data2: 37019, data3: 19861, data4: [168, 244, 97, 31, 124, 55, 119, 2] };
 pub const ELS_GUID_SCRIPT_DETECTION: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 761574457,
@@ -1972,12 +2065,34 @@ pub const ELS_GUID_TRANSLITERATION_HANS_TO_HANT: ::windows_sys::core::GUID = ::w
 };
 pub const ELS_GUID_TRANSLITERATION_HANT_TO_HANS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2745709371, data2: 62716, data3: 17142, data4: [160, 196, 4, 98, 254, 115, 23, 203] };
 pub const ELS_GUID_TRANSLITERATION_MALAYALAM_TO_LATIN: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3636036529, data2: 63679, data3: 18987, data4: [188, 213, 91, 94, 162, 6, 19, 225] };
-#[cfg(feature = "Win32_Graphics_Gdi")]
 #[repr(C)]
-pub struct ENUMTEXTMETRICA(i32);
 #[cfg(feature = "Win32_Graphics_Gdi")]
+pub struct ENUMTEXTMETRICA {
+    pub etmNewTextMetricEx: NEWTEXTMETRICEXA,
+    pub etmAxesList: super::Graphics::Gdi::AXESLISTA,
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::core::marker::Copy for ENUMTEXTMETRICA {}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::core::clone::Clone for ENUMTEXTMETRICA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct ENUMTEXTMETRICW(i32);
+#[cfg(feature = "Win32_Graphics_Gdi")]
+pub struct ENUMTEXTMETRICW {
+    pub etmNewTextMetricEx: NEWTEXTMETRICEXW,
+    pub etmAxesList: super::Graphics::Gdi::AXESLISTW,
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::core::marker::Copy for ENUMTEXTMETRICW {}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::core::clone::Clone for ENUMTEXTMETRICW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const ENUM_ALL_CALENDARS: u32 = 4294967295u32;
 #[repr(transparent)]
 pub struct ENUM_DATE_FORMATS_FLAGS(pub u32);
@@ -1998,7 +2113,27 @@ pub struct ENUM_SYSTEM_LANGUAGE_GROUPS_FLAGS(pub u32);
 pub const LGRPID_INSTALLED: ENUM_SYSTEM_LANGUAGE_GROUPS_FLAGS = ENUM_SYSTEM_LANGUAGE_GROUPS_FLAGS(1u32);
 pub const LGRPID_SUPPORTED: ENUM_SYSTEM_LANGUAGE_GROUPS_FLAGS = ENUM_SYSTEM_LANGUAGE_GROUPS_FLAGS(2u32);
 #[repr(C)]
-pub struct FILEMUIINFO(i32);
+pub struct FILEMUIINFO {
+    pub dwSize: u32,
+    pub dwVersion: u32,
+    pub dwFileType: u32,
+    pub pChecksum: [u8; 16],
+    pub pServiceChecksum: [u8; 16],
+    pub dwLanguageNameOffset: u32,
+    pub dwTypeIDMainSize: u32,
+    pub dwTypeIDMainOffset: u32,
+    pub dwTypeNameMainOffset: u32,
+    pub dwTypeIDMUISize: u32,
+    pub dwTypeIDMUIOffset: u32,
+    pub dwTypeNameMUIOffset: u32,
+    pub abBuffer: [u8; 8],
+}
+impl ::core::marker::Copy for FILEMUIINFO {}
+impl ::core::clone::Clone for FILEMUIINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const FIND_ENDSWITH: u32 = 2097152u32;
 pub const FIND_FROMEND: u32 = 8388608u32;
 pub const FIND_FROMSTART: u32 = 4194304u32;
@@ -2011,24 +2146,66 @@ pub const MAP_FOLDCZONE: FOLD_STRING_MAP_FLAGS = FOLD_STRING_MAP_FLAGS(16u32);
 pub const MAP_FOLDDIGITS: FOLD_STRING_MAP_FLAGS = FOLD_STRING_MAP_FLAGS(128u32);
 pub const MAP_PRECOMPOSED: FOLD_STRING_MAP_FLAGS = FOLD_STRING_MAP_FLAGS(32u32);
 #[repr(C)]
-pub struct FONTSIGNATURE(i32);
+pub struct FONTSIGNATURE {
+    pub fsUsb: [u32; 4],
+    pub fsCsb: [u32; 2],
+}
+impl ::core::marker::Copy for FONTSIGNATURE {}
+impl ::core::clone::Clone for FONTSIGNATURE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const GEOID_NOT_AVAILABLE: i32 = -1i32;
 #[cfg(feature = "Win32_Foundation")]
 pub type GEO_ENUMNAMEPROC = unsafe extern "system" fn(param0: super::Foundation::PWSTR, param1: super::Foundation::LPARAM) -> super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
 pub type GEO_ENUMPROC = unsafe extern "system" fn(param0: i32) -> super::Foundation::BOOL;
 #[repr(C)]
-pub struct GOFFSET(i32);
+pub struct GOFFSET {
+    pub du: i32,
+    pub dv: i32,
+}
+impl ::core::marker::Copy for GOFFSET {}
+impl ::core::clone::Clone for GOFFSET {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const GSS_ALLOW_INHERITED_COMMON: u32 = 1u32;
 pub const HIGHLEVEL_SERVICE_TYPES: u32 = 1u32;
 pub const HIGH_SURROGATE_END: u32 = 56319u32;
 pub const HIGH_SURROGATE_START: u32 = 55296u32;
 #[repr(C)]
-pub struct HIMC(i32);
+pub struct HIMC {
+    pub Value: isize,
+}
+impl ::core::marker::Copy for HIMC {}
+impl ::core::clone::Clone for HIMC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct HIMCC(i32);
+pub struct HIMCC {
+    pub Value: isize,
+}
+impl ::core::marker::Copy for HIMCC {}
+impl ::core::clone::Clone for HIMCC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct HSAVEDUILANGUAGES(i32);
+pub struct HSAVEDUILANGUAGES {
+    pub Value: isize,
+}
+impl ::core::marker::Copy for HSAVEDUILANGUAGES {}
+impl ::core::clone::Clone for HSAVEDUILANGUAGES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IComprehensiveSpellCheckProvider(pub *mut ::core::ffi::c_void);
 pub const IDN_ALLOW_UNASSIGNED: u32 = 1u32;
@@ -2162,7 +2339,17 @@ pub const LGRPID_TURKISH: u32 = 6u32;
 pub const LGRPID_VIETNAMESE: u32 = 14u32;
 pub const LGRPID_WESTERN_EUROPE: u32 = 1u32;
 #[repr(C)]
-pub struct LOCALESIGNATURE(i32);
+pub struct LOCALESIGNATURE {
+    pub lsUsb: [u32; 4],
+    pub lsCsbDefault: [u32; 2],
+    pub lsCsbSupported: [u32; 2],
+}
+impl ::core::marker::Copy for LOCALESIGNATURE {}
+impl ::core::clone::Clone for LOCALESIGNATURE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const LOCALE_ALL: u32 = 0u32;
 pub const LOCALE_ALLOW_NEUTRAL_NAMES: u32 = 134217728u32;
 pub const LOCALE_ALTERNATE_SORTS: u32 = 4u32;
@@ -2342,21 +2529,135 @@ pub const LOCALE_WINDOWS: u32 = 1u32;
 pub const LOWLEVEL_SERVICE_TYPES: u32 = 2u32;
 pub const LOW_SURROGATE_END: u32 = 57343u32;
 pub const LOW_SURROGATE_START: u32 = 56320u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct MAPPING_DATA_RANGE(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct MAPPING_ENUM_OPTIONS(i32);
+pub struct MAPPING_DATA_RANGE {
+    pub dwStartIndex: u32,
+    pub dwEndIndex: u32,
+    pub pszDescription: super::Foundation::PWSTR,
+    pub dwDescriptionLength: u32,
+    pub pData: *mut ::core::ffi::c_void,
+    pub dwDataSize: u32,
+    pub pszContentType: super::Foundation::PWSTR,
+    pub prgActionIds: *mut super::Foundation::PWSTR,
+    pub dwActionsCount: u32,
+    pub prgActionDisplayNames: *mut super::Foundation::PWSTR,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct MAPPING_OPTIONS(i32);
+impl ::core::marker::Copy for MAPPING_DATA_RANGE {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MAPPING_DATA_RANGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct MAPPING_PROPERTY_BAG(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct MAPPING_ENUM_OPTIONS {
+    pub Size: usize,
+    pub pszCategory: super::Foundation::PWSTR,
+    pub pszInputLanguage: super::Foundation::PWSTR,
+    pub pszOutputLanguage: super::Foundation::PWSTR,
+    pub pszInputScript: super::Foundation::PWSTR,
+    pub pszOutputScript: super::Foundation::PWSTR,
+    pub pszInputContentType: super::Foundation::PWSTR,
+    pub pszOutputContentType: super::Foundation::PWSTR,
+    pub pGuid: *mut ::windows_sys::core::GUID,
+    pub _bitfield: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MAPPING_ENUM_OPTIONS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MAPPING_ENUM_OPTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct MAPPING_SERVICE_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct MAPPING_OPTIONS {
+    pub Size: usize,
+    pub pszInputLanguage: super::Foundation::PWSTR,
+    pub pszOutputLanguage: super::Foundation::PWSTR,
+    pub pszInputScript: super::Foundation::PWSTR,
+    pub pszOutputScript: super::Foundation::PWSTR,
+    pub pszInputContentType: super::Foundation::PWSTR,
+    pub pszOutputContentType: super::Foundation::PWSTR,
+    pub pszUILanguage: super::Foundation::PWSTR,
+    pub pfnRecognizeCallback: ::core::option::Option<PFN_MAPPINGCALLBACKPROC>,
+    pub pRecognizeCallerData: *mut ::core::ffi::c_void,
+    pub dwRecognizeCallerDataSize: u32,
+    pub pfnActionCallback: ::core::option::Option<PFN_MAPPINGCALLBACKPROC>,
+    pub pActionCallerData: *mut ::core::ffi::c_void,
+    pub dwActionCallerDataSize: u32,
+    pub dwServiceFlag: u32,
+    pub _bitfield: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MAPPING_OPTIONS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MAPPING_OPTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct MAPPING_PROPERTY_BAG {
+    pub Size: usize,
+    pub prgResultRanges: *mut MAPPING_DATA_RANGE,
+    pub dwRangesCount: u32,
+    pub pServiceData: *mut ::core::ffi::c_void,
+    pub dwServiceDataSize: u32,
+    pub pCallerData: *mut ::core::ffi::c_void,
+    pub dwCallerDataSize: u32,
+    pub pContext: *mut ::core::ffi::c_void,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MAPPING_PROPERTY_BAG {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MAPPING_PROPERTY_BAG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct MAPPING_SERVICE_INFO {
+    pub Size: usize,
+    pub pszCopyright: super::Foundation::PWSTR,
+    pub wMajorVersion: u16,
+    pub wMinorVersion: u16,
+    pub wBuildVersion: u16,
+    pub wStepVersion: u16,
+    pub dwInputContentTypesCount: u32,
+    pub prgInputContentTypes: *mut super::Foundation::PWSTR,
+    pub dwOutputContentTypesCount: u32,
+    pub prgOutputContentTypes: *mut super::Foundation::PWSTR,
+    pub dwInputLanguagesCount: u32,
+    pub prgInputLanguages: *mut super::Foundation::PWSTR,
+    pub dwOutputLanguagesCount: u32,
+    pub prgOutputLanguages: *mut super::Foundation::PWSTR,
+    pub dwInputScriptsCount: u32,
+    pub prgInputScripts: *mut super::Foundation::PWSTR,
+    pub dwOutputScriptsCount: u32,
+    pub prgOutputScripts: *mut super::Foundation::PWSTR,
+    pub guid: ::windows_sys::core::GUID,
+    pub pszCategory: super::Foundation::PWSTR,
+    pub pszDescription: super::Foundation::PWSTR,
+    pub dwPrivateDataSize: u32,
+    pub pPrivateData: *mut ::core::ffi::c_void,
+    pub pContext: *mut ::core::ffi::c_void,
+    pub _bitfield: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MAPPING_SERVICE_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MAPPING_SERVICE_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MAX_DEFAULTCHAR: u32 = 2u32;
 pub const MAX_LEADBYTES: u32 = 12u32;
 pub const MAX_LOCALE_NAME: u32 = 32u32;
@@ -2381,9 +2682,36 @@ pub const MIMECONTF_MIME_IE4: MIMECONTF = MIMECONTF(268435456i32);
 pub const MIMECONTF_MIME_LATEST: MIMECONTF = MIMECONTF(536870912i32);
 pub const MIMECONTF_MIME_REGISTRY: MIMECONTF = MIMECONTF(1073741824i32);
 #[repr(C)]
-pub struct MIMECPINFO(i32);
+pub struct MIMECPINFO {
+    pub dwFlags: u32,
+    pub uiCodePage: u32,
+    pub uiFamilyCodePage: u32,
+    pub wszDescription: [u16; 64],
+    pub wszWebCharset: [u16; 50],
+    pub wszHeaderCharset: [u16; 50],
+    pub wszBodyCharset: [u16; 50],
+    pub wszFixedWidthFont: [u16; 32],
+    pub wszProportionalFont: [u16; 32],
+    pub bGDICharset: u8,
+}
+impl ::core::marker::Copy for MIMECPINFO {}
+impl ::core::clone::Clone for MIMECPINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct MIMECSETINFO(i32);
+pub struct MIMECSETINFO {
+    pub uiCodePage: u32,
+    pub uiInternetEncoding: u32,
+    pub wszCharset: [u16; 50],
+}
+impl ::core::marker::Copy for MIMECSETINFO {}
+impl ::core::clone::Clone for MIMECSETINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MIN_SPELLING_NTDDI: u32 = 100794368u32;
 #[repr(transparent)]
 pub struct MLDETECTCP(pub i32);
@@ -2436,16 +2764,62 @@ pub const MB_COMPOSITE: MULTI_BYTE_TO_WIDE_CHAR_FLAGS = MULTI_BYTE_TO_WIDE_CHAR_
 pub const MB_ERR_INVALID_CHARS: MULTI_BYTE_TO_WIDE_CHAR_FLAGS = MULTI_BYTE_TO_WIDE_CHAR_FLAGS(8u32);
 pub const MB_PRECOMPOSED: MULTI_BYTE_TO_WIDE_CHAR_FLAGS = MULTI_BYTE_TO_WIDE_CHAR_FLAGS(1u32);
 pub const MB_USEGLYPHCHARS: MULTI_BYTE_TO_WIDE_CHAR_FLAGS = MULTI_BYTE_TO_WIDE_CHAR_FLAGS(4u32);
+#[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[repr(C)]
-pub struct NEWTEXTMETRICEXA(i32);
+pub struct NEWTEXTMETRICEXA {
+    pub ntmTm: super::Graphics::Gdi::NEWTEXTMETRICA,
+    pub ntmFontSig: FONTSIGNATURE,
+}
 #[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::core::marker::Copy for NEWTEXTMETRICEXA {}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::core::clone::Clone for NEWTEXTMETRICEXA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct NEWTEXTMETRICEXW(i32);
+#[cfg(feature = "Win32_Graphics_Gdi")]
+pub struct NEWTEXTMETRICEXW {
+    pub ntmTm: super::Graphics::Gdi::NEWTEXTMETRICW,
+    pub ntmFontSig: FONTSIGNATURE,
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::core::marker::Copy for NEWTEXTMETRICEXW {}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::core::clone::Clone for NEWTEXTMETRICEXW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct NLSVERSIONINFO(i32);
+pub struct NLSVERSIONINFO {
+    pub dwNLSVersionInfoSize: u32,
+    pub dwNLSVersion: u32,
+    pub dwDefinedVersion: u32,
+    pub dwEffectiveId: u32,
+    pub guidCustomVersion: ::windows_sys::core::GUID,
+}
+impl ::core::marker::Copy for NLSVERSIONINFO {}
+impl ::core::clone::Clone for NLSVERSIONINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct NLSVERSIONINFOEX(i32);
+pub struct NLSVERSIONINFOEX {
+    pub dwNLSVersionInfoSize: u32,
+    pub dwNLSVersion: u32,
+    pub dwDefinedVersion: u32,
+    pub dwEffectiveId: u32,
+    pub guidCustomVersion: ::windows_sys::core::GUID,
+}
+impl ::core::marker::Copy for NLSVERSIONINFOEX {}
+impl ::core::clone::Clone for NLSVERSIONINFOEX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const NLS_CP_CPINFO: u32 = 268435456u32;
 pub const NLS_CP_MBTOWC: u32 = 1073741824u32;
 pub const NLS_CP_WCTOMB: u32 = 2147483648u32;
@@ -2456,19 +2830,59 @@ pub const NormalizationC: NORM_FORM = NORM_FORM(1i32);
 pub const NormalizationD: NORM_FORM = NORM_FORM(2i32);
 pub const NormalizationKC: NORM_FORM = NORM_FORM(5i32);
 pub const NormalizationKD: NORM_FORM = NORM_FORM(6i32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct NUMBERFMTA(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct NUMBERFMTA {
+    pub NumDigits: u32,
+    pub LeadingZero: u32,
+    pub Grouping: u32,
+    pub lpDecimalSep: super::Foundation::PSTR,
+    pub lpThousandSep: super::Foundation::PSTR,
+    pub NegativeOrder: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for NUMBERFMTA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for NUMBERFMTA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct NUMBERFMTW(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct NUMBERFMTW {
+    pub NumDigits: u32,
+    pub LeadingZero: u32,
+    pub Grouping: u32,
+    pub lpDecimalSep: super::Foundation::PWSTR,
+    pub lpThousandSep: super::Foundation::PWSTR,
+    pub NegativeOrder: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for NUMBERFMTW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for NUMBERFMTW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const NUMSYS_NAME_CAPACITY: u32 = 8u32;
 pub const OFFLINE_SERVICES: u32 = 2u32;
 pub const ONLINE_SERVICES: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_MAPPINGCALLBACKPROC = unsafe extern "system" fn(pbag: *mut MAPPING_PROPERTY_BAG, data: *mut ::core::ffi::c_void, dwdatasize: u32, result: ::windows_sys::core::HRESULT);
 #[repr(C)]
-pub struct RFC1766INFO(i32);
+pub struct RFC1766INFO {
+    pub lcid: u32,
+    pub wszRfc1766: [u16; 6],
+    pub wszLocaleName: [u16; 32],
+}
+impl ::core::marker::Copy for RFC1766INFO {}
+impl ::core::clone::Clone for RFC1766INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SCRIPTCONTF(pub i32);
 pub const sidDefault: SCRIPTCONTF = SCRIPTCONTF(0i32);
@@ -2523,26 +2937,87 @@ pub const SCRIPTCONTF_SCRIPT_USER: SCRIPTFONTCONTF = SCRIPTFONTCONTF(65536i32);
 pub const SCRIPTCONTF_SCRIPT_HIDE: SCRIPTFONTCONTF = SCRIPTFONTCONTF(131072i32);
 pub const SCRIPTCONTF_SCRIPT_SYSTEM: SCRIPTFONTCONTF = SCRIPTFONTCONTF(262144i32);
 #[repr(C)]
-pub struct SCRIPTINFO(i32);
+pub struct SCRIPTINFO {
+    pub ScriptId: u8,
+    pub uiCodePage: u32,
+    pub wszDescription: [u16; 48],
+    pub wszFixedWidthFont: [u16; 32],
+    pub wszProportionalFont: [u16; 32],
+}
+impl ::core::marker::Copy for SCRIPTINFO {}
+impl ::core::clone::Clone for SCRIPTINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct SCRIPT_ANALYSIS(i32);
+pub struct SCRIPT_ANALYSIS {
+    pub _bitfield: u16,
+    pub s: SCRIPT_STATE,
+}
+impl ::core::marker::Copy for SCRIPT_ANALYSIS {}
+impl ::core::clone::Clone for SCRIPT_ANALYSIS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct SCRIPT_CONTROL(i32);
+pub struct SCRIPT_CONTROL {
+    pub _bitfield: u32,
+}
+impl ::core::marker::Copy for SCRIPT_CONTROL {}
+impl ::core::clone::Clone for SCRIPT_CONTROL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct SCRIPT_DIGITSUBSTITUTE(i32);
+pub struct SCRIPT_DIGITSUBSTITUTE {
+    pub _bitfield1: u32,
+    pub _bitfield2: u32,
+    pub dwReserved: u32,
+}
+impl ::core::marker::Copy for SCRIPT_DIGITSUBSTITUTE {}
+impl ::core::clone::Clone for SCRIPT_DIGITSUBSTITUTE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SCRIPT_DIGITSUBSTITUTE_CONTEXT: u32 = 0u32;
 pub const SCRIPT_DIGITSUBSTITUTE_NATIONAL: u32 = 2u32;
 pub const SCRIPT_DIGITSUBSTITUTE_NONE: u32 = 1u32;
 pub const SCRIPT_DIGITSUBSTITUTE_TRADITIONAL: u32 = 3u32;
 #[repr(C)]
-pub struct SCRIPT_FONTPROPERTIES(i32);
+pub struct SCRIPT_FONTPROPERTIES {
+    pub cBytes: i32,
+    pub wgBlank: u16,
+    pub wgDefault: u16,
+    pub wgInvalid: u16,
+    pub wgKashida: u16,
+    pub iKashidaWidth: i32,
+}
+impl ::core::marker::Copy for SCRIPT_FONTPROPERTIES {}
+impl ::core::clone::Clone for SCRIPT_FONTPROPERTIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SCRIPT_IS_COMPLEX_FLAGS(pub u32);
 pub const SIC_ASCIIDIGIT: SCRIPT_IS_COMPLEX_FLAGS = SCRIPT_IS_COMPLEX_FLAGS(2u32);
 pub const SIC_COMPLEX: SCRIPT_IS_COMPLEX_FLAGS = SCRIPT_IS_COMPLEX_FLAGS(1u32);
 pub const SIC_NEUTRAL: SCRIPT_IS_COMPLEX_FLAGS = SCRIPT_IS_COMPLEX_FLAGS(4u32);
 #[repr(C)]
-pub struct SCRIPT_ITEM(i32);
+pub struct SCRIPT_ITEM {
+    pub iCharPos: i32,
+    pub a: SCRIPT_ANALYSIS,
+}
+impl ::core::marker::Copy for SCRIPT_ITEM {}
+impl ::core::clone::Clone for SCRIPT_ITEM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SCRIPT_JUSTIFY(pub i32);
 pub const SCRIPT_JUSTIFY_NONE: SCRIPT_JUSTIFY = SCRIPT_JUSTIFY(0i32);
@@ -2562,17 +3037,61 @@ pub const SCRIPT_JUSTIFY_ARABIC_BARA: SCRIPT_JUSTIFY = SCRIPT_JUSTIFY(13i32);
 pub const SCRIPT_JUSTIFY_ARABIC_SEEN: SCRIPT_JUSTIFY = SCRIPT_JUSTIFY(14i32);
 pub const SCRIPT_JUSTIFY_ARABIC_SEEN_M: SCRIPT_JUSTIFY = SCRIPT_JUSTIFY(15i32);
 #[repr(C)]
-pub struct SCRIPT_LOGATTR(i32);
+pub struct SCRIPT_LOGATTR {
+    pub _bitfield: u8,
+}
+impl ::core::marker::Copy for SCRIPT_LOGATTR {}
+impl ::core::clone::Clone for SCRIPT_LOGATTR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct SCRIPT_PROPERTIES(i32);
+pub struct SCRIPT_PROPERTIES {
+    pub _bitfield1: u32,
+    pub _bitfield2: u32,
+}
+impl ::core::marker::Copy for SCRIPT_PROPERTIES {}
+impl ::core::clone::Clone for SCRIPT_PROPERTIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct SCRIPT_STATE(i32);
+pub struct SCRIPT_STATE {
+    pub _bitfield: u16,
+}
+impl ::core::marker::Copy for SCRIPT_STATE {}
+impl ::core::clone::Clone for SCRIPT_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct SCRIPT_TABDEF(i32);
+pub struct SCRIPT_TABDEF {
+    pub cTabStops: i32,
+    pub iScale: i32,
+    pub pTabStops: *mut i32,
+    pub iTabOrigin: i32,
+}
+impl ::core::marker::Copy for SCRIPT_TABDEF {}
+impl ::core::clone::Clone for SCRIPT_TABDEF {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SCRIPT_TAG_UNKNOWN: u32 = 0u32;
 pub const SCRIPT_UNDEFINED: u32 = 0u32;
 #[repr(C)]
-pub struct SCRIPT_VISATTR(i32);
+pub struct SCRIPT_VISATTR {
+    pub _bitfield: u16,
+}
+impl ::core::marker::Copy for SCRIPT_VISATTR {}
+impl ::core::clone::Clone for SCRIPT_VISATTR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SGCM_RTL: u32 = 1u32;
 pub const SORTING_PARADIGM_ICU: u32 = 16777216u32;
 pub const SORTING_PARADIGM_NLS: u32 = 0u32;
@@ -3055,9 +3574,39 @@ pub const UCPTRIE_FAST_SHIFT: i32 = 6i32;
 pub const UCPTRIE_HIGH_VALUE_NEG_DATA_OFFSET: i32 = 2i32;
 pub const UCPTRIE_SMALL_MAX: i32 = 4095i32;
 #[repr(C)]
-pub struct UCPTrie(i32);
+pub struct UCPTrie {
+    pub index: *mut u16,
+    pub data: UCPTrieData,
+    pub indexLength: i32,
+    pub dataLength: i32,
+    pub highStart: i32,
+    pub shifted12HighStart: u16,
+    pub r#type: i8,
+    pub valueWidth: i8,
+    pub reserved32: u32,
+    pub reserved16: u16,
+    pub index3NullOffset: u16,
+    pub dataNullOffset: i32,
+    pub nullValue: u32,
+}
+impl ::core::marker::Copy for UCPTrie {}
+impl ::core::clone::Clone for UCPTrie {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct UCPTrieData(i32);
+pub union UCPTrieData {
+    pub ptr0: *mut ::core::ffi::c_void,
+    pub ptr16: *mut u16,
+    pub ptr32: *mut u32,
+    pub ptr8: *mut u8,
+}
+impl ::core::clone::Clone for UCPTrieData {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UCPTrieType(pub i32);
 pub const UCPTRIE_TYPE_ANY: UCPTrieType = UCPTrieType(-1i32);
@@ -3224,7 +3773,30 @@ pub const U_RIGHT_TO_LEFT_ISOLATE: UCharDirection = UCharDirection(21i32);
 pub const U_POP_DIRECTIONAL_ISOLATE: UCharDirection = UCharDirection(22i32);
 pub type UCharEnumTypeRange = unsafe extern "system" fn(context: *const ::core::ffi::c_void, start: i32, limit: i32, r#type: UCharCategory) -> i8;
 #[repr(C)]
-pub struct UCharIterator(i32);
+pub struct UCharIterator {
+    pub context: *mut ::core::ffi::c_void,
+    pub length: i32,
+    pub start: i32,
+    pub index: i32,
+    pub limit: i32,
+    pub reservedField: i32,
+    pub getIndex: ::core::option::Option<UCharIteratorGetIndex>,
+    pub r#move: ::core::option::Option<UCharIteratorMove>,
+    pub hasNext: ::core::option::Option<UCharIteratorHasNext>,
+    pub hasPrevious: ::core::option::Option<UCharIteratorHasPrevious>,
+    pub current: ::core::option::Option<UCharIteratorCurrent>,
+    pub next: ::core::option::Option<UCharIteratorNext>,
+    pub previous: ::core::option::Option<UCharIteratorPrevious>,
+    pub reservedFn: ::core::option::Option<UCharIteratorReserved>,
+    pub getState: ::core::option::Option<UCharIteratorGetState>,
+    pub setState: ::core::option::Option<UCharIteratorSetState>,
+}
+impl ::core::marker::Copy for UCharIterator {}
+impl ::core::clone::Clone for UCharIterator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub type UCharIteratorCurrent = unsafe extern "system" fn(iter: *mut UCharIterator) -> i32;
 pub type UCharIteratorGetIndex = unsafe extern "system" fn(iter: *mut UCharIterator, origin: UCharIteratorOrigin) -> i32;
 pub type UCharIteratorGetState = unsafe extern "system" fn(iter: *const UCharIterator) -> u32;
@@ -3322,9 +3894,26 @@ pub const UCNV_CLOSE: UConverterCallbackReason = UConverterCallbackReason(4i32);
 pub const UCNV_CLONE: UConverterCallbackReason = UConverterCallbackReason(5i32);
 #[cfg(feature = "Win32_Foundation")]
 pub type UConverterFromUCallback = unsafe extern "system" fn(context: *const ::core::ffi::c_void, args: *mut UConverterFromUnicodeArgs, codeunits: *const u16, length: i32, codepoint: i32, reason: UConverterCallbackReason, perrorcode: *mut UErrorCode);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct UConverterFromUnicodeArgs(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct UConverterFromUnicodeArgs {
+    pub size: u16,
+    pub flush: i8,
+    pub converter: *mut UConverter,
+    pub source: *mut u16,
+    pub sourceLimit: *mut u16,
+    pub target: super::Foundation::PSTR,
+    pub targetLimit: super::Foundation::PSTR,
+    pub offsets: *mut i32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for UConverterFromUnicodeArgs {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for UConverterFromUnicodeArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UConverterPlatform(pub i32);
 pub const UCNV_UNKNOWN: UConverterPlatform = UConverterPlatform(-1i32);
@@ -3333,9 +3922,26 @@ pub const UCNV_IBM: UConverterPlatform = UConverterPlatform(0i32);
 pub struct UConverterSelector(pub u8);
 #[cfg(feature = "Win32_Foundation")]
 pub type UConverterToUCallback = unsafe extern "system" fn(context: *const ::core::ffi::c_void, args: *mut UConverterToUnicodeArgs, codeunits: super::Foundation::PSTR, length: i32, reason: UConverterCallbackReason, perrorcode: *mut UErrorCode);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct UConverterToUnicodeArgs(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct UConverterToUnicodeArgs {
+    pub size: u16,
+    pub flush: i8,
+    pub converter: *mut UConverter,
+    pub source: super::Foundation::PSTR,
+    pub sourceLimit: super::Foundation::PSTR,
+    pub target: *mut u16,
+    pub targetLimit: *mut u16,
+    pub offsets: *mut i32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for UConverterToUnicodeArgs {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for UConverterToUnicodeArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UConverterType(pub i32);
 pub const UCNV_UNSUPPORTED_CONVERTER: UConverterType = UConverterType(-1i32);
@@ -3799,7 +4405,17 @@ pub const UFIELD_CATEGORY_DATE_INTERVAL: UFieldCategory = UFieldCategory(5i32);
 pub const UFIELD_CATEGORY_LIST_SPAN: UFieldCategory = UFieldCategory(4099i32);
 pub const UFIELD_CATEGORY_DATE_INTERVAL_SPAN: UFieldCategory = UFieldCategory(4101i32);
 #[repr(C)]
-pub struct UFieldPosition(i32);
+pub struct UFieldPosition {
+    pub field: i32,
+    pub beginIndex: i32,
+    pub endIndex: i32,
+}
+impl ::core::marker::Copy for UFieldPosition {}
+impl ::core::clone::Clone for UFieldPosition {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct UFieldPositionIterator(pub u8);
 #[repr(transparent)]
@@ -3863,7 +4479,20 @@ pub struct UHashtable(pub u8);
 #[repr(C)]
 pub struct UIDNA(pub u8);
 #[repr(C)]
-pub struct UIDNAInfo(i32);
+pub struct UIDNAInfo {
+    pub size: i16,
+    pub isTransitionalDifferent: i8,
+    pub reservedB3: i8,
+    pub errors: u32,
+    pub reservedI2: i32,
+    pub reservedI3: i32,
+}
+impl ::core::marker::Copy for UIDNAInfo {}
+impl ::core::clone::Clone for UIDNAInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const UIDNA_CHECK_BIDI: i32 = 4i32;
 pub const UIDNA_CHECK_CONTEXTJ: i32 = 8i32;
 pub const UIDNA_CHECK_CONTEXTO: i32 = 64i32;
@@ -4218,7 +4847,16 @@ pub const UMSGPAT_PART_TYPE_ARG_DOUBLE: UMessagePatternPartType = UMessagePatter
 pub struct UMutableCPTrie(pub u8);
 pub type UNESCAPE_CHAR_AT = unsafe extern "system" fn(offset: i32, context: *mut ::core::ffi::c_void) -> u16;
 #[repr(C)]
-pub struct UNICODERANGE(i32);
+pub struct UNICODERANGE {
+    pub wcFrom: u16,
+    pub wcTo: u16,
+}
+impl ::core::marker::Copy for UNICODERANGE {}
+impl ::core::clone::Clone for UNICODERANGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const UNISCRIBE_OPENTYPE: u32 = 256u32;
 pub const UNORM_INPUT_IS_FCD: u32 = 131072u32;
 #[repr(transparent)]
@@ -4432,7 +5070,18 @@ pub const U_NT_DECIMAL: UNumericType = UNumericType(1i32);
 pub const U_NT_DIGIT: UNumericType = UNumericType(2i32);
 pub const U_NT_NUMERIC: UNumericType = UNumericType(3i32);
 #[repr(C)]
-pub struct UParseError(i32);
+pub struct UParseError {
+    pub line: i32,
+    pub offset: i32,
+    pub preContext: [u16; 16],
+    pub postContext: [u16; 16],
+}
+impl ::core::marker::Copy for UParseError {}
+impl ::core::clone::Clone for UParseError {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct UPluralRules(pub u8);
 #[repr(transparent)]
@@ -4606,7 +5255,20 @@ pub const UDAT_REL_UNIT_THURSDAY: URelativeDateTimeUnit = URelativeDateTimeUnit(
 pub const UDAT_REL_UNIT_FRIDAY: URelativeDateTimeUnit = URelativeDateTimeUnit(13i32);
 pub const UDAT_REL_UNIT_SATURDAY: URelativeDateTimeUnit = URelativeDateTimeUnit(14i32);
 #[repr(C)]
-pub struct UReplaceableCallbacks(i32);
+pub struct UReplaceableCallbacks {
+    pub length: isize,
+    pub charAt: isize,
+    pub char32At: isize,
+    pub replace: isize,
+    pub extract: isize,
+    pub copy: isize,
+}
+impl ::core::marker::Copy for UReplaceableCallbacks {}
+impl ::core::clone::Clone for UReplaceableCallbacks {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UResType(pub i32);
 pub const URES_NONE: UResType = UResType(-1i32);
@@ -4883,7 +5545,18 @@ pub const UBRK_SENTENCE_TERM_LIMIT: USentenceBreakTag = USentenceBreakTag(100i32
 pub const UBRK_SENTENCE_SEP: USentenceBreakTag = USentenceBreakTag(100i32);
 pub const UBRK_SENTENCE_SEP_LIMIT: USentenceBreakTag = USentenceBreakTag(200i32);
 #[repr(C)]
-pub struct USerializedSet(i32);
+pub struct USerializedSet {
+    pub array: *mut u16,
+    pub bmpLength: i32,
+    pub length: i32,
+    pub staticArray: [u16; 8],
+}
+impl ::core::marker::Copy for USerializedSet {}
+impl ::core::clone::Clone for USerializedSet {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct USet(pub u8);
 #[repr(transparent)]
@@ -4959,14 +5632,68 @@ pub const UTF_ERROR_VALUE: u32 = 65535u32;
 pub const UTF_MAX_CHAR_LENGTH: u32 = 2u32;
 pub const UTF_SIZE: u32 = 16u32;
 #[repr(C)]
-pub struct UText(i32);
+pub struct UText {
+    pub magic: u32,
+    pub flags: i32,
+    pub providerProperties: i32,
+    pub sizeOfStruct: i32,
+    pub chunkNativeLimit: i64,
+    pub extraSize: i32,
+    pub nativeIndexingLimit: i32,
+    pub chunkNativeStart: i64,
+    pub chunkOffset: i32,
+    pub chunkLength: i32,
+    pub chunkContents: *mut u16,
+    pub pFuncs: *mut UTextFuncs,
+    pub pExtra: *mut ::core::ffi::c_void,
+    pub context: *mut ::core::ffi::c_void,
+    pub p: *mut ::core::ffi::c_void,
+    pub q: *mut ::core::ffi::c_void,
+    pub r: *mut ::core::ffi::c_void,
+    pub privP: *mut ::core::ffi::c_void,
+    pub a: i64,
+    pub b: i32,
+    pub c: i32,
+    pub privA: i64,
+    pub privB: i32,
+    pub privC: i32,
+}
+impl ::core::marker::Copy for UText {}
+impl ::core::clone::Clone for UText {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub type UTextAccess = unsafe extern "system" fn(ut: *mut UText, nativeindex: i64, forward: i8) -> i8;
 pub type UTextClone = unsafe extern "system" fn(dest: *mut UText, src: *const UText, deep: i8, status: *mut UErrorCode) -> *mut UText;
 pub type UTextClose = unsafe extern "system" fn(ut: *mut UText);
 pub type UTextCopy = unsafe extern "system" fn(ut: *mut UText, nativestart: i64, nativelimit: i64, nativedest: i64, r#move: i8, status: *mut UErrorCode);
 pub type UTextExtract = unsafe extern "system" fn(ut: *mut UText, nativestart: i64, nativelimit: i64, dest: *mut u16, destcapacity: i32, status: *mut UErrorCode) -> i32;
 #[repr(C)]
-pub struct UTextFuncs(i32);
+pub struct UTextFuncs {
+    pub tableSize: i32,
+    pub reserved1: i32,
+    pub reserved2: i32,
+    pub reserved3: i32,
+    pub clone: ::core::option::Option<UTextClone>,
+    pub nativeLength: ::core::option::Option<UTextNativeLength>,
+    pub access: ::core::option::Option<UTextAccess>,
+    pub extract: ::core::option::Option<UTextExtract>,
+    pub replace: ::core::option::Option<UTextReplace>,
+    pub copy: ::core::option::Option<UTextCopy>,
+    pub mapOffsetToNative: ::core::option::Option<UTextMapOffsetToNative>,
+    pub mapNativeIndexToUTF16: ::core::option::Option<UTextMapNativeIndexToUTF16>,
+    pub close: ::core::option::Option<UTextClose>,
+    pub spare1: ::core::option::Option<UTextClose>,
+    pub spare2: ::core::option::Option<UTextClose>,
+    pub spare3: ::core::option::Option<UTextClose>,
+}
+impl ::core::marker::Copy for UTextFuncs {}
+impl ::core::clone::Clone for UTextFuncs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub type UTextMapNativeIndexToUTF16 = unsafe extern "system" fn(ut: *const UText, nativeindex: i64) -> i32;
 pub type UTextMapOffsetToNative = unsafe extern "system" fn(ut: *const UText) -> i64;
 pub type UTextNativeLength = unsafe extern "system" fn(ut: *mut UText) -> i64;
@@ -5083,7 +5810,18 @@ pub struct UTransDirection(pub i32);
 pub const UTRANS_FORWARD: UTransDirection = UTransDirection(0i32);
 pub const UTRANS_REVERSE: UTransDirection = UTransDirection(1i32);
 #[repr(C)]
-pub struct UTransPosition(i32);
+pub struct UTransPosition {
+    pub contextStart: i32,
+    pub contextLimit: i32,
+    pub start: i32,
+    pub limit: i32,
+}
+impl ::core::marker::Copy for UTransPosition {}
+impl ::core::clone::Clone for UTransPosition {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UVerticalOrientation(pub i32);
 pub const U_VO_ROTATED: UVerticalOrientation = UVerticalOrientation(0i32);
@@ -5250,11 +5988,37 @@ pub const WORDLIST_TYPE_ADD: WORDLIST_TYPE = WORDLIST_TYPE(1i32);
 pub const WORDLIST_TYPE_EXCLUDE: WORDLIST_TYPE = WORDLIST_TYPE(2i32);
 pub const WORDLIST_TYPE_AUTOCORRECT: WORDLIST_TYPE = WORDLIST_TYPE(3i32);
 #[repr(C)]
-pub struct opentype_feature_record(i32);
+pub struct opentype_feature_record {
+    pub tagFeature: u32,
+    pub lParameter: i32,
+}
+impl ::core::marker::Copy for opentype_feature_record {}
+impl ::core::clone::Clone for opentype_feature_record {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct script_charprop(i32);
+pub struct script_charprop {
+    pub _bitfield: u16,
+}
+impl ::core::marker::Copy for script_charprop {}
+impl ::core::clone::Clone for script_charprop {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct script_glyphprop(i32);
+pub struct script_glyphprop {
+    pub sva: SCRIPT_VISATTR,
+    pub reserved: u16,
+}
+impl ::core::marker::Copy for script_glyphprop {}
+impl ::core::clone::Clone for script_glyphprop {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct tagMLCONVCHARF(pub i32);
 pub const MLCONVCHARF_AUTODETECT: tagMLCONVCHARF = tagMLCONVCHARF(1i32);
@@ -5275,6 +6039,24 @@ pub const MLDETECTF_PREFERRED_ONLY: tagMLCPF = tagMLCPF(32i32);
 pub const MLDETECTF_FILTER_SPECIALCHAR: tagMLCPF = tagMLCPF(64i32);
 pub const MLDETECTF_EURO_UTF8: tagMLCPF = tagMLCPF(128i32);
 #[repr(C)]
-pub struct tagSCRIPFONTINFO(i32);
+pub struct tagSCRIPFONTINFO {
+    pub scripts: i64,
+    pub wszFont: [u16; 32],
+}
+impl ::core::marker::Copy for tagSCRIPFONTINFO {}
+impl ::core::clone::Clone for tagSCRIPFONTINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct textrange_properties(i32);
+pub struct textrange_properties {
+    pub potfRecords: *mut opentype_feature_record,
+    pub cotfRecords: i32,
+}
+impl ::core::marker::Copy for textrange_properties {}
+impl ::core::clone::Clone for textrange_properties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

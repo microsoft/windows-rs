@@ -724,4 +724,14 @@ impl VideoRotation {
 #[repr(transparent)]
 pub struct VideoStreamConfiguration(pub *mut ::core::ffi::c_void);
 #[repr(C)]
-pub struct WhiteBalanceGain(i32);
+pub struct WhiteBalanceGain {
+    pub R: f64,
+    pub G: f64,
+    pub B: f64,
+}
+impl ::core::marker::Copy for WhiteBalanceGain {}
+impl ::core::clone::Clone for WhiteBalanceGain {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

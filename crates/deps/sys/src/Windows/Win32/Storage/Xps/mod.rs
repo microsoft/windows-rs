@@ -62,17 +62,66 @@ pub const DC_SIZE: DEVICE_CAPABILITIES = DEVICE_CAPABILITIES(8u32);
 pub const DC_STAPLE: DEVICE_CAPABILITIES = DEVICE_CAPABILITIES(30u32);
 pub const DC_TRUETYPE: DEVICE_CAPABILITIES = DEVICE_CAPABILITIES(15u32);
 pub const DC_VERSION: DEVICE_CAPABILITIES = DEVICE_CAPABILITIES(10u32);
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct DOCINFOA(i32);
+pub struct DOCINFOA {
+    pub cbSize: i32,
+    pub lpszDocName: super::super::Foundation::PSTR,
+    pub lpszOutput: super::super::Foundation::PSTR,
+    pub lpszDatatype: super::super::Foundation::PSTR,
+    pub fwType: u32,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct DOCINFOW(i32);
+impl ::core::marker::Copy for DOCINFOA {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DOCINFOA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DRAWPATRECT(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct DOCINFOW {
+    pub cbSize: i32,
+    pub lpszDocName: super::super::Foundation::PWSTR,
+    pub lpszOutput: super::super::Foundation::PWSTR,
+    pub lpszDatatype: super::super::Foundation::PWSTR,
+    pub fwType: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DOCINFOW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DOCINFOW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct HPTPROVIDER(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct DRAWPATRECT {
+    pub ptPosition: super::super::Foundation::POINT,
+    pub ptSize: super::super::Foundation::POINT,
+    pub wStyle: u16,
+    pub wPattern: u16,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DRAWPATRECT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DRAWPATRECT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct HPTPROVIDER {
+    pub Value: isize,
+}
+impl ::core::marker::Copy for HPTPROVIDER {}
+impl ::core::clone::Clone for HPTPROVIDER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IXpsDocumentPackageTarget(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -213,12 +262,45 @@ pub struct IXpsSigningOptions(pub *mut ::core::ffi::c_void);
 pub struct PRINT_WINDOW_FLAGS(pub u32);
 pub const PW_CLIENTONLY: PRINT_WINDOW_FLAGS = PRINT_WINDOW_FLAGS(1u32);
 #[repr(C)]
-pub struct PSFEATURE_CUSTPAPER(i32);
+pub struct PSFEATURE_CUSTPAPER {
+    pub lOrientation: i32,
+    pub lWidth: i32,
+    pub lHeight: i32,
+    pub lWidthOffset: i32,
+    pub lHeightOffset: i32,
+}
+impl ::core::marker::Copy for PSFEATURE_CUSTPAPER {}
+impl ::core::clone::Clone for PSFEATURE_CUSTPAPER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+pub struct PSFEATURE_OUTPUT {
+    pub bPageIndependent: super::super::Foundation::BOOL,
+    pub bSetPageDevice: super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for PSFEATURE_OUTPUT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for PSFEATURE_OUTPUT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct PSFEATURE_OUTPUT(i32);
-#[repr(C)]
-pub struct PSINJECTDATA(i32);
+pub struct PSINJECTDATA {
+    pub DataBytes: u32,
+    pub InjectionPoint: PSINJECT_POINT,
+    pub PageNumber: u16,
+}
+impl ::core::marker::Copy for PSINJECTDATA {}
+impl ::core::clone::Clone for PSINJECTDATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PSINJECT_POINT(pub u16);
 pub const PSINJECT_BEGINSTREAM: PSINJECT_POINT = PSINJECT_POINT(1u16);
@@ -253,7 +335,64 @@ pub const PSINJECT_ENDPAGECOMMENTS: PSINJECT_POINT = PSINJECT_POINT(107u16);
 pub const PSINJECT_VMSAVE: PSINJECT_POINT = PSINJECT_POINT(200u16);
 pub const PSINJECT_VMRESTORE: PSINJECT_POINT = PSINJECT_POINT(201u16);
 #[repr(C)]
-pub struct XPS_COLOR(i32);
+pub struct XPS_COLOR {
+    pub colorType: XPS_COLOR_TYPE,
+    pub value: XPS_COLOR_0,
+}
+impl ::core::marker::Copy for XPS_COLOR {}
+impl ::core::clone::Clone for XPS_COLOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub union XPS_COLOR_0 {
+    pub sRGB: XPS_COLOR_0_1,
+    pub scRGB: XPS_COLOR_0_2,
+    pub context: XPS_COLOR_0_0,
+}
+impl ::core::clone::Clone for XPS_COLOR_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct XPS_COLOR_0_0 {
+    pub channelCount: u8,
+    pub channels: [f32; 9],
+}
+impl ::core::marker::Copy for XPS_COLOR_0_0 {}
+impl ::core::clone::Clone for XPS_COLOR_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct XPS_COLOR_0_1 {
+    pub alpha: u8,
+    pub red: u8,
+    pub green: u8,
+    pub blue: u8,
+}
+impl ::core::marker::Copy for XPS_COLOR_0_1 {}
+impl ::core::clone::Clone for XPS_COLOR_0_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct XPS_COLOR_0_2 {
+    pub alpha: f32,
+    pub red: f32,
+    pub green: f32,
+    pub blue: f32,
+}
+impl ::core::marker::Copy for XPS_COLOR_0_2 {}
+impl ::core::clone::Clone for XPS_COLOR_0_2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct XPS_COLOR_INTERPOLATION(pub i32);
 pub const XPS_COLOR_INTERPOLATION_SCRGBLINEAR: XPS_COLOR_INTERPOLATION = XPS_COLOR_INTERPOLATION(1i32);
@@ -264,7 +403,16 @@ pub const XPS_COLOR_TYPE_SRGB: XPS_COLOR_TYPE = XPS_COLOR_TYPE(1i32);
 pub const XPS_COLOR_TYPE_SCRGB: XPS_COLOR_TYPE = XPS_COLOR_TYPE(2i32);
 pub const XPS_COLOR_TYPE_CONTEXT: XPS_COLOR_TYPE = XPS_COLOR_TYPE(3i32);
 #[repr(C)]
-pub struct XPS_DASH(i32);
+pub struct XPS_DASH {
+    pub length: f32,
+    pub gap: f32,
+}
+impl ::core::marker::Copy for XPS_DASH {}
+impl ::core::clone::Clone for XPS_DASH {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct XPS_DASH_CAP(pub i32);
 pub const XPS_DASH_CAP_FLAT: XPS_DASH_CAP = XPS_DASH_CAP(1i32);
@@ -372,9 +520,31 @@ pub const XPS_FONT_EMBEDDING_OBFUSCATED: XPS_FONT_EMBEDDING = XPS_FONT_EMBEDDING
 pub const XPS_FONT_EMBEDDING_RESTRICTED: XPS_FONT_EMBEDDING = XPS_FONT_EMBEDDING(3i32);
 pub const XPS_FONT_EMBEDDING_RESTRICTED_UNOBFUSCATED: XPS_FONT_EMBEDDING = XPS_FONT_EMBEDDING(4i32);
 #[repr(C)]
-pub struct XPS_GLYPH_INDEX(i32);
+pub struct XPS_GLYPH_INDEX {
+    pub index: i32,
+    pub advanceWidth: f32,
+    pub horizontalOffset: f32,
+    pub verticalOffset: f32,
+}
+impl ::core::marker::Copy for XPS_GLYPH_INDEX {}
+impl ::core::clone::Clone for XPS_GLYPH_INDEX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct XPS_GLYPH_MAPPING(i32);
+pub struct XPS_GLYPH_MAPPING {
+    pub unicodeStringStart: u32,
+    pub unicodeStringLength: u16,
+    pub glyphIndicesStart: u32,
+    pub glyphIndicesLength: u16,
+}
+impl ::core::marker::Copy for XPS_GLYPH_MAPPING {}
+impl ::core::clone::Clone for XPS_GLYPH_MAPPING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct XPS_IMAGE_TYPE(pub i32);
 pub const XPS_IMAGE_TYPE_JPEG: XPS_IMAGE_TYPE = XPS_IMAGE_TYPE(1i32);
@@ -398,7 +568,20 @@ pub const XPS_LINE_JOIN_MITER: XPS_LINE_JOIN = XPS_LINE_JOIN(1i32);
 pub const XPS_LINE_JOIN_BEVEL: XPS_LINE_JOIN = XPS_LINE_JOIN(2i32);
 pub const XPS_LINE_JOIN_ROUND: XPS_LINE_JOIN = XPS_LINE_JOIN(3i32);
 #[repr(C)]
-pub struct XPS_MATRIX(i32);
+pub struct XPS_MATRIX {
+    pub m11: f32,
+    pub m12: f32,
+    pub m21: f32,
+    pub m22: f32,
+    pub m31: f32,
+    pub m32: f32,
+}
+impl ::core::marker::Copy for XPS_MATRIX {}
+impl ::core::clone::Clone for XPS_MATRIX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct XPS_OBJECT_TYPE(pub i32);
 pub const XPS_OBJECT_TYPE_CANVAS: XPS_OBJECT_TYPE = XPS_OBJECT_TYPE(1i32);
@@ -412,9 +595,29 @@ pub const XPS_OBJECT_TYPE_LINEAR_GRADIENT_BRUSH: XPS_OBJECT_TYPE = XPS_OBJECT_TY
 pub const XPS_OBJECT_TYPE_RADIAL_GRADIENT_BRUSH: XPS_OBJECT_TYPE = XPS_OBJECT_TYPE(9i32);
 pub const XPS_OBJECT_TYPE_VISUAL_BRUSH: XPS_OBJECT_TYPE = XPS_OBJECT_TYPE(10i32);
 #[repr(C)]
-pub struct XPS_POINT(i32);
+pub struct XPS_POINT {
+    pub x: f32,
+    pub y: f32,
+}
+impl ::core::marker::Copy for XPS_POINT {}
+impl ::core::clone::Clone for XPS_POINT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct XPS_RECT(i32);
+pub struct XPS_RECT {
+    pub x: f32,
+    pub y: f32,
+    pub width: f32,
+    pub height: f32,
+}
+impl ::core::marker::Copy for XPS_RECT {}
+impl ::core::clone::Clone for XPS_RECT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct XPS_SEGMENT_STROKE_PATTERN(pub i32);
 pub const XPS_SEGMENT_STROKE_PATTERN_ALL: XPS_SEGMENT_STROKE_PATTERN = XPS_SEGMENT_STROKE_PATTERN(1i32);
@@ -449,7 +652,16 @@ pub const XPS_SIGN_POLICY_PRINT_TICKET: XPS_SIGN_POLICY = XPS_SIGN_POLICY(4i32);
 pub const XPS_SIGN_POLICY_DISCARD_CONTROL: XPS_SIGN_POLICY = XPS_SIGN_POLICY(8i32);
 pub const XPS_SIGN_POLICY_ALL: XPS_SIGN_POLICY = XPS_SIGN_POLICY(15i32);
 #[repr(C)]
-pub struct XPS_SIZE(i32);
+pub struct XPS_SIZE {
+    pub width: f32,
+    pub height: f32,
+}
+impl ::core::marker::Copy for XPS_SIZE {}
+impl ::core::clone::Clone for XPS_SIZE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct XPS_SPREAD_METHOD(pub i32);
 pub const XPS_SPREAD_METHOD_PAD: XPS_SPREAD_METHOD = XPS_SPREAD_METHOD(1i32);

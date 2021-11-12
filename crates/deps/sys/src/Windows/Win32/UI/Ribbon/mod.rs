@@ -71,12 +71,50 @@ pub const UI_EVENTLOCATION_Ribbon: UI_EVENTLOCATION = UI_EVENTLOCATION(0i32);
 pub const UI_EVENTLOCATION_QAT: UI_EVENTLOCATION = UI_EVENTLOCATION(1i32);
 pub const UI_EVENTLOCATION_ApplicationMenu: UI_EVENTLOCATION = UI_EVENTLOCATION(2i32);
 pub const UI_EVENTLOCATION_ContextPopup: UI_EVENTLOCATION = UI_EVENTLOCATION(3i32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct UI_EVENTPARAMS(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct UI_EVENTPARAMS {
+    pub EventType: UI_EVENTTYPE,
+    pub Anonymous: UI_EVENTPARAMS_0,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for UI_EVENTPARAMS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for UI_EVENTPARAMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct UI_EVENTPARAMS_COMMAND(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub union UI_EVENTPARAMS_0 {
+    pub Modes: i32,
+    pub Params: UI_EVENTPARAMS_COMMAND,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for UI_EVENTPARAMS_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct UI_EVENTPARAMS_COMMAND {
+    pub CommandID: u32,
+    pub CommandName: super::super::Foundation::PWSTR,
+    pub ParentCommandID: u32,
+    pub ParentCommandName: super::super::Foundation::PWSTR,
+    pub SelectionIndex: u32,
+    pub Location: UI_EVENTLOCATION,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for UI_EVENTPARAMS_COMMAND {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for UI_EVENTPARAMS_COMMAND {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UI_EVENTTYPE(pub i32);
 pub const UI_EVENTTYPE_ApplicationMenuOpened: UI_EVENTTYPE = UI_EVENTTYPE(0i32);

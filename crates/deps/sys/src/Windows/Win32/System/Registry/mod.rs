@@ -220,7 +220,23 @@ pub const DRIVERSIGN_BLOCKING: u32 = 2u32;
 pub const DRIVERSIGN_NONE: u32 = 0u32;
 pub const DRIVERSIGN_WARNING: u32 = 1u32;
 #[repr(C)]
-pub struct DSKTLSYSTEMTIME(i32);
+pub struct DSKTLSYSTEMTIME {
+    pub wYear: u16,
+    pub wMonth: u16,
+    pub wDayOfWeek: u16,
+    pub wDay: u16,
+    pub wHour: u16,
+    pub wMinute: u16,
+    pub wSecond: u16,
+    pub wMilliseconds: u16,
+    pub wResult: u16,
+}
+impl ::core::marker::Copy for DSKTLSYSTEMTIME {}
+impl ::core::clone::Clone for DSKTLSYSTEMTIME {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DTRESULTFIX: u32 = 1u32;
 pub const DTRESULTOK: u32 = 0u32;
 pub const DTRESULTPART: u32 = 3u32;
@@ -229,7 +245,15 @@ pub const EISAFLAG_NO_IO_MERGE: u32 = 1u32;
 pub const EISAFLAG_SLOT_IO_FIRST: u32 = 2u32;
 pub const EISA_NO_MAX_FUNCTION: u32 = 255u32;
 #[repr(C)]
-pub struct HKEY(i32);
+pub struct HKEY {
+    pub Value: isize,
+}
+impl ::core::marker::Copy for HKEY {}
+impl ::core::clone::Clone for HKEY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const HKEY_CLASSES_ROOT: HKEY = HKEY(-2147483648i32 as _);
 pub const HKEY_CURRENT_CONFIG: HKEY = HKEY(-2147483643i32 as _);
 pub const HKEY_CURRENT_USER: HKEY = HKEY(-2147483647i32 as _);
@@ -399,12 +423,38 @@ pub const SUF_NETHDBOOT: i32 = 64i32;
 pub const SUF_NETRPLBOOT: i32 = 128i32;
 pub const SUF_NETSETUP: i32 = 32i32;
 pub const SUF_SBSCOPYOK: i32 = 256i32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct VALENTA(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct VALENTA {
+    pub ve_valuename: super::super::Foundation::PSTR,
+    pub ve_valuelen: u32,
+    pub ve_valueptr: usize,
+    pub ve_type: REG_VALUE_TYPE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for VALENTA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for VALENTA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct VALENTW(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct VALENTW {
+    pub ve_valuename: super::super::Foundation::PWSTR,
+    pub ve_valuelen: u32,
+    pub ve_valueptr: usize,
+    pub ve_type: REG_VALUE_TYPE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for VALENTW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for VALENTW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const VPDF_DISABLEPWRMGMT: u32 = 1u32;
 pub const VPDF_DISABLEPWRSTATUSPOLL: u32 = 8u32;
 pub const VPDF_DISABLERINGRESUME: u32 = 16u32;
@@ -412,12 +462,61 @@ pub const VPDF_FORCEAPM10MODE: u32 = 2u32;
 pub const VPDF_SHOWMULTIBATT: u32 = 32u32;
 pub const VPDF_SKIPINTELSLCHECK: u32 = 4u32;
 #[repr(C)]
-pub struct provider_info(i32);
+pub struct provider_info {
+    pub pi_R0_1val: ::core::option::Option<PQUERYHANDLER>,
+    pub pi_R0_allvals: ::core::option::Option<PQUERYHANDLER>,
+    pub pi_R3_1val: ::core::option::Option<PQUERYHANDLER>,
+    pub pi_R3_allvals: ::core::option::Option<PQUERYHANDLER>,
+    pub pi_flags: u32,
+    pub pi_key_context: *mut ::core::ffi::c_void,
+}
+impl ::core::marker::Copy for provider_info {}
+impl ::core::clone::Clone for provider_info {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct pvalueA(i32);
+pub struct pvalueA {
+    pub pv_valuename: super::super::Foundation::PSTR,
+    pub pv_valuelen: i32,
+    pub pv_value_context: *mut ::core::ffi::c_void,
+    pub pv_type: u32,
+}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for pvalueA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for pvalueA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct pvalueW(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct pvalueW {
+    pub pv_valuename: super::super::Foundation::PWSTR,
+    pub pv_valuelen: i32,
+    pub pv_value_context: *mut ::core::ffi::c_void,
+    pub pv_type: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for pvalueW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for pvalueW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct val_context(i32);
+pub struct val_context {
+    pub valuelen: i32,
+    pub value_context: *mut ::core::ffi::c_void,
+    pub val_buff_ptr: *mut ::core::ffi::c_void,
+}
+impl ::core::marker::Copy for val_context {}
+impl ::core::clone::Clone for val_context {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

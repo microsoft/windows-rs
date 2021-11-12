@@ -90,9 +90,30 @@ impl InjectedInputPenParameters {
     pub const TiltY: Self = Self(8u32);
 }
 #[repr(C)]
-pub struct InjectedInputPoint(i32);
+pub struct InjectedInputPoint {
+    pub PositionX: i32,
+    pub PositionY: i32,
+}
+impl ::core::marker::Copy for InjectedInputPoint {}
+impl ::core::clone::Clone for InjectedInputPoint {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct InjectedInputPointerInfo(i32);
+pub struct InjectedInputPointerInfo {
+    pub PointerId: u32,
+    pub PointerOptions: InjectedInputPointerOptions,
+    pub PixelLocation: InjectedInputPoint,
+    pub TimeOffsetInMilliseconds: u32,
+    pub PerformanceCount: u64,
+}
+impl ::core::marker::Copy for InjectedInputPointerInfo {}
+impl ::core::clone::Clone for InjectedInputPointerInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct InjectedInputPointerOptions(pub u32);
 impl InjectedInputPointerOptions {
@@ -111,7 +132,18 @@ impl InjectedInputPointerOptions {
     pub const CaptureChanged: Self = Self(2097152u32);
 }
 #[repr(C)]
-pub struct InjectedInputRectangle(i32);
+pub struct InjectedInputRectangle {
+    pub Left: i32,
+    pub Top: i32,
+    pub Bottom: i32,
+    pub Right: i32,
+}
+impl ::core::marker::Copy for InjectedInputRectangle {}
+impl ::core::clone::Clone for InjectedInputRectangle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct InjectedInputShortcut(pub i32);
 impl InjectedInputShortcut {

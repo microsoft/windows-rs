@@ -112,7 +112,18 @@ pub struct BrushTransition(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ColorPaletteResources(pub *mut ::core::ffi::c_void);
 #[repr(C)]
-pub struct CornerRadius(i32);
+pub struct CornerRadius {
+    pub TopLeft: f64,
+    pub TopRight: f64,
+    pub BottomRight: f64,
+    pub BottomLeft: f64,
+}
+impl ::core::marker::Copy for CornerRadius {}
+impl ::core::clone::Clone for CornerRadius {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CornerRadiusHelper(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -153,9 +164,20 @@ pub struct DragUI(pub *mut ::core::ffi::c_void);
 pub struct DragUIOverride(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct DropCompletedEventArgs(pub *mut ::core::ffi::c_void);
-#[cfg(feature = "Foundation")]
 #[repr(C)]
-pub struct Duration(i32);
+#[cfg(feature = "Foundation")]
+pub struct Duration {
+    pub TimeSpan: super::super::Foundation::TimeSpan,
+    pub Type: DurationType,
+}
+#[cfg(feature = "Foundation")]
+impl ::core::marker::Copy for Duration {}
+#[cfg(feature = "Foundation")]
+impl ::core::clone::Clone for Duration {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DurationHelper(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -323,7 +345,16 @@ pub struct FrameworkView(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct FrameworkViewSource(pub *mut ::core::ffi::c_void);
 #[repr(C)]
-pub struct GridLength(i32);
+pub struct GridLength {
+    pub Value: f64,
+    pub GridUnitType: GridUnitType,
+}
+impl ::core::marker::Copy for GridLength {}
+impl ::core::clone::Clone for GridLength {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct GridLengthHelper(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -790,7 +821,18 @@ impl TextWrapping {
     pub const WrapWholeWords: Self = Self(3i32);
 }
 #[repr(C)]
-pub struct Thickness(i32);
+pub struct Thickness {
+    pub Left: f64,
+    pub Top: f64,
+    pub Right: f64,
+    pub Bottom: f64,
+}
+impl ::core::marker::Copy for Thickness {}
+impl ::core::clone::Clone for Thickness {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ThicknessHelper(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

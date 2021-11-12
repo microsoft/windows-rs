@@ -9,7 +9,18 @@ impl BitmapAlphaMode {
     pub const Ignore: Self = Self(2i32);
 }
 #[repr(C)]
-pub struct BitmapBounds(i32);
+pub struct BitmapBounds {
+    pub X: u32,
+    pub Y: u32,
+    pub Width: u32,
+    pub Height: u32,
+}
+impl ::core::marker::Copy for BitmapBounds {}
+impl ::core::clone::Clone for BitmapBounds {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct BitmapBuffer(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -56,7 +67,18 @@ impl BitmapPixelFormat {
     pub const Yuy2: Self = Self(107i32);
 }
 #[repr(C)]
-pub struct BitmapPlaneDescription(i32);
+pub struct BitmapPlaneDescription {
+    pub StartIndex: i32,
+    pub Width: i32,
+    pub Height: i32,
+    pub Stride: i32,
+}
+impl ::core::marker::Copy for BitmapPlaneDescription {}
+impl ::core::clone::Clone for BitmapPlaneDescription {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct BitmapProperties(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -72,7 +94,16 @@ impl BitmapRotation {
     pub const Clockwise270Degrees: Self = Self(3i32);
 }
 #[repr(C)]
-pub struct BitmapSize(i32);
+pub struct BitmapSize {
+    pub Width: u32,
+    pub Height: u32,
+}
+impl ::core::marker::Copy for BitmapSize {}
+impl ::core::clone::Clone for BitmapSize {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct BitmapTransform(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

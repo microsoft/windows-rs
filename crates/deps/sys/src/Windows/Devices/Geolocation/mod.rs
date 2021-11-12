@@ -13,7 +13,17 @@ impl AltitudeReferenceSystem {
     pub const Surface: Self = Self(4i32);
 }
 #[repr(C)]
-pub struct BasicGeoposition(i32);
+pub struct BasicGeoposition {
+    pub Latitude: f64,
+    pub Longitude: f64,
+    pub Altitude: f64,
+}
+impl ::core::marker::Copy for BasicGeoposition {}
+impl ::core::clone::Clone for BasicGeoposition {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CivicAddress(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

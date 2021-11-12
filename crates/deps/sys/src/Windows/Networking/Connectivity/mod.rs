@@ -203,7 +203,16 @@ impl NetworkTypes {
 #[repr(transparent)]
 pub struct NetworkUsage(pub *mut ::core::ffi::c_void);
 #[repr(C)]
-pub struct NetworkUsageStates(i32);
+pub struct NetworkUsageStates {
+    pub Roaming: TriStates,
+    pub Shared: TriStates,
+}
+impl ::core::marker::Copy for NetworkUsageStates {}
+impl ::core::clone::Clone for NetworkUsageStates {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ProviderNetworkUsage(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

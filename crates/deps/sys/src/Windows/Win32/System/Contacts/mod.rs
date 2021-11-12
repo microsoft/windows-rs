@@ -9,7 +9,16 @@ pub const CGD_STRING_PROPERTY: u32 = 1u32;
 pub const CGD_UNKNOWN_PROPERTY: u32 = 0u32;
 pub const CLSID_ContactAggregationManager: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2529734037, data2: 49561, data3: 17630, data4: [179, 78, 172, 51, 196, 66, 223, 57] };
 #[repr(C)]
-pub struct CONTACT_AGGREGATION_BLOB(i32);
+pub struct CONTACT_AGGREGATION_BLOB {
+    pub dwCount: u32,
+    pub lpb: *mut u8,
+}
+impl ::core::marker::Copy for CONTACT_AGGREGATION_BLOB {}
+impl ::core::clone::Clone for CONTACT_AGGREGATION_BLOB {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CONTACT_AGGREGATION_COLLECTION_OPTIONS(pub i32);
 pub const CACO_DEFAULT: CONTACT_AGGREGATION_COLLECTION_OPTIONS = CONTACT_AGGREGATION_COLLECTION_OPTIONS(0i32);

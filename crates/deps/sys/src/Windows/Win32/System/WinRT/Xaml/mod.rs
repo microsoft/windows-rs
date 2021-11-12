@@ -37,7 +37,15 @@ pub struct IVirtualSurfaceImageSourceNative(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IVirtualSurfaceUpdatesCallbackNative(pub *mut ::core::ffi::c_void);
 #[repr(C)]
-pub struct TrackerHandle__(i32);
+pub struct TrackerHandle__ {
+    pub unused: i32,
+}
+impl ::core::marker::Copy for TrackerHandle__ {}
+impl ::core::clone::Clone for TrackerHandle__ {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct XAML_REFERENCETRACKER_DISCONNECT(pub i32);
 pub const XAML_REFERENCETRACKER_DISCONNECT_DEFAULT: XAML_REFERENCETRACKER_DISCONNECT = XAML_REFERENCETRACKER_DISCONNECT(0i32);

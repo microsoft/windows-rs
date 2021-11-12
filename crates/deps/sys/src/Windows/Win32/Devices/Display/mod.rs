@@ -234,9 +234,28 @@ pub const AR_NOT_SUPPORTED: AR_STATE = AR_STATE(32i32);
 pub const AR_DOCKED: AR_STATE = AR_STATE(64i32);
 pub const AR_LAPTOP: AR_STATE = AR_STATE(128i32);
 #[repr(C)]
-pub struct Adapter(i32);
+pub struct Adapter {
+    pub AdapterName: [u16; 128],
+    pub numSources: i32,
+    pub sources: [Sources; 1],
+}
+impl ::core::marker::Copy for Adapter {}
+impl ::core::clone::Clone for Adapter {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct Adapters(i32);
+pub struct Adapters {
+    pub numAdapters: i32,
+    pub adapter: [Adapter; 1],
+}
+impl ::core::marker::Copy for Adapters {}
+impl ::core::clone::Clone for Adapters {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct BACKLIGHT_OPTIMIZATION_LEVEL(pub i32);
 pub const BacklightOptimizationDisable: BACKLIGHT_OPTIMIZATION_LEVEL = BACKLIGHT_OPTIMIZATION_LEVEL(0i32);
@@ -245,17 +264,46 @@ pub const BacklightOptimizationDynamic: BACKLIGHT_OPTIMIZATION_LEVEL = BACKLIGHT
 pub const BacklightOptimizationDimmed: BACKLIGHT_OPTIMIZATION_LEVEL = BACKLIGHT_OPTIMIZATION_LEVEL(3i32);
 pub const BacklightOptimizationEDR: BACKLIGHT_OPTIMIZATION_LEVEL = BACKLIGHT_OPTIMIZATION_LEVEL(4i32);
 #[repr(C)]
-pub struct BACKLIGHT_REDUCTION_GAMMA_RAMP(i32);
+pub struct BACKLIGHT_REDUCTION_GAMMA_RAMP {
+    pub R: [u16; 256],
+    pub G: [u16; 256],
+    pub B: [u16; 256],
+}
+impl ::core::marker::Copy for BACKLIGHT_REDUCTION_GAMMA_RAMP {}
+impl ::core::clone::Clone for BACKLIGHT_REDUCTION_GAMMA_RAMP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct BANK_POSITION(i32);
+pub struct BANK_POSITION {
+    pub ReadBankPosition: u32,
+    pub WriteBankPosition: u32,
+}
+impl ::core::marker::Copy for BANK_POSITION {}
+impl ::core::clone::Clone for BANK_POSITION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const BITMAP_ARRAY_BYTE: u32 = 3u32;
 pub const BITMAP_BITS_BYTE_ALIGN: u32 = 8u32;
 pub const BITMAP_BITS_PIXEL: u32 = 1u32;
 pub const BITMAP_BITS_WORD_ALIGN: u32 = 16u32;
 pub const BITMAP_PLANES: u32 = 1u32;
-#[cfg(feature = "Win32_Graphics_Gdi")]
 #[repr(C)]
-pub struct BLENDOBJ(i32);
+#[cfg(feature = "Win32_Graphics_Gdi")]
+pub struct BLENDOBJ {
+    pub BlendFunction: super::super::Graphics::Gdi::BLENDFUNCTION,
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::core::marker::Copy for BLENDOBJ {}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::core::clone::Clone for BLENDOBJ {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const BMF_16BPP: i32 = 4i32;
 pub const BMF_1BPP: i32 = 1i32;
 pub const BMF_24BPP: i32 = 5i32;
@@ -284,15 +332,55 @@ pub const BRIGHTNESS_INTERFACE_VERSION_1: BRIGHTNESS_INTERFACE_VERSION = BRIGHTN
 pub const BRIGHTNESS_INTERFACE_VERSION_2: BRIGHTNESS_INTERFACE_VERSION = BRIGHTNESS_INTERFACE_VERSION(2i32);
 pub const BRIGHTNESS_INTERFACE_VERSION_3: BRIGHTNESS_INTERFACE_VERSION = BRIGHTNESS_INTERFACE_VERSION(3i32);
 #[repr(C)]
-pub struct BRIGHTNESS_LEVEL(i32);
+pub struct BRIGHTNESS_LEVEL {
+    pub Count: u8,
+    pub Level: [u8; 103],
+}
+impl ::core::marker::Copy for BRIGHTNESS_LEVEL {}
+impl ::core::clone::Clone for BRIGHTNESS_LEVEL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const BRIGHTNESS_MAX_LEVEL_COUNT: u32 = 103u32;
 pub const BRIGHTNESS_MAX_NIT_RANGE_COUNT: u32 = 16u32;
 #[repr(C)]
-pub struct BRIGHTNESS_NIT_RANGE(i32);
+pub struct BRIGHTNESS_NIT_RANGE {
+    pub MinLevelInMillinit: u32,
+    pub MaxLevelInMillinit: u32,
+    pub StepSizeInMillinit: u32,
+}
+impl ::core::marker::Copy for BRIGHTNESS_NIT_RANGE {}
+impl ::core::clone::Clone for BRIGHTNESS_NIT_RANGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct BRIGHTNESS_NIT_RANGES(i32);
+pub struct BRIGHTNESS_NIT_RANGES {
+    pub NormalRangeCount: u32,
+    pub RangeCount: u32,
+    pub PreferredMaximumBrightness: u32,
+    pub SupportedRanges: [BRIGHTNESS_NIT_RANGE; 16],
+}
+impl ::core::marker::Copy for BRIGHTNESS_NIT_RANGES {}
+impl ::core::clone::Clone for BRIGHTNESS_NIT_RANGES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct BRUSHOBJ(i32);
+pub struct BRUSHOBJ {
+    pub iSolidColor: u32,
+    pub pvRbrush: *mut ::core::ffi::c_void,
+    pub flColorType: u32,
+}
+impl ::core::marker::Copy for BRUSHOBJ {}
+impl ::core::clone::Clone for BRUSHOBJ {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const BR_CMYKCOLOR: u32 = 4u32;
 pub const BR_DEVICE_ICM: u32 = 1u32;
 pub const BR_HOST_ICM: u32 = 2u32;
@@ -306,9 +394,23 @@ pub const CDBEX_DXINTEROP: u32 = 2u32;
 pub const CDBEX_NTSHAREDSURFACEHANDLE: u32 = 4u32;
 pub const CDBEX_REDIRECTION: u32 = 1u32;
 pub const CDBEX_REUSE: u32 = 16u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CDDDXGK_REDIRBITMAPPRESENTINFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CDDDXGK_REDIRBITMAPPRESENTINFO {
+    pub NumDirtyRects: u32,
+    pub DirtyRect: *mut super::super::Foundation::RECT,
+    pub NumContexts: u32,
+    pub hContext: [super::super::Foundation::HANDLE; 65],
+    pub bDoNotSynchronizeWithDxContent: super::super::Foundation::BOOLEAN,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CDDDXGK_REDIRBITMAPPRESENTINFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CDDDXGK_REDIRBITMAPPRESENTINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CD_ANY: i32 = 4i32;
 pub const CD_LEFTDOWN: i32 = 1i32;
 pub const CD_LEFTUP: i32 = 3i32;
@@ -316,48 +418,273 @@ pub const CD_LEFTWARDS: i32 = 1i32;
 pub const CD_RIGHTDOWN: i32 = 0i32;
 pub const CD_RIGHTUP: i32 = 2i32;
 pub const CD_UPWARDS: i32 = 2i32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Console"))]
 #[repr(C)]
-pub struct CHAR_IMAGE_INFO(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Console"))]
+pub struct CHAR_IMAGE_INFO {
+    pub CharInfo: super::super::System::Console::CHAR_INFO,
+    pub FontImageInfo: FONT_IMAGE_INFO,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Console"))]
+impl ::core::marker::Copy for CHAR_IMAGE_INFO {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Console"))]
+impl ::core::clone::Clone for CHAR_IMAGE_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CHAR_TYPE_LEADING: u32 = 2u32;
 pub const CHAR_TYPE_SBCS: u32 = 0u32;
 pub const CHAR_TYPE_TRAILING: u32 = 3u32;
 #[repr(C)]
-pub struct CHROMATICITY_COORDINATE(i32);
+pub struct CHROMATICITY_COORDINATE {
+    pub x: f32,
+    pub y: f32,
+}
+impl ::core::marker::Copy for CHROMATICITY_COORDINATE {}
+impl ::core::clone::Clone for CHROMATICITY_COORDINATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CIECHROMA(i32);
+pub struct CIECHROMA {
+    pub x: i32,
+    pub y: i32,
+    pub Y: i32,
+}
+impl ::core::marker::Copy for CIECHROMA {}
+impl ::core::clone::Clone for CIECHROMA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CLIPLINE(i32);
+pub struct CLIPLINE {
+    pub ptfxA: POINTFIX,
+    pub ptfxB: POINTFIX,
+    pub lStyleState: i32,
+    pub c: u32,
+    pub arun: [RUN; 1],
+}
+impl ::core::marker::Copy for CLIPLINE {}
+impl ::core::clone::Clone for CLIPLINE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+pub struct CLIPOBJ {
+    pub iUniq: u32,
+    pub rclBounds: super::super::Foundation::RECTL,
+    pub iDComplexity: u8,
+    pub iFComplexity: u8,
+    pub iMode: u8,
+    pub fjOptions: u8,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CLIPOBJ {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CLIPOBJ {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CLIPOBJ(i32);
+pub struct COLORINFO {
+    pub Red: CIECHROMA,
+    pub Green: CIECHROMA,
+    pub Blue: CIECHROMA,
+    pub Cyan: CIECHROMA,
+    pub Magenta: CIECHROMA,
+    pub Yellow: CIECHROMA,
+    pub AlignmentWhite: CIECHROMA,
+    pub RedGamma: i32,
+    pub GreenGamma: i32,
+    pub BlueGamma: i32,
+    pub MagentaInCyanDye: i32,
+    pub YellowInCyanDye: i32,
+    pub CyanInMagentaDye: i32,
+    pub YellowInMagentaDye: i32,
+    pub CyanInYellowDye: i32,
+    pub MagentaInYellowDye: i32,
+}
+impl ::core::marker::Copy for COLORINFO {}
+impl ::core::clone::Clone for COLORINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct COLORINFO(i32);
+pub struct COLORSPACE_TRANSFORM {
+    pub Type: COLORSPACE_TRANSFORM_TYPE,
+    pub Data: COLORSPACE_TRANSFORM_0,
+}
+impl ::core::marker::Copy for COLORSPACE_TRANSFORM {}
+impl ::core::clone::Clone for COLORSPACE_TRANSFORM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct COLORSPACE_TRANSFORM(i32);
+pub union COLORSPACE_TRANSFORM_0 {
+    pub Rgb256x3x16: GAMMA_RAMP_RGB256x3x16,
+    pub Dxgi1: GAMMA_RAMP_DXGI_1,
+    pub T3x4: COLORSPACE_TRANSFORM_3x4,
+    pub MatrixV2: COLORSPACE_TRANSFORM_MATRIX_V2,
+}
+impl ::core::clone::Clone for COLORSPACE_TRANSFORM_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct COLORSPACE_TRANSFORM_1DLUT_CAP(i32);
+pub struct COLORSPACE_TRANSFORM_1DLUT_CAP {
+    pub NumberOfLUTEntries: u32,
+    pub DataCap: COLORSPACE_TRANSFORM_DATA_CAP,
+}
+impl ::core::marker::Copy for COLORSPACE_TRANSFORM_1DLUT_CAP {}
+impl ::core::clone::Clone for COLORSPACE_TRANSFORM_1DLUT_CAP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct COLORSPACE_TRANSFORM_3x4(i32);
+pub struct COLORSPACE_TRANSFORM_3x4 {
+    pub ColorMatrix3x4: [f32; 12],
+    pub ScalarMultiplier: f32,
+    pub LookupTable1D: [GAMMA_RAMP_RGB; 4096],
+}
+impl ::core::marker::Copy for COLORSPACE_TRANSFORM_3x4 {}
+impl ::core::clone::Clone for COLORSPACE_TRANSFORM_3x4 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct COLORSPACE_TRANSFORM_DATA_CAP(i32);
+pub struct COLORSPACE_TRANSFORM_DATA_CAP {
+    pub DataType: COLORSPACE_TRANSFORM_DATA_TYPE,
+    pub Anonymous: COLORSPACE_TRANSFORM_DATA_CAP_0,
+    pub NumericRangeMin: f32,
+    pub NumericRangeMax: f32,
+}
+impl ::core::marker::Copy for COLORSPACE_TRANSFORM_DATA_CAP {}
+impl ::core::clone::Clone for COLORSPACE_TRANSFORM_DATA_CAP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub union COLORSPACE_TRANSFORM_DATA_CAP_0 {
+    pub Anonymous1: COLORSPACE_TRANSFORM_DATA_CAP_0_0,
+    pub Anonymous2: COLORSPACE_TRANSFORM_DATA_CAP_0_1,
+    pub Value: u32,
+}
+impl ::core::clone::Clone for COLORSPACE_TRANSFORM_DATA_CAP_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct COLORSPACE_TRANSFORM_DATA_CAP_0_0 {
+    pub _bitfield: u32,
+}
+impl ::core::marker::Copy for COLORSPACE_TRANSFORM_DATA_CAP_0_0 {}
+impl ::core::clone::Clone for COLORSPACE_TRANSFORM_DATA_CAP_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct COLORSPACE_TRANSFORM_DATA_CAP_0_1 {
+    pub _bitfield: u32,
+}
+impl ::core::marker::Copy for COLORSPACE_TRANSFORM_DATA_CAP_0_1 {}
+impl ::core::clone::Clone for COLORSPACE_TRANSFORM_DATA_CAP_0_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct COLORSPACE_TRANSFORM_DATA_TYPE(pub i32);
 pub const COLORSPACE_TRANSFORM_DATA_TYPE_FIXED_POINT: COLORSPACE_TRANSFORM_DATA_TYPE = COLORSPACE_TRANSFORM_DATA_TYPE(0i32);
 pub const COLORSPACE_TRANSFORM_DATA_TYPE_FLOAT: COLORSPACE_TRANSFORM_DATA_TYPE = COLORSPACE_TRANSFORM_DATA_TYPE(1i32);
 #[repr(C)]
-pub struct COLORSPACE_TRANSFORM_MATRIX_CAP(i32);
+pub struct COLORSPACE_TRANSFORM_MATRIX_CAP {
+    pub Anonymous: COLORSPACE_TRANSFORM_MATRIX_CAP_0,
+    pub DataCap: COLORSPACE_TRANSFORM_DATA_CAP,
+}
+impl ::core::marker::Copy for COLORSPACE_TRANSFORM_MATRIX_CAP {}
+impl ::core::clone::Clone for COLORSPACE_TRANSFORM_MATRIX_CAP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct COLORSPACE_TRANSFORM_MATRIX_V2(i32);
+pub union COLORSPACE_TRANSFORM_MATRIX_CAP_0 {
+    pub Anonymous: COLORSPACE_TRANSFORM_MATRIX_CAP_0_0,
+    pub Value: u32,
+}
+impl ::core::clone::Clone for COLORSPACE_TRANSFORM_MATRIX_CAP_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct COLORSPACE_TRANSFORM_SET_INPUT(i32);
+pub struct COLORSPACE_TRANSFORM_MATRIX_CAP_0_0 {
+    pub _bitfield: u32,
+}
+impl ::core::marker::Copy for COLORSPACE_TRANSFORM_MATRIX_CAP_0_0 {}
+impl ::core::clone::Clone for COLORSPACE_TRANSFORM_MATRIX_CAP_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct COLORSPACE_TRANSFORM_MATRIX_V2 {
+    pub StageControlLookupTable1DDegamma: COLORSPACE_TRANSFORM_STAGE_CONTROL,
+    pub LookupTable1DDegamma: [GAMMA_RAMP_RGB; 4096],
+    pub StageControlColorMatrix3x3: COLORSPACE_TRANSFORM_STAGE_CONTROL,
+    pub ColorMatrix3x3: [f32; 9],
+    pub StageControlLookupTable1DRegamma: COLORSPACE_TRANSFORM_STAGE_CONTROL,
+    pub LookupTable1DRegamma: [GAMMA_RAMP_RGB; 4096],
+}
+impl ::core::marker::Copy for COLORSPACE_TRANSFORM_MATRIX_V2 {}
+impl ::core::clone::Clone for COLORSPACE_TRANSFORM_MATRIX_V2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct COLORSPACE_TRANSFORM_SET_INPUT {
+    pub OutputWireColorSpaceExpected: OUTPUT_WIRE_COLOR_SPACE_TYPE,
+    pub OutputWireFormatExpected: OUTPUT_WIRE_FORMAT,
+    pub ColorSpaceTransform: COLORSPACE_TRANSFORM,
+}
+impl ::core::marker::Copy for COLORSPACE_TRANSFORM_SET_INPUT {}
+impl ::core::clone::Clone for COLORSPACE_TRANSFORM_SET_INPUT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct COLORSPACE_TRANSFORM_STAGE_CONTROL(pub i32);
 pub const ColorSpaceTransformStageControl_No_Change: COLORSPACE_TRANSFORM_STAGE_CONTROL = COLORSPACE_TRANSFORM_STAGE_CONTROL(0i32);
 pub const ColorSpaceTransformStageControl_Enable: COLORSPACE_TRANSFORM_STAGE_CONTROL = COLORSPACE_TRANSFORM_STAGE_CONTROL(1i32);
 pub const ColorSpaceTransformStageControl_Bypass: COLORSPACE_TRANSFORM_STAGE_CONTROL = COLORSPACE_TRANSFORM_STAGE_CONTROL(2i32);
 #[repr(C)]
-pub struct COLORSPACE_TRANSFORM_TARGET_CAPS(i32);
+pub struct COLORSPACE_TRANSFORM_TARGET_CAPS {
+    pub Version: COLORSPACE_TRANSFORM_TARGET_CAPS_VERSION,
+    pub LookupTable1DDegammaCap: COLORSPACE_TRANSFORM_1DLUT_CAP,
+    pub ColorMatrix3x3Cap: COLORSPACE_TRANSFORM_MATRIX_CAP,
+    pub LookupTable1DRegammaCap: COLORSPACE_TRANSFORM_1DLUT_CAP,
+}
+impl ::core::marker::Copy for COLORSPACE_TRANSFORM_TARGET_CAPS {}
+impl ::core::clone::Clone for COLORSPACE_TRANSFORM_TARGET_CAPS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct COLORSPACE_TRANSFORM_TARGET_CAPS_VERSION(pub i32);
 pub const COLORSPACE_TRANSFORM_VERSION_DEFAULT: COLORSPACE_TRANSFORM_TARGET_CAPS_VERSION = COLORSPACE_TRANSFORM_TARGET_CAPS_VERSION(0i32);
@@ -385,14 +712,56 @@ pub const DDI_DRIVER_VERSION_NT5_01_SP1: u32 = 196865u32;
 pub const DDI_DRIVER_VERSION_SP3: u32 = 131075u32;
 pub const DDI_ERROR: u32 = 4294967295u32;
 #[repr(C)]
-pub struct DEVHTADJDATA(i32);
+pub struct DEVHTADJDATA {
+    pub DeviceFlags: u32,
+    pub DeviceXDPI: u32,
+    pub DeviceYDPI: u32,
+    pub pDefHTInfo: *mut DEVHTINFO,
+    pub pAdjHTInfo: *mut DEVHTINFO,
+}
+impl ::core::marker::Copy for DEVHTADJDATA {}
+impl ::core::clone::Clone for DEVHTADJDATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DEVHTADJF_ADDITIVE_DEVICE: u32 = 2u32;
 pub const DEVHTADJF_COLOR_DEVICE: u32 = 1u32;
 #[repr(C)]
-pub struct DEVHTINFO(i32);
-#[cfg(feature = "Win32_Graphics_Gdi")]
+pub struct DEVHTINFO {
+    pub HTFlags: u32,
+    pub HTPatternSize: u32,
+    pub DevPelsDPI: u32,
+    pub ColorInfo: COLORINFO,
+}
+impl ::core::marker::Copy for DEVHTINFO {}
+impl ::core::clone::Clone for DEVHTINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DEVINFO(i32);
+#[cfg(feature = "Win32_Graphics_Gdi")]
+pub struct DEVINFO {
+    pub flGraphicsCaps: u32,
+    pub lfDefaultFont: super::super::Graphics::Gdi::LOGFONTW,
+    pub lfAnsiVarFont: super::super::Graphics::Gdi::LOGFONTW,
+    pub lfAnsiFixFont: super::super::Graphics::Gdi::LOGFONTW,
+    pub cFonts: u32,
+    pub iDitherFormat: u32,
+    pub cxDither: u16,
+    pub cyDither: u16,
+    pub hpalDefault: super::super::Graphics::Gdi::HPALETTE,
+    pub flGraphicsCaps2: u32,
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::core::marker::Copy for DEVINFO {}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::core::clone::Clone for DEVINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_Device_ActivityId: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
@@ -434,20 +803,81 @@ pub const DEVPKEY_IndirectDisplay: super::super::UI::Shell::PropertiesSystem::PR
     pid: 1u32,
 };
 #[repr(C)]
-pub struct DHPDEV(i32);
+pub struct DHPDEV {
+    pub Value: isize,
+}
+impl ::core::marker::Copy for DHPDEV {}
+impl ::core::clone::Clone for DHPDEV {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DHSURF(i32);
+pub struct DHSURF {
+    pub Value: isize,
+}
+impl ::core::marker::Copy for DHSURF {}
+impl ::core::clone::Clone for DHSURF {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DISPLAYCONFIG_2DREGION(i32);
+pub struct DISPLAYCONFIG_2DREGION {
+    pub cx: u32,
+    pub cy: u32,
+}
+impl ::core::marker::Copy for DISPLAYCONFIG_2DREGION {}
+impl ::core::clone::Clone for DISPLAYCONFIG_2DREGION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct DISPLAYCONFIG_ADAPTER_NAME(i32);
+pub struct DISPLAYCONFIG_ADAPTER_NAME {
+    pub header: DISPLAYCONFIG_DEVICE_INFO_HEADER,
+    pub adapterDevicePath: [u16; 128],
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct DISPLAYCONFIG_DESKTOP_IMAGE_INFO(i32);
+impl ::core::marker::Copy for DISPLAYCONFIG_ADAPTER_NAME {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DISPLAYCONFIG_ADAPTER_NAME {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DISPLAYCONFIG_DEVICE_INFO_HEADER(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct DISPLAYCONFIG_DESKTOP_IMAGE_INFO {
+    pub PathSourceSize: super::super::Foundation::POINTL,
+    pub DesktopImageRegion: super::super::Foundation::RECTL,
+    pub DesktopImageClip: super::super::Foundation::RECTL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DISPLAYCONFIG_DESKTOP_IMAGE_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DISPLAYCONFIG_DESKTOP_IMAGE_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DISPLAYCONFIG_DEVICE_INFO_HEADER {
+    pub r#type: DISPLAYCONFIG_DEVICE_INFO_TYPE,
+    pub size: u32,
+    pub adapterId: super::super::Foundation::LUID,
+    pub id: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DISPLAYCONFIG_DEVICE_INFO_HEADER {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DISPLAYCONFIG_DEVICE_INFO_HEADER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DISPLAYCONFIG_DEVICE_INFO_TYPE(pub i32);
 pub const DISPLAYCONFIG_DEVICE_INFO_GET_SOURCE_NAME: DISPLAYCONFIG_DEVICE_INFO_TYPE = DISPLAYCONFIG_DEVICE_INFO_TYPE(1i32);
@@ -464,30 +894,224 @@ pub const DISPLAYCONFIG_DEVICE_INFO_GET_SDR_WHITE_LEVEL: DISPLAYCONFIG_DEVICE_IN
 pub const DISPLAYCONFIG_DEVICE_INFO_GET_MONITOR_SPECIALIZATION: DISPLAYCONFIG_DEVICE_INFO_TYPE = DISPLAYCONFIG_DEVICE_INFO_TYPE(12i32);
 pub const DISPLAYCONFIG_DEVICE_INFO_SET_MONITOR_SPECIALIZATION: DISPLAYCONFIG_DEVICE_INFO_TYPE = DISPLAYCONFIG_DEVICE_INFO_TYPE(13i32);
 pub const DISPLAYCONFIG_DEVICE_INFO_FORCE_UINT32: DISPLAYCONFIG_DEVICE_INFO_TYPE = DISPLAYCONFIG_DEVICE_INFO_TYPE(-1i32);
+#[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+pub struct DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO {
+    pub header: DISPLAYCONFIG_DEVICE_INFO_HEADER,
+    pub Anonymous: DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_0,
+    pub colorEncoding: super::super::Graphics::Gdi::DISPLAYCONFIG_COLOR_ENCODING,
+    pub bitsPerColorChannel: u32,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::marker::Copy for DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::clone::Clone for DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+pub union DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_0 {
+    pub Anonymous: DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_0_0,
+    pub value: u32,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::clone::Clone for DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+pub struct DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_0_0 {
+    pub _bitfield: u32,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::marker::Copy for DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_0_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::clone::Clone for DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION(i32);
+pub struct DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION {
+    pub header: DISPLAYCONFIG_DEVICE_INFO_HEADER,
+    pub Anonymous: DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION_0,
+}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DISPLAYCONFIG_MODE_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub union DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION_0 {
+    pub Anonymous: DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION_0_0,
+    pub value: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION_0_0 {
+    pub _bitfield: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DISPLAYCONFIG_MODE_INFO {
+    pub infoType: DISPLAYCONFIG_MODE_INFO_TYPE,
+    pub id: u32,
+    pub adapterId: super::super::Foundation::LUID,
+    pub Anonymous: DISPLAYCONFIG_MODE_INFO_0,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DISPLAYCONFIG_MODE_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DISPLAYCONFIG_MODE_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub union DISPLAYCONFIG_MODE_INFO_0 {
+    pub targetMode: DISPLAYCONFIG_TARGET_MODE,
+    pub sourceMode: DISPLAYCONFIG_SOURCE_MODE,
+    pub desktopImageInfo: DISPLAYCONFIG_DESKTOP_IMAGE_INFO,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DISPLAYCONFIG_MODE_INFO_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DISPLAYCONFIG_MODE_INFO_TYPE(pub i32);
 pub const DISPLAYCONFIG_MODE_INFO_TYPE_SOURCE: DISPLAYCONFIG_MODE_INFO_TYPE = DISPLAYCONFIG_MODE_INFO_TYPE(1i32);
 pub const DISPLAYCONFIG_MODE_INFO_TYPE_TARGET: DISPLAYCONFIG_MODE_INFO_TYPE = DISPLAYCONFIG_MODE_INFO_TYPE(2i32);
 pub const DISPLAYCONFIG_MODE_INFO_TYPE_DESKTOP_IMAGE: DISPLAYCONFIG_MODE_INFO_TYPE = DISPLAYCONFIG_MODE_INFO_TYPE(3i32);
 pub const DISPLAYCONFIG_MODE_INFO_TYPE_FORCE_UINT32: DISPLAYCONFIG_MODE_INFO_TYPE = DISPLAYCONFIG_MODE_INFO_TYPE(-1i32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct DISPLAYCONFIG_PATH_INFO(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct DISPLAYCONFIG_PATH_SOURCE_INFO(i32);
+pub struct DISPLAYCONFIG_PATH_INFO {
+    pub sourceInfo: DISPLAYCONFIG_PATH_SOURCE_INFO,
+    pub targetInfo: DISPLAYCONFIG_PATH_TARGET_INFO,
+    pub flags: u32,
+}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DISPLAYCONFIG_PATH_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DISPLAYCONFIG_PATH_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DISPLAYCONFIG_PATH_TARGET_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct DISPLAYCONFIG_PATH_SOURCE_INFO {
+    pub adapterId: super::super::Foundation::LUID,
+    pub id: u32,
+    pub Anonymous: DISPLAYCONFIG_PATH_SOURCE_INFO_0,
+    pub statusFlags: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DISPLAYCONFIG_PATH_SOURCE_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DISPLAYCONFIG_PATH_SOURCE_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub union DISPLAYCONFIG_PATH_SOURCE_INFO_0 {
+    pub modeInfoIdx: u32,
+    pub Anonymous: DISPLAYCONFIG_PATH_SOURCE_INFO_0_0,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DISPLAYCONFIG_PATH_SOURCE_INFO_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DISPLAYCONFIG_PATH_SOURCE_INFO_0_0 {
+    pub _bitfield: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DISPLAYCONFIG_PATH_SOURCE_INFO_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DISPLAYCONFIG_PATH_SOURCE_INFO_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DISPLAYCONFIG_PATH_TARGET_INFO {
+    pub adapterId: super::super::Foundation::LUID,
+    pub id: u32,
+    pub Anonymous: DISPLAYCONFIG_PATH_TARGET_INFO_0,
+    pub outputTechnology: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY,
+    pub rotation: DISPLAYCONFIG_ROTATION,
+    pub scaling: DISPLAYCONFIG_SCALING,
+    pub refreshRate: DISPLAYCONFIG_RATIONAL,
+    pub scanLineOrdering: DISPLAYCONFIG_SCANLINE_ORDERING,
+    pub targetAvailable: super::super::Foundation::BOOL,
+    pub statusFlags: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DISPLAYCONFIG_PATH_TARGET_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DISPLAYCONFIG_PATH_TARGET_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub union DISPLAYCONFIG_PATH_TARGET_INFO_0 {
+    pub modeInfoIdx: u32,
+    pub Anonymous: DISPLAYCONFIG_PATH_TARGET_INFO_0_0,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DISPLAYCONFIG_PATH_TARGET_INFO_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DISPLAYCONFIG_PATH_TARGET_INFO_0_0 {
+    pub _bitfield: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DISPLAYCONFIG_PATH_TARGET_INFO_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DISPLAYCONFIG_PATH_TARGET_INFO_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DISPLAYCONFIG_PIXELFORMAT(pub i32);
 pub const DISPLAYCONFIG_PIXELFORMAT_8BPP: DISPLAYCONFIG_PIXELFORMAT = DISPLAYCONFIG_PIXELFORMAT(1i32);
@@ -497,7 +1121,16 @@ pub const DISPLAYCONFIG_PIXELFORMAT_32BPP: DISPLAYCONFIG_PIXELFORMAT = DISPLAYCO
 pub const DISPLAYCONFIG_PIXELFORMAT_NONGDI: DISPLAYCONFIG_PIXELFORMAT = DISPLAYCONFIG_PIXELFORMAT(5i32);
 pub const DISPLAYCONFIG_PIXELFORMAT_FORCE_UINT32: DISPLAYCONFIG_PIXELFORMAT = DISPLAYCONFIG_PIXELFORMAT(-1i32);
 #[repr(C)]
-pub struct DISPLAYCONFIG_RATIONAL(i32);
+pub struct DISPLAYCONFIG_RATIONAL {
+    pub Numerator: u32,
+    pub Denominator: u32,
+}
+impl ::core::marker::Copy for DISPLAYCONFIG_RATIONAL {}
+impl ::core::clone::Clone for DISPLAYCONFIG_RATIONAL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DISPLAYCONFIG_ROTATION(pub i32);
 pub const DISPLAYCONFIG_ROTATION_IDENTITY: DISPLAYCONFIG_ROTATION = DISPLAYCONFIG_ROTATION(1i32);
@@ -522,40 +1155,299 @@ pub const DISPLAYCONFIG_SCANLINE_ORDERING_INTERLACED: DISPLAYCONFIG_SCANLINE_ORD
 pub const DISPLAYCONFIG_SCANLINE_ORDERING_INTERLACED_UPPERFIELDFIRST: DISPLAYCONFIG_SCANLINE_ORDERING = DISPLAYCONFIG_SCANLINE_ORDERING(2i32);
 pub const DISPLAYCONFIG_SCANLINE_ORDERING_INTERLACED_LOWERFIELDFIRST: DISPLAYCONFIG_SCANLINE_ORDERING = DISPLAYCONFIG_SCANLINE_ORDERING(3i32);
 pub const DISPLAYCONFIG_SCANLINE_ORDERING_FORCE_UINT32: DISPLAYCONFIG_SCANLINE_ORDERING = DISPLAYCONFIG_SCANLINE_ORDERING(-1i32);
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct DISPLAYCONFIG_SDR_WHITE_LEVEL(i32);
+pub struct DISPLAYCONFIG_SDR_WHITE_LEVEL {
+    pub header: DISPLAYCONFIG_DEVICE_INFO_HEADER,
+    pub SDRWhiteLevel: u32,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE(i32);
+impl ::core::marker::Copy for DISPLAYCONFIG_SDR_WHITE_LEVEL {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DISPLAYCONFIG_SDR_WHITE_LEVEL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct DISPLAYCONFIG_SET_TARGET_PERSISTENCE(i32);
+pub struct DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE {
+    pub header: DISPLAYCONFIG_DEVICE_INFO_HEADER,
+    pub Anonymous: DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE_0,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct DISPLAYCONFIG_SOURCE_DEVICE_NAME(i32);
+impl ::core::marker::Copy for DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DISPLAYCONFIG_SOURCE_MODE(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION(i32);
+pub union DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE_0 {
+    pub Anonymous: DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE_0_0,
+    pub value: u32,
+}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DISPLAYCONFIG_TARGET_BASE_TYPE(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct DISPLAYCONFIG_TARGET_DEVICE_NAME(i32);
-#[repr(C)]
-pub struct DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS(i32);
-#[repr(C)]
-pub struct DISPLAYCONFIG_TARGET_MODE(i32);
+pub struct DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE_0_0 {
+    pub _bitfield: u32,
+}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DISPLAYCONFIG_TARGET_PREFERRED_MODE(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION {
+    pub header: DISPLAYCONFIG_DEVICE_INFO_HEADER,
+    pub Anonymous: DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION_0,
+    pub specializationType: ::windows_sys::core::GUID,
+    pub specializationSubType: ::windows_sys::core::GUID,
+    pub specializationApplicationName: [u16; 128],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub union DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION_0 {
+    pub Anonymous: DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION_0_0,
+    pub value: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION_0_0 {
+    pub _bitfield: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DISPLAYCONFIG_SET_TARGET_PERSISTENCE {
+    pub header: DISPLAYCONFIG_DEVICE_INFO_HEADER,
+    pub Anonymous: DISPLAYCONFIG_SET_TARGET_PERSISTENCE_0,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DISPLAYCONFIG_SET_TARGET_PERSISTENCE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DISPLAYCONFIG_SET_TARGET_PERSISTENCE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub union DISPLAYCONFIG_SET_TARGET_PERSISTENCE_0 {
+    pub Anonymous: DISPLAYCONFIG_SET_TARGET_PERSISTENCE_0_0,
+    pub value: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DISPLAYCONFIG_SET_TARGET_PERSISTENCE_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DISPLAYCONFIG_SET_TARGET_PERSISTENCE_0_0 {
+    pub _bitfield: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DISPLAYCONFIG_SET_TARGET_PERSISTENCE_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DISPLAYCONFIG_SET_TARGET_PERSISTENCE_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DISPLAYCONFIG_SOURCE_DEVICE_NAME {
+    pub header: DISPLAYCONFIG_DEVICE_INFO_HEADER,
+    pub viewGdiDeviceName: [u16; 32],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DISPLAYCONFIG_SOURCE_DEVICE_NAME {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DISPLAYCONFIG_SOURCE_DEVICE_NAME {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DISPLAYCONFIG_SOURCE_MODE {
+    pub width: u32,
+    pub height: u32,
+    pub pixelFormat: DISPLAYCONFIG_PIXELFORMAT,
+    pub position: super::super::Foundation::POINTL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DISPLAYCONFIG_SOURCE_MODE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DISPLAYCONFIG_SOURCE_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION {
+    pub header: DISPLAYCONFIG_DEVICE_INFO_HEADER,
+    pub Anonymous: DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION_0,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub union DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION_0 {
+    pub Anonymous: DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION_0_0,
+    pub value: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION_0_0 {
+    pub _bitfield: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DISPLAYCONFIG_TARGET_BASE_TYPE {
+    pub header: DISPLAYCONFIG_DEVICE_INFO_HEADER,
+    pub baseOutputTechnology: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DISPLAYCONFIG_TARGET_BASE_TYPE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DISPLAYCONFIG_TARGET_BASE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DISPLAYCONFIG_TARGET_DEVICE_NAME {
+    pub header: DISPLAYCONFIG_DEVICE_INFO_HEADER,
+    pub flags: DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS,
+    pub outputTechnology: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY,
+    pub edidManufactureId: u16,
+    pub edidProductCodeId: u16,
+    pub connectorInstance: u32,
+    pub monitorFriendlyDeviceName: [u16; 64],
+    pub monitorDevicePath: [u16; 128],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DISPLAYCONFIG_TARGET_DEVICE_NAME {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DISPLAYCONFIG_TARGET_DEVICE_NAME {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS {
+    pub Anonymous: DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS_0,
+}
+impl ::core::marker::Copy for DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS {}
+impl ::core::clone::Clone for DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub union DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS_0 {
+    pub Anonymous: DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS_0_0,
+    pub value: u32,
+}
+impl ::core::clone::Clone for DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS_0_0 {
+    pub _bitfield: u32,
+}
+impl ::core::marker::Copy for DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS_0_0 {}
+impl ::core::clone::Clone for DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct DISPLAYCONFIG_TARGET_MODE {
+    pub targetVideoSignalInfo: DISPLAYCONFIG_VIDEO_SIGNAL_INFO,
+}
+impl ::core::marker::Copy for DISPLAYCONFIG_TARGET_MODE {}
+impl ::core::clone::Clone for DISPLAYCONFIG_TARGET_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DISPLAYCONFIG_TARGET_PREFERRED_MODE {
+    pub header: DISPLAYCONFIG_DEVICE_INFO_HEADER,
+    pub width: u32,
+    pub height: u32,
+    pub targetMode: DISPLAYCONFIG_TARGET_MODE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DISPLAYCONFIG_TARGET_PREFERRED_MODE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DISPLAYCONFIG_TARGET_PREFERRED_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DISPLAYCONFIG_TOPOLOGY_ID(pub i32);
 pub const DISPLAYCONFIG_TOPOLOGY_INTERNAL: DISPLAYCONFIG_TOPOLOGY_ID = DISPLAYCONFIG_TOPOLOGY_ID(1i32);
@@ -587,11 +1479,55 @@ pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_DISPLAYPORT_USB_TUNNEL: DISPLAYCONFIG_
 pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_INTERNAL: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(-2147483648i32);
 pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_FORCE_UINT32: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(-1i32);
 #[repr(C)]
-pub struct DISPLAYCONFIG_VIDEO_SIGNAL_INFO(i32);
+pub struct DISPLAYCONFIG_VIDEO_SIGNAL_INFO {
+    pub pixelRate: u64,
+    pub hSyncFreq: DISPLAYCONFIG_RATIONAL,
+    pub vSyncFreq: DISPLAYCONFIG_RATIONAL,
+    pub activeSize: DISPLAYCONFIG_2DREGION,
+    pub totalSize: DISPLAYCONFIG_2DREGION,
+    pub Anonymous: DISPLAYCONFIG_VIDEO_SIGNAL_INFO_0,
+    pub scanLineOrdering: DISPLAYCONFIG_SCANLINE_ORDERING,
+}
+impl ::core::marker::Copy for DISPLAYCONFIG_VIDEO_SIGNAL_INFO {}
+impl ::core::clone::Clone for DISPLAYCONFIG_VIDEO_SIGNAL_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub union DISPLAYCONFIG_VIDEO_SIGNAL_INFO_0 {
+    pub AdditionalSignalInfo: DISPLAYCONFIG_VIDEO_SIGNAL_INFO_0_0,
+    pub videoStandard: u32,
+}
+impl ::core::clone::Clone for DISPLAYCONFIG_VIDEO_SIGNAL_INFO_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct DISPLAYCONFIG_VIDEO_SIGNAL_INFO_0_0 {
+    pub _bitfield: u32,
+}
+impl ::core::marker::Copy for DISPLAYCONFIG_VIDEO_SIGNAL_INFO_0_0 {}
+impl ::core::clone::Clone for DISPLAYCONFIG_VIDEO_SIGNAL_INFO_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DISPLAYPOLICY_AC: u32 = 1u32;
 pub const DISPLAYPOLICY_DC: u32 = 2u32;
 #[repr(C)]
-pub struct DISPLAY_BRIGHTNESS(i32);
+pub struct DISPLAY_BRIGHTNESS {
+    pub ucDisplayPolicy: u8,
+    pub ucACBrightness: u8,
+    pub ucDCBrightness: u8,
+}
+impl ::core::marker::Copy for DISPLAY_BRIGHTNESS {}
+impl ::core::clone::Clone for DISPLAY_BRIGHTNESS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DM_DEFAULT: u32 = 1u32;
 pub const DM_MONOCHROME: u32 = 2u32;
 pub const DN_ACCELERATION_LEVEL: u32 = 1u32;
@@ -605,16 +1541,59 @@ pub const DN_SURFOBJ_DESTRUCTION: u32 = 8u32;
 pub const DRD_ERROR: u32 = 1u32;
 pub const DRD_SUCCESS: u32 = 0u32;
 pub const DRH_APIBITMAP: u32 = 1u32;
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct DRH_APIBITMAPDATA(i32);
+pub struct DRH_APIBITMAPDATA {
+    pub pso: *mut SURFOBJ,
+    pub b: super::super::Foundation::BOOL,
+}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DRH_APIBITMAPDATA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DRH_APIBITMAPDATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DRIVEROBJ(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct DRIVEROBJ {
+    pub pvObj: *mut ::core::ffi::c_void,
+    pub pFreeProc: ::core::option::Option<FREEOBJPROC>,
+    pub hdev: HDEV,
+    pub dhpdev: DHPDEV,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DRIVEROBJ {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DRIVEROBJ {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DRVENABLEDATA(i32);
+pub struct DRVENABLEDATA {
+    pub iDriverVersion: u32,
+    pub c: u32,
+    pub pdrvfn: *mut DRVFN,
+}
+impl ::core::marker::Copy for DRVENABLEDATA {}
+impl ::core::clone::Clone for DRVENABLEDATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DRVFN(i32);
+pub struct DRVFN {
+    pub iFunc: u32,
+    pub pfn: ::core::option::Option<PFN>,
+}
+impl ::core::marker::Copy for DRVFN {}
+impl ::core::clone::Clone for DRVFN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DRVQUERY_USERMODE: u32 = 1u32;
 pub const DSI_CHECKSUM_ERROR_CORRECTED: u32 = 256u32;
 pub const DSI_CHECKSUM_ERROR_NOT_CORRECTED: u32 = 512u32;
@@ -644,35 +1623,100 @@ pub const DSS_RESERVED1: u32 = 8u32;
 pub const DSS_RESERVED2: u32 = 16u32;
 pub const DSS_TIMER_EVENT: u32 = 1u32;
 #[repr(C)]
-pub struct DXGK_WIN32K_PARAM_DATA(i32);
+pub struct DXGK_WIN32K_PARAM_DATA {
+    pub PathsArray: *mut ::core::ffi::c_void,
+    pub ModesArray: *mut ::core::ffi::c_void,
+    pub NumPathArrayElements: u32,
+    pub NumModeArrayElements: u32,
+    pub SDCFlags: u32,
+}
+impl ::core::marker::Copy for DXGK_WIN32K_PARAM_DATA {}
+impl ::core::clone::Clone for DXGK_WIN32K_PARAM_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DXGK_WIN32K_PARAM_FLAG_DISABLEVIEW: u32 = 4u32;
 pub const DXGK_WIN32K_PARAM_FLAG_MODESWITCH: u32 = 2u32;
 pub const DXGK_WIN32K_PARAM_FLAG_UPDATEREGISTRY: u32 = 1u32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[repr(C)]
-pub struct DisplayMode(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+pub struct DisplayMode {
+    pub DeviceName: [u16; 32],
+    pub devMode: super::super::Graphics::Gdi::DEVMODEW,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::marker::Copy for DisplayMode {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::clone::Clone for DisplayMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DisplayModes(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+pub struct DisplayModes {
+    pub numDisplayModes: i32,
+    pub displayMode: [DisplayMode; 1],
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::marker::Copy for DisplayModes {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::clone::Clone for DisplayModes {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const ECS_REDRAW: u32 = 2u32;
 pub const ECS_TEARDOWN: u32 = 1u32;
 pub const ED_ABORTDOC: u32 = 1u32;
 pub const EHN_ERROR: u32 = 1u32;
 pub const EHN_RESTORED: u32 = 0u32;
-#[cfg(feature = "Win32_Graphics_Gdi")]
 #[repr(C)]
-pub struct EMFINFO(i32);
+#[cfg(feature = "Win32_Graphics_Gdi")]
+pub struct EMFINFO {
+    pub nSize: u32,
+    pub hdc: super::super::Graphics::Gdi::HDC,
+    pub pvEMF: *mut u8,
+    pub pvCurrentRecord: *mut u8,
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::core::marker::Copy for EMFINFO {}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::core::clone::Clone for EMFINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const ENDCAP_BUTT: i32 = 2i32;
 pub const ENDCAP_ROUND: i32 = 0i32;
 pub const ENDCAP_SQUARE: i32 = 1i32;
 #[repr(C)]
-pub struct ENGSAFESEMAPHORE(i32);
+pub struct ENGSAFESEMAPHORE {
+    pub hsem: HSEMAPHORE,
+    pub lCount: i32,
+}
+impl ::core::marker::Copy for ENGSAFESEMAPHORE {}
+impl ::core::clone::Clone for ENGSAFESEMAPHORE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ENG_DEVICE_ATTRIBUTE(pub i32);
 pub const QDA_RESERVED: ENG_DEVICE_ATTRIBUTE = ENG_DEVICE_ATTRIBUTE(0i32);
 pub const QDA_ACCELERATION_LEVEL: ENG_DEVICE_ATTRIBUTE = ENG_DEVICE_ATTRIBUTE(1i32);
 #[repr(C)]
-pub struct ENG_EVENT(i32);
+pub struct ENG_EVENT {
+    pub pKEvent: *mut ::core::ffi::c_void,
+    pub fFlags: u32,
+}
+impl ::core::marker::Copy for ENG_EVENT {}
+impl ::core::clone::Clone for ENG_EVENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const ENG_FNT_CACHE_READ_FAULT: u32 = 1u32;
 pub const ENG_FNT_CACHE_WRITE_FAULT: u32 = 2u32;
 #[repr(transparent)]
@@ -682,10 +1726,36 @@ pub const EngNumberOfProcessors: ENG_SYSTEM_ATTRIBUTE = ENG_SYSTEM_ATTRIBUTE(2i3
 pub const EngOptimumAvailableUserMemory: ENG_SYSTEM_ATTRIBUTE = ENG_SYSTEM_ATTRIBUTE(3i32);
 pub const EngOptimumAvailableSystemMemory: ENG_SYSTEM_ATTRIBUTE = ENG_SYSTEM_ATTRIBUTE(4i32);
 #[repr(C)]
-pub struct ENG_TIME_FIELDS(i32);
-#[cfg(feature = "Win32_Foundation")]
+pub struct ENG_TIME_FIELDS {
+    pub usYear: u16,
+    pub usMonth: u16,
+    pub usDay: u16,
+    pub usHour: u16,
+    pub usMinute: u16,
+    pub usSecond: u16,
+    pub usMilliseconds: u16,
+    pub usWeekday: u16,
+}
+impl ::core::marker::Copy for ENG_TIME_FIELDS {}
+impl ::core::clone::Clone for ENG_TIME_FIELDS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct ENUMRECTS(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct ENUMRECTS {
+    pub c: u32,
+    pub arcl: [super::super::Foundation::RECTL; 1],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ENUMRECTS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ENUMRECTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const FC_COMPLEX: u32 = 3u32;
 pub const FC_RECT: u32 = 1u32;
 pub const FC_RECT4: u32 = 2u32;
@@ -694,43 +1764,205 @@ pub const FDM_TYPE_CHAR_INC_EQUAL_BM_BASE: u32 = 4u32;
 pub const FDM_TYPE_CONST_BEARINGS: u32 = 16u32;
 pub const FDM_TYPE_MAXEXT_EQUAL_BM_SIDE: u32 = 2u32;
 pub const FDM_TYPE_ZERO_BEARINGS: u32 = 8u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct FD_DEVICEMETRICS(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct FD_DEVICEMETRICS {
+    pub flRealizedType: u32,
+    pub pteBase: POINTE,
+    pub pteSide: POINTE,
+    pub lD: i32,
+    pub fxMaxAscender: i32,
+    pub fxMaxDescender: i32,
+    pub ptlUnderline1: super::super::Foundation::POINTL,
+    pub ptlStrikeOut: super::super::Foundation::POINTL,
+    pub ptlULThickness: super::super::Foundation::POINTL,
+    pub ptlSOThickness: super::super::Foundation::POINTL,
+    pub cxMax: u32,
+    pub cyMax: u32,
+    pub cjGlyphMax: u32,
+    pub fdxQuantized: FD_XFORM,
+    pub lNonLinearExtLeading: i32,
+    pub lNonLinearIntLeading: i32,
+    pub lNonLinearMaxCharWidth: i32,
+    pub lNonLinearAvgCharWidth: i32,
+    pub lMinA: i32,
+    pub lMinC: i32,
+    pub lMinD: i32,
+    pub alReserved: [i32; 1],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for FD_DEVICEMETRICS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for FD_DEVICEMETRICS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const FD_ERROR: u32 = 4294967295u32;
 #[repr(C)]
-pub struct FD_GLYPHATTR(i32);
+pub struct FD_GLYPHATTR {
+    pub cjThis: u32,
+    pub cGlyphs: u32,
+    pub iMode: u32,
+    pub aGlyphAttr: [u8; 1],
+}
+impl ::core::marker::Copy for FD_GLYPHATTR {}
+impl ::core::clone::Clone for FD_GLYPHATTR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct FD_GLYPHSET(i32);
+pub struct FD_GLYPHSET {
+    pub cjThis: u32,
+    pub flAccel: u32,
+    pub cGlyphsSupported: u32,
+    pub cRuns: u32,
+    pub awcrun: [WCRUN; 1],
+}
+impl ::core::marker::Copy for FD_GLYPHSET {}
+impl ::core::clone::Clone for FD_GLYPHSET {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct FD_KERNINGPAIR(i32);
+pub struct FD_KERNINGPAIR {
+    pub wcFirst: u16,
+    pub wcSecond: u16,
+    pub fwdKern: i16,
+}
+impl ::core::marker::Copy for FD_KERNINGPAIR {}
+impl ::core::clone::Clone for FD_KERNINGPAIR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct FD_LIGATURE(i32);
+pub struct FD_LIGATURE {
+    pub culThis: u32,
+    pub ulType: u32,
+    pub cLigatures: u32,
+    pub alig: [LIGATURE; 1],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for FD_LIGATURE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for FD_LIGATURE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const FD_NEGATIVE_FONT: i32 = 1i32;
+#[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+pub struct FD_XFORM {
+    pub eXX: f32,
+    pub eXY: f32,
+    pub eYX: f32,
+    pub eYY: f32,
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::marker::Copy for FD_XFORM {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::clone::Clone for FD_XFORM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct FD_XFORM(i32);
 #[cfg(any(target_arch = "x86",))]
-#[repr(C)]
-pub struct FD_XFORM(i32);
+pub struct FD_XFORM {
+    pub eXX: u32,
+    pub eXY: u32,
+    pub eYX: u32,
+    pub eYY: u32,
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::core::marker::Copy for FD_XFORM {}
+#[cfg(any(target_arch = "x86",))]
+impl ::core::clone::Clone for FD_XFORM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const FF_IGNORED_SIGNATURE: u32 = 2u32;
 pub const FF_SIGNATURE_VERIFIED: u32 = 1u32;
-#[cfg(any(target_arch = "x86",))]
 #[repr(C)]
-pub struct FLOATOBJ(i32);
+#[cfg(any(target_arch = "x86",))]
+pub struct FLOATOBJ {
+    pub ul1: u32,
+    pub ul2: u32,
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::core::marker::Copy for FLOATOBJ {}
+#[cfg(any(target_arch = "x86",))]
+impl ::core::clone::Clone for FLOATOBJ {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-#[repr(C)]
-pub struct FLOATOBJ_XFORM(i32);
-#[cfg(any(target_arch = "x86",))]
-#[repr(C)]
-pub struct FLOATOBJ_XFORM(i32);
+pub struct FLOATOBJ_XFORM {
+    pub eM11: f32,
+    pub eM12: f32,
+    pub eM21: f32,
+    pub eM22: f32,
+    pub eDx: f32,
+    pub eDy: f32,
+}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::marker::Copy for FLOATOBJ_XFORM {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::clone::Clone for FLOATOBJ_XFORM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct FLOAT_LONG(i32);
 #[cfg(any(target_arch = "x86",))]
+pub struct FLOATOBJ_XFORM {
+    pub eM11: FLOATOBJ,
+    pub eM12: FLOATOBJ,
+    pub eM21: FLOATOBJ,
+    pub eM22: FLOATOBJ,
+    pub eDx: FLOATOBJ,
+    pub eDy: FLOATOBJ,
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::core::marker::Copy for FLOATOBJ_XFORM {}
+#[cfg(any(target_arch = "x86",))]
+impl ::core::clone::Clone for FLOATOBJ_XFORM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct FLOAT_LONG(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+pub union FLOAT_LONG {
+    pub e: f32,
+    pub l: i32,
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::clone::Clone for FLOAT_LONG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(any(target_arch = "x86",))]
+pub union FLOAT_LONG {
+    pub e: u32,
+    pub l: i32,
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::core::clone::Clone for FLOAT_LONG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const FL_NONPAGED_MEMORY: u32 = 2u32;
 pub const FL_NON_SESSION: u32 = 4u32;
 pub const FL_ZERO_MEMORY: u32 = 1u32;
@@ -779,19 +2011,91 @@ pub const FM_SEL_STRIKEOUT: u32 = 16u32;
 pub const FM_SEL_UNDERSCORE: u32 = 2u32;
 pub const FM_TYPE_LICENSED: u32 = 2u32;
 pub const FM_VERSION_NUMBER: u32 = 0u32;
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct FONTDIFF(i32);
-#[repr(C)]
-pub struct FONTINFO(i32);
+pub struct FONTDIFF {
+    pub jReserved1: u8,
+    pub jReserved2: u8,
+    pub jReserved3: u8,
+    pub bWeight: u8,
+    pub usWinWeight: u16,
+    pub fsSelection: u16,
+    pub fwdAveCharWidth: i16,
+    pub fwdMaxCharInc: i16,
+    pub ptlCaret: super::super::Foundation::POINTL,
+}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for FONTDIFF {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for FONTDIFF {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct FONTOBJ(i32);
+pub struct FONTINFO {
+    pub cjThis: u32,
+    pub flCaps: u32,
+    pub cGlyphsSupported: u32,
+    pub cjMaxGlyph1: u32,
+    pub cjMaxGlyph4: u32,
+    pub cjMaxGlyph8: u32,
+    pub cjMaxGlyph32: u32,
+}
+impl ::core::marker::Copy for FONTINFO {}
+impl ::core::clone::Clone for FONTINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct FONTSIM(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct FONTOBJ {
+    pub iUniq: u32,
+    pub iFace: u32,
+    pub cxMax: u32,
+    pub flFontType: u32,
+    pub iTTUniq: usize,
+    pub iFile: usize,
+    pub sizLogResPpi: super::super::Foundation::SIZE,
+    pub ulStyleSize: u32,
+    pub pvConsumer: *mut ::core::ffi::c_void,
+    pub pvProducer: *mut ::core::ffi::c_void,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for FONTOBJ {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for FONTOBJ {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct FONTSIM {
+    pub dpBold: i32,
+    pub dpItalic: i32,
+    pub dpBoldItalic: i32,
+}
+impl ::core::marker::Copy for FONTSIM {}
+impl ::core::clone::Clone for FONTSIM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_System_Console")]
-#[repr(C)]
-pub struct FONT_IMAGE_INFO(i32);
+pub struct FONT_IMAGE_INFO {
+    pub FontSize: super::super::System::Console::COORD,
+    pub ImageBits: *mut u8,
+}
+#[cfg(feature = "Win32_System_Console")]
+impl ::core::marker::Copy for FONT_IMAGE_INFO {}
+#[cfg(feature = "Win32_System_Console")]
+impl ::core::clone::Clone for FONT_IMAGE_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const FO_ATTR_MODE_ROTATE: u32 = 1u32;
 pub const FO_CFF: u32 = 1048576u32;
 pub const FO_CLEARTYPENATURAL_X: u32 = 1073741824u32;
@@ -818,33 +2122,147 @@ pub const FP_ALTERNATEMODE: i32 = 1i32;
 pub const FP_WINDINGMODE: i32 = 2i32;
 #[cfg(feature = "Win32_Foundation")]
 pub type FREEOBJPROC = unsafe extern "system" fn(pdriverobj: *mut DRIVEROBJ) -> super::super::Foundation::BOOL;
+#[repr(C)]
 #[cfg(feature = "Win32_System_Console")]
-#[repr(C)]
-pub struct FSCNTL_SCREEN_INFO(i32);
+pub struct FSCNTL_SCREEN_INFO {
+    pub Position: super::super::System::Console::COORD,
+    pub ScreenSize: super::super::System::Console::COORD,
+    pub nNumberOfChars: u32,
+}
 #[cfg(feature = "Win32_System_Console")]
-#[repr(C)]
-pub struct FSVIDEO_COPY_FRAME_BUFFER(i32);
-#[repr(C)]
-pub struct FSVIDEO_CURSOR_POSITION(i32);
-#[repr(C)]
-pub struct FSVIDEO_MODE_INFORMATION(i32);
+impl ::core::marker::Copy for FSCNTL_SCREEN_INFO {}
 #[cfg(feature = "Win32_System_Console")]
+impl ::core::clone::Clone for FSCNTL_SCREEN_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct FSVIDEO_REVERSE_MOUSE_POINTER(i32);
 #[cfg(feature = "Win32_System_Console")]
+pub struct FSVIDEO_COPY_FRAME_BUFFER {
+    pub SrcScreen: FSCNTL_SCREEN_INFO,
+    pub DestScreen: FSCNTL_SCREEN_INFO,
+}
+#[cfg(feature = "Win32_System_Console")]
+impl ::core::marker::Copy for FSVIDEO_COPY_FRAME_BUFFER {}
+#[cfg(feature = "Win32_System_Console")]
+impl ::core::clone::Clone for FSVIDEO_COPY_FRAME_BUFFER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct FSVIDEO_SCREEN_INFORMATION(i32);
+pub struct FSVIDEO_CURSOR_POSITION {
+    pub Coord: VIDEO_CURSOR_POSITION,
+    pub dwType: u32,
+}
+impl ::core::marker::Copy for FSVIDEO_CURSOR_POSITION {}
+impl ::core::clone::Clone for FSVIDEO_CURSOR_POSITION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct FSVIDEO_MODE_INFORMATION {
+    pub VideoMode: VIDEO_MODE_INFORMATION,
+    pub VideoMemory: VIDEO_MEMORY_INFORMATION,
+}
+impl ::core::marker::Copy for FSVIDEO_MODE_INFORMATION {}
+impl ::core::clone::Clone for FSVIDEO_MODE_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Console")]
+pub struct FSVIDEO_REVERSE_MOUSE_POINTER {
+    pub Screen: FSCNTL_SCREEN_INFO,
+    pub dwType: u32,
+}
+#[cfg(feature = "Win32_System_Console")]
+impl ::core::marker::Copy for FSVIDEO_REVERSE_MOUSE_POINTER {}
+#[cfg(feature = "Win32_System_Console")]
+impl ::core::clone::Clone for FSVIDEO_REVERSE_MOUSE_POINTER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Console")]
+pub struct FSVIDEO_SCREEN_INFORMATION {
+    pub ScreenSize: super::super::System::Console::COORD,
+    pub FontSize: super::super::System::Console::COORD,
+}
+#[cfg(feature = "Win32_System_Console")]
+impl ::core::marker::Copy for FSVIDEO_SCREEN_INFORMATION {}
+#[cfg(feature = "Win32_System_Console")]
+impl ::core::clone::Clone for FSVIDEO_SCREEN_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Console"))]
+pub struct FSVIDEO_WRITE_TO_FRAME_BUFFER {
+    pub SrcBuffer: *mut CHAR_IMAGE_INFO,
+    pub DestScreen: FSCNTL_SCREEN_INFO,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Console"))]
+impl ::core::marker::Copy for FSVIDEO_WRITE_TO_FRAME_BUFFER {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Console"))]
+impl ::core::clone::Clone for FSVIDEO_WRITE_TO_FRAME_BUFFER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct FSVIDEO_WRITE_TO_FRAME_BUFFER(i32);
+pub struct GAMMARAMP {
+    pub Red: [u16; 256],
+    pub Green: [u16; 256],
+    pub Blue: [u16; 256],
+}
+impl ::core::marker::Copy for GAMMARAMP {}
+impl ::core::clone::Clone for GAMMARAMP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct GAMMARAMP(i32);
+pub struct GAMMA_RAMP_DXGI_1 {
+    pub Scale: GAMMA_RAMP_RGB,
+    pub Offset: GAMMA_RAMP_RGB,
+    pub GammaCurve: [GAMMA_RAMP_RGB; 1025],
+}
+impl ::core::marker::Copy for GAMMA_RAMP_DXGI_1 {}
+impl ::core::clone::Clone for GAMMA_RAMP_DXGI_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct GAMMA_RAMP_DXGI_1(i32);
+pub struct GAMMA_RAMP_RGB {
+    pub Red: f32,
+    pub Green: f32,
+    pub Blue: f32,
+}
+impl ::core::marker::Copy for GAMMA_RAMP_RGB {}
+impl ::core::clone::Clone for GAMMA_RAMP_RGB {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct GAMMA_RAMP_RGB(i32);
-#[repr(C)]
-pub struct GAMMA_RAMP_RGB256x3x16(i32);
+pub struct GAMMA_RAMP_RGB256x3x16 {
+    pub Red: [u16; 256],
+    pub Green: [u16; 256],
+    pub Blue: [u16; 256],
+}
+impl ::core::marker::Copy for GAMMA_RAMP_RGB256x3x16 {}
+impl ::core::clone::Clone for GAMMA_RAMP_RGB256x3x16 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const GCAPS2_ACC_DRIVER: u32 = 32768u32;
 pub const GCAPS2_ALPHACURSOR: u32 = 32u32;
 pub const GCAPS2_BITMAPEXREUSE: u32 = 65536u32;
@@ -892,24 +2310,129 @@ pub const GCAPS_SCREENPRECISION: u32 = 536870912u32;
 pub const GCAPS_VECTORFONT: u32 = 512u32;
 pub const GCAPS_VERTSTRIKE: u32 = 128u32;
 pub const GCAPS_WINDINGFILL: u32 = 8u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct GDIINFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct GDIINFO {
+    pub ulVersion: u32,
+    pub ulTechnology: u32,
+    pub ulHorzSize: u32,
+    pub ulVertSize: u32,
+    pub ulHorzRes: u32,
+    pub ulVertRes: u32,
+    pub cBitsPixel: u32,
+    pub cPlanes: u32,
+    pub ulNumColors: u32,
+    pub flRaster: u32,
+    pub ulLogPixelsX: u32,
+    pub ulLogPixelsY: u32,
+    pub flTextCaps: u32,
+    pub ulDACRed: u32,
+    pub ulDACGreen: u32,
+    pub ulDACBlue: u32,
+    pub ulAspectX: u32,
+    pub ulAspectY: u32,
+    pub ulAspectXY: u32,
+    pub xStyleStep: i32,
+    pub yStyleStep: i32,
+    pub denStyleStep: i32,
+    pub ptlPhysOffset: super::super::Foundation::POINTL,
+    pub szlPhysSize: super::super::Foundation::SIZE,
+    pub ulNumPalReg: u32,
+    pub ciDevice: COLORINFO,
+    pub ulDevicePelsDPI: u32,
+    pub ulPrimaryOrder: u32,
+    pub ulHTPatternSize: u32,
+    pub ulHTOutputFormat: u32,
+    pub flHTFlags: u32,
+    pub ulVRefresh: u32,
+    pub ulBltAlignment: u32,
+    pub ulPanningHorzRes: u32,
+    pub ulPanningVertRes: u32,
+    pub xPanningAlignment: u32,
+    pub yPanningAlignment: u32,
+    pub cxHTPat: u32,
+    pub cyHTPat: u32,
+    pub pHTPatA: *mut u8,
+    pub pHTPatB: *mut u8,
+    pub pHTPatC: *mut u8,
+    pub flShadeBlend: u32,
+    pub ulPhysicalPixelCharacteristics: u32,
+    pub ulPhysicalPixelGamma: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for GDIINFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for GDIINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const GDI_DRIVER_VERSION: u32 = 16384u32;
 pub const GETCONNECTEDIDS_SOURCE: u32 = 1u32;
 pub const GETCONNECTEDIDS_TARGET: u32 = 0u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct GLYPHBITS(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct GLYPHDATA(i32);
+pub struct GLYPHBITS {
+    pub ptlOrigin: super::super::Foundation::POINTL,
+    pub sizlBitmap: super::super::Foundation::SIZE,
+    pub aj: [u8; 1],
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct GLYPHDEF(i32);
+impl ::core::marker::Copy for GLYPHBITS {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for GLYPHBITS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct GLYPHPOS(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct GLYPHDATA {
+    pub gdf: GLYPHDEF,
+    pub hg: u32,
+    pub fxD: i32,
+    pub fxA: i32,
+    pub fxAB: i32,
+    pub fxInkTop: i32,
+    pub fxInkBottom: i32,
+    pub rclInk: super::super::Foundation::RECTL,
+    pub ptqD: POINTQF,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for GLYPHDATA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for GLYPHDATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub union GLYPHDEF {
+    pub pgb: *mut GLYPHBITS,
+    pub ppo: *mut PATHOBJ,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for GLYPHDEF {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct GLYPHPOS {
+    pub hg: u32,
+    pub pgdf: *mut GLYPHDEF,
+    pub ptl: super::super::Foundation::POINTL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for GLYPHPOS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for GLYPHPOS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const GS_16BIT_HANDLES: u32 = 4u32;
 pub const GS_8BIT_HANDLES: u32 = 2u32;
 pub const GS_UNICODE_HANDLES: u32 = 1u32;
@@ -938,13 +2461,45 @@ pub const GX_IDENTITY: i32 = 0i32;
 pub const GX_OFFSET: i32 = 1i32;
 pub const GX_SCALE: i32 = 2i32;
 #[repr(C)]
-pub struct HBM(i32);
+pub struct HBM {
+    pub Value: isize,
+}
+impl ::core::marker::Copy for HBM {}
+impl ::core::clone::Clone for HBM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct HDEV(i32);
+pub struct HDEV {
+    pub Value: isize,
+}
+impl ::core::marker::Copy for HDEV {}
+impl ::core::clone::Clone for HDEV {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct HDRVOBJ(i32);
+pub struct HDRVOBJ {
+    pub Value: isize,
+}
+impl ::core::marker::Copy for HDRVOBJ {}
+impl ::core::clone::Clone for HDRVOBJ {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct HFASTMUTEX(i32);
+pub struct HFASTMUTEX {
+    pub Value: isize,
+}
+impl ::core::marker::Copy for HFASTMUTEX {}
+impl ::core::clone::Clone for HFASTMUTEX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const HOOK_ALPHABLEND: u32 = 65536u32;
 pub const HOOK_BITBLT: u32 = 1u32;
 pub const HOOK_COPYBITS: u32 = 1024u32;
@@ -974,9 +2529,25 @@ pub const HOST_DSI_TRANSMISSION_CANCELLED: u32 = 16u32;
 pub const HOST_DSI_TRANSMISSION_DROPPED: u32 = 32u32;
 pub const HOST_DSI_TRANSMISSION_TIMEOUT: u32 = 64u32;
 #[repr(C)]
-pub struct HSEMAPHORE(i32);
+pub struct HSEMAPHORE {
+    pub Value: isize,
+}
+impl ::core::marker::Copy for HSEMAPHORE {}
+impl ::core::clone::Clone for HSEMAPHORE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct HSURF(i32);
+pub struct HSURF {
+    pub Value: isize,
+}
+impl ::core::marker::Copy for HSURF {}
+impl ::core::clone::Clone for HSURF {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const HS_DDI_MAX: u32 = 6u32;
 pub const HT_FLAG_8BPP_CMY332_MASK: u32 = 4278190080u32;
 pub const HT_FLAG_ADDITIVE_PRIMS: u32 = 4u32;
@@ -1032,15 +2603,169 @@ pub const HT_USERPAT_CY_MIN: u32 = 4u32;
 #[repr(transparent)]
 pub struct ICloneViewHelper(pub *mut ::core::ffi::c_void);
 #[repr(C)]
-pub struct IFIEXTRA(i32);
+pub struct IFIEXTRA {
+    pub ulIdentifier: u32,
+    pub dpFontSig: i32,
+    pub cig: u32,
+    pub dpDesignVector: i32,
+    pub dpAxesInfoW: i32,
+    pub aulReserved: [u32; 1],
+}
+impl ::core::marker::Copy for IFIEXTRA {}
+impl ::core::clone::Clone for IFIEXTRA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+pub struct IFIMETRICS {
+    pub cjThis: u32,
+    pub cjIfiExtra: u32,
+    pub dpwszFamilyName: i32,
+    pub dpwszStyleName: i32,
+    pub dpwszFaceName: i32,
+    pub dpwszUniqueName: i32,
+    pub dpFontSim: i32,
+    pub lEmbedId: i32,
+    pub lItalicAngle: i32,
+    pub lCharBias: i32,
+    pub dpCharSets: i32,
+    pub jWinCharSet: u8,
+    pub jWinPitchAndFamily: u8,
+    pub usWinWeight: u16,
+    pub flInfo: u32,
+    pub fsSelection: u16,
+    pub fsType: u16,
+    pub fwdUnitsPerEm: i16,
+    pub fwdLowestPPEm: i16,
+    pub fwdWinAscender: i16,
+    pub fwdWinDescender: i16,
+    pub fwdMacAscender: i16,
+    pub fwdMacDescender: i16,
+    pub fwdMacLineGap: i16,
+    pub fwdTypoAscender: i16,
+    pub fwdTypoDescender: i16,
+    pub fwdTypoLineGap: i16,
+    pub fwdAveCharWidth: i16,
+    pub fwdMaxCharInc: i16,
+    pub fwdCapHeight: i16,
+    pub fwdXHeight: i16,
+    pub fwdSubscriptXSize: i16,
+    pub fwdSubscriptYSize: i16,
+    pub fwdSubscriptXOffset: i16,
+    pub fwdSubscriptYOffset: i16,
+    pub fwdSuperscriptXSize: i16,
+    pub fwdSuperscriptYSize: i16,
+    pub fwdSuperscriptXOffset: i16,
+    pub fwdSuperscriptYOffset: i16,
+    pub fwdUnderscoreSize: i16,
+    pub fwdUnderscorePosition: i16,
+    pub fwdStrikeoutSize: i16,
+    pub fwdStrikeoutPosition: i16,
+    pub chFirstChar: u8,
+    pub chLastChar: u8,
+    pub chDefaultChar: u8,
+    pub chBreakChar: u8,
+    pub wcFirstChar: u16,
+    pub wcLastChar: u16,
+    pub wcDefaultChar: u16,
+    pub wcBreakChar: u16,
+    pub ptlBaseline: super::super::Foundation::POINTL,
+    pub ptlAspect: super::super::Foundation::POINTL,
+    pub ptlCaret: super::super::Foundation::POINTL,
+    pub rclFontBox: super::super::Foundation::RECTL,
+    pub achVendId: [u8; 4],
+    pub cKerningPairs: u32,
+    pub ulPanoseCulture: u32,
+    pub panose: super::super::Graphics::Gdi::PANOSE,
+    pub Align: *mut ::core::ffi::c_void,
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::marker::Copy for IFIMETRICS {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::clone::Clone for IFIMETRICS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct IFIMETRICS(i32);
 #[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-#[repr(C)]
-pub struct IFIMETRICS(i32);
+pub struct IFIMETRICS {
+    pub cjThis: u32,
+    pub cjIfiExtra: u32,
+    pub dpwszFamilyName: i32,
+    pub dpwszStyleName: i32,
+    pub dpwszFaceName: i32,
+    pub dpwszUniqueName: i32,
+    pub dpFontSim: i32,
+    pub lEmbedId: i32,
+    pub lItalicAngle: i32,
+    pub lCharBias: i32,
+    pub dpCharSets: i32,
+    pub jWinCharSet: u8,
+    pub jWinPitchAndFamily: u8,
+    pub usWinWeight: u16,
+    pub flInfo: u32,
+    pub fsSelection: u16,
+    pub fsType: u16,
+    pub fwdUnitsPerEm: i16,
+    pub fwdLowestPPEm: i16,
+    pub fwdWinAscender: i16,
+    pub fwdWinDescender: i16,
+    pub fwdMacAscender: i16,
+    pub fwdMacDescender: i16,
+    pub fwdMacLineGap: i16,
+    pub fwdTypoAscender: i16,
+    pub fwdTypoDescender: i16,
+    pub fwdTypoLineGap: i16,
+    pub fwdAveCharWidth: i16,
+    pub fwdMaxCharInc: i16,
+    pub fwdCapHeight: i16,
+    pub fwdXHeight: i16,
+    pub fwdSubscriptXSize: i16,
+    pub fwdSubscriptYSize: i16,
+    pub fwdSubscriptXOffset: i16,
+    pub fwdSubscriptYOffset: i16,
+    pub fwdSuperscriptXSize: i16,
+    pub fwdSuperscriptYSize: i16,
+    pub fwdSuperscriptXOffset: i16,
+    pub fwdSuperscriptYOffset: i16,
+    pub fwdUnderscoreSize: i16,
+    pub fwdUnderscorePosition: i16,
+    pub fwdStrikeoutSize: i16,
+    pub fwdStrikeoutPosition: i16,
+    pub chFirstChar: u8,
+    pub chLastChar: u8,
+    pub chDefaultChar: u8,
+    pub chBreakChar: u8,
+    pub wcFirstChar: u16,
+    pub wcLastChar: u16,
+    pub wcDefaultChar: u16,
+    pub wcBreakChar: u16,
+    pub ptlBaseline: super::super::Foundation::POINTL,
+    pub ptlAspect: super::super::Foundation::POINTL,
+    pub ptlCaret: super::super::Foundation::POINTL,
+    pub rclFontBox: super::super::Foundation::RECTL,
+    pub achVendId: [u8; 4],
+    pub cKerningPairs: u32,
+    pub ulPanoseCulture: u32,
+    pub panose: super::super::Graphics::Gdi::PANOSE,
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::marker::Copy for IFIMETRICS {}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::clone::Clone for IFIMETRICS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const IGRF_RGB_256BYTES: u32 = 0u32;
 pub const IGRF_RGB_256WORDS: u32 = 1u32;
 pub const INDEX_DrvAccumulateD3DDirtyRect: i32 = 98i32;
@@ -1143,9 +2868,22 @@ pub const INDEX_DrvTransparentBlt: i32 = 74i32;
 pub const INDEX_DrvUnloadFontFile: i32 = 46i32;
 pub const INDEX_DrvUnlockDisplayArea: i32 = 102i32;
 pub const INDEX_LAST: i32 = 89i32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct INDIRECT_DISPLAY_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct INDIRECT_DISPLAY_INFO {
+    pub DisplayAdapterLuid: super::super::Foundation::LUID,
+    pub Flags: u32,
+    pub NumMonitors: u32,
+    pub DisplayAdapterTargetBase: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for INDIRECT_DISPLAY_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for INDIRECT_DISPLAY_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const INDIRECT_DISPLAY_INFO_FLAGS_CREATED_IDDCX_ADAPTER: u32 = 1u32;
 pub const IOCTL_COLORSPACE_TRANSFORM_QUERY_TARGET_CAPS: u32 = 2297856u32;
 pub const IOCTL_COLORSPACE_TRANSFORM_SET: u32 = 2297860u32;
@@ -1229,15 +2967,62 @@ pub const LA_ALTERNATE: u32 = 2u32;
 pub const LA_GEOMETRIC: u32 = 1u32;
 pub const LA_STARTGAP: u32 = 4u32;
 pub const LA_STYLED: u32 = 8u32;
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+pub struct LIGATURE {
+    pub culSize: u32,
+    pub pwsz: super::super::Foundation::PWSTR,
+    pub chglyph: u32,
+    pub ahglyph: [u32; 1],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for LIGATURE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for LIGATURE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct LIGATURE(i32);
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+pub struct LINEATTRS {
+    pub fl: u32,
+    pub iJoin: u32,
+    pub iEndCap: u32,
+    pub elWidth: FLOAT_LONG,
+    pub eMiterLimit: f32,
+    pub cstyle: u32,
+    pub pstyle: *mut FLOAT_LONG,
+    pub elStyleState: FLOAT_LONG,
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::marker::Copy for LINEATTRS {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::clone::Clone for LINEATTRS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct LINEATTRS(i32);
 #[cfg(any(target_arch = "x86",))]
-#[repr(C)]
-pub struct LINEATTRS(i32);
+pub struct LINEATTRS {
+    pub fl: u32,
+    pub iJoin: u32,
+    pub iEndCap: u32,
+    pub elWidth: FLOAT_LONG,
+    pub eMiterLimit: u32,
+    pub cstyle: u32,
+    pub pstyle: *mut FLOAT_LONG,
+    pub elStyleState: FLOAT_LONG,
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::core::marker::Copy for LINEATTRS {}
+#[cfg(any(target_arch = "x86",))]
+impl ::core::clone::Clone for LINEATTRS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MAXCHARSETS: u32 = 16u32;
 pub const MAX_PACKET_COUNT: u32 = 128u32;
 pub const MC_CAPS_BRIGHTNESS: u32 = 2u32;
@@ -1302,20 +3087,162 @@ pub const MC_SUPPORTED_COLOR_TEMPERATURE_7500K: u32 = 8u32;
 pub const MC_SUPPORTED_COLOR_TEMPERATURE_8200K: u32 = 16u32;
 pub const MC_SUPPORTED_COLOR_TEMPERATURE_9300K: u32 = 32u32;
 pub const MC_SUPPORTED_COLOR_TEMPERATURE_NONE: u32 = 0u32;
-#[repr(C)]
-pub struct MC_TIMING_REPORT(i32);
+#[repr(C, packed(1))]
+pub struct MC_TIMING_REPORT {
+    pub dwHorizontalFrequencyInHZ: u32,
+    pub dwVerticalFrequencyInHZ: u32,
+    pub bTimingStatusByte: u8,
+}
+impl ::core::marker::Copy for MC_TIMING_REPORT {}
+impl ::core::clone::Clone for MC_TIMING_REPORT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MC_VCP_CODE_TYPE(pub i32);
 pub const MC_MOMENTARY: MC_VCP_CODE_TYPE = MC_VCP_CODE_TYPE(0i32);
 pub const MC_SET_PARAMETER: MC_VCP_CODE_TYPE = MC_VCP_CODE_TYPE(1i32);
 #[repr(C)]
-pub struct MIPI_DSI_CAPS(i32);
+pub struct MIPI_DSI_CAPS {
+    pub DSITypeMajor: u8,
+    pub DSITypeMinor: u8,
+    pub SpecVersionMajor: u8,
+    pub SpecVersionMinor: u8,
+    pub SpecVersionPatch: u8,
+    pub TargetMaximumReturnPacketSize: u16,
+    pub ResultCodeFlags: u8,
+    pub ResultCodeStatus: u8,
+    pub Revision: u8,
+    pub Level: u8,
+    pub DeviceClassHi: u8,
+    pub DeviceClassLo: u8,
+    pub ManufacturerHi: u8,
+    pub ManufacturerLo: u8,
+    pub ProductHi: u8,
+    pub ProductLo: u8,
+    pub LengthHi: u8,
+    pub LengthLo: u8,
+}
+impl ::core::marker::Copy for MIPI_DSI_CAPS {}
+impl ::core::clone::Clone for MIPI_DSI_CAPS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct MIPI_DSI_PACKET(i32);
+pub struct MIPI_DSI_PACKET {
+    pub Anonymous1: MIPI_DSI_PACKET_0,
+    pub Anonymous2: MIPI_DSI_PACKET_1,
+    pub EccFiller: u8,
+    pub Payload: [u8; 8],
+}
+impl ::core::marker::Copy for MIPI_DSI_PACKET {}
+impl ::core::clone::Clone for MIPI_DSI_PACKET {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct MIPI_DSI_RESET(i32);
+pub union MIPI_DSI_PACKET_0 {
+    pub DataId: u8,
+    pub Anonymous: MIPI_DSI_PACKET_0_0,
+}
+impl ::core::clone::Clone for MIPI_DSI_PACKET_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct MIPI_DSI_TRANSMISSION(i32);
+pub struct MIPI_DSI_PACKET_0_0 {
+    pub _bitfield: u8,
+}
+impl ::core::marker::Copy for MIPI_DSI_PACKET_0_0 {}
+impl ::core::clone::Clone for MIPI_DSI_PACKET_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub union MIPI_DSI_PACKET_1 {
+    pub Anonymous: MIPI_DSI_PACKET_1_0,
+    pub LongWriteWordCount: u16,
+}
+impl ::core::clone::Clone for MIPI_DSI_PACKET_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct MIPI_DSI_PACKET_1_0 {
+    pub Data0: u8,
+    pub Data1: u8,
+}
+impl ::core::marker::Copy for MIPI_DSI_PACKET_1_0 {}
+impl ::core::clone::Clone for MIPI_DSI_PACKET_1_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct MIPI_DSI_RESET {
+    pub Flags: u32,
+    pub Anonymous: MIPI_DSI_RESET_0,
+}
+impl ::core::marker::Copy for MIPI_DSI_RESET {}
+impl ::core::clone::Clone for MIPI_DSI_RESET {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub union MIPI_DSI_RESET_0 {
+    pub Anonymous: MIPI_DSI_RESET_0_0,
+    pub Results: u32,
+}
+impl ::core::clone::Clone for MIPI_DSI_RESET_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct MIPI_DSI_RESET_0_0 {
+    pub _bitfield: u32,
+}
+impl ::core::marker::Copy for MIPI_DSI_RESET_0_0 {}
+impl ::core::clone::Clone for MIPI_DSI_RESET_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct MIPI_DSI_TRANSMISSION {
+    pub TotalBufferSize: u32,
+    pub PacketCount: u8,
+    pub FailedPacket: u8,
+    pub Anonymous: MIPI_DSI_TRANSMISSION_0,
+    pub ReadWordCount: u16,
+    pub FinalCommandExtraPayload: u16,
+    pub MipiErrors: u16,
+    pub HostErrors: u16,
+    pub Packets: [MIPI_DSI_PACKET; 1],
+}
+impl ::core::marker::Copy for MIPI_DSI_TRANSMISSION {}
+impl ::core::clone::Clone for MIPI_DSI_TRANSMISSION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct MIPI_DSI_TRANSMISSION_0 {
+    pub _bitfield: u16,
+}
+impl ::core::marker::Copy for MIPI_DSI_TRANSMISSION_0 {}
+impl ::core::clone::Clone for MIPI_DSI_TRANSMISSION_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MS_CDDDEVICEBITMAP: u32 = 4u32;
 pub const MS_NOTSYSTEMMEMORY: u32 = 1u32;
 pub const MS_REUSEDDEVICEBITMAP: u32 = 8u32;
@@ -1348,42 +3275,277 @@ pub const OUTPUT_WIRE_COLOR_SPACE_G22_P2020: OUTPUT_WIRE_COLOR_SPACE_TYPE = OUTP
 pub const OUTPUT_WIRE_COLOR_SPACE_G2084_P2020_HDR10PLUS: OUTPUT_WIRE_COLOR_SPACE_TYPE = OUTPUT_WIRE_COLOR_SPACE_TYPE(32i32);
 pub const OUTPUT_WIRE_COLOR_SPACE_G2084_P2020_DVLL: OUTPUT_WIRE_COLOR_SPACE_TYPE = OUTPUT_WIRE_COLOR_SPACE_TYPE(33i32);
 #[repr(C)]
-pub struct OUTPUT_WIRE_FORMAT(i32);
+pub struct OUTPUT_WIRE_FORMAT {
+    pub ColorEncoding: OUTPUT_COLOR_ENCODING,
+    pub BitsPerPixel: u32,
+}
+impl ::core::marker::Copy for OUTPUT_WIRE_FORMAT {}
+impl ::core::clone::Clone for OUTPUT_WIRE_FORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct PALOBJ(i32);
+pub struct PALOBJ {
+    pub ulReserved: u32,
+}
+impl ::core::marker::Copy for PALOBJ {}
+impl ::core::clone::Clone for PALOBJ {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const PAL_BGR: u32 = 8u32;
 pub const PAL_BITFIELDS: u32 = 2u32;
 pub const PAL_CMYK: u32 = 16u32;
 pub const PAL_INDEXED: u32 = 1u32;
 pub const PAL_RGB: u32 = 4u32;
 #[repr(C)]
-pub struct PANEL_BRIGHTNESS_SENSOR_DATA(i32);
+pub struct PANEL_BRIGHTNESS_SENSOR_DATA {
+    pub Anonymous: PANEL_BRIGHTNESS_SENSOR_DATA_0,
+    pub AlsReading: f32,
+    pub ChromaticityCoordinate: CHROMATICITY_COORDINATE,
+    pub ColorTemperature: f32,
+}
+impl ::core::marker::Copy for PANEL_BRIGHTNESS_SENSOR_DATA {}
+impl ::core::clone::Clone for PANEL_BRIGHTNESS_SENSOR_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct PANEL_GET_BACKLIGHT_REDUCTION(i32);
+pub union PANEL_BRIGHTNESS_SENSOR_DATA_0 {
+    pub Anonymous: PANEL_BRIGHTNESS_SENSOR_DATA_0_0,
+    pub Value: u32,
+}
+impl ::core::clone::Clone for PANEL_BRIGHTNESS_SENSOR_DATA_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct PANEL_GET_BRIGHTNESS(i32);
+pub struct PANEL_BRIGHTNESS_SENSOR_DATA_0_0 {
+    pub _bitfield: u32,
+}
+impl ::core::marker::Copy for PANEL_BRIGHTNESS_SENSOR_DATA_0_0 {}
+impl ::core::clone::Clone for PANEL_BRIGHTNESS_SENSOR_DATA_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct PANEL_QUERY_BRIGHTNESS_CAPS(i32);
+pub struct PANEL_GET_BACKLIGHT_REDUCTION {
+    pub BacklightUsersetting: u16,
+    pub BacklightEffective: u16,
+    pub GammaRamp: BACKLIGHT_REDUCTION_GAMMA_RAMP,
+}
+impl ::core::marker::Copy for PANEL_GET_BACKLIGHT_REDUCTION {}
+impl ::core::clone::Clone for PANEL_GET_BACKLIGHT_REDUCTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct PANEL_QUERY_BRIGHTNESS_RANGES(i32);
+pub struct PANEL_GET_BRIGHTNESS {
+    pub Version: BRIGHTNESS_INTERFACE_VERSION,
+    pub Anonymous: PANEL_GET_BRIGHTNESS_0,
+}
+impl ::core::marker::Copy for PANEL_GET_BRIGHTNESS {}
+impl ::core::clone::Clone for PANEL_GET_BRIGHTNESS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct PANEL_SET_BACKLIGHT_OPTIMIZATION(i32);
+pub union PANEL_GET_BRIGHTNESS_0 {
+    pub Level: u8,
+    pub Anonymous: PANEL_GET_BRIGHTNESS_0_0,
+}
+impl ::core::clone::Clone for PANEL_GET_BRIGHTNESS_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct PANEL_SET_BRIGHTNESS(i32);
+pub struct PANEL_GET_BRIGHTNESS_0_0 {
+    pub CurrentInMillinits: u32,
+    pub TargetInMillinits: u32,
+}
+impl ::core::marker::Copy for PANEL_GET_BRIGHTNESS_0_0 {}
+impl ::core::clone::Clone for PANEL_GET_BRIGHTNESS_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct PANEL_SET_BRIGHTNESS_STATE(i32);
+pub struct PANEL_QUERY_BRIGHTNESS_CAPS {
+    pub Version: BRIGHTNESS_INTERFACE_VERSION,
+    pub Anonymous: PANEL_QUERY_BRIGHTNESS_CAPS_0,
+}
+impl ::core::marker::Copy for PANEL_QUERY_BRIGHTNESS_CAPS {}
+impl ::core::clone::Clone for PANEL_QUERY_BRIGHTNESS_CAPS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct PATHDATA(i32);
+pub union PANEL_QUERY_BRIGHTNESS_CAPS_0 {
+    pub Anonymous: PANEL_QUERY_BRIGHTNESS_CAPS_0_0,
+    pub Value: u32,
+}
+impl ::core::clone::Clone for PANEL_QUERY_BRIGHTNESS_CAPS_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct PATHOBJ(i32);
+pub struct PANEL_QUERY_BRIGHTNESS_CAPS_0_0 {
+    pub _bitfield: u32,
+}
+impl ::core::marker::Copy for PANEL_QUERY_BRIGHTNESS_CAPS_0_0 {}
+impl ::core::clone::Clone for PANEL_QUERY_BRIGHTNESS_CAPS_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct PANEL_QUERY_BRIGHTNESS_RANGES {
+    pub Version: BRIGHTNESS_INTERFACE_VERSION,
+    pub Anonymous: PANEL_QUERY_BRIGHTNESS_RANGES_0,
+}
+impl ::core::marker::Copy for PANEL_QUERY_BRIGHTNESS_RANGES {}
+impl ::core::clone::Clone for PANEL_QUERY_BRIGHTNESS_RANGES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub union PANEL_QUERY_BRIGHTNESS_RANGES_0 {
+    pub BrightnessLevel: BRIGHTNESS_LEVEL,
+    pub NitRanges: BRIGHTNESS_NIT_RANGES,
+}
+impl ::core::clone::Clone for PANEL_QUERY_BRIGHTNESS_RANGES_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct PANEL_SET_BACKLIGHT_OPTIMIZATION {
+    pub Level: BACKLIGHT_OPTIMIZATION_LEVEL,
+}
+impl ::core::marker::Copy for PANEL_SET_BACKLIGHT_OPTIMIZATION {}
+impl ::core::clone::Clone for PANEL_SET_BACKLIGHT_OPTIMIZATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct PANEL_SET_BRIGHTNESS {
+    pub Version: BRIGHTNESS_INTERFACE_VERSION,
+    pub Anonymous: PANEL_SET_BRIGHTNESS_0,
+}
+impl ::core::marker::Copy for PANEL_SET_BRIGHTNESS {}
+impl ::core::clone::Clone for PANEL_SET_BRIGHTNESS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub union PANEL_SET_BRIGHTNESS_0 {
+    pub Level: u8,
+    pub Anonymous: PANEL_SET_BRIGHTNESS_0_0,
+}
+impl ::core::clone::Clone for PANEL_SET_BRIGHTNESS_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct PANEL_SET_BRIGHTNESS_0_0 {
+    pub Millinits: u32,
+    pub TransitionTimeInMs: u32,
+    pub SensorData: PANEL_BRIGHTNESS_SENSOR_DATA,
+}
+impl ::core::marker::Copy for PANEL_SET_BRIGHTNESS_0_0 {}
+impl ::core::clone::Clone for PANEL_SET_BRIGHTNESS_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct PANEL_SET_BRIGHTNESS_STATE {
+    pub Anonymous: PANEL_SET_BRIGHTNESS_STATE_0,
+}
+impl ::core::marker::Copy for PANEL_SET_BRIGHTNESS_STATE {}
+impl ::core::clone::Clone for PANEL_SET_BRIGHTNESS_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub union PANEL_SET_BRIGHTNESS_STATE_0 {
+    pub Anonymous: PANEL_SET_BRIGHTNESS_STATE_0_0,
+    pub Value: u32,
+}
+impl ::core::clone::Clone for PANEL_SET_BRIGHTNESS_STATE_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct PANEL_SET_BRIGHTNESS_STATE_0_0 {
+    pub _bitfield: u32,
+}
+impl ::core::marker::Copy for PANEL_SET_BRIGHTNESS_STATE_0_0 {}
+impl ::core::clone::Clone for PANEL_SET_BRIGHTNESS_STATE_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct PATHDATA {
+    pub flags: u32,
+    pub count: u32,
+    pub pptfx: *mut POINTFIX,
+}
+impl ::core::marker::Copy for PATHDATA {}
+impl ::core::clone::Clone for PATHDATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct PATHOBJ {
+    pub fl: u32,
+    pub cCurves: u32,
+}
+impl ::core::marker::Copy for PATHOBJ {}
+impl ::core::clone::Clone for PATHOBJ {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const PD_BEGINSUBPATH: u32 = 1u32;
 pub const PD_BEZIERS: u32 = 16u32;
 pub const PD_CLOSEFIGURE: u32 = 8u32;
 pub const PD_ENDSUBPATH: u32 = 2u32;
 pub const PD_RESETSTYLE: u32 = 4u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct PERBANDINFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct PERBANDINFO {
+    pub bRepeatThisBand: super::super::Foundation::BOOL,
+    pub szlBand: super::super::Foundation::SIZE,
+    pub ulHorzRes: u32,
+    pub ulVertRes: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for PERBANDINFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for PERBANDINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub type PFN = unsafe extern "system" fn() -> isize;
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_DrvAccumulateD3DDirtyRect = unsafe extern "system" fn(param0: *mut SURFOBJ, param1: *mut CDDDXGK_REDIRBITMAPPRESENTINFO) -> super::super::Foundation::BOOL;
@@ -1556,21 +3718,72 @@ pub type PFN_EngSubtractRgn = unsafe extern "system" fn(hrgnresult: super::super
 pub type PFN_EngUnionRgn = unsafe extern "system" fn(hrgnresult: super::super::Foundation::HANDLE, hrgna: super::super::Foundation::HANDLE, hrgnb: super::super::Foundation::HANDLE) -> i32;
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_EngXorRgn = unsafe extern "system" fn(hrgnresult: super::super::Foundation::HANDLE, hrgna: super::super::Foundation::HANDLE, hrgnb: super::super::Foundation::HANDLE) -> i32;
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct PHYSICAL_MONITOR(i32);
+pub struct PHYSICAL_MONITOR {
+    pub hPhysicalMonitor: super::super::Foundation::HANDLE,
+    pub szPhysicalMonitorDescription: [u16; 128],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for PHYSICAL_MONITOR {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for PHYSICAL_MONITOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const PHYSICAL_MONITOR_DESCRIPTION_SIZE: u32 = 128u32;
 pub const PLANAR_HC: u32 = 1u32;
+#[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+pub struct POINTE {
+    pub x: f32,
+    pub y: f32,
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::marker::Copy for POINTE {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::clone::Clone for POINTE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct POINTE(i32);
 #[cfg(any(target_arch = "x86",))]
+pub struct POINTE {
+    pub x: u32,
+    pub y: u32,
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::core::marker::Copy for POINTE {}
+#[cfg(any(target_arch = "x86",))]
+impl ::core::clone::Clone for POINTE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct POINTE(i32);
+pub struct POINTFIX {
+    pub x: i32,
+    pub y: i32,
+}
+impl ::core::marker::Copy for POINTFIX {}
+impl ::core::clone::Clone for POINTFIX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct POINTFIX(i32);
-#[repr(C)]
-pub struct POINTQF(i32);
+pub struct POINTQF {
+    pub x: i64,
+    pub y: i64,
+}
+impl ::core::marker::Copy for POINTQF {}
+impl ::core::clone::Clone for POINTQF {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const PO_ALL_INTEGERS: u32 = 4u32;
 pub const PO_BEZIERS: u32 = 1u32;
 pub const PO_ELLIPSE: u32 = 2u32;
@@ -1620,14 +3833,42 @@ pub const QSA_SSE2: u32 = 65536u32;
 pub const QSA_SSE3: u32 = 524288u32;
 pub const RB_DITHERCOLOR: i32 = -2147483648i32;
 #[repr(C)]
-pub struct RECTFX(i32);
+pub struct RECTFX {
+    pub xLeft: i32,
+    pub yTop: i32,
+    pub xRight: i32,
+    pub yBottom: i32,
+}
+impl ::core::marker::Copy for RECTFX {}
+impl ::core::clone::Clone for RECTFX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct RUN(i32);
+pub struct RUN {
+    pub iStart: i32,
+    pub iStop: i32,
+}
+impl ::core::marker::Copy for RUN {}
+impl ::core::clone::Clone for RUN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SETCONFIGURATION_STATUS_ADDITIONAL: u32 = 1u32;
 pub const SETCONFIGURATION_STATUS_APPLIED: u32 = 0u32;
 pub const SETCONFIGURATION_STATUS_OVERRIDDEN: u32 = 2u32;
 #[repr(C)]
-pub struct SET_ACTIVE_COLOR_PROFILE_NAME(i32);
+pub struct SET_ACTIVE_COLOR_PROFILE_NAME {
+    pub ColorProfileName: [u16; 1],
+}
+impl ::core::marker::Copy for SET_ACTIVE_COLOR_PROFILE_NAME {}
+impl ::core::clone::Clone for SET_ACTIVE_COLOR_PROFILE_NAME {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SGI_EXTRASPACE: u32 = 0u32;
 pub type SORTCOMP = unsafe extern "system" fn(pv1: *const ::core::ffi::c_void, pv2: *const ::core::ffi::c_void) -> i32;
 pub const SO_BREAK_EXTRA: u32 = 4096u32;
@@ -1661,32 +3902,152 @@ pub const SPS_RESERVED1: i32 = 64i32;
 pub const SS_FREE: u32 = 2u32;
 pub const SS_RESTORE: u32 = 1u32;
 pub const SS_SAVE: u32 = 0u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct STROBJ(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct STROBJ {
+    pub cGlyphs: u32,
+    pub flAccel: u32,
+    pub ulCharInc: u32,
+    pub rclBkGround: super::super::Foundation::RECTL,
+    pub pgp: *mut GLYPHPOS,
+    pub pwszOrg: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for STROBJ {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for STROBJ {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const STYPE_BITMAP: i32 = 0i32;
 pub const STYPE_DEVBITMAP: i32 = 3i32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct SURFOBJ(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct SURFOBJ {
+    pub dhsurf: DHSURF,
+    pub hsurf: HSURF,
+    pub dhpdev: DHPDEV,
+    pub hdev: HDEV,
+    pub sizlBitmap: super::super::Foundation::SIZE,
+    pub cjBits: u32,
+    pub pvBits: *mut ::core::ffi::c_void,
+    pub pvScan0: *mut ::core::ffi::c_void,
+    pub lDelta: i32,
+    pub iUniq: u32,
+    pub iBitmapFormat: u32,
+    pub iType: u16,
+    pub fjBitmap: u16,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SURFOBJ {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SURFOBJ {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const S_INIT: u32 = 2u32;
 #[repr(C)]
-pub struct Sources(i32);
+pub struct Sources {
+    pub sourceId: u32,
+    pub numTargets: i32,
+    pub aTargets: [u32; 1],
+}
+impl ::core::marker::Copy for Sources {}
+impl ::core::clone::Clone for Sources {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const TC_PATHOBJ: u32 = 2u32;
 pub const TC_RECTANGLES: u32 = 0u32;
 pub const TTO_METRICS_ONLY: u32 = 1u32;
 pub const TTO_QUBICS: u32 = 2u32;
 pub const TTO_UNHINTED: u32 = 4u32;
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct TYPE1_FONT(i32);
+pub struct TYPE1_FONT {
+    pub hPFM: super::super::Foundation::HANDLE,
+    pub hPFB: super::super::Foundation::HANDLE,
+    pub ulIdentifier: u32,
+}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for TYPE1_FONT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for TYPE1_FONT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct VGA_CHAR(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct VGA_CHAR {
+    pub Char: super::super::Foundation::CHAR,
+    pub Attributes: super::super::Foundation::CHAR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for VGA_CHAR {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for VGA_CHAR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct VIDEOPARAMETERS(i32);
+pub struct VIDEOPARAMETERS {
+    pub Guid: ::windows_sys::core::GUID,
+    pub dwOffset: u32,
+    pub dwCommand: u32,
+    pub dwFlags: u32,
+    pub dwMode: u32,
+    pub dwTVStandard: u32,
+    pub dwAvailableModes: u32,
+    pub dwAvailableTVStandard: u32,
+    pub dwFlickerFilter: u32,
+    pub dwOverScanX: u32,
+    pub dwOverScanY: u32,
+    pub dwMaxUnscaledX: u32,
+    pub dwMaxUnscaledY: u32,
+    pub dwPositionX: u32,
+    pub dwPositionY: u32,
+    pub dwBrightness: u32,
+    pub dwContrast: u32,
+    pub dwCPType: u32,
+    pub dwCPCommand: u32,
+    pub dwCPStandard: u32,
+    pub dwCPKey: u32,
+    pub bCP_APSTriggerBits: u32,
+    pub bOEMCopyProtection: [u8; 256],
+}
+impl ::core::marker::Copy for VIDEOPARAMETERS {}
+impl ::core::clone::Clone for VIDEOPARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct VIDEO_BANK_SELECT(i32);
+pub struct VIDEO_BANK_SELECT {
+    pub Length: u32,
+    pub Size: u32,
+    pub BankingFlags: u32,
+    pub BankingType: u32,
+    pub PlanarHCBankingType: u32,
+    pub BitmapWidthInBytes: u32,
+    pub BitmapSize: u32,
+    pub Granularity: u32,
+    pub PlanarHCGranularity: u32,
+    pub CodeOffset: u32,
+    pub PlanarHCBankCodeOffset: u32,
+    pub PlanarHCEnableCodeOffset: u32,
+    pub PlanarHCDisableCodeOffset: u32,
+}
+impl ::core::marker::Copy for VIDEO_BANK_SELECT {}
+impl ::core::clone::Clone for VIDEO_BANK_SELECT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct VIDEO_BANK_TYPE(pub i32);
 pub const VideoNotBanked: VIDEO_BANK_TYPE = VIDEO_BANK_TYPE(0i32);
@@ -1694,45 +4055,262 @@ pub const VideoBanked1RW: VIDEO_BANK_TYPE = VIDEO_BANK_TYPE(1i32);
 pub const VideoBanked1R1W: VIDEO_BANK_TYPE = VIDEO_BANK_TYPE(2i32);
 pub const VideoBanked2RW: VIDEO_BANK_TYPE = VIDEO_BANK_TYPE(3i32);
 pub const NumVideoBankTypes: VIDEO_BANK_TYPE = VIDEO_BANK_TYPE(4i32);
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+pub struct VIDEO_BRIGHTNESS_POLICY {
+    pub DefaultToBiosPolicy: super::super::Foundation::BOOLEAN,
+    pub LevelCount: u8,
+    pub Level: [VIDEO_BRIGHTNESS_POLICY_0; 1],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for VIDEO_BRIGHTNESS_POLICY {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for VIDEO_BRIGHTNESS_POLICY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct VIDEO_BRIGHTNESS_POLICY(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct VIDEO_BRIGHTNESS_POLICY_0 {
+    pub BatteryLevel: u8,
+    pub Brightness: u8,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for VIDEO_BRIGHTNESS_POLICY_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for VIDEO_BRIGHTNESS_POLICY_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct VIDEO_CLUT(i32);
+pub struct VIDEO_CLUT {
+    pub NumEntries: u16,
+    pub FirstEntry: u16,
+    pub LookupTable: [VIDEO_CLUT_0; 1],
+}
+impl ::core::marker::Copy for VIDEO_CLUT {}
+impl ::core::clone::Clone for VIDEO_CLUT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct VIDEO_CLUTDATA(i32);
+pub union VIDEO_CLUT_0 {
+    pub RgbArray: VIDEO_CLUTDATA,
+    pub RgbLong: u32,
+}
+impl ::core::clone::Clone for VIDEO_CLUT_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct VIDEO_COLOR_CAPABILITIES(i32);
+pub struct VIDEO_CLUTDATA {
+    pub Red: u8,
+    pub Green: u8,
+    pub Blue: u8,
+    pub Unused: u8,
+}
+impl ::core::marker::Copy for VIDEO_CLUTDATA {}
+impl ::core::clone::Clone for VIDEO_CLUTDATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct VIDEO_COLOR_LUT_DATA(i32);
+pub struct VIDEO_COLOR_CAPABILITIES {
+    pub Length: u32,
+    pub AttributeFlags: u32,
+    pub RedPhosphoreDecay: i32,
+    pub GreenPhosphoreDecay: i32,
+    pub BluePhosphoreDecay: i32,
+    pub WhiteChromaticity_x: i32,
+    pub WhiteChromaticity_y: i32,
+    pub WhiteChromaticity_Y: i32,
+    pub RedChromaticity_x: i32,
+    pub RedChromaticity_y: i32,
+    pub GreenChromaticity_x: i32,
+    pub GreenChromaticity_y: i32,
+    pub BlueChromaticity_x: i32,
+    pub BlueChromaticity_y: i32,
+    pub WhiteGamma: i32,
+    pub RedGamma: i32,
+    pub GreenGamma: i32,
+    pub BlueGamma: i32,
+}
+impl ::core::marker::Copy for VIDEO_COLOR_CAPABILITIES {}
+impl ::core::clone::Clone for VIDEO_COLOR_CAPABILITIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct VIDEO_COLOR_LUT_DATA {
+    pub Length: u32,
+    pub LutDataFormat: u32,
+    pub LutData: [u8; 1],
+}
+impl ::core::marker::Copy for VIDEO_COLOR_LUT_DATA {}
+impl ::core::clone::Clone for VIDEO_COLOR_LUT_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const VIDEO_COLOR_LUT_DATA_FORMAT_PRIVATEFORMAT: u32 = 2147483648u32;
 pub const VIDEO_COLOR_LUT_DATA_FORMAT_RGB256WORDS: u32 = 1u32;
 #[repr(C)]
-pub struct VIDEO_CURSOR_ATTRIBUTES(i32);
+pub struct VIDEO_CURSOR_ATTRIBUTES {
+    pub Width: u16,
+    pub Height: u16,
+    pub Column: i16,
+    pub Row: i16,
+    pub Rate: u8,
+    pub Enable: u8,
+}
+impl ::core::marker::Copy for VIDEO_CURSOR_ATTRIBUTES {}
+impl ::core::clone::Clone for VIDEO_CURSOR_ATTRIBUTES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct VIDEO_CURSOR_POSITION(i32);
+pub struct VIDEO_CURSOR_POSITION {
+    pub Column: i16,
+    pub Row: i16,
+}
+impl ::core::marker::Copy for VIDEO_CURSOR_POSITION {}
+impl ::core::clone::Clone for VIDEO_CURSOR_POSITION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const VIDEO_DEVICE_COLOR: u32 = 1u32;
 #[repr(C)]
-pub struct VIDEO_DEVICE_SESSION_STATUS(i32);
+pub struct VIDEO_DEVICE_SESSION_STATUS {
+    pub bEnable: u32,
+    pub bSuccess: u32,
+}
+impl ::core::marker::Copy for VIDEO_DEVICE_SESSION_STATUS {}
+impl ::core::clone::Clone for VIDEO_DEVICE_SESSION_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const VIDEO_DUALVIEW_PRIMARY: u32 = 2147483648u32;
 pub const VIDEO_DUALVIEW_REMOVABLE: u32 = 1u32;
 pub const VIDEO_DUALVIEW_SECONDARY: u32 = 1073741824u32;
 pub const VIDEO_DUALVIEW_WDDM_VGA: u32 = 536870912u32;
 #[repr(C)]
-pub struct VIDEO_HARDWARE_STATE(i32);
+pub struct VIDEO_HARDWARE_STATE {
+    pub StateHeader: *mut VIDEO_HARDWARE_STATE_HEADER,
+    pub StateLength: u32,
+}
+impl ::core::marker::Copy for VIDEO_HARDWARE_STATE {}
+impl ::core::clone::Clone for VIDEO_HARDWARE_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct VIDEO_HARDWARE_STATE_HEADER(i32);
+pub struct VIDEO_HARDWARE_STATE_HEADER {
+    pub Length: u32,
+    pub PortValue: [u8; 48],
+    pub AttribIndexDataState: u32,
+    pub BasicSequencerOffset: u32,
+    pub BasicCrtContOffset: u32,
+    pub BasicGraphContOffset: u32,
+    pub BasicAttribContOffset: u32,
+    pub BasicDacOffset: u32,
+    pub BasicLatchesOffset: u32,
+    pub ExtendedSequencerOffset: u32,
+    pub ExtendedCrtContOffset: u32,
+    pub ExtendedGraphContOffset: u32,
+    pub ExtendedAttribContOffset: u32,
+    pub ExtendedDacOffset: u32,
+    pub ExtendedValidatorStateOffset: u32,
+    pub ExtendedMiscDataOffset: u32,
+    pub PlaneLength: u32,
+    pub Plane1Offset: u32,
+    pub Plane2Offset: u32,
+    pub Plane3Offset: u32,
+    pub Plane4Offset: u32,
+    pub VGAStateFlags: u32,
+    pub DIBOffset: u32,
+    pub DIBBitsPerPixel: u32,
+    pub DIBXResolution: u32,
+    pub DIBYResolution: u32,
+    pub DIBXlatOffset: u32,
+    pub DIBXlatLength: u32,
+    pub VesaInfoOffset: u32,
+    pub FrameBufferData: *mut ::core::ffi::c_void,
+}
+impl ::core::marker::Copy for VIDEO_HARDWARE_STATE_HEADER {}
+impl ::core::clone::Clone for VIDEO_HARDWARE_STATE_HEADER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct VIDEO_LOAD_FONT_INFORMATION(i32);
+pub struct VIDEO_LOAD_FONT_INFORMATION {
+    pub WidthInPixels: u16,
+    pub HeightInPixels: u16,
+    pub FontSize: u32,
+    pub Font: [u8; 1],
+}
+impl ::core::marker::Copy for VIDEO_LOAD_FONT_INFORMATION {}
+impl ::core::clone::Clone for VIDEO_LOAD_FONT_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct VIDEO_LUT_RGB256WORDS(i32);
+pub struct VIDEO_LUT_RGB256WORDS {
+    pub Red: [u16; 256],
+    pub Green: [u16; 256],
+    pub Blue: [u16; 256],
+}
+impl ::core::marker::Copy for VIDEO_LUT_RGB256WORDS {}
+impl ::core::clone::Clone for VIDEO_LUT_RGB256WORDS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const VIDEO_MAX_REASON: u32 = 9u32;
 #[repr(C)]
-pub struct VIDEO_MEMORY(i32);
+pub struct VIDEO_MEMORY {
+    pub RequestedVirtualAddress: *mut ::core::ffi::c_void,
+}
+impl ::core::marker::Copy for VIDEO_MEMORY {}
+impl ::core::clone::Clone for VIDEO_MEMORY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct VIDEO_MEMORY_INFORMATION(i32);
+pub struct VIDEO_MEMORY_INFORMATION {
+    pub VideoRamBase: *mut ::core::ffi::c_void,
+    pub VideoRamLength: u32,
+    pub FrameBufferBase: *mut ::core::ffi::c_void,
+    pub FrameBufferLength: u32,
+}
+impl ::core::marker::Copy for VIDEO_MEMORY_INFORMATION {}
+impl ::core::clone::Clone for VIDEO_MEMORY_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct VIDEO_MODE(i32);
+pub struct VIDEO_MODE {
+    pub RequestedMode: u32,
+}
+impl ::core::marker::Copy for VIDEO_MODE {}
+impl ::core::clone::Clone for VIDEO_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const VIDEO_MODE_ANIMATE_START: u32 = 8u32;
 pub const VIDEO_MODE_ANIMATE_UPDATE: u32 = 16u32;
 pub const VIDEO_MODE_ASYNC_POINTER: u32 = 1u32;
@@ -1741,7 +4319,34 @@ pub const VIDEO_MODE_COLOR: u32 = 1u32;
 pub const VIDEO_MODE_COLOR_POINTER: u32 = 4u32;
 pub const VIDEO_MODE_GRAPHICS: u32 = 2u32;
 #[repr(C)]
-pub struct VIDEO_MODE_INFORMATION(i32);
+pub struct VIDEO_MODE_INFORMATION {
+    pub Length: u32,
+    pub ModeIndex: u32,
+    pub VisScreenWidth: u32,
+    pub VisScreenHeight: u32,
+    pub ScreenStride: u32,
+    pub NumberOfPlanes: u32,
+    pub BitsPerPlane: u32,
+    pub Frequency: u32,
+    pub XMillimeter: u32,
+    pub YMillimeter: u32,
+    pub NumberRedBits: u32,
+    pub NumberGreenBits: u32,
+    pub NumberBlueBits: u32,
+    pub RedMask: u32,
+    pub GreenMask: u32,
+    pub BlueMask: u32,
+    pub AttributeFlags: u32,
+    pub VideoMemoryBitmapWidth: u32,
+    pub VideoMemoryBitmapHeight: u32,
+    pub DriverSpecificAttributeFlags: u32,
+}
+impl ::core::marker::Copy for VIDEO_MODE_INFORMATION {}
+impl ::core::clone::Clone for VIDEO_MODE_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const VIDEO_MODE_INTERLACED: u32 = 16u32;
 pub const VIDEO_MODE_LINEAR: u32 = 256u32;
 pub const VIDEO_MODE_MANAGED_PALETTE: u32 = 8u32;
@@ -1752,22 +4357,124 @@ pub const VIDEO_MODE_NO_OFF_SCREEN: u32 = 32u32;
 pub const VIDEO_MODE_NO_ZERO_MEMORY: u32 = 2147483648u32;
 pub const VIDEO_MODE_PALETTE_DRIVEN: u32 = 4u32;
 #[repr(C)]
-pub struct VIDEO_MONITOR_DESCRIPTOR(i32);
+pub struct VIDEO_MONITOR_DESCRIPTOR {
+    pub DescriptorSize: u32,
+    pub Descriptor: [u8; 1],
+}
+impl ::core::marker::Copy for VIDEO_MONITOR_DESCRIPTOR {}
+impl ::core::clone::Clone for VIDEO_MONITOR_DESCRIPTOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct VIDEO_NUM_MODES(i32);
+pub struct VIDEO_NUM_MODES {
+    pub NumModes: u32,
+    pub ModeInformationLength: u32,
+}
+impl ::core::marker::Copy for VIDEO_NUM_MODES {}
+impl ::core::clone::Clone for VIDEO_NUM_MODES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const VIDEO_OPTIONAL_GAMMET_TABLE: u32 = 2u32;
 #[repr(C)]
-pub struct VIDEO_PALETTE_DATA(i32);
+pub struct VIDEO_PALETTE_DATA {
+    pub NumEntries: u16,
+    pub FirstEntry: u16,
+    pub Colors: [u16; 1],
+}
+impl ::core::marker::Copy for VIDEO_PALETTE_DATA {}
+impl ::core::clone::Clone for VIDEO_PALETTE_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct VIDEO_PERFORMANCE_COUNTER(i32);
+pub struct VIDEO_PERFORMANCE_COUNTER {
+    pub NbOfAllocationEvicted: [u64; 10],
+    pub NbOfAllocationMarked: [u64; 10],
+    pub NbOfAllocationRestored: [u64; 10],
+    pub KBytesEvicted: [u64; 10],
+    pub KBytesMarked: [u64; 10],
+    pub KBytesRestored: [u64; 10],
+    pub NbProcessCommited: u64,
+    pub NbAllocationCommited: u64,
+    pub NbAllocationMarked: u64,
+    pub KBytesAllocated: u64,
+    pub KBytesAvailable: u64,
+    pub KBytesCurMarked: u64,
+    pub Reference: u64,
+    pub Unreference: u64,
+    pub TrueReference: u64,
+    pub NbOfPageIn: u64,
+    pub KBytesPageIn: u64,
+    pub NbOfPageOut: u64,
+    pub KBytesPageOut: u64,
+    pub NbOfRotateOut: u64,
+    pub KBytesRotateOut: u64,
+}
+impl ::core::marker::Copy for VIDEO_PERFORMANCE_COUNTER {}
+impl ::core::clone::Clone for VIDEO_PERFORMANCE_COUNTER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct VIDEO_POINTER_ATTRIBUTES(i32);
+pub struct VIDEO_POINTER_ATTRIBUTES {
+    pub Flags: u32,
+    pub Width: u32,
+    pub Height: u32,
+    pub WidthInBytes: u32,
+    pub Enable: u32,
+    pub Column: i16,
+    pub Row: i16,
+    pub Pixels: [u8; 1],
+}
+impl ::core::marker::Copy for VIDEO_POINTER_ATTRIBUTES {}
+impl ::core::clone::Clone for VIDEO_POINTER_ATTRIBUTES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct VIDEO_POINTER_CAPABILITIES(i32);
+pub struct VIDEO_POINTER_CAPABILITIES {
+    pub Flags: u32,
+    pub MaxWidth: u32,
+    pub MaxHeight: u32,
+    pub HWPtrBitmapStart: u32,
+    pub HWPtrBitmapEnd: u32,
+}
+impl ::core::marker::Copy for VIDEO_POINTER_CAPABILITIES {}
+impl ::core::clone::Clone for VIDEO_POINTER_CAPABILITIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct VIDEO_POINTER_POSITION(i32);
+pub struct VIDEO_POINTER_POSITION {
+    pub Column: i16,
+    pub Row: i16,
+}
+impl ::core::marker::Copy for VIDEO_POINTER_POSITION {}
+impl ::core::clone::Clone for VIDEO_POINTER_POSITION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct VIDEO_POWER_MANAGEMENT(i32);
+pub struct VIDEO_POWER_MANAGEMENT {
+    pub Length: u32,
+    pub DPMSVersion: u32,
+    pub PowerState: u32,
+}
+impl ::core::marker::Copy for VIDEO_POWER_MANAGEMENT {}
+impl ::core::clone::Clone for VIDEO_POWER_MANAGEMENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct VIDEO_POWER_STATE(pub i32);
 pub const VideoPowerUnspecified: VIDEO_POWER_STATE = VIDEO_POWER_STATE(0i32);
@@ -1779,9 +4486,28 @@ pub const VideoPowerHibernate: VIDEO_POWER_STATE = VIDEO_POWER_STATE(5i32);
 pub const VideoPowerShutdown: VIDEO_POWER_STATE = VIDEO_POWER_STATE(6i32);
 pub const VideoPowerMaximum: VIDEO_POWER_STATE = VIDEO_POWER_STATE(7i32);
 #[repr(C)]
-pub struct VIDEO_PUBLIC_ACCESS_RANGES(i32);
+pub struct VIDEO_PUBLIC_ACCESS_RANGES {
+    pub InIoSpace: u32,
+    pub MappedInIoSpace: u32,
+    pub VirtualAddress: *mut ::core::ffi::c_void,
+}
+impl ::core::marker::Copy for VIDEO_PUBLIC_ACCESS_RANGES {}
+impl ::core::clone::Clone for VIDEO_PUBLIC_ACCESS_RANGES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct VIDEO_QUERY_PERFORMANCE_COUNTER(i32);
+pub struct VIDEO_QUERY_PERFORMANCE_COUNTER {
+    pub BufferSize: u32,
+    pub Buffer: *mut VIDEO_PERFORMANCE_COUNTER,
+}
+impl ::core::marker::Copy for VIDEO_QUERY_PERFORMANCE_COUNTER {}
+impl ::core::clone::Clone for VIDEO_QUERY_PERFORMANCE_COUNTER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const VIDEO_REASON_ALLOCATION: u32 = 6u32;
 pub const VIDEO_REASON_CONFIGURATION: u32 = 9u32;
 pub const VIDEO_REASON_FAILED_ROTATION: u32 = 5u32;
@@ -1793,24 +4519,96 @@ pub const VIDEO_REASON_POLICY3: u32 = 3u32;
 pub const VIDEO_REASON_POLICY4: u32 = 4u32;
 pub const VIDEO_REASON_SCRATCH: u32 = 8u32;
 #[repr(C)]
-pub struct VIDEO_REGISTER_VDM(i32);
+pub struct VIDEO_REGISTER_VDM {
+    pub MinimumStateSize: u32,
+}
+impl ::core::marker::Copy for VIDEO_REGISTER_VDM {}
+impl ::core::clone::Clone for VIDEO_REGISTER_VDM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+pub struct VIDEO_SHARE_MEMORY {
+    pub ProcessHandle: super::super::Foundation::HANDLE,
+    pub ViewOffset: u32,
+    pub ViewSize: u32,
+    pub RequestedVirtualAddress: *mut ::core::ffi::c_void,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for VIDEO_SHARE_MEMORY {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for VIDEO_SHARE_MEMORY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct VIDEO_SHARE_MEMORY(i32);
-#[repr(C)]
-pub struct VIDEO_SHARE_MEMORY_INFORMATION(i32);
+pub struct VIDEO_SHARE_MEMORY_INFORMATION {
+    pub SharedViewOffset: u32,
+    pub SharedViewSize: u32,
+    pub VirtualAddress: *mut ::core::ffi::c_void,
+}
+impl ::core::marker::Copy for VIDEO_SHARE_MEMORY_INFORMATION {}
+impl ::core::clone::Clone for VIDEO_SHARE_MEMORY_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const VIDEO_STATE_NON_STANDARD_VGA: u32 = 1u32;
 pub const VIDEO_STATE_PACKED_CHAIN4_MODE: u32 = 4u32;
 pub const VIDEO_STATE_UNEMULATED_VGA_STATE: u32 = 2u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct VIDEO_VDM(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct VIDEO_WIN32K_CALLBACKS(i32);
+pub struct VIDEO_VDM {
+    pub ProcessHandle: super::super::Foundation::HANDLE,
+}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for VIDEO_VDM {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for VIDEO_VDM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct VIDEO_WIN32K_CALLBACKS_PARAMS(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct VIDEO_WIN32K_CALLBACKS {
+    pub PhysDisp: *mut ::core::ffi::c_void,
+    pub Callout: ::core::option::Option<PVIDEO_WIN32K_CALLOUT>,
+    pub bACPI: u32,
+    pub pPhysDeviceObject: super::super::Foundation::HANDLE,
+    pub DualviewFlags: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for VIDEO_WIN32K_CALLBACKS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for VIDEO_WIN32K_CALLBACKS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct VIDEO_WIN32K_CALLBACKS_PARAMS {
+    pub CalloutType: VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE,
+    pub PhysDisp: *mut ::core::ffi::c_void,
+    pub Param: usize,
+    pub Status: i32,
+    pub LockUserSession: super::super::Foundation::BOOLEAN,
+    pub IsPostDevice: super::super::Foundation::BOOLEAN,
+    pub SurpriseRemoval: super::super::Foundation::BOOLEAN,
+    pub WaitForQueueReady: super::super::Foundation::BOOLEAN,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for VIDEO_WIN32K_CALLBACKS_PARAMS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for VIDEO_WIN32K_CALLBACKS_PARAMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE(pub i32);
 pub const VideoPowerNotifyCallout: VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE = VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE(1i32);
@@ -1826,13 +4624,36 @@ pub const VideoDisableMultiPlaneOverlay: VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE = VI
 pub const VideoDesktopDuplicationChange: VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE = VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE(15i32);
 pub const VideoBlackScreenDiagnostics: VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE = VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE(16i32);
 #[repr(C)]
-pub struct WCRUN(i32);
+pub struct WCRUN {
+    pub wcLow: u16,
+    pub cGlyphs: u16,
+    pub phg: *mut u32,
+}
+impl ::core::marker::Copy for WCRUN {}
+impl ::core::clone::Clone for WCRUN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WINDDI_MAXSETPALETTECOLORINDEX: u32 = 255u32;
 pub const WINDDI_MAXSETPALETTECOLORS: u32 = 256u32;
 pub const WINDDI_MAX_BROADCAST_CONTEXT: u32 = 64u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct WNDOBJ(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct WNDOBJ {
+    pub coClient: CLIPOBJ,
+    pub pvConsumer: *mut ::core::ffi::c_void,
+    pub rclClient: super::super::Foundation::RECTL,
+    pub psoOwner: *mut SURFOBJ,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WNDOBJ {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WNDOBJ {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[cfg(feature = "Win32_Foundation")]
 pub type WNDOBJCHANGEPROC = unsafe extern "system" fn(pwo: *mut WNDOBJ, fl: u32);
 pub const WNDOBJ_SETUP: u32 = 4354u32;
@@ -1856,20 +4677,71 @@ pub const WO_RGN_SURFACE_DELTA: u32 = 4u32;
 pub const WO_RGN_UPDATE_ALL: u32 = 16u32;
 pub const WO_RGN_WINDOW: u32 = 32u32;
 pub const WO_SPRITE_NOTIFY: u32 = 128u32;
+#[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+pub struct XFORML {
+    pub eM11: f32,
+    pub eM12: f32,
+    pub eM21: f32,
+    pub eM22: f32,
+    pub eDx: f32,
+    pub eDy: f32,
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::marker::Copy for XFORML {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::clone::Clone for XFORML {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct XFORML(i32);
 #[cfg(any(target_arch = "x86",))]
+pub struct XFORML {
+    pub eM11: u32,
+    pub eM12: u32,
+    pub eM21: u32,
+    pub eM22: u32,
+    pub eDx: u32,
+    pub eDy: u32,
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::core::marker::Copy for XFORML {}
+#[cfg(any(target_arch = "x86",))]
+impl ::core::clone::Clone for XFORML {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct XFORML(i32);
-#[repr(C)]
-pub struct XFORMOBJ(i32);
+pub struct XFORMOBJ {
+    pub ulReserved: u32,
+}
+impl ::core::marker::Copy for XFORMOBJ {}
+impl ::core::clone::Clone for XFORMOBJ {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const XF_INV_FXTOL: i32 = 3i32;
 pub const XF_INV_LTOL: i32 = 1i32;
 pub const XF_LTOFX: i32 = 2i32;
 pub const XF_LTOL: i32 = 0i32;
 #[repr(C)]
-pub struct XLATEOBJ(i32);
+pub struct XLATEOBJ {
+    pub iUniq: u32,
+    pub flXlate: u32,
+    pub iSrcType: u16,
+    pub iDstType: u16,
+    pub cEntries: u32,
+    pub pulXlate: *mut u32,
+}
+impl ::core::marker::Copy for XLATEOBJ {}
+impl ::core::clone::Clone for XLATEOBJ {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const XO_DESTBITFIELDS: u32 = 5u32;
 pub const XO_DESTDCPALETTE: u32 = 3u32;
 pub const XO_DESTPALETTE: u32 = 2u32;

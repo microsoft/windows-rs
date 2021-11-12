@@ -24,7 +24,15 @@ pub const FAULT_INVALID_ARG: u32 = 402u32;
 pub const FAULT_INVALID_SEQUENCE_NUMBER: u32 = 403u32;
 pub const FAULT_INVALID_VARIABLE: u32 = 404u32;
 #[repr(C)]
-pub struct HSWDEVICE(i32);
+pub struct HSWDEVICE {
+    pub Value: isize,
+}
+impl ::core::marker::Copy for HSWDEVICE {}
+impl ::core::clone::Clone for HSWDEVICE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUPnPAddressFamilyControl(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -86,9 +94,27 @@ pub const SWDeviceCapabilitiesNoDisplayInUI: SW_DEVICE_CAPABILITIES = SW_DEVICE_
 pub const SWDeviceCapabilitiesDriverRequired: SW_DEVICE_CAPABILITIES = SW_DEVICE_CAPABILITIES(8i32);
 #[cfg(feature = "Win32_Foundation")]
 pub type SW_DEVICE_CREATE_CALLBACK = unsafe extern "system" fn(hswdevice: HSWDEVICE, createresult: ::windows_sys::core::HRESULT, pcontext: *const ::core::ffi::c_void, pszdeviceinstanceid: super::super::super::Foundation::PWSTR);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[repr(C)]
-pub struct SW_DEVICE_CREATE_INFO(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+pub struct SW_DEVICE_CREATE_INFO {
+    pub cbSize: u32,
+    pub pszInstanceId: super::super::super::Foundation::PWSTR,
+    pub pszzHardwareIds: super::super::super::Foundation::PWSTR,
+    pub pszzCompatibleIds: super::super::super::Foundation::PWSTR,
+    pub pContainerId: *mut ::windows_sys::core::GUID,
+    pub CapabilityFlags: u32,
+    pub pszDeviceDescription: super::super::super::Foundation::PWSTR,
+    pub pszDeviceLocation: super::super::super::Foundation::PWSTR,
+    pub pSecurityDescriptor: *mut super::super::super::Security::SECURITY_DESCRIPTOR,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::marker::Copy for SW_DEVICE_CREATE_INFO {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::clone::Clone for SW_DEVICE_CREATE_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SW_DEVICE_LIFETIME(pub i32);
 pub const SWDeviceLifetimeHandle: SW_DEVICE_LIFETIME = SW_DEVICE_LIFETIME(0i32);

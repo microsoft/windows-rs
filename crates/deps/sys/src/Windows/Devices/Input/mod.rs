@@ -50,7 +50,16 @@ pub struct KeyboardCapabilities(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MouseCapabilities(pub *mut ::core::ffi::c_void);
 #[repr(C)]
-pub struct MouseDelta(i32);
+pub struct MouseDelta {
+    pub X: i32,
+    pub Y: i32,
+}
+impl ::core::marker::Copy for MouseDelta {}
+impl ::core::clone::Clone for MouseDelta {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MouseDevice(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -81,6 +90,21 @@ impl PointerDeviceType {
     pub const Mouse: Self = Self(2i32);
 }
 #[repr(C)]
-pub struct PointerDeviceUsage(i32);
+pub struct PointerDeviceUsage {
+    pub UsagePage: u32,
+    pub Usage: u32,
+    pub MinLogical: i32,
+    pub MaxLogical: i32,
+    pub MinPhysical: i32,
+    pub MaxPhysical: i32,
+    pub Unit: u32,
+    pub PhysicalMultiplier: f32,
+}
+impl ::core::marker::Copy for PointerDeviceUsage {}
+impl ::core::clone::Clone for PointerDeviceUsage {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TouchCapabilities(pub *mut ::core::ffi::c_void);

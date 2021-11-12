@@ -190,6 +190,7 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen, cfg: &Token
         }
     };
 
+    // TODO: still needed after WhitePoint removed?
     let constants = def.fields().filter_map(|f| {
         if f.is_literal() {
             if let Some(constant) = f.constant() {

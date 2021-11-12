@@ -36,16 +36,68 @@ pub const SCESTATUS_SERVICE_NOT_SUPPORT: i32 = 14i32;
 pub const SCESTATUS_SUCCESS: i32 = 0i32;
 pub const SCESTATUS_TRUST_FAIL: i32 = 19i32;
 #[repr(C)]
-pub struct SCESVC_ANALYSIS_INFO(i32);
+pub struct SCESVC_ANALYSIS_INFO {
+    pub Count: u32,
+    pub Lines: *mut SCESVC_ANALYSIS_LINE,
+}
+impl ::core::marker::Copy for SCESVC_ANALYSIS_INFO {}
+impl ::core::clone::Clone for SCESVC_ANALYSIS_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct SCESVC_ANALYSIS_LINE(i32);
+pub struct SCESVC_ANALYSIS_LINE {
+    pub Key: *mut i8,
+    pub Value: *mut u8,
+    pub ValueLen: u32,
+}
+impl ::core::marker::Copy for SCESVC_ANALYSIS_LINE {}
+impl ::core::clone::Clone for SCESVC_ANALYSIS_LINE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+pub struct SCESVC_CALLBACK_INFO {
+    pub sceHandle: *mut ::core::ffi::c_void,
+    pub pfQueryInfo: ::core::option::Option<PFSCE_QUERY_INFO>,
+    pub pfSetInfo: ::core::option::Option<PFSCE_SET_INFO>,
+    pub pfFreeInfo: ::core::option::Option<PFSCE_FREE_INFO>,
+    pub pfLogInfo: ::core::option::Option<PFSCE_LOG_INFO>,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SCESVC_CALLBACK_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SCESVC_CALLBACK_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct SCESVC_CALLBACK_INFO(i32);
+pub struct SCESVC_CONFIGURATION_INFO {
+    pub Count: u32,
+    pub Lines: *mut SCESVC_CONFIGURATION_LINE,
+}
+impl ::core::marker::Copy for SCESVC_CONFIGURATION_INFO {}
+impl ::core::clone::Clone for SCESVC_CONFIGURATION_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct SCESVC_CONFIGURATION_INFO(i32);
-#[repr(C)]
-pub struct SCESVC_CONFIGURATION_LINE(i32);
+pub struct SCESVC_CONFIGURATION_LINE {
+    pub Key: *mut i8,
+    pub Value: *mut i8,
+    pub ValueLen: u32,
+}
+impl ::core::marker::Copy for SCESVC_CONFIGURATION_LINE {}
+impl ::core::clone::Clone for SCESVC_CONFIGURATION_LINE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SCESVC_ENUMERATION_MAX: i32 = 100i32;
 #[repr(transparent)]
 pub struct SCESVC_INFO_TYPE(pub i32);

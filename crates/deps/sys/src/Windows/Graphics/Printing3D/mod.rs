@@ -124,7 +124,16 @@ pub struct Printing3DBaseMaterial(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct Printing3DBaseMaterialGroup(pub *mut ::core::ffi::c_void);
 #[repr(C)]
-pub struct Printing3DBufferDescription(i32);
+pub struct Printing3DBufferDescription {
+    pub Format: Printing3DBufferFormat,
+    pub Stride: u32,
+}
+impl ::core::marker::Copy for Printing3DBufferDescription {}
+impl ::core::clone::Clone for Printing3DBufferDescription {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct Printing3DBufferFormat(pub i32);
 impl Printing3DBufferFormat {

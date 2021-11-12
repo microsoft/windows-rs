@@ -49,9 +49,26 @@ pub const NLM_CONNECTIVITY_IPV4_INTERNET: NLM_CONNECTIVITY = NLM_CONNECTIVITY(64
 pub const NLM_CONNECTIVITY_IPV6_SUBNET: NLM_CONNECTIVITY = NLM_CONNECTIVITY(256i32);
 pub const NLM_CONNECTIVITY_IPV6_LOCALNETWORK: NLM_CONNECTIVITY = NLM_CONNECTIVITY(512i32);
 pub const NLM_CONNECTIVITY_IPV6_INTERNET: NLM_CONNECTIVITY = NLM_CONNECTIVITY(1024i32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct NLM_DATAPLAN_STATUS(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct NLM_DATAPLAN_STATUS {
+    pub InterfaceGuid: ::windows_sys::core::GUID,
+    pub UsageData: NLM_USAGE_DATA,
+    pub DataLimitInMegabytes: u32,
+    pub InboundBandwidthInKbps: u32,
+    pub OutboundBandwidthInKbps: u32,
+    pub NextBillingCycle: super::super::Foundation::FILETIME,
+    pub MaxTransferSizeInMegabytes: u32,
+    pub Reserved: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for NLM_DATAPLAN_STATUS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for NLM_DATAPLAN_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct NLM_DOMAIN_TYPE(pub i32);
 pub const NLM_DOMAIN_TYPE_NON_DOMAIN_NETWORK: NLM_DOMAIN_TYPE = NLM_DOMAIN_TYPE(0i32);
@@ -86,13 +103,43 @@ pub const NLM_NETWORK_PROPERTY_CHANGE_NAME: NLM_NETWORK_PROPERTY_CHANGE = NLM_NE
 pub const NLM_NETWORK_PROPERTY_CHANGE_ICON: NLM_NETWORK_PROPERTY_CHANGE = NLM_NETWORK_PROPERTY_CHANGE(8i32);
 pub const NLM_NETWORK_PROPERTY_CHANGE_CATEGORY_VALUE: NLM_NETWORK_PROPERTY_CHANGE = NLM_NETWORK_PROPERTY_CHANGE(16i32);
 #[repr(C)]
-pub struct NLM_SIMULATED_PROFILE_INFO(i32);
+pub struct NLM_SIMULATED_PROFILE_INFO {
+    pub ProfileName: [u16; 256],
+    pub cost: NLM_CONNECTION_COST,
+    pub UsageInMegabytes: u32,
+    pub DataLimitInMegabytes: u32,
+}
+impl ::core::marker::Copy for NLM_SIMULATED_PROFILE_INFO {}
+impl ::core::clone::Clone for NLM_SIMULATED_PROFILE_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct NLM_SOCKADDR(i32);
+pub struct NLM_SOCKADDR {
+    pub data: [u8; 128],
+}
+impl ::core::marker::Copy for NLM_SOCKADDR {}
+impl ::core::clone::Clone for NLM_SOCKADDR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const NLM_UNKNOWN_DATAPLAN_STATUS: u32 = 4294967295u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct NLM_USAGE_DATA(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct NLM_USAGE_DATA {
+    pub UsageInMegabytes: u32,
+    pub LastSyncTime: super::super::Foundation::FILETIME,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for NLM_USAGE_DATA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for NLM_USAGE_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const NetworkListManager: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 3702524929,
     data2: 22287,

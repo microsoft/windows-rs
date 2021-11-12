@@ -6168,9 +6168,23 @@ pub const DOCHOSTUIFLAG_USE_WINDOWLESS_SELECTCONTROL: DOCHOSTUIFLAG = DOCHOSTUIF
 pub const DOCHOSTUIFLAG_USE_WINDOWED_SELECTCONTROL: DOCHOSTUIFLAG = DOCHOSTUIFLAG(268435456i32);
 pub const DOCHOSTUIFLAG_ENABLE_ACTIVEX_INACTIVATE_MODE: DOCHOSTUIFLAG = DOCHOSTUIFLAG(536870912i32);
 pub const DOCHOSTUIFLAG_DPI_AWARE: DOCHOSTUIFLAG = DOCHOSTUIFLAG(1073741824i32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct DOCHOSTUIINFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct DOCHOSTUIINFO {
+    pub cbSize: u32,
+    pub dwFlags: u32,
+    pub dwDoubleClick: u32,
+    pub pchHostCss: super::super::Foundation::PWSTR,
+    pub pchHostNS: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DOCHOSTUIINFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DOCHOSTUIINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DOCHOSTUITYPE(pub i32);
 pub const DOCHOSTUITYPE_BROWSE: DOCHOSTUITYPE = DOCHOSTUITYPE(0i32);
@@ -7451,17 +7465,42 @@ pub const HTMLPAINTER_SUPPORTS_XFORM: HTML_PAINTER = HTML_PAINTER(32768i32);
 pub const HTMLPAINTER_EXPAND: HTML_PAINTER = HTML_PAINTER(65536i32);
 pub const HTMLPAINTER_NOSCROLLBITS: HTML_PAINTER = HTML_PAINTER(131072i32);
 pub const HTML_PAINTER_Max: HTML_PAINTER = HTML_PAINTER(2147483647i32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct HTML_PAINTER_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct HTML_PAINTER_INFO {
+    pub lFlags: i32,
+    pub lZOrder: i32,
+    pub iidDrawObject: ::windows_sys::core::GUID,
+    pub rcExpand: super::super::Foundation::RECT,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for HTML_PAINTER_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for HTML_PAINTER_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct HTML_PAINT_DRAW_FLAGS(pub i32);
 pub const HTMLPAINT_DRAW_UPDATEREGION: HTML_PAINT_DRAW_FLAGS = HTML_PAINT_DRAW_FLAGS(1i32);
 pub const HTMLPAINT_DRAW_USE_XFORM: HTML_PAINT_DRAW_FLAGS = HTML_PAINT_DRAW_FLAGS(2i32);
 pub const HTML_PAINT_DRAW_FLAGS_Max: HTML_PAINT_DRAW_FLAGS = HTML_PAINT_DRAW_FLAGS(2147483647i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[repr(C)]
-pub struct HTML_PAINT_DRAW_INFO(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+pub struct HTML_PAINT_DRAW_INFO {
+    pub rcViewport: super::super::Foundation::RECT,
+    pub hrgnUpdate: super::super::Graphics::Gdi::HRGN,
+    pub xform: HTML_PAINT_XFORM,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::marker::Copy for HTML_PAINT_DRAW_INFO {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::clone::Clone for HTML_PAINT_DRAW_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct HTML_PAINT_DRAW_INFO_FLAGS(pub i32);
 pub const HTMLPAINT_DRAWINFO_VIEWPORT: HTML_PAINT_DRAW_INFO_FLAGS = HTML_PAINT_DRAW_INFO_FLAGS(1i32);
@@ -7474,7 +7513,20 @@ pub const HTMLPAINT_EVENT_TARGET: HTML_PAINT_EVENT_FLAGS = HTML_PAINT_EVENT_FLAG
 pub const HTMLPAINT_EVENT_SETCURSOR: HTML_PAINT_EVENT_FLAGS = HTML_PAINT_EVENT_FLAGS(2i32);
 pub const HTML_PAINT_EVENT_FLAGS_Max: HTML_PAINT_EVENT_FLAGS = HTML_PAINT_EVENT_FLAGS(2147483647i32);
 #[repr(C)]
-pub struct HTML_PAINT_XFORM(i32);
+pub struct HTML_PAINT_XFORM {
+    pub eM11: f32,
+    pub eM12: f32,
+    pub eM21: f32,
+    pub eM22: f32,
+    pub eDx: f32,
+    pub eDy: f32,
+}
+impl ::core::marker::Copy for HTML_PAINT_XFORM {}
+impl ::core::clone::Clone for HTML_PAINT_XFORM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct HTML_PAINT_ZORDER(pub i32);
 pub const HTMLPAINT_ZORDER_NONE: HTML_PAINT_ZORDER = HTML_PAINT_ZORDER(0i32);
@@ -8151,7 +8203,17 @@ pub const IELAUNCHOPTION_FORCE_COMPAT: IELAUNCHOPTION_FLAGS = IELAUNCHOPTION_FLA
 pub const IELAUNCHOPTION_FORCE_EDGE: IELAUNCHOPTION_FLAGS = IELAUNCHOPTION_FLAGS(4i32);
 pub const IELAUNCHOPTION_LOCK_ENGINE: IELAUNCHOPTION_FLAGS = IELAUNCHOPTION_FLAGS(8i32);
 #[repr(C)]
-pub struct IELAUNCHURLINFO(i32);
+pub struct IELAUNCHURLINFO {
+    pub cbSize: u32,
+    pub dwCreationFlags: u32,
+    pub dwLaunchOptionFlags: u32,
+}
+impl ::core::marker::Copy for IELAUNCHURLINFO {}
+impl ::core::clone::Clone for IELAUNCHURLINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[cfg(feature = "Win32_Foundation")]
 pub type IEREGISTERXMLNSFN = unsafe extern "system" fn(lpszuri: super::super::Foundation::PWSTR, clsid: ::windows_sys::core::GUID, fmachine: super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
 pub const IEWebDriverManager: ::windows_sys::core::GUID = ::windows_sys::GUID {
@@ -9527,9 +9589,25 @@ pub type SHOWMODELESSHTMLDIALOGFN = unsafe extern "system" fn(hwndparent: super:
 pub const SID_SEditCommandTarget: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611893, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const SID_SHTMLEditHost: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810612384, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const SID_SHTMLEditServices: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810612729, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct STATURL(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct STATURL {
+    pub cbSize: u32,
+    pub pwcsUrl: super::super::Foundation::PWSTR,
+    pub pwcsTitle: super::super::Foundation::PWSTR,
+    pub ftLastVisited: super::super::Foundation::FILETIME,
+    pub ftLastUpdated: super::super::Foundation::FILETIME,
+    pub ftExpires: super::super::Foundation::FILETIME,
+    pub dwFlags: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for STATURL {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for STATURL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const STATURLFLAG_ISCACHED: u32 = 1u32;
 pub const STATURLFLAG_ISTOPLEVEL: u32 = 2u32;
 pub const STATURL_QUERYFLAG_ISCACHED: u32 = 65536u32;
@@ -11502,7 +11580,19 @@ pub const SVG_UNITTYPE_USERSPACEONUSE: svgUnitTypes = svgUnitTypes(1i32);
 pub const SVG_UNITTYPE_OBJECTBOUNDINGBOX: svgUnitTypes = svgUnitTypes(2i32);
 pub const svgUnitTypes_Max: svgUnitTypes = svgUnitTypes(2147483647i32);
 #[repr(C)]
-pub struct tagNavigateData(i32);
+pub struct tagNavigateData {
+    pub ulTarget: u32,
+    pub ulURL: u32,
+    pub ulRefURL: u32,
+    pub ulPostData: u32,
+    pub dwFlags: u32,
+}
+impl ::core::marker::Copy for tagNavigateData {}
+impl ::core::clone::Clone for tagNavigateData {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct textDecoration(pub i32);
 pub const textDecorationNone: textDecoration = textDecoration(0i32);

@@ -321,8 +321,18 @@ pub const WCN_VALUE_MT_M8: WCN_VALUE_TYPE_MESSAGE_TYPE = WCN_VALUE_TYPE_MESSAGE_
 pub const WCN_VALUE_MT_ACK: WCN_VALUE_TYPE_MESSAGE_TYPE = WCN_VALUE_TYPE_MESSAGE_TYPE(13i32);
 pub const WCN_VALUE_MT_NACK: WCN_VALUE_TYPE_MESSAGE_TYPE = WCN_VALUE_TYPE_MESSAGE_TYPE(14i32);
 pub const WCN_VALUE_MT_DONE: WCN_VALUE_TYPE_MESSAGE_TYPE = WCN_VALUE_TYPE_MESSAGE_TYPE(15i32);
-#[repr(C)]
-pub struct WCN_VALUE_TYPE_PRIMARY_DEVICE_TYPE(i32);
+#[repr(C, packed(1))]
+pub struct WCN_VALUE_TYPE_PRIMARY_DEVICE_TYPE {
+    pub Category: u16,
+    pub SubCategoryOUI: u32,
+    pub SubCategory: u16,
+}
+impl ::core::marker::Copy for WCN_VALUE_TYPE_PRIMARY_DEVICE_TYPE {}
+impl ::core::clone::Clone for WCN_VALUE_TYPE_PRIMARY_DEVICE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WCN_VALUE_TYPE_REQUEST_TYPE(pub i32);
 pub const WCN_VALUE_ReqT_ENROLLEE_INFO: WCN_VALUE_TYPE_REQUEST_TYPE = WCN_VALUE_TYPE_REQUEST_TYPE(0i32);
@@ -349,4 +359,15 @@ pub const WCN_VALUE_SS_RESERVED00: WCN_VALUE_TYPE_WI_FI_PROTECTED_SETUP_STATE = 
 pub const WCN_VALUE_SS_NOT_CONFIGURED: WCN_VALUE_TYPE_WI_FI_PROTECTED_SETUP_STATE = WCN_VALUE_TYPE_WI_FI_PROTECTED_SETUP_STATE(1i32);
 pub const WCN_VALUE_SS_CONFIGURED: WCN_VALUE_TYPE_WI_FI_PROTECTED_SETUP_STATE = WCN_VALUE_TYPE_WI_FI_PROTECTED_SETUP_STATE(2i32);
 #[repr(C)]
-pub struct WCN_VENDOR_EXTENSION_SPEC(i32);
+pub struct WCN_VENDOR_EXTENSION_SPEC {
+    pub VendorId: u32,
+    pub SubType: u32,
+    pub Index: u32,
+    pub Flags: u32,
+}
+impl ::core::marker::Copy for WCN_VENDOR_EXTENSION_SPEC {}
+impl ::core::clone::Clone for WCN_VENDOR_EXTENSION_SPEC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

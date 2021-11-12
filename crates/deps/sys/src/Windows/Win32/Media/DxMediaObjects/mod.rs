@@ -60,13 +60,51 @@ pub const DMO_E_NOTACCEPTING: ::windows_sys::core::HRESULT = ::windows_sys::core
 pub const DMO_E_NO_MORE_ITEMS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220986i32 as _);
 pub const DMO_E_TYPE_NOT_ACCEPTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220987i32 as _);
 pub const DMO_E_TYPE_NOT_SET: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220989i32 as _);
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+pub struct DMO_MEDIA_TYPE {
+    pub majortype: ::windows_sys::core::GUID,
+    pub subtype: ::windows_sys::core::GUID,
+    pub bFixedSizeSamples: super::super::Foundation::BOOL,
+    pub bTemporalCompression: super::super::Foundation::BOOL,
+    pub lSampleSize: u32,
+    pub formattype: ::windows_sys::core::GUID,
+    pub pUnk: ::core::option::Option<::windows_sys::core::IUnknown>,
+    pub cbFormat: u32,
+    pub pbFormat: *mut u8,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DMO_MEDIA_TYPE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DMO_MEDIA_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DMO_MEDIA_TYPE(i32);
+pub struct DMO_OUTPUT_DATA_BUFFER {
+    pub pBuffer: ::core::option::Option<IMediaBuffer>,
+    pub dwStatus: u32,
+    pub rtTimestamp: i64,
+    pub rtTimelength: i64,
+}
+impl ::core::marker::Copy for DMO_OUTPUT_DATA_BUFFER {}
+impl ::core::clone::Clone for DMO_OUTPUT_DATA_BUFFER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DMO_OUTPUT_DATA_BUFFER(i32);
-#[repr(C)]
-pub struct DMO_PARTIAL_MEDIATYPE(i32);
+pub struct DMO_PARTIAL_MEDIATYPE {
+    pub r#type: ::windows_sys::core::GUID,
+    pub subtype: ::windows_sys::core::GUID,
+}
+impl ::core::marker::Copy for DMO_PARTIAL_MEDIATYPE {}
+impl ::core::clone::Clone for DMO_PARTIAL_MEDIATYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DMO_REGISTER_FLAGS(pub i32);
 pub const DMO_REGISTERF_IS_KEYED: DMO_REGISTER_FLAGS = DMO_REGISTER_FLAGS(1i32);

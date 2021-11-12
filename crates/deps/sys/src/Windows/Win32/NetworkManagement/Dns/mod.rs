@@ -170,28 +170,103 @@ pub const DNSSEC_PROTOCOL_IPSEC: u32 = 4u32;
 pub const DNSSEC_PROTOCOL_NONE: u32 = 0u32;
 pub const DNSSEC_PROTOCOL_TLS: u32 = 1u32;
 #[repr(C)]
-pub struct DNS_AAAA_DATA(i32);
-#[cfg(feature = "Win32_Foundation")]
+pub struct DNS_AAAA_DATA {
+    pub Ip6Address: IP6_ADDRESS,
+}
+impl ::core::marker::Copy for DNS_AAAA_DATA {}
+impl ::core::clone::Clone for DNS_AAAA_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DNS_ADDR(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct DNS_ADDR {
+    pub MaxSa: [super::super::Foundation::CHAR; 32],
+    pub Data: DNS_ADDR_0,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DNS_ADDR {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DNS_ADDR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Foundation")]
+pub union DNS_ADDR_0 {
+    pub DnsAddrUserDword: [u32; 8],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DNS_ADDR_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DNS_ADDRESS_STRING_LENGTH: u32 = 65u32;
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct DNS_ADDR_ARRAY(i32);
+pub struct DNS_ADDR_ARRAY {
+    pub MaxCount: u32,
+    pub AddrCount: u32,
+    pub Tag: u32,
+    pub Family: u16,
+    pub WordReserved: u16,
+    pub Flags: u32,
+    pub MatchFlag: u32,
+    pub Reserved1: u32,
+    pub Reserved2: u32,
+    pub AddrArray: [DNS_ADDR; 1],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DNS_ADDR_ARRAY {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DNS_ADDR_ARRAY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DNS_ADDR_MAX_SOCKADDR_LENGTH: u32 = 32u32;
 #[repr(C)]
-pub struct DNS_APPLICATION_SETTINGS(i32);
+pub struct DNS_APPLICATION_SETTINGS {
+    pub Version: u32,
+    pub Flags: u64,
+}
+impl ::core::marker::Copy for DNS_APPLICATION_SETTINGS {}
+impl ::core::clone::Clone for DNS_APPLICATION_SETTINGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DNS_APP_SETTINGS_EXCLUSIVE_SERVERS: u32 = 1u32;
 pub const DNS_APP_SETTINGS_VERSION1: u32 = 1u32;
 pub const DNS_ATMA_AESA_ADDR_LENGTH: u32 = 20u32;
 #[repr(C)]
-pub struct DNS_ATMA_DATA(i32);
+pub struct DNS_ATMA_DATA {
+    pub AddressType: u8,
+    pub Address: [u8; 20],
+}
+impl ::core::marker::Copy for DNS_ATMA_DATA {}
+impl ::core::clone::Clone for DNS_ATMA_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DNS_ATMA_FORMAT_AESA: u32 = 2u32;
 pub const DNS_ATMA_FORMAT_E164: u32 = 1u32;
 pub const DNS_ATMA_MAX_ADDR_LENGTH: u32 = 20u32;
 pub const DNS_ATMA_MAX_RECORD_LENGTH: u32 = 21u32;
 #[repr(C)]
-pub struct DNS_A_DATA(i32);
+pub struct DNS_A_DATA {
+    pub IpAddress: u32,
+}
+impl ::core::marker::Copy for DNS_A_DATA {}
+impl ::core::clone::Clone for DNS_A_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DNS_CHARSET(pub i32);
 pub const DnsCharSetUnknown: DNS_CHARSET = DNS_CHARSET(0i32);
@@ -229,39 +304,189 @@ pub const DnsConfigFullHostName_W: DNS_CONFIG_TYPE = DNS_CONFIG_TYPE(15i32);
 pub const DnsConfigFullHostName_A: DNS_CONFIG_TYPE = DNS_CONFIG_TYPE(16i32);
 pub const DnsConfigFullHostName_UTF8: DNS_CONFIG_TYPE = DNS_CONFIG_TYPE(17i32);
 pub const DnsConfigNameServer: DNS_CONFIG_TYPE = DNS_CONFIG_TYPE(18i32);
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct DNS_CONNECTION_IFINDEX_ENTRY(i32);
+pub struct DNS_CONNECTION_IFINDEX_ENTRY {
+    pub pwszConnectionName: super::super::Foundation::PWSTR,
+    pub dwIfIndex: u32,
+}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DNS_CONNECTION_IFINDEX_ENTRY {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DNS_CONNECTION_IFINDEX_ENTRY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DNS_CONNECTION_IFINDEX_LIST(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct DNS_CONNECTION_IFINDEX_LIST {
+    pub pConnectionIfIndexEntries: *mut DNS_CONNECTION_IFINDEX_ENTRY,
+    pub nEntries: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DNS_CONNECTION_IFINDEX_LIST {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DNS_CONNECTION_IFINDEX_LIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DNS_CONNECTION_NAME(i32);
+pub struct DNS_CONNECTION_NAME {
+    pub wszName: [u16; 65],
+}
+impl ::core::marker::Copy for DNS_CONNECTION_NAME {}
+impl ::core::clone::Clone for DNS_CONNECTION_NAME {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DNS_CONNECTION_NAME_LIST(i32);
+pub struct DNS_CONNECTION_NAME_LIST {
+    pub cNames: u32,
+    pub pNames: *mut DNS_CONNECTION_NAME,
+}
+impl ::core::marker::Copy for DNS_CONNECTION_NAME_LIST {}
+impl ::core::clone::Clone for DNS_CONNECTION_NAME_LIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DNS_CONNECTION_NAME_MAX_LENGTH: u32 = 64u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct DNS_CONNECTION_POLICY_ENTRY(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct DNS_CONNECTION_POLICY_ENTRY {
+    pub pwszHost: super::super::Foundation::PWSTR,
+    pub pwszAppId: super::super::Foundation::PWSTR,
+    pub cbAppSid: u32,
+    pub pbAppSid: *mut u8,
+    pub nConnections: u32,
+    pub ppwszConnections: *mut super::super::Foundation::PWSTR,
+    pub dwPolicyEntryFlags: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DNS_CONNECTION_POLICY_ENTRY {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DNS_CONNECTION_POLICY_ENTRY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DNS_CONNECTION_POLICY_ENTRY_LIST(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct DNS_CONNECTION_POLICY_ENTRY_LIST {
+    pub pPolicyEntries: *mut DNS_CONNECTION_POLICY_ENTRY,
+    pub nEntries: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DNS_CONNECTION_POLICY_ENTRY_LIST {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DNS_CONNECTION_POLICY_ENTRY_LIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DNS_CONNECTION_POLICY_ENTRY_ONDEMAND: u32 = 1u32;
 #[repr(transparent)]
 pub struct DNS_CONNECTION_POLICY_TAG(pub i32);
 pub const TAG_DNS_CONNECTION_POLICY_TAG_DEFAULT: DNS_CONNECTION_POLICY_TAG = DNS_CONNECTION_POLICY_TAG(0i32);
 pub const TAG_DNS_CONNECTION_POLICY_TAG_CONNECTION_MANAGER: DNS_CONNECTION_POLICY_TAG = DNS_CONNECTION_POLICY_TAG(1i32);
 pub const TAG_DNS_CONNECTION_POLICY_TAG_WWWPT: DNS_CONNECTION_POLICY_TAG = DNS_CONNECTION_POLICY_TAG(2i32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct DNS_CONNECTION_PROXY_ELEMENT(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct DNS_CONNECTION_PROXY_ELEMENT {
+    pub Type: DNS_CONNECTION_PROXY_TYPE,
+    pub Info: DNS_CONNECTION_PROXY_INFO,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DNS_CONNECTION_PROXY_ELEMENT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DNS_CONNECTION_PROXY_ELEMENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DNS_CONNECTION_PROXY_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct DNS_CONNECTION_PROXY_INFO {
+    pub Version: u32,
+    pub pwszFriendlyName: super::super::Foundation::PWSTR,
+    pub Flags: u32,
+    pub Switch: DNS_CONNECTION_PROXY_INFO_SWITCH,
+    pub Anonymous: DNS_CONNECTION_PROXY_INFO_0,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DNS_CONNECTION_PROXY_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DNS_CONNECTION_PROXY_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub union DNS_CONNECTION_PROXY_INFO_0 {
+    pub Config: DNS_CONNECTION_PROXY_INFO_0_0,
+    pub Script: DNS_CONNECTION_PROXY_INFO_0_1,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DNS_CONNECTION_PROXY_INFO_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DNS_CONNECTION_PROXY_INFO_0_0 {
+    pub pwszServer: super::super::Foundation::PWSTR,
+    pub pwszUsername: super::super::Foundation::PWSTR,
+    pub pwszPassword: super::super::Foundation::PWSTR,
+    pub pwszException: super::super::Foundation::PWSTR,
+    pub pwszExtraInfo: super::super::Foundation::PWSTR,
+    pub Port: u16,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DNS_CONNECTION_PROXY_INFO_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DNS_CONNECTION_PROXY_INFO_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DNS_CONNECTION_PROXY_INFO_0_1 {
+    pub pwszScript: super::super::Foundation::PWSTR,
+    pub pwszUsername: super::super::Foundation::PWSTR,
+    pub pwszPassword: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DNS_CONNECTION_PROXY_INFO_0_1 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DNS_CONNECTION_PROXY_INFO_0_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DNS_CONNECTION_PROXY_INFO_CURRENT_VERSION: u32 = 1u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct DNS_CONNECTION_PROXY_INFO_EX(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct DNS_CONNECTION_PROXY_INFO_EX {
+    pub ProxyInfo: DNS_CONNECTION_PROXY_INFO,
+    pub dwInterfaceIndex: u32,
+    pub pwszConnectionName: super::super::Foundation::PWSTR,
+    pub fDirectConfiguration: super::super::Foundation::BOOL,
+    pub hConnection: super::super::Foundation::HANDLE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DNS_CONNECTION_PROXY_INFO_EX {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DNS_CONNECTION_PROXY_INFO_EX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DNS_CONNECTION_PROXY_INFO_EXCEPTION_MAX_LENGTH: u32 = 1024u32;
 pub const DNS_CONNECTION_PROXY_INFO_EXTRA_INFO_MAX_LENGTH: u32 = 1024u32;
 pub const DNS_CONNECTION_PROXY_INFO_FLAG_BYPASSLOCAL: u32 = 2u32;
@@ -275,9 +500,20 @@ pub const DNS_CONNECTION_PROXY_INFO_SWITCH_CONFIG: DNS_CONNECTION_PROXY_INFO_SWI
 pub const DNS_CONNECTION_PROXY_INFO_SWITCH_SCRIPT: DNS_CONNECTION_PROXY_INFO_SWITCH = DNS_CONNECTION_PROXY_INFO_SWITCH(1i32);
 pub const DNS_CONNECTION_PROXY_INFO_SWITCH_WPAD: DNS_CONNECTION_PROXY_INFO_SWITCH = DNS_CONNECTION_PROXY_INFO_SWITCH(2i32);
 pub const DNS_CONNECTION_PROXY_INFO_USERNAME_MAX_LENGTH: u32 = 128u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct DNS_CONNECTION_PROXY_LIST(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct DNS_CONNECTION_PROXY_LIST {
+    pub cProxies: u32,
+    pub pProxies: *mut DNS_CONNECTION_PROXY_ELEMENT,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DNS_CONNECTION_PROXY_LIST {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DNS_CONNECTION_PROXY_LIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DNS_CONNECTION_PROXY_TYPE(pub i32);
 pub const DNS_CONNECTION_PROXY_TYPE_NULL: DNS_CONNECTION_PROXY_TYPE = DNS_CONNECTION_PROXY_TYPE(0i32);
@@ -285,29 +521,137 @@ pub const DNS_CONNECTION_PROXY_TYPE_HTTP: DNS_CONNECTION_PROXY_TYPE = DNS_CONNEC
 pub const DNS_CONNECTION_PROXY_TYPE_WAP: DNS_CONNECTION_PROXY_TYPE = DNS_CONNECTION_PROXY_TYPE(2i32);
 pub const DNS_CONNECTION_PROXY_TYPE_SOCKS4: DNS_CONNECTION_PROXY_TYPE = DNS_CONNECTION_PROXY_TYPE(4i32);
 pub const DNS_CONNECTION_PROXY_TYPE_SOCKS5: DNS_CONNECTION_PROXY_TYPE = DNS_CONNECTION_PROXY_TYPE(5i32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct DNS_CUSTOM_SERVER(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct DNS_CUSTOM_SERVER {
+    pub dwServerType: u32,
+    pub ullFlags: u64,
+    pub Anonymous1: DNS_CUSTOM_SERVER_0,
+    pub Anonymous2: DNS_CUSTOM_SERVER_1,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DNS_CUSTOM_SERVER {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DNS_CUSTOM_SERVER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub union DNS_CUSTOM_SERVER_0 {
+    pub pwszTemplate: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DNS_CUSTOM_SERVER_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub union DNS_CUSTOM_SERVER_1 {
+    pub MaxSa: [super::super::Foundation::CHAR; 32],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DNS_CUSTOM_SERVER_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DNS_CUSTOM_SERVER_TYPE_DOH: u32 = 2u32;
 pub const DNS_CUSTOM_SERVER_TYPE_UDP: u32 = 1u32;
 pub const DNS_CUSTOM_SERVER_UDP_FALLBACK: u32 = 1u32;
 #[repr(C)]
-pub struct DNS_DHCID_DATA(i32);
+pub struct DNS_DHCID_DATA {
+    pub dwByteCount: u32,
+    pub DHCID: [u8; 1],
+}
+impl ::core::marker::Copy for DNS_DHCID_DATA {}
+impl ::core::clone::Clone for DNS_DHCID_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DNS_DS_DATA(i32);
+pub struct DNS_DS_DATA {
+    pub wKeyTag: u16,
+    pub chAlgorithm: u8,
+    pub chDigestType: u8,
+    pub wDigestLength: u16,
+    pub wPad: u16,
+    pub Digest: [u8; 1],
+}
+impl ::core::marker::Copy for DNS_DS_DATA {}
+impl ::core::clone::Clone for DNS_DS_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DNS_FREE_TYPE(pub i32);
 pub const DnsFreeFlat: DNS_FREE_TYPE = DNS_FREE_TYPE(0i32);
 pub const DnsFreeRecordList: DNS_FREE_TYPE = DNS_FREE_TYPE(1i32);
 pub const DnsFreeParsedMessageFields: DNS_FREE_TYPE = DNS_FREE_TYPE(2i32);
+#[repr(C, packed(1))]
+pub struct DNS_HEADER {
+    pub Xid: u16,
+    pub _bitfield1: u8,
+    pub _bitfield2: u8,
+    pub QuestionCount: u16,
+    pub AnswerCount: u16,
+    pub NameServerCount: u16,
+    pub AdditionalCount: u16,
+}
+impl ::core::marker::Copy for DNS_HEADER {}
+impl ::core::clone::Clone for DNS_HEADER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub struct DNS_HEADER_EXT {
+    pub _bitfield: u16,
+    pub chRcode: u8,
+    pub chVersion: u8,
+}
+impl ::core::marker::Copy for DNS_HEADER_EXT {}
+impl ::core::clone::Clone for DNS_HEADER_EXT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DNS_HEADER(i32);
+pub struct DNS_KEY_DATA {
+    pub wFlags: u16,
+    pub chProtocol: u8,
+    pub chAlgorithm: u8,
+    pub wKeyLength: u16,
+    pub wPad: u16,
+    pub Key: [u8; 1],
+}
+impl ::core::marker::Copy for DNS_KEY_DATA {}
+impl ::core::clone::Clone for DNS_KEY_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DNS_HEADER_EXT(i32);
-#[repr(C)]
-pub struct DNS_KEY_DATA(i32);
-#[repr(C)]
-pub struct DNS_LOC_DATA(i32);
+pub struct DNS_LOC_DATA {
+    pub wVersion: u16,
+    pub wSize: u16,
+    pub wHorPrec: u16,
+    pub wVerPrec: u16,
+    pub dwLatitude: u32,
+    pub dwLongitude: u32,
+    pub dwAltitude: u32,
+}
+impl ::core::marker::Copy for DNS_LOC_DATA {}
+impl ::core::clone::Clone for DNS_LOC_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DNS_MAX_IP4_REVERSE_NAME_BUFFER_LENGTH: u32 = 31u32;
 pub const DNS_MAX_IP4_REVERSE_NAME_LENGTH: u32 = 31u32;
 pub const DNS_MAX_IP6_REVERSE_NAME_BUFFER_LENGTH: u32 = 75u32;
@@ -319,21 +663,78 @@ pub const DNS_MAX_NAME_LENGTH: u32 = 255u32;
 pub const DNS_MAX_REVERSE_NAME_BUFFER_LENGTH: u32 = 75u32;
 pub const DNS_MAX_REVERSE_NAME_LENGTH: u32 = 75u32;
 pub const DNS_MAX_TEXT_STRING_LENGTH: u32 = 255u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct DNS_MESSAGE_BUFFER(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct DNS_MINFO_DATAA(i32);
+pub struct DNS_MESSAGE_BUFFER {
+    pub MessageHead: DNS_HEADER,
+    pub MessageBody: [super::super::Foundation::CHAR; 1],
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct DNS_MINFO_DATAW(i32);
+impl ::core::marker::Copy for DNS_MESSAGE_BUFFER {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DNS_MESSAGE_BUFFER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DNS_MX_DATAA(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct DNS_MINFO_DATAA {
+    pub pNameMailbox: super::super::Foundation::PSTR,
+    pub pNameErrorsMailbox: super::super::Foundation::PSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DNS_MINFO_DATAA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DNS_MINFO_DATAA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DNS_MX_DATAW(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct DNS_MINFO_DATAW {
+    pub pNameMailbox: super::super::Foundation::PWSTR,
+    pub pNameErrorsMailbox: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DNS_MINFO_DATAW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DNS_MINFO_DATAW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DNS_MX_DATAA {
+    pub pNameExchange: super::super::Foundation::PSTR,
+    pub wPreference: u16,
+    pub Pad: u16,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DNS_MX_DATAA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DNS_MX_DATAA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DNS_MX_DATAW {
+    pub pNameExchange: super::super::Foundation::PWSTR,
+    pub wPreference: u16,
+    pub Pad: u16,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DNS_MX_DATAW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DNS_MX_DATAW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DNS_NAME_FORMAT(pub i32);
 pub const DnsNameDomain: DNS_NAME_FORMAT = DNS_NAME_FORMAT(0i32);
@@ -343,30 +744,146 @@ pub const DnsNameHostnameLabel: DNS_NAME_FORMAT = DNS_NAME_FORMAT(3i32);
 pub const DnsNameWildcard: DNS_NAME_FORMAT = DNS_NAME_FORMAT(4i32);
 pub const DnsNameSrvRecord: DNS_NAME_FORMAT = DNS_NAME_FORMAT(5i32);
 pub const DnsNameValidateTld: DNS_NAME_FORMAT = DNS_NAME_FORMAT(6i32);
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct DNS_NAPTR_DATAA(i32);
+pub struct DNS_NAPTR_DATAA {
+    pub wOrder: u16,
+    pub wPreference: u16,
+    pub pFlags: super::super::Foundation::PSTR,
+    pub pService: super::super::Foundation::PSTR,
+    pub pRegularExpression: super::super::Foundation::PSTR,
+    pub pReplacement: super::super::Foundation::PSTR,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct DNS_NAPTR_DATAW(i32);
-#[repr(C)]
-pub struct DNS_NSEC3PARAM_DATA(i32);
-#[repr(C)]
-pub struct DNS_NSEC3_DATA(i32);
+impl ::core::marker::Copy for DNS_NAPTR_DATAA {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DNS_NAPTR_DATAA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DNS_NSEC_DATAA(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct DNS_NSEC_DATAW(i32);
-#[repr(C)]
-pub struct DNS_NULL_DATA(i32);
+pub struct DNS_NAPTR_DATAW {
+    pub wOrder: u16,
+    pub wPreference: u16,
+    pub pFlags: super::super::Foundation::PWSTR,
+    pub pService: super::super::Foundation::PWSTR,
+    pub pRegularExpression: super::super::Foundation::PWSTR,
+    pub pReplacement: super::super::Foundation::PWSTR,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct DNS_NXT_DATAA(i32);
+impl ::core::marker::Copy for DNS_NAPTR_DATAW {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DNS_NAPTR_DATAW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DNS_NXT_DATAW(i32);
+pub struct DNS_NSEC3PARAM_DATA {
+    pub chAlgorithm: u8,
+    pub bFlags: u8,
+    pub wIterations: u16,
+    pub bSaltLength: u8,
+    pub bPad: [u8; 3],
+    pub pbSalt: [u8; 1],
+}
+impl ::core::marker::Copy for DNS_NSEC3PARAM_DATA {}
+impl ::core::clone::Clone for DNS_NSEC3PARAM_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct DNS_NSEC3_DATA {
+    pub chAlgorithm: u8,
+    pub bFlags: u8,
+    pub wIterations: u16,
+    pub bSaltLength: u8,
+    pub bHashLength: u8,
+    pub wTypeBitMapsLength: u16,
+    pub chData: [u8; 1],
+}
+impl ::core::marker::Copy for DNS_NSEC3_DATA {}
+impl ::core::clone::Clone for DNS_NSEC3_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DNS_NSEC_DATAA {
+    pub pNextDomainName: super::super::Foundation::PSTR,
+    pub wTypeBitMapsLength: u16,
+    pub wPad: u16,
+    pub TypeBitMaps: [u8; 1],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DNS_NSEC_DATAA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DNS_NSEC_DATAA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DNS_NSEC_DATAW {
+    pub pNextDomainName: super::super::Foundation::PWSTR,
+    pub wTypeBitMapsLength: u16,
+    pub wPad: u16,
+    pub TypeBitMaps: [u8; 1],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DNS_NSEC_DATAW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DNS_NSEC_DATAW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct DNS_NULL_DATA {
+    pub dwByteCount: u32,
+    pub Data: [u8; 1],
+}
+impl ::core::marker::Copy for DNS_NULL_DATA {}
+impl ::core::clone::Clone for DNS_NULL_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DNS_NXT_DATAA {
+    pub pNameNext: super::super::Foundation::PSTR,
+    pub wNumTypes: u16,
+    pub wTypes: [u16; 1],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DNS_NXT_DATAA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DNS_NXT_DATAA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DNS_NXT_DATAW {
+    pub pNameNext: super::super::Foundation::PWSTR,
+    pub wNumTypes: u16,
+    pub wTypes: [u16; 1],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DNS_NXT_DATAW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DNS_NXT_DATAW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DNS_OPCODE_IQUERY: u32 = 1u32;
 pub const DNS_OPCODE_NOTIFY: u32 = 4u32;
 pub const DNS_OPCODE_QUERY: u32 = 0u32;
@@ -374,33 +891,85 @@ pub const DNS_OPCODE_SERVER_STATUS: u32 = 2u32;
 pub const DNS_OPCODE_UNKNOWN: u32 = 3u32;
 pub const DNS_OPCODE_UPDATE: u32 = 5u32;
 #[repr(C)]
-pub struct DNS_OPT_DATA(i32);
+pub struct DNS_OPT_DATA {
+    pub wDataLength: u16,
+    pub wPad: u16,
+    pub Data: [u8; 1],
+}
+impl ::core::marker::Copy for DNS_OPT_DATA {}
+impl ::core::clone::Clone for DNS_OPT_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DNS_PORT_HOST_ORDER: u32 = 53u32;
 pub const DNS_PORT_NET_ORDER: u32 = 13568u32;
 pub type DNS_PROXY_COMPLETION_ROUTINE = unsafe extern "system" fn(completioncontext: *const ::core::ffi::c_void, status: i32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct DNS_PROXY_INFORMATION(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct DNS_PROXY_INFORMATION {
+    pub version: u32,
+    pub proxyInformationType: DNS_PROXY_INFORMATION_TYPE,
+    pub proxyName: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DNS_PROXY_INFORMATION {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DNS_PROXY_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DNS_PROXY_INFORMATION_TYPE(pub i32);
 pub const DNS_PROXY_INFORMATION_DIRECT: DNS_PROXY_INFORMATION_TYPE = DNS_PROXY_INFORMATION_TYPE(0i32);
 pub const DNS_PROXY_INFORMATION_DEFAULT_SETTINGS: DNS_PROXY_INFORMATION_TYPE = DNS_PROXY_INFORMATION_TYPE(1i32);
 pub const DNS_PROXY_INFORMATION_PROXY_NAME: DNS_PROXY_INFORMATION_TYPE = DNS_PROXY_INFORMATION_TYPE(2i32);
 pub const DNS_PROXY_INFORMATION_DOES_NOT_EXIST: DNS_PROXY_INFORMATION_TYPE = DNS_PROXY_INFORMATION_TYPE(3i32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct DNS_PTR_DATAA(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct DNS_PTR_DATAA {
+    pub pNameHost: super::super::Foundation::PSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DNS_PTR_DATAA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DNS_PTR_DATAA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DNS_PTR_DATAW(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct DNS_PTR_DATAW {
+    pub pNameHost: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DNS_PTR_DATAW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DNS_PTR_DATAW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DNS_QUERY_ACCEPT_TRUNCATED_RESPONSE: u32 = 1u32;
 pub const DNS_QUERY_ADDRCONFIG: u32 = 8192u32;
 pub const DNS_QUERY_APPEND_MULTILABEL: u32 = 8388608u32;
 pub const DNS_QUERY_BYPASS_CACHE: u32 = 8u32;
 pub const DNS_QUERY_CACHE_ONLY: u32 = 16u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct DNS_QUERY_CANCEL(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct DNS_QUERY_CANCEL {
+    pub Reserved: [super::super::Foundation::CHAR; 32],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DNS_QUERY_CANCEL {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DNS_QUERY_CANCEL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DNS_QUERY_DISABLE_IDN_ENCODING: u32 = 2097152u32;
 pub const DNS_QUERY_DNSSEC_CHECKING_DISABLED: u32 = 33554432u32;
 pub const DNS_QUERY_DNSSEC_OK: u32 = 16777216u32;
@@ -413,19 +982,71 @@ pub const DNS_QUERY_NO_MULTICAST: u32 = 2048u32;
 pub const DNS_QUERY_NO_NETBT: u32 = 128u32;
 pub const DNS_QUERY_NO_RECURSION: u32 = 4u32;
 pub const DNS_QUERY_NO_WIRE_QUERY: u32 = 16u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct DNS_QUERY_REQUEST(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct DNS_QUERY_REQUEST {
+    pub Version: u32,
+    pub QueryName: super::super::Foundation::PWSTR,
+    pub QueryType: u16,
+    pub QueryOptions: u64,
+    pub pDnsServerList: *mut DNS_ADDR_ARRAY,
+    pub InterfaceIndex: u32,
+    pub pQueryCompletionCallback: ::core::option::Option<PDNS_QUERY_COMPLETION_ROUTINE>,
+    pub pQueryContext: *mut ::core::ffi::c_void,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DNS_QUERY_REQUEST {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DNS_QUERY_REQUEST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DNS_QUERY_REQUEST3(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct DNS_QUERY_REQUEST3 {
+    pub Version: u32,
+    pub QueryName: super::super::Foundation::PWSTR,
+    pub QueryType: u16,
+    pub QueryOptions: u64,
+    pub pDnsServerList: *mut DNS_ADDR_ARRAY,
+    pub InterfaceIndex: u32,
+    pub pQueryCompletionCallback: ::core::option::Option<PDNS_QUERY_COMPLETION_ROUTINE>,
+    pub pQueryContext: *mut ::core::ffi::c_void,
+    pub IsNetworkQueryRequired: super::super::Foundation::BOOL,
+    pub RequiredNetworkIndex: u32,
+    pub cCustomServers: u32,
+    pub pCustomServers: *mut DNS_CUSTOM_SERVER,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DNS_QUERY_REQUEST3 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DNS_QUERY_REQUEST3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DNS_QUERY_REQUEST_VERSION1: u32 = 1u32;
 pub const DNS_QUERY_REQUEST_VERSION2: u32 = 2u32;
 pub const DNS_QUERY_REQUEST_VERSION3: u32 = 3u32;
 pub const DNS_QUERY_RESERVED: u32 = 4026531840u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct DNS_QUERY_RESULT(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct DNS_QUERY_RESULT {
+    pub Version: u32,
+    pub QueryStatus: i32,
+    pub QueryOptions: u64,
+    pub pQueryRecords: *mut DNS_RECORDA,
+    pub Reserved: *mut ::core::ffi::c_void,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DNS_QUERY_RESULT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DNS_QUERY_RESULT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DNS_QUERY_RESULTS_VERSION1: u32 = 1u32;
 pub const DNS_QUERY_RETURN_MESSAGE: u32 = 512u32;
 pub const DNS_QUERY_STANDARD: u32 = 0u32;
@@ -461,18 +1082,283 @@ pub const DNS_RCODE_SERVER_FAILURE: u32 = 2u32;
 pub const DNS_RCODE_SERVFAIL: u32 = 2u32;
 pub const DNS_RCODE_YXDOMAIN: u32 = 6u32;
 pub const DNS_RCODE_YXRRSET: u32 = 7u32;
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct DNS_RECORDA(i32);
+pub struct DNS_RECORDA {
+    pub pNext: *mut DNS_RECORDA,
+    pub pName: super::super::Foundation::PSTR,
+    pub wType: u16,
+    pub wDataLength: u16,
+    pub Flags: DNS_RECORDA_1,
+    pub dwTtl: u32,
+    pub dwReserved: u32,
+    pub Data: DNS_RECORDA_0,
+}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DNS_RECORDA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DNS_RECORDA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DNS_RECORDW(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub union DNS_RECORDA_0 {
+    pub A: DNS_A_DATA,
+    pub SOA: DNS_SOA_DATAA,
+    pub Soa: DNS_SOA_DATAA,
+    pub PTR: DNS_PTR_DATAA,
+    pub Ptr: DNS_PTR_DATAA,
+    pub NS: DNS_PTR_DATAA,
+    pub Ns: DNS_PTR_DATAA,
+    pub CNAME: DNS_PTR_DATAA,
+    pub Cname: DNS_PTR_DATAA,
+    pub DNAME: DNS_PTR_DATAA,
+    pub Dname: DNS_PTR_DATAA,
+    pub MB: DNS_PTR_DATAA,
+    pub Mb: DNS_PTR_DATAA,
+    pub MD: DNS_PTR_DATAA,
+    pub Md: DNS_PTR_DATAA,
+    pub MF: DNS_PTR_DATAA,
+    pub Mf: DNS_PTR_DATAA,
+    pub MG: DNS_PTR_DATAA,
+    pub Mg: DNS_PTR_DATAA,
+    pub MR: DNS_PTR_DATAA,
+    pub Mr: DNS_PTR_DATAA,
+    pub MINFO: DNS_MINFO_DATAA,
+    pub Minfo: DNS_MINFO_DATAA,
+    pub RP: DNS_MINFO_DATAA,
+    pub Rp: DNS_MINFO_DATAA,
+    pub MX: DNS_MX_DATAA,
+    pub Mx: DNS_MX_DATAA,
+    pub AFSDB: DNS_MX_DATAA,
+    pub Afsdb: DNS_MX_DATAA,
+    pub RT: DNS_MX_DATAA,
+    pub Rt: DNS_MX_DATAA,
+    pub HINFO: DNS_TXT_DATAA,
+    pub Hinfo: DNS_TXT_DATAA,
+    pub ISDN: DNS_TXT_DATAA,
+    pub Isdn: DNS_TXT_DATAA,
+    pub TXT: DNS_TXT_DATAA,
+    pub Txt: DNS_TXT_DATAA,
+    pub X25: DNS_TXT_DATAA,
+    pub Null: DNS_NULL_DATA,
+    pub WKS: DNS_WKS_DATA,
+    pub Wks: DNS_WKS_DATA,
+    pub AAAA: DNS_AAAA_DATA,
+    pub KEY: DNS_KEY_DATA,
+    pub Key: DNS_KEY_DATA,
+    pub SIG: DNS_SIG_DATAA,
+    pub Sig: DNS_SIG_DATAA,
+    pub ATMA: DNS_ATMA_DATA,
+    pub Atma: DNS_ATMA_DATA,
+    pub NXT: DNS_NXT_DATAA,
+    pub Nxt: DNS_NXT_DATAA,
+    pub SRV: DNS_SRV_DATAA,
+    pub Srv: DNS_SRV_DATAA,
+    pub NAPTR: DNS_NAPTR_DATAA,
+    pub Naptr: DNS_NAPTR_DATAA,
+    pub OPT: DNS_OPT_DATA,
+    pub Opt: DNS_OPT_DATA,
+    pub DS: DNS_DS_DATA,
+    pub Ds: DNS_DS_DATA,
+    pub RRSIG: DNS_SIG_DATAA,
+    pub Rrsig: DNS_SIG_DATAA,
+    pub NSEC: DNS_NSEC_DATAA,
+    pub Nsec: DNS_NSEC_DATAA,
+    pub DNSKEY: DNS_KEY_DATA,
+    pub Dnskey: DNS_KEY_DATA,
+    pub TKEY: DNS_TKEY_DATAA,
+    pub Tkey: DNS_TKEY_DATAA,
+    pub TSIG: DNS_TSIG_DATAA,
+    pub Tsig: DNS_TSIG_DATAA,
+    pub WINS: DNS_WINS_DATA,
+    pub Wins: DNS_WINS_DATA,
+    pub WINSR: DNS_WINSR_DATAA,
+    pub WinsR: DNS_WINSR_DATAA,
+    pub NBSTAT: DNS_WINSR_DATAA,
+    pub Nbstat: DNS_WINSR_DATAA,
+    pub DHCID: DNS_DHCID_DATA,
+    pub NSEC3: DNS_NSEC3_DATA,
+    pub Nsec3: DNS_NSEC3_DATA,
+    pub NSEC3PARAM: DNS_NSEC3PARAM_DATA,
+    pub Nsec3Param: DNS_NSEC3PARAM_DATA,
+    pub TLSA: DNS_TLSA_DATA,
+    pub Tlsa: DNS_TLSA_DATA,
+    pub UNKNOWN: DNS_UNKNOWN_DATA,
+    pub Unknown: DNS_UNKNOWN_DATA,
+    pub pDataPtr: *mut u8,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DNS_RECORDA_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DNS_RECORD_FLAGS(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub union DNS_RECORDA_1 {
+    pub DW: u32,
+    pub S: DNS_RECORD_FLAGS,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DNS_RECORDA_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DNS_RECORDW {
+    pub pNext: *mut DNS_RECORDW,
+    pub pName: super::super::Foundation::PWSTR,
+    pub wType: u16,
+    pub wDataLength: u16,
+    pub Flags: DNS_RECORDW_1,
+    pub dwTtl: u32,
+    pub dwReserved: u32,
+    pub Data: DNS_RECORDW_0,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DNS_RECORDW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DNS_RECORDW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub union DNS_RECORDW_0 {
+    pub A: DNS_A_DATA,
+    pub SOA: DNS_SOA_DATAW,
+    pub Soa: DNS_SOA_DATAW,
+    pub PTR: DNS_PTR_DATAW,
+    pub Ptr: DNS_PTR_DATAW,
+    pub NS: DNS_PTR_DATAW,
+    pub Ns: DNS_PTR_DATAW,
+    pub CNAME: DNS_PTR_DATAW,
+    pub Cname: DNS_PTR_DATAW,
+    pub DNAME: DNS_PTR_DATAW,
+    pub Dname: DNS_PTR_DATAW,
+    pub MB: DNS_PTR_DATAW,
+    pub Mb: DNS_PTR_DATAW,
+    pub MD: DNS_PTR_DATAW,
+    pub Md: DNS_PTR_DATAW,
+    pub MF: DNS_PTR_DATAW,
+    pub Mf: DNS_PTR_DATAW,
+    pub MG: DNS_PTR_DATAW,
+    pub Mg: DNS_PTR_DATAW,
+    pub MR: DNS_PTR_DATAW,
+    pub Mr: DNS_PTR_DATAW,
+    pub MINFO: DNS_MINFO_DATAW,
+    pub Minfo: DNS_MINFO_DATAW,
+    pub RP: DNS_MINFO_DATAW,
+    pub Rp: DNS_MINFO_DATAW,
+    pub MX: DNS_MX_DATAW,
+    pub Mx: DNS_MX_DATAW,
+    pub AFSDB: DNS_MX_DATAW,
+    pub Afsdb: DNS_MX_DATAW,
+    pub RT: DNS_MX_DATAW,
+    pub Rt: DNS_MX_DATAW,
+    pub HINFO: DNS_TXT_DATAW,
+    pub Hinfo: DNS_TXT_DATAW,
+    pub ISDN: DNS_TXT_DATAW,
+    pub Isdn: DNS_TXT_DATAW,
+    pub TXT: DNS_TXT_DATAW,
+    pub Txt: DNS_TXT_DATAW,
+    pub X25: DNS_TXT_DATAW,
+    pub Null: DNS_NULL_DATA,
+    pub WKS: DNS_WKS_DATA,
+    pub Wks: DNS_WKS_DATA,
+    pub AAAA: DNS_AAAA_DATA,
+    pub KEY: DNS_KEY_DATA,
+    pub Key: DNS_KEY_DATA,
+    pub SIG: DNS_SIG_DATAW,
+    pub Sig: DNS_SIG_DATAW,
+    pub ATMA: DNS_ATMA_DATA,
+    pub Atma: DNS_ATMA_DATA,
+    pub NXT: DNS_NXT_DATAW,
+    pub Nxt: DNS_NXT_DATAW,
+    pub SRV: DNS_SRV_DATAW,
+    pub Srv: DNS_SRV_DATAW,
+    pub NAPTR: DNS_NAPTR_DATAW,
+    pub Naptr: DNS_NAPTR_DATAW,
+    pub OPT: DNS_OPT_DATA,
+    pub Opt: DNS_OPT_DATA,
+    pub DS: DNS_DS_DATA,
+    pub Ds: DNS_DS_DATA,
+    pub RRSIG: DNS_SIG_DATAW,
+    pub Rrsig: DNS_SIG_DATAW,
+    pub NSEC: DNS_NSEC_DATAW,
+    pub Nsec: DNS_NSEC_DATAW,
+    pub DNSKEY: DNS_KEY_DATA,
+    pub Dnskey: DNS_KEY_DATA,
+    pub TKEY: DNS_TKEY_DATAW,
+    pub Tkey: DNS_TKEY_DATAW,
+    pub TSIG: DNS_TSIG_DATAW,
+    pub Tsig: DNS_TSIG_DATAW,
+    pub WINS: DNS_WINS_DATA,
+    pub Wins: DNS_WINS_DATA,
+    pub WINSR: DNS_WINSR_DATAW,
+    pub WinsR: DNS_WINSR_DATAW,
+    pub NBSTAT: DNS_WINSR_DATAW,
+    pub Nbstat: DNS_WINSR_DATAW,
+    pub DHCID: DNS_DHCID_DATA,
+    pub NSEC3: DNS_NSEC3_DATA,
+    pub Nsec3: DNS_NSEC3_DATA,
+    pub NSEC3PARAM: DNS_NSEC3PARAM_DATA,
+    pub Nsec3Param: DNS_NSEC3PARAM_DATA,
+    pub TLSA: DNS_TLSA_DATA,
+    pub Tlsa: DNS_TLSA_DATA,
+    pub UNKNOWN: DNS_UNKNOWN_DATA,
+    pub Unknown: DNS_UNKNOWN_DATA,
+    pub pDataPtr: *mut u8,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DNS_RECORDW_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub union DNS_RECORDW_1 {
+    pub DW: u32,
+    pub S: DNS_RECORD_FLAGS,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DNS_RECORDW_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct DNS_RECORD_FLAGS {
+    pub _bitfield: u32,
+}
+impl ::core::marker::Copy for DNS_RECORD_FLAGS {}
+impl ::core::clone::Clone for DNS_RECORD_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DNS_RFC_MAX_UDP_PACKET_LENGTH: u32 = 512u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct DNS_RRSET(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct DNS_RRSET {
+    pub pFirstRR: *mut DNS_RECORDA,
+    pub pLastRR: *mut DNS_RECORDA,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DNS_RRSET {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DNS_RRSET {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DNS_RTYPE_A: u32 = 256u32;
 pub const DNS_RTYPE_A6: u32 = 9728u32;
 pub const DNS_RTYPE_AAAA: u32 = 7168u32;
@@ -542,62 +1428,363 @@ pub const DnsSectionQuestion: DNS_SECTION = DNS_SECTION(0i32);
 pub const DnsSectionAnswer: DNS_SECTION = DNS_SECTION(1i32);
 pub const DnsSectionAuthority: DNS_SECTION = DNS_SECTION(2i32);
 pub const DnsSectionAddtional: DNS_SECTION = DNS_SECTION(3i32);
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct DNS_SERVICE_BROWSE_REQUEST(i32);
-#[repr(C)]
-pub struct DNS_SERVICE_CANCEL(i32);
+pub struct DNS_SERVICE_BROWSE_REQUEST {
+    pub Version: u32,
+    pub InterfaceIndex: u32,
+    pub QueryName: super::super::Foundation::PWSTR,
+    pub Anonymous: DNS_SERVICE_BROWSE_REQUEST_0,
+    pub pQueryContext: *mut ::core::ffi::c_void,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct DNS_SERVICE_INSTANCE(i32);
+impl ::core::marker::Copy for DNS_SERVICE_BROWSE_REQUEST {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DNS_SERVICE_BROWSE_REQUEST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DNS_SERVICE_REGISTER_REQUEST(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct DNS_SERVICE_RESOLVE_REQUEST(i32);
+pub union DNS_SERVICE_BROWSE_REQUEST_0 {
+    pub pBrowseCallback: ::core::option::Option<PDNS_SERVICE_BROWSE_CALLBACK>,
+    pub pBrowseCallbackV2: ::core::option::Option<PDNS_QUERY_COMPLETION_ROUTINE>,
+}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DNS_SERVICE_BROWSE_REQUEST_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DNS_SIG_DATAA(i32);
+pub struct DNS_SERVICE_CANCEL {
+    pub reserved: *mut ::core::ffi::c_void,
+}
+impl ::core::marker::Copy for DNS_SERVICE_CANCEL {}
+impl ::core::clone::Clone for DNS_SERVICE_CANCEL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct DNS_SIG_DATAW(i32);
+pub struct DNS_SERVICE_INSTANCE {
+    pub pszInstanceName: super::super::Foundation::PWSTR,
+    pub pszHostName: super::super::Foundation::PWSTR,
+    pub ip4Address: *mut u32,
+    pub ip6Address: *mut IP6_ADDRESS,
+    pub wPort: u16,
+    pub wPriority: u16,
+    pub wWeight: u16,
+    pub dwPropertyCount: u32,
+    pub keys: *mut super::super::Foundation::PWSTR,
+    pub values: *mut super::super::Foundation::PWSTR,
+    pub dwInterfaceIndex: u32,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct DNS_SOA_DATAA(i32);
+impl ::core::marker::Copy for DNS_SERVICE_INSTANCE {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DNS_SERVICE_INSTANCE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DNS_SOA_DATAW(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct DNS_SRV_DATAA(i32);
+pub struct DNS_SERVICE_REGISTER_REQUEST {
+    pub Version: u32,
+    pub InterfaceIndex: u32,
+    pub pServiceInstance: *mut DNS_SERVICE_INSTANCE,
+    pub pRegisterCompletionCallback: ::core::option::Option<PDNS_SERVICE_REGISTER_COMPLETE>,
+    pub pQueryContext: *mut ::core::ffi::c_void,
+    pub hCredentials: super::super::Foundation::HANDLE,
+    pub unicastEnabled: super::super::Foundation::BOOL,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct DNS_SRV_DATAW(i32);
+impl ::core::marker::Copy for DNS_SERVICE_REGISTER_REQUEST {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DNS_SERVICE_REGISTER_REQUEST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DNS_TKEY_DATAA(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct DNS_SERVICE_RESOLVE_REQUEST {
+    pub Version: u32,
+    pub InterfaceIndex: u32,
+    pub QueryName: super::super::Foundation::PWSTR,
+    pub pResolveCompletionCallback: ::core::option::Option<PDNS_SERVICE_RESOLVE_COMPLETE>,
+    pub pQueryContext: *mut ::core::ffi::c_void,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DNS_SERVICE_RESOLVE_REQUEST {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DNS_SERVICE_RESOLVE_REQUEST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DNS_TKEY_DATAW(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct DNS_SIG_DATAA {
+    pub wTypeCovered: u16,
+    pub chAlgorithm: u8,
+    pub chLabelCount: u8,
+    pub dwOriginalTtl: u32,
+    pub dwExpiration: u32,
+    pub dwTimeSigned: u32,
+    pub wKeyTag: u16,
+    pub wSignatureLength: u16,
+    pub pNameSigner: super::super::Foundation::PSTR,
+    pub Signature: [u8; 1],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DNS_SIG_DATAA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DNS_SIG_DATAA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DNS_SIG_DATAW {
+    pub wTypeCovered: u16,
+    pub chAlgorithm: u8,
+    pub chLabelCount: u8,
+    pub dwOriginalTtl: u32,
+    pub dwExpiration: u32,
+    pub dwTimeSigned: u32,
+    pub wKeyTag: u16,
+    pub wSignatureLength: u16,
+    pub pNameSigner: super::super::Foundation::PWSTR,
+    pub Signature: [u8; 1],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DNS_SIG_DATAW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DNS_SIG_DATAW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DNS_SOA_DATAA {
+    pub pNamePrimaryServer: super::super::Foundation::PSTR,
+    pub pNameAdministrator: super::super::Foundation::PSTR,
+    pub dwSerialNo: u32,
+    pub dwRefresh: u32,
+    pub dwRetry: u32,
+    pub dwExpire: u32,
+    pub dwDefaultTtl: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DNS_SOA_DATAA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DNS_SOA_DATAA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DNS_SOA_DATAW {
+    pub pNamePrimaryServer: super::super::Foundation::PWSTR,
+    pub pNameAdministrator: super::super::Foundation::PWSTR,
+    pub dwSerialNo: u32,
+    pub dwRefresh: u32,
+    pub dwRetry: u32,
+    pub dwExpire: u32,
+    pub dwDefaultTtl: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DNS_SOA_DATAW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DNS_SOA_DATAW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DNS_SRV_DATAA {
+    pub pNameTarget: super::super::Foundation::PSTR,
+    pub wPriority: u16,
+    pub wWeight: u16,
+    pub wPort: u16,
+    pub Pad: u16,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DNS_SRV_DATAA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DNS_SRV_DATAA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DNS_SRV_DATAW {
+    pub pNameTarget: super::super::Foundation::PWSTR,
+    pub wPriority: u16,
+    pub wWeight: u16,
+    pub wPort: u16,
+    pub Pad: u16,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DNS_SRV_DATAW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DNS_SRV_DATAW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DNS_TKEY_DATAA {
+    pub pNameAlgorithm: super::super::Foundation::PSTR,
+    pub pAlgorithmPacket: *mut u8,
+    pub pKey: *mut u8,
+    pub pOtherData: *mut u8,
+    pub dwCreateTime: u32,
+    pub dwExpireTime: u32,
+    pub wMode: u16,
+    pub wError: u16,
+    pub wKeyLength: u16,
+    pub wOtherLength: u16,
+    pub cAlgNameLength: u8,
+    pub bPacketPointers: super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DNS_TKEY_DATAA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DNS_TKEY_DATAA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DNS_TKEY_DATAW {
+    pub pNameAlgorithm: super::super::Foundation::PWSTR,
+    pub pAlgorithmPacket: *mut u8,
+    pub pKey: *mut u8,
+    pub pOtherData: *mut u8,
+    pub dwCreateTime: u32,
+    pub dwExpireTime: u32,
+    pub wMode: u16,
+    pub wError: u16,
+    pub wKeyLength: u16,
+    pub wOtherLength: u16,
+    pub cAlgNameLength: u8,
+    pub bPacketPointers: super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DNS_TKEY_DATAW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DNS_TKEY_DATAW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DNS_TKEY_MODE_DIFFIE_HELLMAN: u32 = 2u32;
 pub const DNS_TKEY_MODE_GSS: u32 = 3u32;
 pub const DNS_TKEY_MODE_RESOLVER_ASSIGN: u32 = 4u32;
 pub const DNS_TKEY_MODE_SERVER_ASSIGN: u32 = 1u32;
 #[repr(C)]
-pub struct DNS_TLSA_DATA(i32);
-#[cfg(feature = "Win32_Foundation")]
+pub struct DNS_TLSA_DATA {
+    pub bCertUsage: u8,
+    pub bSelector: u8,
+    pub bMatchingType: u8,
+    pub bCertificateAssociationDataLength: u16,
+    pub bPad: [u8; 3],
+    pub bCertificateAssociationData: [u8; 1],
+}
+impl ::core::marker::Copy for DNS_TLSA_DATA {}
+impl ::core::clone::Clone for DNS_TLSA_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DNS_TSIG_DATAA(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct DNS_TSIG_DATAW(i32);
+pub struct DNS_TSIG_DATAA {
+    pub pNameAlgorithm: super::super::Foundation::PSTR,
+    pub pAlgorithmPacket: *mut u8,
+    pub pSignature: *mut u8,
+    pub pOtherData: *mut u8,
+    pub i64CreateTime: i64,
+    pub wFudgeTime: u16,
+    pub wOriginalXid: u16,
+    pub wError: u16,
+    pub wSigLength: u16,
+    pub wOtherLength: u16,
+    pub cAlgNameLength: u8,
+    pub bPacketPointers: super::super::Foundation::BOOL,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct DNS_TXT_DATAA(i32);
+impl ::core::marker::Copy for DNS_TSIG_DATAA {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DNS_TSIG_DATAA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DNS_TXT_DATAW(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct DNS_TSIG_DATAW {
+    pub pNameAlgorithm: super::super::Foundation::PWSTR,
+    pub pAlgorithmPacket: *mut u8,
+    pub pSignature: *mut u8,
+    pub pOtherData: *mut u8,
+    pub i64CreateTime: i64,
+    pub wFudgeTime: u16,
+    pub wOriginalXid: u16,
+    pub wError: u16,
+    pub wSigLength: u16,
+    pub wOtherLength: u16,
+    pub cAlgNameLength: u8,
+    pub bPacketPointers: super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DNS_TSIG_DATAW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DNS_TSIG_DATAW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DNS_TXT_DATAA {
+    pub dwStringCount: u32,
+    pub pStringArray: [super::super::Foundation::PSTR; 1],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DNS_TXT_DATAA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DNS_TXT_DATAA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DNS_TXT_DATAW {
+    pub dwStringCount: u32,
+    pub pStringArray: [super::super::Foundation::PWSTR; 1],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DNS_TXT_DATAW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DNS_TXT_DATAW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DNS_TYPE_A: u32 = 1u32;
 pub const DNS_TYPE_A6: u32 = 38u32;
 pub const DNS_TYPE_AAAA: u32 = 28u32;
@@ -665,7 +1852,16 @@ pub const DNS_TYPE_WKS: u32 = 11u32;
 pub const DNS_TYPE_X25: u32 = 19u32;
 pub const DNS_TYPE_ZERO: u32 = 0u32;
 #[repr(C)]
-pub struct DNS_UNKNOWN_DATA(i32);
+pub struct DNS_UNKNOWN_DATA {
+    pub dwByteCount: u32,
+    pub bData: [u8; 1],
+}
+impl ::core::marker::Copy for DNS_UNKNOWN_DATA {}
+impl ::core::clone::Clone for DNS_UNKNOWN_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DNS_UPDATE_CACHE_SECURITY_CONTEXT: u32 = 512u32;
 pub const DNS_UPDATE_FORCE_SECURITY_NEGO: u32 = 2048u32;
 pub const DNS_UPDATE_REMOTE_SERVER: u32 = 16384u32;
@@ -685,41 +1881,178 @@ pub const DNS_VALSVR_ERROR_NO_TCP: u32 = 16u32;
 pub const DNS_VALSVR_ERROR_REFUSED: u32 = 6u32;
 pub const DNS_VALSVR_ERROR_UNKNOWN: u32 = 255u32;
 pub const DNS_VALSVR_ERROR_UNREACHABLE: u32 = 3u32;
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct DNS_WINSR_DATAA(i32);
+pub struct DNS_WINSR_DATAA {
+    pub dwMappingFlag: u32,
+    pub dwLookupTimeout: u32,
+    pub dwCacheTimeout: u32,
+    pub pNameResultDomain: super::super::Foundation::PSTR,
+}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DNS_WINSR_DATAA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DNS_WINSR_DATAA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DNS_WINSR_DATAW(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct DNS_WINSR_DATAW {
+    pub dwMappingFlag: u32,
+    pub dwLookupTimeout: u32,
+    pub dwCacheTimeout: u32,
+    pub pNameResultDomain: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DNS_WINSR_DATAW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DNS_WINSR_DATAW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DNS_WINS_DATA(i32);
+pub struct DNS_WINS_DATA {
+    pub dwMappingFlag: u32,
+    pub dwLookupTimeout: u32,
+    pub dwCacheTimeout: u32,
+    pub cWinsServerCount: u32,
+    pub WinsServers: [u32; 1],
+}
+impl ::core::marker::Copy for DNS_WINS_DATA {}
+impl ::core::clone::Clone for DNS_WINS_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DNS_WINS_FLAG_LOCAL: u32 = 65536u32;
 pub const DNS_WINS_FLAG_SCOPE: u32 = 2147483648u32;
+#[repr(C, packed(1))]
+pub struct DNS_WIRE_QUESTION {
+    pub QuestionType: u16,
+    pub QuestionClass: u16,
+}
+impl ::core::marker::Copy for DNS_WIRE_QUESTION {}
+impl ::core::clone::Clone for DNS_WIRE_QUESTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub struct DNS_WIRE_RECORD {
+    pub RecordType: u16,
+    pub RecordClass: u16,
+    pub TimeToLive: u32,
+    pub DataLength: u16,
+}
+impl ::core::marker::Copy for DNS_WIRE_RECORD {}
+impl ::core::clone::Clone for DNS_WIRE_RECORD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DNS_WIRE_QUESTION(i32);
+pub struct DNS_WKS_DATA {
+    pub IpAddress: u32,
+    pub chProtocol: u8,
+    pub BitMask: [u8; 1],
+}
+impl ::core::marker::Copy for DNS_WKS_DATA {}
+impl ::core::clone::Clone for DNS_WKS_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DNS_WIRE_RECORD(i32);
-#[repr(C)]
-pub struct DNS_WKS_DATA(i32);
-#[repr(C)]
-pub struct DnsContextHandle(i32);
+pub struct DnsContextHandle {
+    pub Value: isize,
+}
+impl ::core::marker::Copy for DnsContextHandle {}
+impl ::core::clone::Clone for DnsContextHandle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const IP4_ADDRESS_STRING_BUFFER_LENGTH: u32 = 16u32;
 pub const IP4_ADDRESS_STRING_LENGTH: u32 = 16u32;
 #[repr(C)]
-pub struct IP4_ARRAY(i32);
+pub struct IP4_ARRAY {
+    pub AddrCount: u32,
+    pub AddrArray: [u32; 1],
+}
+impl ::core::marker::Copy for IP4_ARRAY {}
+impl ::core::clone::Clone for IP4_ARRAY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+pub union IP6_ADDRESS {
+    pub IP6Qword: [u64; 2],
+    pub IP6Dword: [u32; 4],
+    pub IP6Word: [u16; 8],
+    pub IP6Byte: [u8; 16],
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::clone::Clone for IP6_ADDRESS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct IP6_ADDRESS(i32);
 #[cfg(any(target_arch = "x86",))]
-#[repr(C)]
-pub struct IP6_ADDRESS(i32);
+pub union IP6_ADDRESS {
+    pub IP6Dword: [u32; 4],
+    pub IP6Word: [u16; 8],
+    pub IP6Byte: [u8; 16],
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::core::clone::Clone for IP6_ADDRESS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const IP6_ADDRESS_STRING_BUFFER_LENGTH: u32 = 65u32;
 pub const IP6_ADDRESS_STRING_LENGTH: u32 = 65u32;
 #[repr(C)]
-pub struct MDNS_QUERY_HANDLE(i32);
-#[cfg(feature = "Win32_Foundation")]
+pub struct MDNS_QUERY_HANDLE {
+    pub nameBuf: [u16; 256],
+    pub wType: u16,
+    pub pSubscription: *mut ::core::ffi::c_void,
+    pub pWnfCallbackParams: *mut ::core::ffi::c_void,
+    pub stateNameData: [u32; 2],
+}
+impl ::core::marker::Copy for MDNS_QUERY_HANDLE {}
+impl ::core::clone::Clone for MDNS_QUERY_HANDLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct MDNS_QUERY_REQUEST(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct MDNS_QUERY_REQUEST {
+    pub Version: u32,
+    pub ulRefCount: u32,
+    pub Query: super::super::Foundation::PWSTR,
+    pub QueryType: u16,
+    pub QueryOptions: u64,
+    pub InterfaceIndex: u32,
+    pub pQueryCallback: ::core::option::Option<PMDNS_QUERY_CALLBACK>,
+    pub pQueryContext: *mut ::core::ffi::c_void,
+    pub fAnswerReceived: super::super::Foundation::BOOL,
+    pub ulResendCount: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MDNS_QUERY_REQUEST {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MDNS_QUERY_REQUEST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[cfg(feature = "Win32_Foundation")]
 pub type PDNS_QUERY_COMPLETION_ROUTINE = unsafe extern "system" fn(pquerycontext: *const ::core::ffi::c_void, pqueryresults: *mut DNS_QUERY_RESULT);
 #[cfg(feature = "Win32_Foundation")]
@@ -731,9 +2064,93 @@ pub type PDNS_SERVICE_RESOLVE_COMPLETE = unsafe extern "system" fn(status: u32, 
 #[cfg(feature = "Win32_Foundation")]
 pub type PMDNS_QUERY_CALLBACK = unsafe extern "system" fn(pquerycontext: *const ::core::ffi::c_void, pqueryhandle: *mut MDNS_QUERY_HANDLE, pqueryresults: *mut DNS_QUERY_RESULT);
 pub const SIZEOF_IP4_ADDRESS: u32 = 4u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct _DnsRecordOptA(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct _DnsRecordOptA {
+    pub pNext: *mut DNS_RECORDA,
+    pub pName: super::super::Foundation::PSTR,
+    pub wType: u16,
+    pub wDataLength: u16,
+    pub Flags: _DnsRecordOptA_1,
+    pub ExtHeader: DNS_HEADER_EXT,
+    pub wPayloadSize: u16,
+    pub wReserved: u16,
+    pub Data: _DnsRecordOptA_0,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for _DnsRecordOptA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for _DnsRecordOptA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct _DnsRecordOptW(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub union _DnsRecordOptA_0 {
+    pub OPT: DNS_OPT_DATA,
+    pub Opt: DNS_OPT_DATA,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for _DnsRecordOptA_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub union _DnsRecordOptA_1 {
+    pub DW: u32,
+    pub S: DNS_RECORD_FLAGS,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for _DnsRecordOptA_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct _DnsRecordOptW {
+    pub pNext: *mut DNS_RECORDW,
+    pub pName: super::super::Foundation::PWSTR,
+    pub wType: u16,
+    pub wDataLength: u16,
+    pub Flags: _DnsRecordOptW_1,
+    pub ExtHeader: DNS_HEADER_EXT,
+    pub wPayloadSize: u16,
+    pub wReserved: u16,
+    pub Data: _DnsRecordOptW_0,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for _DnsRecordOptW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for _DnsRecordOptW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub union _DnsRecordOptW_0 {
+    pub OPT: DNS_OPT_DATA,
+    pub Opt: DNS_OPT_DATA,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for _DnsRecordOptW_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub union _DnsRecordOptW_1 {
+    pub DW: u32,
+    pub S: DNS_RECORD_FLAGS,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for _DnsRecordOptW_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

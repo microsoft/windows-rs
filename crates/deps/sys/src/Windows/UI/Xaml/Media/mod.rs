@@ -412,7 +412,20 @@ impl LoadedImageSourceLoadStatus {
 #[repr(transparent)]
 pub struct LoadedImageSurface(pub *mut ::core::ffi::c_void);
 #[repr(C)]
-pub struct Matrix(i32);
+pub struct Matrix {
+    pub M11: f64,
+    pub M12: f64,
+    pub M21: f64,
+    pub M22: f64,
+    pub OffsetX: f64,
+    pub OffsetY: f64,
+}
+impl ::core::marker::Copy for Matrix {}
+impl ::core::clone::Clone for Matrix {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct Matrix3DProjection(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

@@ -326,12 +326,42 @@ pub const ADAM_REPL_AUTHENTICATION_MODE_NEGOTIATE_PASS_THROUGH: u32 = 0u32;
 pub struct ADSI_DIALECT_ENUM(pub i32);
 pub const ADSI_DIALECT_LDAP: ADSI_DIALECT_ENUM = ADSI_DIALECT_ENUM(0i32);
 pub const ADSI_DIALECT_SQL: ADSI_DIALECT_ENUM = ADSI_DIALECT_ENUM(1i32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct ADSPROPERROR(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct ADSPROPERROR {
+    pub hwndPage: super::super::Foundation::HWND,
+    pub pszPageTitle: super::super::Foundation::PWSTR,
+    pub pszObjPath: super::super::Foundation::PWSTR,
+    pub pszObjClass: super::super::Foundation::PWSTR,
+    pub hr: ::windows_sys::core::HRESULT,
+    pub pszError: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ADSPROPERROR {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ADSPROPERROR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct ADSPROPINITPARAMS(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct ADSPROPINITPARAMS {
+    pub dwSize: u32,
+    pub dwFlags: u32,
+    pub hr: ::windows_sys::core::HRESULT,
+    pub pDsObj: ::core::option::Option<IDirectoryObject>,
+    pub pwzCN: super::super::Foundation::PWSTR,
+    pub pWritableAttrs: *mut ADS_ATTR_INFO,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ADSPROPINITPARAMS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ADSPROPINITPARAMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ADSTYPEENUM(pub i32);
 pub const ADSTYPE_INVALID: ADSTYPEENUM = ADSTYPEENUM(0i32);
@@ -363,9 +393,57 @@ pub const ADSTYPE_NT_SECURITY_DESCRIPTOR: ADSTYPEENUM = ADSTYPEENUM(25i32);
 pub const ADSTYPE_UNKNOWN: ADSTYPEENUM = ADSTYPEENUM(26i32);
 pub const ADSTYPE_DN_WITH_BINARY: ADSTYPEENUM = ADSTYPEENUM(27i32);
 pub const ADSTYPE_DN_WITH_STRING: ADSTYPEENUM = ADSTYPEENUM(28i32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct ADSVALUE(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct ADSVALUE {
+    pub dwType: ADSTYPEENUM,
+    pub Anonymous: ADSVALUE_0,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ADSVALUE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ADSVALUE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub union ADSVALUE_0 {
+    pub DNString: *mut u16,
+    pub CaseExactString: *mut u16,
+    pub CaseIgnoreString: *mut u16,
+    pub PrintableString: *mut u16,
+    pub NumericString: *mut u16,
+    pub Boolean: u32,
+    pub Integer: u32,
+    pub OctetString: ADS_OCTET_STRING,
+    pub UTCTime: super::super::Foundation::SYSTEMTIME,
+    pub LargeInteger: i64,
+    pub ClassName: *mut u16,
+    pub ProviderSpecific: ADS_PROV_SPECIFIC,
+    pub pCaseIgnoreList: *mut ADS_CASEIGNORE_LIST,
+    pub pOctetList: *mut ADS_OCTET_LIST,
+    pub pPath: *mut ADS_PATH,
+    pub pPostalAddress: *mut ADS_POSTALADDRESS,
+    pub Timestamp: ADS_TIMESTAMP,
+    pub BackLink: ADS_BACKLINK,
+    pub pTypedName: *mut ADS_TYPEDNAME,
+    pub Hold: ADS_HOLD,
+    pub pNetAddress: *mut ADS_NETADDRESS,
+    pub pReplicaPointer: *mut ADS_REPLICAPOINTER,
+    pub pFaxNumber: *mut ADS_FAXNUMBER,
+    pub Email: ADS_EMAIL,
+    pub SecurityDescriptor: ADS_NT_SECURITY_DESCRIPTOR,
+    pub pDNWithBinary: *mut ADS_DN_WITH_BINARY,
+    pub pDNWithString: *mut ADS_DN_WITH_STRING,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ADSVALUE_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ADS_ACEFLAG_ENUM(pub i32);
 pub const ADS_ACEFLAG_INHERIT_ACE: ADS_ACEFLAG_ENUM = ADS_ACEFLAG_ENUM(2i32);
@@ -394,13 +472,41 @@ pub const ADS_ACETYPE_SYSTEM_AUDIT_CALLBACK_OBJECT: ADS_ACETYPE_ENUM = ADS_ACETY
 pub const ADS_ACETYPE_SYSTEM_ALARM_CALLBACK_OBJECT: ADS_ACETYPE_ENUM = ADS_ACETYPE_ENUM(16i32);
 pub const ADS_ATTR_APPEND: u32 = 3u32;
 pub const ADS_ATTR_CLEAR: u32 = 1u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct ADS_ATTR_DEF(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct ADS_ATTR_DEF {
+    pub pszAttrName: super::super::Foundation::PWSTR,
+    pub dwADsType: ADSTYPEENUM,
+    pub dwMinRange: u32,
+    pub dwMaxRange: u32,
+    pub fMultiValued: super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ADS_ATTR_DEF {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ADS_ATTR_DEF {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const ADS_ATTR_DELETE: u32 = 4u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct ADS_ATTR_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct ADS_ATTR_INFO {
+    pub pszAttrName: super::super::Foundation::PWSTR,
+    pub dwControlCode: u32,
+    pub dwADsType: ADSTYPEENUM,
+    pub pADsValues: *mut ADSVALUE,
+    pub dwNumValues: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ADS_ATTR_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ADS_ATTR_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const ADS_ATTR_UPDATE: u32 = 2u32;
 #[repr(transparent)]
 pub struct ADS_AUTHENTICATION_ENUM(pub u32);
@@ -417,21 +523,62 @@ pub const ADS_USE_DELEGATION: ADS_AUTHENTICATION_ENUM = ADS_AUTHENTICATION_ENUM(
 pub const ADS_SERVER_BIND: ADS_AUTHENTICATION_ENUM = ADS_AUTHENTICATION_ENUM(512u32);
 pub const ADS_NO_REFERRAL_CHASING: ADS_AUTHENTICATION_ENUM = ADS_AUTHENTICATION_ENUM(1024u32);
 pub const ADS_AUTH_RESERVED: ADS_AUTHENTICATION_ENUM = ADS_AUTHENTICATION_ENUM(2147483648u32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct ADS_BACKLINK(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct ADS_BACKLINK {
+    pub RemoteID: u32,
+    pub ObjectName: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ADS_BACKLINK {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ADS_BACKLINK {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct ADS_CASEIGNORE_LIST(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct ADS_CASEIGNORE_LIST {
+    pub Next: *mut ADS_CASEIGNORE_LIST,
+    pub String: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ADS_CASEIGNORE_LIST {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ADS_CASEIGNORE_LIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ADS_CHASE_REFERRALS_ENUM(pub i32);
 pub const ADS_CHASE_REFERRALS_NEVER: ADS_CHASE_REFERRALS_ENUM = ADS_CHASE_REFERRALS_ENUM(0i32);
 pub const ADS_CHASE_REFERRALS_SUBORDINATE: ADS_CHASE_REFERRALS_ENUM = ADS_CHASE_REFERRALS_ENUM(32i32);
 pub const ADS_CHASE_REFERRALS_EXTERNAL: ADS_CHASE_REFERRALS_ENUM = ADS_CHASE_REFERRALS_ENUM(64i32);
 pub const ADS_CHASE_REFERRALS_ALWAYS: ADS_CHASE_REFERRALS_ENUM = ADS_CHASE_REFERRALS_ENUM(96i32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct ADS_CLASS_DEF(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct ADS_CLASS_DEF {
+    pub pszClassName: super::super::Foundation::PWSTR,
+    pub dwMandatoryAttrs: u32,
+    pub ppszMandatoryAttrs: *mut super::super::Foundation::PWSTR,
+    pub optionalAttrs: u32,
+    pub ppszOptionalAttrs: *mut *mut super::super::Foundation::PWSTR,
+    pub dwNamingAttrs: u32,
+    pub ppszNamingAttrs: *mut *mut super::super::Foundation::PWSTR,
+    pub dwSuperClasses: u32,
+    pub ppszSuperClasses: *mut *mut super::super::Foundation::PWSTR,
+    pub fIsContainer: super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ADS_CLASS_DEF {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ADS_CLASS_DEF {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ADS_DEREFENUM(pub i32);
 pub const ADS_DEREF_NEVER: ADS_DEREFENUM = ADS_DEREFENUM(0i32);
@@ -442,15 +589,49 @@ pub const ADS_DEREF_ALWAYS: ADS_DEREFENUM = ADS_DEREFENUM(3i32);
 pub struct ADS_DISPLAY_ENUM(pub i32);
 pub const ADS_DISPLAY_FULL: ADS_DISPLAY_ENUM = ADS_DISPLAY_ENUM(1i32);
 pub const ADS_DISPLAY_VALUE_ONLY: ADS_DISPLAY_ENUM = ADS_DISPLAY_ENUM(2i32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct ADS_DN_WITH_BINARY(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct ADS_DN_WITH_STRING(i32);
+pub struct ADS_DN_WITH_BINARY {
+    pub dwLength: u32,
+    pub lpBinaryValue: *mut u8,
+    pub pszDNString: super::super::Foundation::PWSTR,
+}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ADS_DN_WITH_BINARY {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ADS_DN_WITH_BINARY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct ADS_EMAIL(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct ADS_DN_WITH_STRING {
+    pub pszStringValue: super::super::Foundation::PWSTR,
+    pub pszDNString: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ADS_DN_WITH_STRING {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ADS_DN_WITH_STRING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct ADS_EMAIL {
+    pub Address: super::super::Foundation::PWSTR,
+    pub Type: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ADS_EMAIL {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ADS_EMAIL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ADS_ESCAPE_MODE_ENUM(pub i32);
 pub const ADS_ESCAPEDMODE_DEFAULT: ADS_ESCAPE_MODE_ENUM = ADS_ESCAPE_MODE_ENUM(1i32);
@@ -461,9 +642,21 @@ pub const ADS_EXT_INITCREDENTIALS: u32 = 1u32;
 pub const ADS_EXT_INITIALIZE_COMPLETE: u32 = 2u32;
 pub const ADS_EXT_MAXEXTDISPID: u32 = 16777215u32;
 pub const ADS_EXT_MINEXTDISPID: u32 = 1u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct ADS_FAXNUMBER(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct ADS_FAXNUMBER {
+    pub TelephoneNumber: super::super::Foundation::PWSTR,
+    pub NumberOfBits: u32,
+    pub Parameters: *mut u8,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ADS_FAXNUMBER {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ADS_FAXNUMBER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ADS_FLAGTYPE_ENUM(pub i32);
 pub const ADS_FLAG_OBJECT_TYPE_PRESENT: ADS_FLAGTYPE_ENUM = ADS_FLAGTYPE_ENUM(1i32);
@@ -488,9 +681,20 @@ pub const ADS_GROUP_TYPE_DOMAIN_LOCAL_GROUP: ADS_GROUP_TYPE_ENUM = ADS_GROUP_TYP
 pub const ADS_GROUP_TYPE_LOCAL_GROUP: ADS_GROUP_TYPE_ENUM = ADS_GROUP_TYPE_ENUM(4i32);
 pub const ADS_GROUP_TYPE_UNIVERSAL_GROUP: ADS_GROUP_TYPE_ENUM = ADS_GROUP_TYPE_ENUM(8i32);
 pub const ADS_GROUP_TYPE_SECURITY_ENABLED: ADS_GROUP_TYPE_ENUM = ADS_GROUP_TYPE_ENUM(-2147483648i32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct ADS_HOLD(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct ADS_HOLD {
+    pub ObjectName: super::super::Foundation::PWSTR,
+    pub Amount: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ADS_HOLD {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ADS_HOLD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ADS_NAME_INITTYPE_ENUM(pub i32);
 pub const ADS_NAME_INITTYPE_DOMAIN: ADS_NAME_INITTYPE_ENUM = ADS_NAME_INITTYPE_ENUM(1i32);
@@ -511,16 +715,68 @@ pub const ADS_NAME_TYPE_CANONICAL_EX: ADS_NAME_TYPE_ENUM = ADS_NAME_TYPE_ENUM(10
 pub const ADS_NAME_TYPE_SERVICE_PRINCIPAL_NAME: ADS_NAME_TYPE_ENUM = ADS_NAME_TYPE_ENUM(11i32);
 pub const ADS_NAME_TYPE_SID_OR_SID_HISTORY_NAME: ADS_NAME_TYPE_ENUM = ADS_NAME_TYPE_ENUM(12i32);
 #[repr(C)]
-pub struct ADS_NETADDRESS(i32);
+pub struct ADS_NETADDRESS {
+    pub AddressType: u32,
+    pub AddressLength: u32,
+    pub Address: *mut u8,
+}
+impl ::core::marker::Copy for ADS_NETADDRESS {}
+impl ::core::clone::Clone for ADS_NETADDRESS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct ADS_NT_SECURITY_DESCRIPTOR(i32);
+pub struct ADS_NT_SECURITY_DESCRIPTOR {
+    pub dwLength: u32,
+    pub lpValue: *mut u8,
+}
+impl ::core::marker::Copy for ADS_NT_SECURITY_DESCRIPTOR {}
+impl ::core::clone::Clone for ADS_NT_SECURITY_DESCRIPTOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+pub struct ADS_OBJECT_INFO {
+    pub pszRDN: super::super::Foundation::PWSTR,
+    pub pszObjectDN: super::super::Foundation::PWSTR,
+    pub pszParentDN: super::super::Foundation::PWSTR,
+    pub pszSchemaDN: super::super::Foundation::PWSTR,
+    pub pszClassName: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ADS_OBJECT_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ADS_OBJECT_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct ADS_OBJECT_INFO(i32);
+pub struct ADS_OCTET_LIST {
+    pub Next: *mut ADS_OCTET_LIST,
+    pub Length: u32,
+    pub Data: *mut u8,
+}
+impl ::core::marker::Copy for ADS_OCTET_LIST {}
+impl ::core::clone::Clone for ADS_OCTET_LIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct ADS_OCTET_LIST(i32);
-#[repr(C)]
-pub struct ADS_OCTET_STRING(i32);
+pub struct ADS_OCTET_STRING {
+    pub dwLength: u32,
+    pub lpValue: *mut u8,
+}
+impl ::core::marker::Copy for ADS_OCTET_STRING {}
+impl ::core::clone::Clone for ADS_OCTET_STRING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ADS_OPTION_ENUM(pub i32);
 pub const ADS_OPTION_SERVERNAME: ADS_OPTION_ENUM = ADS_OPTION_ENUM(0i32);
@@ -537,17 +793,39 @@ pub const ADS_OPTION_SKIP_SID_LOOKUP: ADS_OPTION_ENUM = ADS_OPTION_ENUM(9i32);
 pub struct ADS_PASSWORD_ENCODING_ENUM(pub i32);
 pub const ADS_PASSWORD_ENCODE_REQUIRE_SSL: ADS_PASSWORD_ENCODING_ENUM = ADS_PASSWORD_ENCODING_ENUM(0i32);
 pub const ADS_PASSWORD_ENCODE_CLEAR: ADS_PASSWORD_ENCODING_ENUM = ADS_PASSWORD_ENCODING_ENUM(1i32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct ADS_PATH(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct ADS_PATH {
+    pub Type: u32,
+    pub VolumeName: super::super::Foundation::PWSTR,
+    pub Path: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ADS_PATH {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ADS_PATH {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ADS_PATHTYPE_ENUM(pub i32);
 pub const ADS_PATH_FILE: ADS_PATHTYPE_ENUM = ADS_PATHTYPE_ENUM(1i32);
 pub const ADS_PATH_FILESHARE: ADS_PATHTYPE_ENUM = ADS_PATHTYPE_ENUM(2i32);
 pub const ADS_PATH_REGISTRY: ADS_PATHTYPE_ENUM = ADS_PATHTYPE_ENUM(3i32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct ADS_POSTALADDRESS(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct ADS_POSTALADDRESS {
+    pub PostalAddress: [super::super::Foundation::PWSTR; 6],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ADS_POSTALADDRESS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ADS_POSTALADDRESS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ADS_PREFERENCES_ENUM(pub i32);
 pub const ADSIPROP_ASYNCHRONOUS: ADS_PREFERENCES_ENUM = ADS_PREFERENCES_ENUM(0i32);
@@ -570,10 +848,33 @@ pub const ADS_PROPERTY_UPDATE: ADS_PROPERTY_OPERATION_ENUM = ADS_PROPERTY_OPERAT
 pub const ADS_PROPERTY_APPEND: ADS_PROPERTY_OPERATION_ENUM = ADS_PROPERTY_OPERATION_ENUM(3i32);
 pub const ADS_PROPERTY_DELETE: ADS_PROPERTY_OPERATION_ENUM = ADS_PROPERTY_OPERATION_ENUM(4i32);
 #[repr(C)]
-pub struct ADS_PROV_SPECIFIC(i32);
-#[cfg(feature = "Win32_Foundation")]
+pub struct ADS_PROV_SPECIFIC {
+    pub dwLength: u32,
+    pub lpValue: *mut u8,
+}
+impl ::core::marker::Copy for ADS_PROV_SPECIFIC {}
+impl ::core::clone::Clone for ADS_PROV_SPECIFIC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct ADS_REPLICAPOINTER(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct ADS_REPLICAPOINTER {
+    pub ServerName: super::super::Foundation::PWSTR,
+    pub ReplicaType: u32,
+    pub ReplicaNumber: u32,
+    pub Count: u32,
+    pub ReplicaAddressHints: *mut ADS_NETADDRESS,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ADS_REPLICAPOINTER {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ADS_REPLICAPOINTER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ADS_RIGHTS_ENUM(pub i32);
 pub const ADS_RIGHT_DELETE: ADS_RIGHTS_ENUM = ADS_RIGHTS_ENUM(65536i32);
@@ -656,9 +957,21 @@ pub const ADS_SETTYPE_FULL: ADS_SETTYPE_ENUM = ADS_SETTYPE_ENUM(1i32);
 pub const ADS_SETTYPE_PROVIDER: ADS_SETTYPE_ENUM = ADS_SETTYPE_ENUM(2i32);
 pub const ADS_SETTYPE_SERVER: ADS_SETTYPE_ENUM = ADS_SETTYPE_ENUM(3i32);
 pub const ADS_SETTYPE_DN: ADS_SETTYPE_ENUM = ADS_SETTYPE_ENUM(4i32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct ADS_SORTKEY(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct ADS_SORTKEY {
+    pub pszAttrType: super::super::Foundation::PWSTR,
+    pub pszReserved: super::super::Foundation::PWSTR,
+    pub fReverseorder: super::super::Foundation::BOOLEAN,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ADS_SORTKEY {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ADS_SORTKEY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ADS_STATUSENUM(pub i32);
 pub const ADS_STATUS_S_OK: ADS_STATUSENUM = ADS_STATUSENUM(0i32);
@@ -677,10 +990,31 @@ pub const ADS_SYSTEMFLAG_CR_NTDS_DOMAIN: ADS_SYSTEMFLAG_ENUM = ADS_SYSTEMFLAG_EN
 pub const ADS_SYSTEMFLAG_ATTR_NOT_REPLICATED: ADS_SYSTEMFLAG_ENUM = ADS_SYSTEMFLAG_ENUM(1i32);
 pub const ADS_SYSTEMFLAG_ATTR_IS_CONSTRUCTED: ADS_SYSTEMFLAG_ENUM = ADS_SYSTEMFLAG_ENUM(4i32);
 #[repr(C)]
-pub struct ADS_TIMESTAMP(i32);
-#[cfg(feature = "Win32_Foundation")]
+pub struct ADS_TIMESTAMP {
+    pub WholeSeconds: u32,
+    pub EventID: u32,
+}
+impl ::core::marker::Copy for ADS_TIMESTAMP {}
+impl ::core::clone::Clone for ADS_TIMESTAMP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct ADS_TYPEDNAME(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct ADS_TYPEDNAME {
+    pub ObjectName: super::super::Foundation::PWSTR,
+    pub Level: u32,
+    pub Interval: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ADS_TYPEDNAME {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ADS_TYPEDNAME {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ADS_USER_FLAG_ENUM(pub i32);
 pub const ADS_UF_SCRIPT: ADS_USER_FLAG_ENUM = ADS_USER_FLAG_ENUM(1i32);
@@ -704,9 +1038,25 @@ pub const ADS_UF_USE_DES_KEY_ONLY: ADS_USER_FLAG_ENUM = ADS_USER_FLAG_ENUM(20971
 pub const ADS_UF_DONT_REQUIRE_PREAUTH: ADS_USER_FLAG_ENUM = ADS_USER_FLAG_ENUM(4194304i32);
 pub const ADS_UF_PASSWORD_EXPIRED: ADS_USER_FLAG_ENUM = ADS_USER_FLAG_ENUM(8388608i32);
 pub const ADS_UF_TRUSTED_TO_AUTHENTICATE_FOR_DELEGATION: ADS_USER_FLAG_ENUM = ADS_USER_FLAG_ENUM(16777216i32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct ADS_VLV(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct ADS_VLV {
+    pub dwBeforeCount: u32,
+    pub dwAfterCount: u32,
+    pub dwOffset: u32,
+    pub dwContentCount: u32,
+    pub pszTarget: super::super::Foundation::PWSTR,
+    pub dwContextIDLength: u32,
+    pub lpContextID: *mut u8,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ADS_VLV {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ADS_VLV {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const ADSystemInfo: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1354117759, data2: 45009, data3: 4562, data4: [156, 185, 0, 0, 248, 122, 54, 158] };
 pub const ADsSecurityUtility: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 4067477066,
@@ -743,12 +1093,43 @@ pub const CLSID_DsQuery: ::windows_sys::core::GUID = ::windows_sys::GUID { data1
 pub const CLSID_MicrosoftDS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4262629616, data2: 53181, data3: 4559, data4: [163, 48, 0, 170, 0, 193, 110, 101] };
 pub const CQFF_ISOPTIONAL: u32 = 2u32;
 pub const CQFF_NOGLOBALPAGES: u32 = 1u32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[repr(C)]
-pub struct CQFORM(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+pub struct CQFORM {
+    pub cbStruct: u32,
+    pub dwFlags: u32,
+    pub clsid: ::windows_sys::core::GUID,
+    pub hIcon: super::super::UI::WindowsAndMessaging::HICON,
+    pub pszTitle: super::super::Foundation::PWSTR,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::core::marker::Copy for CQFORM {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::core::clone::Clone for CQFORM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CQPAGE(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+pub struct CQPAGE {
+    pub cbStruct: u32,
+    pub dwFlags: u32,
+    pub pPageProc: ::core::option::Option<LPCQPAGEPROC>,
+    pub hInstance: super::super::Foundation::HINSTANCE,
+    pub idPageName: i32,
+    pub idPageTemplate: i32,
+    pub pDlgProc: ::core::option::Option<super::super::UI::WindowsAndMessaging::DLGPROC>,
+    pub lParam: super::super::Foundation::LPARAM,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::core::marker::Copy for CQPAGE {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::core::clone::Clone for CQPAGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CQPM_CLEARFORM: u32 = 6u32;
 pub const CQPM_ENABLE: u32 = 3u32;
 pub const CQPM_GETPARAMETERS: u32 = 5u32;
@@ -766,25 +1147,104 @@ pub const DBDTF_RETURNINOUTBOUND: u32 = 16u32;
 pub const DBDTF_RETURNMIXEDDOMAINS: u32 = 2u32;
 pub const DNWithBinary: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2124005539, data2: 63797, data3: 4562, data4: [186, 150, 0, 192, 79, 182, 208, 209] };
 pub const DNWithString: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 860379084, data2: 63796, data3: 4562, data4: [186, 150, 0, 192, 79, 182, 208, 209] };
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct DOMAINDESC(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct DOMAIN_CONTROLLER_INFOA(i32);
+pub struct DOMAINDESC {
+    pub pszName: super::super::Foundation::PWSTR,
+    pub pszPath: super::super::Foundation::PWSTR,
+    pub pszNCName: super::super::Foundation::PWSTR,
+    pub pszTrustParent: super::super::Foundation::PWSTR,
+    pub pszObjectClass: super::super::Foundation::PWSTR,
+    pub ulFlags: u32,
+    pub fDownLevel: super::super::Foundation::BOOL,
+    pub pdChildList: *mut DOMAINDESC,
+    pub pdNextSibling: *mut DOMAINDESC,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct DOMAIN_CONTROLLER_INFOW(i32);
+impl ::core::marker::Copy for DOMAINDESC {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DOMAINDESC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DOMAIN_TREE(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct DOMAIN_CONTROLLER_INFOA {
+    pub DomainControllerName: super::super::Foundation::PSTR,
+    pub DomainControllerAddress: super::super::Foundation::PSTR,
+    pub DomainControllerAddressType: u32,
+    pub DomainGuid: ::windows_sys::core::GUID,
+    pub DomainName: super::super::Foundation::PSTR,
+    pub DnsForestName: super::super::Foundation::PSTR,
+    pub Flags: u32,
+    pub DcSiteName: super::super::Foundation::PSTR,
+    pub ClientSiteName: super::super::Foundation::PSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DOMAIN_CONTROLLER_INFOA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DOMAIN_CONTROLLER_INFOA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DOMAIN_CONTROLLER_INFOW {
+    pub DomainControllerName: super::super::Foundation::PWSTR,
+    pub DomainControllerAddress: super::super::Foundation::PWSTR,
+    pub DomainControllerAddressType: u32,
+    pub DomainGuid: ::windows_sys::core::GUID,
+    pub DomainName: super::super::Foundation::PWSTR,
+    pub DnsForestName: super::super::Foundation::PWSTR,
+    pub Flags: u32,
+    pub DcSiteName: super::super::Foundation::PWSTR,
+    pub ClientSiteName: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DOMAIN_CONTROLLER_INFOW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DOMAIN_CONTROLLER_INFOW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DOMAIN_TREE {
+    pub dsSize: u32,
+    pub dwCount: u32,
+    pub aDomains: [DOMAINDESC; 1],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DOMAIN_TREE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DOMAIN_TREE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DSA_NEWOBJ_CTX_CLEANUP: u32 = 4u32;
 pub const DSA_NEWOBJ_CTX_COMMIT: u32 = 2u32;
 pub const DSA_NEWOBJ_CTX_POSTCOMMIT: u32 = 3u32;
 pub const DSA_NEWOBJ_CTX_PRECOMMIT: u32 = 1u32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[repr(C)]
-pub struct DSA_NEWOBJ_DISPINFO(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+pub struct DSA_NEWOBJ_DISPINFO {
+    pub dwSize: u32,
+    pub hObjClassIcon: super::super::UI::WindowsAndMessaging::HICON,
+    pub lpszWizTitle: super::super::Foundation::PWSTR,
+    pub lpszContDisplayName: super::super::Foundation::PWSTR,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::core::marker::Copy for DSA_NEWOBJ_DISPINFO {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::core::clone::Clone for DSA_NEWOBJ_DISPINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DSA_NOTIFY_DEL: u32 = 1u32;
 pub const DSA_NOTIFY_FLAG_ADDITIONAL_DATA: u32 = 2u32;
 pub const DSA_NOTIFY_FLAG_FORCE_ADDITIONAL_DATA: u32 = 1u32;
@@ -796,12 +1256,48 @@ pub const DSBF_ICONLOCATION: u32 = 2u32;
 pub const DSBF_STATE: u32 = 1u32;
 pub const DSBID_BANNER: u32 = 256u32;
 pub const DSBID_CONTAINERLIST: u32 = 257u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct DSBITEMA(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct DSBITEMA {
+    pub cbStruct: u32,
+    pub pszADsPath: super::super::Foundation::PWSTR,
+    pub pszClass: super::super::Foundation::PWSTR,
+    pub dwMask: u32,
+    pub dwState: u32,
+    pub dwStateMask: u32,
+    pub szDisplayName: [super::super::Foundation::CHAR; 64],
+    pub szIconLocation: [super::super::Foundation::CHAR; 260],
+    pub iIconResID: i32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DSBITEMA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DSBITEMA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DSBITEMW(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct DSBITEMW {
+    pub cbStruct: u32,
+    pub pszADsPath: super::super::Foundation::PWSTR,
+    pub pszClass: super::super::Foundation::PWSTR,
+    pub dwMask: u32,
+    pub dwState: u32,
+    pub dwStateMask: u32,
+    pub szDisplayName: [u16; 64],
+    pub szIconLocation: [u16; 260],
+    pub iIconResID: i32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DSBITEMW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DSBITEMW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DSBI_CHECKBOXES: u32 = 256u32;
 pub const DSBI_DONTSIGNSEAL: u32 = 33554432u32;
 pub const DSBI_ENTIREDIRECTORY: u32 = 589824u32;
@@ -822,12 +1318,60 @@ pub const DSBM_HELP: u32 = 103u32;
 pub const DSBM_QUERYINSERT: u32 = 100u32;
 pub const DSBM_QUERYINSERTA: u32 = 101u32;
 pub const DSBM_QUERYINSERTW: u32 = 100u32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
 #[repr(C)]
-pub struct DSBROWSEINFOA(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
+pub struct DSBROWSEINFOA {
+    pub cbStruct: u32,
+    pub hwndOwner: super::super::Foundation::HWND,
+    pub pszCaption: super::super::Foundation::PSTR,
+    pub pszTitle: super::super::Foundation::PSTR,
+    pub pszRoot: super::super::Foundation::PWSTR,
+    pub pszPath: super::super::Foundation::PWSTR,
+    pub cchPath: u32,
+    pub dwFlags: u32,
+    pub pfnCallback: ::core::option::Option<super::super::UI::Shell::BFFCALLBACK>,
+    pub lParam: super::super::Foundation::LPARAM,
+    pub dwReturnFormat: u32,
+    pub pUserName: super::super::Foundation::PWSTR,
+    pub pPassword: super::super::Foundation::PWSTR,
+    pub pszObjectClass: super::super::Foundation::PWSTR,
+    pub cchObjectClass: u32,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
+impl ::core::marker::Copy for DSBROWSEINFOA {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
+impl ::core::clone::Clone for DSBROWSEINFOA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DSBROWSEINFOW(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
+pub struct DSBROWSEINFOW {
+    pub cbStruct: u32,
+    pub hwndOwner: super::super::Foundation::HWND,
+    pub pszCaption: super::super::Foundation::PWSTR,
+    pub pszTitle: super::super::Foundation::PWSTR,
+    pub pszRoot: super::super::Foundation::PWSTR,
+    pub pszPath: super::super::Foundation::PWSTR,
+    pub cchPath: u32,
+    pub dwFlags: u32,
+    pub pfnCallback: ::core::option::Option<super::super::UI::Shell::BFFCALLBACK>,
+    pub lParam: super::super::Foundation::LPARAM,
+    pub dwReturnFormat: u32,
+    pub pUserName: super::super::Foundation::PWSTR,
+    pub pPassword: super::super::Foundation::PWSTR,
+    pub pszObjectClass: super::super::Foundation::PWSTR,
+    pub cchObjectClass: u32,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
+impl ::core::marker::Copy for DSBROWSEINFOW {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
+impl ::core::clone::Clone for DSBROWSEINFOW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DSBS_CHECKED: u32 = 1u32;
 pub const DSBS_HIDDEN: u32 = 2u32;
 pub const DSBS_ROOT: u32 = 4u32;
@@ -835,11 +1379,50 @@ pub const DSB_MAX_DISPLAYNAME_CHARS: u32 = 64u32;
 pub const DSCCIF_HASWIZARDDIALOG: u32 = 1u32;
 pub const DSCCIF_HASWIZARDPRIMARYPAGE: u32 = 2u32;
 #[repr(C)]
-pub struct DSCLASSCREATIONINFO(i32);
+pub struct DSCLASSCREATIONINFO {
+    pub dwFlags: u32,
+    pub clsidWizardDialog: ::windows_sys::core::GUID,
+    pub clsidWizardPrimaryPage: ::windows_sys::core::GUID,
+    pub cWizardExtensions: u32,
+    pub aWizardExtensions: [::windows_sys::core::GUID; 1],
+}
+impl ::core::marker::Copy for DSCLASSCREATIONINFO {}
+impl ::core::clone::Clone for DSCLASSCREATIONINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DSCOLUMN(i32);
+pub struct DSCOLUMN {
+    pub dwFlags: u32,
+    pub fmt: i32,
+    pub cx: i32,
+    pub idsName: i32,
+    pub offsetProperty: i32,
+    pub dwReserved: u32,
+}
+impl ::core::marker::Copy for DSCOLUMN {}
+impl ::core::clone::Clone for DSCOLUMN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DSDISPLAYSPECOPTIONS(i32);
+pub struct DSDISPLAYSPECOPTIONS {
+    pub dwSize: u32,
+    pub dwFlags: u32,
+    pub offsetAttribPrefix: u32,
+    pub offsetUserName: u32,
+    pub offsetPassword: u32,
+    pub offsetServer: u32,
+    pub offsetServerConfigPath: u32,
+}
+impl ::core::marker::Copy for DSDISPLAYSPECOPTIONS {}
+impl ::core::clone::Clone for DSDISPLAYSPECOPTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DSDSOF_DONTSIGNSEAL: u32 = 4u32;
 pub const DSDSOF_DSAVAILABLE: u32 = 1073741824u32;
 pub const DSDSOF_HASUSERANDSERVERINFO: u32 = 1u32;
@@ -853,9 +1436,30 @@ pub const DSGIF_ISNORMAL: u32 = 0u32;
 pub const DSGIF_ISOPEN: u32 = 1u32;
 pub const DSICCF_IGNORETREATASLEAF: u32 = 1u32;
 #[repr(C)]
-pub struct DSOBJECT(i32);
+pub struct DSOBJECT {
+    pub dwFlags: u32,
+    pub dwProviderFlags: u32,
+    pub offsetName: u32,
+    pub offsetClass: u32,
+}
+impl ::core::marker::Copy for DSOBJECT {}
+impl ::core::clone::Clone for DSOBJECT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DSOBJECTNAMES(i32);
+pub struct DSOBJECTNAMES {
+    pub clsidNamespace: ::windows_sys::core::GUID,
+    pub cItems: u32,
+    pub aObjects: [DSOBJECT; 1],
+}
+impl ::core::marker::Copy for DSOBJECTNAMES {}
+impl ::core::clone::Clone for DSOBJECTNAMES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DSOBJECT_ISCONTAINER: u32 = 1u32;
 pub const DSOBJECT_READONLYPAGES: u32 = 2147483648u32;
 pub const DSOP_DOWNLEVEL_FILTER_ALL_APP_PACKAGES: u32 = 2281701376u32;
@@ -893,7 +1497,16 @@ pub const DSOP_FILTER_CONTACTS: u32 = 1024u32;
 pub const DSOP_FILTER_DOMAIN_LOCAL_GROUPS_DL: u32 = 256u32;
 pub const DSOP_FILTER_DOMAIN_LOCAL_GROUPS_SE: u32 = 512u32;
 #[repr(C)]
-pub struct DSOP_FILTER_FLAGS(i32);
+pub struct DSOP_FILTER_FLAGS {
+    pub Uplevel: DSOP_UPLEVEL_FILTER_FLAGS,
+    pub flDownlevel: u32,
+}
+impl ::core::marker::Copy for DSOP_FILTER_FLAGS {}
+impl ::core::clone::Clone for DSOP_FILTER_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DSOP_FILTER_GLOBAL_GROUPS_DL: u32 = 64u32;
 pub const DSOP_FILTER_GLOBAL_GROUPS_SE: u32 = 128u32;
 pub const DSOP_FILTER_INCLUDE_ADVANCED_VIEW: u32 = 1u32;
@@ -905,9 +1518,25 @@ pub const DSOP_FILTER_USERS: u32 = 2u32;
 pub const DSOP_FILTER_WELL_KNOWN_PRINCIPALS: u32 = 8u32;
 pub const DSOP_FLAG_MULTISELECT: u32 = 1u32;
 pub const DSOP_FLAG_SKIP_TARGET_COMPUTER_DC_CHECK: u32 = 2u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct DSOP_INIT_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct DSOP_INIT_INFO {
+    pub cbSize: u32,
+    pub pwzTargetComputer: super::super::Foundation::PWSTR,
+    pub cDsScopeInfos: u32,
+    pub aDsScopeInfos: *mut DSOP_SCOPE_INIT_INFO,
+    pub flOptions: u32,
+    pub cAttributesToFetch: u32,
+    pub apwzAttributeNames: *mut super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DSOP_INIT_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DSOP_INIT_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DSOP_SCOPE_FLAG_DEFAULT_FILTER_COMPUTERS: u32 = 256u32;
 pub const DSOP_SCOPE_FLAG_DEFAULT_FILTER_CONTACTS: u32 = 512u32;
 pub const DSOP_SCOPE_FLAG_DEFAULT_FILTER_GROUPS: u32 = 128u32;
@@ -920,9 +1549,25 @@ pub const DSOP_SCOPE_FLAG_WANT_PROVIDER_GC: u32 = 8u32;
 pub const DSOP_SCOPE_FLAG_WANT_PROVIDER_LDAP: u32 = 4u32;
 pub const DSOP_SCOPE_FLAG_WANT_PROVIDER_WINNT: u32 = 2u32;
 pub const DSOP_SCOPE_FLAG_WANT_SID_PATH: u32 = 16u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct DSOP_SCOPE_INIT_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct DSOP_SCOPE_INIT_INFO {
+    pub cbSize: u32,
+    pub flType: u32,
+    pub flScope: u32,
+    pub FilterFlags: DSOP_FILTER_FLAGS,
+    pub pwzDcName: super::super::Foundation::PWSTR,
+    pub pwzADsPath: super::super::Foundation::PWSTR,
+    pub hr: ::windows_sys::core::HRESULT,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DSOP_SCOPE_INIT_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DSOP_SCOPE_INIT_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DSOP_SCOPE_TYPE_DOWNLEVEL_JOINED_DOMAIN: u32 = 4u32;
 pub const DSOP_SCOPE_TYPE_ENTERPRISE_DOMAIN: u32 = 8u32;
 pub const DSOP_SCOPE_TYPE_EXTERNAL_DOWNLEVEL_DOMAIN: u32 = 64u32;
@@ -934,9 +1579,27 @@ pub const DSOP_SCOPE_TYPE_USER_ENTERED_DOWNLEVEL_SCOPE: u32 = 512u32;
 pub const DSOP_SCOPE_TYPE_USER_ENTERED_UPLEVEL_SCOPE: u32 = 256u32;
 pub const DSOP_SCOPE_TYPE_WORKGROUP: u32 = 128u32;
 #[repr(C)]
-pub struct DSOP_UPLEVEL_FILTER_FLAGS(i32);
+pub struct DSOP_UPLEVEL_FILTER_FLAGS {
+    pub flBothModes: u32,
+    pub flMixedModeOnly: u32,
+    pub flNativeModeOnly: u32,
+}
+impl ::core::marker::Copy for DSOP_UPLEVEL_FILTER_FLAGS {}
+impl ::core::clone::Clone for DSOP_UPLEVEL_FILTER_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DSPROPERTYPAGEINFO(i32);
+pub struct DSPROPERTYPAGEINFO {
+    pub offsetString: u32,
+}
+impl ::core::marker::Copy for DSPROPERTYPAGEINFO {}
+impl ::core::clone::Clone for DSPROPERTYPAGEINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DSPROVIDER_ADVANCED: u32 = 16u32;
 pub const DSPROVIDER_AD_LDS: u32 = 32u32;
 pub const DSPROVIDER_UNUSED_0: u32 = 1u32;
@@ -953,13 +1616,55 @@ pub const DSQPF_SHOWHIDDENOBJECTS: u32 = 4u32;
 pub const DSQPM_GETCLASSLIST: u32 = 268435456u32;
 pub const DSQPM_HELPTOPICS: u32 = 268435457u32;
 #[repr(C)]
-pub struct DSQUERYCLASSLIST(i32);
-#[cfg(feature = "Win32_Foundation")]
+pub struct DSQUERYCLASSLIST {
+    pub cbStruct: u32,
+    pub cClasses: i32,
+    pub offsetClass: [u32; 1],
+}
+impl ::core::marker::Copy for DSQUERYCLASSLIST {}
+impl ::core::clone::Clone for DSQUERYCLASSLIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DSQUERYINITPARAMS(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct DSQUERYINITPARAMS {
+    pub cbStruct: u32,
+    pub dwFlags: u32,
+    pub pDefaultScope: super::super::Foundation::PWSTR,
+    pub pDefaultSaveLocation: super::super::Foundation::PWSTR,
+    pub pUserName: super::super::Foundation::PWSTR,
+    pub pPassword: super::super::Foundation::PWSTR,
+    pub pServer: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DSQUERYINITPARAMS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DSQUERYINITPARAMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DSQUERYPARAMS(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct DSQUERYPARAMS {
+    pub cbStruct: u32,
+    pub dwFlags: u32,
+    pub hInstance: super::super::Foundation::HINSTANCE,
+    pub offsetQuery: i32,
+    pub iColumns: i32,
+    pub dwReserved: u32,
+    pub aColumns: [DSCOLUMN; 1],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DSQUERYPARAMS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DSQUERYPARAMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DSROLE_MACHINE_ROLE(pub i32);
 pub const DsRole_RoleStandaloneWorkstation: DSROLE_MACHINE_ROLE = DSROLE_MACHINE_ROLE(0i32);
@@ -974,11 +1679,34 @@ pub const DsRoleOperationIdle: DSROLE_OPERATION_STATE = DSROLE_OPERATION_STATE(0
 pub const DsRoleOperationActive: DSROLE_OPERATION_STATE = DSROLE_OPERATION_STATE(1i32);
 pub const DsRoleOperationNeedReboot: DSROLE_OPERATION_STATE = DSROLE_OPERATION_STATE(2i32);
 #[repr(C)]
-pub struct DSROLE_OPERATION_STATE_INFO(i32);
+pub struct DSROLE_OPERATION_STATE_INFO {
+    pub OperationState: DSROLE_OPERATION_STATE,
+}
+impl ::core::marker::Copy for DSROLE_OPERATION_STATE_INFO {}
+impl ::core::clone::Clone for DSROLE_OPERATION_STATE_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DSROLE_PRIMARY_DOMAIN_GUID_PRESENT: u32 = 16777216u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct DSROLE_PRIMARY_DOMAIN_INFO_BASIC(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct DSROLE_PRIMARY_DOMAIN_INFO_BASIC {
+    pub MachineRole: DSROLE_MACHINE_ROLE,
+    pub Flags: u32,
+    pub DomainNameFlat: super::super::Foundation::PWSTR,
+    pub DomainNameDns: super::super::Foundation::PWSTR,
+    pub DomainForestName: super::super::Foundation::PWSTR,
+    pub DomainGuid: ::windows_sys::core::GUID,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DSROLE_PRIMARY_DOMAIN_INFO_BASIC {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DSROLE_PRIMARY_DOMAIN_INFO_BASIC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DSROLE_PRIMARY_DOMAIN_INFO_LEVEL(pub i32);
 pub const DsRolePrimaryDomainInfoBasic: DSROLE_PRIMARY_DOMAIN_INFO_LEVEL = DSROLE_PRIMARY_DOMAIN_INFO_LEVEL(1i32);
@@ -994,7 +1722,16 @@ pub const DsRoleServerPrimary: DSROLE_SERVER_STATE = DSROLE_SERVER_STATE(1i32);
 pub const DsRoleServerBackup: DSROLE_SERVER_STATE = DSROLE_SERVER_STATE(2i32);
 pub const DSROLE_UPGRADE_IN_PROGRESS: u32 = 4u32;
 #[repr(C)]
-pub struct DSROLE_UPGRADE_STATUS_INFO(i32);
+pub struct DSROLE_UPGRADE_STATUS_INFO {
+    pub OperationState: u32,
+    pub PreviousServerState: DSROLE_SERVER_STATE,
+}
+impl ::core::marker::Copy for DSROLE_UPGRADE_STATUS_INFO {}
+impl ::core::clone::Clone for DSROLE_UPGRADE_STATUS_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DSSSF_DONTSIGNSEAL: u32 = 2u32;
 pub const DSSSF_DSAVAILABLE: u32 = 2147483648u32;
 pub const DSSSF_SIMPLEAUTHENTICATE: u32 = 1u32;
@@ -1023,36 +1760,196 @@ pub const DS_DIRECTORY_SERVICE_REQUIRED: u32 = 16u32;
 pub const DS_DNS_CONTROLLER_FLAG: u32 = 536870912u32;
 pub const DS_DNS_DOMAIN_FLAG: u32 = 1073741824u32;
 pub const DS_DNS_FOREST_FLAG: u32 = 2147483648u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct DS_DOMAIN_CONTROLLER_INFO_1A(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct DS_DOMAIN_CONTROLLER_INFO_1W(i32);
+pub struct DS_DOMAIN_CONTROLLER_INFO_1A {
+    pub NetbiosName: super::super::Foundation::PSTR,
+    pub DnsHostName: super::super::Foundation::PSTR,
+    pub SiteName: super::super::Foundation::PSTR,
+    pub ComputerObjectName: super::super::Foundation::PSTR,
+    pub ServerObjectName: super::super::Foundation::PSTR,
+    pub fIsPdc: super::super::Foundation::BOOL,
+    pub fDsEnabled: super::super::Foundation::BOOL,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct DS_DOMAIN_CONTROLLER_INFO_2A(i32);
+impl ::core::marker::Copy for DS_DOMAIN_CONTROLLER_INFO_1A {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DS_DOMAIN_CONTROLLER_INFO_1A {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DS_DOMAIN_CONTROLLER_INFO_2W(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct DS_DOMAIN_CONTROLLER_INFO_3A(i32);
+pub struct DS_DOMAIN_CONTROLLER_INFO_1W {
+    pub NetbiosName: super::super::Foundation::PWSTR,
+    pub DnsHostName: super::super::Foundation::PWSTR,
+    pub SiteName: super::super::Foundation::PWSTR,
+    pub ComputerObjectName: super::super::Foundation::PWSTR,
+    pub ServerObjectName: super::super::Foundation::PWSTR,
+    pub fIsPdc: super::super::Foundation::BOOL,
+    pub fDsEnabled: super::super::Foundation::BOOL,
+}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DS_DOMAIN_CONTROLLER_INFO_1W {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DS_DOMAIN_CONTROLLER_INFO_1W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DS_DOMAIN_CONTROLLER_INFO_3W(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct DS_DOMAIN_CONTROLLER_INFO_2A {
+    pub NetbiosName: super::super::Foundation::PSTR,
+    pub DnsHostName: super::super::Foundation::PSTR,
+    pub SiteName: super::super::Foundation::PSTR,
+    pub SiteObjectName: super::super::Foundation::PSTR,
+    pub ComputerObjectName: super::super::Foundation::PSTR,
+    pub ServerObjectName: super::super::Foundation::PSTR,
+    pub NtdsDsaObjectName: super::super::Foundation::PSTR,
+    pub fIsPdc: super::super::Foundation::BOOL,
+    pub fDsEnabled: super::super::Foundation::BOOL,
+    pub fIsGc: super::super::Foundation::BOOL,
+    pub SiteObjectGuid: ::windows_sys::core::GUID,
+    pub ComputerObjectGuid: ::windows_sys::core::GUID,
+    pub ServerObjectGuid: ::windows_sys::core::GUID,
+    pub NtdsDsaObjectGuid: ::windows_sys::core::GUID,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DS_DOMAIN_CONTROLLER_INFO_2A {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DS_DOMAIN_CONTROLLER_INFO_2A {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DS_DOMAIN_CONTROLLER_INFO_2W {
+    pub NetbiosName: super::super::Foundation::PWSTR,
+    pub DnsHostName: super::super::Foundation::PWSTR,
+    pub SiteName: super::super::Foundation::PWSTR,
+    pub SiteObjectName: super::super::Foundation::PWSTR,
+    pub ComputerObjectName: super::super::Foundation::PWSTR,
+    pub ServerObjectName: super::super::Foundation::PWSTR,
+    pub NtdsDsaObjectName: super::super::Foundation::PWSTR,
+    pub fIsPdc: super::super::Foundation::BOOL,
+    pub fDsEnabled: super::super::Foundation::BOOL,
+    pub fIsGc: super::super::Foundation::BOOL,
+    pub SiteObjectGuid: ::windows_sys::core::GUID,
+    pub ComputerObjectGuid: ::windows_sys::core::GUID,
+    pub ServerObjectGuid: ::windows_sys::core::GUID,
+    pub NtdsDsaObjectGuid: ::windows_sys::core::GUID,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DS_DOMAIN_CONTROLLER_INFO_2W {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DS_DOMAIN_CONTROLLER_INFO_2W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DS_DOMAIN_CONTROLLER_INFO_3A {
+    pub NetbiosName: super::super::Foundation::PSTR,
+    pub DnsHostName: super::super::Foundation::PSTR,
+    pub SiteName: super::super::Foundation::PSTR,
+    pub SiteObjectName: super::super::Foundation::PSTR,
+    pub ComputerObjectName: super::super::Foundation::PSTR,
+    pub ServerObjectName: super::super::Foundation::PSTR,
+    pub NtdsDsaObjectName: super::super::Foundation::PSTR,
+    pub fIsPdc: super::super::Foundation::BOOL,
+    pub fDsEnabled: super::super::Foundation::BOOL,
+    pub fIsGc: super::super::Foundation::BOOL,
+    pub fIsRodc: super::super::Foundation::BOOL,
+    pub SiteObjectGuid: ::windows_sys::core::GUID,
+    pub ComputerObjectGuid: ::windows_sys::core::GUID,
+    pub ServerObjectGuid: ::windows_sys::core::GUID,
+    pub NtdsDsaObjectGuid: ::windows_sys::core::GUID,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DS_DOMAIN_CONTROLLER_INFO_3A {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DS_DOMAIN_CONTROLLER_INFO_3A {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DS_DOMAIN_CONTROLLER_INFO_3W {
+    pub NetbiosName: super::super::Foundation::PWSTR,
+    pub DnsHostName: super::super::Foundation::PWSTR,
+    pub SiteName: super::super::Foundation::PWSTR,
+    pub SiteObjectName: super::super::Foundation::PWSTR,
+    pub ComputerObjectName: super::super::Foundation::PWSTR,
+    pub ServerObjectName: super::super::Foundation::PWSTR,
+    pub NtdsDsaObjectName: super::super::Foundation::PWSTR,
+    pub fIsPdc: super::super::Foundation::BOOL,
+    pub fDsEnabled: super::super::Foundation::BOOL,
+    pub fIsGc: super::super::Foundation::BOOL,
+    pub fIsRodc: super::super::Foundation::BOOL,
+    pub SiteObjectGuid: ::windows_sys::core::GUID,
+    pub ComputerObjectGuid: ::windows_sys::core::GUID,
+    pub ServerObjectGuid: ::windows_sys::core::GUID,
+    pub NtdsDsaObjectGuid: ::windows_sys::core::GUID,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DS_DOMAIN_CONTROLLER_INFO_3W {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DS_DOMAIN_CONTROLLER_INFO_3W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DS_DOMAIN_DIRECT_INBOUND: u32 = 32u32;
 pub const DS_DOMAIN_DIRECT_OUTBOUND: u32 = 2u32;
 pub const DS_DOMAIN_IN_FOREST: u32 = 1u32;
 pub const DS_DOMAIN_NATIVE_MODE: u32 = 16u32;
 pub const DS_DOMAIN_PRIMARY: u32 = 8u32;
 pub const DS_DOMAIN_TREE_ROOT: u32 = 4u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct DS_DOMAIN_TRUSTSA(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct DS_DOMAIN_TRUSTSA {
+    pub NetbiosDomainName: super::super::Foundation::PSTR,
+    pub DnsDomainName: super::super::Foundation::PSTR,
+    pub Flags: u32,
+    pub ParentIndex: u32,
+    pub TrustType: u32,
+    pub TrustAttributes: u32,
+    pub DomainSid: super::super::Foundation::PSID,
+    pub DomainGuid: ::windows_sys::core::GUID,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DS_DOMAIN_TRUSTSA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DS_DOMAIN_TRUSTSA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DS_DOMAIN_TRUSTSW(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct DS_DOMAIN_TRUSTSW {
+    pub NetbiosDomainName: super::super::Foundation::PWSTR,
+    pub DnsDomainName: super::super::Foundation::PWSTR,
+    pub Flags: u32,
+    pub ParentIndex: u32,
+    pub TrustType: u32,
+    pub TrustAttributes: u32,
+    pub DomainSid: super::super::Foundation::PSID,
+    pub DomainGuid: ::windows_sys::core::GUID,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DS_DOMAIN_TRUSTSW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DS_DOMAIN_TRUSTSW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DS_DS_10_FLAG: u32 = 65536u32;
 pub const DS_DS_8_FLAG: u32 = 16384u32;
 pub const DS_DS_9_FLAG: u32 = 32768u32;
@@ -1121,18 +2018,64 @@ pub const DS_CANONICAL_NAME_EX: DS_NAME_FORMAT = DS_NAME_FORMAT(9i32);
 pub const DS_SERVICE_PRINCIPAL_NAME: DS_NAME_FORMAT = DS_NAME_FORMAT(10i32);
 pub const DS_SID_OR_SID_HISTORY_NAME: DS_NAME_FORMAT = DS_NAME_FORMAT(11i32);
 pub const DS_DNS_DOMAIN_NAME: DS_NAME_FORMAT = DS_NAME_FORMAT(12i32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct DS_NAME_RESULTA(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct DS_NAME_RESULTW(i32);
+pub struct DS_NAME_RESULTA {
+    pub cItems: u32,
+    pub rItems: *mut DS_NAME_RESULT_ITEMA,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct DS_NAME_RESULT_ITEMA(i32);
+impl ::core::marker::Copy for DS_NAME_RESULTA {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DS_NAME_RESULTA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DS_NAME_RESULT_ITEMW(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct DS_NAME_RESULTW {
+    pub cItems: u32,
+    pub rItems: *mut DS_NAME_RESULT_ITEMW,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DS_NAME_RESULTW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DS_NAME_RESULTW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DS_NAME_RESULT_ITEMA {
+    pub status: u32,
+    pub pDomain: super::super::Foundation::PSTR,
+    pub pName: super::super::Foundation::PSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DS_NAME_RESULT_ITEMA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DS_NAME_RESULT_ITEMA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DS_NAME_RESULT_ITEMW {
+    pub status: u32,
+    pub pDomain: super::super::Foundation::PWSTR,
+    pub pName: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DS_NAME_RESULT_ITEMW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DS_NAME_RESULT_ITEMW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DS_NDNC_FLAG: u32 = 1024u32;
 pub const DS_NOTIFY_AFTER_SITE_RECORDS: u32 = 2u32;
 pub const DS_ONLY_DO_SITE_NAME: u32 = 1u32;
@@ -1161,43 +2104,207 @@ pub const DS_REPDEL_LOCAL_ONLY: u32 = 16u32;
 pub const DS_REPDEL_NO_SOURCE: u32 = 32u32;
 pub const DS_REPDEL_REF_OK: u32 = 64u32;
 pub const DS_REPDEL_WRITEABLE: u32 = 2u32;
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct DS_REPL_ATTR_META_DATA(i32);
+pub struct DS_REPL_ATTR_META_DATA {
+    pub pszAttributeName: super::super::Foundation::PWSTR,
+    pub dwVersion: u32,
+    pub ftimeLastOriginatingChange: super::super::Foundation::FILETIME,
+    pub uuidLastOriginatingDsaInvocationID: ::windows_sys::core::GUID,
+    pub usnOriginatingChange: i64,
+    pub usnLocalChange: i64,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct DS_REPL_ATTR_META_DATA_2(i32);
+impl ::core::marker::Copy for DS_REPL_ATTR_META_DATA {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DS_REPL_ATTR_META_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DS_REPL_ATTR_META_DATA_BLOB(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct DS_REPL_ATTR_VALUE_META_DATA(i32);
+pub struct DS_REPL_ATTR_META_DATA_2 {
+    pub pszAttributeName: super::super::Foundation::PWSTR,
+    pub dwVersion: u32,
+    pub ftimeLastOriginatingChange: super::super::Foundation::FILETIME,
+    pub uuidLastOriginatingDsaInvocationID: ::windows_sys::core::GUID,
+    pub usnOriginatingChange: i64,
+    pub usnLocalChange: i64,
+    pub pszLastOriginatingDsaDN: super::super::Foundation::PWSTR,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct DS_REPL_ATTR_VALUE_META_DATA_2(i32);
+impl ::core::marker::Copy for DS_REPL_ATTR_META_DATA_2 {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DS_REPL_ATTR_META_DATA_2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DS_REPL_ATTR_VALUE_META_DATA_EXT(i32);
-#[repr(C)]
-pub struct DS_REPL_CURSOR(i32);
-#[repr(C)]
-pub struct DS_REPL_CURSORS(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct DS_REPL_CURSORS_2(i32);
+pub struct DS_REPL_ATTR_META_DATA_BLOB {
+    pub oszAttributeName: u32,
+    pub dwVersion: u32,
+    pub ftimeLastOriginatingChange: super::super::Foundation::FILETIME,
+    pub uuidLastOriginatingDsaInvocationID: ::windows_sys::core::GUID,
+    pub usnOriginatingChange: i64,
+    pub usnLocalChange: i64,
+    pub oszLastOriginatingDsaDN: u32,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct DS_REPL_CURSORS_3W(i32);
+impl ::core::marker::Copy for DS_REPL_ATTR_META_DATA_BLOB {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DS_REPL_ATTR_META_DATA_BLOB {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DS_REPL_CURSOR_2(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct DS_REPL_CURSOR_3W(i32);
+pub struct DS_REPL_ATTR_VALUE_META_DATA {
+    pub cNumEntries: u32,
+    pub dwEnumerationContext: u32,
+    pub rgMetaData: [DS_REPL_VALUE_META_DATA; 1],
+}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DS_REPL_ATTR_VALUE_META_DATA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DS_REPL_ATTR_VALUE_META_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DS_REPL_CURSOR_BLOB(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct DS_REPL_ATTR_VALUE_META_DATA_2 {
+    pub cNumEntries: u32,
+    pub dwEnumerationContext: u32,
+    pub rgMetaData: [DS_REPL_VALUE_META_DATA_2; 1],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DS_REPL_ATTR_VALUE_META_DATA_2 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DS_REPL_ATTR_VALUE_META_DATA_2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DS_REPL_ATTR_VALUE_META_DATA_EXT {
+    pub cNumEntries: u32,
+    pub dwEnumerationContext: u32,
+    pub rgMetaData: [DS_REPL_VALUE_META_DATA_EXT; 1],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DS_REPL_ATTR_VALUE_META_DATA_EXT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DS_REPL_ATTR_VALUE_META_DATA_EXT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct DS_REPL_CURSOR {
+    pub uuidSourceDsaInvocationID: ::windows_sys::core::GUID,
+    pub usnAttributeFilter: i64,
+}
+impl ::core::marker::Copy for DS_REPL_CURSOR {}
+impl ::core::clone::Clone for DS_REPL_CURSOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct DS_REPL_CURSORS {
+    pub cNumCursors: u32,
+    pub dwReserved: u32,
+    pub rgCursor: [DS_REPL_CURSOR; 1],
+}
+impl ::core::marker::Copy for DS_REPL_CURSORS {}
+impl ::core::clone::Clone for DS_REPL_CURSORS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DS_REPL_CURSORS_2 {
+    pub cNumCursors: u32,
+    pub dwEnumerationContext: u32,
+    pub rgCursor: [DS_REPL_CURSOR_2; 1],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DS_REPL_CURSORS_2 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DS_REPL_CURSORS_2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DS_REPL_CURSORS_3W {
+    pub cNumCursors: u32,
+    pub dwEnumerationContext: u32,
+    pub rgCursor: [DS_REPL_CURSOR_3W; 1],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DS_REPL_CURSORS_3W {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DS_REPL_CURSORS_3W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DS_REPL_CURSOR_2 {
+    pub uuidSourceDsaInvocationID: ::windows_sys::core::GUID,
+    pub usnAttributeFilter: i64,
+    pub ftimeLastSyncSuccess: super::super::Foundation::FILETIME,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DS_REPL_CURSOR_2 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DS_REPL_CURSOR_2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DS_REPL_CURSOR_3W {
+    pub uuidSourceDsaInvocationID: ::windows_sys::core::GUID,
+    pub usnAttributeFilter: i64,
+    pub ftimeLastSyncSuccess: super::super::Foundation::FILETIME,
+    pub pszSourceDsaDN: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DS_REPL_CURSOR_3W {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DS_REPL_CURSOR_3W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DS_REPL_CURSOR_BLOB {
+    pub uuidSourceDsaInvocationID: ::windows_sys::core::GUID,
+    pub usnAttributeFilter: i64,
+    pub ftimeLastSyncSuccess: super::super::Foundation::FILETIME,
+    pub oszSourceDsaDN: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DS_REPL_CURSOR_BLOB {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DS_REPL_CURSOR_BLOB {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DS_REPL_INFO_FLAG_IMPROVE_LINKED_ATTRS: u32 = 1u32;
 #[repr(transparent)]
 pub struct DS_REPL_INFO_TYPE(pub i32);
@@ -1214,15 +2321,55 @@ pub const DS_REPL_INFO_METADATA_2_FOR_OBJ: DS_REPL_INFO_TYPE = DS_REPL_INFO_TYPE
 pub const DS_REPL_INFO_METADATA_2_FOR_ATTR_VALUE: DS_REPL_INFO_TYPE = DS_REPL_INFO_TYPE(10i32);
 pub const DS_REPL_INFO_METADATA_EXT_FOR_ATTR_VALUE: DS_REPL_INFO_TYPE = DS_REPL_INFO_TYPE(11i32);
 pub const DS_REPL_INFO_TYPE_MAX: DS_REPL_INFO_TYPE = DS_REPL_INFO_TYPE(12i32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct DS_REPL_KCC_DSA_FAILURESW(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct DS_REPL_KCC_DSA_FAILUREW(i32);
+pub struct DS_REPL_KCC_DSA_FAILURESW {
+    pub cNumEntries: u32,
+    pub dwReserved: u32,
+    pub rgDsaFailure: [DS_REPL_KCC_DSA_FAILUREW; 1],
+}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DS_REPL_KCC_DSA_FAILURESW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DS_REPL_KCC_DSA_FAILURESW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DS_REPL_KCC_DSA_FAILUREW_BLOB(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct DS_REPL_KCC_DSA_FAILUREW {
+    pub pszDsaDN: super::super::Foundation::PWSTR,
+    pub uuidDsaObjGuid: ::windows_sys::core::GUID,
+    pub ftimeFirstFailure: super::super::Foundation::FILETIME,
+    pub cNumFailures: u32,
+    pub dwLastResult: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DS_REPL_KCC_DSA_FAILUREW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DS_REPL_KCC_DSA_FAILUREW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DS_REPL_KCC_DSA_FAILUREW_BLOB {
+    pub oszDsaDN: u32,
+    pub uuidDsaObjGuid: ::windows_sys::core::GUID,
+    pub ftimeFirstFailure: super::super::Foundation::FILETIME,
+    pub cNumFailures: u32,
+    pub dwLastResult: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DS_REPL_KCC_DSA_FAILUREW_BLOB {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DS_REPL_KCC_DSA_FAILUREW_BLOB {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DS_REPL_NBR_COMPRESS_CHANGES: u32 = 268435456u32;
 pub const DS_REPL_NBR_DISABLE_SCHEDULED_SYNC: u32 = 134217728u32;
 pub const DS_REPL_NBR_DO_SCHEDULED_SYNCS: u32 = 64u32;
@@ -1241,27 +2388,151 @@ pub const DS_REPL_NBR_SYNC_ON_STARTUP: u32 = 32u32;
 pub const DS_REPL_NBR_TWO_WAY_SYNC: u32 = 512u32;
 pub const DS_REPL_NBR_USE_ASYNC_INTERSITE_TRANSPORT: u32 = 128u32;
 pub const DS_REPL_NBR_WRITEABLE: u32 = 16u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct DS_REPL_NEIGHBORSW(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct DS_REPL_NEIGHBORW(i32);
+pub struct DS_REPL_NEIGHBORSW {
+    pub cNumNeighbors: u32,
+    pub dwReserved: u32,
+    pub rgNeighbor: [DS_REPL_NEIGHBORW; 1],
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct DS_REPL_NEIGHBORW_BLOB(i32);
+impl ::core::marker::Copy for DS_REPL_NEIGHBORSW {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DS_REPL_NEIGHBORSW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DS_REPL_OBJ_META_DATA(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct DS_REPL_OBJ_META_DATA_2(i32);
+pub struct DS_REPL_NEIGHBORW {
+    pub pszNamingContext: super::super::Foundation::PWSTR,
+    pub pszSourceDsaDN: super::super::Foundation::PWSTR,
+    pub pszSourceDsaAddress: super::super::Foundation::PWSTR,
+    pub pszAsyncIntersiteTransportDN: super::super::Foundation::PWSTR,
+    pub dwReplicaFlags: u32,
+    pub dwReserved: u32,
+    pub uuidNamingContextObjGuid: ::windows_sys::core::GUID,
+    pub uuidSourceDsaObjGuid: ::windows_sys::core::GUID,
+    pub uuidSourceDsaInvocationID: ::windows_sys::core::GUID,
+    pub uuidAsyncIntersiteTransportObjGuid: ::windows_sys::core::GUID,
+    pub usnLastObjChangeSynced: i64,
+    pub usnAttributeFilter: i64,
+    pub ftimeLastSyncSuccess: super::super::Foundation::FILETIME,
+    pub ftimeLastSyncAttempt: super::super::Foundation::FILETIME,
+    pub dwLastSyncResult: u32,
+    pub cNumConsecutiveSyncFailures: u32,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct DS_REPL_OPW(i32);
+impl ::core::marker::Copy for DS_REPL_NEIGHBORW {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DS_REPL_NEIGHBORW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DS_REPL_OPW_BLOB(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct DS_REPL_NEIGHBORW_BLOB {
+    pub oszNamingContext: u32,
+    pub oszSourceDsaDN: u32,
+    pub oszSourceDsaAddress: u32,
+    pub oszAsyncIntersiteTransportDN: u32,
+    pub dwReplicaFlags: u32,
+    pub dwReserved: u32,
+    pub uuidNamingContextObjGuid: ::windows_sys::core::GUID,
+    pub uuidSourceDsaObjGuid: ::windows_sys::core::GUID,
+    pub uuidSourceDsaInvocationID: ::windows_sys::core::GUID,
+    pub uuidAsyncIntersiteTransportObjGuid: ::windows_sys::core::GUID,
+    pub usnLastObjChangeSynced: i64,
+    pub usnAttributeFilter: i64,
+    pub ftimeLastSyncSuccess: super::super::Foundation::FILETIME,
+    pub ftimeLastSyncAttempt: super::super::Foundation::FILETIME,
+    pub dwLastSyncResult: u32,
+    pub cNumConsecutiveSyncFailures: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DS_REPL_NEIGHBORW_BLOB {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DS_REPL_NEIGHBORW_BLOB {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DS_REPL_OBJ_META_DATA {
+    pub cNumEntries: u32,
+    pub dwReserved: u32,
+    pub rgMetaData: [DS_REPL_ATTR_META_DATA; 1],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DS_REPL_OBJ_META_DATA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DS_REPL_OBJ_META_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DS_REPL_OBJ_META_DATA_2 {
+    pub cNumEntries: u32,
+    pub dwReserved: u32,
+    pub rgMetaData: [DS_REPL_ATTR_META_DATA_2; 1],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DS_REPL_OBJ_META_DATA_2 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DS_REPL_OBJ_META_DATA_2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DS_REPL_OPW {
+    pub ftimeEnqueued: super::super::Foundation::FILETIME,
+    pub ulSerialNumber: u32,
+    pub ulPriority: u32,
+    pub OpType: DS_REPL_OP_TYPE,
+    pub ulOptions: u32,
+    pub pszNamingContext: super::super::Foundation::PWSTR,
+    pub pszDsaDN: super::super::Foundation::PWSTR,
+    pub pszDsaAddress: super::super::Foundation::PWSTR,
+    pub uuidNamingContextObjGuid: ::windows_sys::core::GUID,
+    pub uuidDsaObjGuid: ::windows_sys::core::GUID,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DS_REPL_OPW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DS_REPL_OPW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DS_REPL_OPW_BLOB {
+    pub ftimeEnqueued: super::super::Foundation::FILETIME,
+    pub ulSerialNumber: u32,
+    pub ulPriority: u32,
+    pub OpType: DS_REPL_OP_TYPE,
+    pub ulOptions: u32,
+    pub oszNamingContext: u32,
+    pub oszDsaDN: u32,
+    pub oszDsaAddress: u32,
+    pub uuidNamingContextObjGuid: ::windows_sys::core::GUID,
+    pub uuidDsaObjGuid: ::windows_sys::core::GUID,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DS_REPL_OPW_BLOB {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DS_REPL_OPW_BLOB {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DS_REPL_OP_TYPE(pub i32);
 pub const DS_REPL_OP_TYPE_SYNC: DS_REPL_OP_TYPE = DS_REPL_OP_TYPE(0i32);
@@ -1269,27 +2540,165 @@ pub const DS_REPL_OP_TYPE_ADD: DS_REPL_OP_TYPE = DS_REPL_OP_TYPE(1i32);
 pub const DS_REPL_OP_TYPE_DELETE: DS_REPL_OP_TYPE = DS_REPL_OP_TYPE(2i32);
 pub const DS_REPL_OP_TYPE_MODIFY: DS_REPL_OP_TYPE = DS_REPL_OP_TYPE(3i32);
 pub const DS_REPL_OP_TYPE_UPDATE_REFS: DS_REPL_OP_TYPE = DS_REPL_OP_TYPE(4i32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct DS_REPL_PENDING_OPSW(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct DS_REPL_QUEUE_STATISTICSW(i32);
+pub struct DS_REPL_PENDING_OPSW {
+    pub ftimeCurrentOpStarted: super::super::Foundation::FILETIME,
+    pub cNumPendingOps: u32,
+    pub rgPendingOp: [DS_REPL_OPW; 1],
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct DS_REPL_VALUE_META_DATA(i32);
+impl ::core::marker::Copy for DS_REPL_PENDING_OPSW {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DS_REPL_PENDING_OPSW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DS_REPL_VALUE_META_DATA_2(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct DS_REPL_VALUE_META_DATA_BLOB(i32);
+pub struct DS_REPL_QUEUE_STATISTICSW {
+    pub ftimeCurrentOpStarted: super::super::Foundation::FILETIME,
+    pub cNumPendingOps: u32,
+    pub ftimeOldestSync: super::super::Foundation::FILETIME,
+    pub ftimeOldestAdd: super::super::Foundation::FILETIME,
+    pub ftimeOldestMod: super::super::Foundation::FILETIME,
+    pub ftimeOldestDel: super::super::Foundation::FILETIME,
+    pub ftimeOldestUpdRefs: super::super::Foundation::FILETIME,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct DS_REPL_VALUE_META_DATA_BLOB_EXT(i32);
+impl ::core::marker::Copy for DS_REPL_QUEUE_STATISTICSW {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DS_REPL_QUEUE_STATISTICSW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DS_REPL_VALUE_META_DATA_EXT(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct DS_REPL_VALUE_META_DATA {
+    pub pszAttributeName: super::super::Foundation::PWSTR,
+    pub pszObjectDn: super::super::Foundation::PWSTR,
+    pub cbData: u32,
+    pub pbData: *mut u8,
+    pub ftimeDeleted: super::super::Foundation::FILETIME,
+    pub ftimeCreated: super::super::Foundation::FILETIME,
+    pub dwVersion: u32,
+    pub ftimeLastOriginatingChange: super::super::Foundation::FILETIME,
+    pub uuidLastOriginatingDsaInvocationID: ::windows_sys::core::GUID,
+    pub usnOriginatingChange: i64,
+    pub usnLocalChange: i64,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DS_REPL_VALUE_META_DATA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DS_REPL_VALUE_META_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DS_REPL_VALUE_META_DATA_2 {
+    pub pszAttributeName: super::super::Foundation::PWSTR,
+    pub pszObjectDn: super::super::Foundation::PWSTR,
+    pub cbData: u32,
+    pub pbData: *mut u8,
+    pub ftimeDeleted: super::super::Foundation::FILETIME,
+    pub ftimeCreated: super::super::Foundation::FILETIME,
+    pub dwVersion: u32,
+    pub ftimeLastOriginatingChange: super::super::Foundation::FILETIME,
+    pub uuidLastOriginatingDsaInvocationID: ::windows_sys::core::GUID,
+    pub usnOriginatingChange: i64,
+    pub usnLocalChange: i64,
+    pub pszLastOriginatingDsaDN: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DS_REPL_VALUE_META_DATA_2 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DS_REPL_VALUE_META_DATA_2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DS_REPL_VALUE_META_DATA_BLOB {
+    pub oszAttributeName: u32,
+    pub oszObjectDn: u32,
+    pub cbData: u32,
+    pub obData: u32,
+    pub ftimeDeleted: super::super::Foundation::FILETIME,
+    pub ftimeCreated: super::super::Foundation::FILETIME,
+    pub dwVersion: u32,
+    pub ftimeLastOriginatingChange: super::super::Foundation::FILETIME,
+    pub uuidLastOriginatingDsaInvocationID: ::windows_sys::core::GUID,
+    pub usnOriginatingChange: i64,
+    pub usnLocalChange: i64,
+    pub oszLastOriginatingDsaDN: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DS_REPL_VALUE_META_DATA_BLOB {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DS_REPL_VALUE_META_DATA_BLOB {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DS_REPL_VALUE_META_DATA_BLOB_EXT {
+    pub oszAttributeName: u32,
+    pub oszObjectDn: u32,
+    pub cbData: u32,
+    pub obData: u32,
+    pub ftimeDeleted: super::super::Foundation::FILETIME,
+    pub ftimeCreated: super::super::Foundation::FILETIME,
+    pub dwVersion: u32,
+    pub ftimeLastOriginatingChange: super::super::Foundation::FILETIME,
+    pub uuidLastOriginatingDsaInvocationID: ::windows_sys::core::GUID,
+    pub usnOriginatingChange: i64,
+    pub usnLocalChange: i64,
+    pub oszLastOriginatingDsaDN: u32,
+    pub dwUserIdentifier: u32,
+    pub dwPriorLinkState: u32,
+    pub dwCurrentLinkState: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DS_REPL_VALUE_META_DATA_BLOB_EXT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DS_REPL_VALUE_META_DATA_BLOB_EXT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DS_REPL_VALUE_META_DATA_EXT {
+    pub pszAttributeName: super::super::Foundation::PWSTR,
+    pub pszObjectDn: super::super::Foundation::PWSTR,
+    pub cbData: u32,
+    pub pbData: *mut u8,
+    pub ftimeDeleted: super::super::Foundation::FILETIME,
+    pub ftimeCreated: super::super::Foundation::FILETIME,
+    pub dwVersion: u32,
+    pub ftimeLastOriginatingChange: super::super::Foundation::FILETIME,
+    pub uuidLastOriginatingDsaInvocationID: ::windows_sys::core::GUID,
+    pub usnOriginatingChange: i64,
+    pub usnLocalChange: i64,
+    pub pszLastOriginatingDsaDN: super::super::Foundation::PWSTR,
+    pub dwUserIdentifier: u32,
+    pub dwPriorLinkState: u32,
+    pub dwCurrentLinkState: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DS_REPL_VALUE_META_DATA_EXT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DS_REPL_VALUE_META_DATA_EXT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DS_REPMOD_ASYNCHRONOUS_OPERATION: u32 = 1u32;
 pub const DS_REPMOD_UPDATE_ADDRESS: u32 = 2u32;
 pub const DS_REPMOD_UPDATE_FLAGS: u32 = 1u32;
@@ -1301,12 +2710,38 @@ pub const DS_REPMOD_WRITEABLE: u32 = 2u32;
 pub const DS_REPSYNCALL_ABORT_IF_SERVER_UNAVAILABLE: u32 = 1u32;
 pub const DS_REPSYNCALL_CROSS_SITE_BOUNDARIES: u32 = 64u32;
 pub const DS_REPSYNCALL_DO_NOT_SYNC: u32 = 8u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct DS_REPSYNCALL_ERRINFOA(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct DS_REPSYNCALL_ERRINFOA {
+    pub pszSvrId: super::super::Foundation::PSTR,
+    pub error: DS_REPSYNCALL_ERROR,
+    pub dwWin32Err: u32,
+    pub pszSrcId: super::super::Foundation::PSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DS_REPSYNCALL_ERRINFOA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DS_REPSYNCALL_ERRINFOA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DS_REPSYNCALL_ERRINFOW(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct DS_REPSYNCALL_ERRINFOW {
+    pub pszSvrId: super::super::Foundation::PWSTR,
+    pub error: DS_REPSYNCALL_ERROR,
+    pub dwWin32Err: u32,
+    pub pszSrcId: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DS_REPSYNCALL_ERRINFOW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DS_REPSYNCALL_ERRINFOW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DS_REPSYNCALL_ERROR(pub i32);
 pub const DS_REPSYNCALL_WIN32_ERROR_CONTACTING_SERVER: DS_REPSYNCALL_ERROR = DS_REPSYNCALL_ERROR(0i32);
@@ -1322,19 +2757,71 @@ pub const DS_REPSYNCALL_ID_SERVERS_BY_DN: u32 = 4u32;
 pub const DS_REPSYNCALL_NO_OPTIONS: u32 = 0u32;
 pub const DS_REPSYNCALL_PUSH_CHANGES_OUTWARD: u32 = 32u32;
 pub const DS_REPSYNCALL_SKIP_INITIAL_CHECK: u32 = 16u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct DS_REPSYNCALL_SYNCA(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct DS_REPSYNCALL_SYNCA {
+    pub pszSrcId: super::super::Foundation::PSTR,
+    pub pszDstId: super::super::Foundation::PSTR,
+    pub pszNC: super::super::Foundation::PSTR,
+    pub pguidSrc: *mut ::windows_sys::core::GUID,
+    pub pguidDst: *mut ::windows_sys::core::GUID,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DS_REPSYNCALL_SYNCA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DS_REPSYNCALL_SYNCA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DS_REPSYNCALL_SYNCW(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct DS_REPSYNCALL_SYNCW {
+    pub pszSrcId: super::super::Foundation::PWSTR,
+    pub pszDstId: super::super::Foundation::PWSTR,
+    pub pszNC: super::super::Foundation::PWSTR,
+    pub pguidSrc: *mut ::windows_sys::core::GUID,
+    pub pguidDst: *mut ::windows_sys::core::GUID,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DS_REPSYNCALL_SYNCW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DS_REPSYNCALL_SYNCW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DS_REPSYNCALL_SYNC_ADJACENT_SERVERS_ONLY: u32 = 2u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct DS_REPSYNCALL_UPDATEA(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct DS_REPSYNCALL_UPDATEA {
+    pub event: DS_REPSYNCALL_EVENT,
+    pub pErrInfo: *mut DS_REPSYNCALL_ERRINFOA,
+    pub pSync: *mut DS_REPSYNCALL_SYNCA,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DS_REPSYNCALL_UPDATEA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DS_REPSYNCALL_UPDATEA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DS_REPSYNCALL_UPDATEW(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct DS_REPSYNCALL_UPDATEW {
+    pub event: DS_REPSYNCALL_EVENT,
+    pub pErrInfo: *mut DS_REPSYNCALL_ERRINFOW,
+    pub pSync: *mut DS_REPSYNCALL_SYNCW,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DS_REPSYNCALL_UPDATEW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DS_REPSYNCALL_UPDATEW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DS_REPSYNC_ABANDONED: u32 = 32768u32;
 pub const DS_REPSYNC_ADD_REFERENCE: u32 = 512u32;
 pub const DS_REPSYNC_ASYNCHRONOUS_OPERATION: u32 = 1u32;
@@ -1376,22 +2863,82 @@ pub const DS_SCHEMA_GUID_ATTR: u32 = 1u32;
 pub const DS_SCHEMA_GUID_ATTR_SET: u32 = 2u32;
 pub const DS_SCHEMA_GUID_CLASS: u32 = 3u32;
 pub const DS_SCHEMA_GUID_CONTROL_RIGHT: u32 = 4u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct DS_SCHEMA_GUID_MAPA(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct DS_SCHEMA_GUID_MAPA {
+    pub guid: ::windows_sys::core::GUID,
+    pub guidType: u32,
+    pub pName: super::super::Foundation::PSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DS_SCHEMA_GUID_MAPA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DS_SCHEMA_GUID_MAPA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DS_SCHEMA_GUID_MAPW(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct DS_SCHEMA_GUID_MAPW {
+    pub guid: ::windows_sys::core::GUID,
+    pub guidType: u32,
+    pub pName: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DS_SCHEMA_GUID_MAPW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DS_SCHEMA_GUID_MAPW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DS_SCHEMA_GUID_NOT_FOUND: u32 = 0u32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[repr(C)]
-pub struct DS_SELECTION(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub struct DS_SELECTION {
+    pub pwzName: super::super::Foundation::PWSTR,
+    pub pwzADsPath: super::super::Foundation::PWSTR,
+    pub pwzClass: super::super::Foundation::PWSTR,
+    pub pwzUPN: super::super::Foundation::PWSTR,
+    pub pvarFetchedAttributes: *mut super::super::System::Com::VARIANT,
+    pub flScopeType: u32,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::core::marker::Copy for DS_SELECTION {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::core::clone::Clone for DS_SELECTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DS_SELECTION_LIST(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub struct DS_SELECTION_LIST {
+    pub cItems: u32,
+    pub cFetchedAttributes: u32,
+    pub aDsSelection: [DS_SELECTION; 1],
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::core::marker::Copy for DS_SELECTION_LIST {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::core::clone::Clone for DS_SELECTION_LIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DS_SELECT_SECRET_DOMAIN_6_FLAG: u32 = 2048u32;
 #[repr(C)]
-pub struct DS_SITE_COST_INFO(i32);
+pub struct DS_SITE_COST_INFO {
+    pub errorCode: u32,
+    pub cost: u32,
+}
+impl ::core::marker::Copy for DS_SITE_COST_INFO {}
+impl ::core::clone::Clone for DS_SITE_COST_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DS_SPN_NAME_TYPE(pub i32);
 pub const DS_SPN_DNS_HOST: DS_SPN_NAME_TYPE = DS_SPN_NAME_TYPE(0i32);
@@ -1424,7 +2971,15 @@ pub const FRSCONN_MAX_PRIORITY: u32 = 8u32;
 pub const FRSCONN_PRIORITY_MASK: u32 = 1879048192u32;
 pub const FaxNumber: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2768642581, data2: 18049, data3: 4561, data4: [163, 180, 0, 192, 79, 185, 80, 220] };
 #[repr(C)]
-pub struct GetDcContextHandle(i32);
+pub struct GetDcContextHandle {
+    pub Value: isize,
+}
+impl ::core::marker::Copy for GetDcContextHandle {}
+impl ::core::clone::Clone for GetDcContextHandle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const Hold: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3014475283, data2: 16512, data3: 4561, data4: [163, 172, 0, 192, 79, 185, 80, 220] };
 #[repr(transparent)]
 pub struct IADs(pub *mut ::core::ffi::c_void);
@@ -1644,9 +3199,37 @@ pub const NTDSTRANSPORT_OPT_BRIDGES_REQUIRED: u32 = 2u32;
 pub const NTDSTRANSPORT_OPT_IGNORE_SCHEDULES: u32 = 1u32;
 pub const NameTranslate: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 659533343, data2: 13862, data3: 4561, data4: [163, 164, 0, 192, 79, 185, 80, 220] };
 pub const NetAddress: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2964787783, data2: 16512, data3: 4561, data4: [163, 172, 0, 192, 79, 185, 80, 220] };
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[repr(C)]
-pub struct OPENQUERYWINDOW(i32);
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
+pub struct OPENQUERYWINDOW {
+    pub cbStruct: u32,
+    pub dwFlags: u32,
+    pub clsidHandler: ::windows_sys::core::GUID,
+    pub pHandlerParameters: *mut ::core::ffi::c_void,
+    pub clsidDefaultForm: ::windows_sys::core::GUID,
+    pub pPersistQuery: ::core::option::Option<IPersistQuery>,
+    pub Anonymous: OPENQUERYWINDOW_0,
+}
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
+impl ::core::marker::Copy for OPENQUERYWINDOW {}
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
+impl ::core::clone::Clone for OPENQUERYWINDOW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
+pub union OPENQUERYWINDOW_0 {
+    pub pFormParameters: *mut ::core::ffi::c_void,
+    pub ppbFormParameters: ::core::option::Option<super::super::System::Com::StructuredStorage::IPropertyBag>,
+}
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
+impl ::core::clone::Clone for OPENQUERYWINDOW_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const OQWF_DEFAULTFORM: u32 = 2u32;
 pub const OQWF_HIDEMENUS: u32 = 1024u32;
 pub const OQWF_HIDESEARCHUI: u32 = 2048u32;
@@ -1669,10 +3252,30 @@ pub const QUERYFORM_CHANGESFORMLIST: u64 = 1u64;
 pub const QUERYFORM_CHANGESOPTFORMLIST: u64 = 2u64;
 pub const ReplicaPointer: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4124162783, data2: 16512, data3: 4561, data4: [163, 172, 0, 192, 79, 185, 80, 220] };
 #[repr(C)]
-pub struct SCHEDULE(i32);
+pub struct SCHEDULE {
+    pub Size: u32,
+    pub Bandwidth: u32,
+    pub NumberOfSchedules: u32,
+    pub Schedules: [SCHEDULE_HEADER; 1],
+}
+impl ::core::marker::Copy for SCHEDULE {}
+impl ::core::clone::Clone for SCHEDULE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SCHEDULE_BANDWIDTH: u32 = 1u32;
 #[repr(C)]
-pub struct SCHEDULE_HEADER(i32);
+pub struct SCHEDULE_HEADER {
+    pub Type: u32,
+    pub Offset: u32,
+}
+impl ::core::marker::Copy for SCHEDULE_HEADER {}
+impl ::core::clone::Clone for SCHEDULE_HEADER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SCHEDULE_INTERVAL: u32 = 0u32;
 pub const SCHEDULE_PRIORITY: u32 = 2u32;
 pub const STATUS_SEVERITY_ERROR: u32 = 3u32;
@@ -1691,9 +3294,35 @@ pub const WM_ADSPROP_NOTIFY_PAGEHWND: u32 = 2126u32;
 pub const WM_ADSPROP_NOTIFY_PAGEINIT: u32 = 2125u32;
 pub const WM_ADSPROP_NOTIFY_SETFOCUS: u32 = 2129u32;
 pub const WinNTSystemInfo: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1712860868, data2: 45009, data3: 4562, data4: [156, 185, 0, 0, 248, 122, 54, 158] };
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct ads_search_column(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct ads_search_column {
+    pub pszAttrName: super::super::Foundation::PWSTR,
+    pub dwADsType: ADSTYPEENUM,
+    pub pADsValues: *mut ADSVALUE,
+    pub dwNumValues: u32,
+    pub hReserved: super::super::Foundation::HANDLE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ads_search_column {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ads_search_column {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct ads_searchpref_info(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct ads_searchpref_info {
+    pub dwSearchPref: ADS_SEARCHPREF_ENUM,
+    pub vValue: ADSVALUE,
+    pub dwStatus: ADS_STATUSENUM,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ads_searchpref_info {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ads_searchpref_info {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

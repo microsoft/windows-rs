@@ -695,12 +695,40 @@ extern "system" {
     pub fn wglSwapMultipleBuffers(param0: u32, param1: *const WGLSWAP) -> u32;
 }
 #[repr(C)]
-pub struct ABC(i32);
+pub struct ABC {
+    pub abcA: i32,
+    pub abcB: u32,
+    pub abcC: i32,
+}
+impl ::core::marker::Copy for ABC {}
+impl ::core::clone::Clone for ABC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct ABCFLOAT(i32);
+pub struct ABCFLOAT {
+    pub abcfA: f32,
+    pub abcfB: f32,
+    pub abcfC: f32,
+}
+impl ::core::marker::Copy for ABCFLOAT {}
+impl ::core::clone::Clone for ABCFLOAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const ABORTDOC: u32 = 2u32;
 #[repr(C)]
-pub struct ABORTPATH(i32);
+pub struct ABORTPATH {
+    pub emr: EMR,
+}
+impl ::core::marker::Copy for ABORTPATH {}
+impl ::core::clone::Clone for ABORTPATH {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const ABSOLUTE: u32 = 1u32;
 pub const AC_SRC_ALPHA: u32 = 1u32;
 pub const AC_SRC_OVER: u32 = 0u32;
@@ -712,13 +740,53 @@ pub const AD_COUNTERCLOCKWISE: ARC_DIRECTION = ARC_DIRECTION(1u32);
 pub const AD_CLOCKWISE: ARC_DIRECTION = ARC_DIRECTION(2u32);
 pub const ASPECT_FILTERING: u32 = 1u32;
 #[repr(C)]
-pub struct AXESLISTA(i32);
+pub struct AXESLISTA {
+    pub axlReserved: u32,
+    pub axlNumAxes: u32,
+    pub axlAxisInfo: [AXISINFOA; 16],
+}
+impl ::core::marker::Copy for AXESLISTA {}
+impl ::core::clone::Clone for AXESLISTA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct AXESLISTW(i32);
+pub struct AXESLISTW {
+    pub axlReserved: u32,
+    pub axlNumAxes: u32,
+    pub axlAxisInfo: [AXISINFOW; 16],
+}
+impl ::core::marker::Copy for AXESLISTW {}
+impl ::core::clone::Clone for AXESLISTW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct AXISINFOA(i32);
+pub struct AXISINFOA {
+    pub axMinValue: i32,
+    pub axMaxValue: i32,
+    pub axAxisName: [u8; 16],
+}
+impl ::core::marker::Copy for AXISINFOA {}
+impl ::core::clone::Clone for AXISINFOA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct AXISINFOW(i32);
+pub struct AXISINFOW {
+    pub axMinValue: i32,
+    pub axMaxValue: i32,
+    pub axAxisName: [u16; 16],
+}
+impl ::core::marker::Copy for AXISINFOW {}
+impl ::core::clone::Clone for AXISINFOW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct BACKGROUND_MODE(pub u32);
 pub const OPAQUE: BACKGROUND_MODE = BACKGROUND_MODE(2u32);
@@ -727,21 +795,153 @@ pub const BALTIC_CHARSET: u32 = 186u32;
 pub const BANDINFO: u32 = 24u32;
 pub const BEGIN_PATH: u32 = 4096u32;
 #[repr(C)]
-pub struct BITMAP(i32);
+pub struct BITMAP {
+    pub bmType: i32,
+    pub bmWidth: i32,
+    pub bmHeight: i32,
+    pub bmWidthBytes: i32,
+    pub bmPlanes: u16,
+    pub bmBitsPixel: u16,
+    pub bmBits: *mut ::core::ffi::c_void,
+}
+impl ::core::marker::Copy for BITMAP {}
+impl ::core::clone::Clone for BITMAP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct BITMAPCOREHEADER(i32);
+pub struct BITMAPCOREHEADER {
+    pub bcSize: u32,
+    pub bcWidth: u16,
+    pub bcHeight: u16,
+    pub bcPlanes: u16,
+    pub bcBitCount: u16,
+}
+impl ::core::marker::Copy for BITMAPCOREHEADER {}
+impl ::core::clone::Clone for BITMAPCOREHEADER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct BITMAPCOREINFO(i32);
+pub struct BITMAPCOREINFO {
+    pub bmciHeader: BITMAPCOREHEADER,
+    pub bmciColors: [RGBTRIPLE; 1],
+}
+impl ::core::marker::Copy for BITMAPCOREINFO {}
+impl ::core::clone::Clone for BITMAPCOREINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(2))]
+pub struct BITMAPFILEHEADER {
+    pub bfType: u16,
+    pub bfSize: u32,
+    pub bfReserved1: u16,
+    pub bfReserved2: u16,
+    pub bfOffBits: u32,
+}
+impl ::core::marker::Copy for BITMAPFILEHEADER {}
+impl ::core::clone::Clone for BITMAPFILEHEADER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct BITMAPFILEHEADER(i32);
+pub struct BITMAPINFO {
+    pub bmiHeader: BITMAPINFOHEADER,
+    pub bmiColors: [RGBQUAD; 1],
+}
+impl ::core::marker::Copy for BITMAPINFO {}
+impl ::core::clone::Clone for BITMAPINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct BITMAPINFO(i32);
+pub struct BITMAPINFOHEADER {
+    pub biSize: u32,
+    pub biWidth: i32,
+    pub biHeight: i32,
+    pub biPlanes: u16,
+    pub biBitCount: u16,
+    pub biCompression: u32,
+    pub biSizeImage: u32,
+    pub biXPelsPerMeter: i32,
+    pub biYPelsPerMeter: i32,
+    pub biClrUsed: u32,
+    pub biClrImportant: u32,
+}
+impl ::core::marker::Copy for BITMAPINFOHEADER {}
+impl ::core::clone::Clone for BITMAPINFOHEADER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct BITMAPINFOHEADER(i32);
+pub struct BITMAPV4HEADER {
+    pub bV4Size: u32,
+    pub bV4Width: i32,
+    pub bV4Height: i32,
+    pub bV4Planes: u16,
+    pub bV4BitCount: u16,
+    pub bV4V4Compression: u32,
+    pub bV4SizeImage: u32,
+    pub bV4XPelsPerMeter: i32,
+    pub bV4YPelsPerMeter: i32,
+    pub bV4ClrUsed: u32,
+    pub bV4ClrImportant: u32,
+    pub bV4RedMask: u32,
+    pub bV4GreenMask: u32,
+    pub bV4BlueMask: u32,
+    pub bV4AlphaMask: u32,
+    pub bV4CSType: u32,
+    pub bV4Endpoints: CIEXYZTRIPLE,
+    pub bV4GammaRed: u32,
+    pub bV4GammaGreen: u32,
+    pub bV4GammaBlue: u32,
+}
+impl ::core::marker::Copy for BITMAPV4HEADER {}
+impl ::core::clone::Clone for BITMAPV4HEADER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct BITMAPV4HEADER(i32);
-#[repr(C)]
-pub struct BITMAPV5HEADER(i32);
+pub struct BITMAPV5HEADER {
+    pub bV5Size: u32,
+    pub bV5Width: i32,
+    pub bV5Height: i32,
+    pub bV5Planes: u16,
+    pub bV5BitCount: u16,
+    pub bV5Compression: u32,
+    pub bV5SizeImage: u32,
+    pub bV5XPelsPerMeter: i32,
+    pub bV5YPelsPerMeter: i32,
+    pub bV5ClrUsed: u32,
+    pub bV5ClrImportant: u32,
+    pub bV5RedMask: u32,
+    pub bV5GreenMask: u32,
+    pub bV5BlueMask: u32,
+    pub bV5AlphaMask: u32,
+    pub bV5CSType: u32,
+    pub bV5Endpoints: CIEXYZTRIPLE,
+    pub bV5GammaRed: u32,
+    pub bV5GammaGreen: u32,
+    pub bV5GammaBlue: u32,
+    pub bV5Intent: u32,
+    pub bV5ProfileData: u32,
+    pub bV5ProfileSize: u32,
+    pub bV5Reserved: u32,
+}
+impl ::core::marker::Copy for BITMAPV5HEADER {}
+impl ::core::clone::Clone for BITMAPV5HEADER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const BI_BITFIELDS: i32 = 3i32;
 pub const BI_JPEG: i32 = 4i32;
 pub const BI_PNG: i32 = 5i32;
@@ -750,7 +950,18 @@ pub const BI_RLE4: i32 = 2i32;
 pub const BI_RLE8: i32 = 1i32;
 pub const BKMODE_LAST: u32 = 2u32;
 #[repr(C)]
-pub struct BLENDFUNCTION(i32);
+pub struct BLENDFUNCTION {
+    pub BlendOp: u8,
+    pub BlendFlags: u8,
+    pub SourceConstantAlpha: u8,
+    pub AlphaFormat: u8,
+}
+impl ::core::marker::Copy for BLENDFUNCTION {}
+impl ::core::clone::Clone for BLENDFUNCTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const BS_DIBPATTERN: u32 = 5u32;
 pub const BS_DIBPATTERN8X8: u32 = 8u32;
 pub const BS_DIBPATTERNPT: u32 = 6u32;
@@ -798,9 +1009,29 @@ pub const CHECKJPEGFORMAT: u32 = 4119u32;
 pub const CHECKPNGFORMAT: u32 = 4120u32;
 pub const CHINESEBIG5_CHARSET: u32 = 136u32;
 #[repr(C)]
-pub struct CIEXYZ(i32);
+pub struct CIEXYZ {
+    pub ciexyzX: i32,
+    pub ciexyzY: i32,
+    pub ciexyzZ: i32,
+}
+impl ::core::marker::Copy for CIEXYZ {}
+impl ::core::clone::Clone for CIEXYZ {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CIEXYZTRIPLE(i32);
+pub struct CIEXYZTRIPLE {
+    pub ciexyzRed: CIEXYZ,
+    pub ciexyzGreen: CIEXYZ,
+    pub ciexyzBlue: CIEXYZ,
+}
+impl ::core::marker::Copy for CIEXYZTRIPLE {}
+impl ::core::clone::Clone for CIEXYZTRIPLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CLEARTYPE_NATURAL_QUALITY: u32 = 6u32;
 pub const CLIP_TO_PATH: u32 = 4097u32;
 pub const CLOSECHANNEL: u32 = 4112u32;
@@ -812,11 +1043,55 @@ pub const CM_IN_GAMUT: u32 = 0u32;
 pub const CM_NONE: u32 = 0u32;
 pub const CM_OUT_OF_GAMUT: u32 = 255u32;
 #[repr(C)]
-pub struct COLORADJUSTMENT(i32);
+pub struct COLORADJUSTMENT {
+    pub caSize: u16,
+    pub caFlags: u16,
+    pub caIlluminantIndex: u16,
+    pub caRedGamma: u16,
+    pub caGreenGamma: u16,
+    pub caBlueGamma: u16,
+    pub caReferenceBlack: u16,
+    pub caReferenceWhite: u16,
+    pub caContrast: i16,
+    pub caBrightness: i16,
+    pub caColorfulness: i16,
+    pub caRedGreenTint: i16,
+}
+impl ::core::marker::Copy for COLORADJUSTMENT {}
+impl ::core::clone::Clone for COLORADJUSTMENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct COLORCORRECTPALETTE(i32);
+pub struct COLORCORRECTPALETTE {
+    pub emr: EMR,
+    pub ihPalette: u32,
+    pub nFirstEntry: u32,
+    pub nPalEntries: u32,
+    pub nReserved: u32,
+}
+impl ::core::marker::Copy for COLORCORRECTPALETTE {}
+impl ::core::clone::Clone for COLORCORRECTPALETTE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct COLORMATCHTOTARGET(i32);
+pub struct COLORMATCHTOTARGET {
+    pub emr: EMR,
+    pub dwAction: u32,
+    pub dwFlags: u32,
+    pub cbName: u32,
+    pub cbData: u32,
+    pub Data: [u8; 1],
+}
+impl ::core::marker::Copy for COLORMATCHTOTARGET {}
+impl ::core::clone::Clone for COLORMATCHTOTARGET {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const COLORMATCHTOTARGET_EMBEDED: u32 = 1u32;
 pub const COMPLEXREGION: u32 = 3u32;
 pub const CP_NONE: u32 = 0u32;
@@ -837,7 +1112,15 @@ pub struct CREATE_POLYGON_RGN_MODE(pub u32);
 pub const ALTERNATE: CREATE_POLYGON_RGN_MODE = CREATE_POLYGON_RGN_MODE(1u32);
 pub const WINDING: CREATE_POLYGON_RGN_MODE = CREATE_POLYGON_RGN_MODE(2u32);
 #[repr(C)]
-pub struct CreatedHDC(i32);
+pub struct CreatedHDC {
+    pub Value: isize,
+}
+impl ::core::marker::Copy for CreatedHDC {}
+impl ::core::clone::Clone for CreatedHDC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DCBA_FACEDOWNCENTER: u32 = 257u32;
 pub const DCBA_FACEDOWNLEFT: u32 = 258u32;
 pub const DCBA_FACEDOWNNONE: u32 = 256u32;
@@ -862,15 +1145,215 @@ pub const DC_MODEL: u32 = 24u32;
 pub const DEFAULT_CHARSET: u32 = 1u32;
 pub const DEFAULT_PITCH: u32 = 0u32;
 #[repr(C)]
-pub struct DESIGNVECTOR(i32);
+pub struct DESIGNVECTOR {
+    pub dvReserved: u32,
+    pub dvNumAxes: u32,
+    pub dvValues: [i32; 16],
+}
+impl ::core::marker::Copy for DESIGNVECTOR {}
+impl ::core::clone::Clone for DESIGNVECTOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DEVICEDATA: u32 = 19u32;
 pub const DEVICE_FONTTYPE: u32 = 2u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct DEVMODEA(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct DEVMODEA {
+    pub dmDeviceName: [u8; 32],
+    pub dmSpecVersion: u16,
+    pub dmDriverVersion: u16,
+    pub dmSize: u16,
+    pub dmDriverExtra: u16,
+    pub dmFields: u32,
+    pub Anonymous1: DEVMODEA_0,
+    pub dmColor: i16,
+    pub dmDuplex: i16,
+    pub dmYResolution: i16,
+    pub dmTTOption: i16,
+    pub dmCollate: i16,
+    pub dmFormName: [u8; 32],
+    pub dmLogPixels: u16,
+    pub dmBitsPerPel: u32,
+    pub dmPelsWidth: u32,
+    pub dmPelsHeight: u32,
+    pub Anonymous2: DEVMODEA_1,
+    pub dmDisplayFrequency: u32,
+    pub dmICMMethod: u32,
+    pub dmICMIntent: u32,
+    pub dmMediaType: u32,
+    pub dmDitherType: u32,
+    pub dmReserved1: u32,
+    pub dmReserved2: u32,
+    pub dmPanningWidth: u32,
+    pub dmPanningHeight: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DEVMODEA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DEVMODEA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DEVMODEW(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub union DEVMODEA_0 {
+    pub Anonymous1: DEVMODEA_0_0,
+    pub Anonymous2: DEVMODEA_0_1,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DEVMODEA_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DEVMODEA_0_0 {
+    pub dmOrientation: i16,
+    pub dmPaperSize: i16,
+    pub dmPaperLength: i16,
+    pub dmPaperWidth: i16,
+    pub dmScale: i16,
+    pub dmCopies: i16,
+    pub dmDefaultSource: i16,
+    pub dmPrintQuality: i16,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DEVMODEA_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DEVMODEA_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DEVMODEA_0_1 {
+    pub dmPosition: super::super::Foundation::POINTL,
+    pub dmDisplayOrientation: u32,
+    pub dmDisplayFixedOutput: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DEVMODEA_0_1 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DEVMODEA_0_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub union DEVMODEA_1 {
+    pub dmDisplayFlags: u32,
+    pub dmNup: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DEVMODEA_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DEVMODEW {
+    pub dmDeviceName: [u16; 32],
+    pub dmSpecVersion: u16,
+    pub dmDriverVersion: u16,
+    pub dmSize: u16,
+    pub dmDriverExtra: u16,
+    pub dmFields: u32,
+    pub Anonymous1: DEVMODEW_0,
+    pub dmColor: i16,
+    pub dmDuplex: i16,
+    pub dmYResolution: i16,
+    pub dmTTOption: i16,
+    pub dmCollate: i16,
+    pub dmFormName: [u16; 32],
+    pub dmLogPixels: u16,
+    pub dmBitsPerPel: u32,
+    pub dmPelsWidth: u32,
+    pub dmPelsHeight: u32,
+    pub Anonymous2: DEVMODEW_1,
+    pub dmDisplayFrequency: u32,
+    pub dmICMMethod: u32,
+    pub dmICMIntent: u32,
+    pub dmMediaType: u32,
+    pub dmDitherType: u32,
+    pub dmReserved1: u32,
+    pub dmReserved2: u32,
+    pub dmPanningWidth: u32,
+    pub dmPanningHeight: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DEVMODEW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DEVMODEW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub union DEVMODEW_0 {
+    pub Anonymous1: DEVMODEW_0_0,
+    pub Anonymous2: DEVMODEW_0_1,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DEVMODEW_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DEVMODEW_0_0 {
+    pub dmOrientation: i16,
+    pub dmPaperSize: i16,
+    pub dmPaperLength: i16,
+    pub dmPaperWidth: i16,
+    pub dmScale: i16,
+    pub dmCopies: i16,
+    pub dmDefaultSource: i16,
+    pub dmPrintQuality: i16,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DEVMODEW_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DEVMODEW_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DEVMODEW_0_1 {
+    pub dmPosition: super::super::Foundation::POINTL,
+    pub dmDisplayOrientation: u32,
+    pub dmDisplayFixedOutput: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DEVMODEW_0_1 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DEVMODEW_0_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub union DEVMODEW_1 {
+    pub dmDisplayFlags: u32,
+    pub dmNup: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DEVMODEW_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DFCS_STATE(pub u32);
 pub const DFCS_CAPTIONCLOSE: DFCS_STATE = DFCS_STATE(0u32);
@@ -910,9 +1393,23 @@ pub const DFC_MENU: DFC_TYPE = DFC_TYPE(2u32);
 pub const DFC_SCROLL: DFC_TYPE = DFC_TYPE(3u32);
 pub const DFC_BUTTON: DFC_TYPE = DFC_TYPE(4u32);
 pub const DFC_POPUPMENU: DFC_TYPE = DFC_TYPE(5u32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct DIBSECTION(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct DIBSECTION {
+    pub dsBm: BITMAP,
+    pub dsBmih: BITMAPINFOHEADER,
+    pub dsBitfields: [u32; 3],
+    pub dshSection: super::super::Foundation::HANDLE,
+    pub dsOffset: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DIBSECTION {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DIBSECTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DIB_USAGE(pub u32);
 pub const DIB_RGB_COLORS: DIB_USAGE = DIB_USAGE(0u32);
@@ -942,11 +1439,39 @@ pub const DISPLAYCONFIG_TARGET_FORCED_AVAILABILITY_SYSTEM: u32 = 16u32;
 pub const DISPLAYCONFIG_TARGET_FORCIBLE: u32 = 2u32;
 pub const DISPLAYCONFIG_TARGET_IN_USE: u32 = 1u32;
 pub const DISPLAYCONFIG_TARGET_IS_HMD: u32 = 32u32;
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+pub struct DISPLAY_DEVICEA {
+    pub cb: u32,
+    pub DeviceName: [super::super::Foundation::CHAR; 32],
+    pub DeviceString: [super::super::Foundation::CHAR; 128],
+    pub StateFlags: u32,
+    pub DeviceID: [super::super::Foundation::CHAR; 128],
+    pub DeviceKey: [super::super::Foundation::CHAR; 128],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DISPLAY_DEVICEA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DISPLAY_DEVICEA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DISPLAY_DEVICEA(i32);
-#[repr(C)]
-pub struct DISPLAY_DEVICEW(i32);
+pub struct DISPLAY_DEVICEW {
+    pub cb: u32,
+    pub DeviceName: [u16; 32],
+    pub DeviceString: [u16; 128],
+    pub StateFlags: u32,
+    pub DeviceID: [u16; 128],
+    pub DeviceKey: [u16; 128],
+}
+impl ::core::marker::Copy for DISPLAY_DEVICEW {}
+impl ::core::clone::Clone for DISPLAY_DEVICEW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DISPLAY_DEVICE_ACC_DRIVER: u32 = 64u32;
 pub const DISPLAY_DEVICE_ACTIVE: u32 = 1u32;
 pub const DISPLAY_DEVICE_ATTACHED: u32 = 2u32;
@@ -1229,7 +1754,19 @@ pub const DSS_HIDEPREFIX: DRAWSTATE_FLAGS = DRAWSTATE_FLAGS(512u32);
 pub const DSS_PREFIXONLY: DRAWSTATE_FLAGS = DRAWSTATE_FLAGS(1024u32);
 pub const DSS_RIGHT: DRAWSTATE_FLAGS = DRAWSTATE_FLAGS(32768u32);
 #[repr(C)]
-pub struct DRAWTEXTPARAMS(i32);
+pub struct DRAWTEXTPARAMS {
+    pub cbSize: u32,
+    pub iTabLength: i32,
+    pub iLeftMargin: i32,
+    pub iRightMargin: i32,
+    pub uiLengthDrawn: u32,
+}
+impl ::core::marker::Copy for DRAWTEXTPARAMS {}
+impl ::core::clone::Clone for DRAWTEXTPARAMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DRAW_CAPTION_FLAGS(pub u32);
 pub const DC_ACTIVE: DRAW_CAPTION_FLAGS = DRAW_CAPTION_FLAGS(1u32);
@@ -1308,170 +1845,1052 @@ pub struct EMBED_FONT_CHARSET(pub u32);
 pub const CHARSET_UNICODE: EMBED_FONT_CHARSET = EMBED_FONT_CHARSET(1u32);
 pub const CHARSET_SYMBOL: EMBED_FONT_CHARSET = EMBED_FONT_CHARSET(2u32);
 #[repr(C)]
-pub struct EMR(i32);
+pub struct EMR {
+    pub iType: u32,
+    pub nSize: u32,
+}
+impl ::core::marker::Copy for EMR {}
+impl ::core::clone::Clone for EMR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct EMRALPHABLEND(i32);
+pub struct EMRALPHABLEND {
+    pub emr: EMR,
+    pub rclBounds: super::super::Foundation::RECTL,
+    pub xDest: i32,
+    pub yDest: i32,
+    pub cxDest: i32,
+    pub cyDest: i32,
+    pub dwRop: u32,
+    pub xSrc: i32,
+    pub ySrc: i32,
+    pub xformSrc: XFORM,
+    pub crBkColorSrc: u32,
+    pub iUsageSrc: u32,
+    pub offBmiSrc: u32,
+    pub cbBmiSrc: u32,
+    pub offBitsSrc: u32,
+    pub cbBitsSrc: u32,
+    pub cxSrc: i32,
+    pub cySrc: i32,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct EMRANGLEARC(i32);
+impl ::core::marker::Copy for EMRALPHABLEND {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for EMRALPHABLEND {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct EMRARC(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct EMRBITBLT(i32);
-#[repr(C)]
-pub struct EMRCREATEBRUSHINDIRECT(i32);
-#[repr(C)]
-pub struct EMRCREATEDIBPATTERNBRUSHPT(i32);
-#[repr(C)]
-pub struct EMRCREATEMONOBRUSH(i32);
-#[repr(C)]
-pub struct EMRCREATEPALETTE(i32);
+pub struct EMRANGLEARC {
+    pub emr: EMR,
+    pub ptlCenter: super::super::Foundation::POINTL,
+    pub nRadius: u32,
+    pub eStartAngle: f32,
+    pub eSweepAngle: f32,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct EMRCREATEPEN(i32);
+impl ::core::marker::Copy for EMRANGLEARC {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for EMRANGLEARC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct EMRELLIPSE(i32);
-#[repr(C)]
-pub struct EMREOF(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct EMREXCLUDECLIPRECT(i32);
-#[repr(C)]
-pub struct EMREXTCREATEFONTINDIRECTW(i32);
-#[repr(C)]
-pub struct EMREXTCREATEPEN(i32);
-#[repr(C)]
-pub struct EMREXTESCAPE(i32);
+pub struct EMRARC {
+    pub emr: EMR,
+    pub rclBox: super::super::Foundation::RECTL,
+    pub ptlStart: super::super::Foundation::POINTL,
+    pub ptlEnd: super::super::Foundation::POINTL,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct EMREXTFLOODFILL(i32);
-#[repr(C)]
-pub struct EMREXTSELECTCLIPRGN(i32);
+impl ::core::marker::Copy for EMRARC {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for EMRARC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct EMREXTTEXTOUTA(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct EMRFILLPATH(i32);
+pub struct EMRBITBLT {
+    pub emr: EMR,
+    pub rclBounds: super::super::Foundation::RECTL,
+    pub xDest: i32,
+    pub yDest: i32,
+    pub cxDest: i32,
+    pub cyDest: i32,
+    pub dwRop: u32,
+    pub xSrc: i32,
+    pub ySrc: i32,
+    pub xformSrc: XFORM,
+    pub crBkColorSrc: u32,
+    pub iUsageSrc: u32,
+    pub offBmiSrc: u32,
+    pub cbBmiSrc: u32,
+    pub offBitsSrc: u32,
+    pub cbBitsSrc: u32,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct EMRFILLRGN(i32);
-#[repr(C)]
-pub struct EMRFORMAT(i32);
+impl ::core::marker::Copy for EMRBITBLT {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for EMRBITBLT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct EMRFRAMERGN(i32);
+pub struct EMRCREATEBRUSHINDIRECT {
+    pub emr: EMR,
+    pub ihBrush: u32,
+    pub lb: LOGBRUSH32,
+}
+impl ::core::marker::Copy for EMRCREATEBRUSHINDIRECT {}
+impl ::core::clone::Clone for EMRCREATEBRUSHINDIRECT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct EMRGDICOMMENT(i32);
+pub struct EMRCREATEDIBPATTERNBRUSHPT {
+    pub emr: EMR,
+    pub ihBrush: u32,
+    pub iUsage: u32,
+    pub offBmi: u32,
+    pub cbBmi: u32,
+    pub offBits: u32,
+    pub cbBits: u32,
+}
+impl ::core::marker::Copy for EMRCREATEDIBPATTERNBRUSHPT {}
+impl ::core::clone::Clone for EMRCREATEDIBPATTERNBRUSHPT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct EMRCREATEMONOBRUSH {
+    pub emr: EMR,
+    pub ihBrush: u32,
+    pub iUsage: u32,
+    pub offBmi: u32,
+    pub cbBmi: u32,
+    pub offBits: u32,
+    pub cbBits: u32,
+}
+impl ::core::marker::Copy for EMRCREATEMONOBRUSH {}
+impl ::core::clone::Clone for EMRCREATEMONOBRUSH {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct EMRCREATEPALETTE {
+    pub emr: EMR,
+    pub ihPal: u32,
+    pub lgpl: LOGPALETTE,
+}
+impl ::core::marker::Copy for EMRCREATEPALETTE {}
+impl ::core::clone::Clone for EMRCREATEPALETTE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct EMRGLSBOUNDEDRECORD(i32);
-#[repr(C)]
-pub struct EMRGLSRECORD(i32);
+pub struct EMRCREATEPEN {
+    pub emr: EMR,
+    pub ihPen: u32,
+    pub lopn: LOGPEN,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct EMRGRADIENTFILL(i32);
+impl ::core::marker::Copy for EMRCREATEPEN {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for EMRCREATEPEN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct EMRINVERTRGN(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct EMRLINETO(i32);
+pub struct EMRELLIPSE {
+    pub emr: EMR,
+    pub rclBox: super::super::Foundation::RECTL,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct EMRMASKBLT(i32);
-#[repr(C)]
-pub struct EMRMODIFYWORLDTRANSFORM(i32);
-#[repr(C)]
-pub struct EMRNAMEDESCAPE(i32);
+impl ::core::marker::Copy for EMRELLIPSE {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for EMRELLIPSE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct EMROFFSETCLIPRGN(i32);
+pub struct EMREOF {
+    pub emr: EMR,
+    pub nPalEntries: u32,
+    pub offPalEntries: u32,
+    pub nSizeLast: u32,
+}
+impl ::core::marker::Copy for EMREOF {}
+impl ::core::clone::Clone for EMREOF {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct EMRPLGBLT(i32);
+pub struct EMREXCLUDECLIPRECT {
+    pub emr: EMR,
+    pub rclClip: super::super::Foundation::RECTL,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct EMRPOLYDRAW(i32);
+impl ::core::marker::Copy for EMREXCLUDECLIPRECT {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for EMREXCLUDECLIPRECT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct EMRPOLYDRAW16(i32);
+pub struct EMREXTCREATEFONTINDIRECTW {
+    pub emr: EMR,
+    pub ihFont: u32,
+    pub elfw: EXTLOGFONTW,
+}
+impl ::core::marker::Copy for EMREXTCREATEFONTINDIRECTW {}
+impl ::core::clone::Clone for EMREXTCREATEFONTINDIRECTW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct EMREXTCREATEPEN {
+    pub emr: EMR,
+    pub ihPen: u32,
+    pub offBmi: u32,
+    pub cbBmi: u32,
+    pub offBits: u32,
+    pub cbBits: u32,
+    pub elp: EXTLOGPEN32,
+}
+impl ::core::marker::Copy for EMREXTCREATEPEN {}
+impl ::core::clone::Clone for EMREXTCREATEPEN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct EMREXTESCAPE {
+    pub emr: EMR,
+    pub iEscape: i32,
+    pub cbEscData: i32,
+    pub EscData: [u8; 1],
+}
+impl ::core::marker::Copy for EMREXTESCAPE {}
+impl ::core::clone::Clone for EMREXTESCAPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct EMRPOLYLINE(i32);
+pub struct EMREXTFLOODFILL {
+    pub emr: EMR,
+    pub ptlStart: super::super::Foundation::POINTL,
+    pub crColor: u32,
+    pub iMode: u32,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct EMRPOLYLINE16(i32);
+impl ::core::marker::Copy for EMREXTFLOODFILL {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for EMREXTFLOODFILL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct EMRPOLYPOLYLINE(i32);
+pub struct EMREXTSELECTCLIPRGN {
+    pub emr: EMR,
+    pub cbRgnData: u32,
+    pub iMode: u32,
+    pub RgnData: [u8; 1],
+}
+impl ::core::marker::Copy for EMREXTSELECTCLIPRGN {}
+impl ::core::clone::Clone for EMREXTSELECTCLIPRGN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct EMRPOLYPOLYLINE16(i32);
+pub struct EMREXTTEXTOUTA {
+    pub emr: EMR,
+    pub rclBounds: super::super::Foundation::RECTL,
+    pub iGraphicsMode: u32,
+    pub exScale: f32,
+    pub eyScale: f32,
+    pub emrtext: EMRTEXT,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct EMRPOLYTEXTOUTA(i32);
-#[repr(C)]
-pub struct EMRRESIZEPALETTE(i32);
-#[repr(C)]
-pub struct EMRRESTOREDC(i32);
+impl ::core::marker::Copy for EMREXTTEXTOUTA {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for EMREXTTEXTOUTA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct EMRROUNDRECT(i32);
-#[repr(C)]
-pub struct EMRSCALEVIEWPORTEXTEX(i32);
-#[repr(C)]
-pub struct EMRSELECTCLIPPATH(i32);
-#[repr(C)]
-pub struct EMRSELECTOBJECT(i32);
-#[repr(C)]
-pub struct EMRSELECTPALETTE(i32);
-#[repr(C)]
-pub struct EMRSETARCDIRECTION(i32);
-#[repr(C)]
-pub struct EMRSETCOLORADJUSTMENT(i32);
-#[repr(C)]
-pub struct EMRSETCOLORSPACE(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct EMRSETDIBITSTODEVICE(i32);
-#[repr(C)]
-pub struct EMRSETICMPROFILE(i32);
-#[repr(C)]
-pub struct EMRSETMAPPERFLAGS(i32);
-#[repr(C)]
-pub struct EMRSETMITERLIMIT(i32);
-#[repr(C)]
-pub struct EMRSETPALETTEENTRIES(i32);
+pub struct EMRFILLPATH {
+    pub emr: EMR,
+    pub rclBounds: super::super::Foundation::RECTL,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct EMRSETPIXELV(i32);
-#[repr(C)]
-pub struct EMRSETTEXTCOLOR(i32);
+impl ::core::marker::Copy for EMRFILLPATH {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for EMRFILLPATH {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct EMRSETVIEWPORTEXTEX(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct EMRSETVIEWPORTORGEX(i32);
-#[repr(C)]
-pub struct EMRSETWORLDTRANSFORM(i32);
+pub struct EMRFILLRGN {
+    pub emr: EMR,
+    pub rclBounds: super::super::Foundation::RECTL,
+    pub cbRgnData: u32,
+    pub ihBrush: u32,
+    pub RgnData: [u8; 1],
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct EMRSTRETCHBLT(i32);
+impl ::core::marker::Copy for EMRFILLRGN {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for EMRFILLRGN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct EMRSTRETCHDIBITS(i32);
+pub struct EMRFORMAT {
+    pub dSignature: u32,
+    pub nVersion: u32,
+    pub cbData: u32,
+    pub offData: u32,
+}
+impl ::core::marker::Copy for EMRFORMAT {}
+impl ::core::clone::Clone for EMRFORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct EMRTEXT(i32);
+pub struct EMRFRAMERGN {
+    pub emr: EMR,
+    pub rclBounds: super::super::Foundation::RECTL,
+    pub cbRgnData: u32,
+    pub ihBrush: u32,
+    pub szlStroke: super::super::Foundation::SIZE,
+    pub RgnData: [u8; 1],
+}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for EMRFRAMERGN {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for EMRFRAMERGN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct EMRTRANSPARENTBLT(i32);
+pub struct EMRGDICOMMENT {
+    pub emr: EMR,
+    pub cbData: u32,
+    pub Data: [u8; 1],
+}
+impl ::core::marker::Copy for EMRGDICOMMENT {}
+impl ::core::clone::Clone for EMRGDICOMMENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct EMRGLSBOUNDEDRECORD {
+    pub emr: EMR,
+    pub rclBounds: super::super::Foundation::RECTL,
+    pub cbData: u32,
+    pub Data: [u8; 1],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for EMRGLSBOUNDEDRECORD {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for EMRGLSBOUNDEDRECORD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct EMRGLSRECORD {
+    pub emr: EMR,
+    pub cbData: u32,
+    pub Data: [u8; 1],
+}
+impl ::core::marker::Copy for EMRGLSRECORD {}
+impl ::core::clone::Clone for EMRGLSRECORD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct EMRGRADIENTFILL {
+    pub emr: EMR,
+    pub rclBounds: super::super::Foundation::RECTL,
+    pub nVer: u32,
+    pub nTri: u32,
+    pub ulMode: GRADIENT_FILL,
+    pub Ver: [TRIVERTEX; 1],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for EMRGRADIENTFILL {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for EMRGRADIENTFILL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct EMRINVERTRGN {
+    pub emr: EMR,
+    pub rclBounds: super::super::Foundation::RECTL,
+    pub cbRgnData: u32,
+    pub RgnData: [u8; 1],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for EMRINVERTRGN {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for EMRINVERTRGN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct EMRLINETO {
+    pub emr: EMR,
+    pub ptl: super::super::Foundation::POINTL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for EMRLINETO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for EMRLINETO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct EMRMASKBLT {
+    pub emr: EMR,
+    pub rclBounds: super::super::Foundation::RECTL,
+    pub xDest: i32,
+    pub yDest: i32,
+    pub cxDest: i32,
+    pub cyDest: i32,
+    pub dwRop: u32,
+    pub xSrc: i32,
+    pub ySrc: i32,
+    pub xformSrc: XFORM,
+    pub crBkColorSrc: u32,
+    pub iUsageSrc: u32,
+    pub offBmiSrc: u32,
+    pub cbBmiSrc: u32,
+    pub offBitsSrc: u32,
+    pub cbBitsSrc: u32,
+    pub xMask: i32,
+    pub yMask: i32,
+    pub iUsageMask: u32,
+    pub offBmiMask: u32,
+    pub cbBmiMask: u32,
+    pub offBitsMask: u32,
+    pub cbBitsMask: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for EMRMASKBLT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for EMRMASKBLT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct EMRMODIFYWORLDTRANSFORM {
+    pub emr: EMR,
+    pub xform: XFORM,
+    pub iMode: u32,
+}
+impl ::core::marker::Copy for EMRMODIFYWORLDTRANSFORM {}
+impl ::core::clone::Clone for EMRMODIFYWORLDTRANSFORM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct EMRNAMEDESCAPE {
+    pub emr: EMR,
+    pub iEscape: i32,
+    pub cbDriver: i32,
+    pub cbEscData: i32,
+    pub EscData: [u8; 1],
+}
+impl ::core::marker::Copy for EMRNAMEDESCAPE {}
+impl ::core::clone::Clone for EMRNAMEDESCAPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct EMROFFSETCLIPRGN {
+    pub emr: EMR,
+    pub ptlOffset: super::super::Foundation::POINTL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for EMROFFSETCLIPRGN {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for EMROFFSETCLIPRGN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct EMRPLGBLT {
+    pub emr: EMR,
+    pub rclBounds: super::super::Foundation::RECTL,
+    pub aptlDest: [super::super::Foundation::POINTL; 3],
+    pub xSrc: i32,
+    pub ySrc: i32,
+    pub cxSrc: i32,
+    pub cySrc: i32,
+    pub xformSrc: XFORM,
+    pub crBkColorSrc: u32,
+    pub iUsageSrc: u32,
+    pub offBmiSrc: u32,
+    pub cbBmiSrc: u32,
+    pub offBitsSrc: u32,
+    pub cbBitsSrc: u32,
+    pub xMask: i32,
+    pub yMask: i32,
+    pub iUsageMask: u32,
+    pub offBmiMask: u32,
+    pub cbBmiMask: u32,
+    pub offBitsMask: u32,
+    pub cbBitsMask: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for EMRPLGBLT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for EMRPLGBLT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct EMRPOLYDRAW {
+    pub emr: EMR,
+    pub rclBounds: super::super::Foundation::RECTL,
+    pub cptl: u32,
+    pub aptl: [super::super::Foundation::POINTL; 1],
+    pub abTypes: [u8; 1],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for EMRPOLYDRAW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for EMRPOLYDRAW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct EMRPOLYDRAW16 {
+    pub emr: EMR,
+    pub rclBounds: super::super::Foundation::RECTL,
+    pub cpts: u32,
+    pub apts: [super::super::Foundation::POINTS; 1],
+    pub abTypes: [u8; 1],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for EMRPOLYDRAW16 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for EMRPOLYDRAW16 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct EMRPOLYLINE {
+    pub emr: EMR,
+    pub rclBounds: super::super::Foundation::RECTL,
+    pub cptl: u32,
+    pub aptl: [super::super::Foundation::POINTL; 1],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for EMRPOLYLINE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for EMRPOLYLINE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct EMRPOLYLINE16 {
+    pub emr: EMR,
+    pub rclBounds: super::super::Foundation::RECTL,
+    pub cpts: u32,
+    pub apts: [super::super::Foundation::POINTS; 1],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for EMRPOLYLINE16 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for EMRPOLYLINE16 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct EMRPOLYPOLYLINE {
+    pub emr: EMR,
+    pub rclBounds: super::super::Foundation::RECTL,
+    pub nPolys: u32,
+    pub cptl: u32,
+    pub aPolyCounts: [u32; 1],
+    pub aptl: [super::super::Foundation::POINTL; 1],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for EMRPOLYPOLYLINE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for EMRPOLYPOLYLINE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct EMRPOLYPOLYLINE16 {
+    pub emr: EMR,
+    pub rclBounds: super::super::Foundation::RECTL,
+    pub nPolys: u32,
+    pub cpts: u32,
+    pub aPolyCounts: [u32; 1],
+    pub apts: [super::super::Foundation::POINTS; 1],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for EMRPOLYPOLYLINE16 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for EMRPOLYPOLYLINE16 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct EMRPOLYTEXTOUTA {
+    pub emr: EMR,
+    pub rclBounds: super::super::Foundation::RECTL,
+    pub iGraphicsMode: u32,
+    pub exScale: f32,
+    pub eyScale: f32,
+    pub cStrings: i32,
+    pub aemrtext: [EMRTEXT; 1],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for EMRPOLYTEXTOUTA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for EMRPOLYTEXTOUTA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct EMRRESIZEPALETTE {
+    pub emr: EMR,
+    pub ihPal: u32,
+    pub cEntries: u32,
+}
+impl ::core::marker::Copy for EMRRESIZEPALETTE {}
+impl ::core::clone::Clone for EMRRESIZEPALETTE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct EMRRESTOREDC {
+    pub emr: EMR,
+    pub iRelative: i32,
+}
+impl ::core::marker::Copy for EMRRESTOREDC {}
+impl ::core::clone::Clone for EMRRESTOREDC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct EMRROUNDRECT {
+    pub emr: EMR,
+    pub rclBox: super::super::Foundation::RECTL,
+    pub szlCorner: super::super::Foundation::SIZE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for EMRROUNDRECT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for EMRROUNDRECT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct EMRSCALEVIEWPORTEXTEX {
+    pub emr: EMR,
+    pub xNum: i32,
+    pub xDenom: i32,
+    pub yNum: i32,
+    pub yDenom: i32,
+}
+impl ::core::marker::Copy for EMRSCALEVIEWPORTEXTEX {}
+impl ::core::clone::Clone for EMRSCALEVIEWPORTEXTEX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct EMRSELECTCLIPPATH {
+    pub emr: EMR,
+    pub iMode: u32,
+}
+impl ::core::marker::Copy for EMRSELECTCLIPPATH {}
+impl ::core::clone::Clone for EMRSELECTCLIPPATH {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct EMRSELECTOBJECT {
+    pub emr: EMR,
+    pub ihObject: u32,
+}
+impl ::core::marker::Copy for EMRSELECTOBJECT {}
+impl ::core::clone::Clone for EMRSELECTOBJECT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct EMRSELECTPALETTE {
+    pub emr: EMR,
+    pub ihPal: u32,
+}
+impl ::core::marker::Copy for EMRSELECTPALETTE {}
+impl ::core::clone::Clone for EMRSELECTPALETTE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct EMRSETARCDIRECTION {
+    pub emr: EMR,
+    pub iArcDirection: u32,
+}
+impl ::core::marker::Copy for EMRSETARCDIRECTION {}
+impl ::core::clone::Clone for EMRSETARCDIRECTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct EMRSETCOLORADJUSTMENT {
+    pub emr: EMR,
+    pub ColorAdjustment: COLORADJUSTMENT,
+}
+impl ::core::marker::Copy for EMRSETCOLORADJUSTMENT {}
+impl ::core::clone::Clone for EMRSETCOLORADJUSTMENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct EMRSETCOLORSPACE {
+    pub emr: EMR,
+    pub ihCS: u32,
+}
+impl ::core::marker::Copy for EMRSETCOLORSPACE {}
+impl ::core::clone::Clone for EMRSETCOLORSPACE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct EMRSETDIBITSTODEVICE {
+    pub emr: EMR,
+    pub rclBounds: super::super::Foundation::RECTL,
+    pub xDest: i32,
+    pub yDest: i32,
+    pub xSrc: i32,
+    pub ySrc: i32,
+    pub cxSrc: i32,
+    pub cySrc: i32,
+    pub offBmiSrc: u32,
+    pub cbBmiSrc: u32,
+    pub offBitsSrc: u32,
+    pub cbBitsSrc: u32,
+    pub iUsageSrc: u32,
+    pub iStartScan: u32,
+    pub cScans: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for EMRSETDIBITSTODEVICE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for EMRSETDIBITSTODEVICE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct EMRSETICMPROFILE {
+    pub emr: EMR,
+    pub dwFlags: u32,
+    pub cbName: u32,
+    pub cbData: u32,
+    pub Data: [u8; 1],
+}
+impl ::core::marker::Copy for EMRSETICMPROFILE {}
+impl ::core::clone::Clone for EMRSETICMPROFILE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct EMRSETMAPPERFLAGS {
+    pub emr: EMR,
+    pub dwFlags: u32,
+}
+impl ::core::marker::Copy for EMRSETMAPPERFLAGS {}
+impl ::core::clone::Clone for EMRSETMAPPERFLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct EMRSETMITERLIMIT {
+    pub emr: EMR,
+    pub eMiterLimit: f32,
+}
+impl ::core::marker::Copy for EMRSETMITERLIMIT {}
+impl ::core::clone::Clone for EMRSETMITERLIMIT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct EMRSETPALETTEENTRIES {
+    pub emr: EMR,
+    pub ihPal: u32,
+    pub iStart: u32,
+    pub cEntries: u32,
+    pub aPalEntries: [PALETTEENTRY; 1],
+}
+impl ::core::marker::Copy for EMRSETPALETTEENTRIES {}
+impl ::core::clone::Clone for EMRSETPALETTEENTRIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct EMRSETPIXELV {
+    pub emr: EMR,
+    pub ptlPixel: super::super::Foundation::POINTL,
+    pub crColor: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for EMRSETPIXELV {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for EMRSETPIXELV {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct EMRSETTEXTCOLOR {
+    pub emr: EMR,
+    pub crColor: u32,
+}
+impl ::core::marker::Copy for EMRSETTEXTCOLOR {}
+impl ::core::clone::Clone for EMRSETTEXTCOLOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct EMRSETVIEWPORTEXTEX {
+    pub emr: EMR,
+    pub szlExtent: super::super::Foundation::SIZE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for EMRSETVIEWPORTEXTEX {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for EMRSETVIEWPORTEXTEX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct EMRSETVIEWPORTORGEX {
+    pub emr: EMR,
+    pub ptlOrigin: super::super::Foundation::POINTL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for EMRSETVIEWPORTORGEX {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for EMRSETVIEWPORTORGEX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct EMRSETWORLDTRANSFORM {
+    pub emr: EMR,
+    pub xform: XFORM,
+}
+impl ::core::marker::Copy for EMRSETWORLDTRANSFORM {}
+impl ::core::clone::Clone for EMRSETWORLDTRANSFORM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct EMRSTRETCHBLT {
+    pub emr: EMR,
+    pub rclBounds: super::super::Foundation::RECTL,
+    pub xDest: i32,
+    pub yDest: i32,
+    pub cxDest: i32,
+    pub cyDest: i32,
+    pub dwRop: u32,
+    pub xSrc: i32,
+    pub ySrc: i32,
+    pub xformSrc: XFORM,
+    pub crBkColorSrc: u32,
+    pub iUsageSrc: u32,
+    pub offBmiSrc: u32,
+    pub cbBmiSrc: u32,
+    pub offBitsSrc: u32,
+    pub cbBitsSrc: u32,
+    pub cxSrc: i32,
+    pub cySrc: i32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for EMRSTRETCHBLT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for EMRSTRETCHBLT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct EMRSTRETCHDIBITS {
+    pub emr: EMR,
+    pub rclBounds: super::super::Foundation::RECTL,
+    pub xDest: i32,
+    pub yDest: i32,
+    pub xSrc: i32,
+    pub ySrc: i32,
+    pub cxSrc: i32,
+    pub cySrc: i32,
+    pub offBmiSrc: u32,
+    pub cbBmiSrc: u32,
+    pub offBitsSrc: u32,
+    pub cbBitsSrc: u32,
+    pub iUsageSrc: u32,
+    pub dwRop: u32,
+    pub cxDest: i32,
+    pub cyDest: i32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for EMRSTRETCHDIBITS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for EMRSTRETCHDIBITS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct EMRTEXT {
+    pub ptlReference: super::super::Foundation::POINTL,
+    pub nChars: u32,
+    pub offString: u32,
+    pub fOptions: u32,
+    pub rcl: super::super::Foundation::RECTL,
+    pub offDx: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for EMRTEXT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for EMRTEXT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct EMRTRANSPARENTBLT {
+    pub emr: EMR,
+    pub rclBounds: super::super::Foundation::RECTL,
+    pub xDest: i32,
+    pub yDest: i32,
+    pub cxDest: i32,
+    pub cyDest: i32,
+    pub dwRop: u32,
+    pub xSrc: i32,
+    pub ySrc: i32,
+    pub xformSrc: XFORM,
+    pub crBkColorSrc: u32,
+    pub iUsageSrc: u32,
+    pub offBmiSrc: u32,
+    pub cbBmiSrc: u32,
+    pub offBitsSrc: u32,
+    pub cbBitsSrc: u32,
+    pub cxSrc: i32,
+    pub cySrc: i32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for EMRTRANSPARENTBLT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for EMRTRANSPARENTBLT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const EMR_ABORTPATH: u32 = 68u32;
 pub const EMR_ALPHABLEND: u32 = 114u32;
 pub const EMR_ANGLEARC: u32 = 41u32;
@@ -1601,30 +3020,134 @@ pub const ENABLERELATIVEWIDTHS: u32 = 768u32;
 pub const ENCAPSULATED_POSTSCRIPT: u32 = 4116u32;
 pub const ENDDOC: u32 = 11u32;
 pub const END_PATH: u32 = 4098u32;
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+pub struct ENHMETAHEADER {
+    pub iType: u32,
+    pub nSize: u32,
+    pub rclBounds: super::super::Foundation::RECTL,
+    pub rclFrame: super::super::Foundation::RECTL,
+    pub dSignature: u32,
+    pub nVersion: u32,
+    pub nBytes: u32,
+    pub nRecords: u32,
+    pub nHandles: u16,
+    pub sReserved: u16,
+    pub nDescription: u32,
+    pub offDescription: u32,
+    pub nPalEntries: u32,
+    pub szlDevice: super::super::Foundation::SIZE,
+    pub szlMillimeters: super::super::Foundation::SIZE,
+    pub cbPixelFormat: u32,
+    pub offPixelFormat: u32,
+    pub bOpenGL: u32,
+    pub szlMicrometers: super::super::Foundation::SIZE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ENHMETAHEADER {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ENHMETAHEADER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct ENHMETAHEADER(i32);
-#[repr(C)]
-pub struct ENHMETARECORD(i32);
+pub struct ENHMETARECORD {
+    pub iType: u32,
+    pub nSize: u32,
+    pub dParm: [u32; 1],
+}
+impl ::core::marker::Copy for ENHMETARECORD {}
+impl ::core::clone::Clone for ENHMETARECORD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const ENHMETA_SIGNATURE: u32 = 1179469088u32;
 pub const ENHMETA_STOCK_OBJECT: u32 = 2147483648u32;
 #[cfg(feature = "Win32_Foundation")]
 pub type ENHMFENUMPROC = unsafe extern "system" fn(hdc: HDC, lpht: *const HANDLETABLE, lpmr: *const ENHMETARECORD, nhandles: i32, data: super::super::Foundation::LPARAM) -> i32;
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct ENUMLOGFONTA(i32);
+pub struct ENUMLOGFONTA {
+    pub elfLogFont: LOGFONTA,
+    pub elfFullName: [u8; 64],
+    pub elfStyle: [u8; 32],
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct ENUMLOGFONTEXA(i32);
+impl ::core::marker::Copy for ENUMLOGFONTA {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ENUMLOGFONTA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct ENUMLOGFONTEXDVA(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct ENUMLOGFONTEXA {
+    pub elfLogFont: LOGFONTA,
+    pub elfFullName: [u8; 64],
+    pub elfStyle: [u8; 32],
+    pub elfScript: [u8; 32],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ENUMLOGFONTEXA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ENUMLOGFONTEXA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct ENUMLOGFONTEXDVW(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct ENUMLOGFONTEXDVA {
+    pub elfEnumLogfontEx: ENUMLOGFONTEXA,
+    pub elfDesignVector: DESIGNVECTOR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ENUMLOGFONTEXDVA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ENUMLOGFONTEXDVA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct ENUMLOGFONTEXW(i32);
+pub struct ENUMLOGFONTEXDVW {
+    pub elfEnumLogfontEx: ENUMLOGFONTEXW,
+    pub elfDesignVector: DESIGNVECTOR,
+}
+impl ::core::marker::Copy for ENUMLOGFONTEXDVW {}
+impl ::core::clone::Clone for ENUMLOGFONTEXDVW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct ENUMLOGFONTW(i32);
+pub struct ENUMLOGFONTEXW {
+    pub elfLogFont: LOGFONTW,
+    pub elfFullName: [u16; 64],
+    pub elfStyle: [u16; 32],
+    pub elfScript: [u16; 32],
+}
+impl ::core::marker::Copy for ENUMLOGFONTEXW {}
+impl ::core::clone::Clone for ENUMLOGFONTEXW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct ENUMLOGFONTW {
+    pub elfLogFont: LOGFONTW,
+    pub elfFullName: [u16; 64],
+    pub elfStyle: [u16; 32],
+}
+impl ::core::marker::Copy for ENUMLOGFONTW {}
+impl ::core::clone::Clone for ENUMLOGFONTW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const ENUMPAPERBINS: u32 = 31u32;
 pub const ENUMPAPERMETRICS: u32 = 34u32;
 #[repr(transparent)]
@@ -1717,15 +3240,79 @@ pub const ETO_NUMERICSLATIN: ETO_OPTIONS = ETO_OPTIONS(2048u32);
 pub const ETO_IGNORELANGUAGE: ETO_OPTIONS = ETO_OPTIONS(4096u32);
 pub const ETO_PDY: ETO_OPTIONS = ETO_OPTIONS(8192u32);
 pub const ETO_REVERSE_INDEX_MAP: ETO_OPTIONS = ETO_OPTIONS(65536u32);
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+pub struct EXTLOGFONTA {
+    pub elfLogFont: LOGFONTA,
+    pub elfFullName: [u8; 64],
+    pub elfStyle: [u8; 32],
+    pub elfVersion: u32,
+    pub elfStyleSize: u32,
+    pub elfMatch: u32,
+    pub elfReserved: u32,
+    pub elfVendorId: [u8; 4],
+    pub elfCulture: u32,
+    pub elfPanose: PANOSE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for EXTLOGFONTA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for EXTLOGFONTA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct EXTLOGFONTA(i32);
+pub struct EXTLOGFONTW {
+    pub elfLogFont: LOGFONTW,
+    pub elfFullName: [u16; 64],
+    pub elfStyle: [u16; 32],
+    pub elfVersion: u32,
+    pub elfStyleSize: u32,
+    pub elfMatch: u32,
+    pub elfReserved: u32,
+    pub elfVendorId: [u8; 4],
+    pub elfCulture: u32,
+    pub elfPanose: PANOSE,
+}
+impl ::core::marker::Copy for EXTLOGFONTW {}
+impl ::core::clone::Clone for EXTLOGFONTW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct EXTLOGFONTW(i32);
+pub struct EXTLOGPEN {
+    pub elpPenStyle: u32,
+    pub elpWidth: u32,
+    pub elpBrushStyle: u32,
+    pub elpColor: u32,
+    pub elpHatch: usize,
+    pub elpNumEntries: u32,
+    pub elpStyleEntry: [u32; 1],
+}
+impl ::core::marker::Copy for EXTLOGPEN {}
+impl ::core::clone::Clone for EXTLOGPEN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct EXTLOGPEN(i32);
-#[repr(C)]
-pub struct EXTLOGPEN32(i32);
+pub struct EXTLOGPEN32 {
+    pub elpPenStyle: u32,
+    pub elpWidth: u32,
+    pub elpBrushStyle: u32,
+    pub elpColor: u32,
+    pub elpHatch: u32,
+    pub elpNumEntries: u32,
+    pub elpStyleEntry: [u32; 1],
+}
+impl ::core::marker::Copy for EXTLOGPEN32 {}
+impl ::core::clone::Clone for EXTLOGPEN32 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const EXTTEXTOUT: u32 = 512u32;
 pub const EXT_DEVICE_CAPS: u32 = 4099u32;
 #[repr(transparent)]
@@ -1799,7 +3386,16 @@ pub const FEATURESETTING_PRIVATE_END: u32 = 8191u32;
 pub const FEATURESETTING_PROTOCOL: u32 = 6u32;
 pub const FEATURESETTING_PSLEVEL: u32 = 2u32;
 #[repr(C)]
-pub struct FIXED(i32);
+pub struct FIXED {
+    pub fract: u16,
+    pub value: i16,
+}
+impl ::core::marker::Copy for FIXED {}
+impl ::core::clone::Clone for FIXED {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const FIXED_PITCH: u32 = 1u32;
 pub const FLI_GLYPHS: i32 = 262144i32;
 pub const FLI_MASK: u32 = 4155u32;
@@ -1908,12 +3504,48 @@ pub const GCPGLYPH_LINKBEFORE: u32 = 32768u32;
 pub const GCP_DBCS: u32 = 1u32;
 pub const GCP_ERROR: u32 = 32768u32;
 pub const GCP_JUSTIFYIN: i32 = 2097152i32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct GCP_RESULTSA(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct GCP_RESULTSA {
+    pub lStructSize: u32,
+    pub lpOutString: super::super::Foundation::PSTR,
+    pub lpOrder: *mut u32,
+    pub lpDx: *mut i32,
+    pub lpCaretPos: *mut i32,
+    pub lpClass: super::super::Foundation::PSTR,
+    pub lpGlyphs: super::super::Foundation::PWSTR,
+    pub nGlyphs: u32,
+    pub nMaxFit: i32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for GCP_RESULTSA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for GCP_RESULTSA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct GCP_RESULTSW(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct GCP_RESULTSW {
+    pub lStructSize: u32,
+    pub lpOutString: super::super::Foundation::PWSTR,
+    pub lpOrder: *mut u32,
+    pub lpDx: *mut i32,
+    pub lpCaretPos: *mut i32,
+    pub lpClass: super::super::Foundation::PSTR,
+    pub lpGlyphs: super::super::Foundation::PWSTR,
+    pub nGlyphs: u32,
+    pub nMaxFit: i32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for GCP_RESULTSW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for GCP_RESULTSW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const GDICOMMENT_BEGINGROUP: u32 = 2u32;
 pub const GDICOMMENT_ENDGROUP: u32 = 3u32;
 pub const GDICOMMENT_IDENTIFIER: u32 = 1128875079u32;
@@ -2051,11 +3683,37 @@ pub const SYSTEM_FONT: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(13u32);
 pub const SYSTEM_FIXED_FONT: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(16u32);
 pub const DEFAULT_PALETTE: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(15u32);
 pub const GGI_MARK_NONEXISTING_GLYPHS: u32 = 1u32;
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+pub struct GLYPHMETRICS {
+    pub gmBlackBoxX: u32,
+    pub gmBlackBoxY: u32,
+    pub gmptGlyphOrigin: super::super::Foundation::POINT,
+    pub gmCellIncX: i16,
+    pub gmCellIncY: i16,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for GLYPHMETRICS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for GLYPHMETRICS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct GLYPHMETRICS(i32);
-#[repr(C)]
-pub struct GLYPHSET(i32);
+pub struct GLYPHSET {
+    pub cbThis: u32,
+    pub flAccel: u32,
+    pub cGlyphsSupported: u32,
+    pub cRanges: u32,
+    pub ranges: [WCRANGE; 1],
+}
+impl ::core::marker::Copy for GLYPHSET {}
+impl ::core::clone::Clone for GLYPHSET {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const GM_LAST: u32 = 2u32;
 #[cfg(feature = "Win32_Foundation")]
 pub type GOBJENUMPROC = unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: super::super::Foundation::LPARAM) -> i32;
@@ -2066,9 +3724,28 @@ pub const GRADIENT_FILL_RECT_V: GRADIENT_FILL = GRADIENT_FILL(1u32);
 pub const GRADIENT_FILL_TRIANGLE: GRADIENT_FILL = GRADIENT_FILL(2u32);
 pub const GRADIENT_FILL_OP_FLAG: u32 = 255u32;
 #[repr(C)]
-pub struct GRADIENT_RECT(i32);
+pub struct GRADIENT_RECT {
+    pub UpperLeft: u32,
+    pub LowerRight: u32,
+}
+impl ::core::marker::Copy for GRADIENT_RECT {}
+impl ::core::clone::Clone for GRADIENT_RECT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct GRADIENT_TRIANGLE(i32);
+pub struct GRADIENT_TRIANGLE {
+    pub Vertex1: u32,
+    pub Vertex2: u32,
+    pub Vertex3: u32,
+}
+impl ::core::marker::Copy for GRADIENT_TRIANGLE {}
+impl ::core::clone::Clone for GRADIENT_TRIANGLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct GRAPHICS_MODE(pub u32);
 pub const GM_COMPATIBLE: GRAPHICS_MODE = GRAPHICS_MODE(1u32);
@@ -2078,7 +3755,15 @@ pub type GRAYSTRINGPROC = unsafe extern "system" fn(param0: HDC, param1: super::
 pub const GREEK_CHARSET: u32 = 161u32;
 pub const GS_8BIT_INDICES: u32 = 1u32;
 #[repr(C)]
-pub struct HANDLETABLE(i32);
+pub struct HANDLETABLE {
+    pub objectHandle: [HGDIOBJ; 1],
+}
+impl ::core::marker::Copy for HANDLETABLE {}
+impl ::core::clone::Clone for HANDLETABLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const HANGEUL_CHARSET: u32 = 129u32;
 pub const HANGUL_CHARSET: u32 = 129u32;
 #[repr(transparent)]
@@ -2090,11 +3775,35 @@ pub const HS_FDIAGONAL: HATCH_BRUSH_STYLE = HATCH_BRUSH_STYLE(2u32);
 pub const HS_HORIZONTAL: HATCH_BRUSH_STYLE = HATCH_BRUSH_STYLE(0u32);
 pub const HS_VERTICAL: HATCH_BRUSH_STYLE = HATCH_BRUSH_STYLE(1u32);
 #[repr(C)]
-pub struct HBITMAP(i32);
+pub struct HBITMAP {
+    pub Value: isize,
+}
+impl ::core::marker::Copy for HBITMAP {}
+impl ::core::clone::Clone for HBITMAP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct HBRUSH(i32);
+pub struct HBRUSH {
+    pub Value: isize,
+}
+impl ::core::marker::Copy for HBRUSH {}
+impl ::core::clone::Clone for HBRUSH {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct HDC(i32);
+pub struct HDC {
+    pub Value: isize,
+}
+impl ::core::marker::Copy for HDC {}
+impl ::core::clone::Clone for HDC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct HDC_MAP_MODE(pub u32);
 pub const MM_ANISOTROPIC: HDC_MAP_MODE = HDC_MAP_MODE(8u32);
@@ -2107,26 +3816,106 @@ pub const MM_TEXT: HDC_MAP_MODE = HDC_MAP_MODE(1u32);
 pub const MM_TWIPS: HDC_MAP_MODE = HDC_MAP_MODE(6u32);
 pub const HEBREW_CHARSET: u32 = 177u32;
 #[repr(C)]
-pub struct HENHMETAFILE(i32);
+pub struct HENHMETAFILE {
+    pub Value: isize,
+}
+impl ::core::marker::Copy for HENHMETAFILE {}
+impl ::core::clone::Clone for HENHMETAFILE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct HFONT(i32);
+pub struct HFONT {
+    pub Value: isize,
+}
+impl ::core::marker::Copy for HFONT {}
+impl ::core::clone::Clone for HFONT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct HGDIOBJ(i32);
+pub struct HGDIOBJ {
+    pub Value: isize,
+}
+impl ::core::marker::Copy for HGDIOBJ {}
+impl ::core::clone::Clone for HGDIOBJ {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct HMETAFILE(i32);
+pub struct HMETAFILE {
+    pub Value: isize,
+}
+impl ::core::marker::Copy for HMETAFILE {}
+impl ::core::clone::Clone for HMETAFILE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct HMONITOR(i32);
+pub struct HMONITOR {
+    pub Value: isize,
+}
+impl ::core::marker::Copy for HMONITOR {}
+impl ::core::clone::Clone for HMONITOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct HPALETTE(i32);
+pub struct HPALETTE {
+    pub Value: isize,
+}
+impl ::core::marker::Copy for HPALETTE {}
+impl ::core::clone::Clone for HPALETTE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct HPEN(i32);
+pub struct HPEN {
+    pub Value: isize,
+}
+impl ::core::marker::Copy for HPEN {}
+impl ::core::clone::Clone for HPEN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct HRGN(i32);
+pub struct HRGN {
+    pub Value: isize,
+}
+impl ::core::marker::Copy for HRGN {}
+impl ::core::clone::Clone for HRGN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const HS_API_MAX: u32 = 12u32;
 #[repr(C)]
-pub struct HdcMetdataEnhFileHandle(i32);
+pub struct HdcMetdataEnhFileHandle {
+    pub Value: isize,
+}
+impl ::core::marker::Copy for HdcMetdataEnhFileHandle {}
+impl ::core::clone::Clone for HdcMetdataEnhFileHandle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct HdcMetdataFileHandle(i32);
+pub struct HdcMetdataFileHandle {
+    pub Value: isize,
+}
+impl ::core::marker::Copy for HdcMetdataFileHandle {}
+impl ::core::clone::Clone for HdcMetdataFileHandle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const ICM_DONE_OUTSIDEDC: u32 = 4u32;
 pub const ICM_OFF: u32 = 1u32;
 pub const ICM_ON: u32 = 2u32;
@@ -2147,7 +3936,17 @@ pub const ILLUMINANT_NTSC: u32 = 3u32;
 pub const ILLUMINANT_TUNGSTEN: u32 = 1u32;
 pub const JOHAB_CHARSET: u32 = 130u32;
 #[repr(C)]
-pub struct KERNINGPAIR(i32);
+pub struct KERNINGPAIR {
+    pub wFirst: u16,
+    pub wSecond: u16,
+    pub iKernAmount: i32,
+}
+impl ::core::marker::Copy for KERNINGPAIR {}
+impl ::core::clone::Clone for KERNINGPAIR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const LAYOUT_BTT: u32 = 2u32;
 pub const LAYOUT_VBH: u32 = 4u32;
 pub const LCS_CALIBRATED_RGB: i32 = 0i32;
@@ -2168,19 +3967,105 @@ pub const LF_FULLFACESIZE: u32 = 64u32;
 #[cfg(feature = "Win32_Foundation")]
 pub type LINEDDAPROC = unsafe extern "system" fn(param0: i32, param1: i32, param2: super::super::Foundation::LPARAM);
 #[repr(C)]
-pub struct LOGBRUSH(i32);
+pub struct LOGBRUSH {
+    pub lbStyle: u32,
+    pub lbColor: u32,
+    pub lbHatch: usize,
+}
+impl ::core::marker::Copy for LOGBRUSH {}
+impl ::core::clone::Clone for LOGBRUSH {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct LOGBRUSH32(i32);
+pub struct LOGBRUSH32 {
+    pub lbStyle: u32,
+    pub lbColor: u32,
+    pub lbHatch: u32,
+}
+impl ::core::marker::Copy for LOGBRUSH32 {}
+impl ::core::clone::Clone for LOGBRUSH32 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct LOGFONTA(i32);
-#[repr(C)]
-pub struct LOGFONTW(i32);
-#[repr(C)]
-pub struct LOGPALETTE(i32);
+pub struct LOGFONTA {
+    pub lfHeight: i32,
+    pub lfWidth: i32,
+    pub lfEscapement: i32,
+    pub lfOrientation: i32,
+    pub lfWeight: i32,
+    pub lfItalic: u8,
+    pub lfUnderline: u8,
+    pub lfStrikeOut: u8,
+    pub lfCharSet: u8,
+    pub lfOutPrecision: u8,
+    pub lfClipPrecision: u8,
+    pub lfQuality: u8,
+    pub lfPitchAndFamily: u8,
+    pub lfFaceName: [super::super::Foundation::CHAR; 32],
+}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for LOGFONTA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for LOGFONTA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct LOGPEN(i32);
+pub struct LOGFONTW {
+    pub lfHeight: i32,
+    pub lfWidth: i32,
+    pub lfEscapement: i32,
+    pub lfOrientation: i32,
+    pub lfWeight: i32,
+    pub lfItalic: u8,
+    pub lfUnderline: u8,
+    pub lfStrikeOut: u8,
+    pub lfCharSet: u8,
+    pub lfOutPrecision: u8,
+    pub lfClipPrecision: u8,
+    pub lfQuality: u8,
+    pub lfPitchAndFamily: u8,
+    pub lfFaceName: [u16; 32],
+}
+impl ::core::marker::Copy for LOGFONTW {}
+impl ::core::clone::Clone for LOGFONTW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct LOGPALETTE {
+    pub palVersion: u16,
+    pub palNumEntries: u16,
+    pub palPalEntry: [PALETTEENTRY; 1],
+}
+impl ::core::marker::Copy for LOGPALETTE {}
+impl ::core::clone::Clone for LOGPALETTE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct LOGPEN {
+    pub lopnStyle: u32,
+    pub lopnWidth: super::super::Foundation::POINT,
+    pub lopnColor: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for LOGPEN {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for LOGPEN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const LPD_DOUBLEBUFFER: u32 = 1u32;
 pub const LPD_SHARE_ACCUM: u32 = 256u32;
 pub const LPD_SHARE_DEPTH: u32 = 64u32;
@@ -2199,13 +4084,48 @@ pub type LPFNDEVCAPS = unsafe extern "system" fn(param0: super::super::Foundatio
 pub type LPFNDEVMODE = unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: super::super::Foundation::HINSTANCE, param2: *mut DEVMODEA, param3: super::super::Foundation::PSTR, param4: super::super::Foundation::PSTR, param5: *mut DEVMODEA, param6: super::super::Foundation::PSTR, param7: u32) -> u32;
 pub const MAC_CHARSET: u32 = 77u32;
 #[repr(C)]
-pub struct MAT2(i32);
+pub struct MAT2 {
+    pub eM11: FIXED,
+    pub eM12: FIXED,
+    pub eM21: FIXED,
+    pub eM22: FIXED,
+}
+impl ::core::marker::Copy for MAT2 {}
+impl ::core::clone::Clone for MAT2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MAXSTRETCHBLTMODE: u32 = 4u32;
 pub const METAFILE_DRIVER: u32 = 2049u32;
+#[repr(C, packed(2))]
+pub struct METAHEADER {
+    pub mtType: u16,
+    pub mtHeaderSize: u16,
+    pub mtVersion: u16,
+    pub mtSize: u32,
+    pub mtNoObjects: u16,
+    pub mtMaxRecord: u32,
+    pub mtNoParameters: u16,
+}
+impl ::core::marker::Copy for METAHEADER {}
+impl ::core::clone::Clone for METAHEADER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct METAHEADER(i32);
-#[repr(C)]
-pub struct METARECORD(i32);
+pub struct METARECORD {
+    pub rdSize: u32,
+    pub rdFunction: u16,
+    pub rdParm: [u16; 1],
+}
+impl ::core::marker::Copy for METARECORD {}
+impl ::core::clone::Clone for METARECORD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const META_ANIMATEPALETTE: u32 = 1078u32;
 pub const META_ARC: u32 = 2071u32;
 pub const META_BITBLT: u32 = 2338u32;
@@ -2289,15 +4209,50 @@ pub const MWT_LEFTMULTIPLY: MODIFY_WORLD_TRANSFORM_MODE = MODIFY_WORLD_TRANSFORM
 pub const MWT_RIGHTMULTIPLY: MODIFY_WORLD_TRANSFORM_MODE = MODIFY_WORLD_TRANSFORM_MODE(3u32);
 #[cfg(feature = "Win32_Foundation")]
 pub type MONITORENUMPROC = unsafe extern "system" fn(param0: HMONITOR, param1: HDC, param2: *mut super::super::Foundation::RECT, param3: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct MONITORINFO(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct MONITORINFOEXA(i32);
+pub struct MONITORINFO {
+    pub cbSize: u32,
+    pub rcMonitor: super::super::Foundation::RECT,
+    pub rcWork: super::super::Foundation::RECT,
+    pub dwFlags: u32,
+}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MONITORINFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MONITORINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct MONITORINFOEXW(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct MONITORINFOEXA {
+    pub __AnonymousBase_winuser_L13567_C43: MONITORINFO,
+    pub szDevice: [super::super::Foundation::CHAR; 32],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MONITORINFOEXA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MONITORINFOEXA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct MONITORINFOEXW {
+    pub __AnonymousBase_winuser_L13571_C43: MONITORINFO,
+    pub szDevice: [u16; 32],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MONITORINFOEXW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MONITORINFOEXW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MONITOR_FROM_FLAGS(pub u32);
 pub const MONITOR_DEFAULTTONEAREST: MONITOR_FROM_FLAGS = MONITOR_FROM_FLAGS(2u32);
@@ -2307,9 +4262,71 @@ pub const MONO_FONT: u32 = 8u32;
 pub const MOUSETRAILS: u32 = 39u32;
 pub const NEWFRAME: u32 = 1u32;
 #[repr(C)]
-pub struct NEWTEXTMETRICA(i32);
+pub struct NEWTEXTMETRICA {
+    pub tmHeight: i32,
+    pub tmAscent: i32,
+    pub tmDescent: i32,
+    pub tmInternalLeading: i32,
+    pub tmExternalLeading: i32,
+    pub tmAveCharWidth: i32,
+    pub tmMaxCharWidth: i32,
+    pub tmWeight: i32,
+    pub tmOverhang: i32,
+    pub tmDigitizedAspectX: i32,
+    pub tmDigitizedAspectY: i32,
+    pub tmFirstChar: u8,
+    pub tmLastChar: u8,
+    pub tmDefaultChar: u8,
+    pub tmBreakChar: u8,
+    pub tmItalic: u8,
+    pub tmUnderlined: u8,
+    pub tmStruckOut: u8,
+    pub tmPitchAndFamily: u8,
+    pub tmCharSet: u8,
+    pub ntmFlags: u32,
+    pub ntmSizeEM: u32,
+    pub ntmCellHeight: u32,
+    pub ntmAvgWidth: u32,
+}
+impl ::core::marker::Copy for NEWTEXTMETRICA {}
+impl ::core::clone::Clone for NEWTEXTMETRICA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct NEWTEXTMETRICW(i32);
+pub struct NEWTEXTMETRICW {
+    pub tmHeight: i32,
+    pub tmAscent: i32,
+    pub tmDescent: i32,
+    pub tmInternalLeading: i32,
+    pub tmExternalLeading: i32,
+    pub tmAveCharWidth: i32,
+    pub tmMaxCharWidth: i32,
+    pub tmWeight: i32,
+    pub tmOverhang: i32,
+    pub tmDigitizedAspectX: i32,
+    pub tmDigitizedAspectY: i32,
+    pub tmFirstChar: u16,
+    pub tmLastChar: u16,
+    pub tmDefaultChar: u16,
+    pub tmBreakChar: u16,
+    pub tmItalic: u8,
+    pub tmUnderlined: u8,
+    pub tmStruckOut: u8,
+    pub tmPitchAndFamily: u8,
+    pub tmCharSet: u8,
+    pub ntmFlags: u32,
+    pub ntmSizeEM: u32,
+    pub ntmCellHeight: u32,
+    pub ntmAvgWidth: u32,
+}
+impl ::core::marker::Copy for NEWTEXTMETRICW {}
+impl ::core::clone::Clone for NEWTEXTMETRICW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const NEWTRANSPARENT: u32 = 3u32;
 pub const NEXTBAND: u32 = 3u32;
 pub const NTM_BOLD: i32 = 32i32;
@@ -2340,20 +4357,145 @@ pub const OBJ_ENHMETAFILE: OBJ_TYPE = OBJ_TYPE(13i32);
 pub const OBJ_COLORSPACE: OBJ_TYPE = OBJ_TYPE(14i32);
 pub const OEM_CHARSET: u32 = 255u32;
 pub const OPENCHANNEL: u32 = 4110u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct OUTLINETEXTMETRICA(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct OUTLINETEXTMETRICA {
+    pub otmSize: u32,
+    pub otmTextMetrics: TEXTMETRICA,
+    pub otmFiller: u8,
+    pub otmPanoseNumber: PANOSE,
+    pub otmfsSelection: u32,
+    pub otmfsType: u32,
+    pub otmsCharSlopeRise: i32,
+    pub otmsCharSlopeRun: i32,
+    pub otmItalicAngle: i32,
+    pub otmEMSquare: u32,
+    pub otmAscent: i32,
+    pub otmDescent: i32,
+    pub otmLineGap: u32,
+    pub otmsCapEmHeight: u32,
+    pub otmsXHeight: u32,
+    pub otmrcFontBox: super::super::Foundation::RECT,
+    pub otmMacAscent: i32,
+    pub otmMacDescent: i32,
+    pub otmMacLineGap: u32,
+    pub otmusMinimumPPEM: u32,
+    pub otmptSubscriptSize: super::super::Foundation::POINT,
+    pub otmptSubscriptOffset: super::super::Foundation::POINT,
+    pub otmptSuperscriptSize: super::super::Foundation::POINT,
+    pub otmptSuperscriptOffset: super::super::Foundation::POINT,
+    pub otmsStrikeoutSize: u32,
+    pub otmsStrikeoutPosition: i32,
+    pub otmsUnderscoreSize: i32,
+    pub otmsUnderscorePosition: i32,
+    pub otmpFamilyName: super::super::Foundation::PSTR,
+    pub otmpFaceName: super::super::Foundation::PSTR,
+    pub otmpStyleName: super::super::Foundation::PSTR,
+    pub otmpFullName: super::super::Foundation::PSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for OUTLINETEXTMETRICA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for OUTLINETEXTMETRICA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct OUTLINETEXTMETRICW(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct OUTLINETEXTMETRICW {
+    pub otmSize: u32,
+    pub otmTextMetrics: TEXTMETRICW,
+    pub otmFiller: u8,
+    pub otmPanoseNumber: PANOSE,
+    pub otmfsSelection: u32,
+    pub otmfsType: u32,
+    pub otmsCharSlopeRise: i32,
+    pub otmsCharSlopeRun: i32,
+    pub otmItalicAngle: i32,
+    pub otmEMSquare: u32,
+    pub otmAscent: i32,
+    pub otmDescent: i32,
+    pub otmLineGap: u32,
+    pub otmsCapEmHeight: u32,
+    pub otmsXHeight: u32,
+    pub otmrcFontBox: super::super::Foundation::RECT,
+    pub otmMacAscent: i32,
+    pub otmMacDescent: i32,
+    pub otmMacLineGap: u32,
+    pub otmusMinimumPPEM: u32,
+    pub otmptSubscriptSize: super::super::Foundation::POINT,
+    pub otmptSubscriptOffset: super::super::Foundation::POINT,
+    pub otmptSuperscriptSize: super::super::Foundation::POINT,
+    pub otmptSuperscriptOffset: super::super::Foundation::POINT,
+    pub otmsStrikeoutSize: u32,
+    pub otmsStrikeoutPosition: i32,
+    pub otmsUnderscoreSize: i32,
+    pub otmsUnderscorePosition: i32,
+    pub otmpFamilyName: super::super::Foundation::PSTR,
+    pub otmpFaceName: super::super::Foundation::PSTR,
+    pub otmpStyleName: super::super::Foundation::PSTR,
+    pub otmpFullName: super::super::Foundation::PSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for OUTLINETEXTMETRICW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for OUTLINETEXTMETRICW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const OUT_SCREEN_OUTLINE_PRECIS: u32 = 9u32;
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+pub struct PAINTSTRUCT {
+    pub hdc: HDC,
+    pub fErase: super::super::Foundation::BOOL,
+    pub rcPaint: super::super::Foundation::RECT,
+    pub fRestore: super::super::Foundation::BOOL,
+    pub fIncUpdate: super::super::Foundation::BOOL,
+    pub rgbReserved: [u8; 32],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for PAINTSTRUCT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for PAINTSTRUCT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct PAINTSTRUCT(i32);
+pub struct PALETTEENTRY {
+    pub peRed: u8,
+    pub peGreen: u8,
+    pub peBlue: u8,
+    pub peFlags: u8,
+}
+impl ::core::marker::Copy for PALETTEENTRY {}
+impl ::core::clone::Clone for PALETTEENTRY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct PALETTEENTRY(i32);
-#[repr(C)]
-pub struct PANOSE(i32);
+pub struct PANOSE {
+    pub bFamilyType: u8,
+    pub bSerifStyle: u8,
+    pub bWeight: u8,
+    pub bProportion: u8,
+    pub bContrast: u8,
+    pub bStrokeVariation: u8,
+    pub bArmStyle: u8,
+    pub bLetterform: u8,
+    pub bMidline: u8,
+    pub bXHeight: u8,
+}
+impl ::core::marker::Copy for PANOSE {}
+impl ::core::clone::Clone for PANOSE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const PANOSE_COUNT: u32 = 10u32;
 pub const PAN_ANY: u32 = 0u32;
 pub const PAN_ARMSTYLE_INDEX: u32 = 6u32;
@@ -2478,7 +4620,19 @@ pub const PC_WIDE: u32 = 16u32;
 pub const PC_WIDESTYLED: u32 = 64u32;
 pub const PC_WINDPOLYGON: u32 = 4u32;
 #[repr(C)]
-pub struct PELARRAY(i32);
+pub struct PELARRAY {
+    pub paXCount: i32,
+    pub paYCount: i32,
+    pub paXExt: i32,
+    pub paYExt: i32,
+    pub paRGBs: u8,
+}
+impl ::core::marker::Copy for PELARRAY {}
+impl ::core::clone::Clone for PELARRAY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PEN_STYLE(pub u32);
 pub const PS_GEOMETRIC: PEN_STYLE = PEN_STYLE(65536u32);
@@ -2527,14 +4681,55 @@ pub const PFD_TYPE_COLORINDEX: u32 = 1u32;
 pub const PFD_TYPE_RGBA: u32 = 0u32;
 pub const PFD_UNDERLAY_PLANE: i32 = -1i32;
 #[repr(C)]
-pub struct POINTFX(i32);
+pub struct POINTFX {
+    pub x: FIXED,
+    pub y: FIXED,
+}
+impl ::core::marker::Copy for POINTFX {}
+impl ::core::clone::Clone for POINTFX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const POLYFILL_LAST: u32 = 2u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct POLYTEXTA(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct POLYTEXTA {
+    pub x: i32,
+    pub y: i32,
+    pub n: u32,
+    pub lpstr: super::super::Foundation::PSTR,
+    pub uiFlags: u32,
+    pub rcl: super::super::Foundation::RECT,
+    pub pdx: *mut i32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for POLYTEXTA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for POLYTEXTA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct POLYTEXTW(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct POLYTEXTW {
+    pub x: i32,
+    pub y: i32,
+    pub n: u32,
+    pub lpstr: super::super::Foundation::PWSTR,
+    pub uiFlags: u32,
+    pub rcl: super::super::Foundation::RECT,
+    pub pdx: *mut i32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for POLYTEXTW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for POLYTEXTW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const POSTSCRIPT_DATA: u32 = 37u32;
 pub const POSTSCRIPT_IDENTIFY: u32 = 4117u32;
 pub const POSTSCRIPT_IGNORE: u32 = 38u32;
@@ -2589,7 +4784,17 @@ pub const R2_MERGEPEN: R2_MODE = R2_MODE(15i32);
 pub const R2_WHITE: R2_MODE = R2_MODE(16i32);
 pub const R2_LAST: R2_MODE = R2_MODE(16i32);
 #[repr(C)]
-pub struct RASTERIZER_STATUS(i32);
+pub struct RASTERIZER_STATUS {
+    pub nSize: i16,
+    pub wFlags: i16,
+    pub nLanguageID: i16,
+}
+impl ::core::marker::Copy for RASTERIZER_STATUS {}
+impl ::core::clone::Clone for RASTERIZER_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const RASTER_FONTTYPE: u32 = 1u32;
 pub const RC_BANDING: u32 = 2u32;
 pub const RC_BIGFONT: u32 = 1024u32;
@@ -2626,15 +4831,61 @@ pub const RDW_NOFRAME: REDRAW_WINDOW_FLAGS = REDRAW_WINDOW_FLAGS(2048u32);
 pub const RELATIVE: u32 = 2u32;
 pub const RESTORE_CTM: u32 = 4100u32;
 #[repr(C)]
-pub struct RGBQUAD(i32);
+pub struct RGBQUAD {
+    pub rgbBlue: u8,
+    pub rgbGreen: u8,
+    pub rgbRed: u8,
+    pub rgbReserved: u8,
+}
+impl ::core::marker::Copy for RGBQUAD {}
+impl ::core::clone::Clone for RGBQUAD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct RGBTRIPLE(i32);
+pub struct RGBTRIPLE {
+    pub rgbtBlue: u8,
+    pub rgbtGreen: u8,
+    pub rgbtRed: u8,
+}
+impl ::core::marker::Copy for RGBTRIPLE {}
+impl ::core::clone::Clone for RGBTRIPLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct RGNDATA(i32);
+pub struct RGNDATA {
+    pub rdh: RGNDATAHEADER,
+    pub Buffer: [super::super::Foundation::CHAR; 1],
+}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for RGNDATA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for RGNDATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct RGNDATAHEADER(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct RGNDATAHEADER {
+    pub dwSize: u32,
+    pub iType: u32,
+    pub nCount: u32,
+    pub nRgnSize: u32,
+    pub rcBound: super::super::Foundation::RECT,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for RGNDATAHEADER {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for RGNDATAHEADER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RGN_COMBINE_MODE(pub i32);
 pub const RGN_AND: RGN_COMBINE_MODE = RGN_COMBINE_MODE(1i32);
@@ -2764,9 +5015,63 @@ pub const TC_SO_ABLE: u32 = 4096u32;
 pub const TC_UA_ABLE: u32 = 2048u32;
 pub const TC_VA_ABLE: u32 = 16384u32;
 #[repr(C)]
-pub struct TEXTMETRICA(i32);
+pub struct TEXTMETRICA {
+    pub tmHeight: i32,
+    pub tmAscent: i32,
+    pub tmDescent: i32,
+    pub tmInternalLeading: i32,
+    pub tmExternalLeading: i32,
+    pub tmAveCharWidth: i32,
+    pub tmMaxCharWidth: i32,
+    pub tmWeight: i32,
+    pub tmOverhang: i32,
+    pub tmDigitizedAspectX: i32,
+    pub tmDigitizedAspectY: i32,
+    pub tmFirstChar: u8,
+    pub tmLastChar: u8,
+    pub tmDefaultChar: u8,
+    pub tmBreakChar: u8,
+    pub tmItalic: u8,
+    pub tmUnderlined: u8,
+    pub tmStruckOut: u8,
+    pub tmPitchAndFamily: u8,
+    pub tmCharSet: u8,
+}
+impl ::core::marker::Copy for TEXTMETRICA {}
+impl ::core::clone::Clone for TEXTMETRICA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct TEXTMETRICW(i32);
+pub struct TEXTMETRICW {
+    pub tmHeight: i32,
+    pub tmAscent: i32,
+    pub tmDescent: i32,
+    pub tmInternalLeading: i32,
+    pub tmExternalLeading: i32,
+    pub tmAveCharWidth: i32,
+    pub tmMaxCharWidth: i32,
+    pub tmWeight: i32,
+    pub tmOverhang: i32,
+    pub tmDigitizedAspectX: i32,
+    pub tmDigitizedAspectY: i32,
+    pub tmFirstChar: u16,
+    pub tmLastChar: u16,
+    pub tmDefaultChar: u16,
+    pub tmBreakChar: u16,
+    pub tmItalic: u8,
+    pub tmUnderlined: u8,
+    pub tmStruckOut: u8,
+    pub tmPitchAndFamily: u8,
+    pub tmCharSet: u8,
+}
+impl ::core::marker::Copy for TEXTMETRICW {}
+impl ::core::clone::Clone for TEXTMETRICW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TEXT_ALIGN_OPTIONS(pub u32);
 pub const TA_NOUPDATECP: TEXT_ALIGN_OPTIONS = TEXT_ALIGN_OPTIONS(0u32);
@@ -2792,11 +5097,34 @@ pub const TMPF_TRUETYPE: u32 = 4u32;
 pub const TMPF_VECTOR: u32 = 2u32;
 pub const TRANSFORM_CTM: u32 = 4107u32;
 #[repr(C)]
-pub struct TRIVERTEX(i32);
+pub struct TRIVERTEX {
+    pub x: i32,
+    pub y: i32,
+    pub Red: u16,
+    pub Green: u16,
+    pub Blue: u16,
+    pub Alpha: u16,
+}
+impl ::core::marker::Copy for TRIVERTEX {}
+impl ::core::clone::Clone for TRIVERTEX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const TRUETYPE_FONTTYPE: u32 = 4u32;
 pub const TTDELETE_DONTREMOVEFONT: u32 = 1u32;
 #[repr(C)]
-pub struct TTEMBEDINFO(i32);
+pub struct TTEMBEDINFO {
+    pub usStructSize: u16,
+    pub usRootStrSize: u16,
+    pub pusRootStr: *mut u16,
+}
+impl ::core::marker::Copy for TTEMBEDINFO {}
+impl ::core::clone::Clone for TTEMBEDINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const TTEMBED_EUDCEMBEDDED: u32 = 2u32;
 pub const TTEMBED_FAILIFVARIATIONSIMULATED: u32 = 16u32;
 #[repr(transparent)]
@@ -2824,7 +5152,17 @@ pub const TTFMFP_DELTA: u32 = 2u32;
 pub const TTFMFP_SUBSET: u32 = 0u32;
 pub const TTFMFP_SUBSET1: u32 = 1u32;
 #[repr(C)]
-pub struct TTLOADINFO(i32);
+pub struct TTLOADINFO {
+    pub usStructSize: u16,
+    pub usRefStrSize: u16,
+    pub pusRefStr: *mut u16,
+}
+impl ::core::marker::Copy for TTLOADINFO {}
+impl ::core::clone::Clone for TTLOADINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TTLOAD_EMBEDDED_FONT_STATUS(pub u32);
 pub const TTLOAD_FONT_SUBSETTED: TTLOAD_EMBEDDED_FONT_STATUS = TTLOAD_EMBEDDED_FONT_STATUS(1u32);
@@ -2833,13 +5171,61 @@ pub const TTLOAD_EUDC_OVERWRITE: u32 = 2u32;
 pub const TTLOAD_EUDC_SET: u32 = 4u32;
 pub const TTLOAD_PRIVATE: u32 = 1u32;
 #[repr(C)]
-pub struct TTPOLYCURVE(i32);
+pub struct TTPOLYCURVE {
+    pub wType: u16,
+    pub cpfx: u16,
+    pub apfx: [POINTFX; 1],
+}
+impl ::core::marker::Copy for TTPOLYCURVE {}
+impl ::core::clone::Clone for TTPOLYCURVE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct TTPOLYGONHEADER(i32);
+pub struct TTPOLYGONHEADER {
+    pub cb: u32,
+    pub dwType: u32,
+    pub pfxStart: POINTFX,
+}
+impl ::core::marker::Copy for TTPOLYGONHEADER {}
+impl ::core::clone::Clone for TTPOLYGONHEADER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct TTVALIDATIONTESTSPARAMS(i32);
+pub struct TTVALIDATIONTESTSPARAMS {
+    pub ulStructSize: u32,
+    pub lTestFromSize: i32,
+    pub lTestToSize: i32,
+    pub ulCharSet: u32,
+    pub usReserved1: u16,
+    pub usCharCodeCount: u16,
+    pub pusCharCodeSet: *mut u16,
+}
+impl ::core::marker::Copy for TTVALIDATIONTESTSPARAMS {}
+impl ::core::clone::Clone for TTVALIDATIONTESTSPARAMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct TTVALIDATIONTESTSPARAMSEX(i32);
+pub struct TTVALIDATIONTESTSPARAMSEX {
+    pub ulStructSize: u32,
+    pub lTestFromSize: i32,
+    pub lTestToSize: i32,
+    pub ulCharSet: u32,
+    pub usReserved1: u16,
+    pub usCharCodeCount: u16,
+    pub pulCharCodeSet: *mut u32,
+}
+impl ::core::marker::Copy for TTVALIDATIONTESTSPARAMSEX {}
+impl ::core::clone::Clone for TTVALIDATIONTESTSPARAMSEX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const TT_AVAILABLE: u32 = 1u32;
 pub const TT_ENABLED: u32 = 2u32;
 pub const TT_POLYGON_TYPE: u32 = 24u32;
@@ -2850,9 +5236,27 @@ pub const TURKISH_CHARSET: u32 = 162u32;
 pub const VARIABLE_PITCH: u32 = 2u32;
 pub const VIETNAMESE_CHARSET: u32 = 163u32;
 #[repr(C)]
-pub struct WCRANGE(i32);
+pub struct WCRANGE {
+    pub wcLow: u16,
+    pub cGlyphs: u16,
+}
+impl ::core::marker::Copy for WCRANGE {}
+impl ::core::clone::Clone for WCRANGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WGLSWAP(i32);
+pub struct WGLSWAP {
+    pub hdc: HDC,
+    pub uiFlags: u32,
+}
+impl ::core::marker::Copy for WGLSWAP {}
+impl ::core::clone::Clone for WGLSWAP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WGL_FONT_LINES: u32 = 0u32;
 pub const WGL_FONT_POLYGONS: u32 = 1u32;
 pub const WGL_SWAPMULTIPLE_MAX: u32 = 16u32;
@@ -2889,4 +5293,17 @@ pub const WGL_SWAP_UNDERLAY8: u32 = 8388608u32;
 pub const WGL_SWAP_UNDERLAY9: u32 = 16777216u32;
 pub type WRITEEMBEDPROC = unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: *const ::core::ffi::c_void, param2: u32) -> u32;
 #[repr(C)]
-pub struct XFORM(i32);
+pub struct XFORM {
+    pub eM11: f32,
+    pub eM12: f32,
+    pub eM21: f32,
+    pub eM22: f32,
+    pub eDx: f32,
+    pub eDy: f32,
+}
+impl ::core::marker::Copy for XFORM {}
+impl ::core::clone::Clone for XFORM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

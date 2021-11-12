@@ -16,9 +16,29 @@ impl Direct3DBindings {
     pub const VideoEncoder: Self = Self(1024u32);
 }
 #[repr(C)]
-pub struct Direct3DMultisampleDescription(i32);
+pub struct Direct3DMultisampleDescription {
+    pub Count: i32,
+    pub Quality: i32,
+}
+impl ::core::marker::Copy for Direct3DMultisampleDescription {}
+impl ::core::clone::Clone for Direct3DMultisampleDescription {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct Direct3DSurfaceDescription(i32);
+pub struct Direct3DSurfaceDescription {
+    pub Width: i32,
+    pub Height: i32,
+    pub Format: super::DirectXPixelFormat,
+    pub MultisampleDescription: Direct3DMultisampleDescription,
+}
+impl ::core::marker::Copy for Direct3DSurfaceDescription {}
+impl ::core::clone::Clone for Direct3DSurfaceDescription {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct Direct3DUsage(pub i32);
 impl Direct3DUsage {

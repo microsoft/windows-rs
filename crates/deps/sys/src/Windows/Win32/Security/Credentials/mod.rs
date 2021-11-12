@@ -236,28 +236,152 @@ extern "system" {
     pub fn SCardWriteCacheW(hcontext: usize, cardidentifier: *const ::windows_sys::core::GUID, freshnesscounter: u32, lookupname: super::super::Foundation::PWSTR, data: *const u8, datalen: u32) -> i32;
 }
 #[repr(C)]
-pub struct BINARY_BLOB_CREDENTIAL_INFO(i32);
+pub struct BINARY_BLOB_CREDENTIAL_INFO {
+    pub cbBlob: u32,
+    pub pbBlob: *mut u8,
+}
+impl ::core::marker::Copy for BINARY_BLOB_CREDENTIAL_INFO {}
+impl ::core::clone::Clone for BINARY_BLOB_CREDENTIAL_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CERT_CREDENTIAL_INFO(i32);
+pub struct CERT_CREDENTIAL_INFO {
+    pub cbSize: u32,
+    pub rgbHashOfCert: [u8; 20],
+}
+impl ::core::marker::Copy for CERT_CREDENTIAL_INFO {}
+impl ::core::clone::Clone for CERT_CREDENTIAL_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CERT_HASH_LENGTH: u32 = 20u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CREDENTIALA(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct CREDENTIALW(i32);
+pub struct CREDENTIALA {
+    pub Flags: CRED_FLAGS,
+    pub Type: CRED_TYPE,
+    pub TargetName: super::super::Foundation::PSTR,
+    pub Comment: super::super::Foundation::PSTR,
+    pub LastWritten: super::super::Foundation::FILETIME,
+    pub CredentialBlobSize: u32,
+    pub CredentialBlob: *mut u8,
+    pub Persist: CRED_PERSIST,
+    pub AttributeCount: u32,
+    pub Attributes: *mut CREDENTIAL_ATTRIBUTEA,
+    pub TargetAlias: super::super::Foundation::PSTR,
+    pub UserName: super::super::Foundation::PSTR,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct CREDENTIAL_ATTRIBUTEA(i32);
+impl ::core::marker::Copy for CREDENTIALA {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CREDENTIALA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CREDENTIAL_ATTRIBUTEW(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct CREDENTIAL_TARGET_INFORMATIONA(i32);
+pub struct CREDENTIALW {
+    pub Flags: CRED_FLAGS,
+    pub Type: CRED_TYPE,
+    pub TargetName: super::super::Foundation::PWSTR,
+    pub Comment: super::super::Foundation::PWSTR,
+    pub LastWritten: super::super::Foundation::FILETIME,
+    pub CredentialBlobSize: u32,
+    pub CredentialBlob: *mut u8,
+    pub Persist: CRED_PERSIST,
+    pub AttributeCount: u32,
+    pub Attributes: *mut CREDENTIAL_ATTRIBUTEW,
+    pub TargetAlias: super::super::Foundation::PWSTR,
+    pub UserName: super::super::Foundation::PWSTR,
+}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CREDENTIALW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CREDENTIALW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CREDENTIAL_TARGET_INFORMATIONW(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CREDENTIAL_ATTRIBUTEA {
+    pub Keyword: super::super::Foundation::PSTR,
+    pub Flags: u32,
+    pub ValueSize: u32,
+    pub Value: *mut u8,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CREDENTIAL_ATTRIBUTEA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CREDENTIAL_ATTRIBUTEA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct CREDENTIAL_ATTRIBUTEW {
+    pub Keyword: super::super::Foundation::PWSTR,
+    pub Flags: u32,
+    pub ValueSize: u32,
+    pub Value: *mut u8,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CREDENTIAL_ATTRIBUTEW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CREDENTIAL_ATTRIBUTEW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct CREDENTIAL_TARGET_INFORMATIONA {
+    pub TargetName: super::super::Foundation::PSTR,
+    pub NetbiosServerName: super::super::Foundation::PSTR,
+    pub DnsServerName: super::super::Foundation::PSTR,
+    pub NetbiosDomainName: super::super::Foundation::PSTR,
+    pub DnsDomainName: super::super::Foundation::PSTR,
+    pub DnsTreeName: super::super::Foundation::PSTR,
+    pub PackageName: super::super::Foundation::PSTR,
+    pub Flags: u32,
+    pub CredTypeCount: u32,
+    pub CredTypes: *mut u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CREDENTIAL_TARGET_INFORMATIONA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CREDENTIAL_TARGET_INFORMATIONA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct CREDENTIAL_TARGET_INFORMATIONW {
+    pub TargetName: super::super::Foundation::PWSTR,
+    pub NetbiosServerName: super::super::Foundation::PWSTR,
+    pub DnsServerName: super::super::Foundation::PWSTR,
+    pub NetbiosDomainName: super::super::Foundation::PWSTR,
+    pub DnsDomainName: super::super::Foundation::PWSTR,
+    pub DnsTreeName: super::super::Foundation::PWSTR,
+    pub PackageName: super::super::Foundation::PWSTR,
+    pub Flags: u32,
+    pub CredTypeCount: u32,
+    pub CredTypes: *mut u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CREDENTIAL_TARGET_INFORMATIONW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CREDENTIAL_TARGET_INFORMATIONW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CREDSPP_SUBMIT_TYPE(pub i32);
 pub const CredsspPasswordCreds: CREDSPP_SUBMIT_TYPE = CREDSPP_SUBMIT_TYPE(2i32);
@@ -267,9 +391,31 @@ pub const CredsspSubmitBufferBoth: CREDSPP_SUBMIT_TYPE = CREDSPP_SUBMIT_TYPE(50i
 pub const CredsspSubmitBufferBothOld: CREDSPP_SUBMIT_TYPE = CREDSPP_SUBMIT_TYPE(51i32);
 pub const CredsspCredEx: CREDSPP_SUBMIT_TYPE = CREDSPP_SUBMIT_TYPE(100i32);
 #[repr(C)]
-pub struct CREDSSP_CRED(i32);
+pub struct CREDSSP_CRED {
+    pub Type: CREDSPP_SUBMIT_TYPE,
+    pub pSchannelCred: *mut ::core::ffi::c_void,
+    pub pSpnegoCred: *mut ::core::ffi::c_void,
+}
+impl ::core::marker::Copy for CREDSSP_CRED {}
+impl ::core::clone::Clone for CREDSSP_CRED {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CREDSSP_CRED_EX(i32);
+pub struct CREDSSP_CRED_EX {
+    pub Type: CREDSPP_SUBMIT_TYPE,
+    pub Version: u32,
+    pub Flags: u32,
+    pub Reserved: u32,
+    pub Cred: CREDSSP_CRED,
+}
+impl ::core::marker::Copy for CREDSSP_CRED_EX {}
+impl ::core::clone::Clone for CREDSSP_CRED_EX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CREDSSP_CRED_EX_VERSION: u32 = 0u32;
 pub const CREDSSP_FLAG_REDIRECT: u32 = 1u32;
 pub const CREDSSP_SERVER_AUTH_CERTIFICATE: u32 = 2u32;
@@ -307,12 +453,40 @@ pub const CREDUI_FLAGS_SERVER_CREDENTIAL: CREDUI_FLAGS = CREDUI_FLAGS(16384u32);
 pub const CREDUI_FLAGS_SHOW_SAVE_CHECK_BOX: CREDUI_FLAGS = CREDUI_FLAGS(64u32);
 pub const CREDUI_FLAGS_USERNAME_TARGET_CREDENTIALS: CREDUI_FLAGS = CREDUI_FLAGS(524288u32);
 pub const CREDUI_FLAGS_VALIDATE_USERNAME: CREDUI_FLAGS = CREDUI_FLAGS(1024u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[repr(C)]
-pub struct CREDUI_INFOA(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+pub struct CREDUI_INFOA {
+    pub cbSize: u32,
+    pub hwndParent: super::super::Foundation::HWND,
+    pub pszMessageText: super::super::Foundation::PSTR,
+    pub pszCaptionText: super::super::Foundation::PSTR,
+    pub hbmBanner: super::super::Graphics::Gdi::HBITMAP,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::marker::Copy for CREDUI_INFOA {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::clone::Clone for CREDUI_INFOA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CREDUI_INFOW(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+pub struct CREDUI_INFOW {
+    pub cbSize: u32,
+    pub hwndParent: super::super::Foundation::HWND,
+    pub pszMessageText: super::super::Foundation::PWSTR,
+    pub pszCaptionText: super::super::Foundation::PWSTR,
+    pub hbmBanner: super::super::Graphics::Gdi::HBITMAP,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::marker::Copy for CREDUI_INFOW {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::clone::Clone for CREDUI_INFOW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CREDUI_MAX_CAPTION_LENGTH: u32 = 128u32;
 pub const CREDUI_MAX_GENERIC_TARGET_LENGTH: u32 = 32767u32;
 pub const CREDUI_MAX_MESSAGE_LENGTH: u32 = 1024u32;
@@ -391,7 +565,15 @@ pub const CRED_UNPROTECT_AS_SELF: u32 = 1u32;
 pub const FILE_DEVICE_SMARTCARD: u32 = 49u32;
 pub const GUID_DEVINTERFACE_SMARTCARD_READER: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1356681776, data2: 47754, data3: 4561, data4: [191, 93, 0, 0, 248, 5, 245, 48] };
 #[repr(C)]
-pub struct KeyCredentialManagerInfo(i32);
+pub struct KeyCredentialManagerInfo {
+    pub containerId: ::windows_sys::core::GUID,
+}
+impl ::core::marker::Copy for KeyCredentialManagerInfo {}
+impl ::core::clone::Clone for KeyCredentialManagerInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct KeyCredentialManagerOperationErrorStates(pub u32);
 pub const KeyCredentialManagerOperationErrorStateNone: KeyCredentialManagerOperationErrorStates = KeyCredentialManagerOperationErrorStates(0u32);
@@ -416,36 +598,267 @@ pub type LPOCNCONNPROCW = unsafe extern "system" fn(param0: usize, param1: super
 pub type LPOCNDSCPROC = unsafe extern "system" fn(param0: usize, param1: usize, param2: *const ::core::ffi::c_void);
 pub const MAXIMUM_ATTR_STRING_LENGTH: u32 = 32u32;
 pub const MAXIMUM_SMARTCARD_READERS: u32 = 10u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct OPENCARDNAMEA(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct OPENCARDNAMEA {
+    pub dwStructSize: u32,
+    pub hwndOwner: super::super::Foundation::HWND,
+    pub hSCardContext: usize,
+    pub lpstrGroupNames: super::super::Foundation::PSTR,
+    pub nMaxGroupNames: u32,
+    pub lpstrCardNames: super::super::Foundation::PSTR,
+    pub nMaxCardNames: u32,
+    pub rgguidInterfaces: *mut ::windows_sys::core::GUID,
+    pub cguidInterfaces: u32,
+    pub lpstrRdr: super::super::Foundation::PSTR,
+    pub nMaxRdr: u32,
+    pub lpstrCard: super::super::Foundation::PSTR,
+    pub nMaxCard: u32,
+    pub lpstrTitle: super::super::Foundation::PSTR,
+    pub dwFlags: u32,
+    pub pvUserData: *mut ::core::ffi::c_void,
+    pub dwShareMode: u32,
+    pub dwPreferredProtocols: u32,
+    pub dwActiveProtocol: u32,
+    pub lpfnConnect: ::core::option::Option<LPOCNCONNPROCA>,
+    pub lpfnCheck: ::core::option::Option<LPOCNCHKPROC>,
+    pub lpfnDisconnect: ::core::option::Option<LPOCNDSCPROC>,
+    pub hCardHandle: usize,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for OPENCARDNAMEA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for OPENCARDNAMEA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct OPENCARDNAMEW(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct OPENCARDNAMEW {
+    pub dwStructSize: u32,
+    pub hwndOwner: super::super::Foundation::HWND,
+    pub hSCardContext: usize,
+    pub lpstrGroupNames: super::super::Foundation::PWSTR,
+    pub nMaxGroupNames: u32,
+    pub lpstrCardNames: super::super::Foundation::PWSTR,
+    pub nMaxCardNames: u32,
+    pub rgguidInterfaces: *mut ::windows_sys::core::GUID,
+    pub cguidInterfaces: u32,
+    pub lpstrRdr: super::super::Foundation::PWSTR,
+    pub nMaxRdr: u32,
+    pub lpstrCard: super::super::Foundation::PWSTR,
+    pub nMaxCard: u32,
+    pub lpstrTitle: super::super::Foundation::PWSTR,
+    pub dwFlags: u32,
+    pub pvUserData: *mut ::core::ffi::c_void,
+    pub dwShareMode: u32,
+    pub dwPreferredProtocols: u32,
+    pub dwActiveProtocol: u32,
+    pub lpfnConnect: ::core::option::Option<LPOCNCONNPROCW>,
+    pub lpfnCheck: ::core::option::Option<LPOCNCHKPROC>,
+    pub lpfnDisconnect: ::core::option::Option<LPOCNDSCPROC>,
+    pub hCardHandle: usize,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for OPENCARDNAMEW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for OPENCARDNAMEW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-#[repr(C)]
-pub struct OPENCARDNAME_EXA(i32);
+pub struct OPENCARDNAME_EXA {
+    pub dwStructSize: u32,
+    pub hSCardContext: usize,
+    pub hwndOwner: super::super::Foundation::HWND,
+    pub dwFlags: u32,
+    pub lpstrTitle: super::super::Foundation::PSTR,
+    pub lpstrSearchDesc: super::super::Foundation::PSTR,
+    pub hIcon: super::super::UI::WindowsAndMessaging::HICON,
+    pub pOpenCardSearchCriteria: *mut OPENCARD_SEARCH_CRITERIAA,
+    pub lpfnConnect: ::core::option::Option<LPOCNCONNPROCA>,
+    pub pvUserData: *mut ::core::ffi::c_void,
+    pub dwShareMode: u32,
+    pub dwPreferredProtocols: u32,
+    pub lpstrRdr: super::super::Foundation::PSTR,
+    pub nMaxRdr: u32,
+    pub lpstrCard: super::super::Foundation::PSTR,
+    pub nMaxCard: u32,
+    pub dwActiveProtocol: u32,
+    pub hCardHandle: usize,
+}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::core::marker::Copy for OPENCARDNAME_EXA {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::core::clone::Clone for OPENCARDNAME_EXA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct OPENCARDNAME_EXW(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+pub struct OPENCARDNAME_EXW {
+    pub dwStructSize: u32,
+    pub hSCardContext: usize,
+    pub hwndOwner: super::super::Foundation::HWND,
+    pub dwFlags: u32,
+    pub lpstrTitle: super::super::Foundation::PWSTR,
+    pub lpstrSearchDesc: super::super::Foundation::PWSTR,
+    pub hIcon: super::super::UI::WindowsAndMessaging::HICON,
+    pub pOpenCardSearchCriteria: *mut OPENCARD_SEARCH_CRITERIAW,
+    pub lpfnConnect: ::core::option::Option<LPOCNCONNPROCW>,
+    pub pvUserData: *mut ::core::ffi::c_void,
+    pub dwShareMode: u32,
+    pub dwPreferredProtocols: u32,
+    pub lpstrRdr: super::super::Foundation::PWSTR,
+    pub nMaxRdr: u32,
+    pub lpstrCard: super::super::Foundation::PWSTR,
+    pub nMaxCard: u32,
+    pub dwActiveProtocol: u32,
+    pub hCardHandle: usize,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::core::marker::Copy for OPENCARDNAME_EXW {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::core::clone::Clone for OPENCARDNAME_EXW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct OPENCARD_SEARCH_CRITERIAA(i32);
+pub struct OPENCARD_SEARCH_CRITERIAA {
+    pub dwStructSize: u32,
+    pub lpstrGroupNames: super::super::Foundation::PSTR,
+    pub nMaxGroupNames: u32,
+    pub rgguidInterfaces: *mut ::windows_sys::core::GUID,
+    pub cguidInterfaces: u32,
+    pub lpstrCardNames: super::super::Foundation::PSTR,
+    pub nMaxCardNames: u32,
+    pub lpfnCheck: ::core::option::Option<LPOCNCHKPROC>,
+    pub lpfnConnect: ::core::option::Option<LPOCNCONNPROCA>,
+    pub lpfnDisconnect: ::core::option::Option<LPOCNDSCPROC>,
+    pub pvUserData: *mut ::core::ffi::c_void,
+    pub dwShareMode: u32,
+    pub dwPreferredProtocols: u32,
+}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for OPENCARD_SEARCH_CRITERIAA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for OPENCARD_SEARCH_CRITERIAA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct OPENCARD_SEARCH_CRITERIAW(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct OPENCARD_SEARCH_CRITERIAW {
+    pub dwStructSize: u32,
+    pub lpstrGroupNames: super::super::Foundation::PWSTR,
+    pub nMaxGroupNames: u32,
+    pub rgguidInterfaces: *mut ::windows_sys::core::GUID,
+    pub cguidInterfaces: u32,
+    pub lpstrCardNames: super::super::Foundation::PWSTR,
+    pub nMaxCardNames: u32,
+    pub lpfnCheck: ::core::option::Option<LPOCNCHKPROC>,
+    pub lpfnConnect: ::core::option::Option<LPOCNCONNPROCW>,
+    pub lpfnDisconnect: ::core::option::Option<LPOCNDSCPROC>,
+    pub pvUserData: *mut ::core::ffi::c_void,
+    pub dwShareMode: u32,
+    pub dwPreferredProtocols: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for OPENCARD_SEARCH_CRITERIAW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for OPENCARD_SEARCH_CRITERIAW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct READER_SEL_REQUEST(i32);
+pub struct READER_SEL_REQUEST {
+    pub dwShareMode: u32,
+    pub dwPreferredProtocols: u32,
+    pub MatchType: READER_SEL_REQUEST_MATCH_TYPE,
+    pub Anonymous: READER_SEL_REQUEST_0,
+}
+impl ::core::marker::Copy for READER_SEL_REQUEST {}
+impl ::core::clone::Clone for READER_SEL_REQUEST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub union READER_SEL_REQUEST_0 {
+    pub ReaderAndContainerParameter: READER_SEL_REQUEST_0_0,
+    pub SerialNumberParameter: READER_SEL_REQUEST_0_1,
+}
+impl ::core::clone::Clone for READER_SEL_REQUEST_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct READER_SEL_REQUEST_0_0 {
+    pub cbReaderNameOffset: u32,
+    pub cchReaderNameLength: u32,
+    pub cbContainerNameOffset: u32,
+    pub cchContainerNameLength: u32,
+    pub dwDesiredCardModuleVersion: u32,
+    pub dwCspFlags: u32,
+}
+impl ::core::marker::Copy for READER_SEL_REQUEST_0_0 {}
+impl ::core::clone::Clone for READER_SEL_REQUEST_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct READER_SEL_REQUEST_0_1 {
+    pub cbSerialNumberOffset: u32,
+    pub cbSerialNumberLength: u32,
+    pub dwDesiredCardModuleVersion: u32,
+}
+impl ::core::marker::Copy for READER_SEL_REQUEST_0_1 {}
+impl ::core::clone::Clone for READER_SEL_REQUEST_0_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct READER_SEL_REQUEST_MATCH_TYPE(pub i32);
 pub const RSR_MATCH_TYPE_READER_AND_CONTAINER: READER_SEL_REQUEST_MATCH_TYPE = READER_SEL_REQUEST_MATCH_TYPE(1i32);
 pub const RSR_MATCH_TYPE_SERIAL_NUMBER: READER_SEL_REQUEST_MATCH_TYPE = READER_SEL_REQUEST_MATCH_TYPE(2i32);
 pub const RSR_MATCH_TYPE_ALL_CARDS: READER_SEL_REQUEST_MATCH_TYPE = READER_SEL_REQUEST_MATCH_TYPE(3i32);
 #[repr(C)]
-pub struct READER_SEL_RESPONSE(i32);
+pub struct READER_SEL_RESPONSE {
+    pub cbReaderNameOffset: u32,
+    pub cchReaderNameLength: u32,
+    pub cbCardNameOffset: u32,
+    pub cchCardNameLength: u32,
+}
+impl ::core::marker::Copy for READER_SEL_RESPONSE {}
+impl ::core::clone::Clone for READER_SEL_RESPONSE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SCARD_ABSENT: u32 = 1u32;
 #[repr(C)]
-pub struct SCARD_ATRMASK(i32);
+pub struct SCARD_ATRMASK {
+    pub cbAtr: u32,
+    pub rgbAtr: [u8; 36],
+    pub rgbMask: [u8; 36],
+}
+impl ::core::marker::Copy for SCARD_ATRMASK {}
+impl ::core::clone::Clone for SCARD_ATRMASK {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SCARD_ATR_LENGTH: u32 = 33u32;
 pub const SCARD_AUDIT_CHV_FAILURE: u32 = 0u32;
 pub const SCARD_AUDIT_CHV_SUCCESS: u32 = 1u32;
@@ -463,7 +876,16 @@ pub const SCARD_CLASS_VENDOR_INFO: u32 = 1u32;
 pub const SCARD_COLD_RESET: u32 = 1u32;
 pub const SCARD_EJECT_CARD: u32 = 3u32;
 #[repr(C)]
-pub struct SCARD_IO_REQUEST(i32);
+pub struct SCARD_IO_REQUEST {
+    pub dwProtocol: u32,
+    pub cbPciLength: u32,
+}
+impl ::core::marker::Copy for SCARD_IO_REQUEST {}
+impl ::core::clone::Clone for SCARD_IO_REQUEST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SCARD_LEAVE_CARD: u32 = 0u32;
 pub const SCARD_NEGOTIABLE: u32 = 5u32;
 pub const SCARD_POWERED: u32 = 4u32;
@@ -478,12 +900,42 @@ pub const SCARD_PROTOCOL_UNDEFINED: u32 = 0u32;
 pub const SCARD_PROVIDER_CSP: u32 = 2u32;
 pub const SCARD_PROVIDER_KSP: u32 = 3u32;
 pub const SCARD_PROVIDER_PRIMARY: u32 = 1u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct SCARD_READERSTATEA(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct SCARD_READERSTATEA {
+    pub szReader: super::super::Foundation::PSTR,
+    pub pvUserData: *mut ::core::ffi::c_void,
+    pub dwCurrentState: SCARD_STATE,
+    pub dwEventState: SCARD_STATE,
+    pub cbAtr: u32,
+    pub rgbAtr: [u8; 36],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SCARD_READERSTATEA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SCARD_READERSTATEA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct SCARD_READERSTATEW(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct SCARD_READERSTATEW {
+    pub szReader: super::super::Foundation::PWSTR,
+    pub pvUserData: *mut ::core::ffi::c_void,
+    pub dwCurrentState: SCARD_STATE,
+    pub dwEventState: SCARD_STATE,
+    pub cbAtr: u32,
+    pub rgbAtr: [u8; 36],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SCARD_READERSTATEW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SCARD_READERSTATEW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SCARD_READER_CONFISCATES: u32 = 4u32;
 pub const SCARD_READER_CONTACTLESS: u32 = 8u32;
 pub const SCARD_READER_EJECTS: u32 = 2u32;
@@ -528,16 +980,57 @@ pub const SCARD_STATE_UNPOWERED: u32 = 1024u32;
 pub const SCARD_SWALLOWED: u32 = 3u32;
 pub const SCARD_T0_CMD_LENGTH: u32 = 5u32;
 #[repr(C)]
-pub struct SCARD_T0_COMMAND(i32);
+pub struct SCARD_T0_COMMAND {
+    pub bCla: u8,
+    pub bIns: u8,
+    pub bP1: u8,
+    pub bP2: u8,
+    pub bP3: u8,
+}
+impl ::core::marker::Copy for SCARD_T0_COMMAND {}
+impl ::core::clone::Clone for SCARD_T0_COMMAND {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SCARD_T0_HEADER_LENGTH: u32 = 7u32;
 #[repr(C)]
-pub struct SCARD_T0_REQUEST(i32);
+pub struct SCARD_T0_REQUEST {
+    pub ioRequest: SCARD_IO_REQUEST,
+    pub bSw1: u8,
+    pub bSw2: u8,
+    pub Anonymous: SCARD_T0_REQUEST_0,
+}
+impl ::core::marker::Copy for SCARD_T0_REQUEST {}
+impl ::core::clone::Clone for SCARD_T0_REQUEST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub union SCARD_T0_REQUEST_0 {
+    pub CmdBytes: SCARD_T0_COMMAND,
+    pub rgbHeader: [u8; 5],
+}
+impl ::core::clone::Clone for SCARD_T0_REQUEST_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SCARD_T1_EPILOGUE_LENGTH: u32 = 2u32;
 pub const SCARD_T1_EPILOGUE_LENGTH_LRC: u32 = 1u32;
 pub const SCARD_T1_MAX_IFS: u32 = 254u32;
 pub const SCARD_T1_PROLOGUE_LENGTH: u32 = 3u32;
 #[repr(C)]
-pub struct SCARD_T1_REQUEST(i32);
+pub struct SCARD_T1_REQUEST {
+    pub ioRequest: SCARD_IO_REQUEST,
+}
+impl ::core::marker::Copy for SCARD_T1_REQUEST {}
+impl ::core::clone::Clone for SCARD_T1_REQUEST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SCARD_UNKNOWN: u32 = 0u32;
 pub const SCARD_UNPOWER_CARD: u32 = 2u32;
 pub const SCARD_WARM_RESET: u32 = 2u32;
@@ -577,9 +1070,37 @@ pub const STATUS_PASSWORD_MUST_CHANGE: super::super::Foundation::NTSTATUS = supe
 #[cfg(feature = "Win32_Foundation")]
 pub const STATUS_WRONG_PASSWORD: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073741718i32 as _);
 #[repr(C)]
-pub struct SecHandle(i32);
+pub struct SecHandle {
+    pub dwLower: usize,
+    pub dwUpper: usize,
+}
+impl ::core::marker::Copy for SecHandle {}
+impl ::core::clone::Clone for SecHandle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct SecPkgContext_ClientCreds(i32);
+pub struct SecPkgContext_ClientCreds {
+    pub AuthBufferLen: u32,
+    pub AuthBuffer: *mut u8,
+}
+impl ::core::marker::Copy for SecPkgContext_ClientCreds {}
+impl ::core::clone::Clone for SecPkgContext_ClientCreds {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct USERNAME_TARGET_CREDENTIAL_INFO(i32);
+pub struct USERNAME_TARGET_CREDENTIAL_INFO {
+    pub UserName: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for USERNAME_TARGET_CREDENTIAL_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for USERNAME_TARGET_CREDENTIAL_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

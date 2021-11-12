@@ -2,7 +2,19 @@
 #[link(name = "windows")]
 extern "system" {}
 #[repr(C)]
-pub struct BackgroundDownloadProgress(i32);
+pub struct BackgroundDownloadProgress {
+    pub BytesReceived: u64,
+    pub TotalBytesToReceive: u64,
+    pub Status: BackgroundTransferStatus,
+    pub HasResponseChanged: bool,
+    pub HasRestarted: bool,
+}
+impl ::core::marker::Copy for BackgroundDownloadProgress {}
+impl ::core::clone::Clone for BackgroundDownloadProgress {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct BackgroundDownloader(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -25,7 +37,16 @@ impl BackgroundTransferCostPolicy {
     pub const Always: Self = Self(2i32);
 }
 #[repr(C)]
-pub struct BackgroundTransferFileRange(i32);
+pub struct BackgroundTransferFileRange {
+    pub Offset: u64,
+    pub Length: u64,
+}
+impl ::core::marker::Copy for BackgroundTransferFileRange {}
+impl ::core::clone::Clone for BackgroundTransferFileRange {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct BackgroundTransferGroup(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -52,7 +73,21 @@ impl BackgroundTransferStatus {
     pub const PausedSystemPolicy: Self = Self(32i32);
 }
 #[repr(C)]
-pub struct BackgroundUploadProgress(i32);
+pub struct BackgroundUploadProgress {
+    pub BytesReceived: u64,
+    pub BytesSent: u64,
+    pub TotalBytesToReceive: u64,
+    pub TotalBytesToSend: u64,
+    pub Status: BackgroundTransferStatus,
+    pub HasResponseChanged: bool,
+    pub HasRestarted: bool,
+}
+impl ::core::marker::Copy for BackgroundUploadProgress {}
+impl ::core::clone::Clone for BackgroundUploadProgress {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct BackgroundUploader(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

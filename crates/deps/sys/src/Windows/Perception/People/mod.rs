@@ -35,9 +35,20 @@ impl HandJointKind {
 }
 #[repr(transparent)]
 pub struct HandMeshObserver(pub *mut ::core::ffi::c_void);
-#[cfg(feature = "Foundation_Numerics")]
 #[repr(C)]
-pub struct HandMeshVertex(i32);
+#[cfg(feature = "Foundation_Numerics")]
+pub struct HandMeshVertex {
+    pub Position: super::super::Foundation::Numerics::Vector3,
+    pub Normal: super::super::Foundation::Numerics::Vector3,
+}
+#[cfg(feature = "Foundation_Numerics")]
+impl ::core::marker::Copy for HandMeshVertex {}
+#[cfg(feature = "Foundation_Numerics")]
+impl ::core::clone::Clone for HandMeshVertex {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct HandMeshVertexState(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -56,9 +67,22 @@ pub struct IHandMeshVertexState(pub *mut ::core::ffi::c_void);
 pub struct IHandPose(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IHeadPose(pub *mut ::core::ffi::c_void);
-#[cfg(feature = "Foundation_Numerics")]
 #[repr(C)]
-pub struct JointPose(i32);
+#[cfg(feature = "Foundation_Numerics")]
+pub struct JointPose {
+    pub Orientation: super::super::Foundation::Numerics::Quaternion,
+    pub Position: super::super::Foundation::Numerics::Vector3,
+    pub Radius: f32,
+    pub Accuracy: JointPoseAccuracy,
+}
+#[cfg(feature = "Foundation_Numerics")]
+impl ::core::marker::Copy for JointPose {}
+#[cfg(feature = "Foundation_Numerics")]
+impl ::core::clone::Clone for JointPose {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct JointPoseAccuracy(pub i32);
 impl JointPoseAccuracy {

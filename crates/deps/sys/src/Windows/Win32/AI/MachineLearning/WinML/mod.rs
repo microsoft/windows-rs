@@ -36,12 +36,51 @@ pub struct IWinMLModel(pub *mut ::core::ffi::c_void);
 pub struct IWinMLRuntime(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IWinMLRuntimeFactory(pub *mut ::core::ffi::c_void);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct MLOperatorAttribute(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct MLOperatorAttribute {
+    pub name: super::super::super::Foundation::PSTR,
+    pub r#type: MLOperatorAttributeType,
+    pub required: bool,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MLOperatorAttribute {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MLOperatorAttribute {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct MLOperatorAttributeNameValue(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct MLOperatorAttributeNameValue {
+    pub name: super::super::super::Foundation::PSTR,
+    pub r#type: MLOperatorAttributeType,
+    pub valueCount: u32,
+    pub Anonymous: MLOperatorAttributeNameValue_0,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MLOperatorAttributeNameValue {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MLOperatorAttributeNameValue {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub union MLOperatorAttributeNameValue_0 {
+    pub reserved: *mut ::core::ffi::c_void,
+    pub ints: *mut i64,
+    pub strings: *mut *mut i8,
+    pub floats: *mut f32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MLOperatorAttributeNameValue_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MLOperatorAttributeType(pub u32);
 impl MLOperatorAttributeType {
@@ -54,16 +93,47 @@ impl MLOperatorAttributeType {
     pub const StringArray: Self = Self(9u32);
 }
 #[repr(C)]
-pub struct MLOperatorEdgeDescription(i32);
+pub struct MLOperatorEdgeDescription {
+    pub edgeType: MLOperatorEdgeType,
+    pub Anonymous: MLOperatorEdgeDescription_0,
+}
+impl ::core::marker::Copy for MLOperatorEdgeDescription {}
+impl ::core::clone::Clone for MLOperatorEdgeDescription {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub union MLOperatorEdgeDescription_0 {
+    pub reserved: u64,
+    pub tensorDataType: MLOperatorTensorDataType,
+}
+impl ::core::clone::Clone for MLOperatorEdgeDescription_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MLOperatorEdgeType(pub u32);
 impl MLOperatorEdgeType {
     pub const Undefined: Self = Self(0u32);
     pub const Tensor: Self = Self(1u32);
 }
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct MLOperatorEdgeTypeConstraint(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct MLOperatorEdgeTypeConstraint {
+    pub typeLabel: super::super::super::Foundation::PSTR,
+    pub allowedTypes: *mut MLOperatorEdgeDescription,
+    pub allowedTypeCount: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MLOperatorEdgeTypeConstraint {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MLOperatorEdgeTypeConstraint {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MLOperatorExecutionType(pub u32);
 impl MLOperatorExecutionType {
@@ -71,9 +141,28 @@ impl MLOperatorExecutionType {
     pub const Cpu: Self = Self(1u32);
     pub const D3D12: Self = Self(2u32);
 }
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct MLOperatorKernelDescription(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct MLOperatorKernelDescription {
+    pub domain: super::super::super::Foundation::PSTR,
+    pub name: super::super::super::Foundation::PSTR,
+    pub minimumOperatorSetVersion: i32,
+    pub executionType: MLOperatorExecutionType,
+    pub typeConstraints: *mut MLOperatorEdgeTypeConstraint,
+    pub typeConstraintCount: u32,
+    pub defaultAttributes: *mut MLOperatorAttributeNameValue,
+    pub defaultAttributeCount: u32,
+    pub options: MLOperatorKernelOptions,
+    pub executionOptions: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MLOperatorKernelDescription {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MLOperatorKernelDescription {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MLOperatorKernelOptions(pub u32);
 impl MLOperatorKernelOptions {
@@ -87,21 +176,78 @@ impl MLOperatorParameterOptions {
     pub const Optional: Self = Self(1u32);
     pub const Variadic: Self = Self(2u32);
 }
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct MLOperatorSchemaDescription(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct MLOperatorSchemaDescription {
+    pub name: super::super::super::Foundation::PSTR,
+    pub operatorSetVersionAtLastChange: i32,
+    pub inputs: *mut MLOperatorSchemaEdgeDescription,
+    pub inputCount: u32,
+    pub outputs: *mut MLOperatorSchemaEdgeDescription,
+    pub outputCount: u32,
+    pub typeConstraints: *mut MLOperatorEdgeTypeConstraint,
+    pub typeConstraintCount: u32,
+    pub attributes: *mut MLOperatorAttribute,
+    pub attributeCount: u32,
+    pub defaultAttributes: *mut MLOperatorAttributeNameValue,
+    pub defaultAttributeCount: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MLOperatorSchemaDescription {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MLOperatorSchemaDescription {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct MLOperatorSchemaEdgeDescription(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct MLOperatorSchemaEdgeDescription {
+    pub options: MLOperatorParameterOptions,
+    pub typeFormat: MLOperatorSchemaEdgeTypeFormat,
+    pub Anonymous: MLOperatorSchemaEdgeDescription_0,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MLOperatorSchemaEdgeDescription {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MLOperatorSchemaEdgeDescription {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub union MLOperatorSchemaEdgeDescription_0 {
+    pub reserved: *mut ::core::ffi::c_void,
+    pub typeLabel: super::super::super::Foundation::PSTR,
+    pub edgeDescription: MLOperatorEdgeDescription,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MLOperatorSchemaEdgeDescription_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MLOperatorSchemaEdgeTypeFormat(pub i32);
 impl MLOperatorSchemaEdgeTypeFormat {
     pub const EdgeDescription: Self = Self(0i32);
     pub const Label: Self = Self(1i32);
 }
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct MLOperatorSetId(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct MLOperatorSetId {
+    pub domain: super::super::super::Foundation::PSTR,
+    pub version: i32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MLOperatorSetId {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MLOperatorSetId {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MLOperatorTensorDataType(pub u32);
 impl MLOperatorTensorDataType {
@@ -122,9 +268,36 @@ impl MLOperatorTensorDataType {
     pub const Complex64: Self = Self(14u32);
     pub const Complex128: Self = Self(15u32);
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
 #[repr(C)]
-pub struct WINML_BINDING_DESC(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
+pub struct WINML_BINDING_DESC {
+    pub Name: super::super::super::Foundation::PWSTR,
+    pub BindType: WINML_BINDING_TYPE,
+    pub Anonymous: WINML_BINDING_DESC_0,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
+impl ::core::marker::Copy for WINML_BINDING_DESC {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
+impl ::core::clone::Clone for WINML_BINDING_DESC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
+pub union WINML_BINDING_DESC_0 {
+    pub Tensor: WINML_TENSOR_BINDING_DESC,
+    pub Sequence: WINML_SEQUENCE_BINDING_DESC,
+    pub Map: WINML_MAP_BINDING_DESC,
+    pub Image: WINML_IMAGE_BINDING_DESC,
+    pub Resource: WINML_RESOURCE_BINDING_DESC,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
+impl ::core::clone::Clone for WINML_BINDING_DESC_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WINML_BINDING_TYPE(pub i32);
 pub const WINML_BINDING_UNDEFINED: WINML_BINDING_TYPE = WINML_BINDING_TYPE(0i32);
@@ -141,30 +314,174 @@ pub const WINML_FEATURE_SEQUENCE: WINML_FEATURE_TYPE = WINML_FEATURE_TYPE(2i32);
 pub const WINML_FEATURE_MAP: WINML_FEATURE_TYPE = WINML_FEATURE_TYPE(3i32);
 pub const WINML_FEATURE_IMAGE: WINML_FEATURE_TYPE = WINML_FEATURE_TYPE(4i32);
 #[repr(C)]
-pub struct WINML_IMAGE_BINDING_DESC(i32);
+pub struct WINML_IMAGE_BINDING_DESC {
+    pub ElementType: WINML_TENSOR_DATA_TYPE,
+    pub NumDimensions: u32,
+    pub pShape: *mut i64,
+    pub DataSize: u32,
+    pub pData: *mut ::core::ffi::c_void,
+}
+impl ::core::marker::Copy for WINML_IMAGE_BINDING_DESC {}
+impl ::core::clone::Clone for WINML_IMAGE_BINDING_DESC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WINML_IMAGE_VARIABLE_DESC(i32);
+pub struct WINML_IMAGE_VARIABLE_DESC {
+    pub ElementType: WINML_TENSOR_DATA_TYPE,
+    pub NumDimensions: u32,
+    pub pShape: *mut i64,
+}
+impl ::core::marker::Copy for WINML_IMAGE_VARIABLE_DESC {}
+impl ::core::clone::Clone for WINML_IMAGE_VARIABLE_DESC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct WINML_MAP_BINDING_DESC(i32);
-#[repr(C)]
-pub struct WINML_MAP_VARIABLE_DESC(i32);
+pub struct WINML_MAP_BINDING_DESC {
+    pub ElementCount: u32,
+    pub KeyType: WINML_TENSOR_DATA_TYPE,
+    pub Anonymous1: WINML_MAP_BINDING_DESC_0,
+    pub Fields: WINML_TENSOR_DATA_TYPE,
+    pub Anonymous2: WINML_MAP_BINDING_DESC_1,
+}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WINML_MAP_BINDING_DESC {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WINML_MAP_BINDING_DESC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WINML_MODEL_DESC(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub union WINML_MAP_BINDING_DESC_0 {
+    pub pStringKeys: *mut super::super::super::Foundation::PWSTR,
+    pub pIntKeys: *mut i64,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WINML_MAP_BINDING_DESC_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub union WINML_MAP_BINDING_DESC_1 {
+    pub pStringFields: *mut super::super::super::Foundation::PWSTR,
+    pub pIntFields: *mut i64,
+    pub pFloatFields: *mut f32,
+    pub pDoubleFields: *mut f64,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WINML_MAP_BINDING_DESC_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct WINML_MAP_VARIABLE_DESC {
+    pub KeyType: WINML_TENSOR_DATA_TYPE,
+    pub Fields: WINML_TENSOR_DATA_TYPE,
+}
+impl ::core::marker::Copy for WINML_MAP_VARIABLE_DESC {}
+impl ::core::clone::Clone for WINML_MAP_VARIABLE_DESC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct WINML_MODEL_DESC {
+    pub Author: super::super::super::Foundation::PWSTR,
+    pub Name: super::super::super::Foundation::PWSTR,
+    pub Domain: super::super::super::Foundation::PWSTR,
+    pub Description: super::super::super::Foundation::PWSTR,
+    pub Version: usize,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WINML_MODEL_DESC {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WINML_MODEL_DESC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-#[repr(C)]
-pub struct WINML_RESOURCE_BINDING_DESC(i32);
+pub struct WINML_RESOURCE_BINDING_DESC {
+    pub ElementType: WINML_TENSOR_DATA_TYPE,
+    pub NumDimensions: u32,
+    pub pShape: *mut i64,
+    pub pResource: ::core::option::Option<super::super::super::Graphics::Direct3D12::ID3D12Resource>,
+}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl ::core::marker::Copy for WINML_RESOURCE_BINDING_DESC {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl ::core::clone::Clone for WINML_RESOURCE_BINDING_DESC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WINML_RUNTIME_TYPE(pub i32);
 pub const WINML_RUNTIME_CNTK: WINML_RUNTIME_TYPE = WINML_RUNTIME_TYPE(0i32);
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+pub struct WINML_SEQUENCE_BINDING_DESC {
+    pub ElementCount: u32,
+    pub ElementType: WINML_TENSOR_DATA_TYPE,
+    pub Anonymous: WINML_SEQUENCE_BINDING_DESC_0,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WINML_SEQUENCE_BINDING_DESC {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WINML_SEQUENCE_BINDING_DESC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WINML_SEQUENCE_BINDING_DESC(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub union WINML_SEQUENCE_BINDING_DESC_0 {
+    pub pStrings: *mut super::super::super::Foundation::PWSTR,
+    pub pInts: *mut i64,
+    pub pFloats: *mut f32,
+    pub pDoubles: *mut f64,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WINML_SEQUENCE_BINDING_DESC_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WINML_SEQUENCE_VARIABLE_DESC(i32);
+pub struct WINML_SEQUENCE_VARIABLE_DESC {
+    pub ElementType: WINML_TENSOR_DATA_TYPE,
+}
+impl ::core::marker::Copy for WINML_SEQUENCE_VARIABLE_DESC {}
+impl ::core::clone::Clone for WINML_SEQUENCE_VARIABLE_DESC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WINML_TENSOR_BINDING_DESC(i32);
+pub struct WINML_TENSOR_BINDING_DESC {
+    pub DataType: WINML_TENSOR_DATA_TYPE,
+    pub NumDimensions: u32,
+    pub pShape: *mut i64,
+    pub DataSize: u32,
+    pub pData: *mut ::core::ffi::c_void,
+}
+impl ::core::marker::Copy for WINML_TENSOR_BINDING_DESC {}
+impl ::core::clone::Clone for WINML_TENSOR_BINDING_DESC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WINML_TENSOR_DATA_TYPE(pub i32);
 pub const WINML_TENSOR_UNDEFINED: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(0i32);
@@ -185,7 +502,45 @@ pub const WINML_TENSOR_COMPLEX64: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYP
 pub const WINML_TENSOR_COMPLEX128: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(15i32);
 pub const WINML_TENSOR_DIMENSION_COUNT_MAX: u32 = 4u32;
 #[repr(C)]
-pub struct WINML_TENSOR_VARIABLE_DESC(i32);
-#[cfg(feature = "Win32_Foundation")]
+pub struct WINML_TENSOR_VARIABLE_DESC {
+    pub ElementType: WINML_TENSOR_DATA_TYPE,
+    pub NumDimensions: u32,
+    pub pShape: *mut i64,
+}
+impl ::core::marker::Copy for WINML_TENSOR_VARIABLE_DESC {}
+impl ::core::clone::Clone for WINML_TENSOR_VARIABLE_DESC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WINML_VARIABLE_DESC(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct WINML_VARIABLE_DESC {
+    pub Name: super::super::super::Foundation::PWSTR,
+    pub Description: super::super::super::Foundation::PWSTR,
+    pub FeatureType: WINML_FEATURE_TYPE,
+    pub Required: super::super::super::Foundation::BOOL,
+    pub Anonymous: WINML_VARIABLE_DESC_0,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WINML_VARIABLE_DESC {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WINML_VARIABLE_DESC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub union WINML_VARIABLE_DESC_0 {
+    pub Tensor: WINML_TENSOR_VARIABLE_DESC,
+    pub Sequence: WINML_SEQUENCE_VARIABLE_DESC,
+    pub Map: WINML_MAP_VARIABLE_DESC,
+    pub Image: WINML_IMAGE_VARIABLE_DESC,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WINML_VARIABLE_DESC_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

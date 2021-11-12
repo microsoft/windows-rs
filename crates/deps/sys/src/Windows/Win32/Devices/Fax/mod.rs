@@ -170,26 +170,170 @@ pub const faetOUT_QUEUE: FAX_ACCOUNT_EVENTS_TYPE_ENUM = FAX_ACCOUNT_EVENTS_TYPE_
 pub const faetIN_ARCHIVE: FAX_ACCOUNT_EVENTS_TYPE_ENUM = FAX_ACCOUNT_EVENTS_TYPE_ENUM(4i32);
 pub const faetOUT_ARCHIVE: FAX_ACCOUNT_EVENTS_TYPE_ENUM = FAX_ACCOUNT_EVENTS_TYPE_ENUM(8i32);
 pub const faetFXSSVC_ENDED: FAX_ACCOUNT_EVENTS_TYPE_ENUM = FAX_ACCOUNT_EVENTS_TYPE_ENUM(16i32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct FAX_CONFIGURATIONA(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct FAX_CONFIGURATIONA {
+    pub SizeOfStruct: u32,
+    pub Retries: u32,
+    pub RetryDelay: u32,
+    pub DirtyDays: u32,
+    pub Branding: super::super::Foundation::BOOL,
+    pub UseDeviceTsid: super::super::Foundation::BOOL,
+    pub ServerCp: super::super::Foundation::BOOL,
+    pub PauseServerQueue: super::super::Foundation::BOOL,
+    pub StartCheapTime: FAX_TIME,
+    pub StopCheapTime: FAX_TIME,
+    pub ArchiveOutgoingFaxes: super::super::Foundation::BOOL,
+    pub ArchiveDirectory: super::super::Foundation::PSTR,
+    pub Reserved: super::super::Foundation::PSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for FAX_CONFIGURATIONA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for FAX_CONFIGURATIONA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct FAX_CONFIGURATIONW(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct FAX_CONFIGURATIONW {
+    pub SizeOfStruct: u32,
+    pub Retries: u32,
+    pub RetryDelay: u32,
+    pub DirtyDays: u32,
+    pub Branding: super::super::Foundation::BOOL,
+    pub UseDeviceTsid: super::super::Foundation::BOOL,
+    pub ServerCp: super::super::Foundation::BOOL,
+    pub PauseServerQueue: super::super::Foundation::BOOL,
+    pub StartCheapTime: FAX_TIME,
+    pub StopCheapTime: FAX_TIME,
+    pub ArchiveOutgoingFaxes: super::super::Foundation::BOOL,
+    pub ArchiveDirectory: super::super::Foundation::PWSTR,
+    pub Reserved: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for FAX_CONFIGURATIONW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for FAX_CONFIGURATIONW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const FAX_CONFIG_QUERY: u32 = 4u32;
 pub const FAX_CONFIG_SET: u32 = 8u32;
+#[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+pub struct FAX_CONTEXT_INFOA {
+    pub SizeOfStruct: u32,
+    pub hDC: super::super::Graphics::Gdi::HDC,
+    pub ServerName: [super::super::Foundation::CHAR; 16],
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::marker::Copy for FAX_CONTEXT_INFOA {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::clone::Clone for FAX_CONTEXT_INFOA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct FAX_CONTEXT_INFOA(i32);
 #[cfg(feature = "Win32_Graphics_Gdi")]
+pub struct FAX_CONTEXT_INFOW {
+    pub SizeOfStruct: u32,
+    pub hDC: super::super::Graphics::Gdi::HDC,
+    pub ServerName: [u16; 16],
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::core::marker::Copy for FAX_CONTEXT_INFOW {}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::core::clone::Clone for FAX_CONTEXT_INFOW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct FAX_CONTEXT_INFOW(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct FAX_COVERPAGE_INFOA(i32);
+pub struct FAX_COVERPAGE_INFOA {
+    pub SizeOfStruct: u32,
+    pub CoverPageName: super::super::Foundation::PSTR,
+    pub UseServerCoverPage: super::super::Foundation::BOOL,
+    pub RecName: super::super::Foundation::PSTR,
+    pub RecFaxNumber: super::super::Foundation::PSTR,
+    pub RecCompany: super::super::Foundation::PSTR,
+    pub RecStreetAddress: super::super::Foundation::PSTR,
+    pub RecCity: super::super::Foundation::PSTR,
+    pub RecState: super::super::Foundation::PSTR,
+    pub RecZip: super::super::Foundation::PSTR,
+    pub RecCountry: super::super::Foundation::PSTR,
+    pub RecTitle: super::super::Foundation::PSTR,
+    pub RecDepartment: super::super::Foundation::PSTR,
+    pub RecOfficeLocation: super::super::Foundation::PSTR,
+    pub RecHomePhone: super::super::Foundation::PSTR,
+    pub RecOfficePhone: super::super::Foundation::PSTR,
+    pub SdrName: super::super::Foundation::PSTR,
+    pub SdrFaxNumber: super::super::Foundation::PSTR,
+    pub SdrCompany: super::super::Foundation::PSTR,
+    pub SdrAddress: super::super::Foundation::PSTR,
+    pub SdrTitle: super::super::Foundation::PSTR,
+    pub SdrDepartment: super::super::Foundation::PSTR,
+    pub SdrOfficeLocation: super::super::Foundation::PSTR,
+    pub SdrHomePhone: super::super::Foundation::PSTR,
+    pub SdrOfficePhone: super::super::Foundation::PSTR,
+    pub Note: super::super::Foundation::PSTR,
+    pub Subject: super::super::Foundation::PSTR,
+    pub TimeSent: super::super::Foundation::SYSTEMTIME,
+    pub PageCount: u32,
+}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for FAX_COVERPAGE_INFOA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for FAX_COVERPAGE_INFOA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct FAX_COVERPAGE_INFOW(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct FAX_COVERPAGE_INFOW {
+    pub SizeOfStruct: u32,
+    pub CoverPageName: super::super::Foundation::PWSTR,
+    pub UseServerCoverPage: super::super::Foundation::BOOL,
+    pub RecName: super::super::Foundation::PWSTR,
+    pub RecFaxNumber: super::super::Foundation::PWSTR,
+    pub RecCompany: super::super::Foundation::PWSTR,
+    pub RecStreetAddress: super::super::Foundation::PWSTR,
+    pub RecCity: super::super::Foundation::PWSTR,
+    pub RecState: super::super::Foundation::PWSTR,
+    pub RecZip: super::super::Foundation::PWSTR,
+    pub RecCountry: super::super::Foundation::PWSTR,
+    pub RecTitle: super::super::Foundation::PWSTR,
+    pub RecDepartment: super::super::Foundation::PWSTR,
+    pub RecOfficeLocation: super::super::Foundation::PWSTR,
+    pub RecHomePhone: super::super::Foundation::PWSTR,
+    pub RecOfficePhone: super::super::Foundation::PWSTR,
+    pub SdrName: super::super::Foundation::PWSTR,
+    pub SdrFaxNumber: super::super::Foundation::PWSTR,
+    pub SdrCompany: super::super::Foundation::PWSTR,
+    pub SdrAddress: super::super::Foundation::PWSTR,
+    pub SdrTitle: super::super::Foundation::PWSTR,
+    pub SdrDepartment: super::super::Foundation::PWSTR,
+    pub SdrOfficeLocation: super::super::Foundation::PWSTR,
+    pub SdrHomePhone: super::super::Foundation::PWSTR,
+    pub SdrOfficePhone: super::super::Foundation::PWSTR,
+    pub Note: super::super::Foundation::PWSTR,
+    pub Subject: super::super::Foundation::PWSTR,
+    pub TimeSent: super::super::Foundation::SYSTEMTIME,
+    pub PageCount: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for FAX_COVERPAGE_INFOW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for FAX_COVERPAGE_INFOW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct FAX_COVERPAGE_TYPE_ENUM(pub i32);
 pub const fcptNONE: FAX_COVERPAGE_TYPE_ENUM = FAX_COVERPAGE_TYPE_ENUM(0i32);
@@ -200,15 +344,91 @@ pub struct FAX_DEVICE_RECEIVE_MODE_ENUM(pub i32);
 pub const fdrmNO_ANSWER: FAX_DEVICE_RECEIVE_MODE_ENUM = FAX_DEVICE_RECEIVE_MODE_ENUM(0i32);
 pub const fdrmAUTO_ANSWER: FAX_DEVICE_RECEIVE_MODE_ENUM = FAX_DEVICE_RECEIVE_MODE_ENUM(1i32);
 pub const fdrmMANUAL_ANSWER: FAX_DEVICE_RECEIVE_MODE_ENUM = FAX_DEVICE_RECEIVE_MODE_ENUM(2i32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct FAX_DEVICE_STATUSA(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct FAX_DEVICE_STATUSW(i32);
+pub struct FAX_DEVICE_STATUSA {
+    pub SizeOfStruct: u32,
+    pub CallerId: super::super::Foundation::PSTR,
+    pub Csid: super::super::Foundation::PSTR,
+    pub CurrentPage: u32,
+    pub DeviceId: u32,
+    pub DeviceName: super::super::Foundation::PSTR,
+    pub DocumentName: super::super::Foundation::PSTR,
+    pub JobType: u32,
+    pub PhoneNumber: super::super::Foundation::PSTR,
+    pub RoutingString: super::super::Foundation::PSTR,
+    pub SenderName: super::super::Foundation::PSTR,
+    pub RecipientName: super::super::Foundation::PSTR,
+    pub Size: u32,
+    pub StartTime: super::super::Foundation::FILETIME,
+    pub Status: u32,
+    pub StatusString: super::super::Foundation::PSTR,
+    pub SubmittedTime: super::super::Foundation::FILETIME,
+    pub TotalPages: u32,
+    pub Tsid: super::super::Foundation::PSTR,
+    pub UserName: super::super::Foundation::PSTR,
+}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for FAX_DEVICE_STATUSA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for FAX_DEVICE_STATUSA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct FAX_DEV_STATUS(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct FAX_DEVICE_STATUSW {
+    pub SizeOfStruct: u32,
+    pub CallerId: super::super::Foundation::PWSTR,
+    pub Csid: super::super::Foundation::PWSTR,
+    pub CurrentPage: u32,
+    pub DeviceId: u32,
+    pub DeviceName: super::super::Foundation::PWSTR,
+    pub DocumentName: super::super::Foundation::PWSTR,
+    pub JobType: u32,
+    pub PhoneNumber: super::super::Foundation::PWSTR,
+    pub RoutingString: super::super::Foundation::PWSTR,
+    pub SenderName: super::super::Foundation::PWSTR,
+    pub RecipientName: super::super::Foundation::PWSTR,
+    pub Size: u32,
+    pub StartTime: super::super::Foundation::FILETIME,
+    pub Status: u32,
+    pub StatusString: super::super::Foundation::PWSTR,
+    pub SubmittedTime: super::super::Foundation::FILETIME,
+    pub TotalPages: u32,
+    pub Tsid: super::super::Foundation::PWSTR,
+    pub UserName: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for FAX_DEVICE_STATUSW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for FAX_DEVICE_STATUSW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct FAX_DEV_STATUS {
+    pub SizeOfStruct: u32,
+    pub StatusId: u32,
+    pub StringId: u32,
+    pub PageCount: u32,
+    pub CSI: super::super::Foundation::PWSTR,
+    pub CallerId: super::super::Foundation::PWSTR,
+    pub RoutingInfo: super::super::Foundation::PWSTR,
+    pub ErrorCode: u32,
+    pub Reserved: [u32; 3],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for FAX_DEV_STATUS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for FAX_DEV_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct FAX_ENUM_DELIVERY_REPORT_TYPES(pub i32);
 pub const DRT_NONE: FAX_ENUM_DELIVERY_REPORT_TYPES = FAX_ENUM_DELIVERY_REPORT_TYPES(0i32);
@@ -260,12 +480,40 @@ pub const FAX_ERR_RULE_NOT_FOUND: i32 = 7005i32;
 pub const FAX_ERR_SRV_OUTOFMEMORY: i32 = 7001i32;
 pub const FAX_ERR_START: i32 = 7001i32;
 pub const FAX_ERR_VERSION_MISMATCH: i32 = 7012i32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct FAX_EVENTA(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct FAX_EVENTA {
+    pub SizeOfStruct: u32,
+    pub TimeStamp: super::super::Foundation::FILETIME,
+    pub DeviceId: u32,
+    pub EventId: u32,
+    pub JobId: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for FAX_EVENTA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for FAX_EVENTA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct FAX_EVENTW(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct FAX_EVENTW {
+    pub SizeOfStruct: u32,
+    pub TimeStamp: super::super::Foundation::FILETIME,
+    pub DeviceId: u32,
+    pub EventId: u32,
+    pub JobId: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for FAX_EVENTW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for FAX_EVENTW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const FAX_E_BAD_GROUP_CONFIGURATION: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147214501i32 as _);
 pub const FAX_E_DEVICE_NUM_LIMIT_EXCEEDED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147214494i32 as _);
 pub const FAX_E_DIRECTORY_IN_USE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147214497i32 as _);
@@ -279,24 +527,114 @@ pub const FAX_E_RECIPIENTS_LIMIT: ::windows_sys::core::HRESULT = ::windows_sys::
 pub const FAX_E_RULE_NOT_FOUND: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147214499i32 as _);
 pub const FAX_E_SRV_OUTOFMEMORY: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147214503i32 as _);
 pub const FAX_E_VERSION_MISMATCH: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147214492i32 as _);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct FAX_GLOBAL_ROUTING_INFOA(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct FAX_GLOBAL_ROUTING_INFOA {
+    pub SizeOfStruct: u32,
+    pub Priority: u32,
+    pub Guid: super::super::Foundation::PSTR,
+    pub FriendlyName: super::super::Foundation::PSTR,
+    pub FunctionName: super::super::Foundation::PSTR,
+    pub ExtensionImageName: super::super::Foundation::PSTR,
+    pub ExtensionFriendlyName: super::super::Foundation::PSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for FAX_GLOBAL_ROUTING_INFOA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for FAX_GLOBAL_ROUTING_INFOA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct FAX_GLOBAL_ROUTING_INFOW(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct FAX_GLOBAL_ROUTING_INFOW {
+    pub SizeOfStruct: u32,
+    pub Priority: u32,
+    pub Guid: super::super::Foundation::PWSTR,
+    pub FriendlyName: super::super::Foundation::PWSTR,
+    pub FunctionName: super::super::Foundation::PWSTR,
+    pub ExtensionImageName: super::super::Foundation::PWSTR,
+    pub ExtensionFriendlyName: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for FAX_GLOBAL_ROUTING_INFOW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for FAX_GLOBAL_ROUTING_INFOW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct FAX_GROUP_STATUS_ENUM(pub i32);
 pub const fgsALL_DEV_VALID: FAX_GROUP_STATUS_ENUM = FAX_GROUP_STATUS_ENUM(0i32);
 pub const fgsEMPTY: FAX_GROUP_STATUS_ENUM = FAX_GROUP_STATUS_ENUM(1i32);
 pub const fgsALL_DEV_NOT_VALID: FAX_GROUP_STATUS_ENUM = FAX_GROUP_STATUS_ENUM(2i32);
 pub const fgsSOME_DEV_NOT_VALID: FAX_GROUP_STATUS_ENUM = FAX_GROUP_STATUS_ENUM(3i32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct FAX_JOB_ENTRYA(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct FAX_JOB_ENTRYA {
+    pub SizeOfStruct: u32,
+    pub JobId: u32,
+    pub UserName: super::super::Foundation::PSTR,
+    pub JobType: u32,
+    pub QueueStatus: u32,
+    pub Status: u32,
+    pub Size: u32,
+    pub PageCount: u32,
+    pub RecipientNumber: super::super::Foundation::PSTR,
+    pub RecipientName: super::super::Foundation::PSTR,
+    pub Tsid: super::super::Foundation::PSTR,
+    pub SenderName: super::super::Foundation::PSTR,
+    pub SenderCompany: super::super::Foundation::PSTR,
+    pub SenderDept: super::super::Foundation::PSTR,
+    pub BillingCode: super::super::Foundation::PSTR,
+    pub ScheduleAction: u32,
+    pub ScheduleTime: super::super::Foundation::SYSTEMTIME,
+    pub DeliveryReportType: u32,
+    pub DeliveryReportAddress: super::super::Foundation::PSTR,
+    pub DocumentName: super::super::Foundation::PSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for FAX_JOB_ENTRYA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for FAX_JOB_ENTRYA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct FAX_JOB_ENTRYW(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct FAX_JOB_ENTRYW {
+    pub SizeOfStruct: u32,
+    pub JobId: u32,
+    pub UserName: super::super::Foundation::PWSTR,
+    pub JobType: u32,
+    pub QueueStatus: u32,
+    pub Status: u32,
+    pub Size: u32,
+    pub PageCount: u32,
+    pub RecipientNumber: super::super::Foundation::PWSTR,
+    pub RecipientName: super::super::Foundation::PWSTR,
+    pub Tsid: super::super::Foundation::PWSTR,
+    pub SenderName: super::super::Foundation::PWSTR,
+    pub SenderCompany: super::super::Foundation::PWSTR,
+    pub SenderDept: super::super::Foundation::PWSTR,
+    pub BillingCode: super::super::Foundation::PWSTR,
+    pub ScheduleAction: u32,
+    pub ScheduleTime: super::super::Foundation::SYSTEMTIME,
+    pub DeliveryReportType: u32,
+    pub DeliveryReportAddress: super::super::Foundation::PWSTR,
+    pub DocumentName: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for FAX_JOB_ENTRYW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for FAX_JOB_ENTRYW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct FAX_JOB_EXTENDED_STATUS_ENUM(pub i32);
 pub const fjesNONE: FAX_JOB_EXTENDED_STATUS_ENUM = FAX_JOB_EXTENDED_STATUS_ENUM(0i32);
@@ -330,12 +668,60 @@ pub const fjoRESTART: FAX_JOB_OPERATIONS_ENUM = FAX_JOB_OPERATIONS_ENUM(8i32);
 pub const fjoDELETE: FAX_JOB_OPERATIONS_ENUM = FAX_JOB_OPERATIONS_ENUM(16i32);
 pub const fjoRECIPIENT_INFO: FAX_JOB_OPERATIONS_ENUM = FAX_JOB_OPERATIONS_ENUM(32i32);
 pub const fjoSENDER_INFO: FAX_JOB_OPERATIONS_ENUM = FAX_JOB_OPERATIONS_ENUM(64i32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct FAX_JOB_PARAMA(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct FAX_JOB_PARAMA {
+    pub SizeOfStruct: u32,
+    pub RecipientNumber: super::super::Foundation::PSTR,
+    pub RecipientName: super::super::Foundation::PSTR,
+    pub Tsid: super::super::Foundation::PSTR,
+    pub SenderName: super::super::Foundation::PSTR,
+    pub SenderCompany: super::super::Foundation::PSTR,
+    pub SenderDept: super::super::Foundation::PSTR,
+    pub BillingCode: super::super::Foundation::PSTR,
+    pub ScheduleAction: u32,
+    pub ScheduleTime: super::super::Foundation::SYSTEMTIME,
+    pub DeliveryReportType: u32,
+    pub DeliveryReportAddress: super::super::Foundation::PSTR,
+    pub DocumentName: super::super::Foundation::PSTR,
+    pub CallHandle: u32,
+    pub Reserved: [usize; 3],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for FAX_JOB_PARAMA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for FAX_JOB_PARAMA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct FAX_JOB_PARAMW(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct FAX_JOB_PARAMW {
+    pub SizeOfStruct: u32,
+    pub RecipientNumber: super::super::Foundation::PWSTR,
+    pub RecipientName: super::super::Foundation::PWSTR,
+    pub Tsid: super::super::Foundation::PWSTR,
+    pub SenderName: super::super::Foundation::PWSTR,
+    pub SenderCompany: super::super::Foundation::PWSTR,
+    pub SenderDept: super::super::Foundation::PWSTR,
+    pub BillingCode: super::super::Foundation::PWSTR,
+    pub ScheduleAction: u32,
+    pub ScheduleTime: super::super::Foundation::SYSTEMTIME,
+    pub DeliveryReportType: u32,
+    pub DeliveryReportAddress: super::super::Foundation::PWSTR,
+    pub DocumentName: super::super::Foundation::PWSTR,
+    pub CallHandle: u32,
+    pub Reserved: [usize; 3],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for FAX_JOB_PARAMW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for FAX_JOB_PARAMW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const FAX_JOB_QUERY: u32 = 2u32;
 #[repr(transparent)]
 pub struct FAX_JOB_STATUS_ENUM(pub i32);
@@ -356,32 +742,132 @@ pub struct FAX_JOB_TYPE_ENUM(pub i32);
 pub const fjtSEND: FAX_JOB_TYPE_ENUM = FAX_JOB_TYPE_ENUM(0i32);
 pub const fjtRECEIVE: FAX_JOB_TYPE_ENUM = FAX_JOB_TYPE_ENUM(1i32);
 pub const fjtROUTING: FAX_JOB_TYPE_ENUM = FAX_JOB_TYPE_ENUM(2i32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct FAX_LOG_CATEGORYA(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct FAX_LOG_CATEGORYA {
+    pub Name: super::super::Foundation::PSTR,
+    pub Category: u32,
+    pub Level: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for FAX_LOG_CATEGORYA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for FAX_LOG_CATEGORYA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct FAX_LOG_CATEGORYW(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct FAX_LOG_CATEGORYW {
+    pub Name: super::super::Foundation::PWSTR,
+    pub Category: u32,
+    pub Level: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for FAX_LOG_CATEGORYW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for FAX_LOG_CATEGORYW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct FAX_LOG_LEVEL_ENUM(pub i32);
 pub const fllNONE: FAX_LOG_LEVEL_ENUM = FAX_LOG_LEVEL_ENUM(0i32);
 pub const fllMIN: FAX_LOG_LEVEL_ENUM = FAX_LOG_LEVEL_ENUM(1i32);
 pub const fllMED: FAX_LOG_LEVEL_ENUM = FAX_LOG_LEVEL_ENUM(2i32);
 pub const fllMAX: FAX_LOG_LEVEL_ENUM = FAX_LOG_LEVEL_ENUM(3i32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct FAX_PORT_INFOA(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct FAX_PORT_INFOA {
+    pub SizeOfStruct: u32,
+    pub DeviceId: u32,
+    pub State: u32,
+    pub Flags: u32,
+    pub Rings: u32,
+    pub Priority: u32,
+    pub DeviceName: super::super::Foundation::PSTR,
+    pub Tsid: super::super::Foundation::PSTR,
+    pub Csid: super::super::Foundation::PSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for FAX_PORT_INFOA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for FAX_PORT_INFOA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct FAX_PORT_INFOW(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct FAX_PORT_INFOW {
+    pub SizeOfStruct: u32,
+    pub DeviceId: u32,
+    pub State: u32,
+    pub Flags: u32,
+    pub Rings: u32,
+    pub Priority: u32,
+    pub DeviceName: super::super::Foundation::PWSTR,
+    pub Tsid: super::super::Foundation::PWSTR,
+    pub Csid: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for FAX_PORT_INFOW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for FAX_PORT_INFOW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const FAX_PORT_QUERY: u32 = 16u32;
 pub const FAX_PORT_SET: u32 = 32u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct FAX_PRINT_INFOA(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct FAX_PRINT_INFOA {
+    pub SizeOfStruct: u32,
+    pub DocName: super::super::Foundation::PSTR,
+    pub RecipientName: super::super::Foundation::PSTR,
+    pub RecipientNumber: super::super::Foundation::PSTR,
+    pub SenderName: super::super::Foundation::PSTR,
+    pub SenderCompany: super::super::Foundation::PSTR,
+    pub SenderDept: super::super::Foundation::PSTR,
+    pub SenderBillingCode: super::super::Foundation::PSTR,
+    pub Reserved: super::super::Foundation::PSTR,
+    pub DrEmailAddress: super::super::Foundation::PSTR,
+    pub OutputFileName: super::super::Foundation::PSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for FAX_PRINT_INFOA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for FAX_PRINT_INFOA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct FAX_PRINT_INFOW(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct FAX_PRINT_INFOW {
+    pub SizeOfStruct: u32,
+    pub DocName: super::super::Foundation::PWSTR,
+    pub RecipientName: super::super::Foundation::PWSTR,
+    pub RecipientNumber: super::super::Foundation::PWSTR,
+    pub SenderName: super::super::Foundation::PWSTR,
+    pub SenderCompany: super::super::Foundation::PWSTR,
+    pub SenderDept: super::super::Foundation::PWSTR,
+    pub SenderBillingCode: super::super::Foundation::PWSTR,
+    pub Reserved: super::super::Foundation::PWSTR,
+    pub DrEmailAddress: super::super::Foundation::PWSTR,
+    pub OutputFileName: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for FAX_PRINT_INFOW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for FAX_PRINT_INFOW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct FAX_PRIORITY_TYPE_ENUM(pub i32);
 pub const fptLOW: FAX_PRIORITY_TYPE_ENUM = FAX_PRIORITY_TYPE_ENUM(0i32);
@@ -401,21 +887,110 @@ pub struct FAX_RECEIPT_TYPE_ENUM(pub i32);
 pub const frtNONE: FAX_RECEIPT_TYPE_ENUM = FAX_RECEIPT_TYPE_ENUM(0i32);
 pub const frtMAIL: FAX_RECEIPT_TYPE_ENUM = FAX_RECEIPT_TYPE_ENUM(1i32);
 pub const frtMSGBOX: FAX_RECEIPT_TYPE_ENUM = FAX_RECEIPT_TYPE_ENUM(4i32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct FAX_RECEIVE(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct FAX_ROUTE(i32);
+pub struct FAX_RECEIVE {
+    pub SizeOfStruct: u32,
+    pub FileName: super::super::Foundation::PWSTR,
+    pub ReceiverName: super::super::Foundation::PWSTR,
+    pub ReceiverNumber: super::super::Foundation::PWSTR,
+    pub Reserved: [u32; 4],
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct FAX_ROUTE_CALLBACKROUTINES(i32);
+impl ::core::marker::Copy for FAX_RECEIVE {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for FAX_RECEIVE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct FAX_ROUTING_METHODA(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct FAX_ROUTE {
+    pub SizeOfStruct: u32,
+    pub JobId: u32,
+    pub ElapsedTime: u64,
+    pub ReceiveTime: u64,
+    pub PageCount: u32,
+    pub Csid: super::super::Foundation::PWSTR,
+    pub Tsid: super::super::Foundation::PWSTR,
+    pub CallerId: super::super::Foundation::PWSTR,
+    pub RoutingInfo: super::super::Foundation::PWSTR,
+    pub ReceiverName: super::super::Foundation::PWSTR,
+    pub ReceiverNumber: super::super::Foundation::PWSTR,
+    pub DeviceName: super::super::Foundation::PWSTR,
+    pub DeviceId: u32,
+    pub RoutingInfoData: *mut u8,
+    pub RoutingInfoDataSize: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for FAX_ROUTE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for FAX_ROUTE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct FAX_ROUTING_METHODW(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct FAX_ROUTE_CALLBACKROUTINES {
+    pub SizeOfStruct: u32,
+    pub FaxRouteAddFile: ::core::option::Option<PFAXROUTEADDFILE>,
+    pub FaxRouteDeleteFile: ::core::option::Option<PFAXROUTEDELETEFILE>,
+    pub FaxRouteGetFile: ::core::option::Option<PFAXROUTEGETFILE>,
+    pub FaxRouteEnumFiles: ::core::option::Option<PFAXROUTEENUMFILES>,
+    pub FaxRouteModifyRoutingData: ::core::option::Option<PFAXROUTEMODIFYROUTINGDATA>,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for FAX_ROUTE_CALLBACKROUTINES {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for FAX_ROUTE_CALLBACKROUTINES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct FAX_ROUTING_METHODA {
+    pub SizeOfStruct: u32,
+    pub DeviceId: u32,
+    pub Enabled: super::super::Foundation::BOOL,
+    pub DeviceName: super::super::Foundation::PSTR,
+    pub Guid: super::super::Foundation::PSTR,
+    pub FriendlyName: super::super::Foundation::PSTR,
+    pub FunctionName: super::super::Foundation::PSTR,
+    pub ExtensionImageName: super::super::Foundation::PSTR,
+    pub ExtensionFriendlyName: super::super::Foundation::PSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for FAX_ROUTING_METHODA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for FAX_ROUTING_METHODA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct FAX_ROUTING_METHODW {
+    pub SizeOfStruct: u32,
+    pub DeviceId: u32,
+    pub Enabled: super::super::Foundation::BOOL,
+    pub DeviceName: super::super::Foundation::PWSTR,
+    pub Guid: super::super::Foundation::PWSTR,
+    pub FriendlyName: super::super::Foundation::PWSTR,
+    pub FunctionName: super::super::Foundation::PWSTR,
+    pub ExtensionImageName: super::super::Foundation::PWSTR,
+    pub ExtensionFriendlyName: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for FAX_ROUTING_METHODW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for FAX_ROUTING_METHODW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct FAX_ROUTING_RULE_CODE_ENUM(pub i32);
 pub const frrcANY_CODE: FAX_ROUTING_RULE_CODE_ENUM = FAX_ROUTING_RULE_CODE_ENUM(0i32);
@@ -431,9 +1006,27 @@ pub struct FAX_SCHEDULE_TYPE_ENUM(pub i32);
 pub const fstNOW: FAX_SCHEDULE_TYPE_ENUM = FAX_SCHEDULE_TYPE_ENUM(0i32);
 pub const fstSPECIFIC_TIME: FAX_SCHEDULE_TYPE_ENUM = FAX_SCHEDULE_TYPE_ENUM(1i32);
 pub const fstDISCOUNT_PERIOD: FAX_SCHEDULE_TYPE_ENUM = FAX_SCHEDULE_TYPE_ENUM(2i32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct FAX_SEND(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct FAX_SEND {
+    pub SizeOfStruct: u32,
+    pub FileName: super::super::Foundation::PWSTR,
+    pub CallerName: super::super::Foundation::PWSTR,
+    pub CallerNumber: super::super::Foundation::PWSTR,
+    pub ReceiverName: super::super::Foundation::PWSTR,
+    pub ReceiverNumber: super::super::Foundation::PWSTR,
+    pub Branding: super::super::Foundation::BOOL,
+    pub CallHandle: u32,
+    pub Reserved: [u32; 3],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for FAX_SEND {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for FAX_SEND {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct FAX_SERVER_APIVERSION_ENUM(pub i32);
 pub const fsAPI_VERSION_0: FAX_SERVER_APIVERSION_ENUM = FAX_SERVER_APIVERSION_ENUM(0i32);
@@ -459,7 +1052,16 @@ pub const fsatANONYMOUS: FAX_SMTP_AUTHENTICATION_TYPE_ENUM = FAX_SMTP_AUTHENTICA
 pub const fsatBASIC: FAX_SMTP_AUTHENTICATION_TYPE_ENUM = FAX_SMTP_AUTHENTICATION_TYPE_ENUM(1i32);
 pub const fsatNTLM: FAX_SMTP_AUTHENTICATION_TYPE_ENUM = FAX_SMTP_AUTHENTICATION_TYPE_ENUM(2i32);
 #[repr(C)]
-pub struct FAX_TIME(i32);
+pub struct FAX_TIME {
+    pub Hour: u16,
+    pub Minute: u16,
+}
+impl ::core::marker::Copy for FAX_TIME {}
+impl ::core::clone::Clone for FAX_TIME {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const FEI_ABORTING: u32 = 15u32;
 pub const FEI_ANSWERED: u32 = 21u32;
 pub const FEI_BAD_ADDRESS: u32 = 7u32;
@@ -1063,19 +1665,63 @@ pub const STIERR_READONLY: i32 = -2147024891i32;
 pub const STIERR_SHARING_VIOLATION: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147024864i32 as _);
 pub const STIERR_UNSUPPORTED: i32 = -2147467263i32;
 #[repr(C)]
-pub struct STINOTIFY(i32);
-#[cfg(feature = "Win32_Foundation")]
+pub struct STINOTIFY {
+    pub dwSize: u32,
+    pub guidNotificationCode: ::windows_sys::core::GUID,
+    pub abNotificationData: [u8; 64],
+}
+impl ::core::marker::Copy for STINOTIFY {}
+impl ::core::clone::Clone for STINOTIFY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct STISUBSCRIBE(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct STISUBSCRIBE {
+    pub dwSize: u32,
+    pub dwFlags: u32,
+    pub dwFilter: u32,
+    pub hWndNotify: super::super::Foundation::HWND,
+    pub hEvent: super::super::Foundation::HANDLE,
+    pub uiNotificationMessage: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for STISUBSCRIBE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for STISUBSCRIBE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const STI_CHANGENOEFFECT: i32 = 1i32;
 pub const STI_DEVICE_CREATE_BOTH: u32 = 3u32;
 pub const STI_DEVICE_CREATE_DATA: u32 = 2u32;
 pub const STI_DEVICE_CREATE_FOR_MONITOR: u32 = 16777216u32;
 pub const STI_DEVICE_CREATE_MASK: u32 = 65535u32;
 pub const STI_DEVICE_CREATE_STATUS: u32 = 1u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct STI_DEVICE_INFORMATIONW(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct STI_DEVICE_INFORMATIONW {
+    pub dwSize: u32,
+    pub DeviceType: u32,
+    pub szDeviceInternalName: [u16; 128],
+    pub DeviceCapabilitiesA: STI_DEV_CAPS,
+    pub dwHardwareConfiguration: u32,
+    pub pszVendorDescription: super::super::Foundation::PWSTR,
+    pub pszDeviceDescription: super::super::Foundation::PWSTR,
+    pub pszPortName: super::super::Foundation::PWSTR,
+    pub pszPropProvider: super::super::Foundation::PWSTR,
+    pub pszLocalName: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for STI_DEVICE_INFORMATIONW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for STI_DEVICE_INFORMATIONW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct STI_DEVICE_MJ_TYPE(pub i32);
 pub const StiDeviceTypeDefault: STI_DEVICE_MJ_TYPE = STI_DEVICE_MJ_TYPE(0i32);
@@ -1083,13 +1729,46 @@ pub const StiDeviceTypeScanner: STI_DEVICE_MJ_TYPE = STI_DEVICE_MJ_TYPE(1i32);
 pub const StiDeviceTypeDigitalCamera: STI_DEVICE_MJ_TYPE = STI_DEVICE_MJ_TYPE(2i32);
 pub const StiDeviceTypeStreamingVideo: STI_DEVICE_MJ_TYPE = STI_DEVICE_MJ_TYPE(3i32);
 #[repr(C)]
-pub struct STI_DEVICE_STATUS(i32);
+pub struct STI_DEVICE_STATUS {
+    pub dwSize: u32,
+    pub StatusMask: u32,
+    pub dwOnlineState: u32,
+    pub dwHardwareStatusCode: u32,
+    pub dwEventHandlingState: u32,
+    pub dwPollingInterval: u32,
+}
+impl ::core::marker::Copy for STI_DEVICE_STATUS {}
+impl ::core::clone::Clone for STI_DEVICE_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const STI_DEVSTATUS_EVENTS_STATE: u32 = 2u32;
 pub const STI_DEVSTATUS_ONLINE_STATE: u32 = 1u32;
 #[repr(C)]
-pub struct STI_DEV_CAPS(i32);
+pub struct STI_DEV_CAPS {
+    pub dwGeneric: u32,
+}
+impl ::core::marker::Copy for STI_DEV_CAPS {}
+impl ::core::clone::Clone for STI_DEV_CAPS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct STI_DIAG(i32);
+pub struct STI_DIAG {
+    pub dwSize: u32,
+    pub dwBasicDiagCode: u32,
+    pub dwVendorDiagCode: u32,
+    pub dwStatusMask: u32,
+    pub sErrorInfo: _ERROR_INFOW,
+}
+impl ::core::marker::Copy for STI_DIAG {}
+impl ::core::clone::Clone for STI_DIAG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const STI_DIAGCODE_HWPRESENCE: u32 = 1u32;
 pub const STI_ERROR_NO_ERROR: i32 = 0i32;
 pub const STI_EVENTHANDLING_ENABLED: u32 = 1u32;
@@ -1131,23 +1810,64 @@ pub const STI_TRACE_INFORMATION: u32 = 1u32;
 pub const STI_TRACE_WARNING: u32 = 2u32;
 pub const STI_UNICODE: u32 = 1u32;
 #[repr(C)]
-pub struct STI_USD_CAPS(i32);
+pub struct STI_USD_CAPS {
+    pub dwVersion: u32,
+    pub dwGenericCaps: u32,
+}
+impl ::core::marker::Copy for STI_USD_CAPS {}
+impl ::core::clone::Clone for STI_USD_CAPS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const STI_USD_GENCAP_NATIVE_PUSHSUPPORT: u32 = 1u32;
 pub const STI_VERSION: u32 = 2u32;
 pub const STI_VERSION_FLAG_MASK: u32 = 4278190080u32;
 pub const STI_VERSION_FLAG_UNICODE: u32 = 16777216u32;
 pub const STI_VERSION_MIN_ALLOWED: u32 = 2u32;
 pub const STI_VERSION_REAL: u32 = 2u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct STI_WIA_DEVICE_INFORMATIONW(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct STI_WIA_DEVICE_INFORMATIONW {
+    pub dwSize: u32,
+    pub DeviceType: u32,
+    pub szDeviceInternalName: [u16; 128],
+    pub DeviceCapabilitiesA: STI_DEV_CAPS,
+    pub dwHardwareConfiguration: u32,
+    pub pszVendorDescription: super::super::Foundation::PWSTR,
+    pub pszDeviceDescription: super::super::Foundation::PWSTR,
+    pub pszPortName: super::super::Foundation::PWSTR,
+    pub pszPropProvider: super::super::Foundation::PWSTR,
+    pub pszLocalName: super::super::Foundation::PWSTR,
+    pub pszUiDll: super::super::Foundation::PWSTR,
+    pub pszServer: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for STI_WIA_DEVICE_INFORMATIONW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for STI_WIA_DEVICE_INFORMATIONW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SUPPORTS_MSCPLUS_VAL: u32 = 1u32;
 #[repr(transparent)]
 pub struct SendToMode(pub i32);
 pub const SEND_TO_FAX_RECIPIENT_ATTACHMENT: SendToMode = SendToMode(0i32);
 pub const WIA_INCOMPAT_XP: u32 = 1u32;
 #[repr(C)]
-pub struct _ERROR_INFOW(i32);
+pub struct _ERROR_INFOW {
+    pub dwSize: u32,
+    pub dwGenericError: u32,
+    pub dwVendorError: u32,
+    pub szExtendedErrorText: [u16; 255],
+}
+impl ::core::marker::Copy for _ERROR_INFOW {}
+impl ::core::clone::Clone for _ERROR_INFOW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct _IFaxAccountNotify(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

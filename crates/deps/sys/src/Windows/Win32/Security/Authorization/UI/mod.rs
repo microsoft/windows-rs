@@ -13,9 +13,22 @@ pub const DOBJ_RES_CONT: i32 = 1i32;
 pub const DOBJ_RES_ROOT: i32 = 2i32;
 pub const DOBJ_RIBBON_LAUNCH: i32 = 16i32;
 pub const DOBJ_VOL_NTACLS: i32 = 4i32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct EFFPERM_RESULT_LIST(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct EFFPERM_RESULT_LIST {
+    pub fEvaluated: super::super::super::Foundation::BOOLEAN,
+    pub cObjectTypeListLength: u32,
+    pub pObjectTypeList: *mut super::super::OBJECT_TYPE_LIST,
+    pub pGrantedAccessList: *mut u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for EFFPERM_RESULT_LIST {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for EFFPERM_RESULT_LIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEffectivePermission(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -35,22 +48,75 @@ pub struct SECURITY_INFO_PAGE_FLAGS(pub u32);
 pub const SI_ADVANCED: SECURITY_INFO_PAGE_FLAGS = SECURITY_INFO_PAGE_FLAGS(16u32);
 pub const SI_EDIT_AUDITS: SECURITY_INFO_PAGE_FLAGS = SECURITY_INFO_PAGE_FLAGS(2u32);
 pub const SI_EDIT_PROPERTIES: SECURITY_INFO_PAGE_FLAGS = SECURITY_INFO_PAGE_FLAGS(128u32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct SECURITY_OBJECT(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct SECURITY_OBJECT {
+    pub pwszName: super::super::super::Foundation::PWSTR,
+    pub pData: *mut ::core::ffi::c_void,
+    pub cbData: u32,
+    pub pData2: *mut ::core::ffi::c_void,
+    pub cbData2: u32,
+    pub Id: u32,
+    pub fWellKnown: super::super::super::Foundation::BOOLEAN,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SECURITY_OBJECT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SECURITY_OBJECT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SECURITY_OBJECT_ID_CENTRAL_ACCESS_RULE: u32 = 4u32;
 pub const SECURITY_OBJECT_ID_CENTRAL_POLICY: u32 = 3u32;
 pub const SECURITY_OBJECT_ID_OBJECT_SD: u32 = 1u32;
 pub const SECURITY_OBJECT_ID_SHARE: u32 = 2u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct SID_INFO(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct SID_INFO_LIST(i32);
+pub struct SID_INFO {
+    pub pSid: super::super::super::Foundation::PSID,
+    pub pwzCommonName: super::super::super::Foundation::PWSTR,
+    pub pwzClass: super::super::super::Foundation::PWSTR,
+    pub pwzUPN: super::super::super::Foundation::PWSTR,
+}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SID_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SID_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct SI_ACCESS(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct SID_INFO_LIST {
+    pub cItems: u32,
+    pub aSidInfo: [SID_INFO; 1],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SID_INFO_LIST {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SID_INFO_LIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct SI_ACCESS {
+    pub pguid: *mut ::windows_sys::core::GUID,
+    pub mask: u32,
+    pub pszName: super::super::super::Foundation::PWSTR,
+    pub dwFlags: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SI_ACCESS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SI_ACCESS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SI_ACCESS_CONTAINER: i32 = 262144i32;
 pub const SI_ACCESS_GENERAL: i32 = 131072i32;
 pub const SI_ACCESS_PROPERTY: i32 = 524288i32;
@@ -58,15 +124,42 @@ pub const SI_ACCESS_SPECIFIC: i32 = 65536i32;
 pub const SI_CONTAINER: i32 = 4i32;
 pub const SI_EDIT_OWNER: i32 = 1i32;
 pub const SI_EDIT_PERMS: i32 = 0i32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct SI_INHERIT_TYPE(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct SI_INHERIT_TYPE {
+    pub pguid: *mut ::windows_sys::core::GUID,
+    pub dwFlags: super::super::ACE_FLAGS,
+    pub pszName: super::super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SI_INHERIT_TYPE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SI_INHERIT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SI_NO_ACL_PROTECT: i32 = 512i32;
 pub const SI_NO_TREE_APPLY: i32 = 1024i32;
 pub const SI_OBJECT_GUID: i32 = 65536i32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct SI_OBJECT_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct SI_OBJECT_INFO {
+    pub dwFlags: SI_OBJECT_INFO_FLAGS,
+    pub hInstance: super::super::super::Foundation::HINSTANCE,
+    pub pszServerName: super::super::super::Foundation::PWSTR,
+    pub pszObjectName: super::super::super::Foundation::PWSTR,
+    pub pszPageTitle: super::super::super::Foundation::PWSTR,
+    pub guidObjectType: ::windows_sys::core::GUID,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SI_OBJECT_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SI_OBJECT_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SI_OBJECT_INFO_FLAGS(pub u32);
 pub const SI_AUDITS_ELEVATION_REQUIRED: SI_OBJECT_INFO_FLAGS = SI_OBJECT_INFO_FLAGS(33554432u32);

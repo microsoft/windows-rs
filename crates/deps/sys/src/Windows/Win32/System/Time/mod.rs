@@ -32,12 +32,46 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn TzSpecificLocalTimeToSystemTimeEx(lptimezoneinformation: *const DYNAMIC_TIME_ZONE_INFORMATION, lplocaltime: *const super::super::Foundation::SYSTEMTIME, lpuniversaltime: *mut super::super::Foundation::SYSTEMTIME) -> super::super::Foundation::BOOL;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct DYNAMIC_TIME_ZONE_INFORMATION(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct DYNAMIC_TIME_ZONE_INFORMATION {
+    pub Bias: i32,
+    pub StandardName: [u16; 32],
+    pub StandardDate: super::super::Foundation::SYSTEMTIME,
+    pub StandardBias: i32,
+    pub DaylightName: [u16; 32],
+    pub DaylightDate: super::super::Foundation::SYSTEMTIME,
+    pub DaylightBias: i32,
+    pub TimeZoneKeyName: [u16; 128],
+    pub DynamicDaylightTimeDisabled: super::super::Foundation::BOOLEAN,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DYNAMIC_TIME_ZONE_INFORMATION {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DYNAMIC_TIME_ZONE_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct TIME_ZONE_INFORMATION(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct TIME_ZONE_INFORMATION {
+    pub Bias: i32,
+    pub StandardName: [u16; 32],
+    pub StandardDate: super::super::Foundation::SYSTEMTIME,
+    pub StandardBias: i32,
+    pub DaylightName: [u16; 32],
+    pub DaylightDate: super::super::Foundation::SYSTEMTIME,
+    pub DaylightBias: i32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for TIME_ZONE_INFORMATION {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for TIME_ZONE_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const TSF_Authenticated: u32 = 2u32;
 pub const TSF_Hardware: u32 = 1u32;
 pub const TSF_IPv6: u32 = 4u32;

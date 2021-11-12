@@ -22,12 +22,59 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn SaferiIsExecutableFileType(szfullpathname: super::super::Foundation::PWSTR, bfromshellexecute: super::super::Foundation::BOOLEAN) -> super::super::Foundation::BOOL;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct SAFER_CODE_PROPERTIES_V1(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct SAFER_CODE_PROPERTIES_V1 {
+    pub cbSize: u32,
+    pub dwCheckFlags: u32,
+    pub ImagePath: super::super::Foundation::PWSTR,
+    pub hImageFileHandle: super::super::Foundation::HANDLE,
+    pub UrlZoneId: u32,
+    pub ImageHash: [u8; 64],
+    pub dwImageHashSize: u32,
+    pub ImageSize: i64,
+    pub HashAlgorithm: u32,
+    pub pByteBlock: *mut u8,
+    pub hWndParent: super::super::Foundation::HWND,
+    pub dwWVTUIChoice: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SAFER_CODE_PROPERTIES_V1 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SAFER_CODE_PROPERTIES_V1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct SAFER_CODE_PROPERTIES_V2(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct SAFER_CODE_PROPERTIES_V2 {
+    pub cbSize: u32,
+    pub dwCheckFlags: u32,
+    pub ImagePath: super::super::Foundation::PWSTR,
+    pub hImageFileHandle: super::super::Foundation::HANDLE,
+    pub UrlZoneId: u32,
+    pub ImageHash: [u8; 64],
+    pub dwImageHashSize: u32,
+    pub ImageSize: i64,
+    pub HashAlgorithm: u32,
+    pub pByteBlock: *mut u8,
+    pub hWndParent: super::super::Foundation::HWND,
+    pub dwWVTUIChoice: u32,
+    pub PackageMoniker: super::super::Foundation::PWSTR,
+    pub PackagePublisher: super::super::Foundation::PWSTR,
+    pub PackageName: super::super::Foundation::PWSTR,
+    pub PackageVersion: u64,
+    pub PackageIsFramework: super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SAFER_CODE_PROPERTIES_V2 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SAFER_CODE_PROPERTIES_V2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS(pub u32);
 pub const SAFER_TOKEN_NULL_IF_EQUAL: SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS = SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS(1u32);
@@ -41,15 +88,58 @@ pub const SAFER_CRITERIA_IMAGEPATH: u32 = 1u32;
 pub const SAFER_CRITERIA_IMAGEPATH_NT: u32 = 4096u32;
 pub const SAFER_CRITERIA_NOSIGNEDHASH: u32 = 2u32;
 pub const SAFER_CRITERIA_URLZONE: u32 = 16u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct SAFER_HASH_IDENTIFICATION(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct SAFER_HASH_IDENTIFICATION2(i32);
+pub struct SAFER_HASH_IDENTIFICATION {
+    pub header: SAFER_IDENTIFICATION_HEADER,
+    pub Description: [u16; 256],
+    pub FriendlyName: [u16; 256],
+    pub HashSize: u32,
+    pub ImageHash: [u8; 64],
+    pub HashAlgorithm: u32,
+    pub ImageSize: i64,
+    pub dwSaferFlags: u32,
+}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SAFER_HASH_IDENTIFICATION {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SAFER_HASH_IDENTIFICATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct SAFER_IDENTIFICATION_HEADER(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct SAFER_HASH_IDENTIFICATION2 {
+    pub hashIdentification: SAFER_HASH_IDENTIFICATION,
+    pub HashSize: u32,
+    pub ImageHash: [u8; 64],
+    pub HashAlgorithm: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SAFER_HASH_IDENTIFICATION2 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SAFER_HASH_IDENTIFICATION2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct SAFER_IDENTIFICATION_HEADER {
+    pub dwIdentificationType: SAFER_IDENTIFICATION_TYPES,
+    pub cbStructSize: u32,
+    pub IdentificationGuid: ::windows_sys::core::GUID,
+    pub lastModified: super::super::Foundation::FILETIME,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SAFER_IDENTIFICATION_HEADER {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SAFER_IDENTIFICATION_HEADER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SAFER_IDENTIFICATION_TYPES(pub i32);
 pub const SaferIdentityDefault: SAFER_IDENTIFICATION_TYPES = SAFER_IDENTIFICATION_TYPES(0i32);
@@ -84,9 +174,22 @@ pub const SaferObjectRestrictedSidsAdded: SAFER_OBJECT_INFO_CLASS = SAFER_OBJECT
 pub const SaferObjectAllIdentificationGuids: SAFER_OBJECT_INFO_CLASS = SAFER_OBJECT_INFO_CLASS(14i32);
 pub const SaferObjectSingleIdentification: SAFER_OBJECT_INFO_CLASS = SAFER_OBJECT_INFO_CLASS(15i32);
 pub const SaferObjectExtendedError: SAFER_OBJECT_INFO_CLASS = SAFER_OBJECT_INFO_CLASS(16i32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct SAFER_PATHNAME_IDENTIFICATION(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct SAFER_PATHNAME_IDENTIFICATION {
+    pub header: SAFER_IDENTIFICATION_HEADER,
+    pub Description: [u16; 256],
+    pub ImageName: super::super::Foundation::PWSTR,
+    pub dwSaferFlags: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SAFER_PATHNAME_IDENTIFICATION {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SAFER_PATHNAME_IDENTIFICATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SAFER_POLICY_BLOCK_CLIENT_UI: u32 = 8192u32;
 pub const SAFER_POLICY_HASH_DUPLICATE: u32 = 262144u32;
 #[repr(transparent)]
@@ -110,6 +213,18 @@ pub const SAFER_POLICY_UIFLAGS_MASK: u32 = 255u32;
 pub const SAFER_POLICY_UIFLAGS_OPTION_PROMPT: u32 = 2u32;
 pub const SAFER_SCOPEID_MACHINE: u32 = 1u32;
 pub const SAFER_SCOPEID_USER: u32 = 2u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct SAFER_URLZONE_IDENTIFICATION(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct SAFER_URLZONE_IDENTIFICATION {
+    pub header: SAFER_IDENTIFICATION_HEADER,
+    pub UrlZoneId: u32,
+    pub dwSaferFlags: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SAFER_URLZONE_IDENTIFICATION {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SAFER_URLZONE_IDENTIFICATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

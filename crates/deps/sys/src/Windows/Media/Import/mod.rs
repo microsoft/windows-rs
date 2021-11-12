@@ -100,7 +100,19 @@ impl PhotoImportPowerSource {
     pub const External: Self = Self(2i32);
 }
 #[repr(C)]
-pub struct PhotoImportProgress(i32);
+pub struct PhotoImportProgress {
+    pub ItemsImported: u32,
+    pub TotalItemsToImport: u32,
+    pub BytesImported: u64,
+    pub TotalBytesToImport: u64,
+    pub ImportProgress: f64,
+}
+impl ::core::marker::Copy for PhotoImportProgress {}
+impl ::core::clone::Clone for PhotoImportProgress {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PhotoImportSelectionChangedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

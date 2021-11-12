@@ -2,7 +2,20 @@
 #[link(name = "windows")]
 extern "system" {}
 #[repr(C)]
-pub struct BandwidthStatistics(i32);
+pub struct BandwidthStatistics {
+    pub OutboundBitsPerSecond: u64,
+    pub InboundBitsPerSecond: u64,
+    pub OutboundBitsPerSecondInstability: u64,
+    pub InboundBitsPerSecondInstability: u64,
+    pub OutboundBandwidthPeaked: bool,
+    pub InboundBandwidthPeaked: bool,
+}
+impl ::core::marker::Copy for BandwidthStatistics {}
+impl ::core::clone::Clone for BandwidthStatistics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ControlChannelTrigger(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -175,7 +188,18 @@ impl MessageWebSocketReceiveMode {
     pub const PartialMessage: Self = Self(1i32);
 }
 #[repr(C)]
-pub struct RoundTripTimeStatistics(i32);
+pub struct RoundTripTimeStatistics {
+    pub Variance: u32,
+    pub Max: u32,
+    pub Min: u32,
+    pub Sum: u32,
+}
+impl ::core::marker::Copy for RoundTripTimeStatistics {}
+impl ::core::clone::Clone for RoundTripTimeStatistics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ServerMessageWebSocket(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

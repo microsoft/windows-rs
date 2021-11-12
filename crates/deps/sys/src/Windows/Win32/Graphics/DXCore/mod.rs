@@ -17,9 +17,29 @@ pub const DXCORE_ADAPTER_ATTRIBUTE_D3D12_CORE_COMPUTE: ::windows_sys::core::GUID
 };
 pub const DXCORE_ADAPTER_ATTRIBUTE_D3D12_GRAPHICS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 211734093, data2: 12142, data3: 20225, data4: [140, 150, 232, 158, 51, 27, 71, 177] };
 #[repr(C)]
-pub struct DXCoreAdapterMemoryBudget(i32);
+pub struct DXCoreAdapterMemoryBudget {
+    pub budget: u64,
+    pub currentUsage: u64,
+    pub availableForReservation: u64,
+    pub currentReservation: u64,
+}
+impl ::core::marker::Copy for DXCoreAdapterMemoryBudget {}
+impl ::core::clone::Clone for DXCoreAdapterMemoryBudget {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DXCoreAdapterMemoryBudgetNodeSegmentGroup(i32);
+pub struct DXCoreAdapterMemoryBudgetNodeSegmentGroup {
+    pub nodeIndex: u32,
+    pub segmentGroup: DXCoreSegmentGroup,
+}
+impl ::core::marker::Copy for DXCoreAdapterMemoryBudgetNodeSegmentGroup {}
+impl ::core::clone::Clone for DXCoreAdapterMemoryBudgetNodeSegmentGroup {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DXCoreAdapterPreference(pub u32);
 pub const Hardware: DXCoreAdapterPreference = DXCoreAdapterPreference(0u32);
@@ -47,9 +67,32 @@ pub struct DXCoreAdapterState(pub u32);
 pub const IsDriverUpdateInProgress: DXCoreAdapterState = DXCoreAdapterState(0u32);
 pub const AdapterMemoryBudget: DXCoreAdapterState = DXCoreAdapterState(1u32);
 #[repr(C)]
-pub struct DXCoreHardwareID(i32);
+pub struct DXCoreHardwareID {
+    pub vendorID: u32,
+    pub deviceID: u32,
+    pub subSysID: u32,
+    pub revision: u32,
+}
+impl ::core::marker::Copy for DXCoreHardwareID {}
+impl ::core::clone::Clone for DXCoreHardwareID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DXCoreHardwareIDParts(i32);
+pub struct DXCoreHardwareIDParts {
+    pub vendorID: u32,
+    pub deviceID: u32,
+    pub subSystemID: u32,
+    pub subVendorID: u32,
+    pub revisionID: u32,
+}
+impl ::core::marker::Copy for DXCoreHardwareIDParts {}
+impl ::core::clone::Clone for DXCoreHardwareIDParts {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DXCoreNotificationType(pub u32);
 pub const AdapterListStale: DXCoreNotificationType = DXCoreNotificationType(0u32);

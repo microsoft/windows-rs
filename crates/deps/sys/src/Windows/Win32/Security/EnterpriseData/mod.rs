@@ -32,10 +32,29 @@ pub const ENTERPRISE_POLICY_ALLOWED: ENTERPRISE_DATA_POLICIES = ENTERPRISE_DATA_
 pub const ENTERPRISE_POLICY_ENLIGHTENED: ENTERPRISE_DATA_POLICIES = ENTERPRISE_DATA_POLICIES(2u32);
 pub const ENTERPRISE_POLICY_EXEMPT: ENTERPRISE_DATA_POLICIES = ENTERPRISE_DATA_POLICIES(4u32);
 #[repr(C)]
-pub struct FILE_UNPROTECT_OPTIONS(i32);
-#[cfg(feature = "Win32_Foundation")]
+pub struct FILE_UNPROTECT_OPTIONS {
+    pub audit: bool,
+}
+impl ::core::marker::Copy for FILE_UNPROTECT_OPTIONS {}
+impl ::core::clone::Clone for FILE_UNPROTECT_OPTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct HTHREAD_NETWORK_CONTEXT(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct HTHREAD_NETWORK_CONTEXT {
+    pub ThreadId: u32,
+    pub ThreadContext: super::super::Foundation::HANDLE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for HTHREAD_NETWORK_CONTEXT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for HTHREAD_NETWORK_CONTEXT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IProtectionPolicyManagerInterop(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

@@ -313,9 +313,30 @@ pub const WEBAUTHN_API_CURRENT_VERSION: u32 = 3u32;
 pub const WEBAUTHN_API_VERSION_1: u32 = 1u32;
 pub const WEBAUTHN_API_VERSION_2: u32 = 2u32;
 pub const WEBAUTHN_API_VERSION_3: u32 = 3u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct WEBAUTHN_ASSERTION(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct WEBAUTHN_ASSERTION {
+    pub dwVersion: u32,
+    pub cbAuthenticatorData: u32,
+    pub pbAuthenticatorData: *mut u8,
+    pub cbSignature: u32,
+    pub pbSignature: *mut u8,
+    pub Credential: WEBAUTHN_CREDENTIAL,
+    pub cbUserId: u32,
+    pub pbUserId: *mut u8,
+    pub Extensions: WEBAUTHN_EXTENSIONS,
+    pub cbCredLargeBlob: u32,
+    pub pbCredLargeBlob: *mut u8,
+    pub dwCredLargeBlobStatus: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WEBAUTHN_ASSERTION {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WEBAUTHN_ASSERTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WEBAUTHN_ASSERTION_CURRENT_VERSION: u32 = 2u32;
 pub const WEBAUTHN_ASSERTION_VERSION_1: u32 = 1u32;
 pub const WEBAUTHN_ASSERTION_VERSION_2: u32 = 2u32;
@@ -329,30 +350,110 @@ pub const WEBAUTHN_AUTHENTICATOR_ATTACHMENT_ANY: u32 = 0u32;
 pub const WEBAUTHN_AUTHENTICATOR_ATTACHMENT_CROSS_PLATFORM: u32 = 2u32;
 pub const WEBAUTHN_AUTHENTICATOR_ATTACHMENT_CROSS_PLATFORM_U2F_V2: u32 = 3u32;
 pub const WEBAUTHN_AUTHENTICATOR_ATTACHMENT_PLATFORM: u32 = 1u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS {
+    pub dwVersion: u32,
+    pub dwTimeoutMilliseconds: u32,
+    pub CredentialList: WEBAUTHN_CREDENTIALS,
+    pub Extensions: WEBAUTHN_EXTENSIONS,
+    pub dwAuthenticatorAttachment: u32,
+    pub dwUserVerificationRequirement: u32,
+    pub dwFlags: u32,
+    pub pwszU2fAppId: super::super::Foundation::PWSTR,
+    pub pbU2fAppId: *mut super::super::Foundation::BOOL,
+    pub pCancellationId: *mut ::windows_sys::core::GUID,
+    pub pAllowCredentialList: *mut WEBAUTHN_CREDENTIAL_LIST,
+    pub dwCredLargeBlobOperation: u32,
+    pub cbCredLargeBlob: u32,
+    pub pbCredLargeBlob: *mut u8,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS_CURRENT_VERSION: u32 = 5u32;
 pub const WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS_VERSION_1: u32 = 1u32;
 pub const WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS_VERSION_2: u32 = 2u32;
 pub const WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS_VERSION_3: u32 = 3u32;
 pub const WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS_VERSION_4: u32 = 4u32;
 pub const WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS_VERSION_5: u32 = 5u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS {
+    pub dwVersion: u32,
+    pub dwTimeoutMilliseconds: u32,
+    pub CredentialList: WEBAUTHN_CREDENTIALS,
+    pub Extensions: WEBAUTHN_EXTENSIONS,
+    pub dwAuthenticatorAttachment: u32,
+    pub bRequireResidentKey: super::super::Foundation::BOOL,
+    pub dwUserVerificationRequirement: u32,
+    pub dwAttestationConveyancePreference: u32,
+    pub dwFlags: u32,
+    pub pCancellationId: *mut ::windows_sys::core::GUID,
+    pub pExcludeCredentialList: *mut WEBAUTHN_CREDENTIAL_LIST,
+    pub dwEnterpriseAttestation: u32,
+    pub dwLargeBlobSupport: u32,
+    pub bPreferResidentKey: super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS_CURRENT_VERSION: u32 = 4u32;
 pub const WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS_VERSION_1: u32 = 1u32;
 pub const WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS_VERSION_2: u32 = 2u32;
 pub const WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS_VERSION_3: u32 = 3u32;
 pub const WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS_VERSION_4: u32 = 4u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct WEBAUTHN_CLIENT_DATA(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct WEBAUTHN_CLIENT_DATA {
+    pub dwVersion: u32,
+    pub cbClientDataJSON: u32,
+    pub pbClientDataJSON: *mut u8,
+    pub pwszHashAlgId: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WEBAUTHN_CLIENT_DATA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WEBAUTHN_CLIENT_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WEBAUTHN_CLIENT_DATA_CURRENT_VERSION: u32 = 1u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct WEBAUTHN_COMMON_ATTESTATION(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct WEBAUTHN_COMMON_ATTESTATION {
+    pub dwVersion: u32,
+    pub pwszAlg: super::super::Foundation::PWSTR,
+    pub lAlg: i32,
+    pub cbSignature: u32,
+    pub pbSignature: *mut u8,
+    pub cX5c: u32,
+    pub pX5c: *mut WEBAUTHN_X5C,
+    pub pwszVer: super::super::Foundation::PWSTR,
+    pub cbCertInfo: u32,
+    pub pbCertInfo: *mut u8,
+    pub cbPubArea: u32,
+    pub pbPubArea: *mut u8,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WEBAUTHN_COMMON_ATTESTATION {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WEBAUTHN_COMMON_ATTESTATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WEBAUTHN_COMMON_ATTESTATION_CURRENT_VERSION: u32 = 1u32;
 pub const WEBAUTHN_COSE_ALGORITHM_ECDSA_P256_WITH_SHA256: i32 = -7i32;
 pub const WEBAUTHN_COSE_ALGORITHM_ECDSA_P384_WITH_SHA384: i32 = -35i32;
@@ -363,37 +464,144 @@ pub const WEBAUTHN_COSE_ALGORITHM_RSASSA_PKCS1_V1_5_WITH_SHA512: i32 = -259i32;
 pub const WEBAUTHN_COSE_ALGORITHM_RSA_PSS_WITH_SHA256: i32 = -37i32;
 pub const WEBAUTHN_COSE_ALGORITHM_RSA_PSS_WITH_SHA384: i32 = -38i32;
 pub const WEBAUTHN_COSE_ALGORITHM_RSA_PSS_WITH_SHA512: i32 = -39i32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct WEBAUTHN_COSE_CREDENTIAL_PARAMETER(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct WEBAUTHN_COSE_CREDENTIAL_PARAMETER {
+    pub dwVersion: u32,
+    pub pwszCredentialType: super::super::Foundation::PWSTR,
+    pub lAlg: i32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WEBAUTHN_COSE_CREDENTIAL_PARAMETER {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WEBAUTHN_COSE_CREDENTIAL_PARAMETER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WEBAUTHN_COSE_CREDENTIAL_PARAMETERS(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct WEBAUTHN_COSE_CREDENTIAL_PARAMETERS {
+    pub cCredentialParameters: u32,
+    pub pCredentialParameters: *mut WEBAUTHN_COSE_CREDENTIAL_PARAMETER,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WEBAUTHN_COSE_CREDENTIAL_PARAMETERS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WEBAUTHN_COSE_CREDENTIAL_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WEBAUTHN_COSE_CREDENTIAL_PARAMETER_CURRENT_VERSION: u32 = 1u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct WEBAUTHN_CREDENTIAL(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct WEBAUTHN_CREDENTIALS(i32);
+pub struct WEBAUTHN_CREDENTIAL {
+    pub dwVersion: u32,
+    pub cbId: u32,
+    pub pbId: *mut u8,
+    pub pwszCredentialType: super::super::Foundation::PWSTR,
+}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WEBAUTHN_CREDENTIAL {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WEBAUTHN_CREDENTIAL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WEBAUTHN_CREDENTIAL_ATTESTATION(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct WEBAUTHN_CREDENTIALS {
+    pub cCredentials: u32,
+    pub pCredentials: *mut WEBAUTHN_CREDENTIAL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WEBAUTHN_CREDENTIALS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WEBAUTHN_CREDENTIALS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct WEBAUTHN_CREDENTIAL_ATTESTATION {
+    pub dwVersion: u32,
+    pub pwszFormatType: super::super::Foundation::PWSTR,
+    pub cbAuthenticatorData: u32,
+    pub pbAuthenticatorData: *mut u8,
+    pub cbAttestation: u32,
+    pub pbAttestation: *mut u8,
+    pub dwAttestationDecodeType: u32,
+    pub pvAttestationDecode: *mut ::core::ffi::c_void,
+    pub cbAttestationObject: u32,
+    pub pbAttestationObject: *mut u8,
+    pub cbCredentialId: u32,
+    pub pbCredentialId: *mut u8,
+    pub Extensions: WEBAUTHN_EXTENSIONS,
+    pub dwUsedTransport: u32,
+    pub bEpAtt: super::super::Foundation::BOOL,
+    pub bLargeBlobSupported: super::super::Foundation::BOOL,
+    pub bResidentKey: super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WEBAUTHN_CREDENTIAL_ATTESTATION {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WEBAUTHN_CREDENTIAL_ATTESTATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WEBAUTHN_CREDENTIAL_ATTESTATION_CURRENT_VERSION: u32 = 4u32;
 pub const WEBAUTHN_CREDENTIAL_ATTESTATION_VERSION_1: u32 = 1u32;
 pub const WEBAUTHN_CREDENTIAL_ATTESTATION_VERSION_2: u32 = 2u32;
 pub const WEBAUTHN_CREDENTIAL_ATTESTATION_VERSION_3: u32 = 3u32;
 pub const WEBAUTHN_CREDENTIAL_ATTESTATION_VERSION_4: u32 = 4u32;
 pub const WEBAUTHN_CREDENTIAL_CURRENT_VERSION: u32 = 1u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct WEBAUTHN_CREDENTIAL_EX(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct WEBAUTHN_CREDENTIAL_EX {
+    pub dwVersion: u32,
+    pub cbId: u32,
+    pub pbId: *mut u8,
+    pub pwszCredentialType: super::super::Foundation::PWSTR,
+    pub dwTransports: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WEBAUTHN_CREDENTIAL_EX {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WEBAUTHN_CREDENTIAL_EX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WEBAUTHN_CREDENTIAL_EX_CURRENT_VERSION: u32 = 1u32;
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+pub struct WEBAUTHN_CREDENTIAL_LIST {
+    pub cCredentials: u32,
+    pub ppCredentials: *mut *mut WEBAUTHN_CREDENTIAL_EX,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WEBAUTHN_CREDENTIAL_LIST {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WEBAUTHN_CREDENTIAL_LIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WEBAUTHN_CREDENTIAL_LIST(i32);
-#[repr(C)]
-pub struct WEBAUTHN_CRED_BLOB_EXTENSION(i32);
+pub struct WEBAUTHN_CRED_BLOB_EXTENSION {
+    pub cbCredBlob: u32,
+    pub pbCredBlob: *mut u8,
+}
+impl ::core::marker::Copy for WEBAUTHN_CRED_BLOB_EXTENSION {}
+impl ::core::clone::Clone for WEBAUTHN_CRED_BLOB_EXTENSION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WEBAUTHN_CRED_LARGE_BLOB_OPERATION_DELETE: u32 = 3u32;
 pub const WEBAUTHN_CRED_LARGE_BLOB_OPERATION_GET: u32 = 1u32;
 pub const WEBAUTHN_CRED_LARGE_BLOB_OPERATION_NONE: u32 = 0u32;
@@ -408,9 +616,20 @@ pub const WEBAUTHN_CRED_LARGE_BLOB_STATUS_NOT_FOUND: u32 = 5u32;
 pub const WEBAUTHN_CRED_LARGE_BLOB_STATUS_NOT_SUPPORTED: u32 = 2u32;
 pub const WEBAUTHN_CRED_LARGE_BLOB_STATUS_PLATFORM_ERROR: u32 = 8u32;
 pub const WEBAUTHN_CRED_LARGE_BLOB_STATUS_SUCCESS: u32 = 1u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct WEBAUTHN_CRED_PROTECT_EXTENSION_IN(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct WEBAUTHN_CRED_PROTECT_EXTENSION_IN {
+    pub dwCredProtect: u32,
+    pub bRequireCredProtect: super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WEBAUTHN_CRED_PROTECT_EXTENSION_IN {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WEBAUTHN_CRED_PROTECT_EXTENSION_IN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WEBAUTHN_CTAP_TRANSPORT_BLE: u32 = 4u32;
 pub const WEBAUTHN_CTAP_TRANSPORT_FLAGS_MASK: u32 = 31u32;
 pub const WEBAUTHN_CTAP_TRANSPORT_INTERNAL: u32 = 16u32;
@@ -420,23 +639,74 @@ pub const WEBAUTHN_CTAP_TRANSPORT_USB: u32 = 1u32;
 pub const WEBAUTHN_ENTERPRISE_ATTESTATION_NONE: u32 = 0u32;
 pub const WEBAUTHN_ENTERPRISE_ATTESTATION_PLATFORM_MANAGED: u32 = 2u32;
 pub const WEBAUTHN_ENTERPRISE_ATTESTATION_VENDOR_FACILITATED: u32 = 1u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct WEBAUTHN_EXTENSION(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct WEBAUTHN_EXTENSION {
+    pub pwszExtensionIdentifier: super::super::Foundation::PWSTR,
+    pub cbExtension: u32,
+    pub pvExtension: *mut ::core::ffi::c_void,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WEBAUTHN_EXTENSION {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WEBAUTHN_EXTENSION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WEBAUTHN_EXTENSIONS(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct WEBAUTHN_EXTENSIONS {
+    pub cExtensions: u32,
+    pub pExtensions: *mut WEBAUTHN_EXTENSION,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WEBAUTHN_EXTENSIONS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WEBAUTHN_EXTENSIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WEBAUTHN_LARGE_BLOB_SUPPORT_NONE: u32 = 0u32;
 pub const WEBAUTHN_LARGE_BLOB_SUPPORT_PREFERRED: u32 = 2u32;
 pub const WEBAUTHN_LARGE_BLOB_SUPPORT_REQUIRED: u32 = 1u32;
 pub const WEBAUTHN_MAX_USER_ID_LENGTH: u32 = 64u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct WEBAUTHN_RP_ENTITY_INFORMATION(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct WEBAUTHN_RP_ENTITY_INFORMATION {
+    pub dwVersion: u32,
+    pub pwszId: super::super::Foundation::PWSTR,
+    pub pwszName: super::super::Foundation::PWSTR,
+    pub pwszIcon: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WEBAUTHN_RP_ENTITY_INFORMATION {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WEBAUTHN_RP_ENTITY_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WEBAUTHN_RP_ENTITY_INFORMATION_CURRENT_VERSION: u32 = 1u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct WEBAUTHN_USER_ENTITY_INFORMATION(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct WEBAUTHN_USER_ENTITY_INFORMATION {
+    pub dwVersion: u32,
+    pub cbId: u32,
+    pub pbId: *mut u8,
+    pub pwszName: super::super::Foundation::PWSTR,
+    pub pwszIcon: super::super::Foundation::PWSTR,
+    pub pwszDisplayName: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WEBAUTHN_USER_ENTITY_INFORMATION {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WEBAUTHN_USER_ENTITY_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WEBAUTHN_USER_ENTITY_INFORMATION_CURRENT_VERSION: u32 = 1u32;
 pub const WEBAUTHN_USER_VERIFICATION_ANY: u32 = 0u32;
 pub const WEBAUTHN_USER_VERIFICATION_OPTIONAL: u32 = 1u32;
@@ -447,7 +717,16 @@ pub const WEBAUTHN_USER_VERIFICATION_REQUIREMENT_DISCOURAGED: u32 = 3u32;
 pub const WEBAUTHN_USER_VERIFICATION_REQUIREMENT_PREFERRED: u32 = 2u32;
 pub const WEBAUTHN_USER_VERIFICATION_REQUIREMENT_REQUIRED: u32 = 1u32;
 #[repr(C)]
-pub struct WEBAUTHN_X5C(i32);
+pub struct WEBAUTHN_X5C {
+    pub cbData: u32,
+    pub pbData: *mut u8,
+}
+impl ::core::marker::Copy for WEBAUTHN_X5C {}
+impl ::core::clone::Clone for WEBAUTHN_X5C {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub type WS_ABANDON_MESSAGE_CALLBACK = unsafe extern "system" fn(channelinstance: *const ::core::ffi::c_void, message: *const WS_MESSAGE, error: *const WS_ERROR) -> ::windows_sys::core::HRESULT;
 pub type WS_ABORT_CHANNEL_CALLBACK = unsafe extern "system" fn(channelinstance: *const ::core::ffi::c_void, error: *const WS_ERROR) -> ::windows_sys::core::HRESULT;
 pub type WS_ABORT_LISTENER_CALLBACK = unsafe extern "system" fn(listenerinstance: *const ::core::ffi::c_void, error: *const WS_ERROR) -> ::windows_sys::core::HRESULT;
@@ -457,23 +736,88 @@ pub struct WS_ADDRESSING_VERSION(pub i32);
 pub const WS_ADDRESSING_VERSION_0_9: WS_ADDRESSING_VERSION = WS_ADDRESSING_VERSION(1i32);
 pub const WS_ADDRESSING_VERSION_1_0: WS_ADDRESSING_VERSION = WS_ADDRESSING_VERSION(2i32);
 pub const WS_ADDRESSING_VERSION_TRANSPORT: WS_ADDRESSING_VERSION = WS_ADDRESSING_VERSION(3i32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct WS_ANY_ATTRIBUTE(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct WS_ANY_ATTRIBUTE {
+    pub localName: WS_XML_STRING,
+    pub ns: WS_XML_STRING,
+    pub value: *mut WS_XML_TEXT,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WS_ANY_ATTRIBUTE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WS_ANY_ATTRIBUTE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_ANY_ATTRIBUTES(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct WS_ANY_ATTRIBUTES {
+    pub attributes: *mut WS_ANY_ATTRIBUTE,
+    pub attributeCount: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WS_ANY_ATTRIBUTES {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WS_ANY_ATTRIBUTES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub type WS_ASYNC_CALLBACK = unsafe extern "system" fn(errorcode: ::windows_sys::core::HRESULT, callbackmodel: WS_CALLBACK_MODEL, callbackstate: *const ::core::ffi::c_void);
 #[repr(C)]
-pub struct WS_ASYNC_CONTEXT(i32);
+pub struct WS_ASYNC_CONTEXT {
+    pub callback: ::core::option::Option<WS_ASYNC_CALLBACK>,
+    pub callbackState: *mut ::core::ffi::c_void,
+}
+impl ::core::marker::Copy for WS_ASYNC_CONTEXT {}
+impl ::core::clone::Clone for WS_ASYNC_CONTEXT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub type WS_ASYNC_FUNCTION = unsafe extern "system" fn(hr: ::windows_sys::core::HRESULT, callbackmodel: WS_CALLBACK_MODEL, callbackstate: *const ::core::ffi::c_void, next: *mut WS_ASYNC_OPERATION, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows_sys::core::HRESULT;
 #[repr(C)]
-pub struct WS_ASYNC_OPERATION(i32);
+pub struct WS_ASYNC_OPERATION {
+    pub function: ::core::option::Option<WS_ASYNC_FUNCTION>,
+}
+impl ::core::marker::Copy for WS_ASYNC_OPERATION {}
+impl ::core::clone::Clone for WS_ASYNC_OPERATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_ASYNC_STATE(i32);
+pub struct WS_ASYNC_STATE {
+    pub internal0: *mut ::core::ffi::c_void,
+    pub internal1: *mut ::core::ffi::c_void,
+    pub internal2: *mut ::core::ffi::c_void,
+    pub internal3: *mut ::core::ffi::c_void,
+    pub internal4: *mut ::core::ffi::c_void,
+}
+impl ::core::marker::Copy for WS_ASYNC_STATE {}
+impl ::core::clone::Clone for WS_ASYNC_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct WS_ATTRIBUTE_DESCRIPTION(i32);
+pub struct WS_ATTRIBUTE_DESCRIPTION {
+    pub attributeLocalName: *mut WS_XML_STRING,
+    pub attributeNs: *mut WS_XML_STRING,
+    pub r#type: WS_TYPE,
+    pub typeDescription: *mut ::core::ffi::c_void,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WS_ATTRIBUTE_DESCRIPTION {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WS_ATTRIBUTE_DESCRIPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WS_BINDING_TEMPLATE_TYPE(pub i32);
 pub const WS_HTTP_BINDING_TEMPLATE_TYPE: WS_BINDING_TEMPLATE_TYPE = WS_BINDING_TEMPLATE_TYPE(0i32);
@@ -490,23 +834,79 @@ pub const WS_HTTP_SSL_USERNAME_SECURITY_CONTEXT_BINDING_TEMPLATE_TYPE: WS_BINDIN
 pub const WS_HTTP_SSL_KERBEROS_APREQ_SECURITY_CONTEXT_BINDING_TEMPLATE_TYPE: WS_BINDING_TEMPLATE_TYPE = WS_BINDING_TEMPLATE_TYPE(11i32);
 pub const WS_TCP_SSPI_USERNAME_SECURITY_CONTEXT_BINDING_TEMPLATE_TYPE: WS_BINDING_TEMPLATE_TYPE = WS_BINDING_TEMPLATE_TYPE(12i32);
 pub const WS_TCP_SSPI_KERBEROS_APREQ_SECURITY_CONTEXT_BINDING_TEMPLATE_TYPE: WS_BINDING_TEMPLATE_TYPE = WS_BINDING_TEMPLATE_TYPE(13i32);
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+pub struct WS_BOOL_DESCRIPTION {
+    pub value: super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WS_BOOL_DESCRIPTION {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WS_BOOL_DESCRIPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_BOOL_DESCRIPTION(i32);
+pub struct WS_BUFFERS {
+    pub bufferCount: u32,
+    pub buffers: *mut WS_BYTES,
+}
+impl ::core::marker::Copy for WS_BUFFERS {}
+impl ::core::clone::Clone for WS_BUFFERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_BUFFERS(i32);
+pub struct WS_BYTES {
+    pub length: u32,
+    pub bytes: *mut u8,
+}
+impl ::core::marker::Copy for WS_BYTES {}
+impl ::core::clone::Clone for WS_BYTES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_BYTES(i32);
+pub struct WS_BYTES_DESCRIPTION {
+    pub minByteCount: u32,
+    pub maxByteCount: u32,
+}
+impl ::core::marker::Copy for WS_BYTES_DESCRIPTION {}
+impl ::core::clone::Clone for WS_BYTES_DESCRIPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_BYTES_DESCRIPTION(i32);
-#[repr(C)]
-pub struct WS_BYTE_ARRAY_DESCRIPTION(i32);
+pub struct WS_BYTE_ARRAY_DESCRIPTION {
+    pub minByteCount: u32,
+    pub maxByteCount: u32,
+}
+impl ::core::marker::Copy for WS_BYTE_ARRAY_DESCRIPTION {}
+impl ::core::clone::Clone for WS_BYTE_ARRAY_DESCRIPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WS_CALLBACK_MODEL(pub i32);
 pub const WS_SHORT_CALLBACK: WS_CALLBACK_MODEL = WS_CALLBACK_MODEL(0i32);
 pub const WS_LONG_CALLBACK: WS_CALLBACK_MODEL = WS_CALLBACK_MODEL(1i32);
 #[repr(C)]
-pub struct WS_CALL_PROPERTY(i32);
+pub struct WS_CALL_PROPERTY {
+    pub id: WS_CALL_PROPERTY_ID,
+    pub value: *mut ::core::ffi::c_void,
+    pub valueSize: u32,
+}
+impl ::core::marker::Copy for WS_CALL_PROPERTY {}
+impl ::core::clone::Clone for WS_CALL_PROPERTY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WS_CALL_PROPERTY_ID(pub i32);
 pub const WS_CALL_PROPERTY_CHECK_MUST_UNDERSTAND: WS_CALL_PROPERTY_ID = WS_CALL_PROPERTY_ID(0i32);
@@ -514,21 +914,59 @@ pub const WS_CALL_PROPERTY_SEND_MESSAGE_CONTEXT: WS_CALL_PROPERTY_ID = WS_CALL_P
 pub const WS_CALL_PROPERTY_RECEIVE_MESSAGE_CONTEXT: WS_CALL_PROPERTY_ID = WS_CALL_PROPERTY_ID(2i32);
 pub const WS_CALL_PROPERTY_CALL_ID: WS_CALL_PROPERTY_ID = WS_CALL_PROPERTY_ID(3i32);
 #[repr(C)]
-pub struct WS_CAPI_ASYMMETRIC_SECURITY_KEY_HANDLE(i32);
+pub struct WS_CAPI_ASYMMETRIC_SECURITY_KEY_HANDLE {
+    pub keyHandle: WS_SECURITY_KEY_HANDLE,
+    pub provider: usize,
+    pub keySpec: u32,
+}
+impl ::core::marker::Copy for WS_CAPI_ASYMMETRIC_SECURITY_KEY_HANDLE {}
+impl ::core::clone::Clone for WS_CAPI_ASYMMETRIC_SECURITY_KEY_HANDLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub type WS_CERTIFICATE_VALIDATION_CALLBACK = unsafe extern "system" fn(certcontext: *const super::super::Security::Cryptography::CERT_CONTEXT, state: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+#[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+pub struct WS_CERTIFICATE_VALIDATION_CALLBACK_CONTEXT {
+    pub callback: ::core::option::Option<WS_CERTIFICATE_VALIDATION_CALLBACK>,
+    pub state: *mut ::core::ffi::c_void,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+impl ::core::marker::Copy for WS_CERTIFICATE_VALIDATION_CALLBACK_CONTEXT {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+impl ::core::clone::Clone for WS_CERTIFICATE_VALIDATION_CALLBACK_CONTEXT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_CERTIFICATE_VALIDATION_CALLBACK_CONTEXT(i32);
-#[repr(C)]
-pub struct WS_CERT_CREDENTIAL(i32);
+pub struct WS_CERT_CREDENTIAL {
+    pub credentialType: WS_CERT_CREDENTIAL_TYPE,
+}
+impl ::core::marker::Copy for WS_CERT_CREDENTIAL {}
+impl ::core::clone::Clone for WS_CERT_CREDENTIAL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WS_CERT_CREDENTIAL_TYPE(pub i32);
 pub const WS_SUBJECT_NAME_CERT_CREDENTIAL_TYPE: WS_CERT_CREDENTIAL_TYPE = WS_CERT_CREDENTIAL_TYPE(1i32);
 pub const WS_THUMBPRINT_CERT_CREDENTIAL_TYPE: WS_CERT_CREDENTIAL_TYPE = WS_CERT_CREDENTIAL_TYPE(2i32);
 pub const WS_CUSTOM_CERT_CREDENTIAL_TYPE: WS_CERT_CREDENTIAL_TYPE = WS_CERT_CREDENTIAL_TYPE(3i32);
 #[repr(C)]
-pub struct WS_CERT_ENDPOINT_IDENTITY(i32);
+pub struct WS_CERT_ENDPOINT_IDENTITY {
+    pub identity: WS_ENDPOINT_IDENTITY,
+    pub rawCertificateData: WS_BYTES,
+}
+impl ::core::marker::Copy for WS_CERT_ENDPOINT_IDENTITY {}
+impl ::core::clone::Clone for WS_CERT_ENDPOINT_IDENTITY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WS_CERT_FAILURE_CN_MISMATCH: i32 = 1i32;
 pub const WS_CERT_FAILURE_INVALID_DATE: i32 = 2i32;
 pub const WS_CERT_FAILURE_REVOCATION_OFFLINE: i32 = 16i32;
@@ -537,10 +975,34 @@ pub const WS_CERT_FAILURE_WRONG_USAGE: i32 = 8i32;
 #[cfg(all(feature = "Win32_Security_Authentication_Identity", feature = "Win32_Security_Cryptography"))]
 pub type WS_CERT_ISSUER_LIST_NOTIFICATION_CALLBACK = unsafe extern "system" fn(certissuerlistnotificationcallbackstate: *const ::core::ffi::c_void, issuerlist: *const super::super::Security::Authentication::Identity::SecPkgContext_IssuerListInfoEx, error: *const WS_ERROR) -> ::windows_sys::core::HRESULT;
 #[repr(C)]
-pub struct WS_CERT_MESSAGE_SECURITY_BINDING_CONSTRAINT(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+pub struct WS_CERT_MESSAGE_SECURITY_BINDING_CONSTRAINT {
+    pub bindingConstraint: WS_SECURITY_BINDING_CONSTRAINT,
+    pub bindingUsage: WS_MESSAGE_SECURITY_USAGE,
+}
+impl ::core::marker::Copy for WS_CERT_MESSAGE_SECURITY_BINDING_CONSTRAINT {}
+impl ::core::clone::Clone for WS_CERT_MESSAGE_SECURITY_BINDING_CONSTRAINT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_CERT_SIGNED_SAML_AUTHENTICATOR(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+pub struct WS_CERT_SIGNED_SAML_AUTHENTICATOR {
+    pub authenticator: WS_SAML_AUTHENTICATOR,
+    pub trustedIssuerCerts: *mut *mut super::super::Security::Cryptography::CERT_CONTEXT,
+    pub trustedIssuerCertCount: u32,
+    pub decryptionCert: *mut super::super::Security::Cryptography::CERT_CONTEXT,
+    pub samlValidator: ::core::option::Option<WS_VALIDATE_SAML_CALLBACK>,
+    pub samlValidatorCallbackState: *mut ::core::ffi::c_void,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+impl ::core::marker::Copy for WS_CERT_SIGNED_SAML_AUTHENTICATOR {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
+impl ::core::clone::Clone for WS_CERT_SIGNED_SAML_AUTHENTICATOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct WS_CHANNEL(pub u8);
 #[repr(transparent)]
@@ -550,18 +1012,90 @@ pub const WS_TCP_CHANNEL_BINDING: WS_CHANNEL_BINDING = WS_CHANNEL_BINDING(1i32);
 pub const WS_UDP_CHANNEL_BINDING: WS_CHANNEL_BINDING = WS_CHANNEL_BINDING(2i32);
 pub const WS_CUSTOM_CHANNEL_BINDING: WS_CHANNEL_BINDING = WS_CHANNEL_BINDING(3i32);
 pub const WS_NAMEDPIPE_CHANNEL_BINDING: WS_CHANNEL_BINDING = WS_CHANNEL_BINDING(4i32);
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct WS_CHANNEL_DECODER(i32);
+pub struct WS_CHANNEL_DECODER {
+    pub createContext: *mut ::core::ffi::c_void,
+    pub createDecoderCallback: ::core::option::Option<WS_CREATE_DECODER_CALLBACK>,
+    pub decoderGetContentTypeCallback: ::core::option::Option<WS_DECODER_GET_CONTENT_TYPE_CALLBACK>,
+    pub decoderStartCallback: ::core::option::Option<WS_DECODER_START_CALLBACK>,
+    pub decoderDecodeCallback: ::core::option::Option<WS_DECODER_DECODE_CALLBACK>,
+    pub decoderEndCallback: ::core::option::Option<WS_DECODER_END_CALLBACK>,
+    pub freeDecoderCallback: ::core::option::Option<WS_FREE_DECODER_CALLBACK>,
+}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WS_CHANNEL_DECODER {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WS_CHANNEL_DECODER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_CHANNEL_ENCODER(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct WS_CHANNEL_ENCODER {
+    pub createContext: *mut ::core::ffi::c_void,
+    pub createEncoderCallback: ::core::option::Option<WS_CREATE_ENCODER_CALLBACK>,
+    pub encoderGetContentTypeCallback: ::core::option::Option<WS_ENCODER_GET_CONTENT_TYPE_CALLBACK>,
+    pub encoderStartCallback: ::core::option::Option<WS_ENCODER_START_CALLBACK>,
+    pub encoderEncodeCallback: ::core::option::Option<WS_ENCODER_ENCODE_CALLBACK>,
+    pub encoderEndCallback: ::core::option::Option<WS_ENCODER_END_CALLBACK>,
+    pub freeEncoderCallback: ::core::option::Option<WS_FREE_ENCODER_CALLBACK>,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WS_CHANNEL_ENCODER {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WS_CHANNEL_ENCODER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_CHANNEL_PROPERTIES(i32);
+pub struct WS_CHANNEL_PROPERTIES {
+    pub properties: *mut WS_CHANNEL_PROPERTY,
+    pub propertyCount: u32,
+}
+impl ::core::marker::Copy for WS_CHANNEL_PROPERTIES {}
+impl ::core::clone::Clone for WS_CHANNEL_PROPERTIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_CHANNEL_PROPERTY(i32);
+pub struct WS_CHANNEL_PROPERTY {
+    pub id: WS_CHANNEL_PROPERTY_ID,
+    pub value: *mut ::core::ffi::c_void,
+    pub valueSize: u32,
+}
+impl ::core::marker::Copy for WS_CHANNEL_PROPERTY {}
+impl ::core::clone::Clone for WS_CHANNEL_PROPERTY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_CHANNEL_PROPERTY_CONSTRAINT(i32);
+pub struct WS_CHANNEL_PROPERTY_CONSTRAINT {
+    pub id: WS_CHANNEL_PROPERTY_ID,
+    pub allowedValues: *mut ::core::ffi::c_void,
+    pub allowedValuesSize: u32,
+    pub out: WS_CHANNEL_PROPERTY_CONSTRAINT_0,
+}
+impl ::core::marker::Copy for WS_CHANNEL_PROPERTY_CONSTRAINT {}
+impl ::core::clone::Clone for WS_CHANNEL_PROPERTY_CONSTRAINT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct WS_CHANNEL_PROPERTY_CONSTRAINT_0 {
+    pub channelProperty: WS_CHANNEL_PROPERTY,
+}
+impl ::core::marker::Copy for WS_CHANNEL_PROPERTY_CONSTRAINT_0 {}
+impl ::core::clone::Clone for WS_CHANNEL_PROPERTY_CONSTRAINT_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WS_CHANNEL_PROPERTY_ID(pub i32);
 pub const WS_CHANNEL_PROPERTY_MAX_BUFFERED_MESSAGE_SIZE: WS_CHANNEL_PROPERTY_ID = WS_CHANNEL_PROPERTY_ID(0i32);
@@ -641,12 +1175,32 @@ pub const WS_CHARSET_UTF8: WS_CHARSET = WS_CHARSET(1i32);
 pub const WS_CHARSET_UTF16LE: WS_CHARSET = WS_CHARSET(2i32);
 pub const WS_CHARSET_UTF16BE: WS_CHARSET = WS_CHARSET(3i32);
 #[repr(C)]
-pub struct WS_CHAR_ARRAY_DESCRIPTION(i32);
+pub struct WS_CHAR_ARRAY_DESCRIPTION {
+    pub minCharCount: u32,
+    pub maxCharCount: u32,
+}
+impl ::core::marker::Copy for WS_CHAR_ARRAY_DESCRIPTION {}
+impl ::core::clone::Clone for WS_CHAR_ARRAY_DESCRIPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub type WS_CLOSE_CHANNEL_CALLBACK = unsafe extern "system" fn(channelinstance: *const ::core::ffi::c_void, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows_sys::core::HRESULT;
 pub type WS_CLOSE_LISTENER_CALLBACK = unsafe extern "system" fn(listenerinstance: *const ::core::ffi::c_void, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows_sys::core::HRESULT;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct WS_CONTRACT_DESCRIPTION(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct WS_CONTRACT_DESCRIPTION {
+    pub operationCount: u32,
+    pub operations: *mut *mut WS_OPERATION_DESCRIPTION,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WS_CONTRACT_DESCRIPTION {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WS_CONTRACT_DESCRIPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WS_COOKIE_MODE(pub i32);
 pub const WS_MANUAL_COOKIE_MODE: WS_COOKIE_MODE = WS_COOKIE_MODE(1i32);
@@ -656,63 +1210,265 @@ pub type WS_CREATE_CHANNEL_FOR_LISTENER_CALLBACK = unsafe extern "system" fn(lis
 pub type WS_CREATE_DECODER_CALLBACK = unsafe extern "system" fn(createcontext: *const ::core::ffi::c_void, readcallback: WS_READ_CALLBACK, readcontext: *const ::core::ffi::c_void, decodercontext: *mut *mut ::core::ffi::c_void, error: *const WS_ERROR) -> ::windows_sys::core::HRESULT;
 pub type WS_CREATE_ENCODER_CALLBACK = unsafe extern "system" fn(createcontext: *const ::core::ffi::c_void, writecallback: WS_WRITE_CALLBACK, writecontext: *const ::core::ffi::c_void, encodercontext: *mut *mut ::core::ffi::c_void, error: *const WS_ERROR) -> ::windows_sys::core::HRESULT;
 pub type WS_CREATE_LISTENER_CALLBACK = unsafe extern "system" fn(channeltype: WS_CHANNEL_TYPE, listenerparameters: *const ::core::ffi::c_void, listenerparameterssize: u32, listenerinstance: *mut *mut ::core::ffi::c_void, error: *const WS_ERROR) -> ::windows_sys::core::HRESULT;
+#[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity", feature = "Win32_Security_Cryptography"))]
+pub struct WS_CUSTOM_CERT_CREDENTIAL {
+    pub credential: WS_CERT_CREDENTIAL,
+    pub getCertCallback: ::core::option::Option<WS_GET_CERT_CALLBACK>,
+    pub getCertCallbackState: *mut ::core::ffi::c_void,
+    pub certIssuerListNotificationCallback: ::core::option::Option<WS_CERT_ISSUER_LIST_NOTIFICATION_CALLBACK>,
+    pub certIssuerListNotificationCallbackState: *mut ::core::ffi::c_void,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity", feature = "Win32_Security_Cryptography"))]
+impl ::core::marker::Copy for WS_CUSTOM_CERT_CREDENTIAL {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity", feature = "Win32_Security_Cryptography"))]
+impl ::core::clone::Clone for WS_CUSTOM_CERT_CREDENTIAL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_CUSTOM_CERT_CREDENTIAL(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct WS_CUSTOM_CHANNEL_CALLBACKS(i32);
+pub struct WS_CUSTOM_CHANNEL_CALLBACKS {
+    pub createChannelCallback: ::core::option::Option<WS_CREATE_CHANNEL_CALLBACK>,
+    pub freeChannelCallback: ::core::option::Option<WS_FREE_CHANNEL_CALLBACK>,
+    pub resetChannelCallback: ::core::option::Option<WS_RESET_CHANNEL_CALLBACK>,
+    pub openChannelCallback: ::core::option::Option<WS_OPEN_CHANNEL_CALLBACK>,
+    pub closeChannelCallback: ::core::option::Option<WS_CLOSE_CHANNEL_CALLBACK>,
+    pub abortChannelCallback: ::core::option::Option<WS_ABORT_CHANNEL_CALLBACK>,
+    pub getChannelPropertyCallback: ::core::option::Option<WS_GET_CHANNEL_PROPERTY_CALLBACK>,
+    pub setChannelPropertyCallback: ::core::option::Option<WS_SET_CHANNEL_PROPERTY_CALLBACK>,
+    pub writeMessageStartCallback: ::core::option::Option<WS_WRITE_MESSAGE_START_CALLBACK>,
+    pub writeMessageEndCallback: ::core::option::Option<WS_WRITE_MESSAGE_END_CALLBACK>,
+    pub readMessageStartCallback: ::core::option::Option<WS_READ_MESSAGE_START_CALLBACK>,
+    pub readMessageEndCallback: ::core::option::Option<WS_READ_MESSAGE_END_CALLBACK>,
+    pub abandonMessageCallback: ::core::option::Option<WS_ABANDON_MESSAGE_CALLBACK>,
+    pub shutdownSessionChannelCallback: ::core::option::Option<WS_SHUTDOWN_SESSION_CHANNEL_CALLBACK>,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct WS_CUSTOM_HTTP_PROXY(i32);
+impl ::core::marker::Copy for WS_CUSTOM_CHANNEL_CALLBACKS {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WS_CUSTOM_CHANNEL_CALLBACKS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_CUSTOM_LISTENER_CALLBACKS(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct WS_CUSTOM_HTTP_PROXY {
+    pub servers: WS_STRING,
+    pub bypass: WS_STRING,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WS_CUSTOM_HTTP_PROXY {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WS_CUSTOM_HTTP_PROXY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_CUSTOM_TYPE_DESCRIPTION(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct WS_CUSTOM_LISTENER_CALLBACKS {
+    pub createListenerCallback: ::core::option::Option<WS_CREATE_LISTENER_CALLBACK>,
+    pub freeListenerCallback: ::core::option::Option<WS_FREE_LISTENER_CALLBACK>,
+    pub resetListenerCallback: ::core::option::Option<WS_RESET_LISTENER_CALLBACK>,
+    pub openListenerCallback: ::core::option::Option<WS_OPEN_LISTENER_CALLBACK>,
+    pub closeListenerCallback: ::core::option::Option<WS_CLOSE_LISTENER_CALLBACK>,
+    pub abortListenerCallback: ::core::option::Option<WS_ABORT_LISTENER_CALLBACK>,
+    pub getListenerPropertyCallback: ::core::option::Option<WS_GET_LISTENER_PROPERTY_CALLBACK>,
+    pub setListenerPropertyCallback: ::core::option::Option<WS_SET_LISTENER_PROPERTY_CALLBACK>,
+    pub createChannelForListenerCallback: ::core::option::Option<WS_CREATE_CHANNEL_FOR_LISTENER_CALLBACK>,
+    pub acceptChannelCallback: ::core::option::Option<WS_ACCEPT_CHANNEL_CALLBACK>,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WS_CUSTOM_LISTENER_CALLBACKS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WS_CUSTOM_LISTENER_CALLBACKS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_DATETIME(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct WS_CUSTOM_TYPE_DESCRIPTION {
+    pub size: u32,
+    pub alignment: u32,
+    pub readCallback: ::core::option::Option<WS_READ_TYPE_CALLBACK>,
+    pub writeCallback: ::core::option::Option<WS_WRITE_TYPE_CALLBACK>,
+    pub descriptionData: *mut ::core::ffi::c_void,
+    pub isDefaultValueCallback: ::core::option::Option<WS_IS_DEFAULT_VALUE_CALLBACK>,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WS_CUSTOM_TYPE_DESCRIPTION {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WS_CUSTOM_TYPE_DESCRIPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_DATETIME_DESCRIPTION(i32);
+pub struct WS_DATETIME {
+    pub ticks: u64,
+    pub format: WS_DATETIME_FORMAT,
+}
+impl ::core::marker::Copy for WS_DATETIME {}
+impl ::core::clone::Clone for WS_DATETIME {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct WS_DATETIME_DESCRIPTION {
+    pub minValue: WS_DATETIME,
+    pub maxValue: WS_DATETIME,
+}
+impl ::core::marker::Copy for WS_DATETIME_DESCRIPTION {}
+impl ::core::clone::Clone for WS_DATETIME_DESCRIPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WS_DATETIME_FORMAT(pub i32);
 pub const WS_DATETIME_FORMAT_UTC: WS_DATETIME_FORMAT = WS_DATETIME_FORMAT(0i32);
 pub const WS_DATETIME_FORMAT_LOCAL: WS_DATETIME_FORMAT = WS_DATETIME_FORMAT(1i32);
 pub const WS_DATETIME_FORMAT_NONE: WS_DATETIME_FORMAT = WS_DATETIME_FORMAT(2i32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct WS_DECIMAL_DESCRIPTION(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct WS_DECIMAL_DESCRIPTION {
+    pub minValue: super::super::Foundation::DECIMAL,
+    pub maxValue: super::super::Foundation::DECIMAL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WS_DECIMAL_DESCRIPTION {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WS_DECIMAL_DESCRIPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub type WS_DECODER_DECODE_CALLBACK = unsafe extern "system" fn(encodercontext: *const ::core::ffi::c_void, buffer: *mut ::core::ffi::c_void, maxlength: u32, length: *mut u32, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows_sys::core::HRESULT;
 pub type WS_DECODER_END_CALLBACK = unsafe extern "system" fn(encodercontext: *const ::core::ffi::c_void, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows_sys::core::HRESULT;
 #[cfg(feature = "Win32_Foundation")]
 pub type WS_DECODER_GET_CONTENT_TYPE_CALLBACK = unsafe extern "system" fn(decodercontext: *const ::core::ffi::c_void, contenttype: *const WS_STRING, contentencoding: *const WS_STRING, newcontenttype: *mut WS_STRING, error: *const WS_ERROR) -> ::windows_sys::core::HRESULT;
 pub type WS_DECODER_START_CALLBACK = unsafe extern "system" fn(encodercontext: *const ::core::ffi::c_void, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows_sys::core::HRESULT;
 #[repr(C)]
-pub struct WS_DEFAULT_VALUE(i32);
+pub struct WS_DEFAULT_VALUE {
+    pub value: *mut ::core::ffi::c_void,
+    pub valueSize: u32,
+}
+impl ::core::marker::Copy for WS_DEFAULT_VALUE {}
+impl ::core::clone::Clone for WS_DEFAULT_VALUE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_DEFAULT_WINDOWS_INTEGRATED_AUTH_CREDENTIAL(i32);
+pub struct WS_DEFAULT_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {
+    pub credential: WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL,
+}
+impl ::core::marker::Copy for WS_DEFAULT_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {}
+impl ::core::clone::Clone for WS_DEFAULT_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct WS_DISALLOWED_USER_AGENT_SUBSTRINGS(i32);
+pub struct WS_DISALLOWED_USER_AGENT_SUBSTRINGS {
+    pub subStringCount: u32,
+    pub subStrings: *mut *mut WS_STRING,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct WS_DNS_ENDPOINT_IDENTITY(i32);
-#[repr(C)]
-pub struct WS_DOUBLE_DESCRIPTION(i32);
+impl ::core::marker::Copy for WS_DISALLOWED_USER_AGENT_SUBSTRINGS {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WS_DISALLOWED_USER_AGENT_SUBSTRINGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_DURATION(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct WS_DNS_ENDPOINT_IDENTITY {
+    pub identity: WS_ENDPOINT_IDENTITY,
+    pub dns: WS_STRING,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WS_DNS_ENDPOINT_IDENTITY {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WS_DNS_ENDPOINT_IDENTITY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct WS_DOUBLE_DESCRIPTION {
+    pub minValue: f64,
+    pub maxValue: f64,
+}
+impl ::core::marker::Copy for WS_DOUBLE_DESCRIPTION {}
+impl ::core::clone::Clone for WS_DOUBLE_DESCRIPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct WS_DURATION {
+    pub negative: super::super::Foundation::BOOL,
+    pub years: u32,
+    pub months: u32,
+    pub days: u32,
+    pub hours: u32,
+    pub minutes: u32,
+    pub seconds: u32,
+    pub milliseconds: u32,
+    pub ticks: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WS_DURATION {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WS_DURATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[cfg(feature = "Win32_Foundation")]
 pub type WS_DURATION_COMPARISON_CALLBACK = unsafe extern "system" fn(duration1: *const WS_DURATION, duration2: *const WS_DURATION, result: *mut i32, error: *const WS_ERROR) -> ::windows_sys::core::HRESULT;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct WS_DURATION_DESCRIPTION(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct WS_DURATION_DESCRIPTION {
+    pub minValue: WS_DURATION,
+    pub maxValue: WS_DURATION,
+    pub comparer: ::core::option::Option<WS_DURATION_COMPARISON_CALLBACK>,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WS_DURATION_DESCRIPTION {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WS_DURATION_DESCRIPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[cfg(feature = "Win32_Foundation")]
 pub type WS_DYNAMIC_STRING_CALLBACK = unsafe extern "system" fn(callbackstate: *const ::core::ffi::c_void, string: *const WS_XML_STRING, found: *mut super::super::Foundation::BOOL, id: *mut u32, error: *const WS_ERROR) -> ::windows_sys::core::HRESULT;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct WS_ELEMENT_DESCRIPTION(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct WS_ELEMENT_DESCRIPTION {
+    pub elementLocalName: *mut WS_XML_STRING,
+    pub elementNs: *mut WS_XML_STRING,
+    pub r#type: WS_TYPE,
+    pub typeDescription: *mut ::core::ffi::c_void,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WS_ELEMENT_DESCRIPTION {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WS_ELEMENT_DESCRIPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub type WS_ENCODER_ENCODE_CALLBACK = unsafe extern "system" fn(encodercontext: *const ::core::ffi::c_void, buffers: *const WS_BYTES, count: u32, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows_sys::core::HRESULT;
 pub type WS_ENCODER_END_CALLBACK = unsafe extern "system" fn(encodercontext: *const ::core::ffi::c_void, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows_sys::core::HRESULT;
 #[cfg(feature = "Win32_Foundation")]
@@ -729,16 +1485,45 @@ pub const WS_ENCODING_XML_UTF8: WS_ENCODING = WS_ENCODING(5i32);
 pub const WS_ENCODING_XML_UTF16BE: WS_ENCODING = WS_ENCODING(6i32);
 pub const WS_ENCODING_XML_UTF16LE: WS_ENCODING = WS_ENCODING(7i32);
 pub const WS_ENCODING_RAW: WS_ENCODING = WS_ENCODING(8i32);
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+pub struct WS_ENDPOINT_ADDRESS {
+    pub url: WS_STRING,
+    pub headers: *mut WS_XML_BUFFER,
+    pub extensions: *mut WS_XML_BUFFER,
+    pub identity: *mut WS_ENDPOINT_IDENTITY,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WS_ENDPOINT_ADDRESS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WS_ENDPOINT_ADDRESS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_ENDPOINT_ADDRESS(i32);
-#[repr(C)]
-pub struct WS_ENDPOINT_ADDRESS_DESCRIPTION(i32);
+pub struct WS_ENDPOINT_ADDRESS_DESCRIPTION {
+    pub addressingVersion: WS_ADDRESSING_VERSION,
+}
+impl ::core::marker::Copy for WS_ENDPOINT_ADDRESS_DESCRIPTION {}
+impl ::core::clone::Clone for WS_ENDPOINT_ADDRESS_DESCRIPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WS_ENDPOINT_ADDRESS_EXTENSION_TYPE(pub i32);
 pub const WS_ENDPOINT_ADDRESS_EXTENSION_METADATA_ADDRESS: WS_ENDPOINT_ADDRESS_EXTENSION_TYPE = WS_ENDPOINT_ADDRESS_EXTENSION_TYPE(1i32);
 #[repr(C)]
-pub struct WS_ENDPOINT_IDENTITY(i32);
+pub struct WS_ENDPOINT_IDENTITY {
+    pub identityType: WS_ENDPOINT_IDENTITY_TYPE,
+}
+impl ::core::marker::Copy for WS_ENDPOINT_IDENTITY {}
+impl ::core::clone::Clone for WS_ENDPOINT_IDENTITY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WS_ENDPOINT_IDENTITY_TYPE(pub i32);
 pub const WS_DNS_ENDPOINT_IDENTITY_TYPE: WS_ENDPOINT_IDENTITY_TYPE = WS_ENDPOINT_IDENTITY_TYPE(1i32);
@@ -747,15 +1532,65 @@ pub const WS_SPN_ENDPOINT_IDENTITY_TYPE: WS_ENDPOINT_IDENTITY_TYPE = WS_ENDPOINT
 pub const WS_RSA_ENDPOINT_IDENTITY_TYPE: WS_ENDPOINT_IDENTITY_TYPE = WS_ENDPOINT_IDENTITY_TYPE(4i32);
 pub const WS_CERT_ENDPOINT_IDENTITY_TYPE: WS_ENDPOINT_IDENTITY_TYPE = WS_ENDPOINT_IDENTITY_TYPE(5i32);
 pub const WS_UNKNOWN_ENDPOINT_IDENTITY_TYPE: WS_ENDPOINT_IDENTITY_TYPE = WS_ENDPOINT_IDENTITY_TYPE(6i32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct WS_ENDPOINT_POLICY_EXTENSION(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct WS_ENUM_DESCRIPTION(i32);
+pub struct WS_ENDPOINT_POLICY_EXTENSION {
+    pub policyExtension: WS_POLICY_EXTENSION,
+    pub assertionName: *mut WS_XML_STRING,
+    pub assertionNs: *mut WS_XML_STRING,
+    pub out: WS_ENDPOINT_POLICY_EXTENSION_0,
+}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WS_ENDPOINT_POLICY_EXTENSION {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WS_ENDPOINT_POLICY_EXTENSION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_ENUM_VALUE(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct WS_ENDPOINT_POLICY_EXTENSION_0 {
+    pub assertionValue: *mut WS_XML_BUFFER,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WS_ENDPOINT_POLICY_EXTENSION_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WS_ENDPOINT_POLICY_EXTENSION_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct WS_ENUM_DESCRIPTION {
+    pub values: *mut WS_ENUM_VALUE,
+    pub valueCount: u32,
+    pub maxByteCount: u32,
+    pub nameIndices: *mut u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WS_ENUM_DESCRIPTION {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WS_ENUM_DESCRIPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct WS_ENUM_VALUE {
+    pub value: i32,
+    pub name: *mut WS_XML_STRING,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WS_ENUM_VALUE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WS_ENUM_VALUE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WS_ENVELOPE_VERSION(pub i32);
 pub const WS_ENVELOPE_VERSION_SOAP_1_1: WS_ENVELOPE_VERSION = WS_ENVELOPE_VERSION(1i32);
@@ -764,7 +1599,17 @@ pub const WS_ENVELOPE_VERSION_NONE: WS_ENVELOPE_VERSION = WS_ENVELOPE_VERSION(3i
 #[repr(C)]
 pub struct WS_ERROR(pub u8);
 #[repr(C)]
-pub struct WS_ERROR_PROPERTY(i32);
+pub struct WS_ERROR_PROPERTY {
+    pub id: WS_ERROR_PROPERTY_ID,
+    pub value: *mut ::core::ffi::c_void,
+    pub valueSize: u32,
+}
+impl ::core::marker::Copy for WS_ERROR_PROPERTY {}
+impl ::core::clone::Clone for WS_ERROR_PROPERTY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WS_ERROR_PROPERTY_ID(pub i32);
 pub const WS_ERROR_PROPERTY_STRING_COUNT: WS_ERROR_PROPERTY_ID = WS_ERROR_PROPERTY_ID(0i32);
@@ -783,17 +1628,62 @@ pub const WS_EXTENDED_PROTECTION_POLICY_ALWAYS: WS_EXTENDED_PROTECTION_POLICY = 
 pub struct WS_EXTENDED_PROTECTION_SCENARIO(pub i32);
 pub const WS_EXTENDED_PROTECTION_SCENARIO_BOUND_SERVER: WS_EXTENDED_PROTECTION_SCENARIO = WS_EXTENDED_PROTECTION_SCENARIO(1i32);
 pub const WS_EXTENDED_PROTECTION_SCENARIO_TERMINATED_SSL: WS_EXTENDED_PROTECTION_SCENARIO = WS_EXTENDED_PROTECTION_SCENARIO(2i32);
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct WS_FAULT(i32);
+pub struct WS_FAULT {
+    pub code: *mut WS_FAULT_CODE,
+    pub reasons: *mut WS_FAULT_REASON,
+    pub reasonCount: u32,
+    pub actor: WS_STRING,
+    pub node: WS_STRING,
+    pub detail: *mut WS_XML_BUFFER,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct WS_FAULT_CODE(i32);
-#[repr(C)]
-pub struct WS_FAULT_DESCRIPTION(i32);
+impl ::core::marker::Copy for WS_FAULT {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WS_FAULT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_FAULT_DETAIL_DESCRIPTION(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct WS_FAULT_CODE {
+    pub value: WS_XML_QNAME,
+    pub subCode: *mut WS_FAULT_CODE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WS_FAULT_CODE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WS_FAULT_CODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct WS_FAULT_DESCRIPTION {
+    pub envelopeVersion: WS_ENVELOPE_VERSION,
+}
+impl ::core::marker::Copy for WS_FAULT_DESCRIPTION {}
+impl ::core::clone::Clone for WS_FAULT_DESCRIPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct WS_FAULT_DETAIL_DESCRIPTION {
+    pub action: *mut WS_XML_STRING,
+    pub detailElementDescription: *mut WS_ELEMENT_DESCRIPTION,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WS_FAULT_DETAIL_DESCRIPTION {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WS_FAULT_DETAIL_DESCRIPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WS_FAULT_DISCLOSURE(pub i32);
 pub const WS_MINIMAL_FAULT_DISCLOSURE: WS_FAULT_DISCLOSURE = WS_FAULT_DISCLOSURE(0i32);
@@ -803,12 +1693,44 @@ pub struct WS_FAULT_ERROR_PROPERTY_ID(pub i32);
 pub const WS_FAULT_ERROR_PROPERTY_FAULT: WS_FAULT_ERROR_PROPERTY_ID = WS_FAULT_ERROR_PROPERTY_ID(0i32);
 pub const WS_FAULT_ERROR_PROPERTY_ACTION: WS_FAULT_ERROR_PROPERTY_ID = WS_FAULT_ERROR_PROPERTY_ID(1i32);
 pub const WS_FAULT_ERROR_PROPERTY_HEADER: WS_FAULT_ERROR_PROPERTY_ID = WS_FAULT_ERROR_PROPERTY_ID(2i32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct WS_FAULT_REASON(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct WS_FAULT_REASON {
+    pub text: WS_STRING,
+    pub lang: WS_STRING,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WS_FAULT_REASON {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WS_FAULT_REASON {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_FIELD_DESCRIPTION(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct WS_FIELD_DESCRIPTION {
+    pub mapping: WS_FIELD_MAPPING,
+    pub localName: *mut WS_XML_STRING,
+    pub ns: *mut WS_XML_STRING,
+    pub r#type: WS_TYPE,
+    pub typeDescription: *mut ::core::ffi::c_void,
+    pub offset: u32,
+    pub options: u32,
+    pub defaultValue: *mut WS_DEFAULT_VALUE,
+    pub countOffset: u32,
+    pub itemLocalName: *mut WS_XML_STRING,
+    pub itemNs: *mut WS_XML_STRING,
+    pub itemRange: *mut WS_ITEM_RANGE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WS_FIELD_DESCRIPTION {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WS_FIELD_DESCRIPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WS_FIELD_MAPPING(pub i32);
 pub const WS_TYPE_ATTRIBUTE_FIELD_MAPPING: WS_FIELD_MAPPING = WS_FIELD_MAPPING(0i32);
@@ -830,7 +1752,16 @@ pub const WS_FIELD_OPTIONAL: i32 = 2i32;
 pub const WS_FIELD_OTHER_NAMESPACE: i32 = 16i32;
 pub const WS_FIELD_POINTER: i32 = 1i32;
 #[repr(C)]
-pub struct WS_FLOAT_DESCRIPTION(i32);
+pub struct WS_FLOAT_DESCRIPTION {
+    pub minValue: f32,
+    pub maxValue: f32,
+}
+impl ::core::marker::Copy for WS_FLOAT_DESCRIPTION {}
+impl ::core::clone::Clone for WS_FLOAT_DESCRIPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub type WS_FREE_CHANNEL_CALLBACK = unsafe extern "system" fn(channelinstance: *const ::core::ffi::c_void);
 pub type WS_FREE_DECODER_CALLBACK = unsafe extern "system" fn(decodercontext: *const ::core::ffi::c_void);
 pub type WS_FREE_ENCODER_CALLBACK = unsafe extern "system" fn(encodercontext: *const ::core::ffi::c_void);
@@ -840,7 +1771,15 @@ pub type WS_GET_CERT_CALLBACK = unsafe extern "system" fn(getcertcallbackstate: 
 pub type WS_GET_CHANNEL_PROPERTY_CALLBACK = unsafe extern "system" fn(channelinstance: *const ::core::ffi::c_void, id: WS_CHANNEL_PROPERTY_ID, value: *mut ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows_sys::core::HRESULT;
 pub type WS_GET_LISTENER_PROPERTY_CALLBACK = unsafe extern "system" fn(listenerinstance: *const ::core::ffi::c_void, id: WS_LISTENER_PROPERTY_ID, value: *mut ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows_sys::core::HRESULT;
 #[repr(C)]
-pub struct WS_GUID_DESCRIPTION(i32);
+pub struct WS_GUID_DESCRIPTION {
+    pub value: ::windows_sys::core::GUID,
+}
+impl ::core::marker::Copy for WS_GUID_DESCRIPTION {}
+impl ::core::clone::Clone for WS_GUID_DESCRIPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WS_HEADER_TYPE(pub i32);
 pub const WS_ACTION_HEADER: WS_HEADER_TYPE = WS_HEADER_TYPE(1i32);
@@ -853,27 +1792,101 @@ pub const WS_FAULT_TO_HEADER: WS_HEADER_TYPE = WS_HEADER_TYPE(7i32);
 #[repr(C)]
 pub struct WS_HEAP(pub u8);
 #[repr(C)]
-pub struct WS_HEAP_PROPERTIES(i32);
+pub struct WS_HEAP_PROPERTIES {
+    pub properties: *mut WS_HEAP_PROPERTY,
+    pub propertyCount: u32,
+}
+impl ::core::marker::Copy for WS_HEAP_PROPERTIES {}
+impl ::core::clone::Clone for WS_HEAP_PROPERTIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_HEAP_PROPERTY(i32);
+pub struct WS_HEAP_PROPERTY {
+    pub id: WS_HEAP_PROPERTY_ID,
+    pub value: *mut ::core::ffi::c_void,
+    pub valueSize: u32,
+}
+impl ::core::marker::Copy for WS_HEAP_PROPERTY {}
+impl ::core::clone::Clone for WS_HEAP_PROPERTY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WS_HEAP_PROPERTY_ID(pub i32);
 pub const WS_HEAP_PROPERTY_MAX_SIZE: WS_HEAP_PROPERTY_ID = WS_HEAP_PROPERTY_ID(0i32);
 pub const WS_HEAP_PROPERTY_TRIM_SIZE: WS_HEAP_PROPERTY_ID = WS_HEAP_PROPERTY_ID(1i32);
 pub const WS_HEAP_PROPERTY_REQUESTED_SIZE: WS_HEAP_PROPERTY_ID = WS_HEAP_PROPERTY_ID(2i32);
 pub const WS_HEAP_PROPERTY_ACTUAL_SIZE: WS_HEAP_PROPERTY_ID = WS_HEAP_PROPERTY_ID(3i32);
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct WS_HOST_NAMES(i32);
+pub struct WS_HOST_NAMES {
+    pub hostNames: *mut WS_STRING,
+    pub hostNameCount: u32,
+}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WS_HOST_NAMES {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WS_HOST_NAMES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_HTTPS_URL(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct WS_HTTPS_URL {
+    pub url: WS_URL,
+    pub host: WS_STRING,
+    pub port: u16,
+    pub portAsString: WS_STRING,
+    pub path: WS_STRING,
+    pub query: WS_STRING,
+    pub fragment: WS_STRING,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WS_HTTPS_URL {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WS_HTTPS_URL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_HTTP_BINDING_TEMPLATE(i32);
+pub struct WS_HTTP_BINDING_TEMPLATE {
+    pub channelProperties: WS_CHANNEL_PROPERTIES,
+}
+impl ::core::marker::Copy for WS_HTTP_BINDING_TEMPLATE {}
+impl ::core::clone::Clone for WS_HTTP_BINDING_TEMPLATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_HTTP_HEADER_AUTH_BINDING_TEMPLATE(i32);
+pub struct WS_HTTP_HEADER_AUTH_BINDING_TEMPLATE {
+    pub channelProperties: WS_CHANNEL_PROPERTIES,
+    pub securityProperties: WS_SECURITY_PROPERTIES,
+    pub httpHeaderAuthSecurityBinding: WS_HTTP_HEADER_AUTH_SECURITY_BINDING_TEMPLATE,
+}
+impl ::core::marker::Copy for WS_HTTP_HEADER_AUTH_BINDING_TEMPLATE {}
+impl ::core::clone::Clone for WS_HTTP_HEADER_AUTH_BINDING_TEMPLATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_HTTP_HEADER_AUTH_POLICY_DESCRIPTION(i32);
+pub struct WS_HTTP_HEADER_AUTH_POLICY_DESCRIPTION {
+    pub channelProperties: WS_CHANNEL_PROPERTIES,
+    pub securityProperties: WS_SECURITY_PROPERTIES,
+    pub httpHeaderAuthSecurityBinding: WS_HTTP_HEADER_AUTH_SECURITY_BINDING_POLICY_DESCRIPTION,
+}
+impl ::core::marker::Copy for WS_HTTP_HEADER_AUTH_POLICY_DESCRIPTION {}
+impl ::core::clone::Clone for WS_HTTP_HEADER_AUTH_POLICY_DESCRIPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WS_HTTP_HEADER_AUTH_SCHEME_BASIC: i32 = 2i32;
 pub const WS_HTTP_HEADER_AUTH_SCHEME_DIGEST: i32 = 4i32;
 pub const WS_HTTP_HEADER_AUTH_SCHEME_NEGOTIATE: i32 = 16i32;
@@ -881,28 +1894,96 @@ pub const WS_HTTP_HEADER_AUTH_SCHEME_NONE: i32 = 1i32;
 pub const WS_HTTP_HEADER_AUTH_SCHEME_NTLM: i32 = 8i32;
 pub const WS_HTTP_HEADER_AUTH_SCHEME_PASSPORT: i32 = 32i32;
 #[repr(C)]
-pub struct WS_HTTP_HEADER_AUTH_SECURITY_BINDING(i32);
+pub struct WS_HTTP_HEADER_AUTH_SECURITY_BINDING {
+    pub binding: WS_SECURITY_BINDING,
+    pub clientCredential: *mut WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL,
+}
+impl ::core::marker::Copy for WS_HTTP_HEADER_AUTH_SECURITY_BINDING {}
+impl ::core::clone::Clone for WS_HTTP_HEADER_AUTH_SECURITY_BINDING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_HTTP_HEADER_AUTH_SECURITY_BINDING_CONSTRAINT(i32);
+pub struct WS_HTTP_HEADER_AUTH_SECURITY_BINDING_CONSTRAINT {
+    pub bindingConstraint: WS_SECURITY_BINDING_CONSTRAINT,
+}
+impl ::core::marker::Copy for WS_HTTP_HEADER_AUTH_SECURITY_BINDING_CONSTRAINT {}
+impl ::core::clone::Clone for WS_HTTP_HEADER_AUTH_SECURITY_BINDING_CONSTRAINT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_HTTP_HEADER_AUTH_SECURITY_BINDING_POLICY_DESCRIPTION(i32);
+pub struct WS_HTTP_HEADER_AUTH_SECURITY_BINDING_POLICY_DESCRIPTION {
+    pub securityBindingProperties: WS_SECURITY_BINDING_PROPERTIES,
+}
+impl ::core::marker::Copy for WS_HTTP_HEADER_AUTH_SECURITY_BINDING_POLICY_DESCRIPTION {}
+impl ::core::clone::Clone for WS_HTTP_HEADER_AUTH_SECURITY_BINDING_POLICY_DESCRIPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_HTTP_HEADER_AUTH_SECURITY_BINDING_TEMPLATE(i32);
+pub struct WS_HTTP_HEADER_AUTH_SECURITY_BINDING_TEMPLATE {
+    pub securityBindingProperties: WS_SECURITY_BINDING_PROPERTIES,
+    pub clientCredential: *mut WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL,
+}
+impl ::core::marker::Copy for WS_HTTP_HEADER_AUTH_SECURITY_BINDING_TEMPLATE {}
+impl ::core::clone::Clone for WS_HTTP_HEADER_AUTH_SECURITY_BINDING_TEMPLATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WS_HTTP_HEADER_AUTH_TARGET(pub i32);
 pub const WS_HTTP_HEADER_AUTH_TARGET_SERVICE: WS_HTTP_HEADER_AUTH_TARGET = WS_HTTP_HEADER_AUTH_TARGET(1i32);
 pub const WS_HTTP_HEADER_AUTH_TARGET_PROXY: WS_HTTP_HEADER_AUTH_TARGET = WS_HTTP_HEADER_AUTH_TARGET(2i32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct WS_HTTP_HEADER_MAPPING(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct WS_HTTP_HEADER_MAPPING {
+    pub headerName: WS_XML_STRING,
+    pub headerMappingOptions: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WS_HTTP_HEADER_MAPPING {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WS_HTTP_HEADER_MAPPING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WS_HTTP_HEADER_MAPPING_COMMA_SEPARATOR: i32 = 1i32;
 pub const WS_HTTP_HEADER_MAPPING_QUOTED_VALUE: i32 = 4i32;
 pub const WS_HTTP_HEADER_MAPPING_SEMICOLON_SEPARATOR: i32 = 2i32;
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+pub struct WS_HTTP_MESSAGE_MAPPING {
+    pub requestMappingOptions: u32,
+    pub responseMappingOptions: u32,
+    pub requestHeaderMappings: *mut *mut WS_HTTP_HEADER_MAPPING,
+    pub requestHeaderMappingCount: u32,
+    pub responseHeaderMappings: *mut *mut WS_HTTP_HEADER_MAPPING,
+    pub responseHeaderMappingCount: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WS_HTTP_MESSAGE_MAPPING {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WS_HTTP_MESSAGE_MAPPING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_HTTP_MESSAGE_MAPPING(i32);
-#[repr(C)]
-pub struct WS_HTTP_POLICY_DESCRIPTION(i32);
+pub struct WS_HTTP_POLICY_DESCRIPTION {
+    pub channelProperties: WS_CHANNEL_PROPERTIES,
+}
+impl ::core::marker::Copy for WS_HTTP_POLICY_DESCRIPTION {}
+impl ::core::clone::Clone for WS_HTTP_POLICY_DESCRIPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WS_HTTP_PROXY_SETTING_MODE(pub i32);
 pub const WS_HTTP_PROXY_SETTING_MODE_AUTO: WS_HTTP_PROXY_SETTING_MODE = WS_HTTP_PROXY_SETTING_MODE(1i32);
@@ -910,76 +1991,374 @@ pub const WS_HTTP_PROXY_SETTING_MODE_NONE: WS_HTTP_PROXY_SETTING_MODE = WS_HTTP_
 pub const WS_HTTP_PROXY_SETTING_MODE_CUSTOM: WS_HTTP_PROXY_SETTING_MODE = WS_HTTP_PROXY_SETTING_MODE(3i32);
 #[cfg(feature = "Win32_Foundation")]
 pub type WS_HTTP_REDIRECT_CALLBACK = unsafe extern "system" fn(state: *const ::core::ffi::c_void, originalurl: *const WS_STRING, newurl: *const WS_STRING) -> ::windows_sys::core::HRESULT;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct WS_HTTP_REDIRECT_CALLBACK_CONTEXT(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct WS_HTTP_REDIRECT_CALLBACK_CONTEXT {
+    pub callback: ::core::option::Option<WS_HTTP_REDIRECT_CALLBACK>,
+    pub state: *mut ::core::ffi::c_void,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WS_HTTP_REDIRECT_CALLBACK_CONTEXT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WS_HTTP_REDIRECT_CALLBACK_CONTEXT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WS_HTTP_REQUEST_MAPPING_VERB: i32 = 2i32;
 pub const WS_HTTP_RESPONSE_MAPPING_STATUS_CODE: i32 = 1i32;
 pub const WS_HTTP_RESPONSE_MAPPING_STATUS_TEXT: i32 = 2i32;
 #[repr(C)]
-pub struct WS_HTTP_SSL_BINDING_TEMPLATE(i32);
+pub struct WS_HTTP_SSL_BINDING_TEMPLATE {
+    pub channelProperties: WS_CHANNEL_PROPERTIES,
+    pub securityProperties: WS_SECURITY_PROPERTIES,
+    pub sslTransportSecurityBinding: WS_SSL_TRANSPORT_SECURITY_BINDING_TEMPLATE,
+}
+impl ::core::marker::Copy for WS_HTTP_SSL_BINDING_TEMPLATE {}
+impl ::core::clone::Clone for WS_HTTP_SSL_BINDING_TEMPLATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_HTTP_SSL_HEADER_AUTH_BINDING_TEMPLATE(i32);
+pub struct WS_HTTP_SSL_HEADER_AUTH_BINDING_TEMPLATE {
+    pub channelProperties: WS_CHANNEL_PROPERTIES,
+    pub securityProperties: WS_SECURITY_PROPERTIES,
+    pub sslTransportSecurityBinding: WS_SSL_TRANSPORT_SECURITY_BINDING_TEMPLATE,
+    pub httpHeaderAuthSecurityBinding: WS_HTTP_HEADER_AUTH_SECURITY_BINDING_TEMPLATE,
+}
+impl ::core::marker::Copy for WS_HTTP_SSL_HEADER_AUTH_BINDING_TEMPLATE {}
+impl ::core::clone::Clone for WS_HTTP_SSL_HEADER_AUTH_BINDING_TEMPLATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_HTTP_SSL_HEADER_AUTH_POLICY_DESCRIPTION(i32);
+pub struct WS_HTTP_SSL_HEADER_AUTH_POLICY_DESCRIPTION {
+    pub channelProperties: WS_CHANNEL_PROPERTIES,
+    pub securityProperties: WS_SECURITY_PROPERTIES,
+    pub sslTransportSecurityBinding: WS_SSL_TRANSPORT_SECURITY_BINDING_POLICY_DESCRIPTION,
+    pub httpHeaderAuthSecurityBinding: WS_HTTP_HEADER_AUTH_SECURITY_BINDING_POLICY_DESCRIPTION,
+}
+impl ::core::marker::Copy for WS_HTTP_SSL_HEADER_AUTH_POLICY_DESCRIPTION {}
+impl ::core::clone::Clone for WS_HTTP_SSL_HEADER_AUTH_POLICY_DESCRIPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_HTTP_SSL_KERBEROS_APREQ_BINDING_TEMPLATE(i32);
+pub struct WS_HTTP_SSL_KERBEROS_APREQ_BINDING_TEMPLATE {
+    pub channelProperties: WS_CHANNEL_PROPERTIES,
+    pub securityProperties: WS_SECURITY_PROPERTIES,
+    pub sslTransportSecurityBinding: WS_SSL_TRANSPORT_SECURITY_BINDING_TEMPLATE,
+    pub kerberosApreqMessageSecurityBinding: WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_TEMPLATE,
+}
+impl ::core::marker::Copy for WS_HTTP_SSL_KERBEROS_APREQ_BINDING_TEMPLATE {}
+impl ::core::clone::Clone for WS_HTTP_SSL_KERBEROS_APREQ_BINDING_TEMPLATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_HTTP_SSL_KERBEROS_APREQ_POLICY_DESCRIPTION(i32);
+pub struct WS_HTTP_SSL_KERBEROS_APREQ_POLICY_DESCRIPTION {
+    pub channelProperties: WS_CHANNEL_PROPERTIES,
+    pub securityProperties: WS_SECURITY_PROPERTIES,
+    pub sslTransportSecurityBinding: WS_SSL_TRANSPORT_SECURITY_BINDING_POLICY_DESCRIPTION,
+    pub kerberosApreqMessageSecurityBinding: WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION,
+}
+impl ::core::marker::Copy for WS_HTTP_SSL_KERBEROS_APREQ_POLICY_DESCRIPTION {}
+impl ::core::clone::Clone for WS_HTTP_SSL_KERBEROS_APREQ_POLICY_DESCRIPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_HTTP_SSL_KERBEROS_APREQ_SECURITY_CONTEXT_BINDING_TEMPLATE(i32);
+pub struct WS_HTTP_SSL_KERBEROS_APREQ_SECURITY_CONTEXT_BINDING_TEMPLATE {
+    pub channelProperties: WS_CHANNEL_PROPERTIES,
+    pub securityProperties: WS_SECURITY_PROPERTIES,
+    pub sslTransportSecurityBinding: WS_SSL_TRANSPORT_SECURITY_BINDING_TEMPLATE,
+    pub kerberosApreqMessageSecurityBinding: WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_TEMPLATE,
+    pub securityContextSecurityBinding: WS_SECURITY_CONTEXT_SECURITY_BINDING_TEMPLATE,
+}
+impl ::core::marker::Copy for WS_HTTP_SSL_KERBEROS_APREQ_SECURITY_CONTEXT_BINDING_TEMPLATE {}
+impl ::core::clone::Clone for WS_HTTP_SSL_KERBEROS_APREQ_SECURITY_CONTEXT_BINDING_TEMPLATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_HTTP_SSL_KERBEROS_APREQ_SECURITY_CONTEXT_POLICY_DESCRIPTION(i32);
+pub struct WS_HTTP_SSL_KERBEROS_APREQ_SECURITY_CONTEXT_POLICY_DESCRIPTION {
+    pub channelProperties: WS_CHANNEL_PROPERTIES,
+    pub securityProperties: WS_SECURITY_PROPERTIES,
+    pub sslTransportSecurityBinding: WS_SSL_TRANSPORT_SECURITY_BINDING_POLICY_DESCRIPTION,
+    pub kerberosApreqMessageSecurityBinding: WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION,
+    pub securityContextSecurityBinding: WS_SECURITY_CONTEXT_SECURITY_BINDING_POLICY_DESCRIPTION,
+}
+impl ::core::marker::Copy for WS_HTTP_SSL_KERBEROS_APREQ_SECURITY_CONTEXT_POLICY_DESCRIPTION {}
+impl ::core::clone::Clone for WS_HTTP_SSL_KERBEROS_APREQ_SECURITY_CONTEXT_POLICY_DESCRIPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_HTTP_SSL_POLICY_DESCRIPTION(i32);
+pub struct WS_HTTP_SSL_POLICY_DESCRIPTION {
+    pub channelProperties: WS_CHANNEL_PROPERTIES,
+    pub securityProperties: WS_SECURITY_PROPERTIES,
+    pub sslTransportSecurityBinding: WS_SSL_TRANSPORT_SECURITY_BINDING_POLICY_DESCRIPTION,
+}
+impl ::core::marker::Copy for WS_HTTP_SSL_POLICY_DESCRIPTION {}
+impl ::core::clone::Clone for WS_HTTP_SSL_POLICY_DESCRIPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct WS_HTTP_SSL_USERNAME_BINDING_TEMPLATE(i32);
-#[repr(C)]
-pub struct WS_HTTP_SSL_USERNAME_POLICY_DESCRIPTION(i32);
+pub struct WS_HTTP_SSL_USERNAME_BINDING_TEMPLATE {
+    pub channelProperties: WS_CHANNEL_PROPERTIES,
+    pub securityProperties: WS_SECURITY_PROPERTIES,
+    pub sslTransportSecurityBinding: WS_SSL_TRANSPORT_SECURITY_BINDING_TEMPLATE,
+    pub usernameMessageSecurityBinding: WS_USERNAME_MESSAGE_SECURITY_BINDING_TEMPLATE,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct WS_HTTP_SSL_USERNAME_SECURITY_CONTEXT_BINDING_TEMPLATE(i32);
-#[repr(C)]
-pub struct WS_HTTP_SSL_USERNAME_SECURITY_CONTEXT_POLICY_DESCRIPTION(i32);
+impl ::core::marker::Copy for WS_HTTP_SSL_USERNAME_BINDING_TEMPLATE {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WS_HTTP_SSL_USERNAME_BINDING_TEMPLATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_HTTP_URL(i32);
+pub struct WS_HTTP_SSL_USERNAME_POLICY_DESCRIPTION {
+    pub channelProperties: WS_CHANNEL_PROPERTIES,
+    pub securityProperties: WS_SECURITY_PROPERTIES,
+    pub sslTransportSecurityBinding: WS_SSL_TRANSPORT_SECURITY_BINDING_POLICY_DESCRIPTION,
+    pub usernameMessageSecurityBinding: WS_USERNAME_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION,
+}
+impl ::core::marker::Copy for WS_HTTP_SSL_USERNAME_POLICY_DESCRIPTION {}
+impl ::core::clone::Clone for WS_HTTP_SSL_USERNAME_POLICY_DESCRIPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_INT16_DESCRIPTION(i32);
-#[repr(C)]
-pub struct WS_INT32_DESCRIPTION(i32);
-#[repr(C)]
-pub struct WS_INT64_DESCRIPTION(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct WS_HTTP_SSL_USERNAME_SECURITY_CONTEXT_BINDING_TEMPLATE {
+    pub channelProperties: WS_CHANNEL_PROPERTIES,
+    pub securityProperties: WS_SECURITY_PROPERTIES,
+    pub sslTransportSecurityBinding: WS_SSL_TRANSPORT_SECURITY_BINDING_TEMPLATE,
+    pub usernameMessageSecurityBinding: WS_USERNAME_MESSAGE_SECURITY_BINDING_TEMPLATE,
+    pub securityContextSecurityBinding: WS_SECURITY_CONTEXT_SECURITY_BINDING_TEMPLATE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WS_HTTP_SSL_USERNAME_SECURITY_CONTEXT_BINDING_TEMPLATE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WS_HTTP_SSL_USERNAME_SECURITY_CONTEXT_BINDING_TEMPLATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_INT8_DESCRIPTION(i32);
+pub struct WS_HTTP_SSL_USERNAME_SECURITY_CONTEXT_POLICY_DESCRIPTION {
+    pub channelProperties: WS_CHANNEL_PROPERTIES,
+    pub securityProperties: WS_SECURITY_PROPERTIES,
+    pub sslTransportSecurityBinding: WS_SSL_TRANSPORT_SECURITY_BINDING_POLICY_DESCRIPTION,
+    pub usernameMessageSecurityBinding: WS_USERNAME_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION,
+    pub securityContextSecurityBinding: WS_SECURITY_CONTEXT_SECURITY_BINDING_POLICY_DESCRIPTION,
+}
+impl ::core::marker::Copy for WS_HTTP_SSL_USERNAME_SECURITY_CONTEXT_POLICY_DESCRIPTION {}
+impl ::core::clone::Clone for WS_HTTP_SSL_USERNAME_SECURITY_CONTEXT_POLICY_DESCRIPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct WS_HTTP_URL {
+    pub url: WS_URL,
+    pub host: WS_STRING,
+    pub port: u16,
+    pub portAsString: WS_STRING,
+    pub path: WS_STRING,
+    pub query: WS_STRING,
+    pub fragment: WS_STRING,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WS_HTTP_URL {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WS_HTTP_URL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct WS_INT16_DESCRIPTION {
+    pub minValue: i16,
+    pub maxValue: i16,
+}
+impl ::core::marker::Copy for WS_INT16_DESCRIPTION {}
+impl ::core::clone::Clone for WS_INT16_DESCRIPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct WS_INT32_DESCRIPTION {
+    pub minValue: i32,
+    pub maxValue: i32,
+}
+impl ::core::marker::Copy for WS_INT32_DESCRIPTION {}
+impl ::core::clone::Clone for WS_INT32_DESCRIPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct WS_INT64_DESCRIPTION {
+    pub minValue: i64,
+    pub maxValue: i64,
+}
+impl ::core::marker::Copy for WS_INT64_DESCRIPTION {}
+impl ::core::clone::Clone for WS_INT64_DESCRIPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct WS_INT8_DESCRIPTION {
+    pub minValue: super::super::Foundation::CHAR,
+    pub maxValue: super::super::Foundation::CHAR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WS_INT8_DESCRIPTION {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WS_INT8_DESCRIPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WS_IP_VERSION(pub i32);
 pub const WS_IP_VERSION_4: WS_IP_VERSION = WS_IP_VERSION(1i32);
 pub const WS_IP_VERSION_6: WS_IP_VERSION = WS_IP_VERSION(2i32);
 pub const WS_IP_VERSION_AUTO: WS_IP_VERSION = WS_IP_VERSION(3i32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct WS_ISSUED_TOKEN_MESSAGE_SECURITY_BINDING_CONSTRAINT(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct WS_ISSUED_TOKEN_MESSAGE_SECURITY_BINDING_CONSTRAINT {
+    pub bindingConstraint: WS_SECURITY_BINDING_CONSTRAINT,
+    pub bindingUsage: WS_MESSAGE_SECURITY_USAGE,
+    pub claimConstraints: *mut WS_XML_STRING,
+    pub claimConstraintCount: u32,
+    pub requestSecurityTokenPropertyConstraints: *mut WS_REQUEST_SECURITY_TOKEN_PROPERTY_CONSTRAINT,
+    pub requestSecurityTokenPropertyConstraintCount: u32,
+    pub out: WS_ISSUED_TOKEN_MESSAGE_SECURITY_BINDING_CONSTRAINT_0,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WS_ISSUED_TOKEN_MESSAGE_SECURITY_BINDING_CONSTRAINT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WS_ISSUED_TOKEN_MESSAGE_SECURITY_BINDING_CONSTRAINT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct WS_ISSUED_TOKEN_MESSAGE_SECURITY_BINDING_CONSTRAINT_0 {
+    pub issuerAddress: *mut WS_ENDPOINT_ADDRESS,
+    pub requestSecurityTokenTemplate: *mut WS_XML_BUFFER,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WS_ISSUED_TOKEN_MESSAGE_SECURITY_BINDING_CONSTRAINT_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WS_ISSUED_TOKEN_MESSAGE_SECURITY_BINDING_CONSTRAINT_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[cfg(feature = "Win32_Foundation")]
 pub type WS_IS_DEFAULT_VALUE_CALLBACK = unsafe extern "system" fn(descriptiondata: *const ::core::ffi::c_void, value: *const ::core::ffi::c_void, defaultvalue: *const ::core::ffi::c_void, valuesize: u32, isdefault: *mut super::super::Foundation::BOOL, error: *const WS_ERROR) -> ::windows_sys::core::HRESULT;
 #[repr(C)]
-pub struct WS_ITEM_RANGE(i32);
+pub struct WS_ITEM_RANGE {
+    pub minItemCount: u32,
+    pub maxItemCount: u32,
+}
+impl ::core::marker::Copy for WS_ITEM_RANGE {}
+impl ::core::clone::Clone for WS_ITEM_RANGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING(i32);
+pub struct WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING {
+    pub binding: WS_SECURITY_BINDING,
+    pub bindingUsage: WS_MESSAGE_SECURITY_USAGE,
+    pub clientCredential: *mut WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL,
+}
+impl ::core::marker::Copy for WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING {}
+impl ::core::clone::Clone for WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_CONSTRAINT(i32);
+pub struct WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_CONSTRAINT {
+    pub bindingConstraint: WS_SECURITY_BINDING_CONSTRAINT,
+    pub bindingUsage: WS_MESSAGE_SECURITY_USAGE,
+}
+impl ::core::marker::Copy for WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_CONSTRAINT {}
+impl ::core::clone::Clone for WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_CONSTRAINT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION(i32);
+pub struct WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION {
+    pub securityBindingProperties: WS_SECURITY_BINDING_PROPERTIES,
+    pub bindingUsage: WS_MESSAGE_SECURITY_USAGE,
+}
+impl ::core::marker::Copy for WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION {}
+impl ::core::clone::Clone for WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_TEMPLATE(i32);
+pub struct WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_TEMPLATE {
+    pub securityBindingProperties: WS_SECURITY_BINDING_PROPERTIES,
+    pub clientCredential: *mut WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL,
+}
+impl ::core::marker::Copy for WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_TEMPLATE {}
+impl ::core::clone::Clone for WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_TEMPLATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct WS_LISTENER(pub u8);
 #[repr(C)]
-pub struct WS_LISTENER_PROPERTIES(i32);
+pub struct WS_LISTENER_PROPERTIES {
+    pub properties: *mut WS_LISTENER_PROPERTY,
+    pub propertyCount: u32,
+}
+impl ::core::marker::Copy for WS_LISTENER_PROPERTIES {}
+impl ::core::clone::Clone for WS_LISTENER_PROPERTIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_LISTENER_PROPERTY(i32);
+pub struct WS_LISTENER_PROPERTY {
+    pub id: WS_LISTENER_PROPERTY_ID,
+    pub value: *mut ::core::ffi::c_void,
+    pub valueSize: u32,
+}
+impl ::core::marker::Copy for WS_LISTENER_PROPERTY {}
+impl ::core::clone::Clone for WS_LISTENER_PROPERTY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WS_LISTENER_PROPERTY_ID(pub i32);
 pub const WS_LISTENER_PROPERTY_LISTEN_BACKLOG: WS_LISTENER_PROPERTY_ID = WS_LISTENER_PROPERTY_ID(0i32);
@@ -1019,9 +2398,20 @@ pub const WS_MATCH_URL_PREFIX_PATH: i32 = 128i32;
 pub const WS_MATCH_URL_THIS_HOST: i32 = 31i32;
 #[repr(C)]
 pub struct WS_MESSAGE(pub u8);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct WS_MESSAGE_DESCRIPTION(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct WS_MESSAGE_DESCRIPTION {
+    pub action: *mut WS_XML_STRING,
+    pub bodyElementDescription: *mut WS_ELEMENT_DESCRIPTION,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WS_MESSAGE_DESCRIPTION {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WS_MESSAGE_DESCRIPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub type WS_MESSAGE_DONE_CALLBACK = unsafe extern "system" fn(donecallbackstate: *const ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct WS_MESSAGE_INITIALIZATION(pub i32);
@@ -1031,9 +2421,28 @@ pub const WS_REQUEST_MESSAGE: WS_MESSAGE_INITIALIZATION = WS_MESSAGE_INITIALIZAT
 pub const WS_REPLY_MESSAGE: WS_MESSAGE_INITIALIZATION = WS_MESSAGE_INITIALIZATION(3i32);
 pub const WS_FAULT_MESSAGE: WS_MESSAGE_INITIALIZATION = WS_MESSAGE_INITIALIZATION(4i32);
 #[repr(C)]
-pub struct WS_MESSAGE_PROPERTIES(i32);
+pub struct WS_MESSAGE_PROPERTIES {
+    pub properties: *mut WS_MESSAGE_PROPERTY,
+    pub propertyCount: u32,
+}
+impl ::core::marker::Copy for WS_MESSAGE_PROPERTIES {}
+impl ::core::clone::Clone for WS_MESSAGE_PROPERTIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_MESSAGE_PROPERTY(i32);
+pub struct WS_MESSAGE_PROPERTY {
+    pub id: WS_MESSAGE_PROPERTY_ID,
+    pub value: *mut ::core::ffi::c_void,
+    pub valueSize: u32,
+}
+impl ::core::marker::Copy for WS_MESSAGE_PROPERTY {}
+impl ::core::clone::Clone for WS_MESSAGE_PROPERTY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WS_MESSAGE_PROPERTY_ID(pub i32);
 pub const WS_MESSAGE_PROPERTY_STATE: WS_MESSAGE_PROPERTY_ID = WS_MESSAGE_PROPERTY_ID(0i32);
@@ -1070,19 +2479,58 @@ pub const WS_MESSAGE_STATE_WRITING: WS_MESSAGE_STATE = WS_MESSAGE_STATE(4i32);
 pub const WS_MESSAGE_STATE_DONE: WS_MESSAGE_STATE = WS_MESSAGE_STATE(5i32);
 #[repr(C)]
 pub struct WS_METADATA(pub u8);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct WS_METADATA_ENDPOINT(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct WS_METADATA_ENDPOINT {
+    pub endpointAddress: WS_ENDPOINT_ADDRESS,
+    pub endpointPolicy: *mut WS_POLICY,
+    pub portName: *mut WS_XML_STRING,
+    pub serviceName: *mut WS_XML_STRING,
+    pub serviceNs: *mut WS_XML_STRING,
+    pub bindingName: *mut WS_XML_STRING,
+    pub bindingNs: *mut WS_XML_STRING,
+    pub portTypeName: *mut WS_XML_STRING,
+    pub portTypeNs: *mut WS_XML_STRING,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WS_METADATA_ENDPOINT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WS_METADATA_ENDPOINT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_METADATA_ENDPOINTS(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct WS_METADATA_ENDPOINTS {
+    pub endpoints: *mut WS_METADATA_ENDPOINT,
+    pub endpointCount: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WS_METADATA_ENDPOINTS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WS_METADATA_ENDPOINTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WS_METADATA_EXCHANGE_TYPE(pub i32);
 pub const WS_METADATA_EXCHANGE_TYPE_NONE: WS_METADATA_EXCHANGE_TYPE = WS_METADATA_EXCHANGE_TYPE(0i32);
 pub const WS_METADATA_EXCHANGE_TYPE_MEX: WS_METADATA_EXCHANGE_TYPE = WS_METADATA_EXCHANGE_TYPE(1i32);
 pub const WS_METADATA_EXCHANGE_TYPE_HTTP_GET: WS_METADATA_EXCHANGE_TYPE = WS_METADATA_EXCHANGE_TYPE(2i32);
 #[repr(C)]
-pub struct WS_METADATA_PROPERTY(i32);
+pub struct WS_METADATA_PROPERTY {
+    pub id: WS_METADATA_PROPERTY_ID,
+    pub value: *mut ::core::ffi::c_void,
+    pub valueSize: u32,
+}
+impl ::core::marker::Copy for WS_METADATA_PROPERTY {}
+impl ::core::clone::Clone for WS_METADATA_PROPERTY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WS_METADATA_PROPERTY_ID(pub i32);
 pub const WS_METADATA_PROPERTY_STATE: WS_METADATA_PROPERTY_ID = WS_METADATA_PROPERTY_ID(1i32);
@@ -1113,17 +2561,76 @@ pub const WS_MOVE_TO_EOF: WS_MOVE_TO = WS_MOVE_TO(10i32);
 pub const WS_MOVE_TO_CHILD_NODE: WS_MOVE_TO = WS_MOVE_TO(11i32);
 pub const WS_MUST_UNDERSTAND_HEADER_ATTRIBUTE: i32 = 1i32;
 #[repr(C)]
-pub struct WS_NAMEDPIPE_SSPI_TRANSPORT_SECURITY_BINDING(i32);
+pub struct WS_NAMEDPIPE_SSPI_TRANSPORT_SECURITY_BINDING {
+    pub binding: WS_SECURITY_BINDING,
+    pub clientCredential: *mut WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL,
+}
+impl ::core::marker::Copy for WS_NAMEDPIPE_SSPI_TRANSPORT_SECURITY_BINDING {}
+impl ::core::clone::Clone for WS_NAMEDPIPE_SSPI_TRANSPORT_SECURITY_BINDING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_NCRYPT_ASYMMETRIC_SECURITY_KEY_HANDLE(i32);
+pub struct WS_NCRYPT_ASYMMETRIC_SECURITY_KEY_HANDLE {
+    pub keyHandle: WS_SECURITY_KEY_HANDLE,
+    pub asymmetricKey: usize,
+}
+impl ::core::marker::Copy for WS_NCRYPT_ASYMMETRIC_SECURITY_KEY_HANDLE {}
+impl ::core::clone::Clone for WS_NCRYPT_ASYMMETRIC_SECURITY_KEY_HANDLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct WS_NETPIPE_URL(i32);
+pub struct WS_NETPIPE_URL {
+    pub url: WS_URL,
+    pub host: WS_STRING,
+    pub port: u16,
+    pub portAsString: WS_STRING,
+    pub path: WS_STRING,
+    pub query: WS_STRING,
+    pub fragment: WS_STRING,
+}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WS_NETPIPE_URL {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WS_NETPIPE_URL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_NETTCP_URL(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct WS_NETTCP_URL {
+    pub url: WS_URL,
+    pub host: WS_STRING,
+    pub port: u16,
+    pub portAsString: WS_STRING,
+    pub path: WS_STRING,
+    pub query: WS_STRING,
+    pub fragment: WS_STRING,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WS_NETTCP_URL {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WS_NETTCP_URL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_OPAQUE_WINDOWS_INTEGRATED_AUTH_CREDENTIAL(i32);
+pub struct WS_OPAQUE_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {
+    pub credential: WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL,
+    pub opaqueAuthIdentity: *mut ::core::ffi::c_void,
+}
+impl ::core::marker::Copy for WS_OPAQUE_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {}
+impl ::core::clone::Clone for WS_OPAQUE_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[cfg(feature = "Win32_Foundation")]
 pub type WS_OPEN_CHANNEL_CALLBACK = unsafe extern "system" fn(channelinstance: *const ::core::ffi::c_void, endpointaddress: *const WS_ENDPOINT_ADDRESS, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows_sys::core::HRESULT;
 #[cfg(feature = "Win32_Foundation")]
@@ -1142,16 +2649,44 @@ pub const WS_OPERATION_CONTEXT_PROPERTY_OUTPUT_MESSAGE: WS_OPERATION_CONTEXT_PRO
 pub const WS_OPERATION_CONTEXT_PROPERTY_HEAP: WS_OPERATION_CONTEXT_PROPERTY_ID = WS_OPERATION_CONTEXT_PROPERTY_ID(6i32);
 pub const WS_OPERATION_CONTEXT_PROPERTY_LISTENER: WS_OPERATION_CONTEXT_PROPERTY_ID = WS_OPERATION_CONTEXT_PROPERTY_ID(7i32);
 pub const WS_OPERATION_CONTEXT_PROPERTY_ENDPOINT_ADDRESS: WS_OPERATION_CONTEXT_PROPERTY_ID = WS_OPERATION_CONTEXT_PROPERTY_ID(8i32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct WS_OPERATION_DESCRIPTION(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct WS_OPERATION_DESCRIPTION {
+    pub versionInfo: u32,
+    pub inputMessageDescription: *mut WS_MESSAGE_DESCRIPTION,
+    pub outputMessageDescription: *mut WS_MESSAGE_DESCRIPTION,
+    pub inputMessageOptions: u32,
+    pub outputMessageOptions: u32,
+    pub parameterCount: u16,
+    pub parameterDescription: *mut WS_PARAMETER_DESCRIPTION,
+    pub stubCallback: ::core::option::Option<WS_SERVICE_STUB_CALLBACK>,
+    pub style: WS_OPERATION_STYLE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WS_OPERATION_DESCRIPTION {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WS_OPERATION_DESCRIPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub type WS_OPERATION_FREE_STATE_CALLBACK = unsafe extern "system" fn(state: *const ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct WS_OPERATION_STYLE(pub i32);
 pub const WS_NON_RPC_LITERAL_OPERATION: WS_OPERATION_STYLE = WS_OPERATION_STYLE(0i32);
 pub const WS_RPC_LITERAL_OPERATION: WS_OPERATION_STYLE = WS_OPERATION_STYLE(1i32);
 #[repr(C)]
-pub struct WS_PARAMETER_DESCRIPTION(i32);
+pub struct WS_PARAMETER_DESCRIPTION {
+    pub parameterType: WS_PARAMETER_TYPE,
+    pub inputMessageIndex: u16,
+    pub outputMessageIndex: u16,
+}
+impl ::core::marker::Copy for WS_PARAMETER_DESCRIPTION {}
+impl ::core::clone::Clone for WS_PARAMETER_DESCRIPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WS_PARAMETER_TYPE(pub i32);
 pub const WS_PARAMETER_TYPE_NORMAL: WS_PARAMETER_TYPE = WS_PARAMETER_TYPE(0i32);
@@ -1161,16 +2696,56 @@ pub const WS_PARAMETER_TYPE_MESSAGES: WS_PARAMETER_TYPE = WS_PARAMETER_TYPE(3i32
 #[repr(C)]
 pub struct WS_POLICY(pub u8);
 #[repr(C)]
-pub struct WS_POLICY_CONSTRAINTS(i32);
+pub struct WS_POLICY_CONSTRAINTS {
+    pub channelBinding: WS_CHANNEL_BINDING,
+    pub channelPropertyConstraints: *mut WS_CHANNEL_PROPERTY_CONSTRAINT,
+    pub channelPropertyConstraintCount: u32,
+    pub securityConstraints: *mut WS_SECURITY_CONSTRAINTS,
+    pub policyExtensions: *mut *mut WS_POLICY_EXTENSION,
+    pub policyExtensionCount: u32,
+}
+impl ::core::marker::Copy for WS_POLICY_CONSTRAINTS {}
+impl ::core::clone::Clone for WS_POLICY_CONSTRAINTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_POLICY_EXTENSION(i32);
+pub struct WS_POLICY_EXTENSION {
+    pub r#type: WS_POLICY_EXTENSION_TYPE,
+}
+impl ::core::marker::Copy for WS_POLICY_EXTENSION {}
+impl ::core::clone::Clone for WS_POLICY_EXTENSION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WS_POLICY_EXTENSION_TYPE(pub i32);
 pub const WS_ENDPOINT_POLICY_EXTENSION_TYPE: WS_POLICY_EXTENSION_TYPE = WS_POLICY_EXTENSION_TYPE(1i32);
 #[repr(C)]
-pub struct WS_POLICY_PROPERTIES(i32);
+pub struct WS_POLICY_PROPERTIES {
+    pub properties: *mut WS_POLICY_PROPERTY,
+    pub propertyCount: u32,
+}
+impl ::core::marker::Copy for WS_POLICY_PROPERTIES {}
+impl ::core::clone::Clone for WS_POLICY_PROPERTIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_POLICY_PROPERTY(i32);
+pub struct WS_POLICY_PROPERTY {
+    pub id: WS_POLICY_PROPERTY_ID,
+    pub value: *mut ::core::ffi::c_void,
+    pub valueSize: u32,
+}
+impl ::core::marker::Copy for WS_POLICY_PROPERTY {}
+impl ::core::clone::Clone for WS_POLICY_PROPERTY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WS_POLICY_PROPERTY_ID(pub i32);
 pub const WS_POLICY_PROPERTY_STATE: WS_POLICY_PROPERTY_ID = WS_POLICY_PROPERTY_ID(1i32);
@@ -1188,9 +2763,28 @@ pub const WS_PROTECTION_LEVEL_SIGN: WS_PROTECTION_LEVEL = WS_PROTECTION_LEVEL(2i
 pub const WS_PROTECTION_LEVEL_SIGN_AND_ENCRYPT: WS_PROTECTION_LEVEL = WS_PROTECTION_LEVEL(3i32);
 pub type WS_PROXY_MESSAGE_CALLBACK = unsafe extern "system" fn(message: *const WS_MESSAGE, heap: *const WS_HEAP, state: *const ::core::ffi::c_void, error: *const WS_ERROR) -> ::windows_sys::core::HRESULT;
 #[repr(C)]
-pub struct WS_PROXY_MESSAGE_CALLBACK_CONTEXT(i32);
+pub struct WS_PROXY_MESSAGE_CALLBACK_CONTEXT {
+    pub callback: ::core::option::Option<WS_PROXY_MESSAGE_CALLBACK>,
+    pub state: *mut ::core::ffi::c_void,
+}
+impl ::core::marker::Copy for WS_PROXY_MESSAGE_CALLBACK_CONTEXT {}
+impl ::core::clone::Clone for WS_PROXY_MESSAGE_CALLBACK_CONTEXT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_PROXY_PROPERTY(i32);
+pub struct WS_PROXY_PROPERTY {
+    pub id: WS_PROXY_PROPERTY_ID,
+    pub value: *mut ::core::ffi::c_void,
+    pub valueSize: u32,
+}
+impl ::core::marker::Copy for WS_PROXY_PROPERTY {}
+impl ::core::clone::Clone for WS_PROXY_PROPERTY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WS_PROXY_PROPERTY_ID(pub i32);
 pub const WS_PROXY_PROPERTY_CALL_TIMEOUT: WS_PROXY_PROPERTY_ID = WS_PROXY_PROPERTY_ID(0i32);
@@ -1203,7 +2797,16 @@ pub const WS_PROXY_FAULT_LANG_ID: WS_PROXY_PROPERTY_ID = WS_PROXY_PROPERTY_ID(6i
 pub type WS_PULL_BYTES_CALLBACK = unsafe extern "system" fn(callbackstate: *const ::core::ffi::c_void, bytes: *mut ::core::ffi::c_void, maxsize: u32, actualsize: *mut u32, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows_sys::core::HRESULT;
 pub type WS_PUSH_BYTES_CALLBACK = unsafe extern "system" fn(callbackstate: *const ::core::ffi::c_void, writecallback: WS_WRITE_CALLBACK, writecallbackstate: *const ::core::ffi::c_void, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows_sys::core::HRESULT;
 #[repr(C)]
-pub struct WS_RAW_SYMMETRIC_SECURITY_KEY_HANDLE(i32);
+pub struct WS_RAW_SYMMETRIC_SECURITY_KEY_HANDLE {
+    pub keyHandle: WS_SECURITY_KEY_HANDLE,
+    pub rawKeyBytes: WS_BYTES,
+}
+impl ::core::marker::Copy for WS_RAW_SYMMETRIC_SECURITY_KEY_HANDLE {}
+impl ::core::clone::Clone for WS_RAW_SYMMETRIC_SECURITY_KEY_HANDLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub type WS_READ_CALLBACK = unsafe extern "system" fn(callbackstate: *const ::core::ffi::c_void, bytes: *mut ::core::ffi::c_void, maxsize: u32, actualsize: *mut u32, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows_sys::core::HRESULT;
 pub type WS_READ_MESSAGE_END_CALLBACK = unsafe extern "system" fn(channelinstance: *const ::core::ffi::c_void, message: *const WS_MESSAGE, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows_sys::core::HRESULT;
 pub type WS_READ_MESSAGE_START_CALLBACK = unsafe extern "system" fn(channelinstance: *const ::core::ffi::c_void, message: *const WS_MESSAGE, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows_sys::core::HRESULT;
@@ -1230,9 +2833,40 @@ pub const WS_REQUEST_SECURITY_TOKEN_ACTION_ISSUE: WS_REQUEST_SECURITY_TOKEN_ACTI
 pub const WS_REQUEST_SECURITY_TOKEN_ACTION_NEW_CONTEXT: WS_REQUEST_SECURITY_TOKEN_ACTION = WS_REQUEST_SECURITY_TOKEN_ACTION(2i32);
 pub const WS_REQUEST_SECURITY_TOKEN_ACTION_RENEW_CONTEXT: WS_REQUEST_SECURITY_TOKEN_ACTION = WS_REQUEST_SECURITY_TOKEN_ACTION(3i32);
 #[repr(C)]
-pub struct WS_REQUEST_SECURITY_TOKEN_PROPERTY(i32);
+pub struct WS_REQUEST_SECURITY_TOKEN_PROPERTY {
+    pub id: WS_REQUEST_SECURITY_TOKEN_PROPERTY_ID,
+    pub value: *mut ::core::ffi::c_void,
+    pub valueSize: u32,
+}
+impl ::core::marker::Copy for WS_REQUEST_SECURITY_TOKEN_PROPERTY {}
+impl ::core::clone::Clone for WS_REQUEST_SECURITY_TOKEN_PROPERTY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_REQUEST_SECURITY_TOKEN_PROPERTY_CONSTRAINT(i32);
+pub struct WS_REQUEST_SECURITY_TOKEN_PROPERTY_CONSTRAINT {
+    pub id: WS_REQUEST_SECURITY_TOKEN_PROPERTY_ID,
+    pub allowedValues: *mut ::core::ffi::c_void,
+    pub allowedValuesSize: u32,
+    pub out: WS_REQUEST_SECURITY_TOKEN_PROPERTY_CONSTRAINT_0,
+}
+impl ::core::marker::Copy for WS_REQUEST_SECURITY_TOKEN_PROPERTY_CONSTRAINT {}
+impl ::core::clone::Clone for WS_REQUEST_SECURITY_TOKEN_PROPERTY_CONSTRAINT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct WS_REQUEST_SECURITY_TOKEN_PROPERTY_CONSTRAINT_0 {
+    pub requestSecurityTokenProperty: WS_REQUEST_SECURITY_TOKEN_PROPERTY,
+}
+impl ::core::marker::Copy for WS_REQUEST_SECURITY_TOKEN_PROPERTY_CONSTRAINT_0 {}
+impl ::core::clone::Clone for WS_REQUEST_SECURITY_TOKEN_PROPERTY_CONSTRAINT_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WS_REQUEST_SECURITY_TOKEN_PROPERTY_ID(pub i32);
 pub const WS_REQUEST_SECURITY_TOKEN_PROPERTY_APPLIES_TO: WS_REQUEST_SECURITY_TOKEN_PROPERTY_ID = WS_REQUEST_SECURITY_TOKEN_PROPERTY_ID(1i32);
@@ -1251,14 +2885,42 @@ pub const WS_REQUEST_SECURITY_TOKEN_PROPERTY_BEARER_KEY_TYPE_VERSION: WS_REQUEST
 pub type WS_RESET_CHANNEL_CALLBACK = unsafe extern "system" fn(channelinstance: *const ::core::ffi::c_void, error: *const WS_ERROR) -> ::windows_sys::core::HRESULT;
 pub type WS_RESET_LISTENER_CALLBACK = unsafe extern "system" fn(listenerinstance: *const ::core::ffi::c_void, error: *const WS_ERROR) -> ::windows_sys::core::HRESULT;
 #[repr(C)]
-pub struct WS_RSA_ENDPOINT_IDENTITY(i32);
+pub struct WS_RSA_ENDPOINT_IDENTITY {
+    pub identity: WS_ENDPOINT_IDENTITY,
+    pub modulus: WS_BYTES,
+    pub exponent: WS_BYTES,
+}
+impl ::core::marker::Copy for WS_RSA_ENDPOINT_IDENTITY {}
+impl ::core::clone::Clone for WS_RSA_ENDPOINT_IDENTITY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_SAML_AUTHENTICATOR(i32);
+pub struct WS_SAML_AUTHENTICATOR {
+    pub authenticatorType: WS_SAML_AUTHENTICATOR_TYPE,
+}
+impl ::core::marker::Copy for WS_SAML_AUTHENTICATOR {}
+impl ::core::clone::Clone for WS_SAML_AUTHENTICATOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WS_SAML_AUTHENTICATOR_TYPE(pub i32);
 pub const WS_CERT_SIGNED_SAML_AUTHENTICATOR_TYPE: WS_SAML_AUTHENTICATOR_TYPE = WS_SAML_AUTHENTICATOR_TYPE(1i32);
 #[repr(C)]
-pub struct WS_SAML_MESSAGE_SECURITY_BINDING(i32);
+pub struct WS_SAML_MESSAGE_SECURITY_BINDING {
+    pub binding: WS_SECURITY_BINDING,
+    pub bindingUsage: WS_MESSAGE_SECURITY_USAGE,
+    pub authenticator: *mut WS_SAML_AUTHENTICATOR,
+}
+impl ::core::marker::Copy for WS_SAML_MESSAGE_SECURITY_BINDING {}
+impl ::core::clone::Clone for WS_SAML_MESSAGE_SECURITY_BINDING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WS_SECURE_CONVERSATION_VERSION(pub i32);
 pub const WS_SECURE_CONVERSATION_VERSION_FEBRUARY_2005: WS_SECURE_CONVERSATION_VERSION = WS_SECURE_CONVERSATION_VERSION(1i32);
@@ -1292,11 +2954,42 @@ pub const WS_SECURITY_ALGORITHM_ASYMMETRIC_KEYWRAP_RSA_1_5: WS_SECURITY_ALGORITH
 pub const WS_SECURITY_ALGORITHM_ASYMMETRIC_KEYWRAP_RSA_OAEP: WS_SECURITY_ALGORITHM_ID = WS_SECURITY_ALGORITHM_ID(17i32);
 pub const WS_SECURITY_ALGORITHM_KEY_DERIVATION_P_SHA1: WS_SECURITY_ALGORITHM_ID = WS_SECURITY_ALGORITHM_ID(18i32);
 #[repr(C)]
-pub struct WS_SECURITY_ALGORITHM_PROPERTY(i32);
+pub struct WS_SECURITY_ALGORITHM_PROPERTY {
+    pub id: WS_SECURITY_ALGORITHM_PROPERTY_ID,
+    pub value: *mut ::core::ffi::c_void,
+    pub valueSize: u32,
+}
+impl ::core::marker::Copy for WS_SECURITY_ALGORITHM_PROPERTY {}
+impl ::core::clone::Clone for WS_SECURITY_ALGORITHM_PROPERTY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WS_SECURITY_ALGORITHM_PROPERTY_ID(pub i32);
 #[repr(C)]
-pub struct WS_SECURITY_ALGORITHM_SUITE(i32);
+pub struct WS_SECURITY_ALGORITHM_SUITE {
+    pub canonicalizationAlgorithm: WS_SECURITY_ALGORITHM_ID,
+    pub digestAlgorithm: WS_SECURITY_ALGORITHM_ID,
+    pub symmetricSignatureAlgorithm: WS_SECURITY_ALGORITHM_ID,
+    pub asymmetricSignatureAlgorithm: WS_SECURITY_ALGORITHM_ID,
+    pub encryptionAlgorithm: WS_SECURITY_ALGORITHM_ID,
+    pub keyDerivationAlgorithm: WS_SECURITY_ALGORITHM_ID,
+    pub symmetricKeyWrapAlgorithm: WS_SECURITY_ALGORITHM_ID,
+    pub asymmetricKeyWrapAlgorithm: WS_SECURITY_ALGORITHM_ID,
+    pub minSymmetricKeyLength: u32,
+    pub maxSymmetricKeyLength: u32,
+    pub minAsymmetricKeyLength: u32,
+    pub maxAsymmetricKeyLength: u32,
+    pub properties: *mut WS_SECURITY_ALGORITHM_PROPERTY,
+    pub propertyCount: u32,
+}
+impl ::core::marker::Copy for WS_SECURITY_ALGORITHM_SUITE {}
+impl ::core::clone::Clone for WS_SECURITY_ALGORITHM_SUITE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WS_SECURITY_ALGORITHM_SUITE_NAME(pub i32);
 pub const WS_SECURITY_ALGORITHM_SUITE_NAME_BASIC256: WS_SECURITY_ALGORITHM_SUITE_NAME = WS_SECURITY_ALGORITHM_SUITE_NAME(1i32);
@@ -1317,9 +3010,29 @@ pub const WS_SECURITY_BEARER_KEY_TYPE_VERSION_1_3_ORIGINAL_SPECIFICATION: WS_SEC
 pub const WS_SECURITY_BEARER_KEY_TYPE_VERSION_1_3_ORIGINAL_SCHEMA: WS_SECURITY_BEARER_KEY_TYPE_VERSION = WS_SECURITY_BEARER_KEY_TYPE_VERSION(2i32);
 pub const WS_SECURITY_BEARER_KEY_TYPE_VERSION_1_3_ERRATA_01: WS_SECURITY_BEARER_KEY_TYPE_VERSION = WS_SECURITY_BEARER_KEY_TYPE_VERSION(3i32);
 #[repr(C)]
-pub struct WS_SECURITY_BINDING(i32);
+pub struct WS_SECURITY_BINDING {
+    pub bindingType: WS_SECURITY_BINDING_TYPE,
+    pub properties: *mut WS_SECURITY_BINDING_PROPERTY,
+    pub propertyCount: u32,
+}
+impl ::core::marker::Copy for WS_SECURITY_BINDING {}
+impl ::core::clone::Clone for WS_SECURITY_BINDING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_SECURITY_BINDING_CONSTRAINT(i32);
+pub struct WS_SECURITY_BINDING_CONSTRAINT {
+    pub r#type: WS_SECURITY_BINDING_CONSTRAINT_TYPE,
+    pub propertyConstraints: *mut WS_SECURITY_BINDING_PROPERTY_CONSTRAINT,
+    pub propertyConstraintCount: u32,
+}
+impl ::core::marker::Copy for WS_SECURITY_BINDING_CONSTRAINT {}
+impl ::core::clone::Clone for WS_SECURITY_BINDING_CONSTRAINT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WS_SECURITY_BINDING_CONSTRAINT_TYPE(pub i32);
 pub const WS_SSL_TRANSPORT_SECURITY_BINDING_CONSTRAINT_TYPE: WS_SECURITY_BINDING_CONSTRAINT_TYPE = WS_SECURITY_BINDING_CONSTRAINT_TYPE(1i32);
@@ -1331,11 +3044,51 @@ pub const WS_ISSUED_TOKEN_MESSAGE_SECURITY_BINDING_CONSTRAINT_TYPE: WS_SECURITY_
 pub const WS_CERT_MESSAGE_SECURITY_BINDING_CONSTRAINT_TYPE: WS_SECURITY_BINDING_CONSTRAINT_TYPE = WS_SECURITY_BINDING_CONSTRAINT_TYPE(7i32);
 pub const WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_CONSTRAINT_TYPE: WS_SECURITY_BINDING_CONSTRAINT_TYPE = WS_SECURITY_BINDING_CONSTRAINT_TYPE(8i32);
 #[repr(C)]
-pub struct WS_SECURITY_BINDING_PROPERTIES(i32);
+pub struct WS_SECURITY_BINDING_PROPERTIES {
+    pub properties: *mut WS_SECURITY_BINDING_PROPERTY,
+    pub propertyCount: u32,
+}
+impl ::core::marker::Copy for WS_SECURITY_BINDING_PROPERTIES {}
+impl ::core::clone::Clone for WS_SECURITY_BINDING_PROPERTIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_SECURITY_BINDING_PROPERTY(i32);
+pub struct WS_SECURITY_BINDING_PROPERTY {
+    pub id: WS_SECURITY_BINDING_PROPERTY_ID,
+    pub value: *mut ::core::ffi::c_void,
+    pub valueSize: u32,
+}
+impl ::core::marker::Copy for WS_SECURITY_BINDING_PROPERTY {}
+impl ::core::clone::Clone for WS_SECURITY_BINDING_PROPERTY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_SECURITY_BINDING_PROPERTY_CONSTRAINT(i32);
+pub struct WS_SECURITY_BINDING_PROPERTY_CONSTRAINT {
+    pub id: WS_SECURITY_BINDING_PROPERTY_ID,
+    pub allowedValues: *mut ::core::ffi::c_void,
+    pub allowedValuesSize: u32,
+    pub out: WS_SECURITY_BINDING_PROPERTY_CONSTRAINT_0,
+}
+impl ::core::marker::Copy for WS_SECURITY_BINDING_PROPERTY_CONSTRAINT {}
+impl ::core::clone::Clone for WS_SECURITY_BINDING_PROPERTY_CONSTRAINT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct WS_SECURITY_BINDING_PROPERTY_CONSTRAINT_0 {
+    pub securityBindingProperty: WS_SECURITY_BINDING_PROPERTY,
+}
+impl ::core::marker::Copy for WS_SECURITY_BINDING_PROPERTY_CONSTRAINT_0 {}
+impl ::core::clone::Clone for WS_SECURITY_BINDING_PROPERTY_CONSTRAINT_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WS_SECURITY_BINDING_PROPERTY_ID(pub i32);
 pub const WS_SECURITY_BINDING_PROPERTY_REQUIRE_SSL_CLIENT_CERT: WS_SECURITY_BINDING_PROPERTY_ID = WS_SECURITY_BINDING_PROPERTY_ID(1i32);
@@ -1373,19 +3126,77 @@ pub const WS_SAML_MESSAGE_SECURITY_BINDING_TYPE: WS_SECURITY_BINDING_TYPE = WS_S
 pub const WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_TYPE: WS_SECURITY_BINDING_TYPE = WS_SECURITY_BINDING_TYPE(8i32);
 pub const WS_NAMEDPIPE_SSPI_TRANSPORT_SECURITY_BINDING_TYPE: WS_SECURITY_BINDING_TYPE = WS_SECURITY_BINDING_TYPE(9i32);
 #[repr(C)]
-pub struct WS_SECURITY_CONSTRAINTS(i32);
+pub struct WS_SECURITY_CONSTRAINTS {
+    pub securityPropertyConstraints: *mut WS_SECURITY_PROPERTY_CONSTRAINT,
+    pub securityPropertyConstraintCount: u32,
+    pub securityBindingConstraints: *mut *mut WS_SECURITY_BINDING_CONSTRAINT,
+    pub securityBindingConstraintCount: u32,
+}
+impl ::core::marker::Copy for WS_SECURITY_CONSTRAINTS {}
+impl ::core::clone::Clone for WS_SECURITY_CONSTRAINTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct WS_SECURITY_CONTEXT(pub u8);
 #[repr(C)]
-pub struct WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING(i32);
+pub struct WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING {
+    pub binding: WS_SECURITY_BINDING,
+    pub bindingUsage: WS_MESSAGE_SECURITY_USAGE,
+    pub bootstrapSecurityDescription: *mut WS_SECURITY_DESCRIPTION,
+}
+impl ::core::marker::Copy for WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING {}
+impl ::core::clone::Clone for WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_CONSTRAINT(i32);
+pub struct WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_CONSTRAINT {
+    pub bindingConstraint: WS_SECURITY_BINDING_CONSTRAINT,
+    pub bindingUsage: WS_MESSAGE_SECURITY_USAGE,
+    pub bootstrapSecurityConstraint: *mut WS_SECURITY_CONSTRAINTS,
+}
+impl ::core::marker::Copy for WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_CONSTRAINT {}
+impl ::core::clone::Clone for WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_CONSTRAINT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION(i32);
+pub struct WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION {
+    pub securityBindingProperties: WS_SECURITY_BINDING_PROPERTIES,
+    pub bindingUsage: WS_MESSAGE_SECURITY_USAGE,
+}
+impl ::core::marker::Copy for WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION {}
+impl ::core::clone::Clone for WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_TEMPLATE(i32);
+pub struct WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_TEMPLATE {
+    pub securityBindingProperties: WS_SECURITY_BINDING_PROPERTIES,
+}
+impl ::core::marker::Copy for WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_TEMPLATE {}
+impl ::core::clone::Clone for WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_TEMPLATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_SECURITY_CONTEXT_PROPERTY(i32);
+pub struct WS_SECURITY_CONTEXT_PROPERTY {
+    pub id: WS_SECURITY_CONTEXT_PROPERTY_ID,
+    pub value: *mut ::core::ffi::c_void,
+    pub valueSize: u32,
+}
+impl ::core::marker::Copy for WS_SECURITY_CONTEXT_PROPERTY {}
+impl ::core::clone::Clone for WS_SECURITY_CONTEXT_PROPERTY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WS_SECURITY_CONTEXT_PROPERTY_ID(pub i32);
 pub const WS_SECURITY_CONTEXT_PROPERTY_IDENTIFIER: WS_SECURITY_CONTEXT_PROPERTY_ID = WS_SECURITY_CONTEXT_PROPERTY_ID(1i32);
@@ -1393,11 +3204,40 @@ pub const WS_SECURITY_CONTEXT_PROPERTY_USERNAME: WS_SECURITY_CONTEXT_PROPERTY_ID
 pub const WS_SECURITY_CONTEXT_PROPERTY_MESSAGE_SECURITY_WINDOWS_TOKEN: WS_SECURITY_CONTEXT_PROPERTY_ID = WS_SECURITY_CONTEXT_PROPERTY_ID(3i32);
 pub const WS_SECURITY_CONTEXT_PROPERTY_SAML_ASSERTION: WS_SECURITY_CONTEXT_PROPERTY_ID = WS_SECURITY_CONTEXT_PROPERTY_ID(4i32);
 #[repr(C)]
-pub struct WS_SECURITY_CONTEXT_SECURITY_BINDING_POLICY_DESCRIPTION(i32);
+pub struct WS_SECURITY_CONTEXT_SECURITY_BINDING_POLICY_DESCRIPTION {
+    pub securityContextMessageSecurityBinding: WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION,
+    pub securityProperties: WS_SECURITY_PROPERTIES,
+}
+impl ::core::marker::Copy for WS_SECURITY_CONTEXT_SECURITY_BINDING_POLICY_DESCRIPTION {}
+impl ::core::clone::Clone for WS_SECURITY_CONTEXT_SECURITY_BINDING_POLICY_DESCRIPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_SECURITY_CONTEXT_SECURITY_BINDING_TEMPLATE(i32);
+pub struct WS_SECURITY_CONTEXT_SECURITY_BINDING_TEMPLATE {
+    pub securityContextMessageSecurityBinding: WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_TEMPLATE,
+    pub securityProperties: WS_SECURITY_PROPERTIES,
+}
+impl ::core::marker::Copy for WS_SECURITY_CONTEXT_SECURITY_BINDING_TEMPLATE {}
+impl ::core::clone::Clone for WS_SECURITY_CONTEXT_SECURITY_BINDING_TEMPLATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_SECURITY_DESCRIPTION(i32);
+pub struct WS_SECURITY_DESCRIPTION {
+    pub securityBindings: *mut *mut WS_SECURITY_BINDING,
+    pub securityBindingCount: u32,
+    pub properties: *mut WS_SECURITY_PROPERTY,
+    pub propertyCount: u32,
+}
+impl ::core::marker::Copy for WS_SECURITY_DESCRIPTION {}
+impl ::core::clone::Clone for WS_SECURITY_DESCRIPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WS_SECURITY_HEADER_LAYOUT(pub i32);
 pub const WS_SECURITY_HEADER_LAYOUT_STRICT: WS_SECURITY_HEADER_LAYOUT = WS_SECURITY_HEADER_LAYOUT(1i32);
@@ -1414,7 +3254,15 @@ pub const WS_SECURITY_KEY_ENTROPY_MODE_CLIENT_ONLY: WS_SECURITY_KEY_ENTROPY_MODE
 pub const WS_SECURITY_KEY_ENTROPY_MODE_SERVER_ONLY: WS_SECURITY_KEY_ENTROPY_MODE = WS_SECURITY_KEY_ENTROPY_MODE(2i32);
 pub const WS_SECURITY_KEY_ENTROPY_MODE_COMBINED: WS_SECURITY_KEY_ENTROPY_MODE = WS_SECURITY_KEY_ENTROPY_MODE(3i32);
 #[repr(C)]
-pub struct WS_SECURITY_KEY_HANDLE(i32);
+pub struct WS_SECURITY_KEY_HANDLE {
+    pub keyHandleType: WS_SECURITY_KEY_HANDLE_TYPE,
+}
+impl ::core::marker::Copy for WS_SECURITY_KEY_HANDLE {}
+impl ::core::clone::Clone for WS_SECURITY_KEY_HANDLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WS_SECURITY_KEY_HANDLE_TYPE(pub i32);
 pub const WS_RAW_SYMMETRIC_SECURITY_KEY_HANDLE_TYPE: WS_SECURITY_KEY_HANDLE_TYPE = WS_SECURITY_KEY_HANDLE_TYPE(1i32);
@@ -1426,11 +3274,51 @@ pub const WS_SECURITY_KEY_TYPE_NONE: WS_SECURITY_KEY_TYPE = WS_SECURITY_KEY_TYPE
 pub const WS_SECURITY_KEY_TYPE_SYMMETRIC: WS_SECURITY_KEY_TYPE = WS_SECURITY_KEY_TYPE(2i32);
 pub const WS_SECURITY_KEY_TYPE_ASYMMETRIC: WS_SECURITY_KEY_TYPE = WS_SECURITY_KEY_TYPE(3i32);
 #[repr(C)]
-pub struct WS_SECURITY_PROPERTIES(i32);
+pub struct WS_SECURITY_PROPERTIES {
+    pub properties: *mut WS_SECURITY_PROPERTY,
+    pub propertyCount: u32,
+}
+impl ::core::marker::Copy for WS_SECURITY_PROPERTIES {}
+impl ::core::clone::Clone for WS_SECURITY_PROPERTIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_SECURITY_PROPERTY(i32);
+pub struct WS_SECURITY_PROPERTY {
+    pub id: WS_SECURITY_PROPERTY_ID,
+    pub value: *mut ::core::ffi::c_void,
+    pub valueSize: u32,
+}
+impl ::core::marker::Copy for WS_SECURITY_PROPERTY {}
+impl ::core::clone::Clone for WS_SECURITY_PROPERTY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_SECURITY_PROPERTY_CONSTRAINT(i32);
+pub struct WS_SECURITY_PROPERTY_CONSTRAINT {
+    pub id: WS_SECURITY_PROPERTY_ID,
+    pub allowedValues: *mut ::core::ffi::c_void,
+    pub allowedValuesSize: u32,
+    pub out: WS_SECURITY_PROPERTY_CONSTRAINT_0,
+}
+impl ::core::marker::Copy for WS_SECURITY_PROPERTY_CONSTRAINT {}
+impl ::core::clone::Clone for WS_SECURITY_PROPERTY_CONSTRAINT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct WS_SECURITY_PROPERTY_CONSTRAINT_0 {
+    pub securityProperty: WS_SECURITY_PROPERTY,
+}
+impl ::core::marker::Copy for WS_SECURITY_PROPERTY_CONSTRAINT_0 {}
+impl ::core::clone::Clone for WS_SECURITY_PROPERTY_CONSTRAINT_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WS_SECURITY_PROPERTY_ID(pub i32);
 pub const WS_SECURITY_PROPERTY_TRANSPORT_PROTECTION_LEVEL: WS_SECURITY_PROPERTY_ID = WS_SECURITY_PROPERTY_ID(1i32);
@@ -1474,17 +3362,69 @@ pub struct WS_SERVICE_CANCEL_REASON(pub i32);
 pub const WS_SERVICE_HOST_ABORT: WS_SERVICE_CANCEL_REASON = WS_SERVICE_CANCEL_REASON(0i32);
 pub const WS_SERVICE_CHANNEL_FAULTED: WS_SERVICE_CANCEL_REASON = WS_SERVICE_CANCEL_REASON(1i32);
 pub type WS_SERVICE_CLOSE_CHANNEL_CALLBACK = unsafe extern "system" fn(context: *const WS_OPERATION_CONTEXT, asynccontext: *const WS_ASYNC_CONTEXT) -> ::windows_sys::core::HRESULT;
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct WS_SERVICE_CONTRACT(i32);
+pub struct WS_SERVICE_CONTRACT {
+    pub contractDescription: *mut WS_CONTRACT_DESCRIPTION,
+    pub defaultMessageHandlerCallback: ::core::option::Option<WS_SERVICE_MESSAGE_RECEIVE_CALLBACK>,
+    pub methodTable: *mut ::core::ffi::c_void,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct WS_SERVICE_ENDPOINT(i32);
+impl ::core::marker::Copy for WS_SERVICE_CONTRACT {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WS_SERVICE_CONTRACT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_SERVICE_ENDPOINT_METADATA(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct WS_SERVICE_ENDPOINT {
+    pub address: WS_ENDPOINT_ADDRESS,
+    pub channelBinding: WS_CHANNEL_BINDING,
+    pub channelType: WS_CHANNEL_TYPE,
+    pub securityDescription: *mut WS_SECURITY_DESCRIPTION,
+    pub contract: *mut WS_SERVICE_CONTRACT,
+    pub authorizationCallback: ::core::option::Option<WS_SERVICE_SECURITY_CALLBACK>,
+    pub properties: *mut WS_SERVICE_ENDPOINT_PROPERTY,
+    pub propertyCount: u32,
+    pub channelProperties: WS_CHANNEL_PROPERTIES,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WS_SERVICE_ENDPOINT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WS_SERVICE_ENDPOINT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_SERVICE_ENDPOINT_PROPERTY(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct WS_SERVICE_ENDPOINT_METADATA {
+    pub portName: *mut WS_XML_STRING,
+    pub bindingName: *mut WS_XML_STRING,
+    pub bindingNs: *mut WS_XML_STRING,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WS_SERVICE_ENDPOINT_METADATA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WS_SERVICE_ENDPOINT_METADATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct WS_SERVICE_ENDPOINT_PROPERTY {
+    pub id: WS_SERVICE_ENDPOINT_PROPERTY_ID,
+    pub value: *mut ::core::ffi::c_void,
+    pub valueSize: u32,
+}
+impl ::core::marker::Copy for WS_SERVICE_ENDPOINT_PROPERTY {}
+impl ::core::clone::Clone for WS_SERVICE_ENDPOINT_PROPERTY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WS_SERVICE_ENDPOINT_PROPERTY_ID(pub i32);
 pub const WS_SERVICE_ENDPOINT_PROPERTY_ACCEPT_CHANNEL_CALLBACK: WS_SERVICE_ENDPOINT_PROPERTY_ID = WS_SERVICE_ENDPOINT_PROPERTY_ID(0i32);
@@ -1513,19 +3453,69 @@ pub const WS_SERVICE_HOST_STATE_CLOSING: WS_SERVICE_HOST_STATE = WS_SERVICE_HOST
 pub const WS_SERVICE_HOST_STATE_CLOSED: WS_SERVICE_HOST_STATE = WS_SERVICE_HOST_STATE(4i32);
 pub const WS_SERVICE_HOST_STATE_FAULTED: WS_SERVICE_HOST_STATE = WS_SERVICE_HOST_STATE(5i32);
 pub type WS_SERVICE_MESSAGE_RECEIVE_CALLBACK = unsafe extern "system" fn(context: *const WS_OPERATION_CONTEXT, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows_sys::core::HRESULT;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct WS_SERVICE_METADATA(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct WS_SERVICE_METADATA {
+    pub documentCount: u32,
+    pub documents: *mut *mut WS_SERVICE_METADATA_DOCUMENT,
+    pub serviceName: *mut WS_XML_STRING,
+    pub serviceNs: *mut WS_XML_STRING,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WS_SERVICE_METADATA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WS_SERVICE_METADATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_SERVICE_METADATA_DOCUMENT(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct WS_SERVICE_METADATA_DOCUMENT {
+    pub content: *mut WS_XML_STRING,
+    pub name: *mut WS_STRING,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WS_SERVICE_METADATA_DOCUMENT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WS_SERVICE_METADATA_DOCUMENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WS_SERVICE_OPERATION_MESSAGE_NILLABLE_ELEMENT: i32 = 1i32;
 #[repr(C)]
-pub struct WS_SERVICE_PROPERTY(i32);
+pub struct WS_SERVICE_PROPERTY {
+    pub id: WS_SERVICE_PROPERTY_ID,
+    pub value: *mut ::core::ffi::c_void,
+    pub valueSize: u32,
+}
+impl ::core::marker::Copy for WS_SERVICE_PROPERTY {}
+impl ::core::clone::Clone for WS_SERVICE_PROPERTY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_SERVICE_PROPERTY_ACCEPT_CALLBACK(i32);
+pub struct WS_SERVICE_PROPERTY_ACCEPT_CALLBACK {
+    pub callback: ::core::option::Option<WS_SERVICE_ACCEPT_CHANNEL_CALLBACK>,
+}
+impl ::core::marker::Copy for WS_SERVICE_PROPERTY_ACCEPT_CALLBACK {}
+impl ::core::clone::Clone for WS_SERVICE_PROPERTY_ACCEPT_CALLBACK {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_SERVICE_PROPERTY_CLOSE_CALLBACK(i32);
+pub struct WS_SERVICE_PROPERTY_CLOSE_CALLBACK {
+    pub callback: ::core::option::Option<WS_SERVICE_CLOSE_CHANNEL_CALLBACK>,
+}
+impl ::core::marker::Copy for WS_SERVICE_PROPERTY_CLOSE_CALLBACK {}
+impl ::core::clone::Clone for WS_SERVICE_PROPERTY_CLOSE_CALLBACK {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WS_SERVICE_PROPERTY_ID(pub i32);
 pub const WS_SERVICE_PROPERTY_HOST_USER_STATE: WS_SERVICE_PROPERTY_ID = WS_SERVICE_PROPERTY_ID(0i32);
@@ -1546,89 +3536,450 @@ pub const WS_SERVICE_PROXY_STATE_CLOSED: WS_SERVICE_PROXY_STATE = WS_SERVICE_PRO
 pub const WS_SERVICE_PROXY_STATE_FAULTED: WS_SERVICE_PROXY_STATE = WS_SERVICE_PROXY_STATE(5i32);
 #[cfg(feature = "Win32_Foundation")]
 pub type WS_SERVICE_SECURITY_CALLBACK = unsafe extern "system" fn(context: *const WS_OPERATION_CONTEXT, authorized: *mut super::super::Foundation::BOOL, error: *const WS_ERROR) -> ::windows_sys::core::HRESULT;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct WS_SERVICE_SECURITY_IDENTITIES(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct WS_SERVICE_SECURITY_IDENTITIES {
+    pub serviceIdentities: *mut WS_STRING,
+    pub serviceIdentityCount: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WS_SERVICE_SECURITY_IDENTITIES {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WS_SERVICE_SECURITY_IDENTITIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub type WS_SERVICE_STUB_CALLBACK = unsafe extern "system" fn(context: *const WS_OPERATION_CONTEXT, frame: *const ::core::ffi::c_void, callback: *const ::core::ffi::c_void, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows_sys::core::HRESULT;
 pub type WS_SET_CHANNEL_PROPERTY_CALLBACK = unsafe extern "system" fn(channelinstance: *const ::core::ffi::c_void, id: WS_CHANNEL_PROPERTY_ID, value: *const ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows_sys::core::HRESULT;
 pub type WS_SET_LISTENER_PROPERTY_CALLBACK = unsafe extern "system" fn(listenerinstance: *const ::core::ffi::c_void, id: WS_LISTENER_PROPERTY_ID, value: *const ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows_sys::core::HRESULT;
 pub type WS_SHUTDOWN_SESSION_CHANNEL_CALLBACK = unsafe extern "system" fn(channelinstance: *const ::core::ffi::c_void, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows_sys::core::HRESULT;
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct WS_SOAPUDP_URL(i32);
+pub struct WS_SOAPUDP_URL {
+    pub url: WS_URL,
+    pub host: WS_STRING,
+    pub port: u16,
+    pub portAsString: WS_STRING,
+    pub path: WS_STRING,
+    pub query: WS_STRING,
+    pub fragment: WS_STRING,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct WS_SPN_ENDPOINT_IDENTITY(i32);
-#[repr(C)]
-pub struct WS_SSL_TRANSPORT_SECURITY_BINDING(i32);
+impl ::core::marker::Copy for WS_SOAPUDP_URL {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WS_SOAPUDP_URL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_SSL_TRANSPORT_SECURITY_BINDING_CONSTRAINT(i32);
-#[repr(C)]
-pub struct WS_SSL_TRANSPORT_SECURITY_BINDING_POLICY_DESCRIPTION(i32);
-#[repr(C)]
-pub struct WS_SSL_TRANSPORT_SECURITY_BINDING_TEMPLATE(i32);
-#[repr(C)]
-pub struct WS_SSPI_TRANSPORT_SECURITY_BINDING_POLICY_DESCRIPTION(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct WS_STRING(i32);
-#[repr(C)]
-pub struct WS_STRING_DESCRIPTION(i32);
+pub struct WS_SPN_ENDPOINT_IDENTITY {
+    pub identity: WS_ENDPOINT_IDENTITY,
+    pub spn: WS_STRING,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct WS_STRING_USERNAME_CREDENTIAL(i32);
+impl ::core::marker::Copy for WS_SPN_ENDPOINT_IDENTITY {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WS_SPN_ENDPOINT_IDENTITY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_STRING_WINDOWS_INTEGRATED_AUTH_CREDENTIAL(i32);
+pub struct WS_SSL_TRANSPORT_SECURITY_BINDING {
+    pub binding: WS_SECURITY_BINDING,
+    pub localCertCredential: *mut WS_CERT_CREDENTIAL,
+}
+impl ::core::marker::Copy for WS_SSL_TRANSPORT_SECURITY_BINDING {}
+impl ::core::clone::Clone for WS_SSL_TRANSPORT_SECURITY_BINDING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct WS_SSL_TRANSPORT_SECURITY_BINDING_CONSTRAINT {
+    pub bindingConstraint: WS_SECURITY_BINDING_CONSTRAINT,
+    pub out: WS_SSL_TRANSPORT_SECURITY_BINDING_CONSTRAINT_0,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WS_SSL_TRANSPORT_SECURITY_BINDING_CONSTRAINT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WS_SSL_TRANSPORT_SECURITY_BINDING_CONSTRAINT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct WS_SSL_TRANSPORT_SECURITY_BINDING_CONSTRAINT_0 {
+    pub clientCertCredentialRequired: super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WS_SSL_TRANSPORT_SECURITY_BINDING_CONSTRAINT_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WS_SSL_TRANSPORT_SECURITY_BINDING_CONSTRAINT_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct WS_SSL_TRANSPORT_SECURITY_BINDING_POLICY_DESCRIPTION {
+    pub securityBindingProperties: WS_SECURITY_BINDING_PROPERTIES,
+}
+impl ::core::marker::Copy for WS_SSL_TRANSPORT_SECURITY_BINDING_POLICY_DESCRIPTION {}
+impl ::core::clone::Clone for WS_SSL_TRANSPORT_SECURITY_BINDING_POLICY_DESCRIPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct WS_SSL_TRANSPORT_SECURITY_BINDING_TEMPLATE {
+    pub securityBindingProperties: WS_SECURITY_BINDING_PROPERTIES,
+    pub localCertCredential: *mut WS_CERT_CREDENTIAL,
+}
+impl ::core::marker::Copy for WS_SSL_TRANSPORT_SECURITY_BINDING_TEMPLATE {}
+impl ::core::clone::Clone for WS_SSL_TRANSPORT_SECURITY_BINDING_TEMPLATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct WS_SSPI_TRANSPORT_SECURITY_BINDING_POLICY_DESCRIPTION {
+    pub securityBindingProperties: WS_SECURITY_BINDING_PROPERTIES,
+}
+impl ::core::marker::Copy for WS_SSPI_TRANSPORT_SECURITY_BINDING_POLICY_DESCRIPTION {}
+impl ::core::clone::Clone for WS_SSPI_TRANSPORT_SECURITY_BINDING_POLICY_DESCRIPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct WS_STRING {
+    pub length: u32,
+    pub chars: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WS_STRING {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WS_STRING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct WS_STRING_DESCRIPTION {
+    pub minCharCount: u32,
+    pub maxCharCount: u32,
+}
+impl ::core::marker::Copy for WS_STRING_DESCRIPTION {}
+impl ::core::clone::Clone for WS_STRING_DESCRIPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct WS_STRING_USERNAME_CREDENTIAL {
+    pub credential: WS_USERNAME_CREDENTIAL,
+    pub username: WS_STRING,
+    pub password: WS_STRING,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WS_STRING_USERNAME_CREDENTIAL {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WS_STRING_USERNAME_CREDENTIAL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct WS_STRING_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {
+    pub credential: WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL,
+    pub username: WS_STRING,
+    pub password: WS_STRING,
+    pub domain: WS_STRING,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WS_STRING_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WS_STRING_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WS_STRUCT_ABSTRACT: i32 = 1i32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct WS_STRUCT_DESCRIPTION(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct WS_STRUCT_DESCRIPTION {
+    pub size: u32,
+    pub alignment: u32,
+    pub fields: *mut *mut WS_FIELD_DESCRIPTION,
+    pub fieldCount: u32,
+    pub typeLocalName: *mut WS_XML_STRING,
+    pub typeNs: *mut WS_XML_STRING,
+    pub parentType: *mut WS_STRUCT_DESCRIPTION,
+    pub subTypes: *mut *mut WS_STRUCT_DESCRIPTION,
+    pub subTypeCount: u32,
+    pub structOptions: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WS_STRUCT_DESCRIPTION {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WS_STRUCT_DESCRIPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WS_STRUCT_IGNORE_TRAILING_ELEMENT_CONTENT: i32 = 2i32;
 pub const WS_STRUCT_IGNORE_UNHANDLED_ATTRIBUTES: i32 = 4i32;
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct WS_SUBJECT_NAME_CERT_CREDENTIAL(i32);
-#[repr(C)]
-pub struct WS_TCP_BINDING_TEMPLATE(i32);
-#[repr(C)]
-pub struct WS_TCP_POLICY_DESCRIPTION(i32);
-#[repr(C)]
-pub struct WS_TCP_SSPI_BINDING_TEMPLATE(i32);
-#[repr(C)]
-pub struct WS_TCP_SSPI_KERBEROS_APREQ_BINDING_TEMPLATE(i32);
-#[repr(C)]
-pub struct WS_TCP_SSPI_KERBEROS_APREQ_POLICY_DESCRIPTION(i32);
-#[repr(C)]
-pub struct WS_TCP_SSPI_KERBEROS_APREQ_SECURITY_CONTEXT_BINDING_TEMPLATE(i32);
-#[repr(C)]
-pub struct WS_TCP_SSPI_KERBEROS_APREQ_SECURITY_CONTEXT_POLICY_DESCRIPTION(i32);
-#[repr(C)]
-pub struct WS_TCP_SSPI_POLICY_DESCRIPTION(i32);
-#[repr(C)]
-pub struct WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING(i32);
-#[repr(C)]
-pub struct WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING_CONSTRAINT(i32);
-#[repr(C)]
-pub struct WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING_TEMPLATE(i32);
+pub struct WS_SUBJECT_NAME_CERT_CREDENTIAL {
+    pub credential: WS_CERT_CREDENTIAL,
+    pub storeLocation: u32,
+    pub storeName: WS_STRING,
+    pub subjectName: WS_STRING,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct WS_TCP_SSPI_USERNAME_BINDING_TEMPLATE(i32);
-#[repr(C)]
-pub struct WS_TCP_SSPI_USERNAME_POLICY_DESCRIPTION(i32);
+impl ::core::marker::Copy for WS_SUBJECT_NAME_CERT_CREDENTIAL {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WS_SUBJECT_NAME_CERT_CREDENTIAL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_TCP_SSPI_USERNAME_SECURITY_CONTEXT_BINDING_TEMPLATE(i32);
+pub struct WS_TCP_BINDING_TEMPLATE {
+    pub channelProperties: WS_CHANNEL_PROPERTIES,
+}
+impl ::core::marker::Copy for WS_TCP_BINDING_TEMPLATE {}
+impl ::core::clone::Clone for WS_TCP_BINDING_TEMPLATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_TCP_SSPI_USERNAME_SECURITY_CONTEXT_POLICY_DESCRIPTION(i32);
+pub struct WS_TCP_POLICY_DESCRIPTION {
+    pub channelProperties: WS_CHANNEL_PROPERTIES,
+}
+impl ::core::marker::Copy for WS_TCP_POLICY_DESCRIPTION {}
+impl ::core::clone::Clone for WS_TCP_POLICY_DESCRIPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct WS_TCP_SSPI_BINDING_TEMPLATE {
+    pub channelProperties: WS_CHANNEL_PROPERTIES,
+    pub securityProperties: WS_SECURITY_PROPERTIES,
+    pub sspiTransportSecurityBinding: WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING_TEMPLATE,
+}
+impl ::core::marker::Copy for WS_TCP_SSPI_BINDING_TEMPLATE {}
+impl ::core::clone::Clone for WS_TCP_SSPI_BINDING_TEMPLATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct WS_TCP_SSPI_KERBEROS_APREQ_BINDING_TEMPLATE {
+    pub channelProperties: WS_CHANNEL_PROPERTIES,
+    pub securityProperties: WS_SECURITY_PROPERTIES,
+    pub sspiTransportSecurityBinding: WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING_TEMPLATE,
+    pub kerberosApreqMessageSecurityBinding: WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_TEMPLATE,
+}
+impl ::core::marker::Copy for WS_TCP_SSPI_KERBEROS_APREQ_BINDING_TEMPLATE {}
+impl ::core::clone::Clone for WS_TCP_SSPI_KERBEROS_APREQ_BINDING_TEMPLATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct WS_TCP_SSPI_KERBEROS_APREQ_POLICY_DESCRIPTION {
+    pub channelProperties: WS_CHANNEL_PROPERTIES,
+    pub securityProperties: WS_SECURITY_PROPERTIES,
+    pub sspiTransportSecurityBinding: WS_SSPI_TRANSPORT_SECURITY_BINDING_POLICY_DESCRIPTION,
+    pub kerberosApreqMessageSecurityBinding: WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION,
+}
+impl ::core::marker::Copy for WS_TCP_SSPI_KERBEROS_APREQ_POLICY_DESCRIPTION {}
+impl ::core::clone::Clone for WS_TCP_SSPI_KERBEROS_APREQ_POLICY_DESCRIPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct WS_TCP_SSPI_KERBEROS_APREQ_SECURITY_CONTEXT_BINDING_TEMPLATE {
+    pub channelProperties: WS_CHANNEL_PROPERTIES,
+    pub securityProperties: WS_SECURITY_PROPERTIES,
+    pub sspiTransportSecurityBinding: WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING_TEMPLATE,
+    pub kerberosApreqMessageSecurityBinding: WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_TEMPLATE,
+    pub securityContextSecurityBinding: WS_SECURITY_CONTEXT_SECURITY_BINDING_TEMPLATE,
+}
+impl ::core::marker::Copy for WS_TCP_SSPI_KERBEROS_APREQ_SECURITY_CONTEXT_BINDING_TEMPLATE {}
+impl ::core::clone::Clone for WS_TCP_SSPI_KERBEROS_APREQ_SECURITY_CONTEXT_BINDING_TEMPLATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct WS_TCP_SSPI_KERBEROS_APREQ_SECURITY_CONTEXT_POLICY_DESCRIPTION {
+    pub channelProperties: WS_CHANNEL_PROPERTIES,
+    pub securityProperties: WS_SECURITY_PROPERTIES,
+    pub sspiTransportSecurityBinding: WS_SSPI_TRANSPORT_SECURITY_BINDING_POLICY_DESCRIPTION,
+    pub kerberosApreqMessageSecurityBinding: WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION,
+    pub securityContextSecurityBinding: WS_SECURITY_CONTEXT_SECURITY_BINDING_POLICY_DESCRIPTION,
+}
+impl ::core::marker::Copy for WS_TCP_SSPI_KERBEROS_APREQ_SECURITY_CONTEXT_POLICY_DESCRIPTION {}
+impl ::core::clone::Clone for WS_TCP_SSPI_KERBEROS_APREQ_SECURITY_CONTEXT_POLICY_DESCRIPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct WS_TCP_SSPI_POLICY_DESCRIPTION {
+    pub channelProperties: WS_CHANNEL_PROPERTIES,
+    pub securityProperties: WS_SECURITY_PROPERTIES,
+    pub sspiTransportSecurityBinding: WS_SSPI_TRANSPORT_SECURITY_BINDING_POLICY_DESCRIPTION,
+}
+impl ::core::marker::Copy for WS_TCP_SSPI_POLICY_DESCRIPTION {}
+impl ::core::clone::Clone for WS_TCP_SSPI_POLICY_DESCRIPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING {
+    pub binding: WS_SECURITY_BINDING,
+    pub clientCredential: *mut WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL,
+}
+impl ::core::marker::Copy for WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING {}
+impl ::core::clone::Clone for WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING_CONSTRAINT {
+    pub bindingConstraint: WS_SECURITY_BINDING_CONSTRAINT,
+}
+impl ::core::marker::Copy for WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING_CONSTRAINT {}
+impl ::core::clone::Clone for WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING_CONSTRAINT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING_TEMPLATE {
+    pub securityBindingProperties: WS_SECURITY_BINDING_PROPERTIES,
+    pub clientCredential: *mut WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL,
+}
+impl ::core::marker::Copy for WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING_TEMPLATE {}
+impl ::core::clone::Clone for WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING_TEMPLATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+pub struct WS_TCP_SSPI_USERNAME_BINDING_TEMPLATE {
+    pub channelProperties: WS_CHANNEL_PROPERTIES,
+    pub securityProperties: WS_SECURITY_PROPERTIES,
+    pub sspiTransportSecurityBinding: WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING_TEMPLATE,
+    pub usernameMessageSecurityBinding: WS_USERNAME_MESSAGE_SECURITY_BINDING_TEMPLATE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WS_TCP_SSPI_USERNAME_BINDING_TEMPLATE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WS_TCP_SSPI_USERNAME_BINDING_TEMPLATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_THUMBPRINT_CERT_CREDENTIAL(i32);
+pub struct WS_TCP_SSPI_USERNAME_POLICY_DESCRIPTION {
+    pub channelProperties: WS_CHANNEL_PROPERTIES,
+    pub securityProperties: WS_SECURITY_PROPERTIES,
+    pub sspiTransportSecurityBinding: WS_SSPI_TRANSPORT_SECURITY_BINDING_POLICY_DESCRIPTION,
+    pub usernameMessageSecurityBinding: WS_USERNAME_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION,
+}
+impl ::core::marker::Copy for WS_TCP_SSPI_USERNAME_POLICY_DESCRIPTION {}
+impl ::core::clone::Clone for WS_TCP_SSPI_USERNAME_POLICY_DESCRIPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_TIMESPAN(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct WS_TCP_SSPI_USERNAME_SECURITY_CONTEXT_BINDING_TEMPLATE {
+    pub channelProperties: WS_CHANNEL_PROPERTIES,
+    pub securityProperties: WS_SECURITY_PROPERTIES,
+    pub sspiTransportSecurityBinding: WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING_TEMPLATE,
+    pub usernameMessageSecurityBinding: WS_USERNAME_MESSAGE_SECURITY_BINDING_TEMPLATE,
+    pub securityContextSecurityBinding: WS_SECURITY_CONTEXT_SECURITY_BINDING_TEMPLATE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WS_TCP_SSPI_USERNAME_SECURITY_CONTEXT_BINDING_TEMPLATE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WS_TCP_SSPI_USERNAME_SECURITY_CONTEXT_BINDING_TEMPLATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_TIMESPAN_DESCRIPTION(i32);
+pub struct WS_TCP_SSPI_USERNAME_SECURITY_CONTEXT_POLICY_DESCRIPTION {
+    pub channelProperties: WS_CHANNEL_PROPERTIES,
+    pub securityProperties: WS_SECURITY_PROPERTIES,
+    pub sspiTransportSecurityBinding: WS_SSPI_TRANSPORT_SECURITY_BINDING_POLICY_DESCRIPTION,
+    pub usernameMessageSecurityBinding: WS_USERNAME_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION,
+    pub securityContextSecurityBinding: WS_SECURITY_CONTEXT_SECURITY_BINDING_POLICY_DESCRIPTION,
+}
+impl ::core::marker::Copy for WS_TCP_SSPI_USERNAME_SECURITY_CONTEXT_POLICY_DESCRIPTION {}
+impl ::core::clone::Clone for WS_TCP_SSPI_USERNAME_SECURITY_CONTEXT_POLICY_DESCRIPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct WS_THUMBPRINT_CERT_CREDENTIAL {
+    pub credential: WS_CERT_CREDENTIAL,
+    pub storeLocation: u32,
+    pub storeName: WS_STRING,
+    pub thumbprint: WS_STRING,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WS_THUMBPRINT_CERT_CREDENTIAL {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WS_THUMBPRINT_CERT_CREDENTIAL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct WS_TIMESPAN {
+    pub ticks: i64,
+}
+impl ::core::marker::Copy for WS_TIMESPAN {}
+impl ::core::clone::Clone for WS_TIMESPAN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct WS_TIMESPAN_DESCRIPTION {
+    pub minValue: WS_TIMESPAN,
+    pub maxValue: WS_TIMESPAN,
+}
+impl ::core::marker::Copy for WS_TIMESPAN_DESCRIPTION {}
+impl ::core::clone::Clone for WS_TIMESPAN_DESCRIPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WS_TRACE_API(pub i32);
 pub const WS_TRACE_API_NONE: WS_TRACE_API = WS_TRACE_API(-1i32);
@@ -1881,31 +4232,142 @@ pub const WS_ATTRIBUTE_TYPE_MAPPING: WS_TYPE_MAPPING = WS_TYPE_MAPPING(2i32);
 pub const WS_ELEMENT_CONTENT_TYPE_MAPPING: WS_TYPE_MAPPING = WS_TYPE_MAPPING(3i32);
 pub const WS_ANY_ELEMENT_TYPE_MAPPING: WS_TYPE_MAPPING = WS_TYPE_MAPPING(4i32);
 #[repr(C)]
-pub struct WS_UINT16_DESCRIPTION(i32);
+pub struct WS_UINT16_DESCRIPTION {
+    pub minValue: u16,
+    pub maxValue: u16,
+}
+impl ::core::marker::Copy for WS_UINT16_DESCRIPTION {}
+impl ::core::clone::Clone for WS_UINT16_DESCRIPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_UINT32_DESCRIPTION(i32);
+pub struct WS_UINT32_DESCRIPTION {
+    pub minValue: u32,
+    pub maxValue: u32,
+}
+impl ::core::marker::Copy for WS_UINT32_DESCRIPTION {}
+impl ::core::clone::Clone for WS_UINT32_DESCRIPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_UINT64_DESCRIPTION(i32);
+pub struct WS_UINT64_DESCRIPTION {
+    pub minValue: u64,
+    pub maxValue: u64,
+}
+impl ::core::marker::Copy for WS_UINT64_DESCRIPTION {}
+impl ::core::clone::Clone for WS_UINT64_DESCRIPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_UINT8_DESCRIPTION(i32);
+pub struct WS_UINT8_DESCRIPTION {
+    pub minValue: u8,
+    pub maxValue: u8,
+}
+impl ::core::marker::Copy for WS_UINT8_DESCRIPTION {}
+impl ::core::clone::Clone for WS_UINT8_DESCRIPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct WS_UNION_DESCRIPTION(i32);
+pub struct WS_UNION_DESCRIPTION {
+    pub size: u32,
+    pub alignment: u32,
+    pub fields: *mut *mut WS_UNION_FIELD_DESCRIPTION,
+    pub fieldCount: u32,
+    pub enumOffset: u32,
+    pub noneEnumValue: i32,
+    pub valueIndices: *mut u32,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct WS_UNION_FIELD_DESCRIPTION(i32);
+impl ::core::marker::Copy for WS_UNION_DESCRIPTION {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WS_UNION_DESCRIPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_UNIQUE_ID(i32);
-#[repr(C)]
-pub struct WS_UNIQUE_ID_DESCRIPTION(i32);
-#[repr(C)]
-pub struct WS_UNKNOWN_ENDPOINT_IDENTITY(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct WS_UNION_FIELD_DESCRIPTION {
+    pub value: i32,
+    pub field: WS_FIELD_DESCRIPTION,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WS_UNION_FIELD_DESCRIPTION {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WS_UNION_FIELD_DESCRIPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_UPN_ENDPOINT_IDENTITY(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct WS_UNIQUE_ID {
+    pub uri: WS_STRING,
+    pub guid: ::windows_sys::core::GUID,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WS_UNIQUE_ID {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WS_UNIQUE_ID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_URL(i32);
+pub struct WS_UNIQUE_ID_DESCRIPTION {
+    pub minCharCount: u32,
+    pub maxCharCount: u32,
+}
+impl ::core::marker::Copy for WS_UNIQUE_ID_DESCRIPTION {}
+impl ::core::clone::Clone for WS_UNIQUE_ID_DESCRIPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct WS_UNKNOWN_ENDPOINT_IDENTITY {
+    pub identity: WS_ENDPOINT_IDENTITY,
+    pub element: *mut WS_XML_BUFFER,
+}
+impl ::core::marker::Copy for WS_UNKNOWN_ENDPOINT_IDENTITY {}
+impl ::core::clone::Clone for WS_UNKNOWN_ENDPOINT_IDENTITY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct WS_UPN_ENDPOINT_IDENTITY {
+    pub identity: WS_ENDPOINT_IDENTITY,
+    pub upn: WS_STRING,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WS_UPN_ENDPOINT_IDENTITY {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WS_UPN_ENDPOINT_IDENTITY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct WS_URL {
+    pub scheme: WS_URL_SCHEME_TYPE,
+}
+impl ::core::marker::Copy for WS_URL {}
+impl ::core::clone::Clone for WS_URL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WS_URL_FLAGS_ALLOW_HOST_WILDCARDS: i32 = 1i32;
 pub const WS_URL_FLAGS_NO_PATH_COLLAPSE: i32 = 2i32;
 pub const WS_URL_FLAGS_ZERO_TERMINATE: i32 = 4i32;
@@ -1917,22 +4379,84 @@ pub const WS_URL_NETTCP_SCHEME_TYPE: WS_URL_SCHEME_TYPE = WS_URL_SCHEME_TYPE(2i3
 pub const WS_URL_SOAPUDP_SCHEME_TYPE: WS_URL_SCHEME_TYPE = WS_URL_SCHEME_TYPE(3i32);
 pub const WS_URL_NETPIPE_SCHEME_TYPE: WS_URL_SCHEME_TYPE = WS_URL_SCHEME_TYPE(4i32);
 #[repr(C)]
-pub struct WS_USERNAME_CREDENTIAL(i32);
+pub struct WS_USERNAME_CREDENTIAL {
+    pub credentialType: WS_USERNAME_CREDENTIAL_TYPE,
+}
+impl ::core::marker::Copy for WS_USERNAME_CREDENTIAL {}
+impl ::core::clone::Clone for WS_USERNAME_CREDENTIAL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WS_USERNAME_CREDENTIAL_TYPE(pub i32);
 pub const WS_STRING_USERNAME_CREDENTIAL_TYPE: WS_USERNAME_CREDENTIAL_TYPE = WS_USERNAME_CREDENTIAL_TYPE(1i32);
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct WS_USERNAME_MESSAGE_SECURITY_BINDING(i32);
-#[repr(C)]
-pub struct WS_USERNAME_MESSAGE_SECURITY_BINDING_CONSTRAINT(i32);
-#[repr(C)]
-pub struct WS_USERNAME_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION(i32);
+pub struct WS_USERNAME_MESSAGE_SECURITY_BINDING {
+    pub binding: WS_SECURITY_BINDING,
+    pub bindingUsage: WS_MESSAGE_SECURITY_USAGE,
+    pub clientCredential: *mut WS_USERNAME_CREDENTIAL,
+    pub passwordValidator: ::core::option::Option<WS_VALIDATE_PASSWORD_CALLBACK>,
+    pub passwordValidatorCallbackState: *mut ::core::ffi::c_void,
+}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WS_USERNAME_MESSAGE_SECURITY_BINDING {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WS_USERNAME_MESSAGE_SECURITY_BINDING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_USERNAME_MESSAGE_SECURITY_BINDING_TEMPLATE(i32);
+pub struct WS_USERNAME_MESSAGE_SECURITY_BINDING_CONSTRAINT {
+    pub bindingConstraint: WS_SECURITY_BINDING_CONSTRAINT,
+    pub bindingUsage: WS_MESSAGE_SECURITY_USAGE,
+}
+impl ::core::marker::Copy for WS_USERNAME_MESSAGE_SECURITY_BINDING_CONSTRAINT {}
+impl ::core::clone::Clone for WS_USERNAME_MESSAGE_SECURITY_BINDING_CONSTRAINT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_UTF8_ARRAY_DESCRIPTION(i32);
+pub struct WS_USERNAME_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION {
+    pub securityBindingProperties: WS_SECURITY_BINDING_PROPERTIES,
+    pub bindingUsage: WS_MESSAGE_SECURITY_USAGE,
+}
+impl ::core::marker::Copy for WS_USERNAME_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION {}
+impl ::core::clone::Clone for WS_USERNAME_MESSAGE_SECURITY_BINDING_POLICY_DESCRIPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct WS_USERNAME_MESSAGE_SECURITY_BINDING_TEMPLATE {
+    pub securityBindingProperties: WS_SECURITY_BINDING_PROPERTIES,
+    pub clientCredential: *mut WS_USERNAME_CREDENTIAL,
+    pub passwordValidator: ::core::option::Option<WS_VALIDATE_PASSWORD_CALLBACK>,
+    pub passwordValidatorCallbackState: *mut ::core::ffi::c_void,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WS_USERNAME_MESSAGE_SECURITY_BINDING_TEMPLATE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WS_USERNAME_MESSAGE_SECURITY_BINDING_TEMPLATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct WS_UTF8_ARRAY_DESCRIPTION {
+    pub minByteCount: u32,
+    pub maxByteCount: u32,
+}
+impl ::core::marker::Copy for WS_UTF8_ARRAY_DESCRIPTION {}
+impl ::core::clone::Clone for WS_UTF8_ARRAY_DESCRIPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[cfg(feature = "Win32_Foundation")]
 pub type WS_VALIDATE_PASSWORD_CALLBACK = unsafe extern "system" fn(passwordvalidatorcallbackstate: *const ::core::ffi::c_void, username: *const WS_STRING, password: *const WS_STRING, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows_sys::core::HRESULT;
 pub type WS_VALIDATE_SAML_CALLBACK = unsafe extern "system" fn(samlvalidatorcallbackstate: *const ::core::ffi::c_void, samlassertion: *const WS_XML_BUFFER, error: *const WS_ERROR) -> ::windows_sys::core::HRESULT;
@@ -1955,9 +4479,25 @@ pub const WS_TIMESPAN_VALUE_TYPE: WS_VALUE_TYPE = WS_VALUE_TYPE(13i32);
 pub const WS_GUID_VALUE_TYPE: WS_VALUE_TYPE = WS_VALUE_TYPE(14i32);
 pub const WS_DURATION_VALUE_TYPE: WS_VALUE_TYPE = WS_VALUE_TYPE(15i32);
 #[repr(C)]
-pub struct WS_VOID_DESCRIPTION(i32);
+pub struct WS_VOID_DESCRIPTION {
+    pub size: u32,
+}
+impl ::core::marker::Copy for WS_VOID_DESCRIPTION {}
+impl ::core::clone::Clone for WS_VOID_DESCRIPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL(i32);
+pub struct WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {
+    pub credentialType: WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL_TYPE,
+}
+impl ::core::marker::Copy for WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {}
+impl ::core::clone::Clone for WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL_TYPE(pub i32);
 pub const WS_STRING_WINDOWS_INTEGRATED_AUTH_CREDENTIAL_TYPE: WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL_TYPE = WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL_TYPE(1i32);
@@ -1979,19 +4519,74 @@ pub const WS_WRITE_NILLABLE_VALUE: WS_WRITE_OPTION = WS_WRITE_OPTION(3i32);
 pub const WS_WRITE_NILLABLE_POINTER: WS_WRITE_OPTION = WS_WRITE_OPTION(4i32);
 pub type WS_WRITE_TYPE_CALLBACK = unsafe extern "system" fn(writer: *const WS_XML_WRITER, typemapping: WS_TYPE_MAPPING, descriptiondata: *const ::core::ffi::c_void, value: *const ::core::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows_sys::core::HRESULT;
 #[repr(C)]
-pub struct WS_WSZ_DESCRIPTION(i32);
+pub struct WS_WSZ_DESCRIPTION {
+    pub minCharCount: u32,
+    pub maxCharCount: u32,
+}
+impl ::core::marker::Copy for WS_WSZ_DESCRIPTION {}
+impl ::core::clone::Clone for WS_WSZ_DESCRIPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct WS_XML_ATTRIBUTE(i32);
-#[repr(C)]
-pub struct WS_XML_BASE64_TEXT(i32);
+pub struct WS_XML_ATTRIBUTE {
+    pub singleQuote: u8,
+    pub isXmlNs: u8,
+    pub prefix: *mut WS_XML_STRING,
+    pub localName: *mut WS_XML_STRING,
+    pub ns: *mut WS_XML_STRING,
+    pub value: *mut WS_XML_TEXT,
+}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WS_XML_ATTRIBUTE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WS_XML_ATTRIBUTE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_XML_BOOL_TEXT(i32);
+pub struct WS_XML_BASE64_TEXT {
+    pub text: WS_XML_TEXT,
+    pub bytes: *mut u8,
+    pub length: u32,
+}
+impl ::core::marker::Copy for WS_XML_BASE64_TEXT {}
+impl ::core::clone::Clone for WS_XML_BASE64_TEXT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct WS_XML_BOOL_TEXT {
+    pub text: WS_XML_TEXT,
+    pub value: super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WS_XML_BOOL_TEXT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WS_XML_BOOL_TEXT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct WS_XML_BUFFER(pub u8);
 #[repr(C)]
-pub struct WS_XML_BUFFER_PROPERTY(i32);
+pub struct WS_XML_BUFFER_PROPERTY {
+    pub id: WS_XML_BUFFER_PROPERTY_ID,
+    pub value: *mut ::core::ffi::c_void,
+    pub valueSize: u32,
+}
+impl ::core::marker::Copy for WS_XML_BUFFER_PROPERTY {}
+impl ::core::clone::Clone for WS_XML_BUFFER_PROPERTY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WS_XML_BUFFER_PROPERTY_ID(pub i32);
 #[repr(transparent)]
@@ -2000,47 +4595,200 @@ pub const WS_EXCLUSIVE_XML_CANONICALIZATION_ALGORITHM: WS_XML_CANONICALIZATION_A
 pub const WS_EXCLUSIVE_WITH_COMMENTS_XML_CANONICALIZATION_ALGORITHM: WS_XML_CANONICALIZATION_ALGORITHM = WS_XML_CANONICALIZATION_ALGORITHM(1i32);
 pub const WS_INCLUSIVE_XML_CANONICALIZATION_ALGORITHM: WS_XML_CANONICALIZATION_ALGORITHM = WS_XML_CANONICALIZATION_ALGORITHM(2i32);
 pub const WS_INCLUSIVE_WITH_COMMENTS_XML_CANONICALIZATION_ALGORITHM: WS_XML_CANONICALIZATION_ALGORITHM = WS_XML_CANONICALIZATION_ALGORITHM(3i32);
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+pub struct WS_XML_CANONICALIZATION_INCLUSIVE_PREFIXES {
+    pub prefixCount: u32,
+    pub prefixes: *mut WS_XML_STRING,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WS_XML_CANONICALIZATION_INCLUSIVE_PREFIXES {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WS_XML_CANONICALIZATION_INCLUSIVE_PREFIXES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_XML_CANONICALIZATION_INCLUSIVE_PREFIXES(i32);
-#[repr(C)]
-pub struct WS_XML_CANONICALIZATION_PROPERTY(i32);
+pub struct WS_XML_CANONICALIZATION_PROPERTY {
+    pub id: WS_XML_CANONICALIZATION_PROPERTY_ID,
+    pub value: *mut ::core::ffi::c_void,
+    pub valueSize: u32,
+}
+impl ::core::marker::Copy for WS_XML_CANONICALIZATION_PROPERTY {}
+impl ::core::clone::Clone for WS_XML_CANONICALIZATION_PROPERTY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WS_XML_CANONICALIZATION_PROPERTY_ID(pub i32);
 pub const WS_XML_CANONICALIZATION_PROPERTY_ALGORITHM: WS_XML_CANONICALIZATION_PROPERTY_ID = WS_XML_CANONICALIZATION_PROPERTY_ID(0i32);
 pub const WS_XML_CANONICALIZATION_PROPERTY_INCLUSIVE_PREFIXES: WS_XML_CANONICALIZATION_PROPERTY_ID = WS_XML_CANONICALIZATION_PROPERTY_ID(1i32);
 pub const WS_XML_CANONICALIZATION_PROPERTY_OMITTED_ELEMENT: WS_XML_CANONICALIZATION_PROPERTY_ID = WS_XML_CANONICALIZATION_PROPERTY_ID(2i32);
 pub const WS_XML_CANONICALIZATION_PROPERTY_OUTPUT_BUFFER_SIZE: WS_XML_CANONICALIZATION_PROPERTY_ID = WS_XML_CANONICALIZATION_PROPERTY_ID(3i32);
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct WS_XML_COMMENT_NODE(i32);
-#[repr(C)]
-pub struct WS_XML_DATETIME_TEXT(i32);
+pub struct WS_XML_COMMENT_NODE {
+    pub node: WS_XML_NODE,
+    pub value: WS_XML_STRING,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct WS_XML_DECIMAL_TEXT(i32);
+impl ::core::marker::Copy for WS_XML_COMMENT_NODE {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WS_XML_COMMENT_NODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_XML_DICTIONARY(i32);
+pub struct WS_XML_DATETIME_TEXT {
+    pub text: WS_XML_TEXT,
+    pub value: WS_DATETIME,
+}
+impl ::core::marker::Copy for WS_XML_DATETIME_TEXT {}
+impl ::core::clone::Clone for WS_XML_DATETIME_TEXT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_XML_DOUBLE_TEXT(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct WS_XML_DECIMAL_TEXT {
+    pub text: WS_XML_TEXT,
+    pub value: super::super::Foundation::DECIMAL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WS_XML_DECIMAL_TEXT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WS_XML_DECIMAL_TEXT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_XML_ELEMENT_NODE(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct WS_XML_DICTIONARY {
+    pub guid: ::windows_sys::core::GUID,
+    pub strings: *mut WS_XML_STRING,
+    pub stringCount: u32,
+    pub isConst: super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WS_XML_DICTIONARY {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WS_XML_DICTIONARY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_XML_FLOAT_TEXT(i32);
+pub struct WS_XML_DOUBLE_TEXT {
+    pub text: WS_XML_TEXT,
+    pub value: f64,
+}
+impl ::core::marker::Copy for WS_XML_DOUBLE_TEXT {}
+impl ::core::clone::Clone for WS_XML_DOUBLE_TEXT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_XML_GUID_TEXT(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct WS_XML_ELEMENT_NODE {
+    pub node: WS_XML_NODE,
+    pub prefix: *mut WS_XML_STRING,
+    pub localName: *mut WS_XML_STRING,
+    pub ns: *mut WS_XML_STRING,
+    pub attributeCount: u32,
+    pub attributes: *mut *mut WS_XML_ATTRIBUTE,
+    pub isEmpty: super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WS_XML_ELEMENT_NODE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WS_XML_ELEMENT_NODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_XML_INT32_TEXT(i32);
+pub struct WS_XML_FLOAT_TEXT {
+    pub text: WS_XML_TEXT,
+    pub value: f32,
+}
+impl ::core::marker::Copy for WS_XML_FLOAT_TEXT {}
+impl ::core::clone::Clone for WS_XML_FLOAT_TEXT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_XML_INT64_TEXT(i32);
+pub struct WS_XML_GUID_TEXT {
+    pub text: WS_XML_TEXT,
+    pub value: ::windows_sys::core::GUID,
+}
+impl ::core::marker::Copy for WS_XML_GUID_TEXT {}
+impl ::core::clone::Clone for WS_XML_GUID_TEXT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_XML_LIST_TEXT(i32);
+pub struct WS_XML_INT32_TEXT {
+    pub text: WS_XML_TEXT,
+    pub value: i32,
+}
+impl ::core::marker::Copy for WS_XML_INT32_TEXT {}
+impl ::core::clone::Clone for WS_XML_INT32_TEXT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_XML_NODE(i32);
+pub struct WS_XML_INT64_TEXT {
+    pub text: WS_XML_TEXT,
+    pub value: i64,
+}
+impl ::core::marker::Copy for WS_XML_INT64_TEXT {}
+impl ::core::clone::Clone for WS_XML_INT64_TEXT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_XML_NODE_POSITION(i32);
+pub struct WS_XML_LIST_TEXT {
+    pub text: WS_XML_TEXT,
+    pub itemCount: u32,
+    pub items: *mut *mut WS_XML_TEXT,
+}
+impl ::core::marker::Copy for WS_XML_LIST_TEXT {}
+impl ::core::clone::Clone for WS_XML_LIST_TEXT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct WS_XML_NODE {
+    pub nodeType: WS_XML_NODE_TYPE,
+}
+impl ::core::marker::Copy for WS_XML_NODE {}
+impl ::core::clone::Clone for WS_XML_NODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct WS_XML_NODE_POSITION {
+    pub buffer: *mut WS_XML_BUFFER,
+    pub node: *mut ::core::ffi::c_void,
+}
+impl ::core::marker::Copy for WS_XML_NODE_POSITION {}
+impl ::core::clone::Clone for WS_XML_NODE_POSITION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WS_XML_NODE_TYPE(pub i32);
 pub const WS_XML_NODE_TYPE_ELEMENT: WS_XML_NODE_TYPE = WS_XML_NODE_TYPE(1i32);
@@ -2051,23 +4799,88 @@ pub const WS_XML_NODE_TYPE_CDATA: WS_XML_NODE_TYPE = WS_XML_NODE_TYPE(6i32);
 pub const WS_XML_NODE_TYPE_END_CDATA: WS_XML_NODE_TYPE = WS_XML_NODE_TYPE(7i32);
 pub const WS_XML_NODE_TYPE_EOF: WS_XML_NODE_TYPE = WS_XML_NODE_TYPE(8i32);
 pub const WS_XML_NODE_TYPE_BOF: WS_XML_NODE_TYPE = WS_XML_NODE_TYPE(9i32);
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct WS_XML_QNAME(i32);
-#[repr(C)]
-pub struct WS_XML_QNAME_DESCRIPTION(i32);
+pub struct WS_XML_QNAME {
+    pub localName: WS_XML_STRING,
+    pub ns: WS_XML_STRING,
+}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WS_XML_QNAME {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WS_XML_QNAME {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_XML_QNAME_TEXT(i32);
+pub struct WS_XML_QNAME_DESCRIPTION {
+    pub minLocalNameByteCount: u32,
+    pub maxLocalNameByteCount: u32,
+    pub minNsByteCount: u32,
+    pub maxNsByteCount: u32,
+}
+impl ::core::marker::Copy for WS_XML_QNAME_DESCRIPTION {}
+impl ::core::clone::Clone for WS_XML_QNAME_DESCRIPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct WS_XML_QNAME_TEXT {
+    pub text: WS_XML_TEXT,
+    pub prefix: *mut WS_XML_STRING,
+    pub localName: *mut WS_XML_STRING,
+    pub ns: *mut WS_XML_STRING,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WS_XML_QNAME_TEXT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WS_XML_QNAME_TEXT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct WS_XML_READER(pub u8);
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+pub struct WS_XML_READER_BINARY_ENCODING {
+    pub encoding: WS_XML_READER_ENCODING,
+    pub staticDictionary: *mut WS_XML_DICTIONARY,
+    pub dynamicDictionary: *mut WS_XML_DICTIONARY,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WS_XML_READER_BINARY_ENCODING {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WS_XML_READER_BINARY_ENCODING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_XML_READER_BINARY_ENCODING(i32);
+pub struct WS_XML_READER_BUFFER_INPUT {
+    pub input: WS_XML_READER_INPUT,
+    pub encodedData: *mut ::core::ffi::c_void,
+    pub encodedDataSize: u32,
+}
+impl ::core::marker::Copy for WS_XML_READER_BUFFER_INPUT {}
+impl ::core::clone::Clone for WS_XML_READER_BUFFER_INPUT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_XML_READER_BUFFER_INPUT(i32);
-#[repr(C)]
-pub struct WS_XML_READER_ENCODING(i32);
+pub struct WS_XML_READER_ENCODING {
+    pub encodingType: WS_XML_READER_ENCODING_TYPE,
+}
+impl ::core::marker::Copy for WS_XML_READER_ENCODING {}
+impl ::core::clone::Clone for WS_XML_READER_ENCODING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WS_XML_READER_ENCODING_TYPE(pub i32);
 pub const WS_XML_READER_ENCODING_TYPE_TEXT: WS_XML_READER_ENCODING_TYPE = WS_XML_READER_ENCODING_TYPE(1i32);
@@ -2075,18 +4888,60 @@ pub const WS_XML_READER_ENCODING_TYPE_BINARY: WS_XML_READER_ENCODING_TYPE = WS_X
 pub const WS_XML_READER_ENCODING_TYPE_MTOM: WS_XML_READER_ENCODING_TYPE = WS_XML_READER_ENCODING_TYPE(3i32);
 pub const WS_XML_READER_ENCODING_TYPE_RAW: WS_XML_READER_ENCODING_TYPE = WS_XML_READER_ENCODING_TYPE(4i32);
 #[repr(C)]
-pub struct WS_XML_READER_INPUT(i32);
+pub struct WS_XML_READER_INPUT {
+    pub inputType: WS_XML_READER_INPUT_TYPE,
+}
+impl ::core::marker::Copy for WS_XML_READER_INPUT {}
+impl ::core::clone::Clone for WS_XML_READER_INPUT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WS_XML_READER_INPUT_TYPE(pub i32);
 pub const WS_XML_READER_INPUT_TYPE_BUFFER: WS_XML_READER_INPUT_TYPE = WS_XML_READER_INPUT_TYPE(1i32);
 pub const WS_XML_READER_INPUT_TYPE_STREAM: WS_XML_READER_INPUT_TYPE = WS_XML_READER_INPUT_TYPE(2i32);
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+pub struct WS_XML_READER_MTOM_ENCODING {
+    pub encoding: WS_XML_READER_ENCODING,
+    pub textEncoding: *mut WS_XML_READER_ENCODING,
+    pub readMimeHeader: super::super::Foundation::BOOL,
+    pub startInfo: WS_STRING,
+    pub boundary: WS_STRING,
+    pub startUri: WS_STRING,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WS_XML_READER_MTOM_ENCODING {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WS_XML_READER_MTOM_ENCODING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_XML_READER_MTOM_ENCODING(i32);
+pub struct WS_XML_READER_PROPERTIES {
+    pub properties: *mut WS_XML_READER_PROPERTY,
+    pub propertyCount: u32,
+}
+impl ::core::marker::Copy for WS_XML_READER_PROPERTIES {}
+impl ::core::clone::Clone for WS_XML_READER_PROPERTIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_XML_READER_PROPERTIES(i32);
-#[repr(C)]
-pub struct WS_XML_READER_PROPERTY(i32);
+pub struct WS_XML_READER_PROPERTY {
+    pub id: WS_XML_READER_PROPERTY_ID,
+    pub value: *mut ::core::ffi::c_void,
+    pub valueSize: u32,
+}
+impl ::core::marker::Copy for WS_XML_READER_PROPERTY {}
+impl ::core::clone::Clone for WS_XML_READER_PROPERTY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WS_XML_READER_PROPERTY_ID(pub i32);
 pub const WS_XML_READER_PROPERTY_MAX_DEPTH: WS_XML_READER_PROPERTY_ID = WS_XML_READER_PROPERTY_ID(0i32);
@@ -2105,28 +4960,104 @@ pub const WS_XML_READER_PROPERTY_MAX_MIME_PARTS: WS_XML_READER_PROPERTY_ID = WS_
 pub const WS_XML_READER_PROPERTY_ALLOW_INVALID_CHARACTER_REFERENCES: WS_XML_READER_PROPERTY_ID = WS_XML_READER_PROPERTY_ID(13i32);
 pub const WS_XML_READER_PROPERTY_MAX_NAMESPACES: WS_XML_READER_PROPERTY_ID = WS_XML_READER_PROPERTY_ID(14i32);
 #[repr(C)]
-pub struct WS_XML_READER_RAW_ENCODING(i32);
+pub struct WS_XML_READER_RAW_ENCODING {
+    pub encoding: WS_XML_READER_ENCODING,
+}
+impl ::core::marker::Copy for WS_XML_READER_RAW_ENCODING {}
+impl ::core::clone::Clone for WS_XML_READER_RAW_ENCODING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_XML_READER_STREAM_INPUT(i32);
+pub struct WS_XML_READER_STREAM_INPUT {
+    pub input: WS_XML_READER_INPUT,
+    pub readCallback: ::core::option::Option<WS_READ_CALLBACK>,
+    pub readCallbackState: *mut ::core::ffi::c_void,
+}
+impl ::core::marker::Copy for WS_XML_READER_STREAM_INPUT {}
+impl ::core::clone::Clone for WS_XML_READER_STREAM_INPUT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_XML_READER_TEXT_ENCODING(i32);
+pub struct WS_XML_READER_TEXT_ENCODING {
+    pub encoding: WS_XML_READER_ENCODING,
+    pub charSet: WS_CHARSET,
+}
+impl ::core::marker::Copy for WS_XML_READER_TEXT_ENCODING {}
+impl ::core::clone::Clone for WS_XML_READER_TEXT_ENCODING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_XML_SECURITY_TOKEN_PROPERTY(i32);
+pub struct WS_XML_SECURITY_TOKEN_PROPERTY {
+    pub id: WS_XML_SECURITY_TOKEN_PROPERTY_ID,
+    pub value: *mut ::core::ffi::c_void,
+    pub valueSize: u32,
+}
+impl ::core::marker::Copy for WS_XML_SECURITY_TOKEN_PROPERTY {}
+impl ::core::clone::Clone for WS_XML_SECURITY_TOKEN_PROPERTY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WS_XML_SECURITY_TOKEN_PROPERTY_ID(pub i32);
 pub const WS_XML_SECURITY_TOKEN_PROPERTY_ATTACHED_REFERENCE: WS_XML_SECURITY_TOKEN_PROPERTY_ID = WS_XML_SECURITY_TOKEN_PROPERTY_ID(1i32);
 pub const WS_XML_SECURITY_TOKEN_PROPERTY_UNATTACHED_REFERENCE: WS_XML_SECURITY_TOKEN_PROPERTY_ID = WS_XML_SECURITY_TOKEN_PROPERTY_ID(2i32);
 pub const WS_XML_SECURITY_TOKEN_PROPERTY_VALID_FROM_TIME: WS_XML_SECURITY_TOKEN_PROPERTY_ID = WS_XML_SECURITY_TOKEN_PROPERTY_ID(3i32);
 pub const WS_XML_SECURITY_TOKEN_PROPERTY_VALID_TILL_TIME: WS_XML_SECURITY_TOKEN_PROPERTY_ID = WS_XML_SECURITY_TOKEN_PROPERTY_ID(4i32);
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+pub struct WS_XML_STRING {
+    pub length: u32,
+    pub bytes: *mut u8,
+    pub dictionary: *mut WS_XML_DICTIONARY,
+    pub id: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WS_XML_STRING {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WS_XML_STRING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_XML_STRING(i32);
+pub struct WS_XML_STRING_DESCRIPTION {
+    pub minByteCount: u32,
+    pub maxByteCount: u32,
+}
+impl ::core::marker::Copy for WS_XML_STRING_DESCRIPTION {}
+impl ::core::clone::Clone for WS_XML_STRING_DESCRIPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_XML_STRING_DESCRIPTION(i32);
+pub struct WS_XML_TEXT {
+    pub textType: WS_XML_TEXT_TYPE,
+}
+impl ::core::marker::Copy for WS_XML_TEXT {}
+impl ::core::clone::Clone for WS_XML_TEXT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_XML_TEXT(i32);
-#[repr(C)]
-pub struct WS_XML_TEXT_NODE(i32);
+pub struct WS_XML_TEXT_NODE {
+    pub node: WS_XML_NODE,
+    pub text: *mut WS_XML_TEXT,
+}
+impl ::core::marker::Copy for WS_XML_TEXT_NODE {}
+impl ::core::clone::Clone for WS_XML_TEXT_NODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WS_XML_TEXT_TYPE(pub i32);
 pub const WS_XML_TEXT_TYPE_UTF8: WS_XML_TEXT_TYPE = WS_XML_TEXT_TYPE(1i32);
@@ -2146,46 +5077,176 @@ pub const WS_XML_TEXT_TYPE_TIMESPAN: WS_XML_TEXT_TYPE = WS_XML_TEXT_TYPE(14i32);
 pub const WS_XML_TEXT_TYPE_QNAME: WS_XML_TEXT_TYPE = WS_XML_TEXT_TYPE(15i32);
 pub const WS_XML_TEXT_TYPE_LIST: WS_XML_TEXT_TYPE = WS_XML_TEXT_TYPE(16i32);
 #[repr(C)]
-pub struct WS_XML_TIMESPAN_TEXT(i32);
+pub struct WS_XML_TIMESPAN_TEXT {
+    pub text: WS_XML_TEXT,
+    pub value: WS_TIMESPAN,
+}
+impl ::core::marker::Copy for WS_XML_TIMESPAN_TEXT {}
+impl ::core::clone::Clone for WS_XML_TIMESPAN_TEXT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_XML_TOKEN_MESSAGE_SECURITY_BINDING(i32);
+pub struct WS_XML_TOKEN_MESSAGE_SECURITY_BINDING {
+    pub binding: WS_SECURITY_BINDING,
+    pub bindingUsage: WS_MESSAGE_SECURITY_USAGE,
+    pub xmlToken: *mut WS_SECURITY_TOKEN,
+}
+impl ::core::marker::Copy for WS_XML_TOKEN_MESSAGE_SECURITY_BINDING {}
+impl ::core::clone::Clone for WS_XML_TOKEN_MESSAGE_SECURITY_BINDING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_XML_UINT64_TEXT(i32);
+pub struct WS_XML_UINT64_TEXT {
+    pub text: WS_XML_TEXT,
+    pub value: u64,
+}
+impl ::core::marker::Copy for WS_XML_UINT64_TEXT {}
+impl ::core::clone::Clone for WS_XML_UINT64_TEXT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_XML_UNIQUE_ID_TEXT(i32);
+pub struct WS_XML_UNIQUE_ID_TEXT {
+    pub text: WS_XML_TEXT,
+    pub value: ::windows_sys::core::GUID,
+}
+impl ::core::marker::Copy for WS_XML_UNIQUE_ID_TEXT {}
+impl ::core::clone::Clone for WS_XML_UNIQUE_ID_TEXT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_XML_UTF16_TEXT(i32);
+pub struct WS_XML_UTF16_TEXT {
+    pub text: WS_XML_TEXT,
+    pub bytes: *mut u8,
+    pub byteCount: u32,
+}
+impl ::core::marker::Copy for WS_XML_UTF16_TEXT {}
+impl ::core::clone::Clone for WS_XML_UTF16_TEXT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct WS_XML_UTF8_TEXT(i32);
+pub struct WS_XML_UTF8_TEXT {
+    pub text: WS_XML_TEXT,
+    pub value: WS_XML_STRING,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WS_XML_UTF8_TEXT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WS_XML_UTF8_TEXT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct WS_XML_WRITER(pub u8);
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+pub struct WS_XML_WRITER_BINARY_ENCODING {
+    pub encoding: WS_XML_WRITER_ENCODING,
+    pub staticDictionary: *mut WS_XML_DICTIONARY,
+    pub dynamicStringCallback: ::core::option::Option<WS_DYNAMIC_STRING_CALLBACK>,
+    pub dynamicStringCallbackState: *mut ::core::ffi::c_void,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WS_XML_WRITER_BINARY_ENCODING {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WS_XML_WRITER_BINARY_ENCODING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_XML_WRITER_BINARY_ENCODING(i32);
+pub struct WS_XML_WRITER_BUFFER_OUTPUT {
+    pub output: WS_XML_WRITER_OUTPUT,
+}
+impl ::core::marker::Copy for WS_XML_WRITER_BUFFER_OUTPUT {}
+impl ::core::clone::Clone for WS_XML_WRITER_BUFFER_OUTPUT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_XML_WRITER_BUFFER_OUTPUT(i32);
-#[repr(C)]
-pub struct WS_XML_WRITER_ENCODING(i32);
+pub struct WS_XML_WRITER_ENCODING {
+    pub encodingType: WS_XML_WRITER_ENCODING_TYPE,
+}
+impl ::core::marker::Copy for WS_XML_WRITER_ENCODING {}
+impl ::core::clone::Clone for WS_XML_WRITER_ENCODING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WS_XML_WRITER_ENCODING_TYPE(pub i32);
 pub const WS_XML_WRITER_ENCODING_TYPE_TEXT: WS_XML_WRITER_ENCODING_TYPE = WS_XML_WRITER_ENCODING_TYPE(1i32);
 pub const WS_XML_WRITER_ENCODING_TYPE_BINARY: WS_XML_WRITER_ENCODING_TYPE = WS_XML_WRITER_ENCODING_TYPE(2i32);
 pub const WS_XML_WRITER_ENCODING_TYPE_MTOM: WS_XML_WRITER_ENCODING_TYPE = WS_XML_WRITER_ENCODING_TYPE(3i32);
 pub const WS_XML_WRITER_ENCODING_TYPE_RAW: WS_XML_WRITER_ENCODING_TYPE = WS_XML_WRITER_ENCODING_TYPE(4i32);
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+pub struct WS_XML_WRITER_MTOM_ENCODING {
+    pub encoding: WS_XML_WRITER_ENCODING,
+    pub textEncoding: *mut WS_XML_WRITER_ENCODING,
+    pub writeMimeHeader: super::super::Foundation::BOOL,
+    pub boundary: WS_STRING,
+    pub startInfo: WS_STRING,
+    pub startUri: WS_STRING,
+    pub maxInlineByteCount: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WS_XML_WRITER_MTOM_ENCODING {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WS_XML_WRITER_MTOM_ENCODING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_XML_WRITER_MTOM_ENCODING(i32);
-#[repr(C)]
-pub struct WS_XML_WRITER_OUTPUT(i32);
+pub struct WS_XML_WRITER_OUTPUT {
+    pub outputType: WS_XML_WRITER_OUTPUT_TYPE,
+}
+impl ::core::marker::Copy for WS_XML_WRITER_OUTPUT {}
+impl ::core::clone::Clone for WS_XML_WRITER_OUTPUT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WS_XML_WRITER_OUTPUT_TYPE(pub i32);
 pub const WS_XML_WRITER_OUTPUT_TYPE_BUFFER: WS_XML_WRITER_OUTPUT_TYPE = WS_XML_WRITER_OUTPUT_TYPE(1i32);
 pub const WS_XML_WRITER_OUTPUT_TYPE_STREAM: WS_XML_WRITER_OUTPUT_TYPE = WS_XML_WRITER_OUTPUT_TYPE(2i32);
 #[repr(C)]
-pub struct WS_XML_WRITER_PROPERTIES(i32);
+pub struct WS_XML_WRITER_PROPERTIES {
+    pub properties: *mut WS_XML_WRITER_PROPERTY,
+    pub propertyCount: u32,
+}
+impl ::core::marker::Copy for WS_XML_WRITER_PROPERTIES {}
+impl ::core::clone::Clone for WS_XML_WRITER_PROPERTIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_XML_WRITER_PROPERTY(i32);
+pub struct WS_XML_WRITER_PROPERTY {
+    pub id: WS_XML_WRITER_PROPERTY_ID,
+    pub value: *mut ::core::ffi::c_void,
+    pub valueSize: u32,
+}
+impl ::core::marker::Copy for WS_XML_WRITER_PROPERTY {}
+impl ::core::clone::Clone for WS_XML_WRITER_PROPERTY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WS_XML_WRITER_PROPERTY_ID(pub i32);
 pub const WS_XML_WRITER_PROPERTY_MAX_DEPTH: WS_XML_WRITER_PROPERTY_ID = WS_XML_WRITER_PROPERTY_ID(0i32);
@@ -2208,8 +5269,35 @@ pub const WS_XML_WRITER_PROPERTY_BYTES_TO_CLOSE: WS_XML_WRITER_PROPERTY_ID = WS_
 pub const WS_XML_WRITER_PROPERTY_COMPRESS_EMPTY_ELEMENTS: WS_XML_WRITER_PROPERTY_ID = WS_XML_WRITER_PROPERTY_ID(17i32);
 pub const WS_XML_WRITER_PROPERTY_EMIT_UNCOMPRESSED_EMPTY_ELEMENTS: WS_XML_WRITER_PROPERTY_ID = WS_XML_WRITER_PROPERTY_ID(18i32);
 #[repr(C)]
-pub struct WS_XML_WRITER_RAW_ENCODING(i32);
+pub struct WS_XML_WRITER_RAW_ENCODING {
+    pub encoding: WS_XML_WRITER_ENCODING,
+}
+impl ::core::marker::Copy for WS_XML_WRITER_RAW_ENCODING {}
+impl ::core::clone::Clone for WS_XML_WRITER_RAW_ENCODING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_XML_WRITER_STREAM_OUTPUT(i32);
+pub struct WS_XML_WRITER_STREAM_OUTPUT {
+    pub output: WS_XML_WRITER_OUTPUT,
+    pub writeCallback: ::core::option::Option<WS_WRITE_CALLBACK>,
+    pub writeCallbackState: *mut ::core::ffi::c_void,
+}
+impl ::core::marker::Copy for WS_XML_WRITER_STREAM_OUTPUT {}
+impl ::core::clone::Clone for WS_XML_WRITER_STREAM_OUTPUT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WS_XML_WRITER_TEXT_ENCODING(i32);
+pub struct WS_XML_WRITER_TEXT_ENCODING {
+    pub encoding: WS_XML_WRITER_ENCODING,
+    pub charSet: WS_CHARSET,
+}
+impl ::core::marker::Copy for WS_XML_WRITER_TEXT_ENCODING {}
+impl ::core::clone::Clone for WS_XML_WRITER_TEXT_ENCODING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

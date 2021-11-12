@@ -573,9 +573,28 @@ extern "system" {
     pub fn Wow64SuspendThread(hthread: super::super::Foundation::HANDLE) -> u32;
 }
 #[repr(C)]
-pub struct APP_MEMORY_INFORMATION(i32);
+pub struct APP_MEMORY_INFORMATION {
+    pub AvailableCommit: u64,
+    pub PrivateCommitUsage: u64,
+    pub PeakPrivateCommitUsage: u64,
+    pub TotalCommitUsage: u64,
+}
+impl ::core::marker::Copy for APP_MEMORY_INFORMATION {}
+impl ::core::clone::Clone for APP_MEMORY_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct BoundaryDescriptorHandle(i32);
+pub struct BoundaryDescriptorHandle {
+    pub Value: isize,
+}
+impl ::core::marker::Copy for BoundaryDescriptorHandle {}
+impl ::core::clone::Clone for BoundaryDescriptorHandle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CONDITION_VARIABLE_LOCKMODE_SHARED: u32 = 1u32;
 #[repr(transparent)]
 pub struct CREATE_EVENT(pub u32);
@@ -599,10 +618,31 @@ pub const INIT_ONCE_CHECK_ONLY: u32 = 1u32;
 pub const INIT_ONCE_CTX_RESERVED_BITS: u32 = 2u32;
 pub const INIT_ONCE_INIT_FAILED: u32 = 4u32;
 #[repr(C)]
-pub struct IO_COUNTERS(i32);
+pub struct IO_COUNTERS {
+    pub ReadOperationCount: u64,
+    pub WriteOperationCount: u64,
+    pub OtherOperationCount: u64,
+    pub ReadTransferCount: u64,
+    pub WriteTransferCount: u64,
+    pub OtherTransferCount: u64,
+}
+impl ::core::marker::Copy for IO_COUNTERS {}
+impl ::core::clone::Clone for IO_COUNTERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub type LPFIBER_START_ROUTINE = unsafe extern "system" fn(lpfiberparameter: *mut ::core::ffi::c_void);
 #[repr(C)]
-pub struct LPPROC_THREAD_ATTRIBUTE_LIST(i32);
+pub struct LPPROC_THREAD_ATTRIBUTE_LIST {
+    pub Value: *mut ::core::ffi::c_void,
+}
+impl ::core::marker::Copy for LPPROC_THREAD_ATTRIBUTE_LIST {}
+impl ::core::clone::Clone for LPPROC_THREAD_ATTRIBUTE_LIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub type LPTHREAD_START_ROUTINE = unsafe extern "system" fn(lpthreadparameter: *mut ::core::ffi::c_void) -> u32;
 #[repr(transparent)]
 pub struct MACHINE_ATTRIBUTES(pub u32);
@@ -617,16 +657,72 @@ pub const MEMORY_PRIORITY_MEDIUM: MEMORY_PRIORITY = MEMORY_PRIORITY(3u32);
 pub const MEMORY_PRIORITY_BELOW_NORMAL: MEMORY_PRIORITY = MEMORY_PRIORITY(4u32);
 pub const MEMORY_PRIORITY_NORMAL: MEMORY_PRIORITY = MEMORY_PRIORITY(5u32);
 #[repr(C)]
-pub struct MEMORY_PRIORITY_INFORMATION(i32);
+pub struct MEMORY_PRIORITY_INFORMATION {
+    pub MemoryPriority: MEMORY_PRIORITY,
+}
+impl ::core::marker::Copy for MEMORY_PRIORITY_INFORMATION {}
+impl ::core::clone::Clone for MEMORY_PRIORITY_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MUTEX_MODIFY_STATE: u32 = 1u32;
 #[repr(C)]
-pub struct NamespaceHandle(i32);
+pub struct NamespaceHandle {
+    pub Value: isize,
+}
+impl ::core::marker::Copy for NamespaceHandle {}
+impl ::core::clone::Clone for NamespaceHandle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+pub struct PEB {
+    pub Reserved1: [u8; 2],
+    pub BeingDebugged: u8,
+    pub Reserved2: [u8; 1],
+    pub Reserved3: [*mut ::core::ffi::c_void; 2],
+    pub Ldr: *mut PEB_LDR_DATA,
+    pub ProcessParameters: *mut RTL_USER_PROCESS_PARAMETERS,
+    pub Reserved4: [*mut ::core::ffi::c_void; 3],
+    pub AtlThunkSListPtr: *mut ::core::ffi::c_void,
+    pub Reserved5: *mut ::core::ffi::c_void,
+    pub Reserved6: u32,
+    pub Reserved7: *mut ::core::ffi::c_void,
+    pub Reserved8: u32,
+    pub AtlThunkSListPtr32: u32,
+    pub Reserved9: [*mut ::core::ffi::c_void; 45],
+    pub Reserved10: [u8; 96],
+    pub PostProcessInitRoutine: ::core::option::Option<PPS_POST_PROCESS_INIT_ROUTINE>,
+    pub Reserved11: [u8; 128],
+    pub Reserved12: [*mut ::core::ffi::c_void; 1],
+    pub SessionId: u32,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+impl ::core::marker::Copy for PEB {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+impl ::core::clone::Clone for PEB {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct PEB(i32);
 #[cfg(feature = "Win32_System_Kernel")]
-#[repr(C)]
-pub struct PEB_LDR_DATA(i32);
+pub struct PEB_LDR_DATA {
+    pub Reserved1: [u8; 8],
+    pub Reserved2: [*mut ::core::ffi::c_void; 3],
+    pub InMemoryOrderModuleList: super::Kernel::LIST_ENTRY,
+}
+#[cfg(feature = "Win32_System_Kernel")]
+impl ::core::marker::Copy for PEB_LDR_DATA {}
+#[cfg(feature = "Win32_System_Kernel")]
+impl ::core::clone::Clone for PEB_LDR_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub type PFLS_CALLBACK_FUNCTION = unsafe extern "system" fn(lpflsdata: *const ::core::ffi::c_void);
 #[cfg(feature = "Win32_Foundation")]
 pub type PINIT_ONCE_FN = unsafe extern "system" fn(initonce: *mut RTL_RUN_ONCE, parameter: *mut ::core::ffi::c_void, context: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
@@ -703,9 +799,23 @@ pub const PROCESS_STANDARD_RIGHTS_REQUIRED: PROCESS_ACCESS_RIGHTS = PROCESS_ACCE
 pub struct PROCESS_AFFINITY_AUTO_UPDATE_FLAGS(pub u32);
 pub const PROCESS_AFFINITY_DISABLE_AUTO_UPDATE: PROCESS_AFFINITY_AUTO_UPDATE_FLAGS = PROCESS_AFFINITY_AUTO_UPDATE_FLAGS(0u32);
 pub const PROCESS_AFFINITY_ENABLE_AUTO_UPDATE: PROCESS_AFFINITY_AUTO_UPDATE_FLAGS = PROCESS_AFFINITY_AUTO_UPDATE_FLAGS(1u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[repr(C)]
-pub struct PROCESS_BASIC_INFORMATION(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+pub struct PROCESS_BASIC_INFORMATION {
+    pub Reserved1: *mut ::core::ffi::c_void,
+    pub PebBaseAddress: *mut PEB,
+    pub Reserved2: [*mut ::core::ffi::c_void; 2],
+    pub UniqueProcessId: usize,
+    pub Reserved3: *mut ::core::ffi::c_void,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+impl ::core::marker::Copy for PROCESS_BASIC_INFORMATION {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+impl ::core::clone::Clone for PROCESS_BASIC_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PROCESS_CREATION_FLAGS(pub u32);
 pub const DEBUG_PROCESS: PROCESS_CREATION_FLAGS = PROCESS_CREATION_FLAGS(1u32);
@@ -745,16 +855,70 @@ pub const PROCESS_DEP_ENABLE: PROCESS_DEP_FLAGS = PROCESS_DEP_FLAGS(1u32);
 pub const PROCESS_DEP_DISABLE_ATL_THUNK_EMULATION: PROCESS_DEP_FLAGS = PROCESS_DEP_FLAGS(2u32);
 pub const PROCESS_DEP_NONE: PROCESS_DEP_FLAGS = PROCESS_DEP_FLAGS(0u32);
 #[repr(C)]
-pub struct PROCESS_DYNAMIC_EH_CONTINUATION_TARGET(i32);
+pub struct PROCESS_DYNAMIC_EH_CONTINUATION_TARGET {
+    pub TargetAddress: usize,
+    pub Flags: usize,
+}
+impl ::core::marker::Copy for PROCESS_DYNAMIC_EH_CONTINUATION_TARGET {}
+impl ::core::clone::Clone for PROCESS_DYNAMIC_EH_CONTINUATION_TARGET {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct PROCESS_DYNAMIC_EH_CONTINUATION_TARGETS_INFORMATION(i32);
+pub struct PROCESS_DYNAMIC_EH_CONTINUATION_TARGETS_INFORMATION {
+    pub NumberOfTargets: u16,
+    pub Reserved: u16,
+    pub Reserved2: u32,
+    pub Targets: *mut PROCESS_DYNAMIC_EH_CONTINUATION_TARGET,
+}
+impl ::core::marker::Copy for PROCESS_DYNAMIC_EH_CONTINUATION_TARGETS_INFORMATION {}
+impl ::core::clone::Clone for PROCESS_DYNAMIC_EH_CONTINUATION_TARGETS_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGE(i32);
+pub struct PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGE {
+    pub BaseAddress: usize,
+    pub Size: usize,
+    pub Flags: u32,
+}
+impl ::core::marker::Copy for PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGE {}
+impl ::core::clone::Clone for PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGES_INFORMATION(i32);
+pub struct PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGES_INFORMATION {
+    pub NumberOfRanges: u16,
+    pub Reserved: u16,
+    pub Reserved2: u32,
+    pub Ranges: *mut PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGE,
+}
+impl ::core::marker::Copy for PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGES_INFORMATION {}
+impl ::core::clone::Clone for PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGES_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct PROCESS_INFORMATION(i32);
+pub struct PROCESS_INFORMATION {
+    pub hProcess: super::super::Foundation::HANDLE,
+    pub hThread: super::super::Foundation::HANDLE,
+    pub dwProcessId: u32,
+    pub dwThreadId: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for PROCESS_INFORMATION {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for PROCESS_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PROCESS_INFORMATION_CLASS(pub i32);
 pub const ProcessMemoryPriority: PROCESS_INFORMATION_CLASS = PROCESS_INFORMATION_CLASS(0i32);
@@ -769,13 +933,43 @@ pub const ProcessLeapSecondInfo: PROCESS_INFORMATION_CLASS = PROCESS_INFORMATION
 pub const ProcessMachineTypeInfo: PROCESS_INFORMATION_CLASS = PROCESS_INFORMATION_CLASS(9i32);
 pub const ProcessInformationClassMax: PROCESS_INFORMATION_CLASS = PROCESS_INFORMATION_CLASS(10i32);
 #[repr(C)]
-pub struct PROCESS_LEAP_SECOND_INFO(i32);
+pub struct PROCESS_LEAP_SECOND_INFO {
+    pub Flags: u32,
+    pub Reserved: u32,
+}
+impl ::core::marker::Copy for PROCESS_LEAP_SECOND_INFO {}
+impl ::core::clone::Clone for PROCESS_LEAP_SECOND_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const PROCESS_LEAP_SECOND_INFO_FLAG_ENABLE_SIXTY_SECOND: u32 = 1u32;
 pub const PROCESS_LEAP_SECOND_INFO_VALID_FLAGS: u32 = 1u32;
 #[repr(C)]
-pub struct PROCESS_MACHINE_INFORMATION(i32);
+pub struct PROCESS_MACHINE_INFORMATION {
+    pub ProcessMachine: u16,
+    pub Res0: u16,
+    pub MachineAttributes: MACHINE_ATTRIBUTES,
+}
+impl ::core::marker::Copy for PROCESS_MACHINE_INFORMATION {}
+impl ::core::clone::Clone for PROCESS_MACHINE_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct PROCESS_MEMORY_EXHAUSTION_INFO(i32);
+pub struct PROCESS_MEMORY_EXHAUSTION_INFO {
+    pub Version: u16,
+    pub Reserved: u16,
+    pub Type: PROCESS_MEMORY_EXHAUSTION_TYPE,
+    pub Value: usize,
+}
+impl ::core::marker::Copy for PROCESS_MEMORY_EXHAUSTION_INFO {}
+impl ::core::clone::Clone for PROCESS_MEMORY_EXHAUSTION_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PROCESS_MEMORY_EXHAUSTION_TYPE(pub i32);
 pub const PMETypeFailFastOnCommitFailure: PROCESS_MEMORY_EXHAUSTION_TYPE = PROCESS_MEMORY_EXHAUSTION_TYPE(0i32);
@@ -808,7 +1002,17 @@ pub const PROCESS_POWER_THROTTLING_CURRENT_VERSION: u32 = 1u32;
 pub const PROCESS_POWER_THROTTLING_EXECUTION_SPEED: u32 = 1u32;
 pub const PROCESS_POWER_THROTTLING_IGNORE_TIMER_RESOLUTION: u32 = 4u32;
 #[repr(C)]
-pub struct PROCESS_POWER_THROTTLING_STATE(i32);
+pub struct PROCESS_POWER_THROTTLING_STATE {
+    pub Version: u32,
+    pub ControlMask: u32,
+    pub StateMask: u32,
+}
+impl ::core::marker::Copy for PROCESS_POWER_THROTTLING_STATE {}
+impl ::core::clone::Clone for PROCESS_POWER_THROTTLING_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PROCESS_PROTECTION_LEVEL(pub u32);
 pub const PROTECTION_LEVEL_WINTCB_LIGHT: PROCESS_PROTECTION_LEVEL = PROCESS_PROTECTION_LEVEL(0u32);
@@ -822,14 +1026,30 @@ pub const PROTECTION_LEVEL_AUTHENTICODE: PROCESS_PROTECTION_LEVEL = PROCESS_PROT
 pub const PROTECTION_LEVEL_PPL_APP: PROCESS_PROTECTION_LEVEL = PROCESS_PROTECTION_LEVEL(8u32);
 pub const PROTECTION_LEVEL_NONE: PROCESS_PROTECTION_LEVEL = PROCESS_PROTECTION_LEVEL(4294967294u32);
 #[repr(C)]
-pub struct PROCESS_PROTECTION_LEVEL_INFORMATION(i32);
+pub struct PROCESS_PROTECTION_LEVEL_INFORMATION {
+    pub ProtectionLevel: PROCESS_PROTECTION_LEVEL,
+}
+impl ::core::marker::Copy for PROCESS_PROTECTION_LEVEL_INFORMATION {}
+impl ::core::clone::Clone for PROCESS_PROTECTION_LEVEL_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const PROC_THREAD_ATTRIBUTE_REPLACE_VALUE: u32 = 1u32;
 #[cfg(feature = "Win32_System_SystemServices")]
 pub type PRTL_UMS_SCHEDULER_ENTRY_POINT = unsafe extern "system" fn(reason: super::SystemServices::RTL_UMS_SCHEDULER_REASON, activationpayload: usize, schedulerparam: *const ::core::ffi::c_void);
 pub type PTIMERAPCROUTINE = unsafe extern "system" fn(lpargtocompletionroutine: *const ::core::ffi::c_void, dwtimerlowvalue: u32, dwtimerhighvalue: u32);
 pub type PTP_CLEANUP_GROUP_CANCEL_CALLBACK = unsafe extern "system" fn(objectcontext: *mut ::core::ffi::c_void, cleanupcontext: *mut ::core::ffi::c_void);
 #[repr(C)]
-pub struct PTP_POOL(i32);
+pub struct PTP_POOL {
+    pub Value: isize,
+}
+impl ::core::marker::Copy for PTP_POOL {}
+impl ::core::clone::Clone for PTP_POOL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub type PTP_SIMPLE_CALLBACK = unsafe extern "system" fn(instance: *mut TP_CALLBACK_INSTANCE, context: *mut ::core::ffi::c_void);
 pub type PTP_TIMER_CALLBACK = unsafe extern "system" fn(instance: *mut TP_CALLBACK_INSTANCE, context: *mut ::core::ffi::c_void, timer: *mut TP_TIMER);
 pub type PTP_WAIT_CALLBACK = unsafe extern "system" fn(instance: *mut TP_CALLBACK_INSTANCE, context: *mut ::core::ffi::c_void, wait: *mut TP_WAIT, waitresult: u32);
@@ -839,23 +1059,131 @@ pub type PTP_WORK_CALLBACK = unsafe extern "system" fn(instance: *mut TP_CALLBAC
 pub struct QUEUE_USER_APC_FLAGS(pub i32);
 pub const QUEUE_USER_APC_FLAGS_NONE: QUEUE_USER_APC_FLAGS = QUEUE_USER_APC_FLAGS(0i32);
 pub const QUEUE_USER_APC_FLAGS_SPECIAL_USER_APC: QUEUE_USER_APC_FLAGS = QUEUE_USER_APC_FLAGS(1i32);
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+pub struct REASON_CONTEXT {
+    pub Version: u32,
+    pub Flags: POWER_REQUEST_CONTEXT_FLAGS,
+    pub Reason: REASON_CONTEXT_0,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for REASON_CONTEXT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for REASON_CONTEXT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct REASON_CONTEXT(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub union REASON_CONTEXT_0 {
+    pub Detailed: REASON_CONTEXT_0_0,
+    pub SimpleReasonString: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for REASON_CONTEXT_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct RTL_BARRIER(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct REASON_CONTEXT_0_0 {
+    pub LocalizedReasonModule: super::super::Foundation::HINSTANCE,
+    pub LocalizedReasonId: u32,
+    pub ReasonStringCount: u32,
+    pub ReasonStrings: *mut super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for REASON_CONTEXT_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for REASON_CONTEXT_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct RTL_CONDITION_VARIABLE(i32);
+pub struct RTL_BARRIER {
+    pub Reserved1: u32,
+    pub Reserved2: u32,
+    pub Reserved3: [usize; 2],
+    pub Reserved4: u32,
+    pub Reserved5: u32,
+}
+impl ::core::marker::Copy for RTL_BARRIER {}
+impl ::core::clone::Clone for RTL_BARRIER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct RTL_CONDITION_VARIABLE {
+    pub Ptr: *mut ::core::ffi::c_void,
+}
+impl ::core::marker::Copy for RTL_CONDITION_VARIABLE {}
+impl ::core::clone::Clone for RTL_CONDITION_VARIABLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-#[repr(C)]
-pub struct RTL_CRITICAL_SECTION(i32);
+pub struct RTL_CRITICAL_SECTION {
+    pub DebugInfo: *mut RTL_CRITICAL_SECTION_DEBUG,
+    pub LockCount: i32,
+    pub RecursionCount: i32,
+    pub OwningThread: super::super::Foundation::HANDLE,
+    pub LockSemaphore: super::super::Foundation::HANDLE,
+    pub SpinCount: usize,
+}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+impl ::core::marker::Copy for RTL_CRITICAL_SECTION {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+impl ::core::clone::Clone for RTL_CRITICAL_SECTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct RTL_CRITICAL_SECTION_DEBUG(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+pub struct RTL_CRITICAL_SECTION_DEBUG {
+    pub Type: u16,
+    pub CreatorBackTraceIndex: u16,
+    pub CriticalSection: *mut RTL_CRITICAL_SECTION,
+    pub ProcessLocksList: super::Kernel::LIST_ENTRY,
+    pub EntryCount: u32,
+    pub ContentionCount: u32,
+    pub Flags: u32,
+    pub CreatorBackTraceIndexHigh: u16,
+    pub SpareWORD: u16,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+impl ::core::marker::Copy for RTL_CRITICAL_SECTION_DEBUG {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+impl ::core::clone::Clone for RTL_CRITICAL_SECTION_DEBUG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct RTL_RUN_ONCE(i32);
+pub union RTL_RUN_ONCE {
+    pub Ptr: *mut ::core::ffi::c_void,
+}
+impl ::core::clone::Clone for RTL_RUN_ONCE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct RTL_SRWLOCK(i32);
+pub struct RTL_SRWLOCK {
+    pub Ptr: *mut ::core::ffi::c_void,
+}
+impl ::core::marker::Copy for RTL_SRWLOCK {}
+impl ::core::clone::Clone for RTL_SRWLOCK {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RTL_UMS_THREAD_INFO_CLASS(pub i32);
 pub const UmsThreadInvalidInfoClass: RTL_UMS_THREAD_INFO_CLASS = RTL_UMS_THREAD_INFO_CLASS(0i32);
@@ -866,21 +1194,110 @@ pub const UmsThreadTeb: RTL_UMS_THREAD_INFO_CLASS = RTL_UMS_THREAD_INFO_CLASS(4i
 pub const UmsThreadIsSuspended: RTL_UMS_THREAD_INFO_CLASS = RTL_UMS_THREAD_INFO_CLASS(5i32);
 pub const UmsThreadIsTerminated: RTL_UMS_THREAD_INFO_CLASS = RTL_UMS_THREAD_INFO_CLASS(6i32);
 pub const UmsThreadMaxInfoClass: RTL_UMS_THREAD_INFO_CLASS = RTL_UMS_THREAD_INFO_CLASS(7i32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct RTL_USER_PROCESS_PARAMETERS(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct STARTUPINFOA(i32);
+pub struct RTL_USER_PROCESS_PARAMETERS {
+    pub Reserved1: [u8; 16],
+    pub Reserved2: [*mut ::core::ffi::c_void; 10],
+    pub ImagePathName: super::super::Foundation::UNICODE_STRING,
+    pub CommandLine: super::super::Foundation::UNICODE_STRING,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct STARTUPINFOEXA(i32);
+impl ::core::marker::Copy for RTL_USER_PROCESS_PARAMETERS {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for RTL_USER_PROCESS_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct STARTUPINFOEXW(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct STARTUPINFOA {
+    pub cb: u32,
+    pub lpReserved: super::super::Foundation::PSTR,
+    pub lpDesktop: super::super::Foundation::PSTR,
+    pub lpTitle: super::super::Foundation::PSTR,
+    pub dwX: u32,
+    pub dwY: u32,
+    pub dwXSize: u32,
+    pub dwYSize: u32,
+    pub dwXCountChars: u32,
+    pub dwYCountChars: u32,
+    pub dwFillAttribute: u32,
+    pub dwFlags: STARTUPINFOW_FLAGS,
+    pub wShowWindow: u16,
+    pub cbReserved2: u16,
+    pub lpReserved2: *mut u8,
+    pub hStdInput: super::super::Foundation::HANDLE,
+    pub hStdOutput: super::super::Foundation::HANDLE,
+    pub hStdError: super::super::Foundation::HANDLE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for STARTUPINFOA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for STARTUPINFOA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct STARTUPINFOW(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct STARTUPINFOEXA {
+    pub StartupInfo: STARTUPINFOA,
+    pub lpAttributeList: LPPROC_THREAD_ATTRIBUTE_LIST,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for STARTUPINFOEXA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for STARTUPINFOEXA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct STARTUPINFOEXW {
+    pub StartupInfo: STARTUPINFOW,
+    pub lpAttributeList: LPPROC_THREAD_ATTRIBUTE_LIST,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for STARTUPINFOEXW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for STARTUPINFOEXW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct STARTUPINFOW {
+    pub cb: u32,
+    pub lpReserved: super::super::Foundation::PWSTR,
+    pub lpDesktop: super::super::Foundation::PWSTR,
+    pub lpTitle: super::super::Foundation::PWSTR,
+    pub dwX: u32,
+    pub dwY: u32,
+    pub dwXSize: u32,
+    pub dwYSize: u32,
+    pub dwXCountChars: u32,
+    pub dwYCountChars: u32,
+    pub dwFillAttribute: u32,
+    pub dwFlags: STARTUPINFOW_FLAGS,
+    pub wShowWindow: u16,
+    pub cbReserved2: u16,
+    pub lpReserved2: *mut u8,
+    pub hStdInput: super::super::Foundation::HANDLE,
+    pub hStdOutput: super::super::Foundation::HANDLE,
+    pub hStdError: super::super::Foundation::HANDLE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for STARTUPINFOW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for STARTUPINFOW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct STARTUPINFOW_FLAGS(pub u32);
 pub const STARTF_FORCEONFEEDBACK: STARTUPINFOW_FLAGS = STARTUPINFOW_FLAGS(64u32);
@@ -940,7 +1357,17 @@ pub const ThreadInformationClassMax: THREAD_INFORMATION_CLASS = THREAD_INFORMATI
 pub const THREAD_POWER_THROTTLING_CURRENT_VERSION: u32 = 1u32;
 pub const THREAD_POWER_THROTTLING_EXECUTION_SPEED: u32 = 1u32;
 #[repr(C)]
-pub struct THREAD_POWER_THROTTLING_STATE(i32);
+pub struct THREAD_POWER_THROTTLING_STATE {
+    pub Version: u32,
+    pub ControlMask: u32,
+    pub StateMask: u32,
+}
+impl ::core::marker::Copy for THREAD_POWER_THROTTLING_STATE {}
+impl ::core::clone::Clone for THREAD_POWER_THROTTLING_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const THREAD_POWER_THROTTLING_VALID_FLAGS: u32 = 1u32;
 #[repr(transparent)]
 pub struct THREAD_PRIORITY(pub i32);
@@ -955,7 +1382,46 @@ pub const THREAD_PRIORITY_LOWEST: THREAD_PRIORITY = THREAD_PRIORITY(-2i32);
 pub const THREAD_PRIORITY_NORMAL: THREAD_PRIORITY = THREAD_PRIORITY(0i32);
 pub const THREAD_PRIORITY_TIME_CRITICAL: THREAD_PRIORITY = THREAD_PRIORITY(15i32);
 #[repr(C)]
-pub struct TP_CALLBACK_ENVIRON_V3(i32);
+pub struct TP_CALLBACK_ENVIRON_V3 {
+    pub Version: u32,
+    pub Pool: PTP_POOL,
+    pub CleanupGroup: isize,
+    pub CleanupGroupCancelCallback: ::core::option::Option<PTP_CLEANUP_GROUP_CANCEL_CALLBACK>,
+    pub RaceDll: *mut ::core::ffi::c_void,
+    pub ActivationContext: isize,
+    pub FinalizationCallback: ::core::option::Option<PTP_SIMPLE_CALLBACK>,
+    pub u: TP_CALLBACK_ENVIRON_V3_1,
+    pub CallbackPriority: TP_CALLBACK_PRIORITY,
+    pub Size: u32,
+}
+impl ::core::marker::Copy for TP_CALLBACK_ENVIRON_V3 {}
+impl ::core::clone::Clone for TP_CALLBACK_ENVIRON_V3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct TP_CALLBACK_ENVIRON_V3_0(pub u8);
+#[repr(C)]
+pub union TP_CALLBACK_ENVIRON_V3_1 {
+    pub Flags: u32,
+    pub s: TP_CALLBACK_ENVIRON_V3_1_0,
+}
+impl ::core::clone::Clone for TP_CALLBACK_ENVIRON_V3_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct TP_CALLBACK_ENVIRON_V3_1_0 {
+    pub _bitfield: u32,
+}
+impl ::core::marker::Copy for TP_CALLBACK_ENVIRON_V3_1_0 {}
+impl ::core::clone::Clone for TP_CALLBACK_ENVIRON_V3_1_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct TP_CALLBACK_INSTANCE(pub u8);
 #[repr(transparent)]
@@ -968,7 +1434,16 @@ pub const TP_CALLBACK_PRIORITY_COUNT: TP_CALLBACK_PRIORITY = TP_CALLBACK_PRIORIT
 #[repr(C)]
 pub struct TP_IO(pub u8);
 #[repr(C)]
-pub struct TP_POOL_STACK_INFORMATION(i32);
+pub struct TP_POOL_STACK_INFORMATION {
+    pub StackReserve: usize,
+    pub StackCommit: usize,
+}
+impl ::core::marker::Copy for TP_POOL_STACK_INFORMATION {}
+impl ::core::clone::Clone for TP_POOL_STACK_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct TP_TIMER(pub u8);
 #[repr(C)]
@@ -976,12 +1451,62 @@ pub struct TP_WAIT(pub u8);
 #[repr(C)]
 pub struct TP_WORK(pub u8);
 #[repr(C)]
-pub struct TimerQueueHandle(i32);
+pub struct TimerQueueHandle {
+    pub Value: isize,
+}
+impl ::core::marker::Copy for TimerQueueHandle {}
+impl ::core::clone::Clone for TimerQueueHandle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_System_SystemServices")]
+pub struct UMS_SCHEDULER_STARTUP_INFO {
+    pub UmsVersion: u32,
+    pub CompletionList: *mut ::core::ffi::c_void,
+    pub SchedulerProc: ::core::option::Option<PRTL_UMS_SCHEDULER_ENTRY_POINT>,
+    pub SchedulerParam: *mut ::core::ffi::c_void,
+}
+#[cfg(feature = "Win32_System_SystemServices")]
+impl ::core::marker::Copy for UMS_SCHEDULER_STARTUP_INFO {}
+#[cfg(feature = "Win32_System_SystemServices")]
+impl ::core::clone::Clone for UMS_SCHEDULER_STARTUP_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct UMS_SCHEDULER_STARTUP_INFO(i32);
+pub struct UMS_SYSTEM_THREAD_INFORMATION {
+    pub UmsVersion: u32,
+    pub Anonymous: UMS_SYSTEM_THREAD_INFORMATION_0,
+}
+impl ::core::marker::Copy for UMS_SYSTEM_THREAD_INFORMATION {}
+impl ::core::clone::Clone for UMS_SYSTEM_THREAD_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct UMS_SYSTEM_THREAD_INFORMATION(i32);
+pub union UMS_SYSTEM_THREAD_INFORMATION_0 {
+    pub Anonymous: UMS_SYSTEM_THREAD_INFORMATION_0_0,
+    pub ThreadUmsFlags: u32,
+}
+impl ::core::clone::Clone for UMS_SYSTEM_THREAD_INFORMATION_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct UMS_SYSTEM_THREAD_INFORMATION_0_0 {
+    pub _bitfield: u32,
+}
+impl ::core::marker::Copy for UMS_SYSTEM_THREAD_INFORMATION_0_0 {}
+impl ::core::clone::Clone for UMS_SYSTEM_THREAD_INFORMATION_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[cfg(feature = "Win32_Foundation")]
 pub type WAITORTIMERCALLBACK = unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: super::super::Foundation::BOOLEAN);
 pub const WAIT_ABANDONED: u32 = 128u32;

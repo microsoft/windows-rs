@@ -108,11 +108,53 @@ extern "system" {
     pub fn ReportEventW(heventlog: super::super::Foundation::HANDLE, wtype: REPORT_EVENT_TYPE, wcategory: u16, dweventid: u32, lpusersid: super::super::Foundation::PSID, wnumstrings: u16, dwdatasize: u32, lpstrings: *const super::super::Foundation::PWSTR, lprawdata: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
 }
 #[repr(C)]
-pub struct EVENTLOGRECORD(i32);
+pub struct EVENTLOGRECORD {
+    pub Length: u32,
+    pub Reserved: u32,
+    pub RecordNumber: u32,
+    pub TimeGenerated: u32,
+    pub TimeWritten: u32,
+    pub EventID: u32,
+    pub EventType: REPORT_EVENT_TYPE,
+    pub NumStrings: u16,
+    pub EventCategory: u16,
+    pub ReservedFlags: u16,
+    pub ClosingRecordNumber: u32,
+    pub StringOffset: u32,
+    pub UserSidLength: u32,
+    pub UserSidOffset: u32,
+    pub DataLength: u32,
+    pub DataOffset: u32,
+}
+impl ::core::marker::Copy for EVENTLOGRECORD {}
+impl ::core::clone::Clone for EVENTLOGRECORD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct EVENTLOG_FULL_INFORMATION(i32);
+pub struct EVENTLOG_FULL_INFORMATION {
+    pub dwFull: u32,
+}
+impl ::core::marker::Copy for EVENTLOG_FULL_INFORMATION {}
+impl ::core::clone::Clone for EVENTLOG_FULL_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct EVENTSFORLOGFILE(i32);
+pub struct EVENTSFORLOGFILE {
+    pub ulSize: u32,
+    pub szLogicalLogFile: [u16; 256],
+    pub ulNumRecords: u32,
+    pub pEventLogRecords: [EVENTLOGRECORD; 1],
+}
+impl ::core::marker::Copy for EVENTSFORLOGFILE {}
+impl ::core::clone::Clone for EVENTSFORLOGFILE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const EVT_ALL_ACCESS: u32 = 7u32;
 #[repr(transparent)]
 pub struct EVT_CHANNEL_CLOCK_TYPE(pub i32);
@@ -267,9 +309,23 @@ pub struct EVT_RENDER_FLAGS(pub i32);
 pub const EvtRenderEventValues: EVT_RENDER_FLAGS = EVT_RENDER_FLAGS(0i32);
 pub const EvtRenderEventXml: EVT_RENDER_FLAGS = EVT_RENDER_FLAGS(1i32);
 pub const EvtRenderBookmark: EVT_RENDER_FLAGS = EVT_RENDER_FLAGS(2i32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct EVT_RPC_LOGIN(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct EVT_RPC_LOGIN {
+    pub Server: super::super::Foundation::PWSTR,
+    pub User: super::super::Foundation::PWSTR,
+    pub Domain: super::super::Foundation::PWSTR,
+    pub Password: super::super::Foundation::PWSTR,
+    pub Flags: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for EVT_RPC_LOGIN {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for EVT_RPC_LOGIN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct EVT_RPC_LOGIN_FLAGS(pub i32);
 pub const EvtRpcLoginAuthDefault: EVT_RPC_LOGIN_FLAGS = EVT_RPC_LOGIN_FLAGS(0i32);
@@ -318,9 +374,71 @@ pub const EvtSystemComputer: EVT_SYSTEM_PROPERTY_ID = EVT_SYSTEM_PROPERTY_ID(15i
 pub const EvtSystemUserID: EVT_SYSTEM_PROPERTY_ID = EVT_SYSTEM_PROPERTY_ID(16i32);
 pub const EvtSystemVersion: EVT_SYSTEM_PROPERTY_ID = EVT_SYSTEM_PROPERTY_ID(17i32);
 pub const EvtSystemPropertyIdEND: EVT_SYSTEM_PROPERTY_ID = EVT_SYSTEM_PROPERTY_ID(18i32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct EVT_VARIANT(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct EVT_VARIANT {
+    pub Anonymous: EVT_VARIANT_0,
+    pub Count: u32,
+    pub Type: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for EVT_VARIANT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for EVT_VARIANT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub union EVT_VARIANT_0 {
+    pub BooleanVal: super::super::Foundation::BOOL,
+    pub SByteVal: i8,
+    pub Int16Val: i16,
+    pub Int32Val: i32,
+    pub Int64Val: i64,
+    pub ByteVal: u8,
+    pub UInt16Val: u16,
+    pub UInt32Val: u32,
+    pub UInt64Val: u64,
+    pub SingleVal: f32,
+    pub DoubleVal: f64,
+    pub FileTimeVal: u64,
+    pub SysTimeVal: *mut super::super::Foundation::SYSTEMTIME,
+    pub GuidVal: *mut ::windows_sys::core::GUID,
+    pub StringVal: super::super::Foundation::PWSTR,
+    pub AnsiStringVal: super::super::Foundation::PSTR,
+    pub BinaryVal: *mut u8,
+    pub SidVal: super::super::Foundation::PSID,
+    pub SizeTVal: usize,
+    pub BooleanArr: *mut super::super::Foundation::BOOL,
+    pub SByteArr: *mut i8,
+    pub Int16Arr: *mut i16,
+    pub Int32Arr: *mut i32,
+    pub Int64Arr: *mut i64,
+    pub ByteArr: *mut u8,
+    pub UInt16Arr: *mut u16,
+    pub UInt32Arr: *mut u32,
+    pub UInt64Arr: *mut u64,
+    pub SingleArr: *mut f32,
+    pub DoubleArr: *mut f64,
+    pub FileTimeArr: *mut super::super::Foundation::FILETIME,
+    pub SysTimeArr: *mut super::super::Foundation::SYSTEMTIME,
+    pub GuidArr: *mut ::windows_sys::core::GUID,
+    pub StringArr: *mut super::super::Foundation::PWSTR,
+    pub AnsiStringArr: *mut super::super::Foundation::PSTR,
+    pub SidArr: *mut super::super::Foundation::PSID,
+    pub SizeTArr: *mut usize,
+    pub EvtHandleVal: isize,
+    pub XmlVal: super::super::Foundation::PWSTR,
+    pub XmlValArr: *mut super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for EVT_VARIANT_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct EVT_VARIANT_TYPE(pub i32);
 pub const EvtVarTypeNull: EVT_VARIANT_TYPE = EVT_VARIANT_TYPE(0i32);
@@ -351,9 +469,25 @@ pub const EVT_VARIANT_TYPE_ARRAY: u32 = 128u32;
 pub const EVT_VARIANT_TYPE_MASK: u32 = 127u32;
 pub const EVT_WRITE_ACCESS: u32 = 2u32;
 #[repr(C)]
-pub struct EventLogHandle(i32);
+pub struct EventLogHandle {
+    pub Value: isize,
+}
+impl ::core::marker::Copy for EventLogHandle {}
+impl ::core::clone::Clone for EventLogHandle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct EventSourceHandle(i32);
+pub struct EventSourceHandle {
+    pub Value: isize,
+}
+impl ::core::marker::Copy for EventSourceHandle {}
+impl ::core::clone::Clone for EventSourceHandle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct READ_EVENT_LOG_READ_FLAGS(pub u32);
 pub const EVENTLOG_SEEK_READ: READ_EVENT_LOG_READ_FLAGS = READ_EVENT_LOG_READ_FLAGS(2u32);

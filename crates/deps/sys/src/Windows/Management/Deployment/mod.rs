@@ -40,7 +40,16 @@ impl DeploymentOptions {
     pub const StageInPlace: Self = Self(4194304u32);
 }
 #[repr(C)]
-pub struct DeploymentProgress(i32);
+pub struct DeploymentProgress {
+    pub state: DeploymentProgressState,
+    pub percentage: u32,
+}
+impl ::core::marker::Copy for DeploymentProgress {}
+impl ::core::clone::Clone for DeploymentProgress {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DeploymentProgressState(pub i32);
 impl DeploymentProgressState {

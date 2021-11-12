@@ -131,12 +131,40 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn WNetUseConnectionW(hwndowner: super::super::Foundation::HWND, lpnetresource: *const NETRESOURCEW, lppassword: super::super::Foundation::PWSTR, lpuserid: super::super::Foundation::PWSTR, dwflags: NET_USE_CONNECT_FLAGS, lpaccessname: super::super::Foundation::PWSTR, lpbuffersize: *mut u32, lpresult: *mut u32) -> u32;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CONNECTDLGSTRUCTA(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct CONNECTDLGSTRUCTA {
+    pub cbStructure: u32,
+    pub hwndOwner: super::super::Foundation::HWND,
+    pub lpConnRes: *mut NETRESOURCEA,
+    pub dwFlags: CONNECTDLGSTRUCT_FLAGS,
+    pub dwDevNum: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CONNECTDLGSTRUCTA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CONNECTDLGSTRUCTA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CONNECTDLGSTRUCTW(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CONNECTDLGSTRUCTW {
+    pub cbStructure: u32,
+    pub hwndOwner: super::super::Foundation::HWND,
+    pub lpConnRes: *mut NETRESOURCEW,
+    pub dwFlags: CONNECTDLGSTRUCT_FLAGS,
+    pub dwDevNum: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CONNECTDLGSTRUCTW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CONNECTDLGSTRUCTW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CONNECTDLGSTRUCT_FLAGS(pub u32);
 pub const CONNDLG_RO_PATH: CONNECTDLGSTRUCT_FLAGS = CONNECTDLGSTRUCT_FLAGS(1u32);
@@ -155,33 +183,124 @@ pub const CONNECT_REQUIRE_INTEGRITY: u32 = 16384u32;
 pub const CONNECT_REQUIRE_PRIVACY: u32 = 32768u32;
 pub const CONNECT_RESERVED: u32 = 4278190080u32;
 pub const CONNECT_WRITE_THROUGH_SEMANTICS: u32 = 65536u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct DISCDLGSTRUCTA(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct DISCDLGSTRUCTA {
+    pub cbStructure: u32,
+    pub hwndOwner: super::super::Foundation::HWND,
+    pub lpLocalName: super::super::Foundation::PSTR,
+    pub lpRemoteName: super::super::Foundation::PSTR,
+    pub dwFlags: DISCDLGSTRUCT_FLAGS,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DISCDLGSTRUCTA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DISCDLGSTRUCTA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DISCDLGSTRUCTW(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct DISCDLGSTRUCTW {
+    pub cbStructure: u32,
+    pub hwndOwner: super::super::Foundation::HWND,
+    pub lpLocalName: super::super::Foundation::PWSTR,
+    pub lpRemoteName: super::super::Foundation::PWSTR,
+    pub dwFlags: DISCDLGSTRUCT_FLAGS,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DISCDLGSTRUCTW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DISCDLGSTRUCTW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DISCDLGSTRUCT_FLAGS(pub u32);
 pub const DISC_UPDATE_PROFILE: DISCDLGSTRUCT_FLAGS = DISCDLGSTRUCT_FLAGS(1u32);
 pub const DISC_NO_FORCE: DISCDLGSTRUCT_FLAGS = DISCDLGSTRUCT_FLAGS(64u32);
 #[repr(C)]
-pub struct NETCONNECTINFOSTRUCT(i32);
-#[cfg(feature = "Win32_Foundation")]
+pub struct NETCONNECTINFOSTRUCT {
+    pub cbStructure: u32,
+    pub dwFlags: u32,
+    pub dwSpeed: u32,
+    pub dwDelay: u32,
+    pub dwOptDataSize: u32,
+}
+impl ::core::marker::Copy for NETCONNECTINFOSTRUCT {}
+impl ::core::clone::Clone for NETCONNECTINFOSTRUCT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct NETINFOSTRUCT(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct NETINFOSTRUCT {
+    pub cbStructure: u32,
+    pub dwProviderVersion: u32,
+    pub dwStatus: super::super::Foundation::WIN32_ERROR,
+    pub dwCharacteristics: NETINFOSTRUCT_CHARACTERISTICS,
+    pub dwHandle: usize,
+    pub wNetType: u16,
+    pub dwPrinters: u32,
+    pub dwDrives: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for NETINFOSTRUCT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for NETINFOSTRUCT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct NETINFOSTRUCT_CHARACTERISTICS(pub u32);
 pub const NETINFO_DLL16: NETINFOSTRUCT_CHARACTERISTICS = NETINFOSTRUCT_CHARACTERISTICS(1u32);
 pub const NETINFO_DISKRED: NETINFOSTRUCT_CHARACTERISTICS = NETINFOSTRUCT_CHARACTERISTICS(4u32);
 pub const NETINFO_PRINTERRED: NETINFOSTRUCT_CHARACTERISTICS = NETINFOSTRUCT_CHARACTERISTICS(8u32);
 pub const NETPROPERTY_PERSISTENT: u32 = 1u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct NETRESOURCEA(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct NETRESOURCEA {
+    pub dwScope: NET_RESOURCE_SCOPE,
+    pub dwType: NET_RESOURCE_TYPE,
+    pub dwDisplayType: u32,
+    pub dwUsage: u32,
+    pub lpLocalName: super::super::Foundation::PSTR,
+    pub lpRemoteName: super::super::Foundation::PSTR,
+    pub lpComment: super::super::Foundation::PSTR,
+    pub lpProvider: super::super::Foundation::PSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for NETRESOURCEA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for NETRESOURCEA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct NETRESOURCEW(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct NETRESOURCEW {
+    pub dwScope: NET_RESOURCE_SCOPE,
+    pub dwType: NET_RESOURCE_TYPE,
+    pub dwDisplayType: u32,
+    pub dwUsage: u32,
+    pub lpLocalName: super::super::Foundation::PWSTR,
+    pub lpRemoteName: super::super::Foundation::PWSTR,
+    pub lpComment: super::super::Foundation::PWSTR,
+    pub lpProvider: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for NETRESOURCEW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for NETRESOURCEW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct NETWORK_NAME_FORMAT_FLAGS(pub u32);
 pub const WNFMT_MULTILINE: NETWORK_NAME_FORMAT_FLAGS = NETWORK_NAME_FORMAT_FLAGS(1u32);
@@ -208,14 +327,49 @@ pub const CONNECT_CMD_SAVECRED: NET_USE_CONNECT_FLAGS = NET_USE_CONNECT_FLAGS(40
 pub const CONNECT_TEMPORARY: NET_USE_CONNECT_FLAGS = NET_USE_CONNECT_FLAGS(4u32);
 pub const CONNECT_DEFERRED: NET_USE_CONNECT_FLAGS = NET_USE_CONNECT_FLAGS(1024u32);
 pub const CONNECT_UPDATE_RECENT: NET_USE_CONNECT_FLAGS = NET_USE_CONNECT_FLAGS(2u32);
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct NOTIFYADD(i32);
+pub struct NOTIFYADD {
+    pub hwndOwner: super::super::Foundation::HWND,
+    pub NetResource: NETRESOURCEA,
+    pub dwAddFlags: NET_USE_CONNECT_FLAGS,
+}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for NOTIFYADD {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for NOTIFYADD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct NOTIFYCANCEL(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct NOTIFYCANCEL {
+    pub lpName: super::super::Foundation::PWSTR,
+    pub lpProvider: super::super::Foundation::PWSTR,
+    pub dwFlags: u32,
+    pub fForce: super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for NOTIFYCANCEL {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for NOTIFYCANCEL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct NOTIFYINFO(i32);
+pub struct NOTIFYINFO {
+    pub dwNotifyStatus: u32,
+    pub dwOperationStatus: u32,
+    pub lpContext: *mut ::core::ffi::c_void,
+}
+impl ::core::marker::Copy for NOTIFYINFO {}
+impl ::core::clone::Clone for NOTIFYINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const NOTIFY_POST: u32 = 2u32;
 pub const NOTIFY_PRE: u32 = 1u32;
 #[repr(transparent)]
@@ -229,7 +383,15 @@ pub const WNPS_FILE: NP_PROPERTY_DIALOG_SELECTION = NP_PROPERTY_DIALOG_SELECTION
 pub const WNPS_DIR: NP_PROPERTY_DIALOG_SELECTION = NP_PROPERTY_DIALOG_SELECTION(1u32);
 pub const WNPS_MULT: NP_PROPERTY_DIALOG_SELECTION = NP_PROPERTY_DIALOG_SELECTION(2u32);
 #[repr(C)]
-pub struct NetEnumHandle(i32);
+pub struct NetEnumHandle {
+    pub Value: isize,
+}
+impl ::core::marker::Copy for NetEnumHandle {}
+impl ::core::clone::Clone for NetEnumHandle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[cfg(feature = "Win32_Foundation")]
 pub type PF_AddConnectNotify = unsafe extern "system" fn(lpnotifyinfo: *mut NOTIFYINFO, lpaddinfo: *const NOTIFYADD) -> u32;
 #[cfg(feature = "Win32_Foundation")]
@@ -291,12 +453,36 @@ pub type PF_NPPasswordChangeNotify = unsafe extern "system" fn(lpauthentinfotype
 pub type PF_NPPropertyDialog = unsafe extern "system" fn(hwndparent: super::super::Foundation::HWND, ibuttondlg: u32, npropsel: u32, lpfilename: super::super::Foundation::PWSTR, ntype: u32) -> u32;
 #[cfg(feature = "Win32_Foundation")]
 pub type PF_NPSearchDialog = unsafe extern "system" fn(hwndparent: super::super::Foundation::HWND, lpnetresource: *const NETRESOURCEW, lpbuffer: *mut ::core::ffi::c_void, cbbuffer: u32, lpnflags: *mut u32) -> u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct REMOTE_NAME_INFOA(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct REMOTE_NAME_INFOA {
+    pub lpUniversalName: super::super::Foundation::PSTR,
+    pub lpConnectionName: super::super::Foundation::PSTR,
+    pub lpRemainingPath: super::super::Foundation::PSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for REMOTE_NAME_INFOA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for REMOTE_NAME_INFOA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct REMOTE_NAME_INFOW(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct REMOTE_NAME_INFOW {
+    pub lpUniversalName: super::super::Foundation::PWSTR,
+    pub lpConnectionName: super::super::Foundation::PWSTR,
+    pub lpRemainingPath: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for REMOTE_NAME_INFOW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for REMOTE_NAME_INFOW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const RESOURCEDISPLAYTYPE_DIRECTORY: u32 = 9u32;
 pub const RESOURCEDISPLAYTYPE_NDSCONTAINER: u32 = 11u32;
 pub const RESOURCEDISPLAYTYPE_NETWORK: u32 = 6u32;
@@ -312,12 +498,32 @@ pub const RESOURCE_RECENT: u32 = 4u32;
 pub struct UNC_INFO_LEVEL(pub u32);
 pub const UNIVERSAL_NAME_INFO_LEVEL: UNC_INFO_LEVEL = UNC_INFO_LEVEL(1u32);
 pub const REMOTE_NAME_INFO_LEVEL: UNC_INFO_LEVEL = UNC_INFO_LEVEL(2u32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct UNIVERSAL_NAME_INFOA(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct UNIVERSAL_NAME_INFOA {
+    pub lpUniversalName: super::super::Foundation::PSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for UNIVERSAL_NAME_INFOA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for UNIVERSAL_NAME_INFOA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct UNIVERSAL_NAME_INFOW(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct UNIVERSAL_NAME_INFOW {
+    pub lpUniversalName: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for UNIVERSAL_NAME_INFOW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for UNIVERSAL_NAME_INFOW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WNCON_DYNAMIC: u32 = 8u32;
 pub const WNCON_FORNETCARD: u32 = 1u32;
 pub const WNCON_NOTROUTED: u32 = 2u32;

@@ -12,7 +12,18 @@ extern "system" {}
 #[repr(transparent)]
 pub struct AttachableInputObject(pub *mut ::core::ffi::c_void);
 #[repr(C)]
-pub struct CrossSlideThresholds(i32);
+pub struct CrossSlideThresholds {
+    pub SelectionStart: f32,
+    pub SpeedBumpStart: f32,
+    pub SpeedBumpEnd: f32,
+    pub RearrangeStart: f32,
+}
+impl ::core::marker::Copy for CrossSlideThresholds {}
+impl ::core::clone::Clone for CrossSlideThresholds {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CrossSlidingEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -239,18 +250,43 @@ impl InputActivationState {
 pub struct KeyboardDeliveryInterceptor(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ManipulationCompletedEventArgs(pub *mut ::core::ffi::c_void);
-#[cfg(feature = "Foundation")]
 #[repr(C)]
-pub struct ManipulationDelta(i32);
+#[cfg(feature = "Foundation")]
+pub struct ManipulationDelta {
+    pub Translation: super::super::Foundation::Point,
+    pub Scale: f32,
+    pub Rotation: f32,
+    pub Expansion: f32,
+}
+#[cfg(feature = "Foundation")]
+impl ::core::marker::Copy for ManipulationDelta {}
+#[cfg(feature = "Foundation")]
+impl ::core::clone::Clone for ManipulationDelta {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ManipulationInertiaStartingEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ManipulationStartedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ManipulationUpdatedEventArgs(pub *mut ::core::ffi::c_void);
-#[cfg(feature = "Foundation")]
 #[repr(C)]
-pub struct ManipulationVelocities(i32);
+#[cfg(feature = "Foundation")]
+pub struct ManipulationVelocities {
+    pub Linear: super::super::Foundation::Point,
+    pub Angular: f32,
+    pub Expansion: f32,
+}
+#[cfg(feature = "Foundation")]
+impl ::core::marker::Copy for ManipulationVelocities {}
+#[cfg(feature = "Foundation")]
+impl ::core::clone::Clone for ManipulationVelocities {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MouseWheelParameters(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

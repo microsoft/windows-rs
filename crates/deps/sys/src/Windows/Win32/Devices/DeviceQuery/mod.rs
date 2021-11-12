@@ -55,9 +55,20 @@ extern "system" {
     #[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
     pub fn DevGetObjectsEx(objecttype: DEV_OBJECT_TYPE, queryflags: u32, crequestedproperties: u32, prequestedproperties: *const super::Properties::DEVPROPCOMPKEY, cfilterexpressioncount: u32, pfilter: *const DEVPROP_FILTER_EXPRESSION, cextendedparametercount: u32, pextendedparameters: *const DEV_QUERY_PARAMETER, pcobjectcount: *mut u32, ppobjects: *mut *mut DEV_OBJECT) -> ::windows_sys::core::HRESULT;
 }
-#[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
 #[repr(C)]
-pub struct DEVPROP_FILTER_EXPRESSION(i32);
+#[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
+pub struct DEVPROP_FILTER_EXPRESSION {
+    pub Operator: DEVPROP_OPERATOR,
+    pub Property: super::Properties::DEVPROPERTY,
+}
+#[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
+impl ::core::marker::Copy for DEVPROP_FILTER_EXPRESSION {}
+#[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
+impl ::core::clone::Clone for DEVPROP_FILTER_EXPRESSION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DEVPROP_OPERATOR(pub u32);
 pub const DEVPROP_OPERATOR_MODIFIER_NOT: DEVPROP_OPERATOR = DEVPROP_OPERATOR(65536u32);
@@ -102,9 +113,22 @@ pub const DEVPROP_OPERATOR_MASK_MODIFIER: DEVPROP_OPERATOR = DEVPROP_OPERATOR(98
 pub const DEVPROP_OPERATOR_MASK_NOT_LOGICAL: DEVPROP_OPERATOR = DEVPROP_OPERATOR(4027580415u32);
 pub const DEVPROP_OPERATOR_MASK_LOGICAL: DEVPROP_OPERATOR = DEVPROP_OPERATOR(267386880u32);
 pub const DEVPROP_OPERATOR_MASK_ARRAY: DEVPROP_OPERATOR = DEVPROP_OPERATOR(4026531840u32);
-#[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
 #[repr(C)]
-pub struct DEV_OBJECT(i32);
+#[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
+pub struct DEV_OBJECT {
+    pub ObjectType: DEV_OBJECT_TYPE,
+    pub pszObjectId: super::super::Foundation::PWSTR,
+    pub cPropertyCount: u32,
+    pub pProperties: *mut super::Properties::DEVPROPERTY,
+}
+#[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
+impl ::core::marker::Copy for DEV_OBJECT {}
+#[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
+impl ::core::clone::Clone for DEV_OBJECT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DEV_OBJECT_TYPE(pub i32);
 pub const DevObjectTypeUnknown: DEV_OBJECT_TYPE = DEV_OBJECT_TYPE(0i32);
@@ -126,18 +150,54 @@ pub const DevQueryFlagUpdateResults: DEV_QUERY_FLAGS = DEV_QUERY_FLAGS(1i32);
 pub const DevQueryFlagAllProperties: DEV_QUERY_FLAGS = DEV_QUERY_FLAGS(2i32);
 pub const DevQueryFlagLocalize: DEV_QUERY_FLAGS = DEV_QUERY_FLAGS(4i32);
 pub const DevQueryFlagAsyncClose: DEV_QUERY_FLAGS = DEV_QUERY_FLAGS(8i32);
-#[cfg(feature = "Win32_Devices_Properties")]
 #[repr(C)]
-pub struct DEV_QUERY_PARAMETER(i32);
+#[cfg(feature = "Win32_Devices_Properties")]
+pub struct DEV_QUERY_PARAMETER {
+    pub Key: super::Properties::DEVPROPKEY,
+    pub Type: u32,
+    pub BufferSize: u32,
+    pub Buffer: *mut ::core::ffi::c_void,
+}
+#[cfg(feature = "Win32_Devices_Properties")]
+impl ::core::marker::Copy for DEV_QUERY_PARAMETER {}
+#[cfg(feature = "Win32_Devices_Properties")]
+impl ::core::clone::Clone for DEV_QUERY_PARAMETER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DEV_QUERY_RESULT_ACTION(pub i32);
 pub const DevQueryResultStateChange: DEV_QUERY_RESULT_ACTION = DEV_QUERY_RESULT_ACTION(0i32);
 pub const DevQueryResultAdd: DEV_QUERY_RESULT_ACTION = DEV_QUERY_RESULT_ACTION(1i32);
 pub const DevQueryResultUpdate: DEV_QUERY_RESULT_ACTION = DEV_QUERY_RESULT_ACTION(2i32);
 pub const DevQueryResultRemove: DEV_QUERY_RESULT_ACTION = DEV_QUERY_RESULT_ACTION(3i32);
-#[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
 #[repr(C)]
-pub struct DEV_QUERY_RESULT_ACTION_DATA(i32);
+#[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
+pub struct DEV_QUERY_RESULT_ACTION_DATA {
+    pub Action: DEV_QUERY_RESULT_ACTION,
+    pub Data: DEV_QUERY_RESULT_ACTION_DATA_0,
+}
+#[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
+impl ::core::marker::Copy for DEV_QUERY_RESULT_ACTION_DATA {}
+#[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
+impl ::core::clone::Clone for DEV_QUERY_RESULT_ACTION_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
+pub union DEV_QUERY_RESULT_ACTION_DATA_0 {
+    pub State: DEV_QUERY_STATE,
+    pub DeviceObject: DEV_OBJECT,
+}
+#[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
+impl ::core::clone::Clone for DEV_QUERY_RESULT_ACTION_DATA_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DEV_QUERY_STATE(pub i32);
 pub const DevQueryStateInitialized: DEV_QUERY_STATE = DEV_QUERY_STATE(0i32);
@@ -145,6 +205,14 @@ pub const DevQueryStateEnumCompleted: DEV_QUERY_STATE = DEV_QUERY_STATE(1i32);
 pub const DevQueryStateAborted: DEV_QUERY_STATE = DEV_QUERY_STATE(2i32);
 pub const DevQueryStateClosed: DEV_QUERY_STATE = DEV_QUERY_STATE(3i32);
 #[repr(C)]
-pub struct HDEVQUERY__(i32);
+pub struct HDEVQUERY__ {
+    pub unused: i32,
+}
+impl ::core::marker::Copy for HDEVQUERY__ {}
+impl ::core::clone::Clone for HDEVQUERY__ {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
 pub type PDEV_QUERY_RESULT_CALLBACK = unsafe extern "system" fn(hdevquery: *const HDEVQUERY__, pcontext: *const ::core::ffi::c_void, pactiondata: *const DEV_QUERY_RESULT_ACTION_DATA);

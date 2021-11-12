@@ -53,30 +53,180 @@ extern "system" {
     pub fn FilterVolumeInstanceFindNext(hvolumeinstancefind: super::super::Foundation::HANDLE, dwinformationclass: INSTANCE_INFORMATION_CLASS, lpbuffer: *mut ::core::ffi::c_void, dwbuffersize: u32, lpbytesreturned: *mut u32) -> ::windows_sys::core::HRESULT;
 }
 #[repr(C)]
-pub struct FILTER_AGGREGATE_BASIC_INFORMATION(i32);
+pub struct FILTER_AGGREGATE_BASIC_INFORMATION {
+    pub NextEntryOffset: u32,
+    pub Flags: u32,
+    pub Type: FILTER_AGGREGATE_BASIC_INFORMATION_0,
+}
+impl ::core::marker::Copy for FILTER_AGGREGATE_BASIC_INFORMATION {}
+impl ::core::clone::Clone for FILTER_AGGREGATE_BASIC_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct FILTER_AGGREGATE_STANDARD_INFORMATION(i32);
+pub union FILTER_AGGREGATE_BASIC_INFORMATION_0 {
+    pub MiniFilter: FILTER_AGGREGATE_BASIC_INFORMATION_0_1,
+    pub LegacyFilter: FILTER_AGGREGATE_BASIC_INFORMATION_0_0,
+}
+impl ::core::clone::Clone for FILTER_AGGREGATE_BASIC_INFORMATION_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct FILTER_FULL_INFORMATION(i32);
+pub struct FILTER_AGGREGATE_BASIC_INFORMATION_0_0 {
+    pub FilterNameLength: u16,
+    pub FilterNameBufferOffset: u16,
+}
+impl ::core::marker::Copy for FILTER_AGGREGATE_BASIC_INFORMATION_0_0 {}
+impl ::core::clone::Clone for FILTER_AGGREGATE_BASIC_INFORMATION_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct FILTER_AGGREGATE_BASIC_INFORMATION_0_1 {
+    pub FrameID: u32,
+    pub NumberOfInstances: u32,
+    pub FilterNameLength: u16,
+    pub FilterNameBufferOffset: u16,
+    pub FilterAltitudeLength: u16,
+    pub FilterAltitudeBufferOffset: u16,
+}
+impl ::core::marker::Copy for FILTER_AGGREGATE_BASIC_INFORMATION_0_1 {}
+impl ::core::clone::Clone for FILTER_AGGREGATE_BASIC_INFORMATION_0_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct FILTER_AGGREGATE_STANDARD_INFORMATION {
+    pub NextEntryOffset: u32,
+    pub Flags: u32,
+    pub Type: FILTER_AGGREGATE_STANDARD_INFORMATION_0,
+}
+impl ::core::marker::Copy for FILTER_AGGREGATE_STANDARD_INFORMATION {}
+impl ::core::clone::Clone for FILTER_AGGREGATE_STANDARD_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub union FILTER_AGGREGATE_STANDARD_INFORMATION_0 {
+    pub MiniFilter: FILTER_AGGREGATE_STANDARD_INFORMATION_0_1,
+    pub LegacyFilter: FILTER_AGGREGATE_STANDARD_INFORMATION_0_0,
+}
+impl ::core::clone::Clone for FILTER_AGGREGATE_STANDARD_INFORMATION_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct FILTER_AGGREGATE_STANDARD_INFORMATION_0_0 {
+    pub Flags: u32,
+    pub FilterNameLength: u16,
+    pub FilterNameBufferOffset: u16,
+    pub FilterAltitudeLength: u16,
+    pub FilterAltitudeBufferOffset: u16,
+}
+impl ::core::marker::Copy for FILTER_AGGREGATE_STANDARD_INFORMATION_0_0 {}
+impl ::core::clone::Clone for FILTER_AGGREGATE_STANDARD_INFORMATION_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct FILTER_AGGREGATE_STANDARD_INFORMATION_0_1 {
+    pub Flags: u32,
+    pub FrameID: u32,
+    pub NumberOfInstances: u32,
+    pub FilterNameLength: u16,
+    pub FilterNameBufferOffset: u16,
+    pub FilterAltitudeLength: u16,
+    pub FilterAltitudeBufferOffset: u16,
+}
+impl ::core::marker::Copy for FILTER_AGGREGATE_STANDARD_INFORMATION_0_1 {}
+impl ::core::clone::Clone for FILTER_AGGREGATE_STANDARD_INFORMATION_0_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct FILTER_FULL_INFORMATION {
+    pub NextEntryOffset: u32,
+    pub FrameID: u32,
+    pub NumberOfInstances: u32,
+    pub FilterNameLength: u16,
+    pub FilterNameBuffer: [u16; 1],
+}
+impl ::core::marker::Copy for FILTER_FULL_INFORMATION {}
+impl ::core::clone::Clone for FILTER_FULL_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct FILTER_INFORMATION_CLASS(pub i32);
 pub const FilterFullInformation: FILTER_INFORMATION_CLASS = FILTER_INFORMATION_CLASS(0i32);
 pub const FilterAggregateBasicInformation: FILTER_INFORMATION_CLASS = FILTER_INFORMATION_CLASS(1i32);
 pub const FilterAggregateStandardInformation: FILTER_INFORMATION_CLASS = FILTER_INFORMATION_CLASS(2i32);
 #[repr(C)]
-pub struct FILTER_MESSAGE_HEADER(i32);
+pub struct FILTER_MESSAGE_HEADER {
+    pub ReplyLength: u32,
+    pub MessageId: u64,
+}
+impl ::core::marker::Copy for FILTER_MESSAGE_HEADER {}
+impl ::core::clone::Clone for FILTER_MESSAGE_HEADER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const FILTER_NAME_MAX_CHARS: u32 = 255u32;
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+pub struct FILTER_REPLY_HEADER {
+    pub Status: super::super::Foundation::NTSTATUS,
+    pub MessageId: u64,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for FILTER_REPLY_HEADER {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for FILTER_REPLY_HEADER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct FILTER_REPLY_HEADER(i32);
-#[repr(C)]
-pub struct FILTER_VOLUME_BASIC_INFORMATION(i32);
+pub struct FILTER_VOLUME_BASIC_INFORMATION {
+    pub FilterVolumeNameLength: u16,
+    pub FilterVolumeName: [u16; 1],
+}
+impl ::core::marker::Copy for FILTER_VOLUME_BASIC_INFORMATION {}
+impl ::core::clone::Clone for FILTER_VOLUME_BASIC_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct FILTER_VOLUME_INFORMATION_CLASS(pub i32);
 pub const FilterVolumeBasicInformation: FILTER_VOLUME_INFORMATION_CLASS = FILTER_VOLUME_INFORMATION_CLASS(0i32);
 pub const FilterVolumeStandardInformation: FILTER_VOLUME_INFORMATION_CLASS = FILTER_VOLUME_INFORMATION_CLASS(1i32);
 #[repr(C)]
-pub struct FILTER_VOLUME_STANDARD_INFORMATION(i32);
+pub struct FILTER_VOLUME_STANDARD_INFORMATION {
+    pub NextEntryOffset: u32,
+    pub Flags: u32,
+    pub FrameID: u32,
+    pub FileSystemType: FLT_FILESYSTEM_TYPE,
+    pub FilterVolumeNameLength: u16,
+    pub FilterVolumeName: [u16; 1],
+}
+impl ::core::marker::Copy for FILTER_VOLUME_STANDARD_INFORMATION {}
+impl ::core::clone::Clone for FILTER_VOLUME_STANDARD_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const FLTFL_AGGREGATE_INFO_IS_LEGACYFILTER: u32 = 2u32;
 pub const FLTFL_AGGREGATE_INFO_IS_MINIFILTER: u32 = 1u32;
 pub const FLTFL_ASI_IS_LEGACYFILTER: u32 = 2u32;
@@ -121,23 +271,155 @@ pub const FLT_FSTYPE_OPENAFS: FLT_FILESYSTEM_TYPE = FLT_FILESYSTEM_TYPE(29i32);
 pub const FLT_FSTYPE_CIMFS: FLT_FILESYSTEM_TYPE = FLT_FILESYSTEM_TYPE(30i32);
 pub const FLT_PORT_FLAG_SYNC_HANDLE: u32 = 1u32;
 #[repr(C)]
-pub struct FilterFindHandle(i32);
+pub struct FilterFindHandle {
+    pub Value: isize,
+}
+impl ::core::marker::Copy for FilterFindHandle {}
+impl ::core::clone::Clone for FilterFindHandle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct FilterInstanceFindHandle(i32);
+pub struct FilterInstanceFindHandle {
+    pub Value: isize,
+}
+impl ::core::marker::Copy for FilterInstanceFindHandle {}
+impl ::core::clone::Clone for FilterInstanceFindHandle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct FilterVolumeFindHandle(i32);
+pub struct FilterVolumeFindHandle {
+    pub Value: isize,
+}
+impl ::core::marker::Copy for FilterVolumeFindHandle {}
+impl ::core::clone::Clone for FilterVolumeFindHandle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct FilterVolumeInstanceFindHandle(i32);
+pub struct FilterVolumeInstanceFindHandle {
+    pub Value: isize,
+}
+impl ::core::marker::Copy for FilterVolumeInstanceFindHandle {}
+impl ::core::clone::Clone for FilterVolumeInstanceFindHandle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct HFILTER(i32);
+pub struct HFILTER {
+    pub Value: isize,
+}
+impl ::core::marker::Copy for HFILTER {}
+impl ::core::clone::Clone for HFILTER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct HFILTER_INSTANCE(i32);
+pub struct HFILTER_INSTANCE {
+    pub Value: isize,
+}
+impl ::core::marker::Copy for HFILTER_INSTANCE {}
+impl ::core::clone::Clone for HFILTER_INSTANCE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct INSTANCE_AGGREGATE_STANDARD_INFORMATION(i32);
+pub struct INSTANCE_AGGREGATE_STANDARD_INFORMATION {
+    pub NextEntryOffset: u32,
+    pub Flags: u32,
+    pub Type: INSTANCE_AGGREGATE_STANDARD_INFORMATION_0,
+}
+impl ::core::marker::Copy for INSTANCE_AGGREGATE_STANDARD_INFORMATION {}
+impl ::core::clone::Clone for INSTANCE_AGGREGATE_STANDARD_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct INSTANCE_BASIC_INFORMATION(i32);
+pub union INSTANCE_AGGREGATE_STANDARD_INFORMATION_0 {
+    pub MiniFilter: INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_1,
+    pub LegacyFilter: INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_0,
+}
+impl ::core::clone::Clone for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct INSTANCE_FULL_INFORMATION(i32);
+pub struct INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_0 {
+    pub Flags: u32,
+    pub AltitudeLength: u16,
+    pub AltitudeBufferOffset: u16,
+    pub VolumeNameLength: u16,
+    pub VolumeNameBufferOffset: u16,
+    pub FilterNameLength: u16,
+    pub FilterNameBufferOffset: u16,
+    pub SupportedFeatures: u32,
+}
+impl ::core::marker::Copy for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_0 {}
+impl ::core::clone::Clone for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_1 {
+    pub Flags: u32,
+    pub FrameID: u32,
+    pub VolumeFileSystemType: FLT_FILESYSTEM_TYPE,
+    pub InstanceNameLength: u16,
+    pub InstanceNameBufferOffset: u16,
+    pub AltitudeLength: u16,
+    pub AltitudeBufferOffset: u16,
+    pub VolumeNameLength: u16,
+    pub VolumeNameBufferOffset: u16,
+    pub FilterNameLength: u16,
+    pub FilterNameBufferOffset: u16,
+    pub SupportedFeatures: u32,
+}
+impl ::core::marker::Copy for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_1 {}
+impl ::core::clone::Clone for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct INSTANCE_BASIC_INFORMATION {
+    pub NextEntryOffset: u32,
+    pub InstanceNameLength: u16,
+    pub InstanceNameBufferOffset: u16,
+}
+impl ::core::marker::Copy for INSTANCE_BASIC_INFORMATION {}
+impl ::core::clone::Clone for INSTANCE_BASIC_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct INSTANCE_FULL_INFORMATION {
+    pub NextEntryOffset: u32,
+    pub InstanceNameLength: u16,
+    pub InstanceNameBufferOffset: u16,
+    pub AltitudeLength: u16,
+    pub AltitudeBufferOffset: u16,
+    pub VolumeNameLength: u16,
+    pub VolumeNameBufferOffset: u16,
+    pub FilterNameLength: u16,
+    pub FilterNameBufferOffset: u16,
+}
+impl ::core::marker::Copy for INSTANCE_FULL_INFORMATION {}
+impl ::core::clone::Clone for INSTANCE_FULL_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct INSTANCE_INFORMATION_CLASS(pub i32);
 pub const InstanceBasicInformation: INSTANCE_INFORMATION_CLASS = INSTANCE_INFORMATION_CLASS(0i32);
@@ -146,7 +428,19 @@ pub const InstanceFullInformation: INSTANCE_INFORMATION_CLASS = INSTANCE_INFORMA
 pub const InstanceAggregateStandardInformation: INSTANCE_INFORMATION_CLASS = INSTANCE_INFORMATION_CLASS(3i32);
 pub const INSTANCE_NAME_MAX_CHARS: u32 = 255u32;
 #[repr(C)]
-pub struct INSTANCE_PARTIAL_INFORMATION(i32);
+pub struct INSTANCE_PARTIAL_INFORMATION {
+    pub NextEntryOffset: u32,
+    pub InstanceNameLength: u16,
+    pub InstanceNameBufferOffset: u16,
+    pub AltitudeLength: u16,
+    pub AltitudeBufferOffset: u16,
+}
+impl ::core::marker::Copy for INSTANCE_PARTIAL_INFORMATION {}
+impl ::core::clone::Clone for INSTANCE_PARTIAL_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const VOLUME_NAME_MAX_CHARS: u32 = 1024u32;
 pub const WNNC_CRED_MANAGER: u32 = 4294901760u32;
 pub const WNNC_NET_10NET: u32 = 327680u32;

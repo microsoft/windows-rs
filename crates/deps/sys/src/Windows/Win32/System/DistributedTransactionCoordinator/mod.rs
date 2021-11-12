@@ -20,7 +20,15 @@ pub const NO_AUTHENTICATION_REQUIRED: AUTHENTICATION_LEVEL = AUTHENTICATION_LEVE
 pub const INCOMING_AUTHENTICATION_REQUIRED: AUTHENTICATION_LEVEL = AUTHENTICATION_LEVEL(1i32);
 pub const MUTUAL_AUTHENTICATION_REQUIRED: AUTHENTICATION_LEVEL = AUTHENTICATION_LEVEL(2i32);
 #[repr(C)]
-pub struct BOID(i32);
+pub struct BOID {
+    pub rgb: [u8; 16],
+}
+impl ::core::marker::Copy for BOID {}
+impl ::core::clone::Clone for BOID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CLSID_MSDtcTransaction: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 972609387, data2: 2344, data3: 4561, data4: [151, 223, 0, 192, 79, 185, 97, 138] };
 pub const CLSID_MSDtcTransactionManager: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1528343393, data2: 2333, data3: 4561, data4: [151, 223, 0, 192, 79, 185, 97, 138] };
 pub const DTCINSTALL_E_CLIENT_ALREADY_INSTALLED: i32 = 384i32;
@@ -206,9 +214,29 @@ pub const MAXBQUALSIZE: u32 = 64u32;
 pub const MAXGTRIDSIZE: u32 = 64u32;
 pub const MAXINFOSIZE: u32 = 256u32;
 #[repr(C)]
-pub struct OLE_TM_CONFIG_PARAMS_V1(i32);
+pub struct OLE_TM_CONFIG_PARAMS_V1 {
+    pub dwVersion: u32,
+    pub dwcConcurrencyHint: u32,
+}
+impl ::core::marker::Copy for OLE_TM_CONFIG_PARAMS_V1 {}
+impl ::core::clone::Clone for OLE_TM_CONFIG_PARAMS_V1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct OLE_TM_CONFIG_PARAMS_V2(i32);
+pub struct OLE_TM_CONFIG_PARAMS_V2 {
+    pub dwVersion: u32,
+    pub dwcConcurrencyHint: u32,
+    pub applicationType: APPLICATIONTYPE,
+    pub clusterResourceId: ::windows_sys::core::GUID,
+}
+impl ::core::marker::Copy for OLE_TM_CONFIG_PARAMS_V2 {}
+impl ::core::clone::Clone for OLE_TM_CONFIG_PARAMS_V2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const OLE_TM_CONFIG_VERSION_1: u32 = 1u32;
 pub const OLE_TM_CONFIG_VERSION_2: u32 = 2u32;
 pub const OLE_TM_FLAG_INTERNAL_TO_TM: u32 = 1073741824u32;
@@ -252,7 +280,16 @@ pub const XACTHEURISTIC_COMMIT: XACTHEURISTIC = XACTHEURISTIC(2i32);
 pub const XACTHEURISTIC_DAMAGE: XACTHEURISTIC = XACTHEURISTIC(3i32);
 pub const XACTHEURISTIC_DANGER: XACTHEURISTIC = XACTHEURISTIC(4i32);
 #[repr(C)]
-pub struct XACTOPT(i32);
+pub struct XACTOPT {
+    pub ulTimeout: u32,
+    pub szDescription: [u8; 40],
+}
+impl ::core::marker::Copy for XACTOPT {}
+impl ::core::clone::Clone for XACTOPT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct XACTRM(pub i32);
 pub const XACTRM_OPTIMISTICLASTWINS: XACTRM = XACTRM(1i32);
@@ -282,9 +319,26 @@ pub const XACTSTAT_CLOSED: XACTSTAT = XACTSTAT(262144i32);
 pub const XACTSTAT_OPEN: XACTSTAT = XACTSTAT(3i32);
 pub const XACTSTAT_NOTPREPARED: XACTSTAT = XACTSTAT(524227i32);
 pub const XACTSTAT_ALL: XACTSTAT = XACTSTAT(524287i32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct XACTSTATS(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct XACTSTATS {
+    pub cOpen: u32,
+    pub cCommitting: u32,
+    pub cCommitted: u32,
+    pub cAborting: u32,
+    pub cAborted: u32,
+    pub cInDoubt: u32,
+    pub cHeuristicDecision: u32,
+    pub timeTransactionsUp: super::super::Foundation::FILETIME,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for XACTSTATS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for XACTSTATS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct XACTTC(pub i32);
 pub const XACTTC_NONE: XACTTC = XACTTC(0i32);
@@ -294,7 +348,21 @@ pub const XACTTC_SYNC: XACTTC = XACTTC(2i32);
 pub const XACTTC_ASYNC_PHASEONE: XACTTC = XACTTC(4i32);
 pub const XACTTC_ASYNC: XACTTC = XACTTC(4i32);
 #[repr(C)]
-pub struct XACTTRANSINFO(i32);
+pub struct XACTTRANSINFO {
+    pub uow: BOID,
+    pub isoLevel: i32,
+    pub isoFlags: u32,
+    pub grfTCSupported: u32,
+    pub grfRMSupported: u32,
+    pub grfTCSupportedRetaining: u32,
+    pub grfRMSupportedRetaining: u32,
+}
+impl ::core::marker::Copy for XACTTRANSINFO {}
+impl ::core::clone::Clone for XACTTRANSINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct XACT_DTC_CONSTANTS(pub i32);
 pub const XACT_E_CONNECTION_REQUEST_DENIED: XACT_DTC_CONSTANTS = XACT_DTC_CONSTANTS(-2147168000i32);
@@ -415,10 +483,53 @@ pub const DTCLUXLNRESPONSE_OK_SENDCONFIRMATION: _DtcLu_Xln_Response = _DtcLu_Xln
 pub const DTCLUXLNRESPONSE_LOGNAMEMISMATCH: _DtcLu_Xln_Response = _DtcLu_Xln_Response(3i32);
 pub const DTCLUXLNRESPONSE_COLDWARMMISMATCH: _DtcLu_Xln_Response = _DtcLu_Xln_Response(4i32);
 #[repr(C)]
-pub struct _ProxyConfigParams(i32);
-#[cfg(feature = "Win32_Foundation")]
+pub struct _ProxyConfigParams {
+    pub wcThreadsMax: u16,
+}
+impl ::core::marker::Copy for _ProxyConfigParams {}
+impl ::core::clone::Clone for _ProxyConfigParams {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct xa_switch_t(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct xa_switch_t {
+    pub name: [super::super::Foundation::CHAR; 32],
+    pub flags: i32,
+    pub version: i32,
+    pub xa_open_entry: isize,
+    pub xa_close_entry: isize,
+    pub xa_start_entry: isize,
+    pub xa_end_entry: isize,
+    pub xa_rollback_entry: isize,
+    pub xa_prepare_entry: isize,
+    pub xa_commit_entry: isize,
+    pub xa_recover_entry: isize,
+    pub xa_forget_entry: isize,
+    pub xa_complete_entry: isize,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for xa_switch_t {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for xa_switch_t {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct xid_t(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct xid_t {
+    pub formatID: i32,
+    pub gtrid_length: i32,
+    pub bqual_length: i32,
+    pub data: [super::super::Foundation::CHAR; 128],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for xid_t {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for xid_t {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

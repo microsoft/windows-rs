@@ -111,9 +111,40 @@ pub const EcSubscriptionRunTimeStatusInfoIdEND: EC_SUBSCRIPTION_RUNTIME_STATUS_I
 pub struct EC_SUBSCRIPTION_TYPE(pub i32);
 pub const EcSubscriptionTypeSourceInitiated: EC_SUBSCRIPTION_TYPE = EC_SUBSCRIPTION_TYPE(0i32);
 pub const EcSubscriptionTypeCollectorInitiated: EC_SUBSCRIPTION_TYPE = EC_SUBSCRIPTION_TYPE(1i32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct EC_VARIANT(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct EC_VARIANT {
+    pub Anonymous: EC_VARIANT_0,
+    pub Count: u32,
+    pub Type: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for EC_VARIANT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for EC_VARIANT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub union EC_VARIANT_0 {
+    pub BooleanVal: super::super::Foundation::BOOL,
+    pub UInt32Val: u32,
+    pub DateTimeVal: u64,
+    pub StringVal: super::super::Foundation::PWSTR,
+    pub BinaryVal: *mut u8,
+    pub BooleanArr: *mut super::super::Foundation::BOOL,
+    pub Int32Arr: *mut i32,
+    pub StringArr: *mut super::super::Foundation::PWSTR,
+    pub PropertyHandleVal: isize,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for EC_VARIANT_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct EC_VARIANT_TYPE(pub i32);
 pub const EcVarTypeNull: EC_VARIANT_TYPE = EC_VARIANT_TYPE(0i32);

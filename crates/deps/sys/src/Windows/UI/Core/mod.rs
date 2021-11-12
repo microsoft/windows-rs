@@ -94,7 +94,20 @@ impl CoreInputDeviceTypes {
     pub const Mouse: Self = Self(4u32);
 }
 #[repr(C)]
-pub struct CorePhysicalKeyStatus(i32);
+pub struct CorePhysicalKeyStatus {
+    pub RepeatCount: u32,
+    pub ScanCode: u32,
+    pub IsExtendedKey: bool,
+    pub IsMenuKeyDown: bool,
+    pub WasKeyDown: bool,
+    pub IsKeyReleased: bool,
+}
+impl ::core::marker::Copy for CorePhysicalKeyStatus {}
+impl ::core::clone::Clone for CorePhysicalKeyStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CoreProcessEventsOption(pub i32);
 impl CoreProcessEventsOption {
@@ -103,9 +116,20 @@ impl CoreProcessEventsOption {
     pub const ProcessUntilQuit: Self = Self(2i32);
     pub const ProcessAllIfPresent: Self = Self(3i32);
 }
-#[cfg(feature = "Foundation")]
 #[repr(C)]
-pub struct CoreProximityEvaluation(i32);
+#[cfg(feature = "Foundation")]
+pub struct CoreProximityEvaluation {
+    pub Score: i32,
+    pub AdjustedPoint: super::super::Foundation::Point,
+}
+#[cfg(feature = "Foundation")]
+impl ::core::marker::Copy for CoreProximityEvaluation {}
+#[cfg(feature = "Foundation")]
+impl ::core::clone::Clone for CoreProximityEvaluation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CoreProximityEvaluationScore(pub i32);
 impl CoreProximityEvaluationScore {

@@ -6,9 +6,62 @@ pub mod Fxc;
 #[link(name = "windows")]
 extern "system" {}
 #[repr(C)]
-pub struct D3DMATRIX(i32);
+pub struct D3DMATRIX {
+    pub Anonymous: D3DMATRIX_0,
+}
+impl ::core::marker::Copy for D3DMATRIX {}
+impl ::core::clone::Clone for D3DMATRIX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3DVECTOR(i32);
+pub union D3DMATRIX_0 {
+    pub Anonymous: D3DMATRIX_0_0,
+    pub m: [f32; 16],
+}
+impl ::core::clone::Clone for D3DMATRIX_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct D3DMATRIX_0_0 {
+    pub _11: f32,
+    pub _12: f32,
+    pub _13: f32,
+    pub _14: f32,
+    pub _21: f32,
+    pub _22: f32,
+    pub _23: f32,
+    pub _24: f32,
+    pub _31: f32,
+    pub _32: f32,
+    pub _33: f32,
+    pub _34: f32,
+    pub _41: f32,
+    pub _42: f32,
+    pub _43: f32,
+    pub _44: f32,
+}
+impl ::core::marker::Copy for D3DMATRIX_0_0 {}
+impl ::core::clone::Clone for D3DMATRIX_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct D3DVECTOR {
+    pub x: f32,
+    pub y: f32,
+    pub z: f32,
+}
+impl ::core::marker::Copy for D3DVECTOR {}
+impl ::core::clone::Clone for D3DVECTOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3D_CBUFFER_TYPE(pub i32);
 pub const D3D_CT_CBUFFER: D3D_CBUFFER_TYPE = D3D_CBUFFER_TYPE(0i32);
@@ -440,9 +493,20 @@ pub const D3D11_SIT_UAV_RWBYTEADDRESS: D3D_SHADER_INPUT_TYPE = D3D_SHADER_INPUT_
 pub const D3D11_SIT_UAV_APPEND_STRUCTURED: D3D_SHADER_INPUT_TYPE = D3D_SHADER_INPUT_TYPE(9i32);
 pub const D3D11_SIT_UAV_CONSUME_STRUCTURED: D3D_SHADER_INPUT_TYPE = D3D_SHADER_INPUT_TYPE(10i32);
 pub const D3D11_SIT_UAV_RWSTRUCTURED_WITH_COUNTER: D3D_SHADER_INPUT_TYPE = D3D_SHADER_INPUT_TYPE(11i32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct D3D_SHADER_MACRO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct D3D_SHADER_MACRO {
+    pub Name: super::super::Foundation::PSTR,
+    pub Definition: super::super::Foundation::PSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for D3D_SHADER_MACRO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for D3D_SHADER_MACRO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3D_SHADER_VARIABLE_CLASS(pub i32);
 pub const D3D_SVC_SCALAR: D3D_SHADER_VARIABLE_CLASS = D3D_SHADER_VARIABLE_CLASS(0i32);

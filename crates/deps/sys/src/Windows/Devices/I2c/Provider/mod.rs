@@ -24,7 +24,16 @@ impl ProviderI2cSharingMode {
     pub const Shared: Self = Self(1i32);
 }
 #[repr(C)]
-pub struct ProviderI2cTransferResult(i32);
+pub struct ProviderI2cTransferResult {
+    pub Status: ProviderI2cTransferStatus,
+    pub BytesTransferred: u32,
+}
+impl ::core::marker::Copy for ProviderI2cTransferResult {}
+impl ::core::clone::Clone for ProviderI2cTransferResult {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ProviderI2cTransferStatus(pub i32);
 impl ProviderI2cTransferStatus {

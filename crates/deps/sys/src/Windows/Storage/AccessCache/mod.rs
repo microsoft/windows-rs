@@ -11,7 +11,16 @@ impl AccessCacheOptions {
     pub const SuppressAccessTimeUpdate: Self = Self(8u32);
 }
 #[repr(C)]
-pub struct AccessListEntry(i32);
+pub struct AccessListEntry {
+    pub Token: ::windows_sys::core::HSTRING,
+    pub Metadata: ::windows_sys::core::HSTRING,
+}
+impl ::core::marker::Copy for AccessListEntry {}
+impl ::core::clone::Clone for AccessListEntry {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AccessListEntryView(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

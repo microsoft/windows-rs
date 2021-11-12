@@ -74,7 +74,16 @@ impl TextPredictionOptions {
 #[repr(transparent)]
 pub struct TextReverseConversionGenerator(pub *mut ::core::ffi::c_void);
 #[repr(C)]
-pub struct TextSegment(i32);
+pub struct TextSegment {
+    pub StartPosition: u32,
+    pub Length: u32,
+}
+impl ::core::marker::Copy for TextSegment {}
+impl ::core::clone::Clone for TextSegment {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UnicodeGeneralCategory(pub i32);
 impl UnicodeGeneralCategory {

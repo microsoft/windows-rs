@@ -26,9 +26,61 @@ extern "system" {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub type LPOVERLAPPED_COMPLETION_ROUTINE = unsafe extern "system" fn(dwerrorcode: u32, dwnumberofbytestransfered: u32, lpoverlapped: *mut OVERLAPPED);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct OVERLAPPED(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct OVERLAPPED {
+    pub Internal: usize,
+    pub InternalHigh: usize,
+    pub Anonymous: OVERLAPPED_0,
+    pub hEvent: super::super::Foundation::HANDLE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for OVERLAPPED {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for OVERLAPPED {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct OVERLAPPED_ENTRY(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub union OVERLAPPED_0 {
+    pub Anonymous: OVERLAPPED_0_0,
+    pub Pointer: *mut ::core::ffi::c_void,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for OVERLAPPED_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct OVERLAPPED_0_0 {
+    pub Offset: u32,
+    pub OffsetHigh: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for OVERLAPPED_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for OVERLAPPED_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct OVERLAPPED_ENTRY {
+    pub lpCompletionKey: usize,
+    pub lpOverlapped: *mut OVERLAPPED,
+    pub Internal: usize,
+    pub dwNumberOfBytesTransferred: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for OVERLAPPED_ENTRY {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for OVERLAPPED_ENTRY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

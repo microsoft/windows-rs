@@ -131,7 +131,19 @@ impl SmsDeviceStatus {
 #[repr(transparent)]
 pub struct SmsDeviceStatusChangedEventHandler(pub *mut ::core::ffi::c_void);
 #[repr(C)]
-pub struct SmsEncodedLength(i32);
+pub struct SmsEncodedLength {
+    pub SegmentCount: u32,
+    pub CharacterCountLastSegment: u32,
+    pub CharactersPerSegment: u32,
+    pub ByteCountLastSegment: u32,
+    pub BytesPerSegment: u32,
+}
+impl ::core::marker::Copy for SmsEncodedLength {}
+impl ::core::clone::Clone for SmsEncodedLength {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SmsEncoding(pub i32);
 impl SmsEncoding {

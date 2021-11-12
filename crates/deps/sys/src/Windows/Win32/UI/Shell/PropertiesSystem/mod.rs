@@ -695,7 +695,16 @@ pub const PET_RANGEDVALUE: PROPENUMTYPE = PROPENUMTYPE(1i32);
 pub const PET_DEFAULTVALUE: PROPENUMTYPE = PROPENUMTYPE(2i32);
 pub const PET_ENDRANGE: PROPENUMTYPE = PROPENUMTYPE(3i32);
 #[repr(C)]
-pub struct PROPERTYKEY(i32);
+pub struct PROPERTYKEY {
+    pub fmtid: ::windows_sys::core::GUID,
+    pub pid: u32,
+}
+impl ::core::marker::Copy for PROPERTYKEY {}
+impl ::core::clone::Clone for PROPERTYKEY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PROPERTYUI_FLAGS(pub i32);
 pub const PUIF_DEFAULT: PROPERTYUI_FLAGS = PROPERTYUI_FLAGS(0i32);
@@ -712,9 +721,30 @@ pub const PUIFFDF_FRIENDLYDATE: PROPERTYUI_FORMAT_FLAGS = PROPERTYUI_FORMAT_FLAG
 pub struct PROPERTYUI_NAME_FLAGS(pub i32);
 pub const PUIFNF_DEFAULT: PROPERTYUI_NAME_FLAGS = PROPERTYUI_NAME_FLAGS(0i32);
 pub const PUIFNF_MNEMONIC: PROPERTYUI_NAME_FLAGS = PROPERTYUI_NAME_FLAGS(1i32);
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct PROPPRG(i32);
+pub struct PROPPRG {
+    pub flPrg: u16,
+    pub flPrgInit: u16,
+    pub achTitle: [super::super::super::Foundation::CHAR; 30],
+    pub achCmdLine: [super::super::super::Foundation::CHAR; 128],
+    pub achWorkDir: [super::super::super::Foundation::CHAR; 64],
+    pub wHotKey: u16,
+    pub achIconFile: [super::super::super::Foundation::CHAR; 80],
+    pub wIconIndex: u16,
+    pub dwEnhModeFlags: u32,
+    pub dwRealModeFlags: u32,
+    pub achOtherFile: [super::super::super::Foundation::CHAR; 80],
+    pub achPIFFile: [super::super::super::Foundation::CHAR; 260],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for PROPPRG {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for PROPPRG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PROPVAR_CHANGE_FLAGS(pub i32);
 pub const PVCHF_DEFAULT: PROPVAR_CHANGE_FLAGS = PROPVAR_CHANGE_FLAGS(0i32);

@@ -91,9 +91,20 @@ impl DisplayPresentStatus {
     pub const DeviceInvalid: Self = Self(4i32);
     pub const UnknownFailure: Self = Self(5i32);
 }
-#[cfg(feature = "Foundation_Numerics")]
 #[repr(C)]
-pub struct DisplayPresentationRate(i32);
+#[cfg(feature = "Foundation_Numerics")]
+pub struct DisplayPresentationRate {
+    pub VerticalSyncRate: super::super::super::Foundation::Numerics::Rational,
+    pub VerticalSyncsPerPresentation: i32,
+}
+#[cfg(feature = "Foundation_Numerics")]
+impl ::core::marker::Copy for DisplayPresentationRate {}
+#[cfg(feature = "Foundation_Numerics")]
+impl ::core::clone::Clone for DisplayPresentationRate {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DisplayPrimaryDescription(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

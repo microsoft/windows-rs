@@ -415,9 +415,20 @@ pub struct MseSourceBuffer(pub *mut ::core::ffi::c_void);
 pub struct MseSourceBufferList(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MseStreamSource(pub *mut ::core::ffi::c_void);
-#[cfg(feature = "Foundation")]
 #[repr(C)]
-pub struct MseTimeRange(i32);
+#[cfg(feature = "Foundation")]
+pub struct MseTimeRange {
+    pub Start: super::super::Foundation::TimeSpan,
+    pub End: super::super::Foundation::TimeSpan,
+}
+#[cfg(feature = "Foundation")]
+impl ::core::marker::Copy for MseTimeRange {}
+#[cfg(feature = "Foundation")]
+impl ::core::clone::Clone for MseTimeRange {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SceneAnalysisEffect(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -494,7 +505,16 @@ impl TimedTextDisplayAlignment {
     pub const Center: Self = Self(2i32);
 }
 #[repr(C)]
-pub struct TimedTextDouble(i32);
+pub struct TimedTextDouble {
+    pub Value: f64,
+    pub Unit: TimedTextUnit,
+}
+impl ::core::marker::Copy for TimedTextDouble {}
+impl ::core::clone::Clone for TimedTextDouble {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TimedTextFlowDirection(pub i32);
 impl TimedTextFlowDirection {
@@ -518,9 +538,31 @@ impl TimedTextLineAlignment {
     pub const Center: Self = Self(2i32);
 }
 #[repr(C)]
-pub struct TimedTextPadding(i32);
+pub struct TimedTextPadding {
+    pub Before: f64,
+    pub After: f64,
+    pub Start: f64,
+    pub End: f64,
+    pub Unit: TimedTextUnit,
+}
+impl ::core::marker::Copy for TimedTextPadding {}
+impl ::core::clone::Clone for TimedTextPadding {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct TimedTextPoint(i32);
+pub struct TimedTextPoint {
+    pub X: f64,
+    pub Y: f64,
+    pub Unit: TimedTextUnit,
+}
+impl ::core::marker::Copy for TimedTextPoint {}
+impl ::core::clone::Clone for TimedTextPoint {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TimedTextRegion(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -558,7 +600,17 @@ impl TimedTextScrollMode {
     pub const Rollup: Self = Self(1i32);
 }
 #[repr(C)]
-pub struct TimedTextSize(i32);
+pub struct TimedTextSize {
+    pub Height: f64,
+    pub Width: f64,
+    pub Unit: TimedTextUnit,
+}
+impl ::core::marker::Copy for TimedTextSize {}
+impl ::core::clone::Clone for TimedTextSize {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TimedTextSource(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

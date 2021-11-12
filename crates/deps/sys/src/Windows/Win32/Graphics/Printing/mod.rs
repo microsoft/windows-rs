@@ -428,12 +428,34 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn XcvDataW(hxcv: super::super::Foundation::HANDLE, pszdataname: super::super::Foundation::PWSTR, pinputdata: *const u8, cbinputdata: u32, poutputdata: *mut u8, cboutputdata: u32, pcboutputneeded: *mut u32, pdwstatus: *mut u32) -> super::super::Foundation::BOOL;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct ADDJOB_INFO_1A(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct ADDJOB_INFO_1A {
+    pub Path: super::super::Foundation::PSTR,
+    pub JobId: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ADDJOB_INFO_1A {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ADDJOB_INFO_1A {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct ADDJOB_INFO_1W(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct ADDJOB_INFO_1W {
+    pub Path: super::super::Foundation::PWSTR,
+    pub JobId: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ADDJOB_INFO_1W {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ADDJOB_INFO_1W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const APD_COPY_ALL_FILES: u32 = 4u32;
 pub const APD_COPY_FROM_DIRECTORY: u32 = 16u32;
 pub const APD_COPY_NEW_FILES: u32 = 8u32;
@@ -442,30 +464,175 @@ pub const APD_STRICT_UPGRADE: u32 = 1u32;
 pub const APPLYCPSUI_NO_NEWDEF: u32 = 1u32;
 pub const APPLYCPSUI_OK_CANCEL_BUTTON: u32 = 2u32;
 #[repr(C)]
-pub struct ATTRIBUTE_INFO_1(i32);
+pub struct ATTRIBUTE_INFO_1 {
+    pub dwJobNumberOfPagesPerSide: u32,
+    pub dwDrvNumberOfPagesPerSide: u32,
+    pub dwNupBorderFlags: u32,
+    pub dwJobPageOrderFlags: u32,
+    pub dwDrvPageOrderFlags: u32,
+    pub dwJobNumberOfCopies: u32,
+    pub dwDrvNumberOfCopies: u32,
+}
+impl ::core::marker::Copy for ATTRIBUTE_INFO_1 {}
+impl ::core::clone::Clone for ATTRIBUTE_INFO_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct ATTRIBUTE_INFO_2(i32);
+pub struct ATTRIBUTE_INFO_2 {
+    pub dwJobNumberOfPagesPerSide: u32,
+    pub dwDrvNumberOfPagesPerSide: u32,
+    pub dwNupBorderFlags: u32,
+    pub dwJobPageOrderFlags: u32,
+    pub dwDrvPageOrderFlags: u32,
+    pub dwJobNumberOfCopies: u32,
+    pub dwDrvNumberOfCopies: u32,
+    pub dwColorOptimization: u32,
+}
+impl ::core::marker::Copy for ATTRIBUTE_INFO_2 {}
+impl ::core::clone::Clone for ATTRIBUTE_INFO_2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct ATTRIBUTE_INFO_3(i32);
+pub struct ATTRIBUTE_INFO_3 {
+    pub dwJobNumberOfPagesPerSide: u32,
+    pub dwDrvNumberOfPagesPerSide: u32,
+    pub dwNupBorderFlags: u32,
+    pub dwJobPageOrderFlags: u32,
+    pub dwDrvPageOrderFlags: u32,
+    pub dwJobNumberOfCopies: u32,
+    pub dwDrvNumberOfCopies: u32,
+    pub dwColorOptimization: u32,
+    pub dmPrintQuality: i16,
+    pub dmYResolution: i16,
+}
+impl ::core::marker::Copy for ATTRIBUTE_INFO_3 {}
+impl ::core::clone::Clone for ATTRIBUTE_INFO_3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct ATTRIBUTE_INFO_4(i32);
+pub struct ATTRIBUTE_INFO_4 {
+    pub dwJobNumberOfPagesPerSide: u32,
+    pub dwDrvNumberOfPagesPerSide: u32,
+    pub dwNupBorderFlags: u32,
+    pub dwJobPageOrderFlags: u32,
+    pub dwDrvPageOrderFlags: u32,
+    pub dwJobNumberOfCopies: u32,
+    pub dwDrvNumberOfCopies: u32,
+    pub dwColorOptimization: u32,
+    pub dmPrintQuality: i16,
+    pub dmYResolution: i16,
+    pub dwDuplexFlags: u32,
+    pub dwNupDirection: u32,
+    pub dwBookletFlags: u32,
+    pub dwScalingPercentX: u32,
+    pub dwScalingPercentY: u32,
+}
+impl ::core::marker::Copy for ATTRIBUTE_INFO_4 {}
+impl ::core::clone::Clone for ATTRIBUTE_INFO_4 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const BIDI_ACCESS_ADMINISTRATOR: u32 = 1u32;
 pub const BIDI_ACCESS_USER: u32 = 2u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct BIDI_DATA(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct BIDI_REQUEST_CONTAINER(i32);
+pub struct BIDI_DATA {
+    pub dwBidiType: u32,
+    pub u: BIDI_DATA_0,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct BIDI_REQUEST_DATA(i32);
+impl ::core::marker::Copy for BIDI_DATA {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for BIDI_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct BIDI_RESPONSE_CONTAINER(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub union BIDI_DATA_0 {
+    pub bData: super::super::Foundation::BOOL,
+    pub iData: i32,
+    pub sData: super::super::Foundation::PWSTR,
+    pub fData: f32,
+    pub biData: BINARY_CONTAINER,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for BIDI_DATA_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct BIDI_RESPONSE_DATA(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct BIDI_REQUEST_CONTAINER {
+    pub Version: u32,
+    pub Flags: u32,
+    pub Count: u32,
+    pub aData: [BIDI_REQUEST_DATA; 1],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for BIDI_REQUEST_CONTAINER {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for BIDI_REQUEST_CONTAINER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct BIDI_REQUEST_DATA {
+    pub dwReqNumber: u32,
+    pub pSchema: super::super::Foundation::PWSTR,
+    pub data: BIDI_DATA,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for BIDI_REQUEST_DATA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for BIDI_REQUEST_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct BIDI_RESPONSE_CONTAINER {
+    pub Version: u32,
+    pub Flags: u32,
+    pub Count: u32,
+    pub aData: [BIDI_RESPONSE_DATA; 1],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for BIDI_RESPONSE_CONTAINER {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for BIDI_RESPONSE_CONTAINER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct BIDI_RESPONSE_DATA {
+    pub dwResult: u32,
+    pub dwReqNumber: u32,
+    pub pSchema: super::super::Foundation::PWSTR,
+    pub data: BIDI_DATA,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for BIDI_RESPONSE_DATA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for BIDI_RESPONSE_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct BIDI_TYPE(pub i32);
 pub const BIDI_NULL: BIDI_TYPE = BIDI_TYPE(0i32);
@@ -477,7 +644,16 @@ pub const BIDI_TEXT: BIDI_TYPE = BIDI_TYPE(5i32);
 pub const BIDI_ENUM: BIDI_TYPE = BIDI_TYPE(6i32);
 pub const BIDI_BLOB: BIDI_TYPE = BIDI_TYPE(7i32);
 #[repr(C)]
-pub struct BINARY_CONTAINER(i32);
+pub struct BINARY_CONTAINER {
+    pub cbBuf: u32,
+    pub pData: *mut u8,
+}
+impl ::core::marker::Copy for BINARY_CONTAINER {}
+impl ::core::clone::Clone for BINARY_CONTAINER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const BOOKLET_EDGE_LEFT: u32 = 0u32;
 pub const BOOKLET_EDGE_RIGHT: u32 = 1u32;
 pub const BOOKLET_PRINT: u32 = 2u32;
@@ -495,26 +671,138 @@ pub const BidiRequestContainer: ::windows_sys::core::GUID = ::windows_sys::GUID 
     data4: [131, 136, 34, 237, 246, 194, 187, 186],
 };
 pub const BidiSpl: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 711017024, data2: 42181, data3: 19507, data4: [189, 135, 27, 199, 9, 51, 22, 57] };
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct BranchOfficeJobData(i32);
+pub struct BranchOfficeJobData {
+    pub eEventType: EBranchOfficeJobEventType,
+    pub JobId: u32,
+    pub JobInfo: BranchOfficeJobData_0,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct BranchOfficeJobDataContainer(i32);
+impl ::core::marker::Copy for BranchOfficeJobData {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for BranchOfficeJobData {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct BranchOfficeJobDataError(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct BranchOfficeJobDataPipelineFailed(i32);
+pub union BranchOfficeJobData_0 {
+    pub LogJobPrinted: BranchOfficeJobDataPrinted,
+    pub LogJobRendered: BranchOfficeJobDataRendered,
+    pub LogJobError: BranchOfficeJobDataError,
+    pub LogPipelineFailed: BranchOfficeJobDataPipelineFailed,
+    pub LogOfflineFileFull: BranchOfficeLogOfflineFileFull,
+}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for BranchOfficeJobData_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct BranchOfficeJobDataPrinted(i32);
-#[repr(C)]
-pub struct BranchOfficeJobDataRendered(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct BranchOfficeJobDataContainer {
+    pub cJobDataEntries: u32,
+    pub JobData: [BranchOfficeJobData; 1],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for BranchOfficeJobDataContainer {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for BranchOfficeJobDataContainer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct BranchOfficeLogOfflineFileFull(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct BranchOfficeJobDataError {
+    pub LastError: u32,
+    pub pDocumentName: super::super::Foundation::PWSTR,
+    pub pUserName: super::super::Foundation::PWSTR,
+    pub pPrinterName: super::super::Foundation::PWSTR,
+    pub pDataType: super::super::Foundation::PWSTR,
+    pub TotalSize: i64,
+    pub PrintedSize: i64,
+    pub TotalPages: u32,
+    pub PrintedPages: u32,
+    pub pMachineName: super::super::Foundation::PWSTR,
+    pub pJobError: super::super::Foundation::PWSTR,
+    pub pErrorDescription: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for BranchOfficeJobDataError {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for BranchOfficeJobDataError {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct BranchOfficeJobDataPipelineFailed {
+    pub pDocumentName: super::super::Foundation::PWSTR,
+    pub pPrinterName: super::super::Foundation::PWSTR,
+    pub pExtraErrorInfo: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for BranchOfficeJobDataPipelineFailed {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for BranchOfficeJobDataPipelineFailed {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct BranchOfficeJobDataPrinted {
+    pub Status: u32,
+    pub pDocumentName: super::super::Foundation::PWSTR,
+    pub pUserName: super::super::Foundation::PWSTR,
+    pub pMachineName: super::super::Foundation::PWSTR,
+    pub pPrinterName: super::super::Foundation::PWSTR,
+    pub pPortName: super::super::Foundation::PWSTR,
+    pub Size: i64,
+    pub TotalPages: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for BranchOfficeJobDataPrinted {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for BranchOfficeJobDataPrinted {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct BranchOfficeJobDataRendered {
+    pub Size: i64,
+    pub ICMMethod: u32,
+    pub Color: i16,
+    pub PrintQuality: i16,
+    pub YResolution: i16,
+    pub Copies: i16,
+    pub TTOption: i16,
+}
+impl ::core::marker::Copy for BranchOfficeJobDataRendered {}
+impl ::core::clone::Clone for BranchOfficeJobDataRendered {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct BranchOfficeLogOfflineFileFull {
+    pub pMachineName: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for BranchOfficeLogOfflineFileFull {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for BranchOfficeLogOfflineFileFull {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CC_BIG5: i32 = -10i32;
 pub const CC_CP437: i32 = -1i32;
 pub const CC_CP850: i32 = -2i32;
@@ -561,11 +849,45 @@ pub const CLSID_XPSRASTERIZER_FACTORY: ::windows_sys::core::GUID = ::windows_sys
     data4: [157, 114, 30, 176, 198, 89, 103, 198],
 };
 pub const COLOR_OPTIMIZATION: u32 = 1u32;
+#[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+pub struct COMPROPSHEETUI {
+    pub cbSize: u16,
+    pub Flags: u16,
+    pub hInstCaller: super::super::Foundation::HINSTANCE,
+    pub pCallerName: *mut i8,
+    pub UserData: usize,
+    pub pHelpFile: *mut i8,
+    pub pfnCallBack: ::core::option::Option<_CPSUICALLBACK>,
+    pub pOptItem: *mut OPTITEM,
+    pub pDlgPage: *mut DLGPAGE,
+    pub cOptItem: u16,
+    pub cDlgPage: u16,
+    pub IconID: usize,
+    pub pOptItemName: *mut i8,
+    pub CallerVersion: u16,
+    pub OptItemVersion: u16,
+    pub dwReserved: [usize; 4],
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::core::marker::Copy for COMPROPSHEETUI {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::core::clone::Clone for COMPROPSHEETUI {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct COMPROPSHEETUI(i32);
-#[repr(C)]
-pub struct CONFIG_INFO_DATA_1(i32);
+pub struct CONFIG_INFO_DATA_1 {
+    pub Reserved: [u8; 128],
+    pub dwVersion: u32,
+}
+impl ::core::marker::Copy for CONFIG_INFO_DATA_1 {}
+impl ::core::clone::Clone for CONFIG_INFO_DATA_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const COPYFILE_EVENT_ADD_PRINTER_CONNECTION: u32 = 3u32;
 pub const COPYFILE_EVENT_DELETE_PRINTER: u32 = 2u32;
 pub const COPYFILE_EVENT_DELETE_PRINTER_CONNECTION: u32 = 4u32;
@@ -573,12 +895,38 @@ pub const COPYFILE_EVENT_FILES_CHANGED: u32 = 5u32;
 pub const COPYFILE_EVENT_SET_PRINTER_DATAEX: u32 = 1u32;
 pub const COPYFILE_FLAG_CLIENT_SPOOLER: u32 = 1u32;
 pub const COPYFILE_FLAG_SERVER_SPOOLER: u32 = 2u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CORE_PRINTER_DRIVERA(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct CORE_PRINTER_DRIVERA {
+    pub CoreDriverGUID: ::windows_sys::core::GUID,
+    pub ftDriverDate: super::super::Foundation::FILETIME,
+    pub dwlDriverVersion: u64,
+    pub szPackageID: [super::super::Foundation::CHAR; 260],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CORE_PRINTER_DRIVERA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CORE_PRINTER_DRIVERA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CORE_PRINTER_DRIVERW(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CORE_PRINTER_DRIVERW {
+    pub CoreDriverGUID: ::windows_sys::core::GUID,
+    pub ftDriverDate: super::super::Foundation::FILETIME,
+    pub dwlDriverVersion: u64,
+    pub szPackageID: [u16; 260],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CORE_PRINTER_DRIVERW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CORE_PRINTER_DRIVERW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CPSFUNC_ADD_HPROPSHEETPAGE: u32 = 0u32;
 pub const CPSFUNC_ADD_PCOMPROPSHEETUI: u32 = 3u32;
 pub const CPSFUNC_ADD_PCOMPROPSHEETUIA: u32 = 2u32;
@@ -612,9 +960,40 @@ pub const CPSFUNC_SET_PSUIPAGE_TITLE: u32 = 19u32;
 pub const CPSFUNC_SET_PSUIPAGE_TITLEA: u32 = 18u32;
 pub const CPSFUNC_SET_PSUIPAGE_TITLEW: u32 = 19u32;
 pub const CPSFUNC_SET_RESULT: u32 = 9u32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[repr(C)]
-pub struct CPSUICBPARAM(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+pub struct CPSUICBPARAM {
+    pub cbSize: u16,
+    pub Reason: u16,
+    pub hDlg: super::super::Foundation::HWND,
+    pub pOptItem: *mut OPTITEM,
+    pub cOptItem: u16,
+    pub Flags: u16,
+    pub pCurItem: *mut OPTITEM,
+    pub Anonymous: CPSUICBPARAM_0,
+    pub UserData: usize,
+    pub Result: usize,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::core::marker::Copy for CPSUICBPARAM {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::core::clone::Clone for CPSUICBPARAM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+pub union CPSUICBPARAM_0 {
+    pub OldSel: i32,
+    pub pOldSel: *mut i8,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::core::clone::Clone for CPSUICBPARAM_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CPSUICB_ACTION_ITEMS_APPLIED: u32 = 4u32;
 pub const CPSUICB_ACTION_NONE: u32 = 0u32;
 pub const CPSUICB_ACTION_NO_APPLY_EXIT: u32 = 3u32;
@@ -633,7 +1012,16 @@ pub const CPSUICB_REASON_SEL_CHANGED: u32 = 0u32;
 pub const CPSUICB_REASON_SETACTIVE: u32 = 10u32;
 pub const CPSUICB_REASON_UNDO_CHANGES: u32 = 4u32;
 #[repr(C)]
-pub struct CPSUIDATABLOCK(i32);
+pub struct CPSUIDATABLOCK {
+    pub cbData: u32,
+    pub pbData: *mut u8,
+}
+impl ::core::marker::Copy for CPSUIDATABLOCK {}
+impl ::core::clone::Clone for CPSUIDATABLOCK {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CPSUIF_ABOUT_CALLBACK: u32 = 4u32;
 pub const CPSUIF_ICONID_AS_HICON: u32 = 2u32;
 pub const CPSUIF_UPDATE_PERMISSION: u32 = 1u32;
@@ -648,24 +1036,106 @@ pub const CUSTOMPARAM_ORIENTATION: u32 = 4u32;
 pub const CUSTOMPARAM_WIDTH: u32 = 0u32;
 pub const CUSTOMPARAM_WIDTHOFFSET: u32 = 2u32;
 #[repr(C)]
-pub struct CUSTOMSIZEPARAM(i32);
+pub struct CUSTOMSIZEPARAM {
+    pub dwOrder: i32,
+    pub lMinVal: i32,
+    pub lMaxVal: i32,
+}
+impl ::core::marker::Copy for CUSTOMSIZEPARAM {}
+impl ::core::clone::Clone for CUSTOMSIZEPARAM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct DATATYPES_INFO_1A(i32);
+pub struct DATATYPES_INFO_1A {
+    pub pName: super::super::Foundation::PSTR,
+}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DATATYPES_INFO_1A {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DATATYPES_INFO_1A {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DATATYPES_INFO_1W(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct DATATYPES_INFO_1W {
+    pub pName: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DATATYPES_INFO_1W {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DATATYPES_INFO_1W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DATA_HEADER(i32);
+pub struct DATA_HEADER {
+    pub dwSignature: u32,
+    pub wSize: u16,
+    pub wDataID: u16,
+    pub dwDataSize: u32,
+    pub dwReserved: u32,
+}
+impl ::core::marker::Copy for DATA_HEADER {}
+impl ::core::clone::Clone for DATA_HEADER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DEF_PRIORITY: u32 = 1u32;
 #[repr(C)]
-pub struct DELETE_PORT_DATA_1(i32);
+pub struct DELETE_PORT_DATA_1 {
+    pub psztPortName: [u16; 64],
+    pub Reserved: [u8; 98],
+    pub dwVersion: u32,
+    pub dwReserved: u32,
+}
+impl ::core::marker::Copy for DELETE_PORT_DATA_1 {}
+impl ::core::clone::Clone for DELETE_PORT_DATA_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+pub struct DEVICEPROPERTYHEADER {
+    pub cbSize: u16,
+    pub Flags: u16,
+    pub hPrinter: super::super::Foundation::HANDLE,
+    pub pszPrinterName: *mut i8,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DEVICEPROPERTYHEADER {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DEVICEPROPERTYHEADER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DEVICEPROPERTYHEADER(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-#[repr(C)]
-pub struct DEVQUERYPRINT_INFO(i32);
+pub struct DEVQUERYPRINT_INFO {
+    pub cbSize: u16,
+    pub Level: u16,
+    pub hPrinter: super::super::Foundation::HANDLE,
+    pub pDevMode: *mut super::Gdi::DEVMODEA,
+    pub pszErrorStr: super::super::Foundation::PWSTR,
+    pub cchErrorStr: u32,
+    pub cchNeeded: u32,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::marker::Copy for DEVQUERYPRINT_INFO {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::clone::Clone for DEVQUERYPRINT_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DF_BKSP_OK: u32 = 64u32;
 pub const DF_NOITALIC: u32 = 1u32;
 pub const DF_NOUNDER: u32 = 2u32;
@@ -815,9 +1285,36 @@ pub const DISPID_PRINTSCHEMA_TICKET_VALIDATEASYNC: u32 = 11003u32;
 pub const DI_CHANNEL: u32 = 1u32;
 pub const DI_MEMORYMAP_WRITE: u32 = 1u32;
 pub const DI_READ_SPOOL_JOB: u32 = 3u32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[repr(C)]
-pub struct DLGPAGE(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+pub struct DLGPAGE {
+    pub cbSize: u16,
+    pub Flags: u16,
+    pub DlgProc: ::core::option::Option<super::super::UI::WindowsAndMessaging::DLGPROC>,
+    pub pTabName: *mut i8,
+    pub IconID: usize,
+    pub Anonymous: DLGPAGE_0,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::core::marker::Copy for DLGPAGE {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::core::clone::Clone for DLGPAGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+pub union DLGPAGE_0 {
+    pub DlgTemplateID: u16,
+    pub hDlgTemplate: super::super::Foundation::HANDLE,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::core::clone::Clone for DLGPAGE_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DMPUB_BOOKLET_EDGE: u32 = 21u32;
 pub const DMPUB_COLOR: u32 = 6u32;
 pub const DMPUB_COPIES_COLLATE: u32 = 3u32;
@@ -852,13 +1349,48 @@ pub const DM_NOPERMISSION: u32 = 32u32;
 pub const DM_PROMPT_NON_MODAL: u32 = 1073741824u32;
 pub const DM_RESERVED: u32 = 2147483648u32;
 pub const DM_USER_DEFAULT: u32 = 64u32;
+#[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+pub struct DOCEVENT_CREATEDCPRE {
+    pub pszDriver: super::super::Foundation::PWSTR,
+    pub pszDevice: super::super::Foundation::PWSTR,
+    pub pdm: *mut super::Gdi::DEVMODEW,
+    pub bIC: super::super::Foundation::BOOL,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::marker::Copy for DOCEVENT_CREATEDCPRE {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::clone::Clone for DOCEVENT_CREATEDCPRE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DOCEVENT_CREATEDCPRE(i32);
+pub struct DOCEVENT_ESCAPE {
+    pub iEscape: i32,
+    pub cjInput: i32,
+    pub pvInData: *mut ::core::ffi::c_void,
+}
+impl ::core::marker::Copy for DOCEVENT_ESCAPE {}
+impl ::core::clone::Clone for DOCEVENT_ESCAPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DOCEVENT_ESCAPE(i32);
-#[repr(C)]
-pub struct DOCEVENT_FILTER(i32);
+pub struct DOCEVENT_FILTER {
+    pub cbSize: u32,
+    pub cElementsAllocated: u32,
+    pub cElementsNeeded: u32,
+    pub cElementsReturned: u32,
+    pub aDocEventCall: [u32; 1],
+}
+impl ::core::marker::Copy for DOCEVENT_FILTER {}
+impl ::core::clone::Clone for DOCEVENT_FILTER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DOCUMENTEVENT_ABORTDOC: u32 = 9u32;
 pub const DOCUMENTEVENT_CREATEDCPOST: u32 = 2u32;
 pub const DOCUMENTEVENT_CREATEDCPRE: u32 = 1u32;
@@ -894,27 +1426,122 @@ pub const DOCUMENTEVENT_XPS_ADDFIXEDPAGEPOST: u32 = 4u32;
 pub const DOCUMENTEVENT_XPS_ADDFIXEDPAGEPRINTTICKETPOST: u32 = 10u32;
 pub const DOCUMENTEVENT_XPS_ADDFIXEDPAGEPRINTTICKETPRE: u32 = 9u32;
 pub const DOCUMENTEVENT_XPS_CANCELJOB: u32 = 6u32;
+#[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+pub struct DOCUMENTPROPERTYHEADER {
+    pub cbSize: u16,
+    pub Reserved: u16,
+    pub hPrinter: super::super::Foundation::HANDLE,
+    pub pszPrinterName: *mut i8,
+    pub pdmIn: *mut super::Gdi::DEVMODEA,
+    pub pdmOut: *mut super::Gdi::DEVMODEA,
+    pub cbOut: u32,
+    pub fMode: u32,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::marker::Copy for DOCUMENTPROPERTYHEADER {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::clone::Clone for DOCUMENTPROPERTYHEADER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DOCUMENTPROPERTYHEADER(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct DOC_INFO_1A(i32);
+pub struct DOC_INFO_1A {
+    pub pDocName: super::super::Foundation::PSTR,
+    pub pOutputFile: super::super::Foundation::PSTR,
+    pub pDatatype: super::super::Foundation::PSTR,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct DOC_INFO_1W(i32);
+impl ::core::marker::Copy for DOC_INFO_1A {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DOC_INFO_1A {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DOC_INFO_2A(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct DOC_INFO_2W(i32);
+pub struct DOC_INFO_1W {
+    pub pDocName: super::super::Foundation::PWSTR,
+    pub pOutputFile: super::super::Foundation::PWSTR,
+    pub pDatatype: super::super::Foundation::PWSTR,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct DOC_INFO_3A(i32);
+impl ::core::marker::Copy for DOC_INFO_1W {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DOC_INFO_1W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DOC_INFO_3W(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct DOC_INFO_2A {
+    pub pDocName: super::super::Foundation::PSTR,
+    pub pOutputFile: super::super::Foundation::PSTR,
+    pub pDatatype: super::super::Foundation::PSTR,
+    pub dwMode: u32,
+    pub JobId: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DOC_INFO_2A {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DOC_INFO_2A {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DOC_INFO_2W {
+    pub pDocName: super::super::Foundation::PWSTR,
+    pub pOutputFile: super::super::Foundation::PWSTR,
+    pub pDatatype: super::super::Foundation::PWSTR,
+    pub dwMode: u32,
+    pub JobId: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DOC_INFO_2W {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DOC_INFO_2W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DOC_INFO_3A {
+    pub pDocName: super::super::Foundation::PSTR,
+    pub pOutputFile: super::super::Foundation::PSTR,
+    pub pDatatype: super::super::Foundation::PSTR,
+    pub dwFlags: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DOC_INFO_3A {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DOC_INFO_3A {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DOC_INFO_3W {
+    pub pDocName: super::super::Foundation::PWSTR,
+    pub pOutputFile: super::super::Foundation::PWSTR,
+    pub pDatatype: super::super::Foundation::PWSTR,
+    pub dwFlags: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DOC_INFO_3W {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DOC_INFO_3W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DPD_DELETE_ALL_FILES: u32 = 4u32;
 pub const DPD_DELETE_SPECIFIC_VERSION: u32 = 2u32;
 pub const DPD_DELETE_UNUSED_FILES: u32 = 1u32;
@@ -927,53 +1554,366 @@ pub const DP_STD_RESERVED_START: u32 = 65520u32;
 pub const DP_STD_TREEVIEWPAGE: u32 = 65535u32;
 pub const DRIVER_EVENT_DELETE: u32 = 2u32;
 pub const DRIVER_EVENT_INITIALIZE: u32 = 1u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct DRIVER_INFO_1A(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct DRIVER_INFO_1W(i32);
+pub struct DRIVER_INFO_1A {
+    pub pName: super::super::Foundation::PSTR,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct DRIVER_INFO_2A(i32);
+impl ::core::marker::Copy for DRIVER_INFO_1A {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DRIVER_INFO_1A {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DRIVER_INFO_2W(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct DRIVER_INFO_3A(i32);
+pub struct DRIVER_INFO_1W {
+    pub pName: super::super::Foundation::PWSTR,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct DRIVER_INFO_3W(i32);
+impl ::core::marker::Copy for DRIVER_INFO_1W {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DRIVER_INFO_1W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DRIVER_INFO_4A(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct DRIVER_INFO_4W(i32);
+pub struct DRIVER_INFO_2A {
+    pub cVersion: u32,
+    pub pName: super::super::Foundation::PSTR,
+    pub pEnvironment: super::super::Foundation::PSTR,
+    pub pDriverPath: super::super::Foundation::PSTR,
+    pub pDataFile: super::super::Foundation::PSTR,
+    pub pConfigFile: super::super::Foundation::PSTR,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct DRIVER_INFO_5A(i32);
+impl ::core::marker::Copy for DRIVER_INFO_2A {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DRIVER_INFO_2A {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DRIVER_INFO_5W(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct DRIVER_INFO_6A(i32);
+pub struct DRIVER_INFO_2W {
+    pub cVersion: u32,
+    pub pName: super::super::Foundation::PWSTR,
+    pub pEnvironment: super::super::Foundation::PWSTR,
+    pub pDriverPath: super::super::Foundation::PWSTR,
+    pub pDataFile: super::super::Foundation::PWSTR,
+    pub pConfigFile: super::super::Foundation::PWSTR,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct DRIVER_INFO_6W(i32);
+impl ::core::marker::Copy for DRIVER_INFO_2W {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DRIVER_INFO_2W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DRIVER_INFO_8A(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct DRIVER_INFO_3A {
+    pub cVersion: u32,
+    pub pName: super::super::Foundation::PSTR,
+    pub pEnvironment: super::super::Foundation::PSTR,
+    pub pDriverPath: super::super::Foundation::PSTR,
+    pub pDataFile: super::super::Foundation::PSTR,
+    pub pConfigFile: super::super::Foundation::PSTR,
+    pub pHelpFile: super::super::Foundation::PSTR,
+    pub pDependentFiles: super::super::Foundation::PSTR,
+    pub pMonitorName: super::super::Foundation::PSTR,
+    pub pDefaultDataType: super::super::Foundation::PSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DRIVER_INFO_3A {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DRIVER_INFO_3A {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DRIVER_INFO_8W(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct DRIVER_INFO_3W {
+    pub cVersion: u32,
+    pub pName: super::super::Foundation::PWSTR,
+    pub pEnvironment: super::super::Foundation::PWSTR,
+    pub pDriverPath: super::super::Foundation::PWSTR,
+    pub pDataFile: super::super::Foundation::PWSTR,
+    pub pConfigFile: super::super::Foundation::PWSTR,
+    pub pHelpFile: super::super::Foundation::PWSTR,
+    pub pDependentFiles: super::super::Foundation::PWSTR,
+    pub pMonitorName: super::super::Foundation::PWSTR,
+    pub pDefaultDataType: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DRIVER_INFO_3W {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DRIVER_INFO_3W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DRIVER_INFO_4A {
+    pub cVersion: u32,
+    pub pName: super::super::Foundation::PSTR,
+    pub pEnvironment: super::super::Foundation::PSTR,
+    pub pDriverPath: super::super::Foundation::PSTR,
+    pub pDataFile: super::super::Foundation::PSTR,
+    pub pConfigFile: super::super::Foundation::PSTR,
+    pub pHelpFile: super::super::Foundation::PSTR,
+    pub pDependentFiles: super::super::Foundation::PSTR,
+    pub pMonitorName: super::super::Foundation::PSTR,
+    pub pDefaultDataType: super::super::Foundation::PSTR,
+    pub pszzPreviousNames: super::super::Foundation::PSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DRIVER_INFO_4A {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DRIVER_INFO_4A {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DRIVER_INFO_4W {
+    pub cVersion: u32,
+    pub pName: super::super::Foundation::PWSTR,
+    pub pEnvironment: super::super::Foundation::PWSTR,
+    pub pDriverPath: super::super::Foundation::PWSTR,
+    pub pDataFile: super::super::Foundation::PWSTR,
+    pub pConfigFile: super::super::Foundation::PWSTR,
+    pub pHelpFile: super::super::Foundation::PWSTR,
+    pub pDependentFiles: super::super::Foundation::PWSTR,
+    pub pMonitorName: super::super::Foundation::PWSTR,
+    pub pDefaultDataType: super::super::Foundation::PWSTR,
+    pub pszzPreviousNames: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DRIVER_INFO_4W {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DRIVER_INFO_4W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DRIVER_INFO_5A {
+    pub cVersion: u32,
+    pub pName: super::super::Foundation::PSTR,
+    pub pEnvironment: super::super::Foundation::PSTR,
+    pub pDriverPath: super::super::Foundation::PSTR,
+    pub pDataFile: super::super::Foundation::PSTR,
+    pub pConfigFile: super::super::Foundation::PSTR,
+    pub dwDriverAttributes: u32,
+    pub dwConfigVersion: u32,
+    pub dwDriverVersion: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DRIVER_INFO_5A {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DRIVER_INFO_5A {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DRIVER_INFO_5W {
+    pub cVersion: u32,
+    pub pName: super::super::Foundation::PWSTR,
+    pub pEnvironment: super::super::Foundation::PWSTR,
+    pub pDriverPath: super::super::Foundation::PWSTR,
+    pub pDataFile: super::super::Foundation::PWSTR,
+    pub pConfigFile: super::super::Foundation::PWSTR,
+    pub dwDriverAttributes: u32,
+    pub dwConfigVersion: u32,
+    pub dwDriverVersion: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DRIVER_INFO_5W {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DRIVER_INFO_5W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DRIVER_INFO_6A {
+    pub cVersion: u32,
+    pub pName: super::super::Foundation::PSTR,
+    pub pEnvironment: super::super::Foundation::PSTR,
+    pub pDriverPath: super::super::Foundation::PSTR,
+    pub pDataFile: super::super::Foundation::PSTR,
+    pub pConfigFile: super::super::Foundation::PSTR,
+    pub pHelpFile: super::super::Foundation::PSTR,
+    pub pDependentFiles: super::super::Foundation::PSTR,
+    pub pMonitorName: super::super::Foundation::PSTR,
+    pub pDefaultDataType: super::super::Foundation::PSTR,
+    pub pszzPreviousNames: super::super::Foundation::PSTR,
+    pub ftDriverDate: super::super::Foundation::FILETIME,
+    pub dwlDriverVersion: u64,
+    pub pszMfgName: super::super::Foundation::PSTR,
+    pub pszOEMUrl: super::super::Foundation::PSTR,
+    pub pszHardwareID: super::super::Foundation::PSTR,
+    pub pszProvider: super::super::Foundation::PSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DRIVER_INFO_6A {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DRIVER_INFO_6A {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DRIVER_INFO_6W {
+    pub cVersion: u32,
+    pub pName: super::super::Foundation::PWSTR,
+    pub pEnvironment: super::super::Foundation::PWSTR,
+    pub pDriverPath: super::super::Foundation::PWSTR,
+    pub pDataFile: super::super::Foundation::PWSTR,
+    pub pConfigFile: super::super::Foundation::PWSTR,
+    pub pHelpFile: super::super::Foundation::PWSTR,
+    pub pDependentFiles: super::super::Foundation::PWSTR,
+    pub pMonitorName: super::super::Foundation::PWSTR,
+    pub pDefaultDataType: super::super::Foundation::PWSTR,
+    pub pszzPreviousNames: super::super::Foundation::PWSTR,
+    pub ftDriverDate: super::super::Foundation::FILETIME,
+    pub dwlDriverVersion: u64,
+    pub pszMfgName: super::super::Foundation::PWSTR,
+    pub pszOEMUrl: super::super::Foundation::PWSTR,
+    pub pszHardwareID: super::super::Foundation::PWSTR,
+    pub pszProvider: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DRIVER_INFO_6W {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DRIVER_INFO_6W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DRIVER_INFO_8A {
+    pub cVersion: u32,
+    pub pName: super::super::Foundation::PSTR,
+    pub pEnvironment: super::super::Foundation::PSTR,
+    pub pDriverPath: super::super::Foundation::PSTR,
+    pub pDataFile: super::super::Foundation::PSTR,
+    pub pConfigFile: super::super::Foundation::PSTR,
+    pub pHelpFile: super::super::Foundation::PSTR,
+    pub pDependentFiles: super::super::Foundation::PSTR,
+    pub pMonitorName: super::super::Foundation::PSTR,
+    pub pDefaultDataType: super::super::Foundation::PSTR,
+    pub pszzPreviousNames: super::super::Foundation::PSTR,
+    pub ftDriverDate: super::super::Foundation::FILETIME,
+    pub dwlDriverVersion: u64,
+    pub pszMfgName: super::super::Foundation::PSTR,
+    pub pszOEMUrl: super::super::Foundation::PSTR,
+    pub pszHardwareID: super::super::Foundation::PSTR,
+    pub pszProvider: super::super::Foundation::PSTR,
+    pub pszPrintProcessor: super::super::Foundation::PSTR,
+    pub pszVendorSetup: super::super::Foundation::PSTR,
+    pub pszzColorProfiles: super::super::Foundation::PSTR,
+    pub pszInfPath: super::super::Foundation::PSTR,
+    pub dwPrinterDriverAttributes: u32,
+    pub pszzCoreDriverDependencies: super::super::Foundation::PSTR,
+    pub ftMinInboxDriverVerDate: super::super::Foundation::FILETIME,
+    pub dwlMinInboxDriverVerVersion: u64,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DRIVER_INFO_8A {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DRIVER_INFO_8A {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DRIVER_INFO_8W {
+    pub cVersion: u32,
+    pub pName: super::super::Foundation::PWSTR,
+    pub pEnvironment: super::super::Foundation::PWSTR,
+    pub pDriverPath: super::super::Foundation::PWSTR,
+    pub pDataFile: super::super::Foundation::PWSTR,
+    pub pConfigFile: super::super::Foundation::PWSTR,
+    pub pHelpFile: super::super::Foundation::PWSTR,
+    pub pDependentFiles: super::super::Foundation::PWSTR,
+    pub pMonitorName: super::super::Foundation::PWSTR,
+    pub pDefaultDataType: super::super::Foundation::PWSTR,
+    pub pszzPreviousNames: super::super::Foundation::PWSTR,
+    pub ftDriverDate: super::super::Foundation::FILETIME,
+    pub dwlDriverVersion: u64,
+    pub pszMfgName: super::super::Foundation::PWSTR,
+    pub pszOEMUrl: super::super::Foundation::PWSTR,
+    pub pszHardwareID: super::super::Foundation::PWSTR,
+    pub pszProvider: super::super::Foundation::PWSTR,
+    pub pszPrintProcessor: super::super::Foundation::PWSTR,
+    pub pszVendorSetup: super::super::Foundation::PWSTR,
+    pub pszzColorProfiles: super::super::Foundation::PWSTR,
+    pub pszInfPath: super::super::Foundation::PWSTR,
+    pub dwPrinterDriverAttributes: u32,
+    pub pszzCoreDriverDependencies: super::super::Foundation::PWSTR,
+    pub ftMinInboxDriverVerDate: super::super::Foundation::FILETIME,
+    pub dwlMinInboxDriverVerVersion: u64,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DRIVER_INFO_8W {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DRIVER_INFO_8W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DRIVER_KERNELMODE: u32 = 1u32;
 #[repr(C)]
-pub struct DRIVER_UPGRADE_INFO_1(i32);
+pub struct DRIVER_UPGRADE_INFO_1 {
+    pub pPrinterName: *mut i8,
+    pub pOldDriverDirectory: *mut i8,
+}
+impl ::core::marker::Copy for DRIVER_UPGRADE_INFO_1 {}
+impl ::core::clone::Clone for DRIVER_UPGRADE_INFO_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DRIVER_UPGRADE_INFO_2(i32);
+pub struct DRIVER_UPGRADE_INFO_2 {
+    pub pPrinterName: *mut i8,
+    pub pOldDriverDirectory: *mut i8,
+    pub cVersion: u32,
+    pub pName: *mut i8,
+    pub pEnvironment: *mut i8,
+    pub pDriverPath: *mut i8,
+    pub pDataFile: *mut i8,
+    pub pConfigFile: *mut i8,
+    pub pHelpFile: *mut i8,
+    pub pDependentFiles: *mut i8,
+    pub pMonitorName: *mut i8,
+    pub pDefaultDataType: *mut i8,
+    pub pszzPreviousNames: *mut i8,
+}
+impl ::core::marker::Copy for DRIVER_UPGRADE_INFO_2 {}
+impl ::core::clone::Clone for DRIVER_UPGRADE_INFO_2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DRIVER_USERMODE: u32 = 2u32;
 pub const DSPRINT_PENDING: u32 = 2147483648u32;
 pub const DSPRINT_PUBLISH: u32 = 1u32;
@@ -1116,12 +2056,100 @@ pub const ERR_CPSUI_TOO_MANY_DLGPAGES: i32 = -15i32;
 pub const ERR_CPSUI_TOO_MANY_PROPSHEETPAGES: i32 = -9i32;
 pub const ERR_CPSUI_ZERO_OPTITEM: i32 = -44i32;
 #[repr(C)]
-pub struct EXTCHKBOX(i32);
+pub struct EXTCHKBOX {
+    pub cbSize: u16,
+    pub Flags: u16,
+    pub pTitle: *mut i8,
+    pub pSeparator: *mut i8,
+    pub pCheckedName: *mut i8,
+    pub IconID: usize,
+    pub wReserved: [u16; 4],
+    pub dwReserved: [usize; 2],
+}
+impl ::core::marker::Copy for EXTCHKBOX {}
+impl ::core::clone::Clone for EXTCHKBOX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+pub struct EXTPUSH {
+    pub cbSize: u16,
+    pub Flags: u16,
+    pub pTitle: *mut i8,
+    pub Anonymous1: EXTPUSH_0,
+    pub IconID: usize,
+    pub Anonymous2: EXTPUSH_1,
+    pub dwReserved: [usize; 3],
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::core::marker::Copy for EXTPUSH {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::core::clone::Clone for EXTPUSH {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct EXTPUSH(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+pub union EXTPUSH_0 {
+    pub DlgProc: ::core::option::Option<super::super::UI::WindowsAndMessaging::DLGPROC>,
+    pub pfnCallBack: ::core::option::Option<super::super::Foundation::FARPROC>,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::core::clone::Clone for EXTPUSH_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct EXTTEXTMETRIC(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+pub union EXTPUSH_1 {
+    pub DlgTemplateID: u16,
+    pub hDlgTemplate: super::super::Foundation::HANDLE,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::core::clone::Clone for EXTPUSH_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct EXTTEXTMETRIC {
+    pub emSize: i16,
+    pub emPointSize: i16,
+    pub emOrientation: i16,
+    pub emMasterHeight: i16,
+    pub emMinScale: i16,
+    pub emMaxScale: i16,
+    pub emMasterUnits: i16,
+    pub emCapHeight: i16,
+    pub emXHeight: i16,
+    pub emLowerCaseAscent: i16,
+    pub emLowerCaseDescent: i16,
+    pub emSlant: i16,
+    pub emSuperScript: i16,
+    pub emSubScript: i16,
+    pub emSuperScriptSize: i16,
+    pub emSubScriptSize: i16,
+    pub emUnderlineOffset: i16,
+    pub emUnderlineWidth: i16,
+    pub emDoubleUpperUnderlineOffset: i16,
+    pub emDoubleLowerUnderlineOffset: i16,
+    pub emDoubleUpperUnderlineWidth: i16,
+    pub emDoubleLowerUnderlineWidth: i16,
+    pub emStrikeOutOffset: i16,
+    pub emStrikeOutWidth: i16,
+    pub emKernPairs: u16,
+    pub emKernTracks: u16,
+}
+impl ::core::marker::Copy for EXTTEXTMETRIC {}
+impl ::core::clone::Clone for EXTTEXTMETRIC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct EXpsCompressionOptions(pub i32);
 pub const Compression_NotCompressed: EXpsCompressionOptions = EXpsCompressionOptions(0i32);
@@ -1177,22 +2205,95 @@ pub const FONT_FL_RESERVED: u32 = 32768u32;
 pub const FONT_FL_SOFTFONT: u32 = 4u32;
 pub const FONT_FL_UFM: u32 = 1u32;
 pub const FORM_BUILTIN: u32 = 1u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct FORM_INFO_1A(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct FORM_INFO_1W(i32);
+pub struct FORM_INFO_1A {
+    pub Flags: u32,
+    pub pName: super::super::Foundation::PSTR,
+    pub Size: super::super::Foundation::SIZE,
+    pub ImageableArea: super::super::Foundation::RECTL,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct FORM_INFO_2A(i32);
+impl ::core::marker::Copy for FORM_INFO_1A {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for FORM_INFO_1A {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct FORM_INFO_2W(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct FORM_INFO_1W {
+    pub Flags: u32,
+    pub pName: super::super::Foundation::PWSTR,
+    pub Size: super::super::Foundation::SIZE,
+    pub ImageableArea: super::super::Foundation::RECTL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for FORM_INFO_1W {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for FORM_INFO_1W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct FORM_INFO_2A {
+    pub Flags: u32,
+    pub pName: super::super::Foundation::PSTR,
+    pub Size: super::super::Foundation::SIZE,
+    pub ImageableArea: super::super::Foundation::RECTL,
+    pub pKeyword: super::super::Foundation::PSTR,
+    pub StringType: u32,
+    pub pMuiDll: super::super::Foundation::PSTR,
+    pub dwResourceId: u32,
+    pub pDisplayName: super::super::Foundation::PSTR,
+    pub wLangId: u16,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for FORM_INFO_2A {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for FORM_INFO_2A {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct FORM_INFO_2W {
+    pub Flags: u32,
+    pub pName: super::super::Foundation::PWSTR,
+    pub Size: super::super::Foundation::SIZE,
+    pub ImageableArea: super::super::Foundation::RECTL,
+    pub pKeyword: super::super::Foundation::PSTR,
+    pub StringType: u32,
+    pub pMuiDll: super::super::Foundation::PWSTR,
+    pub dwResourceId: u32,
+    pub pDisplayName: super::super::Foundation::PWSTR,
+    pub wLangId: u16,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for FORM_INFO_2W {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for FORM_INFO_2W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const FORM_PRINTER: u32 = 2u32;
 pub const FORM_USER: u32 = 0u32;
 #[repr(C)]
-pub struct GLYPHRUN(i32);
+pub struct GLYPHRUN {
+    pub wcLow: u16,
+    pub wGlyphCount: u16,
+}
+impl ::core::marker::Copy for GLYPHRUN {}
+impl ::core::clone::Clone for GLYPHRUN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const GPD_OEMCUSTOMDATA: u32 = 1u32;
 pub const GUID_DEVINTERFACE_IPPUSB_PRINT: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 4076077953,
@@ -1208,21 +2309,109 @@ pub struct IAsyncGetSrvReferralCookie(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IBidiAsyncNotifyChannel(pub *mut ::core::ffi::c_void);
 #[repr(C)]
-pub struct IBidiRequest(i32);
+pub struct IBidiRequest {
+    pub lpVtbl: *mut IBidiRequestVtbl,
+}
+impl ::core::marker::Copy for IBidiRequest {}
+impl ::core::clone::Clone for IBidiRequest {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct IBidiRequestContainer(i32);
+pub struct IBidiRequestContainer {
+    pub lpVtbl: *mut IBidiRequestContainerVtbl,
+}
+impl ::core::marker::Copy for IBidiRequestContainer {}
+impl ::core::clone::Clone for IBidiRequestContainer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct IBidiRequestContainerVtbl(i32);
+pub struct IBidiRequestContainerVtbl {
+    pub QueryInterface: isize,
+    pub AddRef: isize,
+    pub Release: isize,
+    pub AddRequest: isize,
+    pub GetEnumObject: isize,
+    pub GetRequestCount: isize,
+}
+impl ::core::marker::Copy for IBidiRequestContainerVtbl {}
+impl ::core::clone::Clone for IBidiRequestContainerVtbl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct IBidiRequestVtbl(i32);
+pub struct IBidiRequestVtbl {
+    pub QueryInterface: isize,
+    pub AddRef: isize,
+    pub Release: isize,
+    pub SetSchema: isize,
+    pub SetInputData: isize,
+    pub GetResult: isize,
+    pub GetOutputData: isize,
+    pub GetEnumCount: isize,
+}
+impl ::core::marker::Copy for IBidiRequestVtbl {}
+impl ::core::clone::Clone for IBidiRequestVtbl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct IBidiSpl(i32);
+pub struct IBidiSpl {
+    pub lpVtbl: *mut IBidiSplVtbl,
+}
+impl ::core::marker::Copy for IBidiSpl {}
+impl ::core::clone::Clone for IBidiSpl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct IBidiSpl2(i32);
+pub struct IBidiSpl2 {
+    pub lpVtbl: *mut IBidiSpl2Vtbl,
+}
+impl ::core::marker::Copy for IBidiSpl2 {}
+impl ::core::clone::Clone for IBidiSpl2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct IBidiSpl2Vtbl(i32);
+pub struct IBidiSpl2Vtbl {
+    pub QueryInterface: isize,
+    pub AddRef: isize,
+    pub Release: isize,
+    pub BindDevice: isize,
+    pub UnbindDevice: isize,
+    pub SendRecvXMLString: isize,
+    pub SendRecvXMLStream: isize,
+}
+impl ::core::marker::Copy for IBidiSpl2Vtbl {}
+impl ::core::clone::Clone for IBidiSpl2Vtbl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct IBidiSplVtbl(i32);
+pub struct IBidiSplVtbl {
+    pub QueryInterface: isize,
+    pub AddRef: isize,
+    pub Release: isize,
+    pub BindDevice: isize,
+    pub UnbindDevice: isize,
+    pub SendRecv: isize,
+    pub MultiSendRecv: isize,
+}
+impl ::core::marker::Copy for IBidiSplVtbl {}
+impl ::core::clone::Clone for IBidiSplVtbl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const IDI_CPSUI_ADVANCE: u32 = 64058u32;
 pub const IDI_CPSUI_AUTOSEL: u32 = 64025u32;
 pub const IDI_CPSUI_COLLATE: u32 = 64030u32;
@@ -1531,38 +2720,205 @@ pub const IDS_CPSUI_WARNING: u32 = 64847u32;
 pub const IDS_CPSUI_WATERMARK: u32 = 64797u32;
 pub const IDS_CPSUI_YES: u32 = 64729u32;
 #[repr(C)]
-pub struct IFixedDocument(i32);
+pub struct IFixedDocument {
+    pub lpVtbl: *mut IFixedDocumentVtbl,
+}
+impl ::core::marker::Copy for IFixedDocument {}
+impl ::core::clone::Clone for IFixedDocument {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct IFixedDocumentSequence(i32);
+pub struct IFixedDocumentSequence {
+    pub lpVtbl: *mut IFixedDocumentSequenceVtbl,
+}
+impl ::core::marker::Copy for IFixedDocumentSequence {}
+impl ::core::clone::Clone for IFixedDocumentSequence {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct IFixedDocumentSequenceVtbl(i32);
+pub struct IFixedDocumentSequenceVtbl {
+    pub QueryInterface: isize,
+    pub AddRef: isize,
+    pub Release: isize,
+    pub GetUri: isize,
+    pub GetPrintTicket: isize,
+    pub SetPrintTicket: isize,
+}
+impl ::core::marker::Copy for IFixedDocumentSequenceVtbl {}
+impl ::core::clone::Clone for IFixedDocumentSequenceVtbl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct IFixedDocumentVtbl(i32);
+pub struct IFixedDocumentVtbl {
+    pub QueryInterface: isize,
+    pub AddRef: isize,
+    pub Release: isize,
+    pub GetUri: isize,
+    pub GetPrintTicket: isize,
+    pub SetPrintTicket: isize,
+}
+impl ::core::marker::Copy for IFixedDocumentVtbl {}
+impl ::core::clone::Clone for IFixedDocumentVtbl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct IFixedPage(i32);
+pub struct IFixedPage {
+    pub lpVtbl: *mut IFixedPageVtbl,
+}
+impl ::core::marker::Copy for IFixedPage {}
+impl ::core::clone::Clone for IFixedPage {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct IFixedPageVtbl(i32);
+pub struct IFixedPageVtbl {
+    pub QueryInterface: isize,
+    pub AddRef: isize,
+    pub Release: isize,
+    pub GetUri: isize,
+    pub GetStream: isize,
+    pub GetPartCompression: isize,
+    pub SetPartCompression: isize,
+    pub GetPrintTicket: isize,
+    pub GetPagePart: isize,
+    pub GetWriteStream: isize,
+    pub SetPrintTicket: isize,
+    pub SetPagePart: isize,
+    pub DeleteResource: isize,
+    pub GetXpsPartIterator: isize,
+}
+impl ::core::marker::Copy for IFixedPageVtbl {}
+impl ::core::clone::Clone for IFixedPageVtbl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct IImgCreateErrorInfo(i32);
+pub struct IImgCreateErrorInfo {
+    pub lpVtbl: *mut IImgCreateErrorInfoVtbl,
+}
+impl ::core::marker::Copy for IImgCreateErrorInfo {}
+impl ::core::clone::Clone for IImgCreateErrorInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct IImgCreateErrorInfoVtbl(i32);
+pub struct IImgCreateErrorInfoVtbl {
+    pub QueryInterface: isize,
+    pub AddRef: isize,
+    pub Release: isize,
+    pub SetGUID: isize,
+    pub SetSource: isize,
+    pub SetDescription: isize,
+    pub SetHelpFile: isize,
+    pub SetHelpContext: isize,
+    pub AttachToErrorInfo: isize,
+}
+impl ::core::marker::Copy for IImgCreateErrorInfoVtbl {}
+impl ::core::clone::Clone for IImgCreateErrorInfoVtbl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct IImgErrorInfo(i32);
+pub struct IImgErrorInfo {
+    pub lpVtbl: *mut IImgErrorInfoVtbl,
+}
+impl ::core::marker::Copy for IImgErrorInfo {}
+impl ::core::clone::Clone for IImgErrorInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct IImgErrorInfoVtbl(i32);
+pub struct IImgErrorInfoVtbl {
+    pub QueryInterface: isize,
+    pub AddRef: isize,
+    pub Release: isize,
+    pub GetGUID: isize,
+    pub GetSource: isize,
+    pub GetDescription: isize,
+    pub GetHelpFile: isize,
+    pub GetHelpContext: isize,
+    pub GetDeveloperDescription: isize,
+    pub GetUserErrorId: isize,
+    pub GetUserParameterCount: isize,
+    pub GetUserParameter: isize,
+    pub GetUserFallback: isize,
+    pub GetExceptionId: isize,
+    pub DetachErrorInfo: isize,
+}
+impl ::core::marker::Copy for IImgErrorInfoVtbl {}
+impl ::core::clone::Clone for IImgErrorInfoVtbl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct IInterFilterCommunicator(i32);
+pub struct IInterFilterCommunicator {
+    pub lpVtbl: *mut IInterFilterCommunicatorVtbl,
+}
+impl ::core::marker::Copy for IInterFilterCommunicator {}
+impl ::core::clone::Clone for IInterFilterCommunicator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct IInterFilterCommunicatorVtbl(i32);
+pub struct IInterFilterCommunicatorVtbl {
+    pub QueryInterface: isize,
+    pub AddRef: isize,
+    pub Release: isize,
+    pub RequestReader: isize,
+    pub RequestWriter: isize,
+}
+impl ::core::marker::Copy for IInterFilterCommunicatorVtbl {}
+impl ::core::clone::Clone for IInterFilterCommunicatorVtbl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct INSERTPSUIPAGE_INFO(i32);
+pub struct INSERTPSUIPAGE_INFO {
+    pub cbSize: u16,
+    pub Type: u8,
+    pub Mode: u8,
+    pub dwData1: usize,
+    pub dwData2: usize,
+    pub dwData3: usize,
+}
+impl ::core::marker::Copy for INSERTPSUIPAGE_INFO {}
+impl ::core::clone::Clone for INSERTPSUIPAGE_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const INSPSUIPAGE_MODE_AFTER: u32 = 1u32;
 pub const INSPSUIPAGE_MODE_BEFORE: u32 = 0u32;
 pub const INSPSUIPAGE_MODE_FIRST_CHILD: u32 = 2u32;
 pub const INSPSUIPAGE_MODE_INDEX: u32 = 4u32;
 pub const INSPSUIPAGE_MODE_LAST_CHILD: u32 = 3u32;
 #[repr(C)]
-pub struct INVOC(i32);
+pub struct INVOC {
+    pub dwCount: u32,
+    pub loOffset: u32,
+}
+impl ::core::marker::Copy for INVOC {}
+impl ::core::clone::Clone for INVOC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const IOCTL_USBPRINT_ADD_CHILD_DEVICE: u32 = 2228316u32;
 pub const IOCTL_USBPRINT_ADD_MSIPP_COMPAT_ID: u32 = 2228308u32;
 pub const IOCTL_USBPRINT_CYCLE_PORT: u32 = 2228320u32;
@@ -1578,41 +2934,247 @@ pub const IOCTL_USBPRINT_VENDOR_GET_COMMAND: u32 = 2228284u32;
 pub const IOCTL_USBPRINT_VENDOR_SET_COMMAND: u32 = 2228280u32;
 pub const IPDFP_COPY_ALL_FILES: u32 = 1u32;
 #[repr(C)]
-pub struct IPartBase(i32);
+pub struct IPartBase {
+    pub lpVtbl: *mut IPartBaseVtbl,
+}
+impl ::core::marker::Copy for IPartBase {}
+impl ::core::clone::Clone for IPartBase {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct IPartBaseVtbl(i32);
+pub struct IPartBaseVtbl {
+    pub QueryInterface: isize,
+    pub AddRef: isize,
+    pub Release: isize,
+    pub GetUri: isize,
+    pub GetStream: isize,
+    pub GetPartCompression: isize,
+    pub SetPartCompression: isize,
+}
+impl ::core::marker::Copy for IPartBaseVtbl {}
+impl ::core::clone::Clone for IPartBaseVtbl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct IPartColorProfile(i32);
+pub struct IPartColorProfile {
+    pub lpVtbl: *mut IPartColorProfileVtbl,
+}
+impl ::core::marker::Copy for IPartColorProfile {}
+impl ::core::clone::Clone for IPartColorProfile {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct IPartColorProfileVtbl(i32);
+pub struct IPartColorProfileVtbl {
+    pub QueryInterface: isize,
+    pub AddRef: isize,
+    pub Release: isize,
+    pub GetUri: isize,
+    pub GetStream: isize,
+    pub GetPartCompression: isize,
+    pub SetPartCompression: isize,
+}
+impl ::core::marker::Copy for IPartColorProfileVtbl {}
+impl ::core::clone::Clone for IPartColorProfileVtbl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct IPartDiscardControl(i32);
+pub struct IPartDiscardControl {
+    pub lpVtbl: *mut IPartDiscardControlVtbl,
+}
+impl ::core::marker::Copy for IPartDiscardControl {}
+impl ::core::clone::Clone for IPartDiscardControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct IPartDiscardControlVtbl(i32);
+pub struct IPartDiscardControlVtbl {
+    pub QueryInterface: isize,
+    pub AddRef: isize,
+    pub Release: isize,
+    pub GetDiscardProperties: isize,
+}
+impl ::core::marker::Copy for IPartDiscardControlVtbl {}
+impl ::core::clone::Clone for IPartDiscardControlVtbl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct IPartFont(i32);
+pub struct IPartFont {
+    pub lpVtbl: *mut IPartFontVtbl,
+}
+impl ::core::marker::Copy for IPartFont {}
+impl ::core::clone::Clone for IPartFont {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct IPartFont2(i32);
+pub struct IPartFont2 {
+    pub lpVtbl: *mut IPartFont2Vtbl,
+}
+impl ::core::marker::Copy for IPartFont2 {}
+impl ::core::clone::Clone for IPartFont2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct IPartFont2Vtbl(i32);
+pub struct IPartFont2Vtbl {
+    pub QueryInterface: isize,
+    pub AddRef: isize,
+    pub Release: isize,
+    pub GetUri: isize,
+    pub GetStream: isize,
+    pub GetPartCompression: isize,
+    pub SetPartCompression: isize,
+    pub GetFontProperties: isize,
+    pub SetFontContent: isize,
+    pub SetFontOptions: isize,
+    pub GetFontRestriction: isize,
+}
+impl ::core::marker::Copy for IPartFont2Vtbl {}
+impl ::core::clone::Clone for IPartFont2Vtbl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct IPartFontVtbl(i32);
+pub struct IPartFontVtbl {
+    pub QueryInterface: isize,
+    pub AddRef: isize,
+    pub Release: isize,
+    pub GetUri: isize,
+    pub GetStream: isize,
+    pub GetPartCompression: isize,
+    pub SetPartCompression: isize,
+    pub GetFontProperties: isize,
+    pub SetFontContent: isize,
+    pub SetFontOptions: isize,
+}
+impl ::core::marker::Copy for IPartFontVtbl {}
+impl ::core::clone::Clone for IPartFontVtbl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct IPartImage(i32);
+pub struct IPartImage {
+    pub lpVtbl: *mut IPartImageVtbl,
+}
+impl ::core::marker::Copy for IPartImage {}
+impl ::core::clone::Clone for IPartImage {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct IPartImageVtbl(i32);
+pub struct IPartImageVtbl {
+    pub QueryInterface: isize,
+    pub AddRef: isize,
+    pub Release: isize,
+    pub GetUri: isize,
+    pub GetStream: isize,
+    pub GetPartCompression: isize,
+    pub SetPartCompression: isize,
+    pub GetImageProperties: isize,
+    pub SetImageContent: isize,
+}
+impl ::core::marker::Copy for IPartImageVtbl {}
+impl ::core::clone::Clone for IPartImageVtbl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct IPartPrintTicket(i32);
+pub struct IPartPrintTicket {
+    pub lpVtbl: *mut IPartPrintTicketVtbl,
+}
+impl ::core::marker::Copy for IPartPrintTicket {}
+impl ::core::clone::Clone for IPartPrintTicket {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct IPartPrintTicketVtbl(i32);
+pub struct IPartPrintTicketVtbl {
+    pub QueryInterface: isize,
+    pub AddRef: isize,
+    pub Release: isize,
+    pub GetUri: isize,
+    pub GetStream: isize,
+    pub GetPartCompression: isize,
+    pub SetPartCompression: isize,
+}
+impl ::core::marker::Copy for IPartPrintTicketVtbl {}
+impl ::core::clone::Clone for IPartPrintTicketVtbl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct IPartResourceDictionary(i32);
+pub struct IPartResourceDictionary {
+    pub lpVtbl: *mut IPartResourceDictionaryVtbl,
+}
+impl ::core::marker::Copy for IPartResourceDictionary {}
+impl ::core::clone::Clone for IPartResourceDictionary {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct IPartResourceDictionaryVtbl(i32);
+pub struct IPartResourceDictionaryVtbl {
+    pub QueryInterface: isize,
+    pub AddRef: isize,
+    pub Release: isize,
+    pub GetUri: isize,
+    pub GetStream: isize,
+    pub GetPartCompression: isize,
+    pub SetPartCompression: isize,
+}
+impl ::core::marker::Copy for IPartResourceDictionaryVtbl {}
+impl ::core::clone::Clone for IPartResourceDictionaryVtbl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct IPartThumbnail(i32);
+pub struct IPartThumbnail {
+    pub lpVtbl: *mut IPartThumbnailVtbl,
+}
+impl ::core::marker::Copy for IPartThumbnail {}
+impl ::core::clone::Clone for IPartThumbnail {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct IPartThumbnailVtbl(i32);
+pub struct IPartThumbnailVtbl {
+    pub QueryInterface: isize,
+    pub AddRef: isize,
+    pub Release: isize,
+    pub GetUri: isize,
+    pub GetStream: isize,
+    pub GetPartCompression: isize,
+    pub SetPartCompression: isize,
+    pub GetThumbnailProperties: isize,
+    pub SetThumbnailContent: isize,
+}
+impl ::core::marker::Copy for IPartThumbnailVtbl {}
+impl ::core::clone::Clone for IPartThumbnailVtbl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPrintAsyncCookie(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -1632,9 +3194,28 @@ pub struct IPrintAsyncNotifyServerReferral(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IPrintBidiAsyncNotifyRegistration(pub *mut ::core::ffi::c_void);
 #[repr(C)]
-pub struct IPrintClassObjectFactory(i32);
+pub struct IPrintClassObjectFactory {
+    pub lpVtbl: *mut IPrintClassObjectFactoryVtbl,
+}
+impl ::core::marker::Copy for IPrintClassObjectFactory {}
+impl ::core::clone::Clone for IPrintClassObjectFactory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct IPrintClassObjectFactoryVtbl(i32);
+pub struct IPrintClassObjectFactoryVtbl {
+    pub QueryInterface: isize,
+    pub AddRef: isize,
+    pub Release: isize,
+    pub GetPrintClassObject: isize,
+}
+impl ::core::marker::Copy for IPrintClassObjectFactoryVtbl {}
+impl ::core::clone::Clone for IPrintClassObjectFactoryVtbl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPrintCoreHelper(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -1660,31 +3241,151 @@ pub struct IPrintOemUI2(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IPrintOemUIMXDC(pub *mut ::core::ffi::c_void);
 #[repr(C)]
-pub struct IPrintPipelineFilter(i32);
+pub struct IPrintPipelineFilter {
+    pub lpVtbl: *mut IPrintPipelineFilterVtbl,
+}
+impl ::core::marker::Copy for IPrintPipelineFilter {}
+impl ::core::clone::Clone for IPrintPipelineFilter {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct IPrintPipelineFilterVtbl(i32);
+pub struct IPrintPipelineFilterVtbl {
+    pub QueryInterface: isize,
+    pub AddRef: isize,
+    pub Release: isize,
+    pub InitializeFilter: isize,
+    pub ShutdownOperation: isize,
+    pub StartOperation: isize,
+}
+impl ::core::marker::Copy for IPrintPipelineFilterVtbl {}
+impl ::core::clone::Clone for IPrintPipelineFilterVtbl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct IPrintPipelineManagerControl(i32);
+pub struct IPrintPipelineManagerControl {
+    pub lpVtbl: *mut IPrintPipelineManagerControlVtbl,
+}
+impl ::core::marker::Copy for IPrintPipelineManagerControl {}
+impl ::core::clone::Clone for IPrintPipelineManagerControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct IPrintPipelineManagerControlVtbl(i32);
+pub struct IPrintPipelineManagerControlVtbl {
+    pub QueryInterface: isize,
+    pub AddRef: isize,
+    pub Release: isize,
+    pub RequestShutdown: isize,
+    pub FilterFinished: isize,
+}
+impl ::core::marker::Copy for IPrintPipelineManagerControlVtbl {}
+impl ::core::clone::Clone for IPrintPipelineManagerControlVtbl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct IPrintPipelineProgressReport(i32);
+pub struct IPrintPipelineProgressReport {
+    pub lpVtbl: *mut IPrintPipelineProgressReportVtbl,
+}
+impl ::core::marker::Copy for IPrintPipelineProgressReport {}
+impl ::core::clone::Clone for IPrintPipelineProgressReport {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct IPrintPipelineProgressReportVtbl(i32);
+pub struct IPrintPipelineProgressReportVtbl {
+    pub QueryInterface: isize,
+    pub AddRef: isize,
+    pub Release: isize,
+    pub ReportProgress: isize,
+}
+impl ::core::marker::Copy for IPrintPipelineProgressReportVtbl {}
+impl ::core::clone::Clone for IPrintPipelineProgressReportVtbl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct IPrintPipelinePropertyBag(i32);
+pub struct IPrintPipelinePropertyBag {
+    pub lpVtbl: *mut IPrintPipelinePropertyBagVtbl,
+}
+impl ::core::marker::Copy for IPrintPipelinePropertyBag {}
+impl ::core::clone::Clone for IPrintPipelinePropertyBag {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct IPrintPipelinePropertyBagVtbl(i32);
+pub struct IPrintPipelinePropertyBagVtbl {
+    pub QueryInterface: isize,
+    pub AddRef: isize,
+    pub Release: isize,
+    pub AddProperty: isize,
+    pub GetProperty: isize,
+    pub DeleteProperty: isize,
+}
+impl ::core::marker::Copy for IPrintPipelinePropertyBagVtbl {}
+impl ::core::clone::Clone for IPrintPipelinePropertyBagVtbl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPrintPreviewDxgiPackageTarget(pub *mut ::core::ffi::c_void);
 #[repr(C)]
-pub struct IPrintReadStream(i32);
+pub struct IPrintReadStream {
+    pub lpVtbl: *mut IPrintReadStreamVtbl,
+}
+impl ::core::marker::Copy for IPrintReadStream {}
+impl ::core::clone::Clone for IPrintReadStream {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct IPrintReadStreamFactory(i32);
+pub struct IPrintReadStreamFactory {
+    pub lpVtbl: *mut IPrintReadStreamFactoryVtbl,
+}
+impl ::core::marker::Copy for IPrintReadStreamFactory {}
+impl ::core::clone::Clone for IPrintReadStreamFactory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct IPrintReadStreamFactoryVtbl(i32);
+pub struct IPrintReadStreamFactoryVtbl {
+    pub QueryInterface: isize,
+    pub AddRef: isize,
+    pub Release: isize,
+    pub GetStream: isize,
+}
+impl ::core::marker::Copy for IPrintReadStreamFactoryVtbl {}
+impl ::core::clone::Clone for IPrintReadStreamFactoryVtbl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct IPrintReadStreamVtbl(i32);
+pub struct IPrintReadStreamVtbl {
+    pub QueryInterface: isize,
+    pub AddRef: isize,
+    pub Release: isize,
+    pub Seek: isize,
+    pub ReadBytes: isize,
+}
+impl ::core::marker::Copy for IPrintReadStreamVtbl {}
+impl ::core::clone::Clone for IPrintReadStreamVtbl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPrintSchemaAsyncOperation(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -1724,13 +3425,52 @@ pub struct IPrintTicketProvider2(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IPrintUnidiAsyncNotifyRegistration(pub *mut ::core::ffi::c_void);
 #[repr(C)]
-pub struct IPrintWriteStream(i32);
+pub struct IPrintWriteStream {
+    pub lpVtbl: *mut IPrintWriteStreamVtbl,
+}
+impl ::core::marker::Copy for IPrintWriteStream {}
+impl ::core::clone::Clone for IPrintWriteStream {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct IPrintWriteStreamFlush(i32);
+pub struct IPrintWriteStreamFlush {
+    pub lpVtbl: *mut IPrintWriteStreamFlushVtbl,
+}
+impl ::core::marker::Copy for IPrintWriteStreamFlush {}
+impl ::core::clone::Clone for IPrintWriteStreamFlush {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct IPrintWriteStreamFlushVtbl(i32);
+pub struct IPrintWriteStreamFlushVtbl {
+    pub QueryInterface: isize,
+    pub AddRef: isize,
+    pub Release: isize,
+    pub FlushData: isize,
+}
+impl ::core::marker::Copy for IPrintWriteStreamFlushVtbl {}
+impl ::core::clone::Clone for IPrintWriteStreamFlushVtbl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct IPrintWriteStreamVtbl(i32);
+pub struct IPrintWriteStreamVtbl {
+    pub QueryInterface: isize,
+    pub AddRef: isize,
+    pub Release: isize,
+    pub WriteBytes: isize,
+    pub Close: isize,
+}
+impl ::core::marker::Copy for IPrintWriteStreamVtbl {}
+impl ::core::clone::Clone for IPrintWriteStreamVtbl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPrinterBidiSetRequestCallback(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -1770,21 +3510,107 @@ pub struct IPrinterScriptableSequentialStream(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IPrinterScriptableStream(pub *mut ::core::ffi::c_void);
 #[repr(C)]
-pub struct IXpsDocument(i32);
+pub struct IXpsDocument {
+    pub lpVtbl: *mut IXpsDocumentVtbl,
+}
+impl ::core::marker::Copy for IXpsDocument {}
+impl ::core::clone::Clone for IXpsDocument {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct IXpsDocumentConsumer(i32);
+pub struct IXpsDocumentConsumer {
+    pub lpVtbl: *mut IXpsDocumentConsumerVtbl,
+}
+impl ::core::marker::Copy for IXpsDocumentConsumer {}
+impl ::core::clone::Clone for IXpsDocumentConsumer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct IXpsDocumentConsumerVtbl(i32);
+pub struct IXpsDocumentConsumerVtbl {
+    pub QueryInterface: isize,
+    pub AddRef: isize,
+    pub Release: isize,
+    pub SendXpsUnknown: isize,
+    pub SendXpsDocument: isize,
+    pub SendFixedDocumentSequence: isize,
+    pub SendFixedDocument: isize,
+    pub SendFixedPage: isize,
+    pub CloseSender: isize,
+    pub GetNewEmptyPart: isize,
+}
+impl ::core::marker::Copy for IXpsDocumentConsumerVtbl {}
+impl ::core::clone::Clone for IXpsDocumentConsumerVtbl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct IXpsDocumentProvider(i32);
+pub struct IXpsDocumentProvider {
+    pub lpVtbl: *mut IXpsDocumentProviderVtbl,
+}
+impl ::core::marker::Copy for IXpsDocumentProvider {}
+impl ::core::clone::Clone for IXpsDocumentProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct IXpsDocumentProviderVtbl(i32);
+pub struct IXpsDocumentProviderVtbl {
+    pub QueryInterface: isize,
+    pub AddRef: isize,
+    pub Release: isize,
+    pub GetXpsPart: isize,
+}
+impl ::core::marker::Copy for IXpsDocumentProviderVtbl {}
+impl ::core::clone::Clone for IXpsDocumentProviderVtbl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct IXpsDocumentVtbl(i32);
+pub struct IXpsDocumentVtbl {
+    pub QueryInterface: isize,
+    pub AddRef: isize,
+    pub Release: isize,
+    pub GetThumbnail: isize,
+    pub SetThumbnail: isize,
+}
+impl ::core::marker::Copy for IXpsDocumentVtbl {}
+impl ::core::clone::Clone for IXpsDocumentVtbl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct IXpsPartIterator(i32);
+pub struct IXpsPartIterator {
+    pub lpVtbl: *mut IXpsPartIteratorVtbl,
+}
+impl ::core::marker::Copy for IXpsPartIterator {}
+impl ::core::clone::Clone for IXpsPartIterator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct IXpsPartIteratorVtbl(i32);
+pub struct IXpsPartIteratorVtbl {
+    pub QueryInterface: isize,
+    pub AddRef: isize,
+    pub Release: isize,
+    pub Reset: isize,
+    pub Current: isize,
+    pub IsDone: isize,
+    pub Next: isize,
+}
+impl ::core::marker::Copy for IXpsPartIteratorVtbl {}
+impl ::core::clone::Clone for IXpsPartIteratorVtbl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IXpsRasterizationFactory(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -1806,26 +3632,210 @@ pub const JOB_CONTROL_RESTART: u32 = 4u32;
 pub const JOB_CONTROL_RESUME: u32 = 2u32;
 pub const JOB_CONTROL_RETAIN: u32 = 8u32;
 pub const JOB_CONTROL_SENT_TO_PRINTER: u32 = 6u32;
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct JOB_INFO_1A(i32);
+pub struct JOB_INFO_1A {
+    pub JobId: u32,
+    pub pPrinterName: super::super::Foundation::PSTR,
+    pub pMachineName: super::super::Foundation::PSTR,
+    pub pUserName: super::super::Foundation::PSTR,
+    pub pDocument: super::super::Foundation::PSTR,
+    pub pDatatype: super::super::Foundation::PSTR,
+    pub pStatus: super::super::Foundation::PSTR,
+    pub Status: u32,
+    pub Priority: u32,
+    pub Position: u32,
+    pub TotalPages: u32,
+    pub PagesPrinted: u32,
+    pub Submitted: super::super::Foundation::SYSTEMTIME,
+}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for JOB_INFO_1A {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for JOB_INFO_1A {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct JOB_INFO_1W(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct JOB_INFO_1W {
+    pub JobId: u32,
+    pub pPrinterName: super::super::Foundation::PWSTR,
+    pub pMachineName: super::super::Foundation::PWSTR,
+    pub pUserName: super::super::Foundation::PWSTR,
+    pub pDocument: super::super::Foundation::PWSTR,
+    pub pDatatype: super::super::Foundation::PWSTR,
+    pub pStatus: super::super::Foundation::PWSTR,
+    pub Status: u32,
+    pub Priority: u32,
+    pub Position: u32,
+    pub TotalPages: u32,
+    pub PagesPrinted: u32,
+    pub Submitted: super::super::Foundation::SYSTEMTIME,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for JOB_INFO_1W {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for JOB_INFO_1W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
-#[repr(C)]
-pub struct JOB_INFO_2A(i32);
+pub struct JOB_INFO_2A {
+    pub JobId: u32,
+    pub pPrinterName: super::super::Foundation::PSTR,
+    pub pMachineName: super::super::Foundation::PSTR,
+    pub pUserName: super::super::Foundation::PSTR,
+    pub pDocument: super::super::Foundation::PSTR,
+    pub pNotifyName: super::super::Foundation::PSTR,
+    pub pDatatype: super::super::Foundation::PSTR,
+    pub pPrintProcessor: super::super::Foundation::PSTR,
+    pub pParameters: super::super::Foundation::PSTR,
+    pub pDriverName: super::super::Foundation::PSTR,
+    pub pDevMode: *mut super::Gdi::DEVMODEA,
+    pub pStatus: super::super::Foundation::PSTR,
+    pub pSecurityDescriptor: *mut super::super::Security::SECURITY_DESCRIPTOR,
+    pub Status: u32,
+    pub Priority: u32,
+    pub Position: u32,
+    pub StartTime: u32,
+    pub UntilTime: u32,
+    pub TotalPages: u32,
+    pub Size: u32,
+    pub Submitted: super::super::Foundation::SYSTEMTIME,
+    pub Time: u32,
+    pub PagesPrinted: u32,
+}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
-#[repr(C)]
-pub struct JOB_INFO_2W(i32);
-#[repr(C)]
-pub struct JOB_INFO_3(i32);
+impl ::core::marker::Copy for JOB_INFO_2A {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+impl ::core::clone::Clone for JOB_INFO_2A {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct JOB_INFO_4A(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+pub struct JOB_INFO_2W {
+    pub JobId: u32,
+    pub pPrinterName: super::super::Foundation::PWSTR,
+    pub pMachineName: super::super::Foundation::PWSTR,
+    pub pUserName: super::super::Foundation::PWSTR,
+    pub pDocument: super::super::Foundation::PWSTR,
+    pub pNotifyName: super::super::Foundation::PWSTR,
+    pub pDatatype: super::super::Foundation::PWSTR,
+    pub pPrintProcessor: super::super::Foundation::PWSTR,
+    pub pParameters: super::super::Foundation::PWSTR,
+    pub pDriverName: super::super::Foundation::PWSTR,
+    pub pDevMode: *mut super::Gdi::DEVMODEW,
+    pub pStatus: super::super::Foundation::PWSTR,
+    pub pSecurityDescriptor: *mut super::super::Security::SECURITY_DESCRIPTOR,
+    pub Status: u32,
+    pub Priority: u32,
+    pub Position: u32,
+    pub StartTime: u32,
+    pub UntilTime: u32,
+    pub TotalPages: u32,
+    pub Size: u32,
+    pub Submitted: super::super::Foundation::SYSTEMTIME,
+    pub Time: u32,
+    pub PagesPrinted: u32,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+impl ::core::marker::Copy for JOB_INFO_2W {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+impl ::core::clone::Clone for JOB_INFO_2W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct JOB_INFO_4W(i32);
+pub struct JOB_INFO_3 {
+    pub JobId: u32,
+    pub NextJobId: u32,
+    pub Reserved: u32,
+}
+impl ::core::marker::Copy for JOB_INFO_3 {}
+impl ::core::clone::Clone for JOB_INFO_3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+pub struct JOB_INFO_4A {
+    pub JobId: u32,
+    pub pPrinterName: super::super::Foundation::PSTR,
+    pub pMachineName: super::super::Foundation::PSTR,
+    pub pUserName: super::super::Foundation::PSTR,
+    pub pDocument: super::super::Foundation::PSTR,
+    pub pNotifyName: super::super::Foundation::PSTR,
+    pub pDatatype: super::super::Foundation::PSTR,
+    pub pPrintProcessor: super::super::Foundation::PSTR,
+    pub pParameters: super::super::Foundation::PSTR,
+    pub pDriverName: super::super::Foundation::PSTR,
+    pub pDevMode: *mut super::Gdi::DEVMODEA,
+    pub pStatus: super::super::Foundation::PSTR,
+    pub pSecurityDescriptor: *mut super::super::Security::SECURITY_DESCRIPTOR,
+    pub Status: u32,
+    pub Priority: u32,
+    pub Position: u32,
+    pub StartTime: u32,
+    pub UntilTime: u32,
+    pub TotalPages: u32,
+    pub Size: u32,
+    pub Submitted: super::super::Foundation::SYSTEMTIME,
+    pub Time: u32,
+    pub PagesPrinted: u32,
+    pub SizeHigh: i32,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+impl ::core::marker::Copy for JOB_INFO_4A {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+impl ::core::clone::Clone for JOB_INFO_4A {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+pub struct JOB_INFO_4W {
+    pub JobId: u32,
+    pub pPrinterName: super::super::Foundation::PWSTR,
+    pub pMachineName: super::super::Foundation::PWSTR,
+    pub pUserName: super::super::Foundation::PWSTR,
+    pub pDocument: super::super::Foundation::PWSTR,
+    pub pNotifyName: super::super::Foundation::PWSTR,
+    pub pDatatype: super::super::Foundation::PWSTR,
+    pub pPrintProcessor: super::super::Foundation::PWSTR,
+    pub pParameters: super::super::Foundation::PWSTR,
+    pub pDriverName: super::super::Foundation::PWSTR,
+    pub pDevMode: *mut super::Gdi::DEVMODEW,
+    pub pStatus: super::super::Foundation::PWSTR,
+    pub pSecurityDescriptor: *mut super::super::Security::SECURITY_DESCRIPTOR,
+    pub Status: u32,
+    pub Priority: u32,
+    pub Position: u32,
+    pub StartTime: u32,
+    pub UntilTime: u32,
+    pub TotalPages: u32,
+    pub Size: u32,
+    pub Submitted: super::super::Foundation::SYSTEMTIME,
+    pub Time: u32,
+    pub PagesPrinted: u32,
+    pub SizeHigh: i32,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+impl ::core::marker::Copy for JOB_INFO_4W {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+impl ::core::clone::Clone for JOB_INFO_4W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const JOB_NOTIFY_FIELD_BYTES_PRINTED: u32 = 23u32;
 pub const JOB_NOTIFY_FIELD_DATATYPE: u32 = 5u32;
 pub const JOB_NOTIFY_FIELD_DEVMODE: u32 = 9u32;
@@ -1868,12 +3878,34 @@ pub const JOB_STATUS_RESTART: u32 = 2048u32;
 pub const JOB_STATUS_RETAINED: u32 = 8192u32;
 pub const JOB_STATUS_SPOOLING: u32 = 8u32;
 pub const JOB_STATUS_USER_INTERVENTION: u32 = 1024u32;
-#[cfg(feature = "Win32_Devices_Display")]
 #[repr(C)]
-pub struct KERNDATA(i32);
+#[cfg(feature = "Win32_Devices_Display")]
+pub struct KERNDATA {
+    pub dwSize: u32,
+    pub dwKernPairNum: u32,
+    pub KernPair: [super::super::Devices::Display::FD_KERNINGPAIR; 1],
+}
+#[cfg(feature = "Win32_Devices_Display")]
+impl ::core::marker::Copy for KERNDATA {}
+#[cfg(feature = "Win32_Devices_Display")]
+impl ::core::clone::Clone for KERNDATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const LPR: u32 = 2u32;
 #[repr(C)]
-pub struct MAPTABLE(i32);
+pub struct MAPTABLE {
+    pub dwSize: u32,
+    pub dwGlyphNum: u32,
+    pub Trans: [TRANSDATA; 1],
+}
+impl ::core::marker::Copy for MAPTABLE {}
+impl ::core::clone::Clone for MAPTABLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MAX_ADDRESS_STR_LEN: u32 = 13u32;
 pub const MAX_CPSFUNC_INDEX: u32 = 26u32;
 pub const MAX_DEVICEDESCRIPTION_STR_LEN: u32 = 257u32;
@@ -1889,35 +3921,201 @@ pub const MAX_PSUIPAGEINSERT_INDEX: u32 = 5u32;
 pub const MAX_QUEUENAME_LEN: u32 = 33u32;
 pub const MAX_RES_STR_CHARS: u32 = 160u32;
 pub const MAX_SNMP_COMMUNITY_STR_LEN: u32 = 33u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct MESSAGEBOX_PARAMS(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct MESSAGEBOX_PARAMS {
+    pub cbSize: u32,
+    pub pTitle: super::super::Foundation::PWSTR,
+    pub pMessage: super::super::Foundation::PWSTR,
+    pub Style: u32,
+    pub dwTimeout: u32,
+    pub bWait: super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MESSAGEBOX_PARAMS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MESSAGEBOX_PARAMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MIN_PRIORITY: u32 = 1u32;
 #[repr(C)]
-pub struct MONITOR(i32);
+pub struct MONITOR {
+    pub pfnEnumPorts: isize,
+    pub pfnOpenPort: isize,
+    pub pfnOpenPortEx: isize,
+    pub pfnStartDocPort: isize,
+    pub pfnWritePort: isize,
+    pub pfnReadPort: isize,
+    pub pfnEndDocPort: isize,
+    pub pfnClosePort: isize,
+    pub pfnAddPort: isize,
+    pub pfnAddPortEx: isize,
+    pub pfnConfigurePort: isize,
+    pub pfnDeletePort: isize,
+    pub pfnGetPrinterDataFromPort: isize,
+    pub pfnSetPortTimeOuts: isize,
+    pub pfnXcvOpenPort: isize,
+    pub pfnXcvDataPort: isize,
+    pub pfnXcvClosePort: isize,
+}
+impl ::core::marker::Copy for MONITOR {}
+impl ::core::clone::Clone for MONITOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct MONITOR2(i32);
+pub struct MONITOR2 {
+    pub cbSize: u32,
+    pub pfnEnumPorts: isize,
+    pub pfnOpenPort: isize,
+    pub pfnOpenPortEx: isize,
+    pub pfnStartDocPort: isize,
+    pub pfnWritePort: isize,
+    pub pfnReadPort: isize,
+    pub pfnEndDocPort: isize,
+    pub pfnClosePort: isize,
+    pub pfnAddPort: isize,
+    pub pfnAddPortEx: isize,
+    pub pfnConfigurePort: isize,
+    pub pfnDeletePort: isize,
+    pub pfnGetPrinterDataFromPort: isize,
+    pub pfnSetPortTimeOuts: isize,
+    pub pfnXcvOpenPort: isize,
+    pub pfnXcvDataPort: isize,
+    pub pfnXcvClosePort: isize,
+    pub pfnShutdown: isize,
+    pub pfnSendRecvBidiDataFromPort: isize,
+    pub pfnNotifyUsedPorts: isize,
+    pub pfnNotifyUnusedPorts: isize,
+    pub pfnPowerEvent: isize,
+}
+impl ::core::marker::Copy for MONITOR2 {}
+impl ::core::clone::Clone for MONITOR2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct MONITOREX(i32);
+pub struct MONITOREX {
+    pub dwMonitorSize: u32,
+    pub Monitor: MONITOR,
+}
+impl ::core::marker::Copy for MONITOREX {}
+impl ::core::clone::Clone for MONITOREX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+pub struct MONITORINIT {
+    pub cbSize: u32,
+    pub hSpooler: super::super::Foundation::HANDLE,
+    pub hckRegistryRoot: super::super::System::Registry::HKEY,
+    pub pMonitorReg: *mut MONITORREG,
+    pub bLocal: super::super::Foundation::BOOL,
+    pub pszServerName: super::super::Foundation::PWSTR,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+impl ::core::marker::Copy for MONITORINIT {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+impl ::core::clone::Clone for MONITORINIT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct MONITORINIT(i32);
+pub struct MONITORREG {
+    pub cbSize: u32,
+    pub fpCreateKey: isize,
+    pub fpOpenKey: isize,
+    pub fpCloseKey: isize,
+    pub fpDeleteKey: isize,
+    pub fpEnumKey: isize,
+    pub fpQueryInfoKey: isize,
+    pub fpSetValue: isize,
+    pub fpDeleteValue: isize,
+    pub fpEnumValue: isize,
+    pub fpQueryValue: isize,
+}
+impl ::core::marker::Copy for MONITORREG {}
+impl ::core::clone::Clone for MONITORREG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct MONITORREG(i32);
+pub struct MONITORUI {
+    pub dwMonitorUISize: u32,
+    pub pfnAddPortUI: isize,
+    pub pfnConfigurePortUI: isize,
+    pub pfnDeletePortUI: isize,
+}
+impl ::core::marker::Copy for MONITORUI {}
+impl ::core::clone::Clone for MONITORUI {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct MONITORUI(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct MONITOR_INFO_1A(i32);
+pub struct MONITOR_INFO_1A {
+    pub pName: super::super::Foundation::PSTR,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct MONITOR_INFO_1W(i32);
+impl ::core::marker::Copy for MONITOR_INFO_1A {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MONITOR_INFO_1A {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct MONITOR_INFO_2A(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct MONITOR_INFO_1W {
+    pub pName: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MONITOR_INFO_1W {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MONITOR_INFO_1W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct MONITOR_INFO_2W(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct MONITOR_INFO_2A {
+    pub pName: super::super::Foundation::PSTR,
+    pub pEnvironment: super::super::Foundation::PSTR,
+    pub pDLLName: super::super::Foundation::PSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MONITOR_INFO_2A {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MONITOR_INFO_2A {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct MONITOR_INFO_2W {
+    pub pName: super::super::Foundation::PWSTR,
+    pub pEnvironment: super::super::Foundation::PWSTR,
+    pub pDLLName: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MONITOR_INFO_2W {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MONITOR_INFO_2W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MTYPE_ADD: u32 = 64u32;
 pub const MTYPE_COMPOSE: u32 = 1u32;
 pub const MTYPE_DIRECT: u32 = 2u32;
@@ -1943,10 +4141,29 @@ pub const MXDCOP_SET_S0PAGE: u32 = 28u32;
 pub const MXDCOP_SET_S0PAGE_RESOURCE: u32 = 30u32;
 pub const MXDCOP_SET_XPSPASSTHRU_MODE: u32 = 32u32;
 pub const MXDC_ESCAPE: u32 = 4122u32;
-#[repr(C)]
-pub struct MxdcEscapeHeader(i32);
-#[repr(C)]
-pub struct MxdcGetFileNameData(i32);
+#[repr(C, packed(1))]
+pub struct MxdcEscapeHeader {
+    pub cbInput: u32,
+    pub cbOutput: u32,
+    pub opCode: u32,
+}
+impl ::core::marker::Copy for MxdcEscapeHeader {}
+impl ::core::clone::Clone for MxdcEscapeHeader {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub struct MxdcGetFileNameData {
+    pub cbOutput: u32,
+    pub wszData: [u16; 1],
+}
+impl ::core::marker::Copy for MxdcGetFileNameData {}
+impl ::core::clone::Clone for MxdcGetFileNameData {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MxdcImageTypeEnums(pub i32);
 pub const MXDC_IMAGETYPE_JPEGHIGH_COMPRESSION: MxdcImageTypeEnums = MxdcImageTypeEnums(1i32);
@@ -1959,11 +4176,38 @@ pub const MXDC_LANDSCAPE_ROTATE_COUNTERCLOCKWISE_90_DEGREES: MxdcLandscapeRotati
 pub const MXDC_LANDSCAPE_ROTATE_NONE: MxdcLandscapeRotationEnums = MxdcLandscapeRotationEnums(0i32);
 pub const MXDC_LANDSCAPE_ROTATE_COUNTERCLOCKWISE_270_DEGREES: MxdcLandscapeRotationEnums = MxdcLandscapeRotationEnums(-90i32);
 #[repr(C)]
-pub struct MxdcPrintTicketEscape(i32);
-#[repr(C)]
-pub struct MxdcPrintTicketPassthrough(i32);
-#[repr(C)]
-pub struct MxdcS0PageData(i32);
+pub struct MxdcPrintTicketEscape {
+    pub mxdcEscape: MxdcEscapeHeader,
+    pub printTicketData: MxdcPrintTicketPassthrough,
+}
+impl ::core::marker::Copy for MxdcPrintTicketEscape {}
+impl ::core::clone::Clone for MxdcPrintTicketEscape {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub struct MxdcPrintTicketPassthrough {
+    pub dwDataSize: u32,
+    pub bData: [u8; 1],
+}
+impl ::core::marker::Copy for MxdcPrintTicketPassthrough {}
+impl ::core::clone::Clone for MxdcPrintTicketPassthrough {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub struct MxdcS0PageData {
+    pub dwSize: u32,
+    pub bData: [u8; 1],
+}
+impl ::core::marker::Copy for MxdcS0PageData {}
+impl ::core::clone::Clone for MxdcS0PageData {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MxdcS0PageEnums(pub i32);
 pub const MXDC_RESOURCE_TTF: MxdcS0PageEnums = MxdcS0PageEnums(0i32);
@@ -1977,20 +4221,63 @@ pub const MXDC_RESOURCE_JPEG_THUMBNAIL: MxdcS0PageEnums = MxdcS0PageEnums(7i32);
 pub const MXDC_RESOURCE_PNG_THUMBNAIL: MxdcS0PageEnums = MxdcS0PageEnums(8i32);
 pub const MXDC_RESOURCE_MAX: MxdcS0PageEnums = MxdcS0PageEnums(9i32);
 #[repr(C)]
-pub struct MxdcS0PagePassthroughEscape(i32);
+pub struct MxdcS0PagePassthroughEscape {
+    pub mxdcEscape: MxdcEscapeHeader,
+    pub xpsS0PageData: MxdcS0PageData,
+}
+impl ::core::marker::Copy for MxdcS0PagePassthroughEscape {}
+impl ::core::clone::Clone for MxdcS0PagePassthroughEscape {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct MxdcS0PageResourceEscape(i32);
-#[repr(C)]
-pub struct MxdcXpsS0PageResource(i32);
+pub struct MxdcS0PageResourceEscape {
+    pub mxdcEscape: MxdcEscapeHeader,
+    pub xpsS0PageResourcePassthrough: MxdcXpsS0PageResource,
+}
+impl ::core::marker::Copy for MxdcS0PageResourceEscape {}
+impl ::core::clone::Clone for MxdcS0PageResourceEscape {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub struct MxdcXpsS0PageResource {
+    pub dwSize: u32,
+    pub dwResourceType: u32,
+    pub szUri: [u8; 260],
+    pub dwDataSize: u32,
+    pub bData: [u8; 1],
+}
+impl ::core::marker::Copy for MxdcXpsS0PageResource {}
+impl ::core::clone::Clone for MxdcXpsS0PageResource {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const NORMAL_PRINT: u32 = 0u32;
 #[repr(transparent)]
 pub struct NOTIFICATION_CALLBACK_COMMANDS(pub i32);
 pub const NOTIFICATION_COMMAND_NOTIFY: NOTIFICATION_CALLBACK_COMMANDS = NOTIFICATION_CALLBACK_COMMANDS(0i32);
 pub const NOTIFICATION_COMMAND_CONTEXT_ACQUIRE: NOTIFICATION_CALLBACK_COMMANDS = NOTIFICATION_CALLBACK_COMMANDS(1i32);
 pub const NOTIFICATION_COMMAND_CONTEXT_RELEASE: NOTIFICATION_CALLBACK_COMMANDS = NOTIFICATION_CALLBACK_COMMANDS(2i32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct NOTIFICATION_CONFIG_1(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct NOTIFICATION_CONFIG_1 {
+    pub cbSize: u32,
+    pub fdwFlags: u32,
+    pub pfnNotifyCallback: ::core::option::Option<ROUTER_NOTIFY_CALLBACK>,
+    pub pContext: *mut ::core::ffi::c_void,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for NOTIFICATION_CONFIG_1 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for NOTIFICATION_CONFIG_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct NOTIFICATION_CONFIG_FLAGS(pub i32);
 pub const NOTIFICATION_CONFIG_CREATE_EVENT: NOTIFICATION_CONFIG_FLAGS = NOTIFICATION_CONFIG_FLAGS(1i32);
@@ -2003,21 +4290,78 @@ pub const NO_COLOR_OPTIMIZATION: u32 = 0u32;
 pub const NO_PRIORITY: u32 = 0u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub type OEMCUIPCALLBACK = unsafe extern "system" fn(param0: *mut CPSUICBPARAM, param1: *mut OEMCUIPPARAM) -> i32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 #[repr(C)]
-pub struct OEMCUIPPARAM(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+pub struct OEMCUIPPARAM {
+    pub cbSize: u32,
+    pub poemuiobj: *mut OEMUIOBJ,
+    pub hPrinter: super::super::Foundation::HANDLE,
+    pub pPrinterName: super::super::Foundation::PWSTR,
+    pub hModule: super::super::Foundation::HANDLE,
+    pub hOEMHeap: super::super::Foundation::HANDLE,
+    pub pPublicDM: *mut super::Gdi::DEVMODEA,
+    pub pOEMDM: *mut ::core::ffi::c_void,
+    pub dwFlags: u32,
+    pub pDrvOptItems: *mut OPTITEM,
+    pub cDrvOptItems: u32,
+    pub pOEMOptItems: *mut OPTITEM,
+    pub cOEMOptItems: u32,
+    pub pOEMUserData: *mut ::core::ffi::c_void,
+    pub OEMCUIPCallback: ::core::option::Option<OEMCUIPCALLBACK>,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::core::marker::Copy for OEMCUIPPARAM {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::core::clone::Clone for OEMCUIPPARAM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const OEMCUIP_DOCPROP: u32 = 1u32;
 pub const OEMCUIP_PRNPROP: u32 = 2u32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[repr(C)]
-pub struct OEMDMPARAM(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+pub struct OEMDMPARAM {
+    pub cbSize: u32,
+    pub pdriverobj: *mut ::core::ffi::c_void,
+    pub hPrinter: super::super::Foundation::HANDLE,
+    pub hModule: super::super::Foundation::HANDLE,
+    pub pPublicDMIn: *mut super::Gdi::DEVMODEA,
+    pub pPublicDMOut: *mut super::Gdi::DEVMODEA,
+    pub pOEMDMIn: *mut ::core::ffi::c_void,
+    pub pOEMDMOut: *mut ::core::ffi::c_void,
+    pub cbBufSize: u32,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::marker::Copy for OEMDMPARAM {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::clone::Clone for OEMDMPARAM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const OEMDM_CONVERT: u32 = 3u32;
 pub const OEMDM_DEFAULT: u32 = 2u32;
 pub const OEMDM_MERGE: u32 = 4u32;
 pub const OEMDM_SIZE: u32 = 1u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct OEMFONTINSTPARAM(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct OEMFONTINSTPARAM {
+    pub cbSize: u32,
+    pub hPrinter: super::super::Foundation::HANDLE,
+    pub hModule: super::super::Foundation::HANDLE,
+    pub hHeap: super::super::Foundation::HANDLE,
+    pub dwFlags: u32,
+    pub pFontInstallerName: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for OEMFONTINSTPARAM {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for OEMFONTINSTPARAM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const OEMGDS_FREEMEM: u32 = 32769u32;
 pub const OEMGDS_JOBTIMEOUT: u32 = 32770u32;
 pub const OEMGDS_MAX: u32 = 65536u32;
@@ -2047,27 +4391,108 @@ pub const OEMTTY_INFO_CODEPAGE: u32 = 2u32;
 pub const OEMTTY_INFO_MARGINS: u32 = 1u32;
 pub const OEMTTY_INFO_NUM_UFMS: u32 = 3u32;
 pub const OEMTTY_INFO_UFM_IDS: u32 = 4u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct OEMUIOBJ(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct OEMUIOBJ {
+    pub cbSize: u32,
+    pub pOemUIProcs: *mut OEMUIPROCS,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for OEMUIOBJ {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for OEMUIOBJ {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct OEMUIPROCS(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct OEMUIPROCS {
+    pub DrvGetDriverSetting: ::core::option::Option<PFN_DrvGetDriverSetting>,
+    pub DrvUpdateUISetting: ::core::option::Option<PFN_DrvUpdateUISetting>,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for OEMUIPROCS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for OEMUIPROCS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+pub struct OEMUIPSPARAM {
+    pub cbSize: u32,
+    pub poemuiobj: *mut OEMUIOBJ,
+    pub hPrinter: super::super::Foundation::HANDLE,
+    pub pPrinterName: super::super::Foundation::PWSTR,
+    pub hModule: super::super::Foundation::HANDLE,
+    pub hOEMHeap: super::super::Foundation::HANDLE,
+    pub pPublicDM: *mut super::Gdi::DEVMODEA,
+    pub pOEMDM: *mut ::core::ffi::c_void,
+    pub pOEMUserData: *mut ::core::ffi::c_void,
+    pub dwFlags: u32,
+    pub pOemEntry: *mut ::core::ffi::c_void,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::marker::Copy for OEMUIPSPARAM {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::clone::Clone for OEMUIPSPARAM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct OEMUIPSPARAM(i32);
-#[repr(C)]
-pub struct OEM_DMEXTRAHEADER(i32);
+pub struct OEM_DMEXTRAHEADER {
+    pub dwSize: u32,
+    pub dwSignature: u32,
+    pub dwVersion: u32,
+}
+impl ::core::marker::Copy for OEM_DMEXTRAHEADER {}
+impl ::core::clone::Clone for OEM_DMEXTRAHEADER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const OEM_MODE_PUBLISHER: u32 = 1u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct OIEXT(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct OIEXT {
+    pub cbSize: u16,
+    pub Flags: u16,
+    pub hInstCaller: super::super::Foundation::HINSTANCE,
+    pub pHelpFile: *mut i8,
+    pub dwReserved: [usize; 4],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for OIEXT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for OIEXT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const OIEXTF_ANSI_STRING: u32 = 1u32;
 pub const OPTCF_HIDE: u32 = 1u32;
 pub const OPTCF_MASK: u32 = 1u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct OPTCOMBO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct OPTCOMBO {
+    pub cbSize: u16,
+    pub Flags: u8,
+    pub cListItem: u16,
+    pub pListItem: *mut OPTPARAM,
+    pub Sel: i32,
+    pub dwReserved: [u32; 3],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for OPTCOMBO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for OPTCOMBO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const OPTIF_CALLBACK: i32 = 4i32;
 pub const OPTIF_CHANGED: i32 = 8i32;
 pub const OPTIF_CHANGEONCE: i32 = 16i32;
@@ -2086,12 +4511,76 @@ pub const OPTIF_OVERLAY_NO_ICON: i32 = 16384i32;
 pub const OPTIF_OVERLAY_STOP_ICON: i32 = 8192i32;
 pub const OPTIF_OVERLAY_WARNING_ICON: i32 = 4096i32;
 pub const OPTIF_SEL_AS_HICON: i32 = 512i32;
+#[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+pub struct OPTITEM {
+    pub cbSize: u16,
+    pub Level: u8,
+    pub DlgPageIdx: u8,
+    pub Flags: u32,
+    pub UserData: usize,
+    pub pName: *mut i8,
+    pub Anonymous1: OPTITEM_0,
+    pub Anonymous2: OPTITEM_1,
+    pub pOptType: *mut OPTTYPE,
+    pub HelpIndex: u32,
+    pub DMPubID: u8,
+    pub UserItemID: u8,
+    pub wReserved: u16,
+    pub pOIExt: *mut OIEXT,
+    pub dwReserved: [usize; 3],
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::core::marker::Copy for OPTITEM {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::core::clone::Clone for OPTITEM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct OPTITEM(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+pub union OPTITEM_0 {
+    pub Sel: i32,
+    pub pSel: *mut i8,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::core::clone::Clone for OPTITEM_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+pub union OPTITEM_1 {
+    pub pExtChkBox: *mut EXTCHKBOX,
+    pub pExtPush: *mut EXTPUSH,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::core::clone::Clone for OPTITEM_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct OPTPARAM(i32);
+pub struct OPTPARAM {
+    pub cbSize: u16,
+    pub Flags: u8,
+    pub Style: u8,
+    pub pData: *mut i8,
+    pub IconID: usize,
+    pub lParam: super::super::Foundation::LPARAM,
+    pub dwReserved: [usize; 2],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for OPTPARAM {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for OPTPARAM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const OPTPF_DISABLED: u32 = 2u32;
 pub const OPTPF_HIDE: u32 = 1u32;
 pub const OPTPF_ICONID_AS_HICON: u32 = 4u32;
@@ -2103,9 +4592,27 @@ pub const OPTPF_USE_HDLGTEMPLATE: u32 = 64u32;
 pub const OPTTF_MASK: u32 = 3u32;
 pub const OPTTF_NOSPACE_BEFORE_POSTFIX: u32 = 2u32;
 pub const OPTTF_TYPE_DISABLED: u32 = 1u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct OPTTYPE(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct OPTTYPE {
+    pub cbSize: u16,
+    pub Type: u8,
+    pub Flags: u8,
+    pub Count: u16,
+    pub BegCtrlID: u16,
+    pub pOptParam: *mut OPTPARAM,
+    pub Style: u16,
+    pub wReserved: [u16; 3],
+    pub dwReserved: [usize; 3],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for OPTTYPE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for OPTTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const OTS_LBCB_INCL_ITEM_NONE: u32 = 8u32;
 pub const OTS_LBCB_NO_ICON16_IN_ITEM: u32 = 16u32;
 pub const OTS_LBCB_PROPPAGE_CBUSELB: u32 = 4u32;
@@ -2129,29 +4636,153 @@ pub type PFN_DrvUpdateUISetting = unsafe extern "system" fn(pdriverobj: *mut ::c
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_DrvUpgradeRegistrySetting = unsafe extern "system" fn(hprinter: super::super::Foundation::HANDLE, pfeature: super::super::Foundation::PSTR, poption: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
 #[repr(C)]
-pub struct PORT_DATA_1(i32);
+pub struct PORT_DATA_1 {
+    pub sztPortName: [u16; 64],
+    pub dwVersion: u32,
+    pub dwProtocol: u32,
+    pub cbSize: u32,
+    pub dwReserved: u32,
+    pub sztHostAddress: [u16; 49],
+    pub sztSNMPCommunity: [u16; 33],
+    pub dwDoubleSpool: u32,
+    pub sztQueue: [u16; 33],
+    pub sztIPAddress: [u16; 16],
+    pub Reserved: [u8; 540],
+    pub dwPortNumber: u32,
+    pub dwSNMPEnabled: u32,
+    pub dwSNMPDevIndex: u32,
+}
+impl ::core::marker::Copy for PORT_DATA_1 {}
+impl ::core::clone::Clone for PORT_DATA_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct PORT_DATA_2(i32);
+pub struct PORT_DATA_2 {
+    pub sztPortName: [u16; 64],
+    pub dwVersion: u32,
+    pub dwProtocol: u32,
+    pub cbSize: u32,
+    pub dwReserved: u32,
+    pub sztHostAddress: [u16; 128],
+    pub sztSNMPCommunity: [u16; 33],
+    pub dwDoubleSpool: u32,
+    pub sztQueue: [u16; 33],
+    pub Reserved: [u8; 514],
+    pub dwPortNumber: u32,
+    pub dwSNMPEnabled: u32,
+    pub dwSNMPDevIndex: u32,
+    pub dwPortMonitorMibIndex: u32,
+}
+impl ::core::marker::Copy for PORT_DATA_2 {}
+impl ::core::clone::Clone for PORT_DATA_2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct PORT_DATA_LIST_1(i32);
+pub struct PORT_DATA_LIST_1 {
+    pub dwVersion: u32,
+    pub cPortData: u32,
+    pub pPortData: [PORT_DATA_2; 1],
+}
+impl ::core::marker::Copy for PORT_DATA_LIST_1 {}
+impl ::core::clone::Clone for PORT_DATA_LIST_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct PORT_INFO_1A(i32);
+pub struct PORT_INFO_1A {
+    pub pName: super::super::Foundation::PSTR,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct PORT_INFO_1W(i32);
+impl ::core::marker::Copy for PORT_INFO_1A {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for PORT_INFO_1A {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct PORT_INFO_2A(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct PORT_INFO_2W(i32);
+pub struct PORT_INFO_1W {
+    pub pName: super::super::Foundation::PWSTR,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct PORT_INFO_3A(i32);
+impl ::core::marker::Copy for PORT_INFO_1W {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for PORT_INFO_1W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct PORT_INFO_3W(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct PORT_INFO_2A {
+    pub pPortName: super::super::Foundation::PSTR,
+    pub pMonitorName: super::super::Foundation::PSTR,
+    pub pDescription: super::super::Foundation::PSTR,
+    pub fPortType: u32,
+    pub Reserved: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for PORT_INFO_2A {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for PORT_INFO_2A {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct PORT_INFO_2W {
+    pub pPortName: super::super::Foundation::PWSTR,
+    pub pMonitorName: super::super::Foundation::PWSTR,
+    pub pDescription: super::super::Foundation::PWSTR,
+    pub fPortType: u32,
+    pub Reserved: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for PORT_INFO_2W {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for PORT_INFO_2W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct PORT_INFO_3A {
+    pub dwStatus: u32,
+    pub pszStatus: super::super::Foundation::PSTR,
+    pub dwSeverity: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for PORT_INFO_3A {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for PORT_INFO_3A {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct PORT_INFO_3W {
+    pub dwStatus: u32,
+    pub pszStatus: super::super::Foundation::PWSTR,
+    pub dwSeverity: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for PORT_INFO_3W {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for PORT_INFO_3W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const PORT_STATUS_DOOR_OPEN: u32 = 7u32;
 pub const PORT_STATUS_NO_TONER: u32 = 6u32;
 pub const PORT_STATUS_OFFLINE: u32 = 1u32;
@@ -2230,24 +4861,70 @@ pub const PRINTER_CHANGE_SET_PRINTER: u32 = 2u32;
 pub const PRINTER_CHANGE_SET_PRINTER_DRIVER: u32 = 536870912u32;
 pub const PRINTER_CHANGE_TIMEOUT: u32 = 2147483648u32;
 pub const PRINTER_CHANGE_WRITE_JOB: u32 = 2048u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct PRINTER_CONNECTION_INFO_1A(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct PRINTER_CONNECTION_INFO_1A {
+    pub dwFlags: u32,
+    pub pszDriverName: super::super::Foundation::PSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for PRINTER_CONNECTION_INFO_1A {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for PRINTER_CONNECTION_INFO_1A {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct PRINTER_CONNECTION_INFO_1W(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct PRINTER_CONNECTION_INFO_1W {
+    pub dwFlags: u32,
+    pub pszDriverName: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for PRINTER_CONNECTION_INFO_1W {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for PRINTER_CONNECTION_INFO_1W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const PRINTER_CONNECTION_MISMATCH: u32 = 32u32;
 pub const PRINTER_CONNECTION_NO_UI: u32 = 64u32;
 pub const PRINTER_CONTROL_PAUSE: u32 = 1u32;
 pub const PRINTER_CONTROL_PURGE: u32 = 3u32;
 pub const PRINTER_CONTROL_RESUME: u32 = 2u32;
 pub const PRINTER_CONTROL_SET_STATUS: u32 = 4u32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[repr(C)]
-pub struct PRINTER_DEFAULTSA(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+pub struct PRINTER_DEFAULTSA {
+    pub pDatatype: super::super::Foundation::PSTR,
+    pub pDevMode: *mut super::Gdi::DEVMODEA,
+    pub DesiredAccess: u32,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::marker::Copy for PRINTER_DEFAULTSA {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::clone::Clone for PRINTER_DEFAULTSA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct PRINTER_DEFAULTSW(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+pub struct PRINTER_DEFAULTSW {
+    pub pDatatype: super::super::Foundation::PWSTR,
+    pub pDevMode: *mut super::Gdi::DEVMODEW,
+    pub DesiredAccess: u32,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::marker::Copy for PRINTER_DEFAULTSW {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::clone::Clone for PRINTER_DEFAULTSW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const PRINTER_DRIVER_CATEGORY_3D: u32 = 4096u32;
 pub const PRINTER_DRIVER_CATEGORY_CLOUD: u32 = 8192u32;
 pub const PRINTER_DRIVER_CATEGORY_FAX: u32 = 64u32;
@@ -2284,12 +4961,40 @@ pub const PRINTER_ENUM_NAME: u32 = 8u32;
 pub const PRINTER_ENUM_NETWORK: u32 = 64u32;
 pub const PRINTER_ENUM_REMOTE: u32 = 16u32;
 pub const PRINTER_ENUM_SHARED: u32 = 32u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct PRINTER_ENUM_VALUESA(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct PRINTER_ENUM_VALUESA {
+    pub pValueName: super::super::Foundation::PSTR,
+    pub cbValueName: u32,
+    pub dwType: u32,
+    pub pData: *mut u8,
+    pub cbData: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for PRINTER_ENUM_VALUESA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for PRINTER_ENUM_VALUESA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct PRINTER_ENUM_VALUESW(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct PRINTER_ENUM_VALUESW {
+    pub pValueName: super::super::Foundation::PWSTR,
+    pub cbValueName: u32,
+    pub dwType: u32,
+    pub pData: *mut u8,
+    pub cbData: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for PRINTER_ENUM_VALUESW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for PRINTER_ENUM_VALUESW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const PRINTER_ERROR_INFORMATION: u32 = 2147483648u32;
 pub const PRINTER_ERROR_JAM: u32 = 2u32;
 pub const PRINTER_ERROR_OUTOFPAPER: u32 = 1u32;
@@ -2300,7 +5005,17 @@ pub const PRINTER_EVENT_ADD_CONNECTION: u32 = 1u32;
 pub const PRINTER_EVENT_ADD_CONNECTION_NO_UI: u32 = 9u32;
 pub const PRINTER_EVENT_ATTRIBUTES_CHANGED: u32 = 7u32;
 #[repr(C)]
-pub struct PRINTER_EVENT_ATTRIBUTES_INFO(i32);
+pub struct PRINTER_EVENT_ATTRIBUTES_INFO {
+    pub cbSize: u32,
+    pub dwOldAttributes: u32,
+    pub dwNewAttributes: u32,
+}
+impl ::core::marker::Copy for PRINTER_EVENT_ATTRIBUTES_INFO {}
+impl ::core::clone::Clone for PRINTER_EVENT_ATTRIBUTES_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const PRINTER_EVENT_CACHE_DELETE: u32 = 6u32;
 pub const PRINTER_EVENT_CACHE_REFRESH: u32 = 5u32;
 pub const PRINTER_EVENT_CONFIGURATION_CHANGE: u32 = 0u32;
@@ -2323,53 +5038,271 @@ pub const PRINTER_EXTENSION_REASON_DRIVER_EVENT: ::windows_sys::core::GUID = ::w
     data4: [145, 91, 166, 162, 61, 146, 154, 203],
 };
 pub const PRINTER_EXTENSION_REASON_PRINT_PREFERENCES: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3968804383, data2: 9852, data3: 18079, data4: [181, 214, 57, 51, 2, 60, 41, 204] };
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct PRINTER_INFO_1A(i32);
+pub struct PRINTER_INFO_1A {
+    pub Flags: u32,
+    pub pDescription: super::super::Foundation::PSTR,
+    pub pName: super::super::Foundation::PSTR,
+    pub pComment: super::super::Foundation::PSTR,
+}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for PRINTER_INFO_1A {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for PRINTER_INFO_1A {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct PRINTER_INFO_1W(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct PRINTER_INFO_1W {
+    pub Flags: u32,
+    pub pDescription: super::super::Foundation::PWSTR,
+    pub pName: super::super::Foundation::PWSTR,
+    pub pComment: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for PRINTER_INFO_1W {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for PRINTER_INFO_1W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
-#[repr(C)]
-pub struct PRINTER_INFO_2A(i32);
+pub struct PRINTER_INFO_2A {
+    pub pServerName: super::super::Foundation::PSTR,
+    pub pPrinterName: super::super::Foundation::PSTR,
+    pub pShareName: super::super::Foundation::PSTR,
+    pub pPortName: super::super::Foundation::PSTR,
+    pub pDriverName: super::super::Foundation::PSTR,
+    pub pComment: super::super::Foundation::PSTR,
+    pub pLocation: super::super::Foundation::PSTR,
+    pub pDevMode: *mut super::Gdi::DEVMODEA,
+    pub pSepFile: super::super::Foundation::PSTR,
+    pub pPrintProcessor: super::super::Foundation::PSTR,
+    pub pDatatype: super::super::Foundation::PSTR,
+    pub pParameters: super::super::Foundation::PSTR,
+    pub pSecurityDescriptor: *mut super::super::Security::SECURITY_DESCRIPTOR,
+    pub Attributes: u32,
+    pub Priority: u32,
+    pub DefaultPriority: u32,
+    pub StartTime: u32,
+    pub UntilTime: u32,
+    pub Status: u32,
+    pub cJobs: u32,
+    pub AveragePPM: u32,
+}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+impl ::core::marker::Copy for PRINTER_INFO_2A {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+impl ::core::clone::Clone for PRINTER_INFO_2A {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct PRINTER_INFO_2W(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+pub struct PRINTER_INFO_2W {
+    pub pServerName: super::super::Foundation::PWSTR,
+    pub pPrinterName: super::super::Foundation::PWSTR,
+    pub pShareName: super::super::Foundation::PWSTR,
+    pub pPortName: super::super::Foundation::PWSTR,
+    pub pDriverName: super::super::Foundation::PWSTR,
+    pub pComment: super::super::Foundation::PWSTR,
+    pub pLocation: super::super::Foundation::PWSTR,
+    pub pDevMode: *mut super::Gdi::DEVMODEW,
+    pub pSepFile: super::super::Foundation::PWSTR,
+    pub pPrintProcessor: super::super::Foundation::PWSTR,
+    pub pDatatype: super::super::Foundation::PWSTR,
+    pub pParameters: super::super::Foundation::PWSTR,
+    pub pSecurityDescriptor: *mut super::super::Security::SECURITY_DESCRIPTOR,
+    pub Attributes: u32,
+    pub Priority: u32,
+    pub DefaultPriority: u32,
+    pub StartTime: u32,
+    pub UntilTime: u32,
+    pub Status: u32,
+    pub cJobs: u32,
+    pub AveragePPM: u32,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+impl ::core::marker::Copy for PRINTER_INFO_2W {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
+impl ::core::clone::Clone for PRINTER_INFO_2W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+pub struct PRINTER_INFO_3 {
+    pub pSecurityDescriptor: *mut super::super::Security::SECURITY_DESCRIPTOR,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::marker::Copy for PRINTER_INFO_3 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::clone::Clone for PRINTER_INFO_3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct PRINTER_INFO_3(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct PRINTER_INFO_4A(i32);
+pub struct PRINTER_INFO_4A {
+    pub pPrinterName: super::super::Foundation::PSTR,
+    pub pServerName: super::super::Foundation::PSTR,
+    pub Attributes: u32,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct PRINTER_INFO_4W(i32);
+impl ::core::marker::Copy for PRINTER_INFO_4A {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for PRINTER_INFO_4A {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct PRINTER_INFO_5A(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct PRINTER_INFO_5W(i32);
-#[repr(C)]
-pub struct PRINTER_INFO_6(i32);
+pub struct PRINTER_INFO_4W {
+    pub pPrinterName: super::super::Foundation::PWSTR,
+    pub pServerName: super::super::Foundation::PWSTR,
+    pub Attributes: u32,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct PRINTER_INFO_7A(i32);
+impl ::core::marker::Copy for PRINTER_INFO_4W {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for PRINTER_INFO_4W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct PRINTER_INFO_7W(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct PRINTER_INFO_5A {
+    pub pPrinterName: super::super::Foundation::PSTR,
+    pub pPortName: super::super::Foundation::PSTR,
+    pub Attributes: u32,
+    pub DeviceNotSelectedTimeout: u32,
+    pub TransmissionRetryTimeout: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for PRINTER_INFO_5A {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for PRINTER_INFO_5A {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct PRINTER_INFO_5W {
+    pub pPrinterName: super::super::Foundation::PWSTR,
+    pub pPortName: super::super::Foundation::PWSTR,
+    pub Attributes: u32,
+    pub DeviceNotSelectedTimeout: u32,
+    pub TransmissionRetryTimeout: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for PRINTER_INFO_5W {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for PRINTER_INFO_5W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct PRINTER_INFO_6 {
+    pub dwStatus: u32,
+}
+impl ::core::marker::Copy for PRINTER_INFO_6 {}
+impl ::core::clone::Clone for PRINTER_INFO_6 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct PRINTER_INFO_7A {
+    pub pszObjectGUID: super::super::Foundation::PSTR,
+    pub dwAction: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for PRINTER_INFO_7A {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for PRINTER_INFO_7A {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct PRINTER_INFO_7W {
+    pub pszObjectGUID: super::super::Foundation::PWSTR,
+    pub dwAction: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for PRINTER_INFO_7W {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for PRINTER_INFO_7W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-#[repr(C)]
-pub struct PRINTER_INFO_8A(i32);
+pub struct PRINTER_INFO_8A {
+    pub pDevMode: *mut super::Gdi::DEVMODEA,
+}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-#[repr(C)]
-pub struct PRINTER_INFO_8W(i32);
+impl ::core::marker::Copy for PRINTER_INFO_8A {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::clone::Clone for PRINTER_INFO_8A {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct PRINTER_INFO_9A(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+pub struct PRINTER_INFO_8W {
+    pub pDevMode: *mut super::Gdi::DEVMODEW,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::marker::Copy for PRINTER_INFO_8W {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::clone::Clone for PRINTER_INFO_8W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct PRINTER_INFO_9W(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+pub struct PRINTER_INFO_9A {
+    pub pDevMode: *mut super::Gdi::DEVMODEA,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::marker::Copy for PRINTER_INFO_9A {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::clone::Clone for PRINTER_INFO_9A {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+pub struct PRINTER_INFO_9W {
+    pub pDevMode: *mut super::Gdi::DEVMODEW,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::marker::Copy for PRINTER_INFO_9W {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::clone::Clone for PRINTER_INFO_9W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const PRINTER_NOTIFY_CATEGORY_3D: u32 = 8192u32;
 pub const PRINTER_NOTIFY_CATEGORY_ALL: u32 = 4096u32;
 pub const PRINTER_NOTIFY_FIELD_ATTRIBUTES: u32 = 13u32;
@@ -2402,27 +5335,123 @@ pub const PRINTER_NOTIFY_FIELD_TOTAL_BYTES: u32 = 24u32;
 pub const PRINTER_NOTIFY_FIELD_TOTAL_PAGES: u32 = 22u32;
 pub const PRINTER_NOTIFY_FIELD_UNTIL_TIME: u32 = 17u32;
 #[repr(C)]
-pub struct PRINTER_NOTIFY_INFO(i32);
+pub struct PRINTER_NOTIFY_INFO {
+    pub Version: u32,
+    pub Flags: u32,
+    pub Count: u32,
+    pub aData: [PRINTER_NOTIFY_INFO_DATA; 1],
+}
+impl ::core::marker::Copy for PRINTER_NOTIFY_INFO {}
+impl ::core::clone::Clone for PRINTER_NOTIFY_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct PRINTER_NOTIFY_INFO_DATA(i32);
+pub struct PRINTER_NOTIFY_INFO_DATA {
+    pub Type: u16,
+    pub Field: u16,
+    pub Reserved: u32,
+    pub Id: u32,
+    pub NotifyData: PRINTER_NOTIFY_INFO_DATA_0,
+}
+impl ::core::marker::Copy for PRINTER_NOTIFY_INFO_DATA {}
+impl ::core::clone::Clone for PRINTER_NOTIFY_INFO_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub union PRINTER_NOTIFY_INFO_DATA_0 {
+    pub adwData: [u32; 2],
+    pub Data: PRINTER_NOTIFY_INFO_DATA_0_0,
+}
+impl ::core::clone::Clone for PRINTER_NOTIFY_INFO_DATA_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct PRINTER_NOTIFY_INFO_DATA_0_0 {
+    pub cbBuf: u32,
+    pub pBuf: *mut ::core::ffi::c_void,
+}
+impl ::core::marker::Copy for PRINTER_NOTIFY_INFO_DATA_0_0 {}
+impl ::core::clone::Clone for PRINTER_NOTIFY_INFO_DATA_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const PRINTER_NOTIFY_INFO_DATA_COMPACT: u32 = 1u32;
 pub const PRINTER_NOTIFY_INFO_DISCARDED: u32 = 1u32;
 #[repr(C)]
-pub struct PRINTER_NOTIFY_INIT(i32);
+pub struct PRINTER_NOTIFY_INIT {
+    pub Size: u32,
+    pub Reserved: u32,
+    pub PollTime: u32,
+}
+impl ::core::marker::Copy for PRINTER_NOTIFY_INIT {}
+impl ::core::clone::Clone for PRINTER_NOTIFY_INIT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct PRINTER_NOTIFY_OPTIONS(i32);
+pub struct PRINTER_NOTIFY_OPTIONS {
+    pub Version: u32,
+    pub Flags: u32,
+    pub Count: u32,
+    pub pTypes: *mut PRINTER_NOTIFY_OPTIONS_TYPE,
+}
+impl ::core::marker::Copy for PRINTER_NOTIFY_OPTIONS {}
+impl ::core::clone::Clone for PRINTER_NOTIFY_OPTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const PRINTER_NOTIFY_OPTIONS_REFRESH: u32 = 1u32;
 #[repr(C)]
-pub struct PRINTER_NOTIFY_OPTIONS_TYPE(i32);
+pub struct PRINTER_NOTIFY_OPTIONS_TYPE {
+    pub Type: u16,
+    pub Reserved0: u16,
+    pub Reserved1: u32,
+    pub Reserved2: u32,
+    pub Count: u32,
+    pub pFields: *mut u16,
+}
+impl ::core::marker::Copy for PRINTER_NOTIFY_OPTIONS_TYPE {}
+impl ::core::clone::Clone for PRINTER_NOTIFY_OPTIONS_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const PRINTER_NOTIFY_STATUS_ENDPOINT: u32 = 1u32;
 pub const PRINTER_NOTIFY_STATUS_INFO: u32 = 4u32;
 pub const PRINTER_NOTIFY_STATUS_POLL: u32 = 2u32;
 pub const PRINTER_NOTIFY_TYPE: u32 = 0u32;
 pub const PRINTER_OEMINTF_VERSION: u32 = 65536u32;
 #[repr(C)]
-pub struct PRINTER_OPTIONSA(i32);
+pub struct PRINTER_OPTIONSA {
+    pub cbSize: u32,
+    pub dwFlags: u32,
+}
+impl ::core::marker::Copy for PRINTER_OPTIONSA {}
+impl ::core::clone::Clone for PRINTER_OPTIONSA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct PRINTER_OPTIONSW(i32);
+pub struct PRINTER_OPTIONSW {
+    pub cbSize: u32,
+    pub dwFlags: u32,
+}
+impl ::core::marker::Copy for PRINTER_OPTIONSW {}
+impl ::core::clone::Clone for PRINTER_OPTIONSW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PRINTER_OPTION_FLAGS(pub i32);
 pub const PRINTER_OPTION_NO_CACHE: PRINTER_OPTION_FLAGS = PRINTER_OPTION_FLAGS(1i32);
@@ -2456,24 +5485,268 @@ pub const PRINTER_STATUS_TONER_LOW: u32 = 131072u32;
 pub const PRINTER_STATUS_USER_INTERVENTION: u32 = 1048576u32;
 pub const PRINTER_STATUS_WAITING: u32 = 8192u32;
 pub const PRINTER_STATUS_WARMING_UP: u32 = 65536u32;
+#[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-#[repr(C)]
-pub struct PRINTIFI32(i32);
+pub struct PRINTIFI32 {
+    pub cjThis: u32,
+    pub cjIfiExtra: u32,
+    pub dpwszFamilyName: i32,
+    pub dpwszStyleName: i32,
+    pub dpwszFaceName: i32,
+    pub dpwszUniqueName: i32,
+    pub dpFontSim: i32,
+    pub lEmbedId: i32,
+    pub lItalicAngle: i32,
+    pub lCharBias: i32,
+    pub dpCharSets: i32,
+    pub jWinCharSet: u8,
+    pub jWinPitchAndFamily: u8,
+    pub usWinWeight: u16,
+    pub flInfo: u32,
+    pub fsSelection: u16,
+    pub fsType: u16,
+    pub fwdUnitsPerEm: i16,
+    pub fwdLowestPPEm: i16,
+    pub fwdWinAscender: i16,
+    pub fwdWinDescender: i16,
+    pub fwdMacAscender: i16,
+    pub fwdMacDescender: i16,
+    pub fwdMacLineGap: i16,
+    pub fwdTypoAscender: i16,
+    pub fwdTypoDescender: i16,
+    pub fwdTypoLineGap: i16,
+    pub fwdAveCharWidth: i16,
+    pub fwdMaxCharInc: i16,
+    pub fwdCapHeight: i16,
+    pub fwdXHeight: i16,
+    pub fwdSubscriptXSize: i16,
+    pub fwdSubscriptYSize: i16,
+    pub fwdSubscriptXOffset: i16,
+    pub fwdSubscriptYOffset: i16,
+    pub fwdSuperscriptXSize: i16,
+    pub fwdSuperscriptYSize: i16,
+    pub fwdSuperscriptXOffset: i16,
+    pub fwdSuperscriptYOffset: i16,
+    pub fwdUnderscoreSize: i16,
+    pub fwdUnderscorePosition: i16,
+    pub fwdStrikeoutSize: i16,
+    pub fwdStrikeoutPosition: i16,
+    pub chFirstChar: u8,
+    pub chLastChar: u8,
+    pub chDefaultChar: u8,
+    pub chBreakChar: u8,
+    pub wcFirstChar: u16,
+    pub wcLastChar: u16,
+    pub wcDefaultChar: u16,
+    pub wcBreakChar: u16,
+    pub ptlBaseline: super::super::Foundation::POINTL,
+    pub ptlAspect: super::super::Foundation::POINTL,
+    pub ptlCaret: super::super::Foundation::POINTL,
+    pub rclFontBox: super::super::Foundation::RECTL,
+    pub achVendId: [u8; 4],
+    pub cKerningPairs: u32,
+    pub ulPanoseCulture: u32,
+    pub panose: super::Gdi::PANOSE,
+}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::marker::Copy for PRINTIFI32 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::clone::Clone for PRINTIFI32 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct PRINTPROCESSOROPENDATA(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+pub struct PRINTPROCESSOROPENDATA {
+    pub pDevMode: *mut super::Gdi::DEVMODEA,
+    pub pDatatype: super::super::Foundation::PWSTR,
+    pub pParameters: super::super::Foundation::PWSTR,
+    pub pDocumentName: super::super::Foundation::PWSTR,
+    pub JobId: u32,
+    pub pOutputFile: super::super::Foundation::PWSTR,
+    pub pPrinterName: super::super::Foundation::PWSTR,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::marker::Copy for PRINTPROCESSOROPENDATA {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::clone::Clone for PRINTPROCESSOROPENDATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct PRINTPROCESSOR_CAPS_1(i32);
+pub struct PRINTPROCESSOR_CAPS_1 {
+    pub dwLevel: u32,
+    pub dwNupOptions: u32,
+    pub dwPageOrderFlags: u32,
+    pub dwNumberOfCopies: u32,
+}
+impl ::core::marker::Copy for PRINTPROCESSOR_CAPS_1 {}
+impl ::core::clone::Clone for PRINTPROCESSOR_CAPS_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct PRINTPROCESSOR_CAPS_2(i32);
+pub struct PRINTPROCESSOR_CAPS_2 {
+    pub dwLevel: u32,
+    pub dwNupOptions: u32,
+    pub dwPageOrderFlags: u32,
+    pub dwNumberOfCopies: u32,
+    pub dwDuplexHandlingCaps: u32,
+    pub dwNupDirectionCaps: u32,
+    pub dwNupBorderCaps: u32,
+    pub dwBookletHandlingCaps: u32,
+    pub dwScalingCaps: u32,
+}
+impl ::core::marker::Copy for PRINTPROCESSOR_CAPS_2 {}
+impl ::core::clone::Clone for PRINTPROCESSOR_CAPS_2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct PRINTPROCESSOR_INFO_1A(i32);
+pub struct PRINTPROCESSOR_INFO_1A {
+    pub pName: super::super::Foundation::PSTR,
+}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for PRINTPROCESSOR_INFO_1A {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for PRINTPROCESSOR_INFO_1A {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct PRINTPROCESSOR_INFO_1W(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct PRINTPROCESSOR_INFO_1W {
+    pub pName: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for PRINTPROCESSOR_INFO_1W {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for PRINTPROCESSOR_INFO_1W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct PRINTPROVIDOR(i32);
+pub struct PRINTPROVIDOR {
+    pub fpOpenPrinter: isize,
+    pub fpSetJob: isize,
+    pub fpGetJob: isize,
+    pub fpEnumJobs: isize,
+    pub fpAddPrinter: isize,
+    pub fpDeletePrinter: isize,
+    pub fpSetPrinter: isize,
+    pub fpGetPrinter: isize,
+    pub fpEnumPrinters: isize,
+    pub fpAddPrinterDriver: isize,
+    pub fpEnumPrinterDrivers: isize,
+    pub fpGetPrinterDriver: isize,
+    pub fpGetPrinterDriverDirectory: isize,
+    pub fpDeletePrinterDriver: isize,
+    pub fpAddPrintProcessor: isize,
+    pub fpEnumPrintProcessors: isize,
+    pub fpGetPrintProcessorDirectory: isize,
+    pub fpDeletePrintProcessor: isize,
+    pub fpEnumPrintProcessorDatatypes: isize,
+    pub fpStartDocPrinter: isize,
+    pub fpStartPagePrinter: isize,
+    pub fpWritePrinter: isize,
+    pub fpEndPagePrinter: isize,
+    pub fpAbortPrinter: isize,
+    pub fpReadPrinter: isize,
+    pub fpEndDocPrinter: isize,
+    pub fpAddJob: isize,
+    pub fpScheduleJob: isize,
+    pub fpGetPrinterData: isize,
+    pub fpSetPrinterData: isize,
+    pub fpWaitForPrinterChange: isize,
+    pub fpClosePrinter: isize,
+    pub fpAddForm: isize,
+    pub fpDeleteForm: isize,
+    pub fpGetForm: isize,
+    pub fpSetForm: isize,
+    pub fpEnumForms: isize,
+    pub fpEnumMonitors: isize,
+    pub fpEnumPorts: isize,
+    pub fpAddPort: isize,
+    pub fpConfigurePort: isize,
+    pub fpDeletePort: isize,
+    pub fpCreatePrinterIC: isize,
+    pub fpPlayGdiScriptOnPrinterIC: isize,
+    pub fpDeletePrinterIC: isize,
+    pub fpAddPrinterConnection: isize,
+    pub fpDeletePrinterConnection: isize,
+    pub fpPrinterMessageBox: isize,
+    pub fpAddMonitor: isize,
+    pub fpDeleteMonitor: isize,
+    pub fpResetPrinter: isize,
+    pub fpGetPrinterDriverEx: isize,
+    pub fpFindFirstPrinterChangeNotification: isize,
+    pub fpFindClosePrinterChangeNotification: isize,
+    pub fpAddPortEx: isize,
+    pub fpShutDown: isize,
+    pub fpRefreshPrinterChangeNotification: isize,
+    pub fpOpenPrinterEx: isize,
+    pub fpAddPrinterEx: isize,
+    pub fpSetPort: isize,
+    pub fpEnumPrinterData: isize,
+    pub fpDeletePrinterData: isize,
+    pub fpClusterSplOpen: isize,
+    pub fpClusterSplClose: isize,
+    pub fpClusterSplIsAlive: isize,
+    pub fpSetPrinterDataEx: isize,
+    pub fpGetPrinterDataEx: isize,
+    pub fpEnumPrinterDataEx: isize,
+    pub fpEnumPrinterKey: isize,
+    pub fpDeletePrinterDataEx: isize,
+    pub fpDeletePrinterKey: isize,
+    pub fpSeekPrinter: isize,
+    pub fpDeletePrinterDriverEx: isize,
+    pub fpAddPerMachineConnection: isize,
+    pub fpDeletePerMachineConnection: isize,
+    pub fpEnumPerMachineConnections: isize,
+    pub fpXcvData: isize,
+    pub fpAddPrinterDriverEx: isize,
+    pub fpSplReadPrinter: isize,
+    pub fpDriverUnloadComplete: isize,
+    pub fpGetSpoolFileInfo: isize,
+    pub fpCommitSpoolData: isize,
+    pub fpCloseSpoolFileHandle: isize,
+    pub fpFlushPrinter: isize,
+    pub fpSendRecvBidiData: isize,
+    pub fpAddPrinterConnection2: isize,
+    pub fpGetPrintClassObject: isize,
+    pub fpReportJobProcessingProgress: isize,
+    pub fpEnumAndLogProvidorObjects: isize,
+    pub fpInternalGetPrinterDriver: isize,
+    pub fpFindCompatibleDriver: isize,
+    pub fpGetJobNamedPropertyValue: isize,
+    pub fpSetJobNamedProperty: isize,
+    pub fpDeleteJobNamedProperty: isize,
+    pub fpEnumJobNamedProperties: isize,
+    pub fpPowerEvent: isize,
+    pub fpGetUserPropertyBag: isize,
+    pub fpCanShutdown: isize,
+    pub fpLogJobInfoForBranchOffice: isize,
+    pub fpRegeneratePrintDeviceCapabilities: isize,
+    pub fpPrintSupportOperation: isize,
+    pub fpIppCreateJobOnPrinter: isize,
+    pub fpIppGetJobAttributes: isize,
+    pub fpIppSetJobAttributes: isize,
+    pub fpIppGetPrinterAttributes: isize,
+    pub fpIppSetPrinterAttributes: isize,
+}
+impl ::core::marker::Copy for PRINTPROVIDOR {}
+impl ::core::clone::Clone for PRINTPROVIDOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const PRINT_APP_BIDI_NOTIFY_CHANNEL: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 716886563,
     data2: 47508,
@@ -2488,25 +5761,104 @@ pub const PRINT_EXECUTION_CONTEXT_SPOOLER_ISOLATION_HOST: PRINT_EXECUTION_CONTEX
 pub const PRINT_EXECUTION_CONTEXT_FILTER_PIPELINE: PRINT_EXECUTION_CONTEXT = PRINT_EXECUTION_CONTEXT(3i32);
 pub const PRINT_EXECUTION_CONTEXT_WOW64: PRINT_EXECUTION_CONTEXT = PRINT_EXECUTION_CONTEXT(4i32);
 #[repr(C)]
-pub struct PRINT_EXECUTION_DATA(i32);
-#[cfg(feature = "Win32_Foundation")]
+pub struct PRINT_EXECUTION_DATA {
+    pub context: PRINT_EXECUTION_CONTEXT,
+    pub clientAppPID: u32,
+}
+impl ::core::marker::Copy for PRINT_EXECUTION_DATA {}
+impl ::core::clone::Clone for PRINT_EXECUTION_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct PRINT_FEATURE_OPTION(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct PRINT_FEATURE_OPTION {
+    pub pszFeature: super::super::Foundation::PSTR,
+    pub pszOption: super::super::Foundation::PSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for PRINT_FEATURE_OPTION {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for PRINT_FEATURE_OPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const PRINT_PORT_MONITOR_NOTIFY_CHANNEL: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 635386638,
     data2: 29865,
     data3: 18421,
     data4: [128, 206, 121, 180, 177, 235, 92, 88],
 };
+#[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+pub struct PROPSHEETUI_GETICON_INFO {
+    pub cbSize: u16,
+    pub Flags: u16,
+    pub cxIcon: u16,
+    pub cyIcon: u16,
+    pub hIcon: super::super::UI::WindowsAndMessaging::HICON,
+}
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl ::core::marker::Copy for PROPSHEETUI_GETICON_INFO {}
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl ::core::clone::Clone for PROPSHEETUI_GETICON_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct PROPSHEETUI_GETICON_INFO(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct PROPSHEETUI_INFO {
+    pub cbSize: u16,
+    pub Version: u16,
+    pub Flags: u16,
+    pub Reason: u16,
+    pub hComPropSheet: super::super::Foundation::HANDLE,
+    pub pfnComPropSheet: ::core::option::Option<PFNCOMPROPSHEET>,
+    pub lParamInit: super::super::Foundation::LPARAM,
+    pub UserData: usize,
+    pub Result: usize,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for PROPSHEETUI_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for PROPSHEETUI_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct PROPSHEETUI_INFO(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+pub struct PROPSHEETUI_INFO_HEADER {
+    pub cbSize: u16,
+    pub Flags: u16,
+    pub pTitle: *mut i8,
+    pub hWndParent: super::super::Foundation::HWND,
+    pub hInst: super::super::Foundation::HINSTANCE,
+    pub Anonymous: PROPSHEETUI_INFO_HEADER_0,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::core::marker::Copy for PROPSHEETUI_INFO_HEADER {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::core::clone::Clone for PROPSHEETUI_INFO_HEADER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct PROPSHEETUI_INFO_HEADER(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+pub union PROPSHEETUI_INFO_HEADER_0 {
+    pub hIcon: super::super::UI::WindowsAndMessaging::HICON,
+    pub IconID: usize,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::core::clone::Clone for PROPSHEETUI_INFO_HEADER_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const PROPSHEETUI_INFO_VERSION: u32 = 256u32;
 pub const PROPSHEETUI_REASON_BEFORE_INIT: u32 = 5u32;
 pub const PROPSHEETUI_REASON_DESTROY: u32 = 2u32;
@@ -2517,23 +5869,90 @@ pub const PROPSHEETUI_REASON_SET_RESULT: u32 = 3u32;
 pub const PROTOCOL_LPR_TYPE: u32 = 2u32;
 pub const PROTOCOL_RAWTCP_TYPE: u32 = 1u32;
 pub const PROTOCOL_UNKNOWN_TYPE: u32 = 0u32;
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct PROVIDOR_INFO_1A(i32);
+pub struct PROVIDOR_INFO_1A {
+    pub pName: super::super::Foundation::PSTR,
+    pub pEnvironment: super::super::Foundation::PSTR,
+    pub pDLLName: super::super::Foundation::PSTR,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct PROVIDOR_INFO_1W(i32);
+impl ::core::marker::Copy for PROVIDOR_INFO_1A {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for PROVIDOR_INFO_1A {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct PROVIDOR_INFO_2A(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct PROVIDOR_INFO_2W(i32);
-#[repr(C)]
-pub struct PSCRIPT5_PRIVATE_DEVMODE(i32);
+pub struct PROVIDOR_INFO_1W {
+    pub pName: super::super::Foundation::PWSTR,
+    pub pEnvironment: super::super::Foundation::PWSTR,
+    pub pDLLName: super::super::Foundation::PWSTR,
+}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for PROVIDOR_INFO_1W {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for PROVIDOR_INFO_1W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct PSPINFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct PROVIDOR_INFO_2A {
+    pub pOrder: super::super::Foundation::PSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for PROVIDOR_INFO_2A {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for PROVIDOR_INFO_2A {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct PROVIDOR_INFO_2W {
+    pub pOrder: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for PROVIDOR_INFO_2W {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for PROVIDOR_INFO_2W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct PSCRIPT5_PRIVATE_DEVMODE {
+    pub wReserved: [u16; 57],
+    pub wSize: u16,
+}
+impl ::core::marker::Copy for PSCRIPT5_PRIVATE_DEVMODE {}
+impl ::core::clone::Clone for PSCRIPT5_PRIVATE_DEVMODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct PSPINFO {
+    pub cbSize: u16,
+    pub wReserved: u16,
+    pub hComPropSheet: super::super::Foundation::HANDLE,
+    pub hCPSUIPage: super::super::Foundation::HANDLE,
+    pub pfnComPropSheet: ::core::option::Option<PFNCOMPROPSHEET>,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for PSPINFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for PSPINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const PSUIHDRF_DEFTITLE: u32 = 16u32;
 pub const PSUIHDRF_EXACT_PTITLE: u32 = 32u32;
 pub const PSUIHDRF_NOAPPLYNOW: u32 = 2u32;
@@ -2548,7 +5967,17 @@ pub const PSUIPAGEINSERT_PCOMPROPSHEETUI: u32 = 1u32;
 pub const PSUIPAGEINSERT_PFNPROPSHEETUI: u32 = 2u32;
 pub const PSUIPAGEINSERT_PROPSHEETPAGE: u32 = 3u32;
 #[repr(C)]
-pub struct PUBLISHERINFO(i32);
+pub struct PUBLISHERINFO {
+    pub dwMode: u32,
+    pub wMinoutlinePPEM: u16,
+    pub wMaxbitmapPPEM: u16,
+}
+impl ::core::marker::Copy for PUBLISHERINFO {}
+impl ::core::clone::Clone for PUBLISHERINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const PUSHBUTTON_TYPE_CALLBACK: u32 = 1u32;
 pub const PUSHBUTTON_TYPE_DLGPROC: u32 = 0u32;
 pub const PUSHBUTTON_TYPE_HTCLRADJ: u32 = 2u32;
@@ -2607,15 +6036,77 @@ pub const PrintJobStatus_UserIntervention: PrintJobStatus = PrintJobStatus(1024i
 pub const PrintJobStatus_Restarted: PrintJobStatus = PrintJobStatus(2048i32);
 pub const PrintJobStatus_Complete: PrintJobStatus = PrintJobStatus(4096i32);
 pub const PrintJobStatus_Retained: PrintJobStatus = PrintJobStatus(8192i32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct PrintNamedProperty(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct PrintPropertiesCollection(i32);
+pub struct PrintNamedProperty {
+    pub propertyName: super::super::Foundation::PWSTR,
+    pub propertyValue: PrintPropertyValue,
+}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for PrintNamedProperty {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for PrintNamedProperty {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct PrintPropertyValue(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct PrintPropertiesCollection {
+    pub numberOfProperties: u32,
+    pub propertiesCollection: *mut PrintNamedProperty,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for PrintPropertiesCollection {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for PrintPropertiesCollection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct PrintPropertyValue {
+    pub ePropertyType: EPrintPropertyType,
+    pub value: PrintPropertyValue_0,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for PrintPropertyValue {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for PrintPropertyValue {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub union PrintPropertyValue_0 {
+    pub propertyByte: u8,
+    pub propertyString: super::super::Foundation::PWSTR,
+    pub propertyInt32: i32,
+    pub propertyInt64: i64,
+    pub propertyBlob: PrintPropertyValue_0_0,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for PrintPropertyValue_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct PrintPropertyValue_0_0 {
+    pub cbBuf: u32,
+    pub pBuf: *mut ::core::ffi::c_void,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for PrintPropertyValue_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for PrintPropertyValue_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const PrintSchemaAsyncOperation: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1135802429, data2: 4338, data3: 18603, data4: [131, 27, 85, 253, 189, 189, 52, 164] };
 #[repr(transparent)]
 pub struct PrintSchemaConstrainedSetting(pub i32);
@@ -2662,24 +6153,95 @@ pub const SETOPTIONS_FLAG_RESOLVE_CONFLICT: u32 = 1u32;
 pub const SETOPTIONS_RESULT_CONFLICT_REMAINED: u32 = 2u32;
 pub const SETOPTIONS_RESULT_CONFLICT_RESOLVED: u32 = 1u32;
 pub const SETOPTIONS_RESULT_NO_CONFLICT: u32 = 0u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct SETRESULT_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct SETRESULT_INFO {
+    pub cbSize: u16,
+    pub wReserved: u16,
+    pub hSetResult: super::super::Foundation::HANDLE,
+    pub Result: super::super::Foundation::LRESULT,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SETRESULT_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SETRESULT_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SHIMOPTS(pub i32);
 pub const PTSHIM_DEFAULT: SHIMOPTS = SHIMOPTS(0i32);
 pub const PTSHIM_NOSNAPSHOT: SHIMOPTS = SHIMOPTS(1i32);
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct SHOWUIPARAMS(i32);
-#[repr(C)]
-pub struct SIMULATE_CAPS_1(i32);
+pub struct SHOWUIPARAMS {
+    pub UIType: UI_TYPE,
+    pub MessageBoxParams: MESSAGEBOX_PARAMS,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct SPLCLIENT_INFO_1(i32);
+impl ::core::marker::Copy for SHOWUIPARAMS {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SHOWUIPARAMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct SPLCLIENT_INFO_3_VISTA(i32);
+pub struct SIMULATE_CAPS_1 {
+    pub dwLevel: u32,
+    pub dwPageOrderFlags: u32,
+    pub dwNumberOfCopies: u32,
+    pub dwCollate: u32,
+    pub dwNupOptions: u32,
+}
+impl ::core::marker::Copy for SIMULATE_CAPS_1 {}
+impl ::core::clone::Clone for SIMULATE_CAPS_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct SPLCLIENT_INFO_1 {
+    pub dwSize: u32,
+    pub pMachineName: super::super::Foundation::PWSTR,
+    pub pUserName: super::super::Foundation::PWSTR,
+    pub dwBuildNum: u32,
+    pub dwMajorVersion: u32,
+    pub dwMinorVersion: u32,
+    pub wProcessorArchitecture: u16,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SPLCLIENT_INFO_1 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SPLCLIENT_INFO_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct SPLCLIENT_INFO_3_VISTA {
+    pub cbSize: u32,
+    pub dwFlags: u32,
+    pub dwSize: u32,
+    pub pMachineName: super::super::Foundation::PWSTR,
+    pub pUserName: super::super::Foundation::PWSTR,
+    pub dwBuildNum: u32,
+    pub dwMajorVersion: u32,
+    pub dwMinorVersion: u32,
+    pub wProcessorArchitecture: u16,
+    pub hSplPrinter: u64,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SPLCLIENT_INFO_3_VISTA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SPLCLIENT_INFO_3_VISTA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SPOOL_FILE_PERSISTENT: u32 = 1u32;
 pub const SPOOL_FILE_TEMPORARY: u32 = 2u32;
 pub const SR_OWNER: u32 = 0u32;
@@ -2694,7 +6256,28 @@ pub const S_CONFLICT_RESOLVED: u32 = 262146u32;
 pub const S_DEVCAP_OUTPUT_FULL_REPLACEMENT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(318465i32 as _);
 pub const S_NO_CONFLICT: u32 = 262145u32;
 #[repr(C)]
-pub struct TRANSDATA(i32);
+pub struct TRANSDATA {
+    pub ubCodePageID: u8,
+    pub ubType: u8,
+    pub uCode: TRANSDATA_0,
+}
+impl ::core::marker::Copy for TRANSDATA {}
+impl ::core::clone::Clone for TRANSDATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub union TRANSDATA_0 {
+    pub sCode: i16,
+    pub ubCode: u8,
+    pub ubPairs: [u8; 2],
+}
+impl ::core::clone::Clone for TRANSDATA_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const TTDOWNLOAD_BITMAP: u32 = 2u32;
 pub const TTDOWNLOAD_DONTCARE: u32 = 0u32;
 pub const TTDOWNLOAD_GRAPHICS: u32 = 1u32;
@@ -2715,9 +6298,43 @@ pub const TYPE_GLYPHID: u32 = 4u32;
 pub const TYPE_TRANSDATA: u32 = 2u32;
 pub const TYPE_UNICODE: u32 = 1u32;
 #[repr(C)]
-pub struct UFF_FILEHEADER(i32);
+pub struct UFF_FILEHEADER {
+    pub dwSignature: u32,
+    pub dwVersion: u32,
+    pub dwSize: u32,
+    pub nFonts: u32,
+    pub nGlyphSets: u32,
+    pub nVarData: u32,
+    pub offFontDir: u32,
+    pub dwFlags: u32,
+    pub dwReserved: [u32; 4],
+}
+impl ::core::marker::Copy for UFF_FILEHEADER {}
+impl ::core::clone::Clone for UFF_FILEHEADER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct UFF_FONTDIRECTORY(i32);
+pub struct UFF_FONTDIRECTORY {
+    pub dwSignature: u32,
+    pub wSize: u16,
+    pub wFontID: u16,
+    pub sGlyphID: i16,
+    pub wFlags: u16,
+    pub dwInstallerSig: u32,
+    pub offFontName: u32,
+    pub offCartridgeName: u32,
+    pub offFontData: u32,
+    pub offGlyphData: u32,
+    pub offVarData: u32,
+}
+impl ::core::marker::Copy for UFF_FONTDIRECTORY {}
+impl ::core::clone::Clone for UFF_FONTDIRECTORY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const UFF_VERSION_NUMBER: u32 = 65537u32;
 pub const UFM_CART: u32 = 2u32;
 pub const UFM_SCALABLE: u32 = 4u32;
@@ -2739,16 +6356,90 @@ pub const UFO_GETINFO_STDVARIABLE: u32 = 6u32;
 pub struct UI_TYPE(pub i32);
 pub const kMessageBox: UI_TYPE = UI_TYPE(0i32);
 #[repr(C)]
-pub struct UNIDRVINFO(i32);
+pub struct UNIDRVINFO {
+    pub dwSize: u32,
+    pub flGenFlags: u32,
+    pub wType: u16,
+    pub fCaps: u16,
+    pub wXRes: u16,
+    pub wYRes: u16,
+    pub sYAdjust: i16,
+    pub sYMoved: i16,
+    pub wPrivateData: u16,
+    pub sShift: i16,
+    pub SelectFont: INVOC,
+    pub UnSelectFont: INVOC,
+    pub wReserved: [u16; 4],
+}
+impl ::core::marker::Copy for UNIDRVINFO {}
+impl ::core::clone::Clone for UNIDRVINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct UNIDRV_PRIVATE_DEVMODE(i32);
+pub struct UNIDRV_PRIVATE_DEVMODE {
+    pub wReserved: [u16; 4],
+    pub wSize: u16,
+}
+impl ::core::marker::Copy for UNIDRV_PRIVATE_DEVMODE {}
+impl ::core::clone::Clone for UNIDRV_PRIVATE_DEVMODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct UNIFM_HDR(i32);
+pub struct UNIFM_HDR {
+    pub dwSize: u32,
+    pub dwVersion: u32,
+    pub ulDefaultCodepage: u32,
+    pub lGlyphSetDataRCID: i32,
+    pub loUnidrvInfo: u32,
+    pub loIFIMetrics: u32,
+    pub loExtTextMetric: u32,
+    pub loWidthTable: u32,
+    pub loKernPair: u32,
+    pub dwReserved: [u32; 2],
+}
+impl ::core::marker::Copy for UNIFM_HDR {}
+impl ::core::clone::Clone for UNIFM_HDR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const UNIFM_VERSION_1_0: u32 = 65536u32;
 #[repr(C)]
-pub struct UNI_CODEPAGEINFO(i32);
+pub struct UNI_CODEPAGEINFO {
+    pub dwCodePage: u32,
+    pub SelectSymbolSet: INVOC,
+    pub UnSelectSymbolSet: INVOC,
+}
+impl ::core::marker::Copy for UNI_CODEPAGEINFO {}
+impl ::core::clone::Clone for UNI_CODEPAGEINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct UNI_GLYPHSETDATA(i32);
+pub struct UNI_GLYPHSETDATA {
+    pub dwSize: u32,
+    pub dwVersion: u32,
+    pub dwFlags: u32,
+    pub lPredefinedID: i32,
+    pub dwGlyphCount: u32,
+    pub dwRunCount: u32,
+    pub loRunOffset: u32,
+    pub dwCodePageCount: u32,
+    pub loCodePageOffset: u32,
+    pub loMapTableOffset: u32,
+    pub dwReserved: [u32; 2],
+}
+impl ::core::marker::Copy for UNI_GLYPHSETDATA {}
+impl ::core::clone::Clone for UNI_GLYPHSETDATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const UNI_GLYPHSETDATA_VERSION_1_0: u32 = 65536u32;
 pub const UNKNOWN_PROTOCOL: u32 = 0u32;
 pub const UPDP_CHECK_DRIVERSTORE: u32 = 4u32;
@@ -2758,13 +6449,46 @@ pub const USBPRINT_IOCTL_INDEX: u32 = 0u32;
 pub const USB_PRINTER_INTERFACE_CLASSIC: u32 = 1u32;
 pub const USB_PRINTER_INTERFACE_DUAL: u32 = 3u32;
 pub const USB_PRINTER_INTERFACE_IPP: u32 = 2u32;
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+pub struct USERDATA {
+    pub dwSize: u32,
+    pub dwItemID: usize,
+    pub pKeyWordName: super::super::Foundation::PSTR,
+    pub dwReserved: [u32; 8],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for USERDATA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for USERDATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct USERDATA(i32);
+pub struct WIDTHRUN {
+    pub wStartGlyph: u16,
+    pub wGlyphCount: u16,
+    pub loCharWidthOffset: u32,
+}
+impl ::core::marker::Copy for WIDTHRUN {}
+impl ::core::clone::Clone for WIDTHRUN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WIDTHRUN(i32);
-#[repr(C)]
-pub struct WIDTHTABLE(i32);
+pub struct WIDTHTABLE {
+    pub dwSize: u32,
+    pub dwRunNum: u32,
+    pub WidthRun: [WIDTHRUN; 1],
+}
+impl ::core::marker::Copy for WIDTHTABLE {}
+impl ::core::clone::Clone for WIDTHTABLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WM_FI_FILENAME: u32 = 900u32;
 #[repr(transparent)]
 pub struct XPSRAS_BACKGROUND_COLOR(pub i32);
@@ -2782,15 +6506,71 @@ pub const XPSRAS_RENDERING_MODE_ALIASED: XPSRAS_RENDERING_MODE = XPSRAS_RENDERIN
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub type _CPSUICALLBACK = unsafe extern "system" fn(pcpsuicbparam: *mut CPSUICBPARAM) -> i32;
 #[repr(C)]
-pub struct _SPLCLIENT_INFO_2_V1(i32);
+pub struct _SPLCLIENT_INFO_2_V1 {
+    pub hSplPrinter: usize,
+}
+impl ::core::marker::Copy for _SPLCLIENT_INFO_2_V1 {}
+impl ::core::clone::Clone for _SPLCLIENT_INFO_2_V1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+pub struct _SPLCLIENT_INFO_2_V2 {
+    pub hSplPrinter: u64,
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::marker::Copy for _SPLCLIENT_INFO_2_V2 {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::clone::Clone for _SPLCLIENT_INFO_2_V2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct _SPLCLIENT_INFO_2_V2(i32);
 #[cfg(any(target_arch = "x86",))]
+pub struct _SPLCLIENT_INFO_2_V2 {
+    pub hSplPrinter: u32,
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::core::marker::Copy for _SPLCLIENT_INFO_2_V2 {}
+#[cfg(any(target_arch = "x86",))]
+impl ::core::clone::Clone for _SPLCLIENT_INFO_2_V2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct _SPLCLIENT_INFO_2_V2(i32);
+pub struct _SPLCLIENT_INFO_2_V3 {
+    pub hSplPrinter: u64,
+}
+impl ::core::marker::Copy for _SPLCLIENT_INFO_2_V3 {}
+impl ::core::clone::Clone for _SPLCLIENT_INFO_2_V3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct _SPLCLIENT_INFO_2_V3(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct __MIDL___MIDL_itf_imgerror_0000_0000_0001(i32);
+pub struct __MIDL___MIDL_itf_imgerror_0000_0000_0001 {
+    pub description: super::super::Foundation::BSTR,
+    pub guid: ::windows_sys::core::GUID,
+    pub helpContext: u32,
+    pub helpFile: super::super::Foundation::BSTR,
+    pub source: super::super::Foundation::BSTR,
+    pub devDescription: super::super::Foundation::BSTR,
+    pub errorID: ::windows_sys::core::GUID,
+    pub cUserParameters: u32,
+    pub aUserParameters: *mut super::super::Foundation::BSTR,
+    pub userFallback: super::super::Foundation::BSTR,
+    pub exceptionID: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for __MIDL___MIDL_itf_imgerror_0000_0000_0001 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for __MIDL___MIDL_itf_imgerror_0000_0000_0001 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

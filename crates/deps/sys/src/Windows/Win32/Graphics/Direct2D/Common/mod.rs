@@ -9,7 +9,17 @@ pub const D2D1_ALPHA_MODE_STRAIGHT: D2D1_ALPHA_MODE = D2D1_ALPHA_MODE(2u32);
 pub const D2D1_ALPHA_MODE_IGNORE: D2D1_ALPHA_MODE = D2D1_ALPHA_MODE(3u32);
 pub const D2D1_ALPHA_MODE_FORCE_DWORD: D2D1_ALPHA_MODE = D2D1_ALPHA_MODE(4294967295u32);
 #[repr(C)]
-pub struct D2D1_BEZIER_SEGMENT(i32);
+pub struct D2D1_BEZIER_SEGMENT {
+    pub point1: D2D_POINT_2F,
+    pub point2: D2D_POINT_2F,
+    pub point3: D2D_POINT_2F,
+}
+impl ::core::marker::Copy for D2D1_BEZIER_SEGMENT {}
+impl ::core::clone::Clone for D2D1_BEZIER_SEGMENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D2D1_BLEND_MODE(pub u32);
 pub const D2D1_BLEND_MODE_MULTIPLY: D2D1_BLEND_MODE = D2D1_BLEND_MODE(0u32);
@@ -50,7 +60,18 @@ pub const D2D1_COLORMATRIX_ALPHA_MODE_PREMULTIPLIED: D2D1_COLORMATRIX_ALPHA_MODE
 pub const D2D1_COLORMATRIX_ALPHA_MODE_STRAIGHT: D2D1_COLORMATRIX_ALPHA_MODE = D2D1_COLORMATRIX_ALPHA_MODE(2u32);
 pub const D2D1_COLORMATRIX_ALPHA_MODE_FORCE_DWORD: D2D1_COLORMATRIX_ALPHA_MODE = D2D1_COLORMATRIX_ALPHA_MODE(4294967295u32);
 #[repr(C)]
-pub struct D2D1_COLOR_F(i32);
+pub struct D2D1_COLOR_F {
+    pub r: f32,
+    pub g: f32,
+    pub b: f32,
+    pub a: f32,
+}
+impl ::core::marker::Copy for D2D1_COLOR_F {}
+impl ::core::clone::Clone for D2D1_COLOR_F {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D2D1_COMPOSITE_MODE(pub u32);
 pub const D2D1_COMPOSITE_MODE_SOURCE_OVER: D2D1_COMPOSITE_MODE = D2D1_COMPOSITE_MODE(0u32);
@@ -88,41 +109,329 @@ pub const D2D1_PATH_SEGMENT_NONE: D2D1_PATH_SEGMENT = D2D1_PATH_SEGMENT(0u32);
 pub const D2D1_PATH_SEGMENT_FORCE_UNSTROKED: D2D1_PATH_SEGMENT = D2D1_PATH_SEGMENT(1u32);
 pub const D2D1_PATH_SEGMENT_FORCE_ROUND_LINE_JOIN: D2D1_PATH_SEGMENT = D2D1_PATH_SEGMENT(2u32);
 pub const D2D1_PATH_SEGMENT_FORCE_DWORD: D2D1_PATH_SEGMENT = D2D1_PATH_SEGMENT(4294967295u32);
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 #[repr(C)]
-pub struct D2D1_PIXEL_FORMAT(i32);
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+pub struct D2D1_PIXEL_FORMAT {
+    pub format: super::super::Dxgi::Common::DXGI_FORMAT,
+    pub alphaMode: D2D1_ALPHA_MODE,
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::marker::Copy for D2D1_PIXEL_FORMAT {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::clone::Clone for D2D1_PIXEL_FORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D2D1_TURBULENCE_NOISE(pub u32);
 pub const D2D1_TURBULENCE_NOISE_FRACTAL_SUM: D2D1_TURBULENCE_NOISE = D2D1_TURBULENCE_NOISE(0u32);
 pub const D2D1_TURBULENCE_NOISE_TURBULENCE: D2D1_TURBULENCE_NOISE = D2D1_TURBULENCE_NOISE(1u32);
 pub const D2D1_TURBULENCE_NOISE_FORCE_DWORD: D2D1_TURBULENCE_NOISE = D2D1_TURBULENCE_NOISE(4294967295u32);
 #[repr(C)]
-pub struct D2D_COLOR_F(i32);
+pub struct D2D_COLOR_F {
+    pub r: f32,
+    pub g: f32,
+    pub b: f32,
+    pub a: f32,
+}
+impl ::core::marker::Copy for D2D_COLOR_F {}
+impl ::core::clone::Clone for D2D_COLOR_F {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D2D_MATRIX_3X2_F(i32);
+pub struct D2D_MATRIX_3X2_F {
+    pub Anonymous: D2D_MATRIX_3X2_F_0,
+}
+impl ::core::marker::Copy for D2D_MATRIX_3X2_F {}
+impl ::core::clone::Clone for D2D_MATRIX_3X2_F {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D2D_MATRIX_4X3_F(i32);
+pub union D2D_MATRIX_3X2_F_0 {
+    pub Anonymous1: D2D_MATRIX_3X2_F_0_0,
+    pub Anonymous2: D2D_MATRIX_3X2_F_0_1,
+    pub m: [f32; 6],
+}
+impl ::core::clone::Clone for D2D_MATRIX_3X2_F_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D2D_MATRIX_4X4_F(i32);
+pub struct D2D_MATRIX_3X2_F_0_0 {
+    pub m11: f32,
+    pub m12: f32,
+    pub m21: f32,
+    pub m22: f32,
+    pub dx: f32,
+    pub dy: f32,
+}
+impl ::core::marker::Copy for D2D_MATRIX_3X2_F_0_0 {}
+impl ::core::clone::Clone for D2D_MATRIX_3X2_F_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D2D_MATRIX_5X4_F(i32);
+pub struct D2D_MATRIX_3X2_F_0_1 {
+    pub _11: f32,
+    pub _12: f32,
+    pub _21: f32,
+    pub _22: f32,
+    pub _31: f32,
+    pub _32: f32,
+}
+impl ::core::marker::Copy for D2D_MATRIX_3X2_F_0_1 {}
+impl ::core::clone::Clone for D2D_MATRIX_3X2_F_0_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D2D_POINT_2F(i32);
+pub struct D2D_MATRIX_4X3_F {
+    pub Anonymous: D2D_MATRIX_4X3_F_0,
+}
+impl ::core::marker::Copy for D2D_MATRIX_4X3_F {}
+impl ::core::clone::Clone for D2D_MATRIX_4X3_F {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D2D_POINT_2U(i32);
+pub union D2D_MATRIX_4X3_F_0 {
+    pub Anonymous: D2D_MATRIX_4X3_F_0_0,
+    pub m: [f32; 12],
+}
+impl ::core::clone::Clone for D2D_MATRIX_4X3_F_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D2D_RECT_F(i32);
+pub struct D2D_MATRIX_4X3_F_0_0 {
+    pub _11: f32,
+    pub _12: f32,
+    pub _13: f32,
+    pub _21: f32,
+    pub _22: f32,
+    pub _23: f32,
+    pub _31: f32,
+    pub _32: f32,
+    pub _33: f32,
+    pub _41: f32,
+    pub _42: f32,
+    pub _43: f32,
+}
+impl ::core::marker::Copy for D2D_MATRIX_4X3_F_0_0 {}
+impl ::core::clone::Clone for D2D_MATRIX_4X3_F_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D2D_RECT_U(i32);
+pub struct D2D_MATRIX_4X4_F {
+    pub Anonymous: D2D_MATRIX_4X4_F_0,
+}
+impl ::core::marker::Copy for D2D_MATRIX_4X4_F {}
+impl ::core::clone::Clone for D2D_MATRIX_4X4_F {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D2D_SIZE_F(i32);
+pub union D2D_MATRIX_4X4_F_0 {
+    pub Anonymous: D2D_MATRIX_4X4_F_0_0,
+    pub m: [f32; 16],
+}
+impl ::core::clone::Clone for D2D_MATRIX_4X4_F_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D2D_SIZE_U(i32);
+pub struct D2D_MATRIX_4X4_F_0_0 {
+    pub _11: f32,
+    pub _12: f32,
+    pub _13: f32,
+    pub _14: f32,
+    pub _21: f32,
+    pub _22: f32,
+    pub _23: f32,
+    pub _24: f32,
+    pub _31: f32,
+    pub _32: f32,
+    pub _33: f32,
+    pub _34: f32,
+    pub _41: f32,
+    pub _42: f32,
+    pub _43: f32,
+    pub _44: f32,
+}
+impl ::core::marker::Copy for D2D_MATRIX_4X4_F_0_0 {}
+impl ::core::clone::Clone for D2D_MATRIX_4X4_F_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D2D_VECTOR_2F(i32);
+pub struct D2D_MATRIX_5X4_F {
+    pub Anonymous: D2D_MATRIX_5X4_F_0,
+}
+impl ::core::marker::Copy for D2D_MATRIX_5X4_F {}
+impl ::core::clone::Clone for D2D_MATRIX_5X4_F {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D2D_VECTOR_3F(i32);
+pub union D2D_MATRIX_5X4_F_0 {
+    pub Anonymous: D2D_MATRIX_5X4_F_0_0,
+    pub m: [f32; 20],
+}
+impl ::core::clone::Clone for D2D_MATRIX_5X4_F_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D2D_VECTOR_4F(i32);
+pub struct D2D_MATRIX_5X4_F_0_0 {
+    pub _11: f32,
+    pub _12: f32,
+    pub _13: f32,
+    pub _14: f32,
+    pub _21: f32,
+    pub _22: f32,
+    pub _23: f32,
+    pub _24: f32,
+    pub _31: f32,
+    pub _32: f32,
+    pub _33: f32,
+    pub _34: f32,
+    pub _41: f32,
+    pub _42: f32,
+    pub _43: f32,
+    pub _44: f32,
+    pub _51: f32,
+    pub _52: f32,
+    pub _53: f32,
+    pub _54: f32,
+}
+impl ::core::marker::Copy for D2D_MATRIX_5X4_F_0_0 {}
+impl ::core::clone::Clone for D2D_MATRIX_5X4_F_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct D2D_POINT_2F {
+    pub x: f32,
+    pub y: f32,
+}
+impl ::core::marker::Copy for D2D_POINT_2F {}
+impl ::core::clone::Clone for D2D_POINT_2F {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct D2D_POINT_2U {
+    pub x: u32,
+    pub y: u32,
+}
+impl ::core::marker::Copy for D2D_POINT_2U {}
+impl ::core::clone::Clone for D2D_POINT_2U {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct D2D_RECT_F {
+    pub left: f32,
+    pub top: f32,
+    pub right: f32,
+    pub bottom: f32,
+}
+impl ::core::marker::Copy for D2D_RECT_F {}
+impl ::core::clone::Clone for D2D_RECT_F {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct D2D_RECT_U {
+    pub left: u32,
+    pub top: u32,
+    pub right: u32,
+    pub bottom: u32,
+}
+impl ::core::marker::Copy for D2D_RECT_U {}
+impl ::core::clone::Clone for D2D_RECT_U {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct D2D_SIZE_F {
+    pub width: f32,
+    pub height: f32,
+}
+impl ::core::marker::Copy for D2D_SIZE_F {}
+impl ::core::clone::Clone for D2D_SIZE_F {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct D2D_SIZE_U {
+    pub width: u32,
+    pub height: u32,
+}
+impl ::core::marker::Copy for D2D_SIZE_U {}
+impl ::core::clone::Clone for D2D_SIZE_U {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct D2D_VECTOR_2F {
+    pub x: f32,
+    pub y: f32,
+}
+impl ::core::marker::Copy for D2D_VECTOR_2F {}
+impl ::core::clone::Clone for D2D_VECTOR_2F {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct D2D_VECTOR_3F {
+    pub x: f32,
+    pub y: f32,
+    pub z: f32,
+}
+impl ::core::marker::Copy for D2D_VECTOR_3F {}
+impl ::core::clone::Clone for D2D_VECTOR_3F {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct D2D_VECTOR_4F {
+    pub x: f32,
+    pub y: f32,
+    pub z: f32,
+    pub w: f32,
+}
+impl ::core::marker::Copy for D2D_VECTOR_4F {}
+impl ::core::clone::Clone for D2D_VECTOR_4F {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID2D1SimplifiedGeometrySink(pub *mut ::core::ffi::c_void);

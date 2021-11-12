@@ -116,7 +116,16 @@ pub const CLSID_DirectInput8: ::windows_sys::core::GUID = ::windows_sys::GUID { 
 pub const CLSID_DirectInputDevice: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 635832801, data2: 45657, data3: 4559, data4: [191, 199, 68, 69, 83, 84, 0, 0] };
 pub const CLSID_DirectInputDevice8: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 635832805, data2: 45657, data3: 4559, data4: [191, 199, 68, 69, 83, 84, 0, 0] };
 #[repr(C)]
-pub struct CPOINT(i32);
+pub struct CPOINT {
+    pub lP: i32,
+    pub dwLog: u32,
+}
+impl ::core::marker::Copy for CPOINT {}
+impl ::core::clone::Clone for CPOINT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_DeviceInterface_HID_BackgroundAccess: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 3421733648, data2: 18967, data3: 17168, data4: [161, 235, 36, 127, 11, 103, 89, 59] },
@@ -232,18 +241,120 @@ pub const DI8DEVTYPE_MOUSE: u32 = 18u32;
 pub const DI8DEVTYPE_REMOTE: u32 = 27u32;
 pub const DI8DEVTYPE_SCREENPOINTER: u32 = 26u32;
 pub const DI8DEVTYPE_SUPPLEMENTAL: u32 = 28u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct DIACTIONA(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct DIACTIONFORMATA(i32);
+pub struct DIACTIONA {
+    pub uAppData: usize,
+    pub dwSemantic: u32,
+    pub dwFlags: u32,
+    pub Anonymous: DIACTIONA_0,
+    pub guidInstance: ::windows_sys::core::GUID,
+    pub dwObjID: u32,
+    pub dwHow: u32,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct DIACTIONFORMATW(i32);
+impl ::core::marker::Copy for DIACTIONA {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DIACTIONA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DIACTIONW(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub union DIACTIONA_0 {
+    pub lptszActionName: super::super::Foundation::PSTR,
+    pub uResIdString: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DIACTIONA_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DIACTIONFORMATA {
+    pub dwSize: u32,
+    pub dwActionSize: u32,
+    pub dwDataSize: u32,
+    pub dwNumActions: u32,
+    pub rgoAction: *mut DIACTIONA,
+    pub guidActionMap: ::windows_sys::core::GUID,
+    pub dwGenre: u32,
+    pub dwBufferSize: u32,
+    pub lAxisMin: i32,
+    pub lAxisMax: i32,
+    pub hInstString: super::super::Foundation::HINSTANCE,
+    pub ftTimeStamp: super::super::Foundation::FILETIME,
+    pub dwCRC: u32,
+    pub tszActionMap: [super::super::Foundation::CHAR; 260],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DIACTIONFORMATA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DIACTIONFORMATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DIACTIONFORMATW {
+    pub dwSize: u32,
+    pub dwActionSize: u32,
+    pub dwDataSize: u32,
+    pub dwNumActions: u32,
+    pub rgoAction: *mut DIACTIONW,
+    pub guidActionMap: ::windows_sys::core::GUID,
+    pub dwGenre: u32,
+    pub dwBufferSize: u32,
+    pub lAxisMin: i32,
+    pub lAxisMax: i32,
+    pub hInstString: super::super::Foundation::HINSTANCE,
+    pub ftTimeStamp: super::super::Foundation::FILETIME,
+    pub dwCRC: u32,
+    pub tszActionMap: [u16; 260],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DIACTIONFORMATW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DIACTIONFORMATW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DIACTIONW {
+    pub uAppData: usize,
+    pub dwSemantic: u32,
+    pub dwFlags: u32,
+    pub Anonymous: DIACTIONW_0,
+    pub guidInstance: ::windows_sys::core::GUID,
+    pub dwObjID: u32,
+    pub dwHow: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DIACTIONW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DIACTIONW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub union DIACTIONW_0 {
+    pub lptszActionName: super::super::Foundation::PWSTR,
+    pub uResIdString: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DIACTIONW_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DIAFTS_NEWDEVICEHIGH: u32 = 4294967295u32;
 pub const DIAFTS_NEWDEVICELOW: u32 = 4294967295u32;
 pub const DIAFTS_UNUSEDDEVICEHIGH: u32 = 0u32;
@@ -1088,19 +1199,101 @@ pub const DIBUTTON_TPS_VIEW: u32 = 167789574u32;
 pub const DICD_DEFAULT: u32 = 0u32;
 pub const DICD_EDIT: u32 = 1u32;
 #[repr(C)]
-pub struct DICOLORSET(i32);
+pub struct DICOLORSET {
+    pub dwSize: u32,
+    pub cTextFore: u32,
+    pub cTextHighlight: u32,
+    pub cCalloutLine: u32,
+    pub cCalloutHighlight: u32,
+    pub cBorder: u32,
+    pub cControlFill: u32,
+    pub cHighlightFill: u32,
+    pub cAreaFill: u32,
+}
+impl ::core::marker::Copy for DICOLORSET {}
+impl ::core::clone::Clone for DICOLORSET {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DICONDITION(i32);
+pub struct DICONDITION {
+    pub lOffset: i32,
+    pub lPositiveCoefficient: i32,
+    pub lNegativeCoefficient: i32,
+    pub dwPositiveSaturation: u32,
+    pub dwNegativeSaturation: u32,
+    pub lDeadBand: i32,
+}
+impl ::core::marker::Copy for DICONDITION {}
+impl ::core::clone::Clone for DICONDITION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct DICONFIGUREDEVICESPARAMSA(i32);
+pub struct DICONFIGUREDEVICESPARAMSA {
+    pub dwSize: u32,
+    pub dwcUsers: u32,
+    pub lptszUserNames: super::super::Foundation::PSTR,
+    pub dwcFormats: u32,
+    pub lprgFormats: *mut DIACTIONFORMATA,
+    pub hwnd: super::super::Foundation::HWND,
+    pub dics: DICOLORSET,
+    pub lpUnkDDSTarget: ::core::option::Option<::windows_sys::core::IUnknown>,
+}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DICONFIGUREDEVICESPARAMSA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DICONFIGUREDEVICESPARAMSA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DICONFIGUREDEVICESPARAMSW(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct DICONFIGUREDEVICESPARAMSW {
+    pub dwSize: u32,
+    pub dwcUsers: u32,
+    pub lptszUserNames: super::super::Foundation::PWSTR,
+    pub dwcFormats: u32,
+    pub lprgFormats: *mut DIACTIONFORMATW,
+    pub hwnd: super::super::Foundation::HWND,
+    pub dics: DICOLORSET,
+    pub lpUnkDDSTarget: ::core::option::Option<::windows_sys::core::IUnknown>,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DICONFIGUREDEVICESPARAMSW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DICONFIGUREDEVICESPARAMSW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DICONSTANTFORCE(i32);
+pub struct DICONSTANTFORCE {
+    pub lMagnitude: i32,
+}
+impl ::core::marker::Copy for DICONSTANTFORCE {}
+impl ::core::clone::Clone for DICONSTANTFORCE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DICUSTOMFORCE(i32);
+pub struct DICUSTOMFORCE {
+    pub cChannels: u32,
+    pub dwSamplePeriod: u32,
+    pub cSamples: u32,
+    pub rglForceData: *mut i32,
+}
+impl ::core::marker::Copy for DICUSTOMFORCE {}
+impl ::core::clone::Clone for DICUSTOMFORCE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DIDAL_BOTTOMALIGNED: u32 = 8u32;
 pub const DIDAL_CENTERED: u32 = 0u32;
 pub const DIDAL_LEFTALIGNED: u32 = 1u32;
@@ -1108,7 +1301,20 @@ pub const DIDAL_MIDDLE: u32 = 0u32;
 pub const DIDAL_RIGHTALIGNED: u32 = 2u32;
 pub const DIDAL_TOPALIGNED: u32 = 4u32;
 #[repr(C)]
-pub struct DIDATAFORMAT(i32);
+pub struct DIDATAFORMAT {
+    pub dwSize: u32,
+    pub dwObjSize: u32,
+    pub dwFlags: u32,
+    pub dwDataSize: u32,
+    pub dwNumObjs: u32,
+    pub rgodf: *mut DIOBJECTDATAFORMAT,
+}
+impl ::core::marker::Copy for DIDATAFORMAT {}
+impl ::core::clone::Clone for DIDATAFORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DIDBAM_DEFAULT: u32 = 0u32;
 pub const DIDBAM_HWDEFAULTS: u32 = 4u32;
 pub const DIDBAM_INITIALIZE: u32 = 2u32;
@@ -1129,47 +1335,319 @@ pub const DIDC_POSNEGSATURATION: u32 = 8192u32;
 pub const DIDC_SATURATION: u32 = 2048u32;
 pub const DIDC_STARTDELAY: u32 = 32768u32;
 #[repr(C)]
-pub struct DIDEVCAPS(i32);
+pub struct DIDEVCAPS {
+    pub dwSize: u32,
+    pub dwFlags: u32,
+    pub dwDevType: u32,
+    pub dwAxes: u32,
+    pub dwButtons: u32,
+    pub dwPOVs: u32,
+    pub dwFFSamplePeriod: u32,
+    pub dwFFMinTimeResolution: u32,
+    pub dwFirmwareRevision: u32,
+    pub dwHardwareRevision: u32,
+    pub dwFFDriverVersion: u32,
+}
+impl ::core::marker::Copy for DIDEVCAPS {}
+impl ::core::clone::Clone for DIDEVCAPS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DIDEVCAPS_DX3(i32);
+pub struct DIDEVCAPS_DX3 {
+    pub dwSize: u32,
+    pub dwFlags: u32,
+    pub dwDevType: u32,
+    pub dwAxes: u32,
+    pub dwButtons: u32,
+    pub dwPOVs: u32,
+}
+impl ::core::marker::Copy for DIDEVCAPS_DX3 {}
+impl ::core::clone::Clone for DIDEVCAPS_DX3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct DIDEVICEIMAGEINFOA(i32);
+pub struct DIDEVICEIMAGEINFOA {
+    pub tszImagePath: [super::super::Foundation::CHAR; 260],
+    pub dwFlags: u32,
+    pub dwViewID: u32,
+    pub rcOverlay: super::super::Foundation::RECT,
+    pub dwObjID: u32,
+    pub dwcValidPts: u32,
+    pub rgptCalloutLine: [super::super::Foundation::POINT; 5],
+    pub rcCalloutRect: super::super::Foundation::RECT,
+    pub dwTextAlign: u32,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct DIDEVICEIMAGEINFOHEADERA(i32);
+impl ::core::marker::Copy for DIDEVICEIMAGEINFOA {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DIDEVICEIMAGEINFOA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DIDEVICEIMAGEINFOHEADERW(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct DIDEVICEIMAGEINFOW(i32);
+pub struct DIDEVICEIMAGEINFOHEADERA {
+    pub dwSize: u32,
+    pub dwSizeImageInfo: u32,
+    pub dwcViews: u32,
+    pub dwcButtons: u32,
+    pub dwcAxes: u32,
+    pub dwcPOVs: u32,
+    pub dwBufferSize: u32,
+    pub dwBufferUsed: u32,
+    pub lprgImageInfoArray: *mut DIDEVICEIMAGEINFOA,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct DIDEVICEINSTANCEA(i32);
-#[repr(C)]
-pub struct DIDEVICEINSTANCEW(i32);
+impl ::core::marker::Copy for DIDEVICEIMAGEINFOHEADERA {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DIDEVICEIMAGEINFOHEADERA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DIDEVICEINSTANCE_DX3A(i32);
-#[repr(C)]
-pub struct DIDEVICEINSTANCE_DX3W(i32);
-#[repr(C)]
-pub struct DIDEVICEOBJECTDATA(i32);
-#[repr(C)]
-pub struct DIDEVICEOBJECTDATA_DX3(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct DIDEVICEOBJECTINSTANCEA(i32);
-#[repr(C)]
-pub struct DIDEVICEOBJECTINSTANCEW(i32);
+pub struct DIDEVICEIMAGEINFOHEADERW {
+    pub dwSize: u32,
+    pub dwSizeImageInfo: u32,
+    pub dwcViews: u32,
+    pub dwcButtons: u32,
+    pub dwcAxes: u32,
+    pub dwcPOVs: u32,
+    pub dwBufferSize: u32,
+    pub dwBufferUsed: u32,
+    pub lprgImageInfoArray: *mut DIDEVICEIMAGEINFOW,
+}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DIDEVICEIMAGEINFOHEADERW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DIDEVICEIMAGEINFOHEADERW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DIDEVICEOBJECTINSTANCE_DX3A(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct DIDEVICEIMAGEINFOW {
+    pub tszImagePath: [u16; 260],
+    pub dwFlags: u32,
+    pub dwViewID: u32,
+    pub rcOverlay: super::super::Foundation::RECT,
+    pub dwObjID: u32,
+    pub dwcValidPts: u32,
+    pub rgptCalloutLine: [super::super::Foundation::POINT; 5],
+    pub rcCalloutRect: super::super::Foundation::RECT,
+    pub dwTextAlign: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DIDEVICEIMAGEINFOW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DIDEVICEIMAGEINFOW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DIDEVICEOBJECTINSTANCE_DX3W(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct DIDEVICEINSTANCEA {
+    pub dwSize: u32,
+    pub guidInstance: ::windows_sys::core::GUID,
+    pub guidProduct: ::windows_sys::core::GUID,
+    pub dwDevType: u32,
+    pub tszInstanceName: [super::super::Foundation::CHAR; 260],
+    pub tszProductName: [super::super::Foundation::CHAR; 260],
+    pub guidFFDriver: ::windows_sys::core::GUID,
+    pub wUsagePage: u16,
+    pub wUsage: u16,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DIDEVICEINSTANCEA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DIDEVICEINSTANCEA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DIDEVICESTATE(i32);
+pub struct DIDEVICEINSTANCEW {
+    pub dwSize: u32,
+    pub guidInstance: ::windows_sys::core::GUID,
+    pub guidProduct: ::windows_sys::core::GUID,
+    pub dwDevType: u32,
+    pub tszInstanceName: [u16; 260],
+    pub tszProductName: [u16; 260],
+    pub guidFFDriver: ::windows_sys::core::GUID,
+    pub wUsagePage: u16,
+    pub wUsage: u16,
+}
+impl ::core::marker::Copy for DIDEVICEINSTANCEW {}
+impl ::core::clone::Clone for DIDEVICEINSTANCEW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DIDEVICEINSTANCE_DX3A {
+    pub dwSize: u32,
+    pub guidInstance: ::windows_sys::core::GUID,
+    pub guidProduct: ::windows_sys::core::GUID,
+    pub dwDevType: u32,
+    pub tszInstanceName: [super::super::Foundation::CHAR; 260],
+    pub tszProductName: [super::super::Foundation::CHAR; 260],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DIDEVICEINSTANCE_DX3A {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DIDEVICEINSTANCE_DX3A {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct DIDEVICEINSTANCE_DX3W {
+    pub dwSize: u32,
+    pub guidInstance: ::windows_sys::core::GUID,
+    pub guidProduct: ::windows_sys::core::GUID,
+    pub dwDevType: u32,
+    pub tszInstanceName: [u16; 260],
+    pub tszProductName: [u16; 260],
+}
+impl ::core::marker::Copy for DIDEVICEINSTANCE_DX3W {}
+impl ::core::clone::Clone for DIDEVICEINSTANCE_DX3W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct DIDEVICEOBJECTDATA {
+    pub dwOfs: u32,
+    pub dwData: u32,
+    pub dwTimeStamp: u32,
+    pub dwSequence: u32,
+    pub uAppData: usize,
+}
+impl ::core::marker::Copy for DIDEVICEOBJECTDATA {}
+impl ::core::clone::Clone for DIDEVICEOBJECTDATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct DIDEVICEOBJECTDATA_DX3 {
+    pub dwOfs: u32,
+    pub dwData: u32,
+    pub dwTimeStamp: u32,
+    pub dwSequence: u32,
+}
+impl ::core::marker::Copy for DIDEVICEOBJECTDATA_DX3 {}
+impl ::core::clone::Clone for DIDEVICEOBJECTDATA_DX3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DIDEVICEOBJECTINSTANCEA {
+    pub dwSize: u32,
+    pub guidType: ::windows_sys::core::GUID,
+    pub dwOfs: u32,
+    pub dwType: u32,
+    pub dwFlags: u32,
+    pub tszName: [super::super::Foundation::CHAR; 260],
+    pub dwFFMaxForce: u32,
+    pub dwFFForceResolution: u32,
+    pub wCollectionNumber: u16,
+    pub wDesignatorIndex: u16,
+    pub wUsagePage: u16,
+    pub wUsage: u16,
+    pub dwDimension: u32,
+    pub wExponent: u16,
+    pub wReportId: u16,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DIDEVICEOBJECTINSTANCEA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DIDEVICEOBJECTINSTANCEA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct DIDEVICEOBJECTINSTANCEW {
+    pub dwSize: u32,
+    pub guidType: ::windows_sys::core::GUID,
+    pub dwOfs: u32,
+    pub dwType: u32,
+    pub dwFlags: u32,
+    pub tszName: [u16; 260],
+    pub dwFFMaxForce: u32,
+    pub dwFFForceResolution: u32,
+    pub wCollectionNumber: u16,
+    pub wDesignatorIndex: u16,
+    pub wUsagePage: u16,
+    pub wUsage: u16,
+    pub dwDimension: u32,
+    pub wExponent: u16,
+    pub wReportId: u16,
+}
+impl ::core::marker::Copy for DIDEVICEOBJECTINSTANCEW {}
+impl ::core::clone::Clone for DIDEVICEOBJECTINSTANCEW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DIDEVICEOBJECTINSTANCE_DX3A {
+    pub dwSize: u32,
+    pub guidType: ::windows_sys::core::GUID,
+    pub dwOfs: u32,
+    pub dwType: u32,
+    pub dwFlags: u32,
+    pub tszName: [super::super::Foundation::CHAR; 260],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DIDEVICEOBJECTINSTANCE_DX3A {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DIDEVICEOBJECTINSTANCE_DX3A {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct DIDEVICEOBJECTINSTANCE_DX3W {
+    pub dwSize: u32,
+    pub guidType: ::windows_sys::core::GUID,
+    pub dwOfs: u32,
+    pub dwType: u32,
+    pub dwFlags: u32,
+    pub tszName: [u16; 260],
+}
+impl ::core::marker::Copy for DIDEVICEOBJECTINSTANCE_DX3W {}
+impl ::core::clone::Clone for DIDEVICEOBJECTINSTANCE_DX3W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct DIDEVICESTATE {
+    pub dwSize: u32,
+    pub dwState: u32,
+    pub dwLoad: u32,
+}
+impl ::core::marker::Copy for DIDEVICESTATE {}
+impl ::core::clone::Clone for DIDEVICESTATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DIDEVTYPEJOYSTICK_FLIGHTSTICK: u32 = 3u32;
 pub const DIDEVTYPEJOYSTICK_GAMEPAD: u32 = 4u32;
 pub const DIDEVTYPEJOYSTICK_HEADTRACKER: u32 = 7u32;
@@ -1233,7 +1711,18 @@ pub const DIDOI_FFEFFECTTRIGGER: u32 = 2u32;
 pub const DIDOI_GUIDISUSAGE: u32 = 65536u32;
 pub const DIDOI_POLLED: u32 = 32768u32;
 #[repr(C)]
-pub struct DIDRIVERVERSIONS(i32);
+pub struct DIDRIVERVERSIONS {
+    pub dwSize: u32,
+    pub dwFirmwareRevision: u32,
+    pub dwHardwareRevision: u32,
+    pub dwFFDriverVersion: u32,
+}
+impl ::core::marker::Copy for DIDRIVERVERSIONS {}
+impl ::core::clone::Clone for DIDRIVERVERSIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DIDSAM_DEFAULT: u32 = 0u32;
 pub const DIDSAM_FORCESAVE: u32 = 2u32;
 pub const DIDSAM_NOUSER: u32 = 1u32;
@@ -1256,18 +1745,112 @@ pub const DIEDFL_INCLUDEALIASES: u32 = 65536u32;
 pub const DIEDFL_INCLUDEHIDDEN: u32 = 262144u32;
 pub const DIEDFL_INCLUDEPHANTOMS: u32 = 131072u32;
 #[repr(C)]
-pub struct DIEFFECT(i32);
+pub struct DIEFFECT {
+    pub dwSize: u32,
+    pub dwFlags: u32,
+    pub dwDuration: u32,
+    pub dwSamplePeriod: u32,
+    pub dwGain: u32,
+    pub dwTriggerButton: u32,
+    pub dwTriggerRepeatInterval: u32,
+    pub cAxes: u32,
+    pub rgdwAxes: *mut u32,
+    pub rglDirection: *mut i32,
+    pub lpEnvelope: *mut DIENVELOPE,
+    pub cbTypeSpecificParams: u32,
+    pub lpvTypeSpecificParams: *mut ::core::ffi::c_void,
+    pub dwStartDelay: u32,
+}
+impl ::core::marker::Copy for DIEFFECT {}
+impl ::core::clone::Clone for DIEFFECT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DIEFFECTATTRIBUTES(i32);
+pub struct DIEFFECTATTRIBUTES {
+    pub dwEffectId: u32,
+    pub dwEffType: u32,
+    pub dwStaticParams: u32,
+    pub dwDynamicParams: u32,
+    pub dwCoords: u32,
+}
+impl ::core::marker::Copy for DIEFFECTATTRIBUTES {}
+impl ::core::clone::Clone for DIEFFECTATTRIBUTES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+pub struct DIEFFECTINFOA {
+    pub dwSize: u32,
+    pub guid: ::windows_sys::core::GUID,
+    pub dwEffType: u32,
+    pub dwStaticParams: u32,
+    pub dwDynamicParams: u32,
+    pub tszName: [super::super::Foundation::CHAR; 260],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DIEFFECTINFOA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DIEFFECTINFOA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DIEFFECTINFOA(i32);
+pub struct DIEFFECTINFOW {
+    pub dwSize: u32,
+    pub guid: ::windows_sys::core::GUID,
+    pub dwEffType: u32,
+    pub dwStaticParams: u32,
+    pub dwDynamicParams: u32,
+    pub tszName: [u16; 260],
+}
+impl ::core::marker::Copy for DIEFFECTINFOW {}
+impl ::core::clone::Clone for DIEFFECTINFOW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DIEFFECTINFOW(i32);
+pub struct DIEFFECT_DX5 {
+    pub dwSize: u32,
+    pub dwFlags: u32,
+    pub dwDuration: u32,
+    pub dwSamplePeriod: u32,
+    pub dwGain: u32,
+    pub dwTriggerButton: u32,
+    pub dwTriggerRepeatInterval: u32,
+    pub cAxes: u32,
+    pub rgdwAxes: *mut u32,
+    pub rglDirection: *mut i32,
+    pub lpEnvelope: *mut DIENVELOPE,
+    pub cbTypeSpecificParams: u32,
+    pub lpvTypeSpecificParams: *mut ::core::ffi::c_void,
+}
+impl ::core::marker::Copy for DIEFFECT_DX5 {}
+impl ::core::clone::Clone for DIEFFECT_DX5 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DIEFFECT_DX5(i32);
-#[repr(C)]
-pub struct DIEFFESCAPE(i32);
+pub struct DIEFFESCAPE {
+    pub dwSize: u32,
+    pub dwCommand: u32,
+    pub lpvInBuffer: *mut ::core::ffi::c_void,
+    pub cbInBuffer: u32,
+    pub lpvOutBuffer: *mut ::core::ffi::c_void,
+    pub cbOutBuffer: u32,
+}
+impl ::core::marker::Copy for DIEFFESCAPE {}
+impl ::core::clone::Clone for DIEFFESCAPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DIEFF_CARTESIAN: u32 = 16u32;
 pub const DIEFF_OBJECTIDS: u32 = 1u32;
 pub const DIEFF_OBJECTOFFSETS: u32 = 2u32;
@@ -1292,7 +1875,19 @@ pub const DIEGES_PLAYING: u32 = 1u32;
 pub const DIENUM_CONTINUE: u32 = 1u32;
 pub const DIENUM_STOP: u32 = 0u32;
 #[repr(C)]
-pub struct DIENVELOPE(i32);
+pub struct DIENVELOPE {
+    pub dwSize: u32,
+    pub dwAttackLevel: u32,
+    pub dwAttackTime: u32,
+    pub dwFadeLevel: u32,
+    pub dwFadeTime: u32,
+}
+impl ::core::marker::Copy for DIENVELOPE {}
+impl ::core::clone::Clone for DIENVELOPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DIEP_ALLPARAMS: u32 = 1023u32;
 pub const DIEP_ALLPARAMS_DX5: u32 = 511u32;
 pub const DIEP_AXES: u32 = 32u32;
@@ -1352,12 +1947,44 @@ pub const DIFEF_DEFAULT: u32 = 0u32;
 pub const DIFEF_INCLUDENONSTANDARD: u32 = 1u32;
 pub const DIFEF_MODIFYIFNEEDED: u32 = 16u32;
 #[repr(C)]
-pub struct DIFFDEVICEATTRIBUTES(i32);
+pub struct DIFFDEVICEATTRIBUTES {
+    pub dwFlags: u32,
+    pub dwFFSamplePeriod: u32,
+    pub dwFFMinTimeResolution: u32,
+}
+impl ::core::marker::Copy for DIFFDEVICEATTRIBUTES {}
+impl ::core::clone::Clone for DIFFDEVICEATTRIBUTES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DIFFOBJECTATTRIBUTES(i32);
+pub struct DIFFOBJECTATTRIBUTES {
+    pub dwFFMaxForce: u32,
+    pub dwFFForceResolution: u32,
+}
+impl ::core::marker::Copy for DIFFOBJECTATTRIBUTES {}
+impl ::core::clone::Clone for DIFFOBJECTATTRIBUTES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct DIFILEEFFECT(i32);
+pub struct DIFILEEFFECT {
+    pub dwSize: u32,
+    pub GuidEffect: ::windows_sys::core::GUID,
+    pub lpDiEffect: *mut DIEFFECT,
+    pub szFriendlyName: [super::super::Foundation::CHAR; 260],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DIFILEEFFECT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DIFILEEFFECT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DIGDD_PEEK: u32 = 1u32;
 pub const DIGFFS_ACTUATORSOFF: u32 = 32u32;
 pub const DIGFFS_ACTUATORSON: u32 = 16u32;
@@ -1402,30 +2029,175 @@ pub const DIHATSWITCH_SOCCERO_GLANCE: u32 = 503334401u32;
 pub const DIHATSWITCH_SPACESIM_GLANCE: u32 = 117458433u32;
 pub const DIHATSWITCH_STRATEGYR_GLANCE: u32 = 184567297u32;
 pub const DIHATSWITCH_TPS_GLANCE: u32 = 167790081u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct DIHIDFFINITINFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct DIHIDFFINITINFO {
+    pub dwSize: u32,
+    pub pwszDeviceInterface: super::super::Foundation::PWSTR,
+    pub GuidInstance: ::windows_sys::core::GUID,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DIHIDFFINITINFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DIHIDFFINITINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DIJC_CALLOUT: u32 = 8u32;
 pub const DIJC_GAIN: u32 = 4u32;
 pub const DIJC_GUIDINSTANCE: u32 = 1u32;
 pub const DIJC_REGHWCONFIGTYPE: u32 = 2u32;
 pub const DIJC_WDMGAMEPORT: u32 = 16u32;
 #[repr(C)]
-pub struct DIJOYCONFIG(i32);
+pub struct DIJOYCONFIG {
+    pub dwSize: u32,
+    pub guidInstance: ::windows_sys::core::GUID,
+    pub hwc: JOYREGHWCONFIG,
+    pub dwGain: u32,
+    pub wszType: [u16; 256],
+    pub wszCallout: [u16; 256],
+    pub guidGameport: ::windows_sys::core::GUID,
+}
+impl ::core::marker::Copy for DIJOYCONFIG {}
+impl ::core::clone::Clone for DIJOYCONFIG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DIJOYCONFIG_DX5(i32);
+pub struct DIJOYCONFIG_DX5 {
+    pub dwSize: u32,
+    pub guidInstance: ::windows_sys::core::GUID,
+    pub hwc: JOYREGHWCONFIG,
+    pub dwGain: u32,
+    pub wszType: [u16; 256],
+    pub wszCallout: [u16; 256],
+}
+impl ::core::marker::Copy for DIJOYCONFIG_DX5 {}
+impl ::core::clone::Clone for DIJOYCONFIG_DX5 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DIJOYSTATE(i32);
+pub struct DIJOYSTATE {
+    pub lX: i32,
+    pub lY: i32,
+    pub lZ: i32,
+    pub lRx: i32,
+    pub lRy: i32,
+    pub lRz: i32,
+    pub rglSlider: [i32; 2],
+    pub rgdwPOV: [u32; 4],
+    pub rgbButtons: [u8; 32],
+}
+impl ::core::marker::Copy for DIJOYSTATE {}
+impl ::core::clone::Clone for DIJOYSTATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DIJOYSTATE2(i32);
+pub struct DIJOYSTATE2 {
+    pub lX: i32,
+    pub lY: i32,
+    pub lZ: i32,
+    pub lRx: i32,
+    pub lRy: i32,
+    pub lRz: i32,
+    pub rglSlider: [i32; 2],
+    pub rgdwPOV: [u32; 4],
+    pub rgbButtons: [u8; 128],
+    pub lVX: i32,
+    pub lVY: i32,
+    pub lVZ: i32,
+    pub lVRx: i32,
+    pub lVRy: i32,
+    pub lVRz: i32,
+    pub rglVSlider: [i32; 2],
+    pub lAX: i32,
+    pub lAY: i32,
+    pub lAZ: i32,
+    pub lARx: i32,
+    pub lARy: i32,
+    pub lARz: i32,
+    pub rglASlider: [i32; 2],
+    pub lFX: i32,
+    pub lFY: i32,
+    pub lFZ: i32,
+    pub lFRx: i32,
+    pub lFRy: i32,
+    pub lFRz: i32,
+    pub rglFSlider: [i32; 2],
+}
+impl ::core::marker::Copy for DIJOYSTATE2 {}
+impl ::core::clone::Clone for DIJOYSTATE2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DIJOYTYPEINFO(i32);
+pub struct DIJOYTYPEINFO {
+    pub dwSize: u32,
+    pub hws: JOYREGHWSETTINGS,
+    pub clsidConfig: ::windows_sys::core::GUID,
+    pub wszDisplayName: [u16; 256],
+    pub wszCallout: [u16; 260],
+    pub wszHardwareId: [u16; 256],
+    pub dwFlags1: u32,
+    pub dwFlags2: u32,
+    pub wszMapFile: [u16; 256],
+}
+impl ::core::marker::Copy for DIJOYTYPEINFO {}
+impl ::core::clone::Clone for DIJOYTYPEINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DIJOYTYPEINFO_DX5(i32);
+pub struct DIJOYTYPEINFO_DX5 {
+    pub dwSize: u32,
+    pub hws: JOYREGHWSETTINGS,
+    pub clsidConfig: ::windows_sys::core::GUID,
+    pub wszDisplayName: [u16; 256],
+    pub wszCallout: [u16; 260],
+}
+impl ::core::marker::Copy for DIJOYTYPEINFO_DX5 {}
+impl ::core::clone::Clone for DIJOYTYPEINFO_DX5 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DIJOYTYPEINFO_DX6(i32);
+pub struct DIJOYTYPEINFO_DX6 {
+    pub dwSize: u32,
+    pub hws: JOYREGHWSETTINGS,
+    pub clsidConfig: ::windows_sys::core::GUID,
+    pub wszDisplayName: [u16; 256],
+    pub wszCallout: [u16; 260],
+    pub wszHardwareId: [u16; 256],
+    pub dwFlags1: u32,
+}
+impl ::core::marker::Copy for DIJOYTYPEINFO_DX6 {}
+impl ::core::clone::Clone for DIJOYTYPEINFO_DX6 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DIJOYUSERVALUES(i32);
+pub struct DIJOYUSERVALUES {
+    pub dwSize: u32,
+    pub ruv: JOYREGUSERVALUES,
+    pub wszGlobalDriver: [u16; 256],
+    pub wszGameportEmulator: [u16; 256],
+}
+impl ::core::marker::Copy for DIJOYUSERVALUES {}
+impl ::core::clone::Clone for DIJOYUSERVALUES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DIJU_GAMEPORTEMULATOR: u32 = 4u32;
 pub const DIJU_GLOBALDRIVER: u32 = 2u32;
 pub const DIJU_USERVALUES: u32 = 1u32;
@@ -1734,26 +2506,99 @@ pub const DIK_Y: u32 = 21u32;
 pub const DIK_YEN: u32 = 125u32;
 pub const DIK_Z: u32 = 44u32;
 #[repr(C)]
-pub struct DIMOUSESTATE(i32);
+pub struct DIMOUSESTATE {
+    pub lX: i32,
+    pub lY: i32,
+    pub lZ: i32,
+    pub rgbButtons: [u8; 4],
+}
+impl ::core::marker::Copy for DIMOUSESTATE {}
+impl ::core::clone::Clone for DIMOUSESTATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DIMOUSESTATE2(i32);
+pub struct DIMOUSESTATE2 {
+    pub lX: i32,
+    pub lY: i32,
+    pub lZ: i32,
+    pub rgbButtons: [u8; 8],
+}
+impl ::core::marker::Copy for DIMOUSESTATE2 {}
+impl ::core::clone::Clone for DIMOUSESTATE2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DIMSGWP_DX8APPSTART: u32 = 2u32;
 pub const DIMSGWP_DX8MAPPERAPPSTART: u32 = 3u32;
 pub const DIMSGWP_NEWAPPSTART: u32 = 1u32;
 #[repr(C)]
-pub struct DIOBJECTATTRIBUTES(i32);
+pub struct DIOBJECTATTRIBUTES {
+    pub dwFlags: u32,
+    pub wUsagePage: u16,
+    pub wUsage: u16,
+}
+impl ::core::marker::Copy for DIOBJECTATTRIBUTES {}
+impl ::core::clone::Clone for DIOBJECTATTRIBUTES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DIOBJECTCALIBRATION(i32);
+pub struct DIOBJECTCALIBRATION {
+    pub lMin: i32,
+    pub lCenter: i32,
+    pub lMax: i32,
+}
+impl ::core::marker::Copy for DIOBJECTCALIBRATION {}
+impl ::core::clone::Clone for DIOBJECTCALIBRATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DIOBJECTDATAFORMAT(i32);
+pub struct DIOBJECTDATAFORMAT {
+    pub pguid: *mut ::windows_sys::core::GUID,
+    pub dwOfs: u32,
+    pub dwType: u32,
+    pub dwFlags: u32,
+}
+impl ::core::marker::Copy for DIOBJECTDATAFORMAT {}
+impl ::core::clone::Clone for DIOBJECTDATAFORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DIPERIODIC(i32);
+pub struct DIPERIODIC {
+    pub dwMagnitude: u32,
+    pub lOffset: i32,
+    pub dwPhase: u32,
+    pub dwPeriod: u32,
+}
+impl ::core::marker::Copy for DIPERIODIC {}
+impl ::core::clone::Clone for DIPERIODIC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DIPH_BYID: u32 = 2u32;
 pub const DIPH_BYOFFSET: u32 = 1u32;
 pub const DIPH_BYUSAGE: u32 = 3u32;
 pub const DIPH_DEVICE: u32 = 0u32;
 #[repr(C)]
-pub struct DIPOVCALIBRATION(i32);
+pub struct DIPOVCALIBRATION {
+    pub lMin: [i32; 5],
+    pub lMax: [i32; 5],
+}
+impl ::core::marker::Copy for DIPOVCALIBRATION {}
+impl ::core::clone::Clone for DIPOVCALIBRATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DIPOV_ANY_1: u32 = 4278208001u32;
 pub const DIPOV_ANY_2: u32 = 4278208002u32;
 pub const DIPOV_ANY_3: u32 = 4278208003u32;
@@ -1763,27 +2608,125 @@ pub const DIPROPAUTOCENTER_ON: u32 = 1u32;
 pub const DIPROPAXISMODE_ABS: u32 = 0u32;
 pub const DIPROPAXISMODE_REL: u32 = 1u32;
 #[repr(C)]
-pub struct DIPROPCAL(i32);
+pub struct DIPROPCAL {
+    pub diph: DIPROPHEADER,
+    pub lMin: i32,
+    pub lCenter: i32,
+    pub lMax: i32,
+}
+impl ::core::marker::Copy for DIPROPCAL {}
+impl ::core::clone::Clone for DIPROPCAL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DIPROPCALIBRATIONMODE_COOKED: u32 = 0u32;
 pub const DIPROPCALIBRATIONMODE_RAW: u32 = 1u32;
 #[repr(C)]
-pub struct DIPROPCALPOV(i32);
+pub struct DIPROPCALPOV {
+    pub diph: DIPROPHEADER,
+    pub lMin: [i32; 5],
+    pub lMax: [i32; 5],
+}
+impl ::core::marker::Copy for DIPROPCALPOV {}
+impl ::core::clone::Clone for DIPROPCALPOV {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DIPROPCPOINTS(i32);
+pub struct DIPROPCPOINTS {
+    pub diph: DIPROPHEADER,
+    pub dwCPointsNum: u32,
+    pub cp: [CPOINT; 8],
+}
+impl ::core::marker::Copy for DIPROPCPOINTS {}
+impl ::core::clone::Clone for DIPROPCPOINTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DIPROPDWORD(i32);
+pub struct DIPROPDWORD {
+    pub diph: DIPROPHEADER,
+    pub dwData: u32,
+}
+impl ::core::marker::Copy for DIPROPDWORD {}
+impl ::core::clone::Clone for DIPROPDWORD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DIPROPGUIDANDPATH(i32);
+pub struct DIPROPGUIDANDPATH {
+    pub diph: DIPROPHEADER,
+    pub guidClass: ::windows_sys::core::GUID,
+    pub wszPath: [u16; 260],
+}
+impl ::core::marker::Copy for DIPROPGUIDANDPATH {}
+impl ::core::clone::Clone for DIPROPGUIDANDPATH {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DIPROPHEADER(i32);
+pub struct DIPROPHEADER {
+    pub dwSize: u32,
+    pub dwHeaderSize: u32,
+    pub dwObj: u32,
+    pub dwHow: u32,
+}
+impl ::core::marker::Copy for DIPROPHEADER {}
+impl ::core::clone::Clone for DIPROPHEADER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DIPROPPOINTER(i32);
+pub struct DIPROPPOINTER {
+    pub diph: DIPROPHEADER,
+    pub uData: usize,
+}
+impl ::core::marker::Copy for DIPROPPOINTER {}
+impl ::core::clone::Clone for DIPROPPOINTER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DIPROPRANGE(i32);
+pub struct DIPROPRANGE {
+    pub diph: DIPROPHEADER,
+    pub lMin: i32,
+    pub lMax: i32,
+}
+impl ::core::marker::Copy for DIPROPRANGE {}
+impl ::core::clone::Clone for DIPROPRANGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DIPROPSTRING(i32);
+pub struct DIPROPSTRING {
+    pub diph: DIPROPHEADER,
+    pub wsz: [u16; 260],
+}
+impl ::core::marker::Copy for DIPROPSTRING {}
+impl ::core::clone::Clone for DIPROPSTRING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DIRAMPFORCE(i32);
+pub struct DIRAMPFORCE {
+    pub lStart: i32,
+    pub lEnd: i32,
+}
+impl ::core::marker::Copy for DIRAMPFORCE {}
+impl ::core::clone::Clone for DIRAMPFORCE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DIRECTINPUT_HEADER_VERSION: u32 = 2048u32;
 pub const DIRECTINPUT_VERSION: u32 = 2048u32;
 pub const DISCL_BACKGROUND: u32 = 8u32;
@@ -1941,45 +2884,372 @@ pub const GUID_XAxis: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2
 pub const GUID_YAxis: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2741830369, data2: 51699, data3: 4559, data4: [191, 199, 68, 69, 83, 84, 0, 0] };
 pub const GUID_ZAxis: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2741830370, data2: 51699, data3: 4559, data4: [191, 199, 68, 69, 83, 84, 0, 0] };
 #[repr(C)]
-pub struct HIDD_ATTRIBUTES(i32);
+pub struct HIDD_ATTRIBUTES {
+    pub Size: u32,
+    pub VendorID: u16,
+    pub ProductID: u16,
+    pub VersionNumber: u16,
+}
+impl ::core::marker::Copy for HIDD_ATTRIBUTES {}
+impl ::core::clone::Clone for HIDD_ATTRIBUTES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(4))]
+pub struct HIDD_CONFIGURATION {
+    pub cookie: *mut ::core::ffi::c_void,
+    pub size: u32,
+    pub RingBufferSize: u32,
+}
+impl ::core::marker::Copy for HIDD_CONFIGURATION {}
+impl ::core::clone::Clone for HIDD_CONFIGURATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct HIDD_CONFIGURATION(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct HIDP_BUTTON_ARRAY_DATA(i32);
+pub struct HIDP_BUTTON_ARRAY_DATA {
+    pub ArrayIndex: u16,
+    pub On: super::super::Foundation::BOOLEAN,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct HIDP_BUTTON_CAPS(i32);
-#[repr(C)]
-pub struct HIDP_CAPS(i32);
+impl ::core::marker::Copy for HIDP_BUTTON_ARRAY_DATA {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for HIDP_BUTTON_ARRAY_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct HIDP_DATA(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct HIDP_BUTTON_CAPS {
+    pub UsagePage: u16,
+    pub ReportID: u8,
+    pub IsAlias: super::super::Foundation::BOOLEAN,
+    pub BitField: u16,
+    pub LinkCollection: u16,
+    pub LinkUsage: u16,
+    pub LinkUsagePage: u16,
+    pub IsRange: super::super::Foundation::BOOLEAN,
+    pub IsStringRange: super::super::Foundation::BOOLEAN,
+    pub IsDesignatorRange: super::super::Foundation::BOOLEAN,
+    pub IsAbsolute: super::super::Foundation::BOOLEAN,
+    pub ReportCount: u16,
+    pub Reserved2: u16,
+    pub Reserved: [u32; 9],
+    pub Anonymous: HIDP_BUTTON_CAPS_0,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for HIDP_BUTTON_CAPS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for HIDP_BUTTON_CAPS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct HIDP_EXTENDED_ATTRIBUTES(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub union HIDP_BUTTON_CAPS_0 {
+    pub Range: HIDP_BUTTON_CAPS_0_1,
+    pub NotRange: HIDP_BUTTON_CAPS_0_0,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for HIDP_BUTTON_CAPS_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct HIDP_BUTTON_CAPS_0_0 {
+    pub Usage: u16,
+    pub Reserved1: u16,
+    pub StringIndex: u16,
+    pub Reserved2: u16,
+    pub DesignatorIndex: u16,
+    pub Reserved3: u16,
+    pub DataIndex: u16,
+    pub Reserved4: u16,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for HIDP_BUTTON_CAPS_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for HIDP_BUTTON_CAPS_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct HIDP_BUTTON_CAPS_0_1 {
+    pub UsageMin: u16,
+    pub UsageMax: u16,
+    pub StringMin: u16,
+    pub StringMax: u16,
+    pub DesignatorMin: u16,
+    pub DesignatorMax: u16,
+    pub DataIndexMin: u16,
+    pub DataIndexMax: u16,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for HIDP_BUTTON_CAPS_0_1 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for HIDP_BUTTON_CAPS_0_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct HIDP_CAPS {
+    pub Usage: u16,
+    pub UsagePage: u16,
+    pub InputReportByteLength: u16,
+    pub OutputReportByteLength: u16,
+    pub FeatureReportByteLength: u16,
+    pub Reserved: [u16; 17],
+    pub NumberLinkCollectionNodes: u16,
+    pub NumberInputButtonCaps: u16,
+    pub NumberInputValueCaps: u16,
+    pub NumberInputDataIndices: u16,
+    pub NumberOutputButtonCaps: u16,
+    pub NumberOutputValueCaps: u16,
+    pub NumberOutputDataIndices: u16,
+    pub NumberFeatureButtonCaps: u16,
+    pub NumberFeatureValueCaps: u16,
+    pub NumberFeatureDataIndices: u16,
+}
+impl ::core::marker::Copy for HIDP_CAPS {}
+impl ::core::clone::Clone for HIDP_CAPS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct HIDP_DATA {
+    pub DataIndex: u16,
+    pub Reserved: u16,
+    pub Anonymous: HIDP_DATA_0,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for HIDP_DATA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for HIDP_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub union HIDP_DATA_0 {
+    pub RawValue: u32,
+    pub On: super::super::Foundation::BOOLEAN,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for HIDP_DATA_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(4))]
+pub struct HIDP_EXTENDED_ATTRIBUTES {
+    pub NumGlobalUnknowns: u8,
+    pub Reserved: [u8; 3],
+    pub GlobalUnknowns: *mut HIDP_UNKNOWN_TOKEN,
+    pub Data: [u32; 1],
+}
+impl ::core::marker::Copy for HIDP_EXTENDED_ATTRIBUTES {}
+impl ::core::clone::Clone for HIDP_EXTENDED_ATTRIBUTES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct HIDP_KEYBOARD_DIRECTION(pub i32);
 pub const HidP_Keyboard_Break: HIDP_KEYBOARD_DIRECTION = HIDP_KEYBOARD_DIRECTION(0i32);
 pub const HidP_Keyboard_Make: HIDP_KEYBOARD_DIRECTION = HIDP_KEYBOARD_DIRECTION(1i32);
 #[repr(C)]
-pub struct HIDP_KEYBOARD_MODIFIER_STATE(i32);
+pub struct HIDP_KEYBOARD_MODIFIER_STATE {
+    pub Anonymous: HIDP_KEYBOARD_MODIFIER_STATE_0,
+}
+impl ::core::marker::Copy for HIDP_KEYBOARD_MODIFIER_STATE {}
+impl ::core::clone::Clone for HIDP_KEYBOARD_MODIFIER_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct HIDP_LINK_COLLECTION_NODE(i32);
+pub union HIDP_KEYBOARD_MODIFIER_STATE_0 {
+    pub Anonymous: HIDP_KEYBOARD_MODIFIER_STATE_0_0,
+    pub ul: u32,
+}
+impl ::core::clone::Clone for HIDP_KEYBOARD_MODIFIER_STATE_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct HIDP_KEYBOARD_MODIFIER_STATE_0_0 {
+    pub _bitfield: u32,
+}
+impl ::core::marker::Copy for HIDP_KEYBOARD_MODIFIER_STATE_0_0 {}
+impl ::core::clone::Clone for HIDP_KEYBOARD_MODIFIER_STATE_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(4))]
+pub struct HIDP_LINK_COLLECTION_NODE {
+    pub LinkUsage: u16,
+    pub LinkUsagePage: u16,
+    pub Parent: u16,
+    pub NumberOfChildren: u16,
+    pub NextSibling: u16,
+    pub FirstChild: u16,
+    pub _bitfield: u32,
+    pub UserContext: *mut ::core::ffi::c_void,
+}
+impl ::core::marker::Copy for HIDP_LINK_COLLECTION_NODE {}
+impl ::core::clone::Clone for HIDP_LINK_COLLECTION_NODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct HIDP_REPORT_TYPE(pub i32);
 pub const HidP_Input: HIDP_REPORT_TYPE = HIDP_REPORT_TYPE(0i32);
 pub const HidP_Output: HIDP_REPORT_TYPE = HIDP_REPORT_TYPE(1i32);
 pub const HidP_Feature: HIDP_REPORT_TYPE = HIDP_REPORT_TYPE(2i32);
 #[repr(C)]
-pub struct HIDP_UNKNOWN_TOKEN(i32);
+pub struct HIDP_UNKNOWN_TOKEN {
+    pub Token: u8,
+    pub Reserved: [u8; 3],
+    pub BitField: u32,
+}
+impl ::core::marker::Copy for HIDP_UNKNOWN_TOKEN {}
+impl ::core::clone::Clone for HIDP_UNKNOWN_TOKEN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct HIDP_VALUE_CAPS(i32);
+pub struct HIDP_VALUE_CAPS {
+    pub UsagePage: u16,
+    pub ReportID: u8,
+    pub IsAlias: super::super::Foundation::BOOLEAN,
+    pub BitField: u16,
+    pub LinkCollection: u16,
+    pub LinkUsage: u16,
+    pub LinkUsagePage: u16,
+    pub IsRange: super::super::Foundation::BOOLEAN,
+    pub IsStringRange: super::super::Foundation::BOOLEAN,
+    pub IsDesignatorRange: super::super::Foundation::BOOLEAN,
+    pub IsAbsolute: super::super::Foundation::BOOLEAN,
+    pub HasNull: super::super::Foundation::BOOLEAN,
+    pub Reserved: u8,
+    pub BitSize: u16,
+    pub ReportCount: u16,
+    pub Reserved2: [u16; 5],
+    pub UnitsExp: u32,
+    pub Units: u32,
+    pub LogicalMin: i32,
+    pub LogicalMax: i32,
+    pub PhysicalMin: i32,
+    pub PhysicalMax: i32,
+    pub Anonymous: HIDP_VALUE_CAPS_0,
+}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for HIDP_VALUE_CAPS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for HIDP_VALUE_CAPS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct HID_COLLECTION_INFORMATION(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub union HIDP_VALUE_CAPS_0 {
+    pub Range: HIDP_VALUE_CAPS_0_1,
+    pub NotRange: HIDP_VALUE_CAPS_0_0,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for HIDP_VALUE_CAPS_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct HID_DRIVER_CONFIG(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct HIDP_VALUE_CAPS_0_0 {
+    pub Usage: u16,
+    pub Reserved1: u16,
+    pub StringIndex: u16,
+    pub Reserved2: u16,
+    pub DesignatorIndex: u16,
+    pub Reserved3: u16,
+    pub DataIndex: u16,
+    pub Reserved4: u16,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for HIDP_VALUE_CAPS_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for HIDP_VALUE_CAPS_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct HIDP_VALUE_CAPS_0_1 {
+    pub UsageMin: u16,
+    pub UsageMax: u16,
+    pub StringMin: u16,
+    pub StringMax: u16,
+    pub DesignatorMin: u16,
+    pub DesignatorMax: u16,
+    pub DataIndexMin: u16,
+    pub DataIndexMax: u16,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for HIDP_VALUE_CAPS_0_1 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for HIDP_VALUE_CAPS_0_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct HID_COLLECTION_INFORMATION {
+    pub DescriptorSize: u32,
+    pub Polled: super::super::Foundation::BOOLEAN,
+    pub Reserved1: [u8; 1],
+    pub VendorID: u16,
+    pub ProductID: u16,
+    pub VersionNumber: u16,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for HID_COLLECTION_INFORMATION {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for HID_COLLECTION_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct HID_DRIVER_CONFIG {
+    pub Size: u32,
+    pub RingBufferSize: u32,
+}
+impl ::core::marker::Copy for HID_DRIVER_CONFIG {}
+impl ::core::clone::Clone for HID_DRIVER_CONFIG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const HID_REVISION: u32 = 1u32;
 pub const HID_USAGE_ALPHANUMERIC_14_SEGMENT_DIRECT_MAP: u16 = 69u16;
 pub const HID_USAGE_ALPHANUMERIC_7_SEGMENT_DIRECT_MAP: u16 = 67u16;
@@ -2594,7 +3864,17 @@ pub const HID_USAGE_VR_OCULOMETER: u16 = 8u16;
 pub const HID_USAGE_VR_STEREO_ENABLE: u16 = 32u16;
 pub const HID_USAGE_VR_VEST: u16 = 9u16;
 #[repr(C)]
-pub struct HID_XFER_PACKET(i32);
+pub struct HID_XFER_PACKET {
+    pub reportBuffer: *mut u8,
+    pub reportBufferLen: u32,
+    pub reportId: u8,
+}
+impl ::core::marker::Copy for HID_XFER_PACKET {}
+impl ::core::clone::Clone for HID_XFER_PACKET {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const HORIZONTAL_WHEEL_PRESENT: u32 = 32768u32;
 #[repr(transparent)]
 pub struct IDirectInput2A(pub *mut ::core::ffi::c_void);
@@ -2637,10 +3917,30 @@ pub struct IDirectInputJoyConfig8(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IDirectInputW(pub *mut ::core::ffi::c_void);
 #[repr(C)]
-pub struct INDICATOR_LIST(i32);
-#[cfg(feature = "Win32_Foundation")]
+pub struct INDICATOR_LIST {
+    pub MakeCode: u16,
+    pub IndicatorFlags: u16,
+}
+impl ::core::marker::Copy for INDICATOR_LIST {}
+impl ::core::clone::Clone for INDICATOR_LIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct INPUT_BUTTON_ENABLE_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct INPUT_BUTTON_ENABLE_INFO {
+    pub ButtonType: GPIOBUTTONS_BUTTON_TYPE,
+    pub Enabled: super::super::Foundation::BOOLEAN,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for INPUT_BUTTON_ENABLE_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for INPUT_BUTTON_ENABLE_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const IOCTL_BUTTON_GET_ENABLED_ON_IDLE: u32 = 721580u32;
 pub const IOCTL_BUTTON_SET_ENABLED_ON_IDLE: u32 = 721576u32;
 pub const IOCTL_KEYBOARD_INSERT_DATA: u32 = 721152u32;
@@ -2656,19 +3956,96 @@ pub const IOCTL_KEYBOARD_SET_TYPEMATIC: u32 = 720900u32;
 pub const IOCTL_MOUSE_INSERT_DATA: u32 = 983044u32;
 pub const IOCTL_MOUSE_QUERY_ATTRIBUTES: u32 = 983040u32;
 #[repr(C)]
-pub struct JOYCALIBRATE(i32);
+pub struct JOYCALIBRATE {
+    pub wXbase: u32,
+    pub wXdelta: u32,
+    pub wYbase: u32,
+    pub wYdelta: u32,
+    pub wZbase: u32,
+    pub wZdelta: u32,
+}
+impl ::core::marker::Copy for JOYCALIBRATE {}
+impl ::core::clone::Clone for JOYCALIBRATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct JOYPOS(i32);
+pub struct JOYPOS {
+    pub dwX: u32,
+    pub dwY: u32,
+    pub dwZ: u32,
+    pub dwR: u32,
+    pub dwU: u32,
+    pub dwV: u32,
+}
+impl ::core::marker::Copy for JOYPOS {}
+impl ::core::clone::Clone for JOYPOS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct JOYRANGE(i32);
+pub struct JOYRANGE {
+    pub jpMin: JOYPOS,
+    pub jpMax: JOYPOS,
+    pub jpCenter: JOYPOS,
+}
+impl ::core::marker::Copy for JOYRANGE {}
+impl ::core::clone::Clone for JOYRANGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct JOYREGHWCONFIG(i32);
+pub struct JOYREGHWCONFIG {
+    pub hws: JOYREGHWSETTINGS,
+    pub dwUsageSettings: u32,
+    pub hwv: JOYREGHWVALUES,
+    pub dwType: u32,
+    pub dwReserved: u32,
+}
+impl ::core::marker::Copy for JOYREGHWCONFIG {}
+impl ::core::clone::Clone for JOYREGHWCONFIG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct JOYREGHWSETTINGS(i32);
+pub struct JOYREGHWSETTINGS {
+    pub dwFlags: u32,
+    pub dwNumButtons: u32,
+}
+impl ::core::marker::Copy for JOYREGHWSETTINGS {}
+impl ::core::clone::Clone for JOYREGHWSETTINGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct JOYREGHWVALUES(i32);
+pub struct JOYREGHWVALUES {
+    pub jrvHardware: JOYRANGE,
+    pub dwPOVValues: [u32; 4],
+    pub dwCalFlags: u32,
+}
+impl ::core::marker::Copy for JOYREGHWVALUES {}
+impl ::core::clone::Clone for JOYREGHWVALUES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct JOYREGUSERVALUES(i32);
+pub struct JOYREGUSERVALUES {
+    pub dwTimeOut: u32,
+    pub jrvRanges: JOYRANGE,
+    pub jpDeadZone: JOYPOS,
+}
+impl ::core::marker::Copy for JOYREGUSERVALUES {}
+impl ::core::clone::Clone for JOYREGUSERVALUES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const JOYTYPE_ANALOGCOMPAT: i32 = 8i32;
 pub const JOYTYPE_DEFAULTPROPSHEET: i32 = -2147483648i32;
 pub const JOYTYPE_DEVICEHIDE: i32 = 65536i32;
@@ -2753,22 +4130,100 @@ pub const JOY_US_PRESENT: i32 = 2i32;
 pub const JOY_US_RESERVED: i32 = -2147483648i32;
 pub const JOY_US_VOLATILE: i32 = 8i32;
 #[repr(C)]
-pub struct KEYBOARD_ATTRIBUTES(i32);
+pub struct KEYBOARD_ATTRIBUTES {
+    pub KeyboardIdentifier: KEYBOARD_ID,
+    pub KeyboardMode: u16,
+    pub NumberOfFunctionKeys: u16,
+    pub NumberOfIndicators: u16,
+    pub NumberOfKeysTotal: u16,
+    pub InputDataQueueLength: u32,
+    pub KeyRepeatMinimum: KEYBOARD_TYPEMATIC_PARAMETERS,
+    pub KeyRepeatMaximum: KEYBOARD_TYPEMATIC_PARAMETERS,
+}
+impl ::core::marker::Copy for KEYBOARD_ATTRIBUTES {}
+impl ::core::clone::Clone for KEYBOARD_ATTRIBUTES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const KEYBOARD_CAPS_LOCK_ON: u32 = 4u32;
 pub const KEYBOARD_ERROR_VALUE_BASE: u32 = 10000u32;
 #[repr(C)]
-pub struct KEYBOARD_EXTENDED_ATTRIBUTES(i32);
+pub struct KEYBOARD_EXTENDED_ATTRIBUTES {
+    pub Version: u8,
+    pub FormFactor: u8,
+    pub KeyType: u8,
+    pub PhysicalLayout: u8,
+    pub VendorSpecificPhysicalLayout: u8,
+    pub IETFLanguageTagIndex: u8,
+    pub ImplementedInputAssistControls: u8,
+}
+impl ::core::marker::Copy for KEYBOARD_EXTENDED_ATTRIBUTES {}
+impl ::core::clone::Clone for KEYBOARD_EXTENDED_ATTRIBUTES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const KEYBOARD_EXTENDED_ATTRIBUTES_STRUCT_VERSION_1: u32 = 1u32;
 #[repr(C)]
-pub struct KEYBOARD_ID(i32);
+pub struct KEYBOARD_ID {
+    pub Type: u8,
+    pub Subtype: u8,
+}
+impl ::core::marker::Copy for KEYBOARD_ID {}
+impl ::core::clone::Clone for KEYBOARD_ID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct KEYBOARD_IME_STATUS(i32);
+pub struct KEYBOARD_IME_STATUS {
+    pub UnitId: u16,
+    pub ImeOpen: u32,
+    pub ImeConvMode: u32,
+}
+impl ::core::marker::Copy for KEYBOARD_IME_STATUS {}
+impl ::core::clone::Clone for KEYBOARD_IME_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct KEYBOARD_INDICATOR_PARAMETERS(i32);
+pub struct KEYBOARD_INDICATOR_PARAMETERS {
+    pub UnitId: u16,
+    pub LedFlags: u16,
+}
+impl ::core::marker::Copy for KEYBOARD_INDICATOR_PARAMETERS {}
+impl ::core::clone::Clone for KEYBOARD_INDICATOR_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct KEYBOARD_INDICATOR_TRANSLATION(i32);
+pub struct KEYBOARD_INDICATOR_TRANSLATION {
+    pub NumberOfIndicatorKeys: u16,
+    pub IndicatorList: [INDICATOR_LIST; 1],
+}
+impl ::core::marker::Copy for KEYBOARD_INDICATOR_TRANSLATION {}
+impl ::core::clone::Clone for KEYBOARD_INDICATOR_TRANSLATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct KEYBOARD_INPUT_DATA(i32);
+pub struct KEYBOARD_INPUT_DATA {
+    pub UnitId: u16,
+    pub MakeCode: u16,
+    pub Flags: u16,
+    pub Reserved: u16,
+    pub ExtraInformation: u32,
+}
+impl ::core::marker::Copy for KEYBOARD_INPUT_DATA {}
+impl ::core::clone::Clone for KEYBOARD_INPUT_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const KEYBOARD_KANA_LOCK_ON: u32 = 8u32;
 pub const KEYBOARD_LED_INJECTED: u32 = 32768u32;
 pub const KEYBOARD_NUM_LOCK_ON: u32 = 2u32;
@@ -2776,9 +4231,27 @@ pub const KEYBOARD_OVERRUN_MAKE_CODE: u32 = 255u32;
 pub const KEYBOARD_SCROLL_LOCK_ON: u32 = 1u32;
 pub const KEYBOARD_SHADOW: u32 = 16384u32;
 #[repr(C)]
-pub struct KEYBOARD_TYPEMATIC_PARAMETERS(i32);
+pub struct KEYBOARD_TYPEMATIC_PARAMETERS {
+    pub UnitId: u16,
+    pub Rate: u16,
+    pub Delay: u16,
+}
+impl ::core::marker::Copy for KEYBOARD_TYPEMATIC_PARAMETERS {}
+impl ::core::clone::Clone for KEYBOARD_TYPEMATIC_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct KEYBOARD_UNIT_ID_PARAMETER(i32);
+pub struct KEYBOARD_UNIT_ID_PARAMETER {
+    pub UnitId: u16,
+}
+impl ::core::marker::Copy for KEYBOARD_UNIT_ID_PARAMETER {}
+impl ::core::clone::Clone for KEYBOARD_UNIT_ID_PARAMETER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const KEY_BREAK: u32 = 1u32;
 pub const KEY_E0: u32 = 2u32;
 pub const KEY_E1: u32 = 4u32;
@@ -2820,7 +4293,18 @@ pub const MAXCPOINTSNUM: u32 = 8u32;
 pub const MAX_JOYSTICKOEMVXDNAME: u32 = 260u32;
 pub const MAX_JOYSTRING: u32 = 256u32;
 #[repr(C)]
-pub struct MOUSE_ATTRIBUTES(i32);
+pub struct MOUSE_ATTRIBUTES {
+    pub MouseIdentifier: u16,
+    pub NumberOfButtons: u16,
+    pub SampleRate: u16,
+    pub InputDataQueueLength: u32,
+}
+impl ::core::marker::Copy for MOUSE_ATTRIBUTES {}
+impl ::core::clone::Clone for MOUSE_ATTRIBUTES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MOUSE_ATTRIBUTES_CHANGED: u32 = 4u32;
 pub const MOUSE_BUTTON_1_DOWN: u32 = 1u32;
 pub const MOUSE_BUTTON_1_UP: u32 = 2u32;
@@ -2838,7 +4322,42 @@ pub const MOUSE_HWHEEL: u32 = 2048u32;
 pub const MOUSE_I8042_HARDWARE: u32 = 2u32;
 pub const MOUSE_INPORT_HARDWARE: u32 = 1u32;
 #[repr(C)]
-pub struct MOUSE_INPUT_DATA(i32);
+pub struct MOUSE_INPUT_DATA {
+    pub UnitId: u16,
+    pub Flags: u16,
+    pub Anonymous: MOUSE_INPUT_DATA_0,
+    pub RawButtons: u32,
+    pub LastX: i32,
+    pub LastY: i32,
+    pub ExtraInformation: u32,
+}
+impl ::core::marker::Copy for MOUSE_INPUT_DATA {}
+impl ::core::clone::Clone for MOUSE_INPUT_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub union MOUSE_INPUT_DATA_0 {
+    pub Buttons: u32,
+    pub Anonymous: MOUSE_INPUT_DATA_0_0,
+}
+impl ::core::clone::Clone for MOUSE_INPUT_DATA_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct MOUSE_INPUT_DATA_0_0 {
+    pub ButtonFlags: u16,
+    pub ButtonData: u16,
+}
+impl ::core::marker::Copy for MOUSE_INPUT_DATA_0_0 {}
+impl ::core::clone::Clone for MOUSE_INPUT_DATA_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MOUSE_LEFT_BUTTON_DOWN: u32 = 1u32;
 pub const MOUSE_LEFT_BUTTON_UP: u32 = 2u32;
 pub const MOUSE_MIDDLE_BUTTON_DOWN: u32 = 16u32;
@@ -2851,7 +4370,15 @@ pub const MOUSE_RIGHT_BUTTON_UP: u32 = 8u32;
 pub const MOUSE_SERIAL_HARDWARE: u32 = 4u32;
 pub const MOUSE_TERMSRV_SRC_SHADOW: u32 = 256u32;
 #[repr(C)]
-pub struct MOUSE_UNIT_ID_PARAMETER(i32);
+pub struct MOUSE_UNIT_ID_PARAMETER {
+    pub UnitId: u16,
+}
+impl ::core::marker::Copy for MOUSE_UNIT_ID_PARAMETER {}
+impl ::core::clone::Clone for MOUSE_UNIT_ID_PARAMETER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MOUSE_VIRTUAL_DESKTOP: u32 = 2u32;
 pub const MOUSE_WHEEL: u32 = 1024u32;
 #[cfg(feature = "Win32_Foundation")]
@@ -2859,7 +4386,16 @@ pub type PFN_HidP_GetVersionInternal = unsafe extern "system" fn(version: *mut u
 #[cfg(feature = "Win32_Foundation")]
 pub type PHIDP_INSERT_SCANCODES = unsafe extern "system" fn(context: *const ::core::ffi::c_void, newscancodes: super::super::Foundation::PSTR, length: u32) -> super::super::Foundation::BOOLEAN;
 #[repr(C)]
-pub struct USAGE_AND_PAGE(i32);
+pub struct USAGE_AND_PAGE {
+    pub Usage: u16,
+    pub UsagePage: u16,
+}
+impl ::core::marker::Copy for USAGE_AND_PAGE {}
+impl ::core::clone::Clone for USAGE_AND_PAGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WHEELMOUSE_HID_HARDWARE: u32 = 256u32;
 pub const WHEELMOUSE_I8042_HARDWARE: u32 = 32u32;
 pub const WHEELMOUSE_SERIAL_HARDWARE: u32 = 64u32;

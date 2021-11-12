@@ -104,6 +104,31 @@ pub const HCN_PORT_PROTOCOL_TCP: HCN_PORT_PROTOCOL = HCN_PORT_PROTOCOL(1i32);
 pub const HCN_PORT_PROTOCOL_UDP: HCN_PORT_PROTOCOL = HCN_PORT_PROTOCOL(2i32);
 pub const HCN_PORT_PROTOCOL_BOTH: HCN_PORT_PROTOCOL = HCN_PORT_PROTOCOL(3i32);
 #[repr(C)]
-pub struct HCN_PORT_RANGE_ENTRY(i32);
+pub struct HCN_PORT_RANGE_ENTRY {
+    pub OwningPartitionId: ::windows_sys::core::GUID,
+    pub TargetPartitionId: ::windows_sys::core::GUID,
+    pub Protocol: HCN_PORT_PROTOCOL,
+    pub Priority: u64,
+    pub ReservationType: u32,
+    pub SharingFlags: u32,
+    pub DeliveryMode: u32,
+    pub StartingPort: u16,
+    pub EndingPort: u16,
+}
+impl ::core::marker::Copy for HCN_PORT_RANGE_ENTRY {}
+impl ::core::clone::Clone for HCN_PORT_RANGE_ENTRY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct HCN_PORT_RANGE_RESERVATION(i32);
+pub struct HCN_PORT_RANGE_RESERVATION {
+    pub startingPort: u16,
+    pub endingPort: u16,
+}
+impl ::core::marker::Copy for HCN_PORT_RANGE_RESERVATION {}
+impl ::core::clone::Clone for HCN_PORT_RANGE_RESERVATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

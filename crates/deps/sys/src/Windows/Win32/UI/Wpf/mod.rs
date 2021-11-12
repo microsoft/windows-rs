@@ -49,8 +49,51 @@ pub struct IMILBitmapEffectRenderContextImpl(pub *mut ::core::ffi::c_void);
 pub struct IMILBitmapEffects(pub *mut ::core::ffi::c_void);
 pub const MILBITMAPEFFECT_SDK_VERSION: u32 = 16777216u32;
 #[repr(C)]
-pub struct MILMatrixF(i32);
+pub struct MILMatrixF {
+    pub _11: f64,
+    pub _12: f64,
+    pub _13: f64,
+    pub _14: f64,
+    pub _21: f64,
+    pub _22: f64,
+    pub _23: f64,
+    pub _24: f64,
+    pub _31: f64,
+    pub _32: f64,
+    pub _33: f64,
+    pub _34: f64,
+    pub _41: f64,
+    pub _42: f64,
+    pub _43: f64,
+    pub _44: f64,
+}
+impl ::core::marker::Copy for MILMatrixF {}
+impl ::core::clone::Clone for MILMatrixF {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct MilPoint2D(i32);
+pub struct MilPoint2D {
+    pub X: f64,
+    pub Y: f64,
+}
+impl ::core::marker::Copy for MilPoint2D {}
+impl ::core::clone::Clone for MilPoint2D {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct MilRectD(i32);
+pub struct MilRectD {
+    pub left: f64,
+    pub top: f64,
+    pub right: f64,
+    pub bottom: f64,
+}
+impl ::core::marker::Copy for MilRectD {}
+impl ::core::clone::Clone for MilRectD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

@@ -119,12 +119,39 @@ extern "system" {
 #[repr(transparent)]
 pub struct HCS_CREATE_OPTIONS(pub i32);
 pub const HcsCreateOptions_1: HCS_CREATE_OPTIONS = HCS_CREATE_OPTIONS(65536i32);
+#[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+pub struct HCS_CREATE_OPTIONS_1 {
+    pub Version: HCS_CREATE_OPTIONS,
+    pub UserToken: super::super::Foundation::HANDLE,
+    pub SecurityDescriptor: *mut super::super::Security::SECURITY_DESCRIPTOR,
+    pub CallbackOptions: HCS_EVENT_OPTIONS,
+    pub CallbackContext: *mut ::core::ffi::c_void,
+    pub Callback: ::core::option::Option<HCS_EVENT_CALLBACK>,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::marker::Copy for HCS_CREATE_OPTIONS_1 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::clone::Clone for HCS_CREATE_OPTIONS_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct HCS_CREATE_OPTIONS_1(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct HCS_EVENT(i32);
+pub struct HCS_EVENT {
+    pub Type: HCS_EVENT_TYPE,
+    pub EventData: super::super::Foundation::PWSTR,
+    pub Operation: HCS_OPERATION,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for HCS_EVENT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for HCS_EVENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[cfg(feature = "Win32_Foundation")]
 pub type HCS_EVENT_CALLBACK = unsafe extern "system" fn(event: *const HCS_EVENT, context: *const ::core::ffi::c_void);
 #[repr(transparent)]
@@ -173,7 +200,15 @@ pub struct HCS_NOTIFICATION_FLAGS(pub i32);
 pub const HcsNotificationFlagSuccess: HCS_NOTIFICATION_FLAGS = HCS_NOTIFICATION_FLAGS(0i32);
 pub const HcsNotificationFlagFailure: HCS_NOTIFICATION_FLAGS = HCS_NOTIFICATION_FLAGS(-2147483648i32);
 #[repr(C)]
-pub struct HCS_OPERATION(i32);
+pub struct HCS_OPERATION {
+    pub Value: isize,
+}
+impl ::core::marker::Copy for HCS_OPERATION {}
+impl ::core::clone::Clone for HCS_OPERATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub type HCS_OPERATION_COMPLETION = unsafe extern "system" fn(operation: HCS_OPERATION, context: *const ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HCS_OPERATION_TYPE(pub i32);
@@ -195,9 +230,39 @@ pub const HcsOperationTypeGetProcessProperties: HCS_OPERATION_TYPE = HCS_OPERATI
 pub const HcsOperationTypeModifyProcess: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(14i32);
 pub const HcsOperationTypeCrash: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(15i32);
 #[repr(C)]
-pub struct HCS_PROCESS(i32);
+pub struct HCS_PROCESS {
+    pub Value: isize,
+}
+impl ::core::marker::Copy for HCS_PROCESS {}
+impl ::core::clone::Clone for HCS_PROCESS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+pub struct HCS_PROCESS_INFORMATION {
+    pub ProcessId: u32,
+    pub Reserved: u32,
+    pub StdInput: super::super::Foundation::HANDLE,
+    pub StdOutput: super::super::Foundation::HANDLE,
+    pub StdError: super::super::Foundation::HANDLE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for HCS_PROCESS_INFORMATION {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for HCS_PROCESS_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct HCS_PROCESS_INFORMATION(i32);
-#[repr(C)]
-pub struct HCS_SYSTEM(i32);
+pub struct HCS_SYSTEM {
+    pub Value: isize,
+}
+impl ::core::marker::Copy for HCS_SYSTEM {}
+impl ::core::clone::Clone for HCS_SYSTEM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

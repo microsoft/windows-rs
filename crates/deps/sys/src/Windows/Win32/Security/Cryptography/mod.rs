@@ -853,15 +853,50 @@ pub const AUDIT_SERVICE_IDLE_STOP: ::windows_sys::core::HRESULT = ::windows_sys:
 pub const AUDIT_STORE_DELETE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(1074070021i32 as _);
 pub const AUDIT_STORE_EXPORT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(1074070020i32 as _);
 pub const AUDIT_STORE_IMPORT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(1074070019i32 as _);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct AUTHENTICODE_EXTRA_CERT_CHAIN_POLICY_PARA(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct AUTHENTICODE_EXTRA_CERT_CHAIN_POLICY_STATUS(i32);
+pub struct AUTHENTICODE_EXTRA_CERT_CHAIN_POLICY_PARA {
+    pub cbSize: u32,
+    pub dwRegPolicySettings: u32,
+    pub pSignerInfo: *mut CMSG_SIGNER_INFO,
+}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for AUTHENTICODE_EXTRA_CERT_CHAIN_POLICY_PARA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for AUTHENTICODE_EXTRA_CERT_CHAIN_POLICY_PARA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct AUTHENTICODE_TS_EXTRA_CERT_CHAIN_POLICY_PARA(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct AUTHENTICODE_EXTRA_CERT_CHAIN_POLICY_STATUS {
+    pub cbSize: u32,
+    pub fCommercial: super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for AUTHENTICODE_EXTRA_CERT_CHAIN_POLICY_STATUS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for AUTHENTICODE_EXTRA_CERT_CHAIN_POLICY_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct AUTHENTICODE_TS_EXTRA_CERT_CHAIN_POLICY_PARA {
+    pub cbSize: u32,
+    pub dwRegPolicySettings: u32,
+    pub fCommercial: super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for AUTHENTICODE_TS_EXTRA_CERT_CHAIN_POLICY_PARA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for AUTHENTICODE_TS_EXTRA_CERT_CHAIN_POLICY_PARA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const BASIC_CONSTRAINTS_CERT_CHAIN_POLICY_CA_FLAG: u32 = 2147483648u32;
 pub const BASIC_CONSTRAINTS_CERT_CHAIN_POLICY_END_ENTITY_FLAG: u32 = 1073741824u32;
 pub const BCRYPTBUFFER_VERSION: u32 = 0u32;
@@ -878,13 +913,53 @@ pub const BCRYPT_AES_CMAC_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(257u
 pub const BCRYPT_AES_ECB_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(433u32 as _);
 pub const BCRYPT_AES_GCM_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(481u32 as _);
 pub const BCRYPT_AES_GMAC_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(273u32 as _);
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+pub struct BCRYPT_ALGORITHM_IDENTIFIER {
+    pub pszName: super::super::Foundation::PWSTR,
+    pub dwClass: u32,
+    pub dwFlags: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for BCRYPT_ALGORITHM_IDENTIFIER {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for BCRYPT_ALGORITHM_IDENTIFIER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct BCRYPT_ALGORITHM_IDENTIFIER(i32);
+pub struct BCRYPT_ALG_HANDLE {
+    pub Value: isize,
+}
+impl ::core::marker::Copy for BCRYPT_ALG_HANDLE {}
+impl ::core::clone::Clone for BCRYPT_ALG_HANDLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct BCRYPT_ALG_HANDLE(i32);
-#[repr(C)]
-pub struct BCRYPT_AUTHENTICATED_CIPHER_MODE_INFO(i32);
+pub struct BCRYPT_AUTHENTICATED_CIPHER_MODE_INFO {
+    pub cbSize: u32,
+    pub dwInfoVersion: u32,
+    pub pbNonce: *mut u8,
+    pub cbNonce: u32,
+    pub pbAuthData: *mut u8,
+    pub cbAuthData: u32,
+    pub pbTag: *mut u8,
+    pub cbTag: u32,
+    pub pbMacContext: *mut u8,
+    pub cbMacContext: u32,
+    pub cbAAD: u32,
+    pub cbData: u64,
+    pub dwFlags: u32,
+}
+impl ::core::marker::Copy for BCRYPT_AUTHENTICATED_CIPHER_MODE_INFO {}
+impl ::core::clone::Clone for BCRYPT_AUTHENTICATED_CIPHER_MODE_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const BCRYPT_AUTHENTICATED_CIPHER_MODE_INFO_VERSION: u32 = 1u32;
 pub const BCRYPT_AUTH_MODE_CHAIN_CALLS_FLAG: u32 = 1u32;
 pub const BCRYPT_AUTH_MODE_IN_PROGRESS_FLAG: u32 = 2u32;
@@ -901,19 +976,64 @@ pub const BCRYPT_DES_CFB_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(529u3
 pub const BCRYPT_DES_ECB_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(513u32 as _);
 pub const BCRYPT_DH_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(641u32 as _);
 #[repr(C)]
-pub struct BCRYPT_DH_KEY_BLOB(i32);
+pub struct BCRYPT_DH_KEY_BLOB {
+    pub dwMagic: BCRYPT_DH_KEY_BLOB_MAGIC,
+    pub cbKey: u32,
+}
+impl ::core::marker::Copy for BCRYPT_DH_KEY_BLOB {}
+impl ::core::clone::Clone for BCRYPT_DH_KEY_BLOB {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct BCRYPT_DH_KEY_BLOB_MAGIC(pub u32);
 pub const BCRYPT_DH_PUBLIC_MAGIC: BCRYPT_DH_KEY_BLOB_MAGIC = BCRYPT_DH_KEY_BLOB_MAGIC(1112557636u32);
 pub const BCRYPT_DH_PRIVATE_MAGIC: BCRYPT_DH_KEY_BLOB_MAGIC = BCRYPT_DH_KEY_BLOB_MAGIC(1448101956u32);
 pub const BCRYPT_DH_PARAMETERS_MAGIC: u32 = 1297107012u32;
 #[repr(C)]
-pub struct BCRYPT_DH_PARAMETER_HEADER(i32);
+pub struct BCRYPT_DH_PARAMETER_HEADER {
+    pub cbLength: u32,
+    pub dwMagic: u32,
+    pub cbKeyLength: u32,
+}
+impl ::core::marker::Copy for BCRYPT_DH_PARAMETER_HEADER {}
+impl ::core::clone::Clone for BCRYPT_DH_PARAMETER_HEADER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const BCRYPT_DSA_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(721u32 as _);
 #[repr(C)]
-pub struct BCRYPT_DSA_KEY_BLOB(i32);
+pub struct BCRYPT_DSA_KEY_BLOB {
+    pub dwMagic: BCRYPT_DSA_MAGIC,
+    pub cbKey: u32,
+    pub Count: [u8; 4],
+    pub Seed: [u8; 20],
+    pub q: [u8; 20],
+}
+impl ::core::marker::Copy for BCRYPT_DSA_KEY_BLOB {}
+impl ::core::clone::Clone for BCRYPT_DSA_KEY_BLOB {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct BCRYPT_DSA_KEY_BLOB_V2(i32);
+pub struct BCRYPT_DSA_KEY_BLOB_V2 {
+    pub dwMagic: BCRYPT_DSA_MAGIC,
+    pub cbKey: u32,
+    pub hashAlgorithm: HASHALGORITHM_ENUM,
+    pub standardVersion: DSAFIPSVERSION_ENUM,
+    pub cbSeedLength: u32,
+    pub cbGroupSize: u32,
+    pub Count: [u8; 4],
+}
+impl ::core::marker::Copy for BCRYPT_DSA_KEY_BLOB_V2 {}
+impl ::core::clone::Clone for BCRYPT_DSA_KEY_BLOB_V2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct BCRYPT_DSA_MAGIC(pub u32);
 pub const BCRYPT_DSA_PUBLIC_MAGIC: BCRYPT_DSA_MAGIC = BCRYPT_DSA_MAGIC(1112560452u32);
@@ -921,18 +1041,81 @@ pub const BCRYPT_DSA_PRIVATE_MAGIC: BCRYPT_DSA_MAGIC = BCRYPT_DSA_MAGIC(14481047
 pub const BCRYPT_DSA_PARAMETERS_MAGIC: u32 = 1297109828u32;
 pub const BCRYPT_DSA_PARAMETERS_MAGIC_V2: u32 = 843927620u32;
 #[repr(C)]
-pub struct BCRYPT_DSA_PARAMETER_HEADER(i32);
+pub struct BCRYPT_DSA_PARAMETER_HEADER {
+    pub cbLength: u32,
+    pub dwMagic: u32,
+    pub cbKeyLength: u32,
+    pub Count: [u8; 4],
+    pub Seed: [u8; 20],
+    pub q: [u8; 20],
+}
+impl ::core::marker::Copy for BCRYPT_DSA_PARAMETER_HEADER {}
+impl ::core::clone::Clone for BCRYPT_DSA_PARAMETER_HEADER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct BCRYPT_DSA_PARAMETER_HEADER_V2(i32);
+pub struct BCRYPT_DSA_PARAMETER_HEADER_V2 {
+    pub cbLength: u32,
+    pub dwMagic: u32,
+    pub cbKeyLength: u32,
+    pub hashAlgorithm: HASHALGORITHM_ENUM,
+    pub standardVersion: DSAFIPSVERSION_ENUM,
+    pub cbSeedLength: u32,
+    pub cbGroupSize: u32,
+    pub Count: [u8; 4],
+}
+impl ::core::marker::Copy for BCRYPT_DSA_PARAMETER_HEADER_V2 {}
+impl ::core::clone::Clone for BCRYPT_DSA_PARAMETER_HEADER_V2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const BCRYPT_DSA_PRIVATE_MAGIC_V2: u32 = 844517444u32;
 pub const BCRYPT_DSA_PUBLIC_MAGIC_V2: u32 = 843206724u32;
 #[repr(C)]
-pub struct BCRYPT_ECCFULLKEY_BLOB(i32);
+pub struct BCRYPT_ECCFULLKEY_BLOB {
+    pub dwMagic: u32,
+    pub dwVersion: u32,
+    pub dwCurveType: ECC_CURVE_TYPE_ENUM,
+    pub dwCurveGenerationAlgId: ECC_CURVE_ALG_ID_ENUM,
+    pub cbFieldLength: u32,
+    pub cbSubgroupOrder: u32,
+    pub cbCofactor: u32,
+    pub cbSeed: u32,
+}
+impl ::core::marker::Copy for BCRYPT_ECCFULLKEY_BLOB {}
+impl ::core::clone::Clone for BCRYPT_ECCFULLKEY_BLOB {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct BCRYPT_ECCKEY_BLOB(i32);
+pub struct BCRYPT_ECCKEY_BLOB {
+    pub dwMagic: u32,
+    pub cbKey: u32,
+}
+impl ::core::marker::Copy for BCRYPT_ECCKEY_BLOB {}
+impl ::core::clone::Clone for BCRYPT_ECCKEY_BLOB {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct BCRYPT_ECC_CURVE_NAMES(i32);
+pub struct BCRYPT_ECC_CURVE_NAMES {
+    pub dwEccCurveNames: u32,
+    pub pEccCurveNames: *mut super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for BCRYPT_ECC_CURVE_NAMES {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for BCRYPT_ECC_CURVE_NAMES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const BCRYPT_ECC_FULLKEY_BLOB_V1: u32 = 1u32;
 pub const BCRYPT_ECC_PARAMETERS_MAGIC: u32 = 1346585413u32;
 pub const BCRYPT_ECDH_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(657u32 as _);
@@ -987,19 +1170,64 @@ pub const NCRYPT_KEY_STORAGE_INTERFACE: BCRYPT_INTERFACE = BCRYPT_INTERFACE(6553
 pub const NCRYPT_SCHANNEL_INTERFACE: BCRYPT_INTERFACE = BCRYPT_INTERFACE(65538u32);
 pub const NCRYPT_SCHANNEL_SIGNATURE_INTERFACE: BCRYPT_INTERFACE = BCRYPT_INTERFACE(65539u32);
 #[repr(C)]
-pub struct BCRYPT_INTERFACE_VERSION(i32);
+pub struct BCRYPT_INTERFACE_VERSION {
+    pub MajorVersion: u16,
+    pub MinorVersion: u16,
+}
+impl ::core::marker::Copy for BCRYPT_INTERFACE_VERSION {}
+impl ::core::clone::Clone for BCRYPT_INTERFACE_VERSION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct BCRYPT_KEY_BLOB(i32);
+pub struct BCRYPT_KEY_BLOB {
+    pub Magic: u32,
+}
+impl ::core::marker::Copy for BCRYPT_KEY_BLOB {}
+impl ::core::clone::Clone for BCRYPT_KEY_BLOB {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct BCRYPT_KEY_DATA_BLOB_HEADER(i32);
+pub struct BCRYPT_KEY_DATA_BLOB_HEADER {
+    pub dwMagic: u32,
+    pub dwVersion: u32,
+    pub cbKeyData: u32,
+}
+impl ::core::marker::Copy for BCRYPT_KEY_DATA_BLOB_HEADER {}
+impl ::core::clone::Clone for BCRYPT_KEY_DATA_BLOB_HEADER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const BCRYPT_KEY_DATA_BLOB_MAGIC: u32 = 1296188491u32;
 pub const BCRYPT_KEY_DATA_BLOB_VERSION1: u32 = 1u32;
 pub const BCRYPT_KEY_DERIVATION_INTERFACE: u32 = 7u32;
 pub const BCRYPT_KEY_DERIVATION_OPERATION: u32 = 64u32;
 #[repr(C)]
-pub struct BCRYPT_KEY_HANDLE(i32);
+pub struct BCRYPT_KEY_HANDLE {
+    pub Value: isize,
+}
+impl ::core::marker::Copy for BCRYPT_KEY_HANDLE {}
+impl ::core::clone::Clone for BCRYPT_KEY_HANDLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct BCRYPT_KEY_LENGTHS_STRUCT(i32);
+pub struct BCRYPT_KEY_LENGTHS_STRUCT {
+    pub dwMinLength: u32,
+    pub dwMaxLength: u32,
+    pub dwIncrement: u32,
+}
+impl ::core::marker::Copy for BCRYPT_KEY_LENGTHS_STRUCT {}
+impl ::core::clone::Clone for BCRYPT_KEY_LENGTHS_STRUCT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const BCRYPT_KEY_VALIDATION_RANGE: u32 = 16u32;
 pub const BCRYPT_KEY_VALIDATION_RANGE_AND_ORDER: u32 = 24u32;
 pub const BCRYPT_KEY_VALIDATION_REGENERATE: u32 = 32u32;
@@ -1008,21 +1236,71 @@ pub const BCRYPT_MD4_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(17u32 as 
 pub const BCRYPT_MD5_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(33u32 as _);
 pub const BCRYPT_MULTI_FLAG: u32 = 64u32;
 #[repr(C)]
-pub struct BCRYPT_MULTI_HASH_OPERATION(i32);
+pub struct BCRYPT_MULTI_HASH_OPERATION {
+    pub iHash: u32,
+    pub hashOperation: BCRYPT_HASH_OPERATION_TYPE,
+    pub pbBuffer: *mut u8,
+    pub cbBuffer: u32,
+}
+impl ::core::marker::Copy for BCRYPT_MULTI_HASH_OPERATION {}
+impl ::core::clone::Clone for BCRYPT_MULTI_HASH_OPERATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct BCRYPT_MULTI_OBJECT_LENGTH_STRUCT(i32);
+pub struct BCRYPT_MULTI_OBJECT_LENGTH_STRUCT {
+    pub cbPerObject: u32,
+    pub cbPerElement: u32,
+}
+impl ::core::marker::Copy for BCRYPT_MULTI_OBJECT_LENGTH_STRUCT {}
+impl ::core::clone::Clone for BCRYPT_MULTI_OBJECT_LENGTH_STRUCT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct BCRYPT_MULTI_OPERATION_TYPE(pub i32);
 pub const BCRYPT_OPERATION_TYPE_HASH: BCRYPT_MULTI_OPERATION_TYPE = BCRYPT_MULTI_OPERATION_TYPE(1i32);
 pub const BCRYPT_NO_KEY_VALIDATION: u32 = 8u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct BCRYPT_OAEP_PADDING_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct BCRYPT_OAEP_PADDING_INFO {
+    pub pszAlgId: super::super::Foundation::PWSTR,
+    pub pbLabel: *mut u8,
+    pub cbLabel: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for BCRYPT_OAEP_PADDING_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for BCRYPT_OAEP_PADDING_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const BCRYPT_OBJECT_ALIGNMENT: u32 = 16u32;
 #[repr(C)]
-pub struct BCRYPT_OID(i32);
+pub struct BCRYPT_OID {
+    pub cbOID: u32,
+    pub pbOID: *mut u8,
+}
+impl ::core::marker::Copy for BCRYPT_OID {}
+impl ::core::clone::Clone for BCRYPT_OID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct BCRYPT_OID_LIST(i32);
+pub struct BCRYPT_OID_LIST {
+    pub dwOIDCount: u32,
+    pub pOIDs: *mut BCRYPT_OID,
+}
+impl ::core::marker::Copy for BCRYPT_OID_LIST {}
+impl ::core::clone::Clone for BCRYPT_OID_LIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct BCRYPT_OPEN_ALGORITHM_PROVIDER_FLAGS(pub u32);
 pub const BCRYPT_ALG_HANDLE_HMAC_FLAG: BCRYPT_OPEN_ALGORITHM_PROVIDER_FLAGS = BCRYPT_OPEN_ALGORITHM_PROVIDER_FLAGS(8u32);
@@ -1038,16 +1316,47 @@ pub const BCRYPT_SIGNATURE_OPERATION: BCRYPT_OPERATION = BCRYPT_OPERATION(16u32)
 pub const BCRYPT_RNG_OPERATION: BCRYPT_OPERATION = BCRYPT_OPERATION(32u32);
 pub const BCRYPT_PAD_PKCS1_OPTIONAL_HASH_OID: u32 = 16u32;
 pub const BCRYPT_PBKDF2_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(817u32 as _);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct BCRYPT_PKCS1_PADDING_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct BCRYPT_PKCS1_PADDING_INFO {
+    pub pszAlgId: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for BCRYPT_PKCS1_PADDING_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for BCRYPT_PKCS1_PADDING_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const BCRYPT_PRIVATE_KEY_FLAG: u32 = 2u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct BCRYPT_PROVIDER_NAME(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct BCRYPT_PROVIDER_NAME {
+    pub pszProviderName: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for BCRYPT_PROVIDER_NAME {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for BCRYPT_PROVIDER_NAME {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct BCRYPT_PSS_PADDING_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct BCRYPT_PSS_PADDING_INFO {
+    pub pszAlgId: super::super::Foundation::PWSTR,
+    pub cbSalt: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for BCRYPT_PSS_PADDING_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for BCRYPT_PSS_PADDING_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const BCRYPT_PUBLIC_KEY_FLAG: u32 = 1u32;
 #[repr(transparent)]
 pub struct BCRYPT_QUERY_PROVIDER_MODE(pub u32);
@@ -1066,7 +1375,20 @@ pub const CRYPT_ALL_PROVIDERS: BCRYPT_RESOLVE_PROVIDERS_FLAGS = BCRYPT_RESOLVE_P
 pub const BCRYPT_RNG_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(129u32 as _);
 pub const BCRYPT_RNG_USE_ENTROPY_IN_BUFFER: u32 = 1u32;
 #[repr(C)]
-pub struct BCRYPT_RSAKEY_BLOB(i32);
+pub struct BCRYPT_RSAKEY_BLOB {
+    pub Magic: BCRYPT_RSAKEY_BLOB_MAGIC,
+    pub BitLength: u32,
+    pub cbPublicExp: u32,
+    pub cbModulus: u32,
+    pub cbPrime1: u32,
+    pub cbPrime2: u32,
+}
+impl ::core::marker::Copy for BCRYPT_RSAKEY_BLOB {}
+impl ::core::clone::Clone for BCRYPT_RSAKEY_BLOB {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct BCRYPT_RSAKEY_BLOB_MAGIC(pub u32);
 pub const BCRYPT_RSAPUBLIC_MAGIC: BCRYPT_RSAKEY_BLOB_MAGIC = BCRYPT_RSAKEY_BLOB_MAGIC(826364754u32);
@@ -1095,9 +1417,29 @@ pub const BCRYPT_TLS_CBC_HMAC_VERIFY_FLAG: u32 = 4u32;
 pub const BCRYPT_USE_SYSTEM_PREFERRED_RNG: u32 = 2u32;
 pub const BCRYPT_XTS_AES_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(897u32 as _);
 #[repr(C)]
-pub struct BCryptBuffer(i32);
+pub struct BCryptBuffer {
+    pub cbBuffer: u32,
+    pub BufferType: u32,
+    pub pvBuffer: *mut ::core::ffi::c_void,
+}
+impl ::core::marker::Copy for BCryptBuffer {}
+impl ::core::clone::Clone for BCryptBuffer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct BCryptBufferDesc(i32);
+pub struct BCryptBufferDesc {
+    pub ulVersion: u32,
+    pub cBuffers: u32,
+    pub pBuffers: *mut BCryptBuffer,
+}
+impl ::core::marker::Copy for BCryptBufferDesc {}
+impl ::core::clone::Clone for BCryptBufferDesc {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CALG_OID_INFO_CNG_ONLY: u32 = 4294967295u32;
 pub const CALG_OID_INFO_PARAMETERS: u32 = 4294967294u32;
 #[repr(transparent)]
@@ -1146,10 +1488,30 @@ pub const ENUM_CEPSETUPPROP_SSLCERTHASH: CEPSetupProperty = CEPSetupProperty(1i3
 pub const ENUM_CEPSETUPPROP_URL: CEPSetupProperty = CEPSetupProperty(2i32);
 pub const ENUM_CEPSETUPPROP_KEYBASED_RENEWAL: CEPSetupProperty = CEPSetupProperty(3i32);
 #[repr(C)]
-pub struct CERTIFICATE_CHAIN_BLOB(i32);
-#[cfg(feature = "Win32_Foundation")]
+pub struct CERTIFICATE_CHAIN_BLOB {
+    pub certCount: u32,
+    pub rawCertificates: *mut CRYPTOAPI_BLOB,
+}
+impl ::core::marker::Copy for CERTIFICATE_CHAIN_BLOB {}
+impl ::core::clone::Clone for CERTIFICATE_CHAIN_BLOB {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CERT_ACCESS_DESCRIPTION(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CERT_ACCESS_DESCRIPTION {
+    pub pszAccessMethod: super::super::Foundation::PSTR,
+    pub AccessLocation: CERT_ALT_NAME_ENTRY,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CERT_ACCESS_DESCRIPTION {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CERT_ACCESS_DESCRIPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CERT_ACCESS_STATE_GP_SYSTEM_STORE_FLAG: u32 = 8u32;
 pub const CERT_ACCESS_STATE_LM_SYSTEM_STORE_FLAG: u32 = 4u32;
 pub const CERT_ACCESS_STATE_PROP_ID: u32 = 14u32;
@@ -1158,28 +1520,100 @@ pub const CERT_ACCESS_STATE_SYSTEM_STORE_FLAG: u32 = 2u32;
 pub const CERT_ACCESS_STATE_WRITE_PERSIST_FLAG: u32 = 1u32;
 pub const CERT_AIA_URL_RETRIEVED_PROP_ID: u32 = 67u32;
 pub const CERT_ALT_NAME_EDI_PARTY_NAME: u32 = 6u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CERT_ALT_NAME_ENTRY(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CERT_ALT_NAME_ENTRY {
+    pub dwAltNameChoice: u32,
+    pub Anonymous: CERT_ALT_NAME_ENTRY_0,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CERT_ALT_NAME_ENTRY {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CERT_ALT_NAME_ENTRY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub union CERT_ALT_NAME_ENTRY_0 {
+    pub pOtherName: *mut CERT_OTHER_NAME,
+    pub pwszRfc822Name: super::super::Foundation::PWSTR,
+    pub pwszDNSName: super::super::Foundation::PWSTR,
+    pub DirectoryName: CRYPTOAPI_BLOB,
+    pub pwszURL: super::super::Foundation::PWSTR,
+    pub IPAddress: CRYPTOAPI_BLOB,
+    pub pszRegisteredID: super::super::Foundation::PSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CERT_ALT_NAME_ENTRY_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CERT_ALT_NAME_ENTRY_ERR_INDEX_MASK: u32 = 255u32;
 pub const CERT_ALT_NAME_ENTRY_ERR_INDEX_SHIFT: u32 = 16u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CERT_ALT_NAME_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CERT_ALT_NAME_INFO {
+    pub cAltEntry: u32,
+    pub rgAltEntry: *mut CERT_ALT_NAME_ENTRY,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CERT_ALT_NAME_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CERT_ALT_NAME_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CERT_ALT_NAME_VALUE_ERR_INDEX_MASK: u32 = 65535u32;
 pub const CERT_ALT_NAME_VALUE_ERR_INDEX_SHIFT: u32 = 0u32;
 pub const CERT_ALT_NAME_X400_ADDRESS: u32 = 4u32;
 pub const CERT_ARCHIVED_KEY_HASH_PROP_ID: u32 = 65u32;
 pub const CERT_ARCHIVED_PROP_ID: u32 = 19u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CERT_AUTHORITY_INFO_ACCESS(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CERT_AUTHORITY_INFO_ACCESS {
+    pub cAccDescr: u32,
+    pub rgAccDescr: *mut CERT_ACCESS_DESCRIPTION,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CERT_AUTHORITY_INFO_ACCESS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CERT_AUTHORITY_INFO_ACCESS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CERT_AUTHORITY_INFO_ACCESS_PROP_ID: u32 = 68u32;
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+pub struct CERT_AUTHORITY_KEY_ID2_INFO {
+    pub KeyId: CRYPTOAPI_BLOB,
+    pub AuthorityCertIssuer: CERT_ALT_NAME_INFO,
+    pub AuthorityCertSerialNumber: CRYPTOAPI_BLOB,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CERT_AUTHORITY_KEY_ID2_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CERT_AUTHORITY_KEY_ID2_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CERT_AUTHORITY_KEY_ID2_INFO(i32);
-#[repr(C)]
-pub struct CERT_AUTHORITY_KEY_ID_INFO(i32);
+pub struct CERT_AUTHORITY_KEY_ID_INFO {
+    pub KeyId: CRYPTOAPI_BLOB,
+    pub CertIssuer: CRYPTOAPI_BLOB,
+    pub CertSerialNumber: CRYPTOAPI_BLOB,
+}
+impl ::core::marker::Copy for CERT_AUTHORITY_KEY_ID_INFO {}
+impl ::core::clone::Clone for CERT_AUTHORITY_KEY_ID_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CERT_AUTH_ROOT_AUTO_UPDATE_DISABLE_PARTIAL_CHAIN_LOGGING_FLAG: u32 = 2u32;
 pub const CERT_AUTH_ROOT_AUTO_UPDATE_DISABLE_UNTRUSTED_ROOT_LOGGING_FLAG: u32 = 1u32;
 pub const CERT_AUTH_ROOT_SHA256_HASH_PROP_ID: u32 = 98u32;
@@ -1187,22 +1621,83 @@ pub const CERT_AUTO_ENROLL_PROP_ID: u32 = 21u32;
 pub const CERT_AUTO_ENROLL_RETRY_PROP_ID: u32 = 66u32;
 pub const CERT_AUTO_UPDATE_DISABLE_RANDOM_QUERY_STRING_FLAG: u32 = 4u32;
 pub const CERT_BACKED_UP_PROP_ID: u32 = 69u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CERT_BASIC_CONSTRAINTS2_INFO(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct CERT_BASIC_CONSTRAINTS_INFO(i32);
+pub struct CERT_BASIC_CONSTRAINTS2_INFO {
+    pub fCA: super::super::Foundation::BOOL,
+    pub fPathLenConstraint: super::super::Foundation::BOOL,
+    pub dwPathLenConstraint: u32,
+}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CERT_BASIC_CONSTRAINTS2_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CERT_BASIC_CONSTRAINTS2_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CERT_BIOMETRIC_DATA(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CERT_BASIC_CONSTRAINTS_INFO {
+    pub SubjectType: CRYPT_BIT_BLOB,
+    pub fPathLenConstraint: super::super::Foundation::BOOL,
+    pub dwPathLenConstraint: u32,
+    pub cSubtreesConstraint: u32,
+    pub rgSubtreesConstraint: *mut CRYPTOAPI_BLOB,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CERT_BASIC_CONSTRAINTS_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CERT_BASIC_CONSTRAINTS_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct CERT_BIOMETRIC_DATA {
+    pub dwTypeOfBiometricDataChoice: CERT_BIOMETRIC_DATA_TYPE,
+    pub Anonymous: CERT_BIOMETRIC_DATA_0,
+    pub HashedUrl: CERT_HASHED_URL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CERT_BIOMETRIC_DATA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CERT_BIOMETRIC_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub union CERT_BIOMETRIC_DATA_0 {
+    pub dwPredefined: u32,
+    pub pszObjId: super::super::Foundation::PSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CERT_BIOMETRIC_DATA_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CERT_BIOMETRIC_DATA_TYPE(pub u32);
 pub const CERT_BIOMETRIC_PREDEFINED_DATA_CHOICE: CERT_BIOMETRIC_DATA_TYPE = CERT_BIOMETRIC_DATA_TYPE(1u32);
 pub const CERT_BIOMETRIC_OID_DATA_CHOICE: CERT_BIOMETRIC_DATA_TYPE = CERT_BIOMETRIC_DATA_TYPE(2u32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CERT_BIOMETRIC_EXT_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CERT_BIOMETRIC_EXT_INFO {
+    pub cBiometricData: u32,
+    pub rgBiometricData: *mut CERT_BIOMETRIC_DATA,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CERT_BIOMETRIC_EXT_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CERT_BIOMETRIC_EXT_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CERT_BIOMETRIC_PICTURE_TYPE: u32 = 0u32;
 pub const CERT_BIOMETRIC_SIGNATURE_TYPE: u32 = 1u32;
 pub const CERT_BUNDLE_CERTIFICATE: u32 = 0u32;
@@ -1212,9 +1707,21 @@ pub const CERT_CA_DISABLE_CRL_PROP_ID: u32 = 82u32;
 pub const CERT_CA_OCSP_AUTHORITY_INFO_ACCESS_PROP_ID: u32 = 81u32;
 pub const CERT_CA_SUBJECT_FLAG: u32 = 128u32;
 pub const CERT_CEP_PROP_ID: u32 = 87u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CERT_CHAIN(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CERT_CHAIN {
+    pub cCerts: u32,
+    pub certs: *mut CRYPTOAPI_BLOB,
+    pub keyLocatorInfo: CRYPT_KEY_PROV_INFO,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CERT_CHAIN {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CERT_CHAIN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CERT_CHAIN_AUTO_CURRENT_USER: u32 = 1u32;
 pub const CERT_CHAIN_AUTO_FLUSH_DISABLE_FLAG: u32 = 1u32;
 pub const CERT_CHAIN_AUTO_HPKP_RULE_INFO: u32 = 8u32;
@@ -1229,9 +1736,28 @@ pub const CERT_CHAIN_AUTO_PROCESS_INFO: u32 = 4u32;
 pub const CERT_CHAIN_AUTO_SERIAL_LOCAL_MACHINE: u32 = 7u32;
 pub const CERT_CHAIN_CACHE_END_CERT: u32 = 1u32;
 pub const CERT_CHAIN_CACHE_ONLY_URL_RETRIEVAL: u32 = 4u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CERT_CHAIN_CONTEXT(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CERT_CHAIN_CONTEXT {
+    pub cbSize: u32,
+    pub TrustStatus: CERT_TRUST_STATUS,
+    pub cChain: u32,
+    pub rgpChain: *mut *mut CERT_SIMPLE_CHAIN,
+    pub cLowerQualityChainContext: u32,
+    pub rgpLowerQualityChainContext: *mut *mut CERT_CHAIN_CONTEXT,
+    pub fHasRevocationFreshnessTime: super::super::Foundation::BOOL,
+    pub dwRevocationFreshnessTime: u32,
+    pub dwCreateFlags: u32,
+    pub ChainId: ::windows_sys::core::GUID,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CERT_CHAIN_CONTEXT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CERT_CHAIN_CONTEXT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CERT_CHAIN_CRL_VALIDITY_EXT_PERIOD_HOURS_DEFAULT: u32 = 12u32;
 pub const CERT_CHAIN_DISABLE_AIA: u32 = 8192u32;
 pub const CERT_CHAIN_DISABLE_ALL_EKU_WEAK_FLAG: u32 = 65536u32;
@@ -1250,9 +1776,25 @@ pub const CERT_CHAIN_DISABLE_PASS1_QUALITY_FILTERING: u32 = 64u32;
 pub const CERT_CHAIN_DISABLE_SERVER_AUTH_WEAK_FLAG: u32 = 1048576u32;
 pub const CERT_CHAIN_DISABLE_TIMESTAMP_HASH_WEAK_FLAG: u32 = 16384u32;
 pub const CERT_CHAIN_DISABLE_TIMESTAMP_WEAK_FLAG: u32 = 67108864u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CERT_CHAIN_ELEMENT(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CERT_CHAIN_ELEMENT {
+    pub cbSize: u32,
+    pub pCertContext: *mut CERT_CONTEXT,
+    pub TrustStatus: CERT_TRUST_STATUS,
+    pub pRevocationInfo: *mut CERT_REVOCATION_INFO,
+    pub pIssuanceUsage: *mut CTL_USAGE,
+    pub pApplicationUsage: *mut CTL_USAGE,
+    pub pwszExtendedErrorInfo: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CERT_CHAIN_ELEMENT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CERT_CHAIN_ELEMENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CERT_CHAIN_ENABLE_ALL_EKU_HYGIENE_FLAG: u32 = 131072u32;
 pub const CERT_CHAIN_ENABLE_CACHE_AUTO_UPDATE: u32 = 16u32;
 pub const CERT_CHAIN_ENABLE_CODE_SIGNING_HYGIENE_FLAG: u32 = 16777216u32;
@@ -1268,12 +1810,49 @@ pub const CERT_CHAIN_ENABLE_WEAK_LOGGING_FLAG: u32 = 4u32;
 pub const CERT_CHAIN_ENABLE_WEAK_RSA_ROOT_FLAG: u32 = 2u32;
 pub const CERT_CHAIN_ENABLE_WEAK_SETTINGS_FLAG: u32 = 2147483648u32;
 #[repr(C)]
-pub struct CERT_CHAIN_ENGINE_CONFIG(i32);
+pub struct CERT_CHAIN_ENGINE_CONFIG {
+    pub cbSize: u32,
+    pub hRestrictedRoot: *mut ::core::ffi::c_void,
+    pub hRestrictedTrust: *mut ::core::ffi::c_void,
+    pub hRestrictedOther: *mut ::core::ffi::c_void,
+    pub cAdditionalStore: u32,
+    pub rghAdditionalStore: *mut *mut ::core::ffi::c_void,
+    pub dwFlags: u32,
+    pub dwUrlRetrievalTimeout: u32,
+    pub MaximumCachedCertificates: u32,
+    pub CycleDetectionModulus: u32,
+    pub hExclusiveRoot: *mut ::core::ffi::c_void,
+    pub hExclusiveTrustedPeople: *mut ::core::ffi::c_void,
+    pub dwExclusiveFlags: u32,
+}
+impl ::core::marker::Copy for CERT_CHAIN_ENGINE_CONFIG {}
+impl ::core::clone::Clone for CERT_CHAIN_ENGINE_CONFIG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CERT_CHAIN_EXCLUSIVE_ENABLE_CA_FLAG: u32 = 1u32;
 pub const CERT_CHAIN_FIND_BY_ISSUER: u32 = 1u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CERT_CHAIN_FIND_BY_ISSUER_PARA(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CERT_CHAIN_FIND_BY_ISSUER_PARA {
+    pub cbSize: u32,
+    pub pszUsageIdentifier: super::super::Foundation::PSTR,
+    pub dwKeySpec: u32,
+    pub dwAcquirePrivateKeyFlags: u32,
+    pub cIssuer: u32,
+    pub rgIssuer: *mut CRYPTOAPI_BLOB,
+    pub pfnFindCallback: ::core::option::Option<PFN_CERT_CHAIN_FIND_BY_ISSUER_CALLBACK>,
+    pub pvFindArg: *mut ::core::ffi::c_void,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CERT_CHAIN_FIND_BY_ISSUER_PARA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CERT_CHAIN_FIND_BY_ISSUER_PARA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CERT_CHAIN_HAS_MOTW: u32 = 16384u32;
 pub const CERT_CHAIN_MAX_AIA_URL_COUNT_IN_CERT_DEFAULT: u32 = 5u32;
 pub const CERT_CHAIN_MAX_AIA_URL_RETRIEVAL_BYTE_COUNT_DEFAULT: u32 = 100000u32;
@@ -1290,9 +1869,20 @@ pub const CERT_CHAIN_OPTION_DISABLE_AIA_URL_RETRIEVAL: u32 = 2u32;
 pub const CERT_CHAIN_OPTION_ENABLE_SIA_URL_RETRIEVAL: u32 = 4u32;
 pub const CERT_CHAIN_OPT_IN_WEAK_FLAGS: u32 = 262144u32;
 pub const CERT_CHAIN_OPT_IN_WEAK_SIGNATURE: u32 = 65536u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CERT_CHAIN_PARA(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CERT_CHAIN_PARA {
+    pub cbSize: u32,
+    pub RequestedUsage: CERT_USAGE_MATCH,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CERT_CHAIN_PARA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CERT_CHAIN_PARA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CERT_CHAIN_POLICY_FLAGS(pub u32);
 pub const CERT_CHAIN_POLICY_IGNORE_NOT_TIME_VALID_FLAG: CERT_CHAIN_POLICY_FLAGS = CERT_CHAIN_POLICY_FLAGS(1u32);
@@ -1315,7 +1905,17 @@ pub const CERT_CHAIN_POLICY_IGNORE_NOT_SUPPORTED_CRITICAL_EXT_FLAG: CERT_CHAIN_P
 pub const CERT_CHAIN_POLICY_IGNORE_PEER_TRUST_FLAG: CERT_CHAIN_POLICY_FLAGS = CERT_CHAIN_POLICY_FLAGS(4096u32);
 pub const CERT_CHAIN_POLICY_IGNORE_WEAK_SIGNATURE_FLAG: u32 = 134217728u32;
 #[repr(C)]
-pub struct CERT_CHAIN_POLICY_PARA(i32);
+pub struct CERT_CHAIN_POLICY_PARA {
+    pub cbSize: u32,
+    pub dwFlags: CERT_CHAIN_POLICY_FLAGS,
+    pub pvExtraPolicyPara: *mut ::core::ffi::c_void,
+}
+impl ::core::marker::Copy for CERT_CHAIN_POLICY_PARA {}
+impl ::core::clone::Clone for CERT_CHAIN_POLICY_PARA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CERT_CHAIN_POLICY_SSL_F12_ERROR_LEVEL: u32 = 2u32;
 pub const CERT_CHAIN_POLICY_SSL_F12_NONE_CATEGORY: u32 = 0u32;
 pub const CERT_CHAIN_POLICY_SSL_F12_ROOT_PROGRAM_CATEGORY: u32 = 2u32;
@@ -1328,7 +1928,19 @@ pub const CERT_CHAIN_POLICY_SSL_KEY_PIN_MITM_ERROR: i32 = -1i32;
 pub const CERT_CHAIN_POLICY_SSL_KEY_PIN_MITM_WARNING: u32 = 1u32;
 pub const CERT_CHAIN_POLICY_SSL_KEY_PIN_SUCCESS: u32 = 0u32;
 #[repr(C)]
-pub struct CERT_CHAIN_POLICY_STATUS(i32);
+pub struct CERT_CHAIN_POLICY_STATUS {
+    pub cbSize: u32,
+    pub dwError: u32,
+    pub lChainIndex: i32,
+    pub lElementIndex: i32,
+    pub pvExtraPolicyStatus: *mut ::core::ffi::c_void,
+}
+impl ::core::marker::Copy for CERT_CHAIN_POLICY_STATUS {}
+impl ::core::clone::Clone for CERT_CHAIN_POLICY_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CERT_CHAIN_RETURN_LOWER_QUALITY_CONTEXTS: u32 = 128u32;
 pub const CERT_CHAIN_REVOCATION_ACCUMULATIVE_TIMEOUT: u32 = 134217728u32;
 pub const CERT_CHAIN_REVOCATION_CHECK_CACHE_ONLY: u32 = 2147483648u32;
@@ -1369,9 +1981,23 @@ pub const CERT_COMPARE_SHIFT: i32 = 16i32;
 pub const CERT_COMPARE_SIGNATURE_HASH: u32 = 14u32;
 pub const CERT_COMPARE_SUBJECT_CERT: u32 = 11u32;
 pub const CERT_COMPARE_SUBJECT_INFO_ACCESS: u32 = 19u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CERT_CONTEXT(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CERT_CONTEXT {
+    pub dwCertEncodingType: u32,
+    pub pbCertEncoded: *mut u8,
+    pub cbCertEncoded: u32,
+    pub pCertInfo: *mut CERT_INFO,
+    pub hCertStore: *mut ::core::ffi::c_void,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CERT_CONTEXT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CERT_CONTEXT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CERT_CONTEXT_REVOCATION_TYPE: u32 = 1u32;
 #[repr(transparent)]
 pub struct CERT_CONTROL_STORE_FLAGS(pub u32);
@@ -1381,17 +2007,42 @@ pub const CERT_STORE_CTRL_INHIBIT_DUPLICATE_HANDLE_FLAG: CERT_CONTROL_STORE_FLAG
 pub const CERT_CREATE_CONTEXT_NOCOPY_FLAG: u32 = 1u32;
 pub const CERT_CREATE_CONTEXT_NO_ENTRY_FLAG: u32 = 8u32;
 pub const CERT_CREATE_CONTEXT_NO_HCRYPTMSG_FLAG: u32 = 4u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CERT_CREATE_CONTEXT_PARA(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CERT_CREATE_CONTEXT_PARA {
+    pub cbSize: u32,
+    pub pfnFree: ::core::option::Option<PFN_CRYPT_FREE>,
+    pub pvFree: *mut ::core::ffi::c_void,
+    pub pfnSort: ::core::option::Option<PFN_CERT_CREATE_CONTEXT_SORT_FUNC>,
+    pub pvSort: *mut ::core::ffi::c_void,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CERT_CREATE_CONTEXT_PARA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CERT_CREATE_CONTEXT_PARA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CERT_CREATE_CONTEXT_SORTED_FLAG: u32 = 2u32;
 #[repr(transparent)]
 pub struct CERT_CREATE_SELFSIGN_FLAGS(pub u32);
 pub const CERT_CREATE_SELFSIGN_NO_KEY_INFO: CERT_CREATE_SELFSIGN_FLAGS = CERT_CREATE_SELFSIGN_FLAGS(2u32);
 pub const CERT_CREATE_SELFSIGN_NO_SIGN: CERT_CREATE_SELFSIGN_FLAGS = CERT_CREATE_SELFSIGN_FLAGS(1u32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CERT_CRL_CONTEXT_PAIR(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CERT_CRL_CONTEXT_PAIR {
+    pub pCertContext: *mut CERT_CONTEXT,
+    pub pCrlContext: *mut CRL_CONTEXT,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CERT_CRL_CONTEXT_PAIR {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CERT_CRL_CONTEXT_PAIR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CERT_CRL_SIGN_KEY_USAGE: u32 = 2u32;
 pub const CERT_CROSS_CERT_DIST_POINTS_PROP_ID: u32 = 23u32;
 pub const CERT_CTL_USAGE_PROP_ID: u32 = 9u32;
@@ -1400,16 +2051,44 @@ pub const CERT_DATE_STAMP_PROP_ID: u32 = 27u32;
 pub const CERT_DECIPHER_ONLY_KEY_USAGE: u32 = 128u32;
 pub const CERT_DESCRIPTION_PROP_ID: u32 = 13u32;
 #[repr(C)]
-pub struct CERT_DH_PARAMETERS(i32);
+pub struct CERT_DH_PARAMETERS {
+    pub p: CRYPTOAPI_BLOB,
+    pub g: CRYPTOAPI_BLOB,
+}
+impl ::core::marker::Copy for CERT_DH_PARAMETERS {}
+impl ::core::clone::Clone for CERT_DH_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CERT_DIGITAL_SIGNATURE_KEY_USAGE: u32 = 128u32;
 pub const CERT_DISALLOWED_ENHKEY_USAGE_PROP_ID: u32 = 122u32;
 pub const CERT_DISALLOWED_FILETIME_PROP_ID: u32 = 104u32;
 #[repr(C)]
-pub struct CERT_DSS_PARAMETERS(i32);
+pub struct CERT_DSS_PARAMETERS {
+    pub p: CRYPTOAPI_BLOB,
+    pub q: CRYPTOAPI_BLOB,
+    pub g: CRYPTOAPI_BLOB,
+}
+impl ::core::marker::Copy for CERT_DSS_PARAMETERS {}
+impl ::core::clone::Clone for CERT_DSS_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CERT_DSS_R_LEN: u32 = 20u32;
 pub const CERT_DSS_S_LEN: u32 = 20u32;
 #[repr(C)]
-pub struct CERT_ECC_SIGNATURE(i32);
+pub struct CERT_ECC_SIGNATURE {
+    pub r: CRYPTOAPI_BLOB,
+    pub s: CRYPTOAPI_BLOB,
+}
+impl ::core::marker::Copy for CERT_ECC_SIGNATURE {}
+impl ::core::clone::Clone for CERT_ECC_SIGNATURE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CERT_EFS_PROP_ID: u32 = 17u32;
 pub const CERT_ENCIPHER_ONLY_KEY_USAGE: u32 = 1u32;
 pub const CERT_ENCODING_TYPE_MASK: u32 = 65535u32;
@@ -1418,12 +2097,35 @@ pub const CERT_ENHKEY_USAGE_PROP_ID: u32 = 9u32;
 pub const CERT_ENROLLMENT_PROP_ID: u32 = 26u32;
 pub const CERT_EXCLUDED_SUBTREE_BIT: i32 = -2147483648i32;
 pub const CERT_EXTENDED_ERROR_INFO_PROP_ID: u32 = 30u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CERT_EXTENSION(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct CERT_EXTENSION {
+    pub pszObjId: super::super::Foundation::PSTR,
+    pub fCritical: super::super::Foundation::BOOL,
+    pub Value: CRYPTOAPI_BLOB,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CERT_EXTENSION {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CERT_EXTENSION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CERT_EXTENSIONS(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CERT_EXTENSIONS {
+    pub cExtension: u32,
+    pub rgExtension: *mut CERT_EXTENSION,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CERT_EXTENSIONS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CERT_EXTENSIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CERT_FILE_HASH_USE_TYPE: u32 = 1u32;
 pub const CERT_FILE_STORE_COMMIT_ENABLE_FLAG: u32 = 65536u32;
 #[repr(transparent)]
@@ -1490,29 +2192,105 @@ pub const CTL_FIND_SUBJECT: CERT_FIND_TYPE = CERT_FIND_TYPE(4u32);
 pub const CERT_FIRST_RESERVED_PROP_ID: u32 = 128u32;
 pub const CERT_FIRST_USER_PROP_ID: u32 = 32768u32;
 #[repr(C)]
-pub struct CERT_FORTEZZA_DATA_PROP(i32);
+pub struct CERT_FORTEZZA_DATA_PROP {
+    pub SerialNumber: [u8; 8],
+    pub CertIndex: i32,
+    pub CertLabel: [u8; 36],
+}
+impl ::core::marker::Copy for CERT_FORTEZZA_DATA_PROP {}
+impl ::core::clone::Clone for CERT_FORTEZZA_DATA_PROP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CERT_FORTEZZA_DATA_PROP_ID: u32 = 18u32;
 pub const CERT_FRIENDLY_NAME_PROP_ID: u32 = 11u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CERT_GENERAL_SUBTREE(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct CERT_GENERAL_SUBTREE {
+    pub Base: CERT_ALT_NAME_ENTRY,
+    pub dwMinimum: u32,
+    pub fMaximum: super::super::Foundation::BOOL,
+    pub dwMaximum: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CERT_GENERAL_SUBTREE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CERT_GENERAL_SUBTREE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CERT_HASHED_URL(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CERT_HASHED_URL {
+    pub HashAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
+    pub Hash: CRYPTOAPI_BLOB,
+    pub pwszUrl: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CERT_HASHED_URL {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CERT_HASHED_URL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CERT_HASH_PROP_ID: u32 = 3u32;
 pub const CERT_HCRYPTPROV_OR_NCRYPT_KEY_HANDLE_PROP_ID: u32 = 79u32;
 pub const CERT_HCRYPTPROV_TRANSFER_PROP_ID: u32 = 100u32;
 #[repr(C)]
-pub struct CERT_ID(i32);
+pub struct CERT_ID {
+    pub dwIdChoice: CERT_ID_OPTION,
+    pub Anonymous: CERT_ID_0,
+}
+impl ::core::marker::Copy for CERT_ID {}
+impl ::core::clone::Clone for CERT_ID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub union CERT_ID_0 {
+    pub IssuerSerialNumber: CERT_ISSUER_SERIAL_NUMBER,
+    pub KeyId: CRYPTOAPI_BLOB,
+    pub HashId: CRYPTOAPI_BLOB,
+}
+impl ::core::clone::Clone for CERT_ID_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CERT_ID_OPTION(pub u32);
 pub const CERT_ID_ISSUER_SERIAL_NUMBER: CERT_ID_OPTION = CERT_ID_OPTION(1u32);
 pub const CERT_ID_KEY_IDENTIFIER: CERT_ID_OPTION = CERT_ID_OPTION(2u32);
 pub const CERT_ID_SHA1_HASH: CERT_ID_OPTION = CERT_ID_OPTION(3u32);
 pub const CERT_IE30_RESERVED_PROP_ID: u32 = 7u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CERT_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CERT_INFO {
+    pub dwVersion: u32,
+    pub SerialNumber: CRYPTOAPI_BLOB,
+    pub SignatureAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
+    pub Issuer: CRYPTOAPI_BLOB,
+    pub NotBefore: super::super::Foundation::FILETIME,
+    pub NotAfter: super::super::Foundation::FILETIME,
+    pub Subject: CRYPTOAPI_BLOB,
+    pub SubjectPublicKeyInfo: CERT_PUBLIC_KEY_INFO,
+    pub IssuerUniqueId: CRYPT_BIT_BLOB,
+    pub SubjectUniqueId: CRYPT_BIT_BLOB,
+    pub cExtension: u32,
+    pub rgExtension: *mut CERT_EXTENSION,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CERT_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CERT_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CERT_INFO_EXTENSION_FLAG: u32 = 11u32;
 pub const CERT_INFO_ISSUER_FLAG: u32 = 4u32;
 pub const CERT_INFO_ISSUER_UNIQUE_ID_FLAG: u32 = 9u32;
@@ -1530,20 +2308,73 @@ pub const CERT_ISSUER_CHAIN_SIGN_HASH_CNG_ALG_PROP_ID: u32 = 95u32;
 pub const CERT_ISSUER_PUBLIC_KEY_MD5_HASH_PROP_ID: u32 = 24u32;
 pub const CERT_ISSUER_PUB_KEY_BIT_LENGTH_PROP_ID: u32 = 94u32;
 #[repr(C)]
-pub struct CERT_ISSUER_SERIAL_NUMBER(i32);
+pub struct CERT_ISSUER_SERIAL_NUMBER {
+    pub Issuer: CRYPTOAPI_BLOB,
+    pub SerialNumber: CRYPTOAPI_BLOB,
+}
+impl ::core::marker::Copy for CERT_ISSUER_SERIAL_NUMBER {}
+impl ::core::clone::Clone for CERT_ISSUER_SERIAL_NUMBER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CERT_ISSUER_SERIAL_NUMBER_MD5_HASH_PROP_ID: u32 = 28u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CERT_KEYGEN_REQUEST_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CERT_KEYGEN_REQUEST_INFO {
+    pub dwVersion: u32,
+    pub SubjectPublicKeyInfo: CERT_PUBLIC_KEY_INFO,
+    pub pwszChallengeString: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CERT_KEYGEN_REQUEST_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CERT_KEYGEN_REQUEST_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CERT_KEYGEN_REQUEST_V1: u32 = 0u32;
 pub const CERT_KEY_AGREEMENT_KEY_USAGE: u32 = 8u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CERT_KEY_ATTRIBUTES_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CERT_KEY_ATTRIBUTES_INFO {
+    pub KeyId: CRYPTOAPI_BLOB,
+    pub IntendedKeyUsage: CRYPT_BIT_BLOB,
+    pub pPrivateKeyUsagePeriod: *mut CERT_PRIVATE_KEY_VALIDITY,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CERT_KEY_ATTRIBUTES_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CERT_KEY_ATTRIBUTES_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CERT_KEY_CERT_SIGN_KEY_USAGE: u32 = 4u32;
 pub const CERT_KEY_CLASSIFICATION_PROP_ID: u32 = 120u32;
 #[repr(C)]
-pub struct CERT_KEY_CONTEXT(i32);
+pub struct CERT_KEY_CONTEXT {
+    pub cbSize: u32,
+    pub Anonymous: CERT_KEY_CONTEXT_0,
+    pub dwKeySpec: u32,
+}
+impl ::core::marker::Copy for CERT_KEY_CONTEXT {}
+impl ::core::clone::Clone for CERT_KEY_CONTEXT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub union CERT_KEY_CONTEXT_0 {
+    pub hCryptProv: usize,
+    pub hNCryptKey: usize,
+}
+impl ::core::clone::Clone for CERT_KEY_CONTEXT_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CERT_KEY_CONTEXT_PROP_ID: u32 = 5u32;
 pub const CERT_KEY_ENCIPHERMENT_KEY_USAGE: u32 = 32u32;
 pub const CERT_KEY_IDENTIFIER_PROP_ID: u32 = 20u32;
@@ -1556,70 +2387,255 @@ pub const AT_KEYEXCHANGE: CERT_KEY_SPEC = CERT_KEY_SPEC(1u32);
 pub const AT_SIGNATURE: CERT_KEY_SPEC = CERT_KEY_SPEC(2u32);
 pub const CERT_NCRYPT_KEY_SPEC: CERT_KEY_SPEC = CERT_KEY_SPEC(4294967295u32);
 pub const CERT_KEY_SPEC_PROP_ID: u32 = 6u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CERT_KEY_USAGE_RESTRICTION_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CERT_KEY_USAGE_RESTRICTION_INFO {
+    pub cCertPolicyId: u32,
+    pub rgCertPolicyId: *mut CERT_POLICY_ID,
+    pub RestrictedKeyUsage: CRYPT_BIT_BLOB,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CERT_KEY_USAGE_RESTRICTION_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CERT_KEY_USAGE_RESTRICTION_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CERT_LAST_RESERVED_PROP_ID: u32 = 32767u32;
 pub const CERT_LAST_USER_PROP_ID: u32 = 65535u32;
 pub const CERT_LDAP_STORE_AREC_EXCLUSIVE_FLAG: u32 = 131072u32;
 pub const CERT_LDAP_STORE_OPENED_FLAG: u32 = 262144u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CERT_LDAP_STORE_OPENED_PARA(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CERT_LDAP_STORE_OPENED_PARA {
+    pub pvLdapSessionHandle: *mut ::core::ffi::c_void,
+    pub pwszLdapUrl: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CERT_LDAP_STORE_OPENED_PARA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CERT_LDAP_STORE_OPENED_PARA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CERT_LDAP_STORE_SIGN_FLAG: u32 = 65536u32;
 pub const CERT_LDAP_STORE_UNBIND_FLAG: u32 = 524288u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CERT_LOGOTYPE_AUDIO(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct CERT_LOGOTYPE_AUDIO {
+    pub LogotypeDetails: CERT_LOGOTYPE_DETAILS,
+    pub pLogotypeAudioInfo: *mut CERT_LOGOTYPE_AUDIO_INFO,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CERT_LOGOTYPE_AUDIO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CERT_LOGOTYPE_AUDIO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CERT_LOGOTYPE_AUDIO_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CERT_LOGOTYPE_AUDIO_INFO {
+    pub dwFileSize: u32,
+    pub dwPlayTime: u32,
+    pub dwChannels: u32,
+    pub dwSampleRate: u32,
+    pub pwszLanguage: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CERT_LOGOTYPE_AUDIO_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CERT_LOGOTYPE_AUDIO_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CERT_LOGOTYPE_CHOICE(pub u32);
 pub const CERT_LOGOTYPE_NO_IMAGE_RESOLUTION_CHOICE: CERT_LOGOTYPE_CHOICE = CERT_LOGOTYPE_CHOICE(0u32);
 pub const CERT_LOGOTYPE_BITS_IMAGE_RESOLUTION_CHOICE: CERT_LOGOTYPE_CHOICE = CERT_LOGOTYPE_CHOICE(1u32);
 pub const CERT_LOGOTYPE_TABLE_SIZE_IMAGE_RESOLUTION_CHOICE: CERT_LOGOTYPE_CHOICE = CERT_LOGOTYPE_CHOICE(2u32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CERT_LOGOTYPE_DATA(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct CERT_LOGOTYPE_DETAILS(i32);
+pub struct CERT_LOGOTYPE_DATA {
+    pub cLogotypeImage: u32,
+    pub rgLogotypeImage: *mut CERT_LOGOTYPE_IMAGE,
+    pub cLogotypeAudio: u32,
+    pub rgLogotypeAudio: *mut CERT_LOGOTYPE_AUDIO,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct CERT_LOGOTYPE_EXT_INFO(i32);
+impl ::core::marker::Copy for CERT_LOGOTYPE_DATA {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CERT_LOGOTYPE_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CERT_LOGOTYPE_IMAGE(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct CERT_LOGOTYPE_DETAILS {
+    pub pwszMimeType: super::super::Foundation::PWSTR,
+    pub cHashedUrl: u32,
+    pub rgHashedUrl: *mut CERT_HASHED_URL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CERT_LOGOTYPE_DETAILS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CERT_LOGOTYPE_DETAILS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CERT_LOGOTYPE_IMAGE_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CERT_LOGOTYPE_EXT_INFO {
+    pub cCommunityLogo: u32,
+    pub rgCommunityLogo: *mut CERT_LOGOTYPE_INFO,
+    pub pIssuerLogo: *mut CERT_LOGOTYPE_INFO,
+    pub pSubjectLogo: *mut CERT_LOGOTYPE_INFO,
+    pub cOtherLogo: u32,
+    pub rgOtherLogo: *mut CERT_OTHER_LOGOTYPE_INFO,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CERT_LOGOTYPE_EXT_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CERT_LOGOTYPE_EXT_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct CERT_LOGOTYPE_IMAGE {
+    pub LogotypeDetails: CERT_LOGOTYPE_DETAILS,
+    pub pLogotypeImageInfo: *mut CERT_LOGOTYPE_IMAGE_INFO,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CERT_LOGOTYPE_IMAGE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CERT_LOGOTYPE_IMAGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct CERT_LOGOTYPE_IMAGE_INFO {
+    pub dwLogotypeImageInfoChoice: CERT_LOGOTYPE_IMAGE_INFO_TYPE,
+    pub dwFileSize: u32,
+    pub dwXSize: u32,
+    pub dwYSize: u32,
+    pub dwLogotypeImageResolutionChoice: CERT_LOGOTYPE_CHOICE,
+    pub Anonymous: CERT_LOGOTYPE_IMAGE_INFO_0,
+    pub pwszLanguage: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CERT_LOGOTYPE_IMAGE_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CERT_LOGOTYPE_IMAGE_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub union CERT_LOGOTYPE_IMAGE_INFO_0 {
+    pub dwNumBits: u32,
+    pub dwTableSize: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CERT_LOGOTYPE_IMAGE_INFO_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CERT_LOGOTYPE_IMAGE_INFO_TYPE(pub u32);
 pub const CERT_LOGOTYPE_GRAY_SCALE_IMAGE_INFO_CHOICE: CERT_LOGOTYPE_IMAGE_INFO_TYPE = CERT_LOGOTYPE_IMAGE_INFO_TYPE(1u32);
 pub const CERT_LOGOTYPE_COLOR_IMAGE_INFO_CHOICE: CERT_LOGOTYPE_IMAGE_INFO_TYPE = CERT_LOGOTYPE_IMAGE_INFO_TYPE(2u32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CERT_LOGOTYPE_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CERT_LOGOTYPE_INFO {
+    pub dwLogotypeInfoChoice: CERT_LOGOTYPE_OPTION,
+    pub Anonymous: CERT_LOGOTYPE_INFO_0,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CERT_LOGOTYPE_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CERT_LOGOTYPE_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub union CERT_LOGOTYPE_INFO_0 {
+    pub pLogotypeDirectInfo: *mut CERT_LOGOTYPE_DATA,
+    pub pLogotypeIndirectInfo: *mut CERT_LOGOTYPE_REFERENCE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CERT_LOGOTYPE_INFO_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CERT_LOGOTYPE_OPTION(pub u32);
 pub const CERT_LOGOTYPE_DIRECT_INFO_CHOICE: CERT_LOGOTYPE_OPTION = CERT_LOGOTYPE_OPTION(1u32);
 pub const CERT_LOGOTYPE_INDIRECT_INFO_CHOICE: CERT_LOGOTYPE_OPTION = CERT_LOGOTYPE_OPTION(2u32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CERT_LOGOTYPE_REFERENCE(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CERT_LOGOTYPE_REFERENCE {
+    pub cHashedUrl: u32,
+    pub rgHashedUrl: *mut CERT_HASHED_URL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CERT_LOGOTYPE_REFERENCE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CERT_LOGOTYPE_REFERENCE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CERT_MD5_HASH_PROP_ID: u32 = 4u32;
 pub const CERT_NAME_ATTR_TYPE: u32 = 3u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CERT_NAME_CONSTRAINTS_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CERT_NAME_CONSTRAINTS_INFO {
+    pub cPermittedSubtree: u32,
+    pub rgPermittedSubtree: *mut CERT_GENERAL_SUBTREE,
+    pub cExcludedSubtree: u32,
+    pub rgExcludedSubtree: *mut CERT_GENERAL_SUBTREE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CERT_NAME_CONSTRAINTS_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CERT_NAME_CONSTRAINTS_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CERT_NAME_DISABLE_IE4_UTF8_FLAG: u32 = 65536u32;
 pub const CERT_NAME_DNS_TYPE: u32 = 6u32;
 pub const CERT_NAME_EMAIL_TYPE: u32 = 1u32;
 pub const CERT_NAME_FRIENDLY_DISPLAY_TYPE: u32 = 5u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CERT_NAME_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CERT_NAME_INFO {
+    pub cRDN: u32,
+    pub rgRDN: *mut CERT_RDN,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CERT_NAME_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CERT_NAME_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CERT_NAME_ISSUER_FLAG: u32 = 1u32;
 pub const CERT_NAME_RDN_TYPE: u32 = 2u32;
 pub const CERT_NAME_SEARCH_ALL_NAMES_FLAG: u32 = 2u32;
@@ -1640,7 +2656,16 @@ pub const CERT_NAME_STR_SEMICOLON_FLAG: u32 = 1073741824u32;
 pub const CERT_NAME_UPN_TYPE: u32 = 8u32;
 pub const CERT_NAME_URL_TYPE: u32 = 7u32;
 #[repr(C)]
-pub struct CERT_NAME_VALUE(i32);
+pub struct CERT_NAME_VALUE {
+    pub dwValueType: u32,
+    pub Value: CRYPTOAPI_BLOB,
+}
+impl ::core::marker::Copy for CERT_NAME_VALUE {}
+impl ::core::clone::Clone for CERT_NAME_VALUE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CERT_NCRYPT_KEY_HANDLE_PROP_ID: u32 = 78u32;
 pub const CERT_NCRYPT_KEY_HANDLE_TRANSFER_PROP_ID: u32 = 99u32;
 pub const CERT_NEW_KEY_PROP_ID: u32 = 74u32;
@@ -1670,59 +2695,253 @@ pub const CERT_STORE_SET_LOCALIZED_NAME_FLAG: CERT_OPEN_STORE_FLAGS = CERT_OPEN_
 pub const CERT_STORE_SHARE_CONTEXT_FLAG: CERT_OPEN_STORE_FLAGS = CERT_OPEN_STORE_FLAGS(128u32);
 pub const CERT_STORE_UPDATE_KEYID_FLAG: CERT_OPEN_STORE_FLAGS = CERT_OPEN_STORE_FLAGS(1024u32);
 #[repr(C)]
-pub struct CERT_OR_CRL_BLOB(i32);
+pub struct CERT_OR_CRL_BLOB {
+    pub dwChoice: u32,
+    pub cbEncoded: u32,
+    pub pbEncoded: *mut u8,
+}
+impl ::core::marker::Copy for CERT_OR_CRL_BLOB {}
+impl ::core::clone::Clone for CERT_OR_CRL_BLOB {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CERT_OR_CRL_BUNDLE(i32);
+pub struct CERT_OR_CRL_BUNDLE {
+    pub cItem: u32,
+    pub rgItem: *mut CERT_OR_CRL_BLOB,
+}
+impl ::core::marker::Copy for CERT_OR_CRL_BUNDLE {}
+impl ::core::clone::Clone for CERT_OR_CRL_BUNDLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct CERT_OTHER_LOGOTYPE_INFO(i32);
+pub struct CERT_OTHER_LOGOTYPE_INFO {
+    pub pszObjId: super::super::Foundation::PSTR,
+    pub LogotypeInfo: CERT_LOGOTYPE_INFO,
+}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CERT_OTHER_LOGOTYPE_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CERT_OTHER_LOGOTYPE_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CERT_OTHER_NAME(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CERT_OTHER_NAME {
+    pub pszObjId: super::super::Foundation::PSTR,
+    pub Value: CRYPTOAPI_BLOB,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CERT_OTHER_NAME {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CERT_OTHER_NAME {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CERT_PAIR(i32);
+pub struct CERT_PAIR {
+    pub Forward: CRYPTOAPI_BLOB,
+    pub Reverse: CRYPTOAPI_BLOB,
+}
+impl ::core::marker::Copy for CERT_PAIR {}
+impl ::core::clone::Clone for CERT_PAIR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CERT_PHYSICAL_STORE_ADD_ENABLE_FLAG: u32 = 1u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CERT_PHYSICAL_STORE_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CERT_PHYSICAL_STORE_INFO {
+    pub cbSize: u32,
+    pub pszOpenStoreProvider: super::super::Foundation::PSTR,
+    pub dwOpenEncodingType: u32,
+    pub dwOpenFlags: u32,
+    pub OpenParameters: CRYPTOAPI_BLOB,
+    pub dwFlags: u32,
+    pub dwPriority: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CERT_PHYSICAL_STORE_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CERT_PHYSICAL_STORE_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CERT_PHYSICAL_STORE_INSERT_COMPUTER_NAME_ENABLE_FLAG: u32 = 8u32;
 pub const CERT_PHYSICAL_STORE_OPEN_DISABLE_FLAG: u32 = 2u32;
 pub const CERT_PHYSICAL_STORE_PREDEFINED_ENUM_FLAG: u32 = 1u32;
 pub const CERT_PHYSICAL_STORE_REMOTE_OPEN_DISABLE_FLAG: u32 = 4u32;
 pub const CERT_PIN_SHA256_HASH_PROP_ID: u32 = 124u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CERT_POLICIES_INFO(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct CERT_POLICY95_QUALIFIER1(i32);
+pub struct CERT_POLICIES_INFO {
+    pub cPolicyInfo: u32,
+    pub rgPolicyInfo: *mut CERT_POLICY_INFO,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct CERT_POLICY_CONSTRAINTS_INFO(i32);
+impl ::core::marker::Copy for CERT_POLICIES_INFO {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CERT_POLICIES_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CERT_POLICY_ID(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct CERT_POLICY_INFO(i32);
+pub struct CERT_POLICY95_QUALIFIER1 {
+    pub pszPracticesReference: super::super::Foundation::PWSTR,
+    pub pszNoticeIdentifier: super::super::Foundation::PSTR,
+    pub pszNSINoticeIdentifier: super::super::Foundation::PSTR,
+    pub cCPSURLs: u32,
+    pub rgCPSURLs: *mut CPS_URLS,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct CERT_POLICY_MAPPING(i32);
+impl ::core::marker::Copy for CERT_POLICY95_QUALIFIER1 {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CERT_POLICY95_QUALIFIER1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CERT_POLICY_MAPPINGS_INFO(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct CERT_POLICY_QUALIFIER_INFO(i32);
+pub struct CERT_POLICY_CONSTRAINTS_INFO {
+    pub fRequireExplicitPolicy: super::super::Foundation::BOOL,
+    pub dwRequireExplicitPolicySkipCerts: u32,
+    pub fInhibitPolicyMapping: super::super::Foundation::BOOL,
+    pub dwInhibitPolicyMappingSkipCerts: u32,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct CERT_POLICY_QUALIFIER_NOTICE_REFERENCE(i32);
+impl ::core::marker::Copy for CERT_POLICY_CONSTRAINTS_INFO {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CERT_POLICY_CONSTRAINTS_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CERT_POLICY_QUALIFIER_USER_NOTICE(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct CERT_POLICY_ID {
+    pub cCertPolicyElementId: u32,
+    pub rgpszCertPolicyElementId: *mut super::super::Foundation::PSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CERT_POLICY_ID {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CERT_POLICY_ID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CERT_PRIVATE_KEY_VALIDITY(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CERT_POLICY_INFO {
+    pub pszPolicyIdentifier: super::super::Foundation::PSTR,
+    pub cPolicyQualifier: u32,
+    pub rgPolicyQualifier: *mut CERT_POLICY_QUALIFIER_INFO,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CERT_POLICY_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CERT_POLICY_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct CERT_POLICY_MAPPING {
+    pub pszIssuerDomainPolicy: super::super::Foundation::PSTR,
+    pub pszSubjectDomainPolicy: super::super::Foundation::PSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CERT_POLICY_MAPPING {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CERT_POLICY_MAPPING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct CERT_POLICY_MAPPINGS_INFO {
+    pub cPolicyMapping: u32,
+    pub rgPolicyMapping: *mut CERT_POLICY_MAPPING,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CERT_POLICY_MAPPINGS_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CERT_POLICY_MAPPINGS_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct CERT_POLICY_QUALIFIER_INFO {
+    pub pszPolicyQualifierId: super::super::Foundation::PSTR,
+    pub Qualifier: CRYPTOAPI_BLOB,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CERT_POLICY_QUALIFIER_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CERT_POLICY_QUALIFIER_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct CERT_POLICY_QUALIFIER_NOTICE_REFERENCE {
+    pub pszOrganization: super::super::Foundation::PSTR,
+    pub cNoticeNumbers: u32,
+    pub rgNoticeNumbers: *mut i32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CERT_POLICY_QUALIFIER_NOTICE_REFERENCE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CERT_POLICY_QUALIFIER_NOTICE_REFERENCE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct CERT_POLICY_QUALIFIER_USER_NOTICE {
+    pub pNoticeReference: *mut CERT_POLICY_QUALIFIER_NOTICE_REFERENCE,
+    pub pszDisplayText: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CERT_POLICY_QUALIFIER_USER_NOTICE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CERT_POLICY_QUALIFIER_USER_NOTICE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct CERT_PRIVATE_KEY_VALIDITY {
+    pub NotBefore: super::super::Foundation::FILETIME,
+    pub NotAfter: super::super::Foundation::FILETIME,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CERT_PRIVATE_KEY_VALIDITY {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CERT_PRIVATE_KEY_VALIDITY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CERT_PROT_ROOT_DISABLE_CURRENT_USER_FLAG: u32 = 1u32;
 pub const CERT_PROT_ROOT_DISABLE_LM_AUTH_FLAG: u32 = 8u32;
 pub const CERT_PROT_ROOT_DISABLE_NOT_DEFINED_NAME_CONSTRAINT_FLAG: u32 = 32u32;
@@ -1733,17 +2952,50 @@ pub const CERT_PROT_ROOT_INHIBIT_PURGE_LM_FLAG: u32 = 4u32;
 pub const CERT_PROT_ROOT_ONLY_LM_GPT_FLAG: u32 = 8u32;
 pub const CERT_PUBKEY_ALG_PARA_PROP_ID: u32 = 22u32;
 pub const CERT_PUBKEY_HASH_RESERVED_PROP_ID: u32 = 8u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CERT_PUBLIC_KEY_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CERT_PUBLIC_KEY_INFO {
+    pub Algorithm: CRYPT_ALGORITHM_IDENTIFIER,
+    pub PublicKey: CRYPT_BIT_BLOB,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CERT_PUBLIC_KEY_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CERT_PUBLIC_KEY_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CERT_PUB_KEY_CNG_ALG_BIT_LENGTH_PROP_ID: u32 = 93u32;
 pub const CERT_PVK_FILE_PROP_ID: u32 = 12u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CERT_QC_STATEMENT(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct CERT_QC_STATEMENT {
+    pub pszStatementId: super::super::Foundation::PSTR,
+    pub StatementInfo: CRYPTOAPI_BLOB,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CERT_QC_STATEMENT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CERT_QC_STATEMENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CERT_QC_STATEMENTS_EXT_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CERT_QC_STATEMENTS_EXT_INFO {
+    pub cStatement: u32,
+    pub rgStatement: *mut CERT_QC_STATEMENT,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CERT_QC_STATEMENTS_EXT_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CERT_QC_STATEMENTS_EXT_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CERT_QUERY_CONTENT_TYPE(pub u32);
 pub const CERT_QUERY_CONTENT_CERT: CERT_QUERY_CONTENT_TYPE = CERT_QUERY_CONTENT_TYPE(1u32);
@@ -1797,12 +3049,35 @@ pub const CERT_QUERY_FORMAT_FLAG_ALL: CERT_QUERY_FORMAT_TYPE_FLAGS = CERT_QUERY_
 pub struct CERT_QUERY_OBJECT_TYPE(pub u32);
 pub const CERT_QUERY_OBJECT_FILE: CERT_QUERY_OBJECT_TYPE = CERT_QUERY_OBJECT_TYPE(1u32);
 pub const CERT_QUERY_OBJECT_BLOB: CERT_QUERY_OBJECT_TYPE = CERT_QUERY_OBJECT_TYPE(2u32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CERT_RDN(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct CERT_RDN {
+    pub cRDNAttr: u32,
+    pub rgRDNAttr: *mut CERT_RDN_ATTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CERT_RDN {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CERT_RDN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CERT_RDN_ATTR(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CERT_RDN_ATTR {
+    pub pszObjId: super::super::Foundation::PSTR,
+    pub dwValueType: CERT_RDN_ATTR_VALUE_TYPE,
+    pub Value: CRYPTOAPI_BLOB,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CERT_RDN_ATTR {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CERT_RDN_ATTR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CERT_RDN_ATTR_VALUE_TYPE(pub u32);
 pub const CERT_RDN_ANY_TYPE: CERT_RDN_ATTR_VALUE_TYPE = CERT_RDN_ATTR_VALUE_TYPE(0u32);
@@ -1832,39 +3107,152 @@ pub const CERT_RDN_FLAGS_MASK: u32 = 4278190080u32;
 pub const CERT_RDN_FORCE_UTF8_UNICODE_FLAG: u32 = 268435456u32;
 pub const CERT_RDN_TYPE_MASK: u32 = 255u32;
 pub const CERT_REGISTRY_STORE_CLIENT_GPT_FLAG: u32 = 2147483648u32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[repr(C)]
-pub struct CERT_REGISTRY_STORE_CLIENT_GPT_PARA(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+pub struct CERT_REGISTRY_STORE_CLIENT_GPT_PARA {
+    pub hKeyBase: super::super::System::Registry::HKEY,
+    pub pwszRegPath: super::super::Foundation::PWSTR,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+impl ::core::marker::Copy for CERT_REGISTRY_STORE_CLIENT_GPT_PARA {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+impl ::core::clone::Clone for CERT_REGISTRY_STORE_CLIENT_GPT_PARA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CERT_REGISTRY_STORE_EXTERNAL_FLAG: u32 = 1048576u32;
 pub const CERT_REGISTRY_STORE_LM_GPT_FLAG: u32 = 16777216u32;
 pub const CERT_REGISTRY_STORE_MY_IE_DIRTY_FLAG: u32 = 524288u32;
 pub const CERT_REGISTRY_STORE_REMOTE_FLAG: u32 = 65536u32;
 pub const CERT_REGISTRY_STORE_ROAMING_FLAG: u32 = 262144u32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[repr(C)]
-pub struct CERT_REGISTRY_STORE_ROAMING_PARA(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+pub struct CERT_REGISTRY_STORE_ROAMING_PARA {
+    pub hKey: super::super::System::Registry::HKEY,
+    pub pwszStoreDirectory: super::super::Foundation::PWSTR,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+impl ::core::marker::Copy for CERT_REGISTRY_STORE_ROAMING_PARA {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+impl ::core::clone::Clone for CERT_REGISTRY_STORE_ROAMING_PARA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CERT_REGISTRY_STORE_SERIALIZED_FLAG: u32 = 131072u32;
 pub const CERT_RENEWAL_PROP_ID: u32 = 64u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CERT_REQUEST_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CERT_REQUEST_INFO {
+    pub dwVersion: u32,
+    pub Subject: CRYPTOAPI_BLOB,
+    pub SubjectPublicKeyInfo: CERT_PUBLIC_KEY_INFO,
+    pub cAttribute: u32,
+    pub rgAttribute: *mut CRYPT_ATTRIBUTE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CERT_REQUEST_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CERT_REQUEST_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CERT_REQUEST_ORIGINATOR_PROP_ID: u32 = 71u32;
 pub const CERT_REQUEST_V1: u32 = 0u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CERT_REVOCATION_CHAIN_PARA(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct CERT_REVOCATION_CRL_INFO(i32);
+pub struct CERT_REVOCATION_CHAIN_PARA {
+    pub cbSize: u32,
+    pub hChainEngine: HCERTCHAINENGINE,
+    pub hAdditionalStore: *mut ::core::ffi::c_void,
+    pub dwChainFlags: u32,
+    pub dwUrlRetrievalTimeout: u32,
+    pub pftCurrentTime: *mut super::super::Foundation::FILETIME,
+    pub pftCacheResync: *mut super::super::Foundation::FILETIME,
+    pub cbMaxUrlRetrievalByteCount: u32,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct CERT_REVOCATION_INFO(i32);
+impl ::core::marker::Copy for CERT_REVOCATION_CHAIN_PARA {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CERT_REVOCATION_CHAIN_PARA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CERT_REVOCATION_PARA(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct CERT_REVOCATION_CRL_INFO {
+    pub cbSize: u32,
+    pub pBaseCrlContext: *mut CRL_CONTEXT,
+    pub pDeltaCrlContext: *mut CRL_CONTEXT,
+    pub pCrlEntry: *mut CRL_ENTRY,
+    pub fDeltaCrlEntry: super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CERT_REVOCATION_CRL_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CERT_REVOCATION_CRL_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CERT_REVOCATION_STATUS(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CERT_REVOCATION_INFO {
+    pub cbSize: u32,
+    pub dwRevocationResult: u32,
+    pub pszRevocationOid: super::super::Foundation::PSTR,
+    pub pvOidSpecificInfo: *mut ::core::ffi::c_void,
+    pub fHasFreshnessTime: super::super::Foundation::BOOL,
+    pub dwFreshnessTime: u32,
+    pub pCrlInfo: *mut CERT_REVOCATION_CRL_INFO,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CERT_REVOCATION_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CERT_REVOCATION_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct CERT_REVOCATION_PARA {
+    pub cbSize: u32,
+    pub pIssuerCert: *mut CERT_CONTEXT,
+    pub cCertStore: u32,
+    pub rgCertStore: *mut *mut ::core::ffi::c_void,
+    pub hCrlStore: *mut ::core::ffi::c_void,
+    pub pftTimeToUse: *mut super::super::Foundation::FILETIME,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CERT_REVOCATION_PARA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CERT_REVOCATION_PARA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct CERT_REVOCATION_STATUS {
+    pub cbSize: u32,
+    pub dwIndex: u32,
+    pub dwError: u32,
+    pub dwReason: CERT_REVOCATION_STATUS_REASON,
+    pub fHasFreshnessTime: super::super::Foundation::BOOL,
+    pub dwFreshnessTime: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CERT_REVOCATION_STATUS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CERT_REVOCATION_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CERT_REVOCATION_STATUS_REASON(pub u32);
 pub const CRL_REASON_UNSPECIFIED: CERT_REVOCATION_STATUS_REASON = CERT_REVOCATION_STATUS_REASON(0u32);
@@ -1901,11 +3289,35 @@ pub const CERT_SELECT_ALLOW_EXPIRED: u32 = 1u32;
 pub const CERT_SELECT_BY_FRIENDLYNAME: u32 = 13u32;
 pub const CERT_SELECT_BY_ISSUER_DISPLAYNAME: u32 = 12u32;
 pub const CERT_SELECT_BY_THUMBPRINT: u32 = 14u32;
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+pub struct CERT_SELECT_CHAIN_PARA {
+    pub hChainEngine: HCERTCHAINENGINE,
+    pub pTime: *mut super::super::Foundation::FILETIME,
+    pub hAdditionalStore: *mut ::core::ffi::c_void,
+    pub pChainPara: *mut CERT_CHAIN_PARA,
+    pub dwFlags: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CERT_SELECT_CHAIN_PARA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CERT_SELECT_CHAIN_PARA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CERT_SELECT_CHAIN_PARA(i32);
-#[repr(C)]
-pub struct CERT_SELECT_CRITERIA(i32);
+pub struct CERT_SELECT_CRITERIA {
+    pub dwType: CERT_SELECT_CRITERIA_TYPE,
+    pub cPara: u32,
+    pub ppPara: *mut *mut ::core::ffi::c_void,
+}
+impl ::core::marker::Copy for CERT_SELECT_CRITERIA {}
+impl ::core::clone::Clone for CERT_SELECT_CRITERIA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CERT_SELECT_CRITERIA_TYPE(pub u32);
 pub const CERT_SELECT_BY_ENHKEY_USAGE: CERT_SELECT_CRITERIA_TYPE = CERT_SELECT_CRITERIA_TYPE(1u32);
@@ -1932,10 +3344,35 @@ pub const CERT_SERIALIZABLE_KEY_CONTEXT_PROP_ID: u32 = 117u32;
 pub const CERT_SERIAL_CHAIN_PROP_ID: u32 = 119u32;
 pub const CERT_SERVER_OCSP_RESPONSE_ASYNC_FLAG: u32 = 1u32;
 #[repr(C)]
-pub struct CERT_SERVER_OCSP_RESPONSE_CONTEXT(i32);
-#[cfg(feature = "Win32_Foundation")]
+pub struct CERT_SERVER_OCSP_RESPONSE_CONTEXT {
+    pub cbSize: u32,
+    pub pbEncodedOcspResponse: *mut u8,
+    pub cbEncodedOcspResponse: u32,
+}
+impl ::core::marker::Copy for CERT_SERVER_OCSP_RESPONSE_CONTEXT {}
+impl ::core::clone::Clone for CERT_SERVER_OCSP_RESPONSE_CONTEXT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CERT_SERVER_OCSP_RESPONSE_OPEN_PARA(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CERT_SERVER_OCSP_RESPONSE_OPEN_PARA {
+    pub cbSize: u32,
+    pub dwFlags: u32,
+    pub pcbUsedSize: *mut u32,
+    pub pwszOcspDirectory: super::super::Foundation::PWSTR,
+    pub pfnUpdateCallback: ::core::option::Option<PFN_CERT_SERVER_OCSP_RESPONSE_UPDATE_CALLBACK>,
+    pub pvUpdateCallbackArg: *mut ::core::ffi::c_void,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CERT_SERVER_OCSP_RESPONSE_OPEN_PARA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CERT_SERVER_OCSP_RESPONSE_OPEN_PARA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CERT_SERVER_OCSP_RESPONSE_OPEN_PARA_READ_FLAG: u32 = 1u32;
 pub const CERT_SERVER_OCSP_RESPONSE_OPEN_PARA_WRITE_FLAG: u32 = 2u32;
 pub const CERT_SET_PROPERTY_IGNORE_PERSIST_ERROR_FLAG: u32 = 2147483648u32;
@@ -1943,13 +3380,41 @@ pub const CERT_SET_PROPERTY_INHIBIT_PERSIST_FLAG: u32 = 1073741824u32;
 pub const CERT_SHA1_HASH_PROP_ID: u32 = 3u32;
 pub const CERT_SHA256_HASH_PROP_ID: u32 = 107u32;
 pub const CERT_SIGNATURE_HASH_PROP_ID: u32 = 15u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CERT_SIGNED_CONTENT_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CERT_SIGNED_CONTENT_INFO {
+    pub ToBeSigned: CRYPTOAPI_BLOB,
+    pub SignatureAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
+    pub Signature: CRYPT_BIT_BLOB,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CERT_SIGNED_CONTENT_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CERT_SIGNED_CONTENT_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CERT_SIGN_HASH_CNG_ALG_PROP_ID: u32 = 89u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CERT_SIMPLE_CHAIN(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CERT_SIMPLE_CHAIN {
+    pub cbSize: u32,
+    pub TrustStatus: CERT_TRUST_STATUS,
+    pub cElement: u32,
+    pub rgpElement: *mut *mut CERT_CHAIN_ELEMENT,
+    pub pTrustListInfo: *mut CERT_TRUST_LIST_INFO,
+    pub fHasRevocationFreshnessTime: super::super::Foundation::BOOL,
+    pub dwRevocationFreshnessTime: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CERT_SIMPLE_CHAIN {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CERT_SIMPLE_CHAIN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CERT_SMART_CARD_DATA_PROP_ID: u32 = 16u32;
 pub const CERT_SMART_CARD_READER_NON_REMOVABLE_PROP_ID: u32 = 106u32;
 pub const CERT_SMART_CARD_READER_PROP_ID: u32 = 101u32;
@@ -1987,7 +3452,19 @@ pub const CERT_STORE_PROV_FIND_CERT_FUNC: u32 = 14u32;
 pub const CERT_STORE_PROV_FIND_CRL_FUNC: u32 = 17u32;
 pub const CERT_STORE_PROV_FIND_CTL_FUNC: u32 = 20u32;
 #[repr(C)]
-pub struct CERT_STORE_PROV_FIND_INFO(i32);
+pub struct CERT_STORE_PROV_FIND_INFO {
+    pub cbSize: u32,
+    pub dwMsgAndCertEncodingType: u32,
+    pub dwFindFlags: u32,
+    pub dwFindType: u32,
+    pub pvFindPara: *mut ::core::ffi::c_void,
+}
+impl ::core::marker::Copy for CERT_STORE_PROV_FIND_INFO {}
+impl ::core::clone::Clone for CERT_STORE_PROV_FIND_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CERT_STORE_PROV_FLAGS(pub u32);
 pub const CERT_STORE_PROV_EXTERNAL_FLAG: CERT_STORE_PROV_FLAGS = CERT_STORE_PROV_FLAGS(1u32);
@@ -2003,7 +3480,20 @@ pub const CERT_STORE_PROV_GET_CRL_PROPERTY_FUNC: u32 = 19u32;
 pub const CERT_STORE_PROV_GET_CTL_PROPERTY_FUNC: u32 = 22u32;
 pub const CERT_STORE_PROV_GP_SYSTEM_STORE_FLAG: u32 = 32u32;
 #[repr(C)]
-pub struct CERT_STORE_PROV_INFO(i32);
+pub struct CERT_STORE_PROV_INFO {
+    pub cbSize: u32,
+    pub cStoreProvFunc: u32,
+    pub rgpvStoreProvFunc: *mut *mut ::core::ffi::c_void,
+    pub hStoreProv: *mut ::core::ffi::c_void,
+    pub dwStoreProvFlags: CERT_STORE_PROV_FLAGS,
+    pub hStoreProvFuncAddr2: *mut ::core::ffi::c_void,
+}
+impl ::core::marker::Copy for CERT_STORE_PROV_INFO {}
+impl ::core::clone::Clone for CERT_STORE_PROV_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CERT_STORE_PROV_READ_CERT_FUNC: u32 = 1u32;
 pub const CERT_STORE_PROV_READ_CRL_FUNC: u32 = 5u32;
 pub const CERT_STORE_PROV_READ_CTL_FUNC: u32 = 9u32;
@@ -2042,12 +3532,49 @@ pub struct CERT_STRONG_SIGN_FLAGS(pub u32);
 pub const CERT_STRONG_SIGN_ENABLE_CRL_CHECK: CERT_STRONG_SIGN_FLAGS = CERT_STRONG_SIGN_FLAGS(1u32);
 pub const CERT_STRONG_SIGN_ENABLE_OCSP_CHECK: CERT_STRONG_SIGN_FLAGS = CERT_STRONG_SIGN_FLAGS(2u32);
 pub const CERT_STRONG_SIGN_OID_INFO_CHOICE: u32 = 2u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CERT_STRONG_SIGN_PARA(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct CERT_STRONG_SIGN_PARA {
+    pub cbSize: u32,
+    pub dwInfoChoice: u32,
+    pub Anonymous: CERT_STRONG_SIGN_PARA_0,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CERT_STRONG_SIGN_PARA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CERT_STRONG_SIGN_PARA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CERT_STRONG_SIGN_SERIALIZED_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub union CERT_STRONG_SIGN_PARA_0 {
+    pub pvInfo: *mut ::core::ffi::c_void,
+    pub pSerializedInfo: *mut CERT_STRONG_SIGN_SERIALIZED_INFO,
+    pub pszOID: super::super::Foundation::PSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CERT_STRONG_SIGN_PARA_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct CERT_STRONG_SIGN_SERIALIZED_INFO {
+    pub dwFlags: CERT_STRONG_SIGN_FLAGS,
+    pub pwszCNGSignHashAlgids: super::super::Foundation::PWSTR,
+    pub pwszCNGPubKeyMinBitLengths: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CERT_STRONG_SIGN_SERIALIZED_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CERT_STRONG_SIGN_SERIALIZED_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CERT_STRONG_SIGN_SERIALIZED_INFO_CHOICE: u32 = 1u32;
 pub const CERT_SUBJECT_DISABLE_CRL_PROP_ID: u32 = 86u32;
 pub const CERT_SUBJECT_INFO_ACCESS_PROP_ID: u32 = 80u32;
@@ -2055,9 +3582,21 @@ pub const CERT_SUBJECT_NAME_MD5_HASH_PROP_ID: u32 = 29u32;
 pub const CERT_SUBJECT_OCSP_AUTHORITY_INFO_ACCESS_PROP_ID: u32 = 85u32;
 pub const CERT_SUBJECT_PUBLIC_KEY_MD5_HASH_PROP_ID: u32 = 25u32;
 pub const CERT_SUBJECT_PUB_KEY_BIT_LENGTH_PROP_ID: u32 = 92u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CERT_SUPPORTED_ALGORITHM_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CERT_SUPPORTED_ALGORITHM_INFO {
+    pub Algorithm: CRYPT_ALGORITHM_IDENTIFIER,
+    pub IntendedKeyUsage: CRYPT_BIT_BLOB,
+    pub IntendedCertPolicies: CERT_POLICIES_INFO,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CERT_SUPPORTED_ALGORITHM_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CERT_SUPPORTED_ALGORITHM_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CERT_SYSTEM_STORE_CURRENT_SERVICE_ID: u32 = 4u32;
 pub const CERT_SYSTEM_STORE_CURRENT_USER_GROUP_POLICY_ID: u32 = 7u32;
 pub const CERT_SYSTEM_STORE_CURRENT_USER_ID: u32 = 1u32;
@@ -2067,26 +3606,95 @@ pub struct CERT_SYSTEM_STORE_FLAGS(pub u32);
 pub const CERT_SYSTEM_STORE_LOCATION_MASK: CERT_SYSTEM_STORE_FLAGS = CERT_SYSTEM_STORE_FLAGS(16711680u32);
 pub const CERT_SYSTEM_STORE_RELOCATE_FLAG: CERT_SYSTEM_STORE_FLAGS = CERT_SYSTEM_STORE_FLAGS(2147483648u32);
 #[repr(C)]
-pub struct CERT_SYSTEM_STORE_INFO(i32);
+pub struct CERT_SYSTEM_STORE_INFO {
+    pub cbSize: u32,
+}
+impl ::core::marker::Copy for CERT_SYSTEM_STORE_INFO {}
+impl ::core::clone::Clone for CERT_SYSTEM_STORE_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CERT_SYSTEM_STORE_LOCAL_MACHINE_ENTERPRISE_ID: u32 = 9u32;
 pub const CERT_SYSTEM_STORE_LOCAL_MACHINE_GROUP_POLICY_ID: u32 = 8u32;
 pub const CERT_SYSTEM_STORE_LOCAL_MACHINE_ID: u32 = 2u32;
 pub const CERT_SYSTEM_STORE_LOCAL_MACHINE_WCOS_ID: u32 = 10u32;
 pub const CERT_SYSTEM_STORE_LOCATION_SHIFT: u32 = 16u32;
 pub const CERT_SYSTEM_STORE_MASK: u32 = 4294901760u32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[repr(C)]
-pub struct CERT_SYSTEM_STORE_RELOCATE_PARA(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+pub struct CERT_SYSTEM_STORE_RELOCATE_PARA {
+    pub Anonymous1: CERT_SYSTEM_STORE_RELOCATE_PARA_0,
+    pub Anonymous2: CERT_SYSTEM_STORE_RELOCATE_PARA_1,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+impl ::core::marker::Copy for CERT_SYSTEM_STORE_RELOCATE_PARA {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+impl ::core::clone::Clone for CERT_SYSTEM_STORE_RELOCATE_PARA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+pub union CERT_SYSTEM_STORE_RELOCATE_PARA_0 {
+    pub hKeyBase: super::super::System::Registry::HKEY,
+    pub pvBase: *mut ::core::ffi::c_void,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+impl ::core::clone::Clone for CERT_SYSTEM_STORE_RELOCATE_PARA_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+pub union CERT_SYSTEM_STORE_RELOCATE_PARA_1 {
+    pub pvSystemStore: *mut ::core::ffi::c_void,
+    pub pszSystemStore: super::super::Foundation::PSTR,
+    pub pwszSystemStore: super::super::Foundation::PWSTR,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+impl ::core::clone::Clone for CERT_SYSTEM_STORE_RELOCATE_PARA_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CERT_SYSTEM_STORE_SERVICES_ID: u32 = 5u32;
 pub const CERT_SYSTEM_STORE_UNPROTECTED_FLAG: u32 = 1073741824u32;
 pub const CERT_SYSTEM_STORE_USERS_ID: u32 = 6u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CERT_TEMPLATE_EXT(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CERT_TEMPLATE_EXT {
+    pub pszObjId: super::super::Foundation::PSTR,
+    pub dwMajorVersion: u32,
+    pub fMinorVersion: super::super::Foundation::BOOL,
+    pub dwMinorVersion: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CERT_TEMPLATE_EXT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CERT_TEMPLATE_EXT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CERT_TIMESTAMP_HASH_USE_TYPE: u32 = 2u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CERT_TPM_SPECIFICATION_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CERT_TPM_SPECIFICATION_INFO {
+    pub pwszFamily: super::super::Foundation::PWSTR,
+    pub dwLevel: u32,
+    pub dwRevision: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CERT_TPM_SPECIFICATION_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CERT_TPM_SPECIFICATION_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CERT_TRUST_AUTO_UPDATE_CA_REVOCATION: u32 = 16u32;
 pub const CERT_TRUST_AUTO_UPDATE_END_REVOCATION: u32 = 32u32;
 pub const CERT_TRUST_CTL_IS_NOT_SIGNATURE_VALID: u32 = 262144u32;
@@ -2128,9 +3736,21 @@ pub const CERT_TRUST_IS_PEER_TRUSTED: u32 = 2048u32;
 pub const CERT_TRUST_IS_REVOKED: u32 = 4u32;
 pub const CERT_TRUST_IS_SELF_SIGNED: u32 = 8u32;
 pub const CERT_TRUST_IS_UNTRUSTED_ROOT: u32 = 32u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CERT_TRUST_LIST_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CERT_TRUST_LIST_INFO {
+    pub cbSize: u32,
+    pub pCtlEntry: *mut CTL_ENTRY,
+    pub pCtlContext: *mut CTL_CONTEXT,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CERT_TRUST_LIST_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CERT_TRUST_LIST_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CERT_TRUST_NO_ERROR: u32 = 0u32;
 pub const CERT_TRUST_NO_ISSUANCE_CHAIN_POLICY: u32 = 33554432u32;
 pub const CERT_TRUST_NO_OCSP_FAILOVER_TO_CRL: u32 = 64u32;
@@ -2147,7 +3767,16 @@ pub const CERT_TRUST_SSL_RECONNECT_OCSP: u32 = 1048576u32;
 pub const CERT_TRUST_SSL_TIME_VALID: u32 = 16777216u32;
 pub const CERT_TRUST_SSL_TIME_VALID_OCSP: u32 = 524288u32;
 #[repr(C)]
-pub struct CERT_TRUST_STATUS(i32);
+pub struct CERT_TRUST_STATUS {
+    pub dwErrorStatus: u32,
+    pub dwInfoStatus: u32,
+}
+impl ::core::marker::Copy for CERT_TRUST_STATUS {}
+impl ::core::clone::Clone for CERT_TRUST_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CERT_UNICODE_ATTR_ERR_INDEX_MASK: u32 = 63u32;
 pub const CERT_UNICODE_ATTR_ERR_INDEX_SHIFT: u32 = 16u32;
 pub const CERT_UNICODE_IS_RDN_ATTRS_FLAG: u32 = 1u32;
@@ -2155,9 +3784,20 @@ pub const CERT_UNICODE_RDN_ERR_INDEX_MASK: u32 = 1023u32;
 pub const CERT_UNICODE_RDN_ERR_INDEX_SHIFT: u32 = 22u32;
 pub const CERT_UNICODE_VALUE_ERR_INDEX_MASK: u32 = 65535u32;
 pub const CERT_UNICODE_VALUE_ERR_INDEX_SHIFT: u32 = 0u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CERT_USAGE_MATCH(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CERT_USAGE_MATCH {
+    pub dwType: u32,
+    pub Usage: CTL_USAGE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CERT_USAGE_MATCH {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CERT_USAGE_MATCH {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CERT_V1: u32 = 0u32;
 pub const CERT_V2: u32 = 1u32;
 pub const CERT_V3: u32 = 2u32;
@@ -2173,9 +3813,30 @@ pub const CERT_VERIFY_REV_SERVER_OCSP_WIRE_ONLY_FLAG: u32 = 32u32;
 pub const CERT_VERIFY_TRUSTED_SIGNERS_FLAG: u32 = 2u32;
 pub const CERT_VERIFY_UPDATED_CTL_FLAG: u32 = 1u32;
 #[repr(C)]
-pub struct CERT_X942_DH_PARAMETERS(i32);
+pub struct CERT_X942_DH_PARAMETERS {
+    pub p: CRYPTOAPI_BLOB,
+    pub g: CRYPTOAPI_BLOB,
+    pub q: CRYPTOAPI_BLOB,
+    pub j: CRYPTOAPI_BLOB,
+    pub pValidationParams: *mut CERT_X942_DH_VALIDATION_PARAMS,
+}
+impl ::core::marker::Copy for CERT_X942_DH_PARAMETERS {}
+impl ::core::clone::Clone for CERT_X942_DH_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CERT_X942_DH_VALIDATION_PARAMS(i32);
+pub struct CERT_X942_DH_VALIDATION_PARAMS {
+    pub seed: CRYPT_BIT_BLOB,
+    pub pgenCounter: u32,
+}
+impl ::core::marker::Copy for CERT_X942_DH_VALIDATION_PARAMS {}
+impl ::core::clone::Clone for CERT_X942_DH_VALIDATION_PARAMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CERT_XML_NAME_STR: u32 = 4u32;
 #[repr(transparent)]
 pub struct CESSetupProperty(pub i32);
@@ -2186,18 +3847,74 @@ pub const ENUM_CESSETUPPROP_SSLCERTHASH: CESSetupProperty = CESSetupProperty(3i3
 pub const ENUM_CESSETUPPROP_URL: CESSetupProperty = CESSetupProperty(4i32);
 pub const ENUM_CESSETUPPROP_RENEWALONLY: CESSetupProperty = CESSetupProperty(5i32);
 pub const ENUM_CESSETUPPROP_ALLOW_KEYBASED_RENEWAL: CESSetupProperty = CESSetupProperty(6i32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CLAIMLIST(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct CMC_ADD_ATTRIBUTES_INFO(i32);
+pub struct CLAIMLIST {
+    pub count: u32,
+    pub claims: *mut super::super::Foundation::PWSTR,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct CMC_ADD_EXTENSIONS_INFO(i32);
+impl ::core::marker::Copy for CLAIMLIST {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CLAIMLIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CMC_DATA_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CMC_ADD_ATTRIBUTES_INFO {
+    pub dwCmcDataReference: u32,
+    pub cCertReference: u32,
+    pub rgdwCertReference: *mut u32,
+    pub cAttribute: u32,
+    pub rgAttribute: *mut CRYPT_ATTRIBUTE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CMC_ADD_ATTRIBUTES_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CMC_ADD_ATTRIBUTES_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct CMC_ADD_EXTENSIONS_INFO {
+    pub dwCmcDataReference: u32,
+    pub cCertReference: u32,
+    pub rgdwCertReference: *mut u32,
+    pub cExtension: u32,
+    pub rgExtension: *mut CERT_EXTENSION,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CMC_ADD_EXTENSIONS_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CMC_ADD_EXTENSIONS_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct CMC_DATA_INFO {
+    pub cTaggedAttribute: u32,
+    pub rgTaggedAttribute: *mut CMC_TAGGED_ATTRIBUTE,
+    pub cTaggedRequest: u32,
+    pub rgTaggedRequest: *mut CMC_TAGGED_REQUEST,
+    pub cTaggedContentInfo: u32,
+    pub rgTaggedContentInfo: *mut CMC_TAGGED_CONTENT_INFO,
+    pub cTaggedOtherMsg: u32,
+    pub rgTaggedOtherMsg: *mut CMC_TAGGED_OTHER_MSG,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CMC_DATA_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CMC_DATA_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CMC_FAIL_BAD_ALG: u32 = 0u32;
 pub const CMC_FAIL_BAD_CERT_ID: u32 = 4u32;
 pub const CMC_FAIL_BAD_IDENTITY: u32 = 7u32;
@@ -2214,33 +3931,145 @@ pub const CMC_FAIL_UNSUPORTED_EXT: u32 = 5u32;
 pub const CMC_OTHER_INFO_FAIL_CHOICE: u32 = 1u32;
 pub const CMC_OTHER_INFO_NO_CHOICE: u32 = 0u32;
 pub const CMC_OTHER_INFO_PEND_CHOICE: u32 = 2u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CMC_PEND_INFO(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct CMC_PEND_INFO {
+    pub PendToken: CRYPTOAPI_BLOB,
+    pub PendTime: super::super::Foundation::FILETIME,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CMC_PEND_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CMC_PEND_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CMC_RESPONSE_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CMC_RESPONSE_INFO {
+    pub cTaggedAttribute: u32,
+    pub rgTaggedAttribute: *mut CMC_TAGGED_ATTRIBUTE,
+    pub cTaggedContentInfo: u32,
+    pub rgTaggedContentInfo: *mut CMC_TAGGED_CONTENT_INFO,
+    pub cTaggedOtherMsg: u32,
+    pub rgTaggedOtherMsg: *mut CMC_TAGGED_OTHER_MSG,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CMC_RESPONSE_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CMC_RESPONSE_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CMC_STATUS_CONFIRM_REQUIRED: u32 = 5u32;
 pub const CMC_STATUS_FAILED: u32 = 2u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CMC_STATUS_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CMC_STATUS_INFO {
+    pub dwStatus: u32,
+    pub cBodyList: u32,
+    pub rgdwBodyList: *mut u32,
+    pub pwszStatusString: super::super::Foundation::PWSTR,
+    pub dwOtherInfoChoice: u32,
+    pub Anonymous: CMC_STATUS_INFO_0,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CMC_STATUS_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CMC_STATUS_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub union CMC_STATUS_INFO_0 {
+    pub dwFailInfo: u32,
+    pub pPendInfo: *mut CMC_PEND_INFO,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CMC_STATUS_INFO_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CMC_STATUS_NO_SUPPORT: u32 = 4u32;
 pub const CMC_STATUS_PENDING: u32 = 3u32;
 pub const CMC_STATUS_SUCCESS: u32 = 0u32;
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+pub struct CMC_TAGGED_ATTRIBUTE {
+    pub dwBodyPartID: u32,
+    pub Attribute: CRYPT_ATTRIBUTE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CMC_TAGGED_ATTRIBUTE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CMC_TAGGED_ATTRIBUTE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CMC_TAGGED_ATTRIBUTE(i32);
-#[repr(C)]
-pub struct CMC_TAGGED_CERT_REQUEST(i32);
+pub struct CMC_TAGGED_CERT_REQUEST {
+    pub dwBodyPartID: u32,
+    pub SignedCertRequest: CRYPTOAPI_BLOB,
+}
+impl ::core::marker::Copy for CMC_TAGGED_CERT_REQUEST {}
+impl ::core::clone::Clone for CMC_TAGGED_CERT_REQUEST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CMC_TAGGED_CERT_REQUEST_CHOICE: u32 = 1u32;
 #[repr(C)]
-pub struct CMC_TAGGED_CONTENT_INFO(i32);
+pub struct CMC_TAGGED_CONTENT_INFO {
+    pub dwBodyPartID: u32,
+    pub EncodedContentInfo: CRYPTOAPI_BLOB,
+}
+impl ::core::marker::Copy for CMC_TAGGED_CONTENT_INFO {}
+impl ::core::clone::Clone for CMC_TAGGED_CONTENT_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+pub struct CMC_TAGGED_OTHER_MSG {
+    pub dwBodyPartID: u32,
+    pub pszObjId: super::super::Foundation::PSTR,
+    pub Value: CRYPTOAPI_BLOB,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CMC_TAGGED_OTHER_MSG {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CMC_TAGGED_OTHER_MSG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CMC_TAGGED_OTHER_MSG(i32);
+pub struct CMC_TAGGED_REQUEST {
+    pub dwTaggedRequestChoice: u32,
+    pub Anonymous: CMC_TAGGED_REQUEST_0,
+}
+impl ::core::marker::Copy for CMC_TAGGED_REQUEST {}
+impl ::core::clone::Clone for CMC_TAGGED_REQUEST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CMC_TAGGED_REQUEST(i32);
+pub union CMC_TAGGED_REQUEST_0 {
+    pub pTaggedCertRequest: *mut CMC_TAGGED_CERT_REQUEST,
+}
+impl ::core::clone::Clone for CMC_TAGGED_REQUEST_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CMSCEPSetup: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 2857327618,
     data2: 36476,
@@ -2259,24 +4088,118 @@ pub const CMSG_CMS_ENCAPSULATED_CTL_FLAG: u32 = 32768u32;
 pub const CMSG_CMS_RECIPIENT_COUNT_PARAM: u32 = 33u32;
 pub const CMSG_CMS_RECIPIENT_ENCRYPTED_KEY_INDEX_PARAM: u32 = 35u32;
 pub const CMSG_CMS_RECIPIENT_INDEX_PARAM: u32 = 34u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CMSG_CMS_RECIPIENT_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CMSG_CMS_RECIPIENT_INFO {
+    pub dwRecipientChoice: u32,
+    pub Anonymous: CMSG_CMS_RECIPIENT_INFO_0,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CMSG_CMS_RECIPIENT_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CMSG_CMS_RECIPIENT_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub union CMSG_CMS_RECIPIENT_INFO_0 {
+    pub pKeyTrans: *mut CMSG_KEY_TRANS_RECIPIENT_INFO,
+    pub pKeyAgree: *mut CMSG_KEY_AGREE_RECIPIENT_INFO,
+    pub pMailList: *mut CMSG_MAIL_LIST_RECIPIENT_INFO,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CMSG_CMS_RECIPIENT_INFO_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CMSG_CMS_RECIPIENT_INFO_PARAM: u32 = 36u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CMSG_CMS_SIGNER_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CMSG_CMS_SIGNER_INFO {
+    pub dwVersion: u32,
+    pub SignerId: CERT_ID,
+    pub HashAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
+    pub HashEncryptionAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
+    pub EncryptedHash: CRYPTOAPI_BLOB,
+    pub AuthAttrs: CRYPT_ATTRIBUTES,
+    pub UnauthAttrs: CRYPT_ATTRIBUTES,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CMSG_CMS_SIGNER_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CMSG_CMS_SIGNER_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CMSG_CMS_SIGNER_INFO_PARAM: u32 = 39u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CMSG_CNG_CONTENT_DECRYPT_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CMSG_CNG_CONTENT_DECRYPT_INFO {
+    pub cbSize: u32,
+    pub ContentEncryptionAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
+    pub pfnAlloc: ::core::option::Option<PFN_CMSG_ALLOC>,
+    pub pfnFree: ::core::option::Option<PFN_CMSG_FREE>,
+    pub hNCryptKey: usize,
+    pub pbContentEncryptKey: *mut u8,
+    pub cbContentEncryptKey: u32,
+    pub hCNGContentEncryptKey: BCRYPT_KEY_HANDLE,
+    pub pbCNGContentEncryptKeyObject: *mut u8,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CMSG_CNG_CONTENT_DECRYPT_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CMSG_CNG_CONTENT_DECRYPT_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CMSG_COMPUTED_HASH_PARAM: u32 = 22u32;
 pub const CMSG_CONTENTS_OCTETS_FLAG: u32 = 16u32;
 pub const CMSG_CONTENT_ENCRYPT_FREE_OBJID_FLAG: u32 = 2u32;
 pub const CMSG_CONTENT_ENCRYPT_FREE_PARA_FLAG: u32 = 1u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CMSG_CONTENT_ENCRYPT_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CMSG_CONTENT_ENCRYPT_INFO {
+    pub cbSize: u32,
+    pub hCryptProv: usize,
+    pub ContentEncryptionAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
+    pub pvEncryptionAuxInfo: *mut ::core::ffi::c_void,
+    pub cRecipients: u32,
+    pub rgCmsRecipients: *mut CMSG_RECIPIENT_ENCODE_INFO,
+    pub pfnAlloc: ::core::option::Option<PFN_CMSG_ALLOC>,
+    pub pfnFree: ::core::option::Option<PFN_CMSG_FREE>,
+    pub dwEncryptFlags: u32,
+    pub Anonymous: CMSG_CONTENT_ENCRYPT_INFO_0,
+    pub dwFlags: u32,
+    pub fCNG: super::super::Foundation::BOOL,
+    pub pbCNGContentEncryptKeyObject: *mut u8,
+    pub pbContentEncryptKey: *mut u8,
+    pub cbContentEncryptKey: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CMSG_CONTENT_ENCRYPT_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CMSG_CONTENT_ENCRYPT_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub union CMSG_CONTENT_ENCRYPT_INFO_0 {
+    pub hContentEncryptKey: usize,
+    pub hCNGContentEncryptKey: BCRYPT_KEY_HANDLE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CMSG_CONTENT_ENCRYPT_INFO_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CMSG_CONTENT_ENCRYPT_PAD_ENCODED_LEN_FLAG: u32 = 1u32;
 pub const CMSG_CONTENT_ENCRYPT_RELEASE_CONTEXT_FLAG: u32 = 32768u32;
 pub const CMSG_CONTENT_PARAM: u32 = 2u32;
@@ -2290,35 +4213,169 @@ pub const CMSG_CTRL_ADD_CRL: u32 = 12u32;
 pub const CMSG_CTRL_ADD_SIGNER: u32 = 6u32;
 pub const CMSG_CTRL_ADD_SIGNER_UNAUTH_ATTR: u32 = 8u32;
 #[repr(C)]
-pub struct CMSG_CTRL_ADD_SIGNER_UNAUTH_ATTR_PARA(i32);
+pub struct CMSG_CTRL_ADD_SIGNER_UNAUTH_ATTR_PARA {
+    pub cbSize: u32,
+    pub dwSignerIndex: u32,
+    pub blob: CRYPTOAPI_BLOB,
+}
+impl ::core::marker::Copy for CMSG_CTRL_ADD_SIGNER_UNAUTH_ATTR_PARA {}
+impl ::core::clone::Clone for CMSG_CTRL_ADD_SIGNER_UNAUTH_ATTR_PARA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CMSG_CTRL_DECRYPT: u32 = 2u32;
 #[repr(C)]
-pub struct CMSG_CTRL_DECRYPT_PARA(i32);
+pub struct CMSG_CTRL_DECRYPT_PARA {
+    pub cbSize: u32,
+    pub Anonymous: CMSG_CTRL_DECRYPT_PARA_0,
+    pub dwKeySpec: u32,
+    pub dwRecipientIndex: u32,
+}
+impl ::core::marker::Copy for CMSG_CTRL_DECRYPT_PARA {}
+impl ::core::clone::Clone for CMSG_CTRL_DECRYPT_PARA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub union CMSG_CTRL_DECRYPT_PARA_0 {
+    pub hCryptProv: usize,
+    pub hNCryptKey: usize,
+}
+impl ::core::clone::Clone for CMSG_CTRL_DECRYPT_PARA_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CMSG_CTRL_DEL_ATTR_CERT: u32 = 15u32;
 pub const CMSG_CTRL_DEL_CERT: u32 = 11u32;
 pub const CMSG_CTRL_DEL_CRL: u32 = 13u32;
 pub const CMSG_CTRL_DEL_SIGNER: u32 = 7u32;
 pub const CMSG_CTRL_DEL_SIGNER_UNAUTH_ATTR: u32 = 9u32;
 #[repr(C)]
-pub struct CMSG_CTRL_DEL_SIGNER_UNAUTH_ATTR_PARA(i32);
+pub struct CMSG_CTRL_DEL_SIGNER_UNAUTH_ATTR_PARA {
+    pub cbSize: u32,
+    pub dwSignerIndex: u32,
+    pub dwUnauthAttrIndex: u32,
+}
+impl ::core::marker::Copy for CMSG_CTRL_DEL_SIGNER_UNAUTH_ATTR_PARA {}
+impl ::core::clone::Clone for CMSG_CTRL_DEL_SIGNER_UNAUTH_ATTR_PARA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CMSG_CTRL_ENABLE_STRONG_SIGNATURE: u32 = 21u32;
 pub const CMSG_CTRL_KEY_AGREE_DECRYPT: u32 = 17u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CMSG_CTRL_KEY_AGREE_DECRYPT_PARA(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CMSG_CTRL_KEY_AGREE_DECRYPT_PARA {
+    pub cbSize: u32,
+    pub Anonymous: CMSG_CTRL_KEY_AGREE_DECRYPT_PARA_0,
+    pub dwKeySpec: u32,
+    pub pKeyAgree: *mut CMSG_KEY_AGREE_RECIPIENT_INFO,
+    pub dwRecipientIndex: u32,
+    pub dwRecipientEncryptedKeyIndex: u32,
+    pub OriginatorPublicKey: CRYPT_BIT_BLOB,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CMSG_CTRL_KEY_AGREE_DECRYPT_PARA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CMSG_CTRL_KEY_AGREE_DECRYPT_PARA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub union CMSG_CTRL_KEY_AGREE_DECRYPT_PARA_0 {
+    pub hCryptProv: usize,
+    pub hNCryptKey: usize,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CMSG_CTRL_KEY_AGREE_DECRYPT_PARA_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CMSG_CTRL_KEY_TRANS_DECRYPT: u32 = 16u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CMSG_CTRL_KEY_TRANS_DECRYPT_PARA(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CMSG_CTRL_KEY_TRANS_DECRYPT_PARA {
+    pub cbSize: u32,
+    pub Anonymous: CMSG_CTRL_KEY_TRANS_DECRYPT_PARA_0,
+    pub dwKeySpec: u32,
+    pub pKeyTrans: *mut CMSG_KEY_TRANS_RECIPIENT_INFO,
+    pub dwRecipientIndex: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CMSG_CTRL_KEY_TRANS_DECRYPT_PARA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CMSG_CTRL_KEY_TRANS_DECRYPT_PARA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub union CMSG_CTRL_KEY_TRANS_DECRYPT_PARA_0 {
+    pub hCryptProv: usize,
+    pub hNCryptKey: usize,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CMSG_CTRL_KEY_TRANS_DECRYPT_PARA_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CMSG_CTRL_MAIL_LIST_DECRYPT: u32 = 18u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CMSG_CTRL_MAIL_LIST_DECRYPT_PARA(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CMSG_CTRL_MAIL_LIST_DECRYPT_PARA {
+    pub cbSize: u32,
+    pub hCryptProv: usize,
+    pub pMailList: *mut CMSG_MAIL_LIST_RECIPIENT_INFO,
+    pub dwRecipientIndex: u32,
+    pub dwKeyChoice: u32,
+    pub Anonymous: CMSG_CTRL_MAIL_LIST_DECRYPT_PARA_0,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CMSG_CTRL_MAIL_LIST_DECRYPT_PARA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CMSG_CTRL_MAIL_LIST_DECRYPT_PARA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub union CMSG_CTRL_MAIL_LIST_DECRYPT_PARA_0 {
+    pub hKeyEncryptionKey: usize,
+    pub pvKeyEncryptionKey: *mut ::core::ffi::c_void,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CMSG_CTRL_MAIL_LIST_DECRYPT_PARA_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CMSG_CTRL_VERIFY_HASH: u32 = 5u32;
 pub const CMSG_CTRL_VERIFY_SIGNATURE: u32 = 1u32;
 pub const CMSG_CTRL_VERIFY_SIGNATURE_EX: u32 = 19u32;
 #[repr(C)]
-pub struct CMSG_CTRL_VERIFY_SIGNATURE_EX_PARA(i32);
+pub struct CMSG_CTRL_VERIFY_SIGNATURE_EX_PARA {
+    pub cbSize: u32,
+    pub hCryptProv: usize,
+    pub dwSignerIndex: u32,
+    pub dwSignerType: u32,
+    pub pvSigner: *mut ::core::ffi::c_void,
+}
+impl ::core::marker::Copy for CMSG_CTRL_VERIFY_SIGNATURE_EX_PARA {}
+impl ::core::clone::Clone for CMSG_CTRL_VERIFY_SIGNATURE_EX_PARA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CMSG_DETACHED_FLAG: u32 = 4u32;
 pub const CMSG_ENCODED_MESSAGE: u32 = 29u32;
 pub const CMSG_ENCODED_SIGNER: u32 = 28u32;
@@ -2327,17 +4384,44 @@ pub const CMSG_ENCODE_SORTED_CTL_FLAG: u32 = 1u32;
 pub const CMSG_ENCODING_TYPE_MASK: u32 = 4294901760u32;
 pub const CMSG_ENCRYPTED: u32 = 6u32;
 pub const CMSG_ENCRYPTED_DIGEST: u32 = 27u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CMSG_ENCRYPTED_ENCODE_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CMSG_ENCRYPTED_ENCODE_INFO {
+    pub cbSize: u32,
+    pub ContentEncryptionAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
+    pub pvEncryptionAuxInfo: *mut ::core::ffi::c_void,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CMSG_ENCRYPTED_ENCODE_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CMSG_ENCRYPTED_ENCODE_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CMSG_ENCRYPT_PARAM: u32 = 26u32;
 pub const CMSG_ENVELOPED_DATA_CMS_VERSION: u32 = 2u32;
 pub const CMSG_ENVELOPED_DATA_PKCS_1_5_VERSION: u32 = 0u32;
 pub const CMSG_ENVELOPED_DATA_V0: u32 = 0u32;
 pub const CMSG_ENVELOPED_DATA_V2: u32 = 2u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CMSG_ENVELOPED_ENCODE_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CMSG_ENVELOPED_ENCODE_INFO {
+    pub cbSize: u32,
+    pub hCryptProv: usize,
+    pub ContentEncryptionAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
+    pub pvEncryptionAuxInfo: *mut ::core::ffi::c_void,
+    pub cRecipients: u32,
+    pub rgpRecipients: *mut *mut CERT_INFO,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CMSG_ENVELOPED_ENCODE_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CMSG_ENVELOPED_ENCODE_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CMSG_ENVELOPED_RECIPIENT_V0: u32 = 0u32;
 pub const CMSG_ENVELOPED_RECIPIENT_V2: u32 = 2u32;
 pub const CMSG_ENVELOPED_RECIPIENT_V3: u32 = 3u32;
@@ -2347,9 +4431,22 @@ pub const CMSG_HASHED_DATA_CMS_VERSION: u32 = 2u32;
 pub const CMSG_HASHED_DATA_PKCS_1_5_VERSION: u32 = 0u32;
 pub const CMSG_HASHED_DATA_V0: u32 = 0u32;
 pub const CMSG_HASHED_DATA_V2: u32 = 2u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CMSG_HASHED_ENCODE_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CMSG_HASHED_ENCODE_INFO {
+    pub cbSize: u32,
+    pub hCryptProv: usize,
+    pub HashAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
+    pub pvHashAuxInfo: *mut ::core::ffi::c_void,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CMSG_HASHED_ENCODE_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CMSG_HASHED_ENCODE_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CMSG_HASH_ALGORITHM_PARAM: u32 = 20u32;
 pub const CMSG_HASH_DATA_PARAM: u32 = 21u32;
 pub const CMSG_INDEFINITE_LENGTH: u32 = 4294967295u32;
@@ -2360,11 +4457,50 @@ pub const CMSG_KEY_AGREE_ENCRYPT_FREE_PARA_FLAG: u32 = 1u32;
 pub const CMSG_KEY_AGREE_ENCRYPT_FREE_PUBKEY_ALG_FLAG: u32 = 4u32;
 pub const CMSG_KEY_AGREE_ENCRYPT_FREE_PUBKEY_BITS_FLAG: u32 = 16u32;
 pub const CMSG_KEY_AGREE_ENCRYPT_FREE_PUBKEY_PARA_FLAG: u32 = 8u32;
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+pub struct CMSG_KEY_AGREE_ENCRYPT_INFO {
+    pub cbSize: u32,
+    pub dwRecipientIndex: u32,
+    pub KeyEncryptionAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
+    pub UserKeyingMaterial: CRYPTOAPI_BLOB,
+    pub dwOriginatorChoice: CMSG_KEY_AGREE_ORIGINATOR,
+    pub Anonymous: CMSG_KEY_AGREE_ENCRYPT_INFO_0,
+    pub cKeyAgreeKeyEncryptInfo: u32,
+    pub rgpKeyAgreeKeyEncryptInfo: *mut *mut CMSG_KEY_AGREE_KEY_ENCRYPT_INFO,
+    pub dwFlags: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CMSG_KEY_AGREE_ENCRYPT_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CMSG_KEY_AGREE_ENCRYPT_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CMSG_KEY_AGREE_ENCRYPT_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub union CMSG_KEY_AGREE_ENCRYPT_INFO_0 {
+    pub OriginatorCertId: CERT_ID,
+    pub OriginatorPublicKeyInfo: CERT_PUBLIC_KEY_INFO,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CMSG_KEY_AGREE_ENCRYPT_INFO_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CMSG_KEY_AGREE_KEY_ENCRYPT_INFO(i32);
+pub struct CMSG_KEY_AGREE_KEY_ENCRYPT_INFO {
+    pub cbSize: u32,
+    pub EncryptedKey: CRYPTOAPI_BLOB,
+}
+impl ::core::marker::Copy for CMSG_KEY_AGREE_KEY_ENCRYPT_INFO {}
+impl ::core::clone::Clone for CMSG_KEY_AGREE_KEY_ENCRYPT_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CMSG_KEY_AGREE_OPTION(pub u32);
 pub const CMSG_KEY_AGREE_EPHEMERAL_KEY_CHOICE: CMSG_KEY_AGREE_OPTION = CMSG_KEY_AGREE_OPTION(1u32);
@@ -2374,82 +4510,389 @@ pub struct CMSG_KEY_AGREE_ORIGINATOR(pub u32);
 pub const CMSG_KEY_AGREE_ORIGINATOR_CERT: CMSG_KEY_AGREE_ORIGINATOR = CMSG_KEY_AGREE_ORIGINATOR(1u32);
 pub const CMSG_KEY_AGREE_ORIGINATOR_PUBLIC_KEY: CMSG_KEY_AGREE_ORIGINATOR = CMSG_KEY_AGREE_ORIGINATOR(2u32);
 pub const CMSG_KEY_AGREE_RECIPIENT: u32 = 2u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CMSG_KEY_AGREE_RECIPIENT_ENCODE_INFO(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct CMSG_KEY_AGREE_RECIPIENT_ENCODE_INFO {
+    pub cbSize: u32,
+    pub KeyEncryptionAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
+    pub pvKeyEncryptionAuxInfo: *mut ::core::ffi::c_void,
+    pub KeyWrapAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
+    pub pvKeyWrapAuxInfo: *mut ::core::ffi::c_void,
+    pub hCryptProv: usize,
+    pub dwKeySpec: u32,
+    pub dwKeyChoice: CMSG_KEY_AGREE_OPTION,
+    pub Anonymous: CMSG_KEY_AGREE_RECIPIENT_ENCODE_INFO_0,
+    pub UserKeyingMaterial: CRYPTOAPI_BLOB,
+    pub cRecipientEncryptedKeys: u32,
+    pub rgpRecipientEncryptedKeys: *mut *mut CMSG_RECIPIENT_ENCRYPTED_KEY_ENCODE_INFO,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CMSG_KEY_AGREE_RECIPIENT_ENCODE_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CMSG_KEY_AGREE_RECIPIENT_ENCODE_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CMSG_KEY_AGREE_RECIPIENT_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub union CMSG_KEY_AGREE_RECIPIENT_ENCODE_INFO_0 {
+    pub pEphemeralAlgorithm: *mut CRYPT_ALGORITHM_IDENTIFIER,
+    pub pSenderId: *mut CERT_ID,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CMSG_KEY_AGREE_RECIPIENT_ENCODE_INFO_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct CMSG_KEY_AGREE_RECIPIENT_INFO {
+    pub dwVersion: u32,
+    pub dwOriginatorChoice: CMSG_KEY_AGREE_ORIGINATOR,
+    pub Anonymous: CMSG_KEY_AGREE_RECIPIENT_INFO_0,
+    pub UserKeyingMaterial: CRYPTOAPI_BLOB,
+    pub KeyEncryptionAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
+    pub cRecipientEncryptedKeys: u32,
+    pub rgpRecipientEncryptedKeys: *mut *mut CMSG_RECIPIENT_ENCRYPTED_KEY_INFO,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CMSG_KEY_AGREE_RECIPIENT_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CMSG_KEY_AGREE_RECIPIENT_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub union CMSG_KEY_AGREE_RECIPIENT_INFO_0 {
+    pub OriginatorCertId: CERT_ID,
+    pub OriginatorPublicKeyInfo: CERT_PUBLIC_KEY_INFO,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CMSG_KEY_AGREE_RECIPIENT_INFO_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CMSG_KEY_AGREE_VERSION: u32 = 3u32;
 pub const CMSG_KEY_TRANS_CMS_VERSION: u32 = 2u32;
 pub const CMSG_KEY_TRANS_ENCRYPT_FREE_OBJID_FLAG: u32 = 2u32;
 pub const CMSG_KEY_TRANS_ENCRYPT_FREE_PARA_FLAG: u32 = 1u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CMSG_KEY_TRANS_ENCRYPT_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CMSG_KEY_TRANS_ENCRYPT_INFO {
+    pub cbSize: u32,
+    pub dwRecipientIndex: u32,
+    pub KeyEncryptionAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
+    pub EncryptedKey: CRYPTOAPI_BLOB,
+    pub dwFlags: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CMSG_KEY_TRANS_ENCRYPT_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CMSG_KEY_TRANS_ENCRYPT_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CMSG_KEY_TRANS_PKCS_1_5_VERSION: u32 = 0u32;
 pub const CMSG_KEY_TRANS_RECIPIENT: u32 = 1u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CMSG_KEY_TRANS_RECIPIENT_ENCODE_INFO(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct CMSG_KEY_TRANS_RECIPIENT_ENCODE_INFO {
+    pub cbSize: u32,
+    pub KeyEncryptionAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
+    pub pvKeyEncryptionAuxInfo: *mut ::core::ffi::c_void,
+    pub hCryptProv: usize,
+    pub RecipientPublicKey: CRYPT_BIT_BLOB,
+    pub RecipientId: CERT_ID,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CMSG_KEY_TRANS_RECIPIENT_ENCODE_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CMSG_KEY_TRANS_RECIPIENT_ENCODE_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CMSG_KEY_TRANS_RECIPIENT_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CMSG_KEY_TRANS_RECIPIENT_INFO {
+    pub dwVersion: u32,
+    pub RecipientId: CERT_ID,
+    pub KeyEncryptionAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
+    pub EncryptedKey: CRYPTOAPI_BLOB,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CMSG_KEY_TRANS_RECIPIENT_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CMSG_KEY_TRANS_RECIPIENT_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CMSG_LENGTH_ONLY_FLAG: u32 = 2u32;
 pub const CMSG_MAIL_LIST_ENCRYPT_FREE_OBJID_FLAG: u32 = 2u32;
 pub const CMSG_MAIL_LIST_ENCRYPT_FREE_PARA_FLAG: u32 = 1u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CMSG_MAIL_LIST_ENCRYPT_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CMSG_MAIL_LIST_ENCRYPT_INFO {
+    pub cbSize: u32,
+    pub dwRecipientIndex: u32,
+    pub KeyEncryptionAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
+    pub EncryptedKey: CRYPTOAPI_BLOB,
+    pub dwFlags: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CMSG_MAIL_LIST_ENCRYPT_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CMSG_MAIL_LIST_ENCRYPT_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CMSG_MAIL_LIST_HANDLE_KEY_CHOICE: u32 = 1u32;
 pub const CMSG_MAIL_LIST_RECIPIENT: u32 = 3u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CMSG_MAIL_LIST_RECIPIENT_ENCODE_INFO(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct CMSG_MAIL_LIST_RECIPIENT_ENCODE_INFO {
+    pub cbSize: u32,
+    pub KeyEncryptionAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
+    pub pvKeyEncryptionAuxInfo: *mut ::core::ffi::c_void,
+    pub hCryptProv: usize,
+    pub dwKeyChoice: u32,
+    pub Anonymous: CMSG_MAIL_LIST_RECIPIENT_ENCODE_INFO_0,
+    pub KeyId: CRYPTOAPI_BLOB,
+    pub Date: super::super::Foundation::FILETIME,
+    pub pOtherAttr: *mut CRYPT_ATTRIBUTE_TYPE_VALUE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CMSG_MAIL_LIST_RECIPIENT_ENCODE_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CMSG_MAIL_LIST_RECIPIENT_ENCODE_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CMSG_MAIL_LIST_RECIPIENT_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub union CMSG_MAIL_LIST_RECIPIENT_ENCODE_INFO_0 {
+    pub hKeyEncryptionKey: usize,
+    pub pvKeyEncryptionKey: *mut ::core::ffi::c_void,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CMSG_MAIL_LIST_RECIPIENT_ENCODE_INFO_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct CMSG_MAIL_LIST_RECIPIENT_INFO {
+    pub dwVersion: u32,
+    pub KeyId: CRYPTOAPI_BLOB,
+    pub KeyEncryptionAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
+    pub EncryptedKey: CRYPTOAPI_BLOB,
+    pub Date: super::super::Foundation::FILETIME,
+    pub pOtherAttr: *mut CRYPT_ATTRIBUTE_TYPE_VALUE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CMSG_MAIL_LIST_RECIPIENT_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CMSG_MAIL_LIST_RECIPIENT_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CMSG_MAIL_LIST_VERSION: u32 = 4u32;
 pub const CMSG_MAX_LENGTH_FLAG: u32 = 32u32;
 #[repr(C)]
-pub struct CMSG_RC2_AUX_INFO(i32);
+pub struct CMSG_RC2_AUX_INFO {
+    pub cbSize: u32,
+    pub dwBitLen: u32,
+}
+impl ::core::marker::Copy for CMSG_RC2_AUX_INFO {}
+impl ::core::clone::Clone for CMSG_RC2_AUX_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CMSG_RC4_AUX_INFO(i32);
+pub struct CMSG_RC4_AUX_INFO {
+    pub cbSize: u32,
+    pub dwBitLen: u32,
+}
+impl ::core::marker::Copy for CMSG_RC4_AUX_INFO {}
+impl ::core::clone::Clone for CMSG_RC4_AUX_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CMSG_RC4_NO_SALT_FLAG: u32 = 1073741824u32;
 pub const CMSG_RECIPIENT_COUNT_PARAM: u32 = 17u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CMSG_RECIPIENT_ENCODE_INFO(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct CMSG_RECIPIENT_ENCRYPTED_KEY_ENCODE_INFO(i32);
+pub struct CMSG_RECIPIENT_ENCODE_INFO {
+    pub dwRecipientChoice: u32,
+    pub Anonymous: CMSG_RECIPIENT_ENCODE_INFO_0,
+}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CMSG_RECIPIENT_ENCODE_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CMSG_RECIPIENT_ENCODE_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CMSG_RECIPIENT_ENCRYPTED_KEY_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub union CMSG_RECIPIENT_ENCODE_INFO_0 {
+    pub pKeyTrans: *mut CMSG_KEY_TRANS_RECIPIENT_ENCODE_INFO,
+    pub pKeyAgree: *mut CMSG_KEY_AGREE_RECIPIENT_ENCODE_INFO,
+    pub pMailList: *mut CMSG_MAIL_LIST_RECIPIENT_ENCODE_INFO,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CMSG_RECIPIENT_ENCODE_INFO_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct CMSG_RECIPIENT_ENCRYPTED_KEY_ENCODE_INFO {
+    pub cbSize: u32,
+    pub RecipientPublicKey: CRYPT_BIT_BLOB,
+    pub RecipientId: CERT_ID,
+    pub Date: super::super::Foundation::FILETIME,
+    pub pOtherAttr: *mut CRYPT_ATTRIBUTE_TYPE_VALUE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CMSG_RECIPIENT_ENCRYPTED_KEY_ENCODE_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CMSG_RECIPIENT_ENCRYPTED_KEY_ENCODE_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct CMSG_RECIPIENT_ENCRYPTED_KEY_INFO {
+    pub RecipientId: CERT_ID,
+    pub EncryptedKey: CRYPTOAPI_BLOB,
+    pub Date: super::super::Foundation::FILETIME,
+    pub pOtherAttr: *mut CRYPT_ATTRIBUTE_TYPE_VALUE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CMSG_RECIPIENT_ENCRYPTED_KEY_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CMSG_RECIPIENT_ENCRYPTED_KEY_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CMSG_RECIPIENT_INDEX_PARAM: u32 = 18u32;
 pub const CMSG_RECIPIENT_INFO_PARAM: u32 = 19u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CMSG_SIGNED_AND_ENVELOPED_ENCODE_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CMSG_SIGNED_AND_ENVELOPED_ENCODE_INFO {
+    pub cbSize: u32,
+    pub SignedInfo: CMSG_SIGNED_ENCODE_INFO,
+    pub EnvelopedInfo: CMSG_ENVELOPED_ENCODE_INFO,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CMSG_SIGNED_AND_ENVELOPED_ENCODE_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CMSG_SIGNED_AND_ENVELOPED_ENCODE_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CMSG_SIGNED_DATA_CMS_VERSION: u32 = 3u32;
 pub const CMSG_SIGNED_DATA_NO_SIGN_FLAG: u32 = 128u32;
 pub const CMSG_SIGNED_DATA_PKCS_1_5_VERSION: u32 = 1u32;
 pub const CMSG_SIGNED_DATA_V1: u32 = 1u32;
 pub const CMSG_SIGNED_DATA_V3: u32 = 3u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CMSG_SIGNED_ENCODE_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CMSG_SIGNED_ENCODE_INFO {
+    pub cbSize: u32,
+    pub cSigners: u32,
+    pub rgSigners: *mut CMSG_SIGNER_ENCODE_INFO,
+    pub cCertEncoded: u32,
+    pub rgCertEncoded: *mut CRYPTOAPI_BLOB,
+    pub cCrlEncoded: u32,
+    pub rgCrlEncoded: *mut CRYPTOAPI_BLOB,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CMSG_SIGNED_ENCODE_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CMSG_SIGNED_ENCODE_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CMSG_SIGNER_AUTH_ATTR_PARAM: u32 = 9u32;
 pub const CMSG_SIGNER_CERT_ID_PARAM: u32 = 38u32;
 pub const CMSG_SIGNER_CERT_INFO_PARAM: u32 = 7u32;
 pub const CMSG_SIGNER_COUNT_PARAM: u32 = 5u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CMSG_SIGNER_ENCODE_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CMSG_SIGNER_ENCODE_INFO {
+    pub cbSize: u32,
+    pub pCertInfo: *mut CERT_INFO,
+    pub Anonymous: CMSG_SIGNER_ENCODE_INFO_0,
+    pub dwKeySpec: u32,
+    pub HashAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
+    pub pvHashAuxInfo: *mut ::core::ffi::c_void,
+    pub cAuthAttr: u32,
+    pub rgAuthAttr: *mut CRYPT_ATTRIBUTE,
+    pub cUnauthAttr: u32,
+    pub rgUnauthAttr: *mut CRYPT_ATTRIBUTE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CMSG_SIGNER_ENCODE_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CMSG_SIGNER_ENCODE_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub union CMSG_SIGNER_ENCODE_INFO_0 {
+    pub hCryptProv: usize,
+    pub hNCryptKey: usize,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CMSG_SIGNER_ENCODE_INFO_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CMSG_SIGNER_HASH_ALGORITHM_PARAM: u32 = 8u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CMSG_SIGNER_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CMSG_SIGNER_INFO {
+    pub dwVersion: u32,
+    pub Issuer: CRYPTOAPI_BLOB,
+    pub SerialNumber: CRYPTOAPI_BLOB,
+    pub HashAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
+    pub HashEncryptionAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
+    pub EncryptedHash: CRYPTOAPI_BLOB,
+    pub AuthAttrs: CRYPT_ATTRIBUTES,
+    pub UnauthAttrs: CRYPT_ATTRIBUTES,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CMSG_SIGNER_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CMSG_SIGNER_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CMSG_SIGNER_INFO_CMS_VERSION: u32 = 3u32;
 pub const CMSG_SIGNER_INFO_PARAM: u32 = 6u32;
 pub const CMSG_SIGNER_INFO_PKCS_1_5_VERSION: u32 = 1u32;
@@ -2458,11 +4901,32 @@ pub const CMSG_SIGNER_INFO_V3: u32 = 3u32;
 pub const CMSG_SIGNER_ONLY_FLAG: u32 = 2u32;
 pub const CMSG_SIGNER_UNAUTH_ATTR_PARAM: u32 = 10u32;
 #[repr(C)]
-pub struct CMSG_SP3_COMPATIBLE_AUX_INFO(i32);
+pub struct CMSG_SP3_COMPATIBLE_AUX_INFO {
+    pub cbSize: u32,
+    pub dwFlags: u32,
+}
+impl ::core::marker::Copy for CMSG_SP3_COMPATIBLE_AUX_INFO {}
+impl ::core::clone::Clone for CMSG_SP3_COMPATIBLE_AUX_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CMSG_SP3_COMPATIBLE_ENCRYPT_FLAG: u32 = 2147483648u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CMSG_STREAM_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CMSG_STREAM_INFO {
+    pub cbContent: u32,
+    pub pfnStreamOutput: ::core::option::Option<PFN_CMSG_STREAM_OUTPUT>,
+    pub pvArg: *mut ::core::ffi::c_void,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CMSG_STREAM_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CMSG_STREAM_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CMSG_TRUSTED_SIGNER_FLAG: u32 = 1u32;
 pub const CMSG_TYPE_PARAM: u32 = 1u32;
 pub const CMSG_UNPROTECTED_ATTR_PARAM: u32 = 37u32;
@@ -2473,35 +4937,144 @@ pub const CMSG_VERIFY_SIGNER_CHAIN: u32 = 3u32;
 pub const CMSG_VERIFY_SIGNER_NULL: u32 = 4u32;
 pub const CMSG_VERIFY_SIGNER_PUBKEY: u32 = 1u32;
 pub const CMSG_VERSION_PARAM: u32 = 30u32;
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct CMS_DH_KEY_INFO(i32);
-#[repr(C)]
-pub struct CMS_KEY_INFO(i32);
+pub struct CMS_DH_KEY_INFO {
+    pub dwVersion: u32,
+    pub Algid: u32,
+    pub pszContentEncObjId: super::super::Foundation::PSTR,
+    pub PubInfo: CRYPTOAPI_BLOB,
+    pub pReserved: *mut ::core::ffi::c_void,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct CPS_URLS(i32);
+impl ::core::marker::Copy for CMS_DH_KEY_INFO {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CMS_DH_KEY_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CRL_CONTEXT(i32);
+pub struct CMS_KEY_INFO {
+    pub dwVersion: u32,
+    pub Algid: u32,
+    pub pbOID: *mut u8,
+    pub cbOID: u32,
+}
+impl ::core::marker::Copy for CMS_KEY_INFO {}
+impl ::core::clone::Clone for CMS_KEY_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct CRL_DIST_POINT(i32);
+pub struct CPS_URLS {
+    pub pszURL: super::super::Foundation::PWSTR,
+    pub pAlgorithm: *mut CRYPT_ALGORITHM_IDENTIFIER,
+    pub pDigest: *mut CRYPTOAPI_BLOB,
+}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CPS_URLS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CPS_URLS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CRL_DIST_POINTS_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CRL_CONTEXT {
+    pub dwCertEncodingType: u32,
+    pub pbCrlEncoded: *mut u8,
+    pub cbCrlEncoded: u32,
+    pub pCrlInfo: *mut CRL_INFO,
+    pub hCertStore: *mut ::core::ffi::c_void,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CRL_CONTEXT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CRL_CONTEXT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct CRL_DIST_POINT {
+    pub DistPointName: CRL_DIST_POINT_NAME,
+    pub ReasonFlags: CRYPT_BIT_BLOB,
+    pub CRLIssuer: CERT_ALT_NAME_INFO,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CRL_DIST_POINT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CRL_DIST_POINT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct CRL_DIST_POINTS_INFO {
+    pub cDistPoint: u32,
+    pub rgDistPoint: *mut CRL_DIST_POINT,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CRL_DIST_POINTS_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CRL_DIST_POINTS_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CRL_DIST_POINT_ERR_CRL_ISSUER_BIT: i32 = -2147483648i32;
 pub const CRL_DIST_POINT_ERR_INDEX_MASK: u32 = 127u32;
 pub const CRL_DIST_POINT_ERR_INDEX_SHIFT: u32 = 24u32;
 pub const CRL_DIST_POINT_FULL_NAME: u32 = 1u32;
 pub const CRL_DIST_POINT_ISSUER_RDN_NAME: u32 = 2u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CRL_DIST_POINT_NAME(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CRL_DIST_POINT_NAME {
+    pub dwDistPointNameChoice: u32,
+    pub Anonymous: CRL_DIST_POINT_NAME_0,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CRL_DIST_POINT_NAME {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CRL_DIST_POINT_NAME {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub union CRL_DIST_POINT_NAME_0 {
+    pub FullName: CERT_ALT_NAME_INFO,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CRL_DIST_POINT_NAME_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CRL_DIST_POINT_NO_NAME: u32 = 0u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CRL_ENTRY(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CRL_ENTRY {
+    pub SerialNumber: CRYPTOAPI_BLOB,
+    pub RevocationDate: super::super::Foundation::FILETIME,
+    pub cExtension: u32,
+    pub rgExtension: *mut CERT_EXTENSION,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CRL_ENTRY {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CRL_ENTRY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CRL_FIND_ANY: u32 = 0u32;
 pub const CRL_FIND_EXISTING: u32 = 2u32;
 pub const CRL_FIND_ISSUED_BY: u32 = 1u32;
@@ -2510,16 +5083,59 @@ pub const CRL_FIND_ISSUED_BY_BASE_FLAG: u32 = 8u32;
 pub const CRL_FIND_ISSUED_BY_DELTA_FLAG: u32 = 4u32;
 pub const CRL_FIND_ISSUED_BY_SIGNATURE_FLAG: u32 = 2u32;
 pub const CRL_FIND_ISSUED_FOR: u32 = 3u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CRL_FIND_ISSUED_FOR_PARA(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CRL_FIND_ISSUED_FOR_PARA {
+    pub pSubjectCert: *mut CERT_CONTEXT,
+    pub pIssuerCert: *mut CERT_CONTEXT,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CRL_FIND_ISSUED_FOR_PARA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CRL_FIND_ISSUED_FOR_PARA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CRL_FIND_ISSUED_FOR_SET_STRONG_PROPERTIES_FLAG: u32 = 16u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CRL_INFO(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct CRL_INFO {
+    pub dwVersion: u32,
+    pub SignatureAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
+    pub Issuer: CRYPTOAPI_BLOB,
+    pub ThisUpdate: super::super::Foundation::FILETIME,
+    pub NextUpdate: super::super::Foundation::FILETIME,
+    pub cCRLEntry: u32,
+    pub rgCRLEntry: *mut CRL_ENTRY,
+    pub cExtension: u32,
+    pub rgExtension: *mut CERT_EXTENSION,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CRL_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CRL_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CRL_ISSUING_DIST_POINT(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CRL_ISSUING_DIST_POINT {
+    pub DistPointName: CRL_DIST_POINT_NAME,
+    pub fOnlyContainsUserCerts: super::super::Foundation::BOOL,
+    pub fOnlyContainsCACerts: super::super::Foundation::BOOL,
+    pub OnlySomeReasonFlags: CRYPT_BIT_BLOB,
+    pub fIndirectCRL: super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CRL_ISSUING_DIST_POINT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CRL_ISSUING_DIST_POINT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CRL_REASON_AA_COMPROMISE: u32 = 10u32;
 pub const CRL_REASON_AA_COMPROMISE_FLAG: u32 = 128u32;
 pub const CRL_REASON_AFFILIATION_CHANGED_FLAG: u32 = 16u32;
@@ -2531,14 +5147,38 @@ pub const CRL_REASON_PRIVILEGE_WITHDRAWN: u32 = 9u32;
 pub const CRL_REASON_PRIVILEGE_WITHDRAWN_FLAG: u32 = 1u32;
 pub const CRL_REASON_SUPERSEDED_FLAG: u32 = 8u32;
 pub const CRL_REASON_UNUSED_FLAG: u32 = 128u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CRL_REVOCATION_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CRL_REVOCATION_INFO {
+    pub pCrlEntry: *mut CRL_ENTRY,
+    pub pCrlContext: *mut CRL_CONTEXT,
+    pub pCrlIssuerChain: *mut CERT_CHAIN_CONTEXT,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CRL_REVOCATION_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CRL_REVOCATION_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CRL_V1: u32 = 0u32;
 pub const CRL_V2: u32 = 1u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CROSS_CERT_DIST_POINTS_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CROSS_CERT_DIST_POINTS_INFO {
+    pub dwSyncDeltaTime: u32,
+    pub cDistPoint: u32,
+    pub rgDistPoint: *mut CERT_ALT_NAME_INFO,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CROSS_CERT_DIST_POINTS_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CROSS_CERT_DIST_POINTS_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CROSS_CERT_DIST_POINT_ERR_INDEX_MASK: u32 = 255u32;
 pub const CROSS_CERT_DIST_POINT_ERR_INDEX_SHIFT: u32 = 24u32;
 pub const CRYPTNET_CACHED_OCSP_SWITCH_TO_CRL_COUNT_DEFAULT: u32 = 50u32;
@@ -2552,27 +5192,80 @@ pub const CRYPTNET_PRE_FETCH_TRIGGER_DISABLE: u32 = 4294967295u32;
 pub const CRYPTNET_PRE_FETCH_VALIDITY_PERIOD_AFTER_NEXT_UPDATE_PRE_FETCH_DIVISOR_DEFAULT: u32 = 10u32;
 pub const CRYPTNET_URL_CACHE_DEFAULT_FLUSH: u32 = 0u32;
 pub const CRYPTNET_URL_CACHE_DISABLE_FLUSH: u32 = 4294967295u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CRYPTNET_URL_CACHE_FLUSH_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CRYPTNET_URL_CACHE_FLUSH_INFO {
+    pub cbSize: u32,
+    pub dwExemptSeconds: u32,
+    pub ExpireTime: super::super::Foundation::FILETIME,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CRYPTNET_URL_CACHE_FLUSH_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CRYPTNET_URL_CACHE_FLUSH_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CRYPTNET_URL_CACHE_PRE_FETCH_AUTOROOT_CAB: u32 = 5u32;
 pub const CRYPTNET_URL_CACHE_PRE_FETCH_BLOB: u32 = 1u32;
 pub const CRYPTNET_URL_CACHE_PRE_FETCH_CRL: u32 = 2u32;
 pub const CRYPTNET_URL_CACHE_PRE_FETCH_DISALLOWED_CERT_CAB: u32 = 6u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CRYPTNET_URL_CACHE_PRE_FETCH_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CRYPTNET_URL_CACHE_PRE_FETCH_INFO {
+    pub cbSize: u32,
+    pub dwObjectType: u32,
+    pub dwError: u32,
+    pub dwReserved: u32,
+    pub ThisUpdateTime: super::super::Foundation::FILETIME,
+    pub NextUpdateTime: super::super::Foundation::FILETIME,
+    pub PublishTime: super::super::Foundation::FILETIME,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CRYPTNET_URL_CACHE_PRE_FETCH_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CRYPTNET_URL_CACHE_PRE_FETCH_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CRYPTNET_URL_CACHE_PRE_FETCH_NONE: u32 = 0u32;
 pub const CRYPTNET_URL_CACHE_PRE_FETCH_OCSP: u32 = 3u32;
 pub const CRYPTNET_URL_CACHE_PRE_FETCH_PIN_RULES_CAB: u32 = 7u32;
 pub const CRYPTNET_URL_CACHE_RESPONSE_HTTP: u32 = 1u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CRYPTNET_URL_CACHE_RESPONSE_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CRYPTNET_URL_CACHE_RESPONSE_INFO {
+    pub cbSize: u32,
+    pub wResponseType: u16,
+    pub wResponseFlags: u16,
+    pub LastModifiedTime: super::super::Foundation::FILETIME,
+    pub dwMaxAge: u32,
+    pub pwszETag: super::super::Foundation::PWSTR,
+    pub dwProxyId: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CRYPTNET_URL_CACHE_RESPONSE_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CRYPTNET_URL_CACHE_RESPONSE_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CRYPTNET_URL_CACHE_RESPONSE_NONE: u32 = 0u32;
 pub const CRYPTNET_URL_CACHE_RESPONSE_VALIDATED: u32 = 32768u32;
 #[repr(C)]
-pub struct CRYPTOAPI_BLOB(i32);
+pub struct CRYPTOAPI_BLOB {
+    pub cbData: u32,
+    pub pbData: *mut u8,
+}
+impl ::core::marker::Copy for CRYPTOAPI_BLOB {}
+impl ::core::clone::Clone for CRYPTOAPI_BLOB {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CRYPTPROTECTMEMORY_BLOCK_SIZE: u32 = 16u32;
 pub const CRYPTPROTECTMEMORY_CROSS_PROCESS: u32 = 1u32;
 pub const CRYPTPROTECTMEMORY_SAME_LOGON: u32 = 2u32;
@@ -2584,9 +5277,22 @@ pub const CRYPTPROTECT_FIRST_RESERVED_FLAGVAL: u32 = 268435455u32;
 pub const CRYPTPROTECT_LAST_RESERVED_FLAGVAL: u32 = 4294967295u32;
 pub const CRYPTPROTECT_LOCAL_MACHINE: u32 = 4u32;
 pub const CRYPTPROTECT_NO_RECOVERY: u32 = 32u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CRYPTPROTECT_PROMPTSTRUCT(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CRYPTPROTECT_PROMPTSTRUCT {
+    pub cbSize: u32,
+    pub dwPromptFlags: u32,
+    pub hwndApp: super::super::Foundation::HWND,
+    pub szPrompt: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CRYPTPROTECT_PROMPTSTRUCT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CRYPTPROTECT_PROMPTSTRUCT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CRYPTPROTECT_PROMPT_ON_PROTECT: u32 = 2u32;
 pub const CRYPTPROTECT_PROMPT_ON_UNPROTECT: u32 = 1u32;
 pub const CRYPTPROTECT_PROMPT_REQUIRE_STRONG: u32 = 16u32;
@@ -2595,7 +5301,17 @@ pub const CRYPTPROTECT_PROMPT_STRONG: u32 = 8u32;
 pub const CRYPTPROTECT_UI_FORBIDDEN: u32 = 1u32;
 pub const CRYPTPROTECT_VERIFY_PROTECTION: u32 = 64u32;
 #[repr(C)]
-pub struct CRYPT_3DES_KEY_STATE(i32);
+pub struct CRYPT_3DES_KEY_STATE {
+    pub Key: [u8; 24],
+    pub IV: [u8; 8],
+    pub Feedback: [u8; 8],
+}
+impl ::core::marker::Copy for CRYPT_3DES_KEY_STATE {}
+impl ::core::clone::Clone for CRYPT_3DES_KEY_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CRYPT_ACCUMULATIVE_TIMEOUT: u32 = 2048u32;
 pub const CRYPT_ACQUIRE_ALLOW_NCRYPT_KEY_FLAG: u32 = 65536u32;
 #[repr(transparent)]
@@ -2610,85 +5326,314 @@ pub const CRYPT_ACQUIRE_ONLY_NCRYPT_KEY_FLAG: u32 = 262144u32;
 pub const CRYPT_ACQUIRE_PREFER_NCRYPT_KEY_FLAG: u32 = 131072u32;
 pub const CRYPT_ACQUIRE_WINDOW_HANDLE_FLAG: u32 = 128u32;
 #[repr(C)]
-pub struct CRYPT_AES_128_KEY_STATE(i32);
+pub struct CRYPT_AES_128_KEY_STATE {
+    pub Key: [u8; 16],
+    pub IV: [u8; 16],
+    pub EncryptionState: [u8; 176],
+    pub DecryptionState: [u8; 176],
+    pub Feedback: [u8; 16],
+}
+impl ::core::marker::Copy for CRYPT_AES_128_KEY_STATE {}
+impl ::core::clone::Clone for CRYPT_AES_128_KEY_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CRYPT_AES_256_KEY_STATE(i32);
+pub struct CRYPT_AES_256_KEY_STATE {
+    pub Key: [u8; 32],
+    pub IV: [u8; 16],
+    pub EncryptionState: [u8; 240],
+    pub DecryptionState: [u8; 240],
+    pub Feedback: [u8; 16],
+}
+impl ::core::marker::Copy for CRYPT_AES_256_KEY_STATE {}
+impl ::core::clone::Clone for CRYPT_AES_256_KEY_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CRYPT_AIA_RETRIEVAL: u32 = 524288u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CRYPT_ALGORITHM_IDENTIFIER(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CRYPT_ALGORITHM_IDENTIFIER {
+    pub pszObjId: super::super::Foundation::PSTR,
+    pub Parameters: CRYPTOAPI_BLOB,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CRYPT_ALGORITHM_IDENTIFIER {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CRYPT_ALGORITHM_IDENTIFIER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CRYPT_ARCHIVE: u32 = 256u32;
 pub const CRYPT_ASN_ENCODING: u32 = 1u32;
 pub const CRYPT_ASYNC_RETRIEVAL: u32 = 16u32;
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct CRYPT_ASYNC_RETRIEVAL_COMPLETION(i32);
+pub struct CRYPT_ASYNC_RETRIEVAL_COMPLETION {
+    pub pfnCompletion: ::core::option::Option<PFN_CRYPT_ASYNC_RETRIEVAL_COMPLETION_FUNC>,
+    pub pvCompletion: *mut ::core::ffi::c_void,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct CRYPT_ATTRIBUTE(i32);
+impl ::core::marker::Copy for CRYPT_ASYNC_RETRIEVAL_COMPLETION {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CRYPT_ASYNC_RETRIEVAL_COMPLETION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CRYPT_ATTRIBUTES(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct CRYPT_ATTRIBUTE {
+    pub pszObjId: super::super::Foundation::PSTR,
+    pub cValue: u32,
+    pub rgValue: *mut CRYPTOAPI_BLOB,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CRYPT_ATTRIBUTE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CRYPT_ATTRIBUTE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CRYPT_ATTRIBUTE_TYPE_VALUE(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CRYPT_ATTRIBUTES {
+    pub cAttr: u32,
+    pub rgAttr: *mut CRYPT_ATTRIBUTE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CRYPT_ATTRIBUTES {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CRYPT_ATTRIBUTES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CRYPT_BIT_BLOB(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CRYPT_ATTRIBUTE_TYPE_VALUE {
+    pub pszObjId: super::super::Foundation::PSTR,
+    pub Value: CRYPTOAPI_BLOB,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CRYPT_ATTRIBUTE_TYPE_VALUE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CRYPT_ATTRIBUTE_TYPE_VALUE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CRYPT_BLOB_ARRAY(i32);
+pub struct CRYPT_BIT_BLOB {
+    pub cbData: u32,
+    pub pbData: *mut u8,
+    pub cUnusedBits: u32,
+}
+impl ::core::marker::Copy for CRYPT_BIT_BLOB {}
+impl ::core::clone::Clone for CRYPT_BIT_BLOB {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct CRYPT_BLOB_ARRAY {
+    pub cBlob: u32,
+    pub rgBlob: *mut CRYPTOAPI_BLOB,
+}
+impl ::core::marker::Copy for CRYPT_BLOB_ARRAY {}
+impl ::core::clone::Clone for CRYPT_BLOB_ARRAY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CRYPT_CACHE_ONLY_RETRIEVAL: u32 = 2u32;
 pub const CRYPT_CHECK_FRESHNESS_TIME_VALIDITY: u32 = 1024u32;
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct CRYPT_CONTENT_INFO(i32);
+pub struct CRYPT_CONTENT_INFO {
+    pub pszObjId: super::super::Foundation::PSTR,
+    pub Content: CRYPTOAPI_BLOB,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct CRYPT_CONTENT_INFO_SEQUENCE_OF_ANY(i32);
+impl ::core::marker::Copy for CRYPT_CONTENT_INFO {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CRYPT_CONTENT_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CRYPT_CONTEXTS(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CRYPT_CONTENT_INFO_SEQUENCE_OF_ANY {
+    pub pszObjId: super::super::Foundation::PSTR,
+    pub cValue: u32,
+    pub rgValue: *mut CRYPTOAPI_BLOB,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CRYPT_CONTENT_INFO_SEQUENCE_OF_ANY {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CRYPT_CONTENT_INFO_SEQUENCE_OF_ANY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CRYPT_CONTEXT_CONFIG(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CRYPT_CONTEXTS {
+    pub cContexts: u32,
+    pub rgpszContexts: *mut super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CRYPT_CONTEXTS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CRYPT_CONTEXTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct CRYPT_CONTEXT_CONFIG {
+    pub dwFlags: CRYPT_CONTEXT_CONFIG_FLAGS,
+    pub dwReserved: u32,
+}
+impl ::core::marker::Copy for CRYPT_CONTEXT_CONFIG {}
+impl ::core::clone::Clone for CRYPT_CONTEXT_CONFIG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CRYPT_CONTEXT_CONFIG_FLAGS(pub u32);
 pub const CRYPT_EXCLUSIVE: CRYPT_CONTEXT_CONFIG_FLAGS = CRYPT_CONTEXT_CONFIG_FLAGS(1u32);
 pub const CRYPT_OVERRIDE: CRYPT_CONTEXT_CONFIG_FLAGS = CRYPT_CONTEXT_CONFIG_FLAGS(65536u32);
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct CRYPT_CONTEXT_FUNCTIONS(i32);
-#[repr(C)]
-pub struct CRYPT_CONTEXT_FUNCTION_CONFIG(i32);
+pub struct CRYPT_CONTEXT_FUNCTIONS {
+    pub cFunctions: u32,
+    pub rgpszFunctions: *mut super::super::Foundation::PWSTR,
+}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CRYPT_CONTEXT_FUNCTIONS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CRYPT_CONTEXT_FUNCTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CRYPT_CONTEXT_FUNCTION_PROVIDERS(i32);
+pub struct CRYPT_CONTEXT_FUNCTION_CONFIG {
+    pub dwFlags: u32,
+    pub dwReserved: u32,
+}
+impl ::core::marker::Copy for CRYPT_CONTEXT_FUNCTION_CONFIG {}
+impl ::core::clone::Clone for CRYPT_CONTEXT_FUNCTION_CONFIG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct CRYPT_CONTEXT_FUNCTION_PROVIDERS {
+    pub cProviders: u32,
+    pub rgpszProviders: *mut super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CRYPT_CONTEXT_FUNCTION_PROVIDERS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CRYPT_CONTEXT_FUNCTION_PROVIDERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CRYPT_CREATE_NEW_FLUSH_ENTRY: u32 = 268435456u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CRYPT_CREDENTIALS(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct CRYPT_CREDENTIALS {
+    pub cbSize: u32,
+    pub pszCredentialsOid: super::super::Foundation::PSTR,
+    pub pvCredentials: *mut ::core::ffi::c_void,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CRYPT_CREDENTIALS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CRYPT_CREDENTIALS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CRYPT_CSP_PROVIDER(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CRYPT_CSP_PROVIDER {
+    pub dwKeySpec: u32,
+    pub pwszProviderName: super::super::Foundation::PWSTR,
+    pub Signature: CRYPT_BIT_BLOB,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CRYPT_CSP_PROVIDER {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CRYPT_CSP_PROVIDER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CRYPT_DECODE_ALLOC_FLAG: u32 = 32768u32;
 pub const CRYPT_DECODE_ENABLE_PUNYCODE_FLAG: u32 = 33554432u32;
 pub const CRYPT_DECODE_ENABLE_UTF8PERCENT_FLAG: u32 = 67108864u32;
 pub const CRYPT_DECODE_NOCOPY_FLAG: u32 = 1u32;
 pub const CRYPT_DECODE_NO_SIGNATURE_BYTE_REVERSAL_FLAG: u32 = 8u32;
 #[repr(C)]
-pub struct CRYPT_DECODE_PARA(i32);
+pub struct CRYPT_DECODE_PARA {
+    pub cbSize: u32,
+    pub pfnAlloc: ::core::option::Option<PFN_CRYPT_ALLOC>,
+    pub pfnFree: ::core::option::Option<PFN_CRYPT_FREE>,
+}
+impl ::core::marker::Copy for CRYPT_DECODE_PARA {}
+impl ::core::clone::Clone for CRYPT_DECODE_PARA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CRYPT_DECODE_SHARE_OID_STRING_FLAG: u32 = 4u32;
 pub const CRYPT_DECODE_TO_BE_SIGNED_FLAG: u32 = 2u32;
 pub const CRYPT_DECRYPT: u32 = 2u32;
 #[repr(C)]
-pub struct CRYPT_DECRYPT_MESSAGE_PARA(i32);
+pub struct CRYPT_DECRYPT_MESSAGE_PARA {
+    pub cbSize: u32,
+    pub dwMsgAndCertEncodingType: u32,
+    pub cCertStore: u32,
+    pub rghCertStore: *mut *mut ::core::ffi::c_void,
+}
+impl ::core::marker::Copy for CRYPT_DECRYPT_MESSAGE_PARA {}
+impl ::core::clone::Clone for CRYPT_DECRYPT_MESSAGE_PARA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CRYPT_DECRYPT_RSA_NO_PADDING_CHECK: u32 = 32u32;
 pub const CRYPT_DEFAULT_CONTAINER_OPTIONAL: u32 = 128u32;
 #[repr(transparent)]
 pub struct CRYPT_DEFAULT_CONTEXT_FLAGS(pub u32);
 pub const CRYPT_DEFAULT_CONTEXT_AUTO_RELEASE_FLAG: CRYPT_DEFAULT_CONTEXT_FLAGS = CRYPT_DEFAULT_CONTEXT_FLAGS(1u32);
 pub const CRYPT_DEFAULT_CONTEXT_PROCESS_FLAG: CRYPT_DEFAULT_CONTEXT_FLAGS = CRYPT_DEFAULT_CONTEXT_FLAGS(2u32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CRYPT_DEFAULT_CONTEXT_MULTI_OID_PARA(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CRYPT_DEFAULT_CONTEXT_MULTI_OID_PARA {
+    pub cOID: u32,
+    pub rgpszOID: *mut super::super::Foundation::PSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CRYPT_DEFAULT_CONTEXT_MULTI_OID_PARA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CRYPT_DEFAULT_CONTEXT_MULTI_OID_PARA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CRYPT_DEFAULT_CONTEXT_TYPE(pub u32);
 pub const CRYPT_DEFAULT_CONTEXT_CERT_SIGN_OID: CRYPT_DEFAULT_CONTEXT_TYPE = CRYPT_DEFAULT_CONTEXT_TYPE(1u32);
@@ -2697,17 +5642,52 @@ pub const CRYPT_DELETEKEYSET: u32 = 16u32;
 pub const CRYPT_DELETE_DEFAULT: u32 = 4u32;
 pub const CRYPT_DELETE_KEYSET: u32 = 16u32;
 #[repr(C)]
-pub struct CRYPT_DES_KEY_STATE(i32);
+pub struct CRYPT_DES_KEY_STATE {
+    pub Key: [u8; 8],
+    pub IV: [u8; 8],
+    pub Feedback: [u8; 8],
+}
+impl ::core::marker::Copy for CRYPT_DES_KEY_STATE {}
+impl ::core::clone::Clone for CRYPT_DES_KEY_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CRYPT_DONT_CACHE_RESULT: u32 = 8u32;
 pub const CRYPT_DONT_CHECK_TIME_VALIDITY: u32 = 512u32;
 pub const CRYPT_DONT_VERIFY_SIGNATURE: u32 = 256u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CRYPT_ECC_CMS_SHARED_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CRYPT_ECC_CMS_SHARED_INFO {
+    pub Algorithm: CRYPT_ALGORITHM_IDENTIFIER,
+    pub EntityUInfo: CRYPTOAPI_BLOB,
+    pub rgbSuppPubInfo: [u8; 4],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CRYPT_ECC_CMS_SHARED_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CRYPT_ECC_CMS_SHARED_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CRYPT_ECC_CMS_SHARED_INFO_SUPPPUBINFO_BYTE_LENGTH: u32 = 4u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CRYPT_ECC_PRIVATE_KEY_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CRYPT_ECC_PRIVATE_KEY_INFO {
+    pub dwVersion: u32,
+    pub PrivateKey: CRYPTOAPI_BLOB,
+    pub szCurveOid: super::super::Foundation::PSTR,
+    pub PublicKey: CRYPT_BIT_BLOB,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CRYPT_ECC_PRIVATE_KEY_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CRYPT_ECC_PRIVATE_KEY_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CRYPT_ECC_PRIVATE_KEY_INFO_v1: u32 = 1u32;
 pub const CRYPT_ENABLE_FILE_RETRIEVAL: u32 = 134217728u32;
 pub const CRYPT_ENABLE_SSL_REVOCATION_RETRIEVAL: u32 = 8388608u32;
@@ -2722,19 +5702,67 @@ pub const CRYPT_UNICODE_NAME_ENCODE_DISABLE_CHECK_TYPE_FLAG: CRYPT_ENCODE_OBJECT
 pub const CRYPT_UNICODE_NAME_ENCODE_ENABLE_T61_UNICODE_FLAG: CRYPT_ENCODE_OBJECT_FLAGS = CRYPT_ENCODE_OBJECT_FLAGS(2147483648u32);
 pub const CRYPT_UNICODE_NAME_ENCODE_ENABLE_UTF8_UNICODE_FLAG: CRYPT_ENCODE_OBJECT_FLAGS = CRYPT_ENCODE_OBJECT_FLAGS(536870912u32);
 #[repr(C)]
-pub struct CRYPT_ENCODE_PARA(i32);
+pub struct CRYPT_ENCODE_PARA {
+    pub cbSize: u32,
+    pub pfnAlloc: ::core::option::Option<PFN_CRYPT_ALLOC>,
+    pub pfnFree: ::core::option::Option<PFN_CRYPT_FREE>,
+}
+impl ::core::marker::Copy for CRYPT_ENCODE_PARA {}
+impl ::core::clone::Clone for CRYPT_ENCODE_PARA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CRYPT_ENCRYPT: u32 = 1u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CRYPT_ENCRYPTED_PRIVATE_KEY_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CRYPT_ENCRYPTED_PRIVATE_KEY_INFO {
+    pub EncryptionAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
+    pub EncryptedPrivateKey: CRYPTOAPI_BLOB,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CRYPT_ENCRYPTED_PRIVATE_KEY_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CRYPT_ENCRYPTED_PRIVATE_KEY_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CRYPT_ENCRYPT_ALG_OID_GROUP_ID: u32 = 2u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CRYPT_ENCRYPT_MESSAGE_PARA(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CRYPT_ENCRYPT_MESSAGE_PARA {
+    pub cbSize: u32,
+    pub dwMsgEncodingType: u32,
+    pub hCryptProv: usize,
+    pub ContentEncryptionAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
+    pub pvEncryptionAuxInfo: *mut ::core::ffi::c_void,
+    pub dwFlags: u32,
+    pub dwInnerContentType: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CRYPT_ENCRYPT_MESSAGE_PARA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CRYPT_ENCRYPT_MESSAGE_PARA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CRYPT_ENHKEY_USAGE_OID_GROUP_ID: u32 = 7u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CRYPT_ENROLLMENT_NAME_VALUE_PAIR(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CRYPT_ENROLLMENT_NAME_VALUE_PAIR {
+    pub pwszName: super::super::Foundation::PWSTR,
+    pub pwszValue: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CRYPT_ENROLLMENT_NAME_VALUE_PAIR {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CRYPT_ENROLLMENT_NAME_VALUE_PAIR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CRYPT_EXPORT: u32 = 4u32;
 pub const CRYPT_EXPORT_KEY: u32 = 64u32;
 pub const CRYPT_EXT_OR_ATTR_OID_GROUP_ID: u32 = 6u32;
@@ -2766,9 +5794,25 @@ pub const CRYPT_FORMAT_STR_MULTI_LINE: u32 = 1u32;
 pub const CRYPT_FORMAT_STR_NO_HEX: u32 = 16u32;
 pub const CRYPT_FORMAT_X509: u32 = 2u32;
 pub const CRYPT_GET_INSTALLED_OID_FUNC_FLAG: u32 = 1u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CRYPT_GET_TIME_VALID_OBJECT_EXTRA_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CRYPT_GET_TIME_VALID_OBJECT_EXTRA_INFO {
+    pub cbSize: u32,
+    pub iDeltaCrlIndicator: i32,
+    pub pftCacheResync: *mut super::super::Foundation::FILETIME,
+    pub pLastSyncTime: *mut super::super::Foundation::FILETIME,
+    pub pMaxAgeTime: *mut super::super::Foundation::FILETIME,
+    pub pChainPara: *mut CERT_REVOCATION_CHAIN_PARA,
+    pub pDeltaCrlIndicator: *mut CRYPTOAPI_BLOB,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CRYPT_GET_TIME_VALID_OBJECT_EXTRA_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CRYPT_GET_TIME_VALID_OBJECT_EXTRA_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CRYPT_GET_URL_FLAGS(pub u32);
 pub const CRYPT_GET_URL_FROM_PROPERTY: CRYPT_GET_URL_FLAGS = CRYPT_GET_URL_FLAGS(1u32);
@@ -2776,23 +5820,71 @@ pub const CRYPT_GET_URL_FROM_EXTENSION: CRYPT_GET_URL_FLAGS = CRYPT_GET_URL_FLAG
 pub const CRYPT_GET_URL_FROM_UNAUTH_ATTRIBUTE: CRYPT_GET_URL_FLAGS = CRYPT_GET_URL_FLAGS(4u32);
 pub const CRYPT_GET_URL_FROM_AUTH_ATTRIBUTE: CRYPT_GET_URL_FLAGS = CRYPT_GET_URL_FLAGS(8u32);
 pub const CRYPT_HASH_ALG_OID_GROUP_ID: u32 = 1u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CRYPT_HASH_INFO(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct CRYPT_HASH_INFO {
+    pub HashAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
+    pub Hash: CRYPTOAPI_BLOB,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CRYPT_HASH_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CRYPT_HASH_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CRYPT_HASH_MESSAGE_PARA(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CRYPT_HASH_MESSAGE_PARA {
+    pub cbSize: u32,
+    pub dwMsgEncodingType: u32,
+    pub hCryptProv: usize,
+    pub HashAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
+    pub pvHashAuxInfo: *mut ::core::ffi::c_void,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CRYPT_HASH_MESSAGE_PARA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CRYPT_HASH_MESSAGE_PARA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CRYPT_HTTP_POST_RETRIEVAL: u32 = 1048576u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CRYPT_IMAGE_REF(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CRYPT_IMAGE_REF {
+    pub pszImage: super::super::Foundation::PWSTR,
+    pub dwFlags: CRYPT_IMAGE_REF_FLAGS,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CRYPT_IMAGE_REF {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CRYPT_IMAGE_REF {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CRYPT_IMAGE_REF_FLAGS(pub u32);
 pub const CRYPT_MIN_DEPENDENCIES: CRYPT_IMAGE_REF_FLAGS = CRYPT_IMAGE_REF_FLAGS(1u32);
 pub const CRYPT_PROCESS_ISOLATE: CRYPT_IMAGE_REF_FLAGS = CRYPT_IMAGE_REF_FLAGS(65536u32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CRYPT_IMAGE_REG(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CRYPT_IMAGE_REG {
+    pub pszImage: super::super::Foundation::PWSTR,
+    pub cInterfaces: u32,
+    pub rgpInterfaces: *mut *mut CRYPT_INTERFACE_REG,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CRYPT_IMAGE_REG {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CRYPT_IMAGE_REG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CRYPT_IMPL_HARDWARE: u32 = 1u32;
 pub const CRYPT_IMPL_MIXED: u32 = 3u32;
 pub const CRYPT_IMPL_REMOVABLE: u32 = 8u32;
@@ -2805,9 +5897,22 @@ pub const CRYPT_OID_INFO_PUBKEY_SIGN_KEY_FLAG: CRYPT_IMPORT_PUBLIC_KEY_FLAGS = C
 pub const CRYPT_OID_INFO_PUBKEY_ENCRYPT_KEY_FLAG: CRYPT_IMPORT_PUBLIC_KEY_FLAGS = CRYPT_IMPORT_PUBLIC_KEY_FLAGS(1073741824u32);
 pub const CRYPT_INSTALL_OID_FUNC_BEFORE_FLAG: u32 = 1u32;
 pub const CRYPT_INSTALL_OID_INFO_BEFORE_FLAG: u32 = 1u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CRYPT_INTERFACE_REG(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CRYPT_INTERFACE_REG {
+    pub dwInterface: BCRYPT_INTERFACE,
+    pub dwFlags: BCRYPT_TABLE,
+    pub cFunctions: u32,
+    pub rgpszFunctions: *mut super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CRYPT_INTERFACE_REG {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CRYPT_INTERFACE_REG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CRYPT_KDF_OID_GROUP_ID: u32 = 10u32;
 pub const CRYPT_KEEP_TIME_VALID: u32 = 128u32;
 pub const CRYPT_KEYID_ALLOC_FLAG: u32 = 32768u32;
@@ -2857,16 +5962,81 @@ pub const KP_SALT_EX: CRYPT_KEY_PARAM_ID = CRYPT_KEY_PARAM_ID(10u32);
 pub const KP_BLOCKLEN: CRYPT_KEY_PARAM_ID = CRYPT_KEY_PARAM_ID(8u32);
 pub const KP_GET_USE_COUNT: CRYPT_KEY_PARAM_ID = CRYPT_KEY_PARAM_ID(42u32);
 pub const KP_KEYLEN: CRYPT_KEY_PARAM_ID = CRYPT_KEY_PARAM_ID(9u32);
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct CRYPT_KEY_PROV_INFO(i32);
-#[repr(C)]
-pub struct CRYPT_KEY_PROV_PARAM(i32);
+pub struct CRYPT_KEY_PROV_INFO {
+    pub pwszContainerName: super::super::Foundation::PWSTR,
+    pub pwszProvName: super::super::Foundation::PWSTR,
+    pub dwProvType: u32,
+    pub dwFlags: CRYPT_KEY_FLAGS,
+    pub cProvParam: u32,
+    pub rgProvParam: *mut CRYPT_KEY_PROV_PARAM,
+    pub dwKeySpec: u32,
+}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CRYPT_KEY_PROV_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CRYPT_KEY_PROV_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CRYPT_KEY_SIGN_MESSAGE_PARA(i32);
+pub struct CRYPT_KEY_PROV_PARAM {
+    pub dwParam: u32,
+    pub pbData: *mut u8,
+    pub cbData: u32,
+    pub dwFlags: u32,
+}
+impl ::core::marker::Copy for CRYPT_KEY_PROV_PARAM {}
+impl ::core::clone::Clone for CRYPT_KEY_PROV_PARAM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CRYPT_KEY_VERIFY_MESSAGE_PARA(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CRYPT_KEY_SIGN_MESSAGE_PARA {
+    pub cbSize: u32,
+    pub dwMsgAndCertEncodingType: CERT_QUERY_ENCODING_TYPE,
+    pub Anonymous: CRYPT_KEY_SIGN_MESSAGE_PARA_0,
+    pub dwKeySpec: CERT_KEY_SPEC,
+    pub HashAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
+    pub pvHashAuxInfo: *mut ::core::ffi::c_void,
+    pub PubKeyAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CRYPT_KEY_SIGN_MESSAGE_PARA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CRYPT_KEY_SIGN_MESSAGE_PARA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub union CRYPT_KEY_SIGN_MESSAGE_PARA_0 {
+    pub hCryptProv: usize,
+    pub hNCryptKey: usize,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CRYPT_KEY_SIGN_MESSAGE_PARA_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct CRYPT_KEY_VERIFY_MESSAGE_PARA {
+    pub cbSize: u32,
+    pub dwMsgEncodingType: u32,
+    pub hCryptProv: usize,
+}
+impl ::core::marker::Copy for CRYPT_KEY_VERIFY_MESSAGE_PARA {}
+impl ::core::clone::Clone for CRYPT_KEY_VERIFY_MESSAGE_PARA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CRYPT_LAST_ALG_OID_GROUP_ID: u32 = 4u32;
 pub const CRYPT_LAST_OID_GROUP_ID: u32 = 10u32;
 pub const CRYPT_LDAP_AREC_EXCLUSIVE_RETRIEVAL: u32 = 262144u32;
@@ -2877,9 +6047,20 @@ pub const CRYPT_LITTLE_ENDIAN: u32 = 1u32;
 pub const CRYPT_LOCALIZED_NAME_ENCODING_TYPE: u32 = 0u32;
 pub const CRYPT_MAC: u32 = 32u32;
 pub const CRYPT_MACHINE_DEFAULT: u32 = 1u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CRYPT_MASK_GEN_ALGORITHM(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CRYPT_MASK_GEN_ALGORITHM {
+    pub pszObjId: super::super::Foundation::PSTR,
+    pub HashAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CRYPT_MASK_GEN_ALGORITHM {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CRYPT_MASK_GEN_ALGORITHM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CRYPT_MATCH_ANY_ENCODING_TYPE: u32 = 4294967295u32;
 pub const CRYPT_MESSAGE_BARE_CONTENT_OUT_FLAG: u32 = 1u32;
 pub const CRYPT_MESSAGE_ENCAPSULATED_CONTENT_OUT_FLAG: u32 = 2u32;
@@ -2913,9 +6094,24 @@ pub const CRYPT_NO_OCSP_FAILOVER_TO_CRL_RETRIEVAL: u32 = 33554432u32;
 pub const CRYPT_OBJECT_LOCATOR_FIRST_RESERVED_USER_NAME_TYPE: u32 = 33u32;
 pub const CRYPT_OBJECT_LOCATOR_LAST_RESERVED_NAME_TYPE: u32 = 32u32;
 pub const CRYPT_OBJECT_LOCATOR_LAST_RESERVED_USER_NAME_TYPE: u32 = 65535u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CRYPT_OBJECT_LOCATOR_PROVIDER_TABLE(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CRYPT_OBJECT_LOCATOR_PROVIDER_TABLE {
+    pub cbSize: u32,
+    pub pfnGet: ::core::option::Option<PFN_CRYPT_OBJECT_LOCATOR_PROVIDER_GET>,
+    pub pfnRelease: ::core::option::Option<PFN_CRYPT_OBJECT_LOCATOR_PROVIDER_RELEASE>,
+    pub pfnFreePassword: ::core::option::Option<PFN_CRYPT_OBJECT_LOCATOR_PROVIDER_FREE_PASSWORD>,
+    pub pfnFree: ::core::option::Option<PFN_CRYPT_OBJECT_LOCATOR_PROVIDER_FREE>,
+    pub pfnFreeIdentifier: ::core::option::Option<PFN_CRYPT_OBJECT_LOCATOR_PROVIDER_FREE_IDENTIFIER>,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CRYPT_OBJECT_LOCATOR_PROVIDER_TABLE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CRYPT_OBJECT_LOCATOR_PROVIDER_TABLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CRYPT_OBJECT_LOCATOR_RELEASE_REASON(pub u32);
 pub const CRYPT_OBJECT_LOCATOR_RELEASE_SYSTEM_SHUTDOWN: CRYPT_OBJECT_LOCATOR_RELEASE_REASON = CRYPT_OBJECT_LOCATOR_RELEASE_REASON(1u32);
@@ -2923,18 +6119,68 @@ pub const CRYPT_OBJECT_LOCATOR_RELEASE_SERVICE_STOP: CRYPT_OBJECT_LOCATOR_RELEAS
 pub const CRYPT_OBJECT_LOCATOR_RELEASE_PROCESS_EXIT: CRYPT_OBJECT_LOCATOR_RELEASE_REASON = CRYPT_OBJECT_LOCATOR_RELEASE_REASON(3u32);
 pub const CRYPT_OBJECT_LOCATOR_RELEASE_DLL_UNLOAD: CRYPT_OBJECT_LOCATOR_RELEASE_REASON = CRYPT_OBJECT_LOCATOR_RELEASE_REASON(4u32);
 pub const CRYPT_OBJECT_LOCATOR_SPN_NAME_TYPE: u32 = 1u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CRYPT_OBJID_TABLE(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CRYPT_OBJID_TABLE {
+    pub dwAlgId: u32,
+    pub pszObjId: super::super::Foundation::PSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CRYPT_OBJID_TABLE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CRYPT_OBJID_TABLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CRYPT_OCSP_ONLY_RETRIEVAL: u32 = 16777216u32;
 pub const CRYPT_OFFLINE_CHECK_RETRIEVAL: u32 = 16384u32;
 pub const CRYPT_OID_DISABLE_SEARCH_DS_FLAG: u32 = 2147483648u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CRYPT_OID_FUNC_ENTRY(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct CRYPT_OID_FUNC_ENTRY {
+    pub pszOID: super::super::Foundation::PSTR,
+    pub pvFuncAddr: *mut ::core::ffi::c_void,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CRYPT_OID_FUNC_ENTRY {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CRYPT_OID_FUNC_ENTRY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CRYPT_OID_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CRYPT_OID_INFO {
+    pub cbSize: u32,
+    pub pszOID: super::super::Foundation::PSTR,
+    pub pwszName: super::super::Foundation::PWSTR,
+    pub dwGroupId: u32,
+    pub Anonymous: CRYPT_OID_INFO_0,
+    pub ExtraInfo: CRYPTOAPI_BLOB,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CRYPT_OID_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CRYPT_OID_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub union CRYPT_OID_INFO_0 {
+    pub dwValue: u32,
+    pub Algid: u32,
+    pub dwLength: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CRYPT_OID_INFO_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CRYPT_OID_INFO_ALGID_KEY: u32 = 3u32;
 pub const CRYPT_OID_INFO_CNG_ALGID_KEY: u32 = 5u32;
 pub const CRYPT_OID_INFO_CNG_SIGN_KEY: u32 = 6u32;
@@ -2954,45 +6200,193 @@ pub const CRYPT_OID_USE_CURVE_PARAMETERS_FOR_ENCODE_FLAG: u32 = 268435456u32;
 pub const CRYPT_OID_USE_PUBKEY_PARA_FOR_PKCS7_FLAG: u32 = 2u32;
 pub const CRYPT_OVERWRITE: u32 = 1u32;
 pub const CRYPT_OWF_REPL_LM_HASH: u32 = 1u32;
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct CRYPT_PASSWORD_CREDENTIALSA(i32);
+pub struct CRYPT_PASSWORD_CREDENTIALSA {
+    pub cbSize: u32,
+    pub pszUsername: super::super::Foundation::PSTR,
+    pub pszPassword: super::super::Foundation::PSTR,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct CRYPT_PASSWORD_CREDENTIALSW(i32);
-#[repr(C)]
-pub struct CRYPT_PKCS12_PBE_PARAMS(i32);
+impl ::core::marker::Copy for CRYPT_PASSWORD_CREDENTIALSA {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CRYPT_PASSWORD_CREDENTIALSA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CRYPT_PKCS8_EXPORT_PARAMS(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct CRYPT_PASSWORD_CREDENTIALSW {
+    pub cbSize: u32,
+    pub pszUsername: super::super::Foundation::PWSTR,
+    pub pszPassword: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CRYPT_PASSWORD_CREDENTIALSW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CRYPT_PASSWORD_CREDENTIALSW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CRYPT_PKCS8_IMPORT_PARAMS(i32);
+pub struct CRYPT_PKCS12_PBE_PARAMS {
+    pub iIterations: i32,
+    pub cbSalt: u32,
+}
+impl ::core::marker::Copy for CRYPT_PKCS12_PBE_PARAMS {}
+impl ::core::clone::Clone for CRYPT_PKCS12_PBE_PARAMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct CRYPT_PKCS8_EXPORT_PARAMS {
+    pub hCryptProv: usize,
+    pub dwKeySpec: u32,
+    pub pszPrivateKeyObjId: super::super::Foundation::PSTR,
+    pub pEncryptPrivateKeyFunc: ::core::option::Option<PCRYPT_ENCRYPT_PRIVATE_KEY_FUNC>,
+    pub pVoidEncryptFunc: *mut ::core::ffi::c_void,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CRYPT_PKCS8_EXPORT_PARAMS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CRYPT_PKCS8_EXPORT_PARAMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct CRYPT_PKCS8_IMPORT_PARAMS {
+    pub PrivateKey: CRYPTOAPI_BLOB,
+    pub pResolvehCryptProvFunc: ::core::option::Option<PCRYPT_RESOLVE_HCRYPTPROV_FUNC>,
+    pub pVoidResolveFunc: *mut ::core::ffi::c_void,
+    pub pDecryptPrivateKeyFunc: ::core::option::Option<PCRYPT_DECRYPT_PRIVATE_KEY_FUNC>,
+    pub pVoidDecryptFunc: *mut ::core::ffi::c_void,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CRYPT_PKCS8_IMPORT_PARAMS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CRYPT_PKCS8_IMPORT_PARAMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CRYPT_POLICY_OID_GROUP_ID: u32 = 8u32;
 pub const CRYPT_PRIORITY_BOTTOM: u32 = 4294967295u32;
 pub const CRYPT_PRIORITY_TOP: u32 = 0u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CRYPT_PRIVATE_KEY_INFO(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct CRYPT_PROPERTY_REF(i32);
+pub struct CRYPT_PRIVATE_KEY_INFO {
+    pub Version: u32,
+    pub Algorithm: CRYPT_ALGORITHM_IDENTIFIER,
+    pub PrivateKey: CRYPTOAPI_BLOB,
+    pub pAttributes: *mut CRYPT_ATTRIBUTES,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct CRYPT_PROVIDERS(i32);
+impl ::core::marker::Copy for CRYPT_PRIVATE_KEY_INFO {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CRYPT_PRIVATE_KEY_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CRYPT_PROVIDER_REF(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct CRYPT_PROVIDER_REFS(i32);
+pub struct CRYPT_PROPERTY_REF {
+    pub pszProperty: super::super::Foundation::PWSTR,
+    pub cbValue: u32,
+    pub pbValue: *mut u8,
+}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CRYPT_PROPERTY_REF {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CRYPT_PROPERTY_REF {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CRYPT_PROVIDER_REG(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CRYPT_PROVIDERS {
+    pub cProviders: u32,
+    pub rgpszProviders: *mut super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CRYPT_PROVIDERS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CRYPT_PROVIDERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct CRYPT_PROVIDER_REF {
+    pub dwInterface: u32,
+    pub pszFunction: super::super::Foundation::PWSTR,
+    pub pszProvider: super::super::Foundation::PWSTR,
+    pub cProperties: u32,
+    pub rgpProperties: *mut *mut CRYPT_PROPERTY_REF,
+    pub pUM: *mut CRYPT_IMAGE_REF,
+    pub pKM: *mut CRYPT_IMAGE_REF,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CRYPT_PROVIDER_REF {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CRYPT_PROVIDER_REF {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct CRYPT_PROVIDER_REFS {
+    pub cProviders: u32,
+    pub rgpProviders: *mut *mut CRYPT_PROVIDER_REF,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CRYPT_PROVIDER_REFS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CRYPT_PROVIDER_REFS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct CRYPT_PROVIDER_REG {
+    pub cAliases: u32,
+    pub rgpszAliases: *mut super::super::Foundation::PWSTR,
+    pub pUM: *mut CRYPT_IMAGE_REG,
+    pub pKM: *mut CRYPT_IMAGE_REG,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CRYPT_PROVIDER_REG {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CRYPT_PROVIDER_REG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CRYPT_PROXY_CACHE_RETRIEVAL: u32 = 2097152u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CRYPT_PSOURCE_ALGORITHM(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CRYPT_PSOURCE_ALGORITHM {
+    pub pszObjId: super::super::Foundation::PSTR,
+    pub EncodingParameters: CRYPTOAPI_BLOB,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CRYPT_PSOURCE_ALGORITHM {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CRYPT_PSOURCE_ALGORITHM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CRYPT_PSTORE: u32 = 2u32;
 pub const CRYPT_PUBKEY_ALG_OID_GROUP_ID: u32 = 3u32;
 pub const CRYPT_RANDOM_QUERY_STRING_RETRIEVAL: u32 = 67108864u32;
@@ -3000,30 +6394,108 @@ pub const CRYPT_RC2_128BIT_VERSION: u32 = 58u32;
 pub const CRYPT_RC2_40BIT_VERSION: u32 = 160u32;
 pub const CRYPT_RC2_56BIT_VERSION: u32 = 52u32;
 pub const CRYPT_RC2_64BIT_VERSION: u32 = 120u32;
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+pub struct CRYPT_RC2_CBC_PARAMETERS {
+    pub dwVersion: u32,
+    pub fIV: super::super::Foundation::BOOL,
+    pub rgbIV: [u8; 8],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CRYPT_RC2_CBC_PARAMETERS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CRYPT_RC2_CBC_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CRYPT_RC2_CBC_PARAMETERS(i32);
-#[repr(C)]
-pub struct CRYPT_RC4_KEY_STATE(i32);
+pub struct CRYPT_RC4_KEY_STATE {
+    pub Key: [u8; 16],
+    pub SBox: [u8; 256],
+    pub i: u8,
+    pub j: u8,
+}
+impl ::core::marker::Copy for CRYPT_RC4_KEY_STATE {}
+impl ::core::clone::Clone for CRYPT_RC4_KEY_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CRYPT_RDN_ATTR_OID_GROUP_ID: u32 = 5u32;
 pub const CRYPT_READ: u32 = 8u32;
 pub const CRYPT_REGISTER_FIRST_INDEX: u32 = 0u32;
 pub const CRYPT_REGISTER_LAST_INDEX: u32 = 4294967295u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CRYPT_RETRIEVE_AUX_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CRYPT_RETRIEVE_AUX_INFO {
+    pub cbSize: u32,
+    pub pLastSyncTime: *mut super::super::Foundation::FILETIME,
+    pub dwMaxUrlRetrievalByteCount: u32,
+    pub pPreFetchInfo: *mut CRYPTNET_URL_CACHE_PRE_FETCH_INFO,
+    pub pFlushInfo: *mut CRYPTNET_URL_CACHE_FLUSH_INFO,
+    pub ppResponseInfo: *mut *mut CRYPTNET_URL_CACHE_RESPONSE_INFO,
+    pub pwszCacheFileNamePrefix: super::super::Foundation::PWSTR,
+    pub pftCacheResync: *mut super::super::Foundation::FILETIME,
+    pub fProxyCacheRetrieval: super::super::Foundation::BOOL,
+    pub dwHttpStatusCode: u32,
+    pub ppwszErrorResponseHeaders: *mut super::super::Foundation::PWSTR,
+    pub ppErrorContentBlob: *mut *mut CRYPTOAPI_BLOB,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CRYPT_RETRIEVE_AUX_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CRYPT_RETRIEVE_AUX_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CRYPT_RETRIEVE_MAX_ERROR_CONTENT_LENGTH: u32 = 4096u32;
 pub const CRYPT_RETRIEVE_MULTIPLE_OBJECTS: u32 = 1u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CRYPT_RSAES_OAEP_PARAMETERS(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct CRYPT_RSAES_OAEP_PARAMETERS {
+    pub HashAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
+    pub MaskGenAlgorithm: CRYPT_MASK_GEN_ALGORITHM,
+    pub PSourceAlgorithm: CRYPT_PSOURCE_ALGORITHM,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CRYPT_RSAES_OAEP_PARAMETERS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CRYPT_RSAES_OAEP_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CRYPT_RSA_SSA_PSS_PARAMETERS(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CRYPT_RSA_SSA_PSS_PARAMETERS {
+    pub HashAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
+    pub MaskGenAlgorithm: CRYPT_MASK_GEN_ALGORITHM,
+    pub dwSaltLength: u32,
+    pub dwTrailerField: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CRYPT_RSA_SSA_PSS_PARAMETERS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CRYPT_RSA_SSA_PSS_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CRYPT_SECRETDIGEST: u32 = 1u32;
 pub const CRYPT_SEC_DESCR: u32 = 1u32;
 #[repr(C)]
-pub struct CRYPT_SEQUENCE_OF_ANY(i32);
+pub struct CRYPT_SEQUENCE_OF_ANY {
+    pub cValue: u32,
+    pub rgValue: *mut CRYPTOAPI_BLOB,
+}
+impl ::core::marker::Copy for CRYPT_SEQUENCE_OF_ANY {}
+impl ::core::clone::Clone for CRYPT_SEQUENCE_OF_ANY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CRYPT_SERVER: u32 = 1024u32;
 #[repr(transparent)]
 pub struct CRYPT_SET_HASH_PARAM(pub u32);
@@ -3051,18 +6523,73 @@ pub const PP_SMARTCARD_READER: CRYPT_SET_PROV_PARAM_ID = CRYPT_SET_PROV_PARAM_ID
 pub const CRYPT_SGC: u32 = 1u32;
 pub const CRYPT_SGC_ENUM: u32 = 4u32;
 pub const CRYPT_SIGN_ALG_OID_GROUP_ID: u32 = 4u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CRYPT_SIGN_MESSAGE_PARA(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CRYPT_SIGN_MESSAGE_PARA {
+    pub cbSize: u32,
+    pub dwMsgEncodingType: u32,
+    pub pSigningCert: *mut CERT_CONTEXT,
+    pub HashAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
+    pub pvHashAuxInfo: *mut ::core::ffi::c_void,
+    pub cMsgCert: u32,
+    pub rgpMsgCert: *mut *mut CERT_CONTEXT,
+    pub cMsgCrl: u32,
+    pub rgpMsgCrl: *mut *mut CRL_CONTEXT,
+    pub cAuthAttr: u32,
+    pub rgAuthAttr: *mut CRYPT_ATTRIBUTE,
+    pub cUnauthAttr: u32,
+    pub rgUnauthAttr: *mut CRYPT_ATTRIBUTE,
+    pub dwFlags: u32,
+    pub dwInnerContentType: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CRYPT_SIGN_MESSAGE_PARA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CRYPT_SIGN_MESSAGE_PARA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CRYPT_SILENT: u32 = 64u32;
 #[repr(C)]
-pub struct CRYPT_SMART_CARD_ROOT_INFO(i32);
-#[cfg(feature = "Win32_Foundation")]
+pub struct CRYPT_SMART_CARD_ROOT_INFO {
+    pub rgbCardID: [u8; 16],
+    pub luid: ROOT_INFO_LUID,
+}
+impl ::core::marker::Copy for CRYPT_SMART_CARD_ROOT_INFO {}
+impl ::core::clone::Clone for CRYPT_SMART_CARD_ROOT_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CRYPT_SMIME_CAPABILITIES(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct CRYPT_SMIME_CAPABILITIES {
+    pub cCapability: u32,
+    pub rgCapability: *mut CRYPT_SMIME_CAPABILITY,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CRYPT_SMIME_CAPABILITIES {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CRYPT_SMIME_CAPABILITIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CRYPT_SMIME_CAPABILITY(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CRYPT_SMIME_CAPABILITY {
+    pub pszObjId: super::super::Foundation::PSTR,
+    pub Parameters: CRYPTOAPI_BLOB,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CRYPT_SMIME_CAPABILITY {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CRYPT_SMIME_CAPABILITY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CRYPT_SORTED_CTL_ENCODE_HASHED_SUBJECT_IDENTIFIER_FLAG: u32 = 65536u32;
 pub const CRYPT_STICKY_CACHE_RETRIEVAL: u32 = 4096u32;
 #[repr(transparent)]
@@ -3092,22 +6619,110 @@ pub const CRYPT_STRING_RESERVED200: u32 = 512u32;
 pub const CRYPT_SUCCEED: u32 = 1u32;
 pub const CRYPT_TEMPLATE_OID_GROUP_ID: u32 = 9u32;
 #[repr(C)]
-pub struct CRYPT_TIMESTAMP_ACCURACY(i32);
-#[cfg(feature = "Win32_Foundation")]
+pub struct CRYPT_TIMESTAMP_ACCURACY {
+    pub dwSeconds: u32,
+    pub dwMillis: u32,
+    pub dwMicros: u32,
+}
+impl ::core::marker::Copy for CRYPT_TIMESTAMP_ACCURACY {}
+impl ::core::clone::Clone for CRYPT_TIMESTAMP_ACCURACY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CRYPT_TIMESTAMP_CONTEXT(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct CRYPT_TIMESTAMP_INFO(i32);
+pub struct CRYPT_TIMESTAMP_CONTEXT {
+    pub cbEncoded: u32,
+    pub pbEncoded: *mut u8,
+    pub pTimeStamp: *mut CRYPT_TIMESTAMP_INFO,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct CRYPT_TIMESTAMP_PARA(i32);
+impl ::core::marker::Copy for CRYPT_TIMESTAMP_CONTEXT {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CRYPT_TIMESTAMP_CONTEXT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CRYPT_TIMESTAMP_REQUEST(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct CRYPT_TIMESTAMP_INFO {
+    pub dwVersion: u32,
+    pub pszTSAPolicyId: super::super::Foundation::PSTR,
+    pub HashAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
+    pub HashedMessage: CRYPTOAPI_BLOB,
+    pub SerialNumber: CRYPTOAPI_BLOB,
+    pub ftTime: super::super::Foundation::FILETIME,
+    pub pvAccuracy: *mut CRYPT_TIMESTAMP_ACCURACY,
+    pub fOrdering: super::super::Foundation::BOOL,
+    pub Nonce: CRYPTOAPI_BLOB,
+    pub Tsa: CRYPTOAPI_BLOB,
+    pub cExtension: u32,
+    pub rgExtension: *mut CERT_EXTENSION,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CRYPT_TIMESTAMP_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CRYPT_TIMESTAMP_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CRYPT_TIMESTAMP_RESPONSE(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CRYPT_TIMESTAMP_PARA {
+    pub pszTSAPolicyId: super::super::Foundation::PSTR,
+    pub fRequestCerts: super::super::Foundation::BOOL,
+    pub Nonce: CRYPTOAPI_BLOB,
+    pub cExtension: u32,
+    pub rgExtension: *mut CERT_EXTENSION,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CRYPT_TIMESTAMP_PARA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CRYPT_TIMESTAMP_PARA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct CRYPT_TIMESTAMP_REQUEST {
+    pub dwVersion: CRYPT_TIMESTAMP_VERSION,
+    pub HashAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
+    pub HashedMessage: CRYPTOAPI_BLOB,
+    pub pszTSAPolicyId: super::super::Foundation::PSTR,
+    pub Nonce: CRYPTOAPI_BLOB,
+    pub fCertReq: super::super::Foundation::BOOL,
+    pub cExtension: u32,
+    pub rgExtension: *mut CERT_EXTENSION,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CRYPT_TIMESTAMP_REQUEST {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CRYPT_TIMESTAMP_REQUEST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct CRYPT_TIMESTAMP_RESPONSE {
+    pub dwStatus: CRYPT_TIMESTAMP_RESPONSE_STATUS,
+    pub cFreeText: u32,
+    pub rgFreeText: *mut super::super::Foundation::PWSTR,
+    pub FailureInfo: CRYPT_BIT_BLOB,
+    pub ContentInfo: CRYPTOAPI_BLOB,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CRYPT_TIMESTAMP_RESPONSE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CRYPT_TIMESTAMP_RESPONSE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CRYPT_TIMESTAMP_RESPONSE_STATUS(pub u32);
 pub const TIMESTAMP_STATUS_GRANTED: CRYPT_TIMESTAMP_RESPONSE_STATUS = CRYPT_TIMESTAMP_RESPONSE_STATUS(0u32);
@@ -3119,19 +6734,55 @@ pub const TIMESTAMP_STATUS_REVOKED: CRYPT_TIMESTAMP_RESPONSE_STATUS = CRYPT_TIME
 #[repr(transparent)]
 pub struct CRYPT_TIMESTAMP_VERSION(pub u32);
 pub const TIMESTAMP_VERSION: CRYPT_TIMESTAMP_VERSION = CRYPT_TIMESTAMP_VERSION(1u32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CRYPT_TIME_STAMP_REQUEST_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CRYPT_TIME_STAMP_REQUEST_INFO {
+    pub pszTimeStampAlgorithm: super::super::Foundation::PSTR,
+    pub pszContentType: super::super::Foundation::PSTR,
+    pub Content: CRYPTOAPI_BLOB,
+    pub cAttribute: u32,
+    pub rgAttribute: *mut CRYPT_ATTRIBUTE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CRYPT_TIME_STAMP_REQUEST_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CRYPT_TIME_STAMP_REQUEST_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CRYPT_TYPE2_FORMAT: u32 = 2u32;
 pub const CRYPT_UI_PROMPT: u32 = 4u32;
 pub const CRYPT_UNICODE_NAME_DECODE_DISABLE_IE4_UTF8_FLAG: u32 = 16777216u32;
 pub const CRYPT_UNICODE_NAME_ENCODE_FORCE_UTF8_UNICODE_FLAG: u32 = 268435456u32;
 pub const CRYPT_UPDATE_KEY: u32 = 8u32;
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+pub struct CRYPT_URL_ARRAY {
+    pub cUrl: u32,
+    pub rgwszUrl: *mut super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CRYPT_URL_ARRAY {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CRYPT_URL_ARRAY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CRYPT_URL_ARRAY(i32);
-#[repr(C)]
-pub struct CRYPT_URL_INFO(i32);
+pub struct CRYPT_URL_INFO {
+    pub cbSize: u32,
+    pub dwSyncDeltaTime: u32,
+    pub cGroup: u32,
+    pub rgcGroupEntry: *mut u32,
+}
+impl ::core::marker::Copy for CRYPT_URL_INFO {}
+impl ::core::clone::Clone for CRYPT_URL_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CRYPT_USERDATA: u32 = 1u32;
 pub const CRYPT_USER_DEFAULT: u32 = 2u32;
 pub const CRYPT_USER_PROTECTED_STRONG: u32 = 1048576u32;
@@ -3147,39 +6798,128 @@ pub const CRYPT_VERIFY_CERT_SIGN_ISSUER_CHAIN: u32 = 3u32;
 pub const CRYPT_VERIFY_CERT_SIGN_ISSUER_NULL: u32 = 4u32;
 pub const CRYPT_VERIFY_CERT_SIGN_ISSUER_PUBKEY: u32 = 1u32;
 #[repr(C)]
-pub struct CRYPT_VERIFY_CERT_SIGN_STRONG_PROPERTIES_INFO(i32);
+pub struct CRYPT_VERIFY_CERT_SIGN_STRONG_PROPERTIES_INFO {
+    pub CertSignHashCNGAlgPropData: CRYPTOAPI_BLOB,
+    pub CertIssuerPubKeyBitLengthPropData: CRYPTOAPI_BLOB,
+}
+impl ::core::marker::Copy for CRYPT_VERIFY_CERT_SIGN_STRONG_PROPERTIES_INFO {}
+impl ::core::clone::Clone for CRYPT_VERIFY_CERT_SIGN_STRONG_PROPERTIES_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CRYPT_VERIFY_CERT_SIGN_SUBJECT_BLOB: u32 = 1u32;
 pub const CRYPT_VERIFY_CERT_SIGN_SUBJECT_CERT: u32 = 2u32;
 pub const CRYPT_VERIFY_CERT_SIGN_SUBJECT_CRL: u32 = 3u32;
 pub const CRYPT_VERIFY_CERT_SIGN_SUBJECT_OCSP_BASIC_SIGNED_RESPONSE: u32 = 4u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CRYPT_VERIFY_CERT_SIGN_WEAK_HASH_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CRYPT_VERIFY_CERT_SIGN_WEAK_HASH_INFO {
+    pub cCNGHashAlgid: u32,
+    pub rgpwszCNGHashAlgid: *mut super::super::Foundation::PWSTR,
+    pub dwWeakIndex: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CRYPT_VERIFY_CERT_SIGN_WEAK_HASH_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CRYPT_VERIFY_CERT_SIGN_WEAK_HASH_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CRYPT_VERIFY_CONTEXT_SIGNATURE: u32 = 32u32;
 pub const CRYPT_VERIFY_DATA_HASH: u32 = 64u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CRYPT_VERIFY_MESSAGE_PARA(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CRYPT_VERIFY_MESSAGE_PARA {
+    pub cbSize: u32,
+    pub dwMsgAndCertEncodingType: u32,
+    pub hCryptProv: usize,
+    pub pfnGetSignerCertificate: ::core::option::Option<PFN_CRYPT_GET_SIGNER_CERTIFICATE>,
+    pub pvGetArg: *mut ::core::ffi::c_void,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CRYPT_VERIFY_MESSAGE_PARA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CRYPT_VERIFY_MESSAGE_PARA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CRYPT_WIRE_ONLY_RETRIEVAL: u32 = 4u32;
 pub const CRYPT_WRITE: u32 = 16u32;
 pub const CRYPT_X931_FORMAT: u32 = 4u32;
 pub const CRYPT_X942_COUNTER_BYTE_LENGTH: u32 = 4u32;
 pub const CRYPT_X942_KEY_LENGTH_BYTE_LENGTH: u32 = 4u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CRYPT_X942_OTHER_INFO(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct CRYPT_XML_ALGORITHM(i32);
+pub struct CRYPT_X942_OTHER_INFO {
+    pub pszContentEncryptionObjId: super::super::Foundation::PSTR,
+    pub rgbCounter: [u8; 4],
+    pub rgbKeyLength: [u8; 4],
+    pub PubInfo: CRYPTOAPI_BLOB,
+}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CRYPT_X942_OTHER_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CRYPT_X942_OTHER_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CRYPT_XML_ALGORITHM_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CRYPT_XML_ALGORITHM {
+    pub cbSize: u32,
+    pub wszAlgorithm: super::super::Foundation::PWSTR,
+    pub Encoded: CRYPT_XML_BLOB,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CRYPT_XML_ALGORITHM {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CRYPT_XML_ALGORITHM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct CRYPT_XML_ALGORITHM_INFO {
+    pub cbSize: u32,
+    pub wszAlgorithmURI: super::super::Foundation::PWSTR,
+    pub wszName: super::super::Foundation::PWSTR,
+    pub dwGroupId: CRYPT_XML_GROUP_ID,
+    pub wszCNGAlgid: super::super::Foundation::PWSTR,
+    pub wszCNGExtraAlgid: super::super::Foundation::PWSTR,
+    pub dwSignFlags: u32,
+    pub dwVerifyFlags: u32,
+    pub pvPaddingInfo: *mut ::core::ffi::c_void,
+    pub pvExtraInfo: *mut ::core::ffi::c_void,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CRYPT_XML_ALGORITHM_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CRYPT_XML_ALGORITHM_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CRYPT_XML_ALGORITHM_INFO_FIND_BY_CNG_ALGID: u32 = 3u32;
 pub const CRYPT_XML_ALGORITHM_INFO_FIND_BY_CNG_SIGN_ALGID: u32 = 4u32;
 pub const CRYPT_XML_ALGORITHM_INFO_FIND_BY_NAME: u32 = 2u32;
 pub const CRYPT_XML_ALGORITHM_INFO_FIND_BY_URI: u32 = 1u32;
 #[repr(C)]
-pub struct CRYPT_XML_BLOB(i32);
+pub struct CRYPT_XML_BLOB {
+    pub dwCharset: CRYPT_XML_CHARSET,
+    pub cbData: u32,
+    pub pbData: *mut u8,
+}
+impl ::core::marker::Copy for CRYPT_XML_BLOB {}
+impl ::core::clone::Clone for CRYPT_XML_BLOB {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CRYPT_XML_BLOB_MAX: u32 = 2147483640u32;
 #[repr(transparent)]
 pub struct CRYPT_XML_CHARSET(pub i32);
@@ -3187,18 +6927,70 @@ pub const CRYPT_XML_CHARSET_AUTO: CRYPT_XML_CHARSET = CRYPT_XML_CHARSET(0i32);
 pub const CRYPT_XML_CHARSET_UTF8: CRYPT_XML_CHARSET = CRYPT_XML_CHARSET(1i32);
 pub const CRYPT_XML_CHARSET_UTF16LE: CRYPT_XML_CHARSET = CRYPT_XML_CHARSET(2i32);
 pub const CRYPT_XML_CHARSET_UTF16BE: CRYPT_XML_CHARSET = CRYPT_XML_CHARSET(3i32);
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+pub struct CRYPT_XML_CRYPTOGRAPHIC_INTERFACE {
+    pub cbSize: u32,
+    pub fpCryptXmlEncodeAlgorithm: ::core::option::Option<CryptXmlDllEncodeAlgorithm>,
+    pub fpCryptXmlCreateDigest: ::core::option::Option<CryptXmlDllCreateDigest>,
+    pub fpCryptXmlDigestData: ::core::option::Option<CryptXmlDllDigestData>,
+    pub fpCryptXmlFinalizeDigest: ::core::option::Option<CryptXmlDllFinalizeDigest>,
+    pub fpCryptXmlCloseDigest: ::core::option::Option<CryptXmlDllCloseDigest>,
+    pub fpCryptXmlSignData: ::core::option::Option<CryptXmlDllSignData>,
+    pub fpCryptXmlVerifySignature: ::core::option::Option<CryptXmlDllVerifySignature>,
+    pub fpCryptXmlGetAlgorithmInfo: ::core::option::Option<CryptXmlDllGetAlgorithmInfo>,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CRYPT_XML_CRYPTOGRAPHIC_INTERFACE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CRYPT_XML_CRYPTOGRAPHIC_INTERFACE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CRYPT_XML_CRYPTOGRAPHIC_INTERFACE(i32);
+pub struct CRYPT_XML_DATA_BLOB {
+    pub cbData: u32,
+    pub pbData: *mut u8,
+}
+impl ::core::marker::Copy for CRYPT_XML_DATA_BLOB {}
+impl ::core::clone::Clone for CRYPT_XML_DATA_BLOB {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CRYPT_XML_DATA_BLOB(i32);
-#[repr(C)]
-pub struct CRYPT_XML_DATA_PROVIDER(i32);
+pub struct CRYPT_XML_DATA_PROVIDER {
+    pub pvCallbackState: *mut ::core::ffi::c_void,
+    pub cbBufferSize: u32,
+    pub pfnRead: ::core::option::Option<PFN_CRYPT_XML_DATA_PROVIDER_READ>,
+    pub pfnClose: ::core::option::Option<PFN_CRYPT_XML_DATA_PROVIDER_CLOSE>,
+}
+impl ::core::marker::Copy for CRYPT_XML_DATA_PROVIDER {}
+impl ::core::clone::Clone for CRYPT_XML_DATA_PROVIDER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CRYPT_XML_DIGEST_REFERENCE_DATA_TRANSFORMED: u32 = 1u32;
 pub const CRYPT_XML_DIGEST_VALUE_MAX: u32 = 128u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CRYPT_XML_DOC_CTXT(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CRYPT_XML_DOC_CTXT {
+    pub cbSize: u32,
+    pub hDocCtxt: *mut ::core::ffi::c_void,
+    pub pTransformsConfig: *mut CRYPT_XML_TRANSFORM_CHAIN_CONFIG,
+    pub cSignature: u32,
+    pub rgpSignature: *mut *mut CRYPT_XML_SIGNATURE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CRYPT_XML_DOC_CTXT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CRYPT_XML_DOC_CTXT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CRYPT_XML_E_ALGORITHM: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2146885372i32 as _);
 pub const CRYPT_XML_E_BASE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2146885376i32 as _);
 pub const CRYPT_XML_E_ENCODING: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2146885373i32 as _);
@@ -3237,12 +7029,40 @@ pub const CRYPT_XML_GROUP_ID_SIGN_________: CRYPT_XML_GROUP_ID = CRYPT_XML_GROUP
 pub const CRYPT_XML_GROUP_ID_HASH: u32 = 1u32;
 pub const CRYPT_XML_GROUP_ID_SIGN: u32 = 2u32;
 pub const CRYPT_XML_ID_MAX: u32 = 256u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CRYPT_XML_ISSUER_SERIAL(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct CRYPT_XML_ISSUER_SERIAL {
+    pub wszIssuer: super::super::Foundation::PWSTR,
+    pub wszSerial: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CRYPT_XML_ISSUER_SERIAL {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CRYPT_XML_ISSUER_SERIAL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CRYPT_XML_KEYINFO_PARAM(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CRYPT_XML_KEYINFO_PARAM {
+    pub wszId: super::super::Foundation::PWSTR,
+    pub wszKeyName: super::super::Foundation::PWSTR,
+    pub SKI: CRYPTOAPI_BLOB,
+    pub wszSubjectName: super::super::Foundation::PWSTR,
+    pub cCertificate: u32,
+    pub rgCertificate: *mut CRYPTOAPI_BLOB,
+    pub cCRL: u32,
+    pub rgCRL: *mut CRYPTOAPI_BLOB,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CRYPT_XML_KEYINFO_PARAM {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CRYPT_XML_KEYINFO_PARAM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CRYPT_XML_KEYINFO_SPEC(pub i32);
 pub const CRYPT_XML_KEYINFO_SPEC_NONE: CRYPT_XML_KEYINFO_SPEC = CRYPT_XML_KEYINFO_SPEC(0i32);
@@ -3256,33 +7076,160 @@ pub const CRYPT_XML_KEYINFO_TYPE_RETRIEVAL: CRYPT_XML_KEYINFO_TYPE = CRYPT_XML_K
 pub const CRYPT_XML_KEYINFO_TYPE_X509DATA: CRYPT_XML_KEYINFO_TYPE = CRYPT_XML_KEYINFO_TYPE(4u32);
 pub const CRYPT_XML_KEYINFO_TYPE_CUSTOM: CRYPT_XML_KEYINFO_TYPE = CRYPT_XML_KEYINFO_TYPE(5u32);
 #[repr(C)]
-pub struct CRYPT_XML_KEY_DSA_KEY_VALUE(i32);
+pub struct CRYPT_XML_KEY_DSA_KEY_VALUE {
+    pub P: CRYPT_XML_DATA_BLOB,
+    pub Q: CRYPT_XML_DATA_BLOB,
+    pub G: CRYPT_XML_DATA_BLOB,
+    pub Y: CRYPT_XML_DATA_BLOB,
+    pub J: CRYPT_XML_DATA_BLOB,
+    pub Seed: CRYPT_XML_DATA_BLOB,
+    pub Counter: CRYPT_XML_DATA_BLOB,
+}
+impl ::core::marker::Copy for CRYPT_XML_KEY_DSA_KEY_VALUE {}
+impl ::core::clone::Clone for CRYPT_XML_KEY_DSA_KEY_VALUE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct CRYPT_XML_KEY_ECDSA_KEY_VALUE(i32);
+pub struct CRYPT_XML_KEY_ECDSA_KEY_VALUE {
+    pub wszNamedCurve: super::super::Foundation::PWSTR,
+    pub X: CRYPT_XML_DATA_BLOB,
+    pub Y: CRYPT_XML_DATA_BLOB,
+    pub ExplicitPara: CRYPT_XML_BLOB,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct CRYPT_XML_KEY_INFO(i32);
+impl ::core::marker::Copy for CRYPT_XML_KEY_ECDSA_KEY_VALUE {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CRYPT_XML_KEY_ECDSA_KEY_VALUE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CRYPT_XML_KEY_INFO_ITEM(i32);
-#[repr(C)]
-pub struct CRYPT_XML_KEY_RSA_KEY_VALUE(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct CRYPT_XML_KEY_INFO {
+    pub cbSize: u32,
+    pub wszId: super::super::Foundation::PWSTR,
+    pub cKeyInfo: u32,
+    pub rgKeyInfo: *mut CRYPT_XML_KEY_INFO_ITEM,
+    pub hVerifyKey: BCRYPT_KEY_HANDLE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CRYPT_XML_KEY_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CRYPT_XML_KEY_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CRYPT_XML_KEY_VALUE(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CRYPT_XML_KEY_INFO_ITEM {
+    pub dwType: CRYPT_XML_KEYINFO_TYPE,
+    pub Anonymous: CRYPT_XML_KEY_INFO_ITEM_0,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CRYPT_XML_KEY_INFO_ITEM {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CRYPT_XML_KEY_INFO_ITEM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub union CRYPT_XML_KEY_INFO_ITEM_0 {
+    pub wszKeyName: super::super::Foundation::PWSTR,
+    pub KeyValue: CRYPT_XML_KEY_VALUE,
+    pub RetrievalMethod: CRYPT_XML_BLOB,
+    pub X509Data: CRYPT_XML_X509DATA,
+    pub Custom: CRYPT_XML_BLOB,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CRYPT_XML_KEY_INFO_ITEM_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct CRYPT_XML_KEY_RSA_KEY_VALUE {
+    pub Modulus: CRYPT_XML_DATA_BLOB,
+    pub Exponent: CRYPT_XML_DATA_BLOB,
+}
+impl ::core::marker::Copy for CRYPT_XML_KEY_RSA_KEY_VALUE {}
+impl ::core::clone::Clone for CRYPT_XML_KEY_RSA_KEY_VALUE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct CRYPT_XML_KEY_VALUE {
+    pub dwType: CRYPT_XML_KEY_VALUE_TYPE,
+    pub Anonymous: CRYPT_XML_KEY_VALUE_0,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CRYPT_XML_KEY_VALUE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CRYPT_XML_KEY_VALUE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub union CRYPT_XML_KEY_VALUE_0 {
+    pub DSAKeyValue: CRYPT_XML_KEY_DSA_KEY_VALUE,
+    pub RSAKeyValue: CRYPT_XML_KEY_RSA_KEY_VALUE,
+    pub ECDSAKeyValue: CRYPT_XML_KEY_ECDSA_KEY_VALUE,
+    pub Custom: CRYPT_XML_BLOB,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CRYPT_XML_KEY_VALUE_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CRYPT_XML_KEY_VALUE_TYPE(pub u32);
 pub const CRYPT_XML_KEY_VALUE_TYPE_DSA: CRYPT_XML_KEY_VALUE_TYPE = CRYPT_XML_KEY_VALUE_TYPE(1u32);
 pub const CRYPT_XML_KEY_VALUE_TYPE_RSA: CRYPT_XML_KEY_VALUE_TYPE = CRYPT_XML_KEY_VALUE_TYPE(2u32);
 pub const CRYPT_XML_KEY_VALUE_TYPE_ECDSA: CRYPT_XML_KEY_VALUE_TYPE = CRYPT_XML_KEY_VALUE_TYPE(3u32);
 pub const CRYPT_XML_KEY_VALUE_TYPE_CUSTOM: CRYPT_XML_KEY_VALUE_TYPE = CRYPT_XML_KEY_VALUE_TYPE(4u32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CRYPT_XML_OBJECT(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CRYPT_XML_OBJECT {
+    pub cbSize: u32,
+    pub hObject: *mut ::core::ffi::c_void,
+    pub wszId: super::super::Foundation::PWSTR,
+    pub wszMimeType: super::super::Foundation::PWSTR,
+    pub wszEncoding: super::super::Foundation::PWSTR,
+    pub Manifest: CRYPT_XML_REFERENCES,
+    pub Encoded: CRYPT_XML_BLOB,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CRYPT_XML_OBJECT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CRYPT_XML_OBJECT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CRYPT_XML_OBJECTS_MAX: u32 = 256u32;
 #[repr(C)]
-pub struct CRYPT_XML_PROPERTY(i32);
+pub struct CRYPT_XML_PROPERTY {
+    pub dwPropId: CRYPT_XML_PROPERTY_ID,
+    pub pvValue: *mut ::core::ffi::c_void,
+    pub cbValue: u32,
+}
+impl ::core::marker::Copy for CRYPT_XML_PROPERTY {}
+impl ::core::clone::Clone for CRYPT_XML_PROPERTY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CRYPT_XML_PROPERTY_ID(pub i32);
 pub const CRYPT_XML_PROPERTY_MAX_HEAP_SIZE: CRYPT_XML_PROPERTY_ID = CRYPT_XML_PROPERTY_ID(1i32);
@@ -3290,23 +7237,95 @@ pub const CRYPT_XML_PROPERTY_SIGNATURE_LOCATION: CRYPT_XML_PROPERTY_ID = CRYPT_X
 pub const CRYPT_XML_PROPERTY_MAX_SIGNATURES: CRYPT_XML_PROPERTY_ID = CRYPT_XML_PROPERTY_ID(3i32);
 pub const CRYPT_XML_PROPERTY_DOC_DECLARATION: CRYPT_XML_PROPERTY_ID = CRYPT_XML_PROPERTY_ID(4i32);
 pub const CRYPT_XML_PROPERTY_XML_OUTPUT_CHARSET: CRYPT_XML_PROPERTY_ID = CRYPT_XML_PROPERTY_ID(5i32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CRYPT_XML_REFERENCE(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct CRYPT_XML_REFERENCE {
+    pub cbSize: u32,
+    pub hReference: *mut ::core::ffi::c_void,
+    pub wszId: super::super::Foundation::PWSTR,
+    pub wszUri: super::super::Foundation::PWSTR,
+    pub wszType: super::super::Foundation::PWSTR,
+    pub DigestMethod: CRYPT_XML_ALGORITHM,
+    pub DigestValue: CRYPTOAPI_BLOB,
+    pub cTransform: u32,
+    pub rgTransform: *mut CRYPT_XML_ALGORITHM,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CRYPT_XML_REFERENCE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CRYPT_XML_REFERENCE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CRYPT_XML_REFERENCES(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CRYPT_XML_REFERENCES {
+    pub cReference: u32,
+    pub rgpReference: *mut *mut CRYPT_XML_REFERENCE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CRYPT_XML_REFERENCES {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CRYPT_XML_REFERENCES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CRYPT_XML_REFERENCES_MAX: u32 = 32760u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CRYPT_XML_SIGNATURE(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CRYPT_XML_SIGNATURE {
+    pub cbSize: u32,
+    pub hSignature: *mut ::core::ffi::c_void,
+    pub wszId: super::super::Foundation::PWSTR,
+    pub SignedInfo: CRYPT_XML_SIGNED_INFO,
+    pub SignatureValue: CRYPTOAPI_BLOB,
+    pub pKeyInfo: *mut CRYPT_XML_KEY_INFO,
+    pub cObject: u32,
+    pub rgpObject: *mut *mut CRYPT_XML_OBJECT,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CRYPT_XML_SIGNATURE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CRYPT_XML_SIGNATURE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CRYPT_XML_SIGNATURES_MAX: u32 = 16u32;
 pub const CRYPT_XML_SIGNATURE_VALUE_MAX: u32 = 2048u32;
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+pub struct CRYPT_XML_SIGNED_INFO {
+    pub cbSize: u32,
+    pub wszId: super::super::Foundation::PWSTR,
+    pub Canonicalization: CRYPT_XML_ALGORITHM,
+    pub SignatureMethod: CRYPT_XML_ALGORITHM,
+    pub cReference: u32,
+    pub rgpReference: *mut *mut CRYPT_XML_REFERENCE,
+    pub Encoded: CRYPT_XML_BLOB,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CRYPT_XML_SIGNED_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CRYPT_XML_SIGNED_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CRYPT_XML_SIGNED_INFO(i32);
-#[repr(C)]
-pub struct CRYPT_XML_STATUS(i32);
+pub struct CRYPT_XML_STATUS {
+    pub cbSize: u32,
+    pub dwErrorStatus: CRYPT_XML_STATUS_ERROR_STATUS,
+    pub dwInfoStatus: CRYPT_XML_STATUS_INFO_STATUS,
+}
+impl ::core::marker::Copy for CRYPT_XML_STATUS {}
+impl ::core::clone::Clone for CRYPT_XML_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CRYPT_XML_STATUS_ERROR_STATUS(pub u32);
 pub const CRYPT_XML_STATUS_ERROR_NOT_RESOLVED: CRYPT_XML_STATUS_ERROR_STATUS = CRYPT_XML_STATUS_ERROR_STATUS(1u32);
@@ -3324,24 +7343,88 @@ pub const CRYPT_XML_STATUS_DIGEST_VALID: CRYPT_XML_STATUS_INFO_STATUS = CRYPT_XM
 pub const CRYPT_XML_STATUS_SIGNATURE_VALID: CRYPT_XML_STATUS_INFO_STATUS = CRYPT_XML_STATUS_INFO_STATUS(65536u32);
 pub const CRYPT_XML_STATUS_OPENED_TO_ENCODE: CRYPT_XML_STATUS_INFO_STATUS = CRYPT_XML_STATUS_INFO_STATUS(2147483648u32);
 pub const CRYPT_XML_STATUS_NO_ERROR: u32 = 0u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CRYPT_XML_TRANSFORM_CHAIN_CONFIG(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CRYPT_XML_TRANSFORM_CHAIN_CONFIG {
+    pub cbSize: u32,
+    pub cTransformInfo: u32,
+    pub rgpTransformInfo: *mut *mut CRYPT_XML_TRANSFORM_INFO,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CRYPT_XML_TRANSFORM_CHAIN_CONFIG {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CRYPT_XML_TRANSFORM_CHAIN_CONFIG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CRYPT_XML_TRANSFORM_FLAGS(pub u32);
 pub const CRYPT_XML_TRANSFORM_ON_STREAM: CRYPT_XML_TRANSFORM_FLAGS = CRYPT_XML_TRANSFORM_FLAGS(1u32);
 pub const CRYPT_XML_TRANSFORM_ON_NODESET: CRYPT_XML_TRANSFORM_FLAGS = CRYPT_XML_TRANSFORM_FLAGS(2u32);
 pub const CRYPT_XML_TRANSFORM_URI_QUERY_STRING: CRYPT_XML_TRANSFORM_FLAGS = CRYPT_XML_TRANSFORM_FLAGS(3u32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CRYPT_XML_TRANSFORM_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CRYPT_XML_TRANSFORM_INFO {
+    pub cbSize: u32,
+    pub wszAlgorithm: super::super::Foundation::PWSTR,
+    pub cbBufferSize: u32,
+    pub dwFlags: CRYPT_XML_TRANSFORM_FLAGS,
+    pub pfnCreateTransform: ::core::option::Option<PFN_CRYPT_XML_CREATE_TRANSFORM>,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CRYPT_XML_TRANSFORM_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CRYPT_XML_TRANSFORM_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CRYPT_XML_TRANSFORM_MAX: u32 = 16u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CRYPT_XML_X509DATA(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct CRYPT_XML_X509DATA {
+    pub cX509Data: u32,
+    pub rgX509Data: *mut CRYPT_XML_X509DATA_ITEM,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CRYPT_XML_X509DATA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CRYPT_XML_X509DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CRYPT_XML_X509DATA_ITEM(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CRYPT_XML_X509DATA_ITEM {
+    pub dwType: CRYPT_XML_X509DATA_TYPE,
+    pub Anonymous: CRYPT_XML_X509DATA_ITEM_0,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CRYPT_XML_X509DATA_ITEM {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CRYPT_XML_X509DATA_ITEM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub union CRYPT_XML_X509DATA_ITEM_0 {
+    pub IssuerSerial: CRYPT_XML_ISSUER_SERIAL,
+    pub SKI: CRYPT_XML_DATA_BLOB,
+    pub wszSubjectName: super::super::Foundation::PWSTR,
+    pub Certificate: CRYPT_XML_DATA_BLOB,
+    pub CRL: CRYPT_XML_DATA_BLOB,
+    pub Custom: CRYPT_XML_BLOB,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CRYPT_XML_X509DATA_ITEM_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CRYPT_XML_X509DATA_TYPE(pub u32);
 pub const CRYPT_XML_X509DATA_TYPE_ISSUER_SERIAL: CRYPT_XML_X509DATA_TYPE = CRYPT_XML_X509DATA_TYPE(1u32);
@@ -3350,40 +7433,177 @@ pub const CRYPT_XML_X509DATA_TYPE_SUBJECT_NAME: CRYPT_XML_X509DATA_TYPE = CRYPT_
 pub const CRYPT_XML_X509DATA_TYPE_CERTIFICATE: CRYPT_XML_X509DATA_TYPE = CRYPT_XML_X509DATA_TYPE(4u32);
 pub const CRYPT_XML_X509DATA_TYPE_CRL: CRYPT_XML_X509DATA_TYPE = CRYPT_XML_X509DATA_TYPE(5u32);
 pub const CRYPT_XML_X509DATA_TYPE_CUSTOM: CRYPT_XML_X509DATA_TYPE = CRYPT_XML_X509DATA_TYPE(6u32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CTL_ANY_SUBJECT_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CTL_ANY_SUBJECT_INFO {
+    pub SubjectAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
+    pub SubjectIdentifier: CRYPTOAPI_BLOB,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CTL_ANY_SUBJECT_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CTL_ANY_SUBJECT_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CTL_ANY_SUBJECT_TYPE: u32 = 1u32;
 pub const CTL_CERT_SUBJECT_TYPE: u32 = 2u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CTL_CONTEXT(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct CTL_CONTEXT {
+    pub dwMsgAndCertEncodingType: u32,
+    pub pbCtlEncoded: *mut u8,
+    pub cbCtlEncoded: u32,
+    pub pCtlInfo: *mut CTL_INFO,
+    pub hCertStore: *mut ::core::ffi::c_void,
+    pub hCryptMsg: *mut ::core::ffi::c_void,
+    pub pbCtlContent: *mut u8,
+    pub cbCtlContent: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CTL_CONTEXT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CTL_CONTEXT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CTL_ENTRY(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CTL_ENTRY {
+    pub SubjectIdentifier: CRYPTOAPI_BLOB,
+    pub cAttribute: u32,
+    pub rgAttribute: *mut CRYPT_ATTRIBUTE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CTL_ENTRY {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CTL_ENTRY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CTL_ENTRY_FROM_PROP_CHAIN_FLAG: u32 = 1u32;
 pub const CTL_FIND_NO_LIST_ID_CBDATA: u32 = 4294967295u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CTL_FIND_SUBJECT_PARA(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct CTL_FIND_USAGE_PARA(i32);
+pub struct CTL_FIND_SUBJECT_PARA {
+    pub cbSize: u32,
+    pub pUsagePara: *mut CTL_FIND_USAGE_PARA,
+    pub dwSubjectType: u32,
+    pub pvSubject: *mut ::core::ffi::c_void,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct CTL_INFO(i32);
+impl ::core::marker::Copy for CTL_FIND_SUBJECT_PARA {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CTL_FIND_SUBJECT_PARA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CTL_USAGE(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct CTL_FIND_USAGE_PARA {
+    pub cbSize: u32,
+    pub SubjectUsage: CTL_USAGE,
+    pub ListIdentifier: CRYPTOAPI_BLOB,
+    pub pSigner: *mut CERT_INFO,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CTL_FIND_USAGE_PARA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CTL_FIND_USAGE_PARA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CTL_USAGE_MATCH(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CTL_INFO {
+    pub dwVersion: u32,
+    pub SubjectUsage: CTL_USAGE,
+    pub ListIdentifier: CRYPTOAPI_BLOB,
+    pub SequenceNumber: CRYPTOAPI_BLOB,
+    pub ThisUpdate: super::super::Foundation::FILETIME,
+    pub NextUpdate: super::super::Foundation::FILETIME,
+    pub SubjectAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
+    pub cCTLEntry: u32,
+    pub rgCTLEntry: *mut CTL_ENTRY,
+    pub cExtension: u32,
+    pub rgExtension: *mut CERT_EXTENSION,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CTL_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CTL_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct CTL_USAGE {
+    pub cUsageIdentifier: u32,
+    pub rgpszUsageIdentifier: *mut super::super::Foundation::PSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CTL_USAGE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CTL_USAGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct CTL_USAGE_MATCH {
+    pub dwType: u32,
+    pub Usage: CTL_USAGE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CTL_USAGE_MATCH {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CTL_USAGE_MATCH {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CTL_V1: u32 = 0u32;
 #[repr(C)]
-pub struct CTL_VERIFY_USAGE_PARA(i32);
-#[cfg(feature = "Win32_Foundation")]
+pub struct CTL_VERIFY_USAGE_PARA {
+    pub cbSize: u32,
+    pub ListIdentifier: CRYPTOAPI_BLOB,
+    pub cCtlStore: u32,
+    pub rghCtlStore: *mut *mut ::core::ffi::c_void,
+    pub cSignerStore: u32,
+    pub rghSignerStore: *mut *mut ::core::ffi::c_void,
+}
+impl ::core::marker::Copy for CTL_VERIFY_USAGE_PARA {}
+impl ::core::clone::Clone for CTL_VERIFY_USAGE_PARA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CTL_VERIFY_USAGE_STATUS(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CTL_VERIFY_USAGE_STATUS {
+    pub cbSize: u32,
+    pub dwError: u32,
+    pub dwFlags: u32,
+    pub ppCtl: *mut *mut CTL_CONTEXT,
+    pub dwCtlEntryIndex: u32,
+    pub ppSigner: *mut *mut CERT_CONTEXT,
+    pub dwSignerIndex: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CTL_VERIFY_USAGE_STATUS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CTL_VERIFY_USAGE_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CUR_BLOB_VERSION: u32 = 2u32;
 #[repr(transparent)]
 pub struct CertKeyType(pub u32);
@@ -3418,7 +7638,16 @@ pub struct DSAFIPSVERSION_ENUM(pub i32);
 pub const DSA_FIPS186_2: DSAFIPSVERSION_ENUM = DSAFIPSVERSION_ENUM(0i32);
 pub const DSA_FIPS186_3: DSAFIPSVERSION_ENUM = DSAFIPSVERSION_ENUM(1i32);
 #[repr(C)]
-pub struct DSSSEED(i32);
+pub struct DSSSEED {
+    pub counter: u32,
+    pub seed: [u8; 20],
+}
+impl ::core::marker::Copy for DSSSEED {}
+impl ::core::clone::Clone for DSSSEED {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct Direction(pub i32);
 pub const DirectionEncrypt: Direction = Direction(1i32);
@@ -3431,16 +7660,60 @@ pub struct ECC_CURVE_TYPE_ENUM(pub i32);
 pub const BCRYPT_ECC_PRIME_SHORT_WEIERSTRASS_CURVE: ECC_CURVE_TYPE_ENUM = ECC_CURVE_TYPE_ENUM(1i32);
 pub const BCRYPT_ECC_PRIME_TWISTED_EDWARDS_CURVE: ECC_CURVE_TYPE_ENUM = ECC_CURVE_TYPE_ENUM(2i32);
 pub const BCRYPT_ECC_PRIME_MONTGOMERY_CURVE: ECC_CURVE_TYPE_ENUM = ECC_CURVE_TYPE_ENUM(3i32);
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct ENDPOINTADDRESS(i32);
+pub struct ENDPOINTADDRESS {
+    pub serviceUrl: super::super::Foundation::PWSTR,
+    pub policyUrl: super::super::Foundation::PWSTR,
+    pub rawCertificate: CRYPTOAPI_BLOB,
+}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ENDPOINTADDRESS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ENDPOINTADDRESS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct ENDPOINTADDRESS2(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct ENDPOINTADDRESS2 {
+    pub serviceUrl: super::super::Foundation::PWSTR,
+    pub policyUrl: super::super::Foundation::PWSTR,
+    pub identityType: u32,
+    pub identityBytes: *mut ::core::ffi::c_void,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ENDPOINTADDRESS2 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ENDPOINTADDRESS2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct EV_EXTRA_CERT_CHAIN_POLICY_PARA(i32);
+pub struct EV_EXTRA_CERT_CHAIN_POLICY_PARA {
+    pub cbSize: u32,
+    pub dwRootProgramQualifierFlags: CERT_ROOT_PROGRAM_FLAGS,
+}
+impl ::core::marker::Copy for EV_EXTRA_CERT_CHAIN_POLICY_PARA {}
+impl ::core::clone::Clone for EV_EXTRA_CERT_CHAIN_POLICY_PARA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct EV_EXTRA_CERT_CHAIN_POLICY_STATUS(i32);
+pub struct EV_EXTRA_CERT_CHAIN_POLICY_STATUS {
+    pub cbSize: u32,
+    pub dwQualifiers: u32,
+    pub dwIssuanceUsageIndex: u32,
+}
+impl ::core::marker::Copy for EV_EXTRA_CERT_CHAIN_POLICY_STATUS {}
+impl ::core::clone::Clone for EV_EXTRA_CERT_CHAIN_POLICY_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const EXPORT_PRIVATE_KEYS: u32 = 4u32;
 pub const E_ICARD_ARGUMENT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073413883i32 as _);
 pub const E_ICARD_COMMUNICATION: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073413888i32 as _);
@@ -3470,20 +7743,62 @@ pub const E_ICARD_UI_INITIALIZATION: ::windows_sys::core::HRESULT = ::windows_sy
 pub const E_ICARD_UNKNOWN_REFERENCE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073413757i32 as _);
 pub const E_ICARD_UNTRUSTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073413870i32 as _);
 pub const E_ICARD_USERCANCELLED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073413869i32 as _);
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct GENERIC_XML_TOKEN(i32);
+pub struct GENERIC_XML_TOKEN {
+    pub createDate: super::super::Foundation::FILETIME,
+    pub expiryDate: super::super::Foundation::FILETIME,
+    pub xmlToken: super::super::Foundation::PWSTR,
+    pub internalTokenReference: super::super::Foundation::PWSTR,
+    pub externalTokenReference: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for GENERIC_XML_TOKEN {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for GENERIC_XML_TOKEN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct HASHALGORITHM_ENUM(pub i32);
 pub const DSA_HASH_ALGORITHM_SHA1: HASHALGORITHM_ENUM = HASHALGORITHM_ENUM(0i32);
 pub const DSA_HASH_ALGORITHM_SHA256: HASHALGORITHM_ENUM = HASHALGORITHM_ENUM(1i32);
 pub const DSA_HASH_ALGORITHM_SHA512: HASHALGORITHM_ENUM = HASHALGORITHM_ENUM(2i32);
 #[repr(C)]
-pub struct HCERTCHAINENGINE(i32);
+pub struct HCERTCHAINENGINE {
+    pub Value: isize,
+}
+impl ::core::marker::Copy for HCERTCHAINENGINE {}
+impl ::core::clone::Clone for HCERTCHAINENGINE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct HCRYPTASYNC(i32);
+pub struct HCRYPTASYNC {
+    pub Value: isize,
+}
+impl ::core::marker::Copy for HCRYPTASYNC {}
+impl ::core::clone::Clone for HCRYPTASYNC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct HMAC_Info(i32);
+pub struct HMAC_Info {
+    pub HashAlgid: u32,
+    pub pbInnerString: *mut u8,
+    pub cbInnerString: u32,
+    pub pbOuterString: *mut u8,
+    pub cbOuterString: u32,
+}
+impl ::core::marker::Copy for HMAC_Info {}
+impl ::core::clone::Clone for HMAC_Info {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const HP_ALGID: u32 = 1u32;
 pub const HP_HASHSIZE: u32 = 4u32;
 pub const HP_TLS1PRF_LABEL: u32 = 6u32;
@@ -3492,9 +7807,34 @@ pub const HP_TLS1PRF_SEED: u32 = 7u32;
 pub struct HTTPSPOLICY_CALLBACK_DATA_AUTH_TYPE(pub u32);
 pub const AUTHTYPE_CLIENT: HTTPSPOLICY_CALLBACK_DATA_AUTH_TYPE = HTTPSPOLICY_CALLBACK_DATA_AUTH_TYPE(1u32);
 pub const AUTHTYPE_SERVER: HTTPSPOLICY_CALLBACK_DATA_AUTH_TYPE = HTTPSPOLICY_CALLBACK_DATA_AUTH_TYPE(2u32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct HTTPSPolicyCallbackData(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct HTTPSPolicyCallbackData {
+    pub Anonymous: HTTPSPolicyCallbackData_0,
+    pub dwAuthType: HTTPSPOLICY_CALLBACK_DATA_AUTH_TYPE,
+    pub fdwChecks: u32,
+    pub pwszServerName: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for HTTPSPolicyCallbackData {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for HTTPSPolicyCallbackData {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub union HTTPSPolicyCallbackData_0 {
+    pub cbStruct: u32,
+    pub cbSize: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for HTTPSPolicyCallbackData_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct HandleType(pub i32);
 impl HandleType {
@@ -3518,19 +7858,75 @@ pub const IFX_RSA_KEYGEN_VUL_AFFECTED_LEVEL_2: u32 = 2u32;
 pub const IFX_RSA_KEYGEN_VUL_NOT_AFFECTED: u32 = 0u32;
 #[repr(transparent)]
 pub struct IMSCEPSetup(pub *mut ::core::ffi::c_void);
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct INFORMATIONCARD_ASYMMETRIC_CRYPTO_PARAMETERS(i32);
-#[repr(C)]
-pub struct INFORMATIONCARD_CRYPTO_HANDLE(i32);
+pub struct INFORMATIONCARD_ASYMMETRIC_CRYPTO_PARAMETERS {
+    pub keySize: i32,
+    pub keyExchangeAlgorithm: super::super::Foundation::PWSTR,
+    pub signatureAlgorithm: super::super::Foundation::PWSTR,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct INFORMATIONCARD_HASH_CRYPTO_PARAMETERS(i32);
-#[repr(C)]
-pub struct INFORMATIONCARD_SYMMETRIC_CRYPTO_PARAMETERS(i32);
+impl ::core::marker::Copy for INFORMATIONCARD_ASYMMETRIC_CRYPTO_PARAMETERS {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for INFORMATIONCARD_ASYMMETRIC_CRYPTO_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct INFORMATIONCARD_TRANSFORM_CRYPTO_PARAMETERS(i32);
+pub struct INFORMATIONCARD_CRYPTO_HANDLE {
+    pub r#type: HandleType,
+    pub expiration: i64,
+    pub cryptoParameters: *mut ::core::ffi::c_void,
+}
+impl ::core::marker::Copy for INFORMATIONCARD_CRYPTO_HANDLE {}
+impl ::core::clone::Clone for INFORMATIONCARD_CRYPTO_HANDLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct INFORMATIONCARD_HASH_CRYPTO_PARAMETERS {
+    pub hashSize: i32,
+    pub transform: INFORMATIONCARD_TRANSFORM_CRYPTO_PARAMETERS,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for INFORMATIONCARD_HASH_CRYPTO_PARAMETERS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for INFORMATIONCARD_HASH_CRYPTO_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct INFORMATIONCARD_SYMMETRIC_CRYPTO_PARAMETERS {
+    pub keySize: i32,
+    pub blockSize: i32,
+    pub feedbackSize: i32,
+}
+impl ::core::marker::Copy for INFORMATIONCARD_SYMMETRIC_CRYPTO_PARAMETERS {}
+impl ::core::clone::Clone for INFORMATIONCARD_SYMMETRIC_CRYPTO_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct INFORMATIONCARD_TRANSFORM_CRYPTO_PARAMETERS {
+    pub inputBlockSize: i32,
+    pub outputBlockSize: i32,
+    pub canTransformMultipleBlocks: super::super::Foundation::BOOL,
+    pub canReuseTransform: super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for INFORMATIONCARD_TRANSFORM_CRYPTO_PARAMETERS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for INFORMATIONCARD_TRANSFORM_CRYPTO_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const INTERNATIONAL_USAGE: u32 = 1u32;
 pub const KDF_ALGORITHMID: u32 = 8u32;
 pub const KDF_CONTEXT: u32 = 14u32;
@@ -3557,7 +7953,17 @@ pub const KDF_USE_SECRET_AS_HMAC_KEY_FLAG: u32 = 1u32;
 pub const KEYSTATEBLOB: u32 = 12u32;
 pub const KEY_LENGTH_MASK: u32 = 4294901760u32;
 #[repr(C)]
-pub struct KEY_TYPE_SUBTYPE(i32);
+pub struct KEY_TYPE_SUBTYPE {
+    pub dwKeySpec: u32,
+    pub Type: ::windows_sys::core::GUID,
+    pub Subtype: ::windows_sys::core::GUID,
+}
+impl ::core::marker::Copy for KEY_TYPE_SUBTYPE {}
+impl ::core::clone::Clone for KEY_TYPE_SUBTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const KP_ADMIN_PIN: u32 = 31u32;
 pub const KP_CLEAR_KEY: u32 = 27u32;
 pub const KP_CLIENT_RANDOM: u32 = 21u32;
@@ -3655,7 +8061,17 @@ pub const NCRYPT_ASYMMETRIC_ENCRYPTION_INTERFACE: NCRYPT_ALGORITHM_NAME_CLASS = 
 pub const NCRYPT_SECRET_AGREEMENT_INTERFACE: NCRYPT_ALGORITHM_NAME_CLASS = NCRYPT_ALGORITHM_NAME_CLASS(4u32);
 pub const NCRYPT_SIGNATURE_INTERFACE: NCRYPT_ALGORITHM_NAME_CLASS = NCRYPT_ALGORITHM_NAME_CLASS(5u32);
 #[repr(C)]
-pub struct NCRYPT_ALLOC_PARA(i32);
+pub struct NCRYPT_ALLOC_PARA {
+    pub cbSize: u32,
+    pub pfnAlloc: ::core::option::Option<PFN_NCRYPT_ALLOC>,
+    pub pfnFree: ::core::option::Option<PFN_NCRYPT_FREE>,
+}
+impl ::core::marker::Copy for NCRYPT_ALLOC_PARA {}
+impl ::core::clone::Clone for NCRYPT_ALLOC_PARA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const NCRYPT_ALLOW_ALL_USAGES: u32 = 16777215u32;
 pub const NCRYPT_ALLOW_ARCHIVING_FLAG: u32 = 4u32;
 pub const NCRYPT_ALLOW_DECRYPT_FLAG: u32 = 1u32;
@@ -3673,7 +8089,20 @@ pub const NCRYPT_CIPHER_KEY_BLOB_MAGIC: u32 = 1380470851u32;
 pub const NCRYPT_CIPHER_NO_PADDING_FLAG: u32 = 0u32;
 pub const NCRYPT_CIPHER_OTHER_PADDING_FLAG: u32 = 2u32;
 #[repr(C)]
-pub struct NCRYPT_CIPHER_PADDING_INFO(i32);
+pub struct NCRYPT_CIPHER_PADDING_INFO {
+    pub cbSize: u32,
+    pub dwFlags: u32,
+    pub pbIV: *mut u8,
+    pub cbIV: u32,
+    pub pbOtherInfo: *mut u8,
+    pub cbOtherInfo: u32,
+}
+impl ::core::marker::Copy for NCRYPT_CIPHER_PADDING_INFO {}
+impl ::core::clone::Clone for NCRYPT_CIPHER_PADDING_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const NCRYPT_CLAIM_AUTHORITY_AND_SUBJECT: u32 = 3u32;
 pub const NCRYPT_CLAIM_AUTHORITY_ONLY: u32 = 1u32;
 pub const NCRYPT_CLAIM_PLATFORM: u32 = 65536u32;
@@ -3683,9 +8112,32 @@ pub const NCRYPT_CLAIM_VSM_KEY_ATTESTATION_STATEMENT: u32 = 4u32;
 pub const NCRYPT_CLAIM_WEB_AUTH_SUBJECT_ONLY: u32 = 258u32;
 pub const NCRYPT_DO_NOT_FINALIZE_FLAG: u32 = 1024u32;
 #[repr(C)]
-pub struct NCRYPT_EXPORTED_ISOLATED_KEY_ENVELOPE(i32);
+pub struct NCRYPT_EXPORTED_ISOLATED_KEY_ENVELOPE {
+    pub Header: NCRYPT_EXPORTED_ISOLATED_KEY_HEADER,
+}
+impl ::core::marker::Copy for NCRYPT_EXPORTED_ISOLATED_KEY_ENVELOPE {}
+impl ::core::clone::Clone for NCRYPT_EXPORTED_ISOLATED_KEY_ENVELOPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct NCRYPT_EXPORTED_ISOLATED_KEY_HEADER(i32);
+pub struct NCRYPT_EXPORTED_ISOLATED_KEY_HEADER {
+    pub Version: u32,
+    pub KeyUsage: u32,
+    pub _bitfield: u32,
+    pub cbAlgName: u32,
+    pub cbNonce: u32,
+    pub cbAuthTag: u32,
+    pub cbWrappingKey: u32,
+    pub cbIsolatedKey: u32,
+}
+impl ::core::marker::Copy for NCRYPT_EXPORTED_ISOLATED_KEY_HEADER {}
+impl ::core::clone::Clone for NCRYPT_EXPORTED_ISOLATED_KEY_HEADER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const NCRYPT_EXPORTED_ISOLATED_KEY_HEADER_CURRENT_VERSION: u32 = 0u32;
 pub const NCRYPT_EXPORTED_ISOLATED_KEY_HEADER_V0: u32 = 0u32;
 pub const NCRYPT_EXPORT_LEGACY_FLAG: u32 = 2048u32;
@@ -3716,20 +8168,64 @@ pub const NCRYPT_IMPL_REMOVABLE_FLAG: u32 = 8u32;
 pub const NCRYPT_IMPL_SOFTWARE_FLAG: u32 = 2u32;
 pub const NCRYPT_IMPL_VIRTUAL_ISOLATION_FLAG: u32 = 32u32;
 #[repr(C)]
-pub struct NCRYPT_ISOLATED_KEY_ATTESTED_ATTRIBUTES(i32);
+pub struct NCRYPT_ISOLATED_KEY_ATTESTED_ATTRIBUTES {
+    pub Version: u32,
+    pub Flags: u32,
+    pub cbPublicKeyBlob: u32,
+}
+impl ::core::marker::Copy for NCRYPT_ISOLATED_KEY_ATTESTED_ATTRIBUTES {}
+impl ::core::clone::Clone for NCRYPT_ISOLATED_KEY_ATTESTED_ATTRIBUTES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const NCRYPT_ISOLATED_KEY_ATTESTED_ATTRIBUTES_CURRENT_VERSION: u32 = 0u32;
 pub const NCRYPT_ISOLATED_KEY_ATTESTED_ATTRIBUTES_V0: u32 = 0u32;
 pub const NCRYPT_ISOLATED_KEY_FLAG_CREATED_IN_ISOLATION: u32 = 1u32;
 pub const NCRYPT_ISOLATED_KEY_FLAG_IMPORT_ONLY: u32 = 2u32;
 pub const NCRYPT_KDF_KEY_BLOB_MAGIC: u32 = 826688587u32;
 #[repr(C)]
-pub struct NCRYPT_KEY_ACCESS_POLICY_BLOB(i32);
+pub struct NCRYPT_KEY_ACCESS_POLICY_BLOB {
+    pub dwVersion: u32,
+    pub dwPolicyFlags: u32,
+    pub cbUserSid: u32,
+    pub cbApplicationSid: u32,
+}
+impl ::core::marker::Copy for NCRYPT_KEY_ACCESS_POLICY_BLOB {}
+impl ::core::clone::Clone for NCRYPT_KEY_ACCESS_POLICY_BLOB {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const NCRYPT_KEY_ACCESS_POLICY_VERSION: u32 = 1u32;
 pub const NCRYPT_KEY_ATTEST_MAGIC: u32 = 1146110283u32;
 #[repr(C)]
-pub struct NCRYPT_KEY_ATTEST_PADDING_INFO(i32);
+pub struct NCRYPT_KEY_ATTEST_PADDING_INFO {
+    pub magic: u32,
+    pub pbKeyBlob: *mut u8,
+    pub cbKeyBlob: u32,
+    pub pbKeyAuth: *mut u8,
+    pub cbKeyAuth: u32,
+}
+impl ::core::marker::Copy for NCRYPT_KEY_ATTEST_PADDING_INFO {}
+impl ::core::clone::Clone for NCRYPT_KEY_ATTEST_PADDING_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct NCRYPT_KEY_BLOB_HEADER(i32);
+pub struct NCRYPT_KEY_BLOB_HEADER {
+    pub cbSize: u32,
+    pub dwMagic: u32,
+    pub cbAlgName: u32,
+    pub cbKeyData: u32,
+}
+impl ::core::marker::Copy for NCRYPT_KEY_BLOB_HEADER {}
+impl ::core::clone::Clone for NCRYPT_KEY_BLOB_HEADER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const NCRYPT_KEY_DERIVATION_INTERFACE: u32 = 7u32;
 pub const NCRYPT_KEY_DERIVATION_OPERATION: u32 = 64u32;
 pub const NCRYPT_KEY_PROTECTION_INTERFACE: u32 = 65540u32;
@@ -3750,41 +8246,140 @@ pub const NCRYPT_PAD_CIPHER_FLAG: u32 = 16u32;
 pub const NCRYPT_PCP_ENCRYPTION_KEY: u32 = 2u32;
 pub const NCRYPT_PCP_HMACVERIFICATION_KEY: u32 = 16u32;
 #[repr(C)]
-pub struct NCRYPT_PCP_HMAC_AUTH_SIGNATURE_INFO(i32);
+pub struct NCRYPT_PCP_HMAC_AUTH_SIGNATURE_INFO {
+    pub dwVersion: u32,
+    pub iExpiration: i32,
+    pub pabNonce: [u8; 32],
+    pub pabPolicyRef: [u8; 32],
+    pub pabHMAC: [u8; 32],
+}
+impl ::core::marker::Copy for NCRYPT_PCP_HMAC_AUTH_SIGNATURE_INFO {}
+impl ::core::clone::Clone for NCRYPT_PCP_HMAC_AUTH_SIGNATURE_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const NCRYPT_PCP_IDENTITY_KEY: u32 = 8u32;
 #[repr(C)]
-pub struct NCRYPT_PCP_RAW_POLICYDIGEST(i32);
+pub struct NCRYPT_PCP_RAW_POLICYDIGEST {
+    pub dwVersion: u32,
+    pub cbDigest: u32,
+}
+impl ::core::marker::Copy for NCRYPT_PCP_RAW_POLICYDIGEST {}
+impl ::core::clone::Clone for NCRYPT_PCP_RAW_POLICYDIGEST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const NCRYPT_PCP_SIGNATURE_KEY: u32 = 1u32;
 pub const NCRYPT_PCP_STORAGE_KEY: u32 = 4u32;
 #[repr(C)]
-pub struct NCRYPT_PCP_TPM_FW_VERSION_INFO(i32);
+pub struct NCRYPT_PCP_TPM_FW_VERSION_INFO {
+    pub major1: u16,
+    pub major2: u16,
+    pub minor1: u16,
+    pub minor2: u16,
+}
+impl ::core::marker::Copy for NCRYPT_PCP_TPM_FW_VERSION_INFO {}
+impl ::core::clone::Clone for NCRYPT_PCP_TPM_FW_VERSION_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const NCRYPT_PIN_CACHE_APPLICATION_TICKET_BYTE_LENGTH: u32 = 90u32;
 pub const NCRYPT_PIN_CACHE_CLEAR_FOR_CALLING_PROCESS_OPTION: u32 = 1u32;
 pub const NCRYPT_PIN_CACHE_DISABLE_DPL_FLAG: u32 = 1u32;
 pub const NCRYPT_PIN_CACHE_REQUIRE_GESTURE_FLAG: u32 = 1u32;
 pub const NCRYPT_PLATFORM_ATTEST_MAGIC: u32 = 1146110288u32;
 #[repr(C)]
-pub struct NCRYPT_PLATFORM_ATTEST_PADDING_INFO(i32);
+pub struct NCRYPT_PLATFORM_ATTEST_PADDING_INFO {
+    pub magic: u32,
+    pub pcrMask: u32,
+}
+impl ::core::marker::Copy for NCRYPT_PLATFORM_ATTEST_PADDING_INFO {}
+impl ::core::clone::Clone for NCRYPT_PLATFORM_ATTEST_PADDING_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const NCRYPT_PREFER_VIRTUAL_ISOLATION_FLAG: u32 = 65536u32;
 pub const NCRYPT_PROTECTED_KEY_BLOB_MAGIC: u32 = 1263817296u32;
 pub const NCRYPT_PROTECTION_INFO_TYPE_DESCRIPTOR_STRING: u32 = 1u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct NCRYPT_PROTECT_STREAM_INFO(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct NCRYPT_PROTECT_STREAM_INFO {
+    pub pfnStreamOutput: ::core::option::Option<PFNCryptStreamOutputCallback>,
+    pub pvCallbackCtxt: *mut ::core::ffi::c_void,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for NCRYPT_PROTECT_STREAM_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for NCRYPT_PROTECT_STREAM_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct NCRYPT_PROTECT_STREAM_INFO_EX(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct NCRYPT_PROTECT_STREAM_INFO_EX {
+    pub pfnStreamOutput: ::core::option::Option<PFNCryptStreamOutputCallbackEx>,
+    pub pvCallbackCtxt: *mut ::core::ffi::c_void,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for NCRYPT_PROTECT_STREAM_INFO_EX {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for NCRYPT_PROTECT_STREAM_INFO_EX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const NCRYPT_PROTECT_TO_LOCAL_SYSTEM: u32 = 32768u32;
 pub const NCRYPT_SEALING_FLAG: u32 = 256u32;
 #[repr(C)]
-pub struct NCRYPT_SUPPORTED_LENGTHS(i32);
+pub struct NCRYPT_SUPPORTED_LENGTHS {
+    pub dwMinLength: u32,
+    pub dwMaxLength: u32,
+    pub dwIncrement: u32,
+    pub dwDefaultLength: u32,
+}
+impl ::core::marker::Copy for NCRYPT_SUPPORTED_LENGTHS {}
+impl ::core::clone::Clone for NCRYPT_SUPPORTED_LENGTHS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const NCRYPT_TPM12_PROVIDER: u32 = 65536u32;
 #[repr(C)]
-pub struct NCRYPT_TPM_LOADABLE_KEY_BLOB_HEADER(i32);
+pub struct NCRYPT_TPM_LOADABLE_KEY_BLOB_HEADER {
+    pub magic: u32,
+    pub cbHeader: u32,
+    pub cbPublic: u32,
+    pub cbPrivate: u32,
+    pub cbName: u32,
+}
+impl ::core::marker::Copy for NCRYPT_TPM_LOADABLE_KEY_BLOB_HEADER {}
+impl ::core::clone::Clone for NCRYPT_TPM_LOADABLE_KEY_BLOB_HEADER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const NCRYPT_TPM_LOADABLE_KEY_BLOB_MAGIC: u32 = 1297371211u32;
 pub const NCRYPT_TPM_PAD_PSS_IGNORE_SALT: u32 = 32u32;
 #[repr(C)]
-pub struct NCRYPT_TPM_PLATFORM_ATTESTATION_STATEMENT(i32);
+pub struct NCRYPT_TPM_PLATFORM_ATTESTATION_STATEMENT {
+    pub Magic: u32,
+    pub Version: u32,
+    pub pcrAlg: u32,
+    pub cbSignature: u32,
+    pub cbQuote: u32,
+    pub cbPcrs: u32,
+}
+impl ::core::marker::Copy for NCRYPT_TPM_PLATFORM_ATTESTATION_STATEMENT {}
+impl ::core::clone::Clone for NCRYPT_TPM_PLATFORM_ATTESTATION_STATEMENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const NCRYPT_TPM_PLATFORM_ATTESTATION_STATEMENT_CURRENT_VERSION: u32 = 0u32;
 pub const NCRYPT_TPM_PLATFORM_ATTESTATION_STATEMENT_V0: u32 = 0u32;
 pub const NCRYPT_TPM_PSS_SALT_SIZE_HASHSIZE: u32 = 2u32;
@@ -3794,29 +8389,105 @@ pub const NCRYPT_TREAT_NIST_AS_GENERIC_ECC_FLAG: u32 = 8192u32;
 pub const NCRYPT_UI_APPCONTAINER_ACCESS_MEDIUM_FLAG: u32 = 8u32;
 pub const NCRYPT_UI_FINGERPRINT_PROTECTION_FLAG: u32 = 4u32;
 pub const NCRYPT_UI_FORCE_HIGH_PROTECTION_FLAG: u32 = 2u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct NCRYPT_UI_POLICY(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct NCRYPT_UI_POLICY {
+    pub dwVersion: u32,
+    pub dwFlags: u32,
+    pub pszCreationTitle: super::super::Foundation::PWSTR,
+    pub pszFriendlyName: super::super::Foundation::PWSTR,
+    pub pszDescription: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for NCRYPT_UI_POLICY {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for NCRYPT_UI_POLICY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const NCRYPT_UI_PROTECT_KEY_FLAG: u32 = 1u32;
 pub const NCRYPT_USE_PER_BOOT_KEY_FLAG: u32 = 262144u32;
 pub const NCRYPT_USE_VIRTUAL_ISOLATION_FLAG: u32 = 131072u32;
 #[repr(C)]
-pub struct NCRYPT_VSM_KEY_ATTESTATION_CLAIM_RESTRICTIONS(i32);
+pub struct NCRYPT_VSM_KEY_ATTESTATION_CLAIM_RESTRICTIONS {
+    pub Version: u32,
+    pub TrustletId: u64,
+    pub MinSvn: u32,
+    pub FlagsMask: u32,
+    pub FlagsExpected: u32,
+    pub _bitfield: u32,
+}
+impl ::core::marker::Copy for NCRYPT_VSM_KEY_ATTESTATION_CLAIM_RESTRICTIONS {}
+impl ::core::clone::Clone for NCRYPT_VSM_KEY_ATTESTATION_CLAIM_RESTRICTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const NCRYPT_VSM_KEY_ATTESTATION_CLAIM_RESTRICTIONS_CURRENT_VERSION: u32 = 0u32;
 pub const NCRYPT_VSM_KEY_ATTESTATION_CLAIM_RESTRICTIONS_V0: u32 = 0u32;
 #[repr(C)]
-pub struct NCRYPT_VSM_KEY_ATTESTATION_STATEMENT(i32);
+pub struct NCRYPT_VSM_KEY_ATTESTATION_STATEMENT {
+    pub Magic: u32,
+    pub Version: u32,
+    pub cbSignature: u32,
+    pub cbReport: u32,
+    pub cbAttributes: u32,
+}
+impl ::core::marker::Copy for NCRYPT_VSM_KEY_ATTESTATION_STATEMENT {}
+impl ::core::clone::Clone for NCRYPT_VSM_KEY_ATTESTATION_STATEMENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const NCRYPT_VSM_KEY_ATTESTATION_STATEMENT_CURRENT_VERSION: u32 = 0u32;
 pub const NCRYPT_VSM_KEY_ATTESTATION_STATEMENT_V0: u32 = 0u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct NCryptAlgorithmName(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct NCryptKeyName(i32);
+pub struct NCryptAlgorithmName {
+    pub pszName: super::super::Foundation::PWSTR,
+    pub dwClass: NCRYPT_ALGORITHM_NAME_CLASS,
+    pub dwAlgOperations: NCRYPT_OPERATION,
+    pub dwFlags: u32,
+}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for NCryptAlgorithmName {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for NCryptAlgorithmName {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct NCryptProviderName(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct NCryptKeyName {
+    pub pszName: super::super::Foundation::PWSTR,
+    pub pszAlgid: super::super::Foundation::PWSTR,
+    pub dwLegacyKeySpec: CERT_KEY_SPEC,
+    pub dwFlags: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for NCryptKeyName {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for NCryptKeyName {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct NCryptProviderName {
+    pub pszName: super::super::Foundation::PWSTR,
+    pub pszComment: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for NCryptProviderName {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for NCryptProviderName {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const NETSCAPE_SIGN_CA_CERT_TYPE: u32 = 1u32;
 pub const NETSCAPE_SIGN_CERT_TYPE: u32 = 16u32;
 pub const NETSCAPE_SMIME_CA_CERT_TYPE: u32 = 2u32;
@@ -3827,42 +8498,196 @@ pub const NETSCAPE_SSL_SERVER_AUTH_CERT_TYPE: u32 = 64u32;
 pub const OCSP_BASIC_BY_KEY_RESPONDER_ID: u32 = 2u32;
 pub const OCSP_BASIC_BY_NAME_RESPONDER_ID: u32 = 1u32;
 pub const OCSP_BASIC_GOOD_CERT_STATUS: u32 = 0u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct OCSP_BASIC_RESPONSE_ENTRY(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct OCSP_BASIC_RESPONSE_ENTRY {
+    pub CertId: OCSP_CERT_ID,
+    pub dwCertStatus: u32,
+    pub Anonymous: OCSP_BASIC_RESPONSE_ENTRY_0,
+    pub ThisUpdate: super::super::Foundation::FILETIME,
+    pub NextUpdate: super::super::Foundation::FILETIME,
+    pub cExtension: u32,
+    pub rgExtension: *mut CERT_EXTENSION,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for OCSP_BASIC_RESPONSE_ENTRY {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for OCSP_BASIC_RESPONSE_ENTRY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct OCSP_BASIC_RESPONSE_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub union OCSP_BASIC_RESPONSE_ENTRY_0 {
+    pub pRevokedInfo: *mut OCSP_BASIC_REVOKED_INFO,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for OCSP_BASIC_RESPONSE_ENTRY_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct OCSP_BASIC_RESPONSE_INFO {
+    pub dwVersion: u32,
+    pub dwResponderIdChoice: u32,
+    pub Anonymous: OCSP_BASIC_RESPONSE_INFO_0,
+    pub ProducedAt: super::super::Foundation::FILETIME,
+    pub cResponseEntry: u32,
+    pub rgResponseEntry: *mut OCSP_BASIC_RESPONSE_ENTRY,
+    pub cExtension: u32,
+    pub rgExtension: *mut CERT_EXTENSION,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for OCSP_BASIC_RESPONSE_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for OCSP_BASIC_RESPONSE_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub union OCSP_BASIC_RESPONSE_INFO_0 {
+    pub ByNameResponderId: CRYPTOAPI_BLOB,
+    pub ByKeyResponderId: CRYPTOAPI_BLOB,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for OCSP_BASIC_RESPONSE_INFO_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const OCSP_BASIC_RESPONSE_V1: u32 = 0u32;
 pub const OCSP_BASIC_REVOKED_CERT_STATUS: u32 = 1u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct OCSP_BASIC_REVOKED_INFO(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct OCSP_BASIC_REVOKED_INFO {
+    pub RevocationDate: super::super::Foundation::FILETIME,
+    pub dwCrlReasonCode: CERT_REVOCATION_STATUS_REASON,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for OCSP_BASIC_REVOKED_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for OCSP_BASIC_REVOKED_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct OCSP_BASIC_SIGNED_RESPONSE_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct OCSP_BASIC_SIGNED_RESPONSE_INFO {
+    pub ToBeSigned: CRYPTOAPI_BLOB,
+    pub SignatureInfo: OCSP_SIGNATURE_INFO,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for OCSP_BASIC_SIGNED_RESPONSE_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for OCSP_BASIC_SIGNED_RESPONSE_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const OCSP_BASIC_UNKNOWN_CERT_STATUS: u32 = 2u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct OCSP_CERT_ID(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct OCSP_CERT_ID {
+    pub HashAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
+    pub IssuerNameHash: CRYPTOAPI_BLOB,
+    pub IssuerKeyHash: CRYPTOAPI_BLOB,
+    pub SerialNumber: CRYPTOAPI_BLOB,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for OCSP_CERT_ID {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for OCSP_CERT_ID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const OCSP_INTERNAL_ERROR_RESPONSE: u32 = 2u32;
 pub const OCSP_MALFORMED_REQUEST_RESPONSE: u32 = 1u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct OCSP_REQUEST_ENTRY(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct OCSP_REQUEST_ENTRY {
+    pub CertId: OCSP_CERT_ID,
+    pub cExtension: u32,
+    pub rgExtension: *mut CERT_EXTENSION,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for OCSP_REQUEST_ENTRY {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for OCSP_REQUEST_ENTRY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct OCSP_REQUEST_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct OCSP_REQUEST_INFO {
+    pub dwVersion: u32,
+    pub pRequestorName: *mut CERT_ALT_NAME_ENTRY,
+    pub cRequestEntry: u32,
+    pub rgRequestEntry: *mut OCSP_REQUEST_ENTRY,
+    pub cExtension: u32,
+    pub rgExtension: *mut CERT_EXTENSION,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for OCSP_REQUEST_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for OCSP_REQUEST_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const OCSP_REQUEST_V1: u32 = 0u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct OCSP_RESPONSE_INFO(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct OCSP_SIGNATURE_INFO(i32);
+pub struct OCSP_RESPONSE_INFO {
+    pub dwStatus: u32,
+    pub pszObjId: super::super::Foundation::PSTR,
+    pub Value: CRYPTOAPI_BLOB,
+}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for OCSP_RESPONSE_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for OCSP_RESPONSE_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct OCSP_SIGNED_REQUEST_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct OCSP_SIGNATURE_INFO {
+    pub SignatureAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
+    pub Signature: CRYPT_BIT_BLOB,
+    pub cCertEncoded: u32,
+    pub rgCertEncoded: *mut CRYPTOAPI_BLOB,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for OCSP_SIGNATURE_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for OCSP_SIGNATURE_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct OCSP_SIGNED_REQUEST_INFO {
+    pub ToBeSigned: CRYPTOAPI_BLOB,
+    pub pOptionalSignatureInfo: *mut OCSP_SIGNATURE_INFO,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for OCSP_SIGNED_REQUEST_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for OCSP_SIGNED_REQUEST_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const OCSP_SIG_REQUIRED_RESPONSE: u32 = 5u32;
 pub const OCSP_SUCCESSFUL_RESPONSE: u32 = 0u32;
 pub const OCSP_TRY_LATER_RESPONSE: u32 = 3u32;
@@ -4037,18 +8862,45 @@ pub const PKCS12_IMPORT_SILENT: u32 = 64u32;
 pub const PKCS12_ONLY_CERTIFICATES: u32 = 1024u32;
 pub const PKCS12_ONLY_CERTIFICATES_PROVIDER_TYPE: u32 = 0u32;
 pub const PKCS12_ONLY_NOT_ENCRYPTED_CERTIFICATES: u32 = 2048u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct PKCS12_PBES2_EXPORT_PARAMS(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct PKCS12_PBES2_EXPORT_PARAMS {
+    pub dwSize: u32,
+    pub hNcryptDescriptor: *mut ::core::ffi::c_void,
+    pub pwszPbes2Alg: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for PKCS12_PBES2_EXPORT_PARAMS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for PKCS12_PBES2_EXPORT_PARAMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const PKCS12_PROTECT_TO_DOMAIN_SIDS: u32 = 32u32;
 pub const PKCS12_VIRTUAL_ISOLATION_KEY: u32 = 65536u32;
 pub const PKCS5_PADDING: u32 = 1u32;
 pub const PKCS_7_NDR_ENCODING: u32 = 131072u32;
 pub const PKCS_RSA_SSA_PSS_TRAILER_FIELD_BC: u32 = 1u32;
 pub const PLAINTEXTKEYBLOB: u32 = 8u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct POLICY_ELEMENT(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct POLICY_ELEMENT {
+    pub targetEndpointAddress: super::super::Foundation::PWSTR,
+    pub issuerEndpointAddress: super::super::Foundation::PWSTR,
+    pub issuedTokenParameters: super::super::Foundation::PWSTR,
+    pub privacyNoticeLink: super::super::Foundation::PWSTR,
+    pub privacyNoticeVersion: u32,
+    pub useManagedPresentation: super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for POLICY_ELEMENT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for POLICY_ELEMENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const PP_ADMIN_PIN: u32 = 31u32;
 pub const PP_APPLI_CERT: u32 = 18u32;
 pub const PP_CERTCHAIN: u32 = 9u32;
@@ -4081,7 +8933,20 @@ pub const PP_UNIQUE_CONTAINER: u32 = 36u32;
 pub const PP_VERSION: u32 = 5u32;
 pub const PRIVATEKEYBLOB: u32 = 7u32;
 #[repr(C)]
-pub struct PRIVKEYVER3(i32);
+pub struct PRIVKEYVER3 {
+    pub magic: u32,
+    pub bitlenP: u32,
+    pub bitlenQ: u32,
+    pub bitlenJ: u32,
+    pub bitlenX: u32,
+    pub DSSSeed: DSSSEED,
+}
+impl ::core::marker::Copy for PRIVKEYVER3 {}
+impl ::core::clone::Clone for PRIVKEYVER3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const PROV_DH_SCHANNEL: u32 = 18u32;
 pub const PROV_DSS: u32 = 3u32;
 pub const PROV_DSS_DH: u32 = 13u32;
@@ -4089,12 +8954,43 @@ pub const PROV_EC_ECDSA_FULL: u32 = 16u32;
 pub const PROV_EC_ECDSA_SIG: u32 = 14u32;
 pub const PROV_EC_ECNRA_FULL: u32 = 17u32;
 pub const PROV_EC_ECNRA_SIG: u32 = 15u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct PROV_ENUMALGS(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct PROV_ENUMALGS {
+    pub aiAlgid: u32,
+    pub dwBitLen: u32,
+    pub dwNameLen: u32,
+    pub szName: [super::super::Foundation::CHAR; 20],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for PROV_ENUMALGS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for PROV_ENUMALGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct PROV_ENUMALGS_EX(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct PROV_ENUMALGS_EX {
+    pub aiAlgid: u32,
+    pub dwDefaultLen: u32,
+    pub dwMinLen: u32,
+    pub dwMaxLen: u32,
+    pub dwProtocols: u32,
+    pub dwNameLen: u32,
+    pub szName: [super::super::Foundation::CHAR; 20],
+    pub dwLongNameLen: u32,
+    pub szLongName: [super::super::Foundation::CHAR; 40],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for PROV_ENUMALGS_EX {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for PROV_ENUMALGS_EX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const PROV_FORTEZZA: u32 = 4u32;
 pub const PROV_INTEL_SEC: u32 = 22u32;
 pub const PROV_MS_EXCHANGE: u32 = 5u32;
@@ -4112,13 +9008,45 @@ pub const PROV_STT_ISS: u32 = 11u32;
 pub const PROV_STT_MER: u32 = 7u32;
 pub const PROV_STT_ROOT: u32 = 10u32;
 #[repr(C)]
-pub struct PUBKEY(i32);
+pub struct PUBKEY {
+    pub magic: u32,
+    pub bitlen: u32,
+}
+impl ::core::marker::Copy for PUBKEY {}
+impl ::core::clone::Clone for PUBKEY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct PUBKEYVER3(i32);
+pub struct PUBKEYVER3 {
+    pub magic: u32,
+    pub bitlenP: u32,
+    pub bitlenQ: u32,
+    pub bitlenJ: u32,
+    pub DSSSeed: DSSSEED,
+}
+impl ::core::marker::Copy for PUBKEYVER3 {}
+impl ::core::clone::Clone for PUBKEYVER3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const PUBLICKEYBLOB: u32 = 6u32;
 pub const PUBLICKEYBLOBEX: u32 = 10u32;
 #[repr(C)]
-pub struct PUBLICKEYSTRUC(i32);
+pub struct PUBLICKEYSTRUC {
+    pub bType: u8,
+    pub bVersion: u8,
+    pub reserved: u16,
+    pub aiKeyAlg: u32,
+}
+impl ::core::marker::Copy for PUBLICKEYSTRUC {}
+impl ::core::clone::Clone for PUBLICKEYSTRUC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PaddingMode(pub i32);
 impl PaddingMode {
@@ -4129,23 +9057,86 @@ impl PaddingMode {
     pub const ISO10126: Self = Self(5i32);
 }
 pub const RANDOM_PADDING: u32 = 2u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct RECIPIENTPOLICY(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct RECIPIENTPOLICY {
+    pub recipient: ENDPOINTADDRESS,
+    pub issuer: ENDPOINTADDRESS,
+    pub tokenType: super::super::Foundation::PWSTR,
+    pub requiredClaims: CLAIMLIST,
+    pub optionalClaims: CLAIMLIST,
+    pub privacyUrl: super::super::Foundation::PWSTR,
+    pub privacyVersion: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for RECIPIENTPOLICY {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for RECIPIENTPOLICY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct RECIPIENTPOLICY2(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct RECIPIENTPOLICY2 {
+    pub recipient: ENDPOINTADDRESS2,
+    pub issuer: ENDPOINTADDRESS2,
+    pub tokenType: super::super::Foundation::PWSTR,
+    pub requiredClaims: CLAIMLIST,
+    pub optionalClaims: CLAIMLIST,
+    pub privacyUrl: super::super::Foundation::PWSTR,
+    pub privacyVersion: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for RECIPIENTPOLICY2 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for RECIPIENTPOLICY2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const RECIPIENTPOLICYV1: u32 = 1u32;
 pub const RECIPIENTPOLICYV2: u32 = 2u32;
 pub const REPORT_NOT_ABLE_TO_EXPORT_PRIVATE_KEY: u32 = 2u32;
 pub const REPORT_NO_PRIVATE_KEY: u32 = 1u32;
 #[repr(C)]
-pub struct ROOT_INFO_LUID(i32);
+pub struct ROOT_INFO_LUID {
+    pub LowPart: u32,
+    pub HighPart: i32,
+}
+impl ::core::marker::Copy for ROOT_INFO_LUID {}
+impl ::core::clone::Clone for ROOT_INFO_LUID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const RSA1024BIT_KEY: u32 = 67108864u32;
 #[repr(C)]
-pub struct RSAPUBKEY(i32);
+pub struct RSAPUBKEY {
+    pub magic: u32,
+    pub bitlen: u32,
+    pub pubexp: u32,
+}
+impl ::core::marker::Copy for RSAPUBKEY {}
+impl ::core::clone::Clone for RSAPUBKEY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct SCHANNEL_ALG(i32);
+pub struct SCHANNEL_ALG {
+    pub dwUse: u32,
+    pub Algid: u32,
+    pub cBits: u32,
+    pub dwFlags: u32,
+    pub dwReserved: u32,
+}
+impl ::core::marker::Copy for SCHANNEL_ALG {}
+impl ::core::clone::Clone for SCHANNEL_ALG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SCHANNEL_ENC_KEY: u32 = 1u32;
 pub const SCHANNEL_MAC_KEY: u32 = 0u32;
 pub const SIGNATURE_RESOURCE_NUMBER: u32 = 666u32;
@@ -4153,22 +9144,78 @@ pub const SIMPLEBLOB: u32 = 1u32;
 pub const SITE_PIN_RULES_ALL_SUBDOMAINS_FLAG: u32 = 1u32;
 pub const SORTED_CTL_EXT_HASHED_SUBJECT_IDENTIFIER_FLAG: u32 = 1u32;
 #[repr(C)]
-pub struct SSL_ECCKEY_BLOB(i32);
+pub struct SSL_ECCKEY_BLOB {
+    pub dwCurveType: u32,
+    pub cbKey: u32,
+}
+impl ::core::marker::Copy for SSL_ECCKEY_BLOB {}
+impl ::core::clone::Clone for SSL_ECCKEY_BLOB {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SSL_F12_ERROR_TEXT_LENGTH: u32 = 256u32;
 #[repr(C)]
-pub struct SSL_F12_EXTRA_CERT_CHAIN_POLICY_STATUS(i32);
+pub struct SSL_F12_EXTRA_CERT_CHAIN_POLICY_STATUS {
+    pub cbSize: u32,
+    pub dwErrorLevel: u32,
+    pub dwErrorCategory: u32,
+    pub dwReserved: u32,
+    pub wszErrorText: [u16; 256],
+}
+impl ::core::marker::Copy for SSL_F12_EXTRA_CERT_CHAIN_POLICY_STATUS {}
+impl ::core::clone::Clone for SSL_F12_EXTRA_CERT_CHAIN_POLICY_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SSL_HPKP_HEADER_COUNT: u32 = 2u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct SSL_HPKP_HEADER_EXTRA_CERT_CHAIN_POLICY_PARA(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct SSL_HPKP_HEADER_EXTRA_CERT_CHAIN_POLICY_PARA {
+    pub cbSize: u32,
+    pub dwReserved: u32,
+    pub pwszServerName: super::super::Foundation::PWSTR,
+    pub rgpszHpkpValue: [super::super::Foundation::PSTR; 2],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SSL_HPKP_HEADER_EXTRA_CERT_CHAIN_POLICY_PARA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SSL_HPKP_HEADER_EXTRA_CERT_CHAIN_POLICY_PARA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SSL_HPKP_PKP_HEADER_INDEX: u32 = 0u32;
 pub const SSL_HPKP_PKP_RO_HEADER_INDEX: u32 = 1u32;
 pub const SSL_KEY_PIN_ERROR_TEXT_LENGTH: u32 = 512u32;
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+pub struct SSL_KEY_PIN_EXTRA_CERT_CHAIN_POLICY_PARA {
+    pub cbSize: u32,
+    pub dwReserved: u32,
+    pub pwszServerName: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SSL_KEY_PIN_EXTRA_CERT_CHAIN_POLICY_PARA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SSL_KEY_PIN_EXTRA_CERT_CHAIN_POLICY_PARA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct SSL_KEY_PIN_EXTRA_CERT_CHAIN_POLICY_PARA(i32);
-#[repr(C)]
-pub struct SSL_KEY_PIN_EXTRA_CERT_CHAIN_POLICY_STATUS(i32);
+pub struct SSL_KEY_PIN_EXTRA_CERT_CHAIN_POLICY_STATUS {
+    pub cbSize: u32,
+    pub lError: i32,
+    pub wszErrorText: [u16; 512],
+}
+impl ::core::marker::Copy for SSL_KEY_PIN_EXTRA_CERT_CHAIN_POLICY_STATUS {}
+impl ::core::clone::Clone for SSL_KEY_PIN_EXTRA_CERT_CHAIN_POLICY_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SYMMETRICWRAPKEYBLOB: u32 = 11u32;
 pub const TIMESTAMP_DONT_HASH_DATA: u32 = 1u32;
 pub const TIMESTAMP_FAILURE_BAD_ALG: u32 = 0u32;
@@ -4186,4 +9233,17 @@ pub const USAGE_MATCH_TYPE_OR: u32 = 1u32;
 pub const X509_NDR_ENCODING: u32 = 2u32;
 pub const ZERO_PADDING: u32 = 3u32;
 #[repr(C)]
-pub struct __NCRYPT_PCP_TPM_WEB_AUTHN_ATTESTATION_STATEMENT(i32);
+pub struct __NCRYPT_PCP_TPM_WEB_AUTHN_ATTESTATION_STATEMENT {
+    pub Magic: u32,
+    pub Version: u32,
+    pub HeaderSize: u32,
+    pub cbCertifyInfo: u32,
+    pub cbSignature: u32,
+    pub cbTpmPublic: u32,
+}
+impl ::core::marker::Copy for __NCRYPT_PCP_TPM_WEB_AUTHN_ATTESTATION_STATEMENT {}
+impl ::core::clone::Clone for __NCRYPT_PCP_TPM_WEB_AUTHN_ATTESTATION_STATEMENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

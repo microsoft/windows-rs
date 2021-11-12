@@ -40,7 +40,15 @@ impl FontStyle {
     pub const Italic: Self = Self(2i32);
 }
 #[repr(C)]
-pub struct FontWeight(i32);
+pub struct FontWeight {
+    pub Weight: u16,
+}
+impl ::core::marker::Copy for FontWeight {}
+impl ::core::clone::Clone for FontWeight {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct FontWeights(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

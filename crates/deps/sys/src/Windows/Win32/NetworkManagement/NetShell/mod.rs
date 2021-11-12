@@ -17,12 +17,42 @@ extern "system" {
     pub fn RegisterContext(pchildcontext: *const NS_CONTEXT_ATTRIBUTES) -> u32;
     pub fn RegisterHelper(pguidparentcontext: *const ::windows_sys::core::GUID, pfnregistersubcontext: *const NS_HELPER_ATTRIBUTES) -> u32;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CMD_ENTRY(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct CMD_ENTRY {
+    pub pwszCmdToken: super::super::Foundation::PWSTR,
+    pub pfnCmdHandler: ::core::option::Option<PFN_HANDLE_CMD>,
+    pub dwShortCmdHelpToken: u32,
+    pub dwCmdHlpToken: u32,
+    pub dwFlags: u32,
+    pub pOsVersionCheck: ::core::option::Option<PNS_OSVERSIONCHECK>,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CMD_ENTRY {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CMD_ENTRY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CMD_GROUP_ENTRY(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CMD_GROUP_ENTRY {
+    pub pwszCmdGroupToken: super::super::Foundation::PWSTR,
+    pub dwShortCmdHelpToken: u32,
+    pub ulCmdGroupSize: u32,
+    pub dwFlags: u32,
+    pub pCmdGroup: *mut CMD_ENTRY,
+    pub pOsVersionCheck: ::core::option::Option<PNS_OSVERSIONCHECK>,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CMD_GROUP_ENTRY {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CMD_GROUP_ENTRY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DEFAULT_CONTEXT_PRIORITY: u32 = 100u32;
 pub const ERROR_CMD_NOT_FOUND: u32 = 15004u32;
 pub const ERROR_CONTEXT_ALREADY_REGISTERED: u32 = 15019u32;
@@ -60,9 +90,58 @@ pub const CMD_FLAG_ONLINE: NS_CMD_FLAGS = NS_CMD_FLAGS(16i32);
 pub const CMD_FLAG_HIDDEN: NS_CMD_FLAGS = NS_CMD_FLAGS(32i32);
 pub const CMD_FLAG_LIMIT_MASK: NS_CMD_FLAGS = NS_CMD_FLAGS(65535i32);
 pub const CMD_FLAG_PRIORITY: NS_CMD_FLAGS = NS_CMD_FLAGS(-2147483648i32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct NS_CONTEXT_ATTRIBUTES(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct NS_CONTEXT_ATTRIBUTES {
+    pub Anonymous: NS_CONTEXT_ATTRIBUTES_0,
+    pub pwszContext: super::super::Foundation::PWSTR,
+    pub guidHelper: ::windows_sys::core::GUID,
+    pub dwFlags: u32,
+    pub ulPriority: u32,
+    pub ulNumTopCmds: u32,
+    pub pTopCmds: *mut CMD_ENTRY,
+    pub ulNumGroups: u32,
+    pub pCmdGroups: *mut CMD_GROUP_ENTRY,
+    pub pfnCommitFn: ::core::option::Option<PNS_CONTEXT_COMMIT_FN>,
+    pub pfnDumpFn: ::core::option::Option<PNS_CONTEXT_DUMP_FN>,
+    pub pfnConnectFn: ::core::option::Option<PNS_CONTEXT_CONNECT_FN>,
+    pub pReserved: *mut ::core::ffi::c_void,
+    pub pfnOsVersionCheck: ::core::option::Option<PNS_OSVERSIONCHECK>,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for NS_CONTEXT_ATTRIBUTES {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for NS_CONTEXT_ATTRIBUTES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub union NS_CONTEXT_ATTRIBUTES_0 {
+    pub Anonymous: NS_CONTEXT_ATTRIBUTES_0_0,
+    pub _ullAlign: u64,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for NS_CONTEXT_ATTRIBUTES_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct NS_CONTEXT_ATTRIBUTES_0_0 {
+    pub dwVersion: u32,
+    pub dwReserved: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for NS_CONTEXT_ATTRIBUTES_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for NS_CONTEXT_ATTRIBUTES_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct NS_EVENTS(pub i32);
 pub const NS_EVENT_LOOP: NS_EVENTS = NS_EVENTS(65536i32);
@@ -71,7 +150,39 @@ pub const NS_EVENT_LAST_SECS: NS_EVENTS = NS_EVENTS(2i32);
 pub const NS_EVENT_FROM_N: NS_EVENTS = NS_EVENTS(4i32);
 pub const NS_EVENT_FROM_START: NS_EVENTS = NS_EVENTS(8i32);
 #[repr(C)]
-pub struct NS_HELPER_ATTRIBUTES(i32);
+pub struct NS_HELPER_ATTRIBUTES {
+    pub Anonymous: NS_HELPER_ATTRIBUTES_0,
+    pub guidHelper: ::windows_sys::core::GUID,
+    pub pfnStart: ::core::option::Option<PNS_HELPER_START_FN>,
+    pub pfnStop: ::core::option::Option<PNS_HELPER_STOP_FN>,
+}
+impl ::core::marker::Copy for NS_HELPER_ATTRIBUTES {}
+impl ::core::clone::Clone for NS_HELPER_ATTRIBUTES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub union NS_HELPER_ATTRIBUTES_0 {
+    pub Anonymous: NS_HELPER_ATTRIBUTES_0_0,
+    pub _ullAlign: u64,
+}
+impl ::core::clone::Clone for NS_HELPER_ATTRIBUTES_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct NS_HELPER_ATTRIBUTES_0_0 {
+    pub dwVersion: u32,
+    pub dwReserved: u32,
+}
+impl ::core::marker::Copy for NS_HELPER_ATTRIBUTES_0_0 {}
+impl ::core::clone::Clone for NS_HELPER_ATTRIBUTES_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct NS_MODE_CHANGE(pub i32);
 pub const NETSH_COMMIT: NS_MODE_CHANGE = NS_MODE_CHANGE(0i32);
@@ -100,9 +211,32 @@ pub type PNS_HELPER_START_FN = unsafe extern "system" fn(pguidparent: *const ::w
 pub type PNS_HELPER_STOP_FN = unsafe extern "system" fn(dwreserved: u32) -> u32;
 #[cfg(feature = "Win32_Foundation")]
 pub type PNS_OSVERSIONCHECK = unsafe extern "system" fn(cimostype: u32, cimosproductsuite: u32, cimosversion: super::super::Foundation::PWSTR, cimosbuildnumber: super::super::Foundation::PWSTR, cimservicepackmajorversion: super::super::Foundation::PWSTR, cimservicepackminorversion: super::super::Foundation::PWSTR, uireserved: u32, dwreserved: u32) -> super::super::Foundation::BOOL;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct TAG_TYPE(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct TAG_TYPE {
+    pub pwszTag: super::super::Foundation::PWSTR,
+    pub dwRequired: u32,
+    pub bPresent: super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for TAG_TYPE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for TAG_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct TOKEN_VALUE(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct TOKEN_VALUE {
+    pub pwszToken: super::super::Foundation::PWSTR,
+    pub dwValue: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for TOKEN_VALUE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for TOKEN_VALUE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

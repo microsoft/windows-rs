@@ -681,9 +681,20 @@ pub struct IVisualUnorderedCollection(pub *mut ::core::ffi::c_void);
 pub struct ImplicitAnimationCollection(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct InitialValueExpressionCollection(pub *mut ::core::ffi::c_void);
-#[cfg(feature = "Foundation")]
 #[repr(C)]
-pub struct InkTrailPoint(i32);
+#[cfg(feature = "Foundation")]
+pub struct InkTrailPoint {
+    pub Point: super::super::Foundation::Point,
+    pub Radius: f32,
+}
+#[cfg(feature = "Foundation")]
+impl ::core::marker::Copy for InkTrailPoint {}
+#[cfg(feature = "Foundation")]
+impl ::core::clone::Clone for InkTrailPoint {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct InsetClip(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

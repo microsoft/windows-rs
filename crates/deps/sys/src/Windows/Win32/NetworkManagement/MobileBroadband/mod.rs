@@ -133,9 +133,25 @@ pub const MBN_COMPRESSION_ENABLE: MBN_COMPRESSION = MBN_COMPRESSION(1i32);
 pub struct MBN_CONNECTION_MODE(pub i32);
 pub const MBN_CONNECTION_MODE_PROFILE: MBN_CONNECTION_MODE = MBN_CONNECTION_MODE(0i32);
 pub const MBN_CONNECTION_MODE_TMP_PROFILE: MBN_CONNECTION_MODE = MBN_CONNECTION_MODE(1i32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct MBN_CONTEXT(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct MBN_CONTEXT {
+    pub contextID: u32,
+    pub contextType: MBN_CONTEXT_TYPE,
+    pub accessString: super::super::Foundation::BSTR,
+    pub userName: super::super::Foundation::BSTR,
+    pub password: super::super::Foundation::BSTR,
+    pub compression: MBN_COMPRESSION,
+    pub authType: MBN_AUTH_PROTOCOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MBN_CONTEXT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MBN_CONTEXT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MBN_CONTEXT_CONSTANTS(pub i32);
 pub const MBN_ACCESSSTRING_LEN: MBN_CONTEXT_CONSTANTS = MBN_CONTEXT_CONSTANTS(100i32);
@@ -181,9 +197,21 @@ pub const MBN_DATA_CLASS_3XRTT: MBN_DATA_CLASS = MBN_DATA_CLASS(1048576i32);
 pub const MBN_DATA_CLASS_1XEVDO_REVB: MBN_DATA_CLASS = MBN_DATA_CLASS(2097152i32);
 pub const MBN_DATA_CLASS_UMB: MBN_DATA_CLASS = MBN_DATA_CLASS(4194304i32);
 pub const MBN_DATA_CLASS_CUSTOM: MBN_DATA_CLASS = MBN_DATA_CLASS(-2147483648i32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct MBN_DEVICE_SERVICE(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct MBN_DEVICE_SERVICE {
+    pub deviceServiceID: super::super::Foundation::BSTR,
+    pub dataWriteSupported: i16,
+    pub dataReadSupported: i16,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MBN_DEVICE_SERVICE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MBN_DEVICE_SERVICE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MBN_DEVICE_SERVICES_INTERFACE_STATE(pub i32);
 pub const MBN_DEVICE_SERVICES_CAPABLE_INTERFACE_ARRIVAL: MBN_DEVICE_SERVICES_INTERFACE_STATE = MBN_DEVICE_SERVICES_INTERFACE_STATE(0i32);
@@ -191,9 +219,31 @@ pub const MBN_DEVICE_SERVICES_CAPABLE_INTERFACE_REMOVAL: MBN_DEVICE_SERVICES_INT
 #[repr(transparent)]
 pub struct MBN_DEVICE_SERVICE_SESSIONS_STATE(pub i32);
 pub const MBN_DEVICE_SERVICE_SESSIONS_RESTORED: MBN_DEVICE_SERVICE_SESSIONS_STATE = MBN_DEVICE_SERVICE_SESSIONS_STATE(0i32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct MBN_INTERFACE_CAPS(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct MBN_INTERFACE_CAPS {
+    pub cellularClass: MBN_CELLULAR_CLASS,
+    pub voiceClass: MBN_VOICE_CLASS,
+    pub dataClass: u32,
+    pub customDataClass: super::super::Foundation::BSTR,
+    pub gsmBandClass: u32,
+    pub cdmaBandClass: u32,
+    pub customBandClass: super::super::Foundation::BSTR,
+    pub smsCaps: u32,
+    pub controlCaps: u32,
+    pub deviceID: super::super::Foundation::BSTR,
+    pub manufacturer: super::super::Foundation::BSTR,
+    pub model: super::super::Foundation::BSTR,
+    pub firmwareInfo: super::super::Foundation::BSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MBN_INTERFACE_CAPS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MBN_INTERFACE_CAPS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MBN_INTERFACE_CAPS_CONSTANTS(pub i32);
 pub const MBN_DEVICEID_LEN: MBN_INTERFACE_CAPS_CONSTANTS = MBN_INTERFACE_CAPS_CONSTANTS(18i32);
@@ -216,7 +266,17 @@ pub const MBN_PIN_FORMAT_NONE: MBN_PIN_FORMAT = MBN_PIN_FORMAT(0i32);
 pub const MBN_PIN_FORMAT_NUMERIC: MBN_PIN_FORMAT = MBN_PIN_FORMAT(1i32);
 pub const MBN_PIN_FORMAT_ALPHANUMERIC: MBN_PIN_FORMAT = MBN_PIN_FORMAT(2i32);
 #[repr(C)]
-pub struct MBN_PIN_INFO(i32);
+pub struct MBN_PIN_INFO {
+    pub pinState: MBN_PIN_STATE,
+    pub pinType: MBN_PIN_TYPE,
+    pub attemptsRemaining: u32,
+}
+impl ::core::marker::Copy for MBN_PIN_INFO {}
+impl ::core::clone::Clone for MBN_PIN_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MBN_PIN_MODE(pub i32);
 pub const MBN_PIN_MODE_ENABLED: MBN_PIN_MODE = MBN_PIN_MODE(1i32);
@@ -239,12 +299,38 @@ pub const MBN_PIN_TYPE_NETWORK_SUBSET_PIN: MBN_PIN_TYPE = MBN_PIN_TYPE(7i32);
 pub const MBN_PIN_TYPE_SVC_PROVIDER_PIN: MBN_PIN_TYPE = MBN_PIN_TYPE(8i32);
 pub const MBN_PIN_TYPE_CORPORATE_PIN: MBN_PIN_TYPE = MBN_PIN_TYPE(9i32);
 pub const MBN_PIN_TYPE_SUBSIDY_LOCK: MBN_PIN_TYPE = MBN_PIN_TYPE(10i32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct MBN_PROVIDER(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct MBN_PROVIDER {
+    pub providerID: super::super::Foundation::BSTR,
+    pub providerState: u32,
+    pub providerName: super::super::Foundation::BSTR,
+    pub dataClass: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MBN_PROVIDER {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MBN_PROVIDER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct MBN_PROVIDER2(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct MBN_PROVIDER2 {
+    pub provider: MBN_PROVIDER,
+    pub cellularClass: MBN_CELLULAR_CLASS,
+    pub signalStrength: u32,
+    pub signalError: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MBN_PROVIDER2 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MBN_PROVIDER2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MBN_PROVIDER_CONSTANTS(pub i32);
 pub const MBN_PROVIDERNAME_LEN: MBN_PROVIDER_CONSTANTS = MBN_PROVIDER_CONSTANTS(20i32);
@@ -327,7 +413,16 @@ pub const MBN_SMS_CDMA_LANG_KOREAN: MBN_SMS_CDMA_LANG = MBN_SMS_CDMA_LANG(5i32);
 pub const MBN_SMS_CDMA_LANG_CHINESE: MBN_SMS_CDMA_LANG = MBN_SMS_CDMA_LANG(6i32);
 pub const MBN_SMS_CDMA_LANG_HEBREW: MBN_SMS_CDMA_LANG = MBN_SMS_CDMA_LANG(7i32);
 #[repr(C)]
-pub struct MBN_SMS_FILTER(i32);
+pub struct MBN_SMS_FILTER {
+    pub flag: MBN_SMS_FLAG,
+    pub messageIndex: u32,
+}
+impl ::core::marker::Copy for MBN_SMS_FILTER {}
+impl ::core::clone::Clone for MBN_SMS_FILTER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MBN_SMS_FLAG(pub i32);
 pub const MBN_SMS_FLAG_ALL: MBN_SMS_FLAG = MBN_SMS_FLAG(0i32);
@@ -347,7 +442,16 @@ pub const MBN_SMS_FLAG_NONE: MBN_SMS_STATUS_FLAG = MBN_SMS_STATUS_FLAG(0i32);
 pub const MBN_SMS_FLAG_MESSAGE_STORE_FULL: MBN_SMS_STATUS_FLAG = MBN_SMS_STATUS_FLAG(1i32);
 pub const MBN_SMS_FLAG_NEW_MESSAGE: MBN_SMS_STATUS_FLAG = MBN_SMS_STATUS_FLAG(2i32);
 #[repr(C)]
-pub struct MBN_SMS_STATUS_INFO(i32);
+pub struct MBN_SMS_STATUS_INFO {
+    pub flag: u32,
+    pub messageIndex: u32,
+}
+impl ::core::marker::Copy for MBN_SMS_STATUS_INFO {}
+impl ::core::clone::Clone for MBN_SMS_STATUS_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MBN_VOICE_CALL_STATE(pub i32);
 pub const MBN_VOICE_CALL_STATE_NONE: MBN_VOICE_CALL_STATE = MBN_VOICE_CALL_STATE(0i32);
@@ -369,6 +473,35 @@ pub const MBN_MESSAGE_INDEX_NONE: WWAEXT_SMS_CONSTANTS = WWAEXT_SMS_CONSTANTS(0i
 pub const MBN_CDMA_SHORT_MSG_SIZE_UNKNOWN: WWAEXT_SMS_CONSTANTS = WWAEXT_SMS_CONSTANTS(0i32);
 pub const MBN_CDMA_SHORT_MSG_SIZE_MAX: WWAEXT_SMS_CONSTANTS = WWAEXT_SMS_CONSTANTS(160i32);
 #[repr(C)]
-pub struct __DummyPinType__(i32);
+pub struct __DummyPinType__ {
+    pub pinType: u32,
+}
+impl ::core::marker::Copy for __DummyPinType__ {}
+impl ::core::clone::Clone for __DummyPinType__ {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct __mbnapi_ReferenceRemainingTypes__(i32);
+pub struct __mbnapi_ReferenceRemainingTypes__ {
+    pub bandClass: MBN_BAND_CLASS,
+    pub contextConstants: MBN_CONTEXT_CONSTANTS,
+    pub ctrlCaps: MBN_CTRL_CAPS,
+    pub dataClass: MBN_DATA_CLASS,
+    pub interfaceCapsConstants: MBN_INTERFACE_CAPS_CONSTANTS,
+    pub pinConstants: MBN_PIN_CONSTANTS,
+    pub providerConstants: MBN_PROVIDER_CONSTANTS,
+    pub providerState: MBN_PROVIDER_STATE,
+    pub registrationConstants: MBN_REGISTRATION_CONSTANTS,
+    pub signalConstants: MBN_SIGNAL_CONSTANTS,
+    pub smsCaps: MBN_SMS_CAPS,
+    pub smsConstants: WWAEXT_SMS_CONSTANTS,
+    pub wwaextSmsConstants: WWAEXT_SMS_CONSTANTS,
+    pub smsStatusFlag: MBN_SMS_STATUS_FLAG,
+}
+impl ::core::marker::Copy for __mbnapi_ReferenceRemainingTypes__ {}
+impl ::core::clone::Clone for __mbnapi_ReferenceRemainingTypes__ {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

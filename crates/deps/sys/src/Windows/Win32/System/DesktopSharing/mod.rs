@@ -321,4 +321,19 @@ pub const CONST_ATTENDEE_ID_HOST: __MIDL___MIDL_itf_rdpencomapi_0000_0027_0001 =
 pub const CONST_CONN_INTERVAL: __MIDL___MIDL_itf_rdpencomapi_0000_0027_0001 = __MIDL___MIDL_itf_rdpencomapi_0000_0027_0001(50i32);
 pub const CONST_ATTENDEE_ID_DEFAULT: __MIDL___MIDL_itf_rdpencomapi_0000_0027_0001 = __MIDL___MIDL_itf_rdpencomapi_0000_0027_0001(-1i32);
 #[repr(C)]
-pub struct __ReferenceRemainingTypes__(i32);
+pub struct __ReferenceRemainingTypes__ {
+    pub __ctrlLevel__: CTRL_LEVEL,
+    pub __attendeeDisconnectReason__: ATTENDEE_DISCONNECT_REASON,
+    pub __channelPriority__: CHANNEL_PRIORITY,
+    pub __channelFlags__: CHANNEL_FLAGS,
+    pub __channelAccessEnum__: CHANNEL_ACCESS_ENUM,
+    pub __rdpencomapiAttendeeFlags__: RDPENCOMAPI_ATTENDEE_FLAGS,
+    pub __rdpsrapiWndFlags__: RDPSRAPI_WND_FLAGS,
+    pub __rdpsrapiAppFlags__: RDPSRAPI_APP_FLAGS,
+}
+impl ::core::marker::Copy for __ReferenceRemainingTypes__ {}
+impl ::core::clone::Clone for __ReferenceRemainingTypes__ {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

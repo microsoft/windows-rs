@@ -47,7 +47,19 @@ pub struct ResourceContext(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ResourceContextLanguagesVectorView(pub *mut ::core::ffi::c_void);
 #[repr(C)]
-pub struct ResourceLayoutInfo(i32);
+pub struct ResourceLayoutInfo {
+    pub MajorVersion: u32,
+    pub MinorVersion: u32,
+    pub ResourceSubtreeCount: u32,
+    pub NamedResourceCount: u32,
+    pub Checksum: i32,
+}
+impl ::core::marker::Copy for ResourceLayoutInfo {}
+impl ::core::clone::Clone for ResourceLayoutInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ResourceManager(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

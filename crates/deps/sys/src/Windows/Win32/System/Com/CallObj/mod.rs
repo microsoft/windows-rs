@@ -4,12 +4,46 @@ extern "system" {
     pub fn CoGetInterceptor(iidintercepted: *const ::windows_sys::core::GUID, punkouter: ::windows_sys::core::IUnknown, iid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     pub fn CoGetInterceptorFromTypeInfo(iidintercepted: *const ::windows_sys::core::GUID, punkouter: ::windows_sys::core::IUnknown, typeinfo: super::ITypeInfo, iid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CALLFRAMEINFO(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct CALLFRAMEINFO {
+    pub iMethod: u32,
+    pub fHasInValues: super::super::super::Foundation::BOOL,
+    pub fHasInOutValues: super::super::super::Foundation::BOOL,
+    pub fHasOutValues: super::super::super::Foundation::BOOL,
+    pub fDerivesFromIDispatch: super::super::super::Foundation::BOOL,
+    pub cInInterfacesMax: i32,
+    pub cInOutInterfacesMax: i32,
+    pub cOutInterfacesMax: i32,
+    pub cTopLevelInInterfaces: i32,
+    pub iid: ::windows_sys::core::GUID,
+    pub cMethod: u32,
+    pub cParams: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CALLFRAMEINFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CALLFRAMEINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CALLFRAMEPARAMINFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CALLFRAMEPARAMINFO {
+    pub fIn: super::super::super::Foundation::BOOLEAN,
+    pub fOut: super::super::super::Foundation::BOOLEAN,
+    pub stackOffset: u32,
+    pub cbParam: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CALLFRAMEPARAMINFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CALLFRAMEPARAMINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CALLFRAME_COPY(pub i32);
 pub const CALLFRAME_COPY_NESTED: CALLFRAME_COPY = CALLFRAME_COPY(1i32);
@@ -23,9 +57,23 @@ pub const CALLFRAME_FREE_OUT: CALLFRAME_FREE = CALLFRAME_FREE(4i32);
 pub const CALLFRAME_FREE_TOP_INOUT: CALLFRAME_FREE = CALLFRAME_FREE(8i32);
 pub const CALLFRAME_FREE_TOP_OUT: CALLFRAME_FREE = CALLFRAME_FREE(16i32);
 pub const CALLFRAME_FREE_ALL: CALLFRAME_FREE = CALLFRAME_FREE(31i32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CALLFRAME_MARSHALCONTEXT(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CALLFRAME_MARSHALCONTEXT {
+    pub fIn: super::super::super::Foundation::BOOLEAN,
+    pub dwDestContext: u32,
+    pub pvDestContext: *mut ::core::ffi::c_void,
+    pub punkReserved: ::core::option::Option<::windows_sys::core::IUnknown>,
+    pub guidTransferSyntax: ::windows_sys::core::GUID,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CALLFRAME_MARSHALCONTEXT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CALLFRAME_MARSHALCONTEXT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CALLFRAME_NULL(pub i32);
 pub const CALLFRAME_NULL_NONE: CALLFRAME_NULL = CALLFRAME_NULL(0i32);

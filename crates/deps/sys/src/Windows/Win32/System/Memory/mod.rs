@@ -183,7 +183,16 @@ extern "system" {
     pub fn VirtualUnlockEx(process: super::super::Foundation::HANDLE, address: *const ::core::ffi::c_void, size: usize) -> super::super::Foundation::BOOL;
 }
 #[repr(C)]
-pub struct CFG_CALL_TARGET_INFO(i32);
+pub struct CFG_CALL_TARGET_INFO {
+    pub Offset: usize,
+    pub Flags: usize,
+}
+impl ::core::marker::Copy for CFG_CALL_TARGET_INFO {}
+impl ::core::clone::Clone for CFG_CALL_TARGET_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const FILE_CACHE_MAX_HARD_DISABLE: u32 = 2u32;
 pub const FILE_CACHE_MAX_HARD_ENABLE: u32 = 1u32;
 pub const FILE_CACHE_MIN_HARD_DISABLE: u32 = 8u32;
@@ -231,9 +240,29 @@ pub const HeapEnableTerminationOnCorruption: HEAP_INFORMATION_CLASS = HEAP_INFOR
 pub const HeapOptimizeResources: HEAP_INFORMATION_CLASS = HEAP_INFORMATION_CLASS(3i32);
 pub const HeapTag: HEAP_INFORMATION_CLASS = HEAP_INFORMATION_CLASS(7i32);
 #[repr(C)]
-pub struct HEAP_SUMMARY(i32);
+pub struct HEAP_SUMMARY {
+    pub cb: u32,
+    pub cbAllocated: usize,
+    pub cbCommitted: usize,
+    pub cbReserved: usize,
+    pub cbMaxReserve: usize,
+}
+impl ::core::marker::Copy for HEAP_SUMMARY {}
+impl ::core::clone::Clone for HEAP_SUMMARY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct HeapHandle(i32);
+pub struct HeapHandle {
+    pub Value: isize,
+}
+impl ::core::marker::Copy for HeapHandle {}
+impl ::core::clone::Clone for HeapHandle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct LOCAL_ALLOC_FLAGS(pub u32);
 pub const LHND: LOCAL_ALLOC_FLAGS = LOCAL_ALLOC_FLAGS(66u32);
@@ -244,23 +273,125 @@ pub const LPTR: LOCAL_ALLOC_FLAGS = LOCAL_ALLOC_FLAGS(64u32);
 pub const NONZEROLHND: LOCAL_ALLOC_FLAGS = LOCAL_ALLOC_FLAGS(2u32);
 pub const NONZEROLPTR: LOCAL_ALLOC_FLAGS = LOCAL_ALLOC_FLAGS(0u32);
 pub const MEHC_PATROL_SCRUBBER_PRESENT: u32 = 1u32;
+#[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+pub struct MEMORY_BASIC_INFORMATION {
+    pub BaseAddress: *mut ::core::ffi::c_void,
+    pub AllocationBase: *mut ::core::ffi::c_void,
+    pub AllocationProtect: PAGE_PROTECTION_FLAGS,
+    pub PartitionId: u16,
+    pub RegionSize: usize,
+    pub State: VIRTUAL_ALLOCATION_TYPE,
+    pub Protect: PAGE_PROTECTION_FLAGS,
+    pub Type: PAGE_TYPE,
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::marker::Copy for MEMORY_BASIC_INFORMATION {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::clone::Clone for MEMORY_BASIC_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct MEMORY_BASIC_INFORMATION(i32);
 #[cfg(any(target_arch = "x86",))]
+pub struct MEMORY_BASIC_INFORMATION {
+    pub BaseAddress: *mut ::core::ffi::c_void,
+    pub AllocationBase: *mut ::core::ffi::c_void,
+    pub AllocationProtect: PAGE_PROTECTION_FLAGS,
+    pub RegionSize: usize,
+    pub State: VIRTUAL_ALLOCATION_TYPE,
+    pub Protect: PAGE_PROTECTION_FLAGS,
+    pub Type: PAGE_TYPE,
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::core::marker::Copy for MEMORY_BASIC_INFORMATION {}
+#[cfg(any(target_arch = "x86",))]
+impl ::core::clone::Clone for MEMORY_BASIC_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct MEMORY_BASIC_INFORMATION(i32);
+pub struct MEMORY_BASIC_INFORMATION32 {
+    pub BaseAddress: u32,
+    pub AllocationBase: u32,
+    pub AllocationProtect: PAGE_PROTECTION_FLAGS,
+    pub RegionSize: u32,
+    pub State: VIRTUAL_ALLOCATION_TYPE,
+    pub Protect: PAGE_PROTECTION_FLAGS,
+    pub Type: PAGE_TYPE,
+}
+impl ::core::marker::Copy for MEMORY_BASIC_INFORMATION32 {}
+impl ::core::clone::Clone for MEMORY_BASIC_INFORMATION32 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct MEMORY_BASIC_INFORMATION32(i32);
-#[repr(C)]
-pub struct MEMORY_BASIC_INFORMATION64(i32);
+pub struct MEMORY_BASIC_INFORMATION64 {
+    pub BaseAddress: u64,
+    pub AllocationBase: u64,
+    pub AllocationProtect: PAGE_PROTECTION_FLAGS,
+    pub __alignment1: u32,
+    pub RegionSize: u64,
+    pub State: VIRTUAL_ALLOCATION_TYPE,
+    pub Protect: PAGE_PROTECTION_FLAGS,
+    pub Type: PAGE_TYPE,
+    pub __alignment2: u32,
+}
+impl ::core::marker::Copy for MEMORY_BASIC_INFORMATION64 {}
+impl ::core::clone::Clone for MEMORY_BASIC_INFORMATION64 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MEMORY_RESOURCE_NOTIFICATION_TYPE(pub i32);
 pub const LowMemoryResourceNotification: MEMORY_RESOURCE_NOTIFICATION_TYPE = MEMORY_RESOURCE_NOTIFICATION_TYPE(0i32);
 pub const HighMemoryResourceNotification: MEMORY_RESOURCE_NOTIFICATION_TYPE = MEMORY_RESOURCE_NOTIFICATION_TYPE(1i32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct MEM_EXTENDED_PARAMETER(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct MEM_EXTENDED_PARAMETER {
+    pub Anonymous1: MEM_EXTENDED_PARAMETER_0,
+    pub Anonymous2: MEM_EXTENDED_PARAMETER_1,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MEM_EXTENDED_PARAMETER {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MEM_EXTENDED_PARAMETER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct MEM_EXTENDED_PARAMETER_0 {
+    pub _bitfield: u64,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MEM_EXTENDED_PARAMETER_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MEM_EXTENDED_PARAMETER_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub union MEM_EXTENDED_PARAMETER_1 {
+    pub ULong64: u64,
+    pub Pointer: *mut ::core::ffi::c_void,
+    pub Size: usize,
+    pub Handle: super::super::Foundation::HANDLE,
+    pub ULong: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MEM_EXTENDED_PARAMETER_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MEM_EXTENDED_PARAMETER_TYPE(pub i32);
 pub const MemExtendedParameterInvalidType: MEM_EXTENDED_PARAMETER_TYPE = MEM_EXTENDED_PARAMETER_TYPE(0i32);
@@ -324,9 +455,66 @@ pub const MEM_PRIVATE: PAGE_TYPE = PAGE_TYPE(131072u32);
 pub const MEM_MAPPED: PAGE_TYPE = PAGE_TYPE(262144u32);
 pub const MEM_IMAGE: PAGE_TYPE = PAGE_TYPE(16777216u32);
 pub type PBAD_MEMORY_CALLBACK_ROUTINE = unsafe extern "system" fn();
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct PROCESS_HEAP_ENTRY(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct PROCESS_HEAP_ENTRY {
+    pub lpData: *mut ::core::ffi::c_void,
+    pub cbData: u32,
+    pub cbOverhead: u8,
+    pub iRegionIndex: u8,
+    pub wFlags: u16,
+    pub Anonymous: PROCESS_HEAP_ENTRY_0,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for PROCESS_HEAP_ENTRY {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for PROCESS_HEAP_ENTRY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub union PROCESS_HEAP_ENTRY_0 {
+    pub Block: PROCESS_HEAP_ENTRY_0_0,
+    pub Region: PROCESS_HEAP_ENTRY_0_1,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for PROCESS_HEAP_ENTRY_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct PROCESS_HEAP_ENTRY_0_0 {
+    pub hMem: super::super::Foundation::HANDLE,
+    pub dwReserved: [u32; 3],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for PROCESS_HEAP_ENTRY_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for PROCESS_HEAP_ENTRY_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct PROCESS_HEAP_ENTRY_0_1 {
+    pub dwCommittedSize: u32,
+    pub dwUnCommittedSize: u32,
+    pub lpFirstBlock: *mut ::core::ffi::c_void,
+    pub lpLastBlock: *mut ::core::ffi::c_void,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for PROCESS_HEAP_ENTRY_0_1 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for PROCESS_HEAP_ENTRY_0_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[cfg(feature = "Win32_Foundation")]
 pub type PSECURE_MEMORY_CACHE_CALLBACK = unsafe extern "system" fn(addr: *const ::core::ffi::c_void, range: usize) -> super::super::Foundation::BOOLEAN;
 #[repr(transparent)]
@@ -352,12 +540,77 @@ pub const MEM_RELEASE: VIRTUAL_FREE_TYPE = VIRTUAL_FREE_TYPE(32768u32);
 pub struct WIN32_MEMORY_INFORMATION_CLASS(pub i32);
 pub const MemoryRegionInfo: WIN32_MEMORY_INFORMATION_CLASS = WIN32_MEMORY_INFORMATION_CLASS(0i32);
 #[repr(C)]
-pub struct WIN32_MEMORY_PARTITION_INFORMATION(i32);
+pub struct WIN32_MEMORY_PARTITION_INFORMATION {
+    pub Flags: u32,
+    pub NumaNode: u32,
+    pub Channel: u32,
+    pub NumberOfNumaNodes: u32,
+    pub ResidentAvailablePages: u64,
+    pub CommittedPages: u64,
+    pub CommitLimit: u64,
+    pub PeakCommitment: u64,
+    pub TotalNumberOfPages: u64,
+    pub AvailablePages: u64,
+    pub ZeroPages: u64,
+    pub FreePages: u64,
+    pub StandbyPages: u64,
+    pub Reserved: [u64; 16],
+    pub MaximumCommitLimit: u64,
+    pub Reserved2: u64,
+    pub PartitionId: u32,
+}
+impl ::core::marker::Copy for WIN32_MEMORY_PARTITION_INFORMATION {}
+impl ::core::clone::Clone for WIN32_MEMORY_PARTITION_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WIN32_MEMORY_PARTITION_INFORMATION_CLASS(pub i32);
 pub const MemoryPartitionInfo: WIN32_MEMORY_PARTITION_INFORMATION_CLASS = WIN32_MEMORY_PARTITION_INFORMATION_CLASS(0i32);
 pub const MemoryPartitionDedicatedMemoryInfo: WIN32_MEMORY_PARTITION_INFORMATION_CLASS = WIN32_MEMORY_PARTITION_INFORMATION_CLASS(1i32);
 #[repr(C)]
-pub struct WIN32_MEMORY_RANGE_ENTRY(i32);
+pub struct WIN32_MEMORY_RANGE_ENTRY {
+    pub VirtualAddress: *mut ::core::ffi::c_void,
+    pub NumberOfBytes: usize,
+}
+impl ::core::marker::Copy for WIN32_MEMORY_RANGE_ENTRY {}
+impl ::core::clone::Clone for WIN32_MEMORY_RANGE_ENTRY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WIN32_MEMORY_REGION_INFORMATION(i32);
+pub struct WIN32_MEMORY_REGION_INFORMATION {
+    pub AllocationBase: *mut ::core::ffi::c_void,
+    pub AllocationProtect: u32,
+    pub Anonymous: WIN32_MEMORY_REGION_INFORMATION_0,
+    pub RegionSize: usize,
+    pub CommitSize: usize,
+}
+impl ::core::marker::Copy for WIN32_MEMORY_REGION_INFORMATION {}
+impl ::core::clone::Clone for WIN32_MEMORY_REGION_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub union WIN32_MEMORY_REGION_INFORMATION_0 {
+    pub Flags: u32,
+    pub Anonymous: WIN32_MEMORY_REGION_INFORMATION_0_0,
+}
+impl ::core::clone::Clone for WIN32_MEMORY_REGION_INFORMATION_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct WIN32_MEMORY_REGION_INFORMATION_0_0 {
+    pub _bitfield: u32,
+}
+impl ::core::marker::Copy for WIN32_MEMORY_REGION_INFORMATION_0_0 {}
+impl ::core::clone::Clone for WIN32_MEMORY_REGION_INFORMATION_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

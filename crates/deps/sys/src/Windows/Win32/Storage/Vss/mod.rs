@@ -112,9 +112,32 @@ pub const VSS_CT_UNDEFINED: VSS_COMPONENT_TYPE = VSS_COMPONENT_TYPE(0i32);
 pub const VSS_CT_DATABASE: VSS_COMPONENT_TYPE = VSS_COMPONENT_TYPE(1i32);
 pub const VSS_CT_FILEGROUP: VSS_COMPONENT_TYPE = VSS_COMPONENT_TYPE(2i32);
 #[repr(C)]
-pub struct VSS_DIFF_AREA_PROP(i32);
+pub struct VSS_DIFF_AREA_PROP {
+    pub m_pwszVolumeName: *mut u16,
+    pub m_pwszDiffAreaVolumeName: *mut u16,
+    pub m_llMaximumDiffSpace: i64,
+    pub m_llAllocatedDiffSpace: i64,
+    pub m_llUsedDiffSpace: i64,
+}
+impl ::core::marker::Copy for VSS_DIFF_AREA_PROP {}
+impl ::core::clone::Clone for VSS_DIFF_AREA_PROP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct VSS_DIFF_VOLUME_PROP(i32);
+pub struct VSS_DIFF_VOLUME_PROP {
+    pub m_pwszVolumeName: *mut u16,
+    pub m_pwszVolumeDisplayName: *mut u16,
+    pub m_llVolumeFreeSpace: i64,
+    pub m_llVolumeTotalSpace: i64,
+}
+impl ::core::marker::Copy for VSS_DIFF_VOLUME_PROP {}
+impl ::core::clone::Clone for VSS_DIFF_VOLUME_PROP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const VSS_E_ASRERROR_CRITICAL_DISKS_TOO_SMALL: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147212280i32 as _);
 pub const VSS_E_ASRERROR_CRITICAL_DISK_CANNOT_BE_EXCLUDED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147212267i32 as _);
 pub const VSS_E_ASRERROR_DATADISK_RDISK0: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147212282i32 as _);
@@ -222,7 +245,16 @@ pub const VSS_ONLUNSTATECHANGE_NOTIFY_LUN_PRE_RECOVERY: VSS_HARDWARE_OPTIONS = V
 pub const VSS_ONLUNSTATECHANGE_NOTIFY_LUN_POST_RECOVERY: VSS_HARDWARE_OPTIONS = VSS_HARDWARE_OPTIONS(1024i32);
 pub const VSS_ONLUNSTATECHANGE_DO_MASK_LUNS: VSS_HARDWARE_OPTIONS = VSS_HARDWARE_OPTIONS(2048i32);
 #[repr(C)]
-pub struct VSS_MGMT_OBJECT_PROP(i32);
+pub struct VSS_MGMT_OBJECT_PROP {
+    pub Type: VSS_MGMT_OBJECT_TYPE,
+    pub Obj: VSS_MGMT_OBJECT_UNION,
+}
+impl ::core::marker::Copy for VSS_MGMT_OBJECT_PROP {}
+impl ::core::clone::Clone for VSS_MGMT_OBJECT_PROP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct VSS_MGMT_OBJECT_TYPE(pub i32);
 pub const VSS_MGMT_OBJECT_UNKNOWN: VSS_MGMT_OBJECT_TYPE = VSS_MGMT_OBJECT_TYPE(0i32);
@@ -230,9 +262,27 @@ pub const VSS_MGMT_OBJECT_VOLUME: VSS_MGMT_OBJECT_TYPE = VSS_MGMT_OBJECT_TYPE(1i
 pub const VSS_MGMT_OBJECT_DIFF_VOLUME: VSS_MGMT_OBJECT_TYPE = VSS_MGMT_OBJECT_TYPE(2i32);
 pub const VSS_MGMT_OBJECT_DIFF_AREA: VSS_MGMT_OBJECT_TYPE = VSS_MGMT_OBJECT_TYPE(3i32);
 #[repr(C)]
-pub struct VSS_MGMT_OBJECT_UNION(i32);
+pub union VSS_MGMT_OBJECT_UNION {
+    pub Vol: VSS_VOLUME_PROP,
+    pub DiffVol: VSS_DIFF_VOLUME_PROP,
+    pub DiffArea: VSS_DIFF_AREA_PROP,
+}
+impl ::core::clone::Clone for VSS_MGMT_OBJECT_UNION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct VSS_OBJECT_PROP(i32);
+pub struct VSS_OBJECT_PROP {
+    pub Type: VSS_OBJECT_TYPE,
+    pub Obj: VSS_OBJECT_UNION,
+}
+impl ::core::marker::Copy for VSS_OBJECT_PROP {}
+impl ::core::clone::Clone for VSS_OBJECT_PROP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct VSS_OBJECT_TYPE(pub i32);
 pub const VSS_OBJECT_UNKNOWN: VSS_OBJECT_TYPE = VSS_OBJECT_TYPE(0i32);
@@ -242,7 +292,15 @@ pub const VSS_OBJECT_SNAPSHOT: VSS_OBJECT_TYPE = VSS_OBJECT_TYPE(3i32);
 pub const VSS_OBJECT_PROVIDER: VSS_OBJECT_TYPE = VSS_OBJECT_TYPE(4i32);
 pub const VSS_OBJECT_TYPE_COUNT: VSS_OBJECT_TYPE = VSS_OBJECT_TYPE(5i32);
 #[repr(C)]
-pub struct VSS_OBJECT_UNION(i32);
+pub union VSS_OBJECT_UNION {
+    pub Snap: VSS_SNAPSHOT_PROP,
+    pub Prov: VSS_PROVIDER_PROP,
+}
+impl ::core::clone::Clone for VSS_OBJECT_UNION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct VSS_PROTECTION_FAULT(pub i32);
 pub const VSS_PROTECTION_FAULT_NONE: VSS_PROTECTION_FAULT = VSS_PROTECTION_FAULT(0i32);
@@ -279,7 +337,20 @@ pub const VSS_PRV_CAPABILITY_PLEX: VSS_PROVIDER_CAPABILITIES = VSS_PROVIDER_CAPA
 pub const VSS_PRV_CAPABILITY_DIFFERENTIAL: VSS_PROVIDER_CAPABILITIES = VSS_PROVIDER_CAPABILITIES(256i32);
 pub const VSS_PRV_CAPABILITY_CLUSTERED: VSS_PROVIDER_CAPABILITIES = VSS_PROVIDER_CAPABILITIES(512i32);
 #[repr(C)]
-pub struct VSS_PROVIDER_PROP(i32);
+pub struct VSS_PROVIDER_PROP {
+    pub m_ProviderId: ::windows_sys::core::GUID,
+    pub m_pwszProviderName: *mut u16,
+    pub m_eProviderType: VSS_PROVIDER_TYPE,
+    pub m_pwszProviderVersion: *mut u16,
+    pub m_ProviderVersionId: ::windows_sys::core::GUID,
+    pub m_ClassId: ::windows_sys::core::GUID,
+}
+impl ::core::marker::Copy for VSS_PROVIDER_PROP {}
+impl ::core::clone::Clone for VSS_PROVIDER_PROP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct VSS_PROVIDER_TYPE(pub i32);
 pub const VSS_PROV_UNKNOWN: VSS_PROVIDER_TYPE = VSS_PROVIDER_TYPE(0i32);
@@ -335,7 +406,27 @@ pub const VSS_CTX_CLIENT_ACCESSIBLE: VSS_SNAPSHOT_CONTEXT = VSS_SNAPSHOT_CONTEXT
 pub const VSS_CTX_CLIENT_ACCESSIBLE_WRITERS: VSS_SNAPSHOT_CONTEXT = VSS_SNAPSHOT_CONTEXT(13i32);
 pub const VSS_CTX_ALL: VSS_SNAPSHOT_CONTEXT = VSS_SNAPSHOT_CONTEXT(-1i32);
 #[repr(C)]
-pub struct VSS_SNAPSHOT_PROP(i32);
+pub struct VSS_SNAPSHOT_PROP {
+    pub m_SnapshotId: ::windows_sys::core::GUID,
+    pub m_SnapshotSetId: ::windows_sys::core::GUID,
+    pub m_lSnapshotsCount: i32,
+    pub m_pwszSnapshotDeviceObject: *mut u16,
+    pub m_pwszOriginalVolumeName: *mut u16,
+    pub m_pwszOriginatingMachine: *mut u16,
+    pub m_pwszServiceMachine: *mut u16,
+    pub m_pwszExposedName: *mut u16,
+    pub m_pwszExposedPath: *mut u16,
+    pub m_ProviderId: ::windows_sys::core::GUID,
+    pub m_lSnapshotAttributes: i32,
+    pub m_tsCreationTimestamp: i64,
+    pub m_eStatus: VSS_SNAPSHOT_STATE,
+}
+impl ::core::marker::Copy for VSS_SNAPSHOT_PROP {}
+impl ::core::clone::Clone for VSS_SNAPSHOT_PROP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct VSS_SNAPSHOT_PROPERTY_ID(pub i32);
 pub const VSS_SPROPID_UNKNOWN: VSS_SNAPSHOT_PROPERTY_ID = VSS_SNAPSHOT_PROPERTY_ID(0i32);
@@ -396,10 +487,34 @@ pub const VSS_UT_SYSTEMSERVICE: VSS_USAGE_TYPE = VSS_USAGE_TYPE(2i32);
 pub const VSS_UT_USERDATA: VSS_USAGE_TYPE = VSS_USAGE_TYPE(3i32);
 pub const VSS_UT_OTHER: VSS_USAGE_TYPE = VSS_USAGE_TYPE(4i32);
 #[repr(C)]
-pub struct VSS_VOLUME_PROP(i32);
-#[cfg(feature = "Win32_Foundation")]
+pub struct VSS_VOLUME_PROP {
+    pub m_pwszVolumeName: *mut u16,
+    pub m_pwszVolumeDisplayName: *mut u16,
+}
+impl ::core::marker::Copy for VSS_VOLUME_PROP {}
+impl ::core::clone::Clone for VSS_VOLUME_PROP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct VSS_VOLUME_PROTECTION_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct VSS_VOLUME_PROTECTION_INFO {
+    pub m_protectionLevel: VSS_PROTECTION_LEVEL,
+    pub m_volumeIsOfflineForProtection: super::super::Foundation::BOOL,
+    pub m_protectionFault: VSS_PROTECTION_FAULT,
+    pub m_failureStatus: i32,
+    pub m_volumeHasUnusedDiffArea: super::super::Foundation::BOOL,
+    pub m_reserved: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for VSS_VOLUME_PROTECTION_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for VSS_VOLUME_PROTECTION_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct VSS_VOLUME_SNAPSHOT_ATTRIBUTES(pub i32);
 pub const VSS_VOLSNAP_ATTR_PERSISTENT: VSS_VOLUME_SNAPSHOT_ATTRIBUTES = VSS_VOLUME_SNAPSHOT_ATTRIBUTES(1i32);

@@ -105,18 +105,48 @@ pub const DWMWA_LAST: DWMWINDOWATTRIBUTE = DWMWINDOWATTRIBUTE(38i32);
 pub const DWM_BB_BLURREGION: u32 = 2u32;
 pub const DWM_BB_ENABLE: u32 = 1u32;
 pub const DWM_BB_TRANSITIONONMAXIMIZED: u32 = 4u32;
+#[repr(C, packed(1))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-#[repr(C)]
-pub struct DWM_BLURBEHIND(i32);
+pub struct DWM_BLURBEHIND {
+    pub dwFlags: u32,
+    pub fEnable: super::super::Foundation::BOOL,
+    pub hRgnBlur: super::Gdi::HRGN,
+    pub fTransitionOnMaximized: super::super::Foundation::BOOL,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::marker::Copy for DWM_BLURBEHIND {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::clone::Clone for DWM_BLURBEHIND {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DWM_CLOAKED_APP: u32 = 1u32;
 pub const DWM_CLOAKED_INHERITED: u32 = 4u32;
 pub const DWM_CLOAKED_SHELL: u32 = 2u32;
 pub const DWM_EC_DISABLECOMPOSITION: u32 = 0u32;
 pub const DWM_EC_ENABLECOMPOSITION: u32 = 1u32;
 pub const DWM_FRAME_DURATION_DEFAULT: i32 = -1i32;
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct DWM_PRESENT_PARAMETERS(i32);
+pub struct DWM_PRESENT_PARAMETERS {
+    pub cbSize: u32,
+    pub fQueue: super::super::Foundation::BOOL,
+    pub cRefreshStart: u64,
+    pub cBuffer: u32,
+    pub fUseSourceRate: super::super::Foundation::BOOL,
+    pub rateSource: UNSIGNED_RATIO,
+    pub cRefreshesPerFrame: u32,
+    pub eSampling: DWM_SOURCE_FRAME_SAMPLING,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DWM_PRESENT_PARAMETERS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DWM_PRESENT_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DWM_SHOWCONTACT(pub u32);
 pub const DWMSC_DOWN: DWM_SHOWCONTACT = DWM_SHOWCONTACT(1u32);
@@ -145,11 +175,73 @@ pub const DWMTWR_TABBING_ENABLED: DWM_TAB_WINDOW_REQUIREMENTS = DWM_TAB_WINDOW_R
 pub const DWMTWR_USER_POLICY: DWM_TAB_WINDOW_REQUIREMENTS = DWM_TAB_WINDOW_REQUIREMENTS(128u32);
 pub const DWMTWR_GROUP_POLICY: DWM_TAB_WINDOW_REQUIREMENTS = DWM_TAB_WINDOW_REQUIREMENTS(256u32);
 pub const DWMTWR_APP_COMPAT: DWM_TAB_WINDOW_REQUIREMENTS = DWM_TAB_WINDOW_REQUIREMENTS(512u32);
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct DWM_THUMBNAIL_PROPERTIES(i32);
-#[repr(C)]
-pub struct DWM_TIMING_INFO(i32);
+pub struct DWM_THUMBNAIL_PROPERTIES {
+    pub dwFlags: u32,
+    pub rcDestination: super::super::Foundation::RECT,
+    pub rcSource: super::super::Foundation::RECT,
+    pub opacity: u8,
+    pub fVisible: super::super::Foundation::BOOL,
+    pub fSourceClientAreaOnly: super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DWM_THUMBNAIL_PROPERTIES {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DWM_THUMBNAIL_PROPERTIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub struct DWM_TIMING_INFO {
+    pub cbSize: u32,
+    pub rateRefresh: UNSIGNED_RATIO,
+    pub qpcRefreshPeriod: u64,
+    pub rateCompose: UNSIGNED_RATIO,
+    pub qpcVBlank: u64,
+    pub cRefresh: u64,
+    pub cDXRefresh: u32,
+    pub qpcCompose: u64,
+    pub cFrame: u64,
+    pub cDXPresent: u32,
+    pub cRefreshFrame: u64,
+    pub cFrameSubmitted: u64,
+    pub cDXPresentSubmitted: u32,
+    pub cFrameConfirmed: u64,
+    pub cDXPresentConfirmed: u32,
+    pub cRefreshConfirmed: u64,
+    pub cDXRefreshConfirmed: u32,
+    pub cFramesLate: u64,
+    pub cFramesOutstanding: u32,
+    pub cFrameDisplayed: u64,
+    pub qpcFrameDisplayed: u64,
+    pub cRefreshFrameDisplayed: u64,
+    pub cFrameComplete: u64,
+    pub qpcFrameComplete: u64,
+    pub cFramePending: u64,
+    pub qpcFramePending: u64,
+    pub cFramesDisplayed: u64,
+    pub cFramesComplete: u64,
+    pub cFramesPending: u64,
+    pub cFramesAvailable: u64,
+    pub cFramesDropped: u64,
+    pub cFramesMissed: u64,
+    pub cRefreshNextDisplayed: u64,
+    pub cRefreshNextPresented: u64,
+    pub cRefreshesDisplayed: u64,
+    pub cRefreshesPresented: u64,
+    pub cRefreshStarted: u64,
+    pub cPixelsReceived: u64,
+    pub cPixelsDrawn: u64,
+    pub cBuffersEmpty: u64,
+}
+impl ::core::marker::Copy for DWM_TIMING_INFO {}
+impl ::core::clone::Clone for DWM_TIMING_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DWM_TNP_OPACITY: u32 = 4u32;
 pub const DWM_TNP_RECTDESTINATION: u32 = 1u32;
 pub const DWM_TNP_RECTSOURCE: u32 = 2u32;
@@ -174,10 +266,32 @@ pub const GT_TOUCH_RIGHTTAP: GESTURE_TYPE = GESTURE_TYPE(7i32);
 pub const GT_TOUCH_PRESSANDHOLD: GESTURE_TYPE = GESTURE_TYPE(8i32);
 pub const GT_TOUCH_PRESSANDHOLDABORT: GESTURE_TYPE = GESTURE_TYPE(9i32);
 pub const GT_TOUCH_PRESSANDTAP: GESTURE_TYPE = GESTURE_TYPE(10i32);
-#[repr(C)]
-pub struct MilMatrix3x2D(i32);
-#[repr(C)]
-pub struct UNSIGNED_RATIO(i32);
+#[repr(C, packed(1))]
+pub struct MilMatrix3x2D {
+    pub S_11: f64,
+    pub S_12: f64,
+    pub S_21: f64,
+    pub S_22: f64,
+    pub DX: f64,
+    pub DY: f64,
+}
+impl ::core::marker::Copy for MilMatrix3x2D {}
+impl ::core::clone::Clone for MilMatrix3x2D {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub struct UNSIGNED_RATIO {
+    pub uiNumerator: u32,
+    pub uiDenominator: u32,
+}
+impl ::core::marker::Copy for UNSIGNED_RATIO {}
+impl ::core::clone::Clone for UNSIGNED_RATIO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const c_DwmMaxAdapters: u32 = 16u32;
 pub const c_DwmMaxMonitors: u32 = 16u32;
 pub const c_DwmMaxQueuedBuffers: u32 = 8u32;

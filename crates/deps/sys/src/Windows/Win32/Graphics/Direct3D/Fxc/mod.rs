@@ -126,7 +126,16 @@ pub const D3D_DISASM_INSTRUCTION_ONLY: u32 = 64u32;
 pub const D3D_DISASM_PRINT_HEX_LITERALS: u32 = 128u32;
 pub const D3D_GET_INST_OFFSETS_INCLUDE_NON_EXECUTABLE: u32 = 1u32;
 #[repr(C)]
-pub struct D3D_SHADER_DATA(i32);
+pub struct D3D_SHADER_DATA {
+    pub pBytecode: *mut ::core::ffi::c_void,
+    pub BytecodeLength: usize,
+}
+impl ::core::marker::Copy for D3D_SHADER_DATA {}
+impl ::core::clone::Clone for D3D_SHADER_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[cfg(feature = "Win32_Foundation")]
 pub type pD3DCompile = unsafe extern "system" fn(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, pfilename: super::super::super::Foundation::PSTR, pdefines: *const super::D3D_SHADER_MACRO, pinclude: super::ID3DInclude, pentrypoint: super::super::super::Foundation::PSTR, ptarget: super::super::super::Foundation::PSTR, flags1: u32, flags2: u32, ppcode: *mut super::ID3DBlob, pperrormsgs: *mut super::ID3DBlob) -> ::windows_sys::core::HRESULT;
 #[cfg(feature = "Win32_Foundation")]

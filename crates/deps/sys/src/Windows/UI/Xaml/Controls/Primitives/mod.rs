@@ -100,7 +100,16 @@ impl GeneratorDirection {
     pub const Backward: Self = Self(1i32);
 }
 #[repr(C)]
-pub struct GeneratorPosition(i32);
+pub struct GeneratorPosition {
+    pub Index: i32,
+    pub Offset: i32,
+}
+impl ::core::marker::Copy for GeneratorPosition {}
+impl ::core::clone::Clone for GeneratorPosition {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct GeneratorPositionHelper(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

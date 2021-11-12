@@ -708,9 +708,21 @@ pub struct WPD_COLOR_CORRECTED_STATUS_VALUES(pub i32);
 pub const WPD_COLOR_CORRECTED_STATUS_NOT_CORRECTED: WPD_COLOR_CORRECTED_STATUS_VALUES = WPD_COLOR_CORRECTED_STATUS_VALUES(0i32);
 pub const WPD_COLOR_CORRECTED_STATUS_CORRECTED: WPD_COLOR_CORRECTED_STATUS_VALUES = WPD_COLOR_CORRECTED_STATUS_VALUES(1i32);
 pub const WPD_COLOR_CORRECTED_STATUS_SHOULD_NOT_BE_CORRECTED: WPD_COLOR_CORRECTED_STATUS_VALUES = WPD_COLOR_CORRECTED_STATUS_VALUES(2i32);
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[repr(C)]
-pub struct WPD_COMMAND_ACCESS_LOOKUP_ENTRY(i32);
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+pub struct WPD_COMMAND_ACCESS_LOOKUP_ENTRY {
+    pub Command: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY,
+    pub AccessType: u32,
+    pub AccessProperty: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY,
+}
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+impl ::core::marker::Copy for WPD_COMMAND_ACCESS_LOOKUP_ENTRY {}
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+impl ::core::clone::Clone for WPD_COMMAND_ACCESS_LOOKUP_ENTRY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WPD_COMMAND_ACCESS_TYPES(pub i32);
 pub const WPD_COMMAND_ACCESS_READ: WPD_COMMAND_ACCESS_TYPES = WPD_COMMAND_ACCESS_TYPES(1i32);

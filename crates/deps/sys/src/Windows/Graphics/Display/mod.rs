@@ -112,7 +112,17 @@ pub struct IDisplayServices(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IDisplayServicesStatics(pub *mut ::core::ffi::c_void);
 #[repr(C)]
-pub struct NitRange(i32);
+pub struct NitRange {
+    pub MinNits: f32,
+    pub MaxNits: f32,
+    pub StepSizeNits: f32,
+}
+impl ::core::marker::Copy for NitRange {}
+impl ::core::clone::Clone for NitRange {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ResolutionScale(pub i32);
 impl ResolutionScale {

@@ -502,9 +502,44 @@ pub const raContinue: RADIUS_ACTION = RADIUS_ACTION(0i32);
 pub const raReject: RADIUS_ACTION = RADIUS_ACTION(1i32);
 pub const raAccept: RADIUS_ACTION = RADIUS_ACTION(2i32);
 #[repr(C)]
-pub struct RADIUS_ATTRIBUTE(i32);
+pub struct RADIUS_ATTRIBUTE {
+    pub dwAttrType: u32,
+    pub fDataType: RADIUS_DATA_TYPE,
+    pub cbDataLength: u32,
+    pub Anonymous: RADIUS_ATTRIBUTE_0,
+}
+impl ::core::marker::Copy for RADIUS_ATTRIBUTE {}
+impl ::core::clone::Clone for RADIUS_ATTRIBUTE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct RADIUS_ATTRIBUTE_ARRAY(i32);
+pub union RADIUS_ATTRIBUTE_0 {
+    pub dwValue: u32,
+    pub lpValue: *mut u8,
+}
+impl ::core::clone::Clone for RADIUS_ATTRIBUTE_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct RADIUS_ATTRIBUTE_ARRAY {
+    pub cbSize: u32,
+    pub Add: isize,
+    pub AttributeAt: *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut RADIUS_ATTRIBUTE,
+    pub GetSize: isize,
+    pub InsertAt: isize,
+    pub RemoveAt: isize,
+    pub SetAt: isize,
+}
+impl ::core::marker::Copy for RADIUS_ATTRIBUTE_ARRAY {}
+impl ::core::clone::Clone for RADIUS_ATTRIBUTE_ARRAY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RADIUS_ATTRIBUTE_TYPE(pub i32);
 pub const ratMinimum: RADIUS_ATTRIBUTE_TYPE = RADIUS_ATTRIBUTE_TYPE(0i32);
@@ -614,7 +649,22 @@ pub const rdtInteger: RADIUS_DATA_TYPE = RADIUS_DATA_TYPE(3i32);
 pub const rdtTime: RADIUS_DATA_TYPE = RADIUS_DATA_TYPE(4i32);
 pub const rdtIpv6Address: RADIUS_DATA_TYPE = RADIUS_DATA_TYPE(5i32);
 #[repr(C)]
-pub struct RADIUS_EXTENSION_CONTROL_BLOCK(i32);
+pub struct RADIUS_EXTENSION_CONTROL_BLOCK {
+    pub cbSize: u32,
+    pub dwVersion: u32,
+    pub repPoint: RADIUS_EXTENSION_POINT,
+    pub rcRequestType: RADIUS_CODE,
+    pub rcResponseType: RADIUS_CODE,
+    pub GetRequest: isize,
+    pub GetResponse: isize,
+    pub SetResponseType: isize,
+}
+impl ::core::marker::Copy for RADIUS_EXTENSION_CONTROL_BLOCK {}
+impl ::core::clone::Clone for RADIUS_EXTENSION_CONTROL_BLOCK {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RADIUS_EXTENSION_POINT(pub i32);
 pub const repAuthentication: RADIUS_EXTENSION_POINT = RADIUS_EXTENSION_POINT(0i32);
@@ -628,7 +678,18 @@ pub const rrrcAccountDisabled: RADIUS_REJECT_REASON_CODE = RADIUS_REJECT_REASON_
 pub const rrrcAccountExpired: RADIUS_REJECT_REASON_CODE = RADIUS_REJECT_REASON_CODE(3i32);
 pub const rrrcAuthenticationFailure: RADIUS_REJECT_REASON_CODE = RADIUS_REJECT_REASON_CODE(4i32);
 #[repr(C)]
-pub struct RADIUS_VSA_FORMAT(i32);
+pub struct RADIUS_VSA_FORMAT {
+    pub VendorId: [u8; 4],
+    pub VendorType: u8,
+    pub VendorLength: u8,
+    pub AttributeSpecific: [u8; 1],
+}
+impl ::core::marker::Copy for RADIUS_VSA_FORMAT {}
+impl ::core::clone::Clone for RADIUS_VSA_FORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct REMEDIATIONSERVERGROUPPROPERTIES(pub i32);
 pub const PROPERTY_REMEDIATIONSERVERGROUP_SERVERS_COLLECTION: REMEDIATIONSERVERGROUPPROPERTIES = REMEDIATIONSERVERGROUPPROPERTIES(1024i32);

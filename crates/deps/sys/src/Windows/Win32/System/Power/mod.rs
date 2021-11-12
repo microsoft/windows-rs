@@ -181,22 +181,82 @@ extern "system" {
     pub fn WritePwrScheme(puiid: *const u32, lpszschemename: super::super::Foundation::PWSTR, lpszdescription: super::super::Foundation::PWSTR, lpscheme: *const POWER_POLICY) -> super::super::Foundation::BOOLEAN;
 }
 #[repr(C)]
-pub struct ACPI_REAL_TIME(i32);
+pub struct ACPI_REAL_TIME {
+    pub Year: u16,
+    pub Month: u8,
+    pub Day: u8,
+    pub Hour: u8,
+    pub Minute: u8,
+    pub Second: u8,
+    pub Valid: u8,
+    pub Milliseconds: u16,
+    pub TimeZone: i16,
+    pub DayLight: u8,
+    pub Reserved1: [u8; 3],
+}
+impl ::core::marker::Copy for ACPI_REAL_TIME {}
+impl ::core::clone::Clone for ACPI_REAL_TIME {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const ACPI_TIME_ADJUST_DAYLIGHT: u32 = 1u32;
 pub const ACPI_TIME_IN_DAYLIGHT: u32 = 2u32;
 pub const ACPI_TIME_ZONE_UNKNOWN: u32 = 2047u32;
 pub const ACTIVE_COOLING: u32 = 0u32;
 #[repr(C)]
-pub struct ADMINISTRATOR_POWER_POLICY(i32);
+pub struct ADMINISTRATOR_POWER_POLICY {
+    pub MinSleep: SYSTEM_POWER_STATE,
+    pub MaxSleep: SYSTEM_POWER_STATE,
+    pub MinVideoTimeout: u32,
+    pub MaxVideoTimeout: u32,
+    pub MinSpindownTimeout: u32,
+    pub MaxSpindownTimeout: u32,
+}
+impl ::core::marker::Copy for ADMINISTRATOR_POWER_POLICY {}
+impl ::core::clone::Clone for ADMINISTRATOR_POWER_POLICY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const BATTERY_CAPACITY_RELATIVE: u32 = 1073741824u32;
 #[repr(C)]
-pub struct BATTERY_CHARGER_STATUS(i32);
+pub struct BATTERY_CHARGER_STATUS {
+    pub Type: BATTERY_CHARGING_SOURCE_TYPE,
+    pub VaData: [u32; 1],
+}
+impl ::core::marker::Copy for BATTERY_CHARGER_STATUS {}
+impl ::core::clone::Clone for BATTERY_CHARGER_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const BATTERY_CHARGING: u32 = 4u32;
 #[repr(C)]
-pub struct BATTERY_CHARGING_SOURCE(i32);
-#[cfg(feature = "Win32_Foundation")]
+pub struct BATTERY_CHARGING_SOURCE {
+    pub Type: BATTERY_CHARGING_SOURCE_TYPE,
+    pub MaxCurrent: u32,
+}
+impl ::core::marker::Copy for BATTERY_CHARGING_SOURCE {}
+impl ::core::clone::Clone for BATTERY_CHARGING_SOURCE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct BATTERY_CHARGING_SOURCE_INFORMATION(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct BATTERY_CHARGING_SOURCE_INFORMATION {
+    pub Type: BATTERY_CHARGING_SOURCE_TYPE,
+    pub SourceOnline: super::super::Foundation::BOOLEAN,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for BATTERY_CHARGING_SOURCE_INFORMATION {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for BATTERY_CHARGING_SOURCE_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct BATTERY_CHARGING_SOURCE_TYPE(pub i32);
 pub const BatteryChargingSourceType_AC: BATTERY_CHARGING_SOURCE_TYPE = BATTERY_CHARGING_SOURCE_TYPE(1i32);
@@ -211,15 +271,52 @@ pub const BATTERY_CYCLE_COUNT_WMI_GUID: ::windows_sys::core::GUID = ::windows_sy
 pub const BATTERY_DISCHARGING: u32 = 2u32;
 pub const BATTERY_FULL_CHARGED_CAPACITY_WMI_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1085539685, data2: 38647, data3: 17461, data4: [134, 148, 151, 224, 228, 57, 89, 5] };
 #[repr(C)]
-pub struct BATTERY_INFORMATION(i32);
+pub struct BATTERY_INFORMATION {
+    pub Capabilities: u32,
+    pub Technology: u8,
+    pub Reserved: [u8; 3],
+    pub Chemistry: [u8; 4],
+    pub DesignedCapacity: u32,
+    pub FullChargedCapacity: u32,
+    pub DefaultAlert1: u32,
+    pub DefaultAlert2: u32,
+    pub CriticalBias: u32,
+    pub CycleCount: u32,
+}
+impl ::core::marker::Copy for BATTERY_INFORMATION {}
+impl ::core::clone::Clone for BATTERY_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const BATTERY_IS_SHORT_TERM: u32 = 536870912u32;
 #[repr(C)]
-pub struct BATTERY_MANUFACTURE_DATE(i32);
+pub struct BATTERY_MANUFACTURE_DATE {
+    pub Day: u8,
+    pub Month: u8,
+    pub Year: u16,
+}
+impl ::core::marker::Copy for BATTERY_MANUFACTURE_DATE {}
+impl ::core::clone::Clone for BATTERY_MANUFACTURE_DATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const BATTERY_MINIPORT_UPDATE_DATA_VER_1: u32 = 1u32;
 pub const BATTERY_MINIPORT_UPDATE_DATA_VER_2: u32 = 2u32;
 pub const BATTERY_POWER_ON_LINE: u32 = 1u32;
 #[repr(C)]
-pub struct BATTERY_QUERY_INFORMATION(i32);
+pub struct BATTERY_QUERY_INFORMATION {
+    pub BatteryTag: u32,
+    pub InformationLevel: BATTERY_QUERY_INFORMATION_LEVEL,
+    pub AtRate: u32,
+}
+impl ::core::marker::Copy for BATTERY_QUERY_INFORMATION {}
+impl ::core::clone::Clone for BATTERY_QUERY_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct BATTERY_QUERY_INFORMATION_LEVEL(pub i32);
 pub const BatteryInformation: BATTERY_QUERY_INFORMATION_LEVEL = BATTERY_QUERY_INFORMATION_LEVEL(0i32);
@@ -232,7 +329,16 @@ pub const BatteryManufactureName: BATTERY_QUERY_INFORMATION_LEVEL = BATTERY_QUER
 pub const BatteryUniqueID: BATTERY_QUERY_INFORMATION_LEVEL = BATTERY_QUERY_INFORMATION_LEVEL(7i32);
 pub const BatterySerialNumber: BATTERY_QUERY_INFORMATION_LEVEL = BATTERY_QUERY_INFORMATION_LEVEL(8i32);
 #[repr(C)]
-pub struct BATTERY_REPORTING_SCALE(i32);
+pub struct BATTERY_REPORTING_SCALE {
+    pub Granularity: u32,
+    pub Capacity: u32,
+}
+impl ::core::marker::Copy for BATTERY_REPORTING_SCALE {}
+impl ::core::clone::Clone for BATTERY_REPORTING_SCALE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const BATTERY_RUNTIME_WMI_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1398421351, data2: 6850, data3: 18876, data4: [160, 119, 63, 122, 2, 228, 10, 236] };
 pub const BATTERY_SEALED: u32 = 268435456u32;
 pub const BATTERY_SET_CHARGER_ID_SUPPORTED: u32 = 8u32;
@@ -240,7 +346,17 @@ pub const BATTERY_SET_CHARGE_SUPPORTED: u32 = 1u32;
 pub const BATTERY_SET_CHARGINGSOURCE_SUPPORTED: u32 = 4u32;
 pub const BATTERY_SET_DISCHARGE_SUPPORTED: u32 = 2u32;
 #[repr(C)]
-pub struct BATTERY_SET_INFORMATION(i32);
+pub struct BATTERY_SET_INFORMATION {
+    pub BatteryTag: u32,
+    pub InformationLevel: BATTERY_SET_INFORMATION_LEVEL,
+    pub Buffer: [u8; 1],
+}
+impl ::core::marker::Copy for BATTERY_SET_INFORMATION {}
+impl ::core::clone::Clone for BATTERY_SET_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct BATTERY_SET_INFORMATION_LEVEL(pub i32);
 pub const BatteryCriticalBias: BATTERY_SET_INFORMATION_LEVEL = BATTERY_SET_INFORMATION_LEVEL(0i32);
@@ -251,7 +367,18 @@ pub const BatteryChargerId: BATTERY_SET_INFORMATION_LEVEL = BATTERY_SET_INFORMAT
 pub const BatteryChargerStatus: BATTERY_SET_INFORMATION_LEVEL = BATTERY_SET_INFORMATION_LEVEL(5i32);
 pub const BATTERY_STATIC_DATA_WMI_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 98690147, data2: 58594, data3: 20137, data4: [128, 203, 155, 212, 179, 202, 6, 85] };
 #[repr(C)]
-pub struct BATTERY_STATUS(i32);
+pub struct BATTERY_STATUS {
+    pub PowerState: u32,
+    pub Capacity: u32,
+    pub Voltage: u32,
+    pub Rate: i32,
+}
+impl ::core::marker::Copy for BATTERY_STATUS {}
+impl ::core::clone::Clone for BATTERY_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const BATTERY_STATUS_CHANGE_WMI_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3453984963, data2: 31835, data3: 20035, data4: [160, 52, 5, 159, 165, 184, 67, 100] };
 pub const BATTERY_STATUS_WMI_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4232474833, data2: 60351, data3: 16750, data4: [135, 206, 55, 74, 78, 188, 17, 26] };
 pub const BATTERY_SYSTEM_BATTERY: u32 = 2147483648u32;
@@ -274,13 +401,56 @@ pub const BATTERY_UNKNOWN_RATE: u32 = 2147483648u32;
 pub const BATTERY_UNKNOWN_TIME: u32 = 4294967295u32;
 pub const BATTERY_UNKNOWN_VOLTAGE: u32 = 4294967295u32;
 #[repr(C)]
-pub struct BATTERY_USB_CHARGER_STATUS(i32);
+pub struct BATTERY_USB_CHARGER_STATUS {
+    pub Type: BATTERY_CHARGING_SOURCE_TYPE,
+    pub Reserved: u32,
+    pub Flags: u32,
+    pub MaxCurrent: u32,
+    pub Voltage: u32,
+    pub PortType: USB_CHARGER_PORT,
+    pub PortId: u64,
+    pub PowerSourceInformation: *mut ::core::ffi::c_void,
+    pub OemCharger: ::windows_sys::core::GUID,
+}
+impl ::core::marker::Copy for BATTERY_USB_CHARGER_STATUS {}
+impl ::core::clone::Clone for BATTERY_USB_CHARGER_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const BATTERY_USB_CHARGER_STATUS_FN_DEFAULT_USB: u32 = 1u32;
 pub const BATTERY_USB_CHARGER_STATUS_UCM_PD: u32 = 2u32;
 #[repr(C)]
-pub struct BATTERY_WAIT_STATUS(i32);
+pub struct BATTERY_WAIT_STATUS {
+    pub BatteryTag: u32,
+    pub Timeout: u32,
+    pub PowerState: u32,
+    pub LowCapacity: u32,
+    pub HighCapacity: u32,
+}
+impl ::core::marker::Copy for BATTERY_WAIT_STATUS {}
+impl ::core::clone::Clone for BATTERY_WAIT_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CM_POWER_DATA(i32);
+pub struct CM_POWER_DATA {
+    pub PD_Size: u32,
+    pub PD_MostRecentPowerState: DEVICE_POWER_STATE,
+    pub PD_Capabilities: u32,
+    pub PD_D1Latency: u32,
+    pub PD_D2Latency: u32,
+    pub PD_D3Latency: u32,
+    pub PD_PowerStateMapping: [DEVICE_POWER_STATE; 7],
+    pub PD_DeepestSystemWake: SYSTEM_POWER_STATE,
+}
+impl ::core::marker::Copy for CM_POWER_DATA {}
+impl ::core::clone::Clone for CM_POWER_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DEVICEPOWER_AND_OPERATION: u32 = 1073741824u32;
 pub const DEVICEPOWER_CLEAR_WAKEENABLED: u32 = 2u32;
 pub const DEVICEPOWER_FILTER_DEVICES_PRESENT: u32 = 536870912u32;
@@ -291,7 +461,16 @@ pub const DEVICEPOWER_FILTER_WAKEPROGRAMMABLE: u32 = 67108864u32;
 pub const DEVICEPOWER_HARDWAREID: u32 = 2147483648u32;
 pub const DEVICEPOWER_SET_WAKEENABLED: u32 = 1u32;
 #[repr(C)]
-pub struct DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS(i32);
+pub struct DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS {
+    pub Callback: ::core::option::Option<PDEVICE_NOTIFY_CALLBACK_ROUTINE>,
+    pub Context: *mut ::core::ffi::c_void,
+}
+impl ::core::marker::Copy for DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS {}
+impl ::core::clone::Clone for DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DEVICE_POWER_STATE(pub i32);
 pub const PowerDeviceUnspecified: DEVICE_POWER_STATE = DEVICE_POWER_STATE(0i32);
@@ -313,23 +492,91 @@ pub type EFFECTIVE_POWER_MODE_CALLBACK = unsafe extern "system" fn(mode: EFFECTI
 pub const EFFECTIVE_POWER_MODE_V1: u32 = 1u32;
 pub const EFFECTIVE_POWER_MODE_V2: u32 = 2u32;
 #[repr(C)]
-pub struct EMI_CHANNEL_MEASUREMENT_DATA(i32);
+pub struct EMI_CHANNEL_MEASUREMENT_DATA {
+    pub AbsoluteEnergy: u64,
+    pub AbsoluteTime: u64,
+}
+impl ::core::marker::Copy for EMI_CHANNEL_MEASUREMENT_DATA {}
+impl ::core::clone::Clone for EMI_CHANNEL_MEASUREMENT_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct EMI_CHANNEL_V2(i32);
+pub struct EMI_CHANNEL_V2 {
+    pub MeasurementUnit: EMI_MEASUREMENT_UNIT,
+    pub ChannelNameSize: u16,
+    pub ChannelName: [u16; 1],
+}
+impl ::core::marker::Copy for EMI_CHANNEL_V2 {}
+impl ::core::clone::Clone for EMI_CHANNEL_V2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct EMI_MEASUREMENT_DATA_V2(i32);
+pub struct EMI_MEASUREMENT_DATA_V2 {
+    pub ChannelData: [EMI_CHANNEL_MEASUREMENT_DATA; 1],
+}
+impl ::core::marker::Copy for EMI_MEASUREMENT_DATA_V2 {}
+impl ::core::clone::Clone for EMI_MEASUREMENT_DATA_V2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct EMI_MEASUREMENT_UNIT(pub i32);
 pub const EmiMeasurementUnitPicowattHours: EMI_MEASUREMENT_UNIT = EMI_MEASUREMENT_UNIT(0i32);
 #[repr(C)]
-pub struct EMI_METADATA_SIZE(i32);
+pub struct EMI_METADATA_SIZE {
+    pub MetadataSize: u32,
+}
+impl ::core::marker::Copy for EMI_METADATA_SIZE {}
+impl ::core::clone::Clone for EMI_METADATA_SIZE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct EMI_METADATA_V1(i32);
+pub struct EMI_METADATA_V1 {
+    pub MeasurementUnit: EMI_MEASUREMENT_UNIT,
+    pub HardwareOEM: [u16; 16],
+    pub HardwareModel: [u16; 16],
+    pub HardwareRevision: u16,
+    pub MeteredHardwareNameSize: u16,
+    pub MeteredHardwareName: [u16; 1],
+}
+impl ::core::marker::Copy for EMI_METADATA_V1 {}
+impl ::core::clone::Clone for EMI_METADATA_V1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct EMI_METADATA_V2(i32);
+pub struct EMI_METADATA_V2 {
+    pub HardwareOEM: [u16; 16],
+    pub HardwareModel: [u16; 16],
+    pub HardwareRevision: u16,
+    pub ChannelCount: u16,
+    pub Channels: [EMI_CHANNEL_V2; 1],
+}
+impl ::core::marker::Copy for EMI_METADATA_V2 {}
+impl ::core::clone::Clone for EMI_METADATA_V2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const EMI_NAME_MAX: u32 = 16u32;
 #[repr(C)]
-pub struct EMI_VERSION(i32);
+pub struct EMI_VERSION {
+    pub EmiVersion: u16,
+}
+impl ::core::marker::Copy for EMI_VERSION {}
+impl ::core::clone::Clone for EMI_VERSION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const EMI_VERSION_V1: u32 = 1u32;
 pub const EMI_VERSION_V2: u32 = 2u32;
 #[repr(transparent)]
@@ -345,13 +592,53 @@ pub const EnableSysTrayBatteryMeter: u32 = 1u32;
 pub const EnableVideoDimDisplay: u32 = 16u32;
 pub const EnableWakeOnRing: u32 = 8u32;
 #[repr(C)]
-pub struct GLOBAL_MACHINE_POWER_POLICY(i32);
-#[cfg(feature = "Win32_Foundation")]
+pub struct GLOBAL_MACHINE_POWER_POLICY {
+    pub Revision: u32,
+    pub LidOpenWakeAc: SYSTEM_POWER_STATE,
+    pub LidOpenWakeDc: SYSTEM_POWER_STATE,
+    pub BroadcastCapacityResolution: u32,
+}
+impl ::core::marker::Copy for GLOBAL_MACHINE_POWER_POLICY {}
+impl ::core::clone::Clone for GLOBAL_MACHINE_POWER_POLICY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct GLOBAL_POWER_POLICY(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct GLOBAL_POWER_POLICY {
+    pub user: GLOBAL_USER_POWER_POLICY,
+    pub mach: GLOBAL_MACHINE_POWER_POLICY,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for GLOBAL_POWER_POLICY {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for GLOBAL_POWER_POLICY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct GLOBAL_USER_POWER_POLICY(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct GLOBAL_USER_POWER_POLICY {
+    pub Revision: u32,
+    pub PowerButtonAc: POWER_ACTION_POLICY,
+    pub PowerButtonDc: POWER_ACTION_POLICY,
+    pub SleepButtonAc: POWER_ACTION_POLICY,
+    pub SleepButtonDc: POWER_ACTION_POLICY,
+    pub LidCloseAc: POWER_ACTION_POLICY,
+    pub LidCloseDc: POWER_ACTION_POLICY,
+    pub DischargePolicy: [SYSTEM_POWER_LEVEL; 4],
+    pub GlobalFlags: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for GLOBAL_USER_POWER_POLICY {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for GLOBAL_USER_POWER_POLICY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const GUID_CLASS_INPUT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1293833650, data2: 61807, data3: 4559, data4: [136, 203, 0, 17, 17, 0, 0, 48] };
 pub const GUID_DEVICE_ACPI_TIME: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 2549718006,
@@ -392,7 +679,15 @@ pub const GUID_DEVINTERFACE_THERMAL_COOLING: ::windows_sys::core::GUID = ::windo
 };
 pub const GUID_DEVINTERFACE_THERMAL_MANAGER: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2457780371, data2: 27044, data3: 19392, data4: [189, 2, 113, 22, 100, 113, 68, 99] };
 #[repr(C)]
-pub struct HPOWERNOTIFY(i32);
+pub struct HPOWERNOTIFY {
+    pub Value: isize,
+}
+impl ::core::marker::Copy for HPOWERNOTIFY {}
+impl ::core::clone::Clone for HPOWERNOTIFY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const IOCTL_ACPI_GET_REAL_TIME: u32 = 2703888u32;
 pub const IOCTL_ACPI_SET_REAL_TIME: u32 = 2720276u32;
 pub const IOCTL_BATTERY_CHARGING_SOURCE_CHANGE: u32 = 2703440u32;
@@ -426,9 +721,40 @@ pub struct LATENCY_TIME(pub i32);
 pub const LT_DONT_CARE: LATENCY_TIME = LATENCY_TIME(0i32);
 pub const LT_LOWEST_LATENCY: LATENCY_TIME = LATENCY_TIME(1i32);
 #[repr(C)]
-pub struct MACHINE_POWER_POLICY(i32);
+pub struct MACHINE_POWER_POLICY {
+    pub Revision: u32,
+    pub MinSleepAc: SYSTEM_POWER_STATE,
+    pub MinSleepDc: SYSTEM_POWER_STATE,
+    pub ReducedLatencySleepAc: SYSTEM_POWER_STATE,
+    pub ReducedLatencySleepDc: SYSTEM_POWER_STATE,
+    pub DozeTimeoutAc: u32,
+    pub DozeTimeoutDc: u32,
+    pub DozeS4TimeoutAc: u32,
+    pub DozeS4TimeoutDc: u32,
+    pub MinThrottleAc: u8,
+    pub MinThrottleDc: u8,
+    pub pad1: [u8; 2],
+    pub OverThrottledAc: POWER_ACTION_POLICY,
+    pub OverThrottledDc: POWER_ACTION_POLICY,
+}
+impl ::core::marker::Copy for MACHINE_POWER_POLICY {}
+impl ::core::clone::Clone for MACHINE_POWER_POLICY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct MACHINE_PROCESSOR_POWER_POLICY(i32);
+pub struct MACHINE_PROCESSOR_POWER_POLICY {
+    pub Revision: u32,
+    pub ProcessorPolicyAc: PROCESSOR_POWER_POLICY,
+    pub ProcessorPolicyDc: PROCESSOR_POWER_POLICY,
+}
+impl ::core::marker::Copy for MACHINE_PROCESSOR_POWER_POLICY {}
+impl ::core::clone::Clone for MACHINE_PROCESSOR_POWER_POLICY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MAX_ACTIVE_COOLING_LEVELS: u32 = 10u32;
 pub const MAX_BATTERY_STRING_SIZE: u32 = 128u32;
 pub const PASSIVE_COOLING: u32 = 1u32;
@@ -444,7 +770,17 @@ pub const PDCAP_WAKE_FROM_S2_SUPPORTED: u32 = 4194304u32;
 pub const PDCAP_WAKE_FROM_S3_SUPPORTED: u32 = 8388608u32;
 pub type PDEVICE_NOTIFY_CALLBACK_ROUTINE = unsafe extern "system" fn(context: *const ::core::ffi::c_void, r#type: u32, setting: *const ::core::ffi::c_void) -> u32;
 #[repr(C)]
-pub struct POWERBROADCAST_SETTING(i32);
+pub struct POWERBROADCAST_SETTING {
+    pub PowerSetting: ::windows_sys::core::GUID,
+    pub DataLength: u32,
+    pub Data: [u8; 1],
+}
+impl ::core::marker::Copy for POWERBROADCAST_SETTING {}
+impl ::core::clone::Clone for POWERBROADCAST_SETTING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct POWER_ACTION(pub i32);
 pub const PowerActionNone: POWER_ACTION = POWER_ACTION(0i32);
@@ -457,7 +793,17 @@ pub const PowerActionShutdownOff: POWER_ACTION = POWER_ACTION(6i32);
 pub const PowerActionWarmEject: POWER_ACTION = POWER_ACTION(7i32);
 pub const PowerActionDisplayOff: POWER_ACTION = POWER_ACTION(8i32);
 #[repr(C)]
-pub struct POWER_ACTION_POLICY(i32);
+pub struct POWER_ACTION_POLICY {
+    pub Action: POWER_ACTION,
+    pub Flags: u32,
+    pub EventCode: POWER_ACTION_POLICY_EVENT_CODE,
+}
+impl ::core::marker::Copy for POWER_ACTION_POLICY {}
+impl ::core::clone::Clone for POWER_ACTION_POLICY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct POWER_ACTION_POLICY_EVENT_CODE(pub u32);
 pub const POWER_FORCE_TRIGGER_RESET: POWER_ACTION_POLICY_EVENT_CODE = POWER_ACTION_POLICY_EVENT_CODE(2147483648u32);
@@ -614,9 +960,20 @@ pub const PlatformRoleMaximum: POWER_PLATFORM_ROLE = POWER_PLATFORM_ROLE(9i32);
 pub struct POWER_PLATFORM_ROLE_VERSION(pub u32);
 pub const POWER_PLATFORM_ROLE_V1: POWER_PLATFORM_ROLE_VERSION = POWER_PLATFORM_ROLE_VERSION(1u32);
 pub const POWER_PLATFORM_ROLE_V2: POWER_PLATFORM_ROLE_VERSION = POWER_PLATFORM_ROLE_VERSION(2u32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct POWER_POLICY(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct POWER_POLICY {
+    pub user: USER_POWER_POLICY,
+    pub mach: MACHINE_POWER_POLICY,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for POWER_POLICY {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for POWER_POLICY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct POWER_REQUEST_TYPE(pub i32);
 pub const PowerRequestDisplayRequired: POWER_REQUEST_TYPE = POWER_REQUEST_TYPE(0i32);
@@ -634,37 +991,211 @@ pub const PROCESSOR_NUMBER_PKEY: super::super::UI::Shell::PropertiesSystem::PROP
     pid: 1u32,
 };
 #[repr(C)]
-pub struct PROCESSOR_OBJECT_INFO(i32);
+pub struct PROCESSOR_OBJECT_INFO {
+    pub PhysicalID: u32,
+    pub PBlkAddress: u32,
+    pub PBlkLength: u8,
+}
+impl ::core::marker::Copy for PROCESSOR_OBJECT_INFO {}
+impl ::core::clone::Clone for PROCESSOR_OBJECT_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct PROCESSOR_OBJECT_INFO_EX(i32);
+pub struct PROCESSOR_OBJECT_INFO_EX {
+    pub PhysicalID: u32,
+    pub PBlkAddress: u32,
+    pub PBlkLength: u8,
+    pub InitialApicId: u32,
+}
+impl ::core::marker::Copy for PROCESSOR_OBJECT_INFO_EX {}
+impl ::core::clone::Clone for PROCESSOR_OBJECT_INFO_EX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct PROCESSOR_POWER_POLICY(i32);
+pub struct PROCESSOR_POWER_POLICY {
+    pub Revision: u32,
+    pub DynamicThrottle: u8,
+    pub Spare: [u8; 3],
+    pub _bitfield: u32,
+    pub PolicyCount: u32,
+    pub Policy: [PROCESSOR_POWER_POLICY_INFO; 3],
+}
+impl ::core::marker::Copy for PROCESSOR_POWER_POLICY {}
+impl ::core::clone::Clone for PROCESSOR_POWER_POLICY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct PROCESSOR_POWER_POLICY_INFO(i32);
+pub struct PROCESSOR_POWER_POLICY_INFO {
+    pub TimeCheck: u32,
+    pub DemoteLimit: u32,
+    pub PromoteLimit: u32,
+    pub DemotePercent: u8,
+    pub PromotePercent: u8,
+    pub Spare: [u8; 2],
+    pub _bitfield: u32,
+}
+impl ::core::marker::Copy for PROCESSOR_POWER_POLICY_INFO {}
+impl ::core::clone::Clone for PROCESSOR_POWER_POLICY_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[cfg(feature = "Win32_Foundation")]
 pub type PWRSCHEMESENUMPROC = unsafe extern "system" fn(index: u32, namesize: u32, name: super::super::Foundation::PWSTR, descriptionsize: u32, description: super::super::Foundation::PWSTR, policy: *const POWER_POLICY, context: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOLEAN;
 #[cfg(feature = "Win32_Foundation")]
 pub type PWRSCHEMESENUMPROC_V1 = unsafe extern "system" fn(index: u32, namesize: u32, name: *const i8, descriptionsize: u32, description: *const i8, policy: *const POWER_POLICY, context: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOLEAN;
 #[repr(C)]
-pub struct SET_POWER_SETTING_VALUE(i32);
-#[cfg(feature = "Win32_Foundation")]
+pub struct SET_POWER_SETTING_VALUE {
+    pub Version: u32,
+    pub Guid: ::windows_sys::core::GUID,
+    pub PowerCondition: SYSTEM_POWER_CONDITION,
+    pub DataLength: u32,
+    pub Data: [u8; 1],
+}
+impl ::core::marker::Copy for SET_POWER_SETTING_VALUE {}
+impl ::core::clone::Clone for SET_POWER_SETTING_VALUE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct SYSTEM_BATTERY_STATE(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct SYSTEM_BATTERY_STATE {
+    pub AcOnLine: super::super::Foundation::BOOLEAN,
+    pub BatteryPresent: super::super::Foundation::BOOLEAN,
+    pub Charging: super::super::Foundation::BOOLEAN,
+    pub Discharging: super::super::Foundation::BOOLEAN,
+    pub Spare1: [super::super::Foundation::BOOLEAN; 3],
+    pub Tag: u8,
+    pub MaxCapacity: u32,
+    pub RemainingCapacity: u32,
+    pub Rate: u32,
+    pub EstimatedTime: u32,
+    pub DefaultAlert1: u32,
+    pub DefaultAlert2: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SYSTEM_BATTERY_STATE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SYSTEM_BATTERY_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct SYSTEM_POWER_CAPABILITIES(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct SYSTEM_POWER_CAPABILITIES {
+    pub PowerButtonPresent: super::super::Foundation::BOOLEAN,
+    pub SleepButtonPresent: super::super::Foundation::BOOLEAN,
+    pub LidPresent: super::super::Foundation::BOOLEAN,
+    pub SystemS1: super::super::Foundation::BOOLEAN,
+    pub SystemS2: super::super::Foundation::BOOLEAN,
+    pub SystemS3: super::super::Foundation::BOOLEAN,
+    pub SystemS4: super::super::Foundation::BOOLEAN,
+    pub SystemS5: super::super::Foundation::BOOLEAN,
+    pub HiberFilePresent: super::super::Foundation::BOOLEAN,
+    pub FullWake: super::super::Foundation::BOOLEAN,
+    pub VideoDimPresent: super::super::Foundation::BOOLEAN,
+    pub ApmPresent: super::super::Foundation::BOOLEAN,
+    pub UpsPresent: super::super::Foundation::BOOLEAN,
+    pub ThermalControl: super::super::Foundation::BOOLEAN,
+    pub ProcessorThrottle: super::super::Foundation::BOOLEAN,
+    pub ProcessorMinThrottle: u8,
+    pub ProcessorMaxThrottle: u8,
+    pub FastSystemS4: super::super::Foundation::BOOLEAN,
+    pub Hiberboot: super::super::Foundation::BOOLEAN,
+    pub WakeAlarmPresent: super::super::Foundation::BOOLEAN,
+    pub AoAc: super::super::Foundation::BOOLEAN,
+    pub DiskSpinDown: super::super::Foundation::BOOLEAN,
+    pub HiberFileType: u8,
+    pub AoAcConnectivitySupported: super::super::Foundation::BOOLEAN,
+    pub spare3: [u8; 6],
+    pub SystemBatteriesPresent: super::super::Foundation::BOOLEAN,
+    pub BatteriesAreShortTerm: super::super::Foundation::BOOLEAN,
+    pub BatteryScale: [BATTERY_REPORTING_SCALE; 3],
+    pub AcOnLineWake: SYSTEM_POWER_STATE,
+    pub SoftLidWake: SYSTEM_POWER_STATE,
+    pub RtcWake: SYSTEM_POWER_STATE,
+    pub MinDeviceWakeState: SYSTEM_POWER_STATE,
+    pub DefaultLowLatencyWake: SYSTEM_POWER_STATE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SYSTEM_POWER_CAPABILITIES {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SYSTEM_POWER_CAPABILITIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SYSTEM_POWER_CONDITION(pub i32);
 pub const PoAc: SYSTEM_POWER_CONDITION = SYSTEM_POWER_CONDITION(0i32);
 pub const PoDc: SYSTEM_POWER_CONDITION = SYSTEM_POWER_CONDITION(1i32);
 pub const PoHot: SYSTEM_POWER_CONDITION = SYSTEM_POWER_CONDITION(2i32);
 pub const PoConditionMaximum: SYSTEM_POWER_CONDITION = SYSTEM_POWER_CONDITION(3i32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct SYSTEM_POWER_LEVEL(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct SYSTEM_POWER_LEVEL {
+    pub Enable: super::super::Foundation::BOOLEAN,
+    pub Spare: [u8; 3],
+    pub BatteryLevel: u32,
+    pub PowerPolicy: POWER_ACTION_POLICY,
+    pub MinSystemState: SYSTEM_POWER_STATE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SYSTEM_POWER_LEVEL {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SYSTEM_POWER_LEVEL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct SYSTEM_POWER_POLICY(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct SYSTEM_POWER_POLICY {
+    pub Revision: u32,
+    pub PowerButton: POWER_ACTION_POLICY,
+    pub SleepButton: POWER_ACTION_POLICY,
+    pub LidClose: POWER_ACTION_POLICY,
+    pub LidOpenWake: SYSTEM_POWER_STATE,
+    pub Reserved: u32,
+    pub Idle: POWER_ACTION_POLICY,
+    pub IdleTimeout: u32,
+    pub IdleSensitivity: u8,
+    pub DynamicThrottle: u8,
+    pub Spare2: [u8; 2],
+    pub MinSleep: SYSTEM_POWER_STATE,
+    pub MaxSleep: SYSTEM_POWER_STATE,
+    pub ReducedLatencySleep: SYSTEM_POWER_STATE,
+    pub WinLogonFlags: u32,
+    pub Spare3: u32,
+    pub DozeS4Timeout: u32,
+    pub BroadcastCapacityResolution: u32,
+    pub DischargePolicy: [SYSTEM_POWER_LEVEL; 4],
+    pub VideoTimeout: u32,
+    pub VideoDimDisplay: super::super::Foundation::BOOLEAN,
+    pub VideoReserved: [u32; 3],
+    pub SpindownTimeout: u32,
+    pub OptimizeForPower: super::super::Foundation::BOOLEAN,
+    pub FanThrottleTolerance: u8,
+    pub ForcedThrottle: u8,
+    pub MinThrottle: u8,
+    pub OverThrottled: POWER_ACTION_POLICY,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SYSTEM_POWER_POLICY {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SYSTEM_POWER_POLICY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SYSTEM_POWER_STATE(pub i32);
 pub const PowerSystemUnspecified: SYSTEM_POWER_STATE = SYSTEM_POWER_STATE(0i32);
@@ -676,7 +1207,20 @@ pub const PowerSystemHibernate: SYSTEM_POWER_STATE = SYSTEM_POWER_STATE(5i32);
 pub const PowerSystemShutdown: SYSTEM_POWER_STATE = SYSTEM_POWER_STATE(6i32);
 pub const PowerSystemMaximum: SYSTEM_POWER_STATE = SYSTEM_POWER_STATE(7i32);
 #[repr(C)]
-pub struct SYSTEM_POWER_STATUS(i32);
+pub struct SYSTEM_POWER_STATUS {
+    pub ACLineStatus: u8,
+    pub BatteryFlag: u8,
+    pub BatteryLifePercent: u8,
+    pub SystemStatusFlag: u8,
+    pub BatteryLifeTime: u32,
+    pub BatteryFullLifeTime: u32,
+}
+impl ::core::marker::Copy for SYSTEM_POWER_STATUS {}
+impl ::core::clone::Clone for SYSTEM_POWER_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SYS_BUTTON_LID: u32 = 4u32;
 pub const SYS_BUTTON_LID_CHANGED: u32 = 524288u32;
 pub const SYS_BUTTON_LID_CLOSED: u32 = 131072u32;
@@ -688,19 +1232,79 @@ pub const SYS_BUTTON_SLEEP: u32 = 2u32;
 pub const SYS_BUTTON_WAKE: u32 = 2147483648u32;
 pub const THERMAL_COOLING_INTERFACE_VERSION: u32 = 1u32;
 pub const THERMAL_DEVICE_INTERFACE_VERSION: u32 = 1u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct THERMAL_EVENT(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct THERMAL_EVENT {
+    pub Version: u32,
+    pub Size: u32,
+    pub Type: u32,
+    pub Temperature: u32,
+    pub TripPointTemperature: u32,
+    pub Initiator: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for THERMAL_EVENT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for THERMAL_EVENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const THERMAL_EVENT_VERSION: u32 = 1u32;
 #[repr(C)]
-pub struct THERMAL_INFORMATION(i32);
-#[cfg(feature = "Win32_Foundation")]
+pub struct THERMAL_INFORMATION {
+    pub ThermalStamp: u32,
+    pub ThermalConstant1: u32,
+    pub ThermalConstant2: u32,
+    pub Processors: usize,
+    pub SamplingPeriod: u32,
+    pub CurrentTemperature: u32,
+    pub PassiveTripPoint: u32,
+    pub CriticalTripPoint: u32,
+    pub ActiveTripPointCount: u8,
+    pub ActiveTripPoint: [u32; 10],
+}
+impl ::core::marker::Copy for THERMAL_INFORMATION {}
+impl ::core::clone::Clone for THERMAL_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct THERMAL_POLICY(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct THERMAL_POLICY {
+    pub Version: u32,
+    pub WaitForUpdate: super::super::Foundation::BOOLEAN,
+    pub Hibernate: super::super::Foundation::BOOLEAN,
+    pub Critical: super::super::Foundation::BOOLEAN,
+    pub ThermalStandby: super::super::Foundation::BOOLEAN,
+    pub ActivationReasons: u32,
+    pub PassiveLimit: u32,
+    pub ActiveLevel: u32,
+    pub OverThrottled: super::super::Foundation::BOOLEAN,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for THERMAL_POLICY {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for THERMAL_POLICY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const THERMAL_POLICY_VERSION_1: u32 = 1u32;
 pub const THERMAL_POLICY_VERSION_2: u32 = 2u32;
 #[repr(C)]
-pub struct THERMAL_WAIT_READ(i32);
+pub struct THERMAL_WAIT_READ {
+    pub Timeout: u32,
+    pub LowTemperature: u32,
+    pub HighTemperature: u32,
+}
+impl ::core::marker::Copy for THERMAL_WAIT_READ {}
+impl ::core::clone::Clone for THERMAL_WAIT_READ {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const TZ_ACTIVATION_REASON_CURRENT: u32 = 2u32;
 pub const TZ_ACTIVATION_REASON_THERMAL: u32 = 1u32;
 pub const UNKNOWN_CAPACITY: u32 = 4294967295u32;
@@ -712,8 +1316,48 @@ pub struct USB_CHARGER_PORT(pub i32);
 pub const UsbChargerPort_Legacy: USB_CHARGER_PORT = USB_CHARGER_PORT(0i32);
 pub const UsbChargerPort_TypeC: USB_CHARGER_PORT = USB_CHARGER_PORT(1i32);
 pub const UsbChargerPort_Max: USB_CHARGER_PORT = USB_CHARGER_PORT(2i32);
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+pub struct USER_POWER_POLICY {
+    pub Revision: u32,
+    pub IdleAc: POWER_ACTION_POLICY,
+    pub IdleDc: POWER_ACTION_POLICY,
+    pub IdleTimeoutAc: u32,
+    pub IdleTimeoutDc: u32,
+    pub IdleSensitivityAc: u8,
+    pub IdleSensitivityDc: u8,
+    pub ThrottlePolicyAc: u8,
+    pub ThrottlePolicyDc: u8,
+    pub MaxSleepAc: SYSTEM_POWER_STATE,
+    pub MaxSleepDc: SYSTEM_POWER_STATE,
+    pub Reserved: [u32; 2],
+    pub VideoTimeoutAc: u32,
+    pub VideoTimeoutDc: u32,
+    pub SpindownTimeoutAc: u32,
+    pub SpindownTimeoutDc: u32,
+    pub OptimizeForPowerAc: super::super::Foundation::BOOLEAN,
+    pub OptimizeForPowerDc: super::super::Foundation::BOOLEAN,
+    pub FanThrottleToleranceAc: u8,
+    pub FanThrottleToleranceDc: u8,
+    pub ForcedThrottleAc: u8,
+    pub ForcedThrottleDc: u8,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for USER_POWER_POLICY {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for USER_POWER_POLICY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct USER_POWER_POLICY(i32);
-#[repr(C)]
-pub struct WAKE_ALARM_INFORMATION(i32);
+pub struct WAKE_ALARM_INFORMATION {
+    pub TimerIdentifier: u32,
+    pub Timeout: u32,
+}
+impl ::core::marker::Copy for WAKE_ALARM_INFORMATION {}
+impl ::core::clone::Clone for WAKE_ALARM_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

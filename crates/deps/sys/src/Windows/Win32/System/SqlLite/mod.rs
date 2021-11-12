@@ -362,9 +362,45 @@ pub const FULLY_WITHIN: u32 = 2u32;
 #[repr(C)]
 pub struct Fts5Context(pub u8);
 #[repr(C)]
-pub struct Fts5ExtensionApi(i32);
+pub struct Fts5ExtensionApi {
+    pub iVersion: i32,
+    pub xUserData: isize,
+    pub xColumnCount: isize,
+    pub xRowCount: isize,
+    pub xColumnTotalSize: isize,
+    pub xTokenize: isize,
+    pub xPhraseCount: isize,
+    pub xPhraseSize: isize,
+    pub xInstCount: isize,
+    pub xInst: isize,
+    pub xRowid: isize,
+    pub xColumnText: isize,
+    pub xColumnSize: isize,
+    pub xQueryPhrase: isize,
+    pub xSetAuxdata: isize,
+    pub xGetAuxdata: isize,
+    pub xPhraseFirst: isize,
+    pub xPhraseNext: isize,
+    pub xPhraseFirstColumn: isize,
+    pub xPhraseNextColumn: isize,
+}
+impl ::core::marker::Copy for Fts5ExtensionApi {}
+impl ::core::clone::Clone for Fts5ExtensionApi {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct Fts5PhraseIter(i32);
+pub struct Fts5PhraseIter {
+    pub a: *mut u8,
+    pub b: *mut u8,
+}
+impl ::core::marker::Copy for Fts5PhraseIter {}
+impl ::core::clone::Clone for Fts5PhraseIter {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct Fts5Tokenizer(pub u8);
 pub const NOT_WITHIN: u32 = 0u32;
@@ -745,20 +781,569 @@ pub const SQLITE_WIN32_DATA_DIRECTORY_TYPE: u32 = 1u32;
 pub const SQLITE_WIN32_TEMP_DIRECTORY_TYPE: u32 = 2u32;
 pub const __SQLITESESSION_H_: u32 = 1u32;
 #[repr(C)]
-pub struct fts5_api(i32);
+pub struct fts5_api {
+    pub iVersion: i32,
+    pub xCreateTokenizer: isize,
+    pub xFindTokenizer: isize,
+    pub xCreateFunction: isize,
+}
+impl ::core::marker::Copy for fts5_api {}
+impl ::core::clone::Clone for fts5_api {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub type fts5_extension_function = unsafe extern "system" fn(papi: *const Fts5ExtensionApi, pfts: *mut Fts5Context, pctx: *mut sqlite3_context, nval: i32, apval: *mut *mut sqlite3_value);
 #[repr(C)]
-pub struct fts5_tokenizer(i32);
+pub struct fts5_tokenizer {
+    pub xCreate: isize,
+    pub xDelete: isize,
+    pub xTokenize: isize,
+}
+impl ::core::marker::Copy for fts5_tokenizer {}
+impl ::core::clone::Clone for fts5_tokenizer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct sqlite3(pub u8);
+#[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
+pub struct sqlite3_api_routines {
+    pub aggregate_context: isize,
+    pub aggregate_count: isize,
+    pub bind_blob: isize,
+    pub bind_double: isize,
+    pub bind_int: isize,
+    pub bind_int64: isize,
+    pub bind_null: isize,
+    pub bind_parameter_count: isize,
+    pub bind_parameter_index: isize,
+    pub bind_parameter_name: isize,
+    pub bind_text: isize,
+    pub bind_text16: isize,
+    pub bind_value: isize,
+    pub busy_handler: isize,
+    pub busy_timeout: isize,
+    pub changes: isize,
+    pub close: isize,
+    pub collation_needed: isize,
+    pub collation_needed16: isize,
+    pub column_blob: isize,
+    pub column_bytes: isize,
+    pub column_bytes16: isize,
+    pub column_count: isize,
+    pub column_database_name: isize,
+    pub column_database_name16: isize,
+    pub column_decltype: isize,
+    pub column_decltype16: isize,
+    pub column_double: isize,
+    pub column_int: isize,
+    pub column_int64: isize,
+    pub column_name: isize,
+    pub column_name16: isize,
+    pub column_origin_name: isize,
+    pub column_origin_name16: isize,
+    pub column_table_name: isize,
+    pub column_table_name16: isize,
+    pub column_text: isize,
+    pub column_text16: isize,
+    pub column_type: isize,
+    pub column_value: *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut sqlite3_value,
+    pub commit_hook: isize,
+    pub complete: isize,
+    pub complete16: isize,
+    pub create_collation: isize,
+    pub create_collation16: isize,
+    pub create_function: isize,
+    pub create_function16: isize,
+    pub create_module: isize,
+    pub data_count: isize,
+    pub db_handle: *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut sqlite3,
+    pub declare_vtab: isize,
+    pub enable_shared_cache: isize,
+    pub errcode: isize,
+    pub errmsg: isize,
+    pub errmsg16: isize,
+    pub exec: isize,
+    pub expired: isize,
+    pub finalize: isize,
+    pub free: isize,
+    pub free_table: isize,
+    pub get_autocommit: isize,
+    pub get_auxdata: isize,
+    pub get_table: isize,
+    pub global_recover: isize,
+    pub interruptx: isize,
+    pub last_insert_rowid: isize,
+    pub libversion: isize,
+    pub libversion_number: isize,
+    pub malloc: isize,
+    pub mprintf: isize,
+    pub open: isize,
+    pub open16: isize,
+    pub prepare: isize,
+    pub prepare16: isize,
+    pub profile: isize,
+    pub progress_handler: isize,
+    pub realloc: isize,
+    pub reset: isize,
+    pub result_blob: isize,
+    pub result_double: isize,
+    pub result_error: isize,
+    pub result_error16: isize,
+    pub result_int: isize,
+    pub result_int64: isize,
+    pub result_null: isize,
+    pub result_text: isize,
+    pub result_text16: isize,
+    pub result_text16be: isize,
+    pub result_text16le: isize,
+    pub result_value: isize,
+    pub rollback_hook: isize,
+    pub set_authorizer: isize,
+    pub set_auxdata: isize,
+    pub xsnprintf: isize,
+    pub step: isize,
+    pub table_column_metadata: isize,
+    pub thread_cleanup: isize,
+    pub total_changes: isize,
+    pub trace: isize,
+    pub transfer_bindings: isize,
+    pub update_hook: isize,
+    pub user_data: isize,
+    pub value_blob: isize,
+    pub value_bytes: isize,
+    pub value_bytes16: isize,
+    pub value_double: isize,
+    pub value_int: isize,
+    pub value_int64: isize,
+    pub value_numeric_type: isize,
+    pub value_text: isize,
+    pub value_text16: isize,
+    pub value_text16be: isize,
+    pub value_text16le: isize,
+    pub value_type: isize,
+    pub vmprintf: isize,
+    pub overload_function: isize,
+    pub prepare_v2: isize,
+    pub prepare16_v2: isize,
+    pub clear_bindings: isize,
+    pub create_module_v2: isize,
+    pub bind_zeroblob: isize,
+    pub blob_bytes: isize,
+    pub blob_close: isize,
+    pub blob_open: isize,
+    pub blob_read: isize,
+    pub blob_write: isize,
+    pub create_collation_v2: isize,
+    pub file_control: isize,
+    pub memory_highwater: isize,
+    pub memory_used: isize,
+    pub mutex_alloc: *mut *mut *mut *mut *mut *mut *mut *mut *mut sqlite3_mutex,
+    pub mutex_enter: isize,
+    pub mutex_free: isize,
+    pub mutex_leave: isize,
+    pub mutex_try: isize,
+    pub open_v2: isize,
+    pub release_memory: isize,
+    pub result_error_nomem: isize,
+    pub result_error_toobig: isize,
+    pub sleep: isize,
+    pub soft_heap_limit: isize,
+    pub vfs_find: *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut sqlite3_vfs,
+    pub vfs_register: isize,
+    pub vfs_unregister: isize,
+    pub xthreadsafe: isize,
+    pub result_zeroblob: isize,
+    pub result_error_code: isize,
+    pub test_control: isize,
+    pub randomness: isize,
+    pub context_db_handle: *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut sqlite3,
+    pub extended_result_codes: isize,
+    pub limit: isize,
+    pub next_stmt: *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut sqlite3_stmt,
+    pub sql: isize,
+    pub status: isize,
+    pub backup_finish: isize,
+    pub backup_init: *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut sqlite3_backup,
+    pub backup_pagecount: isize,
+    pub backup_remaining: isize,
+    pub backup_step: isize,
+    pub compileoption_get: isize,
+    pub compileoption_used: isize,
+    pub create_function_v2: isize,
+    pub db_config: isize,
+    pub db_mutex: *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut sqlite3_mutex,
+    pub db_status: isize,
+    pub extended_errcode: isize,
+    pub log: isize,
+    pub soft_heap_limit64: isize,
+    pub sourceid: isize,
+    pub stmt_status: isize,
+    pub strnicmp: isize,
+    pub unlock_notify: isize,
+    pub wal_autocheckpoint: isize,
+    pub wal_checkpoint: isize,
+    pub wal_hook: isize,
+    pub blob_reopen: isize,
+    pub vtab_config: isize,
+    pub vtab_on_conflict: isize,
+    pub close_v2: isize,
+    pub db_filename: isize,
+    pub db_readonly: isize,
+    pub db_release_memory: isize,
+    pub errstr: isize,
+    pub stmt_busy: isize,
+    pub stmt_readonly: isize,
+    pub stricmp: isize,
+    pub uri_boolean: isize,
+    pub uri_int64: isize,
+    pub uri_parameter: isize,
+    pub xvsnprintf: isize,
+    pub wal_checkpoint_v2: isize,
+    pub auto_extension: isize,
+    pub bind_blob64: isize,
+    pub bind_text64: isize,
+    pub cancel_auto_extension: isize,
+    pub load_extension: isize,
+    pub malloc64: isize,
+    pub msize: isize,
+    pub realloc64: isize,
+    pub reset_auto_extension: isize,
+    pub result_blob64: isize,
+    pub result_text64: isize,
+    pub strglob: isize,
+    pub value_dup: *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut sqlite3_value,
+    pub value_free: isize,
+    pub result_zeroblob64: isize,
+    pub bind_zeroblob64: isize,
+    pub value_subtype: isize,
+    pub result_subtype: isize,
+    pub status64: isize,
+    pub strlike: isize,
+    pub db_cacheflush: isize,
+    pub system_errno: isize,
+    pub trace_v2: isize,
+    pub expanded_sql: isize,
+    pub set_last_insert_rowid: isize,
+    pub prepare_v3: isize,
+    pub prepare16_v3: isize,
+    pub bind_pointer: isize,
+    pub result_pointer: isize,
+    pub value_pointer: isize,
+    pub vtab_nochange: isize,
+    pub value_nochange: isize,
+    pub vtab_collation: isize,
+    pub keyword_count: isize,
+    pub keyword_name: isize,
+    pub keyword_check: isize,
+    pub str_new: *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut sqlite3_str,
+    pub str_finish: isize,
+    pub str_appendf: isize,
+    pub str_vappendf: isize,
+    pub str_append: isize,
+    pub str_appendall: isize,
+    pub str_appendchar: isize,
+    pub str_reset: isize,
+    pub str_errcode: isize,
+    pub str_length: isize,
+    pub str_value: isize,
+    pub create_window_function: isize,
+    pub normalized_sql: isize,
+    pub stmt_isexplain: isize,
+    pub value_frombind: isize,
+    pub drop_modules: isize,
+    pub hard_heap_limit64: isize,
+    pub uri_key: isize,
+    pub filename_database: isize,
+    pub filename_journal: isize,
+    pub filename_wal: isize,
+    pub create_filename: isize,
+    pub free_filename: isize,
+    pub database_file_object: *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut sqlite3_file,
+    pub txn_state: isize,
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for sqlite3_api_routines {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for sqlite3_api_routines {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct sqlite3_api_routines(i32);
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct sqlite3_api_routines(i32);
+pub struct sqlite3_api_routines {
+    pub aggregate_context: isize,
+    pub aggregate_count: isize,
+    pub bind_blob: isize,
+    pub bind_double: isize,
+    pub bind_int: isize,
+    pub bind_int64: isize,
+    pub bind_null: isize,
+    pub bind_parameter_count: isize,
+    pub bind_parameter_index: isize,
+    pub bind_parameter_name: isize,
+    pub bind_text: isize,
+    pub bind_text16: isize,
+    pub bind_value: isize,
+    pub busy_handler: isize,
+    pub busy_timeout: isize,
+    pub changes: isize,
+    pub close: isize,
+    pub collation_needed: isize,
+    pub collation_needed16: isize,
+    pub column_blob: isize,
+    pub column_bytes: isize,
+    pub column_bytes16: isize,
+    pub column_count: isize,
+    pub column_database_name: isize,
+    pub column_database_name16: isize,
+    pub column_decltype: isize,
+    pub column_decltype16: isize,
+    pub column_double: isize,
+    pub column_int: isize,
+    pub column_int64: isize,
+    pub column_name: isize,
+    pub column_name16: isize,
+    pub column_origin_name: isize,
+    pub column_origin_name16: isize,
+    pub column_table_name: isize,
+    pub column_table_name16: isize,
+    pub column_text: isize,
+    pub column_text16: isize,
+    pub column_type: isize,
+    pub column_value: *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut sqlite3_value,
+    pub commit_hook: isize,
+    pub complete: isize,
+    pub complete16: isize,
+    pub create_collation: isize,
+    pub create_collation16: isize,
+    pub create_function: isize,
+    pub create_function16: isize,
+    pub create_module: isize,
+    pub data_count: isize,
+    pub db_handle: *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut sqlite3,
+    pub declare_vtab: isize,
+    pub enable_shared_cache: isize,
+    pub errcode: isize,
+    pub errmsg: isize,
+    pub errmsg16: isize,
+    pub exec: isize,
+    pub expired: isize,
+    pub finalize: isize,
+    pub free: isize,
+    pub free_table: isize,
+    pub get_autocommit: isize,
+    pub get_auxdata: isize,
+    pub get_table: isize,
+    pub global_recover: isize,
+    pub interruptx: isize,
+    pub last_insert_rowid: isize,
+    pub libversion: isize,
+    pub libversion_number: isize,
+    pub malloc: isize,
+    pub mprintf: isize,
+    pub open: isize,
+    pub open16: isize,
+    pub prepare: isize,
+    pub prepare16: isize,
+    pub profile: isize,
+    pub progress_handler: isize,
+    pub realloc: isize,
+    pub reset: isize,
+    pub result_blob: isize,
+    pub result_double: isize,
+    pub result_error: isize,
+    pub result_error16: isize,
+    pub result_int: isize,
+    pub result_int64: isize,
+    pub result_null: isize,
+    pub result_text: isize,
+    pub result_text16: isize,
+    pub result_text16be: isize,
+    pub result_text16le: isize,
+    pub result_value: isize,
+    pub rollback_hook: isize,
+    pub set_authorizer: isize,
+    pub set_auxdata: isize,
+    pub xsnprintf: isize,
+    pub step: isize,
+    pub table_column_metadata: isize,
+    pub thread_cleanup: isize,
+    pub total_changes: isize,
+    pub trace: isize,
+    pub transfer_bindings: isize,
+    pub update_hook: isize,
+    pub user_data: isize,
+    pub value_blob: isize,
+    pub value_bytes: isize,
+    pub value_bytes16: isize,
+    pub value_double: isize,
+    pub value_int: isize,
+    pub value_int64: isize,
+    pub value_numeric_type: isize,
+    pub value_text: isize,
+    pub value_text16: isize,
+    pub value_text16be: isize,
+    pub value_text16le: isize,
+    pub value_type: isize,
+    pub vmprintf: isize,
+    pub overload_function: isize,
+    pub prepare_v2: isize,
+    pub prepare16_v2: isize,
+    pub clear_bindings: isize,
+    pub create_module_v2: isize,
+    pub bind_zeroblob: isize,
+    pub blob_bytes: isize,
+    pub blob_close: isize,
+    pub blob_open: isize,
+    pub blob_read: isize,
+    pub blob_write: isize,
+    pub create_collation_v2: isize,
+    pub file_control: isize,
+    pub memory_highwater: isize,
+    pub memory_used: isize,
+    pub mutex_alloc: *mut *mut *mut *mut *mut *mut *mut *mut *mut sqlite3_mutex,
+    pub mutex_enter: isize,
+    pub mutex_free: isize,
+    pub mutex_leave: isize,
+    pub mutex_try: isize,
+    pub open_v2: isize,
+    pub release_memory: isize,
+    pub result_error_nomem: isize,
+    pub result_error_toobig: isize,
+    pub sleep: isize,
+    pub soft_heap_limit: isize,
+    pub vfs_find: *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut sqlite3_vfs,
+    pub vfs_register: isize,
+    pub vfs_unregister: isize,
+    pub xthreadsafe: isize,
+    pub result_zeroblob: isize,
+    pub result_error_code: isize,
+    pub test_control: isize,
+    pub randomness: isize,
+    pub context_db_handle: *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut sqlite3,
+    pub extended_result_codes: isize,
+    pub limit: isize,
+    pub next_stmt: *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut sqlite3_stmt,
+    pub sql: isize,
+    pub status: isize,
+    pub backup_finish: isize,
+    pub backup_init: *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut sqlite3_backup,
+    pub backup_pagecount: isize,
+    pub backup_remaining: isize,
+    pub backup_step: isize,
+    pub compileoption_get: isize,
+    pub compileoption_used: isize,
+    pub create_function_v2: isize,
+    pub db_config: isize,
+    pub db_mutex: *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut sqlite3_mutex,
+    pub db_status: isize,
+    pub extended_errcode: isize,
+    pub log: isize,
+    pub soft_heap_limit64: isize,
+    pub sourceid: isize,
+    pub stmt_status: isize,
+    pub strnicmp: isize,
+    pub unlock_notify: isize,
+    pub wal_autocheckpoint: isize,
+    pub wal_checkpoint: isize,
+    pub wal_hook: isize,
+    pub blob_reopen: isize,
+    pub vtab_config: isize,
+    pub vtab_on_conflict: isize,
+    pub close_v2: isize,
+    pub db_filename: isize,
+    pub db_readonly: isize,
+    pub db_release_memory: isize,
+    pub errstr: isize,
+    pub stmt_busy: isize,
+    pub stmt_readonly: isize,
+    pub stricmp: isize,
+    pub uri_boolean: isize,
+    pub uri_int64: isize,
+    pub uri_parameter: isize,
+    pub xvsnprintf: isize,
+    pub wal_checkpoint_v2: isize,
+    pub auto_extension: isize,
+    pub bind_blob64: isize,
+    pub bind_text64: isize,
+    pub cancel_auto_extension: isize,
+    pub load_extension: isize,
+    pub malloc64: isize,
+    pub msize: isize,
+    pub realloc64: isize,
+    pub reset_auto_extension: isize,
+    pub result_blob64: isize,
+    pub result_text64: isize,
+    pub strglob: isize,
+    pub value_dup: *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut sqlite3_value,
+    pub value_free: isize,
+    pub result_zeroblob64: isize,
+    pub bind_zeroblob64: isize,
+    pub value_subtype: isize,
+    pub result_subtype: isize,
+    pub status64: isize,
+    pub strlike: isize,
+    pub db_cacheflush: isize,
+    pub system_errno: isize,
+    pub trace_v2: isize,
+    pub expanded_sql: isize,
+    pub set_last_insert_rowid: isize,
+    pub prepare_v3: isize,
+    pub prepare16_v3: isize,
+    pub bind_pointer: isize,
+    pub result_pointer: isize,
+    pub value_pointer: isize,
+    pub vtab_nochange: isize,
+    pub value_nochange: isize,
+    pub vtab_collation: isize,
+    pub keyword_count: isize,
+    pub keyword_name: isize,
+    pub keyword_check: isize,
+    pub str_new: *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut sqlite3_str,
+    pub str_finish: isize,
+    pub str_appendf: isize,
+    pub str_vappendf: isize,
+    pub str_append: isize,
+    pub str_appendall: isize,
+    pub str_appendchar: isize,
+    pub str_reset: isize,
+    pub str_errcode: isize,
+    pub str_length: isize,
+    pub str_value: isize,
+    pub create_window_function: isize,
+    pub normalized_sql: isize,
+    pub stmt_isexplain: isize,
+    pub value_frombind: isize,
+    pub drop_modules: isize,
+    pub hard_heap_limit64: isize,
+    pub uri_key: isize,
+    pub filename_database: isize,
+    pub filename_journal: isize,
+    pub filename_wal: isize,
+    pub create_filename: isize,
+    pub free_filename: isize,
+    pub database_file_object: *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut sqlite3_file,
+    pub txn_state: isize,
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for sqlite3_api_routines {}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for sqlite3_api_routines {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct sqlite3_backup(pub u8);
 #[repr(C)]
@@ -768,36 +1353,288 @@ pub type sqlite3_callback = unsafe extern "system" fn(param0: *mut ::core::ffi::
 pub struct sqlite3_context(pub u8);
 pub type sqlite3_destructor_type = unsafe extern "system" fn(param0: *mut ::core::ffi::c_void);
 #[repr(C)]
-pub struct sqlite3_file(i32);
+pub struct sqlite3_file {
+    pub pMethods: *mut sqlite3_io_methods,
+}
+impl ::core::marker::Copy for sqlite3_file {}
+impl ::core::clone::Clone for sqlite3_file {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+pub struct sqlite3_index_info {
+    pub nConstraint: i32,
+    pub aConstraint: *mut sqlite3_index_info_0,
+    pub nOrderBy: i32,
+    pub aOrderBy: *mut sqlite3_index_info_2,
+    pub aConstraintUsage: *mut sqlite3_index_info_1,
+    pub idxNum: i32,
+    pub idxStr: super::super::Foundation::PSTR,
+    pub needToFreeIdxStr: i32,
+    pub orderByConsumed: i32,
+    pub estimatedCost: f64,
+    pub estimatedRows: i64,
+    pub idxFlags: i32,
+    pub colUsed: u64,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for sqlite3_index_info {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for sqlite3_index_info {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct sqlite3_index_info(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct sqlite3_index_info_0 {
+    pub iColumn: i32,
+    pub op: u8,
+    pub usable: u8,
+    pub iTermOffset: i32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for sqlite3_index_info_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for sqlite3_index_info_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct sqlite3_io_methods(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct sqlite3_index_info_1 {
+    pub argvIndex: i32,
+    pub omit: u8,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for sqlite3_index_info_1 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for sqlite3_index_info_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct sqlite3_index_info_2 {
+    pub iColumn: i32,
+    pub desc: u8,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for sqlite3_index_info_2 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for sqlite3_index_info_2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct sqlite3_io_methods {
+    pub iVersion: i32,
+    pub xClose: isize,
+    pub xRead: isize,
+    pub xWrite: isize,
+    pub xTruncate: isize,
+    pub xSync: isize,
+    pub xFileSize: isize,
+    pub xLock: isize,
+    pub xUnlock: isize,
+    pub xCheckReservedLock: isize,
+    pub xFileControl: isize,
+    pub xSectorSize: isize,
+    pub xDeviceCharacteristics: isize,
+    pub xShmMap: isize,
+    pub xShmLock: isize,
+    pub xShmBarrier: isize,
+    pub xShmUnmap: isize,
+    pub xFetch: isize,
+    pub xUnfetch: isize,
+}
+impl ::core::marker::Copy for sqlite3_io_methods {}
+impl ::core::clone::Clone for sqlite3_io_methods {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[cfg(feature = "Win32_Foundation")]
 pub type sqlite3_loadext_entry = unsafe extern "system" fn(db: *mut sqlite3, pzerrmsg: *mut *mut i8, pthunk: *const sqlite3_api_routines) -> i32;
 #[repr(C)]
-pub struct sqlite3_mem_methods(i32);
+pub struct sqlite3_mem_methods {
+    pub xMalloc: isize,
+    pub xFree: isize,
+    pub xRealloc: isize,
+    pub xSize: isize,
+    pub xRoundup: isize,
+    pub xInit: isize,
+    pub xShutdown: isize,
+    pub pAppData: *mut ::core::ffi::c_void,
+}
+impl ::core::marker::Copy for sqlite3_mem_methods {}
+impl ::core::clone::Clone for sqlite3_mem_methods {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct sqlite3_module(i32);
+pub struct sqlite3_module {
+    pub iVersion: i32,
+    pub xCreate: isize,
+    pub xConnect: isize,
+    pub xBestIndex: isize,
+    pub xDisconnect: isize,
+    pub xDestroy: isize,
+    pub xOpen: isize,
+    pub xClose: isize,
+    pub xFilter: isize,
+    pub xNext: isize,
+    pub xEof: isize,
+    pub xColumn: isize,
+    pub xRowid: isize,
+    pub xUpdate: isize,
+    pub xBegin: isize,
+    pub xSync: isize,
+    pub xCommit: isize,
+    pub xRollback: isize,
+    pub xFindFunction: isize,
+    pub xRename: isize,
+    pub xSavepoint: isize,
+    pub xRelease: isize,
+    pub xRollbackTo: isize,
+    pub xShadowName: isize,
+}
+impl ::core::marker::Copy for sqlite3_module {}
+impl ::core::clone::Clone for sqlite3_module {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct sqlite3_mutex(pub u8);
 #[repr(C)]
-pub struct sqlite3_mutex_methods(i32);
+pub struct sqlite3_mutex_methods {
+    pub xMutexInit: isize,
+    pub xMutexEnd: isize,
+    pub xMutexAlloc: *mut *mut *mut *mut *mut *mut *mut *mut *mut sqlite3_mutex,
+    pub xMutexFree: isize,
+    pub xMutexEnter: isize,
+    pub xMutexTry: isize,
+    pub xMutexLeave: isize,
+    pub xMutexHeld: isize,
+    pub xMutexNotheld: isize,
+}
+impl ::core::marker::Copy for sqlite3_mutex_methods {}
+impl ::core::clone::Clone for sqlite3_mutex_methods {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct sqlite3_pcache(pub u8);
 #[repr(C)]
-pub struct sqlite3_pcache_methods(i32);
+pub struct sqlite3_pcache_methods {
+    pub pArg: *mut ::core::ffi::c_void,
+    pub xInit: isize,
+    pub xShutdown: isize,
+    pub xCreate: *mut *mut *mut *mut *mut *mut *mut *mut *mut sqlite3_pcache,
+    pub xCachesize: isize,
+    pub xPagecount: isize,
+    pub xFetch: isize,
+    pub xUnpin: isize,
+    pub xRekey: isize,
+    pub xTruncate: isize,
+    pub xDestroy: isize,
+}
+impl ::core::marker::Copy for sqlite3_pcache_methods {}
+impl ::core::clone::Clone for sqlite3_pcache_methods {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct sqlite3_pcache_methods2(i32);
+pub struct sqlite3_pcache_methods2 {
+    pub iVersion: i32,
+    pub pArg: *mut ::core::ffi::c_void,
+    pub xInit: isize,
+    pub xShutdown: isize,
+    pub xCreate: *mut *mut *mut *mut *mut *mut *mut *mut *mut sqlite3_pcache,
+    pub xCachesize: isize,
+    pub xPagecount: isize,
+    pub xFetch: *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut sqlite3_pcache_page,
+    pub xUnpin: isize,
+    pub xRekey: isize,
+    pub xTruncate: isize,
+    pub xDestroy: isize,
+    pub xShrink: isize,
+}
+impl ::core::marker::Copy for sqlite3_pcache_methods2 {}
+impl ::core::clone::Clone for sqlite3_pcache_methods2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct sqlite3_pcache_page(i32);
+pub struct sqlite3_pcache_page {
+    pub pBuf: *mut ::core::ffi::c_void,
+    pub pExtra: *mut ::core::ffi::c_void,
+}
+impl ::core::marker::Copy for sqlite3_pcache_page {}
+impl ::core::clone::Clone for sqlite3_pcache_page {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct sqlite3_rtree_geometry(i32);
+pub struct sqlite3_rtree_geometry {
+    pub pContext: *mut ::core::ffi::c_void,
+    pub nParam: i32,
+    pub aParam: *mut f64,
+    pub pUser: *mut ::core::ffi::c_void,
+    pub xDelUser: isize,
+}
+impl ::core::marker::Copy for sqlite3_rtree_geometry {}
+impl ::core::clone::Clone for sqlite3_rtree_geometry {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct sqlite3_rtree_query_info(i32);
+pub struct sqlite3_rtree_query_info {
+    pub pContext: *mut ::core::ffi::c_void,
+    pub nParam: i32,
+    pub aParam: *mut f64,
+    pub pUser: *mut ::core::ffi::c_void,
+    pub xDelUser: isize,
+    pub aCoord: *mut f64,
+    pub anQueue: *mut u32,
+    pub nCoord: i32,
+    pub iLevel: i32,
+    pub mxLevel: i32,
+    pub iRowid: i64,
+    pub rParentScore: f64,
+    pub eParentWithin: i32,
+    pub eWithin: i32,
+    pub rScore: f64,
+    pub apSqlParam: *mut *mut sqlite3_value,
+}
+impl ::core::marker::Copy for sqlite3_rtree_query_info {}
+impl ::core::clone::Clone for sqlite3_rtree_query_info {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct sqlite3_snapshot(i32);
+pub struct sqlite3_snapshot {
+    pub hidden: [u8; 48],
+}
+impl ::core::marker::Copy for sqlite3_snapshot {}
+impl ::core::clone::Clone for sqlite3_snapshot {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct sqlite3_stmt(pub u8);
 #[repr(C)]
@@ -805,12 +1642,65 @@ pub struct sqlite3_str(pub u8);
 pub type sqlite3_syscall_ptr = unsafe extern "system" fn();
 #[repr(C)]
 pub struct sqlite3_value(pub u8);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct sqlite3_vfs(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct sqlite3_vtab(i32);
+pub struct sqlite3_vfs {
+    pub iVersion: i32,
+    pub szOsFile: i32,
+    pub mxPathname: i32,
+    pub pNext: *mut sqlite3_vfs,
+    pub zName: super::super::Foundation::PSTR,
+    pub pAppData: *mut ::core::ffi::c_void,
+    pub xOpen: isize,
+    pub xDelete: isize,
+    pub xAccess: isize,
+    pub xFullPathname: isize,
+    pub xDlOpen: isize,
+    pub xDlError: isize,
+    pub xDlSym: isize,
+    pub xDlClose: isize,
+    pub xRandomness: isize,
+    pub xSleep: isize,
+    pub xCurrentTime: isize,
+    pub xGetLastError: isize,
+    pub xCurrentTimeInt64: isize,
+    pub xSetSystemCall: isize,
+    pub xGetSystemCall: isize,
+    pub xNextSystemCall: isize,
+}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for sqlite3_vfs {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for sqlite3_vfs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct sqlite3_vtab_cursor(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct sqlite3_vtab {
+    pub pModule: *mut sqlite3_module,
+    pub nRef: i32,
+    pub zErrMsg: super::super::Foundation::PSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for sqlite3_vtab {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for sqlite3_vtab {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct sqlite3_vtab_cursor {
+    pub pVtab: *mut sqlite3_vtab,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for sqlite3_vtab_cursor {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for sqlite3_vtab_cursor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

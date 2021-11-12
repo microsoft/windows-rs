@@ -167,23 +167,84 @@ extern "system" {
     pub fn ImmUnregisterWordW(param0: super::super::TextServices::HKL, lpszreading: super::super::super::Foundation::PWSTR, param2: u32, lpszunregister: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::BOOL;
 }
 #[repr(C)]
-pub struct APPLETIDLIST(i32);
-#[cfg(feature = "Win32_Foundation")]
+pub struct APPLETIDLIST {
+    pub count: i32,
+    pub pIIDList: *mut ::windows_sys::core::GUID,
+}
+impl ::core::marker::Copy for APPLETIDLIST {}
+impl ::core::clone::Clone for APPLETIDLIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct APPLYCANDEXPARAM(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct APPLYCANDEXPARAM {
+    pub dwSize: u32,
+    pub lpwstrDisplay: super::super::super::Foundation::PWSTR,
+    pub lpwstrReading: super::super::super::Foundation::PWSTR,
+    pub dwReserved: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for APPLYCANDEXPARAM {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for APPLYCANDEXPARAM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const ATTR_CONVERTED: u32 = 2u32;
 pub const ATTR_FIXEDCONVERTED: u32 = 5u32;
 pub const ATTR_INPUT: u32 = 0u32;
 pub const ATTR_INPUT_ERROR: u32 = 4u32;
 pub const ATTR_TARGET_CONVERTED: u32 = 1u32;
 pub const ATTR_TARGET_NOTCONVERTED: u32 = 3u32;
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+pub struct CANDIDATEFORM {
+    pub dwIndex: u32,
+    pub dwStyle: u32,
+    pub ptCurrentPos: super::super::super::Foundation::POINT,
+    pub rcArea: super::super::super::Foundation::RECT,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CANDIDATEFORM {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CANDIDATEFORM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CANDIDATEFORM(i32);
+pub struct CANDIDATEINFO {
+    pub dwSize: u32,
+    pub dwCount: u32,
+    pub dwOffset: [u32; 32],
+    pub dwPrivateSize: u32,
+    pub dwPrivateOffset: u32,
+}
+impl ::core::marker::Copy for CANDIDATEINFO {}
+impl ::core::clone::Clone for CANDIDATEINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CANDIDATEINFO(i32);
-#[repr(C)]
-pub struct CANDIDATELIST(i32);
+pub struct CANDIDATELIST {
+    pub dwSize: u32,
+    pub dwStyle: u32,
+    pub dwCount: u32,
+    pub dwSelection: u32,
+    pub dwPageStart: u32,
+    pub dwPageSize: u32,
+    pub dwOffset: [u32; 1],
+}
+impl ::core::marker::Copy for CANDIDATELIST {}
+impl ::core::clone::Clone for CANDIDATELIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CATID_MSIME_IImePadApplet: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 1969670865,
     data2: 20169,
@@ -239,11 +300,55 @@ pub const CLSID_VERSION_DEPENDENT_MSIME_JAPANESE: ::windows_sys::core::GUID = ::
     data3: 18203,
     data4: [174, 231, 125, 51, 39, 133, 102, 13],
 };
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+pub struct COMPOSITIONFORM {
+    pub dwStyle: u32,
+    pub ptCurrentPos: super::super::super::Foundation::POINT,
+    pub rcArea: super::super::super::Foundation::RECT,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for COMPOSITIONFORM {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for COMPOSITIONFORM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct COMPOSITIONFORM(i32);
-#[repr(C)]
-pub struct COMPOSITIONSTRING(i32);
+pub struct COMPOSITIONSTRING {
+    pub dwSize: u32,
+    pub dwCompReadAttrLen: u32,
+    pub dwCompReadAttrOffset: u32,
+    pub dwCompReadClauseLen: u32,
+    pub dwCompReadClauseOffset: u32,
+    pub dwCompReadStrLen: u32,
+    pub dwCompReadStrOffset: u32,
+    pub dwCompAttrLen: u32,
+    pub dwCompAttrOffset: u32,
+    pub dwCompClauseLen: u32,
+    pub dwCompClauseOffset: u32,
+    pub dwCompStrLen: u32,
+    pub dwCompStrOffset: u32,
+    pub dwCursorPos: u32,
+    pub dwDeltaStart: u32,
+    pub dwResultReadClauseLen: u32,
+    pub dwResultReadClauseOffset: u32,
+    pub dwResultReadStrLen: u32,
+    pub dwResultReadStrOffset: u32,
+    pub dwResultClauseLen: u32,
+    pub dwResultClauseOffset: u32,
+    pub dwResultStrLen: u32,
+    pub dwResultStrOffset: u32,
+    pub dwPrivateSize: u32,
+    pub dwPrivateOffset: u32,
+}
+impl ::core::marker::Copy for COMPOSITIONSTRING {}
+impl ::core::clone::Clone for COMPOSITIONSTRING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CS_INSERTCHAR: u32 = 8192u32;
 pub const CS_NOMOVECARET: u32 = 16384u32;
 pub const E_LARGEINPUT: u32 = 51u32;
@@ -351,7 +456,21 @@ pub const GL_LEVEL_INFORMATION: u32 = 4u32;
 pub const GL_LEVEL_NOGUIDELINE: u32 = 0u32;
 pub const GL_LEVEL_WARNING: u32 = 3u32;
 #[repr(C)]
-pub struct GUIDELINE(i32);
+pub struct GUIDELINE {
+    pub dwSize: u32,
+    pub dwLevel: u32,
+    pub dwIndex: u32,
+    pub dwStrLen: u32,
+    pub dwStrOffset: u32,
+    pub dwPrivateSize: u32,
+    pub dwPrivateOffset: u32,
+}
+impl ::core::marker::Copy for GUIDELINE {}
+impl ::core::clone::Clone for GUIDELINE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const IACE_CHILDREN: u32 = 1u32;
 pub const IACE_DEFAULT: u32 = 16u32;
 pub const IACE_IGNORENOCONTEXT: u32 = 32u32;
@@ -476,25 +595,123 @@ pub const IMC_SETSOFTKBDFONT: u32 = 18u32;
 pub const IMC_SETSOFTKBDPOS: u32 = 20u32;
 pub const IMC_SETSOFTKBDSUBTYPE: u32 = 22u32;
 pub const IMC_SETSTATUSWINDOWPOS: u32 = 16u32;
+#[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+pub struct IMEAPPLETCFG {
+    pub dwConfig: u32,
+    pub wchTitle: [u16; 64],
+    pub wchTitleFontFace: [u16; 32],
+    pub dwCharSet: u32,
+    pub iCategory: i32,
+    pub hIcon: super::super::WindowsAndMessaging::HICON,
+    pub langID: u16,
+    pub dummy: u16,
+    pub lReserved1: super::super::super::Foundation::LPARAM,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::core::marker::Copy for IMEAPPLETCFG {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::core::clone::Clone for IMEAPPLETCFG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct IMEAPPLETCFG(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct IMEAPPLETUI(i32);
-#[repr(C)]
-pub struct IMECHARINFO(i32);
+pub struct IMEAPPLETUI {
+    pub hwnd: super::super::super::Foundation::HWND,
+    pub dwStyle: u32,
+    pub width: i32,
+    pub height: i32,
+    pub minWidth: i32,
+    pub minHeight: i32,
+    pub maxWidth: i32,
+    pub maxHeight: i32,
+    pub lReserved1: super::super::super::Foundation::LPARAM,
+    pub lReserved2: super::super::super::Foundation::LPARAM,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct IMECHARPOSITION(i32);
-#[repr(C)]
-pub struct IMECOMPOSITIONSTRINGINFO(i32);
+impl ::core::marker::Copy for IMEAPPLETUI {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for IMEAPPLETUI {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct IMEDLG(i32);
+pub struct IMECHARINFO {
+    pub wch: u16,
+    pub dwCharInfo: u32,
+}
+impl ::core::marker::Copy for IMECHARINFO {}
+impl ::core::clone::Clone for IMECHARINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+pub struct IMECHARPOSITION {
+    pub dwSize: u32,
+    pub dwCharPos: u32,
+    pub pt: super::super::super::Foundation::POINT,
+    pub cLineHeight: u32,
+    pub rcDocument: super::super::super::Foundation::RECT,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for IMECHARPOSITION {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for IMECHARPOSITION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct IMEDP(i32);
+pub struct IMECOMPOSITIONSTRINGINFO {
+    pub iCompStrLen: i32,
+    pub iCaretPos: i32,
+    pub iEditStart: i32,
+    pub iEditLen: i32,
+    pub iTargetStart: i32,
+    pub iTargetLen: i32,
+}
+impl ::core::marker::Copy for IMECOMPOSITIONSTRINGINFO {}
+impl ::core::clone::Clone for IMECOMPOSITIONSTRINGINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Foundation")]
+pub struct IMEDLG {
+    pub cbIMEDLG: i32,
+    pub hwnd: super::super::super::Foundation::HWND,
+    pub lpwstrWord: super::super::super::Foundation::PWSTR,
+    pub nTabId: i32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for IMEDLG {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for IMEDLG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Foundation")]
+pub struct IMEDP {
+    pub wrdModifier: IMEWRD,
+    pub wrdModifiee: IMEWRD,
+    pub relID: IMEREL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for IMEDP {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for IMEDP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const IMEFAREASTINFO_TYPE_COMMENT: u32 = 2u32;
 pub const IMEFAREASTINFO_TYPE_COSTTIME: u32 = 3u32;
 pub const IMEFAREASTINFO_TYPE_DEFAULT: u32 = 0u32;
@@ -529,35 +746,175 @@ pub const IFED_PIME2_BIN_USER: IMEFMT = IMEFMT(24i32);
 pub const IFED_PIME2_BIN_SYSTEM: IMEFMT = IMEFMT(25i32);
 pub const IFED_PIME2_BIN_STANDARD_SYSTEM: IMEFMT = IMEFMT(26i32);
 #[repr(C)]
-pub struct IMEINFO(i32);
+pub struct IMEINFO {
+    pub dwPrivateDataSize: u32,
+    pub fdwProperty: u32,
+    pub fdwConversionCaps: u32,
+    pub fdwSentenceCaps: u32,
+    pub fdwUICaps: u32,
+    pub fdwSCSCaps: u32,
+    pub fdwSelectCaps: u32,
+}
+impl ::core::marker::Copy for IMEINFO {}
+impl ::core::clone::Clone for IMEINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct IMEITEM(i32);
+pub struct IMEITEM {
+    pub cbSize: i32,
+    pub iType: i32,
+    pub lpItemData: *mut ::core::ffi::c_void,
+}
+impl ::core::marker::Copy for IMEITEM {}
+impl ::core::clone::Clone for IMEITEM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct IMEITEMCANDIDATE(i32);
+pub struct IMEITEMCANDIDATE {
+    pub uCount: u32,
+    pub imeItem: [IMEITEM; 1],
+}
+impl ::core::marker::Copy for IMEITEMCANDIDATE {}
+impl ::core::clone::Clone for IMEITEMCANDIDATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const IMEKEYCTRLMASK_ALT: u32 = 1u32;
 pub const IMEKEYCTRLMASK_CTRL: u32 = 2u32;
 pub const IMEKEYCTRLMASK_SHIFT: u32 = 4u32;
 pub const IMEKEYCTRL_DOWN: u32 = 0u32;
 pub const IMEKEYCTRL_UP: u32 = 1u32;
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_Globalization")]
-#[repr(C)]
-pub struct IMEKMS(i32);
-#[repr(C)]
-pub struct IMEKMSFUNCDESC(i32);
+pub struct IMEKMS {
+    pub cbSize: i32,
+    pub hIMC: super::super::super::Globalization::HIMC,
+    pub cKeyList: u32,
+    pub pKeyList: *mut IMEKMSKEY,
+}
+#[cfg(feature = "Win32_Globalization")]
+impl ::core::marker::Copy for IMEKMS {}
+#[cfg(feature = "Win32_Globalization")]
+impl ::core::clone::Clone for IMEKMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub struct IMEKMSFUNCDESC {
+    pub cbSize: i32,
+    pub idLang: u16,
+    pub dwControl: u32,
+    pub pwszDescription: [u16; 128],
+}
+impl ::core::marker::Copy for IMEKMSFUNCDESC {}
+impl ::core::clone::Clone for IMEKMSFUNCDESC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct IMEKMSINIT(i32);
+pub struct IMEKMSINIT {
+    pub cbSize: i32,
+    pub hWnd: super::super::super::Foundation::HWND,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for IMEKMSINIT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for IMEKMSINIT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_Globalization")]
-#[repr(C)]
-pub struct IMEKMSINVK(i32);
-#[repr(C)]
-pub struct IMEKMSKEY(i32);
+pub struct IMEKMSINVK {
+    pub cbSize: i32,
+    pub hIMC: super::super::super::Globalization::HIMC,
+    pub dwControl: u32,
+}
 #[cfg(feature = "Win32_Globalization")]
-#[repr(C)]
-pub struct IMEKMSKMP(i32);
+impl ::core::marker::Copy for IMEKMSINVK {}
+#[cfg(feature = "Win32_Globalization")]
+impl ::core::clone::Clone for IMEKMSINVK {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub struct IMEKMSKEY {
+    pub dwStatus: u32,
+    pub dwCompStatus: u32,
+    pub dwVKEY: u32,
+    pub Anonymous1: IMEKMSKEY_0,
+    pub Anonymous2: IMEKMSKEY_1,
+}
+impl ::core::marker::Copy for IMEKMSKEY {}
+impl ::core::clone::Clone for IMEKMSKEY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub union IMEKMSKEY_0 {
+    pub dwControl: u32,
+    pub dwNotUsed: u32,
+}
+impl ::core::clone::Clone for IMEKMSKEY_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub union IMEKMSKEY_1 {
+    pub pwszDscr: [u16; 31],
+    pub pwszNoUse: [u16; 31],
+}
+impl ::core::clone::Clone for IMEKMSKEY_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Globalization")]
+pub struct IMEKMSKMP {
+    pub cbSize: i32,
+    pub hIMC: super::super::super::Globalization::HIMC,
+    pub idLang: u16,
+    pub wVKStart: u16,
+    pub wVKEnd: u16,
+    pub cKeyList: i32,
+    pub pKeyList: *mut IMEKMSKEY,
+}
+#[cfg(feature = "Win32_Globalization")]
+impl ::core::marker::Copy for IMEKMSKMP {}
+#[cfg(feature = "Win32_Globalization")]
+impl ::core::clone::Clone for IMEKMSKMP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
-#[repr(C)]
-pub struct IMEKMSNTFY(i32);
+pub struct IMEKMSNTFY {
+    pub cbSize: i32,
+    pub hIMC: super::super::super::Globalization::HIMC,
+    pub fSelect: super::super::super::Foundation::BOOL,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
+impl ::core::marker::Copy for IMEKMSNTFY {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
+impl ::core::clone::Clone for IMEKMSNTFY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const IMEKMS_2NDLEVEL: u32 = 4u32;
 pub const IMEKMS_CANDIDATE: u32 = 6u32;
 pub const IMEKMS_COMPOSITION: u32 = 1u32;
@@ -566,12 +923,48 @@ pub const IMEKMS_INPTGL: u32 = 5u32;
 pub const IMEKMS_NOCOMPOSITION: u32 = 0u32;
 pub const IMEKMS_SELECTION: u32 = 2u32;
 pub const IMEKMS_TYPECAND: u32 = 7u32;
+#[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+pub struct IMEMENUITEMINFOA {
+    pub cbSize: u32,
+    pub fType: u32,
+    pub fState: u32,
+    pub wID: u32,
+    pub hbmpChecked: super::super::super::Graphics::Gdi::HBITMAP,
+    pub hbmpUnchecked: super::super::super::Graphics::Gdi::HBITMAP,
+    pub dwItemData: u32,
+    pub szString: [super::super::super::Foundation::CHAR; 80],
+    pub hbmpItem: super::super::super::Graphics::Gdi::HBITMAP,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::marker::Copy for IMEMENUITEMINFOA {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::clone::Clone for IMEMENUITEMINFOA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct IMEMENUITEMINFOA(i32);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[repr(C)]
-pub struct IMEMENUITEMINFOW(i32);
+pub struct IMEMENUITEMINFOW {
+    pub cbSize: u32,
+    pub fType: u32,
+    pub fState: u32,
+    pub wID: u32,
+    pub hbmpChecked: super::super::super::Graphics::Gdi::HBITMAP,
+    pub hbmpUnchecked: super::super::super::Graphics::Gdi::HBITMAP,
+    pub dwItemData: u32,
+    pub szString: [u16; 80],
+    pub hbmpItem: super::super::super::Graphics::Gdi::HBITMAP,
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::core::marker::Copy for IMEMENUITEMINFOW {}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::core::clone::Clone for IMEMENUITEMINFOW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const IMEMENUITEM_STRING_SIZE: u32 = 80u32;
 pub const IMEMOUSERET_NOTHANDLED: i32 = -1i32;
 pub const IMEMOUSE_LDOWN: u32 = 1u32;
@@ -661,15 +1054,55 @@ pub const IFED_REL_KEIYOU_TARU_YOUGEN: IMEREL = IMEREL(21i32);
 pub const IFED_REL_UNKNOWN1: IMEREL = IMEREL(22i32);
 pub const IFED_REL_UNKNOWN2: IMEREL = IMEREL(23i32);
 pub const IFED_REL_ALL: IMEREL = IMEREL(24i32);
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct IMESHF(i32);
+pub struct IMESHF {
+    pub cbShf: u16,
+    pub verDic: u16,
+    pub szTitle: [super::super::super::Foundation::CHAR; 48],
+    pub szDescription: [super::super::super::Foundation::CHAR; 256],
+    pub szCopyright: [super::super::super::Foundation::CHAR; 128],
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct IMESTRINGCANDIDATE(i32);
+impl ::core::marker::Copy for IMESHF {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for IMESHF {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct IMESTRINGCANDIDATEINFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct IMESTRINGCANDIDATE {
+    pub uCount: u32,
+    pub lpwstr: [super::super::super::Foundation::PWSTR; 1],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for IMESTRINGCANDIDATE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for IMESTRINGCANDIDATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct IMESTRINGCANDIDATEINFO {
+    pub dwFarEastId: u32,
+    pub lpFarEastInfo: *mut tabIMEFAREASTINFO,
+    pub fInfoMask: u32,
+    pub iSelIndex: i32,
+    pub uCount: u32,
+    pub lpwstr: [super::super::super::Foundation::PWSTR; 1],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for IMESTRINGCANDIDATEINFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for IMESTRINGCANDIDATEINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMEUCT(pub i32);
 pub const IFED_UCT_NONE: IMEUCT = IMEUCT(0i32);
@@ -679,9 +1112,51 @@ pub const IFED_UCT_USER_DEFINED: IMEUCT = IMEUCT(3i32);
 pub const IFED_UCT_MAX: IMEUCT = IMEUCT(4i32);
 pub const IMEVER_0310: u32 = 196618u32;
 pub const IMEVER_0400: u32 = 262144u32;
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct IMEWRD(i32);
+pub struct IMEWRD {
+    pub pwchReading: super::super::super::Foundation::PWSTR,
+    pub pwchDisplay: super::super::super::Foundation::PWSTR,
+    pub Anonymous: IMEWRD_0,
+    pub rgulAttrs: [u32; 2],
+    pub cbComment: i32,
+    pub uct: IMEUCT,
+    pub pvComment: *mut ::core::ffi::c_void,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for IMEWRD {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for IMEWRD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Foundation")]
+pub union IMEWRD_0 {
+    pub ulPos: u32,
+    pub Anonymous: IMEWRD_0_0,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for IMEWRD_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Foundation")]
+pub struct IMEWRD_0_0 {
+    pub nPos1: u16,
+    pub nPos2: u16,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for IMEWRD_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for IMEWRD_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const IME_CAND_CODE: u32 = 2u32;
 pub const IME_CAND_MEANING: u32 = 3u32;
 pub const IME_CAND_RADICAL: u32 = 4u32;
@@ -818,9 +1293,47 @@ pub const INIT_LOGFONT: u32 = 8u32;
 pub const INIT_SENTENCE: u32 = 4u32;
 pub const INIT_SOFTKBDPOS: u32 = 32u32;
 pub const INIT_STATUSWNDPOS: u32 = 1u32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
 #[repr(C)]
-pub struct INPUTCONTEXT(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
+pub struct INPUTCONTEXT {
+    pub hWnd: super::super::super::Foundation::HWND,
+    pub fOpen: super::super::super::Foundation::BOOL,
+    pub ptStatusWndPos: super::super::super::Foundation::POINT,
+    pub ptSoftKbdPos: super::super::super::Foundation::POINT,
+    pub fdwConversion: u32,
+    pub fdwSentence: u32,
+    pub lfFont: INPUTCONTEXT_0,
+    pub cfCompForm: COMPOSITIONFORM,
+    pub cfCandForm: [CANDIDATEFORM; 4],
+    pub hCompStr: super::super::super::Globalization::HIMCC,
+    pub hCandInfo: super::super::super::Globalization::HIMCC,
+    pub hGuideLine: super::super::super::Globalization::HIMCC,
+    pub hPrivate: super::super::super::Globalization::HIMCC,
+    pub dwNumMsgBuf: u32,
+    pub hMsgBuf: super::super::super::Globalization::HIMCC,
+    pub fdwInit: u32,
+    pub dwReserve: [u32; 3],
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
+impl ::core::marker::Copy for INPUTCONTEXT {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
+impl ::core::clone::Clone for INPUTCONTEXT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
+pub union INPUTCONTEXT_0 {
+    pub A: super::super::super::Graphics::Gdi::LOGFONTA,
+    pub W: super::super::super::Graphics::Gdi::LOGFONTW,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
+impl ::core::clone::Clone for INPUTCONTEXT_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const IPACFG_CATEGORY: i32 = 262144i32;
 pub const IPACFG_HELP: i32 = 2i32;
 pub const IPACFG_LANG: i32 = 16i32;
@@ -1028,9 +1541,67 @@ pub const MOD_IGNORE_ALL_MODIFIER: u32 = 1024u32;
 pub const MOD_LEFT: u32 = 32768u32;
 pub const MOD_ON_KEYUP: u32 = 2048u32;
 pub const MOD_RIGHT: u32 = 16384u32;
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct MORRSLT(i32);
+pub struct MORRSLT {
+    pub dwSize: u32,
+    pub pwchOutput: super::super::super::Foundation::PWSTR,
+    pub cchOutput: u16,
+    pub Anonymous1: MORRSLT_0,
+    pub Anonymous2: MORRSLT_1,
+    pub pchInputPos: *mut u16,
+    pub pchOutputIdxWDD: *mut u16,
+    pub Anonymous3: MORRSLT_2,
+    pub paMonoRubyPos: *mut u16,
+    pub pWDD: *mut WDD,
+    pub cWDD: i32,
+    pub pPrivate: *mut ::core::ffi::c_void,
+    pub BLKBuff: [u16; 1],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MORRSLT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MORRSLT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Foundation")]
+pub union MORRSLT_0 {
+    pub pwchRead: super::super::super::Foundation::PWSTR,
+    pub pwchComp: super::super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MORRSLT_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Foundation")]
+pub union MORRSLT_1 {
+    pub cchRead: u16,
+    pub cchComp: u16,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MORRSLT_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Foundation")]
+pub union MORRSLT_2 {
+    pub pchReadIdxWDD: *mut u16,
+    pub pchCompIdxWDD: *mut u16,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MORRSLT_2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const NI_CONTEXTUPDATED: u32 = 3u32;
 pub const NI_FINALIZECONVERSIONRESULT: u32 = 20u32;
 #[repr(transparent)]
@@ -1051,23 +1622,69 @@ pub const CPS_CONVERT: NOTIFY_IME_INDEX = NOTIFY_IME_INDEX(2u32);
 pub const CPS_REVERT: NOTIFY_IME_INDEX = NOTIFY_IME_INDEX(3u32);
 #[cfg(feature = "Win32_Foundation")]
 pub type PFNLOG = unsafe extern "system" fn(param0: *mut IMEDP, param1: ::windows_sys::core::HRESULT) -> super::super::super::Foundation::BOOL;
-#[repr(C)]
-pub struct POSTBL(i32);
+#[repr(C, packed(1))]
+pub struct POSTBL {
+    pub nPos: u16,
+    pub szName: *mut u8,
+}
+impl ::core::marker::Copy for POSTBL {}
+impl ::core::clone::Clone for POSTBL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const POS_UNDEFINED: u32 = 0u32;
 #[repr(C)]
-pub struct RECONVERTSTRING(i32);
+pub struct RECONVERTSTRING {
+    pub dwSize: u32,
+    pub dwVersion: u32,
+    pub dwStrLen: u32,
+    pub dwStrOffset: u32,
+    pub dwCompStrLen: u32,
+    pub dwCompStrOffset: u32,
+    pub dwTargetStrLen: u32,
+    pub dwTargetStrOffset: u32,
+}
+impl ::core::marker::Copy for RECONVERTSTRING {}
+impl ::core::clone::Clone for RECONVERTSTRING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const RECONVOPT_NONE: u32 = 0u32;
 pub const RECONVOPT_USECANCELNOTIFY: u32 = 1u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct REGISTERWORDA(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct REGISTERWORDA {
+    pub lpReading: super::super::super::Foundation::PSTR,
+    pub lpWord: super::super::super::Foundation::PSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for REGISTERWORDA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for REGISTERWORDA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[cfg(feature = "Win32_Foundation")]
 pub type REGISTERWORDENUMPROCA = unsafe extern "system" fn(lpszreading: super::super::super::Foundation::PSTR, param1: u32, lpszstring: super::super::super::Foundation::PSTR, param3: *mut ::core::ffi::c_void) -> i32;
 #[cfg(feature = "Win32_Foundation")]
 pub type REGISTERWORDENUMPROCW = unsafe extern "system" fn(lpszreading: super::super::super::Foundation::PWSTR, param1: u32, lpszstring: super::super::super::Foundation::PWSTR, param3: *mut ::core::ffi::c_void) -> i32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct REGISTERWORDW(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct REGISTERWORDW {
+    pub lpReading: super::super::super::Foundation::PWSTR,
+    pub lpWord: super::super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for REGISTERWORDW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for REGISTERWORDW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SCS_CAP_COMPSTR: u32 = 1u32;
 pub const SCS_CAP_MAKEREAD: u32 = 2u32;
 pub const SCS_CAP_SETRECONVERTSTRING: u32 = 4u32;
@@ -1084,21 +1701,73 @@ pub const SHOWIMEPAD_CATEGORY: u32 = 1u32;
 pub const SHOWIMEPAD_DEFAULT: u32 = 0u32;
 pub const SHOWIMEPAD_GUID: u32 = 2u32;
 #[repr(C)]
-pub struct SOFTKBDDATA(i32);
+pub struct SOFTKBDDATA {
+    pub uCount: u32,
+    pub wCode: [u16; 256],
+}
+impl ::core::marker::Copy for SOFTKBDDATA {}
+impl ::core::clone::Clone for SOFTKBDDATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SOFTKEYBOARD_TYPE_C1: u32 = 2u32;
 pub const SOFTKEYBOARD_TYPE_T1: u32 = 1u32;
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+pub struct STYLEBUFA {
+    pub dwStyle: u32,
+    pub szDescription: [super::super::super::Foundation::CHAR; 32],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for STYLEBUFA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for STYLEBUFA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct STYLEBUFA(i32);
-#[repr(C)]
-pub struct STYLEBUFW(i32);
+pub struct STYLEBUFW {
+    pub dwStyle: u32,
+    pub szDescription: [u16; 32],
+}
+impl ::core::marker::Copy for STYLEBUFW {}
+impl ::core::clone::Clone for STYLEBUFW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const STYLE_DESCRIPTION_SIZE: u32 = 32u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct TRANSMSG(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct TRANSMSG {
+    pub message: u32,
+    pub wParam: super::super::super::Foundation::WPARAM,
+    pub lParam: super::super::super::Foundation::LPARAM,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for TRANSMSG {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for TRANSMSG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct TRANSMSGLIST(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct TRANSMSGLIST {
+    pub uMsgCount: u32,
+    pub TransMsg: [TRANSMSG; 1],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for TRANSMSGLIST {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for TRANSMSGLIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const UI_CAP_2700: u32 = 1u32;
 pub const UI_CAP_ROT90: u32 = 2u32;
 pub const UI_CAP_ROTANY: u32 = 4u32;
@@ -1112,13 +1781,69 @@ pub const VERSION_MODEBIAS: u32 = 1u32;
 pub const VERSION_MOUSE_OPERATION: u32 = 1u32;
 pub const VERSION_QUERYPOSITION: u32 = 1u32;
 pub const VERSION_RECONVERSION: u32 = 1u32;
-#[repr(C)]
-pub struct WDD(i32);
+#[repr(C, packed(1))]
+pub struct WDD {
+    pub wDispPos: u16,
+    pub Anonymous1: WDD_0,
+    pub cchDisp: u16,
+    pub Anonymous2: WDD_1,
+    pub WDD_nReserve1: u32,
+    pub nPos: u16,
+    pub _bitfield: u16,
+    pub pReserved: *mut ::core::ffi::c_void,
+}
+impl ::core::marker::Copy for WDD {}
+impl ::core::clone::Clone for WDD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub union WDD_0 {
+    pub wReadPos: u16,
+    pub wCompPos: u16,
+}
+impl ::core::clone::Clone for WDD_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub union WDD_1 {
+    pub cchRead: u16,
+    pub cchComp: u16,
+}
+impl ::core::clone::Clone for WDD_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub type fpCreateIFECommonInstanceType = unsafe extern "system" fn(ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
 pub type fpCreateIFEDictionaryInstanceType = unsafe extern "system" fn(ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
 pub type fpCreateIFELanguageInstanceType = unsafe extern "system" fn(clsid: *const ::windows_sys::core::GUID, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
 #[repr(C)]
-pub struct tabIMEFAREASTINFO(i32);
-#[cfg(feature = "Win32_Foundation")]
+pub struct tabIMEFAREASTINFO {
+    pub dwSize: u32,
+    pub dwType: u32,
+    pub dwData: [u32; 1],
+}
+impl ::core::marker::Copy for tabIMEFAREASTINFO {}
+impl ::core::clone::Clone for tabIMEFAREASTINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct tabIMESTRINGINFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct tabIMESTRINGINFO {
+    pub dwFarEastId: u32,
+    pub lpwstr: super::super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for tabIMESTRINGINFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for tabIMESTRINGINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

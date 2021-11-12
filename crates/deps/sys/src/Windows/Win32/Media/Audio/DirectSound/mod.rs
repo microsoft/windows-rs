@@ -41,12 +41,48 @@ pub const DIRECTSOUND_VERSION: u32 = 1792u32;
 pub const DS3DALG_HRTF_FULL: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3259052864, data2: 7195, data3: 4562, data4: [148, 245, 0, 192, 79, 194, 138, 202] };
 pub const DS3DALG_HRTF_LIGHT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3259052866, data2: 7195, data3: 4562, data4: [148, 245, 0, 192, 79, 194, 138, 202] };
 pub const DS3DALG_NO_VIRTUALIZATION: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3259052863, data2: 7195, data3: 4562, data4: [148, 245, 0, 192, 79, 194, 138, 202] };
-#[cfg(feature = "Win32_Graphics_Direct3D")]
 #[repr(C)]
-pub struct DS3DBUFFER(i32);
 #[cfg(feature = "Win32_Graphics_Direct3D")]
+pub struct DS3DBUFFER {
+    pub dwSize: u32,
+    pub vPosition: super::super::super::Graphics::Direct3D::D3DVECTOR,
+    pub vVelocity: super::super::super::Graphics::Direct3D::D3DVECTOR,
+    pub dwInsideConeAngle: u32,
+    pub dwOutsideConeAngle: u32,
+    pub vConeOrientation: super::super::super::Graphics::Direct3D::D3DVECTOR,
+    pub lConeOutsideVolume: i32,
+    pub flMinDistance: f32,
+    pub flMaxDistance: f32,
+    pub dwMode: u32,
+}
+#[cfg(feature = "Win32_Graphics_Direct3D")]
+impl ::core::marker::Copy for DS3DBUFFER {}
+#[cfg(feature = "Win32_Graphics_Direct3D")]
+impl ::core::clone::Clone for DS3DBUFFER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DS3DLISTENER(i32);
+#[cfg(feature = "Win32_Graphics_Direct3D")]
+pub struct DS3DLISTENER {
+    pub dwSize: u32,
+    pub vPosition: super::super::super::Graphics::Direct3D::D3DVECTOR,
+    pub vVelocity: super::super::super::Graphics::Direct3D::D3DVECTOR,
+    pub vOrientFront: super::super::super::Graphics::Direct3D::D3DVECTOR,
+    pub vOrientTop: super::super::super::Graphics::Direct3D::D3DVECTOR,
+    pub flDistanceFactor: f32,
+    pub flRolloffFactor: f32,
+    pub flDopplerFactor: f32,
+}
+#[cfg(feature = "Win32_Graphics_Direct3D")]
+impl ::core::marker::Copy for DS3DLISTENER {}
+#[cfg(feature = "Win32_Graphics_Direct3D")]
+impl ::core::clone::Clone for DS3DLISTENER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DS3DMODE_DISABLE: u32 = 2u32;
 pub const DS3DMODE_HEADRELATIVE: u32 = 1u32;
 pub const DS3DMODE_NORMAL: u32 = 0u32;
@@ -66,7 +102,19 @@ pub const DS3D_MINCONEANGLE: u32 = 0u32;
 pub const DS3D_MINDOPPLERFACTOR: f32 = 0f32;
 pub const DS3D_MINROLLOFFFACTOR: f32 = 0f32;
 #[repr(C)]
-pub struct DSBCAPS(i32);
+pub struct DSBCAPS {
+    pub dwSize: u32,
+    pub dwFlags: u32,
+    pub dwBufferBytes: u32,
+    pub dwUnlockTransferRate: u32,
+    pub dwPlayCpuOverhead: u32,
+}
+impl ::core::marker::Copy for DSBCAPS {}
+impl ::core::clone::Clone for DSBCAPS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DSBCAPS_CTRL3D: u32 = 16u32;
 pub const DSBCAPS_CTRLFREQUENCY: u32 = 32u32;
 pub const DSBCAPS_CTRLFX: u32 = 512u32;
@@ -99,9 +147,20 @@ pub const DSBPLAY_TERMINATEBY_DISTANCE: u64 = 16u64;
 pub const DSBPLAY_TERMINATEBY_PRIORITY: u64 = 32u64;
 pub const DSBPLAY_TERMINATEBY_TIME: u32 = 8u32;
 pub const DSBPN_OFFSETSTOP: u32 = 4294967295u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct DSBPOSITIONNOTIFY(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct DSBPOSITIONNOTIFY {
+    pub dwOffset: u32,
+    pub hEventNotify: super::super::super::Foundation::HANDLE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DSBPOSITIONNOTIFY {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DSBPOSITIONNOTIFY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DSBSIZE_FX_MIN: u32 = 150u32;
 pub const DSBSIZE_MAX: u32 = 268435455u32;
 pub const DSBSIZE_MIN: u32 = 4u32;
@@ -112,13 +171,69 @@ pub const DSBSTATUS_LOOPING: u32 = 4u32;
 pub const DSBSTATUS_PLAYING: u32 = 1u32;
 pub const DSBSTATUS_TERMINATED: u32 = 32u32;
 #[repr(C)]
-pub struct DSBUFFERDESC(i32);
+pub struct DSBUFFERDESC {
+    pub dwSize: u32,
+    pub dwFlags: u32,
+    pub dwBufferBytes: u32,
+    pub dwReserved: u32,
+    pub lpwfxFormat: *mut super::WAVEFORMATEX,
+    pub guid3DAlgorithm: ::windows_sys::core::GUID,
+}
+impl ::core::marker::Copy for DSBUFFERDESC {}
+impl ::core::clone::Clone for DSBUFFERDESC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DSBUFFERDESC1(i32);
+pub struct DSBUFFERDESC1 {
+    pub dwSize: u32,
+    pub dwFlags: u32,
+    pub dwBufferBytes: u32,
+    pub dwReserved: u32,
+    pub lpwfxFormat: *mut super::WAVEFORMATEX,
+}
+impl ::core::marker::Copy for DSBUFFERDESC1 {}
+impl ::core::clone::Clone for DSBUFFERDESC1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DSBVOLUME_MAX: u32 = 0u32;
 pub const DSBVOLUME_MIN: i32 = -10000i32;
 #[repr(C)]
-pub struct DSCAPS(i32);
+pub struct DSCAPS {
+    pub dwSize: u32,
+    pub dwFlags: u32,
+    pub dwMinSecondarySampleRate: u32,
+    pub dwMaxSecondarySampleRate: u32,
+    pub dwPrimaryBuffers: u32,
+    pub dwMaxHwMixingAllBuffers: u32,
+    pub dwMaxHwMixingStaticBuffers: u32,
+    pub dwMaxHwMixingStreamingBuffers: u32,
+    pub dwFreeHwMixingAllBuffers: u32,
+    pub dwFreeHwMixingStaticBuffers: u32,
+    pub dwFreeHwMixingStreamingBuffers: u32,
+    pub dwMaxHw3DAllBuffers: u32,
+    pub dwMaxHw3DStaticBuffers: u32,
+    pub dwMaxHw3DStreamingBuffers: u32,
+    pub dwFreeHw3DAllBuffers: u32,
+    pub dwFreeHw3DStaticBuffers: u32,
+    pub dwFreeHw3DStreamingBuffers: u32,
+    pub dwTotalHwMemBytes: u32,
+    pub dwFreeHwMemBytes: u32,
+    pub dwMaxContigFreeHwMemBytes: u32,
+    pub dwUnlockTransferRateHwBuffers: u32,
+    pub dwPlayCpuOverheadSwBuffers: u32,
+    pub dwReserved1: u32,
+    pub dwReserved2: u32,
+}
+impl ::core::marker::Copy for DSCAPS {}
+impl ::core::clone::Clone for DSCAPS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DSCAPS_CERTIFIED: u32 = 64u32;
 pub const DSCAPS_CONTINUOUSRATE: u32 = 16u32;
 pub const DSCAPS_EMULDRIVER: u32 = 32u32;
@@ -131,7 +246,18 @@ pub const DSCAPS_SECONDARY8BIT: u32 = 1024u32;
 pub const DSCAPS_SECONDARYMONO: u32 = 256u32;
 pub const DSCAPS_SECONDARYSTEREO: u32 = 512u32;
 #[repr(C)]
-pub struct DSCBCAPS(i32);
+pub struct DSCBCAPS {
+    pub dwSize: u32,
+    pub dwFlags: u32,
+    pub dwBufferBytes: u32,
+    pub dwReserved: u32,
+}
+impl ::core::marker::Copy for DSCBCAPS {}
+impl ::core::clone::Clone for DSCBCAPS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DSCBCAPS_CTRLFX: u32 = 512u32;
 pub const DSCBCAPS_WAVEMAPPED: u32 = 2147483648u32;
 pub const DSCBLOCK_ENTIREBUFFER: u32 = 1u32;
@@ -139,22 +265,94 @@ pub const DSCBSTART_LOOPING: u32 = 1u32;
 pub const DSCBSTATUS_CAPTURING: u32 = 1u32;
 pub const DSCBSTATUS_LOOPING: u32 = 2u32;
 #[repr(C)]
-pub struct DSCBUFFERDESC(i32);
+pub struct DSCBUFFERDESC {
+    pub dwSize: u32,
+    pub dwFlags: u32,
+    pub dwBufferBytes: u32,
+    pub dwReserved: u32,
+    pub lpwfxFormat: *mut super::WAVEFORMATEX,
+    pub dwFXCount: u32,
+    pub lpDSCFXDesc: *mut DSCEFFECTDESC,
+}
+impl ::core::marker::Copy for DSCBUFFERDESC {}
+impl ::core::clone::Clone for DSCBUFFERDESC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DSCBUFFERDESC1(i32);
+pub struct DSCBUFFERDESC1 {
+    pub dwSize: u32,
+    pub dwFlags: u32,
+    pub dwBufferBytes: u32,
+    pub dwReserved: u32,
+    pub lpwfxFormat: *mut super::WAVEFORMATEX,
+}
+impl ::core::marker::Copy for DSCBUFFERDESC1 {}
+impl ::core::clone::Clone for DSCBUFFERDESC1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DSCCAPS(i32);
+pub struct DSCCAPS {
+    pub dwSize: u32,
+    pub dwFlags: u32,
+    pub dwFormats: u32,
+    pub dwChannels: u32,
+}
+impl ::core::marker::Copy for DSCCAPS {}
+impl ::core::clone::Clone for DSCCAPS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DSCCAPS_CERTIFIED: u32 = 64u32;
 pub const DSCCAPS_EMULDRIVER: u32 = 32u32;
 pub const DSCCAPS_MULTIPLECAPTURE: u32 = 1u32;
 #[repr(C)]
-pub struct DSCEFFECTDESC(i32);
-#[cfg(feature = "Win32_Foundation")]
+pub struct DSCEFFECTDESC {
+    pub dwSize: u32,
+    pub dwFlags: u32,
+    pub guidDSCFXClass: ::windows_sys::core::GUID,
+    pub guidDSCFXInstance: ::windows_sys::core::GUID,
+    pub dwReserved1: u32,
+    pub dwReserved2: u32,
+}
+impl ::core::marker::Copy for DSCEFFECTDESC {}
+impl ::core::clone::Clone for DSCEFFECTDESC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DSCFXAec(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct DSCFXAec {
+    pub fEnable: super::super::super::Foundation::BOOL,
+    pub fNoiseFill: super::super::super::Foundation::BOOL,
+    pub dwMode: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DSCFXAec {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DSCFXAec {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DSCFXNoiseSuppress(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct DSCFXNoiseSuppress {
+    pub fEnable: super::super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DSCFXNoiseSuppress {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DSCFXNoiseSuppress {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DSCFXR_LOCHARDWARE: u32 = 16u32;
 pub const DSCFXR_LOCSOFTWARE: u32 = 32u32;
 pub const DSCFX_AEC_MODE_FULL_DUPLEX: u32 = 2u32;
@@ -171,7 +369,19 @@ pub const DSDEVID_DefaultPlayback: ::windows_sys::core::GUID = ::windows_sys::GU
 pub const DSDEVID_DefaultVoiceCapture: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3740270595, data2: 40045, data3: 18413, data4: [170, 241, 77, 218, 143, 43, 92, 3] };
 pub const DSDEVID_DefaultVoicePlayback: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3740270594, data2: 40045, data3: 18413, data4: [170, 241, 77, 218, 143, 43, 92, 3] };
 #[repr(C)]
-pub struct DSEFFECTDESC(i32);
+pub struct DSEFFECTDESC {
+    pub dwSize: u32,
+    pub dwFlags: u32,
+    pub guidDSFXClass: ::windows_sys::core::GUID,
+    pub dwReserved1: usize,
+    pub dwReserved2: usize,
+}
+impl ::core::marker::Copy for DSEFFECTDESC {}
+impl ::core::clone::Clone for DSEFFECTDESC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DSFXCHORUS_DELAY_MAX: f32 = 20f32;
 pub const DSFXCHORUS_DELAY_MIN: f32 = 0f32;
 pub const DSFXCHORUS_DEPTH_MAX: f32 = 100f32;
@@ -204,9 +414,36 @@ pub const DSFXCOMPRESSOR_RELEASE_MIN: f32 = 50f32;
 pub const DSFXCOMPRESSOR_THRESHOLD_MAX: f32 = 0f32;
 pub const DSFXCOMPRESSOR_THRESHOLD_MIN: f32 = -60f32;
 #[repr(C)]
-pub struct DSFXChorus(i32);
+pub struct DSFXChorus {
+    pub fWetDryMix: f32,
+    pub fDepth: f32,
+    pub fFeedback: f32,
+    pub fFrequency: f32,
+    pub lWaveform: i32,
+    pub fDelay: f32,
+    pub lPhase: i32,
+}
+impl ::core::marker::Copy for DSFXChorus {}
+impl ::core::clone::Clone for DSFXChorus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DSFXCompressor(i32);
+pub struct DSFXCompressor {
+    pub fGain: f32,
+    pub fAttack: f32,
+    pub fRelease: f32,
+    pub fThreshold: f32,
+    pub fRatio: f32,
+    pub fPredelay: f32,
+}
+impl ::core::marker::Copy for DSFXCompressor {}
+impl ::core::clone::Clone for DSFXCompressor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DSFXDISTORTION_EDGE_MAX: f32 = 100f32;
 pub const DSFXDISTORTION_EDGE_MIN: f32 = 0f32;
 pub const DSFXDISTORTION_GAIN_MAX: f32 = 0f32;
@@ -218,7 +455,19 @@ pub const DSFXDISTORTION_POSTEQCENTERFREQUENCY_MIN: f32 = 100f32;
 pub const DSFXDISTORTION_PRELOWPASSCUTOFF_MAX: f32 = 8000f32;
 pub const DSFXDISTORTION_PRELOWPASSCUTOFF_MIN: f32 = 100f32;
 #[repr(C)]
-pub struct DSFXDistortion(i32);
+pub struct DSFXDistortion {
+    pub fGain: f32,
+    pub fEdge: f32,
+    pub fPostEQCenterFrequency: f32,
+    pub fPostEQBandwidth: f32,
+    pub fPreLowpassCutoff: f32,
+}
+impl ::core::marker::Copy for DSFXDistortion {}
+impl ::core::clone::Clone for DSFXDistortion {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DSFXECHO_FEEDBACK_MAX: f32 = 100f32;
 pub const DSFXECHO_FEEDBACK_MIN: f32 = 0f32;
 pub const DSFXECHO_LEFTDELAY_MAX: f32 = 2000f32;
@@ -230,7 +479,19 @@ pub const DSFXECHO_RIGHTDELAY_MIN: f32 = 1f32;
 pub const DSFXECHO_WETDRYMIX_MAX: f32 = 100f32;
 pub const DSFXECHO_WETDRYMIX_MIN: f32 = 0f32;
 #[repr(C)]
-pub struct DSFXEcho(i32);
+pub struct DSFXEcho {
+    pub fWetDryMix: f32,
+    pub fFeedback: f32,
+    pub fLeftDelay: f32,
+    pub fRightDelay: f32,
+    pub lPanDelay: i32,
+}
+impl ::core::marker::Copy for DSFXEcho {}
+impl ::core::clone::Clone for DSFXEcho {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DSFXFLANGER_DELAY_MAX: f32 = 4f32;
 pub const DSFXFLANGER_DELAY_MIN: f32 = 0f32;
 pub const DSFXFLANGER_DEPTH_MAX: f32 = 100f32;
@@ -251,15 +512,57 @@ pub const DSFXFLANGER_WAVE_TRIANGLE: u32 = 0u32;
 pub const DSFXFLANGER_WETDRYMIX_MAX: f32 = 100f32;
 pub const DSFXFLANGER_WETDRYMIX_MIN: f32 = 0f32;
 #[repr(C)]
-pub struct DSFXFlanger(i32);
+pub struct DSFXFlanger {
+    pub fWetDryMix: f32,
+    pub fDepth: f32,
+    pub fFeedback: f32,
+    pub fFrequency: f32,
+    pub lWaveform: i32,
+    pub fDelay: f32,
+    pub lPhase: i32,
+}
+impl ::core::marker::Copy for DSFXFlanger {}
+impl ::core::clone::Clone for DSFXFlanger {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DSFXGARGLE_RATEHZ_MAX: u32 = 1000u32;
 pub const DSFXGARGLE_RATEHZ_MIN: u32 = 1u32;
 pub const DSFXGARGLE_WAVE_SQUARE: u32 = 1u32;
 pub const DSFXGARGLE_WAVE_TRIANGLE: u32 = 0u32;
 #[repr(C)]
-pub struct DSFXGargle(i32);
+pub struct DSFXGargle {
+    pub dwRateHz: u32,
+    pub dwWaveShape: u32,
+}
+impl ::core::marker::Copy for DSFXGargle {}
+impl ::core::clone::Clone for DSFXGargle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DSFXI3DL2Reverb(i32);
+pub struct DSFXI3DL2Reverb {
+    pub lRoom: i32,
+    pub lRoomHF: i32,
+    pub flRoomRolloffFactor: f32,
+    pub flDecayTime: f32,
+    pub flDecayHFRatio: f32,
+    pub lReflections: i32,
+    pub flReflectionsDelay: f32,
+    pub lReverb: i32,
+    pub flReverbDelay: f32,
+    pub flDiffusion: f32,
+    pub flDensity: f32,
+    pub flHFReference: f32,
+}
+impl ::core::marker::Copy for DSFXI3DL2Reverb {}
+impl ::core::clone::Clone for DSFXI3DL2Reverb {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DSFXPARAMEQ_BANDWIDTH_MAX: f32 = 36f32;
 pub const DSFXPARAMEQ_BANDWIDTH_MIN: f32 = 1f32;
 pub const DSFXPARAMEQ_CENTER_MAX: f32 = 16000f32;
@@ -267,7 +570,17 @@ pub const DSFXPARAMEQ_CENTER_MIN: f32 = 80f32;
 pub const DSFXPARAMEQ_GAIN_MAX: f32 = 15f32;
 pub const DSFXPARAMEQ_GAIN_MIN: f32 = -15f32;
 #[repr(C)]
-pub struct DSFXParamEq(i32);
+pub struct DSFXParamEq {
+    pub fCenter: f32,
+    pub fBandwidth: f32,
+    pub fGain: f32,
+}
+impl ::core::marker::Copy for DSFXParamEq {}
+impl ::core::clone::Clone for DSFXParamEq {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DSFXR_FAILED: i32 = 4i32;
 pub const DSFXR_LOCHARDWARE: i32 = 1i32;
 pub const DSFXR_LOCSOFTWARE: i32 = 2i32;
@@ -276,7 +589,18 @@ pub const DSFXR_SENDLOOP: i32 = 6i32;
 pub const DSFXR_UNALLOCATED: i32 = 3i32;
 pub const DSFXR_UNKNOWN: i32 = 5i32;
 #[repr(C)]
-pub struct DSFXWavesReverb(i32);
+pub struct DSFXWavesReverb {
+    pub fInGain: f32,
+    pub fReverbMix: f32,
+    pub fReverbTime: f32,
+    pub fHighFreqRTRatio: f32,
+}
+impl ::core::marker::Copy for DSFXWavesReverb {}
+impl ::core::clone::Clone for DSFXWavesReverb {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DSFX_I3DL2REVERB_DECAYHFRATIO_DEFAULT: f32 = 0.83f32;
 pub const DSFX_I3DL2REVERB_DECAYHFRATIO_MAX: f32 = 2f32;
 pub const DSFX_I3DL2REVERB_DECAYHFRATIO_MIN: f32 = 0.1f32;

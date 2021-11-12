@@ -309,9 +309,23 @@ pub const D2D1_ANTIALIAS_MODE_PER_PRIMITIVE: D2D1_ANTIALIAS_MODE = D2D1_ANTIALIA
 pub const D2D1_ANTIALIAS_MODE_ALIASED: D2D1_ANTIALIAS_MODE = D2D1_ANTIALIAS_MODE(1u32);
 pub const D2D1_ANTIALIAS_MODE_FORCE_DWORD: D2D1_ANTIALIAS_MODE = D2D1_ANTIALIAS_MODE(4294967295u32);
 pub const D2D1_APPEND_ALIGNED_ELEMENT: u32 = 4294967295u32;
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 #[repr(C)]
-pub struct D2D1_ARC_SEGMENT(i32);
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+pub struct D2D1_ARC_SEGMENT {
+    pub point: Common::D2D_POINT_2F,
+    pub size: Common::D2D_SIZE_F,
+    pub rotationAngle: f32,
+    pub sweepDirection: D2D1_SWEEP_DIRECTION,
+    pub arcSize: D2D1_ARC_SIZE,
+}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl ::core::marker::Copy for D2D1_ARC_SEGMENT {}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl ::core::clone::Clone for D2D1_ARC_SEGMENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D2D1_ARC_SIZE(pub u32);
 pub const D2D1_ARC_SIZE_SMALL: D2D1_ARC_SIZE = D2D1_ARC_SIZE(0u32);
@@ -361,9 +375,29 @@ pub const D2D1_BITMAPSOURCE_PROP_ALPHA_MODE: D2D1_BITMAPSOURCE_PROP = D2D1_BITMA
 pub const D2D1_BITMAPSOURCE_PROP_ORIENTATION: D2D1_BITMAPSOURCE_PROP = D2D1_BITMAPSOURCE_PROP(5u32);
 pub const D2D1_BITMAPSOURCE_PROP_FORCE_DWORD: D2D1_BITMAPSOURCE_PROP = D2D1_BITMAPSOURCE_PROP(4294967295u32);
 #[repr(C)]
-pub struct D2D1_BITMAP_BRUSH_PROPERTIES(i32);
+pub struct D2D1_BITMAP_BRUSH_PROPERTIES {
+    pub extendModeX: D2D1_EXTEND_MODE,
+    pub extendModeY: D2D1_EXTEND_MODE,
+    pub interpolationMode: D2D1_BITMAP_INTERPOLATION_MODE,
+}
+impl ::core::marker::Copy for D2D1_BITMAP_BRUSH_PROPERTIES {}
+impl ::core::clone::Clone for D2D1_BITMAP_BRUSH_PROPERTIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D2D1_BITMAP_BRUSH_PROPERTIES1(i32);
+pub struct D2D1_BITMAP_BRUSH_PROPERTIES1 {
+    pub extendModeX: D2D1_EXTEND_MODE,
+    pub extendModeY: D2D1_EXTEND_MODE,
+    pub interpolationMode: D2D1_INTERPOLATION_MODE,
+}
+impl ::core::marker::Copy for D2D1_BITMAP_BRUSH_PROPERTIES1 {}
+impl ::core::clone::Clone for D2D1_BITMAP_BRUSH_PROPERTIES1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D2D1_BITMAP_INTERPOLATION_MODE(pub u32);
 pub const D2D1_BITMAP_INTERPOLATION_MODE_NEAREST_NEIGHBOR: D2D1_BITMAP_INTERPOLATION_MODE = D2D1_BITMAP_INTERPOLATION_MODE(0u32);
@@ -377,12 +411,38 @@ pub const D2D1_BITMAP_OPTIONS_CANNOT_DRAW: D2D1_BITMAP_OPTIONS = D2D1_BITMAP_OPT
 pub const D2D1_BITMAP_OPTIONS_CPU_READ: D2D1_BITMAP_OPTIONS = D2D1_BITMAP_OPTIONS(4u32);
 pub const D2D1_BITMAP_OPTIONS_GDI_COMPATIBLE: D2D1_BITMAP_OPTIONS = D2D1_BITMAP_OPTIONS(8u32);
 pub const D2D1_BITMAP_OPTIONS_FORCE_DWORD: D2D1_BITMAP_OPTIONS = D2D1_BITMAP_OPTIONS(4294967295u32);
-#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
 #[repr(C)]
-pub struct D2D1_BITMAP_PROPERTIES(i32);
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
+pub struct D2D1_BITMAP_PROPERTIES {
+    pub pixelFormat: Common::D2D1_PIXEL_FORMAT,
+    pub dpiX: f32,
+    pub dpiY: f32,
+}
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::marker::Copy for D2D1_BITMAP_PROPERTIES {}
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::clone::Clone for D2D1_BITMAP_PROPERTIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D2D1_BITMAP_PROPERTIES1(i32);
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
+pub struct D2D1_BITMAP_PROPERTIES1 {
+    pub pixelFormat: Common::D2D1_PIXEL_FORMAT,
+    pub dpiX: f32,
+    pub dpiY: f32,
+    pub bitmapOptions: D2D1_BITMAP_OPTIONS,
+    pub colorContext: ::core::option::Option<ID2D1ColorContext>,
+}
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::marker::Copy for D2D1_BITMAP_PROPERTIES1 {}
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::clone::Clone for D2D1_BITMAP_PROPERTIES1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D2D1_BLEND(pub u32);
 pub const D2D1_BLEND_ZERO: D2D1_BLEND = D2D1_BLEND(1u32);
@@ -400,7 +460,21 @@ pub const D2D1_BLEND_BLEND_FACTOR: D2D1_BLEND = D2D1_BLEND(14u32);
 pub const D2D1_BLEND_INV_BLEND_FACTOR: D2D1_BLEND = D2D1_BLEND(15u32);
 pub const D2D1_BLEND_FORCE_DWORD: D2D1_BLEND = D2D1_BLEND(4294967295u32);
 #[repr(C)]
-pub struct D2D1_BLEND_DESCRIPTION(i32);
+pub struct D2D1_BLEND_DESCRIPTION {
+    pub sourceBlend: D2D1_BLEND,
+    pub destinationBlend: D2D1_BLEND,
+    pub blendOperation: D2D1_BLEND_OPERATION,
+    pub sourceBlendAlpha: D2D1_BLEND,
+    pub destinationBlendAlpha: D2D1_BLEND,
+    pub blendOperationAlpha: D2D1_BLEND_OPERATION,
+    pub blendFactor: [f32; 4],
+}
+impl ::core::marker::Copy for D2D1_BLEND_DESCRIPTION {}
+impl ::core::clone::Clone for D2D1_BLEND_DESCRIPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D2D1_BLEND_OPERATION(pub u32);
 pub const D2D1_BLEND_OPERATION_ADD: D2D1_BLEND_OPERATION = D2D1_BLEND_OPERATION(1u32);
@@ -429,9 +503,20 @@ pub struct D2D1_BRIGHTNESS_PROP(pub u32);
 pub const D2D1_BRIGHTNESS_PROP_WHITE_POINT: D2D1_BRIGHTNESS_PROP = D2D1_BRIGHTNESS_PROP(0u32);
 pub const D2D1_BRIGHTNESS_PROP_BLACK_POINT: D2D1_BRIGHTNESS_PROP = D2D1_BRIGHTNESS_PROP(1u32);
 pub const D2D1_BRIGHTNESS_PROP_FORCE_DWORD: D2D1_BRIGHTNESS_PROP = D2D1_BRIGHTNESS_PROP(4294967295u32);
-#[cfg(feature = "Foundation_Numerics")]
 #[repr(C)]
-pub struct D2D1_BRUSH_PROPERTIES(i32);
+#[cfg(feature = "Foundation_Numerics")]
+pub struct D2D1_BRUSH_PROPERTIES {
+    pub opacity: f32,
+    pub transform: super::super::super::Foundation::Numerics::Matrix3x2,
+}
+#[cfg(feature = "Foundation_Numerics")]
+impl ::core::marker::Copy for D2D1_BRUSH_PROPERTIES {}
+#[cfg(feature = "Foundation_Numerics")]
+impl ::core::clone::Clone for D2D1_BRUSH_PROPERTIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D2D1_BUFFER_PRECISION(pub u32);
 pub const D2D1_BUFFER_PRECISION_UNKNOWN: D2D1_BUFFER_PRECISION = D2D1_BUFFER_PRECISION(0u32);
@@ -575,7 +660,17 @@ pub const D2D1_CONVOLVEMATRIX_SCALE_MODE_ANISOTROPIC: D2D1_CONVOLVEMATRIX_SCALE_
 pub const D2D1_CONVOLVEMATRIX_SCALE_MODE_HIGH_QUALITY_CUBIC: D2D1_CONVOLVEMATRIX_SCALE_MODE = D2D1_CONVOLVEMATRIX_SCALE_MODE(5u32);
 pub const D2D1_CONVOLVEMATRIX_SCALE_MODE_FORCE_DWORD: D2D1_CONVOLVEMATRIX_SCALE_MODE = D2D1_CONVOLVEMATRIX_SCALE_MODE(4294967295u32);
 #[repr(C)]
-pub struct D2D1_CREATION_PROPERTIES(i32);
+pub struct D2D1_CREATION_PROPERTIES {
+    pub threadingMode: D2D1_THREADING_MODE,
+    pub debugLevel: D2D1_DEBUG_LEVEL,
+    pub options: D2D1_DEVICE_CONTEXT_OPTIONS,
+}
+impl ::core::marker::Copy for D2D1_CREATION_PROPERTIES {}
+impl ::core::clone::Clone for D2D1_CREATION_PROPERTIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D2D1_CROP_PROP(pub u32);
 pub const D2D1_CROP_PROP_RECT: D2D1_CROP_PROP = D2D1_CROP_PROP(0u32);
@@ -585,9 +680,23 @@ pub const D2D1_CROP_PROP_FORCE_DWORD: D2D1_CROP_PROP = D2D1_CROP_PROP(4294967295
 pub struct D2D1_CROSSFADE_PROP(pub u32);
 pub const D2D1_CROSSFADE_PROP_WEIGHT: D2D1_CROSSFADE_PROP = D2D1_CROSSFADE_PROP(0u32);
 pub const D2D1_CROSSFADE_PROP_FORCE_DWORD: D2D1_CROSSFADE_PROP = D2D1_CROSSFADE_PROP(4294967295u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 #[repr(C)]
-pub struct D2D1_CUSTOM_VERTEX_BUFFER_PROPERTIES(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+pub struct D2D1_CUSTOM_VERTEX_BUFFER_PROPERTIES {
+    pub shaderBufferWithInputSignature: *mut u8,
+    pub shaderBufferSize: u32,
+    pub inputElements: *mut D2D1_INPUT_ELEMENT_DESC,
+    pub elementCount: u32,
+    pub stride: u32,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::marker::Copy for D2D1_CUSTOM_VERTEX_BUFFER_PROPERTIES {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::clone::Clone for D2D1_CUSTOM_VERTEX_BUFFER_PROPERTIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D2D1_DASH_STYLE(pub u32);
 pub const D2D1_DASH_STYLE_SOLID: D2D1_DASH_STYLE = D2D1_DASH_STYLE(0u32);
@@ -700,12 +809,42 @@ pub const D2D1_DPICOMPENSATION_PROP_INTERPOLATION_MODE: D2D1_DPICOMPENSATION_PRO
 pub const D2D1_DPICOMPENSATION_PROP_BORDER_MODE: D2D1_DPICOMPENSATION_PROP = D2D1_DPICOMPENSATION_PROP(1u32);
 pub const D2D1_DPICOMPENSATION_PROP_INPUT_DPI: D2D1_DPICOMPENSATION_PROP = D2D1_DPICOMPENSATION_PROP(2u32);
 pub const D2D1_DPICOMPENSATION_PROP_FORCE_DWORD: D2D1_DPICOMPENSATION_PROP = D2D1_DPICOMPENSATION_PROP(4294967295u32);
-#[cfg(feature = "Foundation_Numerics")]
 #[repr(C)]
-pub struct D2D1_DRAWING_STATE_DESCRIPTION(i32);
 #[cfg(feature = "Foundation_Numerics")]
+pub struct D2D1_DRAWING_STATE_DESCRIPTION {
+    pub antialiasMode: D2D1_ANTIALIAS_MODE,
+    pub textAntialiasMode: D2D1_TEXT_ANTIALIAS_MODE,
+    pub tag1: u64,
+    pub tag2: u64,
+    pub transform: super::super::super::Foundation::Numerics::Matrix3x2,
+}
+#[cfg(feature = "Foundation_Numerics")]
+impl ::core::marker::Copy for D2D1_DRAWING_STATE_DESCRIPTION {}
+#[cfg(feature = "Foundation_Numerics")]
+impl ::core::clone::Clone for D2D1_DRAWING_STATE_DESCRIPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D2D1_DRAWING_STATE_DESCRIPTION1(i32);
+#[cfg(feature = "Foundation_Numerics")]
+pub struct D2D1_DRAWING_STATE_DESCRIPTION1 {
+    pub antialiasMode: D2D1_ANTIALIAS_MODE,
+    pub textAntialiasMode: D2D1_TEXT_ANTIALIAS_MODE,
+    pub tag1: u64,
+    pub tag2: u64,
+    pub transform: super::super::super::Foundation::Numerics::Matrix3x2,
+    pub primitiveBlend: D2D1_PRIMITIVE_BLEND,
+    pub unitMode: D2D1_UNIT_MODE,
+}
+#[cfg(feature = "Foundation_Numerics")]
+impl ::core::marker::Copy for D2D1_DRAWING_STATE_DESCRIPTION1 {}
+#[cfg(feature = "Foundation_Numerics")]
+impl ::core::clone::Clone for D2D1_DRAWING_STATE_DESCRIPTION1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D2D1_DRAW_TEXT_OPTIONS(pub u32);
 pub const D2D1_DRAW_TEXT_OPTIONS_NO_SNAP: D2D1_DRAW_TEXT_OPTIONS = D2D1_DRAW_TEXT_OPTIONS(1u32);
@@ -727,12 +866,36 @@ pub const D2D1_EDGEDETECTION_PROP_MODE: D2D1_EDGEDETECTION_PROP = D2D1_EDGEDETEC
 pub const D2D1_EDGEDETECTION_PROP_OVERLAY_EDGES: D2D1_EDGEDETECTION_PROP = D2D1_EDGEDETECTION_PROP(3u32);
 pub const D2D1_EDGEDETECTION_PROP_ALPHA_MODE: D2D1_EDGEDETECTION_PROP = D2D1_EDGEDETECTION_PROP(4u32);
 pub const D2D1_EDGEDETECTION_PROP_FORCE_DWORD: D2D1_EDGEDETECTION_PROP = D2D1_EDGEDETECTION_PROP(4294967295u32);
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 #[repr(C)]
-pub struct D2D1_EFFECT_INPUT_DESCRIPTION(i32);
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+pub struct D2D1_EFFECT_INPUT_DESCRIPTION {
+    pub effect: ::core::option::Option<ID2D1Effect>,
+    pub inputIndex: u32,
+    pub inputRectangle: Common::D2D_RECT_F,
+}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl ::core::marker::Copy for D2D1_EFFECT_INPUT_DESCRIPTION {}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl ::core::clone::Clone for D2D1_EFFECT_INPUT_DESCRIPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D2D1_ELLIPSE(i32);
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+pub struct D2D1_ELLIPSE {
+    pub point: Common::D2D_POINT_2F,
+    pub radiusX: f32,
+    pub radiusY: f32,
+}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl ::core::marker::Copy for D2D1_ELLIPSE {}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl ::core::clone::Clone for D2D1_ELLIPSE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D2D1_EMBOSS_PROP(pub u32);
 pub const D2D1_EMBOSS_PROP_HEIGHT: D2D1_EMBOSS_PROP = D2D1_EMBOSS_PROP(0u32);
@@ -749,7 +912,15 @@ pub const D2D1_EXTEND_MODE_WRAP: D2D1_EXTEND_MODE = D2D1_EXTEND_MODE(1u32);
 pub const D2D1_EXTEND_MODE_MIRROR: D2D1_EXTEND_MODE = D2D1_EXTEND_MODE(2u32);
 pub const D2D1_EXTEND_MODE_FORCE_DWORD: D2D1_EXTEND_MODE = D2D1_EXTEND_MODE(4294967295u32);
 #[repr(C)]
-pub struct D2D1_FACTORY_OPTIONS(i32);
+pub struct D2D1_FACTORY_OPTIONS {
+    pub debugLevel: D2D1_DEBUG_LEVEL,
+}
+impl ::core::marker::Copy for D2D1_FACTORY_OPTIONS {}
+impl ::core::clone::Clone for D2D1_FACTORY_OPTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D2D1_FACTORY_TYPE(pub u32);
 pub const D2D1_FACTORY_TYPE_SINGLE_THREADED: D2D1_FACTORY_TYPE = D2D1_FACTORY_TYPE(0u32);
@@ -760,12 +931,32 @@ pub struct D2D1_FEATURE(pub u32);
 pub const D2D1_FEATURE_DOUBLES: D2D1_FEATURE = D2D1_FEATURE(0u32);
 pub const D2D1_FEATURE_D3D10_X_HARDWARE_OPTIONS: D2D1_FEATURE = D2D1_FEATURE(1u32);
 pub const D2D1_FEATURE_FORCE_DWORD: D2D1_FEATURE = D2D1_FEATURE(4294967295u32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct D2D1_FEATURE_DATA_D3D10_X_HARDWARE_OPTIONS(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct D2D1_FEATURE_DATA_D3D10_X_HARDWARE_OPTIONS {
+    pub computeShaders_Plus_RawAndStructuredBuffers_Via_Shader_4_x: super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for D2D1_FEATURE_DATA_D3D10_X_HARDWARE_OPTIONS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for D2D1_FEATURE_DATA_D3D10_X_HARDWARE_OPTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D2D1_FEATURE_DATA_DOUBLES(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct D2D1_FEATURE_DATA_DOUBLES {
+    pub doublePrecisionFloatShaderOps: super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for D2D1_FEATURE_DATA_DOUBLES {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for D2D1_FEATURE_DATA_DOUBLES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D2D1_FEATURE_LEVEL(pub u32);
 pub const D2D1_FEATURE_LEVEL_DEFAULT: D2D1_FEATURE_LEVEL = D2D1_FEATURE_LEVEL(0u32);
@@ -844,12 +1035,56 @@ pub struct D2D1_GEOMETRY_SIMPLIFICATION_OPTION(pub u32);
 pub const D2D1_GEOMETRY_SIMPLIFICATION_OPTION_CUBICS_AND_LINES: D2D1_GEOMETRY_SIMPLIFICATION_OPTION = D2D1_GEOMETRY_SIMPLIFICATION_OPTION(0u32);
 pub const D2D1_GEOMETRY_SIMPLIFICATION_OPTION_LINES: D2D1_GEOMETRY_SIMPLIFICATION_OPTION = D2D1_GEOMETRY_SIMPLIFICATION_OPTION(1u32);
 pub const D2D1_GEOMETRY_SIMPLIFICATION_OPTION_FORCE_DWORD: D2D1_GEOMETRY_SIMPLIFICATION_OPTION = D2D1_GEOMETRY_SIMPLIFICATION_OPTION(4294967295u32);
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 #[repr(C)]
-pub struct D2D1_GRADIENT_MESH_PATCH(i32);
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+pub struct D2D1_GRADIENT_MESH_PATCH {
+    pub point00: Common::D2D_POINT_2F,
+    pub point01: Common::D2D_POINT_2F,
+    pub point02: Common::D2D_POINT_2F,
+    pub point03: Common::D2D_POINT_2F,
+    pub point10: Common::D2D_POINT_2F,
+    pub point11: Common::D2D_POINT_2F,
+    pub point12: Common::D2D_POINT_2F,
+    pub point13: Common::D2D_POINT_2F,
+    pub point20: Common::D2D_POINT_2F,
+    pub point21: Common::D2D_POINT_2F,
+    pub point22: Common::D2D_POINT_2F,
+    pub point23: Common::D2D_POINT_2F,
+    pub point30: Common::D2D_POINT_2F,
+    pub point31: Common::D2D_POINT_2F,
+    pub point32: Common::D2D_POINT_2F,
+    pub point33: Common::D2D_POINT_2F,
+    pub color00: Common::D2D1_COLOR_F,
+    pub color03: Common::D2D1_COLOR_F,
+    pub color30: Common::D2D1_COLOR_F,
+    pub color33: Common::D2D1_COLOR_F,
+    pub topEdgeMode: D2D1_PATCH_EDGE_MODE,
+    pub leftEdgeMode: D2D1_PATCH_EDGE_MODE,
+    pub bottomEdgeMode: D2D1_PATCH_EDGE_MODE,
+    pub rightEdgeMode: D2D1_PATCH_EDGE_MODE,
+}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl ::core::marker::Copy for D2D1_GRADIENT_MESH_PATCH {}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl ::core::clone::Clone for D2D1_GRADIENT_MESH_PATCH {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D2D1_GRADIENT_STOP(i32);
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+pub struct D2D1_GRADIENT_STOP {
+    pub position: f32,
+    pub color: Common::D2D1_COLOR_F,
+}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl ::core::marker::Copy for D2D1_GRADIENT_STOP {}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl ::core::clone::Clone for D2D1_GRADIENT_STOP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D2D1_HDRTONEMAP_DISPLAY_MODE(pub u32);
 pub const D2D1_HDRTONEMAP_DISPLAY_MODE_SDR: D2D1_HDRTONEMAP_DISPLAY_MODE = D2D1_HDRTONEMAP_DISPLAY_MODE(0u32);
@@ -893,12 +1128,37 @@ pub const D2D1_HUETORGB_INPUT_COLOR_SPACE_FORCE_DWORD: D2D1_HUETORGB_INPUT_COLOR
 pub struct D2D1_HUETORGB_PROP(pub u32);
 pub const D2D1_HUETORGB_PROP_INPUT_COLOR_SPACE: D2D1_HUETORGB_PROP = D2D1_HUETORGB_PROP(0u32);
 pub const D2D1_HUETORGB_PROP_FORCE_DWORD: D2D1_HUETORGB_PROP = D2D1_HUETORGB_PROP(4294967295u32);
+#[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
+pub struct D2D1_HWND_RENDER_TARGET_PROPERTIES {
+    pub hwnd: super::super::Foundation::HWND,
+    pub pixelSize: Common::D2D_SIZE_U,
+    pub presentOptions: D2D1_PRESENT_OPTIONS,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
+impl ::core::marker::Copy for D2D1_HWND_RENDER_TARGET_PROPERTIES {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
+impl ::core::clone::Clone for D2D1_HWND_RENDER_TARGET_PROPERTIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D2D1_HWND_RENDER_TARGET_PROPERTIES(i32);
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-#[repr(C)]
-pub struct D2D1_IMAGE_BRUSH_PROPERTIES(i32);
+pub struct D2D1_IMAGE_BRUSH_PROPERTIES {
+    pub sourceRectangle: Common::D2D_RECT_F,
+    pub extendModeX: D2D1_EXTEND_MODE,
+    pub extendModeY: D2D1_EXTEND_MODE,
+    pub interpolationMode: D2D1_INTERPOLATION_MODE,
+}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl ::core::marker::Copy for D2D1_IMAGE_BRUSH_PROPERTIES {}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl ::core::clone::Clone for D2D1_IMAGE_BRUSH_PROPERTIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS(pub u32);
 pub const D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS_NONE: D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS = D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS(0u32);
@@ -911,22 +1171,76 @@ pub const D2D1_IMAGE_SOURCE_LOADING_OPTIONS_RELEASE_SOURCE: D2D1_IMAGE_SOURCE_LO
 pub const D2D1_IMAGE_SOURCE_LOADING_OPTIONS_CACHE_ON_DEMAND: D2D1_IMAGE_SOURCE_LOADING_OPTIONS = D2D1_IMAGE_SOURCE_LOADING_OPTIONS(2u32);
 pub const D2D1_IMAGE_SOURCE_LOADING_OPTIONS_FORCE_DWORD: D2D1_IMAGE_SOURCE_LOADING_OPTIONS = D2D1_IMAGE_SOURCE_LOADING_OPTIONS(4294967295u32);
 #[repr(C)]
-pub struct D2D1_INK_BEZIER_SEGMENT(i32);
+pub struct D2D1_INK_BEZIER_SEGMENT {
+    pub point1: D2D1_INK_POINT,
+    pub point2: D2D1_INK_POINT,
+    pub point3: D2D1_INK_POINT,
+}
+impl ::core::marker::Copy for D2D1_INK_BEZIER_SEGMENT {}
+impl ::core::clone::Clone for D2D1_INK_BEZIER_SEGMENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D2D1_INK_NIB_SHAPE(pub u32);
 pub const D2D1_INK_NIB_SHAPE_ROUND: D2D1_INK_NIB_SHAPE = D2D1_INK_NIB_SHAPE(0u32);
 pub const D2D1_INK_NIB_SHAPE_SQUARE: D2D1_INK_NIB_SHAPE = D2D1_INK_NIB_SHAPE(1u32);
 pub const D2D1_INK_NIB_SHAPE_FORCE_DWORD: D2D1_INK_NIB_SHAPE = D2D1_INK_NIB_SHAPE(4294967295u32);
 #[repr(C)]
-pub struct D2D1_INK_POINT(i32);
+pub struct D2D1_INK_POINT {
+    pub x: f32,
+    pub y: f32,
+    pub radius: f32,
+}
+impl ::core::marker::Copy for D2D1_INK_POINT {}
+impl ::core::clone::Clone for D2D1_INK_POINT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Foundation_Numerics")]
+pub struct D2D1_INK_STYLE_PROPERTIES {
+    pub nibShape: D2D1_INK_NIB_SHAPE,
+    pub nibTransform: super::super::super::Foundation::Numerics::Matrix3x2,
+}
+#[cfg(feature = "Foundation_Numerics")]
+impl ::core::marker::Copy for D2D1_INK_STYLE_PROPERTIES {}
+#[cfg(feature = "Foundation_Numerics")]
+impl ::core::clone::Clone for D2D1_INK_STYLE_PROPERTIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D2D1_INK_STYLE_PROPERTIES(i32);
+pub struct D2D1_INPUT_DESCRIPTION {
+    pub filter: D2D1_FILTER,
+    pub levelOfDetailCount: u32,
+}
+impl ::core::marker::Copy for D2D1_INPUT_DESCRIPTION {}
+impl ::core::clone::Clone for D2D1_INPUT_DESCRIPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D2D1_INPUT_DESCRIPTION(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-#[repr(C)]
-pub struct D2D1_INPUT_ELEMENT_DESC(i32);
+pub struct D2D1_INPUT_ELEMENT_DESC {
+    pub semanticName: super::super::Foundation::PSTR,
+    pub semanticIndex: u32,
+    pub format: super::Dxgi::Common::DXGI_FORMAT,
+    pub inputSlot: u32,
+    pub alignedByteOffset: u32,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::marker::Copy for D2D1_INPUT_ELEMENT_DESC {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::clone::Clone for D2D1_INPUT_ELEMENT_DESC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D2D1_INTERPOLATION_MODE(pub u32);
 pub const D2D1_INTERPOLATION_MODE_NEAREST_NEIGHBOR: D2D1_INTERPOLATION_MODE = D2D1_INTERPOLATION_MODE(0u32);
@@ -957,12 +1271,44 @@ pub const D2D1_LAYER_OPTIONS1_NONE: D2D1_LAYER_OPTIONS1 = D2D1_LAYER_OPTIONS1(0u
 pub const D2D1_LAYER_OPTIONS1_INITIALIZE_FROM_BACKGROUND: D2D1_LAYER_OPTIONS1 = D2D1_LAYER_OPTIONS1(1u32);
 pub const D2D1_LAYER_OPTIONS1_IGNORE_ALPHA: D2D1_LAYER_OPTIONS1 = D2D1_LAYER_OPTIONS1(2u32);
 pub const D2D1_LAYER_OPTIONS1_FORCE_DWORD: D2D1_LAYER_OPTIONS1 = D2D1_LAYER_OPTIONS1(4294967295u32);
-#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
 #[repr(C)]
-pub struct D2D1_LAYER_PARAMETERS(i32);
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+pub struct D2D1_LAYER_PARAMETERS {
+    pub contentBounds: Common::D2D_RECT_F,
+    pub geometricMask: ::core::option::Option<ID2D1Geometry>,
+    pub maskAntialiasMode: D2D1_ANTIALIAS_MODE,
+    pub maskTransform: super::super::super::Foundation::Numerics::Matrix3x2,
+    pub opacity: f32,
+    pub opacityBrush: ::core::option::Option<ID2D1Brush>,
+    pub layerOptions: D2D1_LAYER_OPTIONS,
+}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+impl ::core::marker::Copy for D2D1_LAYER_PARAMETERS {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+impl ::core::clone::Clone for D2D1_LAYER_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D2D1_LAYER_PARAMETERS1(i32);
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+pub struct D2D1_LAYER_PARAMETERS1 {
+    pub contentBounds: Common::D2D_RECT_F,
+    pub geometricMask: ::core::option::Option<ID2D1Geometry>,
+    pub maskAntialiasMode: D2D1_ANTIALIAS_MODE,
+    pub maskTransform: super::super::super::Foundation::Numerics::Matrix3x2,
+    pub opacity: f32,
+    pub opacityBrush: ::core::option::Option<ID2D1Brush>,
+    pub layerOptions: D2D1_LAYER_OPTIONS1,
+}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+impl ::core::marker::Copy for D2D1_LAYER_PARAMETERS1 {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
+impl ::core::clone::Clone for D2D1_LAYER_PARAMETERS1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D2D1_LINEARTRANSFER_PROP(pub u32);
 pub const D2D1_LINEARTRANSFER_PROP_RED_Y_INTERCEPT: D2D1_LINEARTRANSFER_PROP = D2D1_LINEARTRANSFER_PROP(0u32);
@@ -979,9 +1325,20 @@ pub const D2D1_LINEARTRANSFER_PROP_ALPHA_SLOPE: D2D1_LINEARTRANSFER_PROP = D2D1_
 pub const D2D1_LINEARTRANSFER_PROP_ALPHA_DISABLE: D2D1_LINEARTRANSFER_PROP = D2D1_LINEARTRANSFER_PROP(11u32);
 pub const D2D1_LINEARTRANSFER_PROP_CLAMP_OUTPUT: D2D1_LINEARTRANSFER_PROP = D2D1_LINEARTRANSFER_PROP(12u32);
 pub const D2D1_LINEARTRANSFER_PROP_FORCE_DWORD: D2D1_LINEARTRANSFER_PROP = D2D1_LINEARTRANSFER_PROP(4294967295u32);
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 #[repr(C)]
-pub struct D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES(i32);
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+pub struct D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES {
+    pub startPoint: Common::D2D_POINT_2F,
+    pub endPoint: Common::D2D_POINT_2F,
+}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl ::core::marker::Copy for D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES {}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl ::core::clone::Clone for D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D2D1_LINE_JOIN(pub u32);
 pub const D2D1_LINE_JOIN_MITER: D2D1_LINE_JOIN = D2D1_LINE_JOIN(0u32);
@@ -995,7 +1352,16 @@ pub const D2D1_LOOKUPTABLE3D_PROP_LUT: D2D1_LOOKUPTABLE3D_PROP = D2D1_LOOKUPTABL
 pub const D2D1_LOOKUPTABLE3D_PROP_ALPHA_MODE: D2D1_LOOKUPTABLE3D_PROP = D2D1_LOOKUPTABLE3D_PROP(1u32);
 pub const D2D1_LOOKUPTABLE3D_PROP_FORCE_DWORD: D2D1_LOOKUPTABLE3D_PROP = D2D1_LOOKUPTABLE3D_PROP(4294967295u32);
 #[repr(C)]
-pub struct D2D1_MAPPED_RECT(i32);
+pub struct D2D1_MAPPED_RECT {
+    pub pitch: u32,
+    pub bits: *mut u8,
+}
+impl ::core::marker::Copy for D2D1_MAPPED_RECT {}
+impl ::core::clone::Clone for D2D1_MAPPED_RECT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D2D1_MAP_OPTIONS(pub u32);
 pub const D2D1_MAP_OPTIONS_NONE: D2D1_MAP_OPTIONS = D2D1_MAP_OPTIONS(0u32);
@@ -1087,9 +1453,23 @@ pub const D2D1_POINTSPECULAR_SCALE_MODE_MULTI_SAMPLE_LINEAR: D2D1_POINTSPECULAR_
 pub const D2D1_POINTSPECULAR_SCALE_MODE_ANISOTROPIC: D2D1_POINTSPECULAR_SCALE_MODE = D2D1_POINTSPECULAR_SCALE_MODE(4u32);
 pub const D2D1_POINTSPECULAR_SCALE_MODE_HIGH_QUALITY_CUBIC: D2D1_POINTSPECULAR_SCALE_MODE = D2D1_POINTSPECULAR_SCALE_MODE(5u32);
 pub const D2D1_POINTSPECULAR_SCALE_MODE_FORCE_DWORD: D2D1_POINTSPECULAR_SCALE_MODE = D2D1_POINTSPECULAR_SCALE_MODE(4294967295u32);
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 #[repr(C)]
-pub struct D2D1_POINT_DESCRIPTION(i32);
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+pub struct D2D1_POINT_DESCRIPTION {
+    pub point: Common::D2D_POINT_2F,
+    pub unitTangentVector: Common::D2D_POINT_2F,
+    pub endSegment: u32,
+    pub endFigure: u32,
+    pub lengthToEndSegment: f32,
+}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl ::core::marker::Copy for D2D1_POINT_DESCRIPTION {}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl ::core::clone::Clone for D2D1_POINT_DESCRIPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D2D1_POSTERIZE_PROP(pub u32);
 pub const D2D1_POSTERIZE_PROP_RED_VALUE_COUNT: D2D1_POSTERIZE_PROP = D2D1_POSTERIZE_PROP(0u32);
@@ -1111,7 +1491,17 @@ pub const D2D1_PRIMITIVE_BLEND_ADD: D2D1_PRIMITIVE_BLEND = D2D1_PRIMITIVE_BLEND(
 pub const D2D1_PRIMITIVE_BLEND_MAX: D2D1_PRIMITIVE_BLEND = D2D1_PRIMITIVE_BLEND(4u32);
 pub const D2D1_PRIMITIVE_BLEND_FORCE_DWORD: D2D1_PRIMITIVE_BLEND = D2D1_PRIMITIVE_BLEND(4294967295u32);
 #[repr(C)]
-pub struct D2D1_PRINT_CONTROL_PROPERTIES(i32);
+pub struct D2D1_PRINT_CONTROL_PROPERTIES {
+    pub fontSubset: D2D1_PRINT_FONT_SUBSET_MODE,
+    pub rasterDPI: f32,
+    pub colorSpace: D2D1_COLOR_SPACE,
+}
+impl ::core::marker::Copy for D2D1_PRINT_CONTROL_PROPERTIES {}
+impl ::core::clone::Clone for D2D1_PRINT_CONTROL_PROPERTIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D2D1_PRINT_FONT_SUBSET_MODE(pub u32);
 pub const D2D1_PRINT_FONT_SUBSET_MODE_DEFAULT: D2D1_PRINT_FONT_SUBSET_MODE = D2D1_PRINT_FONT_SUBSET_MODE(0u32);
@@ -1131,9 +1521,21 @@ pub const D2D1_PROPERTY_PRECISION: D2D1_PROPERTY = D2D1_PROPERTY(2147483655u32);
 pub const D2D1_PROPERTY_MIN_INPUTS: D2D1_PROPERTY = D2D1_PROPERTY(2147483656u32);
 pub const D2D1_PROPERTY_MAX_INPUTS: D2D1_PROPERTY = D2D1_PROPERTY(2147483657u32);
 pub const D2D1_PROPERTY_FORCE_DWORD: D2D1_PROPERTY = D2D1_PROPERTY(4294967295u32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct D2D1_PROPERTY_BINDING(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct D2D1_PROPERTY_BINDING {
+    pub propertyName: super::super::Foundation::PWSTR,
+    pub setFunction: ::core::option::Option<PD2D1_PROPERTY_SET_FUNCTION>,
+    pub getFunction: ::core::option::Option<PD2D1_PROPERTY_GET_FUNCTION>,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for D2D1_PROPERTY_BINDING {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for D2D1_PROPERTY_BINDING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D2D1_PROPERTY_TYPE(pub u32);
 pub const D2D1_PROPERTY_TYPE_UNKNOWN: D2D1_PROPERTY_TYPE = D2D1_PROPERTY_TYPE(0u32);
@@ -1156,23 +1558,73 @@ pub const D2D1_PROPERTY_TYPE_MATRIX_4X4: D2D1_PROPERTY_TYPE = D2D1_PROPERTY_TYPE
 pub const D2D1_PROPERTY_TYPE_MATRIX_5X4: D2D1_PROPERTY_TYPE = D2D1_PROPERTY_TYPE(17u32);
 pub const D2D1_PROPERTY_TYPE_COLOR_CONTEXT: D2D1_PROPERTY_TYPE = D2D1_PROPERTY_TYPE(18u32);
 pub const D2D1_PROPERTY_TYPE_FORCE_DWORD: D2D1_PROPERTY_TYPE = D2D1_PROPERTY_TYPE(4294967295u32);
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 #[repr(C)]
-pub struct D2D1_QUADRATIC_BEZIER_SEGMENT(i32);
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-#[repr(C)]
-pub struct D2D1_RADIAL_GRADIENT_BRUSH_PROPERTIES(i32);
+pub struct D2D1_QUADRATIC_BEZIER_SEGMENT {
+    pub point1: Common::D2D_POINT_2F,
+    pub point2: Common::D2D_POINT_2F,
+}
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl ::core::marker::Copy for D2D1_QUADRATIC_BEZIER_SEGMENT {}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl ::core::clone::Clone for D2D1_QUADRATIC_BEZIER_SEGMENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D2D1_RENDERING_CONTROLS(i32);
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+pub struct D2D1_RADIAL_GRADIENT_BRUSH_PROPERTIES {
+    pub center: Common::D2D_POINT_2F,
+    pub gradientOriginOffset: Common::D2D_POINT_2F,
+    pub radiusX: f32,
+    pub radiusY: f32,
+}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl ::core::marker::Copy for D2D1_RADIAL_GRADIENT_BRUSH_PROPERTIES {}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl ::core::clone::Clone for D2D1_RADIAL_GRADIENT_BRUSH_PROPERTIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+pub struct D2D1_RENDERING_CONTROLS {
+    pub bufferPrecision: D2D1_BUFFER_PRECISION,
+    pub tileSize: Common::D2D_SIZE_U,
+}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl ::core::marker::Copy for D2D1_RENDERING_CONTROLS {}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl ::core::clone::Clone for D2D1_RENDERING_CONTROLS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D2D1_RENDERING_PRIORITY(pub u32);
 pub const D2D1_RENDERING_PRIORITY_NORMAL: D2D1_RENDERING_PRIORITY = D2D1_RENDERING_PRIORITY(0u32);
 pub const D2D1_RENDERING_PRIORITY_LOW: D2D1_RENDERING_PRIORITY = D2D1_RENDERING_PRIORITY(1u32);
 pub const D2D1_RENDERING_PRIORITY_FORCE_DWORD: D2D1_RENDERING_PRIORITY = D2D1_RENDERING_PRIORITY(4294967295u32);
-#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
 #[repr(C)]
-pub struct D2D1_RENDER_TARGET_PROPERTIES(i32);
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
+pub struct D2D1_RENDER_TARGET_PROPERTIES {
+    pub r#type: D2D1_RENDER_TARGET_TYPE,
+    pub pixelFormat: Common::D2D1_PIXEL_FORMAT,
+    pub dpiX: f32,
+    pub dpiY: f32,
+    pub usage: D2D1_RENDER_TARGET_USAGE,
+    pub minLevel: D2D1_FEATURE_LEVEL,
+}
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::marker::Copy for D2D1_RENDER_TARGET_PROPERTIES {}
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::clone::Clone for D2D1_RENDER_TARGET_PROPERTIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D2D1_RENDER_TARGET_TYPE(pub u32);
 pub const D2D1_RENDER_TARGET_TYPE_DEFAULT: D2D1_RENDER_TARGET_TYPE = D2D1_RENDER_TARGET_TYPE(0u32);
@@ -1186,7 +1638,20 @@ pub const D2D1_RENDER_TARGET_USAGE_FORCE_BITMAP_REMOTING: D2D1_RENDER_TARGET_USA
 pub const D2D1_RENDER_TARGET_USAGE_GDI_COMPATIBLE: D2D1_RENDER_TARGET_USAGE = D2D1_RENDER_TARGET_USAGE(2u32);
 pub const D2D1_RENDER_TARGET_USAGE_FORCE_DWORD: D2D1_RENDER_TARGET_USAGE = D2D1_RENDER_TARGET_USAGE(4294967295u32);
 #[repr(C)]
-pub struct D2D1_RESOURCE_TEXTURE_PROPERTIES(i32);
+pub struct D2D1_RESOURCE_TEXTURE_PROPERTIES {
+    pub extents: *mut u32,
+    pub dimensions: u32,
+    pub bufferPrecision: D2D1_BUFFER_PRECISION,
+    pub channelDepth: D2D1_CHANNEL_DEPTH,
+    pub filter: D2D1_FILTER,
+    pub extendModes: *mut D2D1_EXTEND_MODE,
+}
+impl ::core::marker::Copy for D2D1_RESOURCE_TEXTURE_PROPERTIES {}
+impl ::core::clone::Clone for D2D1_RESOURCE_TEXTURE_PROPERTIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D2D1_RGBTOHUE_OUTPUT_COLOR_SPACE(pub u32);
 pub const D2D1_RGBTOHUE_OUTPUT_COLOR_SPACE_HUE_SATURATION_VALUE: D2D1_RGBTOHUE_OUTPUT_COLOR_SPACE = D2D1_RGBTOHUE_OUTPUT_COLOR_SPACE(0u32);
@@ -1196,9 +1661,21 @@ pub const D2D1_RGBTOHUE_OUTPUT_COLOR_SPACE_FORCE_DWORD: D2D1_RGBTOHUE_OUTPUT_COL
 pub struct D2D1_RGBTOHUE_PROP(pub u32);
 pub const D2D1_RGBTOHUE_PROP_OUTPUT_COLOR_SPACE: D2D1_RGBTOHUE_PROP = D2D1_RGBTOHUE_PROP(0u32);
 pub const D2D1_RGBTOHUE_PROP_FORCE_DWORD: D2D1_RGBTOHUE_PROP = D2D1_RGBTOHUE_PROP(4294967295u32);
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 #[repr(C)]
-pub struct D2D1_ROUNDED_RECT(i32);
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+pub struct D2D1_ROUNDED_RECT {
+    pub rect: Common::D2D_RECT_F,
+    pub radiusX: f32,
+    pub radiusY: f32,
+}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl ::core::marker::Copy for D2D1_ROUNDED_RECT {}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl ::core::clone::Clone for D2D1_ROUNDED_RECT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D2D1_SATURATION_PROP(pub u32);
 pub const D2D1_SATURATION_PROP_SATURATION: D2D1_SATURATION_PROP = D2D1_SATURATION_PROP(0u32);
@@ -1243,9 +1720,23 @@ pub struct D2D1_SHARPEN_PROP(pub u32);
 pub const D2D1_SHARPEN_PROP_SHARPNESS: D2D1_SHARPEN_PROP = D2D1_SHARPEN_PROP(0u32);
 pub const D2D1_SHARPEN_PROP_THRESHOLD: D2D1_SHARPEN_PROP = D2D1_SHARPEN_PROP(1u32);
 pub const D2D1_SHARPEN_PROP_FORCE_DWORD: D2D1_SHARPEN_PROP = D2D1_SHARPEN_PROP(4294967295u32);
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 #[repr(C)]
-pub struct D2D1_SIMPLE_COLOR_PROFILE(i32);
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+pub struct D2D1_SIMPLE_COLOR_PROFILE {
+    pub redPrimary: Common::D2D_POINT_2F,
+    pub greenPrimary: Common::D2D_POINT_2F,
+    pub bluePrimary: Common::D2D_POINT_2F,
+    pub whitePointXZ: Common::D2D_POINT_2F,
+    pub gamma: D2D1_GAMMA1,
+}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl ::core::marker::Copy for D2D1_SIMPLE_COLOR_PROFILE {}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl ::core::clone::Clone for D2D1_SIMPLE_COLOR_PROFILE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D2D1_SPOTDIFFUSE_PROP(pub u32);
 pub const D2D1_SPOTDIFFUSE_PROP_LIGHT_POSITION: D2D1_SPOTDIFFUSE_PROP = D2D1_SPOTDIFFUSE_PROP(0u32);
@@ -1309,9 +1800,38 @@ pub const D2D1_STRAIGHTEN_SCALE_MODE_MULTI_SAMPLE_LINEAR: D2D1_STRAIGHTEN_SCALE_
 pub const D2D1_STRAIGHTEN_SCALE_MODE_ANISOTROPIC: D2D1_STRAIGHTEN_SCALE_MODE = D2D1_STRAIGHTEN_SCALE_MODE(4u32);
 pub const D2D1_STRAIGHTEN_SCALE_MODE_FORCE_DWORD: D2D1_STRAIGHTEN_SCALE_MODE = D2D1_STRAIGHTEN_SCALE_MODE(4294967295u32);
 #[repr(C)]
-pub struct D2D1_STROKE_STYLE_PROPERTIES(i32);
+pub struct D2D1_STROKE_STYLE_PROPERTIES {
+    pub startCap: D2D1_CAP_STYLE,
+    pub endCap: D2D1_CAP_STYLE,
+    pub dashCap: D2D1_CAP_STYLE,
+    pub lineJoin: D2D1_LINE_JOIN,
+    pub miterLimit: f32,
+    pub dashStyle: D2D1_DASH_STYLE,
+    pub dashOffset: f32,
+}
+impl ::core::marker::Copy for D2D1_STROKE_STYLE_PROPERTIES {}
+impl ::core::clone::Clone for D2D1_STROKE_STYLE_PROPERTIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D2D1_STROKE_STYLE_PROPERTIES1(i32);
+pub struct D2D1_STROKE_STYLE_PROPERTIES1 {
+    pub startCap: D2D1_CAP_STYLE,
+    pub endCap: D2D1_CAP_STYLE,
+    pub dashCap: D2D1_CAP_STYLE,
+    pub lineJoin: D2D1_LINE_JOIN,
+    pub miterLimit: f32,
+    pub dashStyle: D2D1_DASH_STYLE,
+    pub dashOffset: f32,
+    pub transformType: D2D1_STROKE_TRANSFORM_TYPE,
+}
+impl ::core::marker::Copy for D2D1_STROKE_STYLE_PROPERTIES1 {}
+impl ::core::clone::Clone for D2D1_STROKE_STYLE_PROPERTIES1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D2D1_STROKE_TRANSFORM_TYPE(pub u32);
 pub const D2D1_STROKE_TRANSFORM_TYPE_NORMAL: D2D1_STROKE_TRANSFORM_TYPE = D2D1_STROKE_TRANSFORM_TYPE(0u32);
@@ -1374,7 +1894,16 @@ pub const D2D1_SVG_DISPLAY_INLINE: D2D1_SVG_DISPLAY = D2D1_SVG_DISPLAY(0u32);
 pub const D2D1_SVG_DISPLAY_NONE: D2D1_SVG_DISPLAY = D2D1_SVG_DISPLAY(1u32);
 pub const D2D1_SVG_DISPLAY_FORCE_DWORD: D2D1_SVG_DISPLAY = D2D1_SVG_DISPLAY(4294967295u32);
 #[repr(C)]
-pub struct D2D1_SVG_LENGTH(i32);
+pub struct D2D1_SVG_LENGTH {
+    pub value: f32,
+    pub units: D2D1_SVG_LENGTH_UNITS,
+}
+impl ::core::marker::Copy for D2D1_SVG_LENGTH {}
+impl ::core::clone::Clone for D2D1_SVG_LENGTH {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D2D1_SVG_LENGTH_UNITS(pub u32);
 pub const D2D1_SVG_LENGTH_UNITS_NUMBER: D2D1_SVG_LENGTH_UNITS = D2D1_SVG_LENGTH_UNITS(0u32);
@@ -1429,16 +1958,39 @@ pub const D2D1_SVG_PATH_COMMAND_CUBIC_SMOOTH_RELATIVE: D2D1_SVG_PATH_COMMAND = D
 pub const D2D1_SVG_PATH_COMMAND_QUADRADIC_SMOOTH_ABSOLUTE: D2D1_SVG_PATH_COMMAND = D2D1_SVG_PATH_COMMAND(17u32);
 pub const D2D1_SVG_PATH_COMMAND_QUADRADIC_SMOOTH_RELATIVE: D2D1_SVG_PATH_COMMAND = D2D1_SVG_PATH_COMMAND(18u32);
 pub const D2D1_SVG_PATH_COMMAND_FORCE_DWORD: D2D1_SVG_PATH_COMMAND = D2D1_SVG_PATH_COMMAND(4294967295u32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct D2D1_SVG_PRESERVE_ASPECT_RATIO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct D2D1_SVG_PRESERVE_ASPECT_RATIO {
+    pub defer: super::super::Foundation::BOOL,
+    pub align: D2D1_SVG_ASPECT_ALIGN,
+    pub meetOrSlice: D2D1_SVG_ASPECT_SCALING,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for D2D1_SVG_PRESERVE_ASPECT_RATIO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for D2D1_SVG_PRESERVE_ASPECT_RATIO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D2D1_SVG_UNIT_TYPE(pub u32);
 pub const D2D1_SVG_UNIT_TYPE_USER_SPACE_ON_USE: D2D1_SVG_UNIT_TYPE = D2D1_SVG_UNIT_TYPE(0u32);
 pub const D2D1_SVG_UNIT_TYPE_OBJECT_BOUNDING_BOX: D2D1_SVG_UNIT_TYPE = D2D1_SVG_UNIT_TYPE(1u32);
 pub const D2D1_SVG_UNIT_TYPE_FORCE_DWORD: D2D1_SVG_UNIT_TYPE = D2D1_SVG_UNIT_TYPE(4294967295u32);
 #[repr(C)]
-pub struct D2D1_SVG_VIEWBOX(i32);
+pub struct D2D1_SVG_VIEWBOX {
+    pub x: f32,
+    pub y: f32,
+    pub width: f32,
+    pub height: f32,
+}
+impl ::core::marker::Copy for D2D1_SVG_VIEWBOX {}
+impl ::core::clone::Clone for D2D1_SVG_VIEWBOX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D2D1_SVG_VISIBILITY(pub u32);
 pub const D2D1_SVG_VISIBILITY_VISIBLE: D2D1_SVG_VISIBILITY = D2D1_SVG_VISIBILITY(0u32);
@@ -1493,10 +2045,34 @@ pub const D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS_NONE: D2D1_TRANSFORMED_IMAGE_SOU
 pub const D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS_DISABLE_DPI_SCALE: D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS = D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS(1u32);
 pub const D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS_FORCE_DWORD: D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS = D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS(4294967295u32);
 #[repr(C)]
-pub struct D2D1_TRANSFORMED_IMAGE_SOURCE_PROPERTIES(i32);
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+pub struct D2D1_TRANSFORMED_IMAGE_SOURCE_PROPERTIES {
+    pub orientation: D2D1_ORIENTATION,
+    pub scaleX: f32,
+    pub scaleY: f32,
+    pub interpolationMode: D2D1_INTERPOLATION_MODE,
+    pub options: D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS,
+}
+impl ::core::marker::Copy for D2D1_TRANSFORMED_IMAGE_SOURCE_PROPERTIES {}
+impl ::core::clone::Clone for D2D1_TRANSFORMED_IMAGE_SOURCE_PROPERTIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D2D1_TRIANGLE(i32);
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+pub struct D2D1_TRIANGLE {
+    pub point1: Common::D2D_POINT_2F,
+    pub point2: Common::D2D_POINT_2F,
+    pub point3: Common::D2D_POINT_2F,
+}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl ::core::marker::Copy for D2D1_TRIANGLE {}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl ::core::clone::Clone for D2D1_TRIANGLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D2D1_TURBULENCE_PROP(pub u32);
 pub const D2D1_TURBULENCE_PROP_OFFSET: D2D1_TURBULENCE_PROP = D2D1_TURBULENCE_PROP(0u32);
@@ -1513,7 +2089,18 @@ pub const D2D1_UNIT_MODE_DIPS: D2D1_UNIT_MODE = D2D1_UNIT_MODE(0u32);
 pub const D2D1_UNIT_MODE_PIXELS: D2D1_UNIT_MODE = D2D1_UNIT_MODE(1u32);
 pub const D2D1_UNIT_MODE_FORCE_DWORD: D2D1_UNIT_MODE = D2D1_UNIT_MODE(4294967295u32);
 #[repr(C)]
-pub struct D2D1_VERTEX_BUFFER_PROPERTIES(i32);
+pub struct D2D1_VERTEX_BUFFER_PROPERTIES {
+    pub inputCount: u32,
+    pub usage: D2D1_VERTEX_USAGE,
+    pub data: *mut u8,
+    pub byteWidth: u32,
+}
+impl ::core::marker::Copy for D2D1_VERTEX_BUFFER_PROPERTIES {}
+impl ::core::clone::Clone for D2D1_VERTEX_BUFFER_PROPERTIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D2D1_VERTEX_OPTIONS(pub u32);
 pub const D2D1_VERTEX_OPTIONS_NONE: D2D1_VERTEX_OPTIONS = D2D1_VERTEX_OPTIONS(0u32);
@@ -1522,7 +2109,16 @@ pub const D2D1_VERTEX_OPTIONS_USE_DEPTH_BUFFER: D2D1_VERTEX_OPTIONS = D2D1_VERTE
 pub const D2D1_VERTEX_OPTIONS_ASSUME_NO_OVERLAP: D2D1_VERTEX_OPTIONS = D2D1_VERTEX_OPTIONS(4u32);
 pub const D2D1_VERTEX_OPTIONS_FORCE_DWORD: D2D1_VERTEX_OPTIONS = D2D1_VERTEX_OPTIONS(4294967295u32);
 #[repr(C)]
-pub struct D2D1_VERTEX_RANGE(i32);
+pub struct D2D1_VERTEX_RANGE {
+    pub startVertex: u32,
+    pub vertexCount: u32,
+}
+impl ::core::marker::Copy for D2D1_VERTEX_RANGE {}
+impl ::core::clone::Clone for D2D1_VERTEX_RANGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D2D1_VERTEX_USAGE(pub u32);
 pub const D2D1_VERTEX_USAGE_STATIC: D2D1_VERTEX_USAGE = D2D1_VERTEX_USAGE(0u32);
@@ -1790,15 +2386,45 @@ pub struct ID2D1TransformedGeometry(pub *mut ::core::ffi::c_void);
 pub struct ID2D1TransformedImageSource(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ID2D1VertexBuffer(pub *mut ::core::ffi::c_void);
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 #[repr(C)]
-pub struct Matrix4x3F(i32);
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-#[repr(C)]
-pub struct Matrix4x4F(i32);
+pub struct Matrix4x3F {
+    pub __AnonymousBase_d2d1_1helper_L45_C31: Common::D2D_MATRIX_4X3_F,
+}
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl ::core::marker::Copy for Matrix4x3F {}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl ::core::clone::Clone for Matrix4x3F {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct Matrix5x4F(i32);
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+pub struct Matrix4x4F {
+    pub __AnonymousBase_d2d1_1helper_L97_C31: Common::D2D_MATRIX_4X4_F,
+}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl ::core::marker::Copy for Matrix4x4F {}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl ::core::clone::Clone for Matrix4x4F {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+pub struct Matrix5x4F {
+    pub __AnonymousBase_d2d1_1helper_L472_C31: Common::D2D_MATRIX_5X4_F,
+}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl ::core::marker::Copy for Matrix5x4F {}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl ::core::clone::Clone for Matrix5x4F {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub type PD2D1_EFFECT_FACTORY = unsafe extern "system" fn(effectimpl: *mut ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT;
 pub type PD2D1_PROPERTY_GET_FUNCTION = unsafe extern "system" fn(effect: ::windows_sys::core::IUnknown, data: *mut u8, datasize: u32, actualsize: *mut u32) -> ::windows_sys::core::HRESULT;
 pub type PD2D1_PROPERTY_SET_FUNCTION = unsafe extern "system" fn(effect: ::windows_sys::core::IUnknown, data: *const u8, datasize: u32) -> ::windows_sys::core::HRESULT;

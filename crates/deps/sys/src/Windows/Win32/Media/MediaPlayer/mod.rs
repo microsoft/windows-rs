@@ -830,7 +830,18 @@ pub const SUBSCRIPTION_CAP_PREPAREFORSYNC: u32 = 32u32;
 pub const SUBSCRIPTION_CAP_UILESSMODE_ALLOWPLAY: u32 = 256u32;
 pub const SUBSCRIPTION_V1_CAPS: u32 = 15u32;
 #[repr(C)]
-pub struct TimedLevel(i32);
+pub struct TimedLevel {
+    pub frequency: [u8; 2048],
+    pub waveform: [u8; 2048],
+    pub state: i32,
+    pub timeStamp: i64,
+}
+impl ::core::marker::Copy for TimedLevel {}
+impl ::core::clone::Clone for TimedLevel {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WMPAccountType(pub i32);
 pub const wmpatBuyOnly: WMPAccountType = WMPAccountType(1i32);
@@ -869,9 +880,21 @@ pub const wmpcnLicenseUpdated: WMPCallbackNotification = WMPCallbackNotification
 pub const wmpcnNewCatalogAvailable: WMPCallbackNotification = WMPCallbackNotification(4i32);
 pub const wmpcnNewPluginAvailable: WMPCallbackNotification = WMPCallbackNotification(5i32);
 pub const wmpcnDisableRadioSkipping: WMPCallbackNotification = WMPCallbackNotification(6i32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct WMPContextMenuInfo(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct WMPContextMenuInfo {
+    pub dwID: u32,
+    pub bstrMenuText: super::super::Foundation::BSTR,
+    pub bstrHelpText: super::super::Foundation::BSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WMPContextMenuInfo {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WMPContextMenuInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WMPDeviceStatus(pub i32);
 pub const wmpdsUnknown: WMPDeviceStatus = WMPDeviceStatus(0i32);
@@ -1037,10 +1060,32 @@ pub const WMP_PLUGINTYPE_DSP_OUTOFPROC: ::windows_sys::core::GUID = ::windows_sy
     data4: [154, 79, 35, 153, 17, 143, 243, 140],
 };
 pub const WMP_PLUGINTYPE_RENDERING: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2824160577, data2: 4445, data3: 16490, data4: [164, 199, 81, 17, 28, 51, 1, 131] };
-#[repr(C)]
-pub struct WMP_WMDM_METADATA_ROUND_TRIP_DEVICE2PC(i32);
-#[repr(C)]
-pub struct WMP_WMDM_METADATA_ROUND_TRIP_PC2DEVICE(i32);
+#[repr(C, packed(1))]
+pub struct WMP_WMDM_METADATA_ROUND_TRIP_DEVICE2PC {
+    pub dwCurrentTransactionID: u32,
+    pub dwReturnedObjectCount: u32,
+    pub dwUnretrievedObjectCount: u32,
+    pub dwDeletedObjectStartingOffset: u32,
+    pub dwFlags: u32,
+    pub wsObjectPathnameList: [u16; 1],
+}
+impl ::core::marker::Copy for WMP_WMDM_METADATA_ROUND_TRIP_DEVICE2PC {}
+impl ::core::clone::Clone for WMP_WMDM_METADATA_ROUND_TRIP_DEVICE2PC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub struct WMP_WMDM_METADATA_ROUND_TRIP_PC2DEVICE {
+    pub dwChangesSinceTransactionID: u32,
+    pub dwResultSetStartingIndex: u32,
+}
+impl ::core::marker::Copy for WMP_WMDM_METADATA_ROUND_TRIP_PC2DEVICE {}
+impl ::core::clone::Clone for WMP_WMDM_METADATA_ROUND_TRIP_PC2DEVICE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WMProfile_V40_100Video: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 2409225688,
     data2: 26244,

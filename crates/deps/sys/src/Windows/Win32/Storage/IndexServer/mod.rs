@@ -32,7 +32,29 @@ pub const CI_PROVIDER_ALL: u32 = 4294967295u32;
 pub const CI_PROVIDER_INDEXING_SERVICE: u32 = 2u32;
 pub const CI_PROVIDER_MSSEARCH: u32 = 1u32;
 #[repr(C)]
-pub struct CI_STATE(i32);
+pub struct CI_STATE {
+    pub cbStruct: u32,
+    pub cWordList: u32,
+    pub cPersistentIndex: u32,
+    pub cQueries: u32,
+    pub cDocuments: u32,
+    pub cFreshTest: u32,
+    pub dwMergeProgress: u32,
+    pub eState: u32,
+    pub cFilteredDocuments: u32,
+    pub cTotalDocuments: u32,
+    pub cPendingScans: u32,
+    pub dwIndexSize: u32,
+    pub cUniqueKeys: u32,
+    pub cSecQDocuments: u32,
+    pub dwPropCacheSize: u32,
+}
+impl ::core::marker::Copy for CI_STATE {}
+impl ::core::clone::Clone for CI_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CI_STATE_ANNEALING_MERGE: u32 = 8u32;
 pub const CI_STATE_BATTERY_POLICY: u32 = 262144u32;
 pub const CI_STATE_BATTERY_POWER: u32 = 2048u32;
@@ -55,14 +77,98 @@ pub const CI_STATE_USER_ACTIVE: u32 = 4096u32;
 pub const CI_VERSION_WDS30: u32 = 258u32;
 pub const CI_VERSION_WDS40: u32 = 265u32;
 pub const CI_VERSION_WIN70: u32 = 1792u32;
+#[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
+pub struct DBID {
+    pub uGuid: DBID_0,
+    pub eKind: u32,
+    pub uName: DBID_1,
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DBID {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DBID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DBID(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
+pub union DBID_0 {
+    pub guid: ::windows_sys::core::GUID,
+    pub pguid: *mut ::windows_sys::core::GUID,
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DBID_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
+pub union DBID_1 {
+    pub pwszName: super::super::Foundation::PWSTR,
+    pub ulPropid: u32,
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DBID_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(2))]
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct DBID(i32);
+pub struct DBID {
+    pub uGuid: DBID_0,
+    pub eKind: u32,
+    pub uName: DBID_1,
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DBID {}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DBID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(2))]
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+pub union DBID_0 {
+    pub guid: ::windows_sys::core::GUID,
+    pub pguid: *mut ::windows_sys::core::GUID,
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DBID_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(2))]
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+pub union DBID_1 {
+    pub pwszName: super::super::Foundation::PWSTR,
+    pub ulPropid: u32,
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DBID_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DBKINDENUM(pub i32);
 pub const DBKIND_GUID_NAME: DBKINDENUM = DBKINDENUM(0i32);
@@ -102,7 +208,17 @@ pub const DBSETFUNC_ALL: u32 = 1u32;
 pub const DBSETFUNC_DISTINCT: u32 = 2u32;
 pub const DBSETFUNC_NONE: u32 = 0u32;
 #[repr(C)]
-pub struct FILTERREGION(i32);
+pub struct FILTERREGION {
+    pub idChunk: u32,
+    pub cwcStart: u32,
+    pub cwcExtent: u32,
+}
+impl ::core::marker::Copy for FILTERREGION {}
+impl ::core::clone::Clone for FILTERREGION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const FILTER_E_ACCESS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147215613i32 as _);
 pub const FILTER_E_EMBEDDING_UNAVAILABLE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147215609i32 as _);
 pub const FILTER_E_END_OF_CHUNKS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147215616i32 as _);
@@ -116,9 +232,20 @@ pub const FILTER_E_UNKNOWNFORMAT: ::windows_sys::core::HRESULT = ::windows_sys::
 pub const FILTER_S_LAST_TEXT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(268041i32 as _);
 pub const FILTER_S_LAST_VALUES: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(268042i32 as _);
 pub const FILTER_W_MONIKER_CLIPPED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(268036i32 as _);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[repr(C)]
-pub struct FULLPROPSPEC(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+pub struct FULLPROPSPEC {
+    pub guidPropSet: ::windows_sys::core::GUID,
+    pub psProperty: super::super::System::Com::StructuredStorage::PROPSPEC,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+impl ::core::marker::Copy for FULLPROPSPEC {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+impl ::core::clone::Clone for FULLPROPSPEC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const GENERATE_METHOD_EXACT: u32 = 0u32;
 pub const GENERATE_METHOD_INFLECT: u32 = 2u32;
 pub const GENERATE_METHOD_PREFIX: u32 = 1u32;
@@ -186,9 +313,26 @@ pub const SCOPE_TYPE_MASK: u32 = 4294967040u32;
 pub const SCOPE_TYPE_VPATH: u32 = 512u32;
 pub const SCOPE_TYPE_WINPATH: u32 = 256u32;
 pub const STAT_BUSY: u32 = 0u32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[repr(C)]
-pub struct STAT_CHUNK(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+pub struct STAT_CHUNK {
+    pub idChunk: u32,
+    pub breakType: CHUNK_BREAKTYPE,
+    pub flags: CHUNKSTATE,
+    pub locale: u32,
+    pub attribute: FULLPROPSPEC,
+    pub idChunkSource: u32,
+    pub cwcStartSource: u32,
+    pub cwcLenSource: u32,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+impl ::core::marker::Copy for STAT_CHUNK {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+impl ::core::clone::Clone for STAT_CHUNK {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const STAT_COALESCE_COMP_ALL_NOISE: u32 = 8192u32;
 pub const STAT_CONTENT_OUT_OF_DATE: u32 = 32u32;
 pub const STAT_CONTENT_QUERY_INCOMPLETE: u32 = 128u32;
