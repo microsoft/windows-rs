@@ -1,0 +1,13 @@
+[package]
+name = "test_sys"
+version = "0.0.0"
+authors = ["Microsoft"]
+edition = "2018"
+
+[dependencies.windows-sys]
+path = "../../deps/sys"
+features = [
+    "Win32_Foundation",
+    "Win32_Security",
+    "Win32_System_Threading",
+]
