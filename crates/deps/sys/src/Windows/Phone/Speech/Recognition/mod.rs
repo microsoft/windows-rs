@@ -10,3 +10,9 @@ impl SpeechRecognitionUIStatus {
     pub const Preempted: Self = Self(3i32);
     pub const PrivacyPolicyDeclined: Self = Self(4i32);
 }
+impl ::core::marker::Copy for SpeechRecognitionUIStatus {}
+impl ::core::clone::Clone for SpeechRecognitionUIStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

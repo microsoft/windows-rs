@@ -15,9 +15,6 @@ impl ClassicAppManager {
 impl ::windows::core::RuntimeName for ClassicAppManager {
     const NAME: &'static str = "Windows.Management.Deployment.Preview.ClassicAppManager";
 }
-#[repr(C)]
-#[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
-pub struct DeploymentPreviewContract(pub u8);
 #[repr(transparent)]
 #[doc(hidden)]
 pub struct IClassicAppManagerStatics(pub ::windows::core::IInspectable);

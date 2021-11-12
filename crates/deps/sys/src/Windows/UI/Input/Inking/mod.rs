@@ -14,6 +14,12 @@ impl HandwritingLineHeight {
     pub const Medium: Self = Self(1i32);
     pub const Large: Self = Self(2i32);
 }
+impl ::core::marker::Copy for HandwritingLineHeight {}
+impl ::core::clone::Clone for HandwritingLineHeight {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInkDrawingAttributes(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -118,6 +124,12 @@ impl InkDrawingAttributesKind {
     pub const Default: Self = Self(0i32);
     pub const Pencil: Self = Self(1i32);
 }
+impl ::core::marker::Copy for InkDrawingAttributesKind {}
+impl ::core::clone::Clone for InkDrawingAttributesKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct InkDrawingAttributesPencilProperties(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -126,6 +138,12 @@ impl InkHighContrastAdjustment {
     pub const UseSystemColorsWhenNecessary: Self = Self(0i32);
     pub const UseSystemColors: Self = Self(1i32);
     pub const UseOriginalColors: Self = Self(2i32);
+}
+impl ::core::marker::Copy for InkHighContrastAdjustment {}
+impl ::core::clone::Clone for InkHighContrastAdjustment {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct InkInputConfiguration(pub *mut ::core::ffi::c_void);
@@ -138,11 +156,23 @@ impl InkInputProcessingMode {
     pub const Inking: Self = Self(1i32);
     pub const Erasing: Self = Self(2i32);
 }
+impl ::core::marker::Copy for InkInputProcessingMode {}
+impl ::core::clone::Clone for InkInputProcessingMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct InkInputRightDragAction(pub i32);
 impl InkInputRightDragAction {
     pub const LeaveUnprocessed: Self = Self(0i32);
     pub const AllowProcessing: Self = Self(1i32);
+}
+impl ::core::marker::Copy for InkInputRightDragAction {}
+impl ::core::clone::Clone for InkInputRightDragAction {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct InkManager(pub *mut ::core::ffi::c_void);
@@ -153,6 +183,12 @@ impl InkManipulationMode {
     pub const Erasing: Self = Self(1i32);
     pub const Selecting: Self = Self(2i32);
 }
+impl ::core::marker::Copy for InkManipulationMode {}
+impl ::core::clone::Clone for InkManipulationMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct InkModelerAttributes(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -160,6 +196,12 @@ pub struct InkPersistenceFormat(pub i32);
 impl InkPersistenceFormat {
     pub const GifWithEmbeddedIsf: Self = Self(0i32);
     pub const Isf: Self = Self(1i32);
+}
+impl ::core::marker::Copy for InkPersistenceFormat {}
+impl ::core::clone::Clone for InkPersistenceFormat {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct InkPoint(pub *mut ::core::ffi::c_void);
@@ -170,6 +212,12 @@ pub struct InkPresenterPredefinedConfiguration(pub i32);
 impl InkPresenterPredefinedConfiguration {
     pub const SimpleSinglePointer: Self = Self(0i32);
     pub const SimpleMultiplePointer: Self = Self(1i32);
+}
+impl ::core::marker::Copy for InkPresenterPredefinedConfiguration {}
+impl ::core::clone::Clone for InkPresenterPredefinedConfiguration {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct InkPresenterProtractor(pub *mut ::core::ffi::c_void);
@@ -182,6 +230,12 @@ impl InkPresenterStencilKind {
     pub const Ruler: Self = Self(1i32);
     pub const Protractor: Self = Self(2i32);
 }
+impl ::core::marker::Copy for InkPresenterStencilKind {}
+impl ::core::clone::Clone for InkPresenterStencilKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct InkRecognitionResult(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -190,6 +244,12 @@ impl InkRecognitionTarget {
     pub const All: Self = Self(0i32);
     pub const Selected: Self = Self(1i32);
     pub const Recent: Self = Self(2i32);
+}
+impl ::core::marker::Copy for InkRecognitionTarget {}
+impl ::core::clone::Clone for InkRecognitionTarget {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct InkRecognizer(pub *mut ::core::ffi::c_void);
@@ -221,9 +281,21 @@ impl PenHandedness {
     pub const Right: Self = Self(0i32);
     pub const Left: Self = Self(1i32);
 }
+impl ::core::marker::Copy for PenHandedness {}
+impl ::core::clone::Clone for PenHandedness {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PenTipShape(pub i32);
 impl PenTipShape {
     pub const Circle: Self = Self(0i32);
     pub const Rectangle: Self = Self(1i32);
+}
+impl ::core::marker::Copy for PenTipShape {}
+impl ::core::clone::Clone for PenTipShape {
+    fn clone(&self) -> Self {
+        *self
+    }
 }

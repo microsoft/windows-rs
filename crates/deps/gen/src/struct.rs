@@ -8,6 +8,10 @@ use super::*;
 // TODO: api contracts are being generated
 
 pub fn gen_struct(def: &TypeDef, gen: &Gen) -> TokenStream {
+    if def.is_api_contract() {
+        return quote! {};
+    }
+
     gen_struct_with_name(def, def.name(), gen, &TokenStream::new())
 }
 
@@ -186,6 +190,7 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen, cfg: &Token
         }
     };
 
+    // TODO: add test for this? e.g. WSDXML_NODE
     let constants = def.fields().filter_map(|f| {
         if f.is_literal() {
             if let Some(constant) = f.constant() {

@@ -496,15 +496,61 @@ pub const LBER_ERROR: i32 = -1i32;
 pub const LBER_TRANSLATE_STRINGS: u32 = 4u32;
 pub const LBER_USE_DER: u32 = 1u32;
 pub const LBER_USE_INDEFINITE_LEN: u32 = 2u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct LDAPAPIFeatureInfoA(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct LDAPAPIFeatureInfoW(i32);
+pub struct LDAPAPIFeatureInfoA {
+    pub ldapaif_info_version: i32,
+    pub ldapaif_name: super::super::Foundation::PSTR,
+    pub ldapaif_version: i32,
+}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for LDAPAPIFeatureInfoA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for LDAPAPIFeatureInfoA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct LDAPMessage(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct LDAPAPIFeatureInfoW {
+    pub ldapaif_info_version: i32,
+    pub ldapaif_name: super::super::Foundation::PWSTR,
+    pub ldapaif_version: i32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for LDAPAPIFeatureInfoW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for LDAPAPIFeatureInfoW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct LDAPMessage {
+    pub lm_msgid: u32,
+    pub lm_msgtype: u32,
+    pub lm_ber: *mut ::core::ffi::c_void,
+    pub lm_chain: *mut LDAPMessage,
+    pub lm_next: *mut LDAPMessage,
+    pub lm_time: u32,
+    pub Connection: *mut ldap,
+    pub Request: *mut ::core::ffi::c_void,
+    pub lm_returncode: u32,
+    pub lm_referral: u16,
+    pub lm_chased: super::super::Foundation::BOOLEAN,
+    pub lm_eom: super::super::Foundation::BOOLEAN,
+    pub ConnectionReferenced: super::super::Foundation::BOOLEAN,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for LDAPMessage {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for LDAPMessage {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const LDAP_ABANDON_CMD: i32 = 80i32;
 pub const LDAP_ADD_CMD: i32 = 104i32;
 pub const LDAP_API_FEATURE_VIRTUAL_LIST_VIEW: u32 = 1001u32;
@@ -513,9 +559,20 @@ pub const LDAP_API_VERSION: u32 = 2004u32;
 pub const LDAP_AUTH_OTHERKIND: i32 = 134i32;
 pub const LDAP_AUTH_SASL: i32 = 131i32;
 pub const LDAP_AUTH_SIMPLE: i32 = 128i32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct LDAP_BERVAL(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct LDAP_BERVAL {
+    pub bv_len: u32,
+    pub bv_val: super::super::Foundation::PSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for LDAP_BERVAL {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for LDAP_BERVAL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const LDAP_BIND_CMD: i32 = 96i32;
 pub const LDAP_CHASE_EXTERNAL_REFERRALS: u32 = 64u32;
 pub const LDAP_CHASE_SUBORDINATE_REFERRALS: u32 = 32u32;
@@ -611,9 +668,22 @@ pub const LDAP_OPT_TLS_INFO: u32 = 147u32;
 pub const LDAP_OPT_VERSION: u32 = 17u32;
 pub const LDAP_POLICYHINT_APPLY_FULLPWDPOLICY: u32 = 1u32;
 pub const LDAP_PORT: u32 = 389u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct LDAP_REFERRAL_CALLBACK(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct LDAP_REFERRAL_CALLBACK {
+    pub SizeOfCallbacks: u32,
+    pub QueryForConnection: ::core::option::Option<QUERYFORCONNECTION>,
+    pub NotifyRoutine: ::core::option::Option<NOTIFYOFNEWCONNECTION>,
+    pub DereferenceRoutine: ::core::option::Option<DEREFERENCECONNECTION>,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for LDAP_REFERRAL_CALLBACK {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for LDAP_REFERRAL_CALLBACK {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const LDAP_RES_ADD: i32 = 105i32;
 pub const LDAP_RES_ANY: i32 = -1i32;
 pub const LDAP_RES_BIND: i32 = 97i32;
@@ -691,6 +761,12 @@ pub const LDAP_CONTROL_NOT_FOUND: LDAP_RETCODE = LDAP_RETCODE(93i32);
 pub const LDAP_MORE_RESULTS_TO_RETURN: LDAP_RETCODE = LDAP_RETCODE(95i32);
 pub const LDAP_CLIENT_LOOP: LDAP_RETCODE = LDAP_RETCODE(96i32);
 pub const LDAP_REFERRAL_LIMIT_EXCEEDED: LDAP_RETCODE = LDAP_RETCODE(97i32);
+impl ::core::marker::Copy for LDAP_RETCODE {}
+impl ::core::clone::Clone for LDAP_RETCODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const LDAP_SCOPE_BASE: u32 = 0u32;
 pub const LDAP_SCOPE_ONELEVEL: u32 = 1u32;
 pub const LDAP_SCOPE_SUBTREE: u32 = 2u32;
@@ -702,7 +778,16 @@ pub const LDAP_SUBSTRING_ANY: i32 = 129i32;
 pub const LDAP_SUBSTRING_FINAL: i32 = 130i32;
 pub const LDAP_SUBSTRING_INITIAL: i32 = 128i32;
 #[repr(C)]
-pub struct LDAP_TIMEVAL(i32);
+pub struct LDAP_TIMEVAL {
+    pub tv_sec: i32,
+    pub tv_usec: i32,
+}
+impl ::core::marker::Copy for LDAP_TIMEVAL {}
+impl ::core::clone::Clone for LDAP_TIMEVAL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const LDAP_UNBIND_CMD: i32 = 66i32;
 pub const LDAP_UNICODE: u32 = 1u32;
 pub const LDAP_VENDOR_VERSION: u32 = 510u32;
@@ -723,40 +808,248 @@ pub const SERVER_SEARCH_FLAG_DOMAIN_SCOPE: u32 = 1u32;
 pub const SERVER_SEARCH_FLAG_PHANTOM_ROOT: u32 = 2u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub type VERIFYSERVERCERT = unsafe extern "system" fn(connection: *mut ldap, pservercert: *mut *mut super::super::Security::Cryptography::CERT_CONTEXT) -> super::super::Foundation::BOOLEAN;
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct berelement(i32);
+pub struct berelement {
+    pub opaque: super::super::Foundation::PSTR,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct ldap(i32);
-#[repr(C)]
-pub struct ldap_version_info(i32);
+impl ::core::marker::Copy for berelement {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for berelement {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct ldapapiinfoA(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct ldapapiinfoW(i32);
+pub struct ldap {
+    pub ld_sb: ldap_0,
+    pub ld_host: super::super::Foundation::PSTR,
+    pub ld_version: u32,
+    pub ld_lberoptions: u8,
+    pub ld_deref: u32,
+    pub ld_timelimit: u32,
+    pub ld_sizelimit: u32,
+    pub ld_errno: u32,
+    pub ld_matched: super::super::Foundation::PSTR,
+    pub ld_error: super::super::Foundation::PSTR,
+    pub ld_msgid: u32,
+    pub Reserved3: [u8; 25],
+    pub ld_cldaptries: u32,
+    pub ld_cldaptimeout: u32,
+    pub ld_refhoplimit: u32,
+    pub ld_options: u32,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct ldapcontrolA(i32);
+impl ::core::marker::Copy for ldap {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ldap {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct ldapcontrolW(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct ldapmodA(i32);
+pub struct ldap_0 {
+    pub sb_sd: usize,
+    pub Reserved1: [u8; 41],
+    pub sb_naddr: usize,
+    pub Reserved2: [u8; 24],
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct ldapmodW(i32);
-#[repr(C)]
-pub struct ldapsearch(i32);
+impl ::core::marker::Copy for ldap_0 {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ldap_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct ldapsortkeyA(i32);
+pub struct ldap_version_info {
+    pub lv_size: u32,
+    pub lv_major: u32,
+    pub lv_minor: u32,
+}
+impl ::core::marker::Copy for ldap_version_info {}
+impl ::core::clone::Clone for ldap_version_info {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct ldapsortkeyW(i32);
+pub struct ldapapiinfoA {
+    pub ldapai_info_version: i32,
+    pub ldapai_api_version: i32,
+    pub ldapai_protocol_version: i32,
+    pub ldapai_extensions: *mut *mut i8,
+    pub ldapai_vendor_name: super::super::Foundation::PSTR,
+    pub ldapai_vendor_version: i32,
+}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ldapapiinfoA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ldapapiinfoA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct ldapvlvinfo(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct ldapapiinfoW {
+    pub ldapai_info_version: i32,
+    pub ldapai_api_version: i32,
+    pub ldapai_protocol_version: i32,
+    pub ldapai_extensions: *mut super::super::Foundation::PWSTR,
+    pub ldapai_vendor_name: super::super::Foundation::PWSTR,
+    pub ldapai_vendor_version: i32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ldapapiinfoW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ldapapiinfoW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct ldapcontrolA {
+    pub ldctl_oid: super::super::Foundation::PSTR,
+    pub ldctl_value: LDAP_BERVAL,
+    pub ldctl_iscritical: super::super::Foundation::BOOLEAN,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ldapcontrolA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ldapcontrolA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct ldapcontrolW {
+    pub ldctl_oid: super::super::Foundation::PWSTR,
+    pub ldctl_value: LDAP_BERVAL,
+    pub ldctl_iscritical: super::super::Foundation::BOOLEAN,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ldapcontrolW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ldapcontrolW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct ldapmodA {
+    pub mod_op: u32,
+    pub mod_type: super::super::Foundation::PSTR,
+    pub mod_vals: ldapmodA_0,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ldapmodA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ldapmodA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub union ldapmodA_0 {
+    pub modv_strvals: *mut super::super::Foundation::PSTR,
+    pub modv_bvals: *mut *mut LDAP_BERVAL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ldapmodA_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ldapmodA_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct ldapmodW {
+    pub mod_op: u32,
+    pub mod_type: super::super::Foundation::PWSTR,
+    pub mod_vals: ldapmodW_0,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ldapmodW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ldapmodW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub union ldapmodW_0 {
+    pub modv_strvals: *mut super::super::Foundation::PWSTR,
+    pub modv_bvals: *mut *mut LDAP_BERVAL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ldapmodW_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ldapmodW_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct ldapsearch(pub u8);
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct ldapsortkeyA {
+    pub sk_attrtype: super::super::Foundation::PSTR,
+    pub sk_matchruleoid: super::super::Foundation::PSTR,
+    pub sk_reverseorder: super::super::Foundation::BOOLEAN,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ldapsortkeyA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ldapsortkeyA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct ldapsortkeyW {
+    pub sk_attrtype: super::super::Foundation::PWSTR,
+    pub sk_matchruleoid: super::super::Foundation::PWSTR,
+    pub sk_reverseorder: super::super::Foundation::BOOLEAN,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ldapsortkeyW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ldapsortkeyW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct ldapvlvinfo {
+    pub ldvlv_version: i32,
+    pub ldvlv_before_count: u32,
+    pub ldvlv_after_count: u32,
+    pub ldvlv_offset: u32,
+    pub ldvlv_count: u32,
+    pub ldvlv_attrvalue: *mut LDAP_BERVAL,
+    pub ldvlv_context: *mut LDAP_BERVAL,
+    pub ldvlv_extradata: *mut ::core::ffi::c_void,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ldapvlvinfo {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ldapvlvinfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

@@ -55,14 +55,40 @@ pub const APPX_E_RELATIONSHIPS_NOT_ALLOWED: ::windows_sys::core::HRESULT = ::win
 pub const APPX_E_REQUESTED_RANGE_TOO_LARGE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2146958840i32 as _);
 pub const APPX_E_RESOURCESPRI_NOT_ALLOWED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2146958829i32 as _);
 #[repr(C)]
-pub struct APP_LOCAL_DEVICE_ID(i32);
+pub struct APP_LOCAL_DEVICE_ID {
+    pub value: [u8; 32],
+}
+impl ::core::marker::Copy for APP_LOCAL_DEVICE_ID {}
+impl ::core::clone::Clone for APP_LOCAL_DEVICE_ID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const APP_LOCAL_DEVICE_ID_SIZE: u32 = 32u32;
 #[repr(C)]
-pub struct BOOL(i32);
+pub struct BOOL(pub i32);
+impl ::core::marker::Copy for BOOL {}
+impl ::core::clone::Clone for BOOL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct BOOLEAN(i32);
+pub struct BOOLEAN(pub u8);
+impl ::core::marker::Copy for BOOLEAN {}
+impl ::core::clone::Clone for BOOLEAN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct BSTR(i32);
+pub struct BSTR(pub *mut u16);
+impl ::core::marker::Copy for BSTR {}
+impl ::core::clone::Clone for BSTR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const BT_E_SPURIOUS_ACTIVATION: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2146958592i32 as _);
 pub const CACHE_E_FIRST: i32 = -2147221136i32;
 pub const CACHE_E_LAST: i32 = -2147221121i32;
@@ -152,7 +178,13 @@ pub const CERT_E_UNTRUSTEDTESTROOT: ::windows_sys::core::HRESULT = ::windows_sys
 pub const CERT_E_VALIDITYPERIODNESTING: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2146762494i32 as _);
 pub const CERT_E_WRONG_USAGE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2146762480i32 as _);
 #[repr(C)]
-pub struct CHAR(i32);
+pub struct CHAR(pub u8);
+impl ::core::marker::Copy for CHAR {}
+impl ::core::clone::Clone for CHAR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CI_CORRUPT_CATALOG: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073473535i32 as _);
 pub const CI_CORRUPT_DATABASE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073473536i32 as _);
 pub const CI_CORRUPT_FILTER_BUFFER: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073473529i32 as _);
@@ -638,7 +670,62 @@ pub const DCOMPOSITION_ERROR_SURFACE_BEING_RENDERED: ::windows_sys::core::HRESUL
 pub const DCOMPOSITION_ERROR_SURFACE_NOT_BEING_RENDERED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2003302398i32 as _);
 pub const DCOMPOSITION_ERROR_WINDOW_ALREADY_COMPOSED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2003302400i32 as _);
 #[repr(C)]
-pub struct DECIMAL(i32);
+pub struct DECIMAL {
+    pub wReserved: u16,
+    pub Anonymous1: DECIMAL_0,
+    pub Hi32: u32,
+    pub Anonymous2: DECIMAL_1,
+}
+impl ::core::marker::Copy for DECIMAL {}
+impl ::core::clone::Clone for DECIMAL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub union DECIMAL_0 {
+    pub Anonymous: DECIMAL_0_0,
+    pub signscale: u16,
+}
+impl ::core::marker::Copy for DECIMAL_0 {}
+impl ::core::clone::Clone for DECIMAL_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct DECIMAL_0_0 {
+    pub scale: u8,
+    pub sign: u8,
+}
+impl ::core::marker::Copy for DECIMAL_0_0 {}
+impl ::core::clone::Clone for DECIMAL_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub union DECIMAL_1 {
+    pub Anonymous: DECIMAL_1_0,
+    pub Lo64: u64,
+}
+impl ::core::marker::Copy for DECIMAL_1 {}
+impl ::core::clone::Clone for DECIMAL_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct DECIMAL_1_0 {
+    pub Lo32: u32,
+    pub Mid32: u32,
+}
+impl ::core::marker::Copy for DECIMAL_1_0 {}
+impl ::core::clone::Clone for DECIMAL_1_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DIGSIG_E_CRYPTO: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2146762744i32 as _);
 pub const DIGSIG_E_DECODE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2146762746i32 as _);
 pub const DIGSIG_E_ENCODE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2146762747i32 as _);
@@ -694,6 +781,12 @@ pub const DRAGDROP_S_USEDEFAULTCURSORS: ::windows_sys::core::HRESULT = ::windows
 pub struct DUPLICATE_HANDLE_OPTIONS(pub u32);
 pub const DUPLICATE_CLOSE_SOURCE: DUPLICATE_HANDLE_OPTIONS = DUPLICATE_HANDLE_OPTIONS(1u32);
 pub const DUPLICATE_SAME_ACCESS: DUPLICATE_HANDLE_OPTIONS = DUPLICATE_HANDLE_OPTIONS(2u32);
+impl ::core::marker::Copy for DUPLICATE_HANDLE_OPTIONS {}
+impl ::core::clone::Clone for DUPLICATE_HANDLE_OPTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DV_E_CLIPFORMAT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147221398i32 as _);
 pub const DV_E_DVASPECT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147221397i32 as _);
 pub const DV_E_DVTARGETDEVICE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147221403i32 as _);
@@ -1310,7 +1403,16 @@ pub const FDAEMON_E_WORDLISTCOMMITFAILED: ::windows_sys::core::HRESULT = ::windo
 pub const FDAEMON_W_EMPTYWORDLIST: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(267909i32 as _);
 pub const FDAEMON_W_WORDLISTFULL: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(267904i32 as _);
 #[repr(C)]
-pub struct FILETIME(i32);
+pub struct FILETIME {
+    pub dwLowDateTime: u32,
+    pub dwHighDateTime: u32,
+}
+impl ::core::marker::Copy for FILETIME {}
+impl ::core::clone::Clone for FILETIME {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const FILTER_E_ALREADY_OPEN: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147215562i32 as _);
 pub const FILTER_E_CONTENTINDEXCORRUPT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073473740i32 as _);
 pub const FILTER_E_IN_USE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147215560i32 as _);
@@ -1327,7 +1429,16 @@ pub const FILTER_S_NO_PROPSETS: ::windows_sys::core::HRESULT = ::windows_sys::co
 pub const FILTER_S_NO_SECURITY_DESCRIPTOR: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(268092i32 as _);
 pub const FILTER_S_PARTIAL_CONTENTSCAN_IMMEDIATE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(268081i32 as _);
 #[repr(C)]
-pub struct FLOAT128(i32);
+pub struct FLOAT128 {
+    pub LowPart: i64,
+    pub HighPart: i64,
+}
+impl ::core::marker::Copy for FLOAT128 {}
+impl ::core::clone::Clone for FLOAT128 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const FRS_ERR_AUTHENTICATION: i32 = 8008i32;
 pub const FRS_ERR_CHILD_TO_PARENT_COMM: i32 = 8011i32;
 pub const FRS_ERR_INSUFFICIENT_PRIV: i32 = 8007i32;
@@ -1643,13 +1754,31 @@ pub const GCN_E_NO_REQUEST_HANDLERS: ::windows_sys::core::HRESULT = ::windows_sy
 pub const GCN_E_REQUEST_UNSUPPORTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2143616989i32 as _);
 pub const GCN_E_RUNTIMEKEYS_FAILED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2143616988i32 as _);
 #[repr(C)]
-pub struct HANDLE(i32);
+pub struct HANDLE(pub isize);
+impl ::core::marker::Copy for HANDLE {}
+impl ::core::clone::Clone for HANDLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct HANDLE_FLAGS(pub u32);
 pub const HANDLE_FLAG_INHERIT: HANDLE_FLAGS = HANDLE_FLAGS(1u32);
 pub const HANDLE_FLAG_PROTECT_FROM_CLOSE: HANDLE_FLAGS = HANDLE_FLAGS(2u32);
+impl ::core::marker::Copy for HANDLE_FLAGS {}
+impl ::core::clone::Clone for HANDLE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct HANDLE_PTR(i32);
+pub struct HANDLE_PTR(pub usize);
+impl ::core::marker::Copy for HANDLE_PTR {}
+impl ::core::clone::Clone for HANDLE_PTR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const HCN_E_ADAPTER_NOT_FOUND: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2143617018i32 as _);
 pub const HCN_E_ADDR_INVALID_OR_RESERVED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2143616977i32 as _);
 pub const HCN_E_DEGRADED_OPERATION: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2143617001i32 as _);
@@ -1728,13 +1857,41 @@ pub const HCS_E_UNKNOWN_MESSAGE: ::windows_sys::core::HRESULT = ::windows_sys::c
 pub const HCS_E_UNSUPPORTED_PROTOCOL_VERSION: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2143878900i32 as _);
 pub const HCS_E_WINDOWS_INSIDER_REQUIRED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2143878893i32 as _);
 #[repr(C)]
-pub struct HINSTANCE(i32);
+pub struct HINSTANCE(pub isize);
+impl ::core::marker::Copy for HINSTANCE {}
+impl ::core::clone::Clone for HINSTANCE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct HLSURF__(i32);
+pub struct HLSURF__ {
+    pub unused: i32,
+}
+impl ::core::marker::Copy for HLSURF__ {}
+impl ::core::clone::Clone for HLSURF__ {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct HRSRC(i32);
+pub struct HRSRC(pub isize);
+impl ::core::marker::Copy for HRSRC {}
+impl ::core::clone::Clone for HRSRC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct HSPRITE__(i32);
+pub struct HSPRITE__ {
+    pub unused: i32,
+}
+impl ::core::marker::Copy for HSPRITE__ {}
+impl ::core::clone::Clone for HSPRITE__ {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const HSP_BASE_ERROR_MASK: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2128019200i32 as _);
 pub const HSP_BASE_INTERNAL_ERROR: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2128018945i32 as _);
 pub const HSP_BS_ERROR_MASK: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2128080896i32 as _);
@@ -1764,7 +1921,15 @@ pub const HSP_KSP_NO_MEMORY: ::windows_sys::core::HRESULT = ::windows_sys::core:
 pub const HSP_KSP_NO_MORE_ITEMS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2128018920i32 as _);
 pub const HSP_KSP_PARAMETER_NOT_SET: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2128018927i32 as _);
 #[repr(C)]
-pub struct HSTR__(i32);
+pub struct HSTR__ {
+    pub unused: i32,
+}
+impl ::core::marker::Copy for HSTR__ {}
+impl ::core::clone::Clone for HSTR__ {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const HTTP_E_STATUS_AMBIGUOUS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2145844948i32 as _);
 pub const HTTP_E_STATUS_BAD_GATEWAY: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2145844746i32 as _);
 pub const HTTP_E_STATUS_BAD_METHOD: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2145844843i32 as _);
@@ -1801,9 +1966,23 @@ pub const HTTP_E_STATUS_URI_TOO_LONG: ::windows_sys::core::HRESULT = ::windows_s
 pub const HTTP_E_STATUS_USE_PROXY: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2145844943i32 as _);
 pub const HTTP_E_STATUS_VERSION_NOT_SUP: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2145844743i32 as _);
 #[repr(C)]
-pub struct HUMPD__(i32);
+pub struct HUMPD__ {
+    pub unused: i32,
+}
+impl ::core::marker::Copy for HUMPD__ {}
+impl ::core::clone::Clone for HUMPD__ {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct HWND(i32);
+pub struct HWND(pub isize);
+impl ::core::marker::Copy for HWND {}
+impl ::core::clone::Clone for HWND {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const INPLACE_E_FIRST: i32 = -2147221088i32;
 pub const INPLACE_E_LAST: i32 = -2147221073i32;
 pub const INPLACE_E_NOTOOLSPACE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147221087i32 as _);
@@ -1832,13 +2011,40 @@ pub const JSCRIPT_E_CANTEXECUTE: ::windows_sys::core::HRESULT = ::windows_sys::c
 pub const LANGUAGE_E_DATABASE_NOT_FOUND: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147215484i32 as _);
 pub const LANGUAGE_S_LARGE_WORD: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(268161i32 as _);
 #[repr(C)]
-pub struct LPARAM(i32);
+pub struct LPARAM(pub isize);
+impl ::core::marker::Copy for LPARAM {}
+impl ::core::clone::Clone for LPARAM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct LRESULT(i32);
+pub struct LRESULT(pub isize);
+impl ::core::marker::Copy for LRESULT {}
+impl ::core::clone::Clone for LRESULT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct LSTATUS(i32);
+pub struct LSTATUS(pub i32);
+impl ::core::marker::Copy for LSTATUS {}
+impl ::core::clone::Clone for LSTATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct LUID(i32);
+pub struct LUID {
+    pub LowPart: u32,
+    pub HighPart: i32,
+}
+impl ::core::marker::Copy for LUID {}
+impl ::core::clone::Clone for LUID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MARSHAL_E_FIRST: i32 = -2147221216i32;
 pub const MARSHAL_E_LAST: i32 = -2147221201i32;
 pub const MARSHAL_S_FIRST: i32 = 262432i32;
@@ -2047,7 +2253,13 @@ pub const NTE_UI_REQUIRED: ::windows_sys::core::HRESULT = ::windows_sys::core::H
 pub const NTE_USER_CANCELLED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2146893770i32 as _);
 pub const NTE_VALIDATION_FAILED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2146893774i32 as _);
 #[repr(C)]
-pub struct NTSTATUS(i32);
+pub struct NTSTATUS(pub i32);
+impl ::core::marker::Copy for NTSTATUS {}
+impl ::core::clone::Clone for NTSTATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct NTSTATUS_FACILITY_CODE(pub u32);
 pub const FACILITY_DEBUGGER: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(1u32);
@@ -2105,6 +2317,12 @@ pub const FACILITY_LICENSING: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(23
 pub const FACILITY_PLATFORM_MANIFEST: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(235u32);
 pub const FACILITY_APP_EXEC: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(236u32);
 pub const FACILITY_MAXIMUM_VALUE: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(237u32);
+impl ::core::marker::Copy for NTSTATUS_FACILITY_CODE {}
+impl ::core::clone::Clone for NTSTATUS_FACILITY_CODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const OLEOBJ_E_FIRST: i32 = -2147221120i32;
 pub const OLEOBJ_E_INVALIDVERB: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147221119i32 as _);
 pub const OLEOBJ_E_LAST: i32 = -2147221105i32;
@@ -2336,23 +2554,68 @@ pub const PLA_E_TASKSCHED_CHANNEL_NOT_ENABLED: ::windows_sys::core::HRESULT = ::
 pub const PLA_E_TOO_MANY_FOLDERS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144337851i32 as _);
 pub const PLA_S_PROPERTY_IGNORED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(3145984i32 as _);
 #[repr(C)]
-pub struct POINT(i32);
+pub struct POINT {
+    pub x: i32,
+    pub y: i32,
+}
+impl ::core::marker::Copy for POINT {}
+impl ::core::clone::Clone for POINT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct POINTL(i32);
+pub struct POINTL {
+    pub x: i32,
+    pub y: i32,
+}
+impl ::core::marker::Copy for POINTL {}
+impl ::core::clone::Clone for POINTL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct POINTS(i32);
+pub struct POINTS {
+    pub x: i16,
+    pub y: i16,
+}
+impl ::core::marker::Copy for POINTS {}
+impl ::core::clone::Clone for POINTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const PRESENTATION_ERROR_LOST: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2004811775i32 as _);
 pub type PROC = unsafe extern "system" fn() -> isize;
 #[repr(C)]
-pub struct PSID(i32);
+pub struct PSID(pub isize);
+impl ::core::marker::Copy for PSID {}
+impl ::core::clone::Clone for PSID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const PSINK_E_INDEX_ONLY: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147215471i32 as _);
 pub const PSINK_E_LARGE_ATTACHMENT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147215470i32 as _);
 pub const PSINK_E_QUERY_ONLY: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147215472i32 as _);
 pub const PSINK_S_LARGE_WORD: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(268179i32 as _);
 #[repr(C)]
-pub struct PSTR(i32);
+pub struct PSTR(pub *mut u8);
+impl ::core::marker::Copy for PSTR {}
+impl ::core::clone::Clone for PSTR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct PWSTR(i32);
+pub struct PWSTR(pub *mut u16);
+impl ::core::marker::Copy for PWSTR {}
+impl ::core::clone::Clone for PWSTR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const QPARSE_E_EXPECTING_BRACE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147215770i32 as _);
 pub const QPARSE_E_EXPECTING_COMMA: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147215759i32 as _);
 pub const QPARSE_E_EXPECTING_CURRENCY: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147215772i32 as _);
@@ -2409,9 +2672,31 @@ pub const QUERY_S_NO_QUERY: ::windows_sys::core::HRESULT = ::windows_sys::core::
 pub const QUTIL_E_CANT_CONVERT_VROOT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147215754i32 as _);
 pub const QUTIL_E_INVALID_CODEPAGE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1073473928i32 as _);
 #[repr(C)]
-pub struct RECT(i32);
+pub struct RECT {
+    pub left: i32,
+    pub top: i32,
+    pub right: i32,
+    pub bottom: i32,
+}
+impl ::core::marker::Copy for RECT {}
+impl ::core::clone::Clone for RECT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct RECTL(i32);
+pub struct RECTL {
+    pub left: i32,
+    pub top: i32,
+    pub right: i32,
+    pub bottom: i32,
+}
+impl ::core::marker::Copy for RECTL {}
+impl ::core::clone::Clone for RECTL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const REGDB_E_BADTHREADINGMODEL: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147221162i32 as _);
 pub const REGDB_E_CLASSNOTREG: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147221164i32 as _);
 pub const REGDB_E_FIRST: i32 = -2147221168i32;
@@ -2843,9 +3128,24 @@ pub const SEC_I_SIGNATURE_NEEDED: ::windows_sys::core::HRESULT = ::windows_sys::
 pub const SEVERITY_ERROR: u32 = 1u32;
 pub const SEVERITY_SUCCESS: u32 = 0u32;
 #[repr(C)]
-pub struct SHANDLE_PTR(i32);
+pub struct SHANDLE_PTR(pub isize);
+impl ::core::marker::Copy for SHANDLE_PTR {}
+impl ::core::clone::Clone for SHANDLE_PTR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct SIZE(i32);
+pub struct SIZE {
+    pub cx: i32,
+    pub cy: i32,
+}
+impl ::core::marker::Copy for SIZE {}
+impl ::core::clone::Clone for SIZE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SPAPI_E_AUTHENTICODE_DISALLOWED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2146500032i32 as _);
 pub const SPAPI_E_AUTHENTICODE_PUBLISHER_NOT_TRUSTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2146500029i32 as _);
 pub const SPAPI_E_AUTHENTICODE_TRUSTED_PUBLISHER: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2146500031i32 as _);
@@ -5768,7 +6068,22 @@ pub const STORE_ERROR_UNLICENSED_USER: i32 = 15862i32;
 pub const STRICT: u32 = 1u32;
 pub const SUCCESS: u32 = 0u32;
 #[repr(C)]
-pub struct SYSTEMTIME(i32);
+pub struct SYSTEMTIME {
+    pub wYear: u16,
+    pub wMonth: u16,
+    pub wDayOfWeek: u16,
+    pub wDay: u16,
+    pub wHour: u16,
+    pub wMinute: u16,
+    pub wSecond: u16,
+    pub wMilliseconds: u16,
+}
+impl ::core::marker::Copy for SYSTEMTIME {}
+impl ::core::clone::Clone for SYSTEMTIME {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const S_APPLICATION_ACTIVATION_ERROR_HANDLED_BY_DIALOG: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(2556505i32 as _);
 pub const S_FALSE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(1i32 as _);
 pub const S_OK: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(0i32 as _);
@@ -6222,7 +6537,17 @@ pub const UI_E_VALUE_NOT_SET: ::windows_sys::core::HRESULT = ::windows_sys::core
 pub const UI_E_WINDOW_CLOSED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144730623i32 as _);
 pub const UI_E_WRONG_THREAD: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2144731124i32 as _);
 #[repr(C)]
-pub struct UNICODE_STRING(i32);
+pub struct UNICODE_STRING {
+    pub Length: u16,
+    pub MaximumLength: u16,
+    pub Buffer: PWSTR,
+}
+impl ::core::marker::Copy for UNICODE_STRING {}
+impl ::core::clone::Clone for UNICODE_STRING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const UTC_E_ACTION_NOT_SUPPORTED_IN_DESTINATION: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2017128380i32 as _);
 pub const UTC_E_AGENT_DIAGNOSTICS_TOO_LARGE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2017128363i32 as _);
 pub const UTC_E_ALTERNATIVE_TRACE_CANNOT_PREEMPT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2017128446i32 as _);
@@ -9578,6 +9903,12 @@ pub const ERROR_VHD_INVALID_CHANGE_TRACKING_ID: WIN32_ERROR = WIN32_ERROR(322502
 pub const ERROR_VHD_CHANGE_TRACKING_DISABLED: WIN32_ERROR = WIN32_ERROR(3225026602u32);
 pub const ERROR_VHD_MISSING_CHANGE_TRACKING_INFORMATION: WIN32_ERROR = WIN32_ERROR(3225026608u32);
 pub const ERROR_QUERY_STORAGE_ERROR: WIN32_ERROR = WIN32_ERROR(2151284737u32);
+impl ::core::marker::Copy for WIN32_ERROR {}
+impl ::core::clone::Clone for WIN32_ERROR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WINCODEC_ERR_ALREADYLOCKED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2003292403i32 as _);
 pub const WINCODEC_ERR_BADHEADER: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2003292319i32 as _);
 pub const WINCODEC_ERR_BADIMAGE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2003292320i32 as _);
@@ -9704,7 +10035,13 @@ pub const WINML_ERR_VALUE_NOTFOUND: ::windows_sys::core::HRESULT = ::windows_sys
 pub const WINVER: u32 = 1280u32;
 pub const WINVER_MAXVER: u32 = 2560u32;
 #[repr(C)]
-pub struct WPARAM(i32);
+pub struct WPARAM(pub usize);
+impl ::core::marker::Copy for WPARAM {}
+impl ::core::clone::Clone for WPARAM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WPN_E_ACCESS_DENIED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2143420137i32 as _);
 pub const WPN_E_ALL_URL_NOT_COMPLETED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2143419901i32 as _);
 pub const WPN_E_CALLBACK_ALREADY_REGISTERED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2143419898i32 as _);

@@ -26,6 +26,12 @@ impl PnpObjectType {
     pub const AssociationEndpointService: Self = Self(7i32);
     pub const DevicePanel: Self = Self(8i32);
 }
+impl ::core::marker::Copy for PnpObjectType {}
+impl ::core::clone::Clone for PnpObjectType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PnpObjectUpdate(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

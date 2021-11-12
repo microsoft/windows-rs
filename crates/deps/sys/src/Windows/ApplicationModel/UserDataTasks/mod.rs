@@ -43,11 +43,23 @@ impl UserDataTaskDaysOfWeek {
     pub const Friday: Self = Self(32u32);
     pub const Saturday: Self = Self(64u32);
 }
+impl ::core::marker::Copy for UserDataTaskDaysOfWeek {}
+impl ::core::clone::Clone for UserDataTaskDaysOfWeek {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UserDataTaskDetailsKind(pub i32);
 impl UserDataTaskDetailsKind {
     pub const PlainText: Self = Self(0i32);
     pub const Html: Self = Self(1i32);
+}
+impl ::core::marker::Copy for UserDataTaskDetailsKind {}
+impl ::core::clone::Clone for UserDataTaskDetailsKind {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct UserDataTaskKind(pub i32);
@@ -55,6 +67,12 @@ impl UserDataTaskKind {
     pub const Single: Self = Self(0i32);
     pub const Recurring: Self = Self(1i32);
     pub const Regenerating: Self = Self(2i32);
+}
+impl ::core::marker::Copy for UserDataTaskKind {}
+impl ::core::clone::Clone for UserDataTaskKind {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct UserDataTaskList(pub *mut ::core::ffi::c_void);
@@ -67,11 +85,23 @@ impl UserDataTaskListOtherAppReadAccess {
     pub const SystemOnly: Self = Self(1i32);
     pub const None: Self = Self(2i32);
 }
+impl ::core::marker::Copy for UserDataTaskListOtherAppReadAccess {}
+impl ::core::clone::Clone for UserDataTaskListOtherAppReadAccess {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UserDataTaskListOtherAppWriteAccess(pub i32);
 impl UserDataTaskListOtherAppWriteAccess {
     pub const Limited: Self = Self(0i32);
     pub const None: Self = Self(1i32);
+}
+impl ::core::marker::Copy for UserDataTaskListOtherAppWriteAccess {}
+impl ::core::clone::Clone for UserDataTaskListOtherAppWriteAccess {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct UserDataTaskListSyncManager(pub *mut ::core::ffi::c_void);
@@ -85,6 +115,12 @@ impl UserDataTaskListSyncStatus {
     pub const PolicyError: Self = Self(4i32);
     pub const UnknownError: Self = Self(5i32);
 }
+impl ::core::marker::Copy for UserDataTaskListSyncStatus {}
+impl ::core::clone::Clone for UserDataTaskListSyncStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UserDataTaskManager(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -94,6 +130,12 @@ impl UserDataTaskPriority {
     pub const Low: Self = Self(-1i32);
     pub const High: Self = Self(1i32);
 }
+impl ::core::marker::Copy for UserDataTaskPriority {}
+impl ::core::clone::Clone for UserDataTaskPriority {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UserDataTaskQueryKind(pub i32);
 impl UserDataTaskQueryKind {
@@ -101,12 +143,24 @@ impl UserDataTaskQueryKind {
     pub const Incomplete: Self = Self(1i32);
     pub const Complete: Self = Self(2i32);
 }
+impl ::core::marker::Copy for UserDataTaskQueryKind {}
+impl ::core::clone::Clone for UserDataTaskQueryKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UserDataTaskQueryOptions(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct UserDataTaskQuerySortProperty(pub i32);
 impl UserDataTaskQuerySortProperty {
     pub const DueDate: Self = Self(0i32);
+}
+impl ::core::marker::Copy for UserDataTaskQuerySortProperty {}
+impl ::core::clone::Clone for UserDataTaskQuerySortProperty {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct UserDataTaskReader(pub *mut ::core::ffi::c_void);
@@ -122,6 +176,12 @@ impl UserDataTaskRecurrenceUnit {
     pub const Yearly: Self = Self(4i32);
     pub const YearlyOnDay: Self = Self(5i32);
 }
+impl ::core::marker::Copy for UserDataTaskRecurrenceUnit {}
+impl ::core::clone::Clone for UserDataTaskRecurrenceUnit {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UserDataTaskRegenerationProperties(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -132,11 +192,23 @@ impl UserDataTaskRegenerationUnit {
     pub const Monthly: Self = Self(2i32);
     pub const Yearly: Self = Self(4i32);
 }
+impl ::core::marker::Copy for UserDataTaskRegenerationUnit {}
+impl ::core::clone::Clone for UserDataTaskRegenerationUnit {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UserDataTaskSensitivity(pub i32);
 impl UserDataTaskSensitivity {
     pub const Public: Self = Self(0i32);
     pub const Private: Self = Self(1i32);
+}
+impl ::core::marker::Copy for UserDataTaskSensitivity {}
+impl ::core::clone::Clone for UserDataTaskSensitivity {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct UserDataTaskStore(pub *mut ::core::ffi::c_void);
@@ -146,6 +218,12 @@ impl UserDataTaskStoreAccessType {
     pub const AppTasksReadWrite: Self = Self(0i32);
     pub const AllTasksLimitedReadWrite: Self = Self(1i32);
 }
+impl ::core::marker::Copy for UserDataTaskStoreAccessType {}
+impl ::core::clone::Clone for UserDataTaskStoreAccessType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UserDataTaskWeekOfMonth(pub i32);
 impl UserDataTaskWeekOfMonth {
@@ -154,4 +232,10 @@ impl UserDataTaskWeekOfMonth {
     pub const Third: Self = Self(2i32);
     pub const Fourth: Self = Self(3i32);
     pub const Last: Self = Self(4i32);
+}
+impl ::core::marker::Copy for UserDataTaskWeekOfMonth {}
+impl ::core::clone::Clone for UserDataTaskWeekOfMonth {
+    fn clone(&self) -> Self {
+        *self
+    }
 }

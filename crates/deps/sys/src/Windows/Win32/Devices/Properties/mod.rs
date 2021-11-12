@@ -1536,19 +1536,59 @@ pub const DEVPKEY_NAME: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY =
     fmtid: ::windows_sys::GUID { data1: 3072717104, data2: 18415, data3: 4122, data4: [165, 241, 2, 96, 140, 158, 235, 172] },
     pid: 10u32,
 };
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct DEVPROPCOMPKEY(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct DEVPROPCOMPKEY {
+    pub Key: DEVPROPKEY,
+    pub Store: DEVPROPSTORE,
+    pub LocaleName: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DEVPROPCOMPKEY {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DEVPROPCOMPKEY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DEVPROPERTY(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct DEVPROPERTY {
+    pub CompKey: DEVPROPCOMPKEY,
+    pub Type: u32,
+    pub BufferSize: u32,
+    pub Buffer: *mut ::core::ffi::c_void,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DEVPROPERTY {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DEVPROPERTY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DEVPROPID_FIRST_USABLE: u32 = 2u32;
 #[repr(C)]
-pub struct DEVPROPKEY(i32);
+pub struct DEVPROPKEY {
+    pub fmtid: ::windows_sys::core::GUID,
+    pub pid: u32,
+}
+impl ::core::marker::Copy for DEVPROPKEY {}
+impl ::core::clone::Clone for DEVPROPKEY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DEVPROPSTORE(pub i32);
 pub const DEVPROP_STORE_SYSTEM: DEVPROPSTORE = DEVPROPSTORE(0i32);
 pub const DEVPROP_STORE_USER: DEVPROPSTORE = DEVPROPSTORE(1i32);
+impl ::core::marker::Copy for DEVPROPSTORE {}
+impl ::core::clone::Clone for DEVPROPSTORE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DEVPROP_MASK_TYPE: u32 = 4095u32;
 pub const DEVPROP_MASK_TYPEMOD: u32 = 61440u32;
 pub const DEVPROP_TYPEMOD_ARRAY: u32 = 4096u32;

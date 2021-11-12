@@ -97,12 +97,24 @@ impl InteractionBindingAxisModes {
     pub const PositionY: Self = Self(2u32);
     pub const Scale: Self = Self(4u32);
 }
+impl ::core::marker::Copy for InteractionBindingAxisModes {}
+impl ::core::clone::Clone for InteractionBindingAxisModes {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct InteractionChainingMode(pub i32);
 impl InteractionChainingMode {
     pub const Auto: Self = Self(0i32);
     pub const Always: Self = Self(1i32);
     pub const Never: Self = Self(2i32);
+}
+impl ::core::marker::Copy for InteractionChainingMode {}
+impl ::core::clone::Clone for InteractionChainingMode {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct InteractionSourceConfiguration(pub *mut ::core::ffi::c_void);
@@ -113,11 +125,23 @@ impl InteractionSourceMode {
     pub const EnabledWithInertia: Self = Self(1i32);
     pub const EnabledWithoutInertia: Self = Self(2i32);
 }
+impl ::core::marker::Copy for InteractionSourceMode {}
+impl ::core::clone::Clone for InteractionSourceMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct InteractionSourceRedirectionMode(pub i32);
 impl InteractionSourceRedirectionMode {
     pub const Disabled: Self = Self(0i32);
     pub const Enabled: Self = Self(1i32);
+}
+impl ::core::marker::Copy for InteractionSourceRedirectionMode {}
+impl ::core::clone::Clone for InteractionSourceRedirectionMode {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct InteractionTracker(pub *mut ::core::ffi::c_void);
@@ -126,6 +150,12 @@ pub struct InteractionTrackerClampingOption(pub i32);
 impl InteractionTrackerClampingOption {
     pub const Auto: Self = Self(0i32);
     pub const Disabled: Self = Self(1i32);
+}
+impl ::core::marker::Copy for InteractionTrackerClampingOption {}
+impl ::core::clone::Clone for InteractionTrackerClampingOption {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct InteractionTrackerCustomAnimationStateEnteredArgs(pub *mut ::core::ffi::c_void);
@@ -149,6 +179,12 @@ impl InteractionTrackerPositionUpdateOption {
     pub const Default: Self = Self(0i32);
     pub const AllowActiveCustomScaleAnimation: Self = Self(1i32);
 }
+impl ::core::marker::Copy for InteractionTrackerPositionUpdateOption {}
+impl ::core::clone::Clone for InteractionTrackerPositionUpdateOption {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct InteractionTrackerRequestIgnoredArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -166,4 +202,10 @@ impl VisualInteractionSourceRedirectionMode {
     pub const CapableTouchpadOnly: Self = Self(1i32);
     pub const PointerWheelOnly: Self = Self(2i32);
     pub const CapableTouchpadAndPointerWheel: Self = Self(3i32);
+}
+impl ::core::marker::Copy for VisualInteractionSourceRedirectionMode {}
+impl ::core::clone::Clone for VisualInteractionSourceRedirectionMode {
+    fn clone(&self) -> Self {
+        *self
+    }
 }

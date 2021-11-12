@@ -8,8 +8,25 @@ impl BitmapAlphaMode {
     pub const Straight: Self = Self(1i32);
     pub const Ignore: Self = Self(2i32);
 }
+impl ::core::marker::Copy for BitmapAlphaMode {}
+impl ::core::clone::Clone for BitmapAlphaMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct BitmapBounds(i32);
+pub struct BitmapBounds {
+    pub X: u32,
+    pub Y: u32,
+    pub Width: u32,
+    pub Height: u32,
+}
+impl ::core::marker::Copy for BitmapBounds {}
+impl ::core::clone::Clone for BitmapBounds {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct BitmapBuffer(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -18,6 +35,12 @@ impl BitmapBufferAccessMode {
     pub const Read: Self = Self(0i32);
     pub const ReadWrite: Self = Self(1i32);
     pub const Write: Self = Self(2i32);
+}
+impl ::core::marker::Copy for BitmapBufferAccessMode {}
+impl ::core::clone::Clone for BitmapBufferAccessMode {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct BitmapCodecInformation(pub *mut ::core::ffi::c_void);
@@ -32,6 +55,12 @@ impl BitmapFlip {
     pub const Horizontal: Self = Self(1i32);
     pub const Vertical: Self = Self(2i32);
 }
+impl ::core::marker::Copy for BitmapFlip {}
+impl ::core::clone::Clone for BitmapFlip {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct BitmapFrame(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -41,6 +70,12 @@ impl BitmapInterpolationMode {
     pub const Linear: Self = Self(1i32);
     pub const Cubic: Self = Self(2i32);
     pub const Fant: Self = Self(3i32);
+}
+impl ::core::marker::Copy for BitmapInterpolationMode {}
+impl ::core::clone::Clone for BitmapInterpolationMode {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct BitmapPixelFormat(pub i32);
@@ -55,8 +90,25 @@ impl BitmapPixelFormat {
     pub const P010: Self = Self(104i32);
     pub const Yuy2: Self = Self(107i32);
 }
+impl ::core::marker::Copy for BitmapPixelFormat {}
+impl ::core::clone::Clone for BitmapPixelFormat {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct BitmapPlaneDescription(i32);
+pub struct BitmapPlaneDescription {
+    pub StartIndex: i32,
+    pub Width: i32,
+    pub Height: i32,
+    pub Stride: i32,
+}
+impl ::core::marker::Copy for BitmapPlaneDescription {}
+impl ::core::clone::Clone for BitmapPlaneDescription {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct BitmapProperties(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -71,8 +123,23 @@ impl BitmapRotation {
     pub const Clockwise180Degrees: Self = Self(2i32);
     pub const Clockwise270Degrees: Self = Self(3i32);
 }
+impl ::core::marker::Copy for BitmapRotation {}
+impl ::core::clone::Clone for BitmapRotation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct BitmapSize(i32);
+pub struct BitmapSize {
+    pub Width: u32,
+    pub Height: u32,
+}
+impl ::core::marker::Copy for BitmapSize {}
+impl ::core::clone::Clone for BitmapSize {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct BitmapTransform(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -83,11 +150,23 @@ impl ColorManagementMode {
     pub const DoNotColorManage: Self = Self(0i32);
     pub const ColorManageToSRgb: Self = Self(1i32);
 }
+impl ::core::marker::Copy for ColorManagementMode {}
+impl ::core::clone::Clone for ColorManagementMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ExifOrientationMode(pub i32);
 impl ExifOrientationMode {
     pub const IgnoreExifOrientation: Self = Self(0i32);
     pub const RespectExifOrientation: Self = Self(1i32);
+}
+impl ::core::marker::Copy for ExifOrientationMode {}
+impl ::core::clone::Clone for ExifOrientationMode {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct IBitmapBuffer(pub *mut ::core::ffi::c_void);
@@ -139,6 +218,12 @@ impl JpegSubsamplingMode {
     pub const Y4Cb2Cr2: Self = Self(2i32);
     pub const Y4Cb4Cr4: Self = Self(3i32);
 }
+impl ::core::marker::Copy for JpegSubsamplingMode {}
+impl ::core::clone::Clone for JpegSubsamplingMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PixelDataProvider(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -151,6 +236,12 @@ impl PngFilterMode {
     pub const Average: Self = Self(4i32);
     pub const Paeth: Self = Self(5i32);
     pub const Adaptive: Self = Self(6i32);
+}
+impl ::core::marker::Copy for PngFilterMode {}
+impl ::core::clone::Clone for PngFilterMode {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct SoftwareBitmap(pub *mut ::core::ffi::c_void);
@@ -165,4 +256,10 @@ impl TiffCompressionMode {
     pub const Rle: Self = Self(5i32);
     pub const Zip: Self = Self(6i32);
     pub const LzwhDifferencing: Self = Self(7i32);
+}
+impl ::core::marker::Copy for TiffCompressionMode {}
+impl ::core::clone::Clone for TiffCompressionMode {
+    fn clone(&self) -> Self {
+        *self
+    }
 }

@@ -11,6 +11,12 @@ impl AdcChannelMode {
     pub const SingleEnded: Self = Self(0i32);
     pub const Differential: Self = Self(1i32);
 }
+impl ::core::marker::Copy for AdcChannelMode {}
+impl ::core::clone::Clone for AdcChannelMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AdcController(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

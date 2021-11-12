@@ -36,16 +36,68 @@ pub const SCESTATUS_SERVICE_NOT_SUPPORT: i32 = 14i32;
 pub const SCESTATUS_SUCCESS: i32 = 0i32;
 pub const SCESTATUS_TRUST_FAIL: i32 = 19i32;
 #[repr(C)]
-pub struct SCESVC_ANALYSIS_INFO(i32);
+pub struct SCESVC_ANALYSIS_INFO {
+    pub Count: u32,
+    pub Lines: *mut SCESVC_ANALYSIS_LINE,
+}
+impl ::core::marker::Copy for SCESVC_ANALYSIS_INFO {}
+impl ::core::clone::Clone for SCESVC_ANALYSIS_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct SCESVC_ANALYSIS_LINE(i32);
+pub struct SCESVC_ANALYSIS_LINE {
+    pub Key: *mut i8,
+    pub Value: *mut u8,
+    pub ValueLen: u32,
+}
+impl ::core::marker::Copy for SCESVC_ANALYSIS_LINE {}
+impl ::core::clone::Clone for SCESVC_ANALYSIS_LINE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+pub struct SCESVC_CALLBACK_INFO {
+    pub sceHandle: *mut ::core::ffi::c_void,
+    pub pfQueryInfo: ::core::option::Option<PFSCE_QUERY_INFO>,
+    pub pfSetInfo: ::core::option::Option<PFSCE_SET_INFO>,
+    pub pfFreeInfo: ::core::option::Option<PFSCE_FREE_INFO>,
+    pub pfLogInfo: ::core::option::Option<PFSCE_LOG_INFO>,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SCESVC_CALLBACK_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SCESVC_CALLBACK_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct SCESVC_CALLBACK_INFO(i32);
+pub struct SCESVC_CONFIGURATION_INFO {
+    pub Count: u32,
+    pub Lines: *mut SCESVC_CONFIGURATION_LINE,
+}
+impl ::core::marker::Copy for SCESVC_CONFIGURATION_INFO {}
+impl ::core::clone::Clone for SCESVC_CONFIGURATION_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct SCESVC_CONFIGURATION_INFO(i32);
-#[repr(C)]
-pub struct SCESVC_CONFIGURATION_LINE(i32);
+pub struct SCESVC_CONFIGURATION_LINE {
+    pub Key: *mut i8,
+    pub Value: *mut i8,
+    pub ValueLen: u32,
+}
+impl ::core::marker::Copy for SCESVC_CONFIGURATION_LINE {}
+impl ::core::clone::Clone for SCESVC_CONFIGURATION_LINE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SCESVC_ENUMERATION_MAX: i32 = 100i32;
 #[repr(transparent)]
 pub struct SCESVC_INFO_TYPE(pub i32);
@@ -53,12 +105,24 @@ pub const SceSvcConfigurationInfo: SCESVC_INFO_TYPE = SCESVC_INFO_TYPE(0i32);
 pub const SceSvcMergedPolicyInfo: SCESVC_INFO_TYPE = SCESVC_INFO_TYPE(1i32);
 pub const SceSvcAnalysisInfo: SCESVC_INFO_TYPE = SCESVC_INFO_TYPE(2i32);
 pub const SceSvcInternalUse: SCESVC_INFO_TYPE = SCESVC_INFO_TYPE(3i32);
+impl ::core::marker::Copy for SCESVC_INFO_TYPE {}
+impl ::core::clone::Clone for SCESVC_INFO_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SCE_LOG_ERR_LEVEL(pub u32);
 pub const SCE_LOG_LEVEL_ALWAYS: SCE_LOG_ERR_LEVEL = SCE_LOG_ERR_LEVEL(0u32);
 pub const SCE_LOG_LEVEL_ERROR: SCE_LOG_ERR_LEVEL = SCE_LOG_ERR_LEVEL(1u32);
 pub const SCE_LOG_LEVEL_DETAIL: SCE_LOG_ERR_LEVEL = SCE_LOG_ERR_LEVEL(2u32);
 pub const SCE_LOG_LEVEL_DEBUG: SCE_LOG_ERR_LEVEL = SCE_LOG_ERR_LEVEL(3u32);
+impl ::core::marker::Copy for SCE_LOG_ERR_LEVEL {}
+impl ::core::clone::Clone for SCE_LOG_ERR_LEVEL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const cNodetypeSceAnalysisServices: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1736462535, data2: 8184, data3: 4561, data4: [175, 251, 0, 192, 79, 185, 132, 249] };
 pub const cNodetypeSceEventLog: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 752903832, data2: 19443, data3: 4561, data4: [140, 48, 0, 192, 79, 185, 132, 249] };
 pub const cNodetypeSceTemplateServices: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 614987543, data2: 7948, data3: 4561, data4: [175, 251, 0, 192, 79, 185, 132, 249] };

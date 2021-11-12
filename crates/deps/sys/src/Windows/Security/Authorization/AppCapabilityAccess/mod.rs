@@ -14,6 +14,12 @@ impl AppCapabilityAccessStatus {
     pub const UserPromptRequired: Self = Self(3i32);
     pub const Allowed: Self = Self(4i32);
 }
+impl ::core::marker::Copy for AppCapabilityAccessStatus {}
+impl ::core::clone::Clone for AppCapabilityAccessStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppCapability(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

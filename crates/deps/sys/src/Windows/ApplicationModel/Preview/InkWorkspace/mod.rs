@@ -7,5 +7,3 @@ pub struct IInkWorkspaceHostedAppManager(pub *mut ::core::ffi::c_void);
 pub struct IInkWorkspaceHostedAppManagerStatics(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct InkWorkspaceHostedAppManager(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct PreviewInkWorkspaceContract(i32);

@@ -570,12 +570,34 @@ extern "system" {
     pub fn UrlCacheUpdateEntryExtraData(happcache: *const ::core::ffi::c_void, pcwszurl: super::super::Foundation::PWSTR, pbextradata: *const u8, cbextradata: u32) -> u32;
 }
 pub const ANY_CACHE_ENTRY: u32 = 4294967295u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct APP_CACHE_DOWNLOAD_ENTRY(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct APP_CACHE_DOWNLOAD_ENTRY {
+    pub pwszUrl: super::super::Foundation::PWSTR,
+    pub dwEntryType: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for APP_CACHE_DOWNLOAD_ENTRY {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for APP_CACHE_DOWNLOAD_ENTRY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct APP_CACHE_DOWNLOAD_LIST(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct APP_CACHE_DOWNLOAD_LIST {
+    pub dwEntryCount: u32,
+    pub pEntries: *mut APP_CACHE_DOWNLOAD_ENTRY,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for APP_CACHE_DOWNLOAD_LIST {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for APP_CACHE_DOWNLOAD_LIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const APP_CACHE_ENTRY_TYPE_EXPLICIT: u32 = 2u32;
 pub const APP_CACHE_ENTRY_TYPE_FALLBACK: u32 = 4u32;
 pub const APP_CACHE_ENTRY_TYPE_FOREIGN: u32 = 8u32;
@@ -586,12 +608,41 @@ pub struct APP_CACHE_FINALIZE_STATE(pub i32);
 pub const AppCacheFinalizeStateIncomplete: APP_CACHE_FINALIZE_STATE = APP_CACHE_FINALIZE_STATE(0i32);
 pub const AppCacheFinalizeStateManifestChange: APP_CACHE_FINALIZE_STATE = APP_CACHE_FINALIZE_STATE(1i32);
 pub const AppCacheFinalizeStateComplete: APP_CACHE_FINALIZE_STATE = APP_CACHE_FINALIZE_STATE(2i32);
-#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for APP_CACHE_FINALIZE_STATE {}
+impl ::core::clone::Clone for APP_CACHE_FINALIZE_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct APP_CACHE_GROUP_INFO(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct APP_CACHE_GROUP_INFO {
+    pub pwszManifestUrl: super::super::Foundation::PWSTR,
+    pub ftLastAccessTime: super::super::Foundation::FILETIME,
+    pub ullSize: u64,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for APP_CACHE_GROUP_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for APP_CACHE_GROUP_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct APP_CACHE_GROUP_LIST(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct APP_CACHE_GROUP_LIST {
+    pub dwAppCacheGroupCount: u32,
+    pub pAppCacheGroups: *mut APP_CACHE_GROUP_INFO,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for APP_CACHE_GROUP_LIST {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for APP_CACHE_GROUP_LIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const APP_CACHE_LOOKUP_NO_MASTER_ONLY: u32 = 1u32;
 #[repr(transparent)]
 pub struct APP_CACHE_STATE(pub i32);
@@ -599,6 +650,12 @@ pub const AppCacheStateNoUpdateNeeded: APP_CACHE_STATE = APP_CACHE_STATE(0i32);
 pub const AppCacheStateUpdateNeeded: APP_CACHE_STATE = APP_CACHE_STATE(1i32);
 pub const AppCacheStateUpdateNeededNew: APP_CACHE_STATE = APP_CACHE_STATE(2i32);
 pub const AppCacheStateUpdateNeededMasterOnly: APP_CACHE_STATE = APP_CACHE_STATE(3i32);
+impl ::core::marker::Copy for APP_CACHE_STATE {}
+impl ::core::clone::Clone for APP_CACHE_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const AUTH_FLAG_DISABLE_BASIC_CLEARCHANNEL: u32 = 4u32;
 pub const AUTH_FLAG_DISABLE_NEGOTIATE: u32 = 1u32;
 pub const AUTH_FLAG_DISABLE_SERVER_AUTH: u32 = 8u32;
@@ -614,13 +671,49 @@ pub const AUTO_PROXY_FLAG_DETECTION_SUSPECT: u32 = 64u32;
 pub const AUTO_PROXY_FLAG_DONT_CACHE_PROXY_RESULT: u32 = 16u32;
 pub const AUTO_PROXY_FLAG_MIGRATED: u32 = 8u32;
 pub const AUTO_PROXY_FLAG_USER_SET: u32 = 1u32;
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+pub struct AUTO_PROXY_SCRIPT_BUFFER {
+    pub dwStructSize: u32,
+    pub lpszScriptBuffer: super::super::Foundation::PSTR,
+    pub dwScriptBufferSize: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for AUTO_PROXY_SCRIPT_BUFFER {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for AUTO_PROXY_SCRIPT_BUFFER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct AUTO_PROXY_SCRIPT_BUFFER(i32);
+pub struct AutoProxyHelperFunctions {
+    pub lpVtbl: *mut AutoProxyHelperVtbl,
+}
+impl ::core::marker::Copy for AutoProxyHelperFunctions {}
+impl ::core::clone::Clone for AutoProxyHelperFunctions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct AutoProxyHelperFunctions(i32);
-#[repr(C)]
-pub struct AutoProxyHelperVtbl(i32);
+pub struct AutoProxyHelperVtbl {
+    pub IsResolvable: isize,
+    pub GetIPAddress: isize,
+    pub ResolveHostName: isize,
+    pub IsInNet: isize,
+    pub IsResolvableEx: isize,
+    pub GetIPAddressEx: isize,
+    pub ResolveHostNameEx: isize,
+    pub IsInNetEx: isize,
+    pub SortIpList: isize,
+}
+impl ::core::marker::Copy for AutoProxyHelperVtbl {}
+impl ::core::clone::Clone for AutoProxyHelperVtbl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CACHEGROUP_ATTRIBUTE_BASIC: u32 = 1u32;
 pub const CACHEGROUP_ATTRIBUTE_FLAG: u32 = 2u32;
 pub const CACHEGROUP_ATTRIBUTE_GET_ALL: u32 = 4294967295u32;
@@ -648,6 +741,12 @@ pub const CACHE_CONFIG_QUOTA_FC: CACHE_CONFIG = CACHE_CONFIG(2048u32);
 pub const CACHE_CONFIG_USER_MODE_FC: CACHE_CONFIG = CACHE_CONFIG(4096u32);
 pub const CACHE_CONFIG_CONTENT_USAGE_FC: CACHE_CONFIG = CACHE_CONFIG(8192u32);
 pub const CACHE_CONFIG_STICKY_CONTENT_USAGE_FC: CACHE_CONFIG = CACHE_CONFIG(16384u32);
+impl ::core::marker::Copy for CACHE_CONFIG {}
+impl ::core::clone::Clone for CACHE_CONFIG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CACHE_CONFIG_APPCONTAINER_CONTENT_QUOTA_FC: u32 = 131072u32;
 pub const CACHE_CONFIG_APPCONTAINER_TOTAL_CONTENT_QUOTA_FC: u32 = 262144u32;
 pub const CACHE_CONFIG_CONTENT_QUOTA_FC: u32 = 32768u32;
@@ -712,9 +811,25 @@ pub const COOKIE_ACCEPTED_CACHE_ENTRY: u32 = 4096u32;
 pub const COOKIE_ALLOW: u32 = 2u32;
 pub const COOKIE_ALLOW_ALL: u32 = 4u32;
 pub const COOKIE_CACHE_ENTRY: u32 = 1048576u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct COOKIE_DLG_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct COOKIE_DLG_INFO {
+    pub pszServer: super::super::Foundation::PWSTR,
+    pub pic: *mut INTERNET_COOKIE,
+    pub dwStopWarning: u32,
+    pub cx: i32,
+    pub cy: i32,
+    pub pszHeader: super::super::Foundation::PWSTR,
+    pub dwOperation: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for COOKIE_DLG_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for COOKIE_DLG_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const COOKIE_DONT_ALLOW: u32 = 1u32;
 pub const COOKIE_DONT_ALLOW_ALL: u32 = 8u32;
 pub const COOKIE_DOWNGRADED_CACHE_ENTRY: u32 = 16384u32;
@@ -728,9 +843,20 @@ pub const COOKIE_OP_SET: u32 = 1u32;
 pub const COOKIE_REJECTED_CACHE_ENTRY: u32 = 32768u32;
 pub const COOKIE_STATE_LB: u32 = 0u32;
 pub const COOKIE_STATE_UB: u32 = 5u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CookieDecision(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CookieDecision {
+    pub dwCookieState: u32,
+    pub fAllowSession: super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CookieDecision {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CookieDecision {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DIALENG_OperationComplete: u32 = 65536u32;
 pub const DIALENG_RedialAttempt: u32 = 65537u32;
 pub const DIALENG_RedialWait: u32 = 65538u32;
@@ -873,10 +999,22 @@ pub struct FORTCMD(pub i32);
 pub const FORTCMD_LOGON: FORTCMD = FORTCMD(1i32);
 pub const FORTCMD_LOGOFF: FORTCMD = FORTCMD(2i32);
 pub const FORTCMD_CHG_PERSONALITY: FORTCMD = FORTCMD(3i32);
+impl ::core::marker::Copy for FORTCMD {}
+impl ::core::clone::Clone for FORTCMD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct FORTSTAT(pub i32);
 pub const FORTSTAT_INSTALLED: FORTSTAT = FORTSTAT(1i32);
 pub const FORTSTAT_LOGGEDON: FORTSTAT = FORTSTAT(2i32);
+impl ::core::marker::Copy for FORTSTAT {}
+impl ::core::clone::Clone for FORTSTAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct FTP_FLAGS(pub u32);
 pub const FTP_TRANSFER_TYPE_ASCII: FTP_FLAGS = FTP_FLAGS(1u32);
@@ -884,12 +1022,45 @@ pub const FTP_TRANSFER_TYPE_BINARY: FTP_FLAGS = FTP_FLAGS(2u32);
 pub const FTP_TRANSFER_TYPE_UNKNOWN: FTP_FLAGS = FTP_FLAGS(0u32);
 pub const INTERNET_FLAG_TRANSFER_ASCII: FTP_FLAGS = FTP_FLAGS(1u32);
 pub const INTERNET_FLAG_TRANSFER_BINARY: FTP_FLAGS = FTP_FLAGS(2u32);
+impl ::core::marker::Copy for FTP_FLAGS {}
+impl ::core::clone::Clone for FTP_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct GOPHER_ABSTRACT_ATTRIBUTE_TYPE(i32);
+pub struct GOPHER_ABSTRACT_ATTRIBUTE_TYPE {
+    pub ShortAbstract: *mut i8,
+    pub AbstractFile: *mut i8,
+}
+impl ::core::marker::Copy for GOPHER_ABSTRACT_ATTRIBUTE_TYPE {}
+impl ::core::clone::Clone for GOPHER_ABSTRACT_ATTRIBUTE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct GOPHER_ADMIN_ATTRIBUTE_TYPE(i32);
+pub struct GOPHER_ADMIN_ATTRIBUTE_TYPE {
+    pub Comment: *mut i8,
+    pub EmailAddress: *mut i8,
+}
+impl ::core::marker::Copy for GOPHER_ADMIN_ATTRIBUTE_TYPE {}
+impl ::core::clone::Clone for GOPHER_ADMIN_ATTRIBUTE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct GOPHER_ASK_ATTRIBUTE_TYPE(i32);
+pub struct GOPHER_ASK_ATTRIBUTE_TYPE {
+    pub QuestionType: *mut i8,
+    pub QuestionText: *mut i8,
+}
+impl ::core::marker::Copy for GOPHER_ASK_ATTRIBUTE_TYPE {}
+impl ::core::clone::Clone for GOPHER_ASK_ATTRIBUTE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[cfg(feature = "Win32_Foundation")]
 pub type GOPHER_ATTRIBUTE_ENUMERATOR = unsafe extern "system" fn(lpattributeinfo: *const GOPHER_ATTRIBUTE_TYPE, dwerror: u32) -> super::super::Foundation::BOOL;
 pub const GOPHER_ATTRIBUTE_ID_ABSTRACT: u32 = 2882325526u32;
@@ -910,9 +1081,50 @@ pub const GOPHER_ATTRIBUTE_ID_TTL: u32 = 2882325516u32;
 pub const GOPHER_ATTRIBUTE_ID_UNKNOWN: u32 = 2882325529u32;
 pub const GOPHER_ATTRIBUTE_ID_VERSION: u32 = 2882325525u32;
 pub const GOPHER_ATTRIBUTE_ID_VIEW: u32 = 2882325527u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct GOPHER_ATTRIBUTE_TYPE(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct GOPHER_ATTRIBUTE_TYPE {
+    pub CategoryId: u32,
+    pub AttributeId: u32,
+    pub AttributeType: GOPHER_ATTRIBUTE_TYPE_0,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for GOPHER_ATTRIBUTE_TYPE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for GOPHER_ATTRIBUTE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub union GOPHER_ATTRIBUTE_TYPE_0 {
+    pub Admin: GOPHER_ADMIN_ATTRIBUTE_TYPE,
+    pub ModDate: GOPHER_MOD_DATE_ATTRIBUTE_TYPE,
+    pub Ttl: GOPHER_TTL_ATTRIBUTE_TYPE,
+    pub Score: GOPHER_SCORE_ATTRIBUTE_TYPE,
+    pub ScoreRange: GOPHER_SCORE_RANGE_ATTRIBUTE_TYPE,
+    pub Site: GOPHER_SITE_ATTRIBUTE_TYPE,
+    pub Organization: GOPHER_ORGANIZATION_ATTRIBUTE_TYPE,
+    pub Location: GOPHER_LOCATION_ATTRIBUTE_TYPE,
+    pub GeographicalLocation: GOPHER_GEOGRAPHICAL_LOCATION_ATTRIBUTE_TYPE,
+    pub TimeZone: GOPHER_TIMEZONE_ATTRIBUTE_TYPE,
+    pub Provider: GOPHER_PROVIDER_ATTRIBUTE_TYPE,
+    pub Version: GOPHER_VERSION_ATTRIBUTE_TYPE,
+    pub Abstract: GOPHER_ABSTRACT_ATTRIBUTE_TYPE,
+    pub View: GOPHER_VIEW_ATTRIBUTE_TYPE,
+    pub Veronica: GOPHER_VERONICA_ATTRIBUTE_TYPE,
+    pub Ask: GOPHER_ASK_ATTRIBUTE_TYPE,
+    pub Unknown: GOPHER_UNKNOWN_ATTRIBUTE_TYPE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for GOPHER_ATTRIBUTE_TYPE_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for GOPHER_ATTRIBUTE_TYPE_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const GOPHER_CATEGORY_ID_ABSTRACT: u32 = 2882325509u32;
 pub const GOPHER_CATEGORY_ID_ADMIN: u32 = 2882325507u32;
 pub const GOPHER_CATEGORY_ID_ALL: u32 = 2882325505u32;
@@ -921,33 +1133,151 @@ pub const GOPHER_CATEGORY_ID_INFO: u32 = 2882325506u32;
 pub const GOPHER_CATEGORY_ID_UNKNOWN: u32 = 2882325512u32;
 pub const GOPHER_CATEGORY_ID_VERONICA: u32 = 2882325510u32;
 pub const GOPHER_CATEGORY_ID_VIEWS: u32 = 2882325508u32;
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct GOPHER_FIND_DATAA(i32);
+pub struct GOPHER_FIND_DATAA {
+    pub DisplayString: [super::super::Foundation::CHAR; 129],
+    pub GopherType: GOPHER_TYPE,
+    pub SizeLow: u32,
+    pub SizeHigh: u32,
+    pub LastModificationTime: super::super::Foundation::FILETIME,
+    pub Locator: [super::super::Foundation::CHAR; 654],
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct GOPHER_FIND_DATAW(i32);
-#[repr(C)]
-pub struct GOPHER_GEOGRAPHICAL_LOCATION_ATTRIBUTE_TYPE(i32);
-#[repr(C)]
-pub struct GOPHER_LOCATION_ATTRIBUTE_TYPE(i32);
+impl ::core::marker::Copy for GOPHER_FIND_DATAA {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for GOPHER_FIND_DATAA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct GOPHER_MOD_DATE_ATTRIBUTE_TYPE(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct GOPHER_FIND_DATAW {
+    pub DisplayString: [u16; 129],
+    pub GopherType: GOPHER_TYPE,
+    pub SizeLow: u32,
+    pub SizeHigh: u32,
+    pub LastModificationTime: super::super::Foundation::FILETIME,
+    pub Locator: [u16; 654],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for GOPHER_FIND_DATAW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for GOPHER_FIND_DATAW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct GOPHER_ORGANIZATION_ATTRIBUTE_TYPE(i32);
+pub struct GOPHER_GEOGRAPHICAL_LOCATION_ATTRIBUTE_TYPE {
+    pub DegreesNorth: i32,
+    pub MinutesNorth: i32,
+    pub SecondsNorth: i32,
+    pub DegreesEast: i32,
+    pub MinutesEast: i32,
+    pub SecondsEast: i32,
+}
+impl ::core::marker::Copy for GOPHER_GEOGRAPHICAL_LOCATION_ATTRIBUTE_TYPE {}
+impl ::core::clone::Clone for GOPHER_GEOGRAPHICAL_LOCATION_ATTRIBUTE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct GOPHER_PROVIDER_ATTRIBUTE_TYPE(i32);
+pub struct GOPHER_LOCATION_ATTRIBUTE_TYPE {
+    pub Location: *mut i8,
+}
+impl ::core::marker::Copy for GOPHER_LOCATION_ATTRIBUTE_TYPE {}
+impl ::core::clone::Clone for GOPHER_LOCATION_ATTRIBUTE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct GOPHER_SCORE_ATTRIBUTE_TYPE(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct GOPHER_MOD_DATE_ATTRIBUTE_TYPE {
+    pub DateAndTime: super::super::Foundation::FILETIME,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for GOPHER_MOD_DATE_ATTRIBUTE_TYPE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for GOPHER_MOD_DATE_ATTRIBUTE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct GOPHER_SCORE_RANGE_ATTRIBUTE_TYPE(i32);
+pub struct GOPHER_ORGANIZATION_ATTRIBUTE_TYPE {
+    pub Organization: *mut i8,
+}
+impl ::core::marker::Copy for GOPHER_ORGANIZATION_ATTRIBUTE_TYPE {}
+impl ::core::clone::Clone for GOPHER_ORGANIZATION_ATTRIBUTE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct GOPHER_SITE_ATTRIBUTE_TYPE(i32);
+pub struct GOPHER_PROVIDER_ATTRIBUTE_TYPE {
+    pub Provider: *mut i8,
+}
+impl ::core::marker::Copy for GOPHER_PROVIDER_ATTRIBUTE_TYPE {}
+impl ::core::clone::Clone for GOPHER_PROVIDER_ATTRIBUTE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct GOPHER_TIMEZONE_ATTRIBUTE_TYPE(i32);
+pub struct GOPHER_SCORE_ATTRIBUTE_TYPE {
+    pub Score: i32,
+}
+impl ::core::marker::Copy for GOPHER_SCORE_ATTRIBUTE_TYPE {}
+impl ::core::clone::Clone for GOPHER_SCORE_ATTRIBUTE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct GOPHER_TTL_ATTRIBUTE_TYPE(i32);
+pub struct GOPHER_SCORE_RANGE_ATTRIBUTE_TYPE {
+    pub LowerBound: i32,
+    pub UpperBound: i32,
+}
+impl ::core::marker::Copy for GOPHER_SCORE_RANGE_ATTRIBUTE_TYPE {}
+impl ::core::clone::Clone for GOPHER_SCORE_RANGE_ATTRIBUTE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct GOPHER_SITE_ATTRIBUTE_TYPE {
+    pub Site: *mut i8,
+}
+impl ::core::marker::Copy for GOPHER_SITE_ATTRIBUTE_TYPE {}
+impl ::core::clone::Clone for GOPHER_SITE_ATTRIBUTE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct GOPHER_TIMEZONE_ATTRIBUTE_TYPE {
+    pub Zone: i32,
+}
+impl ::core::marker::Copy for GOPHER_TIMEZONE_ATTRIBUTE_TYPE {}
+impl ::core::clone::Clone for GOPHER_TIMEZONE_ATTRIBUTE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct GOPHER_TTL_ATTRIBUTE_TYPE {
+    pub Ttl: u32,
+}
+impl ::core::marker::Copy for GOPHER_TTL_ATTRIBUTE_TYPE {}
+impl ::core::clone::Clone for GOPHER_TTL_ATTRIBUTE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct GOPHER_TYPE(pub u32);
 pub const GOPHER_TYPE_ASK: GOPHER_TYPE = GOPHER_TYPE(1073741824u32);
@@ -974,15 +1304,57 @@ pub const GOPHER_TYPE_TEXT_FILE: GOPHER_TYPE = GOPHER_TYPE(1u32);
 pub const GOPHER_TYPE_TN3270: GOPHER_TYPE = GOPHER_TYPE(2048u32);
 pub const GOPHER_TYPE_UNIX_UUENCODED: GOPHER_TYPE = GOPHER_TYPE(64u32);
 pub const GOPHER_TYPE_UNKNOWN: GOPHER_TYPE = GOPHER_TYPE(536870912u32);
+impl ::core::marker::Copy for GOPHER_TYPE {}
+impl ::core::clone::Clone for GOPHER_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct GOPHER_UNKNOWN_ATTRIBUTE_TYPE(i32);
+pub struct GOPHER_UNKNOWN_ATTRIBUTE_TYPE {
+    pub Text: *mut i8,
+}
+impl ::core::marker::Copy for GOPHER_UNKNOWN_ATTRIBUTE_TYPE {}
+impl ::core::clone::Clone for GOPHER_UNKNOWN_ATTRIBUTE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+pub struct GOPHER_VERONICA_ATTRIBUTE_TYPE {
+    pub TreeWalk: super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for GOPHER_VERONICA_ATTRIBUTE_TYPE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for GOPHER_VERONICA_ATTRIBUTE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct GOPHER_VERONICA_ATTRIBUTE_TYPE(i32);
+pub struct GOPHER_VERSION_ATTRIBUTE_TYPE {
+    pub Version: *mut i8,
+}
+impl ::core::marker::Copy for GOPHER_VERSION_ATTRIBUTE_TYPE {}
+impl ::core::clone::Clone for GOPHER_VERSION_ATTRIBUTE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct GOPHER_VERSION_ATTRIBUTE_TYPE(i32);
-#[repr(C)]
-pub struct GOPHER_VIEW_ATTRIBUTE_TYPE(i32);
+pub struct GOPHER_VIEW_ATTRIBUTE_TYPE {
+    pub ContentType: *mut i8,
+    pub Language: *mut i8,
+    pub Size: u32,
+}
+impl ::core::marker::Copy for GOPHER_VIEW_ATTRIBUTE_TYPE {}
+impl ::core::clone::Clone for GOPHER_VIEW_ATTRIBUTE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const GROUPNAME_MAX_LENGTH: u32 = 120u32;
 pub const GROUP_OWNER_STORAGE_SIZE: u32 = 4u32;
 pub const HSR_ASYNC: u32 = 1u32;
@@ -1000,6 +1372,12 @@ pub const HTTP_ADDREQ_FLAG_COALESCE: HTTP_ADDREQ_FLAG = HTTP_ADDREQ_FLAG(1073741
 pub const HTTP_ADDREQ_FLAG_COALESCE_WITH_COMMA: HTTP_ADDREQ_FLAG = HTTP_ADDREQ_FLAG(1073741824u32);
 pub const HTTP_ADDREQ_FLAG_COALESCE_WITH_SEMICOLON: HTTP_ADDREQ_FLAG = HTTP_ADDREQ_FLAG(16777216u32);
 pub const HTTP_ADDREQ_FLAG_REPLACE: HTTP_ADDREQ_FLAG = HTTP_ADDREQ_FLAG(2147483648u32);
+impl ::core::marker::Copy for HTTP_ADDREQ_FLAG {}
+impl ::core::clone::Clone for HTTP_ADDREQ_FLAG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const HTTP_ADDREQ_FLAGS_MASK: u32 = 4294901760u32;
 pub const HTTP_ADDREQ_FLAG_ALLOW_EMPTY_VALUES: u32 = 67108864u32;
 pub const HTTP_ADDREQ_FLAG_RESPONSE_HEADERS: u32 = 33554432u32;
@@ -1018,23 +1396,67 @@ pub struct HTTP_POLICY_EXTENSION_TYPE(pub i32);
 pub const POLICY_EXTENSION_TYPE_NONE: HTTP_POLICY_EXTENSION_TYPE = HTTP_POLICY_EXTENSION_TYPE(0i32);
 pub const POLICY_EXTENSION_TYPE_WINHTTP: HTTP_POLICY_EXTENSION_TYPE = HTTP_POLICY_EXTENSION_TYPE(1i32);
 pub const POLICY_EXTENSION_TYPE_WININET: HTTP_POLICY_EXTENSION_TYPE = HTTP_POLICY_EXTENSION_TYPE(2i32);
+impl ::core::marker::Copy for HTTP_POLICY_EXTENSION_TYPE {}
+impl ::core::clone::Clone for HTTP_POLICY_EXTENSION_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct HTTP_POLICY_EXTENSION_VERSION(pub i32);
 pub const POLICY_EXTENSION_VERSION1: HTTP_POLICY_EXTENSION_VERSION = HTTP_POLICY_EXTENSION_VERSION(1i32);
+impl ::core::marker::Copy for HTTP_POLICY_EXTENSION_VERSION {}
+impl ::core::clone::Clone for HTTP_POLICY_EXTENSION_VERSION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const HTTP_PROTOCOL_FLAG_HTTP2: u32 = 2u32;
 pub const HTTP_PROTOCOL_MASK: u32 = 2u32;
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+pub struct HTTP_PUSH_NOTIFICATION_STATUS {
+    pub ChannelStatusValid: super::super::Foundation::BOOL,
+    pub ChannelStatus: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for HTTP_PUSH_NOTIFICATION_STATUS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for HTTP_PUSH_NOTIFICATION_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct HTTP_PUSH_NOTIFICATION_STATUS(i32);
+pub struct HTTP_PUSH_TRANSPORT_SETTING {
+    pub TransportSettingId: ::windows_sys::core::GUID,
+    pub BrokerEventId: ::windows_sys::core::GUID,
+}
+impl ::core::marker::Copy for HTTP_PUSH_TRANSPORT_SETTING {}
+impl ::core::clone::Clone for HTTP_PUSH_TRANSPORT_SETTING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct HTTP_PUSH_TRANSPORT_SETTING(i32);
-#[repr(C)]
-pub struct HTTP_PUSH_WAIT_HANDLE(i32);
+pub struct HTTP_PUSH_WAIT_HANDLE(pub isize);
+impl ::core::marker::Copy for HTTP_PUSH_WAIT_HANDLE {}
+impl ::core::clone::Clone for HTTP_PUSH_WAIT_HANDLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct HTTP_PUSH_WAIT_TYPE(pub i32);
 pub const HttpPushWaitEnableComplete: HTTP_PUSH_WAIT_TYPE = HTTP_PUSH_WAIT_TYPE(0i32);
 pub const HttpPushWaitReceiveComplete: HTTP_PUSH_WAIT_TYPE = HTTP_PUSH_WAIT_TYPE(1i32);
 pub const HttpPushWaitSendComplete: HTTP_PUSH_WAIT_TYPE = HTTP_PUSH_WAIT_TYPE(2i32);
+impl ::core::marker::Copy for HTTP_PUSH_WAIT_TYPE {}
+impl ::core::clone::Clone for HTTP_PUSH_WAIT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const HTTP_QUERY_ACCEPT: u32 = 24u32;
 pub const HTTP_QUERY_ACCEPT_CHARSET: u32 = 25u32;
 pub const HTTP_QUERY_ACCEPT_ENCODING: u32 = 26u32;
@@ -1141,10 +1563,30 @@ pub const HTTP_QUERY_X_P2P_PEERDIST: u32 = 81u32;
 pub const HTTP_QUERY_X_UA_COMPATIBLE: u32 = 83u32;
 pub const HTTP_QUERY_X_XSS_PROTECTION: u32 = 86u32;
 #[repr(C)]
-pub struct HTTP_REQUEST_TIMES(i32);
+pub struct HTTP_REQUEST_TIMES {
+    pub cTimes: u32,
+    pub rgTimes: [u64; 32],
+}
+impl ::core::marker::Copy for HTTP_REQUEST_TIMES {}
+impl ::core::clone::Clone for HTTP_REQUEST_TIMES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const HTTP_STATUS_MISDIRECTED_REQUEST: u32 = 421u32;
 #[repr(C)]
-pub struct HTTP_WEB_SOCKET_ASYNC_RESULT(i32);
+pub struct HTTP_WEB_SOCKET_ASYNC_RESULT {
+    pub AsyncResult: INTERNET_ASYNC_RESULT,
+    pub Operation: HTTP_WEB_SOCKET_OPERATION,
+    pub BufferType: HTTP_WEB_SOCKET_BUFFER_TYPE,
+    pub dwBytesTransferred: u32,
+}
+impl ::core::marker::Copy for HTTP_WEB_SOCKET_ASYNC_RESULT {}
+impl ::core::clone::Clone for HTTP_WEB_SOCKET_ASYNC_RESULT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct HTTP_WEB_SOCKET_BUFFER_TYPE(pub i32);
 pub const HTTP_WEB_SOCKET_BINARY_MESSAGE_TYPE: HTTP_WEB_SOCKET_BUFFER_TYPE = HTTP_WEB_SOCKET_BUFFER_TYPE(0i32);
@@ -1153,6 +1595,12 @@ pub const HTTP_WEB_SOCKET_UTF8_MESSAGE_TYPE: HTTP_WEB_SOCKET_BUFFER_TYPE = HTTP_
 pub const HTTP_WEB_SOCKET_UTF8_FRAGMENT_TYPE: HTTP_WEB_SOCKET_BUFFER_TYPE = HTTP_WEB_SOCKET_BUFFER_TYPE(3i32);
 pub const HTTP_WEB_SOCKET_CLOSE_TYPE: HTTP_WEB_SOCKET_BUFFER_TYPE = HTTP_WEB_SOCKET_BUFFER_TYPE(4i32);
 pub const HTTP_WEB_SOCKET_PING_TYPE: HTTP_WEB_SOCKET_BUFFER_TYPE = HTTP_WEB_SOCKET_BUFFER_TYPE(5i32);
+impl ::core::marker::Copy for HTTP_WEB_SOCKET_BUFFER_TYPE {}
+impl ::core::clone::Clone for HTTP_WEB_SOCKET_BUFFER_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct HTTP_WEB_SOCKET_CLOSE_STATUS(pub i32);
 pub const HTTP_WEB_SOCKET_SUCCESS_CLOSE_STATUS: HTTP_WEB_SOCKET_CLOSE_STATUS = HTTP_WEB_SOCKET_CLOSE_STATUS(1000i32);
@@ -1167,6 +1615,12 @@ pub const HTTP_WEB_SOCKET_MESSAGE_TOO_BIG_CLOSE_STATUS: HTTP_WEB_SOCKET_CLOSE_ST
 pub const HTTP_WEB_SOCKET_UNSUPPORTED_EXTENSIONS_CLOSE_STATUS: HTTP_WEB_SOCKET_CLOSE_STATUS = HTTP_WEB_SOCKET_CLOSE_STATUS(1010i32);
 pub const HTTP_WEB_SOCKET_SERVER_ERROR_CLOSE_STATUS: HTTP_WEB_SOCKET_CLOSE_STATUS = HTTP_WEB_SOCKET_CLOSE_STATUS(1011i32);
 pub const HTTP_WEB_SOCKET_SECURE_HANDSHAKE_ERROR_CLOSE_STATUS: HTTP_WEB_SOCKET_CLOSE_STATUS = HTTP_WEB_SOCKET_CLOSE_STATUS(1015i32);
+impl ::core::marker::Copy for HTTP_WEB_SOCKET_CLOSE_STATUS {}
+impl ::core::clone::Clone for HTTP_WEB_SOCKET_CLOSE_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const HTTP_WEB_SOCKET_MAX_CLOSE_REASON_LENGTH: u32 = 123u32;
 pub const HTTP_WEB_SOCKET_MIN_KEEPALIVE_VALUE: u32 = 10000u32;
 #[repr(transparent)]
@@ -1175,6 +1629,12 @@ pub const HTTP_WEB_SOCKET_SEND_OPERATION: HTTP_WEB_SOCKET_OPERATION = HTTP_WEB_S
 pub const HTTP_WEB_SOCKET_RECEIVE_OPERATION: HTTP_WEB_SOCKET_OPERATION = HTTP_WEB_SOCKET_OPERATION(1i32);
 pub const HTTP_WEB_SOCKET_CLOSE_OPERATION: HTTP_WEB_SOCKET_OPERATION = HTTP_WEB_SOCKET_OPERATION(2i32);
 pub const HTTP_WEB_SOCKET_SHUTDOWN_OPERATION: HTTP_WEB_SOCKET_OPERATION = HTTP_WEB_SOCKET_OPERATION(3i32);
+impl ::core::marker::Copy for HTTP_WEB_SOCKET_OPERATION {}
+impl ::core::clone::Clone for HTTP_WEB_SOCKET_OPERATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const ICU_USERNAME: u32 = 1073741824u32;
 pub const IDENTITY_CACHE_ENTRY: u32 = 2147483648u32;
 pub const IDSI_FLAG_KEEP_ALIVE: u32 = 1u32;
@@ -1197,10 +1657,36 @@ pub struct INTERNET_ACCESS_TYPE(pub u32);
 pub const INTERNET_OPEN_TYPE_DIRECT: INTERNET_ACCESS_TYPE = INTERNET_ACCESS_TYPE(1u32);
 pub const INTERNET_OPEN_TYPE_PRECONFIG: INTERNET_ACCESS_TYPE = INTERNET_ACCESS_TYPE(0u32);
 pub const INTERNET_OPEN_TYPE_PROXY: INTERNET_ACCESS_TYPE = INTERNET_ACCESS_TYPE(3u32);
+impl ::core::marker::Copy for INTERNET_ACCESS_TYPE {}
+impl ::core::clone::Clone for INTERNET_ACCESS_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct INTERNET_ASYNC_RESULT(i32);
+pub struct INTERNET_ASYNC_RESULT {
+    pub dwResult: usize,
+    pub dwError: u32,
+}
+impl ::core::marker::Copy for INTERNET_ASYNC_RESULT {}
+impl ::core::clone::Clone for INTERNET_ASYNC_RESULT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct INTERNET_AUTH_NOTIFY_DATA(i32);
+pub struct INTERNET_AUTH_NOTIFY_DATA {
+    pub cbStruct: u32,
+    pub dwOptions: u32,
+    pub pfnNotify: ::core::option::Option<PFN_AUTH_NOTIFY>,
+    pub dwContext: usize,
+}
+impl ::core::marker::Copy for INTERNET_AUTH_NOTIFY_DATA {}
+impl ::core::clone::Clone for INTERNET_AUTH_NOTIFY_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const INTERNET_AUTH_SCHEME_BASIC: u32 = 0u32;
 pub const INTERNET_AUTH_SCHEME_DIGEST: u32 = 1u32;
 pub const INTERNET_AUTH_SCHEME_KERBEROS: u32 = 3u32;
@@ -1214,70 +1700,416 @@ pub const INTERNET_AUTODIAL_FAILIFSECURITYCHECK: INTERNET_AUTODIAL = INTERNET_AU
 pub const INTERNET_AUTODIAL_FORCE_ONLINE: INTERNET_AUTODIAL = INTERNET_AUTODIAL(1u32);
 pub const INTERNET_AUTODIAL_FORCE_UNATTENDED: INTERNET_AUTODIAL = INTERNET_AUTODIAL(2u32);
 pub const INTERNET_AUTODIAL_OVERRIDE_NET_PRESENT: INTERNET_AUTODIAL = INTERNET_AUTODIAL(8u32);
+impl ::core::marker::Copy for INTERNET_AUTODIAL {}
+impl ::core::clone::Clone for INTERNET_AUTODIAL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const INTERNET_AUTOPROXY_INIT_DEFAULT: u32 = 1u32;
 pub const INTERNET_AUTOPROXY_INIT_DOWNLOADSYNC: u32 = 2u32;
 pub const INTERNET_AUTOPROXY_INIT_ONLYQUERY: u32 = 8u32;
 pub const INTERNET_AUTOPROXY_INIT_QUERYSTATE: u32 = 4u32;
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct INTERNET_BUFFERSA(i32);
+pub struct INTERNET_BUFFERSA {
+    pub dwStructSize: u32,
+    pub Next: *mut INTERNET_BUFFERSA,
+    pub lpcszHeader: super::super::Foundation::PSTR,
+    pub dwHeadersLength: u32,
+    pub dwHeadersTotal: u32,
+    pub lpvBuffer: *mut ::core::ffi::c_void,
+    pub dwBufferLength: u32,
+    pub dwBufferTotal: u32,
+    pub dwOffsetLow: u32,
+    pub dwOffsetHigh: u32,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct INTERNET_BUFFERSW(i32);
+impl ::core::marker::Copy for INTERNET_BUFFERSA {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for INTERNET_BUFFERSA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct INTERNET_CACHE_CONFIG_INFOA(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct INTERNET_CACHE_CONFIG_INFOW(i32);
+pub struct INTERNET_BUFFERSW {
+    pub dwStructSize: u32,
+    pub Next: *mut INTERNET_BUFFERSW,
+    pub lpcszHeader: super::super::Foundation::PWSTR,
+    pub dwHeadersLength: u32,
+    pub dwHeadersTotal: u32,
+    pub lpvBuffer: *mut ::core::ffi::c_void,
+    pub dwBufferLength: u32,
+    pub dwBufferTotal: u32,
+    pub dwOffsetLow: u32,
+    pub dwOffsetHigh: u32,
+}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for INTERNET_BUFFERSW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for INTERNET_BUFFERSW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct INTERNET_CACHE_CONFIG_PATH_ENTRYA(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct INTERNET_CACHE_CONFIG_INFOA {
+    pub dwStructSize: u32,
+    pub dwContainer: u32,
+    pub dwQuota: u32,
+    pub dwReserved4: u32,
+    pub fPerUser: super::super::Foundation::BOOL,
+    pub dwSyncMode: u32,
+    pub dwNumCachePaths: u32,
+    pub Anonymous: INTERNET_CACHE_CONFIG_INFOA_0,
+    pub dwNormalUsage: u32,
+    pub dwExemptUsage: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for INTERNET_CACHE_CONFIG_INFOA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for INTERNET_CACHE_CONFIG_INFOA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct INTERNET_CACHE_CONFIG_PATH_ENTRYW(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub union INTERNET_CACHE_CONFIG_INFOA_0 {
+    pub Anonymous: INTERNET_CACHE_CONFIG_INFOA_0_0,
+    pub CachePaths: [INTERNET_CACHE_CONFIG_PATH_ENTRYA; 1],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for INTERNET_CACHE_CONFIG_INFOA_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for INTERNET_CACHE_CONFIG_INFOA_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct INTERNET_CACHE_CONFIG_INFOA_0_0 {
+    pub CachePath: [super::super::Foundation::CHAR; 260],
+    pub dwCacheSize: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for INTERNET_CACHE_CONFIG_INFOA_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for INTERNET_CACHE_CONFIG_INFOA_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct INTERNET_CACHE_CONFIG_INFOW {
+    pub dwStructSize: u32,
+    pub dwContainer: u32,
+    pub dwQuota: u32,
+    pub dwReserved4: u32,
+    pub fPerUser: super::super::Foundation::BOOL,
+    pub dwSyncMode: u32,
+    pub dwNumCachePaths: u32,
+    pub Anonymous: INTERNET_CACHE_CONFIG_INFOW_0,
+    pub dwNormalUsage: u32,
+    pub dwExemptUsage: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for INTERNET_CACHE_CONFIG_INFOW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for INTERNET_CACHE_CONFIG_INFOW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub union INTERNET_CACHE_CONFIG_INFOW_0 {
+    pub Anonymous: INTERNET_CACHE_CONFIG_INFOW_0_0,
+    pub CachePaths: [INTERNET_CACHE_CONFIG_PATH_ENTRYW; 1],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for INTERNET_CACHE_CONFIG_INFOW_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for INTERNET_CACHE_CONFIG_INFOW_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct INTERNET_CACHE_CONFIG_INFOW_0_0 {
+    pub CachePath: [u16; 260],
+    pub dwCacheSize: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for INTERNET_CACHE_CONFIG_INFOW_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for INTERNET_CACHE_CONFIG_INFOW_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct INTERNET_CACHE_CONFIG_PATH_ENTRYA {
+    pub CachePath: [super::super::Foundation::CHAR; 260],
+    pub dwCacheSize: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for INTERNET_CACHE_CONFIG_PATH_ENTRYA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for INTERNET_CACHE_CONFIG_PATH_ENTRYA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct INTERNET_CACHE_CONFIG_PATH_ENTRYW {
+    pub CachePath: [u16; 260],
+    pub dwCacheSize: u32,
+}
+impl ::core::marker::Copy for INTERNET_CACHE_CONFIG_PATH_ENTRYW {}
+impl ::core::clone::Clone for INTERNET_CACHE_CONFIG_PATH_ENTRYW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const INTERNET_CACHE_CONTAINER_AUTODELETE: u32 = 2u32;
 pub const INTERNET_CACHE_CONTAINER_BLOOM_FILTER: u32 = 32u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct INTERNET_CACHE_CONTAINER_INFOA(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct INTERNET_CACHE_CONTAINER_INFOA {
+    pub dwCacheVersion: u32,
+    pub lpszName: super::super::Foundation::PSTR,
+    pub lpszCachePrefix: super::super::Foundation::PSTR,
+    pub lpszVolumeLabel: super::super::Foundation::PSTR,
+    pub lpszVolumeTitle: super::super::Foundation::PSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for INTERNET_CACHE_CONTAINER_INFOA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for INTERNET_CACHE_CONTAINER_INFOA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct INTERNET_CACHE_CONTAINER_INFOW(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct INTERNET_CACHE_CONTAINER_INFOW {
+    pub dwCacheVersion: u32,
+    pub lpszName: super::super::Foundation::PWSTR,
+    pub lpszCachePrefix: super::super::Foundation::PWSTR,
+    pub lpszVolumeLabel: super::super::Foundation::PWSTR,
+    pub lpszVolumeTitle: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for INTERNET_CACHE_CONTAINER_INFOW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for INTERNET_CACHE_CONTAINER_INFOW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const INTERNET_CACHE_CONTAINER_MAP_ENABLED: u32 = 16u32;
 pub const INTERNET_CACHE_CONTAINER_NODESKTOPINIT: u32 = 8u32;
 pub const INTERNET_CACHE_CONTAINER_NOSUBDIRS: u32 = 1u32;
 pub const INTERNET_CACHE_CONTAINER_RESERVED1: u32 = 4u32;
 pub const INTERNET_CACHE_CONTAINER_SHARE_READ: u32 = 256u32;
 pub const INTERNET_CACHE_CONTAINER_SHARE_READ_WRITE: u32 = 768u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct INTERNET_CACHE_ENTRY_INFOA(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct INTERNET_CACHE_ENTRY_INFOA {
+    pub dwStructSize: u32,
+    pub lpszSourceUrlName: super::super::Foundation::PSTR,
+    pub lpszLocalFileName: super::super::Foundation::PSTR,
+    pub CacheEntryType: u32,
+    pub dwUseCount: u32,
+    pub dwHitRate: u32,
+    pub dwSizeLow: u32,
+    pub dwSizeHigh: u32,
+    pub LastModifiedTime: super::super::Foundation::FILETIME,
+    pub ExpireTime: super::super::Foundation::FILETIME,
+    pub LastAccessTime: super::super::Foundation::FILETIME,
+    pub LastSyncTime: super::super::Foundation::FILETIME,
+    pub lpHeaderInfo: super::super::Foundation::PSTR,
+    pub dwHeaderInfoSize: u32,
+    pub lpszFileExtension: super::super::Foundation::PSTR,
+    pub Anonymous: INTERNET_CACHE_ENTRY_INFOA_0,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for INTERNET_CACHE_ENTRY_INFOA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for INTERNET_CACHE_ENTRY_INFOA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct INTERNET_CACHE_ENTRY_INFOW(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub union INTERNET_CACHE_ENTRY_INFOA_0 {
+    pub dwReserved: u32,
+    pub dwExemptDelta: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for INTERNET_CACHE_ENTRY_INFOA_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for INTERNET_CACHE_ENTRY_INFOA_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct INTERNET_CACHE_ENTRY_INFOW {
+    pub dwStructSize: u32,
+    pub lpszSourceUrlName: super::super::Foundation::PWSTR,
+    pub lpszLocalFileName: super::super::Foundation::PWSTR,
+    pub CacheEntryType: u32,
+    pub dwUseCount: u32,
+    pub dwHitRate: u32,
+    pub dwSizeLow: u32,
+    pub dwSizeHigh: u32,
+    pub LastModifiedTime: super::super::Foundation::FILETIME,
+    pub ExpireTime: super::super::Foundation::FILETIME,
+    pub LastAccessTime: super::super::Foundation::FILETIME,
+    pub LastSyncTime: super::super::Foundation::FILETIME,
+    pub lpHeaderInfo: super::super::Foundation::PWSTR,
+    pub dwHeaderInfoSize: u32,
+    pub lpszFileExtension: super::super::Foundation::PWSTR,
+    pub Anonymous: INTERNET_CACHE_ENTRY_INFOW_0,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for INTERNET_CACHE_ENTRY_INFOW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for INTERNET_CACHE_ENTRY_INFOW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub union INTERNET_CACHE_ENTRY_INFOW_0 {
+    pub dwReserved: u32,
+    pub dwExemptDelta: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for INTERNET_CACHE_ENTRY_INFOW_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for INTERNET_CACHE_ENTRY_INFOW_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const INTERNET_CACHE_FLAG_ADD_FILENAME_ONLY: u32 = 2048u32;
 pub const INTERNET_CACHE_FLAG_ALLOW_COLLISIONS: u32 = 256u32;
 pub const INTERNET_CACHE_FLAG_ENTRY_OR_MAPPING: u32 = 1024u32;
 pub const INTERNET_CACHE_FLAG_GET_STRUCT_ONLY: u32 = 4096u32;
 pub const INTERNET_CACHE_FLAG_INSTALLED_ENTRY: u32 = 512u32;
 pub const INTERNET_CACHE_GROUP_ADD: u32 = 0u32;
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+pub struct INTERNET_CACHE_GROUP_INFOA {
+    pub dwGroupSize: u32,
+    pub dwGroupFlags: u32,
+    pub dwGroupType: u32,
+    pub dwDiskUsage: u32,
+    pub dwDiskQuota: u32,
+    pub dwOwnerStorage: [u32; 4],
+    pub szGroupName: [super::super::Foundation::CHAR; 120],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for INTERNET_CACHE_GROUP_INFOA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for INTERNET_CACHE_GROUP_INFOA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct INTERNET_CACHE_GROUP_INFOA(i32);
-#[repr(C)]
-pub struct INTERNET_CACHE_GROUP_INFOW(i32);
+pub struct INTERNET_CACHE_GROUP_INFOW {
+    pub dwGroupSize: u32,
+    pub dwGroupFlags: u32,
+    pub dwGroupType: u32,
+    pub dwDiskUsage: u32,
+    pub dwDiskQuota: u32,
+    pub dwOwnerStorage: [u32; 4],
+    pub szGroupName: [u16; 120],
+}
+impl ::core::marker::Copy for INTERNET_CACHE_GROUP_INFOW {}
+impl ::core::clone::Clone for INTERNET_CACHE_GROUP_INFOW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const INTERNET_CACHE_GROUP_REMOVE: u32 = 1u32;
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct INTERNET_CACHE_TIMESTAMPS(i32);
+pub struct INTERNET_CACHE_TIMESTAMPS {
+    pub ftExpires: super::super::Foundation::FILETIME,
+    pub ftLastModified: super::super::Foundation::FILETIME,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct INTERNET_CALLBACK_COOKIE(i32);
+impl ::core::marker::Copy for INTERNET_CACHE_TIMESTAMPS {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for INTERNET_CACHE_TIMESTAMPS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct INTERNET_CERTIFICATE_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct INTERNET_CALLBACK_COOKIE {
+    pub pcwszName: super::super::Foundation::PWSTR,
+    pub pcwszValue: super::super::Foundation::PWSTR,
+    pub pcwszDomain: super::super::Foundation::PWSTR,
+    pub pcwszPath: super::super::Foundation::PWSTR,
+    pub ftExpires: super::super::Foundation::FILETIME,
+    pub dwFlags: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for INTERNET_CALLBACK_COOKIE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for INTERNET_CALLBACK_COOKIE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct INTERNET_CONNECTED_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct INTERNET_CERTIFICATE_INFO {
+    pub ftExpiry: super::super::Foundation::FILETIME,
+    pub ftStart: super::super::Foundation::FILETIME,
+    pub lpszSubjectInfo: *mut i8,
+    pub lpszIssuerInfo: *mut i8,
+    pub lpszProtocolName: *mut i8,
+    pub lpszSignatureAlgName: *mut i8,
+    pub lpszEncryptionAlgName: *mut i8,
+    pub dwKeySize: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for INTERNET_CERTIFICATE_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for INTERNET_CERTIFICATE_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct INTERNET_CONNECTED_INFO {
+    pub dwConnectedState: INTERNET_STATE,
+    pub dwFlags: u32,
+}
+impl ::core::marker::Copy for INTERNET_CONNECTED_INFO {}
+impl ::core::clone::Clone for INTERNET_CONNECTED_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct INTERNET_CONNECTION(pub u32);
 pub const INTERNET_CONNECTION_CONFIGURED: INTERNET_CONNECTION = INTERNET_CONNECTION(64u32);
@@ -1287,14 +2119,54 @@ pub const INTERNET_CONNECTION_MODEM_BUSY: INTERNET_CONNECTION = INTERNET_CONNECT
 pub const INTERNET_CONNECTION_OFFLINE_: INTERNET_CONNECTION = INTERNET_CONNECTION(32u32);
 pub const INTERNET_CONNECTION_PROXY: INTERNET_CONNECTION = INTERNET_CONNECTION(4u32);
 pub const INTERNET_RAS_INSTALLED: INTERNET_CONNECTION = INTERNET_CONNECTION(16u32);
+impl ::core::marker::Copy for INTERNET_CONNECTION {}
+impl ::core::clone::Clone for INTERNET_CONNECTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const INTERNET_CONNECTION_LAN: u32 = 2u32;
 pub const INTERNET_CONNECTION_OFFLINE: u32 = 32u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct INTERNET_COOKIE(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct INTERNET_COOKIE {
+    pub cbSize: u32,
+    pub pszName: super::super::Foundation::PSTR,
+    pub pszData: super::super::Foundation::PSTR,
+    pub pszDomain: super::super::Foundation::PSTR,
+    pub pszPath: super::super::Foundation::PSTR,
+    pub pftExpires: *mut super::super::Foundation::FILETIME,
+    pub dwFlags: u32,
+    pub pszUrl: super::super::Foundation::PSTR,
+    pub pszP3PPolicy: super::super::Foundation::PSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for INTERNET_COOKIE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for INTERNET_COOKIE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct INTERNET_COOKIE2(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct INTERNET_COOKIE2 {
+    pub pwszName: super::super::Foundation::PWSTR,
+    pub pwszValue: super::super::Foundation::PWSTR,
+    pub pwszDomain: super::super::Foundation::PWSTR,
+    pub pwszPath: super::super::Foundation::PWSTR,
+    pub dwFlags: u32,
+    pub ftExpires: super::super::Foundation::FILETIME,
+    pub fExpiresSet: super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for INTERNET_COOKIE2 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for INTERNET_COOKIE2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const INTERNET_COOKIE_ALL_COOKIES: u32 = 536870912u32;
 pub const INTERNET_COOKIE_APPLY_HOST_ONLY: u32 = 32768u32;
 pub const INTERNET_COOKIE_APPLY_P3P: u32 = 128u32;
@@ -1306,6 +2178,12 @@ pub struct INTERNET_COOKIE_FLAGS(pub u32);
 pub const INTERNET_COOKIE_HTTPONLY: INTERNET_COOKIE_FLAGS = INTERNET_COOKIE_FLAGS(8192u32);
 pub const INTERNET_COOKIE_THIRD_PARTY: INTERNET_COOKIE_FLAGS = INTERNET_COOKIE_FLAGS(16u32);
 pub const INTERNET_FLAG_RESTRICTED_ZONE: INTERNET_COOKIE_FLAGS = INTERNET_COOKIE_FLAGS(131072u32);
+impl ::core::marker::Copy for INTERNET_COOKIE_FLAGS {}
+impl ::core::clone::Clone for INTERNET_COOKIE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const INTERNET_COOKIE_HOST_ONLY: u32 = 16384u32;
 pub const INTERNET_COOKIE_HOST_ONLY_APPLIED: u32 = 524288u32;
 pub const INTERNET_COOKIE_IE6: u32 = 1024u32;
@@ -1322,9 +2200,53 @@ pub const INTERNET_COOKIE_RESTRICTED_ZONE: u32 = 131072u32;
 pub const INTERNET_COOKIE_SAME_SITE_LAX: u32 = 2097152u32;
 pub const INTERNET_COOKIE_SAME_SITE_LEVEL_CROSS_SITE: u32 = 4194304u32;
 pub const INTERNET_COOKIE_SAME_SITE_STRICT: u32 = 1048576u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct INTERNET_CREDENTIALS(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct INTERNET_CREDENTIALS {
+    pub lpcwszHostName: super::super::Foundation::PWSTR,
+    pub dwPort: u32,
+    pub dwScheme: u32,
+    pub lpcwszUrl: super::super::Foundation::PWSTR,
+    pub lpcwszRealm: super::super::Foundation::PWSTR,
+    pub fAuthIdentity: super::super::Foundation::BOOL,
+    pub Anonymous: INTERNET_CREDENTIALS_0,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for INTERNET_CREDENTIALS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for INTERNET_CREDENTIALS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub union INTERNET_CREDENTIALS_0 {
+    pub Anonymous: INTERNET_CREDENTIALS_0_0,
+    pub pAuthIdentityOpaque: *mut ::core::ffi::c_void,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for INTERNET_CREDENTIALS_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for INTERNET_CREDENTIALS_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct INTERNET_CREDENTIALS_0_0 {
+    pub lpcwszUserName: super::super::Foundation::PWSTR,
+    pub lpcwszPassword: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for INTERNET_CREDENTIALS_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for INTERNET_CREDENTIALS_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const INTERNET_CUSTOMDIAL_CAN_HANGUP: u32 = 4u32;
 pub const INTERNET_CUSTOMDIAL_CONNECT: u32 = 0u32;
 pub const INTERNET_CUSTOMDIAL_DISCONNECT: u32 = 2u32;
@@ -1336,16 +2258,47 @@ pub const INTERNET_DEFAULT_FTP_PORT: u32 = 21u32;
 pub const INTERNET_DEFAULT_GOPHER_PORT: u32 = 70u32;
 pub const INTERNET_DEFAULT_SOCKS_PORT: u32 = 1080u32;
 #[repr(C)]
-pub struct INTERNET_DIAGNOSTIC_SOCKET_INFO(i32);
+pub struct INTERNET_DIAGNOSTIC_SOCKET_INFO {
+    pub Socket: usize,
+    pub SourcePort: u32,
+    pub DestPort: u32,
+    pub Flags: u32,
+}
+impl ::core::marker::Copy for INTERNET_DIAGNOSTIC_SOCKET_INFO {}
+impl ::core::clone::Clone for INTERNET_DIAGNOSTIC_SOCKET_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const INTERNET_DIALSTATE_DISCONNECTED: u32 = 1u32;
 pub const INTERNET_DIAL_FORCE_PROMPT: u32 = 8192u32;
 pub const INTERNET_DIAL_SHOW_OFFLINE: u32 = 16384u32;
 pub const INTERNET_DIAL_UNATTENDED: u32 = 32768u32;
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+pub struct INTERNET_DOWNLOAD_MODE_HANDLE {
+    pub pcwszFileName: super::super::Foundation::PWSTR,
+    pub phFile: *mut super::super::Foundation::HANDLE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for INTERNET_DOWNLOAD_MODE_HANDLE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for INTERNET_DOWNLOAD_MODE_HANDLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct INTERNET_DOWNLOAD_MODE_HANDLE(i32);
-#[repr(C)]
-pub struct INTERNET_END_BROWSER_SESSION_DATA(i32);
+pub struct INTERNET_END_BROWSER_SESSION_DATA {
+    pub lpBuffer: *mut ::core::ffi::c_void,
+    pub dwBufferLength: u32,
+}
+impl ::core::marker::Copy for INTERNET_END_BROWSER_SESSION_DATA {}
+impl ::core::clone::Clone for INTERNET_END_BROWSER_SESSION_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const INTERNET_ERROR_BASE: u32 = 12000u32;
 pub const INTERNET_ERROR_LAST: u32 = 12192u32;
 pub const INTERNET_ERROR_MASK_COMBINED_SEC_CERT: u32 = 2u32;
@@ -1622,27 +2575,132 @@ pub const INTERNET_PER_CONN_AUTOCONFIG_SECONDARY_URL: INTERNET_PER_CONN = INTERN
 pub const INTERNET_PER_CONN_AUTOCONFIG_RELOAD_DELAY_MINS: INTERNET_PER_CONN = INTERNET_PER_CONN(7u32);
 pub const INTERNET_PER_CONN_AUTOCONFIG_LAST_DETECT_TIME: INTERNET_PER_CONN = INTERNET_PER_CONN(8u32);
 pub const INTERNET_PER_CONN_AUTOCONFIG_LAST_DETECT_URL: INTERNET_PER_CONN = INTERNET_PER_CONN(9u32);
+impl ::core::marker::Copy for INTERNET_PER_CONN {}
+impl ::core::clone::Clone for INTERNET_PER_CONN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const INTERNET_PER_CONN_FLAGS_UI: u32 = 10u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct INTERNET_PER_CONN_OPTIONA(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct INTERNET_PER_CONN_OPTIONW(i32);
+pub struct INTERNET_PER_CONN_OPTIONA {
+    pub dwOption: INTERNET_PER_CONN,
+    pub Value: INTERNET_PER_CONN_OPTIONA_0,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct INTERNET_PER_CONN_OPTION_LISTA(i32);
+impl ::core::marker::Copy for INTERNET_PER_CONN_OPTIONA {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for INTERNET_PER_CONN_OPTIONA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct INTERNET_PER_CONN_OPTION_LISTW(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub union INTERNET_PER_CONN_OPTIONA_0 {
+    pub dwValue: u32,
+    pub pszValue: super::super::Foundation::PSTR,
+    pub ftValue: super::super::Foundation::FILETIME,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for INTERNET_PER_CONN_OPTIONA_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for INTERNET_PER_CONN_OPTIONA_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct INTERNET_PER_CONN_OPTIONW {
+    pub dwOption: INTERNET_PER_CONN,
+    pub Value: INTERNET_PER_CONN_OPTIONW_0,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for INTERNET_PER_CONN_OPTIONW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for INTERNET_PER_CONN_OPTIONW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub union INTERNET_PER_CONN_OPTIONW_0 {
+    pub dwValue: u32,
+    pub pszValue: super::super::Foundation::PWSTR,
+    pub ftValue: super::super::Foundation::FILETIME,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for INTERNET_PER_CONN_OPTIONW_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for INTERNET_PER_CONN_OPTIONW_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct INTERNET_PER_CONN_OPTION_LISTA {
+    pub dwSize: u32,
+    pub pszConnection: super::super::Foundation::PSTR,
+    pub dwOptionCount: u32,
+    pub dwOptionError: u32,
+    pub pOptions: *mut INTERNET_PER_CONN_OPTIONA,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for INTERNET_PER_CONN_OPTION_LISTA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for INTERNET_PER_CONN_OPTION_LISTA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct INTERNET_PER_CONN_OPTION_LISTW {
+    pub dwSize: u32,
+    pub pszConnection: super::super::Foundation::PWSTR,
+    pub dwOptionCount: u32,
+    pub dwOptionError: u32,
+    pub pOptions: *mut INTERNET_PER_CONN_OPTIONW,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for INTERNET_PER_CONN_OPTION_LISTW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for INTERNET_PER_CONN_OPTION_LISTW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const INTERNET_PREFETCH_ABORTED: u32 = 2u32;
 pub const INTERNET_PREFETCH_COMPLETE: u32 = 1u32;
 pub const INTERNET_PREFETCH_PROGRESS: u32 = 0u32;
 #[repr(C)]
-pub struct INTERNET_PREFETCH_STATUS(i32);
+pub struct INTERNET_PREFETCH_STATUS {
+    pub dwStatus: u32,
+    pub dwSize: u32,
+}
+impl ::core::marker::Copy for INTERNET_PREFETCH_STATUS {}
+impl ::core::clone::Clone for INTERNET_PREFETCH_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const INTERNET_PRIORITY_FOREGROUND: u32 = 1000u32;
 #[repr(C)]
-pub struct INTERNET_PROXY_INFO(i32);
+pub struct INTERNET_PROXY_INFO {
+    pub dwAccessType: INTERNET_ACCESS_TYPE,
+    pub lpszProxy: *mut i8,
+    pub lpszProxyBypass: *mut i8,
+}
+impl ::core::marker::Copy for INTERNET_PROXY_INFO {}
+impl ::core::clone::Clone for INTERNET_PROXY_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const INTERNET_REQFLAG_ASYNC: u32 = 2u32;
 pub const INTERNET_REQFLAG_CACHE_WRITE_DISABLED: u32 = 64u32;
 pub const INTERNET_REQFLAG_FROM_APP_CACHE: u32 = 256u32;
@@ -1671,15 +2729,67 @@ pub const INTERNET_SCHEME_VBSCRIPT: INTERNET_SCHEME = INTERNET_SCHEME(10i32);
 pub const INTERNET_SCHEME_RES: INTERNET_SCHEME = INTERNET_SCHEME(11i32);
 pub const INTERNET_SCHEME_FIRST: INTERNET_SCHEME = INTERNET_SCHEME(1i32);
 pub const INTERNET_SCHEME_LAST: INTERNET_SCHEME = INTERNET_SCHEME(11i32);
+impl ::core::marker::Copy for INTERNET_SCHEME {}
+impl ::core::clone::Clone for INTERNET_SCHEME {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity"))]
+pub struct INTERNET_SECURITY_CONNECTION_INFO {
+    pub dwSize: u32,
+    pub fSecure: super::super::Foundation::BOOL,
+    pub connectionInfo: super::super::Security::Authentication::Identity::SecPkgContext_ConnectionInfo,
+    pub cipherInfo: super::super::Security::Authentication::Identity::SecPkgContext_CipherInfo,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity"))]
+impl ::core::marker::Copy for INTERNET_SECURITY_CONNECTION_INFO {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity"))]
+impl ::core::clone::Clone for INTERNET_SECURITY_CONNECTION_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct INTERNET_SECURITY_CONNECTION_INFO(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity", feature = "Win32_Security_Cryptography"))]
+pub struct INTERNET_SECURITY_INFO {
+    pub dwSize: u32,
+    pub pCertificate: *mut super::super::Security::Cryptography::CERT_CONTEXT,
+    pub pcCertChain: *mut super::super::Security::Cryptography::CERT_CHAIN_CONTEXT,
+    pub connectionInfo: super::super::Security::Authentication::Identity::SecPkgContext_ConnectionInfo,
+    pub cipherInfo: super::super::Security::Authentication::Identity::SecPkgContext_CipherInfo,
+    pub pcUnverifiedCertChain: *mut super::super::Security::Cryptography::CERT_CHAIN_CONTEXT,
+    pub channelBindingToken: super::super::Security::Authentication::Identity::SecPkgContext_Bindings,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity", feature = "Win32_Security_Cryptography"))]
+impl ::core::marker::Copy for INTERNET_SECURITY_INFO {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity", feature = "Win32_Security_Cryptography"))]
+impl ::core::clone::Clone for INTERNET_SECURITY_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct INTERNET_SECURITY_INFO(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct INTERNET_SERVER_CONNECTION_STATE(i32);
+pub struct INTERNET_SERVER_CONNECTION_STATE {
+    pub lpcwszHostName: super::super::Foundation::PWSTR,
+    pub fProxy: super::super::Foundation::BOOL,
+    pub dwCounter: u32,
+    pub dwConnectionLimit: u32,
+    pub dwAvailableCreates: u32,
+    pub dwAvailableKeepAlives: u32,
+    pub dwActiveConnections: u32,
+    pub dwWaiters: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for INTERNET_SERVER_CONNECTION_STATE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for INTERNET_SERVER_CONNECTION_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const INTERNET_SERVICE_FTP: u32 = 1u32;
 pub const INTERNET_SERVICE_GOPHER: u32 = 2u32;
 pub const INTERNET_SERVICE_HTTP: u32 = 3u32;
@@ -1691,6 +2801,12 @@ pub const INTERNET_STATE_DISCONNECTED: INTERNET_STATE = INTERNET_STATE(2u32);
 pub const INTERNET_STATE_DISCONNECTED_BY_USER: INTERNET_STATE = INTERNET_STATE(16u32);
 pub const INTERNET_STATE_IDLE: INTERNET_STATE = INTERNET_STATE(256u32);
 pub const INTERNET_STATE_BUSY: INTERNET_STATE = INTERNET_STATE(512u32);
+impl ::core::marker::Copy for INTERNET_STATE {}
+impl ::core::clone::Clone for INTERNET_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const INTERNET_STATUS_CLOSING_CONNECTION: u32 = 50u32;
 pub const INTERNET_STATUS_CONNECTED_TO_SERVER: u32 = 21u32;
 pub const INTERNET_STATUS_CONNECTING_TO_SERVER: u32 = 20u32;
@@ -1746,7 +2862,16 @@ pub const INTERNET_SUPPRESS_COOKIE_POLICY: u32 = 1u32;
 pub const INTERNET_SUPPRESS_COOKIE_POLICY_RESET: u32 = 2u32;
 pub const INTERNET_SUPPRESS_RESET_ALL: u32 = 0u32;
 #[repr(C)]
-pub struct INTERNET_VERSION_INFO(i32);
+pub struct INTERNET_VERSION_INFO {
+    pub dwMajorVersion: u32,
+    pub dwMinorVersion: u32,
+}
+impl ::core::marker::Copy for INTERNET_VERSION_INFO {}
+impl ::core::clone::Clone for INTERNET_VERSION_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IProofOfPossessionCookieInfoManager(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -1759,12 +2884,41 @@ pub const ISO_FORCE_DISCONNECTED: u32 = 1u32;
 pub const ISO_FORCE_OFFLINE: u32 = 1u32;
 pub const ISO_GLOBAL: u32 = 1u32;
 pub const ISO_REGISTRY: u32 = 2u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct IncomingCookieState(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct IncomingCookieState {
+    pub cSession: i32,
+    pub cPersistent: i32,
+    pub cAccepted: i32,
+    pub cLeashed: i32,
+    pub cDowngraded: i32,
+    pub cBlocked: i32,
+    pub pszLocation: super::super::Foundation::PSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for IncomingCookieState {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for IncomingCookieState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct InternetCookieHistory(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct InternetCookieHistory {
+    pub fAccepted: super::super::Foundation::BOOL,
+    pub fLeashed: super::super::Foundation::BOOL,
+    pub fDowngraded: super::super::Foundation::BOOL,
+    pub fRejected: super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for InternetCookieHistory {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for InternetCookieHistory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct InternetCookieState(pub i32);
 pub const COOKIE_STATE_UNKNOWN: InternetCookieState = InternetCookieState(0i32);
@@ -1774,6 +2928,12 @@ pub const COOKIE_STATE_LEASH: InternetCookieState = InternetCookieState(3i32);
 pub const COOKIE_STATE_DOWNGRADE: InternetCookieState = InternetCookieState(4i32);
 pub const COOKIE_STATE_REJECT: InternetCookieState = InternetCookieState(5i32);
 pub const COOKIE_STATE_MAX: InternetCookieState = InternetCookieState(5i32);
+impl ::core::marker::Copy for InternetCookieState {}
+impl ::core::clone::Clone for InternetCookieState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub type LPINTERNET_STATUS_CALLBACK = unsafe extern "system" fn(hinternet: *const ::core::ffi::c_void, dwcontext: usize, dwinternetstatus: u32, lpvstatusinformation: *const ::core::ffi::c_void, dwstatusinformationlength: u32);
 pub const MAX_CACHE_ENTRY_INFO_SIZE: u32 = 4096u32;
 pub const MAX_GOPHER_ATTRIBUTE_NAME: u32 = 128u32;
@@ -1786,9 +2946,21 @@ pub const MUST_REVALIDATE_CACHE_ENTRY: u32 = 256u32;
 pub const MaxPrivacySettings: u32 = 16384u32;
 pub const NORMAL_CACHE_ENTRY: u32 = 1u32;
 pub const OTHER_USER_CACHE_ENTRY: u32 = 8388608u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct OutgoingCookieState(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct OutgoingCookieState {
+    pub cSent: i32,
+    pub cSuppressed: i32,
+    pub pszLocation: super::super::Foundation::PSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for OutgoingCookieState {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for OutgoingCookieState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const PENDING_DELETE_CACHE_ENTRY: u32 = 4194304u32;
 pub type PFN_AUTH_NOTIFY = unsafe extern "system" fn(param0: usize, param1: u32, param2: *mut ::core::ffi::c_void) -> u32;
 #[cfg(feature = "Win32_Foundation")]
@@ -1812,15 +2984,33 @@ pub const PRIVACY_TYPE_THIRD_PARTY: u32 = 1u32;
 pub struct PROXY_AUTO_DETECT_TYPE(pub u32);
 pub const PROXY_AUTO_DETECT_TYPE_DHCP: PROXY_AUTO_DETECT_TYPE = PROXY_AUTO_DETECT_TYPE(1u32);
 pub const PROXY_AUTO_DETECT_TYPE_DNS_A: PROXY_AUTO_DETECT_TYPE = PROXY_AUTO_DETECT_TYPE(2u32);
+impl ::core::marker::Copy for PROXY_AUTO_DETECT_TYPE {}
+impl ::core::clone::Clone for PROXY_AUTO_DETECT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const PROXY_TYPE_AUTO_DETECT: u32 = 8u32;
 pub const PROXY_TYPE_AUTO_PROXY_URL: u32 = 4u32;
 pub const PROXY_TYPE_DIRECT: u32 = 1u32;
 pub const PROXY_TYPE_PROXY: u32 = 2u32;
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct ProofOfPossessionCookieInfo(i32);
-#[repr(C)]
-pub struct ProofOfPossessionCookieInfoManager(i32);
+pub struct ProofOfPossessionCookieInfo {
+    pub name: super::super::Foundation::PWSTR,
+    pub data: super::super::Foundation::PWSTR,
+    pub flags: u32,
+    pub p3pHeader: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ProofOfPossessionCookieInfo {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ProofOfPossessionCookieInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+pub const ProofOfPossessionCookieInfoManager: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2844950405, data2: 41732, data3: 17296, data4: [139, 35, 167, 95, 28, 102, 134, 0] };
 pub const REDIRECT_CACHE_ENTRY: u32 = 2048u32;
 #[repr(transparent)]
 pub struct REQUEST_TIMES(pub i32);
@@ -1831,6 +3021,12 @@ pub const ConnectionEstablishmentEnd: REQUEST_TIMES = REQUEST_TIMES(3i32);
 pub const TLSHandshakeStart: REQUEST_TIMES = REQUEST_TIMES(4i32);
 pub const TLSHandshakeEnd: REQUEST_TIMES = REQUEST_TIMES(5i32);
 pub const HttpRequestTimeMax: REQUEST_TIMES = REQUEST_TIMES(32i32);
+impl ::core::marker::Copy for REQUEST_TIMES {}
+impl ::core::clone::Clone for REQUEST_TIMES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SECURITY_FLAG_128BIT: u32 = 536870912u32;
 pub const SECURITY_FLAG_40BIT: u32 = 268435456u32;
 pub const SECURITY_FLAG_56BIT: u32 = 1073741824u32;
@@ -1854,9 +3050,33 @@ pub const STATIC_CACHE_ENTRY: u32 = 128u32;
 pub const STICKY_CACHE_ENTRY: u32 = 4u32;
 pub const TRACK_OFFLINE_CACHE_ENTRY: u32 = 16u32;
 pub const TRACK_ONLINE_CACHE_ENTRY: u32 = 32u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct URLCACHE_ENTRY_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct URLCACHE_ENTRY_INFO {
+    pub pwszSourceUrlName: super::super::Foundation::PWSTR,
+    pub pwszLocalFileName: super::super::Foundation::PWSTR,
+    pub dwCacheEntryType: u32,
+    pub dwUseCount: u32,
+    pub dwHitRate: u32,
+    pub dwSizeLow: u32,
+    pub dwSizeHigh: u32,
+    pub ftLastModifiedTime: super::super::Foundation::FILETIME,
+    pub ftExpireTime: super::super::Foundation::FILETIME,
+    pub ftLastAccessTime: super::super::Foundation::FILETIME,
+    pub ftLastSyncTime: super::super::Foundation::FILETIME,
+    pub pbHeaderInfo: *mut u8,
+    pub cbHeaderInfoSize: u32,
+    pub pbExtraData: *mut u8,
+    pub cbExtraDataSize: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for URLCACHE_ENTRY_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for URLCACHE_ENTRY_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const URLHISTORY_CACHE_ENTRY: u32 = 2097152u32;
 #[repr(transparent)]
 pub struct URL_CACHE_LIMIT_TYPE(pub i32);
@@ -1865,21 +3085,100 @@ pub const UrlCacheLimitTypeIETotal: URL_CACHE_LIMIT_TYPE = URL_CACHE_LIMIT_TYPE(
 pub const UrlCacheLimitTypeAppContainer: URL_CACHE_LIMIT_TYPE = URL_CACHE_LIMIT_TYPE(2i32);
 pub const UrlCacheLimitTypeAppContainerTotal: URL_CACHE_LIMIT_TYPE = URL_CACHE_LIMIT_TYPE(3i32);
 pub const UrlCacheLimitTypeNum: URL_CACHE_LIMIT_TYPE = URL_CACHE_LIMIT_TYPE(4i32);
-#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for URL_CACHE_LIMIT_TYPE {}
+impl ::core::clone::Clone for URL_CACHE_LIMIT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct URL_COMPONENTSA(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct URL_COMPONENTSA {
+    pub dwStructSize: u32,
+    pub lpszScheme: super::super::Foundation::PSTR,
+    pub dwSchemeLength: u32,
+    pub nScheme: INTERNET_SCHEME,
+    pub lpszHostName: super::super::Foundation::PSTR,
+    pub dwHostNameLength: u32,
+    pub nPort: u16,
+    pub lpszUserName: super::super::Foundation::PSTR,
+    pub dwUserNameLength: u32,
+    pub lpszPassword: super::super::Foundation::PSTR,
+    pub dwPasswordLength: u32,
+    pub lpszUrlPath: super::super::Foundation::PSTR,
+    pub dwUrlPathLength: u32,
+    pub lpszExtraInfo: super::super::Foundation::PSTR,
+    pub dwExtraInfoLength: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for URL_COMPONENTSA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for URL_COMPONENTSA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct URL_COMPONENTSW(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct URL_COMPONENTSW {
+    pub dwStructSize: u32,
+    pub lpszScheme: super::super::Foundation::PWSTR,
+    pub dwSchemeLength: u32,
+    pub nScheme: INTERNET_SCHEME,
+    pub lpszHostName: super::super::Foundation::PWSTR,
+    pub dwHostNameLength: u32,
+    pub nPort: u16,
+    pub lpszUserName: super::super::Foundation::PWSTR,
+    pub dwUserNameLength: u32,
+    pub lpszPassword: super::super::Foundation::PWSTR,
+    pub dwPasswordLength: u32,
+    pub lpszUrlPath: super::super::Foundation::PWSTR,
+    pub dwUrlPathLength: u32,
+    pub lpszExtraInfo: super::super::Foundation::PWSTR,
+    pub dwExtraInfoLength: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for URL_COMPONENTSW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for URL_COMPONENTSW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WININET_API_FLAG_ASYNC: u32 = 1u32;
 pub const WININET_API_FLAG_SYNC: u32 = 4u32;
 pub const WININET_API_FLAG_USE_CONTEXT: u32 = 8u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct WININET_PROXY_INFO(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct WININET_PROXY_INFO {
+    pub fProxy: super::super::Foundation::BOOL,
+    pub fBypass: super::super::Foundation::BOOL,
+    pub ProxyScheme: INTERNET_SCHEME,
+    pub pwszProxy: super::super::Foundation::PWSTR,
+    pub ProxyPort: u16,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WININET_PROXY_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WININET_PROXY_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WININET_PROXY_INFO_LIST(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct WININET_PROXY_INFO_LIST {
+    pub dwProxyInfoCount: u32,
+    pub pProxyInfo: *mut WININET_PROXY_INFO,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WININET_PROXY_INFO_LIST {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WININET_PROXY_INFO_LIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WININET_SYNC_MODE(pub i32);
 pub const WININET_SYNC_MODE_NEVER: WININET_SYNC_MODE = WININET_SYNC_MODE(0i32);
@@ -1888,10 +3187,22 @@ pub const WININET_SYNC_MODE_ONCE_PER_SESSION: WININET_SYNC_MODE = WININET_SYNC_M
 pub const WININET_SYNC_MODE_ALWAYS: WININET_SYNC_MODE = WININET_SYNC_MODE(3i32);
 pub const WININET_SYNC_MODE_AUTOMATIC: WININET_SYNC_MODE = WININET_SYNC_MODE(4i32);
 pub const WININET_SYNC_MODE_DEFAULT: WININET_SYNC_MODE = WININET_SYNC_MODE(4i32);
+impl ::core::marker::Copy for WININET_SYNC_MODE {}
+impl ::core::clone::Clone for WININET_SYNC_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WPAD_CACHE_DELETE(pub i32);
 pub const WPAD_CACHE_DELETE_CURRENT: WPAD_CACHE_DELETE = WPAD_CACHE_DELETE(0i32);
 pub const WPAD_CACHE_DELETE_ALL: WPAD_CACHE_DELETE = WPAD_CACHE_DELETE(1i32);
+impl ::core::marker::Copy for WPAD_CACHE_DELETE {}
+impl ::core::clone::Clone for WPAD_CACHE_DELETE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const XDR_CACHE_ENTRY: u32 = 262144u32;
 #[cfg(feature = "Win32_Foundation")]
 pub type pfnInternetDeInitializeAutoProxyDll = unsafe extern "system" fn(lpszmime: super::super::Foundation::PSTR, dwreserved: u32) -> super::super::Foundation::BOOL;

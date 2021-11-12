@@ -65,17 +65,60 @@ extern "system" {
     pub fn TcSetInterface(ifchandle: super::super::Foundation::HANDLE, pguidparam: *const ::windows_sys::core::GUID, buffersize: u32, buffer: *const ::core::ffi::c_void) -> u32;
 }
 pub const ABLE_TO_RECV_RSVP: u32 = 50002u32;
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 #[repr(C)]
-pub struct ADDRESS_LIST_DESCRIPTOR(i32);
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+pub struct ADDRESS_LIST_DESCRIPTOR {
+    pub MediaType: u32,
+    pub AddressList: super::Ndis::NETWORK_ADDRESS_LIST,
+}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::marker::Copy for ADDRESS_LIST_DESCRIPTOR {}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::clone::Clone for ADDRESS_LIST_DESCRIPTOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const ADM_CTRL_FAILED: u32 = 3u32;
 #[repr(C)]
-pub struct ADSPEC(i32);
+pub struct ADSPEC {
+    pub adspec_header: RsvpObjHdr,
+    pub adspec_body: IS_ADSPEC_BODY,
+}
+impl ::core::marker::Copy for ADSPEC {}
+impl ::core::clone::Clone for ADSPEC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const AD_FLAG_BREAK_BIT: u32 = 1u32;
 #[repr(C)]
-pub struct AD_GENERAL_PARAMS(i32);
+pub struct AD_GENERAL_PARAMS {
+    pub IntServAwareHopCount: u32,
+    pub PathBandwidthEstimate: u32,
+    pub MinimumLatency: u32,
+    pub PathMTU: u32,
+    pub Flags: u32,
+}
+impl ::core::marker::Copy for AD_GENERAL_PARAMS {}
+impl ::core::clone::Clone for AD_GENERAL_PARAMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct AD_GUARANTEED(i32);
+pub struct AD_GUARANTEED {
+    pub CTotal: u32,
+    pub DTotal: u32,
+    pub CSum: u32,
+    pub DSum: u32,
+}
+impl ::core::marker::Copy for AD_GUARANTEED {}
+impl ::core::clone::Clone for AD_GUARANTEED {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const ALLOWED_TO_SEND_DATA: u32 = 50001u32;
 pub const ANY_DEST_ADDR: u32 = 4294967295u32;
 pub type CBADMITRESULT = unsafe extern "system" fn(lpmhandle: LPM_HANDLE, requesthandle: RHANDLE, ulpcmactionflags: u32, lpmerror: i32, policydecisionscount: i32, ppolicydecisions: *mut policy_decision) -> *mut u32;
@@ -83,7 +126,29 @@ pub type CBGETRSVPOBJECTS = unsafe extern "system" fn(lpmhandle: LPM_HANDLE, req
 pub const CONTROLLED_DELAY_SERV: u32 = 4u32;
 pub const CONTROLLED_LOAD_SERV: u32 = 5u32;
 #[repr(C)]
-pub struct CONTROL_SERVICE(i32);
+pub struct CONTROL_SERVICE {
+    pub Length: u32,
+    pub Service: u32,
+    pub Overrides: AD_GENERAL_PARAMS,
+    pub Anonymous: CONTROL_SERVICE_0,
+}
+impl ::core::marker::Copy for CONTROL_SERVICE {}
+impl ::core::clone::Clone for CONTROL_SERVICE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub union CONTROL_SERVICE_0 {
+    pub Guaranteed: AD_GUARANTEED,
+    pub ParamBuffer: [PARAM_BUFFER; 1],
+}
+impl ::core::marker::Copy for CONTROL_SERVICE_0 {}
+impl ::core::clone::Clone for CONTROL_SERVICE_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CREDENTIAL_SUB_TYPE_ASCII_ID: u32 = 1u32;
 pub const CREDENTIAL_SUB_TYPE_KERBEROS_TKT: u32 = 3u32;
 pub const CREDENTIAL_SUB_TYPE_PGP_CERT: u32 = 5u32;
@@ -91,11 +156,35 @@ pub const CREDENTIAL_SUB_TYPE_UNICODE_ID: u32 = 2u32;
 pub const CREDENTIAL_SUB_TYPE_X509_V3_CERT: u32 = 4u32;
 pub const CURRENT_TCI_VERSION: u32 = 2u32;
 #[repr(C)]
-pub struct CtrlLoadFlowspec(i32);
+pub struct CtrlLoadFlowspec {
+    pub CL_spec_serv_hdr: IntServServiceHdr,
+    pub CL_spec_parm_hdr: IntServParmHdr,
+    pub CL_spec_parms: GenTspecParms,
+}
+impl ::core::marker::Copy for CtrlLoadFlowspec {}
+impl ::core::clone::Clone for CtrlLoadFlowspec {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DUP_RESULTS: u32 = 4u32;
 pub const END_TO_END_QOSABILITY: u32 = 50006u32;
 #[repr(C)]
-pub struct ENUMERATION_BUFFER(i32);
+pub struct ENUMERATION_BUFFER {
+    pub Length: u32,
+    pub OwnerProcessId: u32,
+    pub FlowNameLength: u16,
+    pub FlowName: [u16; 256],
+    pub pFlow: *mut TC_GEN_FLOW,
+    pub NumberOfFilters: u32,
+    pub GenericFilter: [TC_GEN_FILTER; 1],
+}
+impl ::core::marker::Copy for ENUMERATION_BUFFER {}
+impl ::core::clone::Clone for ENUMERATION_BUFFER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const ERROR_ADDRESS_TYPE_NOT_SUPPORTED: u32 = 7511u32;
 pub const ERROR_DS_MAPPING_EXISTS: u32 = 7518u32;
 pub const ERROR_DUPLICATE_FILTER: u32 = 7509u32;
@@ -114,9 +203,33 @@ pub const ERROR_INVALID_SHAPE_RATE: u32 = 7519u32;
 pub const ERROR_INVALID_TOKEN_RATE: u32 = 7503u32;
 pub const ERROR_INVALID_TRAFFIC_CLASS: u32 = 7507u32;
 pub const ERROR_NO_MORE_INFO: u32 = 1u32;
-#[cfg(feature = "Win32_Networking_WinSock")]
 #[repr(C)]
-pub struct ERROR_SPEC(i32);
+#[cfg(feature = "Win32_Networking_WinSock")]
+pub struct ERROR_SPEC {
+    pub errs_header: RsvpObjHdr,
+    pub errs_u: ERROR_SPEC_0,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::marker::Copy for ERROR_SPEC {}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::clone::Clone for ERROR_SPEC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
+pub union ERROR_SPEC_0 {
+    pub errs_ipv4: Error_Spec_IPv4,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::marker::Copy for ERROR_SPEC_0 {}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::clone::Clone for ERROR_SPEC_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const ERROR_SPECF_InPlace: u32 = 1u32;
 pub const ERROR_SPECF_NotGuilty: u32 = 2u32;
 pub const ERROR_TC_NOT_SUPPORTED: u32 = 7514u32;
@@ -129,16 +242,79 @@ pub const ERR_Usage_local: u32 = 16u32;
 pub const ERR_Usage_serv: u32 = 17u32;
 pub const ERR_global_mask: u32 = 4095u32;
 pub const EXPIRED_CREDENTIAL: u32 = 4u32;
+#[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[repr(C)]
-pub struct Error_Spec_IPv4(i32);
+pub struct Error_Spec_IPv4 {
+    pub errs_errnode: super::super::Networking::WinSock::IN_ADDR,
+    pub errs_flags: u8,
+    pub errs_code: u8,
+    pub errs_value: u16,
+}
 #[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::marker::Copy for Error_Spec_IPv4 {}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::clone::Clone for Error_Spec_IPv4 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct FILTER_SPEC(i32);
+#[cfg(feature = "Win32_Networking_WinSock")]
+pub struct FILTER_SPEC {
+    pub filt_header: RsvpObjHdr,
+    pub filt_u: FILTER_SPEC_0,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::marker::Copy for FILTER_SPEC {}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::clone::Clone for FILTER_SPEC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct FLOWDESCRIPTOR(i32);
+#[cfg(feature = "Win32_Networking_WinSock")]
+pub union FILTER_SPEC_0 {
+    pub filt_ipv4: Filter_Spec_IPv4,
+    pub filt_ipv4gpi: Filter_Spec_IPv4GPI,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::marker::Copy for FILTER_SPEC_0 {}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::clone::Clone for FILTER_SPEC_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct FLOWSPEC(i32);
+pub struct FLOWDESCRIPTOR {
+    pub FlowSpec: FLOWSPEC,
+    pub NumFilters: u32,
+    pub FilterList: *mut RSVP_FILTERSPEC,
+}
+impl ::core::marker::Copy for FLOWDESCRIPTOR {}
+impl ::core::clone::Clone for FLOWDESCRIPTOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct FLOWSPEC {
+    pub TokenRate: u32,
+    pub TokenBucketSize: u32,
+    pub PeakBandwidth: u32,
+    pub Latency: u32,
+    pub DelayVariation: u32,
+    pub ServiceType: u32,
+    pub MaxSduSize: u32,
+    pub MinimumPolicedSize: u32,
+}
+impl ::core::marker::Copy for FLOWSPEC {}
+impl ::core::clone::Clone for FLOWSPEC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const FLOW_DURATION: u32 = 5u32;
 pub const FORCE_IMMEDIATE_REFRESH: u32 = 1u32;
 pub const FSCTL_TCP_BASE: u32 = 18u32;
@@ -160,12 +336,41 @@ pub const FILTERSPECV6_FLOW: FilterType = FilterType(3i32);
 pub const FILTERSPECV4_GPI: FilterType = FilterType(4i32);
 pub const FILTERSPECV6_GPI: FilterType = FilterType(5i32);
 pub const FILTERSPEC_END: FilterType = FilterType(6i32);
-#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::marker::Copy for FilterType {}
+impl ::core::clone::Clone for FilterType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct Filter_Spec_IPv4(i32);
 #[cfg(feature = "Win32_Networking_WinSock")]
+pub struct Filter_Spec_IPv4 {
+    pub filt_ipaddr: super::super::Networking::WinSock::IN_ADDR,
+    pub filt_unused: u16,
+    pub filt_port: u16,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::marker::Copy for Filter_Spec_IPv4 {}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::clone::Clone for Filter_Spec_IPv4 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct Filter_Spec_IPv4GPI(i32);
+#[cfg(feature = "Win32_Networking_WinSock")]
+pub struct Filter_Spec_IPv4GPI {
+    pub filt_ipaddr: super::super::Networking::WinSock::IN_ADDR,
+    pub filt_gpi: u32,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::marker::Copy for Filter_Spec_IPv4GPI {}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::clone::Clone for Filter_Spec_IPv4GPI {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const GENERAL_INFO: u32 = 1u32;
 pub const GQOS_API: u32 = 56400u32;
 pub const GQOS_ERRORCODE_UNKNOWN: u32 = 4294967295u32;
@@ -207,23 +412,122 @@ pub const GUID_QOS_REMAINING_BANDWIDTH: ::windows_sys::core::GUID = ::windows_sy
 pub const GUID_QOS_STATISTICS_BUFFER: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3140225408, data2: 59648, data3: 4561, data4: [176, 126, 0, 128, 199, 19, 130, 191] };
 pub const GUID_QOS_TIMER_RESOLUTION: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3121663112, data2: 61758, data3: 4562, data4: [190, 27, 0, 160, 201, 158, 230, 59] };
 #[repr(C)]
-pub struct Gads_parms_t(i32);
+pub struct Gads_parms_t {
+    pub Gads_serv_hdr: IntServServiceHdr,
+    pub Gads_Ctot_hdr: IntServParmHdr,
+    pub Gads_Ctot: u32,
+    pub Gads_Dtot_hdr: IntServParmHdr,
+    pub Gads_Dtot: u32,
+    pub Gads_Csum_hdr: IntServParmHdr,
+    pub Gads_Csum: u32,
+    pub Gads_Dsum_hdr: IntServParmHdr,
+    pub Gads_Dsum: u32,
+}
+impl ::core::marker::Copy for Gads_parms_t {}
+impl ::core::clone::Clone for Gads_parms_t {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct GenAdspecParams(i32);
+pub struct GenAdspecParams {
+    pub gen_parm_hdr: IntServServiceHdr,
+    pub gen_parm_hopcnt_hdr: IntServParmHdr,
+    pub gen_parm_hopcnt: u32,
+    pub gen_parm_pathbw_hdr: IntServParmHdr,
+    pub gen_parm_path_bw: f32,
+    pub gen_parm_minlat_hdr: IntServParmHdr,
+    pub gen_parm_min_latency: u32,
+    pub gen_parm_compmtu_hdr: IntServParmHdr,
+    pub gen_parm_composed_MTU: u32,
+}
+impl ::core::marker::Copy for GenAdspecParams {}
+impl ::core::clone::Clone for GenAdspecParams {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct GenTspec(i32);
+pub struct GenTspec {
+    pub gen_Tspec_serv_hdr: IntServServiceHdr,
+    pub gen_Tspec_parm_hdr: IntServParmHdr,
+    pub gen_Tspec_parms: GenTspecParms,
+}
+impl ::core::marker::Copy for GenTspec {}
+impl ::core::clone::Clone for GenTspec {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct GenTspecParms(i32);
+pub struct GenTspecParms {
+    pub TB_Tspec_r: f32,
+    pub TB_Tspec_b: f32,
+    pub TB_Tspec_p: f32,
+    pub TB_Tspec_m: u32,
+    pub TB_Tspec_M: u32,
+}
+impl ::core::marker::Copy for GenTspecParms {}
+impl ::core::clone::Clone for GenTspecParms {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct GuarFlowSpec(i32);
+pub struct GuarFlowSpec {
+    pub Guar_serv_hdr: IntServServiceHdr,
+    pub Guar_Tspec_hdr: IntServParmHdr,
+    pub Guar_Tspec_parms: GenTspecParms,
+    pub Guar_Rspec_hdr: IntServParmHdr,
+    pub Guar_Rspec: GuarRspec,
+}
+impl ::core::marker::Copy for GuarFlowSpec {}
+impl ::core::clone::Clone for GuarFlowSpec {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct GuarRspec(i32);
+pub struct GuarRspec {
+    pub Guar_R: f32,
+    pub Guar_S: u32,
+}
+impl ::core::marker::Copy for GuarRspec {}
+impl ::core::clone::Clone for GuarRspec {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const HIGHLY_DELAY_SENSITIVE: u32 = 4294967294u32;
 pub const IDENTITY_CHANGED: u32 = 5u32;
 #[repr(C)]
-pub struct IDPE_ATTR(i32);
+pub struct IDPE_ATTR {
+    pub PeAttribLength: u16,
+    pub PeAttribType: u8,
+    pub PeAttribSubType: u8,
+    pub PeAttribValue: [u8; 4],
+}
+impl ::core::marker::Copy for IDPE_ATTR {}
+impl ::core::clone::Clone for IDPE_ATTR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct ID_ERROR_OBJECT(i32);
+pub struct ID_ERROR_OBJECT {
+    pub usIdErrLength: u16,
+    pub ucAType: u8,
+    pub ucSubType: u8,
+    pub usReserved: u16,
+    pub usIdErrorValue: u16,
+    pub ucIdErrData: [u8; 4],
+}
+impl ::core::marker::Copy for ID_ERROR_OBJECT {}
+impl ::core::clone::Clone for ID_ERROR_OBJECT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const IF_MIB_STATS_ID: u32 = 1u32;
 pub const INFO_NOT_AVAILABLE: u32 = 4294967295u32;
 pub const INSUFFICIENT_PRIVILEGES: u32 = 3u32;
@@ -233,41 +537,237 @@ pub const INV_LPM_HANDLE: u32 = 1u32;
 pub const INV_REQ_HANDLE: u32 = 3u32;
 pub const INV_RESULTS: u32 = 5u32;
 #[repr(C)]
-pub struct IN_ADDR_IPV4(i32);
+pub union IN_ADDR_IPV4 {
+    pub Addr: u32,
+    pub AddrBytes: [u8; 4],
+}
+impl ::core::marker::Copy for IN_ADDR_IPV4 {}
+impl ::core::clone::Clone for IN_ADDR_IPV4 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct IN_ADDR_IPV6(i32);
+pub struct IN_ADDR_IPV6 {
+    pub Addr: [u8; 16],
+}
+impl ::core::marker::Copy for IN_ADDR_IPV6 {}
+impl ::core::clone::Clone for IN_ADDR_IPV6 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct IPX_PATTERN(i32);
+pub struct IPX_PATTERN {
+    pub Src: IPX_PATTERN_0,
+    pub Dest: IPX_PATTERN_0,
+}
+impl ::core::marker::Copy for IPX_PATTERN {}
+impl ::core::clone::Clone for IPX_PATTERN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct IPX_PATTERN_0 {
+    pub NetworkAddress: u32,
+    pub NodeAddress: [u8; 6],
+    pub Socket: u16,
+}
+impl ::core::marker::Copy for IPX_PATTERN_0 {}
+impl ::core::clone::Clone for IPX_PATTERN_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const IP_INTFC_INFO_ID: u32 = 259u32;
 pub const IP_MIB_ADDRTABLE_ENTRY_ID: u32 = 258u32;
 pub const IP_MIB_STATS_ID: u32 = 1u32;
 #[repr(C)]
-pub struct IP_PATTERN(i32);
+pub struct IP_PATTERN {
+    pub Reserved1: u32,
+    pub Reserved2: u32,
+    pub SrcAddr: u32,
+    pub DstAddr: u32,
+    pub S_un: IP_PATTERN_0,
+    pub ProtocolId: u8,
+    pub Reserved3: [u8; 3],
+}
+impl ::core::marker::Copy for IP_PATTERN {}
+impl ::core::clone::Clone for IP_PATTERN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub union IP_PATTERN_0 {
+    pub S_un_ports: IP_PATTERN_0_1,
+    pub S_un_icmp: IP_PATTERN_0_0,
+    pub S_Spi: u32,
+}
+impl ::core::marker::Copy for IP_PATTERN_0 {}
+impl ::core::clone::Clone for IP_PATTERN_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct IP_PATTERN_0_0 {
+    pub s_type: u8,
+    pub s_code: u8,
+    pub filler: u16,
+}
+impl ::core::marker::Copy for IP_PATTERN_0_0 {}
+impl ::core::clone::Clone for IP_PATTERN_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct IP_PATTERN_0_1 {
+    pub s_srcport: u16,
+    pub s_dstport: u16,
+}
+impl ::core::marker::Copy for IP_PATTERN_0_1 {}
+impl ::core::clone::Clone for IP_PATTERN_0_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const ISPH_FLG_INV: u32 = 128u32;
 pub const ISSH_BREAK_BIT: u32 = 128u32;
 #[repr(C)]
-pub struct IS_ADSPEC_BODY(i32);
+pub struct IS_ADSPEC_BODY {
+    pub adspec_mh: IntServMainHdr,
+    pub adspec_genparms: GenAdspecParams,
+}
+impl ::core::marker::Copy for IS_ADSPEC_BODY {}
+impl ::core::clone::Clone for IS_ADSPEC_BODY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct IS_FLOWSPEC(i32);
+pub struct IS_FLOWSPEC {
+    pub flow_header: RsvpObjHdr,
+    pub flow_body: IntServFlowSpec,
+}
+impl ::core::marker::Copy for IS_FLOWSPEC {}
+impl ::core::clone::Clone for IS_FLOWSPEC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const IS_GUAR_RSPEC: i32 = 130i32;
 #[repr(C)]
-pub struct IntServFlowSpec(i32);
+pub struct IntServFlowSpec {
+    pub spec_mh: IntServMainHdr,
+    pub spec_u: IntServFlowSpec_0,
+}
+impl ::core::marker::Copy for IntServFlowSpec {}
+impl ::core::clone::Clone for IntServFlowSpec {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct IntServMainHdr(i32);
+pub union IntServFlowSpec_0 {
+    pub CL_spec: CtrlLoadFlowspec,
+    pub G_spec: GuarFlowSpec,
+    pub Q_spec: QualAppFlowSpec,
+}
+impl ::core::marker::Copy for IntServFlowSpec_0 {}
+impl ::core::clone::Clone for IntServFlowSpec_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct IntServParmHdr(i32);
+pub struct IntServMainHdr {
+    pub ismh_version: u8,
+    pub ismh_unused: u8,
+    pub ismh_len32b: u16,
+}
+impl ::core::marker::Copy for IntServMainHdr {}
+impl ::core::clone::Clone for IntServMainHdr {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct IntServServiceHdr(i32);
+pub struct IntServParmHdr {
+    pub isph_parm_num: u8,
+    pub isph_flags: u8,
+    pub isph_len32b: u16,
+}
+impl ::core::marker::Copy for IntServParmHdr {}
+impl ::core::clone::Clone for IntServParmHdr {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct IntServTspecBody(i32);
+pub struct IntServServiceHdr {
+    pub issh_service: u8,
+    pub issh_flags: u8,
+    pub issh_len32b: u16,
+}
+impl ::core::marker::Copy for IntServServiceHdr {}
+impl ::core::clone::Clone for IntServServiceHdr {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct IntServTspecBody {
+    pub st_mh: IntServMainHdr,
+    pub tspec_u: IntServTspecBody_0,
+}
+impl ::core::marker::Copy for IntServTspecBody {}
+impl ::core::clone::Clone for IntServTspecBody {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub union IntServTspecBody_0 {
+    pub gen_stspec: GenTspec,
+    pub qual_stspec: QualTspec,
+}
+impl ::core::marker::Copy for IntServTspecBody_0 {}
+impl ::core::clone::Clone for IntServTspecBody_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const LINE_RATE: u32 = 50003u32;
 pub const LOCAL_QOSABILITY: u32 = 50005u32;
 pub const LOCAL_TRAFFIC_CONTROL: u32 = 50004u32;
 pub const LPM_API_VERSION_1: u32 = 1u32;
 #[repr(C)]
-pub struct LPM_HANDLE(i32);
+pub struct LPM_HANDLE(pub isize);
+impl ::core::marker::Copy for LPM_HANDLE {}
+impl ::core::clone::Clone for LPM_HANDLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct LPM_INIT_INFO(i32);
+pub struct LPM_INIT_INFO {
+    pub PcmVersionNumber: u32,
+    pub ResultTimeLimit: u32,
+    pub ConfiguredLpmCount: i32,
+    pub AllocMemory: ::core::option::Option<PALLOCMEM>,
+    pub FreeMemory: ::core::option::Option<PFREEMEM>,
+    pub PcmAdmitResultCallback: ::core::option::Option<CBADMITRESULT>,
+    pub GetRsvpObjectsCallback: ::core::option::Option<CBGETRSVPOBJECTS>,
+}
+impl ::core::marker::Copy for LPM_INIT_INFO {}
+impl ::core::clone::Clone for LPM_INIT_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const LPM_OK: u32 = 0u32;
 pub const LPM_PE_ALL_TYPES: u32 = 0u32;
 pub const LPM_PE_APP_IDENTITY: u32 = 3u32;
@@ -304,16 +804,46 @@ pub const Opt_SndSel_mask: u32 = 7u32;
 pub const Opt_Wildcard: u32 = 1u32;
 pub type PALLOCMEM = unsafe extern "system" fn(size: u32) -> *mut ::core::ffi::c_void;
 #[repr(C)]
-pub struct PARAM_BUFFER(i32);
+pub struct PARAM_BUFFER {
+    pub ParameterId: u32,
+    pub Length: u32,
+    pub Buffer: [u8; 1],
+}
+impl ::core::marker::Copy for PARAM_BUFFER {}
+impl ::core::clone::Clone for PARAM_BUFFER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const PCM_VERSION_1: u32 = 1u32;
 pub const PE_ATTRIB_TYPE_CREDENTIAL: u32 = 2u32;
 pub const PE_ATTRIB_TYPE_POLICY_LOCATOR: u32 = 1u32;
 pub const PE_TYPE_APPID: u32 = 3u32;
 pub type PFREEMEM = unsafe extern "system" fn(pv: *mut ::core::ffi::c_void);
 #[repr(C)]
-pub struct POLICY_DATA(i32);
+pub struct POLICY_DATA {
+    pub PolicyObjHdr: RsvpObjHdr,
+    pub usPeOffset: u16,
+    pub usReserved: u16,
+}
+impl ::core::marker::Copy for POLICY_DATA {}
+impl ::core::clone::Clone for POLICY_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct POLICY_ELEMENT(i32);
+pub struct POLICY_ELEMENT {
+    pub usPeLength: u16,
+    pub usPeType: u16,
+    pub ucPeData: [u8; 4],
+}
+impl ::core::marker::Copy for POLICY_ELEMENT {}
+impl ::core::clone::Clone for POLICY_ELEMENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const POLICY_ERRV_CRAZY_FLOWSPEC: u32 = 57u32;
 pub const POLICY_ERRV_EXPIRED_CREDENTIALS: u32 = 4u32;
 pub const POLICY_ERRV_EXPIRED_USER_TOKEN: u32 = 51u32;
@@ -383,22 +913,87 @@ pub const POLICY_LOCATOR_SUB_TYPE_UNICODE_DN: u32 = 2u32;
 pub const POLICY_LOCATOR_SUB_TYPE_UNICODE_DN_ENC: u32 = 4u32;
 pub const POSITIVE_INFINITY_RATE: u32 = 4294967294u32;
 pub const PREDICTIVE_SERV: u32 = 3u32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[repr(C)]
-pub struct QOS(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+pub struct QOS {
+    pub SendingFlowspec: FLOWSPEC,
+    pub ReceivingFlowspec: FLOWSPEC,
+    pub ProviderSpecific: super::super::Networking::WinSock::WSABUF,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::marker::Copy for QOS {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::clone::Clone for QOS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const QOSSPBASE: u32 = 50000u32;
 pub const QOSSP_ERR_BASE: u32 = 56000u32;
+#[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+pub struct QOS_DESTADDR {
+    pub ObjectHdr: QOS_OBJECT_HDR,
+    pub SocketAddress: *mut super::super::Networking::WinSock::SOCKADDR,
+    pub SocketAddressLength: u32,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::marker::Copy for QOS_DESTADDR {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+impl ::core::clone::Clone for QOS_DESTADDR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct QOS_DESTADDR(i32);
+pub struct QOS_DIFFSERV {
+    pub ObjectHdr: QOS_OBJECT_HDR,
+    pub DSFieldCount: u32,
+    pub DiffservRule: [u8; 1],
+}
+impl ::core::marker::Copy for QOS_DIFFSERV {}
+impl ::core::clone::Clone for QOS_DIFFSERV {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct QOS_DIFFSERV(i32);
+pub struct QOS_DIFFSERV_RULE {
+    pub InboundDSField: u8,
+    pub ConformingOutboundDSField: u8,
+    pub NonConformingOutboundDSField: u8,
+    pub ConformingUserPriority: u8,
+    pub NonConformingUserPriority: u8,
+}
+impl ::core::marker::Copy for QOS_DIFFSERV_RULE {}
+impl ::core::clone::Clone for QOS_DIFFSERV_RULE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct QOS_DIFFSERV_RULE(i32);
+pub struct QOS_DS_CLASS {
+    pub ObjectHdr: QOS_OBJECT_HDR,
+    pub DSField: u32,
+}
+impl ::core::marker::Copy for QOS_DS_CLASS {}
+impl ::core::clone::Clone for QOS_DS_CLASS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct QOS_DS_CLASS(i32);
-#[repr(C)]
-pub struct QOS_FLOWRATE_OUTGOING(i32);
+pub struct QOS_FLOWRATE_OUTGOING {
+    pub Bandwidth: u64,
+    pub ShapingBehavior: QOS_SHAPING,
+    pub Reason: QOS_FLOWRATE_REASON,
+}
+impl ::core::marker::Copy for QOS_FLOWRATE_OUTGOING {}
+impl ::core::clone::Clone for QOS_FLOWRATE_OUTGOING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct QOS_FLOWRATE_REASON(pub i32);
 pub const QOSFlowRateNotApplicable: QOS_FLOWRATE_REASON = QOS_FLOWRATE_REASON(0i32);
@@ -406,11 +1001,41 @@ pub const QOSFlowRateContentChange: QOS_FLOWRATE_REASON = QOS_FLOWRATE_REASON(1i
 pub const QOSFlowRateCongestion: QOS_FLOWRATE_REASON = QOS_FLOWRATE_REASON(2i32);
 pub const QOSFlowRateHigherContentEncoding: QOS_FLOWRATE_REASON = QOS_FLOWRATE_REASON(3i32);
 pub const QOSFlowRateUserCaused: QOS_FLOWRATE_REASON = QOS_FLOWRATE_REASON(4i32);
+impl ::core::marker::Copy for QOS_FLOWRATE_REASON {}
+impl ::core::clone::Clone for QOS_FLOWRATE_REASON {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+pub struct QOS_FLOW_FUNDAMENTALS {
+    pub BottleneckBandwidthSet: super::super::Foundation::BOOL,
+    pub BottleneckBandwidth: u64,
+    pub AvailableBandwidthSet: super::super::Foundation::BOOL,
+    pub AvailableBandwidth: u64,
+    pub RTTSet: super::super::Foundation::BOOL,
+    pub RTT: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for QOS_FLOW_FUNDAMENTALS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for QOS_FLOW_FUNDAMENTALS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct QOS_FLOW_FUNDAMENTALS(i32);
-#[repr(C)]
-pub struct QOS_FRIENDLY_NAME(i32);
+pub struct QOS_FRIENDLY_NAME {
+    pub ObjectHdr: QOS_OBJECT_HDR,
+    pub FriendlyName: [u16; 256],
+}
+impl ::core::marker::Copy for QOS_FRIENDLY_NAME {}
+impl ::core::clone::Clone for QOS_FRIENDLY_NAME {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const QOS_GENERAL_ID_BASE: u32 = 2000u32;
 pub const QOS_MAX_OBJECT_STRING_LENGTH: u32 = 256u32;
 pub const QOS_NON_ADAPTIVE_FLOW: u32 = 2u32;
@@ -419,36 +1044,115 @@ pub struct QOS_NOTIFY_FLOW(pub i32);
 pub const QOSNotifyCongested: QOS_NOTIFY_FLOW = QOS_NOTIFY_FLOW(0i32);
 pub const QOSNotifyUncongested: QOS_NOTIFY_FLOW = QOS_NOTIFY_FLOW(1i32);
 pub const QOSNotifyAvailable: QOS_NOTIFY_FLOW = QOS_NOTIFY_FLOW(2i32);
+impl ::core::marker::Copy for QOS_NOTIFY_FLOW {}
+impl ::core::clone::Clone for QOS_NOTIFY_FLOW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const QOS_NOT_SPECIFIED: u32 = 4294967295u32;
 #[repr(C)]
-pub struct QOS_OBJECT_HDR(i32);
+pub struct QOS_OBJECT_HDR {
+    pub ObjectType: u32,
+    pub ObjectLength: u32,
+}
+impl ::core::marker::Copy for QOS_OBJECT_HDR {}
+impl ::core::clone::Clone for QOS_OBJECT_HDR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const QOS_OUTGOING_DEFAULT_MINIMUM_BANDWIDTH: u32 = 4294967295u32;
 #[repr(C)]
-pub struct QOS_PACKET_PRIORITY(i32);
+pub struct QOS_PACKET_PRIORITY {
+    pub ConformantDSCPValue: u32,
+    pub NonConformantDSCPValue: u32,
+    pub ConformantL2Value: u32,
+    pub NonConformantL2Value: u32,
+}
+impl ::core::marker::Copy for QOS_PACKET_PRIORITY {}
+impl ::core::clone::Clone for QOS_PACKET_PRIORITY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const QOS_QUERYFLOW_FRESH: u32 = 1u32;
 #[repr(transparent)]
 pub struct QOS_QUERY_FLOW(pub i32);
 pub const QOSQueryFlowFundamentals: QOS_QUERY_FLOW = QOS_QUERY_FLOW(0i32);
 pub const QOSQueryPacketPriority: QOS_QUERY_FLOW = QOS_QUERY_FLOW(1i32);
 pub const QOSQueryOutgoingRate: QOS_QUERY_FLOW = QOS_QUERY_FLOW(2i32);
+impl ::core::marker::Copy for QOS_QUERY_FLOW {}
+impl ::core::clone::Clone for QOS_QUERY_FLOW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct QOS_SD_MODE(i32);
+pub struct QOS_SD_MODE {
+    pub ObjectHdr: QOS_OBJECT_HDR,
+    pub ShapeDiscardMode: u32,
+}
+impl ::core::marker::Copy for QOS_SD_MODE {}
+impl ::core::clone::Clone for QOS_SD_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct QOS_SET_FLOW(pub i32);
 pub const QOSSetTrafficType: QOS_SET_FLOW = QOS_SET_FLOW(0i32);
 pub const QOSSetOutgoingRate: QOS_SET_FLOW = QOS_SET_FLOW(1i32);
 pub const QOSSetOutgoingDSCPValue: QOS_SET_FLOW = QOS_SET_FLOW(2i32);
+impl ::core::marker::Copy for QOS_SET_FLOW {}
+impl ::core::clone::Clone for QOS_SET_FLOW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct QOS_SHAPING(pub i32);
 pub const QOSShapeOnly: QOS_SHAPING = QOS_SHAPING(0i32);
 pub const QOSShapeAndMark: QOS_SHAPING = QOS_SHAPING(1i32);
 pub const QOSUseNonConformantMarkings: QOS_SHAPING = QOS_SHAPING(2i32);
+impl ::core::marker::Copy for QOS_SHAPING {}
+impl ::core::clone::Clone for QOS_SHAPING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct QOS_SHAPING_RATE(i32);
+pub struct QOS_SHAPING_RATE {
+    pub ObjectHdr: QOS_OBJECT_HDR,
+    pub ShapingRate: u32,
+}
+impl ::core::marker::Copy for QOS_SHAPING_RATE {}
+impl ::core::clone::Clone for QOS_SHAPING_RATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct QOS_TCP_TRAFFIC(i32);
+pub struct QOS_TCP_TRAFFIC {
+    pub ObjectHdr: QOS_OBJECT_HDR,
+}
+impl ::core::marker::Copy for QOS_TCP_TRAFFIC {}
+impl ::core::clone::Clone for QOS_TCP_TRAFFIC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct QOS_TRAFFIC_CLASS(i32);
+pub struct QOS_TRAFFIC_CLASS {
+    pub ObjectHdr: QOS_OBJECT_HDR,
+    pub TrafficClass: u32,
+}
+impl ::core::marker::Copy for QOS_TRAFFIC_CLASS {}
+impl ::core::clone::Clone for QOS_TRAFFIC_CLASS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const QOS_TRAFFIC_GENERAL_ID_BASE: u32 = 4000u32;
 #[repr(transparent)]
 pub struct QOS_TRAFFIC_TYPE(pub i32);
@@ -458,25 +1162,94 @@ pub const QOSTrafficTypeExcellentEffort: QOS_TRAFFIC_TYPE = QOS_TRAFFIC_TYPE(2i3
 pub const QOSTrafficTypeAudioVideo: QOS_TRAFFIC_TYPE = QOS_TRAFFIC_TYPE(3i32);
 pub const QOSTrafficTypeVoice: QOS_TRAFFIC_TYPE = QOS_TRAFFIC_TYPE(4i32);
 pub const QOSTrafficTypeControl: QOS_TRAFFIC_TYPE = QOS_TRAFFIC_TYPE(5i32);
+impl ::core::marker::Copy for QOS_TRAFFIC_TYPE {}
+impl ::core::clone::Clone for QOS_TRAFFIC_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct QOS_VERSION(i32);
+pub struct QOS_VERSION {
+    pub MajorVersion: u16,
+    pub MinorVersion: u16,
+}
+impl ::core::marker::Copy for QOS_VERSION {}
+impl ::core::clone::Clone for QOS_VERSION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const QUALITATIVE_SERV: u32 = 6u32;
 #[repr(C)]
-pub struct QualAppFlowSpec(i32);
+pub struct QualAppFlowSpec {
+    pub Q_spec_serv_hdr: IntServServiceHdr,
+    pub Q_spec_parm_hdr: IntServParmHdr,
+    pub Q_spec_parms: QualTspecParms,
+}
+impl ::core::marker::Copy for QualAppFlowSpec {}
+impl ::core::clone::Clone for QualAppFlowSpec {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct QualTspec(i32);
+pub struct QualTspec {
+    pub qual_Tspec_serv_hdr: IntServServiceHdr,
+    pub qual_Tspec_parm_hdr: IntServParmHdr,
+    pub qual_Tspec_parms: QualTspecParms,
+}
+impl ::core::marker::Copy for QualTspec {}
+impl ::core::clone::Clone for QualTspec {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct QualTspecParms(i32);
+pub struct QualTspecParms {
+    pub TB_Tspec_M: u32,
+}
+impl ::core::marker::Copy for QualTspecParms {}
+impl ::core::clone::Clone for QualTspecParms {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const RCVD_PATH_TEAR: u32 = 1u32;
 pub const RCVD_RESV_TEAR: u32 = 2u32;
 pub const RESOURCES_ALLOCATED: u32 = 1u32;
 pub const RESOURCES_MODIFIED: u32 = 2u32;
 #[repr(C)]
-pub struct RESV_STYLE(i32);
+pub struct RESV_STYLE {
+    pub style_header: RsvpObjHdr,
+    pub style_word: u32,
+}
+impl ::core::marker::Copy for RESV_STYLE {}
+impl ::core::clone::Clone for RESV_STYLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct RHANDLE(i32);
+pub struct RHANDLE(pub isize);
+impl ::core::marker::Copy for RHANDLE {}
+impl ::core::clone::Clone for RHANDLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct RSVP_ADSPEC(i32);
+pub struct RSVP_ADSPEC {
+    pub ObjectHdr: QOS_OBJECT_HDR,
+    pub GeneralParams: AD_GENERAL_PARAMS,
+    pub NumberOfServices: u32,
+    pub Services: [CONTROL_SERVICE; 1],
+}
+impl ::core::marker::Copy for RSVP_ADSPEC {}
+impl ::core::clone::Clone for RSVP_ADSPEC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const RSVP_DEFAULT_STYLE: u32 = 0u32;
 pub const RSVP_Err_ADMISSION: u32 = 1u32;
 pub const RSVP_Err_AMBIG_FILTER: u32 = 9u32;
@@ -511,54 +1284,292 @@ pub const RSVP_Erv_Nonev: u32 = 0u32;
 pub const RSVP_Erv_Other: u32 = 0u32;
 pub const RSVP_Erv_Peak_Rate: u32 = 32771u32;
 #[repr(C)]
-pub struct RSVP_FILTERSPEC(i32);
+pub struct RSVP_FILTERSPEC {
+    pub Type: FilterType,
+    pub Anonymous: RSVP_FILTERSPEC_0,
+}
+impl ::core::marker::Copy for RSVP_FILTERSPEC {}
+impl ::core::clone::Clone for RSVP_FILTERSPEC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct RSVP_FILTERSPEC_V4(i32);
+pub union RSVP_FILTERSPEC_0 {
+    pub FilterSpecV4: RSVP_FILTERSPEC_V4,
+    pub FilterSpecV6: RSVP_FILTERSPEC_V6,
+    pub FilterSpecV6Flow: RSVP_FILTERSPEC_V6_FLOW,
+    pub FilterSpecV4Gpi: RSVP_FILTERSPEC_V4_GPI,
+    pub FilterSpecV6Gpi: RSVP_FILTERSPEC_V6_GPI,
+}
+impl ::core::marker::Copy for RSVP_FILTERSPEC_0 {}
+impl ::core::clone::Clone for RSVP_FILTERSPEC_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct RSVP_FILTERSPEC_V4_GPI(i32);
+pub struct RSVP_FILTERSPEC_V4 {
+    pub Address: IN_ADDR_IPV4,
+    pub Unused: u16,
+    pub Port: u16,
+}
+impl ::core::marker::Copy for RSVP_FILTERSPEC_V4 {}
+impl ::core::clone::Clone for RSVP_FILTERSPEC_V4 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct RSVP_FILTERSPEC_V6(i32);
+pub struct RSVP_FILTERSPEC_V4_GPI {
+    pub Address: IN_ADDR_IPV4,
+    pub GeneralPortId: u32,
+}
+impl ::core::marker::Copy for RSVP_FILTERSPEC_V4_GPI {}
+impl ::core::clone::Clone for RSVP_FILTERSPEC_V4_GPI {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct RSVP_FILTERSPEC_V6_FLOW(i32);
+pub struct RSVP_FILTERSPEC_V6 {
+    pub Address: IN_ADDR_IPV6,
+    pub UnUsed: u16,
+    pub Port: u16,
+}
+impl ::core::marker::Copy for RSVP_FILTERSPEC_V6 {}
+impl ::core::clone::Clone for RSVP_FILTERSPEC_V6 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct RSVP_FILTERSPEC_V6_GPI(i32);
+pub struct RSVP_FILTERSPEC_V6_FLOW {
+    pub Address: IN_ADDR_IPV6,
+    pub UnUsed: u8,
+    pub FlowLabel: [u8; 3],
+}
+impl ::core::marker::Copy for RSVP_FILTERSPEC_V6_FLOW {}
+impl ::core::clone::Clone for RSVP_FILTERSPEC_V6_FLOW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct RSVP_FILTERSPEC_V6_GPI {
+    pub Address: IN_ADDR_IPV6,
+    pub GeneralPortId: u32,
+}
+impl ::core::marker::Copy for RSVP_FILTERSPEC_V6_GPI {}
+impl ::core::clone::Clone for RSVP_FILTERSPEC_V6_GPI {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const RSVP_FIXED_FILTER_STYLE: u32 = 2u32;
-#[cfg(feature = "Win32_Networking_WinSock")]
 #[repr(C)]
-pub struct RSVP_HOP(i32);
 #[cfg(feature = "Win32_Networking_WinSock")]
+pub struct RSVP_HOP {
+    pub hop_header: RsvpObjHdr,
+    pub hop_u: RSVP_HOP_0,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::marker::Copy for RSVP_HOP {}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::clone::Clone for RSVP_HOP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct RSVP_MSG_OBJS(i32);
+#[cfg(feature = "Win32_Networking_WinSock")]
+pub union RSVP_HOP_0 {
+    pub hop_ipv4: Rsvp_Hop_IPv4,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::marker::Copy for RSVP_HOP_0 {}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::clone::Clone for RSVP_HOP_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
+pub struct RSVP_MSG_OBJS {
+    pub RsvpMsgType: i32,
+    pub pRsvpSession: *mut RSVP_SESSION,
+    pub pRsvpFromHop: *mut RSVP_HOP,
+    pub pRsvpToHop: *mut RSVP_HOP,
+    pub pResvStyle: *mut RESV_STYLE,
+    pub pRsvpScope: *mut RSVP_SCOPE,
+    pub FlowDescCount: i32,
+    pub pFlowDescs: *mut flow_desc,
+    pub PdObjectCount: i32,
+    pub ppPdObjects: *mut *mut POLICY_DATA,
+    pub pErrorSpec: *mut ERROR_SPEC,
+    pub pAdspec: *mut ADSPEC,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::marker::Copy for RSVP_MSG_OBJS {}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::clone::Clone for RSVP_MSG_OBJS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const RSVP_OBJECT_ID_BASE: u32 = 1000u32;
 pub const RSVP_PATH: u32 = 1u32;
 pub const RSVP_PATH_ERR: u32 = 3u32;
 pub const RSVP_PATH_TEAR: u32 = 5u32;
 #[repr(C)]
-pub struct RSVP_POLICY(i32);
+pub struct RSVP_POLICY {
+    pub Len: u16,
+    pub Type: u16,
+    pub Info: [u8; 4],
+}
+impl ::core::marker::Copy for RSVP_POLICY {}
+impl ::core::clone::Clone for RSVP_POLICY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct RSVP_POLICY_INFO(i32);
+pub struct RSVP_POLICY_INFO {
+    pub ObjectHdr: QOS_OBJECT_HDR,
+    pub NumPolicyElement: u32,
+    pub PolicyElement: [RSVP_POLICY; 1],
+}
+impl ::core::marker::Copy for RSVP_POLICY_INFO {}
+impl ::core::clone::Clone for RSVP_POLICY_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct RSVP_RESERVE_INFO(i32);
+pub struct RSVP_RESERVE_INFO {
+    pub ObjectHdr: QOS_OBJECT_HDR,
+    pub Style: u32,
+    pub ConfirmRequest: u32,
+    pub PolicyElementList: *mut RSVP_POLICY_INFO,
+    pub NumFlowDesc: u32,
+    pub FlowDescList: *mut FLOWDESCRIPTOR,
+}
+impl ::core::marker::Copy for RSVP_RESERVE_INFO {}
+impl ::core::clone::Clone for RSVP_RESERVE_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const RSVP_RESV: u32 = 2u32;
 pub const RSVP_RESV_ERR: u32 = 4u32;
 pub const RSVP_RESV_TEAR: u32 = 6u32;
-#[cfg(feature = "Win32_Networking_WinSock")]
 #[repr(C)]
-pub struct RSVP_SCOPE(i32);
 #[cfg(feature = "Win32_Networking_WinSock")]
+pub struct RSVP_SCOPE {
+    pub scopl_header: RsvpObjHdr,
+    pub scope_u: RSVP_SCOPE_0,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::marker::Copy for RSVP_SCOPE {}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::clone::Clone for RSVP_SCOPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct RSVP_SESSION(i32);
+#[cfg(feature = "Win32_Networking_WinSock")]
+pub union RSVP_SCOPE_0 {
+    pub scopl_ipv4: Scope_list_ipv4,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::marker::Copy for RSVP_SCOPE_0 {}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::clone::Clone for RSVP_SCOPE_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
+pub struct RSVP_SESSION {
+    pub sess_header: RsvpObjHdr,
+    pub sess_u: RSVP_SESSION_0,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::marker::Copy for RSVP_SESSION {}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::clone::Clone for RSVP_SESSION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
+pub union RSVP_SESSION_0 {
+    pub sess_ipv4: Session_IPv4,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::marker::Copy for RSVP_SESSION_0 {}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::clone::Clone for RSVP_SESSION_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const RSVP_SHARED_EXPLICIT_STYLE: u32 = 3u32;
 #[repr(C)]
-pub struct RSVP_STATUS_INFO(i32);
+pub struct RSVP_STATUS_INFO {
+    pub ObjectHdr: QOS_OBJECT_HDR,
+    pub StatusCode: u32,
+    pub ExtendedStatus1: u32,
+    pub ExtendedStatus2: u32,
+}
+impl ::core::marker::Copy for RSVP_STATUS_INFO {}
+impl ::core::clone::Clone for RSVP_STATUS_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const RSVP_WILDCARD_STYLE: u32 = 1u32;
 #[repr(C)]
-pub struct RsvpObjHdr(i32);
+pub struct RsvpObjHdr {
+    pub obj_length: u16,
+    pub obj_class: u8,
+    pub obj_ctype: u8,
+}
+impl ::core::marker::Copy for RsvpObjHdr {}
+impl ::core::clone::Clone for RsvpObjHdr {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+pub struct Rsvp_Hop_IPv4 {
+    pub hop_ipaddr: super::super::Networking::WinSock::IN_ADDR,
+    pub hop_LIH: u32,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::marker::Copy for Rsvp_Hop_IPv4 {}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::clone::Clone for Rsvp_Hop_IPv4 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct Rsvp_Hop_IPv4(i32);
-#[repr(C)]
-pub struct SENDER_TSPEC(i32);
+pub struct SENDER_TSPEC {
+    pub stspec_header: RsvpObjHdr,
+    pub stspec_body: IntServTspecBody,
+}
+impl ::core::marker::Copy for SENDER_TSPEC {}
+impl ::core::clone::Clone for SENDER_TSPEC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SERVICETYPE_BESTEFFORT: u32 = 1u32;
 pub const SERVICETYPE_CONTROLLEDLOAD: u32 = 2u32;
 pub const SERVICETYPE_GENERAL_INFORMATION: u32 = 5u32;
@@ -739,22 +1750,80 @@ pub const SIPAHDRSIGNATURE: u32 = 1279476311u32;
 pub const SIPAKSRHDRSIGNATURE: u32 = 1297240907u32;
 pub const SIPALOGVERSION: u32 = 1u32;
 pub const STATE_TIMEOUT: u32 = 4u32;
-#[cfg(feature = "Win32_Networking_WinSock")]
 #[repr(C)]
-pub struct Scope_list_ipv4(i32);
 #[cfg(feature = "Win32_Networking_WinSock")]
+pub struct Scope_list_ipv4 {
+    pub scopl_ipaddr: [super::super::Networking::WinSock::IN_ADDR; 1],
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::marker::Copy for Scope_list_ipv4 {}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::clone::Clone for Scope_list_ipv4 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct Session_IPv4(i32);
+#[cfg(feature = "Win32_Networking_WinSock")]
+pub struct Session_IPv4 {
+    pub sess_destaddr: super::super::Networking::WinSock::IN_ADDR,
+    pub sess_protid: u8,
+    pub sess_flags: u8,
+    pub sess_destport: u16,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::marker::Copy for Session_IPv4 {}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::clone::Clone for Session_IPv4 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const TCBASE: u32 = 7500u32;
-#[repr(C)]
-pub struct TCG_PCClientPCREventStruct(i32);
-#[repr(C)]
-pub struct TCG_PCClientTaggedEventStruct(i32);
+#[repr(C, packed(1))]
+pub struct TCG_PCClientPCREventStruct {
+    pub pcrIndex: u32,
+    pub eventType: u32,
+    pub digest: [u8; 20],
+    pub eventDataSize: u32,
+    pub event: [u8; 1],
+}
+impl ::core::marker::Copy for TCG_PCClientPCREventStruct {}
+impl ::core::clone::Clone for TCG_PCClientPCREventStruct {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub struct TCG_PCClientTaggedEventStruct {
+    pub EventID: u32,
+    pub EventDataSize: u32,
+    pub EventData: [u8; 1],
+}
+impl ::core::marker::Copy for TCG_PCClientTaggedEventStruct {}
+impl ::core::clone::Clone for TCG_PCClientTaggedEventStruct {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[cfg(feature = "Win32_Foundation")]
 pub type TCI_ADD_FLOW_COMPLETE_HANDLER = unsafe extern "system" fn(clflowctx: super::super::Foundation::HANDLE, status: u32);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct TCI_CLIENT_FUNC_LIST(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct TCI_CLIENT_FUNC_LIST {
+    pub ClNotifyHandler: ::core::option::Option<TCI_NOTIFY_HANDLER>,
+    pub ClAddFlowCompleteHandler: ::core::option::Option<TCI_ADD_FLOW_COMPLETE_HANDLER>,
+    pub ClModifyFlowCompleteHandler: ::core::option::Option<TCI_MOD_FLOW_COMPLETE_HANDLER>,
+    pub ClDeleteFlowCompleteHandler: ::core::option::Option<TCI_DEL_FLOW_COMPLETE_HANDLER>,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for TCI_CLIENT_FUNC_LIST {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for TCI_CLIENT_FUNC_LIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[cfg(feature = "Win32_Foundation")]
 pub type TCI_DEL_FLOW_COMPLETE_HANDLER = unsafe extern "system" fn(clflowctx: super::super::Foundation::HANDLE, status: u32);
 #[cfg(feature = "Win32_Foundation")]
@@ -762,12 +1831,47 @@ pub type TCI_MOD_FLOW_COMPLETE_HANDLER = unsafe extern "system" fn(clflowctx: su
 #[cfg(feature = "Win32_Foundation")]
 pub type TCI_NOTIFY_HANDLER = unsafe extern "system" fn(clregctx: super::super::Foundation::HANDLE, clifcctx: super::super::Foundation::HANDLE, event: u32, subcode: super::super::Foundation::HANDLE, bufsize: u32, buffer: *const ::core::ffi::c_void);
 #[repr(C)]
-pub struct TC_GEN_FILTER(i32);
+pub struct TC_GEN_FILTER {
+    pub AddressType: u16,
+    pub PatternSize: u32,
+    pub Pattern: *mut ::core::ffi::c_void,
+    pub Mask: *mut ::core::ffi::c_void,
+}
+impl ::core::marker::Copy for TC_GEN_FILTER {}
+impl ::core::clone::Clone for TC_GEN_FILTER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct TC_GEN_FLOW(i32);
+pub struct TC_GEN_FLOW {
+    pub SendingFlowspec: FLOWSPEC,
+    pub ReceivingFlowspec: FLOWSPEC,
+    pub TcObjectsLength: u32,
+    pub TcObjects: [QOS_OBJECT_HDR; 1],
+}
+impl ::core::marker::Copy for TC_GEN_FLOW {}
+impl ::core::clone::Clone for TC_GEN_FLOW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
-#[repr(C)]
-pub struct TC_IFC_DESCRIPTOR(i32);
+pub struct TC_IFC_DESCRIPTOR {
+    pub Length: u32,
+    pub pInterfaceName: super::super::Foundation::PWSTR,
+    pub pInterfaceID: super::super::Foundation::PWSTR,
+    pub AddressListDesc: ADDRESS_LIST_DESCRIPTOR,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
+impl ::core::marker::Copy for TC_IFC_DESCRIPTOR {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
+impl ::core::clone::Clone for TC_IFC_DESCRIPTOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const TC_NONCONF_BORROW: u32 = 0u32;
 pub const TC_NONCONF_BORROW_PLUS: u32 = 3u32;
 pub const TC_NONCONF_DISCARD: u32 = 2u32;
@@ -777,9 +1881,22 @@ pub const TC_NOTIFY_IFC_CHANGE: u32 = 3u32;
 pub const TC_NOTIFY_IFC_CLOSE: u32 = 2u32;
 pub const TC_NOTIFY_IFC_UP: u32 = 1u32;
 pub const TC_NOTIFY_PARAM_CHANGED: u32 = 4u32;
-#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 #[repr(C)]
-pub struct TC_SUPPORTED_INFO_BUFFER(i32);
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+pub struct TC_SUPPORTED_INFO_BUFFER {
+    pub InstanceIDLength: u16,
+    pub InstanceID: [u16; 256],
+    pub InterfaceLuid: u64,
+    pub AddrListDesc: ADDRESS_LIST_DESCRIPTOR,
+}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::marker::Copy for TC_SUPPORTED_INFO_BUFFER {}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl ::core::clone::Clone for TC_SUPPORTED_INFO_BUFFER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const UNSUPPORTED_CREDENTIAL_TYPE: u32 = 2u32;
 pub const WBCL_DIGEST_ALG_BITMAP_SHA3_256: u32 = 32u32;
 pub const WBCL_DIGEST_ALG_BITMAP_SHA3_384: u32 = 64u32;
@@ -798,13 +1915,80 @@ pub const WBCL_DIGEST_ALG_ID_SHA_2_384: u32 = 12u32;
 pub const WBCL_DIGEST_ALG_ID_SHA_2_512: u32 = 13u32;
 pub const WBCL_DIGEST_ALG_ID_SM3_256: u32 = 18u32;
 pub const WBCL_HASH_LEN_SHA1: u32 = 20u32;
+#[repr(C, packed(1))]
+pub struct WBCL_Iterator {
+    pub firstElementPtr: *mut ::core::ffi::c_void,
+    pub logSize: u32,
+    pub currentElementPtr: *mut ::core::ffi::c_void,
+    pub currentElementSize: u32,
+    pub digestSize: u16,
+    pub logFormat: u16,
+    pub numberOfDigests: u32,
+    pub digestSizes: *mut ::core::ffi::c_void,
+    pub supportedAlgorithms: u32,
+    pub hashAlgorithm: u16,
+}
+impl ::core::marker::Copy for WBCL_Iterator {}
+impl ::core::clone::Clone for WBCL_Iterator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub struct WBCL_LogHdr {
+    pub signature: u32,
+    pub version: u32,
+    pub entries: u32,
+    pub length: u32,
+}
+impl ::core::marker::Copy for WBCL_LogHdr {}
+impl ::core::clone::Clone for WBCL_LogHdr {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WBCL_Iterator(i32);
-#[repr(C)]
-pub struct WBCL_LogHdr(i32);
 #[cfg(feature = "Win32_Networking_WinSock")]
+pub struct flow_desc {
+    pub u1: flow_desc_0,
+    pub u2: flow_desc_1,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::marker::Copy for flow_desc {}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::clone::Clone for flow_desc {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct flow_desc(i32);
+#[cfg(feature = "Win32_Networking_WinSock")]
+pub union flow_desc_0 {
+    pub stspec: *mut SENDER_TSPEC,
+    pub isflow: *mut IS_FLOWSPEC,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::marker::Copy for flow_desc_0 {}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::clone::Clone for flow_desc_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
+pub union flow_desc_1 {
+    pub stemp: *mut FILTER_SPEC,
+    pub fspec: *mut FILTER_SPEC,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::marker::Copy for flow_desc_1 {}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::clone::Clone for flow_desc_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct int_serv_wkp(pub i32);
 pub const IS_WKP_HOP_CNT: int_serv_wkp = int_serv_wkp(4i32);
@@ -813,20 +1997,126 @@ pub const IS_WKP_MIN_LATENCY: int_serv_wkp = int_serv_wkp(8i32);
 pub const IS_WKP_COMPOSED_MTU: int_serv_wkp = int_serv_wkp(10i32);
 pub const IS_WKP_TB_TSPEC: int_serv_wkp = int_serv_wkp(127i32);
 pub const IS_WKP_Q_TSPEC: int_serv_wkp = int_serv_wkp(128i32);
+impl ::core::marker::Copy for int_serv_wkp {}
+impl ::core::clone::Clone for int_serv_wkp {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
+pub struct lpmiptable {
+    pub ulIfIndex: u32,
+    pub MediaType: u32,
+    pub IfIpAddr: super::super::Networking::WinSock::IN_ADDR,
+    pub IfNetMask: super::super::Networking::WinSock::IN_ADDR,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::marker::Copy for lpmiptable {}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::clone::Clone for lpmiptable {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct lpmiptable(i32);
+pub struct policy_decision {
+    pub lpvResult: u32,
+    pub wPolicyErrCode: u16,
+    pub wPolicyErrValue: u16,
+}
+impl ::core::marker::Copy for policy_decision {}
+impl ::core::clone::Clone for policy_decision {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub struct tag_SIPAEVENT_KSR_SIGNATURE_PAYLOAD {
+    pub SignAlgID: u32,
+    pub SignatureLength: u32,
+    pub Signature: [u8; 1],
+}
+impl ::core::marker::Copy for tag_SIPAEVENT_KSR_SIGNATURE_PAYLOAD {}
+impl ::core::clone::Clone for tag_SIPAEVENT_KSR_SIGNATURE_PAYLOAD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub struct tag_SIPAEVENT_REVOCATION_LIST_PAYLOAD {
+    pub CreationTime: i64,
+    pub DigestLength: u32,
+    pub HashAlgID: u16,
+    pub Digest: [u8; 1],
+}
+impl ::core::marker::Copy for tag_SIPAEVENT_REVOCATION_LIST_PAYLOAD {}
+impl ::core::clone::Clone for tag_SIPAEVENT_REVOCATION_LIST_PAYLOAD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub struct tag_SIPAEVENT_SBCP_INFO_PAYLOAD_V1 {
+    pub PayloadVersion: u32,
+    pub VarDataOffset: u32,
+    pub HashAlgID: u16,
+    pub DigestLength: u16,
+    pub Options: u32,
+    pub SignersCount: u32,
+    pub VarData: [u8; 1],
+}
+impl ::core::marker::Copy for tag_SIPAEVENT_SBCP_INFO_PAYLOAD_V1 {}
+impl ::core::clone::Clone for tag_SIPAEVENT_SBCP_INFO_PAYLOAD_V1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub struct tag_SIPAEVENT_SI_POLICY_PAYLOAD {
+    pub PolicyVersion: u64,
+    pub PolicyNameLength: u16,
+    pub HashAlgID: u16,
+    pub DigestLength: u32,
+    pub VarLengthData: [u8; 1],
+}
+impl ::core::marker::Copy for tag_SIPAEVENT_SI_POLICY_PAYLOAD {}
+impl ::core::clone::Clone for tag_SIPAEVENT_SI_POLICY_PAYLOAD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub struct tag_SIPAEVENT_VSM_IDK_INFO_PAYLOAD {
+    pub KeyAlgID: u32,
+    pub Anonymous: tag_SIPAEVENT_VSM_IDK_INFO_PAYLOAD_0,
+}
+impl ::core::marker::Copy for tag_SIPAEVENT_VSM_IDK_INFO_PAYLOAD {}
+impl ::core::clone::Clone for tag_SIPAEVENT_VSM_IDK_INFO_PAYLOAD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct policy_decision(i32);
-#[repr(C)]
-pub struct tag_SIPAEVENT_KSR_SIGNATURE_PAYLOAD(i32);
-#[repr(C)]
-pub struct tag_SIPAEVENT_REVOCATION_LIST_PAYLOAD(i32);
-#[repr(C)]
-pub struct tag_SIPAEVENT_SBCP_INFO_PAYLOAD_V1(i32);
-#[repr(C)]
-pub struct tag_SIPAEVENT_SI_POLICY_PAYLOAD(i32);
-#[repr(C)]
-pub struct tag_SIPAEVENT_VSM_IDK_INFO_PAYLOAD(i32);
-#[repr(C)]
-pub struct tag_SIPAEVENT_VSM_IDK_RSA_INFO(i32);
+pub union tag_SIPAEVENT_VSM_IDK_INFO_PAYLOAD_0 {
+    pub RsaKeyInfo: tag_SIPAEVENT_VSM_IDK_RSA_INFO,
+}
+impl ::core::marker::Copy for tag_SIPAEVENT_VSM_IDK_INFO_PAYLOAD_0 {}
+impl ::core::clone::Clone for tag_SIPAEVENT_VSM_IDK_INFO_PAYLOAD_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub struct tag_SIPAEVENT_VSM_IDK_RSA_INFO {
+    pub KeyBitLength: u32,
+    pub PublicExpLengthBytes: u32,
+    pub ModulusSizeBytes: u32,
+    pub PublicKeyData: [u8; 1],
+}
+impl ::core::marker::Copy for tag_SIPAEVENT_VSM_IDK_RSA_INFO {}
+impl ::core::clone::Clone for tag_SIPAEVENT_VSM_IDK_RSA_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

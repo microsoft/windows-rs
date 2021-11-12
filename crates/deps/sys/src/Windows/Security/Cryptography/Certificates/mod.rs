@@ -13,6 +13,12 @@ impl CertificateChainPolicy {
     pub const NTAuthentication: Self = Self(2i32);
     pub const MicrosoftRoot: Self = Self(3i32);
 }
+impl ::core::marker::Copy for CertificateChainPolicy {}
+impl ::core::clone::Clone for CertificateChainPolicy {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CertificateExtension(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -45,6 +51,12 @@ impl ChainValidationResult {
     pub const RevocationFailure: Self = Self(12i32);
     pub const OtherErrors: Self = Self(13i32);
 }
+impl ::core::marker::Copy for ChainValidationResult {}
+impl ::core::clone::Clone for ChainValidationResult {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CmsAttachedSignature(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -62,11 +74,23 @@ impl EnrollKeyUsages {
     pub const KeyAgreement: Self = Self(4u32);
     pub const All: Self = Self(16777215u32);
 }
+impl ::core::marker::Copy for EnrollKeyUsages {}
+impl ::core::clone::Clone for EnrollKeyUsages {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ExportOption(pub i32);
 impl ExportOption {
     pub const NotExportable: Self = Self(0i32);
     pub const Exportable: Self = Self(1i32);
+}
+impl ::core::marker::Copy for ExportOption {}
+impl ::core::clone::Clone for ExportOption {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct ICertificate(pub *mut ::core::ffi::c_void);
@@ -160,6 +184,12 @@ impl InstallOptions {
     pub const None: Self = Self(0u32);
     pub const DeleteExpired: Self = Self(1u32);
 }
+impl ::core::marker::Copy for InstallOptions {}
+impl ::core::clone::Clone for InstallOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct KeyProtectionLevel(pub i32);
 impl KeyProtectionLevel {
@@ -168,12 +198,24 @@ impl KeyProtectionLevel {
     pub const ConsentWithPassword: Self = Self(2i32);
     pub const ConsentWithFingerprint: Self = Self(3i32);
 }
+impl ::core::marker::Copy for KeyProtectionLevel {}
+impl ::core::clone::Clone for KeyProtectionLevel {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct KeySize(pub i32);
 impl KeySize {
     pub const Invalid: Self = Self(0i32);
     pub const Rsa2048: Self = Self(2048i32);
     pub const Rsa4096: Self = Self(4096i32);
+}
+impl ::core::marker::Copy for KeySize {}
+impl ::core::clone::Clone for KeySize {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct PfxImportParameters(pub *mut ::core::ffi::c_void);
@@ -185,6 +227,12 @@ impl SignatureValidationResult {
     pub const BadMessage: Self = Self(2i32);
     pub const InvalidSignature: Self = Self(3i32);
     pub const OtherErrors: Self = Self(4i32);
+}
+impl ::core::marker::Copy for SignatureValidationResult {}
+impl ::core::clone::Clone for SignatureValidationResult {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct SubjectAlternativeNameInfo(pub *mut ::core::ffi::c_void);

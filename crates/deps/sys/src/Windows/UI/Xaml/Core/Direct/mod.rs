@@ -9,8 +9,6 @@ pub struct IXamlDirectObject(pub *mut ::core::ffi::c_void);
 pub struct IXamlDirectStatics(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct XamlDirect(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct XamlDirectContract(i32);
 #[repr(transparent)]
 pub struct XamlEventIndex(pub i32);
 impl XamlEventIndex {
@@ -152,6 +150,12 @@ impl XamlEventIndex {
     pub const ScrollViewer_AnchorRequested: Self = Self(291i32);
     pub const DatePicker_SelectedDateChanged: Self = Self(322i32);
     pub const TimePicker_SelectedTimeChanged: Self = Self(323i32);
+}
+impl ::core::marker::Copy for XamlEventIndex {}
+impl ::core::clone::Clone for XamlEventIndex {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct XamlPropertyIndex(pub i32);
@@ -1826,6 +1830,12 @@ impl XamlPropertyIndex {
     pub const Popup_PlacementTarget: Self = Self(2454i32);
     pub const AutomationProperties_AutomationControlType: Self = Self(2455i32);
 }
+impl ::core::marker::Copy for XamlPropertyIndex {}
+impl ::core::clone::Clone for XamlPropertyIndex {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct XamlTypeIndex(pub i32);
 impl XamlTypeIndex {
@@ -2079,4 +2089,10 @@ impl XamlTypeIndex {
     pub const StandardUICommand: Self = Self(961i32);
     pub const ThemeShadow: Self = Self(964i32);
     pub const XamlUICommand: Self = Self(969i32);
+}
+impl ::core::marker::Copy for XamlTypeIndex {}
+impl ::core::clone::Clone for XamlTypeIndex {
+    fn clone(&self) -> Self {
+        *self
+    }
 }

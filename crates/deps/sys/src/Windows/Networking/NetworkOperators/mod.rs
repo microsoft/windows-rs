@@ -22,6 +22,12 @@ impl DataClasses {
     pub const CdmaUmb: Self = Self(4194304u32);
     pub const Custom: Self = Self(2147483648u32);
 }
+impl ::core::marker::Copy for DataClasses {}
+impl ::core::clone::Clone for DataClasses {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ESim(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -33,6 +39,12 @@ impl ESimAuthenticationPreference {
     pub const OnAction: Self = Self(1i32);
     pub const Never: Self = Self(2i32);
 }
+impl ::core::marker::Copy for ESimAuthenticationPreference {}
+impl ::core::clone::Clone for ESimAuthenticationPreference {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ESimDiscoverEvent(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -43,6 +55,12 @@ impl ESimDiscoverResultKind {
     pub const None: Self = Self(0i32);
     pub const Events: Self = Self(1i32);
     pub const ProfileMetadata: Self = Self(2i32);
+}
+impl ::core::marker::Copy for ESimDiscoverResultKind {}
+impl ::core::clone::Clone for ESimDiscoverResultKind {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct ESimDownloadProfileMetadataResult(pub *mut ::core::ffi::c_void);
@@ -81,6 +99,12 @@ impl ESimOperationStatus {
     pub const ServerNotTrusted: Self = Self(27i32);
     pub const ProfileDownloadMaxRetriesExceeded: Self = Self(28i32);
 }
+impl ::core::marker::Copy for ESimOperationStatus {}
+impl ::core::clone::Clone for ESimOperationStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ESimPolicy(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -92,8 +116,23 @@ impl ESimProfileClass {
     pub const Test: Self = Self(1i32);
     pub const Provisioning: Self = Self(2i32);
 }
+impl ::core::marker::Copy for ESimProfileClass {}
+impl ::core::clone::Clone for ESimProfileClass {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct ESimProfileInstallProgress(i32);
+pub struct ESimProfileInstallProgress {
+    pub TotalSizeInBytes: i32,
+    pub InstalledSizeInBytes: i32,
+}
+impl ::core::marker::Copy for ESimProfileInstallProgress {}
+impl ::core::clone::Clone for ESimProfileInstallProgress {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ESimProfileMetadata(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -108,6 +147,12 @@ impl ESimProfileMetadataState {
     pub const NoLongerAvailable: Self = Self(6i32);
     pub const DeniedByPolicy: Self = Self(7i32);
 }
+impl ::core::marker::Copy for ESimProfileMetadataState {}
+impl ::core::clone::Clone for ESimProfileMetadataState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ESimProfilePolicy(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -117,6 +162,12 @@ impl ESimProfileState {
     pub const Disabled: Self = Self(1i32);
     pub const Enabled: Self = Self(2i32);
     pub const Deleted: Self = Self(3i32);
+}
+impl ::core::marker::Copy for ESimProfileState {}
+impl ::core::clone::Clone for ESimProfileState {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct ESimRemovedEventArgs(pub *mut ::core::ffi::c_void);
@@ -130,6 +181,12 @@ impl ESimState {
     pub const Removed: Self = Self(2i32);
     pub const Busy: Self = Self(3i32);
 }
+impl ::core::marker::Copy for ESimState {}
+impl ::core::clone::Clone for ESimState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ESimUpdatedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -142,6 +199,12 @@ impl ESimWatcherStatus {
     pub const EnumerationCompleted: Self = Self(2i32);
     pub const Stopping: Self = Self(3i32);
     pub const Stopped: Self = Self(4i32);
+}
+impl ::core::marker::Copy for ESimWatcherStatus {}
+impl ::core::clone::Clone for ESimWatcherStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct HotspotAuthenticationContext(pub *mut ::core::ffi::c_void);
@@ -157,6 +220,12 @@ impl HotspotAuthenticationResponseCode {
     pub const NetworkAdministratorError: Self = Self(105i32);
     pub const LoginAborted: Self = Self(151i32);
     pub const AccessGatewayInternalError: Self = Self(255i32);
+}
+impl ::core::marker::Copy for HotspotAuthenticationResponseCode {}
+impl ::core::clone::Clone for HotspotAuthenticationResponseCode {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct HotspotCredentialsAuthenticationResult(pub *mut ::core::ffi::c_void);
@@ -380,8 +449,6 @@ pub struct IUssdReply(pub *mut ::core::ffi::c_void);
 pub struct IUssdSession(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IUssdSessionStatics(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct LegacyNetworkOperatorsContract(i32);
 #[repr(transparent)]
 pub struct MobileBroadbandAccount(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -398,6 +465,12 @@ impl MobileBroadbandAccountWatcherStatus {
     pub const EnumerationCompleted: Self = Self(2i32);
     pub const Stopped: Self = Self(3i32);
     pub const Aborted: Self = Self(4i32);
+}
+impl ::core::marker::Copy for MobileBroadbandAccountWatcherStatus {}
+impl ::core::clone::Clone for MobileBroadbandAccountWatcherStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct MobileBroadbandAntennaSar(pub *mut ::core::ffi::c_void);
@@ -441,6 +514,12 @@ impl MobileBroadbandDeviceType {
     pub const Removable: Self = Self(2i32);
     pub const Remote: Self = Self(3i32);
 }
+impl ::core::marker::Copy for MobileBroadbandDeviceType {}
+impl ::core::clone::Clone for MobileBroadbandDeviceType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MobileBroadbandModem(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -454,6 +533,12 @@ impl MobileBroadbandModemStatus {
     pub const OtherFailure: Self = Self(1i32);
     pub const Busy: Self = Self(2i32);
     pub const NoDeviceSupport: Self = Self(3i32);
+}
+impl ::core::marker::Copy for MobileBroadbandModemStatus {}
+impl ::core::clone::Clone for MobileBroadbandModemStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct MobileBroadbandNetwork(pub *mut ::core::ffi::c_void);
@@ -474,6 +559,12 @@ impl MobileBroadbandPinFormat {
     pub const Numeric: Self = Self(1i32);
     pub const Alphanumeric: Self = Self(2i32);
 }
+impl ::core::marker::Copy for MobileBroadbandPinFormat {}
+impl ::core::clone::Clone for MobileBroadbandPinFormat {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MobileBroadbandPinLockState(pub i32);
 impl MobileBroadbandPinLockState {
@@ -481,6 +572,12 @@ impl MobileBroadbandPinLockState {
     pub const Unlocked: Self = Self(1i32);
     pub const PinRequired: Self = Self(2i32);
     pub const PinUnblockKeyRequired: Self = Self(3i32);
+}
+impl ::core::marker::Copy for MobileBroadbandPinLockState {}
+impl ::core::clone::Clone for MobileBroadbandPinLockState {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct MobileBroadbandPinLockStateChange(pub *mut ::core::ffi::c_void);
@@ -505,11 +602,23 @@ impl MobileBroadbandPinType {
     pub const CorporatePin: Self = Self(9i32);
     pub const SubsidyLock: Self = Self(10i32);
 }
+impl ::core::marker::Copy for MobileBroadbandPinType {}
+impl ::core::clone::Clone for MobileBroadbandPinType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MobileBroadbandRadioState(pub i32);
 impl MobileBroadbandRadioState {
     pub const Off: Self = Self(0i32);
     pub const On: Self = Self(1i32);
+}
+impl ::core::marker::Copy for MobileBroadbandRadioState {}
+impl ::core::clone::Clone for MobileBroadbandRadioState {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct MobileBroadbandRadioStateChange(pub *mut ::core::ffi::c_void);
@@ -537,6 +646,12 @@ impl MobileBroadbandSlotState {
     pub const ActiveEsim: Self = Self(8i32);
     pub const ActiveEsimNoProfile: Self = Self(9i32);
 }
+impl ::core::marker::Copy for MobileBroadbandSlotState {}
+impl ::core::clone::Clone for MobileBroadbandSlotState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MobileBroadbandTransmissionStateChangedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -550,6 +665,12 @@ impl MobileBroadbandUiccAppOperationStatus {
     pub const InvalidUiccFilePath: Self = Self(1i32);
     pub const AccessConditionNotHeld: Self = Self(2i32);
     pub const UiccBusy: Self = Self(3i32);
+}
+impl ::core::marker::Copy for MobileBroadbandUiccAppOperationStatus {}
+impl ::core::clone::Clone for MobileBroadbandUiccAppOperationStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct MobileBroadbandUiccAppReadRecordResult(pub *mut ::core::ffi::c_void);
@@ -569,10 +690,22 @@ impl NetworkDeviceStatus {
     pub const DeviceLocked: Self = Self(6i32);
     pub const DeviceBlocked: Self = Self(7i32);
 }
+impl ::core::marker::Copy for NetworkDeviceStatus {}
+impl ::core::clone::Clone for NetworkDeviceStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct NetworkOperatorDataUsageNotificationKind(pub i32);
 impl NetworkOperatorDataUsageNotificationKind {
     pub const DataUsageProgress: Self = Self(0i32);
+}
+impl ::core::marker::Copy for NetworkOperatorDataUsageNotificationKind {}
+impl ::core::clone::Clone for NetworkOperatorDataUsageNotificationKind {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct NetworkOperatorDataUsageTriggerDetails(pub *mut ::core::ffi::c_void);
@@ -593,6 +726,12 @@ impl NetworkOperatorEventMessageType {
     pub const TetheringOperationalStateChanged: Self = Self(11i32);
     pub const TetheringNumberOfClientsChanged: Self = Self(12i32);
 }
+impl ::core::marker::Copy for NetworkOperatorEventMessageType {}
+impl ::core::clone::Clone for NetworkOperatorEventMessageType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct NetworkOperatorNotificationEventDetails(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -603,8 +742,6 @@ pub struct NetworkOperatorTetheringClient(pub *mut ::core::ffi::c_void);
 pub struct NetworkOperatorTetheringManager(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct NetworkOperatorTetheringOperationResult(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct NetworkOperatorsFdnContract(i32);
 #[repr(transparent)]
 pub struct NetworkRegistrationState(pub i32);
 impl NetworkRegistrationState {
@@ -616,15 +753,38 @@ impl NetworkRegistrationState {
     pub const Partner: Self = Self(5i32);
     pub const Denied: Self = Self(6i32);
 }
+impl ::core::marker::Copy for NetworkRegistrationState {}
+impl ::core::clone::Clone for NetworkRegistrationState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ProfileMediaType(pub i32);
 impl ProfileMediaType {
     pub const Wlan: Self = Self(0i32);
     pub const Wwan: Self = Self(1i32);
 }
-#[cfg(feature = "Foundation")]
+impl ::core::marker::Copy for ProfileMediaType {}
+impl ::core::clone::Clone for ProfileMediaType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct ProfileUsage(i32);
+#[cfg(feature = "Foundation")]
+pub struct ProfileUsage {
+    pub UsageInMegabytes: u32,
+    pub LastSyncTime: super::super::Foundation::DateTime,
+}
+#[cfg(feature = "Foundation")]
+impl ::core::marker::Copy for ProfileUsage {}
+#[cfg(feature = "Foundation")]
+impl ::core::clone::Clone for ProfileUsage {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ProvisionFromXmlDocumentResults(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -643,6 +803,12 @@ impl TetheringCapability {
     pub const DisabledDueToUnknownCause: Self = Self(6i32);
     pub const DisabledBySystemCapability: Self = Self(7i32);
 }
+impl ::core::marker::Copy for TetheringCapability {}
+impl ::core::clone::Clone for TetheringCapability {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TetheringEntitlementCheckTriggerDetails(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -658,6 +824,12 @@ impl TetheringOperationStatus {
     pub const BluetoothDeviceOff: Self = Self(7i32);
     pub const NetworkLimitedConnectivity: Self = Self(8i32);
 }
+impl ::core::marker::Copy for TetheringOperationStatus {}
+impl ::core::clone::Clone for TetheringOperationStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TetheringOperationalState(pub i32);
 impl TetheringOperationalState {
@@ -666,12 +838,24 @@ impl TetheringOperationalState {
     pub const Off: Self = Self(2i32);
     pub const InTransition: Self = Self(3i32);
 }
+impl ::core::marker::Copy for TetheringOperationalState {}
+impl ::core::clone::Clone for TetheringOperationalState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TetheringWiFiBand(pub i32);
 impl TetheringWiFiBand {
     pub const Auto: Self = Self(0i32);
     pub const TwoPointFourGigahertz: Self = Self(1i32);
     pub const FiveGigahertz: Self = Self(2i32);
+}
+impl ::core::marker::Copy for TetheringWiFiBand {}
+impl ::core::clone::Clone for TetheringWiFiBand {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct UiccAccessCondition(pub i32);
@@ -685,6 +869,12 @@ impl UiccAccessCondition {
     pub const Administrative6: Self = Self(6i32);
     pub const NeverAllowed: Self = Self(7i32);
 }
+impl ::core::marker::Copy for UiccAccessCondition {}
+impl ::core::clone::Clone for UiccAccessCondition {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UiccAppKind(pub i32);
 impl UiccAppKind {
@@ -696,12 +886,24 @@ impl UiccAppKind {
     pub const CSim: Self = Self(5i32);
     pub const ISim: Self = Self(6i32);
 }
+impl ::core::marker::Copy for UiccAppKind {}
+impl ::core::clone::Clone for UiccAppKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UiccAppRecordKind(pub i32);
 impl UiccAppRecordKind {
     pub const Unknown: Self = Self(0i32);
     pub const Transparent: Self = Self(1i32);
     pub const RecordOriented: Self = Self(2i32);
+}
+impl ::core::marker::Copy for UiccAppRecordKind {}
+impl ::core::clone::Clone for UiccAppRecordKind {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct UssdMessage(pub *mut ::core::ffi::c_void);
@@ -716,6 +918,12 @@ impl UssdResultCode {
     pub const OtherLocalClient: Self = Self(3i32);
     pub const OperationNotSupported: Self = Self(4i32);
     pub const NetworkTimeout: Self = Self(5i32);
+}
+impl ::core::marker::Copy for UssdResultCode {}
+impl ::core::clone::Clone for UssdResultCode {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct UssdSession(pub *mut ::core::ffi::c_void);

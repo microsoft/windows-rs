@@ -14,5 +14,11 @@ impl BinaryStringEncoding {
     pub const Utf16LE: Self = Self(1i32);
     pub const Utf16BE: Self = Self(2i32);
 }
+impl ::core::marker::Copy for BinaryStringEncoding {}
+impl ::core::clone::Clone for BinaryStringEncoding {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICryptographicBufferStatics(pub *mut ::core::ffi::c_void);

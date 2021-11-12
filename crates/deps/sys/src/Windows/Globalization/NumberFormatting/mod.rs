@@ -9,6 +9,12 @@ impl CurrencyFormatterMode {
     pub const UseSymbol: Self = Self(0i32);
     pub const UseCurrencyCode: Self = Self(1i32);
 }
+impl ::core::marker::Copy for CurrencyFormatterMode {}
+impl ::core::clone::Clone for CurrencyFormatterMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DecimalFormatter(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -69,6 +75,12 @@ impl RoundingAlgorithm {
     pub const RoundHalfAwayFromZero: Self = Self(8i32);
     pub const RoundHalfToEven: Self = Self(9i32);
     pub const RoundHalfToOdd: Self = Self(10i32);
+}
+impl ::core::marker::Copy for RoundingAlgorithm {}
+impl ::core::clone::Clone for RoundingAlgorithm {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct SignificantDigitsNumberRounder(pub *mut ::core::ffi::c_void);

@@ -9,6 +9,12 @@ impl ContentAccessRestrictionLevel {
     pub const Block: Self = Self(2i32);
     pub const Hide: Self = Self(3i32);
 }
+impl ::core::marker::Copy for ContentAccessRestrictionLevel {}
+impl ::core::clone::Clone for ContentAccessRestrictionLevel {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ContentRestrictionsBrowsePolicy(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -30,6 +36,12 @@ impl RatedContentCategory {
     pub const Movie: Self = Self(3i32);
     pub const Television: Self = Self(4i32);
     pub const Music: Self = Self(5i32);
+}
+impl ::core::marker::Copy for RatedContentCategory {}
+impl ::core::clone::Clone for RatedContentCategory {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct RatedContentDescription(pub *mut ::core::ffi::c_void);

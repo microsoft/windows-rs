@@ -30,6 +30,12 @@ impl JsonErrorStatus {
     pub const JsonValueNotFound: Self = Self(3i32);
     pub const ImplementationLimit: Self = Self(4i32);
 }
+impl ::core::marker::Copy for JsonErrorStatus {}
+impl ::core::clone::Clone for JsonErrorStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct JsonObject(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -43,4 +49,10 @@ impl JsonValueType {
     pub const String: Self = Self(3i32);
     pub const Array: Self = Self(4i32);
     pub const Object: Self = Self(5i32);
+}
+impl ::core::marker::Copy for JsonValueType {}
+impl ::core::clone::Clone for JsonValueType {
+    fn clone(&self) -> Self {
+        *self
+    }
 }

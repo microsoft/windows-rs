@@ -114,9 +114,47 @@ extern "system" {
     pub fn VerifyVersionInfoW(lpversioninformation: *mut OSVERSIONINFOEXW, dwtypemask: VER_FLAGS, dwlconditionmask: u64) -> super::super::Foundation::BOOL;
 }
 #[repr(C)]
-pub struct CACHE_DESCRIPTOR(i32);
+pub struct CACHE_DESCRIPTOR {
+    pub Level: u8,
+    pub Associativity: u8,
+    pub LineSize: u16,
+    pub Size: u32,
+    pub Type: PROCESSOR_CACHE_TYPE,
+}
+impl ::core::marker::Copy for CACHE_DESCRIPTOR {}
+impl ::core::clone::Clone for CACHE_DESCRIPTOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CACHE_RELATIONSHIP(i32);
+pub struct CACHE_RELATIONSHIP {
+    pub Level: u8,
+    pub Associativity: u8,
+    pub LineSize: u16,
+    pub CacheSize: u32,
+    pub Type: PROCESSOR_CACHE_TYPE,
+    pub Reserved: [u8; 18],
+    pub GroupCount: u16,
+    pub Anonymous: CACHE_RELATIONSHIP_0,
+}
+impl ::core::marker::Copy for CACHE_RELATIONSHIP {}
+impl ::core::clone::Clone for CACHE_RELATIONSHIP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub union CACHE_RELATIONSHIP_0 {
+    pub GroupMask: GROUP_AFFINITY,
+    pub GroupMasks: [GROUP_AFFINITY; 1],
+}
+impl ::core::marker::Copy for CACHE_RELATIONSHIP_0 {}
+impl ::core::clone::Clone for CACHE_RELATIONSHIP_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct COMPUTER_NAME_FORMAT(pub i32);
 pub const ComputerNameNetBIOS: COMPUTER_NAME_FORMAT = COMPUTER_NAME_FORMAT(0i32);
@@ -128,9 +166,21 @@ pub const ComputerNamePhysicalDnsHostname: COMPUTER_NAME_FORMAT = COMPUTER_NAME_
 pub const ComputerNamePhysicalDnsDomain: COMPUTER_NAME_FORMAT = COMPUTER_NAME_FORMAT(6i32);
 pub const ComputerNamePhysicalDnsFullyQualified: COMPUTER_NAME_FORMAT = COMPUTER_NAME_FORMAT(7i32);
 pub const ComputerNameMax: COMPUTER_NAME_FORMAT = COMPUTER_NAME_FORMAT(8i32);
+impl ::core::marker::Copy for COMPUTER_NAME_FORMAT {}
+impl ::core::clone::Clone for COMPUTER_NAME_FORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CPU_SET_INFORMATION_TYPE(pub i32);
 pub const CpuSetInformation: CPU_SET_INFORMATION_TYPE = CPU_SET_INFORMATION_TYPE(0i32);
+impl ::core::marker::Copy for CPU_SET_INFORMATION_TYPE {}
+impl ::core::clone::Clone for CPU_SET_INFORMATION_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DEP_SYSTEM_POLICY_TYPE(pub i32);
 pub const DEPPolicyAlwaysOff: DEP_SYSTEM_POLICY_TYPE = DEP_SYSTEM_POLICY_TYPE(0i32);
@@ -138,6 +188,12 @@ pub const DEPPolicyAlwaysOn: DEP_SYSTEM_POLICY_TYPE = DEP_SYSTEM_POLICY_TYPE(1i3
 pub const DEPPolicyOptIn: DEP_SYSTEM_POLICY_TYPE = DEP_SYSTEM_POLICY_TYPE(2i32);
 pub const DEPPolicyOptOut: DEP_SYSTEM_POLICY_TYPE = DEP_SYSTEM_POLICY_TYPE(3i32);
 pub const DEPTotalPolicyCount: DEP_SYSTEM_POLICY_TYPE = DEP_SYSTEM_POLICY_TYPE(4i32);
+impl ::core::marker::Copy for DEP_SYSTEM_POLICY_TYPE {}
+impl ::core::clone::Clone for DEP_SYSTEM_POLICY_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DEVICEFAMILYDEVICEFORM(pub u32);
 pub const DEVICEFAMILYDEVICEFORM_UNKNOWN: DEVICEFAMILYDEVICEFORM = DEVICEFAMILYDEVICEFORM(0u32);
@@ -187,6 +243,12 @@ pub const DEVICEFAMILYDEVICEFORM_XBOX_RESERVED_07: DEVICEFAMILYDEVICEFORM = DEVI
 pub const DEVICEFAMILYDEVICEFORM_XBOX_RESERVED_08: DEVICEFAMILYDEVICEFORM = DEVICEFAMILYDEVICEFORM(44u32);
 pub const DEVICEFAMILYDEVICEFORM_XBOX_RESERVED_09: DEVICEFAMILYDEVICEFORM = DEVICEFAMILYDEVICEFORM(45u32);
 pub const DEVICEFAMILYDEVICEFORM_MAX: DEVICEFAMILYDEVICEFORM = DEVICEFAMILYDEVICEFORM(45u32);
+impl ::core::marker::Copy for DEVICEFAMILYDEVICEFORM {}
+impl ::core::clone::Clone for DEVICEFAMILYDEVICEFORM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DEVICEFAMILYINFOENUM(pub u32);
 pub const DEVICEFAMILYINFOENUM_UAP: DEVICEFAMILYINFOENUM = DEVICEFAMILYINFOENUM(0u32);
@@ -208,23 +270,68 @@ pub const DEVICEFAMILYINFOENUM_7067329: DEVICEFAMILYINFOENUM = DEVICEFAMILYINFOE
 pub const DEVICEFAMILYINFOENUM_WINDOWS_CORE: DEVICEFAMILYINFOENUM = DEVICEFAMILYINFOENUM(16u32);
 pub const DEVICEFAMILYINFOENUM_WINDOWS_CORE_HEADLESS: DEVICEFAMILYINFOENUM = DEVICEFAMILYINFOENUM(17u32);
 pub const DEVICEFAMILYINFOENUM_MAX: DEVICEFAMILYINFOENUM = DEVICEFAMILYINFOENUM(17u32);
+impl ::core::marker::Copy for DEVICEFAMILYINFOENUM {}
+impl ::core::clone::Clone for DEVICEFAMILYINFOENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct FIRMWARE_TABLE_ID(i32);
+pub struct FIRMWARE_TABLE_ID(pub u32);
+impl ::core::marker::Copy for FIRMWARE_TABLE_ID {}
+impl ::core::clone::Clone for FIRMWARE_TABLE_ID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct FIRMWARE_TABLE_PROVIDER(pub u32);
 pub const ACPI: FIRMWARE_TABLE_PROVIDER = FIRMWARE_TABLE_PROVIDER(1094930505u32);
 pub const FIRM: FIRMWARE_TABLE_PROVIDER = FIRMWARE_TABLE_PROVIDER(1179210317u32);
 pub const RSMB: FIRMWARE_TABLE_PROVIDER = FIRMWARE_TABLE_PROVIDER(1381190978u32);
+impl ::core::marker::Copy for FIRMWARE_TABLE_PROVIDER {}
+impl ::core::clone::Clone for FIRMWARE_TABLE_PROVIDER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct FIRMWARE_TYPE(pub i32);
 pub const FirmwareTypeUnknown: FIRMWARE_TYPE = FIRMWARE_TYPE(0i32);
 pub const FirmwareTypeBios: FIRMWARE_TYPE = FIRMWARE_TYPE(1i32);
 pub const FirmwareTypeUefi: FIRMWARE_TYPE = FIRMWARE_TYPE(2i32);
 pub const FirmwareTypeMax: FIRMWARE_TYPE = FIRMWARE_TYPE(3i32);
+impl ::core::marker::Copy for FIRMWARE_TYPE {}
+impl ::core::clone::Clone for FIRMWARE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct GROUP_AFFINITY(i32);
+pub struct GROUP_AFFINITY {
+    pub Mask: usize,
+    pub Group: u16,
+    pub Reserved: [u16; 3],
+}
+impl ::core::marker::Copy for GROUP_AFFINITY {}
+impl ::core::clone::Clone for GROUP_AFFINITY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct GROUP_RELATIONSHIP(i32);
+pub struct GROUP_RELATIONSHIP {
+    pub MaximumGroupCount: u16,
+    pub ActiveGroupCount: u16,
+    pub Reserved: [u8; 20],
+    pub GroupInfo: [PROCESSOR_GROUP_INFO; 1],
+}
+impl ::core::marker::Copy for GROUP_RELATIONSHIP {}
+impl ::core::clone::Clone for GROUP_RELATIONSHIP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct LOGICAL_PROCESSOR_RELATIONSHIP(pub i32);
 pub const RelationProcessorCore: LOGICAL_PROCESSOR_RELATIONSHIP = LOGICAL_PROCESSOR_RELATIONSHIP(0i32);
@@ -236,10 +343,47 @@ pub const RelationProcessorDie: LOGICAL_PROCESSOR_RELATIONSHIP = LOGICAL_PROCESS
 pub const RelationNumaNodeEx: LOGICAL_PROCESSOR_RELATIONSHIP = LOGICAL_PROCESSOR_RELATIONSHIP(6i32);
 pub const RelationProcessorModule: LOGICAL_PROCESSOR_RELATIONSHIP = LOGICAL_PROCESSOR_RELATIONSHIP(7i32);
 pub const RelationAll: LOGICAL_PROCESSOR_RELATIONSHIP = LOGICAL_PROCESSOR_RELATIONSHIP(65535i32);
+impl ::core::marker::Copy for LOGICAL_PROCESSOR_RELATIONSHIP {}
+impl ::core::clone::Clone for LOGICAL_PROCESSOR_RELATIONSHIP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct MEMORYSTATUS(i32);
+pub struct MEMORYSTATUS {
+    pub dwLength: u32,
+    pub dwMemoryLoad: u32,
+    pub dwTotalPhys: usize,
+    pub dwAvailPhys: usize,
+    pub dwTotalPageFile: usize,
+    pub dwAvailPageFile: usize,
+    pub dwTotalVirtual: usize,
+    pub dwAvailVirtual: usize,
+}
+impl ::core::marker::Copy for MEMORYSTATUS {}
+impl ::core::clone::Clone for MEMORYSTATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct MEMORYSTATUSEX(i32);
+pub struct MEMORYSTATUSEX {
+    pub dwLength: u32,
+    pub dwMemoryLoad: u32,
+    pub ullTotalPhys: u64,
+    pub ullAvailPhys: u64,
+    pub ullTotalPageFile: u64,
+    pub ullAvailPageFile: u64,
+    pub ullTotalVirtual: u64,
+    pub ullAvailVirtual: u64,
+    pub ullAvailExtendedVirtual: u64,
+}
+impl ::core::marker::Copy for MEMORYSTATUSEX {}
+impl ::core::clone::Clone for MEMORYSTATUSEX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const NTDDI_LONGHORN: u32 = 100663296u32;
 pub const NTDDI_VERSION: u32 = 167772171u32;
 pub const NTDDI_VISTA: u32 = 100663296u32;
@@ -289,22 +433,116 @@ pub const NTDDI_WS08SP2: u32 = 100663808u32;
 pub const NTDDI_WS08SP3: u32 = 100664064u32;
 pub const NTDDI_WS08SP4: u32 = 100664320u32;
 #[repr(C)]
-pub struct NUMA_NODE_RELATIONSHIP(i32);
+pub struct NUMA_NODE_RELATIONSHIP {
+    pub NodeNumber: u32,
+    pub Reserved: [u8; 18],
+    pub GroupCount: u16,
+    pub Anonymous: NUMA_NODE_RELATIONSHIP_0,
+}
+impl ::core::marker::Copy for NUMA_NODE_RELATIONSHIP {}
+impl ::core::clone::Clone for NUMA_NODE_RELATIONSHIP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub union NUMA_NODE_RELATIONSHIP_0 {
+    pub GroupMask: GROUP_AFFINITY,
+    pub GroupMasks: [GROUP_AFFINITY; 1],
+}
+impl ::core::marker::Copy for NUMA_NODE_RELATIONSHIP_0 {}
+impl ::core::clone::Clone for NUMA_NODE_RELATIONSHIP_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct OSVERSIONINFOA(i32);
+pub struct OSVERSIONINFOA {
+    pub dwOSVersionInfoSize: u32,
+    pub dwMajorVersion: u32,
+    pub dwMinorVersion: u32,
+    pub dwBuildNumber: u32,
+    pub dwPlatformId: u32,
+    pub szCSDVersion: [super::super::Foundation::CHAR; 128],
+}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for OSVERSIONINFOA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for OSVERSIONINFOA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct OSVERSIONINFOEXA(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct OSVERSIONINFOEXA {
+    pub dwOSVersionInfoSize: u32,
+    pub dwMajorVersion: u32,
+    pub dwMinorVersion: u32,
+    pub dwBuildNumber: u32,
+    pub dwPlatformId: u32,
+    pub szCSDVersion: [super::super::Foundation::CHAR; 128],
+    pub wServicePackMajor: u16,
+    pub wServicePackMinor: u16,
+    pub wSuiteMask: u16,
+    pub wProductType: u8,
+    pub wReserved: u8,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for OSVERSIONINFOEXA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for OSVERSIONINFOEXA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct OSVERSIONINFOEXW(i32);
+pub struct OSVERSIONINFOEXW {
+    pub dwOSVersionInfoSize: u32,
+    pub dwMajorVersion: u32,
+    pub dwMinorVersion: u32,
+    pub dwBuildNumber: u32,
+    pub dwPlatformId: u32,
+    pub szCSDVersion: [u16; 128],
+    pub wServicePackMajor: u16,
+    pub wServicePackMinor: u16,
+    pub wSuiteMask: u16,
+    pub wProductType: u8,
+    pub wReserved: u8,
+}
+impl ::core::marker::Copy for OSVERSIONINFOEXW {}
+impl ::core::clone::Clone for OSVERSIONINFOEXW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct OSVERSIONINFOW(i32);
+pub struct OSVERSIONINFOW {
+    pub dwOSVersionInfoSize: u32,
+    pub dwMajorVersion: u32,
+    pub dwMinorVersion: u32,
+    pub dwBuildNumber: u32,
+    pub dwPlatformId: u32,
+    pub szCSDVersion: [u16; 128],
+}
+impl ::core::marker::Copy for OSVERSIONINFOW {}
+impl ::core::clone::Clone for OSVERSIONINFOW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const OSVERSION_MASK: u32 = 4294901760u32;
 #[repr(transparent)]
 pub struct OS_DEPLOYEMENT_STATE_VALUES(pub i32);
 pub const OS_DEPLOYMENT_STANDARD: OS_DEPLOYEMENT_STATE_VALUES = OS_DEPLOYEMENT_STATE_VALUES(1i32);
 pub const OS_DEPLOYMENT_COMPACT: OS_DEPLOYEMENT_STATE_VALUES = OS_DEPLOYEMENT_STATE_VALUES(2i32);
+impl ::core::marker::Copy for OS_DEPLOYEMENT_STATE_VALUES {}
+impl ::core::clone::Clone for OS_DEPLOYEMENT_STATE_VALUES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct OS_PRODUCT_TYPE(pub u32);
 pub const PRODUCT_BUSINESS: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(6u32);
@@ -403,6 +641,12 @@ pub const PRODUCT_ULTIMATE_N: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(28u32);
 pub const PRODUCT_UNDEFINED: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(0u32);
 pub const PRODUCT_WEB_SERVER: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(17u32);
 pub const PRODUCT_WEB_SERVER_CORE: OS_PRODUCT_TYPE = OS_PRODUCT_TYPE(29u32);
+impl ::core::marker::Copy for OS_PRODUCT_TYPE {}
+impl ::core::clone::Clone for OS_PRODUCT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[cfg(feature = "Win32_Foundation")]
 pub type PGET_SYSTEM_WOW64_DIRECTORY_A = unsafe extern "system" fn(lpbuffer: super::super::Foundation::PSTR, usize: u32) -> u32;
 #[cfg(feature = "Win32_Foundation")]
@@ -413,10 +657,39 @@ pub const CacheUnified: PROCESSOR_CACHE_TYPE = PROCESSOR_CACHE_TYPE(0i32);
 pub const CacheInstruction: PROCESSOR_CACHE_TYPE = PROCESSOR_CACHE_TYPE(1i32);
 pub const CacheData: PROCESSOR_CACHE_TYPE = PROCESSOR_CACHE_TYPE(2i32);
 pub const CacheTrace: PROCESSOR_CACHE_TYPE = PROCESSOR_CACHE_TYPE(3i32);
+impl ::core::marker::Copy for PROCESSOR_CACHE_TYPE {}
+impl ::core::clone::Clone for PROCESSOR_CACHE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct PROCESSOR_GROUP_INFO(i32);
+pub struct PROCESSOR_GROUP_INFO {
+    pub MaximumProcessorCount: u8,
+    pub ActiveProcessorCount: u8,
+    pub Reserved: [u8; 38],
+    pub ActiveProcessorMask: usize,
+}
+impl ::core::marker::Copy for PROCESSOR_GROUP_INFO {}
+impl ::core::clone::Clone for PROCESSOR_GROUP_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct PROCESSOR_RELATIONSHIP(i32);
+pub struct PROCESSOR_RELATIONSHIP {
+    pub Flags: u8,
+    pub EfficiencyClass: u8,
+    pub Reserved: [u8; 20],
+    pub GroupCount: u16,
+    pub GroupMask: [GROUP_AFFINITY; 1],
+}
+impl ::core::marker::Copy for PROCESSOR_RELATIONSHIP {}
+impl ::core::clone::Clone for PROCESSOR_RELATIONSHIP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RTL_SYSTEM_GLOBAL_DATA_ID(pub i32);
 pub const GlobalDataIdUnknown: RTL_SYSTEM_GLOBAL_DATA_ID = RTL_SYSTEM_GLOBAL_DATA_ID(0i32);
@@ -433,35 +706,257 @@ pub const GlobalDataIdKdDebuggerEnabled: RTL_SYSTEM_GLOBAL_DATA_ID = RTL_SYSTEM_
 pub const GlobalDataIdCyclesPerYield: RTL_SYSTEM_GLOBAL_DATA_ID = RTL_SYSTEM_GLOBAL_DATA_ID(11i32);
 pub const GlobalDataIdSafeBootMode: RTL_SYSTEM_GLOBAL_DATA_ID = RTL_SYSTEM_GLOBAL_DATA_ID(12i32);
 pub const GlobalDataIdLastSystemRITEventTickCount: RTL_SYSTEM_GLOBAL_DATA_ID = RTL_SYSTEM_GLOBAL_DATA_ID(13i32);
+impl ::core::marker::Copy for RTL_SYSTEM_GLOBAL_DATA_ID {}
+impl ::core::clone::Clone for RTL_SYSTEM_GLOBAL_DATA_ID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SCEX2_ALT_NETBIOS_NAME: u32 = 1u32;
 pub const SPVERSION_MASK: u32 = 65280u32;
 pub const SUBVERSION_MASK: u32 = 255u32;
 #[repr(C)]
-pub struct SYSTEM_CPU_SET_INFORMATION(i32);
+pub struct SYSTEM_CPU_SET_INFORMATION {
+    pub Size: u32,
+    pub Type: CPU_SET_INFORMATION_TYPE,
+    pub Anonymous: SYSTEM_CPU_SET_INFORMATION_0,
+}
+impl ::core::marker::Copy for SYSTEM_CPU_SET_INFORMATION {}
+impl ::core::clone::Clone for SYSTEM_CPU_SET_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub union SYSTEM_CPU_SET_INFORMATION_0 {
+    pub CpuSet: SYSTEM_CPU_SET_INFORMATION_0_0,
+}
+impl ::core::marker::Copy for SYSTEM_CPU_SET_INFORMATION_0 {}
+impl ::core::clone::Clone for SYSTEM_CPU_SET_INFORMATION_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct SYSTEM_CPU_SET_INFORMATION_0_0 {
+    pub Id: u32,
+    pub Group: u16,
+    pub LogicalProcessorIndex: u8,
+    pub CoreIndex: u8,
+    pub LastLevelCacheIndex: u8,
+    pub NumaNodeIndex: u8,
+    pub EfficiencyClass: u8,
+    pub Anonymous1: SYSTEM_CPU_SET_INFORMATION_0_0_0,
+    pub Anonymous2: SYSTEM_CPU_SET_INFORMATION_0_0_1,
+    pub AllocationTag: u64,
+}
+impl ::core::marker::Copy for SYSTEM_CPU_SET_INFORMATION_0_0 {}
+impl ::core::clone::Clone for SYSTEM_CPU_SET_INFORMATION_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub union SYSTEM_CPU_SET_INFORMATION_0_0_0 {
+    pub AllFlags: u8,
+    pub Anonymous: SYSTEM_CPU_SET_INFORMATION_0_0_0_0,
+}
+impl ::core::marker::Copy for SYSTEM_CPU_SET_INFORMATION_0_0_0 {}
+impl ::core::clone::Clone for SYSTEM_CPU_SET_INFORMATION_0_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct SYSTEM_CPU_SET_INFORMATION_0_0_0_0 {
+    pub _bitfield: u8,
+}
+impl ::core::marker::Copy for SYSTEM_CPU_SET_INFORMATION_0_0_0_0 {}
+impl ::core::clone::Clone for SYSTEM_CPU_SET_INFORMATION_0_0_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub union SYSTEM_CPU_SET_INFORMATION_0_0_1 {
+    pub Reserved: u32,
+    pub SchedulingClass: u8,
+}
+impl ::core::marker::Copy for SYSTEM_CPU_SET_INFORMATION_0_0_1 {}
+impl ::core::clone::Clone for SYSTEM_CPU_SET_INFORMATION_0_0_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SYSTEM_CPU_SET_INFORMATION_ALLOCATED: u32 = 2u32;
 pub const SYSTEM_CPU_SET_INFORMATION_ALLOCATED_TO_TARGET_PROCESS: u32 = 4u32;
 pub const SYSTEM_CPU_SET_INFORMATION_PARKED: u32 = 1u32;
 pub const SYSTEM_CPU_SET_INFORMATION_REALTIME: u32 = 8u32;
+#[repr(C)]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
+pub struct SYSTEM_INFO {
+    pub Anonymous: SYSTEM_INFO_0,
+    pub dwPageSize: u32,
+    pub lpMinimumApplicationAddress: *mut ::core::ffi::c_void,
+    pub lpMaximumApplicationAddress: *mut ::core::ffi::c_void,
+    pub dwActiveProcessorMask: usize,
+    pub dwNumberOfProcessors: u32,
+    pub dwProcessorType: u32,
+    pub dwAllocationGranularity: u32,
+    pub wProcessorLevel: u16,
+    pub wProcessorRevision: u16,
+}
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+impl ::core::marker::Copy for SYSTEM_INFO {}
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+impl ::core::clone::Clone for SYSTEM_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct SYSTEM_INFO(i32);
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+pub union SYSTEM_INFO_0 {
+    pub dwOemId: u32,
+    pub Anonymous: SYSTEM_INFO_0_0,
+}
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+impl ::core::marker::Copy for SYSTEM_INFO_0 {}
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+impl ::core::clone::Clone for SYSTEM_INFO_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct SYSTEM_LOGICAL_PROCESSOR_INFORMATION(i32);
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+pub struct SYSTEM_INFO_0_0 {
+    pub wProcessorArchitecture: super::Diagnostics::Debug::PROCESSOR_ARCHITECTURE,
+    pub wReserved: u16,
+}
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+impl ::core::marker::Copy for SYSTEM_INFO_0_0 {}
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
+impl ::core::clone::Clone for SYSTEM_INFO_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX(i32);
+pub struct SYSTEM_LOGICAL_PROCESSOR_INFORMATION {
+    pub ProcessorMask: usize,
+    pub Relationship: LOGICAL_PROCESSOR_RELATIONSHIP,
+    pub Anonymous: SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0,
+}
+impl ::core::marker::Copy for SYSTEM_LOGICAL_PROCESSOR_INFORMATION {}
+impl ::core::clone::Clone for SYSTEM_LOGICAL_PROCESSOR_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub union SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0 {
+    pub ProcessorCore: SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_1,
+    pub NumaNode: SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_0,
+    pub Cache: CACHE_DESCRIPTOR,
+    pub Reserved: [u64; 2],
+}
+impl ::core::marker::Copy for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0 {}
+impl ::core::clone::Clone for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_0 {
+    pub NodeNumber: u32,
+}
+impl ::core::marker::Copy for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_0 {}
+impl ::core::clone::Clone for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_1 {
+    pub Flags: u8,
+}
+impl ::core::marker::Copy for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_1 {}
+impl ::core::clone::Clone for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX {
+    pub Relationship: LOGICAL_PROCESSOR_RELATIONSHIP,
+    pub Size: u32,
+    pub Anonymous: SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX_0,
+}
+impl ::core::marker::Copy for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX {}
+impl ::core::clone::Clone for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub union SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX_0 {
+    pub Processor: PROCESSOR_RELATIONSHIP,
+    pub NumaNode: NUMA_NODE_RELATIONSHIP,
+    pub Cache: CACHE_RELATIONSHIP,
+    pub Group: GROUP_RELATIONSHIP,
+}
+impl ::core::marker::Copy for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX_0 {}
+impl ::core::clone::Clone for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+pub struct SYSTEM_POOL_ZEROING_INFORMATION {
+    pub PoolZeroingSupportPresent: super::super::Foundation::BOOLEAN,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SYSTEM_POOL_ZEROING_INFORMATION {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SYSTEM_POOL_ZEROING_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct SYSTEM_POOL_ZEROING_INFORMATION(i32);
+pub struct SYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION {
+    pub CycleTime: u64,
+}
+impl ::core::marker::Copy for SYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION {}
+impl ::core::clone::Clone for SYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct SYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION(i32);
-#[repr(C)]
-pub struct SYSTEM_SUPPORTED_PROCESSOR_ARCHITECTURES_INFORMATION(i32);
+pub struct SYSTEM_SUPPORTED_PROCESSOR_ARCHITECTURES_INFORMATION {
+    pub _bitfield: u32,
+}
+impl ::core::marker::Copy for SYSTEM_SUPPORTED_PROCESSOR_ARCHITECTURES_INFORMATION {}
+impl ::core::clone::Clone for SYSTEM_SUPPORTED_PROCESSOR_ARCHITECTURES_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct USER_CET_ENVIRONMENT(pub u32);
 pub const USER_CET_ENVIRONMENT_WIN32_PROCESS: USER_CET_ENVIRONMENT = USER_CET_ENVIRONMENT(0u32);
 pub const USER_CET_ENVIRONMENT_SGX2_ENCLAVE: USER_CET_ENVIRONMENT = USER_CET_ENVIRONMENT(2u32);
 pub const USER_CET_ENVIRONMENT_VBS_ENCLAVE: USER_CET_ENVIRONMENT = USER_CET_ENVIRONMENT(16u32);
 pub const USER_CET_ENVIRONMENT_VBS_BASIC_ENCLAVE: USER_CET_ENVIRONMENT = USER_CET_ENVIRONMENT(17u32);
+impl ::core::marker::Copy for USER_CET_ENVIRONMENT {}
+impl ::core::clone::Clone for USER_CET_ENVIRONMENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct VER_FLAGS(pub u32);
 pub const VER_MINORVERSION: VER_FLAGS = VER_FLAGS(1u32);
@@ -472,6 +967,12 @@ pub const VER_SERVICEPACKMINOR: VER_FLAGS = VER_FLAGS(16u32);
 pub const VER_SERVICEPACKMAJOR: VER_FLAGS = VER_FLAGS(32u32);
 pub const VER_SUITENAME: VER_FLAGS = VER_FLAGS(64u32);
 pub const VER_PRODUCT_TYPE: VER_FLAGS = VER_FLAGS(128u32);
+impl ::core::marker::Copy for VER_FLAGS {}
+impl ::core::clone::Clone for VER_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WDK_NTDDI_VERSION: u32 = 167772171u32;
 pub const _WIN32_IE_IE100: u32 = 2560u32;
 pub const _WIN32_IE_IE110: u32 = 2560u32;

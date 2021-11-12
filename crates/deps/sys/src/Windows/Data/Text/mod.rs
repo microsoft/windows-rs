@@ -10,6 +10,12 @@ impl AlternateNormalizationFormat {
     pub const Date: Self = Self(4i32);
     pub const Time: Self = Self(5i32);
 }
+impl ::core::marker::Copy for AlternateNormalizationFormat {}
+impl ::core::clone::Clone for AlternateNormalizationFormat {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AlternateWordForm(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -71,10 +77,25 @@ impl TextPredictionOptions {
     pub const Predictions: Self = Self(1u32);
     pub const Corrections: Self = Self(2u32);
 }
+impl ::core::marker::Copy for TextPredictionOptions {}
+impl ::core::clone::Clone for TextPredictionOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TextReverseConversionGenerator(pub *mut ::core::ffi::c_void);
 #[repr(C)]
-pub struct TextSegment(i32);
+pub struct TextSegment {
+    pub StartPosition: u32,
+    pub Length: u32,
+}
+impl ::core::marker::Copy for TextSegment {}
+impl ::core::clone::Clone for TextSegment {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UnicodeGeneralCategory(pub i32);
 impl UnicodeGeneralCategory {
@@ -109,6 +130,12 @@ impl UnicodeGeneralCategory {
     pub const OtherSymbol: Self = Self(28i32);
     pub const NotAssigned: Self = Self(29i32);
 }
+impl ::core::marker::Copy for UnicodeGeneralCategory {}
+impl ::core::clone::Clone for UnicodeGeneralCategory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UnicodeNumericType(pub i32);
 impl UnicodeNumericType {
@@ -116,6 +143,12 @@ impl UnicodeNumericType {
     pub const Decimal: Self = Self(1i32);
     pub const Digit: Self = Self(2i32);
     pub const Numeric: Self = Self(3i32);
+}
+impl ::core::marker::Copy for UnicodeNumericType {}
+impl ::core::clone::Clone for UnicodeNumericType {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct WordSegment(pub *mut ::core::ffi::c_void);

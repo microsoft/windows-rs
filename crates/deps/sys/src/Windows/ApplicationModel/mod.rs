@@ -62,6 +62,12 @@ impl AddResourcePackageOptions {
     pub const ForceTargetAppShutdown: Self = Self(1u32);
     pub const ApplyUpdateIfAvailable: Self = Self(2u32);
 }
+impl ::core::marker::Copy for AddResourcePackageOptions {}
+impl ::core::clone::Clone for AddResourcePackageOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AppDisplayInfo(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -70,6 +76,12 @@ impl AppExecutionContext {
     pub const Unknown: Self = Self(0i32);
     pub const Host: Self = Self(1i32);
     pub const Guest: Self = Self(2i32);
+}
+impl ::core::marker::Copy for AppExecutionContext {}
+impl ::core::clone::Clone for AppExecutionContext {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct AppInfo(pub *mut ::core::ffi::c_void);
@@ -81,12 +93,16 @@ impl AppInstallerPolicySource {
     pub const Default: Self = Self(0i32);
     pub const System: Self = Self(1i32);
 }
+impl ::core::marker::Copy for AppInstallerPolicySource {}
+impl ::core::clone::Clone for AppInstallerPolicySource {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AppInstance(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct EnteredBackgroundEventArgs(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct FullTrustAppContract(i32);
 #[repr(transparent)]
 pub struct FullTrustLaunchResult(pub i32);
 impl FullTrustLaunchResult {
@@ -94,6 +110,12 @@ impl FullTrustLaunchResult {
     pub const AccessDenied: Self = Self(1i32);
     pub const FileNotFound: Self = Self(2i32);
     pub const Unknown: Self = Self(3i32);
+}
+impl ::core::marker::Copy for FullTrustLaunchResult {}
+impl ::core::clone::Clone for FullTrustLaunchResult {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct FullTrustProcessLaunchResult(pub *mut ::core::ffi::c_void);
@@ -223,6 +245,12 @@ impl LimitedAccessFeatureStatus {
     pub const AvailableWithoutToken: Self = Self(2i32);
     pub const Unknown: Self = Self(3i32);
 }
+impl ::core::marker::Copy for LimitedAccessFeatureStatus {}
+impl ::core::clone::Clone for LimitedAccessFeatureStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct Package(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -247,10 +275,24 @@ impl PackageContentGroupState {
     pub const Staging: Self = Self(2i32);
     pub const Staged: Self = Self(3i32);
 }
+impl ::core::marker::Copy for PackageContentGroupState {}
+impl ::core::clone::Clone for PackageContentGroupState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PackageId(pub *mut ::core::ffi::c_void);
 #[repr(C)]
-pub struct PackageInstallProgress(i32);
+pub struct PackageInstallProgress {
+    pub PercentComplete: u32,
+}
+impl ::core::marker::Copy for PackageInstallProgress {}
+impl ::core::clone::Clone for PackageInstallProgress {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PackageInstallingEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -261,6 +303,12 @@ impl PackageSignatureKind {
     pub const Enterprise: Self = Self(2i32);
     pub const Store: Self = Self(3i32);
     pub const System: Self = Self(4i32);
+}
+impl ::core::marker::Copy for PackageSignatureKind {}
+impl ::core::clone::Clone for PackageSignatureKind {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct PackageStagingEventArgs(pub *mut ::core::ffi::c_void);
@@ -279,16 +327,31 @@ impl PackageUpdateAvailability {
     pub const Required: Self = Self(3i32);
     pub const Error: Self = Self(4i32);
 }
+impl ::core::marker::Copy for PackageUpdateAvailability {}
+impl ::core::clone::Clone for PackageUpdateAvailability {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PackageUpdateAvailabilityResult(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PackageUpdatingEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(C)]
-pub struct PackageVersion(i32);
+pub struct PackageVersion {
+    pub Major: u16,
+    pub Minor: u16,
+    pub Build: u16,
+    pub Revision: u16,
+}
+impl ::core::marker::Copy for PackageVersion {}
+impl ::core::clone::Clone for PackageVersion {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct StartupTask(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct StartupTaskContract(i32);
 #[repr(transparent)]
 pub struct StartupTaskState(pub i32);
 impl StartupTaskState {
@@ -297,6 +360,12 @@ impl StartupTaskState {
     pub const Enabled: Self = Self(2i32);
     pub const DisabledByPolicy: Self = Self(3i32);
     pub const EnabledByPolicy: Self = Self(4i32);
+}
+impl ::core::marker::Copy for StartupTaskState {}
+impl ::core::clone::Clone for StartupTaskState {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct SuspendingDeferral(pub *mut ::core::ffi::c_void);

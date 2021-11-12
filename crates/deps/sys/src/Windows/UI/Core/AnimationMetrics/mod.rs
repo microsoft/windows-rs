@@ -43,6 +43,12 @@ impl AnimationEffect {
     pub const Peek: Self = Self(34i32);
     pub const UpdateBadge: Self = Self(35i32);
 }
+impl ::core::marker::Copy for AnimationEffect {}
+impl ::core::clone::Clone for AnimationEffect {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AnimationEffectTarget(pub i32);
 impl AnimationEffectTarget {
@@ -67,8 +73,12 @@ impl AnimationEffectTarget {
     pub const Shown: Self = Self(18i32);
     pub const Tapped: Self = Self(19i32);
 }
-#[repr(C)]
-pub struct AnimationMetricsContract(i32);
+impl ::core::marker::Copy for AnimationEffectTarget {}
+impl ::core::clone::Clone for AnimationEffectTarget {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAnimationDescription(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -89,6 +99,12 @@ impl PropertyAnimationType {
     pub const Scale: Self = Self(0i32);
     pub const Translation: Self = Self(1i32);
     pub const Opacity: Self = Self(2i32);
+}
+impl ::core::marker::Copy for PropertyAnimationType {}
+impl ::core::clone::Clone for PropertyAnimationType {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct ScaleAnimation(pub *mut ::core::ffi::c_void);

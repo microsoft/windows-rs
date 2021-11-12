@@ -141,12 +141,53 @@ extern "system" {
 pub const APPCLASS_MASK: i32 = 15i32;
 pub const APPCMD_MASK: i32 = 4080i32;
 pub const CADV_LATEACK: u32 = 65535u32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[repr(C)]
-pub struct CONVCONTEXT(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+pub struct CONVCONTEXT {
+    pub cb: u32,
+    pub wFlags: u32,
+    pub wCountryID: u32,
+    pub iCodePage: i32,
+    pub dwLangID: u32,
+    pub dwSecurity: u32,
+    pub qos: super::super::Security::SECURITY_QUALITY_OF_SERVICE,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::marker::Copy for CONVCONTEXT {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::clone::Clone for CONVCONTEXT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CONVINFO(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+pub struct CONVINFO {
+    pub cb: u32,
+    pub hUser: usize,
+    pub hConvPartner: HCONV,
+    pub hszSvcPartner: HSZ,
+    pub hszServiceReq: HSZ,
+    pub hszTopic: HSZ,
+    pub hszItem: HSZ,
+    pub wFmt: u32,
+    pub wType: DDE_CLIENT_TRANSACTION_TYPE,
+    pub wStatus: CONVINFO_STATUS,
+    pub wConvst: CONVINFO_CONVERSATION_STATE,
+    pub wLastError: u32,
+    pub hConvList: HCONVLIST,
+    pub ConvCtxt: CONVCONTEXT,
+    pub hwnd: super::super::Foundation::HWND,
+    pub hwndPartner: super::super::Foundation::HWND,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::marker::Copy for CONVINFO {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::clone::Clone for CONVINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CONVINFO_CONVERSATION_STATE(pub u32);
 pub const XST_ADVACKRCVD: CONVINFO_CONVERSATION_STATE = CONVINFO_CONVERSATION_STATE(13u32);
@@ -166,6 +207,12 @@ pub const XST_POKESENT: CONVINFO_CONVERSATION_STATE = CONVINFO_CONVERSATION_STAT
 pub const XST_REQSENT: CONVINFO_CONVERSATION_STATE = CONVINFO_CONVERSATION_STATE(5u32);
 pub const XST_UNADVACKRCVD: CONVINFO_CONVERSATION_STATE = CONVINFO_CONVERSATION_STATE(14u32);
 pub const XST_UNADVSENT: CONVINFO_CONVERSATION_STATE = CONVINFO_CONVERSATION_STATE(12u32);
+impl ::core::marker::Copy for CONVINFO_CONVERSATION_STATE {}
+impl ::core::clone::Clone for CONVINFO_CONVERSATION_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CONVINFO_STATUS(pub u32);
 pub const ST_ADVISE: CONVINFO_STATUS = CONVINFO_STATUS(2u32);
@@ -177,25 +224,108 @@ pub const ST_INLIST: CONVINFO_STATUS = CONVINFO_STATUS(64u32);
 pub const ST_ISLOCAL: CONVINFO_STATUS = CONVINFO_STATUS(4u32);
 pub const ST_ISSELF: CONVINFO_STATUS = CONVINFO_STATUS(256u32);
 pub const ST_TERMINATED: CONVINFO_STATUS = CONVINFO_STATUS(32u32);
+impl ::core::marker::Copy for CONVINFO_STATUS {}
+impl ::core::clone::Clone for CONVINFO_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct COPYDATASTRUCT(i32);
+pub struct COPYDATASTRUCT {
+    pub dwData: usize,
+    pub cbData: u32,
+    pub lpData: *mut ::core::ffi::c_void,
+}
+impl ::core::marker::Copy for COPYDATASTRUCT {}
+impl ::core::clone::Clone for COPYDATASTRUCT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CP_WINANSI: i32 = 1004i32;
 pub const CP_WINNEUTRAL: i32 = 1200i32;
 pub const CP_WINUNICODE: i32 = 1200i32;
 #[repr(C)]
-pub struct DDEACK(i32);
+pub struct DDEACK {
+    pub _bitfield: u16,
+}
+impl ::core::marker::Copy for DDEACK {}
+impl ::core::clone::Clone for DDEACK {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DDEADVISE(i32);
+pub struct DDEADVISE {
+    pub _bitfield: u16,
+    pub cfFormat: i16,
+}
+impl ::core::marker::Copy for DDEADVISE {}
+impl ::core::clone::Clone for DDEADVISE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DDEDATA(i32);
+pub struct DDEDATA {
+    pub _bitfield: u16,
+    pub cfFormat: i16,
+    pub Value: [u8; 1],
+}
+impl ::core::marker::Copy for DDEDATA {}
+impl ::core::clone::Clone for DDEDATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DDELN(i32);
+pub struct DDELN {
+    pub _bitfield: u16,
+    pub cfFormat: i16,
+}
+impl ::core::marker::Copy for DDELN {}
+impl ::core::clone::Clone for DDELN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DDEML_MSG_HOOK_DATA(i32);
+pub struct DDEML_MSG_HOOK_DATA {
+    pub uiLo: usize,
+    pub uiHi: usize,
+    pub cbData: u32,
+    pub Data: [u32; 8],
+}
+impl ::core::marker::Copy for DDEML_MSG_HOOK_DATA {}
+impl ::core::clone::Clone for DDEML_MSG_HOOK_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DDEPOKE(i32);
+pub struct DDEPOKE {
+    pub _bitfield: u16,
+    pub cfFormat: i16,
+    pub Value: [u8; 1],
+}
+impl ::core::marker::Copy for DDEPOKE {}
+impl ::core::clone::Clone for DDEPOKE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DDEUP(i32);
+pub struct DDEUP {
+    pub _bitfield: u16,
+    pub cfFormat: i16,
+    pub rgb: [u8; 1],
+}
+impl ::core::marker::Copy for DDEUP {}
+impl ::core::clone::Clone for DDEUP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DDE_CLIENT_TRANSACTION_TYPE(pub u32);
 pub const XTYP_ADVSTART: DDE_CLIENT_TRANSACTION_TYPE = DDE_CLIENT_TRANSACTION_TYPE(4144u32);
@@ -213,12 +343,24 @@ pub const XTYP_REGISTER: DDE_CLIENT_TRANSACTION_TYPE = DDE_CLIENT_TRANSACTION_TY
 pub const XTYP_UNREGISTER: DDE_CLIENT_TRANSACTION_TYPE = DDE_CLIENT_TRANSACTION_TYPE(32978u32);
 pub const XTYP_WILDCONNECT: DDE_CLIENT_TRANSACTION_TYPE = DDE_CLIENT_TRANSACTION_TYPE(8418u32);
 pub const XTYP_XACT_COMPLETE: DDE_CLIENT_TRANSACTION_TYPE = DDE_CLIENT_TRANSACTION_TYPE(32896u32);
+impl ::core::marker::Copy for DDE_CLIENT_TRANSACTION_TYPE {}
+impl ::core::clone::Clone for DDE_CLIENT_TRANSACTION_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DDE_ENABLE_CALLBACK_CMD(pub u32);
 pub const EC_ENABLEALL: DDE_ENABLE_CALLBACK_CMD = DDE_ENABLE_CALLBACK_CMD(0u32);
 pub const EC_ENABLEONE: DDE_ENABLE_CALLBACK_CMD = DDE_ENABLE_CALLBACK_CMD(128u32);
 pub const EC_DISABLE: DDE_ENABLE_CALLBACK_CMD = DDE_ENABLE_CALLBACK_CMD(8u32);
 pub const EC_QUERYWAITING: DDE_ENABLE_CALLBACK_CMD = DDE_ENABLE_CALLBACK_CMD(2u32);
+impl ::core::marker::Copy for DDE_ENABLE_CALLBACK_CMD {}
+impl ::core::clone::Clone for DDE_ENABLE_CALLBACK_CMD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DDE_FACK: u32 = 32768u32;
 pub const DDE_FACKREQ: u32 = 32768u32;
 pub const DDE_FAPPSTATUS: u32 = 255u32;
@@ -252,12 +394,24 @@ pub const MF_HSZ_INFO: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(16777216u
 pub const MF_LINKS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(536870912u32);
 pub const MF_POSTMSGS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(67108864u32);
 pub const MF_SENDMSGS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(33554432u32);
+impl ::core::marker::Copy for DDE_INITIALIZE_COMMAND {}
+impl ::core::clone::Clone for DDE_INITIALIZE_COMMAND {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DDE_NAME_SERVICE_CMD(pub u32);
 pub const DNS_REGISTER: DDE_NAME_SERVICE_CMD = DDE_NAME_SERVICE_CMD(1u32);
 pub const DNS_UNREGISTER: DDE_NAME_SERVICE_CMD = DDE_NAME_SERVICE_CMD(2u32);
 pub const DNS_FILTERON: DDE_NAME_SERVICE_CMD = DDE_NAME_SERVICE_CMD(4u32);
 pub const DNS_FILTEROFF: DDE_NAME_SERVICE_CMD = DDE_NAME_SERVICE_CMD(8u32);
+impl ::core::marker::Copy for DDE_NAME_SERVICE_CMD {}
+impl ::core::clone::Clone for DDE_NAME_SERVICE_CMD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DMLERR_ADVACKTIMEOUT: u32 = 16384u32;
 pub const DMLERR_BUSY: u32 = 16385u32;
 pub const DMLERR_DATAACKTIMEOUT: u32 = 16386u32;
@@ -280,46 +434,214 @@ pub const DMLERR_SYS_ERROR: u32 = 16399u32;
 pub const DMLERR_UNADVACKTIMEOUT: u32 = 16400u32;
 pub const DMLERR_UNFOUND_QUEUE_ID: u32 = 16401u32;
 #[repr(C)]
-pub struct HCONV(i32);
+pub struct HCONV(pub isize);
+impl ::core::marker::Copy for HCONV {}
+impl ::core::clone::Clone for HCONV {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct HCONVLIST(i32);
+pub struct HCONVLIST(pub isize);
+impl ::core::marker::Copy for HCONVLIST {}
+impl ::core::clone::Clone for HCONVLIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const HDATA_APPOWNED: u32 = 1u32;
 #[repr(C)]
-pub struct HDDEDATA(i32);
+pub struct HDDEDATA(pub isize);
+impl ::core::marker::Copy for HDDEDATA {}
+impl ::core::clone::Clone for HDDEDATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct HSZ(i32);
+pub struct HSZ(pub isize);
+impl ::core::marker::Copy for HSZ {}
+impl ::core::clone::Clone for HSZ {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct HSZPAIR(i32);
+pub struct HSZPAIR {
+    pub hszSvc: HSZ,
+    pub hszTopic: HSZ,
+}
+impl ::core::marker::Copy for HSZPAIR {}
+impl ::core::clone::Clone for HSZPAIR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MAX_MONITORS: u32 = 4u32;
-#[cfg(feature = "Win32_Graphics_Gdi")]
 #[repr(C)]
-pub struct METAFILEPICT(i32);
+#[cfg(feature = "Win32_Graphics_Gdi")]
+pub struct METAFILEPICT {
+    pub mm: i32,
+    pub xExt: i32,
+    pub yExt: i32,
+    pub hMF: super::super::Graphics::Gdi::HMETAFILE,
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::core::marker::Copy for METAFILEPICT {}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::core::clone::Clone for METAFILEPICT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MF_MASK: u32 = 4278190080u32;
 pub const MH_CLEANUP: u32 = 4u32;
 pub const MH_CREATE: u32 = 1u32;
 pub const MH_DELETE: u32 = 3u32;
 pub const MH_KEEP: u32 = 2u32;
+#[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+pub struct MONCBSTRUCT {
+    pub cb: u32,
+    pub dwTime: u32,
+    pub hTask: super::super::Foundation::HANDLE,
+    pub dwRet: u32,
+    pub wType: u32,
+    pub wFmt: u32,
+    pub hConv: HCONV,
+    pub hsz1: HSZ,
+    pub hsz2: HSZ,
+    pub hData: HDDEDATA,
+    pub dwData1: usize,
+    pub dwData2: usize,
+    pub cc: CONVCONTEXT,
+    pub cbData: u32,
+    pub Data: [u32; 8],
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::marker::Copy for MONCBSTRUCT {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::clone::Clone for MONCBSTRUCT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct MONCBSTRUCT(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct MONCONVSTRUCT(i32);
+pub struct MONCONVSTRUCT {
+    pub cb: u32,
+    pub fConnect: super::super::Foundation::BOOL,
+    pub dwTime: u32,
+    pub hTask: super::super::Foundation::HANDLE,
+    pub hszSvc: HSZ,
+    pub hszTopic: HSZ,
+    pub hConvClient: HCONV,
+    pub hConvServer: HCONV,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct MONERRSTRUCT(i32);
+impl ::core::marker::Copy for MONCONVSTRUCT {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MONCONVSTRUCT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct MONHSZSTRUCTA(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct MONHSZSTRUCTW(i32);
+pub struct MONERRSTRUCT {
+    pub cb: u32,
+    pub wLastError: u32,
+    pub dwTime: u32,
+    pub hTask: super::super::Foundation::HANDLE,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct MONLINKSTRUCT(i32);
+impl ::core::marker::Copy for MONERRSTRUCT {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MONERRSTRUCT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct MONMSGSTRUCT(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct MONHSZSTRUCTA {
+    pub cb: u32,
+    pub fsAction: super::super::Foundation::BOOL,
+    pub dwTime: u32,
+    pub hsz: HSZ,
+    pub hTask: super::super::Foundation::HANDLE,
+    pub str: [super::super::Foundation::CHAR; 1],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MONHSZSTRUCTA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MONHSZSTRUCTA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct MONHSZSTRUCTW {
+    pub cb: u32,
+    pub fsAction: super::super::Foundation::BOOL,
+    pub dwTime: u32,
+    pub hsz: HSZ,
+    pub hTask: super::super::Foundation::HANDLE,
+    pub str: [u16; 1],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MONHSZSTRUCTW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MONHSZSTRUCTW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct MONLINKSTRUCT {
+    pub cb: u32,
+    pub dwTime: u32,
+    pub hTask: super::super::Foundation::HANDLE,
+    pub fEstablished: super::super::Foundation::BOOL,
+    pub fNoData: super::super::Foundation::BOOL,
+    pub hszSvc: HSZ,
+    pub hszTopic: HSZ,
+    pub hszItem: HSZ,
+    pub wFmt: u32,
+    pub fServer: super::super::Foundation::BOOL,
+    pub hConvServer: HCONV,
+    pub hConvClient: HCONV,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MONLINKSTRUCT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MONLINKSTRUCT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct MONMSGSTRUCT {
+    pub cb: u32,
+    pub hwndTo: super::super::Foundation::HWND,
+    pub dwTime: u32,
+    pub hTask: super::super::Foundation::HANDLE,
+    pub wMsg: u32,
+    pub wParam: super::super::Foundation::WPARAM,
+    pub lParam: super::super::Foundation::LPARAM,
+    pub dmhd: DDEML_MSG_HOOK_DATA,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MONMSGSTRUCT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MONMSGSTRUCT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MSGF_DDEMGR: u32 = 32769u32;
 pub type PFNCALLBACK = unsafe extern "system" fn(wtype: u32, wfmt: u32, hconv: HCONV, hsz1: HSZ, hsz2: HSZ, hdata: HDDEDATA, dwdata1: usize, dwdata2: usize) -> HDDEDATA;
 pub const QID_SYNC: u32 = 4294967295u32;

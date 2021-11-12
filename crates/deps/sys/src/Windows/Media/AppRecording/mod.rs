@@ -1,8 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {}
-#[repr(C)]
-pub struct AppRecordingContract(i32);
 #[repr(transparent)]
 pub struct AppRecordingManager(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -12,6 +10,12 @@ pub struct AppRecordingSaveScreenshotOption(pub i32);
 impl AppRecordingSaveScreenshotOption {
     pub const None: Self = Self(0i32);
     pub const HdrContentVisible: Self = Self(1i32);
+}
+impl ::core::marker::Copy for AppRecordingSaveScreenshotOption {}
+impl ::core::clone::Clone for AppRecordingSaveScreenshotOption {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct AppRecordingSaveScreenshotResult(pub *mut ::core::ffi::c_void);

@@ -12,7 +12,18 @@ extern "system" {}
 #[repr(transparent)]
 pub struct AttachableInputObject(pub *mut ::core::ffi::c_void);
 #[repr(C)]
-pub struct CrossSlideThresholds(i32);
+pub struct CrossSlideThresholds {
+    pub SelectionStart: f32,
+    pub SpeedBumpStart: f32,
+    pub SpeedBumpEnd: f32,
+    pub RearrangeStart: f32,
+}
+impl ::core::marker::Copy for CrossSlideThresholds {}
+impl ::core::clone::Clone for CrossSlideThresholds {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CrossSlidingEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -26,6 +37,12 @@ impl CrossSlidingState {
     pub const Rearranging: Self = Self(5i32);
     pub const Completed: Self = Self(6i32);
 }
+impl ::core::marker::Copy for CrossSlidingState {}
+impl ::core::clone::Clone for CrossSlidingState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DraggingEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -34,6 +51,12 @@ impl DraggingState {
     pub const Started: Self = Self(0i32);
     pub const Continuing: Self = Self(1i32);
     pub const Completed: Self = Self(2i32);
+}
+impl ::core::marker::Copy for DraggingState {}
+impl ::core::clone::Clone for DraggingState {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct EdgeGesture(pub *mut ::core::ffi::c_void);
@@ -46,6 +69,12 @@ impl EdgeGestureKind {
     pub const Keyboard: Self = Self(1i32);
     pub const Mouse: Self = Self(2i32);
 }
+impl ::core::marker::Copy for EdgeGestureKind {}
+impl ::core::clone::Clone for EdgeGestureKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct GazeInputAccessStatus(pub i32);
 impl GazeInputAccessStatus {
@@ -53,6 +82,12 @@ impl GazeInputAccessStatus {
     pub const Allowed: Self = Self(1i32);
     pub const DeniedByUser: Self = Self(2i32);
     pub const DeniedBySystem: Self = Self(3i32);
+}
+impl ::core::marker::Copy for GazeInputAccessStatus {}
+impl ::core::clone::Clone for GazeInputAccessStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct GestureRecognizer(pub *mut ::core::ffi::c_void);
@@ -78,6 +113,12 @@ impl GestureSettings {
     pub const CrossSlide: Self = Self(32768u32);
     pub const ManipulationMultipleFingerPanning: Self = Self(65536u32);
 }
+impl ::core::marker::Copy for GestureSettings {}
+impl ::core::clone::Clone for GestureSettings {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct HoldingEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -86,6 +127,12 @@ impl HoldingState {
     pub const Started: Self = Self(0i32);
     pub const Completed: Self = Self(1i32);
     pub const Canceled: Self = Self(2i32);
+}
+impl ::core::marker::Copy for HoldingState {}
+impl ::core::clone::Clone for HoldingState {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct IAttachableInputObject(pub *mut ::core::ffi::c_void);
@@ -235,22 +282,53 @@ impl InputActivationState {
     pub const ActivatedNotForeground: Self = Self(2i32);
     pub const ActivatedInForeground: Self = Self(3i32);
 }
+impl ::core::marker::Copy for InputActivationState {}
+impl ::core::clone::Clone for InputActivationState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct KeyboardDeliveryInterceptor(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ManipulationCompletedEventArgs(pub *mut ::core::ffi::c_void);
-#[cfg(feature = "Foundation")]
 #[repr(C)]
-pub struct ManipulationDelta(i32);
+#[cfg(feature = "Foundation")]
+pub struct ManipulationDelta {
+    pub Translation: super::super::Foundation::Point,
+    pub Scale: f32,
+    pub Rotation: f32,
+    pub Expansion: f32,
+}
+#[cfg(feature = "Foundation")]
+impl ::core::marker::Copy for ManipulationDelta {}
+#[cfg(feature = "Foundation")]
+impl ::core::clone::Clone for ManipulationDelta {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ManipulationInertiaStartingEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ManipulationStartedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ManipulationUpdatedEventArgs(pub *mut ::core::ffi::c_void);
-#[cfg(feature = "Foundation")]
 #[repr(C)]
-pub struct ManipulationVelocities(i32);
+#[cfg(feature = "Foundation")]
+pub struct ManipulationVelocities {
+    pub Linear: super::super::Foundation::Point,
+    pub Angular: f32,
+    pub Expansion: f32,
+}
+#[cfg(feature = "Foundation")]
+impl ::core::marker::Copy for ManipulationVelocities {}
+#[cfg(feature = "Foundation")]
+impl ::core::clone::Clone for ManipulationVelocities {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MouseWheelParameters(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -271,6 +349,12 @@ impl PointerUpdateKind {
     pub const XButton1Released: Self = Self(8i32);
     pub const XButton2Pressed: Self = Self(9i32);
     pub const XButton2Released: Self = Self(10i32);
+}
+impl ::core::marker::Copy for PointerUpdateKind {}
+impl ::core::clone::Clone for PointerUpdateKind {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct PointerVisualizationSettings(pub *mut ::core::ffi::c_void);
@@ -305,6 +389,12 @@ impl RadialControllerMenuKnownIcon {
     pub const InkThickness: Self = Self(7i32);
     pub const PenType: Self = Self(8i32);
 }
+impl ::core::marker::Copy for RadialControllerMenuKnownIcon {}
+impl ::core::clone::Clone for RadialControllerMenuKnownIcon {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RadialControllerRotationChangedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -323,6 +413,12 @@ impl RadialControllerSystemMenuItemKind {
     pub const UndoRedo: Self = Self(2i32);
     pub const Volume: Self = Self(3i32);
     pub const NextPreviousTrack: Self = Self(4i32);
+}
+impl ::core::marker::Copy for RadialControllerSystemMenuItemKind {}
+impl ::core::clone::Clone for RadialControllerSystemMenuItemKind {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct RightTappedEventArgs(pub *mut ::core::ffi::c_void);

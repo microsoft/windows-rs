@@ -15,6 +15,12 @@ impl ApplicationViewBoundsMode {
     pub const UseVisible: Self = Self(0i32);
     pub const UseCoreWindow: Self = Self(1i32);
 }
+impl ::core::marker::Copy for ApplicationViewBoundsMode {}
+impl ::core::clone::Clone for ApplicationViewBoundsMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ApplicationViewConsolidatedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -23,11 +29,23 @@ impl ApplicationViewMode {
     pub const Default: Self = Self(0i32);
     pub const CompactOverlay: Self = Self(1i32);
 }
+impl ::core::marker::Copy for ApplicationViewMode {}
+impl ::core::clone::Clone for ApplicationViewMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ApplicationViewOrientation(pub i32);
 impl ApplicationViewOrientation {
     pub const Landscape: Self = Self(0i32);
     pub const Portrait: Self = Self(1i32);
+}
+impl ::core::marker::Copy for ApplicationViewOrientation {}
+impl ::core::clone::Clone for ApplicationViewOrientation {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct ApplicationViewScaling(pub *mut ::core::ffi::c_void);
@@ -39,12 +57,24 @@ impl ApplicationViewState {
     pub const Snapped: Self = Self(2i32);
     pub const FullScreenPortrait: Self = Self(3i32);
 }
+impl ::core::marker::Copy for ApplicationViewState {}
+impl ::core::clone::Clone for ApplicationViewState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ApplicationViewSwitchingOptions(pub u32);
 impl ApplicationViewSwitchingOptions {
     pub const Default: Self = Self(0u32);
     pub const SkipAnimation: Self = Self(1u32);
     pub const ConsolidateViews: Self = Self(2u32);
+}
+impl ::core::marker::Copy for ApplicationViewSwitchingOptions {}
+impl ::core::clone::Clone for ApplicationViewSwitchingOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct ApplicationViewTitleBar(pub *mut ::core::ffi::c_void);
@@ -59,17 +89,35 @@ impl ApplicationViewWindowingMode {
     pub const CompactOverlay: Self = Self(3i32);
     pub const Maximized: Self = Self(4i32);
 }
+impl ::core::marker::Copy for ApplicationViewWindowingMode {}
+impl ::core::clone::Clone for ApplicationViewWindowingMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct FullScreenSystemOverlayMode(pub i32);
 impl FullScreenSystemOverlayMode {
     pub const Standard: Self = Self(0i32);
     pub const Minimal: Self = Self(1i32);
 }
+impl ::core::marker::Copy for FullScreenSystemOverlayMode {}
+impl ::core::clone::Clone for FullScreenSystemOverlayMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct HandPreference(pub i32);
 impl HandPreference {
     pub const LeftHanded: Self = Self(0i32);
     pub const RightHanded: Self = Self(1i32);
+}
+impl ::core::marker::Copy for HandPreference {}
+impl ::core::clone::Clone for HandPreference {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct IAccessibilitySettings(pub *mut ::core::ffi::c_void);
@@ -191,6 +239,12 @@ impl UIColorType {
     pub const AccentLight3: Self = Self(8i32);
     pub const Complement: Self = Self(9i32);
 }
+impl ::core::marker::Copy for UIColorType {}
+impl ::core::clone::Clone for UIColorType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UIElementType(pub i32);
 impl UIElementType {
@@ -221,6 +275,12 @@ impl UIElementType {
     pub const PopupBackground: Self = Self(1011i32);
     pub const OverlayOutsidePopup: Self = Self(1012i32);
 }
+impl ::core::marker::Copy for UIElementType {}
+impl ::core::clone::Clone for UIElementType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UISettings(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -237,8 +297,12 @@ impl UserInteractionMode {
     pub const Mouse: Self = Self(0i32);
     pub const Touch: Self = Self(1i32);
 }
-#[repr(C)]
-pub struct ViewManagementViewScalingContract(i32);
+impl ::core::marker::Copy for UserInteractionMode {}
+impl ::core::clone::Clone for UserInteractionMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ViewModePreferences(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -251,4 +315,10 @@ impl ViewSizePreference {
     pub const UseMinimum: Self = Self(4i32);
     pub const UseNone: Self = Self(5i32);
     pub const Custom: Self = Self(6i32);
+}
+impl ::core::marker::Copy for ViewSizePreference {}
+impl ::core::clone::Clone for ViewSizePreference {
+    fn clone(&self) -> Self {
+        *self
+    }
 }

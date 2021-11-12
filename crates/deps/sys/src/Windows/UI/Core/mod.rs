@@ -14,6 +14,12 @@ impl AppViewBackButtonVisibility {
     pub const Collapsed: Self = Self(1i32);
     pub const Disabled: Self = Self(2i32);
 }
+impl ::core::marker::Copy for AppViewBackButtonVisibility {}
+impl ::core::clone::Clone for AppViewBackButtonVisibility {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AutomationProviderRequestedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -34,6 +40,12 @@ impl CoreAcceleratorKeyEventType {
     pub const SystemKeyDown: Self = Self(4i32);
     pub const SystemKeyUp: Self = Self(5i32);
     pub const UnicodeCharacter: Self = Self(8i32);
+}
+impl ::core::marker::Copy for CoreAcceleratorKeyEventType {}
+impl ::core::clone::Clone for CoreAcceleratorKeyEventType {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct CoreAcceleratorKeys(pub *mut ::core::ffi::c_void);
@@ -61,6 +73,12 @@ impl CoreCursorType {
     pub const Pin: Self = Self(14i32);
     pub const Person: Self = Self(15i32);
 }
+impl ::core::marker::Copy for CoreCursorType {}
+impl ::core::clone::Clone for CoreCursorType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CoreDispatcher(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -71,6 +89,12 @@ impl CoreDispatcherPriority {
     pub const Normal: Self = Self(0i32);
     pub const High: Self = Self(1i32);
 }
+impl ::core::marker::Copy for CoreDispatcherPriority {}
+impl ::core::clone::Clone for CoreDispatcherPriority {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CoreIndependentInputFilters(pub u32);
 impl CoreIndependentInputFilters {
@@ -80,6 +104,12 @@ impl CoreIndependentInputFilters {
     pub const MouseHover: Self = Self(4u32);
     pub const PenWithBarrel: Self = Self(8u32);
     pub const PenInverted: Self = Self(16u32);
+}
+impl ::core::marker::Copy for CoreIndependentInputFilters {}
+impl ::core::clone::Clone for CoreIndependentInputFilters {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct CoreIndependentInputSource(pub *mut ::core::ffi::c_void);
@@ -93,8 +123,27 @@ impl CoreInputDeviceTypes {
     pub const Pen: Self = Self(2u32);
     pub const Mouse: Self = Self(4u32);
 }
+impl ::core::marker::Copy for CoreInputDeviceTypes {}
+impl ::core::clone::Clone for CoreInputDeviceTypes {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CorePhysicalKeyStatus(i32);
+pub struct CorePhysicalKeyStatus {
+    pub RepeatCount: u32,
+    pub ScanCode: u32,
+    pub IsExtendedKey: bool,
+    pub IsMenuKeyDown: bool,
+    pub WasKeyDown: bool,
+    pub IsKeyReleased: bool,
+}
+impl ::core::marker::Copy for CorePhysicalKeyStatus {}
+impl ::core::clone::Clone for CorePhysicalKeyStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CoreProcessEventsOption(pub i32);
 impl CoreProcessEventsOption {
@@ -103,14 +152,37 @@ impl CoreProcessEventsOption {
     pub const ProcessUntilQuit: Self = Self(2i32);
     pub const ProcessAllIfPresent: Self = Self(3i32);
 }
-#[cfg(feature = "Foundation")]
+impl ::core::marker::Copy for CoreProcessEventsOption {}
+impl ::core::clone::Clone for CoreProcessEventsOption {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CoreProximityEvaluation(i32);
+#[cfg(feature = "Foundation")]
+pub struct CoreProximityEvaluation {
+    pub Score: i32,
+    pub AdjustedPoint: super::super::Foundation::Point,
+}
+#[cfg(feature = "Foundation")]
+impl ::core::marker::Copy for CoreProximityEvaluation {}
+#[cfg(feature = "Foundation")]
+impl ::core::clone::Clone for CoreProximityEvaluation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CoreProximityEvaluationScore(pub i32);
 impl CoreProximityEvaluationScore {
     pub const Closest: Self = Self(0i32);
     pub const Farthest: Self = Self(2147483647i32);
+}
+impl ::core::marker::Copy for CoreProximityEvaluationScore {}
+impl ::core::clone::Clone for CoreProximityEvaluationScore {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct CoreVirtualKeyStates(pub u32);
@@ -118,6 +190,12 @@ impl CoreVirtualKeyStates {
     pub const None: Self = Self(0u32);
     pub const Down: Self = Self(1u32);
     pub const Locked: Self = Self(2u32);
+}
+impl ::core::marker::Copy for CoreVirtualKeyStates {}
+impl ::core::clone::Clone for CoreVirtualKeyStates {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct CoreWindow(pub *mut ::core::ffi::c_void);
@@ -129,6 +207,12 @@ impl CoreWindowActivationMode {
     pub const ActivatedNotForeground: Self = Self(2i32);
     pub const ActivatedInForeground: Self = Self(3i32);
 }
+impl ::core::marker::Copy for CoreWindowActivationMode {}
+impl ::core::clone::Clone for CoreWindowActivationMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CoreWindowActivationState(pub i32);
 impl CoreWindowActivationState {
@@ -136,10 +220,14 @@ impl CoreWindowActivationState {
     pub const Deactivated: Self = Self(1i32);
     pub const PointerActivated: Self = Self(2i32);
 }
+impl ::core::marker::Copy for CoreWindowActivationState {}
+impl ::core::clone::Clone for CoreWindowActivationState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CoreWindowDialog(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct CoreWindowDialogsContract(i32);
 #[repr(transparent)]
 pub struct CoreWindowEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -147,6 +235,12 @@ pub struct CoreWindowFlowDirection(pub i32);
 impl CoreWindowFlowDirection {
     pub const LeftToRight: Self = Self(0i32);
     pub const RightToLeft: Self = Self(1i32);
+}
+impl ::core::marker::Copy for CoreWindowFlowDirection {}
+impl ::core::clone::Clone for CoreWindowFlowDirection {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct CoreWindowFlyout(pub *mut ::core::ffi::c_void);

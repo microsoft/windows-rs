@@ -20,17 +20,35 @@ impl CoreTextFormatUpdatingReason {
     pub const CompositionTargetUnconverted: Self = Self(3i32);
     pub const CompositionTargetConverted: Self = Self(4i32);
 }
+impl ::core::marker::Copy for CoreTextFormatUpdatingReason {}
+impl ::core::clone::Clone for CoreTextFormatUpdatingReason {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CoreTextFormatUpdatingResult(pub i32);
 impl CoreTextFormatUpdatingResult {
     pub const Succeeded: Self = Self(0i32);
     pub const Failed: Self = Self(1i32);
 }
+impl ::core::marker::Copy for CoreTextFormatUpdatingResult {}
+impl ::core::clone::Clone for CoreTextFormatUpdatingResult {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CoreTextInputPaneDisplayPolicy(pub i32);
 impl CoreTextInputPaneDisplayPolicy {
     pub const Automatic: Self = Self(0i32);
     pub const Manual: Self = Self(1i32);
+}
+impl ::core::marker::Copy for CoreTextInputPaneDisplayPolicy {}
+impl ::core::clone::Clone for CoreTextInputPaneDisplayPolicy {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct CoreTextInputScope(pub i32);
@@ -103,6 +121,12 @@ impl CoreTextInputScope {
     pub const PinNumeric: Self = Self(64i32);
     pub const PinAlphanumeric: Self = Self(65i32);
 }
+impl ::core::marker::Copy for CoreTextInputScope {}
+impl ::core::clone::Clone for CoreTextInputScope {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CoreTextLayoutBounds(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -110,7 +134,16 @@ pub struct CoreTextLayoutRequest(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct CoreTextLayoutRequestedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(C)]
-pub struct CoreTextRange(i32);
+pub struct CoreTextRange {
+    pub StartCaretPosition: i32,
+    pub EndCaretPosition: i32,
+}
+impl ::core::marker::Copy for CoreTextRange {}
+impl ::core::clone::Clone for CoreTextRange {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CoreTextSelectionRequest(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -122,6 +155,12 @@ pub struct CoreTextSelectionUpdatingResult(pub i32);
 impl CoreTextSelectionUpdatingResult {
     pub const Succeeded: Self = Self(0i32);
     pub const Failed: Self = Self(1i32);
+}
+impl ::core::marker::Copy for CoreTextSelectionUpdatingResult {}
+impl ::core::clone::Clone for CoreTextSelectionUpdatingResult {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct CoreTextServicesManager(pub *mut ::core::ffi::c_void);
@@ -136,6 +175,12 @@ pub struct CoreTextTextUpdatingResult(pub i32);
 impl CoreTextTextUpdatingResult {
     pub const Succeeded: Self = Self(0i32);
     pub const Failed: Self = Self(1i32);
+}
+impl ::core::marker::Copy for CoreTextTextUpdatingResult {}
+impl ::core::clone::Clone for CoreTextTextUpdatingResult {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct ICoreTextCompositionCompletedEventArgs(pub *mut ::core::ffi::c_void);

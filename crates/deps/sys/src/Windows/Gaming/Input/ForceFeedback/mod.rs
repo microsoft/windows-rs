@@ -11,6 +11,12 @@ impl ConditionForceEffectKind {
     pub const Inertia: Self = Self(2i32);
     pub const Friction: Self = Self(3i32);
 }
+impl ::core::marker::Copy for ConditionForceEffectKind {}
+impl ::core::clone::Clone for ConditionForceEffectKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ConstantForceEffect(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -21,6 +27,12 @@ impl ForceFeedbackEffectAxes {
     pub const Y: Self = Self(2u32);
     pub const Z: Self = Self(4u32);
 }
+impl ::core::marker::Copy for ForceFeedbackEffectAxes {}
+impl ::core::clone::Clone for ForceFeedbackEffectAxes {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ForceFeedbackEffectState(pub i32);
 impl ForceFeedbackEffectState {
@@ -29,12 +41,24 @@ impl ForceFeedbackEffectState {
     pub const Paused: Self = Self(2i32);
     pub const Faulted: Self = Self(3i32);
 }
+impl ::core::marker::Copy for ForceFeedbackEffectState {}
+impl ::core::clone::Clone for ForceFeedbackEffectState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ForceFeedbackLoadEffectResult(pub i32);
 impl ForceFeedbackLoadEffectResult {
     pub const Succeeded: Self = Self(0i32);
     pub const EffectStorageFull: Self = Self(1i32);
     pub const EffectNotSupported: Self = Self(2i32);
+}
+impl ::core::marker::Copy for ForceFeedbackLoadEffectResult {}
+impl ::core::clone::Clone for ForceFeedbackLoadEffectResult {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct ForceFeedbackMotor(pub *mut ::core::ffi::c_void);
@@ -64,6 +88,12 @@ impl PeriodicForceEffectKind {
     pub const TriangleWave: Self = Self(2i32);
     pub const SawtoothWaveUp: Self = Self(3i32);
     pub const SawtoothWaveDown: Self = Self(4i32);
+}
+impl ::core::marker::Copy for PeriodicForceEffectKind {}
+impl ::core::clone::Clone for PeriodicForceEffectKind {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct RampForceEffect(pub *mut ::core::ffi::c_void);

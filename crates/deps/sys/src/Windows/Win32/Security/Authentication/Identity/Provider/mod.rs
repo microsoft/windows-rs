@@ -6,6 +6,12 @@ pub struct ACCOUNT_STATE(pub i32);
 pub const NOT_CONNECTED: ACCOUNT_STATE = ACCOUNT_STATE(0i32);
 pub const CONNECTING: ACCOUNT_STATE = ACCOUNT_STATE(1i32);
 pub const CONNECT_COMPLETED: ACCOUNT_STATE = ACCOUNT_STATE(2i32);
+impl ::core::marker::Copy for ACCOUNT_STATE {}
+impl ::core::clone::Clone for ACCOUNT_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AsyncIAssociatedIdentityProvider(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -20,10 +26,18 @@ pub struct AsyncIIdentityProvider(pub *mut ::core::ffi::c_void);
 pub struct AsyncIIdentityStore(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct AsyncIIdentityStoreEx(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct CIdentityProfileHandler(i32);
-#[repr(C)]
-pub struct CoClassIdentityStore(i32);
+pub const CIdentityProfileHandler: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3975528262,
+    data2: 58294,
+    data3: 17562,
+    data4: [181, 107, 67, 245, 143, 134, 120, 20],
+};
+pub const CoClassIdentityStore: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 819237446,
+    data2: 53783,
+    data3: 18015,
+    data4: [176, 11, 172, 157, 221, 101, 46, 183],
+};
 #[repr(transparent)]
 pub struct IAssociatedIdentityProvider(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -32,6 +46,12 @@ pub struct IConnectedIdentityProvider(pub *mut ::core::ffi::c_void);
 pub struct IDENTITY_TYPE(pub i32);
 pub const IDENTITIES_ALL: IDENTITY_TYPE = IDENTITY_TYPE(0i32);
 pub const IDENTITIES_ME_ONLY: IDENTITY_TYPE = IDENTITY_TYPE(1i32);
+impl ::core::marker::Copy for IDENTITY_TYPE {}
+impl ::core::clone::Clone for IDENTITY_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDENTITY_URL(pub i32);
 pub const IDENTITY_URL_CREATE_ACCOUNT_WIZARD: IDENTITY_URL = IDENTITY_URL(0i32);
@@ -41,6 +61,12 @@ pub const IDENTITY_URL_IFEXISTS_WIZARD: IDENTITY_URL = IDENTITY_URL(3i32);
 pub const IDENTITY_URL_ACCOUNT_SETTINGS: IDENTITY_URL = IDENTITY_URL(4i32);
 pub const IDENTITY_URL_RESTORE_WIZARD: IDENTITY_URL = IDENTITY_URL(5i32);
 pub const IDENTITY_URL_CONNECT_WIZARD: IDENTITY_URL = IDENTITY_URL(6i32);
+impl ::core::marker::Copy for IDENTITY_URL {}
+impl ::core::clone::Clone for IDENTITY_URL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IIdentityAdvise(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -61,6 +87,12 @@ pub const IDENTITY_DELETED: IdentityUpdateEvent = IdentityUpdateEvent(16u32);
 pub const IDENTITY_PROPCHANGED: IdentityUpdateEvent = IdentityUpdateEvent(32u32);
 pub const IDENTITY_CONNECTED: IdentityUpdateEvent = IdentityUpdateEvent(64u32);
 pub const IDENTITY_DISCONNECTED: IdentityUpdateEvent = IdentityUpdateEvent(128u32);
+impl ::core::marker::Copy for IdentityUpdateEvent {}
+impl ::core::clone::Clone for IdentityUpdateEvent {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const OID_OAssociatedIdentityProviderObject: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 2563089373,
     data2: 56168,

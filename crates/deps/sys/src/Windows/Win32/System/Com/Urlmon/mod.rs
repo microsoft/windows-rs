@@ -129,6 +129,12 @@ pub struct AUTHENTICATEF(pub i32);
 pub const AUTHENTICATEF_PROXY: AUTHENTICATEF = AUTHENTICATEF(1i32);
 pub const AUTHENTICATEF_BASIC: AUTHENTICATEF = AUTHENTICATEF(2i32);
 pub const AUTHENTICATEF_HTTP: AUTHENTICATEF = AUTHENTICATEF(4i32);
+impl ::core::marker::Copy for AUTHENTICATEF {}
+impl ::core::clone::Clone for AUTHENTICATEF {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct BINDF(pub i32);
 pub const BINDF_ASYNCHRONOUS: BINDF = BINDF(1i32);
@@ -162,6 +168,12 @@ pub const BINDF_RESERVED_5: BINDF = BINDF(67108864i32);
 pub const BINDF_RESERVED_6: BINDF = BINDF(134217728i32);
 pub const BINDF_RESERVED_7: BINDF = BINDF(1073741824i32);
 pub const BINDF_RESERVED_8: BINDF = BINDF(536870912i32);
+impl ::core::marker::Copy for BINDF {}
+impl ::core::clone::Clone for BINDF {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct BINDF2(pub i32);
 pub const BINDF2_DISABLEBASICOVERHTTP: BINDF2 = BINDF2(1i32);
@@ -195,11 +207,23 @@ pub const BINDF2_RESERVED_4: BINDF2 = BINDF2(268435456i32);
 pub const BINDF2_RESERVED_3: BINDF2 = BINDF2(536870912i32);
 pub const BINDF2_RESERVED_2: BINDF2 = BINDF2(1073741824i32);
 pub const BINDF2_RESERVED_1: BINDF2 = BINDF2(-2147483648i32);
+impl ::core::marker::Copy for BINDF2 {}
+impl ::core::clone::Clone for BINDF2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct BINDHANDLETYPES(pub i32);
 pub const BINDHANDLETYPES_APPCACHE: BINDHANDLETYPES = BINDHANDLETYPES(0i32);
 pub const BINDHANDLETYPES_DEPENDENCY: BINDHANDLETYPES = BINDHANDLETYPES(1i32);
 pub const BINDHANDLETYPES_COUNT: BINDHANDLETYPES = BINDHANDLETYPES(2i32);
+impl ::core::marker::Copy for BINDHANDLETYPES {}
+impl ::core::clone::Clone for BINDHANDLETYPES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct BINDINFO_OPTIONS(pub i32);
 pub const BINDINFO_OPTIONS_WININETFLAG: BINDINFO_OPTIONS = BINDINFO_OPTIONS(65536i32);
@@ -217,6 +241,12 @@ pub const BINDINFO_WPC_LOGGING_ENABLED: BINDINFO_OPTIONS = BINDINFO_OPTIONS(2684
 pub const BINDINFO_OPTIONS_ALLOWCONNECTDATA: BINDINFO_OPTIONS = BINDINFO_OPTIONS(536870912i32);
 pub const BINDINFO_OPTIONS_DISABLEAUTOREDIRECTS: BINDINFO_OPTIONS = BINDINFO_OPTIONS(1073741824i32);
 pub const BINDINFO_OPTIONS_SHDOCVW_NAVIGATE: BINDINFO_OPTIONS = BINDINFO_OPTIONS(-2147483648i32);
+impl ::core::marker::Copy for BINDINFO_OPTIONS {}
+impl ::core::clone::Clone for BINDINFO_OPTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct BINDSTATUS(pub i32);
 pub const BINDSTATUS_FINDINGRESOURCE: BINDSTATUS = BINDSTATUS(1i32);
@@ -298,6 +328,12 @@ pub const BINDSTATUS_RESERVED_12: BINDSTATUS = BINDSTATUS(75i32);
 pub const BINDSTATUS_RESERVED_13: BINDSTATUS = BINDSTATUS(76i32);
 pub const BINDSTATUS_RESERVED_14: BINDSTATUS = BINDSTATUS(77i32);
 pub const BINDSTATUS_LAST_PRIVATE: BINDSTATUS = BINDSTATUS(77i32);
+impl ::core::marker::Copy for BINDSTATUS {}
+impl ::core::clone::Clone for BINDSTATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct BINDSTRING(pub i32);
 pub const BINDSTRING_HEADERS: BINDSTRING = BINDSTRING(1i32);
@@ -326,6 +362,12 @@ pub const BINDSTRING_PROXY_PASSWORD: BINDSTRING = BINDSTRING(23i32);
 pub const BINDSTRING_ENTERPRISE_ID: BINDSTRING = BINDSTRING(24i32);
 pub const BINDSTRING_DOC_URL: BINDSTRING = BINDSTRING(25i32);
 pub const BINDSTRING_SAMESITE_COOKIE_LEVEL: BINDSTRING = BINDSTRING(26i32);
+impl ::core::marker::Copy for BINDSTRING {}
+impl ::core::clone::Clone for BINDSTRING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct BINDVERB(pub i32);
 pub const BINDVERB_GET: BINDVERB = BINDVERB(0i32);
@@ -333,6 +375,12 @@ pub const BINDVERB_POST: BINDVERB = BINDVERB(1i32);
 pub const BINDVERB_PUT: BINDVERB = BINDVERB(2i32);
 pub const BINDVERB_CUSTOM: BINDVERB = BINDVERB(3i32);
 pub const BINDVERB_RESERVED1: BINDVERB = BINDVERB(4i32);
+impl ::core::marker::Copy for BINDVERB {}
+impl ::core::clone::Clone for BINDVERB {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct BSCF(pub i32);
 pub const BSCF_FIRSTDATANOTIFICATION: BSCF = BSCF(1i32);
@@ -342,6 +390,12 @@ pub const BSCF_DATAFULLYAVAILABLE: BSCF = BSCF(8i32);
 pub const BSCF_AVAILABLEDATASIZEUNKNOWN: BSCF = BSCF(16i32);
 pub const BSCF_SKIPDRAINDATAFORFILEURLS: BSCF = BSCF(32i32);
 pub const BSCF_64BITLENGTHDOWNLOAD: BSCF = BSCF(64i32);
+impl ::core::marker::Copy for BSCF {}
+impl ::core::clone::Clone for BSCF {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CF_NULL: u32 = 0u32;
 #[repr(transparent)]
 pub struct CIP_STATUS(pub i32);
@@ -355,14 +409,56 @@ pub const CIP_EXE_SELF_REGISTERATION_TIMEOUT: CIP_STATUS = CIP_STATUS(6i32);
 pub const CIP_UNSAFE_TO_ABORT: CIP_STATUS = CIP_STATUS(7i32);
 pub const CIP_NEED_REBOOT: CIP_STATUS = CIP_STATUS(8i32);
 pub const CIP_NEED_REBOOT_UI_PERMISSION: CIP_STATUS = CIP_STATUS(9i32);
+impl ::core::marker::Copy for CIP_STATUS {}
+impl ::core::clone::Clone for CIP_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+pub struct CODEBASEHOLD {
+    pub cbSize: u32,
+    pub szDistUnit: super::super::super::Foundation::PWSTR,
+    pub szCodeBase: super::super::super::Foundation::PWSTR,
+    pub dwVersionMS: u32,
+    pub dwVersionLS: u32,
+    pub dwStyle: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CODEBASEHOLD {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CODEBASEHOLD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CODEBASEHOLD(i32);
-#[repr(C)]
-pub struct CONFIRMSAFETY(i32);
+pub struct CONFIRMSAFETY {
+    pub clsid: ::windows_sys::core::GUID,
+    pub pUnk: ::core::option::Option<::windows_sys::core::IUnknown>,
+    pub dwFlags: u32,
+}
+impl ::core::marker::Copy for CONFIRMSAFETY {}
+impl ::core::clone::Clone for CONFIRMSAFETY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CONFIRMSAFETYACTION_LOADOBJECT: u32 = 1u32;
 #[repr(C)]
-pub struct DATAINFO(i32);
+pub struct DATAINFO {
+    pub ulTotalSize: u32,
+    pub ulavrPacketSize: u32,
+    pub ulConnectSpeed: u32,
+    pub ulProcessorSpeed: u32,
+}
+impl ::core::marker::Copy for DATAINFO {}
+impl ::core::clone::Clone for DATAINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const E_PENDING: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147483638i32 as _);
 pub const FIEF_FLAG_FORCE_JITUI: u32 = 1u32;
 pub const FIEF_FLAG_PEEK: u32 = 2u32;
@@ -385,9 +481,23 @@ pub const GET_FEATURE_FROM_THREAD_INTRANET: u32 = 16u32;
 pub const GET_FEATURE_FROM_THREAD_LOCALMACHINE: u32 = 8u32;
 pub const GET_FEATURE_FROM_THREAD_RESTRICTED: u32 = 128u32;
 pub const GET_FEATURE_FROM_THREAD_TRUSTED: u32 = 32u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct HIT_LOGGING_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct HIT_LOGGING_INFO {
+    pub dwStructSize: u32,
+    pub lpszLoggedUrlName: super::super::super::Foundation::PSTR,
+    pub StartTime: super::super::super::Foundation::SYSTEMTIME,
+    pub EndTime: super::super::super::Foundation::SYSTEMTIME,
+    pub lpszExtendedInfo: super::super::super::Foundation::PSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for HIT_LOGGING_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for HIT_LOGGING_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBindCallbackRedirect(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -410,6 +520,12 @@ pub const IE_EPM_OBJECT_WAITABLE_TIMER: IEObjectType = IEObjectType(4i32);
 pub const IE_EPM_OBJECT_FILE: IEObjectType = IEObjectType(5i32);
 pub const IE_EPM_OBJECT_NAMED_PIPE: IEObjectType = IEObjectType(6i32);
 pub const IE_EPM_OBJECT_REGISTRY: IEObjectType = IEObjectType(7i32);
+impl ::core::marker::Copy for IEObjectType {}
+impl ::core::clone::Clone for IEObjectType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEncodingFilterFactory(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -518,6 +634,12 @@ pub const INET_E_VTAB_SWITCH_FORCE_ENGINE: ::windows_sys::core::HRESULT = ::wind
 pub struct INET_ZONE_MANAGER_CONSTANTS(pub i32);
 pub const MAX_ZONE_PATH: INET_ZONE_MANAGER_CONSTANTS = INET_ZONE_MANAGER_CONSTANTS(260i32);
 pub const MAX_ZONE_DESCRIPTION: INET_ZONE_MANAGER_CONSTANTS = INET_ZONE_MANAGER_CONSTANTS(200i32);
+impl ::core::marker::Copy for INET_ZONE_MANAGER_CONSTANTS {}
+impl ::core::clone::Clone for INET_ZONE_MANAGER_CONSTANTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct INTERNETFEATURELIST(pub i32);
 pub const FEATURE_OBJECT_CACHING: INTERNETFEATURELIST = INTERNETFEATURELIST(0i32);
@@ -549,6 +671,12 @@ pub const FEATURE_DISABLE_TELNET_PROTOCOL: INTERNETFEATURELIST = INTERNETFEATURE
 pub const FEATURE_FEEDS: INTERNETFEATURELIST = INTERNETFEATURELIST(26i32);
 pub const FEATURE_BLOCK_INPUT_PROMPTS: INTERNETFEATURELIST = INTERNETFEATURELIST(27i32);
 pub const FEATURE_ENTRY_COUNT: INTERNETFEATURELIST = INTERNETFEATURELIST(28i32);
+impl ::core::marker::Copy for INTERNETFEATURELIST {}
+impl ::core::clone::Clone for INTERNETFEATURELIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPersistMoniker(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -587,6 +715,12 @@ pub const USE_SRC_URL: MONIKERPROPERTY = MONIKERPROPERTY(1i32);
 pub const CLASSIDPROP: MONIKERPROPERTY = MONIKERPROPERTY(2i32);
 pub const TRUSTEDDOWNLOADPROP: MONIKERPROPERTY = MONIKERPROPERTY(3i32);
 pub const POPUPLEVELPROP: MONIKERPROPERTY = MONIKERPROPERTY(4i32);
+impl ::core::marker::Copy for MONIKERPROPERTY {}
+impl ::core::clone::Clone for MONIKERPROPERTY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MUTZ_ACCEPT_WILDCARD_SCHEME: u32 = 128u32;
 pub const MUTZ_DONT_UNESCAPE: u32 = 2048u32;
 pub const MUTZ_DONT_USE_CACHE: u32 = 4096u32;
@@ -601,6 +735,12 @@ pub const MUTZ_RESERVED: u32 = 512u32;
 pub struct OIBDG_FLAGS(pub i32);
 pub const OIBDG_APARTMENTTHREADED: OIBDG_FLAGS = OIBDG_FLAGS(256i32);
 pub const OIBDG_DATAONLY: OIBDG_FLAGS = OIBDG_FLAGS(4096i32);
+impl ::core::marker::Copy for OIBDG_FLAGS {}
+impl ::core::clone::Clone for OIBDG_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PARSEACTION(pub i32);
 pub const PARSE_CANONICALIZE: PARSEACTION = PARSEACTION(1i32);
@@ -622,6 +762,12 @@ pub const PARSE_LOCATION: PARSEACTION = PARSEACTION(16i32);
 pub const PARSE_SECURITY_DOMAIN: PARSEACTION = PARSEACTION(17i32);
 pub const PARSE_ESCAPE: PARSEACTION = PARSEACTION(18i32);
 pub const PARSE_UNESCAPE: PARSEACTION = PARSEACTION(19i32);
+impl ::core::marker::Copy for PARSEACTION {}
+impl ::core::clone::Clone for PARSEACTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PI_FLAGS(pub i32);
 pub const PI_PARSE_URL: PI_FLAGS = PI_FLAGS(1i32);
@@ -639,18 +785,64 @@ pub const PI_NOMIMEHANDLER: PI_FLAGS = PI_FLAGS(32768i32);
 pub const PI_LOADAPPDIRECT: PI_FLAGS = PI_FLAGS(16384i32);
 pub const PD_FORCE_SWITCH: PI_FLAGS = PI_FLAGS(65536i32);
 pub const PI_PREFERDEFAULTHANDLER: PI_FLAGS = PI_FLAGS(131072i32);
+impl ::core::marker::Copy for PI_FLAGS {}
+impl ::core::clone::Clone for PI_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct PROTOCOLDATA(i32);
+pub struct PROTOCOLDATA {
+    pub grfFlags: u32,
+    pub dwState: u32,
+    pub pData: *mut ::core::ffi::c_void,
+    pub cbData: u32,
+}
+impl ::core::marker::Copy for PROTOCOLDATA {}
+impl ::core::clone::Clone for PROTOCOLDATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct PROTOCOLFILTERDATA(i32);
+pub struct PROTOCOLFILTERDATA {
+    pub cbSize: u32,
+    pub pProtocolSink: ::core::option::Option<IInternetProtocolSink>,
+    pub pProtocol: ::core::option::Option<IInternetProtocol>,
+    pub pUnk: ::core::option::Option<::windows_sys::core::IUnknown>,
+    pub dwFilterFlags: u32,
+}
+impl ::core::marker::Copy for PROTOCOLFILTERDATA {}
+impl ::core::clone::Clone for PROTOCOLFILTERDATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const PROTOCOLFLAG_NO_PICS_CHECK: u32 = 1u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct PROTOCOL_ARGUMENT(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct PROTOCOL_ARGUMENT {
+    pub szMethod: super::super::super::Foundation::PWSTR,
+    pub szTargetUrl: super::super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for PROTOCOL_ARGUMENT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for PROTOCOL_ARGUMENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PSUACTION(pub i32);
 pub const PSU_DEFAULT: PSUACTION = PSUACTION(1i32);
 pub const PSU_SECURITY_URL_ONLY: PSUACTION = PSUACTION(2i32);
+impl ::core::marker::Copy for PSUACTION {}
+impl ::core::clone::Clone for PSUACTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PUAF(pub i32);
 pub const PUAF_DEFAULT: PUAF = PUAF(0i32);
@@ -674,10 +866,22 @@ pub const PUAF_DEFAULTZONEPOL: PUAF = PUAF(262144i32);
 pub const PUAF_NPL_USE_LOCKED_IF_RESTRICTED: PUAF = PUAF(524288i32);
 pub const PUAF_NOUIIFLOCKED: PUAF = PUAF(1048576i32);
 pub const PUAF_DRAGPROTOCOLCHECK: PUAF = PUAF(2097152i32);
+impl ::core::marker::Copy for PUAF {}
+impl ::core::clone::Clone for PUAF {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PUAFOUT(pub i32);
 pub const PUAFOUT_DEFAULT: PUAFOUT = PUAFOUT(0i32);
 pub const PUAFOUT_ISLOCKZONEPOLICY: PUAFOUT = PUAFOUT(1i32);
+impl ::core::marker::Copy for PUAFOUT {}
+impl ::core::clone::Clone for PUAFOUT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct QUERYOPTION(pub i32);
 pub const QUERY_EXPIRATION_DATE: QUERYOPTION = QUERYOPTION(1i32);
@@ -696,14 +900,66 @@ pub const QUERY_IS_SECURE: QUERYOPTION = QUERYOPTION(13i32);
 pub const QUERY_IS_SAFE: QUERYOPTION = QUERYOPTION(14i32);
 pub const QUERY_USES_HISTORYFOLDER: QUERYOPTION = QUERYOPTION(15i32);
 pub const QUERY_IS_CACHED_AND_USABLE_OFFLINE: QUERYOPTION = QUERYOPTION(16i32);
+impl ::core::marker::Copy for QUERYOPTION {}
+impl ::core::clone::Clone for QUERYOPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct REMSECURITY_ATTRIBUTES(i32);
+pub struct REMSECURITY_ATTRIBUTES {
+    pub nLength: u32,
+    pub lpSecurityDescriptor: u32,
+    pub bInheritHandle: super::super::super::Foundation::BOOL,
+}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for REMSECURITY_ATTRIBUTES {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for REMSECURITY_ATTRIBUTES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct RemBINDINFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct RemBINDINFO {
+    pub cbSize: u32,
+    pub szExtraInfo: super::super::super::Foundation::PWSTR,
+    pub grfBindInfoF: u32,
+    pub dwBindVerb: u32,
+    pub szCustomVerb: super::super::super::Foundation::PWSTR,
+    pub cbstgmedData: u32,
+    pub dwOptions: u32,
+    pub dwOptionsFlags: u32,
+    pub dwCodePage: u32,
+    pub securityAttributes: REMSECURITY_ATTRIBUTES,
+    pub iid: ::windows_sys::core::GUID,
+    pub pUnk: ::core::option::Option<::windows_sys::core::IUnknown>,
+    pub dwReserved: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for RemBINDINFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for RemBINDINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct RemFORMATETC(i32);
+pub struct RemFORMATETC {
+    pub cfFormat: u32,
+    pub ptd: u32,
+    pub dwAspect: u32,
+    pub lindex: i32,
+    pub tymed: u32,
+}
+impl ::core::marker::Copy for RemFORMATETC {}
+impl ::core::clone::Clone for RemFORMATETC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SECURITY_IE_STATE_GREEN: u32 = 0u32;
 pub const SECURITY_IE_STATE_RED: u32 = 1u32;
 pub const SET_FEATURE_IN_REGISTRY: u32 = 4u32;
@@ -714,9 +970,31 @@ pub const SET_FEATURE_ON_THREAD_INTRANET: u32 = 16u32;
 pub const SET_FEATURE_ON_THREAD_LOCALMACHINE: u32 = 8u32;
 pub const SET_FEATURE_ON_THREAD_RESTRICTED: u32 = 128u32;
 pub const SET_FEATURE_ON_THREAD_TRUSTED: u32 = 32u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct SOFTDISTINFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct SOFTDISTINFO {
+    pub cbSize: u32,
+    pub dwFlags: u32,
+    pub dwAdState: u32,
+    pub szTitle: super::super::super::Foundation::PWSTR,
+    pub szAbstract: super::super::super::Foundation::PWSTR,
+    pub szHREF: super::super::super::Foundation::PWSTR,
+    pub dwInstalledVersionMS: u32,
+    pub dwInstalledVersionLS: u32,
+    pub dwUpdateVersionMS: u32,
+    pub dwUpdateVersionLS: u32,
+    pub dwAdvertisedVersionMS: u32,
+    pub dwAdvertisedVersionLS: u32,
+    pub dwReserved: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SOFTDISTINFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SOFTDISTINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SOFTDIST_ADSTATE_AVAILABLE: u32 = 1u32;
 pub const SOFTDIST_ADSTATE_DOWNLOADED: u32 = 2u32;
 pub const SOFTDIST_ADSTATE_INSTALLED: u32 = 3u32;
@@ -729,9 +1007,25 @@ pub const SOFTDIST_FLAG_USAGE_PRECACHE: u32 = 2u32;
 pub struct SZM_FLAGS(pub i32);
 pub const SZM_CREATE: SZM_FLAGS = SZM_FLAGS(0i32);
 pub const SZM_DELETE: SZM_FLAGS = SZM_FLAGS(1i32);
+impl ::core::marker::Copy for SZM_FLAGS {}
+impl ::core::clone::Clone for SZM_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const S_ASYNCHRONOUS: i32 = 262632i32;
 #[repr(C)]
-pub struct StartParam(i32);
+pub struct StartParam {
+    pub iid: ::windows_sys::core::GUID,
+    pub pIBindCtx: ::core::option::Option<super::IBindCtx>,
+    pub pItf: ::core::option::Option<::windows_sys::core::IUnknown>,
+}
+impl ::core::marker::Copy for StartParam {}
+impl ::core::clone::Clone for StartParam {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const UAS_EXACTLEGACY: u32 = 4096u32;
 pub const URLACTION_ACTIVEX_ALLOW_TDC: u32 = 4620u32;
 pub const URLACTION_ACTIVEX_CONFIRM_NOOBJECTSAFETY: u32 = 4612u32;
@@ -919,6 +1213,12 @@ pub const URLTEMPLATE_MEDIUM: URLTEMPLATE = URLTEMPLATE(69632i32);
 pub const URLTEMPLATE_MEDHIGH: URLTEMPLATE = URLTEMPLATE(70912i32);
 pub const URLTEMPLATE_HIGH: URLTEMPLATE = URLTEMPLATE(73728i32);
 pub const URLTEMPLATE_PREDEFINED_MAX: URLTEMPLATE = URLTEMPLATE(131072i32);
+impl ::core::marker::Copy for URLTEMPLATE {}
+impl ::core::clone::Clone for URLTEMPLATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct URLZONE(pub i32);
 pub const URLZONE_INVALID: URLZONE = URLZONE(-1i32);
@@ -931,17 +1231,35 @@ pub const URLZONE_UNTRUSTED: URLZONE = URLZONE(4i32);
 pub const URLZONE_PREDEFINED_MAX: URLZONE = URLZONE(999i32);
 pub const URLZONE_USER_MIN: URLZONE = URLZONE(1000i32);
 pub const URLZONE_USER_MAX: URLZONE = URLZONE(10000i32);
+impl ::core::marker::Copy for URLZONE {}
+impl ::core::clone::Clone for URLZONE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct URLZONEREG(pub i32);
 pub const URLZONEREG_DEFAULT: URLZONEREG = URLZONEREG(0i32);
 pub const URLZONEREG_HKLM: URLZONEREG = URLZONEREG(1i32);
 pub const URLZONEREG_HKCU: URLZONEREG = URLZONEREG(2i32);
+impl ::core::marker::Copy for URLZONEREG {}
+impl ::core::clone::Clone for URLZONEREG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const URLZONE_ESC_FLAG: u32 = 256u32;
 #[repr(transparent)]
 pub struct URL_ENCODING(pub i32);
 pub const URL_ENCODING_NONE: URL_ENCODING = URL_ENCODING(0i32);
 pub const URL_ENCODING_ENABLE_UTF8: URL_ENCODING = URL_ENCODING(268435456i32);
 pub const URL_ENCODING_DISABLE_UTF8: URL_ENCODING = URL_ENCODING(536870912i32);
+impl ::core::marker::Copy for URL_ENCODING {}
+impl ::core::clone::Clone for URL_ENCODING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const URL_MK_LEGACY: u32 = 0u32;
 pub const URL_MK_NO_CANONICALIZE: u32 = 2u32;
 pub const URL_MK_UNIFORM: u32 = 1u32;
@@ -963,6 +1281,12 @@ pub const Uri_HOST_DNS: Uri_HOST_TYPE = Uri_HOST_TYPE(1i32);
 pub const Uri_HOST_IPV4: Uri_HOST_TYPE = Uri_HOST_TYPE(2i32);
 pub const Uri_HOST_IPV6: Uri_HOST_TYPE = Uri_HOST_TYPE(3i32);
 pub const Uri_HOST_IDN: Uri_HOST_TYPE = Uri_HOST_TYPE(4i32);
+impl ::core::marker::Copy for Uri_HOST_TYPE {}
+impl ::core::clone::Clone for Uri_HOST_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const Uri_PUNYCODE_IDN_HOST: u32 = 2u32;
 pub const WININETINFO_OPTION_LOCK_HANDLE: u32 = 65534u32;
 #[repr(transparent)]
@@ -979,5 +1303,26 @@ pub const ZAFLAGS_DETECT_INTRANET: ZAFLAGS = ZAFLAGS(256i32);
 pub const ZAFLAGS_USE_LOCKED_ZONES: ZAFLAGS = ZAFLAGS(65536i32);
 pub const ZAFLAGS_VERIFY_TEMPLATE_SETTINGS: ZAFLAGS = ZAFLAGS(131072i32);
 pub const ZAFLAGS_NO_CACHE: ZAFLAGS = ZAFLAGS(262144i32);
+impl ::core::marker::Copy for ZAFLAGS {}
+impl ::core::clone::Clone for ZAFLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct ZONEATTRIBUTES(i32);
+pub struct ZONEATTRIBUTES {
+    pub cbSize: u32,
+    pub szDisplayName: [u16; 260],
+    pub szDescription: [u16; 200],
+    pub szIconPath: [u16; 260],
+    pub dwTemplateMinLevel: u32,
+    pub dwTemplateRecommended: u32,
+    pub dwTemplateCurrentLevel: u32,
+    pub dwFlags: u32,
+}
+impl ::core::marker::Copy for ZONEATTRIBUTES {}
+impl ::core::clone::Clone for ZONEATTRIBUTES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

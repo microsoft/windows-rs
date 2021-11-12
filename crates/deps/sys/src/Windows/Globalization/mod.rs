@@ -26,10 +26,14 @@ impl DayOfWeek {
     pub const Friday: Self = Self(5i32);
     pub const Saturday: Self = Self(6i32);
 }
+impl ::core::marker::Copy for DayOfWeek {}
+impl ::core::clone::Clone for DayOfWeek {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct GeographicRegion(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct GlobalizationJapanesePhoneticAnalyzerContract(i32);
 #[repr(transparent)]
 pub struct IApplicationLanguagesStatics(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -101,4 +105,10 @@ impl LanguageLayoutDirection {
     pub const Rtl: Self = Self(1i32);
     pub const TtbLtr: Self = Self(2i32);
     pub const TtbRtl: Self = Self(3i32);
+}
+impl ::core::marker::Copy for LanguageLayoutDirection {}
+impl ::core::clone::Clone for LanguageLayoutDirection {
+    fn clone(&self) -> Self {
+        *self
+    }
 }

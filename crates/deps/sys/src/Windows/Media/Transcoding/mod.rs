@@ -15,6 +15,12 @@ impl MediaVideoProcessingAlgorithm {
     pub const Default: Self = Self(0i32);
     pub const MrfCrf444: Self = Self(1i32);
 }
+impl ::core::marker::Copy for MediaVideoProcessingAlgorithm {}
+impl ::core::clone::Clone for MediaVideoProcessingAlgorithm {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PrepareTranscodeResult(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -24,4 +30,10 @@ impl TranscodeFailureReason {
     pub const Unknown: Self = Self(1i32);
     pub const InvalidProfile: Self = Self(2i32);
     pub const CodecNotFound: Self = Self(3i32);
+}
+impl ::core::marker::Copy for TranscodeFailureReason {}
+impl ::core::clone::Clone for TranscodeFailureReason {
+    fn clone(&self) -> Self {
+        *self
+    }
 }

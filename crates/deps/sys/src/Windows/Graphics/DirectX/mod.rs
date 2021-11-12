@@ -11,6 +11,12 @@ impl DirectXAlphaMode {
     pub const Straight: Self = Self(2i32);
     pub const Ignore: Self = Self(3i32);
 }
+impl ::core::marker::Copy for DirectXAlphaMode {}
+impl ::core::clone::Clone for DirectXAlphaMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DirectXColorSpace(pub i32);
 impl DirectXColorSpace {
@@ -39,6 +45,12 @@ impl DirectXColorSpace {
     pub const YccStudioG24LeftP709: Self = Self(22i32);
     pub const YccStudioG24LeftP2020: Self = Self(23i32);
     pub const YccStudioG24TopLeftP2020: Self = Self(24i32);
+}
+impl ::core::marker::Copy for DirectXColorSpace {}
+impl ::core::clone::Clone for DirectXColorSpace {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct DirectXPixelFormat(pub i32);
@@ -165,6 +177,12 @@ impl DirectXPixelFormat {
     pub const SamplerFeedbackMinMipOpaque: Self = Self(189i32);
     pub const SamplerFeedbackMipRegionUsedOpaque: Self = Self(190i32);
 }
+impl ::core::marker::Copy for DirectXPixelFormat {}
+impl ::core::clone::Clone for DirectXPixelFormat {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DirectXPrimitiveTopology(pub i32);
 impl DirectXPrimitiveTopology {
@@ -174,4 +192,10 @@ impl DirectXPrimitiveTopology {
     pub const LineStrip: Self = Self(3i32);
     pub const TriangleList: Self = Self(4i32);
     pub const TriangleStrip: Self = Self(5i32);
+}
+impl ::core::marker::Copy for DirectXPrimitiveTopology {}
+impl ::core::clone::Clone for DirectXPrimitiveTopology {
+    fn clone(&self) -> Self {
+        *self
+    }
 }

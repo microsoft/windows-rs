@@ -29,8 +29,22 @@ impl AsyncStatus {
     pub const Error: Self = Self(3i32);
     pub const Started: Self = Self(0i32);
 }
+impl ::core::marker::Copy for AsyncStatus {}
+impl ::core::clone::Clone for AsyncStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DateTime(i32);
+pub struct DateTime {
+    pub UniversalTime: i64,
+}
+impl ::core::marker::Copy for DateTime {}
+impl ::core::clone::Clone for DateTime {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct Deferral(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -38,9 +52,15 @@ pub struct DeferralCompletedHandler(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct EventHandler<T>(pub *mut ::core::ffi::c_void);
 #[repr(C)]
-pub struct EventRegistrationToken(i32);
-#[repr(C)]
-pub struct FoundationContract(i32);
+pub struct EventRegistrationToken {
+    pub Value: i64,
+}
+impl ::core::marker::Copy for EventRegistrationToken {}
+impl ::core::clone::Clone for EventRegistrationToken {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAsyncAction(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -94,7 +114,16 @@ pub struct IWwwFormUrlDecoderRuntimeClassFactory(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct MemoryBuffer(pub *mut ::core::ffi::c_void);
 #[repr(C)]
-pub struct Point(i32);
+pub struct Point {
+    pub X: f32,
+    pub Y: f32,
+}
+impl ::core::marker::Copy for Point {}
+impl ::core::clone::Clone for Point {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PropertyType(pub i32);
 impl PropertyType {
@@ -140,16 +169,48 @@ impl PropertyType {
     pub const RectArray: Self = Self(1043i32);
     pub const OtherTypeArray: Self = Self(1044i32);
 }
+impl ::core::marker::Copy for PropertyType {}
+impl ::core::clone::Clone for PropertyType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct Rect(i32);
+pub struct Rect {
+    pub X: f32,
+    pub Y: f32,
+    pub Width: f32,
+    pub Height: f32,
+}
+impl ::core::marker::Copy for Rect {}
+impl ::core::clone::Clone for Rect {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct Size(i32);
+pub struct Size {
+    pub Width: f32,
+    pub Height: f32,
+}
+impl ::core::marker::Copy for Size {}
+impl ::core::clone::Clone for Size {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct TimeSpan(i32);
+pub struct TimeSpan {
+    pub Duration: i64,
+}
+impl ::core::marker::Copy for TimeSpan {}
+impl ::core::clone::Clone for TimeSpan {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TypedEventHandler<TSender, TResult>(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct UniversalApiContract(i32);
 #[repr(transparent)]
 pub struct Uri(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

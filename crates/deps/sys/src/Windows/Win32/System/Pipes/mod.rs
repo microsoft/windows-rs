@@ -58,6 +58,12 @@ pub const PIPE_TYPE_BYTE: NAMED_PIPE_MODE = NAMED_PIPE_MODE(0u32);
 pub const PIPE_TYPE_MESSAGE: NAMED_PIPE_MODE = NAMED_PIPE_MODE(4u32);
 pub const PIPE_ACCEPT_REMOTE_CLIENTS: NAMED_PIPE_MODE = NAMED_PIPE_MODE(0u32);
 pub const PIPE_REJECT_REMOTE_CLIENTS: NAMED_PIPE_MODE = NAMED_PIPE_MODE(8u32);
+impl ::core::marker::Copy for NAMED_PIPE_MODE {}
+impl ::core::clone::Clone for NAMED_PIPE_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const NMPWAIT_NOWAIT: u32 = 1u32;
 pub const NMPWAIT_USE_DEFAULT_WAIT: u32 = 0u32;
 pub const NMPWAIT_WAIT_FOREVER: u32 = 4294967295u32;

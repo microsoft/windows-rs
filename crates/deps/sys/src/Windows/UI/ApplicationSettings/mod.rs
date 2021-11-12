@@ -7,8 +7,6 @@ pub struct AccountsSettingsPane(pub *mut ::core::ffi::c_void);
 pub struct AccountsSettingsPaneCommandsRequestedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct AccountsSettingsPaneEventDeferral(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct ApplicationsSettingsContract(i32);
 #[repr(transparent)]
 pub struct CredentialCommand(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -61,6 +59,12 @@ impl SettingsEdgeLocation {
     pub const Right: Self = Self(0i32);
     pub const Left: Self = Self(1i32);
 }
+impl ::core::marker::Copy for SettingsEdgeLocation {}
+impl ::core::clone::Clone for SettingsEdgeLocation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SettingsPane(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -77,6 +81,12 @@ impl SupportedWebAccountActions {
     pub const Manage: Self = Self(8u32);
     pub const More: Self = Self(16u32);
 }
+impl ::core::marker::Copy for SupportedWebAccountActions {}
+impl ::core::clone::Clone for SupportedWebAccountActions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WebAccountAction(pub i32);
 impl WebAccountAction {
@@ -85,6 +95,12 @@ impl WebAccountAction {
     pub const ViewDetails: Self = Self(2i32);
     pub const Manage: Self = Self(3i32);
     pub const More: Self = Self(4i32);
+}
+impl ::core::marker::Copy for WebAccountAction {}
+impl ::core::clone::Clone for WebAccountAction {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct WebAccountCommand(pub *mut ::core::ffi::c_void);

@@ -159,6 +159,12 @@ impl LogicalDirection {
     pub const Backward: Self = Self(0i32);
     pub const Forward: Self = Self(1i32);
 }
+impl ::core::marker::Copy for LogicalDirection {}
+impl ::core::clone::Clone for LogicalDirection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct Paragraph(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -176,7 +182,16 @@ pub struct TextHighlighterBase(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct TextPointer(pub *mut ::core::ffi::c_void);
 #[repr(C)]
-pub struct TextRange(i32);
+pub struct TextRange {
+    pub StartIndex: i32,
+    pub Length: i32,
+}
+impl ::core::marker::Copy for TextRange {}
+impl ::core::clone::Clone for TextRange {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct Typography(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -186,4 +201,10 @@ pub struct UnderlineStyle(pub i32);
 impl UnderlineStyle {
     pub const None: Self = Self(0i32);
     pub const Single: Self = Self(1i32);
+}
+impl ::core::marker::Copy for UnderlineStyle {}
+impl ::core::clone::Clone for UnderlineStyle {
+    fn clone(&self) -> Self {
+        *self
+    }
 }

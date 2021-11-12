@@ -16,10 +16,48 @@ pub const CLSID_IITWordWheelUpdate: ::windows_sys::core::GUID = ::windows_sys::G
 pub const CLSID_ITEngStemmer: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2409682344, data2: 57055, data3: 4560, data4: [154, 97, 0, 192, 79, 182, 139, 247] };
 pub const CLSID_ITStdBreaker: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1180883631, data2: 54163, data3: 4560, data4: [154, 86, 0, 192, 79, 182, 139, 247] };
 #[repr(C)]
-pub struct COLUMNSTATUS(i32);
-#[cfg(feature = "Win32_Foundation")]
+pub struct COLUMNSTATUS {
+    pub cPropCount: i32,
+    pub cPropsLoaded: i32,
+}
+impl ::core::marker::Copy for COLUMNSTATUS {}
+impl ::core::clone::Clone for COLUMNSTATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CProperty(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CProperty {
+    pub dwPropID: u32,
+    pub cbData: u32,
+    pub dwType: u32,
+    pub Anonymous: CProperty_0,
+    pub fPersist: super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CProperty {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CProperty {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub union CProperty_0 {
+    pub lpszwData: super::super::Foundation::PWSTR,
+    pub lpvData: *mut ::core::ffi::c_void,
+    pub dwValue: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CProperty_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CProperty_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const E_ALL_WILD: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147479467i32 as _);
 pub const E_ALREADYINIT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147479421i32 as _);
 pub const E_ALREADYOPEN: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147479533i32 as _);
@@ -106,12 +144,36 @@ pub const HHACT_TAB_SEARCH: i32 = 2i32;
 pub const HHACT_TOC_NEXT: i32 = 20i32;
 pub const HHACT_TOC_PREV: i32 = 21i32;
 pub const HHACT_ZOOM: i32 = 19i32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 #[repr(C)]
-pub struct HHNTRACK(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
+pub struct HHNTRACK {
+    pub hdr: super::super::UI::Controls::NMHDR,
+    pub pszCurUrl: super::super::Foundation::PSTR,
+    pub idAction: i32,
+    pub phhWinType: *mut HH_WINTYPE,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
+impl ::core::marker::Copy for HHNTRACK {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
+impl ::core::clone::Clone for HHNTRACK {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct HHN_NOTIFY(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
+pub struct HHN_NOTIFY {
+    pub hdr: super::super::UI::Controls::NMHDR,
+    pub pszUrl: super::super::Foundation::PSTR,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
+impl ::core::marker::Copy for HHN_NOTIFY {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
+impl ::core::clone::Clone for HHN_NOTIFY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const HHWIN_BUTTON_BACK: u32 = 4u32;
 pub const HHWIN_BUTTON_BROWSE_BCK: u32 = 256u32;
 pub const HHWIN_BUTTON_BROWSE_FWD: u32 = 128u32;
@@ -186,9 +248,26 @@ pub const HHWIN_PROP_TRACKING: u32 = 512u32;
 pub const HHWIN_PROP_TRI_PANE: u32 = 32u32;
 pub const HHWIN_PROP_USER_POS: u32 = 262144u32;
 pub const HHWIN_TB_MARGIN: u32 = 268435456u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct HH_AKLINK(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct HH_AKLINK {
+    pub cbStruct: i32,
+    pub fReserved: super::super::Foundation::BOOL,
+    pub pszKeywords: *mut i8,
+    pub pszUrl: *mut i8,
+    pub pszMsgText: *mut i8,
+    pub pszMsgTitle: *mut i8,
+    pub pszWindow: *mut i8,
+    pub fIndexOnFail: super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for HH_AKLINK {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for HH_AKLINK {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const HH_ALINK_LOOKUP: u32 = 19u32;
 pub const HH_CLOSE_ALL: u32 = 18u32;
 pub const HH_DISPLAY_INDEX: u32 = 2u32;
@@ -196,25 +275,79 @@ pub const HH_DISPLAY_SEARCH: u32 = 3u32;
 pub const HH_DISPLAY_TEXT_POPUP: u32 = 14u32;
 pub const HH_DISPLAY_TOC: u32 = 1u32;
 pub const HH_DISPLAY_TOPIC: u32 = 0u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct HH_ENUM_CAT(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct HH_ENUM_CAT {
+    pub cbStruct: i32,
+    pub pszCatName: super::super::Foundation::PSTR,
+    pub pszCatDescription: super::super::Foundation::PSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for HH_ENUM_CAT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for HH_ENUM_CAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const HH_ENUM_CATEGORY: u32 = 21u32;
 pub const HH_ENUM_CATEGORY_IT: u32 = 22u32;
 pub const HH_ENUM_INFO_TYPE: u32 = 7u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct HH_ENUM_IT(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct HH_ENUM_IT {
+    pub cbStruct: i32,
+    pub iType: i32,
+    pub pszCatName: super::super::Foundation::PSTR,
+    pub pszITName: super::super::Foundation::PSTR,
+    pub pszITDescription: super::super::Foundation::PSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for HH_ENUM_IT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for HH_ENUM_IT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const HH_FTS_DEFAULT_PROXIMITY: i32 = -1i32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct HH_FTS_QUERY(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct HH_FTS_QUERY {
+    pub cbStruct: i32,
+    pub fUniCodeStrings: super::super::Foundation::BOOL,
+    pub pszSearchQuery: *mut i8,
+    pub iProximity: i32,
+    pub fStemmedSearch: super::super::Foundation::BOOL,
+    pub fTitleOnly: super::super::Foundation::BOOL,
+    pub fExecute: super::super::Foundation::BOOL,
+    pub pszWindow: *mut i8,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for HH_FTS_QUERY {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for HH_FTS_QUERY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const HH_GET_LAST_ERROR: u32 = 20u32;
 pub const HH_GET_WIN_HANDLE: u32 = 6u32;
 pub const HH_GET_WIN_TYPE: u32 = 5u32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[repr(C)]
-pub struct HH_GLOBAL_PROPERTY(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub struct HH_GLOBAL_PROPERTY {
+    pub id: HH_GPROPID,
+    pub var: super::super::System::Com::VARIANT,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::core::marker::Copy for HH_GLOBAL_PROPERTY {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::core::clone::Clone for HH_GLOBAL_PROPERTY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct HH_GPROPID(pub i32);
 pub const HH_GPROPID_SINGLETHREAD: HH_GPROPID = HH_GPROPID(1i32);
@@ -222,14 +355,38 @@ pub const HH_GPROPID_TOOLBAR_MARGIN: HH_GPROPID = HH_GPROPID(2i32);
 pub const HH_GPROPID_UI_LANGUAGE: HH_GPROPID = HH_GPROPID(3i32);
 pub const HH_GPROPID_CURRENT_SUBSET: HH_GPROPID = HH_GPROPID(4i32);
 pub const HH_GPROPID_CONTENT_LANGUAGE: HH_GPROPID = HH_GPROPID(5i32);
+impl ::core::marker::Copy for HH_GPROPID {}
+impl ::core::clone::Clone for HH_GPROPID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const HH_HELP_CONTEXT: u32 = 15u32;
 pub const HH_HELP_FINDER: u32 = 0u32;
 pub const HH_INITIALIZE: u32 = 28u32;
 pub const HH_KEYWORD_LOOKUP: u32 = 13u32;
 pub const HH_MAX_TABS: u32 = 19u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct HH_POPUP(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct HH_POPUP {
+    pub cbStruct: i32,
+    pub hinst: super::super::Foundation::HINSTANCE,
+    pub idString: u32,
+    pub pszText: *mut i8,
+    pub pt: super::super::Foundation::POINT,
+    pub clrForeground: u32,
+    pub clrBackground: u32,
+    pub rcMargins: super::super::Foundation::RECT,
+    pub pszFont: *mut i8,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for HH_POPUP {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for HH_POPUP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const HH_PRETRANSLATEMESSAGE: u32 = 253u32;
 pub const HH_RESERVED1: u32 = 10u32;
 pub const HH_RESERVED2: u32 = 11u32;
@@ -239,9 +396,21 @@ pub const HH_SAFE_DISPLAY_TOPIC: u32 = 32u32;
 pub const HH_SET_EXCLUSIVE_FILTER: u32 = 25u32;
 pub const HH_SET_GLOBAL_PROPERTY: u32 = 252u32;
 pub const HH_SET_INCLUSIVE_FILTER: u32 = 24u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct HH_SET_INFOTYPE(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct HH_SET_INFOTYPE {
+    pub cbStruct: i32,
+    pub pszCatName: super::super::Foundation::PSTR,
+    pub pszInfoTypeName: super::super::Foundation::PSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for HH_SET_INFOTYPE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for HH_SET_INFOTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const HH_SET_INFO_TYPE: u32 = 8u32;
 pub const HH_SET_QUERYSERVICE: u32 = 30u32;
 pub const HH_SET_WIN_TYPE: u32 = 4u32;
@@ -257,9 +426,54 @@ pub const HH_TAB_SEARCH: i32 = 2i32;
 pub const HH_TP_HELP_CONTEXTMENU: u32 = 16u32;
 pub const HH_TP_HELP_WM_HELP: u32 = 17u32;
 pub const HH_UNINITIALIZE: u32 = 29u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct HH_WINTYPE(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct HH_WINTYPE {
+    pub cbStruct: i32,
+    pub fUniCodeStrings: super::super::Foundation::BOOL,
+    pub pszType: *mut i8,
+    pub fsValidMembers: u32,
+    pub fsWinProperties: u32,
+    pub pszCaption: *mut i8,
+    pub dwStyles: u32,
+    pub dwExStyles: u32,
+    pub rcWindowPos: super::super::Foundation::RECT,
+    pub nShowState: i32,
+    pub hwndHelp: super::super::Foundation::HWND,
+    pub hwndCaller: super::super::Foundation::HWND,
+    pub paInfoTypes: *mut u32,
+    pub hwndToolBar: super::super::Foundation::HWND,
+    pub hwndNavigation: super::super::Foundation::HWND,
+    pub hwndHTML: super::super::Foundation::HWND,
+    pub iNavWidth: i32,
+    pub rcHTML: super::super::Foundation::RECT,
+    pub pszToc: *mut i8,
+    pub pszIndex: *mut i8,
+    pub pszFile: *mut i8,
+    pub pszHome: *mut i8,
+    pub fsToolBarFlags: u32,
+    pub fNotExpanded: super::super::Foundation::BOOL,
+    pub curNavType: i32,
+    pub tabpos: i32,
+    pub idNotify: i32,
+    pub tabOrder: [u8; 20],
+    pub cHistory: i32,
+    pub pszJump1: *mut i8,
+    pub pszJump2: *mut i8,
+    pub pszUrlJump1: *mut i8,
+    pub pszUrlJump2: *mut i8,
+    pub rcMinSize: super::super::Foundation::RECT,
+    pub cbInfoTypes: i32,
+    pub pszCustomTabs: *mut i8,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for HH_WINTYPE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for HH_WINTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const IDTB_BACK: u32 = 204u32;
 pub const IDTB_BROWSE_BACK: u32 = 212u32;
 pub const IDTB_BROWSE_FWD: u32 = 211u32;
@@ -287,15 +501,15 @@ pub const IDTB_ZOOM: u32 = 222u32;
 #[repr(transparent)]
 pub struct IITDatabase(pub *mut ::core::ffi::c_void);
 #[repr(C)]
-pub struct IITGroup(i32);
+pub struct IITGroup(pub u8);
 #[repr(transparent)]
 pub struct IITPropList(pub *mut ::core::ffi::c_void);
 #[repr(C)]
-pub struct IITQuery(i32);
+pub struct IITQuery(pub u8);
 #[repr(transparent)]
 pub struct IITResultSet(pub *mut ::core::ffi::c_void);
 #[repr(C)]
-pub struct IITStopWordList(i32);
+pub struct IITStopWordList(pub u8);
 pub const IITWBC_BREAK_ACCEPT_WILDCARDS: u32 = 1u32;
 pub const IITWBC_BREAK_AND_STEM: u32 = 2u32;
 #[repr(transparent)]
@@ -318,11 +532,28 @@ pub struct PRIORITY(pub i32);
 pub const PRIORITY_LOW: PRIORITY = PRIORITY(0i32);
 pub const PRIORITY_NORMAL: PRIORITY = PRIORITY(1i32);
 pub const PRIORITY_HIGH: PRIORITY = PRIORITY(2i32);
+impl ::core::marker::Copy for PRIORITY {}
+impl ::core::clone::Clone for PRIORITY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const PROP_ADD: u32 = 0u32;
 pub const PROP_DELETE: u32 = 1u32;
 pub const PROP_UPDATE: u32 = 2u32;
 #[repr(C)]
-pub struct ROWSTATUS(i32);
+pub struct ROWSTATUS {
+    pub lRowFirst: i32,
+    pub cRows: i32,
+    pub cProperties: i32,
+    pub cRowsTotal: i32,
+}
+impl ::core::marker::Copy for ROWSTATUS {}
+impl ::core::clone::Clone for ROWSTATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const STDPROP_DISPLAYKEY: u32 = 101u32;
 pub const STDPROP_INDEX_BREAK: u32 = 204u32;
 pub const STDPROP_INDEX_DTYPE: u32 = 202u32;
@@ -345,3 +576,9 @@ pub const TYPE_VALUE: u32 = 0u32;
 #[repr(transparent)]
 pub struct WORD_WHEEL_OPEN_FLAGS(pub u32);
 pub const ITWW_OPEN_CONNECT: WORD_WHEEL_OPEN_FLAGS = WORD_WHEEL_OPEN_FLAGS(0u32);
+impl ::core::marker::Copy for WORD_WHEEL_OPEN_FLAGS {}
+impl ::core::clone::Clone for WORD_WHEEL_OPEN_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

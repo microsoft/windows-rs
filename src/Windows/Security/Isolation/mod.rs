@@ -1017,9 +1017,6 @@ impl ::core::ops::Not for IsolatedWindowsEnvironmentClipboardCopyPasteDirections
         Self(self.0.not())
     }
 }
-#[repr(C)]
-#[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
-pub struct IsolatedWindowsEnvironmentContract(pub u8);
 #[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct IsolatedWindowsEnvironmentCreateProgress {

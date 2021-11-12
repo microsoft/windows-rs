@@ -1189,11 +1189,23 @@ pub struct WIC8BIMIptcDigestProperties(pub u32);
 pub const WIC8BIMIptcDigestPString: WIC8BIMIptcDigestProperties = WIC8BIMIptcDigestProperties(1u32);
 pub const WIC8BIMIptcDigestIptcDigest: WIC8BIMIptcDigestProperties = WIC8BIMIptcDigestProperties(2u32);
 pub const WIC8BIMIptcDigestProperties_FORCE_DWORD: WIC8BIMIptcDigestProperties = WIC8BIMIptcDigestProperties(2147483647u32);
+impl ::core::marker::Copy for WIC8BIMIptcDigestProperties {}
+impl ::core::clone::Clone for WIC8BIMIptcDigestProperties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WIC8BIMIptcProperties(pub u32);
 pub const WIC8BIMIptcPString: WIC8BIMIptcProperties = WIC8BIMIptcProperties(0u32);
 pub const WIC8BIMIptcEmbeddedIPTC: WIC8BIMIptcProperties = WIC8BIMIptcProperties(1u32);
 pub const WIC8BIMIptcProperties_FORCE_DWORD: WIC8BIMIptcProperties = WIC8BIMIptcProperties(2147483647u32);
+impl ::core::marker::Copy for WIC8BIMIptcProperties {}
+impl ::core::clone::Clone for WIC8BIMIptcProperties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WIC8BIMResolutionInfoProperties(pub u32);
 pub const WIC8BIMResolutionInfoPString: WIC8BIMResolutionInfoProperties = WIC8BIMResolutionInfoProperties(1u32);
@@ -1204,18 +1216,36 @@ pub const WIC8BIMResolutionInfoVResolution: WIC8BIMResolutionInfoProperties = WI
 pub const WIC8BIMResolutionInfoVResolutionUnit: WIC8BIMResolutionInfoProperties = WIC8BIMResolutionInfoProperties(6u32);
 pub const WIC8BIMResolutionInfoHeightUnit: WIC8BIMResolutionInfoProperties = WIC8BIMResolutionInfoProperties(7u32);
 pub const WIC8BIMResolutionInfoProperties_FORCE_DWORD: WIC8BIMResolutionInfoProperties = WIC8BIMResolutionInfoProperties(2147483647u32);
+impl ::core::marker::Copy for WIC8BIMResolutionInfoProperties {}
+impl ::core::clone::Clone for WIC8BIMResolutionInfoProperties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WICBitmapAlphaChannelOption(pub i32);
 pub const WICBitmapUseAlpha: WICBitmapAlphaChannelOption = WICBitmapAlphaChannelOption(0i32);
 pub const WICBitmapUsePremultipliedAlpha: WICBitmapAlphaChannelOption = WICBitmapAlphaChannelOption(1i32);
 pub const WICBitmapIgnoreAlpha: WICBitmapAlphaChannelOption = WICBitmapAlphaChannelOption(2i32);
 pub const WICBITMAPALPHACHANNELOPTIONS_FORCE_DWORD: WICBitmapAlphaChannelOption = WICBitmapAlphaChannelOption(2147483647i32);
+impl ::core::marker::Copy for WICBitmapAlphaChannelOption {}
+impl ::core::clone::Clone for WICBitmapAlphaChannelOption {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WICBitmapCreateCacheOption(pub i32);
 pub const WICBitmapNoCache: WICBitmapCreateCacheOption = WICBitmapCreateCacheOption(0i32);
 pub const WICBitmapCacheOnDemand: WICBitmapCreateCacheOption = WICBitmapCreateCacheOption(1i32);
 pub const WICBitmapCacheOnLoad: WICBitmapCreateCacheOption = WICBitmapCreateCacheOption(2i32);
 pub const WICBITMAPCREATECACHEOPTION_FORCE_DWORD: WICBitmapCreateCacheOption = WICBitmapCreateCacheOption(2147483647i32);
+impl ::core::marker::Copy for WICBitmapCreateCacheOption {}
+impl ::core::clone::Clone for WICBitmapCreateCacheOption {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WICBitmapDecoderCapabilities(pub i32);
 pub const WICBitmapDecoderCapabilitySameEncoder: WICBitmapDecoderCapabilities = WICBitmapDecoderCapabilities(1i32);
@@ -1224,6 +1254,12 @@ pub const WICBitmapDecoderCapabilityCanDecodeSomeImages: WICBitmapDecoderCapabil
 pub const WICBitmapDecoderCapabilityCanEnumerateMetadata: WICBitmapDecoderCapabilities = WICBitmapDecoderCapabilities(8i32);
 pub const WICBitmapDecoderCapabilityCanDecodeThumbnail: WICBitmapDecoderCapabilities = WICBitmapDecoderCapabilities(16i32);
 pub const WICBITMAPDECODERCAPABILITIES_FORCE_DWORD: WICBitmapDecoderCapabilities = WICBitmapDecoderCapabilities(2147483647i32);
+impl ::core::marker::Copy for WICBitmapDecoderCapabilities {}
+impl ::core::clone::Clone for WICBitmapDecoderCapabilities {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WICBitmapDitherType(pub i32);
 pub const WICBitmapDitherTypeNone: WICBitmapDitherType = WICBitmapDitherType(0i32);
@@ -1237,12 +1273,24 @@ pub const WICBitmapDitherTypeDualSpiral4x4: WICBitmapDitherType = WICBitmapDithe
 pub const WICBitmapDitherTypeDualSpiral8x8: WICBitmapDitherType = WICBitmapDitherType(7i32);
 pub const WICBitmapDitherTypeErrorDiffusion: WICBitmapDitherType = WICBitmapDitherType(8i32);
 pub const WICBITMAPDITHERTYPE_FORCE_DWORD: WICBitmapDitherType = WICBitmapDitherType(2147483647i32);
+impl ::core::marker::Copy for WICBitmapDitherType {}
+impl ::core::clone::Clone for WICBitmapDitherType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WICBitmapEncoderCacheOption(pub i32);
 pub const WICBitmapEncoderCacheInMemory: WICBitmapEncoderCacheOption = WICBitmapEncoderCacheOption(0i32);
 pub const WICBitmapEncoderCacheTempFile: WICBitmapEncoderCacheOption = WICBitmapEncoderCacheOption(1i32);
 pub const WICBitmapEncoderNoCache: WICBitmapEncoderCacheOption = WICBitmapEncoderCacheOption(2i32);
 pub const WICBITMAPENCODERCACHEOPTION_FORCE_DWORD: WICBitmapEncoderCacheOption = WICBitmapEncoderCacheOption(2147483647i32);
+impl ::core::marker::Copy for WICBitmapEncoderCacheOption {}
+impl ::core::clone::Clone for WICBitmapEncoderCacheOption {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WICBitmapInterpolationMode(pub i32);
 pub const WICBitmapInterpolationModeNearestNeighbor: WICBitmapInterpolationMode = WICBitmapInterpolationMode(0i32);
@@ -1251,11 +1299,23 @@ pub const WICBitmapInterpolationModeCubic: WICBitmapInterpolationMode = WICBitma
 pub const WICBitmapInterpolationModeFant: WICBitmapInterpolationMode = WICBitmapInterpolationMode(3i32);
 pub const WICBitmapInterpolationModeHighQualityCubic: WICBitmapInterpolationMode = WICBitmapInterpolationMode(4i32);
 pub const WICBITMAPINTERPOLATIONMODE_FORCE_DWORD: WICBitmapInterpolationMode = WICBitmapInterpolationMode(2147483647i32);
+impl ::core::marker::Copy for WICBitmapInterpolationMode {}
+impl ::core::clone::Clone for WICBitmapInterpolationMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WICBitmapLockFlags(pub i32);
 pub const WICBitmapLockRead: WICBitmapLockFlags = WICBitmapLockFlags(1i32);
 pub const WICBitmapLockWrite: WICBitmapLockFlags = WICBitmapLockFlags(2i32);
 pub const WICBITMAPLOCKFLAGS_FORCE_DWORD: WICBitmapLockFlags = WICBitmapLockFlags(2147483647i32);
+impl ::core::marker::Copy for WICBitmapLockFlags {}
+impl ::core::clone::Clone for WICBitmapLockFlags {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WICBitmapPaletteType(pub i32);
 pub const WICBitmapPaletteTypeCustom: WICBitmapPaletteType = WICBitmapPaletteType(0i32);
@@ -1273,13 +1333,54 @@ pub const WICBitmapPaletteTypeFixedGray4: WICBitmapPaletteType = WICBitmapPalett
 pub const WICBitmapPaletteTypeFixedGray16: WICBitmapPaletteType = WICBitmapPaletteType(11i32);
 pub const WICBitmapPaletteTypeFixedGray256: WICBitmapPaletteType = WICBitmapPaletteType(12i32);
 pub const WICBITMAPPALETTETYPE_FORCE_DWORD: WICBitmapPaletteType = WICBitmapPaletteType(2147483647i32);
+impl ::core::marker::Copy for WICBitmapPaletteType {}
+impl ::core::clone::Clone for WICBitmapPaletteType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+pub struct WICBitmapPattern {
+    pub Position: u64,
+    pub Length: u32,
+    pub Pattern: *mut u8,
+    pub Mask: *mut u8,
+    pub EndOfStream: super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WICBitmapPattern {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WICBitmapPattern {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WICBitmapPattern(i32);
+pub struct WICBitmapPlane {
+    pub Format: ::windows_sys::core::GUID,
+    pub pbBuffer: *mut u8,
+    pub cbStride: u32,
+    pub cbBufferSize: u32,
+}
+impl ::core::marker::Copy for WICBitmapPlane {}
+impl ::core::clone::Clone for WICBitmapPlane {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WICBitmapPlane(i32);
-#[repr(C)]
-pub struct WICBitmapPlaneDescription(i32);
+pub struct WICBitmapPlaneDescription {
+    pub Format: ::windows_sys::core::GUID,
+    pub Width: u32,
+    pub Height: u32,
+}
+impl ::core::marker::Copy for WICBitmapPlaneDescription {}
+impl ::core::clone::Clone for WICBitmapPlaneDescription {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WICBitmapTransformOptions(pub i32);
 pub const WICBitmapTransformRotate0: WICBitmapTransformOptions = WICBitmapTransformOptions(0i32);
@@ -1289,11 +1390,23 @@ pub const WICBitmapTransformRotate270: WICBitmapTransformOptions = WICBitmapTran
 pub const WICBitmapTransformFlipHorizontal: WICBitmapTransformOptions = WICBitmapTransformOptions(8i32);
 pub const WICBitmapTransformFlipVertical: WICBitmapTransformOptions = WICBitmapTransformOptions(16i32);
 pub const WICBITMAPTRANSFORMOPTIONS_FORCE_DWORD: WICBitmapTransformOptions = WICBitmapTransformOptions(2147483647i32);
+impl ::core::marker::Copy for WICBitmapTransformOptions {}
+impl ::core::clone::Clone for WICBitmapTransformOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WICColorContextType(pub i32);
 pub const WICColorContextUninitialized: WICColorContextType = WICColorContextType(0i32);
 pub const WICColorContextProfile: WICColorContextType = WICColorContextType(1i32);
 pub const WICColorContextExifColorSpace: WICColorContextType = WICColorContextType(2i32);
+impl ::core::marker::Copy for WICColorContextType {}
+impl ::core::clone::Clone for WICColorContextType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WICComponentEnumerateOptions(pub i32);
 pub const WICComponentEnumerateDefault: WICComponentEnumerateOptions = WICComponentEnumerateOptions(0i32);
@@ -1302,6 +1415,12 @@ pub const WICComponentEnumerateDisabled: WICComponentEnumerateOptions = WICCompo
 pub const WICComponentEnumerateUnsigned: WICComponentEnumerateOptions = WICComponentEnumerateOptions(1073741824i32);
 pub const WICComponentEnumerateBuiltInOnly: WICComponentEnumerateOptions = WICComponentEnumerateOptions(536870912i32);
 pub const WICCOMPONENTENUMERATEOPTIONS_FORCE_DWORD: WICComponentEnumerateOptions = WICComponentEnumerateOptions(2147483647i32);
+impl ::core::marker::Copy for WICComponentEnumerateOptions {}
+impl ::core::clone::Clone for WICComponentEnumerateOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WICComponentSigning(pub i32);
 pub const WICComponentSigned: WICComponentSigning = WICComponentSigning(1i32);
@@ -1309,6 +1428,12 @@ pub const WICComponentUnsigned: WICComponentSigning = WICComponentSigning(2i32);
 pub const WICComponentSafe: WICComponentSigning = WICComponentSigning(4i32);
 pub const WICComponentDisabled: WICComponentSigning = WICComponentSigning(-2147483648i32);
 pub const WICCOMPONENTSIGNING_FORCE_DWORD: WICComponentSigning = WICComponentSigning(2147483647i32);
+impl ::core::marker::Copy for WICComponentSigning {}
+impl ::core::clone::Clone for WICComponentSigning {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WICComponentType(pub i32);
 pub const WICDecoder: WICComponentType = WICComponentType(1i32);
@@ -1319,6 +1444,12 @@ pub const WICMetadataWriter: WICComponentType = WICComponentType(16i32);
 pub const WICPixelFormat: WICComponentType = WICComponentType(32i32);
 pub const WICAllComponents: WICComponentType = WICComponentType(63i32);
 pub const WICCOMPONENTTYPE_FORCE_DWORD: WICComponentType = WICComponentType(2147483647i32);
+impl ::core::marker::Copy for WICComponentType {}
+impl ::core::clone::Clone for WICComponentType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WICDdsAlphaMode(pub i32);
 pub const WICDdsAlphaModeUnknown: WICDdsAlphaMode = WICDdsAlphaMode(0i32);
@@ -1327,6 +1458,12 @@ pub const WICDdsAlphaModePremultiplied: WICDdsAlphaMode = WICDdsAlphaMode(2i32);
 pub const WICDdsAlphaModeOpaque: WICDdsAlphaMode = WICDdsAlphaMode(3i32);
 pub const WICDdsAlphaModeCustom: WICDdsAlphaMode = WICDdsAlphaMode(4i32);
 pub const WICDDSALPHAMODE_FORCE_DWORD: WICDdsAlphaMode = WICDdsAlphaMode(2147483647i32);
+impl ::core::marker::Copy for WICDdsAlphaMode {}
+impl ::core::clone::Clone for WICDdsAlphaMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WICDdsDimension(pub i32);
 pub const WICDdsTexture1D: WICDdsDimension = WICDdsDimension(0i32);
@@ -1334,26 +1471,80 @@ pub const WICDdsTexture2D: WICDdsDimension = WICDdsDimension(1i32);
 pub const WICDdsTexture3D: WICDdsDimension = WICDdsDimension(2i32);
 pub const WICDdsTextureCube: WICDdsDimension = WICDdsDimension(3i32);
 pub const WICDDSTEXTURE_FORCE_DWORD: WICDdsDimension = WICDdsDimension(2147483647i32);
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::marker::Copy for WICDdsDimension {}
+impl ::core::clone::Clone for WICDdsDimension {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WICDdsFormatInfo(i32);
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+pub struct WICDdsFormatInfo {
+    pub DxgiFormat: super::Dxgi::Common::DXGI_FORMAT,
+    pub BytesPerBlock: u32,
+    pub BlockWidth: u32,
+    pub BlockHeight: u32,
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::marker::Copy for WICDdsFormatInfo {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::clone::Clone for WICDdsFormatInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WICDdsParameters(i32);
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+pub struct WICDdsParameters {
+    pub Width: u32,
+    pub Height: u32,
+    pub Depth: u32,
+    pub MipLevels: u32,
+    pub ArraySize: u32,
+    pub DxgiFormat: super::Dxgi::Common::DXGI_FORMAT,
+    pub Dimension: WICDdsDimension,
+    pub AlphaMode: WICDdsAlphaMode,
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::marker::Copy for WICDdsParameters {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::clone::Clone for WICDdsParameters {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WICDecodeOptions(pub i32);
 pub const WICDecodeMetadataCacheOnDemand: WICDecodeOptions = WICDecodeOptions(0i32);
 pub const WICDecodeMetadataCacheOnLoad: WICDecodeOptions = WICDecodeOptions(1i32);
 pub const WICMETADATACACHEOPTION_FORCE_DWORD: WICDecodeOptions = WICDecodeOptions(2147483647i32);
+impl ::core::marker::Copy for WICDecodeOptions {}
+impl ::core::clone::Clone for WICDecodeOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WICGifApplicationExtensionProperties(pub u32);
 pub const WICGifApplicationExtensionApplication: WICGifApplicationExtensionProperties = WICGifApplicationExtensionProperties(1u32);
 pub const WICGifApplicationExtensionData: WICGifApplicationExtensionProperties = WICGifApplicationExtensionProperties(2u32);
 pub const WICGifApplicationExtensionProperties_FORCE_DWORD: WICGifApplicationExtensionProperties = WICGifApplicationExtensionProperties(2147483647u32);
+impl ::core::marker::Copy for WICGifApplicationExtensionProperties {}
+impl ::core::clone::Clone for WICGifApplicationExtensionProperties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WICGifCommentExtensionProperties(pub u32);
 pub const WICGifCommentExtensionText: WICGifCommentExtensionProperties = WICGifCommentExtensionProperties(1u32);
 pub const WICGifCommentExtensionProperties_FORCE_DWORD: WICGifCommentExtensionProperties = WICGifCommentExtensionProperties(2147483647u32);
+impl ::core::marker::Copy for WICGifCommentExtensionProperties {}
+impl ::core::clone::Clone for WICGifCommentExtensionProperties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WICGifGraphicControlExtensionProperties(pub u32);
 pub const WICGifGraphicControlExtensionDisposal: WICGifGraphicControlExtensionProperties = WICGifGraphicControlExtensionProperties(1u32);
@@ -1362,6 +1553,12 @@ pub const WICGifGraphicControlExtensionTransparencyFlag: WICGifGraphicControlExt
 pub const WICGifGraphicControlExtensionDelay: WICGifGraphicControlExtensionProperties = WICGifGraphicControlExtensionProperties(4u32);
 pub const WICGifGraphicControlExtensionTransparentColorIndex: WICGifGraphicControlExtensionProperties = WICGifGraphicControlExtensionProperties(5u32);
 pub const WICGifGraphicControlExtensionProperties_FORCE_DWORD: WICGifGraphicControlExtensionProperties = WICGifGraphicControlExtensionProperties(2147483647u32);
+impl ::core::marker::Copy for WICGifGraphicControlExtensionProperties {}
+impl ::core::clone::Clone for WICGifGraphicControlExtensionProperties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WICGifImageDescriptorProperties(pub u32);
 pub const WICGifImageDescriptorLeft: WICGifImageDescriptorProperties = WICGifImageDescriptorProperties(1u32);
@@ -1373,6 +1570,12 @@ pub const WICGifImageDescriptorInterlaceFlag: WICGifImageDescriptorProperties = 
 pub const WICGifImageDescriptorSortFlag: WICGifImageDescriptorProperties = WICGifImageDescriptorProperties(7u32);
 pub const WICGifImageDescriptorLocalColorTableSize: WICGifImageDescriptorProperties = WICGifImageDescriptorProperties(8u32);
 pub const WICGifImageDescriptorProperties_FORCE_DWORD: WICGifImageDescriptorProperties = WICGifImageDescriptorProperties(2147483647u32);
+impl ::core::marker::Copy for WICGifImageDescriptorProperties {}
+impl ::core::clone::Clone for WICGifImageDescriptorProperties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WICGifLogicalScreenDescriptorProperties(pub u32);
 pub const WICGifLogicalScreenSignature: WICGifLogicalScreenDescriptorProperties = WICGifLogicalScreenDescriptorProperties(1u32);
@@ -1385,6 +1588,12 @@ pub const WICGifLogicalScreenDescriptorGlobalColorTableSize: WICGifLogicalScreen
 pub const WICGifLogicalScreenDescriptorBackgroundColorIndex: WICGifLogicalScreenDescriptorProperties = WICGifLogicalScreenDescriptorProperties(8u32);
 pub const WICGifLogicalScreenDescriptorPixelAspectRatio: WICGifLogicalScreenDescriptorProperties = WICGifLogicalScreenDescriptorProperties(9u32);
 pub const WICGifLogicalScreenDescriptorProperties_FORCE_DWORD: WICGifLogicalScreenDescriptorProperties = WICGifLogicalScreenDescriptorProperties(2147483647u32);
+impl ::core::marker::Copy for WICGifLogicalScreenDescriptorProperties {}
+impl ::core::clone::Clone for WICGifLogicalScreenDescriptorProperties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WICHeifHdrProperties(pub u32);
 pub const WICHeifHdrMaximumLuminanceLevel: WICHeifHdrProperties = WICHeifHdrProperties(1u32);
@@ -1393,45 +1602,139 @@ pub const WICHeifHdrMinimumMasteringDisplayLuminanceLevel: WICHeifHdrProperties 
 pub const WICHeifHdrMaximumMasteringDisplayLuminanceLevel: WICHeifHdrProperties = WICHeifHdrProperties(4u32);
 pub const WICHeifHdrCustomVideoPrimaries: WICHeifHdrProperties = WICHeifHdrProperties(5u32);
 pub const WICHeifHdrProperties_FORCE_DWORD: WICHeifHdrProperties = WICHeifHdrProperties(2147483647u32);
+impl ::core::marker::Copy for WICHeifHdrProperties {}
+impl ::core::clone::Clone for WICHeifHdrProperties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WICHeifProperties(pub u32);
 pub const WICHeifOrientation: WICHeifProperties = WICHeifProperties(1u32);
 pub const WICHeifProperties_FORCE_DWORD: WICHeifProperties = WICHeifProperties(2147483647u32);
-#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::marker::Copy for WICHeifProperties {}
+impl ::core::clone::Clone for WICHeifProperties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WICImageParameters(i32);
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
+pub struct WICImageParameters {
+    pub PixelFormat: super::Direct2D::Common::D2D1_PIXEL_FORMAT,
+    pub DpiX: f32,
+    pub DpiY: f32,
+    pub Top: f32,
+    pub Left: f32,
+    pub PixelWidth: u32,
+    pub PixelHeight: u32,
+}
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::marker::Copy for WICImageParameters {}
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::clone::Clone for WICImageParameters {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WICJpegChrominanceProperties(pub u32);
 pub const WICJpegChrominanceTable: WICJpegChrominanceProperties = WICJpegChrominanceProperties(1u32);
 pub const WICJpegChrominanceProperties_FORCE_DWORD: WICJpegChrominanceProperties = WICJpegChrominanceProperties(2147483647u32);
+impl ::core::marker::Copy for WICJpegChrominanceProperties {}
+impl ::core::clone::Clone for WICJpegChrominanceProperties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WICJpegCommentProperties(pub u32);
 pub const WICJpegCommentText: WICJpegCommentProperties = WICJpegCommentProperties(1u32);
 pub const WICJpegCommentProperties_FORCE_DWORD: WICJpegCommentProperties = WICJpegCommentProperties(2147483647u32);
+impl ::core::marker::Copy for WICJpegCommentProperties {}
+impl ::core::clone::Clone for WICJpegCommentProperties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WICJpegFrameHeader(i32);
+pub struct WICJpegFrameHeader {
+    pub Width: u32,
+    pub Height: u32,
+    pub TransferMatrix: WICJpegTransferMatrix,
+    pub ScanType: WICJpegScanType,
+    pub cComponents: u32,
+    pub ComponentIdentifiers: u32,
+    pub SampleFactors: u32,
+    pub QuantizationTableIndices: u32,
+}
+impl ::core::marker::Copy for WICJpegFrameHeader {}
+impl ::core::clone::Clone for WICJpegFrameHeader {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WICJpegIndexingOptions(pub u32);
 pub const WICJpegIndexingOptionsGenerateOnDemand: WICJpegIndexingOptions = WICJpegIndexingOptions(0u32);
 pub const WICJpegIndexingOptionsGenerateOnLoad: WICJpegIndexingOptions = WICJpegIndexingOptions(1u32);
 pub const WICJpegIndexingOptions_FORCE_DWORD: WICJpegIndexingOptions = WICJpegIndexingOptions(2147483647u32);
+impl ::core::marker::Copy for WICJpegIndexingOptions {}
+impl ::core::clone::Clone for WICJpegIndexingOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WICJpegLuminanceProperties(pub u32);
 pub const WICJpegLuminanceTable: WICJpegLuminanceProperties = WICJpegLuminanceProperties(1u32);
 pub const WICJpegLuminanceProperties_FORCE_DWORD: WICJpegLuminanceProperties = WICJpegLuminanceProperties(2147483647u32);
+impl ::core::marker::Copy for WICJpegLuminanceProperties {}
+impl ::core::clone::Clone for WICJpegLuminanceProperties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WICJpegScanHeader(i32);
+pub struct WICJpegScanHeader {
+    pub cComponents: u32,
+    pub RestartInterval: u32,
+    pub ComponentSelectors: u32,
+    pub HuffmanTableIndices: u32,
+    pub StartSpectralSelection: u8,
+    pub EndSpectralSelection: u8,
+    pub SuccessiveApproximationHigh: u8,
+    pub SuccessiveApproximationLow: u8,
+}
+impl ::core::marker::Copy for WICJpegScanHeader {}
+impl ::core::clone::Clone for WICJpegScanHeader {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WICJpegScanType(pub u32);
 pub const WICJpegScanTypeInterleaved: WICJpegScanType = WICJpegScanType(0u32);
 pub const WICJpegScanTypePlanarComponents: WICJpegScanType = WICJpegScanType(1u32);
 pub const WICJpegScanTypeProgressive: WICJpegScanType = WICJpegScanType(2u32);
 pub const WICJpegScanType_FORCE_DWORD: WICJpegScanType = WICJpegScanType(2147483647u32);
+impl ::core::marker::Copy for WICJpegScanType {}
+impl ::core::clone::Clone for WICJpegScanType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WICJpegTransferMatrix(pub u32);
 pub const WICJpegTransferMatrixIdentity: WICJpegTransferMatrix = WICJpegTransferMatrix(0u32);
 pub const WICJpegTransferMatrixBT601: WICJpegTransferMatrix = WICJpegTransferMatrix(1u32);
 pub const WICJpegTransferMatrix_FORCE_DWORD: WICJpegTransferMatrix = WICJpegTransferMatrix(2147483647u32);
+impl ::core::marker::Copy for WICJpegTransferMatrix {}
+impl ::core::clone::Clone for WICJpegTransferMatrix {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WICJpegYCrCbSubsamplingOption(pub i32);
 pub const WICJpegYCrCbSubsamplingDefault: WICJpegYCrCbSubsamplingOption = WICJpegYCrCbSubsamplingOption(0i32);
@@ -1440,16 +1743,51 @@ pub const WICJpegYCrCbSubsampling422: WICJpegYCrCbSubsamplingOption = WICJpegYCr
 pub const WICJpegYCrCbSubsampling444: WICJpegYCrCbSubsamplingOption = WICJpegYCrCbSubsamplingOption(3i32);
 pub const WICJpegYCrCbSubsampling440: WICJpegYCrCbSubsamplingOption = WICJpegYCrCbSubsamplingOption(4i32);
 pub const WICJPEGYCRCBSUBSAMPLING_FORCE_DWORD: WICJpegYCrCbSubsamplingOption = WICJpegYCrCbSubsamplingOption(2147483647i32);
+impl ::core::marker::Copy for WICJpegYCrCbSubsamplingOption {}
+impl ::core::clone::Clone for WICJpegYCrCbSubsamplingOption {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WICMetadataCreationOptions(pub i32);
 pub const WICMetadataCreationDefault: WICMetadataCreationOptions = WICMetadataCreationOptions(0i32);
 pub const WICMetadataCreationAllowUnknown: WICMetadataCreationOptions = WICMetadataCreationOptions(0i32);
 pub const WICMetadataCreationFailUnknown: WICMetadataCreationOptions = WICMetadataCreationOptions(65536i32);
 pub const WICMetadataCreationMask: WICMetadataCreationOptions = WICMetadataCreationOptions(-65536i32);
+impl ::core::marker::Copy for WICMetadataCreationOptions {}
+impl ::core::clone::Clone for WICMetadataCreationOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WICMetadataHeader(i32);
+pub struct WICMetadataHeader {
+    pub Position: u64,
+    pub Length: u32,
+    pub Header: *mut u8,
+    pub DataOffset: u64,
+}
+impl ::core::marker::Copy for WICMetadataHeader {}
+impl ::core::clone::Clone for WICMetadataHeader {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WICMetadataPattern(i32);
+pub struct WICMetadataPattern {
+    pub Position: u64,
+    pub Length: u32,
+    pub Pattern: *mut u8,
+    pub Mask: *mut u8,
+    pub DataOffset: u64,
+}
+impl ::core::marker::Copy for WICMetadataPattern {}
+impl ::core::clone::Clone for WICMetadataPattern {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WICNamedWhitePoint(pub i32);
 pub const WICWhitePointDefault: WICNamedWhitePoint = WICNamedWhitePoint(1i32);
@@ -1464,6 +1802,12 @@ pub const WICWhitePointCustom: WICNamedWhitePoint = WICNamedWhitePoint(256i32);
 pub const WICWhitePointAutoWhiteBalance: WICNamedWhitePoint = WICNamedWhitePoint(512i32);
 pub const WICWhitePointAsShot: WICNamedWhitePoint = WICNamedWhitePoint(1i32);
 pub const WICNAMEDWHITEPOINT_FORCE_DWORD: WICNamedWhitePoint = WICNamedWhitePoint(2147483647i32);
+impl ::core::marker::Copy for WICNamedWhitePoint {}
+impl ::core::clone::Clone for WICNamedWhitePoint {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WICPersistOptions(pub i32);
 pub const WICPersistOptionDefault: WICPersistOptions = WICPersistOptions(0i32);
@@ -1473,6 +1817,12 @@ pub const WICPersistOptionStrictFormat: WICPersistOptions = WICPersistOptions(2i
 pub const WICPersistOptionNoCacheStream: WICPersistOptions = WICPersistOptions(4i32);
 pub const WICPersistOptionPreferUTF8: WICPersistOptions = WICPersistOptions(8i32);
 pub const WICPersistOptionMask: WICPersistOptions = WICPersistOptions(65535i32);
+impl ::core::marker::Copy for WICPersistOptions {}
+impl ::core::clone::Clone for WICPersistOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WICPixelFormatNumericRepresentation(pub u32);
 pub const WICPixelFormatNumericRepresentationUnspecified: WICPixelFormatNumericRepresentation = WICPixelFormatNumericRepresentation(0u32);
@@ -1482,15 +1832,33 @@ pub const WICPixelFormatNumericRepresentationSignedInteger: WICPixelFormatNumeri
 pub const WICPixelFormatNumericRepresentationFixed: WICPixelFormatNumericRepresentation = WICPixelFormatNumericRepresentation(4u32);
 pub const WICPixelFormatNumericRepresentationFloat: WICPixelFormatNumericRepresentation = WICPixelFormatNumericRepresentation(5u32);
 pub const WICPixelFormatNumericRepresentation_FORCE_DWORD: WICPixelFormatNumericRepresentation = WICPixelFormatNumericRepresentation(2147483647u32);
+impl ::core::marker::Copy for WICPixelFormatNumericRepresentation {}
+impl ::core::clone::Clone for WICPixelFormatNumericRepresentation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WICPlanarOptions(pub i32);
 pub const WICPlanarOptionsDefault: WICPlanarOptions = WICPlanarOptions(0i32);
 pub const WICPlanarOptionsPreserveSubsampling: WICPlanarOptions = WICPlanarOptions(1i32);
 pub const WICPLANAROPTIONS_FORCE_DWORD: WICPlanarOptions = WICPlanarOptions(2147483647i32);
+impl ::core::marker::Copy for WICPlanarOptions {}
+impl ::core::clone::Clone for WICPlanarOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WICPngBkgdProperties(pub u32);
 pub const WICPngBkgdBackgroundColor: WICPngBkgdProperties = WICPngBkgdProperties(1u32);
 pub const WICPngBkgdProperties_FORCE_DWORD: WICPngBkgdProperties = WICPngBkgdProperties(2147483647u32);
+impl ::core::marker::Copy for WICPngBkgdProperties {}
+impl ::core::clone::Clone for WICPngBkgdProperties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WICPngChrmProperties(pub u32);
 pub const WICPngChrmWhitePointX: WICPngChrmProperties = WICPngChrmProperties(1u32);
@@ -1502,6 +1870,12 @@ pub const WICPngChrmGreenY: WICPngChrmProperties = WICPngChrmProperties(6u32);
 pub const WICPngChrmBlueX: WICPngChrmProperties = WICPngChrmProperties(7u32);
 pub const WICPngChrmBlueY: WICPngChrmProperties = WICPngChrmProperties(8u32);
 pub const WICPngChrmProperties_FORCE_DWORD: WICPngChrmProperties = WICPngChrmProperties(2147483647u32);
+impl ::core::marker::Copy for WICPngChrmProperties {}
+impl ::core::clone::Clone for WICPngChrmProperties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WICPngFilterOption(pub i32);
 pub const WICPngFilterUnspecified: WICPngFilterOption = WICPngFilterOption(0i32);
@@ -1512,19 +1886,43 @@ pub const WICPngFilterAverage: WICPngFilterOption = WICPngFilterOption(4i32);
 pub const WICPngFilterPaeth: WICPngFilterOption = WICPngFilterOption(5i32);
 pub const WICPngFilterAdaptive: WICPngFilterOption = WICPngFilterOption(6i32);
 pub const WICPNGFILTEROPTION_FORCE_DWORD: WICPngFilterOption = WICPngFilterOption(2147483647i32);
+impl ::core::marker::Copy for WICPngFilterOption {}
+impl ::core::clone::Clone for WICPngFilterOption {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WICPngGamaProperties(pub u32);
 pub const WICPngGamaGamma: WICPngGamaProperties = WICPngGamaProperties(1u32);
 pub const WICPngGamaProperties_FORCE_DWORD: WICPngGamaProperties = WICPngGamaProperties(2147483647u32);
+impl ::core::marker::Copy for WICPngGamaProperties {}
+impl ::core::clone::Clone for WICPngGamaProperties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WICPngHistProperties(pub u32);
 pub const WICPngHistFrequencies: WICPngHistProperties = WICPngHistProperties(1u32);
 pub const WICPngHistProperties_FORCE_DWORD: WICPngHistProperties = WICPngHistProperties(2147483647u32);
+impl ::core::marker::Copy for WICPngHistProperties {}
+impl ::core::clone::Clone for WICPngHistProperties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WICPngIccpProperties(pub u32);
 pub const WICPngIccpProfileName: WICPngIccpProperties = WICPngIccpProperties(1u32);
 pub const WICPngIccpProfileData: WICPngIccpProperties = WICPngIccpProperties(2u32);
 pub const WICPngIccpProperties_FORCE_DWORD: WICPngIccpProperties = WICPngIccpProperties(2147483647u32);
+impl ::core::marker::Copy for WICPngIccpProperties {}
+impl ::core::clone::Clone for WICPngIccpProperties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WICPngItxtProperties(pub u32);
 pub const WICPngItxtKeyword: WICPngItxtProperties = WICPngItxtProperties(1u32);
@@ -1533,10 +1931,22 @@ pub const WICPngItxtLanguageTag: WICPngItxtProperties = WICPngItxtProperties(3u3
 pub const WICPngItxtTranslatedKeyword: WICPngItxtProperties = WICPngItxtProperties(4u32);
 pub const WICPngItxtText: WICPngItxtProperties = WICPngItxtProperties(5u32);
 pub const WICPngItxtProperties_FORCE_DWORD: WICPngItxtProperties = WICPngItxtProperties(2147483647u32);
+impl ::core::marker::Copy for WICPngItxtProperties {}
+impl ::core::clone::Clone for WICPngItxtProperties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WICPngSrgbProperties(pub u32);
 pub const WICPngSrgbRenderingIntent: WICPngSrgbProperties = WICPngSrgbProperties(1u32);
 pub const WICPngSrgbProperties_FORCE_DWORD: WICPngSrgbProperties = WICPngSrgbProperties(2147483647u32);
+impl ::core::marker::Copy for WICPngSrgbProperties {}
+impl ::core::clone::Clone for WICPngSrgbProperties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WICPngTimeProperties(pub u32);
 pub const WICPngTimeYear: WICPngTimeProperties = WICPngTimeProperties(1u32);
@@ -1546,6 +1956,12 @@ pub const WICPngTimeHour: WICPngTimeProperties = WICPngTimeProperties(4u32);
 pub const WICPngTimeMinute: WICPngTimeProperties = WICPngTimeProperties(5u32);
 pub const WICPngTimeSecond: WICPngTimeProperties = WICPngTimeProperties(6u32);
 pub const WICPngTimeProperties_FORCE_DWORD: WICPngTimeProperties = WICPngTimeProperties(2147483647u32);
+impl ::core::marker::Copy for WICPngTimeProperties {}
+impl ::core::clone::Clone for WICPngTimeProperties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WICProgressNotification(pub i32);
 pub const WICProgressNotificationBegin: WICProgressNotification = WICProgressNotification(65536i32);
@@ -1553,20 +1969,63 @@ pub const WICProgressNotificationEnd: WICProgressNotification = WICProgressNotif
 pub const WICProgressNotificationFrequent: WICProgressNotification = WICProgressNotification(262144i32);
 pub const WICProgressNotificationAll: WICProgressNotification = WICProgressNotification(-65536i32);
 pub const WICPROGRESSNOTIFICATION_FORCE_DWORD: WICProgressNotification = WICProgressNotification(2147483647i32);
+impl ::core::marker::Copy for WICProgressNotification {}
+impl ::core::clone::Clone for WICProgressNotification {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WICProgressOperation(pub i32);
 pub const WICProgressOperationCopyPixels: WICProgressOperation = WICProgressOperation(1i32);
 pub const WICProgressOperationWritePixels: WICProgressOperation = WICProgressOperation(2i32);
 pub const WICProgressOperationAll: WICProgressOperation = WICProgressOperation(65535i32);
 pub const WICPROGRESSOPERATION_FORCE_DWORD: WICProgressOperation = WICProgressOperation(2147483647i32);
+impl ::core::marker::Copy for WICProgressOperation {}
+impl ::core::clone::Clone for WICProgressOperation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WICRawCapabilities(pub i32);
 pub const WICRawCapabilityNotSupported: WICRawCapabilities = WICRawCapabilities(0i32);
 pub const WICRawCapabilityGetSupported: WICRawCapabilities = WICRawCapabilities(1i32);
 pub const WICRawCapabilityFullySupported: WICRawCapabilities = WICRawCapabilities(2i32);
 pub const WICRAWCAPABILITIES_FORCE_DWORD: WICRawCapabilities = WICRawCapabilities(2147483647i32);
+impl ::core::marker::Copy for WICRawCapabilities {}
+impl ::core::clone::Clone for WICRawCapabilities {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WICRawCapabilitiesInfo(i32);
+pub struct WICRawCapabilitiesInfo {
+    pub cbSize: u32,
+    pub CodecMajorVersion: u32,
+    pub CodecMinorVersion: u32,
+    pub ExposureCompensationSupport: WICRawCapabilities,
+    pub ContrastSupport: WICRawCapabilities,
+    pub RGBWhitePointSupport: WICRawCapabilities,
+    pub NamedWhitePointSupport: WICRawCapabilities,
+    pub NamedWhitePointSupportMask: u32,
+    pub KelvinWhitePointSupport: WICRawCapabilities,
+    pub GammaSupport: WICRawCapabilities,
+    pub TintSupport: WICRawCapabilities,
+    pub SaturationSupport: WICRawCapabilities,
+    pub SharpnessSupport: WICRawCapabilities,
+    pub NoiseReductionSupport: WICRawCapabilities,
+    pub DestinationColorProfileSupport: WICRawCapabilities,
+    pub ToneCurveSupport: WICRawCapabilities,
+    pub RotationSupport: WICRawRotationCapabilities,
+    pub RenderModeSupport: WICRawCapabilities,
+}
+impl ::core::marker::Copy for WICRawCapabilitiesInfo {}
+impl ::core::clone::Clone for WICRawCapabilitiesInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WICRawChangeNotification_Contrast: u32 = 16u32;
 pub const WICRawChangeNotification_DestinationColorContext: u32 = 1024u32;
 pub const WICRawChangeNotification_ExposureCompensation: u32 = 1u32;
@@ -1587,12 +2046,24 @@ pub const WICAsShotParameterSet: WICRawParameterSet = WICRawParameterSet(1i32);
 pub const WICUserAdjustedParameterSet: WICRawParameterSet = WICRawParameterSet(2i32);
 pub const WICAutoAdjustedParameterSet: WICRawParameterSet = WICRawParameterSet(3i32);
 pub const WICRAWPARAMETERSET_FORCE_DWORD: WICRawParameterSet = WICRawParameterSet(2147483647i32);
+impl ::core::marker::Copy for WICRawParameterSet {}
+impl ::core::clone::Clone for WICRawParameterSet {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WICRawRenderMode(pub i32);
 pub const WICRawRenderModeDraft: WICRawRenderMode = WICRawRenderMode(1i32);
 pub const WICRawRenderModeNormal: WICRawRenderMode = WICRawRenderMode(2i32);
 pub const WICRawRenderModeBestQuality: WICRawRenderMode = WICRawRenderMode(3i32);
 pub const WICRAWRENDERMODE_FORCE_DWORD: WICRawRenderMode = WICRawRenderMode(2147483647i32);
+impl ::core::marker::Copy for WICRawRenderMode {}
+impl ::core::clone::Clone for WICRawRenderMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WICRawRotationCapabilities(pub i32);
 pub const WICRawRotationCapabilityNotSupported: WICRawRotationCapabilities = WICRawRotationCapabilities(0i32);
@@ -1600,17 +2071,58 @@ pub const WICRawRotationCapabilityGetSupported: WICRawRotationCapabilities = WIC
 pub const WICRawRotationCapabilityNinetyDegreesSupported: WICRawRotationCapabilities = WICRawRotationCapabilities(2i32);
 pub const WICRawRotationCapabilityFullySupported: WICRawRotationCapabilities = WICRawRotationCapabilities(3i32);
 pub const WICRAWROTATIONCAPABILITIES_FORCE_DWORD: WICRawRotationCapabilities = WICRawRotationCapabilities(2147483647i32);
+impl ::core::marker::Copy for WICRawRotationCapabilities {}
+impl ::core::clone::Clone for WICRawRotationCapabilities {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WICRawToneCurve(i32);
+pub struct WICRawToneCurve {
+    pub cPoints: u32,
+    pub aPoints: [WICRawToneCurvePoint; 1],
+}
+impl ::core::marker::Copy for WICRawToneCurve {}
+impl ::core::clone::Clone for WICRawToneCurve {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WICRawToneCurvePoint(i32);
+pub struct WICRawToneCurvePoint {
+    pub Input: f64,
+    pub Output: f64,
+}
+impl ::core::marker::Copy for WICRawToneCurvePoint {}
+impl ::core::clone::Clone for WICRawToneCurvePoint {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WICRect(i32);
+pub struct WICRect {
+    pub X: i32,
+    pub Y: i32,
+    pub Width: i32,
+    pub Height: i32,
+}
+impl ::core::marker::Copy for WICRect {}
+impl ::core::clone::Clone for WICRect {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WICSectionAccessLevel(pub u32);
 pub const WICSectionAccessLevelRead: WICSectionAccessLevel = WICSectionAccessLevel(1u32);
 pub const WICSectionAccessLevelReadWrite: WICSectionAccessLevel = WICSectionAccessLevel(3u32);
 pub const WICSectionAccessLevel_FORCE_DWORD: WICSectionAccessLevel = WICSectionAccessLevel(2147483647u32);
+impl ::core::marker::Copy for WICSectionAccessLevel {}
+impl ::core::clone::Clone for WICSectionAccessLevel {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WICTiffCompressionOption(pub i32);
 pub const WICTiffCompressionDontCare: WICTiffCompressionOption = WICTiffCompressionOption(0i32);
@@ -1622,14 +2134,32 @@ pub const WICTiffCompressionRLE: WICTiffCompressionOption = WICTiffCompressionOp
 pub const WICTiffCompressionZIP: WICTiffCompressionOption = WICTiffCompressionOption(6i32);
 pub const WICTiffCompressionLZWHDifferencing: WICTiffCompressionOption = WICTiffCompressionOption(7i32);
 pub const WICTIFFCOMPRESSIONOPTION_FORCE_DWORD: WICTiffCompressionOption = WICTiffCompressionOption(2147483647i32);
+impl ::core::marker::Copy for WICTiffCompressionOption {}
+impl ::core::clone::Clone for WICTiffCompressionOption {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WICWebpAnimProperties(pub u32);
 pub const WICWebpAnimLoopCount: WICWebpAnimProperties = WICWebpAnimProperties(1u32);
 pub const WICWebpAnimProperties_FORCE_DWORD: WICWebpAnimProperties = WICWebpAnimProperties(2147483647u32);
+impl ::core::marker::Copy for WICWebpAnimProperties {}
+impl ::core::clone::Clone for WICWebpAnimProperties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WICWebpAnmfProperties(pub u32);
 pub const WICWebpAnmfFrameDuration: WICWebpAnmfProperties = WICWebpAnmfProperties(1u32);
 pub const WICWebpAnmfProperties_FORCE_DWORD: WICWebpAnmfProperties = WICWebpAnmfProperties(2147483647u32);
+impl ::core::marker::Copy for WICWebpAnmfProperties {}
+impl ::core::clone::Clone for WICWebpAnmfProperties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WIC_JPEG_HUFFMAN_BASELINE_ONE: u32 = 0u32;
 pub const WIC_JPEG_HUFFMAN_BASELINE_THREE: u32 = 1118464u32;
 pub const WIC_JPEG_MAX_COMPONENT_COUNT: u32 = 4u32;

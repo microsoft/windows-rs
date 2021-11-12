@@ -713,9 +713,6 @@ unsafe impl ::windows::core::RuntimeType for BackgroundAccessStatus {
 impl ::windows::core::DefaultType for BackgroundAccessStatus {
     type DefaultType = Self;
 }
-#[repr(C)]
-#[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
-pub struct BackgroundAlarmApplicationContract(pub u8);
 pub struct BackgroundExecutionManager {}
 impl BackgroundExecutionManager {
     #[cfg(feature = "Foundation")]

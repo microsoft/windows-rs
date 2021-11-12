@@ -9,6 +9,12 @@ impl I2cBusSpeed {
     pub const StandardMode: Self = Self(0i32);
     pub const FastMode: Self = Self(1i32);
 }
+impl ::core::marker::Copy for I2cBusSpeed {}
+impl ::core::clone::Clone for I2cBusSpeed {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct I2cConnectionSettings(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -21,8 +27,23 @@ impl I2cSharingMode {
     pub const Exclusive: Self = Self(0i32);
     pub const Shared: Self = Self(1i32);
 }
+impl ::core::marker::Copy for I2cSharingMode {}
+impl ::core::clone::Clone for I2cSharingMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct I2cTransferResult(i32);
+pub struct I2cTransferResult {
+    pub Status: I2cTransferStatus,
+    pub BytesTransferred: u32,
+}
+impl ::core::marker::Copy for I2cTransferResult {}
+impl ::core::clone::Clone for I2cTransferResult {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct I2cTransferStatus(pub i32);
 impl I2cTransferStatus {
@@ -31,6 +52,12 @@ impl I2cTransferStatus {
     pub const SlaveAddressNotAcknowledged: Self = Self(2i32);
     pub const ClockStretchTimeout: Self = Self(3i32);
     pub const UnknownError: Self = Self(4i32);
+}
+impl ::core::marker::Copy for I2cTransferStatus {}
+impl ::core::clone::Clone for I2cTransferStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct II2cConnectionSettings(pub *mut ::core::ffi::c_void);

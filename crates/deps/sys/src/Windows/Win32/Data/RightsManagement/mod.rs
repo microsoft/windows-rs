@@ -185,10 +185,35 @@ pub const DRMACTSERVINFOVERSION: u32 = 0u32;
 pub struct DRMATTESTTYPE(pub i32);
 pub const DRMATTESTTYPE_FULLENVIRONMENT: DRMATTESTTYPE = DRMATTESTTYPE(0i32);
 pub const DRMATTESTTYPE_HASHONLY: DRMATTESTTYPE = DRMATTESTTYPE(1i32);
+impl ::core::marker::Copy for DRMATTESTTYPE {}
+impl ::core::clone::Clone for DRMATTESTTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DRMBINDINGFLAGS_IGNORE_VALIDITY_INTERVALS: u32 = 1u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct DRMBOUNDLICENSEPARAMS(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct DRMBOUNDLICENSEPARAMS {
+    pub uVersion: u32,
+    pub hEnablingPrincipal: u32,
+    pub hSecureStore: u32,
+    pub wszRightsRequested: super::super::Foundation::PWSTR,
+    pub wszRightsGroup: super::super::Foundation::PWSTR,
+    pub idResource: DRMID,
+    pub cAuthenticatorCount: u32,
+    pub rghAuthenticators: *mut u32,
+    pub wszDefaultEnablingPrincipalCredentials: super::super::Foundation::PWSTR,
+    pub dwFlags: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DRMBOUNDLICENSEPARAMS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DRMBOUNDLICENSEPARAMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DRMBOUNDLICENSEPARAMSVERSION: u32 = 1u32;
 pub type DRMCALLBACK = unsafe extern "system" fn(param0: DRM_STATUS_MSG, param1: ::windows_sys::core::HRESULT, param2: *mut ::core::ffi::c_void, param3: *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
 pub const DRMCALLBACKVERSION: u32 = 1u32;
@@ -201,16 +226,40 @@ pub const DRMENCODINGTYPE_LONG: DRMENCODINGTYPE = DRMENCODINGTYPE(2i32);
 pub const DRMENCODINGTYPE_TIME: DRMENCODINGTYPE = DRMENCODINGTYPE(3i32);
 pub const DRMENCODINGTYPE_UINT: DRMENCODINGTYPE = DRMENCODINGTYPE(4i32);
 pub const DRMENCODINGTYPE_RAW: DRMENCODINGTYPE = DRMENCODINGTYPE(5i32);
+impl ::core::marker::Copy for DRMENCODINGTYPE {}
+impl ::core::clone::Clone for DRMENCODINGTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DRMENVHANDLE_INVALID: u32 = 0u32;
 #[repr(transparent)]
 pub struct DRMGLOBALOPTIONS(pub i32);
 pub const DRMGLOBALOPTIONS_USE_WINHTTP: DRMGLOBALOPTIONS = DRMGLOBALOPTIONS(0i32);
 pub const DRMGLOBALOPTIONS_USE_SERVERSECURITYPROCESSOR: DRMGLOBALOPTIONS = DRMGLOBALOPTIONS(1i32);
+impl ::core::marker::Copy for DRMGLOBALOPTIONS {}
+impl ::core::clone::Clone for DRMGLOBALOPTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DRMHANDLE_INVALID: u32 = 0u32;
 pub const DRMHSESSION_INVALID: u32 = 0u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct DRMID(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct DRMID {
+    pub uVersion: u32,
+    pub wszIDType: super::super::Foundation::PWSTR,
+    pub wszID: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DRMID {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DRMID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DRMIDVERSION: u32 = 0u32;
 pub const DRMLICENSEACQDATAVERSION: u32 = 0u32;
 pub const DRMPUBHANDLE_INVALID: u32 = 0u32;
@@ -218,14 +267,32 @@ pub const DRMQUERYHANDLE_INVALID: u32 = 0u32;
 #[repr(transparent)]
 pub struct DRMSECURITYPROVIDERTYPE(pub i32);
 pub const DRMSECURITYPROVIDERTYPE_SOFTWARESECREP: DRMSECURITYPROVIDERTYPE = DRMSECURITYPROVIDERTYPE(0i32);
+impl ::core::marker::Copy for DRMSECURITYPROVIDERTYPE {}
+impl ::core::clone::Clone for DRMSECURITYPROVIDERTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DRMSPECTYPE(pub i32);
 pub const DRMSPECTYPE_UNKNOWN: DRMSPECTYPE = DRMSPECTYPE(0i32);
 pub const DRMSPECTYPE_FILENAME: DRMSPECTYPE = DRMSPECTYPE(1i32);
+impl ::core::marker::Copy for DRMSPECTYPE {}
+impl ::core::clone::Clone for DRMSPECTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DRMTIMETYPE(pub i32);
 pub const DRMTIMETYPE_SYSTEMUTC: DRMTIMETYPE = DRMTIMETYPE(0i32);
 pub const DRMTIMETYPE_SYSTEMLOCAL: DRMTIMETYPE = DRMTIMETYPE(1i32);
+impl ::core::marker::Copy for DRMTIMETYPE {}
+impl ::core::clone::Clone for DRMTIMETYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DRM_ACTIVATE_CANCEL: u32 = 8u32;
 pub const DRM_ACTIVATE_DELAYED: u32 = 64u32;
 pub const DRM_ACTIVATE_GROUPIDENTITY: u32 = 2u32;
@@ -233,9 +300,21 @@ pub const DRM_ACTIVATE_MACHINE: u32 = 1u32;
 pub const DRM_ACTIVATE_SHARED_GROUPIDENTITY: u32 = 32u32;
 pub const DRM_ACTIVATE_SILENT: u32 = 16u32;
 pub const DRM_ACTIVATE_TEMPORARY: u32 = 4u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct DRM_ACTSERV_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct DRM_ACTSERV_INFO {
+    pub uVersion: u32,
+    pub wszPubKey: super::super::Foundation::PWSTR,
+    pub wszURL: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DRM_ACTSERV_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DRM_ACTSERV_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DRM_ADD_LICENSE_NOPERSIST: u32 = 0u32;
 pub const DRM_ADD_LICENSE_PERSIST: u32 = 1u32;
 pub const DRM_AILT_CANCEL: u32 = 4u32;
@@ -248,12 +327,30 @@ pub const DRM_AL_NOPERSIST: u32 = 2u32;
 pub const DRM_AL_NOUI: u32 = 16u32;
 pub const DRM_AUTO_GENERATE_KEY: u32 = 16u32;
 #[repr(C)]
-pub struct DRM_CLIENT_VERSION_INFO(i32);
+pub struct DRM_CLIENT_VERSION_INFO {
+    pub uStructVersion: u32,
+    pub dwVersion: [u32; 4],
+    pub wszHierarchy: [u16; 256],
+    pub wszProductId: [u16; 256],
+    pub wszProductDescription: [u16; 256],
+}
+impl ::core::marker::Copy for DRM_CLIENT_VERSION_INFO {}
+impl ::core::clone::Clone for DRM_CLIENT_VERSION_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DRM_DISTRIBUTION_POINT_INFO(pub i32);
 pub const DRM_DISTRIBUTION_POINT_LICENSE_ACQUISITION: DRM_DISTRIBUTION_POINT_INFO = DRM_DISTRIBUTION_POINT_INFO(0i32);
 pub const DRM_DISTRIBUTION_POINT_PUBLISHING: DRM_DISTRIBUTION_POINT_INFO = DRM_DISTRIBUTION_POINT_INFO(1i32);
 pub const DRM_DISTRIBUTION_POINT_REFERRAL_INFO: DRM_DISTRIBUTION_POINT_INFO = DRM_DISTRIBUTION_POINT_INFO(2i32);
+impl ::core::marker::Copy for DRM_DISTRIBUTION_POINT_INFO {}
+impl ::core::clone::Clone for DRM_DISTRIBUTION_POINT_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DRM_EL_CLIENTLICENSOR: u32 = 128u32;
 pub const DRM_EL_CLIENTLICENSOR_LID: u32 = 256u32;
 pub const DRM_EL_EUL: u32 = 32u32;
@@ -270,9 +367,24 @@ pub const DRM_EL_REVOCATIONLIST: u32 = 1024u32;
 pub const DRM_EL_REVOCATIONLIST_LID: u32 = 2048u32;
 pub const DRM_EL_SPECIFIED_CLIENTLICENSOR: u32 = 512u32;
 pub const DRM_EL_SPECIFIED_GROUPIDENTITY: u32 = 16u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct DRM_LICENSE_ACQ_DATA(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct DRM_LICENSE_ACQ_DATA {
+    pub uVersion: u32,
+    pub wszURL: super::super::Foundation::PWSTR,
+    pub wszLocalFilename: super::super::Foundation::PWSTR,
+    pub pbPostData: *mut u8,
+    pub dwPostDataSize: u32,
+    pub wszFriendlyName: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DRM_LICENSE_ACQ_DATA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DRM_LICENSE_ACQ_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DRM_LOCKBOXTYPE_BLACKBOX: u32 = 2u32;
 pub const DRM_LOCKBOXTYPE_DEFAULT: u32 = 2u32;
 pub const DRM_LOCKBOXTYPE_NONE: u32 = 0u32;
@@ -299,11 +411,23 @@ pub const DRM_MSG_ACQUIRE_ADVISORY: DRM_STATUS_MSG = DRM_STATUS_MSG(3i32);
 pub const DRM_MSG_SIGN_ISSUANCE_LICENSE: DRM_STATUS_MSG = DRM_STATUS_MSG(4i32);
 pub const DRM_MSG_ACQUIRE_CLIENTLICENSOR: DRM_STATUS_MSG = DRM_STATUS_MSG(5i32);
 pub const DRM_MSG_ACQUIRE_ISSUANCE_LICENSE_TEMPLATE: DRM_STATUS_MSG = DRM_STATUS_MSG(6i32);
+impl ::core::marker::Copy for DRM_STATUS_MSG {}
+impl ::core::clone::Clone for DRM_STATUS_MSG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DRM_USAGEPOLICY_TYPE(pub i32);
 pub const DRM_USAGEPOLICY_TYPE_BYNAME: DRM_USAGEPOLICY_TYPE = DRM_USAGEPOLICY_TYPE(0i32);
 pub const DRM_USAGEPOLICY_TYPE_BYPUBLICKEY: DRM_USAGEPOLICY_TYPE = DRM_USAGEPOLICY_TYPE(1i32);
 pub const DRM_USAGEPOLICY_TYPE_BYDIGEST: DRM_USAGEPOLICY_TYPE = DRM_USAGEPOLICY_TYPE(2i32);
 pub const DRM_USAGEPOLICY_TYPE_OSEXCLUSION: DRM_USAGEPOLICY_TYPE = DRM_USAGEPOLICY_TYPE(3i32);
+impl ::core::marker::Copy for DRM_USAGEPOLICY_TYPE {}
+impl ::core::clone::Clone for DRM_USAGEPOLICY_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MSDRM_CLIENT_ZONE: u32 = 52992u32;
 pub const MSDRM_POLICY_ZONE: u32 = 37632u32;

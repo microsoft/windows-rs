@@ -9,6 +9,12 @@ impl CaretType {
     pub const Normal: Self = Self(0i32);
     pub const Null: Self = Self(1i32);
 }
+impl ::core::marker::Copy for CaretType {}
+impl ::core::clone::Clone for CaretType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ContentLinkInfo(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -17,6 +23,12 @@ impl FindOptions {
     pub const None: Self = Self(0u32);
     pub const Word: Self = Self(2u32);
     pub const Case: Self = Self(4u32);
+}
+impl ::core::marker::Copy for FindOptions {}
+impl ::core::clone::Clone for FindOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct FontStretch(pub i32);
@@ -32,6 +44,12 @@ impl FontStretch {
     pub const ExtraExpanded: Self = Self(8i32);
     pub const UltraExpanded: Self = Self(9i32);
 }
+impl ::core::marker::Copy for FontStretch {}
+impl ::core::clone::Clone for FontStretch {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct FontStyle(pub i32);
 impl FontStyle {
@@ -39,8 +57,22 @@ impl FontStyle {
     pub const Oblique: Self = Self(1i32);
     pub const Italic: Self = Self(2i32);
 }
+impl ::core::marker::Copy for FontStyle {}
+impl ::core::clone::Clone for FontStyle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct FontWeight(i32);
+pub struct FontWeight {
+    pub Weight: u16,
+}
+impl ::core::marker::Copy for FontWeight {}
+impl ::core::clone::Clone for FontWeight {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct FontWeights(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -51,12 +83,24 @@ impl FormatEffect {
     pub const Toggle: Self = Self(2i32);
     pub const Undefined: Self = Self(3i32);
 }
+impl ::core::marker::Copy for FormatEffect {}
+impl ::core::clone::Clone for FormatEffect {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct HorizontalCharacterAlignment(pub i32);
 impl HorizontalCharacterAlignment {
     pub const Left: Self = Self(0i32);
     pub const Right: Self = Self(1i32);
     pub const Center: Self = Self(2i32);
+}
+impl ::core::marker::Copy for HorizontalCharacterAlignment {}
+impl ::core::clone::Clone for HorizontalCharacterAlignment {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct IContentLinkInfo(pub *mut ::core::ffi::c_void);
@@ -90,6 +134,12 @@ impl LetterCase {
     pub const Lower: Self = Self(0i32);
     pub const Upper: Self = Self(1i32);
 }
+impl ::core::marker::Copy for LetterCase {}
+impl ::core::clone::Clone for LetterCase {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct LineSpacingRule(pub i32);
 impl LineSpacingRule {
@@ -101,6 +151,12 @@ impl LineSpacingRule {
     pub const Exactly: Self = Self(5i32);
     pub const Multiple: Self = Self(6i32);
     pub const Percent: Self = Self(7i32);
+}
+impl ::core::marker::Copy for LineSpacingRule {}
+impl ::core::clone::Clone for LineSpacingRule {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct LinkType(pub i32);
@@ -115,6 +171,12 @@ impl LinkType {
     pub const AutoLinkPhone: Self = Self(7i32);
     pub const AutoLinkPath: Self = Self(8i32);
 }
+impl ::core::marker::Copy for LinkType {}
+impl ::core::clone::Clone for LinkType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MarkerAlignment(pub i32);
 impl MarkerAlignment {
@@ -122,6 +184,12 @@ impl MarkerAlignment {
     pub const Left: Self = Self(1i32);
     pub const Center: Self = Self(2i32);
     pub const Right: Self = Self(3i32);
+}
+impl ::core::marker::Copy for MarkerAlignment {}
+impl ::core::clone::Clone for MarkerAlignment {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct MarkerStyle(pub i32);
@@ -133,6 +201,12 @@ impl MarkerStyle {
     pub const Plain: Self = Self(4i32);
     pub const Minus: Self = Self(5i32);
     pub const NoNumber: Self = Self(6i32);
+}
+impl ::core::marker::Copy for MarkerStyle {}
+impl ::core::clone::Clone for MarkerStyle {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct MarkerType(pub i32);
@@ -163,6 +237,12 @@ impl MarkerType {
     pub const DevanagariConsonant: Self = Self(23i32);
     pub const DevanagariNumeric: Self = Self(24i32);
 }
+impl ::core::marker::Copy for MarkerType {}
+impl ::core::clone::Clone for MarkerType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ParagraphAlignment(pub i32);
 impl ParagraphAlignment {
@@ -171,6 +251,12 @@ impl ParagraphAlignment {
     pub const Center: Self = Self(2i32);
     pub const Right: Self = Self(3i32);
     pub const Justify: Self = Self(4i32);
+}
+impl ::core::marker::Copy for ParagraphAlignment {}
+impl ::core::clone::Clone for ParagraphAlignment {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct ParagraphStyle(pub i32);
@@ -188,6 +274,12 @@ impl ParagraphStyle {
     pub const Heading8: Self = Self(10i32);
     pub const Heading9: Self = Self(11i32);
 }
+impl ::core::marker::Copy for ParagraphStyle {}
+impl ::core::clone::Clone for ParagraphStyle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PointOptions(pub u32);
 impl PointOptions {
@@ -200,6 +292,12 @@ impl PointOptions {
     pub const NoHorizontalScroll: Self = Self(65536u32);
     pub const NoVerticalScroll: Self = Self(262144u32);
 }
+impl ::core::marker::Copy for PointOptions {}
+impl ::core::clone::Clone for PointOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RangeGravity(pub i32);
 impl RangeGravity {
@@ -209,11 +307,23 @@ impl RangeGravity {
     pub const Inward: Self = Self(3i32);
     pub const Outward: Self = Self(4i32);
 }
+impl ::core::marker::Copy for RangeGravity {}
+impl ::core::clone::Clone for RangeGravity {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RichEditMathMode(pub i32);
 impl RichEditMathMode {
     pub const NoMath: Self = Self(0i32);
     pub const MathOnly: Self = Self(1i32);
+}
+impl ::core::marker::Copy for RichEditMathMode {}
+impl ::core::clone::Clone for RichEditMathMode {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct RichEditTextDocument(pub *mut ::core::ffi::c_void);
@@ -228,6 +338,12 @@ impl SelectionOptions {
     pub const Active: Self = Self(8u32);
     pub const Replace: Self = Self(16u32);
 }
+impl ::core::marker::Copy for SelectionOptions {}
+impl ::core::clone::Clone for SelectionOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SelectionType(pub i32);
 impl SelectionType {
@@ -237,6 +353,12 @@ impl SelectionType {
     pub const InlineShape: Self = Self(7i32);
     pub const Shape: Self = Self(8i32);
 }
+impl ::core::marker::Copy for SelectionType {}
+impl ::core::clone::Clone for SelectionType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TabAlignment(pub i32);
 impl TabAlignment {
@@ -245,6 +367,12 @@ impl TabAlignment {
     pub const Right: Self = Self(2i32);
     pub const Decimal: Self = Self(3i32);
     pub const Bar: Self = Self(4i32);
+}
+impl ::core::marker::Copy for TabAlignment {}
+impl ::core::clone::Clone for TabAlignment {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct TabLeader(pub i32);
@@ -256,12 +384,24 @@ impl TabLeader {
     pub const ThickLines: Self = Self(4i32);
     pub const Equals: Self = Self(5i32);
 }
+impl ::core::marker::Copy for TabLeader {}
+impl ::core::clone::Clone for TabLeader {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TextDecorations(pub u32);
 impl TextDecorations {
     pub const None: Self = Self(0u32);
     pub const Underline: Self = Self(1u32);
     pub const Strikethrough: Self = Self(2u32);
+}
+impl ::core::marker::Copy for TextDecorations {}
+impl ::core::clone::Clone for TextDecorations {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct TextGetOptions(pub u32);
@@ -275,6 +415,12 @@ impl TextGetOptions {
     pub const IncludeNumbering: Self = Self(64u32);
     pub const FormatRtf: Self = Self(8192u32);
     pub const UseLf: Self = Self(16777216u32);
+}
+impl ::core::marker::Copy for TextGetOptions {}
+impl ::core::clone::Clone for TextGetOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct TextRangeUnit(pub i32);
@@ -312,6 +458,12 @@ impl TextRangeUnit {
     pub const FontBound: Self = Self(30i32);
     pub const LinkProtected: Self = Self(31i32);
     pub const ContentLink: Self = Self(32i32);
+}
+impl ::core::marker::Copy for TextRangeUnit {}
+impl ::core::clone::Clone for TextRangeUnit {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct TextScript(pub i32);
@@ -381,6 +533,12 @@ impl TextScript {
     pub const Deseret: Self = Self(62i32);
     pub const Tifinagh: Self = Self(63i32);
 }
+impl ::core::marker::Copy for TextScript {}
+impl ::core::clone::Clone for TextScript {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TextSetOptions(pub u32);
 impl TextSetOptions {
@@ -391,6 +549,12 @@ impl TextSetOptions {
     pub const CheckTextLimit: Self = Self(32u32);
     pub const FormatRtf: Self = Self(8192u32);
     pub const ApplyRtfDocumentDefaults: Self = Self(16384u32);
+}
+impl ::core::marker::Copy for TextSetOptions {}
+impl ::core::clone::Clone for TextSetOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct UnderlineType(pub i32);
@@ -416,10 +580,22 @@ impl UnderlineType {
     pub const ThickDotted: Self = Self(18i32);
     pub const ThickLongDash: Self = Self(19i32);
 }
+impl ::core::marker::Copy for UnderlineType {}
+impl ::core::clone::Clone for UnderlineType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct VerticalCharacterAlignment(pub i32);
 impl VerticalCharacterAlignment {
     pub const Top: Self = Self(0i32);
     pub const Baseline: Self = Self(1i32);
     pub const Bottom: Self = Self(2i32);
+}
+impl ::core::marker::Copy for VerticalCharacterAlignment {}
+impl ::core::clone::Clone for VerticalCharacterAlignment {
+    fn clone(&self) -> Self {
+        *self
+    }
 }

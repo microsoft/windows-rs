@@ -39,6 +39,12 @@ impl ApplicationHighContrastAdjustment {
     pub const None: Self = Self(0u32);
     pub const Auto: Self = Self(4294967295u32);
 }
+impl ::core::marker::Copy for ApplicationHighContrastAdjustment {}
+impl ::core::clone::Clone for ApplicationHighContrastAdjustment {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ApplicationInitializationCallback(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -49,11 +55,23 @@ impl ApplicationRequiresPointerMode {
     pub const Auto: Self = Self(0i32);
     pub const WhenRequested: Self = Self(1i32);
 }
+impl ::core::marker::Copy for ApplicationRequiresPointerMode {}
+impl ::core::clone::Clone for ApplicationRequiresPointerMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ApplicationTheme(pub i32);
 impl ApplicationTheme {
     pub const Light: Self = Self(0i32);
     pub const Dark: Self = Self(1i32);
+}
+impl ::core::marker::Copy for ApplicationTheme {}
+impl ::core::clone::Clone for ApplicationTheme {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct AutomationTextAttributesEnum(pub i32);
@@ -99,6 +117,12 @@ impl AutomationTextAttributesEnum {
     pub const CaretPositionAttribute: Self = Self(40038i32);
     pub const CaretBidiModeAttribute: Self = Self(40039i32);
 }
+impl ::core::marker::Copy for AutomationTextAttributesEnum {}
+impl ::core::clone::Clone for AutomationTextAttributesEnum {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct BindingFailedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -112,7 +136,18 @@ pub struct BrushTransition(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ColorPaletteResources(pub *mut ::core::ffi::c_void);
 #[repr(C)]
-pub struct CornerRadius(i32);
+pub struct CornerRadius {
+    pub TopLeft: f64,
+    pub TopRight: f64,
+    pub BottomRight: f64,
+    pub BottomLeft: f64,
+}
+impl ::core::marker::Copy for CornerRadius {}
+impl ::core::clone::Clone for CornerRadius {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CornerRadiusHelper(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -153,9 +188,20 @@ pub struct DragUI(pub *mut ::core::ffi::c_void);
 pub struct DragUIOverride(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct DropCompletedEventArgs(pub *mut ::core::ffi::c_void);
-#[cfg(feature = "Foundation")]
 #[repr(C)]
-pub struct Duration(i32);
+#[cfg(feature = "Foundation")]
+pub struct Duration {
+    pub TimeSpan: super::super::Foundation::TimeSpan,
+    pub Type: DurationType,
+}
+#[cfg(feature = "Foundation")]
+impl ::core::marker::Copy for Duration {}
+#[cfg(feature = "Foundation")]
+impl ::core::clone::Clone for Duration {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DurationHelper(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -164,6 +210,12 @@ impl DurationType {
     pub const Automatic: Self = Self(0i32);
     pub const TimeSpan: Self = Self(1i32);
     pub const Forever: Self = Self(2i32);
+}
+impl ::core::marker::Copy for DurationType {}
+impl ::core::clone::Clone for DurationType {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct EffectiveViewportChangedEventArgs(pub *mut ::core::ffi::c_void);
@@ -178,6 +230,12 @@ impl ElementHighContrastAdjustment {
     pub const Application: Self = Self(2147483648u32);
     pub const Auto: Self = Self(4294967295u32);
 }
+impl ::core::marker::Copy for ElementHighContrastAdjustment {}
+impl ::core::clone::Clone for ElementHighContrastAdjustment {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ElementSoundKind(pub i32);
 impl ElementSoundKind {
@@ -189,12 +247,24 @@ impl ElementSoundKind {
     pub const MoveNext: Self = Self(5i32);
     pub const GoBack: Self = Self(6i32);
 }
+impl ::core::marker::Copy for ElementSoundKind {}
+impl ::core::clone::Clone for ElementSoundKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ElementSoundMode(pub i32);
 impl ElementSoundMode {
     pub const Default: Self = Self(0i32);
     pub const FocusOnly: Self = Self(1i32);
     pub const Off: Self = Self(2i32);
+}
+impl ::core::marker::Copy for ElementSoundMode {}
+impl ::core::clone::Clone for ElementSoundMode {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct ElementSoundPlayer(pub *mut ::core::ffi::c_void);
@@ -205,6 +275,12 @@ impl ElementSoundPlayerState {
     pub const Off: Self = Self(1i32);
     pub const On: Self = Self(2i32);
 }
+impl ::core::marker::Copy for ElementSoundPlayerState {}
+impl ::core::clone::Clone for ElementSoundPlayerState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ElementSpatialAudioMode(pub i32);
 impl ElementSpatialAudioMode {
@@ -212,12 +288,24 @@ impl ElementSpatialAudioMode {
     pub const Off: Self = Self(1i32);
     pub const On: Self = Self(2i32);
 }
+impl ::core::marker::Copy for ElementSpatialAudioMode {}
+impl ::core::clone::Clone for ElementSpatialAudioMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ElementTheme(pub i32);
 impl ElementTheme {
     pub const Default: Self = Self(0i32);
     pub const Light: Self = Self(1i32);
     pub const Dark: Self = Self(2i32);
+}
+impl ::core::marker::Copy for ElementTheme {}
+impl ::core::clone::Clone for ElementTheme {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct EnteredBackgroundEventHandler(pub *mut ::core::ffi::c_void);
@@ -233,6 +321,12 @@ impl FlowDirection {
     pub const LeftToRight: Self = Self(0i32);
     pub const RightToLeft: Self = Self(1i32);
 }
+impl ::core::marker::Copy for FlowDirection {}
+impl ::core::clone::Clone for FlowDirection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct FocusState(pub i32);
 impl FocusState {
@@ -241,12 +335,24 @@ impl FocusState {
     pub const Keyboard: Self = Self(2i32);
     pub const Programmatic: Self = Self(3i32);
 }
+impl ::core::marker::Copy for FocusState {}
+impl ::core::clone::Clone for FocusState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct FocusVisualKind(pub i32);
 impl FocusVisualKind {
     pub const DottedLine: Self = Self(0i32);
     pub const HighVisibility: Self = Self(1i32);
     pub const Reveal: Self = Self(2i32);
+}
+impl ::core::marker::Copy for FocusVisualKind {}
+impl ::core::clone::Clone for FocusVisualKind {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct FontCapitals(pub i32);
@@ -258,6 +364,12 @@ impl FontCapitals {
     pub const PetiteCaps: Self = Self(4i32);
     pub const Unicase: Self = Self(5i32);
     pub const Titling: Self = Self(6i32);
+}
+impl ::core::marker::Copy for FontCapitals {}
+impl ::core::clone::Clone for FontCapitals {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct FontEastAsianLanguage(pub i32);
@@ -273,6 +385,12 @@ impl FontEastAsianLanguage {
     pub const Traditional: Self = Self(8i32);
     pub const TraditionalNames: Self = Self(9i32);
 }
+impl ::core::marker::Copy for FontEastAsianLanguage {}
+impl ::core::clone::Clone for FontEastAsianLanguage {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct FontEastAsianWidths(pub i32);
 impl FontEastAsianWidths {
@@ -283,12 +401,24 @@ impl FontEastAsianWidths {
     pub const Quarter: Self = Self(4i32);
     pub const Third: Self = Self(5i32);
 }
+impl ::core::marker::Copy for FontEastAsianWidths {}
+impl ::core::clone::Clone for FontEastAsianWidths {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct FontFraction(pub i32);
 impl FontFraction {
     pub const Normal: Self = Self(0i32);
     pub const Stacked: Self = Self(1i32);
     pub const Slashed: Self = Self(2i32);
+}
+impl ::core::marker::Copy for FontFraction {}
+impl ::core::clone::Clone for FontFraction {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct FontNumeralAlignment(pub i32);
@@ -297,12 +427,24 @@ impl FontNumeralAlignment {
     pub const Proportional: Self = Self(1i32);
     pub const Tabular: Self = Self(2i32);
 }
+impl ::core::marker::Copy for FontNumeralAlignment {}
+impl ::core::clone::Clone for FontNumeralAlignment {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct FontNumeralStyle(pub i32);
 impl FontNumeralStyle {
     pub const Normal: Self = Self(0i32);
     pub const Lining: Self = Self(1i32);
     pub const OldStyle: Self = Self(2i32);
+}
+impl ::core::marker::Copy for FontNumeralStyle {}
+impl ::core::clone::Clone for FontNumeralStyle {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct FontVariants(pub i32);
@@ -314,6 +456,12 @@ impl FontVariants {
     pub const Inferior: Self = Self(4i32);
     pub const Ruby: Self = Self(5i32);
 }
+impl ::core::marker::Copy for FontVariants {}
+impl ::core::clone::Clone for FontVariants {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct FrameworkElement(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -323,7 +471,16 @@ pub struct FrameworkView(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct FrameworkViewSource(pub *mut ::core::ffi::c_void);
 #[repr(C)]
-pub struct GridLength(i32);
+pub struct GridLength {
+    pub Value: f64,
+    pub GridUnitType: GridUnitType,
+}
+impl ::core::marker::Copy for GridLength {}
+impl ::core::clone::Clone for GridLength {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct GridLengthHelper(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -333,6 +490,12 @@ impl GridUnitType {
     pub const Pixel: Self = Self(1i32);
     pub const Star: Self = Self(2i32);
 }
+impl ::core::marker::Copy for GridUnitType {}
+impl ::core::clone::Clone for GridUnitType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct HorizontalAlignment(pub i32);
 impl HorizontalAlignment {
@@ -340,6 +503,12 @@ impl HorizontalAlignment {
     pub const Center: Self = Self(1i32);
     pub const Right: Self = Self(2i32);
     pub const Stretch: Self = Self(3i32);
+}
+impl ::core::marker::Copy for HorizontalAlignment {}
+impl ::core::clone::Clone for HorizontalAlignment {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct IAdaptiveTrigger(pub *mut ::core::ffi::c_void);
@@ -698,6 +867,12 @@ impl LineStackingStrategy {
     pub const BlockLineHeight: Self = Self(1i32);
     pub const BaselineToBaseline: Self = Self(2i32);
 }
+impl ::core::marker::Copy for LineStackingStrategy {}
+impl ::core::clone::Clone for LineStackingStrategy {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MediaFailedRoutedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -705,6 +880,12 @@ pub struct OpticalMarginAlignment(pub i32);
 impl OpticalMarginAlignment {
     pub const None: Self = Self(0i32);
     pub const TrimSideBearings: Self = Self(1i32);
+}
+impl ::core::marker::Copy for OpticalMarginAlignment {}
+impl ::core::clone::Clone for OpticalMarginAlignment {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct PointHelper(pub *mut ::core::ffi::c_void);
@@ -759,6 +940,12 @@ impl TextAlignment {
     pub const Justify: Self = Self(3i32);
     pub const DetectFromContent: Self = Self(4i32);
 }
+impl ::core::marker::Copy for TextAlignment {}
+impl ::core::clone::Clone for TextAlignment {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TextLineBounds(pub i32);
 impl TextLineBounds {
@@ -767,12 +954,24 @@ impl TextLineBounds {
     pub const TrimToBaseline: Self = Self(2i32);
     pub const Tight: Self = Self(3i32);
 }
+impl ::core::marker::Copy for TextLineBounds {}
+impl ::core::clone::Clone for TextLineBounds {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TextReadingOrder(pub i32);
 impl TextReadingOrder {
     pub const Default: Self = Self(0i32);
     pub const UseFlowDirection: Self = Self(0i32);
     pub const DetectFromContent: Self = Self(1i32);
+}
+impl ::core::marker::Copy for TextReadingOrder {}
+impl ::core::clone::Clone for TextReadingOrder {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct TextTrimming(pub i32);
@@ -782,6 +981,12 @@ impl TextTrimming {
     pub const WordEllipsis: Self = Self(2i32);
     pub const Clip: Self = Self(3i32);
 }
+impl ::core::marker::Copy for TextTrimming {}
+impl ::core::clone::Clone for TextTrimming {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TextWrapping(pub i32);
 impl TextWrapping {
@@ -789,8 +994,25 @@ impl TextWrapping {
     pub const Wrap: Self = Self(2i32);
     pub const WrapWholeWords: Self = Self(3i32);
 }
+impl ::core::marker::Copy for TextWrapping {}
+impl ::core::clone::Clone for TextWrapping {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct Thickness(i32);
+pub struct Thickness {
+    pub Left: f64,
+    pub Top: f64,
+    pub Right: f64,
+    pub Bottom: f64,
+}
+impl ::core::marker::Copy for Thickness {}
+impl ::core::clone::Clone for Thickness {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ThicknessHelper(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -818,6 +1040,12 @@ impl Vector3TransitionComponents {
     pub const Y: Self = Self(2u32);
     pub const Z: Self = Self(4u32);
 }
+impl ::core::marker::Copy for Vector3TransitionComponents {}
+impl ::core::clone::Clone for Vector3TransitionComponents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct VerticalAlignment(pub i32);
 impl VerticalAlignment {
@@ -826,11 +1054,23 @@ impl VerticalAlignment {
     pub const Bottom: Self = Self(2i32);
     pub const Stretch: Self = Self(3i32);
 }
+impl ::core::marker::Copy for VerticalAlignment {}
+impl ::core::clone::Clone for VerticalAlignment {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct Visibility(pub i32);
 impl Visibility {
     pub const Visible: Self = Self(0i32);
     pub const Collapsed: Self = Self(1i32);
+}
+impl ::core::marker::Copy for Visibility {}
+impl ::core::clone::Clone for Visibility {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct VisualState(pub *mut ::core::ffi::c_void);

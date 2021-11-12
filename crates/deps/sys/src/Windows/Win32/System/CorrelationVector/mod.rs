@@ -10,9 +10,20 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn RtlValidateCorrelationVector(vector: *const CORRELATION_VECTOR) -> u32;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CORRELATION_VECTOR(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CORRELATION_VECTOR {
+    pub Version: super::super::Foundation::CHAR,
+    pub Vector: [super::super::Foundation::CHAR; 129],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CORRELATION_VECTOR {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CORRELATION_VECTOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const RTL_CORRELATION_VECTOR_STRING_LENGTH: u32 = 129u32;
 pub const RTL_CORRELATION_VECTOR_V1_LENGTH: u32 = 64u32;
 pub const RTL_CORRELATION_VECTOR_V1_PREFIX_LENGTH: u32 = 16u32;

@@ -120,6 +120,12 @@ impl NDCertificateFeature {
     pub const CRLS: Self = Self(9i32);
     pub const PlayReady3Features: Self = Self(13i32);
 }
+impl ::core::marker::Copy for NDCertificateFeature {}
+impl ::core::clone::Clone for NDCertificateFeature {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct NDCertificatePlatformID(pub i32);
 impl NDCertificatePlatformID {
@@ -135,6 +141,12 @@ impl NDCertificatePlatformID {
     pub const AndroidOnARM: Self = Self(11i32);
     pub const WindowsPhone81OnARM: Self = Self(12i32);
     pub const WindowsPhone81OnX86: Self = Self(13i32);
+}
+impl ::core::marker::Copy for NDCertificatePlatformID {}
+impl ::core::clone::Clone for NDCertificatePlatformID {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct NDCertificateType(pub i32);
@@ -153,6 +165,12 @@ impl NDCertificateType {
     pub const Server: Self = Self(11i32);
     pub const LicenseSigner: Self = Self(12i32);
 }
+impl ::core::marker::Copy for NDCertificateType {}
+impl ::core::clone::Clone for NDCertificateType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct NDClient(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -162,12 +180,24 @@ impl NDClosedCaptionFormat {
     pub const SCTE20: Self = Self(1i32);
     pub const Unknown: Self = Self(2i32);
 }
+impl ::core::marker::Copy for NDClosedCaptionFormat {}
+impl ::core::clone::Clone for NDClosedCaptionFormat {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct NDContentIDType(pub i32);
 impl NDContentIDType {
     pub const KeyID: Self = Self(1i32);
     pub const PlayReadyObject: Self = Self(2i32);
     pub const Custom: Self = Self(3i32);
+}
+impl ::core::marker::Copy for NDContentIDType {}
+impl ::core::clone::Clone for NDContentIDType {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct NDCustomData(pub *mut ::core::ffi::c_void);
@@ -181,6 +211,12 @@ impl NDMediaStreamType {
     pub const Audio: Self = Self(1i32);
     pub const Video: Self = Self(2i32);
 }
+impl ::core::marker::Copy for NDMediaStreamType {}
+impl ::core::clone::Clone for NDMediaStreamType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct NDProximityDetectionType(pub i32);
 impl NDProximityDetectionType {
@@ -188,11 +224,23 @@ impl NDProximityDetectionType {
     pub const TCP: Self = Self(2i32);
     pub const TransportAgnostic: Self = Self(4i32);
 }
+impl ::core::marker::Copy for NDProximityDetectionType {}
+impl ::core::clone::Clone for NDProximityDetectionType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct NDStartAsyncOptions(pub i32);
 impl NDStartAsyncOptions {
     pub const MutualAuthentication: Self = Self(1i32);
     pub const WaitForLicenseDescriptor: Self = Self(2i32);
+}
+impl ::core::marker::Copy for NDStartAsyncOptions {}
+impl ::core::clone::Clone for NDStartAsyncOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct NDStorageFileHelper(pub *mut ::core::ffi::c_void);
@@ -207,6 +255,12 @@ pub struct PlayReadyDecryptorSetup(pub i32);
 impl PlayReadyDecryptorSetup {
     pub const Uninitialized: Self = Self(0i32);
     pub const OnDemand: Self = Self(1i32);
+}
+impl ::core::marker::Copy for PlayReadyDecryptorSetup {}
+impl ::core::clone::Clone for PlayReadyDecryptorSetup {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct PlayReadyDomain(pub *mut ::core::ffi::c_void);
@@ -228,6 +282,12 @@ impl PlayReadyEncryptionAlgorithm {
     pub const Unspecified: Self = Self(65535i32);
     pub const Uninitialized: Self = Self(2147483647i32);
 }
+impl ::core::marker::Copy for PlayReadyEncryptionAlgorithm {}
+impl ::core::clone::Clone for PlayReadyEncryptionAlgorithm {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PlayReadyHardwareDRMFeatures(pub i32);
 impl PlayReadyHardwareDRMFeatures {
@@ -235,11 +295,23 @@ impl PlayReadyHardwareDRMFeatures {
     pub const HEVC: Self = Self(2i32);
     pub const Aes128Cbc: Self = Self(3i32);
 }
+impl ::core::marker::Copy for PlayReadyHardwareDRMFeatures {}
+impl ::core::clone::Clone for PlayReadyHardwareDRMFeatures {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PlayReadyITADataFormat(pub i32);
 impl PlayReadyITADataFormat {
     pub const SerializedProperties: Self = Self(0i32);
     pub const SerializedProperties_WithContentProtectionWrapper: Self = Self(1i32);
+}
+impl ::core::marker::Copy for PlayReadyITADataFormat {}
+impl ::core::clone::Clone for PlayReadyITADataFormat {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct PlayReadyITADataGenerator(pub *mut ::core::ffi::c_void);

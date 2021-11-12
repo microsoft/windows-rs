@@ -18,6 +18,12 @@ impl GattCharacteristicProperties {
     pub const ReliableWrites: Self = Self(256u32);
     pub const WritableAuxiliaries: Self = Self(512u32);
 }
+impl ::core::marker::Copy for GattCharacteristicProperties {}
+impl ::core::clone::Clone for GattCharacteristicProperties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct GattCharacteristicsResult(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -26,6 +32,12 @@ impl GattClientCharacteristicConfigurationDescriptorValue {
     pub const None: Self = Self(0i32);
     pub const Notify: Self = Self(1i32);
     pub const Indicate: Self = Self(2i32);
+}
+impl ::core::marker::Copy for GattClientCharacteristicConfigurationDescriptorValue {}
+impl ::core::clone::Clone for GattClientCharacteristicConfigurationDescriptorValue {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct GattClientNotificationResult(pub *mut ::core::ffi::c_void);
@@ -36,6 +48,12 @@ impl GattCommunicationStatus {
     pub const Unreachable: Self = Self(1i32);
     pub const ProtocolError: Self = Self(2i32);
     pub const AccessDenied: Self = Self(3i32);
+}
+impl ::core::marker::Copy for GattCommunicationStatus {}
+impl ::core::clone::Clone for GattCommunicationStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct GattDescriptor(pub *mut ::core::ffi::c_void);
@@ -69,6 +87,12 @@ impl GattOpenStatus {
     pub const SharingViolation: Self = Self(4i32);
     pub const AccessDenied: Self = Self(5i32);
 }
+impl ::core::marker::Copy for GattOpenStatus {}
+impl ::core::clone::Clone for GattOpenStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct GattPresentationFormat(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -78,6 +102,12 @@ impl GattProtectionLevel {
     pub const AuthenticationRequired: Self = Self(1i32);
     pub const EncryptionRequired: Self = Self(2i32);
     pub const EncryptionAndAuthenticationRequired: Self = Self(3i32);
+}
+impl ::core::marker::Copy for GattProtectionLevel {}
+impl ::core::clone::Clone for GattProtectionLevel {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct GattReadClientCharacteristicConfigurationDescriptorResult(pub *mut ::core::ffi::c_void);
@@ -96,6 +126,12 @@ impl GattRequestState {
     pub const Completed: Self = Self(1i32);
     pub const Canceled: Self = Self(2i32);
 }
+impl ::core::marker::Copy for GattRequestState {}
+impl ::core::clone::Clone for GattRequestState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct GattRequestStateChangedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -108,6 +144,12 @@ impl GattServiceProviderAdvertisementStatus {
     pub const Started: Self = Self(2i32);
     pub const Aborted: Self = Self(3i32);
     pub const StartedWithoutAllAdvertisementData: Self = Self(4i32);
+}
+impl ::core::marker::Copy for GattServiceProviderAdvertisementStatus {}
+impl ::core::clone::Clone for GattServiceProviderAdvertisementStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct GattServiceProviderAdvertisementStatusChangedEventArgs(pub *mut ::core::ffi::c_void);
@@ -123,6 +165,12 @@ impl GattSessionStatus {
     pub const Closed: Self = Self(0i32);
     pub const Active: Self = Self(1i32);
 }
+impl ::core::marker::Copy for GattSessionStatus {}
+impl ::core::clone::Clone for GattSessionStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct GattSessionStatusChangedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -133,6 +181,12 @@ impl GattSharingMode {
     pub const SharedReadOnly: Self = Self(2i32);
     pub const SharedReadAndWrite: Self = Self(3i32);
 }
+impl ::core::marker::Copy for GattSharingMode {}
+impl ::core::clone::Clone for GattSharingMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct GattSubscribedClient(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -142,6 +196,12 @@ pub struct GattWriteOption(pub i32);
 impl GattWriteOption {
     pub const WriteWithResponse: Self = Self(0i32);
     pub const WriteWithoutResponse: Self = Self(1i32);
+}
+impl ::core::marker::Copy for GattWriteOption {}
+impl ::core::clone::Clone for GattWriteOption {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct GattWriteRequest(pub *mut ::core::ffi::c_void);

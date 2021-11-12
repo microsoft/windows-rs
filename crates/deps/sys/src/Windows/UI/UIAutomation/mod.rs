@@ -19,5 +19,3 @@ pub struct IAutomationConnectionBoundObject(pub *mut ::core::ffi::c_void);
 pub struct IAutomationElement(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IAutomationTextRange(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct UIAutomationContract(i32);

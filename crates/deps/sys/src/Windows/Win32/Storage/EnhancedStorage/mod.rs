@@ -2,11 +2,25 @@
 #[link(name = "windows")]
 extern "system" {}
 #[repr(C)]
-pub struct ACT_AUTHORIZATION_STATE(i32);
+pub struct ACT_AUTHORIZATION_STATE {
+    pub ulState: u32,
+}
+impl ::core::marker::Copy for ACT_AUTHORIZATION_STATE {}
+impl ::core::clone::Clone for ACT_AUTHORIZATION_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ACT_AUTHORIZATION_STATE_VALUE(pub i32);
 pub const ACT_UNAUTHORIZED: ACT_AUTHORIZATION_STATE_VALUE = ACT_AUTHORIZATION_STATE_VALUE(0i32);
 pub const ACT_AUTHORIZED: ACT_AUTHORIZATION_STATE_VALUE = ACT_AUTHORIZATION_STATE_VALUE(1i32);
+impl ::core::marker::Copy for ACT_AUTHORIZATION_STATE_VALUE {}
+impl ::core::clone::Clone for ACT_AUTHORIZATION_STATE_VALUE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const ACT_AUTHORIZE_ON_RESUME: u32 = 1u32;
 pub const ACT_AUTHORIZE_ON_SESSION_UNLOCK: u32 = 2u32;
 pub const ACT_UNAUTHORIZE_ON_SESSION_LOCK: u32 = 2u32;
@@ -344,9 +358,44 @@ pub const ENHANCED_STORAGE_COMMAND_SILO_IS_AUTHENTICATION_SILO: super::super::UI
     },
     pid: 6u32,
 };
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct ENHANCED_STORAGE_PASSWORD_SILO_INFORMATION(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct ENHANCED_STORAGE_PASSWORD_SILO_INFORMATION {
+    pub CurrentAdminFailures: u8,
+    pub CurrentUserFailures: u8,
+    pub TotalUserAuthenticationCount: u32,
+    pub TotalAdminAuthenticationCount: u32,
+    pub FipsCompliant: super::super::Foundation::BOOL,
+    pub SecurityIDAvailable: super::super::Foundation::BOOL,
+    pub InitializeInProgress: super::super::Foundation::BOOL,
+    pub ITMSArmed: super::super::Foundation::BOOL,
+    pub ITMSArmable: super::super::Foundation::BOOL,
+    pub UserCreated: super::super::Foundation::BOOL,
+    pub ResetOnPORDefault: super::super::Foundation::BOOL,
+    pub ResetOnPORCurrent: super::super::Foundation::BOOL,
+    pub MaxAdminFailures: u8,
+    pub MaxUserFailures: u8,
+    pub TimeToCompleteInitialization: u32,
+    pub TimeRemainingToCompleteInitialization: u32,
+    pub MinTimeToAuthenticate: u32,
+    pub MaxAdminPasswordSize: u8,
+    pub MinAdminPasswordSize: u8,
+    pub MaxAdminHintSize: u8,
+    pub MaxUserPasswordSize: u8,
+    pub MinUserPasswordSize: u8,
+    pub MaxUserHintSize: u8,
+    pub MaxUserNameSize: u8,
+    pub MaxSiloNameSize: u8,
+    pub MaxChallengeSize: u16,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ENHANCED_STORAGE_PASSWORD_SILO_INFORMATION {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ENHANCED_STORAGE_PASSWORD_SILO_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const ENHANCED_STORAGE_PROPERTY_ADMIN_HINT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID {
@@ -701,14 +750,25 @@ pub const ES_RESERVED_SILO_SPECIFIC_ERROR_END: u32 = 49151u32;
 pub const ES_RESERVED_SILO_SPECIFIC_ERROR_START: u32 = 4608u32;
 pub const ES_VENDOR_ERROR_END: u32 = 65535u32;
 pub const ES_VENDOR_ERROR_START: u32 = 49152u32;
-#[repr(C)]
-pub struct EnhancedStorageACT(i32);
-#[repr(C)]
-pub struct EnhancedStorageSilo(i32);
-#[repr(C)]
-pub struct EnhancedStorageSiloAction(i32);
-#[repr(C)]
-pub struct EnumEnhancedStorageACT(i32);
+pub const EnhancedStorageACT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2936498709,
+    data2: 11982,
+    data3: 19156,
+    data4: [187, 33, 41, 240, 64, 225, 118, 216],
+};
+pub const EnhancedStorageSilo: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3408208396, data2: 30407, data3: 20462, data4: [132, 43, 243, 56, 60, 208, 34, 188] };
+pub const EnhancedStorageSiloAction: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2288855517,
+    data2: 46342,
+    data3: 18027,
+    data4: [159, 191, 180, 79, 243, 131, 251, 63],
+};
+pub const EnumEnhancedStorageACT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 4270068883,
+    data2: 33628,
+    data3: 20387,
+    data4: [182, 204, 180, 178, 212, 113, 152, 72],
+};
 pub const FACILITY_ENHANCED_STORAGE: u32 = 4u32;
 pub const FILEOFFLINEAVAILABILITYSTATUS_COMPLETE: u32 = 2u32;
 pub const FILEOFFLINEAVAILABILITYSTATUS_COMPLETE_PINNED: u32 = 3u32;
@@ -8250,7 +8310,21 @@ pub const SHARINGSTATUS_NOTSHARED: u32 = 0u32;
 pub const SHARINGSTATUS_PRIVATE: u32 = 2u32;
 pub const SHARINGSTATUS_SHARED: u32 = 1u32;
 #[repr(C)]
-pub struct SILO_INFO(i32);
+pub struct SILO_INFO {
+    pub ulSTID: u32,
+    pub SpecificationMajor: u8,
+    pub SpecificationMinor: u8,
+    pub ImplementationMajor: u8,
+    pub ImplementationMinor: u8,
+    pub r#type: u8,
+    pub capabilities: u8,
+}
+impl ::core::marker::Copy for SILO_INFO {}
+impl ::core::clone::Clone for SILO_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const STORAGE_PROVIDER_SHARINGSTATUS_NOTSHARED: u32 = 0u32;
 pub const STORAGE_PROVIDER_SHARINGSTATUS_PRIVATE: u32 = 2u32;
 pub const STORAGE_PROVIDER_SHARINGSTATUS_PUBLIC: u32 = 3u32;

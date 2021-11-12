@@ -179,18 +179,72 @@ pub struct ENUM_SERVICE_STATE(pub u32);
 pub const SERVICE_ACTIVE: ENUM_SERVICE_STATE = ENUM_SERVICE_STATE(1u32);
 pub const SERVICE_INACTIVE: ENUM_SERVICE_STATE = ENUM_SERVICE_STATE(2u32);
 pub const SERVICE_STATE_ALL: ENUM_SERVICE_STATE = ENUM_SERVICE_STATE(3u32);
-#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ENUM_SERVICE_STATE {}
+impl ::core::clone::Clone for ENUM_SERVICE_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct ENUM_SERVICE_STATUSA(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct ENUM_SERVICE_STATUSW(i32);
+pub struct ENUM_SERVICE_STATUSA {
+    pub lpServiceName: super::super::Foundation::PSTR,
+    pub lpDisplayName: super::super::Foundation::PSTR,
+    pub ServiceStatus: SERVICE_STATUS,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct ENUM_SERVICE_STATUS_PROCESSA(i32);
+impl ::core::marker::Copy for ENUM_SERVICE_STATUSA {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ENUM_SERVICE_STATUSA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct ENUM_SERVICE_STATUS_PROCESSW(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct ENUM_SERVICE_STATUSW {
+    pub lpServiceName: super::super::Foundation::PWSTR,
+    pub lpDisplayName: super::super::Foundation::PWSTR,
+    pub ServiceStatus: SERVICE_STATUS,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ENUM_SERVICE_STATUSW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ENUM_SERVICE_STATUSW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct ENUM_SERVICE_STATUS_PROCESSA {
+    pub lpServiceName: super::super::Foundation::PSTR,
+    pub lpDisplayName: super::super::Foundation::PSTR,
+    pub ServiceStatusProcess: SERVICE_STATUS_PROCESS,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ENUM_SERVICE_STATUS_PROCESSA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ENUM_SERVICE_STATUS_PROCESSA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct ENUM_SERVICE_STATUS_PROCESSW {
+    pub lpServiceName: super::super::Foundation::PWSTR,
+    pub lpDisplayName: super::super::Foundation::PWSTR,
+    pub ServiceStatusProcess: SERVICE_STATUS_PROCESS,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ENUM_SERVICE_STATUS_PROCESSW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ENUM_SERVICE_STATUS_PROCESSW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ENUM_SERVICE_TYPE(pub u32);
 pub const SERVICE_DRIVER: ENUM_SERVICE_TYPE = ENUM_SERVICE_TYPE(11u32);
@@ -205,6 +259,12 @@ pub const SERVICE_RECOGNIZER_DRIVER: ENUM_SERVICE_TYPE = ENUM_SERVICE_TYPE(8u32)
 pub const SERVICE_WIN32_OWN_PROCESS: ENUM_SERVICE_TYPE = ENUM_SERVICE_TYPE(16u32);
 pub const SERVICE_USER_OWN_PROCESS: ENUM_SERVICE_TYPE = ENUM_SERVICE_TYPE(80u32);
 pub const SERVICE_USER_SHARE_PROCESS: ENUM_SERVICE_TYPE = ENUM_SERVICE_TYPE(96u32);
+impl ::core::marker::Copy for ENUM_SERVICE_TYPE {}
+impl ::core::clone::Clone for ENUM_SERVICE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const FIREWALL_PORT_CLOSE_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 2705648952,
     data2: 36370,
@@ -241,18 +301,78 @@ pub const NETWORK_MANAGER_LAST_IP_ADDRESS_REMOVAL_GUID: ::windows_sys::core::GUI
 };
 pub type PFN_SC_NOTIFY_CALLBACK = unsafe extern "system" fn(pparameter: *const ::core::ffi::c_void);
 pub type PSC_NOTIFICATION_CALLBACK = unsafe extern "system" fn(dwnotify: u32, pcallbackcontext: *const ::core::ffi::c_void);
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct QUERY_SERVICE_CONFIGA(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct QUERY_SERVICE_CONFIGW(i32);
+pub struct QUERY_SERVICE_CONFIGA {
+    pub dwServiceType: ENUM_SERVICE_TYPE,
+    pub dwStartType: SERVICE_START_TYPE,
+    pub dwErrorControl: SERVICE_ERROR,
+    pub lpBinaryPathName: super::super::Foundation::PSTR,
+    pub lpLoadOrderGroup: super::super::Foundation::PSTR,
+    pub dwTagId: u32,
+    pub lpDependencies: super::super::Foundation::PSTR,
+    pub lpServiceStartName: super::super::Foundation::PSTR,
+    pub lpDisplayName: super::super::Foundation::PSTR,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct QUERY_SERVICE_LOCK_STATUSA(i32);
+impl ::core::marker::Copy for QUERY_SERVICE_CONFIGA {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for QUERY_SERVICE_CONFIGA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct QUERY_SERVICE_LOCK_STATUSW(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct QUERY_SERVICE_CONFIGW {
+    pub dwServiceType: ENUM_SERVICE_TYPE,
+    pub dwStartType: SERVICE_START_TYPE,
+    pub dwErrorControl: SERVICE_ERROR,
+    pub lpBinaryPathName: super::super::Foundation::PWSTR,
+    pub lpLoadOrderGroup: super::super::Foundation::PWSTR,
+    pub dwTagId: u32,
+    pub lpDependencies: super::super::Foundation::PWSTR,
+    pub lpServiceStartName: super::super::Foundation::PWSTR,
+    pub lpDisplayName: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for QUERY_SERVICE_CONFIGW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for QUERY_SERVICE_CONFIGW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct QUERY_SERVICE_LOCK_STATUSA {
+    pub fIsLocked: u32,
+    pub lpLockOwner: super::super::Foundation::PSTR,
+    pub dwLockDuration: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for QUERY_SERVICE_LOCK_STATUSA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for QUERY_SERVICE_LOCK_STATUSA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct QUERY_SERVICE_LOCK_STATUSW {
+    pub fIsLocked: u32,
+    pub lpLockOwner: super::super::Foundation::PWSTR,
+    pub dwLockDuration: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for QUERY_SERVICE_LOCK_STATUSW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for QUERY_SERVICE_LOCK_STATUSW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const RPC_INTERFACE_EVENT_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 3163607399,
     data2: 38000,
@@ -260,7 +380,16 @@ pub const RPC_INTERFACE_EVENT_GUID: ::windows_sys::core::GUID = ::windows_sys::G
     data4: [169, 186, 190, 11, 187, 245, 183, 77],
 };
 #[repr(C)]
-pub struct SC_ACTION(i32);
+pub struct SC_ACTION {
+    pub Type: SC_ACTION_TYPE,
+    pub Delay: u32,
+}
+impl ::core::marker::Copy for SC_ACTION {}
+impl ::core::clone::Clone for SC_ACTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SC_ACTION_TYPE(pub i32);
 pub const SC_ACTION_NONE: SC_ACTION_TYPE = SC_ACTION_TYPE(0i32);
@@ -268,14 +397,32 @@ pub const SC_ACTION_RESTART: SC_ACTION_TYPE = SC_ACTION_TYPE(1i32);
 pub const SC_ACTION_REBOOT: SC_ACTION_TYPE = SC_ACTION_TYPE(2i32);
 pub const SC_ACTION_RUN_COMMAND: SC_ACTION_TYPE = SC_ACTION_TYPE(3i32);
 pub const SC_ACTION_OWN_RESTART: SC_ACTION_TYPE = SC_ACTION_TYPE(4i32);
+impl ::core::marker::Copy for SC_ACTION_TYPE {}
+impl ::core::clone::Clone for SC_ACTION_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SC_ENUM_TYPE(pub i32);
 pub const SC_ENUM_PROCESS_INFO: SC_ENUM_TYPE = SC_ENUM_TYPE(0i32);
+impl ::core::marker::Copy for SC_ENUM_TYPE {}
+impl ::core::clone::Clone for SC_ENUM_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SC_EVENT_TYPE(pub i32);
 pub const SC_EVENT_DATABASE_CHANGE: SC_EVENT_TYPE = SC_EVENT_TYPE(0i32);
 pub const SC_EVENT_PROPERTY_CHANGE: SC_EVENT_TYPE = SC_EVENT_TYPE(1i32);
 pub const SC_EVENT_STATUS_CHANGE: SC_EVENT_TYPE = SC_EVENT_TYPE(2i32);
+impl ::core::marker::Copy for SC_EVENT_TYPE {}
+impl ::core::clone::Clone for SC_EVENT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SC_MANAGER_ALL_ACCESS: u32 = 983103u32;
 pub const SC_MANAGER_CONNECT: u32 = 1u32;
 pub const SC_MANAGER_CREATE_SERVICE: u32 = 2u32;
@@ -286,6 +433,12 @@ pub const SC_MANAGER_QUERY_LOCK_STATUS: u32 = 16u32;
 #[repr(transparent)]
 pub struct SC_STATUS_TYPE(pub i32);
 pub const SC_STATUS_PROCESS_INFO: SC_STATUS_TYPE = SC_STATUS_TYPE(0i32);
+impl ::core::marker::Copy for SC_STATUS_TYPE {}
+impl ::core::clone::Clone for SC_STATUS_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SERVICE_ACCEPT_HARDWAREPROFILECHANGE: u32 = 32u32;
 pub const SERVICE_ACCEPT_LOWRESOURCES: u32 = 8192u32;
 pub const SERVICE_ACCEPT_NETBINDCHANGE: u32 = 16u32;
@@ -314,6 +467,12 @@ pub const SERVICE_CONFIG_REQUIRED_PRIVILEGES_INFO: SERVICE_CONFIG = SERVICE_CONF
 pub const SERVICE_CONFIG_SERVICE_SID_INFO: SERVICE_CONFIG = SERVICE_CONFIG(5u32);
 pub const SERVICE_CONFIG_TRIGGER_INFO: SERVICE_CONFIG = SERVICE_CONFIG(8u32);
 pub const SERVICE_CONFIG_LAUNCH_PROTECTED: SERVICE_CONFIG = SERVICE_CONFIG(12u32);
+impl ::core::marker::Copy for SERVICE_CONFIG {}
+impl ::core::clone::Clone for SERVICE_CONFIG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SERVICE_CONTROL_CONTINUE: u32 = 3u32;
 pub const SERVICE_CONTROL_DEVICEEVENT: u32 = 11u32;
 pub const SERVICE_CONTROL_HARDWAREPROFILECHANGE: u32 = 12u32;
@@ -330,31 +489,121 @@ pub const SERVICE_CONTROL_PRESHUTDOWN: u32 = 15u32;
 pub const SERVICE_CONTROL_SESSIONCHANGE: u32 = 14u32;
 pub const SERVICE_CONTROL_SHUTDOWN: u32 = 5u32;
 pub const SERVICE_CONTROL_STATUS_REASON_INFO: u32 = 1u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct SERVICE_CONTROL_STATUS_REASON_PARAMSA(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct SERVICE_CONTROL_STATUS_REASON_PARAMSA {
+    pub dwReason: u32,
+    pub pszComment: super::super::Foundation::PSTR,
+    pub ServiceStatus: SERVICE_STATUS_PROCESS,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SERVICE_CONTROL_STATUS_REASON_PARAMSA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SERVICE_CONTROL_STATUS_REASON_PARAMSA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct SERVICE_CONTROL_STATUS_REASON_PARAMSW(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct SERVICE_CONTROL_STATUS_REASON_PARAMSW {
+    pub dwReason: u32,
+    pub pszComment: super::super::Foundation::PWSTR,
+    pub ServiceStatus: SERVICE_STATUS_PROCESS,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SERVICE_CONTROL_STATUS_REASON_PARAMSW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SERVICE_CONTROL_STATUS_REASON_PARAMSW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SERVICE_CONTROL_STOP: u32 = 1u32;
 pub const SERVICE_CONTROL_SYSTEMLOWRESOURCES: u32 = 97u32;
 pub const SERVICE_CONTROL_TIMECHANGE: u32 = 16u32;
 pub const SERVICE_CONTROL_TRIGGEREVENT: u32 = 32u32;
 #[repr(C)]
-pub struct SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM(i32);
-#[cfg(feature = "Win32_Foundation")]
+pub struct SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM {
+    pub u: SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0,
+}
+impl ::core::marker::Copy for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM {}
+impl ::core::clone::Clone for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct SERVICE_DELAYED_AUTO_START_INFO(i32);
-#[cfg(feature = "Win32_Foundation")]
+pub union SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0 {
+    pub CustomStateId: SERVICE_TRIGGER_CUSTOM_STATE_ID,
+    pub s: SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0_0,
+}
+impl ::core::marker::Copy for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0 {}
+impl ::core::clone::Clone for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct SERVICE_DESCRIPTIONA(i32);
-#[cfg(feature = "Win32_Foundation")]
+pub struct SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0_0 {
+    pub DataOffset: u32,
+    pub Data: [u8; 1],
+}
+impl ::core::marker::Copy for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0_0 {}
+impl ::core::clone::Clone for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct SERVICE_DESCRIPTIONW(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct SERVICE_DELAYED_AUTO_START_INFO {
+    pub fDelayedAutostart: super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SERVICE_DELAYED_AUTO_START_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SERVICE_DELAYED_AUTO_START_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct SERVICE_DESCRIPTIONA {
+    pub lpDescription: super::super::Foundation::PSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SERVICE_DESCRIPTIONA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SERVICE_DESCRIPTIONA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct SERVICE_DESCRIPTIONW {
+    pub lpDescription: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SERVICE_DESCRIPTIONW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SERVICE_DESCRIPTIONW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SERVICE_DIRECTORY_TYPE(pub i32);
 pub const ServiceDirectoryPersistentState: SERVICE_DIRECTORY_TYPE = SERVICE_DIRECTORY_TYPE(0i32);
 pub const ServiceDirectoryTypeMax: SERVICE_DIRECTORY_TYPE = SERVICE_DIRECTORY_TYPE(1i32);
+impl ::core::marker::Copy for SERVICE_DIRECTORY_TYPE {}
+impl ::core::clone::Clone for SERVICE_DIRECTORY_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SERVICE_DYNAMIC_INFORMATION_LEVEL_START_REASON: u32 = 1u32;
 pub const SERVICE_ENUMERATE_DEPENDENTS: u32 = 8u32;
 #[repr(transparent)]
@@ -363,19 +612,71 @@ pub const SERVICE_ERROR_CRITICAL: SERVICE_ERROR = SERVICE_ERROR(3u32);
 pub const SERVICE_ERROR_IGNORE: SERVICE_ERROR = SERVICE_ERROR(0u32);
 pub const SERVICE_ERROR_NORMAL: SERVICE_ERROR = SERVICE_ERROR(1u32);
 pub const SERVICE_ERROR_SEVERE: SERVICE_ERROR = SERVICE_ERROR(2u32);
-#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SERVICE_ERROR {}
+impl ::core::clone::Clone for SERVICE_ERROR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct SERVICE_FAILURE_ACTIONSA(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct SERVICE_FAILURE_ACTIONSW(i32);
+pub struct SERVICE_FAILURE_ACTIONSA {
+    pub dwResetPeriod: u32,
+    pub lpRebootMsg: super::super::Foundation::PSTR,
+    pub lpCommand: super::super::Foundation::PSTR,
+    pub cActions: u32,
+    pub lpsaActions: *mut SC_ACTION,
+}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SERVICE_FAILURE_ACTIONSA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SERVICE_FAILURE_ACTIONSA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct SERVICE_FAILURE_ACTIONS_FLAG(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct SERVICE_FAILURE_ACTIONSW {
+    pub dwResetPeriod: u32,
+    pub lpRebootMsg: super::super::Foundation::PWSTR,
+    pub lpCommand: super::super::Foundation::PWSTR,
+    pub cActions: u32,
+    pub lpsaActions: *mut SC_ACTION,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SERVICE_FAILURE_ACTIONSW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SERVICE_FAILURE_ACTIONSW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct SERVICE_FAILURE_ACTIONS_FLAG {
+    pub fFailureActionsOnNonCrashFailures: super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SERVICE_FAILURE_ACTIONS_FLAG {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SERVICE_FAILURE_ACTIONS_FLAG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SERVICE_INTERROGATE: u32 = 128u32;
 pub const SERVICE_LAUNCH_PROTECTED_ANTIMALWARE_LIGHT: u32 = 3u32;
 #[repr(C)]
-pub struct SERVICE_LAUNCH_PROTECTED_INFO(i32);
+pub struct SERVICE_LAUNCH_PROTECTED_INFO {
+    pub dwLaunchProtected: u32,
+}
+impl ::core::marker::Copy for SERVICE_LAUNCH_PROTECTED_INFO {}
+impl ::core::clone::Clone for SERVICE_LAUNCH_PROTECTED_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SERVICE_LAUNCH_PROTECTED_NONE: u32 = 0u32;
 pub const SERVICE_LAUNCH_PROTECTED_WINDOWS: u32 = 1u32;
 pub const SERVICE_LAUNCH_PROTECTED_WINDOWS_LIGHT: u32 = 2u32;
@@ -394,24 +695,93 @@ pub const SERVICE_NOTIFY_RUNNING: SERVICE_NOTIFY = SERVICE_NOTIFY(8u32);
 pub const SERVICE_NOTIFY_START_PENDING: SERVICE_NOTIFY = SERVICE_NOTIFY(2u32);
 pub const SERVICE_NOTIFY_STOP_PENDING: SERVICE_NOTIFY = SERVICE_NOTIFY(4u32);
 pub const SERVICE_NOTIFY_STOPPED: SERVICE_NOTIFY = SERVICE_NOTIFY(1u32);
+impl ::core::marker::Copy for SERVICE_NOTIFY {}
+impl ::core::clone::Clone for SERVICE_NOTIFY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct SERVICE_NOTIFY_1(i32);
+pub struct SERVICE_NOTIFY_1 {
+    pub dwVersion: u32,
+    pub pfnNotifyCallback: ::core::option::Option<PFN_SC_NOTIFY_CALLBACK>,
+    pub pContext: *mut ::core::ffi::c_void,
+    pub dwNotificationStatus: u32,
+    pub ServiceStatus: SERVICE_STATUS_PROCESS,
+}
+impl ::core::marker::Copy for SERVICE_NOTIFY_1 {}
+impl ::core::clone::Clone for SERVICE_NOTIFY_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct SERVICE_NOTIFY_2A(i32);
+pub struct SERVICE_NOTIFY_2A {
+    pub dwVersion: u32,
+    pub pfnNotifyCallback: ::core::option::Option<PFN_SC_NOTIFY_CALLBACK>,
+    pub pContext: *mut ::core::ffi::c_void,
+    pub dwNotificationStatus: u32,
+    pub ServiceStatus: SERVICE_STATUS_PROCESS,
+    pub dwNotificationTriggered: u32,
+    pub pszServiceNames: super::super::Foundation::PSTR,
+}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SERVICE_NOTIFY_2A {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SERVICE_NOTIFY_2A {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct SERVICE_NOTIFY_2W(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct SERVICE_NOTIFY_2W {
+    pub dwVersion: u32,
+    pub pfnNotifyCallback: ::core::option::Option<PFN_SC_NOTIFY_CALLBACK>,
+    pub pContext: *mut ::core::ffi::c_void,
+    pub dwNotificationStatus: u32,
+    pub ServiceStatus: SERVICE_STATUS_PROCESS,
+    pub dwNotificationTriggered: u32,
+    pub pszServiceNames: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SERVICE_NOTIFY_2W {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SERVICE_NOTIFY_2W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SERVICE_NOTIFY_STATUS_CHANGE: u32 = 2u32;
 pub const SERVICE_NOTIFY_STATUS_CHANGE_1: u32 = 1u32;
 pub const SERVICE_NOTIFY_STATUS_CHANGE_2: u32 = 2u32;
 pub const SERVICE_NO_CHANGE: u32 = 4294967295u32;
 pub const SERVICE_PAUSE_CONTINUE: u32 = 64u32;
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+pub struct SERVICE_PREFERRED_NODE_INFO {
+    pub usPreferredNode: u16,
+    pub fDelete: super::super::Foundation::BOOLEAN,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SERVICE_PREFERRED_NODE_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SERVICE_PREFERRED_NODE_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct SERVICE_PREFERRED_NODE_INFO(i32);
-#[repr(C)]
-pub struct SERVICE_PRESHUTDOWN_INFO(i32);
+pub struct SERVICE_PRESHUTDOWN_INFO {
+    pub dwPreshutdownTimeout: u32,
+}
+impl ::core::marker::Copy for SERVICE_PRESHUTDOWN_INFO {}
+impl ::core::clone::Clone for SERVICE_PRESHUTDOWN_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SERVICE_QUERY_CONFIG: u32 = 1u32;
 pub const SERVICE_QUERY_STATUS: u32 = 4u32;
 #[repr(transparent)]
@@ -419,29 +789,89 @@ pub struct SERVICE_REGISTRY_STATE_TYPE(pub i32);
 pub const ServiceRegistryStateParameters: SERVICE_REGISTRY_STATE_TYPE = SERVICE_REGISTRY_STATE_TYPE(0i32);
 pub const ServiceRegistryStatePersistent: SERVICE_REGISTRY_STATE_TYPE = SERVICE_REGISTRY_STATE_TYPE(1i32);
 pub const MaxServiceRegistryStateType: SERVICE_REGISTRY_STATE_TYPE = SERVICE_REGISTRY_STATE_TYPE(2i32);
-#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SERVICE_REGISTRY_STATE_TYPE {}
+impl ::core::clone::Clone for SERVICE_REGISTRY_STATE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct SERVICE_REQUIRED_PRIVILEGES_INFOA(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct SERVICE_REQUIRED_PRIVILEGES_INFOA {
+    pub pmszRequiredPrivileges: super::super::Foundation::PSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SERVICE_REQUIRED_PRIVILEGES_INFOA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SERVICE_REQUIRED_PRIVILEGES_INFOA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct SERVICE_REQUIRED_PRIVILEGES_INFOW(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct SERVICE_REQUIRED_PRIVILEGES_INFOW {
+    pub pmszRequiredPrivileges: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SERVICE_REQUIRED_PRIVILEGES_INFOW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SERVICE_REQUIRED_PRIVILEGES_INFOW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SERVICE_RUNS_IN_PROCESS(pub u32);
 pub const SERVICE_RUNS_IN_NON_SYSTEM_OR_NOT_RUNNING: SERVICE_RUNS_IN_PROCESS = SERVICE_RUNS_IN_PROCESS(0u32);
 pub const SERVICE_RUNS_IN_SYSTEM_PROCESS: SERVICE_RUNS_IN_PROCESS = SERVICE_RUNS_IN_PROCESS(1u32);
+impl ::core::marker::Copy for SERVICE_RUNS_IN_PROCESS {}
+impl ::core::clone::Clone for SERVICE_RUNS_IN_PROCESS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SERVICE_SHARED_DIRECTORY_TYPE(pub i32);
 pub const ServiceSharedDirectoryPersistentState: SERVICE_SHARED_DIRECTORY_TYPE = SERVICE_SHARED_DIRECTORY_TYPE(0i32);
+impl ::core::marker::Copy for SERVICE_SHARED_DIRECTORY_TYPE {}
+impl ::core::clone::Clone for SERVICE_SHARED_DIRECTORY_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SERVICE_SHARED_REGISTRY_STATE_TYPE(pub i32);
 pub const ServiceSharedRegistryPersistentState: SERVICE_SHARED_REGISTRY_STATE_TYPE = SERVICE_SHARED_REGISTRY_STATE_TYPE(0i32);
+impl ::core::marker::Copy for SERVICE_SHARED_REGISTRY_STATE_TYPE {}
+impl ::core::clone::Clone for SERVICE_SHARED_REGISTRY_STATE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct SERVICE_SID_INFO(i32);
+pub struct SERVICE_SID_INFO {
+    pub dwServiceSidType: u32,
+}
+impl ::core::marker::Copy for SERVICE_SID_INFO {}
+impl ::core::clone::Clone for SERVICE_SID_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SERVICE_SID_TYPE_NONE: u32 = 0u32;
 pub const SERVICE_SID_TYPE_UNRESTRICTED: u32 = 1u32;
 pub const SERVICE_START: u32 = 16u32;
 #[repr(C)]
-pub struct SERVICE_START_REASON(i32);
+pub struct SERVICE_START_REASON {
+    pub dwReason: u32,
+}
+impl ::core::marker::Copy for SERVICE_START_REASON {}
+impl ::core::clone::Clone for SERVICE_START_REASON {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SERVICE_START_REASON_AUTO: u32 = 2u32;
 pub const SERVICE_START_REASON_DELAYEDAUTO: u32 = 16u32;
 pub const SERVICE_START_REASON_DEMAND: u32 = 1u32;
@@ -454,8 +884,28 @@ pub const SERVICE_BOOT_START: SERVICE_START_TYPE = SERVICE_START_TYPE(0u32);
 pub const SERVICE_DEMAND_START: SERVICE_START_TYPE = SERVICE_START_TYPE(3u32);
 pub const SERVICE_DISABLED: SERVICE_START_TYPE = SERVICE_START_TYPE(4u32);
 pub const SERVICE_SYSTEM_START: SERVICE_START_TYPE = SERVICE_START_TYPE(1u32);
+impl ::core::marker::Copy for SERVICE_START_TYPE {}
+impl ::core::clone::Clone for SERVICE_START_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct SERVICE_STATUS(i32);
+pub struct SERVICE_STATUS {
+    pub dwServiceType: ENUM_SERVICE_TYPE,
+    pub dwCurrentState: SERVICE_STATUS_CURRENT_STATE,
+    pub dwControlsAccepted: u32,
+    pub dwWin32ExitCode: u32,
+    pub dwServiceSpecificExitCode: u32,
+    pub dwCheckPoint: u32,
+    pub dwWaitHint: u32,
+}
+impl ::core::marker::Copy for SERVICE_STATUS {}
+impl ::core::clone::Clone for SERVICE_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SERVICE_STATUS_CURRENT_STATE(pub u32);
 pub const SERVICE_CONTINUE_PENDING: SERVICE_STATUS_CURRENT_STATE = SERVICE_STATUS_CURRENT_STATE(5u32);
@@ -465,10 +915,38 @@ pub const SERVICE_RUNNING: SERVICE_STATUS_CURRENT_STATE = SERVICE_STATUS_CURRENT
 pub const SERVICE_START_PENDING: SERVICE_STATUS_CURRENT_STATE = SERVICE_STATUS_CURRENT_STATE(2u32);
 pub const SERVICE_STOP_PENDING: SERVICE_STATUS_CURRENT_STATE = SERVICE_STATUS_CURRENT_STATE(3u32);
 pub const SERVICE_STOPPED: SERVICE_STATUS_CURRENT_STATE = SERVICE_STATUS_CURRENT_STATE(1u32);
+impl ::core::marker::Copy for SERVICE_STATUS_CURRENT_STATE {}
+impl ::core::clone::Clone for SERVICE_STATUS_CURRENT_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct SERVICE_STATUS_HANDLE(i32);
+pub struct SERVICE_STATUS_HANDLE(pub isize);
+impl ::core::marker::Copy for SERVICE_STATUS_HANDLE {}
+impl ::core::clone::Clone for SERVICE_STATUS_HANDLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct SERVICE_STATUS_PROCESS(i32);
+pub struct SERVICE_STATUS_PROCESS {
+    pub dwServiceType: ENUM_SERVICE_TYPE,
+    pub dwCurrentState: SERVICE_STATUS_CURRENT_STATE,
+    pub dwControlsAccepted: u32,
+    pub dwWin32ExitCode: u32,
+    pub dwServiceSpecificExitCode: u32,
+    pub dwCheckPoint: u32,
+    pub dwWaitHint: u32,
+    pub dwProcessId: u32,
+    pub dwServiceFlags: SERVICE_RUNS_IN_PROCESS,
+}
+impl ::core::marker::Copy for SERVICE_STATUS_PROCESS {}
+impl ::core::clone::Clone for SERVICE_STATUS_PROCESS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SERVICE_STOP: u32 = 32u32;
 pub const SERVICE_STOP_REASON_FLAG_CUSTOM: u32 = 536870912u32;
 pub const SERVICE_STOP_REASON_FLAG_MAX: u32 = 2147483648u32;
@@ -513,26 +991,103 @@ pub const SERVICE_STOP_REASON_MINOR_SOFTWARE_UPDATE_UNINSTALL: u32 = 20u32;
 pub const SERVICE_STOP_REASON_MINOR_UNSTABLE: u32 = 7u32;
 pub const SERVICE_STOP_REASON_MINOR_UPGRADE: u32 = 4u32;
 pub const SERVICE_STOP_REASON_MINOR_WMI: u32 = 18u32;
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct SERVICE_TABLE_ENTRYA(i32);
+pub struct SERVICE_TABLE_ENTRYA {
+    pub lpServiceName: super::super::Foundation::PSTR,
+    pub lpServiceProc: ::core::option::Option<LPSERVICE_MAIN_FUNCTIONA>,
+}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SERVICE_TABLE_ENTRYA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SERVICE_TABLE_ENTRYA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct SERVICE_TABLE_ENTRYW(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct SERVICE_TABLE_ENTRYW {
+    pub lpServiceName: super::super::Foundation::PWSTR,
+    pub lpServiceProc: ::core::option::Option<LPSERVICE_MAIN_FUNCTIONW>,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SERVICE_TABLE_ENTRYW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SERVICE_TABLE_ENTRYW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct SERVICE_TIMECHANGE_INFO(i32);
+pub struct SERVICE_TIMECHANGE_INFO {
+    pub liNewTime: i64,
+    pub liOldTime: i64,
+}
+impl ::core::marker::Copy for SERVICE_TIMECHANGE_INFO {}
+impl ::core::clone::Clone for SERVICE_TIMECHANGE_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct SERVICE_TRIGGER(i32);
+pub struct SERVICE_TRIGGER {
+    pub dwTriggerType: SERVICE_TRIGGER_TYPE,
+    pub dwAction: SERVICE_TRIGGER_ACTION,
+    pub pTriggerSubtype: *mut ::windows_sys::core::GUID,
+    pub cDataItems: u32,
+    pub pDataItems: *mut SERVICE_TRIGGER_SPECIFIC_DATA_ITEM,
+}
+impl ::core::marker::Copy for SERVICE_TRIGGER {}
+impl ::core::clone::Clone for SERVICE_TRIGGER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SERVICE_TRIGGER_ACTION(pub u32);
 pub const SERVICE_TRIGGER_ACTION_SERVICE_START: SERVICE_TRIGGER_ACTION = SERVICE_TRIGGER_ACTION(1u32);
 pub const SERVICE_TRIGGER_ACTION_SERVICE_STOP: SERVICE_TRIGGER_ACTION = SERVICE_TRIGGER_ACTION(2u32);
+impl ::core::marker::Copy for SERVICE_TRIGGER_ACTION {}
+impl ::core::clone::Clone for SERVICE_TRIGGER_ACTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct SERVICE_TRIGGER_CUSTOM_STATE_ID(i32);
+pub struct SERVICE_TRIGGER_CUSTOM_STATE_ID {
+    pub Data: [u32; 2],
+}
+impl ::core::marker::Copy for SERVICE_TRIGGER_CUSTOM_STATE_ID {}
+impl ::core::clone::Clone for SERVICE_TRIGGER_CUSTOM_STATE_ID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct SERVICE_TRIGGER_INFO(i32);
+pub struct SERVICE_TRIGGER_INFO {
+    pub cTriggers: u32,
+    pub pTriggers: *mut SERVICE_TRIGGER,
+    pub pReserved: *mut u8,
+}
+impl ::core::marker::Copy for SERVICE_TRIGGER_INFO {}
+impl ::core::clone::Clone for SERVICE_TRIGGER_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct SERVICE_TRIGGER_SPECIFIC_DATA_ITEM(i32);
+pub struct SERVICE_TRIGGER_SPECIFIC_DATA_ITEM {
+    pub dwDataType: SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE,
+    pub cbData: u32,
+    pub pData: *mut u8,
+}
+impl ::core::marker::Copy for SERVICE_TRIGGER_SPECIFIC_DATA_ITEM {}
+impl ::core::clone::Clone for SERVICE_TRIGGER_SPECIFIC_DATA_ITEM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE(pub u32);
 pub const SERVICE_TRIGGER_DATA_TYPE_BINARY: SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE = SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE(1u32);
@@ -540,6 +1095,12 @@ pub const SERVICE_TRIGGER_DATA_TYPE_STRING: SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_D
 pub const SERVICE_TRIGGER_DATA_TYPE_LEVEL: SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE = SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE(3u32);
 pub const SERVICE_TRIGGER_DATA_TYPE_KEYWORD_ANY: SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE = SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE(4u32);
 pub const SERVICE_TRIGGER_DATA_TYPE_KEYWORD_ALL: SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE = SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE(5u32);
+impl ::core::marker::Copy for SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE {}
+impl ::core::clone::Clone for SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SERVICE_TRIGGER_TYPE(pub u32);
 pub const SERVICE_TRIGGER_TYPE_CUSTOM: SERVICE_TRIGGER_TYPE = SERVICE_TRIGGER_TYPE(20u32);
@@ -549,9 +1110,15 @@ pub const SERVICE_TRIGGER_TYPE_FIREWALL_PORT_EVENT: SERVICE_TRIGGER_TYPE = SERVI
 pub const SERVICE_TRIGGER_TYPE_GROUP_POLICY: SERVICE_TRIGGER_TYPE = SERVICE_TRIGGER_TYPE(5u32);
 pub const SERVICE_TRIGGER_TYPE_IP_ADDRESS_AVAILABILITY: SERVICE_TRIGGER_TYPE = SERVICE_TRIGGER_TYPE(2u32);
 pub const SERVICE_TRIGGER_TYPE_NETWORK_ENDPOINT: SERVICE_TRIGGER_TYPE = SERVICE_TRIGGER_TYPE(6u32);
+impl ::core::marker::Copy for SERVICE_TRIGGER_TYPE {}
+impl ::core::clone::Clone for SERVICE_TRIGGER_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SERVICE_TRIGGER_TYPE_AGGREGATE: u32 = 30u32;
 pub const SERVICE_TRIGGER_TYPE_CUSTOM_SYSTEM_STATE_CHANGE: u32 = 7u32;
 pub const SERVICE_USER_DEFINED_CONTROL: u32 = 256u32;
 pub const USER_POLICY_PRESENT_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1425753800, data2: 61577, data3: 17996, data4: [177, 253, 89, 209, 182, 44, 59, 80] };
 #[repr(C)]
-pub struct _SC_NOTIFICATION_REGISTRATION(i32);
+pub struct _SC_NOTIFICATION_REGISTRATION(pub u8);

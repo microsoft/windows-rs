@@ -22,118 +22,567 @@ pub const D3D9_RESOURCE_PRIORITY_MINIMUM: u32 = 671088640u32;
 pub const D3D9_RESOURCE_PRIORITY_NORMAL: u32 = 2013265920u32;
 pub const D3D9b_SDK_VERSION: u32 = 31u32;
 pub const D3DADAPTER_DEFAULT: u32 = 0u32;
+#[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct D3DADAPTER_IDENTIFIER9(i32);
+pub struct D3DADAPTER_IDENTIFIER9 {
+    pub Driver: [super::super::Foundation::CHAR; 512],
+    pub Description: [super::super::Foundation::CHAR; 512],
+    pub DeviceName: [super::super::Foundation::CHAR; 32],
+    pub DriverVersion: i64,
+    pub VendorId: u32,
+    pub DeviceId: u32,
+    pub SubSysId: u32,
+    pub Revision: u32,
+    pub DeviceIdentifier: ::windows_sys::core::GUID,
+    pub WHQLLevel: u32,
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for D3DADAPTER_IDENTIFIER9 {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for D3DADAPTER_IDENTIFIER9 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(4))]
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct D3DADAPTER_IDENTIFIER9(i32);
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-#[repr(C)]
-pub struct D3DAES_CTR_IV(i32);
+pub struct D3DADAPTER_IDENTIFIER9 {
+    pub Driver: [super::super::Foundation::CHAR; 512],
+    pub Description: [super::super::Foundation::CHAR; 512],
+    pub DeviceName: [super::super::Foundation::CHAR; 32],
+    pub DriverVersion: i64,
+    pub VendorId: u32,
+    pub DeviceId: u32,
+    pub SubSysId: u32,
+    pub Revision: u32,
+    pub DeviceIdentifier: ::windows_sys::core::GUID,
+    pub WHQLLevel: u32,
+}
 #[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for D3DADAPTER_IDENTIFIER9 {}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for D3DADAPTER_IDENTIFIER9 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3DAES_CTR_IV(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+pub struct D3DAES_CTR_IV {
+    pub IV: u64,
+    pub Count: u64,
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::marker::Copy for D3DAES_CTR_IV {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::clone::Clone for D3DAES_CTR_IV {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(4))]
+#[cfg(any(target_arch = "x86",))]
+pub struct D3DAES_CTR_IV {
+    pub IV: u64,
+    pub Count: u64,
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::core::marker::Copy for D3DAES_CTR_IV {}
+#[cfg(any(target_arch = "x86",))]
+impl ::core::clone::Clone for D3DAES_CTR_IV {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3DAUTHENTICATEDCHANNELTYPE(pub i32);
 pub const D3DAUTHENTICATEDCHANNEL_D3D9: D3DAUTHENTICATEDCHANNELTYPE = D3DAUTHENTICATEDCHANNELTYPE(1i32);
 pub const D3DAUTHENTICATEDCHANNEL_DRIVER_SOFTWARE: D3DAUTHENTICATEDCHANNELTYPE = D3DAUTHENTICATEDCHANNELTYPE(2i32);
 pub const D3DAUTHENTICATEDCHANNEL_DRIVER_HARDWARE: D3DAUTHENTICATEDCHANNELTYPE = D3DAUTHENTICATEDCHANNELTYPE(3i32);
-#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for D3DAUTHENTICATEDCHANNELTYPE {}
+impl ::core::clone::Clone for D3DAUTHENTICATEDCHANNELTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3DAUTHENTICATEDCHANNEL_CONFIGURECRYPTOSESSION(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct D3DAUTHENTICATEDCHANNEL_CONFIGUREINITIALIZE(i32);
+pub struct D3DAUTHENTICATEDCHANNEL_CONFIGURECRYPTOSESSION {
+    pub Parameters: D3DAUTHENTICATEDCHANNEL_CONFIGURE_INPUT,
+    pub DXVA2DecodeHandle: super::super::Foundation::HANDLE,
+    pub CryptoSessionHandle: super::super::Foundation::HANDLE,
+    pub DeviceHandle: super::super::Foundation::HANDLE,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct D3DAUTHENTICATEDCHANNEL_CONFIGUREPROTECTION(i32);
+impl ::core::marker::Copy for D3DAUTHENTICATEDCHANNEL_CONFIGURECRYPTOSESSION {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for D3DAUTHENTICATEDCHANNEL_CONFIGURECRYPTOSESSION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3DAUTHENTICATEDCHANNEL_CONFIGURESHAREDRESOURCE(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct D3DAUTHENTICATEDCHANNEL_CONFIGUREUNCOMPRESSEDENCRYPTION(i32);
+pub struct D3DAUTHENTICATEDCHANNEL_CONFIGUREINITIALIZE {
+    pub Parameters: D3DAUTHENTICATEDCHANNEL_CONFIGURE_INPUT,
+    pub StartSequenceQuery: u32,
+    pub StartSequenceConfigure: u32,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct D3DAUTHENTICATEDCHANNEL_CONFIGURE_INPUT(i32);
+impl ::core::marker::Copy for D3DAUTHENTICATEDCHANNEL_CONFIGUREINITIALIZE {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for D3DAUTHENTICATEDCHANNEL_CONFIGUREINITIALIZE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3DAUTHENTICATEDCHANNEL_CONFIGURE_OUTPUT(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct D3DAUTHENTICATEDCHANNEL_CONFIGUREPROTECTION {
+    pub Parameters: D3DAUTHENTICATEDCHANNEL_CONFIGURE_INPUT,
+    pub Protections: D3DAUTHENTICATEDCHANNEL_PROTECTION_FLAGS,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for D3DAUTHENTICATEDCHANNEL_CONFIGUREPROTECTION {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for D3DAUTHENTICATEDCHANNEL_CONFIGUREPROTECTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct D3DAUTHENTICATEDCHANNEL_CONFIGURESHAREDRESOURCE {
+    pub Parameters: D3DAUTHENTICATEDCHANNEL_CONFIGURE_INPUT,
+    pub ProcessIdentiferType: D3DAUTHENTICATEDCHANNEL_PROCESSIDENTIFIERTYPE,
+    pub ProcessHandle: super::super::Foundation::HANDLE,
+    pub AllowAccess: super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for D3DAUTHENTICATEDCHANNEL_CONFIGURESHAREDRESOURCE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for D3DAUTHENTICATEDCHANNEL_CONFIGURESHAREDRESOURCE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct D3DAUTHENTICATEDCHANNEL_CONFIGUREUNCOMPRESSEDENCRYPTION {
+    pub Parameters: D3DAUTHENTICATEDCHANNEL_CONFIGURE_INPUT,
+    pub EncryptionGuid: ::windows_sys::core::GUID,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for D3DAUTHENTICATEDCHANNEL_CONFIGUREUNCOMPRESSEDENCRYPTION {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for D3DAUTHENTICATEDCHANNEL_CONFIGUREUNCOMPRESSEDENCRYPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct D3DAUTHENTICATEDCHANNEL_CONFIGURE_INPUT {
+    pub omac: D3D_OMAC,
+    pub ConfigureType: ::windows_sys::core::GUID,
+    pub hChannel: super::super::Foundation::HANDLE,
+    pub SequenceNumber: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for D3DAUTHENTICATEDCHANNEL_CONFIGURE_INPUT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for D3DAUTHENTICATEDCHANNEL_CONFIGURE_INPUT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct D3DAUTHENTICATEDCHANNEL_CONFIGURE_OUTPUT {
+    pub omac: D3D_OMAC,
+    pub ConfigureType: ::windows_sys::core::GUID,
+    pub hChannel: super::super::Foundation::HANDLE,
+    pub SequenceNumber: u32,
+    pub ReturnCode: ::windows_sys::core::HRESULT,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for D3DAUTHENTICATEDCHANNEL_CONFIGURE_OUTPUT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for D3DAUTHENTICATEDCHANNEL_CONFIGURE_OUTPUT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3DAUTHENTICATEDCHANNEL_PROCESSIDENTIFIERTYPE(pub i32);
 pub const PROCESSIDTYPE_UNKNOWN: D3DAUTHENTICATEDCHANNEL_PROCESSIDENTIFIERTYPE = D3DAUTHENTICATEDCHANNEL_PROCESSIDENTIFIERTYPE(0i32);
 pub const PROCESSIDTYPE_DWM: D3DAUTHENTICATEDCHANNEL_PROCESSIDENTIFIERTYPE = D3DAUTHENTICATEDCHANNEL_PROCESSIDENTIFIERTYPE(1i32);
 pub const PROCESSIDTYPE_HANDLE: D3DAUTHENTICATEDCHANNEL_PROCESSIDENTIFIERTYPE = D3DAUTHENTICATEDCHANNEL_PROCESSIDENTIFIERTYPE(2i32);
+impl ::core::marker::Copy for D3DAUTHENTICATEDCHANNEL_PROCESSIDENTIFIERTYPE {}
+impl ::core::clone::Clone for D3DAUTHENTICATEDCHANNEL_PROCESSIDENTIFIERTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3DAUTHENTICATEDCHANNEL_PROTECTION_FLAGS(i32);
+pub struct D3DAUTHENTICATEDCHANNEL_PROTECTION_FLAGS {
+    pub Anonymous: D3DAUTHENTICATEDCHANNEL_PROTECTION_FLAGS_0,
+}
+impl ::core::marker::Copy for D3DAUTHENTICATEDCHANNEL_PROTECTION_FLAGS {}
+impl ::core::clone::Clone for D3DAUTHENTICATEDCHANNEL_PROTECTION_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub union D3DAUTHENTICATEDCHANNEL_PROTECTION_FLAGS_0 {
+    pub Anonymous: D3DAUTHENTICATEDCHANNEL_PROTECTION_FLAGS_0_0,
+    pub Value: u32,
+}
+impl ::core::marker::Copy for D3DAUTHENTICATEDCHANNEL_PROTECTION_FLAGS_0 {}
+impl ::core::clone::Clone for D3DAUTHENTICATEDCHANNEL_PROTECTION_FLAGS_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct D3DAUTHENTICATEDCHANNEL_PROTECTION_FLAGS_0_0 {
+    pub _bitfield: u32,
+}
+impl ::core::marker::Copy for D3DAUTHENTICATEDCHANNEL_PROTECTION_FLAGS_0_0 {}
+impl ::core::clone::Clone for D3DAUTHENTICATEDCHANNEL_PROTECTION_FLAGS_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct D3DAUTHENTICATEDCHANNEL_QUERYCHANNELTYPE_OUTPUT(i32);
+pub struct D3DAUTHENTICATEDCHANNEL_QUERYCHANNELTYPE_OUTPUT {
+    pub Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
+    pub ChannelType: D3DAUTHENTICATEDCHANNELTYPE,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct D3DAUTHENTICATEDCHANNEL_QUERYCRYPTOSESSION_INPUT(i32);
+impl ::core::marker::Copy for D3DAUTHENTICATEDCHANNEL_QUERYCHANNELTYPE_OUTPUT {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for D3DAUTHENTICATEDCHANNEL_QUERYCHANNELTYPE_OUTPUT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3DAUTHENTICATEDCHANNEL_QUERYCRYPTOSESSION_OUTPUT(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct D3DAUTHENTICATEDCHANNEL_QUERYDEVICEHANDLE_OUTPUT(i32);
+pub struct D3DAUTHENTICATEDCHANNEL_QUERYCRYPTOSESSION_INPUT {
+    pub Input: D3DAUTHENTICATEDCHANNEL_QUERY_INPUT,
+    pub DXVA2DecodeHandle: super::super::Foundation::HANDLE,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct D3DAUTHENTICATEDCHANNEL_QUERYEVICTIONENCRYPTIONGUIDCOUNT_OUTPUT(i32);
+impl ::core::marker::Copy for D3DAUTHENTICATEDCHANNEL_QUERYCRYPTOSESSION_INPUT {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for D3DAUTHENTICATEDCHANNEL_QUERYCRYPTOSESSION_INPUT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3DAUTHENTICATEDCHANNEL_QUERYEVICTIONENCRYPTIONGUID_INPUT(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct D3DAUTHENTICATEDCHANNEL_QUERYEVICTIONENCRYPTIONGUID_OUTPUT(i32);
+pub struct D3DAUTHENTICATEDCHANNEL_QUERYCRYPTOSESSION_OUTPUT {
+    pub Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
+    pub DXVA2DecodeHandle: super::super::Foundation::HANDLE,
+    pub CryptoSessionHandle: super::super::Foundation::HANDLE,
+    pub DeviceHandle: super::super::Foundation::HANDLE,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct D3DAUTHENTICATEDCHANNEL_QUERYINFOBUSTYPE_OUTPUT(i32);
+impl ::core::marker::Copy for D3DAUTHENTICATEDCHANNEL_QUERYCRYPTOSESSION_OUTPUT {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for D3DAUTHENTICATEDCHANNEL_QUERYCRYPTOSESSION_OUTPUT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTIDCOUNT_INPUT(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTIDCOUNT_OUTPUT(i32);
+pub struct D3DAUTHENTICATEDCHANNEL_QUERYDEVICEHANDLE_OUTPUT {
+    pub Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
+    pub DeviceHandle: super::super::Foundation::HANDLE,
+}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for D3DAUTHENTICATEDCHANNEL_QUERYDEVICEHANDLE_OUTPUT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for D3DAUTHENTICATEDCHANNEL_QUERYDEVICEHANDLE_OUTPUT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTID_INPUT(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct D3DAUTHENTICATEDCHANNEL_QUERYEVICTIONENCRYPTIONGUIDCOUNT_OUTPUT {
+    pub Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
+    pub NumEncryptionGuids: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for D3DAUTHENTICATEDCHANNEL_QUERYEVICTIONENCRYPTIONGUIDCOUNT_OUTPUT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for D3DAUTHENTICATEDCHANNEL_QUERYEVICTIONENCRYPTIONGUIDCOUNT_OUTPUT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct D3DAUTHENTICATEDCHANNEL_QUERYEVICTIONENCRYPTIONGUID_INPUT {
+    pub Input: D3DAUTHENTICATEDCHANNEL_QUERY_INPUT,
+    pub EncryptionGuidIndex: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for D3DAUTHENTICATEDCHANNEL_QUERYEVICTIONENCRYPTIONGUID_INPUT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for D3DAUTHENTICATEDCHANNEL_QUERYEVICTIONENCRYPTIONGUID_INPUT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct D3DAUTHENTICATEDCHANNEL_QUERYEVICTIONENCRYPTIONGUID_OUTPUT {
+    pub Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
+    pub EncryptionGuidIndex: u32,
+    pub EncryptionGuid: ::windows_sys::core::GUID,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for D3DAUTHENTICATEDCHANNEL_QUERYEVICTIONENCRYPTIONGUID_OUTPUT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for D3DAUTHENTICATEDCHANNEL_QUERYEVICTIONENCRYPTIONGUID_OUTPUT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct D3DAUTHENTICATEDCHANNEL_QUERYINFOBUSTYPE_OUTPUT {
+    pub Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
+    pub BusType: D3DBUSTYPE,
+    pub bAccessibleInContiguousBlocks: super::super::Foundation::BOOL,
+    pub bAccessibleInNonContiguousBlocks: super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for D3DAUTHENTICATEDCHANNEL_QUERYINFOBUSTYPE_OUTPUT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for D3DAUTHENTICATEDCHANNEL_QUERYINFOBUSTYPE_OUTPUT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTIDCOUNT_INPUT {
+    pub Input: D3DAUTHENTICATEDCHANNEL_QUERY_INPUT,
+    pub DeviceHandle: super::super::Foundation::HANDLE,
+    pub CryptoSessionHandle: super::super::Foundation::HANDLE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTIDCOUNT_INPUT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTIDCOUNT_INPUT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTIDCOUNT_OUTPUT {
+    pub Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
+    pub DeviceHandle: super::super::Foundation::HANDLE,
+    pub CryptoSessionHandle: super::super::Foundation::HANDLE,
+    pub NumOutputIDs: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTIDCOUNT_OUTPUT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTIDCOUNT_OUTPUT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTID_INPUT {
+    pub Input: D3DAUTHENTICATEDCHANNEL_QUERY_INPUT,
+    pub DeviceHandle: super::super::Foundation::HANDLE,
+    pub CryptoSessionHandle: super::super::Foundation::HANDLE,
+    pub OutputIDIndex: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTID_INPUT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTID_INPUT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTID_OUTPUT(i32);
+pub struct D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTID_OUTPUT {
+    pub Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
+    pub DeviceHandle: super::super::Foundation::HANDLE,
+    pub CryptoSessionHandle: super::super::Foundation::HANDLE,
+    pub OutputIDIndex: u32,
+    pub OutputID: u64,
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTID_OUTPUT {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTID_OUTPUT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(4))]
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTID_OUTPUT(i32);
+pub struct D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTID_OUTPUT {
+    pub Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
+    pub DeviceHandle: super::super::Foundation::HANDLE,
+    pub CryptoSessionHandle: super::super::Foundation::HANDLE,
+    pub OutputIDIndex: u32,
+    pub OutputID: u64,
+}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct D3DAUTHENTICATEDCHANNEL_QUERYPROTECTION_OUTPUT(i32);
+impl ::core::marker::Copy for D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTID_OUTPUT {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTID_OUTPUT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3DAUTHENTICATEDCHANNEL_QUERYRESTRICTEDSHAREDRESOURCEPROCESSCOUNT_OUTPUT(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct D3DAUTHENTICATEDCHANNEL_QUERYRESTRICTEDSHAREDRESOURCEPROCESS_INPUT(i32);
+pub struct D3DAUTHENTICATEDCHANNEL_QUERYPROTECTION_OUTPUT {
+    pub Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
+    pub ProtectionFlags: D3DAUTHENTICATEDCHANNEL_PROTECTION_FLAGS,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct D3DAUTHENTICATEDCHANNEL_QUERYRESTRICTEDSHAREDRESOURCEPROCESS_OUTPUT(i32);
+impl ::core::marker::Copy for D3DAUTHENTICATEDCHANNEL_QUERYPROTECTION_OUTPUT {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for D3DAUTHENTICATEDCHANNEL_QUERYPROTECTION_OUTPUT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3DAUTHENTICATEDCHANNEL_QUERYUNCOMPRESSEDENCRYPTIONLEVEL_OUTPUT(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct D3DAUTHENTICATEDCHANNEL_QUERYUNRESTRICTEDPROTECTEDSHAREDRESOURCECOUNT_OUTPUT(i32);
+pub struct D3DAUTHENTICATEDCHANNEL_QUERYRESTRICTEDSHAREDRESOURCEPROCESSCOUNT_OUTPUT {
+    pub Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
+    pub NumRestrictedSharedResourceProcesses: u32,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct D3DAUTHENTICATEDCHANNEL_QUERY_INPUT(i32);
+impl ::core::marker::Copy for D3DAUTHENTICATEDCHANNEL_QUERYRESTRICTEDSHAREDRESOURCEPROCESSCOUNT_OUTPUT {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for D3DAUTHENTICATEDCHANNEL_QUERYRESTRICTEDSHAREDRESOURCEPROCESSCOUNT_OUTPUT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct D3DAUTHENTICATEDCHANNEL_QUERYRESTRICTEDSHAREDRESOURCEPROCESS_INPUT {
+    pub Input: D3DAUTHENTICATEDCHANNEL_QUERY_INPUT,
+    pub ProcessIndex: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for D3DAUTHENTICATEDCHANNEL_QUERYRESTRICTEDSHAREDRESOURCEPROCESS_INPUT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for D3DAUTHENTICATEDCHANNEL_QUERYRESTRICTEDSHAREDRESOURCEPROCESS_INPUT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct D3DAUTHENTICATEDCHANNEL_QUERYRESTRICTEDSHAREDRESOURCEPROCESS_OUTPUT {
+    pub Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
+    pub ProcessIndex: u32,
+    pub ProcessIdentifer: D3DAUTHENTICATEDCHANNEL_PROCESSIDENTIFIERTYPE,
+    pub ProcessHandle: super::super::Foundation::HANDLE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for D3DAUTHENTICATEDCHANNEL_QUERYRESTRICTEDSHAREDRESOURCEPROCESS_OUTPUT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for D3DAUTHENTICATEDCHANNEL_QUERYRESTRICTEDSHAREDRESOURCEPROCESS_OUTPUT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct D3DAUTHENTICATEDCHANNEL_QUERYUNCOMPRESSEDENCRYPTIONLEVEL_OUTPUT {
+    pub Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
+    pub EncryptionGuid: ::windows_sys::core::GUID,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for D3DAUTHENTICATEDCHANNEL_QUERYUNCOMPRESSEDENCRYPTIONLEVEL_OUTPUT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for D3DAUTHENTICATEDCHANNEL_QUERYUNCOMPRESSEDENCRYPTIONLEVEL_OUTPUT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct D3DAUTHENTICATEDCHANNEL_QUERYUNRESTRICTEDPROTECTEDSHAREDRESOURCECOUNT_OUTPUT {
+    pub Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
+    pub NumUnrestrictedProtectedSharedResources: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for D3DAUTHENTICATEDCHANNEL_QUERYUNRESTRICTEDPROTECTEDSHAREDRESOURCECOUNT_OUTPUT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for D3DAUTHENTICATEDCHANNEL_QUERYUNRESTRICTEDPROTECTEDSHAREDRESOURCECOUNT_OUTPUT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct D3DAUTHENTICATEDCHANNEL_QUERY_INPUT {
+    pub QueryType: ::windows_sys::core::GUID,
+    pub hChannel: super::super::Foundation::HANDLE,
+    pub SequenceNumber: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for D3DAUTHENTICATEDCHANNEL_QUERY_INPUT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for D3DAUTHENTICATEDCHANNEL_QUERY_INPUT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT {
+    pub omac: D3D_OMAC,
+    pub QueryType: ::windows_sys::core::GUID,
+    pub hChannel: super::super::Foundation::HANDLE,
+    pub SequenceNumber: u32,
+    pub ReturnCode: ::windows_sys::core::HRESULT,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const D3DAUTHENTICATEDCONFIGURE_CRYPTOSESSION: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1665584212, data2: 11516, data3: 19156, data4: [130, 36, 209, 88, 55, 222, 119, 0] };
 pub const D3DAUTHENTICATEDCONFIGURE_ENCRYPTIONWHENACCESSIBLE: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 1107292806,
@@ -213,12 +662,24 @@ pub const D3DBACKBUFFER_TYPE_MONO: D3DBACKBUFFER_TYPE = D3DBACKBUFFER_TYPE(0u32)
 pub const D3DBACKBUFFER_TYPE_LEFT: D3DBACKBUFFER_TYPE = D3DBACKBUFFER_TYPE(1u32);
 pub const D3DBACKBUFFER_TYPE_RIGHT: D3DBACKBUFFER_TYPE = D3DBACKBUFFER_TYPE(2u32);
 pub const D3DBACKBUFFER_TYPE_FORCE_DWORD: D3DBACKBUFFER_TYPE = D3DBACKBUFFER_TYPE(2147483647u32);
+impl ::core::marker::Copy for D3DBACKBUFFER_TYPE {}
+impl ::core::clone::Clone for D3DBACKBUFFER_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3DBASISTYPE(pub i32);
 pub const D3DBASIS_BEZIER: D3DBASISTYPE = D3DBASISTYPE(0i32);
 pub const D3DBASIS_BSPLINE: D3DBASISTYPE = D3DBASISTYPE(1i32);
 pub const D3DBASIS_CATMULL_ROM: D3DBASISTYPE = D3DBASISTYPE(2i32);
 pub const D3DBASIS_FORCE_DWORD: D3DBASISTYPE = D3DBASISTYPE(2147483647i32);
+impl ::core::marker::Copy for D3DBASISTYPE {}
+impl ::core::clone::Clone for D3DBASISTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3DBLEND(pub u32);
 pub const D3DBLEND_ZERO: D3DBLEND = D3DBLEND(1u32);
@@ -239,6 +700,12 @@ pub const D3DBLEND_INVBLENDFACTOR: D3DBLEND = D3DBLEND(15u32);
 pub const D3DBLEND_SRCCOLOR2: D3DBLEND = D3DBLEND(16u32);
 pub const D3DBLEND_INVSRCCOLOR2: D3DBLEND = D3DBLEND(17u32);
 pub const D3DBLEND_FORCE_DWORD: D3DBLEND = D3DBLEND(2147483647u32);
+impl ::core::marker::Copy for D3DBLEND {}
+impl ::core::clone::Clone for D3DBLEND {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3DBLENDOP(pub u32);
 pub const D3DBLENDOP_ADD: D3DBLENDOP = D3DBLENDOP(1u32);
@@ -247,8 +714,27 @@ pub const D3DBLENDOP_REVSUBTRACT: D3DBLENDOP = D3DBLENDOP(3u32);
 pub const D3DBLENDOP_MIN: D3DBLENDOP = D3DBLENDOP(4u32);
 pub const D3DBLENDOP_MAX: D3DBLENDOP = D3DBLENDOP(5u32);
 pub const D3DBLENDOP_FORCE_DWORD: D3DBLENDOP = D3DBLENDOP(2147483647u32);
+impl ::core::marker::Copy for D3DBLENDOP {}
+impl ::core::clone::Clone for D3DBLENDOP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3DBOX(i32);
+pub struct D3DBOX {
+    pub Left: u32,
+    pub Top: u32,
+    pub Right: u32,
+    pub Bottom: u32,
+    pub Front: u32,
+    pub Back: u32,
+}
+impl ::core::marker::Copy for D3DBOX {}
+impl ::core::clone::Clone for D3DBOX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3DBUSTYPE(pub i32);
 pub const D3DBUSTYPE_OTHER: D3DBUSTYPE = D3DBUSTYPE(0i32);
@@ -262,6 +748,12 @@ pub const D3DBUSIMPL_MODIFIER_TRACKS_ON_MOTHER_BOARD_TO_SOCKET: D3DBUSTYPE = D3D
 pub const D3DBUSIMPL_MODIFIER_DAUGHTER_BOARD_CONNECTOR: D3DBUSTYPE = D3DBUSTYPE(262144i32);
 pub const D3DBUSIMPL_MODIFIER_DAUGHTER_BOARD_CONNECTOR_INSIDE_OF_NUAE: D3DBUSTYPE = D3DBUSTYPE(327680i32);
 pub const D3DBUSIMPL_MODIFIER_NON_STANDARD: D3DBUSTYPE = D3DBUSTYPE(-2147483648i32);
+impl ::core::marker::Copy for D3DBUSTYPE {}
+impl ::core::clone::Clone for D3DBUSTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const D3DCAPS2_CANAUTOGENMIPMAP: i32 = 1073741824i32;
 pub const D3DCAPS2_CANCALIBRATEGAMMA: i32 = 1048576i32;
 pub const D3DCAPS2_CANMANAGERESOURCE: i32 = 268435456i32;
@@ -277,11 +769,96 @@ pub const D3DCAPS3_DXVAHD_LIMITED: i32 = 2048i32;
 pub const D3DCAPS3_LINEAR_TO_SRGB_PRESENTATION: i32 = 128i32;
 pub const D3DCAPS3_RESERVED: i32 = -2147483617i32;
 #[repr(C)]
-pub struct D3DCAPS9(i32);
+pub struct D3DCAPS9 {
+    pub DeviceType: D3DDEVTYPE,
+    pub AdapterOrdinal: u32,
+    pub Caps: u32,
+    pub Caps2: u32,
+    pub Caps3: u32,
+    pub PresentationIntervals: u32,
+    pub CursorCaps: u32,
+    pub DevCaps: u32,
+    pub PrimitiveMiscCaps: u32,
+    pub RasterCaps: u32,
+    pub ZCmpCaps: u32,
+    pub SrcBlendCaps: u32,
+    pub DestBlendCaps: u32,
+    pub AlphaCmpCaps: u32,
+    pub ShadeCaps: u32,
+    pub TextureCaps: u32,
+    pub TextureFilterCaps: u32,
+    pub CubeTextureFilterCaps: u32,
+    pub VolumeTextureFilterCaps: u32,
+    pub TextureAddressCaps: u32,
+    pub VolumeTextureAddressCaps: u32,
+    pub LineCaps: u32,
+    pub MaxTextureWidth: u32,
+    pub MaxTextureHeight: u32,
+    pub MaxVolumeExtent: u32,
+    pub MaxTextureRepeat: u32,
+    pub MaxTextureAspectRatio: u32,
+    pub MaxAnisotropy: u32,
+    pub MaxVertexW: f32,
+    pub GuardBandLeft: f32,
+    pub GuardBandTop: f32,
+    pub GuardBandRight: f32,
+    pub GuardBandBottom: f32,
+    pub ExtentsAdjust: f32,
+    pub StencilCaps: u32,
+    pub FVFCaps: u32,
+    pub TextureOpCaps: u32,
+    pub MaxTextureBlendStages: u32,
+    pub MaxSimultaneousTextures: u32,
+    pub VertexProcessingCaps: u32,
+    pub MaxActiveLights: u32,
+    pub MaxUserClipPlanes: u32,
+    pub MaxVertexBlendMatrices: u32,
+    pub MaxVertexBlendMatrixIndex: u32,
+    pub MaxPointSize: f32,
+    pub MaxPrimitiveCount: u32,
+    pub MaxVertexIndex: u32,
+    pub MaxStreams: u32,
+    pub MaxStreamStride: u32,
+    pub VertexShaderVersion: u32,
+    pub MaxVertexShaderConst: u32,
+    pub PixelShaderVersion: u32,
+    pub PixelShader1xMaxValue: f32,
+    pub DevCaps2: u32,
+    pub MaxNpatchTessellationLevel: f32,
+    pub Reserved5: u32,
+    pub MasterAdapterOrdinal: u32,
+    pub AdapterOrdinalInGroup: u32,
+    pub NumberOfAdaptersInGroup: u32,
+    pub DeclTypes: u32,
+    pub NumSimultaneousRTs: u32,
+    pub StretchRectFilterCaps: u32,
+    pub VS20Caps: D3DVSHADERCAPS2_0,
+    pub PS20Caps: D3DPSHADERCAPS2_0,
+    pub VertexTextureFilterCaps: u32,
+    pub MaxVShaderInstructionsExecuted: u32,
+    pub MaxPShaderInstructionsExecuted: u32,
+    pub MaxVertexShader30InstructionSlots: u32,
+    pub MaxPixelShader30InstructionSlots: u32,
+}
+impl ::core::marker::Copy for D3DCAPS9 {}
+impl ::core::clone::Clone for D3DCAPS9 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const D3DCAPS_OVERLAY: i32 = 2048i32;
 pub const D3DCAPS_READ_SCANLINE: i32 = 131072i32;
 #[repr(C)]
-pub struct D3DCLIPSTATUS9(i32);
+pub struct D3DCLIPSTATUS9 {
+    pub ClipUnion: u32,
+    pub ClipIntersection: u32,
+}
+impl ::core::marker::Copy for D3DCLIPSTATUS9 {}
+impl ::core::clone::Clone for D3DCLIPSTATUS9 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3DCMPFUNC(pub i32);
 pub const D3DCMP_NEVER: D3DCMPFUNC = D3DCMPFUNC(1i32);
@@ -293,12 +870,51 @@ pub const D3DCMP_NOTEQUAL: D3DCMPFUNC = D3DCMPFUNC(6i32);
 pub const D3DCMP_GREATEREQUAL: D3DCMPFUNC = D3DCMPFUNC(7i32);
 pub const D3DCMP_ALWAYS: D3DCMPFUNC = D3DCMPFUNC(8i32);
 pub const D3DCMP_FORCE_DWORD: D3DCMPFUNC = D3DCMPFUNC(2147483647i32);
+impl ::core::marker::Copy for D3DCMPFUNC {}
+impl ::core::clone::Clone for D3DCMPFUNC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3DCOLORVALUE(i32);
+pub struct D3DCOLORVALUE {
+    pub r: f32,
+    pub g: f32,
+    pub b: f32,
+    pub a: f32,
+}
+impl ::core::marker::Copy for D3DCOLORVALUE {}
+impl ::core::clone::Clone for D3DCOLORVALUE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3DCOMPOSERECTDESC(i32);
+pub struct D3DCOMPOSERECTDESC {
+    pub X: u16,
+    pub Y: u16,
+    pub Width: u16,
+    pub Height: u16,
+}
+impl ::core::marker::Copy for D3DCOMPOSERECTDESC {}
+impl ::core::clone::Clone for D3DCOMPOSERECTDESC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3DCOMPOSERECTDESTINATION(i32);
+pub struct D3DCOMPOSERECTDESTINATION {
+    pub SrcRectIndex: u16,
+    pub Reserved: u16,
+    pub X: i16,
+    pub Y: i16,
+}
+impl ::core::marker::Copy for D3DCOMPOSERECTDESTINATION {}
+impl ::core::clone::Clone for D3DCOMPOSERECTDESTINATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3DCOMPOSERECTSOP(pub i32);
 pub const D3DCOMPOSERECTS_COPY: D3DCOMPOSERECTSOP = D3DCOMPOSERECTSOP(1i32);
@@ -306,6 +922,12 @@ pub const D3DCOMPOSERECTS_OR: D3DCOMPOSERECTSOP = D3DCOMPOSERECTSOP(2i32);
 pub const D3DCOMPOSERECTS_AND: D3DCOMPOSERECTSOP = D3DCOMPOSERECTSOP(3i32);
 pub const D3DCOMPOSERECTS_NEG: D3DCOMPOSERECTSOP = D3DCOMPOSERECTSOP(4i32);
 pub const D3DCOMPOSERECTS_FORCE_DWORD: D3DCOMPOSERECTSOP = D3DCOMPOSERECTSOP(2147483647i32);
+impl ::core::marker::Copy for D3DCOMPOSERECTSOP {}
+impl ::core::clone::Clone for D3DCOMPOSERECTSOP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const D3DCOMPOSERECTS_MAXNUMRECTS: u32 = 65535u32;
 pub const D3DCONVOLUTIONMONO_MAXHEIGHT: u32 = 7u32;
 pub const D3DCONVOLUTIONMONO_MAXWIDTH: u32 = 7u32;
@@ -361,12 +983,24 @@ pub const D3DCUBEMAP_FACE_NEGATIVE_Y: D3DCUBEMAP_FACES = D3DCUBEMAP_FACES(3i32);
 pub const D3DCUBEMAP_FACE_POSITIVE_Z: D3DCUBEMAP_FACES = D3DCUBEMAP_FACES(4i32);
 pub const D3DCUBEMAP_FACE_NEGATIVE_Z: D3DCUBEMAP_FACES = D3DCUBEMAP_FACES(5i32);
 pub const D3DCUBEMAP_FACE_FORCE_DWORD: D3DCUBEMAP_FACES = D3DCUBEMAP_FACES(2147483647i32);
+impl ::core::marker::Copy for D3DCUBEMAP_FACES {}
+impl ::core::clone::Clone for D3DCUBEMAP_FACES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3DCULL(pub u32);
 pub const D3DCULL_NONE: D3DCULL = D3DCULL(1u32);
 pub const D3DCULL_CW: D3DCULL = D3DCULL(2u32);
 pub const D3DCULL_CCW: D3DCULL = D3DCULL(3u32);
 pub const D3DCULL_FORCE_DWORD: D3DCULL = D3DCULL(2147483647u32);
+impl ::core::marker::Copy for D3DCULL {}
+impl ::core::clone::Clone for D3DCULL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const D3DCURSORCAPS_COLOR: i32 = 1i32;
 pub const D3DCURSORCAPS_LOWRES: i32 = 2i32;
 pub const D3DCURSOR_IMMEDIATE_UPDATE: i32 = 1i32;
@@ -375,6 +1009,12 @@ pub struct D3DDEBUGMONITORTOKENS(pub i32);
 pub const D3DDMT_ENABLE: D3DDEBUGMONITORTOKENS = D3DDEBUGMONITORTOKENS(0i32);
 pub const D3DDMT_DISABLE: D3DDEBUGMONITORTOKENS = D3DDEBUGMONITORTOKENS(1i32);
 pub const D3DDMT_FORCE_DWORD: D3DDEBUGMONITORTOKENS = D3DDEBUGMONITORTOKENS(2147483647i32);
+impl ::core::marker::Copy for D3DDEBUGMONITORTOKENS {}
+impl ::core::clone::Clone for D3DDEBUGMONITORTOKENS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3DDECLMETHOD(pub i32);
 pub const D3DDECLMETHOD_DEFAULT: D3DDECLMETHOD = D3DDECLMETHOD(0i32);
@@ -384,6 +1024,12 @@ pub const D3DDECLMETHOD_CROSSUV: D3DDECLMETHOD = D3DDECLMETHOD(3i32);
 pub const D3DDECLMETHOD_UV: D3DDECLMETHOD = D3DDECLMETHOD(4i32);
 pub const D3DDECLMETHOD_LOOKUP: D3DDECLMETHOD = D3DDECLMETHOD(5i32);
 pub const D3DDECLMETHOD_LOOKUPPRESAMPLED: D3DDECLMETHOD = D3DDECLMETHOD(6i32);
+impl ::core::marker::Copy for D3DDECLMETHOD {}
+impl ::core::clone::Clone for D3DDECLMETHOD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3DDECLTYPE(pub i32);
 pub const D3DDECLTYPE_FLOAT1: D3DDECLTYPE = D3DDECLTYPE(0i32);
@@ -404,6 +1050,12 @@ pub const D3DDECLTYPE_DEC3N: D3DDECLTYPE = D3DDECLTYPE(14i32);
 pub const D3DDECLTYPE_FLOAT16_2: D3DDECLTYPE = D3DDECLTYPE(15i32);
 pub const D3DDECLTYPE_FLOAT16_4: D3DDECLTYPE = D3DDECLTYPE(16i32);
 pub const D3DDECLTYPE_UNUSED: D3DDECLTYPE = D3DDECLTYPE(17i32);
+impl ::core::marker::Copy for D3DDECLTYPE {}
+impl ::core::clone::Clone for D3DDECLTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3DDECLUSAGE(pub i32);
 pub const D3DDECLUSAGE_POSITION: D3DDECLUSAGE = D3DDECLUSAGE(0i32);
@@ -420,6 +1072,12 @@ pub const D3DDECLUSAGE_COLOR: D3DDECLUSAGE = D3DDECLUSAGE(10i32);
 pub const D3DDECLUSAGE_FOG: D3DDECLUSAGE = D3DDECLUSAGE(11i32);
 pub const D3DDECLUSAGE_DEPTH: D3DDECLUSAGE = D3DDECLUSAGE(12i32);
 pub const D3DDECLUSAGE_SAMPLE: D3DDECLUSAGE = D3DDECLUSAGE(13i32);
+impl ::core::marker::Copy for D3DDECLUSAGE {}
+impl ::core::clone::Clone for D3DDECLUSAGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3DDEGREETYPE(pub i32);
 pub const D3DDEGREE_LINEAR: D3DDEGREETYPE = D3DDEGREETYPE(1i32);
@@ -427,6 +1085,12 @@ pub const D3DDEGREE_QUADRATIC: D3DDEGREETYPE = D3DDEGREETYPE(2i32);
 pub const D3DDEGREE_CUBIC: D3DDEGREETYPE = D3DDEGREETYPE(3i32);
 pub const D3DDEGREE_QUINTIC: D3DDEGREETYPE = D3DDEGREETYPE(5i32);
 pub const D3DDEGREE_FORCE_DWORD: D3DDEGREETYPE = D3DDEGREETYPE(2147483647i32);
+impl ::core::marker::Copy for D3DDEGREETYPE {}
+impl ::core::clone::Clone for D3DDEGREETYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const D3DDEVCAPS2_ADAPTIVETESSNPATCH: i32 = 8i32;
 pub const D3DDEVCAPS2_ADAPTIVETESSRTPATCH: i32 = 4i32;
 pub const D3DDEVCAPS2_CAN_STRETCHRECT_FROM_TEXTURES: i32 = 16i32;
@@ -439,26 +1103,122 @@ pub const D3DDEVCAPS_PUREDEVICE: i32 = 1048576i32;
 pub const D3DDEVCAPS_QUINTICRTPATCHES: i32 = 2097152i32;
 pub const D3DDEVCAPS_RTPATCHES: i32 = 4194304i32;
 pub const D3DDEVCAPS_RTPATCHHANDLEZERO: i32 = 8388608i32;
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct D3DDEVICE_CREATION_PARAMETERS(i32);
-#[repr(C)]
-pub struct D3DDEVINFO_D3D9BANDWIDTHTIMINGS(i32);
-#[repr(C)]
-pub struct D3DDEVINFO_D3D9CACHEUTILIZATION(i32);
-#[repr(C)]
-pub struct D3DDEVINFO_D3D9INTERFACETIMINGS(i32);
-#[repr(C)]
-pub struct D3DDEVINFO_D3D9PIPELINETIMINGS(i32);
-#[repr(C)]
-pub struct D3DDEVINFO_D3D9STAGETIMINGS(i32);
-#[repr(C)]
-pub struct D3DDEVINFO_D3DVERTEXSTATS(i32);
+pub struct D3DDEVICE_CREATION_PARAMETERS {
+    pub AdapterOrdinal: u32,
+    pub DeviceType: D3DDEVTYPE,
+    pub hFocusWindow: super::super::Foundation::HWND,
+    pub BehaviorFlags: u32,
+}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for D3DDEVICE_CREATION_PARAMETERS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for D3DDEVICE_CREATION_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3DDEVINFO_RESOURCEMANAGER(i32);
+pub struct D3DDEVINFO_D3D9BANDWIDTHTIMINGS {
+    pub MaxBandwidthUtilized: f32,
+    pub FrontEndUploadMemoryUtilizedPercent: f32,
+    pub VertexRateUtilizedPercent: f32,
+    pub TriangleSetupRateUtilizedPercent: f32,
+    pub FillRateUtilizedPercent: f32,
+}
+impl ::core::marker::Copy for D3DDEVINFO_D3D9BANDWIDTHTIMINGS {}
+impl ::core::clone::Clone for D3DDEVINFO_D3D9BANDWIDTHTIMINGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3DDEVINFO_VCACHE(i32);
+pub struct D3DDEVINFO_D3D9CACHEUTILIZATION {
+    pub TextureCacheHitRate: f32,
+    pub PostTransformVertexCacheHitRate: f32,
+}
+impl ::core::marker::Copy for D3DDEVINFO_D3D9CACHEUTILIZATION {}
+impl ::core::clone::Clone for D3DDEVINFO_D3D9CACHEUTILIZATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct D3DDEVINFO_D3D9INTERFACETIMINGS {
+    pub WaitingForGPUToUseApplicationResourceTimePercent: f32,
+    pub WaitingForGPUToAcceptMoreCommandsTimePercent: f32,
+    pub WaitingForGPUToStayWithinLatencyTimePercent: f32,
+    pub WaitingForGPUExclusiveResourceTimePercent: f32,
+    pub WaitingForGPUOtherTimePercent: f32,
+}
+impl ::core::marker::Copy for D3DDEVINFO_D3D9INTERFACETIMINGS {}
+impl ::core::clone::Clone for D3DDEVINFO_D3D9INTERFACETIMINGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct D3DDEVINFO_D3D9PIPELINETIMINGS {
+    pub VertexProcessingTimePercent: f32,
+    pub PixelProcessingTimePercent: f32,
+    pub OtherGPUProcessingTimePercent: f32,
+    pub GPUIdleTimePercent: f32,
+}
+impl ::core::marker::Copy for D3DDEVINFO_D3D9PIPELINETIMINGS {}
+impl ::core::clone::Clone for D3DDEVINFO_D3D9PIPELINETIMINGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct D3DDEVINFO_D3D9STAGETIMINGS {
+    pub MemoryProcessingPercent: f32,
+    pub ComputationProcessingPercent: f32,
+}
+impl ::core::marker::Copy for D3DDEVINFO_D3D9STAGETIMINGS {}
+impl ::core::clone::Clone for D3DDEVINFO_D3D9STAGETIMINGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct D3DDEVINFO_D3DVERTEXSTATS {
+    pub NumRenderedTriangles: u32,
+    pub NumExtraClippingTriangles: u32,
+}
+impl ::core::marker::Copy for D3DDEVINFO_D3DVERTEXSTATS {}
+impl ::core::clone::Clone for D3DDEVINFO_D3DVERTEXSTATS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct D3DDEVINFO_RESOURCEMANAGER {
+    pub stats: [D3DRESOURCESTATS; 8],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for D3DDEVINFO_RESOURCEMANAGER {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for D3DDEVINFO_RESOURCEMANAGER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct D3DDEVINFO_VCACHE {
+    pub Pattern: u32,
+    pub OptMethod: u32,
+    pub CacheSize: u32,
+    pub MagicNumber: u32,
+}
+impl ::core::marker::Copy for D3DDEVINFO_VCACHE {}
+impl ::core::clone::Clone for D3DDEVINFO_VCACHE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3DDEVTYPE(pub u32);
 pub const D3DDEVTYPE_HAL: D3DDEVTYPE = D3DDEVTYPE(1u32);
@@ -466,18 +1226,64 @@ pub const D3DDEVTYPE_REF: D3DDEVTYPE = D3DDEVTYPE(2u32);
 pub const D3DDEVTYPE_SW: D3DDEVTYPE = D3DDEVTYPE(3u32);
 pub const D3DDEVTYPE_NULLREF: D3DDEVTYPE = D3DDEVTYPE(4u32);
 pub const D3DDEVTYPE_FORCE_DWORD: D3DDEVTYPE = D3DDEVTYPE(2147483647u32);
+impl ::core::marker::Copy for D3DDEVTYPE {}
+impl ::core::clone::Clone for D3DDEVTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3DDISPLAYMODE(i32);
+pub struct D3DDISPLAYMODE {
+    pub Width: u32,
+    pub Height: u32,
+    pub RefreshRate: u32,
+    pub Format: D3DFORMAT,
+}
+impl ::core::marker::Copy for D3DDISPLAYMODE {}
+impl ::core::clone::Clone for D3DDISPLAYMODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3DDISPLAYMODEEX(i32);
+pub struct D3DDISPLAYMODEEX {
+    pub Size: u32,
+    pub Width: u32,
+    pub Height: u32,
+    pub RefreshRate: u32,
+    pub Format: D3DFORMAT,
+    pub ScanLineOrdering: D3DSCANLINEORDERING,
+}
+impl ::core::marker::Copy for D3DDISPLAYMODEEX {}
+impl ::core::clone::Clone for D3DDISPLAYMODEEX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3DDISPLAYMODEFILTER(i32);
+pub struct D3DDISPLAYMODEFILTER {
+    pub Size: u32,
+    pub Format: D3DFORMAT,
+    pub ScanLineOrdering: D3DSCANLINEORDERING,
+}
+impl ::core::marker::Copy for D3DDISPLAYMODEFILTER {}
+impl ::core::clone::Clone for D3DDISPLAYMODEFILTER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3DDISPLAYROTATION(pub i32);
 pub const D3DDISPLAYROTATION_IDENTITY: D3DDISPLAYROTATION = D3DDISPLAYROTATION(1i32);
 pub const D3DDISPLAYROTATION_90: D3DDISPLAYROTATION = D3DDISPLAYROTATION(2i32);
 pub const D3DDISPLAYROTATION_180: D3DDISPLAYROTATION = D3DDISPLAYROTATION(3i32);
 pub const D3DDISPLAYROTATION_270: D3DDISPLAYROTATION = D3DDISPLAYROTATION(4i32);
+impl ::core::marker::Copy for D3DDISPLAYROTATION {}
+impl ::core::clone::Clone for D3DDISPLAYROTATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const D3DDMAPSAMPLER: u32 = 256u32;
 pub const D3DDTCAPS_DEC3N: i32 = 128i32;
 pub const D3DDTCAPS_FLOAT16_2: i32 = 256i32;
@@ -490,7 +1296,17 @@ pub const D3DDTCAPS_UDEC3: i32 = 64i32;
 pub const D3DDTCAPS_USHORT2N: i32 = 16i32;
 pub const D3DDTCAPS_USHORT4N: i32 = 32i32;
 #[repr(C)]
-pub struct D3DENCRYPTED_BLOCK_INFO(i32);
+pub struct D3DENCRYPTED_BLOCK_INFO {
+    pub NumEncryptedBytesAtBeginning: u32,
+    pub NumBytesInSkipPattern: u32,
+    pub NumBytesInEncryptPattern: u32,
+}
+impl ::core::marker::Copy for D3DENCRYPTED_BLOCK_INFO {}
+impl ::core::clone::Clone for D3DENCRYPTED_BLOCK_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const D3DENUM_NO_DRIVERVERSION: i32 = 4i32;
 pub const D3DENUM_WHQL_LEVEL: i32 = 2i32;
 #[repr(transparent)]
@@ -499,6 +1315,12 @@ pub const D3DFILL_POINT: D3DFILLMODE = D3DFILLMODE(1i32);
 pub const D3DFILL_WIREFRAME: D3DFILLMODE = D3DFILLMODE(2i32);
 pub const D3DFILL_SOLID: D3DFILLMODE = D3DFILLMODE(3i32);
 pub const D3DFILL_FORCE_DWORD: D3DFILLMODE = D3DFILLMODE(2147483647i32);
+impl ::core::marker::Copy for D3DFILLMODE {}
+impl ::core::clone::Clone for D3DFILLMODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const D3DFMT_A1_SURFACE_MAXHEIGHT: u32 = 2048u32;
 pub const D3DFMT_A1_SURFACE_MAXWIDTH: u32 = 8192u32;
 #[repr(transparent)]
@@ -508,6 +1330,12 @@ pub const D3DFOG_EXP: D3DFOGMODE = D3DFOGMODE(1i32);
 pub const D3DFOG_EXP2: D3DFOGMODE = D3DFOGMODE(2i32);
 pub const D3DFOG_LINEAR: D3DFOGMODE = D3DFOGMODE(3i32);
 pub const D3DFOG_FORCE_DWORD: D3DFOGMODE = D3DFOGMODE(2147483647i32);
+impl ::core::marker::Copy for D3DFOGMODE {}
+impl ::core::clone::Clone for D3DFOGMODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3DFORMAT(pub u32);
 pub const D3DFMT_UNKNOWN: D3DFORMAT = D3DFORMAT(0u32);
@@ -576,16 +1404,44 @@ pub const D3DFMT_A1: D3DFORMAT = D3DFORMAT(118u32);
 pub const D3DFMT_A2B10G10R10_XR_BIAS: D3DFORMAT = D3DFORMAT(119u32);
 pub const D3DFMT_BINARYBUFFER: D3DFORMAT = D3DFORMAT(199u32);
 pub const D3DFMT_FORCE_DWORD: D3DFORMAT = D3DFORMAT(2147483647u32);
+impl ::core::marker::Copy for D3DFORMAT {}
+impl ::core::clone::Clone for D3DFORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const D3DFVFCAPS_PSIZE: i32 = 1048576i32;
 pub const D3DFVF_LASTBETA_D3DCOLOR: u32 = 32768u32;
 pub const D3DFVF_LASTBETA_UBYTE4: u32 = 4096u32;
 pub const D3DFVF_PSIZE: u32 = 32u32;
 pub const D3DFVF_XYZW: u32 = 16386u32;
 #[repr(C)]
-pub struct D3DGAMMARAMP(i32);
+pub struct D3DGAMMARAMP {
+    pub red: [u16; 256],
+    pub green: [u16; 256],
+    pub blue: [u16; 256],
+}
+impl ::core::marker::Copy for D3DGAMMARAMP {}
+impl ::core::clone::Clone for D3DGAMMARAMP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const D3DGETDATA_FLUSH: u32 = 1u32;
 #[repr(C)]
-pub struct D3DINDEXBUFFER_DESC(i32);
+pub struct D3DINDEXBUFFER_DESC {
+    pub Format: D3DFORMAT,
+    pub Type: D3DRESOURCETYPE,
+    pub Usage: u32,
+    pub Pool: D3DPOOL,
+    pub Size: u32,
+}
+impl ::core::marker::Copy for D3DINDEXBUFFER_DESC {}
+impl ::core::clone::Clone for D3DINDEXBUFFER_DESC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const D3DISSUE_BEGIN: u32 = 2u32;
 pub const D3DISSUE_END: u32 = 1u32;
 pub const D3DKEYEXCHANGE_DXVA: ::windows_sys::core::GUID = ::windows_sys::GUID {
@@ -595,15 +1451,43 @@ pub const D3DKEYEXCHANGE_DXVA: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data4: [141, 134, 211, 252, 207, 21, 62, 155],
 };
 pub const D3DKEYEXCHANGE_RSAES_OAEP: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3247741077, data2: 55082, data3: 18973, data4: [142, 93, 237, 133, 125, 23, 21, 32] };
-#[cfg(feature = "Win32_Graphics_Direct3D")]
 #[repr(C)]
-pub struct D3DLIGHT9(i32);
+#[cfg(feature = "Win32_Graphics_Direct3D")]
+pub struct D3DLIGHT9 {
+    pub Type: D3DLIGHTTYPE,
+    pub Diffuse: D3DCOLORVALUE,
+    pub Specular: D3DCOLORVALUE,
+    pub Ambient: D3DCOLORVALUE,
+    pub Position: super::Direct3D::D3DVECTOR,
+    pub Direction: super::Direct3D::D3DVECTOR,
+    pub Range: f32,
+    pub Falloff: f32,
+    pub Attenuation0: f32,
+    pub Attenuation1: f32,
+    pub Attenuation2: f32,
+    pub Theta: f32,
+    pub Phi: f32,
+}
+#[cfg(feature = "Win32_Graphics_Direct3D")]
+impl ::core::marker::Copy for D3DLIGHT9 {}
+#[cfg(feature = "Win32_Graphics_Direct3D")]
+impl ::core::clone::Clone for D3DLIGHT9 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3DLIGHTTYPE(pub i32);
 pub const D3DLIGHT_POINT: D3DLIGHTTYPE = D3DLIGHTTYPE(1i32);
 pub const D3DLIGHT_SPOT: D3DLIGHTTYPE = D3DLIGHTTYPE(2i32);
 pub const D3DLIGHT_DIRECTIONAL: D3DLIGHTTYPE = D3DLIGHTTYPE(3i32);
 pub const D3DLIGHT_FORCE_DWORD: D3DLIGHTTYPE = D3DLIGHTTYPE(2147483647i32);
+impl ::core::marker::Copy for D3DLIGHTTYPE {}
+impl ::core::clone::Clone for D3DLIGHTTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const D3DLINECAPS_ALPHACMP: i32 = 8i32;
 pub const D3DLINECAPS_ANTIALIAS: i32 = 32i32;
 pub const D3DLINECAPS_BLEND: i32 = 4i32;
@@ -611,9 +1495,28 @@ pub const D3DLINECAPS_FOG: i32 = 16i32;
 pub const D3DLINECAPS_TEXTURE: i32 = 1i32;
 pub const D3DLINECAPS_ZTEST: i32 = 2i32;
 #[repr(C)]
-pub struct D3DLOCKED_BOX(i32);
+pub struct D3DLOCKED_BOX {
+    pub RowPitch: i32,
+    pub SlicePitch: i32,
+    pub pBits: *mut ::core::ffi::c_void,
+}
+impl ::core::marker::Copy for D3DLOCKED_BOX {}
+impl ::core::clone::Clone for D3DLOCKED_BOX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3DLOCKED_RECT(i32);
+pub struct D3DLOCKED_RECT {
+    pub Pitch: i32,
+    pub pBits: *mut ::core::ffi::c_void,
+}
+impl ::core::marker::Copy for D3DLOCKED_RECT {}
+impl ::core::clone::Clone for D3DLOCKED_RECT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const D3DLOCK_DISCARD: i32 = 8192i32;
 pub const D3DLOCK_DONOTWAIT: i32 = 16384i32;
 pub const D3DLOCK_NOOVERWRITE: i32 = 4096i32;
@@ -621,20 +1524,62 @@ pub const D3DLOCK_NOSYSLOCK: i32 = 2048i32;
 pub const D3DLOCK_NO_DIRTY_UPDATE: i32 = 32768i32;
 pub const D3DLOCK_READONLY: i32 = 16i32;
 #[repr(C)]
-pub struct D3DMATERIAL9(i32);
+pub struct D3DMATERIAL9 {
+    pub Diffuse: D3DCOLORVALUE,
+    pub Ambient: D3DCOLORVALUE,
+    pub Specular: D3DCOLORVALUE,
+    pub Emissive: D3DCOLORVALUE,
+    pub Power: f32,
+}
+impl ::core::marker::Copy for D3DMATERIAL9 {}
+impl ::core::clone::Clone for D3DMATERIAL9 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3DMATERIALCOLORSOURCE(pub i32);
 pub const D3DMCS_MATERIAL: D3DMATERIALCOLORSOURCE = D3DMATERIALCOLORSOURCE(0i32);
 pub const D3DMCS_COLOR1: D3DMATERIALCOLORSOURCE = D3DMATERIALCOLORSOURCE(1i32);
 pub const D3DMCS_COLOR2: D3DMATERIALCOLORSOURCE = D3DMATERIALCOLORSOURCE(2i32);
 pub const D3DMCS_FORCE_DWORD: D3DMATERIALCOLORSOURCE = D3DMATERIALCOLORSOURCE(2147483647i32);
+impl ::core::marker::Copy for D3DMATERIALCOLORSOURCE {}
+impl ::core::clone::Clone for D3DMATERIALCOLORSOURCE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const D3DMAX30SHADERINSTRUCTIONS: u32 = 32768u32;
+#[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-#[repr(C)]
-pub struct D3DMEMORYPRESSURE(i32);
+pub struct D3DMEMORYPRESSURE {
+    pub BytesEvictedFromProcess: u64,
+    pub SizeOfInefficientAllocation: u64,
+    pub LevelOfEfficiency: u32,
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::marker::Copy for D3DMEMORYPRESSURE {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::clone::Clone for D3DMEMORYPRESSURE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(4))]
 #[cfg(any(target_arch = "x86",))]
-#[repr(C)]
-pub struct D3DMEMORYPRESSURE(i32);
+pub struct D3DMEMORYPRESSURE {
+    pub BytesEvictedFromProcess: u64,
+    pub SizeOfInefficientAllocation: u64,
+    pub LevelOfEfficiency: u32,
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::core::marker::Copy for D3DMEMORYPRESSURE {}
+#[cfg(any(target_arch = "x86",))]
+impl ::core::clone::Clone for D3DMEMORYPRESSURE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const D3DMIN30SHADERINSTRUCTIONS: u32 = 512u32;
 #[repr(transparent)]
 pub struct D3DMULTISAMPLE_TYPE(pub i32);
@@ -656,6 +1601,12 @@ pub const D3DMULTISAMPLE_14_SAMPLES: D3DMULTISAMPLE_TYPE = D3DMULTISAMPLE_TYPE(1
 pub const D3DMULTISAMPLE_15_SAMPLES: D3DMULTISAMPLE_TYPE = D3DMULTISAMPLE_TYPE(15i32);
 pub const D3DMULTISAMPLE_16_SAMPLES: D3DMULTISAMPLE_TYPE = D3DMULTISAMPLE_TYPE(16i32);
 pub const D3DMULTISAMPLE_FORCE_DWORD: D3DMULTISAMPLE_TYPE = D3DMULTISAMPLE_TYPE(2147483647i32);
+impl ::core::marker::Copy for D3DMULTISAMPLE_TYPE {}
+impl ::core::clone::Clone for D3DMULTISAMPLE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const D3DOVERLAYCAPS_FULLRANGERGB: u32 = 1u32;
 pub const D3DOVERLAYCAPS_LIMITEDRANGERGB: u32 = 2u32;
 pub const D3DOVERLAYCAPS_STRETCHX: u32 = 64u32;
@@ -669,6 +1620,12 @@ pub struct D3DPATCHEDGESTYLE(pub i32);
 pub const D3DPATCHEDGE_DISCRETE: D3DPATCHEDGESTYLE = D3DPATCHEDGESTYLE(0i32);
 pub const D3DPATCHEDGE_CONTINUOUS: D3DPATCHEDGESTYLE = D3DPATCHEDGESTYLE(1i32);
 pub const D3DPATCHEDGE_FORCE_DWORD: D3DPATCHEDGESTYLE = D3DPATCHEDGESTYLE(2147483647i32);
+impl ::core::marker::Copy for D3DPATCHEDGESTYLE {}
+impl ::core::clone::Clone for D3DPATCHEDGESTYLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const D3DPBLENDCAPS_BLENDFACTOR: i32 = 8192i32;
 pub const D3DPBLENDCAPS_INVSRCCOLOR2: i32 = 32768i32;
 pub const D3DPBLENDCAPS_SRCCOLOR2: i32 = 16384i32;
@@ -693,6 +1650,12 @@ pub const D3DPOOL_MANAGED: D3DPOOL = D3DPOOL(1u32);
 pub const D3DPOOL_SYSTEMMEM: D3DPOOL = D3DPOOL(2u32);
 pub const D3DPOOL_SCRATCH: D3DPOOL = D3DPOOL(3u32);
 pub const D3DPOOL_FORCE_DWORD: D3DPOOL = D3DPOOL(2147483647u32);
+impl ::core::marker::Copy for D3DPOOL {}
+impl ::core::clone::Clone for D3DPOOL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const D3DPRASTERCAPS_COLORPERSPECTIVE: i32 = 4194304i32;
 pub const D3DPRASTERCAPS_DEPTHBIAS: i32 = 67108864i32;
 pub const D3DPRASTERCAPS_MULTISAMPLE_TOGGLE: i32 = 134217728i32;
@@ -709,12 +1672,40 @@ pub const D3DPRESENTFLAG_RESTRICTED_CONTENT: u32 = 1024u32;
 pub const D3DPRESENTFLAG_RESTRICT_SHARED_RESOURCE_DRIVER: u32 = 2048u32;
 pub const D3DPRESENTFLAG_UNPRUNEDMODE: u32 = 64u32;
 pub const D3DPRESENTFLAG_VIDEO: u32 = 16u32;
+#[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-#[repr(C)]
-pub struct D3DPRESENTSTATS(i32);
+pub struct D3DPRESENTSTATS {
+    pub PresentCount: u32,
+    pub PresentRefreshCount: u32,
+    pub SyncRefreshCount: u32,
+    pub SyncQPCTime: i64,
+    pub SyncGPUTime: i64,
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::marker::Copy for D3DPRESENTSTATS {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::clone::Clone for D3DPRESENTSTATS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(4))]
 #[cfg(any(target_arch = "x86",))]
-#[repr(C)]
-pub struct D3DPRESENTSTATS(i32);
+pub struct D3DPRESENTSTATS {
+    pub PresentCount: u32,
+    pub PresentRefreshCount: u32,
+    pub SyncRefreshCount: u32,
+    pub SyncQPCTime: i64,
+    pub SyncGPUTime: i64,
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::core::marker::Copy for D3DPRESENTSTATS {}
+#[cfg(any(target_arch = "x86",))]
+impl ::core::clone::Clone for D3DPRESENTSTATS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const D3DPRESENT_BACK_BUFFERS_MAX: i32 = 3i32;
 pub const D3DPRESENT_BACK_BUFFERS_MAX_EX: i32 = 30i32;
 pub const D3DPRESENT_DONOTFLIP: i32 = 4i32;
@@ -729,9 +1720,32 @@ pub const D3DPRESENT_INTERVAL_ONE: i32 = 1i32;
 pub const D3DPRESENT_INTERVAL_THREE: i32 = 4i32;
 pub const D3DPRESENT_INTERVAL_TWO: i32 = 2i32;
 pub const D3DPRESENT_LINEAR_CONTENT: i32 = 2i32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct D3DPRESENT_PARAMETERS(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct D3DPRESENT_PARAMETERS {
+    pub BackBufferWidth: u32,
+    pub BackBufferHeight: u32,
+    pub BackBufferFormat: D3DFORMAT,
+    pub BackBufferCount: u32,
+    pub MultiSampleType: D3DMULTISAMPLE_TYPE,
+    pub MultiSampleQuality: u32,
+    pub SwapEffect: D3DSWAPEFFECT,
+    pub hDeviceWindow: super::super::Foundation::HWND,
+    pub Windowed: super::super::Foundation::BOOL,
+    pub EnableAutoDepthStencil: super::super::Foundation::BOOL,
+    pub AutoDepthStencilFormat: D3DFORMAT,
+    pub Flags: u32,
+    pub FullScreen_RefreshRateInHz: u32,
+    pub PresentationInterval: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for D3DPRESENT_PARAMETERS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for D3DPRESENT_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const D3DPRESENT_RATE_DEFAULT: u32 = 0u32;
 pub const D3DPRESENT_UPDATECOLORKEY: i32 = 128i32;
 pub const D3DPRESENT_UPDATEOVERLAYONLY: i32 = 32i32;
@@ -745,6 +1759,12 @@ pub const D3DPT_TRIANGLELIST: D3DPRIMITIVETYPE = D3DPRIMITIVETYPE(4i32);
 pub const D3DPT_TRIANGLESTRIP: D3DPRIMITIVETYPE = D3DPRIMITIVETYPE(5i32);
 pub const D3DPT_TRIANGLEFAN: D3DPRIMITIVETYPE = D3DPRIMITIVETYPE(6i32);
 pub const D3DPT_FORCE_DWORD: D3DPRIMITIVETYPE = D3DPRIMITIVETYPE(2147483647i32);
+impl ::core::marker::Copy for D3DPRIMITIVETYPE {}
+impl ::core::clone::Clone for D3DPRIMITIVETYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const D3DPS20CAPS_ARBITRARYSWIZZLE: u32 = 1u32;
 pub const D3DPS20CAPS_GRADIENTINSTRUCTIONS: u32 = 2u32;
 pub const D3DPS20CAPS_NODEPENDENTREADLIMIT: u32 = 8u32;
@@ -759,7 +1779,19 @@ pub const D3DPS20_MIN_NUMINSTRUCTIONSLOTS: u32 = 96u32;
 pub const D3DPS20_MIN_NUMTEMPS: u32 = 12u32;
 pub const D3DPS20_MIN_STATICFLOWCONTROLDEPTH: u32 = 0u32;
 #[repr(C)]
-pub struct D3DPSHADERCAPS2_0(i32);
+pub struct D3DPSHADERCAPS2_0 {
+    pub Caps: u32,
+    pub DynamicFlowControlDepth: i32,
+    pub NumTemps: i32,
+    pub StaticFlowControlDepth: i32,
+    pub NumInstructionSlots: i32,
+}
+impl ::core::marker::Copy for D3DPSHADERCAPS2_0 {}
+impl ::core::clone::Clone for D3DPSHADERCAPS2_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const D3DPTADDRESSCAPS_MIRRORONCE: i32 = 32i32;
 pub const D3DPTEXTURECAPS_CUBEMAP_POW2: i32 = 131072i32;
 pub const D3DPTEXTURECAPS_MIPCUBEMAP: i32 = 65536i32;
@@ -790,15 +1822,66 @@ pub const D3DQUERYTYPE_PIXELTIMINGS: D3DQUERYTYPE = D3DQUERYTYPE(16i32);
 pub const D3DQUERYTYPE_BANDWIDTHTIMINGS: D3DQUERYTYPE = D3DQUERYTYPE(17i32);
 pub const D3DQUERYTYPE_CACHEUTILIZATION: D3DQUERYTYPE = D3DQUERYTYPE(18i32);
 pub const D3DQUERYTYPE_MEMORYPRESSURE: D3DQUERYTYPE = D3DQUERYTYPE(19i32);
+impl ::core::marker::Copy for D3DQUERYTYPE {}
+impl ::core::clone::Clone for D3DQUERYTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3DRANGE(i32);
+pub struct D3DRANGE {
+    pub Offset: u32,
+    pub Size: u32,
+}
+impl ::core::marker::Copy for D3DRANGE {}
+impl ::core::clone::Clone for D3DRANGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+pub struct D3DRASTER_STATUS {
+    pub InVBlank: super::super::Foundation::BOOL,
+    pub ScanLine: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for D3DRASTER_STATUS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for D3DRASTER_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3DRASTER_STATUS(i32);
+pub struct D3DRECT {
+    pub x1: i32,
+    pub y1: i32,
+    pub x2: i32,
+    pub y2: i32,
+}
+impl ::core::marker::Copy for D3DRECT {}
+impl ::core::clone::Clone for D3DRECT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3DRECT(i32);
-#[repr(C)]
-pub struct D3DRECTPATCH_INFO(i32);
+pub struct D3DRECTPATCH_INFO {
+    pub StartVertexOffsetWidth: u32,
+    pub StartVertexOffsetHeight: u32,
+    pub Width: u32,
+    pub Height: u32,
+    pub Stride: u32,
+    pub Basis: D3DBASISTYPE,
+    pub Degree: D3DDEGREETYPE,
+}
+impl ::core::marker::Copy for D3DRECTPATCH_INFO {}
+impl ::core::clone::Clone for D3DRECTPATCH_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3DRENDERSTATETYPE(pub i32);
 pub const D3DRS_ZENABLE: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(7i32);
@@ -905,9 +1988,35 @@ pub const D3DRS_SRCBLENDALPHA: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(207i32);
 pub const D3DRS_DESTBLENDALPHA: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(208i32);
 pub const D3DRS_BLENDOPALPHA: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(209i32);
 pub const D3DRS_FORCE_DWORD: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(2147483647i32);
-#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for D3DRENDERSTATETYPE {}
+impl ::core::clone::Clone for D3DRENDERSTATETYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3DRESOURCESTATS(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct D3DRESOURCESTATS {
+    pub bThrashing: super::super::Foundation::BOOL,
+    pub ApproxBytesDownloaded: u32,
+    pub NumEvicts: u32,
+    pub NumVidCreates: u32,
+    pub LastPri: u32,
+    pub NumUsed: u32,
+    pub NumUsedInVidMem: u32,
+    pub WorkingSet: u32,
+    pub WorkingSetBytes: u32,
+    pub TotalManaged: u32,
+    pub TotalBytes: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for D3DRESOURCESTATS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for D3DRESOURCESTATS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3DRESOURCETYPE(pub i32);
 pub const D3DRTYPE_SURFACE: D3DRESOURCETYPE = D3DRESOURCETYPE(1i32);
@@ -918,6 +2027,12 @@ pub const D3DRTYPE_CUBETEXTURE: D3DRESOURCETYPE = D3DRESOURCETYPE(5i32);
 pub const D3DRTYPE_VERTEXBUFFER: D3DRESOURCETYPE = D3DRESOURCETYPE(6i32);
 pub const D3DRTYPE_INDEXBUFFER: D3DRESOURCETYPE = D3DRESOURCETYPE(7i32);
 pub const D3DRTYPE_FORCE_DWORD: D3DRESOURCETYPE = D3DRESOURCETYPE(2147483647i32);
+impl ::core::marker::Copy for D3DRESOURCETYPE {}
+impl ::core::clone::Clone for D3DRESOURCETYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const D3DRTYPECOUNT: u32 = 8u32;
 #[repr(transparent)]
 pub struct D3DSAMPLERSTATETYPE(pub i32);
@@ -935,6 +2050,12 @@ pub const D3DSAMP_SRGBTEXTURE: D3DSAMPLERSTATETYPE = D3DSAMPLERSTATETYPE(11i32);
 pub const D3DSAMP_ELEMENTINDEX: D3DSAMPLERSTATETYPE = D3DSAMPLERSTATETYPE(12i32);
 pub const D3DSAMP_DMAPOFFSET: D3DSAMPLERSTATETYPE = D3DSAMPLERSTATETYPE(13i32);
 pub const D3DSAMP_FORCE_DWORD: D3DSAMPLERSTATETYPE = D3DSAMPLERSTATETYPE(2147483647i32);
+impl ::core::marker::Copy for D3DSAMPLERSTATETYPE {}
+impl ::core::clone::Clone for D3DSAMPLERSTATETYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3DSAMPLER_TEXTURE_TYPE(pub i32);
 pub const D3DSTT_UNKNOWN: D3DSAMPLER_TEXTURE_TYPE = D3DSAMPLER_TEXTURE_TYPE(0i32);
@@ -942,11 +2063,23 @@ pub const D3DSTT_2D: D3DSAMPLER_TEXTURE_TYPE = D3DSAMPLER_TEXTURE_TYPE(268435456
 pub const D3DSTT_CUBE: D3DSAMPLER_TEXTURE_TYPE = D3DSAMPLER_TEXTURE_TYPE(402653184i32);
 pub const D3DSTT_VOLUME: D3DSAMPLER_TEXTURE_TYPE = D3DSAMPLER_TEXTURE_TYPE(536870912i32);
 pub const D3DSTT_FORCE_DWORD: D3DSAMPLER_TEXTURE_TYPE = D3DSAMPLER_TEXTURE_TYPE(2147483647i32);
+impl ::core::marker::Copy for D3DSAMPLER_TEXTURE_TYPE {}
+impl ::core::clone::Clone for D3DSAMPLER_TEXTURE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3DSCANLINEORDERING(pub i32);
 pub const D3DSCANLINEORDERING_UNKNOWN: D3DSCANLINEORDERING = D3DSCANLINEORDERING(0i32);
 pub const D3DSCANLINEORDERING_PROGRESSIVE: D3DSCANLINEORDERING = D3DSCANLINEORDERING(1i32);
 pub const D3DSCANLINEORDERING_INTERLACED: D3DSCANLINEORDERING = D3DSCANLINEORDERING(2i32);
+impl ::core::marker::Copy for D3DSCANLINEORDERING {}
+impl ::core::clone::Clone for D3DSCANLINEORDERING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const D3DSGR_CALIBRATE: i32 = 1i32;
 pub const D3DSGR_NO_CALIBRATION: i32 = 0i32;
 #[repr(transparent)]
@@ -955,12 +2088,24 @@ pub const D3DSHADE_FLAT: D3DSHADEMODE = D3DSHADEMODE(1i32);
 pub const D3DSHADE_GOURAUD: D3DSHADEMODE = D3DSHADEMODE(2i32);
 pub const D3DSHADE_PHONG: D3DSHADEMODE = D3DSHADEMODE(3i32);
 pub const D3DSHADE_FORCE_DWORD: D3DSHADEMODE = D3DSHADEMODE(2147483647i32);
+impl ::core::marker::Copy for D3DSHADEMODE {}
+impl ::core::clone::Clone for D3DSHADEMODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const D3DSHADER_ADDRESSMODE_SHIFT: u32 = 13u32;
 #[repr(transparent)]
 pub struct D3DSHADER_ADDRESSMODE_TYPE(pub i32);
 pub const D3DSHADER_ADDRMODE_ABSOLUTE: D3DSHADER_ADDRESSMODE_TYPE = D3DSHADER_ADDRESSMODE_TYPE(0i32);
 pub const D3DSHADER_ADDRMODE_RELATIVE: D3DSHADER_ADDRESSMODE_TYPE = D3DSHADER_ADDRESSMODE_TYPE(8192i32);
 pub const D3DSHADER_ADDRMODE_FORCE_DWORD: D3DSHADER_ADDRESSMODE_TYPE = D3DSHADER_ADDRESSMODE_TYPE(2147483647i32);
+impl ::core::marker::Copy for D3DSHADER_ADDRESSMODE_TYPE {}
+impl ::core::clone::Clone for D3DSHADER_ADDRESSMODE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3DSHADER_COMPARISON(pub i32);
 pub const D3DSPC_RESERVED0: D3DSHADER_COMPARISON = D3DSHADER_COMPARISON(0i32);
@@ -971,6 +2116,12 @@ pub const D3DSPC_LT: D3DSHADER_COMPARISON = D3DSHADER_COMPARISON(4i32);
 pub const D3DSPC_NE: D3DSHADER_COMPARISON = D3DSHADER_COMPARISON(5i32);
 pub const D3DSPC_LE: D3DSHADER_COMPARISON = D3DSHADER_COMPARISON(6i32);
 pub const D3DSPC_RESERVED1: D3DSHADER_COMPARISON = D3DSHADER_COMPARISON(7i32);
+impl ::core::marker::Copy for D3DSHADER_COMPARISON {}
+impl ::core::clone::Clone for D3DSHADER_COMPARISON {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const D3DSHADER_COMPARISON_SHIFT: u32 = 16u32;
 #[repr(transparent)]
 pub struct D3DSHADER_INSTRUCTION_OPCODE_TYPE(pub i32);
@@ -1060,15 +2211,33 @@ pub const D3DSIO_PHASE: D3DSHADER_INSTRUCTION_OPCODE_TYPE = D3DSHADER_INSTRUCTIO
 pub const D3DSIO_COMMENT: D3DSHADER_INSTRUCTION_OPCODE_TYPE = D3DSHADER_INSTRUCTION_OPCODE_TYPE(65534i32);
 pub const D3DSIO_END: D3DSHADER_INSTRUCTION_OPCODE_TYPE = D3DSHADER_INSTRUCTION_OPCODE_TYPE(65535i32);
 pub const D3DSIO_FORCE_DWORD: D3DSHADER_INSTRUCTION_OPCODE_TYPE = D3DSHADER_INSTRUCTION_OPCODE_TYPE(2147483647i32);
+impl ::core::marker::Copy for D3DSHADER_INSTRUCTION_OPCODE_TYPE {}
+impl ::core::clone::Clone for D3DSHADER_INSTRUCTION_OPCODE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3DSHADER_MIN_PRECISION(pub i32);
 pub const D3DMP_DEFAULT: D3DSHADER_MIN_PRECISION = D3DSHADER_MIN_PRECISION(0i32);
 pub const D3DMP_16: D3DSHADER_MIN_PRECISION = D3DSHADER_MIN_PRECISION(1i32);
 pub const D3DMP_2_8: D3DSHADER_MIN_PRECISION = D3DSHADER_MIN_PRECISION(2i32);
+impl ::core::marker::Copy for D3DSHADER_MIN_PRECISION {}
+impl ::core::clone::Clone for D3DSHADER_MIN_PRECISION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3DSHADER_MISCTYPE_OFFSETS(pub i32);
 pub const D3DSMO_POSITION: D3DSHADER_MISCTYPE_OFFSETS = D3DSHADER_MISCTYPE_OFFSETS(0i32);
 pub const D3DSMO_FACE: D3DSHADER_MISCTYPE_OFFSETS = D3DSHADER_MISCTYPE_OFFSETS(1i32);
+impl ::core::marker::Copy for D3DSHADER_MISCTYPE_OFFSETS {}
+impl ::core::clone::Clone for D3DSHADER_MISCTYPE_OFFSETS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3DSHADER_PARAM_REGISTER_TYPE(pub i32);
 pub const D3DSPR_TEMP: D3DSHADER_PARAM_REGISTER_TYPE = D3DSHADER_PARAM_REGISTER_TYPE(0i32);
@@ -1094,6 +2263,12 @@ pub const D3DSPR_MISCTYPE: D3DSHADER_PARAM_REGISTER_TYPE = D3DSHADER_PARAM_REGIS
 pub const D3DSPR_LABEL: D3DSHADER_PARAM_REGISTER_TYPE = D3DSHADER_PARAM_REGISTER_TYPE(18i32);
 pub const D3DSPR_PREDICATE: D3DSHADER_PARAM_REGISTER_TYPE = D3DSHADER_PARAM_REGISTER_TYPE(19i32);
 pub const D3DSPR_FORCE_DWORD: D3DSHADER_PARAM_REGISTER_TYPE = D3DSHADER_PARAM_REGISTER_TYPE(2147483647i32);
+impl ::core::marker::Copy for D3DSHADER_PARAM_REGISTER_TYPE {}
+impl ::core::clone::Clone for D3DSHADER_PARAM_REGISTER_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3DSHADER_PARAM_SRCMOD_TYPE(pub i32);
 pub const D3DSPSM_NONE: D3DSHADER_PARAM_SRCMOD_TYPE = D3DSHADER_PARAM_SRCMOD_TYPE(0i32);
@@ -1111,6 +2286,12 @@ pub const D3DSPSM_ABS: D3DSHADER_PARAM_SRCMOD_TYPE = D3DSHADER_PARAM_SRCMOD_TYPE
 pub const D3DSPSM_ABSNEG: D3DSHADER_PARAM_SRCMOD_TYPE = D3DSHADER_PARAM_SRCMOD_TYPE(201326592i32);
 pub const D3DSPSM_NOT: D3DSHADER_PARAM_SRCMOD_TYPE = D3DSHADER_PARAM_SRCMOD_TYPE(218103808i32);
 pub const D3DSPSM_FORCE_DWORD: D3DSHADER_PARAM_SRCMOD_TYPE = D3DSHADER_PARAM_SRCMOD_TYPE(2147483647i32);
+impl ::core::marker::Copy for D3DSHADER_PARAM_SRCMOD_TYPE {}
+impl ::core::clone::Clone for D3DSHADER_PARAM_SRCMOD_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const D3DSI_COISSUE: u32 = 1073741824u32;
 pub const D3DSI_COMMENTSIZE_MASK: u32 = 2147418112u32;
 pub const D3DSI_COMMENTSIZE_SHIFT: u32 = 16u32;
@@ -1152,6 +2333,12 @@ pub const D3DSBT_ALL: D3DSTATEBLOCKTYPE = D3DSTATEBLOCKTYPE(1i32);
 pub const D3DSBT_PIXELSTATE: D3DSTATEBLOCKTYPE = D3DSTATEBLOCKTYPE(2i32);
 pub const D3DSBT_VERTEXSTATE: D3DSTATEBLOCKTYPE = D3DSTATEBLOCKTYPE(3i32);
 pub const D3DSBT_FORCE_DWORD: D3DSTATEBLOCKTYPE = D3DSTATEBLOCKTYPE(2147483647i32);
+impl ::core::marker::Copy for D3DSTATEBLOCKTYPE {}
+impl ::core::clone::Clone for D3DSTATEBLOCKTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const D3DSTENCILCAPS_TWOSIDED: i32 = 256i32;
 #[repr(transparent)]
 pub struct D3DSTENCILOP(pub u32);
@@ -1164,10 +2351,31 @@ pub const D3DSTENCILOP_INVERT: D3DSTENCILOP = D3DSTENCILOP(6u32);
 pub const D3DSTENCILOP_INCR: D3DSTENCILOP = D3DSTENCILOP(7u32);
 pub const D3DSTENCILOP_DECR: D3DSTENCILOP = D3DSTENCILOP(8u32);
 pub const D3DSTENCILOP_FORCE_DWORD: D3DSTENCILOP = D3DSTENCILOP(2147483647u32);
+impl ::core::marker::Copy for D3DSTENCILOP {}
+impl ::core::clone::Clone for D3DSTENCILOP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const D3DSTREAMSOURCE_INDEXEDDATA: u32 = 1073741824u32;
 pub const D3DSTREAMSOURCE_INSTANCEDATA: u32 = 2147483648u32;
 #[repr(C)]
-pub struct D3DSURFACE_DESC(i32);
+pub struct D3DSURFACE_DESC {
+    pub Format: D3DFORMAT,
+    pub Type: D3DRESOURCETYPE,
+    pub Usage: u32,
+    pub Pool: D3DPOOL,
+    pub MultiSampleType: D3DMULTISAMPLE_TYPE,
+    pub MultiSampleQuality: u32,
+    pub Width: u32,
+    pub Height: u32,
+}
+impl ::core::marker::Copy for D3DSURFACE_DESC {}
+impl ::core::clone::Clone for D3DSURFACE_DESC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3DSWAPEFFECT(pub u32);
 pub const D3DSWAPEFFECT_DISCARD: D3DSWAPEFFECT = D3DSWAPEFFECT(1u32);
@@ -1176,6 +2384,12 @@ pub const D3DSWAPEFFECT_COPY: D3DSWAPEFFECT = D3DSWAPEFFECT(3u32);
 pub const D3DSWAPEFFECT_OVERLAY: D3DSWAPEFFECT = D3DSWAPEFFECT(4u32);
 pub const D3DSWAPEFFECT_FLIPEX: D3DSWAPEFFECT = D3DSWAPEFFECT(5u32);
 pub const D3DSWAPEFFECT_FORCE_DWORD: D3DSWAPEFFECT = D3DSWAPEFFECT(2147483647u32);
+impl ::core::marker::Copy for D3DSWAPEFFECT {}
+impl ::core::clone::Clone for D3DSWAPEFFECT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const D3DTA_CONSTANT: u32 = 6u32;
 pub const D3DTA_TEMP: u32 = 5u32;
 pub const D3DTEXOPCAPS_LERP: i32 = 33554432i32;
@@ -1188,6 +2402,12 @@ pub const D3DTADDRESS_CLAMP: D3DTEXTUREADDRESS = D3DTEXTUREADDRESS(3i32);
 pub const D3DTADDRESS_BORDER: D3DTEXTUREADDRESS = D3DTEXTUREADDRESS(4i32);
 pub const D3DTADDRESS_MIRRORONCE: D3DTEXTUREADDRESS = D3DTEXTUREADDRESS(5i32);
 pub const D3DTADDRESS_FORCE_DWORD: D3DTEXTUREADDRESS = D3DTEXTUREADDRESS(2147483647i32);
+impl ::core::marker::Copy for D3DTEXTUREADDRESS {}
+impl ::core::clone::Clone for D3DTEXTUREADDRESS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3DTEXTUREFILTERTYPE(pub i32);
 pub const D3DTEXF_NONE: D3DTEXTUREFILTERTYPE = D3DTEXTUREFILTERTYPE(0i32);
@@ -1198,6 +2418,12 @@ pub const D3DTEXF_PYRAMIDALQUAD: D3DTEXTUREFILTERTYPE = D3DTEXTUREFILTERTYPE(6i3
 pub const D3DTEXF_GAUSSIANQUAD: D3DTEXTUREFILTERTYPE = D3DTEXTUREFILTERTYPE(7i32);
 pub const D3DTEXF_CONVOLUTIONMONO: D3DTEXTUREFILTERTYPE = D3DTEXTUREFILTERTYPE(8i32);
 pub const D3DTEXF_FORCE_DWORD: D3DTEXTUREFILTERTYPE = D3DTEXTUREFILTERTYPE(2147483647i32);
+impl ::core::marker::Copy for D3DTEXTUREFILTERTYPE {}
+impl ::core::clone::Clone for D3DTEXTUREFILTERTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3DTEXTUREOP(pub i32);
 pub const D3DTOP_DISABLE: D3DTEXTUREOP = D3DTEXTUREOP(1i32);
@@ -1227,6 +2453,12 @@ pub const D3DTOP_DOTPRODUCT3: D3DTEXTUREOP = D3DTEXTUREOP(24i32);
 pub const D3DTOP_MULTIPLYADD: D3DTEXTUREOP = D3DTEXTUREOP(25i32);
 pub const D3DTOP_LERP: D3DTEXTUREOP = D3DTEXTUREOP(26i32);
 pub const D3DTOP_FORCE_DWORD: D3DTEXTUREOP = D3DTEXTUREOP(2147483647i32);
+impl ::core::marker::Copy for D3DTEXTUREOP {}
+impl ::core::clone::Clone for D3DTEXTUREOP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3DTEXTURESTAGESTATETYPE(pub i32);
 pub const D3DTSS_COLOROP: D3DTEXTURESTAGESTATETYPE = D3DTEXTURESTAGESTATETYPE(1i32);
@@ -1248,6 +2480,12 @@ pub const D3DTSS_ALPHAARG0: D3DTEXTURESTAGESTATETYPE = D3DTEXTURESTAGESTATETYPE(
 pub const D3DTSS_RESULTARG: D3DTEXTURESTAGESTATETYPE = D3DTEXTURESTAGESTATETYPE(28i32);
 pub const D3DTSS_CONSTANT: D3DTEXTURESTAGESTATETYPE = D3DTEXTURESTAGESTATETYPE(32i32);
 pub const D3DTSS_FORCE_DWORD: D3DTEXTURESTAGESTATETYPE = D3DTEXTURESTAGESTATETYPE(2147483647i32);
+impl ::core::marker::Copy for D3DTEXTURESTAGESTATETYPE {}
+impl ::core::clone::Clone for D3DTEXTURESTAGESTATETYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3DTEXTURETRANSFORMFLAGS(pub i32);
 pub const D3DTTFF_DISABLE: D3DTEXTURETRANSFORMFLAGS = D3DTEXTURETRANSFORMFLAGS(0i32);
@@ -1257,6 +2495,12 @@ pub const D3DTTFF_COUNT3: D3DTEXTURETRANSFORMFLAGS = D3DTEXTURETRANSFORMFLAGS(3i
 pub const D3DTTFF_COUNT4: D3DTEXTURETRANSFORMFLAGS = D3DTEXTURETRANSFORMFLAGS(4i32);
 pub const D3DTTFF_PROJECTED: D3DTEXTURETRANSFORMFLAGS = D3DTEXTURETRANSFORMFLAGS(256i32);
 pub const D3DTTFF_FORCE_DWORD: D3DTEXTURETRANSFORMFLAGS = D3DTEXTURETRANSFORMFLAGS(2147483647i32);
+impl ::core::marker::Copy for D3DTEXTURETRANSFORMFLAGS {}
+impl ::core::clone::Clone for D3DTEXTURETRANSFORMFLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3DTRANSFORMSTATETYPE(pub i32);
 pub const D3DTS_VIEW: D3DTRANSFORMSTATETYPE = D3DTRANSFORMSTATETYPE(2i32);
@@ -1270,8 +2514,25 @@ pub const D3DTS_TEXTURE5: D3DTRANSFORMSTATETYPE = D3DTRANSFORMSTATETYPE(21i32);
 pub const D3DTS_TEXTURE6: D3DTRANSFORMSTATETYPE = D3DTRANSFORMSTATETYPE(22i32);
 pub const D3DTS_TEXTURE7: D3DTRANSFORMSTATETYPE = D3DTRANSFORMSTATETYPE(23i32);
 pub const D3DTS_FORCE_DWORD: D3DTRANSFORMSTATETYPE = D3DTRANSFORMSTATETYPE(2147483647i32);
+impl ::core::marker::Copy for D3DTRANSFORMSTATETYPE {}
+impl ::core::clone::Clone for D3DTRANSFORMSTATETYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3DTRIPATCH_INFO(i32);
+pub struct D3DTRIPATCH_INFO {
+    pub StartVertexOffset: u32,
+    pub NumVertices: u32,
+    pub Basis: D3DBASISTYPE,
+    pub Degree: D3DDEGREETYPE,
+}
+impl ::core::marker::Copy for D3DTRIPATCH_INFO {}
+impl ::core::clone::Clone for D3DTRIPATCH_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const D3DTSS_TCI_SPHEREMAP: u32 = 262144u32;
 pub const D3DUSAGE_AUTOGENMIPMAP: i32 = 1024i32;
 pub const D3DUSAGE_DEPTHSTENCIL: i32 = 2i32;
@@ -1305,18 +2566,77 @@ pub const D3DVBF_3WEIGHTS: D3DVERTEXBLENDFLAGS = D3DVERTEXBLENDFLAGS(3i32);
 pub const D3DVBF_TWEENING: D3DVERTEXBLENDFLAGS = D3DVERTEXBLENDFLAGS(255i32);
 pub const D3DVBF_0WEIGHTS: D3DVERTEXBLENDFLAGS = D3DVERTEXBLENDFLAGS(256i32);
 pub const D3DVBF_FORCE_DWORD: D3DVERTEXBLENDFLAGS = D3DVERTEXBLENDFLAGS(2147483647i32);
+impl ::core::marker::Copy for D3DVERTEXBLENDFLAGS {}
+impl ::core::clone::Clone for D3DVERTEXBLENDFLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3DVERTEXBUFFER_DESC(i32);
+pub struct D3DVERTEXBUFFER_DESC {
+    pub Format: D3DFORMAT,
+    pub Type: D3DRESOURCETYPE,
+    pub Usage: u32,
+    pub Pool: D3DPOOL,
+    pub Size: u32,
+    pub FVF: u32,
+}
+impl ::core::marker::Copy for D3DVERTEXBUFFER_DESC {}
+impl ::core::clone::Clone for D3DVERTEXBUFFER_DESC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3DVERTEXELEMENT9(i32);
+pub struct D3DVERTEXELEMENT9 {
+    pub Stream: u16,
+    pub Offset: u16,
+    pub Type: u8,
+    pub Method: u8,
+    pub Usage: u8,
+    pub UsageIndex: u8,
+}
+impl ::core::marker::Copy for D3DVERTEXELEMENT9 {}
+impl ::core::clone::Clone for D3DVERTEXELEMENT9 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const D3DVERTEXTEXTURESAMPLER0: u32 = 257u32;
 pub const D3DVERTEXTEXTURESAMPLER1: u32 = 258u32;
 pub const D3DVERTEXTEXTURESAMPLER2: u32 = 259u32;
 pub const D3DVERTEXTEXTURESAMPLER3: u32 = 260u32;
 #[repr(C)]
-pub struct D3DVIEWPORT9(i32);
+pub struct D3DVIEWPORT9 {
+    pub X: u32,
+    pub Y: u32,
+    pub Width: u32,
+    pub Height: u32,
+    pub MinZ: f32,
+    pub MaxZ: f32,
+}
+impl ::core::marker::Copy for D3DVIEWPORT9 {}
+impl ::core::clone::Clone for D3DVIEWPORT9 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3DVOLUME_DESC(i32);
+pub struct D3DVOLUME_DESC {
+    pub Format: D3DFORMAT,
+    pub Type: D3DRESOURCETYPE,
+    pub Usage: u32,
+    pub Pool: D3DPOOL,
+    pub Width: u32,
+    pub Height: u32,
+    pub Depth: u32,
+}
+impl ::core::marker::Copy for D3DVOLUME_DESC {}
+impl ::core::clone::Clone for D3DVOLUME_DESC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const D3DVS20CAPS_PREDICATION: u32 = 1u32;
 pub const D3DVS20_MAX_DYNAMICFLOWCONTROLDEPTH: u32 = 24u32;
 pub const D3DVS20_MAX_NUMTEMPS: u32 = 32u32;
@@ -1325,19 +2645,42 @@ pub const D3DVS20_MIN_DYNAMICFLOWCONTROLDEPTH: u32 = 0u32;
 pub const D3DVS20_MIN_NUMTEMPS: u32 = 12u32;
 pub const D3DVS20_MIN_STATICFLOWCONTROLDEPTH: u32 = 1u32;
 #[repr(C)]
-pub struct D3DVSHADERCAPS2_0(i32);
+pub struct D3DVSHADERCAPS2_0 {
+    pub Caps: u32,
+    pub DynamicFlowControlDepth: i32,
+    pub NumTemps: i32,
+    pub StaticFlowControlDepth: i32,
+}
+impl ::core::marker::Copy for D3DVSHADERCAPS2_0 {}
+impl ::core::clone::Clone for D3DVSHADERCAPS2_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const D3DVS_ADDRESSMODE_SHIFT: u32 = 13u32;
 #[repr(transparent)]
 pub struct D3DVS_ADDRESSMODE_TYPE(pub i32);
 pub const D3DVS_ADDRMODE_ABSOLUTE: D3DVS_ADDRESSMODE_TYPE = D3DVS_ADDRESSMODE_TYPE(0i32);
 pub const D3DVS_ADDRMODE_RELATIVE: D3DVS_ADDRESSMODE_TYPE = D3DVS_ADDRESSMODE_TYPE(8192i32);
 pub const D3DVS_ADDRMODE_FORCE_DWORD: D3DVS_ADDRESSMODE_TYPE = D3DVS_ADDRESSMODE_TYPE(2147483647i32);
+impl ::core::marker::Copy for D3DVS_ADDRESSMODE_TYPE {}
+impl ::core::clone::Clone for D3DVS_ADDRESSMODE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3DVS_RASTOUT_OFFSETS(pub i32);
 pub const D3DSRO_POSITION: D3DVS_RASTOUT_OFFSETS = D3DVS_RASTOUT_OFFSETS(0i32);
 pub const D3DSRO_FOG: D3DVS_RASTOUT_OFFSETS = D3DVS_RASTOUT_OFFSETS(1i32);
 pub const D3DSRO_POINT_SIZE: D3DVS_RASTOUT_OFFSETS = D3DVS_RASTOUT_OFFSETS(2i32);
 pub const D3DSRO_FORCE_DWORD: D3DVS_RASTOUT_OFFSETS = D3DVS_RASTOUT_OFFSETS(2147483647i32);
+impl ::core::marker::Copy for D3DVS_RASTOUT_OFFSETS {}
+impl ::core::clone::Clone for D3DVS_RASTOUT_OFFSETS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const D3DVS_SWIZZLE_MASK: u32 = 16711680u32;
 pub const D3DVS_SWIZZLE_SHIFT: u32 = 16u32;
 pub const D3DVTXPCAPS_NO_TEXGEN_NONLOCALVIEWER: i32 = 512i32;
@@ -1350,9 +2693,23 @@ pub const D3DZB_FALSE: D3DZBUFFERTYPE = D3DZBUFFERTYPE(0i32);
 pub const D3DZB_TRUE: D3DZBUFFERTYPE = D3DZBUFFERTYPE(1i32);
 pub const D3DZB_USEW: D3DZBUFFERTYPE = D3DZBUFFERTYPE(2i32);
 pub const D3DZB_FORCE_DWORD: D3DZBUFFERTYPE = D3DZBUFFERTYPE(2147483647i32);
+impl ::core::marker::Copy for D3DZBUFFERTYPE {}
+impl ::core::clone::Clone for D3DZBUFFERTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const D3D_MAX_SIMULTANEOUS_RENDERTARGETS: u32 = 4u32;
 #[repr(C)]
-pub struct D3D_OMAC(i32);
+pub struct D3D_OMAC {
+    pub Omac: [u8; 16],
+}
+impl ::core::marker::Copy for D3D_OMAC {}
+impl ::core::clone::Clone for D3D_OMAC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const D3D_OMAC_SIZE: u32 = 16u32;
 pub const D3D_SDK_VERSION: u32 = 32u32;
 #[repr(transparent)]

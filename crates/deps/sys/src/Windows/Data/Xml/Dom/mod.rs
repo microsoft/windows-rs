@@ -68,6 +68,12 @@ impl NodeType {
     pub const DocumentFragmentNode: Self = Self(11i32);
     pub const NotationNode: Self = Self(12i32);
 }
+impl ::core::marker::Copy for NodeType {}
+impl ::core::clone::Clone for NodeType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct XmlAttribute(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

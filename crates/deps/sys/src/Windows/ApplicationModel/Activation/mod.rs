@@ -1,10 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {}
-#[repr(C)]
-pub struct ActivatedEventsContract(i32);
-#[repr(C)]
-pub struct ActivationCameraSettingsContract(i32);
 #[repr(transparent)]
 pub struct ActivationKind(pub i32);
 impl ActivationKind {
@@ -53,6 +49,12 @@ impl ActivationKind {
     pub const PhoneCallActivation: Self = Self(1025i32);
     pub const VpnForeground: Self = Self(1026i32);
 }
+impl ::core::marker::Copy for ActivationKind {}
+impl ::core::clone::Clone for ActivationKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ApplicationExecutionState(pub i32);
 impl ApplicationExecutionState {
@@ -61,6 +63,12 @@ impl ApplicationExecutionState {
     pub const Suspended: Self = Self(2i32);
     pub const Terminated: Self = Self(3i32);
     pub const ClosedByUser: Self = Self(4i32);
+}
+impl ::core::marker::Copy for ApplicationExecutionState {}
+impl ::core::clone::Clone for ApplicationExecutionState {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct AppointmentsProviderAddAppointmentActivatedEventArgs(pub *mut ::core::ffi::c_void);
@@ -84,8 +92,6 @@ pub struct CameraSettingsActivatedEventArgs(pub *mut ::core::ffi::c_void);
 pub struct CommandLineActivatedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct CommandLineActivationOperation(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct ContactActivatedEventsContract(i32);
 #[repr(transparent)]
 pub struct ContactCallActivatedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -290,5 +296,3 @@ pub struct WalletActionActivatedEventArgs(pub *mut ::core::ffi::c_void);
 pub struct WebAccountProviderActivatedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct WebAuthenticationBrokerContinuationEventArgs(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct WebUISearchActivatedEventsContract(i32);

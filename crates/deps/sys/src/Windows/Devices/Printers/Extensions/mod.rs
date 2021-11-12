@@ -1,8 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {}
-#[repr(C)]
-pub struct ExtensionsContract(i32);
 #[repr(transparent)]
 pub struct IPrint3DWorkflow(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -36,6 +34,12 @@ impl Print3DWorkflowDetail {
     pub const ModelNotManifold: Self = Self(5i32);
     pub const InvalidPrintTicket: Self = Self(6i32);
 }
+impl ::core::marker::Copy for Print3DWorkflowDetail {}
+impl ::core::clone::Clone for Print3DWorkflowDetail {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct Print3DWorkflowPrintRequestedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -48,6 +52,12 @@ impl Print3DWorkflowStatus {
     pub const Failed: Self = Self(2i32);
     pub const Slicing: Self = Self(3i32);
     pub const Submitted: Self = Self(4i32);
+}
+impl ::core::marker::Copy for Print3DWorkflowStatus {}
+impl ::core::clone::Clone for Print3DWorkflowStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct PrintNotificationEventDetails(pub *mut ::core::ffi::c_void);

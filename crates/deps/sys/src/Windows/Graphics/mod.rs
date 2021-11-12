@@ -18,14 +18,60 @@ pub mod Printing3D;
 #[link(name = "windows")]
 extern "system" {}
 #[repr(C)]
-pub struct DisplayAdapterId(i32);
+pub struct DisplayAdapterId {
+    pub LowPart: u32,
+    pub HighPart: i32,
+}
+impl ::core::marker::Copy for DisplayAdapterId {}
+impl ::core::clone::Clone for DisplayAdapterId {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DisplayId(i32);
+pub struct DisplayId {
+    pub Value: u64,
+}
+impl ::core::marker::Copy for DisplayId {}
+impl ::core::clone::Clone for DisplayId {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGeometrySource2D(pub *mut ::core::ffi::c_void);
 #[repr(C)]
-pub struct PointInt32(i32);
+pub struct PointInt32 {
+    pub X: i32,
+    pub Y: i32,
+}
+impl ::core::marker::Copy for PointInt32 {}
+impl ::core::clone::Clone for PointInt32 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct RectInt32(i32);
+pub struct RectInt32 {
+    pub X: i32,
+    pub Y: i32,
+    pub Width: i32,
+    pub Height: i32,
+}
+impl ::core::marker::Copy for RectInt32 {}
+impl ::core::clone::Clone for RectInt32 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct SizeInt32(i32);
+pub struct SizeInt32 {
+    pub Width: i32,
+    pub Height: i32,
+}
+impl ::core::marker::Copy for SizeInt32 {}
+impl ::core::clone::Clone for SizeInt32 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

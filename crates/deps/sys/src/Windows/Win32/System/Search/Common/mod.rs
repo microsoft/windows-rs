@@ -18,9 +18,21 @@ pub const COP_DOSWILDCARDS: CONDITION_OPERATION = CONDITION_OPERATION(11i32);
 pub const COP_WORD_EQUAL: CONDITION_OPERATION = CONDITION_OPERATION(12i32);
 pub const COP_WORD_STARTSWITH: CONDITION_OPERATION = CONDITION_OPERATION(13i32);
 pub const COP_APPLICATION_SPECIFIC: CONDITION_OPERATION = CONDITION_OPERATION(14i32);
+impl ::core::marker::Copy for CONDITION_OPERATION {}
+impl ::core::clone::Clone for CONDITION_OPERATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CONDITION_TYPE(pub i32);
 pub const CT_AND_CONDITION: CONDITION_TYPE = CONDITION_TYPE(0i32);
 pub const CT_OR_CONDITION: CONDITION_TYPE = CONDITION_TYPE(1i32);
 pub const CT_NOT_CONDITION: CONDITION_TYPE = CONDITION_TYPE(2i32);
 pub const CT_LEAF_CONDITION: CONDITION_TYPE = CONDITION_TYPE(3i32);
+impl ::core::marker::Copy for CONDITION_TYPE {}
+impl ::core::clone::Clone for CONDITION_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

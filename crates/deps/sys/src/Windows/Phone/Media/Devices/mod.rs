@@ -13,6 +13,12 @@ impl AudioRoutingEndpoint {
     pub const BluetoothWithNoiseAndEchoCancellation: Self = Self(6i32);
     pub const BluetoothPreferred: Self = Self(7i32);
 }
+impl ::core::marker::Copy for AudioRoutingEndpoint {}
+impl ::core::clone::Clone for AudioRoutingEndpoint {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AudioRoutingManager(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -22,6 +28,12 @@ impl AvailableAudioRoutingEndpoints {
     pub const Earpiece: Self = Self(1u32);
     pub const Speakerphone: Self = Self(2u32);
     pub const Bluetooth: Self = Self(4u32);
+}
+impl ::core::marker::Copy for AvailableAudioRoutingEndpoints {}
+impl ::core::clone::Clone for AvailableAudioRoutingEndpoints {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct IAudioRoutingManager(pub *mut ::core::ffi::c_void);

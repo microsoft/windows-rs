@@ -19,6 +19,3 @@ pub mod StartScreen;
 pub mod System;
 #[cfg(feature = "Phone_UI")]
 pub mod UI;
-#[repr(C)]
-#[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
-pub struct PhoneContract(pub u8);

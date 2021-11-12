@@ -27,3 +27,9 @@ impl PdfPageRotation {
     pub const Rotate180: Self = Self(2i32);
     pub const Rotate270: Self = Self(3i32);
 }
+impl ::core::marker::Copy for PdfPageRotation {}
+impl ::core::clone::Clone for PdfPageRotation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

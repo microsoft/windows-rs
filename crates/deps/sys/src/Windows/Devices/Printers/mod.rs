@@ -42,6 +42,12 @@ impl IppAttributeErrorReason {
     pub const AttributeNotSettable: Self = Self(3i32);
     pub const ConflictingAttributes: Self = Self(4i32);
 }
+impl ::core::marker::Copy for IppAttributeErrorReason {}
+impl ::core::clone::Clone for IppAttributeErrorReason {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IppAttributeValue(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -69,6 +75,12 @@ impl IppAttributeValueKind {
     pub const NaturalLanguage: Self = Self(19i32);
     pub const MimeMediaType: Self = Self(20i32);
 }
+impl ::core::marker::Copy for IppAttributeValueKind {}
+impl ::core::clone::Clone for IppAttributeValueKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IppIntegerRange(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -81,6 +93,12 @@ impl IppResolutionUnit {
     pub const DotsPerInch: Self = Self(0i32);
     pub const DotsPerCentimeter: Self = Self(1i32);
 }
+impl ::core::marker::Copy for IppResolutionUnit {}
+impl ::core::clone::Clone for IppResolutionUnit {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IppSetAttributesResult(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -89,5 +107,3 @@ pub struct IppTextWithLanguage(pub *mut ::core::ffi::c_void);
 pub struct Print3DDevice(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct PrintSchema(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct PrintersContract(i32);

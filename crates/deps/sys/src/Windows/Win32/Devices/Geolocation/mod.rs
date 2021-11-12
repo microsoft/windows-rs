@@ -3,16 +3,21 @@
 extern "system" {}
 pub const BREADCRUMBING_UNSUPPORTED: u32 = 0u32;
 pub const BREADCRUMBING_VERSION_1: u32 = 1u32;
-#[repr(C)]
-pub struct CivicAddressReport(i32);
-#[repr(C)]
-pub struct CivicAddressReportFactory(i32);
-#[repr(C)]
-pub struct DefaultLocation(i32);
-#[repr(C)]
-pub struct DispCivicAddressReport(i32);
-#[repr(C)]
-pub struct DispLatLongReport(i32);
+pub const CivicAddressReport: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3550378973, data2: 32005, data3: 18104, data4: [135, 33, 128, 207, 3, 95, 87, 215] };
+pub const CivicAddressReportFactory: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 705819692, data2: 16001, data3: 19156, data4: [156, 190, 69, 87, 157, 137, 103, 26] };
+pub const DefaultLocation: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2340405216, data2: 23767, data3: 18762, data4: [175, 140, 40, 58, 101, 112, 117, 6] };
+pub const DispCivicAddressReport: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1280928492,
+    data2: 34116,
+    data3: 16514,
+    data4: [186, 159, 235, 10, 125, 142, 101, 198],
+};
+pub const DispLatLongReport: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2054959735,
+    data2: 36740,
+    data3: 17974,
+    data4: [149, 178, 235, 181, 80, 127, 247, 126],
+};
 pub const GNSS_AGNSSFORMAT_LTO: u32 = 4u32;
 pub const GNSS_AGNSSFORMAT_XTRA1: u32 = 1u32;
 pub const GNSS_AGNSSFORMAT_XTRA2: u32 = 2u32;
@@ -20,49 +25,314 @@ pub const GNSS_AGNSSFORMAT_XTRA3: u32 = 8u32;
 pub const GNSS_AGNSSFORMAT_XTRA3_1: u32 = 16u32;
 pub const GNSS_AGNSSFORMAT_XTRA3_2: u32 = 32u32;
 pub const GNSS_AGNSSFORMAT_XTRA_INT: u32 = 64u32;
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct GNSS_AGNSS_INJECT(i32);
-#[repr(C)]
-pub struct GNSS_AGNSS_INJECTBLOB(i32);
-#[repr(C)]
-pub struct GNSS_AGNSS_INJECTPOSITION(i32);
+pub struct GNSS_AGNSS_INJECT {
+    pub Size: u32,
+    pub Version: u32,
+    pub InjectionType: GNSS_AGNSS_REQUEST_TYPE,
+    pub InjectionStatus: super::super::Foundation::NTSTATUS,
+    pub InjectionDataSize: u32,
+    pub Unused: [u8; 512],
+    pub Anonymous: GNSS_AGNSS_INJECT_0,
+}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for GNSS_AGNSS_INJECT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for GNSS_AGNSS_INJECT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct GNSS_AGNSS_INJECTTIME(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub union GNSS_AGNSS_INJECT_0 {
+    pub Time: GNSS_AGNSS_INJECTTIME,
+    pub Position: GNSS_AGNSS_INJECTPOSITION,
+    pub BlobData: GNSS_AGNSS_INJECTBLOB,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for GNSS_AGNSS_INJECT_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for GNSS_AGNSS_INJECT_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct GNSS_AGNSS_REQUEST_PARAM(i32);
+pub struct GNSS_AGNSS_INJECTBLOB {
+    pub Size: u32,
+    pub Version: u32,
+    pub BlobOui: u32,
+    pub BlobVersion: u32,
+    pub AgnssFormat: u32,
+    pub BlobSize: u32,
+    pub BlobData: [u8; 1],
+}
+impl ::core::marker::Copy for GNSS_AGNSS_INJECTBLOB {}
+impl ::core::clone::Clone for GNSS_AGNSS_INJECTBLOB {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct GNSS_AGNSS_INJECTPOSITION {
+    pub Size: u32,
+    pub Version: u32,
+    pub Age: u32,
+    pub BasicData: GNSS_FIXDATA_BASIC,
+    pub AccuracyData: GNSS_FIXDATA_ACCURACY,
+}
+impl ::core::marker::Copy for GNSS_AGNSS_INJECTPOSITION {}
+impl ::core::clone::Clone for GNSS_AGNSS_INJECTPOSITION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct GNSS_AGNSS_INJECTTIME {
+    pub Size: u32,
+    pub Version: u32,
+    pub UtcTime: super::super::Foundation::FILETIME,
+    pub TimeUncertainty: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for GNSS_AGNSS_INJECTTIME {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for GNSS_AGNSS_INJECTTIME {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct GNSS_AGNSS_REQUEST_PARAM {
+    pub Size: u32,
+    pub Version: u32,
+    pub RequestType: GNSS_AGNSS_REQUEST_TYPE,
+    pub BlobFormat: u32,
+}
+impl ::core::marker::Copy for GNSS_AGNSS_REQUEST_PARAM {}
+impl ::core::clone::Clone for GNSS_AGNSS_REQUEST_PARAM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct GNSS_AGNSS_REQUEST_TYPE(pub i32);
 pub const GNSS_AGNSS_TimeInjection: GNSS_AGNSS_REQUEST_TYPE = GNSS_AGNSS_REQUEST_TYPE(1i32);
 pub const GNSS_AGNSS_PositionInjection: GNSS_AGNSS_REQUEST_TYPE = GNSS_AGNSS_REQUEST_TYPE(2i32);
 pub const GNSS_AGNSS_BlobInjection: GNSS_AGNSS_REQUEST_TYPE = GNSS_AGNSS_REQUEST_TYPE(3i32);
+impl ::core::marker::Copy for GNSS_AGNSS_REQUEST_TYPE {}
+impl ::core::clone::Clone for GNSS_AGNSS_REQUEST_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct GNSS_BREADCRUMBING_ALERT_DATA(i32);
+pub struct GNSS_BREADCRUMBING_ALERT_DATA {
+    pub Size: u32,
+    pub Version: u32,
+    pub Unused: [u8; 512],
+}
+impl ::core::marker::Copy for GNSS_BREADCRUMBING_ALERT_DATA {}
+impl ::core::clone::Clone for GNSS_BREADCRUMBING_ALERT_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct GNSS_BREADCRUMBING_PARAM(i32);
+pub struct GNSS_BREADCRUMBING_PARAM {
+    pub Size: u32,
+    pub Version: u32,
+    pub MaximumHorizontalUncertainty: u32,
+    pub MinDistanceBetweenFixes: u32,
+    pub MaximumErrorTimeoutMs: u32,
+    pub Unused: [u8; 512],
+}
+impl ::core::marker::Copy for GNSS_BREADCRUMBING_PARAM {}
+impl ::core::clone::Clone for GNSS_BREADCRUMBING_PARAM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct GNSS_BREADCRUMB_LIST(i32);
+pub struct GNSS_BREADCRUMB_LIST {
+    pub Size: u32,
+    pub Version: u32,
+    pub NumCrumbs: u32,
+    pub Anonymous: GNSS_BREADCRUMB_LIST_0,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct GNSS_BREADCRUMB_V1(i32);
-#[repr(C)]
-pub struct GNSS_CHIPSETINFO(i32);
-#[repr(C)]
-pub struct GNSS_CONTINUOUSTRACKING_PARAM(i32);
-#[repr(C)]
-pub struct GNSS_CP_NI_INFO(i32);
+impl ::core::marker::Copy for GNSS_BREADCRUMB_LIST {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for GNSS_BREADCRUMB_LIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct GNSS_CWTESTDATA(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub union GNSS_BREADCRUMB_LIST_0 {
+    pub v1: [GNSS_BREADCRUMB_V1; 50],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for GNSS_BREADCRUMB_LIST_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for GNSS_BREADCRUMB_LIST_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct GNSS_DEVICE_CAPABILITY(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct GNSS_BREADCRUMB_V1 {
+    pub FixTimeStamp: super::super::Foundation::FILETIME,
+    pub Latitude: f64,
+    pub Longitude: f64,
+    pub HorizontalAccuracy: u32,
+    pub Speed: u16,
+    pub SpeedAccuracy: u16,
+    pub Altitude: i16,
+    pub AltitudeAccuracy: u16,
+    pub Heading: i16,
+    pub HeadingAccuracy: u8,
+    pub FixSuccess: u8,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for GNSS_BREADCRUMB_V1 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for GNSS_BREADCRUMB_V1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct GNSS_DISTANCETRACKING_PARAM(i32);
+pub struct GNSS_CHIPSETINFO {
+    pub Size: u32,
+    pub Version: u32,
+    pub ManufacturerID: [u16; 25],
+    pub HardwareID: [u16; 25],
+    pub FirmwareVersion: [u16; 20],
+    pub Unused: [u8; 512],
+}
+impl ::core::marker::Copy for GNSS_CHIPSETINFO {}
+impl ::core::clone::Clone for GNSS_CHIPSETINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct GNSS_DRIVERCOMMAND_PARAM(i32);
+pub struct GNSS_CONTINUOUSTRACKING_PARAM {
+    pub Size: u32,
+    pub Version: u32,
+    pub PreferredInterval: u32,
+}
+impl ::core::marker::Copy for GNSS_CONTINUOUSTRACKING_PARAM {}
+impl ::core::clone::Clone for GNSS_CONTINUOUSTRACKING_PARAM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct GNSS_CP_NI_INFO {
+    pub Size: u32,
+    pub Version: u32,
+    pub RequestorId: [u16; 260],
+    pub NotificationText: [u16; 260],
+}
+impl ::core::marker::Copy for GNSS_CP_NI_INFO {}
+impl ::core::clone::Clone for GNSS_CP_NI_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct GNSS_CWTESTDATA {
+    pub Size: u32,
+    pub Version: u32,
+    pub TestResultStatus: super::super::Foundation::NTSTATUS,
+    pub SignalToNoiseRatio: f64,
+    pub Frequency: f64,
+    pub Unused: [u8; 512],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for GNSS_CWTESTDATA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for GNSS_CWTESTDATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct GNSS_DEVICE_CAPABILITY {
+    pub Size: u32,
+    pub Version: u32,
+    pub SupportMultipleFixSessions: super::super::Foundation::BOOL,
+    pub SupportMultipleAppSessions: super::super::Foundation::BOOL,
+    pub RequireAGnssInjection: super::super::Foundation::BOOL,
+    pub AgnssFormatSupported: u32,
+    pub AgnssFormatPreferred: u32,
+    pub SupportDistanceTracking: super::super::Foundation::BOOL,
+    pub SupportContinuousTracking: super::super::Foundation::BOOL,
+    pub Reserved1: u32,
+    pub Reserved2: super::super::Foundation::BOOL,
+    pub Reserved3: super::super::Foundation::BOOL,
+    pub Reserved4: super::super::Foundation::BOOL,
+    pub Reserved5: super::super::Foundation::BOOL,
+    pub GeofencingSupport: u32,
+    pub Reserved6: super::super::Foundation::BOOL,
+    pub Reserved7: super::super::Foundation::BOOL,
+    pub SupportCpLocation: super::super::Foundation::BOOL,
+    pub SupportUplV2: super::super::Foundation::BOOL,
+    pub SupportSuplV1: super::super::Foundation::BOOL,
+    pub SupportSuplV2: super::super::Foundation::BOOL,
+    pub SupportedSuplVersion: GNSS_SUPL_VERSION,
+    pub MaxGeofencesSupported: u32,
+    pub SupportMultipleSuplRootCert: super::super::Foundation::BOOL,
+    pub GnssBreadCrumbPayloadVersion: u32,
+    pub MaxGnssBreadCrumbFixes: u32,
+    pub Unused: [u8; 496],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for GNSS_DEVICE_CAPABILITY {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for GNSS_DEVICE_CAPABILITY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct GNSS_DISTANCETRACKING_PARAM {
+    pub Size: u32,
+    pub Version: u32,
+    pub MovementThreshold: u32,
+}
+impl ::core::marker::Copy for GNSS_DISTANCETRACKING_PARAM {}
+impl ::core::clone::Clone for GNSS_DISTANCETRACKING_PARAM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct GNSS_DRIVERCOMMAND_PARAM {
+    pub Size: u32,
+    pub Version: u32,
+    pub CommandType: GNSS_DRIVERCOMMAND_TYPE,
+    pub Reserved: u32,
+    pub CommandDataSize: u32,
+    pub Unused: [u8; 512],
+    pub CommandData: [u8; 1],
+}
+impl ::core::marker::Copy for GNSS_DRIVERCOMMAND_PARAM {}
+impl ::core::clone::Clone for GNSS_DRIVERCOMMAND_PARAM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct GNSS_DRIVERCOMMAND_TYPE(pub i32);
 pub const GNSS_SetLocationServiceEnabled: GNSS_DRIVERCOMMAND_TYPE = GNSS_DRIVERCOMMAND_TYPE(1i32);
@@ -78,26 +348,139 @@ pub const GNSS_SetNiTimeoutInterval: GNSS_DRIVERCOMMAND_TYPE = GNSS_DRIVERCOMMAN
 pub const GNSS_ResetGeofencesTracking: GNSS_DRIVERCOMMAND_TYPE = GNSS_DRIVERCOMMAND_TYPE(16i32);
 pub const GNSS_SetSuplVersion2: GNSS_DRIVERCOMMAND_TYPE = GNSS_DRIVERCOMMAND_TYPE(17i32);
 pub const GNSS_CustomCommand: GNSS_DRIVERCOMMAND_TYPE = GNSS_DRIVERCOMMAND_TYPE(256i32);
+impl ::core::marker::Copy for GNSS_DRIVERCOMMAND_TYPE {}
+impl ::core::clone::Clone for GNSS_DRIVERCOMMAND_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct GNSS_DRIVER_REQUEST(pub i32);
 pub const SUPL_CONFIG_DATA: GNSS_DRIVER_REQUEST = GNSS_DRIVER_REQUEST(1i32);
+impl ::core::marker::Copy for GNSS_DRIVER_REQUEST {}
+impl ::core::clone::Clone for GNSS_DRIVER_REQUEST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct GNSS_DRIVER_REQUEST_DATA(i32);
+pub struct GNSS_DRIVER_REQUEST_DATA {
+    pub Size: u32,
+    pub Version: u32,
+    pub Request: GNSS_DRIVER_REQUEST,
+    pub RequestFlag: u32,
+}
+impl ::core::marker::Copy for GNSS_DRIVER_REQUEST_DATA {}
+impl ::core::clone::Clone for GNSS_DRIVER_REQUEST_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const GNSS_DRIVER_VERSION_1: u32 = 1u32;
 pub const GNSS_DRIVER_VERSION_2: u32 = 2u32;
 pub const GNSS_DRIVER_VERSION_3: u32 = 3u32;
 pub const GNSS_DRIVER_VERSION_4: u32 = 4u32;
 pub const GNSS_DRIVER_VERSION_5: u32 = 5u32;
 pub const GNSS_DRIVER_VERSION_6: u32 = 6u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct GNSS_ERRORINFO(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct GNSS_EVENT(i32);
+pub struct GNSS_ERRORINFO {
+    pub Size: u32,
+    pub Version: u32,
+    pub ErrorCode: u32,
+    pub IsRecoverable: super::super::Foundation::BOOL,
+    pub ErrorDescription: [u16; 256],
+    pub Unused: [u8; 512],
+}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for GNSS_ERRORINFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for GNSS_ERRORINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct GNSS_EVENT_2(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct GNSS_EVENT {
+    pub Size: u32,
+    pub Version: u32,
+    pub EventType: GNSS_EVENT_TYPE,
+    pub EventDataSize: u32,
+    pub Unused: [u8; 512],
+    pub Anonymous: GNSS_EVENT_0,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for GNSS_EVENT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for GNSS_EVENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub union GNSS_EVENT_0 {
+    pub FixData: GNSS_FIXDATA,
+    pub AgnssRequest: GNSS_AGNSS_REQUEST_PARAM,
+    pub NiRequest: GNSS_NI_REQUEST_PARAM,
+    pub ErrorInformation: GNSS_ERRORINFO,
+    pub NmeaData: GNSS_NMEA_DATA,
+    pub GeofenceAlertData: GNSS_GEOFENCE_ALERT_DATA,
+    pub BreadcrumbAlertData: GNSS_BREADCRUMBING_ALERT_DATA,
+    pub GeofencesTrackingStatus: GNSS_GEOFENCES_TRACKINGSTATUS_DATA,
+    pub DriverRequestData: GNSS_DRIVER_REQUEST_DATA,
+    pub CustomData: [u8; 1],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for GNSS_EVENT_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for GNSS_EVENT_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct GNSS_EVENT_2 {
+    pub Size: u32,
+    pub Version: u32,
+    pub EventType: GNSS_EVENT_TYPE,
+    pub EventDataSize: u32,
+    pub Unused: [u8; 512],
+    pub Anonymous: GNSS_EVENT_2_0,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for GNSS_EVENT_2 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for GNSS_EVENT_2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub union GNSS_EVENT_2_0 {
+    pub FixData: GNSS_FIXDATA,
+    pub FixData2: GNSS_FIXDATA_2,
+    pub AgnssRequest: GNSS_AGNSS_REQUEST_PARAM,
+    pub NiRequest: GNSS_NI_REQUEST_PARAM,
+    pub ErrorInformation: GNSS_ERRORINFO,
+    pub NmeaData: GNSS_NMEA_DATA,
+    pub GeofenceAlertData: GNSS_GEOFENCE_ALERT_DATA,
+    pub BreadcrumbAlertData: GNSS_BREADCRUMBING_ALERT_DATA,
+    pub GeofencesTrackingStatus: GNSS_GEOFENCES_TRACKINGSTATUS_DATA,
+    pub DriverRequestData: GNSS_DRIVER_REQUEST_DATA,
+    pub CustomData: [u8; 1],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for GNSS_EVENT_2_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for GNSS_EVENT_2_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct GNSS_EVENT_TYPE(pub i32);
 pub const GNSS_Event_FixAvailable: GNSS_EVENT_TYPE = GNSS_EVENT_TYPE(1i32);
@@ -111,23 +494,157 @@ pub const GNSS_Event_DriverRequest: GNSS_EVENT_TYPE = GNSS_EVENT_TYPE(16i32);
 pub const GNSS_Event_BreadcrumbAlertEvent: GNSS_EVENT_TYPE = GNSS_EVENT_TYPE(17i32);
 pub const GNSS_Event_FixAvailable_2: GNSS_EVENT_TYPE = GNSS_EVENT_TYPE(18i32);
 pub const GNSS_Event_Custom: GNSS_EVENT_TYPE = GNSS_EVENT_TYPE(32768i32);
+impl ::core::marker::Copy for GNSS_EVENT_TYPE {}
+impl ::core::clone::Clone for GNSS_EVENT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct GNSS_FIXDATA(i32);
+pub struct GNSS_FIXDATA {
+    pub Size: u32,
+    pub Version: u32,
+    pub FixSessionID: u32,
+    pub FixTimeStamp: super::super::Foundation::FILETIME,
+    pub IsFinalFix: super::super::Foundation::BOOL,
+    pub FixStatus: super::super::Foundation::NTSTATUS,
+    pub FixLevelOfDetails: u32,
+    pub BasicData: GNSS_FIXDATA_BASIC,
+    pub AccuracyData: GNSS_FIXDATA_ACCURACY,
+    pub SatelliteData: GNSS_FIXDATA_SATELLITE,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct GNSS_FIXDATA_2(i32);
-#[repr(C)]
-pub struct GNSS_FIXDATA_ACCURACY(i32);
-#[repr(C)]
-pub struct GNSS_FIXDATA_ACCURACY_2(i32);
-#[repr(C)]
-pub struct GNSS_FIXDATA_BASIC(i32);
-#[repr(C)]
-pub struct GNSS_FIXDATA_BASIC_2(i32);
+impl ::core::marker::Copy for GNSS_FIXDATA {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for GNSS_FIXDATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct GNSS_FIXDATA_SATELLITE(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct GNSS_FIXDATA_2 {
+    pub Size: u32,
+    pub Version: u32,
+    pub FixSessionID: u32,
+    pub FixTimeStamp: super::super::Foundation::FILETIME,
+    pub IsFinalFix: super::super::Foundation::BOOL,
+    pub FixStatus: super::super::Foundation::NTSTATUS,
+    pub FixLevelOfDetails: u32,
+    pub BasicData: GNSS_FIXDATA_BASIC_2,
+    pub AccuracyData: GNSS_FIXDATA_ACCURACY_2,
+    pub SatelliteData: GNSS_FIXDATA_SATELLITE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for GNSS_FIXDATA_2 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for GNSS_FIXDATA_2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct GNSS_FIXDATA_ACCURACY {
+    pub Size: u32,
+    pub Version: u32,
+    pub HorizontalAccuracy: u32,
+    pub HorizontalErrorMajorAxis: u32,
+    pub HorizontalErrorMinorAxis: u32,
+    pub HorizontalErrorAngle: u32,
+    pub HeadingAccuracy: u32,
+    pub AltitudeAccuracy: u32,
+    pub SpeedAccuracy: u32,
+    pub HorizontalConfidence: u32,
+    pub HeadingConfidence: u32,
+    pub AltitudeConfidence: u32,
+    pub SpeedConfidence: u32,
+    pub PositionDilutionOfPrecision: f32,
+    pub HorizontalDilutionOfPrecision: f32,
+    pub VerticalDilutionOfPrecision: f32,
+}
+impl ::core::marker::Copy for GNSS_FIXDATA_ACCURACY {}
+impl ::core::clone::Clone for GNSS_FIXDATA_ACCURACY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct GNSS_FIXDATA_ACCURACY_2 {
+    pub Size: u32,
+    pub Version: u32,
+    pub HorizontalAccuracy: f64,
+    pub HorizontalErrorMajorAxis: f64,
+    pub HorizontalErrorMinorAxis: f64,
+    pub HorizontalErrorAngle: f64,
+    pub HeadingAccuracy: f64,
+    pub AltitudeAccuracy: f64,
+    pub SpeedAccuracy: f64,
+    pub HorizontalConfidence: u32,
+    pub HeadingConfidence: u32,
+    pub AltitudeConfidence: u32,
+    pub SpeedConfidence: u32,
+    pub PositionDilutionOfPrecision: f64,
+    pub HorizontalDilutionOfPrecision: f64,
+    pub VerticalDilutionOfPrecision: f64,
+    pub GeometricDilutionOfPrecision: f64,
+    pub TimeDilutionOfPrecision: f64,
+}
+impl ::core::marker::Copy for GNSS_FIXDATA_ACCURACY_2 {}
+impl ::core::clone::Clone for GNSS_FIXDATA_ACCURACY_2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct GNSS_FIXDATA_BASIC {
+    pub Size: u32,
+    pub Version: u32,
+    pub Latitude: f64,
+    pub Longitude: f64,
+    pub Altitude: f64,
+    pub Speed: f64,
+    pub Heading: f64,
+}
+impl ::core::marker::Copy for GNSS_FIXDATA_BASIC {}
+impl ::core::clone::Clone for GNSS_FIXDATA_BASIC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct GNSS_FIXDATA_BASIC_2 {
+    pub Size: u32,
+    pub Version: u32,
+    pub Latitude: f64,
+    pub Longitude: f64,
+    pub Altitude: f64,
+    pub Speed: f64,
+    pub Heading: f64,
+    pub AltitudeEllipsoid: f64,
+}
+impl ::core::marker::Copy for GNSS_FIXDATA_BASIC_2 {}
+impl ::core::clone::Clone for GNSS_FIXDATA_BASIC_2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct GNSS_FIXDATA_SATELLITE {
+    pub Size: u32,
+    pub Version: u32,
+    pub SatelliteCount: u32,
+    pub SatelliteArray: [GNSS_SATELLITEINFO; 64],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for GNSS_FIXDATA_SATELLITE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for GNSS_FIXDATA_SATELLITE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const GNSS_FIXDETAIL_ACCURACY: u32 = 2u32;
 pub const GNSS_FIXDETAIL_BASIC: u32 = 1u32;
 pub const GNSS_FIXDETAIL_SATELLITE: u32 = 4u32;
@@ -137,36 +654,192 @@ pub const GNSS_FixSession_SingleShot: GNSS_FIXSESSIONTYPE = GNSS_FIXSESSIONTYPE(
 pub const GNSS_FixSession_DistanceTracking: GNSS_FIXSESSIONTYPE = GNSS_FIXSESSIONTYPE(2i32);
 pub const GNSS_FixSession_ContinuousTracking: GNSS_FIXSESSIONTYPE = GNSS_FIXSESSIONTYPE(3i32);
 pub const GNSS_FixSession_LKG: GNSS_FIXSESSIONTYPE = GNSS_FIXSESSIONTYPE(4i32);
+impl ::core::marker::Copy for GNSS_FIXSESSIONTYPE {}
+impl ::core::clone::Clone for GNSS_FIXSESSIONTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct GNSS_FIXSESSION_PARAM(i32);
+pub struct GNSS_FIXSESSION_PARAM {
+    pub Size: u32,
+    pub Version: u32,
+    pub FixSessionID: u32,
+    pub SessionType: GNSS_FIXSESSIONTYPE,
+    pub HorizontalAccuracy: u32,
+    pub HorizontalConfidence: u32,
+    pub Reserved: [u32; 9],
+    pub FixLevelOfDetails: u32,
+    pub Anonymous: GNSS_FIXSESSION_PARAM_0,
+    pub Unused: [u8; 256],
+}
+impl ::core::marker::Copy for GNSS_FIXSESSION_PARAM {}
+impl ::core::clone::Clone for GNSS_FIXSESSION_PARAM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub union GNSS_FIXSESSION_PARAM_0 {
+    pub SingleShotParam: GNSS_SINGLESHOT_PARAM,
+    pub DistanceParam: GNSS_DISTANCETRACKING_PARAM,
+    pub ContinuousParam: GNSS_CONTINUOUSTRACKING_PARAM,
+    pub LkgFixParam: GNSS_LKGFIX_PARAM,
+    pub UnusedParam: [u8; 268],
+}
+impl ::core::marker::Copy for GNSS_FIXSESSION_PARAM_0 {}
+impl ::core::clone::Clone for GNSS_FIXSESSION_PARAM_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const GNSS_GEOFENCESUPPORT_CIRCLE: u32 = 2u32;
 pub const GNSS_GEOFENCESUPPORT_SUPPORTED: u32 = 1u32;
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct GNSS_GEOFENCES_TRACKINGSTATUS_DATA(i32);
-#[repr(C)]
-pub struct GNSS_GEOFENCE_ALERT_DATA(i32);
-#[repr(C)]
-pub struct GNSS_GEOFENCE_CREATE_PARAM(i32);
+pub struct GNSS_GEOFENCES_TRACKINGSTATUS_DATA {
+    pub Size: u32,
+    pub Version: u32,
+    pub Status: super::super::Foundation::NTSTATUS,
+    pub StatusTimeStamp: super::super::Foundation::FILETIME,
+    pub Unused: [u8; 512],
+}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for GNSS_GEOFENCES_TRACKINGSTATUS_DATA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for GNSS_GEOFENCES_TRACKINGSTATUS_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct GNSS_GEOFENCE_CREATE_RESPONSE(i32);
+pub struct GNSS_GEOFENCE_ALERT_DATA {
+    pub Size: u32,
+    pub Version: u32,
+    pub GeofenceID: u32,
+    pub GeofenceState: GNSS_GEOFENCE_STATE,
+    pub FixBasicData: GNSS_FIXDATA_BASIC,
+    pub FixAccuracyData: GNSS_FIXDATA_ACCURACY,
+    pub Unused: [u8; 512],
+}
+impl ::core::marker::Copy for GNSS_GEOFENCE_ALERT_DATA {}
+impl ::core::clone::Clone for GNSS_GEOFENCE_ALERT_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct GNSS_GEOFENCE_DELETE_PARAM(i32);
+pub struct GNSS_GEOFENCE_CREATE_PARAM {
+    pub Size: u32,
+    pub Version: u32,
+    pub AlertTypes: u32,
+    pub InitialState: GNSS_GEOFENCE_STATE,
+    pub Boundary: GNSS_GEOREGION,
+    pub Unused: [u8; 512],
+}
+impl ::core::marker::Copy for GNSS_GEOFENCE_CREATE_PARAM {}
+impl ::core::clone::Clone for GNSS_GEOFENCE_CREATE_PARAM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct GNSS_GEOFENCE_CREATE_RESPONSE {
+    pub Size: u32,
+    pub Version: u32,
+    pub CreationStatus: super::super::Foundation::NTSTATUS,
+    pub GeofenceID: u32,
+    pub Unused: [u8; 512],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for GNSS_GEOFENCE_CREATE_RESPONSE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for GNSS_GEOFENCE_CREATE_RESPONSE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct GNSS_GEOFENCE_DELETE_PARAM {
+    pub Size: u32,
+    pub Version: u32,
+    pub GeofenceID: u32,
+    pub Unused: [u8; 512],
+}
+impl ::core::marker::Copy for GNSS_GEOFENCE_DELETE_PARAM {}
+impl ::core::clone::Clone for GNSS_GEOFENCE_DELETE_PARAM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct GNSS_GEOFENCE_STATE(pub i32);
 pub const GNSS_GeofenceState_Unknown: GNSS_GEOFENCE_STATE = GNSS_GEOFENCE_STATE(0i32);
 pub const GNSS_GeofenceState_Entered: GNSS_GEOFENCE_STATE = GNSS_GEOFENCE_STATE(1i32);
 pub const GNSS_GeofenceState_Exited: GNSS_GEOFENCE_STATE = GNSS_GEOFENCE_STATE(2i32);
+impl ::core::marker::Copy for GNSS_GEOFENCE_STATE {}
+impl ::core::clone::Clone for GNSS_GEOFENCE_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct GNSS_GEOREGION(i32);
+pub struct GNSS_GEOREGION {
+    pub Size: u32,
+    pub Version: u32,
+    pub GeoRegionType: GNSS_GEOREGIONTYPE,
+    pub Anonymous: GNSS_GEOREGION_0,
+}
+impl ::core::marker::Copy for GNSS_GEOREGION {}
+impl ::core::clone::Clone for GNSS_GEOREGION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub union GNSS_GEOREGION_0 {
+    pub Circle: GNSS_GEOREGION_CIRCLE,
+    pub Unused: [u8; 512],
+}
+impl ::core::marker::Copy for GNSS_GEOREGION_0 {}
+impl ::core::clone::Clone for GNSS_GEOREGION_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct GNSS_GEOREGIONTYPE(pub i32);
 pub const GNSS_GeoRegion_Circle: GNSS_GEOREGIONTYPE = GNSS_GEOREGIONTYPE(1i32);
+impl ::core::marker::Copy for GNSS_GEOREGIONTYPE {}
+impl ::core::clone::Clone for GNSS_GEOREGIONTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct GNSS_GEOREGION_CIRCLE(i32);
+pub struct GNSS_GEOREGION_CIRCLE {
+    pub Latitude: f64,
+    pub Longitude: f64,
+    pub RadiusInMeters: f64,
+}
+impl ::core::marker::Copy for GNSS_GEOREGION_CIRCLE {}
+impl ::core::clone::Clone for GNSS_GEOREGION_CIRCLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct GNSS_LKGFIX_PARAM(i32);
+pub struct GNSS_LKGFIX_PARAM {
+    pub Size: u32,
+    pub Version: u32,
+}
+impl ::core::marker::Copy for GNSS_LKGFIX_PARAM {}
+impl ::core::clone::Clone for GNSS_LKGFIX_PARAM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const GNSS_MAXSATELLITE: u32 = 64u32;
 #[repr(transparent)]
 pub struct GNSS_NI_NOTIFICATION_TYPE(pub i32);
@@ -175,30 +848,110 @@ pub const GNSS_NI_NotifyOnly: GNSS_NI_NOTIFICATION_TYPE = GNSS_NI_NOTIFICATION_T
 pub const GNSS_NI_NotifyVerifyDefaultAllow: GNSS_NI_NOTIFICATION_TYPE = GNSS_NI_NOTIFICATION_TYPE(3i32);
 pub const GNSS_NI_NotifyVerifyDefaultNotAllow: GNSS_NI_NOTIFICATION_TYPE = GNSS_NI_NOTIFICATION_TYPE(4i32);
 pub const GNSS_NI_PrivacyOverride: GNSS_NI_NOTIFICATION_TYPE = GNSS_NI_NOTIFICATION_TYPE(5i32);
+impl ::core::marker::Copy for GNSS_NI_NOTIFICATION_TYPE {}
+impl ::core::clone::Clone for GNSS_NI_NOTIFICATION_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct GNSS_NI_PLANE_TYPE(pub i32);
 pub const GNSS_NI_SUPL: GNSS_NI_PLANE_TYPE = GNSS_NI_PLANE_TYPE(1i32);
 pub const GNSS_NI_CP: GNSS_NI_PLANE_TYPE = GNSS_NI_PLANE_TYPE(2i32);
 pub const GNSS_NI_V2UPL: GNSS_NI_PLANE_TYPE = GNSS_NI_PLANE_TYPE(3i32);
-#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for GNSS_NI_PLANE_TYPE {}
+impl ::core::clone::Clone for GNSS_NI_PLANE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct GNSS_NI_REQUEST_PARAM(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct GNSS_NI_REQUEST_PARAM {
+    pub Size: u32,
+    pub Version: u32,
+    pub RequestId: u32,
+    pub RequestType: GNSS_NI_REQUEST_TYPE,
+    pub NotificationType: GNSS_NI_NOTIFICATION_TYPE,
+    pub RequestPlaneType: GNSS_NI_PLANE_TYPE,
+    pub Anonymous: GNSS_NI_REQUEST_PARAM_0,
+    pub ResponseTimeInSec: u32,
+    pub EmergencyLocation: super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for GNSS_NI_REQUEST_PARAM {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for GNSS_NI_REQUEST_PARAM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub union GNSS_NI_REQUEST_PARAM_0 {
+    pub SuplNiInfo: GNSS_SUPL_NI_INFO,
+    pub CpNiInfo: GNSS_CP_NI_INFO,
+    pub V2UplNiInfo: GNSS_V2UPL_NI_INFO,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for GNSS_NI_REQUEST_PARAM_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for GNSS_NI_REQUEST_PARAM_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct GNSS_NI_REQUEST_TYPE(pub i32);
 pub const GNSS_NI_Request_SingleShot: GNSS_NI_REQUEST_TYPE = GNSS_NI_REQUEST_TYPE(1i32);
 pub const GNSS_NI_Request_AreaTrigger: GNSS_NI_REQUEST_TYPE = GNSS_NI_REQUEST_TYPE(2i32);
+impl ::core::marker::Copy for GNSS_NI_REQUEST_TYPE {}
+impl ::core::clone::Clone for GNSS_NI_REQUEST_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct GNSS_NI_RESPONSE(i32);
+pub struct GNSS_NI_RESPONSE {
+    pub Size: u32,
+    pub Version: u32,
+    pub RequestId: u32,
+    pub UserResponse: GNSS_NI_USER_RESPONSE,
+}
+impl ::core::marker::Copy for GNSS_NI_RESPONSE {}
+impl ::core::clone::Clone for GNSS_NI_RESPONSE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct GNSS_NI_USER_RESPONSE(pub i32);
 pub const GNSS_Ni_UserResponseAccept: GNSS_NI_USER_RESPONSE = GNSS_NI_USER_RESPONSE(1i32);
 pub const GNSS_Ni_UserResponseDeny: GNSS_NI_USER_RESPONSE = GNSS_NI_USER_RESPONSE(2i32);
 pub const GNSS_Ni_UserResponseTimeout: GNSS_NI_USER_RESPONSE = GNSS_NI_USER_RESPONSE(3i32);
+impl ::core::marker::Copy for GNSS_NI_USER_RESPONSE {}
+impl ::core::clone::Clone for GNSS_NI_USER_RESPONSE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const GNSS_NMEALOGGING_ALL: u32 = 255u32;
 pub const GNSS_NMEALOGGING_NONE: u32 = 0u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct GNSS_NMEA_DATA(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct GNSS_NMEA_DATA {
+    pub Size: u32,
+    pub Version: u32,
+    pub NmeaSentences: [super::super::Foundation::CHAR; 256],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for GNSS_NMEA_DATA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for GNSS_NMEA_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const GNSS_OPERMODE_AFLT: u32 = 16u32;
 pub const GNSS_OPERMODE_ANY: u32 = 0u32;
 pub const GNSS_OPERMODE_CELLID: u32 = 8u32;
@@ -206,49 +959,223 @@ pub const GNSS_OPERMODE_MSA: u32 = 1u32;
 pub const GNSS_OPERMODE_MSB: u32 = 2u32;
 pub const GNSS_OPERMODE_MSS: u32 = 4u32;
 pub const GNSS_OPERMODE_OTDOA: u32 = 32u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct GNSS_PLATFORM_CAPABILITY(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct GNSS_PLATFORM_CAPABILITY {
+    pub Size: u32,
+    pub Version: u32,
+    pub SupportAgnssInjection: super::super::Foundation::BOOL,
+    pub AgnssFormatSupported: u32,
+    pub Unused: [u8; 516],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for GNSS_PLATFORM_CAPABILITY {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for GNSS_PLATFORM_CAPABILITY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct GNSS_SATELLITEINFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct GNSS_SATELLITEINFO {
+    pub SatelliteId: u32,
+    pub UsedInPositiong: super::super::Foundation::BOOL,
+    pub Elevation: f64,
+    pub Azimuth: f64,
+    pub SignalToNoiseRatio: f64,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for GNSS_SATELLITEINFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for GNSS_SATELLITEINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const GNSS_SATELLITE_ANY: u32 = 0u32;
 pub const GNSS_SATELLITE_BEIDOU: u32 = 4u32;
 pub const GNSS_SATELLITE_GALILEO: u32 = 8u32;
 pub const GNSS_SATELLITE_GLONASS: u32 = 2u32;
 pub const GNSS_SATELLITE_GPS: u32 = 1u32;
 #[repr(C)]
-pub struct GNSS_SELFTESTCONFIG(i32);
+pub struct GNSS_SELFTESTCONFIG {
+    pub Size: u32,
+    pub Version: u32,
+    pub TestType: u32,
+    pub Unused: [u8; 512],
+    pub InBufLen: u32,
+    pub InBuffer: [u8; 1],
+}
+impl ::core::marker::Copy for GNSS_SELFTESTCONFIG {}
+impl ::core::clone::Clone for GNSS_SELFTESTCONFIG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+pub struct GNSS_SELFTESTRESULT {
+    pub Size: u32,
+    pub Version: u32,
+    pub TestResultStatus: super::super::Foundation::NTSTATUS,
+    pub Result: u32,
+    pub PinFailedBitMask: u32,
+    pub Unused: [u8; 512],
+    pub OutBufLen: u32,
+    pub OutBuffer: [u8; 1],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for GNSS_SELFTESTRESULT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for GNSS_SELFTESTRESULT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct GNSS_SELFTESTRESULT(i32);
+pub struct GNSS_SINGLESHOT_PARAM {
+    pub Size: u32,
+    pub Version: u32,
+    pub ResponseTime: u32,
+}
+impl ::core::marker::Copy for GNSS_SINGLESHOT_PARAM {}
+impl ::core::clone::Clone for GNSS_SINGLESHOT_PARAM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct GNSS_SINGLESHOT_PARAM(i32);
-#[repr(C)]
-pub struct GNSS_STOPFIXSESSION_PARAM(i32);
+pub struct GNSS_STOPFIXSESSION_PARAM {
+    pub Size: u32,
+    pub Version: u32,
+    pub FixSessionID: u32,
+    pub Unused: [u8; 512],
+}
+impl ::core::marker::Copy for GNSS_STOPFIXSESSION_PARAM {}
+impl ::core::clone::Clone for GNSS_STOPFIXSESSION_PARAM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct GNSS_SUPL_CERT_ACTION(pub i32);
 pub const GNSS_Supl_Cert_Inject: GNSS_SUPL_CERT_ACTION = GNSS_SUPL_CERT_ACTION(1i32);
 pub const GNSS_Supl_Cert_Delete: GNSS_SUPL_CERT_ACTION = GNSS_SUPL_CERT_ACTION(2i32);
 pub const GNSS_Supl_Cert_Purge: GNSS_SUPL_CERT_ACTION = GNSS_SUPL_CERT_ACTION(3i32);
+impl ::core::marker::Copy for GNSS_SUPL_CERT_ACTION {}
+impl ::core::clone::Clone for GNSS_SUPL_CERT_ACTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct GNSS_SUPL_CERT_CONFIG(i32);
+pub struct GNSS_SUPL_CERT_CONFIG {
+    pub Size: u32,
+    pub Version: u32,
+    pub CertAction: GNSS_SUPL_CERT_ACTION,
+    pub SuplCertName: [super::super::Foundation::CHAR; 260],
+    pub CertSize: u32,
+    pub Unused: [u8; 512],
+    pub CertData: [u8; 1],
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct GNSS_SUPL_HSLP_CONFIG(i32);
+impl ::core::marker::Copy for GNSS_SUPL_CERT_CONFIG {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for GNSS_SUPL_CERT_CONFIG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct GNSS_SUPL_NI_INFO(i32);
-#[repr(C)]
-pub struct GNSS_SUPL_VERSION(i32);
-#[repr(C)]
-pub struct GNSS_SUPL_VERSION_2(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct GNSS_SUPL_HSLP_CONFIG {
+    pub Size: u32,
+    pub Version: u32,
+    pub SuplHslp: [super::super::Foundation::CHAR; 260],
+    pub SuplHslpFromImsi: [super::super::Foundation::CHAR; 260],
+    pub Reserved: u32,
+    pub Unused: [u8; 512],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for GNSS_SUPL_HSLP_CONFIG {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for GNSS_SUPL_HSLP_CONFIG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct GNSS_V2UPL_CONFIG(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct GNSS_SUPL_NI_INFO {
+    pub Size: u32,
+    pub Version: u32,
+    pub RequestorId: [u16; 260],
+    pub ClientName: [u16; 260],
+    pub SuplNiUrl: [super::super::Foundation::CHAR; 260],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for GNSS_SUPL_NI_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for GNSS_SUPL_NI_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct GNSS_V2UPL_NI_INFO(i32);
+pub struct GNSS_SUPL_VERSION {
+    pub MajorVersion: u32,
+    pub MinorVersion: u32,
+}
+impl ::core::marker::Copy for GNSS_SUPL_VERSION {}
+impl ::core::clone::Clone for GNSS_SUPL_VERSION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct GNSS_SUPL_VERSION_2 {
+    pub MajorVersion: u32,
+    pub MinorVersion: u32,
+    pub ServiceIndicator: u32,
+}
+impl ::core::marker::Copy for GNSS_SUPL_VERSION_2 {}
+impl ::core::clone::Clone for GNSS_SUPL_VERSION_2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct GNSS_V2UPL_CONFIG {
+    pub Size: u32,
+    pub Version: u32,
+    pub MPC: [super::super::Foundation::CHAR; 260],
+    pub PDE: [super::super::Foundation::CHAR; 260],
+    pub ApplicationTypeIndicator_MR: u8,
+    pub Unused: [u8; 512],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for GNSS_V2UPL_CONFIG {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for GNSS_V2UPL_CONFIG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct GNSS_V2UPL_NI_INFO {
+    pub Size: u32,
+    pub Version: u32,
+    pub RequestorId: [u16; 260],
+}
+impl ::core::marker::Copy for GNSS_V2UPL_NI_INFO {}
+impl ::core::clone::Clone for GNSS_V2UPL_NI_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const GUID_DEVINTERFACE_GNSS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 859235812, data2: 394, data3: 18025, data4: [132, 197, 189, 5, 243, 189, 54, 139] };
 #[repr(transparent)]
 pub struct ICivicAddressReport(pub *mut ::core::ffi::c_void);
@@ -310,12 +1237,20 @@ pub const REPORT_ERROR: LOCATION_REPORT_STATUS = LOCATION_REPORT_STATUS(1i32);
 pub const REPORT_ACCESS_DENIED: LOCATION_REPORT_STATUS = LOCATION_REPORT_STATUS(2i32);
 pub const REPORT_INITIALIZING: LOCATION_REPORT_STATUS = LOCATION_REPORT_STATUS(3i32);
 pub const REPORT_RUNNING: LOCATION_REPORT_STATUS = LOCATION_REPORT_STATUS(4i32);
-#[repr(C)]
-pub struct LatLongReport(i32);
-#[repr(C)]
-pub struct LatLongReportFactory(i32);
-#[repr(C)]
-pub struct Location(i32);
+impl ::core::marker::Copy for LOCATION_REPORT_STATUS {}
+impl ::core::clone::Clone for LOCATION_REPORT_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+pub const LatLongReport: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3984703603, data2: 8068, data3: 19624, data4: [161, 97, 24, 60, 119, 107, 198, 81] };
+pub const LatLongReportFactory: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2647407816, data2: 34313, data3: 18531, data4: [186, 212, 3, 96, 31, 76, 101, 232] };
+pub const Location: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3854098553,
+    data2: 61037,
+    data3: 20019,
+    data4: [164, 56, 200, 127, 46, 149, 146, 84],
+};
 pub const MAX_SERVER_URL_NAME: u32 = 260u32;
 pub const MIN_BREADCRUMBS_SUPPORTED: u32 = 120u32;
 pub const MIN_GEOFENCES_REQUIRED: u32 = 100u32;

@@ -649,9 +649,6 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a H
 }
 unsafe impl ::core::marker::Send for HttpDiagnosticSourceLocation {}
 unsafe impl ::core::marker::Sync for HttpDiagnosticSourceLocation {}
-#[repr(C)]
-#[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
-pub struct HttpDiagnosticsContract(pub u8);
 #[repr(transparent)]
 #[doc(hidden)]
 pub struct IHttpDiagnosticProvider(pub ::windows::core::IInspectable);

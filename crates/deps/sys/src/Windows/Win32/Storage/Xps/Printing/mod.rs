@@ -46,17 +46,63 @@ pub const PrintDocumentPackageCompletion_InProgress: PrintDocumentPackageComplet
 pub const PrintDocumentPackageCompletion_Completed: PrintDocumentPackageCompletion = PrintDocumentPackageCompletion(1i32);
 pub const PrintDocumentPackageCompletion_Canceled: PrintDocumentPackageCompletion = PrintDocumentPackageCompletion(2i32);
 pub const PrintDocumentPackageCompletion_Failed: PrintDocumentPackageCompletion = PrintDocumentPackageCompletion(3i32);
+impl ::core::marker::Copy for PrintDocumentPackageCompletion {}
+impl ::core::clone::Clone for PrintDocumentPackageCompletion {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct PrintDocumentPackageStatus(i32);
-#[repr(C)]
-pub struct PrintDocumentPackageTarget(i32);
-#[repr(C)]
-pub struct PrintDocumentPackageTargetFactory(i32);
+pub struct PrintDocumentPackageStatus {
+    pub JobId: u32,
+    pub CurrentDocument: i32,
+    pub CurrentPage: i32,
+    pub CurrentPageTotal: i32,
+    pub Completion: PrintDocumentPackageCompletion,
+    pub PackageStatus: ::windows_sys::core::HRESULT,
+}
+impl ::core::marker::Copy for PrintDocumentPackageStatus {}
+impl ::core::clone::Clone for PrintDocumentPackageStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+pub const PrintDocumentPackageTarget: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1212311198,
+    data2: 39239,
+    data3: 18154,
+    data4: [139, 162, 216, 204, 228, 50, 194, 202],
+};
+pub const PrintDocumentPackageTargetFactory: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 881783165,
+    data2: 27777,
+    data3: 18818,
+    data4: [146, 180, 238, 24, 138, 67, 134, 122],
+};
 #[repr(transparent)]
 pub struct XPS_JOB_COMPLETION(pub i32);
 pub const XPS_JOB_IN_PROGRESS: XPS_JOB_COMPLETION = XPS_JOB_COMPLETION(0i32);
 pub const XPS_JOB_COMPLETED: XPS_JOB_COMPLETION = XPS_JOB_COMPLETION(1i32);
 pub const XPS_JOB_CANCELLED: XPS_JOB_COMPLETION = XPS_JOB_COMPLETION(2i32);
 pub const XPS_JOB_FAILED: XPS_JOB_COMPLETION = XPS_JOB_COMPLETION(3i32);
+impl ::core::marker::Copy for XPS_JOB_COMPLETION {}
+impl ::core::clone::Clone for XPS_JOB_COMPLETION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct XPS_JOB_STATUS(i32);
+pub struct XPS_JOB_STATUS {
+    pub jobId: u32,
+    pub currentDocument: i32,
+    pub currentPage: i32,
+    pub currentPageTotal: i32,
+    pub completion: XPS_JOB_COMPLETION,
+    pub jobStatus: ::windows_sys::core::HRESULT,
+}
+impl ::core::marker::Copy for XPS_JOB_STATUS {}
+impl ::core::clone::Clone for XPS_JOB_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

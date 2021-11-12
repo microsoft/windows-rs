@@ -19,6 +19,12 @@ impl PhoneNumberFormat {
     pub const National: Self = Self(2i32);
     pub const Rfc3966: Self = Self(3i32);
 }
+impl ::core::marker::Copy for PhoneNumberFormat {}
+impl ::core::clone::Clone for PhoneNumberFormat {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PhoneNumberFormatter(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -31,6 +37,12 @@ impl PhoneNumberMatchResult {
     pub const NationalSignificantNumberMatch: Self = Self(2i32);
     pub const ExactMatch: Self = Self(3i32);
 }
+impl ::core::marker::Copy for PhoneNumberMatchResult {}
+impl ::core::clone::Clone for PhoneNumberMatchResult {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PhoneNumberParseResult(pub i32);
 impl PhoneNumberParseResult {
@@ -39,6 +51,12 @@ impl PhoneNumberParseResult {
     pub const InvalidCountryCode: Self = Self(2i32);
     pub const TooShort: Self = Self(3i32);
     pub const TooLong: Self = Self(4i32);
+}
+impl ::core::marker::Copy for PhoneNumberParseResult {}
+impl ::core::clone::Clone for PhoneNumberParseResult {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct PredictedPhoneNumberKind(pub i32);
@@ -55,4 +73,10 @@ impl PredictedPhoneNumberKind {
     pub const UniversalAccountNumber: Self = Self(9i32);
     pub const Voicemail: Self = Self(10i32);
     pub const Unknown: Self = Self(11i32);
+}
+impl ::core::marker::Copy for PredictedPhoneNumberKind {}
+impl ::core::clone::Clone for PredictedPhoneNumberKind {
+    fn clone(&self) -> Self {
+        *self
+    }
 }

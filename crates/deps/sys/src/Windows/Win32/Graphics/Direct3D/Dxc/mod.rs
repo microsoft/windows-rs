@@ -71,6 +71,12 @@ pub struct DXC_CP(pub u32);
 pub const DXC_CP_ACP: DXC_CP = DXC_CP(0u32);
 pub const DXC_CP_UTF16: DXC_CP = DXC_CP(1200u32);
 pub const DXC_CP_UTF8: DXC_CP = DXC_CP(65001u32);
+impl ::core::marker::Copy for DXC_CP {}
+impl ::core::clone::Clone for DXC_CP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DXC_HASHFLAG_INCLUDES_SOURCE: u32 = 1u32;
 #[repr(transparent)]
 pub struct DXC_OUT_KIND(pub i32);
@@ -86,19 +92,66 @@ pub const DXC_OUT_REFLECTION: DXC_OUT_KIND = DXC_OUT_KIND(8i32);
 pub const DXC_OUT_ROOT_SIGNATURE: DXC_OUT_KIND = DXC_OUT_KIND(9i32);
 pub const DXC_OUT_EXTRA_OUTPUTS: DXC_OUT_KIND = DXC_OUT_KIND(10i32);
 pub const DXC_OUT_FORCE_DWORD: DXC_OUT_KIND = DXC_OUT_KIND(-1i32);
+impl ::core::marker::Copy for DXC_OUT_KIND {}
+impl ::core::clone::Clone for DXC_OUT_KIND {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+pub struct DxcArgPair {
+    pub pName: super::super::super::Foundation::PWSTR,
+    pub pValue: super::super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DxcArgPair {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DxcArgPair {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DxcArgPair(i32);
-#[repr(C)]
-pub struct DxcBuffer(i32);
+pub struct DxcBuffer {
+    pub Ptr: *mut ::core::ffi::c_void,
+    pub Size: usize,
+    pub Encoding: u32,
+}
+impl ::core::marker::Copy for DxcBuffer {}
+impl ::core::clone::Clone for DxcBuffer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 pub type DxcCreateInstance2Proc = unsafe extern "system" fn(pmalloc: super::super::super::System::Com::IMalloc, rclsid: *const ::windows_sys::core::GUID, riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
 pub type DxcCreateInstanceProc = unsafe extern "system" fn(rclsid: *const ::windows_sys::core::GUID, riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+pub struct DxcDefine {
+    pub Name: super::super::super::Foundation::PWSTR,
+    pub Value: super::super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DxcDefine {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DxcDefine {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DxcDefine(i32);
-#[repr(C)]
-pub struct DxcShaderHash(i32);
+pub struct DxcShaderHash {
+    pub Flags: u32,
+    pub HashDigest: [u8; 16],
+}
+impl ::core::marker::Copy for DxcShaderHash {}
+impl ::core::clone::Clone for DxcShaderHash {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DxcValidatorFlags_Default: u32 = 0u32;
 pub const DxcValidatorFlags_InPlaceEdit: u32 = 1u32;
 pub const DxcValidatorFlags_ModuleOnly: u32 = 4u32;

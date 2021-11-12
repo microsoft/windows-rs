@@ -13,11 +13,23 @@ impl DeliveryOptimizationDownloadMode {
     pub const Internet: Self = Self(4i32);
     pub const Bypass: Self = Self(5i32);
 }
+impl ::core::marker::Copy for DeliveryOptimizationDownloadMode {}
+impl ::core::clone::Clone for DeliveryOptimizationDownloadMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DeliveryOptimizationDownloadModeSource(pub i32);
 impl DeliveryOptimizationDownloadModeSource {
     pub const Default: Self = Self(0i32);
     pub const Policy: Self = Self(1i32);
+}
+impl ::core::marker::Copy for DeliveryOptimizationDownloadModeSource {}
+impl ::core::clone::Clone for DeliveryOptimizationDownloadModeSource {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct DeliveryOptimizationSettings(pub *mut ::core::ffi::c_void);
@@ -55,6 +67,12 @@ impl StoreLogOptions {
     pub const None: Self = Self(0u32);
     pub const TryElevate: Self = Self(1u32);
 }
+impl ::core::marker::Copy for StoreLogOptions {}
+impl ::core::clone::Clone for StoreLogOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct StorePreviewProductInfo(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -64,6 +82,12 @@ impl StorePreviewProductPurchaseStatus {
     pub const AlreadyPurchased: Self = Self(1i32);
     pub const NotFulfilled: Self = Self(2i32);
     pub const NotPurchased: Self = Self(3i32);
+}
+impl ::core::marker::Copy for StorePreviewProductPurchaseStatus {}
+impl ::core::clone::Clone for StorePreviewProductPurchaseStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct StorePreviewPurchaseResults(pub *mut ::core::ffi::c_void);
@@ -107,4 +131,10 @@ impl StoreSystemFeature {
     pub const VideoMemory6GB: Self = Self(32i32);
     pub const VideoMemory1GB: Self = Self(33i32);
     pub const ArchitectureArm64: Self = Self(34i32);
+}
+impl ::core::marker::Copy for StoreSystemFeature {}
+impl ::core::clone::Clone for StoreSystemFeature {
+    fn clone(&self) -> Self {
+        *self
+    }
 }

@@ -10,12 +10,24 @@ impl CausalityRelation {
     pub const Cancel: Self = Self(3i32);
     pub const Error: Self = Self(4i32);
 }
+impl ::core::marker::Copy for CausalityRelation {}
+impl ::core::clone::Clone for CausalityRelation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CausalitySource(pub i32);
 impl CausalitySource {
     pub const Application: Self = Self(0i32);
     pub const Library: Self = Self(1i32);
     pub const System: Self = Self(2i32);
+}
+impl ::core::marker::Copy for CausalitySource {}
+impl ::core::clone::Clone for CausalitySource {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct CausalitySynchronousWork(pub i32);
@@ -24,12 +36,24 @@ impl CausalitySynchronousWork {
     pub const ProgressNotification: Self = Self(1i32);
     pub const Execution: Self = Self(2i32);
 }
+impl ::core::marker::Copy for CausalitySynchronousWork {}
+impl ::core::clone::Clone for CausalitySynchronousWork {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CausalityTraceLevel(pub i32);
 impl CausalityTraceLevel {
     pub const Required: Self = Self(0i32);
     pub const Important: Self = Self(1i32);
     pub const Verbose: Self = Self(2i32);
+}
+impl ::core::marker::Copy for CausalityTraceLevel {}
+impl ::core::clone::Clone for CausalityTraceLevel {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct ErrorDetails(pub *mut ::core::ffi::c_void);
@@ -41,6 +65,12 @@ impl ErrorOptions {
     pub const ForceExceptions: Self = Self(2u32);
     pub const UseSetErrorInfo: Self = Self(4u32);
     pub const SuppressSetErrorInfo: Self = Self(8u32);
+}
+impl ::core::marker::Copy for ErrorOptions {}
+impl ::core::clone::Clone for ErrorOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct FileLoggingSession(pub *mut ::core::ffi::c_void);
@@ -121,6 +151,12 @@ impl LoggingFieldFormat {
     pub const Signed: Self = Self(17i32);
     pub const Unsigned: Self = Self(18i32);
 }
+impl ::core::marker::Copy for LoggingFieldFormat {}
+impl ::core::clone::Clone for LoggingFieldFormat {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct LoggingFields(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -132,6 +168,12 @@ impl LoggingLevel {
     pub const Error: Self = Self(3i32);
     pub const Critical: Self = Self(4i32);
 }
+impl ::core::marker::Copy for LoggingLevel {}
+impl ::core::clone::Clone for LoggingLevel {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct LoggingOpcode(pub i32);
 impl LoggingOpcode {
@@ -142,6 +184,12 @@ impl LoggingOpcode {
     pub const Resume: Self = Self(7i32);
     pub const Suspend: Self = Self(8i32);
     pub const Send: Self = Self(9i32);
+}
+impl ::core::marker::Copy for LoggingOpcode {}
+impl ::core::clone::Clone for LoggingOpcode {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct LoggingOptions(pub *mut ::core::ffi::c_void);

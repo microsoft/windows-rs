@@ -18,6 +18,12 @@ impl ContactAddressKind {
     pub const Work: Self = Self(1i32);
     pub const Other: Self = Self(2i32);
 }
+impl ::core::marker::Copy for ContactAddressKind {}
+impl ::core::clone::Clone for ContactAddressKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ContactAnnotation(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -33,6 +39,12 @@ impl ContactAnnotationOperations {
     pub const SocialFeeds: Self = Self(16u32);
     pub const Share: Self = Self(32u32);
 }
+impl ::core::marker::Copy for ContactAnnotationOperations {}
+impl ::core::clone::Clone for ContactAnnotationOperations {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ContactAnnotationStore(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -40,6 +52,12 @@ pub struct ContactAnnotationStoreAccessType(pub i32);
 impl ContactAnnotationStoreAccessType {
     pub const AppAnnotationsReadWrite: Self = Self(0i32);
     pub const AllAnnotationsReadWrite: Self = Self(1i32);
+}
+impl ::core::marker::Copy for ContactAnnotationStoreAccessType {}
+impl ::core::clone::Clone for ContactAnnotationStoreAccessType {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct ContactBatch(pub *mut ::core::ffi::c_void);
@@ -50,6 +68,12 @@ impl ContactBatchStatus {
     pub const ServerSearchSyncManagerError: Self = Self(1i32);
     pub const ServerSearchUnknownError: Self = Self(2i32);
 }
+impl ::core::marker::Copy for ContactBatchStatus {}
+impl ::core::clone::Clone for ContactBatchStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ContactCardDelayedDataLoader(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -58,6 +82,12 @@ impl ContactCardHeaderKind {
     pub const Default: Self = Self(0i32);
     pub const Basic: Self = Self(1i32);
     pub const Enterprise: Self = Self(2i32);
+}
+impl ::core::marker::Copy for ContactCardHeaderKind {}
+impl ::core::clone::Clone for ContactCardHeaderKind {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct ContactCardOptions(pub *mut ::core::ffi::c_void);
@@ -70,6 +100,12 @@ impl ContactCardTabKind {
     pub const Phone: Self = Self(3i32);
     pub const Video: Self = Self(4i32);
     pub const OrganizationalHierarchy: Self = Self(5i32);
+}
+impl ::core::marker::Copy for ContactCardTabKind {}
+impl ::core::clone::Clone for ContactCardTabKind {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct ContactChange(pub *mut ::core::ffi::c_void);
@@ -84,6 +120,12 @@ impl ContactChangeType {
     pub const Modified: Self = Self(1i32);
     pub const Deleted: Self = Self(2i32);
     pub const ChangeTrackingLost: Self = Self(3i32);
+}
+impl ::core::marker::Copy for ContactChangeType {}
+impl ::core::clone::Clone for ContactChangeType {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct ContactChangedDeferral(pub *mut ::core::ffi::c_void);
@@ -100,6 +142,12 @@ impl ContactDateKind {
     pub const Anniversary: Self = Self(1i32);
     pub const Other: Self = Self(2i32);
 }
+impl ::core::marker::Copy for ContactDateKind {}
+impl ::core::clone::Clone for ContactDateKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ContactEmail(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -108,6 +156,12 @@ impl ContactEmailKind {
     pub const Personal: Self = Self(0i32);
     pub const Work: Self = Self(1i32);
     pub const Other: Self = Self(2i32);
+}
+impl ::core::marker::Copy for ContactEmailKind {}
+impl ::core::clone::Clone for ContactEmailKind {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct ContactField(pub *mut ::core::ffi::c_void);
@@ -119,6 +173,12 @@ impl ContactFieldCategory {
     pub const Work: Self = Self(2i32);
     pub const Mobile: Self = Self(3i32);
     pub const Other: Self = Self(4i32);
+}
+impl ::core::marker::Copy for ContactFieldCategory {}
+impl ::core::clone::Clone for ContactFieldCategory {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct ContactFieldFactory(pub *mut ::core::ffi::c_void);
@@ -137,6 +197,12 @@ impl ContactFieldType {
     pub const Notes: Self = Self(9i32);
     pub const Website: Self = Self(10i32);
     pub const JobInfo: Self = Self(11i32);
+}
+impl ::core::marker::Copy for ContactFieldType {}
+impl ::core::clone::Clone for ContactFieldType {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct ContactGroup(pub *mut ::core::ffi::c_void);
@@ -158,12 +224,24 @@ impl ContactListOtherAppReadAccess {
     pub const Full: Self = Self(2i32);
     pub const None: Self = Self(3i32);
 }
+impl ::core::marker::Copy for ContactListOtherAppReadAccess {}
+impl ::core::clone::Clone for ContactListOtherAppReadAccess {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ContactListOtherAppWriteAccess(pub i32);
 impl ContactListOtherAppWriteAccess {
     pub const None: Self = Self(0i32);
     pub const SystemOnly: Self = Self(1i32);
     pub const Limited: Self = Self(2i32);
+}
+impl ::core::marker::Copy for ContactListOtherAppWriteAccess {}
+impl ::core::clone::Clone for ContactListOtherAppWriteAccess {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct ContactListSyncConstraints(pub *mut ::core::ffi::c_void);
@@ -179,6 +257,12 @@ impl ContactListSyncStatus {
     pub const PolicyError: Self = Self(4i32);
     pub const UnknownError: Self = Self(5i32);
     pub const ManualAccountRemovalRequired: Self = Self(6i32);
+}
+impl ::core::marker::Copy for ContactListSyncStatus {}
+impl ::core::clone::Clone for ContactListSyncStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct ContactLocationField(pub *mut ::core::ffi::c_void);
@@ -196,11 +280,23 @@ impl ContactMatchReasonKind {
     pub const YomiName: Self = Self(4i32);
     pub const Other: Self = Self(5i32);
 }
+impl ::core::marker::Copy for ContactMatchReasonKind {}
+impl ::core::clone::Clone for ContactMatchReasonKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ContactNameOrder(pub i32);
 impl ContactNameOrder {
     pub const FirstNameLastName: Self = Self(0i32);
     pub const LastNameFirstName: Self = Self(1i32);
+}
+impl ::core::marker::Copy for ContactNameOrder {}
+impl ::core::clone::Clone for ContactNameOrder {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct ContactPanel(pub *mut ::core::ffi::c_void);
@@ -224,6 +320,12 @@ impl ContactPhoneKind {
     pub const Assistant: Self = Self(8i32);
     pub const Radio: Self = Self(9i32);
 }
+impl ::core::marker::Copy for ContactPhoneKind {}
+impl ::core::clone::Clone for ContactPhoneKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ContactPicker(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -233,6 +335,12 @@ impl ContactQueryDesiredFields {
     pub const PhoneNumber: Self = Self(1u32);
     pub const EmailAddress: Self = Self(2u32);
     pub const PostalAddress: Self = Self(4u32);
+}
+impl ::core::marker::Copy for ContactQueryDesiredFields {}
+impl ::core::clone::Clone for ContactQueryDesiredFields {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct ContactQueryOptions(pub *mut ::core::ffi::c_void);
@@ -245,11 +353,23 @@ impl ContactQuerySearchFields {
     pub const Phone: Self = Self(4u32);
     pub const All: Self = Self(4294967295u32);
 }
+impl ::core::marker::Copy for ContactQuerySearchFields {}
+impl ::core::clone::Clone for ContactQuerySearchFields {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ContactQuerySearchScope(pub i32);
 impl ContactQuerySearchScope {
     pub const Local: Self = Self(0i32);
     pub const Server: Self = Self(1i32);
+}
+impl ::core::marker::Copy for ContactQuerySearchScope {}
+impl ::core::clone::Clone for ContactQuerySearchScope {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct ContactQueryTextSearch(pub *mut ::core::ffi::c_void);
@@ -265,11 +385,23 @@ impl ContactRelationship {
     pub const Parent: Self = Self(4i32);
     pub const Child: Self = Self(5i32);
 }
+impl ::core::marker::Copy for ContactRelationship {}
+impl ::core::clone::Clone for ContactRelationship {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ContactSelectionMode(pub i32);
 impl ContactSelectionMode {
     pub const Contacts: Self = Self(0i32);
     pub const Fields: Self = Self(1i32);
+}
+impl ::core::marker::Copy for ContactSelectionMode {}
+impl ::core::clone::Clone for ContactSelectionMode {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct ContactSignificantOther(pub *mut ::core::ffi::c_void);
@@ -281,6 +413,12 @@ impl ContactStoreAccessType {
     pub const AppContactsReadWrite: Self = Self(0i32);
     pub const AllContactsReadOnly: Self = Self(1i32);
     pub const AllContactsReadWrite: Self = Self(2i32);
+}
+impl ::core::marker::Copy for ContactStoreAccessType {}
+impl ::core::clone::Clone for ContactStoreAccessType {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct ContactStoreNotificationTriggerDetails(pub *mut ::core::ffi::c_void);
@@ -447,4 +585,10 @@ pub struct PinnedContactSurface(pub i32);
 impl PinnedContactSurface {
     pub const StartMenu: Self = Self(0i32);
     pub const Taskbar: Self = Self(1i32);
+}
+impl ::core::marker::Copy for PinnedContactSurface {}
+impl ::core::clone::Clone for PinnedContactSurface {
+    fn clone(&self) -> Self {
+        *self
+    }
 }

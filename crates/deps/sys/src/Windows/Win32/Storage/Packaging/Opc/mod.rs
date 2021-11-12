@@ -68,11 +68,23 @@ pub struct OPC_CANONICALIZATION_METHOD(pub i32);
 pub const OPC_CANONICALIZATION_NONE: OPC_CANONICALIZATION_METHOD = OPC_CANONICALIZATION_METHOD(0i32);
 pub const OPC_CANONICALIZATION_C14N: OPC_CANONICALIZATION_METHOD = OPC_CANONICALIZATION_METHOD(1i32);
 pub const OPC_CANONICALIZATION_C14N_WITH_COMMENTS: OPC_CANONICALIZATION_METHOD = OPC_CANONICALIZATION_METHOD(2i32);
+impl ::core::marker::Copy for OPC_CANONICALIZATION_METHOD {}
+impl ::core::clone::Clone for OPC_CANONICALIZATION_METHOD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct OPC_CERTIFICATE_EMBEDDING_OPTION(pub i32);
 pub const OPC_CERTIFICATE_IN_CERTIFICATE_PART: OPC_CERTIFICATE_EMBEDDING_OPTION = OPC_CERTIFICATE_EMBEDDING_OPTION(0i32);
 pub const OPC_CERTIFICATE_IN_SIGNATURE_PART: OPC_CERTIFICATE_EMBEDDING_OPTION = OPC_CERTIFICATE_EMBEDDING_OPTION(1i32);
 pub const OPC_CERTIFICATE_NOT_EMBEDDED: OPC_CERTIFICATE_EMBEDDING_OPTION = OPC_CERTIFICATE_EMBEDDING_OPTION(2i32);
+impl ::core::marker::Copy for OPC_CERTIFICATE_EMBEDDING_OPTION {}
+impl ::core::clone::Clone for OPC_CERTIFICATE_EMBEDDING_OPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct OPC_COMPRESSION_OPTIONS(pub i32);
 pub const OPC_COMPRESSION_NONE: OPC_COMPRESSION_OPTIONS = OPC_COMPRESSION_OPTIONS(-1i32);
@@ -80,6 +92,12 @@ pub const OPC_COMPRESSION_NORMAL: OPC_COMPRESSION_OPTIONS = OPC_COMPRESSION_OPTI
 pub const OPC_COMPRESSION_MAXIMUM: OPC_COMPRESSION_OPTIONS = OPC_COMPRESSION_OPTIONS(1i32);
 pub const OPC_COMPRESSION_FAST: OPC_COMPRESSION_OPTIONS = OPC_COMPRESSION_OPTIONS(2i32);
 pub const OPC_COMPRESSION_SUPERFAST: OPC_COMPRESSION_OPTIONS = OPC_COMPRESSION_OPTIONS(3i32);
+impl ::core::marker::Copy for OPC_COMPRESSION_OPTIONS {}
+impl ::core::clone::Clone for OPC_COMPRESSION_OPTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const OPC_E_CONFLICTING_SETTINGS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2142175212i32 as _);
 pub const OPC_E_COULD_NOT_RECOVER: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2142175154i32 as _);
 pub const OPC_E_DS_DEFAULT_DIGEST_METHOD_NOT_SET: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2142175161i32 as _);
@@ -187,14 +205,32 @@ pub struct OPC_READ_FLAGS(pub u32);
 pub const OPC_READ_DEFAULT: OPC_READ_FLAGS = OPC_READ_FLAGS(0u32);
 pub const OPC_VALIDATE_ON_LOAD: OPC_READ_FLAGS = OPC_READ_FLAGS(1u32);
 pub const OPC_CACHE_ON_ACCESS: OPC_READ_FLAGS = OPC_READ_FLAGS(2u32);
+impl ::core::marker::Copy for OPC_READ_FLAGS {}
+impl ::core::clone::Clone for OPC_READ_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct OPC_RELATIONSHIPS_SIGNING_OPTION(pub i32);
 pub const OPC_RELATIONSHIP_SIGN_USING_SELECTORS: OPC_RELATIONSHIPS_SIGNING_OPTION = OPC_RELATIONSHIPS_SIGNING_OPTION(0i32);
 pub const OPC_RELATIONSHIP_SIGN_PART: OPC_RELATIONSHIPS_SIGNING_OPTION = OPC_RELATIONSHIPS_SIGNING_OPTION(1i32);
+impl ::core::marker::Copy for OPC_RELATIONSHIPS_SIGNING_OPTION {}
+impl ::core::clone::Clone for OPC_RELATIONSHIPS_SIGNING_OPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct OPC_RELATIONSHIP_SELECTOR(pub i32);
 pub const OPC_RELATIONSHIP_SELECT_BY_ID: OPC_RELATIONSHIP_SELECTOR = OPC_RELATIONSHIP_SELECTOR(0i32);
 pub const OPC_RELATIONSHIP_SELECT_BY_TYPE: OPC_RELATIONSHIP_SELECTOR = OPC_RELATIONSHIP_SELECTOR(1i32);
+impl ::core::marker::Copy for OPC_RELATIONSHIP_SELECTOR {}
+impl ::core::clone::Clone for OPC_RELATIONSHIP_SELECTOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct OPC_SIGNATURE_TIME_FORMAT(pub i32);
 pub const OPC_SIGNATURE_TIME_FORMAT_MILLISECONDS: OPC_SIGNATURE_TIME_FORMAT = OPC_SIGNATURE_TIME_FORMAT(0i32);
@@ -203,21 +239,50 @@ pub const OPC_SIGNATURE_TIME_FORMAT_MINUTES: OPC_SIGNATURE_TIME_FORMAT = OPC_SIG
 pub const OPC_SIGNATURE_TIME_FORMAT_DAYS: OPC_SIGNATURE_TIME_FORMAT = OPC_SIGNATURE_TIME_FORMAT(3i32);
 pub const OPC_SIGNATURE_TIME_FORMAT_MONTHS: OPC_SIGNATURE_TIME_FORMAT = OPC_SIGNATURE_TIME_FORMAT(4i32);
 pub const OPC_SIGNATURE_TIME_FORMAT_YEARS: OPC_SIGNATURE_TIME_FORMAT = OPC_SIGNATURE_TIME_FORMAT(5i32);
+impl ::core::marker::Copy for OPC_SIGNATURE_TIME_FORMAT {}
+impl ::core::clone::Clone for OPC_SIGNATURE_TIME_FORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct OPC_SIGNATURE_VALIDATION_RESULT(pub i32);
 pub const OPC_SIGNATURE_VALID: OPC_SIGNATURE_VALIDATION_RESULT = OPC_SIGNATURE_VALIDATION_RESULT(0i32);
 pub const OPC_SIGNATURE_INVALID: OPC_SIGNATURE_VALIDATION_RESULT = OPC_SIGNATURE_VALIDATION_RESULT(-1i32);
+impl ::core::marker::Copy for OPC_SIGNATURE_VALIDATION_RESULT {}
+impl ::core::clone::Clone for OPC_SIGNATURE_VALIDATION_RESULT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct OPC_STREAM_IO_MODE(pub i32);
 pub const OPC_STREAM_IO_READ: OPC_STREAM_IO_MODE = OPC_STREAM_IO_MODE(1i32);
 pub const OPC_STREAM_IO_WRITE: OPC_STREAM_IO_MODE = OPC_STREAM_IO_MODE(2i32);
+impl ::core::marker::Copy for OPC_STREAM_IO_MODE {}
+impl ::core::clone::Clone for OPC_STREAM_IO_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct OPC_URI_TARGET_MODE(pub i32);
 pub const OPC_URI_TARGET_MODE_INTERNAL: OPC_URI_TARGET_MODE = OPC_URI_TARGET_MODE(0i32);
 pub const OPC_URI_TARGET_MODE_EXTERNAL: OPC_URI_TARGET_MODE = OPC_URI_TARGET_MODE(1i32);
+impl ::core::marker::Copy for OPC_URI_TARGET_MODE {}
+impl ::core::clone::Clone for OPC_URI_TARGET_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct OPC_WRITE_FLAGS(pub u32);
 pub const OPC_WRITE_DEFAULT: OPC_WRITE_FLAGS = OPC_WRITE_FLAGS(0u32);
 pub const OPC_WRITE_FORCE_ZIP32: OPC_WRITE_FLAGS = OPC_WRITE_FLAGS(1u32);
-#[repr(C)]
-pub struct OpcFactory(i32);
+impl ::core::marker::Copy for OPC_WRITE_FLAGS {}
+impl ::core::clone::Clone for OPC_WRITE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+pub const OpcFactory: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1798138784, data2: 40766, data3: 20263, data4: [146, 11, 49, 60, 196, 38, 163, 158] };

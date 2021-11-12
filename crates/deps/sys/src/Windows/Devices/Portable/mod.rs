@@ -5,8 +5,6 @@ extern "system" {}
 pub struct IServiceDeviceStatics(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IStorageDeviceStatics(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct PortableDeviceContract(i32);
 #[repr(transparent)]
 pub struct ServiceDeviceType(pub i32);
 impl ServiceDeviceType {
@@ -17,4 +15,10 @@ impl ServiceDeviceType {
     pub const RingtonesService: Self = Self(4i32);
     pub const SmsService: Self = Self(5i32);
     pub const TasksService: Self = Self(6i32);
+}
+impl ::core::marker::Copy for ServiceDeviceType {}
+impl ::core::clone::Clone for ServiceDeviceType {
+    fn clone(&self) -> Self {
+        *self
+    }
 }

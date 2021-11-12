@@ -42,10 +42,14 @@ impl WebUICommandBarClosedDisplayMode {
     pub const Minimal: Self = Self(1i32);
     pub const Compact: Self = Self(2i32);
 }
+impl ::core::marker::Copy for WebUICommandBarClosedDisplayMode {}
+impl ::core::clone::Clone for WebUICommandBarClosedDisplayMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WebUICommandBarConfirmationButton(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct WebUICommandBarContract(i32);
 #[repr(transparent)]
 pub struct WebUICommandBarIconButton(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

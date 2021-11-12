@@ -32,7 +32,18 @@ pub mod Xaml;
 #[link(name = "windows")]
 extern "system" {}
 #[repr(C)]
-pub struct Color(i32);
+pub struct Color {
+    pub A: u8,
+    pub R: u8,
+    pub G: u8,
+    pub B: u8,
+}
+impl ::core::marker::Copy for Color {}
+impl ::core::clone::Clone for Color {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ColorHelper(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -56,4 +67,12 @@ pub struct UIContentRoot(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct UIContext(pub *mut ::core::ffi::c_void);
 #[repr(C)]
-pub struct WindowId(i32);
+pub struct WindowId {
+    pub Value: u64,
+}
+impl ::core::marker::Copy for WindowId {}
+impl ::core::clone::Clone for WindowId {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

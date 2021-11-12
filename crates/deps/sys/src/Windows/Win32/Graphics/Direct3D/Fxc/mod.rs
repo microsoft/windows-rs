@@ -62,6 +62,12 @@ pub const D3DCOMPILER_STRIP_TEST_BLOBS: D3DCOMPILER_STRIP_FLAGS = D3DCOMPILER_ST
 pub const D3DCOMPILER_STRIP_PRIVATE_DATA: D3DCOMPILER_STRIP_FLAGS = D3DCOMPILER_STRIP_FLAGS(8i32);
 pub const D3DCOMPILER_STRIP_ROOT_SIGNATURE: D3DCOMPILER_STRIP_FLAGS = D3DCOMPILER_STRIP_FLAGS(16i32);
 pub const D3DCOMPILER_STRIP_FORCE_DWORD: D3DCOMPILER_STRIP_FLAGS = D3DCOMPILER_STRIP_FLAGS(2147483647i32);
+impl ::core::marker::Copy for D3DCOMPILER_STRIP_FLAGS {}
+impl ::core::clone::Clone for D3DCOMPILER_STRIP_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const D3DCOMPILE_ALL_RESOURCES_BOUND: u32 = 2097152u32;
 pub const D3DCOMPILE_AVOID_FLOW_CONTROL: u32 = 512u32;
 pub const D3DCOMPILE_DEBUG: u32 = 1u32;
@@ -114,6 +120,12 @@ pub const D3D_BLOB_TEST_ALTERNATE_SHADER: D3D_BLOB_PART = D3D_BLOB_PART(32768i32
 pub const D3D_BLOB_TEST_COMPILE_DETAILS: D3D_BLOB_PART = D3D_BLOB_PART(32769i32);
 pub const D3D_BLOB_TEST_COMPILE_PERF: D3D_BLOB_PART = D3D_BLOB_PART(32770i32);
 pub const D3D_BLOB_TEST_COMPILE_REPORT: D3D_BLOB_PART = D3D_BLOB_PART(32771i32);
+impl ::core::marker::Copy for D3D_BLOB_PART {}
+impl ::core::clone::Clone for D3D_BLOB_PART {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const D3D_COMPILER_VERSION: u32 = 47u32;
 pub const D3D_COMPRESS_SHADER_KEEP_ALL_PARTS: u32 = 1u32;
 pub const D3D_DISASM_DISABLE_DEBUG_INFO: u32 = 16u32;
@@ -126,7 +138,16 @@ pub const D3D_DISASM_INSTRUCTION_ONLY: u32 = 64u32;
 pub const D3D_DISASM_PRINT_HEX_LITERALS: u32 = 128u32;
 pub const D3D_GET_INST_OFFSETS_INCLUDE_NON_EXECUTABLE: u32 = 1u32;
 #[repr(C)]
-pub struct D3D_SHADER_DATA(i32);
+pub struct D3D_SHADER_DATA {
+    pub pBytecode: *mut ::core::ffi::c_void,
+    pub BytecodeLength: usize,
+}
+impl ::core::marker::Copy for D3D_SHADER_DATA {}
+impl ::core::clone::Clone for D3D_SHADER_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[cfg(feature = "Win32_Foundation")]
 pub type pD3DCompile = unsafe extern "system" fn(psrcdata: *const ::core::ffi::c_void, srcdatasize: usize, pfilename: super::super::super::Foundation::PSTR, pdefines: *const super::D3D_SHADER_MACRO, pinclude: super::ID3DInclude, pentrypoint: super::super::super::Foundation::PSTR, ptarget: super::super::super::Foundation::PSTR, flags1: u32, flags2: u32, ppcode: *mut super::ID3DBlob, pperrormsgs: *mut super::ID3DBlob) -> ::windows_sys::core::HRESULT;
 #[cfg(feature = "Win32_Foundation")]

@@ -17,3 +17,9 @@ impl AudioRenderCategory {
     pub const Movie: Self = Self(10i32);
     pub const Media: Self = Self(11i32);
 }
+impl ::core::marker::Copy for AudioRenderCategory {}
+impl ::core::clone::Clone for AudioRenderCategory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

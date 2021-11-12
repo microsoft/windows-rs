@@ -24,6 +24,12 @@ impl BarcodeScannerStatus {
     pub const OffOrOffline: Self = Self(3i32);
     pub const Extended: Self = Self(4i32);
 }
+impl ::core::marker::Copy for BarcodeScannerStatus {}
+impl ::core::clone::Clone for BarcodeScannerStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct BarcodeScannerStatusUpdatedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -34,6 +40,12 @@ impl BarcodeSymbologyDecodeLengthKind {
     pub const AnyLength: Self = Self(0i32);
     pub const Discrete: Self = Self(1i32);
     pub const Range: Self = Self(2i32);
+}
+impl ::core::marker::Copy for BarcodeSymbologyDecodeLengthKind {}
+impl ::core::clone::Clone for BarcodeSymbologyDecodeLengthKind {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct CashDrawer(pub *mut ::core::ffi::c_void);
@@ -57,6 +69,12 @@ impl CashDrawerStatusKind {
     pub const Offline: Self = Self(2i32);
     pub const OffOrOffline: Self = Self(3i32);
     pub const Extended: Self = Self(4i32);
+}
+impl ::core::marker::Copy for CashDrawerStatusKind {}
+impl ::core::clone::Clone for CashDrawerStatusKind {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct CashDrawerStatusUpdatedEventArgs(pub *mut ::core::ffi::c_void);
@@ -318,6 +336,12 @@ impl LineDisplayCursorType {
     pub const Reverse: Self = Self(4i32);
     pub const Other: Self = Self(5i32);
 }
+impl ::core::marker::Copy for LineDisplayCursorType {}
+impl ::core::clone::Clone for LineDisplayCursorType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct LineDisplayCustomGlyphs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -327,12 +351,24 @@ impl LineDisplayDescriptorState {
     pub const On: Self = Self(1i32);
     pub const Blink: Self = Self(2i32);
 }
+impl ::core::marker::Copy for LineDisplayDescriptorState {}
+impl ::core::clone::Clone for LineDisplayDescriptorState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct LineDisplayHorizontalAlignment(pub i32);
 impl LineDisplayHorizontalAlignment {
     pub const Left: Self = Self(0i32);
     pub const Center: Self = Self(1i32);
     pub const Right: Self = Self(2i32);
+}
+impl ::core::marker::Copy for LineDisplayHorizontalAlignment {}
+impl ::core::clone::Clone for LineDisplayHorizontalAlignment {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct LineDisplayMarquee(pub *mut ::core::ffi::c_void);
@@ -343,6 +379,12 @@ impl LineDisplayMarqueeFormat {
     pub const Walk: Self = Self(1i32);
     pub const Place: Self = Self(2i32);
 }
+impl ::core::marker::Copy for LineDisplayMarqueeFormat {}
+impl ::core::clone::Clone for LineDisplayMarqueeFormat {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct LineDisplayPowerStatus(pub i32);
 impl LineDisplayPowerStatus {
@@ -352,6 +394,12 @@ impl LineDisplayPowerStatus {
     pub const Offline: Self = Self(3i32);
     pub const OffOrOffline: Self = Self(4i32);
 }
+impl ::core::marker::Copy for LineDisplayPowerStatus {}
+impl ::core::clone::Clone for LineDisplayPowerStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct LineDisplayScrollDirection(pub i32);
 impl LineDisplayScrollDirection {
@@ -359,6 +407,12 @@ impl LineDisplayScrollDirection {
     pub const Down: Self = Self(1i32);
     pub const Left: Self = Self(2i32);
     pub const Right: Self = Self(3i32);
+}
+impl ::core::marker::Copy for LineDisplayScrollDirection {}
+impl ::core::clone::Clone for LineDisplayScrollDirection {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct LineDisplayStatisticsCategorySelector(pub *mut ::core::ffi::c_void);
@@ -374,6 +428,12 @@ impl LineDisplayTextAttribute {
     pub const Reverse: Self = Self(2i32);
     pub const ReverseBlink: Self = Self(3i32);
 }
+impl ::core::marker::Copy for LineDisplayTextAttribute {}
+impl ::core::clone::Clone for LineDisplayTextAttribute {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct LineDisplayTextAttributeGranularity(pub i32);
 impl LineDisplayTextAttributeGranularity {
@@ -381,12 +441,24 @@ impl LineDisplayTextAttributeGranularity {
     pub const EntireDisplay: Self = Self(1i32);
     pub const PerCharacter: Self = Self(2i32);
 }
+impl ::core::marker::Copy for LineDisplayTextAttributeGranularity {}
+impl ::core::clone::Clone for LineDisplayTextAttributeGranularity {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct LineDisplayVerticalAlignment(pub i32);
 impl LineDisplayVerticalAlignment {
     pub const Top: Self = Self(0i32);
     pub const Center: Self = Self(1i32);
     pub const Bottom: Self = Self(2i32);
+}
+impl ::core::marker::Copy for LineDisplayVerticalAlignment {}
+impl ::core::clone::Clone for LineDisplayVerticalAlignment {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct LineDisplayWindow(pub *mut ::core::ffi::c_void);
@@ -401,11 +473,23 @@ impl MagneticStripeReaderAuthenticationLevel {
     pub const Optional: Self = Self(1i32);
     pub const Required: Self = Self(2i32);
 }
+impl ::core::marker::Copy for MagneticStripeReaderAuthenticationLevel {}
+impl ::core::clone::Clone for MagneticStripeReaderAuthenticationLevel {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MagneticStripeReaderAuthenticationProtocol(pub i32);
 impl MagneticStripeReaderAuthenticationProtocol {
     pub const None: Self = Self(0i32);
     pub const ChallengeResponse: Self = Self(1i32);
+}
+impl ::core::marker::Copy for MagneticStripeReaderAuthenticationProtocol {}
+impl ::core::clone::Clone for MagneticStripeReaderAuthenticationProtocol {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct MagneticStripeReaderBankCardDataReceivedEventArgs(pub *mut ::core::ffi::c_void);
@@ -419,6 +503,12 @@ impl MagneticStripeReaderErrorReportingType {
     pub const CardLevel: Self = Self(0i32);
     pub const TrackLevel: Self = Self(1i32);
 }
+impl ::core::marker::Copy for MagneticStripeReaderErrorReportingType {}
+impl ::core::clone::Clone for MagneticStripeReaderErrorReportingType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MagneticStripeReaderReport(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -427,6 +517,12 @@ impl MagneticStripeReaderStatus {
     pub const Unauthenticated: Self = Self(0i32);
     pub const Authenticated: Self = Self(1i32);
     pub const Extended: Self = Self(2i32);
+}
+impl ::core::marker::Copy for MagneticStripeReaderStatus {}
+impl ::core::clone::Clone for MagneticStripeReaderStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct MagneticStripeReaderStatusUpdatedEventArgs(pub *mut ::core::ffi::c_void);
@@ -442,6 +538,12 @@ impl MagneticStripeReaderTrackErrorType {
     pub const LrcError: Self = Self(4i32);
     pub const Unknown: Self = Self(-1i32);
 }
+impl ::core::marker::Copy for MagneticStripeReaderTrackErrorType {}
+impl ::core::clone::Clone for MagneticStripeReaderTrackErrorType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MagneticStripeReaderTrackIds(pub i32);
 impl MagneticStripeReaderTrackIds {
@@ -450,6 +552,12 @@ impl MagneticStripeReaderTrackIds {
     pub const Track2: Self = Self(2i32);
     pub const Track3: Self = Self(4i32);
     pub const Track4: Self = Self(8i32);
+}
+impl ::core::marker::Copy for MagneticStripeReaderTrackIds {}
+impl ::core::clone::Clone for MagneticStripeReaderTrackIds {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs(pub *mut ::core::ffi::c_void);
@@ -461,6 +569,12 @@ impl PosConnectionTypes {
     pub const Bluetooth: Self = Self(4u32);
     pub const All: Self = Self(4294967295u32);
 }
+impl ::core::marker::Copy for PosConnectionTypes {}
+impl ::core::clone::Clone for PosConnectionTypes {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PosPrinter(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -470,12 +584,24 @@ impl PosPrinterAlignment {
     pub const Center: Self = Self(1i32);
     pub const Right: Self = Self(2i32);
 }
+impl ::core::marker::Copy for PosPrinterAlignment {}
+impl ::core::clone::Clone for PosPrinterAlignment {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PosPrinterBarcodeTextPosition(pub i32);
 impl PosPrinterBarcodeTextPosition {
     pub const None: Self = Self(0i32);
     pub const Above: Self = Self(1i32);
     pub const Below: Self = Self(2i32);
+}
+impl ::core::marker::Copy for PosPrinterBarcodeTextPosition {}
+impl ::core::clone::Clone for PosPrinterBarcodeTextPosition {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct PosPrinterCapabilities(pub *mut ::core::ffi::c_void);
@@ -487,6 +613,12 @@ impl PosPrinterCartridgeSensors {
     pub const Empty: Self = Self(2u32);
     pub const HeadCleaning: Self = Self(4u32);
     pub const NearEnd: Self = Self(8u32);
+}
+impl ::core::marker::Copy for PosPrinterCartridgeSensors {}
+impl ::core::clone::Clone for PosPrinterCartridgeSensors {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct PosPrinterColorCapabilities(pub u32);
@@ -504,6 +636,12 @@ impl PosPrinterColorCapabilities {
     pub const Yellow: Self = Self(512u32);
     pub const Full: Self = Self(1024u32);
 }
+impl ::core::marker::Copy for PosPrinterColorCapabilities {}
+impl ::core::clone::Clone for PosPrinterColorCapabilities {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PosPrinterColorCartridge(pub i32);
 impl PosPrinterColorCartridge {
@@ -519,6 +657,12 @@ impl PosPrinterColorCartridge {
     pub const Magenta: Self = Self(9i32);
     pub const Yellow: Self = Self(10i32);
 }
+impl ::core::marker::Copy for PosPrinterColorCartridge {}
+impl ::core::clone::Clone for PosPrinterColorCartridge {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PosPrinterFontProperty(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -526,6 +670,12 @@ pub struct PosPrinterLineDirection(pub i32);
 impl PosPrinterLineDirection {
     pub const Horizontal: Self = Self(0i32);
     pub const Vertical: Self = Self(1i32);
+}
+impl ::core::marker::Copy for PosPrinterLineDirection {}
+impl ::core::clone::Clone for PosPrinterLineDirection {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct PosPrinterLineStyle(pub i32);
@@ -535,6 +685,12 @@ impl PosPrinterLineStyle {
     pub const Broken: Self = Self(2i32);
     pub const Chain: Self = Self(3i32);
 }
+impl ::core::marker::Copy for PosPrinterLineStyle {}
+impl ::core::clone::Clone for PosPrinterLineStyle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PosPrinterMapMode(pub i32);
 impl PosPrinterMapMode {
@@ -542,6 +698,12 @@ impl PosPrinterMapMode {
     pub const Twips: Self = Self(1i32);
     pub const English: Self = Self(2i32);
     pub const Metric: Self = Self(3i32);
+}
+impl ::core::marker::Copy for PosPrinterMapMode {}
+impl ::core::clone::Clone for PosPrinterMapMode {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct PosPrinterMarkFeedCapabilities(pub u32);
@@ -552,6 +714,12 @@ impl PosPrinterMarkFeedCapabilities {
     pub const ToCurrentTopOfForm: Self = Self(4u32);
     pub const ToNextTopOfForm: Self = Self(8u32);
 }
+impl ::core::marker::Copy for PosPrinterMarkFeedCapabilities {}
+impl ::core::clone::Clone for PosPrinterMarkFeedCapabilities {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PosPrinterMarkFeedKind(pub i32);
 impl PosPrinterMarkFeedKind {
@@ -559,6 +727,12 @@ impl PosPrinterMarkFeedKind {
     pub const ToCutter: Self = Self(1i32);
     pub const ToCurrentTopOfForm: Self = Self(2i32);
     pub const ToNextTopOfForm: Self = Self(3i32);
+}
+impl ::core::marker::Copy for PosPrinterMarkFeedKind {}
+impl ::core::clone::Clone for PosPrinterMarkFeedKind {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct PosPrinterPrintOptions(pub *mut ::core::ffi::c_void);
@@ -568,6 +742,12 @@ impl PosPrinterPrintSide {
     pub const Unknown: Self = Self(0i32);
     pub const Side1: Self = Self(1i32);
     pub const Side2: Self = Self(2i32);
+}
+impl ::core::marker::Copy for PosPrinterPrintSide {}
+impl ::core::clone::Clone for PosPrinterPrintSide {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct PosPrinterReleaseDeviceRequestedEventArgs(pub *mut ::core::ffi::c_void);
@@ -579,12 +759,24 @@ impl PosPrinterRotation {
     pub const Left90: Self = Self(2i32);
     pub const Rotate180: Self = Self(3i32);
 }
+impl ::core::marker::Copy for PosPrinterRotation {}
+impl ::core::clone::Clone for PosPrinterRotation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PosPrinterRuledLineCapabilities(pub u32);
 impl PosPrinterRuledLineCapabilities {
     pub const None: Self = Self(0u32);
     pub const Horizontal: Self = Self(1u32);
     pub const Vertical: Self = Self(2u32);
+}
+impl ::core::marker::Copy for PosPrinterRuledLineCapabilities {}
+impl ::core::clone::Clone for PosPrinterRuledLineCapabilities {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct PosPrinterStatus(pub *mut ::core::ffi::c_void);
@@ -597,6 +789,12 @@ impl PosPrinterStatusKind {
     pub const OffOrOffline: Self = Self(3i32);
     pub const Extended: Self = Self(4i32);
 }
+impl ::core::marker::Copy for PosPrinterStatusKind {}
+impl ::core::clone::Clone for PosPrinterStatusKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PosPrinterStatusUpdatedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -604,7 +802,16 @@ pub struct ReceiptPrintJob(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ReceiptPrinterCapabilities(pub *mut ::core::ffi::c_void);
 #[repr(C)]
-pub struct SizeUInt32(i32);
+pub struct SizeUInt32 {
+    pub Width: u32,
+    pub Height: u32,
+}
+impl ::core::marker::Copy for SizeUInt32 {}
+impl ::core::clone::Clone for SizeUInt32 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SlipPrintJob(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -626,6 +833,12 @@ impl UnifiedPosErrorReason {
     pub const Busy: Self = Self(9i32);
     pub const Extended: Self = Self(10i32);
 }
+impl ::core::marker::Copy for UnifiedPosErrorReason {}
+impl ::core::clone::Clone for UnifiedPosErrorReason {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UnifiedPosErrorSeverity(pub i32);
 impl UnifiedPosErrorSeverity {
@@ -636,6 +849,12 @@ impl UnifiedPosErrorSeverity {
     pub const AssistanceRequired: Self = Self(4i32);
     pub const Fatal: Self = Self(5i32);
 }
+impl ::core::marker::Copy for UnifiedPosErrorSeverity {}
+impl ::core::clone::Clone for UnifiedPosErrorSeverity {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UnifiedPosHealthCheckLevel(pub i32);
 impl UnifiedPosHealthCheckLevel {
@@ -644,10 +863,22 @@ impl UnifiedPosHealthCheckLevel {
     pub const External: Self = Self(2i32);
     pub const Interactive: Self = Self(3i32);
 }
+impl ::core::marker::Copy for UnifiedPosHealthCheckLevel {}
+impl ::core::clone::Clone for UnifiedPosHealthCheckLevel {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UnifiedPosPowerReportingType(pub i32);
 impl UnifiedPosPowerReportingType {
     pub const UnknownPowerReportingType: Self = Self(0i32);
     pub const Standard: Self = Self(1i32);
     pub const Advanced: Self = Self(2i32);
+}
+impl ::core::marker::Copy for UnifiedPosPowerReportingType {}
+impl ::core::clone::Clone for UnifiedPosPowerReportingType {
+    fn clone(&self) -> Self {
+        *self
+    }
 }

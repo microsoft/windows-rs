@@ -21,6 +21,12 @@ impl FeatureElementKindPreview {
     pub const Complex64: Self = Self(14i32);
     pub const Complex128: Self = Self(15i32);
 }
+impl ::core::marker::Copy for FeatureElementKindPreview {}
+impl ::core::clone::Clone for FeatureElementKindPreview {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IImageVariableDescriptorPreview(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -63,6 +69,12 @@ impl LearningModelDeviceKindPreview {
     pub const LearningDeviceDsp: Self = Self(4i32);
     pub const LearningDeviceFpga: Self = Self(5i32);
 }
+impl ::core::marker::Copy for LearningModelDeviceKindPreview {}
+impl ::core::clone::Clone for LearningModelDeviceKindPreview {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct LearningModelEvaluationResultPreview(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -74,12 +86,16 @@ impl LearningModelFeatureKindPreview {
     pub const Map: Self = Self(3i32);
     pub const Image: Self = Self(4i32);
 }
+impl ::core::marker::Copy for LearningModelFeatureKindPreview {}
+impl ::core::clone::Clone for LearningModelFeatureKindPreview {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct LearningModelPreview(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct LearningModelVariableDescriptorPreview(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct MachineLearningPreviewContract(i32);
 #[repr(transparent)]
 pub struct MapVariableDescriptorPreview(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

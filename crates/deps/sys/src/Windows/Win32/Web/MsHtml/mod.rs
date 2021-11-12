@@ -61,10 +61,14 @@ pub const ADDURL_FIRST: ADDURL_FLAG = ADDURL_FLAG(0i32);
 pub const ADDURL_ADDTOHISTORYANDCACHE: ADDURL_FLAG = ADDURL_FLAG(0i32);
 pub const ADDURL_ADDTOCACHE: ADDURL_FLAG = ADDURL_FLAG(1i32);
 pub const ADDURL_Max: ADDURL_FLAG = ADDURL_FLAG(2147483647i32);
-#[repr(C)]
-pub struct AnchorClick(i32);
-#[repr(C)]
-pub struct ApplicationCache(i32);
+impl ::core::marker::Copy for ADDURL_FLAG {}
+impl ::core::clone::Clone for ADDURL_FLAG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+pub const AnchorClick: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 332742972, data2: 13241, data3: 4562, data4: [149, 167, 0, 192, 79, 142, 203, 2] };
+pub const ApplicationCache: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616873, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 #[repr(transparent)]
 pub struct BEHAVIOR_EVENT(pub i32);
 pub const BEHAVIOREVENT_FIRST: BEHAVIOR_EVENT = BEHAVIOR_EVENT(0i32);
@@ -75,17 +79,35 @@ pub const BEHAVIOREVENT_DOCUMENTCONTEXTCHANGE: BEHAVIOR_EVENT = BEHAVIOR_EVENT(3
 pub const BEHAVIOREVENT_CONTENTSAVE: BEHAVIOR_EVENT = BEHAVIOR_EVENT(4i32);
 pub const BEHAVIOREVENT_LAST: BEHAVIOR_EVENT = BEHAVIOR_EVENT(4i32);
 pub const BEHAVIOR_EVENT_Max: BEHAVIOR_EVENT = BEHAVIOR_EVENT(2147483647i32);
+impl ::core::marker::Copy for BEHAVIOR_EVENT {}
+impl ::core::clone::Clone for BEHAVIOR_EVENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct BEHAVIOR_EVENT_FLAGS(pub i32);
 pub const BEHAVIOREVENTFLAGS_BUBBLE: BEHAVIOR_EVENT_FLAGS = BEHAVIOR_EVENT_FLAGS(1i32);
 pub const BEHAVIOREVENTFLAGS_STANDARDADDITIVE: BEHAVIOR_EVENT_FLAGS = BEHAVIOR_EVENT_FLAGS(2i32);
 pub const BEHAVIOR_EVENT_FLAGS_Max: BEHAVIOR_EVENT_FLAGS = BEHAVIOR_EVENT_FLAGS(2147483647i32);
+impl ::core::marker::Copy for BEHAVIOR_EVENT_FLAGS {}
+impl ::core::clone::Clone for BEHAVIOR_EVENT_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct BEHAVIOR_LAYOUT_INFO(pub i32);
 pub const BEHAVIORLAYOUTINFO_FULLDELEGATION: BEHAVIOR_LAYOUT_INFO = BEHAVIOR_LAYOUT_INFO(1i32);
 pub const BEHAVIORLAYOUTINFO_MODIFYNATURAL: BEHAVIOR_LAYOUT_INFO = BEHAVIOR_LAYOUT_INFO(2i32);
 pub const BEHAVIORLAYOUTINFO_MAPSIZE: BEHAVIOR_LAYOUT_INFO = BEHAVIOR_LAYOUT_INFO(4i32);
 pub const BEHAVIOR_LAYOUT_INFO_Max: BEHAVIOR_LAYOUT_INFO = BEHAVIOR_LAYOUT_INFO(2147483647i32);
+impl ::core::marker::Copy for BEHAVIOR_LAYOUT_INFO {}
+impl ::core::clone::Clone for BEHAVIOR_LAYOUT_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct BEHAVIOR_LAYOUT_MODE(pub i32);
 pub const BEHAVIORLAYOUTMODE_NATURAL: BEHAVIOR_LAYOUT_MODE = BEHAVIOR_LAYOUT_MODE(1i32);
@@ -94,6 +116,12 @@ pub const BEHAVIORLAYOUTMODE_MAXWIDTH: BEHAVIOR_LAYOUT_MODE = BEHAVIOR_LAYOUT_MO
 pub const BEHAVIORLAYOUTMODE_MEDIA_RESOLUTION: BEHAVIOR_LAYOUT_MODE = BEHAVIOR_LAYOUT_MODE(16384i32);
 pub const BEHAVIORLAYOUTMODE_FINAL_PERCENT: BEHAVIOR_LAYOUT_MODE = BEHAVIOR_LAYOUT_MODE(32768i32);
 pub const BEHAVIOR_LAYOUT_MODE_Max: BEHAVIOR_LAYOUT_MODE = BEHAVIOR_LAYOUT_MODE(2147483647i32);
+impl ::core::marker::Copy for BEHAVIOR_LAYOUT_MODE {}
+impl ::core::clone::Clone for BEHAVIOR_LAYOUT_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct BEHAVIOR_RELATION(pub i32);
 pub const BEHAVIOR_FIRSTRELATION: BEHAVIOR_RELATION = BEHAVIOR_RELATION(0i32);
@@ -103,6 +131,12 @@ pub const BEHAVIOR_CHILD: BEHAVIOR_RELATION = BEHAVIOR_RELATION(2i32);
 pub const BEHAVIOR_SIBLING: BEHAVIOR_RELATION = BEHAVIOR_RELATION(3i32);
 pub const BEHAVIOR_LASTRELATION: BEHAVIOR_RELATION = BEHAVIOR_RELATION(3i32);
 pub const BEHAVIOR_RELATION_Max: BEHAVIOR_RELATION = BEHAVIOR_RELATION(2147483647i32);
+impl ::core::marker::Copy for BEHAVIOR_RELATION {}
+impl ::core::clone::Clone for BEHAVIOR_RELATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct BEHAVIOR_RENDER_INFO(pub i32);
 pub const BEHAVIORRENDERINFO_BEFOREBACKGROUND: BEHAVIOR_RENDER_INFO = BEHAVIOR_RENDER_INFO(1i32);
@@ -121,13 +155,24 @@ pub const BEHAVIORRENDERINFO_HITTESTING: BEHAVIOR_RENDER_INFO = BEHAVIOR_RENDER_
 pub const BEHAVIORRENDERINFO_SURFACE: BEHAVIOR_RENDER_INFO = BEHAVIOR_RENDER_INFO(1048576i32);
 pub const BEHAVIORRENDERINFO_3DSURFACE: BEHAVIOR_RENDER_INFO = BEHAVIOR_RENDER_INFO(2097152i32);
 pub const BEHAVIOR_RENDER_INFO_Max: BEHAVIOR_RENDER_INFO = BEHAVIOR_RENDER_INFO(2147483647i32);
-#[repr(C)]
-pub struct BlockFormats(i32);
+impl ::core::marker::Copy for BEHAVIOR_RENDER_INFO {}
+impl ::core::clone::Clone for BEHAVIOR_RENDER_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+pub const BlockFormats: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810612785, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 #[repr(transparent)]
 pub struct BoolValue(pub i32);
 pub const True: BoolValue = BoolValue(1i32);
 pub const False: BoolValue = BoolValue(0i32);
 pub const BoolValue_Max: BoolValue = BoolValue(2147483647i32);
+impl ::core::marker::Copy for BoolValue {}
+impl ::core::clone::Clone for BoolValue {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CARET_DIRECTION(pub i32);
 pub const CARET_DIRECTION_INDETERMINATE: CARET_DIRECTION = CARET_DIRECTION(0i32);
@@ -135,21 +180,21 @@ pub const CARET_DIRECTION_SAME: CARET_DIRECTION = CARET_DIRECTION(1i32);
 pub const CARET_DIRECTION_BACKWARD: CARET_DIRECTION = CARET_DIRECTION(2i32);
 pub const CARET_DIRECTION_FORWARD: CARET_DIRECTION = CARET_DIRECTION(3i32);
 pub const CARET_DIRECTION_Max: CARET_DIRECTION = CARET_DIRECTION(2147483647i32);
+impl ::core::marker::Copy for CARET_DIRECTION {}
+impl ::core::clone::Clone for CARET_DIRECTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CATID_MSOfficeAntiVirus: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1459604528, data2: 54168, data3: 4560, data4: [178, 174, 0, 160, 201, 8, 250, 73] };
-#[repr(C)]
-pub struct CClientCaps(i32);
-#[repr(C)]
-pub struct CDeviceRect(i32);
-#[repr(C)]
-pub struct CDownloadBehavior(i32);
-#[repr(C)]
-pub struct CEventObj(i32);
+pub const CClientCaps: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2123088974, data2: 44799, data3: 4561, data4: [137, 194, 0, 192, 79, 182, 191, 196] };
+pub const CDeviceRect: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810612436, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const CDownloadBehavior: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810612158, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const CEventObj: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611850, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const CGID_DocHostCommandHandler: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4086022722, data2: 47440, data3: 4561, data4: [137, 24, 0, 192, 79, 194, 200, 54] };
 pub const CGID_EditStateCommands: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611894, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-#[repr(C)]
-pub struct CHeaderFooter(i32);
-#[repr(C)]
-pub struct CLayoutRect(i32);
+pub const CHeaderFooter: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810612429, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const CLayoutRect: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810612324, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const CMDID_HOSTCONTEXT_URL: u32 = 8u32;
 pub const CMDID_SCRIPTSITE_ALLOWRECOVERY: u32 = 9u32;
 pub const CMDID_SCRIPTSITE_BASEIURI: u32 = 10u32;
@@ -166,8 +211,7 @@ pub const CMD_ZOOM_ONEPAGE: i32 = -2i32;
 pub const CMD_ZOOM_PAGEWIDTH: i32 = -1i32;
 pub const CMD_ZOOM_SELECTION: i32 = -4i32;
 pub const CMD_ZOOM_TWOPAGES: i32 = -3i32;
-#[repr(C)]
-pub struct CMimeTypes(i32);
+pub const CMimeTypes: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611710, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const COLOR_NO_TRANSPARENT: u32 = 4294967295u32;
 pub const CONTEXT_MENU_ANCHOR: u32 = 5u32;
 pub const CONTEXT_MENU_CONTROL: u32 = 2u32;
@@ -200,40 +244,34 @@ pub const COORD_SYSTEM_CONTENT: COORD_SYSTEM = COORD_SYSTEM(3i32);
 pub const COORD_SYSTEM_FRAME: COORD_SYSTEM = COORD_SYSTEM(4i32);
 pub const COORD_SYSTEM_CLIENT: COORD_SYSTEM = COORD_SYSTEM(5i32);
 pub const COORD_SYSTEM_Max: COORD_SYSTEM = COORD_SYSTEM(2147483647i32);
-#[repr(C)]
-pub struct COpsProfile(i32);
-#[repr(C)]
-pub struct CPersistDataPeer(i32);
-#[repr(C)]
-pub struct CPersistHistory(i32);
-#[repr(C)]
-pub struct CPersistShortcut(i32);
-#[repr(C)]
-pub struct CPersistSnapshot(i32);
-#[repr(C)]
-pub struct CPersistUserData(i32);
-#[repr(C)]
-pub struct CPlugins(i32);
-#[repr(C)]
-pub struct CPrintManagerTemplatePrinter(i32);
-#[repr(C)]
-pub struct CTemplatePrinter(i32);
-#[repr(C)]
-pub struct CanvasGradient(i32);
-#[repr(C)]
-pub struct CanvasImageData(i32);
-#[repr(C)]
-pub struct CanvasPattern(i32);
-#[repr(C)]
-pub struct CanvasRenderingContext2D(i32);
-#[repr(C)]
-pub struct CanvasTextMetrics(i32);
-#[repr(C)]
-pub struct CoDitherToRGB8(i32);
-#[repr(C)]
-pub struct CoMapMIMEToCLSID(i32);
-#[repr(C)]
-pub struct CoSniffStream(i32);
+impl ::core::marker::Copy for COORD_SYSTEM {}
+impl ::core::clone::Clone for COORD_SYSTEM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+pub const COpsProfile: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611714, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const CPersistDataPeer: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611847, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const CPersistHistory: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611912, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const CPersistShortcut: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611910, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const CPersistSnapshot: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611913, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const CPersistUserData: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611854, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const CPlugins: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611711, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const CPrintManagerTemplatePrinter: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1667342164,
+    data2: 40305,
+    data3: 19491,
+    data4: [160, 141, 80, 215, 241, 141, 178, 233],
+};
+pub const CTemplatePrinter: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810612403, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const CanvasGradient: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616597, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const CanvasImageData: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616603, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const CanvasPattern: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616599, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const CanvasRenderingContext2D: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616576, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const CanvasTextMetrics: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616601, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const CoDitherToRGB8: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2824916560, data2: 14608, data3: 4560, data4: [134, 252, 0, 160, 201, 19, 247, 80] };
+pub const CoMapMIMEToCLSID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 818131072, data2: 12539, data3: 4560, data4: [183, 36, 0, 170, 0, 108, 26, 1] };
+pub const CoSniffStream: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1778515360, data2: 12511, data3: 4560, data4: [183, 36, 0, 170, 0, 108, 26, 1] };
 pub const DEBUGCALLBACKNOTIFICATION_ANIMATIONFRAME: u32 = 8u32;
 pub const DEBUGCALLBACKNOTIFICATION_DOMEVENT: u32 = 16u32;
 pub const DEBUGCALLBACKNOTIFICATION_IMMEDIATE: u32 = 4u32;
@@ -248,6 +286,12 @@ pub const DCML_INFORMATIONAL: DEV_CONSOLE_MESSAGE_LEVEL = DEV_CONSOLE_MESSAGE_LE
 pub const DCML_WARNING: DEV_CONSOLE_MESSAGE_LEVEL = DEV_CONSOLE_MESSAGE_LEVEL(1i32);
 pub const DCML_ERROR: DEV_CONSOLE_MESSAGE_LEVEL = DEV_CONSOLE_MESSAGE_LEVEL(2i32);
 pub const DEV_CONSOLE_MESSAGE_LEVEL_Max: DEV_CONSOLE_MESSAGE_LEVEL = DEV_CONSOLE_MESSAGE_LEVEL(2147483647i32);
+impl ::core::marker::Copy for DEV_CONSOLE_MESSAGE_LEVEL {}
+impl ::core::clone::Clone for DEV_CONSOLE_MESSAGE_LEVEL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DISP10_IE10_XMSARIAFLOWFROM: u32 = 66835u32;
 pub const DISPID_1D: u32 = 2000u32;
 pub const DISPID_2D: u32 = 1000u32;
@@ -6118,11 +6162,23 @@ pub const DISPLAY_BREAK_None: DISPLAY_BREAK = DISPLAY_BREAK(0i32);
 pub const DISPLAY_BREAK_Block: DISPLAY_BREAK = DISPLAY_BREAK(1i32);
 pub const DISPLAY_BREAK_Break: DISPLAY_BREAK = DISPLAY_BREAK(2i32);
 pub const DISPLAY_BREAK_Max: DISPLAY_BREAK = DISPLAY_BREAK(2147483647i32);
+impl ::core::marker::Copy for DISPLAY_BREAK {}
+impl ::core::clone::Clone for DISPLAY_BREAK {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DISPLAY_GRAVITY(pub i32);
 pub const DISPLAY_GRAVITY_PreviousLine: DISPLAY_GRAVITY = DISPLAY_GRAVITY(1i32);
 pub const DISPLAY_GRAVITY_NextLine: DISPLAY_GRAVITY = DISPLAY_GRAVITY(2i32);
 pub const DISPLAY_GRAVITY_Max: DISPLAY_GRAVITY = DISPLAY_GRAVITY(2147483647i32);
+impl ::core::marker::Copy for DISPLAY_GRAVITY {}
+impl ::core::clone::Clone for DISPLAY_GRAVITY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DISPLAY_MOVEUNIT(pub i32);
 pub const DISPLAY_MOVEUNIT_PreviousLine: DISPLAY_MOVEUNIT = DISPLAY_MOVEUNIT(1i32);
@@ -6132,6 +6188,12 @@ pub const DISPLAY_MOVEUNIT_CurrentLineEnd: DISPLAY_MOVEUNIT = DISPLAY_MOVEUNIT(4
 pub const DISPLAY_MOVEUNIT_TopOfWindow: DISPLAY_MOVEUNIT = DISPLAY_MOVEUNIT(5i32);
 pub const DISPLAY_MOVEUNIT_BottomOfWindow: DISPLAY_MOVEUNIT = DISPLAY_MOVEUNIT(6i32);
 pub const DISPLAY_MOVEUNIT_Max: DISPLAY_MOVEUNIT = DISPLAY_MOVEUNIT(2147483647i32);
+impl ::core::marker::Copy for DISPLAY_MOVEUNIT {}
+impl ::core::clone::Clone for DISPLAY_MOVEUNIT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DLCTL_BGSOUNDS: u32 = 64u32;
 pub const DLCTL_DLIMAGES: u32 = 16u32;
 pub const DLCTL_DOWNLOADONLY: u32 = 2048u32;
@@ -6158,6 +6220,12 @@ pub struct DOCHOSTUIDBLCLK(pub i32);
 pub const DOCHOSTUIDBLCLK_DEFAULT: DOCHOSTUIDBLCLK = DOCHOSTUIDBLCLK(0i32);
 pub const DOCHOSTUIDBLCLK_SHOWPROPERTIES: DOCHOSTUIDBLCLK = DOCHOSTUIDBLCLK(1i32);
 pub const DOCHOSTUIDBLCLK_SHOWCODE: DOCHOSTUIDBLCLK = DOCHOSTUIDBLCLK(2i32);
+impl ::core::marker::Copy for DOCHOSTUIDBLCLK {}
+impl ::core::clone::Clone for DOCHOSTUIDBLCLK {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DOCHOSTUIFLAG(pub i32);
 pub const DOCHOSTUIFLAG_DIALOG: DOCHOSTUIFLAG = DOCHOSTUIFLAG(1i32);
@@ -6190,73 +6258,78 @@ pub const DOCHOSTUIFLAG_USE_WINDOWLESS_SELECTCONTROL: DOCHOSTUIFLAG = DOCHOSTUIF
 pub const DOCHOSTUIFLAG_USE_WINDOWED_SELECTCONTROL: DOCHOSTUIFLAG = DOCHOSTUIFLAG(268435456i32);
 pub const DOCHOSTUIFLAG_ENABLE_ACTIVEX_INACTIVATE_MODE: DOCHOSTUIFLAG = DOCHOSTUIFLAG(536870912i32);
 pub const DOCHOSTUIFLAG_DPI_AWARE: DOCHOSTUIFLAG = DOCHOSTUIFLAG(1073741824i32);
-#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DOCHOSTUIFLAG {}
+impl ::core::clone::Clone for DOCHOSTUIFLAG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DOCHOSTUIINFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct DOCHOSTUIINFO {
+    pub cbSize: u32,
+    pub dwFlags: u32,
+    pub dwDoubleClick: u32,
+    pub pchHostCss: super::super::Foundation::PWSTR,
+    pub pchHostNS: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DOCHOSTUIINFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DOCHOSTUIINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DOCHOSTUITYPE(pub i32);
 pub const DOCHOSTUITYPE_BROWSE: DOCHOSTUITYPE = DOCHOSTUITYPE(0i32);
 pub const DOCHOSTUITYPE_AUTHOR: DOCHOSTUITYPE = DOCHOSTUITYPE(1i32);
-#[repr(C)]
-pub struct DOMBeforeUnloadEvent(i32);
-#[repr(C)]
-pub struct DOMChildrenCollection(i32);
-#[repr(C)]
-pub struct DOMCloseEvent(i32);
-#[repr(C)]
-pub struct DOMCompositionEvent(i32);
-#[repr(C)]
-pub struct DOMCustomEvent(i32);
-#[repr(C)]
-pub struct DOMDocumentType(i32);
-#[repr(C)]
-pub struct DOMDragEvent(i32);
-#[repr(C)]
-pub struct DOMEvent(i32);
-#[repr(C)]
-pub struct DOMException(i32);
-#[repr(C)]
-pub struct DOMFocusEvent(i32);
-#[repr(C)]
-pub struct DOMKeyboardEvent(i32);
-#[repr(C)]
-pub struct DOMMSAnimationEvent(i32);
-#[repr(C)]
-pub struct DOMMSManipulationEvent(i32);
-#[repr(C)]
-pub struct DOMMSTransitionEvent(i32);
-#[repr(C)]
-pub struct DOMMessageEvent(i32);
-#[repr(C)]
-pub struct DOMMouseEvent(i32);
-#[repr(C)]
-pub struct DOMMouseWheelEvent(i32);
-#[repr(C)]
-pub struct DOMMutationEvent(i32);
-#[repr(C)]
-pub struct DOMParser(i32);
-#[repr(C)]
-pub struct DOMParserFactory(i32);
-#[repr(C)]
-pub struct DOMProcessingInstruction(i32);
-#[repr(C)]
-pub struct DOMProgressEvent(i32);
-#[repr(C)]
-pub struct DOMSiteModeEvent(i32);
-#[repr(C)]
-pub struct DOMStorageEvent(i32);
-#[repr(C)]
-pub struct DOMTextEvent(i32);
-#[repr(C)]
-pub struct DOMUIEvent(i32);
-#[repr(C)]
-pub struct DOMWheelEvent(i32);
+impl ::core::marker::Copy for DOCHOSTUITYPE {}
+impl ::core::clone::Clone for DOCHOSTUITYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+pub const DOMBeforeUnloadEvent: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616676, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const DOMChildrenCollection: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810612138, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const DOMCloseEvent: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616832, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const DOMCompositionEvent: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616537, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const DOMCustomEvent: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616543, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const DOMDocumentType: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616633, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const DOMDragEvent: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616674, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const DOMEvent: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810615995, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const DOMException: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616620, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const DOMFocusEvent: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616525, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const DOMKeyboardEvent: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616535, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const DOMMSAnimationEvent: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616760, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const DOMMSManipulationEvent: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616855, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const DOMMSTransitionEvent: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616758, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const DOMMessageEvent: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616609, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const DOMMouseEvent: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616527, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const DOMMouseWheelEvent: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616529, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const DOMMutationEvent: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616539, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const DOMParser: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616706, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const DOMParserFactory: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616708, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const DOMProcessingInstruction: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616643, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const DOMProgressEvent: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616607, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const DOMSiteModeEvent: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616678, data2: 39094, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const DOMStorageEvent: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616611, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const DOMTextEvent: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616533, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const DOMUIEvent: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616523, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const DOMWheelEvent: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616531, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 #[repr(transparent)]
 pub struct DOM_EVENT_PHASE(pub i32);
 pub const DEP_CAPTURING_PHASE: DOM_EVENT_PHASE = DOM_EVENT_PHASE(1i32);
 pub const DEP_AT_TARGET: DOM_EVENT_PHASE = DOM_EVENT_PHASE(2i32);
 pub const DEP_BUBBLING_PHASE: DOM_EVENT_PHASE = DOM_EVENT_PHASE(3i32);
 pub const DOM_EVENT_PHASE_Max: DOM_EVENT_PHASE = DOM_EVENT_PHASE(2147483647i32);
+impl ::core::marker::Copy for DOM_EVENT_PHASE {}
+impl ::core::clone::Clone for DOM_EVENT_PHASE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DWebBridgeEvents(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -6854,16 +6927,34 @@ pub const DomConstructorXDomainRequest: DomConstructor = DomConstructor(105i32);
 pub const DomConstructorXMLHttpRequest: DomConstructor = DomConstructor(106i32);
 pub const DomConstructorMax: DomConstructor = DomConstructor(107i32);
 pub const DomConstructor_Max: DomConstructor = DomConstructor(2147483647i32);
+impl ::core::marker::Copy for DomConstructor {}
+impl ::core::clone::Clone for DomConstructor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ELEMENTDESCRIPTOR_FLAGS(pub i32);
 pub const ELEMENTDESCRIPTORFLAGS_LITERAL: ELEMENTDESCRIPTOR_FLAGS = ELEMENTDESCRIPTOR_FLAGS(1i32);
 pub const ELEMENTDESCRIPTORFLAGS_NESTED_LITERAL: ELEMENTDESCRIPTOR_FLAGS = ELEMENTDESCRIPTOR_FLAGS(2i32);
 pub const ELEMENTDESCRIPTOR_FLAGS_Max: ELEMENTDESCRIPTOR_FLAGS = ELEMENTDESCRIPTOR_FLAGS(2147483647i32);
+impl ::core::marker::Copy for ELEMENTDESCRIPTOR_FLAGS {}
+impl ::core::clone::Clone for ELEMENTDESCRIPTOR_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ELEMENTNAMESPACE_FLAGS(pub i32);
 pub const ELEMENTNAMESPACEFLAGS_ALLOWANYTAG: ELEMENTNAMESPACE_FLAGS = ELEMENTNAMESPACE_FLAGS(1i32);
 pub const ELEMENTNAMESPACEFLAGS_QUERYFORUNKNOWNTAGS: ELEMENTNAMESPACE_FLAGS = ELEMENTNAMESPACE_FLAGS(2i32);
 pub const ELEMENTNAMESPACE_FLAGS_Max: ELEMENTNAMESPACE_FLAGS = ELEMENTNAMESPACE_FLAGS(2147483647i32);
+impl ::core::marker::Copy for ELEMENTNAMESPACE_FLAGS {}
+impl ::core::clone::Clone for ELEMENTNAMESPACE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ELEMENT_ADJACENCY(pub i32);
 pub const ELEM_ADJ_BeforeBegin: ELEMENT_ADJACENCY = ELEMENT_ADJACENCY(0i32);
@@ -6871,6 +6962,12 @@ pub const ELEM_ADJ_AfterBegin: ELEMENT_ADJACENCY = ELEMENT_ADJACENCY(1i32);
 pub const ELEM_ADJ_BeforeEnd: ELEMENT_ADJACENCY = ELEMENT_ADJACENCY(2i32);
 pub const ELEM_ADJ_AfterEnd: ELEMENT_ADJACENCY = ELEMENT_ADJACENCY(3i32);
 pub const ELEMENT_ADJACENCY_Max: ELEMENT_ADJACENCY = ELEMENT_ADJACENCY(2147483647i32);
+impl ::core::marker::Copy for ELEMENT_ADJACENCY {}
+impl ::core::clone::Clone for ELEMENT_ADJACENCY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ELEMENT_CORNER(pub i32);
 pub const ELEMENT_CORNER_NONE: ELEMENT_CORNER = ELEMENT_CORNER(0i32);
@@ -6883,6 +6980,12 @@ pub const ELEMENT_CORNER_TOPRIGHT: ELEMENT_CORNER = ELEMENT_CORNER(6i32);
 pub const ELEMENT_CORNER_BOTTOMLEFT: ELEMENT_CORNER = ELEMENT_CORNER(7i32);
 pub const ELEMENT_CORNER_BOTTOMRIGHT: ELEMENT_CORNER = ELEMENT_CORNER(8i32);
 pub const ELEMENT_CORNER_Max: ELEMENT_CORNER = ELEMENT_CORNER(2147483647i32);
+impl ::core::marker::Copy for ELEMENT_CORNER {}
+impl ::core::clone::Clone for ELEMENT_CORNER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ELEMENT_TAG_ID(pub i32);
 pub const TAGID_NULL: ELEMENT_TAG_ID = ELEMENT_TAG_ID(0i32);
@@ -7112,24 +7215,41 @@ pub const TAGID_X_MS_WEBVIEW: ELEMENT_TAG_ID = ELEMENT_TAG_ID(223i32);
 pub const TAGID_COUNT: ELEMENT_TAG_ID = ELEMENT_TAG_ID(224i32);
 pub const TAGID_LAST_PREDEFINED: ELEMENT_TAG_ID = ELEMENT_TAG_ID(10000i32);
 pub const ELEMENT_TAG_ID_Max: ELEMENT_TAG_ID = ELEMENT_TAG_ID(2147483647i32);
+impl ::core::marker::Copy for ELEMENT_TAG_ID {}
+impl ::core::clone::Clone for ELEMENT_TAG_ID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const E_SURFACE_DISCARDED: i32 = -2147434493i32;
 pub const E_SURFACE_NODC: i32 = -2147434492i32;
 pub const E_SURFACE_NOSURFACE: i32 = -2147434496i32;
 pub const E_SURFACE_NOTMYDC: i32 = -2147434491i32;
 pub const E_SURFACE_NOTMYPOINTER: i32 = -2147434494i32;
 pub const E_SURFACE_UNKNOWN_FORMAT: i32 = -2147434495i32;
-#[repr(C)]
-pub struct EventException(i32);
+pub const EventException: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616635, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 #[repr(transparent)]
 pub struct ExtensionValidationContexts(pub i32);
 pub const ExtensionValidationContextNone: ExtensionValidationContexts = ExtensionValidationContexts(0i32);
 pub const ExtensionValidationContextDynamic: ExtensionValidationContexts = ExtensionValidationContexts(1i32);
 pub const ExtensionValidationContextParsed: ExtensionValidationContexts = ExtensionValidationContexts(2i32);
+impl ::core::marker::Copy for ExtensionValidationContexts {}
+impl ::core::clone::Clone for ExtensionValidationContexts {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ExtensionValidationResults(pub i32);
 pub const ExtensionValidationResultNone: ExtensionValidationResults = ExtensionValidationResults(0i32);
 pub const ExtensionValidationResultDoNotInstantiate: ExtensionValidationResults = ExtensionValidationResults(1i32);
 pub const ExtensionValidationResultArrestPageLoad: ExtensionValidationResults = ExtensionValidationResults(2i32);
+impl ::core::marker::Copy for ExtensionValidationResults {}
+impl ::core::clone::Clone for ExtensionValidationResults {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct FINDTEXT_FLAGS(pub i32);
 pub const FINDTEXT_BACKWARDS: FINDTEXT_FLAGS = FINDTEXT_FLAGS(1i32);
@@ -7141,30 +7261,26 @@ pub const FINDTEXT_MATCHDIAC: FINDTEXT_FLAGS = FINDTEXT_FLAGS(536870912i32);
 pub const FINDTEXT_MATCHKASHIDA: FINDTEXT_FLAGS = FINDTEXT_FLAGS(1073741824i32);
 pub const FINDTEXT_MATCHALEFHAMZA: FINDTEXT_FLAGS = FINDTEXT_FLAGS(-2147483648i32);
 pub const FINDTEXT_FLAGS_Max: FINDTEXT_FLAGS = FINDTEXT_FLAGS(2147483647i32);
-#[repr(C)]
-pub struct FontNames(i32);
-#[repr(C)]
-pub struct FramesCollection(i32);
-#[repr(C)]
-pub struct HTCAttachBehavior(i32);
-#[repr(C)]
-pub struct HTCDefaultDispatch(i32);
-#[repr(C)]
-pub struct HTCDescBehavior(i32);
-#[repr(C)]
-pub struct HTCEventBehavior(i32);
-#[repr(C)]
-pub struct HTCMethodBehavior(i32);
-#[repr(C)]
-pub struct HTCPropertyBehavior(i32);
-#[repr(C)]
-pub struct HTMLAnchorElement(i32);
+impl ::core::marker::Copy for FINDTEXT_FLAGS {}
+impl ::core::clone::Clone for FINDTEXT_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+pub const FontNames: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810612794, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const FramesCollection: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810612726, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTCAttachBehavior: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810612213, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTCDefaultDispatch: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611964, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTCDescBehavior: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810612189, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTCEventBehavior: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611966, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTCMethodBehavior: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810612272, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTCPropertyBehavior: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810612190, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLAnchorElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611272, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 #[repr(transparent)]
 pub struct HTMLAnchorEvents(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HTMLAnchorEvents2(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct HTMLAppBehavior(i32);
+pub const HTMLAppBehavior: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810612171, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 #[repr(transparent)]
 pub struct HTMLAppFlag(pub i32);
 pub const HTMLAppFlagNo: HTMLAppFlag = HTMLAppFlag(0i32);
@@ -7174,32 +7290,27 @@ pub const HTMLAppFlagYes: HTMLAppFlag = HTMLAppFlag(1i32);
 pub const HTMLAppFlagOn: HTMLAppFlag = HTMLAppFlag(1i32);
 pub const HTMLAppFlag1: HTMLAppFlag = HTMLAppFlag(1i32);
 pub const HTMLAppFlag_Max: HTMLAppFlag = HTMLAppFlag(2147483647i32);
-#[repr(C)]
-pub struct HTMLAreaElement(i32);
+impl ::core::marker::Copy for HTMLAppFlag {}
+impl ::core::clone::Clone for HTMLAppFlag {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+pub const HTMLAreaElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611331, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 #[repr(transparent)]
 pub struct HTMLAreaEvents(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HTMLAreaEvents2(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct HTMLAreasCollection(i32);
-#[repr(C)]
-pub struct HTMLAttributeCollection(i32);
-#[repr(C)]
-pub struct HTMLAudioElement(i32);
-#[repr(C)]
-pub struct HTMLAudioElementFactory(i32);
-#[repr(C)]
-pub struct HTMLBGsound(i32);
-#[repr(C)]
-pub struct HTMLBRElement(i32);
-#[repr(C)]
-pub struct HTMLBaseElement(i32);
-#[repr(C)]
-pub struct HTMLBaseFontElement(i32);
-#[repr(C)]
-pub struct HTMLBlockElement(i32);
-#[repr(C)]
-pub struct HTMLBody(i32);
+pub const HTMLAreasCollection: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611914, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLAttributeCollection: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611916, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLAudioElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616590, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLAudioElementFactory: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616812, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLBGsound: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611568, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLBRElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611328, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLBaseElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611318, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLBaseFontElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611330, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLBlockElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611329, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLBody: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611274, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 #[repr(transparent)]
 pub struct HTMLBorder(pub i32);
 pub const HTMLBorderNone: HTMLBorder = HTMLBorder(0i32);
@@ -7207,6 +7318,12 @@ pub const HTMLBorderThick: HTMLBorder = HTMLBorder(262144i32);
 pub const HTMLBorderDialog: HTMLBorder = HTMLBorder(4194304i32);
 pub const HTMLBorderThin: HTMLBorder = HTMLBorder(8388608i32);
 pub const HTMLBorder_Max: HTMLBorder = HTMLBorder(2147483647i32);
+impl ::core::marker::Copy for HTMLBorder {}
+impl ::core::clone::Clone for HTMLBorder {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct HTMLBorderStyle(pub i32);
 pub const HTMLBorderStyleNormal: HTMLBorderStyle = HTMLBorderStyle(0i32);
@@ -7215,74 +7332,70 @@ pub const HTMLBorderStyleSunken: HTMLBorderStyle = HTMLBorderStyle(512i32);
 pub const HTMLBorderStylecombined: HTMLBorderStyle = HTMLBorderStyle(768i32);
 pub const HTMLBorderStyleStatic: HTMLBorderStyle = HTMLBorderStyle(131072i32);
 pub const HTMLBorderStyle_Max: HTMLBorderStyle = HTMLBorderStyle(2147483647i32);
-#[repr(C)]
-pub struct HTMLButtonElement(i32);
+impl ::core::marker::Copy for HTMLBorderStyle {}
+impl ::core::clone::Clone for HTMLBorderStyle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+pub const HTMLButtonElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611398, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 #[repr(transparent)]
 pub struct HTMLButtonElementEvents(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HTMLButtonElementEvents2(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct HTMLCSSImportRule(i32);
-#[repr(C)]
-pub struct HTMLCSSMediaList(i32);
-#[repr(C)]
-pub struct HTMLCSSMediaRule(i32);
-#[repr(C)]
-pub struct HTMLCSSNamespaceRule(i32);
-#[repr(C)]
-pub struct HTMLCSSRule(i32);
-#[repr(C)]
-pub struct HTMLCSSStyleDeclaration(i32);
-#[repr(C)]
-pub struct HTMLCanvasElement(i32);
+pub const HTMLCSSImportRule: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616560, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLCSSMediaList: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616626, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLCSSMediaRule: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616561, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLCSSNamespaceRule: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616562, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLCSSRule: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616559, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLCSSStyleDeclaration: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616641, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLCanvasElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616549, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 #[repr(transparent)]
 pub struct HTMLCaptionFlag(pub i32);
 pub const HTMLCaptionFlagNo: HTMLCaptionFlag = HTMLCaptionFlag(0i32);
 pub const HTMLCaptionFlagYes: HTMLCaptionFlag = HTMLCaptionFlag(12582912i32);
 pub const HTMLCaptionFlag_Max: HTMLCaptionFlag = HTMLCaptionFlag(2147483647i32);
-#[repr(C)]
-pub struct HTMLCommentElement(i32);
+impl ::core::marker::Copy for HTMLCaptionFlag {}
+impl ::core::clone::Clone for HTMLCaptionFlag {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+pub const HTMLCommentElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611479, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 #[repr(transparent)]
 pub struct HTMLControlElementEvents(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HTMLControlElementEvents2(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct HTMLCurrentStyle(i32);
-#[repr(C)]
-pub struct HTMLDDElement(i32);
+pub const HTMLCurrentStyle: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611676, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLDDElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611327, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const HTMLDLG_ALLOW_UNKNOWN_THREAD: u32 = 512u32;
 pub const HTMLDLG_MODAL: u32 = 32u32;
 pub const HTMLDLG_MODELESS: u32 = 64u32;
 pub const HTMLDLG_NOUI: u32 = 16u32;
 pub const HTMLDLG_PRINT_TEMPLATE: u32 = 128u32;
 pub const HTMLDLG_VERIFY: u32 = 256u32;
-#[repr(C)]
-pub struct HTMLDListElement(i32);
-#[repr(C)]
-pub struct HTMLDOMAttribute(i32);
-#[repr(C)]
-pub struct HTMLDOMImplementation(i32);
-#[repr(C)]
-pub struct HTMLDOMRange(i32);
-#[repr(C)]
-pub struct HTMLDOMTextNode(i32);
-#[repr(C)]
-pub struct HTMLDOMXmlSerializerFactory(i32);
-#[repr(C)]
-pub struct HTMLDTElement(i32);
-#[repr(C)]
-pub struct HTMLDefaults(i32);
-#[repr(C)]
-pub struct HTMLDialog(i32);
-#[repr(C)]
-pub struct HTMLDivElement(i32);
-#[repr(C)]
-pub struct HTMLDivPosition(i32);
+pub const HTMLDListElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611325, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLDOMAttribute: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611890, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLDOMImplementation: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810612750, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLDOMRange: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616515, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLDOMTextNode: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611898, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLDOMXmlSerializerFactory: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616704, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLDTElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611324, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLDefaults: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810612424, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLDialog: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611338, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLDivElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611326, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLDivPosition: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611273, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 #[repr(transparent)]
 pub struct HTMLDlgBorder(pub i32);
 pub const HTMLDlgBorderThin: HTMLDlgBorder = HTMLDlgBorder(0i32);
 pub const HTMLDlgBorderThick: HTMLDlgBorder = HTMLDlgBorder(262144i32);
 pub const HTMLDlgBorder_Max: HTMLDlgBorder = HTMLDlgBorder(2147483647i32);
+impl ::core::marker::Copy for HTMLDlgBorder {}
+impl ::core::clone::Clone for HTMLDlgBorder {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct HTMLDlgCenter(pub i32);
 pub const HTMLDlgCenterNo: HTMLDlgCenter = HTMLDlgCenter(0i32);
@@ -7294,11 +7407,23 @@ pub const HTMLDlgCenter1: HTMLDlgCenter = HTMLDlgCenter(1i32);
 pub const HTMLDlgCenterParent: HTMLDlgCenter = HTMLDlgCenter(1i32);
 pub const HTMLDlgCenterDesktop: HTMLDlgCenter = HTMLDlgCenter(2i32);
 pub const HTMLDlgCenter_Max: HTMLDlgCenter = HTMLDlgCenter(2147483647i32);
+impl ::core::marker::Copy for HTMLDlgCenter {}
+impl ::core::clone::Clone for HTMLDlgCenter {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct HTMLDlgEdge(pub i32);
 pub const HTMLDlgEdgeSunken: HTMLDlgEdge = HTMLDlgEdge(0i32);
 pub const HTMLDlgEdgeRaised: HTMLDlgEdge = HTMLDlgEdge(16i32);
 pub const HTMLDlgEdge_Max: HTMLDlgEdge = HTMLDlgEdge(2147483647i32);
+impl ::core::marker::Copy for HTMLDlgEdge {}
+impl ::core::clone::Clone for HTMLDlgEdge {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct HTMLDlgFlag(pub i32);
 pub const HTMLDlgFlagNo: HTMLDlgFlag = HTMLDlgFlag(0i32);
@@ -7309,12 +7434,15 @@ pub const HTMLDlgFlagOn: HTMLDlgFlag = HTMLDlgFlag(1i32);
 pub const HTMLDlgFlag1: HTMLDlgFlag = HTMLDlgFlag(1i32);
 pub const HTMLDlgFlagNotSet: HTMLDlgFlag = HTMLDlgFlag(-1i32);
 pub const HTMLDlgFlag_Max: HTMLDlgFlag = HTMLDlgFlag(2147483647i32);
-#[repr(C)]
-pub struct HTMLDocument(i32);
-#[repr(C)]
-pub struct HTMLDocumentCompatibleInfo(i32);
-#[repr(C)]
-pub struct HTMLDocumentCompatibleInfoCollection(i32);
+impl ::core::marker::Copy for HTMLDlgFlag {}
+impl ::core::clone::Clone for HTMLDlgFlag {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+pub const HTMLDocument: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 624126240, data2: 1017, data3: 4559, data4: [143, 208, 0, 170, 0, 104, 111, 19] };
+pub const HTMLDocumentCompatibleInfo: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810615835, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLDocumentCompatibleInfoCollection: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810615833, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 #[repr(transparent)]
 pub struct HTMLDocumentEvents(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -7323,8 +7451,7 @@ pub struct HTMLDocumentEvents2(pub *mut ::core::ffi::c_void);
 pub struct HTMLDocumentEvents3(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HTMLDocumentEvents4(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct HTMLElementCollection(i32);
+pub const HTMLElementCollection: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611915, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 #[repr(transparent)]
 pub struct HTMLElementEvents(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -7333,106 +7460,74 @@ pub struct HTMLElementEvents2(pub *mut ::core::ffi::c_void);
 pub struct HTMLElementEvents3(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HTMLElementEvents4(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct HTMLEmbed(i32);
-#[repr(C)]
-pub struct HTMLFieldSetElement(i32);
-#[repr(C)]
-pub struct HTMLFontElement(i32);
-#[repr(C)]
-pub struct HTMLFormElement(i32);
+pub const HTMLEmbed: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611293, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLFieldSetElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611688, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLFontElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611323, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLFormElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611281, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 #[repr(transparent)]
 pub struct HTMLFormElementEvents(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HTMLFormElementEvents2(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct HTMLFrameBase(i32);
-#[repr(C)]
-pub struct HTMLFrameElement(i32);
-#[repr(C)]
-pub struct HTMLFrameSetSite(i32);
+pub const HTMLFrameBase: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611474, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLFrameElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611476, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLFrameSetSite: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611482, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 #[repr(transparent)]
 pub struct HTMLFrameSiteEvents(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HTMLFrameSiteEvents2(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct HTMLGenericElement(i32);
-#[repr(C)]
-pub struct HTMLHRElement(i32);
-#[repr(C)]
-pub struct HTMLHeadElement(i32);
-#[repr(C)]
-pub struct HTMLHeaderElement(i32);
-#[repr(C)]
-pub struct HTMLHistory(i32);
-#[repr(C)]
-pub struct HTMLHtmlElement(i32);
-#[repr(C)]
-pub struct HTMLIFrame(i32);
-#[repr(C)]
-pub struct HTMLImageElementFactory(i32);
-#[repr(C)]
-pub struct HTMLImg(i32);
+pub const HTMLGenericElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611896, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLHRElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611282, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLHeadElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611859, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLHeaderElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611322, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLHistory: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4274956963, data2: 33797, data3: 4559, data4: [139, 161, 0, 170, 0, 71, 109, 166] };
+pub const HTMLHtmlElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611857, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLIFrame: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611478, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLImageElementFactory: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611599, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLImg: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611265, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 #[repr(transparent)]
 pub struct HTMLImgEvents(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HTMLImgEvents2(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct HTMLInputButtonElement(i32);
-#[repr(C)]
-pub struct HTMLInputElement(i32);
-#[repr(C)]
-pub struct HTMLInputFileElement(i32);
+pub const HTMLInputButtonElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611380, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLInputElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810612184, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLInputFileElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611374, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 #[repr(transparent)]
 pub struct HTMLInputFileElementEvents(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HTMLInputFileElementEvents2(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct HTMLInputImage(i32);
+pub const HTMLInputImage: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611396, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 #[repr(transparent)]
 pub struct HTMLInputImageEvents(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HTMLInputImageEvents2(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct HTMLInputTextElement(i32);
+pub const HTMLInputTextElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611371, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 #[repr(transparent)]
 pub struct HTMLInputTextElementEvents(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HTMLInputTextElementEvents2(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct HTMLIsIndexElement(i32);
-#[repr(C)]
-pub struct HTMLLIElement(i32);
-#[repr(C)]
-pub struct HTMLLabelElement(i32);
+pub const HTMLIsIndexElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611320, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLLIElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611315, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLLabelElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611499, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 #[repr(transparent)]
 pub struct HTMLLabelEvents(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HTMLLabelEvents2(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct HTMLLegendElement(i32);
-#[repr(C)]
-pub struct HTMLLinkElement(i32);
+pub const HTMLLegendElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611689, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLLinkElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611319, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 #[repr(transparent)]
 pub struct HTMLLinkElementEvents(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HTMLLinkElementEvents2(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct HTMLListElement(i32);
-#[repr(C)]
-pub struct HTMLLocation(i32);
-#[repr(C)]
-pub struct HTMLMSCSSKeyframeRule(i32);
-#[repr(C)]
-pub struct HTMLMSCSSKeyframesRule(i32);
-#[repr(C)]
-pub struct HTMLMapElement(i32);
+pub const HTMLListElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611314, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLLocation: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 373010913, data2: 28160, data3: 4559, data4: [131, 122, 72, 220, 4, 193, 0, 0] };
+pub const HTMLMSCSSKeyframeRule: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616846, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLMSCSSKeyframesRule: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616847, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLMapElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611313, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 #[repr(transparent)]
 pub struct HTMLMapEvents(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HTMLMapEvents2(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct HTMLMarqueeElement(i32);
+pub const HTMLMarqueeElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611385, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 #[repr(transparent)]
 pub struct HTMLMarqueeElementEvents(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -7442,190 +7537,150 @@ pub struct HTMLMaximizeFlag(pub i32);
 pub const HTMLMaximizeFlagNo: HTMLMaximizeFlag = HTMLMaximizeFlag(0i32);
 pub const HTMLMaximizeFlagYes: HTMLMaximizeFlag = HTMLMaximizeFlag(65536i32);
 pub const HTMLMaximizeFlag_Max: HTMLMaximizeFlag = HTMLMaximizeFlag(2147483647i32);
-#[repr(C)]
-pub struct HTMLMediaElement(i32);
-#[repr(C)]
-pub struct HTMLMediaError(i32);
-#[repr(C)]
-pub struct HTMLMetaElement(i32);
+impl ::core::marker::Copy for HTMLMaximizeFlag {}
+impl ::core::clone::Clone for HTMLMaximizeFlag {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+pub const HTMLMediaElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616588, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLMediaError: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616586, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLMetaElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611317, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 #[repr(transparent)]
 pub struct HTMLMinimizeFlag(pub i32);
 pub const HTMLMinimizeFlagNo: HTMLMinimizeFlag = HTMLMinimizeFlag(0i32);
 pub const HTMLMinimizeFlagYes: HTMLMinimizeFlag = HTMLMinimizeFlag(131072i32);
 pub const HTMLMinimizeFlag_Max: HTMLMinimizeFlag = HTMLMinimizeFlag(2147483647i32);
-#[repr(C)]
-pub struct HTMLNamespace(i32);
-#[repr(C)]
-pub struct HTMLNamespaceCollection(i32);
+impl ::core::marker::Copy for HTMLMinimizeFlag {}
+impl ::core::clone::Clone for HTMLMinimizeFlag {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+pub const HTMLNamespace: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810612412, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLNamespaceCollection: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810612409, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 #[repr(transparent)]
 pub struct HTMLNamespaceEvents(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct HTMLNavigator(i32);
-#[repr(C)]
-pub struct HTMLNextIdElement(i32);
-#[repr(C)]
-pub struct HTMLNoShowElement(i32);
-#[repr(C)]
-pub struct HTMLOListElement(i32);
-#[repr(C)]
-pub struct HTMLObjectElement(i32);
+pub const HTMLNavigator: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4274956966, data2: 33797, data3: 4559, data4: [139, 161, 0, 170, 0, 71, 109, 166] };
+pub const HTMLNextIdElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611321, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLNoShowElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611595, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLOListElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611312, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLObjectElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611278, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 #[repr(transparent)]
 pub struct HTMLObjectElementEvents(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HTMLObjectElementEvents2(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct HTMLOptionButtonElement(i32);
+pub const HTMLOptionButtonElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611390, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 #[repr(transparent)]
 pub struct HTMLOptionButtonElementEvents(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HTMLOptionButtonElementEvents2(pub *mut ::core::ffi::c_void);
+pub const HTMLOptionElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611277, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLOptionElementFactory: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611597, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLParaElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611311, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLParamElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810612798, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLPerformance: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616655, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLPerformanceNavigation: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616657, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLPerformanceTiming: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616659, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 #[repr(C)]
-pub struct HTMLOptionElement(i32);
-#[repr(C)]
-pub struct HTMLOptionElementFactory(i32);
-#[repr(C)]
-pub struct HTMLParaElement(i32);
-#[repr(C)]
-pub struct HTMLParamElement(i32);
-#[repr(C)]
-pub struct HTMLPerformance(i32);
-#[repr(C)]
-pub struct HTMLPerformanceNavigation(i32);
-#[repr(C)]
-pub struct HTMLPerformanceTiming(i32);
-#[repr(C)]
-pub struct HTMLPersistEvents(i32);
-#[repr(C)]
-pub struct HTMLPhraseElement(i32);
-#[repr(C)]
-pub struct HTMLPopup(i32);
-#[repr(C)]
-pub struct HTMLProgressElement(i32);
-#[repr(C)]
-pub struct HTMLRenderStyle(i32);
-#[repr(C)]
-pub struct HTMLRichtextElement(i32);
-#[repr(C)]
-pub struct HTMLRuleStyle(i32);
-#[repr(C)]
-pub struct HTMLScreen(i32);
-#[repr(C)]
-pub struct HTMLScriptElement(i32);
+pub struct HTMLPersistEvents(pub u8);
+pub const HTMLPhraseElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611310, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLPopup: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810612327, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLProgressElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611413, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLRenderStyle: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810612394, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLRichtextElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611423, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLRuleStyle: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611664, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLScreen: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611549, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLScriptElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611340, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 #[repr(transparent)]
 pub struct HTMLScriptEvents(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HTMLScriptEvents2(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct HTMLSelectElement(i32);
+pub const HTMLSelectElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611269, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 #[repr(transparent)]
 pub struct HTMLSelectElementEvents(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HTMLSelectElementEvents2(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct HTMLSemanticElement(i32);
-#[repr(C)]
-pub struct HTMLSourceElement(i32);
-#[repr(C)]
-pub struct HTMLSpanElement(i32);
-#[repr(C)]
-pub struct HTMLSpanFlow(i32);
-#[repr(C)]
-pub struct HTMLStorage(i32);
-#[repr(C)]
-pub struct HTMLStyle(i32);
-#[repr(C)]
-pub struct HTMLStyleElement(i32);
+pub const HTMLSemanticElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616752, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLSourceElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616589, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLSpanElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611701, data2: 39092, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLSpanFlow: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611686, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLStorage: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810615925, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLStyle: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611333, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLStyleElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611581, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 #[repr(transparent)]
 pub struct HTMLStyleElementEvents(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HTMLStyleElementEvents2(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct HTMLStyleFontFace(i32);
-#[repr(C)]
-pub struct HTMLStyleMedia(i32);
-#[repr(C)]
-pub struct HTMLStyleSheet(i32);
-#[repr(C)]
-pub struct HTMLStyleSheetPage(i32);
-#[repr(C)]
-pub struct HTMLStyleSheetPagesCollection(i32);
-#[repr(C)]
-pub struct HTMLStyleSheetRule(i32);
-#[repr(C)]
-pub struct HTMLStyleSheetRulesAppliedCollection(i32);
-#[repr(C)]
-pub struct HTMLStyleSheetRulesCollection(i32);
-#[repr(C)]
-pub struct HTMLStyleSheetsCollection(i32);
+pub const HTMLStyleFontFace: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611668, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLStyleMedia: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616652, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLStyleSheet: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611428, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLStyleSheetPage: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810612719, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLStyleSheetPagesCollection: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810612721, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLStyleSheetRule: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611662, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLStyleSheetRulesAppliedCollection: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3946248261, data2: 9109, data3: 18201, data4: [184, 92, 208, 216, 14, 24, 75, 217] };
+pub const HTMLStyleSheetRulesCollection: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611661, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLStyleSheetsCollection: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611583, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 #[repr(transparent)]
 pub struct HTMLSysMenuFlag(pub i32);
 pub const HTMLSysMenuFlagNo: HTMLSysMenuFlag = HTMLSysMenuFlag(0i32);
 pub const HTMLSysMenuFlagYes: HTMLSysMenuFlag = HTMLSysMenuFlag(524288i32);
 pub const HTMLSysMenuFlag_Max: HTMLSysMenuFlag = HTMLSysMenuFlag(2147483647i32);
-#[repr(C)]
-pub struct HTMLTable(i32);
-#[repr(C)]
-pub struct HTMLTableCaption(i32);
-#[repr(C)]
-pub struct HTMLTableCell(i32);
-#[repr(C)]
-pub struct HTMLTableCol(i32);
+impl ::core::marker::Copy for HTMLSysMenuFlag {}
+impl ::core::clone::Clone for HTMLSysMenuFlag {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+pub const HTMLTable: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611307, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLTableCaption: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611436, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLTableCell: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611270, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLTableCol: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611308, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 #[repr(transparent)]
 pub struct HTMLTableEvents(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HTMLTableEvents2(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct HTMLTableRow(i32);
-#[repr(C)]
-pub struct HTMLTableSection(i32);
-#[repr(C)]
-pub struct HTMLTextAreaElement(i32);
+pub const HTMLTableRow: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611309, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLTableSection: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611433, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLTextAreaElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611372, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 #[repr(transparent)]
 pub struct HTMLTextContainerEvents(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HTMLTextContainerEvents2(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct HTMLTextElement(i32);
-#[repr(C)]
-pub struct HTMLTimeRanges(i32);
-#[repr(C)]
-pub struct HTMLTitleElement(i32);
-#[repr(C)]
-pub struct HTMLUListElement(i32);
-#[repr(C)]
-pub struct HTMLUnknownElement(i32);
-#[repr(C)]
-pub struct HTMLUrnCollection(i32);
-#[repr(C)]
-pub struct HTMLVideoElement(i32);
-#[repr(C)]
-pub struct HTMLW3CComputedStyle(i32);
-#[repr(C)]
-pub struct HTMLWindow2(i32);
+pub const HTMLTextElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611306, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLTimeRanges: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616587, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLTitleElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611332, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLUListElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611305, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLUnknownElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611304, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLUrnCollection: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810612096, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLVideoElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616591, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLW3CComputedStyle: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616520, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLWindow2: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3565842118, data2: 27210, data3: 4559, data4: [148, 167, 68, 69, 83, 84, 0, 0] };
 #[repr(transparent)]
 pub struct HTMLWindowEvents(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HTMLWindowEvents2(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HTMLWindowEvents3(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct HTMLWindowProxy(i32);
+pub const HTMLWindowProxy: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611601, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 #[repr(transparent)]
 pub struct HTMLWindowState(pub i32);
 pub const HTMLWindowStateNormal: HTMLWindowState = HTMLWindowState(1i32);
 pub const HTMLWindowStateMaximize: HTMLWindowState = HTMLWindowState(3i32);
 pub const HTMLWindowStateMinimize: HTMLWindowState = HTMLWindowState(6i32);
 pub const HTMLWindowState_Max: HTMLWindowState = HTMLWindowState(2147483647i32);
-#[repr(C)]
-pub struct HTMLWndOptionElement(i32);
-#[repr(C)]
-pub struct HTMLWndSelectElement(i32);
-#[repr(C)]
-pub struct HTMLXMLHttpRequest(i32);
+impl ::core::marker::Copy for HTMLWindowState {}
+impl ::core::clone::Clone for HTMLWindowState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+pub const HTMLWndOptionElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611408, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLWndSelectElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611407, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const HTMLXMLHttpRequest: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810615819, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 #[repr(transparent)]
 pub struct HTMLXMLHttpRequestEvents(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct HTMLXMLHttpRequestFactory(i32);
+pub const HTMLXMLHttpRequestFactory: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810615821, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 #[repr(transparent)]
 pub struct HTML_PAINTER(pub i32);
 pub const HTMLPAINTER_OPAQUE: HTML_PAINTER = HTML_PAINTER(1i32);
@@ -7644,30 +7699,92 @@ pub const HTMLPAINTER_SUPPORTS_XFORM: HTML_PAINTER = HTML_PAINTER(32768i32);
 pub const HTMLPAINTER_EXPAND: HTML_PAINTER = HTML_PAINTER(65536i32);
 pub const HTMLPAINTER_NOSCROLLBITS: HTML_PAINTER = HTML_PAINTER(131072i32);
 pub const HTML_PAINTER_Max: HTML_PAINTER = HTML_PAINTER(2147483647i32);
-#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for HTML_PAINTER {}
+impl ::core::clone::Clone for HTML_PAINTER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct HTML_PAINTER_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct HTML_PAINTER_INFO {
+    pub lFlags: i32,
+    pub lZOrder: i32,
+    pub iidDrawObject: ::windows_sys::core::GUID,
+    pub rcExpand: super::super::Foundation::RECT,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for HTML_PAINTER_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for HTML_PAINTER_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct HTML_PAINT_DRAW_FLAGS(pub i32);
 pub const HTMLPAINT_DRAW_UPDATEREGION: HTML_PAINT_DRAW_FLAGS = HTML_PAINT_DRAW_FLAGS(1i32);
 pub const HTMLPAINT_DRAW_USE_XFORM: HTML_PAINT_DRAW_FLAGS = HTML_PAINT_DRAW_FLAGS(2i32);
 pub const HTML_PAINT_DRAW_FLAGS_Max: HTML_PAINT_DRAW_FLAGS = HTML_PAINT_DRAW_FLAGS(2147483647i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::marker::Copy for HTML_PAINT_DRAW_FLAGS {}
+impl ::core::clone::Clone for HTML_PAINT_DRAW_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct HTML_PAINT_DRAW_INFO(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+pub struct HTML_PAINT_DRAW_INFO {
+    pub rcViewport: super::super::Foundation::RECT,
+    pub hrgnUpdate: super::super::Graphics::Gdi::HRGN,
+    pub xform: HTML_PAINT_XFORM,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::marker::Copy for HTML_PAINT_DRAW_INFO {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::clone::Clone for HTML_PAINT_DRAW_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct HTML_PAINT_DRAW_INFO_FLAGS(pub i32);
 pub const HTMLPAINT_DRAWINFO_VIEWPORT: HTML_PAINT_DRAW_INFO_FLAGS = HTML_PAINT_DRAW_INFO_FLAGS(1i32);
 pub const HTMLPAINT_DRAWINFO_UPDATEREGION: HTML_PAINT_DRAW_INFO_FLAGS = HTML_PAINT_DRAW_INFO_FLAGS(2i32);
 pub const HTMLPAINT_DRAWINFO_XFORM: HTML_PAINT_DRAW_INFO_FLAGS = HTML_PAINT_DRAW_INFO_FLAGS(4i32);
 pub const HTML_PAINT_DRAW_INFO_FLAGS_Max: HTML_PAINT_DRAW_INFO_FLAGS = HTML_PAINT_DRAW_INFO_FLAGS(2147483647i32);
+impl ::core::marker::Copy for HTML_PAINT_DRAW_INFO_FLAGS {}
+impl ::core::clone::Clone for HTML_PAINT_DRAW_INFO_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct HTML_PAINT_EVENT_FLAGS(pub i32);
 pub const HTMLPAINT_EVENT_TARGET: HTML_PAINT_EVENT_FLAGS = HTML_PAINT_EVENT_FLAGS(1i32);
 pub const HTMLPAINT_EVENT_SETCURSOR: HTML_PAINT_EVENT_FLAGS = HTML_PAINT_EVENT_FLAGS(2i32);
 pub const HTML_PAINT_EVENT_FLAGS_Max: HTML_PAINT_EVENT_FLAGS = HTML_PAINT_EVENT_FLAGS(2147483647i32);
+impl ::core::marker::Copy for HTML_PAINT_EVENT_FLAGS {}
+impl ::core::clone::Clone for HTML_PAINT_EVENT_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct HTML_PAINT_XFORM(i32);
+pub struct HTML_PAINT_XFORM {
+    pub eM11: f32,
+    pub eM12: f32,
+    pub eM21: f32,
+    pub eM22: f32,
+    pub eDx: f32,
+    pub eDy: f32,
+}
+impl ::core::marker::Copy for HTML_PAINT_XFORM {}
+impl ::core::clone::Clone for HTML_PAINT_XFORM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct HTML_PAINT_ZORDER(pub i32);
 pub const HTMLPAINT_ZORDER_NONE: HTML_PAINT_ZORDER = HTML_PAINT_ZORDER(0i32);
@@ -7680,22 +7797,42 @@ pub const HTMLPAINT_ZORDER_ABOVE_FLOW: HTML_PAINT_ZORDER = HTML_PAINT_ZORDER(6i3
 pub const HTMLPAINT_ZORDER_ABOVE_CONTENT: HTML_PAINT_ZORDER = HTML_PAINT_ZORDER(7i32);
 pub const HTMLPAINT_ZORDER_WINDOW_TOP: HTML_PAINT_ZORDER = HTML_PAINT_ZORDER(8i32);
 pub const HTML_PAINT_ZORDER_Max: HTML_PAINT_ZORDER = HTML_PAINT_ZORDER(2147483647i32);
+impl ::core::marker::Copy for HTML_PAINT_ZORDER {}
+impl ::core::clone::Clone for HTML_PAINT_ZORDER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct HT_OPTIONS(pub i32);
 pub const HT_OPT_AllowAfterEOL: HT_OPTIONS = HT_OPTIONS(1i32);
 pub const HT_OPTIONS_Max: HT_OPTIONS = HT_OPTIONS(2147483647i32);
+impl ::core::marker::Copy for HT_OPTIONS {}
+impl ::core::clone::Clone for HT_OPTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct HT_RESULTS(pub i32);
 pub const HT_RESULTS_Glyph: HT_RESULTS = HT_RESULTS(1i32);
 pub const HT_RESULTS_Max: HT_RESULTS = HT_RESULTS(2147483647i32);
+impl ::core::marker::Copy for HT_RESULTS {}
+impl ::core::clone::Clone for HT_RESULTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+pub const HomePage: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1986785966, data2: 54864, data3: 4561, data4: [152, 17, 0, 192, 79, 195, 29, 46] };
+pub const HomePageSetting: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 927788512,
+    data2: 34618,
+    data3: 19535,
+    data4: [188, 134, 188, 200, 207, 81, 22, 163],
+};
 #[repr(C)]
-pub struct HomePage(i32);
-#[repr(C)]
-pub struct HomePageSetting(i32);
-#[repr(C)]
-pub struct HostDialogHelper(i32);
-#[repr(C)]
-pub struct HtmlDlgSafeHelper(i32);
+pub struct HostDialogHelper(pub u8);
+pub const HtmlDlgSafeHelper: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810612761, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 #[repr(transparent)]
 pub struct IActiveXUIHandlerSite(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -8341,12 +8478,32 @@ pub const IELAUNCHOPTION_SCRIPTDEBUG: IELAUNCHOPTION_FLAGS = IELAUNCHOPTION_FLAG
 pub const IELAUNCHOPTION_FORCE_COMPAT: IELAUNCHOPTION_FLAGS = IELAUNCHOPTION_FLAGS(2i32);
 pub const IELAUNCHOPTION_FORCE_EDGE: IELAUNCHOPTION_FLAGS = IELAUNCHOPTION_FLAGS(4i32);
 pub const IELAUNCHOPTION_LOCK_ENGINE: IELAUNCHOPTION_FLAGS = IELAUNCHOPTION_FLAGS(8i32);
+impl ::core::marker::Copy for IELAUNCHOPTION_FLAGS {}
+impl ::core::clone::Clone for IELAUNCHOPTION_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct IELAUNCHURLINFO(i32);
+pub struct IELAUNCHURLINFO {
+    pub cbSize: u32,
+    pub dwCreationFlags: u32,
+    pub dwLaunchOptionFlags: u32,
+}
+impl ::core::marker::Copy for IELAUNCHURLINFO {}
+impl ::core::clone::Clone for IELAUNCHURLINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[cfg(feature = "Win32_Foundation")]
 pub type IEREGISTERXMLNSFN = unsafe extern "system" fn(lpszuri: super::super::Foundation::PWSTR, clsid: ::windows_sys::core::GUID, fmachine: super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
-#[repr(C)]
-pub struct IEWebDriverManager(i32);
+pub const IEWebDriverManager: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2419149554,
+    data2: 21072,
+    data3: 18355,
+    data4: [137, 216, 98, 149, 252, 35, 188, 34],
+};
 pub const IE_USE_OE_MAIL_HKEY: i32 = -2147483647i32;
 pub const IE_USE_OE_NEWS_HKEY: i32 = -2147483647i32;
 pub const IE_USE_OE_PRESENT_HKEY: i32 = -2147483646i32;
@@ -9197,6 +9354,12 @@ pub struct INTERNETEXPLORERCONFIGURATION(pub i32);
 pub const INTERNETEXPLORERCONFIGURATION_HOST: INTERNETEXPLORERCONFIGURATION = INTERNETEXPLORERCONFIGURATION(1i32);
 pub const INTERNETEXPLORERCONFIGURATION_WEB_DRIVER: INTERNETEXPLORERCONFIGURATION = INTERNETEXPLORERCONFIGURATION(2i32);
 pub const INTERNETEXPLORERCONFIGURATION_WEB_DRIVER_EDGE: INTERNETEXPLORERCONFIGURATION = INTERNETEXPLORERCONFIGURATION(4i32);
+impl ::core::marker::Copy for INTERNETEXPLORERCONFIGURATION {}
+impl ::core::clone::Clone for INTERNETEXPLORERCONFIGURATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct INavigatorDoNotTrack(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -9547,10 +9710,8 @@ pub struct IWebGeopositionError(pub *mut ::core::ffi::c_void);
 pub struct IXMLGenericParse(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IXMLHttpRequestEventTarget(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct IntelliForms(i32);
-#[repr(C)]
-pub struct InternetExplorerManager(i32);
+pub const IntelliForms: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1631238446, data2: 5823, data3: 4562, data4: [188, 165, 0, 192, 79, 217, 41, 219] };
+pub const InternetExplorerManager: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3746548788, data2: 1658, data3: 19978, data4: [131, 82, 74, 26, 80, 149, 52, 110] };
 #[repr(transparent)]
 pub struct Iwfolders(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -9558,9 +9719,15 @@ pub struct LINE_DIRECTION(pub i32);
 pub const LINE_DIRECTION_RightToLeft: LINE_DIRECTION = LINE_DIRECTION(1i32);
 pub const LINE_DIRECTION_LeftToRight: LINE_DIRECTION = LINE_DIRECTION(2i32);
 pub const LINE_DIRECTION_Max: LINE_DIRECTION = LINE_DIRECTION(2147483647i32);
+impl ::core::marker::Copy for LINE_DIRECTION {}
+impl ::core::clone::Clone for LINE_DIRECTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const LINKSBAND: u32 = 4u32;
 #[repr(C)]
-pub struct LayoutRectEvents(i32);
+pub struct LayoutRectEvents(pub u8);
 pub const MAPMIME_CLSID: u32 = 1u32;
 pub const MAPMIME_DEFAULT: u32 = 0u32;
 pub const MAPMIME_DEFAULT_ALWAYS: u32 = 3u32;
@@ -9573,6 +9740,12 @@ pub const CONTEXT_TYPE_EnterScope: MARKUP_CONTEXT_TYPE = MARKUP_CONTEXT_TYPE(2i3
 pub const CONTEXT_TYPE_ExitScope: MARKUP_CONTEXT_TYPE = MARKUP_CONTEXT_TYPE(3i32);
 pub const CONTEXT_TYPE_NoScope: MARKUP_CONTEXT_TYPE = MARKUP_CONTEXT_TYPE(4i32);
 pub const MARKUP_CONTEXT_TYPE_Max: MARKUP_CONTEXT_TYPE = MARKUP_CONTEXT_TYPE(2147483647i32);
+impl ::core::marker::Copy for MARKUP_CONTEXT_TYPE {}
+impl ::core::clone::Clone for MARKUP_CONTEXT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MAX_SEARCH_FORMAT_STRING: u32 = 255u32;
 pub const MENUEXT_SHOWDIALOG: u32 = 1u32;
 #[repr(transparent)]
@@ -9598,17 +9771,26 @@ pub const MOVEUNIT_NEXTSENTENCE: MOVEUNIT_ACTION = MOVEUNIT_ACTION(17i32);
 pub const MOVEUNIT_PREVBLOCK: MOVEUNIT_ACTION = MOVEUNIT_ACTION(18i32);
 pub const MOVEUNIT_NEXTBLOCK: MOVEUNIT_ACTION = MOVEUNIT_ACTION(19i32);
 pub const MOVEUNIT_ACTION_Max: MOVEUNIT_ACTION = MOVEUNIT_ACTION(2147483647i32);
+impl ::core::marker::Copy for MOVEUNIT_ACTION {}
+impl ::core::clone::Clone for MOVEUNIT_ACTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MediaActivityNotifyType(pub i32);
 pub const MediaPlayback: MediaActivityNotifyType = MediaActivityNotifyType(0i32);
 pub const MediaRecording: MediaActivityNotifyType = MediaActivityNotifyType(1i32);
 pub const MediaCasting: MediaActivityNotifyType = MediaActivityNotifyType(2i32);
-#[repr(C)]
-pub struct NodeIterator(i32);
-#[repr(C)]
-pub struct OldHTMLDocument(i32);
-#[repr(C)]
-pub struct OldHTMLFormElement(i32);
+impl ::core::marker::Copy for MediaActivityNotifyType {}
+impl ::core::clone::Clone for MediaActivityNotifyType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+pub const NodeIterator: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616645, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const OldHTMLDocument: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3565842121, data2: 27210, data3: 4559, data4: [148, 167, 68, 69, 83, 84, 0, 0] };
+pub const OldHTMLFormElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 218419845, data2: 27628, data3: 4559, data4: [139, 151, 0, 170, 0, 71, 109, 166] };
 #[repr(transparent)]
 pub struct OpenServiceActivityContentType(pub i32);
 pub const ActivityContentNone: OpenServiceActivityContentType = OpenServiceActivityContentType(-1i32);
@@ -9616,26 +9798,53 @@ pub const ActivityContentDocument: OpenServiceActivityContentType = OpenServiceA
 pub const ActivityContentSelection: OpenServiceActivityContentType = OpenServiceActivityContentType(1i32);
 pub const ActivityContentLink: OpenServiceActivityContentType = OpenServiceActivityContentType(2i32);
 pub const ActivityContentCount: OpenServiceActivityContentType = OpenServiceActivityContentType(3i32);
-#[repr(C)]
-pub struct OpenServiceActivityManager(i32);
+impl ::core::marker::Copy for OpenServiceActivityContentType {}
+impl ::core::clone::Clone for OpenServiceActivityContentType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+pub const OpenServiceActivityManager: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3320829955,
+    data2: 20728,
+    data3: 17357,
+    data4: [154, 184, 170, 252, 19, 148, 201, 224],
+};
 #[repr(transparent)]
 pub struct OpenServiceErrors(pub i32);
 pub const OS_E_NOTFOUND: OpenServiceErrors = OpenServiceErrors(-2147287038i32);
 pub const OS_E_NOTSUPPORTED: OpenServiceErrors = OpenServiceErrors(-2147467231i32);
 pub const OS_E_CANCELLED: OpenServiceErrors = OpenServiceErrors(-2147471631i32);
 pub const OS_E_GPDISABLED: OpenServiceErrors = OpenServiceErrors(-1072886820i32);
-#[repr(C)]
-pub struct OpenServiceManager(i32);
+impl ::core::marker::Copy for OpenServiceErrors {}
+impl ::core::clone::Clone for OpenServiceErrors {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+pub const OpenServiceManager: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 159936694, data2: 14826, data3: 18443, data4: [184, 181, 221, 1, 103, 196, 219, 89] };
 #[repr(transparent)]
 pub struct PARSE_FLAGS(pub i32);
 pub const PARSE_ABSOLUTIFYIE40URLS: PARSE_FLAGS = PARSE_FLAGS(1i32);
 pub const PARSE_DISABLEVML: PARSE_FLAGS = PARSE_FLAGS(2i32);
 pub const PARSE_FLAGS_Max: PARSE_FLAGS = PARSE_FLAGS(2147483647i32);
+impl ::core::marker::Copy for PARSE_FLAGS {}
+impl ::core::clone::Clone for PARSE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct POINTER_GRAVITY(pub i32);
 pub const POINTER_GRAVITY_Left: POINTER_GRAVITY = POINTER_GRAVITY(0i32);
 pub const POINTER_GRAVITY_Right: POINTER_GRAVITY = POINTER_GRAVITY(1i32);
 pub const POINTER_GRAVITY_Max: POINTER_GRAVITY = POINTER_GRAVITY(2147483647i32);
+impl ::core::marker::Copy for POINTER_GRAVITY {}
+impl ::core::clone::Clone for POINTER_GRAVITY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const PRINT_DONTBOTHERUSER: u32 = 1u32;
 pub const PRINT_WAITFORCOMPLETION: u32 = 2u32;
 pub const PRIVACY_URLHASCOMPACTPOLICY: u32 = 131072u32;
@@ -9644,8 +9853,7 @@ pub const PRIVACY_URLHASPOLICYREFHEADER: u32 = 2097152u32;
 pub const PRIVACY_URLHASPOLICYREFLINK: u32 = 1048576u32;
 pub const PRIVACY_URLHASPOSTDATA: u32 = 524288u32;
 pub const PRIVACY_URLISTOPLEVEL: u32 = 65536u32;
-#[repr(C)]
-pub struct PeerFactory(i32);
+pub const PeerFactory: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611919, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const REGSTR_VAL_FONT_SIZE_DEF: u32 = 2u32;
 pub const REGSTR_VAL_JAVAJIT_DEF: u32 = 0u32;
 pub const REGSTR_VAL_JAVALOGGING_DEF: u32 = 0u32;
@@ -9664,16 +9872,29 @@ pub const REGSTR_VAL_SECURITYWARNONZONECROSSING_DEF: u32 = 1u32;
 pub const REGSTR_VAL_SMOOTHSCROLL_DEF: u32 = 1u32;
 pub const REGSTR_VAL_USEICM_DEF: u32 = 0u32;
 pub const REGSTR_VAL_VISIBLEBANDS_DEF: u32 = 7u32;
-#[repr(C)]
-pub struct RangeException(i32);
-#[repr(C)]
-pub struct RulesApplied(i32);
-#[repr(C)]
-pub struct RulesAppliedCollection(i32);
+pub const RangeException: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616622, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const RulesApplied: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2088778016,
+    data2: 31315,
+    data3: 19750,
+    data4: [152, 172, 253, 210, 62, 107, 158, 1],
+};
+pub const RulesAppliedCollection: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1729701614,
+    data2: 50127,
+    data3: 16559,
+    data4: [190, 143, 28, 186, 238, 100, 134, 232],
+};
 #[repr(transparent)]
 pub struct SAVE_SEGMENTS_FLAGS(pub i32);
 pub const SAVE_SEGMENTS_NoIE4SelectionCompat: SAVE_SEGMENTS_FLAGS = SAVE_SEGMENTS_FLAGS(1i32);
 pub const SAVE_SEGMENTS_FLAGS_Max: SAVE_SEGMENTS_FLAGS = SAVE_SEGMENTS_FLAGS(2147483647i32);
+impl ::core::marker::Copy for SAVE_SEGMENTS_FLAGS {}
+impl ::core::clone::Clone for SAVE_SEGMENTS_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SCRIPT_TIMER_TYPE(pub i32);
 pub const STT_TIMEOUT: SCRIPT_TIMER_TYPE = SCRIPT_TIMER_TYPE(0i32);
@@ -9681,6 +9902,12 @@ pub const STT_INTERVAL: SCRIPT_TIMER_TYPE = SCRIPT_TIMER_TYPE(1i32);
 pub const STT_IMMEDIATE: SCRIPT_TIMER_TYPE = SCRIPT_TIMER_TYPE(2i32);
 pub const STT_ANIMATION_FRAME: SCRIPT_TIMER_TYPE = SCRIPT_TIMER_TYPE(3i32);
 pub const SCRIPT_TIMER_TYPE_Max: SCRIPT_TIMER_TYPE = SCRIPT_TIMER_TYPE(2147483647i32);
+impl ::core::marker::Copy for SCRIPT_TIMER_TYPE {}
+impl ::core::clone::Clone for SCRIPT_TIMER_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SCROLLABLECONTEXTMENU_PLACEMENT(pub i32);
 pub const SCMP_TOP: SCROLLABLECONTEXTMENU_PLACEMENT = SCROLLABLECONTEXTMENU_PLACEMENT(0i32);
@@ -9688,12 +9915,24 @@ pub const SCMP_BOTTOM: SCROLLABLECONTEXTMENU_PLACEMENT = SCROLLABLECONTEXTMENU_P
 pub const SCMP_LEFT: SCROLLABLECONTEXTMENU_PLACEMENT = SCROLLABLECONTEXTMENU_PLACEMENT(2i32);
 pub const SCMP_RIGHT: SCROLLABLECONTEXTMENU_PLACEMENT = SCROLLABLECONTEXTMENU_PLACEMENT(3i32);
 pub const SCMP_FULL: SCROLLABLECONTEXTMENU_PLACEMENT = SCROLLABLECONTEXTMENU_PLACEMENT(4i32);
+impl ::core::marker::Copy for SCROLLABLECONTEXTMENU_PLACEMENT {}
+impl ::core::clone::Clone for SCROLLABLECONTEXTMENU_PLACEMENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SECUREURLHOSTVALIDATE_FLAGS(pub i32);
 pub const SUHV_PROMPTBEFORENO: SECUREURLHOSTVALIDATE_FLAGS = SECUREURLHOSTVALIDATE_FLAGS(1i32);
 pub const SUHV_SILENTYES: SECUREURLHOSTVALIDATE_FLAGS = SECUREURLHOSTVALIDATE_FLAGS(2i32);
 pub const SUHV_UNSECURESOURCE: SECUREURLHOSTVALIDATE_FLAGS = SECUREURLHOSTVALIDATE_FLAGS(4i32);
 pub const SECUREURLHOSTVALIDATE_FLAGS_Max: SECUREURLHOSTVALIDATE_FLAGS = SECUREURLHOSTVALIDATE_FLAGS(2147483647i32);
+impl ::core::marker::Copy for SECUREURLHOSTVALIDATE_FLAGS {}
+impl ::core::clone::Clone for SECUREURLHOSTVALIDATE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SELECTION_TYPE(pub i32);
 pub const SELECTION_TYPE_None: SELECTION_TYPE = SELECTION_TYPE(0i32);
@@ -9701,6 +9940,12 @@ pub const SELECTION_TYPE_Caret: SELECTION_TYPE = SELECTION_TYPE(1i32);
 pub const SELECTION_TYPE_Text: SELECTION_TYPE = SELECTION_TYPE(2i32);
 pub const SELECTION_TYPE_Control: SELECTION_TYPE = SELECTION_TYPE(3i32);
 pub const SELECTION_TYPE_Max: SELECTION_TYPE = SELECTION_TYPE(2147483647i32);
+impl ::core::marker::Copy for SELECTION_TYPE {}
+impl ::core::clone::Clone for SELECTION_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub type SHOWHTMLDIALOGEXFN = unsafe extern "system" fn(hwndparent: super::super::Foundation::HWND, pmk: super::super::System::Com::IMoniker, dwdialogflags: u32, pvarargin: *mut super::super::System::Com::VARIANT, pchoptions: super::super::Foundation::PWSTR, pvargout: *mut super::super::System::Com::VARIANT) -> ::windows_sys::core::HRESULT;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -9710,9 +9955,25 @@ pub type SHOWMODELESSHTMLDIALOGFN = unsafe extern "system" fn(hwndparent: super:
 pub const SID_SEditCommandTarget: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611893, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const SID_SHTMLEditHost: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810612384, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const SID_SHTMLEditServices: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810612729, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct STATURL(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct STATURL {
+    pub cbSize: u32,
+    pub pwcsUrl: super::super::Foundation::PWSTR,
+    pub pwcsTitle: super::super::Foundation::PWSTR,
+    pub ftLastVisited: super::super::Foundation::FILETIME,
+    pub ftLastUpdated: super::super::Foundation::FILETIME,
+    pub ftExpires: super::super::Foundation::FILETIME,
+    pub dwFlags: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for STATURL {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for STATURL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const STATURLFLAG_ISCACHED: u32 = 1u32;
 pub const STATURLFLAG_ISTOPLEVEL: u32 = 2u32;
 pub const STATURL_QUERYFLAG_ISCACHED: u32 = 65536u32;
@@ -9794,222 +10055,143 @@ pub const STDPROPID_XOBJ_WIDTH: u32 = 65541u32;
 pub const SURFACE_LOCK_ALLOW_DISCARD: u32 = 2u32;
 pub const SURFACE_LOCK_EXCLUSIVE: u32 = 1u32;
 pub const SURFACE_LOCK_WAIT: u32 = 4u32;
-#[repr(C)]
-pub struct SVGAElement(i32);
-#[repr(C)]
-pub struct SVGAngle(i32);
-#[repr(C)]
-pub struct SVGAnimatedAngle(i32);
-#[repr(C)]
-pub struct SVGAnimatedBoolean(i32);
-#[repr(C)]
-pub struct SVGAnimatedEnumeration(i32);
-#[repr(C)]
-pub struct SVGAnimatedInteger(i32);
-#[repr(C)]
-pub struct SVGAnimatedLength(i32);
-#[repr(C)]
-pub struct SVGAnimatedLengthList(i32);
-#[repr(C)]
-pub struct SVGAnimatedNumber(i32);
-#[repr(C)]
-pub struct SVGAnimatedNumberList(i32);
-#[repr(C)]
-pub struct SVGAnimatedPreserveAspectRatio(i32);
-#[repr(C)]
-pub struct SVGAnimatedRect(i32);
-#[repr(C)]
-pub struct SVGAnimatedString(i32);
-#[repr(C)]
-pub struct SVGAnimatedTransformList(i32);
-#[repr(C)]
-pub struct SVGCircleElement(i32);
-#[repr(C)]
-pub struct SVGClipPathElement(i32);
-#[repr(C)]
-pub struct SVGDefsElement(i32);
-#[repr(C)]
-pub struct SVGDescElement(i32);
-#[repr(C)]
-pub struct SVGElement(i32);
-#[repr(C)]
-pub struct SVGElementInstance(i32);
-#[repr(C)]
-pub struct SVGElementInstanceList(i32);
-#[repr(C)]
-pub struct SVGEllipseElement(i32);
-#[repr(C)]
-pub struct SVGException(i32);
-#[repr(C)]
-pub struct SVGGElement(i32);
-#[repr(C)]
-pub struct SVGGradientElement(i32);
-#[repr(C)]
-pub struct SVGImageElement(i32);
-#[repr(C)]
-pub struct SVGLength(i32);
-#[repr(C)]
-pub struct SVGLengthList(i32);
-#[repr(C)]
-pub struct SVGLineElement(i32);
-#[repr(C)]
-pub struct SVGLinearGradientElement(i32);
-#[repr(C)]
-pub struct SVGMarkerElement(i32);
-#[repr(C)]
-pub struct SVGMaskElement(i32);
-#[repr(C)]
-pub struct SVGMatrix(i32);
-#[repr(C)]
-pub struct SVGMetadataElement(i32);
-#[repr(C)]
-pub struct SVGNumber(i32);
-#[repr(C)]
-pub struct SVGNumberList(i32);
-#[repr(C)]
-pub struct SVGPathElement(i32);
-#[repr(C)]
-pub struct SVGPathSeg(i32);
-#[repr(C)]
-pub struct SVGPathSegArcAbs(i32);
-#[repr(C)]
-pub struct SVGPathSegArcRel(i32);
-#[repr(C)]
-pub struct SVGPathSegClosePath(i32);
-#[repr(C)]
-pub struct SVGPathSegCurvetoCubicAbs(i32);
-#[repr(C)]
-pub struct SVGPathSegCurvetoCubicRel(i32);
-#[repr(C)]
-pub struct SVGPathSegCurvetoCubicSmoothAbs(i32);
-#[repr(C)]
-pub struct SVGPathSegCurvetoCubicSmoothRel(i32);
-#[repr(C)]
-pub struct SVGPathSegCurvetoQuadraticAbs(i32);
-#[repr(C)]
-pub struct SVGPathSegCurvetoQuadraticRel(i32);
-#[repr(C)]
-pub struct SVGPathSegCurvetoQuadraticSmoothAbs(i32);
-#[repr(C)]
-pub struct SVGPathSegCurvetoQuadraticSmoothRel(i32);
-#[repr(C)]
-pub struct SVGPathSegLinetoAbs(i32);
-#[repr(C)]
-pub struct SVGPathSegLinetoHorizontalAbs(i32);
-#[repr(C)]
-pub struct SVGPathSegLinetoHorizontalRel(i32);
-#[repr(C)]
-pub struct SVGPathSegLinetoRel(i32);
-#[repr(C)]
-pub struct SVGPathSegLinetoVerticalAbs(i32);
-#[repr(C)]
-pub struct SVGPathSegLinetoVerticalRel(i32);
-#[repr(C)]
-pub struct SVGPathSegList(i32);
-#[repr(C)]
-pub struct SVGPathSegMovetoAbs(i32);
-#[repr(C)]
-pub struct SVGPathSegMovetoRel(i32);
-#[repr(C)]
-pub struct SVGPatternElement(i32);
-#[repr(C)]
-pub struct SVGPoint(i32);
-#[repr(C)]
-pub struct SVGPointList(i32);
-#[repr(C)]
-pub struct SVGPolygonElement(i32);
-#[repr(C)]
-pub struct SVGPolylineElement(i32);
-#[repr(C)]
-pub struct SVGPreserveAspectRatio(i32);
-#[repr(C)]
-pub struct SVGRadialGradientElement(i32);
-#[repr(C)]
-pub struct SVGRect(i32);
-#[repr(C)]
-pub struct SVGRectElement(i32);
-#[repr(C)]
-pub struct SVGSVGElement(i32);
-#[repr(C)]
-pub struct SVGScriptElement(i32);
-#[repr(C)]
-pub struct SVGStopElement(i32);
-#[repr(C)]
-pub struct SVGStringList(i32);
-#[repr(C)]
-pub struct SVGStyleElement(i32);
-#[repr(C)]
-pub struct SVGSwitchElement(i32);
-#[repr(C)]
-pub struct SVGSymbolElement(i32);
-#[repr(C)]
-pub struct SVGTSpanElement(i32);
-#[repr(C)]
-pub struct SVGTextContentElement(i32);
-#[repr(C)]
-pub struct SVGTextElement(i32);
-#[repr(C)]
-pub struct SVGTextPathElement(i32);
-#[repr(C)]
-pub struct SVGTextPositioningElement(i32);
-#[repr(C)]
-pub struct SVGTitleElement(i32);
-#[repr(C)]
-pub struct SVGTransform(i32);
-#[repr(C)]
-pub struct SVGTransformList(i32);
-#[repr(C)]
-pub struct SVGUseElement(i32);
-#[repr(C)]
-pub struct SVGViewElement(i32);
-#[repr(C)]
-pub struct SVGZoomEvent(i32);
+pub const SVGAElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616283, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGAngle: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616196, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGAnimatedAngle: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616292, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGAnimatedBoolean: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616203, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGAnimatedEnumeration: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616206, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGAnimatedInteger: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616207, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGAnimatedLength: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616193, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGAnimatedLengthList: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616194, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGAnimatedNumber: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616200, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGAnimatedNumberList: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616202, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGAnimatedPreserveAspectRatio: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616270, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGAnimatedRect: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616198, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGAnimatedString: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616204, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGAnimatedTransformList: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616241, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGCircleElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616184, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGClipPathElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616294, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGDefsElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616176, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGDescElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616178, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616164, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGElementInstance: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616181, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGElementInstanceList: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616182, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGEllipseElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616185, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGException: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616624, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGGElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616175, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGGradientElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616278, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGImageElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616271, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGLength: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616190, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGLengthList: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616192, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGLineElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616186, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGLinearGradientElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616274, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGMarkerElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616286, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGMaskElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616295, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGMatrix: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616238, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGMetadataElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616279, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGNumber: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616199, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGNumberList: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616201, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGPathElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616242, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGPathSeg: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616243, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGPathSegArcAbs: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616251, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGPathSegArcRel: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616252, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGPathSegClosePath: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616253, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGPathSegCurvetoCubicAbs: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616254, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGPathSegCurvetoCubicRel: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616255, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGPathSegCurvetoCubicSmoothAbs: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616256, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGPathSegCurvetoCubicSmoothRel: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616257, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGPathSegCurvetoQuadraticAbs: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616258, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGPathSegCurvetoQuadraticRel: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616259, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGPathSegCurvetoQuadraticSmoothAbs: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616260, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGPathSegCurvetoQuadraticSmoothRel: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616261, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGPathSegLinetoAbs: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616262, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGPathSegLinetoHorizontalAbs: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616263, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGPathSegLinetoHorizontalRel: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616264, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGPathSegLinetoRel: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616265, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGPathSegLinetoVerticalAbs: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616266, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGPathSegLinetoVerticalRel: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616267, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGPathSegList: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616244, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGPathSegMovetoAbs: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616268, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGPathSegMovetoRel: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616269, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGPatternElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616276, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGPoint: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616250, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGPointList: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616249, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGPolygonElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616187, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGPolylineElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616188, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGPreserveAspectRatio: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616272, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGRadialGradientElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616275, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGRect: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616195, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGRectElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616183, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGSVGElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616180, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGScriptElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616289, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGStopElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616277, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGStringList: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616205, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGStyleElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616273, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGSwitchElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616280, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGSymbolElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616177, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGTSpanElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616290, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGTextContentElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616285, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGTextElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616287, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGTextPathElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616299, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGTextPositioningElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616288, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGTitleElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616179, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGTransform: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616239, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGTransformList: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616240, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGUseElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616208, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGViewElement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616284, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const SVGZoomEvent: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616281, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const S_SURFACE_DISCARDED: i32 = 49155i32;
-#[repr(C)]
-pub struct Scriptlet(i32);
-#[repr(C)]
-pub struct StaticNodeList(i32);
+pub const Scriptlet: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2921659822, data2: 966, data3: 4561, data4: [139, 118, 0, 128, 199, 68, 243, 137] };
+pub const StaticNodeList: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810615911, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const TF_NAVIGATE: u32 = 2142153644u32;
 pub const TIMERMODE_NORMAL: u32 = 0u32;
 pub const TIMERMODE_VISIBILITYAWARE: u32 = 1u32;
 pub const TOOLSBAND: u32 = 1u32;
-#[repr(C)]
-pub struct ThreadDialogProcParam(i32);
-#[repr(C)]
-pub struct TreeWalker(i32);
+pub const ThreadDialogProcParam: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810612203, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const TreeWalker: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616647, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 #[repr(transparent)]
 pub struct VIEW_OBJECT_ALPHA_MODE(pub i32);
 pub const VIEW_OBJECT_ALPHA_MODE_IGNORE: VIEW_OBJECT_ALPHA_MODE = VIEW_OBJECT_ALPHA_MODE(0i32);
 pub const VIEW_OBJECT_ALPHA_MODE_PREMULTIPLIED: VIEW_OBJECT_ALPHA_MODE = VIEW_OBJECT_ALPHA_MODE(1i32);
 pub const VIEW_OBJECT_ALPHA_MODE_Max: VIEW_OBJECT_ALPHA_MODE = VIEW_OBJECT_ALPHA_MODE(2147483647i32);
+impl ::core::marker::Copy for VIEW_OBJECT_ALPHA_MODE {}
+impl ::core::clone::Clone for VIEW_OBJECT_ALPHA_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct VIEW_OBJECT_COMPOSITION_MODE(pub i32);
 pub const VIEW_OBJECT_COMPOSITION_MODE_LEGACY: VIEW_OBJECT_COMPOSITION_MODE = VIEW_OBJECT_COMPOSITION_MODE(0i32);
 pub const VIEW_OBJECT_COMPOSITION_MODE_SURFACEPRESENTER: VIEW_OBJECT_COMPOSITION_MODE = VIEW_OBJECT_COMPOSITION_MODE(1i32);
 pub const VIEW_OBJECT_COMPOSITION_MODE_Max: VIEW_OBJECT_COMPOSITION_MODE = VIEW_OBJECT_COMPOSITION_MODE(2147483647i32);
+impl ::core::marker::Copy for VIEW_OBJECT_COMPOSITION_MODE {}
+impl ::core::clone::Clone for VIEW_OBJECT_COMPOSITION_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WEBOC_DISPIDBASE: u32 = 70536u32;
 pub const WEBOC_DISPIDMAX: u32 = 70636u32;
-#[repr(C)]
-pub struct WebGeocoordinates(i32);
-#[repr(C)]
-pub struct WebGeolocation(i32);
-#[repr(C)]
-pub struct WebGeoposition(i32);
-#[repr(C)]
-pub struct WebGeopositionError(i32);
-#[repr(C)]
-pub struct XDomainRequest(i32);
-#[repr(C)]
-pub struct XDomainRequestFactory(i32);
-#[repr(C)]
-pub struct XMLHttpRequestEventTarget(i32);
-#[repr(C)]
-pub struct XMLSerializer(i32);
+pub const WebGeocoordinates: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616776, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const WebGeolocation: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616774, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const WebGeoposition: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616782, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const WebGeopositionError: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616778, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const XDomainRequest: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810615893, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const XDomainRequestFactory: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810615895, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const XMLHttpRequestEventTarget: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616881, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const XMLSerializer: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810616702, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 #[repr(transparent)]
 pub struct __MIDL_ITargetFrame2_0001(pub i32);
 pub const FINDFRAME_NONE: __MIDL_ITargetFrame2_0001 = __MIDL_ITargetFrame2_0001(0i32);
 pub const FINDFRAME_JUSTTESTEXISTENCE: __MIDL_ITargetFrame2_0001 = __MIDL_ITargetFrame2_0001(1i32);
 pub const FINDFRAME_INTERNAL: __MIDL_ITargetFrame2_0001 = __MIDL_ITargetFrame2_0001(-2147483648i32);
+impl ::core::marker::Copy for __MIDL_ITargetFrame2_0001 {}
+impl ::core::clone::Clone for __MIDL_ITargetFrame2_0001 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct __MIDL_ITargetFrame2_0002(pub i32);
 pub const FRAMEOPTIONS_SCROLL_YES: __MIDL_ITargetFrame2_0002 = __MIDL_ITargetFrame2_0002(1i32);
@@ -10019,6 +10201,12 @@ pub const FRAMEOPTIONS_NORESIZE: __MIDL_ITargetFrame2_0002 = __MIDL_ITargetFrame
 pub const FRAMEOPTIONS_NO3DBORDER: __MIDL_ITargetFrame2_0002 = __MIDL_ITargetFrame2_0002(16i32);
 pub const FRAMEOPTIONS_DESKTOP: __MIDL_ITargetFrame2_0002 = __MIDL_ITargetFrame2_0002(32i32);
 pub const FRAMEOPTIONS_BROWSERBAND: __MIDL_ITargetFrame2_0002 = __MIDL_ITargetFrame2_0002(64i32);
+impl ::core::marker::Copy for __MIDL_ITargetFrame2_0002 {}
+impl ::core::clone::Clone for __MIDL_ITargetFrame2_0002 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct __MIDL_ITargetFrame_0001(pub i32);
 pub const NAVIGATEFRAME_FL_RECORD: __MIDL_ITargetFrame_0001 = __MIDL_ITargetFrame_0001(1i32);
@@ -10028,6 +10216,12 @@ pub const NAVIGATEFRAME_FL_NO_IMAGE_CACHE: __MIDL_ITargetFrame_0001 = __MIDL_ITa
 pub const NAVIGATEFRAME_FL_AUTH_FAIL_CACHE_OK: __MIDL_ITargetFrame_0001 = __MIDL_ITargetFrame_0001(16i32);
 pub const NAVIGATEFRAME_FL_SENDING_FROM_FORM: __MIDL_ITargetFrame_0001 = __MIDL_ITargetFrame_0001(32i32);
 pub const NAVIGATEFRAME_FL_REALLY_SENDING_FROM_FORM: __MIDL_ITargetFrame_0001 = __MIDL_ITargetFrame_0001(64i32);
+impl ::core::marker::Copy for __MIDL_ITargetFrame_0001 {}
+impl ::core::clone::Clone for __MIDL_ITargetFrame_0001 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct bodyScroll(pub i32);
 pub const bodyScrollyes: bodyScroll = bodyScroll(1i32);
@@ -10035,12 +10229,24 @@ pub const bodyScrollno: bodyScroll = bodyScroll(2i32);
 pub const bodyScrollauto: bodyScroll = bodyScroll(4i32);
 pub const bodyScrolldefault: bodyScroll = bodyScroll(3i32);
 pub const bodyScroll_Max: bodyScroll = bodyScroll(2147483647i32);
+impl ::core::marker::Copy for bodyScroll {}
+impl ::core::clone::Clone for bodyScroll {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct frameScrolling(pub i32);
 pub const frameScrollingyes: frameScrolling = frameScrolling(1i32);
 pub const frameScrollingno: frameScrolling = frameScrolling(2i32);
 pub const frameScrollingauto: frameScrolling = frameScrolling(4i32);
 pub const frameScrolling_Max: frameScrolling = frameScrolling(2147483647i32);
+impl ::core::marker::Copy for frameScrolling {}
+impl ::core::clone::Clone for frameScrolling {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct htmlAdjacency(pub i32);
 pub const htmlAdjacencyBeforeBegin: htmlAdjacency = htmlAdjacency(1i32);
@@ -10048,11 +10254,23 @@ pub const htmlAdjacencyAfterBegin: htmlAdjacency = htmlAdjacency(2i32);
 pub const htmlAdjacencyBeforeEnd: htmlAdjacency = htmlAdjacency(3i32);
 pub const htmlAdjacencyAfterEnd: htmlAdjacency = htmlAdjacency(4i32);
 pub const htmlAdjacency_Max: htmlAdjacency = htmlAdjacency(2147483647i32);
+impl ::core::marker::Copy for htmlAdjacency {}
+impl ::core::clone::Clone for htmlAdjacency {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct htmlApplyLocation(pub i32);
 pub const htmlApplyLocationInside: htmlApplyLocation = htmlApplyLocation(0i32);
 pub const htmlApplyLocationOutside: htmlApplyLocation = htmlApplyLocation(1i32);
 pub const htmlApplyLocation_Max: htmlApplyLocation = htmlApplyLocation(2147483647i32);
+impl ::core::marker::Copy for htmlApplyLocation {}
+impl ::core::clone::Clone for htmlApplyLocation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct htmlBlockAlign(pub i32);
 pub const htmlBlockAlignNotSet: htmlBlockAlign = htmlBlockAlign(0i32);
@@ -10061,6 +10279,12 @@ pub const htmlBlockAlignCenter: htmlBlockAlign = htmlBlockAlign(2i32);
 pub const htmlBlockAlignRight: htmlBlockAlign = htmlBlockAlign(3i32);
 pub const htmlBlockAlignJustify: htmlBlockAlign = htmlBlockAlign(4i32);
 pub const htmlBlockAlign_Max: htmlBlockAlign = htmlBlockAlign(2147483647i32);
+impl ::core::marker::Copy for htmlBlockAlign {}
+impl ::core::clone::Clone for htmlBlockAlign {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct htmlCaptionAlign(pub i32);
 pub const htmlCaptionAlignNotSet: htmlCaptionAlign = htmlCaptionAlign(0i32);
@@ -10071,12 +10295,24 @@ pub const htmlCaptionAlignJustify: htmlCaptionAlign = htmlCaptionAlign(4i32);
 pub const htmlCaptionAlignTop: htmlCaptionAlign = htmlCaptionAlign(5i32);
 pub const htmlCaptionAlignBottom: htmlCaptionAlign = htmlCaptionAlign(6i32);
 pub const htmlCaptionAlign_Max: htmlCaptionAlign = htmlCaptionAlign(2147483647i32);
+impl ::core::marker::Copy for htmlCaptionAlign {}
+impl ::core::clone::Clone for htmlCaptionAlign {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct htmlCaptionVAlign(pub i32);
 pub const htmlCaptionVAlignNotSet: htmlCaptionVAlign = htmlCaptionVAlign(0i32);
 pub const htmlCaptionVAlignTop: htmlCaptionVAlign = htmlCaptionVAlign(1i32);
 pub const htmlCaptionVAlignBottom: htmlCaptionVAlign = htmlCaptionVAlign(2i32);
 pub const htmlCaptionVAlign_Max: htmlCaptionVAlign = htmlCaptionVAlign(2147483647i32);
+impl ::core::marker::Copy for htmlCaptionVAlign {}
+impl ::core::clone::Clone for htmlCaptionVAlign {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct htmlCellAlign(pub i32);
 pub const htmlCellAlignNotSet: htmlCellAlign = htmlCellAlign(0i32);
@@ -10085,6 +10321,12 @@ pub const htmlCellAlignCenter: htmlCellAlign = htmlCellAlign(2i32);
 pub const htmlCellAlignRight: htmlCellAlign = htmlCellAlign(3i32);
 pub const htmlCellAlignMiddle: htmlCellAlign = htmlCellAlign(2i32);
 pub const htmlCellAlign_Max: htmlCellAlign = htmlCellAlign(2147483647i32);
+impl ::core::marker::Copy for htmlCellAlign {}
+impl ::core::clone::Clone for htmlCellAlign {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct htmlCellVAlign(pub i32);
 pub const htmlCellVAlignNotSet: htmlCellVAlign = htmlCellVAlign(0i32);
@@ -10094,6 +10336,12 @@ pub const htmlCellVAlignBottom: htmlCellVAlign = htmlCellVAlign(3i32);
 pub const htmlCellVAlignBaseline: htmlCellVAlign = htmlCellVAlign(4i32);
 pub const htmlCellVAlignCenter: htmlCellVAlign = htmlCellVAlign(2i32);
 pub const htmlCellVAlign_Max: htmlCellVAlign = htmlCellVAlign(2147483647i32);
+impl ::core::marker::Copy for htmlCellVAlign {}
+impl ::core::clone::Clone for htmlCellVAlign {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct htmlClear(pub i32);
 pub const htmlClearNotSet: htmlClear = htmlClear(0i32);
@@ -10103,11 +10351,23 @@ pub const htmlClearRight: htmlClear = htmlClear(3i32);
 pub const htmlClearBoth: htmlClear = htmlClear(4i32);
 pub const htmlClearNone: htmlClear = htmlClear(5i32);
 pub const htmlClear_Max: htmlClear = htmlClear(2147483647i32);
+impl ::core::marker::Copy for htmlClear {}
+impl ::core::clone::Clone for htmlClear {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct htmlCompatMode(pub i32);
 pub const htmlCompatModeBackCompat: htmlCompatMode = htmlCompatMode(0i32);
 pub const htmlCompatModeCSS1Compat: htmlCompatMode = htmlCompatMode(1i32);
 pub const htmlCompatMode_Max: htmlCompatMode = htmlCompatMode(2147483647i32);
+impl ::core::marker::Copy for htmlCompatMode {}
+impl ::core::clone::Clone for htmlCompatMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct htmlComponent(pub i32);
 pub const htmlComponentClient: htmlComponent = htmlComponent(0i32);
@@ -10141,6 +10401,12 @@ pub const htmlComponentGHBottom: htmlComponent = htmlComponent(27i32);
 pub const htmlComponentGHRight: htmlComponent = htmlComponent(28i32);
 pub const htmlComponentGHBottomRight: htmlComponent = htmlComponent(29i32);
 pub const htmlComponent_Max: htmlComponent = htmlComponent(2147483647i32);
+impl ::core::marker::Copy for htmlComponent {}
+impl ::core::clone::Clone for htmlComponent {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct htmlControlAlign(pub i32);
 pub const htmlControlAlignNotSet: htmlControlAlign = htmlControlAlign(0i32);
@@ -10155,29 +10421,59 @@ pub const htmlControlAlignBottom: htmlControlAlign = htmlControlAlign(8i32);
 pub const htmlControlAlignMiddle: htmlControlAlign = htmlControlAlign(9i32);
 pub const htmlControlAlignTop: htmlControlAlign = htmlControlAlign(10i32);
 pub const htmlControlAlign_Max: htmlControlAlign = htmlControlAlign(2147483647i32);
+impl ::core::marker::Copy for htmlControlAlign {}
+impl ::core::clone::Clone for htmlControlAlign {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct htmlDesignMode(pub i32);
 pub const htmlDesignModeInherit: htmlDesignMode = htmlDesignMode(-2i32);
 pub const htmlDesignModeOn: htmlDesignMode = htmlDesignMode(-1i32);
 pub const htmlDesignModeOff: htmlDesignMode = htmlDesignMode(0i32);
 pub const htmlDesignMode_Max: htmlDesignMode = htmlDesignMode(2147483647i32);
+impl ::core::marker::Copy for htmlDesignMode {}
+impl ::core::clone::Clone for htmlDesignMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct htmlDir(pub i32);
 pub const htmlDirNotSet: htmlDir = htmlDir(0i32);
 pub const htmlDirLeftToRight: htmlDir = htmlDir(1i32);
 pub const htmlDirRightToLeft: htmlDir = htmlDir(2i32);
 pub const htmlDir_Max: htmlDir = htmlDir(2147483647i32);
+impl ::core::marker::Copy for htmlDir {}
+impl ::core::clone::Clone for htmlDir {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct htmlDirection(pub i32);
 pub const htmlDirectionForward: htmlDirection = htmlDirection(99999i32);
 pub const htmlDirectionBackward: htmlDirection = htmlDirection(-99999i32);
 pub const htmlDirection_Max: htmlDirection = htmlDirection(2147483647i32);
+impl ::core::marker::Copy for htmlDirection {}
+impl ::core::clone::Clone for htmlDirection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct htmlDraggable(pub i32);
 pub const htmlDraggableAuto: htmlDraggable = htmlDraggable(0i32);
 pub const htmlDraggableTrue: htmlDraggable = htmlDraggable(1i32);
 pub const htmlDraggableFalse: htmlDraggable = htmlDraggable(2i32);
 pub const htmlDraggable_Max: htmlDraggable = htmlDraggable(2147483647i32);
+impl ::core::marker::Copy for htmlDraggable {}
+impl ::core::clone::Clone for htmlDraggable {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct htmlDropEffect(pub i32);
 pub const htmlDropEffectCopy: htmlDropEffect = htmlDropEffect(0i32);
@@ -10185,12 +10481,24 @@ pub const htmlDropEffectLink: htmlDropEffect = htmlDropEffect(1i32);
 pub const htmlDropEffectMove: htmlDropEffect = htmlDropEffect(2i32);
 pub const htmlDropEffectNone: htmlDropEffect = htmlDropEffect(3i32);
 pub const htmlDropEffect_Max: htmlDropEffect = htmlDropEffect(2147483647i32);
+impl ::core::marker::Copy for htmlDropEffect {}
+impl ::core::clone::Clone for htmlDropEffect {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct htmlEditable(pub i32);
 pub const htmlEditableInherit: htmlEditable = htmlEditable(0i32);
 pub const htmlEditableTrue: htmlEditable = htmlEditable(1i32);
 pub const htmlEditableFalse: htmlEditable = htmlEditable(2i32);
 pub const htmlEditable_Max: htmlEditable = htmlEditable(2147483647i32);
+impl ::core::marker::Copy for htmlEditable {}
+impl ::core::clone::Clone for htmlEditable {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct htmlEffectAllowed(pub i32);
 pub const htmlEffectAllowedCopy: htmlEffectAllowed = htmlEffectAllowed(0i32);
@@ -10203,12 +10511,24 @@ pub const htmlEffectAllowedAll: htmlEffectAllowed = htmlEffectAllowed(6i32);
 pub const htmlEffectAllowedNone: htmlEffectAllowed = htmlEffectAllowed(7i32);
 pub const htmlEffectAllowedUninitialized: htmlEffectAllowed = htmlEffectAllowed(8i32);
 pub const htmlEffectAllowed_Max: htmlEffectAllowed = htmlEffectAllowed(2147483647i32);
+impl ::core::marker::Copy for htmlEffectAllowed {}
+impl ::core::clone::Clone for htmlEffectAllowed {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct htmlEncoding(pub i32);
 pub const htmlEncodingURL: htmlEncoding = htmlEncoding(0i32);
 pub const htmlEncodingMultipart: htmlEncoding = htmlEncoding(1i32);
 pub const htmlEncodingText: htmlEncoding = htmlEncoding(2i32);
 pub const htmlEncoding_Max: htmlEncoding = htmlEncoding(2147483647i32);
+impl ::core::marker::Copy for htmlEncoding {}
+impl ::core::clone::Clone for htmlEncoding {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct htmlEndPoints(pub i32);
 pub const htmlEndPointsStartToStart: htmlEndPoints = htmlEndPoints(1i32);
@@ -10216,6 +10536,12 @@ pub const htmlEndPointsStartToEnd: htmlEndPoints = htmlEndPoints(2i32);
 pub const htmlEndPointsEndToStart: htmlEndPoints = htmlEndPoints(3i32);
 pub const htmlEndPointsEndToEnd: htmlEndPoints = htmlEndPoints(4i32);
 pub const htmlEndPoints_Max: htmlEndPoints = htmlEndPoints(2147483647i32);
+impl ::core::marker::Copy for htmlEndPoints {}
+impl ::core::clone::Clone for htmlEndPoints {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct htmlFrame(pub i32);
 pub const htmlFrameNotSet: htmlFrame = htmlFrame(0i32);
@@ -10229,6 +10555,12 @@ pub const htmlFramevsides: htmlFrame = htmlFrame(7i32);
 pub const htmlFramebox: htmlFrame = htmlFrame(8i32);
 pub const htmlFrameborder: htmlFrame = htmlFrame(9i32);
 pub const htmlFrame_Max: htmlFrame = htmlFrame(2147483647i32);
+impl ::core::marker::Copy for htmlFrame {}
+impl ::core::clone::Clone for htmlFrame {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct htmlGlyphMode(pub i32);
 pub const htmlGlyphModeNone: htmlGlyphMode = htmlGlyphMode(0i32);
@@ -10236,6 +10568,12 @@ pub const htmlGlyphModeBegin: htmlGlyphMode = htmlGlyphMode(1i32);
 pub const htmlGlyphModeEnd: htmlGlyphMode = htmlGlyphMode(2i32);
 pub const htmlGlyphModeBoth: htmlGlyphMode = htmlGlyphMode(3i32);
 pub const htmlGlyphMode_Max: htmlGlyphMode = htmlGlyphMode(2147483647i32);
+impl ::core::marker::Copy for htmlGlyphMode {}
+impl ::core::clone::Clone for htmlGlyphMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct htmlInput(pub i32);
 pub const htmlInputNotSet: htmlInput = htmlInput(0i32);
@@ -10260,6 +10598,12 @@ pub const htmlInputNumber: htmlInput = htmlInput(18i32);
 pub const htmlInputTel: htmlInput = htmlInput(19i32);
 pub const htmlInputSearch: htmlInput = htmlInput(20i32);
 pub const htmlInput_Max: htmlInput = htmlInput(2147483647i32);
+impl ::core::marker::Copy for htmlInput {}
+impl ::core::clone::Clone for htmlInput {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct htmlListType(pub i32);
 pub const htmlListTypeNotSet: htmlListType = htmlListType(0i32);
@@ -10272,16 +10616,34 @@ pub const htmlListTypeDisc: htmlListType = htmlListType(6i32);
 pub const htmlListTypeCircle: htmlListType = htmlListType(7i32);
 pub const htmlListTypeSquare: htmlListType = htmlListType(8i32);
 pub const htmlListType_Max: htmlListType = htmlListType(2147483647i32);
+impl ::core::marker::Copy for htmlListType {}
+impl ::core::clone::Clone for htmlListType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct htmlLoop(pub i32);
 pub const htmlLoopLoopInfinite: htmlLoop = htmlLoop(-1i32);
 pub const htmlLoop_Max: htmlLoop = htmlLoop(2147483647i32);
+impl ::core::marker::Copy for htmlLoop {}
+impl ::core::clone::Clone for htmlLoop {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct htmlMarqueeBehavior(pub i32);
 pub const htmlMarqueeBehaviorscroll: htmlMarqueeBehavior = htmlMarqueeBehavior(1i32);
 pub const htmlMarqueeBehaviorslide: htmlMarqueeBehavior = htmlMarqueeBehavior(2i32);
 pub const htmlMarqueeBehavioralternate: htmlMarqueeBehavior = htmlMarqueeBehavior(3i32);
 pub const htmlMarqueeBehavior_Max: htmlMarqueeBehavior = htmlMarqueeBehavior(2147483647i32);
+impl ::core::marker::Copy for htmlMarqueeBehavior {}
+impl ::core::clone::Clone for htmlMarqueeBehavior {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct htmlMarqueeDirection(pub i32);
 pub const htmlMarqueeDirectionleft: htmlMarqueeDirection = htmlMarqueeDirection(1i32);
@@ -10289,6 +10651,12 @@ pub const htmlMarqueeDirectionright: htmlMarqueeDirection = htmlMarqueeDirection
 pub const htmlMarqueeDirectionup: htmlMarqueeDirection = htmlMarqueeDirection(5i32);
 pub const htmlMarqueeDirectiondown: htmlMarqueeDirection = htmlMarqueeDirection(7i32);
 pub const htmlMarqueeDirection_Max: htmlMarqueeDirection = htmlMarqueeDirection(2147483647i32);
+impl ::core::marker::Copy for htmlMarqueeDirection {}
+impl ::core::clone::Clone for htmlMarqueeDirection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct htmlMediaErr(pub i32);
 pub const htmlMediaErrAborted: htmlMediaErr = htmlMediaErr(0i32);
@@ -10296,6 +10664,12 @@ pub const htmlMediaErrNetwork: htmlMediaErr = htmlMediaErr(1i32);
 pub const htmlMediaErrDecode: htmlMediaErr = htmlMediaErr(2i32);
 pub const htmlMediaErrSrcNotSupported: htmlMediaErr = htmlMediaErr(3i32);
 pub const htmlMediaErr_Max: htmlMediaErr = htmlMediaErr(2147483647i32);
+impl ::core::marker::Copy for htmlMediaErr {}
+impl ::core::clone::Clone for htmlMediaErr {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct htmlMediaNetworkState(pub i32);
 pub const htmlMediaNetworkStateEmpty: htmlMediaNetworkState = htmlMediaNetworkState(0i32);
@@ -10303,6 +10677,12 @@ pub const htmlMediaNetworkStateIdle: htmlMediaNetworkState = htmlMediaNetworkSta
 pub const htmlMediaNetworkStateLoading: htmlMediaNetworkState = htmlMediaNetworkState(2i32);
 pub const htmlMediaNetworkStateNoSource: htmlMediaNetworkState = htmlMediaNetworkState(3i32);
 pub const htmlMediaNetworkState_Max: htmlMediaNetworkState = htmlMediaNetworkState(2147483647i32);
+impl ::core::marker::Copy for htmlMediaNetworkState {}
+impl ::core::clone::Clone for htmlMediaNetworkState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct htmlMediaReadyState(pub i32);
 pub const htmlMediaReadyStateHaveNothing: htmlMediaReadyState = htmlMediaReadyState(0i32);
@@ -10311,12 +10691,24 @@ pub const htmlMediaReadyStateHaveCurrentData: htmlMediaReadyState = htmlMediaRea
 pub const htmlMediaReadyStateHaveFutureData: htmlMediaReadyState = htmlMediaReadyState(3i32);
 pub const htmlMediaReadyStateHaveEnoughData: htmlMediaReadyState = htmlMediaReadyState(4i32);
 pub const htmlMediaReadyState_Max: htmlMediaReadyState = htmlMediaReadyState(2147483647i32);
+impl ::core::marker::Copy for htmlMediaReadyState {}
+impl ::core::clone::Clone for htmlMediaReadyState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct htmlMethod(pub i32);
 pub const htmlMethodNotSet: htmlMethod = htmlMethod(0i32);
 pub const htmlMethodGet: htmlMethod = htmlMethod(1i32);
 pub const htmlMethodPost: htmlMethod = htmlMethod(2i32);
 pub const htmlMethod_Max: htmlMethod = htmlMethod(2147483647i32);
+impl ::core::marker::Copy for htmlMethod {}
+impl ::core::clone::Clone for htmlMethod {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct htmlPersistState(pub i32);
 pub const htmlPersistStateNormal: htmlPersistState = htmlPersistState(0i32);
@@ -10325,6 +10717,12 @@ pub const htmlPersistStateHistory: htmlPersistState = htmlPersistState(2i32);
 pub const htmlPersistStateSnapshot: htmlPersistState = htmlPersistState(3i32);
 pub const htmlPersistStateUserData: htmlPersistState = htmlPersistState(4i32);
 pub const htmlPersistState_Max: htmlPersistState = htmlPersistState(2147483647i32);
+impl ::core::marker::Copy for htmlPersistState {}
+impl ::core::clone::Clone for htmlPersistState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct htmlReadyState(pub i32);
 pub const htmlReadyStateuninitialized: htmlReadyState = htmlReadyState(0i32);
@@ -10333,6 +10731,12 @@ pub const htmlReadyStateloaded: htmlReadyState = htmlReadyState(2i32);
 pub const htmlReadyStateinteractive: htmlReadyState = htmlReadyState(3i32);
 pub const htmlReadyStatecomplete: htmlReadyState = htmlReadyState(4i32);
 pub const htmlReadyState_Max: htmlReadyState = htmlReadyState(2147483647i32);
+impl ::core::marker::Copy for htmlReadyState {}
+impl ::core::clone::Clone for htmlReadyState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct htmlRules(pub i32);
 pub const htmlRulesNotSet: htmlRules = htmlRules(0i32);
@@ -10342,16 +10746,34 @@ pub const htmlRulesrows: htmlRules = htmlRules(3i32);
 pub const htmlRulescols: htmlRules = htmlRules(4i32);
 pub const htmlRulesall: htmlRules = htmlRules(5i32);
 pub const htmlRules_Max: htmlRules = htmlRules(2147483647i32);
+impl ::core::marker::Copy for htmlRules {}
+impl ::core::clone::Clone for htmlRules {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct htmlSelectExFlag(pub i32);
 pub const htmlSelectExFlagNone: htmlSelectExFlag = htmlSelectExFlag(0i32);
 pub const htmlSelectExFlagHideSelectionInDesign: htmlSelectExFlag = htmlSelectExFlag(1i32);
 pub const htmlSelectExFlag_Max: htmlSelectExFlag = htmlSelectExFlag(2147483647i32);
+impl ::core::marker::Copy for htmlSelectExFlag {}
+impl ::core::clone::Clone for htmlSelectExFlag {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct htmlSelectType(pub i32);
 pub const htmlSelectTypeSelectOne: htmlSelectType = htmlSelectType(1i32);
 pub const htmlSelectTypeSelectMultiple: htmlSelectType = htmlSelectType(2i32);
 pub const htmlSelectType_Max: htmlSelectType = htmlSelectType(2147483647i32);
+impl ::core::marker::Copy for htmlSelectType {}
+impl ::core::clone::Clone for htmlSelectType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct htmlSelection(pub i32);
 pub const htmlSelectionNone: htmlSelection = htmlSelection(0i32);
@@ -10359,6 +10781,12 @@ pub const htmlSelectionText: htmlSelection = htmlSelection(1i32);
 pub const htmlSelectionControl: htmlSelection = htmlSelection(2i32);
 pub const htmlSelectionTable: htmlSelection = htmlSelection(3i32);
 pub const htmlSelection_Max: htmlSelection = htmlSelection(2147483647i32);
+impl ::core::marker::Copy for htmlSelection {}
+impl ::core::clone::Clone for htmlSelection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct htmlSpellCheck(pub i32);
 pub const htmlSpellCheckNotSet: htmlSpellCheck = htmlSpellCheck(0i32);
@@ -10366,15 +10794,33 @@ pub const htmlSpellCheckTrue: htmlSpellCheck = htmlSpellCheck(1i32);
 pub const htmlSpellCheckFalse: htmlSpellCheck = htmlSpellCheck(2i32);
 pub const htmlSpellCheckDefault: htmlSpellCheck = htmlSpellCheck(3i32);
 pub const htmlSpellCheck_Max: htmlSpellCheck = htmlSpellCheck(2147483647i32);
+impl ::core::marker::Copy for htmlSpellCheck {}
+impl ::core::clone::Clone for htmlSpellCheck {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct htmlStart(pub i32);
 pub const htmlStartfileopen: htmlStart = htmlStart(0i32);
 pub const htmlStartmouseover: htmlStart = htmlStart(1i32);
 pub const htmlStart_Max: htmlStart = htmlStart(2147483647i32);
+impl ::core::marker::Copy for htmlStart {}
+impl ::core::clone::Clone for htmlStart {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct htmlTabIndex(pub i32);
 pub const htmlTabIndexNotSet: htmlTabIndex = htmlTabIndex(-32768i32);
 pub const htmlTabIndex_Max: htmlTabIndex = htmlTabIndex(2147483647i32);
+impl ::core::marker::Copy for htmlTabIndex {}
+impl ::core::clone::Clone for htmlTabIndex {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct htmlUnit(pub i32);
 pub const htmlUnitCharacter: htmlUnit = htmlUnit(1i32);
@@ -10382,23 +10828,47 @@ pub const htmlUnitWord: htmlUnit = htmlUnit(2i32);
 pub const htmlUnitSentence: htmlUnit = htmlUnit(3i32);
 pub const htmlUnitTextEdit: htmlUnit = htmlUnit(6i32);
 pub const htmlUnit_Max: htmlUnit = htmlUnit(2147483647i32);
+impl ::core::marker::Copy for htmlUnit {}
+impl ::core::clone::Clone for htmlUnit {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct htmlWrap(pub i32);
 pub const htmlWrapOff: htmlWrap = htmlWrap(1i32);
 pub const htmlWrapSoft: htmlWrap = htmlWrap(2i32);
 pub const htmlWrapHard: htmlWrap = htmlWrap(3i32);
 pub const htmlWrap_Max: htmlWrap = htmlWrap(2147483647i32);
+impl ::core::marker::Copy for htmlWrap {}
+impl ::core::clone::Clone for htmlWrap {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct htmlZOrder(pub i32);
 pub const htmlZOrderFront: htmlZOrder = htmlZOrder(0i32);
 pub const htmlZOrderBack: htmlZOrder = htmlZOrder(1i32);
 pub const htmlZOrder_Max: htmlZOrder = htmlZOrder(2147483647i32);
+impl ::core::marker::Copy for htmlZOrder {}
+impl ::core::clone::Clone for htmlZOrder {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct lengthAdjust(pub i32);
 pub const LENGTHADJUST_UNKNOWN: lengthAdjust = lengthAdjust(0i32);
 pub const LENGTHADJUST_SPACING: lengthAdjust = lengthAdjust(1i32);
 pub const LENGTHADJUST_SPACINGANDGLYPHS: lengthAdjust = lengthAdjust(2i32);
 pub const lengthAdjust_Max: lengthAdjust = lengthAdjust(2147483647i32);
+impl ::core::marker::Copy for lengthAdjust {}
+impl ::core::clone::Clone for lengthAdjust {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct mediaType(pub i32);
 pub const mediaTypeNotSet: mediaType = mediaType(0i32);
@@ -10413,6 +10883,12 @@ pub const mediaTypeScreen: mediaType = mediaType(64i32);
 pub const mediaTypeTty: mediaType = mediaType(128i32);
 pub const mediaTypeTv: mediaType = mediaType(256i32);
 pub const mediaType_Max: mediaType = mediaType(2147483647i32);
+impl ::core::marker::Copy for mediaType {}
+impl ::core::clone::Clone for mediaType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct sandboxAllow(pub i32);
 pub const sandboxAllowScripts: sandboxAllow = sandboxAllow(0i32);
@@ -10421,11 +10897,23 @@ pub const sandboxAllowTopNavigation: sandboxAllow = sandboxAllow(2i32);
 pub const sandboxAllowForms: sandboxAllow = sandboxAllow(3i32);
 pub const sandboxAllowPopups: sandboxAllow = sandboxAllow(4i32);
 pub const sandboxAllow_Max: sandboxAllow = sandboxAllow(2147483647i32);
+impl ::core::marker::Copy for sandboxAllow {}
+impl ::core::clone::Clone for sandboxAllow {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleAccelerator(pub i32);
 pub const styleAcceleratorFalse: styleAccelerator = styleAccelerator(0i32);
 pub const styleAcceleratorTrue: styleAccelerator = styleAccelerator(1i32);
 pub const styleAccelerator_Max: styleAccelerator = styleAccelerator(2147483647i32);
+impl ::core::marker::Copy for styleAccelerator {}
+impl ::core::clone::Clone for styleAccelerator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleAlignContent(pub i32);
 pub const styleAlignContentFlexStart: styleAlignContent = styleAlignContent(0i32);
@@ -10436,6 +10924,12 @@ pub const styleAlignContentSpaceAround: styleAlignContent = styleAlignContent(4i
 pub const styleAlignContentStretch: styleAlignContent = styleAlignContent(5i32);
 pub const styleAlignContentNotSet: styleAlignContent = styleAlignContent(6i32);
 pub const styleAlignContent_Max: styleAlignContent = styleAlignContent(2147483647i32);
+impl ::core::marker::Copy for styleAlignContent {}
+impl ::core::clone::Clone for styleAlignContent {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleAlignItems(pub i32);
 pub const styleAlignItemsFlexStart: styleAlignItems = styleAlignItems(0i32);
@@ -10445,6 +10939,12 @@ pub const styleAlignItemsBaseline: styleAlignItems = styleAlignItems(3i32);
 pub const styleAlignItemsStretch: styleAlignItems = styleAlignItems(4i32);
 pub const styleAlignItemsNotSet: styleAlignItems = styleAlignItems(5i32);
 pub const styleAlignItems_Max: styleAlignItems = styleAlignItems(2147483647i32);
+impl ::core::marker::Copy for styleAlignItems {}
+impl ::core::clone::Clone for styleAlignItems {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleAlignSelf(pub i32);
 pub const styleAlignSelfFlexStart: styleAlignSelf = styleAlignSelf(0i32);
@@ -10455,6 +10955,12 @@ pub const styleAlignSelfStretch: styleAlignSelf = styleAlignSelf(4i32);
 pub const styleAlignSelfAuto: styleAlignSelf = styleAlignSelf(5i32);
 pub const styleAlignSelfNotSet: styleAlignSelf = styleAlignSelf(6i32);
 pub const styleAlignSelf_Max: styleAlignSelf = styleAlignSelf(2147483647i32);
+impl ::core::marker::Copy for styleAlignSelf {}
+impl ::core::clone::Clone for styleAlignSelf {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleAlignmentBaseline(pub i32);
 pub const styleAlignmentBaselineNotSet: styleAlignmentBaseline = styleAlignmentBaseline(0i32);
@@ -10471,6 +10977,12 @@ pub const styleAlignmentBaselineTextAfterEdge: styleAlignmentBaseline = styleAli
 pub const styleAlignmentBaselineTextBeforeEdge: styleAlignmentBaseline = styleAlignmentBaseline(11i32);
 pub const styleAlignmentBaselineIdeographic: styleAlignmentBaseline = styleAlignmentBaseline(12i32);
 pub const styleAlignmentBaseline_Max: styleAlignmentBaseline = styleAlignmentBaseline(2147483647i32);
+impl ::core::marker::Copy for styleAlignmentBaseline {}
+impl ::core::clone::Clone for styleAlignmentBaseline {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleAttrType(pub i32);
 pub const styleAttrTypeString: styleAttrType = styleAttrType(0i32);
@@ -10501,22 +11013,46 @@ pub const styleAttrTypeTime: styleAttrType = styleAttrType(24i32);
 pub const styleAttrTypeS: styleAttrType = styleAttrType(25i32);
 pub const styleAttrTypeMs: styleAttrType = styleAttrType(26i32);
 pub const styleAttrType_Max: styleAttrType = styleAttrType(2147483647i32);
+impl ::core::marker::Copy for styleAttrType {}
+impl ::core::clone::Clone for styleAttrType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleAuto(pub i32);
 pub const styleAutoAuto: styleAuto = styleAuto(0i32);
 pub const styleAuto_Max: styleAuto = styleAuto(2147483647i32);
+impl ::core::marker::Copy for styleAuto {}
+impl ::core::clone::Clone for styleAuto {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleBackfaceVisibility(pub i32);
 pub const styleBackfaceVisibilityVisible: styleBackfaceVisibility = styleBackfaceVisibility(0i32);
 pub const styleBackfaceVisibilityHidden: styleBackfaceVisibility = styleBackfaceVisibility(1i32);
 pub const styleBackfaceVisibilityNotSet: styleBackfaceVisibility = styleBackfaceVisibility(2i32);
 pub const styleBackfaceVisibility_Max: styleBackfaceVisibility = styleBackfaceVisibility(2147483647i32);
+impl ::core::marker::Copy for styleBackfaceVisibility {}
+impl ::core::clone::Clone for styleBackfaceVisibility {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleBackgroundAttachment(pub i32);
 pub const styleBackgroundAttachmentFixed: styleBackgroundAttachment = styleBackgroundAttachment(0i32);
 pub const styleBackgroundAttachmentScroll: styleBackgroundAttachment = styleBackgroundAttachment(1i32);
 pub const styleBackgroundAttachmentNotSet: styleBackgroundAttachment = styleBackgroundAttachment(2i32);
 pub const styleBackgroundAttachment_Max: styleBackgroundAttachment = styleBackgroundAttachment(2147483647i32);
+impl ::core::marker::Copy for styleBackgroundAttachment {}
+impl ::core::clone::Clone for styleBackgroundAttachment {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleBackgroundAttachment3(pub i32);
 pub const styleBackgroundAttachment3Fixed: styleBackgroundAttachment3 = styleBackgroundAttachment3(0i32);
@@ -10524,6 +11060,12 @@ pub const styleBackgroundAttachment3Scroll: styleBackgroundAttachment3 = styleBa
 pub const styleBackgroundAttachment3Local: styleBackgroundAttachment3 = styleBackgroundAttachment3(2i32);
 pub const styleBackgroundAttachment3NotSet: styleBackgroundAttachment3 = styleBackgroundAttachment3(3i32);
 pub const styleBackgroundAttachment3_Max: styleBackgroundAttachment3 = styleBackgroundAttachment3(2147483647i32);
+impl ::core::marker::Copy for styleBackgroundAttachment3 {}
+impl ::core::clone::Clone for styleBackgroundAttachment3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleBackgroundClip(pub i32);
 pub const styleBackgroundClipBorderBox: styleBackgroundClip = styleBackgroundClip(0i32);
@@ -10531,6 +11073,12 @@ pub const styleBackgroundClipPaddingBox: styleBackgroundClip = styleBackgroundCl
 pub const styleBackgroundClipContentBox: styleBackgroundClip = styleBackgroundClip(2i32);
 pub const styleBackgroundClipNotSet: styleBackgroundClip = styleBackgroundClip(3i32);
 pub const styleBackgroundClip_Max: styleBackgroundClip = styleBackgroundClip(2147483647i32);
+impl ::core::marker::Copy for styleBackgroundClip {}
+impl ::core::clone::Clone for styleBackgroundClip {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleBackgroundOrigin(pub i32);
 pub const styleBackgroundOriginBorderBox: styleBackgroundOrigin = styleBackgroundOrigin(0i32);
@@ -10538,6 +11086,12 @@ pub const styleBackgroundOriginPaddingBox: styleBackgroundOrigin = styleBackgrou
 pub const styleBackgroundOriginContentBox: styleBackgroundOrigin = styleBackgroundOrigin(2i32);
 pub const styleBackgroundOriginNotSet: styleBackgroundOrigin = styleBackgroundOrigin(3i32);
 pub const styleBackgroundOrigin_Max: styleBackgroundOrigin = styleBackgroundOrigin(2147483647i32);
+impl ::core::marker::Copy for styleBackgroundOrigin {}
+impl ::core::clone::Clone for styleBackgroundOrigin {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleBackgroundRepeat(pub i32);
 pub const styleBackgroundRepeatRepeat: styleBackgroundRepeat = styleBackgroundRepeat(0i32);
@@ -10546,12 +11100,24 @@ pub const styleBackgroundRepeatRepeatY: styleBackgroundRepeat = styleBackgroundR
 pub const styleBackgroundRepeatNoRepeat: styleBackgroundRepeat = styleBackgroundRepeat(3i32);
 pub const styleBackgroundRepeatNotSet: styleBackgroundRepeat = styleBackgroundRepeat(4i32);
 pub const styleBackgroundRepeat_Max: styleBackgroundRepeat = styleBackgroundRepeat(2147483647i32);
+impl ::core::marker::Copy for styleBackgroundRepeat {}
+impl ::core::clone::Clone for styleBackgroundRepeat {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleBaselineShift(pub i32);
 pub const styleBaselineShiftBaseline: styleBaselineShift = styleBaselineShift(0i32);
 pub const styleBaselineShiftSub: styleBaselineShift = styleBaselineShift(1i32);
 pub const styleBaselineShiftSuper: styleBaselineShift = styleBaselineShift(2i32);
 pub const styleBaselineShift_Max: styleBaselineShift = styleBaselineShift(2147483647i32);
+impl ::core::marker::Copy for styleBaselineShift {}
+impl ::core::clone::Clone for styleBaselineShift {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleBidi(pub i32);
 pub const styleBidiNotSet: styleBidi = styleBidi(0i32);
@@ -10560,6 +11126,12 @@ pub const styleBidiEmbed: styleBidi = styleBidi(2i32);
 pub const styleBidiOverride: styleBidi = styleBidi(3i32);
 pub const styleBidiInherit: styleBidi = styleBidi(4i32);
 pub const styleBidi_Max: styleBidi = styleBidi(2147483647i32);
+impl ::core::marker::Copy for styleBidi {}
+impl ::core::clone::Clone for styleBidi {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleBlockProgression(pub i32);
 pub const styleBlockProgressionTb: styleBlockProgression = styleBlockProgression(0i32);
@@ -10568,17 +11140,35 @@ pub const styleBlockProgressionBt: styleBlockProgression = styleBlockProgression
 pub const styleBlockProgressionLr: styleBlockProgression = styleBlockProgression(3i32);
 pub const styleBlockProgressionNotSet: styleBlockProgression = styleBlockProgression(4i32);
 pub const styleBlockProgression_Max: styleBlockProgression = styleBlockProgression(2147483647i32);
+impl ::core::marker::Copy for styleBlockProgression {}
+impl ::core::clone::Clone for styleBlockProgression {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleBool(pub i32);
 pub const styleBoolFalse: styleBool = styleBool(0i32);
 pub const styleBoolTrue: styleBool = styleBool(1i32);
 pub const styleBool_Max: styleBool = styleBool(2147483647i32);
+impl ::core::marker::Copy for styleBool {}
+impl ::core::clone::Clone for styleBool {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleBorderCollapse(pub i32);
 pub const styleBorderCollapseNotSet: styleBorderCollapse = styleBorderCollapse(0i32);
 pub const styleBorderCollapseSeparate: styleBorderCollapse = styleBorderCollapse(1i32);
 pub const styleBorderCollapseCollapse: styleBorderCollapse = styleBorderCollapse(2i32);
 pub const styleBorderCollapse_Max: styleBorderCollapse = styleBorderCollapse(2147483647i32);
+impl ::core::marker::Copy for styleBorderCollapse {}
+impl ::core::clone::Clone for styleBorderCollapse {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleBorderImageRepeat(pub i32);
 pub const styleBorderImageRepeatStretch: styleBorderImageRepeat = styleBorderImageRepeat(0i32);
@@ -10587,11 +11177,23 @@ pub const styleBorderImageRepeatRound: styleBorderImageRepeat = styleBorderImage
 pub const styleBorderImageRepeatSpace: styleBorderImageRepeat = styleBorderImageRepeat(3i32);
 pub const styleBorderImageRepeatNotSet: styleBorderImageRepeat = styleBorderImageRepeat(4i32);
 pub const styleBorderImageRepeat_Max: styleBorderImageRepeat = styleBorderImageRepeat(2147483647i32);
+impl ::core::marker::Copy for styleBorderImageRepeat {}
+impl ::core::clone::Clone for styleBorderImageRepeat {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleBorderImageSliceFill(pub i32);
 pub const styleBorderImageSliceFillNotSet: styleBorderImageSliceFill = styleBorderImageSliceFill(0i32);
 pub const styleBorderImageSliceFillFill: styleBorderImageSliceFill = styleBorderImageSliceFill(1i32);
 pub const styleBorderImageSliceFill_Max: styleBorderImageSliceFill = styleBorderImageSliceFill(2147483647i32);
+impl ::core::marker::Copy for styleBorderImageSliceFill {}
+impl ::core::clone::Clone for styleBorderImageSliceFill {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleBorderStyle(pub i32);
 pub const styleBorderStyleNotSet: styleBorderStyle = styleBorderStyle(0i32);
@@ -10607,18 +11209,36 @@ pub const styleBorderStyleWindowInset: styleBorderStyle = styleBorderStyle(9i32)
 pub const styleBorderStyleNone: styleBorderStyle = styleBorderStyle(10i32);
 pub const styleBorderStyleHidden: styleBorderStyle = styleBorderStyle(11i32);
 pub const styleBorderStyle_Max: styleBorderStyle = styleBorderStyle(2147483647i32);
+impl ::core::marker::Copy for styleBorderStyle {}
+impl ::core::clone::Clone for styleBorderStyle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleBorderWidth(pub i32);
 pub const styleBorderWidthThin: styleBorderWidth = styleBorderWidth(0i32);
 pub const styleBorderWidthMedium: styleBorderWidth = styleBorderWidth(1i32);
 pub const styleBorderWidthThick: styleBorderWidth = styleBorderWidth(2i32);
 pub const styleBorderWidth_Max: styleBorderWidth = styleBorderWidth(2147483647i32);
+impl ::core::marker::Copy for styleBorderWidth {}
+impl ::core::clone::Clone for styleBorderWidth {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleBoxSizing(pub i32);
 pub const styleBoxSizingNotSet: styleBoxSizing = styleBoxSizing(0i32);
 pub const styleBoxSizingContentBox: styleBoxSizing = styleBoxSizing(1i32);
 pub const styleBoxSizingBorderBox: styleBoxSizing = styleBoxSizing(2i32);
 pub const styleBoxSizing_Max: styleBoxSizing = styleBoxSizing(2147483647i32);
+impl ::core::marker::Copy for styleBoxSizing {}
+impl ::core::clone::Clone for styleBoxSizing {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleBreak(pub i32);
 pub const styleBreakNotSet: styleBreak = styleBreak(0i32);
@@ -10632,6 +11252,12 @@ pub const styleBreakColumn: styleBreak = styleBreak(7i32);
 pub const styleBreakAvoidPage: styleBreak = styleBreak(8i32);
 pub const styleBreakAvoidColumn: styleBreak = styleBreak(9i32);
 pub const styleBreak_Max: styleBreak = styleBreak(2147483647i32);
+impl ::core::marker::Copy for styleBreak {}
+impl ::core::clone::Clone for styleBreak {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleBreakInside(pub i32);
 pub const styleBreakInsideNotSet: styleBreakInside = styleBreakInside(0i32);
@@ -10640,6 +11266,12 @@ pub const styleBreakInsideAvoid: styleBreakInside = styleBreakInside(2i32);
 pub const styleBreakInsideAvoidPage: styleBreakInside = styleBreakInside(3i32);
 pub const styleBreakInsideAvoidColumn: styleBreakInside = styleBreakInside(4i32);
 pub const styleBreakInside_Max: styleBreakInside = styleBreakInside(2147483647i32);
+impl ::core::marker::Copy for styleBreakInside {}
+impl ::core::clone::Clone for styleBreakInside {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleCaptionSide(pub i32);
 pub const styleCaptionSideNotSet: styleCaptionSide = styleCaptionSide(0i32);
@@ -10648,12 +11280,24 @@ pub const styleCaptionSideBottom: styleCaptionSide = styleCaptionSide(2i32);
 pub const styleCaptionSideLeft: styleCaptionSide = styleCaptionSide(3i32);
 pub const styleCaptionSideRight: styleCaptionSide = styleCaptionSide(4i32);
 pub const styleCaptionSide_Max: styleCaptionSide = styleCaptionSide(2147483647i32);
+impl ::core::marker::Copy for styleCaptionSide {}
+impl ::core::clone::Clone for styleCaptionSide {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleClipRule(pub i32);
 pub const styleClipRuleNotSet: styleClipRule = styleClipRule(0i32);
 pub const styleClipRuleNonZero: styleClipRule = styleClipRule(1i32);
 pub const styleClipRuleEvenOdd: styleClipRule = styleClipRule(2i32);
 pub const styleClipRule_Max: styleClipRule = styleClipRule(2147483647i32);
+impl ::core::marker::Copy for styleClipRule {}
+impl ::core::clone::Clone for styleClipRule {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleColorInterpolationFilters(pub i32);
 pub const styleColorInterpolationFiltersAuto: styleColorInterpolationFilters = styleColorInterpolationFilters(0i32);
@@ -10661,12 +11305,24 @@ pub const styleColorInterpolationFiltersSRgb: styleColorInterpolationFilters = s
 pub const styleColorInterpolationFiltersLinearRgb: styleColorInterpolationFilters = styleColorInterpolationFilters(2i32);
 pub const styleColorInterpolationFiltersNotSet: styleColorInterpolationFilters = styleColorInterpolationFilters(3i32);
 pub const styleColorInterpolationFilters_Max: styleColorInterpolationFilters = styleColorInterpolationFilters(2147483647i32);
+impl ::core::marker::Copy for styleColorInterpolationFilters {}
+impl ::core::clone::Clone for styleColorInterpolationFilters {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleColumnFill(pub i32);
 pub const styleColumnFillAuto: styleColumnFill = styleColumnFill(0i32);
 pub const styleColumnFillBalance: styleColumnFill = styleColumnFill(1i32);
 pub const styleColumnFillNotSet: styleColumnFill = styleColumnFill(2i32);
 pub const styleColumnFill_Max: styleColumnFill = styleColumnFill(2147483647i32);
+impl ::core::marker::Copy for styleColumnFill {}
+impl ::core::clone::Clone for styleColumnFill {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleColumnSpan(pub i32);
 pub const styleColumnSpanNone: styleColumnSpan = styleColumnSpan(0i32);
@@ -10674,6 +11330,12 @@ pub const styleColumnSpanAll: styleColumnSpan = styleColumnSpan(1i32);
 pub const styleColumnSpanOne: styleColumnSpan = styleColumnSpan(2i32);
 pub const styleColumnSpanNotSet: styleColumnSpan = styleColumnSpan(3i32);
 pub const styleColumnSpan_Max: styleColumnSpan = styleColumnSpan(2147483647i32);
+impl ::core::marker::Copy for styleColumnSpan {}
+impl ::core::clone::Clone for styleColumnSpan {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleCursor(pub i32);
 pub const styleCursorAuto: styleCursor = styleCursor(0i32);
@@ -10712,16 +11374,34 @@ pub const styleCursorAlias: styleCursor = styleCursor(32i32);
 pub const styleCursorcustom: styleCursor = styleCursor(33i32);
 pub const styleCursorNotSet: styleCursor = styleCursor(34i32);
 pub const styleCursor_Max: styleCursor = styleCursor(2147483647i32);
+impl ::core::marker::Copy for styleCursor {}
+impl ::core::clone::Clone for styleCursor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleDataRepeat(pub i32);
 pub const styleDataRepeatNone: styleDataRepeat = styleDataRepeat(0i32);
 pub const styleDataRepeatInner: styleDataRepeat = styleDataRepeat(1i32);
 pub const styleDataRepeat_Max: styleDataRepeat = styleDataRepeat(2147483647i32);
+impl ::core::marker::Copy for styleDataRepeat {}
+impl ::core::clone::Clone for styleDataRepeat {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleDefaultTextSelection(pub i32);
 pub const styleDefaultTextSelectionFalse: styleDefaultTextSelection = styleDefaultTextSelection(0i32);
 pub const styleDefaultTextSelectionTrue: styleDefaultTextSelection = styleDefaultTextSelection(1i32);
 pub const styleDefaultTextSelection_Max: styleDefaultTextSelection = styleDefaultTextSelection(2147483647i32);
+impl ::core::marker::Copy for styleDefaultTextSelection {}
+impl ::core::clone::Clone for styleDefaultTextSelection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleDir(pub i32);
 pub const styleDirNotSet: styleDir = styleDir(0i32);
@@ -10729,6 +11409,12 @@ pub const styleDirLeftToRight: styleDir = styleDir(1i32);
 pub const styleDirRightToLeft: styleDir = styleDir(2i32);
 pub const styleDirInherit: styleDir = styleDir(3i32);
 pub const styleDir_Max: styleDir = styleDir(2147483647i32);
+impl ::core::marker::Copy for styleDir {}
+impl ::core::clone::Clone for styleDir {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleDisplay(pub i32);
 pub const styleDisplayNotSet: styleDisplay = styleDisplay(0i32);
@@ -10762,6 +11448,12 @@ pub const styleDisplayInlineFlex: styleDisplay = styleDisplay(27i32);
 pub const styleDisplayWebkitBox: styleDisplay = styleDisplay(28i32);
 pub const styleDisplayWebkitInlineBox: styleDisplay = styleDisplay(29i32);
 pub const styleDisplay_Max: styleDisplay = styleDisplay(2147483647i32);
+impl ::core::marker::Copy for styleDisplay {}
+impl ::core::clone::Clone for styleDisplay {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleDominantBaseline(pub i32);
 pub const styleDominantBaselineNotSet: styleDominantBaseline = styleDominantBaseline(0i32);
@@ -10778,12 +11470,24 @@ pub const styleDominantBaselineTextAfterEdge: styleDominantBaseline = styleDomin
 pub const styleDominantBaselineTextBeforeEdge: styleDominantBaseline = styleDominantBaseline(11i32);
 pub const styleDominantBaselineUseScript: styleDominantBaseline = styleDominantBaseline(12i32);
 pub const styleDominantBaseline_Max: styleDominantBaseline = styleDominantBaseline(2147483647i32);
+impl ::core::marker::Copy for styleDominantBaseline {}
+impl ::core::clone::Clone for styleDominantBaseline {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleEmptyCells(pub i32);
 pub const styleEmptyCellsNotSet: styleEmptyCells = styleEmptyCells(0i32);
 pub const styleEmptyCellsShow: styleEmptyCells = styleEmptyCells(1i32);
 pub const styleEmptyCellsHide: styleEmptyCells = styleEmptyCells(2i32);
 pub const styleEmptyCells_Max: styleEmptyCells = styleEmptyCells(2147483647i32);
+impl ::core::marker::Copy for styleEmptyCells {}
+impl ::core::clone::Clone for styleEmptyCells {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleEnableBackground(pub i32);
 pub const styleEnableBackgroundNotSet: styleEnableBackground = styleEnableBackground(0i32);
@@ -10791,22 +11495,46 @@ pub const styleEnableBackgroundAccumulate: styleEnableBackground = styleEnableBa
 pub const styleEnableBackgroundNew: styleEnableBackground = styleEnableBackground(2i32);
 pub const styleEnableBackgroundInherit: styleEnableBackground = styleEnableBackground(3i32);
 pub const styleEnableBackground_Max: styleEnableBackground = styleEnableBackground(2147483647i32);
+impl ::core::marker::Copy for styleEnableBackground {}
+impl ::core::clone::Clone for styleEnableBackground {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleFillRule(pub i32);
 pub const styleFillRuleNotSet: styleFillRule = styleFillRule(0i32);
 pub const styleFillRuleNonZero: styleFillRule = styleFillRule(1i32);
 pub const styleFillRuleEvenOdd: styleFillRule = styleFillRule(2i32);
 pub const styleFillRule_Max: styleFillRule = styleFillRule(2147483647i32);
+impl ::core::marker::Copy for styleFillRule {}
+impl ::core::clone::Clone for styleFillRule {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleFlex(pub i32);
 pub const styleFlexNone: styleFlex = styleFlex(0i32);
 pub const styleFlexNotSet: styleFlex = styleFlex(1i32);
 pub const styleFlex_Max: styleFlex = styleFlex(2147483647i32);
+impl ::core::marker::Copy for styleFlex {}
+impl ::core::clone::Clone for styleFlex {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleFlexBasis(pub i32);
 pub const styleFlexBasisAuto: styleFlexBasis = styleFlexBasis(0i32);
 pub const styleFlexBasisNotSet: styleFlexBasis = styleFlexBasis(1i32);
 pub const styleFlexBasis_Max: styleFlexBasis = styleFlexBasis(2147483647i32);
+impl ::core::marker::Copy for styleFlexBasis {}
+impl ::core::clone::Clone for styleFlexBasis {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleFlexDirection(pub i32);
 pub const styleFlexDirectionRow: styleFlexDirection = styleFlexDirection(0i32);
@@ -10815,6 +11543,12 @@ pub const styleFlexDirectionColumn: styleFlexDirection = styleFlexDirection(2i32
 pub const styleFlexDirectionColumnReverse: styleFlexDirection = styleFlexDirection(3i32);
 pub const styleFlexDirectionNotSet: styleFlexDirection = styleFlexDirection(4i32);
 pub const styleFlexDirection_Max: styleFlexDirection = styleFlexDirection(2147483647i32);
+impl ::core::marker::Copy for styleFlexDirection {}
+impl ::core::clone::Clone for styleFlexDirection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleFlexWrap(pub i32);
 pub const styleFlexWrapNowrap: styleFlexWrap = styleFlexWrap(0i32);
@@ -10822,6 +11556,12 @@ pub const styleFlexWrapWrap: styleFlexWrap = styleFlexWrap(1i32);
 pub const styleFlexWrapWrapReverse: styleFlexWrap = styleFlexWrap(2i32);
 pub const styleFlexWrapNotSet: styleFlexWrap = styleFlexWrap(3i32);
 pub const styleFlexWrap_Max: styleFlexWrap = styleFlexWrap(2147483647i32);
+impl ::core::marker::Copy for styleFlexWrap {}
+impl ::core::clone::Clone for styleFlexWrap {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleFontSize(pub i32);
 pub const styleFontSizeXXSmall: styleFontSize = styleFontSize(0i32);
@@ -10834,6 +11574,12 @@ pub const styleFontSizeXXLarge: styleFontSize = styleFontSize(6i32);
 pub const styleFontSizeSmaller: styleFontSize = styleFontSize(7i32);
 pub const styleFontSizeLarger: styleFontSize = styleFontSize(8i32);
 pub const styleFontSize_Max: styleFontSize = styleFontSize(2147483647i32);
+impl ::core::marker::Copy for styleFontSize {}
+impl ::core::clone::Clone for styleFontSize {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleFontStretch(pub i32);
 pub const styleFontStretchNotSet: styleFontStretch = styleFontStretch(0i32);
@@ -10849,6 +11595,12 @@ pub const styleFontStretchExpanded: styleFontStretch = styleFontStretch(9i32);
 pub const styleFontStretchExtraExpanded: styleFontStretch = styleFontStretch(10i32);
 pub const styleFontStretchUltraExpanded: styleFontStretch = styleFontStretch(11i32);
 pub const styleFontStretch_Max: styleFontStretch = styleFontStretch(2147483647i32);
+impl ::core::marker::Copy for styleFontStretch {}
+impl ::core::clone::Clone for styleFontStretch {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleFontStyle(pub i32);
 pub const styleFontStyleNotSet: styleFontStyle = styleFontStyle(0i32);
@@ -10856,12 +11608,24 @@ pub const styleFontStyleItalic: styleFontStyle = styleFontStyle(1i32);
 pub const styleFontStyleOblique: styleFontStyle = styleFontStyle(2i32);
 pub const styleFontStyleNormal: styleFontStyle = styleFontStyle(3i32);
 pub const styleFontStyle_Max: styleFontStyle = styleFontStyle(2147483647i32);
+impl ::core::marker::Copy for styleFontStyle {}
+impl ::core::clone::Clone for styleFontStyle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleFontVariant(pub i32);
 pub const styleFontVariantNotSet: styleFontVariant = styleFontVariant(0i32);
 pub const styleFontVariantSmallCaps: styleFontVariant = styleFontVariant(1i32);
 pub const styleFontVariantNormal: styleFontVariant = styleFontVariant(2i32);
 pub const styleFontVariant_Max: styleFontVariant = styleFontVariant(2147483647i32);
+impl ::core::marker::Copy for styleFontVariant {}
+impl ::core::clone::Clone for styleFontVariant {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleFontWeight(pub i32);
 pub const styleFontWeightNotSet: styleFontWeight = styleFontWeight(0i32);
@@ -10879,10 +11643,22 @@ pub const styleFontWeightBold: styleFontWeight = styleFontWeight(11i32);
 pub const styleFontWeightBolder: styleFontWeight = styleFontWeight(12i32);
 pub const styleFontWeightLighter: styleFontWeight = styleFontWeight(13i32);
 pub const styleFontWeight_Max: styleFontWeight = styleFontWeight(2147483647i32);
+impl ::core::marker::Copy for styleFontWeight {}
+impl ::core::clone::Clone for styleFontWeight {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleGridColumn(pub i32);
 pub const styleGridColumnNotSet: styleGridColumn = styleGridColumn(0i32);
 pub const styleGridColumn_Max: styleGridColumn = styleGridColumn(2147483647i32);
+impl ::core::marker::Copy for styleGridColumn {}
+impl ::core::clone::Clone for styleGridColumn {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleGridColumnAlign(pub i32);
 pub const styleGridColumnAlignCenter: styleGridColumnAlign = styleGridColumnAlign(0i32);
@@ -10891,14 +11667,32 @@ pub const styleGridColumnAlignStart: styleGridColumnAlign = styleGridColumnAlign
 pub const styleGridColumnAlignStretch: styleGridColumnAlign = styleGridColumnAlign(3i32);
 pub const styleGridColumnAlignNotSet: styleGridColumnAlign = styleGridColumnAlign(4i32);
 pub const styleGridColumnAlign_Max: styleGridColumnAlign = styleGridColumnAlign(2147483647i32);
+impl ::core::marker::Copy for styleGridColumnAlign {}
+impl ::core::clone::Clone for styleGridColumnAlign {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleGridColumnSpan(pub i32);
 pub const styleGridColumnSpanNotSet: styleGridColumnSpan = styleGridColumnSpan(0i32);
 pub const styleGridColumnSpan_Max: styleGridColumnSpan = styleGridColumnSpan(2147483647i32);
+impl ::core::marker::Copy for styleGridColumnSpan {}
+impl ::core::clone::Clone for styleGridColumnSpan {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleGridRow(pub i32);
 pub const styleGridRowNotSet: styleGridRow = styleGridRow(0i32);
 pub const styleGridRow_Max: styleGridRow = styleGridRow(2147483647i32);
+impl ::core::marker::Copy for styleGridRow {}
+impl ::core::clone::Clone for styleGridRow {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleGridRowAlign(pub i32);
 pub const styleGridRowAlignCenter: styleGridRowAlign = styleGridRowAlign(0i32);
@@ -10907,14 +11701,32 @@ pub const styleGridRowAlignStart: styleGridRowAlign = styleGridRowAlign(2i32);
 pub const styleGridRowAlignStretch: styleGridRowAlign = styleGridRowAlign(3i32);
 pub const styleGridRowAlignNotSet: styleGridRowAlign = styleGridRowAlign(4i32);
 pub const styleGridRowAlign_Max: styleGridRowAlign = styleGridRowAlign(2147483647i32);
+impl ::core::marker::Copy for styleGridRowAlign {}
+impl ::core::clone::Clone for styleGridRowAlign {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleGridRowSpan(pub i32);
 pub const styleGridRowSpanNotSet: styleGridRowSpan = styleGridRowSpan(0i32);
 pub const styleGridRowSpan_Max: styleGridRowSpan = styleGridRowSpan(2147483647i32);
+impl ::core::marker::Copy for styleGridRowSpan {}
+impl ::core::clone::Clone for styleGridRowSpan {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleHyphenateLimitLines(pub i32);
 pub const styleHyphenateLimitLinesNoLimit: styleHyphenateLimitLines = styleHyphenateLimitLines(0i32);
 pub const styleHyphenateLimitLines_Max: styleHyphenateLimitLines = styleHyphenateLimitLines(2147483647i32);
+impl ::core::marker::Copy for styleHyphenateLimitLines {}
+impl ::core::clone::Clone for styleHyphenateLimitLines {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleHyphens(pub i32);
 pub const styleHyphensNone: styleHyphens = styleHyphens(0i32);
@@ -10922,6 +11734,12 @@ pub const styleHyphensManual: styleHyphens = styleHyphens(1i32);
 pub const styleHyphensAuto: styleHyphens = styleHyphens(2i32);
 pub const styleHyphensNotSet: styleHyphens = styleHyphens(3i32);
 pub const styleHyphens_Max: styleHyphens = styleHyphens(2147483647i32);
+impl ::core::marker::Copy for styleHyphens {}
+impl ::core::clone::Clone for styleHyphens {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleImeMode(pub i32);
 pub const styleImeModeAuto: styleImeMode = styleImeMode(0i32);
@@ -10930,6 +11748,12 @@ pub const styleImeModeInactive: styleImeMode = styleImeMode(2i32);
 pub const styleImeModeDisabled: styleImeMode = styleImeMode(3i32);
 pub const styleImeModeNotSet: styleImeMode = styleImeMode(4i32);
 pub const styleImeMode_Max: styleImeMode = styleImeMode(2147483647i32);
+impl ::core::marker::Copy for styleImeMode {}
+impl ::core::clone::Clone for styleImeMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleInitialColor(pub i32);
 pub const styleInitialColorNoInitial: styleInitialColor = styleInitialColor(0i32);
@@ -10937,6 +11761,12 @@ pub const styleInitialColorColorProperty: styleInitialColor = styleInitialColor(
 pub const styleInitialColorTransparent: styleInitialColor = styleInitialColor(2i32);
 pub const styleInitialColorInvert: styleInitialColor = styleInitialColor(3i32);
 pub const styleInitialColor_Max: styleInitialColor = styleInitialColor(2147483647i32);
+impl ::core::marker::Copy for styleInitialColor {}
+impl ::core::clone::Clone for styleInitialColor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleInitialString(pub i32);
 pub const styleInitialStringNoInitial: styleInitialString = styleInitialString(0i32);
@@ -10944,12 +11774,24 @@ pub const styleInitialStringNone: styleInitialString = styleInitialString(1i32);
 pub const styleInitialStringAuto: styleInitialString = styleInitialString(2i32);
 pub const styleInitialStringNormal: styleInitialString = styleInitialString(3i32);
 pub const styleInitialString_Max: styleInitialString = styleInitialString(2147483647i32);
+impl ::core::marker::Copy for styleInitialString {}
+impl ::core::clone::Clone for styleInitialString {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleInterpolation(pub i32);
 pub const styleInterpolationNotSet: styleInterpolation = styleInterpolation(0i32);
 pub const styleInterpolationNN: styleInterpolation = styleInterpolation(1i32);
 pub const styleInterpolationBCH: styleInterpolation = styleInterpolation(2i32);
 pub const styleInterpolation_Max: styleInterpolation = styleInterpolation(2147483647i32);
+impl ::core::marker::Copy for styleInterpolation {}
+impl ::core::clone::Clone for styleInterpolation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleJustifyContent(pub i32);
 pub const styleJustifyContentFlexStart: styleJustifyContent = styleJustifyContent(0i32);
@@ -10959,24 +11801,48 @@ pub const styleJustifyContentSpaceBetween: styleJustifyContent = styleJustifyCon
 pub const styleJustifyContentSpaceAround: styleJustifyContent = styleJustifyContent(4i32);
 pub const styleJustifyContentNotSet: styleJustifyContent = styleJustifyContent(5i32);
 pub const styleJustifyContent_Max: styleJustifyContent = styleJustifyContent(2147483647i32);
+impl ::core::marker::Copy for styleJustifyContent {}
+impl ::core::clone::Clone for styleJustifyContent {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleLayoutFlow(pub i32);
 pub const styleLayoutFlowHorizontal: styleLayoutFlow = styleLayoutFlow(0i32);
 pub const styleLayoutFlowVerticalIdeographic: styleLayoutFlow = styleLayoutFlow(1i32);
 pub const styleLayoutFlowNotSet: styleLayoutFlow = styleLayoutFlow(2i32);
 pub const styleLayoutFlow_Max: styleLayoutFlow = styleLayoutFlow(2147483647i32);
+impl ::core::marker::Copy for styleLayoutFlow {}
+impl ::core::clone::Clone for styleLayoutFlow {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleLayoutGridChar(pub i32);
 pub const styleLayoutGridCharNotSet: styleLayoutGridChar = styleLayoutGridChar(0i32);
 pub const styleLayoutGridCharAuto: styleLayoutGridChar = styleLayoutGridChar(1i32);
 pub const styleLayoutGridCharNone: styleLayoutGridChar = styleLayoutGridChar(2i32);
 pub const styleLayoutGridChar_Max: styleLayoutGridChar = styleLayoutGridChar(2147483647i32);
+impl ::core::marker::Copy for styleLayoutGridChar {}
+impl ::core::clone::Clone for styleLayoutGridChar {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleLayoutGridLine(pub i32);
 pub const styleLayoutGridLineNotSet: styleLayoutGridLine = styleLayoutGridLine(0i32);
 pub const styleLayoutGridLineAuto: styleLayoutGridLine = styleLayoutGridLine(1i32);
 pub const styleLayoutGridLineNone: styleLayoutGridLine = styleLayoutGridLine(2i32);
 pub const styleLayoutGridLine_Max: styleLayoutGridLine = styleLayoutGridLine(2147483647i32);
+impl ::core::marker::Copy for styleLayoutGridLine {}
+impl ::core::clone::Clone for styleLayoutGridLine {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleLayoutGridMode(pub i32);
 pub const styleLayoutGridModeNotSet: styleLayoutGridMode = styleLayoutGridMode(0i32);
@@ -10985,6 +11851,12 @@ pub const styleLayoutGridModeLine: styleLayoutGridMode = styleLayoutGridMode(2i3
 pub const styleLayoutGridModeBoth: styleLayoutGridMode = styleLayoutGridMode(3i32);
 pub const styleLayoutGridModeNone: styleLayoutGridMode = styleLayoutGridMode(4i32);
 pub const styleLayoutGridMode_Max: styleLayoutGridMode = styleLayoutGridMode(2147483647i32);
+impl ::core::marker::Copy for styleLayoutGridMode {}
+impl ::core::clone::Clone for styleLayoutGridMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleLayoutGridType(pub i32);
 pub const styleLayoutGridTypeNotSet: styleLayoutGridType = styleLayoutGridType(0i32);
@@ -10992,18 +11864,36 @@ pub const styleLayoutGridTypeLoose: styleLayoutGridType = styleLayoutGridType(1i
 pub const styleLayoutGridTypeStrict: styleLayoutGridType = styleLayoutGridType(2i32);
 pub const styleLayoutGridTypeFixed: styleLayoutGridType = styleLayoutGridType(3i32);
 pub const styleLayoutGridType_Max: styleLayoutGridType = styleLayoutGridType(2147483647i32);
+impl ::core::marker::Copy for styleLayoutGridType {}
+impl ::core::clone::Clone for styleLayoutGridType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleLineBreak(pub i32);
 pub const styleLineBreakNotSet: styleLineBreak = styleLineBreak(0i32);
 pub const styleLineBreakNormal: styleLineBreak = styleLineBreak(1i32);
 pub const styleLineBreakStrict: styleLineBreak = styleLineBreak(2i32);
 pub const styleLineBreak_Max: styleLineBreak = styleLineBreak(2147483647i32);
+impl ::core::marker::Copy for styleLineBreak {}
+impl ::core::clone::Clone for styleLineBreak {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleListStylePosition(pub i32);
 pub const styleListStylePositionNotSet: styleListStylePosition = styleListStylePosition(0i32);
 pub const styleListStylePositionInside: styleListStylePosition = styleListStylePosition(1i32);
 pub const styleListStylePositionOutSide: styleListStylePosition = styleListStylePosition(2i32);
 pub const styleListStylePosition_Max: styleListStylePosition = styleListStylePosition(2147483647i32);
+impl ::core::marker::Copy for styleListStylePosition {}
+impl ::core::clone::Clone for styleListStylePosition {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleListStyleType(pub i32);
 pub const styleListStyleTypeNotSet: styleListStyleType = styleListStyleType(0i32);
@@ -11024,6 +11914,12 @@ pub const styleListStyleTypeLowerLatin: styleListStyleType = styleListStyleType(
 pub const styleListStyleTypeUpperGreek: styleListStyleType = styleListStyleType(15i32);
 pub const styleListStyleTypeLowerGreek: styleListStyleType = styleListStyleType(16i32);
 pub const styleListStyleType_Max: styleListStyleType = styleListStyleType(2147483647i32);
+impl ::core::marker::Copy for styleListStyleType {}
+impl ::core::clone::Clone for styleListStyleType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleMsAnimationDirection(pub i32);
 pub const styleMsAnimationDirectionNormal: styleMsAnimationDirection = styleMsAnimationDirection(0i32);
@@ -11032,6 +11928,12 @@ pub const styleMsAnimationDirectionReverse: styleMsAnimationDirection = styleMsA
 pub const styleMsAnimationDirectionAlternateReverse: styleMsAnimationDirection = styleMsAnimationDirection(3i32);
 pub const styleMsAnimationDirectionNotSet: styleMsAnimationDirection = styleMsAnimationDirection(4i32);
 pub const styleMsAnimationDirection_Max: styleMsAnimationDirection = styleMsAnimationDirection(2147483647i32);
+impl ::core::marker::Copy for styleMsAnimationDirection {}
+impl ::core::clone::Clone for styleMsAnimationDirection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleMsAnimationFillMode(pub i32);
 pub const styleMsAnimationFillModeNone: styleMsAnimationFillMode = styleMsAnimationFillMode(0i32);
@@ -11040,18 +11942,36 @@ pub const styleMsAnimationFillModeBackwards: styleMsAnimationFillMode = styleMsA
 pub const styleMsAnimationFillModeBoth: styleMsAnimationFillMode = styleMsAnimationFillMode(3i32);
 pub const styleMsAnimationFillModeNotSet: styleMsAnimationFillMode = styleMsAnimationFillMode(4i32);
 pub const styleMsAnimationFillMode_Max: styleMsAnimationFillMode = styleMsAnimationFillMode(2147483647i32);
+impl ::core::marker::Copy for styleMsAnimationFillMode {}
+impl ::core::clone::Clone for styleMsAnimationFillMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleMsAnimationPlayState(pub i32);
 pub const styleMsAnimationPlayStateRunning: styleMsAnimationPlayState = styleMsAnimationPlayState(0i32);
 pub const styleMsAnimationPlayStatePaused: styleMsAnimationPlayState = styleMsAnimationPlayState(1i32);
 pub const styleMsAnimationPlayStateNotSet: styleMsAnimationPlayState = styleMsAnimationPlayState(2i32);
 pub const styleMsAnimationPlayState_Max: styleMsAnimationPlayState = styleMsAnimationPlayState(2147483647i32);
+impl ::core::marker::Copy for styleMsAnimationPlayState {}
+impl ::core::clone::Clone for styleMsAnimationPlayState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleMsContentZoomChaining(pub i32);
 pub const styleMsContentZoomChainingNotSet: styleMsContentZoomChaining = styleMsContentZoomChaining(0i32);
 pub const styleMsContentZoomChainingNone: styleMsContentZoomChaining = styleMsContentZoomChaining(1i32);
 pub const styleMsContentZoomChainingChained: styleMsContentZoomChaining = styleMsContentZoomChaining(2i32);
 pub const styleMsContentZoomChaining_Max: styleMsContentZoomChaining = styleMsContentZoomChaining(2147483647i32);
+impl ::core::marker::Copy for styleMsContentZoomChaining {}
+impl ::core::clone::Clone for styleMsContentZoomChaining {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleMsContentZoomSnapType(pub i32);
 pub const styleMsContentZoomSnapTypeNotSet: styleMsContentZoomSnapType = styleMsContentZoomSnapType(0i32);
@@ -11059,12 +11979,24 @@ pub const styleMsContentZoomSnapTypeNone: styleMsContentZoomSnapType = styleMsCo
 pub const styleMsContentZoomSnapTypeMandatory: styleMsContentZoomSnapType = styleMsContentZoomSnapType(2i32);
 pub const styleMsContentZoomSnapTypeProximity: styleMsContentZoomSnapType = styleMsContentZoomSnapType(3i32);
 pub const styleMsContentZoomSnapType_Max: styleMsContentZoomSnapType = styleMsContentZoomSnapType(2147483647i32);
+impl ::core::marker::Copy for styleMsContentZoomSnapType {}
+impl ::core::clone::Clone for styleMsContentZoomSnapType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleMsContentZooming(pub i32);
 pub const styleMsContentZoomingNotSet: styleMsContentZooming = styleMsContentZooming(0i32);
 pub const styleMsContentZoomingNone: styleMsContentZooming = styleMsContentZooming(1i32);
 pub const styleMsContentZoomingZoom: styleMsContentZooming = styleMsContentZooming(2i32);
 pub const styleMsContentZooming_Max: styleMsContentZooming = styleMsContentZooming(2147483647i32);
+impl ::core::marker::Copy for styleMsContentZooming {}
+impl ::core::clone::Clone for styleMsContentZooming {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleMsFlexAlign(pub i32);
 pub const styleMsFlexAlignStart: styleMsFlexAlign = styleMsFlexAlign(0i32);
@@ -11074,6 +12006,12 @@ pub const styleMsFlexAlignBaseline: styleMsFlexAlign = styleMsFlexAlign(3i32);
 pub const styleMsFlexAlignStretch: styleMsFlexAlign = styleMsFlexAlign(4i32);
 pub const styleMsFlexAlignNotSet: styleMsFlexAlign = styleMsFlexAlign(5i32);
 pub const styleMsFlexAlign_Max: styleMsFlexAlign = styleMsFlexAlign(2147483647i32);
+impl ::core::marker::Copy for styleMsFlexAlign {}
+impl ::core::clone::Clone for styleMsFlexAlign {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleMsFlexItemAlign(pub i32);
 pub const styleMsFlexItemAlignStart: styleMsFlexItemAlign = styleMsFlexItemAlign(0i32);
@@ -11084,6 +12022,12 @@ pub const styleMsFlexItemAlignStretch: styleMsFlexItemAlign = styleMsFlexItemAli
 pub const styleMsFlexItemAlignAuto: styleMsFlexItemAlign = styleMsFlexItemAlign(5i32);
 pub const styleMsFlexItemAlignNotSet: styleMsFlexItemAlign = styleMsFlexItemAlign(6i32);
 pub const styleMsFlexItemAlign_Max: styleMsFlexItemAlign = styleMsFlexItemAlign(2147483647i32);
+impl ::core::marker::Copy for styleMsFlexItemAlign {}
+impl ::core::clone::Clone for styleMsFlexItemAlign {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleMsFlexLinePack(pub i32);
 pub const styleMsFlexLinePackStart: styleMsFlexLinePack = styleMsFlexLinePack(0i32);
@@ -11094,6 +12038,12 @@ pub const styleMsFlexLinePackDistribute: styleMsFlexLinePack = styleMsFlexLinePa
 pub const styleMsFlexLinePackStretch: styleMsFlexLinePack = styleMsFlexLinePack(5i32);
 pub const styleMsFlexLinePackNotSet: styleMsFlexLinePack = styleMsFlexLinePack(6i32);
 pub const styleMsFlexLinePack_Max: styleMsFlexLinePack = styleMsFlexLinePack(2147483647i32);
+impl ::core::marker::Copy for styleMsFlexLinePack {}
+impl ::core::clone::Clone for styleMsFlexLinePack {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleMsFlexPack(pub i32);
 pub const styleMsFlexPackStart: styleMsFlexPack = styleMsFlexPack(0i32);
@@ -11103,18 +12053,36 @@ pub const styleMsFlexPackJustify: styleMsFlexPack = styleMsFlexPack(3i32);
 pub const styleMsFlexPackDistribute: styleMsFlexPack = styleMsFlexPack(4i32);
 pub const styleMsFlexPackNotSet: styleMsFlexPack = styleMsFlexPack(5i32);
 pub const styleMsFlexPack_Max: styleMsFlexPack = styleMsFlexPack(2147483647i32);
+impl ::core::marker::Copy for styleMsFlexPack {}
+impl ::core::clone::Clone for styleMsFlexPack {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleMsHighContrastAdjust(pub i32);
 pub const styleMsHighContrastAdjustNotSet: styleMsHighContrastAdjust = styleMsHighContrastAdjust(0i32);
 pub const styleMsHighContrastAdjustAuto: styleMsHighContrastAdjust = styleMsHighContrastAdjust(1i32);
 pub const styleMsHighContrastAdjustNone: styleMsHighContrastAdjust = styleMsHighContrastAdjust(2i32);
 pub const styleMsHighContrastAdjust_Max: styleMsHighContrastAdjust = styleMsHighContrastAdjust(2147483647i32);
+impl ::core::marker::Copy for styleMsHighContrastAdjust {}
+impl ::core::clone::Clone for styleMsHighContrastAdjust {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleMsImeAlign(pub i32);
 pub const styleMsImeAlignAuto: styleMsImeAlign = styleMsImeAlign(0i32);
 pub const styleMsImeAlignAfter: styleMsImeAlign = styleMsImeAlign(1i32);
 pub const styleMsImeAlignNotSet: styleMsImeAlign = styleMsImeAlign(2i32);
 pub const styleMsImeAlign_Max: styleMsImeAlign = styleMsImeAlign(2147483647i32);
+impl ::core::marker::Copy for styleMsImeAlign {}
+impl ::core::clone::Clone for styleMsImeAlign {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleMsOverflowStyle(pub i32);
 pub const styleMsOverflowStyleNotSet: styleMsOverflowStyle = styleMsOverflowStyle(0i32);
@@ -11123,18 +12091,36 @@ pub const styleMsOverflowStyleNone: styleMsOverflowStyle = styleMsOverflowStyle(
 pub const styleMsOverflowStyleScrollbar: styleMsOverflowStyle = styleMsOverflowStyle(3i32);
 pub const styleMsOverflowStyleMsAutoHidingScrollbar: styleMsOverflowStyle = styleMsOverflowStyle(4i32);
 pub const styleMsOverflowStyle_Max: styleMsOverflowStyle = styleMsOverflowStyle(2147483647i32);
+impl ::core::marker::Copy for styleMsOverflowStyle {}
+impl ::core::clone::Clone for styleMsOverflowStyle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleMsScrollChaining(pub i32);
 pub const styleMsScrollChainingNotSet: styleMsScrollChaining = styleMsScrollChaining(0i32);
 pub const styleMsScrollChainingNone: styleMsScrollChaining = styleMsScrollChaining(1i32);
 pub const styleMsScrollChainingChained: styleMsScrollChaining = styleMsScrollChaining(2i32);
 pub const styleMsScrollChaining_Max: styleMsScrollChaining = styleMsScrollChaining(2147483647i32);
+impl ::core::marker::Copy for styleMsScrollChaining {}
+impl ::core::clone::Clone for styleMsScrollChaining {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleMsScrollRails(pub i32);
 pub const styleMsScrollRailsNotSet: styleMsScrollRails = styleMsScrollRails(0i32);
 pub const styleMsScrollRailsNone: styleMsScrollRails = styleMsScrollRails(1i32);
 pub const styleMsScrollRailsRailed: styleMsScrollRails = styleMsScrollRails(2i32);
 pub const styleMsScrollRails_Max: styleMsScrollRails = styleMsScrollRails(2147483647i32);
+impl ::core::marker::Copy for styleMsScrollRails {}
+impl ::core::clone::Clone for styleMsScrollRails {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleMsScrollSnapType(pub i32);
 pub const styleMsScrollSnapTypeNotSet: styleMsScrollSnapType = styleMsScrollSnapType(0i32);
@@ -11142,12 +12128,24 @@ pub const styleMsScrollSnapTypeNone: styleMsScrollSnapType = styleMsScrollSnapTy
 pub const styleMsScrollSnapTypeMandatory: styleMsScrollSnapType = styleMsScrollSnapType(2i32);
 pub const styleMsScrollSnapTypeProximity: styleMsScrollSnapType = styleMsScrollSnapType(3i32);
 pub const styleMsScrollSnapType_Max: styleMsScrollSnapType = styleMsScrollSnapType(2147483647i32);
+impl ::core::marker::Copy for styleMsScrollSnapType {}
+impl ::core::clone::Clone for styleMsScrollSnapType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleMsScrollTranslation(pub i32);
 pub const styleMsScrollTranslationNotSet: styleMsScrollTranslation = styleMsScrollTranslation(0i32);
 pub const styleMsScrollTranslationNone: styleMsScrollTranslation = styleMsScrollTranslation(1i32);
 pub const styleMsScrollTranslationVtoH: styleMsScrollTranslation = styleMsScrollTranslation(2i32);
 pub const styleMsScrollTranslation_Max: styleMsScrollTranslation = styleMsScrollTranslation(2147483647i32);
+impl ::core::marker::Copy for styleMsScrollTranslation {}
+impl ::core::clone::Clone for styleMsScrollTranslation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleMsTextCombineHorizontal(pub i32);
 pub const styleMsTextCombineHorizontalNone: styleMsTextCombineHorizontal = styleMsTextCombineHorizontal(0i32);
@@ -11155,6 +12153,12 @@ pub const styleMsTextCombineHorizontalAll: styleMsTextCombineHorizontal = styleM
 pub const styleMsTextCombineHorizontalDigits: styleMsTextCombineHorizontal = styleMsTextCombineHorizontal(2i32);
 pub const styleMsTextCombineHorizontalNotSet: styleMsTextCombineHorizontal = styleMsTextCombineHorizontal(3i32);
 pub const styleMsTextCombineHorizontal_Max: styleMsTextCombineHorizontal = styleMsTextCombineHorizontal(2147483647i32);
+impl ::core::marker::Copy for styleMsTextCombineHorizontal {}
+impl ::core::clone::Clone for styleMsTextCombineHorizontal {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleMsTouchAction(pub i32);
 pub const styleMsTouchActionNotSet: styleMsTouchAction = styleMsTouchAction(-1i32);
@@ -11168,12 +12172,24 @@ pub const styleMsTouchActionPinchZoom: styleMsTouchAction = styleMsTouchAction(3
 pub const styleMsTouchActionCrossSlideX: styleMsTouchAction = styleMsTouchAction(64i32);
 pub const styleMsTouchActionCrossSlideY: styleMsTouchAction = styleMsTouchAction(128i32);
 pub const styleMsTouchAction_Max: styleMsTouchAction = styleMsTouchAction(2147483647i32);
+impl ::core::marker::Copy for styleMsTouchAction {}
+impl ::core::clone::Clone for styleMsTouchAction {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleMsTouchSelect(pub i32);
 pub const styleMsTouchSelectGrippers: styleMsTouchSelect = styleMsTouchSelect(0i32);
 pub const styleMsTouchSelectNone: styleMsTouchSelect = styleMsTouchSelect(1i32);
 pub const styleMsTouchSelectNotSet: styleMsTouchSelect = styleMsTouchSelect(2i32);
 pub const styleMsTouchSelect_Max: styleMsTouchSelect = styleMsTouchSelect(2147483647i32);
+impl ::core::marker::Copy for styleMsTouchSelect {}
+impl ::core::clone::Clone for styleMsTouchSelect {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleMsUserSelect(pub i32);
 pub const styleMsUserSelectAuto: styleMsUserSelect = styleMsUserSelect(0i32);
@@ -11182,14 +12198,32 @@ pub const styleMsUserSelectElement: styleMsUserSelect = styleMsUserSelect(2i32);
 pub const styleMsUserSelectNone: styleMsUserSelect = styleMsUserSelect(3i32);
 pub const styleMsUserSelectNotSet: styleMsUserSelect = styleMsUserSelect(4i32);
 pub const styleMsUserSelect_Max: styleMsUserSelect = styleMsUserSelect(2147483647i32);
+impl ::core::marker::Copy for styleMsUserSelect {}
+impl ::core::clone::Clone for styleMsUserSelect {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleNone(pub i32);
 pub const styleNoneNone: styleNone = styleNone(0i32);
 pub const styleNone_Max: styleNone = styleNone(2147483647i32);
+impl ::core::marker::Copy for styleNone {}
+impl ::core::clone::Clone for styleNone {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleNormal(pub i32);
 pub const styleNormalNormal: styleNormal = styleNormal(0i32);
 pub const styleNormal_Max: styleNormal = styleNormal(2147483647i32);
+impl ::core::marker::Copy for styleNormal {}
+impl ::core::clone::Clone for styleNormal {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleOutlineStyle(pub i32);
 pub const styleOutlineStyleNotSet: styleOutlineStyle = styleOutlineStyle(0i32);
@@ -11204,6 +12238,12 @@ pub const styleOutlineStyleOutset: styleOutlineStyle = styleOutlineStyle(8i32);
 pub const styleOutlineStyleWindowInset: styleOutlineStyle = styleOutlineStyle(9i32);
 pub const styleOutlineStyleNone: styleOutlineStyle = styleOutlineStyle(10i32);
 pub const styleOutlineStyle_Max: styleOutlineStyle = styleOutlineStyle(2147483647i32);
+impl ::core::marker::Copy for styleOutlineStyle {}
+impl ::core::clone::Clone for styleOutlineStyle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleOverflow(pub i32);
 pub const styleOverflowNotSet: styleOverflow = styleOverflow(0i32);
@@ -11212,6 +12252,12 @@ pub const styleOverflowHidden: styleOverflow = styleOverflow(2i32);
 pub const styleOverflowVisible: styleOverflow = styleOverflow(3i32);
 pub const styleOverflowScroll: styleOverflow = styleOverflow(4i32);
 pub const styleOverflow_Max: styleOverflow = styleOverflow(2147483647i32);
+impl ::core::marker::Copy for styleOverflow {}
+impl ::core::clone::Clone for styleOverflow {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct stylePageBreak(pub i32);
 pub const stylePageBreakNotSet: stylePageBreak = stylePageBreak(0i32);
@@ -11221,12 +12267,24 @@ pub const stylePageBreakLeft: stylePageBreak = stylePageBreak(3i32);
 pub const stylePageBreakRight: stylePageBreak = stylePageBreak(4i32);
 pub const stylePageBreakAvoid: stylePageBreak = stylePageBreak(5i32);
 pub const stylePageBreak_Max: stylePageBreak = stylePageBreak(2147483647i32);
+impl ::core::marker::Copy for stylePageBreak {}
+impl ::core::clone::Clone for stylePageBreak {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct stylePageBreakInside(pub i32);
 pub const stylePageBreakInsideNotSet: stylePageBreakInside = stylePageBreakInside(0i32);
 pub const stylePageBreakInsideAuto: stylePageBreakInside = stylePageBreakInside(1i32);
 pub const stylePageBreakInsideAvoid: stylePageBreakInside = stylePageBreakInside(2i32);
 pub const stylePageBreakInside_Max: stylePageBreakInside = stylePageBreakInside(2147483647i32);
+impl ::core::marker::Copy for stylePageBreakInside {}
+impl ::core::clone::Clone for stylePageBreakInside {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct stylePerspectiveOriginX(pub i32);
 pub const stylePerspectiveOriginXNotSet: stylePerspectiveOriginX = stylePerspectiveOriginX(0i32);
@@ -11234,6 +12292,12 @@ pub const stylePerspectiveOriginXLeft: stylePerspectiveOriginX = stylePerspectiv
 pub const stylePerspectiveOriginXCenter: stylePerspectiveOriginX = stylePerspectiveOriginX(2i32);
 pub const stylePerspectiveOriginXRight: stylePerspectiveOriginX = stylePerspectiveOriginX(3i32);
 pub const stylePerspectiveOriginX_Max: stylePerspectiveOriginX = stylePerspectiveOriginX(2147483647i32);
+impl ::core::marker::Copy for stylePerspectiveOriginX {}
+impl ::core::clone::Clone for stylePerspectiveOriginX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct stylePerspectiveOriginY(pub i32);
 pub const stylePerspectiveOriginYNotSet: stylePerspectiveOriginY = stylePerspectiveOriginY(0i32);
@@ -11241,6 +12305,12 @@ pub const stylePerspectiveOriginYTop: stylePerspectiveOriginY = stylePerspective
 pub const stylePerspectiveOriginYCenter: stylePerspectiveOriginY = stylePerspectiveOriginY(2i32);
 pub const stylePerspectiveOriginYBottom: stylePerspectiveOriginY = stylePerspectiveOriginY(3i32);
 pub const stylePerspectiveOriginY_Max: stylePerspectiveOriginY = stylePerspectiveOriginY(2147483647i32);
+impl ::core::marker::Copy for stylePerspectiveOriginY {}
+impl ::core::clone::Clone for stylePerspectiveOriginY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct stylePointerEvents(pub i32);
 pub const stylePointerEventsNotSet: stylePointerEvents = stylePointerEvents(0i32);
@@ -11256,6 +12326,12 @@ pub const stylePointerEventsNone: stylePointerEvents = stylePointerEvents(9i32);
 pub const stylePointerEventsInitial: stylePointerEvents = stylePointerEvents(10i32);
 pub const stylePointerEventsAuto: stylePointerEvents = stylePointerEvents(11i32);
 pub const stylePointerEvents_Max: stylePointerEvents = stylePointerEvents(2147483647i32);
+impl ::core::marker::Copy for stylePointerEvents {}
+impl ::core::clone::Clone for stylePointerEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct stylePosition(pub i32);
 pub const stylePositionNotSet: stylePosition = stylePosition(0i32);
@@ -11266,6 +12342,12 @@ pub const stylePositionfixed: stylePosition = stylePosition(4i32);
 pub const stylePositionMsPage: stylePosition = stylePosition(5i32);
 pub const stylePositionMsDeviceFixed: stylePosition = stylePosition(6i32);
 pub const stylePosition_Max: stylePosition = stylePosition(2147483647i32);
+impl ::core::marker::Copy for stylePosition {}
+impl ::core::clone::Clone for stylePosition {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleRubyAlign(pub i32);
 pub const styleRubyAlignNotSet: styleRubyAlign = styleRubyAlign(0i32);
@@ -11277,6 +12359,12 @@ pub const styleRubyAlignDistributeLetter: styleRubyAlign = styleRubyAlign(5i32);
 pub const styleRubyAlignDistributeSpace: styleRubyAlign = styleRubyAlign(6i32);
 pub const styleRubyAlignLineEdge: styleRubyAlign = styleRubyAlign(7i32);
 pub const styleRubyAlign_Max: styleRubyAlign = styleRubyAlign(2147483647i32);
+impl ::core::marker::Copy for styleRubyAlign {}
+impl ::core::clone::Clone for styleRubyAlign {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleRubyOverhang(pub i32);
 pub const styleRubyOverhangNotSet: styleRubyOverhang = styleRubyOverhang(0i32);
@@ -11284,12 +12372,24 @@ pub const styleRubyOverhangAuto: styleRubyOverhang = styleRubyOverhang(1i32);
 pub const styleRubyOverhangWhitespace: styleRubyOverhang = styleRubyOverhang(2i32);
 pub const styleRubyOverhangNone: styleRubyOverhang = styleRubyOverhang(3i32);
 pub const styleRubyOverhang_Max: styleRubyOverhang = styleRubyOverhang(2147483647i32);
+impl ::core::marker::Copy for styleRubyOverhang {}
+impl ::core::clone::Clone for styleRubyOverhang {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleRubyPosition(pub i32);
 pub const styleRubyPositionNotSet: styleRubyPosition = styleRubyPosition(0i32);
 pub const styleRubyPositionAbove: styleRubyPosition = styleRubyPosition(1i32);
 pub const styleRubyPositionInline: styleRubyPosition = styleRubyPosition(2i32);
 pub const styleRubyPosition_Max: styleRubyPosition = styleRubyPosition(2147483647i32);
+impl ::core::marker::Copy for styleRubyPosition {}
+impl ::core::clone::Clone for styleRubyPosition {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleStrokeLinecap(pub i32);
 pub const styleStrokeLinecapNotSet: styleStrokeLinecap = styleStrokeLinecap(0i32);
@@ -11297,6 +12397,12 @@ pub const styleStrokeLinecapButt: styleStrokeLinecap = styleStrokeLinecap(1i32);
 pub const styleStrokeLinecapRound: styleStrokeLinecap = styleStrokeLinecap(2i32);
 pub const styleStrokeLinecapSquare: styleStrokeLinecap = styleStrokeLinecap(3i32);
 pub const styleStrokeLinecap_Max: styleStrokeLinecap = styleStrokeLinecap(2147483647i32);
+impl ::core::marker::Copy for styleStrokeLinecap {}
+impl ::core::clone::Clone for styleStrokeLinecap {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleStrokeLinejoin(pub i32);
 pub const styleStrokeLinejoinNotSet: styleStrokeLinejoin = styleStrokeLinejoin(0i32);
@@ -11304,6 +12410,12 @@ pub const styleStrokeLinejoinMiter: styleStrokeLinejoin = styleStrokeLinejoin(1i
 pub const styleStrokeLinejoinRound: styleStrokeLinejoin = styleStrokeLinejoin(2i32);
 pub const styleStrokeLinejoinBevel: styleStrokeLinejoin = styleStrokeLinejoin(3i32);
 pub const styleStrokeLinejoin_Max: styleStrokeLinejoin = styleStrokeLinejoin(2147483647i32);
+impl ::core::marker::Copy for styleStrokeLinejoin {}
+impl ::core::clone::Clone for styleStrokeLinejoin {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleStyleFloat(pub i32);
 pub const styleStyleFloatNotSet: styleStyleFloat = styleStyleFloat(0i32);
@@ -11311,12 +12423,24 @@ pub const styleStyleFloatLeft: styleStyleFloat = styleStyleFloat(1i32);
 pub const styleStyleFloatRight: styleStyleFloat = styleStyleFloat(2i32);
 pub const styleStyleFloatNone: styleStyleFloat = styleStyleFloat(3i32);
 pub const styleStyleFloat_Max: styleStyleFloat = styleStyleFloat(2147483647i32);
+impl ::core::marker::Copy for styleStyleFloat {}
+impl ::core::clone::Clone for styleStyleFloat {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleTableLayout(pub i32);
 pub const styleTableLayoutNotSet: styleTableLayout = styleTableLayout(0i32);
 pub const styleTableLayoutAuto: styleTableLayout = styleTableLayout(1i32);
 pub const styleTableLayoutFixed: styleTableLayout = styleTableLayout(2i32);
 pub const styleTableLayout_Max: styleTableLayout = styleTableLayout(2147483647i32);
+impl ::core::marker::Copy for styleTableLayout {}
+impl ::core::clone::Clone for styleTableLayout {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleTextAlignLast(pub i32);
 pub const styleTextAlignLastNotSet: styleTextAlignLast = styleTextAlignLast(0i32);
@@ -11326,6 +12450,12 @@ pub const styleTextAlignLastRight: styleTextAlignLast = styleTextAlignLast(3i32)
 pub const styleTextAlignLastJustify: styleTextAlignLast = styleTextAlignLast(4i32);
 pub const styleTextAlignLastAuto: styleTextAlignLast = styleTextAlignLast(5i32);
 pub const styleTextAlignLast_Max: styleTextAlignLast = styleTextAlignLast(2147483647i32);
+impl ::core::marker::Copy for styleTextAlignLast {}
+impl ::core::clone::Clone for styleTextAlignLast {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleTextAnchor(pub i32);
 pub const styleTextAnchorNotSet: styleTextAnchor = styleTextAnchor(0i32);
@@ -11333,6 +12463,12 @@ pub const styleTextAnchorStart: styleTextAnchor = styleTextAnchor(1i32);
 pub const styleTextAnchorMiddle: styleTextAnchor = styleTextAnchor(2i32);
 pub const styleTextAnchorEnd: styleTextAnchor = styleTextAnchor(3i32);
 pub const styleTextAnchor_Max: styleTextAnchor = styleTextAnchor(2147483647i32);
+impl ::core::marker::Copy for styleTextAnchor {}
+impl ::core::clone::Clone for styleTextAnchor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleTextDecoration(pub i32);
 pub const styleTextDecorationNone: styleTextDecoration = styleTextDecoration(0i32);
@@ -11341,6 +12477,12 @@ pub const styleTextDecorationOverline: styleTextDecoration = styleTextDecoration
 pub const styleTextDecorationLineThrough: styleTextDecoration = styleTextDecoration(3i32);
 pub const styleTextDecorationBlink: styleTextDecoration = styleTextDecoration(4i32);
 pub const styleTextDecoration_Max: styleTextDecoration = styleTextDecoration(2147483647i32);
+impl ::core::marker::Copy for styleTextDecoration {}
+impl ::core::clone::Clone for styleTextDecoration {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleTextEffect(pub i32);
 pub const styleTextEffectNone: styleTextEffect = styleTextEffect(0i32);
@@ -11348,6 +12490,12 @@ pub const styleTextEffectEmboss: styleTextEffect = styleTextEffect(1i32);
 pub const styleTextEffectEngrave: styleTextEffect = styleTextEffect(2i32);
 pub const styleTextEffectOutline: styleTextEffect = styleTextEffect(3i32);
 pub const styleTextEffect_Max: styleTextEffect = styleTextEffect(2147483647i32);
+impl ::core::marker::Copy for styleTextEffect {}
+impl ::core::clone::Clone for styleTextEffect {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleTextJustify(pub i32);
 pub const styleTextJustifyNotSet: styleTextJustify = styleTextJustify(0i32);
@@ -11360,6 +12508,12 @@ pub const styleTextJustifyInterCluster: styleTextJustify = styleTextJustify(6i32
 pub const styleTextJustifyKashida: styleTextJustify = styleTextJustify(7i32);
 pub const styleTextJustifyAuto: styleTextJustify = styleTextJustify(8i32);
 pub const styleTextJustify_Max: styleTextJustify = styleTextJustify(2147483647i32);
+impl ::core::marker::Copy for styleTextJustify {}
+impl ::core::clone::Clone for styleTextJustify {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleTextJustifyTrim(pub i32);
 pub const styleTextJustifyTrimNotSet: styleTextJustifyTrim = styleTextJustifyTrim(0i32);
@@ -11367,23 +12521,47 @@ pub const styleTextJustifyTrimNone: styleTextJustifyTrim = styleTextJustifyTrim(
 pub const styleTextJustifyTrimPunctuation: styleTextJustifyTrim = styleTextJustifyTrim(2i32);
 pub const styleTextJustifyTrimPunctAndKana: styleTextJustifyTrim = styleTextJustifyTrim(3i32);
 pub const styleTextJustifyTrim_Max: styleTextJustifyTrim = styleTextJustifyTrim(2147483647i32);
+impl ::core::marker::Copy for styleTextJustifyTrim {}
+impl ::core::clone::Clone for styleTextJustifyTrim {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleTextLineThroughStyle(pub i32);
 pub const styleTextLineThroughStyleUndefined: styleTextLineThroughStyle = styleTextLineThroughStyle(0i32);
 pub const styleTextLineThroughStyleSingle: styleTextLineThroughStyle = styleTextLineThroughStyle(1i32);
 pub const styleTextLineThroughStyleDouble: styleTextLineThroughStyle = styleTextLineThroughStyle(2i32);
 pub const styleTextLineThroughStyle_Max: styleTextLineThroughStyle = styleTextLineThroughStyle(2147483647i32);
+impl ::core::marker::Copy for styleTextLineThroughStyle {}
+impl ::core::clone::Clone for styleTextLineThroughStyle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleTextOverflow(pub i32);
 pub const styleTextOverflowClip: styleTextOverflow = styleTextOverflow(0i32);
 pub const styleTextOverflowEllipsis: styleTextOverflow = styleTextOverflow(1i32);
 pub const styleTextOverflowNotSet: styleTextOverflow = styleTextOverflow(2i32);
 pub const styleTextOverflow_Max: styleTextOverflow = styleTextOverflow(2147483647i32);
+impl ::core::marker::Copy for styleTextOverflow {}
+impl ::core::clone::Clone for styleTextOverflow {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleTextSizeAdjust(pub i32);
 pub const styleTextSizeAdjustNone: styleTextSizeAdjust = styleTextSizeAdjust(0i32);
 pub const styleTextSizeAdjustAuto: styleTextSizeAdjust = styleTextSizeAdjust(1i32);
 pub const styleTextSizeAdjust_Max: styleTextSizeAdjust = styleTextSizeAdjust(2147483647i32);
+impl ::core::marker::Copy for styleTextSizeAdjust {}
+impl ::core::clone::Clone for styleTextSizeAdjust {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleTextTransform(pub i32);
 pub const styleTextTransformNotSet: styleTextTransform = styleTextTransform(0i32);
@@ -11392,6 +12570,12 @@ pub const styleTextTransformLowercase: styleTextTransform = styleTextTransform(2
 pub const styleTextTransformUppercase: styleTextTransform = styleTextTransform(3i32);
 pub const styleTextTransformNone: styleTextTransform = styleTextTransform(4i32);
 pub const styleTextTransform_Max: styleTextTransform = styleTextTransform(2147483647i32);
+impl ::core::marker::Copy for styleTextTransform {}
+impl ::core::clone::Clone for styleTextTransform {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleTextUnderlinePosition(pub i32);
 pub const styleTextUnderlinePositionBelow: styleTextUnderlinePosition = styleTextUnderlinePosition(0i32);
@@ -11399,6 +12583,12 @@ pub const styleTextUnderlinePositionAbove: styleTextUnderlinePosition = styleTex
 pub const styleTextUnderlinePositionAuto: styleTextUnderlinePosition = styleTextUnderlinePosition(2i32);
 pub const styleTextUnderlinePositionNotSet: styleTextUnderlinePosition = styleTextUnderlinePosition(3i32);
 pub const styleTextUnderlinePosition_Max: styleTextUnderlinePosition = styleTextUnderlinePosition(2147483647i32);
+impl ::core::marker::Copy for styleTextUnderlinePosition {}
+impl ::core::clone::Clone for styleTextUnderlinePosition {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleTextUnderlineStyle(pub i32);
 pub const styleTextUnderlineStyleUndefined: styleTextUnderlineStyle = styleTextUnderlineStyle(0i32);
@@ -11415,6 +12605,12 @@ pub const styleTextUnderlineStyleSingleAccounting: styleTextUnderlineStyle = sty
 pub const styleTextUnderlineStyleDoubleAccounting: styleTextUnderlineStyle = styleTextUnderlineStyle(11i32);
 pub const styleTextUnderlineStyleThickDash: styleTextUnderlineStyle = styleTextUnderlineStyle(12i32);
 pub const styleTextUnderlineStyle_Max: styleTextUnderlineStyle = styleTextUnderlineStyle(2147483647i32);
+impl ::core::marker::Copy for styleTextUnderlineStyle {}
+impl ::core::clone::Clone for styleTextUnderlineStyle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleTransformOriginX(pub i32);
 pub const styleTransformOriginXNotSet: styleTransformOriginX = styleTransformOriginX(0i32);
@@ -11422,6 +12618,12 @@ pub const styleTransformOriginXLeft: styleTransformOriginX = styleTransformOrigi
 pub const styleTransformOriginXCenter: styleTransformOriginX = styleTransformOriginX(2i32);
 pub const styleTransformOriginXRight: styleTransformOriginX = styleTransformOriginX(3i32);
 pub const styleTransformOriginX_Max: styleTransformOriginX = styleTransformOriginX(2147483647i32);
+impl ::core::marker::Copy for styleTransformOriginX {}
+impl ::core::clone::Clone for styleTransformOriginX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleTransformOriginY(pub i32);
 pub const styleTransformOriginYNotSet: styleTransformOriginY = styleTransformOriginY(0i32);
@@ -11429,18 +12631,36 @@ pub const styleTransformOriginYTop: styleTransformOriginY = styleTransformOrigin
 pub const styleTransformOriginYCenter: styleTransformOriginY = styleTransformOriginY(2i32);
 pub const styleTransformOriginYBottom: styleTransformOriginY = styleTransformOriginY(3i32);
 pub const styleTransformOriginY_Max: styleTransformOriginY = styleTransformOriginY(2147483647i32);
+impl ::core::marker::Copy for styleTransformOriginY {}
+impl ::core::clone::Clone for styleTransformOriginY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleTransformStyle(pub i32);
 pub const styleTransformStyleFlat: styleTransformStyle = styleTransformStyle(0i32);
 pub const styleTransformStylePreserve3D: styleTransformStyle = styleTransformStyle(1i32);
 pub const styleTransformStyleNotSet: styleTransformStyle = styleTransformStyle(2i32);
 pub const styleTransformStyle_Max: styleTransformStyle = styleTransformStyle(2147483647i32);
+impl ::core::marker::Copy for styleTransformStyle {}
+impl ::core::clone::Clone for styleTransformStyle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleUserZoom(pub i32);
 pub const styleUserZoomNotSet: styleUserZoom = styleUserZoom(0i32);
 pub const styleUserZoomZoom: styleUserZoom = styleUserZoom(1i32);
 pub const styleUserZoomFixed: styleUserZoom = styleUserZoom(2i32);
 pub const styleUserZoom_Max: styleUserZoom = styleUserZoom(2147483647i32);
+impl ::core::marker::Copy for styleUserZoom {}
+impl ::core::clone::Clone for styleUserZoom {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleVerticalAlign(pub i32);
 pub const styleVerticalAlignAuto: styleVerticalAlign = styleVerticalAlign(0i32);
@@ -11455,12 +12675,24 @@ pub const styleVerticalAlignTextBottom: styleVerticalAlign = styleVerticalAlign(
 pub const styleVerticalAlignInherit: styleVerticalAlign = styleVerticalAlign(9i32);
 pub const styleVerticalAlignNotSet: styleVerticalAlign = styleVerticalAlign(10i32);
 pub const styleVerticalAlign_Max: styleVerticalAlign = styleVerticalAlign(2147483647i32);
+impl ::core::marker::Copy for styleVerticalAlign {}
+impl ::core::clone::Clone for styleVerticalAlign {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleViewportSize(pub i32);
 pub const styleViewportSizeAuto: styleViewportSize = styleViewportSize(0i32);
 pub const styleViewportSizeDeviceWidth: styleViewportSize = styleViewportSize(1i32);
 pub const styleViewportSizeDeviceHeight: styleViewportSize = styleViewportSize(2i32);
 pub const styleViewportSize_Max: styleViewportSize = styleViewportSize(2147483647i32);
+impl ::core::marker::Copy for styleViewportSize {}
+impl ::core::clone::Clone for styleViewportSize {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleVisibility(pub i32);
 pub const styleVisibilityNotSet: styleVisibility = styleVisibility(0i32);
@@ -11469,6 +12701,12 @@ pub const styleVisibilityVisible: styleVisibility = styleVisibility(2i32);
 pub const styleVisibilityHidden: styleVisibility = styleVisibility(3i32);
 pub const styleVisibilityCollapse: styleVisibility = styleVisibility(4i32);
 pub const styleVisibility_Max: styleVisibility = styleVisibility(2147483647i32);
+impl ::core::marker::Copy for styleVisibility {}
+impl ::core::clone::Clone for styleVisibility {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleWebkitAppearance(pub i32);
 pub const styleWebkitAppearanceNone: styleWebkitAppearance = styleWebkitAppearance(0i32);
@@ -11507,12 +12745,24 @@ pub const styleWebkitAppearanceTextarea: styleWebkitAppearance = styleWebkitAppe
 pub const styleWebkitAppearanceTextfield: styleWebkitAppearance = styleWebkitAppearance(33i32);
 pub const styleWebkitAppearanceNotSet: styleWebkitAppearance = styleWebkitAppearance(34i32);
 pub const styleWebkitAppearance_Max: styleWebkitAppearance = styleWebkitAppearance(2147483647i32);
+impl ::core::marker::Copy for styleWebkitAppearance {}
+impl ::core::clone::Clone for styleWebkitAppearance {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleWebkitBoxDirection(pub i32);
 pub const styleWebkitBoxDirectionNormal: styleWebkitBoxDirection = styleWebkitBoxDirection(0i32);
 pub const styleWebkitBoxDirectionReverse: styleWebkitBoxDirection = styleWebkitBoxDirection(1i32);
 pub const styleWebkitBoxDirectionNotSet: styleWebkitBoxDirection = styleWebkitBoxDirection(2i32);
 pub const styleWebkitBoxDirection_Max: styleWebkitBoxDirection = styleWebkitBoxDirection(2147483647i32);
+impl ::core::marker::Copy for styleWebkitBoxDirection {}
+impl ::core::clone::Clone for styleWebkitBoxDirection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleWebkitBoxOrient(pub i32);
 pub const styleWebkitBoxOrientHorizontal: styleWebkitBoxOrient = styleWebkitBoxOrient(0i32);
@@ -11521,6 +12771,12 @@ pub const styleWebkitBoxOrientVertical: styleWebkitBoxOrient = styleWebkitBoxOri
 pub const styleWebkitBoxOrientBlockAxis: styleWebkitBoxOrient = styleWebkitBoxOrient(3i32);
 pub const styleWebkitBoxOrientNotSet: styleWebkitBoxOrient = styleWebkitBoxOrient(4i32);
 pub const styleWebkitBoxOrient_Max: styleWebkitBoxOrient = styleWebkitBoxOrient(2147483647i32);
+impl ::core::marker::Copy for styleWebkitBoxOrient {}
+impl ::core::clone::Clone for styleWebkitBoxOrient {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleWebkitBoxPack(pub i32);
 pub const styleWebkitBoxPackStart: styleWebkitBoxPack = styleWebkitBoxPack(0i32);
@@ -11529,6 +12785,12 @@ pub const styleWebkitBoxPackCenter: styleWebkitBoxPack = styleWebkitBoxPack(2i32
 pub const styleWebkitBoxPackJustify: styleWebkitBoxPack = styleWebkitBoxPack(3i32);
 pub const styleWebkitBoxPackNotSet: styleWebkitBoxPack = styleWebkitBoxPack(5i32);
 pub const styleWebkitBoxPack_Max: styleWebkitBoxPack = styleWebkitBoxPack(2147483647i32);
+impl ::core::marker::Copy for styleWebkitBoxPack {}
+impl ::core::clone::Clone for styleWebkitBoxPack {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleWhiteSpace(pub i32);
 pub const styleWhiteSpaceNotSet: styleWhiteSpace = styleWhiteSpace(0i32);
@@ -11538,10 +12800,22 @@ pub const styleWhiteSpaceNowrap: styleWhiteSpace = styleWhiteSpace(3i32);
 pub const styleWhiteSpacePreline: styleWhiteSpace = styleWhiteSpace(4i32);
 pub const styleWhiteSpacePrewrap: styleWhiteSpace = styleWhiteSpace(5i32);
 pub const styleWhiteSpace_Max: styleWhiteSpace = styleWhiteSpace(2147483647i32);
+impl ::core::marker::Copy for styleWhiteSpace {}
+impl ::core::clone::Clone for styleWhiteSpace {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleWidowsOrphans(pub i32);
 pub const styleWidowsOrphansNotSet: styleWidowsOrphans = styleWidowsOrphans(-2147483647i32);
 pub const styleWidowsOrphans_Max: styleWidowsOrphans = styleWidowsOrphans(2147483647i32);
+impl ::core::marker::Copy for styleWidowsOrphans {}
+impl ::core::clone::Clone for styleWidowsOrphans {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleWordBreak(pub i32);
 pub const styleWordBreakNotSet: styleWordBreak = styleWordBreak(0i32);
@@ -11549,12 +12823,24 @@ pub const styleWordBreakNormal: styleWordBreak = styleWordBreak(1i32);
 pub const styleWordBreakBreakAll: styleWordBreak = styleWordBreak(2i32);
 pub const styleWordBreakKeepAll: styleWordBreak = styleWordBreak(3i32);
 pub const styleWordBreak_Max: styleWordBreak = styleWordBreak(2147483647i32);
+impl ::core::marker::Copy for styleWordBreak {}
+impl ::core::clone::Clone for styleWordBreak {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleWordWrap(pub i32);
 pub const styleWordWrapNotSet: styleWordWrap = styleWordWrap(0i32);
 pub const styleWordWrapOff: styleWordWrap = styleWordWrap(1i32);
 pub const styleWordWrapOn: styleWordWrap = styleWordWrap(2i32);
 pub const styleWordWrap_Max: styleWordWrap = styleWordWrap(2147483647i32);
+impl ::core::marker::Copy for styleWordWrap {}
+impl ::core::clone::Clone for styleWordWrap {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleWrapFlow(pub i32);
 pub const styleWrapFlowNotSet: styleWrapFlow = styleWrapFlow(0i32);
@@ -11566,12 +12852,24 @@ pub const styleWrapFlowClear: styleWrapFlow = styleWrapFlow(5i32);
 pub const styleWrapFlowMinimum: styleWrapFlow = styleWrapFlow(6i32);
 pub const styleWrapFlowMaximum: styleWrapFlow = styleWrapFlow(7i32);
 pub const styleWrapFlow_Max: styleWrapFlow = styleWrapFlow(2147483647i32);
+impl ::core::marker::Copy for styleWrapFlow {}
+impl ::core::clone::Clone for styleWrapFlow {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleWrapThrough(pub i32);
 pub const styleWrapThroughNotSet: styleWrapThrough = styleWrapThrough(0i32);
 pub const styleWrapThroughWrap: styleWrapThrough = styleWrapThrough(1i32);
 pub const styleWrapThroughNone: styleWrapThrough = styleWrapThrough(2i32);
 pub const styleWrapThrough_Max: styleWrapThrough = styleWrapThrough(2147483647i32);
+impl ::core::marker::Copy for styleWrapThrough {}
+impl ::core::clone::Clone for styleWrapThrough {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleWritingMode(pub i32);
 pub const styleWritingModeLrtb: styleWritingMode = styleWritingMode(0i32);
@@ -11587,10 +12885,22 @@ pub const styleWritingModeLr: styleWritingMode = styleWritingMode(9i32);
 pub const styleWritingModeRl: styleWritingMode = styleWritingMode(10i32);
 pub const styleWritingModeTb: styleWritingMode = styleWritingMode(11i32);
 pub const styleWritingMode_Max: styleWritingMode = styleWritingMode(2147483647i32);
+impl ::core::marker::Copy for styleWritingMode {}
+impl ::core::clone::Clone for styleWritingMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct styleZIndex(pub i32);
 pub const styleZIndexAuto: styleZIndex = styleZIndex(-2147483647i32);
 pub const styleZIndex_Max: styleZIndex = styleZIndex(2147483647i32);
+impl ::core::marker::Copy for styleZIndex {}
+impl ::core::clone::Clone for styleZIndex {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct svgAngleType(pub i32);
 pub const SVG_ANGLETYPE_UNKNOWN: svgAngleType = svgAngleType(0i32);
@@ -11599,6 +12909,12 @@ pub const SVG_ANGLETYPE_DEG: svgAngleType = svgAngleType(2i32);
 pub const SVG_ANGLETYPE_RAD: svgAngleType = svgAngleType(3i32);
 pub const SVG_ANGLETYPE_GRAD: svgAngleType = svgAngleType(4i32);
 pub const svgAngleType_Max: svgAngleType = svgAngleType(2147483647i32);
+impl ::core::marker::Copy for svgAngleType {}
+impl ::core::clone::Clone for svgAngleType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct svgChannel(pub i32);
 pub const SVG_CHANNEL_UNKNOWN: svgChannel = svgChannel(0i32);
@@ -11607,6 +12923,12 @@ pub const SVG_CHANNEL_G: svgChannel = svgChannel(2i32);
 pub const SVG_CHANNEL_B: svgChannel = svgChannel(3i32);
 pub const SVG_CHANNEL_A: svgChannel = svgChannel(4i32);
 pub const svgChannel_Max: svgChannel = svgChannel(2147483647i32);
+impl ::core::marker::Copy for svgChannel {}
+impl ::core::clone::Clone for svgChannel {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct svgEdgemode(pub i32);
 pub const SVG_EDGEMODE_UNKNOWN: svgEdgemode = svgEdgemode(0i32);
@@ -11614,11 +12936,23 @@ pub const SVG_EDGEMODE_DUPLICATE: svgEdgemode = svgEdgemode(1i32);
 pub const SVG_EDGEMODE_WRAP: svgEdgemode = svgEdgemode(2i32);
 pub const SVG_EDGEMODE_NONE: svgEdgemode = svgEdgemode(3i32);
 pub const svgEdgemode_Max: svgEdgemode = svgEdgemode(2147483647i32);
+impl ::core::marker::Copy for svgEdgemode {}
+impl ::core::clone::Clone for svgEdgemode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct svgExternalResourcesRequired(pub i32);
 pub const svgExternalResourcesRequiredFalse: svgExternalResourcesRequired = svgExternalResourcesRequired(0i32);
 pub const svgExternalResourcesRequiredTrue: svgExternalResourcesRequired = svgExternalResourcesRequired(1i32);
 pub const svgExternalResourcesRequired_Max: svgExternalResourcesRequired = svgExternalResourcesRequired(2147483647i32);
+impl ::core::marker::Copy for svgExternalResourcesRequired {}
+impl ::core::clone::Clone for svgExternalResourcesRequired {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct svgFeblendMode(pub i32);
 pub const SVG_FEBLEND_MODE_UNKNOWN: svgFeblendMode = svgFeblendMode(0i32);
@@ -11628,6 +12962,12 @@ pub const SVG_FEBLEND_MODE_SCREEN: svgFeblendMode = svgFeblendMode(3i32);
 pub const SVG_FEBLEND_MODE_DARKEN: svgFeblendMode = svgFeblendMode(4i32);
 pub const SVG_FEBLEND_MODE_LIGHTEN: svgFeblendMode = svgFeblendMode(5i32);
 pub const svgFeblendMode_Max: svgFeblendMode = svgFeblendMode(2147483647i32);
+impl ::core::marker::Copy for svgFeblendMode {}
+impl ::core::clone::Clone for svgFeblendMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct svgFecolormatrixType(pub i32);
 pub const SVG_FECOLORMATRIX_TYPE_UNKNOWN: svgFecolormatrixType = svgFecolormatrixType(0i32);
@@ -11636,6 +12976,12 @@ pub const SVG_FECOLORMATRIX_TYPE_SATURATE: svgFecolormatrixType = svgFecolormatr
 pub const SVG_FECOLORMATRIX_TYPE_HUEROTATE: svgFecolormatrixType = svgFecolormatrixType(3i32);
 pub const SVG_FECOLORMATRIX_TYPE_LUMINANCETOALPHA: svgFecolormatrixType = svgFecolormatrixType(4i32);
 pub const svgFecolormatrixType_Max: svgFecolormatrixType = svgFecolormatrixType(2147483647i32);
+impl ::core::marker::Copy for svgFecolormatrixType {}
+impl ::core::clone::Clone for svgFecolormatrixType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct svgFecomponenttransferType(pub i32);
 pub const SVG_FECOMPONENTTRANSFER_TYPE_UNKNOWN: svgFecomponenttransferType = svgFecomponenttransferType(0i32);
@@ -11645,6 +12991,12 @@ pub const SVG_FECOMPONENTTRANSFER_TYPE_DISCRETE: svgFecomponenttransferType = sv
 pub const SVG_FECOMPONENTTRANSFER_TYPE_LINEAR: svgFecomponenttransferType = svgFecomponenttransferType(4i32);
 pub const SVG_FECOMPONENTTRANSFER_TYPE_GAMMA: svgFecomponenttransferType = svgFecomponenttransferType(5i32);
 pub const svgFecomponenttransferType_Max: svgFecomponenttransferType = svgFecomponenttransferType(2147483647i32);
+impl ::core::marker::Copy for svgFecomponenttransferType {}
+impl ::core::clone::Clone for svgFecomponenttransferType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct svgFecompositeOperator(pub i32);
 pub const SVG_FECOMPOSITE_OPERATOR_UNKNOWN: svgFecompositeOperator = svgFecompositeOperator(0i32);
@@ -11655,6 +13007,12 @@ pub const SVG_FECOMPOSITE_OPERATOR_ATOP: svgFecompositeOperator = svgFecomposite
 pub const SVG_FECOMPOSITE_OPERATOR_XOR: svgFecompositeOperator = svgFecompositeOperator(5i32);
 pub const SVG_FECOMPOSITE_OPERATOR_ARITHMETIC: svgFecompositeOperator = svgFecompositeOperator(6i32);
 pub const svgFecompositeOperator_Max: svgFecompositeOperator = svgFecompositeOperator(2147483647i32);
+impl ::core::marker::Copy for svgFecompositeOperator {}
+impl ::core::clone::Clone for svgFecompositeOperator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct svgFocusable(pub i32);
 pub const svgFocusableNotSet: svgFocusable = svgFocusable(0i32);
@@ -11662,6 +13020,12 @@ pub const svgFocusableAuto: svgFocusable = svgFocusable(1i32);
 pub const svgFocusableTrue: svgFocusable = svgFocusable(2i32);
 pub const svgFocusableFalse: svgFocusable = svgFocusable(3i32);
 pub const svgFocusable_Max: svgFocusable = svgFocusable(2147483647i32);
+impl ::core::marker::Copy for svgFocusable {}
+impl ::core::clone::Clone for svgFocusable {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct svgLengthType(pub i32);
 pub const SVG_LENGTHTYPE_UNKNOWN: svgLengthType = svgLengthType(0i32);
@@ -11676,28 +13040,58 @@ pub const SVG_LENGTHTYPE_IN: svgLengthType = svgLengthType(8i32);
 pub const SVG_LENGTHTYPE_PT: svgLengthType = svgLengthType(9i32);
 pub const SVG_LENGTHTYPE_PC: svgLengthType = svgLengthType(10i32);
 pub const svgLengthType_Max: svgLengthType = svgLengthType(2147483647i32);
+impl ::core::marker::Copy for svgLengthType {}
+impl ::core::clone::Clone for svgLengthType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct svgMarkerOrient(pub i32);
 pub const SVG_MARKER_ORIENT_UNKNOWN: svgMarkerOrient = svgMarkerOrient(0i32);
 pub const SVG_MARKER_ORIENT_AUTO: svgMarkerOrient = svgMarkerOrient(1i32);
 pub const SVG_MARKER_ORIENT_ANGLE: svgMarkerOrient = svgMarkerOrient(2i32);
 pub const svgMarkerOrient_Max: svgMarkerOrient = svgMarkerOrient(2147483647i32);
+impl ::core::marker::Copy for svgMarkerOrient {}
+impl ::core::clone::Clone for svgMarkerOrient {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct svgMarkerOrientAttribute(pub i32);
 pub const svgMarkerOrientAttributeAuto: svgMarkerOrientAttribute = svgMarkerOrientAttribute(0i32);
 pub const svgMarkerOrientAttribute_Max: svgMarkerOrientAttribute = svgMarkerOrientAttribute(2147483647i32);
+impl ::core::marker::Copy for svgMarkerOrientAttribute {}
+impl ::core::clone::Clone for svgMarkerOrientAttribute {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct svgMarkerUnits(pub i32);
 pub const SVG_MARKERUNITS_UNKNOWN: svgMarkerUnits = svgMarkerUnits(0i32);
 pub const SVG_MARKERUNITS_USERSPACEONUSE: svgMarkerUnits = svgMarkerUnits(1i32);
 pub const SVG_MARKERUNITS_STROKEWIDTH: svgMarkerUnits = svgMarkerUnits(2i32);
 pub const svgMarkerUnits_Max: svgMarkerUnits = svgMarkerUnits(2147483647i32);
+impl ::core::marker::Copy for svgMarkerUnits {}
+impl ::core::clone::Clone for svgMarkerUnits {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct svgMorphologyOperator(pub i32);
 pub const SVG_MORPHOLOGY_OPERATOR_UNKNOWN: svgMorphologyOperator = svgMorphologyOperator(0i32);
 pub const SVG_MORPHOLOGY_OPERATOR_ERODE: svgMorphologyOperator = svgMorphologyOperator(1i32);
 pub const SVG_MORPHOLOGY_OPERATOR_DILATE: svgMorphologyOperator = svgMorphologyOperator(2i32);
 pub const svgMorphologyOperator_Max: svgMorphologyOperator = svgMorphologyOperator(2147483647i32);
+impl ::core::marker::Copy for svgMorphologyOperator {}
+impl ::core::clone::Clone for svgMorphologyOperator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct svgPathSegType(pub i32);
 pub const PATHSEG_UNKNOWN: svgPathSegType = svgPathSegType(0i32);
@@ -11721,17 +13115,35 @@ pub const PATHSEG_CURVETO_CUBIC_SMOOTH_REL: svgPathSegType = svgPathSegType(17i3
 pub const PATHSEG_CURVETO_QUADRATIC_SMOOTH_ABS: svgPathSegType = svgPathSegType(18i32);
 pub const PATHSEG_CURVETO_QUADRATIC_SMOOTH_REL: svgPathSegType = svgPathSegType(19i32);
 pub const svgPathSegType_Max: svgPathSegType = svgPathSegType(2147483647i32);
+impl ::core::marker::Copy for svgPathSegType {}
+impl ::core::clone::Clone for svgPathSegType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct svgPreserveAlpha(pub i32);
 pub const SVG_PRESERVEALPHA_FALSE: svgPreserveAlpha = svgPreserveAlpha(0i32);
 pub const SVG_PRESERVEALPHA_TRUE: svgPreserveAlpha = svgPreserveAlpha(1i32);
 pub const svgPreserveAlpha_Max: svgPreserveAlpha = svgPreserveAlpha(2147483647i32);
+impl ::core::marker::Copy for svgPreserveAlpha {}
+impl ::core::clone::Clone for svgPreserveAlpha {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct svgPreserveAspectMeetOrSliceType(pub i32);
 pub const SVG_MEETORSLICE_UNKNOWN: svgPreserveAspectMeetOrSliceType = svgPreserveAspectMeetOrSliceType(0i32);
 pub const SVG_MEETORSLICE_MEET: svgPreserveAspectMeetOrSliceType = svgPreserveAspectMeetOrSliceType(1i32);
 pub const SVG_MEETORSLICE_SLICE: svgPreserveAspectMeetOrSliceType = svgPreserveAspectMeetOrSliceType(2i32);
 pub const svgPreserveAspectMeetOrSliceType_Max: svgPreserveAspectMeetOrSliceType = svgPreserveAspectMeetOrSliceType(2147483647i32);
+impl ::core::marker::Copy for svgPreserveAspectMeetOrSliceType {}
+impl ::core::clone::Clone for svgPreserveAspectMeetOrSliceType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct svgPreserveAspectRatioAlignType(pub i32);
 pub const SVG_PRESERVEASPECTRATIO_UNKNOWN: svgPreserveAspectRatioAlignType = svgPreserveAspectRatioAlignType(0i32);
@@ -11746,6 +13158,12 @@ pub const SVG_PRESERVEASPECTRATIO_XMINYMAX: svgPreserveAspectRatioAlignType = sv
 pub const SVG_PRESERVEASPECTRATIO_XMIDYMAX: svgPreserveAspectRatioAlignType = svgPreserveAspectRatioAlignType(9i32);
 pub const SVG_PRESERVEASPECTRATIO_XMAXYMAX: svgPreserveAspectRatioAlignType = svgPreserveAspectRatioAlignType(10i32);
 pub const svgPreserveAspectRatioAlignType_Max: svgPreserveAspectRatioAlignType = svgPreserveAspectRatioAlignType(2147483647i32);
+impl ::core::marker::Copy for svgPreserveAspectRatioAlignType {}
+impl ::core::clone::Clone for svgPreserveAspectRatioAlignType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct svgSpreadMethod(pub i32);
 pub const SVG_SPREADMETHOD_UNKNOWN: svgSpreadMethod = svgSpreadMethod(0i32);
@@ -11753,12 +13171,24 @@ pub const SVG_SPREADMETHOD_PAD: svgSpreadMethod = svgSpreadMethod(1i32);
 pub const SVG_SPREADMETHOD_REFLECT: svgSpreadMethod = svgSpreadMethod(2i32);
 pub const SVG_SPREADMETHOD_REPEAT: svgSpreadMethod = svgSpreadMethod(3i32);
 pub const svgSpreadMethod_Max: svgSpreadMethod = svgSpreadMethod(2147483647i32);
+impl ::core::marker::Copy for svgSpreadMethod {}
+impl ::core::clone::Clone for svgSpreadMethod {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct svgStitchtype(pub i32);
 pub const SVG_STITCHTYPE_UNKNOWN: svgStitchtype = svgStitchtype(0i32);
 pub const SVG_STITCHTYPE_STITCH: svgStitchtype = svgStitchtype(1i32);
 pub const SVG_STITCHTYPE_NOSTITCH: svgStitchtype = svgStitchtype(2i32);
 pub const svgStitchtype_Max: svgStitchtype = svgStitchtype(2147483647i32);
+impl ::core::marker::Copy for svgStitchtype {}
+impl ::core::clone::Clone for svgStitchtype {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct svgTransformType(pub i32);
 pub const SVG_TRANSFORM_UNKNOWN: svgTransformType = svgTransformType(0i32);
@@ -11769,20 +13199,50 @@ pub const SVG_TRANSFORM_ROTATE: svgTransformType = svgTransformType(4i32);
 pub const SVG_TRANSFORM_SKEWX: svgTransformType = svgTransformType(5i32);
 pub const SVG_TRANSFORM_SKEWY: svgTransformType = svgTransformType(6i32);
 pub const svgTransformType_Max: svgTransformType = svgTransformType(2147483647i32);
+impl ::core::marker::Copy for svgTransformType {}
+impl ::core::clone::Clone for svgTransformType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct svgTurbulenceType(pub i32);
 pub const SVG_TURBULENCE_TYPE_UNKNOWN: svgTurbulenceType = svgTurbulenceType(0i32);
 pub const SVG_TURBULENCE_TYPE_FACTALNOISE: svgTurbulenceType = svgTurbulenceType(1i32);
 pub const SVG_TURBULENCE_TYPE_TURBULENCE: svgTurbulenceType = svgTurbulenceType(2i32);
 pub const svgTurbulenceType_Max: svgTurbulenceType = svgTurbulenceType(2147483647i32);
+impl ::core::marker::Copy for svgTurbulenceType {}
+impl ::core::clone::Clone for svgTurbulenceType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct svgUnitTypes(pub i32);
 pub const SVG_UNITTYPE_UNKNOWN: svgUnitTypes = svgUnitTypes(0i32);
 pub const SVG_UNITTYPE_USERSPACEONUSE: svgUnitTypes = svgUnitTypes(1i32);
 pub const SVG_UNITTYPE_OBJECTBOUNDINGBOX: svgUnitTypes = svgUnitTypes(2i32);
 pub const svgUnitTypes_Max: svgUnitTypes = svgUnitTypes(2147483647i32);
+impl ::core::marker::Copy for svgUnitTypes {}
+impl ::core::clone::Clone for svgUnitTypes {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct tagNavigateData(i32);
+pub struct tagNavigateData {
+    pub ulTarget: u32,
+    pub ulURL: u32,
+    pub ulRefURL: u32,
+    pub ulPostData: u32,
+    pub dwFlags: u32,
+}
+impl ::core::marker::Copy for tagNavigateData {}
+impl ::core::clone::Clone for tagNavigateData {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct textDecoration(pub i32);
 pub const textDecorationNone: textDecoration = textDecoration(0i32);
@@ -11791,17 +13251,34 @@ pub const textDecorationOverline: textDecoration = textDecoration(2i32);
 pub const textDecorationLineThrough: textDecoration = textDecoration(3i32);
 pub const textDecorationBlink: textDecoration = textDecoration(4i32);
 pub const textDecoration_Max: textDecoration = textDecoration(2147483647i32);
+impl ::core::marker::Copy for textDecoration {}
+impl ::core::clone::Clone for textDecoration {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct textpathMethodtype(pub i32);
 pub const TEXTPATH_METHODTYPE_UNKNOWN: textpathMethodtype = textpathMethodtype(0i32);
 pub const TEXTPATH_METHODTYPE_ALIGN: textpathMethodtype = textpathMethodtype(1i32);
 pub const TEXTPATH_METHODTYPE_STRETCH: textpathMethodtype = textpathMethodtype(2i32);
 pub const textpathMethodtype_Max: textpathMethodtype = textpathMethodtype(2147483647i32);
+impl ::core::marker::Copy for textpathMethodtype {}
+impl ::core::clone::Clone for textpathMethodtype {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct textpathSpacingtype(pub i32);
 pub const TEXTPATH_SPACINGTYPE_UNKNOWN: textpathSpacingtype = textpathSpacingtype(0i32);
 pub const TEXTPATH_SPACINGTYPE_AUTO: textpathSpacingtype = textpathSpacingtype(1i32);
 pub const TEXTPATH_SPACINGTYPE_EXACT: textpathSpacingtype = textpathSpacingtype(2i32);
 pub const textpathSpacingtype_Max: textpathSpacingtype = textpathSpacingtype(2147483647i32);
-#[repr(C)]
-pub struct wfolders(i32);
+impl ::core::marker::Copy for textpathSpacingtype {}
+impl ::core::clone::Clone for textpathSpacingtype {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+pub const wfolders: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3135446938, data2: 7041, data3: 4562, data4: [169, 122, 0, 192, 79, 142, 203, 2] };

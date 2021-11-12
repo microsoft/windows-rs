@@ -24,6 +24,12 @@ impl CoreInputViewKind {
     pub const Clipboard: Self = Self(5i32);
     pub const Dictation: Self = Self(6i32);
 }
+impl ::core::marker::Copy for CoreInputViewKind {}
+impl ::core::clone::Clone for CoreInputViewKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CoreInputViewOcclusion(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -32,6 +38,12 @@ impl CoreInputViewOcclusionKind {
     pub const Docked: Self = Self(0i32);
     pub const Floating: Self = Self(1i32);
     pub const Overlay: Self = Self(2i32);
+}
+impl ::core::marker::Copy for CoreInputViewOcclusionKind {}
+impl ::core::clone::Clone for CoreInputViewOcclusionKind {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct CoreInputViewOcclusionsChangedEventArgs(pub *mut ::core::ffi::c_void);
@@ -46,6 +58,12 @@ impl CoreInputViewXYFocusTransferDirection {
     pub const Right: Self = Self(1i32);
     pub const Down: Self = Self(2i32);
     pub const Left: Self = Self(3i32);
+}
+impl ::core::marker::Copy for CoreInputViewXYFocusTransferDirection {}
+impl ::core::clone::Clone for CoreInputViewXYFocusTransferDirection {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct ICoreFrameworkInputView(pub *mut ::core::ffi::c_void);

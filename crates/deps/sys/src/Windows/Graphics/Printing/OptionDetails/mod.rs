@@ -92,6 +92,12 @@ impl PrintOptionStates {
     pub const Enabled: Self = Self(1u32);
     pub const Constrained: Self = Self(2u32);
 }
+impl ::core::marker::Copy for PrintOptionStates {}
+impl ::core::clone::Clone for PrintOptionStates {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PrintOptionType(pub i32);
 impl PrintOptionType {
@@ -100,6 +106,12 @@ impl PrintOptionType {
     pub const Text: Self = Self(2i32);
     pub const ItemList: Self = Self(3i32);
     pub const Toggle: Self = Self(4i32);
+}
+impl ::core::marker::Copy for PrintOptionType {}
+impl ::core::clone::Clone for PrintOptionType {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct PrintOrientationOptionDetails(pub *mut ::core::ffi::c_void);

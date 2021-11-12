@@ -91,15 +91,33 @@ pub const ActivityState_Biking: ACTIVITY_STATE = ACTIVITY_STATE(64i32);
 pub const ActivityState_Idle: ACTIVITY_STATE = ACTIVITY_STATE(128i32);
 pub const ActivityState_Max: ACTIVITY_STATE = ACTIVITY_STATE(256i32);
 pub const ActivityState_Force_Dword: ACTIVITY_STATE = ACTIVITY_STATE(-1i32);
+impl ::core::marker::Copy for ACTIVITY_STATE {}
+impl ::core::clone::Clone for ACTIVITY_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ACTIVITY_STATE_COUNT(pub i32);
 pub const ActivityStateCount: ACTIVITY_STATE_COUNT = ACTIVITY_STATE_COUNT(8i32);
+impl ::core::marker::Copy for ACTIVITY_STATE_COUNT {}
+impl ::core::clone::Clone for ACTIVITY_STATE_COUNT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AXIS(pub i32);
 pub const AXIS_X: AXIS = AXIS(0i32);
 pub const AXIS_Y: AXIS = AXIS(1i32);
 pub const AXIS_Z: AXIS = AXIS(2i32);
 pub const AXIS_MAX: AXIS = AXIS(3i32);
+impl ::core::marker::Copy for AXIS {}
+impl ::core::clone::Clone for AXIS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ELEVATION_CHANGE_MODE(pub i32);
 pub const ElevationChangeMode_Unknown: ELEVATION_CHANGE_MODE = ELEVATION_CHANGE_MODE(0i32);
@@ -107,6 +125,12 @@ pub const ElevationChangeMode_Elevator: ELEVATION_CHANGE_MODE = ELEVATION_CHANGE
 pub const ElevationChangeMode_Stepping: ELEVATION_CHANGE_MODE = ELEVATION_CHANGE_MODE(2i32);
 pub const ElevationChangeMode_Max: ELEVATION_CHANGE_MODE = ELEVATION_CHANGE_MODE(3i32);
 pub const ElevationChangeMode_Force_Dword: ELEVATION_CHANGE_MODE = ELEVATION_CHANGE_MODE(-1i32);
+impl ::core::marker::Copy for ELEVATION_CHANGE_MODE {}
+impl ::core::clone::Clone for ELEVATION_CHANGE_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const GNSS_CLEAR_ALL_ASSISTANCE_DATA: u32 = 1u32;
 pub const GUID_DEVINTERFACE_SENSOR: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3122378386, data2: 39802, data3: 18483, data4: [154, 30, 82, 94, 209, 52, 231, 226] };
 pub const GUID_SensorCategory_All: ::windows_sys::core::GUID = ::windows_sys::GUID {
@@ -218,9 +242,21 @@ pub const HumanPresenceDetectionType_VendorDefinedBiometric: HUMAN_PRESENCE_DETE
 pub const HumanPresenceDetectionType_FacialBiometric: HUMAN_PRESENCE_DETECTION_TYPE = HUMAN_PRESENCE_DETECTION_TYPE(4i32);
 pub const HumanPresenceDetectionType_AudioBiometric: HUMAN_PRESENCE_DETECTION_TYPE = HUMAN_PRESENCE_DETECTION_TYPE(8i32);
 pub const HumanPresenceDetectionType_Force_Dword: HUMAN_PRESENCE_DETECTION_TYPE = HUMAN_PRESENCE_DETECTION_TYPE(-1i32);
+impl ::core::marker::Copy for HUMAN_PRESENCE_DETECTION_TYPE {}
+impl ::core::clone::Clone for HUMAN_PRESENCE_DETECTION_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct HUMAN_PRESENCE_DETECTION_TYPE_COUNT(pub i32);
 pub const HumanPresenceDetectionTypeCount: HUMAN_PRESENCE_DETECTION_TYPE_COUNT = HUMAN_PRESENCE_DETECTION_TYPE_COUNT(4i32);
+impl ::core::marker::Copy for HUMAN_PRESENCE_DETECTION_TYPE_COUNT {}
+impl ::core::clone::Clone for HUMAN_PRESENCE_DETECTION_TYPE_COUNT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ILocationPermissions(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -239,6 +275,12 @@ pub struct ISensorManagerEvents(pub *mut ::core::ffi::c_void);
 pub struct LOCATION_DESIRED_ACCURACY(pub i32);
 pub const LOCATION_DESIRED_ACCURACY_DEFAULT: LOCATION_DESIRED_ACCURACY = LOCATION_DESIRED_ACCURACY(0i32);
 pub const LOCATION_DESIRED_ACCURACY_HIGH: LOCATION_DESIRED_ACCURACY = LOCATION_DESIRED_ACCURACY(1i32);
+impl ::core::marker::Copy for LOCATION_DESIRED_ACCURACY {}
+impl ::core::clone::Clone for LOCATION_DESIRED_ACCURACY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct LOCATION_POSITION_SOURCE(pub i32);
 pub const LOCATION_POSITION_SOURCE_CELLULAR: LOCATION_POSITION_SOURCE = LOCATION_POSITION_SOURCE(0i32);
@@ -246,20 +288,88 @@ pub const LOCATION_POSITION_SOURCE_SATELLITE: LOCATION_POSITION_SOURCE = LOCATIO
 pub const LOCATION_POSITION_SOURCE_WIFI: LOCATION_POSITION_SOURCE = LOCATION_POSITION_SOURCE(2i32);
 pub const LOCATION_POSITION_SOURCE_IPADDRESS: LOCATION_POSITION_SOURCE = LOCATION_POSITION_SOURCE(3i32);
 pub const LOCATION_POSITION_SOURCE_UNKNOWN: LOCATION_POSITION_SOURCE = LOCATION_POSITION_SOURCE(4i32);
+impl ::core::marker::Copy for LOCATION_POSITION_SOURCE {}
+impl ::core::clone::Clone for LOCATION_POSITION_SOURCE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MAGNETOMETER_ACCURACY(pub i32);
 pub const MagnetometerAccuracy_Unknown: MAGNETOMETER_ACCURACY = MAGNETOMETER_ACCURACY(0i32);
 pub const MagnetometerAccuracy_Unreliable: MAGNETOMETER_ACCURACY = MAGNETOMETER_ACCURACY(1i32);
 pub const MagnetometerAccuracy_Approximate: MAGNETOMETER_ACCURACY = MAGNETOMETER_ACCURACY(2i32);
 pub const MagnetometerAccuracy_High: MAGNETOMETER_ACCURACY = MAGNETOMETER_ACCURACY(3i32);
+impl ::core::marker::Copy for MAGNETOMETER_ACCURACY {}
+impl ::core::clone::Clone for MAGNETOMETER_ACCURACY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct MATRIX3X3(i32);
+pub struct MATRIX3X3 {
+    pub Anonymous: MATRIX3X3_0,
+}
+impl ::core::marker::Copy for MATRIX3X3 {}
+impl ::core::clone::Clone for MATRIX3X3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub union MATRIX3X3_0 {
+    pub Anonymous1: MATRIX3X3_0_0,
+    pub Anonymous2: MATRIX3X3_0_1,
+    pub M: [f32; 9],
+}
+impl ::core::marker::Copy for MATRIX3X3_0 {}
+impl ::core::clone::Clone for MATRIX3X3_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct MATRIX3X3_0_0 {
+    pub A11: f32,
+    pub A12: f32,
+    pub A13: f32,
+    pub A21: f32,
+    pub A22: f32,
+    pub A23: f32,
+    pub A31: f32,
+    pub A32: f32,
+    pub A33: f32,
+}
+impl ::core::marker::Copy for MATRIX3X3_0_0 {}
+impl ::core::clone::Clone for MATRIX3X3_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct MATRIX3X3_0_1 {
+    pub V1: VEC3D,
+    pub V2: VEC3D,
+    pub V3: VEC3D,
+}
+impl ::core::marker::Copy for MATRIX3X3_0_1 {}
+impl ::core::clone::Clone for MATRIX3X3_0_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MagnetometerAccuracy(pub i32);
 pub const MAGNETOMETER_ACCURACY_UNKNOWN: MagnetometerAccuracy = MagnetometerAccuracy(0i32);
 pub const MAGNETOMETER_ACCURACY_UNRELIABLE: MagnetometerAccuracy = MagnetometerAccuracy(1i32);
 pub const MAGNETOMETER_ACCURACY_APPROXIMATE: MagnetometerAccuracy = MagnetometerAccuracy(2i32);
 pub const MAGNETOMETER_ACCURACY_HIGH: MagnetometerAccuracy = MagnetometerAccuracy(3i32);
+impl ::core::marker::Copy for MagnetometerAccuracy {}
+impl ::core::clone::Clone for MagnetometerAccuracy {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PEDOMETER_STEP_TYPE(pub i32);
 pub const PedometerStepType_Unknown: PEDOMETER_STEP_TYPE = PEDOMETER_STEP_TYPE(1i32);
@@ -267,16 +377,45 @@ pub const PedometerStepType_Walking: PEDOMETER_STEP_TYPE = PEDOMETER_STEP_TYPE(2
 pub const PedometerStepType_Running: PEDOMETER_STEP_TYPE = PEDOMETER_STEP_TYPE(4i32);
 pub const PedometerStepType_Max: PEDOMETER_STEP_TYPE = PEDOMETER_STEP_TYPE(8i32);
 pub const PedometerStepType_Force_Dword: PEDOMETER_STEP_TYPE = PEDOMETER_STEP_TYPE(-1i32);
+impl ::core::marker::Copy for PEDOMETER_STEP_TYPE {}
+impl ::core::clone::Clone for PEDOMETER_STEP_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PEDOMETER_STEP_TYPE_COUNT(pub i32);
 pub const PedometerStepTypeCount: PEDOMETER_STEP_TYPE_COUNT = PEDOMETER_STEP_TYPE_COUNT(3i32);
+impl ::core::marker::Copy for PEDOMETER_STEP_TYPE_COUNT {}
+impl ::core::clone::Clone for PEDOMETER_STEP_TYPE_COUNT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PROXIMITY_TYPE(pub i32);
 pub const ProximityType_ObjectProximity: PROXIMITY_TYPE = PROXIMITY_TYPE(0i32);
 pub const ProximityType_HumanProximity: PROXIMITY_TYPE = PROXIMITY_TYPE(1i32);
 pub const ProximityType_Force_Dword: PROXIMITY_TYPE = PROXIMITY_TYPE(-1i32);
+impl ::core::marker::Copy for PROXIMITY_TYPE {}
+impl ::core::clone::Clone for PROXIMITY_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct QUATERNION(i32);
+pub struct QUATERNION {
+    pub X: f32,
+    pub Y: f32,
+    pub Z: f32,
+    pub W: f32,
+}
+impl ::core::marker::Copy for QUATERNION {}
+impl ::core::clone::Clone for QUATERNION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SENSOR_CATEGORY_ALL: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 3273114246,
     data2: 50280,
@@ -319,14 +458,32 @@ pub const SENSOR_CATEGORY_ORIENTATION: ::windows_sys::core::GUID = ::windows_sys
 pub const SENSOR_CATEGORY_OTHER: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 747693993, data2: 62665, data3: 20386, data4: [175, 55, 86, 212, 113, 254, 90, 61] };
 pub const SENSOR_CATEGORY_SCANNER: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2952849278, data2: 62901, data3: 16911, data4: [129, 93, 2, 112, 167, 38, 242, 112] };
 pub const SENSOR_CATEGORY_UNSUPPORTED: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 736815098, data2: 6576, data3: 18629, data4: [161, 246, 181, 72, 13, 194, 6, 176] };
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 #[repr(C)]
-pub struct SENSOR_COLLECTION_LIST(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
+pub struct SENSOR_COLLECTION_LIST {
+    pub AllocatedSizeInBytes: u32,
+    pub Count: u32,
+    pub List: [SENSOR_VALUE_PAIR; 1],
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
+impl ::core::marker::Copy for SENSOR_COLLECTION_LIST {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
+impl ::core::clone::Clone for SENSOR_COLLECTION_LIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SENSOR_CONNECTION_TYPES(pub i32);
 pub const SensorConnectionType_Integrated: SENSOR_CONNECTION_TYPES = SENSOR_CONNECTION_TYPES(0i32);
 pub const SensorConnectionType_Attached: SENSOR_CONNECTION_TYPES = SENSOR_CONNECTION_TYPES(1i32);
 pub const SensorConnectionType_External: SENSOR_CONNECTION_TYPES = SENSOR_CONNECTION_TYPES(2i32);
+impl ::core::marker::Copy for SENSOR_CONNECTION_TYPES {}
+impl ::core::clone::Clone for SENSOR_CONNECTION_TYPES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const SENSOR_DATA_TYPE_ABSOLUTE_PRESSURE_PASCAL: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 945179260, data2: 62194, data3: 18875, data4: [155, 43, 186, 96, 246, 106, 88, 223] },
@@ -1400,9 +1557,21 @@ pub const SENSOR_PROPERTY_LIGHT_RESPONSE_CURVE: super::super::UI::Shell::Propert
     },
     pid: 16u32,
 };
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[repr(C)]
-pub struct SENSOR_PROPERTY_LIST(i32);
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+pub struct SENSOR_PROPERTY_LIST {
+    pub AllocatedSizeInBytes: u32,
+    pub Count: u32,
+    pub List: [super::super::UI::Shell::PropertiesSystem::PROPERTYKEY; 1],
+}
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+impl ::core::marker::Copy for SENSOR_PROPERTY_LIST {}
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+impl ::core::clone::Clone for SENSOR_PROPERTY_LIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SENSOR_PROPERTY_LIST_HEADER_SIZE: u32 = 8u32;
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const SENSOR_PROPERTY_LOCATION_DESIRED_ACCURACY: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
@@ -1556,6 +1725,12 @@ pub const SensorState_Initializing: SENSOR_STATE = SENSOR_STATE(0i32);
 pub const SensorState_Idle: SENSOR_STATE = SENSOR_STATE(1i32);
 pub const SensorState_Active: SENSOR_STATE = SENSOR_STATE(2i32);
 pub const SensorState_Error: SENSOR_STATE = SENSOR_STATE(3i32);
+impl ::core::marker::Copy for SENSOR_STATE {}
+impl ::core::clone::Clone for SENSOR_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SENSOR_TYPE_ACCELEROMETER_1D: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 3226280839,
     data2: 29504,
@@ -1746,9 +1921,20 @@ pub const SENSOR_TYPE_VOLTAGE: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data3: 18771,
     data4: [152, 184, 165, 109, 138, 161, 251, 30],
 };
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 #[repr(C)]
-pub struct SENSOR_VALUE_PAIR(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
+pub struct SENSOR_VALUE_PAIR {
+    pub Key: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY,
+    pub Value: super::super::System::Com::StructuredStorage::PROPVARIANT,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
+impl ::core::marker::Copy for SENSOR_VALUE_PAIR {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
+impl ::core::clone::Clone for SENSOR_VALUE_PAIR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SIMPLE_DEVICE_ORIENTATION(pub i32);
 pub const SimpleDeviceOrientation_NotRotated: SIMPLE_DEVICE_ORIENTATION = SIMPLE_DEVICE_ORIENTATION(0i32);
@@ -1757,19 +1943,37 @@ pub const SimpleDeviceOrientation_Rotated180DegreesCounterclockwise: SIMPLE_DEVI
 pub const SimpleDeviceOrientation_Rotated270DegreesCounterclockwise: SIMPLE_DEVICE_ORIENTATION = SIMPLE_DEVICE_ORIENTATION(3i32);
 pub const SimpleDeviceOrientation_Faceup: SIMPLE_DEVICE_ORIENTATION = SIMPLE_DEVICE_ORIENTATION(4i32);
 pub const SimpleDeviceOrientation_Facedown: SIMPLE_DEVICE_ORIENTATION = SIMPLE_DEVICE_ORIENTATION(5i32);
-#[repr(C)]
-pub struct Sensor(i32);
-#[repr(C)]
-pub struct SensorCollection(i32);
+impl ::core::marker::Copy for SIMPLE_DEVICE_ORIENTATION {}
+impl ::core::clone::Clone for SIMPLE_DEVICE_ORIENTATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+pub const Sensor: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3917278464,
+    data2: 21050,
+    data3: 16691,
+    data4: [191, 111, 211, 162, 218, 231, 246, 186],
+};
+pub const SensorCollection: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2042903259, data2: 42025, data3: 18079, data4: [170, 57, 47, 43, 116, 183, 89, 55] };
 #[repr(transparent)]
 pub struct SensorConnectionType(pub i32);
 pub const SENSOR_CONNECTION_TYPE_PC_INTEGRATED: SensorConnectionType = SensorConnectionType(0i32);
 pub const SENSOR_CONNECTION_TYPE_PC_ATTACHED: SensorConnectionType = SensorConnectionType(1i32);
 pub const SENSOR_CONNECTION_TYPE_PC_EXTERNAL: SensorConnectionType = SensorConnectionType(2i32);
-#[repr(C)]
-pub struct SensorDataReport(i32);
-#[repr(C)]
-pub struct SensorManager(i32);
+impl ::core::marker::Copy for SensorConnectionType {}
+impl ::core::clone::Clone for SensorConnectionType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+pub const SensorDataReport: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1319753455,
+    data2: 26955,
+    data3: 16920,
+    data4: [136, 22, 204, 218, 141, 167, 75, 186],
+};
+pub const SensorManager: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2007091239, data2: 64722, data3: 18057, data4: [137, 21, 157, 97, 60, 197, 250, 62] };
 #[repr(transparent)]
 pub struct SensorState(pub i32);
 pub const SENSOR_STATE_MIN: SensorState = SensorState(0i32);
@@ -1780,6 +1984,12 @@ pub const SENSOR_STATE_INITIALIZING: SensorState = SensorState(3i32);
 pub const SENSOR_STATE_ACCESS_DENIED: SensorState = SensorState(4i32);
 pub const SENSOR_STATE_ERROR: SensorState = SensorState(5i32);
 pub const SENSOR_STATE_MAX: SensorState = SensorState(5i32);
+impl ::core::marker::Copy for SensorState {}
+impl ::core::clone::Clone for SensorState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SimpleDeviceOrientation(pub i32);
 pub const SIMPLE_DEVICE_ORIENTATION_NOT_ROTATED: SimpleDeviceOrientation = SimpleDeviceOrientation(0i32);
@@ -1788,5 +1998,21 @@ pub const SIMPLE_DEVICE_ORIENTATION_ROTATED_180: SimpleDeviceOrientation = Simpl
 pub const SIMPLE_DEVICE_ORIENTATION_ROTATED_270: SimpleDeviceOrientation = SimpleDeviceOrientation(3i32);
 pub const SIMPLE_DEVICE_ORIENTATION_ROTATED_FACE_UP: SimpleDeviceOrientation = SimpleDeviceOrientation(4i32);
 pub const SIMPLE_DEVICE_ORIENTATION_ROTATED_FACE_DOWN: SimpleDeviceOrientation = SimpleDeviceOrientation(5i32);
+impl ::core::marker::Copy for SimpleDeviceOrientation {}
+impl ::core::clone::Clone for SimpleDeviceOrientation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct VEC3D(i32);
+pub struct VEC3D {
+    pub X: f32,
+    pub Y: f32,
+    pub Z: f32,
+}
+impl ::core::marker::Copy for VEC3D {}
+impl ::core::clone::Clone for VEC3D {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

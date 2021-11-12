@@ -54,22 +54,72 @@ pub const DMOCATEGORY_VIDEO_ENCODER: ::windows_sys::core::GUID = ::windows_sys::
 #[repr(transparent)]
 pub struct DMO_ENUM_FLAGS(pub i32);
 pub const DMO_ENUMF_INCLUDE_KEYED: DMO_ENUM_FLAGS = DMO_ENUM_FLAGS(1i32);
+impl ::core::marker::Copy for DMO_ENUM_FLAGS {}
+impl ::core::clone::Clone for DMO_ENUM_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DMO_E_INVALIDSTREAMINDEX: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220991i32 as _);
 pub const DMO_E_INVALIDTYPE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220990i32 as _);
 pub const DMO_E_NOTACCEPTING: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220988i32 as _);
 pub const DMO_E_NO_MORE_ITEMS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220986i32 as _);
 pub const DMO_E_TYPE_NOT_ACCEPTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220987i32 as _);
 pub const DMO_E_TYPE_NOT_SET: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220989i32 as _);
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+pub struct DMO_MEDIA_TYPE {
+    pub majortype: ::windows_sys::core::GUID,
+    pub subtype: ::windows_sys::core::GUID,
+    pub bFixedSizeSamples: super::super::Foundation::BOOL,
+    pub bTemporalCompression: super::super::Foundation::BOOL,
+    pub lSampleSize: u32,
+    pub formattype: ::windows_sys::core::GUID,
+    pub pUnk: ::core::option::Option<::windows_sys::core::IUnknown>,
+    pub cbFormat: u32,
+    pub pbFormat: *mut u8,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DMO_MEDIA_TYPE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DMO_MEDIA_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DMO_MEDIA_TYPE(i32);
+pub struct DMO_OUTPUT_DATA_BUFFER {
+    pub pBuffer: ::core::option::Option<IMediaBuffer>,
+    pub dwStatus: u32,
+    pub rtTimestamp: i64,
+    pub rtTimelength: i64,
+}
+impl ::core::marker::Copy for DMO_OUTPUT_DATA_BUFFER {}
+impl ::core::clone::Clone for DMO_OUTPUT_DATA_BUFFER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DMO_OUTPUT_DATA_BUFFER(i32);
-#[repr(C)]
-pub struct DMO_PARTIAL_MEDIATYPE(i32);
+pub struct DMO_PARTIAL_MEDIATYPE {
+    pub r#type: ::windows_sys::core::GUID,
+    pub subtype: ::windows_sys::core::GUID,
+}
+impl ::core::marker::Copy for DMO_PARTIAL_MEDIATYPE {}
+impl ::core::clone::Clone for DMO_PARTIAL_MEDIATYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DMO_REGISTER_FLAGS(pub i32);
 pub const DMO_REGISTERF_IS_KEYED: DMO_REGISTER_FLAGS = DMO_REGISTER_FLAGS(1i32);
+impl ::core::marker::Copy for DMO_REGISTER_FLAGS {}
+impl ::core::clone::Clone for DMO_REGISTER_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDMOQualityControl(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -86,21 +136,45 @@ pub struct IMediaObjectInPlace(pub *mut ::core::ffi::c_void);
 pub struct _DMO_INPLACE_PROCESS_FLAGS(pub i32);
 pub const DMO_INPLACE_NORMAL: _DMO_INPLACE_PROCESS_FLAGS = _DMO_INPLACE_PROCESS_FLAGS(0i32);
 pub const DMO_INPLACE_ZERO: _DMO_INPLACE_PROCESS_FLAGS = _DMO_INPLACE_PROCESS_FLAGS(1i32);
+impl ::core::marker::Copy for _DMO_INPLACE_PROCESS_FLAGS {}
+impl ::core::clone::Clone for _DMO_INPLACE_PROCESS_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct _DMO_INPUT_DATA_BUFFER_FLAGS(pub i32);
 pub const DMO_INPUT_DATA_BUFFERF_SYNCPOINT: _DMO_INPUT_DATA_BUFFER_FLAGS = _DMO_INPUT_DATA_BUFFER_FLAGS(1i32);
 pub const DMO_INPUT_DATA_BUFFERF_TIME: _DMO_INPUT_DATA_BUFFER_FLAGS = _DMO_INPUT_DATA_BUFFER_FLAGS(2i32);
 pub const DMO_INPUT_DATA_BUFFERF_TIMELENGTH: _DMO_INPUT_DATA_BUFFER_FLAGS = _DMO_INPUT_DATA_BUFFER_FLAGS(4i32);
 pub const DMO_INPUT_DATA_BUFFERF_DISCONTINUITY: _DMO_INPUT_DATA_BUFFER_FLAGS = _DMO_INPUT_DATA_BUFFER_FLAGS(8i32);
+impl ::core::marker::Copy for _DMO_INPUT_DATA_BUFFER_FLAGS {}
+impl ::core::clone::Clone for _DMO_INPUT_DATA_BUFFER_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct _DMO_INPUT_STATUS_FLAGS(pub i32);
 pub const DMO_INPUT_STATUSF_ACCEPT_DATA: _DMO_INPUT_STATUS_FLAGS = _DMO_INPUT_STATUS_FLAGS(1i32);
+impl ::core::marker::Copy for _DMO_INPUT_STATUS_FLAGS {}
+impl ::core::clone::Clone for _DMO_INPUT_STATUS_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct _DMO_INPUT_STREAM_INFO_FLAGS(pub i32);
 pub const DMO_INPUT_STREAMF_WHOLE_SAMPLES: _DMO_INPUT_STREAM_INFO_FLAGS = _DMO_INPUT_STREAM_INFO_FLAGS(1i32);
 pub const DMO_INPUT_STREAMF_SINGLE_SAMPLE_PER_BUFFER: _DMO_INPUT_STREAM_INFO_FLAGS = _DMO_INPUT_STREAM_INFO_FLAGS(2i32);
 pub const DMO_INPUT_STREAMF_FIXED_SAMPLE_SIZE: _DMO_INPUT_STREAM_INFO_FLAGS = _DMO_INPUT_STREAM_INFO_FLAGS(4i32);
 pub const DMO_INPUT_STREAMF_HOLDS_BUFFERS: _DMO_INPUT_STREAM_INFO_FLAGS = _DMO_INPUT_STREAM_INFO_FLAGS(8i32);
+impl ::core::marker::Copy for _DMO_INPUT_STREAM_INFO_FLAGS {}
+impl ::core::clone::Clone for _DMO_INPUT_STREAM_INFO_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct _DMO_OUTPUT_DATA_BUFFER_FLAGS(pub i32);
 pub const DMO_OUTPUT_DATA_BUFFERF_SYNCPOINT: _DMO_OUTPUT_DATA_BUFFER_FLAGS = _DMO_OUTPUT_DATA_BUFFER_FLAGS(1i32);
@@ -108,6 +182,12 @@ pub const DMO_OUTPUT_DATA_BUFFERF_TIME: _DMO_OUTPUT_DATA_BUFFER_FLAGS = _DMO_OUT
 pub const DMO_OUTPUT_DATA_BUFFERF_TIMELENGTH: _DMO_OUTPUT_DATA_BUFFER_FLAGS = _DMO_OUTPUT_DATA_BUFFER_FLAGS(4i32);
 pub const DMO_OUTPUT_DATA_BUFFERF_DISCONTINUITY: _DMO_OUTPUT_DATA_BUFFER_FLAGS = _DMO_OUTPUT_DATA_BUFFER_FLAGS(8i32);
 pub const DMO_OUTPUT_DATA_BUFFERF_INCOMPLETE: _DMO_OUTPUT_DATA_BUFFER_FLAGS = _DMO_OUTPUT_DATA_BUFFER_FLAGS(16777216i32);
+impl ::core::marker::Copy for _DMO_OUTPUT_DATA_BUFFER_FLAGS {}
+impl ::core::clone::Clone for _DMO_OUTPUT_DATA_BUFFER_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct _DMO_OUTPUT_STREAM_INFO_FLAGS(pub i32);
 pub const DMO_OUTPUT_STREAMF_WHOLE_SAMPLES: _DMO_OUTPUT_STREAM_INFO_FLAGS = _DMO_OUTPUT_STREAM_INFO_FLAGS(1i32);
@@ -115,16 +195,46 @@ pub const DMO_OUTPUT_STREAMF_SINGLE_SAMPLE_PER_BUFFER: _DMO_OUTPUT_STREAM_INFO_F
 pub const DMO_OUTPUT_STREAMF_FIXED_SAMPLE_SIZE: _DMO_OUTPUT_STREAM_INFO_FLAGS = _DMO_OUTPUT_STREAM_INFO_FLAGS(4i32);
 pub const DMO_OUTPUT_STREAMF_DISCARDABLE: _DMO_OUTPUT_STREAM_INFO_FLAGS = _DMO_OUTPUT_STREAM_INFO_FLAGS(8i32);
 pub const DMO_OUTPUT_STREAMF_OPTIONAL: _DMO_OUTPUT_STREAM_INFO_FLAGS = _DMO_OUTPUT_STREAM_INFO_FLAGS(16i32);
+impl ::core::marker::Copy for _DMO_OUTPUT_STREAM_INFO_FLAGS {}
+impl ::core::clone::Clone for _DMO_OUTPUT_STREAM_INFO_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct _DMO_PROCESS_OUTPUT_FLAGS(pub i32);
 pub const DMO_PROCESS_OUTPUT_DISCARD_WHEN_NO_BUFFER: _DMO_PROCESS_OUTPUT_FLAGS = _DMO_PROCESS_OUTPUT_FLAGS(1i32);
+impl ::core::marker::Copy for _DMO_PROCESS_OUTPUT_FLAGS {}
+impl ::core::clone::Clone for _DMO_PROCESS_OUTPUT_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct _DMO_QUALITY_STATUS_FLAGS(pub i32);
 pub const DMO_QUALITY_STATUS_ENABLED: _DMO_QUALITY_STATUS_FLAGS = _DMO_QUALITY_STATUS_FLAGS(1i32);
+impl ::core::marker::Copy for _DMO_QUALITY_STATUS_FLAGS {}
+impl ::core::clone::Clone for _DMO_QUALITY_STATUS_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct _DMO_SET_TYPE_FLAGS(pub i32);
 pub const DMO_SET_TYPEF_TEST_ONLY: _DMO_SET_TYPE_FLAGS = _DMO_SET_TYPE_FLAGS(1i32);
 pub const DMO_SET_TYPEF_CLEAR: _DMO_SET_TYPE_FLAGS = _DMO_SET_TYPE_FLAGS(2i32);
+impl ::core::marker::Copy for _DMO_SET_TYPE_FLAGS {}
+impl ::core::clone::Clone for _DMO_SET_TYPE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct _DMO_VIDEO_OUTPUT_STREAM_FLAGS(pub i32);
 pub const DMO_VOSF_NEEDS_PREVIOUS_SAMPLE: _DMO_VIDEO_OUTPUT_STREAM_FLAGS = _DMO_VIDEO_OUTPUT_STREAM_FLAGS(1i32);
+impl ::core::marker::Copy for _DMO_VIDEO_OUTPUT_STREAM_FLAGS {}
+impl ::core::clone::Clone for _DMO_VIDEO_OUTPUT_STREAM_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

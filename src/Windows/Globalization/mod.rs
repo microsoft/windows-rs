@@ -2141,9 +2141,6 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a G
 }
 unsafe impl ::core::marker::Send for GeographicRegion {}
 unsafe impl ::core::marker::Sync for GeographicRegion {}
-#[repr(C)]
-#[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
-pub struct GlobalizationJapanesePhoneticAnalyzerContract(pub u8);
 #[repr(transparent)]
 #[doc(hidden)]
 pub struct IApplicationLanguagesStatics(pub ::windows::core::IInspectable);

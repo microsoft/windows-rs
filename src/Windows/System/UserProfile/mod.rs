@@ -1279,12 +1279,6 @@ impl UserInformation {
 impl ::windows::core::RuntimeName for UserInformation {
     const NAME: &'static str = "Windows.System.UserProfile.UserInformation";
 }
-#[repr(C)]
-#[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
-pub struct UserProfileContract(pub u8);
-#[repr(C)]
-#[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
-pub struct UserProfileLockScreenContract(pub u8);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct UserProfilePersonalizationSettings(pub ::windows::core::IInspectable);

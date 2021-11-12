@@ -17,6 +17,12 @@ impl HttpCompletionOption {
     pub const ResponseContentRead: Self = Self(0i32);
     pub const ResponseHeadersRead: Self = Self(1i32);
 }
+impl ::core::marker::Copy for HttpCompletionOption {}
+impl ::core::clone::Clone for HttpCompletionOption {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct HttpCookie(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -37,9 +43,24 @@ pub struct HttpMethod(pub *mut ::core::ffi::c_void);
 pub struct HttpMultipartContent(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct HttpMultipartFormDataContent(pub *mut ::core::ffi::c_void);
-#[cfg(feature = "Foundation")]
 #[repr(C)]
-pub struct HttpProgress(i32);
+#[cfg(feature = "Foundation")]
+pub struct HttpProgress {
+    pub Stage: HttpProgressStage,
+    pub BytesSent: u64,
+    pub TotalBytesToSend: ::core::option::Option<super::super::Foundation::IReference<u64>>,
+    pub BytesReceived: u64,
+    pub TotalBytesToReceive: ::core::option::Option<super::super::Foundation::IReference<u64>>,
+    pub Retries: u32,
+}
+#[cfg(feature = "Foundation")]
+impl ::core::marker::Copy for HttpProgress {}
+#[cfg(feature = "Foundation")]
+impl ::core::clone::Clone for HttpProgress {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct HttpProgressStage(pub i32);
 impl HttpProgressStage {
@@ -54,6 +75,12 @@ impl HttpProgressStage {
     pub const ReceivingHeaders: Self = Self(80i32);
     pub const ReceivingContent: Self = Self(90i32);
 }
+impl ::core::marker::Copy for HttpProgressStage {}
+impl ::core::clone::Clone for HttpProgressStage {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct HttpRequestMessage(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -66,6 +93,12 @@ impl HttpResponseMessageSource {
     pub const None: Self = Self(0i32);
     pub const Cache: Self = Self(1i32);
     pub const Network: Self = Self(2i32);
+}
+impl ::core::marker::Copy for HttpResponseMessageSource {}
+impl ::core::clone::Clone for HttpResponseMessageSource {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct HttpStatusCode(pub i32);
@@ -129,6 +162,12 @@ impl HttpStatusCode {
     pub const NotExtended: Self = Self(510i32);
     pub const NetworkAuthenticationRequired: Self = Self(511i32);
 }
+impl ::core::marker::Copy for HttpStatusCode {}
+impl ::core::clone::Clone for HttpStatusCode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct HttpStreamContent(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -142,6 +181,12 @@ impl HttpVersion {
     pub const Http10: Self = Self(1i32);
     pub const Http11: Self = Self(2i32);
     pub const Http20: Self = Self(3i32);
+}
+impl ::core::marker::Copy for HttpVersion {}
+impl ::core::clone::Clone for HttpVersion {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct IHttpBufferContentFactory(pub *mut ::core::ffi::c_void);

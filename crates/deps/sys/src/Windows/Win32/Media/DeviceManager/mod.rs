@@ -131,22 +131,61 @@ pub const MDSP_SEEK_BOF: u32 = 1u32;
 pub const MDSP_SEEK_CUR: u32 = 2u32;
 pub const MDSP_SEEK_EOF: u32 = 4u32;
 pub const MDSP_WRITE: u32 = 2u32;
-#[repr(C)]
-pub struct MTP_COMMAND_DATA_IN(i32);
-#[repr(C)]
-pub struct MTP_COMMAND_DATA_OUT(i32);
+#[repr(C, packed(1))]
+pub struct MTP_COMMAND_DATA_IN {
+    pub OpCode: u16,
+    pub NumParams: u32,
+    pub Params: [u32; 5],
+    pub NextPhase: u32,
+    pub CommandWriteDataSize: u32,
+    pub CommandWriteData: [u8; 1],
+}
+impl ::core::marker::Copy for MTP_COMMAND_DATA_IN {}
+impl ::core::clone::Clone for MTP_COMMAND_DATA_IN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub struct MTP_COMMAND_DATA_OUT {
+    pub ResponseCode: u16,
+    pub NumParams: u32,
+    pub Params: [u32; 5],
+    pub CommandReadDataSize: u32,
+    pub CommandReadData: [u8; 1],
+}
+impl ::core::marker::Copy for MTP_COMMAND_DATA_OUT {}
+impl ::core::clone::Clone for MTP_COMMAND_DATA_OUT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MTP_COMMAND_MAX_PARAMS: u32 = 5u32;
 pub const MTP_NEXTPHASE_NO_DATA: u32 = 3u32;
 pub const MTP_NEXTPHASE_READ_DATA: u32 = 1u32;
 pub const MTP_NEXTPHASE_WRITE_DATA: u32 = 2u32;
 pub const MTP_RESPONSE_MAX_PARAMS: u32 = 5u32;
 pub const MTP_RESPONSE_OK: u16 = 8193u16;
+pub const MediaDevMgr: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 632991105, data2: 13664, data3: 4563, data4: [132, 113, 0, 192, 79, 121, 219, 192] };
+pub const MediaDevMgrClassFactory: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1342442525,
+    data2: 48575,
+    data3: 18724,
+    data4: [184, 115, 241, 77, 108, 91, 253, 102],
+};
 #[repr(C)]
-pub struct MediaDevMgr(i32);
-#[repr(C)]
-pub struct MediaDevMgrClassFactory(i32);
-#[repr(C)]
-pub struct OPAQUECOMMAND(i32);
+pub struct OPAQUECOMMAND {
+    pub guidCommand: ::windows_sys::core::GUID,
+    pub dwDataLen: u32,
+    pub pData: *mut u8,
+    pub abMAC: [u8; 20],
+}
+impl ::core::marker::Copy for OPAQUECOMMAND {}
+impl ::core::clone::Clone for OPAQUECOMMAND {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const RSA_KEY_LEN: u32 = 64u32;
 pub const SAC_CERT_V1: u32 = 2u32;
 pub const SAC_CERT_X509: u32 = 1u32;
@@ -164,35 +203,174 @@ pub const SCP_EVENTID_NEEDTOINDIV: ::windows_sys::core::GUID = ::windows_sys::GU
 };
 pub const SCP_PARAMID_DRMVERSION: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1104155997, data2: 31943, data3: 16919, data4: [173, 169, 0, 80, 116, 98, 77, 164] };
 #[repr(C)]
-pub struct WMDMDATETIME(i32);
+pub struct WMDMDATETIME {
+    pub wYear: u16,
+    pub wMonth: u16,
+    pub wDay: u16,
+    pub wHour: u16,
+    pub wMinute: u16,
+    pub wSecond: u16,
+}
+impl ::core::marker::Copy for WMDMDATETIME {}
+impl ::core::clone::Clone for WMDMDATETIME {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WMDMDetermineMaxPropStringLen(i32);
+pub union WMDMDetermineMaxPropStringLen {
+    pub sz001: [u16; 27],
+    pub sz002: [u16; 31],
+    pub sz003: [u16; 14],
+    pub sz004: [u16; 16],
+    pub sz005: [u16; 22],
+    pub sz006: [u16; 14],
+    pub sz007: [u16; 20],
+    pub sz008: [u16; 20],
+    pub sz009: [u16; 22],
+    pub sz010: [u16; 11],
+    pub sz011: [u16; 12],
+    pub sz012: [u16; 17],
+    pub sz013: [u16; 17],
+    pub sz014: [u16; 16],
+    pub sz015: [u16; 17],
+    pub sz016: [u16; 11],
+    pub sz017: [u16; 11],
+    pub sz018: [u16; 15],
+    pub sz019: [u16; 22],
+    pub sz020: [u16; 20],
+    pub sz021: [u16; 22],
+    pub sz022: [u16; 21],
+    pub sz023: [u16; 24],
+    pub sz024: [u16; 20],
+    pub sz025: [u16; 10],
+    pub sz026: [u16; 14],
+    pub sz027: [u16; 11],
+    pub sz028: [u16; 11],
+    pub sz029: [u16; 13],
+    pub sz030: [u16; 17],
+    pub sz031: [u16; 16],
+    pub sz032: [u16; 17],
+    pub sz033: [u16; 20],
+    pub sz034: [u16; 19],
+    pub sz035: [u16; 18],
+    pub sz036: [u16; 18],
+    pub sz037: [u16; 15],
+    pub sz041: [u16; 14],
+    pub sz043: [u16; 22],
+    pub sz044: [u16; 16],
+    pub sz045: [u16; 20],
+    pub sz046: [u16; 14],
+    pub sz047: [u16; 14],
+    pub sz048: [u16; 12],
+    pub sz049: [u16; 25],
+    pub sz050: [u16; 26],
+    pub sz051: [u16; 25],
+    pub sz052: [u16; 16],
+    pub sz053: [u16; 24],
+    pub sz054: [u16; 15],
+    pub sz055: [u16; 21],
+    pub sz056: [u16; 16],
+    pub sz057: [u16; 22],
+    pub sz058: [u16; 14],
+    pub sz059: [u16; 25],
+    pub sz060: [u16; 18],
+    pub sz061: [u16; 22],
+    pub sz062: [u16; 26],
+    pub sz063: [u16; 36],
+    pub sz064: [u16; 23],
+    pub sz065: [u16; 12],
+    pub sz066: [u16; 24],
+    pub sz067: [u16; 11],
+    pub sz068: [u16; 12],
+    pub sz069: [u16; 14],
+    pub sz070: [u16; 20],
+    pub sz071: [u16; 15],
+    pub sz072: [u16; 14],
+    pub sz073: [u16; 31],
+    pub sz074: [u16; 24],
+    pub sz075: [u16; 22],
+    pub sz076: [u16; 24],
+    pub sz077: [u16; 21],
+    pub sz078: [u16; 27],
+    pub sz079: [u16; 27],
+    pub sz080: [u16; 20],
+    pub sz081: [u16; 33],
+    pub sz082: [u16; 21],
+    pub sz083: [u16; 32],
+    pub sz084: [u16; 26],
+    pub sz085: [u16; 18],
+    pub sz086: [u16; 30],
+}
+impl ::core::marker::Copy for WMDMDetermineMaxPropStringLen {}
+impl ::core::clone::Clone for WMDMDetermineMaxPropStringLen {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+pub const WMDMDevice: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2155560159, data2: 13690, data3: 4563, data4: [132, 113, 0, 192, 79, 121, 219, 192] };
+pub const WMDMDeviceEnum: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1125004719, data2: 14705, data3: 4563, data4: [132, 116, 0, 192, 79, 121, 219, 192] };
 #[repr(C)]
-pub struct WMDMDevice(i32);
-#[repr(C)]
-pub struct WMDMDeviceEnum(i32);
-#[repr(C)]
-pub struct WMDMID(i32);
+pub struct WMDMID {
+    pub cbSize: u32,
+    pub dwVendorID: u32,
+    pub pID: [u8; 128],
+    pub SerialNumberLength: u32,
+}
+impl ::core::marker::Copy for WMDMID {}
+impl ::core::clone::Clone for WMDMID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WMDMID_LENGTH: u32 = 128u32;
-#[repr(C)]
-pub struct WMDMLogger(i32);
+pub const WMDMLogger: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 285880834, data2: 23161, data3: 4563, data4: [141, 120, 68, 69, 83, 84, 0, 0] };
 #[repr(transparent)]
 pub struct WMDMMessage(pub i32);
 pub const WMDM_MSG_DEVICE_ARRIVAL: WMDMMessage = WMDMMessage(0i32);
 pub const WMDM_MSG_DEVICE_REMOVAL: WMDMMessage = WMDMMessage(1i32);
 pub const WMDM_MSG_MEDIA_ARRIVAL: WMDMMessage = WMDMMessage(2i32);
 pub const WMDM_MSG_MEDIA_REMOVAL: WMDMMessage = WMDMMessage(3i32);
+impl ::core::marker::Copy for WMDMMessage {}
+impl ::core::clone::Clone for WMDMMessage {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+pub struct WMDMMetadataView {
+    pub pwszViewName: super::super::Foundation::PWSTR,
+    pub nDepth: u32,
+    pub ppwszTags: *mut *mut u16,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WMDMMetadataView {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WMDMMetadataView {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WMDMMetadataView(i32);
-#[repr(C)]
-pub struct WMDMRIGHTS(i32);
-#[repr(C)]
-pub struct WMDMStorage(i32);
-#[repr(C)]
-pub struct WMDMStorageEnum(i32);
-#[repr(C)]
-pub struct WMDMStorageGlobal(i32);
+pub struct WMDMRIGHTS {
+    pub cbSize: u32,
+    pub dwContentType: u32,
+    pub fuFlags: u32,
+    pub fuRights: u32,
+    pub dwAppSec: u32,
+    pub dwPlaybackCount: u32,
+    pub ExpirationDate: WMDMDATETIME,
+}
+impl ::core::marker::Copy for WMDMRIGHTS {}
+impl ::core::clone::Clone for WMDMRIGHTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+pub const WMDMStorage: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2155560160, data2: 13690, data3: 4563, data4: [132, 113, 0, 192, 79, 121, 219, 192] };
+pub const WMDMStorageEnum: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3946846779, data2: 15095, data3: 4563, data4: [132, 116, 0, 192, 79, 121, 219, 192] };
+pub const WMDMStorageGlobal: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2155560161, data2: 13690, data3: 4563, data4: [132, 113, 0, 192, 79, 121, 219, 192] };
 pub const WMDM_APP_REVOKED: u32 = 2u32;
 pub const WMDM_CONTENT_FILE: u32 = 4u32;
 pub const WMDM_CONTENT_FOLDER: u32 = 8u32;
@@ -235,6 +413,12 @@ pub struct WMDM_ENUM_PROP_VALID_VALUES_FORM(pub i32);
 pub const WMDM_ENUM_PROP_VALID_VALUES_ANY: WMDM_ENUM_PROP_VALID_VALUES_FORM = WMDM_ENUM_PROP_VALID_VALUES_FORM(0i32);
 pub const WMDM_ENUM_PROP_VALID_VALUES_RANGE: WMDM_ENUM_PROP_VALID_VALUES_FORM = WMDM_ENUM_PROP_VALID_VALUES_FORM(1i32);
 pub const WMDM_ENUM_PROP_VALID_VALUES_ENUM: WMDM_ENUM_PROP_VALID_VALUES_FORM = WMDM_ENUM_PROP_VALID_VALUES_FORM(2i32);
+impl ::core::marker::Copy for WMDM_ENUM_PROP_VALID_VALUES_FORM {}
+impl ::core::clone::Clone for WMDM_ENUM_PROP_VALID_VALUES_FORM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WMDM_E_BUFFERTOOSMALL: i32 = -2147201016i32;
 pub const WMDM_E_BUSY: i32 = -2147201024i32;
 pub const WMDM_E_CALL_OUT_OF_SEQUENCE: i32 = -2147201017i32;
@@ -277,6 +461,12 @@ pub const WMDM_FILE_CREATE_OVERWRITE: u32 = 1048576u32;
 pub struct WMDM_FIND_SCOPE(pub i32);
 pub const WMDM_FIND_SCOPE_GLOBAL: WMDM_FIND_SCOPE = WMDM_FIND_SCOPE(0i32);
 pub const WMDM_FIND_SCOPE_IMMEDIATE_CHILDREN: WMDM_FIND_SCOPE = WMDM_FIND_SCOPE(1i32);
+impl ::core::marker::Copy for WMDM_FIND_SCOPE {}
+impl ::core::clone::Clone for WMDM_FIND_SCOPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WMDM_FORMATCODE(pub i32);
 pub const WMDM_FORMATCODE_NOTUSED: WMDM_FORMATCODE = WMDM_FORMATCODE(0i32);
@@ -374,9 +564,26 @@ pub const WMDM_FORMATCODE_M4A: WMDM_FORMATCODE = WMDM_FORMATCODE(1297101889i32);
 pub const WMDM_FORMATCODE_3GPA: WMDM_FORMATCODE = WMDM_FORMATCODE(860311617i32);
 pub const WMDM_FORMATCODE_3G2A: WMDM_FORMATCODE = WMDM_FORMATCODE(860303937i32);
 pub const WMDM_FORMATCODE_SECTION: WMDM_FORMATCODE = WMDM_FORMATCODE(48770i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+impl ::core::marker::Copy for WMDM_FORMATCODE {}
+impl ::core::clone::Clone for WMDM_FORMATCODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WMDM_FORMAT_CAPABILITY(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+pub struct WMDM_FORMAT_CAPABILITY {
+    pub nPropConfig: u32,
+    pub pConfigs: *mut WMDM_PROP_CONFIG,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+impl ::core::marker::Copy for WMDM_FORMAT_CAPABILITY {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+impl ::core::clone::Clone for WMDM_FORMAT_CAPABILITY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WMDM_GET_FORMAT_SUPPORT_AUDIO: u32 = 1u32;
 pub const WMDM_GET_FORMAT_SUPPORT_FILE: u32 = 4u32;
 pub const WMDM_GET_FORMAT_SUPPORT_VIDEO: u32 = 2u32;
@@ -397,18 +604,79 @@ pub const WMDM_POWER_CAP_EXTERNAL: u32 = 2u32;
 pub const WMDM_POWER_IS_BATTERY: u32 = 4u32;
 pub const WMDM_POWER_IS_EXTERNAL: u32 = 8u32;
 pub const WMDM_POWER_PERCENT_AVAILABLE: u32 = 16u32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 #[repr(C)]
-pub struct WMDM_PROP_CONFIG(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-#[repr(C)]
-pub struct WMDM_PROP_DESC(i32);
+pub struct WMDM_PROP_CONFIG {
+    pub nPreference: u32,
+    pub nPropDesc: u32,
+    pub pPropDesc: *mut WMDM_PROP_DESC,
+}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-#[repr(C)]
-pub struct WMDM_PROP_VALUES_ENUM(i32);
+impl ::core::marker::Copy for WMDM_PROP_CONFIG {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+impl ::core::clone::Clone for WMDM_PROP_CONFIG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WMDM_PROP_VALUES_RANGE(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+pub struct WMDM_PROP_DESC {
+    pub pwszPropName: super::super::Foundation::PWSTR,
+    pub ValidValuesForm: WMDM_ENUM_PROP_VALID_VALUES_FORM,
+    pub ValidValues: WMDM_PROP_DESC_0,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+impl ::core::marker::Copy for WMDM_PROP_DESC {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+impl ::core::clone::Clone for WMDM_PROP_DESC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+pub union WMDM_PROP_DESC_0 {
+    pub ValidValuesRange: WMDM_PROP_VALUES_RANGE,
+    pub EnumeratedValidValues: WMDM_PROP_VALUES_ENUM,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+impl ::core::marker::Copy for WMDM_PROP_DESC_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+impl ::core::clone::Clone for WMDM_PROP_DESC_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+pub struct WMDM_PROP_VALUES_ENUM {
+    pub cEnumValues: u32,
+    pub pValues: *mut super::super::System::Com::StructuredStorage::PROPVARIANT,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+impl ::core::marker::Copy for WMDM_PROP_VALUES_ENUM {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+impl ::core::clone::Clone for WMDM_PROP_VALUES_ENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+pub struct WMDM_PROP_VALUES_RANGE {
+    pub rangeMin: super::super::System::Com::StructuredStorage::PROPVARIANT,
+    pub rangeMax: super::super::System::Com::StructuredStorage::PROPVARIANT,
+    pub rangeStep: super::super::System::Com::StructuredStorage::PROPVARIANT,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+impl ::core::marker::Copy for WMDM_PROP_VALUES_RANGE {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+impl ::core::clone::Clone for WMDM_PROP_VALUES_RANGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WMDM_RIGHTS_COPY_TO_CD: u32 = 8u32;
 pub const WMDM_RIGHTS_COPY_TO_NON_SDMI_DEVICE: u32 = 2u32;
 pub const WMDM_RIGHTS_COPY_TO_SDMI_DEVICE: u32 = 16u32;
@@ -448,6 +716,12 @@ pub const WMDM_SESSION_TRANSFER_TO_DEVICE: WMDM_SESSION_TYPE = WMDM_SESSION_TYPE
 pub const WMDM_SESSION_TRANSFER_FROM_DEVICE: WMDM_SESSION_TYPE = WMDM_SESSION_TYPE(16i32);
 pub const WMDM_SESSION_DELETE: WMDM_SESSION_TYPE = WMDM_SESSION_TYPE(256i32);
 pub const WMDM_SESSION_CUSTOM: WMDM_SESSION_TYPE = WMDM_SESSION_TYPE(4096i32);
+impl ::core::marker::Copy for WMDM_SESSION_TYPE {}
+impl ::core::clone::Clone for WMDM_SESSION_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WMDM_SP_REVOKED: u32 = 4u32;
 pub const WMDM_STATUS_BUSY: u32 = 2u32;
 pub const WMDM_STATUS_DEVICECONTROL_PAUSED: u32 = 32u32;
@@ -491,6 +765,12 @@ pub struct WMDM_STORAGE_ENUM_MODE(pub i32);
 pub const ENUM_MODE_RAW: WMDM_STORAGE_ENUM_MODE = WMDM_STORAGE_ENUM_MODE(0i32);
 pub const ENUM_MODE_USE_DEVICE_PREF: WMDM_STORAGE_ENUM_MODE = WMDM_STORAGE_ENUM_MODE(1i32);
 pub const ENUM_MODE_METADATA_VIEWS: WMDM_STORAGE_ENUM_MODE = WMDM_STORAGE_ENUM_MODE(2i32);
+impl ::core::marker::Copy for WMDM_STORAGE_ENUM_MODE {}
+impl ::core::clone::Clone for WMDM_STORAGE_ENUM_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WMDM_STORAGE_IS_DEFAULT: u32 = 134217728u32;
 pub const WMDM_S_NOT_ALL_PROPERTIES_APPLIED: i32 = 282625i32;
 pub const WMDM_S_NOT_ALL_PROPERTIES_RETRIEVED: i32 = 282626i32;
@@ -504,20 +784,95 @@ pub const WMDM_TYPE_QWORD: WMDM_TAG_DATATYPE = WMDM_TAG_DATATYPE(4i32);
 pub const WMDM_TYPE_WORD: WMDM_TAG_DATATYPE = WMDM_TAG_DATATYPE(5i32);
 pub const WMDM_TYPE_GUID: WMDM_TAG_DATATYPE = WMDM_TAG_DATATYPE(6i32);
 pub const WMDM_TYPE_DATE: WMDM_TAG_DATATYPE = WMDM_TAG_DATATYPE(7i32);
+impl ::core::marker::Copy for WMDM_TAG_DATATYPE {}
+impl ::core::clone::Clone for WMDM_TAG_DATATYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WMDM_WMDM_REVOKED: u32 = 1u32;
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct WMFILECAPABILITIES(i32);
-#[repr(C)]
-pub struct _BITMAPINFOHEADER(i32);
+pub struct WMFILECAPABILITIES {
+    pub pwszMimeType: super::super::Foundation::PWSTR,
+    pub dwReserved: u32,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct _VIDEOINFOHEADER(i32);
-#[repr(C)]
-pub struct _WAVEFORMATEX(i32);
+impl ::core::marker::Copy for WMFILECAPABILITIES {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WMFILECAPABILITIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct __MACINFO(i32);
+pub struct _BITMAPINFOHEADER {
+    pub biSize: u32,
+    pub biWidth: i32,
+    pub biHeight: i32,
+    pub biPlanes: u16,
+    pub biBitCount: u16,
+    pub biCompression: u32,
+    pub biSizeImage: u32,
+    pub biXPelsPerMeter: i32,
+    pub biYPelsPerMeter: i32,
+    pub biClrUsed: u32,
+    pub biClrImportant: u32,
+}
+impl ::core::marker::Copy for _BITMAPINFOHEADER {}
+impl ::core::clone::Clone for _BITMAPINFOHEADER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct _VIDEOINFOHEADER {
+    pub rcSource: super::super::Foundation::RECT,
+    pub rcTarget: super::super::Foundation::RECT,
+    pub dwBitRate: u32,
+    pub dwBitErrorRate: u32,
+    pub AvgTimePerFrame: i64,
+    pub bmiHeader: _BITMAPINFOHEADER,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for _VIDEOINFOHEADER {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for _VIDEOINFOHEADER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct _WAVEFORMATEX {
+    pub wFormatTag: u16,
+    pub nChannels: u16,
+    pub nSamplesPerSec: u32,
+    pub nAvgBytesPerSec: u32,
+    pub nBlockAlign: u16,
+    pub wBitsPerSample: u16,
+    pub cbSize: u16,
+}
+impl ::core::marker::Copy for _WAVEFORMATEX {}
+impl ::core::clone::Clone for _WAVEFORMATEX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct __MACINFO {
+    pub fUsed: super::super::Foundation::BOOL,
+    pub abMacState: [u8; 36],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for __MACINFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for __MACINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const g_wszAudioWAVECodec: &'static str = "WMDM/AudioWAVECodec";
 pub const g_wszVideoFourCCCodec: &'static str = "WMDM/VideoFourCCCodec";
 pub const g_wszWMDMAlbumArt: &'static str = "WMDM/AlbumArt";

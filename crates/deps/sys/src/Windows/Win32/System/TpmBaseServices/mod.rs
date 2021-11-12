@@ -24,6 +24,12 @@ pub const TBS_COMMAND_LOCALITY_ONE: TBS_COMMAND_LOCALITY = TBS_COMMAND_LOCALITY(
 pub const TBS_COMMAND_LOCALITY_TWO: TBS_COMMAND_LOCALITY = TBS_COMMAND_LOCALITY(2u32);
 pub const TBS_COMMAND_LOCALITY_THREE: TBS_COMMAND_LOCALITY = TBS_COMMAND_LOCALITY(3u32);
 pub const TBS_COMMAND_LOCALITY_FOUR: TBS_COMMAND_LOCALITY = TBS_COMMAND_LOCALITY(4u32);
+impl ::core::marker::Copy for TBS_COMMAND_LOCALITY {}
+impl ::core::clone::Clone for TBS_COMMAND_LOCALITY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TBS_COMMAND_PRIORITY(pub u32);
 pub const TBS_COMMAND_PRIORITY_LOW: TBS_COMMAND_PRIORITY = TBS_COMMAND_PRIORITY(100u32);
@@ -31,10 +37,54 @@ pub const TBS_COMMAND_PRIORITY_NORMAL: TBS_COMMAND_PRIORITY = TBS_COMMAND_PRIORI
 pub const TBS_COMMAND_PRIORITY_SYSTEM: TBS_COMMAND_PRIORITY = TBS_COMMAND_PRIORITY(400u32);
 pub const TBS_COMMAND_PRIORITY_HIGH: TBS_COMMAND_PRIORITY = TBS_COMMAND_PRIORITY(300u32);
 pub const TBS_COMMAND_PRIORITY_MAX: TBS_COMMAND_PRIORITY = TBS_COMMAND_PRIORITY(2147483648u32);
+impl ::core::marker::Copy for TBS_COMMAND_PRIORITY {}
+impl ::core::clone::Clone for TBS_COMMAND_PRIORITY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct TBS_CONTEXT_PARAMS(i32);
+pub struct TBS_CONTEXT_PARAMS {
+    pub version: u32,
+}
+impl ::core::marker::Copy for TBS_CONTEXT_PARAMS {}
+impl ::core::clone::Clone for TBS_CONTEXT_PARAMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct TBS_CONTEXT_PARAMS2(i32);
+pub struct TBS_CONTEXT_PARAMS2 {
+    pub version: u32,
+    pub Anonymous: TBS_CONTEXT_PARAMS2_0,
+}
+impl ::core::marker::Copy for TBS_CONTEXT_PARAMS2 {}
+impl ::core::clone::Clone for TBS_CONTEXT_PARAMS2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub union TBS_CONTEXT_PARAMS2_0 {
+    pub Anonymous: TBS_CONTEXT_PARAMS2_0_0,
+    pub asUINT32: u32,
+}
+impl ::core::marker::Copy for TBS_CONTEXT_PARAMS2_0 {}
+impl ::core::clone::Clone for TBS_CONTEXT_PARAMS2_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct TBS_CONTEXT_PARAMS2_0_0 {
+    pub _bitfield: u32,
+}
+impl ::core::marker::Copy for TBS_CONTEXT_PARAMS2_0_0 {}
+impl ::core::clone::Clone for TBS_CONTEXT_PARAMS2_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const TBS_CONTEXT_VERSION_ONE: u32 = 1u32;
 pub const TBS_CONTEXT_VERSION_TWO: u32 = 2u32;
 pub const TBS_OWNERAUTH_TYPE_ADMIN: u32 = 2u32;
@@ -51,7 +101,18 @@ pub const TBS_TCGLOG_SRTM_BOOT: u32 = 2u32;
 pub const TBS_TCGLOG_SRTM_CURRENT: u32 = 0u32;
 pub const TBS_TCGLOG_SRTM_RESUME: u32 = 3u32;
 #[repr(C)]
-pub struct TPM_DEVICE_INFO(i32);
+pub struct TPM_DEVICE_INFO {
+    pub structVersion: u32,
+    pub tpmVersion: u32,
+    pub tpmInterfaceType: u32,
+    pub tpmImpRevision: u32,
+}
+impl ::core::marker::Copy for TPM_DEVICE_INFO {}
+impl ::core::clone::Clone for TPM_DEVICE_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const TPM_IFTYPE_1: u32 = 1u32;
 pub const TPM_IFTYPE_EMULATOR: u32 = 4u32;
 pub const TPM_IFTYPE_HW: u32 = 3u32;
@@ -65,4 +126,13 @@ pub const TPM_WNF_INFO_CLEAR_SUCCESSFUL: u32 = 1u32;
 pub const TPM_WNF_INFO_NO_REBOOT_REQUIRED: u32 = 1u32;
 pub const TPM_WNF_INFO_OWNERSHIP_SUCCESSFUL: u32 = 2u32;
 #[repr(C)]
-pub struct tdTPM_WNF_PROVISIONING(i32);
+pub struct tdTPM_WNF_PROVISIONING {
+    pub status: u32,
+    pub message: [u8; 28],
+}
+impl ::core::marker::Copy for tdTPM_WNF_PROVISIONING {}
+impl ::core::clone::Clone for tdTPM_WNF_PROVISIONING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

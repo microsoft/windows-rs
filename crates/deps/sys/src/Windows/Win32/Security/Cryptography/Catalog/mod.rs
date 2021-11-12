@@ -70,19 +70,98 @@ extern "system" {
     pub fn IsCatalogFile(hfile: super::super::super::Foundation::HANDLE, pwszfilename: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::BOOL;
 }
 #[repr(C)]
-pub struct CATALOG_INFO(i32);
-#[cfg(feature = "Win32_Foundation")]
+pub struct CATALOG_INFO {
+    pub cbStruct: u32,
+    pub wszCatalogFile: [u16; 260],
+}
+impl ::core::marker::Copy for CATALOG_INFO {}
+impl ::core::clone::Clone for CATALOG_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CRYPTCATATTRIBUTE(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct CRYPTCATATTRIBUTE {
+    pub cbStruct: u32,
+    pub pwszReferenceTag: super::super::super::Foundation::PWSTR,
+    pub dwAttrTypeAndAction: u32,
+    pub cbValue: u32,
+    pub pbValue: *mut u8,
+    pub dwReserved: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CRYPTCATATTRIBUTE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CRYPTCATATTRIBUTE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CRYPTCATCDF(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CRYPTCATCDF {
+    pub cbStruct: u32,
+    pub hFile: super::super::super::Foundation::HANDLE,
+    pub dwCurFilePos: u32,
+    pub dwLastMemberOffset: u32,
+    pub fEOF: super::super::super::Foundation::BOOL,
+    pub pwszResultDir: super::super::super::Foundation::PWSTR,
+    pub hCATStore: super::super::super::Foundation::HANDLE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CRYPTCATCDF {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CRYPTCATCDF {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Sip"))]
+pub struct CRYPTCATMEMBER {
+    pub cbStruct: u32,
+    pub pwszReferenceTag: super::super::super::Foundation::PWSTR,
+    pub pwszFileName: super::super::super::Foundation::PWSTR,
+    pub gSubjectType: ::windows_sys::core::GUID,
+    pub fdwMemberFlags: u32,
+    pub pIndirectData: *mut super::Sip::SIP_INDIRECT_DATA,
+    pub dwCertVersion: u32,
+    pub dwReserved: u32,
+    pub hReserved: super::super::super::Foundation::HANDLE,
+    pub sEncodedIndirectData: super::CRYPTOAPI_BLOB,
+    pub sEncodedMemberInfo: super::CRYPTOAPI_BLOB,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Sip"))]
+impl ::core::marker::Copy for CRYPTCATMEMBER {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Sip"))]
+impl ::core::clone::Clone for CRYPTCATMEMBER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CRYPTCATMEMBER(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct CRYPTCATSTORE(i32);
+pub struct CRYPTCATSTORE {
+    pub cbStruct: u32,
+    pub dwPublicVersion: u32,
+    pub pwszP7File: super::super::super::Foundation::PWSTR,
+    pub hProv: usize,
+    pub dwEncodingType: u32,
+    pub fdwStoreFlags: CRYPTCAT_OPEN_FLAGS,
+    pub hReserved: super::super::super::Foundation::HANDLE,
+    pub hAttrs: super::super::super::Foundation::HANDLE,
+    pub hCryptMsg: *mut ::core::ffi::c_void,
+    pub hSorted: super::super::super::Foundation::HANDLE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CRYPTCATSTORE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CRYPTCATSTORE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CRYPTCAT_ADDCATALOG_HARDLINK: u32 = 1u32;
 pub const CRYPTCAT_ADDCATALOG_NONE: u32 = 0u32;
 pub const CRYPTCAT_ATTR_AUTHENTICATED: u32 = 268435456u32;
@@ -118,9 +197,21 @@ pub const CRYPTCAT_OPEN_VERIFYSIGHASH: CRYPTCAT_OPEN_FLAGS = CRYPTCAT_OPEN_FLAGS
 pub const CRYPTCAT_OPEN_NO_CONTENT_HCRYPTMSG: CRYPTCAT_OPEN_FLAGS = CRYPTCAT_OPEN_FLAGS(536870912u32);
 pub const CRYPTCAT_OPEN_SORTED: CRYPTCAT_OPEN_FLAGS = CRYPTCAT_OPEN_FLAGS(1073741824u32);
 pub const CRYPTCAT_OPEN_FLAGS_MASK: CRYPTCAT_OPEN_FLAGS = CRYPTCAT_OPEN_FLAGS(4294901760u32);
+impl ::core::marker::Copy for CRYPTCAT_OPEN_FLAGS {}
+impl ::core::clone::Clone for CRYPTCAT_OPEN_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CRYPTCAT_VERSION(pub u32);
 pub const CRYPTCAT_VERSION_1: CRYPTCAT_VERSION = CRYPTCAT_VERSION(256u32);
 pub const CRYPTCAT_VERSION_2: CRYPTCAT_VERSION = CRYPTCAT_VERSION(512u32);
+impl ::core::marker::Copy for CRYPTCAT_VERSION {}
+impl ::core::clone::Clone for CRYPTCAT_VERSION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_CDF_PARSE_ERROR_CALLBACK = unsafe extern "system" fn(dwerrorarea: u32, dwlocalerror: u32, pwszline: super::super::super::Foundation::PWSTR);

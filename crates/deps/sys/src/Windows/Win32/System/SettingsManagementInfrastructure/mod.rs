@@ -19,8 +19,7 @@ pub struct ISettingsResult(pub *mut ::core::ffi::c_void);
 pub struct ITargetInfo(pub *mut ::core::ffi::c_void);
 pub const LIMITED_VALIDATION_MODE: u32 = 1u32;
 pub const LINK_STORE_TO_ENGINE_INSTANCE: u32 = 1u32;
-#[repr(C)]
-pub struct SettingsEngine(i32);
+pub const SettingsEngine: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2675801013, data2: 8371, data3: 4570, data4: [129, 165, 0, 48, 241, 100, 46, 60] };
 pub const WCM_E_ABORTOPERATION: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2145255384i32 as _);
 pub const WCM_E_ASSERTIONFAILED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2145255398i32 as _);
 pub const WCM_E_ATTRIBUTENOTALLOWED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2145255420i32 as _);
@@ -87,30 +86,66 @@ pub const dataTypeInt64: WcmDataType = WcmDataType(8i32);
 pub const dataTypeBoolean: WcmDataType = WcmDataType(11i32);
 pub const dataTypeString: WcmDataType = WcmDataType(12i32);
 pub const dataTypeFlagArray: WcmDataType = WcmDataType(32768i32);
+impl ::core::marker::Copy for WcmDataType {}
+impl ::core::clone::Clone for WcmDataType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WcmNamespaceAccess(pub i32);
 pub const ReadOnlyAccess: WcmNamespaceAccess = WcmNamespaceAccess(1i32);
 pub const ReadWriteAccess: WcmNamespaceAccess = WcmNamespaceAccess(2i32);
+impl ::core::marker::Copy for WcmNamespaceAccess {}
+impl ::core::clone::Clone for WcmNamespaceAccess {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WcmNamespaceEnumerationFlags(pub i32);
 pub const SharedEnumeration: WcmNamespaceEnumerationFlags = WcmNamespaceEnumerationFlags(1i32);
 pub const UserEnumeration: WcmNamespaceEnumerationFlags = WcmNamespaceEnumerationFlags(2i32);
 pub const AllEnumeration: WcmNamespaceEnumerationFlags = WcmNamespaceEnumerationFlags(3i32);
+impl ::core::marker::Copy for WcmNamespaceEnumerationFlags {}
+impl ::core::clone::Clone for WcmNamespaceEnumerationFlags {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WcmRestrictionFacets(pub i32);
 pub const restrictionFacetMaxLength: WcmRestrictionFacets = WcmRestrictionFacets(1i32);
 pub const restrictionFacetEnumeration: WcmRestrictionFacets = WcmRestrictionFacets(2i32);
 pub const restrictionFacetMaxInclusive: WcmRestrictionFacets = WcmRestrictionFacets(4i32);
 pub const restrictionFacetMinInclusive: WcmRestrictionFacets = WcmRestrictionFacets(8i32);
+impl ::core::marker::Copy for WcmRestrictionFacets {}
+impl ::core::clone::Clone for WcmRestrictionFacets {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WcmSettingType(pub i32);
 pub const settingTypeScalar: WcmSettingType = WcmSettingType(1i32);
 pub const settingTypeComplex: WcmSettingType = WcmSettingType(2i32);
 pub const settingTypeList: WcmSettingType = WcmSettingType(3i32);
+impl ::core::marker::Copy for WcmSettingType {}
+impl ::core::clone::Clone for WcmSettingType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WcmTargetMode(pub i32);
 pub const OfflineMode: WcmTargetMode = WcmTargetMode(1i32);
 pub const OnlineMode: WcmTargetMode = WcmTargetMode(2i32);
+impl ::core::marker::Copy for WcmTargetMode {}
+impl ::core::clone::Clone for WcmTargetMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WcmUserStatus(pub i32);
 pub const UnknownStatus: WcmUserStatus = WcmUserStatus(0i32);
@@ -118,3 +153,9 @@ pub const UserRegistered: WcmUserStatus = WcmUserStatus(1i32);
 pub const UserUnregistered: WcmUserStatus = WcmUserStatus(2i32);
 pub const UserLoaded: WcmUserStatus = WcmUserStatus(3i32);
 pub const UserUnloaded: WcmUserStatus = WcmUserStatus(4i32);
+impl ::core::marker::Copy for WcmUserStatus {}
+impl ::core::clone::Clone for WcmUserStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

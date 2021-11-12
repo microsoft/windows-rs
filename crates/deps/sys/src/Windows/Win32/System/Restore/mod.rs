@@ -24,17 +24,47 @@ pub const MIN_EVENT: u32 = 100u32;
 pub const MIN_RPT: u32 = 0u32;
 pub const OE_SETTING: u32 = 4u32;
 pub const RESTORE: u32 = 6u32;
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct RESTOREPOINTINFOA(i32);
-#[repr(C)]
-pub struct RESTOREPOINTINFOW(i32);
+pub struct RESTOREPOINTINFOA {
+    pub dwEventType: RESTOREPOINTINFO_EVENT_TYPE,
+    pub dwRestorePtType: RESTOREPOINTINFO_TYPE,
+    pub llSequenceNumber: i64,
+    pub szDescription: [super::super::Foundation::CHAR; 64],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for RESTOREPOINTINFOA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for RESTOREPOINTINFOA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub struct RESTOREPOINTINFOW {
+    pub dwEventType: RESTOREPOINTINFO_EVENT_TYPE,
+    pub dwRestorePtType: RESTOREPOINTINFO_TYPE,
+    pub llSequenceNumber: i64,
+    pub szDescription: [u16; 256],
+}
+impl ::core::marker::Copy for RESTOREPOINTINFOW {}
+impl ::core::clone::Clone for RESTOREPOINTINFOW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RESTOREPOINTINFO_EVENT_TYPE(pub u32);
 pub const BEGIN_NESTED_SYSTEM_CHANGE: RESTOREPOINTINFO_EVENT_TYPE = RESTOREPOINTINFO_EVENT_TYPE(102u32);
 pub const BEGIN_SYSTEM_CHANGE: RESTOREPOINTINFO_EVENT_TYPE = RESTOREPOINTINFO_EVENT_TYPE(100u32);
 pub const END_NESTED_SYSTEM_CHANGE: RESTOREPOINTINFO_EVENT_TYPE = RESTOREPOINTINFO_EVENT_TYPE(103u32);
 pub const END_SYSTEM_CHANGE: RESTOREPOINTINFO_EVENT_TYPE = RESTOREPOINTINFO_EVENT_TYPE(101u32);
+impl ::core::marker::Copy for RESTOREPOINTINFO_EVENT_TYPE {}
+impl ::core::clone::Clone for RESTOREPOINTINFO_EVENT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RESTOREPOINTINFO_TYPE(pub u32);
 pub const APPLICATION_INSTALL: RESTOREPOINTINFO_TYPE = RESTOREPOINTINFO_TYPE(0u32);
@@ -42,11 +72,40 @@ pub const APPLICATION_UNINSTALL: RESTOREPOINTINFO_TYPE = RESTOREPOINTINFO_TYPE(1
 pub const DEVICE_DRIVER_INSTALL: RESTOREPOINTINFO_TYPE = RESTOREPOINTINFO_TYPE(10u32);
 pub const MODIFY_SETTINGS: RESTOREPOINTINFO_TYPE = RESTOREPOINTINFO_TYPE(12u32);
 pub const CANCELLED_OPERATION: RESTOREPOINTINFO_TYPE = RESTOREPOINTINFO_TYPE(13u32);
-#[repr(C)]
-pub struct STATEMGRSTATUS(i32);
+impl ::core::marker::Copy for RESTOREPOINTINFO_TYPE {}
+impl ::core::clone::Clone for RESTOREPOINTINFO_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub struct STATEMGRSTATUS {
+    pub nStatus: u32,
+    pub llSequenceNumber: i64,
+}
+impl ::core::marker::Copy for STATEMGRSTATUS {}
+impl ::core::clone::Clone for STATEMGRSTATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WINDOWS_BOOT: u32 = 9u32;
 pub const WINDOWS_SHUTDOWN: u32 = 8u32;
 pub const WINDOWS_UPDATE: u32 = 17u32;
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct _RESTOREPTINFOEX(i32);
+pub struct _RESTOREPTINFOEX {
+    pub ftCreation: super::super::Foundation::FILETIME,
+    pub dwEventType: u32,
+    pub dwRestorePtType: u32,
+    pub dwRPNum: u32,
+    pub szDescription: [u16; 256],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for _RESTOREPTINFOEX {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for _RESTOREPTINFOEX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

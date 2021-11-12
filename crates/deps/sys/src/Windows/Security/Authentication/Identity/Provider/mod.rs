@@ -58,6 +58,12 @@ impl SecondaryAuthenticationFactorAuthenticationMessage {
     pub const RecognitionFailed: Self = Self(27i32);
     pub const DeviceUnavailable: Self = Self(28i32);
 }
+impl ::core::marker::Copy for SecondaryAuthenticationFactorAuthenticationMessage {}
+impl ::core::clone::Clone for SecondaryAuthenticationFactorAuthenticationMessage {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SecondaryAuthenticationFactorAuthenticationResult(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -65,6 +71,12 @@ pub struct SecondaryAuthenticationFactorAuthenticationScenario(pub i32);
 impl SecondaryAuthenticationFactorAuthenticationScenario {
     pub const SignIn: Self = Self(0i32);
     pub const CredentialPrompt: Self = Self(1i32);
+}
+impl ::core::marker::Copy for SecondaryAuthenticationFactorAuthenticationScenario {}
+impl ::core::clone::Clone for SecondaryAuthenticationFactorAuthenticationScenario {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct SecondaryAuthenticationFactorAuthenticationStage(pub i32);
@@ -79,6 +91,12 @@ impl SecondaryAuthenticationFactorAuthenticationStage {
     pub const ReadyForLock: Self = Self(7i32);
     pub const CheckingDevicePresence: Self = Self(8i32);
 }
+impl ::core::marker::Copy for SecondaryAuthenticationFactorAuthenticationStage {}
+impl ::core::clone::Clone for SecondaryAuthenticationFactorAuthenticationStage {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SecondaryAuthenticationFactorAuthenticationStageChangedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -92,6 +110,12 @@ impl SecondaryAuthenticationFactorAuthenticationStatus {
     pub const DisabledByPolicy: Self = Self(3i32);
     pub const InvalidAuthenticationStage: Self = Self(4i32);
 }
+impl ::core::marker::Copy for SecondaryAuthenticationFactorAuthenticationStatus {}
+impl ::core::clone::Clone for SecondaryAuthenticationFactorAuthenticationStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SecondaryAuthenticationFactorDeviceCapabilities(pub u32);
 impl SecondaryAuthenticationFactorDeviceCapabilities {
@@ -104,17 +128,35 @@ impl SecondaryAuthenticationFactorDeviceCapabilities {
     pub const HMacSha256: Self = Self(32u32);
     pub const CloseRangeDataTransmission: Self = Self(64u32);
 }
+impl ::core::marker::Copy for SecondaryAuthenticationFactorDeviceCapabilities {}
+impl ::core::clone::Clone for SecondaryAuthenticationFactorDeviceCapabilities {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SecondaryAuthenticationFactorDeviceFindScope(pub i32);
 impl SecondaryAuthenticationFactorDeviceFindScope {
     pub const User: Self = Self(0i32);
     pub const AllUsers: Self = Self(1i32);
 }
+impl ::core::marker::Copy for SecondaryAuthenticationFactorDeviceFindScope {}
+impl ::core::clone::Clone for SecondaryAuthenticationFactorDeviceFindScope {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SecondaryAuthenticationFactorDevicePresence(pub i32);
 impl SecondaryAuthenticationFactorDevicePresence {
     pub const Absent: Self = Self(0i32);
     pub const Present: Self = Self(1i32);
+}
+impl ::core::marker::Copy for SecondaryAuthenticationFactorDevicePresence {}
+impl ::core::clone::Clone for SecondaryAuthenticationFactorDevicePresence {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct SecondaryAuthenticationFactorDevicePresenceMonitoringMode(pub i32);
@@ -123,6 +165,12 @@ impl SecondaryAuthenticationFactorDevicePresenceMonitoringMode {
     pub const AppManaged: Self = Self(1i32);
     pub const SystemManaged: Self = Self(2i32);
 }
+impl ::core::marker::Copy for SecondaryAuthenticationFactorDevicePresenceMonitoringMode {}
+impl ::core::clone::Clone for SecondaryAuthenticationFactorDevicePresenceMonitoringMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus(pub i32);
 impl SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus {
@@ -130,12 +178,24 @@ impl SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus {
     pub const Succeeded: Self = Self(1i32);
     pub const DisabledByPolicy: Self = Self(2i32);
 }
+impl ::core::marker::Copy for SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus {}
+impl ::core::clone::Clone for SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SecondaryAuthenticationFactorFinishAuthenticationStatus(pub i32);
 impl SecondaryAuthenticationFactorFinishAuthenticationStatus {
     pub const Failed: Self = Self(0i32);
     pub const Completed: Self = Self(1i32);
     pub const NonceExpired: Self = Self(2i32);
+}
+impl ::core::marker::Copy for SecondaryAuthenticationFactorFinishAuthenticationStatus {}
+impl ::core::clone::Clone for SecondaryAuthenticationFactorFinishAuthenticationStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct SecondaryAuthenticationFactorInfo(pub *mut ::core::ffi::c_void);
@@ -151,4 +211,10 @@ impl SecondaryAuthenticationFactorRegistrationStatus {
     pub const CanceledByUser: Self = Self(2i32);
     pub const PinSetupRequired: Self = Self(3i32);
     pub const DisabledByPolicy: Self = Self(4i32);
+}
+impl ::core::marker::Copy for SecondaryAuthenticationFactorRegistrationStatus {}
+impl ::core::clone::Clone for SecondaryAuthenticationFactorRegistrationStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
 }

@@ -12,19 +12,95 @@ extern "system" {
     pub fn RecycleSurrogate(lreasoncode: i32) -> ::windows_sys::core::HRESULT;
     pub fn SafeRef(rid: *const ::windows_sys::core::GUID, punk: ::windows_sys::core::IUnknown) -> *mut ::core::ffi::c_void;
 }
+pub const AppDomainHelper: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 4012177033,
+    data2: 5368,
+    data3: 19858,
+    data4: [180, 175, 215, 177, 240, 231, 15, 212],
+};
 #[repr(C)]
-pub struct AppDomainHelper(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct ApplicationProcessRecycleInfo(i32);
-#[repr(C)]
-pub struct ApplicationProcessStatistics(i32);
+pub struct ApplicationProcessRecycleInfo {
+    pub IsRecyclable: super::super::Foundation::BOOL,
+    pub IsRecycled: super::super::Foundation::BOOL,
+    pub TimeRecycled: super::super::Foundation::FILETIME,
+    pub TimeToTerminate: super::super::Foundation::FILETIME,
+    pub RecycleReasonCode: i32,
+    pub IsPendingRecycle: super::super::Foundation::BOOL,
+    pub HasAutomaticLifetimeRecycling: super::super::Foundation::BOOL,
+    pub TimeForAutomaticRecycling: super::super::Foundation::FILETIME,
+    pub MemoryLimitInKB: u32,
+    pub MemoryUsageInKBLastCheck: u32,
+    pub ActivationLimit: u32,
+    pub NumActivationsLastReported: u32,
+    pub CallLimit: u32,
+    pub NumCallsLastReported: u32,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct ApplicationProcessSummary(i32);
+impl ::core::marker::Copy for ApplicationProcessRecycleInfo {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ApplicationProcessRecycleInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct ApplicationSummary(i32);
+pub struct ApplicationProcessStatistics {
+    pub NumCallsOutstanding: u32,
+    pub NumTrackedComponents: u32,
+    pub NumComponentInstances: u32,
+    pub AvgCallsPerSecond: u32,
+    pub Reserved1: u32,
+    pub Reserved2: u32,
+    pub Reserved3: u32,
+    pub Reserved4: u32,
+}
+impl ::core::marker::Copy for ApplicationProcessStatistics {}
+impl ::core::clone::Clone for ApplicationProcessStatistics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct ApplicationProcessSummary {
+    pub PartitionIdPrimaryApplication: ::windows_sys::core::GUID,
+    pub ApplicationIdPrimaryApplication: ::windows_sys::core::GUID,
+    pub ApplicationInstanceId: ::windows_sys::core::GUID,
+    pub ProcessId: u32,
+    pub Type: COMPLUS_APPTYPE,
+    pub ProcessExeName: super::super::Foundation::PWSTR,
+    pub IsService: super::super::Foundation::BOOL,
+    pub IsPaused: super::super::Foundation::BOOL,
+    pub IsRecycled: super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ApplicationProcessSummary {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ApplicationProcessSummary {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct ApplicationSummary {
+    pub ApplicationInstanceId: ::windows_sys::core::GUID,
+    pub PartitionId: ::windows_sys::core::GUID,
+    pub ApplicationId: ::windows_sys::core::GUID,
+    pub Type: COMPLUS_APPTYPE,
+    pub ApplicationName: super::super::Foundation::PWSTR,
+    pub NumTrackedComponents: u32,
+    pub NumComponentInstances: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ApplicationSummary {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ApplicationSummary {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AutoSvcs_Error_Constants(pub u32);
 pub const mtsErrCtxAborted: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2147803138u32);
@@ -53,25 +129,101 @@ pub const comqcErrMsmqServiceUnavailable: AutoSvcs_Error_Constants = AutoSvcs_Er
 pub const comqcErrMsgNotAuthenticated: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2148599380u32);
 pub const comqcErrMsmqConnectorUsed: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2148599381u32);
 pub const comqcErrBadMarshaledObject: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2148599382u32);
+impl ::core::marker::Copy for AutoSvcs_Error_Constants {}
+impl ::core::clone::Clone for AutoSvcs_Error_Constants {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+pub const ByotServerEx: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3970674858, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
 #[repr(C)]
-pub struct ByotServerEx(i32);
+pub struct CAppData {
+    pub m_idApp: u32,
+    pub m_szAppGuid: [u16; 40],
+    pub m_dwAppProcessId: u32,
+    pub m_AppStatistics: CAppStatistics,
+}
+impl ::core::marker::Copy for CAppData {}
+impl ::core::clone::Clone for CAppData {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CAppData(i32);
+pub struct CAppStatistics {
+    pub m_cTotalCalls: u32,
+    pub m_cTotalInstances: u32,
+    pub m_cTotalClasses: u32,
+    pub m_cCallsPerSecond: u32,
+}
+impl ::core::marker::Copy for CAppStatistics {}
+impl ::core::clone::Clone for CAppStatistics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CAppStatistics(i32);
+pub struct CCLSIDData {
+    pub m_clsid: ::windows_sys::core::GUID,
+    pub m_cReferences: u32,
+    pub m_cBound: u32,
+    pub m_cPooled: u32,
+    pub m_cInCall: u32,
+    pub m_dwRespTime: u32,
+    pub m_cCallsCompleted: u32,
+    pub m_cCallsFailed: u32,
+}
+impl ::core::marker::Copy for CCLSIDData {}
+impl ::core::clone::Clone for CCLSIDData {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CCLSIDData(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct CCLSIDData2(i32);
+pub struct CCLSIDData2 {
+    pub m_clsid: ::windows_sys::core::GUID,
+    pub m_appid: ::windows_sys::core::GUID,
+    pub m_partid: ::windows_sys::core::GUID,
+    pub m_pwszAppName: super::super::Foundation::PWSTR,
+    pub m_pwszCtxName: super::super::Foundation::PWSTR,
+    pub m_eAppType: COMPLUS_APPTYPE,
+    pub m_cReferences: u32,
+    pub m_cBound: u32,
+    pub m_cPooled: u32,
+    pub m_cInCall: u32,
+    pub m_dwRespTime: u32,
+    pub m_cCallsCompleted: u32,
+    pub m_cCallsFailed: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CCLSIDData2 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CCLSIDData2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct COMAdminAccessChecksLevelOptions(pub i32);
 pub const COMAdminAccessChecksApplicationLevel: COMAdminAccessChecksLevelOptions = COMAdminAccessChecksLevelOptions(0i32);
 pub const COMAdminAccessChecksApplicationComponentLevel: COMAdminAccessChecksLevelOptions = COMAdminAccessChecksLevelOptions(1i32);
+impl ::core::marker::Copy for COMAdminAccessChecksLevelOptions {}
+impl ::core::clone::Clone for COMAdminAccessChecksLevelOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct COMAdminActivationOptions(pub i32);
 pub const COMAdminActivationInproc: COMAdminActivationOptions = COMAdminActivationOptions(0i32);
 pub const COMAdminActivationLocal: COMAdminActivationOptions = COMAdminActivationOptions(1i32);
+impl ::core::marker::Copy for COMAdminActivationOptions {}
+impl ::core::clone::Clone for COMAdminActivationOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct COMAdminApplicationExportOptions(pub i32);
 pub const COMAdminExportNoUsers: COMAdminApplicationExportOptions = COMAdminApplicationExportOptions(0i32);
@@ -79,17 +231,35 @@ pub const COMAdminExportUsers: COMAdminApplicationExportOptions = COMAdminApplic
 pub const COMAdminExportApplicationProxy: COMAdminApplicationExportOptions = COMAdminApplicationExportOptions(2i32);
 pub const COMAdminExportForceOverwriteOfFiles: COMAdminApplicationExportOptions = COMAdminApplicationExportOptions(4i32);
 pub const COMAdminExportIn10Format: COMAdminApplicationExportOptions = COMAdminApplicationExportOptions(16i32);
+impl ::core::marker::Copy for COMAdminApplicationExportOptions {}
+impl ::core::clone::Clone for COMAdminApplicationExportOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct COMAdminApplicationInstallOptions(pub i32);
 pub const COMAdminInstallNoUsers: COMAdminApplicationInstallOptions = COMAdminApplicationInstallOptions(0i32);
 pub const COMAdminInstallUsers: COMAdminApplicationInstallOptions = COMAdminApplicationInstallOptions(1i32);
 pub const COMAdminInstallForceOverwriteOfFiles: COMAdminApplicationInstallOptions = COMAdminApplicationInstallOptions(2i32);
+impl ::core::marker::Copy for COMAdminApplicationInstallOptions {}
+impl ::core::clone::Clone for COMAdminApplicationInstallOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct COMAdminAuthenticationCapabilitiesOptions(pub i32);
 pub const COMAdminAuthenticationCapabilitiesNone: COMAdminAuthenticationCapabilitiesOptions = COMAdminAuthenticationCapabilitiesOptions(0i32);
 pub const COMAdminAuthenticationCapabilitiesSecureReference: COMAdminAuthenticationCapabilitiesOptions = COMAdminAuthenticationCapabilitiesOptions(2i32);
 pub const COMAdminAuthenticationCapabilitiesStaticCloaking: COMAdminAuthenticationCapabilitiesOptions = COMAdminAuthenticationCapabilitiesOptions(32i32);
 pub const COMAdminAuthenticationCapabilitiesDynamicCloaking: COMAdminAuthenticationCapabilitiesOptions = COMAdminAuthenticationCapabilitiesOptions(64i32);
+impl ::core::marker::Copy for COMAdminAuthenticationCapabilitiesOptions {}
+impl ::core::clone::Clone for COMAdminAuthenticationCapabilitiesOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct COMAdminAuthenticationLevelOptions(pub i32);
 pub const COMAdminAuthenticationDefault: COMAdminAuthenticationLevelOptions = COMAdminAuthenticationLevelOptions(0i32);
@@ -99,12 +269,15 @@ pub const COMAdminAuthenticationCall: COMAdminAuthenticationLevelOptions = COMAd
 pub const COMAdminAuthenticationPacket: COMAdminAuthenticationLevelOptions = COMAdminAuthenticationLevelOptions(4i32);
 pub const COMAdminAuthenticationIntegrity: COMAdminAuthenticationLevelOptions = COMAdminAuthenticationLevelOptions(5i32);
 pub const COMAdminAuthenticationPrivacy: COMAdminAuthenticationLevelOptions = COMAdminAuthenticationLevelOptions(6i32);
-#[repr(C)]
-pub struct COMAdminCatalog(i32);
-#[repr(C)]
-pub struct COMAdminCatalogCollection(i32);
-#[repr(C)]
-pub struct COMAdminCatalogObject(i32);
+impl ::core::marker::Copy for COMAdminAuthenticationLevelOptions {}
+impl ::core::clone::Clone for COMAdminAuthenticationLevelOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+pub const COMAdminCatalog: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4128818452, data2: 57272, data3: 4561, data4: [162, 207, 0, 128, 95, 199, 146, 53] };
+pub const COMAdminCatalogCollection: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4128818454, data2: 57272, data3: 4561, data4: [162, 207, 0, 128, 95, 199, 146, 53] };
+pub const COMAdminCatalogObject: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4128818453, data2: 57272, data3: 4561, data4: [162, 207, 0, 128, 95, 199, 146, 53] };
 #[repr(transparent)]
 pub struct COMAdminComponentFlags(pub i32);
 pub const COMAdminCompFlagTypeInfoFound: COMAdminComponentFlags = COMAdminComponentFlags(1i32);
@@ -113,10 +286,22 @@ pub const COMAdminCompFlagProxyFound: COMAdminComponentFlags = COMAdminComponent
 pub const COMAdminCompFlagInterfacesFound: COMAdminComponentFlags = COMAdminComponentFlags(8i32);
 pub const COMAdminCompFlagAlreadyInstalled: COMAdminComponentFlags = COMAdminComponentFlags(16i32);
 pub const COMAdminCompFlagNotInApplication: COMAdminComponentFlags = COMAdminComponentFlags(32i32);
+impl ::core::marker::Copy for COMAdminComponentFlags {}
+impl ::core::clone::Clone for COMAdminComponentFlags {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct COMAdminComponentType(pub i32);
 pub const COMAdmin32BitComponent: COMAdminComponentType = COMAdminComponentType(1i32);
 pub const COMAdmin64BitComponent: COMAdminComponentType = COMAdminComponentType(2i32);
+impl ::core::marker::Copy for COMAdminComponentType {}
+impl ::core::clone::Clone for COMAdminComponentType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct COMAdminErrorCodes(pub i32);
 pub const COMAdminErrObjectErrors: COMAdminErrorCodes = COMAdminErrorCodes(-2146368511i32);
@@ -207,6 +392,12 @@ pub const COMAdminErrCompMoveSource: COMAdminErrorCodes = COMAdminErrorCodes(-21
 pub const COMAdminErrCompMoveDest: COMAdminErrorCodes = COMAdminErrorCodes(-2146367459i32);
 pub const COMAdminErrCompMovePrivate: COMAdminErrorCodes = COMAdminErrorCodes(-2146367458i32);
 pub const COMAdminErrCannotCopyEventClass: COMAdminErrorCodes = COMAdminErrorCodes(-2146367456i32);
+impl ::core::marker::Copy for COMAdminErrorCodes {}
+impl ::core::clone::Clone for COMAdminErrorCodes {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct COMAdminFileFlags(pub i32);
 pub const COMAdminFileFlagLoadable: COMAdminFileFlags = COMAdminFileFlags(1i32);
@@ -228,12 +419,24 @@ pub const COMAdminFileFlagDLLRegsvrFailed: COMAdminFileFlags = COMAdminFileFlags
 pub const COMAdminFileFlagRegTLBFailed: COMAdminFileFlags = COMAdminFileFlags(65536i32);
 pub const COMAdminFileFlagRegistrarFailed: COMAdminFileFlags = COMAdminFileFlags(131072i32);
 pub const COMAdminFileFlagError: COMAdminFileFlags = COMAdminFileFlags(262144i32);
+impl ::core::marker::Copy for COMAdminFileFlags {}
+impl ::core::clone::Clone for COMAdminFileFlags {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct COMAdminImpersonationLevelOptions(pub i32);
 pub const COMAdminImpersonationAnonymous: COMAdminImpersonationLevelOptions = COMAdminImpersonationLevelOptions(1i32);
 pub const COMAdminImpersonationIdentify: COMAdminImpersonationLevelOptions = COMAdminImpersonationLevelOptions(2i32);
 pub const COMAdminImpersonationImpersonate: COMAdminImpersonationLevelOptions = COMAdminImpersonationLevelOptions(3i32);
 pub const COMAdminImpersonationDelegate: COMAdminImpersonationLevelOptions = COMAdminImpersonationLevelOptions(4i32);
+impl ::core::marker::Copy for COMAdminImpersonationLevelOptions {}
+impl ::core::clone::Clone for COMAdminImpersonationLevelOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct COMAdminInUse(pub i32);
 pub const COMAdminNotInUse: COMAdminInUse = COMAdminInUse(0i32);
@@ -242,6 +445,12 @@ pub const COMAdminInUseByRegistryUnknown: COMAdminInUse = COMAdminInUse(2i32);
 pub const COMAdminInUseByRegistryProxyStub: COMAdminInUse = COMAdminInUse(3i32);
 pub const COMAdminInUseByRegistryTypeLib: COMAdminInUse = COMAdminInUse(4i32);
 pub const COMAdminInUseByRegistryClsid: COMAdminInUse = COMAdminInUse(5i32);
+impl ::core::marker::Copy for COMAdminInUse {}
+impl ::core::clone::Clone for COMAdminInUse {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct COMAdminOS(pub i32);
 pub const COMAdminOSNotInitialized: COMAdminOS = COMAdminOS(0i32);
@@ -281,14 +490,32 @@ pub const COMAdminOSWindowsBlueStandardServer: COMAdminOS = COMAdminOS(37i32);
 pub const COMAdminOSWindowsBlueEnterpriseServer: COMAdminOS = COMAdminOS(38i32);
 pub const COMAdminOSWindowsBlueDatacenterServer: COMAdminOS = COMAdminOS(39i32);
 pub const COMAdminOSWindowsBlueWebServer: COMAdminOS = COMAdminOS(40i32);
+impl ::core::marker::Copy for COMAdminOS {}
+impl ::core::clone::Clone for COMAdminOS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct COMAdminQCMessageAuthenticateOptions(pub i32);
 pub const COMAdminQCMessageAuthenticateSecureApps: COMAdminQCMessageAuthenticateOptions = COMAdminQCMessageAuthenticateOptions(0i32);
 pub const COMAdminQCMessageAuthenticateOff: COMAdminQCMessageAuthenticateOptions = COMAdminQCMessageAuthenticateOptions(1i32);
 pub const COMAdminQCMessageAuthenticateOn: COMAdminQCMessageAuthenticateOptions = COMAdminQCMessageAuthenticateOptions(2i32);
+impl ::core::marker::Copy for COMAdminQCMessageAuthenticateOptions {}
+impl ::core::clone::Clone for COMAdminQCMessageAuthenticateOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct COMAdminServiceOptions(pub i32);
 pub const COMAdminServiceLoadBalanceRouter: COMAdminServiceOptions = COMAdminServiceOptions(1i32);
+impl ::core::marker::Copy for COMAdminServiceOptions {}
+impl ::core::clone::Clone for COMAdminServiceOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct COMAdminServiceStatusOptions(pub i32);
 pub const COMAdminServiceStopped: COMAdminServiceStatusOptions = COMAdminServiceStatusOptions(0i32);
@@ -299,6 +526,12 @@ pub const COMAdminServiceContinuePending: COMAdminServiceStatusOptions = COMAdmi
 pub const COMAdminServicePausePending: COMAdminServiceStatusOptions = COMAdminServiceStatusOptions(5i32);
 pub const COMAdminServicePaused: COMAdminServiceStatusOptions = COMAdminServiceStatusOptions(6i32);
 pub const COMAdminServiceUnknownState: COMAdminServiceStatusOptions = COMAdminServiceStatusOptions(7i32);
+impl ::core::marker::Copy for COMAdminServiceStatusOptions {}
+impl ::core::clone::Clone for COMAdminServiceStatusOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct COMAdminSynchronizationOptions(pub i32);
 pub const COMAdminSynchronizationIgnored: COMAdminSynchronizationOptions = COMAdminSynchronizationOptions(0i32);
@@ -306,6 +539,12 @@ pub const COMAdminSynchronizationNone: COMAdminSynchronizationOptions = COMAdmin
 pub const COMAdminSynchronizationSupported: COMAdminSynchronizationOptions = COMAdminSynchronizationOptions(2i32);
 pub const COMAdminSynchronizationRequired: COMAdminSynchronizationOptions = COMAdminSynchronizationOptions(3i32);
 pub const COMAdminSynchronizationRequiresNew: COMAdminSynchronizationOptions = COMAdminSynchronizationOptions(4i32);
+impl ::core::marker::Copy for COMAdminSynchronizationOptions {}
+impl ::core::clone::Clone for COMAdminSynchronizationOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct COMAdminThreadingModels(pub i32);
 pub const COMAdminThreadingModelApartment: COMAdminThreadingModels = COMAdminThreadingModels(0i32);
@@ -314,6 +553,12 @@ pub const COMAdminThreadingModelMain: COMAdminThreadingModels = COMAdminThreadin
 pub const COMAdminThreadingModelBoth: COMAdminThreadingModels = COMAdminThreadingModels(3i32);
 pub const COMAdminThreadingModelNeutral: COMAdminThreadingModels = COMAdminThreadingModels(4i32);
 pub const COMAdminThreadingModelNotSpecified: COMAdminThreadingModels = COMAdminThreadingModels(5i32);
+impl ::core::marker::Copy for COMAdminThreadingModels {}
+impl ::core::clone::Clone for COMAdminThreadingModels {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct COMAdminTransactionOptions(pub i32);
 pub const COMAdminTransactionIgnored: COMAdminTransactionOptions = COMAdminTransactionOptions(0i32);
@@ -321,6 +566,12 @@ pub const COMAdminTransactionNone: COMAdminTransactionOptions = COMAdminTransact
 pub const COMAdminTransactionSupported: COMAdminTransactionOptions = COMAdminTransactionOptions(2i32);
 pub const COMAdminTransactionRequired: COMAdminTransactionOptions = COMAdminTransactionOptions(3i32);
 pub const COMAdminTransactionRequiresNew: COMAdminTransactionOptions = COMAdminTransactionOptions(4i32);
+impl ::core::marker::Copy for COMAdminTransactionOptions {}
+impl ::core::clone::Clone for COMAdminTransactionOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct COMAdminTxIsolationLevelOptions(pub i32);
 pub const COMAdminTxIsolationLevelAny: COMAdminTxIsolationLevelOptions = COMAdminTxIsolationLevelOptions(0i32);
@@ -328,19 +579,45 @@ pub const COMAdminTxIsolationLevelReadUnCommitted: COMAdminTxIsolationLevelOptio
 pub const COMAdminTxIsolationLevelReadCommitted: COMAdminTxIsolationLevelOptions = COMAdminTxIsolationLevelOptions(2i32);
 pub const COMAdminTxIsolationLevelRepeatableRead: COMAdminTxIsolationLevelOptions = COMAdminTxIsolationLevelOptions(3i32);
 pub const COMAdminTxIsolationLevelSerializable: COMAdminTxIsolationLevelOptions = COMAdminTxIsolationLevelOptions(4i32);
-#[repr(C)]
-pub struct COMEvents(i32);
+impl ::core::marker::Copy for COMAdminTxIsolationLevelOptions {}
+impl ::core::clone::Clone for COMAdminTxIsolationLevelOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+pub const COMEvents: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3970674859, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
 #[repr(transparent)]
 pub struct COMPLUS_APPTYPE(pub i32);
 pub const APPTYPE_UNKNOWN: COMPLUS_APPTYPE = COMPLUS_APPTYPE(-1i32);
 pub const APPTYPE_SERVER: COMPLUS_APPTYPE = COMPLUS_APPTYPE(1i32);
 pub const APPTYPE_LIBRARY: COMPLUS_APPTYPE = COMPLUS_APPTYPE(0i32);
 pub const APPTYPE_SWC: COMPLUS_APPTYPE = COMPLUS_APPTYPE(2i32);
+impl ::core::marker::Copy for COMPLUS_APPTYPE {}
+impl ::core::clone::Clone for COMPLUS_APPTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct COMSVCSEVENTINFO(i32);
-#[repr(C)]
-pub struct CRMClerk(i32);
+pub struct COMSVCSEVENTINFO {
+    pub cbSize: u32,
+    pub dwPid: u32,
+    pub lTime: i64,
+    pub lMicroTime: i32,
+    pub perfCount: i64,
+    pub guidApp: ::windows_sys::core::GUID,
+    pub sMachineName: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for COMSVCSEVENTINFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for COMSVCSEVENTINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+pub const CRMClerk: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3970674877, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
 #[repr(transparent)]
 pub struct CRMFLAGS(pub i32);
 pub const CRMFLAG_FORGETTARGET: CRMFLAGS = CRMFLAGS(1i32);
@@ -350,6 +627,12 @@ pub const CRMFLAG_WRITTENDURINGABORT: CRMFLAGS = CRMFLAGS(8i32);
 pub const CRMFLAG_WRITTENDURINGRECOVERY: CRMFLAGS = CRMFLAGS(16i32);
 pub const CRMFLAG_WRITTENDURINGREPLAY: CRMFLAGS = CRMFLAGS(32i32);
 pub const CRMFLAG_REPLAYINPROGRESS: CRMFLAGS = CRMFLAGS(64i32);
+impl ::core::marker::Copy for CRMFLAGS {}
+impl ::core::clone::Clone for CRMFLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CRMREGFLAGS(pub i32);
 pub const CRMREGFLAG_PREPAREPHASE: CRMREGFLAGS = CRMREGFLAGS(1i32);
@@ -357,8 +640,13 @@ pub const CRMREGFLAG_COMMITPHASE: CRMREGFLAGS = CRMREGFLAGS(2i32);
 pub const CRMREGFLAG_ABORTPHASE: CRMREGFLAGS = CRMREGFLAGS(4i32);
 pub const CRMREGFLAG_ALLPHASES: CRMREGFLAGS = CRMREGFLAGS(7i32);
 pub const CRMREGFLAG_FAILIFINDOUBTSREMAIN: CRMREGFLAGS = CRMREGFLAGS(16i32);
-#[repr(C)]
-pub struct CRMRecoveryClerk(i32);
+impl ::core::marker::Copy for CRMREGFLAGS {}
+impl ::core::clone::Clone for CRMREGFLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+pub const CRMRecoveryClerk: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3970674878, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
 pub const CRR_ACTIVATION_LIMIT: u32 = 4294967294u32;
 pub const CRR_CALL_LIMIT: u32 = 4294967293u32;
 pub const CRR_LIFETIME_LIMIT: u32 = 4294967295u32;
@@ -369,93 +657,216 @@ pub const CRR_RECYCLED_FROM_UI: u32 = 4294967291u32;
 pub struct CSC_Binding(pub i32);
 pub const CSC_NoBinding: CSC_Binding = CSC_Binding(0i32);
 pub const CSC_BindToPoolThread: CSC_Binding = CSC_Binding(1i32);
+impl ::core::marker::Copy for CSC_Binding {}
+impl ::core::clone::Clone for CSC_Binding {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CSC_COMTIIntrinsicsConfig(pub i32);
 pub const CSC_NoCOMTIIntrinsics: CSC_COMTIIntrinsicsConfig = CSC_COMTIIntrinsicsConfig(0i32);
 pub const CSC_InheritCOMTIIntrinsics: CSC_COMTIIntrinsicsConfig = CSC_COMTIIntrinsicsConfig(1i32);
+impl ::core::marker::Copy for CSC_COMTIIntrinsicsConfig {}
+impl ::core::clone::Clone for CSC_COMTIIntrinsicsConfig {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CSC_IISIntrinsicsConfig(pub i32);
 pub const CSC_NoIISIntrinsics: CSC_IISIntrinsicsConfig = CSC_IISIntrinsicsConfig(0i32);
 pub const CSC_InheritIISIntrinsics: CSC_IISIntrinsicsConfig = CSC_IISIntrinsicsConfig(1i32);
+impl ::core::marker::Copy for CSC_IISIntrinsicsConfig {}
+impl ::core::clone::Clone for CSC_IISIntrinsicsConfig {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CSC_InheritanceConfig(pub i32);
 pub const CSC_Inherit: CSC_InheritanceConfig = CSC_InheritanceConfig(0i32);
 pub const CSC_Ignore: CSC_InheritanceConfig = CSC_InheritanceConfig(1i32);
+impl ::core::marker::Copy for CSC_InheritanceConfig {}
+impl ::core::clone::Clone for CSC_InheritanceConfig {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CSC_PartitionConfig(pub i32);
 pub const CSC_NoPartition: CSC_PartitionConfig = CSC_PartitionConfig(0i32);
 pub const CSC_InheritPartition: CSC_PartitionConfig = CSC_PartitionConfig(1i32);
 pub const CSC_NewPartition: CSC_PartitionConfig = CSC_PartitionConfig(2i32);
+impl ::core::marker::Copy for CSC_PartitionConfig {}
+impl ::core::clone::Clone for CSC_PartitionConfig {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CSC_SxsConfig(pub i32);
 pub const CSC_NoSxs: CSC_SxsConfig = CSC_SxsConfig(0i32);
 pub const CSC_InheritSxs: CSC_SxsConfig = CSC_SxsConfig(1i32);
 pub const CSC_NewSxs: CSC_SxsConfig = CSC_SxsConfig(2i32);
+impl ::core::marker::Copy for CSC_SxsConfig {}
+impl ::core::clone::Clone for CSC_SxsConfig {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CSC_SynchronizationConfig(pub i32);
 pub const CSC_NoSynchronization: CSC_SynchronizationConfig = CSC_SynchronizationConfig(0i32);
 pub const CSC_IfContainerIsSynchronized: CSC_SynchronizationConfig = CSC_SynchronizationConfig(1i32);
 pub const CSC_NewSynchronizationIfNecessary: CSC_SynchronizationConfig = CSC_SynchronizationConfig(2i32);
 pub const CSC_NewSynchronization: CSC_SynchronizationConfig = CSC_SynchronizationConfig(3i32);
+impl ::core::marker::Copy for CSC_SynchronizationConfig {}
+impl ::core::clone::Clone for CSC_SynchronizationConfig {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CSC_ThreadPool(pub i32);
 pub const CSC_ThreadPoolNone: CSC_ThreadPool = CSC_ThreadPool(0i32);
 pub const CSC_ThreadPoolInherit: CSC_ThreadPool = CSC_ThreadPool(1i32);
 pub const CSC_STAThreadPool: CSC_ThreadPool = CSC_ThreadPool(2i32);
 pub const CSC_MTAThreadPool: CSC_ThreadPool = CSC_ThreadPool(3i32);
+impl ::core::marker::Copy for CSC_ThreadPool {}
+impl ::core::clone::Clone for CSC_ThreadPool {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CSC_TrackerConfig(pub i32);
 pub const CSC_DontUseTracker: CSC_TrackerConfig = CSC_TrackerConfig(0i32);
 pub const CSC_UseTracker: CSC_TrackerConfig = CSC_TrackerConfig(1i32);
+impl ::core::marker::Copy for CSC_TrackerConfig {}
+impl ::core::clone::Clone for CSC_TrackerConfig {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CSC_TransactionConfig(pub i32);
 pub const CSC_NoTransaction: CSC_TransactionConfig = CSC_TransactionConfig(0i32);
 pub const CSC_IfContainerIsTransactional: CSC_TransactionConfig = CSC_TransactionConfig(1i32);
 pub const CSC_CreateTransactionIfNecessary: CSC_TransactionConfig = CSC_TransactionConfig(2i32);
 pub const CSC_NewTransaction: CSC_TransactionConfig = CSC_TransactionConfig(3i32);
+impl ::core::marker::Copy for CSC_TransactionConfig {}
+impl ::core::clone::Clone for CSC_TransactionConfig {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+pub const CServiceConfig: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3970674888, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
+pub const ClrAssemblyLocator: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1166713781, data2: 9818, data3: 19317, data4: [188, 5, 155, 234, 70, 48, 207, 24] };
+pub const CoMTSLocator: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3970674860, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
+pub const ComServiceEvents: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3970674883, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
+pub const ComSystemAppEventData: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3970674886, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
 #[repr(C)]
-pub struct CServiceConfig(i32);
-#[repr(C)]
-pub struct ClrAssemblyLocator(i32);
-#[repr(C)]
-pub struct CoMTSLocator(i32);
-#[repr(C)]
-pub struct ComServiceEvents(i32);
-#[repr(C)]
-pub struct ComSystemAppEventData(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct ComponentHangMonitorInfo(i32);
-#[repr(C)]
-pub struct ComponentStatistics(i32);
+pub struct ComponentHangMonitorInfo {
+    pub IsMonitored: super::super::Foundation::BOOL,
+    pub TerminateOnHang: super::super::Foundation::BOOL,
+    pub AvgCallThresholdInMs: u32,
+}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ComponentHangMonitorInfo {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ComponentHangMonitorInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct ComponentSummary(i32);
+pub struct ComponentStatistics {
+    pub NumInstances: u32,
+    pub NumBoundReferences: u32,
+    pub NumPooledObjects: u32,
+    pub NumObjectsInCall: u32,
+    pub AvgResponseTimeInMs: u32,
+    pub NumCallsCompletedRecent: u32,
+    pub NumCallsFailedRecent: u32,
+    pub NumCallsCompletedTotal: u32,
+    pub NumCallsFailedTotal: u32,
+    pub Reserved1: u32,
+    pub Reserved2: u32,
+    pub Reserved3: u32,
+    pub Reserved4: u32,
+}
+impl ::core::marker::Copy for ComponentStatistics {}
+impl ::core::clone::Clone for ComponentStatistics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct ComponentSummary {
+    pub ApplicationInstanceId: ::windows_sys::core::GUID,
+    pub PartitionId: ::windows_sys::core::GUID,
+    pub ApplicationId: ::windows_sys::core::GUID,
+    pub Clsid: ::windows_sys::core::GUID,
+    pub ClassName: super::super::Foundation::PWSTR,
+    pub ApplicationName: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ComponentSummary {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ComponentSummary {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ContextInfo(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ContextInfo2(pub *mut ::core::ffi::c_void);
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
-pub struct CrmLogRecordRead(i32);
+#[cfg(feature = "Win32_System_Com")]
+pub struct CrmLogRecordRead {
+    pub dwCrmFlags: u32,
+    pub dwSequenceNumber: u32,
+    pub blobUserData: super::Com::BLOB,
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::marker::Copy for CrmLogRecordRead {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for CrmLogRecordRead {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CrmTransactionState(pub i32);
 pub const TxState_Active: CrmTransactionState = CrmTransactionState(0i32);
 pub const TxState_Committed: CrmTransactionState = CrmTransactionState(1i32);
 pub const TxState_Aborted: CrmTransactionState = CrmTransactionState(2i32);
 pub const TxState_Indoubt: CrmTransactionState = CrmTransactionState(3i32);
+impl ::core::marker::Copy for CrmTransactionState {}
+impl ::core::clone::Clone for CrmTransactionState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DATA_NOT_AVAILABLE: u32 = 4294967295u32;
 #[repr(transparent)]
 pub struct DUMPTYPE(pub i32);
 pub const DUMPTYPE_FULL: DUMPTYPE = DUMPTYPE(0i32);
 pub const DUMPTYPE_MINI: DUMPTYPE = DUMPTYPE(1i32);
 pub const DUMPTYPE_NONE: DUMPTYPE = DUMPTYPE(2i32);
-#[repr(C)]
-pub struct DispenserManager(i32);
-#[repr(C)]
-pub struct Dummy30040732(i32);
-#[repr(C)]
-pub struct EventServer(i32);
+impl ::core::marker::Copy for DUMPTYPE {}
+impl ::core::clone::Clone for DUMPTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+pub const DispenserManager: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3970674880, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
+pub const Dummy30040732: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3970674857, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
+pub const EventServer: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3970674620, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
 pub const GUID_STRING_SIZE: u32 = 40u32;
 #[repr(transparent)]
 pub struct GetAppTrackerDataFlags(pub i32);
@@ -464,11 +875,31 @@ pub const GATD_INCLUDE_LIBRARY_APPS: GetAppTrackerDataFlags = GetAppTrackerDataF
 pub const GATD_INCLUDE_SWC: GetAppTrackerDataFlags = GetAppTrackerDataFlags(4i32);
 pub const GATD_INCLUDE_CLASS_NAME: GetAppTrackerDataFlags = GetAppTrackerDataFlags(8i32);
 pub const GATD_INCLUDE_APPLICATION_NAME: GetAppTrackerDataFlags = GetAppTrackerDataFlags(16i32);
+impl ::core::marker::Copy for GetAppTrackerDataFlags {}
+impl ::core::clone::Clone for GetAppTrackerDataFlags {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+pub const GetSecurityCallContextAppObject: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3970674856, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
 #[repr(C)]
-pub struct GetSecurityCallContextAppObject(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct HANG_INFO(i32);
+pub struct HANG_INFO {
+    pub fAppHangMonitorEnabled: super::super::Foundation::BOOL,
+    pub fTerminateOnHang: super::super::Foundation::BOOL,
+    pub DumpType: DUMPTYPE,
+    pub dwHangTimeout: u32,
+    pub dwDumpCount: u32,
+    pub dwInfoMsgCount: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for HANG_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for HANG_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppDomainHelper(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -705,59 +1136,80 @@ pub struct ITransactionResourcePool(pub *mut ::core::ffi::c_void);
 pub struct ITransactionStatus(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ITxProxyHolder(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct LBEvents(i32);
+pub const LBEvents: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3970674881, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
 #[repr(transparent)]
 pub struct LockModes(pub i32);
 pub const LockSetGet: LockModes = LockModes(0i32);
 pub const LockMethod: LockModes = LockModes(1i32);
+impl ::core::marker::Copy for LockModes {}
+impl ::core::clone::Clone for LockModes {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MTXDM_E_ENLISTRESOURCEFAILED: u32 = 2147803392u32;
-#[repr(C)]
-pub struct MessageMover(i32);
-#[repr(C)]
-pub struct MtsGrp(i32);
+pub const MessageMover: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3970674879, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
+pub const MtsGrp: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1261344141, data2: 915, data3: 4561, data4: [177, 171, 0, 170, 0, 186, 50, 88] };
 #[repr(transparent)]
 pub struct ObjectContext(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ObjectControl(pub *mut ::core::ffi::c_void);
+pub const PoolMgr: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3970674613, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
 #[repr(C)]
-pub struct PoolMgr(i32);
-#[repr(C)]
-pub struct RECYCLE_INFO(i32);
+pub struct RECYCLE_INFO {
+    pub guidCombaseProcessIdentifier: ::windows_sys::core::GUID,
+    pub ProcessStartTime: i64,
+    pub dwRecycleLifetimeLimit: u32,
+    pub dwRecycleMemoryLimit: u32,
+    pub dwRecycleExpirationTimeout: u32,
+}
+impl ::core::marker::Copy for RECYCLE_INFO {}
+impl ::core::clone::Clone for RECYCLE_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ReleaseModes(pub i32);
 pub const Standard: ReleaseModes = ReleaseModes(0i32);
 pub const Process: ReleaseModes = ReleaseModes(1i32);
-#[repr(C)]
-pub struct SecurityCallContext(i32);
-#[repr(C)]
-pub struct SecurityCallers(i32);
-#[repr(C)]
-pub struct SecurityIdentity(i32);
+impl ::core::marker::Copy for ReleaseModes {}
+impl ::core::clone::Clone for ReleaseModes {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+pub const SecurityCallContext: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3970674855, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
+pub const SecurityCallers: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3970674854, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
+pub const SecurityIdentity: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3970674853, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
 #[repr(transparent)]
 pub struct SecurityProperty(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct ServicePool(i32);
-#[repr(C)]
-pub struct ServicePoolConfig(i32);
-#[repr(C)]
-pub struct SharedProperty(i32);
-#[repr(C)]
-pub struct SharedPropertyGroup(i32);
-#[repr(C)]
-pub struct SharedPropertyGroupManager(i32);
+pub const ServicePool: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3970674889, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
+pub const ServicePoolConfig: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3970674890, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
+pub const SharedProperty: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 704666629, data2: 42462, data3: 4559, data4: [158, 102, 0, 170, 0, 163, 244, 100] };
+pub const SharedPropertyGroup: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 704666635, data2: 42462, data3: 4559, data4: [158, 102, 0, 170, 0, 163, 244, 100] };
+pub const SharedPropertyGroupManager: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 704666641, data2: 42462, data3: 4559, data4: [158, 102, 0, 170, 0, 163, 244, 100] };
 #[repr(transparent)]
 pub struct TRACKING_COLL_TYPE(pub i32);
 pub const TRKCOLL_PROCESSES: TRACKING_COLL_TYPE = TRACKING_COLL_TYPE(0i32);
 pub const TRKCOLL_APPLICATIONS: TRACKING_COLL_TYPE = TRACKING_COLL_TYPE(1i32);
 pub const TRKCOLL_COMPONENTS: TRACKING_COLL_TYPE = TRACKING_COLL_TYPE(2i32);
-#[repr(C)]
-pub struct TrackerServer(i32);
-#[repr(C)]
-pub struct TransactionContext(i32);
-#[repr(C)]
-pub struct TransactionContextEx(i32);
+impl ::core::marker::Copy for TRACKING_COLL_TYPE {}
+impl ::core::clone::Clone for TRACKING_COLL_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+pub const TrackerServer: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3970674617, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
+pub const TransactionContext: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2040134693, data2: 54214, data3: 4559, data4: [172, 171, 0, 160, 36, 165, 90, 239] };
+pub const TransactionContextEx: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1555457648, data2: 54228, data3: 4559, data4: [172, 171, 0, 160, 36, 165, 90, 239] };
 #[repr(transparent)]
 pub struct TransactionVote(pub i32);
 pub const TxCommit: TransactionVote = TransactionVote(0i32);
 pub const TxAbort: TransactionVote = TransactionVote(1i32);
+impl ::core::marker::Copy for TransactionVote {}
+impl ::core::clone::Clone for TransactionVote {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

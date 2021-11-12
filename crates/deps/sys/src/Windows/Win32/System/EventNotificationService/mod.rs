@@ -22,9 +22,19 @@ pub const NETWORK_ALIVE_INTERNET: u32 = 8u32;
 pub const NETWORK_ALIVE_LAN: u32 = 1u32;
 pub const NETWORK_ALIVE_WAN: u32 = 2u32;
 #[repr(C)]
-pub struct QOCINFO(i32);
-#[repr(C)]
-pub struct SENS(i32);
+pub struct QOCINFO {
+    pub dwSize: u32,
+    pub dwFlags: u32,
+    pub dwInSpeed: u32,
+    pub dwOutSpeed: u32,
+}
+impl ::core::marker::Copy for QOCINFO {}
+impl ::core::clone::Clone for QOCINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+pub const SENS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3583494910, data2: 23455, data3: 4561, data4: [141, 210, 0, 170, 0, 74, 189, 94] };
 pub const SENSGUID_EVENTCLASS_LOGON: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3583477296, data2: 23455, data3: 4561, data4: [141, 210, 0, 170, 0, 74, 189, 94] };
 pub const SENSGUID_EVENTCLASS_LOGON2: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3583477328, data2: 23455, data3: 4561, data4: [141, 210, 0, 170, 0, 74, 189, 94] };
 pub const SENSGUID_EVENTCLASS_NETWORK: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3583477280, data2: 23455, data3: 4561, data4: [141, 210, 0, 170, 0, 74, 189, 94] };
@@ -36,5 +46,22 @@ pub const SENSGUID_SUBSCRIBER_WININET: ::windows_sys::core::GUID = ::windows_sys
 pub struct SENS_CONNECTION_TYPE(pub u32);
 pub const CONNECTION_LAN: SENS_CONNECTION_TYPE = SENS_CONNECTION_TYPE(0u32);
 pub const CONNECTION_WAN: SENS_CONNECTION_TYPE = SENS_CONNECTION_TYPE(1u32);
+impl ::core::marker::Copy for SENS_CONNECTION_TYPE {}
+impl ::core::clone::Clone for SENS_CONNECTION_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct SENS_QOCINFO(i32);
+pub struct SENS_QOCINFO {
+    pub dwSize: u32,
+    pub dwFlags: u32,
+    pub dwOutSpeed: u32,
+    pub dwInSpeed: u32,
+}
+impl ::core::marker::Copy for SENS_QOCINFO {}
+impl ::core::clone::Clone for SENS_QOCINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

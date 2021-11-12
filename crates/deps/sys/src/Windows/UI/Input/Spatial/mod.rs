@@ -110,6 +110,12 @@ impl SpatialGestureSettings {
     pub const NavigationRailsY: Self = Self(256u32);
     pub const NavigationRailsZ: Self = Self(512u32);
 }
+impl ::core::marker::Copy for SpatialGestureSettings {}
+impl ::core::clone::Clone for SpatialGestureSettings {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SpatialHoldCanceledEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -136,6 +142,12 @@ impl SpatialInteractionPressKind {
     pub const Touchpad: Self = Self(4i32);
     pub const Thumbstick: Self = Self(5i32);
 }
+impl ::core::marker::Copy for SpatialInteractionPressKind {}
+impl ::core::clone::Clone for SpatialInteractionPressKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SpatialInteractionSource(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -147,6 +159,12 @@ impl SpatialInteractionSourceHandedness {
     pub const Left: Self = Self(1i32);
     pub const Right: Self = Self(2i32);
 }
+impl ::core::marker::Copy for SpatialInteractionSourceHandedness {}
+impl ::core::clone::Clone for SpatialInteractionSourceHandedness {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SpatialInteractionSourceKind(pub i32);
 impl SpatialInteractionSourceKind {
@@ -155,6 +173,12 @@ impl SpatialInteractionSourceKind {
     pub const Voice: Self = Self(2i32);
     pub const Controller: Self = Self(3i32);
 }
+impl ::core::marker::Copy for SpatialInteractionSourceKind {}
+impl ::core::clone::Clone for SpatialInteractionSourceKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SpatialInteractionSourceLocation(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -162,6 +186,12 @@ pub struct SpatialInteractionSourcePositionAccuracy(pub i32);
 impl SpatialInteractionSourcePositionAccuracy {
     pub const High: Self = Self(0i32);
     pub const Approximate: Self = Self(1i32);
+}
+impl ::core::marker::Copy for SpatialInteractionSourcePositionAccuracy {}
+impl ::core::clone::Clone for SpatialInteractionSourcePositionAccuracy {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct SpatialInteractionSourceProperties(pub *mut ::core::ffi::c_void);

@@ -327,12 +327,17 @@ extern "system" {
     pub fn OPMXboxGetHDCPStatus(phdcpstatus: *mut OPM_HDCP_STATUS) -> ::windows_sys::core::HRESULT;
     pub fn OPMXboxGetHDCPStatusAndType(phdcpstatus: *mut OPM_HDCP_STATUS, phdcptype: *mut OPM_HDCP_TYPE) -> ::windows_sys::core::HRESULT;
 }
-#[repr(C)]
-pub struct AACMFTEncoder(i32);
+pub const AACMFTEncoder: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2477722705, data2: 8821, data3: 17874, data4: [163, 91, 242, 186, 33, 202, 237, 0] };
 #[repr(transparent)]
 pub struct AEC_INPUT_STREAM(pub i32);
 pub const AEC_CAPTURE_STREAM: AEC_INPUT_STREAM = AEC_INPUT_STREAM(0i32);
 pub const AEC_REFERENCE_STREAM: AEC_INPUT_STREAM = AEC_INPUT_STREAM(1i32);
+impl ::core::marker::Copy for AEC_INPUT_STREAM {}
+impl ::core::clone::Clone for AEC_INPUT_STREAM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const AEC_MAX_SYSTEM_MODES: u32 = 6u32;
 #[repr(transparent)]
 pub struct AEC_SYSTEM_MODE(pub i32);
@@ -343,65 +348,184 @@ pub const ADAPTIVE_ARRAY_AND_AEC: AEC_SYSTEM_MODE = AEC_SYSTEM_MODE(3i32);
 pub const OPTIBEAM_ARRAY_AND_AEC: AEC_SYSTEM_MODE = AEC_SYSTEM_MODE(4i32);
 pub const SINGLE_CHANNEL_NSAGC: AEC_SYSTEM_MODE = AEC_SYSTEM_MODE(5i32);
 pub const MODE_NOT_SET: AEC_SYSTEM_MODE = AEC_SYSTEM_MODE(6i32);
+impl ::core::marker::Copy for AEC_SYSTEM_MODE {}
+impl ::core::clone::Clone for AEC_SYSTEM_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AEC_VAD_MODE(pub i32);
 pub const AEC_VAD_DISABLED: AEC_VAD_MODE = AEC_VAD_MODE(0i32);
 pub const AEC_VAD_NORMAL: AEC_VAD_MODE = AEC_VAD_MODE(1i32);
 pub const AEC_VAD_FOR_AGC: AEC_VAD_MODE = AEC_VAD_MODE(2i32);
 pub const AEC_VAD_FOR_SILENCE_SUPPRESSION: AEC_VAD_MODE = AEC_VAD_MODE(3i32);
-#[repr(C)]
-pub struct ALawCodecWrapper(i32);
+impl ::core::marker::Copy for AEC_VAD_MODE {}
+impl ::core::clone::Clone for AEC_VAD_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+pub const ALawCodecWrapper: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 919301644, data2: 30913, data3: 17074, data4: [153, 67, 132, 98, 98, 243, 23, 134] };
 pub const AM_MEDIA_TYPE_REPRESENTATION: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3806603986, data2: 4908, data3: 18718, data4: [162, 104, 60, 124, 45, 202, 24, 31] };
+#[repr(C, packed(1))]
+pub struct ASF_FLAT_PICTURE {
+    pub bPictureType: u8,
+    pub dwDataLen: u32,
+}
+impl ::core::marker::Copy for ASF_FLAT_PICTURE {}
+impl ::core::clone::Clone for ASF_FLAT_PICTURE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub struct ASF_FLAT_SYNCHRONISED_LYRICS {
+    pub bTimeStampFormat: u8,
+    pub bContentType: u8,
+    pub dwLyricsLen: u32,
+}
+impl ::core::marker::Copy for ASF_FLAT_SYNCHRONISED_LYRICS {}
+impl ::core::clone::Clone for ASF_FLAT_SYNCHRONISED_LYRICS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct ASF_FLAT_PICTURE(i32);
+pub struct ASF_INDEX_DESCRIPTOR {
+    pub Identifier: ASF_INDEX_IDENTIFIER,
+    pub cPerEntryBytes: u16,
+    pub szDescription: [u16; 32],
+    pub dwInterval: u32,
+}
+impl ::core::marker::Copy for ASF_INDEX_DESCRIPTOR {}
+impl ::core::clone::Clone for ASF_INDEX_DESCRIPTOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct ASF_FLAT_SYNCHRONISED_LYRICS(i32);
+pub struct ASF_INDEX_IDENTIFIER {
+    pub guidIndexType: ::windows_sys::core::GUID,
+    pub wStreamNumber: u16,
+}
+impl ::core::marker::Copy for ASF_INDEX_IDENTIFIER {}
+impl ::core::clone::Clone for ASF_INDEX_IDENTIFIER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct ASF_INDEX_DESCRIPTOR(i32);
-#[repr(C)]
-pub struct ASF_INDEX_IDENTIFIER(i32);
-#[repr(C)]
-pub struct ASF_MUX_STATISTICS(i32);
+pub struct ASF_MUX_STATISTICS {
+    pub cFramesWritten: u32,
+    pub cFramesDropped: u32,
+}
+impl ::core::marker::Copy for ASF_MUX_STATISTICS {}
+impl ::core::clone::Clone for ASF_MUX_STATISTICS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ASF_SELECTION_STATUS(pub i32);
 pub const ASF_STATUS_NOTSELECTED: ASF_SELECTION_STATUS = ASF_SELECTION_STATUS(0i32);
 pub const ASF_STATUS_CLEANPOINTSONLY: ASF_SELECTION_STATUS = ASF_SELECTION_STATUS(1i32);
 pub const ASF_STATUS_ALLDATAUNITS: ASF_SELECTION_STATUS = ASF_SELECTION_STATUS(2i32);
+impl ::core::marker::Copy for ASF_SELECTION_STATUS {}
+impl ::core::clone::Clone for ASF_SELECTION_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ASF_STATUSFLAGS(pub i32);
 pub const ASF_STATUSFLAGS_INCOMPLETE: ASF_STATUSFLAGS = ASF_STATUSFLAGS(1i32);
 pub const ASF_STATUSFLAGS_NONFATAL_ERROR: ASF_STATUSFLAGS = ASF_STATUSFLAGS(2i32);
+impl ::core::marker::Copy for ASF_STATUSFLAGS {}
+impl ::core::clone::Clone for ASF_STATUSFLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const AVENC_H263V_LEVELCOUNT: u32 = 8u32;
 pub const AVENC_H264V_LEVELCOUNT: u32 = 16u32;
 pub const AVENC_H264V_MAX_MBBITS: u32 = 3200u32;
 #[repr(C)]
-pub struct AecQualityMetrics_Struct(i32);
-#[repr(C)]
-pub struct CAC3DecMediaObject(i32);
-#[repr(C)]
-pub struct CClusterDetectorDmo(i32);
-#[repr(C)]
-pub struct CColorControlDmo(i32);
-#[repr(C)]
-pub struct CColorConvertDMO(i32);
-#[repr(C)]
-pub struct CColorLegalizerDmo(i32);
-#[repr(C)]
-pub struct CDTVAudDecoderDS(i32);
-#[repr(C)]
-pub struct CDTVVidDecoderDS(i32);
-#[repr(C)]
-pub struct CDVDecoderMediaObject(i32);
-#[repr(C)]
-pub struct CDVEncoderMediaObject(i32);
-#[repr(C)]
-pub struct CDeColorConvMediaObject(i32);
-#[repr(C)]
-pub struct CFrameInterpDMO(i32);
-#[repr(C)]
-pub struct CFrameRateConvertDmo(i32);
-#[repr(C)]
-pub struct CInterlaceMediaObject(i32);
+pub struct AecQualityMetrics_Struct {
+    pub i64Timestamp: i64,
+    pub ConvergenceFlag: u8,
+    pub MicClippedFlag: u8,
+    pub MicSilenceFlag: u8,
+    pub PstvFeadbackFlag: u8,
+    pub SpkClippedFlag: u8,
+    pub SpkMuteFlag: u8,
+    pub GlitchFlag: u8,
+    pub DoubleTalkFlag: u8,
+    pub uGlitchCount: u32,
+    pub uMicClipCount: u32,
+    pub fDuration: f32,
+    pub fTSVariance: f32,
+    pub fTSDriftRate: f32,
+    pub fVoiceLevel: f32,
+    pub fNoiseLevel: f32,
+    pub fERLE: f32,
+    pub fAvgERLE: f32,
+    pub dwReserved: u32,
+}
+impl ::core::marker::Copy for AecQualityMetrics_Struct {}
+impl ::core::clone::Clone for AecQualityMetrics_Struct {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+pub const CAC3DecMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 64473090, data2: 60666, data3: 18393, data4: [178, 104, 95, 179, 227, 16, 222, 228] };
+pub const CClusterDetectorDmo: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 921182404, data2: 5722, data3: 17697, data4: [134, 60, 97, 158, 17, 96, 212, 212] };
+pub const CColorControlDmo: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2038454768,
+    data2: 35274,
+    data3: 16736,
+    data4: [179, 37, 174, 180, 142, 254, 79, 154],
+};
+pub const CColorConvertDMO: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2552431985, data2: 135, data3: 16900, data4: [176, 32, 50, 130, 83, 142, 87, 211] };
+pub const CColorLegalizerDmo: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 4261062483,
+    data2: 58510,
+    data3: 20019,
+    data4: [156, 116, 152, 162, 127, 198, 114, 106],
+};
+pub const CDTVAudDecoderDS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2384891954, data2: 65027, data3: 18259, data4: [155, 23, 24, 37, 60, 33, 114, 46] };
+pub const CDTVVidDecoderDS: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1685552584,
+    data2: 20004,
+    data3: 19435,
+    data4: [157, 25, 96, 163, 91, 225, 218, 175],
+};
+pub const CDVDecoderMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3846638021, data2: 7703, data3: 19597, data4: [148, 231, 71, 137, 64, 67, 53, 132] };
+pub const CDVEncoderMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3358254889,
+    data2: 49959,
+    data3: 19662,
+    data4: [145, 77, 129, 113, 254, 254, 190, 251],
+};
+pub const CDeColorConvMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1224952837,
+    data2: 62524,
+    data3: 16399,
+    data4: [132, 193, 144, 166, 131, 25, 90, 58],
+};
+pub const CFrameInterpDMO: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 175963675,
+    data2: 27317,
+    data3: 17204,
+    data4: [158, 216, 63, 151, 203, 55, 218, 161],
+};
+pub const CFrameRateConvertDmo: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 32730338, data2: 2311, data3: 19851, data4: [151, 157, 241, 81, 190, 145, 200, 131] };
+pub const CInterlaceMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3047726208,
+    data2: 18689,
+    data3: 16507,
+    data4: [154, 188, 144, 217, 166, 68, 187, 70],
+};
 pub const CLSID_AudioResamplerMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 4098340510,
     data2: 6276,
@@ -555,708 +679,1212 @@ pub const CLSID_WMVDecoderMFT: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data3: 17282,
     data4: [139, 194, 63, 97, 146, 183, 110, 52],
 };
-#[repr(C)]
-pub struct CMP3DecMediaObject(i32);
-#[repr(C)]
-pub struct CMPEG2AudDecoderDS(i32);
-#[repr(C)]
-pub struct CMPEG2AudioEncoderMFT(i32);
-#[repr(C)]
-pub struct CMPEG2EncoderAudioDS(i32);
-#[repr(C)]
-pub struct CMPEG2EncoderDS(i32);
-#[repr(C)]
-pub struct CMPEG2EncoderVideoDS(i32);
-#[repr(C)]
-pub struct CMPEG2VidDecoderDS(i32);
-#[repr(C)]
-pub struct CMPEG2VideoEncoderMFT(i32);
-#[repr(C)]
-pub struct CMPEGAACDecMediaObject(i32);
-#[repr(C)]
-pub struct CMSAACDecMFT(i32);
-#[repr(C)]
-pub struct CMSAC3Enc(i32);
-#[repr(C)]
-pub struct CMSALACDecMFT(i32);
-#[repr(C)]
-pub struct CMSALACEncMFT(i32);
-#[repr(C)]
-pub struct CMSDDPlusDecMFT(i32);
-#[repr(C)]
-pub struct CMSDolbyDigitalEncMFT(i32);
-#[repr(C)]
-pub struct CMSFLACDecMFT(i32);
-#[repr(C)]
-pub struct CMSFLACEncMFT(i32);
-#[repr(C)]
-pub struct CMSH263EncoderMFT(i32);
-#[repr(C)]
-pub struct CMSH264DecoderMFT(i32);
-#[repr(C)]
-pub struct CMSH264EncoderMFT(i32);
-#[repr(C)]
-pub struct CMSH264RemuxMFT(i32);
-#[repr(C)]
-pub struct CMSH265EncoderMFT(i32);
-#[repr(C)]
-pub struct CMSMPEGAudDecMFT(i32);
-#[repr(C)]
-pub struct CMSMPEGDecoderMFT(i32);
-#[repr(C)]
-pub struct CMSOpusDecMFT(i32);
-#[repr(C)]
-pub struct CMSSCDecMediaObject(i32);
-#[repr(C)]
-pub struct CMSSCEncMediaObject(i32);
-#[repr(C)]
-pub struct CMSSCEncMediaObject2(i32);
-#[repr(C)]
-pub struct CMSVPXEncoderMFT(i32);
-#[repr(C)]
-pub struct CMSVideoDSPMFT(i32);
-#[repr(C)]
-pub struct CMpeg2DecMediaObject(i32);
-#[repr(C)]
-pub struct CMpeg43DecMediaObject(i32);
-#[repr(C)]
-pub struct CMpeg4DecMediaObject(i32);
-#[repr(C)]
-pub struct CMpeg4EncMediaObject(i32);
-#[repr(C)]
-pub struct CMpeg4sDecMFT(i32);
-#[repr(C)]
-pub struct CMpeg4sDecMediaObject(i32);
-#[repr(C)]
-pub struct CMpeg4sEncMediaObject(i32);
-#[repr(C)]
-pub struct CNokiaAACCCDecMediaObject(i32);
-#[repr(C)]
-pub struct CNokiaAACDecMediaObject(i32);
-#[repr(C)]
-pub struct CODECAPI_AVAudioChannelConfig(i32);
-#[repr(C)]
-pub struct CODECAPI_AVAudioChannelCount(i32);
-#[repr(C)]
-pub struct CODECAPI_AVAudioSampleRate(i32);
-#[repr(C)]
-pub struct CODECAPI_AVDDSurroundMode(i32);
-#[repr(C)]
-pub struct CODECAPI_AVDSPLoudnessEqualization(i32);
-#[repr(C)]
-pub struct CODECAPI_AVDSPSpeakerFill(i32);
-#[repr(C)]
-pub struct CODECAPI_AVDecAACDownmixMode(i32);
-#[repr(C)]
-pub struct CODECAPI_AVDecAudioDualMono(i32);
-#[repr(C)]
-pub struct CODECAPI_AVDecAudioDualMonoReproMode(i32);
-#[repr(C)]
-pub struct CODECAPI_AVDecCommonInputFormat(i32);
-#[repr(C)]
-pub struct CODECAPI_AVDecCommonMeanBitRate(i32);
-#[repr(C)]
-pub struct CODECAPI_AVDecCommonMeanBitRateInterval(i32);
-#[repr(C)]
-pub struct CODECAPI_AVDecCommonOutputFormat(i32);
-#[repr(C)]
-pub struct CODECAPI_AVDecDDDynamicRangeScaleHigh(i32);
-#[repr(C)]
-pub struct CODECAPI_AVDecDDDynamicRangeScaleLow(i32);
-#[repr(C)]
-pub struct CODECAPI_AVDecDDMatrixDecodingMode(i32);
-#[repr(C)]
-pub struct CODECAPI_AVDecDDOperationalMode(i32);
-#[repr(C)]
-pub struct CODECAPI_AVDecDDStereoDownMixMode(i32);
-#[repr(C)]
-pub struct CODECAPI_AVDecDisableVideoPostProcessing(i32);
-#[repr(C)]
-pub struct CODECAPI_AVDecHEAACDynamicRangeControl(i32);
-#[repr(C)]
-pub struct CODECAPI_AVDecNumWorkerThreads(i32);
-#[repr(C)]
-pub struct CODECAPI_AVDecSoftwareDynamicFormatChange(i32);
-#[repr(C)]
-pub struct CODECAPI_AVDecVideoAcceleration_H264(i32);
-#[repr(C)]
-pub struct CODECAPI_AVDecVideoAcceleration_MPEG2(i32);
-#[repr(C)]
-pub struct CODECAPI_AVDecVideoAcceleration_VC1(i32);
-#[repr(C)]
-pub struct CODECAPI_AVDecVideoCodecType(i32);
-#[repr(C)]
-pub struct CODECAPI_AVDecVideoDXVABusEncryption(i32);
-#[repr(C)]
-pub struct CODECAPI_AVDecVideoDXVAMode(i32);
-#[repr(C)]
-pub struct CODECAPI_AVDecVideoDropPicWithMissingRef(i32);
-#[repr(C)]
-pub struct CODECAPI_AVDecVideoFastDecodeMode(i32);
-#[repr(C)]
-pub struct CODECAPI_AVDecVideoH264ErrorConcealment(i32);
-#[repr(C)]
-pub struct CODECAPI_AVDecVideoImageSize(i32);
-#[repr(C)]
-pub struct CODECAPI_AVDecVideoInputScanType(i32);
-#[repr(C)]
-pub struct CODECAPI_AVDecVideoMPEG2ErrorConcealment(i32);
-#[repr(C)]
-pub struct CODECAPI_AVDecVideoMaxCodedHeight(i32);
-#[repr(C)]
-pub struct CODECAPI_AVDecVideoMaxCodedWidth(i32);
-#[repr(C)]
-pub struct CODECAPI_AVDecVideoPixelAspectRatio(i32);
-#[repr(C)]
-pub struct CODECAPI_AVDecVideoProcDeinterlaceCSC(i32);
-#[repr(C)]
-pub struct CODECAPI_AVDecVideoSWPowerLevel(i32);
-#[repr(C)]
-pub struct CODECAPI_AVDecVideoSoftwareDeinterlaceMode(i32);
-#[repr(C)]
-pub struct CODECAPI_AVDecVideoThumbnailGenerationMode(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEnableInLoopDeblockFilter(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncAdaptiveMode(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncAudioDualMono(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncAudioInputContent(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncAudioIntervalToEncode(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncAudioIntervalToSkip(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncAudioMapDestChannel0(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncAudioMapDestChannel1(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncAudioMapDestChannel10(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncAudioMapDestChannel11(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncAudioMapDestChannel12(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncAudioMapDestChannel13(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncAudioMapDestChannel14(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncAudioMapDestChannel15(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncAudioMapDestChannel2(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncAudioMapDestChannel3(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncAudioMapDestChannel4(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncAudioMapDestChannel5(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncAudioMapDestChannel6(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncAudioMapDestChannel7(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncAudioMapDestChannel8(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncAudioMapDestChannel9(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncAudioMeanBitRate(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncChromaEncodeMode(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncChromaUpdateTime(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncCodecType(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncCommonAllowFrameDrops(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncCommonBufferInLevel(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncCommonBufferOutLevel(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncCommonBufferSize(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncCommonFormatConstraint(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncCommonLowLatency(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncCommonMaxBitRate(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncCommonMeanBitRate(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncCommonMeanBitRateInterval(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncCommonMinBitRate(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncCommonMultipassMode(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncCommonPassEnd(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncCommonPassStart(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncCommonQuality(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncCommonQualityVsSpeed(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncCommonRateControlMode(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncCommonRealTime(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncCommonStreamEndHandling(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncCommonTranscodeEncodingProfile(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncDDAtoDConverterType(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncDDCentreDownMixLevel(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncDDChannelBWLowPassFilter(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncDDCopyright(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncDDDCHighPassFilter(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncDDDialogNormalization(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncDDDigitalDeemphasis(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncDDDynamicRangeCompressionControl(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncDDHeadphoneMode(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncDDLFELowPassFilter(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncDDLoRoCenterMixLvl_x10(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncDDLoRoSurroundMixLvl_x10(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncDDLtRtCenterMixLvl_x10(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncDDLtRtSurroundMixLvl_x10(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncDDOriginalBitstream(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncDDPreferredStereoDownMixMode(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncDDProductionInfoExists(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncDDProductionMixLevel(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncDDProductionRoomType(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncDDRFPreEmphasisFilter(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncDDService(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncDDSurround3dBAttenuation(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncDDSurround90DegreeePhaseShift(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncDDSurroundDownMixLevel(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncDDSurroundExMode(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncEnableVideoProcessing(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncH264CABACEnable(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncH264PPSID(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncH264SPSID(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncInputVideoSystem(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncLowPowerEncoder(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMP12MuxDVDNavPacks(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMP12MuxEarliestPTS(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMP12MuxInitialSCR(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMP12MuxLargestPacketSize(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMP12MuxMuxRate(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMP12MuxNumStreams(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMP12MuxPackSize(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMP12MuxPacketOverhead(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMP12MuxSysAudioLock(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMP12MuxSysCSPS(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMP12MuxSysFixed(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMP12MuxSysRateBound(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMP12MuxSysSTDBufferBound(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMP12MuxSysVideoLock(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMP12MuxTargetPacketizer(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMP12PktzCopyright(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMP12PktzInitialPTS(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMP12PktzOriginal(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMP12PktzPacketSize(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMP12PktzSTDBuffer(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMP12PktzStreamID(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMPACodingMode(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMPACopyright(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMPAEmphasisType(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMPAEnableRedundancyProtection(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMPALayer(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMPAOriginalBitstream(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMPAPrivateUserBit(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMPVAddSeqEndCode(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMPVDefaultBPictureCount(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMPVFrameFieldMode(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMPVGOPOpen(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMPVGOPSInSeq(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMPVGOPSize(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMPVGOPSizeMax(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMPVGOPSizeMin(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMPVGenerateHeaderPicDispExt(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMPVGenerateHeaderPicExt(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMPVGenerateHeaderSeqDispExt(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMPVGenerateHeaderSeqExt(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMPVGenerateHeaderSeqScaleExt(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMPVIntraDCPrecision(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMPVIntraVLCTable(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMPVLevel(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMPVProfile(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMPVQScaleType(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMPVQuantMatrixChromaIntra(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMPVQuantMatrixChromaNonIntra(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMPVQuantMatrixIntra(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMPVQuantMatrixNonIntra(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMPVScanPattern(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMPVSceneDetection(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMPVUseConcealmentMotionVectors(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMaxFrameRate(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncMuxOutputStreamType(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncNoInputCopy(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncNumWorkerThreads(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncProgressiveUpdateTime(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncSliceControlMode(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncSliceControlSize(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncSliceGenerationMode(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncStatAudioAverageBPS(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncStatAudioAveragePCMValue(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncStatAudioPeakPCMValue(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncStatAverageBPS(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncStatCommonCompletedPasses(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncStatHardwareBandwidthUtilitization(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncStatHardwareProcessorUtilitization(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncStatMPVSkippedEmptyFrames(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncStatVideoCodedFrames(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncStatVideoOutputFrameRate(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncStatVideoTotalFrames(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncStatWMVCBAvg(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncStatWMVCBMax(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncStatWMVDecoderComplexityProfile(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoCBRMotionTradeoff(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoCTBSize(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoCodedVideoAccessUnitSize(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoContentType(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoDefaultUpperFieldDominant(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoDirtyRectEnabled(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoDisplayDimension(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoEncodeDimension(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoEncodeFrameTypeQP(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoEncodeOffsetOrigin(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoEncodeQP(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoFieldSwap(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoForceKeyFrame(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoForceSourceScanType(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoGradualIntraRefresh(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoHeaderDropFrame(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoHeaderFrames(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoHeaderHours(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoHeaderMinutes(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoHeaderSeconds(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoInputChromaResolution(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoInputChromaSubsampling(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoInputColorLighting(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoInputColorNominalRange(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoInputColorPrimaries(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoInputColorTransferFunction(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoInputColorTransferMatrix(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoInstantTemporalUpSwitching(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoIntraLayerPrediction(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoInverseTelecineEnable(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoInverseTelecineThreshold(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoLTRBufferControl(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoMarkLTRFrame(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoMaxCTBSize(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoMaxKeyframeDistance(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoMaxNumRefFrame(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoMaxQP(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoMaxTemporalLayers(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoMeanAbsoluteDifference(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoMinQP(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoNoOfFieldsToEncode(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoNoOfFieldsToSkip(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoNumGOPsPerIDR(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoOutputChromaResolution(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoOutputChromaSubsampling(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoOutputColorLighting(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoOutputColorNominalRange(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoOutputColorPrimaries(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoOutputColorTransferFunction(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoOutputColorTransferMatrix(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoOutputFrameRate(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoOutputFrameRateConversion(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoOutputScanType(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoPixelAspectRatio(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoROIEnabled(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoRateControlParams(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoSelectLayer(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoSourceFilmContent(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoSourceIsBW(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoSupportedControls(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoTemporalLayerCount(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoUsage(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncVideoUseLTRFrame(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncWMVDecoderComplexity(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncWMVInterlacedEncoding(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncWMVKeyFrameBufferLevelMarker(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncWMVKeyFrameDistance(i32);
-#[repr(C)]
-pub struct CODECAPI_AVEncWMVProduceDummyFrames(i32);
-#[repr(C)]
-pub struct CODECAPI_AVLowLatencyMode(i32);
-#[repr(C)]
-pub struct CODECAPI_AVPriorityControl(i32);
-#[repr(C)]
-pub struct CODECAPI_AVRealtimeControl(i32);
-#[repr(C)]
-pub struct CODECAPI_AVScenarioInfo(i32);
-#[repr(C)]
-pub struct CODECAPI_GUID_AVDecAudioInputAAC(i32);
-#[repr(C)]
-pub struct CODECAPI_GUID_AVDecAudioInputDTS(i32);
-#[repr(C)]
-pub struct CODECAPI_GUID_AVDecAudioInputDolby(i32);
-#[repr(C)]
-pub struct CODECAPI_GUID_AVDecAudioInputDolbyDigitalPlus(i32);
-#[repr(C)]
-pub struct CODECAPI_GUID_AVDecAudioInputHEAAC(i32);
-#[repr(C)]
-pub struct CODECAPI_GUID_AVDecAudioInputMPEG(i32);
-#[repr(C)]
-pub struct CODECAPI_GUID_AVDecAudioInputPCM(i32);
-#[repr(C)]
-pub struct CODECAPI_GUID_AVDecAudioInputWMA(i32);
-#[repr(C)]
-pub struct CODECAPI_GUID_AVDecAudioInputWMAPro(i32);
-#[repr(C)]
-pub struct CODECAPI_GUID_AVDecAudioOutputFormat_PCM(i32);
-#[repr(C)]
-pub struct CODECAPI_GUID_AVDecAudioOutputFormat_PCM_Headphones(i32);
-#[repr(C)]
-pub struct CODECAPI_GUID_AVDecAudioOutputFormat_PCM_Stereo_Auto(i32);
-#[repr(C)]
-pub struct CODECAPI_GUID_AVDecAudioOutputFormat_PCM_Stereo_MatrixEncoded(i32);
-#[repr(C)]
-pub struct CODECAPI_GUID_AVDecAudioOutputFormat_SPDIF_Bitstream(i32);
-#[repr(C)]
-pub struct CODECAPI_GUID_AVDecAudioOutputFormat_SPDIF_PCM(i32);
-#[repr(C)]
-pub struct CODECAPI_GUID_AVEncCommonFormatATSC(i32);
-#[repr(C)]
-pub struct CODECAPI_GUID_AVEncCommonFormatDVB(i32);
-#[repr(C)]
-pub struct CODECAPI_GUID_AVEncCommonFormatDVD_DashVR(i32);
-#[repr(C)]
-pub struct CODECAPI_GUID_AVEncCommonFormatDVD_PlusVR(i32);
-#[repr(C)]
-pub struct CODECAPI_GUID_AVEncCommonFormatDVD_V(i32);
-#[repr(C)]
-pub struct CODECAPI_GUID_AVEncCommonFormatHighMAT(i32);
-#[repr(C)]
-pub struct CODECAPI_GUID_AVEncCommonFormatHighMPV(i32);
-#[repr(C)]
-pub struct CODECAPI_GUID_AVEncCommonFormatMP3(i32);
-#[repr(C)]
-pub struct CODECAPI_GUID_AVEncCommonFormatSVCD(i32);
-#[repr(C)]
-pub struct CODECAPI_GUID_AVEncCommonFormatUnSpecified(i32);
-#[repr(C)]
-pub struct CODECAPI_GUID_AVEncCommonFormatVCD(i32);
-#[repr(C)]
-pub struct CODECAPI_GUID_AVEncDTS(i32);
-#[repr(C)]
-pub struct CODECAPI_GUID_AVEncDTSHD(i32);
-#[repr(C)]
-pub struct CODECAPI_GUID_AVEncDV(i32);
-#[repr(C)]
-pub struct CODECAPI_GUID_AVEncDolbyDigitalConsumer(i32);
-#[repr(C)]
-pub struct CODECAPI_GUID_AVEncDolbyDigitalPlus(i32);
-#[repr(C)]
-pub struct CODECAPI_GUID_AVEncDolbyDigitalPro(i32);
-#[repr(C)]
-pub struct CODECAPI_GUID_AVEncH264Video(i32);
-#[repr(C)]
-pub struct CODECAPI_GUID_AVEncMLP(i32);
-#[repr(C)]
-pub struct CODECAPI_GUID_AVEncMPEG1Audio(i32);
-#[repr(C)]
-pub struct CODECAPI_GUID_AVEncMPEG1Video(i32);
-#[repr(C)]
-pub struct CODECAPI_GUID_AVEncMPEG2Audio(i32);
-#[repr(C)]
-pub struct CODECAPI_GUID_AVEncMPEG2Video(i32);
-#[repr(C)]
-pub struct CODECAPI_GUID_AVEncPCM(i32);
-#[repr(C)]
-pub struct CODECAPI_GUID_AVEncSDDS(i32);
-#[repr(C)]
-pub struct CODECAPI_GUID_AVEncWMALossless(i32);
-#[repr(C)]
-pub struct CODECAPI_GUID_AVEncWMAPro(i32);
-#[repr(C)]
-pub struct CODECAPI_GUID_AVEncWMAVoice(i32);
-#[repr(C)]
-pub struct CODECAPI_GUID_AVEncWMV(i32);
-#[repr(C)]
-pub struct CODECAPI_GUID_AVEndMPEG4Video(i32);
-#[repr(C)]
-pub struct CODECAPI_GetOPMContext(i32);
-#[repr(C)]
-pub struct CODECAPI_SetHDCPManagerContext(i32);
-#[repr(C)]
-pub struct CODECAPI_VideoEncoderDisplayContentType(i32);
+pub const CMP3DecMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3152980033,
+    data2: 2659,
+    data3: 20306,
+    data4: [167, 171, 169, 179, 168, 78, 211, 138],
+};
+pub const CMPEG2AudDecoderDS: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3790708920,
+    data2: 48878,
+    data3: 18701,
+    data4: [186, 124, 6, 108, 64, 181, 226, 185],
+};
+pub const CMPEG2AudioEncoderMFT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1185209692,
+    data2: 29688,
+    data3: 17156,
+    data4: [148, 223, 48, 143, 118, 9, 116, 244],
+};
+pub const CMPEG2EncoderAudioDS: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2899596220,
+    data2: 50570,
+    data3: 17617,
+    data4: [187, 245, 191, 179, 37, 190, 45, 120],
+};
+pub const CMPEG2EncoderDS: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1599799114,
+    data2: 12159,
+    data3: 17017,
+    data4: [136, 194, 205, 136, 235, 57, 209, 68],
+};
+pub const CMPEG2EncoderVideoDS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1108675801, data2: 51866, data3: 20133, data4: [153, 57, 48, 238, 3, 127, 110, 116] };
+pub const CMPEG2VidDecoderDS: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 556175611,
+    data2: 33765,
+    data3: 17702,
+    data4: [143, 215, 116, 71, 139, 121, 57, 205],
+};
+pub const CMPEG2VideoEncoderMFT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3862126338,
+    data2: 32951,
+    data3: 19908,
+    data4: [173, 250, 223, 231, 33, 13, 32, 213],
+};
+pub const CMPEGAACDecMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2380142450,
+    data2: 60845,
+    data3: 16835,
+    data4: [180, 190, 31, 48, 251, 78, 224, 214],
+};
+pub const CMSAACDecMFT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 852592295, data2: 8591, data3: 19573, data4: [136, 118, 221, 119, 39, 58, 137, 153] };
+pub const CMSAC3Enc: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3333685474,
+    data2: 8359,
+    data3: 20056,
+    data4: [162, 254, 36, 97, 150, 130, 206, 108],
+};
+pub const CMSALACDecMFT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3234692370, data2: 12796, data3: 19388, data4: [179, 99, 115, 34, 238, 62, 24, 121] };
+pub const CMSALACEncMFT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2595660428,
+    data2: 29838,
+    data3: 19306,
+    data4: [191, 255, 204, 68, 59, 142, 143, 180],
+};
+pub const CMSDDPlusDecMFT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 394005246, data2: 36875, data3: 18644, data4: [158, 76, 87, 173, 210, 80, 179, 212] };
+pub const CMSDolbyDigitalEncMFT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2889029065,
+    data2: 62593,
+    data3: 17879,
+    data4: [130, 108, 11, 64, 108, 31, 100, 184],
+};
+pub const CMSFLACDecMFT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1795898987,
+    data2: 41669,
+    data3: 17684,
+    data4: [128, 85, 175, 232, 169, 82, 66, 217],
+};
+pub const CMSFLACEncMFT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 310708713,
+    data2: 50254,
+    data3: 17884,
+    data4: [149, 233, 194, 85, 184, 244, 102, 166],
+};
+pub const CMSH263EncoderMFT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3158834430, data2: 39072, data3: 20263, data4: [187, 7, 105, 138, 242, 79, 43, 56] };
+pub const CMSH264DecoderMFT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1657699954, data2: 19569, data3: 19744, data4: [177, 93, 69, 40, 49, 168, 125, 157] };
+pub const CMSH264EncoderMFT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1822753604, data2: 1306, data3: 19949, data4: [151, 121, 164, 51, 5, 22, 94, 53] };
+pub const CMSH264RemuxMFT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 94666427, data2: 35824, data3: 19647, data4: [173, 47, 59, 113, 215, 88, 102, 245] };
+pub const CMSH265EncoderMFT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 4076355700,
+    data2: 35786,
+    data3: 16573,
+    data4: [145, 89, 232, 128, 246, 115, 221, 59],
+};
+pub const CMSMPEGAudDecMFT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1886419769,
+    data2: 45770,
+    data3: 16405,
+    data4: [171, 234, 248, 68, 125, 34, 216, 139],
+};
+pub const CMSMPEGDecoderMFT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 762355282,
+    data2: 4671,
+    data3: 18869,
+    data4: [156, 188, 154, 245, 205, 226, 143, 185],
+};
+pub const CMSOpusDecMFT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1675721744,
+    data2: 11587,
+    data3: 19522,
+    data4: [143, 227, 141, 139, 99, 228, 106, 106],
+};
+pub const CMSSCDecMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2075112369, data2: 55540, data3: 17017, data4: [146, 83, 39, 218, 66, 49, 8, 222] };
+pub const CMSSCEncMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2360986630,
+    data2: 53561,
+    data3: 19174,
+    data4: [139, 180, 65, 230, 18, 225, 65, 213],
+};
+pub const CMSSCEncMediaObject2: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 4160741536,
+    data2: 42229,
+    data3: 17589,
+    data4: [148, 158, 21, 237, 43, 198, 111, 157],
+};
+pub const CMSVPXEncoderMFT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2931214165,
+    data2: 9542,
+    data3: 18561,
+    data4: [130, 204, 225, 90, 229, 235, 255, 61],
+};
+pub const CMSVideoDSPMFT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1364662084, data2: 32740, data3: 20466, data4: [164, 152, 45, 195, 79, 247, 79, 27] };
+pub const CMpeg2DecMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2252170957,
+    data2: 52686,
+    data3: 17943,
+    data4: [180, 127, 200, 146, 156, 252, 40, 166],
+};
+pub const CMpeg43DecMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3416909707,
+    data2: 18851,
+    data3: 18922,
+    data4: [147, 212, 107, 203, 168, 196, 222, 7],
+};
+pub const CMpeg4DecMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4084298378, data2: 24658, data3: 19783, data4: [130, 124, 208, 57, 51, 93, 254, 10] };
+pub const CMpeg4EncMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 619862232,
+    data2: 50769,
+    data3: 16450,
+    data4: [147, 228, 202, 101, 74, 187, 104, 44],
+};
+pub const CMpeg4sDecMFT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1451663577,
+    data2: 65081,
+    data3: 16543,
+    data4: [157, 255, 63, 219, 200, 73, 249, 245],
+};
+pub const CMpeg4sDecMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 705805026,
+    data2: 65134,
+    data3: 16969,
+    data4: [134, 75, 158, 158, 214, 232, 219, 194],
+};
+pub const CMpeg4sEncMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1858447294,
+    data2: 55326,
+    data3: 20382,
+    data4: [173, 163, 205, 27, 242, 98, 182, 216],
+};
+pub const CNokiaAACCCDecMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3938417263,
+    data2: 52410,
+    data3: 19808,
+    data4: [134, 32, 177, 82, 204, 151, 114, 99],
+};
+pub const CNokiaAACDecMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1018346980, data2: 20009, data3: 19524, data4: [167, 62, 45, 124, 44, 70, 214, 236] };
+pub const CODECAPI_AVAudioChannelConfig: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 402169011, data2: 50061, data3: 17256, data4: [158, 222, 99, 185, 77, 23, 127, 159] };
+pub const CODECAPI_AVAudioChannelCount: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 490046404, data2: 5507, data3: 18254, data4: [183, 26, 94, 228, 99, 193, 152, 228] };
+pub const CODECAPI_AVAudioSampleRate: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2535270179, data2: 6859, data3: 17127, data4: [133, 92, 82, 10, 75, 112, 165, 242] };
+pub const CODECAPI_AVDDSurroundMode: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2582836102,
+    data2: 39121,
+    data3: 17490,
+    data4: [161, 99, 171, 199, 138, 110, 183, 112],
+};
+pub const CODECAPI_AVDSPLoudnessEqualization: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2331843093, data2: 6162, data3: 19647, data4: [147, 25, 67, 58, 91, 42, 59, 39] };
+pub const CODECAPI_AVDSPSpeakerFill: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1444068513,
+    data2: 22234,
+    data3: 17794,
+    data4: [141, 161, 202, 128, 144, 249, 39, 104],
+};
+pub const CODECAPI_AVDecAACDownmixMode: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 19350645, data2: 63163, data3: 16407, data4: [176, 132, 129, 167, 99, 201, 66, 212] };
+pub const CODECAPI_AVDecAudioDualMono: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1246940584, data2: 12536, data3: 16918, data4: [190, 15, 186, 11, 32, 37, 146, 29] };
+pub const CODECAPI_AVDecAudioDualMonoReproMode: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2769314182,
+    data2: 52372,
+    data3: 19401,
+    data4: [140, 217, 170, 47, 97, 246, 128, 126],
+};
+pub const CODECAPI_AVDecCommonInputFormat: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3842003513,
+    data2: 48521,
+    data3: 19427,
+    data4: [156, 15, 93, 222, 49, 121, 136, 204],
+};
+pub const CODECAPI_AVDecCommonMeanBitRate: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1497924119, data2: 122, data3: 20346, data4: [142, 65, 92, 72, 177, 234, 197, 198] };
+pub const CODECAPI_AVDecCommonMeanBitRateInterval: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 249837510, data2: 14503, data3: 19548, data4: [148, 76, 104, 171, 66, 17, 107, 133] };
+pub const CODECAPI_AVDecCommonOutputFormat: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1014562856,
+    data2: 49358,
+    data3: 16982,
+    data4: [177, 162, 27, 15, 200, 177, 220, 220],
+};
+pub const CODECAPI_AVDecDDDynamicRangeScaleHigh: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1343843361,
+    data2: 7987,
+    data3: 19189,
+    data4: [178, 150, 17, 66, 109, 108, 135, 137],
+};
+pub const CODECAPI_AVDecDDDynamicRangeScaleLow: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 72245988, data2: 4517, data3: 17109, data4: [163, 178, 59, 178, 199, 194, 215, 207] };
+pub const CODECAPI_AVDecDDMatrixDecodingMode: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3720876453, data2: 1261, data3: 19443, data4: [160, 202, 208, 4, 73, 249, 53, 95] };
+pub const CODECAPI_AVDecDDOperationalMode: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3604399825,
+    data2: 1614,
+    data3: 20445,
+    data4: [164, 14, 62, 203, 252, 183, 235, 208],
+};
+pub const CODECAPI_AVDecDDStereoDownMixMode: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1826886188,
+    data2: 16105,
+    data3: 16770,
+    data4: [180, 174, 193, 15, 192, 136, 100, 157],
+};
+pub const CODECAPI_AVDecDisableVideoPostProcessing: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 4168389011,
+    data2: 26234,
+    data3: 20268,
+    data4: [169, 232, 93, 74, 249, 36, 240, 143],
+};
+pub const CODECAPI_AVDecHEAACDynamicRangeControl: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 679250622,
+    data2: 27044,
+    data3: 19769,
+    data4: [128, 128, 211, 217, 113, 33, 120, 160],
+};
+pub const CODECAPI_AVDecNumWorkerThreads: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2506212328,
+    data2: 60062,
+    data3: 17461,
+    data4: [155, 30, 169, 62, 105, 24, 148, 216],
+};
+pub const CODECAPI_AVDecSoftwareDynamicFormatChange: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2251173642, data2: 20603, data3: 18431, data4: [175, 71, 1, 226, 98, 66, 152, 183] };
+pub const CODECAPI_AVDecVideoAcceleration_H264: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 4158360111,
+    data2: 20296,
+    data3: 20200,
+    data4: [174, 49, 139, 110, 190, 85, 138, 226],
+};
+pub const CODECAPI_AVDecVideoAcceleration_MPEG2: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 4158360110,
+    data2: 20296,
+    data3: 20200,
+    data4: [174, 49, 139, 110, 190, 85, 138, 226],
+};
+pub const CODECAPI_AVDecVideoAcceleration_VC1: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 4158360112,
+    data2: 20296,
+    data3: 20200,
+    data4: [174, 49, 139, 110, 190, 85, 138, 226],
+};
+pub const CODECAPI_AVDecVideoCodecType: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1128605925,
+    data2: 8688,
+    data3: 18102,
+    data4: [182, 44, 155, 27, 107, 101, 140, 209],
+};
+pub const CODECAPI_AVDecVideoDXVABusEncryption: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1108688011,
+    data2: 64779,
+    data3: 18277,
+    data4: [164, 98, 221, 217, 232, 188, 195, 136],
+};
+pub const CODECAPI_AVDecVideoDXVAMode: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 4149801118,
+    data2: 29495,
+    data3: 19175,
+    data4: [131, 135, 115, 220, 45, 84, 230, 125],
+};
+pub const CODECAPI_AVDecVideoDropPicWithMissingRef: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4163003267, data2: 5314, data3: 17767, data4: [151, 52, 80, 4, 233, 111, 248, 135] };
+pub const CODECAPI_AVDecVideoFastDecodeMode: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1800576893,
+    data2: 54193,
+    data3: 18886,
+    data4: [169, 153, 158, 198, 145, 27, 237, 191],
+};
+pub const CODECAPI_AVDecVideoH264ErrorConcealment: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3974933736,
+    data2: 13366,
+    data3: 17964,
+    data4: [146, 148, 205, 123, 172, 215, 88, 169],
+};
+pub const CODECAPI_AVDecVideoImageSize: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1592095868,
+    data2: 26625,
+    data3: 19627,
+    data4: [170, 241, 98, 72, 250, 132, 27, 164],
+};
+pub const CODECAPI_AVDecVideoInputScanType: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 944209439, data2: 3751, data3: 17101, data4: [140, 209, 19, 12, 237, 87, 197, 128] };
+pub const CODECAPI_AVDecVideoMPEG2ErrorConcealment: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2636906008,
+    data2: 29325,
+    data3: 18642,
+    data4: [179, 88, 188, 126, 67, 108, 102, 116],
+};
+pub const CODECAPI_AVDecVideoMaxCodedHeight: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1919066474,
+    data2: 53980,
+    data3: 20085,
+    data4: [155, 168, 101, 192, 198, 211, 43, 19],
+};
+pub const CODECAPI_AVDecVideoMaxCodedWidth: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1524979640,
+    data2: 30639,
+    data3: 16885,
+    data4: [159, 166, 77, 178, 254, 29, 75, 202],
+};
+pub const CODECAPI_AVDecVideoPixelAspectRatio: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2966389317, data2: 62253, data3: 16863, data4: [176, 44, 135, 189, 48, 77, 18, 171] };
+pub const CODECAPI_AVDecVideoProcDeinterlaceCSC: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 4158360113,
+    data2: 20296,
+    data3: 20200,
+    data4: [174, 49, 139, 110, 190, 85, 138, 226],
+};
+pub const CODECAPI_AVDecVideoSWPowerLevel: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 4217185095,
+    data2: 19928,
+    data3: 17673,
+    data4: [174, 208, 219, 95, 169, 170, 147, 244],
+};
+pub const CODECAPI_AVDecVideoSoftwareDeinterlaceMode: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 201904590, data2: 40173, data3: 17728, data4: [186, 227, 206, 179, 128, 20, 17, 9] };
+pub const CODECAPI_AVDecVideoThumbnailGenerationMode: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 788369134,
+    data2: 4432,
+    data3: 17192,
+    data4: [156, 245, 102, 220, 233, 51, 252, 244],
+};
+pub const CODECAPI_AVEnableInLoopDeblockFilter: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3538477977, data2: 1571, data3: 19443, data4: [146, 168, 77, 24, 24, 82, 157, 237] };
+pub const CODECAPI_AVEncAdaptiveMode: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1142534533, data2: 55839, data3: 20307, data4: [188, 118, 9, 125, 12, 30, 251, 30] };
+pub const CODECAPI_AVEncAudioDualMono: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 910692971, data2: 41960, data3: 17193, data4: [155, 58, 92, 229, 102, 164, 59, 211] };
+pub const CODECAPI_AVEncAudioInputContent: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1042443307,
+    data2: 24761,
+    data3: 19001,
+    data4: [176, 11, 167, 180, 15, 112, 213, 102],
+};
+pub const CODECAPI_AVEncAudioIntervalToEncode: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2255375181, data2: 29274, data3: 18044, data4: [187, 1, 180, 150, 178, 59, 37, 249] };
+pub const CODECAPI_AVEncAudioIntervalToSkip: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2294374292,
+    data2: 50060,
+    data3: 18326,
+    data4: [169, 232, 150, 233, 103, 152, 63, 38],
+};
+pub const CODECAPI_AVEncAudioMapDestChannel0: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3160214368, data2: 57194, data3: 19990, data4: [152, 3, 184, 32, 7, 163, 12, 141] };
+pub const CODECAPI_AVEncAudioMapDestChannel1: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3160214369, data2: 57194, data3: 19990, data4: [152, 3, 184, 32, 7, 163, 12, 141] };
+pub const CODECAPI_AVEncAudioMapDestChannel10: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3160214378, data2: 57194, data3: 19990, data4: [152, 3, 184, 32, 7, 163, 12, 141] };
+pub const CODECAPI_AVEncAudioMapDestChannel11: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3160214379, data2: 57194, data3: 19990, data4: [152, 3, 184, 32, 7, 163, 12, 141] };
+pub const CODECAPI_AVEncAudioMapDestChannel12: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3160214380, data2: 57194, data3: 19990, data4: [152, 3, 184, 32, 7, 163, 12, 141] };
+pub const CODECAPI_AVEncAudioMapDestChannel13: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3160214381, data2: 57194, data3: 19990, data4: [152, 3, 184, 32, 7, 163, 12, 141] };
+pub const CODECAPI_AVEncAudioMapDestChannel14: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3160214382, data2: 57194, data3: 19990, data4: [152, 3, 184, 32, 7, 163, 12, 141] };
+pub const CODECAPI_AVEncAudioMapDestChannel15: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3160214383, data2: 57194, data3: 19990, data4: [152, 3, 184, 32, 7, 163, 12, 141] };
+pub const CODECAPI_AVEncAudioMapDestChannel2: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3160214370, data2: 57194, data3: 19990, data4: [152, 3, 184, 32, 7, 163, 12, 141] };
+pub const CODECAPI_AVEncAudioMapDestChannel3: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3160214371, data2: 57194, data3: 19990, data4: [152, 3, 184, 32, 7, 163, 12, 141] };
+pub const CODECAPI_AVEncAudioMapDestChannel4: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3160214372, data2: 57194, data3: 19990, data4: [152, 3, 184, 32, 7, 163, 12, 141] };
+pub const CODECAPI_AVEncAudioMapDestChannel5: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3160214373, data2: 57194, data3: 19990, data4: [152, 3, 184, 32, 7, 163, 12, 141] };
+pub const CODECAPI_AVEncAudioMapDestChannel6: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3160214374, data2: 57194, data3: 19990, data4: [152, 3, 184, 32, 7, 163, 12, 141] };
+pub const CODECAPI_AVEncAudioMapDestChannel7: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3160214375, data2: 57194, data3: 19990, data4: [152, 3, 184, 32, 7, 163, 12, 141] };
+pub const CODECAPI_AVEncAudioMapDestChannel8: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3160214376, data2: 57194, data3: 19990, data4: [152, 3, 184, 32, 7, 163, 12, 141] };
+pub const CODECAPI_AVEncAudioMapDestChannel9: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3160214377, data2: 57194, data3: 19990, data4: [152, 3, 184, 32, 7, 163, 12, 141] };
+pub const CODECAPI_AVEncAudioMeanBitRate: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2450691515,
+    data2: 20426,
+    data3: 18041,
+    data4: [170, 184, 158, 42, 29, 117, 51, 132],
+};
+pub const CODECAPI_AVEncChromaEncodeMode: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2319952730, data2: 18328, data3: 19603, data4: [181, 165, 85, 79, 154, 59, 159, 80] };
+pub const CODECAPI_AVEncChromaUpdateTime: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1263524248, data2: 17012, data3: 16571, data4: [142, 228, 7, 85, 62, 126, 45, 58] };
+pub const CODECAPI_AVEncCodecType: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 145705665,
+    data2: 62450,
+    data3: 19572,
+    data4: [157, 207, 55, 242, 236, 121, 248, 38],
+};
+pub const CODECAPI_AVEncCommonAllowFrameDrops: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3628563915, data2: 38296, data3: 18659, data4: [141, 12, 117, 43, 242, 6, 9, 62] };
+pub const CODECAPI_AVEncCommonBufferInLevel: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3653617883,
+    data2: 64628,
+    data3: 16484,
+    data4: [148, 233, 205, 25, 249, 71, 237, 69],
+};
+pub const CODECAPI_AVEncCommonBufferOutLevel: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3433987913, data2: 53436, data3: 20029, data4: [165, 126, 251, 87, 64, 20, 0, 105] };
+pub const CODECAPI_AVEncCommonBufferSize: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 230253940, data2: 46756, data3: 19595, data4: [129, 6, 55, 115, 222, 3, 16, 205] };
+pub const CODECAPI_AVEncCommonFormatConstraint: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1472969144, data2: 4463, data3: 18769, data4: [180, 12, 194, 160, 53, 237, 143, 23] };
+pub const CODECAPI_AVEncCommonLowLatency: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2638138709,
+    data2: 35304,
+    data3: 18698,
+    data4: [151, 10, 12, 149, 72, 213, 165, 110],
+};
+pub const CODECAPI_AVEncCommonMaxBitRate: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2521950948,
+    data2: 14777,
+    data3: 20159,
+    data4: [133, 239, 215, 244, 68, 236, 116, 101],
+};
+pub const CODECAPI_AVEncCommonMeanBitRate: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4146209652, data2: 8516, data3: 18453, data4: [181, 80, 163, 127, 142, 18, 238, 82] };
+pub const CODECAPI_AVEncCommonMeanBitRateInterval: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3215601420, data2: 52098, data3: 19392, data4: [132, 116, 240, 106, 138, 13, 2, 88] };
+pub const CODECAPI_AVEncCommonMinBitRate: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 269747634, data2: 8323, data3: 16436, data4: [168, 6, 239, 190, 221, 215, 201, 255] };
+pub const CODECAPI_AVEncCommonMultipassMode: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 575880524,
+    data2: 18401,
+    data3: 16821,
+    data4: [147, 82, 162, 183, 120, 14, 122, 196],
+};
+pub const CODECAPI_AVEncCommonPassEnd: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 238879164, data2: 51292, data3: 18045, data4: [139, 96, 196, 16, 18, 238, 59, 246] };
+pub const CODECAPI_AVEncCommonPassStart: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1785164703,
+    data2: 20149,
+    data3: 17285,
+    data4: [153, 40, 242, 118, 169, 57, 239, 149],
+};
+pub const CODECAPI_AVEncCommonQuality: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 4240398243,
+    data2: 32421,
+    data3: 19212,
+    data4: [150, 68, 105, 180, 12, 57, 195, 145],
+};
+pub const CODECAPI_AVEncCommonQualityVsSpeed: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2553490936, data2: 973, data3: 18283, data4: [137, 250, 63, 158, 68, 45, 236, 159] };
+pub const CODECAPI_AVEncCommonRateControlMode: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 470157545, data2: 14092, data3: 18192, data4: [138, 88, 203, 97, 129, 196, 36, 35] };
+pub const CODECAPI_AVEncCommonRealTime: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 339349494,
+    data2: 41265,
+    data3: 17370,
+    data4: [184, 30, 152, 251, 184, 236, 55, 142],
+};
+pub const CODECAPI_AVEncCommonStreamEndHandling: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1789735087,
+    data2: 27560,
+    data3: 19660,
+    data4: [143, 202, 24, 209, 155, 234, 235, 28],
+};
+pub const CODECAPI_AVEncCommonTranscodeEncodingProfile: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1766291580,
+    data2: 62728,
+    data3: 20137,
+    data4: [177, 233, 161, 254, 58, 73, 251, 201],
+};
+pub const CODECAPI_AVEncDDAtoDConverterType: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1906284050, data2: 33185, data3: 18400, data4: [154, 5, 217, 74, 213, 252, 169, 72] };
+pub const CODECAPI_AVEncDDCentreDownMixLevel: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3800368940,
+    data2: 51544,
+    data3: 19073,
+    data4: [175, 210, 229, 224, 218, 241, 177, 72],
+};
+pub const CODECAPI_AVEncDDChannelBWLowPassFilter: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3784802845, data2: 53991, data3: 17378, data4: [173, 44, 0, 88, 47, 81, 133, 69] };
+pub const CODECAPI_AVEncDDCopyright: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2257907830,
+    data2: 52597,
+    data3: 18461,
+    data4: [165, 198, 169, 4, 220, 200, 40, 240],
+};
+pub const CODECAPI_AVEncDDDCHighPassFilter: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2506433439,
+    data2: 34332,
+    data3: 19144,
+    data4: [191, 218, 224, 12, 180, 219, 133, 72],
+};
+pub const CODECAPI_AVEncDDDialogNormalization: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3607452367, data2: 61733, data3: 17277, data4: [167, 4, 121, 199, 159, 4, 4, 168] };
+pub const CODECAPI_AVEncDDDigitalDeemphasis: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3760497346, data2: 38012, data3: 17836, data4: [135, 216, 241, 3, 12, 92, 0, 130] };
+pub const CODECAPI_AVEncDDDynamicRangeCompressionControl: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3485663085,
+    data2: 31160,
+    data3: 19341,
+    data4: [168, 170, 160, 201, 189, 28, 41, 64],
+};
+pub const CODECAPI_AVEncDDHeadphoneMode: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1079172076, data2: 21237, data3: 17141, data4: [155, 0, 209, 52, 177, 52, 27, 157] };
+pub const CODECAPI_AVEncDDLFELowPassFilter: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3552055151, data2: 40213, data3: 17893, data4: [145, 190, 1, 156, 63, 171, 31, 1] };
+pub const CODECAPI_AVEncDDLoRoCenterMixLvl_x10: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 486253090, data2: 9651, data3: 19444, data4: [155, 253, 231, 17, 18, 103, 133, 140] };
+pub const CODECAPI_AVEncDDLoRoSurroundMixLvl_x10: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3878014966, data2: 60246, data3: 16583, data4: [132, 80, 43, 147, 103, 233, 21, 85] };
+pub const CODECAPI_AVEncDDLtRtCenterMixLvl_x10: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3701549218,
+    data2: 18719,
+    data3: 17920,
+    data4: [178, 218, 118, 227, 52, 75, 65, 151],
+};
+pub const CODECAPI_AVEncDDLtRtSurroundMixLvl_x10: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 555894471, data2: 15660, data3: 19962, data4: [188, 33, 101, 42, 144, 152, 105, 13] };
+pub const CODECAPI_AVEncDDOriginalBitstream: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2523588608, data2: 23507, data3: 20473, data4: [149, 185, 211, 5, 102, 39, 56, 86] };
+pub const CODECAPI_AVEncDDPreferredStereoDownMixMode: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2135845681,
+    data2: 37253,
+    data3: 16445,
+    data4: [176, 162, 118, 55, 67, 230, 240, 99],
+};
+pub const CODECAPI_AVEncDDProductionInfoExists: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2964848223,
+    data2: 46763,
+    data3: 20288,
+    data4: [150, 77, 141, 145, 241, 124, 25, 232],
+};
+pub const CODECAPI_AVEncDDProductionMixLevel: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 807211066, data2: 52217, data3: 18294, data4: [136, 153, 124, 21, 180, 97, 171, 38] };
+pub const CODECAPI_AVEncDDProductionRoomType: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3671567712,
+    data2: 9176,
+    data3: 19127,
+    data4: [162, 132, 85, 105, 134, 216, 166, 254],
+};
+pub const CODECAPI_AVEncDDRFPreEmphasisFilter: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 565134528, data2: 9294, data3: 20285, data4: [162, 204, 61, 48, 104, 178, 231, 63] };
+pub const CODECAPI_AVEncDDService: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3538009799,
+    data2: 20850,
+    data3: 19754,
+    data4: [165, 14, 47, 59, 130, 177, 221, 248],
+};
+pub const CODECAPI_AVEncDDSurround3dBAttenuation: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1296284061, data2: 12770, data3: 18617, data4: [191, 46, 92, 191, 26, 87, 39, 132] };
+pub const CODECAPI_AVEncDDSurround90DegreeePhaseShift: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 636284061, data2: 13651, data3: 17088, data4: [187, 86, 210, 87, 146, 16, 79, 128] };
+pub const CODECAPI_AVEncDDSurroundDownMixLevel: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2065749733, data2: 3023, data3: 17011, data4: [164, 135, 80, 107, 4, 121, 151, 233] };
+pub const CODECAPI_AVEncDDSurroundExMode: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2439019758,
+    data2: 56285,
+    data3: 20150,
+    data4: [188, 162, 170, 223, 175, 163, 221, 104],
+};
+pub const CODECAPI_AVEncEnableVideoProcessing: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 7293942, data2: 3747, data3: 19778, data4: [135, 2, 181, 216, 190, 15, 122, 146] };
+pub const CODECAPI_AVEncH264CABACEnable: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 4000099682,
+    data2: 54021,
+    data3: 16968,
+    data4: [165, 14, 225, 178, 85, 247, 202, 248],
+};
+pub const CODECAPI_AVEncH264PPSID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3219300034, data2: 1388, data3: 19816, data4: [163, 141, 174, 89, 68, 200, 88, 46] };
+pub const CODECAPI_AVEncH264SPSID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1358139217, data2: 11129, data3: 16611, data4: [179, 156, 126, 159, 160, 119, 5, 1] };
+pub const CODECAPI_AVEncInputVideoSystem: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3202225261,
+    data2: 46614,
+    data3: 19911,
+    data4: [146, 178, 245, 217, 250, 146, 152, 247],
+};
+pub const CODECAPI_AVEncLowPowerEncoder: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3060323714, data2: 35757, data3: 20330, data4: [145, 65, 55, 90, 149, 53, 139, 109] };
+pub const CODECAPI_AVEncMP12MuxDVDNavPacks: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3344989421,
+    data2: 36081,
+    data3: 19097,
+    data4: [131, 161, 238, 84, 97, 190, 53, 116],
+};
+pub const CODECAPI_AVEncMP12MuxEarliestPTS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 359805622, data2: 63497, data3: 18254, data4: [148, 100, 167, 249, 48, 20, 168, 23] };
+pub const CODECAPI_AVEncMP12MuxInitialSCR: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 875801889, data2: 7057, data3: 18955, data4: [177, 144, 43, 119, 6, 59, 99, 164] };
+pub const CODECAPI_AVEncMP12MuxLargestPacketSize: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 902739729, data2: 62561, data3: 19346, data4: [164, 239, 23, 182, 132, 30, 210, 84] };
+pub const CODECAPI_AVEncMP12MuxMuxRate: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3993271410,
+    data2: 19419,
+    data3: 19101,
+    data4: [142, 33, 65, 146, 108, 130, 61, 167],
+};
+pub const CODECAPI_AVEncMP12MuxNumStreams: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 4145433153,
+    data2: 56557,
+    data3: 18009,
+    data4: [168, 242, 251, 105, 63, 42, 76, 208],
+};
+pub const CODECAPI_AVEncMP12MuxPackSize: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4178969914, data2: 7400, data3: 20399, data4: [170, 11, 186, 49, 200, 0, 52, 184] };
+pub const CODECAPI_AVEncMP12MuxPacketOverhead: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3825981216,
+    data2: 14677,
+    data3: 17491,
+    data4: [172, 249, 183, 145, 50, 163, 143, 160],
+};
+pub const CODECAPI_AVEncMP12MuxSysAudioLock: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 263935826, data2: 7491, data3: 18367, data4: [189, 121, 242, 41, 61, 140, 227, 55] };
+pub const CODECAPI_AVEncMP12MuxSysCSPS: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2035482437,
+    data2: 39949,
+    data3: 18466,
+    data4: [188, 130, 138, 215, 114, 224, 41, 147],
+};
+pub const CODECAPI_AVEncMP12MuxSysFixed: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3472595070,
+    data2: 35151,
+    data3: 17710,
+    data4: [143, 137, 164, 239, 140, 236, 6, 58],
+};
+pub const CODECAPI_AVEncMP12MuxSysRateBound: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 99631754, data2: 60976, data3: 18589, data4: [174, 40, 32, 92, 114, 68, 103, 16] };
+pub const CODECAPI_AVEncMP12MuxSysSTDBufferBound: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 896821507, data2: 46405, data3: 17383, data4: [187, 53, 197, 224, 167, 213, 9, 60] };
+pub const CODECAPI_AVEncMP12MuxSysVideoLock: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3089720328,
+    data2: 9264,
+    data3: 19767,
+    data4: [162, 161, 149, 179, 228, 53, 169, 29],
+};
+pub const CODECAPI_AVEncMP12MuxTargetPacketizer: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3630309674, data2: 8213, data3: 17885, data4: [154, 50, 27, 58, 168, 130, 5, 160] };
+pub const CODECAPI_AVEncMP12PktzCopyright: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3371479233,
+    data2: 2380,
+    data3: 17351,
+    data4: [142, 104, 165, 149, 64, 90, 110, 248],
+};
+pub const CODECAPI_AVEncMP12PktzInitialPTS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 709828709, data2: 39523, data3: 19744, data4: [174, 34, 10, 27, 200, 150, 163, 21] };
+pub const CODECAPI_AVEncMP12PktzOriginal: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1796703254,
+    data2: 12729,
+    data3: 18788,
+    data4: [148, 203, 107, 255, 134, 108, 223, 131],
+};
+pub const CODECAPI_AVEncMP12PktzPacketSize: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2876322938,
+    data2: 4914,
+    data3: 19934,
+    data4: [160, 229, 204, 247, 218, 138, 15, 34],
+};
+pub const CODECAPI_AVEncMP12PktzSTDBuffer: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 192224208, data2: 33182, data3: 18316, data4: [148, 53, 117, 32, 137, 38, 179, 119] };
+pub const CODECAPI_AVEncMP12PktzStreamID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3358904376,
+    data2: 62952,
+    data3: 17416,
+    data4: [155, 96, 136, 243, 100, 147, 254, 223],
+};
+pub const CODECAPI_AVEncMPACodingMode: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2976570883, data2: 19347, data3: 17367, data4: [165, 80, 144, 180, 254, 34, 69, 55] };
+pub const CODECAPI_AVEncMPACopyright: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2796451370,
+    data2: 53417,
+    data3: 17492,
+    data4: [184, 239, 242, 219, 238, 253, 211, 189],
+};
+pub const CODECAPI_AVEncMPAEmphasisType: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 760872154, data2: 48974, data3: 20182, data4: [181, 223, 91, 3, 179, 107, 10, 31] };
+pub const CODECAPI_AVEncMPAEnableRedundancyProtection: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1582608542,
+    data2: 45799,
+    data3: 18803,
+    data4: [168, 155, 11, 54, 80, 163, 190, 218],
+};
+pub const CODECAPI_AVEncMPALayer: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2637656624, data2: 63771, data3: 17725, data4: [156, 224, 120, 68, 84, 20, 194, 45] };
+pub const CODECAPI_AVEncMPAOriginalBitstream: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1023113301,
+    data2: 40137,
+    data3: 18431,
+    data4: [184, 41, 179, 103, 134, 201, 35, 70],
+};
+pub const CODECAPI_AVEncMPAPrivateUserBit: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2946827726, data2: 49635, data3: 20029, data4: [133, 27, 97, 183, 0, 229, 230, 204] };
+pub const CODECAPI_AVEncMPVAddSeqEndCode: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2820872079,
+    data2: 22495,
+    data3: 19578,
+    data4: [184, 253, 229, 236, 136, 135, 112, 141],
+};
+pub const CODECAPI_AVEncMPVDefaultBPictureCount: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2369325740,
+    data2: 56412,
+    data3: 16896,
+    data4: [181, 127, 129, 77, 4, 186, 186, 178],
+};
+pub const CODECAPI_AVEncMPVFrameFieldMode: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2897600150, data2: 31635, data3: 19503, data4: [136, 37, 176, 41, 95, 169, 59, 244] };
+pub const CODECAPI_AVEncMPVGOPOpen: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2983580838, data2: 13056, data3: 18865, data4: [174, 97, 160, 153, 55, 171, 14, 73] };
+pub const CODECAPI_AVEncMPVGOPSInSeq: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2570326228, data2: 9873, data3: 16786, data4: [153, 120, 152, 220, 38, 3, 102, 159] };
+pub const CODECAPI_AVEncMPVGOPSize: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2515737382,
+    data2: 38308,
+    data3: 16810,
+    data4: [147, 3, 36, 106, 127, 198, 238, 241],
+};
+pub const CODECAPI_AVEncMPVGOPSizeMax: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4269663428, data2: 6454, data3: 20450, data4: [189, 247, 31, 24, 202, 29, 0, 31] };
+pub const CODECAPI_AVEncMPVGOPSizeMin: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1901448992,
+    data2: 54336,
+    data3: 18514,
+    data4: [173, 15, 156, 74, 191, 227, 122, 106],
+};
+pub const CODECAPI_AVEncMPVGenerateHeaderPicDispExt: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3326160772,
+    data2: 49215,
+    data3: 20288,
+    data4: [160, 12, 66, 147, 223, 131, 149, 187],
+};
+pub const CODECAPI_AVEncMPVGenerateHeaderPicExt: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 461661355, data2: 37967, data3: 17904, data4: [183, 78, 58, 88, 218, 209, 31, 55] };
+pub const CODECAPI_AVEncMPVGenerateHeaderSeqDispExt: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1681369711,
+    data2: 23100,
+    data3: 19945,
+    data4: [138, 22, 83, 217, 196, 173, 50, 111],
+};
+pub const CODECAPI_AVEncMPVGenerateHeaderSeqExt: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3588720145, data2: 2093, data3: 20075, data4: [152, 175, 15, 81, 171, 19, 146, 34] };
+pub const CODECAPI_AVEncMPVGenerateHeaderSeqScaleExt: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 119723567, data2: 56665, data3: 19078, data4: [156, 213, 100, 79, 142, 38, 83, 216] };
+pub const CODECAPI_AVEncMPVIntraDCPrecision: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2685493585,
+    data2: 52168,
+    data3: 19187,
+    data4: [151, 220, 208, 12, 206, 184, 45, 121],
+};
+pub const CODECAPI_AVEncMPVIntraVLCTable: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2729983989,
+    data2: 6809,
+    data3: 16474,
+    data4: [175, 149, 197, 153, 125, 85, 141, 58],
+};
+pub const CODECAPI_AVEncMPVLevel: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1860439104, data2: 42508, data3: 16879, data4: [143, 80, 55, 194, 36, 158, 44, 179] };
+pub const CODECAPI_AVEncMPVProfile: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3669709642, data2: 7577, data3: 17028, data4: [151, 90, 217, 14, 34, 57, 186, 161] };
+pub const CODECAPI_AVEncMPVQScaleType: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 729410487,
+    data2: 62596,
+    data3: 19191,
+    data4: [187, 88, 162, 161, 136, 197, 203, 190],
+};
+pub const CODECAPI_AVEncMPVQuantMatrixChromaIntra: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2662984916, data2: 397, data3: 20477, data4: [143, 45, 57, 228, 159, 7, 177, 122] };
+pub const CODECAPI_AVEncMPVQuantMatrixChromaNonIntra: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 336967345, data2: 13866, data3: 17208, data4: [186, 154, 30, 245, 135, 3, 192, 91] };
+pub const CODECAPI_AVEncMPVQuantMatrixIntra: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2615805171,
+    data2: 26145,
+    data3: 17452,
+    data4: [139, 161, 58, 195, 120, 151, 150, 152],
+};
+pub const CODECAPI_AVEncMPVQuantMatrixNonIntra: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2280931800,
+    data2: 2455,
+    data3: 19435,
+    data4: [160, 142, 133, 115, 212, 9, 207, 117],
+};
+pub const CODECAPI_AVEncMPVScanPattern: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2139768718,
+    data2: 31675,
+    data3: 19170,
+    data4: [178, 252, 150, 209, 127, 196, 162, 214],
+};
+pub const CODECAPI_AVEncMPVSceneDetection: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1428658673, data2: 56140, data3: 16475, data4: [138, 58, 201, 63, 45, 6, 116, 220] };
+pub const CODECAPI_AVEncMPVUseConcealmentMotionVectors: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3967225075,
+    data2: 26888,
+    data3: 19275,
+    data4: [170, 48, 127, 185, 134, 33, 79, 234],
+};
+pub const CODECAPI_AVEncMaxFrameRate: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3113098033,
+    data2: 6650,
+    data3: 19791,
+    data4: [153, 49, 214, 165, 184, 170, 185, 60],
+};
+pub const CODECAPI_AVEncMuxOutputStreamType: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3470630543, data2: 13523, data3: 17627, data4: [161, 216, 248, 21, 32, 37, 79, 62] };
+pub const CODECAPI_AVEncNoInputCopy: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3535039018,
+    data2: 59630,
+    data3: 20165,
+    data4: [134, 158, 68, 155, 108, 98, 200, 26],
+};
+pub const CODECAPI_AVEncNumWorkerThreads: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2965946208, data2: 5879, data3: 18769, data4: [163, 11, 29, 177, 96, 146, 147, 214] };
+pub const CODECAPI_AVEncProgressiveUpdateTime: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1688186726,
+    data2: 44998,
+    data3: 18472,
+    data4: [143, 220, 7, 113, 205, 154, 177, 125],
+};
+pub const CODECAPI_AVEncSliceControlMode: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3924263663,
+    data2: 24344,
+    data3: 17609,
+    data4: [169, 11, 233, 195, 194, 193, 123, 11],
+};
+pub const CODECAPI_AVEncSliceControlSize: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2465537523,
+    data2: 1957,
+    data3: 16754,
+    data4: [174, 254, 198, 156, 163, 182, 14, 53],
+};
+pub const CODECAPI_AVEncSliceGenerationMode: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2322318975,
+    data2: 38039,
+    data3: 17030,
+    data4: [180, 107, 2, 219, 141, 96, 237, 188],
+};
+pub const CODECAPI_AVEncStatAudioAverageBPS: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3395757275,
+    data2: 28761,
+    data3: 17233,
+    data4: [139, 67, 248, 33, 152, 130, 106, 20],
+};
+pub const CODECAPI_AVEncStatAudioAveragePCMValue: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2542957304,
+    data2: 53631,
+    data3: 20018,
+    data4: [187, 115, 78, 115, 28, 104, 186, 45],
+};
+pub const CODECAPI_AVEncStatAudioPeakPCMValue: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3706191156, data2: 56320, data3: 19478, data4: [130, 27, 53, 217, 235, 0, 251, 26] };
+pub const CODECAPI_AVEncStatAverageBPS: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3395757275,
+    data2: 28761,
+    data3: 17233,
+    data4: [139, 67, 248, 33, 152, 130, 106, 20],
+};
+pub const CODECAPI_AVEncStatCommonCompletedPasses: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1046340915,
+    data2: 40439,
+    data3: 17292,
+    data4: [133, 79, 159, 125, 211, 104, 61, 52],
+};
+pub const CODECAPI_AVEncStatHardwareBandwidthUtilitization: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 19184283, data2: 56385, data3: 18470, data4: [180, 95, 24, 172, 1, 179, 213, 168] };
+pub const CODECAPI_AVEncStatHardwareProcessorUtilitization: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2573058087,
+    data2: 52117,
+    data3: 18918,
+    data4: [185, 27, 89, 103, 117, 60, 220, 184],
+};
+pub const CODECAPI_AVEncStatMPVSkippedEmptyFrames: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 840523731, data2: 22797, data3: 18450, data4: [167, 237, 109, 99, 154, 31, 151, 17] };
+pub const CODECAPI_AVEncStatVideoCodedFrames: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3565129057,
+    data2: 28506,
+    data3: 18982,
+    data4: [187, 159, 205, 149, 24, 70, 43, 205],
+};
+pub const CODECAPI_AVEncStatVideoOutputFrameRate: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3195304009,
+    data2: 39604,
+    data3: 19043,
+    data4: [152, 254, 241, 67, 240, 79, 142, 233],
+};
+pub const CODECAPI_AVEncStatVideoTotalFrames: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 4255815958,
+    data2: 4506,
+    data3: 16930,
+    data4: [154, 214, 63, 124, 171, 153, 204, 139],
+};
+pub const CODECAPI_AVEncStatWMVCBAvg: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1789272735,
+    data2: 54786,
+    data3: 19357,
+    data4: [182, 140, 193, 173, 120, 136, 75, 239],
+};
+pub const CODECAPI_AVEncStatWMVCBMax: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3916873464, data2: 254, data3: 17588, data4: [182, 37, 143, 35, 139, 192, 52, 153] };
+pub const CODECAPI_AVEncStatWMVDecoderComplexityProfile: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2313592771, data2: 3995, data3: 17260, data4: [151, 74, 223, 130, 18, 39, 201, 13] };
+pub const CODECAPI_AVEncVideoCBRMotionTradeoff: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 222905630, data2: 6357, data3: 17255, data4: [164, 239, 50, 64, 223, 22, 147, 196] };
+pub const CODECAPI_AVEncVideoCTBSize: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3565009074,
+    data2: 59195,
+    data3: 19641,
+    data4: [140, 62, 189, 135, 125, 6, 215, 123],
+};
+pub const CODECAPI_AVEncVideoCodedVideoAccessUnitSize: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3031501845,
+    data2: 5287,
+    data3: 19688,
+    data4: [177, 115, 220, 144, 160, 180, 252, 219],
+};
+pub const CODECAPI_AVEncVideoContentType: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1712421578,
+    data2: 60279,
+    data3: 17821,
+    data4: [147, 12, 164, 141, 157, 6, 131, 252],
+};
+pub const CODECAPI_AVEncVideoDefaultUpperFieldDominant: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2164352964, data2: 3009, data3: 18378, data4: [143, 194, 87, 5, 90, 20, 116, 165] };
+pub const CODECAPI_AVEncVideoDirtyRectEnabled: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2328596445, data2: 24076, data3: 19558, data4: [135, 41, 184, 246, 41, 171, 4, 251] };
+pub const CODECAPI_AVEncVideoDisplayDimension: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3724883560,
+    data2: 62700,
+    data3: 18345,
+    data4: [134, 208, 131, 103, 112, 240, 193, 213],
+};
+pub const CODECAPI_AVEncVideoEncodeDimension: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 276094760,
+    data2: 32271,
+    data3: 18340,
+    data4: [164, 83, 205, 215, 56, 112, 245, 206],
+};
+pub const CODECAPI_AVEncVideoEncodeFrameTypeQP: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2859513360, data2: 57407, data3: 17676, data4: [173, 7, 7, 49, 78, 99, 156, 231] };
+pub const CODECAPI_AVEncVideoEncodeOffsetOrigin: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1807784190, data2: 42778, data3: 17492, data4: [133, 46, 77, 45, 222, 178, 205, 36] };
+pub const CODECAPI_AVEncVideoEncodeQP: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 750086507, data2: 9211, data3: 19681, data4: [160, 249, 239, 91, 144, 253, 85, 202] };
+pub const CODECAPI_AVEncVideoFieldSwap: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4278023529, data2: 19978, data3: 18930, data4: [159, 43, 54, 14, 164, 140, 25, 162] };
+pub const CODECAPI_AVEncVideoForceKeyFrame: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 965483416, data2: 33619, data3: 18266, data4: [158, 242, 143, 38, 93, 38, 3, 69] };
+pub const CODECAPI_AVEncVideoForceSourceScanType: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 519177823, data2: 1418, data3: 18277, data4: [164, 252, 138, 134, 76, 16, 48, 18] };
+pub const CODECAPI_AVEncVideoGradualIntraRefresh: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2402581998, data2: 51981, data3: 18874, data4: [180, 98, 219, 105, 39, 238, 33, 1] };
+pub const CODECAPI_AVEncVideoHeaderDropFrame: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1859772708, data2: 31013, data3: 17406, data4: [151, 27, 224, 25, 246, 34, 34, 180] };
+pub const CODECAPI_AVEncVideoHeaderFrames: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2950034791, data2: 23579, data3: 19164, data4: [189, 175, 115, 86, 16, 56, 20, 54] };
+pub const CODECAPI_AVEncVideoHeaderHours: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 718042882, data2: 58074, data3: 16728, data4: [191, 155, 136, 136, 1, 41, 215, 64] };
+pub const CODECAPI_AVEncVideoHeaderMinutes: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3692730830, data2: 775, data3: 16523, data4: [136, 11, 184, 52, 142, 232, 202, 127] };
+pub const CODECAPI_AVEncVideoHeaderSeconds: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1244535301,
+    data2: 42880,
+    data3: 20312,
+    data4: [129, 32, 154, 68, 157, 105, 101, 107],
+};
+pub const CODECAPI_AVEncVideoInputChromaResolution: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3138186291, data2: 5873, data3: 18352, data4: [138, 136, 55, 129, 91, 238, 23, 57] };
+pub const CODECAPI_AVEncVideoInputChromaSubsampling: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2833726009, data2: 17461, data3: 20163, data4: [166, 234, 152, 48, 15, 75, 54, 247] };
+pub const CODECAPI_AVEncVideoInputColorLighting: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1185518921, data2: 21, data3: 19013, data4: [156, 48, 29, 92, 250, 37, 131, 22] };
+pub const CODECAPI_AVEncVideoInputColorNominalRange: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 382674374, data2: 41638, data3: 18665, data4: [174, 128, 33, 174, 196, 29, 66, 126] };
+pub const CODECAPI_AVEncVideoInputColorPrimaries: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3259856959,
+    data2: 31974,
+    data3: 17016,
+    data4: [144, 171, 40, 164, 241, 229, 248, 108],
+};
+pub const CODECAPI_AVEncVideoInputColorTransferFunction: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2349162769,
+    data2: 43459,
+    data3: 19208,
+    data4: [160, 160, 206, 19, 248, 162, 124, 117],
+};
+pub const CODECAPI_AVEncVideoInputColorTransferMatrix: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1391290553, data2: 29397, data3: 16521, data4: [149, 141, 245, 64, 93, 85, 8, 28] };
+pub const CODECAPI_AVEncVideoInstantTemporalUpSwitching: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2737865479, data2: 3478, data3: 19364, data4: [177, 240, 185, 26, 94, 73, 223, 16] };
+pub const CODECAPI_AVEncVideoIntraLayerPrediction: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3551479480,
+    data2: 48967,
+    data3: 17595,
+    data4: [162, 131, 105, 240, 176, 34, 143, 249],
+};
+pub const CODECAPI_AVEncVideoInverseTelecineEnable: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 782829963,
+    data2: 59245,
+    data3: 19661,
+    data4: [160, 48, 211, 184, 137, 193, 182, 76],
+};
+pub const CODECAPI_AVEncVideoInverseTelecineThreshold: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1076133252, data2: 59541, data3: 18815, data4: [180, 76, 183, 69, 96, 172, 254, 39] };
+pub const CODECAPI_AVEncVideoLTRBufferControl: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2762008893,
+    data2: 19644,
+    data3: 17484,
+    data4: [137, 244, 130, 109, 49, 14, 146, 167],
+};
+pub const CODECAPI_AVEncVideoMarkLTRFrame: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3828303688, data2: 41069, data3: 20217, data4: [140, 234, 61, 5, 253, 227, 189, 59] };
+pub const CODECAPI_AVEncVideoMaxCTBSize: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2183357439,
+    data2: 52936,
+    data3: 17381,
+    data4: [146, 253, 224, 151, 72, 132, 133, 233],
+};
+pub const CODECAPI_AVEncVideoMaxKeyframeDistance: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 696717882, data2: 47763, data3: 18180, data4: [180, 137, 236, 30, 95, 37, 41, 44] };
+pub const CODECAPI_AVEncVideoMaxNumRefFrame: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2521311725,
+    data2: 38137,
+    data3: 17332,
+    data4: [183, 77, 239, 64, 148, 75, 105, 160],
+};
+pub const CODECAPI_AVEncVideoMaxQP: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1034907494,
+    data2: 42663,
+    data3: 17888,
+    data4: [168, 229, 242, 116, 63, 70, 163, 162],
+};
+pub const CODECAPI_AVEncVideoMaxTemporalLayers: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2623966462,
+    data2: 2273,
+    data3: 16970,
+    data4: [147, 78, 183, 100, 176, 100, 128, 42],
+};
+pub const CODECAPI_AVEncVideoMeanAbsoluteDifference: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3854614799, data2: 33188, data3: 16941, data4: [140, 63, 180, 116, 164, 88, 19, 54] };
+pub const CODECAPI_AVEncVideoMinQP: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 249703530, data2: 41852, data3: 17768, data4: [181, 241, 157, 76, 43, 58, 184, 134] };
+pub const CODECAPI_AVEncVideoNoOfFieldsToEncode: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1642380258,
+    data2: 20192,
+    data3: 16615,
+    data4: [128, 171, 81, 221, 238, 190, 98, 145],
+};
+pub const CODECAPI_AVEncVideoNoOfFieldsToSkip: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2843611712,
+    data2: 5159,
+    data3: 19478,
+    data4: [167, 247, 61, 207, 216, 186, 76, 197],
+};
+pub const CODECAPI_AVEncVideoNumGOPsPerIDR: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2210159579, data2: 23433, data3: 17697, data4: [143, 102, 51, 21, 28, 55, 49, 118] };
+pub const CODECAPI_AVEncVideoOutputChromaResolution: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1620554953,
+    data2: 31773,
+    data3: 20068,
+    data4: [191, 204, 158, 151, 101, 49, 138, 231],
+};
+pub const CODECAPI_AVEncVideoOutputChromaSubsampling: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4199947372, data2: 32023, data3: 17648, data4: [131, 201, 50, 237, 18, 233, 99, 67] };
+pub const CODECAPI_AVEncVideoOutputColorLighting: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 240822982,
+    data2: 44262,
+    data3: 19548,
+    data4: [153, 142, 26, 140, 156, 108, 15, 137],
+};
+pub const CODECAPI_AVEncVideoOutputColorNominalRange: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2535994861, data2: 34741, data3: 20117, data4: [149, 0, 199, 57, 88, 86, 110, 84] };
+pub const CODECAPI_AVEncVideoOutputColorPrimaries: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3197472892,
+    data2: 40196,
+    data3: 18721,
+    data4: [137, 133, 166, 214, 216, 125, 26, 108],
+};
+pub const CODECAPI_AVEncVideoOutputColorTransferFunction: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1249871946, data2: 59921, data3: 17933, data4: [191, 87, 184, 139, 199, 89, 0, 222] };
+pub const CODECAPI_AVEncVideoOutputColorTransferMatrix: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2847474756,
+    data2: 44864,
+    data3: 17168,
+    data4: [143, 190, 237, 109, 147, 63, 137, 43],
+};
+pub const CODECAPI_AVEncVideoOutputFrameRate: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3934644163,
+    data2: 38247,
+    data3: 19865,
+    data4: [135, 196, 2, 193, 194, 120, 202, 124],
+};
+pub const CODECAPI_AVEncVideoOutputFrameRateConversion: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2349239284,
+    data2: 13978,
+    data3: 19363,
+    data4: [130, 253, 178, 81, 143, 179, 57, 110],
+};
+pub const CODECAPI_AVEncVideoOutputScanType: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1175147894,
+    data2: 33838,
+    data3: 18859,
+    data4: [166, 45, 179, 111, 115, 18, 201, 219],
+};
+pub const CODECAPI_AVEncVideoPixelAspectRatio: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1021079951, data2: 46057, data3: 20150, data4: [165, 127, 207, 31, 27, 50, 27, 135] };
+pub const CODECAPI_AVEncVideoROIEnabled: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3612311320,
+    data2: 17629,
+    data3: 19333,
+    data4: [171, 163, 5, 217, 244, 42, 130, 128],
+};
+pub const CODECAPI_AVEncVideoRateControlParams: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2278831975,
+    data2: 30277,
+    data3: 17644,
+    data4: [180, 56, 211, 50, 47, 188, 162, 159],
+};
+pub const CODECAPI_AVEncVideoSelectLayer: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3943728373, data2: 27306, data3: 18708, data4: [187, 47, 97, 71, 34, 127, 18, 231] };
+pub const CODECAPI_AVEncVideoSourceFilmContent: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 395429451, data2: 52476, data3: 18471, data4: [160, 237, 37, 87, 121, 59, 43, 28] };
+pub const CODECAPI_AVEncVideoSourceIsBW: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1124058267, data2: 6162, data3: 20444, data4: [141, 36, 112, 84, 197, 33, 230, 235] };
+pub const CODECAPI_AVEncVideoSupportedControls: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3555987421, data2: 30649, data3: 18237, data4: [129, 150, 6, 18, 89, 230, 156, 255] };
+pub const CODECAPI_AVEncVideoTemporalLayerCount: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 432729087, data2: 46925, data3: 19709, data4: [140, 39, 194, 249, 217, 125, 95, 82] };
+pub const CODECAPI_AVEncVideoUsage: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 526608457,
+    data2: 24001,
+    data3: 18929,
+    data4: [177, 216, 206, 60, 246, 46, 163, 133],
+};
+pub const CODECAPI_AVEncVideoUseLTRFrame: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 7679416, data2: 22007, data3: 20352, data4: [137, 91, 39, 99, 145, 149, 242, 173] };
+pub const CODECAPI_AVEncWMVDecoderComplexity: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 4079750571,
+    data2: 62411,
+    data3: 16919,
+    data4: [183, 159, 135, 98, 118, 139, 95, 103],
+};
+pub const CODECAPI_AVEncWMVInterlacedEncoding: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3822063498,
+    data2: 50933,
+    data3: 19988,
+    data4: [165, 136, 14, 200, 122, 114, 111, 155],
+};
+pub const CODECAPI_AVEncWMVKeyFrameBufferLevelMarker: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1375670549, data2: 13228, data3: 17004, data4: [161, 177, 9, 50, 27, 223, 150, 180] };
+pub const CODECAPI_AVEncWMVKeyFrameDistance: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1432946014,
+    data2: 57960,
+    data3: 18289,
+    data4: [184, 62, 149, 85, 234, 40, 174, 211],
+};
+pub const CODECAPI_AVEncWMVProduceDummyFrames: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3597258753, data2: 6204, data3: 17123, data4: [163, 202, 47, 69, 134, 210, 57, 108] };
+pub const CODECAPI_AVLowLatencyMode: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2619836698,
+    data2: 60794,
+    data3: 16609,
+    data4: [136, 232, 178, 39, 39, 160, 36, 238],
+};
+pub const CODECAPI_AVPriorityControl: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1421491656, data2: 48606, data3: 17193, data4: [177, 135, 32, 24, 188, 92, 43, 161] };
+pub const CODECAPI_AVRealtimeControl: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1866729010, data2: 50349, data3: 19447, data4: [158, 82, 69, 105, 66, 180, 84, 176] };
+pub const CODECAPI_AVScenarioInfo: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2995416676, data2: 16377, data3: 17514, data4: [138, 75, 13, 122, 83, 65, 50, 54] };
+pub const CODECAPI_GUID_AVDecAudioInputAAC: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2548004904, data2: 47434, data3: 18402, data4: [164, 188, 81, 25, 77, 178, 42, 77] };
+pub const CODECAPI_GUID_AVDecAudioInputDTS: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1611382986,
+    data2: 27167,
+    data3: 20113,
+    data4: [178, 65, 27, 190, 177, 203, 25, 224],
+};
+pub const CODECAPI_GUID_AVDecAudioInputDolby: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2386700448,
+    data2: 61440,
+    data3: 19979,
+    data4: [143, 84, 171, 141, 36, 173, 97, 162],
+};
+pub const CODECAPI_GUID_AVDecAudioInputDolbyDigitalPlus: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 134472069, data2: 36701, data3: 18421, data4: [153, 8, 25, 165, 187, 201, 254, 52] };
+pub const CODECAPI_GUID_AVDecAudioInputHEAAC: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 384808106,
+    data2: 13070,
+    data3: 20316,
+    data4: [152, 168, 207, 106, 197, 92, 190, 96],
+};
+pub const CODECAPI_GUID_AVDecAudioInputMPEG: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2433773366, data2: 709, data3: 20341, data4: [151, 25, 59, 122, 191, 117, 225, 246] };
+pub const CODECAPI_GUID_AVDecAudioInputPCM: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4064419237, data2: 48052, data3: 19669, data4: [169, 150, 147, 60, 107, 93, 19, 71] };
+pub const CODECAPI_GUID_AVDecAudioInputWMA: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3378417103, data2: 16472, data3: 16900, data4: [140, 66, 203, 36, 217, 30, 75, 155] };
+pub const CODECAPI_GUID_AVDecAudioInputWMAPro: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 19445703, data2: 55922, data3: 20451, data4: [190, 248, 92, 82, 227, 85, 119, 4] };
+pub const CODECAPI_GUID_AVDecAudioOutputFormat_PCM: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1768824113, data2: 21647, data3: 16438, data4: [130, 95, 112, 38, 198, 0, 17, 189] };
+pub const CODECAPI_GUID_AVDecAudioOutputFormat_PCM_Headphones: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1768824116, data2: 21647, data3: 16438, data4: [130, 95, 112, 38, 198, 0, 17, 189] };
+pub const CODECAPI_GUID_AVDecAudioOutputFormat_PCM_Stereo_Auto: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1768824117, data2: 21647, data3: 16438, data4: [130, 95, 112, 38, 198, 0, 17, 189] };
+pub const CODECAPI_GUID_AVDecAudioOutputFormat_PCM_Stereo_MatrixEncoded: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1768824112, data2: 21647, data3: 16438, data4: [130, 95, 112, 38, 198, 0, 17, 189] };
+pub const CODECAPI_GUID_AVDecAudioOutputFormat_SPDIF_Bitstream: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1768824115, data2: 21647, data3: 16438, data4: [130, 95, 112, 38, 198, 0, 17, 189] };
+pub const CODECAPI_GUID_AVDecAudioOutputFormat_SPDIF_PCM: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1768824114, data2: 21647, data3: 16438, data4: [130, 95, 112, 38, 198, 0, 17, 189] };
+pub const CODECAPI_GUID_AVEncCommonFormatATSC: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2373683580,
+    data2: 40985,
+    data3: 18032,
+    data4: [170, 118, 46, 220, 172, 122, 194, 150],
+};
+pub const CODECAPI_GUID_AVEncCommonFormatDVB: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1904414095,
+    data2: 27699,
+    data3: 17165,
+    data4: [132, 75, 194, 112, 91, 170, 230, 219],
+};
+pub const CODECAPI_GUID_AVEncCommonFormatDVD_DashVR: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3847330262, data2: 1100, data3: 19886, data4: [164, 136, 83, 30, 211, 6, 35, 91] };
+pub const CODECAPI_GUID_AVEncCommonFormatDVD_PlusVR: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3880546094,
+    data2: 60471,
+    data3: 18317,
+    data4: [154, 244, 165, 225, 53, 182, 39, 28],
+};
+pub const CODECAPI_GUID_AVEncCommonFormatDVD_V: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3432356036,
+    data2: 59390,
+    data3: 17693,
+    data4: [177, 202, 118, 27, 200, 64, 183, 243],
+};
+pub const CODECAPI_GUID_AVEncCommonFormatHighMAT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 514582368,
+    data2: 64299,
+    data3: 18728,
+    data4: [144, 209, 120, 219, 136, 238, 232, 137],
+};
+pub const CODECAPI_GUID_AVEncCommonFormatHighMPV: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2731695544,
+    data2: 47353,
+    data3: 17090,
+    data4: [139, 199, 11, 147, 207, 96, 71, 136],
+};
+pub const CODECAPI_GUID_AVEncCommonFormatMP3: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 882324429,
+    data2: 60168,
+    data3: 19906,
+    data4: [129, 151, 228, 152, 53, 239, 130, 139],
+};
+pub const CODECAPI_GUID_AVEncCommonFormatSVCD: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1373132824,
+    data2: 33312,
+    data3: 17548,
+    data4: [128, 102, 214, 155, 237, 22, 201, 173],
+};
+pub const CODECAPI_GUID_AVEncCommonFormatUnSpecified: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2940642138,
+    data2: 24612,
+    data3: 17701,
+    data4: [164, 138, 9, 75, 151, 245, 179, 194],
+};
+pub const CODECAPI_GUID_AVEncCommonFormatVCD: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2500025335,
+    data2: 40336,
+    data3: 16639,
+    data4: [173, 92, 92, 248, 207, 113, 202, 29],
+};
+pub const CODECAPI_GUID_AVEncDTS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1174129314, data2: 24174, data3: 19120, data4: [136, 147, 89, 3, 190, 233, 58, 207] };
+pub const CODECAPI_GUID_AVEncDTSHD: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 542303792,
+    data2: 18077,
+    data3: 19451,
+    data4: [128, 202, 29, 101, 110, 126, 145, 143],
+};
+pub const CODECAPI_GUID_AVEncDV: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 163015111, data2: 13097, data3: 17659, data4: [137, 84, 250, 48, 147, 125, 61, 90] };
+pub const CODECAPI_GUID_AVEncDolbyDigitalConsumer: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3248996204, data2: 89, data3: 19450, data4: [148, 239, 239, 116, 122, 118, 141, 82] };
+pub const CODECAPI_GUID_AVEncDolbyDigitalPlus: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1770855296, data2: 63453, data3: 16732, data4: [151, 28, 66, 73, 42, 32, 86, 198] };
+pub const CODECAPI_GUID_AVEncDolbyDigitalPro: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4122900172, data2: 4088, data3: 16619, data4: [156, 177, 187, 169, 64, 4, 212, 79] };
+pub const CODECAPI_GUID_AVEncH264Video: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2500087467, data2: 12723, data3: 18398, data4: [142, 117, 56, 164, 43, 176, 62, 40] };
+pub const CODECAPI_GUID_AVEncMLP: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 100089385, data2: 61649, data3: 17182, data4: [164, 28, 164, 116, 50, 236, 90, 102] };
+pub const CODECAPI_GUID_AVEncMPEG1Audio: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3571258210, data2: 52554, data3: 19670, data4: [129, 56, 185, 77, 180, 84, 43, 4] };
+pub const CODECAPI_GUID_AVEncMPEG1Video: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3369795326,
+    data2: 55838,
+    data3: 18292,
+    data4: [178, 125, 17, 131, 12, 22, 177, 254],
+};
+pub const CODECAPI_GUID_AVEncMPEG2Audio: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3998006047,
+    data2: 39999,
+    data3: 18288,
+    data4: [146, 181, 252, 183, 194, 168, 211, 129],
+};
+pub const CODECAPI_GUID_AVEncMPEG2Video: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 74301850, data2: 26231, data3: 19114, data4: [163, 29, 193, 171, 113, 111, 69, 96] };
+pub const CODECAPI_GUID_AVEncPCM: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2219567092, data2: 9935, data3: 18297, data4: [179, 134, 204, 5, 209, 135, 153, 12] };
+pub const CODECAPI_GUID_AVEncSDDS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 499234863, data2: 4552, data3: 19569, data4: [183, 182, 238, 62, 185, 188, 43, 148] };
+pub const CODECAPI_GUID_AVEncWMALossless: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1439330917, data2: 9176, data3: 18273, data4: [144, 49, 183, 79, 190, 18, 244, 193] };
+pub const CODECAPI_GUID_AVEncWMAPro: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 425064716,
+    data2: 13303,
+    data3: 19048,
+    data4: [171, 129, 83, 245, 101, 113, 37, 196],
+};
+pub const CODECAPI_GUID_AVEncWMAVoice: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 334305483,
+    data2: 20712,
+    data3: 17014,
+    data4: [162, 136, 166, 170, 34, 131, 130, 217],
+};
+pub const CODECAPI_GUID_AVEncWMV: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1309667227, data2: 7491, data3: 16829, data4: [184, 189, 77, 123, 247, 69, 122, 42] };
+pub const CODECAPI_GUID_AVEndMPEG4Video: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3711414570, data2: 38147, data3: 20363, data4: [184, 208, 50, 74, 0, 192, 161, 207] };
+pub const CODECAPI_GetOPMContext: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 788753413, data2: 19476, data3: 18057, data4: [136, 57, 41, 76, 109, 115, 224, 83] };
+pub const CODECAPI_SetHDCPManagerContext: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1831673800,
+    data2: 15817,
+    data3: 18411,
+    data4: [161, 162, 71, 28, 128, 205, 96, 208],
+};
+pub const CODECAPI_VideoEncoderDisplayContentType: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2042170151,
+    data2: 62641,
+    data3: 17116,
+    data4: [157, 215, 205, 175, 129, 53, 196, 0],
+};
 pub const COPP_ProtectionType_ACP: i32 = 2i32;
 pub const COPP_ProtectionType_CGMSA: i32 = 4i32;
 pub const COPP_ProtectionType_HDCP: i32 = 1i32;
@@ -1264,187 +1892,809 @@ pub const COPP_ProtectionType_Mask: i32 = -2147483641i32;
 pub const COPP_ProtectionType_None: i32 = 0i32;
 pub const COPP_ProtectionType_Reserved: i32 = 2147483640i32;
 pub const COPP_ProtectionType_Unknown: i32 = -2147483648i32;
+pub const CPK_DS_AC3Decoder: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1822190038,
+    data2: 4092,
+    data3: 17537,
+    data4: [175, 219, 205, 241, 199, 156, 111, 62],
+};
+pub const CPK_DS_MPEG2Decoder: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2568013261,
+    data2: 38345,
+    data3: 19974,
+    data4: [134, 90, 239, 161, 200, 1, 107, 244],
+};
+pub const CResamplerMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 4098340510,
+    data2: 6276,
+    data3: 19070,
+    data4: [128, 85, 52, 111, 116, 214, 237, 179],
+};
+pub const CResizerDMO: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 513927700, data2: 18676, data3: 16468, data4: [173, 26, 232, 174, 225, 10, 200, 5] };
+pub const CResizerMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3555494795,
+    data2: 30504,
+    data3: 20440,
+    data4: [159, 224, 123, 103, 209, 159, 115, 163],
+};
+pub const CShotDetectorDmo: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1454308045,
+    data2: 4364,
+    data3: 17303,
+    data4: [146, 146, 176, 160, 198, 27, 103, 80],
+};
+pub const CSmpteTransformsDmo: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3185981579, data2: 55845, data3: 18525, data4: [186, 127, 250, 188, 40, 178, 3, 24] };
+pub const CThumbnailGeneratorDmo: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1436314541,
+    data2: 7848,
+    data3: 18787,
+    data4: [160, 135, 138, 104, 16, 249, 33, 139],
+};
+pub const CTocGeneratorDmo: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1306138945, data2: 30624, data3: 20401, data4: [165, 24, 226, 24, 80, 65, 215, 12] };
+pub const CVodafoneAACCCDecMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2121711487,
+    data2: 51603,
+    data3: 20006,
+    data4: [143, 171, 71, 10, 112, 192, 213, 156],
+};
+pub const CVodafoneAACDecMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2134309186, data2: 56563, data3: 19842, data4: [146, 137, 91, 24, 32, 39, 143, 124] };
+pub const CWMADecMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 787172063, data2: 17784, data3: 19728, data4: [188, 167, 187, 149, 95, 86, 50, 10] };
+pub const CWMAEncMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1895143657,
+    data2: 62635,
+    data3: 18778,
+    data4: [153, 226, 167, 196, 211, 216, 154, 191],
+};
+pub const CWMATransMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3989494219, data2: 12583, data3: 16607, data4: [181, 39, 1, 82, 204, 179, 246, 245] };
+pub const CWMAudioAEC: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1951422407, data2: 62291, data3: 20269, data4: [167, 238, 88, 67, 68, 119, 115, 14] };
+pub const CWMAudioCAPXGFXAPO: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 329989821, data2: 4990, data3: 18691, data4: [157, 137, 96, 190, 130, 119, 253, 23] };
+pub const CWMAudioCAPXLFXAPO: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3376758387,
+    data2: 35932,
+    data3: 17507,
+    data4: [153, 132, 175, 139, 171, 47, 84, 71],
+};
+pub const CWMAudioGFXAPO: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1669089549, data2: 61155, data3: 19466, data4: [151, 63, 55, 25, 88, 128, 45, 162] };
+pub const CWMAudioLFXAPO: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1658591891, data2: 44580, data3: 17996, data4: [164, 62, 69, 47, 130, 76, 66, 80] };
+pub const CWMAudioSpdTxDMO: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1376844004,
+    data2: 45243,
+    data3: 18371,
+    data4: [168, 217, 123, 34, 130, 204, 121, 237],
+};
+pub const CWMSPDecMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2269196747, data2: 20172, data3: 17467, data4: [137, 72, 116, 107, 137, 89, 93, 32] };
+pub const CWMSPEncMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1736710915,
+    data2: 50825,
+    data3: 16776,
+    data4: [173, 63, 76, 158, 190, 236, 113, 11],
+};
+pub const CWMSPEncMediaObject2: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 522145306, data2: 8786, data3: 16483, data4: [132, 187, 238, 231, 95, 136, 86, 213] };
+pub const CWMTDecMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4191929934, data2: 11728, data3: 17885, data4: [155, 82, 102, 100, 46, 249, 68, 49] };
+pub const CWMTEncMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1622570578, data2: 58475, data3: 20036, data4: [134, 9, 247, 75, 255, 220, 8, 60] };
+pub const CWMV9EncMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3527119056, data2: 5199, data3: 18109, data4: [132, 29, 89, 228, 235, 25, 220, 89] };
+pub const CWMVDecMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2194887647,
+    data2: 37053,
+    data3: 17282,
+    data4: [139, 194, 63, 97, 146, 183, 110, 52],
+};
+pub const CWMVEncMediaObject2: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2528476381, data2: 35174, data3: 16652, data4: [187, 31, 201, 126, 234, 118, 92, 4] };
+pub const CWMVXEncMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2117206162, data2: 22890, data3: 16818, data4: [187, 235, 23, 93, 16, 80, 78, 182] };
+pub const CWVC1DecMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3384786127,
+    data2: 58894,
+    data3: 17800,
+    data4: [163, 223, 90, 3, 177, 253, 149, 133],
+};
+pub const CWVC1EncMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1147485453,
+    data2: 36042,
+    data3: 16871,
+    data4: [186, 202, 136, 67, 55, 183, 71, 172],
+};
+pub const CZuneAACCCDecMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2806946034,
+    data2: 21206,
+    data3: 19278,
+    data4: [136, 91, 224, 166, 202, 79, 24, 122],
+};
+pub const CZuneM4S2DecMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3312435804, data2: 4038, data3: 16458, data4: [149, 3, 177, 11, 245, 26, 138, 185] };
 #[repr(C)]
-pub struct CPK_DS_AC3Decoder(i32);
-#[repr(C)]
-pub struct CPK_DS_MPEG2Decoder(i32);
-#[repr(C)]
-pub struct CResamplerMediaObject(i32);
-#[repr(C)]
-pub struct CResizerDMO(i32);
-#[repr(C)]
-pub struct CResizerMediaObject(i32);
-#[repr(C)]
-pub struct CShotDetectorDmo(i32);
-#[repr(C)]
-pub struct CSmpteTransformsDmo(i32);
-#[repr(C)]
-pub struct CThumbnailGeneratorDmo(i32);
-#[repr(C)]
-pub struct CTocGeneratorDmo(i32);
-#[repr(C)]
-pub struct CVodafoneAACCCDecMediaObject(i32);
-#[repr(C)]
-pub struct CVodafoneAACDecMediaObject(i32);
-#[repr(C)]
-pub struct CWMADecMediaObject(i32);
-#[repr(C)]
-pub struct CWMAEncMediaObject(i32);
-#[repr(C)]
-pub struct CWMATransMediaObject(i32);
-#[repr(C)]
-pub struct CWMAudioAEC(i32);
-#[repr(C)]
-pub struct CWMAudioCAPXGFXAPO(i32);
-#[repr(C)]
-pub struct CWMAudioCAPXLFXAPO(i32);
-#[repr(C)]
-pub struct CWMAudioGFXAPO(i32);
-#[repr(C)]
-pub struct CWMAudioLFXAPO(i32);
-#[repr(C)]
-pub struct CWMAudioSpdTxDMO(i32);
-#[repr(C)]
-pub struct CWMSPDecMediaObject(i32);
-#[repr(C)]
-pub struct CWMSPEncMediaObject(i32);
-#[repr(C)]
-pub struct CWMSPEncMediaObject2(i32);
-#[repr(C)]
-pub struct CWMTDecMediaObject(i32);
-#[repr(C)]
-pub struct CWMTEncMediaObject(i32);
-#[repr(C)]
-pub struct CWMV9EncMediaObject(i32);
-#[repr(C)]
-pub struct CWMVDecMediaObject(i32);
-#[repr(C)]
-pub struct CWMVEncMediaObject2(i32);
-#[repr(C)]
-pub struct CWMVXEncMediaObject(i32);
-#[repr(C)]
-pub struct CWVC1DecMediaObject(i32);
-#[repr(C)]
-pub struct CWVC1EncMediaObject(i32);
-#[repr(C)]
-pub struct CZuneAACCCDecMediaObject(i32);
-#[repr(C)]
-pub struct CZuneM4S2DecMediaObject(i32);
-#[repr(C)]
-pub struct CodecAPIEventData(i32);
+pub struct CodecAPIEventData {
+    pub guid: ::windows_sys::core::GUID,
+    pub dataLength: u32,
+    pub reserved: [u32; 3],
+}
+impl ::core::marker::Copy for CodecAPIEventData {}
+impl ::core::clone::Clone for CodecAPIEventData {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3D12_BITSTREAM_ENCRYPTION_TYPE(pub i32);
 pub const D3D12_BITSTREAM_ENCRYPTION_TYPE_NONE: D3D12_BITSTREAM_ENCRYPTION_TYPE = D3D12_BITSTREAM_ENCRYPTION_TYPE(0i32);
+impl ::core::marker::Copy for D3D12_BITSTREAM_ENCRYPTION_TYPE {}
+impl ::core::clone::Clone for D3D12_BITSTREAM_ENCRYPTION_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+pub struct D3D12_FEATURE_DATA_VIDEO_ARCHITECTURE {
+    pub IOCoherent: super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for D3D12_FEATURE_DATA_VIDEO_ARCHITECTURE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for D3D12_FEATURE_DATA_VIDEO_ARCHITECTURE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D12_FEATURE_DATA_VIDEO_ARCHITECTURE(i32);
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+pub struct D3D12_FEATURE_DATA_VIDEO_DECODER_HEAP_SIZE {
+    pub VideoDecoderHeapDesc: D3D12_VIDEO_DECODER_HEAP_DESC,
+    pub MemoryPoolL0Size: u64,
+    pub MemoryPoolL1Size: u64,
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::marker::Copy for D3D12_FEATURE_DATA_VIDEO_DECODER_HEAP_SIZE {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::clone::Clone for D3D12_FEATURE_DATA_VIDEO_DECODER_HEAP_SIZE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D12_FEATURE_DATA_VIDEO_DECODER_HEAP_SIZE(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-#[repr(C)]
-pub struct D3D12_FEATURE_DATA_VIDEO_DECODER_HEAP_SIZE1(i32);
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-#[repr(C)]
-pub struct D3D12_FEATURE_DATA_VIDEO_DECODE_CONVERSION_SUPPORT(i32);
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-#[repr(C)]
-pub struct D3D12_FEATURE_DATA_VIDEO_DECODE_FORMATS(i32);
-#[repr(C)]
-pub struct D3D12_FEATURE_DATA_VIDEO_DECODE_FORMAT_COUNT(i32);
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-#[repr(C)]
-pub struct D3D12_FEATURE_DATA_VIDEO_DECODE_HISTOGRAM(i32);
-#[repr(C)]
-pub struct D3D12_FEATURE_DATA_VIDEO_DECODE_PROFILES(i32);
-#[repr(C)]
-pub struct D3D12_FEATURE_DATA_VIDEO_DECODE_PROFILE_COUNT(i32);
-#[repr(C)]
-pub struct D3D12_FEATURE_DATA_VIDEO_DECODE_PROTECTED_RESOURCES(i32);
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-#[repr(C)]
-pub struct D3D12_FEATURE_DATA_VIDEO_DECODE_SUPPORT(i32);
-#[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC(i32);
-#[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT(i32);
-#[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT(i32);
-#[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE(i32);
-#[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_HEAP_SIZE(i32);
+pub struct D3D12_FEATURE_DATA_VIDEO_DECODER_HEAP_SIZE1 {
+    pub VideoDecoderHeapDesc: D3D12_VIDEO_DECODER_HEAP_DESC,
+    pub Protected: super::super::Foundation::BOOL,
+    pub MemoryPoolL0Size: u64,
+    pub MemoryPoolL1Size: u64,
+}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-#[repr(C)]
-pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_INPUT_FORMAT(i32);
-#[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_INTRA_REFRESH_MODE(i32);
-#[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_OUTPUT_RESOLUTION(i32);
-#[repr(C)]
-pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_OUTPUT_RESOLUTION_RATIOS_COUNT(i32);
-#[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_PROFILE_LEVEL(i32);
-#[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_RATE_CONTROL_MODE(i32);
-#[repr(C)]
-pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION_SUPPORT_LIMITS(i32);
+impl ::core::marker::Copy for D3D12_FEATURE_DATA_VIDEO_DECODER_HEAP_SIZE1 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::clone::Clone for D3D12_FEATURE_DATA_VIDEO_DECODER_HEAP_SIZE1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOURCE_REQUIREMENTS(i32);
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+pub struct D3D12_FEATURE_DATA_VIDEO_DECODE_CONVERSION_SUPPORT {
+    pub NodeIndex: u32,
+    pub Configuration: D3D12_VIDEO_DECODE_CONFIGURATION,
+    pub DecodeSample: D3D12_VIDEO_SAMPLE,
+    pub OutputFormat: D3D12_VIDEO_FORMAT,
+    pub FrameRate: super::super::Graphics::Dxgi::Common::DXGI_RATIONAL,
+    pub BitRate: u32,
+    pub SupportFlags: D3D12_VIDEO_DECODE_CONVERSION_SUPPORT_FLAGS,
+    pub ScaleSupport: D3D12_VIDEO_SCALE_SUPPORT,
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::marker::Copy for D3D12_FEATURE_DATA_VIDEO_DECODE_CONVERSION_SUPPORT {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::clone::Clone for D3D12_FEATURE_DATA_VIDEO_DECODE_CONVERSION_SUPPORT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_SUPPORT(i32);
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+pub struct D3D12_FEATURE_DATA_VIDEO_DECODE_FORMATS {
+    pub NodeIndex: u32,
+    pub Configuration: D3D12_VIDEO_DECODE_CONFIGURATION,
+    pub FormatCount: u32,
+    pub pOutputFormats: *mut super::super::Graphics::Dxgi::Common::DXGI_FORMAT,
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::marker::Copy for D3D12_FEATURE_DATA_VIDEO_DECODE_FORMATS {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::clone::Clone for D3D12_FEATURE_DATA_VIDEO_DECODE_FORMATS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct D3D12_FEATURE_DATA_VIDEO_DECODE_FORMAT_COUNT {
+    pub NodeIndex: u32,
+    pub Configuration: D3D12_VIDEO_DECODE_CONFIGURATION,
+    pub FormatCount: u32,
+}
+impl ::core::marker::Copy for D3D12_FEATURE_DATA_VIDEO_DECODE_FORMAT_COUNT {}
+impl ::core::clone::Clone for D3D12_FEATURE_DATA_VIDEO_DECODE_FORMAT_COUNT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+pub struct D3D12_FEATURE_DATA_VIDEO_DECODE_HISTOGRAM {
+    pub NodeIndex: u32,
+    pub DecodeProfile: ::windows_sys::core::GUID,
+    pub Width: u32,
+    pub Height: u32,
+    pub DecodeFormat: super::super::Graphics::Dxgi::Common::DXGI_FORMAT,
+    pub Components: D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_FLAGS,
+    pub BinCount: u32,
+    pub CounterBitDepth: u32,
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::marker::Copy for D3D12_FEATURE_DATA_VIDEO_DECODE_HISTOGRAM {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::clone::Clone for D3D12_FEATURE_DATA_VIDEO_DECODE_HISTOGRAM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct D3D12_FEATURE_DATA_VIDEO_DECODE_PROFILES {
+    pub NodeIndex: u32,
+    pub ProfileCount: u32,
+    pub pProfiles: *mut ::windows_sys::core::GUID,
+}
+impl ::core::marker::Copy for D3D12_FEATURE_DATA_VIDEO_DECODE_PROFILES {}
+impl ::core::clone::Clone for D3D12_FEATURE_DATA_VIDEO_DECODE_PROFILES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct D3D12_FEATURE_DATA_VIDEO_DECODE_PROFILE_COUNT {
+    pub NodeIndex: u32,
+    pub ProfileCount: u32,
+}
+impl ::core::marker::Copy for D3D12_FEATURE_DATA_VIDEO_DECODE_PROFILE_COUNT {}
+impl ::core::clone::Clone for D3D12_FEATURE_DATA_VIDEO_DECODE_PROFILE_COUNT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct D3D12_FEATURE_DATA_VIDEO_DECODE_PROTECTED_RESOURCES {
+    pub NodeIndex: u32,
+    pub Configuration: D3D12_VIDEO_DECODE_CONFIGURATION,
+    pub SupportFlags: D3D12_VIDEO_PROTECTED_RESOURCE_SUPPORT_FLAGS,
+}
+impl ::core::marker::Copy for D3D12_FEATURE_DATA_VIDEO_DECODE_PROTECTED_RESOURCES {}
+impl ::core::clone::Clone for D3D12_FEATURE_DATA_VIDEO_DECODE_PROTECTED_RESOURCES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+pub struct D3D12_FEATURE_DATA_VIDEO_DECODE_SUPPORT {
+    pub NodeIndex: u32,
+    pub Configuration: D3D12_VIDEO_DECODE_CONFIGURATION,
+    pub Width: u32,
+    pub Height: u32,
+    pub DecodeFormat: super::super::Graphics::Dxgi::Common::DXGI_FORMAT,
+    pub FrameRate: super::super::Graphics::Dxgi::Common::DXGI_RATIONAL,
+    pub BitRate: u32,
+    pub SupportFlags: D3D12_VIDEO_DECODE_SUPPORT_FLAGS,
+    pub ConfigurationFlags: D3D12_VIDEO_DECODE_CONFIGURATION_FLAGS,
+    pub DecodeTier: D3D12_VIDEO_DECODE_TIER,
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::marker::Copy for D3D12_FEATURE_DATA_VIDEO_DECODE_SUPPORT {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::clone::Clone for D3D12_FEATURE_DATA_VIDEO_DECODE_SUPPORT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC {
+    pub NodeIndex: u32,
+    pub Codec: D3D12_VIDEO_ENCODER_CODEC,
+    pub IsSupported: super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT {
+    pub NodeIndex: u32,
+    pub Codec: D3D12_VIDEO_ENCODER_CODEC,
+    pub Profile: D3D12_VIDEO_ENCODER_PROFILE_DESC,
+    pub IsSupported: super::super::Foundation::BOOL,
+    pub CodecSupportLimits: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT {
+    pub NodeIndex: u32,
+    pub Codec: D3D12_VIDEO_ENCODER_CODEC,
+    pub Profile: D3D12_VIDEO_ENCODER_PROFILE_DESC,
+    pub IsSupported: super::super::Foundation::BOOL,
+    pub PictureSupport: D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE {
+    pub NodeIndex: u32,
+    pub Codec: D3D12_VIDEO_ENCODER_CODEC,
+    pub Profile: D3D12_VIDEO_ENCODER_PROFILE_DESC,
+    pub Level: D3D12_VIDEO_ENCODER_LEVEL_SETTING,
+    pub SubregionMode: D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE,
+    pub IsSupported: super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for D3D12_FEATURE_DATA_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for D3D12_FEATURE_DATA_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_HEAP_SIZE {
+    pub HeapDesc: D3D12_VIDEO_ENCODER_HEAP_DESC,
+    pub IsSupported: super::super::Foundation::BOOL,
+    pub MemoryPoolL0Size: u64,
+    pub MemoryPoolL1Size: u64,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for D3D12_FEATURE_DATA_VIDEO_ENCODER_HEAP_SIZE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for D3D12_FEATURE_DATA_VIDEO_ENCODER_HEAP_SIZE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_INPUT_FORMAT {
+    pub NodeIndex: u32,
+    pub Codec: D3D12_VIDEO_ENCODER_CODEC,
+    pub Profile: D3D12_VIDEO_ENCODER_PROFILE_DESC,
+    pub Format: super::super::Graphics::Dxgi::Common::DXGI_FORMAT,
+    pub IsSupported: super::super::Foundation::BOOL,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::marker::Copy for D3D12_FEATURE_DATA_VIDEO_ENCODER_INPUT_FORMAT {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::clone::Clone for D3D12_FEATURE_DATA_VIDEO_ENCODER_INPUT_FORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_INTRA_REFRESH_MODE {
+    pub NodeIndex: u32,
+    pub Codec: D3D12_VIDEO_ENCODER_CODEC,
+    pub Profile: D3D12_VIDEO_ENCODER_PROFILE_DESC,
+    pub Level: D3D12_VIDEO_ENCODER_LEVEL_SETTING,
+    pub IntraRefreshMode: D3D12_VIDEO_ENCODER_INTRA_REFRESH_MODE,
+    pub IsSupported: super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for D3D12_FEATURE_DATA_VIDEO_ENCODER_INTRA_REFRESH_MODE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for D3D12_FEATURE_DATA_VIDEO_ENCODER_INTRA_REFRESH_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_OUTPUT_RESOLUTION {
+    pub NodeIndex: u32,
+    pub Codec: D3D12_VIDEO_ENCODER_CODEC,
+    pub ResolutionRatiosCount: u32,
+    pub IsSupported: super::super::Foundation::BOOL,
+    pub MinResolutionSupported: D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC,
+    pub MaxResolutionSupported: D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC,
+    pub ResolutionWidthMultipleRequirement: u32,
+    pub ResolutionHeightMultipleRequirement: u32,
+    pub pResolutionRatios: *mut D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_RATIO_DESC,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for D3D12_FEATURE_DATA_VIDEO_ENCODER_OUTPUT_RESOLUTION {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for D3D12_FEATURE_DATA_VIDEO_ENCODER_OUTPUT_RESOLUTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_OUTPUT_RESOLUTION_RATIOS_COUNT {
+    pub NodeIndex: u32,
+    pub Codec: D3D12_VIDEO_ENCODER_CODEC,
+    pub ResolutionRatiosCount: u32,
+}
+impl ::core::marker::Copy for D3D12_FEATURE_DATA_VIDEO_ENCODER_OUTPUT_RESOLUTION_RATIOS_COUNT {}
+impl ::core::clone::Clone for D3D12_FEATURE_DATA_VIDEO_ENCODER_OUTPUT_RESOLUTION_RATIOS_COUNT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_PROFILE_LEVEL {
+    pub NodeIndex: u32,
+    pub Codec: D3D12_VIDEO_ENCODER_CODEC,
+    pub Profile: D3D12_VIDEO_ENCODER_PROFILE_DESC,
+    pub IsSupported: super::super::Foundation::BOOL,
+    pub MinSupportedLevel: D3D12_VIDEO_ENCODER_LEVEL_SETTING,
+    pub MaxSupportedLevel: D3D12_VIDEO_ENCODER_LEVEL_SETTING,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for D3D12_FEATURE_DATA_VIDEO_ENCODER_PROFILE_LEVEL {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for D3D12_FEATURE_DATA_VIDEO_ENCODER_PROFILE_LEVEL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_RATE_CONTROL_MODE {
+    pub NodeIndex: u32,
+    pub Codec: D3D12_VIDEO_ENCODER_CODEC,
+    pub RateControlMode: D3D12_VIDEO_ENCODER_RATE_CONTROL_MODE,
+    pub IsSupported: super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for D3D12_FEATURE_DATA_VIDEO_ENCODER_RATE_CONTROL_MODE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for D3D12_FEATURE_DATA_VIDEO_ENCODER_RATE_CONTROL_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION_SUPPORT_LIMITS {
+    pub MaxSubregionsNumber: u32,
+    pub MaxIntraRefreshFrameDuration: u32,
+    pub SubregionBlockPixelsSize: u32,
+    pub QPMapRegionPixelsSize: u32,
+}
+impl ::core::marker::Copy for D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION_SUPPORT_LIMITS {}
+impl ::core::clone::Clone for D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION_SUPPORT_LIMITS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOURCE_REQUIREMENTS {
+    pub NodeIndex: u32,
+    pub Codec: D3D12_VIDEO_ENCODER_CODEC,
+    pub Profile: D3D12_VIDEO_ENCODER_PROFILE_DESC,
+    pub InputFormat: super::super::Graphics::Dxgi::Common::DXGI_FORMAT,
+    pub PictureTargetResolution: D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC,
+    pub IsSupported: super::super::Foundation::BOOL,
+    pub CompressedBitstreamBufferAccessAlignment: u32,
+    pub EncoderMetadataBufferAccessAlignment: u32,
+    pub MaxEncoderOutputMetadataBufferSize: u32,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::marker::Copy for D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOURCE_REQUIREMENTS {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::clone::Clone for D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOURCE_REQUIREMENTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_SUPPORT {
+    pub NodeIndex: u32,
+    pub Codec: D3D12_VIDEO_ENCODER_CODEC,
+    pub InputFormat: super::super::Graphics::Dxgi::Common::DXGI_FORMAT,
+    pub CodecConfiguration: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION,
+    pub CodecGopSequence: D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE,
+    pub RateControl: D3D12_VIDEO_ENCODER_RATE_CONTROL,
+    pub IntraRefresh: D3D12_VIDEO_ENCODER_INTRA_REFRESH_MODE,
+    pub SubregionFrameEncoding: D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE,
+    pub ResolutionsListCount: u32,
+    pub pResolutionList: *mut D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC,
+    pub MaxReferenceFramesInDPB: u32,
+    pub ValidationFlags: D3D12_VIDEO_ENCODER_VALIDATION_FLAGS,
+    pub SupportFlags: D3D12_VIDEO_ENCODER_SUPPORT_FLAGS,
+    pub SuggestedProfile: D3D12_VIDEO_ENCODER_PROFILE_DESC,
+    pub SuggestedLevel: D3D12_VIDEO_ENCODER_LEVEL_SETTING,
+    pub pResolutionDependentSupport: *mut D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION_SUPPORT_LIMITS,
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::marker::Copy for D3D12_FEATURE_DATA_VIDEO_ENCODER_SUPPORT {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::clone::Clone for D3D12_FEATURE_DATA_VIDEO_ENCODER_SUPPORT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
+pub struct D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMANDS {
+    pub NodeIndex: u32,
+    pub CommandCount: u32,
+    pub pCommandInfos: *mut D3D12_VIDEO_EXTENSION_COMMAND_INFO,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
+impl ::core::marker::Copy for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMANDS {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
+impl ::core::clone::Clone for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMANDS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMANDS(i32);
+pub struct D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_COUNT {
+    pub NodeIndex: u32,
+    pub CommandCount: u32,
+}
+impl ::core::marker::Copy for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_COUNT {}
+impl ::core::clone::Clone for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_COUNT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_COUNT(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_PARAMETERS(i32);
-#[repr(C)]
-pub struct D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_PARAMETER_COUNT(i32);
-#[repr(C)]
-pub struct D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_SIZE(i32);
-#[repr(C)]
-pub struct D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_SUPPORT(i32);
+pub struct D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_PARAMETERS {
+    pub CommandId: ::windows_sys::core::GUID,
+    pub Stage: D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_STAGE,
+    pub ParameterCount: u32,
+    pub pParameterInfos: *mut D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_INFO,
+}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_PARAMETERS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D12_FEATURE_DATA_VIDEO_FEATURE_AREA_SUPPORT(i32);
+pub struct D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_PARAMETER_COUNT {
+    pub CommandId: ::windows_sys::core::GUID,
+    pub Stage: D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_STAGE,
+    pub ParameterCount: u32,
+    pub ParameterPacking: u32,
+}
+impl ::core::marker::Copy for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_PARAMETER_COUNT {}
+impl ::core::clone::Clone for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_PARAMETER_COUNT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_SIZE {
+    pub NodeIndex: u32,
+    pub CommandId: ::windows_sys::core::GUID,
+    pub pCreationParameters: *mut ::core::ffi::c_void,
+    pub CreationParametersSizeInBytes: usize,
+    pub MemoryPoolL0Size: u64,
+    pub MemoryPoolL1Size: u64,
+}
+impl ::core::marker::Copy for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_SIZE {}
+impl ::core::clone::Clone for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_SIZE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_SUPPORT {
+    pub NodeIndex: u32,
+    pub CommandId: ::windows_sys::core::GUID,
+    pub pInputData: *mut ::core::ffi::c_void,
+    pub InputDataSizeInBytes: usize,
+    pub pOutputData: *mut ::core::ffi::c_void,
+    pub OutputDataSizeInBytes: usize,
+}
+impl ::core::marker::Copy for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_SUPPORT {}
+impl ::core::clone::Clone for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_SUPPORT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct D3D12_FEATURE_DATA_VIDEO_FEATURE_AREA_SUPPORT {
+    pub NodeIndex: u32,
+    pub VideoDecodeSupport: super::super::Foundation::BOOL,
+    pub VideoProcessSupport: super::super::Foundation::BOOL,
+    pub VideoEncodeSupport: super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for D3D12_FEATURE_DATA_VIDEO_FEATURE_AREA_SUPPORT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for D3D12_FEATURE_DATA_VIDEO_FEATURE_AREA_SUPPORT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-#[repr(C)]
-pub struct D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR(i32);
-#[repr(C)]
-pub struct D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR_PROTECTED_RESOURCES(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-#[repr(C)]
-pub struct D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR_SIZE(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-#[repr(C)]
-pub struct D3D12_FEATURE_DATA_VIDEO_PROCESSOR_SIZE(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-#[repr(C)]
-pub struct D3D12_FEATURE_DATA_VIDEO_PROCESSOR_SIZE1(i32);
-#[repr(C)]
-pub struct D3D12_FEATURE_DATA_VIDEO_PROCESS_MAX_INPUT_STREAMS(i32);
-#[repr(C)]
-pub struct D3D12_FEATURE_DATA_VIDEO_PROCESS_PROTECTED_RESOURCES(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-#[repr(C)]
-pub struct D3D12_FEATURE_DATA_VIDEO_PROCESS_REFERENCE_INFO(i32);
+pub struct D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR {
+    pub NodeIndex: u32,
+    pub InputFormat: super::super::Graphics::Dxgi::Common::DXGI_FORMAT,
+    pub BlockSizeFlags: D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE_FLAGS,
+    pub PrecisionFlags: D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION_FLAGS,
+    pub SizeRange: D3D12_VIDEO_SIZE_RANGE,
+}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::marker::Copy for D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::clone::Clone for D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D12_FEATURE_DATA_VIDEO_PROCESS_SUPPORT(i32);
+pub struct D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR_PROTECTED_RESOURCES {
+    pub NodeIndex: u32,
+    pub SupportFlags: D3D12_VIDEO_PROTECTED_RESOURCE_SUPPORT_FLAGS,
+}
+impl ::core::marker::Copy for D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR_PROTECTED_RESOURCES {}
+impl ::core::clone::Clone for D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR_PROTECTED_RESOURCES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+pub struct D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR_SIZE {
+    pub NodeIndex: u32,
+    pub InputFormat: super::super::Graphics::Dxgi::Common::DXGI_FORMAT,
+    pub BlockSize: D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE,
+    pub Precision: D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION,
+    pub SizeRange: D3D12_VIDEO_SIZE_RANGE,
+    pub Protected: super::super::Foundation::BOOL,
+    pub MotionVectorHeapMemoryPoolL0Size: u64,
+    pub MotionVectorHeapMemoryPoolL1Size: u64,
+    pub MotionEstimatorMemoryPoolL0Size: u64,
+    pub MotionEstimatorMemoryPoolL1Size: u64,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::marker::Copy for D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR_SIZE {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::clone::Clone for D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR_SIZE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+pub struct D3D12_FEATURE_DATA_VIDEO_PROCESSOR_SIZE {
+    pub NodeMask: u32,
+    pub pOutputStreamDesc: *mut D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC,
+    pub NumInputStreamDescs: u32,
+    pub pInputStreamDescs: *mut D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC,
+    pub MemoryPoolL0Size: u64,
+    pub MemoryPoolL1Size: u64,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::marker::Copy for D3D12_FEATURE_DATA_VIDEO_PROCESSOR_SIZE {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::clone::Clone for D3D12_FEATURE_DATA_VIDEO_PROCESSOR_SIZE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+pub struct D3D12_FEATURE_DATA_VIDEO_PROCESSOR_SIZE1 {
+    pub NodeMask: u32,
+    pub pOutputStreamDesc: *mut D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC,
+    pub NumInputStreamDescs: u32,
+    pub pInputStreamDescs: *mut D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC,
+    pub Protected: super::super::Foundation::BOOL,
+    pub MemoryPoolL0Size: u64,
+    pub MemoryPoolL1Size: u64,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::marker::Copy for D3D12_FEATURE_DATA_VIDEO_PROCESSOR_SIZE1 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::clone::Clone for D3D12_FEATURE_DATA_VIDEO_PROCESSOR_SIZE1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct D3D12_FEATURE_DATA_VIDEO_PROCESS_MAX_INPUT_STREAMS {
+    pub NodeIndex: u32,
+    pub MaxInputStreams: u32,
+}
+impl ::core::marker::Copy for D3D12_FEATURE_DATA_VIDEO_PROCESS_MAX_INPUT_STREAMS {}
+impl ::core::clone::Clone for D3D12_FEATURE_DATA_VIDEO_PROCESS_MAX_INPUT_STREAMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct D3D12_FEATURE_DATA_VIDEO_PROCESS_PROTECTED_RESOURCES {
+    pub NodeIndex: u32,
+    pub SupportFlags: D3D12_VIDEO_PROTECTED_RESOURCE_SUPPORT_FLAGS,
+}
+impl ::core::marker::Copy for D3D12_FEATURE_DATA_VIDEO_PROCESS_PROTECTED_RESOURCES {}
+impl ::core::clone::Clone for D3D12_FEATURE_DATA_VIDEO_PROCESS_PROTECTED_RESOURCES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+pub struct D3D12_FEATURE_DATA_VIDEO_PROCESS_REFERENCE_INFO {
+    pub NodeIndex: u32,
+    pub DeinterlaceMode: D3D12_VIDEO_PROCESS_DEINTERLACE_FLAGS,
+    pub Filters: D3D12_VIDEO_PROCESS_FILTER_FLAGS,
+    pub FeatureSupport: D3D12_VIDEO_PROCESS_FEATURE_FLAGS,
+    pub InputFrameRate: super::super::Graphics::Dxgi::Common::DXGI_RATIONAL,
+    pub OutputFrameRate: super::super::Graphics::Dxgi::Common::DXGI_RATIONAL,
+    pub EnableAutoProcessing: super::super::Foundation::BOOL,
+    pub PastFrames: u32,
+    pub FutureFrames: u32,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::marker::Copy for D3D12_FEATURE_DATA_VIDEO_PROCESS_REFERENCE_INFO {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::clone::Clone for D3D12_FEATURE_DATA_VIDEO_PROCESS_REFERENCE_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+pub struct D3D12_FEATURE_DATA_VIDEO_PROCESS_SUPPORT {
+    pub NodeIndex: u32,
+    pub InputSample: D3D12_VIDEO_SAMPLE,
+    pub InputFieldType: D3D12_VIDEO_FIELD_TYPE,
+    pub InputStereoFormat: D3D12_VIDEO_FRAME_STEREO_FORMAT,
+    pub InputFrameRate: super::super::Graphics::Dxgi::Common::DXGI_RATIONAL,
+    pub OutputFormat: D3D12_VIDEO_FORMAT,
+    pub OutputStereoFormat: D3D12_VIDEO_FRAME_STEREO_FORMAT,
+    pub OutputFrameRate: super::super::Graphics::Dxgi::Common::DXGI_RATIONAL,
+    pub SupportFlags: D3D12_VIDEO_PROCESS_SUPPORT_FLAGS,
+    pub ScaleSupport: D3D12_VIDEO_SCALE_SUPPORT,
+    pub FeatureSupport: D3D12_VIDEO_PROCESS_FEATURE_FLAGS,
+    pub DeinterlaceSupport: D3D12_VIDEO_PROCESS_DEINTERLACE_FLAGS,
+    pub AutoProcessingSupport: D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAGS,
+    pub FilterSupport: D3D12_VIDEO_PROCESS_FILTER_FLAGS,
+    pub FilterRangeSupport: [D3D12_VIDEO_PROCESS_FILTER_RANGE; 32],
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::marker::Copy for D3D12_FEATURE_DATA_VIDEO_PROCESS_SUPPORT {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::clone::Clone for D3D12_FEATURE_DATA_VIDEO_PROCESS_SUPPORT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3D12_FEATURE_VIDEO(pub i32);
 pub const D3D12_FEATURE_VIDEO_DECODE_SUPPORT: D3D12_FEATURE_VIDEO = D3D12_FEATURE_VIDEO(0i32);
@@ -1474,32 +2724,137 @@ pub const D3D12_FEATURE_VIDEO_PROCESS_PROTECTED_RESOURCES: D3D12_FEATURE_VIDEO =
 pub const D3D12_FEATURE_VIDEO_MOTION_ESTIMATOR_PROTECTED_RESOURCES: D3D12_FEATURE_VIDEO = D3D12_FEATURE_VIDEO(30i32);
 pub const D3D12_FEATURE_VIDEO_DECODER_HEAP_SIZE1: D3D12_FEATURE_VIDEO = D3D12_FEATURE_VIDEO(31i32);
 pub const D3D12_FEATURE_VIDEO_PROCESSOR_SIZE1: D3D12_FEATURE_VIDEO = D3D12_FEATURE_VIDEO(32i32);
+impl ::core::marker::Copy for D3D12_FEATURE_VIDEO {}
+impl ::core::clone::Clone for D3D12_FEATURE_VIDEO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+pub struct D3D12_QUERY_DATA_VIDEO_DECODE_STATISTICS {
+    pub Status: u64,
+    pub NumMacroblocksAffected: u64,
+    pub FrameRate: super::super::Graphics::Dxgi::Common::DXGI_RATIONAL,
+    pub BitRate: u32,
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::marker::Copy for D3D12_QUERY_DATA_VIDEO_DECODE_STATISTICS {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::clone::Clone for D3D12_QUERY_DATA_VIDEO_DECODE_STATISTICS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D12_QUERY_DATA_VIDEO_DECODE_STATISTICS(i32);
+pub struct D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_INPUT {
+    pub pMotionVectorHeap: ::core::option::Option<ID3D12VideoMotionVectorHeap>,
+    pub PixelWidth: u32,
+    pub PixelHeight: u32,
+}
+impl ::core::marker::Copy for D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_INPUT {}
+impl ::core::clone::Clone for D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_INPUT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_INPUT(i32);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
+pub struct D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_OUTPUT {
+    pub pMotionVectorTexture2D: ::core::option::Option<super::super::Graphics::Direct3D12::ID3D12Resource>,
+    pub MotionVectorCoordinate: D3D12_RESOURCE_COORDINATE,
+}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl ::core::marker::Copy for D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_OUTPUT {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl ::core::clone::Clone for D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_OUTPUT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_OUTPUT(i32);
+pub struct D3D12_RESOURCE_COORDINATE {
+    pub X: u64,
+    pub Y: u32,
+    pub Z: u32,
+    pub SubresourceIndex: u32,
+}
+impl ::core::marker::Copy for D3D12_RESOURCE_COORDINATE {}
+impl ::core::clone::Clone for D3D12_RESOURCE_COORDINATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D12_RESOURCE_COORDINATE(i32);
+pub struct D3D12_VIDEO_DECODER_DESC {
+    pub NodeMask: u32,
+    pub Configuration: D3D12_VIDEO_DECODE_CONFIGURATION,
+}
+impl ::core::marker::Copy for D3D12_VIDEO_DECODER_DESC {}
+impl ::core::clone::Clone for D3D12_VIDEO_DECODER_DESC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D12_VIDEO_DECODER_DESC(i32);
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-#[repr(C)]
-pub struct D3D12_VIDEO_DECODER_HEAP_DESC(i32);
+pub struct D3D12_VIDEO_DECODER_HEAP_DESC {
+    pub NodeMask: u32,
+    pub Configuration: D3D12_VIDEO_DECODE_CONFIGURATION,
+    pub DecodeWidth: u32,
+    pub DecodeHeight: u32,
+    pub Format: super::super::Graphics::Dxgi::Common::DXGI_FORMAT,
+    pub FrameRate: super::super::Graphics::Dxgi::Common::DXGI_RATIONAL,
+    pub BitRate: u32,
+    pub MaxDecodePictureBufferCount: u32,
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::marker::Copy for D3D12_VIDEO_DECODER_HEAP_DESC {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::clone::Clone for D3D12_VIDEO_DECODER_HEAP_DESC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3D12_VIDEO_DECODE_ARGUMENT_TYPE(pub i32);
 pub const D3D12_VIDEO_DECODE_ARGUMENT_TYPE_PICTURE_PARAMETERS: D3D12_VIDEO_DECODE_ARGUMENT_TYPE = D3D12_VIDEO_DECODE_ARGUMENT_TYPE(0i32);
 pub const D3D12_VIDEO_DECODE_ARGUMENT_TYPE_INVERSE_QUANTIZATION_MATRIX: D3D12_VIDEO_DECODE_ARGUMENT_TYPE = D3D12_VIDEO_DECODE_ARGUMENT_TYPE(1i32);
 pub const D3D12_VIDEO_DECODE_ARGUMENT_TYPE_SLICE_CONTROL: D3D12_VIDEO_DECODE_ARGUMENT_TYPE = D3D12_VIDEO_DECODE_ARGUMENT_TYPE(2i32);
 pub const D3D12_VIDEO_DECODE_ARGUMENT_TYPE_MAX_VALID: D3D12_VIDEO_DECODE_ARGUMENT_TYPE = D3D12_VIDEO_DECODE_ARGUMENT_TYPE(3i32);
+impl ::core::marker::Copy for D3D12_VIDEO_DECODE_ARGUMENT_TYPE {}
+impl ::core::clone::Clone for D3D12_VIDEO_DECODE_ARGUMENT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
+pub struct D3D12_VIDEO_DECODE_COMPRESSED_BITSTREAM {
+    pub pBuffer: ::core::option::Option<super::super::Graphics::Direct3D12::ID3D12Resource>,
+    pub Offset: u64,
+    pub Size: u64,
+}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl ::core::marker::Copy for D3D12_VIDEO_DECODE_COMPRESSED_BITSTREAM {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl ::core::clone::Clone for D3D12_VIDEO_DECODE_COMPRESSED_BITSTREAM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D12_VIDEO_DECODE_COMPRESSED_BITSTREAM(i32);
-#[repr(C)]
-pub struct D3D12_VIDEO_DECODE_CONFIGURATION(i32);
+pub struct D3D12_VIDEO_DECODE_CONFIGURATION {
+    pub DecodeProfile: ::windows_sys::core::GUID,
+    pub BitstreamEncryption: D3D12_BITSTREAM_ENCRYPTION_TYPE,
+    pub InterlaceType: D3D12_VIDEO_FRAME_CODED_INTERLACE_TYPE,
+}
+impl ::core::marker::Copy for D3D12_VIDEO_DECODE_CONFIGURATION {}
+impl ::core::clone::Clone for D3D12_VIDEO_DECODE_CONFIGURATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3D12_VIDEO_DECODE_CONFIGURATION_FLAGS(pub u32);
 pub const D3D12_VIDEO_DECODE_CONFIGURATION_FLAG_NONE: D3D12_VIDEO_DECODE_CONFIGURATION_FLAGS = D3D12_VIDEO_DECODE_CONFIGURATION_FLAGS(0u32);
@@ -1507,18 +2862,70 @@ pub const D3D12_VIDEO_DECODE_CONFIGURATION_FLAG_HEIGHT_ALIGNMENT_MULTIPLE_32_REQ
 pub const D3D12_VIDEO_DECODE_CONFIGURATION_FLAG_POST_PROCESSING_SUPPORTED: D3D12_VIDEO_DECODE_CONFIGURATION_FLAGS = D3D12_VIDEO_DECODE_CONFIGURATION_FLAGS(2u32);
 pub const D3D12_VIDEO_DECODE_CONFIGURATION_FLAG_REFERENCE_ONLY_ALLOCATIONS_REQUIRED: D3D12_VIDEO_DECODE_CONFIGURATION_FLAGS = D3D12_VIDEO_DECODE_CONFIGURATION_FLAGS(4u32);
 pub const D3D12_VIDEO_DECODE_CONFIGURATION_FLAG_ALLOW_RESOLUTION_CHANGE_ON_NON_KEY_FRAME: D3D12_VIDEO_DECODE_CONFIGURATION_FLAGS = D3D12_VIDEO_DECODE_CONFIGURATION_FLAGS(8u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::marker::Copy for D3D12_VIDEO_DECODE_CONFIGURATION_FLAGS {}
+impl ::core::clone::Clone for D3D12_VIDEO_DECODE_CONFIGURATION_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D12_VIDEO_DECODE_CONVERSION_ARGUMENTS(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+pub struct D3D12_VIDEO_DECODE_CONVERSION_ARGUMENTS {
+    pub Enable: super::super::Foundation::BOOL,
+    pub pReferenceTexture2D: ::core::option::Option<super::super::Graphics::Direct3D12::ID3D12Resource>,
+    pub ReferenceSubresource: u32,
+    pub OutputColorSpace: super::super::Graphics::Dxgi::Common::DXGI_COLOR_SPACE_TYPE,
+    pub DecodeColorSpace: super::super::Graphics::Dxgi::Common::DXGI_COLOR_SPACE_TYPE,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::marker::Copy for D3D12_VIDEO_DECODE_CONVERSION_ARGUMENTS {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::clone::Clone for D3D12_VIDEO_DECODE_CONVERSION_ARGUMENTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D12_VIDEO_DECODE_CONVERSION_ARGUMENTS1(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+pub struct D3D12_VIDEO_DECODE_CONVERSION_ARGUMENTS1 {
+    pub Enable: super::super::Foundation::BOOL,
+    pub pReferenceTexture2D: ::core::option::Option<super::super::Graphics::Direct3D12::ID3D12Resource>,
+    pub ReferenceSubresource: u32,
+    pub OutputColorSpace: super::super::Graphics::Dxgi::Common::DXGI_COLOR_SPACE_TYPE,
+    pub DecodeColorSpace: super::super::Graphics::Dxgi::Common::DXGI_COLOR_SPACE_TYPE,
+    pub OutputWidth: u32,
+    pub OutputHeight: u32,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::marker::Copy for D3D12_VIDEO_DECODE_CONVERSION_ARGUMENTS1 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::clone::Clone for D3D12_VIDEO_DECODE_CONVERSION_ARGUMENTS1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3D12_VIDEO_DECODE_CONVERSION_SUPPORT_FLAGS(pub u32);
 pub const D3D12_VIDEO_DECODE_CONVERSION_SUPPORT_FLAG_NONE: D3D12_VIDEO_DECODE_CONVERSION_SUPPORT_FLAGS = D3D12_VIDEO_DECODE_CONVERSION_SUPPORT_FLAGS(0u32);
 pub const D3D12_VIDEO_DECODE_CONVERSION_SUPPORT_FLAG_SUPPORTED: D3D12_VIDEO_DECODE_CONVERSION_SUPPORT_FLAGS = D3D12_VIDEO_DECODE_CONVERSION_SUPPORT_FLAGS(1u32);
+impl ::core::marker::Copy for D3D12_VIDEO_DECODE_CONVERSION_SUPPORT_FLAGS {}
+impl ::core::clone::Clone for D3D12_VIDEO_DECODE_CONVERSION_SUPPORT_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D12_VIDEO_DECODE_FRAME_ARGUMENT(i32);
+pub struct D3D12_VIDEO_DECODE_FRAME_ARGUMENT {
+    pub Type: D3D12_VIDEO_DECODE_ARGUMENT_TYPE,
+    pub Size: u32,
+    pub pData: *mut ::core::ffi::c_void,
+}
+impl ::core::marker::Copy for D3D12_VIDEO_DECODE_FRAME_ARGUMENT {}
+impl ::core::clone::Clone for D3D12_VIDEO_DECODE_FRAME_ARGUMENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT(pub i32);
 pub const D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_Y: D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT = D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT(0i32);
@@ -1528,6 +2935,12 @@ pub const D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_R: D3D12_VIDEO_DECODE_HISTOGRAM
 pub const D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_G: D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT = D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT(1i32);
 pub const D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_B: D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT = D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT(2i32);
 pub const D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_A: D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT = D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT(3i32);
+impl ::core::marker::Copy for D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT {}
+impl ::core::clone::Clone for D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_FLAGS(pub u32);
 pub const D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_FLAG_NONE: D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_FLAGS = D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_FLAGS(0u32);
@@ -1538,18 +2951,74 @@ pub const D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_FLAG_R: D3D12_VIDEO_DECODE_HIST
 pub const D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_FLAG_G: D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_FLAGS = D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_FLAGS(2u32);
 pub const D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_FLAG_B: D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_FLAGS = D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_FLAGS(4u32);
 pub const D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_FLAG_A: D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_FLAGS = D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_FLAGS(8u32);
+impl ::core::marker::Copy for D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_FLAGS {}
+impl ::core::clone::Clone for D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-#[repr(C)]
-pub struct D3D12_VIDEO_DECODE_INPUT_STREAM_ARGUMENTS(i32);
+pub struct D3D12_VIDEO_DECODE_INPUT_STREAM_ARGUMENTS {
+    pub NumFrameArguments: u32,
+    pub FrameArguments: [D3D12_VIDEO_DECODE_FRAME_ARGUMENT; 10],
+    pub ReferenceFrames: D3D12_VIDEO_DECODE_REFERENCE_FRAMES,
+    pub CompressedBitstream: D3D12_VIDEO_DECODE_COMPRESSED_BITSTREAM,
+    pub pHeap: ::core::option::Option<ID3D12VideoDecoderHeap>,
+}
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl ::core::marker::Copy for D3D12_VIDEO_DECODE_INPUT_STREAM_ARGUMENTS {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl ::core::clone::Clone for D3D12_VIDEO_DECODE_INPUT_STREAM_ARGUMENTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D12_VIDEO_DECODE_OUTPUT_HISTOGRAM(i32);
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+pub struct D3D12_VIDEO_DECODE_OUTPUT_HISTOGRAM {
+    pub Offset: u64,
+    pub pBuffer: ::core::option::Option<super::super::Graphics::Direct3D12::ID3D12Resource>,
+}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl ::core::marker::Copy for D3D12_VIDEO_DECODE_OUTPUT_HISTOGRAM {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl ::core::clone::Clone for D3D12_VIDEO_DECODE_OUTPUT_HISTOGRAM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
-#[repr(C)]
-pub struct D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS(i32);
+pub struct D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS {
+    pub pOutputTexture2D: ::core::option::Option<super::super::Graphics::Direct3D12::ID3D12Resource>,
+    pub OutputSubresource: u32,
+    pub ConversionArguments: D3D12_VIDEO_DECODE_CONVERSION_ARGUMENTS,
+}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::marker::Copy for D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::clone::Clone for D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS1(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+pub struct D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS1 {
+    pub pOutputTexture2D: ::core::option::Option<super::super::Graphics::Direct3D12::ID3D12Resource>,
+    pub OutputSubresource: u32,
+    pub ConversionArguments: D3D12_VIDEO_DECODE_CONVERSION_ARGUMENTS1,
+    pub Histograms: [D3D12_VIDEO_DECODE_OUTPUT_HISTOGRAM; 4],
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::marker::Copy for D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS1 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::clone::Clone for D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const D3D12_VIDEO_DECODE_PROFILE_AV1_12BIT_PROFILE2: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 387084297,
     data2: 40975,
@@ -1615,9 +3084,22 @@ pub const D3D12_VIDEO_DECODE_PROFILE_VP9: ::windows_sys::core::GUID = ::windows_
     data4: [135, 109, 131, 170, 109, 96, 184, 158],
 };
 pub const D3D12_VIDEO_DECODE_PROFILE_VP9_10BIT_PROFILE2: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2764524015, data2: 28367, data3: 18602, data4: [132, 72, 80, 167, 161, 22, 95, 247] };
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(C)]
-pub struct D3D12_VIDEO_DECODE_REFERENCE_FRAMES(i32);
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+pub struct D3D12_VIDEO_DECODE_REFERENCE_FRAMES {
+    pub NumTexture2Ds: u32,
+    pub ppTexture2Ds: *mut ::core::option::Option<super::super::Graphics::Direct3D12::ID3D12Resource>,
+    pub pSubresources: *mut u32,
+    pub ppHeaps: *mut ::core::option::Option<ID3D12VideoDecoderHeap>,
+}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl ::core::marker::Copy for D3D12_VIDEO_DECODE_REFERENCE_FRAMES {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl ::core::clone::Clone for D3D12_VIDEO_DECODE_REFERENCE_FRAMES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3D12_VIDEO_DECODE_STATUS(pub i32);
 pub const D3D12_VIDEO_DECODE_STATUS_OK: D3D12_VIDEO_DECODE_STATUS = D3D12_VIDEO_DECODE_STATUS(0i32);
@@ -1625,29 +3107,89 @@ pub const D3D12_VIDEO_DECODE_STATUS_CONTINUE: D3D12_VIDEO_DECODE_STATUS = D3D12_
 pub const D3D12_VIDEO_DECODE_STATUS_CONTINUE_SKIP_DISPLAY: D3D12_VIDEO_DECODE_STATUS = D3D12_VIDEO_DECODE_STATUS(2i32);
 pub const D3D12_VIDEO_DECODE_STATUS_RESTART: D3D12_VIDEO_DECODE_STATUS = D3D12_VIDEO_DECODE_STATUS(3i32);
 pub const D3D12_VIDEO_DECODE_STATUS_RATE_EXCEEDED: D3D12_VIDEO_DECODE_STATUS = D3D12_VIDEO_DECODE_STATUS(4i32);
+impl ::core::marker::Copy for D3D12_VIDEO_DECODE_STATUS {}
+impl ::core::clone::Clone for D3D12_VIDEO_DECODE_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3D12_VIDEO_DECODE_SUPPORT_FLAGS(pub u32);
 pub const D3D12_VIDEO_DECODE_SUPPORT_FLAG_NONE: D3D12_VIDEO_DECODE_SUPPORT_FLAGS = D3D12_VIDEO_DECODE_SUPPORT_FLAGS(0u32);
 pub const D3D12_VIDEO_DECODE_SUPPORT_FLAG_SUPPORTED: D3D12_VIDEO_DECODE_SUPPORT_FLAGS = D3D12_VIDEO_DECODE_SUPPORT_FLAGS(1u32);
+impl ::core::marker::Copy for D3D12_VIDEO_DECODE_SUPPORT_FLAGS {}
+impl ::core::clone::Clone for D3D12_VIDEO_DECODE_SUPPORT_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3D12_VIDEO_DECODE_TIER(pub i32);
 pub const D3D12_VIDEO_DECODE_TIER_NOT_SUPPORTED: D3D12_VIDEO_DECODE_TIER = D3D12_VIDEO_DECODE_TIER(0i32);
 pub const D3D12_VIDEO_DECODE_TIER_1: D3D12_VIDEO_DECODE_TIER = D3D12_VIDEO_DECODE_TIER(1i32);
 pub const D3D12_VIDEO_DECODE_TIER_2: D3D12_VIDEO_DECODE_TIER = D3D12_VIDEO_DECODE_TIER(2i32);
 pub const D3D12_VIDEO_DECODE_TIER_3: D3D12_VIDEO_DECODE_TIER = D3D12_VIDEO_DECODE_TIER(3i32);
+impl ::core::marker::Copy for D3D12_VIDEO_DECODE_TIER {}
+impl ::core::clone::Clone for D3D12_VIDEO_DECODE_TIER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3D12_VIDEO_ENCODER_CODEC(pub i32);
 pub const D3D12_VIDEO_ENCODER_CODEC_H264: D3D12_VIDEO_ENCODER_CODEC = D3D12_VIDEO_ENCODER_CODEC(0i32);
 pub const D3D12_VIDEO_ENCODER_CODEC_HEVC: D3D12_VIDEO_ENCODER_CODEC = D3D12_VIDEO_ENCODER_CODEC(1i32);
+impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_CODEC {}
+impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_CODEC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION(i32);
+pub struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION {
+    pub DataSize: u32,
+    pub Anonymous: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_0,
+}
+impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION {}
+impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264(i32);
+pub union D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_0 {
+    pub pH264Config: *mut D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264,
+    pub pHEVCConfig: *mut D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC,
+}
+impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_0 {}
+impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264 {
+    pub ConfigurationFlags: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_FLAGS,
+    pub DirectModeConfig: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_DIRECT_MODES,
+    pub DisableDeblockingFilterConfig: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODES,
+}
+impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264 {}
+impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_DIRECT_MODES(pub i32);
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_DIRECT_MODES_DISABLED: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_DIRECT_MODES = D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_DIRECT_MODES(0i32);
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_DIRECT_MODES_TEMPORAL: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_DIRECT_MODES = D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_DIRECT_MODES(1i32);
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_DIRECT_MODES_SPATIAL: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_DIRECT_MODES = D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_DIRECT_MODES(2i32);
+impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_DIRECT_MODES {}
+impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_DIRECT_MODES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_FLAGS(pub u32);
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_FLAG_NONE: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_FLAGS = D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_FLAGS(0u32);
@@ -1655,6 +3197,12 @@ pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_FLAG_USE_CONSTRAINED_INTR
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_FLAG_USE_ADAPTIVE_8x8_TRANSFORM: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_FLAGS = D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_FLAGS(2u32);
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_FLAG_ENABLE_CABAC_ENCODING: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_FLAGS = D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_FLAGS(4u32);
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_FLAG_ALLOW_REQUEST_INTRA_CONSTRAINED_SLICES: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_FLAGS = D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_FLAGS(8u32);
+impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_FLAGS {}
+impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODES(pub i32);
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_0_ALL_LUMA_CHROMA_SLICE_BLOCK_EDGES_ALWAYS_FILTERED: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODES = D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODES(0i32);
@@ -1664,6 +3212,12 @@ pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_3_
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_4_DISABLE_CHROMA_BLOCK_EDGES: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODES = D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODES(4i32);
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_5_DISABLE_CHROMA_BLOCK_EDGES_AND_LUMA_BOUNDARIES: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODES = D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODES(5i32);
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_6_DISABLE_CHROMA_BLOCK_EDGES_AND_USE_LUMA_TWO_STAGE_DEBLOCKING: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODES = D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODES(6i32);
+impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODES {}
+impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FLAGS(pub u32);
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FLAG_NONE: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FLAGS = D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FLAGS(0u32);
@@ -1674,14 +3228,40 @@ pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FL
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FLAG_4_DISABLE_CHROMA_BLOCK_EDGES: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FLAGS = D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FLAGS(16u32);
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FLAG_5_DISABLE_CHROMA_BLOCK_EDGES_AND_LUMA_BOUNDARIES: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FLAGS = D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FLAGS(32u32);
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FLAG_6_DISABLE_CHROMA_BLOCK_EDGES_AND_USE_LUMA_TWO_STAGE_DEBLOCKING: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FLAGS = D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FLAGS(64u32);
+impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FLAGS {}
+impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC(i32);
+pub struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC {
+    pub ConfigurationFlags: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAGS,
+    pub MinLumaCodingUnitSize: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_CUSIZE,
+    pub MaxLumaCodingUnitSize: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_CUSIZE,
+    pub MinLumaTransformUnitSize: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_TUSIZE,
+    pub MaxLumaTransformUnitSize: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_TUSIZE,
+    pub max_transform_hierarchy_depth_inter: u8,
+    pub max_transform_hierarchy_depth_intra: u8,
+}
+impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC {}
+impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_CUSIZE(pub i32);
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_CUSIZE_8x8: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_CUSIZE = D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_CUSIZE(0i32);
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_CUSIZE_16x16: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_CUSIZE = D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_CUSIZE(1i32);
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_CUSIZE_32x32: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_CUSIZE = D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_CUSIZE(2i32);
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_CUSIZE_64x64: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_CUSIZE = D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_CUSIZE(3i32);
+impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_CUSIZE {}
+impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_CUSIZE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAGS(pub u32);
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAG_NONE: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAGS = D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAGS(0u32);
@@ -1692,16 +3272,57 @@ pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAG_ENABLE_LONG_TERM_REF
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAG_USE_ASYMETRIC_MOTION_PARTITION: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAGS = D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAGS(16u32);
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAG_ENABLE_TRANSFORM_SKIPPING: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAGS = D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAGS(32u32);
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAG_USE_CONSTRAINED_INTRAPREDICTION: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAGS = D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAGS(64u32);
+impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAGS {}
+impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_TUSIZE(pub i32);
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_TUSIZE_4x4: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_TUSIZE = D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_TUSIZE(0i32);
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_TUSIZE_8x8: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_TUSIZE = D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_TUSIZE(1i32);
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_TUSIZE_16x16: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_TUSIZE = D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_TUSIZE(2i32);
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_TUSIZE_32x32: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_TUSIZE = D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_TUSIZE(3i32);
+impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_TUSIZE {}
+impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_TUSIZE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT(i32);
+pub struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT {
+    pub DataSize: u32,
+    pub Anonymous: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_0,
+}
+impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT {}
+impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264(i32);
+pub union D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_0 {
+    pub pH264Support: *mut D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264,
+    pub pHEVCSupport: *mut D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC,
+}
+impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_0 {}
+impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264 {
+    pub SupportFlags: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAGS,
+    pub DisableDeblockingFilterSupportedModes: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FLAGS,
+}
+impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264 {}
+impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAGS(pub u32);
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAG_NONE: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAGS = D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAGS(0u32);
@@ -1712,8 +3333,28 @@ pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAG_ADAPTIVE_8x8
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAG_DIRECT_SPATIAL_ENCODING_SUPPORT: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAGS = D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAGS(16u32);
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAG_DIRECT_TEMPORAL_ENCODING_SUPPORT: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAGS = D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAGS(32u32);
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAG_CONSTRAINED_INTRAPREDICTION_SUPPORT: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAGS = D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAGS(64u32);
+impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAGS {}
+impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC(i32);
+pub struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC {
+    pub SupportFlags: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS,
+    pub MinLumaCodingUnitSize: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_CUSIZE,
+    pub MaxLumaCodingUnitSize: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_CUSIZE,
+    pub MinLumaTransformUnitSize: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_TUSIZE,
+    pub MaxLumaTransformUnitSize: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_TUSIZE,
+    pub max_transform_hierarchy_depth_inter: u8,
+    pub max_transform_hierarchy_depth_intra: u8,
+}
+impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC {}
+impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS(pub u32);
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAG_NONE: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS = D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS(0u32);
@@ -1726,24 +3367,127 @@ pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAG_ASYMETRIC_MO
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAG_TRANSFORM_SKIP_SUPPORT: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS = D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS(64u32);
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAG_DISABLING_LOOP_FILTER_ACROSS_SLICES_SUPPORT: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS = D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS(128u32);
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAG_P_FRAMES_IMPLEMENTED_AS_LOW_DELAY_B_FRAMES: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS = D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS(256u32);
+impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS {}
+impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT(i32);
+pub struct D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT {
+    pub DataSize: u32,
+    pub Anonymous: D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_0,
+}
+impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT {}
+impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_H264(i32);
+pub union D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_0 {
+    pub pH264Support: *mut D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_H264,
+    pub pHEVCSupport: *mut D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_HEVC,
+}
+impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_0 {}
+impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_HEVC(i32);
+pub struct D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_H264 {
+    pub MaxL0ReferencesForP: u32,
+    pub MaxL0ReferencesForB: u32,
+    pub MaxL1ReferencesForB: u32,
+    pub MaxLongTermReferences: u32,
+    pub MaxDPBCapacity: u32,
+}
+impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_H264 {}
+impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_H264 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_HEVC {
+    pub MaxL0ReferencesForP: u32,
+    pub MaxL0ReferencesForB: u32,
+    pub MaxL1ReferencesForB: u32,
+    pub MaxLongTermReferences: u32,
+    pub MaxDPBCapacity: u32,
+}
+impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_HEVC {}
+impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_HEVC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
+pub struct D3D12_VIDEO_ENCODER_COMPRESSED_BITSTREAM {
+    pub pBuffer: ::core::option::Option<super::super::Graphics::Direct3D12::ID3D12Resource>,
+    pub FrameStartOffset: u64,
+}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_COMPRESSED_BITSTREAM {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_COMPRESSED_BITSTREAM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D12_VIDEO_ENCODER_COMPRESSED_BITSTREAM(i32);
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+pub struct D3D12_VIDEO_ENCODER_DESC {
+    pub NodeMask: u32,
+    pub Flags: D3D12_VIDEO_ENCODER_FLAGS,
+    pub EncodeCodec: D3D12_VIDEO_ENCODER_CODEC,
+    pub EncodeProfile: D3D12_VIDEO_ENCODER_PROFILE_DESC,
+    pub InputFormat: super::super::Graphics::Dxgi::Common::DXGI_FORMAT,
+    pub CodecConfiguration: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION,
+    pub MaxMotionEstimationPrecision: D3D12_VIDEO_ENCODER_MOTION_ESTIMATION_PRECISION_MODE,
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_DESC {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_DESC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D12_VIDEO_ENCODER_DESC(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+pub struct D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENTS {
+    pub SequenceControlDesc: D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_DESC,
+    pub PictureControlDesc: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_DESC,
+    pub pInputFrame: ::core::option::Option<super::super::Graphics::Direct3D12::ID3D12Resource>,
+    pub InputFrameSubresource: u32,
+    pub CurrentFrameBitstreamMetadataSize: u32,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENTS {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENTS(i32);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-#[repr(C)]
-pub struct D3D12_VIDEO_ENCODER_ENCODEFRAME_OUTPUT_ARGUMENTS(i32);
+pub struct D3D12_VIDEO_ENCODER_ENCODEFRAME_OUTPUT_ARGUMENTS {
+    pub Bitstream: D3D12_VIDEO_ENCODER_COMPRESSED_BITSTREAM,
+    pub ReconstructedPicture: D3D12_VIDEO_ENCODER_RECONSTRUCTED_PICTURE,
+    pub EncoderOutputMetadata: D3D12_VIDEO_ENCODER_ENCODE_OPERATION_METADATA_BUFFER,
+}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_ENCODEFRAME_OUTPUT_ARGUMENTS {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_ENCODEFRAME_OUTPUT_ARGUMENTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3D12_VIDEO_ENCODER_ENCODE_ERROR_FLAGS(pub u32);
 pub const D3D12_VIDEO_ENCODER_ENCODE_ERROR_FLAG_NO_ERROR: D3D12_VIDEO_ENCODER_ENCODE_ERROR_FLAGS = D3D12_VIDEO_ENCODER_ENCODE_ERROR_FLAGS(0u32);
@@ -1752,12 +3496,35 @@ pub const D3D12_VIDEO_ENCODER_ENCODE_ERROR_FLAG_SUBREGION_LAYOUT_CONFIGURATION_N
 pub const D3D12_VIDEO_ENCODER_ENCODE_ERROR_FLAG_INVALID_REFERENCE_PICTURES: D3D12_VIDEO_ENCODER_ENCODE_ERROR_FLAGS = D3D12_VIDEO_ENCODER_ENCODE_ERROR_FLAGS(4u32);
 pub const D3D12_VIDEO_ENCODER_ENCODE_ERROR_FLAG_RECONFIGURATION_REQUEST_NOT_SUPPORTED: D3D12_VIDEO_ENCODER_ENCODE_ERROR_FLAGS = D3D12_VIDEO_ENCODER_ENCODE_ERROR_FLAGS(8u32);
 pub const D3D12_VIDEO_ENCODER_ENCODE_ERROR_FLAG_INVALID_METADATA_BUFFER_SOURCE: D3D12_VIDEO_ENCODER_ENCODE_ERROR_FLAGS = D3D12_VIDEO_ENCODER_ENCODE_ERROR_FLAGS(16u32);
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_ENCODE_ERROR_FLAGS {}
+impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_ENCODE_ERROR_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D12_VIDEO_ENCODER_ENCODE_OPERATION_METADATA_BUFFER(i32);
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+pub struct D3D12_VIDEO_ENCODER_ENCODE_OPERATION_METADATA_BUFFER {
+    pub pBuffer: ::core::option::Option<super::super::Graphics::Direct3D12::ID3D12Resource>,
+    pub Offset: u64,
+}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_ENCODE_OPERATION_METADATA_BUFFER {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_ENCODE_OPERATION_METADATA_BUFFER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3D12_VIDEO_ENCODER_FLAGS(pub u32);
 pub const D3D12_VIDEO_ENCODER_FLAG_NONE: D3D12_VIDEO_ENCODER_FLAGS = D3D12_VIDEO_ENCODER_FLAGS(0u32);
+impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_FLAGS {}
+impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE(pub i32);
 pub const D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE_FULL_FRAME: D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE = D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE(0i32);
@@ -1765,31 +3532,94 @@ pub const D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE_BYTES_PER_SUBREGION: D
 pub const D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE_SQUARE_UNITS_PER_SUBREGION_ROW_UNALIGNED: D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE = D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE(2i32);
 pub const D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE_UNIFORM_PARTITIONING_ROWS_PER_SUBREGION: D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE = D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE(3i32);
 pub const D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE_UNIFORM_PARTITIONING_SUBREGIONS_PER_FRAME: D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE = D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE(4i32);
+impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE {}
+impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D12_VIDEO_ENCODER_FRAME_SUBREGION_METADATA(i32);
+pub struct D3D12_VIDEO_ENCODER_FRAME_SUBREGION_METADATA {
+    pub bSize: u64,
+    pub bStartOffset: u64,
+    pub bHeaderSize: u64,
+}
+impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_FRAME_SUBREGION_METADATA {}
+impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_FRAME_SUBREGION_METADATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3D12_VIDEO_ENCODER_FRAME_TYPE_H264(pub i32);
 pub const D3D12_VIDEO_ENCODER_FRAME_TYPE_H264_I_FRAME: D3D12_VIDEO_ENCODER_FRAME_TYPE_H264 = D3D12_VIDEO_ENCODER_FRAME_TYPE_H264(0i32);
 pub const D3D12_VIDEO_ENCODER_FRAME_TYPE_H264_P_FRAME: D3D12_VIDEO_ENCODER_FRAME_TYPE_H264 = D3D12_VIDEO_ENCODER_FRAME_TYPE_H264(1i32);
 pub const D3D12_VIDEO_ENCODER_FRAME_TYPE_H264_B_FRAME: D3D12_VIDEO_ENCODER_FRAME_TYPE_H264 = D3D12_VIDEO_ENCODER_FRAME_TYPE_H264(2i32);
 pub const D3D12_VIDEO_ENCODER_FRAME_TYPE_H264_IDR_FRAME: D3D12_VIDEO_ENCODER_FRAME_TYPE_H264 = D3D12_VIDEO_ENCODER_FRAME_TYPE_H264(3i32);
+impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_FRAME_TYPE_H264 {}
+impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_FRAME_TYPE_H264 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3D12_VIDEO_ENCODER_FRAME_TYPE_HEVC(pub i32);
 pub const D3D12_VIDEO_ENCODER_FRAME_TYPE_HEVC_I_FRAME: D3D12_VIDEO_ENCODER_FRAME_TYPE_HEVC = D3D12_VIDEO_ENCODER_FRAME_TYPE_HEVC(0i32);
 pub const D3D12_VIDEO_ENCODER_FRAME_TYPE_HEVC_P_FRAME: D3D12_VIDEO_ENCODER_FRAME_TYPE_HEVC = D3D12_VIDEO_ENCODER_FRAME_TYPE_HEVC(1i32);
 pub const D3D12_VIDEO_ENCODER_FRAME_TYPE_HEVC_B_FRAME: D3D12_VIDEO_ENCODER_FRAME_TYPE_HEVC = D3D12_VIDEO_ENCODER_FRAME_TYPE_HEVC(2i32);
 pub const D3D12_VIDEO_ENCODER_FRAME_TYPE_HEVC_IDR_FRAME: D3D12_VIDEO_ENCODER_FRAME_TYPE_HEVC = D3D12_VIDEO_ENCODER_FRAME_TYPE_HEVC(3i32);
+impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_FRAME_TYPE_HEVC {}
+impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_FRAME_TYPE_HEVC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D12_VIDEO_ENCODER_HEAP_DESC(i32);
+pub struct D3D12_VIDEO_ENCODER_HEAP_DESC {
+    pub NodeMask: u32,
+    pub Flags: D3D12_VIDEO_ENCODER_HEAP_FLAGS,
+    pub EncodeCodec: D3D12_VIDEO_ENCODER_CODEC,
+    pub EncodeProfile: D3D12_VIDEO_ENCODER_PROFILE_DESC,
+    pub EncodeLevel: D3D12_VIDEO_ENCODER_LEVEL_SETTING,
+    pub ResolutionsListCount: u32,
+    pub pResolutionList: *mut D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC,
+}
+impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_HEAP_DESC {}
+impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_HEAP_DESC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3D12_VIDEO_ENCODER_HEAP_FLAGS(pub u32);
 pub const D3D12_VIDEO_ENCODER_HEAP_FLAG_NONE: D3D12_VIDEO_ENCODER_HEAP_FLAGS = D3D12_VIDEO_ENCODER_HEAP_FLAGS(0u32);
+impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_HEAP_FLAGS {}
+impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_HEAP_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D12_VIDEO_ENCODER_INTRA_REFRESH(i32);
+pub struct D3D12_VIDEO_ENCODER_INTRA_REFRESH {
+    pub Mode: D3D12_VIDEO_ENCODER_INTRA_REFRESH_MODE,
+    pub IntraRefreshDuration: u32,
+}
+impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_INTRA_REFRESH {}
+impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_INTRA_REFRESH {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3D12_VIDEO_ENCODER_INTRA_REFRESH_MODE(pub i32);
 pub const D3D12_VIDEO_ENCODER_INTRA_REFRESH_MODE_NONE: D3D12_VIDEO_ENCODER_INTRA_REFRESH_MODE = D3D12_VIDEO_ENCODER_INTRA_REFRESH_MODE(0i32);
 pub const D3D12_VIDEO_ENCODER_INTRA_REFRESH_MODE_ROW_BASED: D3D12_VIDEO_ENCODER_INTRA_REFRESH_MODE = D3D12_VIDEO_ENCODER_INTRA_REFRESH_MODE(1i32);
+impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_INTRA_REFRESH_MODE {}
+impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_INTRA_REFRESH_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3D12_VIDEO_ENCODER_LEVELS_H264(pub i32);
 pub const D3D12_VIDEO_ENCODER_LEVELS_H264_1: D3D12_VIDEO_ENCODER_LEVELS_H264 = D3D12_VIDEO_ENCODER_LEVELS_H264(0i32);
@@ -1812,6 +3642,12 @@ pub const D3D12_VIDEO_ENCODER_LEVELS_H264_52: D3D12_VIDEO_ENCODER_LEVELS_H264 = 
 pub const D3D12_VIDEO_ENCODER_LEVELS_H264_6: D3D12_VIDEO_ENCODER_LEVELS_H264 = D3D12_VIDEO_ENCODER_LEVELS_H264(17i32);
 pub const D3D12_VIDEO_ENCODER_LEVELS_H264_61: D3D12_VIDEO_ENCODER_LEVELS_H264 = D3D12_VIDEO_ENCODER_LEVELS_H264(18i32);
 pub const D3D12_VIDEO_ENCODER_LEVELS_H264_62: D3D12_VIDEO_ENCODER_LEVELS_H264 = D3D12_VIDEO_ENCODER_LEVELS_H264(19i32);
+impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_LEVELS_H264 {}
+impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_LEVELS_H264 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3D12_VIDEO_ENCODER_LEVELS_HEVC(pub i32);
 pub const D3D12_VIDEO_ENCODER_LEVELS_HEVC_1: D3D12_VIDEO_ENCODER_LEVELS_HEVC = D3D12_VIDEO_ENCODER_LEVELS_HEVC(0i32);
@@ -1827,76 +3663,426 @@ pub const D3D12_VIDEO_ENCODER_LEVELS_HEVC_52: D3D12_VIDEO_ENCODER_LEVELS_HEVC = 
 pub const D3D12_VIDEO_ENCODER_LEVELS_HEVC_6: D3D12_VIDEO_ENCODER_LEVELS_HEVC = D3D12_VIDEO_ENCODER_LEVELS_HEVC(10i32);
 pub const D3D12_VIDEO_ENCODER_LEVELS_HEVC_61: D3D12_VIDEO_ENCODER_LEVELS_HEVC = D3D12_VIDEO_ENCODER_LEVELS_HEVC(11i32);
 pub const D3D12_VIDEO_ENCODER_LEVELS_HEVC_62: D3D12_VIDEO_ENCODER_LEVELS_HEVC = D3D12_VIDEO_ENCODER_LEVELS_HEVC(12i32);
+impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_LEVELS_HEVC {}
+impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_LEVELS_HEVC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D12_VIDEO_ENCODER_LEVEL_SETTING(i32);
+pub struct D3D12_VIDEO_ENCODER_LEVEL_SETTING {
+    pub DataSize: u32,
+    pub Anonymous: D3D12_VIDEO_ENCODER_LEVEL_SETTING_0,
+}
+impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_LEVEL_SETTING {}
+impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_LEVEL_SETTING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D12_VIDEO_ENCODER_LEVEL_TIER_CONSTRAINTS_HEVC(i32);
+pub union D3D12_VIDEO_ENCODER_LEVEL_SETTING_0 {
+    pub pH264LevelSetting: *mut D3D12_VIDEO_ENCODER_LEVELS_H264,
+    pub pHEVCLevelSetting: *mut D3D12_VIDEO_ENCODER_LEVEL_TIER_CONSTRAINTS_HEVC,
+}
+impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_LEVEL_SETTING_0 {}
+impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_LEVEL_SETTING_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct D3D12_VIDEO_ENCODER_LEVEL_TIER_CONSTRAINTS_HEVC {
+    pub Level: D3D12_VIDEO_ENCODER_LEVELS_HEVC,
+    pub Tier: D3D12_VIDEO_ENCODER_TIER_HEVC,
+}
+impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_LEVEL_TIER_CONSTRAINTS_HEVC {}
+impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_LEVEL_TIER_CONSTRAINTS_HEVC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3D12_VIDEO_ENCODER_MOTION_ESTIMATION_PRECISION_MODE(pub i32);
 pub const D3D12_VIDEO_ENCODER_MOTION_ESTIMATION_PRECISION_MODE_MAXIMUM: D3D12_VIDEO_ENCODER_MOTION_ESTIMATION_PRECISION_MODE = D3D12_VIDEO_ENCODER_MOTION_ESTIMATION_PRECISION_MODE(0i32);
 pub const D3D12_VIDEO_ENCODER_MOTION_ESTIMATION_PRECISION_MODE_FULL_PIXEL: D3D12_VIDEO_ENCODER_MOTION_ESTIMATION_PRECISION_MODE = D3D12_VIDEO_ENCODER_MOTION_ESTIMATION_PRECISION_MODE(1i32);
 pub const D3D12_VIDEO_ENCODER_MOTION_ESTIMATION_PRECISION_MODE_HALF_PIXEL: D3D12_VIDEO_ENCODER_MOTION_ESTIMATION_PRECISION_MODE = D3D12_VIDEO_ENCODER_MOTION_ESTIMATION_PRECISION_MODE(2i32);
 pub const D3D12_VIDEO_ENCODER_MOTION_ESTIMATION_PRECISION_MODE_QUARTER_PIXEL: D3D12_VIDEO_ENCODER_MOTION_ESTIMATION_PRECISION_MODE = D3D12_VIDEO_ENCODER_MOTION_ESTIMATION_PRECISION_MODE(3i32);
+impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_MOTION_ESTIMATION_PRECISION_MODE {}
+impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_MOTION_ESTIMATION_PRECISION_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D12_VIDEO_ENCODER_OUTPUT_METADATA(i32);
+pub struct D3D12_VIDEO_ENCODER_OUTPUT_METADATA {
+    pub EncodeErrorFlags: u64,
+    pub EncodeStats: D3D12_VIDEO_ENCODER_OUTPUT_METADATA_STATISTICS,
+    pub EncodedBitstreamWrittenBytesCount: u64,
+    pub WrittenSubregionsCount: u64,
+}
+impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_OUTPUT_METADATA {}
+impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_OUTPUT_METADATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D12_VIDEO_ENCODER_OUTPUT_METADATA_STATISTICS(i32);
+pub struct D3D12_VIDEO_ENCODER_OUTPUT_METADATA_STATISTICS {
+    pub AverageQP: u64,
+    pub IntraCodingUnitsCount: u64,
+    pub InterCodingUnitsCount: u64,
+    pub SkipCodingUnitsCount: u64,
+    pub AverageMotionEstimationXDirection: u64,
+    pub AverageMotionEstimationYDirection: u64,
+}
+impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_OUTPUT_METADATA_STATISTICS {}
+impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_OUTPUT_METADATA_STATISTICS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA(i32);
+pub struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA {
+    pub DataSize: u32,
+    pub Anonymous: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_0,
+}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub union D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_0 {
+    pub pH264PicData: *mut D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264,
+    pub pHEVCPicData: *mut D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264 {
+    pub Flags: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_FLAGS,
+    pub FrameType: D3D12_VIDEO_ENCODER_FRAME_TYPE_H264,
+    pub pic_parameter_set_id: u32,
+    pub idr_pic_id: u32,
+    pub PictureOrderCountNumber: u32,
+    pub FrameDecodingOrderNumber: u32,
+    pub TemporalLayerIndex: u32,
+    pub List0ReferenceFramesCount: u32,
+    pub pList0ReferenceFrames: *mut u32,
+    pub List1ReferenceFramesCount: u32,
+    pub pList1ReferenceFrames: *mut u32,
+    pub ReferenceFramesReconPictureDescriptorsCount: u32,
+    pub pReferenceFramesReconPictureDescriptors: *mut D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCRIPTOR_H264,
+    pub adaptive_ref_pic_marking_mode_flag: u8,
+    pub RefPicMarkingOperationsCommandsCount: u32,
+    pub pRefPicMarkingOperationsCommands: *mut D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_REFERENCE_PICTURE_MARKING_OPERATION,
+    pub List0RefPicModificationsCount: u32,
+    pub pList0RefPicModifications: *mut D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_REFERENCE_PICTURE_LIST_MODIFICATION_OPERATION,
+    pub List1RefPicModificationsCount: u32,
+    pub pList1RefPicModifications: *mut D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_REFERENCE_PICTURE_LIST_MODIFICATION_OPERATION,
+    pub QPMapValuesCount: u32,
+    pub pRateControlQPMap: *mut i8,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_FLAGS(pub u32);
 pub const D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_FLAG_NONE: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_FLAGS = D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_FLAGS(0u32);
 pub const D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_FLAG_REQUEST_INTRA_CONSTRAINED_SLICES: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_FLAGS = D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_FLAGS(1u32);
+impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_FLAGS {}
+impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_REFERENCE_PICTURE_LIST_MODIFICATION_OPERATION(i32);
+pub struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_REFERENCE_PICTURE_LIST_MODIFICATION_OPERATION {
+    pub modification_of_pic_nums_idc: u8,
+    pub abs_diff_pic_num_minus1: u32,
+    pub long_term_pic_num: u32,
+}
+impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_REFERENCE_PICTURE_LIST_MODIFICATION_OPERATION {}
+impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_REFERENCE_PICTURE_LIST_MODIFICATION_OPERATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_REFERENCE_PICTURE_MARKING_OPERATION(i32);
+pub struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_REFERENCE_PICTURE_MARKING_OPERATION {
+    pub memory_management_control_operation: u8,
+    pub difference_of_pic_nums_minus1: u32,
+    pub long_term_pic_num: u32,
+    pub long_term_frame_idx: u32,
+    pub max_long_term_frame_idx_plus1: u32,
+}
+impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_REFERENCE_PICTURE_MARKING_OPERATION {}
+impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_REFERENCE_PICTURE_MARKING_OPERATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC(i32);
+pub struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC {
+    pub Flags: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC_FLAGS,
+    pub FrameType: D3D12_VIDEO_ENCODER_FRAME_TYPE_HEVC,
+    pub slice_pic_parameter_set_id: u32,
+    pub PictureOrderCountNumber: u32,
+    pub TemporalLayerIndex: u32,
+    pub List0ReferenceFramesCount: u32,
+    pub pList0ReferenceFrames: *mut u32,
+    pub List1ReferenceFramesCount: u32,
+    pub pList1ReferenceFrames: *mut u32,
+    pub ReferenceFramesReconPictureDescriptorsCount: u32,
+    pub pReferenceFramesReconPictureDescriptors: *mut D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCRIPTOR_HEVC,
+    pub List0RefPicModificationsCount: u32,
+    pub pList0RefPicModifications: *mut u32,
+    pub List1RefPicModificationsCount: u32,
+    pub pList1RefPicModifications: *mut u32,
+    pub QPMapValuesCount: u32,
+    pub pRateControlQPMap: *mut i8,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC_FLAGS(pub u32);
 pub const D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC_FLAG_NONE: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC_FLAGS = D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC_FLAGS(0u32);
 pub const D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC_FLAG_REQUEST_INTRA_CONSTRAINED_SLICES: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC_FLAGS = D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC_FLAGS(1u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
+impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC_FLAGS {}
+impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_DESC(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
+pub struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_DESC {
+    pub IntraRefreshFrameIndex: u32,
+    pub Flags: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_FLAGS,
+    pub PictureControlCodecData: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA,
+    pub ReferenceFrames: D3D12_VIDEO_ENCODE_REFERENCE_FRAMES,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
+impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_DESC {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
+impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_DESC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_FLAGS(pub u32);
 pub const D3D12_VIDEO_ENCODER_PICTURE_CONTROL_FLAG_NONE: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_FLAGS = D3D12_VIDEO_ENCODER_PICTURE_CONTROL_FLAGS(0u32);
 pub const D3D12_VIDEO_ENCODER_PICTURE_CONTROL_FLAG_USED_AS_REFERENCE_PICTURE: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_FLAGS = D3D12_VIDEO_ENCODER_PICTURE_CONTROL_FLAGS(1u32);
+impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_FLAGS {}
+impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA(i32);
+pub struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA {
+    pub DataSize: u32,
+    pub Anonymous: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_0,
+}
+impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA {}
+impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_SLICES(i32);
+pub union D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_0 {
+    pub pSlicesPartition_H264: *mut D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_SLICES,
+    pub pSlicesPartition_HEVC: *mut D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_SLICES,
+}
+impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_0 {}
+impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC(i32);
+pub struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_SLICES {
+    pub Anonymous: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_SLICES_0,
+}
+impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_SLICES {}
+impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_SLICES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_RATIO_DESC(i32);
+pub union D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_SLICES_0 {
+    pub MaxBytesPerSlice: u32,
+    pub NumberOfCodingUnitsPerSlice: u32,
+    pub NumberOfRowsPerSlice: u32,
+    pub NumberOfSlicesPerFrame: u32,
+}
+impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_SLICES_0 {}
+impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_SLICES_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D12_VIDEO_ENCODER_PROFILE_DESC(i32);
+pub struct D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC {
+    pub Width: u32,
+    pub Height: u32,
+}
+impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC {}
+impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_RATIO_DESC {
+    pub WidthRatio: u32,
+    pub HeightRatio: u32,
+}
+impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_RATIO_DESC {}
+impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_RATIO_DESC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct D3D12_VIDEO_ENCODER_PROFILE_DESC {
+    pub DataSize: u32,
+    pub Anonymous: D3D12_VIDEO_ENCODER_PROFILE_DESC_0,
+}
+impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_PROFILE_DESC {}
+impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_PROFILE_DESC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub union D3D12_VIDEO_ENCODER_PROFILE_DESC_0 {
+    pub pH264Profile: *mut D3D12_VIDEO_ENCODER_PROFILE_H264,
+    pub pHEVCProfile: *mut D3D12_VIDEO_ENCODER_PROFILE_HEVC,
+}
+impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_PROFILE_DESC_0 {}
+impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_PROFILE_DESC_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3D12_VIDEO_ENCODER_PROFILE_H264(pub i32);
 pub const D3D12_VIDEO_ENCODER_PROFILE_H264_MAIN: D3D12_VIDEO_ENCODER_PROFILE_H264 = D3D12_VIDEO_ENCODER_PROFILE_H264(0i32);
 pub const D3D12_VIDEO_ENCODER_PROFILE_H264_HIGH: D3D12_VIDEO_ENCODER_PROFILE_H264 = D3D12_VIDEO_ENCODER_PROFILE_H264(1i32);
 pub const D3D12_VIDEO_ENCODER_PROFILE_H264_HIGH_10: D3D12_VIDEO_ENCODER_PROFILE_H264 = D3D12_VIDEO_ENCODER_PROFILE_H264(2i32);
+impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_PROFILE_H264 {}
+impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_PROFILE_H264 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3D12_VIDEO_ENCODER_PROFILE_HEVC(pub i32);
 pub const D3D12_VIDEO_ENCODER_PROFILE_HEVC_MAIN: D3D12_VIDEO_ENCODER_PROFILE_HEVC = D3D12_VIDEO_ENCODER_PROFILE_HEVC(0i32);
 pub const D3D12_VIDEO_ENCODER_PROFILE_HEVC_MAIN10: D3D12_VIDEO_ENCODER_PROFILE_HEVC = D3D12_VIDEO_ENCODER_PROFILE_HEVC(1i32);
+impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_PROFILE_HEVC {}
+impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_PROFILE_HEVC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL {
+    pub Mode: D3D12_VIDEO_ENCODER_RATE_CONTROL_MODE,
+    pub Flags: D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAGS,
+    pub ConfigParams: D3D12_VIDEO_ENCODER_RATE_CONTROL_CONFIGURATION_PARAMS,
+    pub TargetFrameRate: super::super::Graphics::Dxgi::Common::DXGI_RATIONAL,
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_RATE_CONTROL {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_RATE_CONTROL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL(i32);
+pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL_CBR {
+    pub InitialQP: u32,
+    pub MinQP: u32,
+    pub MaxQP: u32,
+    pub MaxFrameBitSize: u64,
+    pub TargetBitRate: u64,
+    pub VBVCapacity: u64,
+    pub InitialVBVFullness: u64,
+}
+impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_RATE_CONTROL_CBR {}
+impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_RATE_CONTROL_CBR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL_CBR(i32);
+pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL_CONFIGURATION_PARAMS {
+    pub DataSize: u32,
+    pub Anonymous: D3D12_VIDEO_ENCODER_RATE_CONTROL_CONFIGURATION_PARAMS_0,
+}
+impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_RATE_CONTROL_CONFIGURATION_PARAMS {}
+impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_RATE_CONTROL_CONFIGURATION_PARAMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL_CONFIGURATION_PARAMS(i32);
+pub union D3D12_VIDEO_ENCODER_RATE_CONTROL_CONFIGURATION_PARAMS_0 {
+    pub pConfiguration_CQP: *mut D3D12_VIDEO_ENCODER_RATE_CONTROL_CQP,
+    pub pConfiguration_CBR: *mut D3D12_VIDEO_ENCODER_RATE_CONTROL_CBR,
+    pub pConfiguration_VBR: *mut D3D12_VIDEO_ENCODER_RATE_CONTROL_VBR,
+    pub pConfiguration_QVBR: *mut D3D12_VIDEO_ENCODER_RATE_CONTROL_QVBR,
+}
+impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_RATE_CONTROL_CONFIGURATION_PARAMS_0 {}
+impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_RATE_CONTROL_CONFIGURATION_PARAMS_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL_CQP(i32);
+pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL_CQP {
+    pub ConstantQP_FullIntracodedFrame: u32,
+    pub ConstantQP_InterPredictedFrame_PrevRefOnly: u32,
+    pub ConstantQP_InterPredictedFrame_BiDirectionalRef: u32,
+}
+impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_RATE_CONTROL_CQP {}
+impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_RATE_CONTROL_CQP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAGS(pub u32);
 pub const D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAG_NONE: D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAGS = D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAGS(0u32);
@@ -1906,6 +4092,12 @@ pub const D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAG_ENABLE_QP_RANGE: D3D12_VIDEO_ENC
 pub const D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAG_ENABLE_INITIAL_QP: D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAGS = D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAGS(8u32);
 pub const D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAG_ENABLE_MAX_FRAME_SIZE: D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAGS = D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAGS(16u32);
 pub const D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAG_ENABLE_VBV_SIZES: D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAGS = D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAGS(32u32);
+impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAGS {}
+impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL_MODE(pub i32);
 pub const D3D12_VIDEO_ENCODER_RATE_CONTROL_MODE_ABSOLUTE_QP_MAP: D3D12_VIDEO_ENCODER_RATE_CONTROL_MODE = D3D12_VIDEO_ENCODER_RATE_CONTROL_MODE(0i32);
@@ -1913,28 +4105,143 @@ pub const D3D12_VIDEO_ENCODER_RATE_CONTROL_MODE_CQP: D3D12_VIDEO_ENCODER_RATE_CO
 pub const D3D12_VIDEO_ENCODER_RATE_CONTROL_MODE_CBR: D3D12_VIDEO_ENCODER_RATE_CONTROL_MODE = D3D12_VIDEO_ENCODER_RATE_CONTROL_MODE(2i32);
 pub const D3D12_VIDEO_ENCODER_RATE_CONTROL_MODE_VBR: D3D12_VIDEO_ENCODER_RATE_CONTROL_MODE = D3D12_VIDEO_ENCODER_RATE_CONTROL_MODE(3i32);
 pub const D3D12_VIDEO_ENCODER_RATE_CONTROL_MODE_QVBR: D3D12_VIDEO_ENCODER_RATE_CONTROL_MODE = D3D12_VIDEO_ENCODER_RATE_CONTROL_MODE(4i32);
+impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_RATE_CONTROL_MODE {}
+impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_RATE_CONTROL_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL_QVBR(i32);
+pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL_QVBR {
+    pub InitialQP: u32,
+    pub MinQP: u32,
+    pub MaxQP: u32,
+    pub MaxFrameBitSize: u64,
+    pub TargetAvgBitRate: u64,
+    pub PeakBitRate: u64,
+    pub ConstantQualityTarget: u32,
+}
+impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_RATE_CONTROL_QVBR {}
+impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_RATE_CONTROL_QVBR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL_VBR(i32);
+pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL_VBR {
+    pub InitialQP: u32,
+    pub MinQP: u32,
+    pub MaxQP: u32,
+    pub MaxFrameBitSize: u64,
+    pub TargetAvgBitRate: u64,
+    pub PeakBitRate: u64,
+    pub VBVCapacity: u64,
+    pub InitialVBVFullness: u64,
+}
+impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_RATE_CONTROL_VBR {}
+impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_RATE_CONTROL_VBR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
+pub struct D3D12_VIDEO_ENCODER_RECONSTRUCTED_PICTURE {
+    pub pReconstructedPicture: ::core::option::Option<super::super::Graphics::Direct3D12::ID3D12Resource>,
+    pub ReconstructedPictureSubresource: u32,
+}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_RECONSTRUCTED_PICTURE {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_RECONSTRUCTED_PICTURE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D12_VIDEO_ENCODER_RECONSTRUCTED_PICTURE(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCRIPTOR_H264(i32);
+pub struct D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCRIPTOR_H264 {
+    pub ReconstructedPictureResourceIndex: u32,
+    pub IsLongTermReference: super::super::Foundation::BOOL,
+    pub LongTermPictureIdx: u32,
+    pub PictureOrderCountNumber: u32,
+    pub FrameDecodingOrderNumber: u32,
+    pub TemporalLayerIndex: u32,
+}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCRIPTOR_H264 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCRIPTOR_H264 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCRIPTOR_HEVC(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCRIPTOR_HEVC {
+    pub ReconstructedPictureResourceIndex: u32,
+    pub IsRefUsedByCurrentPic: super::super::Foundation::BOOL,
+    pub IsLongTermReference: super::super::Foundation::BOOL,
+    pub PictureOrderCountNumber: u32,
+    pub TemporalLayerIndex: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCRIPTOR_HEVC {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCRIPTOR_HEVC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+pub struct D3D12_VIDEO_ENCODER_RESOLVE_METADATA_INPUT_ARGUMENTS {
+    pub EncoderCodec: D3D12_VIDEO_ENCODER_CODEC,
+    pub EncoderProfile: D3D12_VIDEO_ENCODER_PROFILE_DESC,
+    pub EncoderInputFormat: super::super::Graphics::Dxgi::Common::DXGI_FORMAT,
+    pub EncodedPictureEffectiveResolution: D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC,
+    pub HWLayoutMetadata: D3D12_VIDEO_ENCODER_ENCODE_OPERATION_METADATA_BUFFER,
+}
+#[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_RESOLVE_METADATA_INPUT_ARGUMENTS {}
+#[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_RESOLVE_METADATA_INPUT_ARGUMENTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D12_VIDEO_ENCODER_RESOLVE_METADATA_INPUT_ARGUMENTS(i32);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
+pub struct D3D12_VIDEO_ENCODER_RESOLVE_METADATA_OUTPUT_ARGUMENTS {
+    pub ResolvedLayoutMetadata: D3D12_VIDEO_ENCODER_ENCODE_OPERATION_METADATA_BUFFER,
+}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_RESOLVE_METADATA_OUTPUT_ARGUMENTS {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_RESOLVE_METADATA_OUTPUT_ARGUMENTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D12_VIDEO_ENCODER_RESOLVE_METADATA_OUTPUT_ARGUMENTS(i32);
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-#[repr(C)]
-pub struct D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_DESC(i32);
+pub struct D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_DESC {
+    pub Flags: D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_FLAGS,
+    pub IntraRefreshConfig: D3D12_VIDEO_ENCODER_INTRA_REFRESH,
+    pub RateControl: D3D12_VIDEO_ENCODER_RATE_CONTROL,
+    pub PictureTargetResolution: D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC,
+    pub SelectedLayoutMode: D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE,
+    pub FrameSubregionsLayoutData: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA,
+    pub CodecGopSequence: D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE,
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_DESC {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_DESC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_FLAGS(pub u32);
 pub const D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_FLAG_NONE: D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_FLAGS = D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_FLAGS(0u32);
@@ -1943,12 +4250,60 @@ pub const D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_FLAG_RATE_CONTROL_CHANGE: D3D12_V
 pub const D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_FLAG_SUBREGION_LAYOUT_CHANGE: D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_FLAGS = D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_FLAGS(4u32);
 pub const D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_FLAG_REQUEST_INTRA_REFRESH: D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_FLAGS = D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_FLAGS(8u32);
 pub const D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_FLAG_GOP_SEQUENCE_CHANGE: D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_FLAGS = D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_FLAGS(16u32);
+impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_FLAGS {}
+impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE(i32);
+pub struct D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE {
+    pub DataSize: u32,
+    pub Anonymous: D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_0,
+}
+impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE {}
+impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_H264(i32);
+pub union D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_0 {
+    pub pH264GroupOfPictures: *mut D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_H264,
+    pub pHEVCGroupOfPictures: *mut D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_HEVC,
+}
+impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_0 {}
+impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_HEVC(i32);
+pub struct D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_H264 {
+    pub GOPLength: u32,
+    pub PPicturePeriod: u32,
+    pub pic_order_cnt_type: u8,
+    pub log2_max_frame_num_minus4: u8,
+    pub log2_max_pic_order_cnt_lsb_minus4: u8,
+}
+impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_H264 {}
+impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_H264 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_HEVC {
+    pub GOPLength: u32,
+    pub PPicturePeriod: u32,
+    pub log2_max_pic_order_cnt_lsb_minus4: u8,
+}
+impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_HEVC {}
+impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_HEVC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3D12_VIDEO_ENCODER_SUPPORT_FLAGS(pub u32);
 pub const D3D12_VIDEO_ENCODER_SUPPORT_FLAG_NONE: D3D12_VIDEO_ENCODER_SUPPORT_FLAGS = D3D12_VIDEO_ENCODER_SUPPORT_FLAGS(0u32);
@@ -1965,10 +4320,22 @@ pub const D3D12_VIDEO_ENCODER_SUPPORT_FLAG_RATE_CONTROL_INITIAL_QP_AVAILABLE: D3
 pub const D3D12_VIDEO_ENCODER_SUPPORT_FLAG_RATE_CONTROL_MAX_FRAME_SIZE_AVAILABLE: D3D12_VIDEO_ENCODER_SUPPORT_FLAGS = D3D12_VIDEO_ENCODER_SUPPORT_FLAGS(1024u32);
 pub const D3D12_VIDEO_ENCODER_SUPPORT_FLAG_SEQUENCE_GOP_RECONFIGURATION_AVAILABLE: D3D12_VIDEO_ENCODER_SUPPORT_FLAGS = D3D12_VIDEO_ENCODER_SUPPORT_FLAGS(2048u32);
 pub const D3D12_VIDEO_ENCODER_SUPPORT_FLAG_MOTION_ESTIMATION_PRECISION_MODE_LIMIT_AVAILABLE: D3D12_VIDEO_ENCODER_SUPPORT_FLAGS = D3D12_VIDEO_ENCODER_SUPPORT_FLAGS(4096u32);
+impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_SUPPORT_FLAGS {}
+impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_SUPPORT_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3D12_VIDEO_ENCODER_TIER_HEVC(pub i32);
 pub const D3D12_VIDEO_ENCODER_TIER_HEVC_MAIN: D3D12_VIDEO_ENCODER_TIER_HEVC = D3D12_VIDEO_ENCODER_TIER_HEVC(0i32);
 pub const D3D12_VIDEO_ENCODER_TIER_HEVC_HIGH: D3D12_VIDEO_ENCODER_TIER_HEVC = D3D12_VIDEO_ENCODER_TIER_HEVC(1i32);
+impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_TIER_HEVC {}
+impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_TIER_HEVC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3D12_VIDEO_ENCODER_VALIDATION_FLAGS(pub u32);
 pub const D3D12_VIDEO_ENCODER_VALIDATION_FLAG_NONE: D3D12_VIDEO_ENCODER_VALIDATION_FLAGS = D3D12_VIDEO_ENCODER_VALIDATION_FLAGS(0u32);
@@ -1981,22 +4348,79 @@ pub const D3D12_VIDEO_ENCODER_VALIDATION_FLAG_INTRA_REFRESH_MODE_NOT_SUPPORTED: 
 pub const D3D12_VIDEO_ENCODER_VALIDATION_FLAG_SUBREGION_LAYOUT_MODE_NOT_SUPPORTED: D3D12_VIDEO_ENCODER_VALIDATION_FLAGS = D3D12_VIDEO_ENCODER_VALIDATION_FLAGS(256u32);
 pub const D3D12_VIDEO_ENCODER_VALIDATION_FLAG_RESOLUTION_NOT_SUPPORTED_IN_LIST: D3D12_VIDEO_ENCODER_VALIDATION_FLAGS = D3D12_VIDEO_ENCODER_VALIDATION_FLAGS(512u32);
 pub const D3D12_VIDEO_ENCODER_VALIDATION_FLAG_GOP_STRUCTURE_NOT_SUPPORTED: D3D12_VIDEO_ENCODER_VALIDATION_FLAGS = D3D12_VIDEO_ENCODER_VALIDATION_FLAGS(2048u32);
+impl ::core::marker::Copy for D3D12_VIDEO_ENCODER_VALIDATION_FLAGS {}
+impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_VALIDATION_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
+pub struct D3D12_VIDEO_ENCODE_REFERENCE_FRAMES {
+    pub NumTexture2Ds: u32,
+    pub ppTexture2Ds: *mut ::core::option::Option<super::super::Graphics::Direct3D12::ID3D12Resource>,
+    pub pSubresources: *mut u32,
+}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl ::core::marker::Copy for D3D12_VIDEO_ENCODE_REFERENCE_FRAMES {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl ::core::clone::Clone for D3D12_VIDEO_ENCODE_REFERENCE_FRAMES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D12_VIDEO_ENCODE_REFERENCE_FRAMES(i32);
+pub struct D3D12_VIDEO_EXTENSION_COMMAND_DESC {
+    pub NodeMask: u32,
+    pub CommandId: ::windows_sys::core::GUID,
+}
+impl ::core::marker::Copy for D3D12_VIDEO_EXTENSION_COMMAND_DESC {}
+impl ::core::clone::Clone for D3D12_VIDEO_EXTENSION_COMMAND_DESC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D12_VIDEO_EXTENSION_COMMAND_DESC(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
-#[repr(C)]
-pub struct D3D12_VIDEO_EXTENSION_COMMAND_INFO(i32);
+pub struct D3D12_VIDEO_EXTENSION_COMMAND_INFO {
+    pub CommandId: ::windows_sys::core::GUID,
+    pub Name: super::super::Foundation::PWSTR,
+    pub CommandListSupportFlags: super::super::Graphics::Direct3D12::D3D12_COMMAND_LIST_SUPPORT_FLAGS,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
+impl ::core::marker::Copy for D3D12_VIDEO_EXTENSION_COMMAND_INFO {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
+impl ::core::clone::Clone for D3D12_VIDEO_EXTENSION_COMMAND_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_FLAGS(pub u32);
 pub const D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_FLAG_NONE: D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_FLAGS = D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_FLAGS(0u32);
 pub const D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_FLAG_READ: D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_FLAGS = D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_FLAGS(1u32);
 pub const D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_FLAG_WRITE: D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_FLAGS = D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_FLAGS(2u32);
-#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_FLAGS {}
+impl ::core::clone::Clone for D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_INFO {
+    pub Name: super::super::Foundation::PWSTR,
+    pub Type: D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_TYPE,
+    pub Flags: D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_FLAGS,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_STAGE(pub i32);
 pub const D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_STAGE_CREATION: D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_STAGE = D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_STAGE(0i32);
@@ -2006,6 +4430,12 @@ pub const D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_STAGE_CAPS_INPUT: D3D12_VIDEO_
 pub const D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_STAGE_CAPS_OUTPUT: D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_STAGE = D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_STAGE(4i32);
 pub const D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_STAGE_DEVICE_EXECUTE_INPUT: D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_STAGE = D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_STAGE(5i32);
 pub const D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_STAGE_DEVICE_EXECUTE_OUTPUT: D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_STAGE = D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_STAGE(6i32);
+impl ::core::marker::Copy for D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_STAGE {}
+impl ::core::clone::Clone for D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_STAGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_TYPE(pub i32);
 pub const D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_TYPE_UINT8: D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_TYPE = D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_TYPE(0i32);
@@ -2019,18 +4449,47 @@ pub const D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_TYPE_SINT64: D3D12_VIDEO_EXTEN
 pub const D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_TYPE_FLOAT: D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_TYPE = D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_TYPE(8i32);
 pub const D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_TYPE_DOUBLE: D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_TYPE = D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_TYPE(9i32);
 pub const D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_TYPE_RESOURCE: D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_TYPE = D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_TYPE(10i32);
+impl ::core::marker::Copy for D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_TYPE {}
+impl ::core::clone::Clone for D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3D12_VIDEO_FIELD_TYPE(pub i32);
 pub const D3D12_VIDEO_FIELD_TYPE_NONE: D3D12_VIDEO_FIELD_TYPE = D3D12_VIDEO_FIELD_TYPE(0i32);
 pub const D3D12_VIDEO_FIELD_TYPE_INTERLACED_TOP_FIELD_FIRST: D3D12_VIDEO_FIELD_TYPE = D3D12_VIDEO_FIELD_TYPE(1i32);
 pub const D3D12_VIDEO_FIELD_TYPE_INTERLACED_BOTTOM_FIELD_FIRST: D3D12_VIDEO_FIELD_TYPE = D3D12_VIDEO_FIELD_TYPE(2i32);
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::marker::Copy for D3D12_VIDEO_FIELD_TYPE {}
+impl ::core::clone::Clone for D3D12_VIDEO_FIELD_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D12_VIDEO_FORMAT(i32);
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+pub struct D3D12_VIDEO_FORMAT {
+    pub Format: super::super::Graphics::Dxgi::Common::DXGI_FORMAT,
+    pub ColorSpace: super::super::Graphics::Dxgi::Common::DXGI_COLOR_SPACE_TYPE,
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::marker::Copy for D3D12_VIDEO_FORMAT {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::clone::Clone for D3D12_VIDEO_FORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3D12_VIDEO_FRAME_CODED_INTERLACE_TYPE(pub i32);
 pub const D3D12_VIDEO_FRAME_CODED_INTERLACE_TYPE_NONE: D3D12_VIDEO_FRAME_CODED_INTERLACE_TYPE = D3D12_VIDEO_FRAME_CODED_INTERLACE_TYPE(0i32);
 pub const D3D12_VIDEO_FRAME_CODED_INTERLACE_TYPE_FIELD_BASED: D3D12_VIDEO_FRAME_CODED_INTERLACE_TYPE = D3D12_VIDEO_FRAME_CODED_INTERLACE_TYPE(1i32);
+impl ::core::marker::Copy for D3D12_VIDEO_FRAME_CODED_INTERLACE_TYPE {}
+impl ::core::clone::Clone for D3D12_VIDEO_FRAME_CODED_INTERLACE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3D12_VIDEO_FRAME_STEREO_FORMAT(pub i32);
 pub const D3D12_VIDEO_FRAME_STEREO_FORMAT_NONE: D3D12_VIDEO_FRAME_STEREO_FORMAT = D3D12_VIDEO_FRAME_STEREO_FORMAT(0i32);
@@ -2038,42 +4497,139 @@ pub const D3D12_VIDEO_FRAME_STEREO_FORMAT_MONO: D3D12_VIDEO_FRAME_STEREO_FORMAT 
 pub const D3D12_VIDEO_FRAME_STEREO_FORMAT_HORIZONTAL: D3D12_VIDEO_FRAME_STEREO_FORMAT = D3D12_VIDEO_FRAME_STEREO_FORMAT(2i32);
 pub const D3D12_VIDEO_FRAME_STEREO_FORMAT_VERTICAL: D3D12_VIDEO_FRAME_STEREO_FORMAT = D3D12_VIDEO_FRAME_STEREO_FORMAT(3i32);
 pub const D3D12_VIDEO_FRAME_STEREO_FORMAT_SEPARATE: D3D12_VIDEO_FRAME_STEREO_FORMAT = D3D12_VIDEO_FRAME_STEREO_FORMAT(4i32);
+impl ::core::marker::Copy for D3D12_VIDEO_FRAME_STEREO_FORMAT {}
+impl ::core::clone::Clone for D3D12_VIDEO_FRAME_STEREO_FORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+pub struct D3D12_VIDEO_MOTION_ESTIMATOR_DESC {
+    pub NodeMask: u32,
+    pub InputFormat: super::super::Graphics::Dxgi::Common::DXGI_FORMAT,
+    pub BlockSize: D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE,
+    pub Precision: D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION,
+    pub SizeRange: D3D12_VIDEO_SIZE_RANGE,
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::marker::Copy for D3D12_VIDEO_MOTION_ESTIMATOR_DESC {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::clone::Clone for D3D12_VIDEO_MOTION_ESTIMATOR_DESC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D12_VIDEO_MOTION_ESTIMATOR_DESC(i32);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
+pub struct D3D12_VIDEO_MOTION_ESTIMATOR_INPUT {
+    pub pInputTexture2D: ::core::option::Option<super::super::Graphics::Direct3D12::ID3D12Resource>,
+    pub InputSubresourceIndex: u32,
+    pub pReferenceTexture2D: ::core::option::Option<super::super::Graphics::Direct3D12::ID3D12Resource>,
+    pub ReferenceSubresourceIndex: u32,
+    pub pHintMotionVectorHeap: ::core::option::Option<ID3D12VideoMotionVectorHeap>,
+}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl ::core::marker::Copy for D3D12_VIDEO_MOTION_ESTIMATOR_INPUT {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl ::core::clone::Clone for D3D12_VIDEO_MOTION_ESTIMATOR_INPUT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D12_VIDEO_MOTION_ESTIMATOR_INPUT(i32);
-#[repr(C)]
-pub struct D3D12_VIDEO_MOTION_ESTIMATOR_OUTPUT(i32);
+pub struct D3D12_VIDEO_MOTION_ESTIMATOR_OUTPUT {
+    pub pMotionVectorHeap: ::core::option::Option<ID3D12VideoMotionVectorHeap>,
+}
+impl ::core::marker::Copy for D3D12_VIDEO_MOTION_ESTIMATOR_OUTPUT {}
+impl ::core::clone::Clone for D3D12_VIDEO_MOTION_ESTIMATOR_OUTPUT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE(pub i32);
 pub const D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE_8X8: D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE = D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE(0i32);
 pub const D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE_16X16: D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE = D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE(1i32);
+impl ::core::marker::Copy for D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE {}
+impl ::core::clone::Clone for D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE_FLAGS(pub u32);
 pub const D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE_FLAG_NONE: D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE_FLAGS = D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE_FLAGS(0u32);
 pub const D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE_FLAG_8X8: D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE_FLAGS = D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE_FLAGS(1u32);
 pub const D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE_FLAG_16X16: D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE_FLAGS = D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE_FLAGS(2u32);
+impl ::core::marker::Copy for D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE_FLAGS {}
+impl ::core::clone::Clone for D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION(pub i32);
 pub const D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION_QUARTER_PEL: D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION = D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION(0i32);
+impl ::core::marker::Copy for D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION {}
+impl ::core::clone::Clone for D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION_FLAGS(pub u32);
 pub const D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION_FLAG_NONE: D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION_FLAGS = D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION_FLAGS(0u32);
 pub const D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION_FLAG_QUARTER_PEL: D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION_FLAGS = D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION_FLAGS(1u32);
+impl ::core::marker::Copy for D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION_FLAGS {}
+impl ::core::clone::Clone for D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+pub struct D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC {
+    pub NodeMask: u32,
+    pub InputFormat: super::super::Graphics::Dxgi::Common::DXGI_FORMAT,
+    pub BlockSize: D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE,
+    pub Precision: D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION,
+    pub SizeRange: D3D12_VIDEO_SIZE_RANGE,
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::marker::Copy for D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::clone::Clone for D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct D3D12_VIDEO_PROCESS_ALPHA_BLENDING(i32);
+pub struct D3D12_VIDEO_PROCESS_ALPHA_BLENDING {
+    pub Enable: super::super::Foundation::BOOL,
+    pub Alpha: f32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for D3D12_VIDEO_PROCESS_ALPHA_BLENDING {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for D3D12_VIDEO_PROCESS_ALPHA_BLENDING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3D12_VIDEO_PROCESS_ALPHA_FILL_MODE(pub i32);
 pub const D3D12_VIDEO_PROCESS_ALPHA_FILL_MODE_OPAQUE: D3D12_VIDEO_PROCESS_ALPHA_FILL_MODE = D3D12_VIDEO_PROCESS_ALPHA_FILL_MODE(0i32);
 pub const D3D12_VIDEO_PROCESS_ALPHA_FILL_MODE_BACKGROUND: D3D12_VIDEO_PROCESS_ALPHA_FILL_MODE = D3D12_VIDEO_PROCESS_ALPHA_FILL_MODE(1i32);
 pub const D3D12_VIDEO_PROCESS_ALPHA_FILL_MODE_DESTINATION: D3D12_VIDEO_PROCESS_ALPHA_FILL_MODE = D3D12_VIDEO_PROCESS_ALPHA_FILL_MODE(2i32);
 pub const D3D12_VIDEO_PROCESS_ALPHA_FILL_MODE_SOURCE_STREAM: D3D12_VIDEO_PROCESS_ALPHA_FILL_MODE = D3D12_VIDEO_PROCESS_ALPHA_FILL_MODE(3i32);
+impl ::core::marker::Copy for D3D12_VIDEO_PROCESS_ALPHA_FILL_MODE {}
+impl ::core::clone::Clone for D3D12_VIDEO_PROCESS_ALPHA_FILL_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAGS(pub u32);
 pub const D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAG_NONE: D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAGS = D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAGS(0u32);
@@ -2086,11 +4642,23 @@ pub const D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAG_IMAGE_STABILIZATION: D3D12_VI
 pub const D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAG_SUPER_RESOLUTION: D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAGS = D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAGS(64u32);
 pub const D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAG_ANAMORPHIC_SCALING: D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAGS = D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAGS(128u32);
 pub const D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAG_CUSTOM: D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAGS = D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAGS(2147483648u32);
+impl ::core::marker::Copy for D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAGS {}
+impl ::core::clone::Clone for D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3D12_VIDEO_PROCESS_DEINTERLACE_FLAGS(pub u32);
 pub const D3D12_VIDEO_PROCESS_DEINTERLACE_FLAG_NONE: D3D12_VIDEO_PROCESS_DEINTERLACE_FLAGS = D3D12_VIDEO_PROCESS_DEINTERLACE_FLAGS(0u32);
 pub const D3D12_VIDEO_PROCESS_DEINTERLACE_FLAG_BOB: D3D12_VIDEO_PROCESS_DEINTERLACE_FLAGS = D3D12_VIDEO_PROCESS_DEINTERLACE_FLAGS(1u32);
 pub const D3D12_VIDEO_PROCESS_DEINTERLACE_FLAG_CUSTOM: D3D12_VIDEO_PROCESS_DEINTERLACE_FLAGS = D3D12_VIDEO_PROCESS_DEINTERLACE_FLAGS(2147483648u32);
+impl ::core::marker::Copy for D3D12_VIDEO_PROCESS_DEINTERLACE_FLAGS {}
+impl ::core::clone::Clone for D3D12_VIDEO_PROCESS_DEINTERLACE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3D12_VIDEO_PROCESS_FEATURE_FLAGS(pub u32);
 pub const D3D12_VIDEO_PROCESS_FEATURE_FLAG_NONE: D3D12_VIDEO_PROCESS_FEATURE_FLAGS = D3D12_VIDEO_PROCESS_FEATURE_FLAGS(0u32);
@@ -2101,6 +4669,12 @@ pub const D3D12_VIDEO_PROCESS_FEATURE_FLAG_ROTATION: D3D12_VIDEO_PROCESS_FEATURE
 pub const D3D12_VIDEO_PROCESS_FEATURE_FLAG_FLIP: D3D12_VIDEO_PROCESS_FEATURE_FLAGS = D3D12_VIDEO_PROCESS_FEATURE_FLAGS(16u32);
 pub const D3D12_VIDEO_PROCESS_FEATURE_FLAG_ALPHA_BLENDING: D3D12_VIDEO_PROCESS_FEATURE_FLAGS = D3D12_VIDEO_PROCESS_FEATURE_FLAGS(32u32);
 pub const D3D12_VIDEO_PROCESS_FEATURE_FLAG_PIXEL_ASPECT_RATIO: D3D12_VIDEO_PROCESS_FEATURE_FLAGS = D3D12_VIDEO_PROCESS_FEATURE_FLAGS(64u32);
+impl ::core::marker::Copy for D3D12_VIDEO_PROCESS_FEATURE_FLAGS {}
+impl ::core::clone::Clone for D3D12_VIDEO_PROCESS_FEATURE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3D12_VIDEO_PROCESS_FILTER(pub i32);
 pub const D3D12_VIDEO_PROCESS_FILTER_BRIGHTNESS: D3D12_VIDEO_PROCESS_FILTER = D3D12_VIDEO_PROCESS_FILTER(0i32);
@@ -2111,6 +4685,12 @@ pub const D3D12_VIDEO_PROCESS_FILTER_NOISE_REDUCTION: D3D12_VIDEO_PROCESS_FILTER
 pub const D3D12_VIDEO_PROCESS_FILTER_EDGE_ENHANCEMENT: D3D12_VIDEO_PROCESS_FILTER = D3D12_VIDEO_PROCESS_FILTER(5i32);
 pub const D3D12_VIDEO_PROCESS_FILTER_ANAMORPHIC_SCALING: D3D12_VIDEO_PROCESS_FILTER = D3D12_VIDEO_PROCESS_FILTER(6i32);
 pub const D3D12_VIDEO_PROCESS_FILTER_STEREO_ADJUSTMENT: D3D12_VIDEO_PROCESS_FILTER = D3D12_VIDEO_PROCESS_FILTER(7i32);
+impl ::core::marker::Copy for D3D12_VIDEO_PROCESS_FILTER {}
+impl ::core::clone::Clone for D3D12_VIDEO_PROCESS_FILTER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3D12_VIDEO_PROCESS_FILTER_FLAGS(pub u32);
 pub const D3D12_VIDEO_PROCESS_FILTER_FLAG_NONE: D3D12_VIDEO_PROCESS_FILTER_FLAGS = D3D12_VIDEO_PROCESS_FILTER_FLAGS(0u32);
@@ -2122,30 +4702,143 @@ pub const D3D12_VIDEO_PROCESS_FILTER_FLAG_NOISE_REDUCTION: D3D12_VIDEO_PROCESS_F
 pub const D3D12_VIDEO_PROCESS_FILTER_FLAG_EDGE_ENHANCEMENT: D3D12_VIDEO_PROCESS_FILTER_FLAGS = D3D12_VIDEO_PROCESS_FILTER_FLAGS(32u32);
 pub const D3D12_VIDEO_PROCESS_FILTER_FLAG_ANAMORPHIC_SCALING: D3D12_VIDEO_PROCESS_FILTER_FLAGS = D3D12_VIDEO_PROCESS_FILTER_FLAGS(64u32);
 pub const D3D12_VIDEO_PROCESS_FILTER_FLAG_STEREO_ADJUSTMENT: D3D12_VIDEO_PROCESS_FILTER_FLAGS = D3D12_VIDEO_PROCESS_FILTER_FLAGS(128u32);
+impl ::core::marker::Copy for D3D12_VIDEO_PROCESS_FILTER_FLAGS {}
+impl ::core::clone::Clone for D3D12_VIDEO_PROCESS_FILTER_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D12_VIDEO_PROCESS_FILTER_RANGE(i32);
+pub struct D3D12_VIDEO_PROCESS_FILTER_RANGE {
+    pub Minimum: i32,
+    pub Maximum: i32,
+    pub Default: i32,
+    pub Multiplier: f32,
+}
+impl ::core::marker::Copy for D3D12_VIDEO_PROCESS_FILTER_RANGE {}
+impl ::core::clone::Clone for D3D12_VIDEO_PROCESS_FILTER_RANGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
+pub struct D3D12_VIDEO_PROCESS_INPUT_STREAM {
+    pub pTexture2D: ::core::option::Option<super::super::Graphics::Direct3D12::ID3D12Resource>,
+    pub Subresource: u32,
+    pub ReferenceSet: D3D12_VIDEO_PROCESS_REFERENCE_SET,
+}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl ::core::marker::Copy for D3D12_VIDEO_PROCESS_INPUT_STREAM {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl ::core::clone::Clone for D3D12_VIDEO_PROCESS_INPUT_STREAM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D12_VIDEO_PROCESS_INPUT_STREAM(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
-#[repr(C)]
-pub struct D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS(i32);
+pub struct D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS {
+    pub InputStream: [D3D12_VIDEO_PROCESS_INPUT_STREAM; 2],
+    pub Transform: D3D12_VIDEO_PROCESS_TRANSFORM,
+    pub Flags: D3D12_VIDEO_PROCESS_INPUT_STREAM_FLAGS,
+    pub RateInfo: D3D12_VIDEO_PROCESS_INPUT_STREAM_RATE,
+    pub FilterLevels: [i32; 32],
+    pub AlphaBlending: D3D12_VIDEO_PROCESS_ALPHA_BLENDING,
+}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
+impl ::core::marker::Copy for D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
+impl ::core::clone::Clone for D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS1(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
+pub struct D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS1 {
+    pub InputStream: [D3D12_VIDEO_PROCESS_INPUT_STREAM; 2],
+    pub Transform: D3D12_VIDEO_PROCESS_TRANSFORM,
+    pub Flags: D3D12_VIDEO_PROCESS_INPUT_STREAM_FLAGS,
+    pub RateInfo: D3D12_VIDEO_PROCESS_INPUT_STREAM_RATE,
+    pub FilterLevels: [i32; 32],
+    pub AlphaBlending: D3D12_VIDEO_PROCESS_ALPHA_BLENDING,
+    pub FieldType: D3D12_VIDEO_FIELD_TYPE,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
+impl ::core::marker::Copy for D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS1 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
+impl ::core::clone::Clone for D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-#[repr(C)]
-pub struct D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC(i32);
+pub struct D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC {
+    pub Format: super::super::Graphics::Dxgi::Common::DXGI_FORMAT,
+    pub ColorSpace: super::super::Graphics::Dxgi::Common::DXGI_COLOR_SPACE_TYPE,
+    pub SourceAspectRatio: super::super::Graphics::Dxgi::Common::DXGI_RATIONAL,
+    pub DestinationAspectRatio: super::super::Graphics::Dxgi::Common::DXGI_RATIONAL,
+    pub FrameRate: super::super::Graphics::Dxgi::Common::DXGI_RATIONAL,
+    pub SourceSizeRange: D3D12_VIDEO_SIZE_RANGE,
+    pub DestinationSizeRange: D3D12_VIDEO_SIZE_RANGE,
+    pub EnableOrientation: super::super::Foundation::BOOL,
+    pub FilterFlags: D3D12_VIDEO_PROCESS_FILTER_FLAGS,
+    pub StereoFormat: D3D12_VIDEO_FRAME_STEREO_FORMAT,
+    pub FieldType: D3D12_VIDEO_FIELD_TYPE,
+    pub DeinterlaceMode: D3D12_VIDEO_PROCESS_DEINTERLACE_FLAGS,
+    pub EnableAlphaBlending: super::super::Foundation::BOOL,
+    pub LumaKey: D3D12_VIDEO_PROCESS_LUMA_KEY,
+    pub NumPastFrames: u32,
+    pub NumFutureFrames: u32,
+    pub EnableAutoProcessing: super::super::Foundation::BOOL,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::marker::Copy for D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::clone::Clone for D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3D12_VIDEO_PROCESS_INPUT_STREAM_FLAGS(pub u32);
 pub const D3D12_VIDEO_PROCESS_INPUT_STREAM_FLAG_NONE: D3D12_VIDEO_PROCESS_INPUT_STREAM_FLAGS = D3D12_VIDEO_PROCESS_INPUT_STREAM_FLAGS(0u32);
 pub const D3D12_VIDEO_PROCESS_INPUT_STREAM_FLAG_FRAME_DISCONTINUITY: D3D12_VIDEO_PROCESS_INPUT_STREAM_FLAGS = D3D12_VIDEO_PROCESS_INPUT_STREAM_FLAGS(1u32);
 pub const D3D12_VIDEO_PROCESS_INPUT_STREAM_FLAG_FRAME_REPEAT: D3D12_VIDEO_PROCESS_INPUT_STREAM_FLAGS = D3D12_VIDEO_PROCESS_INPUT_STREAM_FLAGS(2u32);
+impl ::core::marker::Copy for D3D12_VIDEO_PROCESS_INPUT_STREAM_FLAGS {}
+impl ::core::clone::Clone for D3D12_VIDEO_PROCESS_INPUT_STREAM_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D12_VIDEO_PROCESS_INPUT_STREAM_RATE(i32);
+pub struct D3D12_VIDEO_PROCESS_INPUT_STREAM_RATE {
+    pub OutputIndex: u32,
+    pub InputFrameOrField: u32,
+}
+impl ::core::marker::Copy for D3D12_VIDEO_PROCESS_INPUT_STREAM_RATE {}
+impl ::core::clone::Clone for D3D12_VIDEO_PROCESS_INPUT_STREAM_RATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct D3D12_VIDEO_PROCESS_LUMA_KEY(i32);
+pub struct D3D12_VIDEO_PROCESS_LUMA_KEY {
+    pub Enable: super::super::Foundation::BOOL,
+    pub Lower: f32,
+    pub Upper: f32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for D3D12_VIDEO_PROCESS_LUMA_KEY {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for D3D12_VIDEO_PROCESS_LUMA_KEY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3D12_VIDEO_PROCESS_ORIENTATION(pub i32);
 pub const D3D12_VIDEO_PROCESS_ORIENTATION_DEFAULT: D3D12_VIDEO_PROCESS_ORIENTATION = D3D12_VIDEO_PROCESS_ORIENTATION(0i32);
@@ -2156,66 +4849,282 @@ pub const D3D12_VIDEO_PROCESS_ORIENTATION_CLOCKWISE_180: D3D12_VIDEO_PROCESS_ORI
 pub const D3D12_VIDEO_PROCESS_ORIENTATION_FLIP_VERTICAL: D3D12_VIDEO_PROCESS_ORIENTATION = D3D12_VIDEO_PROCESS_ORIENTATION(5i32);
 pub const D3D12_VIDEO_PROCESS_ORIENTATION_CLOCKWISE_270: D3D12_VIDEO_PROCESS_ORIENTATION = D3D12_VIDEO_PROCESS_ORIENTATION(6i32);
 pub const D3D12_VIDEO_PROCESS_ORIENTATION_CLOCKWISE_270_FLIP_HORIZONTAL: D3D12_VIDEO_PROCESS_ORIENTATION = D3D12_VIDEO_PROCESS_ORIENTATION(7i32);
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl ::core::marker::Copy for D3D12_VIDEO_PROCESS_ORIENTATION {}
+impl ::core::clone::Clone for D3D12_VIDEO_PROCESS_ORIENTATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D12_VIDEO_PROCESS_OUTPUT_STREAM(i32);
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+pub struct D3D12_VIDEO_PROCESS_OUTPUT_STREAM {
+    pub pTexture2D: ::core::option::Option<super::super::Graphics::Direct3D12::ID3D12Resource>,
+    pub Subresource: u32,
+}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl ::core::marker::Copy for D3D12_VIDEO_PROCESS_OUTPUT_STREAM {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl ::core::clone::Clone for D3D12_VIDEO_PROCESS_OUTPUT_STREAM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
+pub struct D3D12_VIDEO_PROCESS_OUTPUT_STREAM_ARGUMENTS {
+    pub OutputStream: [D3D12_VIDEO_PROCESS_OUTPUT_STREAM; 2],
+    pub TargetRectangle: super::super::Foundation::RECT,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
+impl ::core::marker::Copy for D3D12_VIDEO_PROCESS_OUTPUT_STREAM_ARGUMENTS {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
+impl ::core::clone::Clone for D3D12_VIDEO_PROCESS_OUTPUT_STREAM_ARGUMENTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D12_VIDEO_PROCESS_OUTPUT_STREAM_ARGUMENTS(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+pub struct D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC {
+    pub Format: super::super::Graphics::Dxgi::Common::DXGI_FORMAT,
+    pub ColorSpace: super::super::Graphics::Dxgi::Common::DXGI_COLOR_SPACE_TYPE,
+    pub AlphaFillMode: D3D12_VIDEO_PROCESS_ALPHA_FILL_MODE,
+    pub AlphaFillModeSourceStreamIndex: u32,
+    pub BackgroundColor: [f32; 4],
+    pub FrameRate: super::super::Graphics::Dxgi::Common::DXGI_RATIONAL,
+    pub EnableStereo: super::super::Foundation::BOOL,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::marker::Copy for D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::clone::Clone for D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC(i32);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
-#[repr(C)]
-pub struct D3D12_VIDEO_PROCESS_REFERENCE_SET(i32);
+pub struct D3D12_VIDEO_PROCESS_REFERENCE_SET {
+    pub NumPastFrames: u32,
+    pub ppPastFrames: *mut ::core::option::Option<super::super::Graphics::Direct3D12::ID3D12Resource>,
+    pub pPastSubresources: *mut u32,
+    pub NumFutureFrames: u32,
+    pub ppFutureFrames: *mut ::core::option::Option<super::super::Graphics::Direct3D12::ID3D12Resource>,
+    pub pFutureSubresources: *mut u32,
+}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl ::core::marker::Copy for D3D12_VIDEO_PROCESS_REFERENCE_SET {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+impl ::core::clone::Clone for D3D12_VIDEO_PROCESS_REFERENCE_SET {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3D12_VIDEO_PROCESS_SUPPORT_FLAGS(pub u32);
 pub const D3D12_VIDEO_PROCESS_SUPPORT_FLAG_NONE: D3D12_VIDEO_PROCESS_SUPPORT_FLAGS = D3D12_VIDEO_PROCESS_SUPPORT_FLAGS(0u32);
 pub const D3D12_VIDEO_PROCESS_SUPPORT_FLAG_SUPPORTED: D3D12_VIDEO_PROCESS_SUPPORT_FLAGS = D3D12_VIDEO_PROCESS_SUPPORT_FLAGS(1u32);
-#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for D3D12_VIDEO_PROCESS_SUPPORT_FLAGS {}
+impl ::core::clone::Clone for D3D12_VIDEO_PROCESS_SUPPORT_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D12_VIDEO_PROCESS_TRANSFORM(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct D3D12_VIDEO_PROCESS_TRANSFORM {
+    pub SourceRectangle: super::super::Foundation::RECT,
+    pub DestinationRectangle: super::super::Foundation::RECT,
+    pub Orientation: D3D12_VIDEO_PROCESS_ORIENTATION,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for D3D12_VIDEO_PROCESS_TRANSFORM {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for D3D12_VIDEO_PROCESS_TRANSFORM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3D12_VIDEO_PROTECTED_RESOURCE_SUPPORT_FLAGS(pub u32);
 pub const D3D12_VIDEO_PROTECTED_RESOURCE_SUPPORT_FLAG_NONE: D3D12_VIDEO_PROTECTED_RESOURCE_SUPPORT_FLAGS = D3D12_VIDEO_PROTECTED_RESOURCE_SUPPORT_FLAGS(0u32);
 pub const D3D12_VIDEO_PROTECTED_RESOURCE_SUPPORT_FLAG_SUPPORTED: D3D12_VIDEO_PROTECTED_RESOURCE_SUPPORT_FLAGS = D3D12_VIDEO_PROTECTED_RESOURCE_SUPPORT_FLAGS(1u32);
+impl ::core::marker::Copy for D3D12_VIDEO_PROTECTED_RESOURCE_SUPPORT_FLAGS {}
+impl ::core::clone::Clone for D3D12_VIDEO_PROTECTED_RESOURCE_SUPPORT_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+pub struct D3D12_VIDEO_SAMPLE {
+    pub Width: u32,
+    pub Height: u32,
+    pub Format: D3D12_VIDEO_FORMAT,
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::marker::Copy for D3D12_VIDEO_SAMPLE {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::clone::Clone for D3D12_VIDEO_SAMPLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D12_VIDEO_SAMPLE(i32);
-#[repr(C)]
-pub struct D3D12_VIDEO_SCALE_SUPPORT(i32);
+pub struct D3D12_VIDEO_SCALE_SUPPORT {
+    pub OutputSizeRange: D3D12_VIDEO_SIZE_RANGE,
+    pub Flags: D3D12_VIDEO_SCALE_SUPPORT_FLAGS,
+}
+impl ::core::marker::Copy for D3D12_VIDEO_SCALE_SUPPORT {}
+impl ::core::clone::Clone for D3D12_VIDEO_SCALE_SUPPORT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3D12_VIDEO_SCALE_SUPPORT_FLAGS(pub u32);
 pub const D3D12_VIDEO_SCALE_SUPPORT_FLAG_NONE: D3D12_VIDEO_SCALE_SUPPORT_FLAGS = D3D12_VIDEO_SCALE_SUPPORT_FLAGS(0u32);
 pub const D3D12_VIDEO_SCALE_SUPPORT_FLAG_POW2_ONLY: D3D12_VIDEO_SCALE_SUPPORT_FLAGS = D3D12_VIDEO_SCALE_SUPPORT_FLAGS(1u32);
 pub const D3D12_VIDEO_SCALE_SUPPORT_FLAG_EVEN_DIMENSIONS_ONLY: D3D12_VIDEO_SCALE_SUPPORT_FLAGS = D3D12_VIDEO_SCALE_SUPPORT_FLAGS(2u32);
+impl ::core::marker::Copy for D3D12_VIDEO_SCALE_SUPPORT_FLAGS {}
+impl ::core::clone::Clone for D3D12_VIDEO_SCALE_SUPPORT_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D12_VIDEO_SIZE_RANGE(i32);
+pub struct D3D12_VIDEO_SIZE_RANGE {
+    pub MaxWidth: u32,
+    pub MaxHeight: u32,
+    pub MinWidth: u32,
+    pub MinHeight: u32,
+}
+impl ::core::marker::Copy for D3D12_VIDEO_SIZE_RANGE {}
+impl ::core::clone::Clone for D3D12_VIDEO_SIZE_RANGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-#[repr(C)]
-pub struct D3DCONTENTPROTECTIONCAPS(i32);
+pub struct D3DCONTENTPROTECTIONCAPS {
+    pub Caps: u32,
+    pub KeyExchangeType: ::windows_sys::core::GUID,
+    pub BufferAlignmentStart: u32,
+    pub BlockAlignmentSize: u32,
+    pub ProtectedMemorySize: u64,
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::marker::Copy for D3DCONTENTPROTECTIONCAPS {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::clone::Clone for D3DCONTENTPROTECTIONCAPS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(4))]
 #[cfg(any(target_arch = "x86",))]
+pub struct D3DCONTENTPROTECTIONCAPS {
+    pub Caps: u32,
+    pub KeyExchangeType: ::windows_sys::core::GUID,
+    pub BufferAlignmentStart: u32,
+    pub BlockAlignmentSize: u32,
+    pub ProtectedMemorySize: u64,
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::core::marker::Copy for D3DCONTENTPROTECTIONCAPS {}
+#[cfg(any(target_arch = "x86",))]
+impl ::core::clone::Clone for D3DCONTENTPROTECTIONCAPS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3DCONTENTPROTECTIONCAPS(i32);
+pub struct D3DOVERLAYCAPS {
+    pub Caps: u32,
+    pub MaxOverlayDisplayWidth: u32,
+    pub MaxOverlayDisplayHeight: u32,
+}
+impl ::core::marker::Copy for D3DOVERLAYCAPS {}
+impl ::core::clone::Clone for D3DOVERLAYCAPS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3DOVERLAYCAPS(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct DEVICE_INFO(i32);
+pub struct DEVICE_INFO {
+    pub pFriendlyDeviceName: super::super::Foundation::BSTR,
+    pub pUniqueDeviceName: super::super::Foundation::BSTR,
+    pub pManufacturerName: super::super::Foundation::BSTR,
+    pub pModelName: super::super::Foundation::BSTR,
+    pub pIconURL: super::super::Foundation::BSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DEVICE_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DEVICE_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_DeviceInterface_IsVirtualCamera: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::GUID { data1: 1859937037, data2: 49891, data3: 17335, data4: [178, 209, 32, 82, 90, 26, 241, 32] },
     pid: 3u32,
 };
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+pub struct DIRTYRECT_INFO {
+    pub FrameNumber: u32,
+    pub NumDirtyRects: u32,
+    pub DirtyRects: [super::super::Foundation::RECT; 1],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DIRTYRECT_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DIRTYRECT_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DIRTYRECT_INFO(i32);
+pub struct DXVA2_AES_CTR_IV {
+    pub IV: u64,
+    pub Count: u64,
+}
+impl ::core::marker::Copy for DXVA2_AES_CTR_IV {}
+impl ::core::clone::Clone for DXVA2_AES_CTR_IV {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DXVA2_AES_CTR_IV(i32);
+pub struct DXVA2_AYUVSample16 {
+    pub Cr: u16,
+    pub Cb: u16,
+    pub Y: u16,
+    pub Alpha: u16,
+}
+impl ::core::marker::Copy for DXVA2_AYUVSample16 {}
+impl ::core::clone::Clone for DXVA2_AYUVSample16 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DXVA2_AYUVSample16(i32);
-#[repr(C)]
-pub struct DXVA2_AYUVSample8(i32);
+pub struct DXVA2_AYUVSample8 {
+    pub Cr: u8,
+    pub Cb: u8,
+    pub Y: u8,
+    pub Alpha: u8,
+}
+impl ::core::marker::Copy for DXVA2_AYUVSample8 {}
+impl ::core::clone::Clone for DXVA2_AYUVSample8 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DXVA2_BufferfType(pub i32);
 pub const DXVA2_PictureParametersBufferType: DXVA2_BufferfType = DXVA2_BufferfType(0i32);
@@ -2227,16 +5136,86 @@ pub const DXVA2_SliceControlBufferType: DXVA2_BufferfType = DXVA2_BufferfType(5i
 pub const DXVA2_BitStreamDateBufferType: DXVA2_BufferfType = DXVA2_BufferfType(6i32);
 pub const DXVA2_MotionVectorBuffer: DXVA2_BufferfType = DXVA2_BufferfType(7i32);
 pub const DXVA2_FilmGrainBuffer: DXVA2_BufferfType = DXVA2_BufferfType(8i32);
+impl ::core::marker::Copy for DXVA2_BufferfType {}
+impl ::core::clone::Clone for DXVA2_BufferfType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DXVA2_ConfigPictureDecode(i32);
+pub struct DXVA2_ConfigPictureDecode {
+    pub guidConfigBitstreamEncryption: ::windows_sys::core::GUID,
+    pub guidConfigMBcontrolEncryption: ::windows_sys::core::GUID,
+    pub guidConfigResidDiffEncryption: ::windows_sys::core::GUID,
+    pub ConfigBitstreamRaw: u32,
+    pub ConfigMBcontrolRasterOrder: u32,
+    pub ConfigResidDiffHost: u32,
+    pub ConfigSpatialResid8: u32,
+    pub ConfigResid8Subtraction: u32,
+    pub ConfigSpatialHost8or9Clipping: u32,
+    pub ConfigSpatialResidInterleaved: u32,
+    pub ConfigIntraResidUnsigned: u32,
+    pub ConfigResidDiffAccelerator: u32,
+    pub ConfigHostInverseScan: u32,
+    pub ConfigSpecificIDCT: u32,
+    pub Config4GroupedCoefs: u32,
+    pub ConfigMinRenderTargetBuffCount: u16,
+    pub ConfigDecoderSpecific: u16,
+}
+impl ::core::marker::Copy for DXVA2_ConfigPictureDecode {}
+impl ::core::clone::Clone for DXVA2_ConfigPictureDecode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DXVA2_DECODE_GET_DRIVER_HANDLE: u32 = 1829u32;
 pub const DXVA2_DECODE_SPECIFY_ENCRYPTED_BLOCKS: u32 = 1828u32;
 #[repr(C)]
-pub struct DXVA2_DecodeBufferDesc(i32);
+pub struct DXVA2_DecodeBufferDesc {
+    pub CompressedBufferType: DXVA2_BufferfType,
+    pub BufferIndex: u32,
+    pub DataOffset: u32,
+    pub DataSize: u32,
+    pub FirstMBaddress: u32,
+    pub NumMBsInBuffer: u32,
+    pub Width: u32,
+    pub Height: u32,
+    pub Stride: u32,
+    pub ReservedBits: u32,
+    pub pvPVPState: *mut ::core::ffi::c_void,
+}
+impl ::core::marker::Copy for DXVA2_DecodeBufferDesc {}
+impl ::core::clone::Clone for DXVA2_DecodeBufferDesc {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DXVA2_DecodeExecuteParams(i32);
+pub struct DXVA2_DecodeExecuteParams {
+    pub NumCompBuffers: u32,
+    pub pCompressedBuffers: *mut DXVA2_DecodeBufferDesc,
+    pub pExtensionData: *mut DXVA2_DecodeExtensionData,
+}
+impl ::core::marker::Copy for DXVA2_DecodeExecuteParams {}
+impl ::core::clone::Clone for DXVA2_DecodeExecuteParams {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DXVA2_DecodeExtensionData(i32);
+pub struct DXVA2_DecodeExtensionData {
+    pub Function: u32,
+    pub pPrivateInputData: *mut ::core::ffi::c_void,
+    pub PrivateInputDataSize: u32,
+    pub pPrivateOutputData: *mut ::core::ffi::c_void,
+    pub PrivateOutputDataSize: u32,
+}
+impl ::core::marker::Copy for DXVA2_DecodeExtensionData {}
+impl ::core::clone::Clone for DXVA2_DecodeExtensionData {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DXVA2_DeinterlaceTech(pub i32);
 pub const DXVA2_DeinterlaceTech_Unknown: DXVA2_DeinterlaceTech = DXVA2_DeinterlaceTech(0i32);
@@ -2250,12 +5229,24 @@ pub const DXVA2_DeinterlaceTech_PixelAdaptive: DXVA2_DeinterlaceTech = DXVA2_Dei
 pub const DXVA2_DeinterlaceTech_MotionVectorSteered: DXVA2_DeinterlaceTech = DXVA2_DeinterlaceTech(128i32);
 pub const DXVA2_DeinterlaceTech_InverseTelecine: DXVA2_DeinterlaceTech = DXVA2_DeinterlaceTech(256i32);
 pub const DXVA2_DeinterlaceTech_Mask: DXVA2_DeinterlaceTech = DXVA2_DeinterlaceTech(511i32);
+impl ::core::marker::Copy for DXVA2_DeinterlaceTech {}
+impl ::core::clone::Clone for DXVA2_DeinterlaceTech {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DXVA2_DestData(pub i32);
 pub const DXVA2_DestData_RFF: DXVA2_DestData = DXVA2_DestData(1i32);
 pub const DXVA2_DestData_TFF: DXVA2_DestData = DXVA2_DestData(2i32);
 pub const DXVA2_DestData_RFF_TFF_Present: DXVA2_DestData = DXVA2_DestData(4i32);
 pub const DXVA2_DestData_Mask: DXVA2_DestData = DXVA2_DestData(65535i32);
+impl ::core::marker::Copy for DXVA2_DestData {}
+impl ::core::clone::Clone for DXVA2_DestData {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DXVA2_DetailFilterTech(pub i32);
 pub const DXVA2_DetailFilterTech_Unsupported: DXVA2_DetailFilterTech = DXVA2_DetailFilterTech(0i32);
@@ -2263,12 +5254,47 @@ pub const DXVA2_DetailFilterTech_Unknown: DXVA2_DetailFilterTech = DXVA2_DetailF
 pub const DXVA2_DetailFilterTech_Edge: DXVA2_DetailFilterTech = DXVA2_DetailFilterTech(2i32);
 pub const DXVA2_DetailFilterTech_Sharpening: DXVA2_DetailFilterTech = DXVA2_DetailFilterTech(4i32);
 pub const DXVA2_DetailFilterTech_Mask: DXVA2_DetailFilterTech = DXVA2_DetailFilterTech(7i32);
+impl ::core::marker::Copy for DXVA2_DetailFilterTech {}
+impl ::core::clone::Clone for DXVA2_DetailFilterTech {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DXVA2_E_NEW_VIDEO_DEVICE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147217407i32 as _);
 pub const DXVA2_E_NOT_AVAILABLE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147217405i32 as _);
 pub const DXVA2_E_NOT_INITIALIZED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147217408i32 as _);
 pub const DXVA2_E_VIDEO_DEVICE_LOCKED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147217406i32 as _);
 #[repr(C)]
-pub struct DXVA2_ExtendedFormat(i32);
+pub struct DXVA2_ExtendedFormat {
+    pub Anonymous: DXVA2_ExtendedFormat_0,
+}
+impl ::core::marker::Copy for DXVA2_ExtendedFormat {}
+impl ::core::clone::Clone for DXVA2_ExtendedFormat {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub union DXVA2_ExtendedFormat_0 {
+    pub Anonymous: DXVA2_ExtendedFormat_0_0,
+    pub value: u32,
+}
+impl ::core::marker::Copy for DXVA2_ExtendedFormat_0 {}
+impl ::core::clone::Clone for DXVA2_ExtendedFormat_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct DXVA2_ExtendedFormat_0_0 {
+    pub _bitfield: u32,
+}
+impl ::core::marker::Copy for DXVA2_ExtendedFormat_0_0 {}
+impl ::core::clone::Clone for DXVA2_ExtendedFormat_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DXVA2_FilterType(pub i32);
 pub const DXVA2_NoiseFilterLumaLevel: DXVA2_FilterType = DXVA2_FilterType(1i32);
@@ -2283,12 +5309,67 @@ pub const DXVA2_DetailFilterLumaRadius: DXVA2_FilterType = DXVA2_FilterType(9i32
 pub const DXVA2_DetailFilterChromaLevel: DXVA2_FilterType = DXVA2_FilterType(10i32);
 pub const DXVA2_DetailFilterChromaThreshold: DXVA2_FilterType = DXVA2_FilterType(11i32);
 pub const DXVA2_DetailFilterChromaRadius: DXVA2_FilterType = DXVA2_FilterType(12i32);
+impl ::core::marker::Copy for DXVA2_FilterType {}
+impl ::core::clone::Clone for DXVA2_FilterType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DXVA2_FilterValues(i32);
+pub struct DXVA2_FilterValues {
+    pub Level: DXVA2_Fixed32,
+    pub Threshold: DXVA2_Fixed32,
+    pub Radius: DXVA2_Fixed32,
+}
+impl ::core::marker::Copy for DXVA2_FilterValues {}
+impl ::core::clone::Clone for DXVA2_FilterValues {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DXVA2_Fixed32(i32);
+pub struct DXVA2_Fixed32 {
+    pub Anonymous: DXVA2_Fixed32_0,
+}
+impl ::core::marker::Copy for DXVA2_Fixed32 {}
+impl ::core::clone::Clone for DXVA2_Fixed32 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DXVA2_Frequency(i32);
+pub union DXVA2_Fixed32_0 {
+    pub Anonymous: DXVA2_Fixed32_0_0,
+    pub ll: i32,
+}
+impl ::core::marker::Copy for DXVA2_Fixed32_0 {}
+impl ::core::clone::Clone for DXVA2_Fixed32_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct DXVA2_Fixed32_0_0 {
+    pub Fraction: u16,
+    pub Value: i16,
+}
+impl ::core::marker::Copy for DXVA2_Fixed32_0_0 {}
+impl ::core::clone::Clone for DXVA2_Fixed32_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct DXVA2_Frequency {
+    pub Numerator: u32,
+    pub Denominator: u32,
+}
+impl ::core::marker::Copy for DXVA2_Frequency {}
+impl ::core::clone::Clone for DXVA2_Frequency {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DXVA2_ModeH264_A: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 461487716, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
 pub const DXVA2_ModeH264_B: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 461487717, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
 pub const DXVA2_ModeH264_C: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 461487718, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
@@ -2377,6 +5458,12 @@ pub const DXVA2_NoiseFilterTech_Temporal: DXVA2_NoiseFilterTech = DXVA2_NoiseFil
 pub const DXVA2_NoiseFilterTech_BlockNoise: DXVA2_NoiseFilterTech = DXVA2_NoiseFilterTech(8i32);
 pub const DXVA2_NoiseFilterTech_MosquitoNoise: DXVA2_NoiseFilterTech = DXVA2_NoiseFilterTech(16i32);
 pub const DXVA2_NoiseFilterTech_Mask: DXVA2_NoiseFilterTech = DXVA2_NoiseFilterTech(31i32);
+impl ::core::marker::Copy for DXVA2_NoiseFilterTech {}
+impl ::core::clone::Clone for DXVA2_NoiseFilterTech {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DXVA2_NominalRange(pub i32);
 pub const DXVA2_NominalRangeMask: DXVA2_NominalRange = DXVA2_NominalRange(7i32);
@@ -2386,6 +5473,12 @@ pub const DXVA2_NominalRange_Wide: DXVA2_NominalRange = DXVA2_NominalRange(2i32)
 pub const DXVA2_NominalRange_0_255: DXVA2_NominalRange = DXVA2_NominalRange(1i32);
 pub const DXVA2_NominalRange_16_235: DXVA2_NominalRange = DXVA2_NominalRange(2i32);
 pub const DXVA2_NominalRange_48_208: DXVA2_NominalRange = DXVA2_NominalRange(3i32);
+impl ::core::marker::Copy for DXVA2_NominalRange {}
+impl ::core::clone::Clone for DXVA2_NominalRange {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DXVA2_ProcAmp(pub i32);
 pub const DXVA2_ProcAmp_None: DXVA2_ProcAmp = DXVA2_ProcAmp(0i32);
@@ -2394,14 +5487,37 @@ pub const DXVA2_ProcAmp_Contrast: DXVA2_ProcAmp = DXVA2_ProcAmp(2i32);
 pub const DXVA2_ProcAmp_Hue: DXVA2_ProcAmp = DXVA2_ProcAmp(4i32);
 pub const DXVA2_ProcAmp_Saturation: DXVA2_ProcAmp = DXVA2_ProcAmp(8i32);
 pub const DXVA2_ProcAmp_Mask: DXVA2_ProcAmp = DXVA2_ProcAmp(15i32);
+impl ::core::marker::Copy for DXVA2_ProcAmp {}
+impl ::core::clone::Clone for DXVA2_ProcAmp {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DXVA2_ProcAmpValues(i32);
+pub struct DXVA2_ProcAmpValues {
+    pub Brightness: DXVA2_Fixed32,
+    pub Contrast: DXVA2_Fixed32,
+    pub Hue: DXVA2_Fixed32,
+    pub Saturation: DXVA2_Fixed32,
+}
+impl ::core::marker::Copy for DXVA2_ProcAmpValues {}
+impl ::core::clone::Clone for DXVA2_ProcAmpValues {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DXVA2_SampleData(pub i32);
 pub const DXVA2_SampleData_RFF: DXVA2_SampleData = DXVA2_SampleData(1i32);
 pub const DXVA2_SampleData_TFF: DXVA2_SampleData = DXVA2_SampleData(2i32);
 pub const DXVA2_SampleData_RFF_TFF_Present: DXVA2_SampleData = DXVA2_SampleData(4i32);
 pub const DXVA2_SampleData_Mask: DXVA2_SampleData = DXVA2_SampleData(65535i32);
+impl ::core::marker::Copy for DXVA2_SampleData {}
+impl ::core::clone::Clone for DXVA2_SampleData {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DXVA2_SampleFormat(pub i32);
 pub const DXVA2_SampleFormatMask: DXVA2_SampleFormat = DXVA2_SampleFormat(255i32);
@@ -2412,19 +5528,48 @@ pub const DXVA2_SampleFieldInterleavedOddFirst: DXVA2_SampleFormat = DXVA2_Sampl
 pub const DXVA2_SampleFieldSingleEven: DXVA2_SampleFormat = DXVA2_SampleFormat(5i32);
 pub const DXVA2_SampleFieldSingleOdd: DXVA2_SampleFormat = DXVA2_SampleFormat(6i32);
 pub const DXVA2_SampleSubStream: DXVA2_SampleFormat = DXVA2_SampleFormat(7i32);
+impl ::core::marker::Copy for DXVA2_SampleFormat {}
+impl ::core::clone::Clone for DXVA2_SampleFormat {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DXVA2_SurfaceType(pub i32);
 pub const DXVA2_SurfaceType_DecoderRenderTarget: DXVA2_SurfaceType = DXVA2_SurfaceType(0i32);
 pub const DXVA2_SurfaceType_ProcessorRenderTarget: DXVA2_SurfaceType = DXVA2_SurfaceType(1i32);
 pub const DXVA2_SurfaceType_D3DRenderTargetTexture: DXVA2_SurfaceType = DXVA2_SurfaceType(2i32);
+impl ::core::marker::Copy for DXVA2_SurfaceType {}
+impl ::core::clone::Clone for DXVA2_SurfaceType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DXVA2_VPDev(pub i32);
 pub const DXVA2_VPDev_HardwareDevice: DXVA2_VPDev = DXVA2_VPDev(1i32);
 pub const DXVA2_VPDev_EmulatedDXVA1: DXVA2_VPDev = DXVA2_VPDev(2i32);
 pub const DXVA2_VPDev_SoftwareDevice: DXVA2_VPDev = DXVA2_VPDev(4i32);
 pub const DXVA2_VPDev_Mask: DXVA2_VPDev = DXVA2_VPDev(7i32);
+impl ::core::marker::Copy for DXVA2_VPDev {}
+impl ::core::clone::Clone for DXVA2_VPDev {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DXVA2_ValueRange(i32);
+pub struct DXVA2_ValueRange {
+    pub MinValue: DXVA2_Fixed32,
+    pub MaxValue: DXVA2_Fixed32,
+    pub DefaultValue: DXVA2_Fixed32,
+    pub StepSize: DXVA2_Fixed32,
+}
+impl ::core::marker::Copy for DXVA2_ValueRange {}
+impl ::core::clone::Clone for DXVA2_ValueRange {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DXVA2_VideoChromaSubSampling(pub i32);
 pub const DXVA2_VideoChromaSubsamplingMask: DXVA2_VideoChromaSubSampling = DXVA2_VideoChromaSubSampling(15i32);
@@ -2437,9 +5582,32 @@ pub const DXVA2_VideoChromaSubsampling_MPEG2: DXVA2_VideoChromaSubSampling = DXV
 pub const DXVA2_VideoChromaSubsampling_MPEG1: DXVA2_VideoChromaSubSampling = DXVA2_VideoChromaSubSampling(1i32);
 pub const DXVA2_VideoChromaSubsampling_DV_PAL: DXVA2_VideoChromaSubSampling = DXVA2_VideoChromaSubSampling(6i32);
 pub const DXVA2_VideoChromaSubsampling_Cosited: DXVA2_VideoChromaSubSampling = DXVA2_VideoChromaSubSampling(7i32);
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::marker::Copy for DXVA2_VideoChromaSubSampling {}
+impl ::core::clone::Clone for DXVA2_VideoChromaSubSampling {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DXVA2_VideoDesc(i32);
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+pub struct DXVA2_VideoDesc {
+    pub SampleWidth: u32,
+    pub SampleHeight: u32,
+    pub SampleFormat: DXVA2_ExtendedFormat,
+    pub Format: super::super::Graphics::Direct3D9::D3DFORMAT,
+    pub InputSampleFreq: DXVA2_Frequency,
+    pub OutputFrameFreq: DXVA2_Frequency,
+    pub UABProtectionLevel: u32,
+    pub Reserved: u32,
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::marker::Copy for DXVA2_VideoDesc {}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::clone::Clone for DXVA2_VideoDesc {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DXVA2_VideoLighting(pub i32);
 pub const DXVA2_VideoLightingMask: DXVA2_VideoLighting = DXVA2_VideoLighting(15i32);
@@ -2448,6 +5616,12 @@ pub const DXVA2_VideoLighting_bright: DXVA2_VideoLighting = DXVA2_VideoLighting(
 pub const DXVA2_VideoLighting_office: DXVA2_VideoLighting = DXVA2_VideoLighting(2i32);
 pub const DXVA2_VideoLighting_dim: DXVA2_VideoLighting = DXVA2_VideoLighting(3i32);
 pub const DXVA2_VideoLighting_dark: DXVA2_VideoLighting = DXVA2_VideoLighting(4i32);
+impl ::core::marker::Copy for DXVA2_VideoLighting {}
+impl ::core::clone::Clone for DXVA2_VideoLighting {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DXVA2_VideoPrimaries(pub i32);
 pub const DXVA2_VideoPrimariesMask: DXVA2_VideoPrimaries = DXVA2_VideoPrimaries(31i32);
@@ -2460,6 +5634,12 @@ pub const DXVA2_VideoPrimaries_SMPTE170M: DXVA2_VideoPrimaries = DXVA2_VideoPrim
 pub const DXVA2_VideoPrimaries_SMPTE240M: DXVA2_VideoPrimaries = DXVA2_VideoPrimaries(6i32);
 pub const DXVA2_VideoPrimaries_EBU3213: DXVA2_VideoPrimaries = DXVA2_VideoPrimaries(7i32);
 pub const DXVA2_VideoPrimaries_SMPTE_C: DXVA2_VideoPrimaries = DXVA2_VideoPrimaries(8i32);
+impl ::core::marker::Copy for DXVA2_VideoPrimaries {}
+impl ::core::clone::Clone for DXVA2_VideoPrimaries {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DXVA2_VideoProcBobDevice: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 861578094,
     data2: 30852,
@@ -2498,20 +5678,91 @@ pub const DXVA2_VideoProcess_LinearScaling: DXVA2_VideoProcess = DXVA2_VideoProc
 pub const DXVA2_VideoProcess_GammaCompensated: DXVA2_VideoProcess = DXVA2_VideoProcess(16384i32);
 pub const DXVA2_VideoProcess_MaintainsOriginalFieldData: DXVA2_VideoProcess = DXVA2_VideoProcess(32768i32);
 pub const DXVA2_VideoProcess_Mask: DXVA2_VideoProcess = DXVA2_VideoProcess(65535i32);
+impl ::core::marker::Copy for DXVA2_VideoProcess {}
+impl ::core::clone::Clone for DXVA2_VideoProcess {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+pub struct DXVA2_VideoProcessBltParams {
+    pub TargetFrame: i64,
+    pub TargetRect: super::super::Foundation::RECT,
+    pub ConstrictionSize: super::super::Foundation::SIZE,
+    pub StreamingFlags: u32,
+    pub BackgroundColor: DXVA2_AYUVSample16,
+    pub DestFormat: DXVA2_ExtendedFormat,
+    pub ProcAmpValues: DXVA2_ProcAmpValues,
+    pub Alpha: DXVA2_Fixed32,
+    pub NoiseFilterLuma: DXVA2_FilterValues,
+    pub NoiseFilterChroma: DXVA2_FilterValues,
+    pub DetailFilterLuma: DXVA2_FilterValues,
+    pub DetailFilterChroma: DXVA2_FilterValues,
+    pub DestData: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DXVA2_VideoProcessBltParams {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DXVA2_VideoProcessBltParams {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DXVA2_VideoProcessBltParams(i32);
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-#[repr(C)]
-pub struct DXVA2_VideoProcessorCaps(i32);
+pub struct DXVA2_VideoProcessorCaps {
+    pub DeviceCaps: u32,
+    pub InputPool: super::super::Graphics::Direct3D9::D3DPOOL,
+    pub NumForwardRefSamples: u32,
+    pub NumBackwardRefSamples: u32,
+    pub Reserved: u32,
+    pub DeinterlaceTechnology: u32,
+    pub ProcAmpControlCaps: u32,
+    pub VideoProcessorOperations: u32,
+    pub NoiseFilterTechnology: u32,
+    pub DetailFilterTechnology: u32,
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::marker::Copy for DXVA2_VideoProcessorCaps {}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::clone::Clone for DXVA2_VideoProcessorCaps {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DXVA2_VideoRenderTargetType(pub i32);
 pub const DXVA2_VideoDecoderRenderTarget: DXVA2_VideoRenderTargetType = DXVA2_VideoRenderTargetType(0i32);
 pub const DXVA2_VideoProcessorRenderTarget: DXVA2_VideoRenderTargetType = DXVA2_VideoRenderTargetType(1i32);
 pub const DXVA2_VideoSoftwareRenderTarget: DXVA2_VideoRenderTargetType = DXVA2_VideoRenderTargetType(2i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+impl ::core::marker::Copy for DXVA2_VideoRenderTargetType {}
+impl ::core::clone::Clone for DXVA2_VideoRenderTargetType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DXVA2_VideoSample(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+pub struct DXVA2_VideoSample {
+    pub Start: i64,
+    pub End: i64,
+    pub SampleFormat: DXVA2_ExtendedFormat,
+    pub SrcSurface: ::core::option::Option<super::super::Graphics::Direct3D9::IDirect3DSurface9>,
+    pub SrcRect: super::super::Foundation::RECT,
+    pub DstRect: super::super::Foundation::RECT,
+    pub Pal: [DXVA2_AYUVSample8; 16],
+    pub PlanarAlpha: DXVA2_Fixed32,
+    pub SampleData: u32,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+impl ::core::marker::Copy for DXVA2_VideoSample {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+impl ::core::clone::Clone for DXVA2_VideoSample {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DXVA2_VideoTransferFunction(pub i32);
 pub const DXVA2_VideoTransFuncMask: DXVA2_VideoTransferFunction = DXVA2_VideoTransferFunction(31i32);
@@ -2524,6 +5775,12 @@ pub const DXVA2_VideoTransFunc_709: DXVA2_VideoTransferFunction = DXVA2_VideoTra
 pub const DXVA2_VideoTransFunc_240M: DXVA2_VideoTransferFunction = DXVA2_VideoTransferFunction(6i32);
 pub const DXVA2_VideoTransFunc_sRGB: DXVA2_VideoTransferFunction = DXVA2_VideoTransferFunction(7i32);
 pub const DXVA2_VideoTransFunc_28: DXVA2_VideoTransferFunction = DXVA2_VideoTransferFunction(8i32);
+impl ::core::marker::Copy for DXVA2_VideoTransferFunction {}
+impl ::core::clone::Clone for DXVA2_VideoTransferFunction {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DXVA2_VideoTransferMatrix(pub i32);
 pub const DXVA2_VideoTransferMatrixMask: DXVA2_VideoTransferMatrix = DXVA2_VideoTransferMatrix(7i32);
@@ -2531,11 +5788,43 @@ pub const DXVA2_VideoTransferMatrix_Unknown: DXVA2_VideoTransferMatrix = DXVA2_V
 pub const DXVA2_VideoTransferMatrix_BT709: DXVA2_VideoTransferMatrix = DXVA2_VideoTransferMatrix(1i32);
 pub const DXVA2_VideoTransferMatrix_BT601: DXVA2_VideoTransferMatrix = DXVA2_VideoTransferMatrix(2i32);
 pub const DXVA2_VideoTransferMatrix_SMPTE240M: DXVA2_VideoTransferMatrix = DXVA2_VideoTransferMatrix(3i32);
+impl ::core::marker::Copy for DXVA2_VideoTransferMatrix {}
+impl ::core::clone::Clone for DXVA2_VideoTransferMatrix {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DXVABufferInfo(i32);
+pub struct DXVABufferInfo {
+    pub pCompSurface: *mut ::core::ffi::c_void,
+    pub DataOffset: u32,
+    pub DataSize: u32,
+}
+impl ::core::marker::Copy for DXVABufferInfo {}
+impl ::core::clone::Clone for DXVABufferInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-#[repr(C)]
-pub struct DXVACompBufferInfo(i32);
+pub struct DXVACompBufferInfo {
+    pub NumCompBuffers: u32,
+    pub WidthToCreate: u32,
+    pub HeightToCreate: u32,
+    pub BytesToAllocate: u32,
+    pub Usage: u32,
+    pub Pool: super::super::Graphics::Direct3D9::D3DPOOL,
+    pub Format: super::super::Graphics::Direct3D9::D3DFORMAT,
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::marker::Copy for DXVACompBufferInfo {}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::clone::Clone for DXVACompBufferInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DXVAHDControlGuid: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2688052853, data2: 63244, data3: 17996, data4: [169, 206, 51, 196, 78, 9, 22, 35] };
 pub const DXVAHDETWGUID_CREATEVIDEOPROCESSOR: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1746812190, data2: 22132, data3: 20403, data4: [165, 3, 47, 32, 85, 233, 31, 96] };
 pub const DXVAHDETWGUID_DESTROYVIDEOPROCESSOR: ::windows_sys::core::GUID = ::windows_sys::GUID {
@@ -2559,30 +5848,144 @@ pub const DXVAHDETWGUID_VIDEOPROCESSBLTSTATE: ::windows_sys::core::GUID = ::wind
 };
 pub const DXVAHDETWGUID_VIDEOPROCESSSTREAMSTATE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 640420610, data2: 8349, data3: 18413, data4: [148, 216, 130, 174, 2, 184, 74, 167] };
 #[repr(C)]
-pub struct DXVAHDETW_CREATEVIDEOPROCESSOR(i32);
+pub struct DXVAHDETW_CREATEVIDEOPROCESSOR {
+    pub pObject: u64,
+    pub pD3D9Ex: u64,
+    pub VPGuid: ::windows_sys::core::GUID,
+}
+impl ::core::marker::Copy for DXVAHDETW_CREATEVIDEOPROCESSOR {}
+impl ::core::clone::Clone for DXVAHDETW_CREATEVIDEOPROCESSOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DXVAHDETW_DESTROYVIDEOPROCESSOR(i32);
+pub struct DXVAHDETW_DESTROYVIDEOPROCESSOR {
+    pub pObject: u64,
+}
+impl ::core::marker::Copy for DXVAHDETW_DESTROYVIDEOPROCESSOR {}
+impl ::core::clone::Clone for DXVAHDETW_DESTROYVIDEOPROCESSOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
-#[repr(C)]
-pub struct DXVAHDETW_VIDEOPROCESSBLTHD(i32);
+pub struct DXVAHDETW_VIDEOPROCESSBLTHD {
+    pub pObject: u64,
+    pub pOutputSurface: u64,
+    pub TargetRect: super::super::Foundation::RECT,
+    pub OutputFormat: super::super::Graphics::Direct3D9::D3DFORMAT,
+    pub ColorSpace: u32,
+    pub OutputFrame: u32,
+    pub StreamCount: u32,
+    pub Enter: super::super::Foundation::BOOL,
+}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+impl ::core::marker::Copy for DXVAHDETW_VIDEOPROCESSBLTHD {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+impl ::core::clone::Clone for DXVAHDETW_VIDEOPROCESSBLTHD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DXVAHDETW_VIDEOPROCESSBLTHD_STREAM(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+pub struct DXVAHDETW_VIDEOPROCESSBLTHD_STREAM {
+    pub pObject: u64,
+    pub pInputSurface: u64,
+    pub SourceRect: super::super::Foundation::RECT,
+    pub DestinationRect: super::super::Foundation::RECT,
+    pub InputFormat: super::super::Graphics::Direct3D9::D3DFORMAT,
+    pub FrameFormat: DXVAHD_FRAME_FORMAT,
+    pub ColorSpace: u32,
+    pub StreamNumber: u32,
+    pub OutputIndex: u32,
+    pub InputFrameOrField: u32,
+    pub PastFrames: u32,
+    pub FutureFrames: u32,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+impl ::core::marker::Copy for DXVAHDETW_VIDEOPROCESSBLTHD_STREAM {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+impl ::core::clone::Clone for DXVAHDETW_VIDEOPROCESSBLTHD_STREAM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct DXVAHDETW_VIDEOPROCESSBLTSTATE(i32);
+pub struct DXVAHDETW_VIDEOPROCESSBLTSTATE {
+    pub pObject: u64,
+    pub State: DXVAHD_BLT_STATE,
+    pub DataSize: u32,
+    pub SetState: super::super::Foundation::BOOL,
+}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DXVAHDETW_VIDEOPROCESSBLTSTATE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DXVAHDETW_VIDEOPROCESSBLTSTATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DXVAHDETW_VIDEOPROCESSSTREAMSTATE(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct DXVAHDETW_VIDEOPROCESSSTREAMSTATE {
+    pub pObject: u64,
+    pub StreamNumber: u32,
+    pub State: DXVAHD_STREAM_STATE,
+    pub DataSize: u32,
+    pub SetState: super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DXVAHDETW_VIDEOPROCESSSTREAMSTATE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DXVAHDETW_VIDEOPROCESSSTREAMSTATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
-#[repr(C)]
-pub struct DXVAHDSW_CALLBACKS(i32);
+pub struct DXVAHDSW_CALLBACKS {
+    pub CreateDevice: ::core::option::Option<PDXVAHDSW_CreateDevice>,
+    pub ProposeVideoPrivateFormat: ::core::option::Option<PDXVAHDSW_ProposeVideoPrivateFormat>,
+    pub GetVideoProcessorDeviceCaps: ::core::option::Option<PDXVAHDSW_GetVideoProcessorDeviceCaps>,
+    pub GetVideoProcessorOutputFormats: ::core::option::Option<PDXVAHDSW_GetVideoProcessorOutputFormats>,
+    pub GetVideoProcessorInputFormats: ::core::option::Option<PDXVAHDSW_GetVideoProcessorInputFormats>,
+    pub GetVideoProcessorCaps: ::core::option::Option<PDXVAHDSW_GetVideoProcessorCaps>,
+    pub GetVideoProcessorCustomRates: ::core::option::Option<PDXVAHDSW_GetVideoProcessorCustomRates>,
+    pub GetVideoProcessorFilterRange: ::core::option::Option<PDXVAHDSW_GetVideoProcessorFilterRange>,
+    pub DestroyDevice: ::core::option::Option<PDXVAHDSW_DestroyDevice>,
+    pub CreateVideoProcessor: ::core::option::Option<PDXVAHDSW_CreateVideoProcessor>,
+    pub SetVideoProcessBltState: ::core::option::Option<PDXVAHDSW_SetVideoProcessBltState>,
+    pub GetVideoProcessBltStatePrivate: ::core::option::Option<PDXVAHDSW_GetVideoProcessBltStatePrivate>,
+    pub SetVideoProcessStreamState: ::core::option::Option<PDXVAHDSW_SetVideoProcessStreamState>,
+    pub GetVideoProcessStreamStatePrivate: ::core::option::Option<PDXVAHDSW_GetVideoProcessStreamStatePrivate>,
+    pub VideoProcessBltHD: ::core::option::Option<PDXVAHDSW_VideoProcessBltHD>,
+    pub DestroyVideoProcessor: ::core::option::Option<PDXVAHDSW_DestroyVideoProcessor>,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+impl ::core::marker::Copy for DXVAHDSW_CALLBACKS {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+impl ::core::clone::Clone for DXVAHDSW_CALLBACKS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DXVAHD_ALPHA_FILL_MODE(pub i32);
 pub const DXVAHD_ALPHA_FILL_MODE_OPAQUE: DXVAHD_ALPHA_FILL_MODE = DXVAHD_ALPHA_FILL_MODE(0i32);
 pub const DXVAHD_ALPHA_FILL_MODE_BACKGROUND: DXVAHD_ALPHA_FILL_MODE = DXVAHD_ALPHA_FILL_MODE(1i32);
 pub const DXVAHD_ALPHA_FILL_MODE_DESTINATION: DXVAHD_ALPHA_FILL_MODE = DXVAHD_ALPHA_FILL_MODE(2i32);
 pub const DXVAHD_ALPHA_FILL_MODE_SOURCE_STREAM: DXVAHD_ALPHA_FILL_MODE = DXVAHD_ALPHA_FILL_MODE(3i32);
+impl ::core::marker::Copy for DXVAHD_ALPHA_FILL_MODE {}
+impl ::core::clone::Clone for DXVAHD_ALPHA_FILL_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DXVAHD_BLT_STATE(pub i32);
 pub const DXVAHD_BLT_STATE_TARGET_RECT: DXVAHD_BLT_STATE = DXVAHD_BLT_STATE(0i32);
@@ -2591,55 +5994,224 @@ pub const DXVAHD_BLT_STATE_OUTPUT_COLOR_SPACE: DXVAHD_BLT_STATE = DXVAHD_BLT_STA
 pub const DXVAHD_BLT_STATE_ALPHA_FILL: DXVAHD_BLT_STATE = DXVAHD_BLT_STATE(3i32);
 pub const DXVAHD_BLT_STATE_CONSTRICTION: DXVAHD_BLT_STATE = DXVAHD_BLT_STATE(4i32);
 pub const DXVAHD_BLT_STATE_PRIVATE: DXVAHD_BLT_STATE = DXVAHD_BLT_STATE(1000i32);
+impl ::core::marker::Copy for DXVAHD_BLT_STATE {}
+impl ::core::clone::Clone for DXVAHD_BLT_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DXVAHD_BLT_STATE_ALPHA_FILL_DATA(i32);
+pub struct DXVAHD_BLT_STATE_ALPHA_FILL_DATA {
+    pub Mode: DXVAHD_ALPHA_FILL_MODE,
+    pub StreamNumber: u32,
+}
+impl ::core::marker::Copy for DXVAHD_BLT_STATE_ALPHA_FILL_DATA {}
+impl ::core::clone::Clone for DXVAHD_BLT_STATE_ALPHA_FILL_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct DXVAHD_BLT_STATE_BACKGROUND_COLOR_DATA(i32);
+pub struct DXVAHD_BLT_STATE_BACKGROUND_COLOR_DATA {
+    pub YCbCr: super::super::Foundation::BOOL,
+    pub BackgroundColor: DXVAHD_COLOR,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct DXVAHD_BLT_STATE_CONSTRICTION_DATA(i32);
-#[repr(C)]
-pub struct DXVAHD_BLT_STATE_OUTPUT_COLOR_SPACE_DATA(i32);
-#[repr(C)]
-pub struct DXVAHD_BLT_STATE_PRIVATE_DATA(i32);
+impl ::core::marker::Copy for DXVAHD_BLT_STATE_BACKGROUND_COLOR_DATA {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DXVAHD_BLT_STATE_BACKGROUND_COLOR_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DXVAHD_BLT_STATE_TARGET_RECT_DATA(i32);
-#[repr(C)]
-pub struct DXVAHD_COLOR(i32);
-#[repr(C)]
-pub struct DXVAHD_COLOR_RGBA(i32);
-#[repr(C)]
-pub struct DXVAHD_COLOR_YCbCrA(i32);
-#[repr(C)]
-pub struct DXVAHD_CONTENT_DESC(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct DXVAHD_BLT_STATE_CONSTRICTION_DATA {
+    pub Enable: super::super::Foundation::BOOL,
+    pub Size: super::super::Foundation::SIZE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DXVAHD_BLT_STATE_CONSTRICTION_DATA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DXVAHD_BLT_STATE_CONSTRICTION_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DXVAHD_CUSTOM_RATE_DATA(i32);
+pub struct DXVAHD_BLT_STATE_OUTPUT_COLOR_SPACE_DATA {
+    pub Anonymous: DXVAHD_BLT_STATE_OUTPUT_COLOR_SPACE_DATA_0,
+}
+impl ::core::marker::Copy for DXVAHD_BLT_STATE_OUTPUT_COLOR_SPACE_DATA {}
+impl ::core::clone::Clone for DXVAHD_BLT_STATE_OUTPUT_COLOR_SPACE_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub union DXVAHD_BLT_STATE_OUTPUT_COLOR_SPACE_DATA_0 {
+    pub Anonymous: DXVAHD_BLT_STATE_OUTPUT_COLOR_SPACE_DATA_0_0,
+    pub Value: u32,
+}
+impl ::core::marker::Copy for DXVAHD_BLT_STATE_OUTPUT_COLOR_SPACE_DATA_0 {}
+impl ::core::clone::Clone for DXVAHD_BLT_STATE_OUTPUT_COLOR_SPACE_DATA_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct DXVAHD_BLT_STATE_OUTPUT_COLOR_SPACE_DATA_0_0 {
+    pub _bitfield: u32,
+}
+impl ::core::marker::Copy for DXVAHD_BLT_STATE_OUTPUT_COLOR_SPACE_DATA_0_0 {}
+impl ::core::clone::Clone for DXVAHD_BLT_STATE_OUTPUT_COLOR_SPACE_DATA_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct DXVAHD_BLT_STATE_PRIVATE_DATA {
+    pub Guid: ::windows_sys::core::GUID,
+    pub DataSize: u32,
+    pub pData: *mut ::core::ffi::c_void,
+}
+impl ::core::marker::Copy for DXVAHD_BLT_STATE_PRIVATE_DATA {}
+impl ::core::clone::Clone for DXVAHD_BLT_STATE_PRIVATE_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DXVAHD_BLT_STATE_TARGET_RECT_DATA {
+    pub Enable: super::super::Foundation::BOOL,
+    pub TargetRect: super::super::Foundation::RECT,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DXVAHD_BLT_STATE_TARGET_RECT_DATA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DXVAHD_BLT_STATE_TARGET_RECT_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub union DXVAHD_COLOR {
+    pub RGB: DXVAHD_COLOR_RGBA,
+    pub YCbCr: DXVAHD_COLOR_YCbCrA,
+}
+impl ::core::marker::Copy for DXVAHD_COLOR {}
+impl ::core::clone::Clone for DXVAHD_COLOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct DXVAHD_COLOR_RGBA {
+    pub R: f32,
+    pub G: f32,
+    pub B: f32,
+    pub A: f32,
+}
+impl ::core::marker::Copy for DXVAHD_COLOR_RGBA {}
+impl ::core::clone::Clone for DXVAHD_COLOR_RGBA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct DXVAHD_COLOR_YCbCrA {
+    pub Y: f32,
+    pub Cb: f32,
+    pub Cr: f32,
+    pub A: f32,
+}
+impl ::core::marker::Copy for DXVAHD_COLOR_YCbCrA {}
+impl ::core::clone::Clone for DXVAHD_COLOR_YCbCrA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct DXVAHD_CONTENT_DESC {
+    pub InputFrameFormat: DXVAHD_FRAME_FORMAT,
+    pub InputFrameRate: DXVAHD_RATIONAL,
+    pub InputWidth: u32,
+    pub InputHeight: u32,
+    pub OutputFrameRate: DXVAHD_RATIONAL,
+    pub OutputWidth: u32,
+    pub OutputHeight: u32,
+}
+impl ::core::marker::Copy for DXVAHD_CONTENT_DESC {}
+impl ::core::clone::Clone for DXVAHD_CONTENT_DESC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DXVAHD_CUSTOM_RATE_DATA {
+    pub CustomRate: DXVAHD_RATIONAL,
+    pub OutputFrames: u32,
+    pub InputInterlaced: super::super::Foundation::BOOL,
+    pub InputFramesOrFields: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DXVAHD_CUSTOM_RATE_DATA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DXVAHD_CUSTOM_RATE_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DXVAHD_DEVICE_CAPS(pub i32);
 pub const DXVAHD_DEVICE_CAPS_LINEAR_SPACE: DXVAHD_DEVICE_CAPS = DXVAHD_DEVICE_CAPS(1i32);
 pub const DXVAHD_DEVICE_CAPS_xvYCC: DXVAHD_DEVICE_CAPS = DXVAHD_DEVICE_CAPS(2i32);
 pub const DXVAHD_DEVICE_CAPS_RGB_RANGE_CONVERSION: DXVAHD_DEVICE_CAPS = DXVAHD_DEVICE_CAPS(4i32);
 pub const DXVAHD_DEVICE_CAPS_YCbCr_MATRIX_CONVERSION: DXVAHD_DEVICE_CAPS = DXVAHD_DEVICE_CAPS(8i32);
+impl ::core::marker::Copy for DXVAHD_DEVICE_CAPS {}
+impl ::core::clone::Clone for DXVAHD_DEVICE_CAPS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DXVAHD_DEVICE_TYPE(pub i32);
 pub const DXVAHD_DEVICE_TYPE_HARDWARE: DXVAHD_DEVICE_TYPE = DXVAHD_DEVICE_TYPE(0i32);
 pub const DXVAHD_DEVICE_TYPE_SOFTWARE: DXVAHD_DEVICE_TYPE = DXVAHD_DEVICE_TYPE(1i32);
 pub const DXVAHD_DEVICE_TYPE_REFERENCE: DXVAHD_DEVICE_TYPE = DXVAHD_DEVICE_TYPE(2i32);
 pub const DXVAHD_DEVICE_TYPE_OTHER: DXVAHD_DEVICE_TYPE = DXVAHD_DEVICE_TYPE(3i32);
+impl ::core::marker::Copy for DXVAHD_DEVICE_TYPE {}
+impl ::core::clone::Clone for DXVAHD_DEVICE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DXVAHD_DEVICE_USAGE(pub i32);
 pub const DXVAHD_DEVICE_USAGE_PLAYBACK_NORMAL: DXVAHD_DEVICE_USAGE = DXVAHD_DEVICE_USAGE(0i32);
 pub const DXVAHD_DEVICE_USAGE_OPTIMAL_SPEED: DXVAHD_DEVICE_USAGE = DXVAHD_DEVICE_USAGE(1i32);
 pub const DXVAHD_DEVICE_USAGE_OPTIMAL_QUALITY: DXVAHD_DEVICE_USAGE = DXVAHD_DEVICE_USAGE(2i32);
+impl ::core::marker::Copy for DXVAHD_DEVICE_USAGE {}
+impl ::core::clone::Clone for DXVAHD_DEVICE_USAGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DXVAHD_FEATURE_CAPS(pub i32);
 pub const DXVAHD_FEATURE_CAPS_ALPHA_FILL: DXVAHD_FEATURE_CAPS = DXVAHD_FEATURE_CAPS(1i32);
 pub const DXVAHD_FEATURE_CAPS_CONSTRICTION: DXVAHD_FEATURE_CAPS = DXVAHD_FEATURE_CAPS(2i32);
 pub const DXVAHD_FEATURE_CAPS_LUMA_KEY: DXVAHD_FEATURE_CAPS = DXVAHD_FEATURE_CAPS(4i32);
 pub const DXVAHD_FEATURE_CAPS_ALPHA_PALETTE: DXVAHD_FEATURE_CAPS = DXVAHD_FEATURE_CAPS(8i32);
+impl ::core::marker::Copy for DXVAHD_FEATURE_CAPS {}
+impl ::core::clone::Clone for DXVAHD_FEATURE_CAPS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DXVAHD_FILTER(pub i32);
 pub const DXVAHD_FILTER_BRIGHTNESS: DXVAHD_FILTER = DXVAHD_FILTER(0i32);
@@ -2649,6 +6221,12 @@ pub const DXVAHD_FILTER_SATURATION: DXVAHD_FILTER = DXVAHD_FILTER(3i32);
 pub const DXVAHD_FILTER_NOISE_REDUCTION: DXVAHD_FILTER = DXVAHD_FILTER(4i32);
 pub const DXVAHD_FILTER_EDGE_ENHANCEMENT: DXVAHD_FILTER = DXVAHD_FILTER(5i32);
 pub const DXVAHD_FILTER_ANAMORPHIC_SCALING: DXVAHD_FILTER = DXVAHD_FILTER(6i32);
+impl ::core::marker::Copy for DXVAHD_FILTER {}
+impl ::core::clone::Clone for DXVAHD_FILTER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DXVAHD_FILTER_CAPS(pub i32);
 pub const DXVAHD_FILTER_CAPS_BRIGHTNESS: DXVAHD_FILTER_CAPS = DXVAHD_FILTER_CAPS(1i32);
@@ -2658,19 +6236,48 @@ pub const DXVAHD_FILTER_CAPS_SATURATION: DXVAHD_FILTER_CAPS = DXVAHD_FILTER_CAPS
 pub const DXVAHD_FILTER_CAPS_NOISE_REDUCTION: DXVAHD_FILTER_CAPS = DXVAHD_FILTER_CAPS(16i32);
 pub const DXVAHD_FILTER_CAPS_EDGE_ENHANCEMENT: DXVAHD_FILTER_CAPS = DXVAHD_FILTER_CAPS(32i32);
 pub const DXVAHD_FILTER_CAPS_ANAMORPHIC_SCALING: DXVAHD_FILTER_CAPS = DXVAHD_FILTER_CAPS(64i32);
+impl ::core::marker::Copy for DXVAHD_FILTER_CAPS {}
+impl ::core::clone::Clone for DXVAHD_FILTER_CAPS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DXVAHD_FILTER_RANGE_DATA(i32);
+pub struct DXVAHD_FILTER_RANGE_DATA {
+    pub Minimum: i32,
+    pub Maximum: i32,
+    pub Default: i32,
+    pub Multiplier: f32,
+}
+impl ::core::marker::Copy for DXVAHD_FILTER_RANGE_DATA {}
+impl ::core::clone::Clone for DXVAHD_FILTER_RANGE_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DXVAHD_FRAME_FORMAT(pub i32);
 pub const DXVAHD_FRAME_FORMAT_PROGRESSIVE: DXVAHD_FRAME_FORMAT = DXVAHD_FRAME_FORMAT(0i32);
 pub const DXVAHD_FRAME_FORMAT_INTERLACED_TOP_FIELD_FIRST: DXVAHD_FRAME_FORMAT = DXVAHD_FRAME_FORMAT(1i32);
 pub const DXVAHD_FRAME_FORMAT_INTERLACED_BOTTOM_FIELD_FIRST: DXVAHD_FRAME_FORMAT = DXVAHD_FRAME_FORMAT(2i32);
+impl ::core::marker::Copy for DXVAHD_FRAME_FORMAT {}
+impl ::core::clone::Clone for DXVAHD_FRAME_FORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DXVAHD_INPUT_FORMAT_CAPS(pub i32);
 pub const DXVAHD_INPUT_FORMAT_CAPS_RGB_INTERLACED: DXVAHD_INPUT_FORMAT_CAPS = DXVAHD_INPUT_FORMAT_CAPS(1i32);
 pub const DXVAHD_INPUT_FORMAT_CAPS_RGB_PROCAMP: DXVAHD_INPUT_FORMAT_CAPS = DXVAHD_INPUT_FORMAT_CAPS(2i32);
 pub const DXVAHD_INPUT_FORMAT_CAPS_RGB_LUMA_KEY: DXVAHD_INPUT_FORMAT_CAPS = DXVAHD_INPUT_FORMAT_CAPS(4i32);
 pub const DXVAHD_INPUT_FORMAT_CAPS_PALETTE_INTERLACED: DXVAHD_INPUT_FORMAT_CAPS = DXVAHD_INPUT_FORMAT_CAPS(8i32);
+impl ::core::marker::Copy for DXVAHD_INPUT_FORMAT_CAPS {}
+impl ::core::clone::Clone for DXVAHD_INPUT_FORMAT_CAPS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DXVAHD_ITELECINE_CAPS(pub i32);
 pub const DXVAHD_ITELECINE_CAPS_32: DXVAHD_ITELECINE_CAPS = DXVAHD_ITELECINE_CAPS(1i32);
@@ -2683,11 +6290,23 @@ pub const DXVAHD_ITELECINE_CAPS_64: DXVAHD_ITELECINE_CAPS = DXVAHD_ITELECINE_CAP
 pub const DXVAHD_ITELECINE_CAPS_87: DXVAHD_ITELECINE_CAPS = DXVAHD_ITELECINE_CAPS(128i32);
 pub const DXVAHD_ITELECINE_CAPS_222222222223: DXVAHD_ITELECINE_CAPS = DXVAHD_ITELECINE_CAPS(256i32);
 pub const DXVAHD_ITELECINE_CAPS_OTHER: DXVAHD_ITELECINE_CAPS = DXVAHD_ITELECINE_CAPS(-2147483648i32);
+impl ::core::marker::Copy for DXVAHD_ITELECINE_CAPS {}
+impl ::core::clone::Clone for DXVAHD_ITELECINE_CAPS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DXVAHD_OUTPUT_RATE(pub i32);
 pub const DXVAHD_OUTPUT_RATE_NORMAL: DXVAHD_OUTPUT_RATE = DXVAHD_OUTPUT_RATE(0i32);
 pub const DXVAHD_OUTPUT_RATE_HALF: DXVAHD_OUTPUT_RATE = DXVAHD_OUTPUT_RATE(1i32);
 pub const DXVAHD_OUTPUT_RATE_CUSTOM: DXVAHD_OUTPUT_RATE = DXVAHD_OUTPUT_RATE(2i32);
+impl ::core::marker::Copy for DXVAHD_OUTPUT_RATE {}
+impl ::core::clone::Clone for DXVAHD_OUTPUT_RATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DXVAHD_PROCESSOR_CAPS(pub i32);
 pub const DXVAHD_PROCESSOR_CAPS_DEINTERLACE_BLEND: DXVAHD_PROCESSOR_CAPS = DXVAHD_PROCESSOR_CAPS(1i32);
@@ -2696,11 +6315,43 @@ pub const DXVAHD_PROCESSOR_CAPS_DEINTERLACE_ADAPTIVE: DXVAHD_PROCESSOR_CAPS = DX
 pub const DXVAHD_PROCESSOR_CAPS_DEINTERLACE_MOTION_COMPENSATION: DXVAHD_PROCESSOR_CAPS = DXVAHD_PROCESSOR_CAPS(8i32);
 pub const DXVAHD_PROCESSOR_CAPS_INVERSE_TELECINE: DXVAHD_PROCESSOR_CAPS = DXVAHD_PROCESSOR_CAPS(16i32);
 pub const DXVAHD_PROCESSOR_CAPS_FRAME_RATE_CONVERSION: DXVAHD_PROCESSOR_CAPS = DXVAHD_PROCESSOR_CAPS(32i32);
+impl ::core::marker::Copy for DXVAHD_PROCESSOR_CAPS {}
+impl ::core::clone::Clone for DXVAHD_PROCESSOR_CAPS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DXVAHD_RATIONAL(i32);
+pub struct DXVAHD_RATIONAL {
+    pub Numerator: u32,
+    pub Denominator: u32,
+}
+impl ::core::marker::Copy for DXVAHD_RATIONAL {}
+impl ::core::clone::Clone for DXVAHD_RATIONAL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
-#[repr(C)]
-pub struct DXVAHD_STREAM_DATA(i32);
+pub struct DXVAHD_STREAM_DATA {
+    pub Enable: super::super::Foundation::BOOL,
+    pub OutputIndex: u32,
+    pub InputFrameOrField: u32,
+    pub PastFrames: u32,
+    pub FutureFrames: u32,
+    pub ppPastSurfaces: *mut ::core::option::Option<super::super::Graphics::Direct3D9::IDirect3DSurface9>,
+    pub pInputSurface: ::core::option::Option<super::super::Graphics::Direct3D9::IDirect3DSurface9>,
+    pub ppFutureSurfaces: *mut ::core::option::Option<super::super::Graphics::Direct3D9::IDirect3DSurface9>,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+impl ::core::marker::Copy for DXVAHD_STREAM_DATA {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+impl ::core::clone::Clone for DXVAHD_STREAM_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DXVAHD_STREAM_STATE(pub i32);
 pub const DXVAHD_STREAM_STATE_D3DFORMAT: DXVAHD_STREAM_STATE = DXVAHD_STREAM_STATE(0i32);
@@ -2721,87 +6372,491 @@ pub const DXVAHD_STREAM_STATE_FILTER_NOISE_REDUCTION: DXVAHD_STREAM_STATE = DXVA
 pub const DXVAHD_STREAM_STATE_FILTER_EDGE_ENHANCEMENT: DXVAHD_STREAM_STATE = DXVAHD_STREAM_STATE(105i32);
 pub const DXVAHD_STREAM_STATE_FILTER_ANAMORPHIC_SCALING: DXVAHD_STREAM_STATE = DXVAHD_STREAM_STATE(106i32);
 pub const DXVAHD_STREAM_STATE_PRIVATE: DXVAHD_STREAM_STATE = DXVAHD_STREAM_STATE(1000i32);
-#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DXVAHD_STREAM_STATE {}
+impl ::core::clone::Clone for DXVAHD_STREAM_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DXVAHD_STREAM_STATE_ALPHA_DATA(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct DXVAHD_STREAM_STATE_ALPHA_DATA {
+    pub Enable: super::super::Foundation::BOOL,
+    pub Alpha: f32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DXVAHD_STREAM_STATE_ALPHA_DATA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DXVAHD_STREAM_STATE_ALPHA_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DXVAHD_STREAM_STATE_ASPECT_RATIO_DATA(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct DXVAHD_STREAM_STATE_ASPECT_RATIO_DATA {
+    pub Enable: super::super::Foundation::BOOL,
+    pub SourceAspectRatio: DXVAHD_RATIONAL,
+    pub DestinationAspectRatio: DXVAHD_RATIONAL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DXVAHD_STREAM_STATE_ASPECT_RATIO_DATA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DXVAHD_STREAM_STATE_ASPECT_RATIO_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
+pub struct DXVAHD_STREAM_STATE_D3DFORMAT_DATA {
+    pub Format: super::super::Graphics::Direct3D9::D3DFORMAT,
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::marker::Copy for DXVAHD_STREAM_STATE_D3DFORMAT_DATA {}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::clone::Clone for DXVAHD_STREAM_STATE_D3DFORMAT_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DXVAHD_STREAM_STATE_D3DFORMAT_DATA(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct DXVAHD_STREAM_STATE_DESTINATION_RECT_DATA(i32);
+pub struct DXVAHD_STREAM_STATE_DESTINATION_RECT_DATA {
+    pub Enable: super::super::Foundation::BOOL,
+    pub DestinationRect: super::super::Foundation::RECT,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct DXVAHD_STREAM_STATE_FILTER_DATA(i32);
-#[repr(C)]
-pub struct DXVAHD_STREAM_STATE_FRAME_FORMAT_DATA(i32);
-#[repr(C)]
-pub struct DXVAHD_STREAM_STATE_INPUT_COLOR_SPACE_DATA(i32);
+impl ::core::marker::Copy for DXVAHD_STREAM_STATE_DESTINATION_RECT_DATA {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DXVAHD_STREAM_STATE_DESTINATION_RECT_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DXVAHD_STREAM_STATE_LUMA_KEY_DATA(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct DXVAHD_STREAM_STATE_FILTER_DATA {
+    pub Enable: super::super::Foundation::BOOL,
+    pub Level: i32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DXVAHD_STREAM_STATE_FILTER_DATA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DXVAHD_STREAM_STATE_FILTER_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DXVAHD_STREAM_STATE_OUTPUT_RATE_DATA(i32);
+pub struct DXVAHD_STREAM_STATE_FRAME_FORMAT_DATA {
+    pub FrameFormat: DXVAHD_FRAME_FORMAT,
+}
+impl ::core::marker::Copy for DXVAHD_STREAM_STATE_FRAME_FORMAT_DATA {}
+impl ::core::clone::Clone for DXVAHD_STREAM_STATE_FRAME_FORMAT_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DXVAHD_STREAM_STATE_PALETTE_DATA(i32);
+pub struct DXVAHD_STREAM_STATE_INPUT_COLOR_SPACE_DATA {
+    pub Anonymous: DXVAHD_STREAM_STATE_INPUT_COLOR_SPACE_DATA_0,
+}
+impl ::core::marker::Copy for DXVAHD_STREAM_STATE_INPUT_COLOR_SPACE_DATA {}
+impl ::core::clone::Clone for DXVAHD_STREAM_STATE_INPUT_COLOR_SPACE_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DXVAHD_STREAM_STATE_PRIVATE_DATA(i32);
+pub union DXVAHD_STREAM_STATE_INPUT_COLOR_SPACE_DATA_0 {
+    pub Anonymous: DXVAHD_STREAM_STATE_INPUT_COLOR_SPACE_DATA_0_0,
+    pub Value: u32,
+}
+impl ::core::marker::Copy for DXVAHD_STREAM_STATE_INPUT_COLOR_SPACE_DATA_0 {}
+impl ::core::clone::Clone for DXVAHD_STREAM_STATE_INPUT_COLOR_SPACE_DATA_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct DXVAHD_STREAM_STATE_INPUT_COLOR_SPACE_DATA_0_0 {
+    pub _bitfield: u32,
+}
+impl ::core::marker::Copy for DXVAHD_STREAM_STATE_INPUT_COLOR_SPACE_DATA_0_0 {}
+impl ::core::clone::Clone for DXVAHD_STREAM_STATE_INPUT_COLOR_SPACE_DATA_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DXVAHD_STREAM_STATE_LUMA_KEY_DATA {
+    pub Enable: super::super::Foundation::BOOL,
+    pub Lower: f32,
+    pub Upper: f32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DXVAHD_STREAM_STATE_LUMA_KEY_DATA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DXVAHD_STREAM_STATE_LUMA_KEY_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DXVAHD_STREAM_STATE_OUTPUT_RATE_DATA {
+    pub RepeatFrame: super::super::Foundation::BOOL,
+    pub OutputRate: DXVAHD_OUTPUT_RATE,
+    pub CustomRate: DXVAHD_RATIONAL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DXVAHD_STREAM_STATE_OUTPUT_RATE_DATA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DXVAHD_STREAM_STATE_OUTPUT_RATE_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct DXVAHD_STREAM_STATE_PALETTE_DATA {
+    pub Count: u32,
+    pub pEntries: *mut u32,
+}
+impl ::core::marker::Copy for DXVAHD_STREAM_STATE_PALETTE_DATA {}
+impl ::core::clone::Clone for DXVAHD_STREAM_STATE_PALETTE_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct DXVAHD_STREAM_STATE_PRIVATE_DATA {
+    pub Guid: ::windows_sys::core::GUID,
+    pub DataSize: u32,
+    pub pData: *mut ::core::ffi::c_void,
+}
+impl ::core::marker::Copy for DXVAHD_STREAM_STATE_PRIVATE_DATA {}
+impl ::core::clone::Clone for DXVAHD_STREAM_STATE_PRIVATE_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DXVAHD_STREAM_STATE_PRIVATE_IVTC: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2623544892, data2: 3891, data3: 16716, data4: [167, 57, 153, 84, 14, 228, 45, 165] };
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct DXVAHD_STREAM_STATE_PRIVATE_IVTC_DATA(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct DXVAHD_STREAM_STATE_PRIVATE_IVTC_DATA {
+    pub Enable: super::super::Foundation::BOOL,
+    pub ITelecineFlags: u32,
+    pub Frames: u32,
+    pub InputField: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DXVAHD_STREAM_STATE_PRIVATE_IVTC_DATA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DXVAHD_STREAM_STATE_PRIVATE_IVTC_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DXVAHD_STREAM_STATE_SOURCE_RECT_DATA(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct DXVAHD_STREAM_STATE_SOURCE_RECT_DATA {
+    pub Enable: super::super::Foundation::BOOL,
+    pub SourceRect: super::super::Foundation::RECT,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DXVAHD_STREAM_STATE_SOURCE_RECT_DATA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DXVAHD_STREAM_STATE_SOURCE_RECT_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DXVAHD_SURFACE_TYPE(pub i32);
 pub const DXVAHD_SURFACE_TYPE_VIDEO_INPUT: DXVAHD_SURFACE_TYPE = DXVAHD_SURFACE_TYPE(0i32);
 pub const DXVAHD_SURFACE_TYPE_VIDEO_INPUT_PRIVATE: DXVAHD_SURFACE_TYPE = DXVAHD_SURFACE_TYPE(1i32);
 pub const DXVAHD_SURFACE_TYPE_VIDEO_OUTPUT: DXVAHD_SURFACE_TYPE = DXVAHD_SURFACE_TYPE(2i32);
+impl ::core::marker::Copy for DXVAHD_SURFACE_TYPE {}
+impl ::core::clone::Clone for DXVAHD_SURFACE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DXVAHD_VPCAPS(i32);
+pub struct DXVAHD_VPCAPS {
+    pub VPGuid: ::windows_sys::core::GUID,
+    pub PastFrames: u32,
+    pub FutureFrames: u32,
+    pub ProcessorCaps: u32,
+    pub ITelecineCaps: u32,
+    pub CustomRateCount: u32,
+}
+impl ::core::marker::Copy for DXVAHD_VPCAPS {}
+impl ::core::clone::Clone for DXVAHD_VPCAPS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-#[repr(C)]
-pub struct DXVAHD_VPDEVCAPS(i32);
+pub struct DXVAHD_VPDEVCAPS {
+    pub DeviceType: DXVAHD_DEVICE_TYPE,
+    pub DeviceCaps: u32,
+    pub FeatureCaps: u32,
+    pub FilterCaps: u32,
+    pub InputFormatCaps: u32,
+    pub InputPool: super::super::Graphics::Direct3D9::D3DPOOL,
+    pub OutputFormatCount: u32,
+    pub InputFormatCount: u32,
+    pub VideoProcessorCount: u32,
+    pub MaxInputStreams: u32,
+    pub MaxStreamStates: u32,
+}
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::marker::Copy for DXVAHD_VPDEVCAPS {}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::clone::Clone for DXVAHD_VPDEVCAPS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DXVAUncompDataInfo(i32);
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+pub struct DXVAUncompDataInfo {
+    pub UncompWidth: u32,
+    pub UncompHeight: u32,
+    pub UncompFormat: super::super::Graphics::Direct3D9::D3DFORMAT,
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::marker::Copy for DXVAUncompDataInfo {}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::clone::Clone for DXVAUncompDataInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DXVA_AYUVsample2(i32);
+pub struct DXVA_AYUVsample2 {
+    pub bCrValue: u8,
+    pub bCbValue: u8,
+    pub bY_Value: u8,
+    pub bSampleAlpha8: u8,
+}
+impl ::core::marker::Copy for DXVA_AYUVsample2 {}
+impl ::core::clone::Clone for DXVA_AYUVsample2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub struct DXVA_BufferDescription {
+    pub dwTypeIndex: u32,
+    pub dwBufferIndex: u32,
+    pub dwDataOffset: u32,
+    pub dwDataSize: u32,
+    pub dwFirstMBaddress: u32,
+    pub dwNumMBsInBuffer: u32,
+    pub dwWidth: u32,
+    pub dwHeight: u32,
+    pub dwStride: u32,
+    pub dwReservedBits: u32,
+}
+impl ::core::marker::Copy for DXVA_BufferDescription {}
+impl ::core::clone::Clone for DXVA_BufferDescription {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DXVA_BufferDescription(i32);
+pub struct DXVA_COPPCommand {
+    pub macKDI: ::windows_sys::core::GUID,
+    pub guidCommandID: ::windows_sys::core::GUID,
+    pub dwSequence: u32,
+    pub cbSizeData: u32,
+    pub CommandData: [u8; 4056],
+}
+impl ::core::marker::Copy for DXVA_COPPCommand {}
+impl ::core::clone::Clone for DXVA_COPPCommand {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DXVA_COPPCommand(i32);
+pub struct DXVA_COPPSignature {
+    pub Signature: [u8; 256],
+}
+impl ::core::marker::Copy for DXVA_COPPSignature {}
+impl ::core::clone::Clone for DXVA_COPPSignature {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DXVA_COPPSignature(i32);
+pub struct DXVA_COPPStatusInput {
+    pub rApp: ::windows_sys::core::GUID,
+    pub guidStatusRequestID: ::windows_sys::core::GUID,
+    pub dwSequence: u32,
+    pub cbSizeData: u32,
+    pub StatusData: [u8; 4056],
+}
+impl ::core::marker::Copy for DXVA_COPPStatusInput {}
+impl ::core::clone::Clone for DXVA_COPPStatusInput {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DXVA_COPPStatusInput(i32);
+pub struct DXVA_COPPStatusOutput {
+    pub macKDI: ::windows_sys::core::GUID,
+    pub cbSizeData: u32,
+    pub COPPStatus: [u8; 4076],
+}
+impl ::core::marker::Copy for DXVA_COPPStatusOutput {}
+impl ::core::clone::Clone for DXVA_COPPStatusOutput {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub struct DXVA_ConfigPictureDecode {
+    pub dwFunction: u32,
+    pub dwReservedBits: [u32; 3],
+    pub guidConfigBitstreamEncryption: ::windows_sys::core::GUID,
+    pub guidConfigMBcontrolEncryption: ::windows_sys::core::GUID,
+    pub guidConfigResidDiffEncryption: ::windows_sys::core::GUID,
+    pub bConfigBitstreamRaw: u8,
+    pub bConfigMBcontrolRasterOrder: u8,
+    pub bConfigResidDiffHost: u8,
+    pub bConfigSpatialResid8: u8,
+    pub bConfigResid8Subtraction: u8,
+    pub bConfigSpatialHost8or9Clipping: u8,
+    pub bConfigSpatialResidInterleaved: u8,
+    pub bConfigIntraResidUnsigned: u8,
+    pub bConfigResidDiffAccelerator: u8,
+    pub bConfigHostInverseScan: u8,
+    pub bConfigSpecificIDCT: u8,
+    pub bConfig4GroupedCoefs: u8,
+}
+impl ::core::marker::Copy for DXVA_ConfigPictureDecode {}
+impl ::core::clone::Clone for DXVA_ConfigPictureDecode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DXVA_COPPStatusOutput(i32);
-#[repr(C)]
-pub struct DXVA_ConfigPictureDecode(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct DXVA_DeinterlaceBlt(i32);
+pub struct DXVA_DeinterlaceBlt {
+    pub Size: u32,
+    pub Reserved: u32,
+    pub rtTarget: i64,
+    pub DstRect: super::super::Foundation::RECT,
+    pub SrcRect: super::super::Foundation::RECT,
+    pub NumSourceSurfaces: u32,
+    pub Alpha: f32,
+    pub Source: [DXVA_VideoSample; 32],
+}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DXVA_DeinterlaceBlt {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DXVA_DeinterlaceBlt {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DXVA_DeinterlaceBltEx(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct DXVA_DeinterlaceBltEx {
+    pub Size: u32,
+    pub BackgroundColor: DXVA_AYUVsample2,
+    pub rcTarget: super::super::Foundation::RECT,
+    pub rtTarget: i64,
+    pub NumSourceSurfaces: u32,
+    pub Alpha: f32,
+    pub Source: [DXVA_VideoSample2; 32],
+    pub DestinationFormat: u32,
+    pub DestinationFlags: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DXVA_DeinterlaceBltEx {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DXVA_DeinterlaceBltEx {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
+pub struct DXVA_DeinterlaceBltEx32 {
+    pub Size: u32,
+    pub BackgroundColor: DXVA_AYUVsample2,
+    pub rcTarget: super::super::Foundation::RECT,
+    pub rtTarget: i64,
+    pub NumSourceSurfaces: u32,
+    pub Alpha: f32,
+    pub Source: [DXVA_VideoSample32; 32],
+    pub DestinationFormat: u32,
+    pub DestinationFlags: u32,
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DXVA_DeinterlaceBltEx32 {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DXVA_DeinterlaceBltEx32 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DXVA_DeinterlaceBltEx32(i32);
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-#[repr(C)]
-pub struct DXVA_DeinterlaceCaps(i32);
-#[repr(C)]
-pub struct DXVA_DeinterlaceQueryAvailableModes(i32);
+pub struct DXVA_DeinterlaceCaps {
+    pub Size: u32,
+    pub NumPreviousOutputFrames: u32,
+    pub InputPool: u32,
+    pub NumForwardRefSamples: u32,
+    pub NumBackwardRefSamples: u32,
+    pub d3dOutputFormat: super::super::Graphics::Direct3D9::D3DFORMAT,
+    pub VideoProcessingCaps: DXVA_VideoProcessCaps,
+    pub DeinterlaceTechnology: DXVA_DeinterlaceTech,
+}
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::marker::Copy for DXVA_DeinterlaceCaps {}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::clone::Clone for DXVA_DeinterlaceCaps {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DXVA_DeinterlaceQueryModeCaps(i32);
+pub struct DXVA_DeinterlaceQueryAvailableModes {
+    pub Size: u32,
+    pub NumGuids: u32,
+    pub Guids: [::windows_sys::core::GUID; 32],
+}
+impl ::core::marker::Copy for DXVA_DeinterlaceQueryAvailableModes {}
+impl ::core::clone::Clone for DXVA_DeinterlaceQueryAvailableModes {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+pub struct DXVA_DeinterlaceQueryModeCaps {
+    pub Size: u32,
+    pub Guid: ::windows_sys::core::GUID,
+    pub VideoDesc: DXVA_VideoDesc,
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::marker::Copy for DXVA_DeinterlaceQueryModeCaps {}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::clone::Clone for DXVA_DeinterlaceQueryModeCaps {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DXVA_DeinterlaceTech(pub i32);
 pub const DXVA_DeinterlaceTech_Unknown: DXVA_DeinterlaceTech = DXVA_DeinterlaceTech(0i32);
@@ -2813,6 +6868,12 @@ pub const DXVA_DeinterlaceTech_EdgeFiltering: DXVA_DeinterlaceTech = DXVA_Deinte
 pub const DXVA_DeinterlaceTech_FieldAdaptive: DXVA_DeinterlaceTech = DXVA_DeinterlaceTech(32i32);
 pub const DXVA_DeinterlaceTech_PixelAdaptive: DXVA_DeinterlaceTech = DXVA_DeinterlaceTech(64i32);
 pub const DXVA_DeinterlaceTech_MotionVectorSteered: DXVA_DeinterlaceTech = DXVA_DeinterlaceTech(128i32);
+impl ::core::marker::Copy for DXVA_DeinterlaceTech {}
+impl ::core::clone::Clone for DXVA_DeinterlaceTech {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DXVA_DestinationFlags(pub i32);
 pub const DXVA_DestinationFlagMask: DXVA_DestinationFlags = DXVA_DestinationFlags(15i32);
@@ -2820,10 +6881,33 @@ pub const DXVA_DestinationFlag_Background_Changed: DXVA_DestinationFlags = DXVA_
 pub const DXVA_DestinationFlag_TargetRect_Changed: DXVA_DestinationFlags = DXVA_DestinationFlags(2i32);
 pub const DXVA_DestinationFlag_ColorData_Changed: DXVA_DestinationFlags = DXVA_DestinationFlags(4i32);
 pub const DXVA_DestinationFlag_Alpha_Changed: DXVA_DestinationFlags = DXVA_DestinationFlags(8i32);
+impl ::core::marker::Copy for DXVA_DestinationFlags {}
+impl ::core::clone::Clone for DXVA_DestinationFlags {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DXVA_ExtendedFormat(i32);
+pub struct DXVA_ExtendedFormat {
+    pub _bitfield: u32,
+}
+impl ::core::marker::Copy for DXVA_ExtendedFormat {}
+impl ::core::clone::Clone for DXVA_ExtendedFormat {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DXVA_Frequency(i32);
+pub struct DXVA_Frequency {
+    pub Numerator: u32,
+    pub Denominator: u32,
+}
+impl ::core::marker::Copy for DXVA_Frequency {}
+impl ::core::clone::Clone for DXVA_Frequency {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DXVA_NominalRange(pub i32);
 pub const DXVA_NominalRangeShift: DXVA_NominalRange = DXVA_NominalRange(12i32);
@@ -2834,14 +6918,94 @@ pub const DXVA_NominalRange_Wide: DXVA_NominalRange = DXVA_NominalRange(2i32);
 pub const DXVA_NominalRange_0_255: DXVA_NominalRange = DXVA_NominalRange(1i32);
 pub const DXVA_NominalRange_16_235: DXVA_NominalRange = DXVA_NominalRange(2i32);
 pub const DXVA_NominalRange_48_208: DXVA_NominalRange = DXVA_NominalRange(3i32);
+impl ::core::marker::Copy for DXVA_NominalRange {}
+impl ::core::clone::Clone for DXVA_NominalRange {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub struct DXVA_PictureParameters {
+    pub wDecodedPictureIndex: u16,
+    pub wDeblockedPictureIndex: u16,
+    pub wForwardRefPictureIndex: u16,
+    pub wBackwardRefPictureIndex: u16,
+    pub wPicWidthInMBminus1: u16,
+    pub wPicHeightInMBminus1: u16,
+    pub bMacroblockWidthMinus1: u8,
+    pub bMacroblockHeightMinus1: u8,
+    pub bBlockWidthMinus1: u8,
+    pub bBlockHeightMinus1: u8,
+    pub bBPPminus1: u8,
+    pub bPicStructure: u8,
+    pub bSecondField: u8,
+    pub bPicIntra: u8,
+    pub bPicBackwardPrediction: u8,
+    pub bBidirectionalAveragingMode: u8,
+    pub bMVprecisionAndChromaRelation: u8,
+    pub bChromaFormat: u8,
+    pub bPicScanFixed: u8,
+    pub bPicScanMethod: u8,
+    pub bPicReadbackRequests: u8,
+    pub bRcontrol: u8,
+    pub bPicSpatialResid8: u8,
+    pub bPicOverflowBlocks: u8,
+    pub bPicExtrapolation: u8,
+    pub bPicDeblocked: u8,
+    pub bPicDeblockConfined: u8,
+    pub bPic4MVallowed: u8,
+    pub bPicOBMC: u8,
+    pub bPicBinPB: u8,
+    pub bMV_RPS: u8,
+    pub bReservedBits: u8,
+    pub wBitstreamFcodes: u16,
+    pub wBitstreamPCEelements: u16,
+    pub bBitstreamConcealmentNeed: u8,
+    pub bBitstreamConcealmentMethod: u8,
+}
+impl ::core::marker::Copy for DXVA_PictureParameters {}
+impl ::core::clone::Clone for DXVA_PictureParameters {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DXVA_PictureParameters(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct DXVA_ProcAmpControlBlt {
+    pub Size: u32,
+    pub DstRect: super::super::Foundation::RECT,
+    pub SrcRect: super::super::Foundation::RECT,
+    pub Alpha: f32,
+    pub Brightness: f32,
+    pub Contrast: f32,
+    pub Hue: f32,
+    pub Saturation: f32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DXVA_ProcAmpControlBlt {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DXVA_ProcAmpControlBlt {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DXVA_ProcAmpControlBlt(i32);
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-#[repr(C)]
-pub struct DXVA_ProcAmpControlCaps(i32);
+pub struct DXVA_ProcAmpControlCaps {
+    pub Size: u32,
+    pub InputPool: u32,
+    pub d3dOutputFormat: super::super::Graphics::Direct3D9::D3DFORMAT,
+    pub ProcAmpControlProps: u32,
+    pub VideoProcessingCaps: u32,
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::marker::Copy for DXVA_ProcAmpControlCaps {}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::clone::Clone for DXVA_ProcAmpControlCaps {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DXVA_ProcAmpControlProp(pub i32);
 pub const DXVA_ProcAmp_None: DXVA_ProcAmpControlProp = DXVA_ProcAmpControlProp(0i32);
@@ -2849,9 +7013,27 @@ pub const DXVA_ProcAmp_Brightness: DXVA_ProcAmpControlProp = DXVA_ProcAmpControl
 pub const DXVA_ProcAmp_Contrast: DXVA_ProcAmpControlProp = DXVA_ProcAmpControlProp(2i32);
 pub const DXVA_ProcAmp_Hue: DXVA_ProcAmpControlProp = DXVA_ProcAmpControlProp(4i32);
 pub const DXVA_ProcAmp_Saturation: DXVA_ProcAmpControlProp = DXVA_ProcAmpControlProp(8i32);
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::marker::Copy for DXVA_ProcAmpControlProp {}
+impl ::core::clone::Clone for DXVA_ProcAmpControlProp {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DXVA_ProcAmpControlQueryRange(i32);
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+pub struct DXVA_ProcAmpControlQueryRange {
+    pub Size: u32,
+    pub ProcAmpControlProp: DXVA_ProcAmpControlProp,
+    pub VideoDesc: DXVA_VideoDesc,
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::marker::Copy for DXVA_ProcAmpControlQueryRange {}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::clone::Clone for DXVA_ProcAmpControlQueryRange {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DXVA_SampleFlags(pub i32);
 pub const DXVA_SampleFlagsMask: DXVA_SampleFlags = DXVA_SampleFlags(15i32);
@@ -2859,6 +7041,12 @@ pub const DXVA_SampleFlag_Palette_Changed: DXVA_SampleFlags = DXVA_SampleFlags(1
 pub const DXVA_SampleFlag_SrcRect_Changed: DXVA_SampleFlags = DXVA_SampleFlags(2i32);
 pub const DXVA_SampleFlag_DstRect_Changed: DXVA_SampleFlags = DXVA_SampleFlags(4i32);
 pub const DXVA_SampleFlag_ColorData_Changed: DXVA_SampleFlags = DXVA_SampleFlags(8i32);
+impl ::core::marker::Copy for DXVA_SampleFlags {}
+impl ::core::clone::Clone for DXVA_SampleFlags {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DXVA_SampleFormat(pub i32);
 pub const DXVA_SampleFormatMask: DXVA_SampleFormat = DXVA_SampleFormat(255i32);
@@ -2870,6 +7058,12 @@ pub const DXVA_SampleFieldInterleavedOddFirst: DXVA_SampleFormat = DXVA_SampleFo
 pub const DXVA_SampleFieldSingleEven: DXVA_SampleFormat = DXVA_SampleFormat(5i32);
 pub const DXVA_SampleFieldSingleOdd: DXVA_SampleFormat = DXVA_SampleFormat(6i32);
 pub const DXVA_SampleSubStream: DXVA_SampleFormat = DXVA_SampleFormat(7i32);
+impl ::core::marker::Copy for DXVA_SampleFormat {}
+impl ::core::clone::Clone for DXVA_SampleFormat {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DXVA_VideoChromaSubsampling(pub i32);
 pub const DXVA_VideoChromaSubsamplingShift: DXVA_VideoChromaSubsampling = DXVA_VideoChromaSubsampling(8i32);
@@ -2883,9 +7077,31 @@ pub const DXVA_VideoChromaSubsampling_MPEG2: DXVA_VideoChromaSubsampling = DXVA_
 pub const DXVA_VideoChromaSubsampling_MPEG1: DXVA_VideoChromaSubsampling = DXVA_VideoChromaSubsampling(1i32);
 pub const DXVA_VideoChromaSubsampling_DV_PAL: DXVA_VideoChromaSubsampling = DXVA_VideoChromaSubsampling(6i32);
 pub const DXVA_VideoChromaSubsampling_Cosited: DXVA_VideoChromaSubsampling = DXVA_VideoChromaSubsampling(7i32);
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::marker::Copy for DXVA_VideoChromaSubsampling {}
+impl ::core::clone::Clone for DXVA_VideoChromaSubsampling {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DXVA_VideoDesc(i32);
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+pub struct DXVA_VideoDesc {
+    pub Size: u32,
+    pub SampleWidth: u32,
+    pub SampleHeight: u32,
+    pub SampleFormat: u32,
+    pub d3dFormat: super::super::Graphics::Direct3D9::D3DFORMAT,
+    pub InputSampleFreq: DXVA_Frequency,
+    pub OutputFrameFreq: DXVA_Frequency,
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::marker::Copy for DXVA_VideoDesc {}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::clone::Clone for DXVA_VideoDesc {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DXVA_VideoLighting(pub i32);
 pub const DXVA_VideoLightingShift: DXVA_VideoLighting = DXVA_VideoLighting(18i32);
@@ -2895,6 +7111,12 @@ pub const DXVA_VideoLighting_bright: DXVA_VideoLighting = DXVA_VideoLighting(1i3
 pub const DXVA_VideoLighting_office: DXVA_VideoLighting = DXVA_VideoLighting(2i32);
 pub const DXVA_VideoLighting_dim: DXVA_VideoLighting = DXVA_VideoLighting(3i32);
 pub const DXVA_VideoLighting_dark: DXVA_VideoLighting = DXVA_VideoLighting(4i32);
+impl ::core::marker::Copy for DXVA_VideoLighting {}
+impl ::core::clone::Clone for DXVA_VideoLighting {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DXVA_VideoPrimaries(pub i32);
 pub const DXVA_VideoPrimariesShift: DXVA_VideoPrimaries = DXVA_VideoPrimaries(22i32);
@@ -2908,6 +7130,12 @@ pub const DXVA_VideoPrimaries_SMPTE170M: DXVA_VideoPrimaries = DXVA_VideoPrimari
 pub const DXVA_VideoPrimaries_SMPTE240M: DXVA_VideoPrimaries = DXVA_VideoPrimaries(6i32);
 pub const DXVA_VideoPrimaries_EBU3213: DXVA_VideoPrimaries = DXVA_VideoPrimaries(7i32);
 pub const DXVA_VideoPrimaries_SMPTE_C: DXVA_VideoPrimaries = DXVA_VideoPrimaries(8i32);
+impl ::core::marker::Copy for DXVA_VideoPrimaries {}
+impl ::core::clone::Clone for DXVA_VideoPrimaries {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DXVA_VideoProcessCaps(pub i32);
 pub const DXVA_VideoProcess_None: DXVA_VideoProcessCaps = DXVA_VideoProcessCaps(0i32);
@@ -2920,22 +7148,109 @@ pub const DXVA_VideoProcess_SubStreams: DXVA_VideoProcessCaps = DXVA_VideoProces
 pub const DXVA_VideoProcess_SubStreamsExtended: DXVA_VideoProcessCaps = DXVA_VideoProcessCaps(64i32);
 pub const DXVA_VideoProcess_YUV2RGBExtended: DXVA_VideoProcessCaps = DXVA_VideoProcessCaps(128i32);
 pub const DXVA_VideoProcess_AlphaBlendExtended: DXVA_VideoProcessCaps = DXVA_VideoProcessCaps(256i32);
+impl ::core::marker::Copy for DXVA_VideoProcessCaps {}
+impl ::core::clone::Clone for DXVA_VideoProcessCaps {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DXVA_VideoPropertyRange(i32);
+pub struct DXVA_VideoPropertyRange {
+    pub MinValue: f32,
+    pub MaxValue: f32,
+    pub DefaultValue: f32,
+    pub StepSize: f32,
+}
+impl ::core::marker::Copy for DXVA_VideoPropertyRange {}
+impl ::core::clone::Clone for DXVA_VideoPropertyRange {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DXVA_VideoSample(i32);
+pub struct DXVA_VideoSample {
+    pub rtStart: i64,
+    pub rtEnd: i64,
+    pub SampleFormat: DXVA_SampleFormat,
+    pub lpDDSSrcSurface: *mut ::core::ffi::c_void,
+}
+impl ::core::marker::Copy for DXVA_VideoSample {}
+impl ::core::clone::Clone for DXVA_VideoSample {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
+pub struct DXVA_VideoSample2 {
+    pub Size: u32,
+    pub Reserved: u32,
+    pub rtStart: i64,
+    pub rtEnd: i64,
+    pub SampleFormat: u32,
+    pub SampleFlags: u32,
+    pub lpDDSSrcSurface: *mut ::core::ffi::c_void,
+    pub rcSrc: super::super::Foundation::RECT,
+    pub rcDst: super::super::Foundation::RECT,
+    pub Palette: [DXVA_AYUVsample2; 16],
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DXVA_VideoSample2 {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DXVA_VideoSample2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DXVA_VideoSample2(i32);
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
+pub struct DXVA_VideoSample2 {
+    pub rtStart: i64,
+    pub rtEnd: i64,
+    pub SampleFormat: u32,
+    pub SampleFlags: u32,
+    pub lpDDSSrcSurface: *mut ::core::ffi::c_void,
+    pub rcSrc: super::super::Foundation::RECT,
+    pub rcDst: super::super::Foundation::RECT,
+    pub Palette: [DXVA_AYUVsample2; 16],
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DXVA_VideoSample2 {}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DXVA_VideoSample2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DXVA_VideoSample2(i32);
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct DXVA_VideoSample32(i32);
+pub struct DXVA_VideoSample32 {
+    pub rtStart: i64,
+    pub rtEnd: i64,
+    pub SampleFormat: u32,
+    pub SampleFlags: u32,
+    pub lpDDSSrcSurface: u32,
+    pub rcSrc: super::super::Foundation::RECT,
+    pub rcDst: super::super::Foundation::RECT,
+    pub Palette: [DXVA_AYUVsample2; 16],
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DXVA_VideoSample32 {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DXVA_VideoSample32 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DXVA_VideoTransferFunction(pub i32);
 pub const DXVA_VideoTransFuncShift: DXVA_VideoTransferFunction = DXVA_VideoTransferFunction(27i32);
@@ -2949,6 +7264,12 @@ pub const DXVA_VideoTransFunc_22_709: DXVA_VideoTransferFunction = DXVA_VideoTra
 pub const DXVA_VideoTransFunc_22_240M: DXVA_VideoTransferFunction = DXVA_VideoTransferFunction(6i32);
 pub const DXVA_VideoTransFunc_22_8bit_sRGB: DXVA_VideoTransferFunction = DXVA_VideoTransferFunction(7i32);
 pub const DXVA_VideoTransFunc_28: DXVA_VideoTransferFunction = DXVA_VideoTransferFunction(8i32);
+impl ::core::marker::Copy for DXVA_VideoTransferFunction {}
+impl ::core::clone::Clone for DXVA_VideoTransferFunction {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DXVA_VideoTransferMatrix(pub i32);
 pub const DXVA_VideoTransferMatrixShift: DXVA_VideoTransferMatrix = DXVA_VideoTransferMatrix(15i32);
@@ -2957,6 +7278,12 @@ pub const DXVA_VideoTransferMatrix_Unknown: DXVA_VideoTransferMatrix = DXVA_Vide
 pub const DXVA_VideoTransferMatrix_BT709: DXVA_VideoTransferMatrix = DXVA_VideoTransferMatrix(1i32);
 pub const DXVA_VideoTransferMatrix_BT601: DXVA_VideoTransferMatrix = DXVA_VideoTransferMatrix(2i32);
 pub const DXVA_VideoTransferMatrix_SMPTE240M: DXVA_VideoTransferMatrix = DXVA_VideoTransferMatrix(3i32);
+impl ::core::marker::Copy for DXVA_VideoTransferMatrix {}
+impl ::core::clone::Clone for DXVA_VideoTransferMatrix {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DXVAp_DeinterlaceBobDevice: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 861578094,
     data2: 30852,
@@ -2978,18 +7305,46 @@ pub const DeviceStreamState_Stop: DeviceStreamState = DeviceStreamState(0i32);
 pub const DeviceStreamState_Pause: DeviceStreamState = DeviceStreamState(1i32);
 pub const DeviceStreamState_Run: DeviceStreamState = DeviceStreamState(2i32);
 pub const DeviceStreamState_Disabled: DeviceStreamState = DeviceStreamState(3i32);
+impl ::core::marker::Copy for DeviceStreamState {}
+impl ::core::clone::Clone for DeviceStreamState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DigitalWindowSetting(i32);
+pub struct DigitalWindowSetting {
+    pub OriginX: f64,
+    pub OriginY: f64,
+    pub WindowSize: f64,
+}
+impl ::core::marker::Copy for DigitalWindowSetting {}
+impl ::core::clone::Clone for DigitalWindowSetting {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct EAllocationType(pub i32);
 pub const eAllocationTypeDynamic: EAllocationType = EAllocationType(0i32);
 pub const eAllocationTypeRT: EAllocationType = EAllocationType(1i32);
 pub const eAllocationTypePageable: EAllocationType = EAllocationType(2i32);
 pub const eAllocationTypeIgnore: EAllocationType = EAllocationType(3i32);
+impl ::core::marker::Copy for EAllocationType {}
+impl ::core::clone::Clone for EAllocationType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct EVRFilterConfigPrefs(pub i32);
 pub const EVRFilterConfigPrefs_EnableQoS: EVRFilterConfigPrefs = EVRFilterConfigPrefs(1i32);
 pub const EVRFilterConfigPrefs_Mask: EVRFilterConfigPrefs = EVRFilterConfigPrefs(1i32);
+impl ::core::marker::Copy for EVRFilterConfigPrefs {}
+impl ::core::clone::Clone for EVRFilterConfigPrefs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const E_TOCPARSER_INVALIDASFFILE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1728053247i32 as _);
 pub const E_TOCPARSER_INVALIDRIFFFILE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1728053246i32 as _);
 pub const FACILITY_MF: u32 = 13u32;
@@ -3000,6 +7355,12 @@ pub const ACCESSMODE_READ: FILE_ACCESSMODE = FILE_ACCESSMODE(1i32);
 pub const ACCESSMODE_WRITE: FILE_ACCESSMODE = FILE_ACCESSMODE(2i32);
 pub const ACCESSMODE_READWRITE: FILE_ACCESSMODE = FILE_ACCESSMODE(3i32);
 pub const ACCESSMODE_WRITE_EXCLUSIVE: FILE_ACCESSMODE = FILE_ACCESSMODE(4i32);
+impl ::core::marker::Copy for FILE_ACCESSMODE {}
+impl ::core::clone::Clone for FILE_ACCESSMODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct FILE_OPENMODE(pub i32);
 pub const OPENMODE_FAIL_IF_NOT_EXIST: FILE_OPENMODE = FILE_OPENMODE(0i32);
@@ -3007,6 +7368,12 @@ pub const OPENMODE_FAIL_IF_EXIST: FILE_OPENMODE = FILE_OPENMODE(1i32);
 pub const OPENMODE_RESET_IF_EXIST: FILE_OPENMODE = FILE_OPENMODE(2i32);
 pub const OPENMODE_APPEND_IF_EXIST: FILE_OPENMODE = FILE_OPENMODE(3i32);
 pub const OPENMODE_DELETE_IF_EXIST: FILE_OPENMODE = FILE_OPENMODE(4i32);
+impl ::core::marker::Copy for FILE_OPENMODE {}
+impl ::core::clone::Clone for FILE_OPENMODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const FORMAT_MFVideoFormat: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 2933173037,
     data2: 29478,
@@ -3733,11 +8100,32 @@ pub struct KSMETHOD_OPMVIDEOOUTPUT(pub i32);
 pub const KSMETHOD_OPMVIDEOOUTPUT_STARTINITIALIZATION: KSMETHOD_OPMVIDEOOUTPUT = KSMETHOD_OPMVIDEOOUTPUT(0i32);
 pub const KSMETHOD_OPMVIDEOOUTPUT_FINISHINITIALIZATION: KSMETHOD_OPMVIDEOOUTPUT = KSMETHOD_OPMVIDEOOUTPUT(1i32);
 pub const KSMETHOD_OPMVIDEOOUTPUT_GETINFORMATION: KSMETHOD_OPMVIDEOOUTPUT = KSMETHOD_OPMVIDEOOUTPUT(2i32);
-#[repr(C)]
-pub struct KSPROPSETID_OPMVideoOutput(i32);
+impl ::core::marker::Copy for KSMETHOD_OPMVIDEOOUTPUT {}
+impl ::core::clone::Clone for KSMETHOD_OPMVIDEOOUTPUT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+pub const KSPROPSETID_OPMVideoOutput: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 116659387,
+    data2: 62522,
+    data3: 20450,
+    data4: [165, 102, 119, 75, 76, 129, 240, 219],
+};
 pub const LOCAL_D3DFMT_DEFINES: u32 = 1u32;
 #[repr(C)]
-pub struct MACROBLOCK_DATA(i32);
+pub struct MACROBLOCK_DATA {
+    pub flags: u32,
+    pub motionVectorX: i16,
+    pub motionVectorY: i16,
+    pub QPDelta: i32,
+}
+impl ::core::marker::Copy for MACROBLOCK_DATA {}
+impl ::core::clone::Clone for MACROBLOCK_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MACROBLOCK_FLAG_DIRTY: u32 = 2u32;
 pub const MACROBLOCK_FLAG_HAS_MOTION_VECTOR: u32 = 16u32;
 pub const MACROBLOCK_FLAG_HAS_QP: u32 = 32u32;
@@ -3823,6 +8211,12 @@ pub const MEDIASUBTYPE_x264: ::windows_sys::core::GUID = ::windows_sys::GUID { d
 pub struct MEDIA_EVENT_GENERATOR_GET_EVENT_FLAGS(pub u32);
 pub const MF_EVENT_FLAG_NONE: MEDIA_EVENT_GENERATOR_GET_EVENT_FLAGS = MEDIA_EVENT_GENERATOR_GET_EVENT_FLAGS(0u32);
 pub const MF_EVENT_FLAG_NO_WAIT: MEDIA_EVENT_GENERATOR_GET_EVENT_FLAGS = MEDIA_EVENT_GENERATOR_GET_EVENT_FLAGS(1u32);
+impl ::core::marker::Copy for MEDIA_EVENT_GENERATOR_GET_EVENT_FLAGS {}
+impl ::core::clone::Clone for MEDIA_EVENT_GENERATOR_GET_EVENT_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MEDeviceStreamCreated: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 38969807, data2: 13632, data3: 17332, data4: [145, 100, 215, 46, 180, 5, 250, 64] };
 #[repr(transparent)]
 pub struct MF2DBuffer_LockFlags(pub i32);
@@ -3831,16 +8225,42 @@ pub const MF2DBuffer_LockFlags_Read: MF2DBuffer_LockFlags = MF2DBuffer_LockFlags
 pub const MF2DBuffer_LockFlags_Write: MF2DBuffer_LockFlags = MF2DBuffer_LockFlags(2i32);
 pub const MF2DBuffer_LockFlags_ReadWrite: MF2DBuffer_LockFlags = MF2DBuffer_LockFlags(3i32);
 pub const MF2DBuffer_LockFlags_ForceDWORD: MF2DBuffer_LockFlags = MF2DBuffer_LockFlags(2147483647i32);
+impl ::core::marker::Copy for MF2DBuffer_LockFlags {}
+impl ::core::clone::Clone for MF2DBuffer_LockFlags {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MF3DVideoOutputType(pub i32);
 pub const MF3DVideoOutputType_BaseView: MF3DVideoOutputType = MF3DVideoOutputType(0i32);
 pub const MF3DVideoOutputType_Stereo: MF3DVideoOutputType = MF3DVideoOutputType(1i32);
+impl ::core::marker::Copy for MF3DVideoOutputType {}
+impl ::core::clone::Clone for MF3DVideoOutputType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+pub const MFAMRNBByteStreamHandler: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4024836234, data2: 2604, data3: 18938, data4: [138, 1, 55, 104, 181, 89, 182, 218] };
+pub const MFAMRNBSinkClassFactory: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2955350360,
+    data2: 28882,
+    data3: 19547,
+    data4: [159, 148, 118, 245, 73, 217, 15, 223],
+};
 #[repr(C)]
-pub struct MFAMRNBByteStreamHandler(i32);
-#[repr(C)]
-pub struct MFAMRNBSinkClassFactory(i32);
-#[repr(C)]
-pub struct MFARGB(i32);
+pub struct MFARGB {
+    pub rgbBlue: u8,
+    pub rgbGreen: u8,
+    pub rgbRed: u8,
+    pub rgbAlpha: u8,
+}
+impl ::core::marker::Copy for MFARGB {}
+impl ::core::clone::Clone for MFARGB {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MFASFINDEXER_APPROX_SEEK_TIME_UNKNOWN: u64 = 18446744073709551615u64;
 pub const MFASFINDEXER_NO_FIXED_INTERVAL: u32 = 4294967295u32;
 pub const MFASFINDEXER_PER_ENTRY_BYTES_DYNAMIC: u32 = 65535u32;
@@ -3895,21 +8315,45 @@ pub struct MFASF_INDEXER_FLAGS(pub i32);
 pub const MFASF_INDEXER_WRITE_NEW_INDEX: MFASF_INDEXER_FLAGS = MFASF_INDEXER_FLAGS(1i32);
 pub const MFASF_INDEXER_READ_FOR_REVERSEPLAYBACK: MFASF_INDEXER_FLAGS = MFASF_INDEXER_FLAGS(2i32);
 pub const MFASF_INDEXER_WRITE_FOR_LIVEREAD: MFASF_INDEXER_FLAGS = MFASF_INDEXER_FLAGS(4i32);
+impl ::core::marker::Copy for MFASF_INDEXER_FLAGS {}
+impl ::core::clone::Clone for MFASF_INDEXER_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MFASF_INVALID_STREAM_NUMBER: u32 = 128u32;
 pub const MFASF_MAX_STREAM_NUMBER: u32 = 127u32;
 #[repr(transparent)]
 pub struct MFASF_MULTIPLEXERFLAGS(pub i32);
 pub const MFASF_MULTIPLEXER_AUTOADJUST_BITRATE: MFASF_MULTIPLEXERFLAGS = MFASF_MULTIPLEXERFLAGS(1i32);
+impl ::core::marker::Copy for MFASF_MULTIPLEXERFLAGS {}
+impl ::core::clone::Clone for MFASF_MULTIPLEXERFLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MFASF_PAYLOADEXTENSION_MAX_SIZE: u32 = 255u32;
 pub const MFASF_PAYLOADEXTENSION_VARIABLE_SIZE: u32 = 65535u32;
 #[repr(transparent)]
 pub struct MFASF_SPLITTERFLAGS(pub i32);
 pub const MFASF_SPLITTER_REVERSE: MFASF_SPLITTERFLAGS = MFASF_SPLITTERFLAGS(1i32);
 pub const MFASF_SPLITTER_WMDRM: MFASF_SPLITTERFLAGS = MFASF_SPLITTERFLAGS(2i32);
+impl ::core::marker::Copy for MFASF_SPLITTERFLAGS {}
+impl ::core::clone::Clone for MFASF_SPLITTERFLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MFASF_STREAMSELECTOR_FLAGS(pub i32);
 pub const MFASF_STREAMSELECTOR_DISABLE_THINNING: MFASF_STREAMSELECTOR_FLAGS = MFASF_STREAMSELECTOR_FLAGS(1i32);
 pub const MFASF_STREAMSELECTOR_USE_AVERAGE_BITRATE: MFASF_STREAMSELECTOR_FLAGS = MFASF_STREAMSELECTOR_FLAGS(2i32);
+impl ::core::marker::Copy for MFASF_STREAMSELECTOR_FLAGS {}
+impl ::core::clone::Clone for MFASF_STREAMSELECTOR_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MFASYNCRESULT(pub *mut ::core::ffi::c_void);
 pub const MFASYNC_BLOCKING_CALLBACK: u32 = 4u32;
@@ -3931,8 +8375,25 @@ pub struct MFASYNC_WORKQUEUE_TYPE(pub i32);
 pub const MF_STANDARD_WORKQUEUE: MFASYNC_WORKQUEUE_TYPE = MFASYNC_WORKQUEUE_TYPE(0i32);
 pub const MF_WINDOW_WORKQUEUE: MFASYNC_WORKQUEUE_TYPE = MFASYNC_WORKQUEUE_TYPE(1i32);
 pub const MF_MULTITHREADED_WORKQUEUE: MFASYNC_WORKQUEUE_TYPE = MFASYNC_WORKQUEUE_TYPE(2i32);
+impl ::core::marker::Copy for MFASYNC_WORKQUEUE_TYPE {}
+impl ::core::clone::Clone for MFASYNC_WORKQUEUE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct MFAYUVSample(i32);
+pub struct MFAYUVSample {
+    pub bCrValue: u8,
+    pub bCbValue: u8,
+    pub bYValue: u8,
+    pub bSampleAlpha8: u8,
+}
+impl ::core::marker::Copy for MFAYUVSample {}
+impl ::core::clone::Clone for MFAYUVSample {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MFAudioConstriction(pub i32);
 pub const MFaudioConstrictionOff: MFAudioConstriction = MFAudioConstriction(0i32);
@@ -3940,8 +8401,23 @@ pub const MFaudioConstriction48_16: MFAudioConstriction = MFAudioConstriction(1i
 pub const MFaudioConstriction44_16: MFAudioConstriction = MFAudioConstriction(2i32);
 pub const MFaudioConstriction14_14: MFAudioConstriction = MFAudioConstriction(3i32);
 pub const MFaudioConstrictionMute: MFAudioConstriction = MFAudioConstriction(4i32);
+impl ::core::marker::Copy for MFAudioConstriction {}
+impl ::core::clone::Clone for MFAudioConstriction {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct MFAudioDecoderDegradationInfo(i32);
+pub struct MFAudioDecoderDegradationInfo {
+    pub eDegradationReason: MFT_AUDIO_DECODER_DEGRADATION_REASON,
+    pub eType: MFT_AUDIO_DECODER_DEGRADATION_TYPE,
+}
+impl ::core::marker::Copy for MFAudioDecoderDegradationInfo {}
+impl ::core::clone::Clone for MFAudioDecoderDegradationInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MFAudioFormat_AAC: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 5648, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
 pub const MFAudioFormat_AAC_HDCP: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 1100729974,
@@ -4040,7 +8516,22 @@ pub const MFAudioFormat_WMAudioV8: ::windows_sys::core::GUID = ::windows_sys::GU
 pub const MFAudioFormat_WMAudioV9: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 354, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
 pub const MFAudioFormat_WMAudio_Lossless: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 355, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
 #[repr(C)]
-pub struct MFBYTESTREAM_BUFFERING_PARAMS(i32);
+pub struct MFBYTESTREAM_BUFFERING_PARAMS {
+    pub cbTotalFileSize: u64,
+    pub cbPlayableDataSize: u64,
+    pub prgBuckets: *mut MF_LEAKY_BUCKET_PAIR,
+    pub cBuckets: u32,
+    pub qwNetBufferingTime: u64,
+    pub qwExtraBufferingTimeDuringSeek: u64,
+    pub qwPlayDuration: u64,
+    pub dRate: f32,
+}
+impl ::core::marker::Copy for MFBYTESTREAM_BUFFERING_PARAMS {}
+impl ::core::clone::Clone for MFBYTESTREAM_BUFFERING_PARAMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MFBYTESTREAM_DOES_NOT_USE_NETWORK: u32 = 2048u32;
 pub const MFBYTESTREAM_HAS_SLOW_SEEK: u32 = 256u32;
 pub const MFBYTESTREAM_IS_DIRECTORY: u32 = 128u32;
@@ -4054,6 +8545,12 @@ pub const MFBYTESTREAM_SEEK_FLAG_CANCEL_PENDING_IO: u32 = 1u32;
 pub struct MFBYTESTREAM_SEEK_ORIGIN(pub i32);
 pub const msoBegin: MFBYTESTREAM_SEEK_ORIGIN = MFBYTESTREAM_SEEK_ORIGIN(0i32);
 pub const msoCurrent: MFBYTESTREAM_SEEK_ORIGIN = MFBYTESTREAM_SEEK_ORIGIN(1i32);
+impl ::core::marker::Copy for MFBYTESTREAM_SEEK_ORIGIN {}
+impl ::core::clone::Clone for MFBYTESTREAM_SEEK_ORIGIN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MFBYTESTREAM_SHARE_WRITE: u32 = 1024u32;
 pub const MFCAPTURE_METADATA_SCANLINE_VERTICAL: u32 = 4u32;
 pub const MFCAPTURE_METADATA_SCAN_BOTTOM_TOP: u32 = 2u32;
@@ -4063,21 +8560,52 @@ pub struct MFCLOCK_CHARACTERISTICS_FLAGS(pub i32);
 pub const MFCLOCK_CHARACTERISTICS_FLAG_FREQUENCY_10MHZ: MFCLOCK_CHARACTERISTICS_FLAGS = MFCLOCK_CHARACTERISTICS_FLAGS(2i32);
 pub const MFCLOCK_CHARACTERISTICS_FLAG_ALWAYS_RUNNING: MFCLOCK_CHARACTERISTICS_FLAGS = MFCLOCK_CHARACTERISTICS_FLAGS(4i32);
 pub const MFCLOCK_CHARACTERISTICS_FLAG_IS_SYSTEM_CLOCK: MFCLOCK_CHARACTERISTICS_FLAGS = MFCLOCK_CHARACTERISTICS_FLAGS(8i32);
+impl ::core::marker::Copy for MFCLOCK_CHARACTERISTICS_FLAGS {}
+impl ::core::clone::Clone for MFCLOCK_CHARACTERISTICS_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MFCLOCK_FREQUENCY_HNS: u32 = 10000000u32;
 pub const MFCLOCK_JITTER_DPC: u32 = 4000u32;
 pub const MFCLOCK_JITTER_ISR: u32 = 1000u32;
 pub const MFCLOCK_JITTER_PASSIVE: u32 = 10000u32;
 #[repr(C)]
-pub struct MFCLOCK_PROPERTIES(i32);
+pub struct MFCLOCK_PROPERTIES {
+    pub qwCorrelationRate: u64,
+    pub guidClockId: ::windows_sys::core::GUID,
+    pub dwClockFlags: u32,
+    pub qwClockFrequency: u64,
+    pub dwClockTolerance: u32,
+    pub dwClockJitter: u32,
+}
+impl ::core::marker::Copy for MFCLOCK_PROPERTIES {}
+impl ::core::clone::Clone for MFCLOCK_PROPERTIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MFCLOCK_RELATIONAL_FLAGS(pub i32);
 pub const MFCLOCK_RELATIONAL_FLAG_JITTER_NEVER_AHEAD: MFCLOCK_RELATIONAL_FLAGS = MFCLOCK_RELATIONAL_FLAGS(1i32);
+impl ::core::marker::Copy for MFCLOCK_RELATIONAL_FLAGS {}
+impl ::core::clone::Clone for MFCLOCK_RELATIONAL_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MFCLOCK_STATE(pub i32);
 pub const MFCLOCK_STATE_INVALID: MFCLOCK_STATE = MFCLOCK_STATE(0i32);
 pub const MFCLOCK_STATE_RUNNING: MFCLOCK_STATE = MFCLOCK_STATE(1i32);
 pub const MFCLOCK_STATE_STOPPED: MFCLOCK_STATE = MFCLOCK_STATE(2i32);
 pub const MFCLOCK_STATE_PAUSED: MFCLOCK_STATE = MFCLOCK_STATE(3i32);
+impl ::core::marker::Copy for MFCLOCK_STATE {}
+impl ::core::clone::Clone for MFCLOCK_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MFCLOCK_TOLERANCE_UNKNOWN: u32 = 50000u32;
 pub const MFCONNECTOR_AGP: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2889543520, data2: 52803, data3: 4569, data4: [146, 219, 0, 11, 219, 40, 255, 152] };
 pub const MFCONNECTOR_COMPONENT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1473075563, data2: 52807, data3: 4569, data4: [146, 219, 0, 11, 219, 40, 255, 152] };
@@ -4108,39 +8636,171 @@ pub const MFCONNECTOR_UNKNOWN: ::windows_sys::core::GUID = ::windows_sys::GUID {
 pub const MFCONNECTOR_VGA: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1473075560, data2: 52807, data3: 4569, data4: [146, 219, 0, 11, 219, 40, 255, 152] };
 pub const MFCONTENTPROTECTIONDEVICE_FUNCTIONID_START: u32 = 67108864u32;
 #[repr(C)]
-pub struct MFCONTENTPROTECTIONDEVICE_INPUT_DATA(i32);
+pub struct MFCONTENTPROTECTIONDEVICE_INPUT_DATA {
+    pub HWProtectionFunctionID: u32,
+    pub PrivateDataByteCount: u32,
+    pub HWProtectionDataByteCount: u32,
+    pub Reserved: u32,
+    pub InputData: [u8; 4],
+}
+impl ::core::marker::Copy for MFCONTENTPROTECTIONDEVICE_INPUT_DATA {}
+impl ::core::clone::Clone for MFCONTENTPROTECTIONDEVICE_INPUT_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct MFCONTENTPROTECTIONDEVICE_OUTPUT_DATA(i32);
+pub struct MFCONTENTPROTECTIONDEVICE_OUTPUT_DATA {
+    pub PrivateDataByteCount: u32,
+    pub MaxHWProtectionDataByteCount: u32,
+    pub HWProtectionDataByteCount: u32,
+    pub Status: ::windows_sys::core::HRESULT,
+    pub TransportTimeInHundredsOfNanoseconds: i64,
+    pub ExecutionTimeInHundredsOfNanoseconds: i64,
+    pub OutputData: [u8; 4],
+}
+impl ::core::marker::Copy for MFCONTENTPROTECTIONDEVICE_OUTPUT_DATA {}
+impl ::core::clone::Clone for MFCONTENTPROTECTIONDEVICE_OUTPUT_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct MFCONTENTPROTECTIONDEVICE_REALTIMECLIENT_DATA(i32);
+pub struct MFCONTENTPROTECTIONDEVICE_REALTIMECLIENT_DATA {
+    pub TaskIndex: u32,
+    pub ClassName: [u16; 260],
+    pub BasePriority: i32,
+}
+impl ::core::marker::Copy for MFCONTENTPROTECTIONDEVICE_REALTIMECLIENT_DATA {}
+impl ::core::clone::Clone for MFCONTENTPROTECTIONDEVICE_REALTIMECLIENT_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MFCONTENTPROTECTIONDEVICE_REALTIMECLIENT_DATA_FUNCTIONID: u32 = 67108864u32;
 #[repr(C)]
-pub struct MFCameraExtrinsic_CalibratedTransform(i32);
+pub struct MFCameraExtrinsic_CalibratedTransform {
+    pub CalibrationId: ::windows_sys::core::GUID,
+    pub Position: MF_FLOAT3,
+    pub Orientation: MF_QUATERNION,
+}
+impl ::core::marker::Copy for MFCameraExtrinsic_CalibratedTransform {}
+impl ::core::clone::Clone for MFCameraExtrinsic_CalibratedTransform {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct MFCameraExtrinsics(i32);
+pub struct MFCameraExtrinsics {
+    pub TransformCount: u32,
+    pub CalibratedTransforms: [MFCameraExtrinsic_CalibratedTransform; 1],
+}
+impl ::core::marker::Copy for MFCameraExtrinsics {}
+impl ::core::clone::Clone for MFCameraExtrinsics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct MFCameraIntrinsic_CameraModel(i32);
+pub struct MFCameraIntrinsic_CameraModel {
+    pub FocalLength_x: f32,
+    pub FocalLength_y: f32,
+    pub PrincipalPoint_x: f32,
+    pub PrincipalPoint_y: f32,
+}
+impl ::core::marker::Copy for MFCameraIntrinsic_CameraModel {}
+impl ::core::clone::Clone for MFCameraIntrinsic_CameraModel {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct MFCameraIntrinsic_DistortionModel(i32);
+pub struct MFCameraIntrinsic_DistortionModel {
+    pub Radial_k1: f32,
+    pub Radial_k2: f32,
+    pub Radial_k3: f32,
+    pub Tangential_p1: f32,
+    pub Tangential_p2: f32,
+}
+impl ::core::marker::Copy for MFCameraIntrinsic_DistortionModel {}
+impl ::core::clone::Clone for MFCameraIntrinsic_DistortionModel {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct MFCameraIntrinsic_DistortionModel6KT(i32);
+pub struct MFCameraIntrinsic_DistortionModel6KT {
+    pub Radial_k1: f32,
+    pub Radial_k2: f32,
+    pub Radial_k3: f32,
+    pub Radial_k4: f32,
+    pub Radial_k5: f32,
+    pub Radial_k6: f32,
+    pub Tangential_p1: f32,
+    pub Tangential_p2: f32,
+}
+impl ::core::marker::Copy for MFCameraIntrinsic_DistortionModel6KT {}
+impl ::core::clone::Clone for MFCameraIntrinsic_DistortionModel6KT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct MFCameraIntrinsic_DistortionModelArcTan(i32);
+pub struct MFCameraIntrinsic_DistortionModelArcTan {
+    pub Radial_k0: f32,
+    pub DistortionCenter_x: f32,
+    pub DistortionCenter_y: f32,
+    pub Tangential_x: f32,
+    pub Tangential_y: f32,
+}
+impl ::core::marker::Copy for MFCameraIntrinsic_DistortionModelArcTan {}
+impl ::core::clone::Clone for MFCameraIntrinsic_DistortionModelArcTan {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MFCameraIntrinsic_DistortionModelType(pub i32);
 pub const MFCameraIntrinsic_DistortionModelType_6KT: MFCameraIntrinsic_DistortionModelType = MFCameraIntrinsic_DistortionModelType(0i32);
 pub const MFCameraIntrinsic_DistortionModelType_ArcTan: MFCameraIntrinsic_DistortionModelType = MFCameraIntrinsic_DistortionModelType(1i32);
+impl ::core::marker::Copy for MFCameraIntrinsic_DistortionModelType {}
+impl ::core::clone::Clone for MFCameraIntrinsic_DistortionModelType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct MFCameraIntrinsic_PinholeCameraModel(i32);
+pub struct MFCameraIntrinsic_PinholeCameraModel {
+    pub FocalLength: MF_FLOAT2,
+    pub PrincipalPoint: MF_FLOAT2,
+}
+impl ::core::marker::Copy for MFCameraIntrinsic_PinholeCameraModel {}
+impl ::core::clone::Clone for MFCameraIntrinsic_PinholeCameraModel {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MFCameraOcclusionState(pub i32);
 pub const MFCameraOcclusionState_Open: MFCameraOcclusionState = MFCameraOcclusionState(0i32);
 pub const MFCameraOcclusionState_OccludedByLid: MFCameraOcclusionState = MFCameraOcclusionState(1i32);
 pub const MFCameraOcclusionState_OccludedByCameraHardware: MFCameraOcclusionState = MFCameraOcclusionState(2i32);
+impl ::core::marker::Copy for MFCameraOcclusionState {}
+impl ::core::clone::Clone for MFCameraOcclusionState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MFDepthMeasurement(pub i32);
 pub const DistanceToFocalPlane: MFDepthMeasurement = MFDepthMeasurement(0i32);
 pub const DistanceToOpticalCenter: MFDepthMeasurement = MFDepthMeasurement(1i32);
+impl ::core::marker::Copy for MFDepthMeasurement {}
+impl ::core::clone::Clone for MFDepthMeasurement {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MFENABLETYPE_MF_RebootRequired: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1833778507, data2: 3790, data3: 18002, data4: [139, 58, 242, 210, 66, 96, 216, 135] };
 pub const MFENABLETYPE_MF_UpdateRevocationInformation: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 3847794869,
@@ -4164,13 +8824,39 @@ pub const MFENABLETYPE_WMDRMV7_Individualization: ::windows_sys::core::GUID = ::
 pub const MFENABLETYPE_WMDRMV7_LicenseAcquisition: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3344095, data2: 18950, data3: 18564, data4: [160, 151, 239, 109, 34, 236, 132, 163] };
 pub const MFEVRDLL: u32 = 0u32;
 #[repr(C)]
-pub struct MFExtendedCameraIntrinsic_IntrinsicModel(i32);
+pub struct MFExtendedCameraIntrinsic_IntrinsicModel {
+    pub Width: u32,
+    pub Height: u32,
+    pub SplitFrameId: u32,
+    pub CameraModel: MFCameraIntrinsic_CameraModel,
+}
+impl ::core::marker::Copy for MFExtendedCameraIntrinsic_IntrinsicModel {}
+impl ::core::clone::Clone for MFExtendedCameraIntrinsic_IntrinsicModel {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+pub const MFFLACBytestreamHandler: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 239194040, data2: 1286, data3: 16628, data4: [165, 22, 119, 204, 35, 100, 45, 145] };
+pub const MFFLACSinkClassFactory: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2100938095,
+    data2: 24693,
+    data3: 18377,
+    data4: [155, 174, 140, 249, 229, 49, 181, 245],
+};
 #[repr(C)]
-pub struct MFFLACBytestreamHandler(i32);
-#[repr(C)]
-pub struct MFFLACSinkClassFactory(i32);
-#[repr(C)]
-pub struct MFFOLDDOWN_MATRIX(i32);
+pub struct MFFOLDDOWN_MATRIX {
+    pub cbSize: u32,
+    pub cSrcChannels: u32,
+    pub cDstChannels: u32,
+    pub dwChannelMask: u32,
+    pub Coeff: [i32; 64],
+}
+impl ::core::marker::Copy for MFFOLDDOWN_MATRIX {}
+impl ::core::clone::Clone for MFFOLDDOWN_MATRIX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MFFrameSourceTypes(pub i32);
 pub const MFFrameSourceTypes_Color: MFFrameSourceTypes = MFFrameSourceTypes(1i32);
@@ -4178,10 +8864,41 @@ pub const MFFrameSourceTypes_Infrared: MFFrameSourceTypes = MFFrameSourceTypes(2
 pub const MFFrameSourceTypes_Depth: MFFrameSourceTypes = MFFrameSourceTypes(4i32);
 pub const MFFrameSourceTypes_Image: MFFrameSourceTypes = MFFrameSourceTypes(8i32);
 pub const MFFrameSourceTypes_Custom: MFFrameSourceTypes = MFFrameSourceTypes(128i32);
+impl ::core::marker::Copy for MFFrameSourceTypes {}
+impl ::core::clone::Clone for MFFrameSourceTypes {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct MFINPUTTRUSTAUTHORITY_ACCESS_ACTION(i32);
+pub struct MFINPUTTRUSTAUTHORITY_ACCESS_ACTION {
+    pub Action: MFPOLICYMANAGER_ACTION,
+    pub pbTicket: *mut u8,
+    pub cbTicket: u32,
+}
+impl ::core::marker::Copy for MFINPUTTRUSTAUTHORITY_ACCESS_ACTION {}
+impl ::core::clone::Clone for MFINPUTTRUSTAUTHORITY_ACCESS_ACTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct MFINPUTTRUSTAUTHORITY_ACCESS_PARAMS(i32);
+pub struct MFINPUTTRUSTAUTHORITY_ACCESS_PARAMS {
+    pub dwSize: u32,
+    pub dwVer: u32,
+    pub cbSignatureOffset: u32,
+    pub cbSignatureSize: u32,
+    pub cbExtensionOffset: u32,
+    pub cbExtensionSize: u32,
+    pub cActions: u32,
+    pub rgOutputActions: [MFINPUTTRUSTAUTHORITY_ACCESS_ACTION; 1],
+}
+impl ::core::marker::Copy for MFINPUTTRUSTAUTHORITY_ACCESS_PARAMS {}
+impl ::core::clone::Clone for MFINPUTTRUSTAUTHORITY_ACCESS_PARAMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MFImageFormat_JPEG: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 434415018, data2: 22114, data3: 20421, data4: [160, 192, 23, 88, 2, 142, 16, 87] };
 pub const MFImageFormat_RGB32: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 22, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
 #[repr(transparent)]
@@ -4194,12 +8911,51 @@ pub const MFMEDIASOURCE_HAS_MULTIPLE_PRESENTATIONS: MFMEDIASOURCE_CHARACTERISTIC
 pub const MFMEDIASOURCE_CAN_SKIPFORWARD: MFMEDIASOURCE_CHARACTERISTICS = MFMEDIASOURCE_CHARACTERISTICS(32i32);
 pub const MFMEDIASOURCE_CAN_SKIPBACKWARD: MFMEDIASOURCE_CHARACTERISTICS = MFMEDIASOURCE_CHARACTERISTICS(64i32);
 pub const MFMEDIASOURCE_DOES_NOT_USE_NETWORK: MFMEDIASOURCE_CHARACTERISTICS = MFMEDIASOURCE_CHARACTERISTICS(128i32);
-#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MFMEDIASOURCE_CHARACTERISTICS {}
+impl ::core::clone::Clone for MFMEDIASOURCE_CHARACTERISTICS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct MFMPEG2DLNASINKSTATS(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct MFMPEG2DLNASINKSTATS {
+    pub cBytesWritten: u64,
+    pub fPAL: super::super::Foundation::BOOL,
+    pub fccVideo: u32,
+    pub dwVideoWidth: u32,
+    pub dwVideoHeight: u32,
+    pub cVideoFramesReceived: u64,
+    pub cVideoFramesEncoded: u64,
+    pub cVideoFramesSkipped: u64,
+    pub cBlackVideoFramesEncoded: u64,
+    pub cVideoFramesDuplicated: u64,
+    pub cAudioSamplesPerSec: u32,
+    pub cAudioChannels: u32,
+    pub cAudioBytesReceived: u64,
+    pub cAudioFramesEncoded: u64,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MFMPEG2DLNASINKSTATS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MFMPEG2DLNASINKSTATS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MFMPEG4Format_Base: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 0, data2: 30330, data3: 18765, data4: [180, 120, 242, 157, 37, 220, 144, 55] };
 #[repr(C)]
-pub struct MFMediaKeyStatus(i32);
+pub struct MFMediaKeyStatus {
+    pub pbKeyId: *mut u8,
+    pub cbKeyId: u32,
+    pub eMediaKeyStatus: MF_MEDIAKEY_STATUS,
+}
+impl ::core::marker::Copy for MFMediaKeyStatus {}
+impl ::core::clone::Clone for MFMediaKeyStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MFMediaType_Audio: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1935963489, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
 pub const MFMediaType_Binary: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1914145829, data2: 58459, data3: 4565, data4: [188, 42, 0, 176, 208, 243, 244, 171] };
 pub const MFMediaType_Default: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2175013606, data2: 33027, data3: 19206, data4: [133, 127, 24, 98, 120, 16, 36, 172] };
@@ -4237,6 +8993,12 @@ pub struct MFNETSOURCE_CACHE_STATE(pub i32);
 pub const MFNETSOURCE_CACHE_UNAVAILABLE: MFNETSOURCE_CACHE_STATE = MFNETSOURCE_CACHE_STATE(0i32);
 pub const MFNETSOURCE_CACHE_ACTIVE_WRITING: MFNETSOURCE_CACHE_STATE = MFNETSOURCE_CACHE_STATE(1i32);
 pub const MFNETSOURCE_CACHE_ACTIVE_COMPLETE: MFNETSOURCE_CACHE_STATE = MFNETSOURCE_CACHE_STATE(2i32);
+impl ::core::marker::Copy for MFNETSOURCE_CACHE_STATE {}
+impl ::core::clone::Clone for MFNETSOURCE_CACHE_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MFNETSOURCE_CLIENTGUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 1621279910,
     data2: 61847,
@@ -4302,6 +9064,12 @@ pub const MFNETSOURCE_HTTP: MFNETSOURCE_PROTOCOL_TYPE = MFNETSOURCE_PROTOCOL_TYP
 pub const MFNETSOURCE_RTSP: MFNETSOURCE_PROTOCOL_TYPE = MFNETSOURCE_PROTOCOL_TYPE(2i32);
 pub const MFNETSOURCE_FILE: MFNETSOURCE_PROTOCOL_TYPE = MFNETSOURCE_PROTOCOL_TYPE(3i32);
 pub const MFNETSOURCE_MULTICAST: MFNETSOURCE_PROTOCOL_TYPE = MFNETSOURCE_PROTOCOL_TYPE(4i32);
+impl ::core::marker::Copy for MFNETSOURCE_PROTOCOL_TYPE {}
+impl ::core::clone::Clone for MFNETSOURCE_PROTOCOL_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MFNETSOURCE_PROXYBYPASSFORLOCAL: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1018294918, data2: 1285, data3: 19549, data4: [174, 113, 10, 85, 99, 68, 239, 161] };
 pub const MFNETSOURCE_PROXYEXCEPTIONLIST: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1018294917, data2: 1285, data3: 19549, data4: [174, 113, 10, 85, 99, 68, 239, 161] };
 pub const MFNETSOURCE_PROXYHOSTNAME: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1018294916, data2: 1285, data3: 19549, data4: [174, 113, 10, 85, 99, 68, 239, 161] };
@@ -4356,6 +9124,12 @@ pub const MFNETSOURCE_RECOVEREDPACKETS_ID: MFNETSOURCE_STATISTICS_IDS = MFNETSOU
 pub const MFNETSOURCE_VBR_ID: MFNETSOURCE_STATISTICS_IDS = MFNETSOURCE_STATISTICS_IDS(27i32);
 pub const MFNETSOURCE_DOWNLOADPROGRESS_ID: MFNETSOURCE_STATISTICS_IDS = MFNETSOURCE_STATISTICS_IDS(28i32);
 pub const MFNETSOURCE_UNPREDEFINEDPROTOCOLNAME_ID: MFNETSOURCE_STATISTICS_IDS = MFNETSOURCE_STATISTICS_IDS(29i32);
+impl ::core::marker::Copy for MFNETSOURCE_STATISTICS_IDS {}
+impl ::core::clone::Clone for MFNETSOURCE_STATISTICS_IDS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MFNETSOURCE_STATISTICS_SERVICE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1018294901, data2: 1285, data3: 19549, data4: [174, 113, 10, 85, 99, 68, 239, 161] };
 pub const MFNETSOURCE_STREAM_LANGUAGE: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 2595504920,
@@ -4369,6 +9143,12 @@ pub const MFNETSOURCE_TRANSPORT: ::windows_sys::core::GUID = ::windows_sys::GUID
 pub struct MFNETSOURCE_TRANSPORT_TYPE(pub i32);
 pub const MFNETSOURCE_UDP: MFNETSOURCE_TRANSPORT_TYPE = MFNETSOURCE_TRANSPORT_TYPE(0i32);
 pub const MFNETSOURCE_TCP: MFNETSOURCE_TRANSPORT_TYPE = MFNETSOURCE_TRANSPORT_TYPE(1i32);
+impl ::core::marker::Copy for MFNETSOURCE_TRANSPORT_TYPE {}
+impl ::core::clone::Clone for MFNETSOURCE_TRANSPORT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MFNETSOURCE_UDP_PORT_RANGE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1018294938, data2: 1285, data3: 19549, data4: [174, 113, 10, 85, 99, 68, 239, 161] };
 #[repr(transparent)]
 pub struct MFNET_PROXYSETTINGS(pub i32);
@@ -4376,6 +9156,12 @@ pub const MFNET_PROXYSETTING_NONE: MFNET_PROXYSETTINGS = MFNET_PROXYSETTINGS(0i3
 pub const MFNET_PROXYSETTING_MANUAL: MFNET_PROXYSETTINGS = MFNET_PROXYSETTINGS(1i32);
 pub const MFNET_PROXYSETTING_AUTO: MFNET_PROXYSETTINGS = MFNET_PROXYSETTINGS(2i32);
 pub const MFNET_PROXYSETTING_BROWSER: MFNET_PROXYSETTINGS = MFNET_PROXYSETTINGS(3i32);
+impl ::core::marker::Copy for MFNET_PROXYSETTINGS {}
+impl ::core::clone::Clone for MFNET_PROXYSETTINGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MFNET_SAVEJOB_SERVICE: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 3092928639,
     data2: 15618,
@@ -4387,18 +9173,53 @@ pub struct MFNetAuthenticationFlags(pub i32);
 pub const MFNET_AUTHENTICATION_PROXY: MFNetAuthenticationFlags = MFNetAuthenticationFlags(1i32);
 pub const MFNET_AUTHENTICATION_CLEAR_TEXT: MFNetAuthenticationFlags = MFNetAuthenticationFlags(2i32);
 pub const MFNET_AUTHENTICATION_LOGGED_ON_USER: MFNetAuthenticationFlags = MFNetAuthenticationFlags(4i32);
-#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MFNetAuthenticationFlags {}
+impl ::core::clone::Clone for MFNetAuthenticationFlags {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct MFNetCredentialManagerGetParam(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct MFNetCredentialManagerGetParam {
+    pub hrOp: ::windows_sys::core::HRESULT,
+    pub fAllowLoggedOnUser: super::super::Foundation::BOOL,
+    pub fClearTextPackage: super::super::Foundation::BOOL,
+    pub pszUrl: super::super::Foundation::PWSTR,
+    pub pszSite: super::super::Foundation::PWSTR,
+    pub pszRealm: super::super::Foundation::PWSTR,
+    pub pszPackage: super::super::Foundation::PWSTR,
+    pub nRetries: i32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MFNetCredentialManagerGetParam {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MFNetCredentialManagerGetParam {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MFNetCredentialOptions(pub i32);
 pub const MFNET_CREDENTIAL_SAVE: MFNetCredentialOptions = MFNetCredentialOptions(1i32);
 pub const MFNET_CREDENTIAL_DONT_CACHE: MFNetCredentialOptions = MFNetCredentialOptions(2i32);
 pub const MFNET_CREDENTIAL_ALLOW_CLEAR_TEXT: MFNetCredentialOptions = MFNetCredentialOptions(4i32);
+impl ::core::marker::Copy for MFNetCredentialOptions {}
+impl ::core::clone::Clone for MFNetCredentialOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MFNetCredentialRequirements(pub i32);
 pub const REQUIRE_PROMPT: MFNetCredentialRequirements = MFNetCredentialRequirements(1i32);
 pub const REQUIRE_SAVE_SELECTED: MFNetCredentialRequirements = MFNetCredentialRequirements(2i32);
+impl ::core::marker::Copy for MFNetCredentialRequirements {}
+impl ::core::clone::Clone for MFNetCredentialRequirements {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MFNominalRange(pub i32);
 pub const MFNominalRange_Unknown: MFNominalRange = MFNominalRange(0i32);
@@ -4410,13 +9231,34 @@ pub const MFNominalRange_48_208: MFNominalRange = MFNominalRange(3i32);
 pub const MFNominalRange_64_127: MFNominalRange = MFNominalRange(4i32);
 pub const MFNominalRange_Last: MFNominalRange = MFNominalRange(5i32);
 pub const MFNominalRange_ForceDWORD: MFNominalRange = MFNominalRange(2147483647i32);
+impl ::core::marker::Copy for MFNominalRange {}
+impl ::core::clone::Clone for MFNominalRange {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct MFOffset(i32);
+pub struct MFOffset {
+    pub fract: u16,
+    pub value: i16,
+}
+impl ::core::marker::Copy for MFOffset {}
+impl ::core::clone::Clone for MFOffset {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub type MFPERIODICCALLBACK = unsafe extern "system" fn(pcontext: ::windows_sys::core::IUnknown);
 #[repr(transparent)]
 pub struct MFPMPSESSION_CREATION_FLAGS(pub i32);
 pub const MFPMPSESSION_UNPROTECTED_PROCESS: MFPMPSESSION_CREATION_FLAGS = MFPMPSESSION_CREATION_FLAGS(1i32);
 pub const MFPMPSESSION_IN_PROCESS: MFPMPSESSION_CREATION_FLAGS = MFPMPSESSION_CREATION_FLAGS(2i32);
+impl ::core::marker::Copy for MFPMPSESSION_CREATION_FLAGS {}
+impl ::core::clone::Clone for MFPMPSESSION_CREATION_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MFPOLICYMANAGER_ACTION(pub i32);
 pub const PEACTION_NO: MFPOLICYMANAGER_ACTION = MFPOLICYMANAGER_ACTION(0i32);
@@ -4428,6 +9270,12 @@ pub const PEACTION_RESERVED1: MFPOLICYMANAGER_ACTION = MFPOLICYMANAGER_ACTION(5i
 pub const PEACTION_RESERVED2: MFPOLICYMANAGER_ACTION = MFPOLICYMANAGER_ACTION(6i32);
 pub const PEACTION_RESERVED3: MFPOLICYMANAGER_ACTION = MFPOLICYMANAGER_ACTION(7i32);
 pub const PEACTION_LAST: MFPOLICYMANAGER_ACTION = MFPOLICYMANAGER_ACTION(7i32);
+impl ::core::marker::Copy for MFPOLICYMANAGER_ACTION {}
+impl ::core::clone::Clone for MFPOLICYMANAGER_ACTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MFPROTECTIONATTRIBUTE_BEST_EFFORT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3370148657, data2: 30192, data3: 20161, data4: [142, 119, 23, 87, 143, 119, 59, 70] };
 pub const MFPROTECTIONATTRIBUTE_CONSTRICTVIDEO_IMAGESIZE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 8681212, data2: 19288, data3: 19840, data4: [167, 144, 231, 41, 118, 115, 22, 29] };
 pub const MFPROTECTIONATTRIBUTE_FAIL_OVER: ::windows_sys::core::GUID = ::windows_sys::GUID {
@@ -4498,21 +9346,71 @@ pub const MFPROTECTION_VIDEO_FRAMES: ::windows_sys::core::GUID = ::windows_sys::
     data4: [188, 32, 70, 167, 201, 229, 151, 240],
 };
 pub const MFPROTECTION_WMDRMOTA: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2724701857, data2: 13870, data3: 18384, data4: [136, 5, 70, 40, 89, 138, 35, 228] };
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
 #[repr(C)]
-pub struct MFP_ACQUIRE_USER_CREDENTIAL_EVENT(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
+pub struct MFP_ACQUIRE_USER_CREDENTIAL_EVENT {
+    pub header: MFP_EVENT_HEADER,
+    pub dwUserData: usize,
+    pub fProceedWithAuthentication: super::super::Foundation::BOOL,
+    pub hrAuthenticationStatus: ::windows_sys::core::HRESULT,
+    pub pwszURL: super::super::Foundation::PWSTR,
+    pub pwszSite: super::super::Foundation::PWSTR,
+    pub pwszRealm: super::super::Foundation::PWSTR,
+    pub pwszPackage: super::super::Foundation::PWSTR,
+    pub nRetries: i32,
+    pub flags: u32,
+    pub pCredential: ::core::option::Option<IMFNetCredential>,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
+impl ::core::marker::Copy for MFP_ACQUIRE_USER_CREDENTIAL_EVENT {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
+impl ::core::clone::Clone for MFP_ACQUIRE_USER_CREDENTIAL_EVENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MFP_CREATION_OPTIONS(pub i32);
 pub const MFP_OPTION_NONE: MFP_CREATION_OPTIONS = MFP_CREATION_OPTIONS(0i32);
 pub const MFP_OPTION_FREE_THREADED_CALLBACK: MFP_CREATION_OPTIONS = MFP_CREATION_OPTIONS(1i32);
 pub const MFP_OPTION_NO_MMCSS: MFP_CREATION_OPTIONS = MFP_CREATION_OPTIONS(2i32);
 pub const MFP_OPTION_NO_REMOTE_DESKTOP_OPTIMIZATION: MFP_CREATION_OPTIONS = MFP_CREATION_OPTIONS(4i32);
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+impl ::core::marker::Copy for MFP_CREATION_OPTIONS {}
+impl ::core::clone::Clone for MFP_CREATION_OPTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct MFP_ERROR_EVENT(i32);
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+pub struct MFP_ERROR_EVENT {
+    pub header: MFP_EVENT_HEADER,
+}
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+impl ::core::marker::Copy for MFP_ERROR_EVENT {}
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+impl ::core::clone::Clone for MFP_ERROR_EVENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct MFP_EVENT_HEADER(i32);
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+pub struct MFP_EVENT_HEADER {
+    pub eEventType: MFP_EVENT_TYPE,
+    pub hrEvent: ::windows_sys::core::HRESULT,
+    pub pMediaPlayer: ::core::option::Option<IMFPMediaPlayer>,
+    pub eState: MFP_MEDIAPLAYER_STATE,
+    pub pPropertyStore: ::core::option::Option<super::super::UI::Shell::PropertiesSystem::IPropertyStore>,
+}
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+impl ::core::marker::Copy for MFP_EVENT_HEADER {}
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+impl ::core::clone::Clone for MFP_EVENT_HEADER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MFP_EVENT_TYPE(pub i32);
 pub const MFP_EVENT_TYPE_PLAY: MFP_EVENT_TYPE = MFP_EVENT_TYPE(0i32);
@@ -4528,18 +9426,69 @@ pub const MFP_EVENT_TYPE_MF: MFP_EVENT_TYPE = MFP_EVENT_TYPE(9i32);
 pub const MFP_EVENT_TYPE_ERROR: MFP_EVENT_TYPE = MFP_EVENT_TYPE(10i32);
 pub const MFP_EVENT_TYPE_PLAYBACK_ENDED: MFP_EVENT_TYPE = MFP_EVENT_TYPE(11i32);
 pub const MFP_EVENT_TYPE_ACQUIRE_USER_CREDENTIAL: MFP_EVENT_TYPE = MFP_EVENT_TYPE(12i32);
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+impl ::core::marker::Copy for MFP_EVENT_TYPE {}
+impl ::core::clone::Clone for MFP_EVENT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct MFP_FRAME_STEP_EVENT(i32);
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[repr(C)]
-pub struct MFP_MEDIAITEM_CLEARED_EVENT(i32);
+pub struct MFP_FRAME_STEP_EVENT {
+    pub header: MFP_EVENT_HEADER,
+    pub pMediaItem: ::core::option::Option<IMFPMediaItem>,
+}
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[repr(C)]
-pub struct MFP_MEDIAITEM_CREATED_EVENT(i32);
+impl ::core::marker::Copy for MFP_FRAME_STEP_EVENT {}
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+impl ::core::clone::Clone for MFP_FRAME_STEP_EVENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct MFP_MEDIAITEM_SET_EVENT(i32);
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+pub struct MFP_MEDIAITEM_CLEARED_EVENT {
+    pub header: MFP_EVENT_HEADER,
+    pub pMediaItem: ::core::option::Option<IMFPMediaItem>,
+}
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+impl ::core::marker::Copy for MFP_MEDIAITEM_CLEARED_EVENT {}
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+impl ::core::clone::Clone for MFP_MEDIAITEM_CLEARED_EVENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+pub struct MFP_MEDIAITEM_CREATED_EVENT {
+    pub header: MFP_EVENT_HEADER,
+    pub pMediaItem: ::core::option::Option<IMFPMediaItem>,
+    pub dwUserData: usize,
+}
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+impl ::core::marker::Copy for MFP_MEDIAITEM_CREATED_EVENT {}
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+impl ::core::clone::Clone for MFP_MEDIAITEM_CREATED_EVENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+pub struct MFP_MEDIAITEM_SET_EVENT {
+    pub header: MFP_EVENT_HEADER,
+    pub pMediaItem: ::core::option::Option<IMFPMediaItem>,
+}
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+impl ::core::marker::Copy for MFP_MEDIAITEM_SET_EVENT {}
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+impl ::core::clone::Clone for MFP_MEDIAITEM_SET_EVENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MFP_MEDIAPLAYER_STATE(pub i32);
 pub const MFP_MEDIAPLAYER_STATE_EMPTY: MFP_MEDIAPLAYER_STATE = MFP_MEDIAPLAYER_STATE(0i32);
@@ -4547,45 +9496,196 @@ pub const MFP_MEDIAPLAYER_STATE_STOPPED: MFP_MEDIAPLAYER_STATE = MFP_MEDIAPLAYER
 pub const MFP_MEDIAPLAYER_STATE_PLAYING: MFP_MEDIAPLAYER_STATE = MFP_MEDIAPLAYER_STATE(2i32);
 pub const MFP_MEDIAPLAYER_STATE_PAUSED: MFP_MEDIAPLAYER_STATE = MFP_MEDIAPLAYER_STATE(3i32);
 pub const MFP_MEDIAPLAYER_STATE_SHUTDOWN: MFP_MEDIAPLAYER_STATE = MFP_MEDIAPLAYER_STATE(4i32);
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+impl ::core::marker::Copy for MFP_MEDIAPLAYER_STATE {}
+impl ::core::clone::Clone for MFP_MEDIAPLAYER_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct MFP_MF_EVENT(i32);
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[repr(C)]
-pub struct MFP_PAUSE_EVENT(i32);
+pub struct MFP_MF_EVENT {
+    pub header: MFP_EVENT_HEADER,
+    pub MFEventType: u32,
+    pub pMFMediaEvent: ::core::option::Option<IMFMediaEvent>,
+    pub pMediaItem: ::core::option::Option<IMFPMediaItem>,
+}
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[repr(C)]
-pub struct MFP_PLAYBACK_ENDED_EVENT(i32);
+impl ::core::marker::Copy for MFP_MF_EVENT {}
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+impl ::core::clone::Clone for MFP_MF_EVENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct MFP_PLAY_EVENT(i32);
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+pub struct MFP_PAUSE_EVENT {
+    pub header: MFP_EVENT_HEADER,
+    pub pMediaItem: ::core::option::Option<IMFPMediaItem>,
+}
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+impl ::core::marker::Copy for MFP_PAUSE_EVENT {}
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+impl ::core::clone::Clone for MFP_PAUSE_EVENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+pub struct MFP_PLAYBACK_ENDED_EVENT {
+    pub header: MFP_EVENT_HEADER,
+    pub pMediaItem: ::core::option::Option<IMFPMediaItem>,
+}
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+impl ::core::marker::Copy for MFP_PLAYBACK_ENDED_EVENT {}
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+impl ::core::clone::Clone for MFP_PLAYBACK_ENDED_EVENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+pub struct MFP_PLAY_EVENT {
+    pub header: MFP_EVENT_HEADER,
+    pub pMediaItem: ::core::option::Option<IMFPMediaItem>,
+}
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+impl ::core::marker::Copy for MFP_PLAY_EVENT {}
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+impl ::core::clone::Clone for MFP_PLAY_EVENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MFP_POSITIONTYPE_100NS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 0, data2: 0, data3: 0, data4: [0, 0, 0, 0, 0, 0, 0, 0] };
+#[repr(C)]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[repr(C)]
-pub struct MFP_POSITION_SET_EVENT(i32);
+pub struct MFP_POSITION_SET_EVENT {
+    pub header: MFP_EVENT_HEADER,
+    pub pMediaItem: ::core::option::Option<IMFPMediaItem>,
+}
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[repr(C)]
-pub struct MFP_RATE_SET_EVENT(i32);
+impl ::core::marker::Copy for MFP_POSITION_SET_EVENT {}
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+impl ::core::clone::Clone for MFP_POSITION_SET_EVENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct MFP_STOP_EVENT(i32);
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+pub struct MFP_RATE_SET_EVENT {
+    pub header: MFP_EVENT_HEADER,
+    pub pMediaItem: ::core::option::Option<IMFPMediaItem>,
+    pub flRate: f32,
+}
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+impl ::core::marker::Copy for MFP_RATE_SET_EVENT {}
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+impl ::core::clone::Clone for MFP_RATE_SET_EVENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct MFPaletteEntry(i32);
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+pub struct MFP_STOP_EVENT {
+    pub header: MFP_EVENT_HEADER,
+    pub pMediaItem: ::core::option::Option<IMFPMediaItem>,
+}
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+impl ::core::marker::Copy for MFP_STOP_EVENT {}
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+impl ::core::clone::Clone for MFP_STOP_EVENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct MFPinholeCameraIntrinsic_IntrinsicModel(i32);
+pub union MFPaletteEntry {
+    pub ARGB: MFARGB,
+    pub AYCbCr: MFAYUVSample,
+}
+impl ::core::marker::Copy for MFPaletteEntry {}
+impl ::core::clone::Clone for MFPaletteEntry {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct MFPinholeCameraIntrinsics(i32);
+pub struct MFPinholeCameraIntrinsic_IntrinsicModel {
+    pub Width: u32,
+    pub Height: u32,
+    pub CameraModel: MFCameraIntrinsic_PinholeCameraModel,
+    pub DistortionModel: MFCameraIntrinsic_DistortionModel,
+}
+impl ::core::marker::Copy for MFPinholeCameraIntrinsic_IntrinsicModel {}
+impl ::core::clone::Clone for MFPinholeCameraIntrinsic_IntrinsicModel {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct MFPinholeCameraIntrinsics {
+    pub IntrinsicModelCount: u32,
+    pub IntrinsicModels: [MFPinholeCameraIntrinsic_IntrinsicModel; 1],
+}
+impl ::core::marker::Copy for MFPinholeCameraIntrinsics {}
+impl ::core::clone::Clone for MFPinholeCameraIntrinsics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MFRATE_DIRECTION(pub i32);
 pub const MFRATE_FORWARD: MFRATE_DIRECTION = MFRATE_DIRECTION(0i32);
 pub const MFRATE_REVERSE: MFRATE_DIRECTION = MFRATE_DIRECTION(1i32);
+impl ::core::marker::Copy for MFRATE_DIRECTION {}
+impl ::core::clone::Clone for MFRATE_DIRECTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct MFRR_COMPONENTS(i32);
+pub struct MFRR_COMPONENTS {
+    pub dwRRInfoVersion: u32,
+    pub dwRRComponents: u32,
+    pub pRRComponents: *mut MFRR_COMPONENT_HASH_INFO,
+}
+impl ::core::marker::Copy for MFRR_COMPONENTS {}
+impl ::core::clone::Clone for MFRR_COMPONENTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct MFRR_COMPONENT_HASH_INFO(i32);
+pub struct MFRR_COMPONENT_HASH_INFO {
+    pub ulReason: u32,
+    pub rgHeaderHash: [u16; 43],
+    pub rgPublicKeyHash: [u16; 43],
+    pub wszName: [u16; 260],
+}
+impl ::core::marker::Copy for MFRR_COMPONENT_HASH_INFO {}
+impl ::core::clone::Clone for MFRR_COMPONENT_HASH_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MFRR_INFO_VERSION: u32 = 0u32;
 #[repr(C)]
-pub struct MFRatio(i32);
+pub struct MFRatio {
+    pub Numerator: u32,
+    pub Denominator: u32,
+}
+impl ::core::marker::Copy for MFRatio {}
+impl ::core::clone::Clone for MFRatio {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MFSEQUENCER_INVALID_ELEMENT_ID: u32 = 4294967295u32;
 pub const MFSESSIONCAP_DOES_NOT_USE_NETWORK: u32 = 64u32;
 pub const MFSESSIONCAP_PAUSE: u32 = 4u32;
@@ -4596,15 +9696,33 @@ pub const MFSESSIONCAP_START: u32 = 1u32;
 #[repr(transparent)]
 pub struct MFSESSION_GETFULLTOPOLOGY_FLAGS(pub i32);
 pub const MFSESSION_GETFULLTOPOLOGY_CURRENT: MFSESSION_GETFULLTOPOLOGY_FLAGS = MFSESSION_GETFULLTOPOLOGY_FLAGS(1i32);
+impl ::core::marker::Copy for MFSESSION_GETFULLTOPOLOGY_FLAGS {}
+impl ::core::clone::Clone for MFSESSION_GETFULLTOPOLOGY_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MFSESSION_SETTOPOLOGY_FLAGS(pub i32);
 pub const MFSESSION_SETTOPOLOGY_IMMEDIATE: MFSESSION_SETTOPOLOGY_FLAGS = MFSESSION_SETTOPOLOGY_FLAGS(1i32);
 pub const MFSESSION_SETTOPOLOGY_NORESOLUTION: MFSESSION_SETTOPOLOGY_FLAGS = MFSESSION_SETTOPOLOGY_FLAGS(2i32);
 pub const MFSESSION_SETTOPOLOGY_CLEAR_CURRENT: MFSESSION_SETTOPOLOGY_FLAGS = MFSESSION_SETTOPOLOGY_FLAGS(4i32);
+impl ::core::marker::Copy for MFSESSION_SETTOPOLOGY_FLAGS {}
+impl ::core::clone::Clone for MFSESSION_SETTOPOLOGY_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MFSHUTDOWN_STATUS(pub i32);
 pub const MFSHUTDOWN_INITIATED: MFSHUTDOWN_STATUS = MFSHUTDOWN_STATUS(0i32);
 pub const MFSHUTDOWN_COMPLETED: MFSHUTDOWN_STATUS = MFSHUTDOWN_STATUS(1i32);
+impl ::core::marker::Copy for MFSHUTDOWN_STATUS {}
+impl ::core::clone::Clone for MFSHUTDOWN_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MFSINK_WMDRMACTION(pub i32);
 pub const MFSINK_WMDRMACTION_UNDEFINED: MFSINK_WMDRMACTION = MFSINK_WMDRMACTION(0i32);
@@ -4612,6 +9730,12 @@ pub const MFSINK_WMDRMACTION_ENCODE: MFSINK_WMDRMACTION = MFSINK_WMDRMACTION(1i3
 pub const MFSINK_WMDRMACTION_TRANSCODE: MFSINK_WMDRMACTION = MFSINK_WMDRMACTION(2i32);
 pub const MFSINK_WMDRMACTION_TRANSCRYPT: MFSINK_WMDRMACTION = MFSINK_WMDRMACTION(3i32);
 pub const MFSINK_WMDRMACTION_LAST: MFSINK_WMDRMACTION = MFSINK_WMDRMACTION(3i32);
+impl ::core::marker::Copy for MFSINK_WMDRMACTION {}
+impl ::core::clone::Clone for MFSINK_WMDRMACTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MFSTARTUP_FULL: u32 = 0u32;
 pub const MFSTARTUP_LITE: u32 = 1u32;
 pub const MFSTARTUP_NOSOCKET: u32 = 1u32;
@@ -4621,16 +9745,34 @@ pub const MFSTREAMSINK_MARKER_DEFAULT: MFSTREAMSINK_MARKER_TYPE = MFSTREAMSINK_M
 pub const MFSTREAMSINK_MARKER_ENDOFSEGMENT: MFSTREAMSINK_MARKER_TYPE = MFSTREAMSINK_MARKER_TYPE(1i32);
 pub const MFSTREAMSINK_MARKER_TICK: MFSTREAMSINK_MARKER_TYPE = MFSTREAMSINK_MARKER_TYPE(2i32);
 pub const MFSTREAMSINK_MARKER_EVENT: MFSTREAMSINK_MARKER_TYPE = MFSTREAMSINK_MARKER_TYPE(3i32);
+impl ::core::marker::Copy for MFSTREAMSINK_MARKER_TYPE {}
+impl ::core::clone::Clone for MFSTREAMSINK_MARKER_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MFSampleAllocatorUsage(pub i32);
 pub const MFSampleAllocatorUsage_UsesProvidedAllocator: MFSampleAllocatorUsage = MFSampleAllocatorUsage(0i32);
 pub const MFSampleAllocatorUsage_UsesCustomAllocator: MFSampleAllocatorUsage = MFSampleAllocatorUsage(1i32);
 pub const MFSampleAllocatorUsage_DoesNotAllocate: MFSampleAllocatorUsage = MFSampleAllocatorUsage(2i32);
+impl ::core::marker::Copy for MFSampleAllocatorUsage {}
+impl ::core::clone::Clone for MFSampleAllocatorUsage {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MFSampleEncryptionProtectionScheme(pub i32);
 pub const MF_SAMPLE_ENCRYPTION_PROTECTION_SCHEME_NONE: MFSampleEncryptionProtectionScheme = MFSampleEncryptionProtectionScheme(0i32);
 pub const MF_SAMPLE_ENCRYPTION_PROTECTION_SCHEME_AES_CTR: MFSampleEncryptionProtectionScheme = MFSampleEncryptionProtectionScheme(1i32);
 pub const MF_SAMPLE_ENCRYPTION_PROTECTION_SCHEME_AES_CBC: MFSampleEncryptionProtectionScheme = MFSampleEncryptionProtectionScheme(2i32);
+impl ::core::marker::Copy for MFSampleEncryptionProtectionScheme {}
+impl ::core::clone::Clone for MFSampleEncryptionProtectionScheme {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MFSampleExtension_3DVideo: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4168062884, data2: 56660, data3: 20014, data4: [154, 94, 85, 252, 45, 116, 160, 5] };
 pub const MFSampleExtension_3DVideo_SampleFormat: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 140973938, data2: 58223, data3: 19711, data4: [151, 179, 215, 46, 32, 152, 122, 72] };
 pub const MFSampleExtension_AccumulatedNonRefPicPercent: ::windows_sys::core::GUID = ::windows_sys::GUID {
@@ -4894,6 +10036,12 @@ pub const MFSampleExtension_VideoEncodeQP: ::windows_sys::core::GUID = ::windows
 pub struct MFSensorDeviceMode(pub i32);
 pub const MFSensorDeviceMode_Controller: MFSensorDeviceMode = MFSensorDeviceMode(0i32);
 pub const MFSensorDeviceMode_Shared: MFSensorDeviceMode = MFSensorDeviceMode(1i32);
+impl ::core::marker::Copy for MFSensorDeviceMode {}
+impl ::core::clone::Clone for MFSensorDeviceMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MFSensorDeviceType(pub i32);
 pub const MFSensorDeviceType_Unknown: MFSensorDeviceType = MFSensorDeviceType(0i32);
@@ -4901,14 +10049,32 @@ pub const MFSensorDeviceType_Device: MFSensorDeviceType = MFSensorDeviceType(1i3
 pub const MFSensorDeviceType_MediaSource: MFSensorDeviceType = MFSensorDeviceType(2i32);
 pub const MFSensorDeviceType_FrameProvider: MFSensorDeviceType = MFSensorDeviceType(3i32);
 pub const MFSensorDeviceType_SensorTransform: MFSensorDeviceType = MFSensorDeviceType(4i32);
+impl ::core::marker::Copy for MFSensorDeviceType {}
+impl ::core::clone::Clone for MFSensorDeviceType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MFSensorStreamType(pub i32);
 pub const MFSensorStreamType_Unknown: MFSensorStreamType = MFSensorStreamType(0i32);
 pub const MFSensorStreamType_Input: MFSensorStreamType = MFSensorStreamType(1i32);
 pub const MFSensorStreamType_Output: MFSensorStreamType = MFSensorStreamType(2i32);
+impl ::core::marker::Copy for MFSensorStreamType {}
+impl ::core::clone::Clone for MFSensorStreamType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MFSequencerTopologyFlags(pub i32);
 pub const SequencerTopologyFlags_Last: MFSequencerTopologyFlags = MFSequencerTopologyFlags(1i32);
+impl ::core::marker::Copy for MFSequencerTopologyFlags {}
+impl ::core::clone::Clone for MFSequencerTopologyFlags {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MFStandardVideoFormat(pub i32);
 pub const MFStdVideoFormat_reserved: MFStandardVideoFormat = MFStandardVideoFormat(0i32);
@@ -4921,6 +10087,12 @@ pub const MFStdVideoFormat_DV_NTSC: MFStandardVideoFormat = MFStandardVideoForma
 pub const MFStdVideoFormat_ATSC_SD480i: MFStandardVideoFormat = MFStandardVideoFormat(7i32);
 pub const MFStdVideoFormat_ATSC_HD1080i: MFStandardVideoFormat = MFStandardVideoFormat(8i32);
 pub const MFStdVideoFormat_ATSC_HD720p: MFStandardVideoFormat = MFStandardVideoFormat(9i32);
+impl ::core::marker::Copy for MFStandardVideoFormat {}
+impl ::core::clone::Clone for MFStandardVideoFormat {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MFStreamExtension_CameraExtrinsics: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1751226064, data2: 5090, data3: 16857, data4: [150, 56, 239, 3, 44, 39, 42, 82] };
 pub const MFStreamExtension_ExtendedCameraIntrinsics: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 2859774943,
@@ -4968,18 +10140,59 @@ pub const MFSubtitleFormat_XML: ::windows_sys::core::GUID = ::windows_sys::GUID 
 #[repr(transparent)]
 pub struct MFTIMER_FLAGS(pub i32);
 pub const MFTIMER_RELATIVE: MFTIMER_FLAGS = MFTIMER_FLAGS(1i32);
+impl ::core::marker::Copy for MFTIMER_FLAGS {}
+impl ::core::clone::Clone for MFTIMER_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MFTOPOLOGY_DXVA_MODE(pub i32);
 pub const MFTOPOLOGY_DXVA_DEFAULT: MFTOPOLOGY_DXVA_MODE = MFTOPOLOGY_DXVA_MODE(0i32);
 pub const MFTOPOLOGY_DXVA_NONE: MFTOPOLOGY_DXVA_MODE = MFTOPOLOGY_DXVA_MODE(1i32);
 pub const MFTOPOLOGY_DXVA_FULL: MFTOPOLOGY_DXVA_MODE = MFTOPOLOGY_DXVA_MODE(2i32);
+impl ::core::marker::Copy for MFTOPOLOGY_DXVA_MODE {}
+impl ::core::clone::Clone for MFTOPOLOGY_DXVA_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MFTOPOLOGY_HARDWARE_MODE(pub i32);
 pub const MFTOPOLOGY_HWMODE_SOFTWARE_ONLY: MFTOPOLOGY_HARDWARE_MODE = MFTOPOLOGY_HARDWARE_MODE(0i32);
 pub const MFTOPOLOGY_HWMODE_USE_HARDWARE: MFTOPOLOGY_HARDWARE_MODE = MFTOPOLOGY_HARDWARE_MODE(1i32);
 pub const MFTOPOLOGY_HWMODE_USE_ONLY_HARDWARE: MFTOPOLOGY_HARDWARE_MODE = MFTOPOLOGY_HARDWARE_MODE(2i32);
+impl ::core::marker::Copy for MFTOPOLOGY_HARDWARE_MODE {}
+impl ::core::clone::Clone for MFTOPOLOGY_HARDWARE_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct MFTOPONODE_ATTRIBUTE_UPDATE(i32);
+pub struct MFTOPONODE_ATTRIBUTE_UPDATE {
+    pub NodeId: u64,
+    pub guidAttributeKey: ::windows_sys::core::GUID,
+    pub attrType: MF_ATTRIBUTE_TYPE,
+    pub Anonymous: MFTOPONODE_ATTRIBUTE_UPDATE_0,
+}
+impl ::core::marker::Copy for MFTOPONODE_ATTRIBUTE_UPDATE {}
+impl ::core::clone::Clone for MFTOPONODE_ATTRIBUTE_UPDATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub union MFTOPONODE_ATTRIBUTE_UPDATE_0 {
+    pub u32: u32,
+    pub u64: u64,
+    pub d: f64,
+}
+impl ::core::marker::Copy for MFTOPONODE_ATTRIBUTE_UPDATE_0 {}
+impl ::core::clone::Clone for MFTOPONODE_ATTRIBUTE_UPDATE_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MFT_AUDIO_DECODER_AUDIO_ENDPOINT_ID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 3352092014,
     data2: 21400,
@@ -4996,12 +10209,24 @@ pub const MFT_AUDIO_DECODER_DEGRADATION_INFO_ATTRIBUTE: ::windows_sys::core::GUI
 pub struct MFT_AUDIO_DECODER_DEGRADATION_REASON(pub i32);
 pub const MFT_AUDIO_DECODER_DEGRADATION_REASON_NONE: MFT_AUDIO_DECODER_DEGRADATION_REASON = MFT_AUDIO_DECODER_DEGRADATION_REASON(0i32);
 pub const MFT_AUDIO_DECODER_DEGRADATION_REASON_LICENSING_REQUIREMENT: MFT_AUDIO_DECODER_DEGRADATION_REASON = MFT_AUDIO_DECODER_DEGRADATION_REASON(1i32);
+impl ::core::marker::Copy for MFT_AUDIO_DECODER_DEGRADATION_REASON {}
+impl ::core::clone::Clone for MFT_AUDIO_DECODER_DEGRADATION_REASON {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MFT_AUDIO_DECODER_DEGRADATION_TYPE(pub i32);
 pub const MFT_AUDIO_DECODER_DEGRADATION_TYPE_NONE: MFT_AUDIO_DECODER_DEGRADATION_TYPE = MFT_AUDIO_DECODER_DEGRADATION_TYPE(0i32);
 pub const MFT_AUDIO_DECODER_DEGRADATION_TYPE_DOWNMIX2CHANNEL: MFT_AUDIO_DECODER_DEGRADATION_TYPE = MFT_AUDIO_DECODER_DEGRADATION_TYPE(1i32);
 pub const MFT_AUDIO_DECODER_DEGRADATION_TYPE_DOWNMIX6CHANNEL: MFT_AUDIO_DECODER_DEGRADATION_TYPE = MFT_AUDIO_DECODER_DEGRADATION_TYPE(2i32);
 pub const MFT_AUDIO_DECODER_DEGRADATION_TYPE_DOWNMIX8CHANNEL: MFT_AUDIO_DECODER_DEGRADATION_TYPE = MFT_AUDIO_DECODER_DEGRADATION_TYPE(3i32);
+impl ::core::marker::Copy for MFT_AUDIO_DECODER_DEGRADATION_TYPE {}
+impl ::core::clone::Clone for MFT_AUDIO_DECODER_DEGRADATION_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MFT_AUDIO_DECODER_SPATIAL_METADATA_CLIENT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 93879796, data2: 4720, data3: 18841, data4: [146, 95, 142, 147, 154, 124, 10, 247] };
 pub const MFT_CATEGORY_AUDIO_DECODER: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2661760948, data2: 61306, data3: 17753, data4: [141, 93, 113, 157, 143, 4, 38, 199] };
 pub const MFT_CATEGORY_AUDIO_EFFECT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 285625416, data2: 13896, data3: 20176, data4: [147, 46, 5, 206, 138, 200, 17, 183] };
@@ -5056,6 +10281,12 @@ pub const MFT_DECODER_QUALITY_MANAGEMENT_RECOVERY_WITHOUT_ARTIFACTS: ::windows_s
 pub struct MFT_DRAIN_TYPE(pub i32);
 pub const MFT_DRAIN_PRODUCE_TAILS: MFT_DRAIN_TYPE = MFT_DRAIN_TYPE(0i32);
 pub const MFT_DRAIN_NO_TAILS: MFT_DRAIN_TYPE = MFT_DRAIN_TYPE(1i32);
+impl ::core::marker::Copy for MFT_DRAIN_TYPE {}
+impl ::core::clone::Clone for MFT_DRAIN_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MFT_ENCODER_ERROR: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3369201060, data2: 39140, data3: 16853, data4: [146, 151, 68, 245, 56, 82, 249, 14] };
 pub const MFT_ENCODER_SUPPORTS_CONFIG_EVENT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2258851246, data2: 14967, data3: 20164, data4: [159, 49, 1, 20, 154, 78, 146, 222] };
 pub const MFT_END_STREAMING_AWARE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1895548997, data2: 45182, data3: 16521, data4: [176, 100, 57, 157, 198, 17, 15, 41] };
@@ -5079,7 +10310,19 @@ pub const MFT_HW_TIMESTAMP_WITH_QPC_Attribute: ::windows_sys::core::GUID = ::win
     data4: [162, 46, 146, 16, 190, 248, 155, 228],
 };
 #[repr(C)]
-pub struct MFT_INPUT_STREAM_INFO(i32);
+pub struct MFT_INPUT_STREAM_INFO {
+    pub hnsMaxLatency: i64,
+    pub dwFlags: u32,
+    pub cbSize: u32,
+    pub cbMaxLookahead: u32,
+    pub cbAlignment: u32,
+}
+impl ::core::marker::Copy for MFT_INPUT_STREAM_INFO {}
+impl ::core::clone::Clone for MFT_INPUT_STREAM_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MFT_INPUT_TYPES_Attributes: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 1115081137,
     data2: 30109,
@@ -5103,11 +10346,38 @@ pub const MFT_MESSAGE_NOTIFY_EVENT: MFT_MESSAGE_TYPE = MFT_MESSAGE_TYPE(26843546
 pub const MFT_MESSAGE_COMMAND_SET_OUTPUT_STREAM_STATE: MFT_MESSAGE_TYPE = MFT_MESSAGE_TYPE(268435463i32);
 pub const MFT_MESSAGE_COMMAND_FLUSH_OUTPUT_STREAM: MFT_MESSAGE_TYPE = MFT_MESSAGE_TYPE(268435464i32);
 pub const MFT_MESSAGE_COMMAND_MARKER: MFT_MESSAGE_TYPE = MFT_MESSAGE_TYPE(536870912i32);
+impl ::core::marker::Copy for MFT_MESSAGE_TYPE {}
+impl ::core::clone::Clone for MFT_MESSAGE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MFT_OUTPUT_BOUND_UPPER_UNBOUNDED: u64 = 9223372036854775807u64;
 #[repr(C)]
-pub struct MFT_OUTPUT_DATA_BUFFER(i32);
+pub struct MFT_OUTPUT_DATA_BUFFER {
+    pub dwStreamID: u32,
+    pub pSample: ::core::option::Option<IMFSample>,
+    pub dwStatus: u32,
+    pub pEvents: ::core::option::Option<IMFCollection>,
+}
+impl ::core::marker::Copy for MFT_OUTPUT_DATA_BUFFER {}
+impl ::core::clone::Clone for MFT_OUTPUT_DATA_BUFFER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct MFT_OUTPUT_STREAM_INFO(i32);
+pub struct MFT_OUTPUT_STREAM_INFO {
+    pub dwFlags: u32,
+    pub cbSize: u32,
+    pub cbAlignment: u32,
+}
+impl ::core::marker::Copy for MFT_OUTPUT_STREAM_INFO {}
+impl ::core::clone::Clone for MFT_OUTPUT_STREAM_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MFT_OUTPUT_TYPES_Attributes: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2393804019, data2: 42063, data3: 17158, data4: [186, 92, 191, 93, 218, 36, 40, 24] };
 pub const MFT_POLICY_SET_AWARE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1516452633, data2: 52281, data3: 20392, data4: [140, 165, 89, 152, 27, 122, 0, 24] };
 pub const MFT_PREFERRED_ENCODER_PROFILE: ::windows_sys::core::GUID = ::windows_sys::GUID {
@@ -5124,14 +10394,49 @@ pub const MFT_PROCESS_LOCAL_Attribute: ::windows_sys::core::GUID = ::windows_sys
     data4: [181, 136, 74, 163, 82, 175, 243, 121],
 };
 #[repr(C)]
-pub struct MFT_REGISTER_TYPE_INFO(i32);
-#[cfg(feature = "Win32_Foundation")]
+pub struct MFT_REGISTER_TYPE_INFO {
+    pub guidMajorType: ::windows_sys::core::GUID,
+    pub guidSubtype: ::windows_sys::core::GUID,
+}
+impl ::core::marker::Copy for MFT_REGISTER_TYPE_INFO {}
+impl ::core::clone::Clone for MFT_REGISTER_TYPE_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct MFT_REGISTRATION_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct MFT_REGISTRATION_INFO {
+    pub clsid: ::windows_sys::core::GUID,
+    pub guidCategory: ::windows_sys::core::GUID,
+    pub uiFlags: u32,
+    pub pszName: super::super::Foundation::PWSTR,
+    pub cInTypes: u32,
+    pub pInTypes: *mut MFT_REGISTER_TYPE_INFO,
+    pub cOutTypes: u32,
+    pub pOutTypes: *mut MFT_REGISTER_TYPE_INFO,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MFT_REGISTRATION_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MFT_REGISTRATION_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MFT_REMUX_MARK_I_PICTURE_AS_CLEAN_POINT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 911118213, data2: 16174, data3: 17260, data4: [178, 162, 68, 64, 160, 18, 169, 232] };
 pub const MFT_STREAMS_UNLIMITED: u32 = 4294967295u32;
 #[repr(C)]
-pub struct MFT_STREAM_STATE_PARAM(i32);
+pub struct MFT_STREAM_STATE_PARAM {
+    pub StreamId: u32,
+    pub State: MF_STREAM_STATE,
+}
+impl ::core::marker::Copy for MFT_STREAM_STATE_PARAM {}
+impl ::core::clone::Clone for MFT_STREAM_STATE_PARAM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MFT_SUPPORT_3DVIDEO: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 155156913, data2: 20270, data3: 17969, data4: [129, 104, 121, 52, 3, 42, 1, 211] };
 pub const MFT_SUPPORT_DYNAMIC_FORMAT_CHANGE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1397189137, data2: 16147, data3: 18939, data4: [172, 66, 238, 39, 51, 201, 103, 65] };
 pub const MFT_TRANSFORM_CLSID_Attribute: ::windows_sys::core::GUID = ::windows_sys::GUID {
@@ -5183,9 +10488,23 @@ pub const MFTranscodeContainerType_WAVE: ::windows_sys::core::GUID = ::windows_s
     data3: 18241,
     data4: [190, 99, 135, 189, 248, 187, 147, 91],
 };
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct MFVIDEOFORMAT(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct MFVIDEOFORMAT {
+    pub dwSize: u32,
+    pub videoInfo: MFVideoInfo,
+    pub guidFormat: ::windows_sys::core::GUID,
+    pub compressedInfo: MFVideoCompressedInfo,
+    pub surfaceInfo: MFVideoSurfaceInfo,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MFVIDEOFORMAT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MFVIDEOFORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MFVP_MESSAGE_TYPE(pub i32);
 pub const MFVP_MESSAGE_FLUSH: MFVP_MESSAGE_TYPE = MFVP_MESSAGE_TYPE(0i32);
@@ -5196,19 +10515,63 @@ pub const MFVP_MESSAGE_ENDSTREAMING: MFVP_MESSAGE_TYPE = MFVP_MESSAGE_TYPE(4i32)
 pub const MFVP_MESSAGE_ENDOFSTREAM: MFVP_MESSAGE_TYPE = MFVP_MESSAGE_TYPE(5i32);
 pub const MFVP_MESSAGE_STEP: MFVP_MESSAGE_TYPE = MFVP_MESSAGE_TYPE(6i32);
 pub const MFVP_MESSAGE_CANCELSTEP: MFVP_MESSAGE_TYPE = MFVP_MESSAGE_TYPE(7i32);
+impl ::core::marker::Copy for MFVP_MESSAGE_TYPE {}
+impl ::core::clone::Clone for MFVP_MESSAGE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MFVideo3DFormat(pub i32);
 pub const MFVideo3DSampleFormat_BaseView: MFVideo3DFormat = MFVideo3DFormat(0i32);
 pub const MFVideo3DSampleFormat_MultiView: MFVideo3DFormat = MFVideo3DFormat(1i32);
 pub const MFVideo3DSampleFormat_Packed_LeftRight: MFVideo3DFormat = MFVideo3DFormat(2i32);
 pub const MFVideo3DSampleFormat_Packed_TopBottom: MFVideo3DFormat = MFVideo3DFormat(3i32);
+impl ::core::marker::Copy for MFVideo3DFormat {}
+impl ::core::clone::Clone for MFVideo3DFormat {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MFVideo3DSampleFormat(pub i32);
 pub const MFSampleExtension_3DVideo_MultiView: MFVideo3DSampleFormat = MFVideo3DSampleFormat(1i32);
 pub const MFSampleExtension_3DVideo_Packed: MFVideo3DSampleFormat = MFVideo3DSampleFormat(0i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_Gdi"))]
+impl ::core::marker::Copy for MFVideo3DSampleFormat {}
+impl ::core::clone::Clone for MFVideo3DSampleFormat {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct MFVideoAlphaBitmap(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_Gdi"))]
+pub struct MFVideoAlphaBitmap {
+    pub GetBitmapFromDC: super::super::Foundation::BOOL,
+    pub bitmap: MFVideoAlphaBitmap_0,
+    pub params: MFVideoAlphaBitmapParams,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_Gdi"))]
+impl ::core::marker::Copy for MFVideoAlphaBitmap {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_Gdi"))]
+impl ::core::clone::Clone for MFVideoAlphaBitmap {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_Gdi"))]
+pub union MFVideoAlphaBitmap_0 {
+    pub hdc: super::super::Graphics::Gdi::HDC,
+    pub pDDS: ::core::option::Option<super::super::Graphics::Direct3D9::IDirect3DSurface9>,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_Gdi"))]
+impl ::core::marker::Copy for MFVideoAlphaBitmap_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_Gdi"))]
+impl ::core::clone::Clone for MFVideoAlphaBitmap_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MFVideoAlphaBitmapFlags(pub i32);
 pub const MFVideoAlphaBitmap_EntireDDS: MFVideoAlphaBitmapFlags = MFVideoAlphaBitmapFlags(1i32);
@@ -5218,12 +10581,45 @@ pub const MFVideoAlphaBitmap_DestRect: MFVideoAlphaBitmapFlags = MFVideoAlphaBit
 pub const MFVideoAlphaBitmap_FilterMode: MFVideoAlphaBitmapFlags = MFVideoAlphaBitmapFlags(16i32);
 pub const MFVideoAlphaBitmap_Alpha: MFVideoAlphaBitmapFlags = MFVideoAlphaBitmapFlags(32i32);
 pub const MFVideoAlphaBitmap_BitMask: MFVideoAlphaBitmapFlags = MFVideoAlphaBitmapFlags(63i32);
-#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MFVideoAlphaBitmapFlags {}
+impl ::core::clone::Clone for MFVideoAlphaBitmapFlags {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct MFVideoAlphaBitmapParams(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct MFVideoAlphaBitmapParams {
+    pub dwFlags: u32,
+    pub clrSrcKey: u32,
+    pub rcSrc: super::super::Foundation::RECT,
+    pub nrcDest: MFVideoNormalizedRect,
+    pub fAlpha: f32,
+    pub dwFilterMode: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MFVideoAlphaBitmapParams {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MFVideoAlphaBitmapParams {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct MFVideoArea(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct MFVideoArea {
+    pub OffsetX: MFOffset,
+    pub OffsetY: MFOffset,
+    pub Area: super::super::Foundation::SIZE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MFVideoArea {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MFVideoArea {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MFVideoAspectRatioMode(pub i32);
 pub const MFVideoARMode_None: MFVideoAspectRatioMode = MFVideoAspectRatioMode(0i32);
@@ -5231,6 +10627,12 @@ pub const MFVideoARMode_PreservePicture: MFVideoAspectRatioMode = MFVideoAspectR
 pub const MFVideoARMode_PreservePixel: MFVideoAspectRatioMode = MFVideoAspectRatioMode(2i32);
 pub const MFVideoARMode_NonLinearStretch: MFVideoAspectRatioMode = MFVideoAspectRatioMode(4i32);
 pub const MFVideoARMode_Mask: MFVideoAspectRatioMode = MFVideoAspectRatioMode(7i32);
+impl ::core::marker::Copy for MFVideoAspectRatioMode {}
+impl ::core::clone::Clone for MFVideoAspectRatioMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MFVideoChromaSubsampling(pub i32);
 pub const MFVideoChromaSubsampling_Unknown: MFVideoChromaSubsampling = MFVideoChromaSubsampling(0i32);
@@ -5244,17 +10646,45 @@ pub const MFVideoChromaSubsampling_DV_PAL: MFVideoChromaSubsampling = MFVideoChr
 pub const MFVideoChromaSubsampling_Cosited: MFVideoChromaSubsampling = MFVideoChromaSubsampling(7i32);
 pub const MFVideoChromaSubsampling_Last: MFVideoChromaSubsampling = MFVideoChromaSubsampling(8i32);
 pub const MFVideoChromaSubsampling_ForceDWORD: MFVideoChromaSubsampling = MFVideoChromaSubsampling(2147483647i32);
+impl ::core::marker::Copy for MFVideoChromaSubsampling {}
+impl ::core::clone::Clone for MFVideoChromaSubsampling {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct MFVideoCompressedInfo(i32);
+pub struct MFVideoCompressedInfo {
+    pub AvgBitrate: i64,
+    pub AvgBitErrorRate: i64,
+    pub MaxKeyFrameSpacing: u32,
+}
+impl ::core::marker::Copy for MFVideoCompressedInfo {}
+impl ::core::clone::Clone for MFVideoCompressedInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MFVideoDRMFlags(pub i32);
 pub const MFVideoDRMFlag_None: MFVideoDRMFlags = MFVideoDRMFlags(0i32);
 pub const MFVideoDRMFlag_AnalogProtected: MFVideoDRMFlags = MFVideoDRMFlags(1i32);
 pub const MFVideoDRMFlag_DigitallyProtected: MFVideoDRMFlags = MFVideoDRMFlags(2i32);
+impl ::core::marker::Copy for MFVideoDRMFlags {}
+impl ::core::clone::Clone for MFVideoDRMFlags {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MFVideoDSPMode(pub i32);
 pub const MFVideoDSPMode_Passthrough: MFVideoDSPMode = MFVideoDSPMode(1i32);
 pub const MFVideoDSPMode_Stabilization: MFVideoDSPMode = MFVideoDSPMode(4i32);
+impl ::core::marker::Copy for MFVideoDSPMode {}
+impl ::core::clone::Clone for MFVideoDSPMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MFVideoFlags(pub i32);
 pub const MFVideoFlag_PAD_TO_Mask: MFVideoFlags = MFVideoFlags(3i32);
@@ -5277,6 +10707,12 @@ pub const MFVideoFlag_BottomUpLinearRep: MFVideoFlags = MFVideoFlags(524288i32);
 pub const MFVideoFlags_DXVASurface: MFVideoFlags = MFVideoFlags(1048576i32);
 pub const MFVideoFlags_RenderTargetSurface: MFVideoFlags = MFVideoFlags(4194304i32);
 pub const MFVideoFlags_ForceQWORD: MFVideoFlags = MFVideoFlags(2147483647i32);
+impl ::core::marker::Copy for MFVideoFlags {}
+impl ::core::clone::Clone for MFVideoFlags {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MFVideoFormat_420O: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1328558644, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
 pub const MFVideoFormat_A16B16G16R16F: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 113, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
 pub const MFVideoFormat_A2R10G10B10: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 31, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
@@ -5365,9 +10801,33 @@ pub const MFVideoFormat_YVYU: ::windows_sys::core::GUID = ::windows_sys::GUID { 
 pub const MFVideoFormat_v210: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 808530550, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
 pub const MFVideoFormat_v216: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 909193846, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
 pub const MFVideoFormat_v410: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 808531062, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct MFVideoInfo(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct MFVideoInfo {
+    pub dwWidth: u32,
+    pub dwHeight: u32,
+    pub PixelAspectRatio: MFRatio,
+    pub SourceChromaSubsampling: MFVideoChromaSubsampling,
+    pub InterlaceMode: MFVideoInterlaceMode,
+    pub TransferFunction: MFVideoTransferFunction,
+    pub ColorPrimaries: MFVideoPrimaries,
+    pub TransferMatrix: MFVideoTransferMatrix,
+    pub SourceLighting: MFVideoLighting,
+    pub FramesPerSecond: MFRatio,
+    pub NominalRange: MFNominalRange,
+    pub GeometricAperture: MFVideoArea,
+    pub MinimumDisplayAperture: MFVideoArea,
+    pub PanScanAperture: MFVideoArea,
+    pub VideoFlags: u64,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MFVideoInfo {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MFVideoInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MFVideoInterlaceMode(pub i32);
 pub const MFVideoInterlace_Unknown: MFVideoInterlaceMode = MFVideoInterlaceMode(0i32);
@@ -5379,6 +10839,12 @@ pub const MFVideoInterlace_FieldSingleLower: MFVideoInterlaceMode = MFVideoInter
 pub const MFVideoInterlace_MixedInterlaceOrProgressive: MFVideoInterlaceMode = MFVideoInterlaceMode(7i32);
 pub const MFVideoInterlace_Last: MFVideoInterlaceMode = MFVideoInterlaceMode(8i32);
 pub const MFVideoInterlace_ForceDWORD: MFVideoInterlaceMode = MFVideoInterlaceMode(2147483647i32);
+impl ::core::marker::Copy for MFVideoInterlaceMode {}
+impl ::core::clone::Clone for MFVideoInterlaceMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MFVideoLighting(pub i32);
 pub const MFVideoLighting_Unknown: MFVideoLighting = MFVideoLighting(0i32);
@@ -5388,6 +10854,12 @@ pub const MFVideoLighting_dim: MFVideoLighting = MFVideoLighting(3i32);
 pub const MFVideoLighting_dark: MFVideoLighting = MFVideoLighting(4i32);
 pub const MFVideoLighting_Last: MFVideoLighting = MFVideoLighting(5i32);
 pub const MFVideoLighting_ForceDWORD: MFVideoLighting = MFVideoLighting(2147483647i32);
+impl ::core::marker::Copy for MFVideoLighting {}
+impl ::core::clone::Clone for MFVideoLighting {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MFVideoMixPrefs(pub i32);
 pub const MFVideoMixPrefs_ForceHalfInterlace: MFVideoMixPrefs = MFVideoMixPrefs(1i32);
@@ -5396,13 +10868,36 @@ pub const MFVideoMixPrefs_AllowDropToBob: MFVideoMixPrefs = MFVideoMixPrefs(4i32
 pub const MFVideoMixPrefs_ForceBob: MFVideoMixPrefs = MFVideoMixPrefs(8i32);
 pub const MFVideoMixPrefs_EnableRotation: MFVideoMixPrefs = MFVideoMixPrefs(16i32);
 pub const MFVideoMixPrefs_Mask: MFVideoMixPrefs = MFVideoMixPrefs(31i32);
+impl ::core::marker::Copy for MFVideoMixPrefs {}
+impl ::core::clone::Clone for MFVideoMixPrefs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct MFVideoNormalizedRect(i32);
+pub struct MFVideoNormalizedRect {
+    pub left: f32,
+    pub top: f32,
+    pub right: f32,
+    pub bottom: f32,
+}
+impl ::core::marker::Copy for MFVideoNormalizedRect {}
+impl ::core::clone::Clone for MFVideoNormalizedRect {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MFVideoPadFlags(pub i32);
 pub const MFVideoPadFlag_PAD_TO_None: MFVideoPadFlags = MFVideoPadFlags(0i32);
 pub const MFVideoPadFlag_PAD_TO_4x3: MFVideoPadFlags = MFVideoPadFlags(1i32);
 pub const MFVideoPadFlag_PAD_TO_16x9: MFVideoPadFlags = MFVideoPadFlags(2i32);
+impl ::core::marker::Copy for MFVideoPadFlags {}
+impl ::core::clone::Clone for MFVideoPadFlags {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MFVideoPrimaries(pub i32);
 pub const MFVideoPrimaries_Unknown: MFVideoPrimaries = MFVideoPrimaries(0i32);
@@ -5420,6 +10915,12 @@ pub const MFVideoPrimaries_DCI_P3: MFVideoPrimaries = MFVideoPrimaries(11i32);
 pub const MFVideoPrimaries_ACES: MFVideoPrimaries = MFVideoPrimaries(12i32);
 pub const MFVideoPrimaries_Last: MFVideoPrimaries = MFVideoPrimaries(13i32);
 pub const MFVideoPrimaries_ForceDWORD: MFVideoPrimaries = MFVideoPrimaries(2147483647i32);
+impl ::core::marker::Copy for MFVideoPrimaries {}
+impl ::core::clone::Clone for MFVideoPrimaries {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MFVideoRenderPrefs(pub i32);
 pub const MFVideoRenderPrefs_DoNotRenderBorder: MFVideoRenderPrefs = MFVideoRenderPrefs(1i32);
@@ -5432,29 +10933,69 @@ pub const MFVideoRenderPrefs_ForceScaling: MFVideoRenderPrefs = MFVideoRenderPre
 pub const MFVideoRenderPrefs_AllowScaling: MFVideoRenderPrefs = MFVideoRenderPrefs(128i32);
 pub const MFVideoRenderPrefs_DoNotRepaintOnStop: MFVideoRenderPrefs = MFVideoRenderPrefs(256i32);
 pub const MFVideoRenderPrefs_Mask: MFVideoRenderPrefs = MFVideoRenderPrefs(511i32);
+impl ::core::marker::Copy for MFVideoRenderPrefs {}
+impl ::core::clone::Clone for MFVideoRenderPrefs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MFVideoRotationFormat(pub i32);
 pub const MFVideoRotationFormat_0: MFVideoRotationFormat = MFVideoRotationFormat(0i32);
 pub const MFVideoRotationFormat_90: MFVideoRotationFormat = MFVideoRotationFormat(90i32);
 pub const MFVideoRotationFormat_180: MFVideoRotationFormat = MFVideoRotationFormat(180i32);
 pub const MFVideoRotationFormat_270: MFVideoRotationFormat = MFVideoRotationFormat(270i32);
+impl ::core::marker::Copy for MFVideoRotationFormat {}
+impl ::core::clone::Clone for MFVideoRotationFormat {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MFVideoSphericalFormat(pub i32);
 pub const MFVideoSphericalFormat_Unsupported: MFVideoSphericalFormat = MFVideoSphericalFormat(0i32);
 pub const MFVideoSphericalFormat_Equirectangular: MFVideoSphericalFormat = MFVideoSphericalFormat(1i32);
 pub const MFVideoSphericalFormat_CubeMap: MFVideoSphericalFormat = MFVideoSphericalFormat(2i32);
 pub const MFVideoSphericalFormat_3DMesh: MFVideoSphericalFormat = MFVideoSphericalFormat(3i32);
+impl ::core::marker::Copy for MFVideoSphericalFormat {}
+impl ::core::clone::Clone for MFVideoSphericalFormat {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MFVideoSphericalProjectionMode(pub i32);
 pub const MFVideoSphericalProjectionMode_Spherical: MFVideoSphericalProjectionMode = MFVideoSphericalProjectionMode(0i32);
 pub const MFVideoSphericalProjectionMode_Flat: MFVideoSphericalProjectionMode = MFVideoSphericalProjectionMode(1i32);
+impl ::core::marker::Copy for MFVideoSphericalProjectionMode {}
+impl ::core::clone::Clone for MFVideoSphericalProjectionMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MFVideoSrcContentHintFlags(pub i32);
 pub const MFVideoSrcContentHintFlag_None: MFVideoSrcContentHintFlags = MFVideoSrcContentHintFlags(0i32);
 pub const MFVideoSrcContentHintFlag_16x9: MFVideoSrcContentHintFlags = MFVideoSrcContentHintFlags(1i32);
 pub const MFVideoSrcContentHintFlag_235_1: MFVideoSrcContentHintFlags = MFVideoSrcContentHintFlags(2i32);
+impl ::core::marker::Copy for MFVideoSrcContentHintFlags {}
+impl ::core::clone::Clone for MFVideoSrcContentHintFlags {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct MFVideoSurfaceInfo(i32);
+pub struct MFVideoSurfaceInfo {
+    pub Format: u32,
+    pub PaletteEntries: u32,
+    pub Palette: [MFPaletteEntry; 1],
+}
+impl ::core::marker::Copy for MFVideoSurfaceInfo {}
+impl ::core::clone::Clone for MFVideoSurfaceInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MFVideoTransferFunction(pub i32);
 pub const MFVideoTransFunc_Unknown: MFVideoTransferFunction = MFVideoTransferFunction(0i32);
@@ -5477,6 +11018,12 @@ pub const MFVideoTransFunc_HLG: MFVideoTransferFunction = MFVideoTransferFunctio
 pub const MFVideoTransFunc_10_rel: MFVideoTransferFunction = MFVideoTransferFunction(17i32);
 pub const MFVideoTransFunc_Last: MFVideoTransferFunction = MFVideoTransferFunction(18i32);
 pub const MFVideoTransFunc_ForceDWORD: MFVideoTransferFunction = MFVideoTransferFunction(2147483647i32);
+impl ::core::marker::Copy for MFVideoTransferFunction {}
+impl ::core::clone::Clone for MFVideoTransferFunction {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MFVideoTransferMatrix(pub i32);
 pub const MFVideoTransferMatrix_Unknown: MFVideoTransferMatrix = MFVideoTransferMatrix(0i32);
@@ -5487,10 +11034,22 @@ pub const MFVideoTransferMatrix_BT2020_10: MFVideoTransferMatrix = MFVideoTransf
 pub const MFVideoTransferMatrix_BT2020_12: MFVideoTransferMatrix = MFVideoTransferMatrix(5i32);
 pub const MFVideoTransferMatrix_Last: MFVideoTransferMatrix = MFVideoTransferMatrix(6i32);
 pub const MFVideoTransferMatrix_ForceDWORD: MFVideoTransferMatrix = MFVideoTransferMatrix(2147483647i32);
+impl ::core::marker::Copy for MFVideoTransferMatrix {}
+impl ::core::clone::Clone for MFVideoTransferMatrix {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MFWaveFormatExConvertFlags(pub i32);
 pub const MFWaveFormatExConvertFlag_Normal: MFWaveFormatExConvertFlags = MFWaveFormatExConvertFlags(0i32);
 pub const MFWaveFormatExConvertFlag_ForceExtensible: MFWaveFormatExConvertFlags = MFWaveFormatExConvertFlags(1i32);
+impl ::core::marker::Copy for MFWaveFormatExConvertFlags {}
+impl ::core::clone::Clone for MFWaveFormatExConvertFlags {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MF_1024_BYTE_ALIGNMENT: u32 = 1023u32;
 pub const MF_128_BYTE_ALIGNMENT: u32 = 127u32;
 pub const MF_16_BYTE_ALIGNMENT: u32 = 15u32;
@@ -5514,9 +11073,21 @@ pub const MF_ACCESS_CONTROLLED_MEDIASOURCE_SERVICE: ::windows_sys::core::GUID = 
 #[repr(transparent)]
 pub struct MF_ACTIVATE_CUSTOM_MIXER(pub i32);
 pub const MF_ACTIVATE_CUSTOM_MIXER_ALLOWFAIL: MF_ACTIVATE_CUSTOM_MIXER = MF_ACTIVATE_CUSTOM_MIXER(1i32);
+impl ::core::marker::Copy for MF_ACTIVATE_CUSTOM_MIXER {}
+impl ::core::clone::Clone for MF_ACTIVATE_CUSTOM_MIXER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MF_ACTIVATE_CUSTOM_PRESENTER(pub i32);
 pub const MF_ACTIVATE_CUSTOM_PRESENTER_ALLOWFAIL: MF_ACTIVATE_CUSTOM_PRESENTER = MF_ACTIVATE_CUSTOM_PRESENTER(1i32);
+impl ::core::marker::Copy for MF_ACTIVATE_CUSTOM_PRESENTER {}
+impl ::core::clone::Clone for MF_ACTIVATE_CUSTOM_PRESENTER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MF_ACTIVATE_CUSTOM_VIDEO_MIXER_ACTIVATE: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 3125351265,
     data2: 48720,
@@ -5597,9 +11168,21 @@ pub const MF_ATTRIBUTES_MATCH_THEIR_ITEMS: MF_ATTRIBUTES_MATCH_TYPE = MF_ATTRIBU
 pub const MF_ATTRIBUTES_MATCH_ALL_ITEMS: MF_ATTRIBUTES_MATCH_TYPE = MF_ATTRIBUTES_MATCH_TYPE(2i32);
 pub const MF_ATTRIBUTES_MATCH_INTERSECTION: MF_ATTRIBUTES_MATCH_TYPE = MF_ATTRIBUTES_MATCH_TYPE(3i32);
 pub const MF_ATTRIBUTES_MATCH_SMALLER: MF_ATTRIBUTES_MATCH_TYPE = MF_ATTRIBUTES_MATCH_TYPE(4i32);
+impl ::core::marker::Copy for MF_ATTRIBUTES_MATCH_TYPE {}
+impl ::core::clone::Clone for MF_ATTRIBUTES_MATCH_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MF_ATTRIBUTE_SERIALIZE_OPTIONS(pub i32);
 pub const MF_ATTRIBUTE_SERIALIZE_UNKNOWN_BYREF: MF_ATTRIBUTE_SERIALIZE_OPTIONS = MF_ATTRIBUTE_SERIALIZE_OPTIONS(1i32);
+impl ::core::marker::Copy for MF_ATTRIBUTE_SERIALIZE_OPTIONS {}
+impl ::core::clone::Clone for MF_ATTRIBUTE_SERIALIZE_OPTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MF_ATTRIBUTE_TYPE(pub i32);
 pub const MF_ATTRIBUTE_UINT32: MF_ATTRIBUTE_TYPE = MF_ATTRIBUTE_TYPE(19i32);
@@ -5609,6 +11192,12 @@ pub const MF_ATTRIBUTE_GUID: MF_ATTRIBUTE_TYPE = MF_ATTRIBUTE_TYPE(72i32);
 pub const MF_ATTRIBUTE_STRING: MF_ATTRIBUTE_TYPE = MF_ATTRIBUTE_TYPE(31i32);
 pub const MF_ATTRIBUTE_BLOB: MF_ATTRIBUTE_TYPE = MF_ATTRIBUTE_TYPE(4113i32);
 pub const MF_ATTRIBUTE_IUNKNOWN: MF_ATTRIBUTE_TYPE = MF_ATTRIBUTE_TYPE(13i32);
+impl ::core::marker::Copy for MF_ATTRIBUTE_TYPE {}
+impl ::core::clone::Clone for MF_ATTRIBUTE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MF_AUDIO_RENDERER_ATTRIBUTE_ENDPOINT_ID: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 2970267331,
     data2: 61297,
@@ -5648,6 +11237,12 @@ pub const VRHP_SMALLROOM: MF_AUVRHP_ROOMMODEL = MF_AUVRHP_ROOMMODEL(0i32);
 pub const VRHP_MEDIUMROOM: MF_AUVRHP_ROOMMODEL = MF_AUVRHP_ROOMMODEL(1i32);
 pub const VRHP_BIGROOM: MF_AUVRHP_ROOMMODEL = MF_AUVRHP_ROOMMODEL(2i32);
 pub const VRHP_CUSTUMIZEDROOM: MF_AUVRHP_ROOMMODEL = MF_AUVRHP_ROOMMODEL(3i32);
+impl ::core::marker::Copy for MF_AUVRHP_ROOMMODEL {}
+impl ::core::clone::Clone for MF_AUVRHP_ROOMMODEL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MF_BD_MVC_PLANE_OFFSET_METADATA: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1655067876, data2: 46956, data3: 18689, data4: [152, 35, 44, 182, 21, 212, 115, 24] };
 pub const MF_BOOT_DRIVER_VERIFICATION_FAILED: u32 = 1048576u32;
 pub const MF_BYTESTREAMHANDLER_ACCEPTS_SHARE_WRITE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2799826739, data2: 12289, data3: 18709, data4: [129, 80, 21, 88, 162, 24, 14, 200] };
@@ -5671,7 +11266,16 @@ pub const MF_BYTESTREAM_TRANSCODED: ::windows_sys::core::GUID = ::windows_sys::G
     data4: [171, 72, 207, 59, 109, 139, 197, 224],
 };
 #[repr(C)]
-pub struct MF_BYTE_STREAM_CACHE_RANGE(i32);
+pub struct MF_BYTE_STREAM_CACHE_RANGE {
+    pub qwStartOffset: u64,
+    pub qwEndOffset: u64,
+}
+impl ::core::marker::Copy for MF_BYTE_STREAM_CACHE_RANGE {}
+impl ::core::clone::Clone for MF_BYTE_STREAM_CACHE_RANGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MF_CAPTURE_ENGINE_ALL_EFFECTS_REMOVED: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 4260197665,
     data2: 36568,
@@ -5683,6 +11287,12 @@ pub const MF_CAPTURE_ENGINE_AUDIO_PROCESSING: ::windows_sys::core::GUID = ::wind
 pub struct MF_CAPTURE_ENGINE_AUDIO_PROCESSING_MODE(pub i32);
 pub const MF_CAPTURE_ENGINE_AUDIO_PROCESSING_DEFAULT: MF_CAPTURE_ENGINE_AUDIO_PROCESSING_MODE = MF_CAPTURE_ENGINE_AUDIO_PROCESSING_MODE(0i32);
 pub const MF_CAPTURE_ENGINE_AUDIO_PROCESSING_RAW: MF_CAPTURE_ENGINE_AUDIO_PROCESSING_MODE = MF_CAPTURE_ENGINE_AUDIO_PROCESSING_MODE(1i32);
+impl ::core::marker::Copy for MF_CAPTURE_ENGINE_AUDIO_PROCESSING_MODE {}
+impl ::core::clone::Clone for MF_CAPTURE_ENGINE_AUDIO_PROCESSING_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MF_CAPTURE_ENGINE_CAMERA_STREAM_BLOCKED: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2753598487, data2: 36153, data3: 18163, data4: [183, 89, 89, 18, 82, 143, 66, 7] };
 pub const MF_CAPTURE_ENGINE_CAMERA_STREAM_UNBLOCKED: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 2615799536,
@@ -5701,6 +11311,12 @@ pub const MF_CAPTURE_ENGINE_DECODER_MFT_FIELDOFUSE_UNLOCK_Attribute: ::windows_s
 pub struct MF_CAPTURE_ENGINE_DEVICE_TYPE(pub i32);
 pub const MF_CAPTURE_ENGINE_DEVICE_TYPE_AUDIO: MF_CAPTURE_ENGINE_DEVICE_TYPE = MF_CAPTURE_ENGINE_DEVICE_TYPE(0i32);
 pub const MF_CAPTURE_ENGINE_DEVICE_TYPE_VIDEO: MF_CAPTURE_ENGINE_DEVICE_TYPE = MF_CAPTURE_ENGINE_DEVICE_TYPE(1i32);
+impl ::core::marker::Copy for MF_CAPTURE_ENGINE_DEVICE_TYPE {}
+impl ::core::clone::Clone for MF_CAPTURE_ENGINE_DEVICE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MF_CAPTURE_ENGINE_DISABLE_DXVA: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 4186015842,
     data2: 6045,
@@ -5778,6 +11394,12 @@ pub const MF_CAPTURE_ENGINE_MEDIA_CATEGORY_TYPE_SPEECH: MF_CAPTURE_ENGINE_MEDIA_
 pub const MF_CAPTURE_ENGINE_MEDIA_CATEGORY_TYPE_FARFIELDSPEECH: MF_CAPTURE_ENGINE_MEDIA_CATEGORY_TYPE = MF_CAPTURE_ENGINE_MEDIA_CATEGORY_TYPE(5i32);
 pub const MF_CAPTURE_ENGINE_MEDIA_CATEGORY_TYPE_UNIFORMSPEECH: MF_CAPTURE_ENGINE_MEDIA_CATEGORY_TYPE = MF_CAPTURE_ENGINE_MEDIA_CATEGORY_TYPE(6i32);
 pub const MF_CAPTURE_ENGINE_MEDIA_CATEGORY_TYPE_VOICETYPING: MF_CAPTURE_ENGINE_MEDIA_CATEGORY_TYPE = MF_CAPTURE_ENGINE_MEDIA_CATEGORY_TYPE(7i32);
+impl ::core::marker::Copy for MF_CAPTURE_ENGINE_MEDIA_CATEGORY_TYPE {}
+impl ::core::clone::Clone for MF_CAPTURE_ENGINE_MEDIA_CATEGORY_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MF_CAPTURE_ENGINE_OUTPUT_MEDIA_TYPE_SET: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3400194452, data2: 33772, data3: 17897, data4: [163, 10, 31, 32, 170, 219, 152, 49] };
 pub const MF_CAPTURE_ENGINE_PHOTO_TAKEN: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 1011926085,
@@ -5825,6 +11447,12 @@ pub struct MF_CAPTURE_ENGINE_SINK_TYPE(pub i32);
 pub const MF_CAPTURE_ENGINE_SINK_TYPE_RECORD: MF_CAPTURE_ENGINE_SINK_TYPE = MF_CAPTURE_ENGINE_SINK_TYPE(0i32);
 pub const MF_CAPTURE_ENGINE_SINK_TYPE_PREVIEW: MF_CAPTURE_ENGINE_SINK_TYPE = MF_CAPTURE_ENGINE_SINK_TYPE(1i32);
 pub const MF_CAPTURE_ENGINE_SINK_TYPE_PHOTO: MF_CAPTURE_ENGINE_SINK_TYPE = MF_CAPTURE_ENGINE_SINK_TYPE(2i32);
+impl ::core::marker::Copy for MF_CAPTURE_ENGINE_SINK_TYPE {}
+impl ::core::clone::Clone for MF_CAPTURE_ENGINE_SINK_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MF_CAPTURE_ENGINE_SOURCE(pub u32);
 pub const MF_CAPTURE_ENGINE_PREFERRED_SOURCE_STREAM_FOR_VIDEO_PREVIEW: MF_CAPTURE_ENGINE_SOURCE = MF_CAPTURE_ENGINE_SOURCE(4294967290u32);
@@ -5833,6 +11461,12 @@ pub const MF_CAPTURE_ENGINE_PREFERRED_SOURCE_STREAM_FOR_PHOTO: MF_CAPTURE_ENGINE
 pub const MF_CAPTURE_ENGINE_PREFERRED_SOURCE_STREAM_FOR_AUDIO: MF_CAPTURE_ENGINE_SOURCE = MF_CAPTURE_ENGINE_SOURCE(4294967287u32);
 pub const MF_CAPTURE_ENGINE_PREFERRED_SOURCE_STREAM_FOR_METADATA: MF_CAPTURE_ENGINE_SOURCE = MF_CAPTURE_ENGINE_SOURCE(4294967286u32);
 pub const MF_CAPTURE_ENGINE_MEDIASOURCE: MF_CAPTURE_ENGINE_SOURCE = MF_CAPTURE_ENGINE_SOURCE(4294967295u32);
+impl ::core::marker::Copy for MF_CAPTURE_ENGINE_SOURCE {}
+impl ::core::clone::Clone for MF_CAPTURE_ENGINE_SOURCE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MF_CAPTURE_ENGINE_STREAM_CATEGORY(pub i32);
 pub const MF_CAPTURE_ENGINE_STREAM_CATEGORY_VIDEO_PREVIEW: MF_CAPTURE_ENGINE_STREAM_CATEGORY = MF_CAPTURE_ENGINE_STREAM_CATEGORY(0i32);
@@ -5842,6 +11476,12 @@ pub const MF_CAPTURE_ENGINE_STREAM_CATEGORY_PHOTO_DEPENDENT: MF_CAPTURE_ENGINE_S
 pub const MF_CAPTURE_ENGINE_STREAM_CATEGORY_AUDIO: MF_CAPTURE_ENGINE_STREAM_CATEGORY = MF_CAPTURE_ENGINE_STREAM_CATEGORY(4i32);
 pub const MF_CAPTURE_ENGINE_STREAM_CATEGORY_UNSUPPORTED: MF_CAPTURE_ENGINE_STREAM_CATEGORY = MF_CAPTURE_ENGINE_STREAM_CATEGORY(5i32);
 pub const MF_CAPTURE_ENGINE_STREAM_CATEGORY_METADATA: MF_CAPTURE_ENGINE_STREAM_CATEGORY = MF_CAPTURE_ENGINE_STREAM_CATEGORY(6i32);
+impl ::core::marker::Copy for MF_CAPTURE_ENGINE_STREAM_CATEGORY {}
+impl ::core::clone::Clone for MF_CAPTURE_ENGINE_STREAM_CATEGORY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MF_CAPTURE_ENGINE_USE_AUDIO_DEVICE_ONLY: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 478181338, data2: 33894, data3: 19908, data4: [139, 142, 39, 107, 63, 133, 146, 59] };
 pub const MF_CAPTURE_ENGINE_USE_VIDEO_DEVICE_ONLY: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2114081137, data2: 53042, data3: 20270, data4: [143, 25, 65, 5, 119, 183, 58, 102] };
 pub const MF_CAPTURE_METADATA_DIGITALWINDOW: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 661615266, data2: 22984, data3: 20329, data4: [151, 180, 6, 139, 140, 14, 192, 68] };
@@ -5979,6 +11619,12 @@ pub const MF_CONNECT_ALLOW_DECODER: MF_CONNECT_METHOD = MF_CONNECT_METHOD(3i32);
 pub const MF_CONNECT_RESOLVE_INDEPENDENT_OUTPUTTYPES: MF_CONNECT_METHOD = MF_CONNECT_METHOD(4i32);
 pub const MF_CONNECT_AS_OPTIONAL: MF_CONNECT_METHOD = MF_CONNECT_METHOD(65536i32);
 pub const MF_CONNECT_AS_OPTIONAL_BRANCH: MF_CONNECT_METHOD = MF_CONNECT_METHOD(131072i32);
+impl ::core::marker::Copy for MF_CONNECT_METHOD {}
+impl ::core::clone::Clone for MF_CONNECT_METHOD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MF_CONTENTDECRYPTIONMODULE_SERVICE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 355601477, data2: 65408, data3: 18506, data4: [157, 203, 13, 248, 148, 230, 154, 1] };
 pub const MF_CONTENT_DECRYPTOR_SERVICE: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 1755785511,
@@ -5997,10 +11643,22 @@ pub struct MF_CROSS_ORIGIN_POLICY(pub i32);
 pub const MF_CROSS_ORIGIN_POLICY_NONE: MF_CROSS_ORIGIN_POLICY = MF_CROSS_ORIGIN_POLICY(0i32);
 pub const MF_CROSS_ORIGIN_POLICY_ANONYMOUS: MF_CROSS_ORIGIN_POLICY = MF_CROSS_ORIGIN_POLICY(1i32);
 pub const MF_CROSS_ORIGIN_POLICY_USE_CREDENTIALS: MF_CROSS_ORIGIN_POLICY = MF_CROSS_ORIGIN_POLICY(2i32);
+impl ::core::marker::Copy for MF_CROSS_ORIGIN_POLICY {}
+impl ::core::clone::Clone for MF_CROSS_ORIGIN_POLICY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MF_CUSTOM_DECODE_UNIT_TYPE(pub i32);
 pub const MF_DECODE_UNIT_NAL: MF_CUSTOM_DECODE_UNIT_TYPE = MF_CUSTOM_DECODE_UNIT_TYPE(0i32);
 pub const MF_DECODE_UNIT_SEI: MF_CUSTOM_DECODE_UNIT_TYPE = MF_CUSTOM_DECODE_UNIT_TYPE(1i32);
+impl ::core::marker::Copy for MF_CUSTOM_DECODE_UNIT_TYPE {}
+impl ::core::clone::Clone for MF_CUSTOM_DECODE_UNIT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MF_D3D12_SYNCHRONIZATION_OBJECT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 712805738, data2: 34214, data3: 18765, data4: [160, 70, 6, 234, 26, 19, 143, 75] };
 pub const MF_DECODER_FWD_CUSTOM_SEI_DECODE_ORDER: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 4047224380,
@@ -6372,6 +12030,12 @@ pub const MEEncodingParameters: MF_EVENT_TYPE = MF_EVENT_TYPE(803i32);
 pub const MEContentProtectionMetadata: MF_EVENT_TYPE = MF_EVENT_TYPE(900i32);
 pub const MEDeviceThermalStateChanged: MF_EVENT_TYPE = MF_EVENT_TYPE(950i32);
 pub const MEReservedMax: MF_EVENT_TYPE = MF_EVENT_TYPE(10000i32);
+impl ::core::marker::Copy for MF_EVENT_TYPE {}
+impl ::core::clone::Clone for MF_EVENT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MF_E_ALLOCATOR_ALREADY_COMMITED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1072846854i32 as _);
 pub const MF_E_ALLOCATOR_NOT_COMMITED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1072846855i32 as _);
 pub const MF_E_ALLOCATOR_NOT_INITIALIZED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1072846856i32 as _);
@@ -6715,11 +12379,23 @@ pub struct MF_FILE_ACCESSMODE(pub i32);
 pub const MF_ACCESSMODE_READ: MF_FILE_ACCESSMODE = MF_FILE_ACCESSMODE(1i32);
 pub const MF_ACCESSMODE_WRITE: MF_FILE_ACCESSMODE = MF_FILE_ACCESSMODE(2i32);
 pub const MF_ACCESSMODE_READWRITE: MF_FILE_ACCESSMODE = MF_FILE_ACCESSMODE(3i32);
+impl ::core::marker::Copy for MF_FILE_ACCESSMODE {}
+impl ::core::clone::Clone for MF_FILE_ACCESSMODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MF_FILE_FLAGS(pub i32);
 pub const MF_FILEFLAGS_NONE: MF_FILE_FLAGS = MF_FILE_FLAGS(0i32);
 pub const MF_FILEFLAGS_NOBUFFERING: MF_FILE_FLAGS = MF_FILE_FLAGS(1i32);
 pub const MF_FILEFLAGS_ALLOW_WRITE_SHARING: MF_FILE_FLAGS = MF_FILE_FLAGS(2i32);
+impl ::core::marker::Copy for MF_FILE_FLAGS {}
+impl ::core::clone::Clone for MF_FILE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MF_FILE_OPENMODE(pub i32);
 pub const MF_OPENMODE_FAIL_IF_NOT_EXIST: MF_FILE_OPENMODE = MF_FILE_OPENMODE(0i32);
@@ -6727,10 +12403,35 @@ pub const MF_OPENMODE_FAIL_IF_EXIST: MF_FILE_OPENMODE = MF_FILE_OPENMODE(1i32);
 pub const MF_OPENMODE_RESET_IF_EXIST: MF_FILE_OPENMODE = MF_FILE_OPENMODE(2i32);
 pub const MF_OPENMODE_APPEND_IF_EXIST: MF_FILE_OPENMODE = MF_FILE_OPENMODE(3i32);
 pub const MF_OPENMODE_DELETE_IF_EXIST: MF_FILE_OPENMODE = MF_FILE_OPENMODE(4i32);
+impl ::core::marker::Copy for MF_FILE_OPENMODE {}
+impl ::core::clone::Clone for MF_FILE_OPENMODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct MF_FLOAT2(i32);
+pub struct MF_FLOAT2 {
+    pub x: f32,
+    pub y: f32,
+}
+impl ::core::marker::Copy for MF_FLOAT2 {}
+impl ::core::clone::Clone for MF_FLOAT2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct MF_FLOAT3(i32);
+pub struct MF_FLOAT3 {
+    pub x: f32,
+    pub y: f32,
+    pub z: f32,
+}
+impl ::core::marker::Copy for MF_FLOAT3 {}
+impl ::core::clone::Clone for MF_FLOAT3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MF_FRAMESERVER_VCAMEVENT_EXTENDED_CUSTOM_EVENT: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 1851345052,
     data2: 18387,
@@ -6764,6 +12465,12 @@ pub struct MF_HDCP_STATUS(pub i32);
 pub const MF_HDCP_STATUS_ON: MF_HDCP_STATUS = MF_HDCP_STATUS(0i32);
 pub const MF_HDCP_STATUS_OFF: MF_HDCP_STATUS = MF_HDCP_STATUS(1i32);
 pub const MF_HDCP_STATUS_ON_WITH_TYPE_ENFORCEMENT: MF_HDCP_STATUS = MF_HDCP_STATUS(2i32);
+impl ::core::marker::Copy for MF_HDCP_STATUS {}
+impl ::core::clone::Clone for MF_HDCP_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MF_HISTOGRAM_CHANNEL_B: u32 = 8u32;
 pub const MF_HISTOGRAM_CHANNEL_Cb: u32 = 16u32;
 pub const MF_HISTOGRAM_CHANNEL_Cr: u32 = 32u32;
@@ -6784,7 +12491,16 @@ pub const MF_INVALID_STATE_ERR: u32 = 2154823691u32;
 pub const MF_I_MANUAL_PROXY: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(1074610802i32 as _);
 pub const MF_KERNEL_MODE_COMPONENT_LOAD: u32 = 2u32;
 #[repr(C)]
-pub struct MF_LEAKY_BUCKET_PAIR(i32);
+pub struct MF_LEAKY_BUCKET_PAIR {
+    pub dwBitrate: u32,
+    pub msBufferWindow: u32,
+}
+impl ::core::marker::Copy for MF_LEAKY_BUCKET_PAIR {}
+impl ::core::clone::Clone for MF_LEAKY_BUCKET_PAIR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MF_LOCAL_MFT_REGISTRATION_SERVICE: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 3723874204,
     data2: 17670,
@@ -6812,17 +12528,35 @@ pub const MF_MEDIAKEYSESSION_MESSAGETYPE_LICENSE_REQUEST: MF_MEDIAKEYSESSION_MES
 pub const MF_MEDIAKEYSESSION_MESSAGETYPE_LICENSE_RENEWAL: MF_MEDIAKEYSESSION_MESSAGETYPE = MF_MEDIAKEYSESSION_MESSAGETYPE(1i32);
 pub const MF_MEDIAKEYSESSION_MESSAGETYPE_LICENSE_RELEASE: MF_MEDIAKEYSESSION_MESSAGETYPE = MF_MEDIAKEYSESSION_MESSAGETYPE(2i32);
 pub const MF_MEDIAKEYSESSION_MESSAGETYPE_INDIVIDUALIZATION_REQUEST: MF_MEDIAKEYSESSION_MESSAGETYPE = MF_MEDIAKEYSESSION_MESSAGETYPE(3i32);
+impl ::core::marker::Copy for MF_MEDIAKEYSESSION_MESSAGETYPE {}
+impl ::core::clone::Clone for MF_MEDIAKEYSESSION_MESSAGETYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MF_MEDIAKEYSESSION_TYPE(pub i32);
 pub const MF_MEDIAKEYSESSION_TYPE_TEMPORARY: MF_MEDIAKEYSESSION_TYPE = MF_MEDIAKEYSESSION_TYPE(0i32);
 pub const MF_MEDIAKEYSESSION_TYPE_PERSISTENT_LICENSE: MF_MEDIAKEYSESSION_TYPE = MF_MEDIAKEYSESSION_TYPE(1i32);
 pub const MF_MEDIAKEYSESSION_TYPE_PERSISTENT_RELEASE_MESSAGE: MF_MEDIAKEYSESSION_TYPE = MF_MEDIAKEYSESSION_TYPE(2i32);
 pub const MF_MEDIAKEYSESSION_TYPE_PERSISTENT_USAGE_RECORD: MF_MEDIAKEYSESSION_TYPE = MF_MEDIAKEYSESSION_TYPE(3i32);
+impl ::core::marker::Copy for MF_MEDIAKEYSESSION_TYPE {}
+impl ::core::clone::Clone for MF_MEDIAKEYSESSION_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MF_MEDIAKEYS_REQUIREMENT(pub i32);
 pub const MF_MEDIAKEYS_REQUIREMENT_REQUIRED: MF_MEDIAKEYS_REQUIREMENT = MF_MEDIAKEYS_REQUIREMENT(1i32);
 pub const MF_MEDIAKEYS_REQUIREMENT_OPTIONAL: MF_MEDIAKEYS_REQUIREMENT = MF_MEDIAKEYS_REQUIREMENT(2i32);
 pub const MF_MEDIAKEYS_REQUIREMENT_NOT_ALLOWED: MF_MEDIAKEYS_REQUIREMENT = MF_MEDIAKEYS_REQUIREMENT(3i32);
+impl ::core::marker::Copy for MF_MEDIAKEYS_REQUIREMENT {}
+impl ::core::clone::Clone for MF_MEDIAKEYS_REQUIREMENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MF_MEDIAKEY_STATUS(pub i32);
 pub const MF_MEDIAKEY_STATUS_USABLE: MF_MEDIAKEY_STATUS = MF_MEDIAKEY_STATUS(0i32);
@@ -6833,6 +12567,12 @@ pub const MF_MEDIAKEY_STATUS_STATUS_PENDING: MF_MEDIAKEY_STATUS = MF_MEDIAKEY_ST
 pub const MF_MEDIAKEY_STATUS_INTERNAL_ERROR: MF_MEDIAKEY_STATUS = MF_MEDIAKEY_STATUS(5i32);
 pub const MF_MEDIAKEY_STATUS_RELEASED: MF_MEDIAKEY_STATUS = MF_MEDIAKEY_STATUS(6i32);
 pub const MF_MEDIAKEY_STATUS_OUTPUT_RESTRICTED: MF_MEDIAKEY_STATUS = MF_MEDIAKEY_STATUS(7i32);
+impl ::core::marker::Copy for MF_MEDIAKEY_STATUS {}
+impl ::core::clone::Clone for MF_MEDIAKEY_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MF_MEDIASINK_AUTOFINALIZE_SUPPORTED: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1220620734, data2: 4954, data3: 16843, data4: [130, 144, 3, 101, 37, 9, 201, 153] };
 pub const MF_MEDIASINK_ENABLE_AUTOFINALIZE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 872497765, data2: 52094, data3: 19678, data4: [172, 124, 239, 253, 59, 60, 37, 48] };
 pub const MF_MEDIASOURCE_EXPOSE_ALL_STREAMS: ::windows_sys::core::GUID = ::windows_sys::GUID {
@@ -6880,6 +12620,12 @@ pub struct MF_MEDIA_ENGINE_CANPLAY(pub i32);
 pub const MF_MEDIA_ENGINE_CANPLAY_NOT_SUPPORTED: MF_MEDIA_ENGINE_CANPLAY = MF_MEDIA_ENGINE_CANPLAY(0i32);
 pub const MF_MEDIA_ENGINE_CANPLAY_MAYBE: MF_MEDIA_ENGINE_CANPLAY = MF_MEDIA_ENGINE_CANPLAY(1i32);
 pub const MF_MEDIA_ENGINE_CANPLAY_PROBABLY: MF_MEDIA_ENGINE_CANPLAY = MF_MEDIA_ENGINE_CANPLAY(2i32);
+impl ::core::marker::Copy for MF_MEDIA_ENGINE_CANPLAY {}
+impl ::core::clone::Clone for MF_MEDIA_ENGINE_CANPLAY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MF_MEDIA_ENGINE_COMPATIBILITY_MODE: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 1056074452,
     data2: 56404,
@@ -6925,6 +12671,12 @@ pub const MF_MEDIA_ENGINE_FORCEMUTE: MF_MEDIA_ENGINE_CREATEFLAGS = MF_MEDIA_ENGI
 pub const MF_MEDIA_ENGINE_REAL_TIME_MODE: MF_MEDIA_ENGINE_CREATEFLAGS = MF_MEDIA_ENGINE_CREATEFLAGS(8i32);
 pub const MF_MEDIA_ENGINE_DISABLE_LOCAL_PLUGINS: MF_MEDIA_ENGINE_CREATEFLAGS = MF_MEDIA_ENGINE_CREATEFLAGS(16i32);
 pub const MF_MEDIA_ENGINE_CREATEFLAGS_MASK: MF_MEDIA_ENGINE_CREATEFLAGS = MF_MEDIA_ENGINE_CREATEFLAGS(31i32);
+impl ::core::marker::Copy for MF_MEDIA_ENGINE_CREATEFLAGS {}
+impl ::core::clone::Clone for MF_MEDIA_ENGINE_CREATEFLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MF_MEDIA_ENGINE_DXGI_MANAGER: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 106365658, data2: 4244, data3: 18541, data4: [134, 23, 238, 124, 196, 238, 70, 72] };
 pub const MF_MEDIA_ENGINE_EME_CALLBACK: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1229280167, data2: 42113, data3: 19639, data4: [190, 197, 56, 9, 3, 81, 55, 49] };
 #[repr(transparent)]
@@ -6935,6 +12687,12 @@ pub const MF_MEDIA_ENGINE_ERR_NETWORK: MF_MEDIA_ENGINE_ERR = MF_MEDIA_ENGINE_ERR
 pub const MF_MEDIA_ENGINE_ERR_DECODE: MF_MEDIA_ENGINE_ERR = MF_MEDIA_ENGINE_ERR(3i32);
 pub const MF_MEDIA_ENGINE_ERR_SRC_NOT_SUPPORTED: MF_MEDIA_ENGINE_ERR = MF_MEDIA_ENGINE_ERR(4i32);
 pub const MF_MEDIA_ENGINE_ERR_ENCRYPTED: MF_MEDIA_ENGINE_ERR = MF_MEDIA_ENGINE_ERR(5i32);
+impl ::core::marker::Copy for MF_MEDIA_ENGINE_ERR {}
+impl ::core::clone::Clone for MF_MEDIA_ENGINE_ERR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MF_MEDIA_ENGINE_EVENT(pub i32);
 pub const MF_MEDIA_ENGINE_EVENT_LOADSTART: MF_MEDIA_ENGINE_EVENT = MF_MEDIA_ENGINE_EVENT(1i32);
@@ -6976,16 +12734,34 @@ pub const MF_MEDIA_ENGINE_EVENT_DELAYLOADEVENT_CHANGED: MF_MEDIA_ENGINE_EVENT = 
 pub const MF_MEDIA_ENGINE_EVENT_STREAMRENDERINGERROR: MF_MEDIA_ENGINE_EVENT = MF_MEDIA_ENGINE_EVENT(1014i32);
 pub const MF_MEDIA_ENGINE_EVENT_SUPPORTEDRATES_CHANGED: MF_MEDIA_ENGINE_EVENT = MF_MEDIA_ENGINE_EVENT(1015i32);
 pub const MF_MEDIA_ENGINE_EVENT_AUDIOENDPOINTCHANGE: MF_MEDIA_ENGINE_EVENT = MF_MEDIA_ENGINE_EVENT(1016i32);
+impl ::core::marker::Copy for MF_MEDIA_ENGINE_EVENT {}
+impl ::core::clone::Clone for MF_MEDIA_ENGINE_EVENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MF_MEDIA_ENGINE_EXTENSION: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 822738246, data2: 1549, data3: 19298, data4: [141, 207, 250, 255, 129, 19, 24, 210] };
 #[repr(transparent)]
 pub struct MF_MEDIA_ENGINE_EXTENSION_TYPE(pub i32);
 pub const MF_MEDIA_ENGINE_EXTENSION_TYPE_MEDIASOURCE: MF_MEDIA_ENGINE_EXTENSION_TYPE = MF_MEDIA_ENGINE_EXTENSION_TYPE(0i32);
 pub const MF_MEDIA_ENGINE_EXTENSION_TYPE_BYTESTREAM: MF_MEDIA_ENGINE_EXTENSION_TYPE = MF_MEDIA_ENGINE_EXTENSION_TYPE(1i32);
+impl ::core::marker::Copy for MF_MEDIA_ENGINE_EXTENSION_TYPE {}
+impl ::core::clone::Clone for MF_MEDIA_ENGINE_EXTENSION_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MF_MEDIA_ENGINE_FRAME_PROTECTION_FLAGS(pub i32);
 pub const MF_MEDIA_ENGINE_FRAME_PROTECTION_FLAG_PROTECTED: MF_MEDIA_ENGINE_FRAME_PROTECTION_FLAGS = MF_MEDIA_ENGINE_FRAME_PROTECTION_FLAGS(1i32);
 pub const MF_MEDIA_ENGINE_FRAME_PROTECTION_FLAG_REQUIRES_SURFACE_PROTECTION: MF_MEDIA_ENGINE_FRAME_PROTECTION_FLAGS = MF_MEDIA_ENGINE_FRAME_PROTECTION_FLAGS(2i32);
 pub const MF_MEDIA_ENGINE_FRAME_PROTECTION_FLAG_REQUIRES_ANTI_SCREEN_SCRAPE_PROTECTION: MF_MEDIA_ENGINE_FRAME_PROTECTION_FLAGS = MF_MEDIA_ENGINE_FRAME_PROTECTION_FLAGS(4i32);
+impl ::core::marker::Copy for MF_MEDIA_ENGINE_FRAME_PROTECTION_FLAGS {}
+impl ::core::clone::Clone for MF_MEDIA_ENGINE_FRAME_PROTECTION_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MF_MEDIA_ENGINE_KEYERR(pub i32);
 pub const MF_MEDIAENGINE_KEYERR_UNKNOWN: MF_MEDIA_ENGINE_KEYERR = MF_MEDIA_ENGINE_KEYERR(1i32);
@@ -6994,6 +12770,12 @@ pub const MF_MEDIAENGINE_KEYERR_SERVICE: MF_MEDIA_ENGINE_KEYERR = MF_MEDIA_ENGIN
 pub const MF_MEDIAENGINE_KEYERR_OUTPUT: MF_MEDIA_ENGINE_KEYERR = MF_MEDIA_ENGINE_KEYERR(4i32);
 pub const MF_MEDIAENGINE_KEYERR_HARDWARECHANGE: MF_MEDIA_ENGINE_KEYERR = MF_MEDIA_ENGINE_KEYERR(5i32);
 pub const MF_MEDIAENGINE_KEYERR_DOMAIN: MF_MEDIA_ENGINE_KEYERR = MF_MEDIA_ENGINE_KEYERR(6i32);
+impl ::core::marker::Copy for MF_MEDIA_ENGINE_KEYERR {}
+impl ::core::clone::Clone for MF_MEDIA_ENGINE_KEYERR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MF_MEDIA_ENGINE_MEDIA_PLAYER_MODE: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 1037929797,
     data2: 23201,
@@ -7012,6 +12794,12 @@ pub const MF_MEDIA_ENGINE_NETWORK_EMPTY: MF_MEDIA_ENGINE_NETWORK = MF_MEDIA_ENGI
 pub const MF_MEDIA_ENGINE_NETWORK_IDLE: MF_MEDIA_ENGINE_NETWORK = MF_MEDIA_ENGINE_NETWORK(1i32);
 pub const MF_MEDIA_ENGINE_NETWORK_LOADING: MF_MEDIA_ENGINE_NETWORK = MF_MEDIA_ENGINE_NETWORK(2i32);
 pub const MF_MEDIA_ENGINE_NETWORK_NO_SOURCE: MF_MEDIA_ENGINE_NETWORK = MF_MEDIA_ENGINE_NETWORK(3i32);
+impl ::core::marker::Copy for MF_MEDIA_ENGINE_NETWORK {}
+impl ::core::clone::Clone for MF_MEDIA_ENGINE_NETWORK {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MF_MEDIA_ENGINE_OPM_HWND: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2696842983, data2: 1394, data3: 20268, data4: [168, 1, 42, 21, 27, 211, 231, 38] };
 #[repr(transparent)]
 pub struct MF_MEDIA_ENGINE_OPM_STATUS(pub i32);
@@ -7021,6 +12809,12 @@ pub const MF_MEDIA_ENGINE_OPM_FAILED_VM: MF_MEDIA_ENGINE_OPM_STATUS = MF_MEDIA_E
 pub const MF_MEDIA_ENGINE_OPM_FAILED_BDA: MF_MEDIA_ENGINE_OPM_STATUS = MF_MEDIA_ENGINE_OPM_STATUS(3i32);
 pub const MF_MEDIA_ENGINE_OPM_FAILED_UNSIGNED_DRIVER: MF_MEDIA_ENGINE_OPM_STATUS = MF_MEDIA_ENGINE_OPM_STATUS(4i32);
 pub const MF_MEDIA_ENGINE_OPM_FAILED: MF_MEDIA_ENGINE_OPM_STATUS = MF_MEDIA_ENGINE_OPM_STATUS(5i32);
+impl ::core::marker::Copy for MF_MEDIA_ENGINE_OPM_STATUS {}
+impl ::core::clone::Clone for MF_MEDIA_ENGINE_OPM_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MF_MEDIA_ENGINE_PLAYBACK_HWND: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 3649603483,
     data2: 26569,
@@ -7040,11 +12834,23 @@ pub const MF_MEDIA_ENGINE_PRELOAD_EMPTY: MF_MEDIA_ENGINE_PRELOAD = MF_MEDIA_ENGI
 pub const MF_MEDIA_ENGINE_PRELOAD_NONE: MF_MEDIA_ENGINE_PRELOAD = MF_MEDIA_ENGINE_PRELOAD(2i32);
 pub const MF_MEDIA_ENGINE_PRELOAD_METADATA: MF_MEDIA_ENGINE_PRELOAD = MF_MEDIA_ENGINE_PRELOAD(3i32);
 pub const MF_MEDIA_ENGINE_PRELOAD_AUTOMATIC: MF_MEDIA_ENGINE_PRELOAD = MF_MEDIA_ENGINE_PRELOAD(4i32);
+impl ::core::marker::Copy for MF_MEDIA_ENGINE_PRELOAD {}
+impl ::core::clone::Clone for MF_MEDIA_ENGINE_PRELOAD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MF_MEDIA_ENGINE_PROTECTION_FLAGS(pub i32);
 pub const MF_MEDIA_ENGINE_ENABLE_PROTECTED_CONTENT: MF_MEDIA_ENGINE_PROTECTION_FLAGS = MF_MEDIA_ENGINE_PROTECTION_FLAGS(1i32);
 pub const MF_MEDIA_ENGINE_USE_PMP_FOR_ALL_CONTENT: MF_MEDIA_ENGINE_PROTECTION_FLAGS = MF_MEDIA_ENGINE_PROTECTION_FLAGS(2i32);
 pub const MF_MEDIA_ENGINE_USE_UNPROTECTED_PMP: MF_MEDIA_ENGINE_PROTECTION_FLAGS = MF_MEDIA_ENGINE_PROTECTION_FLAGS(4i32);
+impl ::core::marker::Copy for MF_MEDIA_ENGINE_PROTECTION_FLAGS {}
+impl ::core::clone::Clone for MF_MEDIA_ENGINE_PROTECTION_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MF_MEDIA_ENGINE_READY(pub i32);
 pub const MF_MEDIA_ENGINE_READY_HAVE_NOTHING: MF_MEDIA_ENGINE_READY = MF_MEDIA_ENGINE_READY(0i32);
@@ -7052,15 +12858,33 @@ pub const MF_MEDIA_ENGINE_READY_HAVE_METADATA: MF_MEDIA_ENGINE_READY = MF_MEDIA_
 pub const MF_MEDIA_ENGINE_READY_HAVE_CURRENT_DATA: MF_MEDIA_ENGINE_READY = MF_MEDIA_ENGINE_READY(2i32);
 pub const MF_MEDIA_ENGINE_READY_HAVE_FUTURE_DATA: MF_MEDIA_ENGINE_READY = MF_MEDIA_ENGINE_READY(3i32);
 pub const MF_MEDIA_ENGINE_READY_HAVE_ENOUGH_DATA: MF_MEDIA_ENGINE_READY = MF_MEDIA_ENGINE_READY(4i32);
+impl ::core::marker::Copy for MF_MEDIA_ENGINE_READY {}
+impl ::core::clone::Clone for MF_MEDIA_ENGINE_READY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MF_MEDIA_ENGINE_S3D_PACKING_MODE(pub i32);
 pub const MF_MEDIA_ENGINE_S3D_PACKING_MODE_NONE: MF_MEDIA_ENGINE_S3D_PACKING_MODE = MF_MEDIA_ENGINE_S3D_PACKING_MODE(0i32);
 pub const MF_MEDIA_ENGINE_S3D_PACKING_MODE_SIDE_BY_SIDE: MF_MEDIA_ENGINE_S3D_PACKING_MODE = MF_MEDIA_ENGINE_S3D_PACKING_MODE(1i32);
 pub const MF_MEDIA_ENGINE_S3D_PACKING_MODE_TOP_BOTTOM: MF_MEDIA_ENGINE_S3D_PACKING_MODE = MF_MEDIA_ENGINE_S3D_PACKING_MODE(2i32);
+impl ::core::marker::Copy for MF_MEDIA_ENGINE_S3D_PACKING_MODE {}
+impl ::core::clone::Clone for MF_MEDIA_ENGINE_S3D_PACKING_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MF_MEDIA_ENGINE_SEEK_MODE(pub i32);
 pub const MF_MEDIA_ENGINE_SEEK_MODE_NORMAL: MF_MEDIA_ENGINE_SEEK_MODE = MF_MEDIA_ENGINE_SEEK_MODE(0i32);
 pub const MF_MEDIA_ENGINE_SEEK_MODE_APPROXIMATE: MF_MEDIA_ENGINE_SEEK_MODE = MF_MEDIA_ENGINE_SEEK_MODE(1i32);
+impl ::core::marker::Copy for MF_MEDIA_ENGINE_SEEK_MODE {}
+impl ::core::clone::Clone for MF_MEDIA_ENGINE_SEEK_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MF_MEDIA_ENGINE_SOURCE_RESOLVER_CONFIG_STORE: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 180405399,
     data2: 46020,
@@ -7077,11 +12901,23 @@ pub const MF_MEDIA_ENGINE_STATISTIC_FRAMES_PER_SECOND: MF_MEDIA_ENGINE_STATISTIC
 pub const MF_MEDIA_ENGINE_STATISTIC_PLAYBACK_JITTER: MF_MEDIA_ENGINE_STATISTIC = MF_MEDIA_ENGINE_STATISTIC(5i32);
 pub const MF_MEDIA_ENGINE_STATISTIC_FRAMES_CORRUPTED: MF_MEDIA_ENGINE_STATISTIC = MF_MEDIA_ENGINE_STATISTIC(6i32);
 pub const MF_MEDIA_ENGINE_STATISTIC_TOTAL_FRAME_DELAY: MF_MEDIA_ENGINE_STATISTIC = MF_MEDIA_ENGINE_STATISTIC(7i32);
+impl ::core::marker::Copy for MF_MEDIA_ENGINE_STATISTIC {}
+impl ::core::clone::Clone for MF_MEDIA_ENGINE_STATISTIC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MF_MEDIA_ENGINE_STREAMTYPE_FAILED(pub i32);
 pub const MF_MEDIA_ENGINE_STREAMTYPE_FAILED_UNKNOWN: MF_MEDIA_ENGINE_STREAMTYPE_FAILED = MF_MEDIA_ENGINE_STREAMTYPE_FAILED(0i32);
 pub const MF_MEDIA_ENGINE_STREAMTYPE_FAILED_AUDIO: MF_MEDIA_ENGINE_STREAMTYPE_FAILED = MF_MEDIA_ENGINE_STREAMTYPE_FAILED(1i32);
 pub const MF_MEDIA_ENGINE_STREAMTYPE_FAILED_VIDEO: MF_MEDIA_ENGINE_STREAMTYPE_FAILED = MF_MEDIA_ENGINE_STREAMTYPE_FAILED(2i32);
+impl ::core::marker::Copy for MF_MEDIA_ENGINE_STREAMTYPE_FAILED {}
+impl ::core::clone::Clone for MF_MEDIA_ENGINE_STREAMTYPE_FAILED {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MF_MEDIA_ENGINE_STREAM_CONTAINS_ALPHA_CHANNEL: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 1556066116,
     data2: 53938,
@@ -7134,6 +12970,12 @@ pub const MF_MEDIA_SHARING_ENGINE_DEVICE_NAME: ::windows_sys::core::GUID = ::win
 #[repr(transparent)]
 pub struct MF_MEDIA_SHARING_ENGINE_EVENT(pub i32);
 pub const MF_MEDIA_SHARING_ENGINE_EVENT_DISCONNECT: MF_MEDIA_SHARING_ENGINE_EVENT = MF_MEDIA_SHARING_ENGINE_EVENT(2000i32);
+impl ::core::marker::Copy for MF_MEDIA_SHARING_ENGINE_EVENT {}
+impl ::core::clone::Clone for MF_MEDIA_SHARING_ENGINE_EVENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MF_MEDIA_SHARING_ENGINE_INITIAL_SEEK_TIME: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 1865717749,
     data2: 54568,
@@ -7205,6 +13047,12 @@ pub const MF_MSE_ACTIVELIST_CALLBACK: ::windows_sys::core::GUID = ::windows_sys:
 pub struct MF_MSE_APPEND_MODE(pub i32);
 pub const MF_MSE_APPEND_MODE_SEGMENTS: MF_MSE_APPEND_MODE = MF_MSE_APPEND_MODE(0i32);
 pub const MF_MSE_APPEND_MODE_SEQUENCE: MF_MSE_APPEND_MODE = MF_MSE_APPEND_MODE(1i32);
+impl ::core::marker::Copy for MF_MSE_APPEND_MODE {}
+impl ::core::clone::Clone for MF_MSE_APPEND_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MF_MSE_BUFFERLIST_CALLBACK: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 1122396592,
     data2: 54798,
@@ -7223,6 +13071,12 @@ pub const MF_MSE_ERROR_NOERROR: MF_MSE_ERROR = MF_MSE_ERROR(0i32);
 pub const MF_MSE_ERROR_NETWORK: MF_MSE_ERROR = MF_MSE_ERROR(1i32);
 pub const MF_MSE_ERROR_DECODE: MF_MSE_ERROR = MF_MSE_ERROR(2i32);
 pub const MF_MSE_ERROR_UNKNOWN_ERROR: MF_MSE_ERROR = MF_MSE_ERROR(3i32);
+impl ::core::marker::Copy for MF_MSE_ERROR {}
+impl ::core::clone::Clone for MF_MSE_ERROR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MF_MSE_OPUS_SUPPORT: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 1294093505,
     data2: 36036,
@@ -7233,11 +13087,23 @@ pub const MF_MSE_OPUS_SUPPORT: ::windows_sys::core::GUID = ::windows_sys::GUID {
 pub struct MF_MSE_OPUS_SUPPORT_TYPE(pub i32);
 pub const MF_MSE_OPUS_SUPPORT_ON: MF_MSE_OPUS_SUPPORT_TYPE = MF_MSE_OPUS_SUPPORT_TYPE(0i32);
 pub const MF_MSE_OPUS_SUPPORT_OFF: MF_MSE_OPUS_SUPPORT_TYPE = MF_MSE_OPUS_SUPPORT_TYPE(1i32);
+impl ::core::marker::Copy for MF_MSE_OPUS_SUPPORT_TYPE {}
+impl ::core::clone::Clone for MF_MSE_OPUS_SUPPORT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MF_MSE_READY(pub i32);
 pub const MF_MSE_READY_CLOSED: MF_MSE_READY = MF_MSE_READY(1i32);
 pub const MF_MSE_READY_OPEN: MF_MSE_READY = MF_MSE_READY(2i32);
 pub const MF_MSE_READY_ENDED: MF_MSE_READY = MF_MSE_READY(3i32);
+impl ::core::marker::Copy for MF_MSE_READY {}
+impl ::core::clone::Clone for MF_MSE_READY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MF_MSE_VP9_SUPPORT: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 2463597609,
     data2: 55435,
@@ -7249,6 +13115,12 @@ pub struct MF_MSE_VP9_SUPPORT_TYPE(pub i32);
 pub const MF_MSE_VP9_SUPPORT_DEFAULT: MF_MSE_VP9_SUPPORT_TYPE = MF_MSE_VP9_SUPPORT_TYPE(0i32);
 pub const MF_MSE_VP9_SUPPORT_ON: MF_MSE_VP9_SUPPORT_TYPE = MF_MSE_VP9_SUPPORT_TYPE(1i32);
 pub const MF_MSE_VP9_SUPPORT_OFF: MF_MSE_VP9_SUPPORT_TYPE = MF_MSE_VP9_SUPPORT_TYPE(2i32);
+impl ::core::marker::Copy for MF_MSE_VP9_SUPPORT_TYPE {}
+impl ::core::clone::Clone for MF_MSE_VP9_SUPPORT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MF_MT_AAC_AUDIO_PROFILE_LEVEL_INDICATION: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 1983049958,
     data2: 38200,
@@ -7380,6 +13252,12 @@ pub const MF_MT_D3D_RESOURCE_VERSION: ::windows_sys::core::GUID = ::windows_sys:
 pub struct MF_MT_D3D_RESOURCE_VERSION_ENUM(pub i32);
 pub const MF_D3D11_RESOURCE: MF_MT_D3D_RESOURCE_VERSION_ENUM = MF_MT_D3D_RESOURCE_VERSION_ENUM(0i32);
 pub const MF_D3D12_RESOURCE: MF_MT_D3D_RESOURCE_VERSION_ENUM = MF_MT_D3D_RESOURCE_VERSION_ENUM(1i32);
+impl ::core::marker::Copy for MF_MT_D3D_RESOURCE_VERSION_ENUM {}
+impl ::core::clone::Clone for MF_MT_D3D_RESOURCE_VERSION_ENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MF_MT_DECODER_MAX_DPB_COUNT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1740510284, data2: 34999, data3: 19625, data4: [150, 40, 200, 8, 213, 38, 34, 23] };
 pub const MF_MT_DECODER_USE_MAX_RESOLUTION: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 1280605220,
@@ -7789,6 +13667,12 @@ pub struct MF_OBJECT_TYPE(pub i32);
 pub const MF_OBJECT_MEDIASOURCE: MF_OBJECT_TYPE = MF_OBJECT_TYPE(0i32);
 pub const MF_OBJECT_BYTESTREAM: MF_OBJECT_TYPE = MF_OBJECT_TYPE(1i32);
 pub const MF_OBJECT_INVALID: MF_OBJECT_TYPE = MF_OBJECT_TYPE(2i32);
+impl ::core::marker::Copy for MF_OBJECT_TYPE {}
+impl ::core::clone::Clone for MF_OBJECT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MF_OPM_ACP_PROTECTION_LEVEL(pub i32);
 pub const MF_OPM_ACP_OFF: MF_OPM_ACP_PROTECTION_LEVEL = MF_OPM_ACP_PROTECTION_LEVEL(0i32);
@@ -7796,6 +13680,12 @@ pub const MF_OPM_ACP_LEVEL_ONE: MF_OPM_ACP_PROTECTION_LEVEL = MF_OPM_ACP_PROTECT
 pub const MF_OPM_ACP_LEVEL_TWO: MF_OPM_ACP_PROTECTION_LEVEL = MF_OPM_ACP_PROTECTION_LEVEL(2i32);
 pub const MF_OPM_ACP_LEVEL_THREE: MF_OPM_ACP_PROTECTION_LEVEL = MF_OPM_ACP_PROTECTION_LEVEL(3i32);
 pub const MF_OPM_ACP_FORCE_ULONG: MF_OPM_ACP_PROTECTION_LEVEL = MF_OPM_ACP_PROTECTION_LEVEL(2147483647i32);
+impl ::core::marker::Copy for MF_OPM_ACP_PROTECTION_LEVEL {}
+impl ::core::clone::Clone for MF_OPM_ACP_PROTECTION_LEVEL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MF_OPM_CGMSA_PROTECTION_LEVEL(pub i32);
 pub const MF_OPM_CGMSA_OFF: MF_OPM_CGMSA_PROTECTION_LEVEL = MF_OPM_CGMSA_PROTECTION_LEVEL(0i32);
@@ -7804,6 +13694,12 @@ pub const MF_OPM_CGMSA_COPY_NO_MORE: MF_OPM_CGMSA_PROTECTION_LEVEL = MF_OPM_CGMS
 pub const MF_OPM_CGMSA_COPY_ONE_GENERATION: MF_OPM_CGMSA_PROTECTION_LEVEL = MF_OPM_CGMSA_PROTECTION_LEVEL(3i32);
 pub const MF_OPM_CGMSA_COPY_NEVER: MF_OPM_CGMSA_PROTECTION_LEVEL = MF_OPM_CGMSA_PROTECTION_LEVEL(4i32);
 pub const MF_OPM_CGMSA_REDISTRIBUTION_CONTROL_REQUIRED: MF_OPM_CGMSA_PROTECTION_LEVEL = MF_OPM_CGMSA_PROTECTION_LEVEL(8i32);
+impl ::core::marker::Copy for MF_OPM_CGMSA_PROTECTION_LEVEL {}
+impl ::core::clone::Clone for MF_OPM_CGMSA_PROTECTION_LEVEL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MF_PARSE_ERR: u32 = 2154823761u32;
 pub const MF_PD_ADAPTIVE_STREAMING: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3926744471, data2: 10745, data3: 18571, data4: [174, 107, 125, 107, 65, 54, 17, 43] };
 pub const MF_PD_APP_CONTEXT: ::windows_sys::core::GUID = ::windows_sys::GUID {
@@ -8044,6 +13940,12 @@ pub const MF_PLUGIN_CONTROL_POLICY_USE_ALL_PLUGINS: MF_PLUGIN_CONTROL_POLICY = M
 pub const MF_PLUGIN_CONTROL_POLICY_USE_APPROVED_PLUGINS: MF_PLUGIN_CONTROL_POLICY = MF_PLUGIN_CONTROL_POLICY(1i32);
 pub const MF_PLUGIN_CONTROL_POLICY_USE_WEB_PLUGINS: MF_PLUGIN_CONTROL_POLICY = MF_PLUGIN_CONTROL_POLICY(2i32);
 pub const MF_PLUGIN_CONTROL_POLICY_USE_WEB_PLUGINS_EDGEMODE: MF_PLUGIN_CONTROL_POLICY = MF_PLUGIN_CONTROL_POLICY(3i32);
+impl ::core::marker::Copy for MF_PLUGIN_CONTROL_POLICY {}
+impl ::core::clone::Clone for MF_PLUGIN_CONTROL_POLICY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MF_PMP_SERVER_CONTEXT: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 788580624,
     data2: 53967,
@@ -8075,9 +13977,21 @@ pub const MF_Plugin_Type_MFT: MF_Plugin_Type = MF_Plugin_Type(0i32);
 pub const MF_Plugin_Type_MediaSource: MF_Plugin_Type = MF_Plugin_Type(1i32);
 pub const MF_Plugin_Type_MFT_MatchOutputType: MF_Plugin_Type = MF_Plugin_Type(2i32);
 pub const MF_Plugin_Type_Other: MF_Plugin_Type = MF_Plugin_Type(-1i32);
+impl ::core::marker::Copy for MF_Plugin_Type {}
+impl ::core::clone::Clone for MF_Plugin_Type {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MF_QUALITY_ADVISE_FLAGS(pub i32);
 pub const MF_QUALITY_CANNOT_KEEP_UP: MF_QUALITY_ADVISE_FLAGS = MF_QUALITY_ADVISE_FLAGS(1i32);
+impl ::core::marker::Copy for MF_QUALITY_ADVISE_FLAGS {}
+impl ::core::clone::Clone for MF_QUALITY_ADVISE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MF_QUALITY_DROP_MODE(pub i32);
 pub const MF_DROP_MODE_NONE: MF_QUALITY_DROP_MODE = MF_QUALITY_DROP_MODE(0i32);
@@ -8087,6 +14001,12 @@ pub const MF_DROP_MODE_3: MF_QUALITY_DROP_MODE = MF_QUALITY_DROP_MODE(3i32);
 pub const MF_DROP_MODE_4: MF_QUALITY_DROP_MODE = MF_QUALITY_DROP_MODE(4i32);
 pub const MF_DROP_MODE_5: MF_QUALITY_DROP_MODE = MF_QUALITY_DROP_MODE(5i32);
 pub const MF_NUM_DROP_MODES: MF_QUALITY_DROP_MODE = MF_QUALITY_DROP_MODE(6i32);
+impl ::core::marker::Copy for MF_QUALITY_DROP_MODE {}
+impl ::core::clone::Clone for MF_QUALITY_DROP_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MF_QUALITY_LEVEL(pub i32);
 pub const MF_QUALITY_NORMAL: MF_QUALITY_LEVEL = MF_QUALITY_LEVEL(0i32);
@@ -8096,6 +14016,12 @@ pub const MF_QUALITY_NORMAL_MINUS_3: MF_QUALITY_LEVEL = MF_QUALITY_LEVEL(3i32);
 pub const MF_QUALITY_NORMAL_MINUS_4: MF_QUALITY_LEVEL = MF_QUALITY_LEVEL(4i32);
 pub const MF_QUALITY_NORMAL_MINUS_5: MF_QUALITY_LEVEL = MF_QUALITY_LEVEL(5i32);
 pub const MF_NUM_QUALITY_LEVELS: MF_QUALITY_LEVEL = MF_QUALITY_LEVEL(6i32);
+impl ::core::marker::Copy for MF_QUALITY_LEVEL {}
+impl ::core::clone::Clone for MF_QUALITY_LEVEL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MF_QUALITY_NOTIFY_PROCESSING_LATENCY: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4139010808, data2: 24653, data3: 18174, data4: [169, 93, 69, 71, 155, 16, 201, 188] };
 pub const MF_QUALITY_NOTIFY_SAMPLE_LAG: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 819024390, data2: 60714, data3: 18272, data4: [190, 23, 235, 74, 159, 18, 41, 92] };
 pub const MF_QUALITY_SERVICES: ::windows_sys::core::GUID = ::windows_sys::GUID {
@@ -8105,7 +14031,18 @@ pub const MF_QUALITY_SERVICES: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data4: [181, 44, 40, 35, 101, 189, 241, 108],
 };
 #[repr(C)]
-pub struct MF_QUATERNION(i32);
+pub struct MF_QUATERNION {
+    pub x: f32,
+    pub y: f32,
+    pub z: f32,
+    pub w: f32,
+}
+impl ::core::marker::Copy for MF_QUATERNION {}
+impl ::core::clone::Clone for MF_QUATERNION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MF_QUOTA_EXCEEDED_ERR: u32 = 2154823702u32;
 pub const MF_RATE_CONTROL_SERVICE: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 2255463063,
@@ -8160,6 +14097,12 @@ pub const MF_RESOLUTION_PLUGIN_CONTROL_POLICY_WEB_ONLY_EDGEMODE: MF_RESOLUTION_F
 pub const MF_RESOLUTION_ENABLE_STORE_PLUGINS: MF_RESOLUTION_FLAGS = MF_RESOLUTION_FLAGS(1024u32);
 pub const MF_RESOLUTION_READ: MF_RESOLUTION_FLAGS = MF_RESOLUTION_FLAGS(65536u32);
 pub const MF_RESOLUTION_WRITE: MF_RESOLUTION_FLAGS = MF_RESOLUTION_FLAGS(131072u32);
+impl ::core::marker::Copy for MF_RESOLUTION_FLAGS {}
+impl ::core::clone::Clone for MF_RESOLUTION_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MF_SAMI_SERVICE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1235786471, data2: 46297, data3: 20210, data4: [170, 92, 246, 90, 62, 5, 174, 78] };
 pub const MF_SAMPLEGRABBERSINK_IGNORE_CLOCK: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 251503296,
@@ -8314,6 +14257,12 @@ pub const MF_SERVICE_LOOKUP_DOWNSTREAM: MF_SERVICE_LOOKUP_TYPE = MF_SERVICE_LOOK
 pub const MF_SERVICE_LOOKUP_DOWNSTREAM_DIRECT: MF_SERVICE_LOOKUP_TYPE = MF_SERVICE_LOOKUP_TYPE(3i32);
 pub const MF_SERVICE_LOOKUP_ALL: MF_SERVICE_LOOKUP_TYPE = MF_SERVICE_LOOKUP_TYPE(4i32);
 pub const MF_SERVICE_LOOKUP_GLOBAL: MF_SERVICE_LOOKUP_TYPE = MF_SERVICE_LOOKUP_TYPE(5i32);
+impl ::core::marker::Copy for MF_SERVICE_LOOKUP_TYPE {}
+impl ::core::clone::Clone for MF_SERVICE_LOOKUP_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MF_SESSION_APPROX_EVENT_OCCURRENCE_TIME: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 420381999,
     data2: 25144,
@@ -8349,6 +14298,12 @@ pub const MF_SHARING_ENGINE_EVENT_LOCALRENDERINGSTARTED: MF_SHARING_ENGINE_EVENT
 pub const MF_SHARING_ENGINE_EVENT_LOCALRENDERINGENDED: MF_SHARING_ENGINE_EVENT = MF_SHARING_ENGINE_EVENT(2002i32);
 pub const MF_SHARING_ENGINE_EVENT_STOPPED: MF_SHARING_ENGINE_EVENT = MF_SHARING_ENGINE_EVENT(2003i32);
 pub const MF_SHARING_ENGINE_EVENT_ERROR: MF_SHARING_ENGINE_EVENT = MF_SHARING_ENGINE_EVENT(2501i32);
+impl ::core::marker::Copy for MF_SHARING_ENGINE_EVENT {}
+impl ::core::clone::Clone for MF_SHARING_ENGINE_EVENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MF_SHARING_ENGINE_SHAREDRENDERER: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 4020520608,
     data2: 29671,
@@ -8382,6 +14337,12 @@ pub struct MF_SINK_WRITER_CONSTANTS(pub u32);
 pub const MF_SINK_WRITER_INVALID_STREAM_INDEX: MF_SINK_WRITER_CONSTANTS = MF_SINK_WRITER_CONSTANTS(4294967295u32);
 pub const MF_SINK_WRITER_ALL_STREAMS: MF_SINK_WRITER_CONSTANTS = MF_SINK_WRITER_CONSTANTS(4294967294u32);
 pub const MF_SINK_WRITER_MEDIASINK: MF_SINK_WRITER_CONSTANTS = MF_SINK_WRITER_CONSTANTS(4294967295u32);
+impl ::core::marker::Copy for MF_SINK_WRITER_CONSTANTS {}
+impl ::core::clone::Clone for MF_SINK_WRITER_CONSTANTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MF_SINK_WRITER_D3D_MANAGER: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 3967954338,
     data2: 57833,
@@ -8396,7 +14357,30 @@ pub const MF_SINK_WRITER_ENCODER_CONFIG: ::windows_sys::core::GUID = ::windows_s
     data4: [153, 182, 165, 123, 154, 74, 124, 112],
 };
 #[repr(C)]
-pub struct MF_SINK_WRITER_STATISTICS(i32);
+pub struct MF_SINK_WRITER_STATISTICS {
+    pub cb: u32,
+    pub llLastTimestampReceived: i64,
+    pub llLastTimestampEncoded: i64,
+    pub llLastTimestampProcessed: i64,
+    pub llLastStreamTickReceived: i64,
+    pub llLastSinkSampleRequest: i64,
+    pub qwNumSamplesReceived: u64,
+    pub qwNumSamplesEncoded: u64,
+    pub qwNumSamplesProcessed: u64,
+    pub qwNumStreamTicksReceived: u64,
+    pub dwByteCountQueued: u32,
+    pub qwByteCountProcessed: u64,
+    pub dwNumOutstandingSinkSampleRequests: u32,
+    pub dwAverageSampleRateReceived: u32,
+    pub dwAverageSampleRateEncoded: u32,
+    pub dwAverageSampleRateProcessed: u32,
+}
+impl ::core::marker::Copy for MF_SINK_WRITER_STATISTICS {}
+impl ::core::clone::Clone for MF_SINK_WRITER_STATISTICS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MF_SOURCE_PRESENTATION_PROVIDER_SERVICE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3758271196, data2: 62639, data3: 20197, data4: [152, 71, 5, 62, 223, 132, 4, 38] };
 pub const MF_SOURCE_READER_ASYNC_CALLBACK: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 507362988, data2: 47939, data3: 19509, data4: [181, 7, 205, 100, 68, 100, 201, 101] };
 #[repr(transparent)]
@@ -8407,12 +14391,30 @@ pub const MF_SOURCE_READER_ANY_STREAM: MF_SOURCE_READER_CONSTANTS = MF_SOURCE_RE
 pub const MF_SOURCE_READER_FIRST_AUDIO_STREAM: MF_SOURCE_READER_CONSTANTS = MF_SOURCE_READER_CONSTANTS(-3i32);
 pub const MF_SOURCE_READER_FIRST_VIDEO_STREAM: MF_SOURCE_READER_CONSTANTS = MF_SOURCE_READER_CONSTANTS(-4i32);
 pub const MF_SOURCE_READER_MEDIASOURCE: MF_SOURCE_READER_CONSTANTS = MF_SOURCE_READER_CONSTANTS(-1i32);
+impl ::core::marker::Copy for MF_SOURCE_READER_CONSTANTS {}
+impl ::core::clone::Clone for MF_SOURCE_READER_CONSTANTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MF_SOURCE_READER_CONTROL_FLAG(pub i32);
 pub const MF_SOURCE_READER_CONTROLF_DRAIN: MF_SOURCE_READER_CONTROL_FLAG = MF_SOURCE_READER_CONTROL_FLAG(1i32);
+impl ::core::marker::Copy for MF_SOURCE_READER_CONTROL_FLAG {}
+impl ::core::clone::Clone for MF_SOURCE_READER_CONTROL_FLAG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MF_SOURCE_READER_CURRENT_TYPE_CONSTANTS(pub i32);
 pub const MF_SOURCE_READER_CURRENT_TYPE_INDEX: MF_SOURCE_READER_CURRENT_TYPE_CONSTANTS = MF_SOURCE_READER_CURRENT_TYPE_CONSTANTS(-1i32);
+impl ::core::marker::Copy for MF_SOURCE_READER_CURRENT_TYPE_CONSTANTS {}
+impl ::core::clone::Clone for MF_SOURCE_READER_CURRENT_TYPE_CONSTANTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MF_SOURCE_READER_D3D11_BIND_FLAGS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 871569787, data2: 63290, data3: 19988, data4: [141, 133, 14, 76, 67, 104, 120, 141] };
 pub const MF_SOURCE_READER_D3D_MANAGER: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 3967954338,
@@ -8455,6 +14457,12 @@ pub const MF_SOURCE_READERF_NATIVEMEDIATYPECHANGED: MF_SOURCE_READER_FLAG = MF_S
 pub const MF_SOURCE_READERF_CURRENTMEDIATYPECHANGED: MF_SOURCE_READER_FLAG = MF_SOURCE_READER_FLAG(32i32);
 pub const MF_SOURCE_READERF_STREAMTICK: MF_SOURCE_READER_FLAG = MF_SOURCE_READER_FLAG(256i32);
 pub const MF_SOURCE_READERF_ALLEFFECTSREMOVED: MF_SOURCE_READER_FLAG = MF_SOURCE_READER_FLAG(512i32);
+impl ::core::marker::Copy for MF_SOURCE_READER_FLAG {}
+impl ::core::clone::Clone for MF_SOURCE_READER_FLAG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MF_SOURCE_READER_MEDIASOURCE_CHARACTERISTICS: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 1831073224,
     data2: 50647,
@@ -8492,6 +14500,12 @@ pub struct MF_STREAM_STATE(pub i32);
 pub const MF_STREAM_STATE_STOPPED: MF_STREAM_STATE = MF_STREAM_STATE(0i32);
 pub const MF_STREAM_STATE_PAUSED: MF_STREAM_STATE = MF_STREAM_STATE(1i32);
 pub const MF_STREAM_STATE_RUNNING: MF_STREAM_STATE = MF_STREAM_STATE(2i32);
+impl ::core::marker::Copy for MF_STREAM_STATE {}
+impl ::core::clone::Clone for MF_STREAM_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MF_ST_MEDIASOURCE_COLLECTION: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1634593138, data2: 33709, data3: 18768, data4: [129, 112, 99, 13, 25, 203, 227, 7] };
 pub const MF_SYNTAX_ERR: u32 = 2154823692u32;
 pub const MF_S_ACTIVATE_REPLACED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(866045i32 as _);
@@ -8514,11 +14528,23 @@ pub struct MF_TIMED_TEXT_ALIGNMENT(pub i32);
 pub const MF_TIMED_TEXT_ALIGNMENT_START: MF_TIMED_TEXT_ALIGNMENT = MF_TIMED_TEXT_ALIGNMENT(0i32);
 pub const MF_TIMED_TEXT_ALIGNMENT_END: MF_TIMED_TEXT_ALIGNMENT = MF_TIMED_TEXT_ALIGNMENT(1i32);
 pub const MF_TIMED_TEXT_ALIGNMENT_CENTER: MF_TIMED_TEXT_ALIGNMENT = MF_TIMED_TEXT_ALIGNMENT(2i32);
+impl ::core::marker::Copy for MF_TIMED_TEXT_ALIGNMENT {}
+impl ::core::clone::Clone for MF_TIMED_TEXT_ALIGNMENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MF_TIMED_TEXT_BOUTEN_POSITION(pub i32);
 pub const MF_TIMED_TEXT_BOUTEN_POSITION_BEFORE: MF_TIMED_TEXT_BOUTEN_POSITION = MF_TIMED_TEXT_BOUTEN_POSITION(0i32);
 pub const MF_TIMED_TEXT_BOUTEN_POSITION_AFTER: MF_TIMED_TEXT_BOUTEN_POSITION = MF_TIMED_TEXT_BOUTEN_POSITION(1i32);
 pub const MF_TIMED_TEXT_BOUTEN_POSITION_OUTSIDE: MF_TIMED_TEXT_BOUTEN_POSITION = MF_TIMED_TEXT_BOUTEN_POSITION(2i32);
+impl ::core::marker::Copy for MF_TIMED_TEXT_BOUTEN_POSITION {}
+impl ::core::clone::Clone for MF_TIMED_TEXT_BOUTEN_POSITION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MF_TIMED_TEXT_BOUTEN_TYPE(pub i32);
 pub const MF_TIMED_TEXT_BOUTEN_TYPE_NONE: MF_TIMED_TEXT_BOUTEN_TYPE = MF_TIMED_TEXT_BOUTEN_TYPE(0i32);
@@ -8529,22 +14555,46 @@ pub const MF_TIMED_TEXT_BOUTEN_TYPE_FILLEDDOT: MF_TIMED_TEXT_BOUTEN_TYPE = MF_TI
 pub const MF_TIMED_TEXT_BOUTEN_TYPE_OPENDOT: MF_TIMED_TEXT_BOUTEN_TYPE = MF_TIMED_TEXT_BOUTEN_TYPE(5i32);
 pub const MF_TIMED_TEXT_BOUTEN_TYPE_FILLEDSESAME: MF_TIMED_TEXT_BOUTEN_TYPE = MF_TIMED_TEXT_BOUTEN_TYPE(6i32);
 pub const MF_TIMED_TEXT_BOUTEN_TYPE_OPENSESAME: MF_TIMED_TEXT_BOUTEN_TYPE = MF_TIMED_TEXT_BOUTEN_TYPE(7i32);
+impl ::core::marker::Copy for MF_TIMED_TEXT_BOUTEN_TYPE {}
+impl ::core::clone::Clone for MF_TIMED_TEXT_BOUTEN_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MF_TIMED_TEXT_CUE_EVENT(pub i32);
 pub const MF_TIMED_TEXT_CUE_EVENT_ACTIVE: MF_TIMED_TEXT_CUE_EVENT = MF_TIMED_TEXT_CUE_EVENT(0i32);
 pub const MF_TIMED_TEXT_CUE_EVENT_INACTIVE: MF_TIMED_TEXT_CUE_EVENT = MF_TIMED_TEXT_CUE_EVENT(1i32);
 pub const MF_TIMED_TEXT_CUE_EVENT_CLEAR: MF_TIMED_TEXT_CUE_EVENT = MF_TIMED_TEXT_CUE_EVENT(2i32);
+impl ::core::marker::Copy for MF_TIMED_TEXT_CUE_EVENT {}
+impl ::core::clone::Clone for MF_TIMED_TEXT_CUE_EVENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MF_TIMED_TEXT_DECORATION(pub i32);
 pub const MF_TIMED_TEXT_DECORATION_NONE: MF_TIMED_TEXT_DECORATION = MF_TIMED_TEXT_DECORATION(0i32);
 pub const MF_TIMED_TEXT_DECORATION_UNDERLINE: MF_TIMED_TEXT_DECORATION = MF_TIMED_TEXT_DECORATION(1i32);
 pub const MF_TIMED_TEXT_DECORATION_LINE_THROUGH: MF_TIMED_TEXT_DECORATION = MF_TIMED_TEXT_DECORATION(2i32);
 pub const MF_TIMED_TEXT_DECORATION_OVERLINE: MF_TIMED_TEXT_DECORATION = MF_TIMED_TEXT_DECORATION(4i32);
+impl ::core::marker::Copy for MF_TIMED_TEXT_DECORATION {}
+impl ::core::clone::Clone for MF_TIMED_TEXT_DECORATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MF_TIMED_TEXT_DISPLAY_ALIGNMENT(pub i32);
 pub const MF_TIMED_TEXT_DISPLAY_ALIGNMENT_BEFORE: MF_TIMED_TEXT_DISPLAY_ALIGNMENT = MF_TIMED_TEXT_DISPLAY_ALIGNMENT(0i32);
 pub const MF_TIMED_TEXT_DISPLAY_ALIGNMENT_AFTER: MF_TIMED_TEXT_DISPLAY_ALIGNMENT = MF_TIMED_TEXT_DISPLAY_ALIGNMENT(1i32);
 pub const MF_TIMED_TEXT_DISPLAY_ALIGNMENT_CENTER: MF_TIMED_TEXT_DISPLAY_ALIGNMENT = MF_TIMED_TEXT_DISPLAY_ALIGNMENT(2i32);
+impl ::core::marker::Copy for MF_TIMED_TEXT_DISPLAY_ALIGNMENT {}
+impl ::core::clone::Clone for MF_TIMED_TEXT_DISPLAY_ALIGNMENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MF_TIMED_TEXT_ERROR_CODE(pub i32);
 pub const MF_TIMED_TEXT_ERROR_CODE_NOERROR: MF_TIMED_TEXT_ERROR_CODE = MF_TIMED_TEXT_ERROR_CODE(0i32);
@@ -8552,11 +14602,23 @@ pub const MF_TIMED_TEXT_ERROR_CODE_FATAL: MF_TIMED_TEXT_ERROR_CODE = MF_TIMED_TE
 pub const MF_TIMED_TEXT_ERROR_CODE_DATA_FORMAT: MF_TIMED_TEXT_ERROR_CODE = MF_TIMED_TEXT_ERROR_CODE(2i32);
 pub const MF_TIMED_TEXT_ERROR_CODE_NETWORK: MF_TIMED_TEXT_ERROR_CODE = MF_TIMED_TEXT_ERROR_CODE(3i32);
 pub const MF_TIMED_TEXT_ERROR_CODE_INTERNAL: MF_TIMED_TEXT_ERROR_CODE = MF_TIMED_TEXT_ERROR_CODE(4i32);
+impl ::core::marker::Copy for MF_TIMED_TEXT_ERROR_CODE {}
+impl ::core::clone::Clone for MF_TIMED_TEXT_ERROR_CODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MF_TIMED_TEXT_FONT_STYLE(pub i32);
 pub const MF_TIMED_TEXT_FONT_STYLE_NORMAL: MF_TIMED_TEXT_FONT_STYLE = MF_TIMED_TEXT_FONT_STYLE(0i32);
 pub const MF_TIMED_TEXT_FONT_STYLE_OBLIQUE: MF_TIMED_TEXT_FONT_STYLE = MF_TIMED_TEXT_FONT_STYLE(1i32);
 pub const MF_TIMED_TEXT_FONT_STYLE_ITALIC: MF_TIMED_TEXT_FONT_STYLE = MF_TIMED_TEXT_FONT_STYLE(2i32);
+impl ::core::marker::Copy for MF_TIMED_TEXT_FONT_STYLE {}
+impl ::core::clone::Clone for MF_TIMED_TEXT_FONT_STYLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MF_TIMED_TEXT_RUBY_ALIGN(pub i32);
 pub const MF_TIMED_TEXT_RUBY_ALIGN_CENTER: MF_TIMED_TEXT_RUBY_ALIGN = MF_TIMED_TEXT_RUBY_ALIGN(0i32);
@@ -8565,11 +14627,23 @@ pub const MF_TIMED_TEXT_RUBY_ALIGN_END: MF_TIMED_TEXT_RUBY_ALIGN = MF_TIMED_TEXT
 pub const MF_TIMED_TEXT_RUBY_ALIGN_SPACEAROUND: MF_TIMED_TEXT_RUBY_ALIGN = MF_TIMED_TEXT_RUBY_ALIGN(3i32);
 pub const MF_TIMED_TEXT_RUBY_ALIGN_SPACEBETWEEN: MF_TIMED_TEXT_RUBY_ALIGN = MF_TIMED_TEXT_RUBY_ALIGN(4i32);
 pub const MF_TIMED_TEXT_RUBY_ALIGN_WITHBASE: MF_TIMED_TEXT_RUBY_ALIGN = MF_TIMED_TEXT_RUBY_ALIGN(5i32);
+impl ::core::marker::Copy for MF_TIMED_TEXT_RUBY_ALIGN {}
+impl ::core::clone::Clone for MF_TIMED_TEXT_RUBY_ALIGN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MF_TIMED_TEXT_RUBY_POSITION(pub i32);
 pub const MF_TIMED_TEXT_RUBY_POSITION_BEFORE: MF_TIMED_TEXT_RUBY_POSITION = MF_TIMED_TEXT_RUBY_POSITION(0i32);
 pub const MF_TIMED_TEXT_RUBY_POSITION_AFTER: MF_TIMED_TEXT_RUBY_POSITION = MF_TIMED_TEXT_RUBY_POSITION(1i32);
 pub const MF_TIMED_TEXT_RUBY_POSITION_OUTSIDE: MF_TIMED_TEXT_RUBY_POSITION = MF_TIMED_TEXT_RUBY_POSITION(2i32);
+impl ::core::marker::Copy for MF_TIMED_TEXT_RUBY_POSITION {}
+impl ::core::clone::Clone for MF_TIMED_TEXT_RUBY_POSITION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MF_TIMED_TEXT_RUBY_RESERVE(pub i32);
 pub const MF_TIMED_TEXT_RUBY_RESERVE_NONE: MF_TIMED_TEXT_RUBY_RESERVE = MF_TIMED_TEXT_RUBY_RESERVE(0i32);
@@ -8577,26 +14651,56 @@ pub const MF_TIMED_TEXT_RUBY_RESERVE_BEFORE: MF_TIMED_TEXT_RUBY_RESERVE = MF_TIM
 pub const MF_TIMED_TEXT_RUBY_RESERVE_AFTER: MF_TIMED_TEXT_RUBY_RESERVE = MF_TIMED_TEXT_RUBY_RESERVE(2i32);
 pub const MF_TIMED_TEXT_RUBY_RESERVE_BOTH: MF_TIMED_TEXT_RUBY_RESERVE = MF_TIMED_TEXT_RUBY_RESERVE(3i32);
 pub const MF_TIMED_TEXT_RUBY_RESERVE_OUTSIDE: MF_TIMED_TEXT_RUBY_RESERVE = MF_TIMED_TEXT_RUBY_RESERVE(4i32);
+impl ::core::marker::Copy for MF_TIMED_TEXT_RUBY_RESERVE {}
+impl ::core::clone::Clone for MF_TIMED_TEXT_RUBY_RESERVE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MF_TIMED_TEXT_SCROLL_MODE(pub i32);
 pub const MF_TIMED_TEXT_SCROLL_MODE_POP_ON: MF_TIMED_TEXT_SCROLL_MODE = MF_TIMED_TEXT_SCROLL_MODE(0i32);
 pub const MF_TIMED_TEXT_SCROLL_MODE_ROLL_UP: MF_TIMED_TEXT_SCROLL_MODE = MF_TIMED_TEXT_SCROLL_MODE(1i32);
+impl ::core::marker::Copy for MF_TIMED_TEXT_SCROLL_MODE {}
+impl ::core::clone::Clone for MF_TIMED_TEXT_SCROLL_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MF_TIMED_TEXT_TRACK_KIND(pub i32);
 pub const MF_TIMED_TEXT_TRACK_KIND_UNKNOWN: MF_TIMED_TEXT_TRACK_KIND = MF_TIMED_TEXT_TRACK_KIND(0i32);
 pub const MF_TIMED_TEXT_TRACK_KIND_SUBTITLES: MF_TIMED_TEXT_TRACK_KIND = MF_TIMED_TEXT_TRACK_KIND(1i32);
 pub const MF_TIMED_TEXT_TRACK_KIND_CAPTIONS: MF_TIMED_TEXT_TRACK_KIND = MF_TIMED_TEXT_TRACK_KIND(2i32);
 pub const MF_TIMED_TEXT_TRACK_KIND_METADATA: MF_TIMED_TEXT_TRACK_KIND = MF_TIMED_TEXT_TRACK_KIND(3i32);
+impl ::core::marker::Copy for MF_TIMED_TEXT_TRACK_KIND {}
+impl ::core::clone::Clone for MF_TIMED_TEXT_TRACK_KIND {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MF_TIMED_TEXT_TRACK_READY_STATE(pub i32);
 pub const MF_TIMED_TEXT_TRACK_READY_STATE_NONE: MF_TIMED_TEXT_TRACK_READY_STATE = MF_TIMED_TEXT_TRACK_READY_STATE(0i32);
 pub const MF_TIMED_TEXT_TRACK_READY_STATE_LOADING: MF_TIMED_TEXT_TRACK_READY_STATE = MF_TIMED_TEXT_TRACK_READY_STATE(1i32);
 pub const MF_TIMED_TEXT_TRACK_READY_STATE_LOADED: MF_TIMED_TEXT_TRACK_READY_STATE = MF_TIMED_TEXT_TRACK_READY_STATE(2i32);
 pub const MF_TIMED_TEXT_TRACK_READY_STATE_ERROR: MF_TIMED_TEXT_TRACK_READY_STATE = MF_TIMED_TEXT_TRACK_READY_STATE(3i32);
+impl ::core::marker::Copy for MF_TIMED_TEXT_TRACK_READY_STATE {}
+impl ::core::clone::Clone for MF_TIMED_TEXT_TRACK_READY_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MF_TIMED_TEXT_UNIT_TYPE(pub i32);
 pub const MF_TIMED_TEXT_UNIT_TYPE_PIXELS: MF_TIMED_TEXT_UNIT_TYPE = MF_TIMED_TEXT_UNIT_TYPE(0i32);
 pub const MF_TIMED_TEXT_UNIT_TYPE_PERCENTAGE: MF_TIMED_TEXT_UNIT_TYPE = MF_TIMED_TEXT_UNIT_TYPE(1i32);
+impl ::core::marker::Copy for MF_TIMED_TEXT_UNIT_TYPE {}
+impl ::core::clone::Clone for MF_TIMED_TEXT_UNIT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MF_TIMED_TEXT_WRITING_MODE(pub i32);
 pub const MF_TIMED_TEXT_WRITING_MODE_LRTB: MF_TIMED_TEXT_WRITING_MODE = MF_TIMED_TEXT_WRITING_MODE(0i32);
@@ -8606,6 +14710,12 @@ pub const MF_TIMED_TEXT_WRITING_MODE_TBLR: MF_TIMED_TEXT_WRITING_MODE = MF_TIMED
 pub const MF_TIMED_TEXT_WRITING_MODE_LR: MF_TIMED_TEXT_WRITING_MODE = MF_TIMED_TEXT_WRITING_MODE(4i32);
 pub const MF_TIMED_TEXT_WRITING_MODE_RL: MF_TIMED_TEXT_WRITING_MODE = MF_TIMED_TEXT_WRITING_MODE(5i32);
 pub const MF_TIMED_TEXT_WRITING_MODE_TB: MF_TIMED_TEXT_WRITING_MODE = MF_TIMED_TEXT_WRITING_MODE(6i32);
+impl ::core::marker::Copy for MF_TIMED_TEXT_WRITING_MODE {}
+impl ::core::clone::Clone for MF_TIMED_TEXT_WRITING_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MF_TIME_FORMAT_ENTRY_RELATIVE: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 1134162296,
     data2: 18131,
@@ -8674,6 +14784,12 @@ pub struct MF_TOPOLOGY_RESOLUTION_STATUS_FLAGS(pub i32);
 pub const MF_TOPOLOGY_RESOLUTION_SUCCEEDED: MF_TOPOLOGY_RESOLUTION_STATUS_FLAGS = MF_TOPOLOGY_RESOLUTION_STATUS_FLAGS(0i32);
 pub const MF_OPTIONAL_NODE_REJECTED_MEDIA_TYPE: MF_TOPOLOGY_RESOLUTION_STATUS_FLAGS = MF_TOPOLOGY_RESOLUTION_STATUS_FLAGS(1i32);
 pub const MF_OPTIONAL_NODE_REJECTED_PROTECTED_PROCESS: MF_TOPOLOGY_RESOLUTION_STATUS_FLAGS = MF_TOPOLOGY_RESOLUTION_STATUS_FLAGS(2i32);
+impl ::core::marker::Copy for MF_TOPOLOGY_RESOLUTION_STATUS_FLAGS {}
+impl ::core::clone::Clone for MF_TOPOLOGY_RESOLUTION_STATUS_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MF_TOPOLOGY_START_TIME_ON_PRESENTATION_SWITCH: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 3368816959,
     data2: 31057,
@@ -8688,6 +14804,12 @@ pub const MF_TOPOLOGY_SOURCESTREAM_NODE: MF_TOPOLOGY_TYPE = MF_TOPOLOGY_TYPE(1i3
 pub const MF_TOPOLOGY_TRANSFORM_NODE: MF_TOPOLOGY_TYPE = MF_TOPOLOGY_TYPE(2i32);
 pub const MF_TOPOLOGY_TEE_NODE: MF_TOPOLOGY_TYPE = MF_TOPOLOGY_TYPE(3i32);
 pub const MF_TOPOLOGY_MAX: MF_TOPOLOGY_TYPE = MF_TOPOLOGY_TYPE(-1i32);
+impl ::core::marker::Copy for MF_TOPOLOGY_TYPE {}
+impl ::core::clone::Clone for MF_TOPOLOGY_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MF_TOPONODE_ATTRIBUTE_EDITOR_SERVICE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1701146138, data2: 1919, data3: 17522, data4: [131, 239, 49, 111, 17, 213, 8, 122] };
 pub const MF_TOPONODE_CONNECT_METHOD: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 1229700337,
@@ -8731,6 +14853,12 @@ pub struct MF_TOPONODE_DRAIN_MODE(pub i32);
 pub const MF_TOPONODE_DRAIN_DEFAULT: MF_TOPONODE_DRAIN_MODE = MF_TOPONODE_DRAIN_MODE(0i32);
 pub const MF_TOPONODE_DRAIN_ALWAYS: MF_TOPONODE_DRAIN_MODE = MF_TOPONODE_DRAIN_MODE(1i32);
 pub const MF_TOPONODE_DRAIN_NEVER: MF_TOPONODE_DRAIN_MODE = MF_TOPONODE_DRAIN_MODE(2i32);
+impl ::core::marker::Copy for MF_TOPONODE_DRAIN_MODE {}
+impl ::core::clone::Clone for MF_TOPONODE_DRAIN_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MF_TOPONODE_ERRORCODE: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 1229700334,
     data2: 45105,
@@ -8760,6 +14888,12 @@ pub struct MF_TOPONODE_FLUSH_MODE(pub i32);
 pub const MF_TOPONODE_FLUSH_ALWAYS: MF_TOPONODE_FLUSH_MODE = MF_TOPONODE_FLUSH_MODE(0i32);
 pub const MF_TOPONODE_FLUSH_SEEK: MF_TOPONODE_FLUSH_MODE = MF_TOPONODE_FLUSH_MODE(1i32);
 pub const MF_TOPONODE_FLUSH_NEVER: MF_TOPONODE_FLUSH_MODE = MF_TOPONODE_FLUSH_MODE(2i32);
+impl ::core::marker::Copy for MF_TOPONODE_FLUSH_MODE {}
+impl ::core::clone::Clone for MF_TOPONODE_FLUSH_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MF_TOPONODE_LOCKED: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 1229700343,
     data2: 45105,
@@ -8867,6 +15001,12 @@ pub const MF_TOPOSTATUS_STARTED_SOURCE: MF_TOPOSTATUS = MF_TOPOSTATUS(200i32);
 pub const MF_TOPOSTATUS_DYNAMIC_CHANGED: MF_TOPOSTATUS = MF_TOPOSTATUS(210i32);
 pub const MF_TOPOSTATUS_SINK_SWITCHED: MF_TOPOSTATUS = MF_TOPOSTATUS(300i32);
 pub const MF_TOPOSTATUS_ENDED: MF_TOPOSTATUS = MF_TOPOSTATUS(400i32);
+impl ::core::marker::Copy for MF_TOPOSTATUS {}
+impl ::core::clone::Clone for MF_TOPOSTATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MF_TRANSCODE_ADJUST_PROFILE: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 2620899867,
     data2: 1551,
@@ -8877,6 +15017,12 @@ pub const MF_TRANSCODE_ADJUST_PROFILE: ::windows_sys::core::GUID = ::windows_sys
 pub struct MF_TRANSCODE_ADJUST_PROFILE_FLAGS(pub i32);
 pub const MF_TRANSCODE_ADJUST_PROFILE_DEFAULT: MF_TRANSCODE_ADJUST_PROFILE_FLAGS = MF_TRANSCODE_ADJUST_PROFILE_FLAGS(0i32);
 pub const MF_TRANSCODE_ADJUST_PROFILE_USE_SOURCE_ATTRIBUTES: MF_TRANSCODE_ADJUST_PROFILE_FLAGS = MF_TRANSCODE_ADJUST_PROFILE_FLAGS(1i32);
+impl ::core::marker::Copy for MF_TRANSCODE_ADJUST_PROFILE_FLAGS {}
+impl ::core::clone::Clone for MF_TRANSCODE_ADJUST_PROFILE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MF_TRANSCODE_CONTAINERTYPE: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 353366591,
     data2: 19132,
@@ -8892,7 +15038,18 @@ pub const MF_TRANSCODE_ENCODINGPROFILE: ::windows_sys::core::GUID = ::windows_sy
 };
 pub const MF_TRANSCODE_QUALITYVSSPEED: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2553490936, data2: 973, data3: 18283, data4: [137, 250, 63, 158, 68, 45, 236, 159] };
 #[repr(C)]
-pub struct MF_TRANSCODE_SINK_INFO(i32);
+pub struct MF_TRANSCODE_SINK_INFO {
+    pub dwVideoStreamID: u32,
+    pub pVideoMediaType: ::core::option::Option<IMFMediaType>,
+    pub dwAudioStreamID: u32,
+    pub pAudioMediaType: ::core::option::Option<IMFMediaType>,
+}
+impl ::core::marker::Copy for MF_TRANSCODE_SINK_INFO {}
+impl ::core::clone::Clone for MF_TRANSCODE_SINK_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MF_TRANSCODE_SKIP_METADATA_TRANSFER: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 1313106415,
     data2: 46449,
@@ -8909,6 +15066,12 @@ pub const MF_TRANSCODE_TOPOLOGYMODE: ::windows_sys::core::GUID = ::windows_sys::
 pub struct MF_TRANSCODE_TOPOLOGYMODE_FLAGS(pub i32);
 pub const MF_TRANSCODE_TOPOLOGYMODE_SOFTWARE_ONLY: MF_TRANSCODE_TOPOLOGYMODE_FLAGS = MF_TRANSCODE_TOPOLOGYMODE_FLAGS(0i32);
 pub const MF_TRANSCODE_TOPOLOGYMODE_HARDWARE_ALLOWED: MF_TRANSCODE_TOPOLOGYMODE_FLAGS = MF_TRANSCODE_TOPOLOGYMODE_FLAGS(1i32);
+impl ::core::marker::Copy for MF_TRANSCODE_TOPOLOGYMODE_FLAGS {}
+impl ::core::clone::Clone for MF_TRANSCODE_TOPOLOGYMODE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MF_TRANSFORM_ASYNC: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 4162480538,
     data2: 25754,
@@ -8935,6 +15098,12 @@ pub struct MF_URL_TRUST_STATUS(pub i32);
 pub const MF_LICENSE_URL_UNTRUSTED: MF_URL_TRUST_STATUS = MF_URL_TRUST_STATUS(0i32);
 pub const MF_LICENSE_URL_TRUSTED: MF_URL_TRUST_STATUS = MF_URL_TRUST_STATUS(1i32);
 pub const MF_LICENSE_URL_TAMPERED: MF_URL_TRUST_STATUS = MF_URL_TRUST_STATUS(2i32);
+impl ::core::marker::Copy for MF_URL_TRUST_STATUS {}
+impl ::core::clone::Clone for MF_URL_TRUST_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MF_USER_DATA_PAYLOAD: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3520370781, data2: 56466, data3: 17786, data4: [179, 160, 101, 26, 51, 163, 16, 71] };
 pub const MF_USER_EXTENDED_ATTRIBUTES: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3224025798, data2: 65202, data3: 17729, data4: [146, 47, 146, 11, 67, 112, 39, 34] };
 pub const MF_USER_MODE_COMPONENT_LOAD: u32 = 1u32;
@@ -8950,15 +15119,33 @@ pub const MF_VIDEO_PROCESSOR_ALGORITHM: ::windows_sys::core::GUID = ::windows_sy
 pub struct MF_VIDEO_PROCESSOR_ALGORITHM_TYPE(pub i32);
 pub const MF_VIDEO_PROCESSOR_ALGORITHM_DEFAULT: MF_VIDEO_PROCESSOR_ALGORITHM_TYPE = MF_VIDEO_PROCESSOR_ALGORITHM_TYPE(0i32);
 pub const MF_VIDEO_PROCESSOR_ALGORITHM_MRF_CRF_444: MF_VIDEO_PROCESSOR_ALGORITHM_TYPE = MF_VIDEO_PROCESSOR_ALGORITHM_TYPE(1i32);
+impl ::core::marker::Copy for MF_VIDEO_PROCESSOR_ALGORITHM_TYPE {}
+impl ::core::clone::Clone for MF_VIDEO_PROCESSOR_ALGORITHM_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MF_VIDEO_PROCESSOR_MIRROR(pub i32);
 pub const MIRROR_NONE: MF_VIDEO_PROCESSOR_MIRROR = MF_VIDEO_PROCESSOR_MIRROR(0i32);
 pub const MIRROR_HORIZONTAL: MF_VIDEO_PROCESSOR_MIRROR = MF_VIDEO_PROCESSOR_MIRROR(1i32);
 pub const MIRROR_VERTICAL: MF_VIDEO_PROCESSOR_MIRROR = MF_VIDEO_PROCESSOR_MIRROR(2i32);
+impl ::core::marker::Copy for MF_VIDEO_PROCESSOR_MIRROR {}
+impl ::core::clone::Clone for MF_VIDEO_PROCESSOR_MIRROR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MF_VIDEO_PROCESSOR_ROTATION(pub i32);
 pub const ROTATION_NONE: MF_VIDEO_PROCESSOR_ROTATION = MF_VIDEO_PROCESSOR_ROTATION(0i32);
 pub const ROTATION_NORMAL: MF_VIDEO_PROCESSOR_ROTATION = MF_VIDEO_PROCESSOR_ROTATION(1i32);
+impl ::core::marker::Copy for MF_VIDEO_PROCESSOR_ROTATION {}
+impl ::core::clone::Clone for MF_VIDEO_PROCESSOR_ROTATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MF_VIDEO_RENDERER_EFFECT_APP_SERVICE_NAME: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 3322227328,
     data2: 28060,
@@ -8966,7 +15153,17 @@ pub const MF_VIDEO_RENDERER_EFFECT_APP_SERVICE_NAME: ::windows_sys::core::GUID =
     data4: [157, 184, 240, 39, 162, 92, 154, 185],
 };
 #[repr(C)]
-pub struct MF_VIDEO_SPHERICAL_VIEWDIRECTION(i32);
+pub struct MF_VIDEO_SPHERICAL_VIEWDIRECTION {
+    pub iHeading: i32,
+    pub iPitch: i32,
+    pub iRoll: i32,
+}
+impl ::core::marker::Copy for MF_VIDEO_SPHERICAL_VIEWDIRECTION {}
+impl ::core::clone::Clone for MF_VIDEO_SPHERICAL_VIEWDIRECTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MF_VIRTUALCAMERA_CONFIGURATION_APP_PACKAGE_FAMILY_NAME: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 1703591505,
     data2: 32836,
@@ -9008,14 +15205,42 @@ pub const MICARRAY_SIMPLE_SUM: MIC_ARRAY_MODE = MIC_ARRAY_MODE(256i32);
 pub const MICARRAY_SINGLE_BEAM: MIC_ARRAY_MODE = MIC_ARRAY_MODE(512i32);
 pub const MICARRAY_FIXED_BEAM: MIC_ARRAY_MODE = MIC_ARRAY_MODE(1024i32);
 pub const MICARRAY_EXTERN_BEAM: MIC_ARRAY_MODE = MIC_ARRAY_MODE(2048i32);
+impl ::core::marker::Copy for MIC_ARRAY_MODE {}
+impl ::core::clone::Clone for MIC_ARRAY_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct MOVEREGION_INFO(i32);
+pub struct MOVEREGION_INFO {
+    pub FrameNumber: u32,
+    pub NumMoveRegions: u32,
+    pub MoveRegions: [MOVE_RECT; 1],
+}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MOVEREGION_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MOVEREGION_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct MOVE_RECT(i32);
-#[repr(C)]
-pub struct MP3ACMCodecWrapper(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct MOVE_RECT {
+    pub SourcePoint: super::super::Foundation::POINT,
+    pub DestRect: super::super::Foundation::RECT,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MOVE_RECT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MOVE_RECT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+pub const MP3ACMCodecWrapper: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 286274593, data2: 13644, data3: 19658, data4: [167, 163, 26, 255, 154, 91, 103, 1] };
 pub const MR_AUDIO_POLICY_SERVICE: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 2434783031,
     data2: 26485,
@@ -9039,19 +15264,71 @@ pub const MR_VIDEO_ACCELERATION_SERVICE: ::windows_sys::core::GUID = ::windows_s
 };
 pub const MR_VIDEO_MIXER_SERVICE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 121426684, data2: 27892, data3: 16567, data4: [136, 89, 232, 149, 82, 200, 65, 248] };
 pub const MR_VIDEO_RENDER_SERVICE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 278046828, data2: 43802, data3: 17818, data4: [163, 54, 131, 31, 188, 77, 17, 255] };
+pub const MSAMRNBDecoder: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 642781614,
+    data2: 21633,
+    data3: 20343,
+    data4: [162, 149, 171, 182, 255, 232, 214, 62],
+};
+pub const MSAMRNBEncoder: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 799967998, data2: 1187, data3: 16954, data4: [168, 20, 133, 219, 69, 71, 18, 176] };
 #[repr(C)]
-pub struct MSAMRNBDecoder(i32);
-#[repr(C)]
-pub struct MSAMRNBEncoder(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct MT_ARBITRARY_HEADER {
+    pub majortype: ::windows_sys::core::GUID,
+    pub subtype: ::windows_sys::core::GUID,
+    pub bFixedSizeSamples: super::super::Foundation::BOOL,
+    pub bTemporalCompression: super::super::Foundation::BOOL,
+    pub lSampleSize: u32,
+    pub formattype: ::windows_sys::core::GUID,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MT_ARBITRARY_HEADER {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MT_ARBITRARY_HEADER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct MT_ARBITRARY_HEADER(i32);
-#[repr(C)]
-pub struct MT_CUSTOM_VIDEO_PRIMARIES(i32);
-#[repr(C)]
-pub struct MULawCodecWrapper(i32);
-#[repr(C)]
-pub struct OPM_ACP_AND_CGMSA_SIGNALING(i32);
+pub struct MT_CUSTOM_VIDEO_PRIMARIES {
+    pub fRx: f32,
+    pub fRy: f32,
+    pub fGx: f32,
+    pub fGy: f32,
+    pub fBx: f32,
+    pub fBy: f32,
+    pub fWx: f32,
+    pub fWy: f32,
+}
+impl ::core::marker::Copy for MT_CUSTOM_VIDEO_PRIMARIES {}
+impl ::core::clone::Clone for MT_CUSTOM_VIDEO_PRIMARIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+pub const MULawCodecWrapper: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2461425792, data2: 24109, data3: 17566, data4: [144, 196, 196, 31, 38, 142, 85, 20] };
+#[repr(C, packed(1))]
+pub struct OPM_ACP_AND_CGMSA_SIGNALING {
+    pub rnRandomNumber: OPM_RANDOM_NUMBER,
+    pub ulStatusFlags: u32,
+    pub ulAvailableTVProtectionStandards: u32,
+    pub ulActiveTVProtectionStandard: u32,
+    pub ulReserved: u32,
+    pub ulAspectRatioValidMask1: u32,
+    pub ulAspectRatioData1: u32,
+    pub ulAspectRatioValidMask2: u32,
+    pub ulAspectRatioData2: u32,
+    pub ulAspectRatioValidMask3: u32,
+    pub ulAspectRatioData3: u32,
+    pub ulReserved2: [u32; 4],
+    pub ulReserved3: [u32; 4],
+}
+impl ::core::marker::Copy for OPM_ACP_AND_CGMSA_SIGNALING {}
+impl ::core::clone::Clone for OPM_ACP_AND_CGMSA_SIGNALING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct OPM_ACP_PROTECTION_LEVEL(pub i32);
 pub const OPM_ACP_OFF: OPM_ACP_PROTECTION_LEVEL = OPM_ACP_PROTECTION_LEVEL(0i32);
@@ -9059,9 +15336,32 @@ pub const OPM_ACP_LEVEL_ONE: OPM_ACP_PROTECTION_LEVEL = OPM_ACP_PROTECTION_LEVEL
 pub const OPM_ACP_LEVEL_TWO: OPM_ACP_PROTECTION_LEVEL = OPM_ACP_PROTECTION_LEVEL(2i32);
 pub const OPM_ACP_LEVEL_THREE: OPM_ACP_PROTECTION_LEVEL = OPM_ACP_PROTECTION_LEVEL(3i32);
 pub const OPM_ACP_FORCE_ULONG: OPM_ACP_PROTECTION_LEVEL = OPM_ACP_PROTECTION_LEVEL(2147483647i32);
+impl ::core::marker::Copy for OPM_ACP_PROTECTION_LEVEL {}
+impl ::core::clone::Clone for OPM_ACP_PROTECTION_LEVEL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-#[repr(C)]
-pub struct OPM_ACTUAL_OUTPUT_FORMAT(i32);
+pub struct OPM_ACTUAL_OUTPUT_FORMAT {
+    pub rnRandomNumber: OPM_RANDOM_NUMBER,
+    pub ulStatusFlags: u32,
+    pub ulDisplayWidth: u32,
+    pub ulDisplayHeight: u32,
+    pub dsfSampleInterleaveFormat: DXVA2_SampleFormat,
+    pub d3dFormat: super::super::Graphics::Direct3D9::D3DFORMAT,
+    pub ulFrequencyNumerator: u32,
+    pub ulFrequencyDenominator: u32,
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::marker::Copy for OPM_ACTUAL_OUTPUT_FORMAT {}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::clone::Clone for OPM_ACTUAL_OUTPUT_FORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct OPM_BUS_TYPE(pub i32);
 pub const OPM_BUS_TYPE_OTHER: OPM_BUS_TYPE = OPM_BUS_TYPE(0i32);
@@ -9076,6 +15376,12 @@ pub const OPM_BUS_IMPLEMENTATION_MODIFIER_DAUGHTER_BOARD_CONNECTOR: OPM_BUS_TYPE
 pub const OPM_BUS_IMPLEMENTATION_MODIFIER_DAUGHTER_BOARD_CONNECTOR_INSIDE_OF_NUAE: OPM_BUS_TYPE = OPM_BUS_TYPE(327680i32);
 pub const OPM_BUS_IMPLEMENTATION_MODIFIER_NON_STANDARD: OPM_BUS_TYPE = OPM_BUS_TYPE(-2147483648i32);
 pub const OPM_COPP_COMPATIBLE_BUS_TYPE_INTEGRATED: OPM_BUS_TYPE = OPM_BUS_TYPE(-2147483648i32);
+impl ::core::marker::Copy for OPM_BUS_TYPE {}
+impl ::core::clone::Clone for OPM_BUS_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct OPM_CGMSA(pub i32);
 pub const OPM_CGMSA_OFF: OPM_CGMSA = OPM_CGMSA(0i32);
@@ -9084,23 +15390,87 @@ pub const OPM_CGMSA_COPY_NO_MORE: OPM_CGMSA = OPM_CGMSA(2i32);
 pub const OPM_CGMSA_COPY_ONE_GENERATION: OPM_CGMSA = OPM_CGMSA(3i32);
 pub const OPM_CGMSA_COPY_NEVER: OPM_CGMSA = OPM_CGMSA(4i32);
 pub const OPM_CGMSA_REDISTRIBUTION_CONTROL_REQUIRED: OPM_CGMSA = OPM_CGMSA(8i32);
-#[repr(C)]
-pub struct OPM_CONFIGURE_PARAMETERS(i32);
-#[repr(C)]
-pub struct OPM_CONNECTED_HDCP_DEVICE_INFORMATION(i32);
-#[repr(C)]
-pub struct OPM_COPP_COMPATIBLE_GET_INFO_PARAMETERS(i32);
+impl ::core::marker::Copy for OPM_CGMSA {}
+impl ::core::clone::Clone for OPM_CGMSA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub struct OPM_CONFIGURE_PARAMETERS {
+    pub omac: OPM_OMAC,
+    pub guidSetting: ::windows_sys::core::GUID,
+    pub ulSequenceNumber: u32,
+    pub cbParametersSize: u32,
+    pub abParameters: [u8; 4056],
+}
+impl ::core::marker::Copy for OPM_CONFIGURE_PARAMETERS {}
+impl ::core::clone::Clone for OPM_CONFIGURE_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub struct OPM_CONNECTED_HDCP_DEVICE_INFORMATION {
+    pub rnRandomNumber: OPM_RANDOM_NUMBER,
+    pub ulStatusFlags: u32,
+    pub ulHDCPFlags: u32,
+    pub ksvB: OPM_HDCP_KEY_SELECTION_VECTOR,
+    pub Reserved: [u8; 11],
+    pub Reserved2: [u8; 16],
+    pub Reserved3: [u8; 16],
+}
+impl ::core::marker::Copy for OPM_CONNECTED_HDCP_DEVICE_INFORMATION {}
+impl ::core::clone::Clone for OPM_CONNECTED_HDCP_DEVICE_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub struct OPM_COPP_COMPATIBLE_GET_INFO_PARAMETERS {
+    pub rnRandomNumber: OPM_RANDOM_NUMBER,
+    pub guidInformation: ::windows_sys::core::GUID,
+    pub ulSequenceNumber: u32,
+    pub cbParametersSize: u32,
+    pub abParameters: [u8; 4056],
+}
+impl ::core::marker::Copy for OPM_COPP_COMPATIBLE_GET_INFO_PARAMETERS {}
+impl ::core::clone::Clone for OPM_COPP_COMPATIBLE_GET_INFO_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct OPM_DPCP_PROTECTION_LEVEL(pub i32);
 pub const OPM_DPCP_OFF: OPM_DPCP_PROTECTION_LEVEL = OPM_DPCP_PROTECTION_LEVEL(0i32);
 pub const OPM_DPCP_ON: OPM_DPCP_PROTECTION_LEVEL = OPM_DPCP_PROTECTION_LEVEL(1i32);
 pub const OPM_DPCP_FORCE_ULONG: OPM_DPCP_PROTECTION_LEVEL = OPM_DPCP_PROTECTION_LEVEL(2147483647i32);
+impl ::core::marker::Copy for OPM_DPCP_PROTECTION_LEVEL {}
+impl ::core::clone::Clone for OPM_DPCP_PROTECTION_LEVEL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct OPM_DVI_CHARACTERISTIC(pub i32);
 pub const OPM_DVI_CHARACTERISTIC_1_0: OPM_DVI_CHARACTERISTIC = OPM_DVI_CHARACTERISTIC(1i32);
 pub const OPM_DVI_CHARACTERISTIC_1_1_OR_ABOVE: OPM_DVI_CHARACTERISTIC = OPM_DVI_CHARACTERISTIC(2i32);
+impl ::core::marker::Copy for OPM_DVI_CHARACTERISTIC {}
+impl ::core::clone::Clone for OPM_DVI_CHARACTERISTIC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct OPM_ENCRYPTED_INITIALIZATION_PARAMETERS(i32);
+pub struct OPM_ENCRYPTED_INITIALIZATION_PARAMETERS {
+    pub abEncryptedInitializationParameters: [u8; 256],
+}
+impl ::core::marker::Copy for OPM_ENCRYPTED_INITIALIZATION_PARAMETERS {}
+impl ::core::clone::Clone for OPM_ENCRYPTED_INITIALIZATION_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const OPM_GET_ACP_AND_CGMSA_SIGNALING: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 1714005393,
     data2: 15225,
@@ -9121,10 +15491,28 @@ pub const OPM_GET_CODEC_INFO: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data3: 17477,
     data4: [157, 186, 149, 88, 143, 107, 88, 180],
 };
-#[repr(C)]
-pub struct OPM_GET_CODEC_INFO_INFORMATION(i32);
-#[repr(C)]
-pub struct OPM_GET_CODEC_INFO_PARAMETERS(i32);
+#[repr(C, packed(1))]
+pub struct OPM_GET_CODEC_INFO_INFORMATION {
+    pub rnRandomNumber: OPM_RANDOM_NUMBER,
+    pub Merit: u32,
+}
+impl ::core::marker::Copy for OPM_GET_CODEC_INFO_INFORMATION {}
+impl ::core::clone::Clone for OPM_GET_CODEC_INFO_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub struct OPM_GET_CODEC_INFO_PARAMETERS {
+    pub cbVerifier: u32,
+    pub Verifier: [u8; 4052],
+}
+impl ::core::marker::Copy for OPM_GET_CODEC_INFO_PARAMETERS {}
+impl ::core::clone::Clone for OPM_GET_CODEC_INFO_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const OPM_GET_CONNECTED_HDCP_DEVICE_INFORMATION: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 230006132, data2: 43410, data3: 18734, data4: [160, 189, 194, 63, 218, 86, 78, 0] };
 pub const OPM_GET_CONNECTOR_TYPE: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 2177941461,
@@ -9139,8 +15527,21 @@ pub const OPM_GET_DVI_CHARACTERISTICS: ::windows_sys::core::GUID = ::windows_sys
     data3: 16754,
     data4: [131, 156, 61, 55, 118, 224, 235, 245],
 };
-#[repr(C)]
-pub struct OPM_GET_INFO_PARAMETERS(i32);
+#[repr(C, packed(1))]
+pub struct OPM_GET_INFO_PARAMETERS {
+    pub omac: OPM_OMAC,
+    pub rnRandomNumber: OPM_RANDOM_NUMBER,
+    pub guidInformation: ::windows_sys::core::GUID,
+    pub ulSequenceNumber: u32,
+    pub cbParametersSize: u32,
+    pub abParameters: [u8; 4056],
+}
+impl ::core::marker::Copy for OPM_GET_INFO_PARAMETERS {}
+impl ::core::clone::Clone for OPM_GET_INFO_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const OPM_GET_OUTPUT_HARDWARE_PROTECTION_SUPPORT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 991073673, data2: 11000, data3: 20208, data4: [150, 162, 112, 74, 132, 90, 33, 142] };
 pub const OPM_GET_OUTPUT_ID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1925934579, data2: 9295, data3: 16590, data4: [176, 158, 32, 80, 106, 246, 48, 47] };
 pub const OPM_GET_SUPPORTED_PROTECTION_TYPES: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 955426817, data2: 39532, data3: 18619, data4: [145, 7, 182, 105, 110, 111, 23, 151] };
@@ -9149,21 +15550,53 @@ pub const OPM_GET_VIRTUAL_PROTECTION_LEVEL: ::windows_sys::core::GUID = ::window
 pub struct OPM_HDCP_FLAGS(pub u32);
 pub const OPM_HDCP_FLAG_NONE: OPM_HDCP_FLAGS = OPM_HDCP_FLAGS(0u32);
 pub const OPM_HDCP_FLAG_REPEATER: OPM_HDCP_FLAGS = OPM_HDCP_FLAGS(1u32);
+impl ::core::marker::Copy for OPM_HDCP_FLAGS {}
+impl ::core::clone::Clone for OPM_HDCP_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct OPM_HDCP_KEY_SELECTION_VECTOR(i32);
+pub struct OPM_HDCP_KEY_SELECTION_VECTOR {
+    pub abKeySelectionVector: [u8; 5],
+}
+impl ::core::marker::Copy for OPM_HDCP_KEY_SELECTION_VECTOR {}
+impl ::core::clone::Clone for OPM_HDCP_KEY_SELECTION_VECTOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct OPM_HDCP_PROTECTION_LEVEL(pub i32);
 pub const OPM_HDCP_OFF: OPM_HDCP_PROTECTION_LEVEL = OPM_HDCP_PROTECTION_LEVEL(0i32);
 pub const OPM_HDCP_ON: OPM_HDCP_PROTECTION_LEVEL = OPM_HDCP_PROTECTION_LEVEL(1i32);
 pub const OPM_HDCP_FORCE_ULONG: OPM_HDCP_PROTECTION_LEVEL = OPM_HDCP_PROTECTION_LEVEL(2147483647i32);
+impl ::core::marker::Copy for OPM_HDCP_PROTECTION_LEVEL {}
+impl ::core::clone::Clone for OPM_HDCP_PROTECTION_LEVEL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct OPM_HDCP_STATUS(pub i32);
 pub const OPM_HDCP_STATUS_ON: OPM_HDCP_STATUS = OPM_HDCP_STATUS(0i32);
 pub const OPM_HDCP_STATUS_OFF: OPM_HDCP_STATUS = OPM_HDCP_STATUS(1i32);
+impl ::core::marker::Copy for OPM_HDCP_STATUS {}
+impl ::core::clone::Clone for OPM_HDCP_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct OPM_HDCP_TYPE(pub i32);
 pub const OPM_HDCP_TYPE_0: OPM_HDCP_TYPE = OPM_HDCP_TYPE(0i32);
 pub const OPM_HDCP_TYPE_1: OPM_HDCP_TYPE = OPM_HDCP_TYPE(1i32);
+impl ::core::marker::Copy for OPM_HDCP_TYPE {}
+impl ::core::clone::Clone for OPM_HDCP_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct OPM_IMAGE_ASPECT_RATIO_EN300294(pub i32);
 pub const OPM_ASPECT_RATIO_EN300294_FULL_FORMAT_4_BY_3: OPM_IMAGE_ASPECT_RATIO_EN300294 = OPM_IMAGE_ASPECT_RATIO_EN300294(0i32);
@@ -9175,14 +15608,44 @@ pub const OPM_ASPECT_RATIO_EN300294_BOX_GT_16_BY_9_CENTER: OPM_IMAGE_ASPECT_RATI
 pub const OPM_ASPECT_RATIO_EN300294_FULL_FORMAT_4_BY_3_PROTECTED_CENTER: OPM_IMAGE_ASPECT_RATIO_EN300294 = OPM_IMAGE_ASPECT_RATIO_EN300294(6i32);
 pub const OPM_ASPECT_RATIO_EN300294_FULL_FORMAT_16_BY_9_ANAMORPHIC: OPM_IMAGE_ASPECT_RATIO_EN300294 = OPM_IMAGE_ASPECT_RATIO_EN300294(7i32);
 pub const OPM_ASPECT_RATIO_FORCE_ULONG: OPM_IMAGE_ASPECT_RATIO_EN300294 = OPM_IMAGE_ASPECT_RATIO_EN300294(2147483647i32);
+impl ::core::marker::Copy for OPM_IMAGE_ASPECT_RATIO_EN300294 {}
+impl ::core::clone::Clone for OPM_IMAGE_ASPECT_RATIO_EN300294 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct OPM_OMAC(i32);
+pub struct OPM_OMAC {
+    pub abOMAC: [u8; 16],
+}
+impl ::core::marker::Copy for OPM_OMAC {}
+impl ::core::clone::Clone for OPM_OMAC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct OPM_OUTPUT_HARDWARE_PROTECTION(pub i32);
 pub const OPM_OUTPUT_HARDWARE_PROTECTION_NOT_SUPPORTED: OPM_OUTPUT_HARDWARE_PROTECTION = OPM_OUTPUT_HARDWARE_PROTECTION(0i32);
 pub const OPM_OUTPUT_HARDWARE_PROTECTION_SUPPORTED: OPM_OUTPUT_HARDWARE_PROTECTION = OPM_OUTPUT_HARDWARE_PROTECTION(1i32);
-#[repr(C)]
-pub struct OPM_OUTPUT_ID_DATA(i32);
+impl ::core::marker::Copy for OPM_OUTPUT_HARDWARE_PROTECTION {}
+impl ::core::clone::Clone for OPM_OUTPUT_HARDWARE_PROTECTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub struct OPM_OUTPUT_ID_DATA {
+    pub rnRandomNumber: OPM_RANDOM_NUMBER,
+    pub ulStatusFlags: u32,
+    pub OutputId: u64,
+}
+impl ::core::marker::Copy for OPM_OUTPUT_ID_DATA {}
+impl ::core::clone::Clone for OPM_OUTPUT_ID_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct OPM_PROTECTION_STANDARD_TYPE(pub u32);
 pub const OPM_PROTECTION_STANDARD_OTHER: OPM_PROTECTION_STANDARD_TYPE = OPM_PROTECTION_STANDARD_TYPE(2147483648u32);
@@ -9202,6 +15665,12 @@ pub const OPM_PROTECTION_STANDARD_ARIBTRB15_525I: OPM_PROTECTION_STANDARD_TYPE =
 pub const OPM_PROTECTION_STANDARD_ARIBTRB15_525P: OPM_PROTECTION_STANDARD_TYPE = OPM_PROTECTION_STANDARD_TYPE(4096u32);
 pub const OPM_PROTECTION_STANDARD_ARIBTRB15_750P: OPM_PROTECTION_STANDARD_TYPE = OPM_PROTECTION_STANDARD_TYPE(8192u32);
 pub const OPM_PROTECTION_STANDARD_ARIBTRB15_1125I: OPM_PROTECTION_STANDARD_TYPE = OPM_PROTECTION_STANDARD_TYPE(16384u32);
+impl ::core::marker::Copy for OPM_PROTECTION_STANDARD_TYPE {}
+impl ::core::clone::Clone for OPM_PROTECTION_STANDARD_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct OPM_PROTECTION_TYPE(pub i32);
 pub const OPM_PROTECTION_TYPE_OTHER: OPM_PROTECTION_TYPE = OPM_PROTECTION_TYPE(-2147483648i32);
@@ -9212,21 +15681,70 @@ pub const OPM_PROTECTION_TYPE_CGMSA: OPM_PROTECTION_TYPE = OPM_PROTECTION_TYPE(4
 pub const OPM_PROTECTION_TYPE_HDCP: OPM_PROTECTION_TYPE = OPM_PROTECTION_TYPE(8i32);
 pub const OPM_PROTECTION_TYPE_DPCP: OPM_PROTECTION_TYPE = OPM_PROTECTION_TYPE(16i32);
 pub const OPM_PROTECTION_TYPE_TYPE_ENFORCEMENT_HDCP: OPM_PROTECTION_TYPE = OPM_PROTECTION_TYPE(32i32);
+impl ::core::marker::Copy for OPM_PROTECTION_TYPE {}
+impl ::core::clone::Clone for OPM_PROTECTION_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct OPM_RANDOM_NUMBER(i32);
-#[repr(C)]
-pub struct OPM_REQUESTED_INFORMATION(i32);
+pub struct OPM_RANDOM_NUMBER {
+    pub abRandomNumber: [u8; 16],
+}
+impl ::core::marker::Copy for OPM_RANDOM_NUMBER {}
+impl ::core::clone::Clone for OPM_RANDOM_NUMBER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub struct OPM_REQUESTED_INFORMATION {
+    pub omac: OPM_OMAC,
+    pub cbRequestedInformationSize: u32,
+    pub abRequestedInformation: [u8; 4076],
+}
+impl ::core::marker::Copy for OPM_REQUESTED_INFORMATION {}
+impl ::core::clone::Clone for OPM_REQUESTED_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const OPM_SET_ACP_AND_CGMSA_SIGNALING: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 161886629, data2: 54916, data3: 19552, data4: [142, 77, 211, 187, 15, 11, 227, 238] };
-#[repr(C)]
-pub struct OPM_SET_ACP_AND_CGMSA_SIGNALING_PARAMETERS(i32);
+#[repr(C, packed(1))]
+pub struct OPM_SET_ACP_AND_CGMSA_SIGNALING_PARAMETERS {
+    pub ulNewTVProtectionStandard: u32,
+    pub ulAspectRatioChangeMask1: u32,
+    pub ulAspectRatioData1: u32,
+    pub ulAspectRatioChangeMask2: u32,
+    pub ulAspectRatioData2: u32,
+    pub ulAspectRatioChangeMask3: u32,
+    pub ulAspectRatioData3: u32,
+    pub ulReserved: [u32; 4],
+    pub ulReserved2: [u32; 4],
+    pub ulReserved3: u32,
+}
+impl ::core::marker::Copy for OPM_SET_ACP_AND_CGMSA_SIGNALING_PARAMETERS {}
+impl ::core::clone::Clone for OPM_SET_ACP_AND_CGMSA_SIGNALING_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const OPM_SET_HDCP_SRM: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 2338256337,
     data2: 49933,
     data3: 17663,
     data4: [132, 165, 234, 113, 220, 231, 143, 19],
 };
-#[repr(C)]
-pub struct OPM_SET_HDCP_SRM_PARAMETERS(i32);
+#[repr(C, packed(1))]
+pub struct OPM_SET_HDCP_SRM_PARAMETERS {
+    pub ulSRMVersion: u32,
+}
+impl ::core::marker::Copy for OPM_SET_HDCP_SRM_PARAMETERS {}
+impl ::core::clone::Clone for OPM_SET_HDCP_SRM_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const OPM_SET_PROTECTION_LEVEL: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2612605564, data2: 20149, data3: 18215, data4: [159, 0, 180, 43, 9, 25, 192, 218] };
 pub const OPM_SET_PROTECTION_LEVEL_ACCORDING_TO_CSS_DVD: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 969814846,
@@ -9234,10 +15752,33 @@ pub const OPM_SET_PROTECTION_LEVEL_ACCORDING_TO_CSS_DVD: ::windows_sys::core::GU
     data3: 17582,
     data4: [191, 204, 218, 80, 181, 248, 46, 114],
 };
-#[repr(C)]
-pub struct OPM_SET_PROTECTION_LEVEL_PARAMETERS(i32);
-#[repr(C)]
-pub struct OPM_STANDARD_INFORMATION(i32);
+#[repr(C, packed(1))]
+pub struct OPM_SET_PROTECTION_LEVEL_PARAMETERS {
+    pub ulProtectionType: u32,
+    pub ulProtectionLevel: u32,
+    pub Reserved: u32,
+    pub Reserved2: u32,
+}
+impl ::core::marker::Copy for OPM_SET_PROTECTION_LEVEL_PARAMETERS {}
+impl ::core::clone::Clone for OPM_SET_PROTECTION_LEVEL_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub struct OPM_STANDARD_INFORMATION {
+    pub rnRandomNumber: OPM_RANDOM_NUMBER,
+    pub ulStatusFlags: u32,
+    pub ulInformation: u32,
+    pub ulReserved: u32,
+    pub ulReserved2: u32,
+}
+impl ::core::marker::Copy for OPM_STANDARD_INFORMATION {}
+impl ::core::clone::Clone for OPM_STANDARD_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct OPM_STATUS(pub i32);
 pub const OPM_STATUS_NORMAL: OPM_STATUS = OPM_STATUS(0i32);
@@ -9245,6 +15786,12 @@ pub const OPM_STATUS_LINK_LOST: OPM_STATUS = OPM_STATUS(1i32);
 pub const OPM_STATUS_RENEGOTIATION_REQUIRED: OPM_STATUS = OPM_STATUS(2i32);
 pub const OPM_STATUS_TAMPERING_DETECTED: OPM_STATUS = OPM_STATUS(4i32);
 pub const OPM_STATUS_REVOKED_HDCP_DEVICE_ATTACHED: OPM_STATUS = OPM_STATUS(8i32);
+impl ::core::marker::Copy for OPM_STATUS {}
+impl ::core::clone::Clone for OPM_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct OPM_TYPE(pub i32);
 pub const OPM_OMAC_SIZE: OPM_TYPE = OPM_TYPE(16i32);
@@ -9257,17 +15804,35 @@ pub const OPM_HDCP_KEY_SELECTION_VECTOR_SIZE: OPM_TYPE = OPM_TYPE(5i32);
 pub const OPM_PROTECTION_TYPE_SIZE: OPM_TYPE = OPM_TYPE(4i32);
 pub const OPM_BUS_TYPE_MASK: OPM_TYPE = OPM_TYPE(65535i32);
 pub const OPM_BUS_IMPLEMENTATION_MODIFIER_MASK: OPM_TYPE = OPM_TYPE(32767i32);
+impl ::core::marker::Copy for OPM_TYPE {}
+impl ::core::clone::Clone for OPM_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct OPM_TYPE_ENFORCEMENT_HDCP_PROTECTION_LEVEL(pub i32);
 pub const OPM_TYPE_ENFORCEMENT_HDCP_OFF: OPM_TYPE_ENFORCEMENT_HDCP_PROTECTION_LEVEL = OPM_TYPE_ENFORCEMENT_HDCP_PROTECTION_LEVEL(0i32);
 pub const OPM_TYPE_ENFORCEMENT_HDCP_ON_WITH_NO_TYPE_RESTRICTION: OPM_TYPE_ENFORCEMENT_HDCP_PROTECTION_LEVEL = OPM_TYPE_ENFORCEMENT_HDCP_PROTECTION_LEVEL(1i32);
 pub const OPM_TYPE_ENFORCEMENT_HDCP_ON_WITH_TYPE1_RESTRICTION: OPM_TYPE_ENFORCEMENT_HDCP_PROTECTION_LEVEL = OPM_TYPE_ENFORCEMENT_HDCP_PROTECTION_LEVEL(2i32);
 pub const OPM_TYPE_ENFORCEMENT_HDCP_FORCE_ULONG: OPM_TYPE_ENFORCEMENT_HDCP_PROTECTION_LEVEL = OPM_TYPE_ENFORCEMENT_HDCP_PROTECTION_LEVEL(2147483647i32);
+impl ::core::marker::Copy for OPM_TYPE_ENFORCEMENT_HDCP_PROTECTION_LEVEL {}
+impl ::core::clone::Clone for OPM_TYPE_ENFORCEMENT_HDCP_PROTECTION_LEVEL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct OPM_VIDEO_OUTPUT_SEMANTICS(pub i32);
 pub const OPM_VOS_COPP_SEMANTICS: OPM_VIDEO_OUTPUT_SEMANTICS = OPM_VIDEO_OUTPUT_SEMANTICS(0i32);
 pub const OPM_VOS_OPM_SEMANTICS: OPM_VIDEO_OUTPUT_SEMANTICS = OPM_VIDEO_OUTPUT_SEMANTICS(1i32);
 pub const OPM_VOS_OPM_INDIRECT_DISPLAY: OPM_VIDEO_OUTPUT_SEMANTICS = OPM_VIDEO_OUTPUT_SEMANTICS(2i32);
+impl ::core::marker::Copy for OPM_VIDEO_OUTPUT_SEMANTICS {}
+impl ::core::clone::Clone for OPM_VIDEO_OUTPUT_SEMANTICS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 pub type PDXVAHDSW_CreateDevice = unsafe extern "system" fn(pd3ddevice: super::super::Graphics::Direct3D9::IDirect3DDevice9Ex, phdevice: *mut super::super::Foundation::HANDLE) -> ::windows_sys::core::HRESULT;
 #[cfg(feature = "Win32_Foundation")]
@@ -9310,6 +15875,12 @@ pub const PLAYTO_SOURCE_IMAGE: PLAYTO_SOURCE_CREATEFLAGS = PLAYTO_SOURCE_CREATEF
 pub const PLAYTO_SOURCE_AUDIO: PLAYTO_SOURCE_CREATEFLAGS = PLAYTO_SOURCE_CREATEFLAGS(2i32);
 pub const PLAYTO_SOURCE_VIDEO: PLAYTO_SOURCE_CREATEFLAGS = PLAYTO_SOURCE_CREATEFLAGS(4i32);
 pub const PLAYTO_SOURCE_PROTECTED: PLAYTO_SOURCE_CREATEFLAGS = PLAYTO_SOURCE_CREATEFLAGS(8i32);
+impl ::core::marker::Copy for PLAYTO_SOURCE_CREATEFLAGS {}
+impl ::core::clone::Clone for PLAYTO_SOURCE_CREATEFLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PM_CONNECTOR_TYPE(pub i32);
 pub const OPM_CONNECTOR_TYPE_OTHER: PM_CONNECTOR_TYPE = PM_CONNECTOR_TYPE(-1i32);
@@ -9331,10 +15902,27 @@ pub const OPM_CONNECTOR_TYPE_MIRACAST: PM_CONNECTOR_TYPE = PM_CONNECTOR_TYPE(15i
 pub const OPM_CONNECTOR_TYPE_TRANSPORT_AGNOSTIC_DIGITAL_MODE_A: PM_CONNECTOR_TYPE = PM_CONNECTOR_TYPE(16i32);
 pub const OPM_CONNECTOR_TYPE_TRANSPORT_AGNOSTIC_DIGITAL_MODE_B: PM_CONNECTOR_TYPE = PM_CONNECTOR_TYPE(17i32);
 pub const OPM_COPP_COMPATIBLE_CONNECTOR_TYPE_INTERNAL: PM_CONNECTOR_TYPE = PM_CONNECTOR_TYPE(-2147483648i32);
+impl ::core::marker::Copy for PM_CONNECTOR_TYPE {}
+impl ::core::clone::Clone for PM_CONNECTOR_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const PRESENTATION_CURRENT_POSITION: u64 = 9223372036854775807u64;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct ROI_AREA(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct ROI_AREA {
+    pub rect: super::super::Foundation::RECT,
+    pub QPDelta: i32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ROI_AREA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ROI_AREA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SAMPLE_PROTECTION_VERSION(pub i32);
 pub const SAMPLE_PROTECTION_VERSION_NO: SAMPLE_PROTECTION_VERSION = SAMPLE_PROTECTION_VERSION(0i32);
@@ -9342,15 +15930,46 @@ pub const SAMPLE_PROTECTION_VERSION_BASIC_LOKI: SAMPLE_PROTECTION_VERSION = SAMP
 pub const SAMPLE_PROTECTION_VERSION_SCATTER: SAMPLE_PROTECTION_VERSION = SAMPLE_PROTECTION_VERSION(2i32);
 pub const SAMPLE_PROTECTION_VERSION_RC4: SAMPLE_PROTECTION_VERSION = SAMPLE_PROTECTION_VERSION(3i32);
 pub const SAMPLE_PROTECTION_VERSION_AES128CTR: SAMPLE_PROTECTION_VERSION = SAMPLE_PROTECTION_VERSION(4i32);
+impl ::core::marker::Copy for SAMPLE_PROTECTION_VERSION {}
+impl ::core::clone::Clone for SAMPLE_PROTECTION_VERSION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SEEK_ORIGIN(pub i32);
 pub const _msoBegin: SEEK_ORIGIN = SEEK_ORIGIN(0i32);
 pub const _msoCurrent: SEEK_ORIGIN = SEEK_ORIGIN(1i32);
+impl ::core::marker::Copy for SEEK_ORIGIN {}
+impl ::core::clone::Clone for SEEK_ORIGIN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct SENSORPROFILEID(i32);
+pub struct SENSORPROFILEID {
+    pub Type: ::windows_sys::core::GUID,
+    pub Index: u32,
+    pub Unused: u32,
+}
+impl ::core::marker::Copy for SENSORPROFILEID {}
+impl ::core::clone::Clone for SENSORPROFILEID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SHA_HASH_LEN: u32 = 20u32;
 #[repr(C)]
-pub struct STREAM_MEDIUM(i32);
+pub struct STREAM_MEDIUM {
+    pub gidMedium: ::windows_sys::core::GUID,
+    pub unMediumInstance: u32,
+}
+impl ::core::marker::Copy for STREAM_MEDIUM {}
+impl ::core::clone::Clone for STREAM_MEDIUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SYSFXUI_DONOTSHOW_BASSBOOST: u32 = 8u32;
 pub const SYSFXUI_DONOTSHOW_BASSMANAGEMENT: u32 = 4u32;
 pub const SYSFXUI_DONOTSHOW_CHANNELPHANTOMING: u32 = 128u32;
@@ -9360,23 +15979,51 @@ pub const SYSFXUI_DONOTSHOW_ROOMCORRECTION: u32 = 2u32;
 pub const SYSFXUI_DONOTSHOW_SPEAKERFILLING: u32 = 64u32;
 pub const SYSFXUI_DONOTSHOW_VIRTUALSURROUND: u32 = 32u32;
 #[repr(C)]
-pub struct TOC_DESCRIPTOR(i32);
+pub struct TOC_DESCRIPTOR {
+    pub guidID: ::windows_sys::core::GUID,
+    pub wStreamNumber: u16,
+    pub guidType: ::windows_sys::core::GUID,
+    pub wLanguageIndex: u16,
+}
+impl ::core::marker::Copy for TOC_DESCRIPTOR {}
+impl ::core::clone::Clone for TOC_DESCRIPTOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct TOC_ENTRY_DESCRIPTOR(i32);
+pub struct TOC_ENTRY_DESCRIPTOR {
+    pub qwStartTime: u64,
+    pub qwEndTime: u64,
+    pub qwStartPacketOffset: u64,
+    pub qwEndPacketOffset: u64,
+    pub qwRepresentativeFrameTime: u64,
+}
+impl ::core::marker::Copy for TOC_ENTRY_DESCRIPTOR {}
+impl ::core::clone::Clone for TOC_ENTRY_DESCRIPTOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const TOC_ENTRY_MAX_TITLE_SIZE: u32 = 65535u32;
 pub const TOC_MAX_DESCRIPTION_SIZE: u32 = 65535u32;
 #[repr(transparent)]
 pub struct TOC_POS_TYPE(pub i32);
 pub const TOC_POS_INHEADER: TOC_POS_TYPE = TOC_POS_TYPE(0i32);
 pub const TOC_POS_TOPLEVELOBJECT: TOC_POS_TYPE = TOC_POS_TYPE(1i32);
+impl ::core::marker::Copy for TOC_POS_TYPE {}
+impl ::core::clone::Clone for TOC_POS_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const VIDEO_ZOOM_RECT: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 2057967160,
     data2: 7039,
     data3: 19603,
     data4: [189, 137, 91, 156, 159, 182, 252, 240],
 };
-#[repr(C)]
-pub struct VorbisDecoderMFT(i32);
+pub const VorbisDecoderMFT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 437882610, data2: 24805, data3: 20136, data4: [144, 216, 218, 31, 40, 50, 194, 136] };
 pub const WMAAECMA_E_NO_ACTIVE_RENDER_STREAM: u32 = 2278293514u32;
 #[repr(transparent)]
 pub struct WMT_PROP_DATATYPE(pub i32);
@@ -9387,11 +16034,23 @@ pub const WMT_PROP_TYPE_BOOL: WMT_PROP_DATATYPE = WMT_PROP_DATATYPE(3i32);
 pub const WMT_PROP_TYPE_QWORD: WMT_PROP_DATATYPE = WMT_PROP_DATATYPE(4i32);
 pub const WMT_PROP_TYPE_WORD: WMT_PROP_DATATYPE = WMT_PROP_DATATYPE(5i32);
 pub const WMT_PROP_TYPE_GUID: WMT_PROP_DATATYPE = WMT_PROP_DATATYPE(6i32);
+impl ::core::marker::Copy for WMT_PROP_DATATYPE {}
+impl ::core::clone::Clone for WMT_PROP_DATATYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WMV_DYNAMIC_FLAGS(pub i32);
 pub const WMV_DYNAMIC_BITRATE: WMV_DYNAMIC_FLAGS = WMV_DYNAMIC_FLAGS(1i32);
 pub const WMV_DYNAMIC_RESOLUTION: WMV_DYNAMIC_FLAGS = WMV_DYNAMIC_FLAGS(2i32);
 pub const WMV_DYNAMIC_COMPLEXITY: WMV_DYNAMIC_FLAGS = WMV_DYNAMIC_FLAGS(4i32);
+impl ::core::marker::Copy for WMV_DYNAMIC_FLAGS {}
+impl ::core::clone::Clone for WMV_DYNAMIC_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WM_CODEC_ONEPASS_CBR: u32 = 1u32;
 pub const WM_CODEC_ONEPASS_VBR: u32 = 2u32;
 pub const WM_CODEC_TWOPASS_CBR: u32 = 4u32;
@@ -9405,12 +16064,24 @@ pub const MFP_CREDENTIAL_DO_NOT_CACHE: _MFP_CREDENTIAL_FLAGS = _MFP_CREDENTIAL_F
 pub const MFP_CREDENTIAL_CLEAR_TEXT: _MFP_CREDENTIAL_FLAGS = _MFP_CREDENTIAL_FLAGS(8i32);
 pub const MFP_CREDENTIAL_PROXY: _MFP_CREDENTIAL_FLAGS = _MFP_CREDENTIAL_FLAGS(16i32);
 pub const MFP_CREDENTIAL_LOGGED_ON_USER: _MFP_CREDENTIAL_FLAGS = _MFP_CREDENTIAL_FLAGS(32i32);
+impl ::core::marker::Copy for _MFP_CREDENTIAL_FLAGS {}
+impl ::core::clone::Clone for _MFP_CREDENTIAL_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct _MFP_MEDIAITEM_CHARACTERISTICS(pub i32);
 pub const MFP_MEDIAITEM_IS_LIVE: _MFP_MEDIAITEM_CHARACTERISTICS = _MFP_MEDIAITEM_CHARACTERISTICS(1i32);
 pub const MFP_MEDIAITEM_CAN_SEEK: _MFP_MEDIAITEM_CHARACTERISTICS = _MFP_MEDIAITEM_CHARACTERISTICS(2i32);
 pub const MFP_MEDIAITEM_CAN_PAUSE: _MFP_MEDIAITEM_CHARACTERISTICS = _MFP_MEDIAITEM_CHARACTERISTICS(4i32);
 pub const MFP_MEDIAITEM_HAS_SLOW_SEEK: _MFP_MEDIAITEM_CHARACTERISTICS = _MFP_MEDIAITEM_CHARACTERISTICS(8i32);
+impl ::core::marker::Copy for _MFP_MEDIAITEM_CHARACTERISTICS {}
+impl ::core::clone::Clone for _MFP_MEDIAITEM_CHARACTERISTICS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct _MFT_ENUM_FLAG(pub i32);
 pub const MFT_ENUM_FLAG_SYNCMFT: _MFT_ENUM_FLAG = _MFT_ENUM_FLAG(1i32);
@@ -9425,12 +16096,30 @@ pub const MFT_ENUM_FLAG_SORTANDFILTER_WEB_ONLY: _MFT_ENUM_FLAG = _MFT_ENUM_FLAG(
 pub const MFT_ENUM_FLAG_SORTANDFILTER_WEB_ONLY_EDGEMODE: _MFT_ENUM_FLAG = _MFT_ENUM_FLAG(576i32);
 pub const MFT_ENUM_FLAG_UNTRUSTED_STOREMFT: _MFT_ENUM_FLAG = _MFT_ENUM_FLAG(1024i32);
 pub const MFT_ENUM_FLAG_ALL: _MFT_ENUM_FLAG = _MFT_ENUM_FLAG(63i32);
+impl ::core::marker::Copy for _MFT_ENUM_FLAG {}
+impl ::core::clone::Clone for _MFT_ENUM_FLAG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct _MFT_INPUT_DATA_BUFFER_FLAGS(pub i32);
 pub const MFT_INPUT_DATA_BUFFER_PLACEHOLDER: _MFT_INPUT_DATA_BUFFER_FLAGS = _MFT_INPUT_DATA_BUFFER_FLAGS(-1i32);
+impl ::core::marker::Copy for _MFT_INPUT_DATA_BUFFER_FLAGS {}
+impl ::core::clone::Clone for _MFT_INPUT_DATA_BUFFER_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct _MFT_INPUT_STATUS_FLAGS(pub i32);
 pub const MFT_INPUT_STATUS_ACCEPT_DATA: _MFT_INPUT_STATUS_FLAGS = _MFT_INPUT_STATUS_FLAGS(1i32);
+impl ::core::marker::Copy for _MFT_INPUT_STATUS_FLAGS {}
+impl ::core::clone::Clone for _MFT_INPUT_STATUS_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct _MFT_INPUT_STREAM_INFO_FLAGS(pub i32);
 pub const MFT_INPUT_STREAM_WHOLE_SAMPLES: _MFT_INPUT_STREAM_INFO_FLAGS = _MFT_INPUT_STREAM_INFO_FLAGS(1i32);
@@ -9441,15 +16130,33 @@ pub const MFT_INPUT_STREAM_DOES_NOT_ADDREF: _MFT_INPUT_STREAM_INFO_FLAGS = _MFT_
 pub const MFT_INPUT_STREAM_REMOVABLE: _MFT_INPUT_STREAM_INFO_FLAGS = _MFT_INPUT_STREAM_INFO_FLAGS(512i32);
 pub const MFT_INPUT_STREAM_OPTIONAL: _MFT_INPUT_STREAM_INFO_FLAGS = _MFT_INPUT_STREAM_INFO_FLAGS(1024i32);
 pub const MFT_INPUT_STREAM_PROCESSES_IN_PLACE: _MFT_INPUT_STREAM_INFO_FLAGS = _MFT_INPUT_STREAM_INFO_FLAGS(2048i32);
+impl ::core::marker::Copy for _MFT_INPUT_STREAM_INFO_FLAGS {}
+impl ::core::clone::Clone for _MFT_INPUT_STREAM_INFO_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct _MFT_OUTPUT_DATA_BUFFER_FLAGS(pub i32);
 pub const MFT_OUTPUT_DATA_BUFFER_INCOMPLETE: _MFT_OUTPUT_DATA_BUFFER_FLAGS = _MFT_OUTPUT_DATA_BUFFER_FLAGS(16777216i32);
 pub const MFT_OUTPUT_DATA_BUFFER_FORMAT_CHANGE: _MFT_OUTPUT_DATA_BUFFER_FLAGS = _MFT_OUTPUT_DATA_BUFFER_FLAGS(256i32);
 pub const MFT_OUTPUT_DATA_BUFFER_STREAM_END: _MFT_OUTPUT_DATA_BUFFER_FLAGS = _MFT_OUTPUT_DATA_BUFFER_FLAGS(512i32);
 pub const MFT_OUTPUT_DATA_BUFFER_NO_SAMPLE: _MFT_OUTPUT_DATA_BUFFER_FLAGS = _MFT_OUTPUT_DATA_BUFFER_FLAGS(768i32);
+impl ::core::marker::Copy for _MFT_OUTPUT_DATA_BUFFER_FLAGS {}
+impl ::core::clone::Clone for _MFT_OUTPUT_DATA_BUFFER_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct _MFT_OUTPUT_STATUS_FLAGS(pub i32);
 pub const MFT_OUTPUT_STATUS_SAMPLE_READY: _MFT_OUTPUT_STATUS_FLAGS = _MFT_OUTPUT_STATUS_FLAGS(1i32);
+impl ::core::marker::Copy for _MFT_OUTPUT_STATUS_FLAGS {}
+impl ::core::clone::Clone for _MFT_OUTPUT_STATUS_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct _MFT_OUTPUT_STREAM_INFO_FLAGS(pub i32);
 pub const MFT_OUTPUT_STREAM_WHOLE_SAMPLES: _MFT_OUTPUT_STREAM_INFO_FLAGS = _MFT_OUTPUT_STREAM_INFO_FLAGS(1i32);
@@ -9461,27 +16168,69 @@ pub const MFT_OUTPUT_STREAM_PROVIDES_SAMPLES: _MFT_OUTPUT_STREAM_INFO_FLAGS = _M
 pub const MFT_OUTPUT_STREAM_CAN_PROVIDE_SAMPLES: _MFT_OUTPUT_STREAM_INFO_FLAGS = _MFT_OUTPUT_STREAM_INFO_FLAGS(512i32);
 pub const MFT_OUTPUT_STREAM_LAZY_READ: _MFT_OUTPUT_STREAM_INFO_FLAGS = _MFT_OUTPUT_STREAM_INFO_FLAGS(1024i32);
 pub const MFT_OUTPUT_STREAM_REMOVABLE: _MFT_OUTPUT_STREAM_INFO_FLAGS = _MFT_OUTPUT_STREAM_INFO_FLAGS(2048i32);
+impl ::core::marker::Copy for _MFT_OUTPUT_STREAM_INFO_FLAGS {}
+impl ::core::clone::Clone for _MFT_OUTPUT_STREAM_INFO_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct _MFT_PROCESS_OUTPUT_FLAGS(pub i32);
 pub const MFT_PROCESS_OUTPUT_DISCARD_WHEN_NO_BUFFER: _MFT_PROCESS_OUTPUT_FLAGS = _MFT_PROCESS_OUTPUT_FLAGS(1i32);
 pub const MFT_PROCESS_OUTPUT_REGENERATE_LAST_OUTPUT: _MFT_PROCESS_OUTPUT_FLAGS = _MFT_PROCESS_OUTPUT_FLAGS(2i32);
+impl ::core::marker::Copy for _MFT_PROCESS_OUTPUT_FLAGS {}
+impl ::core::clone::Clone for _MFT_PROCESS_OUTPUT_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct _MFT_PROCESS_OUTPUT_STATUS(pub i32);
 pub const MFT_PROCESS_OUTPUT_STATUS_NEW_STREAMS: _MFT_PROCESS_OUTPUT_STATUS = _MFT_PROCESS_OUTPUT_STATUS(256i32);
+impl ::core::marker::Copy for _MFT_PROCESS_OUTPUT_STATUS {}
+impl ::core::clone::Clone for _MFT_PROCESS_OUTPUT_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct _MFT_SET_TYPE_FLAGS(pub i32);
 pub const MFT_SET_TYPE_TEST_ONLY: _MFT_SET_TYPE_FLAGS = _MFT_SET_TYPE_FLAGS(1i32);
+impl ::core::marker::Copy for _MFT_SET_TYPE_FLAGS {}
+impl ::core::clone::Clone for _MFT_SET_TYPE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0001(pub i32);
 pub const MFVirtualCameraType_SoftwareCameraSource: __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0001 = __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0001(0i32);
+impl ::core::marker::Copy for __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0001 {}
+impl ::core::clone::Clone for __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0001 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0002(pub i32);
 pub const MFVirtualCameraLifetime_Session: __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0002 = __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0002(0i32);
 pub const MFVirtualCameraLifetime_System: __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0002 = __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0002(1i32);
+impl ::core::marker::Copy for __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0002 {}
+impl ::core::clone::Clone for __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0002 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0003(pub i32);
 pub const MFVirtualCameraAccess_CurrentUser: __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0003 = __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0003(0i32);
 pub const MFVirtualCameraAccess_AllUsers: __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0003 = __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0003(1i32);
+impl ::core::marker::Copy for __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0003 {}
+impl ::core::clone::Clone for __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0003 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct eAVAudioChannelConfig(pub i32);
 pub const eAVAudioChannelConfig_FRONT_LEFT: eAVAudioChannelConfig = eAVAudioChannelConfig(1i32);
@@ -9502,41 +16251,89 @@ pub const eAVAudioChannelConfig_TOP_FRONT_RIGHT: eAVAudioChannelConfig = eAVAudi
 pub const eAVAudioChannelConfig_TOP_BACK_LEFT: eAVAudioChannelConfig = eAVAudioChannelConfig(32768i32);
 pub const eAVAudioChannelConfig_TOP_BACK_CENTER: eAVAudioChannelConfig = eAVAudioChannelConfig(65536i32);
 pub const eAVAudioChannelConfig_TOP_BACK_RIGHT: eAVAudioChannelConfig = eAVAudioChannelConfig(131072i32);
+impl ::core::marker::Copy for eAVAudioChannelConfig {}
+impl ::core::clone::Clone for eAVAudioChannelConfig {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct eAVDDSurroundMode(pub i32);
 pub const eAVDDSurroundMode_NotIndicated: eAVDDSurroundMode = eAVDDSurroundMode(0i32);
 pub const eAVDDSurroundMode_No: eAVDDSurroundMode = eAVDDSurroundMode(1i32);
 pub const eAVDDSurroundMode_Yes: eAVDDSurroundMode = eAVDDSurroundMode(2i32);
+impl ::core::marker::Copy for eAVDDSurroundMode {}
+impl ::core::clone::Clone for eAVDDSurroundMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct eAVDSPLoudnessEqualization(pub i32);
 pub const eAVDSPLoudnessEqualization_OFF: eAVDSPLoudnessEqualization = eAVDSPLoudnessEqualization(0i32);
 pub const eAVDSPLoudnessEqualization_ON: eAVDSPLoudnessEqualization = eAVDSPLoudnessEqualization(1i32);
 pub const eAVDSPLoudnessEqualization_AUTO: eAVDSPLoudnessEqualization = eAVDSPLoudnessEqualization(2i32);
+impl ::core::marker::Copy for eAVDSPLoudnessEqualization {}
+impl ::core::clone::Clone for eAVDSPLoudnessEqualization {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct eAVDSPSpeakerFill(pub i32);
 pub const eAVDSPSpeakerFill_OFF: eAVDSPSpeakerFill = eAVDSPSpeakerFill(0i32);
 pub const eAVDSPSpeakerFill_ON: eAVDSPSpeakerFill = eAVDSPSpeakerFill(1i32);
 pub const eAVDSPSpeakerFill_AUTO: eAVDSPSpeakerFill = eAVDSPSpeakerFill(2i32);
+impl ::core::marker::Copy for eAVDSPSpeakerFill {}
+impl ::core::clone::Clone for eAVDSPSpeakerFill {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct eAVDecAACDownmixMode(pub i32);
 pub const eAVDecAACUseISODownmix: eAVDecAACDownmixMode = eAVDecAACDownmixMode(0i32);
 pub const eAVDecAACUseARIBDownmix: eAVDecAACDownmixMode = eAVDecAACDownmixMode(1i32);
+impl ::core::marker::Copy for eAVDecAACDownmixMode {}
+impl ::core::clone::Clone for eAVDecAACDownmixMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct eAVDecAudioDualMono(pub i32);
 pub const eAVDecAudioDualMono_IsNotDualMono: eAVDecAudioDualMono = eAVDecAudioDualMono(0i32);
 pub const eAVDecAudioDualMono_IsDualMono: eAVDecAudioDualMono = eAVDecAudioDualMono(1i32);
 pub const eAVDecAudioDualMono_UnSpecified: eAVDecAudioDualMono = eAVDecAudioDualMono(2i32);
+impl ::core::marker::Copy for eAVDecAudioDualMono {}
+impl ::core::clone::Clone for eAVDecAudioDualMono {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct eAVDecAudioDualMonoReproMode(pub i32);
 pub const eAVDecAudioDualMonoReproMode_STEREO: eAVDecAudioDualMonoReproMode = eAVDecAudioDualMonoReproMode(0i32);
 pub const eAVDecAudioDualMonoReproMode_LEFT_MONO: eAVDecAudioDualMonoReproMode = eAVDecAudioDualMonoReproMode(1i32);
 pub const eAVDecAudioDualMonoReproMode_RIGHT_MONO: eAVDecAudioDualMonoReproMode = eAVDecAudioDualMonoReproMode(2i32);
 pub const eAVDecAudioDualMonoReproMode_MIX_MONO: eAVDecAudioDualMonoReproMode = eAVDecAudioDualMonoReproMode(3i32);
+impl ::core::marker::Copy for eAVDecAudioDualMonoReproMode {}
+impl ::core::clone::Clone for eAVDecAudioDualMonoReproMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct eAVDecDDMatrixDecodingMode(pub i32);
 pub const eAVDecDDMatrixDecodingMode_OFF: eAVDecDDMatrixDecodingMode = eAVDecDDMatrixDecodingMode(0i32);
 pub const eAVDecDDMatrixDecodingMode_ON: eAVDecDDMatrixDecodingMode = eAVDecDDMatrixDecodingMode(1i32);
 pub const eAVDecDDMatrixDecodingMode_AUTO: eAVDecDDMatrixDecodingMode = eAVDecDDMatrixDecodingMode(2i32);
+impl ::core::marker::Copy for eAVDecDDMatrixDecodingMode {}
+impl ::core::clone::Clone for eAVDecDDMatrixDecodingMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct eAVDecDDOperationalMode(pub i32);
 pub const eAVDecDDOperationalMode_NONE: eAVDecDDOperationalMode = eAVDecDDOperationalMode(0i32);
@@ -9547,25 +16344,55 @@ pub const eAVDecDDOperationalMode_CUSTOM1: eAVDecDDOperationalMode = eAVDecDDOpe
 pub const eAVDecDDOperationalMode_PORTABLE8: eAVDecDDOperationalMode = eAVDecDDOperationalMode(5i32);
 pub const eAVDecDDOperationalMode_PORTABLE11: eAVDecDDOperationalMode = eAVDecDDOperationalMode(6i32);
 pub const eAVDecDDOperationalMode_PORTABLE14: eAVDecDDOperationalMode = eAVDecDDOperationalMode(7i32);
+impl ::core::marker::Copy for eAVDecDDOperationalMode {}
+impl ::core::clone::Clone for eAVDecDDOperationalMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct eAVDecDDStereoDownMixMode(pub i32);
 pub const eAVDecDDStereoDownMixMode_Auto: eAVDecDDStereoDownMixMode = eAVDecDDStereoDownMixMode(0i32);
 pub const eAVDecDDStereoDownMixMode_LtRt: eAVDecDDStereoDownMixMode = eAVDecDDStereoDownMixMode(1i32);
 pub const eAVDecDDStereoDownMixMode_LoRo: eAVDecDDStereoDownMixMode = eAVDecDDStereoDownMixMode(2i32);
+impl ::core::marker::Copy for eAVDecDDStereoDownMixMode {}
+impl ::core::clone::Clone for eAVDecDDStereoDownMixMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct eAVDecHEAACDynamicRangeControl(pub i32);
 pub const eAVDecHEAACDynamicRangeControl_OFF: eAVDecHEAACDynamicRangeControl = eAVDecHEAACDynamicRangeControl(0i32);
 pub const eAVDecHEAACDynamicRangeControl_ON: eAVDecHEAACDynamicRangeControl = eAVDecHEAACDynamicRangeControl(1i32);
+impl ::core::marker::Copy for eAVDecHEAACDynamicRangeControl {}
+impl ::core::clone::Clone for eAVDecHEAACDynamicRangeControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct eAVDecVideoCodecType(pub i32);
 pub const eAVDecVideoCodecType_NOTPLAYING: eAVDecVideoCodecType = eAVDecVideoCodecType(0i32);
 pub const eAVDecVideoCodecType_MPEG2: eAVDecVideoCodecType = eAVDecVideoCodecType(1i32);
 pub const eAVDecVideoCodecType_H264: eAVDecVideoCodecType = eAVDecVideoCodecType(2i32);
+impl ::core::marker::Copy for eAVDecVideoCodecType {}
+impl ::core::clone::Clone for eAVDecVideoCodecType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct eAVDecVideoDXVABusEncryption(pub i32);
 pub const eAVDecVideoDXVABusEncryption_NONE: eAVDecVideoDXVABusEncryption = eAVDecVideoDXVABusEncryption(0i32);
 pub const eAVDecVideoDXVABusEncryption_PRIVATE: eAVDecVideoDXVABusEncryption = eAVDecVideoDXVABusEncryption(1i32);
 pub const eAVDecVideoDXVABusEncryption_AES: eAVDecVideoDXVABusEncryption = eAVDecVideoDXVABusEncryption(2i32);
+impl ::core::marker::Copy for eAVDecVideoDXVABusEncryption {}
+impl ::core::clone::Clone for eAVDecVideoDXVABusEncryption {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct eAVDecVideoDXVAMode(pub i32);
 pub const eAVDecVideoDXVAMode_NOTPLAYING: eAVDecVideoDXVAMode = eAVDecVideoDXVAMode(0i32);
@@ -9573,53 +16400,113 @@ pub const eAVDecVideoDXVAMode_SW: eAVDecVideoDXVAMode = eAVDecVideoDXVAMode(1i32
 pub const eAVDecVideoDXVAMode_MC: eAVDecVideoDXVAMode = eAVDecVideoDXVAMode(2i32);
 pub const eAVDecVideoDXVAMode_IDCT: eAVDecVideoDXVAMode = eAVDecVideoDXVAMode(3i32);
 pub const eAVDecVideoDXVAMode_VLD: eAVDecVideoDXVAMode = eAVDecVideoDXVAMode(4i32);
+impl ::core::marker::Copy for eAVDecVideoDXVAMode {}
+impl ::core::clone::Clone for eAVDecVideoDXVAMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct eAVDecVideoH264ErrorConcealment(pub i32);
 pub const eErrorConcealmentTypeDrop: eAVDecVideoH264ErrorConcealment = eAVDecVideoH264ErrorConcealment(0i32);
 pub const eErrorConcealmentTypeBasic: eAVDecVideoH264ErrorConcealment = eAVDecVideoH264ErrorConcealment(1i32);
 pub const eErrorConcealmentTypeAdvanced: eAVDecVideoH264ErrorConcealment = eAVDecVideoH264ErrorConcealment(2i32);
 pub const eErrorConcealmentTypeDXVASetBlack: eAVDecVideoH264ErrorConcealment = eAVDecVideoH264ErrorConcealment(3i32);
+impl ::core::marker::Copy for eAVDecVideoH264ErrorConcealment {}
+impl ::core::clone::Clone for eAVDecVideoH264ErrorConcealment {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct eAVDecVideoInputScanType(pub i32);
 pub const eAVDecVideoInputScan_Unknown: eAVDecVideoInputScanType = eAVDecVideoInputScanType(0i32);
 pub const eAVDecVideoInputScan_Progressive: eAVDecVideoInputScanType = eAVDecVideoInputScanType(1i32);
 pub const eAVDecVideoInputScan_Interlaced_UpperFieldFirst: eAVDecVideoInputScanType = eAVDecVideoInputScanType(2i32);
 pub const eAVDecVideoInputScan_Interlaced_LowerFieldFirst: eAVDecVideoInputScanType = eAVDecVideoInputScanType(3i32);
+impl ::core::marker::Copy for eAVDecVideoInputScanType {}
+impl ::core::clone::Clone for eAVDecVideoInputScanType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct eAVDecVideoMPEG2ErrorConcealment(pub i32);
 pub const eErrorConcealmentOff: eAVDecVideoMPEG2ErrorConcealment = eAVDecVideoMPEG2ErrorConcealment(0i32);
 pub const eErrorConcealmentOn: eAVDecVideoMPEG2ErrorConcealment = eAVDecVideoMPEG2ErrorConcealment(1i32);
+impl ::core::marker::Copy for eAVDecVideoMPEG2ErrorConcealment {}
+impl ::core::clone::Clone for eAVDecVideoMPEG2ErrorConcealment {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct eAVDecVideoSWPowerLevel(pub i32);
 pub const eAVDecVideoSWPowerLevel_BatteryLife: eAVDecVideoSWPowerLevel = eAVDecVideoSWPowerLevel(0i32);
 pub const eAVDecVideoSWPowerLevel_Balanced: eAVDecVideoSWPowerLevel = eAVDecVideoSWPowerLevel(50i32);
 pub const eAVDecVideoSWPowerLevel_VideoQuality: eAVDecVideoSWPowerLevel = eAVDecVideoSWPowerLevel(100i32);
+impl ::core::marker::Copy for eAVDecVideoSWPowerLevel {}
+impl ::core::clone::Clone for eAVDecVideoSWPowerLevel {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct eAVDecVideoSoftwareDeinterlaceMode(pub i32);
 pub const eAVDecVideoSoftwareDeinterlaceMode_NoDeinterlacing: eAVDecVideoSoftwareDeinterlaceMode = eAVDecVideoSoftwareDeinterlaceMode(0i32);
 pub const eAVDecVideoSoftwareDeinterlaceMode_ProgressiveDeinterlacing: eAVDecVideoSoftwareDeinterlaceMode = eAVDecVideoSoftwareDeinterlaceMode(1i32);
 pub const eAVDecVideoSoftwareDeinterlaceMode_BOBDeinterlacing: eAVDecVideoSoftwareDeinterlaceMode = eAVDecVideoSoftwareDeinterlaceMode(2i32);
 pub const eAVDecVideoSoftwareDeinterlaceMode_SmartBOBDeinterlacing: eAVDecVideoSoftwareDeinterlaceMode = eAVDecVideoSoftwareDeinterlaceMode(3i32);
+impl ::core::marker::Copy for eAVDecVideoSoftwareDeinterlaceMode {}
+impl ::core::clone::Clone for eAVDecVideoSoftwareDeinterlaceMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct eAVEncAdaptiveMode(pub i32);
 pub const eAVEncAdaptiveMode_None: eAVEncAdaptiveMode = eAVEncAdaptiveMode(0i32);
 pub const eAVEncAdaptiveMode_Resolution: eAVEncAdaptiveMode = eAVEncAdaptiveMode(1i32);
 pub const eAVEncAdaptiveMode_FrameRate: eAVEncAdaptiveMode = eAVEncAdaptiveMode(2i32);
+impl ::core::marker::Copy for eAVEncAdaptiveMode {}
+impl ::core::clone::Clone for eAVEncAdaptiveMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct eAVEncAudioDualMono(pub i32);
 pub const eAVEncAudioDualMono_SameAsInput: eAVEncAudioDualMono = eAVEncAudioDualMono(0i32);
 pub const eAVEncAudioDualMono_Off: eAVEncAudioDualMono = eAVEncAudioDualMono(1i32);
 pub const eAVEncAudioDualMono_On: eAVEncAudioDualMono = eAVEncAudioDualMono(2i32);
+impl ::core::marker::Copy for eAVEncAudioDualMono {}
+impl ::core::clone::Clone for eAVEncAudioDualMono {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct eAVEncAudioInputContent(pub i32);
 pub const AVEncAudioInputContent_Unknown: eAVEncAudioInputContent = eAVEncAudioInputContent(0i32);
 pub const AVEncAudioInputContent_Voice: eAVEncAudioInputContent = eAVEncAudioInputContent(1i32);
 pub const AVEncAudioInputContent_Music: eAVEncAudioInputContent = eAVEncAudioInputContent(2i32);
+impl ::core::marker::Copy for eAVEncAudioInputContent {}
+impl ::core::clone::Clone for eAVEncAudioInputContent {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct eAVEncChromaEncodeMode(pub i32);
 pub const eAVEncChromaEncodeMode_420: eAVEncChromaEncodeMode = eAVEncChromaEncodeMode(0i32);
 pub const eAVEncChromaEncodeMode_444: eAVEncChromaEncodeMode = eAVEncChromaEncodeMode(1i32);
 pub const eAVEncChromaEncodeMode_444_v2: eAVEncChromaEncodeMode = eAVEncChromaEncodeMode(2i32);
+impl ::core::marker::Copy for eAVEncChromaEncodeMode {}
+impl ::core::clone::Clone for eAVEncChromaEncodeMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct eAVEncCommonRateControlMode(pub i32);
 pub const eAVEncCommonRateControlMode_CBR: eAVEncCommonRateControlMode = eAVEncCommonRateControlMode(0i32);
@@ -9629,14 +16516,32 @@ pub const eAVEncCommonRateControlMode_Quality: eAVEncCommonRateControlMode = eAV
 pub const eAVEncCommonRateControlMode_LowDelayVBR: eAVEncCommonRateControlMode = eAVEncCommonRateControlMode(4i32);
 pub const eAVEncCommonRateControlMode_GlobalVBR: eAVEncCommonRateControlMode = eAVEncCommonRateControlMode(5i32);
 pub const eAVEncCommonRateControlMode_GlobalLowDelayVBR: eAVEncCommonRateControlMode = eAVEncCommonRateControlMode(6i32);
+impl ::core::marker::Copy for eAVEncCommonRateControlMode {}
+impl ::core::clone::Clone for eAVEncCommonRateControlMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct eAVEncCommonStreamEndHandling(pub i32);
 pub const eAVEncCommonStreamEndHandling_DiscardPartial: eAVEncCommonStreamEndHandling = eAVEncCommonStreamEndHandling(0i32);
 pub const eAVEncCommonStreamEndHandling_EnsureComplete: eAVEncCommonStreamEndHandling = eAVEncCommonStreamEndHandling(1i32);
+impl ::core::marker::Copy for eAVEncCommonStreamEndHandling {}
+impl ::core::clone::Clone for eAVEncCommonStreamEndHandling {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct eAVEncDDAtoDConverterType(pub i32);
 pub const eAVEncDDAtoDConverterType_Standard: eAVEncDDAtoDConverterType = eAVEncDDAtoDConverterType(0i32);
 pub const eAVEncDDAtoDConverterType_HDCD: eAVEncDDAtoDConverterType = eAVEncDDAtoDConverterType(1i32);
+impl ::core::marker::Copy for eAVEncDDAtoDConverterType {}
+impl ::core::clone::Clone for eAVEncDDAtoDConverterType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct eAVEncDDDynamicRangeCompressionControl(pub i32);
 pub const eAVEncDDDynamicRangeCompressionControl_None: eAVEncDDDynamicRangeCompressionControl = eAVEncDDDynamicRangeCompressionControl(0i32);
@@ -9645,20 +16550,44 @@ pub const eAVEncDDDynamicRangeCompressionControl_FilmLight: eAVEncDDDynamicRange
 pub const eAVEncDDDynamicRangeCompressionControl_MusicStandard: eAVEncDDDynamicRangeCompressionControl = eAVEncDDDynamicRangeCompressionControl(3i32);
 pub const eAVEncDDDynamicRangeCompressionControl_MusicLight: eAVEncDDDynamicRangeCompressionControl = eAVEncDDDynamicRangeCompressionControl(4i32);
 pub const eAVEncDDDynamicRangeCompressionControl_Speech: eAVEncDDDynamicRangeCompressionControl = eAVEncDDDynamicRangeCompressionControl(5i32);
+impl ::core::marker::Copy for eAVEncDDDynamicRangeCompressionControl {}
+impl ::core::clone::Clone for eAVEncDDDynamicRangeCompressionControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct eAVEncDDHeadphoneMode(pub i32);
 pub const eAVEncDDHeadphoneMode_NotIndicated: eAVEncDDHeadphoneMode = eAVEncDDHeadphoneMode(0i32);
 pub const eAVEncDDHeadphoneMode_NotEncoded: eAVEncDDHeadphoneMode = eAVEncDDHeadphoneMode(1i32);
 pub const eAVEncDDHeadphoneMode_Encoded: eAVEncDDHeadphoneMode = eAVEncDDHeadphoneMode(2i32);
+impl ::core::marker::Copy for eAVEncDDHeadphoneMode {}
+impl ::core::clone::Clone for eAVEncDDHeadphoneMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct eAVEncDDPreferredStereoDownMixMode(pub i32);
 pub const eAVEncDDPreferredStereoDownMixMode_LtRt: eAVEncDDPreferredStereoDownMixMode = eAVEncDDPreferredStereoDownMixMode(0i32);
 pub const eAVEncDDPreferredStereoDownMixMode_LoRo: eAVEncDDPreferredStereoDownMixMode = eAVEncDDPreferredStereoDownMixMode(1i32);
+impl ::core::marker::Copy for eAVEncDDPreferredStereoDownMixMode {}
+impl ::core::clone::Clone for eAVEncDDPreferredStereoDownMixMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct eAVEncDDProductionRoomType(pub i32);
 pub const eAVEncDDProductionRoomType_NotIndicated: eAVEncDDProductionRoomType = eAVEncDDProductionRoomType(0i32);
 pub const eAVEncDDProductionRoomType_Large: eAVEncDDProductionRoomType = eAVEncDDProductionRoomType(1i32);
 pub const eAVEncDDProductionRoomType_Small: eAVEncDDProductionRoomType = eAVEncDDProductionRoomType(2i32);
+impl ::core::marker::Copy for eAVEncDDProductionRoomType {}
+impl ::core::clone::Clone for eAVEncDDProductionRoomType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct eAVEncDDService(pub i32);
 pub const eAVEncDDService_CM: eAVEncDDService = eAVEncDDService(0i32);
@@ -9669,16 +16598,34 @@ pub const eAVEncDDService_D: eAVEncDDService = eAVEncDDService(4i32);
 pub const eAVEncDDService_C: eAVEncDDService = eAVEncDDService(5i32);
 pub const eAVEncDDService_E: eAVEncDDService = eAVEncDDService(6i32);
 pub const eAVEncDDService_VO: eAVEncDDService = eAVEncDDService(7i32);
+impl ::core::marker::Copy for eAVEncDDService {}
+impl ::core::clone::Clone for eAVEncDDService {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct eAVEncDDSurroundExMode(pub i32);
 pub const eAVEncDDSurroundExMode_NotIndicated: eAVEncDDSurroundExMode = eAVEncDDSurroundExMode(0i32);
 pub const eAVEncDDSurroundExMode_No: eAVEncDDSurroundExMode = eAVEncDDSurroundExMode(1i32);
 pub const eAVEncDDSurroundExMode_Yes: eAVEncDDSurroundExMode = eAVEncDDSurroundExMode(2i32);
+impl ::core::marker::Copy for eAVEncDDSurroundExMode {}
+impl ::core::clone::Clone for eAVEncDDSurroundExMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct eAVEncH263PictureType(pub i32);
 pub const eAVEncH263PictureType_I: eAVEncH263PictureType = eAVEncH263PictureType(0i32);
 pub const eAVEncH263PictureType_P: eAVEncH263PictureType = eAVEncH263PictureType(1i32);
 pub const eAVEncH263PictureType_B: eAVEncH263PictureType = eAVEncH263PictureType(2i32);
+impl ::core::marker::Copy for eAVEncH263PictureType {}
+impl ::core::clone::Clone for eAVEncH263PictureType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct eAVEncH263VLevel(pub i32);
 pub const eAVEncH263VLevel1: eAVEncH263VLevel = eAVEncH263VLevel(10i32);
@@ -9689,6 +16636,12 @@ pub const eAVEncH263VLevel4_5: eAVEncH263VLevel = eAVEncH263VLevel(45i32);
 pub const eAVEncH263VLevel5: eAVEncH263VLevel = eAVEncH263VLevel(50i32);
 pub const eAVEncH263VLevel6: eAVEncH263VLevel = eAVEncH263VLevel(60i32);
 pub const eAVEncH263VLevel7: eAVEncH263VLevel = eAVEncH263VLevel(70i32);
+impl ::core::marker::Copy for eAVEncH263VLevel {}
+impl ::core::clone::Clone for eAVEncH263VLevel {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct eAVEncH263VProfile(pub i32);
 pub const eAVEncH263VProfile_Base: eAVEncH263VProfile = eAVEncH263VProfile(0i32);
@@ -9700,11 +16653,23 @@ pub const eAVEncH263VProfile_HighCompression: eAVEncH263VProfile = eAVEncH263VPr
 pub const eAVEncH263VProfile_Internet: eAVEncH263VProfile = eAVEncH263VProfile(6i32);
 pub const eAVEncH263VProfile_Interlace: eAVEncH263VProfile = eAVEncH263VProfile(7i32);
 pub const eAVEncH263VProfile_HighLatency: eAVEncH263VProfile = eAVEncH263VProfile(8i32);
+impl ::core::marker::Copy for eAVEncH263VProfile {}
+impl ::core::clone::Clone for eAVEncH263VProfile {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct eAVEncH264PictureType(pub i32);
 pub const eAVEncH264PictureType_IDR: eAVEncH264PictureType = eAVEncH264PictureType(0i32);
 pub const eAVEncH264PictureType_P: eAVEncH264PictureType = eAVEncH264PictureType(1i32);
 pub const eAVEncH264PictureType_B: eAVEncH264PictureType = eAVEncH264PictureType(2i32);
+impl ::core::marker::Copy for eAVEncH264PictureType {}
+impl ::core::clone::Clone for eAVEncH264PictureType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct eAVEncH264VLevel(pub i32);
 pub const eAVEncH264VLevel1: eAVEncH264VLevel = eAVEncH264VLevel(10i32);
@@ -9724,6 +16689,12 @@ pub const eAVEncH264VLevel4_2: eAVEncH264VLevel = eAVEncH264VLevel(42i32);
 pub const eAVEncH264VLevel5: eAVEncH264VLevel = eAVEncH264VLevel(50i32);
 pub const eAVEncH264VLevel5_1: eAVEncH264VLevel = eAVEncH264VLevel(51i32);
 pub const eAVEncH264VLevel5_2: eAVEncH264VLevel = eAVEncH264VLevel(52i32);
+impl ::core::marker::Copy for eAVEncH264VLevel {}
+impl ::core::clone::Clone for eAVEncH264VLevel {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct eAVEncH264VProfile(pub i32);
 pub const eAVEncH264VProfile_unknown: eAVEncH264VProfile = eAVEncH264VProfile(0i32);
@@ -9743,6 +16714,12 @@ pub const eAVEncH264VProfile_ConstrainedBase: eAVEncH264VProfile = eAVEncH264VPr
 pub const eAVEncH264VProfile_UCConstrainedHigh: eAVEncH264VProfile = eAVEncH264VProfile(257i32);
 pub const eAVEncH264VProfile_UCScalableConstrainedBase: eAVEncH264VProfile = eAVEncH264VProfile(258i32);
 pub const eAVEncH264VProfile_UCScalableConstrainedHigh: eAVEncH264VProfile = eAVEncH264VProfile(259i32);
+impl ::core::marker::Copy for eAVEncH264VProfile {}
+impl ::core::clone::Clone for eAVEncH264VProfile {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct eAVEncH265VLevel(pub i32);
 pub const eAVEncH265VLevel1: eAVEncH265VLevel = eAVEncH265VLevel(30i32);
@@ -9758,6 +16735,12 @@ pub const eAVEncH265VLevel5_2: eAVEncH265VLevel = eAVEncH265VLevel(156i32);
 pub const eAVEncH265VLevel6: eAVEncH265VLevel = eAVEncH265VLevel(180i32);
 pub const eAVEncH265VLevel6_1: eAVEncH265VLevel = eAVEncH265VLevel(183i32);
 pub const eAVEncH265VLevel6_2: eAVEncH265VLevel = eAVEncH265VLevel(186i32);
+impl ::core::marker::Copy for eAVEncH265VLevel {}
+impl ::core::clone::Clone for eAVEncH265VLevel {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct eAVEncH265VProfile(pub i32);
 pub const eAVEncH265VProfile_unknown: eAVEncH265VProfile = eAVEncH265VProfile(0i32);
@@ -9783,6 +16766,12 @@ pub const eAVEncH265VProfile_MainIntra_444_16: eAVEncH265VProfile = eAVEncH265VP
 pub const eAVEncH265VProfile_MainStill_420_8: eAVEncH265VProfile = eAVEncH265VProfile(20i32);
 pub const eAVEncH265VProfile_MainStill_444_8: eAVEncH265VProfile = eAVEncH265VProfile(21i32);
 pub const eAVEncH265VProfile_MainStill_444_16: eAVEncH265VProfile = eAVEncH265VProfile(22i32);
+impl ::core::marker::Copy for eAVEncH265VProfile {}
+impl ::core::clone::Clone for eAVEncH265VProfile {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct eAVEncInputVideoSystem(pub i32);
 pub const eAVEncInputVideoSystem_Unspecified: eAVEncInputVideoSystem = eAVEncInputVideoSystem(0i32);
@@ -9792,6 +16781,12 @@ pub const eAVEncInputVideoSystem_SECAM: eAVEncInputVideoSystem = eAVEncInputVide
 pub const eAVEncInputVideoSystem_MAC: eAVEncInputVideoSystem = eAVEncInputVideoSystem(4i32);
 pub const eAVEncInputVideoSystem_HDV: eAVEncInputVideoSystem = eAVEncInputVideoSystem(5i32);
 pub const eAVEncInputVideoSystem_Component: eAVEncInputVideoSystem = eAVEncInputVideoSystem(6i32);
+impl ::core::marker::Copy for eAVEncInputVideoSystem {}
+impl ::core::clone::Clone for eAVEncInputVideoSystem {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct eAVEncMPACodingMode(pub i32);
 pub const eAVEncMPACodingMode_Mono: eAVEncMPACodingMode = eAVEncMPACodingMode(0i32);
@@ -9799,32 +16794,68 @@ pub const eAVEncMPACodingMode_Stereo: eAVEncMPACodingMode = eAVEncMPACodingMode(
 pub const eAVEncMPACodingMode_DualChannel: eAVEncMPACodingMode = eAVEncMPACodingMode(2i32);
 pub const eAVEncMPACodingMode_JointStereo: eAVEncMPACodingMode = eAVEncMPACodingMode(3i32);
 pub const eAVEncMPACodingMode_Surround: eAVEncMPACodingMode = eAVEncMPACodingMode(4i32);
+impl ::core::marker::Copy for eAVEncMPACodingMode {}
+impl ::core::clone::Clone for eAVEncMPACodingMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct eAVEncMPAEmphasisType(pub i32);
 pub const eAVEncMPAEmphasisType_None: eAVEncMPAEmphasisType = eAVEncMPAEmphasisType(0i32);
 pub const eAVEncMPAEmphasisType_50_15: eAVEncMPAEmphasisType = eAVEncMPAEmphasisType(1i32);
 pub const eAVEncMPAEmphasisType_Reserved: eAVEncMPAEmphasisType = eAVEncMPAEmphasisType(2i32);
 pub const eAVEncMPAEmphasisType_CCITT_J17: eAVEncMPAEmphasisType = eAVEncMPAEmphasisType(3i32);
+impl ::core::marker::Copy for eAVEncMPAEmphasisType {}
+impl ::core::clone::Clone for eAVEncMPAEmphasisType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct eAVEncMPALayer(pub i32);
 pub const eAVEncMPALayer_1: eAVEncMPALayer = eAVEncMPALayer(1i32);
 pub const eAVEncMPALayer_2: eAVEncMPALayer = eAVEncMPALayer(2i32);
 pub const eAVEncMPALayer_3: eAVEncMPALayer = eAVEncMPALayer(3i32);
+impl ::core::marker::Copy for eAVEncMPALayer {}
+impl ::core::clone::Clone for eAVEncMPALayer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct eAVEncMPVFrameFieldMode(pub i32);
 pub const eAVEncMPVFrameFieldMode_FieldMode: eAVEncMPVFrameFieldMode = eAVEncMPVFrameFieldMode(0i32);
 pub const eAVEncMPVFrameFieldMode_FrameMode: eAVEncMPVFrameFieldMode = eAVEncMPVFrameFieldMode(1i32);
+impl ::core::marker::Copy for eAVEncMPVFrameFieldMode {}
+impl ::core::clone::Clone for eAVEncMPVFrameFieldMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct eAVEncMPVIntraVLCTable(pub i32);
 pub const eAVEncMPVIntraVLCTable_Auto: eAVEncMPVIntraVLCTable = eAVEncMPVIntraVLCTable(0i32);
 pub const eAVEncMPVIntraVLCTable_MPEG1: eAVEncMPVIntraVLCTable = eAVEncMPVIntraVLCTable(1i32);
 pub const eAVEncMPVIntraVLCTable_Alternate: eAVEncMPVIntraVLCTable = eAVEncMPVIntraVLCTable(2i32);
+impl ::core::marker::Copy for eAVEncMPVIntraVLCTable {}
+impl ::core::clone::Clone for eAVEncMPVIntraVLCTable {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct eAVEncMPVLevel(pub i32);
 pub const eAVEncMPVLevel_Low: eAVEncMPVLevel = eAVEncMPVLevel(1i32);
 pub const eAVEncMPVLevel_Main: eAVEncMPVLevel = eAVEncMPVLevel(2i32);
 pub const eAVEncMPVLevel_High1440: eAVEncMPVLevel = eAVEncMPVLevel(3i32);
 pub const eAVEncMPVLevel_High: eAVEncMPVLevel = eAVEncMPVLevel(4i32);
+impl ::core::marker::Copy for eAVEncMPVLevel {}
+impl ::core::clone::Clone for eAVEncMPVLevel {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct eAVEncMPVProfile(pub i32);
 pub const eAVEncMPVProfile_unknown: eAVEncMPVProfile = eAVEncMPVProfile(0i32);
@@ -9832,33 +16863,69 @@ pub const eAVEncMPVProfile_Simple: eAVEncMPVProfile = eAVEncMPVProfile(1i32);
 pub const eAVEncMPVProfile_Main: eAVEncMPVProfile = eAVEncMPVProfile(2i32);
 pub const eAVEncMPVProfile_High: eAVEncMPVProfile = eAVEncMPVProfile(3i32);
 pub const eAVEncMPVProfile_422: eAVEncMPVProfile = eAVEncMPVProfile(4i32);
+impl ::core::marker::Copy for eAVEncMPVProfile {}
+impl ::core::clone::Clone for eAVEncMPVProfile {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct eAVEncMPVQScaleType(pub i32);
 pub const eAVEncMPVQScaleType_Auto: eAVEncMPVQScaleType = eAVEncMPVQScaleType(0i32);
 pub const eAVEncMPVQScaleType_Linear: eAVEncMPVQScaleType = eAVEncMPVQScaleType(1i32);
 pub const eAVEncMPVQScaleType_NonLinear: eAVEncMPVQScaleType = eAVEncMPVQScaleType(2i32);
+impl ::core::marker::Copy for eAVEncMPVQScaleType {}
+impl ::core::clone::Clone for eAVEncMPVQScaleType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct eAVEncMPVScanPattern(pub i32);
 pub const eAVEncMPVScanPattern_Auto: eAVEncMPVScanPattern = eAVEncMPVScanPattern(0i32);
 pub const eAVEncMPVScanPattern_ZigZagScan: eAVEncMPVScanPattern = eAVEncMPVScanPattern(1i32);
 pub const eAVEncMPVScanPattern_AlternateScan: eAVEncMPVScanPattern = eAVEncMPVScanPattern(2i32);
+impl ::core::marker::Copy for eAVEncMPVScanPattern {}
+impl ::core::clone::Clone for eAVEncMPVScanPattern {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct eAVEncMPVSceneDetection(pub i32);
 pub const eAVEncMPVSceneDetection_None: eAVEncMPVSceneDetection = eAVEncMPVSceneDetection(0i32);
 pub const eAVEncMPVSceneDetection_InsertIPicture: eAVEncMPVSceneDetection = eAVEncMPVSceneDetection(1i32);
 pub const eAVEncMPVSceneDetection_StartNewGOP: eAVEncMPVSceneDetection = eAVEncMPVSceneDetection(2i32);
 pub const eAVEncMPVSceneDetection_StartNewLocatableGOP: eAVEncMPVSceneDetection = eAVEncMPVSceneDetection(3i32);
+impl ::core::marker::Copy for eAVEncMPVSceneDetection {}
+impl ::core::clone::Clone for eAVEncMPVSceneDetection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct eAVEncMuxOutput(pub i32);
 pub const eAVEncMuxOutputAuto: eAVEncMuxOutput = eAVEncMuxOutput(0i32);
 pub const eAVEncMuxOutputPS: eAVEncMuxOutput = eAVEncMuxOutput(1i32);
 pub const eAVEncMuxOutputTS: eAVEncMuxOutput = eAVEncMuxOutput(2i32);
+impl ::core::marker::Copy for eAVEncMuxOutput {}
+impl ::core::clone::Clone for eAVEncMuxOutput {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct eAVEncVP9VProfile(pub i32);
 pub const eAVEncVP9VProfile_unknown: eAVEncVP9VProfile = eAVEncVP9VProfile(0i32);
 pub const eAVEncVP9VProfile_420_8: eAVEncVP9VProfile = eAVEncVP9VProfile(1i32);
 pub const eAVEncVP9VProfile_420_10: eAVEncVP9VProfile = eAVEncVP9VProfile(2i32);
 pub const eAVEncVP9VProfile_420_12: eAVEncVP9VProfile = eAVEncVP9VProfile(3i32);
+impl ::core::marker::Copy for eAVEncVP9VProfile {}
+impl ::core::clone::Clone for eAVEncVP9VProfile {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct eAVEncVideoChromaResolution(pub i32);
 pub const eAVEncVideoChromaResolution_SameAsSource: eAVEncVideoChromaResolution = eAVEncVideoChromaResolution(0i32);
@@ -9866,6 +16933,12 @@ pub const eAVEncVideoChromaResolution_444: eAVEncVideoChromaResolution = eAVEncV
 pub const eAVEncVideoChromaResolution_422: eAVEncVideoChromaResolution = eAVEncVideoChromaResolution(2i32);
 pub const eAVEncVideoChromaResolution_420: eAVEncVideoChromaResolution = eAVEncVideoChromaResolution(3i32);
 pub const eAVEncVideoChromaResolution_411: eAVEncVideoChromaResolution = eAVEncVideoChromaResolution(4i32);
+impl ::core::marker::Copy for eAVEncVideoChromaResolution {}
+impl ::core::clone::Clone for eAVEncVideoChromaResolution {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct eAVEncVideoChromaSubsampling(pub i32);
 pub const eAVEncVideoChromaSubsamplingFormat_SameAsSource: eAVEncVideoChromaSubsampling = eAVEncVideoChromaSubsampling(0i32);
@@ -9873,6 +16946,12 @@ pub const eAVEncVideoChromaSubsamplingFormat_ProgressiveChroma: eAVEncVideoChrom
 pub const eAVEncVideoChromaSubsamplingFormat_Horizontally_Cosited: eAVEncVideoChromaSubsampling = eAVEncVideoChromaSubsampling(4i32);
 pub const eAVEncVideoChromaSubsamplingFormat_Vertically_Cosited: eAVEncVideoChromaSubsampling = eAVEncVideoChromaSubsampling(2i32);
 pub const eAVEncVideoChromaSubsamplingFormat_Vertically_AlignedChromaPlanes: eAVEncVideoChromaSubsampling = eAVEncVideoChromaSubsampling(1i32);
+impl ::core::marker::Copy for eAVEncVideoChromaSubsampling {}
+impl ::core::clone::Clone for eAVEncVideoChromaSubsampling {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct eAVEncVideoColorLighting(pub i32);
 pub const eAVEncVideoColorLighting_SameAsSource: eAVEncVideoColorLighting = eAVEncVideoColorLighting(0i32);
@@ -9881,12 +16960,24 @@ pub const eAVEncVideoColorLighting_Bright: eAVEncVideoColorLighting = eAVEncVide
 pub const eAVEncVideoColorLighting_Office: eAVEncVideoColorLighting = eAVEncVideoColorLighting(3i32);
 pub const eAVEncVideoColorLighting_Dim: eAVEncVideoColorLighting = eAVEncVideoColorLighting(4i32);
 pub const eAVEncVideoColorLighting_Dark: eAVEncVideoColorLighting = eAVEncVideoColorLighting(5i32);
+impl ::core::marker::Copy for eAVEncVideoColorLighting {}
+impl ::core::clone::Clone for eAVEncVideoColorLighting {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct eAVEncVideoColorNominalRange(pub i32);
 pub const eAVEncVideoColorNominalRange_SameAsSource: eAVEncVideoColorNominalRange = eAVEncVideoColorNominalRange(0i32);
 pub const eAVEncVideoColorNominalRange_0_255: eAVEncVideoColorNominalRange = eAVEncVideoColorNominalRange(1i32);
 pub const eAVEncVideoColorNominalRange_16_235: eAVEncVideoColorNominalRange = eAVEncVideoColorNominalRange(2i32);
 pub const eAVEncVideoColorNominalRange_48_208: eAVEncVideoColorNominalRange = eAVEncVideoColorNominalRange(3i32);
+impl ::core::marker::Copy for eAVEncVideoColorNominalRange {}
+impl ::core::clone::Clone for eAVEncVideoColorNominalRange {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct eAVEncVideoColorPrimaries(pub i32);
 pub const eAVEncVideoColorPrimaries_SameAsSource: eAVEncVideoColorPrimaries = eAVEncVideoColorPrimaries(0i32);
@@ -9898,6 +16989,12 @@ pub const eAVEncVideoColorPrimaries_SMPTE170M: eAVEncVideoColorPrimaries = eAVEn
 pub const eAVEncVideoColorPrimaries_SMPTE240M: eAVEncVideoColorPrimaries = eAVEncVideoColorPrimaries(6i32);
 pub const eAVEncVideoColorPrimaries_EBU3231: eAVEncVideoColorPrimaries = eAVEncVideoColorPrimaries(7i32);
 pub const eAVEncVideoColorPrimaries_SMPTE_C: eAVEncVideoColorPrimaries = eAVEncVideoColorPrimaries(8i32);
+impl ::core::marker::Copy for eAVEncVideoColorPrimaries {}
+impl ::core::clone::Clone for eAVEncVideoColorPrimaries {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct eAVEncVideoColorTransferFunction(pub i32);
 pub const eAVEncVideoColorTransferFunction_SameAsSource: eAVEncVideoColorTransferFunction = eAVEncVideoColorTransferFunction(0i32);
@@ -9909,43 +17006,91 @@ pub const eAVEncVideoColorTransferFunction_22_709: eAVEncVideoColorTransferFunct
 pub const eAVEncVideoColorTransferFunction_22_240M: eAVEncVideoColorTransferFunction = eAVEncVideoColorTransferFunction(6i32);
 pub const eAVEncVideoColorTransferFunction_22_8bit_sRGB: eAVEncVideoColorTransferFunction = eAVEncVideoColorTransferFunction(7i32);
 pub const eAVEncVideoColorTransferFunction_28: eAVEncVideoColorTransferFunction = eAVEncVideoColorTransferFunction(8i32);
+impl ::core::marker::Copy for eAVEncVideoColorTransferFunction {}
+impl ::core::clone::Clone for eAVEncVideoColorTransferFunction {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct eAVEncVideoColorTransferMatrix(pub i32);
 pub const eAVEncVideoColorTransferMatrix_SameAsSource: eAVEncVideoColorTransferMatrix = eAVEncVideoColorTransferMatrix(0i32);
 pub const eAVEncVideoColorTransferMatrix_BT709: eAVEncVideoColorTransferMatrix = eAVEncVideoColorTransferMatrix(1i32);
 pub const eAVEncVideoColorTransferMatrix_BT601: eAVEncVideoColorTransferMatrix = eAVEncVideoColorTransferMatrix(2i32);
 pub const eAVEncVideoColorTransferMatrix_SMPTE240M: eAVEncVideoColorTransferMatrix = eAVEncVideoColorTransferMatrix(3i32);
+impl ::core::marker::Copy for eAVEncVideoColorTransferMatrix {}
+impl ::core::clone::Clone for eAVEncVideoColorTransferMatrix {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct eAVEncVideoContentType(pub i32);
 pub const eAVEncVideoContentType_Unknown: eAVEncVideoContentType = eAVEncVideoContentType(0i32);
 pub const eAVEncVideoContentType_FixedCameraAngle: eAVEncVideoContentType = eAVEncVideoContentType(1i32);
+impl ::core::marker::Copy for eAVEncVideoContentType {}
+impl ::core::clone::Clone for eAVEncVideoContentType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct eAVEncVideoFilmContent(pub i32);
 pub const eAVEncVideoFilmContent_VideoOnly: eAVEncVideoFilmContent = eAVEncVideoFilmContent(0i32);
 pub const eAVEncVideoFilmContent_FilmOnly: eAVEncVideoFilmContent = eAVEncVideoFilmContent(1i32);
 pub const eAVEncVideoFilmContent_Mixed: eAVEncVideoFilmContent = eAVEncVideoFilmContent(2i32);
+impl ::core::marker::Copy for eAVEncVideoFilmContent {}
+impl ::core::clone::Clone for eAVEncVideoFilmContent {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct eAVEncVideoOutputFrameRateConversion(pub i32);
 pub const eAVEncVideoOutputFrameRateConversion_Disable: eAVEncVideoOutputFrameRateConversion = eAVEncVideoOutputFrameRateConversion(0i32);
 pub const eAVEncVideoOutputFrameRateConversion_Enable: eAVEncVideoOutputFrameRateConversion = eAVEncVideoOutputFrameRateConversion(1i32);
 pub const eAVEncVideoOutputFrameRateConversion_Alias: eAVEncVideoOutputFrameRateConversion = eAVEncVideoOutputFrameRateConversion(2i32);
+impl ::core::marker::Copy for eAVEncVideoOutputFrameRateConversion {}
+impl ::core::clone::Clone for eAVEncVideoOutputFrameRateConversion {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct eAVEncVideoOutputScanType(pub i32);
 pub const eAVEncVideoOutputScan_Progressive: eAVEncVideoOutputScanType = eAVEncVideoOutputScanType(0i32);
 pub const eAVEncVideoOutputScan_Interlaced: eAVEncVideoOutputScanType = eAVEncVideoOutputScanType(1i32);
 pub const eAVEncVideoOutputScan_SameAsInput: eAVEncVideoOutputScanType = eAVEncVideoOutputScanType(2i32);
 pub const eAVEncVideoOutputScan_Automatic: eAVEncVideoOutputScanType = eAVEncVideoOutputScanType(3i32);
+impl ::core::marker::Copy for eAVEncVideoOutputScanType {}
+impl ::core::clone::Clone for eAVEncVideoOutputScanType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct eAVEncVideoSourceScanType(pub i32);
 pub const eAVEncVideoSourceScan_Automatic: eAVEncVideoSourceScanType = eAVEncVideoSourceScanType(0i32);
 pub const eAVEncVideoSourceScan_Interlaced: eAVEncVideoSourceScanType = eAVEncVideoSourceScanType(1i32);
 pub const eAVEncVideoSourceScan_Progressive: eAVEncVideoSourceScanType = eAVEncVideoSourceScanType(2i32);
+impl ::core::marker::Copy for eAVEncVideoSourceScanType {}
+impl ::core::clone::Clone for eAVEncVideoSourceScanType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct eAVFastDecodeMode(pub i32);
 pub const eVideoDecodeCompliant: eAVFastDecodeMode = eAVFastDecodeMode(0i32);
 pub const eVideoDecodeOptimalLF: eAVFastDecodeMode = eAVFastDecodeMode(1i32);
 pub const eVideoDecodeDisableLF: eAVFastDecodeMode = eAVFastDecodeMode(2i32);
 pub const eVideoDecodeFastest: eAVFastDecodeMode = eAVFastDecodeMode(32i32);
+impl ::core::marker::Copy for eAVFastDecodeMode {}
+impl ::core::clone::Clone for eAVFastDecodeMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct eAVScenarioInfo(pub i32);
 pub const eAVScenarioInfo_Unknown: eAVScenarioInfo = eAVScenarioInfo(0i32);
@@ -9955,10 +17100,22 @@ pub const eAVScenarioInfo_Archive: eAVScenarioInfo = eAVScenarioInfo(3i32);
 pub const eAVScenarioInfo_LiveStreaming: eAVScenarioInfo = eAVScenarioInfo(4i32);
 pub const eAVScenarioInfo_CameraRecord: eAVScenarioInfo = eAVScenarioInfo(5i32);
 pub const eAVScenarioInfo_DisplayRemotingWithFeatureMap: eAVScenarioInfo = eAVScenarioInfo(6i32);
+impl ::core::marker::Copy for eAVScenarioInfo {}
+impl ::core::clone::Clone for eAVScenarioInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct eVideoEncoderDisplayContentType(pub i32);
 pub const eVideoEncoderDisplayContent_Unknown: eVideoEncoderDisplayContentType = eVideoEncoderDisplayContentType(0i32);
 pub const eVideoEncoderDisplayContent_FullScreenVideo: eVideoEncoderDisplayContentType = eVideoEncoderDisplayContentType(1i32);
+impl ::core::marker::Copy for eVideoEncoderDisplayContentType {}
+impl ::core::clone::Clone for eVideoEncoderDisplayContentType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const g_wszSpeechFormatCaps: &'static str = "SpeechFormatCap";
 pub const g_wszWMCPAudioVBRQuality: &'static str = "_VBRQUALITY";
 pub const g_wszWMCPAudioVBRSupported: &'static str = "_VBRENABLED";

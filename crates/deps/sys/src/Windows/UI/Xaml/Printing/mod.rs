@@ -31,5 +31,11 @@ impl PreviewPageCountType {
     pub const Final: Self = Self(0i32);
     pub const Intermediate: Self = Self(1i32);
 }
+impl ::core::marker::Copy for PreviewPageCountType {}
+impl ::core::clone::Clone for PreviewPageCountType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PrintDocument(pub *mut ::core::ffi::c_void);

@@ -31,11 +31,36 @@ pub const ENTERPRISE_POLICY_NONE: ENTERPRISE_DATA_POLICIES = ENTERPRISE_DATA_POL
 pub const ENTERPRISE_POLICY_ALLOWED: ENTERPRISE_DATA_POLICIES = ENTERPRISE_DATA_POLICIES(1u32);
 pub const ENTERPRISE_POLICY_ENLIGHTENED: ENTERPRISE_DATA_POLICIES = ENTERPRISE_DATA_POLICIES(2u32);
 pub const ENTERPRISE_POLICY_EXEMPT: ENTERPRISE_DATA_POLICIES = ENTERPRISE_DATA_POLICIES(4u32);
+impl ::core::marker::Copy for ENTERPRISE_DATA_POLICIES {}
+impl ::core::clone::Clone for ENTERPRISE_DATA_POLICIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct FILE_UNPROTECT_OPTIONS(i32);
+pub struct FILE_UNPROTECT_OPTIONS {
+    pub audit: bool,
+}
+impl ::core::marker::Copy for FILE_UNPROTECT_OPTIONS {}
+impl ::core::clone::Clone for FILE_UNPROTECT_OPTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct HTHREAD_NETWORK_CONTEXT(i32);
+pub struct HTHREAD_NETWORK_CONTEXT {
+    pub ThreadId: u32,
+    pub ThreadContext: super::super::Foundation::HANDLE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for HTHREAD_NETWORK_CONTEXT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for HTHREAD_NETWORK_CONTEXT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IProtectionPolicyManagerInterop(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -47,6 +72,18 @@ pub struct SRPHOSTING_TYPE(pub i32);
 pub const SRPHOSTING_TYPE_NONE: SRPHOSTING_TYPE = SRPHOSTING_TYPE(0i32);
 pub const SRPHOSTING_TYPE_WINHTTP: SRPHOSTING_TYPE = SRPHOSTING_TYPE(1i32);
 pub const SRPHOSTING_TYPE_WININET: SRPHOSTING_TYPE = SRPHOSTING_TYPE(2i32);
+impl ::core::marker::Copy for SRPHOSTING_TYPE {}
+impl ::core::clone::Clone for SRPHOSTING_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SRPHOSTING_VERSION(pub i32);
 pub const SRPHOSTING_VERSION1: SRPHOSTING_VERSION = SRPHOSTING_VERSION(1i32);
+impl ::core::marker::Copy for SRPHOSTING_VERSION {}
+impl ::core::clone::Clone for SRPHOSTING_VERSION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

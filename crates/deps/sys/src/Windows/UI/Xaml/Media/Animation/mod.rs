@@ -20,6 +20,12 @@ impl ClockState {
     pub const Filling: Self = Self(1i32);
     pub const Stopped: Self = Self(2i32);
 }
+impl ::core::marker::Copy for ClockState {}
+impl ::core::clone::Clone for ClockState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ColorAnimation(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -39,6 +45,12 @@ impl ConnectedAnimationComponent {
     pub const OffsetY: Self = Self(1i32);
     pub const CrossFade: Self = Self(2i32);
     pub const Scale: Self = Self(3i32);
+}
+impl ::core::marker::Copy for ConnectedAnimationComponent {}
+impl ::core::clone::Clone for ConnectedAnimationComponent {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct ConnectedAnimationConfiguration(pub *mut ::core::ffi::c_void);
@@ -93,6 +105,12 @@ impl EasingMode {
     pub const EaseIn: Self = Self(1i32);
     pub const EaseInOut: Self = Self(2i32);
 }
+impl ::core::marker::Copy for EasingMode {}
+impl ::core::clone::Clone for EasingMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct EasingPointKeyFrame(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -114,6 +132,12 @@ pub struct FillBehavior(pub i32);
 impl FillBehavior {
     pub const HoldEnd: Self = Self(0i32);
     pub const Stop: Self = Self(1i32);
+}
+impl ::core::marker::Copy for FillBehavior {}
+impl ::core::clone::Clone for FillBehavior {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct GravityConnectedAnimationConfiguration(pub *mut ::core::ffi::c_void);
@@ -429,9 +453,19 @@ pub struct ITransition(pub *mut ::core::ffi::c_void);
 pub struct ITransitionFactory(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct KeySpline(pub *mut ::core::ffi::c_void);
-#[cfg(feature = "Foundation")]
 #[repr(C)]
-pub struct KeyTime(i32);
+#[cfg(feature = "Foundation")]
+pub struct KeyTime {
+    pub TimeSpan: super::super::super::super::Foundation::TimeSpan,
+}
+#[cfg(feature = "Foundation")]
+impl ::core::marker::Copy for KeyTime {}
+#[cfg(feature = "Foundation")]
+impl ::core::clone::Clone for KeyTime {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct KeyTimeHelper(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -480,9 +514,21 @@ pub struct QuarticEase(pub *mut ::core::ffi::c_void);
 pub struct QuinticEase(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ReorderThemeTransition(pub *mut ::core::ffi::c_void);
-#[cfg(feature = "Foundation")]
 #[repr(C)]
-pub struct RepeatBehavior(i32);
+#[cfg(feature = "Foundation")]
+pub struct RepeatBehavior {
+    pub Count: f64,
+    pub Duration: super::super::super::super::Foundation::TimeSpan,
+    pub Type: RepeatBehaviorType,
+}
+#[cfg(feature = "Foundation")]
+impl ::core::marker::Copy for RepeatBehavior {}
+#[cfg(feature = "Foundation")]
+impl ::core::clone::Clone for RepeatBehavior {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RepeatBehaviorHelper(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -491,6 +537,12 @@ impl RepeatBehaviorType {
     pub const Count: Self = Self(0i32);
     pub const Duration: Self = Self(1i32);
     pub const Forever: Self = Self(2i32);
+}
+impl ::core::marker::Copy for RepeatBehaviorType {}
+impl ::core::clone::Clone for RepeatBehaviorType {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct RepositionThemeAnimation(pub *mut ::core::ffi::c_void);
@@ -504,6 +556,12 @@ impl SlideNavigationTransitionEffect {
     pub const FromBottom: Self = Self(0i32);
     pub const FromLeft: Self = Self(1i32);
     pub const FromRight: Self = Self(2i32);
+}
+impl ::core::marker::Copy for SlideNavigationTransitionEffect {}
+impl ::core::clone::Clone for SlideNavigationTransitionEffect {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct SlideNavigationTransitionInfo(pub *mut ::core::ffi::c_void);

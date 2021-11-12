@@ -8,6 +8,12 @@ impl GuidanceAudioMeasurementSystem {
     pub const MilesAndYards: Self = Self(1i32);
     pub const MilesAndFeet: Self = Self(2i32);
 }
+impl ::core::marker::Copy for GuidanceAudioMeasurementSystem {}
+impl ::core::clone::Clone for GuidanceAudioMeasurementSystem {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct GuidanceAudioNotificationKind(pub i32);
 impl GuidanceAudioNotificationKind {
@@ -17,6 +23,12 @@ impl GuidanceAudioNotificationKind {
     pub const SpeedLimit: Self = Self(3i32);
     pub const Traffic: Self = Self(4i32);
     pub const TrafficCamera: Self = Self(5i32);
+}
+impl ::core::marker::Copy for GuidanceAudioNotificationKind {}
+impl ::core::clone::Clone for GuidanceAudioNotificationKind {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct GuidanceAudioNotificationRequestedEventArgs(pub *mut ::core::ffi::c_void);
@@ -30,6 +42,12 @@ impl GuidanceAudioNotifications {
     pub const SpeedLimit: Self = Self(8u32);
     pub const Traffic: Self = Self(16u32);
     pub const TrafficCamera: Self = Self(32u32);
+}
+impl ::core::marker::Copy for GuidanceAudioNotifications {}
+impl ::core::clone::Clone for GuidanceAudioNotifications {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct GuidanceLaneInfo(pub *mut ::core::ffi::c_void);
@@ -47,6 +65,12 @@ impl GuidanceLaneMarkers {
     pub const LightLeft: Self = Self(128u32);
     pub const UTurnRight: Self = Self(256u32);
     pub const Unknown: Self = Self(4294967295u32);
+}
+impl ::core::marker::Copy for GuidanceLaneMarkers {}
+impl ::core::clone::Clone for GuidanceLaneMarkers {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct GuidanceManeuver(pub *mut ::core::ffi::c_void);
@@ -102,6 +126,12 @@ impl GuidanceManeuverKind {
     pub const PassTransitStation: Self = Self(46i32);
     pub const LeaveTransitStation: Self = Self(47i32);
 }
+impl ::core::marker::Copy for GuidanceManeuverKind {}
+impl ::core::clone::Clone for GuidanceManeuverKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct GuidanceMapMatchedCoordinate(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -111,6 +141,12 @@ impl GuidanceMode {
     pub const Simulation: Self = Self(1i32);
     pub const Navigation: Self = Self(2i32);
     pub const Tracking: Self = Self(3i32);
+}
+impl ::core::marker::Copy for GuidanceMode {}
+impl ::core::clone::Clone for GuidanceMode {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct GuidanceNavigator(pub *mut ::core::ffi::c_void);

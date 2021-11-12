@@ -16,11 +16,23 @@ pub const PROPERTY_ACCOUNTING_SQL_MAX_SESSIONS: ACCOUNTINGPROPERTIES = ACCOUNTIN
 pub const PROPERTY_ACCOUNTING_LOG_AUTHENTICATION_INTERIM: ACCOUNTINGPROPERTIES = ACCOUNTINGPROPERTIES(1036i32);
 pub const PROPERTY_ACCOUNTING_LOG_FILE_IS_BACKUP: ACCOUNTINGPROPERTIES = ACCOUNTINGPROPERTIES(1037i32);
 pub const PROPERTY_ACCOUNTING_DISCARD_REQUEST_ON_FAILURE: ACCOUNTINGPROPERTIES = ACCOUNTINGPROPERTIES(1038i32);
+impl ::core::marker::Copy for ACCOUNTINGPROPERTIES {}
+impl ::core::clone::Clone for ACCOUNTINGPROPERTIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ATTRIBUTEFILTER(pub i32);
 pub const ATTRIBUTE_FILTER_NONE: ATTRIBUTEFILTER = ATTRIBUTEFILTER(0i32);
 pub const ATTRIBUTE_FILTER_VPN_DIALUP: ATTRIBUTEFILTER = ATTRIBUTEFILTER(1i32);
 pub const ATTRIBUTE_FILTER_IEEE_802_1x: ATTRIBUTEFILTER = ATTRIBUTEFILTER(2i32);
+impl ::core::marker::Copy for ATTRIBUTEFILTER {}
+impl ::core::clone::Clone for ATTRIBUTEFILTER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ATTRIBUTEID(pub u32);
 pub const ATTRIBUTE_UNDEFINED: ATTRIBUTEID = ATTRIBUTEID(0u32);
@@ -266,6 +278,12 @@ pub const RAS_ATTRIBUTE_ENCRYPTION_POLICY: ATTRIBUTEID = ATTRIBUTEID(4294967207u
 pub const RAS_ATTRIBUTE_BAP_REQUIRED: ATTRIBUTEID = ATTRIBUTEID(4294967208u32);
 pub const RAS_ATTRIBUTE_BAP_LINE_DOWN_TIME: ATTRIBUTEID = ATTRIBUTEID(4294967209u32);
 pub const RAS_ATTRIBUTE_BAP_LINE_DOWN_LIMIT: ATTRIBUTEID = ATTRIBUTEID(4294967210u32);
+impl ::core::marker::Copy for ATTRIBUTEID {}
+impl ::core::clone::Clone for ATTRIBUTEID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ATTRIBUTEINFO(pub i32);
 pub const NAME: ATTRIBUTEINFO = ATTRIBUTEINFO(1i32);
@@ -275,6 +293,12 @@ pub const DESCRIPTION: ATTRIBUTEINFO = ATTRIBUTEINFO(4i32);
 pub const VENDORID: ATTRIBUTEINFO = ATTRIBUTEINFO(5i32);
 pub const LDAPNAME: ATTRIBUTEINFO = ATTRIBUTEINFO(6i32);
 pub const VENDORTYPE: ATTRIBUTEINFO = ATTRIBUTEINFO(7i32);
+impl ::core::marker::Copy for ATTRIBUTEINFO {}
+impl ::core::clone::Clone for ATTRIBUTEINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ATTRIBUTEPROPERTIES(pub i32);
 pub const PROPERTY_ATTRIBUTE_ID: ATTRIBUTEPROPERTIES = ATTRIBUTEPROPERTIES(1024i32);
@@ -295,6 +319,12 @@ pub const PROPERTY_ATTRIBUTE_ALLOW_IN_PROXY_CONDITION: ATTRIBUTEPROPERTIES = ATT
 pub const PROPERTY_ATTRIBUTE_ALLOW_IN_VPNDIALUP: ATTRIBUTEPROPERTIES = ATTRIBUTEPROPERTIES(1039i32);
 pub const PROPERTY_ATTRIBUTE_ALLOW_IN_8021X: ATTRIBUTEPROPERTIES = ATTRIBUTEPROPERTIES(1040i32);
 pub const PROPERTY_ATTRIBUTE_ENUM_FILTERS: ATTRIBUTEPROPERTIES = ATTRIBUTEPROPERTIES(1041i32);
+impl ::core::marker::Copy for ATTRIBUTEPROPERTIES {}
+impl ::core::clone::Clone for ATTRIBUTEPROPERTIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ATTRIBUTERESTRICTIONS(pub i32);
 pub const MULTIVALUED: ATTRIBUTERESTRICTIONS = ATTRIBUTERESTRICTIONS(1i32);
@@ -304,6 +334,12 @@ pub const ALLOWEDINPROXYPROFILE: ATTRIBUTERESTRICTIONS = ATTRIBUTERESTRICTIONS(8
 pub const ALLOWEDINPROXYCONDITION: ATTRIBUTERESTRICTIONS = ATTRIBUTERESTRICTIONS(16i32);
 pub const ALLOWEDINVPNDIALUP: ATTRIBUTERESTRICTIONS = ATTRIBUTERESTRICTIONS(32i32);
 pub const ALLOWEDIN8021X: ATTRIBUTERESTRICTIONS = ATTRIBUTERESTRICTIONS(64i32);
+impl ::core::marker::Copy for ATTRIBUTERESTRICTIONS {}
+impl ::core::clone::Clone for ATTRIBUTERESTRICTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ATTRIBUTESYNTAX(pub i32);
 pub const IAS_SYNTAX_BOOLEAN: ATTRIBUTESYNTAX = ATTRIBUTESYNTAX(1i32);
@@ -316,6 +352,12 @@ pub const IAS_SYNTAX_UTCTIME: ATTRIBUTESYNTAX = ATTRIBUTESYNTAX(7i32);
 pub const IAS_SYNTAX_PROVIDERSPECIFIC: ATTRIBUTESYNTAX = ATTRIBUTESYNTAX(8i32);
 pub const IAS_SYNTAX_UNSIGNEDINTEGER: ATTRIBUTESYNTAX = ATTRIBUTESYNTAX(9i32);
 pub const IAS_SYNTAX_INETADDR6: ATTRIBUTESYNTAX = ATTRIBUTESYNTAX(10i32);
+impl ::core::marker::Copy for ATTRIBUTESYNTAX {}
+impl ::core::clone::Clone for ATTRIBUTESYNTAX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AUTHENTICATION_TYPE(pub i32);
 pub const IAS_AUTH_INVALID: AUTHENTICATION_TYPE = AUTHENTICATION_TYPE(0i32);
@@ -330,6 +372,12 @@ pub const IAS_AUTH_CUSTOM: AUTHENTICATION_TYPE = AUTHENTICATION_TYPE(8i32);
 pub const IAS_AUTH_MSCHAP_CPW: AUTHENTICATION_TYPE = AUTHENTICATION_TYPE(9i32);
 pub const IAS_AUTH_MSCHAP2_CPW: AUTHENTICATION_TYPE = AUTHENTICATION_TYPE(10i32);
 pub const IAS_AUTH_PEAP: AUTHENTICATION_TYPE = AUTHENTICATION_TYPE(11i32);
+impl ::core::marker::Copy for AUTHENTICATION_TYPE {}
+impl ::core::clone::Clone for AUTHENTICATION_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CLIENTPROPERTIES(pub i32);
 pub const PROPERTY_CLIENT_REQUIRE_SIGNATURE: CLIENTPROPERTIES = CLIENTPROPERTIES(1024i32);
@@ -340,13 +388,31 @@ pub const PROPERTY_CLIENT_ADDRESS: CLIENTPROPERTIES = CLIENTPROPERTIES(1028i32);
 pub const PROPERTY_CLIENT_QUARANTINE_COMPATIBLE: CLIENTPROPERTIES = CLIENTPROPERTIES(1029i32);
 pub const PROPERTY_CLIENT_ENABLED: CLIENTPROPERTIES = CLIENTPROPERTIES(1030i32);
 pub const PROPERTY_CLIENT_SECRET_TEMPLATE_GUID: CLIENTPROPERTIES = CLIENTPROPERTIES(1031i32);
+impl ::core::marker::Copy for CLIENTPROPERTIES {}
+impl ::core::clone::Clone for CLIENTPROPERTIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CONDITIONPROPERTIES(pub i32);
 pub const PROPERTY_CONDITION_TEXT: CONDITIONPROPERTIES = CONDITIONPROPERTIES(1024i32);
+impl ::core::marker::Copy for CONDITIONPROPERTIES {}
+impl ::core::clone::Clone for CONDITIONPROPERTIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DICTIONARYPROPERTIES(pub i32);
 pub const PROPERTY_DICTIONARY_ATTRIBUTES_COLLECTION: DICTIONARYPROPERTIES = DICTIONARYPROPERTIES(1024i32);
 pub const PROPERTY_DICTIONARY_LOCATION: DICTIONARYPROPERTIES = DICTIONARYPROPERTIES(1025i32);
+impl ::core::marker::Copy for DICTIONARYPROPERTIES {}
+impl ::core::clone::Clone for DICTIONARYPROPERTIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IASCOMMONPROPERTIES(pub i32);
 pub const PROPERTY_SDO_RESERVED: IASCOMMONPROPERTIES = IASCOMMONPROPERTIES(0i32);
@@ -358,21 +424,45 @@ pub const PROPERTY_SDO_DATASTORE_NAME: IASCOMMONPROPERTIES = IASCOMMONPROPERTIES
 pub const PROPERTY_SDO_TEMPLATE_GUID: IASCOMMONPROPERTIES = IASCOMMONPROPERTIES(6i32);
 pub const PROPERTY_SDO_OPAQUE: IASCOMMONPROPERTIES = IASCOMMONPROPERTIES(7i32);
 pub const PROPERTY_SDO_START: IASCOMMONPROPERTIES = IASCOMMONPROPERTIES(1024i32);
+impl ::core::marker::Copy for IASCOMMONPROPERTIES {}
+impl ::core::clone::Clone for IASCOMMONPROPERTIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IASCOMPONENTPROPERTIES(pub i32);
 pub const PROPERTY_COMPONENT_ID: IASCOMPONENTPROPERTIES = IASCOMPONENTPROPERTIES(1024i32);
 pub const PROPERTY_COMPONENT_PROG_ID: IASCOMPONENTPROPERTIES = IASCOMPONENTPROPERTIES(1025i32);
 pub const PROPERTY_COMPONENT_START: IASCOMPONENTPROPERTIES = IASCOMPONENTPROPERTIES(1026i32);
+impl ::core::marker::Copy for IASCOMPONENTPROPERTIES {}
+impl ::core::clone::Clone for IASCOMPONENTPROPERTIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IASDATASTORE(pub i32);
 pub const DATA_STORE_LOCAL: IASDATASTORE = IASDATASTORE(0i32);
 pub const DATA_STORE_DIRECTORY: IASDATASTORE = IASDATASTORE(1i32);
+impl ::core::marker::Copy for IASDATASTORE {}
+impl ::core::clone::Clone for IASDATASTORE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IASDOMAINTYPE(pub i32);
 pub const DOMAIN_TYPE_NONE: IASDOMAINTYPE = IASDOMAINTYPE(0i32);
 pub const DOMAIN_TYPE_NT4: IASDOMAINTYPE = IASDOMAINTYPE(1i32);
 pub const DOMAIN_TYPE_NT5: IASDOMAINTYPE = IASDOMAINTYPE(2i32);
 pub const DOMAIN_TYPE_MIXED: IASDOMAINTYPE = IASDOMAINTYPE(3i32);
+impl ::core::marker::Copy for IASDOMAINTYPE {}
+impl ::core::clone::Clone for IASDOMAINTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IASOSTYPE(pub i32);
 pub const SYSTEM_TYPE_NT4_WORKSTATION: IASOSTYPE = IASOSTYPE(0i32);
@@ -389,6 +479,12 @@ pub const SYSTEM_TYPE_NT6_1_SERVER: IASOSTYPE = IASOSTYPE(10i32);
 pub const SYSTEM_TYPE_NT6_2_SERVER: IASOSTYPE = IASOSTYPE(11i32);
 pub const SYSTEM_TYPE_NT6_3_SERVER: IASOSTYPE = IASOSTYPE(12i32);
 pub const SYSTEM_TYPE_NT10_0_SERVER: IASOSTYPE = IASOSTYPE(13i32);
+impl ::core::marker::Copy for IASOSTYPE {}
+impl ::core::clone::Clone for IASOSTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IASPROPERTIES(pub i32);
 pub const PROPERTY_IAS_RADIUSSERVERGROUPS_COLLECTION: IASPROPERTIES = IASPROPERTIES(1024i32);
@@ -401,12 +497,30 @@ pub const PROPERTY_IAS_PROXYPOLICIES_COLLECTION: IASPROPERTIES = IASPROPERTIES(1
 pub const PROPERTY_IAS_PROXYPROFILES_COLLECTION: IASPROPERTIES = IASPROPERTIES(1031i32);
 pub const PROPERTY_IAS_REMEDIATIONSERVERGROUPS_COLLECTION: IASPROPERTIES = IASPROPERTIES(1032i32);
 pub const PROPERTY_IAS_SHVTEMPLATES_COLLECTION: IASPROPERTIES = IASPROPERTIES(1033i32);
+impl ::core::marker::Copy for IASPROPERTIES {}
+impl ::core::clone::Clone for IASPROPERTIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDENTITY_TYPE(pub i32);
 pub const IAS_IDENTITY_NO_DEFAULT: IDENTITY_TYPE = IDENTITY_TYPE(1i32);
+impl ::core::marker::Copy for IDENTITY_TYPE {}
+impl ::core::clone::Clone for IDENTITY_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPFILTERPROPERTIES(pub i32);
 pub const PROPERTY_IPFILTER_ATTRIBUTES_COLLECTION: IPFILTERPROPERTIES = IPFILTERPROPERTIES(1024i32);
+impl ::core::marker::Copy for IPFILTERPROPERTIES {}
+impl ::core::clone::Clone for IPFILTERPROPERTIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISdo(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -424,10 +538,22 @@ pub struct ITemplateSdo(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct NAMESPROPERTIES(pub i32);
 pub const PROPERTY_NAMES_REALMS: NAMESPROPERTIES = NAMESPROPERTIES(1026i32);
+impl ::core::marker::Copy for NAMESPROPERTIES {}
+impl ::core::clone::Clone for NAMESPROPERTIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct NAPPROPERTIES(pub i32);
 pub const PROPERTY_NAP_POLICIES_COLLECTION: NAPPROPERTIES = NAPPROPERTIES(1026i32);
 pub const PROPERTY_SHV_TEMPLATES_COLLECTION: NAPPROPERTIES = NAPPROPERTIES(1027i32);
+impl ::core::marker::Copy for NAPPROPERTIES {}
+impl ::core::clone::Clone for NAPPROPERTIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct NEW_LOG_FILE_FREQUENCY(pub i32);
 pub const IAS_LOGGING_UNLIMITED_SIZE: NEW_LOG_FILE_FREQUENCY = NEW_LOG_FILE_FREQUENCY(0i32);
@@ -435,14 +561,32 @@ pub const IAS_LOGGING_DAILY: NEW_LOG_FILE_FREQUENCY = NEW_LOG_FILE_FREQUENCY(1i3
 pub const IAS_LOGGING_WEEKLY: NEW_LOG_FILE_FREQUENCY = NEW_LOG_FILE_FREQUENCY(2i32);
 pub const IAS_LOGGING_MONTHLY: NEW_LOG_FILE_FREQUENCY = NEW_LOG_FILE_FREQUENCY(3i32);
 pub const IAS_LOGGING_WHEN_FILE_SIZE_REACHES: NEW_LOG_FILE_FREQUENCY = NEW_LOG_FILE_FREQUENCY(4i32);
+impl ::core::marker::Copy for NEW_LOG_FILE_FREQUENCY {}
+impl ::core::clone::Clone for NEW_LOG_FILE_FREQUENCY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct NTEVENTLOGPROPERTIES(pub i32);
 pub const PROPERTY_EVENTLOG_LOG_APPLICATION_EVENTS: NTEVENTLOGPROPERTIES = NTEVENTLOGPROPERTIES(1026i32);
 pub const PROPERTY_EVENTLOG_LOG_MALFORMED: NTEVENTLOGPROPERTIES = NTEVENTLOGPROPERTIES(1027i32);
 pub const PROPERTY_EVENTLOG_LOG_DEBUG: NTEVENTLOGPROPERTIES = NTEVENTLOGPROPERTIES(1028i32);
+impl ::core::marker::Copy for NTEVENTLOGPROPERTIES {}
+impl ::core::clone::Clone for NTEVENTLOGPROPERTIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct NTSAMPROPERTIES(pub i32);
 pub const PROPERTY_NTSAM_ALLOW_LM_AUTHENTICATION: NTSAMPROPERTIES = NTSAMPROPERTIES(1026i32);
+impl ::core::marker::Copy for NTSAMPROPERTIES {}
+impl ::core::clone::Clone for NTSAMPROPERTIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct POLICYPROPERTIES(pub i32);
 pub const PROPERTY_POLICY_CONSTRAINT: POLICYPROPERTIES = POLICYPROPERTIES(1024i32);
@@ -454,6 +598,12 @@ pub const PROPERTY_POLICY_ACTION: POLICYPROPERTIES = POLICYPROPERTIES(1029i32);
 pub const PROPERTY_POLICY_CONDITIONS_COLLECTION: POLICYPROPERTIES = POLICYPROPERTIES(1030i32);
 pub const PROPERTY_POLICY_ENABLED: POLICYPROPERTIES = POLICYPROPERTIES(1031i32);
 pub const PROPERTY_POLICY_SOURCETAG: POLICYPROPERTIES = POLICYPROPERTIES(1032i32);
+impl ::core::marker::Copy for POLICYPROPERTIES {}
+impl ::core::clone::Clone for POLICYPROPERTIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub type PRADIUS_EXTENSION_FREE_ATTRIBUTES = unsafe extern "system" fn(pattrs: *mut RADIUS_ATTRIBUTE);
 pub type PRADIUS_EXTENSION_INIT = unsafe extern "system" fn() -> u32;
 pub type PRADIUS_EXTENSION_PROCESS = unsafe extern "system" fn(pattrs: *const RADIUS_ATTRIBUTE, pfaction: *mut RADIUS_ACTION) -> u32;
@@ -464,22 +614,52 @@ pub type PRADIUS_EXTENSION_TERM = unsafe extern "system" fn();
 pub struct PROFILEPROPERTIES(pub i32);
 pub const PROPERTY_PROFILE_ATTRIBUTES_COLLECTION: PROFILEPROPERTIES = PROFILEPROPERTIES(1024i32);
 pub const PROPERTY_PROFILE_IPFILTER_TEMPLATE_GUID: PROFILEPROPERTIES = PROFILEPROPERTIES(1025i32);
+impl ::core::marker::Copy for PROFILEPROPERTIES {}
+impl ::core::clone::Clone for PROFILEPROPERTIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PROTOCOLPROPERTIES(pub i32);
 pub const PROPERTY_PROTOCOL_REQUEST_HANDLER: PROTOCOLPROPERTIES = PROTOCOLPROPERTIES(1026i32);
 pub const PROPERTY_PROTOCOL_START: PROTOCOLPROPERTIES = PROTOCOLPROPERTIES(1027i32);
+impl ::core::marker::Copy for PROTOCOLPROPERTIES {}
+impl ::core::clone::Clone for PROTOCOLPROPERTIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RADIUSPROPERTIES(pub i32);
 pub const PROPERTY_RADIUS_ACCOUNTING_PORT: RADIUSPROPERTIES = RADIUSPROPERTIES(1027i32);
 pub const PROPERTY_RADIUS_AUTHENTICATION_PORT: RADIUSPROPERTIES = RADIUSPROPERTIES(1028i32);
 pub const PROPERTY_RADIUS_CLIENTS_COLLECTION: RADIUSPROPERTIES = RADIUSPROPERTIES(1029i32);
 pub const PROPERTY_RADIUS_VENDORS_COLLECTION: RADIUSPROPERTIES = RADIUSPROPERTIES(1030i32);
+impl ::core::marker::Copy for RADIUSPROPERTIES {}
+impl ::core::clone::Clone for RADIUSPROPERTIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RADIUSPROXYPROPERTIES(pub i32);
 pub const PROPERTY_RADIUSPROXY_SERVERGROUPS: RADIUSPROXYPROPERTIES = RADIUSPROXYPROPERTIES(1026i32);
+impl ::core::marker::Copy for RADIUSPROXYPROPERTIES {}
+impl ::core::clone::Clone for RADIUSPROXYPROPERTIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RADIUSSERVERGROUPPROPERTIES(pub i32);
 pub const PROPERTY_RADIUSSERVERGROUP_SERVERS_COLLECTION: RADIUSSERVERGROUPPROPERTIES = RADIUSSERVERGROUPPROPERTIES(1024i32);
+impl ::core::marker::Copy for RADIUSSERVERGROUPPROPERTIES {}
+impl ::core::clone::Clone for RADIUSSERVERGROUPPROPERTIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RADIUSSERVERPROPERTIES(pub i32);
 pub const PROPERTY_RADIUSSERVER_AUTH_PORT: RADIUSSERVERPROPERTIES = RADIUSSERVERPROPERTIES(1024i32);
@@ -496,15 +676,63 @@ pub const PROPERTY_RADIUSSERVER_BLACKOUT: RADIUSSERVERPROPERTIES = RADIUSSERVERP
 pub const PROPERTY_RADIUSSERVER_SEND_SIGNATURE: RADIUSSERVERPROPERTIES = RADIUSSERVERPROPERTIES(1035i32);
 pub const PROPERTY_RADIUSSERVER_AUTH_SECRET_TEMPLATE_GUID: RADIUSSERVERPROPERTIES = RADIUSSERVERPROPERTIES(1036i32);
 pub const PROPERTY_RADIUSSERVER_ACCT_SECRET_TEMPLATE_GUID: RADIUSSERVERPROPERTIES = RADIUSSERVERPROPERTIES(1037i32);
+impl ::core::marker::Copy for RADIUSSERVERPROPERTIES {}
+impl ::core::clone::Clone for RADIUSSERVERPROPERTIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RADIUS_ACTION(pub i32);
 pub const raContinue: RADIUS_ACTION = RADIUS_ACTION(0i32);
 pub const raReject: RADIUS_ACTION = RADIUS_ACTION(1i32);
 pub const raAccept: RADIUS_ACTION = RADIUS_ACTION(2i32);
+impl ::core::marker::Copy for RADIUS_ACTION {}
+impl ::core::clone::Clone for RADIUS_ACTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct RADIUS_ATTRIBUTE(i32);
+pub struct RADIUS_ATTRIBUTE {
+    pub dwAttrType: u32,
+    pub fDataType: RADIUS_DATA_TYPE,
+    pub cbDataLength: u32,
+    pub Anonymous: RADIUS_ATTRIBUTE_0,
+}
+impl ::core::marker::Copy for RADIUS_ATTRIBUTE {}
+impl ::core::clone::Clone for RADIUS_ATTRIBUTE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct RADIUS_ATTRIBUTE_ARRAY(i32);
+pub union RADIUS_ATTRIBUTE_0 {
+    pub dwValue: u32,
+    pub lpValue: *mut u8,
+}
+impl ::core::marker::Copy for RADIUS_ATTRIBUTE_0 {}
+impl ::core::clone::Clone for RADIUS_ATTRIBUTE_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct RADIUS_ATTRIBUTE_ARRAY {
+    pub cbSize: u32,
+    pub Add: isize,
+    pub AttributeAt: *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut RADIUS_ATTRIBUTE,
+    pub GetSize: isize,
+    pub InsertAt: isize,
+    pub RemoveAt: isize,
+    pub SetAt: isize,
+}
+impl ::core::marker::Copy for RADIUS_ATTRIBUTE_ARRAY {}
+impl ::core::clone::Clone for RADIUS_ATTRIBUTE_ARRAY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RADIUS_ATTRIBUTE_TYPE(pub i32);
 pub const ratMinimum: RADIUS_ATTRIBUTE_TYPE = RADIUS_ATTRIBUTE_TYPE(0i32);
@@ -586,6 +814,12 @@ pub const ratProviderName: RADIUS_ATTRIBUTE_TYPE = RADIUS_ATTRIBUTE_TYPE(276i32)
 pub const ratClearTextPassword: RADIUS_ATTRIBUTE_TYPE = RADIUS_ATTRIBUTE_TYPE(277i32);
 pub const ratSrcIPv6Address: RADIUS_ATTRIBUTE_TYPE = RADIUS_ATTRIBUTE_TYPE(278i32);
 pub const ratCertificateThumbprint: RADIUS_ATTRIBUTE_TYPE = RADIUS_ATTRIBUTE_TYPE(279i32);
+impl ::core::marker::Copy for RADIUS_ATTRIBUTE_TYPE {}
+impl ::core::clone::Clone for RADIUS_ATTRIBUTE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RADIUS_AUTHENTICATION_PROVIDER(pub i32);
 pub const rapUnknown: RADIUS_AUTHENTICATION_PROVIDER = RADIUS_AUTHENTICATION_PROVIDER(0i32);
@@ -595,6 +829,12 @@ pub const rapWindowsNT: RADIUS_AUTHENTICATION_PROVIDER = RADIUS_AUTHENTICATION_P
 pub const rapMCIS: RADIUS_AUTHENTICATION_PROVIDER = RADIUS_AUTHENTICATION_PROVIDER(4i32);
 pub const rapODBC: RADIUS_AUTHENTICATION_PROVIDER = RADIUS_AUTHENTICATION_PROVIDER(5i32);
 pub const rapNone: RADIUS_AUTHENTICATION_PROVIDER = RADIUS_AUTHENTICATION_PROVIDER(6i32);
+impl ::core::marker::Copy for RADIUS_AUTHENTICATION_PROVIDER {}
+impl ::core::clone::Clone for RADIUS_AUTHENTICATION_PROVIDER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RADIUS_CODE(pub i32);
 pub const rcUnknown: RADIUS_CODE = RADIUS_CODE(0i32);
@@ -605,6 +845,12 @@ pub const rcAccountingRequest: RADIUS_CODE = RADIUS_CODE(4i32);
 pub const rcAccountingResponse: RADIUS_CODE = RADIUS_CODE(5i32);
 pub const rcAccessChallenge: RADIUS_CODE = RADIUS_CODE(11i32);
 pub const rcDiscard: RADIUS_CODE = RADIUS_CODE(256i32);
+impl ::core::marker::Copy for RADIUS_CODE {}
+impl ::core::clone::Clone for RADIUS_CODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RADIUS_DATA_TYPE(pub i32);
 pub const rdtUnknown: RADIUS_DATA_TYPE = RADIUS_DATA_TYPE(0i32);
@@ -613,12 +859,39 @@ pub const rdtAddress: RADIUS_DATA_TYPE = RADIUS_DATA_TYPE(2i32);
 pub const rdtInteger: RADIUS_DATA_TYPE = RADIUS_DATA_TYPE(3i32);
 pub const rdtTime: RADIUS_DATA_TYPE = RADIUS_DATA_TYPE(4i32);
 pub const rdtIpv6Address: RADIUS_DATA_TYPE = RADIUS_DATA_TYPE(5i32);
+impl ::core::marker::Copy for RADIUS_DATA_TYPE {}
+impl ::core::clone::Clone for RADIUS_DATA_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct RADIUS_EXTENSION_CONTROL_BLOCK(i32);
+pub struct RADIUS_EXTENSION_CONTROL_BLOCK {
+    pub cbSize: u32,
+    pub dwVersion: u32,
+    pub repPoint: RADIUS_EXTENSION_POINT,
+    pub rcRequestType: RADIUS_CODE,
+    pub rcResponseType: RADIUS_CODE,
+    pub GetRequest: isize,
+    pub GetResponse: isize,
+    pub SetResponseType: isize,
+}
+impl ::core::marker::Copy for RADIUS_EXTENSION_CONTROL_BLOCK {}
+impl ::core::clone::Clone for RADIUS_EXTENSION_CONTROL_BLOCK {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RADIUS_EXTENSION_POINT(pub i32);
 pub const repAuthentication: RADIUS_EXTENSION_POINT = RADIUS_EXTENSION_POINT(0i32);
 pub const repAuthorization: RADIUS_EXTENSION_POINT = RADIUS_EXTENSION_POINT(1i32);
+impl ::core::marker::Copy for RADIUS_EXTENSION_POINT {}
+impl ::core::clone::Clone for RADIUS_EXTENSION_POINT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const RADIUS_EXTENSION_VERSION: u32 = 1u32;
 #[repr(transparent)]
 pub struct RADIUS_REJECT_REASON_CODE(pub i32);
@@ -627,32 +900,85 @@ pub const rrrcAccountUnknown: RADIUS_REJECT_REASON_CODE = RADIUS_REJECT_REASON_C
 pub const rrrcAccountDisabled: RADIUS_REJECT_REASON_CODE = RADIUS_REJECT_REASON_CODE(2i32);
 pub const rrrcAccountExpired: RADIUS_REJECT_REASON_CODE = RADIUS_REJECT_REASON_CODE(3i32);
 pub const rrrcAuthenticationFailure: RADIUS_REJECT_REASON_CODE = RADIUS_REJECT_REASON_CODE(4i32);
+impl ::core::marker::Copy for RADIUS_REJECT_REASON_CODE {}
+impl ::core::clone::Clone for RADIUS_REJECT_REASON_CODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct RADIUS_VSA_FORMAT(i32);
+pub struct RADIUS_VSA_FORMAT {
+    pub VendorId: [u8; 4],
+    pub VendorType: u8,
+    pub VendorLength: u8,
+    pub AttributeSpecific: [u8; 1],
+}
+impl ::core::marker::Copy for RADIUS_VSA_FORMAT {}
+impl ::core::clone::Clone for RADIUS_VSA_FORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct REMEDIATIONSERVERGROUPPROPERTIES(pub i32);
 pub const PROPERTY_REMEDIATIONSERVERGROUP_SERVERS_COLLECTION: REMEDIATIONSERVERGROUPPROPERTIES = REMEDIATIONSERVERGROUPPROPERTIES(1024i32);
+impl ::core::marker::Copy for REMEDIATIONSERVERGROUPPROPERTIES {}
+impl ::core::clone::Clone for REMEDIATIONSERVERGROUPPROPERTIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct REMEDIATIONSERVERPROPERTIES(pub i32);
 pub const PROPERTY_REMEDIATIONSERVER_ADDRESS: REMEDIATIONSERVERPROPERTIES = REMEDIATIONSERVERPROPERTIES(1024i32);
 pub const PROPERTY_REMEDIATIONSERVER_FRIENDLY_NAME: REMEDIATIONSERVERPROPERTIES = REMEDIATIONSERVERPROPERTIES(1025i32);
+impl ::core::marker::Copy for REMEDIATIONSERVERPROPERTIES {}
+impl ::core::clone::Clone for REMEDIATIONSERVERPROPERTIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct REMEDIATIONSERVERSPROPERTIES(pub i32);
 pub const PROPERTY_REMEDIATIONSERVERS_SERVERGROUPS: REMEDIATIONSERVERSPROPERTIES = REMEDIATIONSERVERSPROPERTIES(1026i32);
+impl ::core::marker::Copy for REMEDIATIONSERVERSPROPERTIES {}
+impl ::core::clone::Clone for REMEDIATIONSERVERSPROPERTIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SERVICE_TYPE(pub i32);
 pub const SERVICE_TYPE_IAS: SERVICE_TYPE = SERVICE_TYPE(0i32);
 pub const SERVICE_TYPE_RAS: SERVICE_TYPE = SERVICE_TYPE(1i32);
 pub const SERVICE_TYPE_RAMGMTSVC: SERVICE_TYPE = SERVICE_TYPE(2i32);
 pub const SERVICE_TYPE_MAX: SERVICE_TYPE = SERVICE_TYPE(3i32);
+impl ::core::marker::Copy for SERVICE_TYPE {}
+impl ::core::clone::Clone for SERVICE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SHAREDSECRETPROPERTIES(pub i32);
 pub const PROPERTY_SHAREDSECRET_STRING: SHAREDSECRETPROPERTIES = SHAREDSECRETPROPERTIES(1024i32);
+impl ::core::marker::Copy for SHAREDSECRETPROPERTIES {}
+impl ::core::clone::Clone for SHAREDSECRETPROPERTIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SHVTEMPLATEPROPERTIES(pub i32);
 pub const PROPERTY_SHV_COMBINATION_TYPE: SHVTEMPLATEPROPERTIES = SHVTEMPLATEPROPERTIES(1024i32);
 pub const PROPERTY_SHV_LIST: SHVTEMPLATEPROPERTIES = SHVTEMPLATEPROPERTIES(1025i32);
 pub const PROPERTY_SHVCONFIG_LIST: SHVTEMPLATEPROPERTIES = SHVTEMPLATEPROPERTIES(1026i32);
+impl ::core::marker::Copy for SHVTEMPLATEPROPERTIES {}
+impl ::core::clone::Clone for SHVTEMPLATEPROPERTIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SHV_COMBINATION_TYPE(pub i32);
 pub const SHV_COMBINATION_TYPE_ALL_PASS: SHV_COMBINATION_TYPE = SHV_COMBINATION_TYPE(0i32);
@@ -663,8 +989,13 @@ pub const SHV_COMBINATION_TYPE_ONE_OR_MORE_INFECTED: SHV_COMBINATION_TYPE = SHV_
 pub const SHV_COMBINATION_TYPE_ONE_OR_MORE_TRANSITIONAL: SHV_COMBINATION_TYPE = SHV_COMBINATION_TYPE(5i32);
 pub const SHV_COMBINATION_TYPE_ONE_OR_MORE_UNKNOWN: SHV_COMBINATION_TYPE = SHV_COMBINATION_TYPE(6i32);
 pub const SHV_COMBINATION_TYPE_MAX: SHV_COMBINATION_TYPE = SHV_COMBINATION_TYPE(7i32);
-#[repr(C)]
-pub struct SdoMachine(i32);
+impl ::core::marker::Copy for SHV_COMBINATION_TYPE {}
+impl ::core::clone::Clone for SHV_COMBINATION_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+pub const SdoMachine: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3911289575, data2: 40593, data3: 4561, data4: [191, 96, 0, 128, 199, 132, 107, 192] };
 #[repr(transparent)]
 pub struct TEMPLATESPROPERTIES(pub i32);
 pub const PROPERTY_TEMPLATES_POLICIES_TEMPLATES: TEMPLATESPROPERTIES = TEMPLATESPROPERTIES(1024i32);
@@ -679,6 +1010,12 @@ pub const PROPERTY_TEMPLATES_CLIENTS_TEMPLATES: TEMPLATESPROPERTIES = TEMPLATESP
 pub const PROPERTY_TEMPLATES_RADIUSSERVERS_TEMPLATES: TEMPLATESPROPERTIES = TEMPLATESPROPERTIES(1033i32);
 pub const PROPERTY_TEMPLATES_SHAREDSECRETS_TEMPLATES: TEMPLATESPROPERTIES = TEMPLATESPROPERTIES(1034i32);
 pub const PROPERTY_TEMPLATES_IPFILTERS_TEMPLATES: TEMPLATESPROPERTIES = TEMPLATESPROPERTIES(1035i32);
+impl ::core::marker::Copy for TEMPLATESPROPERTIES {}
+impl ::core::clone::Clone for TEMPLATESPROPERTIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct USERPROPERTIES(pub i32);
 pub const PROPERTY_USER_CALLING_STATION_ID: USERPROPERTIES = USERPROPERTIES(1024i32);
@@ -697,6 +1034,18 @@ pub const PROPERTY_USER_RADIUS_FRAMED_INTERFACE_ID: USERPROPERTIES = USERPROPERT
 pub const PROPERTY_USER_SAVED_RADIUS_FRAMED_INTERFACE_ID: USERPROPERTIES = USERPROPERTIES(1037i32);
 pub const PROPERTY_USER_RADIUS_FRAMED_IPV6_PREFIX: USERPROPERTIES = USERPROPERTIES(1038i32);
 pub const PROPERTY_USER_SAVED_RADIUS_FRAMED_IPV6_PREFIX: USERPROPERTIES = USERPROPERTIES(1039i32);
+impl ::core::marker::Copy for USERPROPERTIES {}
+impl ::core::clone::Clone for USERPROPERTIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct VENDORPROPERTIES(pub i32);
 pub const PROPERTY_NAS_VENDOR_ID: VENDORPROPERTIES = VENDORPROPERTIES(1024i32);
+impl ::core::marker::Copy for VENDORPROPERTIES {}
+impl ::core::clone::Clone for VENDORPROPERTIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

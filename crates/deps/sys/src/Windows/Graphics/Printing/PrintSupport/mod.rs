@@ -35,10 +35,22 @@ impl SettingsLaunchKind {
     pub const JobPrintTicket: Self = Self(0i32);
     pub const UserDefaultPrintTicket: Self = Self(1i32);
 }
+impl ::core::marker::Copy for SettingsLaunchKind {}
+impl ::core::clone::Clone for SettingsLaunchKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WorkflowPrintTicketValidationStatus(pub i32);
 impl WorkflowPrintTicketValidationStatus {
     pub const Resolved: Self = Self(0i32);
     pub const Conflicting: Self = Self(1i32);
     pub const Invalid: Self = Self(2i32);
+}
+impl ::core::marker::Copy for WorkflowPrintTicketValidationStatus {}
+impl ::core::clone::Clone for WorkflowPrintTicketValidationStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
 }

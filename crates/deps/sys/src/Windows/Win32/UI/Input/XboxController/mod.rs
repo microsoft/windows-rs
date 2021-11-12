@@ -23,9 +23,30 @@ pub const BATTERY_TYPE_NIMH: u32 = 3u32;
 pub const BATTERY_TYPE_UNKNOWN: u32 = 255u32;
 pub const BATTERY_TYPE_WIRED: u32 = 1u32;
 #[repr(C)]
-pub struct XINPUT_BATTERY_INFORMATION(i32);
+pub struct XINPUT_BATTERY_INFORMATION {
+    pub BatteryType: u8,
+    pub BatteryLevel: u8,
+}
+impl ::core::marker::Copy for XINPUT_BATTERY_INFORMATION {}
+impl ::core::clone::Clone for XINPUT_BATTERY_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct XINPUT_CAPABILITIES(i32);
+pub struct XINPUT_CAPABILITIES {
+    pub Type: u8,
+    pub SubType: u8,
+    pub Flags: u16,
+    pub Gamepad: XINPUT_GAMEPAD,
+    pub Vibration: XINPUT_VIBRATION,
+}
+impl ::core::marker::Copy for XINPUT_CAPABILITIES {}
+impl ::core::clone::Clone for XINPUT_CAPABILITIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const XINPUT_CAPS_FFB_SUPPORTED: u32 = 1u32;
 pub const XINPUT_CAPS_NO_NAVIGATION: u32 = 16u32;
 pub const XINPUT_CAPS_PMD_SUPPORTED: u32 = 8u32;
@@ -45,7 +66,21 @@ pub const XINPUT_DEVSUBTYPE_WHEEL: u32 = 2u32;
 pub const XINPUT_DEVTYPE_GAMEPAD: u32 = 1u32;
 pub const XINPUT_FLAG_GAMEPAD: u32 = 1u32;
 #[repr(C)]
-pub struct XINPUT_GAMEPAD(i32);
+pub struct XINPUT_GAMEPAD {
+    pub wButtons: u16,
+    pub bLeftTrigger: u8,
+    pub bRightTrigger: u8,
+    pub sThumbLX: i16,
+    pub sThumbLY: i16,
+    pub sThumbRX: i16,
+    pub sThumbRY: i16,
+}
+impl ::core::marker::Copy for XINPUT_GAMEPAD {}
+impl ::core::clone::Clone for XINPUT_GAMEPAD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const XINPUT_GAMEPAD_A: u32 = 4096u32;
 pub const XINPUT_GAMEPAD_B: u32 = 8192u32;
 pub const XINPUT_GAMEPAD_BACK: u32 = 32u32;
@@ -64,14 +99,44 @@ pub const XINPUT_GAMEPAD_TRIGGER_THRESHOLD: u32 = 30u32;
 pub const XINPUT_GAMEPAD_X: u32 = 16384u32;
 pub const XINPUT_GAMEPAD_Y: u32 = 32768u32;
 #[repr(C)]
-pub struct XINPUT_KEYSTROKE(i32);
+pub struct XINPUT_KEYSTROKE {
+    pub VirtualKey: XINPUT_VIRTUAL_KEY,
+    pub Unicode: u16,
+    pub Flags: u16,
+    pub UserIndex: u8,
+    pub HidCode: u8,
+}
+impl ::core::marker::Copy for XINPUT_KEYSTROKE {}
+impl ::core::clone::Clone for XINPUT_KEYSTROKE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const XINPUT_KEYSTROKE_KEYDOWN: u32 = 1u32;
 pub const XINPUT_KEYSTROKE_KEYUP: u32 = 2u32;
 pub const XINPUT_KEYSTROKE_REPEAT: u32 = 4u32;
 #[repr(C)]
-pub struct XINPUT_STATE(i32);
+pub struct XINPUT_STATE {
+    pub dwPacketNumber: u32,
+    pub Gamepad: XINPUT_GAMEPAD,
+}
+impl ::core::marker::Copy for XINPUT_STATE {}
+impl ::core::clone::Clone for XINPUT_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct XINPUT_VIBRATION(i32);
+pub struct XINPUT_VIBRATION {
+    pub wLeftMotorSpeed: u16,
+    pub wRightMotorSpeed: u16,
+}
+impl ::core::marker::Copy for XINPUT_VIBRATION {}
+impl ::core::clone::Clone for XINPUT_VIBRATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct XINPUT_VIRTUAL_KEY(pub u16);
 pub const VK_PAD_A: XINPUT_VIRTUAL_KEY = XINPUT_VIRTUAL_KEY(22528u16);
@@ -106,5 +171,11 @@ pub const VK_PAD_RTHUMB_UPLEFT: XINPUT_VIRTUAL_KEY = XINPUT_VIRTUAL_KEY(22580u16
 pub const VK_PAD_RTHUMB_UPRIGHT: XINPUT_VIRTUAL_KEY = XINPUT_VIRTUAL_KEY(22581u16);
 pub const VK_PAD_RTHUMB_DOWNRIGHT: XINPUT_VIRTUAL_KEY = XINPUT_VIRTUAL_KEY(22582u16);
 pub const VK_PAD_RTHUMB_DOWNLEFT: XINPUT_VIRTUAL_KEY = XINPUT_VIRTUAL_KEY(22583u16);
+impl ::core::marker::Copy for XINPUT_VIRTUAL_KEY {}
+impl ::core::clone::Clone for XINPUT_VIRTUAL_KEY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const XUSER_INDEX_ANY: u32 = 255u32;
 pub const XUSER_MAX_COUNT: u32 = 4u32;

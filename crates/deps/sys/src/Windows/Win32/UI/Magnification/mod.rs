@@ -41,11 +41,40 @@ extern "system" {
     pub fn MagUninitialize() -> super::super::Foundation::BOOL;
 }
 #[repr(C)]
-pub struct MAGCOLOREFFECT(i32);
+pub struct MAGCOLOREFFECT {
+    pub transform: [f32; 25],
+}
+impl ::core::marker::Copy for MAGCOLOREFFECT {}
+impl ::core::clone::Clone for MAGCOLOREFFECT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct MAGIMAGEHEADER(i32);
+pub struct MAGIMAGEHEADER {
+    pub width: u32,
+    pub height: u32,
+    pub format: ::windows_sys::core::GUID,
+    pub stride: u32,
+    pub offset: u32,
+    pub cbSize: usize,
+}
+impl ::core::marker::Copy for MAGIMAGEHEADER {}
+impl ::core::clone::Clone for MAGIMAGEHEADER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct MAGTRANSFORM(i32);
+pub struct MAGTRANSFORM {
+    pub v: [f32; 9],
+}
+impl ::core::marker::Copy for MAGTRANSFORM {}
+impl ::core::clone::Clone for MAGTRANSFORM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MS_CLIPAROUNDCURSOR: i32 = 2i32;
 pub const MS_INVERTCOLORS: i32 = 4i32;
 pub const MS_SHOWMAGNIFIEDCURSOR: i32 = 1i32;

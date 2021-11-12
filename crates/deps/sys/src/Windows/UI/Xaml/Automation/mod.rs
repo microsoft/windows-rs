@@ -36,12 +36,24 @@ impl AnnotationType {
     pub const DataValidationError: Self = Self(60021i32);
     pub const CircularReferenceError: Self = Self(60022i32);
 }
+impl ::core::marker::Copy for AnnotationType {}
+impl ::core::clone::Clone for AnnotationType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AutomationActiveEnd(pub i32);
 impl AutomationActiveEnd {
     pub const None: Self = Self(0i32);
     pub const Start: Self = Self(1i32);
     pub const End: Self = Self(2i32);
+}
+impl ::core::marker::Copy for AutomationActiveEnd {}
+impl ::core::clone::Clone for AutomationActiveEnd {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct AutomationAnimationStyle(pub i32);
@@ -54,6 +66,12 @@ impl AutomationAnimationStyle {
     pub const MarchingRedAnts: Self = Self(5i32);
     pub const Shimmer: Self = Self(6i32);
     pub const Other: Self = Self(7i32);
+}
+impl ::core::marker::Copy for AutomationAnimationStyle {}
+impl ::core::clone::Clone for AutomationAnimationStyle {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct AutomationAnnotation(pub *mut ::core::ffi::c_void);
@@ -68,11 +86,23 @@ impl AutomationBulletStyle {
     pub const DashBullet: Self = Self(5i32);
     pub const Other: Self = Self(6i32);
 }
+impl ::core::marker::Copy for AutomationBulletStyle {}
+impl ::core::clone::Clone for AutomationBulletStyle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AutomationCaretBidiMode(pub i32);
 impl AutomationCaretBidiMode {
     pub const LTR: Self = Self(0i32);
     pub const RTL: Self = Self(1i32);
+}
+impl ::core::marker::Copy for AutomationCaretBidiMode {}
+impl ::core::clone::Clone for AutomationCaretBidiMode {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct AutomationCaretPosition(pub i32);
@@ -80,6 +110,12 @@ impl AutomationCaretPosition {
     pub const Unknown: Self = Self(0i32);
     pub const EndOfLine: Self = Self(1i32);
     pub const BeginningOfLine: Self = Self(2i32);
+}
+impl ::core::marker::Copy for AutomationCaretPosition {}
+impl ::core::clone::Clone for AutomationCaretPosition {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct AutomationElementIdentifiers(pub *mut ::core::ffi::c_void);
@@ -91,6 +127,12 @@ impl AutomationFlowDirections {
     pub const BottomToTop: Self = Self(2i32);
     pub const Vertical: Self = Self(3i32);
 }
+impl ::core::marker::Copy for AutomationFlowDirections {}
+impl ::core::clone::Clone for AutomationFlowDirections {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AutomationOutlineStyles(pub i32);
 impl AutomationOutlineStyles {
@@ -99,6 +141,12 @@ impl AutomationOutlineStyles {
     pub const Shadow: Self = Self(2i32);
     pub const Engraved: Self = Self(3i32);
     pub const Embossed: Self = Self(4i32);
+}
+impl ::core::marker::Copy for AutomationOutlineStyles {}
+impl ::core::clone::Clone for AutomationOutlineStyles {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct AutomationProperties(pub *mut ::core::ffi::c_void);
@@ -123,6 +171,12 @@ impl AutomationStyleId {
     pub const Quote: Self = Self(70014i32);
     pub const BulletedList: Self = Self(70015i32);
 }
+impl ::core::marker::Copy for AutomationStyleId {}
+impl ::core::clone::Clone for AutomationStyleId {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AutomationTextDecorationLineStyle(pub i32);
 impl AutomationTextDecorationLineStyle {
@@ -146,6 +200,12 @@ impl AutomationTextDecorationLineStyle {
     pub const ThickLongDash: Self = Self(17i32);
     pub const Other: Self = Self(18i32);
 }
+impl ::core::marker::Copy for AutomationTextDecorationLineStyle {}
+impl ::core::clone::Clone for AutomationTextDecorationLineStyle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AutomationTextEditChangeType(pub i32);
 impl AutomationTextEditChangeType {
@@ -153,6 +213,12 @@ impl AutomationTextEditChangeType {
     pub const AutoCorrect: Self = Self(1i32);
     pub const Composition: Self = Self(2i32);
     pub const CompositionFinalized: Self = Self(3i32);
+}
+impl ::core::marker::Copy for AutomationTextEditChangeType {}
+impl ::core::clone::Clone for AutomationTextEditChangeType {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct DockPatternIdentifiers(pub *mut ::core::ffi::c_void);
@@ -165,6 +231,12 @@ impl DockPosition {
     pub const Right: Self = Self(3i32);
     pub const Fill: Self = Self(4i32);
     pub const None: Self = Self(5i32);
+}
+impl ::core::marker::Copy for DockPosition {}
+impl ::core::clone::Clone for DockPosition {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct DragPatternIdentifiers(pub *mut ::core::ffi::c_void);
@@ -179,6 +251,12 @@ impl ExpandCollapseState {
     pub const Expanded: Self = Self(1i32);
     pub const PartiallyExpanded: Self = Self(2i32);
     pub const LeafNode: Self = Self(3i32);
+}
+impl ::core::marker::Copy for ExpandCollapseState {}
+impl ::core::clone::Clone for ExpandCollapseState {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct GridItemPatternIdentifiers(pub *mut ::core::ffi::c_void);
@@ -325,6 +403,12 @@ impl RowOrColumnMajor {
     pub const ColumnMajor: Self = Self(1i32);
     pub const Indeterminate: Self = Self(2i32);
 }
+impl ::core::marker::Copy for RowOrColumnMajor {}
+impl ::core::clone::Clone for RowOrColumnMajor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ScrollAmount(pub i32);
 impl ScrollAmount {
@@ -333,6 +417,12 @@ impl ScrollAmount {
     pub const NoAmount: Self = Self(2i32);
     pub const LargeIncrement: Self = Self(3i32);
     pub const SmallIncrement: Self = Self(4i32);
+}
+impl ::core::marker::Copy for ScrollAmount {}
+impl ::core::clone::Clone for ScrollAmount {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct ScrollPatternIdentifiers(pub *mut ::core::ffi::c_void);
@@ -351,6 +441,12 @@ impl SupportedTextSelection {
     pub const Single: Self = Self(1i32);
     pub const Multiple: Self = Self(2i32);
 }
+impl ::core::marker::Copy for SupportedTextSelection {}
+impl ::core::clone::Clone for SupportedTextSelection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SynchronizedInputType(pub i32);
 impl SynchronizedInputType {
@@ -360,6 +456,12 @@ impl SynchronizedInputType {
     pub const LeftMouseDown: Self = Self(8i32);
     pub const RightMouseUp: Self = Self(16i32);
     pub const RightMouseDown: Self = Self(32i32);
+}
+impl ::core::marker::Copy for SynchronizedInputType {}
+impl ::core::clone::Clone for SynchronizedInputType {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct TableItemPatternIdentifiers(pub *mut ::core::ffi::c_void);
@@ -373,6 +475,12 @@ impl ToggleState {
     pub const Off: Self = Self(0i32);
     pub const On: Self = Self(1i32);
     pub const Indeterminate: Self = Self(2i32);
+}
+impl ::core::marker::Copy for ToggleState {}
+impl ::core::clone::Clone for ToggleState {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct TransformPattern2Identifiers(pub *mut ::core::ffi::c_void);
@@ -389,6 +497,12 @@ impl WindowInteractionState {
     pub const BlockedByModalWindow: Self = Self(3i32);
     pub const NotResponding: Self = Self(4i32);
 }
+impl ::core::marker::Copy for WindowInteractionState {}
+impl ::core::clone::Clone for WindowInteractionState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WindowPatternIdentifiers(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -398,6 +512,12 @@ impl WindowVisualState {
     pub const Maximized: Self = Self(1i32);
     pub const Minimized: Self = Self(2i32);
 }
+impl ::core::marker::Copy for WindowVisualState {}
+impl ::core::clone::Clone for WindowVisualState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ZoomUnit(pub i32);
 impl ZoomUnit {
@@ -406,4 +526,10 @@ impl ZoomUnit {
     pub const SmallDecrement: Self = Self(2i32);
     pub const LargeIncrement: Self = Self(3i32);
     pub const SmallIncrement: Self = Self(4i32);
+}
+impl ::core::marker::Copy for ZoomUnit {}
+impl ::core::clone::Clone for ZoomUnit {
+    fn clone(&self) -> Self {
+        *self
+    }
 }

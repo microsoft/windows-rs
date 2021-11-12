@@ -12,6 +12,12 @@ impl AddPackageByAppInstallerOptions {
     pub const RequiredContentGroupOnly: Self = Self(256u32);
     pub const LimitToExistingPackages: Self = Self(512u32);
 }
+impl ::core::marker::Copy for AddPackageByAppInstallerOptions {}
+impl ::core::clone::Clone for AddPackageByAppInstallerOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AddPackageOptions(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -39,13 +45,34 @@ impl DeploymentOptions {
     pub const RetainFilesOnFailure: Self = Self(2097152u32);
     pub const StageInPlace: Self = Self(4194304u32);
 }
+impl ::core::marker::Copy for DeploymentOptions {}
+impl ::core::clone::Clone for DeploymentOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DeploymentProgress(i32);
+pub struct DeploymentProgress {
+    pub state: DeploymentProgressState,
+    pub percentage: u32,
+}
+impl ::core::marker::Copy for DeploymentProgress {}
+impl ::core::clone::Clone for DeploymentProgress {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DeploymentProgressState(pub i32);
 impl DeploymentProgressState {
     pub const Queued: Self = Self(0i32);
     pub const Processing: Self = Self(1i32);
+}
+impl ::core::marker::Copy for DeploymentProgressState {}
+impl ::core::clone::Clone for DeploymentProgressState {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct DeploymentResult(pub *mut ::core::ffi::c_void);
@@ -133,6 +160,12 @@ impl PackageInstallState {
     pub const Installed: Self = Self(2i32);
     pub const Paused: Self = Self(6i32);
 }
+impl ::core::marker::Copy for PackageInstallState {}
+impl ::core::clone::Clone for PackageInstallState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PackageManager(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -145,6 +178,12 @@ impl PackageState {
     pub const Modified: Self = Self(2i32);
     pub const Tampered: Self = Self(3i32);
 }
+impl ::core::marker::Copy for PackageState {}
+impl ::core::clone::Clone for PackageState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PackageStatus(pub u32);
 impl PackageStatus {
@@ -154,11 +193,23 @@ impl PackageStatus {
     pub const Tampered: Self = Self(4u32);
     pub const Disabled: Self = Self(8u32);
 }
+impl ::core::marker::Copy for PackageStatus {}
+impl ::core::clone::Clone for PackageStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PackageStubPreference(pub i32);
 impl PackageStubPreference {
     pub const Full: Self = Self(0i32);
     pub const Stub: Self = Self(1i32);
+}
+impl ::core::marker::Copy for PackageStubPreference {}
+impl ::core::clone::Clone for PackageStubPreference {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct PackageTypes(pub u32);
@@ -171,6 +222,12 @@ impl PackageTypes {
     pub const Xap: Self = Self(16u32);
     pub const Optional: Self = Self(32u32);
     pub const All: Self = Self(4294967295u32);
+}
+impl ::core::marker::Copy for PackageTypes {}
+impl ::core::clone::Clone for PackageTypes {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct PackageUserInformation(pub *mut ::core::ffi::c_void);
@@ -186,16 +243,26 @@ impl RemovalOptions {
     pub const PreserveRoamableApplicationData: Self = Self(128u32);
     pub const RemoveForAllUsers: Self = Self(524288u32);
 }
+impl ::core::marker::Copy for RemovalOptions {}
+impl ::core::clone::Clone for RemovalOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SharedPackageContainer(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct SharedPackageContainerContract(i32);
 #[repr(transparent)]
 pub struct SharedPackageContainerCreationCollisionOptions(pub i32);
 impl SharedPackageContainerCreationCollisionOptions {
     pub const FailIfExists: Self = Self(0i32);
     pub const MergeWithExisting: Self = Self(1i32);
     pub const ReplaceExisting: Self = Self(2i32);
+}
+impl ::core::marker::Copy for SharedPackageContainerCreationCollisionOptions {}
+impl ::core::clone::Clone for SharedPackageContainerCreationCollisionOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct SharedPackageContainerManager(pub *mut ::core::ffi::c_void);
@@ -211,6 +278,12 @@ impl SharedPackageContainerOperationStatus {
     pub const NotFound: Self = Self(4i32);
     pub const UnknownFailure: Self = Self(5i32);
 }
+impl ::core::marker::Copy for SharedPackageContainerOperationStatus {}
+impl ::core::clone::Clone for SharedPackageContainerOperationStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct StagePackageOptions(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -220,6 +293,12 @@ impl StubPackageOption {
     pub const InstallFull: Self = Self(1i32);
     pub const InstallStub: Self = Self(2i32);
     pub const UsePreference: Self = Self(3i32);
+}
+impl ::core::marker::Copy for StubPackageOption {}
+impl ::core::clone::Clone for StubPackageOption {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct UpdateSharedPackageContainerOptions(pub *mut ::core::ffi::c_void);

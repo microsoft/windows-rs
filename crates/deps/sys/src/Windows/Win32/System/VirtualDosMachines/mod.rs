@@ -41,9 +41,31 @@ pub const GD_NAMETABLE: u32 = 15u32;
 pub const GD_RCDATA: u32 = 10u32;
 pub const GD_STRING: u32 = 6u32;
 pub const GD_USERDEFINED: u32 = 0u32;
+#[repr(C, packed(4))]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct GLOBALENTRY(i32);
+pub struct GLOBALENTRY {
+    pub dwSize: u32,
+    pub dwAddress: u32,
+    pub dwBlockSize: u32,
+    pub hBlock: super::super::Foundation::HANDLE,
+    pub wcLock: u16,
+    pub wcPageLock: u16,
+    pub wFlags: u16,
+    pub wHeapPresent: super::super::Foundation::BOOL,
+    pub hOwner: super::super::Foundation::HANDLE,
+    pub wType: u16,
+    pub wData: u16,
+    pub dwNext: u32,
+    pub dwNextAlt: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for GLOBALENTRY {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for GLOBALENTRY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const GLOBAL_ALL: u32 = 0u32;
 pub const GLOBAL_FREE: u32 = 2u32;
 pub const GLOBAL_LRU: u32 = 1u32;
@@ -58,19 +80,63 @@ pub const GT_RESOURCE: u32 = 5u32;
 pub const GT_SENTINEL: u32 = 9u32;
 pub const GT_TASK: u32 = 4u32;
 pub const GT_UNKNOWN: u32 = 0u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct IMAGE_NOTE(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct IMAGE_NOTE {
+    pub Module: [super::super::Foundation::CHAR; 10],
+    pub FileName: [super::super::Foundation::CHAR; 256],
+    pub hModule: u16,
+    pub hTask: u16,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for IMAGE_NOTE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for IMAGE_NOTE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MAX_MODULE_NAME: u32 = 9u32;
 pub const MAX_PATH16: u32 = 255u32;
+#[repr(C, packed(4))]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct MODULEENTRY(i32);
+pub struct MODULEENTRY {
+    pub dwSize: u32,
+    pub szModule: [super::super::Foundation::CHAR; 10],
+    pub hModule: super::super::Foundation::HANDLE,
+    pub wcUsage: u16,
+    pub szExePath: [super::super::Foundation::CHAR; 256],
+    pub wNext: u16,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MODULEENTRY {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MODULEENTRY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[cfg(feature = "Win32_Foundation")]
 pub type PROCESSENUMPROC = unsafe extern "system" fn(dwprocessid: u32, dwattributes: u32, lpuserdefined: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct SEGMENT_NOTE(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct SEGMENT_NOTE {
+    pub Selector1: u16,
+    pub Selector2: u16,
+    pub Segment: u16,
+    pub Module: [super::super::Foundation::CHAR; 10],
+    pub FileName: [super::super::Foundation::CHAR; 256],
+    pub Type: u16,
+    pub Length: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SEGMENT_NOTE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SEGMENT_NOTE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SN_CODE: u32 = 0u32;
 pub const SN_DATA: u32 = 1u32;
 pub const SN_V86: u32 = 2u32;
@@ -79,9 +145,21 @@ pub const STATUS_VDM_EVENT: i32 = 1073741829i32;
 pub type TASKENUMPROC = unsafe extern "system" fn(dwthreadid: u32, hmod16: u16, htask16: u16, lpuserdefined: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
 pub type TASKENUMPROCEX = unsafe extern "system" fn(dwthreadid: u32, hmod16: u16, htask16: u16, pszmodname: *mut i8, pszfilename: *mut i8, lpuserdefined: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct TEMP_BP_NOTE(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct TEMP_BP_NOTE {
+    pub Seg: u16,
+    pub Offset: u32,
+    pub bPM: super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for TEMP_BP_NOTE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for TEMP_BP_NOTE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const V86FLAGS_ALIGNMENT: u32 = 262144u32;
 pub const V86FLAGS_AUXCARRY: u32 = 16u32;
 pub const V86FLAGS_CARRY: u32 = 1u32;
@@ -101,13 +179,82 @@ pub const VDMADDR_PM32: u32 = 16u32;
 pub const VDMADDR_V86: u32 = 2u32;
 #[cfg(feature = "Win32_Foundation")]
 pub type VDMBREAKTHREADPROC = unsafe extern "system" fn(param0: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
+#[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_System_Kernel")]
-#[repr(C)]
-pub struct VDMCONTEXT(i32);
+pub struct VDMCONTEXT {
+    pub ContextFlags: u32,
+    pub Dr0: u32,
+    pub Dr1: u32,
+    pub Dr2: u32,
+    pub Dr3: u32,
+    pub Dr6: u32,
+    pub Dr7: u32,
+    pub FloatSave: super::Kernel::FLOATING_SAVE_AREA,
+    pub SegGs: u32,
+    pub SegFs: u32,
+    pub SegEs: u32,
+    pub SegDs: u32,
+    pub Edi: u32,
+    pub Esi: u32,
+    pub Ebx: u32,
+    pub Edx: u32,
+    pub Ecx: u32,
+    pub Eax: u32,
+    pub Ebp: u32,
+    pub Eip: u32,
+    pub SegCs: u32,
+    pub EFlags: u32,
+    pub Esp: u32,
+    pub SegSs: u32,
+    pub ExtendedRegisters: [u8; 512],
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_System_Kernel")]
+impl ::core::marker::Copy for VDMCONTEXT {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_System_Kernel")]
+impl ::core::clone::Clone for VDMCONTEXT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct VDMCONTEXT_WITHOUT_XSAVE(i32);
+#[cfg(feature = "Win32_System_Kernel")]
+pub struct VDMCONTEXT_WITHOUT_XSAVE {
+    pub ContextFlags: u32,
+    pub Dr0: u32,
+    pub Dr1: u32,
+    pub Dr2: u32,
+    pub Dr3: u32,
+    pub Dr6: u32,
+    pub Dr7: u32,
+    pub FloatSave: super::Kernel::FLOATING_SAVE_AREA,
+    pub SegGs: u32,
+    pub SegFs: u32,
+    pub SegEs: u32,
+    pub SegDs: u32,
+    pub Edi: u32,
+    pub Esi: u32,
+    pub Ebx: u32,
+    pub Edx: u32,
+    pub Ecx: u32,
+    pub Eax: u32,
+    pub Ebp: u32,
+    pub Eip: u32,
+    pub SegCs: u32,
+    pub EFlags: u32,
+    pub Esp: u32,
+    pub SegSs: u32,
+}
+#[cfg(feature = "Win32_System_Kernel")]
+impl ::core::marker::Copy for VDMCONTEXT_WITHOUT_XSAVE {}
+#[cfg(feature = "Win32_System_Kernel")]
+impl ::core::clone::Clone for VDMCONTEXT_WITHOUT_XSAVE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const VDMCONTEXT_i386: u32 = 65536u32;
 pub const VDMCONTEXT_i486: u32 = 65536u32;
 pub const VDMDBG_BREAK_DEBUGGER: u32 = 16u32;
@@ -167,9 +314,64 @@ pub type VDMGLOBALNEXTPROC = unsafe extern "system" fn(param0: super::super::Fou
 pub type VDMISMODULELOADEDPROC = unsafe extern "system" fn(param0: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
 pub type VDMKILLWOWPROC = unsafe extern "system" fn() -> super::super::Foundation::BOOL;
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[repr(C)]
-pub struct VDMLDT_ENTRY(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+pub struct VDMLDT_ENTRY {
+    pub LimitLow: u16,
+    pub BaseLow: u16,
+    pub HighWord: VDMLDT_ENTRY_0,
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::marker::Copy for VDMLDT_ENTRY {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::clone::Clone for VDMLDT_ENTRY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+pub union VDMLDT_ENTRY_0 {
+    pub Bytes: VDMLDT_ENTRY_0_1,
+    pub Bits: VDMLDT_ENTRY_0_0,
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::marker::Copy for VDMLDT_ENTRY_0 {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::clone::Clone for VDMLDT_ENTRY_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+pub struct VDMLDT_ENTRY_0_0 {
+    pub _bitfield: u32,
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::marker::Copy for VDMLDT_ENTRY_0_0 {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::clone::Clone for VDMLDT_ENTRY_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+pub struct VDMLDT_ENTRY_0_1 {
+    pub BaseMid: u8,
+    pub Flags1: u8,
+    pub Flags2: u8,
+    pub BaseHi: u8,
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::marker::Copy for VDMLDT_ENTRY_0_1 {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::clone::Clone for VDMLDT_ENTRY_0_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Threading"))]
 pub type VDMMODULEFIRSTPROC = unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: *mut MODULEENTRY, param3: DEBUGEVENTPROC, param4: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Threading"))]
@@ -190,6 +392,21 @@ pub type VDMSTARTTASKINWOWPROC = unsafe extern "system" fn(param0: u32, param1: 
 pub type VDMTERMINATETASKINWOWPROC = unsafe extern "system" fn(param0: u32, param1: u16) -> super::super::Foundation::BOOL;
 pub const VDM_KGDT_R3_CODE: u32 = 24u32;
 pub const VDM_MAXIMUM_SUPPORTED_EXTENSION: u32 = 512u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct VDM_SEGINFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct VDM_SEGINFO {
+    pub Selector: u16,
+    pub SegNumber: u16,
+    pub Length: u32,
+    pub Type: u16,
+    pub ModuleName: [super::super::Foundation::CHAR; 9],
+    pub FileName: [super::super::Foundation::CHAR; 255],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for VDM_SEGINFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for VDM_SEGINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

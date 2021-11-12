@@ -16,6 +16,12 @@ impl BindingMode {
     pub const OneTime: Self = Self(2i32);
     pub const TwoWay: Self = Self(3i32);
 }
+impl ::core::marker::Copy for BindingMode {}
+impl ::core::clone::Clone for BindingMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct BindingOperations(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -89,7 +95,15 @@ pub struct IValueConverter(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ItemIndexRange(pub *mut ::core::ffi::c_void);
 #[repr(C)]
-pub struct LoadMoreItemsResult(i32);
+pub struct LoadMoreItemsResult {
+    pub Count: u32,
+}
+impl ::core::marker::Copy for LoadMoreItemsResult {}
+impl ::core::clone::Clone for LoadMoreItemsResult {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PropertyChangedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -103,6 +117,12 @@ impl RelativeSourceMode {
     pub const TemplatedParent: Self = Self(1i32);
     pub const Self_: Self = Self(2i32);
 }
+impl ::core::marker::Copy for RelativeSourceMode {}
+impl ::core::clone::Clone for RelativeSourceMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UpdateSourceTrigger(pub i32);
 impl UpdateSourceTrigger {
@@ -110,4 +130,10 @@ impl UpdateSourceTrigger {
     pub const PropertyChanged: Self = Self(1i32);
     pub const Explicit: Self = Self(2i32);
     pub const LostFocus: Self = Self(3i32);
+}
+impl ::core::marker::Copy for UpdateSourceTrigger {}
+impl ::core::clone::Clone for UpdateSourceTrigger {
+    fn clone(&self) -> Self {
+        *self
+    }
 }

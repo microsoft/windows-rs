@@ -11,6 +11,12 @@ impl GraphicsCaptureAccessKind {
     pub const Borderless: Self = Self(0i32);
     pub const Programmatic: Self = Self(1i32);
 }
+impl ::core::marker::Copy for GraphicsCaptureAccessKind {}
+impl ::core::clone::Clone for GraphicsCaptureAccessKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct GraphicsCaptureItem(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

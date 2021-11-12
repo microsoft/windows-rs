@@ -61,12 +61,24 @@ impl IsolatedWindowsEnvironmentActivator {
     pub const System: Self = Self(0i32);
     pub const User: Self = Self(1i32);
 }
+impl ::core::marker::Copy for IsolatedWindowsEnvironmentActivator {}
+impl ::core::clone::Clone for IsolatedWindowsEnvironmentActivator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentAllowedClipboardFormats(pub u32);
 impl IsolatedWindowsEnvironmentAllowedClipboardFormats {
     pub const None: Self = Self(0u32);
     pub const Text: Self = Self(1u32);
     pub const Image: Self = Self(2u32);
+}
+impl ::core::marker::Copy for IsolatedWindowsEnvironmentAllowedClipboardFormats {}
+impl ::core::clone::Clone for IsolatedWindowsEnvironmentAllowedClipboardFormats {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentAvailablePrinters(pub u32);
@@ -77,6 +89,12 @@ impl IsolatedWindowsEnvironmentAvailablePrinters {
     pub const SystemPrintToPdf: Self = Self(4u32);
     pub const SystemPrintToXps: Self = Self(8u32);
 }
+impl ::core::marker::Copy for IsolatedWindowsEnvironmentAvailablePrinters {}
+impl ::core::clone::Clone for IsolatedWindowsEnvironmentAvailablePrinters {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentClipboardCopyPasteDirections(pub u32);
 impl IsolatedWindowsEnvironmentClipboardCopyPasteDirections {
@@ -84,10 +102,23 @@ impl IsolatedWindowsEnvironmentClipboardCopyPasteDirections {
     pub const HostToIsolatedWindowsEnvironment: Self = Self(1u32);
     pub const IsolatedWindowsEnvironmentToHost: Self = Self(2u32);
 }
+impl ::core::marker::Copy for IsolatedWindowsEnvironmentClipboardCopyPasteDirections {}
+impl ::core::clone::Clone for IsolatedWindowsEnvironmentClipboardCopyPasteDirections {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct IsolatedWindowsEnvironmentContract(i32);
-#[repr(C)]
-pub struct IsolatedWindowsEnvironmentCreateProgress(i32);
+pub struct IsolatedWindowsEnvironmentCreateProgress {
+    pub State: IsolatedWindowsEnvironmentProgressState,
+    pub PercentComplete: u32,
+}
+impl ::core::marker::Copy for IsolatedWindowsEnvironmentCreateProgress {}
+impl ::core::clone::Clone for IsolatedWindowsEnvironmentCreateProgress {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentCreateResult(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -96,6 +127,12 @@ impl IsolatedWindowsEnvironmentCreateStatus {
     pub const Success: Self = Self(0i32);
     pub const FailureByPolicy: Self = Self(1i32);
     pub const UnknownFailure: Self = Self(2i32);
+}
+impl ::core::marker::Copy for IsolatedWindowsEnvironmentCreateStatus {}
+impl ::core::clone::Clone for IsolatedWindowsEnvironmentCreateStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentFile(pub *mut ::core::ffi::c_void);
@@ -108,6 +145,12 @@ impl IsolatedWindowsEnvironmentHostError {
     pub const RebootRequired: Self = Self(3i32);
     pub const UnknownError: Self = Self(4i32);
 }
+impl ::core::marker::Copy for IsolatedWindowsEnvironmentHostError {}
+impl ::core::clone::Clone for IsolatedWindowsEnvironmentHostError {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentLaunchFileResult(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -119,6 +162,12 @@ impl IsolatedWindowsEnvironmentLaunchFileStatus {
     pub const FileNotFound: Self = Self(3i32);
     pub const TimedOut: Self = Self(4i32);
     pub const AlreadySharedWithConflictingOptions: Self = Self(5i32);
+}
+impl ::core::marker::Copy for IsolatedWindowsEnvironmentLaunchFileStatus {}
+impl ::core::clone::Clone for IsolatedWindowsEnvironmentLaunchFileStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentOptions(pub *mut ::core::ffi::c_void);
@@ -135,6 +184,12 @@ impl IsolatedWindowsEnvironmentOwnerRegistrationStatus {
     pub const InsufficientMemory: Self = Self(3i32);
     pub const UnknownFailure: Self = Self(4i32);
 }
+impl ::core::marker::Copy for IsolatedWindowsEnvironmentOwnerRegistrationStatus {}
+impl ::core::clone::Clone for IsolatedWindowsEnvironmentOwnerRegistrationStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentPostMessageResult(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -143,6 +198,12 @@ impl IsolatedWindowsEnvironmentPostMessageStatus {
     pub const Success: Self = Self(0i32);
     pub const UnknownFailure: Self = Self(1i32);
     pub const EnvironmentUnavailable: Self = Self(2i32);
+}
+impl ::core::marker::Copy for IsolatedWindowsEnvironmentPostMessageStatus {}
+impl ::core::clone::Clone for IsolatedWindowsEnvironmentPostMessageStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentProcess(pub *mut ::core::ffi::c_void);
@@ -153,12 +214,24 @@ impl IsolatedWindowsEnvironmentProcessState {
     pub const Aborted: Self = Self(2i32);
     pub const Completed: Self = Self(3i32);
 }
+impl ::core::marker::Copy for IsolatedWindowsEnvironmentProcessState {}
+impl ::core::clone::Clone for IsolatedWindowsEnvironmentProcessState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentProgressState(pub i32);
 impl IsolatedWindowsEnvironmentProgressState {
     pub const Queued: Self = Self(0i32);
     pub const Processing: Self = Self(1i32);
     pub const Completed: Self = Self(2i32);
+}
+impl ::core::marker::Copy for IsolatedWindowsEnvironmentProgressState {}
+impl ::core::clone::Clone for IsolatedWindowsEnvironmentProgressState {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentShareFileRequestOptions(pub *mut ::core::ffi::c_void);
@@ -174,6 +247,12 @@ impl IsolatedWindowsEnvironmentShareFileStatus {
     pub const FileNotFound: Self = Self(4i32);
     pub const AccessDenied: Self = Self(5i32);
 }
+impl ::core::marker::Copy for IsolatedWindowsEnvironmentShareFileStatus {}
+impl ::core::clone::Clone for IsolatedWindowsEnvironmentShareFileStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentShareFolderRequestOptions(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -187,6 +266,12 @@ impl IsolatedWindowsEnvironmentShareFolderStatus {
     pub const FolderNotFound: Self = Self(3i32);
     pub const AccessDenied: Self = Self(4i32);
 }
+impl ::core::marker::Copy for IsolatedWindowsEnvironmentShareFolderStatus {}
+impl ::core::clone::Clone for IsolatedWindowsEnvironmentShareFolderStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentStartProcessResult(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -197,6 +282,12 @@ impl IsolatedWindowsEnvironmentStartProcessStatus {
     pub const EnvironmentUnavailable: Self = Self(2i32);
     pub const FileNotFound: Self = Self(3i32);
     pub const AppNotRegistered: Self = Self(4i32);
+}
+impl ::core::marker::Copy for IsolatedWindowsEnvironmentStartProcessStatus {}
+impl ::core::clone::Clone for IsolatedWindowsEnvironmentStartProcessStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentTelemetryParameters(pub *mut ::core::ffi::c_void);

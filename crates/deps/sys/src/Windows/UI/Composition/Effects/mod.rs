@@ -13,3 +13,9 @@ impl SceneLightingEffectReflectanceModel {
     pub const BlinnPhong: Self = Self(0i32);
     pub const PhysicallyBasedBlinnPhong: Self = Self(1i32);
 }
+impl ::core::marker::Copy for SceneLightingEffectReflectanceModel {}
+impl ::core::clone::Clone for SceneLightingEffectReflectanceModel {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

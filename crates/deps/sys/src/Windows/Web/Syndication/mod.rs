@@ -48,7 +48,16 @@ pub struct ISyndicationText(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ISyndicationTextFactory(pub *mut ::core::ffi::c_void);
 #[repr(C)]
-pub struct RetrievalProgress(i32);
+pub struct RetrievalProgress {
+    pub BytesRetrieved: u32,
+    pub TotalBytesToRetrieve: u32,
+}
+impl ::core::marker::Copy for RetrievalProgress {}
+impl ::core::clone::Clone for RetrievalProgress {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SyndicationAttribute(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -67,6 +76,12 @@ impl SyndicationErrorStatus {
     pub const UnexpectedContent: Self = Self(4i32);
     pub const UnsupportedFormat: Self = Self(5i32);
 }
+impl ::core::marker::Copy for SyndicationErrorStatus {}
+impl ::core::clone::Clone for SyndicationErrorStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SyndicationFeed(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -78,6 +93,12 @@ impl SyndicationFormat {
     pub const Rss092: Self = Self(3i32);
     pub const Rss091: Self = Self(4i32);
     pub const Atom03: Self = Self(5i32);
+}
+impl ::core::marker::Copy for SyndicationFormat {}
+impl ::core::clone::Clone for SyndicationFormat {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct SyndicationGenerator(pub *mut ::core::ffi::c_void);
@@ -98,5 +119,22 @@ impl SyndicationTextType {
     pub const Html: Self = Self(1i32);
     pub const Xhtml: Self = Self(2i32);
 }
+impl ::core::marker::Copy for SyndicationTextType {}
+impl ::core::clone::Clone for SyndicationTextType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct TransferProgress(i32);
+pub struct TransferProgress {
+    pub BytesSent: u32,
+    pub TotalBytesToSend: u32,
+    pub BytesRetrieved: u32,
+    pub TotalBytesToRetrieve: u32,
+}
+impl ::core::marker::Copy for TransferProgress {}
+impl ::core::clone::Clone for TransferProgress {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

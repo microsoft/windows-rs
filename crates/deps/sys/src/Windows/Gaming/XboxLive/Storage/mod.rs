@@ -36,6 +36,12 @@ impl GameSaveErrorStatus {
     pub const UserHasNoXboxLiveInfo: Self = Self(-2138898420i32);
     pub const ObjectExpired: Self = Self(-2138898419i32);
 }
+impl ::core::marker::Copy for GameSaveErrorStatus {}
+impl ::core::clone::Clone for GameSaveErrorStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct GameSaveOperationResult(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

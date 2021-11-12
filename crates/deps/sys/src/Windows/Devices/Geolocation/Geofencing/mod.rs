@@ -15,11 +15,23 @@ impl GeofenceMonitorStatus {
     pub const NotInitialized: Self = Self(4i32);
     pub const NotAvailable: Self = Self(5i32);
 }
+impl ::core::marker::Copy for GeofenceMonitorStatus {}
+impl ::core::clone::Clone for GeofenceMonitorStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct GeofenceRemovalReason(pub i32);
 impl GeofenceRemovalReason {
     pub const Used: Self = Self(0i32);
     pub const Expired: Self = Self(1i32);
+}
+impl ::core::marker::Copy for GeofenceRemovalReason {}
+impl ::core::clone::Clone for GeofenceRemovalReason {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct GeofenceState(pub u32);
@@ -28,6 +40,12 @@ impl GeofenceState {
     pub const Entered: Self = Self(1u32);
     pub const Exited: Self = Self(2u32);
     pub const Removed: Self = Self(4u32);
+}
+impl ::core::marker::Copy for GeofenceState {}
+impl ::core::clone::Clone for GeofenceState {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct GeofenceStateChangeReport(pub *mut ::core::ffi::c_void);
@@ -48,4 +66,10 @@ impl MonitoredGeofenceStates {
     pub const Entered: Self = Self(1u32);
     pub const Exited: Self = Self(2u32);
     pub const Removed: Self = Self(4u32);
+}
+impl ::core::marker::Copy for MonitoredGeofenceStates {}
+impl ::core::clone::Clone for MonitoredGeofenceStates {
+    fn clone(&self) -> Self {
+        *self
+    }
 }

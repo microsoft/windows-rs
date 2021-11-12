@@ -23,6 +23,12 @@ impl WiFiAccessStatus {
     pub const DeniedByUser: Self = Self(2i32);
     pub const DeniedBySystem: Self = Self(3i32);
 }
+impl ::core::marker::Copy for WiFiAccessStatus {}
+impl ::core::clone::Clone for WiFiAccessStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WiFiAdapter(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -33,6 +39,12 @@ impl WiFiConnectionMethod {
     pub const Default: Self = Self(0i32);
     pub const WpsPin: Self = Self(1i32);
     pub const WpsPushButton: Self = Self(2i32);
+}
+impl ::core::marker::Copy for WiFiConnectionMethod {}
+impl ::core::clone::Clone for WiFiConnectionMethod {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct WiFiConnectionResult(pub *mut ::core::ffi::c_void);
@@ -47,12 +59,24 @@ impl WiFiConnectionStatus {
     pub const Timeout: Self = Self(5i32);
     pub const UnsupportedAuthenticationProtocol: Self = Self(6i32);
 }
+impl ::core::marker::Copy for WiFiConnectionStatus {}
+impl ::core::clone::Clone for WiFiConnectionStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WiFiNetworkKind(pub i32);
 impl WiFiNetworkKind {
     pub const Any: Self = Self(0i32);
     pub const Infrastructure: Self = Self(1i32);
     pub const Adhoc: Self = Self(2i32);
+}
+impl ::core::marker::Copy for WiFiNetworkKind {}
+impl ::core::clone::Clone for WiFiNetworkKind {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct WiFiNetworkReport(pub *mut ::core::ffi::c_void);
@@ -71,11 +95,23 @@ impl WiFiPhyKind {
     pub const Dmg: Self = Self(9i32);
     pub const HE: Self = Self(10i32);
 }
+impl ::core::marker::Copy for WiFiPhyKind {}
+impl ::core::clone::Clone for WiFiPhyKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WiFiReconnectionKind(pub i32);
 impl WiFiReconnectionKind {
     pub const Automatic: Self = Self(0i32);
     pub const Manual: Self = Self(1i32);
+}
+impl ::core::marker::Copy for WiFiReconnectionKind {}
+impl ::core::clone::Clone for WiFiReconnectionKind {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct WiFiWpsConfigurationResult(pub *mut ::core::ffi::c_void);
@@ -86,6 +122,12 @@ impl WiFiWpsConfigurationStatus {
     pub const Success: Self = Self(1i32);
     pub const Timeout: Self = Self(2i32);
 }
+impl ::core::marker::Copy for WiFiWpsConfigurationStatus {}
+impl ::core::clone::Clone for WiFiWpsConfigurationStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WiFiWpsKind(pub i32);
 impl WiFiWpsKind {
@@ -95,4 +137,10 @@ impl WiFiWpsKind {
     pub const Nfc: Self = Self(3i32);
     pub const Ethernet: Self = Self(4i32);
     pub const Usb: Self = Self(5i32);
+}
+impl ::core::marker::Copy for WiFiWpsKind {}
+impl ::core::clone::Clone for WiFiWpsKind {
+    fn clone(&self) -> Self {
+        *self
+    }
 }

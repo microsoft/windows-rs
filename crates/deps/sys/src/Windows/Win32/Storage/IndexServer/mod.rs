@@ -15,6 +15,12 @@ pub struct CHUNKSTATE(pub i32);
 pub const CHUNK_TEXT: CHUNKSTATE = CHUNKSTATE(1i32);
 pub const CHUNK_VALUE: CHUNKSTATE = CHUNKSTATE(2i32);
 pub const CHUNK_FILTER_OWNED_VALUE: CHUNKSTATE = CHUNKSTATE(4i32);
+impl ::core::marker::Copy for CHUNKSTATE {}
+impl ::core::clone::Clone for CHUNKSTATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CHUNK_BREAKTYPE(pub i32);
 pub const CHUNK_NO_BREAK: CHUNK_BREAKTYPE = CHUNK_BREAKTYPE(0i32);
@@ -22,6 +28,12 @@ pub const CHUNK_EOW: CHUNK_BREAKTYPE = CHUNK_BREAKTYPE(1i32);
 pub const CHUNK_EOS: CHUNK_BREAKTYPE = CHUNK_BREAKTYPE(2i32);
 pub const CHUNK_EOP: CHUNK_BREAKTYPE = CHUNK_BREAKTYPE(3i32);
 pub const CHUNK_EOC: CHUNK_BREAKTYPE = CHUNK_BREAKTYPE(4i32);
+impl ::core::marker::Copy for CHUNK_BREAKTYPE {}
+impl ::core::clone::Clone for CHUNK_BREAKTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CICAT_ALL_OPENED: u32 = 32u32;
 pub const CICAT_GET_STATE: u32 = 16u32;
 pub const CICAT_NO_QUERY: u32 = 8u32;
@@ -32,7 +44,29 @@ pub const CI_PROVIDER_ALL: u32 = 4294967295u32;
 pub const CI_PROVIDER_INDEXING_SERVICE: u32 = 2u32;
 pub const CI_PROVIDER_MSSEARCH: u32 = 1u32;
 #[repr(C)]
-pub struct CI_STATE(i32);
+pub struct CI_STATE {
+    pub cbStruct: u32,
+    pub cWordList: u32,
+    pub cPersistentIndex: u32,
+    pub cQueries: u32,
+    pub cDocuments: u32,
+    pub cFreshTest: u32,
+    pub dwMergeProgress: u32,
+    pub eState: u32,
+    pub cFilteredDocuments: u32,
+    pub cTotalDocuments: u32,
+    pub cPendingScans: u32,
+    pub dwIndexSize: u32,
+    pub cUniqueKeys: u32,
+    pub cSecQDocuments: u32,
+    pub dwPropCacheSize: u32,
+}
+impl ::core::marker::Copy for CI_STATE {}
+impl ::core::clone::Clone for CI_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CI_STATE_ANNEALING_MERGE: u32 = 8u32;
 pub const CI_STATE_BATTERY_POLICY: u32 = 262144u32;
 pub const CI_STATE_BATTERY_POWER: u32 = 2048u32;
@@ -55,14 +89,110 @@ pub const CI_STATE_USER_ACTIVE: u32 = 4096u32;
 pub const CI_VERSION_WDS30: u32 = 258u32;
 pub const CI_VERSION_WDS40: u32 = 265u32;
 pub const CI_VERSION_WIN70: u32 = 1792u32;
+#[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
+pub struct DBID {
+    pub uGuid: DBID_0,
+    pub eKind: u32,
+    pub uName: DBID_1,
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DBID {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DBID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DBID(i32);
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
+pub union DBID_0 {
+    pub guid: ::windows_sys::core::GUID,
+    pub pguid: *mut ::windows_sys::core::GUID,
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DBID_0 {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DBID_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
+pub union DBID_1 {
+    pub pwszName: super::super::Foundation::PWSTR,
+    pub ulPropid: u32,
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DBID_1 {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DBID_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(2))]
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct DBID(i32);
+pub struct DBID {
+    pub uGuid: DBID_0,
+    pub eKind: u32,
+    pub uName: DBID_1,
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DBID {}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DBID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(2))]
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+pub union DBID_0 {
+    pub guid: ::windows_sys::core::GUID,
+    pub pguid: *mut ::windows_sys::core::GUID,
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DBID_0 {}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DBID_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(2))]
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+pub union DBID_1 {
+    pub pwszName: super::super::Foundation::PWSTR,
+    pub ulPropid: u32,
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DBID_1 {}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DBID_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DBKINDENUM(pub i32);
 pub const DBKIND_GUID_NAME: DBKINDENUM = DBKINDENUM(0i32);
@@ -72,6 +202,12 @@ pub const DBKIND_PGUID_NAME: DBKINDENUM = DBKINDENUM(3i32);
 pub const DBKIND_PGUID_PROPID: DBKINDENUM = DBKINDENUM(4i32);
 pub const DBKIND_PROPID: DBKINDENUM = DBKINDENUM(5i32);
 pub const DBKIND_GUID: DBKINDENUM = DBKINDENUM(6i32);
+impl ::core::marker::Copy for DBKINDENUM {}
+impl ::core::clone::Clone for DBKINDENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DBPROP_APPLICATION_NAME: u32 = 11u32;
 pub const DBPROP_CATALOGLISTID: u32 = 9u32;
 pub const DBPROP_CI_CATALOG_NAME: u32 = 2u32;
@@ -102,7 +238,17 @@ pub const DBSETFUNC_ALL: u32 = 1u32;
 pub const DBSETFUNC_DISTINCT: u32 = 2u32;
 pub const DBSETFUNC_NONE: u32 = 0u32;
 #[repr(C)]
-pub struct FILTERREGION(i32);
+pub struct FILTERREGION {
+    pub idChunk: u32,
+    pub cwcStart: u32,
+    pub cwcExtent: u32,
+}
+impl ::core::marker::Copy for FILTERREGION {}
+impl ::core::clone::Clone for FILTERREGION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const FILTER_E_ACCESS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147215613i32 as _);
 pub const FILTER_E_EMBEDDING_UNAVAILABLE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147215609i32 as _);
 pub const FILTER_E_END_OF_CHUNKS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147215616i32 as _);
@@ -116,15 +262,32 @@ pub const FILTER_E_UNKNOWNFORMAT: ::windows_sys::core::HRESULT = ::windows_sys::
 pub const FILTER_S_LAST_TEXT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(268041i32 as _);
 pub const FILTER_S_LAST_VALUES: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(268042i32 as _);
 pub const FILTER_W_MONIKER_CLIPPED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(268036i32 as _);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[repr(C)]
-pub struct FULLPROPSPEC(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+pub struct FULLPROPSPEC {
+    pub guidPropSet: ::windows_sys::core::GUID,
+    pub psProperty: super::super::System::Com::StructuredStorage::PROPSPEC,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+impl ::core::marker::Copy for FULLPROPSPEC {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+impl ::core::clone::Clone for FULLPROPSPEC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const GENERATE_METHOD_EXACT: u32 = 0u32;
 pub const GENERATE_METHOD_INFLECT: u32 = 2u32;
 pub const GENERATE_METHOD_PREFIX: u32 = 1u32;
 #[repr(transparent)]
 pub struct IFILTER_FLAGS(pub i32);
 pub const IFILTER_FLAGS_OLE_PROPERTIES: IFILTER_FLAGS = IFILTER_FLAGS(1i32);
+impl ::core::marker::Copy for IFILTER_FLAGS {}
+impl ::core::clone::Clone for IFILTER_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFILTER_INIT(pub i32);
 pub const IFILTER_INIT_CANON_PARAGRAPHS: IFILTER_INIT = IFILTER_INIT(1i32);
@@ -140,6 +303,12 @@ pub const IFILTER_INIT_FILTER_OWNED_VALUE_OK: IFILTER_INIT = IFILTER_INIT(512i32
 pub const IFILTER_INIT_FILTER_AGGRESSIVE_BREAK: IFILTER_INIT = IFILTER_INIT(1024i32);
 pub const IFILTER_INIT_DISABLE_EMBEDDED: IFILTER_INIT = IFILTER_INIT(2048i32);
 pub const IFILTER_INIT_EMIT_FORMATTING: IFILTER_INIT = IFILTER_INIT(4096i32);
+impl ::core::marker::Copy for IFILTER_INIT {}
+impl ::core::clone::Clone for IFILTER_INIT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFilter(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -186,9 +355,26 @@ pub const SCOPE_TYPE_MASK: u32 = 4294967040u32;
 pub const SCOPE_TYPE_VPATH: u32 = 512u32;
 pub const SCOPE_TYPE_WINPATH: u32 = 256u32;
 pub const STAT_BUSY: u32 = 0u32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[repr(C)]
-pub struct STAT_CHUNK(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+pub struct STAT_CHUNK {
+    pub idChunk: u32,
+    pub breakType: CHUNK_BREAKTYPE,
+    pub flags: CHUNKSTATE,
+    pub locale: u32,
+    pub attribute: FULLPROPSPEC,
+    pub idChunkSource: u32,
+    pub cwcStartSource: u32,
+    pub cwcLenSource: u32,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+impl ::core::marker::Copy for STAT_CHUNK {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+impl ::core::clone::Clone for STAT_CHUNK {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const STAT_COALESCE_COMP_ALL_NOISE: u32 = 8192u32;
 pub const STAT_CONTENT_OUT_OF_DATE: u32 = 32u32;
 pub const STAT_CONTENT_QUERY_INCOMPLETE: u32 = 128u32;
@@ -214,3 +400,9 @@ pub const WORDREP_BREAK_EOW: WORDREP_BREAK_TYPE = WORDREP_BREAK_TYPE(0i32);
 pub const WORDREP_BREAK_EOS: WORDREP_BREAK_TYPE = WORDREP_BREAK_TYPE(1i32);
 pub const WORDREP_BREAK_EOP: WORDREP_BREAK_TYPE = WORDREP_BREAK_TYPE(2i32);
 pub const WORDREP_BREAK_EOC: WORDREP_BREAK_TYPE = WORDREP_BREAK_TYPE(3i32);
+impl ::core::marker::Copy for WORDREP_BREAK_TYPE {}
+impl ::core::clone::Clone for WORDREP_BREAK_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

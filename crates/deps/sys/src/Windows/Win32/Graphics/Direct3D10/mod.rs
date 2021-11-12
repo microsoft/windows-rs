@@ -80,6 +80,12 @@ pub const D3D10_ARRAY_AXIS_ADDRESS_RANGE_BIT_COUNT: u32 = 9u32;
 #[repr(transparent)]
 pub struct D3D10_ASYNC_GETDATA_FLAG(pub i32);
 pub const D3D10_ASYNC_GETDATA_DONOTFLUSH: D3D10_ASYNC_GETDATA_FLAG = D3D10_ASYNC_GETDATA_FLAG(1i32);
+impl ::core::marker::Copy for D3D10_ASYNC_GETDATA_FLAG {}
+impl ::core::clone::Clone for D3D10_ASYNC_GETDATA_FLAG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3D10_BIND_FLAG(pub i32);
 pub const D3D10_BIND_VERTEX_BUFFER: D3D10_BIND_FLAG = D3D10_BIND_FLAG(1i32);
@@ -89,6 +95,12 @@ pub const D3D10_BIND_SHADER_RESOURCE: D3D10_BIND_FLAG = D3D10_BIND_FLAG(8i32);
 pub const D3D10_BIND_STREAM_OUTPUT: D3D10_BIND_FLAG = D3D10_BIND_FLAG(16i32);
 pub const D3D10_BIND_RENDER_TARGET: D3D10_BIND_FLAG = D3D10_BIND_FLAG(32i32);
 pub const D3D10_BIND_DEPTH_STENCIL: D3D10_BIND_FLAG = D3D10_BIND_FLAG(64i32);
+impl ::core::marker::Copy for D3D10_BIND_FLAG {}
+impl ::core::clone::Clone for D3D10_BIND_FLAG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3D10_BLEND(pub i32);
 pub const D3D10_BLEND_ZERO: D3D10_BLEND = D3D10_BLEND(1i32);
@@ -108,12 +120,48 @@ pub const D3D10_BLEND_SRC1_COLOR: D3D10_BLEND = D3D10_BLEND(16i32);
 pub const D3D10_BLEND_INV_SRC1_COLOR: D3D10_BLEND = D3D10_BLEND(17i32);
 pub const D3D10_BLEND_SRC1_ALPHA: D3D10_BLEND = D3D10_BLEND(18i32);
 pub const D3D10_BLEND_INV_SRC1_ALPHA: D3D10_BLEND = D3D10_BLEND(19i32);
-#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for D3D10_BLEND {}
+impl ::core::clone::Clone for D3D10_BLEND {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D10_BLEND_DESC(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct D3D10_BLEND_DESC {
+    pub AlphaToCoverageEnable: super::super::Foundation::BOOL,
+    pub BlendEnable: [super::super::Foundation::BOOL; 8],
+    pub SrcBlend: D3D10_BLEND,
+    pub DestBlend: D3D10_BLEND,
+    pub BlendOp: D3D10_BLEND_OP,
+    pub SrcBlendAlpha: D3D10_BLEND,
+    pub DestBlendAlpha: D3D10_BLEND,
+    pub BlendOpAlpha: D3D10_BLEND_OP,
+    pub RenderTargetWriteMask: [u8; 8],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for D3D10_BLEND_DESC {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for D3D10_BLEND_DESC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D10_BLEND_DESC1(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct D3D10_BLEND_DESC1 {
+    pub AlphaToCoverageEnable: super::super::Foundation::BOOL,
+    pub IndependentBlendEnable: super::super::Foundation::BOOL,
+    pub RenderTarget: [D3D10_RENDER_TARGET_BLEND_DESC1; 8],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for D3D10_BLEND_DESC1 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for D3D10_BLEND_DESC1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3D10_BLEND_OP(pub i32);
 pub const D3D10_BLEND_OP_ADD: D3D10_BLEND_OP = D3D10_BLEND_OP(1i32);
@@ -121,18 +169,117 @@ pub const D3D10_BLEND_OP_SUBTRACT: D3D10_BLEND_OP = D3D10_BLEND_OP(2i32);
 pub const D3D10_BLEND_OP_REV_SUBTRACT: D3D10_BLEND_OP = D3D10_BLEND_OP(3i32);
 pub const D3D10_BLEND_OP_MIN: D3D10_BLEND_OP = D3D10_BLEND_OP(4i32);
 pub const D3D10_BLEND_OP_MAX: D3D10_BLEND_OP = D3D10_BLEND_OP(5i32);
+impl ::core::marker::Copy for D3D10_BLEND_OP {}
+impl ::core::clone::Clone for D3D10_BLEND_OP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D10_BOX(i32);
+pub struct D3D10_BOX {
+    pub left: u32,
+    pub top: u32,
+    pub front: u32,
+    pub right: u32,
+    pub bottom: u32,
+    pub back: u32,
+}
+impl ::core::marker::Copy for D3D10_BOX {}
+impl ::core::clone::Clone for D3D10_BOX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D10_BUFFER_DESC(i32);
+pub struct D3D10_BUFFER_DESC {
+    pub ByteWidth: u32,
+    pub Usage: D3D10_USAGE,
+    pub BindFlags: u32,
+    pub CPUAccessFlags: u32,
+    pub MiscFlags: u32,
+}
+impl ::core::marker::Copy for D3D10_BUFFER_DESC {}
+impl ::core::clone::Clone for D3D10_BUFFER_DESC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D10_BUFFER_RTV(i32);
+pub struct D3D10_BUFFER_RTV {
+    pub Anonymous1: D3D10_BUFFER_RTV_0,
+    pub Anonymous2: D3D10_BUFFER_RTV_1,
+}
+impl ::core::marker::Copy for D3D10_BUFFER_RTV {}
+impl ::core::clone::Clone for D3D10_BUFFER_RTV {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D10_BUFFER_SRV(i32);
+pub union D3D10_BUFFER_RTV_0 {
+    pub FirstElement: u32,
+    pub ElementOffset: u32,
+}
+impl ::core::marker::Copy for D3D10_BUFFER_RTV_0 {}
+impl ::core::clone::Clone for D3D10_BUFFER_RTV_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub union D3D10_BUFFER_RTV_1 {
+    pub NumElements: u32,
+    pub ElementWidth: u32,
+}
+impl ::core::marker::Copy for D3D10_BUFFER_RTV_1 {}
+impl ::core::clone::Clone for D3D10_BUFFER_RTV_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct D3D10_BUFFER_SRV {
+    pub Anonymous1: D3D10_BUFFER_SRV_0,
+    pub Anonymous2: D3D10_BUFFER_SRV_1,
+}
+impl ::core::marker::Copy for D3D10_BUFFER_SRV {}
+impl ::core::clone::Clone for D3D10_BUFFER_SRV {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub union D3D10_BUFFER_SRV_0 {
+    pub FirstElement: u32,
+    pub ElementOffset: u32,
+}
+impl ::core::marker::Copy for D3D10_BUFFER_SRV_0 {}
+impl ::core::clone::Clone for D3D10_BUFFER_SRV_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub union D3D10_BUFFER_SRV_1 {
+    pub NumElements: u32,
+    pub ElementWidth: u32,
+}
+impl ::core::marker::Copy for D3D10_BUFFER_SRV_1 {}
+impl ::core::clone::Clone for D3D10_BUFFER_SRV_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3D10_CLEAR_FLAG(pub i32);
 pub const D3D10_CLEAR_DEPTH: D3D10_CLEAR_FLAG = D3D10_CLEAR_FLAG(1i32);
 pub const D3D10_CLEAR_STENCIL: D3D10_CLEAR_FLAG = D3D10_CLEAR_FLAG(2i32);
+impl ::core::marker::Copy for D3D10_CLEAR_FLAG {}
+impl ::core::clone::Clone for D3D10_CLEAR_FLAG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const D3D10_CLIP_OR_CULL_DISTANCE_COUNT: u32 = 8u32;
 pub const D3D10_CLIP_OR_CULL_DISTANCE_ELEMENT_COUNT: u32 = 2u32;
 #[repr(transparent)]
@@ -142,6 +289,12 @@ pub const D3D10_COLOR_WRITE_ENABLE_GREEN: D3D10_COLOR_WRITE_ENABLE = D3D10_COLOR
 pub const D3D10_COLOR_WRITE_ENABLE_BLUE: D3D10_COLOR_WRITE_ENABLE = D3D10_COLOR_WRITE_ENABLE(4i32);
 pub const D3D10_COLOR_WRITE_ENABLE_ALPHA: D3D10_COLOR_WRITE_ENABLE = D3D10_COLOR_WRITE_ENABLE(8i32);
 pub const D3D10_COLOR_WRITE_ENABLE_ALL: D3D10_COLOR_WRITE_ENABLE = D3D10_COLOR_WRITE_ENABLE(15i32);
+impl ::core::marker::Copy for D3D10_COLOR_WRITE_ENABLE {}
+impl ::core::clone::Clone for D3D10_COLOR_WRITE_ENABLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const D3D10_COMMONSHADER_CONSTANT_BUFFER_API_SLOT_COUNT: u32 = 14u32;
 pub const D3D10_COMMONSHADER_CONSTANT_BUFFER_COMPONENTS: u32 = 4u32;
 pub const D3D10_COMMONSHADER_CONSTANT_BUFFER_COMPONENT_BIT_COUNT: u32 = 32u32;
@@ -187,6 +340,12 @@ pub const D3D10_COMPARISON_GREATER: D3D10_COMPARISON_FUNC = D3D10_COMPARISON_FUN
 pub const D3D10_COMPARISON_NOT_EQUAL: D3D10_COMPARISON_FUNC = D3D10_COMPARISON_FUNC(6i32);
 pub const D3D10_COMPARISON_GREATER_EQUAL: D3D10_COMPARISON_FUNC = D3D10_COMPARISON_FUNC(7i32);
 pub const D3D10_COMPARISON_ALWAYS: D3D10_COMPARISON_FUNC = D3D10_COMPARISON_FUNC(8i32);
+impl ::core::marker::Copy for D3D10_COMPARISON_FUNC {}
+impl ::core::clone::Clone for D3D10_COMPARISON_FUNC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3D10_COUNTER(pub i32);
 pub const D3D10_COUNTER_GPU_IDLE: D3D10_COUNTER = D3D10_COUNTER(0i32);
@@ -208,20 +367,57 @@ pub const D3D10_COUNTER_PS_COMPUTATION_LIMITED: D3D10_COUNTER = D3D10_COUNTER(15
 pub const D3D10_COUNTER_POST_TRANSFORM_CACHE_HIT_RATE: D3D10_COUNTER = D3D10_COUNTER(16i32);
 pub const D3D10_COUNTER_TEXTURE_CACHE_HIT_RATE: D3D10_COUNTER = D3D10_COUNTER(17i32);
 pub const D3D10_COUNTER_DEVICE_DEPENDENT_0: D3D10_COUNTER = D3D10_COUNTER(1073741824i32);
+impl ::core::marker::Copy for D3D10_COUNTER {}
+impl ::core::clone::Clone for D3D10_COUNTER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D10_COUNTER_DESC(i32);
+pub struct D3D10_COUNTER_DESC {
+    pub Counter: D3D10_COUNTER,
+    pub MiscFlags: u32,
+}
+impl ::core::marker::Copy for D3D10_COUNTER_DESC {}
+impl ::core::clone::Clone for D3D10_COUNTER_DESC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D10_COUNTER_INFO(i32);
+pub struct D3D10_COUNTER_INFO {
+    pub LastDeviceDependentCounter: D3D10_COUNTER,
+    pub NumSimultaneousCounters: u32,
+    pub NumDetectableParallelUnits: u8,
+}
+impl ::core::marker::Copy for D3D10_COUNTER_INFO {}
+impl ::core::clone::Clone for D3D10_COUNTER_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3D10_COUNTER_TYPE(pub i32);
 pub const D3D10_COUNTER_TYPE_FLOAT32: D3D10_COUNTER_TYPE = D3D10_COUNTER_TYPE(0i32);
 pub const D3D10_COUNTER_TYPE_UINT16: D3D10_COUNTER_TYPE = D3D10_COUNTER_TYPE(1i32);
 pub const D3D10_COUNTER_TYPE_UINT32: D3D10_COUNTER_TYPE = D3D10_COUNTER_TYPE(2i32);
 pub const D3D10_COUNTER_TYPE_UINT64: D3D10_COUNTER_TYPE = D3D10_COUNTER_TYPE(3i32);
+impl ::core::marker::Copy for D3D10_COUNTER_TYPE {}
+impl ::core::clone::Clone for D3D10_COUNTER_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3D10_CPU_ACCESS_FLAG(pub i32);
 pub const D3D10_CPU_ACCESS_WRITE: D3D10_CPU_ACCESS_FLAG = D3D10_CPU_ACCESS_FLAG(65536i32);
 pub const D3D10_CPU_ACCESS_READ: D3D10_CPU_ACCESS_FLAG = D3D10_CPU_ACCESS_FLAG(131072i32);
+impl ::core::marker::Copy for D3D10_CPU_ACCESS_FLAG {}
+impl ::core::clone::Clone for D3D10_CPU_ACCESS_FLAG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3D10_CREATE_DEVICE_FLAG(pub i32);
 pub const D3D10_CREATE_DEVICE_SINGLETHREADED: D3D10_CREATE_DEVICE_FLAG = D3D10_CREATE_DEVICE_FLAG(1i32);
@@ -233,11 +429,23 @@ pub const D3D10_CREATE_DEVICE_BGRA_SUPPORT: D3D10_CREATE_DEVICE_FLAG = D3D10_CRE
 pub const D3D10_CREATE_DEVICE_PREVENT_ALTERING_LAYER_SETTINGS_FROM_REGISTRY: D3D10_CREATE_DEVICE_FLAG = D3D10_CREATE_DEVICE_FLAG(128i32);
 pub const D3D10_CREATE_DEVICE_STRICT_VALIDATION: D3D10_CREATE_DEVICE_FLAG = D3D10_CREATE_DEVICE_FLAG(512i32);
 pub const D3D10_CREATE_DEVICE_DEBUGGABLE: D3D10_CREATE_DEVICE_FLAG = D3D10_CREATE_DEVICE_FLAG(1024i32);
+impl ::core::marker::Copy for D3D10_CREATE_DEVICE_FLAG {}
+impl ::core::clone::Clone for D3D10_CREATE_DEVICE_FLAG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3D10_CULL_MODE(pub i32);
 pub const D3D10_CULL_NONE: D3D10_CULL_MODE = D3D10_CULL_MODE(1i32);
 pub const D3D10_CULL_FRONT: D3D10_CULL_MODE = D3D10_CULL_MODE(2i32);
 pub const D3D10_CULL_BACK: D3D10_CULL_MODE = D3D10_CULL_MODE(3i32);
+impl ::core::marker::Copy for D3D10_CULL_MODE {}
+impl ::core::clone::Clone for D3D10_CULL_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const D3D10_DEBUG_FEATURE_FINISH_PER_RENDER_OP: u32 = 2u32;
 pub const D3D10_DEBUG_FEATURE_FLUSH_PER_RENDER_OP: u32 = 1u32;
 pub const D3D10_DEBUG_FEATURE_PRESENT_PER_RENDER_OP: u32 = 4u32;
@@ -268,17 +476,81 @@ pub const D3D10_DEFAULT_VIEWPORT_TOPLEFTX: u32 = 0u32;
 pub const D3D10_DEFAULT_VIEWPORT_TOPLEFTY: u32 = 0u32;
 pub const D3D10_DEFAULT_VIEWPORT_WIDTH: u32 = 0u32;
 #[repr(C)]
-pub struct D3D10_DEPTH_STENCILOP_DESC(i32);
+pub struct D3D10_DEPTH_STENCILOP_DESC {
+    pub StencilFailOp: D3D10_STENCIL_OP,
+    pub StencilDepthFailOp: D3D10_STENCIL_OP,
+    pub StencilPassOp: D3D10_STENCIL_OP,
+    pub StencilFunc: D3D10_COMPARISON_FUNC,
+}
+impl ::core::marker::Copy for D3D10_DEPTH_STENCILOP_DESC {}
+impl ::core::clone::Clone for D3D10_DEPTH_STENCILOP_DESC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+pub struct D3D10_DEPTH_STENCIL_DESC {
+    pub DepthEnable: super::super::Foundation::BOOL,
+    pub DepthWriteMask: D3D10_DEPTH_WRITE_MASK,
+    pub DepthFunc: D3D10_COMPARISON_FUNC,
+    pub StencilEnable: super::super::Foundation::BOOL,
+    pub StencilReadMask: u8,
+    pub StencilWriteMask: u8,
+    pub FrontFace: D3D10_DEPTH_STENCILOP_DESC,
+    pub BackFace: D3D10_DEPTH_STENCILOP_DESC,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for D3D10_DEPTH_STENCIL_DESC {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for D3D10_DEPTH_STENCIL_DESC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D10_DEPTH_STENCIL_DESC(i32);
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+pub struct D3D10_DEPTH_STENCIL_VIEW_DESC {
+    pub Format: super::Dxgi::Common::DXGI_FORMAT,
+    pub ViewDimension: D3D10_DSV_DIMENSION,
+    pub Anonymous: D3D10_DEPTH_STENCIL_VIEW_DESC_0,
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::marker::Copy for D3D10_DEPTH_STENCIL_VIEW_DESC {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::clone::Clone for D3D10_DEPTH_STENCIL_VIEW_DESC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D10_DEPTH_STENCIL_VIEW_DESC(i32);
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+pub union D3D10_DEPTH_STENCIL_VIEW_DESC_0 {
+    pub Texture1D: D3D10_TEX1D_DSV,
+    pub Texture1DArray: D3D10_TEX1D_ARRAY_DSV,
+    pub Texture2D: D3D10_TEX2D_DSV,
+    pub Texture2DArray: D3D10_TEX2D_ARRAY_DSV,
+    pub Texture2DMS: D3D10_TEX2DMS_DSV,
+    pub Texture2DMSArray: D3D10_TEX2DMS_ARRAY_DSV,
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::marker::Copy for D3D10_DEPTH_STENCIL_VIEW_DESC_0 {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::clone::Clone for D3D10_DEPTH_STENCIL_VIEW_DESC_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3D10_DEPTH_WRITE_MASK(pub i32);
 pub const D3D10_DEPTH_WRITE_MASK_ZERO: D3D10_DEPTH_WRITE_MASK = D3D10_DEPTH_WRITE_MASK(0i32);
 pub const D3D10_DEPTH_WRITE_MASK_ALL: D3D10_DEPTH_WRITE_MASK = D3D10_DEPTH_WRITE_MASK(1i32);
+impl ::core::marker::Copy for D3D10_DEPTH_WRITE_MASK {}
+impl ::core::clone::Clone for D3D10_DEPTH_WRITE_MASK {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3D10_DEVICE_STATE_TYPES(pub i32);
 pub const D3D10_DST_SO_BUFFERS: D3D10_DEVICE_STATE_TYPES = D3D10_DEVICE_STATE_TYPES(1i32);
@@ -305,6 +577,12 @@ pub const D3D10_DST_RS_VIEWPORTS: D3D10_DEVICE_STATE_TYPES = D3D10_DEVICE_STATE_
 pub const D3D10_DST_RS_SCISSOR_RECTS: D3D10_DEVICE_STATE_TYPES = D3D10_DEVICE_STATE_TYPES(22i32);
 pub const D3D10_DST_RS_RASTERIZER_STATE: D3D10_DEVICE_STATE_TYPES = D3D10_DEVICE_STATE_TYPES(23i32);
 pub const D3D10_DST_PREDICATION: D3D10_DEVICE_STATE_TYPES = D3D10_DEVICE_STATE_TYPES(24i32);
+impl ::core::marker::Copy for D3D10_DEVICE_STATE_TYPES {}
+impl ::core::clone::Clone for D3D10_DEVICE_STATE_TYPES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3D10_DRIVER_TYPE(pub i32);
 pub const D3D10_DRIVER_TYPE_HARDWARE: D3D10_DRIVER_TYPE = D3D10_DRIVER_TYPE(0i32);
@@ -312,6 +590,12 @@ pub const D3D10_DRIVER_TYPE_REFERENCE: D3D10_DRIVER_TYPE = D3D10_DRIVER_TYPE(1i3
 pub const D3D10_DRIVER_TYPE_NULL: D3D10_DRIVER_TYPE = D3D10_DRIVER_TYPE(2i32);
 pub const D3D10_DRIVER_TYPE_SOFTWARE: D3D10_DRIVER_TYPE = D3D10_DRIVER_TYPE(3i32);
 pub const D3D10_DRIVER_TYPE_WARP: D3D10_DRIVER_TYPE = D3D10_DRIVER_TYPE(5i32);
+impl ::core::marker::Copy for D3D10_DRIVER_TYPE {}
+impl ::core::clone::Clone for D3D10_DRIVER_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3D10_DSV_DIMENSION(pub i32);
 pub const D3D10_DSV_DIMENSION_UNKNOWN: D3D10_DSV_DIMENSION = D3D10_DSV_DIMENSION(0i32);
@@ -321,22 +605,93 @@ pub const D3D10_DSV_DIMENSION_TEXTURE2D: D3D10_DSV_DIMENSION = D3D10_DSV_DIMENSI
 pub const D3D10_DSV_DIMENSION_TEXTURE2DARRAY: D3D10_DSV_DIMENSION = D3D10_DSV_DIMENSION(4i32);
 pub const D3D10_DSV_DIMENSION_TEXTURE2DMS: D3D10_DSV_DIMENSION = D3D10_DSV_DIMENSION(5i32);
 pub const D3D10_DSV_DIMENSION_TEXTURE2DMSARRAY: D3D10_DSV_DIMENSION = D3D10_DSV_DIMENSION(6i32);
+impl ::core::marker::Copy for D3D10_DSV_DIMENSION {}
+impl ::core::clone::Clone for D3D10_DSV_DIMENSION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const D3D10_EFFECT_COMPILE_ALLOW_SLOW_OPS: u32 = 2u32;
 pub const D3D10_EFFECT_COMPILE_CHILD_EFFECT: u32 = 1u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct D3D10_EFFECT_DESC(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct D3D10_EFFECT_DESC {
+    pub IsChildEffect: super::super::Foundation::BOOL,
+    pub ConstantBuffers: u32,
+    pub SharedConstantBuffers: u32,
+    pub GlobalVariables: u32,
+    pub SharedGlobalVariables: u32,
+    pub Techniques: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for D3D10_EFFECT_DESC {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for D3D10_EFFECT_DESC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D10_EFFECT_SHADER_DESC(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct D3D10_EFFECT_SHADER_DESC {
+    pub pInputSignature: *mut u8,
+    pub IsInline: super::super::Foundation::BOOL,
+    pub pBytecode: *mut u8,
+    pub BytecodeLength: u32,
+    pub SODecl: super::super::Foundation::PSTR,
+    pub NumInputSignatureEntries: u32,
+    pub NumOutputSignatureEntries: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for D3D10_EFFECT_SHADER_DESC {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for D3D10_EFFECT_SHADER_DESC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const D3D10_EFFECT_SINGLE_THREADED: u32 = 8u32;
+#[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
-#[repr(C)]
-pub struct D3D10_EFFECT_TYPE_DESC(i32);
+pub struct D3D10_EFFECT_TYPE_DESC {
+    pub TypeName: super::super::Foundation::PSTR,
+    pub Class: super::Direct3D::D3D_SHADER_VARIABLE_CLASS,
+    pub Type: super::Direct3D::D3D_SHADER_VARIABLE_TYPE,
+    pub Elements: u32,
+    pub Members: u32,
+    pub Rows: u32,
+    pub Columns: u32,
+    pub PackedSize: u32,
+    pub UnpackedSize: u32,
+    pub Stride: u32,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+impl ::core::marker::Copy for D3D10_EFFECT_TYPE_DESC {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+impl ::core::clone::Clone for D3D10_EFFECT_TYPE_DESC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const D3D10_EFFECT_VARIABLE_ANNOTATION: u32 = 2u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct D3D10_EFFECT_VARIABLE_DESC(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct D3D10_EFFECT_VARIABLE_DESC {
+    pub Name: super::super::Foundation::PSTR,
+    pub Semantic: super::super::Foundation::PSTR,
+    pub Flags: u32,
+    pub Annotations: u32,
+    pub BufferOffset: u32,
+    pub ExplicitBindPoint: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for D3D10_EFFECT_VARIABLE_DESC {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for D3D10_EFFECT_VARIABLE_DESC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const D3D10_EFFECT_VARIABLE_EXPLICIT_BIND_POINT: u32 = 4u32;
 pub const D3D10_EFFECT_VARIABLE_POOLED: u32 = 1u32;
 pub const D3D10_ENABLE_UNBOUNDED_DESCRIPTOR_TABLES: u32 = 1048576u32;
@@ -347,10 +702,22 @@ pub const D3D10_FEATURE_LEVEL_10_1: D3D10_FEATURE_LEVEL1 = D3D10_FEATURE_LEVEL1(
 pub const D3D10_FEATURE_LEVEL_9_1: D3D10_FEATURE_LEVEL1 = D3D10_FEATURE_LEVEL1(37120i32);
 pub const D3D10_FEATURE_LEVEL_9_2: D3D10_FEATURE_LEVEL1 = D3D10_FEATURE_LEVEL1(37376i32);
 pub const D3D10_FEATURE_LEVEL_9_3: D3D10_FEATURE_LEVEL1 = D3D10_FEATURE_LEVEL1(37632i32);
+impl ::core::marker::Copy for D3D10_FEATURE_LEVEL1 {}
+impl ::core::clone::Clone for D3D10_FEATURE_LEVEL1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3D10_FILL_MODE(pub i32);
 pub const D3D10_FILL_WIREFRAME: D3D10_FILL_MODE = D3D10_FILL_MODE(2i32);
 pub const D3D10_FILL_SOLID: D3D10_FILL_MODE = D3D10_FILL_MODE(3i32);
+impl ::core::marker::Copy for D3D10_FILL_MODE {}
+impl ::core::clone::Clone for D3D10_FILL_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3D10_FILTER(pub i32);
 pub const D3D10_FILTER_MIN_MAG_MIP_POINT: D3D10_FILTER = D3D10_FILTER(0i32);
@@ -372,10 +739,22 @@ pub const D3D10_FILTER_COMPARISON_MIN_MAG_LINEAR_MIP_POINT: D3D10_FILTER = D3D10
 pub const D3D10_FILTER_COMPARISON_MIN_MAG_MIP_LINEAR: D3D10_FILTER = D3D10_FILTER(149i32);
 pub const D3D10_FILTER_COMPARISON_ANISOTROPIC: D3D10_FILTER = D3D10_FILTER(213i32);
 pub const D3D10_FILTER_TEXT_1BIT: D3D10_FILTER = D3D10_FILTER(-2147483648i32);
+impl ::core::marker::Copy for D3D10_FILTER {}
+impl ::core::clone::Clone for D3D10_FILTER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3D10_FILTER_TYPE(pub i32);
 pub const D3D10_FILTER_TYPE_POINT: D3D10_FILTER_TYPE = D3D10_FILTER_TYPE(0i32);
 pub const D3D10_FILTER_TYPE_LINEAR: D3D10_FILTER_TYPE = D3D10_FILTER_TYPE(1i32);
+impl ::core::marker::Copy for D3D10_FILTER_TYPE {}
+impl ::core::clone::Clone for D3D10_FILTER_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const D3D10_FILTER_TYPE_MASK: u32 = 3u32;
 pub const D3D10_FLOAT16_FUSED_TOLERANCE_IN_ULP: f64 = 0.6f64;
 pub const D3D10_FLOAT32_MAX: f32 = 340282350000000000000000000000000000000f32;
@@ -413,6 +792,12 @@ pub const D3D10_FORMAT_SUPPORT_MULTISAMPLE_RENDERTARGET: D3D10_FORMAT_SUPPORT = 
 pub const D3D10_FORMAT_SUPPORT_MULTISAMPLE_LOAD: D3D10_FORMAT_SUPPORT = D3D10_FORMAT_SUPPORT(4194304i32);
 pub const D3D10_FORMAT_SUPPORT_SHADER_GATHER: D3D10_FORMAT_SUPPORT = D3D10_FORMAT_SUPPORT(8388608i32);
 pub const D3D10_FORMAT_SUPPORT_BACK_BUFFER_CAST: D3D10_FORMAT_SUPPORT = D3D10_FORMAT_SUPPORT(16777216i32);
+impl ::core::marker::Copy for D3D10_FORMAT_SUPPORT {}
+impl ::core::clone::Clone for D3D10_FORMAT_SUPPORT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const D3D10_FTOI_INSTRUCTION_MAX_INPUT: f32 = 2147483600f32;
 pub const D3D10_FTOI_INSTRUCTION_MIN_INPUT: f32 = -2147483600f32;
 pub const D3D10_FTOU_INSTRUCTION_MAX_INPUT: f32 = 4294967300f32;
@@ -445,16 +830,60 @@ pub const D3D10_IA_VERTEX_INPUT_STRUCTURE_ELEMENTS_COMPONENTS: u32 = 64u32;
 pub const D3D10_IA_VERTEX_INPUT_STRUCTURE_ELEMENT_COUNT: u32 = 16u32;
 pub const D3D10_INFO_QUEUE_DEFAULT_MESSAGE_COUNT_LIMIT: u32 = 1024u32;
 #[repr(C)]
-pub struct D3D10_INFO_QUEUE_FILTER(i32);
+pub struct D3D10_INFO_QUEUE_FILTER {
+    pub AllowList: D3D10_INFO_QUEUE_FILTER_DESC,
+    pub DenyList: D3D10_INFO_QUEUE_FILTER_DESC,
+}
+impl ::core::marker::Copy for D3D10_INFO_QUEUE_FILTER {}
+impl ::core::clone::Clone for D3D10_INFO_QUEUE_FILTER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D10_INFO_QUEUE_FILTER_DESC(i32);
+pub struct D3D10_INFO_QUEUE_FILTER_DESC {
+    pub NumCategories: u32,
+    pub pCategoryList: *mut D3D10_MESSAGE_CATEGORY,
+    pub NumSeverities: u32,
+    pub pSeverityList: *mut D3D10_MESSAGE_SEVERITY,
+    pub NumIDs: u32,
+    pub pIDList: *mut D3D10_MESSAGE_ID,
+}
+impl ::core::marker::Copy for D3D10_INFO_QUEUE_FILTER_DESC {}
+impl ::core::clone::Clone for D3D10_INFO_QUEUE_FILTER_DESC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3D10_INPUT_CLASSIFICATION(pub i32);
 pub const D3D10_INPUT_PER_VERTEX_DATA: D3D10_INPUT_CLASSIFICATION = D3D10_INPUT_CLASSIFICATION(0i32);
 pub const D3D10_INPUT_PER_INSTANCE_DATA: D3D10_INPUT_CLASSIFICATION = D3D10_INPUT_CLASSIFICATION(1i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::marker::Copy for D3D10_INPUT_CLASSIFICATION {}
+impl ::core::clone::Clone for D3D10_INPUT_CLASSIFICATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D10_INPUT_ELEMENT_DESC(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+pub struct D3D10_INPUT_ELEMENT_DESC {
+    pub SemanticName: super::super::Foundation::PSTR,
+    pub SemanticIndex: u32,
+    pub Format: super::Dxgi::Common::DXGI_FORMAT,
+    pub InputSlot: u32,
+    pub AlignedByteOffset: u32,
+    pub InputSlotClass: D3D10_INPUT_CLASSIFICATION,
+    pub InstanceDataStepRate: u32,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::marker::Copy for D3D10_INPUT_ELEMENT_DESC {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::clone::Clone for D3D10_INPUT_ELEMENT_DESC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const D3D10_INTEGER_DIVIDE_BY_ZERO_QUOTIENT: u32 = 4294967295u32;
 pub const D3D10_INTEGER_DIVIDE_BY_ZERO_REMAINDER: u32 = 4294967295u32;
 pub const D3D10_LINEAR_GAMMA: f32 = 1f32;
@@ -466,13 +895,44 @@ pub const D3D10_MAP_WRITE: D3D10_MAP = D3D10_MAP(2i32);
 pub const D3D10_MAP_READ_WRITE: D3D10_MAP = D3D10_MAP(3i32);
 pub const D3D10_MAP_WRITE_DISCARD: D3D10_MAP = D3D10_MAP(4i32);
 pub const D3D10_MAP_WRITE_NO_OVERWRITE: D3D10_MAP = D3D10_MAP(5i32);
+impl ::core::marker::Copy for D3D10_MAP {}
+impl ::core::clone::Clone for D3D10_MAP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D10_MAPPED_TEXTURE2D(i32);
+pub struct D3D10_MAPPED_TEXTURE2D {
+    pub pData: *mut ::core::ffi::c_void,
+    pub RowPitch: u32,
+}
+impl ::core::marker::Copy for D3D10_MAPPED_TEXTURE2D {}
+impl ::core::clone::Clone for D3D10_MAPPED_TEXTURE2D {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D10_MAPPED_TEXTURE3D(i32);
+pub struct D3D10_MAPPED_TEXTURE3D {
+    pub pData: *mut ::core::ffi::c_void,
+    pub RowPitch: u32,
+    pub DepthPitch: u32,
+}
+impl ::core::marker::Copy for D3D10_MAPPED_TEXTURE3D {}
+impl ::core::clone::Clone for D3D10_MAPPED_TEXTURE3D {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3D10_MAP_FLAG(pub i32);
 pub const D3D10_MAP_FLAG_DO_NOT_WAIT: D3D10_MAP_FLAG = D3D10_MAP_FLAG(1048576i32);
+impl ::core::marker::Copy for D3D10_MAP_FLAG {}
+impl ::core::clone::Clone for D3D10_MAP_FLAG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const D3D10_MAX_BORDER_COLOR_COMPONENT: f32 = 1f32;
 pub const D3D10_MAX_DEPTH: f32 = 1f32;
 pub const D3D10_MAX_MAXANISOTROPY: u32 = 16u32;
@@ -480,7 +940,19 @@ pub const D3D10_MAX_MULTISAMPLE_SAMPLE_COUNT: u32 = 32u32;
 pub const D3D10_MAX_POSITION_VALUE: f32 = 34028236000000000000000000000000000f32;
 pub const D3D10_MAX_TEXTURE_DIMENSION_2_TO_EXP: u32 = 17u32;
 #[repr(C)]
-pub struct D3D10_MESSAGE(i32);
+pub struct D3D10_MESSAGE {
+    pub Category: D3D10_MESSAGE_CATEGORY,
+    pub Severity: D3D10_MESSAGE_SEVERITY,
+    pub ID: D3D10_MESSAGE_ID,
+    pub pDescription: *mut u8,
+    pub DescriptionByteLength: usize,
+}
+impl ::core::marker::Copy for D3D10_MESSAGE {}
+impl ::core::clone::Clone for D3D10_MESSAGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3D10_MESSAGE_CATEGORY(pub i32);
 pub const D3D10_MESSAGE_CATEGORY_APPLICATION_DEFINED: D3D10_MESSAGE_CATEGORY = D3D10_MESSAGE_CATEGORY(0i32);
@@ -494,6 +966,12 @@ pub const D3D10_MESSAGE_CATEGORY_STATE_GETTING: D3D10_MESSAGE_CATEGORY = D3D10_M
 pub const D3D10_MESSAGE_CATEGORY_RESOURCE_MANIPULATION: D3D10_MESSAGE_CATEGORY = D3D10_MESSAGE_CATEGORY(8i32);
 pub const D3D10_MESSAGE_CATEGORY_EXECUTION: D3D10_MESSAGE_CATEGORY = D3D10_MESSAGE_CATEGORY(9i32);
 pub const D3D10_MESSAGE_CATEGORY_SHADER: D3D10_MESSAGE_CATEGORY = D3D10_MESSAGE_CATEGORY(10i32);
+impl ::core::marker::Copy for D3D10_MESSAGE_CATEGORY {}
+impl ::core::clone::Clone for D3D10_MESSAGE_CATEGORY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3D10_MESSAGE_ID(pub i32);
 pub const D3D10_MESSAGE_ID_UNKNOWN: D3D10_MESSAGE_ID = D3D10_MESSAGE_ID(0i32);
@@ -1003,6 +1481,12 @@ pub const D3D10_MESSAGE_ID_CREATESAMPLERSTATE_BORDER_NOT_SUPPORTED: D3D10_MESSAG
 pub const D3D10_MESSAGE_ID_OMSETRENDERTARGETS_NO_SRGB_MRT: D3D10_MESSAGE_ID = D3D10_MESSAGE_ID(1048636i32);
 pub const D3D10_MESSAGE_ID_COPYRESOURCE_NO_3D_MISMATCHED_UPDATES: D3D10_MESSAGE_ID = D3D10_MESSAGE_ID(1048637i32);
 pub const D3D10_MESSAGE_ID_D3D10L9_MESSAGES_END: D3D10_MESSAGE_ID = D3D10_MESSAGE_ID(1048638i32);
+impl ::core::marker::Copy for D3D10_MESSAGE_ID {}
+impl ::core::clone::Clone for D3D10_MESSAGE_ID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3D10_MESSAGE_SEVERITY(pub i32);
 pub const D3D10_MESSAGE_SEVERITY_CORRUPTION: D3D10_MESSAGE_SEVERITY = D3D10_MESSAGE_SEVERITY(0i32);
@@ -1010,6 +1494,12 @@ pub const D3D10_MESSAGE_SEVERITY_ERROR: D3D10_MESSAGE_SEVERITY = D3D10_MESSAGE_S
 pub const D3D10_MESSAGE_SEVERITY_WARNING: D3D10_MESSAGE_SEVERITY = D3D10_MESSAGE_SEVERITY(2i32);
 pub const D3D10_MESSAGE_SEVERITY_INFO: D3D10_MESSAGE_SEVERITY = D3D10_MESSAGE_SEVERITY(3i32);
 pub const D3D10_MESSAGE_SEVERITY_MESSAGE: D3D10_MESSAGE_SEVERITY = D3D10_MESSAGE_SEVERITY(4i32);
+impl ::core::marker::Copy for D3D10_MESSAGE_SEVERITY {}
+impl ::core::clone::Clone for D3D10_MESSAGE_SEVERITY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const D3D10_MIN_BORDER_COLOR_COMPONENT: f32 = 0f32;
 pub const D3D10_MIN_DEPTH: f32 = 0f32;
 pub const D3D10_MIN_FILTER_SHIFT: u32 = 4u32;
@@ -1021,11 +1511,36 @@ pub const D3D10_MIP_LOD_FRACTIONAL_BIT_COUNT: u32 = 6u32;
 pub const D3D10_MIP_LOD_RANGE_BIT_COUNT: u32 = 8u32;
 pub const D3D10_MULTISAMPLE_ANTIALIAS_LINE_WIDTH: f32 = 1.4f32;
 pub const D3D10_NONSAMPLE_FETCH_OUT_OF_RANGE_ACCESS_RESULT: u32 = 0u32;
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+pub struct D3D10_PASS_DESC {
+    pub Name: super::super::Foundation::PSTR,
+    pub Annotations: u32,
+    pub pIAInputSignature: *mut u8,
+    pub IAInputSignatureSize: usize,
+    pub StencilRef: u32,
+    pub SampleMask: u32,
+    pub BlendFactor: [f32; 4],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for D3D10_PASS_DESC {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for D3D10_PASS_DESC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D10_PASS_DESC(i32);
-#[repr(C)]
-pub struct D3D10_PASS_SHADER_DESC(i32);
+pub struct D3D10_PASS_SHADER_DESC {
+    pub pShaderVariable: ::core::option::Option<ID3D10EffectShaderVariable>,
+    pub ShaderIndex: u32,
+}
+impl ::core::marker::Copy for D3D10_PASS_SHADER_DESC {}
+impl ::core::clone::Clone for D3D10_PASS_SHADER_DESC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const D3D10_PIXEL_ADDRESS_RANGE_BIT_COUNT: u32 = 13u32;
 pub const D3D10_PRE_SCISSOR_PIXEL_ADDRESS_RANGE_BIT_COUNT: u32 = 15u32;
 pub const D3D10_PS_FRONTFACING_DEFAULT_VALUE: u32 = 4294967295u32;
@@ -1054,30 +1569,160 @@ pub const D3D10_QUERY_PIPELINE_STATISTICS: D3D10_QUERY = D3D10_QUERY(4i32);
 pub const D3D10_QUERY_OCCLUSION_PREDICATE: D3D10_QUERY = D3D10_QUERY(5i32);
 pub const D3D10_QUERY_SO_STATISTICS: D3D10_QUERY = D3D10_QUERY(6i32);
 pub const D3D10_QUERY_SO_OVERFLOW_PREDICATE: D3D10_QUERY = D3D10_QUERY(7i32);
+impl ::core::marker::Copy for D3D10_QUERY {}
+impl ::core::clone::Clone for D3D10_QUERY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D10_QUERY_DATA_PIPELINE_STATISTICS(i32);
+pub struct D3D10_QUERY_DATA_PIPELINE_STATISTICS {
+    pub IAVertices: u64,
+    pub IAPrimitives: u64,
+    pub VSInvocations: u64,
+    pub GSInvocations: u64,
+    pub GSPrimitives: u64,
+    pub CInvocations: u64,
+    pub CPrimitives: u64,
+    pub PSInvocations: u64,
+}
+impl ::core::marker::Copy for D3D10_QUERY_DATA_PIPELINE_STATISTICS {}
+impl ::core::clone::Clone for D3D10_QUERY_DATA_PIPELINE_STATISTICS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D10_QUERY_DATA_SO_STATISTICS(i32);
+pub struct D3D10_QUERY_DATA_SO_STATISTICS {
+    pub NumPrimitivesWritten: u64,
+    pub PrimitivesStorageNeeded: u64,
+}
+impl ::core::marker::Copy for D3D10_QUERY_DATA_SO_STATISTICS {}
+impl ::core::clone::Clone for D3D10_QUERY_DATA_SO_STATISTICS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+pub struct D3D10_QUERY_DATA_TIMESTAMP_DISJOINT {
+    pub Frequency: u64,
+    pub Disjoint: super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for D3D10_QUERY_DATA_TIMESTAMP_DISJOINT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for D3D10_QUERY_DATA_TIMESTAMP_DISJOINT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D10_QUERY_DATA_TIMESTAMP_DISJOINT(i32);
-#[repr(C)]
-pub struct D3D10_QUERY_DESC(i32);
+pub struct D3D10_QUERY_DESC {
+    pub Query: D3D10_QUERY,
+    pub MiscFlags: u32,
+}
+impl ::core::marker::Copy for D3D10_QUERY_DESC {}
+impl ::core::clone::Clone for D3D10_QUERY_DESC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3D10_QUERY_MISC_FLAG(pub i32);
 pub const D3D10_QUERY_MISC_PREDICATEHINT: D3D10_QUERY_MISC_FLAG = D3D10_QUERY_MISC_FLAG(1i32);
+impl ::core::marker::Copy for D3D10_QUERY_MISC_FLAG {}
+impl ::core::clone::Clone for D3D10_QUERY_MISC_FLAG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3D10_RAISE_FLAG(pub i32);
 pub const D3D10_RAISE_FLAG_DRIVER_INTERNAL_ERROR: D3D10_RAISE_FLAG = D3D10_RAISE_FLAG(1i32);
-#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for D3D10_RAISE_FLAG {}
+impl ::core::clone::Clone for D3D10_RAISE_FLAG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D10_RASTERIZER_DESC(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct D3D10_RASTERIZER_DESC {
+    pub FillMode: D3D10_FILL_MODE,
+    pub CullMode: D3D10_CULL_MODE,
+    pub FrontCounterClockwise: super::super::Foundation::BOOL,
+    pub DepthBias: i32,
+    pub DepthBiasClamp: f32,
+    pub SlopeScaledDepthBias: f32,
+    pub DepthClipEnable: super::super::Foundation::BOOL,
+    pub ScissorEnable: super::super::Foundation::BOOL,
+    pub MultisampleEnable: super::super::Foundation::BOOL,
+    pub AntialiasedLineEnable: super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for D3D10_RASTERIZER_DESC {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for D3D10_RASTERIZER_DESC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D10_RENDER_TARGET_BLEND_DESC1(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct D3D10_RENDER_TARGET_BLEND_DESC1 {
+    pub BlendEnable: super::super::Foundation::BOOL,
+    pub SrcBlend: D3D10_BLEND,
+    pub DestBlend: D3D10_BLEND,
+    pub BlendOp: D3D10_BLEND_OP,
+    pub SrcBlendAlpha: D3D10_BLEND,
+    pub DestBlendAlpha: D3D10_BLEND,
+    pub BlendOpAlpha: D3D10_BLEND_OP,
+    pub RenderTargetWriteMask: u8,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for D3D10_RENDER_TARGET_BLEND_DESC1 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for D3D10_RENDER_TARGET_BLEND_DESC1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+pub struct D3D10_RENDER_TARGET_VIEW_DESC {
+    pub Format: super::Dxgi::Common::DXGI_FORMAT,
+    pub ViewDimension: D3D10_RTV_DIMENSION,
+    pub Anonymous: D3D10_RENDER_TARGET_VIEW_DESC_0,
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::marker::Copy for D3D10_RENDER_TARGET_VIEW_DESC {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::clone::Clone for D3D10_RENDER_TARGET_VIEW_DESC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D10_RENDER_TARGET_VIEW_DESC(i32);
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+pub union D3D10_RENDER_TARGET_VIEW_DESC_0 {
+    pub Buffer: D3D10_BUFFER_RTV,
+    pub Texture1D: D3D10_TEX1D_RTV,
+    pub Texture1DArray: D3D10_TEX1D_ARRAY_RTV,
+    pub Texture2D: D3D10_TEX2D_RTV,
+    pub Texture2DArray: D3D10_TEX2D_ARRAY_RTV,
+    pub Texture2DMS: D3D10_TEX2DMS_RTV,
+    pub Texture2DMSArray: D3D10_TEX2DMS_ARRAY_RTV,
+    pub Texture3D: D3D10_TEX3D_RTV,
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::marker::Copy for D3D10_RENDER_TARGET_VIEW_DESC_0 {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::clone::Clone for D3D10_RENDER_TARGET_VIEW_DESC_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const D3D10_REQ_BLEND_OBJECT_COUNT_PER_CONTEXT: u32 = 4096u32;
 pub const D3D10_REQ_BUFFER_RESOURCE_TEXEL_COUNT_2_TO_EXP: u32 = 27u32;
 pub const D3D10_REQ_CONSTANT_BUFFER_ELEMENT_COUNT: u32 = 4096u32;
@@ -1109,6 +1754,12 @@ pub const D3D10_RESOURCE_DIMENSION_BUFFER: D3D10_RESOURCE_DIMENSION = D3D10_RESO
 pub const D3D10_RESOURCE_DIMENSION_TEXTURE1D: D3D10_RESOURCE_DIMENSION = D3D10_RESOURCE_DIMENSION(2i32);
 pub const D3D10_RESOURCE_DIMENSION_TEXTURE2D: D3D10_RESOURCE_DIMENSION = D3D10_RESOURCE_DIMENSION(3i32);
 pub const D3D10_RESOURCE_DIMENSION_TEXTURE3D: D3D10_RESOURCE_DIMENSION = D3D10_RESOURCE_DIMENSION(4i32);
+impl ::core::marker::Copy for D3D10_RESOURCE_DIMENSION {}
+impl ::core::clone::Clone for D3D10_RESOURCE_DIMENSION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3D10_RESOURCE_MISC_FLAG(pub i32);
 pub const D3D10_RESOURCE_MISC_GENERATE_MIPS: D3D10_RESOURCE_MISC_FLAG = D3D10_RESOURCE_MISC_FLAG(1i32);
@@ -1116,6 +1767,12 @@ pub const D3D10_RESOURCE_MISC_SHARED: D3D10_RESOURCE_MISC_FLAG = D3D10_RESOURCE_
 pub const D3D10_RESOURCE_MISC_TEXTURECUBE: D3D10_RESOURCE_MISC_FLAG = D3D10_RESOURCE_MISC_FLAG(4i32);
 pub const D3D10_RESOURCE_MISC_SHARED_KEYEDMUTEX: D3D10_RESOURCE_MISC_FLAG = D3D10_RESOURCE_MISC_FLAG(16i32);
 pub const D3D10_RESOURCE_MISC_GDI_COMPATIBLE: D3D10_RESOURCE_MISC_FLAG = D3D10_RESOURCE_MISC_FLAG(32i32);
+impl ::core::marker::Copy for D3D10_RESOURCE_MISC_FLAG {}
+impl ::core::clone::Clone for D3D10_RESOURCE_MISC_FLAG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3D10_RTV_DIMENSION(pub i32);
 pub const D3D10_RTV_DIMENSION_UNKNOWN: D3D10_RTV_DIMENSION = D3D10_RTV_DIMENSION(0i32);
@@ -1127,32 +1784,174 @@ pub const D3D10_RTV_DIMENSION_TEXTURE2DARRAY: D3D10_RTV_DIMENSION = D3D10_RTV_DI
 pub const D3D10_RTV_DIMENSION_TEXTURE2DMS: D3D10_RTV_DIMENSION = D3D10_RTV_DIMENSION(6i32);
 pub const D3D10_RTV_DIMENSION_TEXTURE2DMSARRAY: D3D10_RTV_DIMENSION = D3D10_RTV_DIMENSION(7i32);
 pub const D3D10_RTV_DIMENSION_TEXTURE3D: D3D10_RTV_DIMENSION = D3D10_RTV_DIMENSION(8i32);
+impl ::core::marker::Copy for D3D10_RTV_DIMENSION {}
+impl ::core::clone::Clone for D3D10_RTV_DIMENSION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D10_SAMPLER_DESC(i32);
+pub struct D3D10_SAMPLER_DESC {
+    pub Filter: D3D10_FILTER,
+    pub AddressU: D3D10_TEXTURE_ADDRESS_MODE,
+    pub AddressV: D3D10_TEXTURE_ADDRESS_MODE,
+    pub AddressW: D3D10_TEXTURE_ADDRESS_MODE,
+    pub MipLODBias: f32,
+    pub MaxAnisotropy: u32,
+    pub ComparisonFunc: D3D10_COMPARISON_FUNC,
+    pub BorderColor: [f32; 4],
+    pub MinLOD: f32,
+    pub MaxLOD: f32,
+}
+impl ::core::marker::Copy for D3D10_SAMPLER_DESC {}
+impl ::core::clone::Clone for D3D10_SAMPLER_DESC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const D3D10_SDK_LAYERS_VERSION: u32 = 11u32;
 pub const D3D10_SDK_VERSION: u32 = 29u32;
 pub const D3D10_SHADER_AVOID_FLOW_CONTROL: u32 = 512u32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
 #[repr(C)]
-pub struct D3D10_SHADER_BUFFER_DESC(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+pub struct D3D10_SHADER_BUFFER_DESC {
+    pub Name: super::super::Foundation::PSTR,
+    pub Type: super::Direct3D::D3D_CBUFFER_TYPE,
+    pub Variables: u32,
+    pub Size: u32,
+    pub uFlags: u32,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+impl ::core::marker::Copy for D3D10_SHADER_BUFFER_DESC {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+impl ::core::clone::Clone for D3D10_SHADER_BUFFER_DESC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const D3D10_SHADER_DEBUG: u32 = 1u32;
 #[repr(C)]
-pub struct D3D10_SHADER_DEBUG_FILE_INFO(i32);
+pub struct D3D10_SHADER_DEBUG_FILE_INFO {
+    pub FileName: u32,
+    pub FileNameLen: u32,
+    pub FileData: u32,
+    pub FileLen: u32,
+}
+impl ::core::marker::Copy for D3D10_SHADER_DEBUG_FILE_INFO {}
+impl ::core::clone::Clone for D3D10_SHADER_DEBUG_FILE_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D10_SHADER_DEBUG_INFO(i32);
+pub struct D3D10_SHADER_DEBUG_INFO {
+    pub Size: u32,
+    pub Creator: u32,
+    pub EntrypointName: u32,
+    pub ShaderTarget: u32,
+    pub CompileFlags: u32,
+    pub Files: u32,
+    pub FileInfo: u32,
+    pub Instructions: u32,
+    pub InstructionInfo: u32,
+    pub Variables: u32,
+    pub VariableInfo: u32,
+    pub InputVariables: u32,
+    pub InputVariableInfo: u32,
+    pub Tokens: u32,
+    pub TokenInfo: u32,
+    pub Scopes: u32,
+    pub ScopeInfo: u32,
+    pub ScopeVariables: u32,
+    pub ScopeVariableInfo: u32,
+    pub UintOffset: u32,
+    pub StringOffset: u32,
+}
+impl ::core::marker::Copy for D3D10_SHADER_DEBUG_INFO {}
+impl ::core::clone::Clone for D3D10_SHADER_DEBUG_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D10_SHADER_DEBUG_INPUT_INFO(i32);
+pub struct D3D10_SHADER_DEBUG_INPUT_INFO {
+    pub Var: u32,
+    pub InitialRegisterSet: D3D10_SHADER_DEBUG_REGTYPE,
+    pub InitialBank: u32,
+    pub InitialRegister: u32,
+    pub InitialComponent: u32,
+    pub InitialValue: u32,
+}
+impl ::core::marker::Copy for D3D10_SHADER_DEBUG_INPUT_INFO {}
+impl ::core::clone::Clone for D3D10_SHADER_DEBUG_INPUT_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct D3D10_SHADER_DEBUG_INST_INFO(i32);
+pub struct D3D10_SHADER_DEBUG_INST_INFO {
+    pub Id: u32,
+    pub Opcode: u32,
+    pub uOutputs: u32,
+    pub pOutputs: [D3D10_SHADER_DEBUG_OUTPUTREG_INFO; 2],
+    pub TokenId: u32,
+    pub NestingLevel: u32,
+    pub Scopes: u32,
+    pub ScopeInfo: u32,
+    pub AccessedVars: u32,
+    pub AccessedVarsInfo: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for D3D10_SHADER_DEBUG_INST_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for D3D10_SHADER_DEBUG_INST_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const D3D10_SHADER_DEBUG_NAME_FOR_BINARY: u32 = 8388608u32;
 pub const D3D10_SHADER_DEBUG_NAME_FOR_SOURCE: u32 = 4194304u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct D3D10_SHADER_DEBUG_OUTPUTREG_INFO(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct D3D10_SHADER_DEBUG_OUTPUTREG_INFO {
+    pub OutputRegisterSet: D3D10_SHADER_DEBUG_REGTYPE,
+    pub OutputReg: u32,
+    pub TempArrayReg: u32,
+    pub OutputComponents: [u32; 4],
+    pub OutputVars: [D3D10_SHADER_DEBUG_OUTPUTVAR; 4],
+    pub IndexReg: u32,
+    pub IndexComp: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for D3D10_SHADER_DEBUG_OUTPUTREG_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for D3D10_SHADER_DEBUG_OUTPUTREG_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D10_SHADER_DEBUG_OUTPUTVAR(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct D3D10_SHADER_DEBUG_OUTPUTVAR {
+    pub Var: u32,
+    pub uValueMin: u32,
+    pub uValueMax: u32,
+    pub iValueMin: i32,
+    pub iValueMax: i32,
+    pub fValueMin: f32,
+    pub fValueMax: f32,
+    pub bNaNPossible: super::super::Foundation::BOOL,
+    pub bInfPossible: super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for D3D10_SHADER_DEBUG_OUTPUTVAR {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for D3D10_SHADER_DEBUG_OUTPUTVAR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3D10_SHADER_DEBUG_REGTYPE(pub i32);
 pub const D3D10_SHADER_DEBUG_REG_INPUT: D3D10_SHADER_DEBUG_REGTYPE = D3D10_SHADER_DEBUG_REGTYPE(0i32);
@@ -1169,6 +1968,12 @@ pub const D3D10_SHADER_DEBUG_REG_UNUSED: D3D10_SHADER_DEBUG_REGTYPE = D3D10_SHAD
 pub const D3D11_SHADER_DEBUG_REG_INTERFACE_POINTERS: D3D10_SHADER_DEBUG_REGTYPE = D3D10_SHADER_DEBUG_REGTYPE(11i32);
 pub const D3D11_SHADER_DEBUG_REG_UAV: D3D10_SHADER_DEBUG_REGTYPE = D3D10_SHADER_DEBUG_REGTYPE(12i32);
 pub const D3D10_SHADER_DEBUG_REG_FORCE_DWORD: D3D10_SHADER_DEBUG_REGTYPE = D3D10_SHADER_DEBUG_REGTYPE(2147483647i32);
+impl ::core::marker::Copy for D3D10_SHADER_DEBUG_REGTYPE {}
+impl ::core::clone::Clone for D3D10_SHADER_DEBUG_REGTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3D10_SHADER_DEBUG_SCOPETYPE(pub i32);
 pub const D3D10_SHADER_DEBUG_SCOPE_GLOBAL: D3D10_SHADER_DEBUG_SCOPETYPE = D3D10_SHADER_DEBUG_SCOPETYPE(0i32);
@@ -1180,24 +1985,132 @@ pub const D3D10_SHADER_DEBUG_SCOPE_STATEBLOCK: D3D10_SHADER_DEBUG_SCOPETYPE = D3
 pub const D3D10_SHADER_DEBUG_SCOPE_NAMESPACE: D3D10_SHADER_DEBUG_SCOPETYPE = D3D10_SHADER_DEBUG_SCOPETYPE(6i32);
 pub const D3D10_SHADER_DEBUG_SCOPE_ANNOTATION: D3D10_SHADER_DEBUG_SCOPETYPE = D3D10_SHADER_DEBUG_SCOPETYPE(7i32);
 pub const D3D10_SHADER_DEBUG_SCOPE_FORCE_DWORD: D3D10_SHADER_DEBUG_SCOPETYPE = D3D10_SHADER_DEBUG_SCOPETYPE(2147483647i32);
+impl ::core::marker::Copy for D3D10_SHADER_DEBUG_SCOPETYPE {}
+impl ::core::clone::Clone for D3D10_SHADER_DEBUG_SCOPETYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
+pub struct D3D10_SHADER_DEBUG_SCOPEVAR_INFO {
+    pub TokenId: u32,
+    pub VarType: D3D10_SHADER_DEBUG_VARTYPE,
+    pub Class: super::Direct3D::D3D_SHADER_VARIABLE_CLASS,
+    pub Rows: u32,
+    pub Columns: u32,
+    pub StructMemberScope: u32,
+    pub uArrayIndices: u32,
+    pub ArrayElements: u32,
+    pub ArrayStrides: u32,
+    pub uVariables: u32,
+    pub uFirstVariable: u32,
+}
+#[cfg(feature = "Win32_Graphics_Direct3D")]
+impl ::core::marker::Copy for D3D10_SHADER_DEBUG_SCOPEVAR_INFO {}
+#[cfg(feature = "Win32_Graphics_Direct3D")]
+impl ::core::clone::Clone for D3D10_SHADER_DEBUG_SCOPEVAR_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D10_SHADER_DEBUG_SCOPEVAR_INFO(i32);
+pub struct D3D10_SHADER_DEBUG_SCOPE_INFO {
+    pub ScopeType: D3D10_SHADER_DEBUG_SCOPETYPE,
+    pub Name: u32,
+    pub uNameLen: u32,
+    pub uVariables: u32,
+    pub VariableData: u32,
+}
+impl ::core::marker::Copy for D3D10_SHADER_DEBUG_SCOPE_INFO {}
+impl ::core::clone::Clone for D3D10_SHADER_DEBUG_SCOPE_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D10_SHADER_DEBUG_SCOPE_INFO(i32);
-#[repr(C)]
-pub struct D3D10_SHADER_DEBUG_TOKEN_INFO(i32);
+pub struct D3D10_SHADER_DEBUG_TOKEN_INFO {
+    pub File: u32,
+    pub Line: u32,
+    pub Column: u32,
+    pub TokenLength: u32,
+    pub TokenId: u32,
+}
+impl ::core::marker::Copy for D3D10_SHADER_DEBUG_TOKEN_INFO {}
+impl ::core::clone::Clone for D3D10_SHADER_DEBUG_TOKEN_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3D10_SHADER_DEBUG_VARTYPE(pub i32);
 pub const D3D10_SHADER_DEBUG_VAR_VARIABLE: D3D10_SHADER_DEBUG_VARTYPE = D3D10_SHADER_DEBUG_VARTYPE(0i32);
 pub const D3D10_SHADER_DEBUG_VAR_FUNCTION: D3D10_SHADER_DEBUG_VARTYPE = D3D10_SHADER_DEBUG_VARTYPE(1i32);
 pub const D3D10_SHADER_DEBUG_VAR_FORCE_DWORD: D3D10_SHADER_DEBUG_VARTYPE = D3D10_SHADER_DEBUG_VARTYPE(2147483647i32);
+impl ::core::marker::Copy for D3D10_SHADER_DEBUG_VARTYPE {}
+impl ::core::clone::Clone for D3D10_SHADER_DEBUG_VARTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
+pub struct D3D10_SHADER_DEBUG_VAR_INFO {
+    pub TokenId: u32,
+    pub Type: super::Direct3D::D3D_SHADER_VARIABLE_TYPE,
+    pub Register: u32,
+    pub Component: u32,
+    pub ScopeVar: u32,
+    pub ScopeVarOffset: u32,
+}
+#[cfg(feature = "Win32_Graphics_Direct3D")]
+impl ::core::marker::Copy for D3D10_SHADER_DEBUG_VAR_INFO {}
+#[cfg(feature = "Win32_Graphics_Direct3D")]
+impl ::core::clone::Clone for D3D10_SHADER_DEBUG_VAR_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D10_SHADER_DEBUG_VAR_INFO(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
-#[repr(C)]
-pub struct D3D10_SHADER_DESC(i32);
+pub struct D3D10_SHADER_DESC {
+    pub Version: u32,
+    pub Creator: super::super::Foundation::PSTR,
+    pub Flags: u32,
+    pub ConstantBuffers: u32,
+    pub BoundResources: u32,
+    pub InputParameters: u32,
+    pub OutputParameters: u32,
+    pub InstructionCount: u32,
+    pub TempRegisterCount: u32,
+    pub TempArrayCount: u32,
+    pub DefCount: u32,
+    pub DclCount: u32,
+    pub TextureNormalInstructions: u32,
+    pub TextureLoadInstructions: u32,
+    pub TextureCompInstructions: u32,
+    pub TextureBiasInstructions: u32,
+    pub TextureGradientInstructions: u32,
+    pub FloatInstructionCount: u32,
+    pub IntInstructionCount: u32,
+    pub UintInstructionCount: u32,
+    pub StaticFlowControlCount: u32,
+    pub DynamicFlowControlCount: u32,
+    pub MacroInstructionCount: u32,
+    pub ArrayInstructionCount: u32,
+    pub CutInstructionCount: u32,
+    pub EmitInstructionCount: u32,
+    pub GSOutputTopology: super::Direct3D::D3D_PRIMITIVE_TOPOLOGY,
+    pub GSMaxOutputVertexCount: u32,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+impl ::core::marker::Copy for D3D10_SHADER_DESC {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+impl ::core::clone::Clone for D3D10_SHADER_DESC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const D3D10_SHADER_ENABLE_BACKWARDS_COMPATIBILITY: u32 = 4096u32;
 pub const D3D10_SHADER_ENABLE_STRICTNESS: u32 = 2048u32;
 pub const D3D10_SHADER_FLAGS2_FORCE_ROOT_SIGNATURE_1_0: u32 = 16u32;
@@ -1206,9 +2119,26 @@ pub const D3D10_SHADER_FLAGS2_FORCE_ROOT_SIGNATURE_LATEST: u32 = 0u32;
 pub const D3D10_SHADER_FORCE_PS_SOFTWARE_NO_OPT: u32 = 128u32;
 pub const D3D10_SHADER_FORCE_VS_SOFTWARE_NO_OPT: u32 = 64u32;
 pub const D3D10_SHADER_IEEE_STRICTNESS: u32 = 8192u32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
 #[repr(C)]
-pub struct D3D10_SHADER_INPUT_BIND_DESC(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+pub struct D3D10_SHADER_INPUT_BIND_DESC {
+    pub Name: super::super::Foundation::PSTR,
+    pub Type: super::Direct3D::D3D_SHADER_INPUT_TYPE,
+    pub BindPoint: u32,
+    pub BindCount: u32,
+    pub uFlags: u32,
+    pub ReturnType: super::Direct3D::D3D_RESOURCE_RETURN_TYPE,
+    pub Dimension: super::Direct3D::D3D_SRV_DIMENSION,
+    pub NumSamples: u32,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+impl ::core::marker::Copy for D3D10_SHADER_INPUT_BIND_DESC {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+impl ::core::clone::Clone for D3D10_SHADER_INPUT_BIND_DESC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const D3D10_SHADER_MAJOR_VERSION: u32 = 4u32;
 pub const D3D10_SHADER_MINOR_VERSION: u32 = 0u32;
 pub const D3D10_SHADER_NO_PRESHADER: u32 = 256u32;
@@ -1220,34 +2150,161 @@ pub const D3D10_SHADER_PACK_MATRIX_ROW_MAJOR: u32 = 8u32;
 pub const D3D10_SHADER_PARTIAL_PRECISION: u32 = 32u32;
 pub const D3D10_SHADER_PREFER_FLOW_CONTROL: u32 = 1024u32;
 pub const D3D10_SHADER_RESOURCES_MAY_ALIAS: u32 = 524288u32;
-#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 #[repr(C)]
-pub struct D3D10_SHADER_RESOURCE_VIEW_DESC(i32);
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+pub struct D3D10_SHADER_RESOURCE_VIEW_DESC {
+    pub Format: super::Dxgi::Common::DXGI_FORMAT,
+    pub ViewDimension: super::Direct3D::D3D_SRV_DIMENSION,
+    pub Anonymous: D3D10_SHADER_RESOURCE_VIEW_DESC_0,
+}
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::marker::Copy for D3D10_SHADER_RESOURCE_VIEW_DESC {}
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::clone::Clone for D3D10_SHADER_RESOURCE_VIEW_DESC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D10_SHADER_RESOURCE_VIEW_DESC1(i32);
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+pub union D3D10_SHADER_RESOURCE_VIEW_DESC_0 {
+    pub Buffer: D3D10_BUFFER_SRV,
+    pub Texture1D: D3D10_TEX1D_SRV,
+    pub Texture1DArray: D3D10_TEX1D_ARRAY_SRV,
+    pub Texture2D: D3D10_TEX2D_SRV,
+    pub Texture2DArray: D3D10_TEX2D_ARRAY_SRV,
+    pub Texture2DMS: D3D10_TEX2DMS_SRV,
+    pub Texture2DMSArray: D3D10_TEX2DMS_ARRAY_SRV,
+    pub Texture3D: D3D10_TEX3D_SRV,
+    pub TextureCube: D3D10_TEXCUBE_SRV,
+}
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::marker::Copy for D3D10_SHADER_RESOURCE_VIEW_DESC_0 {}
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::clone::Clone for D3D10_SHADER_RESOURCE_VIEW_DESC_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+pub struct D3D10_SHADER_RESOURCE_VIEW_DESC1 {
+    pub Format: super::Dxgi::Common::DXGI_FORMAT,
+    pub ViewDimension: super::Direct3D::D3D_SRV_DIMENSION,
+    pub Anonymous: D3D10_SHADER_RESOURCE_VIEW_DESC1_0,
+}
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::marker::Copy for D3D10_SHADER_RESOURCE_VIEW_DESC1 {}
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::clone::Clone for D3D10_SHADER_RESOURCE_VIEW_DESC1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+pub union D3D10_SHADER_RESOURCE_VIEW_DESC1_0 {
+    pub Buffer: D3D10_BUFFER_SRV,
+    pub Texture1D: D3D10_TEX1D_SRV,
+    pub Texture1DArray: D3D10_TEX1D_ARRAY_SRV,
+    pub Texture2D: D3D10_TEX2D_SRV,
+    pub Texture2DArray: D3D10_TEX2D_ARRAY_SRV,
+    pub Texture2DMS: D3D10_TEX2DMS_SRV,
+    pub Texture2DMSArray: D3D10_TEX2DMS_ARRAY_SRV,
+    pub Texture3D: D3D10_TEX3D_SRV,
+    pub TextureCube: D3D10_TEXCUBE_SRV,
+    pub TextureCubeArray: D3D10_TEXCUBE_ARRAY_SRV1,
+}
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::marker::Copy for D3D10_SHADER_RESOURCE_VIEW_DESC1_0 {}
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::clone::Clone for D3D10_SHADER_RESOURCE_VIEW_DESC1_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const D3D10_SHADER_SKIP_OPTIMIZATION: u32 = 4u32;
 pub const D3D10_SHADER_SKIP_VALIDATION: u32 = 2u32;
+#[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
+pub struct D3D10_SHADER_TYPE_DESC {
+    pub Class: super::Direct3D::D3D_SHADER_VARIABLE_CLASS,
+    pub Type: super::Direct3D::D3D_SHADER_VARIABLE_TYPE,
+    pub Rows: u32,
+    pub Columns: u32,
+    pub Elements: u32,
+    pub Members: u32,
+    pub Offset: u32,
+}
+#[cfg(feature = "Win32_Graphics_Direct3D")]
+impl ::core::marker::Copy for D3D10_SHADER_TYPE_DESC {}
+#[cfg(feature = "Win32_Graphics_Direct3D")]
+impl ::core::clone::Clone for D3D10_SHADER_TYPE_DESC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D10_SHADER_TYPE_DESC(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct D3D10_SHADER_VARIABLE_DESC(i32);
+pub struct D3D10_SHADER_VARIABLE_DESC {
+    pub Name: super::super::Foundation::PSTR,
+    pub StartOffset: u32,
+    pub Size: u32,
+    pub uFlags: u32,
+    pub DefaultValue: *mut ::core::ffi::c_void,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for D3D10_SHADER_VARIABLE_DESC {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for D3D10_SHADER_VARIABLE_DESC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const D3D10_SHADER_WARNINGS_ARE_ERRORS: u32 = 262144u32;
 pub const D3D10_SHIFT_INSTRUCTION_PAD_VALUE: u32 = 0u32;
 pub const D3D10_SHIFT_INSTRUCTION_SHIFT_VALUE_BIT_COUNT: u32 = 5u32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
 #[repr(C)]
-pub struct D3D10_SIGNATURE_PARAMETER_DESC(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+pub struct D3D10_SIGNATURE_PARAMETER_DESC {
+    pub SemanticName: super::super::Foundation::PSTR,
+    pub SemanticIndex: u32,
+    pub Register: u32,
+    pub SystemValueType: super::Direct3D::D3D_NAME,
+    pub ComponentType: super::Direct3D::D3D_REGISTER_COMPONENT_TYPE,
+    pub Mask: u8,
+    pub ReadWriteMask: u8,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+impl ::core::marker::Copy for D3D10_SIGNATURE_PARAMETER_DESC {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+impl ::core::clone::Clone for D3D10_SIGNATURE_PARAMETER_DESC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const D3D10_SIMULTANEOUS_RENDER_TARGET_COUNT: u32 = 8u32;
 pub const D3D10_SO_BUFFER_MAX_STRIDE_IN_BYTES: u32 = 2048u32;
 pub const D3D10_SO_BUFFER_MAX_WRITE_WINDOW_IN_BYTES: u32 = 256u32;
 pub const D3D10_SO_BUFFER_SLOT_COUNT: u32 = 4u32;
 pub const D3D10_SO_DDI_REGISTER_INDEX_DENOTING_GAP: u32 = 4294967295u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct D3D10_SO_DECLARATION_ENTRY(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct D3D10_SO_DECLARATION_ENTRY {
+    pub SemanticName: super::super::Foundation::PSTR,
+    pub SemanticIndex: u32,
+    pub StartComponent: u8,
+    pub ComponentCount: u8,
+    pub OutputSlot: u8,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for D3D10_SO_DECLARATION_ENTRY {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for D3D10_SO_DECLARATION_ENTRY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const D3D10_SO_MULTIPLE_BUFFER_ELEMENTS_PER_BUFFER: u32 = 1u32;
 pub const D3D10_SO_SINGLE_BUFFER_COMPONENT_LIMIT: u32 = 64u32;
 pub const D3D10_SRGB_GAMMA: f32 = 2.2f32;
@@ -1264,13 +2321,50 @@ pub const D3D10_STANDARD_MAXIMUM_ELEMENT_ALIGNMENT_BYTE_MULTIPLE: u32 = 4u32;
 pub struct D3D10_STANDARD_MULTISAMPLE_QUALITY_LEVELS(pub i32);
 pub const D3D10_STANDARD_MULTISAMPLE_PATTERN: D3D10_STANDARD_MULTISAMPLE_QUALITY_LEVELS = D3D10_STANDARD_MULTISAMPLE_QUALITY_LEVELS(-1i32);
 pub const D3D10_CENTER_MULTISAMPLE_PATTERN: D3D10_STANDARD_MULTISAMPLE_QUALITY_LEVELS = D3D10_STANDARD_MULTISAMPLE_QUALITY_LEVELS(-2i32);
+impl ::core::marker::Copy for D3D10_STANDARD_MULTISAMPLE_QUALITY_LEVELS {}
+impl ::core::clone::Clone for D3D10_STANDARD_MULTISAMPLE_QUALITY_LEVELS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const D3D10_STANDARD_PIXEL_COMPONENT_COUNT: u32 = 128u32;
 pub const D3D10_STANDARD_PIXEL_ELEMENT_COUNT: u32 = 32u32;
 pub const D3D10_STANDARD_VECTOR_SIZE: u32 = 4u32;
 pub const D3D10_STANDARD_VERTEX_ELEMENT_COUNT: u32 = 16u32;
 pub const D3D10_STANDARD_VERTEX_TOTAL_COMPONENT_COUNT: u32 = 64u32;
 #[repr(C)]
-pub struct D3D10_STATE_BLOCK_MASK(i32);
+pub struct D3D10_STATE_BLOCK_MASK {
+    pub VS: u8,
+    pub VSSamplers: [u8; 2],
+    pub VSShaderResources: [u8; 16],
+    pub VSConstantBuffers: [u8; 2],
+    pub GS: u8,
+    pub GSSamplers: [u8; 2],
+    pub GSShaderResources: [u8; 16],
+    pub GSConstantBuffers: [u8; 2],
+    pub PS: u8,
+    pub PSSamplers: [u8; 2],
+    pub PSShaderResources: [u8; 16],
+    pub PSConstantBuffers: [u8; 2],
+    pub IAVertexBuffers: [u8; 2],
+    pub IAIndexBuffer: u8,
+    pub IAInputLayout: u8,
+    pub IAPrimitiveTopology: u8,
+    pub OMRenderTargets: u8,
+    pub OMDepthStencilState: u8,
+    pub OMBlendState: u8,
+    pub RSViewports: u8,
+    pub RSScissorRects: u8,
+    pub RSRasterizerState: u8,
+    pub SOBuffers: u8,
+    pub Predication: u8,
+}
+impl ::core::marker::Copy for D3D10_STATE_BLOCK_MASK {}
+impl ::core::clone::Clone for D3D10_STATE_BLOCK_MASK {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3D10_STENCIL_OP(pub i32);
 pub const D3D10_STENCIL_OP_KEEP: D3D10_STENCIL_OP = D3D10_STENCIL_OP(1i32);
@@ -1281,67 +2375,351 @@ pub const D3D10_STENCIL_OP_DECR_SAT: D3D10_STENCIL_OP = D3D10_STENCIL_OP(5i32);
 pub const D3D10_STENCIL_OP_INVERT: D3D10_STENCIL_OP = D3D10_STENCIL_OP(6i32);
 pub const D3D10_STENCIL_OP_INCR: D3D10_STENCIL_OP = D3D10_STENCIL_OP(7i32);
 pub const D3D10_STENCIL_OP_DECR: D3D10_STENCIL_OP = D3D10_STENCIL_OP(8i32);
+impl ::core::marker::Copy for D3D10_STENCIL_OP {}
+impl ::core::clone::Clone for D3D10_STENCIL_OP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const D3D10_SUBPIXEL_FRACTIONAL_BIT_COUNT: u32 = 8u32;
 #[repr(C)]
-pub struct D3D10_SUBRESOURCE_DATA(i32);
+pub struct D3D10_SUBRESOURCE_DATA {
+    pub pSysMem: *mut ::core::ffi::c_void,
+    pub SysMemPitch: u32,
+    pub SysMemSlicePitch: u32,
+}
+impl ::core::marker::Copy for D3D10_SUBRESOURCE_DATA {}
+impl ::core::clone::Clone for D3D10_SUBRESOURCE_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const D3D10_SUBTEXEL_FRACTIONAL_BIT_COUNT: u32 = 6u32;
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+pub struct D3D10_TECHNIQUE_DESC {
+    pub Name: super::super::Foundation::PSTR,
+    pub Passes: u32,
+    pub Annotations: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for D3D10_TECHNIQUE_DESC {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for D3D10_TECHNIQUE_DESC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D10_TECHNIQUE_DESC(i32);
+pub struct D3D10_TEX1D_ARRAY_DSV {
+    pub MipSlice: u32,
+    pub FirstArraySlice: u32,
+    pub ArraySize: u32,
+}
+impl ::core::marker::Copy for D3D10_TEX1D_ARRAY_DSV {}
+impl ::core::clone::Clone for D3D10_TEX1D_ARRAY_DSV {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D10_TEX1D_ARRAY_DSV(i32);
+pub struct D3D10_TEX1D_ARRAY_RTV {
+    pub MipSlice: u32,
+    pub FirstArraySlice: u32,
+    pub ArraySize: u32,
+}
+impl ::core::marker::Copy for D3D10_TEX1D_ARRAY_RTV {}
+impl ::core::clone::Clone for D3D10_TEX1D_ARRAY_RTV {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D10_TEX1D_ARRAY_RTV(i32);
+pub struct D3D10_TEX1D_ARRAY_SRV {
+    pub MostDetailedMip: u32,
+    pub MipLevels: u32,
+    pub FirstArraySlice: u32,
+    pub ArraySize: u32,
+}
+impl ::core::marker::Copy for D3D10_TEX1D_ARRAY_SRV {}
+impl ::core::clone::Clone for D3D10_TEX1D_ARRAY_SRV {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D10_TEX1D_ARRAY_SRV(i32);
+pub struct D3D10_TEX1D_DSV {
+    pub MipSlice: u32,
+}
+impl ::core::marker::Copy for D3D10_TEX1D_DSV {}
+impl ::core::clone::Clone for D3D10_TEX1D_DSV {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D10_TEX1D_DSV(i32);
+pub struct D3D10_TEX1D_RTV {
+    pub MipSlice: u32,
+}
+impl ::core::marker::Copy for D3D10_TEX1D_RTV {}
+impl ::core::clone::Clone for D3D10_TEX1D_RTV {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D10_TEX1D_RTV(i32);
+pub struct D3D10_TEX1D_SRV {
+    pub MostDetailedMip: u32,
+    pub MipLevels: u32,
+}
+impl ::core::marker::Copy for D3D10_TEX1D_SRV {}
+impl ::core::clone::Clone for D3D10_TEX1D_SRV {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D10_TEX1D_SRV(i32);
+pub struct D3D10_TEX2DMS_ARRAY_DSV {
+    pub FirstArraySlice: u32,
+    pub ArraySize: u32,
+}
+impl ::core::marker::Copy for D3D10_TEX2DMS_ARRAY_DSV {}
+impl ::core::clone::Clone for D3D10_TEX2DMS_ARRAY_DSV {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D10_TEX2DMS_ARRAY_DSV(i32);
+pub struct D3D10_TEX2DMS_ARRAY_RTV {
+    pub FirstArraySlice: u32,
+    pub ArraySize: u32,
+}
+impl ::core::marker::Copy for D3D10_TEX2DMS_ARRAY_RTV {}
+impl ::core::clone::Clone for D3D10_TEX2DMS_ARRAY_RTV {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D10_TEX2DMS_ARRAY_RTV(i32);
+pub struct D3D10_TEX2DMS_ARRAY_SRV {
+    pub FirstArraySlice: u32,
+    pub ArraySize: u32,
+}
+impl ::core::marker::Copy for D3D10_TEX2DMS_ARRAY_SRV {}
+impl ::core::clone::Clone for D3D10_TEX2DMS_ARRAY_SRV {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D10_TEX2DMS_ARRAY_SRV(i32);
+pub struct D3D10_TEX2DMS_DSV {
+    pub UnusedField_NothingToDefine: u32,
+}
+impl ::core::marker::Copy for D3D10_TEX2DMS_DSV {}
+impl ::core::clone::Clone for D3D10_TEX2DMS_DSV {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D10_TEX2DMS_DSV(i32);
+pub struct D3D10_TEX2DMS_RTV {
+    pub UnusedField_NothingToDefine: u32,
+}
+impl ::core::marker::Copy for D3D10_TEX2DMS_RTV {}
+impl ::core::clone::Clone for D3D10_TEX2DMS_RTV {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D10_TEX2DMS_RTV(i32);
+pub struct D3D10_TEX2DMS_SRV {
+    pub UnusedField_NothingToDefine: u32,
+}
+impl ::core::marker::Copy for D3D10_TEX2DMS_SRV {}
+impl ::core::clone::Clone for D3D10_TEX2DMS_SRV {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D10_TEX2DMS_SRV(i32);
+pub struct D3D10_TEX2D_ARRAY_DSV {
+    pub MipSlice: u32,
+    pub FirstArraySlice: u32,
+    pub ArraySize: u32,
+}
+impl ::core::marker::Copy for D3D10_TEX2D_ARRAY_DSV {}
+impl ::core::clone::Clone for D3D10_TEX2D_ARRAY_DSV {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D10_TEX2D_ARRAY_DSV(i32);
+pub struct D3D10_TEX2D_ARRAY_RTV {
+    pub MipSlice: u32,
+    pub FirstArraySlice: u32,
+    pub ArraySize: u32,
+}
+impl ::core::marker::Copy for D3D10_TEX2D_ARRAY_RTV {}
+impl ::core::clone::Clone for D3D10_TEX2D_ARRAY_RTV {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D10_TEX2D_ARRAY_RTV(i32);
+pub struct D3D10_TEX2D_ARRAY_SRV {
+    pub MostDetailedMip: u32,
+    pub MipLevels: u32,
+    pub FirstArraySlice: u32,
+    pub ArraySize: u32,
+}
+impl ::core::marker::Copy for D3D10_TEX2D_ARRAY_SRV {}
+impl ::core::clone::Clone for D3D10_TEX2D_ARRAY_SRV {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D10_TEX2D_ARRAY_SRV(i32);
+pub struct D3D10_TEX2D_DSV {
+    pub MipSlice: u32,
+}
+impl ::core::marker::Copy for D3D10_TEX2D_DSV {}
+impl ::core::clone::Clone for D3D10_TEX2D_DSV {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D10_TEX2D_DSV(i32);
+pub struct D3D10_TEX2D_RTV {
+    pub MipSlice: u32,
+}
+impl ::core::marker::Copy for D3D10_TEX2D_RTV {}
+impl ::core::clone::Clone for D3D10_TEX2D_RTV {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D10_TEX2D_RTV(i32);
+pub struct D3D10_TEX2D_SRV {
+    pub MostDetailedMip: u32,
+    pub MipLevels: u32,
+}
+impl ::core::marker::Copy for D3D10_TEX2D_SRV {}
+impl ::core::clone::Clone for D3D10_TEX2D_SRV {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D10_TEX2D_SRV(i32);
+pub struct D3D10_TEX3D_RTV {
+    pub MipSlice: u32,
+    pub FirstWSlice: u32,
+    pub WSize: u32,
+}
+impl ::core::marker::Copy for D3D10_TEX3D_RTV {}
+impl ::core::clone::Clone for D3D10_TEX3D_RTV {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D10_TEX3D_RTV(i32);
+pub struct D3D10_TEX3D_SRV {
+    pub MostDetailedMip: u32,
+    pub MipLevels: u32,
+}
+impl ::core::marker::Copy for D3D10_TEX3D_SRV {}
+impl ::core::clone::Clone for D3D10_TEX3D_SRV {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D10_TEX3D_SRV(i32);
+pub struct D3D10_TEXCUBE_ARRAY_SRV1 {
+    pub MostDetailedMip: u32,
+    pub MipLevels: u32,
+    pub First2DArrayFace: u32,
+    pub NumCubes: u32,
+}
+impl ::core::marker::Copy for D3D10_TEXCUBE_ARRAY_SRV1 {}
+impl ::core::clone::Clone for D3D10_TEXCUBE_ARRAY_SRV1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D10_TEXCUBE_ARRAY_SRV1(i32);
-#[repr(C)]
-pub struct D3D10_TEXCUBE_SRV(i32);
+pub struct D3D10_TEXCUBE_SRV {
+    pub MostDetailedMip: u32,
+    pub MipLevels: u32,
+}
+impl ::core::marker::Copy for D3D10_TEXCUBE_SRV {}
+impl ::core::clone::Clone for D3D10_TEXCUBE_SRV {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const D3D10_TEXEL_ADDRESS_RANGE_BIT_COUNT: u32 = 18u32;
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 #[repr(C)]
-pub struct D3D10_TEXTURE1D_DESC(i32);
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-#[repr(C)]
-pub struct D3D10_TEXTURE2D_DESC(i32);
+pub struct D3D10_TEXTURE1D_DESC {
+    pub Width: u32,
+    pub MipLevels: u32,
+    pub ArraySize: u32,
+    pub Format: super::Dxgi::Common::DXGI_FORMAT,
+    pub Usage: D3D10_USAGE,
+    pub BindFlags: u32,
+    pub CPUAccessFlags: u32,
+    pub MiscFlags: u32,
+}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::marker::Copy for D3D10_TEXTURE1D_DESC {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::clone::Clone for D3D10_TEXTURE1D_DESC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D10_TEXTURE3D_DESC(i32);
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+pub struct D3D10_TEXTURE2D_DESC {
+    pub Width: u32,
+    pub Height: u32,
+    pub MipLevels: u32,
+    pub ArraySize: u32,
+    pub Format: super::Dxgi::Common::DXGI_FORMAT,
+    pub SampleDesc: super::Dxgi::Common::DXGI_SAMPLE_DESC,
+    pub Usage: D3D10_USAGE,
+    pub BindFlags: u32,
+    pub CPUAccessFlags: u32,
+    pub MiscFlags: u32,
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::marker::Copy for D3D10_TEXTURE2D_DESC {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::clone::Clone for D3D10_TEXTURE2D_DESC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+pub struct D3D10_TEXTURE3D_DESC {
+    pub Width: u32,
+    pub Height: u32,
+    pub Depth: u32,
+    pub MipLevels: u32,
+    pub Format: super::Dxgi::Common::DXGI_FORMAT,
+    pub Usage: D3D10_USAGE,
+    pub BindFlags: u32,
+    pub CPUAccessFlags: u32,
+    pub MiscFlags: u32,
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::marker::Copy for D3D10_TEXTURE3D_DESC {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::clone::Clone for D3D10_TEXTURE3D_DESC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3D10_TEXTURECUBE_FACE(pub i32);
 pub const D3D10_TEXTURECUBE_FACE_POSITIVE_X: D3D10_TEXTURECUBE_FACE = D3D10_TEXTURECUBE_FACE(0i32);
@@ -1350,6 +2728,12 @@ pub const D3D10_TEXTURECUBE_FACE_POSITIVE_Y: D3D10_TEXTURECUBE_FACE = D3D10_TEXT
 pub const D3D10_TEXTURECUBE_FACE_NEGATIVE_Y: D3D10_TEXTURECUBE_FACE = D3D10_TEXTURECUBE_FACE(3i32);
 pub const D3D10_TEXTURECUBE_FACE_POSITIVE_Z: D3D10_TEXTURECUBE_FACE = D3D10_TEXTURECUBE_FACE(4i32);
 pub const D3D10_TEXTURECUBE_FACE_NEGATIVE_Z: D3D10_TEXTURECUBE_FACE = D3D10_TEXTURECUBE_FACE(5i32);
+impl ::core::marker::Copy for D3D10_TEXTURECUBE_FACE {}
+impl ::core::clone::Clone for D3D10_TEXTURECUBE_FACE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct D3D10_TEXTURE_ADDRESS_MODE(pub i32);
 pub const D3D10_TEXTURE_ADDRESS_WRAP: D3D10_TEXTURE_ADDRESS_MODE = D3D10_TEXTURE_ADDRESS_MODE(1i32);
@@ -1357,6 +2741,12 @@ pub const D3D10_TEXTURE_ADDRESS_MIRROR: D3D10_TEXTURE_ADDRESS_MODE = D3D10_TEXTU
 pub const D3D10_TEXTURE_ADDRESS_CLAMP: D3D10_TEXTURE_ADDRESS_MODE = D3D10_TEXTURE_ADDRESS_MODE(3i32);
 pub const D3D10_TEXTURE_ADDRESS_BORDER: D3D10_TEXTURE_ADDRESS_MODE = D3D10_TEXTURE_ADDRESS_MODE(4i32);
 pub const D3D10_TEXTURE_ADDRESS_MIRROR_ONCE: D3D10_TEXTURE_ADDRESS_MODE = D3D10_TEXTURE_ADDRESS_MODE(5i32);
+impl ::core::marker::Copy for D3D10_TEXTURE_ADDRESS_MODE {}
+impl ::core::clone::Clone for D3D10_TEXTURE_ADDRESS_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const D3D10_TEXT_1BIT_BIT: u32 = 2147483648u32;
 pub const D3D10_UNBOUND_MEMORY_ACCESS_RESULT: u32 = 0u32;
 #[repr(transparent)]
@@ -1365,8 +2755,27 @@ pub const D3D10_USAGE_DEFAULT: D3D10_USAGE = D3D10_USAGE(0i32);
 pub const D3D10_USAGE_IMMUTABLE: D3D10_USAGE = D3D10_USAGE(1i32);
 pub const D3D10_USAGE_DYNAMIC: D3D10_USAGE = D3D10_USAGE(2i32);
 pub const D3D10_USAGE_STAGING: D3D10_USAGE = D3D10_USAGE(3i32);
+impl ::core::marker::Copy for D3D10_USAGE {}
+impl ::core::clone::Clone for D3D10_USAGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct D3D10_VIEWPORT(i32);
+pub struct D3D10_VIEWPORT {
+    pub TopLeftX: i32,
+    pub TopLeftY: i32,
+    pub Width: u32,
+    pub Height: u32,
+    pub MinDepth: f32,
+    pub MaxDepth: f32,
+}
+impl ::core::marker::Copy for D3D10_VIEWPORT {}
+impl ::core::clone::Clone for D3D10_VIEWPORT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const D3D10_VIEWPORT_AND_SCISSORRECT_MAX_INDEX: u32 = 15u32;
 pub const D3D10_VIEWPORT_AND_SCISSORRECT_OBJECT_COUNT_PER_PIPELINE: u32 = 16u32;
 pub const D3D10_VIEWPORT_BOUNDS_MAX: u32 = 16383u32;

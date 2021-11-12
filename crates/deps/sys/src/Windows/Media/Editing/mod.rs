@@ -45,9 +45,21 @@ impl MediaTrimmingPreference {
     pub const Fast: Self = Self(0i32);
     pub const Precise: Self = Self(1i32);
 }
+impl ::core::marker::Copy for MediaTrimmingPreference {}
+impl ::core::clone::Clone for MediaTrimmingPreference {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct VideoFramePrecision(pub i32);
 impl VideoFramePrecision {
     pub const NearestFrame: Self = Self(0i32);
     pub const NearestKeyFrame: Self = Self(1i32);
+}
+impl ::core::marker::Copy for VideoFramePrecision {}
+impl ::core::clone::Clone for VideoFramePrecision {
+    fn clone(&self) -> Self {
+        *self
+    }
 }

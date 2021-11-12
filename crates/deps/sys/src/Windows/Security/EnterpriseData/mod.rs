@@ -15,6 +15,12 @@ impl DataProtectionStatus {
     pub const LicenseExpired: Self = Self(4i32);
     pub const AccessSuspended: Self = Self(5i32);
 }
+impl ::core::marker::Copy for DataProtectionStatus {}
+impl ::core::clone::Clone for DataProtectionStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct EnforcementLevel(pub i32);
 impl EnforcementLevel {
@@ -23,8 +29,12 @@ impl EnforcementLevel {
     pub const Override: Self = Self(2i32);
     pub const Block: Self = Self(3i32);
 }
-#[repr(C)]
-pub struct EnterpriseDataContract(i32);
+impl ::core::marker::Copy for EnforcementLevel {}
+impl ::core::clone::Clone for EnforcementLevel {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct FileProtectionInfo(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -42,6 +52,12 @@ impl FileProtectionStatus {
     pub const LicenseExpired: Self = Self(8i32);
     pub const AccessSuspended: Self = Self(9i32);
     pub const FileInUse: Self = Self(10i32);
+}
+impl ::core::marker::Copy for FileProtectionStatus {}
+impl ::core::clone::Clone for FileProtectionStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct FileUnprotectOptions(pub *mut ::core::ffi::c_void);
@@ -121,6 +137,12 @@ impl ProtectedImportExportStatus {
     pub const LicenseExpired: Self = Self(6i32);
     pub const AccessSuspended: Self = Self(7i32);
 }
+impl ::core::marker::Copy for ProtectedImportExportStatus {}
+impl ::core::clone::Clone for ProtectedImportExportStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ProtectionPolicyAuditAction(pub i32);
 impl ProtectionPolicyAuditAction {
@@ -128,6 +150,12 @@ impl ProtectionPolicyAuditAction {
     pub const CopyToLocation: Self = Self(1i32);
     pub const SendToRecipient: Self = Self(2i32);
     pub const Other: Self = Self(3i32);
+}
+impl ::core::marker::Copy for ProtectionPolicyAuditAction {}
+impl ::core::clone::Clone for ProtectionPolicyAuditAction {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct ProtectionPolicyAuditInfo(pub *mut ::core::ffi::c_void);
@@ -138,6 +166,12 @@ impl ProtectionPolicyEvaluationResult {
     pub const Blocked: Self = Self(1i32);
     pub const ConsentRequired: Self = Self(2i32);
 }
+impl ::core::marker::Copy for ProtectionPolicyEvaluationResult {}
+impl ::core::clone::Clone for ProtectionPolicyEvaluationResult {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ProtectionPolicyManager(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -145,6 +179,12 @@ pub struct ProtectionPolicyRequestAccessBehavior(pub i32);
 impl ProtectionPolicyRequestAccessBehavior {
     pub const Decrypt: Self = Self(0i32);
     pub const TreatOverridePolicyAsBlock: Self = Self(1i32);
+}
+impl ::core::marker::Copy for ProtectionPolicyRequestAccessBehavior {}
+impl ::core::clone::Clone for ProtectionPolicyRequestAccessBehavior {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct ThreadNetworkContext(pub *mut ::core::ffi::c_void);

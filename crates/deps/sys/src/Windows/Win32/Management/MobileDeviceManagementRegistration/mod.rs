@@ -40,12 +40,36 @@ pub const DEVICEREGISTRATIONTYPE_MDM_DEVICEWIDE_WITH_AAD: u32 = 6u32;
 pub const DEVICEREGISTRATIONTYPE_MDM_ONLY: u32 = 0u32;
 pub const DEVICEREGISTRATIONTYPE_MDM_USERSPECIFIC_WITH_AAD: u32 = 13u32;
 pub const DEVICE_ENROLLER_FACILITY_CODE: u32 = 24u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct MANAGEMENT_REGISTRATION_INFO(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct MANAGEMENT_REGISTRATION_INFO {
+    pub fDeviceRegisteredWithManagement: super::super::Foundation::BOOL,
+    pub dwDeviceRegistionKind: u32,
+    pub pszUPN: super::super::Foundation::PWSTR,
+    pub pszMDMServiceUri: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MANAGEMENT_REGISTRATION_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MANAGEMENT_REGISTRATION_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct MANAGEMENT_SERVICE_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct MANAGEMENT_SERVICE_INFO {
+    pub pszMDMServiceUri: super::super::Foundation::PWSTR,
+    pub pszAuthenticationUri: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MANAGEMENT_SERVICE_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MANAGEMENT_SERVICE_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MDM_REGISTRATION_FACILITY_CODE: u32 = 25u32;
 pub const MENROLL_E_CERTAUTH_FAILED_TO_FIND_CERT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2145910744i32 as _);
 pub const MENROLL_E_CERTPOLICY_PRIVATEKEYCREATION_FAILED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2145910745i32 as _);
@@ -111,3 +135,9 @@ pub const MREGISTER_E_REGISTRATION_IN_PROGRESS: ::windows_sys::core::HRESULT = :
 pub struct REGISTRATION_INFORMATION_CLASS(pub i32);
 pub const DeviceRegistrationBasicInfo: REGISTRATION_INFORMATION_CLASS = REGISTRATION_INFORMATION_CLASS(1i32);
 pub const MaxDeviceInfoClass: REGISTRATION_INFORMATION_CLASS = REGISTRATION_INFORMATION_CLASS(2i32);
+impl ::core::marker::Copy for REGISTRATION_INFORMATION_CLASS {}
+impl ::core::clone::Clone for REGISTRATION_INFORMATION_CLASS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

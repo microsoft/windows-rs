@@ -43,6 +43,12 @@ impl AppDiagnosticInfoWatcherStatus {
     pub const Stopped: Self = Self(4i32);
     pub const Aborted: Self = Self(5i32);
 }
+impl ::core::marker::Copy for AppDiagnosticInfoWatcherStatus {}
+impl ::core::clone::Clone for AppDiagnosticInfoWatcherStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AppExecutionStateChangeResult(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -55,6 +61,12 @@ impl AppMemoryUsageLevel {
     pub const High: Self = Self(2i32);
     pub const OverLimit: Self = Self(3i32);
 }
+impl ::core::marker::Copy for AppMemoryUsageLevel {}
+impl ::core::clone::Clone for AppMemoryUsageLevel {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AppMemoryUsageLimitChangingEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -66,6 +78,12 @@ impl AppResourceGroupEnergyQuotaState {
     pub const Over: Self = Self(1i32);
     pub const Under: Self = Self(2i32);
 }
+impl ::core::marker::Copy for AppResourceGroupEnergyQuotaState {}
+impl ::core::clone::Clone for AppResourceGroupEnergyQuotaState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AppResourceGroupExecutionState(pub i32);
 impl AppResourceGroupExecutionState {
@@ -74,6 +92,12 @@ impl AppResourceGroupExecutionState {
     pub const Suspending: Self = Self(2i32);
     pub const Suspended: Self = Self(3i32);
     pub const NotRunning: Self = Self(4i32);
+}
+impl ::core::marker::Copy for AppResourceGroupExecutionState {}
+impl ::core::clone::Clone for AppResourceGroupExecutionState {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct AppResourceGroupInfo(pub *mut ::core::ffi::c_void);
@@ -93,6 +117,12 @@ impl AppResourceGroupInfoWatcherStatus {
     pub const Stopped: Self = Self(4i32);
     pub const Aborted: Self = Self(5i32);
 }
+impl ::core::marker::Copy for AppResourceGroupInfoWatcherStatus {}
+impl ::core::clone::Clone for AppResourceGroupInfoWatcherStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AppResourceGroupMemoryReport(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -110,6 +140,12 @@ impl AutoUpdateTimeZoneStatus {
     pub const TimedOut: Self = Self(1i32);
     pub const Failed: Self = Self(2i32);
 }
+impl ::core::marker::Copy for AutoUpdateTimeZoneStatus {}
+impl ::core::clone::Clone for AutoUpdateTimeZoneStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DiagnosticAccessStatus(pub i32);
 impl DiagnosticAccessStatus {
@@ -117,6 +153,12 @@ impl DiagnosticAccessStatus {
     pub const Denied: Self = Self(1i32);
     pub const Limited: Self = Self(2i32);
     pub const Allowed: Self = Self(3i32);
+}
+impl ::core::marker::Copy for DiagnosticAccessStatus {}
+impl ::core::clone::Clone for DiagnosticAccessStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct DispatcherQueue(pub *mut ::core::ffi::c_void);
@@ -130,6 +172,12 @@ impl DispatcherQueuePriority {
     pub const Low: Self = Self(-10i32);
     pub const Normal: Self = Self(0i32);
     pub const High: Self = Self(10i32);
+}
+impl ::core::marker::Copy for DispatcherQueuePriority {}
+impl ::core::clone::Clone for DispatcherQueuePriority {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct DispatcherQueueShutdownStartingEventArgs(pub *mut ::core::ffi::c_void);
@@ -306,6 +354,12 @@ impl LaunchFileStatus {
     pub const FileTypeNotSupported: Self = Self(3i32);
     pub const Unknown: Self = Self(4i32);
 }
+impl ::core::marker::Copy for LaunchFileStatus {}
+impl ::core::clone::Clone for LaunchFileStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct LaunchQuerySupportStatus(pub i32);
 impl LaunchQuerySupportStatus {
@@ -315,11 +369,23 @@ impl LaunchQuerySupportStatus {
     pub const NotSupported: Self = Self(3i32);
     pub const Unknown: Self = Self(4i32);
 }
+impl ::core::marker::Copy for LaunchQuerySupportStatus {}
+impl ::core::clone::Clone for LaunchQuerySupportStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct LaunchQuerySupportType(pub i32);
 impl LaunchQuerySupportType {
     pub const Uri: Self = Self(0i32);
     pub const UriForResults: Self = Self(1i32);
+}
+impl ::core::marker::Copy for LaunchQuerySupportType {}
+impl ::core::clone::Clone for LaunchQuerySupportType {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct LaunchUriResult(pub *mut ::core::ffi::c_void);
@@ -331,6 +397,12 @@ impl LaunchUriStatus {
     pub const ProtocolUnavailable: Self = Self(2i32);
     pub const Unknown: Self = Self(3i32);
 }
+impl ::core::marker::Copy for LaunchUriStatus {}
+impl ::core::clone::Clone for LaunchUriStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct LauncherOptions(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -340,6 +412,12 @@ pub struct PowerState(pub i32);
 impl PowerState {
     pub const ConnectedStandby: Self = Self(0i32);
     pub const SleepS3: Self = Self(1i32);
+}
+impl ::core::marker::Copy for PowerState {}
+impl ::core::clone::Clone for PowerState {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct ProcessLauncherOptions(pub *mut ::core::ffi::c_void);
@@ -358,6 +436,12 @@ impl ProcessorArchitecture {
     pub const X86OnArm64: Self = Self(14i32);
     pub const Unknown: Self = Self(65535i32);
 }
+impl ::core::marker::Copy for ProcessorArchitecture {}
+impl ::core::clone::Clone for ProcessorArchitecture {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ProtocolForResultsOperation(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -372,6 +456,12 @@ impl RemoteLaunchUriStatus {
     pub const DeniedByLocalSystem: Self = Self(6i32);
     pub const DeniedByRemoteSystem: Self = Self(7i32);
 }
+impl ::core::marker::Copy for RemoteLaunchUriStatus {}
+impl ::core::clone::Clone for RemoteLaunchUriStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RemoteLauncherOptions(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -380,8 +470,12 @@ impl ShutdownKind {
     pub const Shutdown: Self = Self(0i32);
     pub const Restart: Self = Self(1i32);
 }
-#[repr(C)]
-pub struct SystemManagementContract(i32);
+impl ::core::marker::Copy for ShutdownKind {}
+impl ::core::clone::Clone for ShutdownKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct User(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -390,6 +484,12 @@ impl UserAgeConsentGroup {
     pub const Child: Self = Self(0i32);
     pub const Minor: Self = Self(1i32);
     pub const Adult: Self = Self(2i32);
+}
+impl ::core::marker::Copy for UserAgeConsentGroup {}
+impl ::core::clone::Clone for UserAgeConsentGroup {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct UserAgeConsentResult(pub i32);
@@ -400,12 +500,24 @@ impl UserAgeConsentResult {
     pub const Unknown: Self = Self(3i32);
     pub const Ambiguous: Self = Self(4i32);
 }
+impl ::core::marker::Copy for UserAgeConsentResult {}
+impl ::core::clone::Clone for UserAgeConsentResult {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UserAuthenticationStatus(pub i32);
 impl UserAuthenticationStatus {
     pub const Unauthenticated: Self = Self(0i32);
     pub const LocallyAuthenticated: Self = Self(1i32);
     pub const RemotelyAuthenticated: Self = Self(2i32);
+}
+impl ::core::marker::Copy for UserAuthenticationStatus {}
+impl ::core::clone::Clone for UserAuthenticationStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct UserAuthenticationStatusChangeDeferral(pub *mut ::core::ffi::c_void);
@@ -425,6 +537,12 @@ impl UserPictureSize {
     pub const Size424x424: Self = Self(2i32);
     pub const Size1080x1080: Self = Self(3i32);
 }
+impl ::core::marker::Copy for UserPictureSize {}
+impl ::core::clone::Clone for UserPictureSize {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UserType(pub i32);
 impl UserType {
@@ -433,6 +551,12 @@ impl UserType {
     pub const LocalGuest: Self = Self(2i32);
     pub const RemoteGuest: Self = Self(3i32);
     pub const SystemManaged: Self = Self(4i32);
+}
+impl ::core::marker::Copy for UserType {}
+impl ::core::clone::Clone for UserType {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct UserWatcher(pub *mut ::core::ffi::c_void);
@@ -446,11 +570,23 @@ impl UserWatcherStatus {
     pub const Stopped: Self = Self(4i32);
     pub const Aborted: Self = Self(5i32);
 }
+impl ::core::marker::Copy for UserWatcherStatus {}
+impl ::core::clone::Clone for UserWatcherStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UserWatcherUpdateKind(pub i32);
 impl UserWatcherUpdateKind {
     pub const Properties: Self = Self(0i32);
     pub const Picture: Self = Self(1i32);
+}
+impl ::core::marker::Copy for UserWatcherUpdateKind {}
+impl ::core::clone::Clone for UserWatcherUpdateKind {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct VirtualKey(pub i32);
@@ -628,6 +764,12 @@ impl VirtualKey {
     pub const GamepadRightThumbstickRight: Self = Self(217i32);
     pub const GamepadRightThumbstickLeft: Self = Self(218i32);
 }
+impl ::core::marker::Copy for VirtualKey {}
+impl ::core::clone::Clone for VirtualKey {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct VirtualKeyModifiers(pub u32);
 impl VirtualKeyModifiers {
@@ -636,4 +778,10 @@ impl VirtualKeyModifiers {
     pub const Menu: Self = Self(2u32);
     pub const Shift: Self = Self(4u32);
     pub const Windows: Self = Self(8u32);
+}
+impl ::core::marker::Copy for VirtualKeyModifiers {}
+impl ::core::clone::Clone for VirtualKeyModifiers {
+    fn clone(&self) -> Self {
+        *self
+    }
 }

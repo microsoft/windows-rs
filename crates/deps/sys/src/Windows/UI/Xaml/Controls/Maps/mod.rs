@@ -247,6 +247,12 @@ impl MapAnimationKind {
     pub const Linear: Self = Self(2i32);
     pub const Bow: Self = Self(3i32);
 }
+impl ::core::marker::Copy for MapAnimationKind {}
+impl ::core::clone::Clone for MapAnimationKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MapBillboard(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -258,11 +264,23 @@ impl MapCameraChangeReason {
     pub const UserInteraction: Self = Self(1i32);
     pub const Programmatic: Self = Self(2i32);
 }
+impl ::core::marker::Copy for MapCameraChangeReason {}
+impl ::core::clone::Clone for MapCameraChangeReason {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MapColorScheme(pub i32);
 impl MapColorScheme {
     pub const Light: Self = Self(0i32);
     pub const Dark: Self = Self(1i32);
+}
+impl ::core::marker::Copy for MapColorScheme {}
+impl ::core::clone::Clone for MapColorScheme {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct MapContextRequestedEventArgs(pub *mut ::core::ffi::c_void);
@@ -302,6 +320,12 @@ impl MapElementCollisionBehavior {
     pub const Hide: Self = Self(0i32);
     pub const RemainVisible: Self = Self(1i32);
 }
+impl ::core::marker::Copy for MapElementCollisionBehavior {}
+impl ::core::clone::Clone for MapElementCollisionBehavior {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MapElementPointerEnteredEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -332,6 +356,12 @@ impl MapInteractionMode {
     pub const PointerKeyboardAndControl: Self = Self(4i32);
     pub const PointerOnly: Self = Self(5i32);
 }
+impl ::core::marker::Copy for MapInteractionMode {}
+impl ::core::clone::Clone for MapInteractionMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MapItemsControl(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -344,6 +374,12 @@ impl MapLoadingStatus {
     pub const DataUnavailable: Self = Self(2i32);
     pub const DownloadedMapsManagerUnavailable: Self = Self(3i32);
 }
+impl ::core::marker::Copy for MapLoadingStatus {}
+impl ::core::clone::Clone for MapLoadingStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MapModel3D(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -353,11 +389,23 @@ impl MapModel3DShadingOption {
     pub const Flat: Self = Self(1i32);
     pub const Smooth: Self = Self(2i32);
 }
+impl ::core::marker::Copy for MapModel3DShadingOption {}
+impl ::core::clone::Clone for MapModel3DShadingOption {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MapPanInteractionMode(pub i32);
 impl MapPanInteractionMode {
     pub const Auto: Self = Self(0i32);
     pub const Disabled: Self = Self(1i32);
+}
+impl ::core::marker::Copy for MapPanInteractionMode {}
+impl ::core::clone::Clone for MapPanInteractionMode {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct MapPolygon(pub *mut ::core::ffi::c_void);
@@ -368,6 +416,12 @@ pub struct MapProjection(pub i32);
 impl MapProjection {
     pub const WebMercator: Self = Self(0i32);
     pub const Globe: Self = Self(1i32);
+}
+impl ::core::marker::Copy for MapProjection {}
+impl ::core::clone::Clone for MapProjection {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct MapRightTappedEventArgs(pub *mut ::core::ffi::c_void);
@@ -387,6 +441,12 @@ impl MapStyle {
     pub const Aerial3DWithRoads: Self = Self(6i32);
     pub const Custom: Self = Self(7i32);
 }
+impl ::core::marker::Copy for MapStyle {}
+impl ::core::clone::Clone for MapStyle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MapStyleSheet(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -397,6 +457,12 @@ impl MapTileAnimationState {
     pub const Stopped: Self = Self(0i32);
     pub const Paused: Self = Self(1i32);
     pub const Playing: Self = Self(2i32);
+}
+impl ::core::marker::Copy for MapTileAnimationState {}
+impl ::core::clone::Clone for MapTileAnimationState {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct MapTileBitmapRequest(pub *mut ::core::ffi::c_void);
@@ -415,6 +481,12 @@ impl MapTileLayer {
     pub const BackgroundOverlay: Self = Self(3i32);
     pub const BackgroundReplacement: Self = Self(4i32);
 }
+impl ::core::marker::Copy for MapTileLayer {}
+impl ::core::clone::Clone for MapTileLayer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MapTileSource(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -429,14 +501,35 @@ impl MapVisibleRegionKind {
     pub const Near: Self = Self(0i32);
     pub const Full: Self = Self(1i32);
 }
+impl ::core::marker::Copy for MapVisibleRegionKind {}
+impl ::core::clone::Clone for MapVisibleRegionKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MapWatermarkMode(pub i32);
 impl MapWatermarkMode {
     pub const Automatic: Self = Self(0i32);
     pub const On: Self = Self(1i32);
 }
+impl ::core::marker::Copy for MapWatermarkMode {}
+impl ::core::clone::Clone for MapWatermarkMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct MapZoomLevelRange(i32);
+pub struct MapZoomLevelRange {
+    pub Min: f64,
+    pub Max: f64,
+}
+impl ::core::marker::Copy for MapZoomLevelRange {}
+impl ::core::clone::Clone for MapZoomLevelRange {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct StreetsideExperience(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

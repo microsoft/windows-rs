@@ -27,11 +27,23 @@ extern "system" {
 pub struct EDefaultDevmodeType(pub i32);
 pub const kUserDefaultDevmode: EDefaultDevmodeType = EDefaultDevmodeType(0i32);
 pub const kPrinterDefaultDevmode: EDefaultDevmodeType = EDefaultDevmodeType(1i32);
+impl ::core::marker::Copy for EDefaultDevmodeType {}
+impl ::core::clone::Clone for EDefaultDevmodeType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct EPrintTicketScope(pub i32);
 pub const kPTPageScope: EPrintTicketScope = EPrintTicketScope(0i32);
 pub const kPTDocumentScope: EPrintTicketScope = EPrintTicketScope(1i32);
 pub const kPTJobScope: EPrintTicketScope = EPrintTicketScope(2i32);
+impl ::core::marker::Copy for EPrintTicketScope {}
+impl ::core::clone::Clone for EPrintTicketScope {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const E_DELTA_PRINTTICKET_FORMAT: u32 = 2147745797u32;
 pub const E_PRINTCAPABILITIES_FORMAT: u32 = 2147745796u32;
 pub const E_PRINTDEVICECAPABILITIES_FORMAT: u32 = 2147745798u32;

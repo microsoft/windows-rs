@@ -37,6 +37,12 @@ impl XboxLiveEndpointPairCreationBehaviors {
     pub const None: Self = Self(0u32);
     pub const ReevaluatePath: Self = Self(1u32);
 }
+impl ::core::marker::Copy for XboxLiveEndpointPairCreationBehaviors {}
+impl ::core::clone::Clone for XboxLiveEndpointPairCreationBehaviors {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct XboxLiveEndpointPairCreationResult(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -52,6 +58,12 @@ impl XboxLiveEndpointPairCreationStatus {
     pub const RefusedDueToConfiguration: Self = Self(7i32);
     pub const UnexpectedInternalError: Self = Self(8i32);
 }
+impl ::core::marker::Copy for XboxLiveEndpointPairCreationStatus {}
+impl ::core::clone::Clone for XboxLiveEndpointPairCreationStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct XboxLiveEndpointPairState(pub i32);
 impl XboxLiveEndpointPairState {
@@ -62,6 +74,12 @@ impl XboxLiveEndpointPairState {
     pub const DeletingLocally: Self = Self(4i32);
     pub const RemoteEndpointTerminating: Self = Self(5i32);
     pub const Deleted: Self = Self(6i32);
+}
+impl ::core::marker::Copy for XboxLiveEndpointPairState {}
+impl ::core::clone::Clone for XboxLiveEndpointPairState {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct XboxLiveEndpointPairStateChangedEventArgs(pub *mut ::core::ffi::c_void);
@@ -75,6 +93,12 @@ impl XboxLiveNetworkAccessKind {
     pub const Open: Self = Self(0i32);
     pub const Moderate: Self = Self(1i32);
     pub const Strict: Self = Self(2i32);
+}
+impl ::core::marker::Copy for XboxLiveNetworkAccessKind {}
+impl ::core::clone::Clone for XboxLiveNetworkAccessKind {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct XboxLiveQualityOfServiceMeasurement(pub *mut ::core::ffi::c_void);
@@ -94,6 +118,12 @@ impl XboxLiveQualityOfServiceMeasurementStatus {
     pub const RefusedDueToConfiguration: Self = Self(10i32);
     pub const UnexpectedInternalError: Self = Self(11i32);
 }
+impl ::core::marker::Copy for XboxLiveQualityOfServiceMeasurementStatus {}
+impl ::core::clone::Clone for XboxLiveQualityOfServiceMeasurementStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct XboxLiveQualityOfServiceMetric(pub i32);
 impl XboxLiveQualityOfServiceMetric {
@@ -107,16 +137,26 @@ impl XboxLiveQualityOfServiceMetric {
     pub const MinInboundBitsPerSecond: Self = Self(7i32);
     pub const MaxInboundBitsPerSecond: Self = Self(8i32);
 }
+impl ::core::marker::Copy for XboxLiveQualityOfServiceMetric {}
+impl ::core::clone::Clone for XboxLiveQualityOfServiceMetric {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct XboxLiveQualityOfServiceMetricResult(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct XboxLiveQualityOfServicePrivatePayloadResult(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct XboxLiveSecureSocketsContract(i32);
 #[repr(transparent)]
 pub struct XboxLiveSocketKind(pub i32);
 impl XboxLiveSocketKind {
     pub const None: Self = Self(0i32);
     pub const Datagram: Self = Self(1i32);
     pub const Stream: Self = Self(2i32);
+}
+impl ::core::marker::Copy for XboxLiveSocketKind {}
+impl ::core::clone::Clone for XboxLiveSocketKind {
+    fn clone(&self) -> Self {
+        *self
+    }
 }

@@ -24,12 +24,9 @@ extern "system" {
     #[cfg(feature = "Win32_System_AddressBook")]
     pub fn SetAttribIMsgOnIStg(lpobject: *mut ::core::ffi::c_void, lpproptags: *mut super::super::System::AddressBook::SPropTagArray, lppropattrs: *mut SPropAttrArray, lpppropproblems: *mut *mut super::super::System::AddressBook::SPropProblemArray) -> ::windows_sys::core::HRESULT;
 }
-#[repr(C)]
-pub struct BlockRange(i32);
-#[repr(C)]
-pub struct BlockRangeList(i32);
-#[repr(C)]
-pub struct BootOptions(i32);
+pub const BlockRange: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3037186599, data2: 8708, data3: 4573, data4: [150, 106, 0, 26, 160, 27, 188, 88] };
+pub const BlockRangeList: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3037186600, data2: 8708, data3: 4573, data4: [150, 106, 0, 26, 160, 27, 188, 88] };
+pub const BootOptions: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 747904974, data2: 38747, data3: 22974, data4: [169, 96, 154, 42, 38, 40, 83, 165] };
 pub const CATID_SMTP_DNSRESOLVERRECORDSINK: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3171631974, data2: 36355, data3: 4562, data4: [148, 246, 0, 192, 79, 121, 241, 214] };
 pub const CATID_SMTP_DSN: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 582309681,
@@ -84,6 +81,12 @@ pub struct DISC_RECORDER_STATE_FLAGS(pub u32);
 pub const RECORDER_BURNING: DISC_RECORDER_STATE_FLAGS = DISC_RECORDER_STATE_FLAGS(2u32);
 pub const RECORDER_DOING_NOTHING: DISC_RECORDER_STATE_FLAGS = DISC_RECORDER_STATE_FLAGS(0u32);
 pub const RECORDER_OPENED: DISC_RECORDER_STATE_FLAGS = DISC_RECORDER_STATE_FLAGS(1u32);
+impl ::core::marker::Copy for DISC_RECORDER_STATE_FLAGS {}
+impl ::core::clone::Clone for DISC_RECORDER_STATE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DISPID_DDISCFORMAT2DATAEVENTS_UPDATE: u32 = 512u32;
 pub const DISPID_DDISCFORMAT2RAWCDEVENTS_UPDATE: u32 = 512u32;
 pub const DISPID_DDISCFORMAT2TAOEVENTS_UPDATE: u32 = 512u32;
@@ -265,16 +268,17 @@ pub const Emulation12MFloppy: EmulationType = EmulationType(1i32);
 pub const Emulation144MFloppy: EmulationType = EmulationType(2i32);
 pub const Emulation288MFloppy: EmulationType = EmulationType(3i32);
 pub const EmulationHardDisk: EmulationType = EmulationType(4i32);
-#[repr(C)]
-pub struct EnumFsiItems(i32);
-#[repr(C)]
-pub struct EnumProgressItems(i32);
-#[repr(C)]
-pub struct FileSystemImageResult(i32);
-#[repr(C)]
-pub struct FsiDirectoryItem(i32);
-#[repr(C)]
-pub struct FsiFileItem(i32);
+impl ::core::marker::Copy for EmulationType {}
+impl ::core::clone::Clone for EmulationType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+pub const EnumFsiItems: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 747904966, data2: 38747, data3: 22974, data4: [169, 96, 154, 42, 38, 40, 83, 165] };
+pub const EnumProgressItems: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 747904970, data2: 38747, data3: 22974, data4: [169, 96, 154, 42, 38, 40, 83, 165] };
+pub const FileSystemImageResult: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 747904972, data2: 38747, data3: 22974, data4: [169, 96, 154, 42, 38, 40, 83, 165] };
+pub const FsiDirectoryItem: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 747904968, data2: 38747, data3: 22974, data4: [169, 96, 154, 42, 38, 40, 83, 165] };
+pub const FsiFileItem: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 747904967, data2: 38747, data3: 22974, data4: [169, 96, 154, 42, 38, 40, 83, 165] };
 #[repr(transparent)]
 pub struct FsiFileSystems(pub i32);
 pub const FsiFileSystemNone: FsiFileSystems = FsiFileSystems(0i32);
@@ -282,15 +286,30 @@ pub const FsiFileSystemISO9660: FsiFileSystems = FsiFileSystems(1i32);
 pub const FsiFileSystemJoliet: FsiFileSystems = FsiFileSystems(2i32);
 pub const FsiFileSystemUDF: FsiFileSystems = FsiFileSystems(4i32);
 pub const FsiFileSystemUnknown: FsiFileSystems = FsiFileSystems(1073741824i32);
+impl ::core::marker::Copy for FsiFileSystems {}
+impl ::core::clone::Clone for FsiFileSystems {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct FsiItemType(pub i32);
 pub const FsiItemNotFound: FsiItemType = FsiItemType(0i32);
 pub const FsiItemDirectory: FsiItemType = FsiItemType(1i32);
 pub const FsiItemFile: FsiItemType = FsiItemType(2i32);
-#[repr(C)]
-pub struct FsiNamedStreams(i32);
-#[repr(C)]
-pub struct FsiStream(i32);
+impl ::core::marker::Copy for FsiItemType {}
+impl ::core::clone::Clone for FsiItemType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+pub const FsiNamedStreams: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3333880045,
+    data2: 27929,
+    data3: 17588,
+    data4: [181, 57, 177, 89, 183, 147, 163, 45],
+};
+pub const FsiStream: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 747904973, data2: 38747, data3: 22974, data4: [169, 96, 154, 42, 38, 40, 83, 165] };
 pub const GUID_SMTPSVC_SOURCE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 456918630, data2: 58480, data3: 4561, data4: [170, 103, 0, 192, 79, 163, 69, 246] };
 pub const GUID_SMTP_SOURCE_TYPE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4217750748, data2: 58472, data3: 4561, data4: [170, 103, 0, 192, 79, 163, 69, 246] };
 #[repr(transparent)]
@@ -374,6 +393,12 @@ pub struct IMAPI_BURN_VERIFICATION_LEVEL(pub i32);
 pub const IMAPI_BURN_VERIFICATION_NONE: IMAPI_BURN_VERIFICATION_LEVEL = IMAPI_BURN_VERIFICATION_LEVEL(0i32);
 pub const IMAPI_BURN_VERIFICATION_QUICK: IMAPI_BURN_VERIFICATION_LEVEL = IMAPI_BURN_VERIFICATION_LEVEL(1i32);
 pub const IMAPI_BURN_VERIFICATION_FULL: IMAPI_BURN_VERIFICATION_LEVEL = IMAPI_BURN_VERIFICATION_LEVEL(2i32);
+impl ::core::marker::Copy for IMAPI_BURN_VERIFICATION_LEVEL {}
+impl ::core::clone::Clone for IMAPI_BURN_VERIFICATION_LEVEL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMAPI_CD_SECTOR_TYPE(pub i32);
 pub const IMAPI_CD_SECTOR_AUDIO: IMAPI_CD_SECTOR_TYPE = IMAPI_CD_SECTOR_TYPE(0i32);
@@ -386,11 +411,23 @@ pub const IMAPI_CD_SECTOR_MODE1RAW: IMAPI_CD_SECTOR_TYPE = IMAPI_CD_SECTOR_TYPE(
 pub const IMAPI_CD_SECTOR_MODE2FORM0RAW: IMAPI_CD_SECTOR_TYPE = IMAPI_CD_SECTOR_TYPE(7i32);
 pub const IMAPI_CD_SECTOR_MODE2FORM1RAW: IMAPI_CD_SECTOR_TYPE = IMAPI_CD_SECTOR_TYPE(8i32);
 pub const IMAPI_CD_SECTOR_MODE2FORM2RAW: IMAPI_CD_SECTOR_TYPE = IMAPI_CD_SECTOR_TYPE(9i32);
+impl ::core::marker::Copy for IMAPI_CD_SECTOR_TYPE {}
+impl ::core::clone::Clone for IMAPI_CD_SECTOR_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMAPI_CD_TRACK_DIGITAL_COPY_SETTING(pub i32);
 pub const IMAPI_CD_TRACK_DIGITAL_COPY_PERMITTED: IMAPI_CD_TRACK_DIGITAL_COPY_SETTING = IMAPI_CD_TRACK_DIGITAL_COPY_SETTING(0i32);
 pub const IMAPI_CD_TRACK_DIGITAL_COPY_PROHIBITED: IMAPI_CD_TRACK_DIGITAL_COPY_SETTING = IMAPI_CD_TRACK_DIGITAL_COPY_SETTING(1i32);
 pub const IMAPI_CD_TRACK_DIGITAL_COPY_SCMS: IMAPI_CD_TRACK_DIGITAL_COPY_SETTING = IMAPI_CD_TRACK_DIGITAL_COPY_SETTING(2i32);
+impl ::core::marker::Copy for IMAPI_CD_TRACK_DIGITAL_COPY_SETTING {}
+impl ::core::clone::Clone for IMAPI_CD_TRACK_DIGITAL_COPY_SETTING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const IMAPI_E_ALREADYOPEN: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220958i32 as _);
 pub const IMAPI_E_BADJOLIETNAME: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220963i32 as _);
 pub const IMAPI_E_BOOTIMAGE_AND_NONBLANK_DISC: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220946i32 as _);
@@ -480,6 +517,12 @@ pub const IMAPI_FEATURE_PAGE_TYPE_DVD_CPRM: IMAPI_FEATURE_PAGE_TYPE = IMAPI_FEAT
 pub const IMAPI_FEATURE_PAGE_TYPE_FIRMWARE_INFORMATION: IMAPI_FEATURE_PAGE_TYPE = IMAPI_FEATURE_PAGE_TYPE(268i32);
 pub const IMAPI_FEATURE_PAGE_TYPE_AACS: IMAPI_FEATURE_PAGE_TYPE = IMAPI_FEATURE_PAGE_TYPE(269i32);
 pub const IMAPI_FEATURE_PAGE_TYPE_VCPS: IMAPI_FEATURE_PAGE_TYPE = IMAPI_FEATURE_PAGE_TYPE(272i32);
+impl ::core::marker::Copy for IMAPI_FEATURE_PAGE_TYPE {}
+impl ::core::clone::Clone for IMAPI_FEATURE_PAGE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMAPI_FORMAT2_DATA_MEDIA_STATE(pub i32);
 pub const IMAPI_FORMAT2_DATA_MEDIA_STATE_UNKNOWN: IMAPI_FORMAT2_DATA_MEDIA_STATE = IMAPI_FORMAT2_DATA_MEDIA_STATE(0i32);
@@ -496,6 +539,12 @@ pub const IMAPI_FORMAT2_DATA_MEDIA_STATE_NON_EMPTY_SESSION: IMAPI_FORMAT2_DATA_M
 pub const IMAPI_FORMAT2_DATA_MEDIA_STATE_WRITE_PROTECTED: IMAPI_FORMAT2_DATA_MEDIA_STATE = IMAPI_FORMAT2_DATA_MEDIA_STATE(8192i32);
 pub const IMAPI_FORMAT2_DATA_MEDIA_STATE_FINALIZED: IMAPI_FORMAT2_DATA_MEDIA_STATE = IMAPI_FORMAT2_DATA_MEDIA_STATE(16384i32);
 pub const IMAPI_FORMAT2_DATA_MEDIA_STATE_UNSUPPORTED_MEDIA: IMAPI_FORMAT2_DATA_MEDIA_STATE = IMAPI_FORMAT2_DATA_MEDIA_STATE(32768i32);
+impl ::core::marker::Copy for IMAPI_FORMAT2_DATA_MEDIA_STATE {}
+impl ::core::clone::Clone for IMAPI_FORMAT2_DATA_MEDIA_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMAPI_FORMAT2_DATA_WRITE_ACTION(pub i32);
 pub const IMAPI_FORMAT2_DATA_WRITE_ACTION_VALIDATING_MEDIA: IMAPI_FORMAT2_DATA_WRITE_ACTION = IMAPI_FORMAT2_DATA_WRITE_ACTION(0i32);
@@ -506,17 +555,35 @@ pub const IMAPI_FORMAT2_DATA_WRITE_ACTION_WRITING_DATA: IMAPI_FORMAT2_DATA_WRITE
 pub const IMAPI_FORMAT2_DATA_WRITE_ACTION_FINALIZATION: IMAPI_FORMAT2_DATA_WRITE_ACTION = IMAPI_FORMAT2_DATA_WRITE_ACTION(5i32);
 pub const IMAPI_FORMAT2_DATA_WRITE_ACTION_COMPLETED: IMAPI_FORMAT2_DATA_WRITE_ACTION = IMAPI_FORMAT2_DATA_WRITE_ACTION(6i32);
 pub const IMAPI_FORMAT2_DATA_WRITE_ACTION_VERIFYING: IMAPI_FORMAT2_DATA_WRITE_ACTION = IMAPI_FORMAT2_DATA_WRITE_ACTION(7i32);
+impl ::core::marker::Copy for IMAPI_FORMAT2_DATA_WRITE_ACTION {}
+impl ::core::clone::Clone for IMAPI_FORMAT2_DATA_WRITE_ACTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE(pub i32);
 pub const IMAPI_FORMAT2_RAW_CD_SUBCODE_PQ_ONLY: IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE = IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE(1i32);
 pub const IMAPI_FORMAT2_RAW_CD_SUBCODE_IS_COOKED: IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE = IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE(2i32);
 pub const IMAPI_FORMAT2_RAW_CD_SUBCODE_IS_RAW: IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE = IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE(3i32);
+impl ::core::marker::Copy for IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE {}
+impl ::core::clone::Clone for IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMAPI_FORMAT2_RAW_CD_WRITE_ACTION(pub i32);
 pub const IMAPI_FORMAT2_RAW_CD_WRITE_ACTION_UNKNOWN: IMAPI_FORMAT2_RAW_CD_WRITE_ACTION = IMAPI_FORMAT2_RAW_CD_WRITE_ACTION(0i32);
 pub const IMAPI_FORMAT2_RAW_CD_WRITE_ACTION_PREPARING: IMAPI_FORMAT2_RAW_CD_WRITE_ACTION = IMAPI_FORMAT2_RAW_CD_WRITE_ACTION(1i32);
 pub const IMAPI_FORMAT2_RAW_CD_WRITE_ACTION_WRITING: IMAPI_FORMAT2_RAW_CD_WRITE_ACTION = IMAPI_FORMAT2_RAW_CD_WRITE_ACTION(2i32);
 pub const IMAPI_FORMAT2_RAW_CD_WRITE_ACTION_FINISHING: IMAPI_FORMAT2_RAW_CD_WRITE_ACTION = IMAPI_FORMAT2_RAW_CD_WRITE_ACTION(3i32);
+impl ::core::marker::Copy for IMAPI_FORMAT2_RAW_CD_WRITE_ACTION {}
+impl ::core::clone::Clone for IMAPI_FORMAT2_RAW_CD_WRITE_ACTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMAPI_FORMAT2_TAO_WRITE_ACTION(pub i32);
 pub const IMAPI_FORMAT2_TAO_WRITE_ACTION_UNKNOWN: IMAPI_FORMAT2_TAO_WRITE_ACTION = IMAPI_FORMAT2_TAO_WRITE_ACTION(0i32);
@@ -524,6 +591,12 @@ pub const IMAPI_FORMAT2_TAO_WRITE_ACTION_PREPARING: IMAPI_FORMAT2_TAO_WRITE_ACTI
 pub const IMAPI_FORMAT2_TAO_WRITE_ACTION_WRITING: IMAPI_FORMAT2_TAO_WRITE_ACTION = IMAPI_FORMAT2_TAO_WRITE_ACTION(2i32);
 pub const IMAPI_FORMAT2_TAO_WRITE_ACTION_FINISHING: IMAPI_FORMAT2_TAO_WRITE_ACTION = IMAPI_FORMAT2_TAO_WRITE_ACTION(3i32);
 pub const IMAPI_FORMAT2_TAO_WRITE_ACTION_VERIFYING: IMAPI_FORMAT2_TAO_WRITE_ACTION = IMAPI_FORMAT2_TAO_WRITE_ACTION(4i32);
+impl ::core::marker::Copy for IMAPI_FORMAT2_TAO_WRITE_ACTION {}
+impl ::core::clone::Clone for IMAPI_FORMAT2_TAO_WRITE_ACTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMAPI_MEDIA_PHYSICAL_TYPE(pub i32);
 pub const IMAPI_MEDIA_TYPE_UNKNOWN: IMAPI_MEDIA_PHYSICAL_TYPE = IMAPI_MEDIA_PHYSICAL_TYPE(0i32);
@@ -547,6 +620,12 @@ pub const IMAPI_MEDIA_TYPE_BDROM: IMAPI_MEDIA_PHYSICAL_TYPE = IMAPI_MEDIA_PHYSIC
 pub const IMAPI_MEDIA_TYPE_BDR: IMAPI_MEDIA_PHYSICAL_TYPE = IMAPI_MEDIA_PHYSICAL_TYPE(18i32);
 pub const IMAPI_MEDIA_TYPE_BDRE: IMAPI_MEDIA_PHYSICAL_TYPE = IMAPI_MEDIA_PHYSICAL_TYPE(19i32);
 pub const IMAPI_MEDIA_TYPE_MAX: IMAPI_MEDIA_PHYSICAL_TYPE = IMAPI_MEDIA_PHYSICAL_TYPE(19i32);
+impl ::core::marker::Copy for IMAPI_MEDIA_PHYSICAL_TYPE {}
+impl ::core::clone::Clone for IMAPI_MEDIA_PHYSICAL_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMAPI_MEDIA_WRITE_PROTECT_STATE(pub i32);
 pub const IMAPI_WRITEPROTECTED_UNTIL_POWERDOWN: IMAPI_MEDIA_WRITE_PROTECT_STATE = IMAPI_MEDIA_WRITE_PROTECT_STATE(1i32);
@@ -555,12 +634,24 @@ pub const IMAPI_WRITEPROTECTED_BY_MEDIA_SPECIFIC_REASON: IMAPI_MEDIA_WRITE_PROTE
 pub const IMAPI_WRITEPROTECTED_BY_SOFTWARE_WRITE_PROTECT: IMAPI_MEDIA_WRITE_PROTECT_STATE = IMAPI_MEDIA_WRITE_PROTECT_STATE(8i32);
 pub const IMAPI_WRITEPROTECTED_BY_DISC_CONTROL_BLOCK: IMAPI_MEDIA_WRITE_PROTECT_STATE = IMAPI_MEDIA_WRITE_PROTECT_STATE(16i32);
 pub const IMAPI_WRITEPROTECTED_READ_ONLY_MEDIA: IMAPI_MEDIA_WRITE_PROTECT_STATE = IMAPI_MEDIA_WRITE_PROTECT_STATE(16384i32);
+impl ::core::marker::Copy for IMAPI_MEDIA_WRITE_PROTECT_STATE {}
+impl ::core::clone::Clone for IMAPI_MEDIA_WRITE_PROTECT_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMAPI_MODE_PAGE_REQUEST_TYPE(pub i32);
 pub const IMAPI_MODE_PAGE_REQUEST_TYPE_CURRENT_VALUES: IMAPI_MODE_PAGE_REQUEST_TYPE = IMAPI_MODE_PAGE_REQUEST_TYPE(0i32);
 pub const IMAPI_MODE_PAGE_REQUEST_TYPE_CHANGEABLE_VALUES: IMAPI_MODE_PAGE_REQUEST_TYPE = IMAPI_MODE_PAGE_REQUEST_TYPE(1i32);
 pub const IMAPI_MODE_PAGE_REQUEST_TYPE_DEFAULT_VALUES: IMAPI_MODE_PAGE_REQUEST_TYPE = IMAPI_MODE_PAGE_REQUEST_TYPE(2i32);
 pub const IMAPI_MODE_PAGE_REQUEST_TYPE_SAVED_VALUES: IMAPI_MODE_PAGE_REQUEST_TYPE = IMAPI_MODE_PAGE_REQUEST_TYPE(3i32);
+impl ::core::marker::Copy for IMAPI_MODE_PAGE_REQUEST_TYPE {}
+impl ::core::clone::Clone for IMAPI_MODE_PAGE_REQUEST_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMAPI_MODE_PAGE_TYPE(pub i32);
 pub const IMAPI_MODE_PAGE_TYPE_READ_WRITE_ERROR_RECOVERY: IMAPI_MODE_PAGE_TYPE = IMAPI_MODE_PAGE_TYPE(1i32);
@@ -571,6 +662,12 @@ pub const IMAPI_MODE_PAGE_TYPE_INFORMATIONAL_EXCEPTIONS: IMAPI_MODE_PAGE_TYPE = 
 pub const IMAPI_MODE_PAGE_TYPE_TIMEOUT_AND_PROTECT: IMAPI_MODE_PAGE_TYPE = IMAPI_MODE_PAGE_TYPE(29i32);
 pub const IMAPI_MODE_PAGE_TYPE_POWER_CONDITION: IMAPI_MODE_PAGE_TYPE = IMAPI_MODE_PAGE_TYPE(26i32);
 pub const IMAPI_MODE_PAGE_TYPE_LEGACY_CAPABILITIES: IMAPI_MODE_PAGE_TYPE = IMAPI_MODE_PAGE_TYPE(42i32);
+impl ::core::marker::Copy for IMAPI_MODE_PAGE_TYPE {}
+impl ::core::clone::Clone for IMAPI_MODE_PAGE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMAPI_PROFILE_TYPE(pub i32);
 pub const IMAPI_PROFILE_TYPE_INVALID: IMAPI_PROFILE_TYPE = IMAPI_PROFILE_TYPE(0i32);
@@ -604,11 +701,23 @@ pub const IMAPI_PROFILE_TYPE_HD_DVD_ROM: IMAPI_PROFILE_TYPE = IMAPI_PROFILE_TYPE
 pub const IMAPI_PROFILE_TYPE_HD_DVD_RECORDABLE: IMAPI_PROFILE_TYPE = IMAPI_PROFILE_TYPE(81i32);
 pub const IMAPI_PROFILE_TYPE_HD_DVD_RAM: IMAPI_PROFILE_TYPE = IMAPI_PROFILE_TYPE(82i32);
 pub const IMAPI_PROFILE_TYPE_NON_STANDARD: IMAPI_PROFILE_TYPE = IMAPI_PROFILE_TYPE(65535i32);
+impl ::core::marker::Copy for IMAPI_PROFILE_TYPE {}
+impl ::core::clone::Clone for IMAPI_PROFILE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMAPI_READ_TRACK_ADDRESS_TYPE(pub i32);
 pub const IMAPI_READ_TRACK_ADDRESS_TYPE_LBA: IMAPI_READ_TRACK_ADDRESS_TYPE = IMAPI_READ_TRACK_ADDRESS_TYPE(0i32);
 pub const IMAPI_READ_TRACK_ADDRESS_TYPE_TRACK: IMAPI_READ_TRACK_ADDRESS_TYPE = IMAPI_READ_TRACK_ADDRESS_TYPE(1i32);
 pub const IMAPI_READ_TRACK_ADDRESS_TYPE_SESSION: IMAPI_READ_TRACK_ADDRESS_TYPE = IMAPI_READ_TRACK_ADDRESS_TYPE(2i32);
+impl ::core::marker::Copy for IMAPI_READ_TRACK_ADDRESS_TYPE {}
+impl ::core::clone::Clone for IMAPI_READ_TRACK_ADDRESS_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const IMAPI_SECTORS_PER_SECOND_AT_1X_BD: u32 = 2195u32;
 pub const IMAPI_SECTORS_PER_SECOND_AT_1X_CD: u32 = 75u32;
 pub const IMAPI_SECTORS_PER_SECOND_AT_1X_DVD: u32 = 680u32;
@@ -621,6 +730,12 @@ pub struct IMMPID_CPV_ENUM(pub i32);
 pub const IMMPID_CPV_BEFORE__: IMMPID_CPV_ENUM = IMMPID_CPV_ENUM(32767i32);
 pub const IMMPID_CP_START: IMMPID_CPV_ENUM = IMMPID_CPV_ENUM(32768i32);
 pub const IMMPID_CPV_AFTER__: IMMPID_CPV_ENUM = IMMPID_CPV_ENUM(32769i32);
+impl ::core::marker::Copy for IMMPID_CPV_ENUM {}
+impl ::core::clone::Clone for IMMPID_CPV_ENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMMPID_MPV_ENUM(pub i32);
 pub const IMMPID_MPV_BEFORE__: IMMPID_MPV_ENUM = IMMPID_MPV_ENUM(12287i32);
@@ -631,6 +746,12 @@ pub const IMMPID_MPV_TOTAL_OPEN_HANDLES: IMMPID_MPV_ENUM = IMMPID_MPV_ENUM(12291
 pub const IMMPID_MPV_TOTAL_OPEN_PROPERTY_STREAM_HANDLES: IMMPID_MPV_ENUM = IMMPID_MPV_ENUM(12292i32);
 pub const IMMPID_MPV_TOTAL_OPEN_CONTENT_HANDLES: IMMPID_MPV_ENUM = IMMPID_MPV_ENUM(12293i32);
 pub const IMMPID_MPV_AFTER__: IMMPID_MPV_ENUM = IMMPID_MPV_ENUM(12294i32);
+impl ::core::marker::Copy for IMMPID_MPV_ENUM {}
+impl ::core::clone::Clone for IMMPID_MPV_ENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMMPID_MP_ENUM(pub i32);
 pub const IMMPID_MP_BEFORE__: IMMPID_MP_ENUM = IMMPID_MP_ENUM(4095i32);
@@ -692,6 +813,12 @@ pub const IMMPID_MP_CRC_GLOBAL: IMMPID_MP_ENUM = IMMPID_MP_ENUM(4150i32);
 pub const IMMPID_MP_CRC_RECIPS: IMMPID_MP_ENUM = IMMPID_MP_ENUM(4151i32);
 pub const IMMPID_MP_INBOUND_MAIL_FROM_AUTH: IMMPID_MP_ENUM = IMMPID_MP_ENUM(4152i32);
 pub const IMMPID_MP_AFTER__: IMMPID_MP_ENUM = IMMPID_MP_ENUM(4153i32);
+impl ::core::marker::Copy for IMMPID_MP_ENUM {}
+impl ::core::clone::Clone for IMMPID_MP_ENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMMPID_NMP_ENUM(pub i32);
 pub const IMMPID_NMP_BEFORE__: IMMPID_NMP_ENUM = IMMPID_NMP_ENUM(24575i32);
@@ -705,12 +832,24 @@ pub const IMMPID_NMP_HEADERS: IMMPID_NMP_ENUM = IMMPID_NMP_ENUM(24582i32);
 pub const IMMPID_NMP_NNTP_PROCESSING: IMMPID_NMP_ENUM = IMMPID_NMP_ENUM(24583i32);
 pub const IMMPID_NMP_NNTP_APPROVED_HEADER: IMMPID_NMP_ENUM = IMMPID_NMP_ENUM(24584i32);
 pub const IMMPID_NMP_AFTER__: IMMPID_NMP_ENUM = IMMPID_NMP_ENUM(24585i32);
+impl ::core::marker::Copy for IMMPID_NMP_ENUM {}
+impl ::core::clone::Clone for IMMPID_NMP_ENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMMPID_RPV_ENUM(pub i32);
 pub const IMMPID_RPV_BEFORE__: IMMPID_RPV_ENUM = IMMPID_RPV_ENUM(16383i32);
 pub const IMMPID_RPV_DONT_DELIVER: IMMPID_RPV_ENUM = IMMPID_RPV_ENUM(16384i32);
 pub const IMMPID_RPV_NO_NAME_COLLISIONS: IMMPID_RPV_ENUM = IMMPID_RPV_ENUM(16385i32);
 pub const IMMPID_RPV_AFTER__: IMMPID_RPV_ENUM = IMMPID_RPV_ENUM(16386i32);
+impl ::core::marker::Copy for IMMPID_RPV_ENUM {}
+impl ::core::clone::Clone for IMMPID_RPV_ENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMMPID_RP_ENUM(pub i32);
 pub const IMMPID_RP_BEFORE__: IMMPID_RP_ENUM = IMMPID_RP_ENUM(8191i32);
@@ -736,8 +875,22 @@ pub const IMMPID_RP_DOMAIN: IMMPID_RP_ENUM = IMMPID_RP_ENUM(8210i32);
 pub const IMMPID_RP_ADDRESS_OTHER: IMMPID_RP_ENUM = IMMPID_RP_ENUM(8211i32);
 pub const IMMPID_RP_DISPLAY_NAME: IMMPID_RP_ENUM = IMMPID_RP_ENUM(8212i32);
 pub const IMMPID_RP_AFTER__: IMMPID_RP_ENUM = IMMPID_RP_ENUM(8213i32);
+impl ::core::marker::Copy for IMMPID_RP_ENUM {}
+impl ::core::clone::Clone for IMMPID_RP_ENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct IMMP_MPV_STORE_DRIVER_HANDLE(i32);
+pub struct IMMP_MPV_STORE_DRIVER_HANDLE {
+    pub guidSignature: ::windows_sys::core::GUID,
+}
+impl ::core::marker::Copy for IMMP_MPV_STORE_DRIVER_HANDLE {}
+impl ::core::clone::Clone for IMMP_MPV_STORE_DRIVER_HANDLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMultisession(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -774,6 +927,12 @@ pub const MEDIA_BLANK: MEDIA_FLAGS = MEDIA_FLAGS(1i32);
 pub const MEDIA_RW: MEDIA_FLAGS = MEDIA_FLAGS(2i32);
 pub const MEDIA_WRITABLE: MEDIA_FLAGS = MEDIA_FLAGS(4i32);
 pub const MEDIA_FORMAT_UNUSABLE_BY_IMAPI: MEDIA_FLAGS = MEDIA_FLAGS(8i32);
+impl ::core::marker::Copy for MEDIA_FLAGS {}
+impl ::core::clone::Clone for MEDIA_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MEDIA_TYPES(pub i32);
 pub const MEDIA_CDDA_CDROM: MEDIA_TYPES = MEDIA_TYPES(1i32);
@@ -782,6 +941,12 @@ pub const MEDIA_CD_I: MEDIA_TYPES = MEDIA_TYPES(3i32);
 pub const MEDIA_CD_EXTRA: MEDIA_TYPES = MEDIA_TYPES(4i32);
 pub const MEDIA_CD_OTHER: MEDIA_TYPES = MEDIA_TYPES(5i32);
 pub const MEDIA_SPECIAL: MEDIA_TYPES = MEDIA_TYPES(6i32);
+impl ::core::marker::Copy for MEDIA_TYPES {}
+impl ::core::clone::Clone for MEDIA_TYPES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MPV_INBOUND_CUTOFF_EXCEEDED: u32 = 1u32;
 pub const MPV_WRITE_CONTENT: u32 = 2u32;
 pub const MP_MSGCLASS_DELIVERY_REPORT: u32 = 3u32;
@@ -795,48 +960,38 @@ pub const MP_STATUS_CATEGORIZED: u32 = 5u32;
 pub const MP_STATUS_RETRY: u32 = 1u32;
 pub const MP_STATUS_SUBMITTED: u32 = 4u32;
 pub const MP_STATUS_SUCCESS: u32 = 0u32;
-#[repr(C)]
-pub struct MSDiscMasterObj(i32);
-#[repr(C)]
-pub struct MSDiscRecorderObj(i32);
-#[repr(C)]
-pub struct MSEnumDiscRecordersObj(i32);
+pub const MSDiscMasterObj: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1376569955, data2: 20901, data3: 4563, data4: [145, 68, 0, 16, 75, 161, 28, 94] };
+pub const MSDiscRecorderObj: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1376569953, data2: 20901, data3: 4563, data4: [145, 68, 0, 16, 75, 161, 28, 94] };
+pub const MSEnumDiscRecordersObj: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2315474554,
+    data2: 25547,
+    data3: 19368,
+    data4: [186, 246, 82, 17, 152, 22, 209, 239],
+};
 #[cfg(feature = "Win32_System_AddressBook")]
 pub type MSGCALLRELEASE = unsafe extern "system" fn(ulcallerdata: u32, lpmessage: super::super::System::AddressBook::IMessage);
-#[repr(C)]
-pub struct MsftDiscFormat2Data(i32);
-#[repr(C)]
-pub struct MsftDiscFormat2Erase(i32);
-#[repr(C)]
-pub struct MsftDiscFormat2RawCD(i32);
-#[repr(C)]
-pub struct MsftDiscFormat2TrackAtOnce(i32);
-#[repr(C)]
-pub struct MsftDiscMaster2(i32);
-#[repr(C)]
-pub struct MsftDiscRecorder2(i32);
-#[repr(C)]
-pub struct MsftFileSystemImage(i32);
-#[repr(C)]
-pub struct MsftIsoImageManager(i32);
-#[repr(C)]
-pub struct MsftMultisessionRandomWrite(i32);
-#[repr(C)]
-pub struct MsftMultisessionSequential(i32);
-#[repr(C)]
-pub struct MsftRawCDImageCreator(i32);
-#[repr(C)]
-pub struct MsftStreamConcatenate(i32);
-#[repr(C)]
-pub struct MsftStreamInterleave(i32);
-#[repr(C)]
-pub struct MsftStreamPrng001(i32);
-#[repr(C)]
-pub struct MsftStreamZero(i32);
-#[repr(C)]
-pub struct MsftWriteEngine2(i32);
-#[repr(C)]
-pub struct MsftWriteSpeedDescriptor(i32);
+pub const MsftDiscFormat2Data: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 657801514, data2: 32612, data3: 23311, data4: [143, 0, 93, 119, 175, 190, 38, 30] };
+pub const MsftDiscFormat2Erase: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 657801515, data2: 32612, data3: 23311, data4: [143, 0, 93, 119, 175, 190, 38, 30] };
+pub const MsftDiscFormat2RawCD: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 657801512, data2: 32612, data3: 23311, data4: [143, 0, 93, 119, 175, 190, 38, 30] };
+pub const MsftDiscFormat2TrackAtOnce: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 657801513, data2: 32612, data3: 23311, data4: [143, 0, 93, 119, 175, 190, 38, 30] };
+pub const MsftDiscMaster2: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 657801518, data2: 32612, data3: 23311, data4: [143, 0, 93, 119, 175, 190, 38, 30] };
+pub const MsftDiscRecorder2: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 657801517, data2: 32612, data3: 23311, data4: [143, 0, 93, 119, 175, 190, 38, 30] };
+pub const MsftFileSystemImage: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 747904965, data2: 38747, data3: 22974, data4: [169, 96, 154, 42, 38, 40, 83, 165] };
+pub const MsftIsoImageManager: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3471719266,
+    data2: 36694,
+    data3: 16470,
+    data4: [134, 155, 239, 22, 145, 126, 62, 252],
+};
+pub const MsftMultisessionRandomWrite: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3037186596, data2: 8708, data3: 4573, data4: [150, 106, 0, 26, 160, 27, 188, 88] };
+pub const MsftMultisessionSequential: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 657801506, data2: 32612, data3: 23311, data4: [143, 0, 93, 119, 175, 190, 38, 30] };
+pub const MsftRawCDImageCreator: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 630732129, data2: 40293, data3: 18894, data4: [179, 53, 64, 99, 13, 144, 18, 39] };
+pub const MsftStreamConcatenate: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 657801509, data2: 32612, data3: 23311, data4: [143, 0, 93, 119, 175, 190, 38, 30] };
+pub const MsftStreamInterleave: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 657801508, data2: 32612, data3: 23311, data4: [143, 0, 93, 119, 175, 190, 38, 30] };
+pub const MsftStreamPrng001: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 657801510, data2: 32612, data3: 23311, data4: [143, 0, 93, 119, 175, 190, 38, 30] };
+pub const MsftStreamZero: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 657801511, data2: 32612, data3: 23311, data4: [143, 0, 93, 119, 175, 190, 38, 30] };
+pub const MsftWriteEngine2: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 657801516, data2: 32612, data3: 23311, data4: [143, 0, 93, 119, 175, 190, 38, 30] };
+pub const MsftWriteSpeedDescriptor: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 657801507, data2: 32612, data3: 23311, data4: [143, 0, 93, 119, 175, 190, 38, 30] };
 pub const NMP_PROCESS_CONTROL: u32 = 2u32;
 pub const NMP_PROCESS_MODERATOR: u32 = 4u32;
 pub const NMP_PROCESS_POST: u32 = 1u32;
@@ -846,14 +1001,24 @@ pub const PlatformX86: PlatformId = PlatformId(0i32);
 pub const PlatformPowerPC: PlatformId = PlatformId(1i32);
 pub const PlatformMac: PlatformId = PlatformId(2i32);
 pub const PlatformEFI: PlatformId = PlatformId(239i32);
-#[repr(C)]
-pub struct ProgressItem(i32);
-#[repr(C)]
-pub struct ProgressItems(i32);
+impl ::core::marker::Copy for PlatformId {}
+impl ::core::clone::Clone for PlatformId {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+pub const ProgressItem: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 747904971, data2: 38747, data3: 22974, data4: [169, 96, 154, 42, 38, 40, 83, 165] };
+pub const ProgressItems: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 747904969, data2: 38747, data3: 22974, data4: [169, 96, 154, 42, 38, 40, 83, 165] };
 #[repr(transparent)]
 pub struct RECORDER_TYPES(pub i32);
 pub const RECORDER_CDR: RECORDER_TYPES = RECORDER_TYPES(1i32);
 pub const RECORDER_CDRW: RECORDER_TYPES = RECORDER_TYPES(2i32);
+impl ::core::marker::Copy for RECORDER_TYPES {}
+impl ::core::clone::Clone for RECORDER_TYPES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const RP_DELIVERED: u32 = 272u32;
 pub const RP_DSN_HANDLED: u32 = 64u32;
 pub const RP_DSN_NOTIFY_DELAY: u32 = 67108864u32;
@@ -880,20 +1045,33 @@ pub const RP_REMOTE_MTA_NO_DSN: u32 = 524288u32;
 pub const RP_UNRESOLVED: u32 = 4144u32;
 pub const RP_VOLATILE_FLAGS_MASK: u32 = 4026531840u32;
 #[repr(C)]
-pub struct SPropAttrArray(i32);
+pub struct SPropAttrArray {
+    pub cValues: u32,
+    pub aPropAttr: [u32; 1],
+}
+impl ::core::marker::Copy for SPropAttrArray {}
+impl ::core::clone::Clone for SPropAttrArray {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct _MSGSESS(i32);
+pub struct _MSGSESS(pub u8);
+pub const tagIMMPID_CPV_STRUCT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2728880938, data2: 58669, data3: 4561, data4: [170, 100, 0, 192, 79, 163, 91, 130] };
 #[repr(C)]
-pub struct tagIMMPID_CPV_STRUCT(i32);
-#[repr(C)]
-pub struct tagIMMPID_GUIDLIST_ITEM(i32);
-#[repr(C)]
-pub struct tagIMMPID_MPV_STRUCT(i32);
-#[repr(C)]
-pub struct tagIMMPID_MP_STRUCT(i32);
-#[repr(C)]
-pub struct tagIMMPID_NMP_STRUCT(i32);
-#[repr(C)]
-pub struct tagIMMPID_RPV_STRUCT(i32);
-#[repr(C)]
-pub struct tagIMMPID_RP_STRUCT(i32);
+pub struct tagIMMPID_GUIDLIST_ITEM {
+    pub pguid: *mut ::windows_sys::core::GUID,
+    pub dwStart: u32,
+    pub dwLast: u32,
+}
+impl ::core::marker::Copy for tagIMMPID_GUIDLIST_ITEM {}
+impl ::core::clone::Clone for tagIMMPID_GUIDLIST_ITEM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+pub const tagIMMPID_MPV_STRUCT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3420886790, data2: 51645, data3: 4561, data4: [159, 242, 0, 192, 79, 163, 115, 72] };
+pub const tagIMMPID_MP_STRUCT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 322456816, data2: 46020, data3: 4561, data4: [170, 146, 0, 170, 0, 107, 200, 11] };
+pub const tagIMMPID_NMP_STRUCT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1949542826, data2: 8418, data3: 4562, data4: [148, 214, 0, 192, 79, 163, 121, 241] };
+pub const tagIMMPID_RPV_STRUCT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2045255753, data2: 54048, data3: 4561, data4: [159, 244, 0, 192, 79, 163, 115, 72] };
+pub const tagIMMPID_RP_STRUCT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2045255752, data2: 54048, data3: 4561, data4: [159, 244, 0, 192, 79, 163, 115, 72] };

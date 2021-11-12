@@ -21,6 +21,12 @@ impl OfflineMapPackageQueryStatus {
     pub const InvalidCredentials: Self = Self(2i32);
     pub const NetworkFailure: Self = Self(3i32);
 }
+impl ::core::marker::Copy for OfflineMapPackageQueryStatus {}
+impl ::core::clone::Clone for OfflineMapPackageQueryStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct OfflineMapPackageStartDownloadResult(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -31,6 +37,12 @@ impl OfflineMapPackageStartDownloadStatus {
     pub const InvalidCredentials: Self = Self(2i32);
     pub const DeniedWithoutCapability: Self = Self(3i32);
 }
+impl ::core::marker::Copy for OfflineMapPackageStartDownloadStatus {}
+impl ::core::clone::Clone for OfflineMapPackageStartDownloadStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct OfflineMapPackageStatus(pub i32);
 impl OfflineMapPackageStatus {
@@ -38,4 +50,10 @@ impl OfflineMapPackageStatus {
     pub const Downloading: Self = Self(1i32);
     pub const Downloaded: Self = Self(2i32);
     pub const Deleting: Self = Self(3i32);
+}
+impl ::core::marker::Copy for OfflineMapPackageStatus {}
+impl ::core::clone::Clone for OfflineMapPackageStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
 }

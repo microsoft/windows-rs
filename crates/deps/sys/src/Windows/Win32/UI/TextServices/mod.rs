@@ -10,14 +10,36 @@ extern "system" {
 pub struct ANCHOR_CHANGE_HISTORY_FLAGS(pub u32);
 pub const TS_CH_PRECEDING_DEL: ANCHOR_CHANGE_HISTORY_FLAGS = ANCHOR_CHANGE_HISTORY_FLAGS(1u32);
 pub const TS_CH_FOLLOWING_DEL: ANCHOR_CHANGE_HISTORY_FLAGS = ANCHOR_CHANGE_HISTORY_FLAGS(2u32);
-#[repr(C)]
-pub struct AccClientDocMgr(i32);
-#[repr(C)]
-pub struct AccDictionary(i32);
-#[repr(C)]
-pub struct AccServerDocMgr(i32);
-#[repr(C)]
-pub struct AccStore(i32);
+impl ::core::marker::Copy for ANCHOR_CHANGE_HISTORY_FLAGS {}
+impl ::core::clone::Clone for ANCHOR_CHANGE_HISTORY_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+pub const AccClientDocMgr: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 4232629296,
+    data2: 20286,
+    data3: 20385,
+    data4: [128, 59, 173, 14, 25, 106, 131, 177],
+};
+pub const AccDictionary: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1702030870,
+    data2: 24549,
+    data3: 17201,
+    data4: [187, 109, 118, 164, 156, 86, 228, 35],
+};
+pub const AccServerDocMgr: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1619633022,
+    data2: 60298,
+    data3: 18477,
+    data4: [189, 111, 249, 244, 105, 4, 209, 109],
+};
+pub const AccStore: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1413514111,
+    data2: 19455,
+    data3: 19173,
+    data4: [161, 177, 119, 34, 236, 198, 51, 42],
+};
 pub const CLSID_TF_CategoryMgr: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 2763343009,
     data2: 17293,
@@ -60,12 +82,22 @@ pub const CLSID_TsfServices: ::windows_sys::core::GUID = ::windows_sys::GUID { d
 pub const DCM_FLAGS_CTFMON: u32 = 2u32;
 pub const DCM_FLAGS_LOCALTHREADTSF: u32 = 4u32;
 pub const DCM_FLAGS_TASKENG: u32 = 1u32;
-#[repr(C)]
-pub struct DocWrap(i32);
+pub const DocWrap: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3208802174,
+    data2: 31326,
+    data3: 17622,
+    data4: [131, 12, 163, 144, 234, 148, 98, 163],
+};
 #[repr(transparent)]
 pub struct GET_TEXT_AND_PROPERTY_UPDATES_FLAGS(pub u32);
 pub const TF_GTP_NONE: GET_TEXT_AND_PROPERTY_UPDATES_FLAGS = GET_TEXT_AND_PROPERTY_UPDATES_FLAGS(0u32);
 pub const TF_GTP_INCL_TEXT: GET_TEXT_AND_PROPERTY_UPDATES_FLAGS = GET_TEXT_AND_PROPERTY_UPDATES_FLAGS(1u32);
+impl ::core::marker::Copy for GET_TEXT_AND_PROPERTY_UPDATES_FLAGS {}
+impl ::core::clone::Clone for GET_TEXT_AND_PROPERTY_UPDATES_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const GUID_APP_FUNCTIONPROVIDER: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1286533150, data2: 4783, data3: 19214, data4: [157, 177, 166, 236, 91, 136, 18, 8] };
 pub const GUID_COMPARTMENT_CONVERSIONMODEBIAS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1419244822, data2: 61073, data3: 17262, data4: [185, 70, 170, 44, 5, 241, 172, 91] };
 pub const GUID_COMPARTMENT_EMPTYCONTEXT: ::windows_sys::core::GUID = ::windows_sys::GUID {
@@ -265,7 +297,13 @@ pub const GUID_TS_SERVICE_DATAOBJECT: ::windows_sys::core::GUID = ::windows_sys:
 pub const GXFPF_NEAREST: u32 = 2u32;
 pub const GXFPF_ROUND_NEAREST: u32 = 1u32;
 #[repr(C)]
-pub struct HKL(i32);
+pub struct HKL(pub isize);
+impl ::core::marker::Copy for HKL {}
+impl ::core::clone::Clone for HKL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAccClientDocMgr(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -325,6 +363,12 @@ pub struct INSERT_TEXT_AT_SELECTION_FLAGS(pub u32);
 pub const TF_IAS_NOQUERY: INSERT_TEXT_AT_SELECTION_FLAGS = INSERT_TEXT_AT_SELECTION_FLAGS(1u32);
 pub const TF_IAS_QUERYONLY: INSERT_TEXT_AT_SELECTION_FLAGS = INSERT_TEXT_AT_SELECTION_FLAGS(2u32);
 pub const TF_IAS_NO_DEFAULT_COMPOSITION: INSERT_TEXT_AT_SELECTION_FLAGS = INSERT_TEXT_AT_SELECTION_FLAGS(2147483648u32);
+impl ::core::marker::Copy for INSERT_TEXT_AT_SELECTION_FLAGS {}
+impl ::core::clone::Clone for INSERT_TEXT_AT_SELECTION_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpeechCommandProvider(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -661,30 +705,59 @@ pub const IS_REGULAREXPRESSION: InputScope = InputScope(-2i32);
 pub const IS_SRGS: InputScope = InputScope(-3i32);
 pub const IS_XML: InputScope = InputScope(-4i32);
 pub const IS_ENUMSTRING: InputScope = InputScope(-5i32);
+impl ::core::marker::Copy for InputScope {}
+impl ::core::clone::Clone for InputScope {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct LANG_BAR_ITEM_ICON_MODE_FLAGS(pub u32);
 pub const TF_DTLBI_NONE: LANG_BAR_ITEM_ICON_MODE_FLAGS = LANG_BAR_ITEM_ICON_MODE_FLAGS(0u32);
 pub const TF_DTLBI_USEPROFILEICON: LANG_BAR_ITEM_ICON_MODE_FLAGS = LANG_BAR_ITEM_ICON_MODE_FLAGS(1u32);
+impl ::core::marker::Copy for LANG_BAR_ITEM_ICON_MODE_FLAGS {}
+impl ::core::clone::Clone for LANG_BAR_ITEM_ICON_MODE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const LIBID_MSAATEXTLib: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 353250682,
     data2: 56001,
     data3: 17794,
     data4: [148, 125, 42, 143, 215, 139, 130, 205],
 };
-#[repr(C)]
-pub struct MSAAControl(i32);
+pub const MSAAControl: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 147691071, data2: 31294, data3: 20316, data4: [155, 216, 214, 146, 187, 4, 60, 91] };
 #[repr(transparent)]
 pub struct TEXT_STORE_CHANGE_FLAGS(pub u32);
 pub const TS_TC_NONE: TEXT_STORE_CHANGE_FLAGS = TEXT_STORE_CHANGE_FLAGS(0u32);
 pub const TS_TC_CORRECTION: TEXT_STORE_CHANGE_FLAGS = TEXT_STORE_CHANGE_FLAGS(1u32);
+impl ::core::marker::Copy for TEXT_STORE_CHANGE_FLAGS {}
+impl ::core::clone::Clone for TEXT_STORE_CHANGE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TEXT_STORE_LOCK_FLAGS(pub u32);
 pub const TS_LF_READ: TEXT_STORE_LOCK_FLAGS = TEXT_STORE_LOCK_FLAGS(2u32);
 pub const TS_LF_READWRITE: TEXT_STORE_LOCK_FLAGS = TEXT_STORE_LOCK_FLAGS(6u32);
+impl ::core::marker::Copy for TEXT_STORE_LOCK_FLAGS {}
+impl ::core::clone::Clone for TEXT_STORE_LOCK_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TEXT_STORE_TEXT_CHANGE_FLAGS(pub u32);
 pub const TS_ST_NONE: TEXT_STORE_TEXT_CHANGE_FLAGS = TEXT_STORE_TEXT_CHANGE_FLAGS(0u32);
 pub const TS_ST_CORRECTION: TEXT_STORE_TEXT_CHANGE_FLAGS = TEXT_STORE_TEXT_CHANGE_FLAGS(1u32);
+impl ::core::marker::Copy for TEXT_STORE_TEXT_CHANGE_FLAGS {}
+impl ::core::clone::Clone for TEXT_STORE_TEXT_CHANGE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const TF_CHAR_EMBEDDED: u32 = 65532u32;
 pub const TF_CLUIE_COUNT: u32 = 2u32;
 pub const TF_CLUIE_CURRENTPAGE: u32 = 32u32;
@@ -701,6 +774,12 @@ pub const TF_ES_SYNC: TF_CONTEXT_EDIT_CONTEXT_FLAGS = TF_CONTEXT_EDIT_CONTEXT_FL
 pub const TF_ES_READ: TF_CONTEXT_EDIT_CONTEXT_FLAGS = TF_CONTEXT_EDIT_CONTEXT_FLAGS(2u32);
 pub const TF_ES_READWRITE: TF_CONTEXT_EDIT_CONTEXT_FLAGS = TF_CONTEXT_EDIT_CONTEXT_FLAGS(6u32);
 pub const TF_ES_ASYNC: TF_CONTEXT_EDIT_CONTEXT_FLAGS = TF_CONTEXT_EDIT_CONTEXT_FLAGS(8u32);
+impl ::core::marker::Copy for TF_CONTEXT_EDIT_CONTEXT_FLAGS {}
+impl ::core::clone::Clone for TF_CONTEXT_EDIT_CONTEXT_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const TF_CONVERSIONMODE_ALPHANUMERIC: u32 = 0u32;
 pub const TF_CONVERSIONMODE_CHARCODE: u32 = 32u32;
 pub const TF_CONVERSIONMODE_EUDC: u32 = 512u32;
@@ -721,13 +800,45 @@ pub const TF_ATTR_TARGET_NOTCONVERTED: TF_DA_ATTR_INFO = TF_DA_ATTR_INFO(3i32);
 pub const TF_ATTR_INPUT_ERROR: TF_DA_ATTR_INFO = TF_DA_ATTR_INFO(4i32);
 pub const TF_ATTR_FIXEDCONVERTED: TF_DA_ATTR_INFO = TF_DA_ATTR_INFO(5i32);
 pub const TF_ATTR_OTHER: TF_DA_ATTR_INFO = TF_DA_ATTR_INFO(-1i32);
+impl ::core::marker::Copy for TF_DA_ATTR_INFO {}
+impl ::core::clone::Clone for TF_DA_ATTR_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct TF_DA_COLOR(i32);
+pub struct TF_DA_COLOR {
+    pub r#type: TF_DA_COLORTYPE,
+    pub Anonymous: TF_DA_COLOR_0,
+}
+impl ::core::marker::Copy for TF_DA_COLOR {}
+impl ::core::clone::Clone for TF_DA_COLOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub union TF_DA_COLOR_0 {
+    pub nIndex: i32,
+    pub cr: u32,
+}
+impl ::core::marker::Copy for TF_DA_COLOR_0 {}
+impl ::core::clone::Clone for TF_DA_COLOR_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TF_DA_COLORTYPE(pub i32);
 pub const TF_CT_NONE: TF_DA_COLORTYPE = TF_DA_COLORTYPE(0i32);
 pub const TF_CT_SYSCOLOR: TF_DA_COLORTYPE = TF_DA_COLORTYPE(1i32);
 pub const TF_CT_COLORREF: TF_DA_COLORTYPE = TF_DA_COLORTYPE(2i32);
+impl ::core::marker::Copy for TF_DA_COLORTYPE {}
+impl ::core::clone::Clone for TF_DA_COLORTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TF_DA_LINESTYLE(pub i32);
 pub const TF_LS_NONE: TF_DA_LINESTYLE = TF_DA_LINESTYLE(0i32);
@@ -735,15 +846,36 @@ pub const TF_LS_SOLID: TF_DA_LINESTYLE = TF_DA_LINESTYLE(1i32);
 pub const TF_LS_DOT: TF_DA_LINESTYLE = TF_DA_LINESTYLE(2i32);
 pub const TF_LS_DASH: TF_DA_LINESTYLE = TF_DA_LINESTYLE(3i32);
 pub const TF_LS_SQUIGGLE: TF_DA_LINESTYLE = TF_DA_LINESTYLE(4i32);
+impl ::core::marker::Copy for TF_DA_LINESTYLE {}
+impl ::core::clone::Clone for TF_DA_LINESTYLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const TF_DICTATION_ENABLED: u32 = 2u32;
 pub const TF_DICTATION_ON: u32 = 1u32;
 pub const TF_DISABLE_BALLOON: u32 = 2u32;
 pub const TF_DISABLE_COMMANDING: u32 = 4u32;
 pub const TF_DISABLE_DICTATION: u32 = 2u32;
 pub const TF_DISABLE_SPEECH: u32 = 1u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct TF_DISPLAYATTRIBUTE(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct TF_DISPLAYATTRIBUTE {
+    pub crText: TF_DA_COLOR,
+    pub crBk: TF_DA_COLOR,
+    pub lsStyle: TF_DA_LINESTYLE,
+    pub fBoldLine: super::super::Foundation::BOOL,
+    pub crLine: TF_DA_COLOR,
+    pub bAttr: TF_DA_ATTR_INFO,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for TF_DISPLAYATTRIBUTE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for TF_DISPLAYATTRIBUTE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const TF_E_ALREADY_EXISTS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220218i32 as _);
 pub const TF_E_COMPOSITION_REJECTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220216i32 as _);
 pub const TF_E_DISCONNECTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220220i32 as _);
@@ -767,11 +899,37 @@ pub const TF_E_READONLY: ::windows_sys::core::HRESULT = ::windows_sys::core::HRE
 pub const TF_E_STACKFULL: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220223i32 as _);
 pub const TF_E_SYNCHRONOUS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220984i32 as _);
 #[repr(C)]
-pub struct TF_HALTCOND(i32);
+pub struct TF_HALTCOND {
+    pub pHaltRange: ::core::option::Option<ITfRange>,
+    pub aHaltPos: TfAnchor,
+    pub dwFlags: u32,
+}
+impl ::core::marker::Copy for TF_HALTCOND {}
+impl ::core::clone::Clone for TF_HALTCOND {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const TF_HF_OBJECT: u32 = 1u32;
 pub const TF_IE_CORRECTION: u32 = 1u32;
 #[repr(C)]
-pub struct TF_INPUTPROCESSORPROFILE(i32);
+pub struct TF_INPUTPROCESSORPROFILE {
+    pub dwProfileType: u32,
+    pub langid: u16,
+    pub clsid: ::windows_sys::core::GUID,
+    pub guidProfile: ::windows_sys::core::GUID,
+    pub catid: ::windows_sys::core::GUID,
+    pub hklSubstitute: HKL,
+    pub dwCaps: u32,
+    pub hkl: HKL,
+    pub dwFlags: u32,
+}
+impl ::core::marker::Copy for TF_INPUTPROCESSORPROFILE {}
+impl ::core::clone::Clone for TF_INPUTPROCESSORPROFILE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const TF_INVALID_COOKIE: u32 = 4294967295u32;
 pub const TF_INVALID_EDIT_COOKIE: u32 = 0u32;
 pub const TF_IPPMF_DISABLEPROFILE: u32 = 2u32;
@@ -792,13 +950,50 @@ pub const TF_IPP_FLAG_ENABLED: u32 = 2u32;
 pub const TF_IPP_FLAG_SUBSTITUTEDBYINPUTPROCESSOR: u32 = 4u32;
 pub const TF_IPSINK_FLAG_ACTIVE: u32 = 1u32;
 #[repr(C)]
-pub struct TF_LANGBARITEMINFO(i32);
-#[cfg(feature = "Win32_Foundation")]
+pub struct TF_LANGBARITEMINFO {
+    pub clsidService: ::windows_sys::core::GUID,
+    pub guidItem: ::windows_sys::core::GUID,
+    pub dwStyle: u32,
+    pub ulSort: u32,
+    pub szDescription: [u16; 32],
+}
+impl ::core::marker::Copy for TF_LANGBARITEMINFO {}
+impl ::core::clone::Clone for TF_LANGBARITEMINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct TF_LANGUAGEPROFILE(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct TF_LANGUAGEPROFILE {
+    pub clsid: ::windows_sys::core::GUID,
+    pub langid: u16,
+    pub catid: ::windows_sys::core::GUID,
+    pub fActive: super::super::Foundation::BOOL,
+    pub guidProfile: ::windows_sys::core::GUID,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for TF_LANGUAGEPROFILE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for TF_LANGUAGEPROFILE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct TF_LBBALLOONINFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct TF_LBBALLOONINFO {
+    pub style: TfLBBalloonStyle,
+    pub bstrText: super::super::Foundation::BSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for TF_LBBALLOONINFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for TF_LBBALLOONINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const TF_LBI_BALLOON: u32 = 16u32;
 pub const TF_LBI_BITMAP: u32 = 8u32;
 pub const TF_LBI_BMPF_VERTICAL: u32 = 1u32;
@@ -825,9 +1020,36 @@ pub const TF_LBMENUF_GRAYED: u32 = 16u32;
 pub const TF_LBMENUF_RADIOCHECKED: u32 = 8u32;
 pub const TF_LBMENUF_SEPARATOR: u32 = 4u32;
 pub const TF_LBMENUF_SUBMENU: u32 = 2u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct TF_LMLATTELEMENT(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct TF_LMLATTELEMENT {
+    pub dwFrameStart: u32,
+    pub dwFrameLen: u32,
+    pub dwFlags: u32,
+    pub Anonymous: TF_LMLATTELEMENT_0,
+    pub bstrText: super::super::Foundation::BSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for TF_LMLATTELEMENT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for TF_LMLATTELEMENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub union TF_LMLATTELEMENT_0 {
+    pub iCost: i32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for TF_LMLATTELEMENT_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for TF_LMLATTELEMENT_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const TF_MENUREADY: u32 = 1u32;
 pub const TF_MOD_ALT: u32 = 1u32;
 pub const TF_MOD_CONTROL: u32 = 2u32;
@@ -841,10 +1063,32 @@ pub const TF_MOD_RCONTROL: u32 = 16u32;
 pub const TF_MOD_RSHIFT: u32 = 32u32;
 pub const TF_MOD_SHIFT: u32 = 4u32;
 #[repr(C)]
-pub struct TF_PERSISTENT_PROPERTY_HEADER_ACP(i32);
+pub struct TF_PERSISTENT_PROPERTY_HEADER_ACP {
+    pub guidType: ::windows_sys::core::GUID,
+    pub ichStart: i32,
+    pub cch: i32,
+    pub cb: u32,
+    pub dwPrivate: u32,
+    pub clsidTIP: ::windows_sys::core::GUID,
+}
+impl ::core::marker::Copy for TF_PERSISTENT_PROPERTY_HEADER_ACP {}
+impl ::core::clone::Clone for TF_PERSISTENT_PROPERTY_HEADER_ACP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const TF_POPF_ALL: u32 = 1u32;
 #[repr(C)]
-pub struct TF_PRESERVEDKEY(i32);
+pub struct TF_PRESERVEDKEY {
+    pub uVKey: u32,
+    pub uModifiers: u32,
+}
+impl ::core::marker::Copy for TF_PRESERVEDKEY {}
+impl ::core::clone::Clone for TF_PRESERVEDKEY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const TF_PROFILETYPE_INPUTPROCESSOR: u32 = 1u32;
 pub const TF_PROFILETYPE_KEYBOARDLAYOUT: u32 = 2u32;
 pub const TF_PROFILE_ARRAY: ::windows_sys::core::GUID = ::windows_sys::GUID {
@@ -901,9 +1145,20 @@ pub const TF_PROFILE_WUBI: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data4: [186, 29, 134, 103, 36, 111, 223, 142],
 };
 pub const TF_PROFILE_YI: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1083999094, data2: 123, data3: 17239, data4: [174, 142, 38, 49, 110, 227, 251, 13] };
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[repr(C)]
-pub struct TF_PROPERTYVAL(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub struct TF_PROPERTYVAL {
+    pub guidId: ::windows_sys::core::GUID,
+    pub varValue: super::super::System::Com::VARIANT,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::core::marker::Copy for TF_PROPERTYVAL {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::core::clone::Clone for TF_PROPERTYVAL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const TF_PROPUI_STATUS_SAVETOFILE: u32 = 1u32;
 pub const TF_RCM_COMLESS: u32 = 1u32;
 pub const TF_RCM_HINT_COLLISION: u32 = 8u32;
@@ -921,12 +1176,34 @@ pub const TF_RP_LOCALTHREAD: u32 = 8u32;
 pub const TF_RP_SUBITEMINSETTINGUI: u32 = 16u32;
 pub const TF_SD_LOADING: u32 = 2u32;
 pub const TF_SD_READONLY: u32 = 1u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct TF_SELECTION(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct TF_SELECTION {
+    pub range: ::core::option::Option<ITfRange>,
+    pub style: TF_SELECTIONSTYLE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for TF_SELECTION {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for TF_SELECTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct TF_SELECTIONSTYLE(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct TF_SELECTIONSTYLE {
+    pub ase: TfActiveSelEnd,
+    pub fInterimChar: super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for TF_SELECTIONSTYLE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for TF_SELECTIONSTYLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const TF_SENTENCEMODE_AUTOMATIC: u32 = 4u32;
 pub const TF_SENTENCEMODE_CONVERSATION: u32 = 16u32;
 pub const TF_SENTENCEMODE_NONE: u32 = 0u32;
@@ -992,6 +1269,12 @@ pub struct TKBLayoutType(pub i32);
 pub const TKBLT_UNDEFINED: TKBLayoutType = TKBLayoutType(0i32);
 pub const TKBLT_CLASSIC: TKBLayoutType = TKBLayoutType(1i32);
 pub const TKBLT_OPTIMIZED: TKBLayoutType = TKBLayoutType(2i32);
+impl ::core::marker::Copy for TKBLayoutType {}
+impl ::core::clone::Clone for TKBLayoutType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const TKB_ALTERNATES_AUTOCORRECTION_APPLIED: u32 = 4u32;
 pub const TKB_ALTERNATES_FOR_AUTOCORRECTION: u32 = 2u32;
 pub const TKB_ALTERNATES_FOR_PREDICTION: u32 = 3u32;
@@ -1325,9 +1608,21 @@ pub const TS_AS_LAYOUT_CHANGE: u32 = 4u32;
 pub const TS_AS_SEL_CHANGE: u32 = 2u32;
 pub const TS_AS_STATUS_CHANGE: u32 = 16u32;
 pub const TS_AS_TEXT_CHANGE: u32 = 1u32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[repr(C)]
-pub struct TS_ATTRVAL(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub struct TS_ATTRVAL {
+    pub idAttr: ::windows_sys::core::GUID,
+    pub dwOverlapId: u32,
+    pub varValue: super::super::System::Com::VARIANT,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::core::marker::Copy for TS_ATTRVAL {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::core::clone::Clone for TS_ATTRVAL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const TS_ATTR_FIND_BACKWARDS: u32 = 1u32;
 pub const TS_ATTR_FIND_HIDDEN: u32 = 32u32;
 pub const TS_ATTR_FIND_UPDATESTART: u32 = 4u32;
@@ -1356,7 +1651,16 @@ pub const TS_IE_COMPOSITION: u32 = 2u32;
 pub const TS_IE_CORRECTION: u32 = 1u32;
 pub const TS_LF_SYNC: u32 = 1u32;
 #[repr(C)]
-pub struct TS_RUNINFO(i32);
+pub struct TS_RUNINFO {
+    pub uCount: u32,
+    pub r#type: TsRunType,
+}
+impl ::core::marker::Copy for TS_RUNINFO {}
+impl ::core::clone::Clone for TS_RUNINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const TS_SD_EMBEDDEDHANDWRITINGVIEW_ENABLED: u32 = 128u32;
 pub const TS_SD_EMBEDDEDHANDWRITINGVIEW_VISIBLE: u32 = 256u32;
 pub const TS_SD_INPUTPANEMANUALDISPLAYENABLE: u32 = 64u32;
@@ -1366,15 +1670,50 @@ pub const TS_SD_RESERVED: u32 = 4u32;
 pub const TS_SD_TKBAUTOCORRECTENABLE: u32 = 8u32;
 pub const TS_SD_TKBPREDICTIONENABLE: u32 = 16u32;
 pub const TS_SD_UIINTEGRATIONENABLE: u32 = 32u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct TS_SELECTIONSTYLE(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct TS_SELECTION_ACP(i32);
+pub struct TS_SELECTIONSTYLE {
+    pub ase: TsActiveSelEnd,
+    pub fInterimChar: super::super::Foundation::BOOL,
+}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for TS_SELECTIONSTYLE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for TS_SELECTIONSTYLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct TS_SELECTION_ANCHOR(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct TS_SELECTION_ACP {
+    pub acpStart: i32,
+    pub acpEnd: i32,
+    pub style: TS_SELECTIONSTYLE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for TS_SELECTION_ACP {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for TS_SELECTION_ACP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct TS_SELECTION_ANCHOR {
+    pub paStart: ::core::option::Option<IAnchor>,
+    pub paEnd: ::core::option::Option<IAnchor>,
+    pub style: TS_SELECTIONSTYLE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for TS_SELECTION_ANCHOR {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for TS_SELECTION_ANCHOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const TS_SHIFT_COUNT_HIDDEN: u32 = 1u32;
 pub const TS_SHIFT_COUNT_ONLY: u32 = 8u32;
 pub const TS_SHIFT_HALT_HIDDEN: u32 = 2u32;
@@ -1387,50 +1726,117 @@ pub const TS_SS_TKBPREDICTIONENABLE: u32 = 32u32;
 pub const TS_SS_TRANSITORY: u32 = 4u32;
 pub const TS_SS_UWPCONTROL: u32 = 64u32;
 #[repr(C)]
-pub struct TS_STATUS(i32);
+pub struct TS_STATUS {
+    pub dwDynamicFlags: u32,
+    pub dwStaticFlags: u32,
+}
+impl ::core::marker::Copy for TS_STATUS {}
+impl ::core::clone::Clone for TS_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const TS_STRF_END: u32 = 2u32;
 pub const TS_STRF_MID: u32 = 1u32;
 pub const TS_STRF_START: u32 = 0u32;
 pub const TS_S_ASYNC: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(262912i32 as _);
 #[repr(C)]
-pub struct TS_TEXTCHANGE(i32);
+pub struct TS_TEXTCHANGE {
+    pub acpStart: i32,
+    pub acpOldEnd: i32,
+    pub acpNewEnd: i32,
+}
+impl ::core::marker::Copy for TS_TEXTCHANGE {}
+impl ::core::clone::Clone for TS_TEXTCHANGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const TS_VCOOKIE_NUL: u32 = 4294967295u32;
 #[repr(transparent)]
 pub struct TfActiveSelEnd(pub i32);
 pub const TF_AE_NONE: TfActiveSelEnd = TfActiveSelEnd(0i32);
 pub const TF_AE_START: TfActiveSelEnd = TfActiveSelEnd(1i32);
 pub const TF_AE_END: TfActiveSelEnd = TfActiveSelEnd(2i32);
+impl ::core::marker::Copy for TfActiveSelEnd {}
+impl ::core::clone::Clone for TfActiveSelEnd {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TfAnchor(pub i32);
 pub const TF_ANCHOR_START: TfAnchor = TfAnchor(0i32);
 pub const TF_ANCHOR_END: TfAnchor = TfAnchor(1i32);
+impl ::core::marker::Copy for TfAnchor {}
+impl ::core::clone::Clone for TfAnchor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TfCandidateResult(pub i32);
 pub const CAND_FINALIZED: TfCandidateResult = TfCandidateResult(0i32);
 pub const CAND_SELECTED: TfCandidateResult = TfCandidateResult(1i32);
 pub const CAND_CANCELED: TfCandidateResult = TfCandidateResult(2i32);
+impl ::core::marker::Copy for TfCandidateResult {}
+impl ::core::clone::Clone for TfCandidateResult {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TfGravity(pub i32);
 pub const TF_GRAVITY_BACKWARD: TfGravity = TfGravity(0i32);
 pub const TF_GRAVITY_FORWARD: TfGravity = TfGravity(1i32);
+impl ::core::marker::Copy for TfGravity {}
+impl ::core::clone::Clone for TfGravity {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TfIntegratableCandidateListSelectionStyle(pub i32);
 pub const STYLE_ACTIVE_SELECTION: TfIntegratableCandidateListSelectionStyle = TfIntegratableCandidateListSelectionStyle(0i32);
 pub const STYLE_IMPLIED_SELECTION: TfIntegratableCandidateListSelectionStyle = TfIntegratableCandidateListSelectionStyle(1i32);
+impl ::core::marker::Copy for TfIntegratableCandidateListSelectionStyle {}
+impl ::core::clone::Clone for TfIntegratableCandidateListSelectionStyle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TfLBBalloonStyle(pub i32);
 pub const TF_LB_BALLOON_RECO: TfLBBalloonStyle = TfLBBalloonStyle(0i32);
 pub const TF_LB_BALLOON_SHOW: TfLBBalloonStyle = TfLBBalloonStyle(1i32);
 pub const TF_LB_BALLOON_MISS: TfLBBalloonStyle = TfLBBalloonStyle(2i32);
+impl ::core::marker::Copy for TfLBBalloonStyle {}
+impl ::core::clone::Clone for TfLBBalloonStyle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TfLBIClick(pub i32);
 pub const TF_LBI_CLK_RIGHT: TfLBIClick = TfLBIClick(1i32);
 pub const TF_LBI_CLK_LEFT: TfLBIClick = TfLBIClick(2i32);
+impl ::core::marker::Copy for TfLBIClick {}
+impl ::core::clone::Clone for TfLBIClick {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TfLayoutCode(pub i32);
 pub const TF_LC_CREATE: TfLayoutCode = TfLayoutCode(0i32);
 pub const TF_LC_CHANGE: TfLayoutCode = TfLayoutCode(1i32);
 pub const TF_LC_DESTROY: TfLayoutCode = TfLayoutCode(2i32);
+impl ::core::marker::Copy for TfLayoutCode {}
+impl ::core::clone::Clone for TfLayoutCode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TfSapiObject(pub i32);
 pub const GETIF_RESMGR: TfSapiObject = TfSapiObject(0i32);
@@ -1439,30 +1845,72 @@ pub const GETIF_RECOGNIZER: TfSapiObject = TfSapiObject(2i32);
 pub const GETIF_VOICE: TfSapiObject = TfSapiObject(3i32);
 pub const GETIF_DICTGRAM: TfSapiObject = TfSapiObject(4i32);
 pub const GETIF_RECOGNIZERNOINIT: TfSapiObject = TfSapiObject(5i32);
+impl ::core::marker::Copy for TfSapiObject {}
+impl ::core::clone::Clone for TfSapiObject {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TfShiftDir(pub i32);
 pub const TF_SD_BACKWARD: TfShiftDir = TfShiftDir(0i32);
 pub const TF_SD_FORWARD: TfShiftDir = TfShiftDir(1i32);
+impl ::core::marker::Copy for TfShiftDir {}
+impl ::core::clone::Clone for TfShiftDir {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TsActiveSelEnd(pub i32);
 pub const TS_AE_NONE: TsActiveSelEnd = TsActiveSelEnd(0i32);
 pub const TS_AE_START: TsActiveSelEnd = TsActiveSelEnd(1i32);
 pub const TS_AE_END: TsActiveSelEnd = TsActiveSelEnd(2i32);
+impl ::core::marker::Copy for TsActiveSelEnd {}
+impl ::core::clone::Clone for TsActiveSelEnd {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TsGravity(pub i32);
 pub const TS_GR_BACKWARD: TsGravity = TsGravity(0i32);
 pub const TS_GR_FORWARD: TsGravity = TsGravity(1i32);
+impl ::core::marker::Copy for TsGravity {}
+impl ::core::clone::Clone for TsGravity {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TsLayoutCode(pub i32);
 pub const TS_LC_CREATE: TsLayoutCode = TsLayoutCode(0i32);
 pub const TS_LC_CHANGE: TsLayoutCode = TsLayoutCode(1i32);
 pub const TS_LC_DESTROY: TsLayoutCode = TsLayoutCode(2i32);
+impl ::core::marker::Copy for TsLayoutCode {}
+impl ::core::clone::Clone for TsLayoutCode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TsRunType(pub i32);
 pub const TS_RT_PLAIN: TsRunType = TsRunType(0i32);
 pub const TS_RT_HIDDEN: TsRunType = TsRunType(1i32);
 pub const TS_RT_OPAQUE: TsRunType = TsRunType(2i32);
+impl ::core::marker::Copy for TsRunType {}
+impl ::core::clone::Clone for TsRunType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TsShiftDir(pub i32);
 pub const TS_SD_BACKWARD: TsShiftDir = TsShiftDir(0i32);
 pub const TS_SD_FORWARD: TsShiftDir = TsShiftDir(1i32);
+impl ::core::marker::Copy for TsShiftDir {}
+impl ::core::clone::Clone for TsShiftDir {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

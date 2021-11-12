@@ -438,9 +438,20 @@ extern "system" {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub fn wglUseFontOutlinesW(param0: super::Gdi::HDC, param1: u32, param2: u32, param3: u32, param4: f32, param5: f32, param6: i32, param7: *mut GLYPHMETRICSFLOAT) -> super::super::Foundation::BOOL;
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
 #[repr(C)]
-pub struct EMRPIXELFORMAT(i32);
+#[cfg(feature = "Win32_Graphics_Gdi")]
+pub struct EMRPIXELFORMAT {
+    pub emr: super::Gdi::EMR,
+    pub pfd: PIXELFORMATDESCRIPTOR,
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::core::marker::Copy for EMRPIXELFORMAT {}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::core::clone::Clone for EMRPIXELFORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const GLU_AUTO_LOAD_MATRIX: u32 = 100200u32;
 pub const GLU_BEGIN: u32 = 100100u32;
 pub const GLU_CCW: u32 = 100121u32;
@@ -557,10 +568,10 @@ pub const GLU_VERSION_1_2: u32 = 1u32;
 pub const GLU_VERTEX: u32 = 100101u32;
 pub const GLU_V_STEP: u32 = 100207u32;
 #[repr(C)]
-pub struct GLUnurbs(i32);
+pub struct GLUnurbs(pub u8);
 pub type GLUnurbsErrorProc = unsafe extern "system" fn(param0: u32);
 #[repr(C)]
-pub struct GLUquadric(i32);
+pub struct GLUquadric(pub u8);
 pub type GLUquadricErrorProc = unsafe extern "system" fn(param0: u32);
 pub type GLUtessBeginDataProc = unsafe extern "system" fn(param0: u32, param1: *mut ::core::ffi::c_void);
 pub type GLUtessBeginProc = unsafe extern "system" fn(param0: u32);
@@ -575,9 +586,21 @@ pub type GLUtessErrorProc = unsafe extern "system" fn(param0: u32);
 pub type GLUtessVertexDataProc = unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: *mut ::core::ffi::c_void);
 pub type GLUtessVertexProc = unsafe extern "system" fn(param0: *mut ::core::ffi::c_void);
 #[repr(C)]
-pub struct GLUtesselator(i32);
+pub struct GLUtesselator(pub u8);
 #[repr(C)]
-pub struct GLYPHMETRICSFLOAT(i32);
+pub struct GLYPHMETRICSFLOAT {
+    pub gmfBlackBoxX: f32,
+    pub gmfBlackBoxY: f32,
+    pub gmfptGlyphOrigin: POINTFLOAT,
+    pub gmfCellIncX: f32,
+    pub gmfCellIncY: f32,
+}
+impl ::core::marker::Copy for GLYPHMETRICSFLOAT {}
+impl ::core::clone::Clone for GLYPHMETRICSFLOAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const GL_2D: u32 = 1536u32;
 pub const GL_2_BYTES: u32 = 5127u32;
 pub const GL_3D: u32 = 1537u32;
@@ -1167,9 +1190,46 @@ pub const GL_ZERO: u32 = 0u32;
 pub const GL_ZOOM_X: u32 = 3350u32;
 pub const GL_ZOOM_Y: u32 = 3351u32;
 #[repr(C)]
-pub struct HGLRC(i32);
+pub struct HGLRC(pub isize);
+impl ::core::marker::Copy for HGLRC {}
+impl ::core::clone::Clone for HGLRC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct LAYERPLANEDESCRIPTOR(i32);
+pub struct LAYERPLANEDESCRIPTOR {
+    pub nSize: u16,
+    pub nVersion: u16,
+    pub dwFlags: u32,
+    pub iPixelType: u8,
+    pub cColorBits: u8,
+    pub cRedBits: u8,
+    pub cRedShift: u8,
+    pub cGreenBits: u8,
+    pub cGreenShift: u8,
+    pub cBlueBits: u8,
+    pub cBlueShift: u8,
+    pub cAlphaBits: u8,
+    pub cAlphaShift: u8,
+    pub cAccumBits: u8,
+    pub cAccumRedBits: u8,
+    pub cAccumGreenBits: u8,
+    pub cAccumBlueBits: u8,
+    pub cAccumAlphaBits: u8,
+    pub cDepthBits: u8,
+    pub cStencilBits: u8,
+    pub cAuxBuffers: u8,
+    pub iLayerPlane: u8,
+    pub bReserved: u8,
+    pub crTransparent: u32,
+}
+impl ::core::marker::Copy for LAYERPLANEDESCRIPTOR {}
+impl ::core::clone::Clone for LAYERPLANEDESCRIPTOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub type PFNGLADDSWAPHINTRECTWINPROC = unsafe extern "system" fn(x: i32, y: i32, width: i32, height: i32);
 pub type PFNGLARRAYELEMENTARRAYEXTPROC = unsafe extern "system" fn(mode: u32, count: i32, pi: *const ::core::ffi::c_void);
 pub type PFNGLARRAYELEMENTEXTPROC = unsafe extern "system" fn(i: i32);
@@ -1188,6 +1248,48 @@ pub type PFNGLNORMALPOINTEREXTPROC = unsafe extern "system" fn(r#type: u32, stri
 pub type PFNGLTEXCOORDPOINTEREXTPROC = unsafe extern "system" fn(size: i32, r#type: u32, stride: i32, count: i32, pointer: *const ::core::ffi::c_void);
 pub type PFNGLVERTEXPOINTEREXTPROC = unsafe extern "system" fn(size: i32, r#type: u32, stride: i32, count: i32, pointer: *const ::core::ffi::c_void);
 #[repr(C)]
-pub struct PIXELFORMATDESCRIPTOR(i32);
+pub struct PIXELFORMATDESCRIPTOR {
+    pub nSize: u16,
+    pub nVersion: u16,
+    pub dwFlags: u32,
+    pub iPixelType: u8,
+    pub cColorBits: u8,
+    pub cRedBits: u8,
+    pub cRedShift: u8,
+    pub cGreenBits: u8,
+    pub cGreenShift: u8,
+    pub cBlueBits: u8,
+    pub cBlueShift: u8,
+    pub cAlphaBits: u8,
+    pub cAlphaShift: u8,
+    pub cAccumBits: u8,
+    pub cAccumRedBits: u8,
+    pub cAccumGreenBits: u8,
+    pub cAccumBlueBits: u8,
+    pub cAccumAlphaBits: u8,
+    pub cDepthBits: u8,
+    pub cStencilBits: u8,
+    pub cAuxBuffers: u8,
+    pub iLayerType: u8,
+    pub bReserved: u8,
+    pub dwLayerMask: u32,
+    pub dwVisibleMask: u32,
+    pub dwDamageMask: u32,
+}
+impl ::core::marker::Copy for PIXELFORMATDESCRIPTOR {}
+impl ::core::clone::Clone for PIXELFORMATDESCRIPTOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct POINTFLOAT(i32);
+pub struct POINTFLOAT {
+    pub x: f32,
+    pub y: f32,
+}
+impl ::core::marker::Copy for POINTFLOAT {}
+impl ::core::clone::Clone for POINTFLOAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

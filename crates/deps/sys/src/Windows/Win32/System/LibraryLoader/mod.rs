@@ -113,7 +113,17 @@ pub type ENUMRESTYPEPROCA = unsafe extern "system" fn(hmodule: super::super::Fou
 #[cfg(feature = "Win32_Foundation")]
 pub type ENUMRESTYPEPROCW = unsafe extern "system" fn(hmodule: super::super::Foundation::HINSTANCE, lptype: super::super::Foundation::PWSTR, lparam: isize) -> super::super::Foundation::BOOL;
 #[repr(C)]
-pub struct ENUMUILANG(i32);
+pub struct ENUMUILANG {
+    pub NumOfEnumUILang: u32,
+    pub SizeOfEnumUIBuffer: u32,
+    pub pEnumUIBuffer: *mut u16,
+}
+impl ::core::marker::Copy for ENUMUILANG {}
+impl ::core::clone::Clone for ENUMUILANG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const FIND_RESOURCE_DIRECTORY_LANGUAGES: u32 = 1024u32;
 pub const FIND_RESOURCE_DIRECTORY_NAMES: u32 = 512u32;
 pub const FIND_RESOURCE_DIRECTORY_TYPES: u32 = 256u32;
@@ -136,17 +146,47 @@ pub const LOAD_LIBRARY_SEARCH_SYSTEM32: LOAD_LIBRARY_FLAGS = LOAD_LIBRARY_FLAGS(
 pub const LOAD_LIBRARY_SEARCH_DEFAULT_DIRS: LOAD_LIBRARY_FLAGS = LOAD_LIBRARY_FLAGS(4096u32);
 pub const LOAD_LIBRARY_SAFE_CURRENT_DIRS: LOAD_LIBRARY_FLAGS = LOAD_LIBRARY_FLAGS(8192u32);
 pub const LOAD_LIBRARY_SEARCH_SYSTEM32_NO_FORWARDER: LOAD_LIBRARY_FLAGS = LOAD_LIBRARY_FLAGS(16384u32);
+impl ::core::marker::Copy for LOAD_LIBRARY_FLAGS {}
+impl ::core::clone::Clone for LOAD_LIBRARY_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const LOAD_LIBRARY_OS_INTEGRITY_CONTINUITY: u32 = 32768u32;
 #[cfg(feature = "Win32_Foundation")]
 pub type PGET_MODULE_HANDLE_EXA = unsafe extern "system" fn(dwflags: u32, lpmodulename: super::super::Foundation::PSTR, phmodule: *mut super::super::Foundation::HINSTANCE) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
 pub type PGET_MODULE_HANDLE_EXW = unsafe extern "system" fn(dwflags: u32, lpmodulename: super::super::Foundation::PWSTR, phmodule: *mut super::super::Foundation::HINSTANCE) -> super::super::Foundation::BOOL;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct REDIRECTION_DESCRIPTOR(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct REDIRECTION_DESCRIPTOR {
+    pub Version: u32,
+    pub FunctionCount: u32,
+    pub Redirections: *mut REDIRECTION_FUNCTION_DESCRIPTOR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for REDIRECTION_DESCRIPTOR {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for REDIRECTION_DESCRIPTOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct REDIRECTION_FUNCTION_DESCRIPTOR(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct REDIRECTION_FUNCTION_DESCRIPTOR {
+    pub DllName: super::super::Foundation::PSTR,
+    pub FunctionName: super::super::Foundation::PSTR,
+    pub RedirectionTarget: *mut ::core::ffi::c_void,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for REDIRECTION_FUNCTION_DESCRIPTOR {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for REDIRECTION_FUNCTION_DESCRIPTOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const RESOURCE_ENUM_LN: u32 = 1u32;
 pub const RESOURCE_ENUM_MODULE_EXACT: u32 = 16u32;
 pub const RESOURCE_ENUM_MUI: u32 = 2u32;

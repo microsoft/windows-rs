@@ -213,3 +213,9 @@ pub struct IMarshalingStream(pub *mut ::core::ffi::c_void);
 pub struct STDMSHLFLAGS(pub i32);
 pub const SMEXF_SERVER: STDMSHLFLAGS = STDMSHLFLAGS(1i32);
 pub const SMEXF_HANDLER: STDMSHLFLAGS = STDMSHLFLAGS(2i32);
+impl ::core::marker::Copy for STDMSHLFLAGS {}
+impl ::core::clone::Clone for STDMSHLFLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

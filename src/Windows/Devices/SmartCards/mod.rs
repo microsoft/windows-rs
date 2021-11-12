@@ -1966,9 +1966,6 @@ unsafe impl ::windows::core::RuntimeType for SmartCardAutomaticResponseStatus {
 impl ::windows::core::DefaultType for SmartCardAutomaticResponseStatus {
     type DefaultType = Self;
 }
-#[repr(C)]
-#[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
-pub struct SmartCardBackgroundTriggerContract(pub u8);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct SmartCardChallengeContext(pub ::windows::core::IInspectable);
@@ -4119,9 +4116,6 @@ unsafe impl ::windows::core::RuntimeType for SmartCardEmulatorConnectionSource {
 impl ::windows::core::DefaultType for SmartCardEmulatorConnectionSource {
     type DefaultType = Self;
 }
-#[repr(C)]
-#[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
-pub struct SmartCardEmulatorContract(pub u8);
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SmartCardEmulatorEnablementPolicy(pub i32);

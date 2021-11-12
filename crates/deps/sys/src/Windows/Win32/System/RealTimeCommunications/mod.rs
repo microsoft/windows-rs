@@ -143,8 +143,12 @@ pub const RTCAU_NTLM: u32 = 4u32;
 pub const RTCAU_USE_LOGON_CRED: u32 = 65536u32;
 pub const RTCCS_FAIL_ON_REDIRECT: u32 = 2u32;
 pub const RTCCS_FORCE_PROFILE: u32 = 1u32;
-#[repr(C)]
-pub struct RTCClient(i32);
+pub const RTCClient: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 2051205673,
+    data2: 41655,
+    data3: 16580,
+    data4: [176, 145, 246, 240, 36, 170, 137, 190],
+};
 pub const RTCEF_ALL: u32 = 33554431u32;
 pub const RTCEF_BUDDY: u32 = 256u32;
 pub const RTCEF_BUDDY2: u32 = 262144u32;
@@ -203,16 +207,34 @@ pub struct RTC_ACE_SCOPE(pub i32);
 pub const RTCAS_SCOPE_USER: RTC_ACE_SCOPE = RTC_ACE_SCOPE(0i32);
 pub const RTCAS_SCOPE_DOMAIN: RTC_ACE_SCOPE = RTC_ACE_SCOPE(1i32);
 pub const RTCAS_SCOPE_ALL: RTC_ACE_SCOPE = RTC_ACE_SCOPE(2i32);
+impl ::core::marker::Copy for RTC_ACE_SCOPE {}
+impl ::core::clone::Clone for RTC_ACE_SCOPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RTC_ANSWER_MODE(pub i32);
 pub const RTCAM_OFFER_SESSION_EVENT: RTC_ANSWER_MODE = RTC_ANSWER_MODE(0i32);
 pub const RTCAM_AUTOMATICALLY_ACCEPT: RTC_ANSWER_MODE = RTC_ANSWER_MODE(1i32);
 pub const RTCAM_AUTOMATICALLY_REJECT: RTC_ANSWER_MODE = RTC_ANSWER_MODE(2i32);
 pub const RTCAM_NOT_SUPPORTED: RTC_ANSWER_MODE = RTC_ANSWER_MODE(3i32);
+impl ::core::marker::Copy for RTC_ANSWER_MODE {}
+impl ::core::clone::Clone for RTC_ANSWER_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RTC_AUDIO_DEVICE(pub i32);
 pub const RTCAD_SPEAKER: RTC_AUDIO_DEVICE = RTC_AUDIO_DEVICE(0i32);
 pub const RTCAD_MICROPHONE: RTC_AUDIO_DEVICE = RTC_AUDIO_DEVICE(1i32);
+impl ::core::marker::Copy for RTC_AUDIO_DEVICE {}
+impl ::core::clone::Clone for RTC_AUDIO_DEVICE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RTC_BUDDY_EVENT_TYPE(pub i32);
 pub const RTCBET_BUDDY_ADD: RTC_BUDDY_EVENT_TYPE = RTC_BUDDY_EVENT_TYPE(0i32);
@@ -221,18 +243,36 @@ pub const RTCBET_BUDDY_UPDATE: RTC_BUDDY_EVENT_TYPE = RTC_BUDDY_EVENT_TYPE(2i32)
 pub const RTCBET_BUDDY_STATE_CHANGE: RTC_BUDDY_EVENT_TYPE = RTC_BUDDY_EVENT_TYPE(3i32);
 pub const RTCBET_BUDDY_ROAMED: RTC_BUDDY_EVENT_TYPE = RTC_BUDDY_EVENT_TYPE(4i32);
 pub const RTCBET_BUDDY_SUBSCRIBED: RTC_BUDDY_EVENT_TYPE = RTC_BUDDY_EVENT_TYPE(5i32);
+impl ::core::marker::Copy for RTC_BUDDY_EVENT_TYPE {}
+impl ::core::clone::Clone for RTC_BUDDY_EVENT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RTC_BUDDY_SUBSCRIPTION_TYPE(pub i32);
 pub const RTCBT_SUBSCRIBED: RTC_BUDDY_SUBSCRIPTION_TYPE = RTC_BUDDY_SUBSCRIPTION_TYPE(0i32);
 pub const RTCBT_ALWAYS_OFFLINE: RTC_BUDDY_SUBSCRIPTION_TYPE = RTC_BUDDY_SUBSCRIPTION_TYPE(1i32);
 pub const RTCBT_ALWAYS_ONLINE: RTC_BUDDY_SUBSCRIPTION_TYPE = RTC_BUDDY_SUBSCRIPTION_TYPE(2i32);
 pub const RTCBT_POLL: RTC_BUDDY_SUBSCRIPTION_TYPE = RTC_BUDDY_SUBSCRIPTION_TYPE(3i32);
+impl ::core::marker::Copy for RTC_BUDDY_SUBSCRIPTION_TYPE {}
+impl ::core::clone::Clone for RTC_BUDDY_SUBSCRIPTION_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RTC_CLIENT_EVENT_TYPE(pub i32);
 pub const RTCCET_VOLUME_CHANGE: RTC_CLIENT_EVENT_TYPE = RTC_CLIENT_EVENT_TYPE(0i32);
 pub const RTCCET_DEVICE_CHANGE: RTC_CLIENT_EVENT_TYPE = RTC_CLIENT_EVENT_TYPE(1i32);
 pub const RTCCET_NETWORK_QUALITY_CHANGE: RTC_CLIENT_EVENT_TYPE = RTC_CLIENT_EVENT_TYPE(2i32);
 pub const RTCCET_ASYNC_CLEANUP_DONE: RTC_CLIENT_EVENT_TYPE = RTC_CLIENT_EVENT_TYPE(3i32);
+impl ::core::marker::Copy for RTC_CLIENT_EVENT_TYPE {}
+impl ::core::clone::Clone for RTC_CLIENT_EVENT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RTC_DTMF(pub i32);
 pub const RTC_DTMF_0: RTC_DTMF = RTC_DTMF(0i32);
@@ -252,6 +292,12 @@ pub const RTC_DTMF_B: RTC_DTMF = RTC_DTMF(13i32);
 pub const RTC_DTMF_C: RTC_DTMF = RTC_DTMF(14i32);
 pub const RTC_DTMF_D: RTC_DTMF = RTC_DTMF(15i32);
 pub const RTC_DTMF_FLASH: RTC_DTMF = RTC_DTMF(16i32);
+impl ::core::marker::Copy for RTC_DTMF {}
+impl ::core::clone::Clone for RTC_DTMF {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RTC_EVENT(pub i32);
 pub const RTCE_CLIENT: RTC_EVENT = RTC_EVENT(0i32);
@@ -276,6 +322,12 @@ pub const RTCE_PRESENCE_STATUS: RTC_EVENT = RTC_EVENT(18i32);
 pub const RTCE_SESSION_REFER_STATUS: RTC_EVENT = RTC_EVENT(19i32);
 pub const RTCE_SESSION_REFERRED: RTC_EVENT = RTC_EVENT(20i32);
 pub const RTCE_REINVITE: RTC_EVENT = RTC_EVENT(21i32);
+impl ::core::marker::Copy for RTC_EVENT {}
+impl ::core::clone::Clone for RTC_EVENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const RTC_E_ANOTHER_MEDIA_SESSION_ACTIVE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2131885961i32 as _);
 pub const RTC_E_BASIC_AUTH_SET_TLS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2131886017i32 as _);
 pub const RTC_E_CLIENT_ALREADY_INITIALIZED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2131886042i32 as _);
@@ -471,11 +523,23 @@ pub const RTCGET_GROUP_UPDATE: RTC_GROUP_EVENT_TYPE = RTC_GROUP_EVENT_TYPE(2i32)
 pub const RTCGET_GROUP_BUDDY_ADD: RTC_GROUP_EVENT_TYPE = RTC_GROUP_EVENT_TYPE(3i32);
 pub const RTCGET_GROUP_BUDDY_REMOVE: RTC_GROUP_EVENT_TYPE = RTC_GROUP_EVENT_TYPE(4i32);
 pub const RTCGET_GROUP_ROAMED: RTC_GROUP_EVENT_TYPE = RTC_GROUP_EVENT_TYPE(5i32);
+impl ::core::marker::Copy for RTC_GROUP_EVENT_TYPE {}
+impl ::core::clone::Clone for RTC_GROUP_EVENT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RTC_LISTEN_MODE(pub i32);
 pub const RTCLM_NONE: RTC_LISTEN_MODE = RTC_LISTEN_MODE(0i32);
 pub const RTCLM_DYNAMIC: RTC_LISTEN_MODE = RTC_LISTEN_MODE(1i32);
 pub const RTCLM_BOTH: RTC_LISTEN_MODE = RTC_LISTEN_MODE(2i32);
+impl ::core::marker::Copy for RTC_LISTEN_MODE {}
+impl ::core::clone::Clone for RTC_LISTEN_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RTC_MEDIA_EVENT_REASON(pub i32);
 pub const RTCMER_NORMAL: RTC_MEDIA_EVENT_REASON = RTC_MEDIA_EVENT_REASON(0i32);
@@ -485,23 +549,53 @@ pub const RTCMER_BAD_DEVICE: RTC_MEDIA_EVENT_REASON = RTC_MEDIA_EVENT_REASON(3i3
 pub const RTCMER_NO_PORT: RTC_MEDIA_EVENT_REASON = RTC_MEDIA_EVENT_REASON(4i32);
 pub const RTCMER_PORT_MAPPING_FAILED: RTC_MEDIA_EVENT_REASON = RTC_MEDIA_EVENT_REASON(5i32);
 pub const RTCMER_REMOTE_REQUEST: RTC_MEDIA_EVENT_REASON = RTC_MEDIA_EVENT_REASON(6i32);
+impl ::core::marker::Copy for RTC_MEDIA_EVENT_REASON {}
+impl ::core::clone::Clone for RTC_MEDIA_EVENT_REASON {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RTC_MEDIA_EVENT_TYPE(pub i32);
 pub const RTCMET_STOPPED: RTC_MEDIA_EVENT_TYPE = RTC_MEDIA_EVENT_TYPE(0i32);
 pub const RTCMET_STARTED: RTC_MEDIA_EVENT_TYPE = RTC_MEDIA_EVENT_TYPE(1i32);
 pub const RTCMET_FAILED: RTC_MEDIA_EVENT_TYPE = RTC_MEDIA_EVENT_TYPE(2i32);
+impl ::core::marker::Copy for RTC_MEDIA_EVENT_TYPE {}
+impl ::core::clone::Clone for RTC_MEDIA_EVENT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RTC_MESSAGING_EVENT_TYPE(pub i32);
 pub const RTCMSET_MESSAGE: RTC_MESSAGING_EVENT_TYPE = RTC_MESSAGING_EVENT_TYPE(0i32);
 pub const RTCMSET_STATUS: RTC_MESSAGING_EVENT_TYPE = RTC_MESSAGING_EVENT_TYPE(1i32);
+impl ::core::marker::Copy for RTC_MESSAGING_EVENT_TYPE {}
+impl ::core::clone::Clone for RTC_MESSAGING_EVENT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RTC_MESSAGING_USER_STATUS(pub i32);
 pub const RTCMUS_IDLE: RTC_MESSAGING_USER_STATUS = RTC_MESSAGING_USER_STATUS(0i32);
 pub const RTCMUS_TYPING: RTC_MESSAGING_USER_STATUS = RTC_MESSAGING_USER_STATUS(1i32);
+impl ::core::marker::Copy for RTC_MESSAGING_USER_STATUS {}
+impl ::core::clone::Clone for RTC_MESSAGING_USER_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RTC_OFFER_WATCHER_MODE(pub i32);
 pub const RTCOWM_OFFER_WATCHER_EVENT: RTC_OFFER_WATCHER_MODE = RTC_OFFER_WATCHER_MODE(0i32);
 pub const RTCOWM_AUTOMATICALLY_ADD_WATCHER: RTC_OFFER_WATCHER_MODE = RTC_OFFER_WATCHER_MODE(1i32);
+impl ::core::marker::Copy for RTC_OFFER_WATCHER_MODE {}
+impl ::core::clone::Clone for RTC_OFFER_WATCHER_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RTC_PARTICIPANT_STATE(pub i32);
 pub const RTCPS_IDLE: RTC_PARTICIPANT_STATE = RTC_PARTICIPANT_STATE(0i32);
@@ -513,6 +607,12 @@ pub const RTCPS_ALERTING: RTC_PARTICIPANT_STATE = RTC_PARTICIPANT_STATE(5i32);
 pub const RTCPS_CONNECTED: RTC_PARTICIPANT_STATE = RTC_PARTICIPANT_STATE(6i32);
 pub const RTCPS_DISCONNECTING: RTC_PARTICIPANT_STATE = RTC_PARTICIPANT_STATE(7i32);
 pub const RTCPS_DISCONNECTED: RTC_PARTICIPANT_STATE = RTC_PARTICIPANT_STATE(8i32);
+impl ::core::marker::Copy for RTC_PARTICIPANT_STATE {}
+impl ::core::clone::Clone for RTC_PARTICIPANT_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RTC_PORT_TYPE(pub i32);
 pub const RTCPT_AUDIO_RTP: RTC_PORT_TYPE = RTC_PORT_TYPE(0i32);
@@ -520,6 +620,12 @@ pub const RTCPT_AUDIO_RTCP: RTC_PORT_TYPE = RTC_PORT_TYPE(1i32);
 pub const RTCPT_VIDEO_RTP: RTC_PORT_TYPE = RTC_PORT_TYPE(2i32);
 pub const RTCPT_VIDEO_RTCP: RTC_PORT_TYPE = RTC_PORT_TYPE(3i32);
 pub const RTCPT_SIP: RTC_PORT_TYPE = RTC_PORT_TYPE(4i32);
+impl ::core::marker::Copy for RTC_PORT_TYPE {}
+impl ::core::clone::Clone for RTC_PORT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RTC_PRESENCE_PROPERTY(pub i32);
 pub const RTCPP_PHONENUMBER: RTC_PRESENCE_PROPERTY = RTC_PRESENCE_PROPERTY(0i32);
@@ -527,6 +633,12 @@ pub const RTCPP_DISPLAYNAME: RTC_PRESENCE_PROPERTY = RTC_PRESENCE_PROPERTY(1i32)
 pub const RTCPP_EMAIL: RTC_PRESENCE_PROPERTY = RTC_PRESENCE_PROPERTY(2i32);
 pub const RTCPP_DEVICE_NAME: RTC_PRESENCE_PROPERTY = RTC_PRESENCE_PROPERTY(3i32);
 pub const RTCPP_MULTIPLE: RTC_PRESENCE_PROPERTY = RTC_PRESENCE_PROPERTY(4i32);
+impl ::core::marker::Copy for RTC_PRESENCE_PROPERTY {}
+impl ::core::clone::Clone for RTC_PRESENCE_PROPERTY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RTC_PRESENCE_STATUS(pub i32);
 pub const RTCXS_PRESENCE_OFFLINE: RTC_PRESENCE_STATUS = RTC_PRESENCE_STATUS(0i32);
@@ -537,14 +649,32 @@ pub const RTCXS_PRESENCE_BUSY: RTC_PRESENCE_STATUS = RTC_PRESENCE_STATUS(4i32);
 pub const RTCXS_PRESENCE_BE_RIGHT_BACK: RTC_PRESENCE_STATUS = RTC_PRESENCE_STATUS(5i32);
 pub const RTCXS_PRESENCE_ON_THE_PHONE: RTC_PRESENCE_STATUS = RTC_PRESENCE_STATUS(6i32);
 pub const RTCXS_PRESENCE_OUT_TO_LUNCH: RTC_PRESENCE_STATUS = RTC_PRESENCE_STATUS(7i32);
+impl ::core::marker::Copy for RTC_PRESENCE_STATUS {}
+impl ::core::clone::Clone for RTC_PRESENCE_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RTC_PRIVACY_MODE(pub i32);
 pub const RTCPM_BLOCK_LIST_EXCLUDED: RTC_PRIVACY_MODE = RTC_PRIVACY_MODE(0i32);
 pub const RTCPM_ALLOW_LIST_ONLY: RTC_PRIVACY_MODE = RTC_PRIVACY_MODE(1i32);
+impl ::core::marker::Copy for RTC_PRIVACY_MODE {}
+impl ::core::clone::Clone for RTC_PRIVACY_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RTC_PROFILE_EVENT_TYPE(pub i32);
 pub const RTCPFET_PROFILE_GET: RTC_PROFILE_EVENT_TYPE = RTC_PROFILE_EVENT_TYPE(0i32);
 pub const RTCPFET_PROFILE_UPDATE: RTC_PROFILE_EVENT_TYPE = RTC_PROFILE_EVENT_TYPE(1i32);
+impl ::core::marker::Copy for RTC_PROFILE_EVENT_TYPE {}
+impl ::core::clone::Clone for RTC_PROFILE_EVENT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RTC_PROVIDER_URI(pub i32);
 pub const RTCPU_URIHOMEPAGE: RTC_PROVIDER_URI = RTC_PROVIDER_URI(0i32);
@@ -552,6 +682,12 @@ pub const RTCPU_URIHELPDESK: RTC_PROVIDER_URI = RTC_PROVIDER_URI(1i32);
 pub const RTCPU_URIPERSONALACCOUNT: RTC_PROVIDER_URI = RTC_PROVIDER_URI(2i32);
 pub const RTCPU_URIDISPLAYDURINGCALL: RTC_PROVIDER_URI = RTC_PROVIDER_URI(3i32);
 pub const RTCPU_URIDISPLAYDURINGIDLE: RTC_PROVIDER_URI = RTC_PROVIDER_URI(4i32);
+impl ::core::marker::Copy for RTC_PROVIDER_URI {}
+impl ::core::clone::Clone for RTC_PROVIDER_URI {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RTC_REGISTRATION_STATE(pub i32);
 pub const RTCRS_NOT_REGISTERED: RTC_REGISTRATION_STATE = RTC_REGISTRATION_STATE(0i32);
@@ -563,16 +699,34 @@ pub const RTCRS_ERROR: RTC_REGISTRATION_STATE = RTC_REGISTRATION_STATE(5i32);
 pub const RTCRS_LOGGED_OFF: RTC_REGISTRATION_STATE = RTC_REGISTRATION_STATE(6i32);
 pub const RTCRS_LOCAL_PA_LOGGED_OFF: RTC_REGISTRATION_STATE = RTC_REGISTRATION_STATE(7i32);
 pub const RTCRS_REMOTE_PA_LOGGED_OFF: RTC_REGISTRATION_STATE = RTC_REGISTRATION_STATE(8i32);
+impl ::core::marker::Copy for RTC_REGISTRATION_STATE {}
+impl ::core::clone::Clone for RTC_REGISTRATION_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RTC_REINVITE_STATE(pub i32);
 pub const RTCRIN_INCOMING: RTC_REINVITE_STATE = RTC_REINVITE_STATE(0i32);
 pub const RTCRIN_SUCCEEDED: RTC_REINVITE_STATE = RTC_REINVITE_STATE(1i32);
 pub const RTCRIN_FAIL: RTC_REINVITE_STATE = RTC_REINVITE_STATE(2i32);
+impl ::core::marker::Copy for RTC_REINVITE_STATE {}
+impl ::core::clone::Clone for RTC_REINVITE_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RTC_RING_TYPE(pub i32);
 pub const RTCRT_PHONE: RTC_RING_TYPE = RTC_RING_TYPE(0i32);
 pub const RTCRT_MESSAGE: RTC_RING_TYPE = RTC_RING_TYPE(1i32);
 pub const RTCRT_RINGBACK: RTC_RING_TYPE = RTC_RING_TYPE(2i32);
+impl ::core::marker::Copy for RTC_RING_TYPE {}
+impl ::core::clone::Clone for RTC_RING_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RTC_ROAMING_EVENT_TYPE(pub i32);
 pub const RTCRET_BUDDY_ROAMING: RTC_ROAMING_EVENT_TYPE = RTC_ROAMING_EVENT_TYPE(0i32);
@@ -580,15 +734,33 @@ pub const RTCRET_WATCHER_ROAMING: RTC_ROAMING_EVENT_TYPE = RTC_ROAMING_EVENT_TYP
 pub const RTCRET_PRESENCE_ROAMING: RTC_ROAMING_EVENT_TYPE = RTC_ROAMING_EVENT_TYPE(2i32);
 pub const RTCRET_PROFILE_ROAMING: RTC_ROAMING_EVENT_TYPE = RTC_ROAMING_EVENT_TYPE(3i32);
 pub const RTCRET_WPENDING_ROAMING: RTC_ROAMING_EVENT_TYPE = RTC_ROAMING_EVENT_TYPE(4i32);
+impl ::core::marker::Copy for RTC_ROAMING_EVENT_TYPE {}
+impl ::core::clone::Clone for RTC_ROAMING_EVENT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RTC_SECURITY_LEVEL(pub i32);
 pub const RTCSECL_UNSUPPORTED: RTC_SECURITY_LEVEL = RTC_SECURITY_LEVEL(1i32);
 pub const RTCSECL_SUPPORTED: RTC_SECURITY_LEVEL = RTC_SECURITY_LEVEL(2i32);
 pub const RTCSECL_REQUIRED: RTC_SECURITY_LEVEL = RTC_SECURITY_LEVEL(3i32);
+impl ::core::marker::Copy for RTC_SECURITY_LEVEL {}
+impl ::core::clone::Clone for RTC_SECURITY_LEVEL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RTC_SECURITY_TYPE(pub i32);
 pub const RTCSECT_AUDIO_VIDEO_MEDIA_ENCRYPTION: RTC_SECURITY_TYPE = RTC_SECURITY_TYPE(0i32);
 pub const RTCSECT_T120_MEDIA_ENCRYPTION: RTC_SECURITY_TYPE = RTC_SECURITY_TYPE(1i32);
+impl ::core::marker::Copy for RTC_SECURITY_TYPE {}
+impl ::core::clone::Clone for RTC_SECURITY_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RTC_SESSION_REFER_STATUS(pub i32);
 pub const RTCSRS_REFERRING: RTC_SESSION_REFER_STATUS = RTC_SESSION_REFER_STATUS(0i32);
@@ -597,6 +769,12 @@ pub const RTCSRS_ERROR: RTC_SESSION_REFER_STATUS = RTC_SESSION_REFER_STATUS(2i32
 pub const RTCSRS_REJECTED: RTC_SESSION_REFER_STATUS = RTC_SESSION_REFER_STATUS(3i32);
 pub const RTCSRS_DROPPED: RTC_SESSION_REFER_STATUS = RTC_SESSION_REFER_STATUS(4i32);
 pub const RTCSRS_DONE: RTC_SESSION_REFER_STATUS = RTC_SESSION_REFER_STATUS(5i32);
+impl ::core::marker::Copy for RTC_SESSION_REFER_STATUS {}
+impl ::core::clone::Clone for RTC_SESSION_REFER_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RTC_SESSION_STATE(pub i32);
 pub const RTCSS_IDLE: RTC_SESSION_STATE = RTC_SESSION_STATE(0i32);
@@ -607,6 +785,12 @@ pub const RTCSS_CONNECTED: RTC_SESSION_STATE = RTC_SESSION_STATE(4i32);
 pub const RTCSS_DISCONNECTED: RTC_SESSION_STATE = RTC_SESSION_STATE(5i32);
 pub const RTCSS_HOLD: RTC_SESSION_STATE = RTC_SESSION_STATE(6i32);
 pub const RTCSS_REFER: RTC_SESSION_STATE = RTC_SESSION_STATE(7i32);
+impl ::core::marker::Copy for RTC_SESSION_STATE {}
+impl ::core::clone::Clone for RTC_SESSION_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RTC_SESSION_TYPE(pub i32);
 pub const RTCST_PC_TO_PC: RTC_SESSION_TYPE = RTC_SESSION_TYPE(0i32);
@@ -615,11 +799,23 @@ pub const RTCST_PHONE_TO_PHONE: RTC_SESSION_TYPE = RTC_SESSION_TYPE(2i32);
 pub const RTCST_IM: RTC_SESSION_TYPE = RTC_SESSION_TYPE(3i32);
 pub const RTCST_MULTIPARTY_IM: RTC_SESSION_TYPE = RTC_SESSION_TYPE(4i32);
 pub const RTCST_APPLICATION: RTC_SESSION_TYPE = RTC_SESSION_TYPE(5i32);
+impl ::core::marker::Copy for RTC_SESSION_TYPE {}
+impl ::core::clone::Clone for RTC_SESSION_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const RTC_S_ROAMING_NOT_SUPPORTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(15597633i32 as _);
 #[repr(transparent)]
 pub struct RTC_T120_APPLET(pub i32);
 pub const RTCTA_WHITEBOARD: RTC_T120_APPLET = RTC_T120_APPLET(0i32);
 pub const RTCTA_APPSHARING: RTC_T120_APPLET = RTC_T120_APPLET(1i32);
+impl ::core::marker::Copy for RTC_T120_APPLET {}
+impl ::core::clone::Clone for RTC_T120_APPLET {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RTC_TERMINATE_REASON(pub i32);
 pub const RTCTR_NORMAL: RTC_TERMINATE_REASON = RTC_TERMINATE_REASON(0i32);
@@ -630,6 +826,12 @@ pub const RTCTR_TIMEOUT: RTC_TERMINATE_REASON = RTC_TERMINATE_REASON(4i32);
 pub const RTCTR_SHUTDOWN: RTC_TERMINATE_REASON = RTC_TERMINATE_REASON(5i32);
 pub const RTCTR_INSUFFICIENT_SECURITY_LEVEL: RTC_TERMINATE_REASON = RTC_TERMINATE_REASON(6i32);
 pub const RTCTR_NOT_SUPPORTED: RTC_TERMINATE_REASON = RTC_TERMINATE_REASON(7i32);
+impl ::core::marker::Copy for RTC_TERMINATE_REASON {}
+impl ::core::clone::Clone for RTC_TERMINATE_REASON {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RTC_USER_SEARCH_COLUMN(pub i32);
 pub const RTCUSC_URI: RTC_USER_SEARCH_COLUMN = RTC_USER_SEARCH_COLUMN(0i32);
@@ -642,14 +844,32 @@ pub const RTCUSC_CITY: RTC_USER_SEARCH_COLUMN = RTC_USER_SEARCH_COLUMN(6i32);
 pub const RTCUSC_STATE: RTC_USER_SEARCH_COLUMN = RTC_USER_SEARCH_COLUMN(7i32);
 pub const RTCUSC_COUNTRY: RTC_USER_SEARCH_COLUMN = RTC_USER_SEARCH_COLUMN(8i32);
 pub const RTCUSC_EMAIL: RTC_USER_SEARCH_COLUMN = RTC_USER_SEARCH_COLUMN(9i32);
+impl ::core::marker::Copy for RTC_USER_SEARCH_COLUMN {}
+impl ::core::clone::Clone for RTC_USER_SEARCH_COLUMN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RTC_USER_SEARCH_PREFERENCE(pub i32);
 pub const RTCUSP_MAX_MATCHES: RTC_USER_SEARCH_PREFERENCE = RTC_USER_SEARCH_PREFERENCE(0i32);
 pub const RTCUSP_TIME_LIMIT: RTC_USER_SEARCH_PREFERENCE = RTC_USER_SEARCH_PREFERENCE(1i32);
+impl ::core::marker::Copy for RTC_USER_SEARCH_PREFERENCE {}
+impl ::core::clone::Clone for RTC_USER_SEARCH_PREFERENCE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RTC_VIDEO_DEVICE(pub i32);
 pub const RTCVD_RECEIVE: RTC_VIDEO_DEVICE = RTC_VIDEO_DEVICE(0i32);
 pub const RTCVD_PREVIEW: RTC_VIDEO_DEVICE = RTC_VIDEO_DEVICE(1i32);
+impl ::core::marker::Copy for RTC_VIDEO_DEVICE {}
+impl ::core::clone::Clone for RTC_VIDEO_DEVICE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RTC_WATCHER_EVENT_TYPE(pub i32);
 pub const RTCWET_WATCHER_ADD: RTC_WATCHER_EVENT_TYPE = RTC_WATCHER_EVENT_TYPE(0i32);
@@ -657,10 +877,22 @@ pub const RTCWET_WATCHER_REMOVE: RTC_WATCHER_EVENT_TYPE = RTC_WATCHER_EVENT_TYPE
 pub const RTCWET_WATCHER_UPDATE: RTC_WATCHER_EVENT_TYPE = RTC_WATCHER_EVENT_TYPE(2i32);
 pub const RTCWET_WATCHER_OFFERING: RTC_WATCHER_EVENT_TYPE = RTC_WATCHER_EVENT_TYPE(3i32);
 pub const RTCWET_WATCHER_ROAMED: RTC_WATCHER_EVENT_TYPE = RTC_WATCHER_EVENT_TYPE(4i32);
+impl ::core::marker::Copy for RTC_WATCHER_EVENT_TYPE {}
+impl ::core::clone::Clone for RTC_WATCHER_EVENT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RTC_WATCHER_MATCH_MODE(pub i32);
 pub const RTCWMM_EXACT_MATCH: RTC_WATCHER_MATCH_MODE = RTC_WATCHER_MATCH_MODE(0i32);
 pub const RTCWMM_BEST_ACE_MATCH: RTC_WATCHER_MATCH_MODE = RTC_WATCHER_MATCH_MODE(1i32);
+impl ::core::marker::Copy for RTC_WATCHER_MATCH_MODE {}
+impl ::core::clone::Clone for RTC_WATCHER_MATCH_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RTC_WATCHER_STATE(pub i32);
 pub const RTCWS_UNKNOWN: RTC_WATCHER_STATE = RTC_WATCHER_STATE(0i32);
@@ -669,7 +901,25 @@ pub const RTCWS_ALLOWED: RTC_WATCHER_STATE = RTC_WATCHER_STATE(2i32);
 pub const RTCWS_BLOCKED: RTC_WATCHER_STATE = RTC_WATCHER_STATE(3i32);
 pub const RTCWS_DENIED: RTC_WATCHER_STATE = RTC_WATCHER_STATE(4i32);
 pub const RTCWS_PROMPT: RTC_WATCHER_STATE = RTC_WATCHER_STATE(5i32);
+impl ::core::marker::Copy for RTC_WATCHER_STATE {}
+impl ::core::clone::Clone for RTC_WATCHER_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const STATUS_SEVERITY_RTC_ERROR: u32 = 2u32;
-#[cfg(feature = "Win32_Networking_WinSock")]
 #[repr(C)]
-pub struct TRANSPORT_SETTING(i32);
+#[cfg(feature = "Win32_Networking_WinSock")]
+pub struct TRANSPORT_SETTING {
+    pub SettingId: super::super::Networking::WinSock::TRANSPORT_SETTING_ID,
+    pub Length: *mut u32,
+    pub Value: *mut u8,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::marker::Copy for TRANSPORT_SETTING {}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::clone::Clone for TRANSPORT_SETTING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

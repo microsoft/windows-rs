@@ -1,8 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {}
-#[repr(C)]
-pub struct CallsBackgroundContract(i32);
 #[repr(transparent)]
 pub struct IPhoneCallBlockedTriggerDetails(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -22,6 +20,12 @@ impl PhoneCallBlockedReason {
     pub const PrivateNumber: Self = Self(1i32);
     pub const UnknownNumber: Self = Self(2i32);
 }
+impl ::core::marker::Copy for PhoneCallBlockedReason {}
+impl ::core::clone::Clone for PhoneCallBlockedReason {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PhoneCallBlockedTriggerDetails(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -34,6 +38,12 @@ impl PhoneIncomingCallDismissedReason {
     pub const TextReply: Self = Self(2i32);
     pub const ConnectionLost: Self = Self(3i32);
 }
+impl ::core::marker::Copy for PhoneIncomingCallDismissedReason {}
+impl ::core::clone::Clone for PhoneIncomingCallDismissedReason {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PhoneIncomingCallDismissedTriggerDetails(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -44,6 +54,12 @@ impl PhoneLineChangeKind {
     pub const Added: Self = Self(0i32);
     pub const Removed: Self = Self(1i32);
     pub const PropertiesChanged: Self = Self(2i32);
+}
+impl ::core::marker::Copy for PhoneLineChangeKind {}
+impl ::core::clone::Clone for PhoneLineChangeKind {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct PhoneLineChangedTriggerDetails(pub *mut ::core::ffi::c_void);
@@ -61,6 +77,12 @@ impl PhoneLineProperties {
     pub const Transport: Self = Self(128u32);
     pub const Voicemail: Self = Self(256u32);
 }
+impl ::core::marker::Copy for PhoneLineProperties {}
+impl ::core::clone::Clone for PhoneLineProperties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PhoneNewVoicemailMessageTriggerDetails(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -74,4 +96,10 @@ impl PhoneTriggerType {
     pub const CallBlocked: Self = Self(5i32);
     pub const IncomingCallDismissed: Self = Self(6i32);
     pub const IncomingCallNotification: Self = Self(7i32);
+}
+impl ::core::marker::Copy for PhoneTriggerType {}
+impl ::core::clone::Clone for PhoneTriggerType {
+    fn clone(&self) -> Self {
+        *self
+    }
 }

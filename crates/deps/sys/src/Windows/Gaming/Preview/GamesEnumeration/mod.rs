@@ -8,6 +8,12 @@ impl GameListCategory {
     pub const ConfirmedBySystem: Self = Self(1i32);
     pub const ConfirmedByUser: Self = Self(2i32);
 }
+impl ::core::marker::Copy for GameListCategory {}
+impl ::core::clone::Clone for GameListCategory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct GameListChangedEventHandler(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -19,6 +25,12 @@ impl GameListEntryLaunchableState {
     pub const ByLastRunningFullPath: Self = Self(1i32);
     pub const ByUserProvidedPath: Self = Self(2i32);
     pub const ByTile: Self = Self(3i32);
+}
+impl ::core::marker::Copy for GameListEntryLaunchableState {}
+impl ::core::clone::Clone for GameListEntryLaunchableState {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct GameListRemovedEventHandler(pub *mut ::core::ffi::c_void);

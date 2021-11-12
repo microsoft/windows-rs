@@ -9,8 +9,6 @@ pub mod OfflineMaps;
 extern "system" {}
 #[repr(transparent)]
 pub struct EnhancedWaypoint(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct GuidanceContract(i32);
 #[repr(transparent)]
 pub struct IEnhancedWaypoint(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -79,8 +77,6 @@ pub struct IPlaceInfoCreateOptions(pub *mut ::core::ffi::c_void);
 pub struct IPlaceInfoStatics(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IPlaceInfoStatics2(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct LocalSearchContract(i32);
 #[repr(transparent)]
 pub struct ManeuverWarning(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -123,6 +119,12 @@ impl ManeuverWarningKind {
     pub const UnscheduledConstruction: Self = Self(34i32);
     pub const Weather: Self = Self(35i32);
 }
+impl ::core::marker::Copy for ManeuverWarningKind {}
+impl ::core::clone::Clone for ManeuverWarningKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ManeuverWarningSeverity(pub i32);
 impl ManeuverWarningSeverity {
@@ -131,6 +133,12 @@ impl ManeuverWarningSeverity {
     pub const Minor: Self = Self(2i32);
     pub const Moderate: Self = Self(3i32);
     pub const Serious: Self = Self(4i32);
+}
+impl ::core::marker::Copy for ManeuverWarningSeverity {}
+impl ::core::clone::Clone for ManeuverWarningSeverity {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct MapAddress(pub *mut ::core::ffi::c_void);
@@ -141,6 +149,12 @@ pub struct MapLocationDesiredAccuracy(pub i32);
 impl MapLocationDesiredAccuracy {
     pub const High: Self = Self(0i32);
     pub const Low: Self = Self(1i32);
+}
+impl ::core::marker::Copy for MapLocationDesiredAccuracy {}
+impl ::core::clone::Clone for MapLocationDesiredAccuracy {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct MapLocationFinderResult(pub *mut ::core::ffi::c_void);
@@ -155,12 +169,24 @@ impl MapLocationFinderStatus {
     pub const NetworkFailure: Self = Self(5i32);
     pub const NotSupported: Self = Self(6i32);
 }
+impl ::core::marker::Copy for MapLocationFinderStatus {}
+impl ::core::clone::Clone for MapLocationFinderStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MapManeuverNotices(pub u32);
 impl MapManeuverNotices {
     pub const None: Self = Self(0u32);
     pub const Toll: Self = Self(1u32);
     pub const Unpaved: Self = Self(2u32);
+}
+impl ::core::marker::Copy for MapManeuverNotices {}
+impl ::core::clone::Clone for MapManeuverNotices {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct MapRoute(pub *mut ::core::ffi::c_void);
@@ -181,6 +207,12 @@ impl MapRouteFinderStatus {
     pub const NoPedestrianRouteFound: Self = Self(7i32);
     pub const NetworkFailure: Self = Self(8i32);
     pub const NotSupported: Self = Self(9i32);
+}
+impl ::core::marker::Copy for MapRouteFinderStatus {}
+impl ::core::clone::Clone for MapRouteFinderStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct MapRouteLeg(pub *mut ::core::ffi::c_void);
@@ -215,6 +247,12 @@ impl MapRouteManeuverKind {
     pub const TrafficCircleRight: Self = Self(23i32);
     pub const TakeFerry: Self = Self(24i32);
 }
+impl ::core::marker::Copy for MapRouteManeuverKind {}
+impl ::core::clone::Clone for MapRouteManeuverKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MapRouteOptimization(pub i32);
 impl MapRouteOptimization {
@@ -222,6 +260,12 @@ impl MapRouteOptimization {
     pub const Distance: Self = Self(1i32);
     pub const TimeWithTraffic: Self = Self(2i32);
     pub const Scenic: Self = Self(3i32);
+}
+impl ::core::marker::Copy for MapRouteOptimization {}
+impl ::core::clone::Clone for MapRouteOptimization {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct MapRouteRestrictions(pub u32);
@@ -234,11 +278,23 @@ impl MapRouteRestrictions {
     pub const DirtRoads: Self = Self(16u32);
     pub const Motorail: Self = Self(32u32);
 }
+impl ::core::marker::Copy for MapRouteRestrictions {}
+impl ::core::clone::Clone for MapRouteRestrictions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MapServiceDataUsagePreference(pub i32);
 impl MapServiceDataUsagePreference {
     pub const Default: Self = Self(0i32);
     pub const OfflineMapDataOnly: Self = Self(1i32);
+}
+impl ::core::marker::Copy for MapServiceDataUsagePreference {}
+impl ::core::clone::Clone for MapServiceDataUsagePreference {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct PlaceInfo(pub *mut ::core::ffi::c_void);
@@ -253,9 +309,21 @@ impl TrafficCongestion {
     pub const Medium: Self = Self(3i32);
     pub const Heavy: Self = Self(4i32);
 }
+impl ::core::marker::Copy for TrafficCongestion {}
+impl ::core::clone::Clone for TrafficCongestion {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WaypointKind(pub i32);
 impl WaypointKind {
     pub const Stop: Self = Self(0i32);
     pub const Via: Self = Self(1i32);
+}
+impl ::core::marker::Copy for WaypointKind {}
+impl ::core::clone::Clone for WaypointKind {
+    fn clone(&self) -> Self {
+        *self
+    }
 }

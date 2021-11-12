@@ -13,6 +13,12 @@ impl CoreDragUIContentMode {
     pub const Auto: Self = Self(0u32);
     pub const Deferred: Self = Self(1u32);
 }
+impl ::core::marker::Copy for CoreDragUIContentMode {}
+impl ::core::clone::Clone for CoreDragUIContentMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CoreDragUIOverride(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

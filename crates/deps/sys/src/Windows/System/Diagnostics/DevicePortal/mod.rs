@@ -15,6 +15,12 @@ impl DevicePortalConnectionClosedReason {
     pub const UserNotPresent: Self = Self(4i32);
     pub const ServiceTerminated: Self = Self(5i32);
 }
+impl ::core::marker::Copy for DevicePortalConnectionClosedReason {}
+impl ::core::clone::Clone for DevicePortalConnectionClosedReason {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DevicePortalConnectionRequestReceivedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

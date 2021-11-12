@@ -9,23 +9,108 @@ extern "system" {
     pub fn DXGIDeclareAdapterRemovalSupport() -> ::windows_sys::core::HRESULT;
     pub fn DXGIGetDebugInterface1(flags: u32, riid: *const ::windows_sys::core::GUID, pdebug: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct DXGI_ADAPTER_DESC(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct DXGI_ADAPTER_DESC1(i32);
+pub struct DXGI_ADAPTER_DESC {
+    pub Description: [u16; 128],
+    pub VendorId: u32,
+    pub DeviceId: u32,
+    pub SubSysId: u32,
+    pub Revision: u32,
+    pub DedicatedVideoMemory: usize,
+    pub DedicatedSystemMemory: usize,
+    pub SharedSystemMemory: usize,
+    pub AdapterLuid: super::super::Foundation::LUID,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct DXGI_ADAPTER_DESC2(i32);
+impl ::core::marker::Copy for DXGI_ADAPTER_DESC {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DXGI_ADAPTER_DESC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DXGI_ADAPTER_DESC3(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct DXGI_ADAPTER_DESC1 {
+    pub Description: [u16; 128],
+    pub VendorId: u32,
+    pub DeviceId: u32,
+    pub SubSysId: u32,
+    pub Revision: u32,
+    pub DedicatedVideoMemory: usize,
+    pub DedicatedSystemMemory: usize,
+    pub SharedSystemMemory: usize,
+    pub AdapterLuid: super::super::Foundation::LUID,
+    pub Flags: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DXGI_ADAPTER_DESC1 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DXGI_ADAPTER_DESC1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DXGI_ADAPTER_DESC2 {
+    pub Description: [u16; 128],
+    pub VendorId: u32,
+    pub DeviceId: u32,
+    pub SubSysId: u32,
+    pub Revision: u32,
+    pub DedicatedVideoMemory: usize,
+    pub DedicatedSystemMemory: usize,
+    pub SharedSystemMemory: usize,
+    pub AdapterLuid: super::super::Foundation::LUID,
+    pub Flags: u32,
+    pub GraphicsPreemptionGranularity: DXGI_GRAPHICS_PREEMPTION_GRANULARITY,
+    pub ComputePreemptionGranularity: DXGI_COMPUTE_PREEMPTION_GRANULARITY,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DXGI_ADAPTER_DESC2 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DXGI_ADAPTER_DESC2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DXGI_ADAPTER_DESC3 {
+    pub Description: [u16; 128],
+    pub VendorId: u32,
+    pub DeviceId: u32,
+    pub SubSysId: u32,
+    pub Revision: u32,
+    pub DedicatedVideoMemory: usize,
+    pub DedicatedSystemMemory: usize,
+    pub SharedSystemMemory: usize,
+    pub AdapterLuid: super::super::Foundation::LUID,
+    pub Flags: DXGI_ADAPTER_FLAG3,
+    pub GraphicsPreemptionGranularity: DXGI_GRAPHICS_PREEMPTION_GRANULARITY,
+    pub ComputePreemptionGranularity: DXGI_COMPUTE_PREEMPTION_GRANULARITY,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DXGI_ADAPTER_DESC3 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DXGI_ADAPTER_DESC3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DXGI_ADAPTER_FLAG(pub u32);
 pub const DXGI_ADAPTER_FLAG_NONE: DXGI_ADAPTER_FLAG = DXGI_ADAPTER_FLAG(0u32);
 pub const DXGI_ADAPTER_FLAG_REMOTE: DXGI_ADAPTER_FLAG = DXGI_ADAPTER_FLAG(1u32);
 pub const DXGI_ADAPTER_FLAG_SOFTWARE: DXGI_ADAPTER_FLAG = DXGI_ADAPTER_FLAG(2u32);
+impl ::core::marker::Copy for DXGI_ADAPTER_FLAG {}
+impl ::core::clone::Clone for DXGI_ADAPTER_FLAG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DXGI_ADAPTER_FLAG3(pub u32);
 pub const DXGI_ADAPTER_FLAG3_NONE: DXGI_ADAPTER_FLAG3 = DXGI_ADAPTER_FLAG3(0u32);
@@ -36,6 +121,12 @@ pub const DXGI_ADAPTER_FLAG3_SUPPORT_MONITORED_FENCES: DXGI_ADAPTER_FLAG3 = DXGI
 pub const DXGI_ADAPTER_FLAG3_SUPPORT_NON_MONITORED_FENCES: DXGI_ADAPTER_FLAG3 = DXGI_ADAPTER_FLAG3(16u32);
 pub const DXGI_ADAPTER_FLAG3_KEYED_MUTEX_CONFORMANCE: DXGI_ADAPTER_FLAG3 = DXGI_ADAPTER_FLAG3(32u32);
 pub const DXGI_ADAPTER_FLAG3_FORCE_DWORD: DXGI_ADAPTER_FLAG3 = DXGI_ADAPTER_FLAG3(4294967295u32);
+impl ::core::marker::Copy for DXGI_ADAPTER_FLAG3 {}
+impl ::core::clone::Clone for DXGI_ADAPTER_FLAG3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DXGI_COMPUTE_PREEMPTION_GRANULARITY(pub i32);
 pub const DXGI_COMPUTE_PREEMPTION_DMA_BUFFER_BOUNDARY: DXGI_COMPUTE_PREEMPTION_GRANULARITY = DXGI_COMPUTE_PREEMPTION_GRANULARITY(0i32);
@@ -43,6 +134,12 @@ pub const DXGI_COMPUTE_PREEMPTION_DISPATCH_BOUNDARY: DXGI_COMPUTE_PREEMPTION_GRA
 pub const DXGI_COMPUTE_PREEMPTION_THREAD_GROUP_BOUNDARY: DXGI_COMPUTE_PREEMPTION_GRANULARITY = DXGI_COMPUTE_PREEMPTION_GRANULARITY(2i32);
 pub const DXGI_COMPUTE_PREEMPTION_THREAD_BOUNDARY: DXGI_COMPUTE_PREEMPTION_GRANULARITY = DXGI_COMPUTE_PREEMPTION_GRANULARITY(3i32);
 pub const DXGI_COMPUTE_PREEMPTION_INSTRUCTION_BOUNDARY: DXGI_COMPUTE_PREEMPTION_GRANULARITY = DXGI_COMPUTE_PREEMPTION_GRANULARITY(4i32);
+impl ::core::marker::Copy for DXGI_COMPUTE_PREEMPTION_GRANULARITY {}
+impl ::core::clone::Clone for DXGI_COMPUTE_PREEMPTION_GRANULARITY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DXGI_CREATE_FACTORY_DEBUG: u32 = 1u32;
 pub const DXGI_DEBUG_ALL: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 3834307203,
@@ -60,10 +157,33 @@ pub const DXGI_DEBUG_RLO_SUMMARY: DXGI_DEBUG_RLO_FLAGS = DXGI_DEBUG_RLO_FLAGS(1u
 pub const DXGI_DEBUG_RLO_DETAIL: DXGI_DEBUG_RLO_FLAGS = DXGI_DEBUG_RLO_FLAGS(2u32);
 pub const DXGI_DEBUG_RLO_IGNORE_INTERNAL: DXGI_DEBUG_RLO_FLAGS = DXGI_DEBUG_RLO_FLAGS(4u32);
 pub const DXGI_DEBUG_RLO_ALL: DXGI_DEBUG_RLO_FLAGS = DXGI_DEBUG_RLO_FLAGS(7u32);
+impl ::core::marker::Copy for DXGI_DEBUG_RLO_FLAGS {}
+impl ::core::clone::Clone for DXGI_DEBUG_RLO_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DXGI_DECODE_SWAP_CHAIN_DESC(i32);
+pub struct DXGI_DECODE_SWAP_CHAIN_DESC {
+    pub Flags: u32,
+}
+impl ::core::marker::Copy for DXGI_DECODE_SWAP_CHAIN_DESC {}
+impl ::core::clone::Clone for DXGI_DECODE_SWAP_CHAIN_DESC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DXGI_DISPLAY_COLOR_SPACE(i32);
+pub struct DXGI_DISPLAY_COLOR_SPACE {
+    pub PrimaryCoordinates: [f32; 16],
+    pub WhitePoints: [f32; 32],
+}
+impl ::core::marker::Copy for DXGI_DISPLAY_COLOR_SPACE {}
+impl ::core::clone::Clone for DXGI_DISPLAY_COLOR_SPACE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DXGI_ENUM_MODES_DISABLED_STEREO: u32 = 8u32;
 pub const DXGI_ENUM_MODES_INTERLACED: u32 = 1u32;
 pub const DXGI_ENUM_MODES_SCALING: u32 = 2u32;
@@ -103,21 +223,65 @@ pub const DXGI_ERROR_WAS_STILL_DRAWING: ::windows_sys::core::HRESULT = ::windows
 #[repr(transparent)]
 pub struct DXGI_FEATURE(pub i32);
 pub const DXGI_FEATURE_PRESENT_ALLOW_TEARING: DXGI_FEATURE = DXGI_FEATURE(0i32);
+impl ::core::marker::Copy for DXGI_FEATURE {}
+impl ::core::clone::Clone for DXGI_FEATURE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DXGI_FRAME_PRESENTATION_MODE(pub i32);
 pub const DXGI_FRAME_PRESENTATION_MODE_COMPOSED: DXGI_FRAME_PRESENTATION_MODE = DXGI_FRAME_PRESENTATION_MODE(0i32);
 pub const DXGI_FRAME_PRESENTATION_MODE_OVERLAY: DXGI_FRAME_PRESENTATION_MODE = DXGI_FRAME_PRESENTATION_MODE(1i32);
 pub const DXGI_FRAME_PRESENTATION_MODE_NONE: DXGI_FRAME_PRESENTATION_MODE = DXGI_FRAME_PRESENTATION_MODE(2i32);
 pub const DXGI_FRAME_PRESENTATION_MODE_COMPOSITION_FAILURE: DXGI_FRAME_PRESENTATION_MODE = DXGI_FRAME_PRESENTATION_MODE(3i32);
+impl ::core::marker::Copy for DXGI_FRAME_PRESENTATION_MODE {}
+impl ::core::clone::Clone for DXGI_FRAME_PRESENTATION_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DXGI_FRAME_STATISTICS(i32);
+pub struct DXGI_FRAME_STATISTICS {
+    pub PresentCount: u32,
+    pub PresentRefreshCount: u32,
+    pub SyncRefreshCount: u32,
+    pub SyncQPCTime: i64,
+    pub SyncGPUTime: i64,
+}
+impl ::core::marker::Copy for DXGI_FRAME_STATISTICS {}
+impl ::core::clone::Clone for DXGI_FRAME_STATISTICS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DXGI_FRAME_STATISTICS_MEDIA(i32);
+pub struct DXGI_FRAME_STATISTICS_MEDIA {
+    pub PresentCount: u32,
+    pub PresentRefreshCount: u32,
+    pub SyncRefreshCount: u32,
+    pub SyncQPCTime: i64,
+    pub SyncGPUTime: i64,
+    pub CompositionMode: DXGI_FRAME_PRESENTATION_MODE,
+    pub ApprovedPresentDuration: u32,
+}
+impl ::core::marker::Copy for DXGI_FRAME_STATISTICS_MEDIA {}
+impl ::core::clone::Clone for DXGI_FRAME_STATISTICS_MEDIA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DXGI_GPU_PREFERENCE(pub i32);
 pub const DXGI_GPU_PREFERENCE_UNSPECIFIED: DXGI_GPU_PREFERENCE = DXGI_GPU_PREFERENCE(0i32);
 pub const DXGI_GPU_PREFERENCE_MINIMUM_POWER: DXGI_GPU_PREFERENCE = DXGI_GPU_PREFERENCE(1i32);
 pub const DXGI_GPU_PREFERENCE_HIGH_PERFORMANCE: DXGI_GPU_PREFERENCE = DXGI_GPU_PREFERENCE(2i32);
+impl ::core::marker::Copy for DXGI_GPU_PREFERENCE {}
+impl ::core::clone::Clone for DXGI_GPU_PREFERENCE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DXGI_GRAPHICS_PREEMPTION_GRANULARITY(pub i32);
 pub const DXGI_GRAPHICS_PREEMPTION_DMA_BUFFER_BOUNDARY: DXGI_GRAPHICS_PREEMPTION_GRANULARITY = DXGI_GRAPHICS_PREEMPTION_GRANULARITY(0i32);
@@ -125,27 +289,103 @@ pub const DXGI_GRAPHICS_PREEMPTION_PRIMITIVE_BOUNDARY: DXGI_GRAPHICS_PREEMPTION_
 pub const DXGI_GRAPHICS_PREEMPTION_TRIANGLE_BOUNDARY: DXGI_GRAPHICS_PREEMPTION_GRANULARITY = DXGI_GRAPHICS_PREEMPTION_GRANULARITY(2i32);
 pub const DXGI_GRAPHICS_PREEMPTION_PIXEL_BOUNDARY: DXGI_GRAPHICS_PREEMPTION_GRANULARITY = DXGI_GRAPHICS_PREEMPTION_GRANULARITY(3i32);
 pub const DXGI_GRAPHICS_PREEMPTION_INSTRUCTION_BOUNDARY: DXGI_GRAPHICS_PREEMPTION_GRANULARITY = DXGI_GRAPHICS_PREEMPTION_GRANULARITY(4i32);
+impl ::core::marker::Copy for DXGI_GRAPHICS_PREEMPTION_GRANULARITY {}
+impl ::core::clone::Clone for DXGI_GRAPHICS_PREEMPTION_GRANULARITY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DXGI_HARDWARE_COMPOSITION_SUPPORT_FLAGS(pub u32);
 pub const DXGI_HARDWARE_COMPOSITION_SUPPORT_FLAG_FULLSCREEN: DXGI_HARDWARE_COMPOSITION_SUPPORT_FLAGS = DXGI_HARDWARE_COMPOSITION_SUPPORT_FLAGS(1u32);
 pub const DXGI_HARDWARE_COMPOSITION_SUPPORT_FLAG_WINDOWED: DXGI_HARDWARE_COMPOSITION_SUPPORT_FLAGS = DXGI_HARDWARE_COMPOSITION_SUPPORT_FLAGS(2u32);
 pub const DXGI_HARDWARE_COMPOSITION_SUPPORT_FLAG_CURSOR_STRETCHED: DXGI_HARDWARE_COMPOSITION_SUPPORT_FLAGS = DXGI_HARDWARE_COMPOSITION_SUPPORT_FLAGS(4u32);
+impl ::core::marker::Copy for DXGI_HARDWARE_COMPOSITION_SUPPORT_FLAGS {}
+impl ::core::clone::Clone for DXGI_HARDWARE_COMPOSITION_SUPPORT_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DXGI_HDR_METADATA_HDR10(i32);
+pub struct DXGI_HDR_METADATA_HDR10 {
+    pub RedPrimary: [u16; 2],
+    pub GreenPrimary: [u16; 2],
+    pub BluePrimary: [u16; 2],
+    pub WhitePoint: [u16; 2],
+    pub MaxMasteringLuminance: u32,
+    pub MinMasteringLuminance: u32,
+    pub MaxContentLightLevel: u16,
+    pub MaxFrameAverageLightLevel: u16,
+}
+impl ::core::marker::Copy for DXGI_HDR_METADATA_HDR10 {}
+impl ::core::clone::Clone for DXGI_HDR_METADATA_HDR10 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DXGI_HDR_METADATA_HDR10PLUS(i32);
+pub struct DXGI_HDR_METADATA_HDR10PLUS {
+    pub Data: [u8; 72],
+}
+impl ::core::marker::Copy for DXGI_HDR_METADATA_HDR10PLUS {}
+impl ::core::clone::Clone for DXGI_HDR_METADATA_HDR10PLUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DXGI_HDR_METADATA_TYPE(pub i32);
 pub const DXGI_HDR_METADATA_TYPE_NONE: DXGI_HDR_METADATA_TYPE = DXGI_HDR_METADATA_TYPE(0i32);
 pub const DXGI_HDR_METADATA_TYPE_HDR10: DXGI_HDR_METADATA_TYPE = DXGI_HDR_METADATA_TYPE(1i32);
 pub const DXGI_HDR_METADATA_TYPE_HDR10PLUS: DXGI_HDR_METADATA_TYPE = DXGI_HDR_METADATA_TYPE(2i32);
+impl ::core::marker::Copy for DXGI_HDR_METADATA_TYPE {}
+impl ::core::clone::Clone for DXGI_HDR_METADATA_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DXGI_INFO_QUEUE_DEFAULT_MESSAGE_COUNT_LIMIT: u32 = 1024u32;
 #[repr(C)]
-pub struct DXGI_INFO_QUEUE_FILTER(i32);
+pub struct DXGI_INFO_QUEUE_FILTER {
+    pub AllowList: DXGI_INFO_QUEUE_FILTER_DESC,
+    pub DenyList: DXGI_INFO_QUEUE_FILTER_DESC,
+}
+impl ::core::marker::Copy for DXGI_INFO_QUEUE_FILTER {}
+impl ::core::clone::Clone for DXGI_INFO_QUEUE_FILTER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DXGI_INFO_QUEUE_FILTER_DESC(i32);
+pub struct DXGI_INFO_QUEUE_FILTER_DESC {
+    pub NumCategories: u32,
+    pub pCategoryList: *mut DXGI_INFO_QUEUE_MESSAGE_CATEGORY,
+    pub NumSeverities: u32,
+    pub pSeverityList: *mut DXGI_INFO_QUEUE_MESSAGE_SEVERITY,
+    pub NumIDs: u32,
+    pub pIDList: *mut i32,
+}
+impl ::core::marker::Copy for DXGI_INFO_QUEUE_FILTER_DESC {}
+impl ::core::clone::Clone for DXGI_INFO_QUEUE_FILTER_DESC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DXGI_INFO_QUEUE_MESSAGE(i32);
+pub struct DXGI_INFO_QUEUE_MESSAGE {
+    pub Producer: ::windows_sys::core::GUID,
+    pub Category: DXGI_INFO_QUEUE_MESSAGE_CATEGORY,
+    pub Severity: DXGI_INFO_QUEUE_MESSAGE_SEVERITY,
+    pub ID: i32,
+    pub pDescription: *mut u8,
+    pub DescriptionByteLength: usize,
+}
+impl ::core::marker::Copy for DXGI_INFO_QUEUE_MESSAGE {}
+impl ::core::clone::Clone for DXGI_INFO_QUEUE_MESSAGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DXGI_INFO_QUEUE_MESSAGE_CATEGORY(pub i32);
 pub const DXGI_INFO_QUEUE_MESSAGE_CATEGORY_UNKNOWN: DXGI_INFO_QUEUE_MESSAGE_CATEGORY = DXGI_INFO_QUEUE_MESSAGE_CATEGORY(0i32);
@@ -159,6 +399,12 @@ pub const DXGI_INFO_QUEUE_MESSAGE_CATEGORY_STATE_GETTING: DXGI_INFO_QUEUE_MESSAG
 pub const DXGI_INFO_QUEUE_MESSAGE_CATEGORY_RESOURCE_MANIPULATION: DXGI_INFO_QUEUE_MESSAGE_CATEGORY = DXGI_INFO_QUEUE_MESSAGE_CATEGORY(8i32);
 pub const DXGI_INFO_QUEUE_MESSAGE_CATEGORY_EXECUTION: DXGI_INFO_QUEUE_MESSAGE_CATEGORY = DXGI_INFO_QUEUE_MESSAGE_CATEGORY(9i32);
 pub const DXGI_INFO_QUEUE_MESSAGE_CATEGORY_SHADER: DXGI_INFO_QUEUE_MESSAGE_CATEGORY = DXGI_INFO_QUEUE_MESSAGE_CATEGORY(10i32);
+impl ::core::marker::Copy for DXGI_INFO_QUEUE_MESSAGE_CATEGORY {}
+impl ::core::clone::Clone for DXGI_INFO_QUEUE_MESSAGE_CATEGORY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DXGI_INFO_QUEUE_MESSAGE_ID_STRING_FROM_APPLICATION: u32 = 0u32;
 #[repr(transparent)]
 pub struct DXGI_INFO_QUEUE_MESSAGE_SEVERITY(pub i32);
@@ -167,26 +413,82 @@ pub const DXGI_INFO_QUEUE_MESSAGE_SEVERITY_ERROR: DXGI_INFO_QUEUE_MESSAGE_SEVERI
 pub const DXGI_INFO_QUEUE_MESSAGE_SEVERITY_WARNING: DXGI_INFO_QUEUE_MESSAGE_SEVERITY = DXGI_INFO_QUEUE_MESSAGE_SEVERITY(2i32);
 pub const DXGI_INFO_QUEUE_MESSAGE_SEVERITY_INFO: DXGI_INFO_QUEUE_MESSAGE_SEVERITY = DXGI_INFO_QUEUE_MESSAGE_SEVERITY(3i32);
 pub const DXGI_INFO_QUEUE_MESSAGE_SEVERITY_MESSAGE: DXGI_INFO_QUEUE_MESSAGE_SEVERITY = DXGI_INFO_QUEUE_MESSAGE_SEVERITY(4i32);
+impl ::core::marker::Copy for DXGI_INFO_QUEUE_MESSAGE_SEVERITY {}
+impl ::core::clone::Clone for DXGI_INFO_QUEUE_MESSAGE_SEVERITY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DXGI_MAPPED_RECT(i32);
+pub struct DXGI_MAPPED_RECT {
+    pub Pitch: i32,
+    pub pBits: *mut u8,
+}
+impl ::core::marker::Copy for DXGI_MAPPED_RECT {}
+impl ::core::clone::Clone for DXGI_MAPPED_RECT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DXGI_MAP_DISCARD: u32 = 4u32;
 pub const DXGI_MAP_READ: u32 = 1u32;
 pub const DXGI_MAP_WRITE: u32 = 2u32;
 #[repr(C)]
-pub struct DXGI_MATRIX_3X2_F(i32);
+pub struct DXGI_MATRIX_3X2_F {
+    pub _11: f32,
+    pub _12: f32,
+    pub _21: f32,
+    pub _22: f32,
+    pub _31: f32,
+    pub _32: f32,
+}
+impl ::core::marker::Copy for DXGI_MATRIX_3X2_F {}
+impl ::core::clone::Clone for DXGI_MATRIX_3X2_F {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DXGI_MAX_SWAP_CHAIN_BUFFERS: u32 = 16u32;
 #[repr(transparent)]
 pub struct DXGI_MEMORY_SEGMENT_GROUP(pub i32);
 pub const DXGI_MEMORY_SEGMENT_GROUP_LOCAL: DXGI_MEMORY_SEGMENT_GROUP = DXGI_MEMORY_SEGMENT_GROUP(0i32);
 pub const DXGI_MEMORY_SEGMENT_GROUP_NON_LOCAL: DXGI_MEMORY_SEGMENT_GROUP = DXGI_MEMORY_SEGMENT_GROUP(1i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::marker::Copy for DXGI_MEMORY_SEGMENT_GROUP {}
+impl ::core::clone::Clone for DXGI_MEMORY_SEGMENT_GROUP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DXGI_MODE_DESC1(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+pub struct DXGI_MODE_DESC1 {
+    pub Width: u32,
+    pub Height: u32,
+    pub RefreshRate: Common::DXGI_RATIONAL,
+    pub Format: Common::DXGI_FORMAT,
+    pub ScanlineOrdering: Common::DXGI_MODE_SCANLINE_ORDER,
+    pub Scaling: Common::DXGI_MODE_SCALING,
+    pub Stereo: super::super::Foundation::BOOL,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::marker::Copy for DXGI_MODE_DESC1 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::clone::Clone for DXGI_MODE_DESC1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DXGI_MULTIPLANE_OVERLAY_YCbCr_FLAGS(pub i32);
 pub const DXGI_MULTIPLANE_OVERLAY_YCbCr_FLAG_NOMINAL_RANGE: DXGI_MULTIPLANE_OVERLAY_YCbCr_FLAGS = DXGI_MULTIPLANE_OVERLAY_YCbCr_FLAGS(1i32);
 pub const DXGI_MULTIPLANE_OVERLAY_YCbCr_FLAG_BT709: DXGI_MULTIPLANE_OVERLAY_YCbCr_FLAGS = DXGI_MULTIPLANE_OVERLAY_YCbCr_FLAGS(2i32);
 pub const DXGI_MULTIPLANE_OVERLAY_YCbCr_FLAG_xvYCC: DXGI_MULTIPLANE_OVERLAY_YCbCr_FLAGS = DXGI_MULTIPLANE_OVERLAY_YCbCr_FLAGS(4i32);
+impl ::core::marker::Copy for DXGI_MULTIPLANE_OVERLAY_YCbCr_FLAGS {}
+impl ::core::clone::Clone for DXGI_MULTIPLANE_OVERLAY_YCbCr_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DXGI_MWA_NO_ALT_ENTER: u32 = 2u32;
 pub const DXGI_MWA_NO_PRINT_SCREEN: u32 = 4u32;
 pub const DXGI_MWA_NO_WINDOW_CHANGES: u32 = 1u32;
@@ -524,56 +826,213 @@ pub const DXGI_MSG_Phone_IDXGIFactory_CreateSwapChain_FLIP_Modern_CoreWindow_Onl
 pub const DXGI_MSG_Phone_IDXGISwapChain_Present1_RequiresOverlays: DXGI_Message_Id = DXGI_Message_Id(1029i32);
 pub const DXGI_MSG_Phone_IDXGISwapChain_SetBackgroundColor_FlipSequentialRequired: DXGI_Message_Id = DXGI_Message_Id(1030i32);
 pub const DXGI_MSG_Phone_IDXGISwapChain_GetBackgroundColor_FlipSequentialRequired: DXGI_Message_Id = DXGI_Message_Id(1031i32);
+impl ::core::marker::Copy for DXGI_Message_Id {}
+impl ::core::clone::Clone for DXGI_Message_Id {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DXGI_OFFER_RESOURCE_FLAGS(pub i32);
 pub const DXGI_OFFER_RESOURCE_FLAG_ALLOW_DECOMMIT: DXGI_OFFER_RESOURCE_FLAGS = DXGI_OFFER_RESOURCE_FLAGS(1i32);
+impl ::core::marker::Copy for DXGI_OFFER_RESOURCE_FLAGS {}
+impl ::core::clone::Clone for DXGI_OFFER_RESOURCE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DXGI_OFFER_RESOURCE_PRIORITY(pub i32);
 pub const DXGI_OFFER_RESOURCE_PRIORITY_LOW: DXGI_OFFER_RESOURCE_PRIORITY = DXGI_OFFER_RESOURCE_PRIORITY(1i32);
 pub const DXGI_OFFER_RESOURCE_PRIORITY_NORMAL: DXGI_OFFER_RESOURCE_PRIORITY = DXGI_OFFER_RESOURCE_PRIORITY(2i32);
 pub const DXGI_OFFER_RESOURCE_PRIORITY_HIGH: DXGI_OFFER_RESOURCE_PRIORITY = DXGI_OFFER_RESOURCE_PRIORITY(3i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::marker::Copy for DXGI_OFFER_RESOURCE_PRIORITY {}
+impl ::core::clone::Clone for DXGI_OFFER_RESOURCE_PRIORITY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DXGI_OUTDUPL_DESC(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+pub struct DXGI_OUTDUPL_DESC {
+    pub ModeDesc: Common::DXGI_MODE_DESC,
+    pub Rotation: Common::DXGI_MODE_ROTATION,
+    pub DesktopImageInSystemMemory: super::super::Foundation::BOOL,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::marker::Copy for DXGI_OUTDUPL_DESC {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::clone::Clone for DXGI_OUTDUPL_DESC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DXGI_OUTDUPL_FLAG(pub i32);
 pub const DXGI_OUTDUPL_COMPOSITED_UI_CAPTURE_ONLY: DXGI_OUTDUPL_FLAG = DXGI_OUTDUPL_FLAG(1i32);
-#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DXGI_OUTDUPL_FLAG {}
+impl ::core::clone::Clone for DXGI_OUTDUPL_FLAG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DXGI_OUTDUPL_FRAME_INFO(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct DXGI_OUTDUPL_MOVE_RECT(i32);
+pub struct DXGI_OUTDUPL_FRAME_INFO {
+    pub LastPresentTime: i64,
+    pub LastMouseUpdateTime: i64,
+    pub AccumulatedFrames: u32,
+    pub RectsCoalesced: super::super::Foundation::BOOL,
+    pub ProtectedContentMaskedOut: super::super::Foundation::BOOL,
+    pub PointerPosition: DXGI_OUTDUPL_POINTER_POSITION,
+    pub TotalMetadataBufferSize: u32,
+    pub PointerShapeBufferSize: u32,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct DXGI_OUTDUPL_POINTER_POSITION(i32);
+impl ::core::marker::Copy for DXGI_OUTDUPL_FRAME_INFO {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DXGI_OUTDUPL_FRAME_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DXGI_OUTDUPL_POINTER_SHAPE_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct DXGI_OUTDUPL_MOVE_RECT {
+    pub SourcePoint: super::super::Foundation::POINT,
+    pub DestinationRect: super::super::Foundation::RECT,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DXGI_OUTDUPL_MOVE_RECT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DXGI_OUTDUPL_MOVE_RECT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DXGI_OUTDUPL_POINTER_POSITION {
+    pub Position: super::super::Foundation::POINT,
+    pub Visible: super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DXGI_OUTDUPL_POINTER_POSITION {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DXGI_OUTDUPL_POINTER_POSITION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DXGI_OUTDUPL_POINTER_SHAPE_INFO {
+    pub Type: u32,
+    pub Width: u32,
+    pub Height: u32,
+    pub Pitch: u32,
+    pub HotSpot: super::super::Foundation::POINT,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DXGI_OUTDUPL_POINTER_SHAPE_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DXGI_OUTDUPL_POINTER_SHAPE_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DXGI_OUTDUPL_POINTER_SHAPE_TYPE(pub i32);
 pub const DXGI_OUTDUPL_POINTER_SHAPE_TYPE_MONOCHROME: DXGI_OUTDUPL_POINTER_SHAPE_TYPE = DXGI_OUTDUPL_POINTER_SHAPE_TYPE(1i32);
 pub const DXGI_OUTDUPL_POINTER_SHAPE_TYPE_COLOR: DXGI_OUTDUPL_POINTER_SHAPE_TYPE = DXGI_OUTDUPL_POINTER_SHAPE_TYPE(2i32);
 pub const DXGI_OUTDUPL_POINTER_SHAPE_TYPE_MASKED_COLOR: DXGI_OUTDUPL_POINTER_SHAPE_TYPE = DXGI_OUTDUPL_POINTER_SHAPE_TYPE(4i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
+impl ::core::marker::Copy for DXGI_OUTDUPL_POINTER_SHAPE_TYPE {}
+impl ::core::clone::Clone for DXGI_OUTDUPL_POINTER_SHAPE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DXGI_OUTPUT_DESC(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
+pub struct DXGI_OUTPUT_DESC {
+    pub DeviceName: [u16; 32],
+    pub DesktopCoordinates: super::super::Foundation::RECT,
+    pub AttachedToDesktop: super::super::Foundation::BOOL,
+    pub Rotation: Common::DXGI_MODE_ROTATION,
+    pub Monitor: super::Gdi::HMONITOR,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
+impl ::core::marker::Copy for DXGI_OUTPUT_DESC {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
+impl ::core::clone::Clone for DXGI_OUTPUT_DESC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DXGI_OUTPUT_DESC1(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
+pub struct DXGI_OUTPUT_DESC1 {
+    pub DeviceName: [u16; 32],
+    pub DesktopCoordinates: super::super::Foundation::RECT,
+    pub AttachedToDesktop: super::super::Foundation::BOOL,
+    pub Rotation: Common::DXGI_MODE_ROTATION,
+    pub Monitor: super::Gdi::HMONITOR,
+    pub BitsPerColor: u32,
+    pub ColorSpace: Common::DXGI_COLOR_SPACE_TYPE,
+    pub RedPrimary: [f32; 2],
+    pub GreenPrimary: [f32; 2],
+    pub BluePrimary: [f32; 2],
+    pub WhitePoint: [f32; 2],
+    pub MinLuminance: f32,
+    pub MaxLuminance: f32,
+    pub MaxFullFrameLuminance: f32,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
+impl ::core::marker::Copy for DXGI_OUTPUT_DESC1 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
+impl ::core::clone::Clone for DXGI_OUTPUT_DESC1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DXGI_OVERLAY_COLOR_SPACE_SUPPORT_FLAG(pub i32);
 pub const DXGI_OVERLAY_COLOR_SPACE_SUPPORT_FLAG_PRESENT: DXGI_OVERLAY_COLOR_SPACE_SUPPORT_FLAG = DXGI_OVERLAY_COLOR_SPACE_SUPPORT_FLAG(1i32);
+impl ::core::marker::Copy for DXGI_OVERLAY_COLOR_SPACE_SUPPORT_FLAG {}
+impl ::core::clone::Clone for DXGI_OVERLAY_COLOR_SPACE_SUPPORT_FLAG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DXGI_OVERLAY_SUPPORT_FLAG(pub i32);
 pub const DXGI_OVERLAY_SUPPORT_FLAG_DIRECT: DXGI_OVERLAY_SUPPORT_FLAG = DXGI_OVERLAY_SUPPORT_FLAG(1i32);
 pub const DXGI_OVERLAY_SUPPORT_FLAG_SCALING: DXGI_OVERLAY_SUPPORT_FLAG = DXGI_OVERLAY_SUPPORT_FLAG(2i32);
+impl ::core::marker::Copy for DXGI_OVERLAY_SUPPORT_FLAG {}
+impl ::core::clone::Clone for DXGI_OVERLAY_SUPPORT_FLAG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DXGI_PRESENT_ALLOW_TEARING: u32 = 512u32;
 pub const DXGI_PRESENT_DO_NOT_SEQUENCE: u32 = 2u32;
 pub const DXGI_PRESENT_DO_NOT_WAIT: u32 = 8u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct DXGI_PRESENT_PARAMETERS(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct DXGI_PRESENT_PARAMETERS {
+    pub DirtyRectsCount: u32,
+    pub pDirtyRects: *mut super::super::Foundation::RECT,
+    pub pScrollRect: *mut super::super::Foundation::RECT,
+    pub pScrollOffset: *mut super::super::Foundation::POINT,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DXGI_PRESENT_PARAMETERS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DXGI_PRESENT_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DXGI_PRESENT_RESTART: u32 = 4u32;
 pub const DXGI_PRESENT_RESTRICT_TO_OUTPUT: u32 = 64u32;
 pub const DXGI_PRESENT_STEREO_PREFER_RIGHT: u32 = 16u32;
@@ -581,17 +1040,40 @@ pub const DXGI_PRESENT_STEREO_TEMPORARY_MONO: u32 = 32u32;
 pub const DXGI_PRESENT_TEST: u32 = 1u32;
 pub const DXGI_PRESENT_USE_DURATION: u32 = 256u32;
 #[repr(C)]
-pub struct DXGI_QUERY_VIDEO_MEMORY_INFO(i32);
+pub struct DXGI_QUERY_VIDEO_MEMORY_INFO {
+    pub Budget: u64,
+    pub CurrentUsage: u64,
+    pub AvailableForReservation: u64,
+    pub CurrentReservation: u64,
+}
+impl ::core::marker::Copy for DXGI_QUERY_VIDEO_MEMORY_INFO {}
+impl ::core::clone::Clone for DXGI_QUERY_VIDEO_MEMORY_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DXGI_RECLAIM_RESOURCE_RESULTS(pub i32);
 pub const DXGI_RECLAIM_RESOURCE_RESULT_OK: DXGI_RECLAIM_RESOURCE_RESULTS = DXGI_RECLAIM_RESOURCE_RESULTS(0i32);
 pub const DXGI_RECLAIM_RESOURCE_RESULT_DISCARDED: DXGI_RECLAIM_RESOURCE_RESULTS = DXGI_RECLAIM_RESOURCE_RESULTS(1i32);
 pub const DXGI_RECLAIM_RESOURCE_RESULT_NOT_COMMITTED: DXGI_RECLAIM_RESOURCE_RESULTS = DXGI_RECLAIM_RESOURCE_RESULTS(2i32);
+impl ::core::marker::Copy for DXGI_RECLAIM_RESOURCE_RESULTS {}
+impl ::core::clone::Clone for DXGI_RECLAIM_RESOURCE_RESULTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DXGI_RESIDENCY(pub i32);
 pub const DXGI_RESIDENCY_FULLY_RESIDENT: DXGI_RESIDENCY = DXGI_RESIDENCY(1i32);
 pub const DXGI_RESIDENCY_RESIDENT_IN_SHARED_MEMORY: DXGI_RESIDENCY = DXGI_RESIDENCY(2i32);
 pub const DXGI_RESIDENCY_EVICTED_TO_DISK: DXGI_RESIDENCY = DXGI_RESIDENCY(3i32);
+impl ::core::marker::Copy for DXGI_RESIDENCY {}
+impl ::core::clone::Clone for DXGI_RESIDENCY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DXGI_RESOURCE_PRIORITY(pub u32);
 pub const DXGI_RESOURCE_PRIORITY_MINIMUM: DXGI_RESOURCE_PRIORITY = DXGI_RESOURCE_PRIORITY(671088640u32);
@@ -599,31 +1081,120 @@ pub const DXGI_RESOURCE_PRIORITY_LOW: DXGI_RESOURCE_PRIORITY = DXGI_RESOURCE_PRI
 pub const DXGI_RESOURCE_PRIORITY_NORMAL: DXGI_RESOURCE_PRIORITY = DXGI_RESOURCE_PRIORITY(2013265920u32);
 pub const DXGI_RESOURCE_PRIORITY_HIGH: DXGI_RESOURCE_PRIORITY = DXGI_RESOURCE_PRIORITY(2684354560u32);
 pub const DXGI_RESOURCE_PRIORITY_MAXIMUM: DXGI_RESOURCE_PRIORITY = DXGI_RESOURCE_PRIORITY(3355443200u32);
+impl ::core::marker::Copy for DXGI_RESOURCE_PRIORITY {}
+impl ::core::clone::Clone for DXGI_RESOURCE_PRIORITY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DXGI_RGBA(i32);
+pub struct DXGI_RGBA {
+    pub r: f32,
+    pub g: f32,
+    pub b: f32,
+    pub a: f32,
+}
+impl ::core::marker::Copy for DXGI_RGBA {}
+impl ::core::clone::Clone for DXGI_RGBA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DXGI_SCALING(pub i32);
 pub const DXGI_SCALING_STRETCH: DXGI_SCALING = DXGI_SCALING(0i32);
 pub const DXGI_SCALING_NONE: DXGI_SCALING = DXGI_SCALING(1i32);
 pub const DXGI_SCALING_ASPECT_RATIO_STRETCH: DXGI_SCALING = DXGI_SCALING(2i32);
-#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DXGI_SCALING {}
+impl ::core::clone::Clone for DXGI_SCALING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DXGI_SHARED_RESOURCE(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct DXGI_SHARED_RESOURCE {
+    pub Handle: super::super::Foundation::HANDLE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DXGI_SHARED_RESOURCE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DXGI_SHARED_RESOURCE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DXGI_SHARED_RESOURCE_READ: u32 = 2147483648u32;
 pub const DXGI_SHARED_RESOURCE_WRITE: u32 = 1u32;
-#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 #[repr(C)]
-pub struct DXGI_SURFACE_DESC(i32);
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+pub struct DXGI_SURFACE_DESC {
+    pub Width: u32,
+    pub Height: u32,
+    pub Format: Common::DXGI_FORMAT,
+    pub SampleDesc: Common::DXGI_SAMPLE_DESC,
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::marker::Copy for DXGI_SURFACE_DESC {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::core::clone::Clone for DXGI_SURFACE_DESC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DXGI_SWAP_CHAIN_COLOR_SPACE_SUPPORT_FLAG(pub i32);
 pub const DXGI_SWAP_CHAIN_COLOR_SPACE_SUPPORT_FLAG_PRESENT: DXGI_SWAP_CHAIN_COLOR_SPACE_SUPPORT_FLAG = DXGI_SWAP_CHAIN_COLOR_SPACE_SUPPORT_FLAG(1i32);
 pub const DXGI_SWAP_CHAIN_COLOR_SPACE_SUPPORT_FLAG_OVERLAY_PRESENT: DXGI_SWAP_CHAIN_COLOR_SPACE_SUPPORT_FLAG = DXGI_SWAP_CHAIN_COLOR_SPACE_SUPPORT_FLAG(2i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::marker::Copy for DXGI_SWAP_CHAIN_COLOR_SPACE_SUPPORT_FLAG {}
+impl ::core::clone::Clone for DXGI_SWAP_CHAIN_COLOR_SPACE_SUPPORT_FLAG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DXGI_SWAP_CHAIN_DESC(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+pub struct DXGI_SWAP_CHAIN_DESC {
+    pub BufferDesc: Common::DXGI_MODE_DESC,
+    pub SampleDesc: Common::DXGI_SAMPLE_DESC,
+    pub BufferUsage: u32,
+    pub BufferCount: u32,
+    pub OutputWindow: super::super::Foundation::HWND,
+    pub Windowed: super::super::Foundation::BOOL,
+    pub SwapEffect: DXGI_SWAP_EFFECT,
+    pub Flags: u32,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::marker::Copy for DXGI_SWAP_CHAIN_DESC {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::clone::Clone for DXGI_SWAP_CHAIN_DESC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DXGI_SWAP_CHAIN_DESC1(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+pub struct DXGI_SWAP_CHAIN_DESC1 {
+    pub Width: u32,
+    pub Height: u32,
+    pub Format: Common::DXGI_FORMAT,
+    pub Stereo: super::super::Foundation::BOOL,
+    pub SampleDesc: Common::DXGI_SAMPLE_DESC,
+    pub BufferUsage: u32,
+    pub BufferCount: u32,
+    pub Scaling: DXGI_SCALING,
+    pub SwapEffect: DXGI_SWAP_EFFECT,
+    pub AlphaMode: Common::DXGI_ALPHA_MODE,
+    pub Flags: u32,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::marker::Copy for DXGI_SWAP_CHAIN_DESC1 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::clone::Clone for DXGI_SWAP_CHAIN_DESC1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DXGI_SWAP_CHAIN_FLAG(pub i32);
 pub const DXGI_SWAP_CHAIN_FLAG_NONPREROTATED: DXGI_SWAP_CHAIN_FLAG = DXGI_SWAP_CHAIN_FLAG(1i32);
@@ -639,15 +1210,40 @@ pub const DXGI_SWAP_CHAIN_FLAG_YUV_VIDEO: DXGI_SWAP_CHAIN_FLAG = DXGI_SWAP_CHAIN
 pub const DXGI_SWAP_CHAIN_FLAG_HW_PROTECTED: DXGI_SWAP_CHAIN_FLAG = DXGI_SWAP_CHAIN_FLAG(1024i32);
 pub const DXGI_SWAP_CHAIN_FLAG_ALLOW_TEARING: DXGI_SWAP_CHAIN_FLAG = DXGI_SWAP_CHAIN_FLAG(2048i32);
 pub const DXGI_SWAP_CHAIN_FLAG_RESTRICTED_TO_ALL_HOLOGRAPHIC_DISPLAYS: DXGI_SWAP_CHAIN_FLAG = DXGI_SWAP_CHAIN_FLAG(4096i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::marker::Copy for DXGI_SWAP_CHAIN_FLAG {}
+impl ::core::clone::Clone for DXGI_SWAP_CHAIN_FLAG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DXGI_SWAP_CHAIN_FULLSCREEN_DESC(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+pub struct DXGI_SWAP_CHAIN_FULLSCREEN_DESC {
+    pub RefreshRate: Common::DXGI_RATIONAL,
+    pub ScanlineOrdering: Common::DXGI_MODE_SCANLINE_ORDER,
+    pub Scaling: Common::DXGI_MODE_SCALING,
+    pub Windowed: super::super::Foundation::BOOL,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::marker::Copy for DXGI_SWAP_CHAIN_FULLSCREEN_DESC {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::clone::Clone for DXGI_SWAP_CHAIN_FULLSCREEN_DESC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DXGI_SWAP_EFFECT(pub i32);
 pub const DXGI_SWAP_EFFECT_DISCARD: DXGI_SWAP_EFFECT = DXGI_SWAP_EFFECT(0i32);
 pub const DXGI_SWAP_EFFECT_SEQUENTIAL: DXGI_SWAP_EFFECT = DXGI_SWAP_EFFECT(1i32);
 pub const DXGI_SWAP_EFFECT_FLIP_SEQUENTIAL: DXGI_SWAP_EFFECT = DXGI_SWAP_EFFECT(3i32);
 pub const DXGI_SWAP_EFFECT_FLIP_DISCARD: DXGI_SWAP_EFFECT = DXGI_SWAP_EFFECT(4i32);
+impl ::core::marker::Copy for DXGI_SWAP_EFFECT {}
+impl ::core::clone::Clone for DXGI_SWAP_EFFECT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DXGI_USAGE_BACK_BUFFER: u32 = 64u32;
 pub const DXGI_USAGE_DISCARD_ON_PRESENT: u32 = 512u32;
 pub const DXGI_USAGE_READ_ONLY: u32 = 256u32;

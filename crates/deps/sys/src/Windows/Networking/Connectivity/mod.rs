@@ -11,6 +11,12 @@ impl CellularApnAuthenticationType {
     pub const Chap: Self = Self(2i32);
     pub const Mschapv2: Self = Self(3i32);
 }
+impl ::core::marker::Copy for CellularApnAuthenticationType {}
+impl ::core::clone::Clone for CellularApnAuthenticationType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CellularApnContext(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -24,6 +30,12 @@ impl ConnectionProfileDeleteStatus {
     pub const DeniedByUser: Self = Self(1i32);
     pub const DeniedBySystem: Self = Self(2i32);
     pub const UnknownError: Self = Self(3i32);
+}
+impl ::core::marker::Copy for ConnectionProfileDeleteStatus {}
+impl ::core::clone::Clone for ConnectionProfileDeleteStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct ConnectionProfileFilter(pub *mut ::core::ffi::c_void);
@@ -45,12 +57,24 @@ impl DataUsageGranularity {
     pub const PerDay: Self = Self(2i32);
     pub const Total: Self = Self(3i32);
 }
+impl ::core::marker::Copy for DataUsageGranularity {}
+impl ::core::clone::Clone for DataUsageGranularity {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DomainConnectivityLevel(pub i32);
 impl DomainConnectivityLevel {
     pub const None: Self = Self(0i32);
     pub const Unauthenticated: Self = Self(1i32);
     pub const Authenticated: Self = Self(2i32);
+}
+impl ::core::marker::Copy for DomainConnectivityLevel {}
+impl ::core::clone::Clone for DomainConnectivityLevel {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct IAttributedNetworkUsage(pub *mut ::core::ffi::c_void);
@@ -153,6 +177,12 @@ impl NetworkAuthenticationType {
     pub const Owe: Self = Self(12i32);
     pub const Wpa3Enterprise: Self = Self(13i32);
 }
+impl ::core::marker::Copy for NetworkAuthenticationType {}
+impl ::core::clone::Clone for NetworkAuthenticationType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct NetworkConnectivityLevel(pub i32);
 impl NetworkConnectivityLevel {
@@ -161,6 +191,12 @@ impl NetworkConnectivityLevel {
     pub const ConstrainedInternetAccess: Self = Self(2i32);
     pub const InternetAccess: Self = Self(3i32);
 }
+impl ::core::marker::Copy for NetworkConnectivityLevel {}
+impl ::core::clone::Clone for NetworkConnectivityLevel {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct NetworkCostType(pub i32);
 impl NetworkCostType {
@@ -168,6 +204,12 @@ impl NetworkCostType {
     pub const Unrestricted: Self = Self(1i32);
     pub const Fixed: Self = Self(2i32);
     pub const Variable: Self = Self(3i32);
+}
+impl ::core::marker::Copy for NetworkCostType {}
+impl ::core::clone::Clone for NetworkCostType {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct NetworkEncryptionType(pub i32);
@@ -185,6 +227,12 @@ impl NetworkEncryptionType {
     pub const Gcmp: Self = Self(10i32);
     pub const Gcmp256: Self = Self(11i32);
 }
+impl ::core::marker::Copy for NetworkEncryptionType {}
+impl ::core::clone::Clone for NetworkEncryptionType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct NetworkItem(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -200,10 +248,25 @@ impl NetworkTypes {
     pub const Internet: Self = Self(1u32);
     pub const PrivateNetwork: Self = Self(2u32);
 }
+impl ::core::marker::Copy for NetworkTypes {}
+impl ::core::clone::Clone for NetworkTypes {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct NetworkUsage(pub *mut ::core::ffi::c_void);
 #[repr(C)]
-pub struct NetworkUsageStates(i32);
+pub struct NetworkUsageStates {
+    pub Roaming: TriStates,
+    pub Shared: TriStates,
+}
+impl ::core::marker::Copy for NetworkUsageStates {}
+impl ::core::clone::Clone for NetworkUsageStates {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ProviderNetworkUsage(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -215,6 +278,12 @@ impl RoamingStates {
     pub const NotRoaming: Self = Self(1u32);
     pub const Roaming: Self = Self(2u32);
 }
+impl ::core::marker::Copy for RoamingStates {}
+impl ::core::clone::Clone for RoamingStates {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RoutePolicy(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -224,12 +293,16 @@ impl TriStates {
     pub const No: Self = Self(1i32);
     pub const Yes: Self = Self(2i32);
 }
+impl ::core::marker::Copy for TriStates {}
+impl ::core::clone::Clone for TriStates {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WlanConnectionProfileDetails(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct WwanConnectionProfileDetails(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct WwanContract(i32);
 #[repr(transparent)]
 pub struct WwanDataClass(pub u32);
 impl WwanDataClass {
@@ -249,6 +322,12 @@ impl WwanDataClass {
     pub const CdmaUmb: Self = Self(4194304u32);
     pub const Custom: Self = Self(2147483648u32);
 }
+impl ::core::marker::Copy for WwanDataClass {}
+impl ::core::clone::Clone for WwanDataClass {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WwanNetworkIPKind(pub i32);
 impl WwanNetworkIPKind {
@@ -257,6 +336,12 @@ impl WwanNetworkIPKind {
     pub const Ipv6: Self = Self(2i32);
     pub const Ipv4v6: Self = Self(3i32);
     pub const Ipv4v6v4Xlat: Self = Self(4i32);
+}
+impl ::core::marker::Copy for WwanNetworkIPKind {}
+impl ::core::clone::Clone for WwanNetworkIPKind {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct WwanNetworkRegistrationState(pub i32);
@@ -268,4 +353,10 @@ impl WwanNetworkRegistrationState {
     pub const Roaming: Self = Self(4i32);
     pub const Partner: Self = Self(5i32);
     pub const Denied: Self = Self(6i32);
+}
+impl ::core::marker::Copy for WwanNetworkRegistrationState {}
+impl ::core::clone::Clone for WwanNetworkRegistrationState {
+    fn clone(&self) -> Self {
+        *self
+    }
 }

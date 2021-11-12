@@ -818,15 +818,6 @@ impl PlatformDiagnosticsAndUsageDataSettings {
 impl ::windows::core::RuntimeName for PlatformDiagnosticsAndUsageDataSettings {
     const NAME: &'static str = "Windows.System.Profile.PlatformDiagnosticsAndUsageDataSettings";
 }
-#[repr(C)]
-#[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
-pub struct ProfileHardwareTokenContract(pub u8);
-#[repr(C)]
-#[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
-pub struct ProfileRetailInfoContract(pub u8);
-#[repr(C)]
-#[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
-pub struct ProfileSharedModeContract(pub u8);
 pub struct RetailInfo {}
 impl RetailInfo {
     pub fn IsDemoModeEnabled() -> ::windows::core::Result<bool> {

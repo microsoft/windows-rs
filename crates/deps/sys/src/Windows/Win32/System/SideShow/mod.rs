@@ -1,16 +1,60 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {}
-#[repr(C)]
-pub struct APPLICATION_EVENT_DATA(i32);
+#[repr(C, packed(1))]
+pub struct APPLICATION_EVENT_DATA {
+    pub cbApplicationEventData: u32,
+    pub ApplicationId: ::windows_sys::core::GUID,
+    pub EndpointId: ::windows_sys::core::GUID,
+    pub dwEventId: u32,
+    pub cbEventData: u32,
+    pub bEventData: [u8; 1],
+}
+impl ::core::marker::Copy for APPLICATION_EVENT_DATA {}
+impl ::core::clone::Clone for APPLICATION_EVENT_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CONTENT_ID_GLANCE: u32 = 0u32;
 pub const CONTENT_ID_HOME: u32 = 1u32;
-#[repr(C)]
-pub struct CONTENT_MISSING_EVENT_DATA(i32);
-#[repr(C)]
-pub struct DEVICE_USER_CHANGE_EVENT_DATA(i32);
-#[repr(C)]
-pub struct EVENT_DATA_HEADER(i32);
+#[repr(C, packed(1))]
+pub struct CONTENT_MISSING_EVENT_DATA {
+    pub cbContentMissingEventData: u32,
+    pub ApplicationId: ::windows_sys::core::GUID,
+    pub EndpointId: ::windows_sys::core::GUID,
+    pub ContentId: u32,
+}
+impl ::core::marker::Copy for CONTENT_MISSING_EVENT_DATA {}
+impl ::core::clone::Clone for CONTENT_MISSING_EVENT_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub struct DEVICE_USER_CHANGE_EVENT_DATA {
+    pub cbDeviceUserChangeEventData: u32,
+    pub wszUser: u16,
+}
+impl ::core::marker::Copy for DEVICE_USER_CHANGE_EVENT_DATA {}
+impl ::core::clone::Clone for DEVICE_USER_CHANGE_EVENT_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub struct EVENT_DATA_HEADER {
+    pub cbEventDataHeader: u32,
+    pub guidEventType: ::windows_sys::core::GUID,
+    pub dwVersion: u32,
+    pub cbEventDataSid: u32,
+}
+impl ::core::marker::Copy for EVENT_DATA_HEADER {}
+impl ::core::clone::Clone for EVENT_DATA_HEADER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const GUID_DEVINTERFACE_SIDESHOW: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 355358737, data2: 65209, data3: 19200, data4: [144, 244, 211, 41, 71, 174, 22, 129] };
 #[repr(transparent)]
 pub struct ISideShowBulkCapabilities(pub *mut ::core::ffi::c_void);
@@ -34,8 +78,17 @@ pub struct ISideShowNotificationManager(pub *mut ::core::ffi::c_void);
 pub struct ISideShowPropVariantCollection(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ISideShowSession(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct NEW_EVENT_DATA_AVAILABLE(i32);
+#[repr(C, packed(1))]
+pub struct NEW_EVENT_DATA_AVAILABLE {
+    pub cbNewEventDataAvailable: u32,
+    pub dwVersion: u32,
+}
+impl ::core::marker::Copy for NEW_EVENT_DATA_AVAILABLE {}
+impl ::core::clone::Clone for NEW_EVENT_DATA_AVAILABLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SCF_BUTTON_IDS(pub i32);
 pub const SCF_BUTTON_MENU: SCF_BUTTON_IDS = SCF_BUTTON_IDS(1i32);
@@ -50,19 +103,73 @@ pub const SCF_BUTTON_FASTFORWARD: SCF_BUTTON_IDS = SCF_BUTTON_IDS(9i32);
 pub const SCF_BUTTON_REWIND: SCF_BUTTON_IDS = SCF_BUTTON_IDS(10i32);
 pub const SCF_BUTTON_STOP: SCF_BUTTON_IDS = SCF_BUTTON_IDS(11i32);
 pub const SCF_BUTTON_BACK: SCF_BUTTON_IDS = SCF_BUTTON_IDS(65280i32);
+impl ::core::marker::Copy for SCF_BUTTON_IDS {}
+impl ::core::clone::Clone for SCF_BUTTON_IDS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct SCF_CONTEXTMENU_EVENT(i32);
+pub struct SCF_CONTEXTMENU_EVENT {
+    pub PreviousPage: u32,
+    pub TargetPage: u32,
+    pub PreviousItemId: u32,
+    pub MenuPage: u32,
+    pub MenuItemId: u32,
+}
+impl ::core::marker::Copy for SCF_CONTEXTMENU_EVENT {}
+impl ::core::clone::Clone for SCF_CONTEXTMENU_EVENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct SCF_EVENT_HEADER(i32);
+pub struct SCF_EVENT_HEADER {
+    pub PreviousPage: u32,
+    pub TargetPage: u32,
+}
+impl ::core::marker::Copy for SCF_EVENT_HEADER {}
+impl ::core::clone::Clone for SCF_EVENT_HEADER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SCF_EVENT_IDS(pub i32);
 pub const SCF_EVENT_NAVIGATION: SCF_EVENT_IDS = SCF_EVENT_IDS(1i32);
 pub const SCF_EVENT_MENUACTION: SCF_EVENT_IDS = SCF_EVENT_IDS(2i32);
 pub const SCF_EVENT_CONTEXTMENU: SCF_EVENT_IDS = SCF_EVENT_IDS(3i32);
+impl ::core::marker::Copy for SCF_EVENT_IDS {}
+impl ::core::clone::Clone for SCF_EVENT_IDS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct SCF_MENUACTION_EVENT(i32);
+pub struct SCF_MENUACTION_EVENT {
+    pub PreviousPage: u32,
+    pub TargetPage: u32,
+    pub Button: u32,
+    pub ItemId: u32,
+}
+impl ::core::marker::Copy for SCF_MENUACTION_EVENT {}
+impl ::core::clone::Clone for SCF_MENUACTION_EVENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct SCF_NAVIGATION_EVENT(i32);
+pub struct SCF_NAVIGATION_EVENT {
+    pub PreviousPage: u32,
+    pub TargetPage: u32,
+    pub Button: u32,
+}
+impl ::core::marker::Copy for SCF_NAVIGATION_EVENT {}
+impl ::core::clone::Clone for SCF_NAVIGATION_EVENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SIDESHOW_APPLICATION_EVENT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1286959866, data2: 7483, data3: 18867, data4: [161, 122, 46, 107, 255, 5, 40, 84] };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const SIDESHOW_CAPABILITY_CLIENT_AREA_HEIGHT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
@@ -135,6 +242,12 @@ pub struct SIDESHOW_COLOR_TYPE(pub i32);
 pub const SIDESHOW_COLOR_TYPE_COLOR: SIDESHOW_COLOR_TYPE = SIDESHOW_COLOR_TYPE(0i32);
 pub const SIDESHOW_COLOR_TYPE_GREYSCALE: SIDESHOW_COLOR_TYPE = SIDESHOW_COLOR_TYPE(1i32);
 pub const SIDESHOW_COLOR_TYPE_BLACK_AND_WHITE: SIDESHOW_COLOR_TYPE = SIDESHOW_COLOR_TYPE(2i32);
+impl ::core::marker::Copy for SIDESHOW_COLOR_TYPE {}
+impl ::core::clone::Clone for SIDESHOW_COLOR_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SIDESHOW_CONTENT_MISSING_EVENT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1342700456, data2: 54035, data3: 17311, data4: [190, 162, 165, 2, 1, 211, 233, 168] };
 pub const SIDESHOW_ENDPOINT_ICAL: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1308571317, data2: 40414, data3: 20342, data4: [154, 42, 150, 67, 80, 71, 6, 61] };
 pub const SIDESHOW_ENDPOINT_SIMPLE_CONTENT_FORMAT: ::windows_sys::core::GUID = ::windows_sys::GUID {
@@ -150,18 +263,35 @@ pub const SIDESHOW_NEW_EVENT_DATA_AVAILABLE: ::windows_sys::core::GUID = ::windo
 pub struct SIDESHOW_SCREEN_TYPE(pub i32);
 pub const SIDESHOW_SCREEN_TYPE_BITMAP: SIDESHOW_SCREEN_TYPE = SIDESHOW_SCREEN_TYPE(0i32);
 pub const SIDESHOW_SCREEN_TYPE_TEXT: SIDESHOW_SCREEN_TYPE = SIDESHOW_SCREEN_TYPE(1i32);
+impl ::core::marker::Copy for SIDESHOW_SCREEN_TYPE {}
+impl ::core::clone::Clone for SIDESHOW_SCREEN_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SIDESHOW_USER_CHANGE_REQUEST_EVENT: ::windows_sys::core::GUID = ::windows_sys::GUID {
     data1: 1342793532,
     data2: 16253,
     data3: 19582,
     data4: [153, 113, 234, 162, 233, 31, 21, 117],
 };
-#[repr(C)]
-pub struct SideShowKeyCollection(i32);
-#[repr(C)]
-pub struct SideShowNotification(i32);
-#[repr(C)]
-pub struct SideShowPropVariantCollection(i32);
-#[repr(C)]
-pub struct SideShowSession(i32);
+pub const SideShowKeyCollection: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3753630712,
+    data2: 6366,
+    data3: 18872,
+    data4: [131, 220, 235, 199, 39, 198, 45, 148],
+};
+pub const SideShowNotification: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 216262767,
+    data2: 54733,
+    data3: 17701,
+    data4: [167, 102, 26, 186, 177, 167, 82, 245],
+};
+pub const SideShowPropVariantCollection: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3863016469, data2: 21406, data3: 18723, data4: [150, 205, 95, 9, 59, 194, 80, 205] };
+pub const SideShowSession: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3791995833,
+    data2: 63365,
+    data3: 20130,
+    data4: [152, 30, 196, 255, 167, 107, 188, 124],
+};
 pub const VERSION_1_WINDOWS_7: u32 = 0u32;

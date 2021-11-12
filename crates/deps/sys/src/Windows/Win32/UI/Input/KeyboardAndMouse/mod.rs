@@ -102,6 +102,12 @@ pub const KLF_ACTIVATE: ACTIVATE_KEYBOARD_LAYOUT_FLAGS = ACTIVATE_KEYBOARD_LAYOU
 pub const KLF_NOTELLSHELL: ACTIVATE_KEYBOARD_LAYOUT_FLAGS = ACTIVATE_KEYBOARD_LAYOUT_FLAGS(128u32);
 pub const KLF_REPLACELANG: ACTIVATE_KEYBOARD_LAYOUT_FLAGS = ACTIVATE_KEYBOARD_LAYOUT_FLAGS(16u32);
 pub const KLF_SUBSTITUTE_OK: ACTIVATE_KEYBOARD_LAYOUT_FLAGS = ACTIVATE_KEYBOARD_LAYOUT_FLAGS(2u32);
+impl ::core::marker::Copy for ACTIVATE_KEYBOARD_LAYOUT_FLAGS {}
+impl ::core::clone::Clone for ACTIVATE_KEYBOARD_LAYOUT_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const ACUTE: u32 = 769u32;
 pub const AX_KBD_DESKTOP_TYPE: u32 = 1u32;
 pub const BREVE: u32 = 774u32;
@@ -110,7 +116,17 @@ pub const CAPLOKALTGR: u32 = 4u32;
 pub const CEDILLA: u32 = 807u32;
 pub const CIRCUMFLEX: u32 = 770u32;
 #[repr(C)]
-pub struct DEADKEY(i32);
+pub struct DEADKEY {
+    pub dwBoth: u32,
+    pub wchComposed: u16,
+    pub uFlags: u16,
+}
+impl ::core::marker::Copy for DEADKEY {}
+impl ::core::clone::Clone for DEADKEY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DEC_KBD_ANSI_LAYOUT_TYPE: u32 = 1u32;
 pub const DEC_KBD_JIS_LAYOUT_TYPE: u32 = 2u32;
 pub const DIARESIS: u32 = 776u32;
@@ -128,11 +144,27 @@ pub const FMV_KBD_OASYS_TYPE: u32 = 2u32;
 pub struct GET_MOUSE_MOVE_POINTS_EX_RESOLUTION(pub u32);
 pub const GMMP_USE_DISPLAY_POINTS: GET_MOUSE_MOVE_POINTS_EX_RESOLUTION = GET_MOUSE_MOVE_POINTS_EX_RESOLUTION(1u32);
 pub const GMMP_USE_HIGH_RESOLUTION_POINTS: GET_MOUSE_MOVE_POINTS_EX_RESOLUTION = GET_MOUSE_MOVE_POINTS_EX_RESOLUTION(2u32);
+impl ::core::marker::Copy for GET_MOUSE_MOVE_POINTS_EX_RESOLUTION {}
+impl ::core::clone::Clone for GET_MOUSE_MOVE_POINTS_EX_RESOLUTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const GRAVE: u32 = 768u32;
 pub const GRPSELTAP: u32 = 128u32;
 pub const HACEK: u32 = 780u32;
 #[repr(C)]
-pub struct HARDWAREINPUT(i32);
+pub struct HARDWAREINPUT {
+    pub uMsg: u32,
+    pub wParamL: u16,
+    pub wParamH: u16,
+}
+impl ::core::marker::Copy for HARDWAREINPUT {}
+impl ::core::clone::Clone for HARDWAREINPUT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const HOOK_ABOVE: u32 = 777u32;
 #[repr(transparent)]
 pub struct HOT_KEY_MODIFIERS(pub u32);
@@ -141,13 +173,46 @@ pub const MOD_CONTROL: HOT_KEY_MODIFIERS = HOT_KEY_MODIFIERS(2u32);
 pub const MOD_NOREPEAT: HOT_KEY_MODIFIERS = HOT_KEY_MODIFIERS(16384u32);
 pub const MOD_SHIFT: HOT_KEY_MODIFIERS = HOT_KEY_MODIFIERS(4u32);
 pub const MOD_WIN: HOT_KEY_MODIFIERS = HOT_KEY_MODIFIERS(8u32);
+impl ::core::marker::Copy for HOT_KEY_MODIFIERS {}
+impl ::core::clone::Clone for HOT_KEY_MODIFIERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct INPUT(i32);
+pub struct INPUT {
+    pub r#type: INPUT_TYPE,
+    pub Anonymous: INPUT_0,
+}
+impl ::core::marker::Copy for INPUT {}
+impl ::core::clone::Clone for INPUT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub union INPUT_0 {
+    pub mi: MOUSEINPUT,
+    pub ki: KEYBDINPUT,
+    pub hi: HARDWAREINPUT,
+}
+impl ::core::marker::Copy for INPUT_0 {}
+impl ::core::clone::Clone for INPUT_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct INPUT_TYPE(pub u32);
 pub const INPUT_MOUSE: INPUT_TYPE = INPUT_TYPE(0u32);
 pub const INPUT_KEYBOARD: INPUT_TYPE = INPUT_TYPE(1u32);
 pub const INPUT_HARDWARE: INPUT_TYPE = INPUT_TYPE(2u32);
+impl ::core::marker::Copy for INPUT_TYPE {}
+impl ::core::clone::Clone for INPUT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const KANALOK: u32 = 8u32;
 pub const KBDALT: u32 = 4u32;
 pub const KBDBASE: u32 = 0u32;
@@ -179,22 +244,69 @@ pub const KBDNLS_TYPE_TOGGLE: u32 = 2u32;
 pub const KBDROYA: u32 = 16u32;
 pub const KBDSHIFT: u32 = 1u32;
 #[repr(C)]
-pub struct KBDTABLE_DESC(i32);
+pub struct KBDTABLE_DESC {
+    pub wszDllName: [u16; 32],
+    pub dwType: u32,
+    pub dwSubType: u32,
+}
+impl ::core::marker::Copy for KBDTABLE_DESC {}
+impl ::core::clone::Clone for KBDTABLE_DESC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct KBDTABLE_MULTI(i32);
+pub struct KBDTABLE_MULTI {
+    pub nTables: u32,
+    pub aKbdTables: [KBDTABLE_DESC; 8],
+}
+impl ::core::marker::Copy for KBDTABLE_MULTI {}
+impl ::core::clone::Clone for KBDTABLE_MULTI {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const KBDTABLE_MULTI_MAX: u32 = 8u32;
 pub const KBD_TYPE: u32 = 4u32;
 #[repr(C)]
-pub struct KBD_TYPE_INFO(i32);
+pub struct KBD_TYPE_INFO {
+    pub dwVersion: u32,
+    pub dwType: u32,
+    pub dwSubType: u32,
+}
+impl ::core::marker::Copy for KBD_TYPE_INFO {}
+impl ::core::clone::Clone for KBD_TYPE_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const KBD_VERSION: u32 = 1u32;
 #[repr(C)]
-pub struct KEYBDINPUT(i32);
+pub struct KEYBDINPUT {
+    pub wVk: VIRTUAL_KEY,
+    pub wScan: u16,
+    pub dwFlags: KEYBD_EVENT_FLAGS,
+    pub time: u32,
+    pub dwExtraInfo: usize,
+}
+impl ::core::marker::Copy for KEYBDINPUT {}
+impl ::core::clone::Clone for KEYBDINPUT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct KEYBD_EVENT_FLAGS(pub u32);
 pub const KEYEVENTF_EXTENDEDKEY: KEYBD_EVENT_FLAGS = KEYBD_EVENT_FLAGS(1u32);
 pub const KEYEVENTF_KEYUP: KEYBD_EVENT_FLAGS = KEYBD_EVENT_FLAGS(2u32);
 pub const KEYEVENTF_SCANCODE: KEYBD_EVENT_FLAGS = KEYBD_EVENT_FLAGS(8u32);
 pub const KEYEVENTF_UNICODE: KEYBD_EVENT_FLAGS = KEYBD_EVENT_FLAGS(4u32);
+impl ::core::marker::Copy for KEYBD_EVENT_FLAGS {}
+impl ::core::clone::Clone for KEYBD_EVENT_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const KEYBOARD_TYPE_GENERIC_101: u32 = 4u32;
 pub const KEYBOARD_TYPE_JAPAN: u32 = 7u32;
 pub const KEYBOARD_TYPE_KOREA: u32 = 8u32;
@@ -204,17 +316,76 @@ pub const KLLF_GLOBAL_ATTRS: u32 = 2u32;
 pub const KLLF_LRM_RLM: u32 = 4u32;
 pub const KLLF_SHIFTLOCK: u32 = 2u32;
 #[repr(C)]
-pub struct LASTINPUTINFO(i32);
+pub struct LASTINPUTINFO {
+    pub cbSize: u32,
+    pub dwTime: u32,
+}
+impl ::core::marker::Copy for LASTINPUTINFO {}
+impl ::core::clone::Clone for LASTINPUTINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct LIGATURE1(i32);
+pub struct LIGATURE1 {
+    pub VirtualKey: u8,
+    pub ModificationNumber: u16,
+    pub wch: [u16; 1],
+}
+impl ::core::marker::Copy for LIGATURE1 {}
+impl ::core::clone::Clone for LIGATURE1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct LIGATURE2(i32);
+pub struct LIGATURE2 {
+    pub VirtualKey: u8,
+    pub ModificationNumber: u16,
+    pub wch: [u16; 2],
+}
+impl ::core::marker::Copy for LIGATURE2 {}
+impl ::core::clone::Clone for LIGATURE2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct LIGATURE3(i32);
+pub struct LIGATURE3 {
+    pub VirtualKey: u8,
+    pub ModificationNumber: u16,
+    pub wch: [u16; 3],
+}
+impl ::core::marker::Copy for LIGATURE3 {}
+impl ::core::clone::Clone for LIGATURE3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct LIGATURE4(i32);
+pub struct LIGATURE4 {
+    pub VirtualKey: u8,
+    pub ModificationNumber: u16,
+    pub wch: [u16; 4],
+}
+impl ::core::marker::Copy for LIGATURE4 {}
+impl ::core::clone::Clone for LIGATURE4 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct LIGATURE5(i32);
+pub struct LIGATURE5 {
+    pub VirtualKey: u8,
+    pub ModificationNumber: u16,
+    pub wch: [u16; 5],
+}
+impl ::core::marker::Copy for LIGATURE5 {}
+impl ::core::clone::Clone for LIGATURE5 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MACRON: u32 = 772u32;
 pub const MICROSOFT_KBD_001_TYPE: u32 = 4u32;
 pub const MICROSOFT_KBD_002_TYPE: u32 = 3u32;
@@ -227,11 +398,45 @@ pub const MICROSOFT_KBD_106_TYPE: u32 = 2u32;
 pub const MICROSOFT_KBD_AX_TYPE: u32 = 1u32;
 pub const MICROSOFT_KBD_FUNC: u32 = 12u32;
 #[repr(C)]
-pub struct MODIFIERS(i32);
+pub struct MODIFIERS {
+    pub pVkToBit: *mut VK_TO_BIT,
+    pub wMaxModBits: u16,
+    pub ModNumber: [u8; 1],
+}
+impl ::core::marker::Copy for MODIFIERS {}
+impl ::core::clone::Clone for MODIFIERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct MOUSEINPUT(i32);
+pub struct MOUSEINPUT {
+    pub dx: i32,
+    pub dy: i32,
+    pub mouseData: u32,
+    pub dwFlags: MOUSE_EVENT_FLAGS,
+    pub time: u32,
+    pub dwExtraInfo: usize,
+}
+impl ::core::marker::Copy for MOUSEINPUT {}
+impl ::core::clone::Clone for MOUSEINPUT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct MOUSEMOVEPOINT(i32);
+pub struct MOUSEMOVEPOINT {
+    pub x: i32,
+    pub y: i32,
+    pub time: u32,
+    pub dwExtraInfo: usize,
+}
+impl ::core::marker::Copy for MOUSEMOVEPOINT {}
+impl ::core::clone::Clone for MOUSEMOVEPOINT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MOUSE_EVENT_FLAGS(pub u32);
 pub const MOUSEEVENTF_ABSOLUTE: MOUSE_EVENT_FLAGS = MOUSE_EVENT_FLAGS(32768u32);
@@ -248,6 +453,12 @@ pub const MOUSEEVENTF_XUP: MOUSE_EVENT_FLAGS = MOUSE_EVENT_FLAGS(256u32);
 pub const MOUSEEVENTF_HWHEEL: MOUSE_EVENT_FLAGS = MOUSE_EVENT_FLAGS(4096u32);
 pub const MOUSEEVENTF_MOVE_NOCOALESCE: MOUSE_EVENT_FLAGS = MOUSE_EVENT_FLAGS(8192u32);
 pub const MOUSEEVENTF_VIRTUALDESK: MOUSE_EVENT_FLAGS = MOUSE_EVENT_FLAGS(16384u32);
+impl ::core::marker::Copy for MOUSE_EVENT_FLAGS {}
+impl ::core::clone::Clone for MOUSE_EVENT_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const NEC_KBD_106_TYPE: u32 = 5u32;
 pub const NEC_KBD_H_MODE_TYPE: u32 = 3u32;
 pub const NEC_KBD_LAPTOP_TYPE: u32 = 4u32;
@@ -284,9 +495,22 @@ pub const TILDE: u32 = 771u32;
 pub const TONOS: u32 = 900u32;
 pub const TOSHIBA_KBD_DESKTOP_TYPE: u32 = 13u32;
 pub const TOSHIBA_KBD_LAPTOP_TYPE: u32 = 15u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct TRACKMOUSEEVENT(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct TRACKMOUSEEVENT {
+    pub cbSize: u32,
+    pub dwFlags: TRACKMOUSEEVENT_FLAGS,
+    pub hwndTrack: super::super::super::Foundation::HWND,
+    pub dwHoverTime: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for TRACKMOUSEEVENT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for TRACKMOUSEEVENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TRACKMOUSEEVENT_FLAGS(pub u32);
 pub const TME_CANCEL: TRACKMOUSEEVENT_FLAGS = TRACKMOUSEEVENT_FLAGS(2147483648u32);
@@ -294,6 +518,12 @@ pub const TME_HOVER: TRACKMOUSEEVENT_FLAGS = TRACKMOUSEEVENT_FLAGS(1u32);
 pub const TME_LEAVE: TRACKMOUSEEVENT_FLAGS = TRACKMOUSEEVENT_FLAGS(2u32);
 pub const TME_NONCLIENT: TRACKMOUSEEVENT_FLAGS = TRACKMOUSEEVENT_FLAGS(16u32);
 pub const TME_QUERY: TRACKMOUSEEVENT_FLAGS = TRACKMOUSEEVENT_FLAGS(1073741824u32);
+impl ::core::marker::Copy for TRACKMOUSEEVENT_FLAGS {}
+impl ::core::clone::Clone for TRACKMOUSEEVENT_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const UMLAUT: u32 = 776u32;
 #[repr(transparent)]
 pub struct VIRTUAL_KEY(pub u16);
@@ -527,6 +757,12 @@ pub const VK_ZOOM: VIRTUAL_KEY = VIRTUAL_KEY(251u16);
 pub const VK_NONAME: VIRTUAL_KEY = VIRTUAL_KEY(252u16);
 pub const VK_PA1: VIRTUAL_KEY = VIRTUAL_KEY(253u16);
 pub const VK_OEM_CLEAR: VIRTUAL_KEY = VIRTUAL_KEY(254u16);
+impl ::core::marker::Copy for VIRTUAL_KEY {}
+impl ::core::clone::Clone for VIRTUAL_KEY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const VK_ABNT_C1: u32 = 193u32;
 pub const VK_ABNT_C2: u32 = 194u32;
 pub const VK_DBE_ALPHANUMERIC: u32 = 240u32;
@@ -544,46 +780,254 @@ pub const VK_DBE_NOROMAN: u32 = 246u32;
 pub const VK_DBE_ROMAN: u32 = 245u32;
 pub const VK_DBE_SBCSCHAR: u32 = 243u32;
 #[repr(C)]
-pub struct VK_TO_BIT(i32);
+pub struct VK_TO_BIT {
+    pub Vk: u8,
+    pub ModBits: u8,
+}
+impl ::core::marker::Copy for VK_TO_BIT {}
+impl ::core::clone::Clone for VK_TO_BIT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct VK_TO_WCHARS1(i32);
+pub struct VK_TO_WCHARS1 {
+    pub VirtualKey: u8,
+    pub Attributes: u8,
+    pub wch: [u16; 1],
+}
+impl ::core::marker::Copy for VK_TO_WCHARS1 {}
+impl ::core::clone::Clone for VK_TO_WCHARS1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct VK_TO_WCHARS10(i32);
+pub struct VK_TO_WCHARS10 {
+    pub VirtualKey: u8,
+    pub Attributes: u8,
+    pub wch: [u16; 10],
+}
+impl ::core::marker::Copy for VK_TO_WCHARS10 {}
+impl ::core::clone::Clone for VK_TO_WCHARS10 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct VK_TO_WCHARS2(i32);
+pub struct VK_TO_WCHARS2 {
+    pub VirtualKey: u8,
+    pub Attributes: u8,
+    pub wch: [u16; 2],
+}
+impl ::core::marker::Copy for VK_TO_WCHARS2 {}
+impl ::core::clone::Clone for VK_TO_WCHARS2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct VK_TO_WCHARS3(i32);
+pub struct VK_TO_WCHARS3 {
+    pub VirtualKey: u8,
+    pub Attributes: u8,
+    pub wch: [u16; 3],
+}
+impl ::core::marker::Copy for VK_TO_WCHARS3 {}
+impl ::core::clone::Clone for VK_TO_WCHARS3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct VK_TO_WCHARS4(i32);
+pub struct VK_TO_WCHARS4 {
+    pub VirtualKey: u8,
+    pub Attributes: u8,
+    pub wch: [u16; 4],
+}
+impl ::core::marker::Copy for VK_TO_WCHARS4 {}
+impl ::core::clone::Clone for VK_TO_WCHARS4 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct VK_TO_WCHARS5(i32);
+pub struct VK_TO_WCHARS5 {
+    pub VirtualKey: u8,
+    pub Attributes: u8,
+    pub wch: [u16; 5],
+}
+impl ::core::marker::Copy for VK_TO_WCHARS5 {}
+impl ::core::clone::Clone for VK_TO_WCHARS5 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct VK_TO_WCHARS6(i32);
+pub struct VK_TO_WCHARS6 {
+    pub VirtualKey: u8,
+    pub Attributes: u8,
+    pub wch: [u16; 6],
+}
+impl ::core::marker::Copy for VK_TO_WCHARS6 {}
+impl ::core::clone::Clone for VK_TO_WCHARS6 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct VK_TO_WCHARS7(i32);
+pub struct VK_TO_WCHARS7 {
+    pub VirtualKey: u8,
+    pub Attributes: u8,
+    pub wch: [u16; 7],
+}
+impl ::core::marker::Copy for VK_TO_WCHARS7 {}
+impl ::core::clone::Clone for VK_TO_WCHARS7 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct VK_TO_WCHARS8(i32);
+pub struct VK_TO_WCHARS8 {
+    pub VirtualKey: u8,
+    pub Attributes: u8,
+    pub wch: [u16; 8],
+}
+impl ::core::marker::Copy for VK_TO_WCHARS8 {}
+impl ::core::clone::Clone for VK_TO_WCHARS8 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct VK_TO_WCHARS9(i32);
+pub struct VK_TO_WCHARS9 {
+    pub VirtualKey: u8,
+    pub Attributes: u8,
+    pub wch: [u16; 9],
+}
+impl ::core::marker::Copy for VK_TO_WCHARS9 {}
+impl ::core::clone::Clone for VK_TO_WCHARS9 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct VK_TO_WCHAR_TABLE(i32);
+pub struct VK_TO_WCHAR_TABLE {
+    pub pVkToWchars: *mut VK_TO_WCHARS1,
+    pub nModifications: u8,
+    pub cbSize: u8,
+}
+impl ::core::marker::Copy for VK_TO_WCHAR_TABLE {}
+impl ::core::clone::Clone for VK_TO_WCHAR_TABLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct VK_VSC(i32);
+pub struct VK_VSC {
+    pub Vk: u8,
+    pub Vsc: u8,
+}
+impl ::core::marker::Copy for VK_VSC {}
+impl ::core::clone::Clone for VK_VSC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const VK__none_: u32 = 255u32;
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+pub struct VSC_LPWSTR {
+    pub vsc: u8,
+    pub pwsz: super::super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for VSC_LPWSTR {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for VSC_LPWSTR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct VSC_LPWSTR(i32);
-#[repr(C)]
-pub struct VSC_VK(i32);
+pub struct VSC_VK {
+    pub Vsc: u8,
+    pub Vk: u16,
+}
+impl ::core::marker::Copy for VSC_VK {}
+impl ::core::clone::Clone for VSC_VK {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WCH_DEAD: u32 = 61441u32;
 pub const WCH_LGTR: u32 = 61442u32;
 pub const WCH_NONE: u32 = 61440u32;
 #[repr(C)]
-pub struct _VK_FUNCTION_PARAM(i32);
+pub struct _VK_FUNCTION_PARAM {
+    pub NLSFEProcIndex: u8,
+    pub NLSFEProcParam: u32,
+}
+impl ::core::marker::Copy for _VK_FUNCTION_PARAM {}
+impl ::core::clone::Clone for _VK_FUNCTION_PARAM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct _VK_TO_FUNCTION_TABLE(i32);
+pub struct _VK_TO_FUNCTION_TABLE {
+    pub Vk: u8,
+    pub NLSFEProcType: u8,
+    pub NLSFEProcCurrent: u8,
+    pub NLSFEProcSwitch: u8,
+    pub NLSFEProc: [_VK_FUNCTION_PARAM; 8],
+    pub NLSFEProcAlt: [_VK_FUNCTION_PARAM; 8],
+}
+impl ::core::marker::Copy for _VK_TO_FUNCTION_TABLE {}
+impl ::core::clone::Clone for _VK_TO_FUNCTION_TABLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+pub struct tagKbdLayer {
+    pub pCharModifiers: *mut MODIFIERS,
+    pub pVkToWcharTable: *mut VK_TO_WCHAR_TABLE,
+    pub pDeadKey: *mut DEADKEY,
+    pub pKeyNames: *mut VSC_LPWSTR,
+    pub pKeyNamesExt: *mut VSC_LPWSTR,
+    pub pKeyNamesDead: *mut *mut u16,
+    pub pusVSCtoVK: *mut u16,
+    pub bMaxVSCtoVK: u8,
+    pub pVSCtoVK_E0: *mut VSC_VK,
+    pub pVSCtoVK_E1: *mut VSC_VK,
+    pub fLocaleFlags: u32,
+    pub nLgMax: u8,
+    pub cbLgEntry: u8,
+    pub pLigature: *mut LIGATURE1,
+    pub dwType: u32,
+    pub dwSubType: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for tagKbdLayer {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for tagKbdLayer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct tagKbdLayer(i32);
-#[repr(C)]
-pub struct tagKbdNlsLayer(i32);
+pub struct tagKbdNlsLayer {
+    pub OEMIdentifier: u16,
+    pub LayoutInformation: u16,
+    pub NumOfVkToF: u32,
+    pub pVkToF: *mut _VK_TO_FUNCTION_TABLE,
+    pub NumOfMouseVKey: i32,
+    pub pusMouseVKey: *mut u16,
+}
+impl ::core::marker::Copy for tagKbdNlsLayer {}
+impl ::core::clone::Clone for tagKbdNlsLayer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

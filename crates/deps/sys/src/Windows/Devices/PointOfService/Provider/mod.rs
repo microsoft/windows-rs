@@ -47,6 +47,12 @@ impl BarcodeScannerTriggerState {
     pub const Released: Self = Self(0i32);
     pub const Pressed: Self = Self(1i32);
 }
+impl ::core::marker::Copy for BarcodeScannerTriggerState {}
+impl ::core::clone::Clone for BarcodeScannerTriggerState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct BarcodeScannerVideoFrame(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

@@ -15,6 +15,12 @@ impl AdvancedPhotoMode {
     pub const Hdr: Self = Self(2i32);
     pub const LowLight: Self = Self(3i32);
 }
+impl ::core::marker::Copy for AdvancedPhotoMode {}
+impl ::core::clone::Clone for AdvancedPhotoMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AudioDeviceController(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -29,6 +35,12 @@ impl AudioDeviceRole {
     pub const Default: Self = Self(0i32);
     pub const Communications: Self = Self(1i32);
 }
+impl ::core::marker::Copy for AudioDeviceRole {}
+impl ::core::clone::Clone for AudioDeviceRole {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AutoFocusRange(pub i32);
 impl AutoFocusRange {
@@ -36,10 +48,14 @@ impl AutoFocusRange {
     pub const Macro: Self = Self(1i32);
     pub const Normal: Self = Self(2i32);
 }
+impl ::core::marker::Copy for AutoFocusRange {}
+impl ::core::clone::Clone for AutoFocusRange {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CallControl(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct CallControlContract(i32);
 #[repr(transparent)]
 pub struct CallControlEventHandler(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -49,6 +65,12 @@ pub struct CameraOcclusionKind(pub i32);
 impl CameraOcclusionKind {
     pub const Lid: Self = Self(0i32);
     pub const CameraHardware: Self = Self(1i32);
+}
+impl ::core::marker::Copy for CameraOcclusionKind {}
+impl ::core::clone::Clone for CameraOcclusionKind {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct CameraOcclusionState(pub *mut ::core::ffi::c_void);
@@ -61,6 +83,12 @@ impl CameraStreamState {
     pub const Streaming: Self = Self(1i32);
     pub const BlockedForPrivacy: Self = Self(2i32);
     pub const Shutdown: Self = Self(3i32);
+}
+impl ::core::marker::Copy for CameraStreamState {}
+impl ::core::clone::Clone for CameraStreamState {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct CaptureSceneMode(pub i32);
@@ -79,12 +107,24 @@ impl CaptureSceneMode {
     pub const NightPortrait: Self = Self(11i32);
     pub const Backlit: Self = Self(12i32);
 }
+impl ::core::marker::Copy for CaptureSceneMode {}
+impl ::core::clone::Clone for CaptureSceneMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CaptureUse(pub i32);
 impl CaptureUse {
     pub const None: Self = Self(0i32);
     pub const Photo: Self = Self(1i32);
     pub const Video: Self = Self(2i32);
+}
+impl ::core::marker::Copy for CaptureUse {}
+impl ::core::clone::Clone for CaptureUse {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct ColorTemperaturePreset(pub i32);
@@ -97,6 +137,12 @@ impl ColorTemperaturePreset {
     pub const Fluorescent: Self = Self(5i32);
     pub const Tungsten: Self = Self(6i32);
     pub const Candlelight: Self = Self(7i32);
+}
+impl ::core::marker::Copy for ColorTemperaturePreset {}
+impl ::core::clone::Clone for ColorTemperaturePreset {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct DefaultAudioCaptureDeviceChangedEventArgs(pub *mut ::core::ffi::c_void);
@@ -119,6 +165,12 @@ impl DigitalWindowMode {
     pub const On: Self = Self(1i32);
     pub const Auto: Self = Self(2i32);
 }
+impl ::core::marker::Copy for DigitalWindowMode {}
+impl ::core::clone::Clone for DigitalWindowMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ExposureCompensationControl(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -137,6 +189,12 @@ impl FocusMode {
     pub const Continuous: Self = Self(2i32);
     pub const Manual: Self = Self(3i32);
 }
+impl ::core::marker::Copy for FocusMode {}
+impl ::core::clone::Clone for FocusMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct FocusPreset(pub i32);
 impl FocusPreset {
@@ -146,6 +204,12 @@ impl FocusPreset {
     pub const AutoNormal: Self = Self(3i32);
     pub const AutoInfinity: Self = Self(4i32);
     pub const AutoHyperfocal: Self = Self(5i32);
+}
+impl ::core::marker::Copy for FocusPreset {}
+impl ::core::clone::Clone for FocusPreset {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct FocusSettings(pub *mut ::core::ffi::c_void);
@@ -157,6 +221,12 @@ impl HdrVideoMode {
     pub const Off: Self = Self(0i32);
     pub const On: Self = Self(1i32);
     pub const Auto: Self = Self(2i32);
+}
+impl ::core::marker::Copy for HdrVideoMode {}
+impl ::core::clone::Clone for HdrVideoMode {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct IAdvancedPhotoCaptureSettings(pub *mut ::core::ffi::c_void);
@@ -293,6 +363,12 @@ impl InfraredTorchMode {
     pub const On: Self = Self(1i32);
     pub const AlternatingFrameIllumination: Self = Self(2i32);
 }
+impl ::core::marker::Copy for InfraredTorchMode {}
+impl ::core::clone::Clone for InfraredTorchMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IsoSpeedControl(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -311,6 +387,12 @@ impl IsoSpeedPreset {
     pub const Iso12800: Self = Self(10i32);
     pub const Iso25600: Self = Self(11i32);
 }
+impl ::core::marker::Copy for IsoSpeedPreset {}
+impl ::core::clone::Clone for IsoSpeedPreset {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct KeypadPressedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -326,6 +408,12 @@ impl ManualFocusDistance {
     pub const Hyperfocal: Self = Self(1i32);
     pub const Nearest: Self = Self(2i32);
 }
+impl ::core::marker::Copy for ManualFocusDistance {}
+impl ::core::clone::Clone for ManualFocusDistance {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MediaCaptureFocusState(pub i32);
 impl MediaCaptureFocusState {
@@ -334,6 +422,12 @@ impl MediaCaptureFocusState {
     pub const Searching: Self = Self(2i32);
     pub const Focused: Self = Self(3i32);
     pub const Failed: Self = Self(4i32);
+}
+impl ::core::marker::Copy for MediaCaptureFocusState {}
+impl ::core::clone::Clone for MediaCaptureFocusState {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct MediaCaptureOptimization(pub i32);
@@ -346,11 +440,23 @@ impl MediaCaptureOptimization {
     pub const LatencyThenPower: Self = Self(5i32);
     pub const PowerAndQuality: Self = Self(6i32);
 }
+impl ::core::marker::Copy for MediaCaptureOptimization {}
+impl ::core::clone::Clone for MediaCaptureOptimization {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MediaCapturePauseBehavior(pub i32);
 impl MediaCapturePauseBehavior {
     pub const RetainHardwareResources: Self = Self(0i32);
     pub const ReleaseHardwareResources: Self = Self(1i32);
+}
+impl ::core::marker::Copy for MediaCapturePauseBehavior {}
+impl ::core::clone::Clone for MediaCapturePauseBehavior {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct MediaDeviceControl(pub *mut ::core::ffi::c_void);
@@ -366,6 +472,12 @@ impl OpticalImageStabilizationMode {
     pub const Off: Self = Self(0i32);
     pub const On: Self = Self(1i32);
     pub const Auto: Self = Self(2i32);
+}
+impl ::core::marker::Copy for OpticalImageStabilizationMode {}
+impl ::core::clone::Clone for OpticalImageStabilizationMode {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct PanelBasedOptimizationControl(pub *mut ::core::ffi::c_void);
@@ -383,6 +495,12 @@ impl RegionOfInterestType {
     pub const Unknown: Self = Self(0i32);
     pub const Face: Self = Self(1i32);
 }
+impl ::core::marker::Copy for RegionOfInterestType {}
+impl ::core::clone::Clone for RegionOfInterestType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RegionsOfInterestControl(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -392,6 +510,12 @@ pub struct SendCommandStatus(pub i32);
 impl SendCommandStatus {
     pub const Success: Self = Self(0i32);
     pub const DeviceNotAvailable: Self = Self(1i32);
+}
+impl ::core::marker::Copy for SendCommandStatus {}
+impl ::core::clone::Clone for SendCommandStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct TelephonyKey(pub i32);
@@ -413,6 +537,12 @@ impl TelephonyKey {
     pub const C: Self = Self(14i32);
     pub const D: Self = Self(15i32);
 }
+impl ::core::marker::Copy for TelephonyKey {}
+impl ::core::clone::Clone for TelephonyKey {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TorchControl(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -430,6 +560,12 @@ impl VideoDeviceControllerGetDevicePropertyStatus {
     pub const MaxPropertyValueSizeTooSmall: Self = Self(5i32);
     pub const MaxPropertyValueSizeRequired: Self = Self(6i32);
 }
+impl ::core::marker::Copy for VideoDeviceControllerGetDevicePropertyStatus {}
+impl ::core::clone::Clone for VideoDeviceControllerGetDevicePropertyStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct VideoDeviceControllerSetDevicePropertyStatus(pub i32);
 impl VideoDeviceControllerSetDevicePropertyStatus {
@@ -440,6 +576,12 @@ impl VideoDeviceControllerSetDevicePropertyStatus {
     pub const DeviceNotAvailable: Self = Self(4i32);
     pub const NotInControl: Self = Self(5i32);
 }
+impl ::core::marker::Copy for VideoDeviceControllerSetDevicePropertyStatus {}
+impl ::core::clone::Clone for VideoDeviceControllerSetDevicePropertyStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct VideoTemporalDenoisingControl(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -448,6 +590,12 @@ impl VideoTemporalDenoisingMode {
     pub const Off: Self = Self(0i32);
     pub const On: Self = Self(1i32);
     pub const Auto: Self = Self(2i32);
+}
+impl ::core::marker::Copy for VideoTemporalDenoisingMode {}
+impl ::core::clone::Clone for VideoTemporalDenoisingMode {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct WhiteBalanceControl(pub *mut ::core::ffi::c_void);
@@ -461,4 +609,10 @@ impl ZoomTransitionMode {
     pub const Auto: Self = Self(0i32);
     pub const Direct: Self = Self(1i32);
     pub const Smooth: Self = Self(2i32);
+}
+impl ::core::marker::Copy for ZoomTransitionMode {}
+impl ::core::clone::Clone for ZoomTransitionMode {
+    fn clone(&self) -> Self {
+        *self
+    }
 }

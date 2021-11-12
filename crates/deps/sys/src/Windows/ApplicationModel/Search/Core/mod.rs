@@ -11,8 +11,6 @@ pub struct ISearchSuggestionManager(pub *mut ::core::ffi::c_void);
 pub struct ISearchSuggestionsRequestedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct RequestingFocusOnKeyboardInputEventArgs(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct SearchCoreContract(i32);
 #[repr(transparent)]
 pub struct SearchSuggestion(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -21,6 +19,12 @@ impl SearchSuggestionKind {
     pub const Query: Self = Self(0i32);
     pub const Result: Self = Self(1i32);
     pub const Separator: Self = Self(2i32);
+}
+impl ::core::marker::Copy for SearchSuggestionKind {}
+impl ::core::clone::Clone for SearchSuggestionKind {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct SearchSuggestionManager(pub *mut ::core::ffi::c_void);

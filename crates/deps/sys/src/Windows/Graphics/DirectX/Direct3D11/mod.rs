@@ -15,10 +15,36 @@ impl Direct3DBindings {
     pub const Decoder: Self = Self(512u32);
     pub const VideoEncoder: Self = Self(1024u32);
 }
+impl ::core::marker::Copy for Direct3DBindings {}
+impl ::core::clone::Clone for Direct3DBindings {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct Direct3DMultisampleDescription(i32);
+pub struct Direct3DMultisampleDescription {
+    pub Count: i32,
+    pub Quality: i32,
+}
+impl ::core::marker::Copy for Direct3DMultisampleDescription {}
+impl ::core::clone::Clone for Direct3DMultisampleDescription {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct Direct3DSurfaceDescription(i32);
+pub struct Direct3DSurfaceDescription {
+    pub Width: i32,
+    pub Height: i32,
+    pub Format: super::DirectXPixelFormat,
+    pub MultisampleDescription: Direct3DMultisampleDescription,
+}
+impl ::core::marker::Copy for Direct3DSurfaceDescription {}
+impl ::core::clone::Clone for Direct3DSurfaceDescription {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct Direct3DUsage(pub i32);
 impl Direct3DUsage {
@@ -26,6 +52,12 @@ impl Direct3DUsage {
     pub const Immutable: Self = Self(1i32);
     pub const Dynamic: Self = Self(2i32);
     pub const Staging: Self = Self(3i32);
+}
+impl ::core::marker::Copy for Direct3DUsage {}
+impl ::core::clone::Clone for Direct3DUsage {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct IDirect3DDevice(pub *mut ::core::ffi::c_void);

@@ -108,16 +108,64 @@ extern "system" {
     pub fn ReportEventW(heventlog: super::super::Foundation::HANDLE, wtype: REPORT_EVENT_TYPE, wcategory: u16, dweventid: u32, lpusersid: super::super::Foundation::PSID, wnumstrings: u16, dwdatasize: u32, lpstrings: *const super::super::Foundation::PWSTR, lprawdata: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
 }
 #[repr(C)]
-pub struct EVENTLOGRECORD(i32);
+pub struct EVENTLOGRECORD {
+    pub Length: u32,
+    pub Reserved: u32,
+    pub RecordNumber: u32,
+    pub TimeGenerated: u32,
+    pub TimeWritten: u32,
+    pub EventID: u32,
+    pub EventType: REPORT_EVENT_TYPE,
+    pub NumStrings: u16,
+    pub EventCategory: u16,
+    pub ReservedFlags: u16,
+    pub ClosingRecordNumber: u32,
+    pub StringOffset: u32,
+    pub UserSidLength: u32,
+    pub UserSidOffset: u32,
+    pub DataLength: u32,
+    pub DataOffset: u32,
+}
+impl ::core::marker::Copy for EVENTLOGRECORD {}
+impl ::core::clone::Clone for EVENTLOGRECORD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct EVENTLOG_FULL_INFORMATION(i32);
+pub struct EVENTLOG_FULL_INFORMATION {
+    pub dwFull: u32,
+}
+impl ::core::marker::Copy for EVENTLOG_FULL_INFORMATION {}
+impl ::core::clone::Clone for EVENTLOG_FULL_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct EVENTSFORLOGFILE(i32);
+pub struct EVENTSFORLOGFILE {
+    pub ulSize: u32,
+    pub szLogicalLogFile: [u16; 256],
+    pub ulNumRecords: u32,
+    pub pEventLogRecords: [EVENTLOGRECORD; 1],
+}
+impl ::core::marker::Copy for EVENTSFORLOGFILE {}
+impl ::core::clone::Clone for EVENTSFORLOGFILE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const EVT_ALL_ACCESS: u32 = 7u32;
 #[repr(transparent)]
 pub struct EVT_CHANNEL_CLOCK_TYPE(pub i32);
 pub const EvtChannelClockTypeSystemTime: EVT_CHANNEL_CLOCK_TYPE = EVT_CHANNEL_CLOCK_TYPE(0i32);
 pub const EvtChannelClockTypeQPC: EVT_CHANNEL_CLOCK_TYPE = EVT_CHANNEL_CLOCK_TYPE(1i32);
+impl ::core::marker::Copy for EVT_CHANNEL_CLOCK_TYPE {}
+impl ::core::clone::Clone for EVT_CHANNEL_CLOCK_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct EVT_CHANNEL_CONFIG_PROPERTY_ID(pub i32);
 pub const EvtChannelConfigEnabled: EVT_CHANNEL_CONFIG_PROPERTY_ID = EVT_CHANNEL_CONFIG_PROPERTY_ID(0i32);
@@ -142,24 +190,54 @@ pub const EvtChannelPublishingConfigSidType: EVT_CHANNEL_CONFIG_PROPERTY_ID = EV
 pub const EvtChannelPublisherList: EVT_CHANNEL_CONFIG_PROPERTY_ID = EVT_CHANNEL_CONFIG_PROPERTY_ID(19i32);
 pub const EvtChannelPublishingConfigFileMax: EVT_CHANNEL_CONFIG_PROPERTY_ID = EVT_CHANNEL_CONFIG_PROPERTY_ID(20i32);
 pub const EvtChannelConfigPropertyIdEND: EVT_CHANNEL_CONFIG_PROPERTY_ID = EVT_CHANNEL_CONFIG_PROPERTY_ID(21i32);
+impl ::core::marker::Copy for EVT_CHANNEL_CONFIG_PROPERTY_ID {}
+impl ::core::clone::Clone for EVT_CHANNEL_CONFIG_PROPERTY_ID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct EVT_CHANNEL_ISOLATION_TYPE(pub i32);
 pub const EvtChannelIsolationTypeApplication: EVT_CHANNEL_ISOLATION_TYPE = EVT_CHANNEL_ISOLATION_TYPE(0i32);
 pub const EvtChannelIsolationTypeSystem: EVT_CHANNEL_ISOLATION_TYPE = EVT_CHANNEL_ISOLATION_TYPE(1i32);
 pub const EvtChannelIsolationTypeCustom: EVT_CHANNEL_ISOLATION_TYPE = EVT_CHANNEL_ISOLATION_TYPE(2i32);
+impl ::core::marker::Copy for EVT_CHANNEL_ISOLATION_TYPE {}
+impl ::core::clone::Clone for EVT_CHANNEL_ISOLATION_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct EVT_CHANNEL_REFERENCE_FLAGS(pub i32);
 pub const EvtChannelReferenceImported: EVT_CHANNEL_REFERENCE_FLAGS = EVT_CHANNEL_REFERENCE_FLAGS(1i32);
+impl ::core::marker::Copy for EVT_CHANNEL_REFERENCE_FLAGS {}
+impl ::core::clone::Clone for EVT_CHANNEL_REFERENCE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct EVT_CHANNEL_SID_TYPE(pub i32);
 pub const EvtChannelSidTypeNone: EVT_CHANNEL_SID_TYPE = EVT_CHANNEL_SID_TYPE(0i32);
 pub const EvtChannelSidTypePublishing: EVT_CHANNEL_SID_TYPE = EVT_CHANNEL_SID_TYPE(1i32);
+impl ::core::marker::Copy for EVT_CHANNEL_SID_TYPE {}
+impl ::core::clone::Clone for EVT_CHANNEL_SID_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct EVT_CHANNEL_TYPE(pub i32);
 pub const EvtChannelTypeAdmin: EVT_CHANNEL_TYPE = EVT_CHANNEL_TYPE(0i32);
 pub const EvtChannelTypeOperational: EVT_CHANNEL_TYPE = EVT_CHANNEL_TYPE(1i32);
 pub const EvtChannelTypeAnalytic: EVT_CHANNEL_TYPE = EVT_CHANNEL_TYPE(2i32);
 pub const EvtChannelTypeDebug: EVT_CHANNEL_TYPE = EVT_CHANNEL_TYPE(3i32);
+impl ::core::marker::Copy for EVT_CHANNEL_TYPE {}
+impl ::core::clone::Clone for EVT_CHANNEL_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const EVT_CLEAR_ACCESS: u32 = 4u32;
 #[repr(transparent)]
 pub struct EVT_EVENT_METADATA_PROPERTY_ID(pub i32);
@@ -173,17 +251,35 @@ pub const EventMetadataEventKeyword: EVT_EVENT_METADATA_PROPERTY_ID = EVT_EVENT_
 pub const EventMetadataEventMessageID: EVT_EVENT_METADATA_PROPERTY_ID = EVT_EVENT_METADATA_PROPERTY_ID(7i32);
 pub const EventMetadataEventTemplate: EVT_EVENT_METADATA_PROPERTY_ID = EVT_EVENT_METADATA_PROPERTY_ID(8i32);
 pub const EvtEventMetadataPropertyIdEND: EVT_EVENT_METADATA_PROPERTY_ID = EVT_EVENT_METADATA_PROPERTY_ID(9i32);
+impl ::core::marker::Copy for EVT_EVENT_METADATA_PROPERTY_ID {}
+impl ::core::clone::Clone for EVT_EVENT_METADATA_PROPERTY_ID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct EVT_EVENT_PROPERTY_ID(pub i32);
 pub const EvtEventQueryIDs: EVT_EVENT_PROPERTY_ID = EVT_EVENT_PROPERTY_ID(0i32);
 pub const EvtEventPath: EVT_EVENT_PROPERTY_ID = EVT_EVENT_PROPERTY_ID(1i32);
 pub const EvtEventPropertyIdEND: EVT_EVENT_PROPERTY_ID = EVT_EVENT_PROPERTY_ID(2i32);
+impl ::core::marker::Copy for EVT_EVENT_PROPERTY_ID {}
+impl ::core::clone::Clone for EVT_EVENT_PROPERTY_ID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct EVT_EXPORTLOG_FLAGS(pub i32);
 pub const EvtExportLogChannelPath: EVT_EXPORTLOG_FLAGS = EVT_EXPORTLOG_FLAGS(1i32);
 pub const EvtExportLogFilePath: EVT_EXPORTLOG_FLAGS = EVT_EXPORTLOG_FLAGS(2i32);
 pub const EvtExportLogTolerateQueryErrors: EVT_EXPORTLOG_FLAGS = EVT_EXPORTLOG_FLAGS(4096i32);
 pub const EvtExportLogOverwrite: EVT_EXPORTLOG_FLAGS = EVT_EXPORTLOG_FLAGS(8192i32);
+impl ::core::marker::Copy for EVT_EXPORTLOG_FLAGS {}
+impl ::core::clone::Clone for EVT_EXPORTLOG_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct EVT_FORMAT_MESSAGE_FLAGS(pub i32);
 pub const EvtFormatMessageEvent: EVT_FORMAT_MESSAGE_FLAGS = EVT_FORMAT_MESSAGE_FLAGS(1i32);
@@ -195,9 +291,21 @@ pub const EvtFormatMessageChannel: EVT_FORMAT_MESSAGE_FLAGS = EVT_FORMAT_MESSAGE
 pub const EvtFormatMessageProvider: EVT_FORMAT_MESSAGE_FLAGS = EVT_FORMAT_MESSAGE_FLAGS(7i32);
 pub const EvtFormatMessageId: EVT_FORMAT_MESSAGE_FLAGS = EVT_FORMAT_MESSAGE_FLAGS(8i32);
 pub const EvtFormatMessageXml: EVT_FORMAT_MESSAGE_FLAGS = EVT_FORMAT_MESSAGE_FLAGS(9i32);
+impl ::core::marker::Copy for EVT_FORMAT_MESSAGE_FLAGS {}
+impl ::core::clone::Clone for EVT_FORMAT_MESSAGE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct EVT_LOGIN_CLASS(pub i32);
 pub const EvtRpcLogin: EVT_LOGIN_CLASS = EVT_LOGIN_CLASS(1i32);
+impl ::core::marker::Copy for EVT_LOGIN_CLASS {}
+impl ::core::clone::Clone for EVT_LOGIN_CLASS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct EVT_LOG_PROPERTY_ID(pub i32);
 pub const EvtLogCreationTime: EVT_LOG_PROPERTY_ID = EVT_LOG_PROPERTY_ID(0i32);
@@ -208,10 +316,22 @@ pub const EvtLogAttributes: EVT_LOG_PROPERTY_ID = EVT_LOG_PROPERTY_ID(4i32);
 pub const EvtLogNumberOfLogRecords: EVT_LOG_PROPERTY_ID = EVT_LOG_PROPERTY_ID(5i32);
 pub const EvtLogOldestRecordNumber: EVT_LOG_PROPERTY_ID = EVT_LOG_PROPERTY_ID(6i32);
 pub const EvtLogFull: EVT_LOG_PROPERTY_ID = EVT_LOG_PROPERTY_ID(7i32);
+impl ::core::marker::Copy for EVT_LOG_PROPERTY_ID {}
+impl ::core::clone::Clone for EVT_LOG_PROPERTY_ID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct EVT_OPEN_LOG_FLAGS(pub i32);
 pub const EvtOpenChannelPath: EVT_OPEN_LOG_FLAGS = EVT_OPEN_LOG_FLAGS(1i32);
 pub const EvtOpenFilePath: EVT_OPEN_LOG_FLAGS = EVT_OPEN_LOG_FLAGS(2i32);
+impl ::core::marker::Copy for EVT_OPEN_LOG_FLAGS {}
+impl ::core::clone::Clone for EVT_OPEN_LOG_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct EVT_PUBLISHER_METADATA_PROPERTY_ID(pub i32);
 pub const EvtPublisherMetadataPublisherGuid: EVT_PUBLISHER_METADATA_PROPERTY_ID = EVT_PUBLISHER_METADATA_PROPERTY_ID(0i32);
@@ -244,6 +364,12 @@ pub const EvtPublisherMetadataKeywordName: EVT_PUBLISHER_METADATA_PROPERTY_ID = 
 pub const EvtPublisherMetadataKeywordValue: EVT_PUBLISHER_METADATA_PROPERTY_ID = EVT_PUBLISHER_METADATA_PROPERTY_ID(27i32);
 pub const EvtPublisherMetadataKeywordMessageID: EVT_PUBLISHER_METADATA_PROPERTY_ID = EVT_PUBLISHER_METADATA_PROPERTY_ID(28i32);
 pub const EvtPublisherMetadataPropertyIdEND: EVT_PUBLISHER_METADATA_PROPERTY_ID = EVT_PUBLISHER_METADATA_PROPERTY_ID(29i32);
+impl ::core::marker::Copy for EVT_PUBLISHER_METADATA_PROPERTY_ID {}
+impl ::core::clone::Clone for EVT_PUBLISHER_METADATA_PROPERTY_ID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct EVT_QUERY_FLAGS(pub i32);
 pub const EvtQueryChannelPath: EVT_QUERY_FLAGS = EVT_QUERY_FLAGS(1i32);
@@ -251,31 +377,75 @@ pub const EvtQueryFilePath: EVT_QUERY_FLAGS = EVT_QUERY_FLAGS(2i32);
 pub const EvtQueryForwardDirection: EVT_QUERY_FLAGS = EVT_QUERY_FLAGS(256i32);
 pub const EvtQueryReverseDirection: EVT_QUERY_FLAGS = EVT_QUERY_FLAGS(512i32);
 pub const EvtQueryTolerateQueryErrors: EVT_QUERY_FLAGS = EVT_QUERY_FLAGS(4096i32);
+impl ::core::marker::Copy for EVT_QUERY_FLAGS {}
+impl ::core::clone::Clone for EVT_QUERY_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct EVT_QUERY_PROPERTY_ID(pub i32);
 pub const EvtQueryNames: EVT_QUERY_PROPERTY_ID = EVT_QUERY_PROPERTY_ID(0i32);
 pub const EvtQueryStatuses: EVT_QUERY_PROPERTY_ID = EVT_QUERY_PROPERTY_ID(1i32);
 pub const EvtQueryPropertyIdEND: EVT_QUERY_PROPERTY_ID = EVT_QUERY_PROPERTY_ID(2i32);
+impl ::core::marker::Copy for EVT_QUERY_PROPERTY_ID {}
+impl ::core::clone::Clone for EVT_QUERY_PROPERTY_ID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const EVT_READ_ACCESS: u32 = 1u32;
 #[repr(transparent)]
 pub struct EVT_RENDER_CONTEXT_FLAGS(pub i32);
 pub const EvtRenderContextValues: EVT_RENDER_CONTEXT_FLAGS = EVT_RENDER_CONTEXT_FLAGS(0i32);
 pub const EvtRenderContextSystem: EVT_RENDER_CONTEXT_FLAGS = EVT_RENDER_CONTEXT_FLAGS(1i32);
 pub const EvtRenderContextUser: EVT_RENDER_CONTEXT_FLAGS = EVT_RENDER_CONTEXT_FLAGS(2i32);
+impl ::core::marker::Copy for EVT_RENDER_CONTEXT_FLAGS {}
+impl ::core::clone::Clone for EVT_RENDER_CONTEXT_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct EVT_RENDER_FLAGS(pub i32);
 pub const EvtRenderEventValues: EVT_RENDER_FLAGS = EVT_RENDER_FLAGS(0i32);
 pub const EvtRenderEventXml: EVT_RENDER_FLAGS = EVT_RENDER_FLAGS(1i32);
 pub const EvtRenderBookmark: EVT_RENDER_FLAGS = EVT_RENDER_FLAGS(2i32);
-#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for EVT_RENDER_FLAGS {}
+impl ::core::clone::Clone for EVT_RENDER_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct EVT_RPC_LOGIN(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct EVT_RPC_LOGIN {
+    pub Server: super::super::Foundation::PWSTR,
+    pub User: super::super::Foundation::PWSTR,
+    pub Domain: super::super::Foundation::PWSTR,
+    pub Password: super::super::Foundation::PWSTR,
+    pub Flags: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for EVT_RPC_LOGIN {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for EVT_RPC_LOGIN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct EVT_RPC_LOGIN_FLAGS(pub i32);
 pub const EvtRpcLoginAuthDefault: EVT_RPC_LOGIN_FLAGS = EVT_RPC_LOGIN_FLAGS(0i32);
 pub const EvtRpcLoginAuthNegotiate: EVT_RPC_LOGIN_FLAGS = EVT_RPC_LOGIN_FLAGS(1i32);
 pub const EvtRpcLoginAuthKerberos: EVT_RPC_LOGIN_FLAGS = EVT_RPC_LOGIN_FLAGS(2i32);
 pub const EvtRpcLoginAuthNTLM: EVT_RPC_LOGIN_FLAGS = EVT_RPC_LOGIN_FLAGS(3i32);
+impl ::core::marker::Copy for EVT_RPC_LOGIN_FLAGS {}
+impl ::core::clone::Clone for EVT_RPC_LOGIN_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct EVT_SEEK_FLAGS(pub i32);
 pub const EvtSeekRelativeToFirst: EVT_SEEK_FLAGS = EVT_SEEK_FLAGS(1i32);
@@ -284,6 +454,12 @@ pub const EvtSeekRelativeToCurrent: EVT_SEEK_FLAGS = EVT_SEEK_FLAGS(3i32);
 pub const EvtSeekRelativeToBookmark: EVT_SEEK_FLAGS = EVT_SEEK_FLAGS(4i32);
 pub const EvtSeekOriginMask: EVT_SEEK_FLAGS = EVT_SEEK_FLAGS(7i32);
 pub const EvtSeekStrict: EVT_SEEK_FLAGS = EVT_SEEK_FLAGS(65536i32);
+impl ::core::marker::Copy for EVT_SEEK_FLAGS {}
+impl ::core::clone::Clone for EVT_SEEK_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub type EVT_SUBSCRIBE_CALLBACK = unsafe extern "system" fn(action: EVT_SUBSCRIBE_NOTIFY_ACTION, usercontext: *const ::core::ffi::c_void, event: isize) -> u32;
 #[repr(transparent)]
 pub struct EVT_SUBSCRIBE_FLAGS(pub i32);
@@ -293,10 +469,22 @@ pub const EvtSubscribeStartAfterBookmark: EVT_SUBSCRIBE_FLAGS = EVT_SUBSCRIBE_FL
 pub const EvtSubscribeOriginMask: EVT_SUBSCRIBE_FLAGS = EVT_SUBSCRIBE_FLAGS(3i32);
 pub const EvtSubscribeTolerateQueryErrors: EVT_SUBSCRIBE_FLAGS = EVT_SUBSCRIBE_FLAGS(4096i32);
 pub const EvtSubscribeStrict: EVT_SUBSCRIBE_FLAGS = EVT_SUBSCRIBE_FLAGS(65536i32);
+impl ::core::marker::Copy for EVT_SUBSCRIBE_FLAGS {}
+impl ::core::clone::Clone for EVT_SUBSCRIBE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct EVT_SUBSCRIBE_NOTIFY_ACTION(pub i32);
 pub const EvtSubscribeActionError: EVT_SUBSCRIBE_NOTIFY_ACTION = EVT_SUBSCRIBE_NOTIFY_ACTION(0i32);
 pub const EvtSubscribeActionDeliver: EVT_SUBSCRIBE_NOTIFY_ACTION = EVT_SUBSCRIBE_NOTIFY_ACTION(1i32);
+impl ::core::marker::Copy for EVT_SUBSCRIBE_NOTIFY_ACTION {}
+impl ::core::clone::Clone for EVT_SUBSCRIBE_NOTIFY_ACTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct EVT_SYSTEM_PROPERTY_ID(pub i32);
 pub const EvtSystemProviderName: EVT_SYSTEM_PROPERTY_ID = EVT_SYSTEM_PROPERTY_ID(0i32);
@@ -318,9 +506,79 @@ pub const EvtSystemComputer: EVT_SYSTEM_PROPERTY_ID = EVT_SYSTEM_PROPERTY_ID(15i
 pub const EvtSystemUserID: EVT_SYSTEM_PROPERTY_ID = EVT_SYSTEM_PROPERTY_ID(16i32);
 pub const EvtSystemVersion: EVT_SYSTEM_PROPERTY_ID = EVT_SYSTEM_PROPERTY_ID(17i32);
 pub const EvtSystemPropertyIdEND: EVT_SYSTEM_PROPERTY_ID = EVT_SYSTEM_PROPERTY_ID(18i32);
-#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for EVT_SYSTEM_PROPERTY_ID {}
+impl ::core::clone::Clone for EVT_SYSTEM_PROPERTY_ID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct EVT_VARIANT(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct EVT_VARIANT {
+    pub Anonymous: EVT_VARIANT_0,
+    pub Count: u32,
+    pub Type: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for EVT_VARIANT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for EVT_VARIANT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub union EVT_VARIANT_0 {
+    pub BooleanVal: super::super::Foundation::BOOL,
+    pub SByteVal: i8,
+    pub Int16Val: i16,
+    pub Int32Val: i32,
+    pub Int64Val: i64,
+    pub ByteVal: u8,
+    pub UInt16Val: u16,
+    pub UInt32Val: u32,
+    pub UInt64Val: u64,
+    pub SingleVal: f32,
+    pub DoubleVal: f64,
+    pub FileTimeVal: u64,
+    pub SysTimeVal: *mut super::super::Foundation::SYSTEMTIME,
+    pub GuidVal: *mut ::windows_sys::core::GUID,
+    pub StringVal: super::super::Foundation::PWSTR,
+    pub AnsiStringVal: super::super::Foundation::PSTR,
+    pub BinaryVal: *mut u8,
+    pub SidVal: super::super::Foundation::PSID,
+    pub SizeTVal: usize,
+    pub BooleanArr: *mut super::super::Foundation::BOOL,
+    pub SByteArr: *mut i8,
+    pub Int16Arr: *mut i16,
+    pub Int32Arr: *mut i32,
+    pub Int64Arr: *mut i64,
+    pub ByteArr: *mut u8,
+    pub UInt16Arr: *mut u16,
+    pub UInt32Arr: *mut u32,
+    pub UInt64Arr: *mut u64,
+    pub SingleArr: *mut f32,
+    pub DoubleArr: *mut f64,
+    pub FileTimeArr: *mut super::super::Foundation::FILETIME,
+    pub SysTimeArr: *mut super::super::Foundation::SYSTEMTIME,
+    pub GuidArr: *mut ::windows_sys::core::GUID,
+    pub StringArr: *mut super::super::Foundation::PWSTR,
+    pub AnsiStringArr: *mut super::super::Foundation::PSTR,
+    pub SidArr: *mut super::super::Foundation::PSID,
+    pub SizeTArr: *mut usize,
+    pub EvtHandleVal: isize,
+    pub XmlVal: super::super::Foundation::PWSTR,
+    pub XmlValArr: *mut super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for EVT_VARIANT_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for EVT_VARIANT_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct EVT_VARIANT_TYPE(pub i32);
 pub const EvtVarTypeNull: EVT_VARIANT_TYPE = EVT_VARIANT_TYPE(0i32);
@@ -347,17 +605,41 @@ pub const EvtVarTypeHexInt32: EVT_VARIANT_TYPE = EVT_VARIANT_TYPE(20i32);
 pub const EvtVarTypeHexInt64: EVT_VARIANT_TYPE = EVT_VARIANT_TYPE(21i32);
 pub const EvtVarTypeEvtHandle: EVT_VARIANT_TYPE = EVT_VARIANT_TYPE(32i32);
 pub const EvtVarTypeEvtXml: EVT_VARIANT_TYPE = EVT_VARIANT_TYPE(35i32);
+impl ::core::marker::Copy for EVT_VARIANT_TYPE {}
+impl ::core::clone::Clone for EVT_VARIANT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const EVT_VARIANT_TYPE_ARRAY: u32 = 128u32;
 pub const EVT_VARIANT_TYPE_MASK: u32 = 127u32;
 pub const EVT_WRITE_ACCESS: u32 = 2u32;
 #[repr(C)]
-pub struct EventLogHandle(i32);
+pub struct EventLogHandle(pub isize);
+impl ::core::marker::Copy for EventLogHandle {}
+impl ::core::clone::Clone for EventLogHandle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct EventSourceHandle(i32);
+pub struct EventSourceHandle(pub isize);
+impl ::core::marker::Copy for EventSourceHandle {}
+impl ::core::clone::Clone for EventSourceHandle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct READ_EVENT_LOG_READ_FLAGS(pub u32);
 pub const EVENTLOG_SEEK_READ: READ_EVENT_LOG_READ_FLAGS = READ_EVENT_LOG_READ_FLAGS(2u32);
 pub const EVENTLOG_SEQUENTIAL_READ: READ_EVENT_LOG_READ_FLAGS = READ_EVENT_LOG_READ_FLAGS(1u32);
+impl ::core::marker::Copy for READ_EVENT_LOG_READ_FLAGS {}
+impl ::core::clone::Clone for READ_EVENT_LOG_READ_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct REPORT_EVENT_TYPE(pub u16);
 pub const EVENTLOG_SUCCESS: REPORT_EVENT_TYPE = REPORT_EVENT_TYPE(0u16);
@@ -366,3 +648,9 @@ pub const EVENTLOG_AUDIT_SUCCESS: REPORT_EVENT_TYPE = REPORT_EVENT_TYPE(8u16);
 pub const EVENTLOG_ERROR_TYPE: REPORT_EVENT_TYPE = REPORT_EVENT_TYPE(1u16);
 pub const EVENTLOG_INFORMATION_TYPE: REPORT_EVENT_TYPE = REPORT_EVENT_TYPE(4u16);
 pub const EVENTLOG_WARNING_TYPE: REPORT_EVENT_TYPE = REPORT_EVENT_TYPE(2u16);
+impl ::core::marker::Copy for REPORT_EVENT_TYPE {}
+impl ::core::clone::Clone for REPORT_EVENT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

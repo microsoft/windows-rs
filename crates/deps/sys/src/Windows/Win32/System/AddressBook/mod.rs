@@ -97,50 +97,312 @@ extern "system" {
     pub fn WrapCompressedRTFStream(lpcompressedrtfstream: super::Com::IStream, ulflags: u32, lpuncompressedrtfstream: *mut super::Com::IStream) -> ::windows_sys::core::HRESULT;
     pub fn WrapStoreEntryID(ulflags: u32, lpszdllname: *const i8, cborigentry: u32, lporigentry: *const ENTRYID, lpcbwrappedentry: *mut u32, lppwrappedentry: *mut *mut ENTRYID) -> ::windows_sys::core::HRESULT;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[repr(C)]
-pub struct ADRENTRY(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-#[repr(C)]
-pub struct ADRLIST(i32);
+pub struct ADRENTRY {
+    pub ulReserved1: u32,
+    pub cValues: u32,
+    pub rgPropVals: *mut SPropValue,
+}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::marker::Copy for ADRENTRY {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::clone::Clone for ADRENTRY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct ADRPARM(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+pub struct ADRLIST {
+    pub cEntries: u32,
+    pub aEntries: [ADRENTRY; 1],
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::marker::Copy for ADRLIST {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::clone::Clone for ADRLIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+pub struct ADRPARM {
+    pub cbABContEntryID: u32,
+    pub lpABContEntryID: *mut ENTRYID,
+    pub ulFlags: u32,
+    pub lpReserved: *mut ::core::ffi::c_void,
+    pub ulHelpContext: u32,
+    pub lpszHelpFileName: *mut i8,
+    pub lpfnABSDI: ::core::option::Option<LPFNABSDI>,
+    pub lpfnDismiss: ::core::option::Option<LPFNDISMISS>,
+    pub lpvDismissContext: *mut ::core::ffi::c_void,
+    pub lpszCaption: *mut i8,
+    pub lpszNewEntryTitle: *mut i8,
+    pub lpszDestWellsTitle: *mut i8,
+    pub cDestFields: u32,
+    pub nDestFieldFocus: u32,
+    pub lppszDestTitles: *mut *mut i8,
+    pub lpulDestComps: *mut u32,
+    pub lpContRestriction: *mut SRestriction,
+    pub lpHierRestriction: *mut SRestriction,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::marker::Copy for ADRPARM {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::clone::Clone for ADRPARM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub type CALLERRELEASE = unsafe extern "system" fn(ulcallerdata: u32, lptbldata: ITableData, lpvue: IMAPITable);
 #[repr(C)]
-pub struct DTBLBUTTON(i32);
+pub struct DTBLBUTTON {
+    pub ulbLpszLabel: u32,
+    pub ulFlags: u32,
+    pub ulPRControl: u32,
+}
+impl ::core::marker::Copy for DTBLBUTTON {}
+impl ::core::clone::Clone for DTBLBUTTON {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DTBLCHECKBOX(i32);
+pub struct DTBLCHECKBOX {
+    pub ulbLpszLabel: u32,
+    pub ulFlags: u32,
+    pub ulPRPropertyName: u32,
+}
+impl ::core::marker::Copy for DTBLCHECKBOX {}
+impl ::core::clone::Clone for DTBLCHECKBOX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DTBLCOMBOBOX(i32);
+pub struct DTBLCOMBOBOX {
+    pub ulbLpszCharsAllowed: u32,
+    pub ulFlags: u32,
+    pub ulNumCharsAllowed: u32,
+    pub ulPRPropertyName: u32,
+    pub ulPRTableName: u32,
+}
+impl ::core::marker::Copy for DTBLCOMBOBOX {}
+impl ::core::clone::Clone for DTBLCOMBOBOX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DTBLDDLBX(i32);
+pub struct DTBLDDLBX {
+    pub ulFlags: u32,
+    pub ulPRDisplayProperty: u32,
+    pub ulPRSetProperty: u32,
+    pub ulPRTableName: u32,
+}
+impl ::core::marker::Copy for DTBLDDLBX {}
+impl ::core::clone::Clone for DTBLDDLBX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DTBLEDIT(i32);
+pub struct DTBLEDIT {
+    pub ulbLpszCharsAllowed: u32,
+    pub ulFlags: u32,
+    pub ulNumCharsAllowed: u32,
+    pub ulPropTag: u32,
+}
+impl ::core::marker::Copy for DTBLEDIT {}
+impl ::core::clone::Clone for DTBLEDIT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DTBLGROUPBOX(i32);
+pub struct DTBLGROUPBOX {
+    pub ulbLpszLabel: u32,
+    pub ulFlags: u32,
+}
+impl ::core::marker::Copy for DTBLGROUPBOX {}
+impl ::core::clone::Clone for DTBLGROUPBOX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DTBLLABEL(i32);
+pub struct DTBLLABEL {
+    pub ulbLpszLabelName: u32,
+    pub ulFlags: u32,
+}
+impl ::core::marker::Copy for DTBLLABEL {}
+impl ::core::clone::Clone for DTBLLABEL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DTBLLBX(i32);
+pub struct DTBLLBX {
+    pub ulFlags: u32,
+    pub ulPRSetProperty: u32,
+    pub ulPRTableName: u32,
+}
+impl ::core::marker::Copy for DTBLLBX {}
+impl ::core::clone::Clone for DTBLLBX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DTBLMVDDLBX(i32);
+pub struct DTBLMVDDLBX {
+    pub ulFlags: u32,
+    pub ulMVPropTag: u32,
+}
+impl ::core::marker::Copy for DTBLMVDDLBX {}
+impl ::core::clone::Clone for DTBLMVDDLBX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DTBLMVLISTBOX(i32);
+pub struct DTBLMVLISTBOX {
+    pub ulFlags: u32,
+    pub ulMVPropTag: u32,
+}
+impl ::core::marker::Copy for DTBLMVLISTBOX {}
+impl ::core::clone::Clone for DTBLMVLISTBOX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DTBLPAGE(i32);
+pub struct DTBLPAGE {
+    pub ulbLpszLabel: u32,
+    pub ulFlags: u32,
+    pub ulbLpszComponent: u32,
+    pub ulContext: u32,
+}
+impl ::core::marker::Copy for DTBLPAGE {}
+impl ::core::clone::Clone for DTBLPAGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DTBLRADIOBUTTON(i32);
+pub struct DTBLRADIOBUTTON {
+    pub ulbLpszLabel: u32,
+    pub ulFlags: u32,
+    pub ulcButtons: u32,
+    pub ulPropTag: u32,
+    pub lReturnValue: i32,
+}
+impl ::core::marker::Copy for DTBLRADIOBUTTON {}
+impl ::core::clone::Clone for DTBLRADIOBUTTON {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DTCTL(i32);
+pub struct DTCTL {
+    pub ulCtlType: u32,
+    pub ulCtlFlags: u32,
+    pub lpbNotif: *mut u8,
+    pub cbNotif: u32,
+    pub lpszFilter: *mut i8,
+    pub ulItemID: u32,
+    pub ctl: DTCTL_0,
+}
+impl ::core::marker::Copy for DTCTL {}
+impl ::core::clone::Clone for DTCTL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct DTPAGE(i32);
+pub union DTCTL_0 {
+    pub lpv: *mut ::core::ffi::c_void,
+    pub lplabel: *mut DTBLLABEL,
+    pub lpedit: *mut DTBLEDIT,
+    pub lplbx: *mut DTBLLBX,
+    pub lpcombobox: *mut DTBLCOMBOBOX,
+    pub lpddlbx: *mut DTBLDDLBX,
+    pub lpcheckbox: *mut DTBLCHECKBOX,
+    pub lpgroupbox: *mut DTBLGROUPBOX,
+    pub lpbutton: *mut DTBLBUTTON,
+    pub lpradiobutton: *mut DTBLRADIOBUTTON,
+    pub lpmvlbx: *mut DTBLMVLISTBOX,
+    pub lpmvddlbx: *mut DTBLMVDDLBX,
+    pub lppage: *mut DTBLPAGE,
+}
+impl ::core::marker::Copy for DTCTL_0 {}
+impl ::core::clone::Clone for DTCTL_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct ENTRYID(i32);
+pub struct DTPAGE {
+    pub cctl: u32,
+    pub lpszResourceName: *mut i8,
+    pub Anonymous: DTPAGE_0,
+    pub lpctl: *mut DTCTL,
+}
+impl ::core::marker::Copy for DTPAGE {}
+impl ::core::clone::Clone for DTPAGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct ERROR_NOTIFICATION(i32);
+pub union DTPAGE_0 {
+    pub lpszComponent: *mut i8,
+    pub ulItemID: u32,
+}
+impl ::core::marker::Copy for DTPAGE_0 {}
+impl ::core::clone::Clone for DTPAGE_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct EXTENDED_NOTIFICATION(i32);
+pub struct ENTRYID {
+    pub abFlags: [u8; 4],
+    pub ab: [u8; 1],
+}
+impl ::core::marker::Copy for ENTRYID {}
+impl ::core::clone::Clone for ENTRYID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct ERROR_NOTIFICATION {
+    pub cbEntryID: u32,
+    pub lpEntryID: *mut ENTRYID,
+    pub scode: i32,
+    pub ulFlags: u32,
+    pub lpMAPIError: *mut MAPIERROR,
+}
+impl ::core::marker::Copy for ERROR_NOTIFICATION {}
+impl ::core::clone::Clone for ERROR_NOTIFICATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct EXTENDED_NOTIFICATION {
+    pub ulEvent: u32,
+    pub cb: u32,
+    pub pbEventParameters: *mut u8,
+}
+impl ::core::marker::Copy for EXTENDED_NOTIFICATION {}
+impl ::core::clone::Clone for EXTENDED_NOTIFICATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const E_IMAPI_BURN_VERIFICATION_FAILED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062600697i32 as _);
 pub const E_IMAPI_DF2DATA_CLIENT_NAME_IS_NOT_VALID: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062599672i32 as _);
 pub const E_IMAPI_DF2DATA_INVALID_MEDIA_STATE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062599678i32 as _);
@@ -227,11 +489,40 @@ pub const E_IMAPI_REQUEST_CANCELLED: ::windows_sys::core::HRESULT = ::windows_sy
 pub const E_IMAPI_UNEXPECTED_RESPONSE_FROM_DEVICE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1062599935i32 as _);
 pub const FACILITY_IMAPI2: u32 = 170u32;
 #[repr(C)]
-pub struct FLATENTRY(i32);
+pub struct FLATENTRY {
+    pub cb: u32,
+    pub abEntry: [u8; 1],
+}
+impl ::core::marker::Copy for FLATENTRY {}
+impl ::core::clone::Clone for FLATENTRY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct FLATENTRYLIST(i32);
+pub struct FLATENTRYLIST {
+    pub cEntries: u32,
+    pub cbEntries: u32,
+    pub abEntries: [u8; 1],
+}
+impl ::core::marker::Copy for FLATENTRYLIST {}
+impl ::core::clone::Clone for FLATENTRYLIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct FLATMTSIDLIST(i32);
+pub struct FLATMTSIDLIST {
+    pub cMTSIDs: u32,
+    pub cbMTSIDs: u32,
+    pub abMTSIDs: [u8; 1],
+}
+impl ::core::marker::Copy for FLATMTSIDLIST {}
+impl ::core::clone::Clone for FLATMTSIDLIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[cfg(feature = "Win32_Foundation")]
 pub type FNIDLE = unsafe extern "system" fn(param0: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
 #[repr(transparent)]
@@ -239,6 +530,12 @@ pub struct Gender(pub i32);
 pub const genderUnspecified: Gender = Gender(0i32);
 pub const genderFemale: Gender = Gender(1i32);
 pub const genderMale: Gender = Gender(2i32);
+impl ::core::marker::Copy for Gender {}
+impl ::core::clone::Clone for Gender {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IABContainer(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -391,12 +688,58 @@ pub type LPWABOPEN = unsafe extern "system" fn(lppadrbook: *mut IAddrBook, lppwa
 #[cfg(feature = "Win32_Foundation")]
 pub type LPWABOPENEX = unsafe extern "system" fn(lppadrbook: *mut IAddrBook, lppwabobject: *mut IWABObject, lpwp: *mut WAB_PARAM, reserved: u32, fnallocatebuffer: LPALLOCATEBUFFER, fnallocatemore: LPALLOCATEMORE, fnfreebuffer: LPFREEBUFFER) -> ::windows_sys::core::HRESULT;
 #[repr(C)]
-pub struct MAPIERROR(i32);
+pub struct MAPIERROR {
+    pub ulVersion: u32,
+    pub lpszError: *mut i8,
+    pub lpszComponent: *mut i8,
+    pub ulLowLevelError: u32,
+    pub ulContext: u32,
+}
+impl ::core::marker::Copy for MAPIERROR {}
+impl ::core::clone::Clone for MAPIERROR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+pub struct MAPINAMEID {
+    pub lpguid: *mut ::windows_sys::core::GUID,
+    pub ulKind: u32,
+    pub Kind: MAPINAMEID_0,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MAPINAMEID {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MAPINAMEID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct MAPINAMEID(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub union MAPINAMEID_0 {
+    pub lID: i32,
+    pub lpwstrName: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MAPINAMEID_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MAPINAMEID_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct MAPIUID(i32);
+pub struct MAPIUID {
+    pub ab: [u8; 16],
+}
+impl ::core::marker::Copy for MAPIUID {}
+impl ::core::clone::Clone for MAPIUID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MAPI_COMPOUND: u32 = 128u32;
 pub const MAPI_DIM: u32 = 1u32;
 pub const MAPI_ERROR_VERSION: i32 = 0i32;
@@ -417,18 +760,97 @@ pub const MAPI_USE_DEFAULT: u32 = 64u32;
 pub const MNID_ID: u32 = 0u32;
 pub const MNID_STRING: u32 = 1u32;
 #[repr(C)]
-pub struct MTSID(i32);
+pub struct MTSID {
+    pub cb: u32,
+    pub ab: [u8; 1],
+}
+impl ::core::marker::Copy for MTSID {}
+impl ::core::clone::Clone for MTSID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MV_FLAG: u32 = 4096u32;
 pub const MV_INSTANCE: u32 = 8192u32;
 #[repr(C)]
-pub struct NEWMAIL_NOTIFICATION(i32);
+pub struct NEWMAIL_NOTIFICATION {
+    pub cbEntryID: u32,
+    pub lpEntryID: *mut ENTRYID,
+    pub cbParentID: u32,
+    pub lpParentID: *mut ENTRYID,
+    pub ulFlags: u32,
+    pub lpszMessageClass: *mut i8,
+    pub ulMessageFlags: u32,
+}
+impl ::core::marker::Copy for NEWMAIL_NOTIFICATION {}
+impl ::core::clone::Clone for NEWMAIL_NOTIFICATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+pub struct NOTIFICATION {
+    pub ulEventType: u32,
+    pub ulAlignPad: u32,
+    pub info: NOTIFICATION_0,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::marker::Copy for NOTIFICATION {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::clone::Clone for NOTIFICATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct NOTIFICATION(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+pub union NOTIFICATION_0 {
+    pub err: ERROR_NOTIFICATION,
+    pub newmail: NEWMAIL_NOTIFICATION,
+    pub obj: OBJECT_NOTIFICATION,
+    pub tab: TABLE_NOTIFICATION,
+    pub ext: EXTENDED_NOTIFICATION,
+    pub statobj: STATUS_OBJECT_NOTIFICATION,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::marker::Copy for NOTIFICATION_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::clone::Clone for NOTIFICATION_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct NOTIFKEY(i32);
+pub struct NOTIFKEY {
+    pub cb: u32,
+    pub ab: [u8; 1],
+}
+impl ::core::marker::Copy for NOTIFKEY {}
+impl ::core::clone::Clone for NOTIFKEY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct OBJECT_NOTIFICATION(i32);
+pub struct OBJECT_NOTIFICATION {
+    pub cbEntryID: u32,
+    pub lpEntryID: *mut ENTRYID,
+    pub ulObjType: u32,
+    pub cbParentID: u32,
+    pub lpParentID: *mut ENTRYID,
+    pub cbOldID: u32,
+    pub lpOldID: *mut ENTRYID,
+    pub cbOldParentID: u32,
+    pub lpOldParentID: *mut ENTRYID,
+    pub lpPropTagArray: *mut SPropTagArray,
+}
+impl ::core::marker::Copy for OBJECT_NOTIFICATION {}
+impl ::core::clone::Clone for OBJECT_NOTIFICATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[cfg(feature = "Win32_Foundation")]
 pub type PFNIDLE = unsafe extern "system" fn() -> super::super::Foundation::BOOL;
 pub const PRIHIGHEST: u32 = 32767u32;
@@ -438,92 +860,467 @@ pub const PROP_ID_INVALID: u32 = 65535u32;
 pub const PROP_ID_NULL: u32 = 0u32;
 pub const PROP_ID_SECURE_MAX: u32 = 26623u32;
 pub const PROP_ID_SECURE_MIN: u32 = 26608u32;
+#[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-#[repr(C)]
-pub struct SAndRestriction(i32);
-#[repr(C)]
-pub struct SAppTimeArray(i32);
-#[repr(C)]
-pub struct SBinary(i32);
-#[repr(C)]
-pub struct SBinaryArray(i32);
-#[repr(C)]
-pub struct SBitMaskRestriction(i32);
+pub struct SAndRestriction {
+    pub cRes: u32,
+    pub lpRes: *mut SRestriction,
+}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-#[repr(C)]
-pub struct SCommentRestriction(i32);
-#[repr(C)]
-pub struct SComparePropsRestriction(i32);
+impl ::core::marker::Copy for SAndRestriction {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::clone::Clone for SAndRestriction {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct SContentRestriction(i32);
+pub struct SAppTimeArray {
+    pub cValues: u32,
+    pub lpat: *mut f64,
+}
+impl ::core::marker::Copy for SAppTimeArray {}
+impl ::core::clone::Clone for SAppTimeArray {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct SBinary {
+    pub cb: u32,
+    pub lpb: *mut u8,
+}
+impl ::core::marker::Copy for SBinary {}
+impl ::core::clone::Clone for SBinary {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct SBinaryArray {
+    pub cValues: u32,
+    pub lpbin: *mut SBinary,
+}
+impl ::core::marker::Copy for SBinaryArray {}
+impl ::core::clone::Clone for SBinaryArray {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct SBitMaskRestriction {
+    pub relBMR: u32,
+    pub ulPropTag: u32,
+    pub ulMask: u32,
+}
+impl ::core::marker::Copy for SBitMaskRestriction {}
+impl ::core::clone::Clone for SBitMaskRestriction {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+pub struct SCommentRestriction {
+    pub cValues: u32,
+    pub lpRes: *mut SRestriction,
+    pub lpProp: *mut SPropValue,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::marker::Copy for SCommentRestriction {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::clone::Clone for SCommentRestriction {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct SComparePropsRestriction {
+    pub relop: u32,
+    pub ulPropTag1: u32,
+    pub ulPropTag2: u32,
+}
+impl ::core::marker::Copy for SComparePropsRestriction {}
+impl ::core::clone::Clone for SComparePropsRestriction {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+pub struct SContentRestriction {
+    pub ulFuzzyLevel: u32,
+    pub ulPropTag: u32,
+    pub lpProp: *mut SPropValue,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::marker::Copy for SContentRestriction {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::clone::Clone for SContentRestriction {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
+pub struct SCurrencyArray {
+    pub cValues: u32,
+    pub lpcur: *mut super::Com::CY,
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::marker::Copy for SCurrencyArray {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for SCurrencyArray {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct SCurrencyArray(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct SDateTimeArray {
+    pub cValues: u32,
+    pub lpft: *mut super::super::Foundation::FILETIME,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SDateTimeArray {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SDateTimeArray {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct SDateTimeArray(i32);
-#[repr(C)]
-pub struct SDoubleArray(i32);
+pub struct SDoubleArray {
+    pub cValues: u32,
+    pub lpdbl: *mut f64,
+}
+impl ::core::marker::Copy for SDoubleArray {}
+impl ::core::clone::Clone for SDoubleArray {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SERVICE_UI_ALLOWED: u32 = 16u32;
 pub const SERVICE_UI_ALWAYS: u32 = 2u32;
 #[repr(C)]
-pub struct SExistRestriction(i32);
+pub struct SExistRestriction {
+    pub ulReserved1: u32,
+    pub ulPropTag: u32,
+    pub ulReserved2: u32,
+}
+impl ::core::marker::Copy for SExistRestriction {}
+impl ::core::clone::Clone for SExistRestriction {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct SGuidArray(i32);
+pub struct SGuidArray {
+    pub cValues: u32,
+    pub lpguid: *mut ::windows_sys::core::GUID,
+}
+impl ::core::marker::Copy for SGuidArray {}
+impl ::core::clone::Clone for SGuidArray {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct SLPSTRArray(i32);
-#[repr(C)]
-pub struct SLargeIntegerArray(i32);
-#[repr(C)]
-pub struct SLongArray(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-#[repr(C)]
-pub struct SNotRestriction(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-#[repr(C)]
-pub struct SOrRestriction(i32);
-#[repr(C)]
-pub struct SPropProblem(i32);
-#[repr(C)]
-pub struct SPropProblemArray(i32);
-#[repr(C)]
-pub struct SPropTagArray(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-#[repr(C)]
-pub struct SPropValue(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-#[repr(C)]
-pub struct SPropertyRestriction(i32);
-#[repr(C)]
-pub struct SRealArray(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-#[repr(C)]
-pub struct SRestriction(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-#[repr(C)]
-pub struct SRow(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-#[repr(C)]
-pub struct SRowSet(i32);
-#[repr(C)]
-pub struct SShortArray(i32);
-#[repr(C)]
-pub struct SSizeRestriction(i32);
-#[repr(C)]
-pub struct SSortOrder(i32);
-#[repr(C)]
-pub struct SSortOrderSet(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-#[repr(C)]
-pub struct SSubRestriction(i32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-#[repr(C)]
-pub struct STATUS_OBJECT_NOTIFICATION(i32);
+pub struct SLPSTRArray {
+    pub cValues: u32,
+    pub lppszA: *mut super::super::Foundation::PSTR,
+}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SLPSTRArray {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SLPSTRArray {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct SWStringArray(i32);
+pub struct SLargeIntegerArray {
+    pub cValues: u32,
+    pub lpli: *mut i64,
+}
+impl ::core::marker::Copy for SLargeIntegerArray {}
+impl ::core::clone::Clone for SLargeIntegerArray {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct SLongArray {
+    pub cValues: u32,
+    pub lpl: *mut i32,
+}
+impl ::core::marker::Copy for SLongArray {}
+impl ::core::clone::Clone for SLongArray {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+pub struct SNotRestriction {
+    pub ulReserved: u32,
+    pub lpRes: *mut SRestriction,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::marker::Copy for SNotRestriction {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::clone::Clone for SNotRestriction {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+pub struct SOrRestriction {
+    pub cRes: u32,
+    pub lpRes: *mut SRestriction,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::marker::Copy for SOrRestriction {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::clone::Clone for SOrRestriction {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct SPropProblem {
+    pub ulIndex: u32,
+    pub ulPropTag: u32,
+    pub scode: i32,
+}
+impl ::core::marker::Copy for SPropProblem {}
+impl ::core::clone::Clone for SPropProblem {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct SPropProblemArray {
+    pub cProblem: u32,
+    pub aProblem: [SPropProblem; 1],
+}
+impl ::core::marker::Copy for SPropProblemArray {}
+impl ::core::clone::Clone for SPropProblemArray {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct SPropTagArray {
+    pub cValues: u32,
+    pub aulPropTag: [u32; 1],
+}
+impl ::core::marker::Copy for SPropTagArray {}
+impl ::core::clone::Clone for SPropTagArray {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+pub struct SPropValue {
+    pub ulPropTag: u32,
+    pub dwAlignPad: u32,
+    pub Value: _PV,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::marker::Copy for SPropValue {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::clone::Clone for SPropValue {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+pub struct SPropertyRestriction {
+    pub relop: u32,
+    pub ulPropTag: u32,
+    pub lpProp: *mut SPropValue,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::marker::Copy for SPropertyRestriction {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::clone::Clone for SPropertyRestriction {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct SRealArray {
+    pub cValues: u32,
+    pub lpflt: *mut f32,
+}
+impl ::core::marker::Copy for SRealArray {}
+impl ::core::clone::Clone for SRealArray {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+pub struct SRestriction {
+    pub rt: u32,
+    pub res: SRestriction_0,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::marker::Copy for SRestriction {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::clone::Clone for SRestriction {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+pub union SRestriction_0 {
+    pub resCompareProps: SComparePropsRestriction,
+    pub resAnd: SAndRestriction,
+    pub resOr: SOrRestriction,
+    pub resNot: SNotRestriction,
+    pub resContent: SContentRestriction,
+    pub resProperty: SPropertyRestriction,
+    pub resBitMask: SBitMaskRestriction,
+    pub resSize: SSizeRestriction,
+    pub resExist: SExistRestriction,
+    pub resSub: SSubRestriction,
+    pub resComment: SCommentRestriction,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::marker::Copy for SRestriction_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::clone::Clone for SRestriction_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+pub struct SRow {
+    pub ulAdrEntryPad: u32,
+    pub cValues: u32,
+    pub lpProps: *mut SPropValue,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::marker::Copy for SRow {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::clone::Clone for SRow {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+pub struct SRowSet {
+    pub cRows: u32,
+    pub aRow: [SRow; 1],
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::marker::Copy for SRowSet {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::clone::Clone for SRowSet {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct SShortArray {
+    pub cValues: u32,
+    pub lpi: *mut i16,
+}
+impl ::core::marker::Copy for SShortArray {}
+impl ::core::clone::Clone for SShortArray {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct SSizeRestriction {
+    pub relop: u32,
+    pub ulPropTag: u32,
+    pub cb: u32,
+}
+impl ::core::marker::Copy for SSizeRestriction {}
+impl ::core::clone::Clone for SSizeRestriction {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct SSortOrder {
+    pub ulPropTag: u32,
+    pub ulOrder: u32,
+}
+impl ::core::marker::Copy for SSortOrder {}
+impl ::core::clone::Clone for SSortOrder {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct SSortOrderSet {
+    pub cSorts: u32,
+    pub cCategories: u32,
+    pub cExpanded: u32,
+    pub aSort: [SSortOrder; 1],
+}
+impl ::core::marker::Copy for SSortOrderSet {}
+impl ::core::clone::Clone for SSortOrderSet {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+pub struct SSubRestriction {
+    pub ulSubObject: u32,
+    pub lpRes: *mut SRestriction,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::marker::Copy for SSubRestriction {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::clone::Clone for SSubRestriction {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+pub struct STATUS_OBJECT_NOTIFICATION {
+    pub cbEntryID: u32,
+    pub lpEntryID: *mut ENTRYID,
+    pub cValues: u32,
+    pub lpPropVals: *mut SPropValue,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::marker::Copy for STATUS_OBJECT_NOTIFICATION {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::clone::Clone for STATUS_OBJECT_NOTIFICATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct SWStringArray {
+    pub cValues: u32,
+    pub lppszW: *mut super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SWStringArray {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SWStringArray {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const S_IMAPI_BOTHADJUSTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(11141126i32 as _);
 pub const S_IMAPI_COMMAND_HAS_SENSE_DATA: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(11141632i32 as _);
 pub const S_IMAPI_RAW_IMAGE_TRACK_INDEX_ALREADY_EXISTS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(11143688i32 as _);
@@ -532,9 +1329,24 @@ pub const S_IMAPI_SPEEDADJUSTED: ::windows_sys::core::HRESULT = ::windows_sys::c
 pub const S_IMAPI_WRITE_NOT_IN_PROGRESS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(11141890i32 as _);
 pub const TABLE_CHANGED: u32 = 1u32;
 pub const TABLE_ERROR: u32 = 2u32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[repr(C)]
-pub struct TABLE_NOTIFICATION(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+pub struct TABLE_NOTIFICATION {
+    pub ulTableEvent: u32,
+    pub hResult: ::windows_sys::core::HRESULT,
+    pub propIndex: SPropValue,
+    pub propPrior: SPropValue,
+    pub row: SRow,
+    pub ulPad: u32,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::marker::Copy for TABLE_NOTIFICATION {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::clone::Clone for TABLE_NOTIFICATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const TABLE_RELOAD: u32 = 9u32;
 pub const TABLE_RESTRICT_DONE: u32 = 7u32;
 pub const TABLE_ROW_ADDED: u32 = 3u32;
@@ -545,12 +1357,44 @@ pub const TABLE_SORT_DONE: u32 = 6u32;
 pub const TAD_ALL_ROWS: u32 = 1u32;
 pub const UI_CURRENT_PROVIDER_FIRST: u32 = 4u32;
 pub const UI_SERVICE: u32 = 2u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct WABEXTDISPLAY(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct WABEXTDISPLAY {
+    pub cbSize: u32,
+    pub lpWABObject: ::core::option::Option<IWABObject>,
+    pub lpAdrBook: ::core::option::Option<IAddrBook>,
+    pub lpPropObj: ::core::option::Option<IMAPIProp>,
+    pub fReadOnly: super::super::Foundation::BOOL,
+    pub fDataChanged: super::super::Foundation::BOOL,
+    pub ulFlags: u32,
+    pub lpv: *mut ::core::ffi::c_void,
+    pub lpsz: *mut i8,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WABEXTDISPLAY {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WABEXTDISPLAY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WABIMPORTPARAM(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct WABIMPORTPARAM {
+    pub cbSize: u32,
+    pub lpAdrBook: ::core::option::Option<IAddrBook>,
+    pub hWnd: super::super::Foundation::HWND,
+    pub ulFlags: u32,
+    pub lpszFileName: super::super::Foundation::PSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WABIMPORTPARAM {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WABIMPORTPARAM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WABOBJECT_LDAPURL_RETURN_MAILUSER: u32 = 1u32;
 pub const WABOBJECT_ME_NEW: u32 = 1u32;
 pub const WABOBJECT_ME_NOCREATE: u32 = 2u32;
@@ -560,17 +1404,77 @@ pub const WAB_DISPLAY_LDAPURL: u32 = 1u32;
 pub const WAB_ENABLE_PROFILES: u32 = 4194304u32;
 pub const WAB_IGNORE_PROFILES: u32 = 8388608u32;
 pub const WAB_LOCAL_CONTAINERS: u32 = 1048576u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct WAB_PARAM(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct WAB_PARAM {
+    pub cbSize: u32,
+    pub hwnd: super::super::Foundation::HWND,
+    pub szFileName: super::super::Foundation::PSTR,
+    pub ulFlags: u32,
+    pub guidPSExt: ::windows_sys::core::GUID,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for WAB_PARAM {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WAB_PARAM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WAB_PROFILE_CONTENTS: u32 = 2097152u32;
 pub const WAB_USE_OE_SENDMAIL: u32 = 1u32;
 pub const WAB_VCARD_FILE: u32 = 0u32;
 pub const WAB_VCARD_STREAM: u32 = 1u32;
+#[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+pub union _PV {
+    pub i: i16,
+    pub l: i32,
+    pub ul: u32,
+    pub flt: f32,
+    pub dbl: f64,
+    pub b: u16,
+    pub cur: super::Com::CY,
+    pub at: f64,
+    pub ft: super::super::Foundation::FILETIME,
+    pub lpszA: super::super::Foundation::PSTR,
+    pub bin: SBinary,
+    pub lpszW: super::super::Foundation::PWSTR,
+    pub lpguid: *mut ::windows_sys::core::GUID,
+    pub li: i64,
+    pub MVi: SShortArray,
+    pub MVl: SLongArray,
+    pub MVflt: SRealArray,
+    pub MVdbl: SDoubleArray,
+    pub MVcur: SCurrencyArray,
+    pub MVat: SAppTimeArray,
+    pub MVft: SDateTimeArray,
+    pub MVbin: SBinaryArray,
+    pub MVszA: SLPSTRArray,
+    pub MVszW: SWStringArray,
+    pub MVguid: SGuidArray,
+    pub MVli: SLargeIntegerArray,
+    pub err: i32,
+    pub x: i32,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::marker::Copy for _PV {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ::core::clone::Clone for _PV {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct _PV(i32);
+pub struct _WABACTIONITEM(pub u8);
 #[repr(C)]
-pub struct _WABACTIONITEM(i32);
-#[repr(C)]
-pub struct _flaglist(i32);
+pub struct _flaglist {
+    pub cFlags: u32,
+    pub ulFlag: [u32; 1],
+}
+impl ::core::marker::Copy for _flaglist {}
+impl ::core::clone::Clone for _flaglist {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

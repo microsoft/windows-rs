@@ -827,9 +827,6 @@ unsafe impl ::windows::core::RuntimeType for SocialFeedUpdateMode {
 impl ::windows::core::DefaultType for SocialFeedUpdateMode {
     type DefaultType = Self;
 }
-#[repr(C)]
-#[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
-pub struct SocialInfoContract(pub u8);
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SocialItemBadgeStyle(pub i32);

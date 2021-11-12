@@ -11,6 +11,12 @@ impl DnssdRegistrationStatus {
     pub const ServerError: Self = Self(2i32);
     pub const SecurityError: Self = Self(3i32);
 }
+impl ::core::marker::Copy for DnssdRegistrationStatus {}
+impl ::core::clone::Clone for DnssdRegistrationStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DnssdServiceInstance(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -26,6 +32,12 @@ impl DnssdServiceWatcherStatus {
     pub const Stopping: Self = Self(3i32);
     pub const Stopped: Self = Self(4i32);
     pub const Aborted: Self = Self(5i32);
+}
+impl ::core::marker::Copy for DnssdServiceWatcherStatus {}
+impl ::core::clone::Clone for DnssdServiceWatcherStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct IDnssdRegistrationResult(pub *mut ::core::ffi::c_void);

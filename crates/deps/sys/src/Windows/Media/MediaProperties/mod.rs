@@ -11,6 +11,12 @@ impl AudioEncodingQuality {
     pub const Medium: Self = Self(2i32);
     pub const Low: Self = Self(3i32);
 }
+impl ::core::marker::Copy for AudioEncodingQuality {}
+impl ::core::clone::Clone for AudioEncodingQuality {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ContainerEncodingProperties(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -100,12 +106,24 @@ impl MediaMirroringOptions {
     pub const Horizontal: Self = Self(1u32);
     pub const Vertical: Self = Self(2u32);
 }
+impl ::core::marker::Copy for MediaMirroringOptions {}
+impl ::core::clone::Clone for MediaMirroringOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MediaPixelFormat(pub i32);
 impl MediaPixelFormat {
     pub const Nv12: Self = Self(0i32);
     pub const Bgra8: Self = Self(1i32);
     pub const P010: Self = Self(2i32);
+}
+impl ::core::marker::Copy for MediaPixelFormat {}
+impl ::core::clone::Clone for MediaPixelFormat {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct MediaPropertySet(pub *mut ::core::ffi::c_void);
@@ -119,11 +137,23 @@ impl MediaRotation {
     pub const Clockwise180Degrees: Self = Self(2i32);
     pub const Clockwise270Degrees: Self = Self(3i32);
 }
+impl ::core::marker::Copy for MediaRotation {}
+impl ::core::clone::Clone for MediaRotation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MediaThumbnailFormat(pub i32);
 impl MediaThumbnailFormat {
     pub const Bmp: Self = Self(0i32);
     pub const Bgra8: Self = Self(1i32);
+}
+impl ::core::marker::Copy for MediaThumbnailFormat {}
+impl ::core::clone::Clone for MediaThumbnailFormat {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct SphericalVideoFrameFormat(pub i32);
@@ -132,12 +162,24 @@ impl SphericalVideoFrameFormat {
     pub const Unsupported: Self = Self(1i32);
     pub const Equirectangular: Self = Self(2i32);
 }
+impl ::core::marker::Copy for SphericalVideoFrameFormat {}
+impl ::core::clone::Clone for SphericalVideoFrameFormat {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct StereoscopicVideoPackingMode(pub i32);
 impl StereoscopicVideoPackingMode {
     pub const None: Self = Self(0i32);
     pub const SideBySide: Self = Self(1i32);
     pub const TopBottom: Self = Self(2i32);
+}
+impl ::core::marker::Copy for StereoscopicVideoPackingMode {}
+impl ::core::clone::Clone for StereoscopicVideoPackingMode {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct TimedMetadataEncodingProperties(pub *mut ::core::ffi::c_void);
@@ -156,4 +198,10 @@ impl VideoEncodingQuality {
     pub const Qvga: Self = Self(7i32);
     pub const Uhd2160p: Self = Self(8i32);
     pub const Uhd4320p: Self = Self(9i32);
+}
+impl ::core::marker::Copy for VideoEncodingQuality {}
+impl ::core::clone::Clone for VideoEncodingQuality {
+    fn clone(&self) -> Self {
+        *self
+    }
 }

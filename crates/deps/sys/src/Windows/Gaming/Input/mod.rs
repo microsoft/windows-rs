@@ -26,8 +26,23 @@ impl ArcadeStickButtons {
     pub const Special1: Self = Self(1024u32);
     pub const Special2: Self = Self(2048u32);
 }
+impl ::core::marker::Copy for ArcadeStickButtons {}
+impl ::core::clone::Clone for ArcadeStickButtons {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct ArcadeStickReading(i32);
+pub struct ArcadeStickReading {
+    pub Timestamp: u64,
+    pub Buttons: ArcadeStickButtons,
+}
+impl ::core::marker::Copy for ArcadeStickReading {}
+impl ::core::clone::Clone for ArcadeStickReading {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct FlightStick(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -37,8 +52,28 @@ impl FlightStickButtons {
     pub const FirePrimary: Self = Self(1u32);
     pub const FireSecondary: Self = Self(2u32);
 }
+impl ::core::marker::Copy for FlightStickButtons {}
+impl ::core::clone::Clone for FlightStickButtons {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct FlightStickReading(i32);
+pub struct FlightStickReading {
+    pub Timestamp: u64,
+    pub Buttons: FlightStickButtons,
+    pub HatSwitch: GameControllerSwitchPosition,
+    pub Roll: f64,
+    pub Pitch: f64,
+    pub Yaw: f64,
+    pub Throttle: f64,
+}
+impl ::core::marker::Copy for FlightStickReading {}
+impl ::core::clone::Clone for FlightStickReading {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct GameControllerButtonLabel(pub i32);
 impl GameControllerButtonLabel {
@@ -112,12 +147,24 @@ impl GameControllerButtonLabel {
     pub const DialRight: Self = Self(67i32);
     pub const Suspension: Self = Self(68i32);
 }
+impl ::core::marker::Copy for GameControllerButtonLabel {}
+impl ::core::clone::Clone for GameControllerButtonLabel {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct GameControllerSwitchKind(pub i32);
 impl GameControllerSwitchKind {
     pub const TwoWay: Self = Self(0i32);
     pub const FourWay: Self = Self(1i32);
     pub const EightWay: Self = Self(2i32);
+}
+impl ::core::marker::Copy for GameControllerSwitchKind {}
+impl ::core::clone::Clone for GameControllerSwitchKind {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct GameControllerSwitchPosition(pub i32);
@@ -131,6 +178,12 @@ impl GameControllerSwitchPosition {
     pub const DownLeft: Self = Self(6i32);
     pub const Left: Self = Self(7i32);
     pub const UpLeft: Self = Self(8i32);
+}
+impl ::core::marker::Copy for GameControllerSwitchPosition {}
+impl ::core::clone::Clone for GameControllerSwitchPosition {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct Gamepad(pub *mut ::core::ffi::c_void);
@@ -157,12 +210,42 @@ impl GamepadButtons {
     pub const Paddle3: Self = Self(65536u32);
     pub const Paddle4: Self = Self(131072u32);
 }
+impl ::core::marker::Copy for GamepadButtons {}
+impl ::core::clone::Clone for GamepadButtons {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct GamepadReading(i32);
+pub struct GamepadReading {
+    pub Timestamp: u64,
+    pub Buttons: GamepadButtons,
+    pub LeftTrigger: f64,
+    pub RightTrigger: f64,
+    pub LeftThumbstickX: f64,
+    pub LeftThumbstickY: f64,
+    pub RightThumbstickX: f64,
+    pub RightThumbstickY: f64,
+}
+impl ::core::marker::Copy for GamepadReading {}
+impl ::core::clone::Clone for GamepadReading {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct GamepadVibration(i32);
-#[repr(C)]
-pub struct GamingInputPreviewContract(i32);
+pub struct GamepadVibration {
+    pub LeftMotor: f64,
+    pub RightMotor: f64,
+    pub LeftTrigger: f64,
+    pub RightTrigger: f64,
+}
+impl ::core::marker::Copy for GamepadVibration {}
+impl ::core::clone::Clone for GamepadVibration {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct Headset(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -224,6 +307,12 @@ impl OptionalUINavigationButtons {
     pub const ScrollLeft: Self = Self(1024u32);
     pub const ScrollRight: Self = Self(2048u32);
 }
+impl ::core::marker::Copy for OptionalUINavigationButtons {}
+impl ::core::clone::Clone for OptionalUINavigationButtons {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RacingWheel(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -253,8 +342,29 @@ impl RacingWheelButtons {
     pub const Button15: Self = Self(1048576u32);
     pub const Button16: Self = Self(2097152u32);
 }
+impl ::core::marker::Copy for RacingWheelButtons {}
+impl ::core::clone::Clone for RacingWheelButtons {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct RacingWheelReading(i32);
+pub struct RacingWheelReading {
+    pub Timestamp: u64,
+    pub Buttons: RacingWheelButtons,
+    pub PatternShifterGear: i32,
+    pub Wheel: f64,
+    pub Throttle: f64,
+    pub Brake: f64,
+    pub Clutch: f64,
+    pub Handbrake: f64,
+}
+impl ::core::marker::Copy for RacingWheelReading {}
+impl ::core::clone::Clone for RacingWheelReading {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RawGameController(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -270,7 +380,23 @@ impl RequiredUINavigationButtons {
     pub const Left: Self = Self(64u32);
     pub const Right: Self = Self(128u32);
 }
+impl ::core::marker::Copy for RequiredUINavigationButtons {}
+impl ::core::clone::Clone for RequiredUINavigationButtons {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UINavigationController(pub *mut ::core::ffi::c_void);
 #[repr(C)]
-pub struct UINavigationReading(i32);
+pub struct UINavigationReading {
+    pub Timestamp: u64,
+    pub RequiredButtons: RequiredUINavigationButtons,
+    pub OptionalButtons: OptionalUINavigationButtons,
+}
+impl ::core::marker::Copy for UINavigationReading {}
+impl ::core::clone::Clone for UINavigationReading {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

@@ -220,7 +220,23 @@ pub const DRIVERSIGN_BLOCKING: u32 = 2u32;
 pub const DRIVERSIGN_NONE: u32 = 0u32;
 pub const DRIVERSIGN_WARNING: u32 = 1u32;
 #[repr(C)]
-pub struct DSKTLSYSTEMTIME(i32);
+pub struct DSKTLSYSTEMTIME {
+    pub wYear: u16,
+    pub wMonth: u16,
+    pub wDayOfWeek: u16,
+    pub wDay: u16,
+    pub wHour: u16,
+    pub wMinute: u16,
+    pub wSecond: u16,
+    pub wMilliseconds: u16,
+    pub wResult: u16,
+}
+impl ::core::marker::Copy for DSKTLSYSTEMTIME {}
+impl ::core::clone::Clone for DSKTLSYSTEMTIME {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DTRESULTFIX: u32 = 1u32;
 pub const DTRESULTOK: u32 = 0u32;
 pub const DTRESULTPART: u32 = 3u32;
@@ -229,7 +245,13 @@ pub const EISAFLAG_NO_IO_MERGE: u32 = 1u32;
 pub const EISAFLAG_SLOT_IO_FIRST: u32 = 2u32;
 pub const EISA_NO_MAX_FUNCTION: u32 = 255u32;
 #[repr(C)]
-pub struct HKEY(i32);
+pub struct HKEY(pub isize);
+impl ::core::marker::Copy for HKEY {}
+impl ::core::clone::Clone for HKEY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const HKEY_CLASSES_ROOT: HKEY = HKEY(-2147483648i32 as _);
 pub const HKEY_CURRENT_CONFIG: HKEY = HKEY(-2147483643i32 as _);
 pub const HKEY_CURRENT_USER: HKEY = HKEY(-2147483647i32 as _);
@@ -313,6 +335,12 @@ pub const REGSTR_VAL_MAX_HCID_LEN: u32 = 1024u32;
 pub struct REG_CREATE_KEY_DISPOSITION(pub u32);
 pub const REG_CREATED_NEW_KEY: REG_CREATE_KEY_DISPOSITION = REG_CREATE_KEY_DISPOSITION(1u32);
 pub const REG_OPENED_EXISTING_KEY: REG_CREATE_KEY_DISPOSITION = REG_CREATE_KEY_DISPOSITION(2u32);
+impl ::core::marker::Copy for REG_CREATE_KEY_DISPOSITION {}
+impl ::core::clone::Clone for REG_CREATE_KEY_DISPOSITION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const REG_MUI_STRING_TRUNCATE: u32 = 1u32;
 #[repr(transparent)]
 pub struct REG_NOTIFY_FILTER(pub u32);
@@ -321,6 +349,12 @@ pub const REG_NOTIFY_CHANGE_ATTRIBUTES: REG_NOTIFY_FILTER = REG_NOTIFY_FILTER(2u
 pub const REG_NOTIFY_CHANGE_LAST_SET: REG_NOTIFY_FILTER = REG_NOTIFY_FILTER(4u32);
 pub const REG_NOTIFY_CHANGE_SECURITY: REG_NOTIFY_FILTER = REG_NOTIFY_FILTER(8u32);
 pub const REG_NOTIFY_THREAD_AGNOSTIC: REG_NOTIFY_FILTER = REG_NOTIFY_FILTER(268435456u32);
+impl ::core::marker::Copy for REG_NOTIFY_FILTER {}
+impl ::core::clone::Clone for REG_NOTIFY_FILTER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct REG_OPEN_CREATE_OPTIONS(pub u32);
 pub const REG_OPTION_RESERVED: REG_OPEN_CREATE_OPTIONS = REG_OPEN_CREATE_OPTIONS(0u32);
@@ -330,11 +364,23 @@ pub const REG_OPTION_CREATE_LINK: REG_OPEN_CREATE_OPTIONS = REG_OPEN_CREATE_OPTI
 pub const REG_OPTION_BACKUP_RESTORE: REG_OPEN_CREATE_OPTIONS = REG_OPEN_CREATE_OPTIONS(4u32);
 pub const REG_OPTION_OPEN_LINK: REG_OPEN_CREATE_OPTIONS = REG_OPEN_CREATE_OPTIONS(8u32);
 pub const REG_OPTION_DONT_VIRTUALIZE: REG_OPEN_CREATE_OPTIONS = REG_OPEN_CREATE_OPTIONS(16u32);
+impl ::core::marker::Copy for REG_OPEN_CREATE_OPTIONS {}
+impl ::core::clone::Clone for REG_OPEN_CREATE_OPTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const REG_PROCESS_APPKEY: u32 = 1u32;
 #[repr(transparent)]
 pub struct REG_RESTORE_KEY_FLAGS(pub i32);
 pub const REG_FORCE_RESTORE: REG_RESTORE_KEY_FLAGS = REG_RESTORE_KEY_FLAGS(8i32);
 pub const REG_WHOLE_HIVE_VOLATILE: REG_RESTORE_KEY_FLAGS = REG_RESTORE_KEY_FLAGS(1i32);
+impl ::core::marker::Copy for REG_RESTORE_KEY_FLAGS {}
+impl ::core::clone::Clone for REG_RESTORE_KEY_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct REG_SAM_FLAGS(pub u32);
 pub const KEY_QUERY_VALUE: REG_SAM_FLAGS = REG_SAM_FLAGS(1u32);
@@ -350,11 +396,23 @@ pub const KEY_READ: REG_SAM_FLAGS = REG_SAM_FLAGS(131097u32);
 pub const KEY_WRITE: REG_SAM_FLAGS = REG_SAM_FLAGS(131078u32);
 pub const KEY_EXECUTE: REG_SAM_FLAGS = REG_SAM_FLAGS(131097u32);
 pub const KEY_ALL_ACCESS: REG_SAM_FLAGS = REG_SAM_FLAGS(983103u32);
+impl ::core::marker::Copy for REG_SAM_FLAGS {}
+impl ::core::clone::Clone for REG_SAM_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct REG_SAVE_FORMAT(pub u32);
 pub const REG_STANDARD_FORMAT: REG_SAVE_FORMAT = REG_SAVE_FORMAT(1u32);
 pub const REG_LATEST_FORMAT: REG_SAVE_FORMAT = REG_SAVE_FORMAT(2u32);
 pub const REG_NO_COMPRESSION: REG_SAVE_FORMAT = REG_SAVE_FORMAT(4u32);
+impl ::core::marker::Copy for REG_SAVE_FORMAT {}
+impl ::core::clone::Clone for REG_SAVE_FORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const REG_SECURE_CONNECTION: u32 = 1u32;
 pub const REG_USE_CURRENT_SECURITY_CONTEXT: u32 = 2u32;
 #[repr(transparent)]
@@ -373,6 +431,12 @@ pub const REG_FULL_RESOURCE_DESCRIPTOR: REG_VALUE_TYPE = REG_VALUE_TYPE(9u32);
 pub const REG_RESOURCE_REQUIREMENTS_LIST: REG_VALUE_TYPE = REG_VALUE_TYPE(10u32);
 pub const REG_QWORD: REG_VALUE_TYPE = REG_VALUE_TYPE(11u32);
 pub const REG_QWORD_LITTLE_ENDIAN: REG_VALUE_TYPE = REG_VALUE_TYPE(11u32);
+impl ::core::marker::Copy for REG_VALUE_TYPE {}
+impl ::core::clone::Clone for REG_VALUE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const RRF_NOEXPAND: u32 = 268435456u32;
 #[repr(transparent)]
 pub struct RRF_RT(pub u32);
@@ -386,6 +450,12 @@ pub const RRF_RT_REG_MULTI_SZ: RRF_RT = RRF_RT(32u32);
 pub const RRF_RT_REG_NONE: RRF_RT = RRF_RT(1u32);
 pub const RRF_RT_REG_QWORD: RRF_RT = RRF_RT(64u32);
 pub const RRF_RT_REG_SZ: RRF_RT = RRF_RT(2u32);
+impl ::core::marker::Copy for RRF_RT {}
+impl ::core::clone::Clone for RRF_RT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const RRF_SUBKEY_WOW6432KEY: u32 = 131072u32;
 pub const RRF_SUBKEY_WOW6464KEY: u32 = 65536u32;
 pub const RRF_WOW64_MASK: u32 = 196608u32;
@@ -399,12 +469,38 @@ pub const SUF_NETHDBOOT: i32 = 64i32;
 pub const SUF_NETRPLBOOT: i32 = 128i32;
 pub const SUF_NETSETUP: i32 = 32i32;
 pub const SUF_SBSCOPYOK: i32 = 256i32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct VALENTA(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct VALENTA {
+    pub ve_valuename: super::super::Foundation::PSTR,
+    pub ve_valuelen: u32,
+    pub ve_valueptr: usize,
+    pub ve_type: REG_VALUE_TYPE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for VALENTA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for VALENTA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct VALENTW(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct VALENTW {
+    pub ve_valuename: super::super::Foundation::PWSTR,
+    pub ve_valuelen: u32,
+    pub ve_valueptr: usize,
+    pub ve_type: REG_VALUE_TYPE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for VALENTW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for VALENTW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const VPDF_DISABLEPWRMGMT: u32 = 1u32;
 pub const VPDF_DISABLEPWRSTATUSPOLL: u32 = 8u32;
 pub const VPDF_DISABLERINGRESUME: u32 = 16u32;
@@ -412,12 +508,61 @@ pub const VPDF_FORCEAPM10MODE: u32 = 2u32;
 pub const VPDF_SHOWMULTIBATT: u32 = 32u32;
 pub const VPDF_SKIPINTELSLCHECK: u32 = 4u32;
 #[repr(C)]
-pub struct provider_info(i32);
+pub struct provider_info {
+    pub pi_R0_1val: ::core::option::Option<PQUERYHANDLER>,
+    pub pi_R0_allvals: ::core::option::Option<PQUERYHANDLER>,
+    pub pi_R3_1val: ::core::option::Option<PQUERYHANDLER>,
+    pub pi_R3_allvals: ::core::option::Option<PQUERYHANDLER>,
+    pub pi_flags: u32,
+    pub pi_key_context: *mut ::core::ffi::c_void,
+}
+impl ::core::marker::Copy for provider_info {}
+impl ::core::clone::Clone for provider_info {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct pvalueA(i32);
+pub struct pvalueA {
+    pub pv_valuename: super::super::Foundation::PSTR,
+    pub pv_valuelen: i32,
+    pub pv_value_context: *mut ::core::ffi::c_void,
+    pub pv_type: u32,
+}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for pvalueA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for pvalueA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct pvalueW(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct pvalueW {
+    pub pv_valuename: super::super::Foundation::PWSTR,
+    pub pv_valuelen: i32,
+    pub pv_value_context: *mut ::core::ffi::c_void,
+    pub pv_type: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for pvalueW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for pvalueW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct val_context(i32);
+pub struct val_context {
+    pub valuelen: i32,
+    pub value_context: *mut ::core::ffi::c_void,
+    pub val_buff_ptr: *mut ::core::ffi::c_void,
+}
+impl ::core::marker::Copy for val_context {}
+impl ::core::clone::Clone for val_context {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

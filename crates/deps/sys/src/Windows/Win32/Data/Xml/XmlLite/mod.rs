@@ -19,6 +19,12 @@ pub struct DtdProcessing(pub i32);
 pub const DtdProcessing_Prohibit: DtdProcessing = DtdProcessing(0i32);
 pub const DtdProcessing_Parse: DtdProcessing = DtdProcessing(1i32);
 pub const _DtdProcessing_Last: DtdProcessing = DtdProcessing(1i32);
+impl ::core::marker::Copy for DtdProcessing {}
+impl ::core::clone::Clone for DtdProcessing {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IXmlReader(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -33,6 +39,12 @@ pub const XmlConformanceLevel_Auto: XmlConformanceLevel = XmlConformanceLevel(0i
 pub const XmlConformanceLevel_Fragment: XmlConformanceLevel = XmlConformanceLevel(1i32);
 pub const XmlConformanceLevel_Document: XmlConformanceLevel = XmlConformanceLevel(2i32);
 pub const _XmlConformanceLevel_Last: XmlConformanceLevel = XmlConformanceLevel(2i32);
+impl ::core::marker::Copy for XmlConformanceLevel {}
+impl ::core::clone::Clone for XmlConformanceLevel {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct XmlError(pub i32);
 pub const MX_E_MX: XmlError = XmlError(-1072894464i32);
@@ -120,6 +132,12 @@ pub const XML_E_INVALID_DECIMAL: XmlError = XmlError(-1072898019i32);
 pub const XML_E_INVALID_HEXIDECIMAL: XmlError = XmlError(-1072898018i32);
 pub const XML_E_INVALID_UNICODE: XmlError = XmlError(-1072898017i32);
 pub const XML_E_INVALIDENCODING: XmlError = XmlError(-1072897938i32);
+impl ::core::marker::Copy for XmlError {}
+impl ::core::clone::Clone for XmlError {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct XmlNodeType(pub i32);
 pub const XmlNodeType_None: XmlNodeType = XmlNodeType(0i32);
@@ -134,6 +152,12 @@ pub const XmlNodeType_Whitespace: XmlNodeType = XmlNodeType(13i32);
 pub const XmlNodeType_EndElement: XmlNodeType = XmlNodeType(15i32);
 pub const XmlNodeType_XmlDeclaration: XmlNodeType = XmlNodeType(17i32);
 pub const _XmlNodeType_Last: XmlNodeType = XmlNodeType(17i32);
+impl ::core::marker::Copy for XmlNodeType {}
+impl ::core::clone::Clone for XmlNodeType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct XmlReadState(pub i32);
 pub const XmlReadState_Initial: XmlReadState = XmlReadState(0i32);
@@ -141,6 +165,12 @@ pub const XmlReadState_Interactive: XmlReadState = XmlReadState(1i32);
 pub const XmlReadState_Error: XmlReadState = XmlReadState(2i32);
 pub const XmlReadState_EndOfFile: XmlReadState = XmlReadState(3i32);
 pub const XmlReadState_Closed: XmlReadState = XmlReadState(4i32);
+impl ::core::marker::Copy for XmlReadState {}
+impl ::core::clone::Clone for XmlReadState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct XmlReaderProperty(pub i32);
 pub const XmlReaderProperty_MultiLanguage: XmlReaderProperty = XmlReaderProperty(0i32);
@@ -152,12 +182,24 @@ pub const XmlReaderProperty_ReadState: XmlReaderProperty = XmlReaderProperty(5i3
 pub const XmlReaderProperty_MaxElementDepth: XmlReaderProperty = XmlReaderProperty(6i32);
 pub const XmlReaderProperty_MaxEntityExpansion: XmlReaderProperty = XmlReaderProperty(7i32);
 pub const _XmlReaderProperty_Last: XmlReaderProperty = XmlReaderProperty(7i32);
+impl ::core::marker::Copy for XmlReaderProperty {}
+impl ::core::clone::Clone for XmlReaderProperty {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct XmlStandalone(pub i32);
 pub const XmlStandalone_Omit: XmlStandalone = XmlStandalone(0i32);
 pub const XmlStandalone_Yes: XmlStandalone = XmlStandalone(1i32);
 pub const XmlStandalone_No: XmlStandalone = XmlStandalone(2i32);
 pub const _XmlStandalone_Last: XmlStandalone = XmlStandalone(2i32);
+impl ::core::marker::Copy for XmlStandalone {}
+impl ::core::clone::Clone for XmlStandalone {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct XmlWriterProperty(pub i32);
 pub const XmlWriterProperty_MultiLanguage: XmlWriterProperty = XmlWriterProperty(0i32);
@@ -167,6 +209,12 @@ pub const XmlWriterProperty_OmitXmlDeclaration: XmlWriterProperty = XmlWriterPro
 pub const XmlWriterProperty_ConformanceLevel: XmlWriterProperty = XmlWriterProperty(4i32);
 pub const XmlWriterProperty_CompactEmptyElement: XmlWriterProperty = XmlWriterProperty(5i32);
 pub const _XmlWriterProperty_Last: XmlWriterProperty = XmlWriterProperty(5i32);
+impl ::core::marker::Copy for XmlWriterProperty {}
+impl ::core::clone::Clone for XmlWriterProperty {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const _IID_IXmlReader: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1920597121, data2: 28829, data3: 16533, data4: [182, 61, 105, 254, 75, 13, 144, 48] };
 pub const _IID_IXmlResolver: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1920597122, data2: 28829, data3: 16533, data4: [182, 61, 105, 254, 75, 13, 144, 48] };
 pub const _IID_IXmlWriter: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1920597128, data2: 28829, data3: 16533, data4: [182, 61, 105, 254, 75, 13, 144, 48] };

@@ -36,7 +36,13 @@ extern "system" {
     pub fn timeSetEvent(udelay: u32, uresolution: u32, fptc: LPTIMECALLBACK, dwuser: usize, fuevent: u32) -> u32;
 }
 #[repr(C)]
-pub struct HTASK(i32);
+pub struct HTASK(pub isize);
+impl ::core::marker::Copy for HTASK {}
+impl ::core::clone::Clone for HTASK {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IReferenceClock(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -81,8 +87,58 @@ pub const MMSYSERR_NOTSUPPORTED: u32 = 8u32;
 pub const MMSYSERR_READERROR: u32 = 16u32;
 pub const MMSYSERR_VALNOTFOUND: u32 = 19u32;
 pub const MMSYSERR_WRITEERROR: u32 = 17u32;
+#[repr(C, packed(1))]
+pub struct MMTIME {
+    pub wType: u32,
+    pub u: MMTIME_0,
+}
+impl ::core::marker::Copy for MMTIME {}
+impl ::core::clone::Clone for MMTIME {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub union MMTIME_0 {
+    pub ms: u32,
+    pub sample: u32,
+    pub cb: u32,
+    pub ticks: u32,
+    pub smpte: MMTIME_0_1,
+    pub midi: MMTIME_0_0,
+}
+impl ::core::marker::Copy for MMTIME_0 {}
+impl ::core::clone::Clone for MMTIME_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub struct MMTIME_0_0 {
+    pub songptrpos: u32,
+}
+impl ::core::marker::Copy for MMTIME_0_0 {}
+impl ::core::clone::Clone for MMTIME_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct MMTIME(i32);
+pub struct MMTIME_0_1 {
+    pub hour: u8,
+    pub min: u8,
+    pub sec: u8,
+    pub frame: u8,
+    pub fps: u8,
+    pub dummy: u8,
+    pub pad: [u8; 2],
+}
+impl ::core::marker::Copy for MMTIME_0_1 {}
+impl ::core::clone::Clone for MMTIME_0_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MM_ADLIB: u32 = 9u32;
 pub const MM_DRVM_CLOSE: u32 = 977u32;
 pub const MM_DRVM_DATA: u32 = 978u32;
@@ -133,16 +189,63 @@ pub const MM_WOM_CLOSE: u32 = 956u32;
 pub const MM_WOM_DONE: u32 = 957u32;
 pub const MM_WOM_OPEN: u32 = 955u32;
 #[repr(C)]
-pub struct TIMECAPS(i32);
+pub struct TIMECAPS {
+    pub wPeriodMin: u32,
+    pub wPeriodMax: u32,
+}
+impl ::core::marker::Copy for TIMECAPS {}
+impl ::core::clone::Clone for TIMECAPS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct TIMECODE(i32);
+pub union TIMECODE {
+    pub Anonymous: TIMECODE_0,
+    pub qw: u64,
+}
+impl ::core::marker::Copy for TIMECODE {}
+impl ::core::clone::Clone for TIMECODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct TIMECODE_SAMPLE(i32);
+pub struct TIMECODE_0 {
+    pub wFrameRate: u16,
+    pub wFrameFract: u16,
+    pub dwFrames: u32,
+}
+impl ::core::marker::Copy for TIMECODE_0 {}
+impl ::core::clone::Clone for TIMECODE_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct TIMECODE_SAMPLE {
+    pub qwTick: i64,
+    pub timecode: TIMECODE,
+    pub dwUser: u32,
+    pub dwFlags: TIMECODE_SAMPLE_FLAGS,
+}
+impl ::core::marker::Copy for TIMECODE_SAMPLE {}
+impl ::core::clone::Clone for TIMECODE_SAMPLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TIMECODE_SAMPLE_FLAGS(pub u32);
 pub const ED_DEVCAP_TIMECODE_READ: TIMECODE_SAMPLE_FLAGS = TIMECODE_SAMPLE_FLAGS(4121u32);
 pub const ED_DEVCAP_ATN_READ: TIMECODE_SAMPLE_FLAGS = TIMECODE_SAMPLE_FLAGS(5047u32);
 pub const ED_DEVCAP_RTC_READ: TIMECODE_SAMPLE_FLAGS = TIMECODE_SAMPLE_FLAGS(5050u32);
+impl ::core::marker::Copy for TIMECODE_SAMPLE_FLAGS {}
+impl ::core::clone::Clone for TIMECODE_SAMPLE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const TIMERR_BASE: u32 = 96u32;
 pub const TIMERR_NOCANDO: u32 = 97u32;
 pub const TIMERR_NOERROR: u32 = 0u32;

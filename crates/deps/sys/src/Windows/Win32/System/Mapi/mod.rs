@@ -81,24 +81,138 @@ pub const MAPI_TO: u32 = 1u32;
 pub const MAPI_UNREAD: u32 = 1u32;
 pub const MAPI_UNREAD_ONLY: u32 = 32u32;
 pub const MAPI_USER_ABORT: u32 = 1u32;
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct MapiFileDesc(i32);
+pub struct MapiFileDesc {
+    pub ulReserved: u32,
+    pub flFlags: u32,
+    pub nPosition: u32,
+    pub lpszPathName: super::super::Foundation::PSTR,
+    pub lpszFileName: super::super::Foundation::PSTR,
+    pub lpFileType: *mut ::core::ffi::c_void,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct MapiFileDescW(i32);
-#[repr(C)]
-pub struct MapiFileTagExt(i32);
+impl ::core::marker::Copy for MapiFileDesc {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MapiFileDesc {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct MapiMessage(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct MapiMessageW(i32);
+pub struct MapiFileDescW {
+    pub ulReserved: u32,
+    pub flFlags: u32,
+    pub nPosition: u32,
+    pub lpszPathName: super::super::Foundation::PWSTR,
+    pub lpszFileName: super::super::Foundation::PWSTR,
+    pub lpFileType: *mut ::core::ffi::c_void,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct MapiRecipDesc(i32);
+impl ::core::marker::Copy for MapiFileDescW {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MapiFileDescW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct MapiRecipDescW(i32);
+pub struct MapiFileTagExt {
+    pub ulReserved: u32,
+    pub cbTag: u32,
+    pub lpTag: *mut u8,
+    pub cbEncoding: u32,
+    pub lpEncoding: *mut u8,
+}
+impl ::core::marker::Copy for MapiFileTagExt {}
+impl ::core::clone::Clone for MapiFileTagExt {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct MapiMessage {
+    pub ulReserved: u32,
+    pub lpszSubject: super::super::Foundation::PSTR,
+    pub lpszNoteText: super::super::Foundation::PSTR,
+    pub lpszMessageType: super::super::Foundation::PSTR,
+    pub lpszDateReceived: super::super::Foundation::PSTR,
+    pub lpszConversationID: super::super::Foundation::PSTR,
+    pub flFlags: u32,
+    pub lpOriginator: *mut MapiRecipDesc,
+    pub nRecipCount: u32,
+    pub lpRecips: *mut MapiRecipDesc,
+    pub nFileCount: u32,
+    pub lpFiles: *mut MapiFileDesc,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MapiMessage {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MapiMessage {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct MapiMessageW {
+    pub ulReserved: u32,
+    pub lpszSubject: super::super::Foundation::PWSTR,
+    pub lpszNoteText: super::super::Foundation::PWSTR,
+    pub lpszMessageType: super::super::Foundation::PWSTR,
+    pub lpszDateReceived: super::super::Foundation::PWSTR,
+    pub lpszConversationID: super::super::Foundation::PWSTR,
+    pub flFlags: u32,
+    pub lpOriginator: *mut MapiRecipDescW,
+    pub nRecipCount: u32,
+    pub lpRecips: *mut MapiRecipDescW,
+    pub nFileCount: u32,
+    pub lpFiles: *mut MapiFileDescW,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MapiMessageW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MapiMessageW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct MapiRecipDesc {
+    pub ulReserved: u32,
+    pub ulRecipClass: u32,
+    pub lpszName: super::super::Foundation::PSTR,
+    pub lpszAddress: super::super::Foundation::PSTR,
+    pub ulEIDSize: u32,
+    pub lpEntryID: *mut ::core::ffi::c_void,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MapiRecipDesc {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MapiRecipDesc {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct MapiRecipDescW {
+    pub ulReserved: u32,
+    pub ulRecipClass: u32,
+    pub lpszName: super::super::Foundation::PWSTR,
+    pub lpszAddress: super::super::Foundation::PWSTR,
+    pub ulEIDSize: u32,
+    pub lpEntryID: *mut ::core::ffi::c_void,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MapiRecipDescW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MapiRecipDescW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SUCCESS_SUCCESS: u32 = 0u32;

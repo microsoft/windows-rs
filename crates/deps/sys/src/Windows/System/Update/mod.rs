@@ -16,6 +16,12 @@ impl SystemUpdateAttentionRequiredReason {
     pub const InsufficientBattery: Self = Self(3i32);
     pub const UpdateBlocked: Self = Self(4i32);
 }
+impl ::core::marker::Copy for SystemUpdateAttentionRequiredReason {}
+impl ::core::clone::Clone for SystemUpdateAttentionRequiredReason {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SystemUpdateItem(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -30,6 +36,12 @@ impl SystemUpdateItemState {
     pub const Completed: Self = Self(6i32);
     pub const RebootRequired: Self = Self(7i32);
     pub const Error: Self = Self(8i32);
+}
+impl ::core::marker::Copy for SystemUpdateItemState {}
+impl ::core::clone::Clone for SystemUpdateItemState {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct SystemUpdateLastErrorInfo(pub *mut ::core::ffi::c_void);
@@ -49,9 +61,21 @@ impl SystemUpdateManagerState {
     pub const AttentionRequired: Self = Self(10i32);
     pub const Error: Self = Self(11i32);
 }
+impl ::core::marker::Copy for SystemUpdateManagerState {}
+impl ::core::clone::Clone for SystemUpdateManagerState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SystemUpdateStartInstallAction(pub i32);
 impl SystemUpdateStartInstallAction {
     pub const UpToReboot: Self = Self(0i32);
     pub const AllowReboot: Self = Self(1i32);
+}
+impl ::core::marker::Copy for SystemUpdateStartInstallAction {}
+impl ::core::clone::Clone for SystemUpdateStartInstallAction {
+    fn clone(&self) -> Self {
+        *self
+    }
 }

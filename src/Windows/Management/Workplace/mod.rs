@@ -138,6 +138,3 @@ impl WorkplaceSettings {
 impl ::windows::core::RuntimeName for WorkplaceSettings {
     const NAME: &'static str = "Windows.Management.Workplace.WorkplaceSettings";
 }
-#[repr(C)]
-#[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
-pub struct WorkplaceSettingsContract(pub u8);

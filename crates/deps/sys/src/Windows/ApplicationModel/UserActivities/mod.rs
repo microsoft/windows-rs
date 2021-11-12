@@ -71,5 +71,11 @@ impl UserActivityState {
     pub const New: Self = Self(0i32);
     pub const Published: Self = Self(1i32);
 }
+impl ::core::marker::Copy for UserActivityState {}
+impl ::core::clone::Clone for UserActivityState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UserActivityVisualElements(pub *mut ::core::ffi::c_void);

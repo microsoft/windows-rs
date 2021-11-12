@@ -28,6 +28,12 @@ impl FrameFlashMode {
     pub const Enable: Self = Self(1i32);
     pub const Global: Self = Self(2i32);
 }
+impl ::core::marker::Copy for FrameFlashMode {}
+impl ::core::clone::Clone for FrameFlashMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct FrameFocusCapabilities(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]

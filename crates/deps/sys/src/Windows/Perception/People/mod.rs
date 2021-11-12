@@ -33,11 +33,28 @@ impl HandJointKind {
     pub const LittleDistal: Self = Self(24i32);
     pub const LittleTip: Self = Self(25i32);
 }
+impl ::core::marker::Copy for HandJointKind {}
+impl ::core::clone::Clone for HandJointKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct HandMeshObserver(pub *mut ::core::ffi::c_void);
-#[cfg(feature = "Foundation_Numerics")]
 #[repr(C)]
-pub struct HandMeshVertex(i32);
+#[cfg(feature = "Foundation_Numerics")]
+pub struct HandMeshVertex {
+    pub Position: super::super::Foundation::Numerics::Vector3,
+    pub Normal: super::super::Foundation::Numerics::Vector3,
+}
+#[cfg(feature = "Foundation_Numerics")]
+impl ::core::marker::Copy for HandMeshVertex {}
+#[cfg(feature = "Foundation_Numerics")]
+impl ::core::clone::Clone for HandMeshVertex {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct HandMeshVertexState(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -56,12 +73,31 @@ pub struct IHandMeshVertexState(pub *mut ::core::ffi::c_void);
 pub struct IHandPose(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IHeadPose(pub *mut ::core::ffi::c_void);
-#[cfg(feature = "Foundation_Numerics")]
 #[repr(C)]
-pub struct JointPose(i32);
+#[cfg(feature = "Foundation_Numerics")]
+pub struct JointPose {
+    pub Orientation: super::super::Foundation::Numerics::Quaternion,
+    pub Position: super::super::Foundation::Numerics::Vector3,
+    pub Radius: f32,
+    pub Accuracy: JointPoseAccuracy,
+}
+#[cfg(feature = "Foundation_Numerics")]
+impl ::core::marker::Copy for JointPose {}
+#[cfg(feature = "Foundation_Numerics")]
+impl ::core::clone::Clone for JointPose {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct JointPoseAccuracy(pub i32);
 impl JointPoseAccuracy {
     pub const High: Self = Self(0i32);
     pub const Approximate: Self = Self(1i32);
+}
+impl ::core::marker::Copy for JointPoseAccuracy {}
+impl ::core::clone::Clone for JointPoseAccuracy {
+    fn clone(&self) -> Self {
+        *self
+    }
 }

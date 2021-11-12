@@ -20,6 +20,12 @@ impl ClipboardHistoryItemsResultStatus {
     pub const AccessDenied: Self = Self(1i32);
     pub const ClipboardHistoryDisabled: Self = Self(2i32);
 }
+impl ::core::marker::Copy for ClipboardHistoryItemsResultStatus {}
+impl ::core::clone::Clone for ClipboardHistoryItemsResultStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DataPackage(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -29,6 +35,12 @@ impl DataPackageOperation {
     pub const Copy: Self = Self(1u32);
     pub const Move: Self = Self(2u32);
     pub const Link: Self = Self(4u32);
+}
+impl ::core::marker::Copy for DataPackageOperation {}
+impl ::core::clone::Clone for DataPackageOperation {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct DataPackagePropertySet(pub *mut ::core::ffi::c_void);
@@ -155,6 +167,12 @@ impl SetHistoryItemAsContentStatus {
     pub const AccessDenied: Self = Self(1i32);
     pub const ItemDeleted: Self = Self(2i32);
 }
+impl ::core::marker::Copy for SetHistoryItemAsContentStatus {}
+impl ::core::clone::Clone for SetHistoryItemAsContentStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ShareCompletedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -175,6 +193,12 @@ impl ShareUITheme {
     pub const Default: Self = Self(0i32);
     pub const Light: Self = Self(1i32);
     pub const Dark: Self = Self(2i32);
+}
+impl ::core::marker::Copy for ShareUITheme {}
+impl ::core::clone::Clone for ShareUITheme {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct TargetApplicationChosenEventArgs(pub *mut ::core::ffi::c_void);

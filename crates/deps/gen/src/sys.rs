@@ -114,15 +114,161 @@ fn gen_enum(def: &TypeDef, gen: &Gen) -> TokenStream {
         #[repr(transparent)]
         pub struct #name(pub #underlying_type);
         #fields
+        impl ::core::marker::Copy for #name {}
+        impl ::core::clone::Clone for #name {
+            fn clone(&self) -> Self {
+                *self
+            }
+        }
     }
 }
 
 fn gen_struct(def: &TypeDef, gen: &Gen) -> TokenStream {
-    let name = gen_type_name(def, gen);
-    let features = features(def, gen);
-    let cfg = gen.gen_struct_cfg(def, &features);
+    if def.is_api_contract() {
+        return quote! {};
+    }
 
-    quote! { #cfg #[repr(C)] pub struct #name(i32); }
+    gen_struct_with_name(def, def.name(), gen, &TokenStream::new())
+}
+
+fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen, cfg: &TokenStream) -> TokenStream {
+    let name = to_ident(struct_name);
+
+    let (doc, cfg) = if cfg.is_empty() {
+        let features = features(def, gen);
+        let cfg = gen.gen_struct_cfg(def, &features);
+        let doc = gen.gen_cfg_doc(&features);
+        (doc, cfg)
+    } else {
+        (TokenStream::new(), cfg.clone())
+    };
+
+    let fields: Vec<(Field, Signature, TokenStream)> = def
+        .fields()
+        .filter_map(move |f| {
+            if f.is_literal() {
+                None
+            } else {
+                let signature = f.signature(Some(def));
+                let name = f.name();
+                Some((f, signature, to_ident(name)))
+            }
+        })
+        .collect();
+
+    if fields.is_empty() {
+        if let Some(guid) = GUID::from_attributes(def.attributes()) {
+            let guid = gen_sys_guid(&guid);
+
+            return quote! {
+                pub const #name: ::windows_sys::core::GUID = #guid;
+            };
+        } else {
+            return quote! {
+                #[repr(C)]
+                pub struct #name(pub u8);
+            };
+        }
+    }
+
+    let repr = if let Some(layout) = def.class_layout() {
+        let packing = Literal::u32_unsuffixed(layout.packing_size());
+        quote! { #[repr(C, packed(#packing))] }
+    } else {
+        quote! { #[repr(C)] }
+    };
+
+    let is_union = def.is_explicit();
+    let is_handle = def.is_handle();
+
+    let fields = fields.iter().map(|(_, signature, name)| {
+        let kind = gen_sys_sig(signature, gen);
+
+        if is_handle {
+            quote! { pub #kind }
+        } else {
+            quote! {
+                pub #name: #kind
+            }
+        }
+    });
+
+    let body = if is_handle {
+        quote! { (#(#fields),*); }
+    } else {
+        quote! { {#(#fields),*} }
+    };
+
+    let struct_or_union = if is_union {
+        quote! { union }
+    } else {
+        quote! { struct }
+    };
+
+    let nested_structs = gen_nested_structs(struct_name, def, gen, &cfg);
+    let constants = gen_struct_constants(def, &name, &cfg);
+
+    quote! {
+        #repr
+        #cfg
+        #doc
+        pub #struct_or_union #name #body
+        #constants
+        #cfg
+        impl ::core::marker::Copy for #name {}
+        #cfg
+        impl ::core::clone::Clone for #name {
+            fn clone(&self) -> Self {
+                *self
+            }
+        }
+        #nested_structs
+    }
+}
+
+fn gen_struct_constants(def: &TypeDef, struct_name: &TokenStream, cfg: &TokenStream) -> TokenStream {
+    let constants = def.fields().filter_map(|f| {
+        if f.is_literal() {
+            if let Some(constant) = f.constant() {
+                let name = to_ident(f.name());
+                let value = gen_constant_type_value(&constant.value());
+
+                return Some(quote! {
+                    pub const #name: #value;
+                });
+            }
+        }
+
+        None
+    });
+
+    let mut tokens = quote! { #(#constants)* };
+
+    if !tokens.is_empty() {
+        tokens = quote! {
+            #cfg
+            impl #struct_name {
+                #tokens
+            }
+        };
+    }
+
+    tokens
+}
+
+fn gen_nested_structs<'a>(enclosing_name: &'a str, enclosing_type: &'a TypeDef, gen: &Gen, cfg: &TokenStream) -> TokenStream {
+    if let Some(nested_types) = enclosing_type.nested_types() {
+        nested_types
+            .iter()
+            .enumerate()
+            .map(|(index, (_, nested_type))| {
+                let nested_name = format!("{}_{}", enclosing_name, index);
+                gen_struct_with_name(nested_type, &nested_name, gen, cfg)
+            })
+            .collect()
+    } else {
+        TokenStream::new()
+    }
 }
 
 fn gen_constant(def: &Field, gen: &Gen) -> TokenStream {

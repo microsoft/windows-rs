@@ -11,3 +11,9 @@ impl ProviderAdcChannelMode {
     pub const SingleEnded: Self = Self(0i32);
     pub const Differential: Self = Self(1i32);
 }
+impl ::core::marker::Copy for ProviderAdcChannelMode {}
+impl ::core::clone::Clone for ProviderAdcChannelMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

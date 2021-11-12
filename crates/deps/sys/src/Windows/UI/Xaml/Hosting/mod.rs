@@ -13,6 +13,12 @@ impl DesignerAppViewState {
     pub const Visible: Self = Self(0i32);
     pub const Hidden: Self = Self(1i32);
 }
+impl ::core::marker::Copy for DesignerAppViewState {}
+impl ::core::clone::Clone for DesignerAppViewState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DesktopWindowXamlSource(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -21,8 +27,6 @@ pub struct DesktopWindowXamlSourceGotFocusEventArgs(pub *mut ::core::ffi::c_void
 pub struct DesktopWindowXamlSourceTakeFocusRequestedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct ElementCompositionPreview(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct HostingContract(i32);
 #[repr(transparent)]
 pub struct IDesignerAppExitedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -84,6 +88,12 @@ impl XamlSourceFocusNavigationReason {
     pub const Up: Self = Self(8i32);
     pub const Right: Self = Self(9i32);
     pub const Down: Self = Self(10i32);
+}
+impl ::core::marker::Copy for XamlSourceFocusNavigationReason {}
+impl ::core::clone::Clone for XamlSourceFocusNavigationReason {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct XamlSourceFocusNavigationRequest(pub *mut ::core::ffi::c_void);

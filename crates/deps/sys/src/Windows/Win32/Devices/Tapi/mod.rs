@@ -370,10 +370,22 @@ extern "system" {
 pub struct ACDGROUP_EVENT(pub i32);
 pub const ACDGE_NEW_GROUP: ACDGROUP_EVENT = ACDGROUP_EVENT(0i32);
 pub const ACDGE_GROUP_REMOVED: ACDGROUP_EVENT = ACDGROUP_EVENT(1i32);
+impl ::core::marker::Copy for ACDGROUP_EVENT {}
+impl ::core::clone::Clone for ACDGROUP_EVENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ACDQUEUE_EVENT(pub i32);
 pub const ACDQE_NEW_QUEUE: ACDQUEUE_EVENT = ACDQUEUE_EVENT(0i32);
 pub const ACDQE_QUEUE_REMOVED: ACDQUEUE_EVENT = ACDQUEUE_EVENT(1i32);
+impl ::core::marker::Copy for ACDQUEUE_EVENT {}
+impl ::core::clone::Clone for ACDQUEUE_EVENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ADDRESS_CAPABILITY(pub i32);
 pub const AC_ADDRESSTYPES: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(0i32);
@@ -424,6 +436,12 @@ pub const AC_GATHERDIGITSMAXTIMEOUT: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(44i
 pub const AC_GENERATEDIGITMINDURATION: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(45i32);
 pub const AC_GENERATEDIGITMAXDURATION: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(46i32);
 pub const AC_GENERATEDIGITDEFAULTDURATION: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(47i32);
+impl ::core::marker::Copy for ADDRESS_CAPABILITY {}
+impl ::core::clone::Clone for ADDRESS_CAPABILITY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ADDRESS_CAPABILITY_STRING(pub i32);
 pub const ACS_PROTOCOL: ADDRESS_CAPABILITY_STRING = ADDRESS_CAPABILITY_STRING(0i32);
@@ -432,6 +450,12 @@ pub const ACS_LINEDEVICESPECIFIC: ADDRESS_CAPABILITY_STRING = ADDRESS_CAPABILITY
 pub const ACS_PROVIDERSPECIFIC: ADDRESS_CAPABILITY_STRING = ADDRESS_CAPABILITY_STRING(3i32);
 pub const ACS_SWITCHSPECIFIC: ADDRESS_CAPABILITY_STRING = ADDRESS_CAPABILITY_STRING(4i32);
 pub const ACS_PERMANENTDEVICEGUID: ADDRESS_CAPABILITY_STRING = ADDRESS_CAPABILITY_STRING(5i32);
+impl ::core::marker::Copy for ADDRESS_CAPABILITY_STRING {}
+impl ::core::clone::Clone for ADDRESS_CAPABILITY_STRING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ADDRESS_EVENT(pub i32);
 pub const AE_STATE: ADDRESS_EVENT = ADDRESS_EVENT(0i32);
@@ -444,14 +468,32 @@ pub const AE_REMOVETERMINAL: ADDRESS_EVENT = ADDRESS_EVENT(6i32);
 pub const AE_MSGWAITON: ADDRESS_EVENT = ADDRESS_EVENT(7i32);
 pub const AE_MSGWAITOFF: ADDRESS_EVENT = ADDRESS_EVENT(8i32);
 pub const AE_LASTITEM: ADDRESS_EVENT = ADDRESS_EVENT(8i32);
+impl ::core::marker::Copy for ADDRESS_EVENT {}
+impl ::core::clone::Clone for ADDRESS_EVENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ADDRESS_STATE(pub i32);
 pub const AS_INSERVICE: ADDRESS_STATE = ADDRESS_STATE(0i32);
 pub const AS_OUTOFSERVICE: ADDRESS_STATE = ADDRESS_STATE(1i32);
+impl ::core::marker::Copy for ADDRESS_STATE {}
+impl ::core::clone::Clone for ADDRESS_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AGENTHANDLER_EVENT(pub i32);
 pub const AHE_NEW_AGENTHANDLER: AGENTHANDLER_EVENT = AGENTHANDLER_EVENT(0i32);
 pub const AHE_AGENTHANDLER_REMOVED: AGENTHANDLER_EVENT = AGENTHANDLER_EVENT(1i32);
+impl ::core::marker::Copy for AGENTHANDLER_EVENT {}
+impl ::core::clone::Clone for AGENTHANDLER_EVENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AGENT_EVENT(pub i32);
 pub const AE_NOT_READY: AGENT_EVENT = AGENT_EVENT(0i32);
@@ -460,6 +502,12 @@ pub const AE_BUSY_ACD: AGENT_EVENT = AGENT_EVENT(2i32);
 pub const AE_BUSY_INCOMING: AGENT_EVENT = AGENT_EVENT(3i32);
 pub const AE_BUSY_OUTGOING: AGENT_EVENT = AGENT_EVENT(4i32);
 pub const AE_UNKNOWN: AGENT_EVENT = AGENT_EVENT(5i32);
+impl ::core::marker::Copy for AGENT_EVENT {}
+impl ::core::clone::Clone for AGENT_EVENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AGENT_SESSION_EVENT(pub i32);
 pub const ASE_NEW_SESSION: AGENT_SESSION_EVENT = AGENT_SESSION_EVENT(0i32);
@@ -468,6 +516,12 @@ pub const ASE_READY: AGENT_SESSION_EVENT = AGENT_SESSION_EVENT(2i32);
 pub const ASE_BUSY: AGENT_SESSION_EVENT = AGENT_SESSION_EVENT(3i32);
 pub const ASE_WRAPUP: AGENT_SESSION_EVENT = AGENT_SESSION_EVENT(4i32);
 pub const ASE_END: AGENT_SESSION_EVENT = AGENT_SESSION_EVENT(5i32);
+impl ::core::marker::Copy for AGENT_SESSION_EVENT {}
+impl ::core::clone::Clone for AGENT_SESSION_EVENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AGENT_SESSION_STATE(pub i32);
 pub const ASST_NOT_READY: AGENT_SESSION_STATE = AGENT_SESSION_STATE(0i32);
@@ -475,6 +529,12 @@ pub const ASST_READY: AGENT_SESSION_STATE = AGENT_SESSION_STATE(1i32);
 pub const ASST_BUSY_ON_CALL: AGENT_SESSION_STATE = AGENT_SESSION_STATE(2i32);
 pub const ASST_BUSY_WRAPUP: AGENT_SESSION_STATE = AGENT_SESSION_STATE(3i32);
 pub const ASST_SESSION_ENDED: AGENT_SESSION_STATE = AGENT_SESSION_STATE(4i32);
+impl ::core::marker::Copy for AGENT_SESSION_STATE {}
+impl ::core::clone::Clone for AGENT_SESSION_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AGENT_STATE(pub i32);
 pub const AS_NOT_READY: AGENT_STATE = AGENT_STATE(0i32);
@@ -483,6 +543,12 @@ pub const AS_BUSY_ACD: AGENT_STATE = AGENT_STATE(2i32);
 pub const AS_BUSY_INCOMING: AGENT_STATE = AGENT_STATE(3i32);
 pub const AS_BUSY_OUTGOING: AGENT_STATE = AGENT_STATE(4i32);
 pub const AS_UNKNOWN: AGENT_STATE = AGENT_STATE(5i32);
+impl ::core::marker::Copy for AGENT_STATE {}
+impl ::core::clone::Clone for AGENT_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub type ASYNC_COMPLETION = unsafe extern "system" fn(dwrequestid: u32, lresult: i32);
 #[repr(transparent)]
 pub struct CALLHUB_EVENT(pub i32);
@@ -491,10 +557,22 @@ pub const CHE_CALLLEAVE: CALLHUB_EVENT = CALLHUB_EVENT(1i32);
 pub const CHE_CALLHUBNEW: CALLHUB_EVENT = CALLHUB_EVENT(2i32);
 pub const CHE_CALLHUBIDLE: CALLHUB_EVENT = CALLHUB_EVENT(3i32);
 pub const CHE_LASTITEM: CALLHUB_EVENT = CALLHUB_EVENT(3i32);
+impl ::core::marker::Copy for CALLHUB_EVENT {}
+impl ::core::clone::Clone for CALLHUB_EVENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CALLHUB_STATE(pub i32);
 pub const CHS_ACTIVE: CALLHUB_STATE = CALLHUB_STATE(0i32);
 pub const CHS_IDLE: CALLHUB_STATE = CALLHUB_STATE(1i32);
+impl ::core::marker::Copy for CALLHUB_STATE {}
+impl ::core::clone::Clone for CALLHUB_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CALLINFOCHANGE_CAUSE(pub i32);
 pub const CIC_OTHER: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(0i32);
@@ -525,6 +603,12 @@ pub const CIC_CALLDATA: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(24i32);
 pub const CIC_PRIVILEGE: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(25i32);
 pub const CIC_MEDIATYPE: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(26i32);
 pub const CIC_LASTITEM: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(26i32);
+impl ::core::marker::Copy for CALLINFOCHANGE_CAUSE {}
+impl ::core::clone::Clone for CALLINFOCHANGE_CAUSE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CALLINFO_BUFFER(pub i32);
 pub const CIB_USERUSERINFO: CALLINFO_BUFFER = CALLINFO_BUFFER(0i32);
@@ -533,6 +617,12 @@ pub const CIB_CALLDATABUFFER: CALLINFO_BUFFER = CALLINFO_BUFFER(2i32);
 pub const CIB_CHARGINGINFOBUFFER: CALLINFO_BUFFER = CALLINFO_BUFFER(3i32);
 pub const CIB_HIGHLEVELCOMPATIBILITYBUFFER: CALLINFO_BUFFER = CALLINFO_BUFFER(4i32);
 pub const CIB_LOWLEVELCOMPATIBILITYBUFFER: CALLINFO_BUFFER = CALLINFO_BUFFER(5i32);
+impl ::core::marker::Copy for CALLINFO_BUFFER {}
+impl ::core::clone::Clone for CALLINFO_BUFFER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CALLINFO_LONG(pub i32);
 pub const CIL_MEDIATYPESAVAILABLE: CALLINFO_LONG = CALLINFO_LONG(0i32);
@@ -560,6 +650,12 @@ pub const CIL_RATE: CALLINFO_LONG = CALLINFO_LONG(21i32);
 pub const CIL_GENERATEDIGITDURATION: CALLINFO_LONG = CALLINFO_LONG(22i32);
 pub const CIL_MONITORDIGITMODES: CALLINFO_LONG = CALLINFO_LONG(23i32);
 pub const CIL_MONITORMEDIAMODES: CALLINFO_LONG = CALLINFO_LONG(24i32);
+impl ::core::marker::Copy for CALLINFO_LONG {}
+impl ::core::clone::Clone for CALLINFO_LONG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CALLINFO_STRING(pub i32);
 pub const CIS_CALLERIDNAME: CALLINFO_STRING = CALLINFO_STRING(0i32);
@@ -576,6 +672,12 @@ pub const CIS_CALLEDPARTYFRIENDLYNAME: CALLINFO_STRING = CALLINFO_STRING(10i32);
 pub const CIS_COMMENT: CALLINFO_STRING = CALLINFO_STRING(11i32);
 pub const CIS_DISPLAYABLEADDRESS: CALLINFO_STRING = CALLINFO_STRING(12i32);
 pub const CIS_CALLINGPARTYID: CALLINFO_STRING = CALLINFO_STRING(13i32);
+impl ::core::marker::Copy for CALLINFO_STRING {}
+impl ::core::clone::Clone for CALLINFO_STRING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CALL_MEDIA_EVENT(pub i32);
 pub const CME_NEW_STREAM: CALL_MEDIA_EVENT = CALL_MEDIA_EVENT(0i32);
@@ -585,6 +687,12 @@ pub const CME_STREAM_NOT_USED: CALL_MEDIA_EVENT = CALL_MEDIA_EVENT(3i32);
 pub const CME_STREAM_ACTIVE: CALL_MEDIA_EVENT = CALL_MEDIA_EVENT(4i32);
 pub const CME_STREAM_INACTIVE: CALL_MEDIA_EVENT = CALL_MEDIA_EVENT(5i32);
 pub const CME_LASTITEM: CALL_MEDIA_EVENT = CALL_MEDIA_EVENT(5i32);
+impl ::core::marker::Copy for CALL_MEDIA_EVENT {}
+impl ::core::clone::Clone for CALL_MEDIA_EVENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CALL_MEDIA_EVENT_CAUSE(pub i32);
 pub const CMC_UNKNOWN: CALL_MEDIA_EVENT_CAUSE = CALL_MEDIA_EVENT_CAUSE(0i32);
@@ -595,15 +703,33 @@ pub const CMC_REMOTE_REQUEST: CALL_MEDIA_EVENT_CAUSE = CALL_MEDIA_EVENT_CAUSE(4i
 pub const CMC_MEDIA_TIMEOUT: CALL_MEDIA_EVENT_CAUSE = CALL_MEDIA_EVENT_CAUSE(5i32);
 pub const CMC_MEDIA_RECOVERED: CALL_MEDIA_EVENT_CAUSE = CALL_MEDIA_EVENT_CAUSE(6i32);
 pub const CMC_QUALITY_OF_SERVICE: CALL_MEDIA_EVENT_CAUSE = CALL_MEDIA_EVENT_CAUSE(7i32);
+impl ::core::marker::Copy for CALL_MEDIA_EVENT_CAUSE {}
+impl ::core::clone::Clone for CALL_MEDIA_EVENT_CAUSE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CALL_NOTIFICATION_EVENT(pub i32);
 pub const CNE_OWNER: CALL_NOTIFICATION_EVENT = CALL_NOTIFICATION_EVENT(0i32);
 pub const CNE_MONITOR: CALL_NOTIFICATION_EVENT = CALL_NOTIFICATION_EVENT(1i32);
 pub const CNE_LASTITEM: CALL_NOTIFICATION_EVENT = CALL_NOTIFICATION_EVENT(1i32);
+impl ::core::marker::Copy for CALL_NOTIFICATION_EVENT {}
+impl ::core::clone::Clone for CALL_NOTIFICATION_EVENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CALL_PRIVILEGE(pub i32);
 pub const CP_OWNER: CALL_PRIVILEGE = CALL_PRIVILEGE(0i32);
 pub const CP_MONITOR: CALL_PRIVILEGE = CALL_PRIVILEGE(1i32);
+impl ::core::marker::Copy for CALL_PRIVILEGE {}
+impl ::core::clone::Clone for CALL_PRIVILEGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CALL_STATE(pub i32);
 pub const CS_IDLE: CALL_STATE = CALL_STATE(0i32);
@@ -614,6 +740,12 @@ pub const CS_OFFERING: CALL_STATE = CALL_STATE(4i32);
 pub const CS_HOLD: CALL_STATE = CALL_STATE(5i32);
 pub const CS_QUEUED: CALL_STATE = CALL_STATE(6i32);
 pub const CS_LASTITEM: CALL_STATE = CALL_STATE(6i32);
+impl ::core::marker::Copy for CALL_STATE {}
+impl ::core::clone::Clone for CALL_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CALL_STATE_EVENT_CAUSE(pub i32);
 pub const CEC_NONE: CALL_STATE_EVENT_CAUSE = CALL_STATE_EVENT_CAUSE(0i32);
@@ -625,55 +757,168 @@ pub const CEC_DISCONNECT_CANCELLED: CALL_STATE_EVENT_CAUSE = CALL_STATE_EVENT_CA
 pub const CEC_DISCONNECT_REJECTED: CALL_STATE_EVENT_CAUSE = CALL_STATE_EVENT_CAUSE(6i32);
 pub const CEC_DISCONNECT_FAILED: CALL_STATE_EVENT_CAUSE = CALL_STATE_EVENT_CAUSE(7i32);
 pub const CEC_DISCONNECT_BLOCKED: CALL_STATE_EVENT_CAUSE = CALL_STATE_EVENT_CAUSE(8i32);
+impl ::core::marker::Copy for CALL_STATE_EVENT_CAUSE {}
+impl ::core::clone::Clone for CALL_STATE_EVENT_CAUSE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DIRECTORY_OBJECT_TYPE(pub i32);
 pub const OT_CONFERENCE: DIRECTORY_OBJECT_TYPE = DIRECTORY_OBJECT_TYPE(1i32);
 pub const OT_USER: DIRECTORY_OBJECT_TYPE = DIRECTORY_OBJECT_TYPE(2i32);
+impl ::core::marker::Copy for DIRECTORY_OBJECT_TYPE {}
+impl ::core::clone::Clone for DIRECTORY_OBJECT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DIRECTORY_TYPE(pub i32);
 pub const DT_NTDS: DIRECTORY_TYPE = DIRECTORY_TYPE(1i32);
 pub const DT_ILS: DIRECTORY_TYPE = DIRECTORY_TYPE(2i32);
+impl ::core::marker::Copy for DIRECTORY_TYPE {}
+impl ::core::clone::Clone for DIRECTORY_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DISCONNECT_CODE(pub i32);
 pub const DC_NORMAL: DISCONNECT_CODE = DISCONNECT_CODE(0i32);
 pub const DC_NOANSWER: DISCONNECT_CODE = DISCONNECT_CODE(1i32);
 pub const DC_REJECTED: DISCONNECT_CODE = DISCONNECT_CODE(2i32);
+impl ::core::marker::Copy for DISCONNECT_CODE {}
+impl ::core::clone::Clone for DISCONNECT_CODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const DISPIDMASK: u32 = 65535u32;
-#[repr(C)]
-pub struct DispatchMapper(i32);
+pub const DispatchMapper: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3911340694, data2: 51033, data3: 4561, data4: [160, 43, 0, 192, 79, 182, 128, 159] };
 #[repr(transparent)]
 pub struct FINISH_MODE(pub i32);
 pub const FM_ASTRANSFER: FINISH_MODE = FINISH_MODE(0i32);
 pub const FM_ASCONFERENCE: FINISH_MODE = FINISH_MODE(1i32);
+impl ::core::marker::Copy for FINISH_MODE {}
+impl ::core::clone::Clone for FINISH_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct FT_STATE_EVENT_CAUSE(pub i32);
 pub const FTEC_NORMAL: FT_STATE_EVENT_CAUSE = FT_STATE_EVENT_CAUSE(0i32);
 pub const FTEC_END_OF_FILE: FT_STATE_EVENT_CAUSE = FT_STATE_EVENT_CAUSE(1i32);
 pub const FTEC_READ_ERROR: FT_STATE_EVENT_CAUSE = FT_STATE_EVENT_CAUSE(2i32);
 pub const FTEC_WRITE_ERROR: FT_STATE_EVENT_CAUSE = FT_STATE_EVENT_CAUSE(3i32);
+impl ::core::marker::Copy for FT_STATE_EVENT_CAUSE {}
+impl ::core::clone::Clone for FT_STATE_EVENT_CAUSE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct FULLDUPLEX_SUPPORT(pub i32);
 pub const FDS_SUPPORTED: FULLDUPLEX_SUPPORT = FULLDUPLEX_SUPPORT(0i32);
 pub const FDS_NOTSUPPORTED: FULLDUPLEX_SUPPORT = FULLDUPLEX_SUPPORT(1i32);
 pub const FDS_UNKNOWN: FULLDUPLEX_SUPPORT = FULLDUPLEX_SUPPORT(2i32);
+impl ::core::marker::Copy for FULLDUPLEX_SUPPORT {}
+impl ::core::clone::Clone for FULLDUPLEX_SUPPORT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct HDRVCALL__(i32);
+pub struct HDRVCALL__ {
+    pub unused: i32,
+}
+impl ::core::marker::Copy for HDRVCALL__ {}
+impl ::core::clone::Clone for HDRVCALL__ {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct HDRVDIALOGINSTANCE__(i32);
+pub struct HDRVDIALOGINSTANCE__ {
+    pub unused: i32,
+}
+impl ::core::marker::Copy for HDRVDIALOGINSTANCE__ {}
+impl ::core::clone::Clone for HDRVDIALOGINSTANCE__ {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct HDRVLINE__(i32);
+pub struct HDRVLINE__ {
+    pub unused: i32,
+}
+impl ::core::marker::Copy for HDRVLINE__ {}
+impl ::core::clone::Clone for HDRVLINE__ {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct HDRVMSPLINE__(i32);
+pub struct HDRVMSPLINE__ {
+    pub unused: i32,
+}
+impl ::core::marker::Copy for HDRVMSPLINE__ {}
+impl ::core::clone::Clone for HDRVMSPLINE__ {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct HDRVPHONE__(i32);
+pub struct HDRVPHONE__ {
+    pub unused: i32,
+}
+impl ::core::marker::Copy for HDRVPHONE__ {}
+impl ::core::clone::Clone for HDRVPHONE__ {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct HPROVIDER__(i32);
+pub struct HPROVIDER__ {
+    pub unused: i32,
+}
+impl ::core::marker::Copy for HPROVIDER__ {}
+impl ::core::clone::Clone for HPROVIDER__ {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct HTAPICALL__(i32);
+pub struct HTAPICALL__ {
+    pub unused: i32,
+}
+impl ::core::marker::Copy for HTAPICALL__ {}
+impl ::core::clone::Clone for HTAPICALL__ {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct HTAPILINE__(i32);
+pub struct HTAPILINE__ {
+    pub unused: i32,
+}
+impl ::core::marker::Copy for HTAPILINE__ {}
+impl ::core::clone::Clone for HTAPILINE__ {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct HTAPIPHONE__(i32);
+pub struct HTAPIPHONE__ {
+    pub unused: i32,
+}
+impl ::core::marker::Copy for HTAPIPHONE__ {}
+impl ::core::clone::Clone for HTAPIPHONE__ {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const IDISPADDRESS: u32 = 65536u32;
 pub const IDISPADDRESSCAPABILITIES: u32 = 131072u32;
 pub const IDISPADDRESSTRANSLATION: u32 = 262144u32;
@@ -972,8 +1217,72 @@ pub const LINEADDRCAPFLAGS_SETCALLINGID: u32 = 536870912u32;
 pub const LINEADDRCAPFLAGS_SETUPCONFNULL: u32 = 512u32;
 pub const LINEADDRCAPFLAGS_TRANSFERHELD: u32 = 4096u32;
 pub const LINEADDRCAPFLAGS_TRANSFERMAKE: u32 = 8192u32;
-#[repr(C)]
-pub struct LINEADDRESSCAPS(i32);
+#[repr(C, packed(1))]
+pub struct LINEADDRESSCAPS {
+    pub dwTotalSize: u32,
+    pub dwNeededSize: u32,
+    pub dwUsedSize: u32,
+    pub dwLineDeviceID: u32,
+    pub dwAddressSize: u32,
+    pub dwAddressOffset: u32,
+    pub dwDevSpecificSize: u32,
+    pub dwDevSpecificOffset: u32,
+    pub dwAddressSharing: u32,
+    pub dwAddressStates: u32,
+    pub dwCallInfoStates: u32,
+    pub dwCallerIDFlags: u32,
+    pub dwCalledIDFlags: u32,
+    pub dwConnectedIDFlags: u32,
+    pub dwRedirectionIDFlags: u32,
+    pub dwRedirectingIDFlags: u32,
+    pub dwCallStates: u32,
+    pub dwDialToneModes: u32,
+    pub dwBusyModes: u32,
+    pub dwSpecialInfo: u32,
+    pub dwDisconnectModes: u32,
+    pub dwMaxNumActiveCalls: u32,
+    pub dwMaxNumOnHoldCalls: u32,
+    pub dwMaxNumOnHoldPendingCalls: u32,
+    pub dwMaxNumConference: u32,
+    pub dwMaxNumTransConf: u32,
+    pub dwAddrCapFlags: u32,
+    pub dwCallFeatures: u32,
+    pub dwRemoveFromConfCaps: u32,
+    pub dwRemoveFromConfState: u32,
+    pub dwTransferModes: u32,
+    pub dwParkModes: u32,
+    pub dwForwardModes: u32,
+    pub dwMaxForwardEntries: u32,
+    pub dwMaxSpecificEntries: u32,
+    pub dwMinFwdNumRings: u32,
+    pub dwMaxFwdNumRings: u32,
+    pub dwMaxCallCompletions: u32,
+    pub dwCallCompletionConds: u32,
+    pub dwCallCompletionModes: u32,
+    pub dwNumCompletionMessages: u32,
+    pub dwCompletionMsgTextEntrySize: u32,
+    pub dwCompletionMsgTextSize: u32,
+    pub dwCompletionMsgTextOffset: u32,
+    pub dwAddressFeatures: u32,
+    pub dwPredictiveAutoTransferStates: u32,
+    pub dwNumCallTreatments: u32,
+    pub dwCallTreatmentListSize: u32,
+    pub dwCallTreatmentListOffset: u32,
+    pub dwDeviceClassesSize: u32,
+    pub dwDeviceClassesOffset: u32,
+    pub dwMaxCallDataSize: u32,
+    pub dwCallFeatures2: u32,
+    pub dwMaxNoAnswerTimeout: u32,
+    pub dwConnectedModes: u32,
+    pub dwOfferingModes: u32,
+    pub dwAvailableMediaModes: u32,
+}
+impl ::core::marker::Copy for LINEADDRESSCAPS {}
+impl ::core::clone::Clone for LINEADDRESSCAPS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const LINEADDRESSMODE_ADDRESSID: u32 = 1u32;
 pub const LINEADDRESSMODE_DIALABLEADDR: u32 = 2u32;
 pub const LINEADDRESSSHARING_BRIDGEDEXCL: u32 = 2u32;
@@ -990,8 +1299,31 @@ pub const LINEADDRESSSTATE_INUSEZERO: u32 = 4u32;
 pub const LINEADDRESSSTATE_NUMCALLS: u32 = 32u32;
 pub const LINEADDRESSSTATE_OTHER: u32 = 1u32;
 pub const LINEADDRESSSTATE_TERMINALS: u32 = 128u32;
-#[repr(C)]
-pub struct LINEADDRESSSTATUS(i32);
+#[repr(C, packed(1))]
+pub struct LINEADDRESSSTATUS {
+    pub dwTotalSize: u32,
+    pub dwNeededSize: u32,
+    pub dwUsedSize: u32,
+    pub dwNumInUse: u32,
+    pub dwNumActiveCalls: u32,
+    pub dwNumOnHoldCalls: u32,
+    pub dwNumOnHoldPendCalls: u32,
+    pub dwAddressFeatures: u32,
+    pub dwNumRingsNoAnswer: u32,
+    pub dwForwardNumEntries: u32,
+    pub dwForwardSize: u32,
+    pub dwForwardOffset: u32,
+    pub dwTerminalModesSize: u32,
+    pub dwTerminalModesOffset: u32,
+    pub dwDevSpecificSize: u32,
+    pub dwDevSpecificOffset: u32,
+}
+impl ::core::marker::Copy for LINEADDRESSSTATUS {}
+impl ::core::clone::Clone for LINEADDRESSSTATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const LINEADDRESSTYPE_DOMAINNAME: u32 = 8u32;
 pub const LINEADDRESSTYPE_EMAILNAME: u32 = 4u32;
 pub const LINEADDRESSTYPE_IPADDRESS: u32 = 16u32;
@@ -1011,36 +1343,216 @@ pub const LINEADDRFEATURE_SETTERMINAL: u32 = 16u32;
 pub const LINEADDRFEATURE_SETUPCONF: u32 = 32u32;
 pub const LINEADDRFEATURE_UNCOMPLETECALL: u32 = 64u32;
 pub const LINEADDRFEATURE_UNPARK: u32 = 128u32;
-#[repr(C)]
-pub struct LINEAGENTACTIVITYENTRY(i32);
-#[repr(C)]
-pub struct LINEAGENTACTIVITYLIST(i32);
-#[repr(C)]
-pub struct LINEAGENTCAPS(i32);
-#[repr(C)]
-pub struct LINEAGENTENTRY(i32);
+#[repr(C, packed(1))]
+pub struct LINEAGENTACTIVITYENTRY {
+    pub dwID: u32,
+    pub dwNameSize: u32,
+    pub dwNameOffset: u32,
+}
+impl ::core::marker::Copy for LINEAGENTACTIVITYENTRY {}
+impl ::core::clone::Clone for LINEAGENTACTIVITYENTRY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub struct LINEAGENTACTIVITYLIST {
+    pub dwTotalSize: u32,
+    pub dwNeededSize: u32,
+    pub dwUsedSize: u32,
+    pub dwNumEntries: u32,
+    pub dwListSize: u32,
+    pub dwListOffset: u32,
+}
+impl ::core::marker::Copy for LINEAGENTACTIVITYLIST {}
+impl ::core::clone::Clone for LINEAGENTACTIVITYLIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub struct LINEAGENTCAPS {
+    pub dwTotalSize: u32,
+    pub dwNeededSize: u32,
+    pub dwUsedSize: u32,
+    pub dwAgentHandlerInfoSize: u32,
+    pub dwAgentHandlerInfoOffset: u32,
+    pub dwCapsVersion: u32,
+    pub dwFeatures: u32,
+    pub dwStates: u32,
+    pub dwNextStates: u32,
+    pub dwMaxNumGroupEntries: u32,
+    pub dwAgentStatusMessages: u32,
+    pub dwNumAgentExtensionIDs: u32,
+    pub dwAgentExtensionIDListSize: u32,
+    pub dwAgentExtensionIDListOffset: u32,
+    pub ProxyGUID: ::windows_sys::core::GUID,
+}
+impl ::core::marker::Copy for LINEAGENTCAPS {}
+impl ::core::clone::Clone for LINEAGENTCAPS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub struct LINEAGENTENTRY {
+    pub hAgent: u32,
+    pub dwNameSize: u32,
+    pub dwNameOffset: u32,
+    pub dwIDSize: u32,
+    pub dwIDOffset: u32,
+    pub dwPINSize: u32,
+    pub dwPINOffset: u32,
+}
+impl ::core::marker::Copy for LINEAGENTENTRY {}
+impl ::core::clone::Clone for LINEAGENTENTRY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const LINEAGENTFEATURE_AGENTSPECIFIC: u32 = 8u32;
 pub const LINEAGENTFEATURE_GETAGENTACTIVITYLIST: u32 = 16u32;
 pub const LINEAGENTFEATURE_GETAGENTGROUP: u32 = 32u32;
 pub const LINEAGENTFEATURE_SETAGENTACTIVITY: u32 = 4u32;
 pub const LINEAGENTFEATURE_SETAGENTGROUP: u32 = 1u32;
 pub const LINEAGENTFEATURE_SETAGENTSTATE: u32 = 2u32;
-#[repr(C)]
-pub struct LINEAGENTGROUPENTRY(i32);
-#[repr(C)]
-pub struct LINEAGENTGROUPLIST(i32);
+#[repr(C, packed(1))]
+pub struct LINEAGENTGROUPENTRY {
+    pub GroupID: LINEAGENTGROUPENTRY_0,
+    pub dwNameSize: u32,
+    pub dwNameOffset: u32,
+}
+impl ::core::marker::Copy for LINEAGENTGROUPENTRY {}
+impl ::core::clone::Clone for LINEAGENTGROUPENTRY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub struct LINEAGENTGROUPENTRY_0 {
+    pub dwGroupID1: u32,
+    pub dwGroupID2: u32,
+    pub dwGroupID3: u32,
+    pub dwGroupID4: u32,
+}
+impl ::core::marker::Copy for LINEAGENTGROUPENTRY_0 {}
+impl ::core::clone::Clone for LINEAGENTGROUPENTRY_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub struct LINEAGENTGROUPLIST {
+    pub dwTotalSize: u32,
+    pub dwNeededSize: u32,
+    pub dwUsedSize: u32,
+    pub dwNumEntries: u32,
+    pub dwListSize: u32,
+    pub dwListOffset: u32,
+}
+impl ::core::marker::Copy for LINEAGENTGROUPLIST {}
+impl ::core::clone::Clone for LINEAGENTGROUPLIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
-#[repr(C)]
-pub struct LINEAGENTINFO(i32);
-#[repr(C)]
-pub struct LINEAGENTLIST(i32);
-#[repr(C)]
-pub struct LINEAGENTSESSIONENTRY(i32);
+pub struct LINEAGENTINFO {
+    pub dwTotalSize: u32,
+    pub dwNeededSize: u32,
+    pub dwUsedSize: u32,
+    pub dwAgentState: u32,
+    pub dwNextAgentState: u32,
+    pub dwMeasurementPeriod: u32,
+    pub cyOverallCallRate: super::super::System::Com::CY,
+    pub dwNumberOfACDCalls: u32,
+    pub dwNumberOfIncomingCalls: u32,
+    pub dwNumberOfOutgoingCalls: u32,
+    pub dwTotalACDTalkTime: u32,
+    pub dwTotalACDCallTime: u32,
+    pub dwTotalACDWrapUpTime: u32,
+}
 #[cfg(feature = "Win32_System_Com")]
-#[repr(C)]
-pub struct LINEAGENTSESSIONINFO(i32);
-#[repr(C)]
-pub struct LINEAGENTSESSIONLIST(i32);
+impl ::core::marker::Copy for LINEAGENTINFO {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for LINEAGENTINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub struct LINEAGENTLIST {
+    pub dwTotalSize: u32,
+    pub dwNeededSize: u32,
+    pub dwUsedSize: u32,
+    pub dwNumEntries: u32,
+    pub dwListSize: u32,
+    pub dwListOffset: u32,
+}
+impl ::core::marker::Copy for LINEAGENTLIST {}
+impl ::core::clone::Clone for LINEAGENTLIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub struct LINEAGENTSESSIONENTRY {
+    pub hAgentSession: u32,
+    pub hAgent: u32,
+    pub GroupID: ::windows_sys::core::GUID,
+    pub dwWorkingAddressID: u32,
+}
+impl ::core::marker::Copy for LINEAGENTSESSIONENTRY {}
+impl ::core::clone::Clone for LINEAGENTSESSIONENTRY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_System_Com")]
+pub struct LINEAGENTSESSIONINFO {
+    pub dwTotalSize: u32,
+    pub dwNeededSize: u32,
+    pub dwUsedSize: u32,
+    pub dwAgentSessionState: u32,
+    pub dwNextAgentSessionState: u32,
+    pub dateSessionStartTime: f64,
+    pub dwSessionDuration: u32,
+    pub dwNumberOfCalls: u32,
+    pub dwTotalTalkTime: u32,
+    pub dwAverageTalkTime: u32,
+    pub dwTotalCallTime: u32,
+    pub dwAverageCallTime: u32,
+    pub dwTotalWrapUpTime: u32,
+    pub dwAverageWrapUpTime: u32,
+    pub cyACDCallRate: super::super::System::Com::CY,
+    pub dwLongestTimeToAnswer: u32,
+    pub dwAverageTimeToAnswer: u32,
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::marker::Copy for LINEAGENTSESSIONINFO {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for LINEAGENTSESSIONINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub struct LINEAGENTSESSIONLIST {
+    pub dwTotalSize: u32,
+    pub dwNeededSize: u32,
+    pub dwUsedSize: u32,
+    pub dwNumEntries: u32,
+    pub dwListSize: u32,
+    pub dwListOffset: u32,
+}
+impl ::core::marker::Copy for LINEAGENTSESSIONLIST {}
+impl ::core::clone::Clone for LINEAGENTSESSIONLIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const LINEAGENTSESSIONSTATE_BUSYONCALL: u32 = 4u32;
 pub const LINEAGENTSESSIONSTATE_BUSYWRAPUP: u32 = 8u32;
 pub const LINEAGENTSESSIONSTATE_ENDED: u32 = 16u32;
@@ -1067,8 +1579,29 @@ pub const LINEAGENTSTATE_READY: u32 = 4u32;
 pub const LINEAGENTSTATE_UNAVAIL: u32 = 512u32;
 pub const LINEAGENTSTATE_UNKNOWN: u32 = 256u32;
 pub const LINEAGENTSTATE_WORKINGAFTERCALL: u32 = 128u32;
-#[repr(C)]
-pub struct LINEAGENTSTATUS(i32);
+#[repr(C, packed(1))]
+pub struct LINEAGENTSTATUS {
+    pub dwTotalSize: u32,
+    pub dwNeededSize: u32,
+    pub dwUsedSize: u32,
+    pub dwNumEntries: u32,
+    pub dwGroupListSize: u32,
+    pub dwGroupListOffset: u32,
+    pub dwState: u32,
+    pub dwNextState: u32,
+    pub dwActivityID: u32,
+    pub dwActivitySize: u32,
+    pub dwActivityOffset: u32,
+    pub dwAgentFeatures: u32,
+    pub dwValidStates: u32,
+    pub dwValidNextStates: u32,
+}
+impl ::core::marker::Copy for LINEAGENTSTATUS {}
+impl ::core::clone::Clone for LINEAGENTSTATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const LINEAGENTSTATUSEX_NEWAGENT: u32 = 1u32;
 pub const LINEAGENTSTATUSEX_STATE: u32 = 2u32;
 pub const LINEAGENTSTATUSEX_UPDATEINFO: u32 = 4u32;
@@ -1084,8 +1617,25 @@ pub const LINEAGENTSTATUS_VALIDSTATES: u32 = 128u32;
 pub const LINEANSWERMODE_DROP: u32 = 2u32;
 pub const LINEANSWERMODE_HOLD: u32 = 4u32;
 pub const LINEANSWERMODE_NONE: u32 = 1u32;
-#[repr(C)]
-pub struct LINEAPPINFO(i32);
+#[repr(C, packed(1))]
+pub struct LINEAPPINFO {
+    pub dwMachineNameSize: u32,
+    pub dwMachineNameOffset: u32,
+    pub dwUserNameSize: u32,
+    pub dwUserNameOffset: u32,
+    pub dwModuleFilenameSize: u32,
+    pub dwModuleFilenameOffset: u32,
+    pub dwFriendlyNameSize: u32,
+    pub dwFriendlyNameOffset: u32,
+    pub dwMediaModes: u32,
+    pub dwAddressID: u32,
+}
+impl ::core::marker::Copy for LINEAPPINFO {}
+impl ::core::clone::Clone for LINEAPPINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const LINEBEARERMODE_ALTSPEECHDATA: u32 = 16u32;
 pub const LINEBEARERMODE_DATA: u32 = 8u32;
 pub const LINEBEARERMODE_MULTIUSE: u32 = 4u32;
@@ -1150,8 +1700,93 @@ pub const LINECALLFEATURE_UNHOLD: u32 = 134217728u32;
 pub const LINECALLHUBTRACKING_ALLCALLS: u32 = 2u32;
 pub const LINECALLHUBTRACKING_NONE: u32 = 0u32;
 pub const LINECALLHUBTRACKING_PROVIDERLEVEL: u32 = 1u32;
-#[repr(C)]
-pub struct LINECALLINFO(i32);
+#[repr(C, packed(1))]
+pub struct LINECALLINFO {
+    pub dwTotalSize: u32,
+    pub dwNeededSize: u32,
+    pub dwUsedSize: u32,
+    pub hLine: u32,
+    pub dwLineDeviceID: u32,
+    pub dwAddressID: u32,
+    pub dwBearerMode: u32,
+    pub dwRate: u32,
+    pub dwMediaMode: u32,
+    pub dwAppSpecific: u32,
+    pub dwCallID: u32,
+    pub dwRelatedCallID: u32,
+    pub dwCallParamFlags: u32,
+    pub dwCallStates: u32,
+    pub dwMonitorDigitModes: u32,
+    pub dwMonitorMediaModes: u32,
+    pub DialParams: LINEDIALPARAMS,
+    pub dwOrigin: u32,
+    pub dwReason: u32,
+    pub dwCompletionID: u32,
+    pub dwNumOwners: u32,
+    pub dwNumMonitors: u32,
+    pub dwCountryCode: u32,
+    pub dwTrunk: u32,
+    pub dwCallerIDFlags: u32,
+    pub dwCallerIDSize: u32,
+    pub dwCallerIDOffset: u32,
+    pub dwCallerIDNameSize: u32,
+    pub dwCallerIDNameOffset: u32,
+    pub dwCalledIDFlags: u32,
+    pub dwCalledIDSize: u32,
+    pub dwCalledIDOffset: u32,
+    pub dwCalledIDNameSize: u32,
+    pub dwCalledIDNameOffset: u32,
+    pub dwConnectedIDFlags: u32,
+    pub dwConnectedIDSize: u32,
+    pub dwConnectedIDOffset: u32,
+    pub dwConnectedIDNameSize: u32,
+    pub dwConnectedIDNameOffset: u32,
+    pub dwRedirectionIDFlags: u32,
+    pub dwRedirectionIDSize: u32,
+    pub dwRedirectionIDOffset: u32,
+    pub dwRedirectionIDNameSize: u32,
+    pub dwRedirectionIDNameOffset: u32,
+    pub dwRedirectingIDFlags: u32,
+    pub dwRedirectingIDSize: u32,
+    pub dwRedirectingIDOffset: u32,
+    pub dwRedirectingIDNameSize: u32,
+    pub dwRedirectingIDNameOffset: u32,
+    pub dwAppNameSize: u32,
+    pub dwAppNameOffset: u32,
+    pub dwDisplayableAddressSize: u32,
+    pub dwDisplayableAddressOffset: u32,
+    pub dwCalledPartySize: u32,
+    pub dwCalledPartyOffset: u32,
+    pub dwCommentSize: u32,
+    pub dwCommentOffset: u32,
+    pub dwDisplaySize: u32,
+    pub dwDisplayOffset: u32,
+    pub dwUserUserInfoSize: u32,
+    pub dwUserUserInfoOffset: u32,
+    pub dwHighLevelCompSize: u32,
+    pub dwHighLevelCompOffset: u32,
+    pub dwLowLevelCompSize: u32,
+    pub dwLowLevelCompOffset: u32,
+    pub dwChargingInfoSize: u32,
+    pub dwChargingInfoOffset: u32,
+    pub dwTerminalModesSize: u32,
+    pub dwTerminalModesOffset: u32,
+    pub dwDevSpecificSize: u32,
+    pub dwDevSpecificOffset: u32,
+    pub dwCallTreatment: u32,
+    pub dwCallDataSize: u32,
+    pub dwCallDataOffset: u32,
+    pub dwSendingFlowspecSize: u32,
+    pub dwSendingFlowspecOffset: u32,
+    pub dwReceivingFlowspecSize: u32,
+    pub dwReceivingFlowspecOffset: u32,
+}
+impl ::core::marker::Copy for LINECALLINFO {}
+impl ::core::clone::Clone for LINECALLINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const LINECALLINFOSTATE_APPSPECIFIC: u32 = 32u32;
 pub const LINECALLINFOSTATE_BEARERMODE: u32 = 4u32;
 pub const LINECALLINFOSTATE_CALLDATA: u32 = 1073741824u32;
@@ -1183,8 +1818,21 @@ pub const LINECALLINFOSTATE_TERMINAL: u32 = 33554432u32;
 pub const LINECALLINFOSTATE_TREATMENT: u32 = 268435456u32;
 pub const LINECALLINFOSTATE_TRUNK: u32 = 16384u32;
 pub const LINECALLINFOSTATE_USERUSERINFO: u32 = 2097152u32;
-#[repr(C)]
-pub struct LINECALLLIST(i32);
+#[repr(C, packed(1))]
+pub struct LINECALLLIST {
+    pub dwTotalSize: u32,
+    pub dwNeededSize: u32,
+    pub dwUsedSize: u32,
+    pub dwCallsNumEntries: u32,
+    pub dwCallsSize: u32,
+    pub dwCallsOffset: u32,
+}
+impl ::core::marker::Copy for LINECALLLIST {}
+impl ::core::clone::Clone for LINECALLLIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const LINECALLORIGIN_CONFERENCE: u32 = 64u32;
 pub const LINECALLORIGIN_EXTERNAL: u32 = 4u32;
 pub const LINECALLORIGIN_INBOUND: u32 = 128u32;
@@ -1200,8 +1848,56 @@ pub const LINECALLPARAMFLAGS_ONESTEPTRANSFER: u32 = 128u32;
 pub const LINECALLPARAMFLAGS_ORIGOFFHOOK: u32 = 8u32;
 pub const LINECALLPARAMFLAGS_PREDICTIVEDIAL: u32 = 64u32;
 pub const LINECALLPARAMFLAGS_SECURE: u32 = 1u32;
-#[repr(C)]
-pub struct LINECALLPARAMS(i32);
+#[repr(C, packed(1))]
+pub struct LINECALLPARAMS {
+    pub dwTotalSize: u32,
+    pub dwBearerMode: u32,
+    pub dwMinRate: u32,
+    pub dwMaxRate: u32,
+    pub dwMediaMode: u32,
+    pub dwCallParamFlags: u32,
+    pub dwAddressMode: u32,
+    pub dwAddressID: u32,
+    pub DialParams: LINEDIALPARAMS,
+    pub dwOrigAddressSize: u32,
+    pub dwOrigAddressOffset: u32,
+    pub dwDisplayableAddressSize: u32,
+    pub dwDisplayableAddressOffset: u32,
+    pub dwCalledPartySize: u32,
+    pub dwCalledPartyOffset: u32,
+    pub dwCommentSize: u32,
+    pub dwCommentOffset: u32,
+    pub dwUserUserInfoSize: u32,
+    pub dwUserUserInfoOffset: u32,
+    pub dwHighLevelCompSize: u32,
+    pub dwHighLevelCompOffset: u32,
+    pub dwLowLevelCompSize: u32,
+    pub dwLowLevelCompOffset: u32,
+    pub dwDevSpecificSize: u32,
+    pub dwDevSpecificOffset: u32,
+    pub dwPredictiveAutoTransferStates: u32,
+    pub dwTargetAddressSize: u32,
+    pub dwTargetAddressOffset: u32,
+    pub dwSendingFlowspecSize: u32,
+    pub dwSendingFlowspecOffset: u32,
+    pub dwReceivingFlowspecSize: u32,
+    pub dwReceivingFlowspecOffset: u32,
+    pub dwDeviceClassSize: u32,
+    pub dwDeviceClassOffset: u32,
+    pub dwDeviceConfigSize: u32,
+    pub dwDeviceConfigOffset: u32,
+    pub dwCallDataSize: u32,
+    pub dwCallDataOffset: u32,
+    pub dwNoAnswerTimeout: u32,
+    pub dwCallingPartyIDSize: u32,
+    pub dwCallingPartyIDOffset: u32,
+}
+impl ::core::marker::Copy for LINECALLPARAMS {}
+impl ::core::clone::Clone for LINECALLPARAMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const LINECALLPARTYID_ADDRESS: u32 = 8u32;
 pub const LINECALLPARTYID_BLOCKED: u32 = 1u32;
 pub const LINECALLPARTYID_NAME: u32 = 4u32;
@@ -1249,17 +1945,65 @@ pub const LINECALLSTATE_PROCEEDING: u32 = 512u32;
 pub const LINECALLSTATE_RINGBACK: u32 = 32u32;
 pub const LINECALLSTATE_SPECIALINFO: u32 = 128u32;
 pub const LINECALLSTATE_UNKNOWN: u32 = 32768u32;
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct LINECALLSTATUS(i32);
-#[repr(C)]
-pub struct LINECALLTREATMENTENTRY(i32);
+pub struct LINECALLSTATUS {
+    pub dwTotalSize: u32,
+    pub dwNeededSize: u32,
+    pub dwUsedSize: u32,
+    pub dwCallState: u32,
+    pub dwCallStateMode: u32,
+    pub dwCallPrivilege: u32,
+    pub dwCallFeatures: u32,
+    pub dwDevSpecificSize: u32,
+    pub dwDevSpecificOffset: u32,
+    pub dwCallFeatures2: u32,
+    pub tStateEntryTime: super::super::Foundation::SYSTEMTIME,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for LINECALLSTATUS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for LINECALLSTATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub struct LINECALLTREATMENTENTRY {
+    pub dwCallTreatmentID: u32,
+    pub dwCallTreatmentNameSize: u32,
+    pub dwCallTreatmentNameOffset: u32,
+}
+impl ::core::marker::Copy for LINECALLTREATMENTENTRY {}
+impl ::core::clone::Clone for LINECALLTREATMENTENTRY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const LINECALLTREATMENT_BUSY: u32 = 3u32;
 pub const LINECALLTREATMENT_MUSIC: u32 = 4u32;
 pub const LINECALLTREATMENT_RINGBACK: u32 = 2u32;
 pub const LINECALLTREATMENT_SILENCE: u32 = 1u32;
-#[repr(C)]
-pub struct LINECARDENTRY(i32);
+#[repr(C, packed(1))]
+pub struct LINECARDENTRY {
+    pub dwPermanentCardID: u32,
+    pub dwCardNameSize: u32,
+    pub dwCardNameOffset: u32,
+    pub dwCardNumberDigits: u32,
+    pub dwSameAreaRuleSize: u32,
+    pub dwSameAreaRuleOffset: u32,
+    pub dwLongDistanceRuleSize: u32,
+    pub dwLongDistanceRuleOffset: u32,
+    pub dwInternationalRuleSize: u32,
+    pub dwInternationalRuleOffset: u32,
+    pub dwOptions: u32,
+}
+impl ::core::marker::Copy for LINECARDENTRY {}
+impl ::core::clone::Clone for LINECARDENTRY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const LINECARDOPTION_HIDDEN: u32 = 2u32;
 pub const LINECARDOPTION_PREDEFINED: u32 = 1u32;
 pub const LINECONNECTEDMODE_ACTIVE: u32 = 1u32;
@@ -1267,10 +2011,41 @@ pub const LINECONNECTEDMODE_ACTIVEHELD: u32 = 4u32;
 pub const LINECONNECTEDMODE_CONFIRMED: u32 = 16u32;
 pub const LINECONNECTEDMODE_INACTIVE: u32 = 2u32;
 pub const LINECONNECTEDMODE_INACTIVEHELD: u32 = 8u32;
-#[repr(C)]
-pub struct LINECOUNTRYENTRY(i32);
-#[repr(C)]
-pub struct LINECOUNTRYLIST(i32);
+#[repr(C, packed(1))]
+pub struct LINECOUNTRYENTRY {
+    pub dwCountryID: u32,
+    pub dwCountryCode: u32,
+    pub dwNextCountryID: u32,
+    pub dwCountryNameSize: u32,
+    pub dwCountryNameOffset: u32,
+    pub dwSameAreaRuleSize: u32,
+    pub dwSameAreaRuleOffset: u32,
+    pub dwLongDistanceRuleSize: u32,
+    pub dwLongDistanceRuleOffset: u32,
+    pub dwInternationalRuleSize: u32,
+    pub dwInternationalRuleOffset: u32,
+}
+impl ::core::marker::Copy for LINECOUNTRYENTRY {}
+impl ::core::clone::Clone for LINECOUNTRYENTRY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub struct LINECOUNTRYLIST {
+    pub dwTotalSize: u32,
+    pub dwNeededSize: u32,
+    pub dwUsedSize: u32,
+    pub dwNumCountries: u32,
+    pub dwCountryListSize: u32,
+    pub dwCountryListOffset: u32,
+}
+impl ::core::marker::Copy for LINECOUNTRYLIST {}
+impl ::core::clone::Clone for LINECOUNTRYLIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const LINEDEVCAPFLAGS_CALLHUB: u32 = 1024u32;
 pub const LINEDEVCAPFLAGS_CALLHUBTRACKING: u32 = 2048u32;
 pub const LINEDEVCAPFLAGS_CLOSEDROP: u32 = 32u32;
@@ -1285,8 +2060,70 @@ pub const LINEDEVCAPFLAGS_MEDIACONTROL: u32 = 8u32;
 pub const LINEDEVCAPFLAGS_MSP: u32 = 512u32;
 pub const LINEDEVCAPFLAGS_MULTIPLEADDR: u32 = 16u32;
 pub const LINEDEVCAPFLAGS_PRIVATEOBJECTS: u32 = 4096u32;
-#[repr(C)]
-pub struct LINEDEVCAPS(i32);
+#[repr(C, packed(1))]
+pub struct LINEDEVCAPS {
+    pub dwTotalSize: u32,
+    pub dwNeededSize: u32,
+    pub dwUsedSize: u32,
+    pub dwProviderInfoSize: u32,
+    pub dwProviderInfoOffset: u32,
+    pub dwSwitchInfoSize: u32,
+    pub dwSwitchInfoOffset: u32,
+    pub dwPermanentLineID: u32,
+    pub dwLineNameSize: u32,
+    pub dwLineNameOffset: u32,
+    pub dwStringFormat: u32,
+    pub dwAddressModes: u32,
+    pub dwNumAddresses: u32,
+    pub dwBearerModes: u32,
+    pub dwMaxRate: u32,
+    pub dwMediaModes: u32,
+    pub dwGenerateToneModes: u32,
+    pub dwGenerateToneMaxNumFreq: u32,
+    pub dwGenerateDigitModes: u32,
+    pub dwMonitorToneMaxNumFreq: u32,
+    pub dwMonitorToneMaxNumEntries: u32,
+    pub dwMonitorDigitModes: u32,
+    pub dwGatherDigitsMinTimeout: u32,
+    pub dwGatherDigitsMaxTimeout: u32,
+    pub dwMedCtlDigitMaxListSize: u32,
+    pub dwMedCtlMediaMaxListSize: u32,
+    pub dwMedCtlToneMaxListSize: u32,
+    pub dwMedCtlCallStateMaxListSize: u32,
+    pub dwDevCapFlags: u32,
+    pub dwMaxNumActiveCalls: u32,
+    pub dwAnswerMode: u32,
+    pub dwRingModes: u32,
+    pub dwLineStates: u32,
+    pub dwUUIAcceptSize: u32,
+    pub dwUUIAnswerSize: u32,
+    pub dwUUIMakeCallSize: u32,
+    pub dwUUIDropSize: u32,
+    pub dwUUISendUserUserInfoSize: u32,
+    pub dwUUICallInfoSize: u32,
+    pub MinDialParams: LINEDIALPARAMS,
+    pub MaxDialParams: LINEDIALPARAMS,
+    pub DefaultDialParams: LINEDIALPARAMS,
+    pub dwNumTerminals: u32,
+    pub dwTerminalCapsSize: u32,
+    pub dwTerminalCapsOffset: u32,
+    pub dwTerminalTextEntrySize: u32,
+    pub dwTerminalTextSize: u32,
+    pub dwTerminalTextOffset: u32,
+    pub dwDevSpecificSize: u32,
+    pub dwDevSpecificOffset: u32,
+    pub dwLineFeatures: u32,
+    pub dwSettableDevStatus: u32,
+    pub dwDeviceClassesSize: u32,
+    pub dwDeviceClassesOffset: u32,
+    pub PermanentLineGuid: ::windows_sys::core::GUID,
+}
+impl ::core::marker::Copy for LINEDEVCAPS {}
+impl ::core::clone::Clone for LINEDEVCAPS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const LINEDEVSTATE_BATTERY: u32 = 32768u32;
 pub const LINEDEVSTATE_CAPSCHANGE: u32 = 1048576u32;
 pub const LINEDEVSTATE_CLOSE: u32 = 1024u32;
@@ -1312,14 +2149,54 @@ pub const LINEDEVSTATE_ROAMMODE: u32 = 16384u32;
 pub const LINEDEVSTATE_SIGNAL: u32 = 65536u32;
 pub const LINEDEVSTATE_TERMINALS: u32 = 8192u32;
 pub const LINEDEVSTATE_TRANSLATECHANGE: u32 = 4194304u32;
-#[repr(C)]
-pub struct LINEDEVSTATUS(i32);
+#[repr(C, packed(1))]
+pub struct LINEDEVSTATUS {
+    pub dwTotalSize: u32,
+    pub dwNeededSize: u32,
+    pub dwUsedSize: u32,
+    pub dwNumOpens: u32,
+    pub dwOpenMediaModes: u32,
+    pub dwNumActiveCalls: u32,
+    pub dwNumOnHoldCalls: u32,
+    pub dwNumOnHoldPendCalls: u32,
+    pub dwLineFeatures: u32,
+    pub dwNumCallCompletions: u32,
+    pub dwRingMode: u32,
+    pub dwSignalLevel: u32,
+    pub dwBatteryLevel: u32,
+    pub dwRoamMode: u32,
+    pub dwDevStatusFlags: u32,
+    pub dwTerminalModesSize: u32,
+    pub dwTerminalModesOffset: u32,
+    pub dwDevSpecificSize: u32,
+    pub dwDevSpecificOffset: u32,
+    pub dwAvailableMediaModes: u32,
+    pub dwAppInfoSize: u32,
+    pub dwAppInfoOffset: u32,
+}
+impl ::core::marker::Copy for LINEDEVSTATUS {}
+impl ::core::clone::Clone for LINEDEVSTATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const LINEDEVSTATUSFLAGS_CONNECTED: u32 = 1u32;
 pub const LINEDEVSTATUSFLAGS_INSERVICE: u32 = 4u32;
 pub const LINEDEVSTATUSFLAGS_LOCKED: u32 = 8u32;
 pub const LINEDEVSTATUSFLAGS_MSGWAIT: u32 = 2u32;
-#[repr(C)]
-pub struct LINEDIALPARAMS(i32);
+#[repr(C, packed(1))]
+pub struct LINEDIALPARAMS {
+    pub dwDialPause: u32,
+    pub dwDialSpeed: u32,
+    pub dwDigitDuration: u32,
+    pub dwWaitForDialtone: u32,
+}
+impl ::core::marker::Copy for LINEDIALPARAMS {}
+impl ::core::clone::Clone for LINEDIALPARAMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const LINEDIALTONEMODE_EXTERNAL: u32 = 8u32;
 pub const LINEDIALTONEMODE_INTERNAL: u32 = 4u32;
 pub const LINEDIALTONEMODE_NORMAL: u32 = 1u32;
@@ -1451,8 +2328,19 @@ pub const LINEERR_UNINITIALIZED: u32 = 2147483728u32;
 pub const LINEERR_USERCANCELLED: u32 = 2147483741u32;
 pub const LINEERR_USERUSERINFOTOOBIG: u32 = 2147483729u32;
 pub type LINEEVENT = unsafe extern "system" fn(htline: *mut HTAPILINE__, htcall: *mut HTAPICALL__, dwmsg: u32, dwparam1: usize, dwparam2: usize, dwparam3: usize);
-#[repr(C)]
-pub struct LINEEXTENSIONID(i32);
+#[repr(C, packed(1))]
+pub struct LINEEXTENSIONID {
+    pub dwExtensionID0: u32,
+    pub dwExtensionID1: u32,
+    pub dwExtensionID2: u32,
+    pub dwExtensionID3: u32,
+}
+impl ::core::marker::Copy for LINEEXTENSIONID {}
+impl ::core::clone::Clone for LINEEXTENSIONID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const LINEFEATURE_DEVSPECIFIC: u32 = 1u32;
 pub const LINEFEATURE_DEVSPECIFICFEAT: u32 = 2u32;
 pub const LINEFEATURE_FORWARD: u32 = 4u32;
@@ -1462,10 +2350,33 @@ pub const LINEFEATURE_MAKECALL: u32 = 8u32;
 pub const LINEFEATURE_SETDEVSTATUS: u32 = 64u32;
 pub const LINEFEATURE_SETMEDIACONTROL: u32 = 16u32;
 pub const LINEFEATURE_SETTERMINAL: u32 = 32u32;
-#[repr(C)]
-pub struct LINEFORWARD(i32);
-#[repr(C)]
-pub struct LINEFORWARDLIST(i32);
+#[repr(C, packed(1))]
+pub struct LINEFORWARD {
+    pub dwForwardMode: u32,
+    pub dwCallerAddressSize: u32,
+    pub dwCallerAddressOffset: u32,
+    pub dwDestCountryCode: u32,
+    pub dwDestAddressSize: u32,
+    pub dwDestAddressOffset: u32,
+}
+impl ::core::marker::Copy for LINEFORWARD {}
+impl ::core::clone::Clone for LINEFORWARD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub struct LINEFORWARDLIST {
+    pub dwTotalSize: u32,
+    pub dwNumEntries: u32,
+    pub ForwardList: [LINEFORWARD; 1],
+}
+impl ::core::marker::Copy for LINEFORWARDLIST {}
+impl ::core::clone::Clone for LINEFORWARDLIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const LINEFORWARDMODE_BUSY: u32 = 16u32;
 pub const LINEFORWARDMODE_BUSYEXTERNAL: u32 = 64u32;
 pub const LINEFORWARDMODE_BUSYINTERNAL: u32 = 32u32;
@@ -1491,29 +2402,135 @@ pub const LINEGATHERTERM_INTERTIMEOUT: u32 = 8u32;
 pub const LINEGATHERTERM_TERMDIGIT: u32 = 2u32;
 pub const LINEGENERATETERM_CANCEL: u32 = 2u32;
 pub const LINEGENERATETERM_DONE: u32 = 1u32;
-#[repr(C)]
-pub struct LINEGENERATETONE(i32);
+#[repr(C, packed(1))]
+pub struct LINEGENERATETONE {
+    pub dwFrequency: u32,
+    pub dwCadenceOn: u32,
+    pub dwCadenceOff: u32,
+    pub dwVolume: u32,
+}
+impl ::core::marker::Copy for LINEGENERATETONE {}
+impl ::core::clone::Clone for LINEGENERATETONE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const LINEGROUPSTATUS_GROUPREMOVED: u32 = 2u32;
 pub const LINEGROUPSTATUS_NEWGROUP: u32 = 1u32;
 pub const LINEINITIALIZEEXOPTION_CALLHUBTRACKING: u32 = 2147483648u32;
 pub const LINEINITIALIZEEXOPTION_USECOMPLETIONPORT: u32 = 3u32;
 pub const LINEINITIALIZEEXOPTION_USEEVENT: u32 = 2u32;
 pub const LINEINITIALIZEEXOPTION_USEHIDDENWINDOW: u32 = 1u32;
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct LINEINITIALIZEEXPARAMS(i32);
-#[repr(C)]
-pub struct LINELOCATIONENTRY(i32);
+pub struct LINEINITIALIZEEXPARAMS {
+    pub dwTotalSize: u32,
+    pub dwNeededSize: u32,
+    pub dwUsedSize: u32,
+    pub dwOptions: u32,
+    pub Handles: LINEINITIALIZEEXPARAMS_0,
+    pub dwCompletionKey: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for LINEINITIALIZEEXPARAMS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for LINEINITIALIZEEXPARAMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Foundation")]
+pub union LINEINITIALIZEEXPARAMS_0 {
+    pub hEvent: super::super::Foundation::HANDLE,
+    pub hCompletionPort: super::super::Foundation::HANDLE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for LINEINITIALIZEEXPARAMS_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for LINEINITIALIZEEXPARAMS_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub struct LINELOCATIONENTRY {
+    pub dwPermanentLocationID: u32,
+    pub dwLocationNameSize: u32,
+    pub dwLocationNameOffset: u32,
+    pub dwCountryCode: u32,
+    pub dwCityCodeSize: u32,
+    pub dwCityCodeOffset: u32,
+    pub dwPreferredCardID: u32,
+    pub dwLocalAccessCodeSize: u32,
+    pub dwLocalAccessCodeOffset: u32,
+    pub dwLongDistanceAccessCodeSize: u32,
+    pub dwLongDistanceAccessCodeOffset: u32,
+    pub dwTollPrefixListSize: u32,
+    pub dwTollPrefixListOffset: u32,
+    pub dwCountryID: u32,
+    pub dwOptions: u32,
+    pub dwCancelCallWaitingSize: u32,
+    pub dwCancelCallWaitingOffset: u32,
+}
+impl ::core::marker::Copy for LINELOCATIONENTRY {}
+impl ::core::clone::Clone for LINELOCATIONENTRY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const LINELOCATIONOPTION_PULSEDIAL: u32 = 1u32;
 pub const LINEMAPPER: u32 = 4294967295u32;
-#[repr(C)]
-pub struct LINEMEDIACONTROLCALLSTATE(i32);
-#[repr(C)]
-pub struct LINEMEDIACONTROLDIGIT(i32);
-#[repr(C)]
-pub struct LINEMEDIACONTROLMEDIA(i32);
-#[repr(C)]
-pub struct LINEMEDIACONTROLTONE(i32);
+#[repr(C, packed(1))]
+pub struct LINEMEDIACONTROLCALLSTATE {
+    pub dwCallStates: u32,
+    pub dwMediaControl: u32,
+}
+impl ::core::marker::Copy for LINEMEDIACONTROLCALLSTATE {}
+impl ::core::clone::Clone for LINEMEDIACONTROLCALLSTATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub struct LINEMEDIACONTROLDIGIT {
+    pub dwDigit: u32,
+    pub dwDigitModes: u32,
+    pub dwMediaControl: u32,
+}
+impl ::core::marker::Copy for LINEMEDIACONTROLDIGIT {}
+impl ::core::clone::Clone for LINEMEDIACONTROLDIGIT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub struct LINEMEDIACONTROLMEDIA {
+    pub dwMediaModes: u32,
+    pub dwDuration: u32,
+    pub dwMediaControl: u32,
+}
+impl ::core::marker::Copy for LINEMEDIACONTROLMEDIA {}
+impl ::core::clone::Clone for LINEMEDIACONTROLMEDIA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub struct LINEMEDIACONTROLTONE {
+    pub dwAppSpecific: u32,
+    pub dwDuration: u32,
+    pub dwFrequency1: u32,
+    pub dwFrequency2: u32,
+    pub dwFrequency3: u32,
+    pub dwMediaControl: u32,
+}
+impl ::core::marker::Copy for LINEMEDIACONTROLTONE {}
+impl ::core::clone::Clone for LINEMEDIACONTROLTONE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const LINEMEDIACONTROL_NONE: u32 = 1u32;
 pub const LINEMEDIACONTROL_PAUSE: u32 = 8u32;
 pub const LINEMEDIACONTROL_RATEDOWN: u32 = 64u32;
@@ -1540,25 +2557,426 @@ pub const LINEMEDIAMODE_UNKNOWN: u32 = 2u32;
 pub const LINEMEDIAMODE_VIDEO: u32 = 32768u32;
 pub const LINEMEDIAMODE_VIDEOTEX: u32 = 1024u32;
 pub const LINEMEDIAMODE_VOICEVIEW: u32 = 16384u32;
-#[repr(C)]
-pub struct LINEMESSAGE(i32);
-#[repr(C)]
-pub struct LINEMONITORTONE(i32);
+#[repr(C, packed(1))]
+pub struct LINEMESSAGE {
+    pub hDevice: u32,
+    pub dwMessageID: u32,
+    pub dwCallbackInstance: usize,
+    pub dwParam1: usize,
+    pub dwParam2: usize,
+    pub dwParam3: usize,
+}
+impl ::core::marker::Copy for LINEMESSAGE {}
+impl ::core::clone::Clone for LINEMESSAGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub struct LINEMONITORTONE {
+    pub dwAppSpecific: u32,
+    pub dwDuration: u32,
+    pub dwFrequency1: u32,
+    pub dwFrequency2: u32,
+    pub dwFrequency3: u32,
+}
+impl ::core::marker::Copy for LINEMONITORTONE {}
+impl ::core::clone::Clone for LINEMONITORTONE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const LINEOFFERINGMODE_ACTIVE: u32 = 1u32;
 pub const LINEOFFERINGMODE_INACTIVE: u32 = 2u32;
 pub const LINEOPENOPTION_PROXY: u32 = 1073741824u32;
 pub const LINEOPENOPTION_SINGLEADDRESS: u32 = 2147483648u32;
 pub const LINEPARKMODE_DIRECTED: u32 = 1u32;
 pub const LINEPARKMODE_NONDIRECTED: u32 = 2u32;
-#[repr(C)]
-pub struct LINEPROVIDERENTRY(i32);
-#[repr(C)]
-pub struct LINEPROVIDERLIST(i32);
+#[repr(C, packed(1))]
+pub struct LINEPROVIDERENTRY {
+    pub dwPermanentProviderID: u32,
+    pub dwProviderFilenameSize: u32,
+    pub dwProviderFilenameOffset: u32,
+}
+impl ::core::marker::Copy for LINEPROVIDERENTRY {}
+impl ::core::clone::Clone for LINEPROVIDERENTRY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub struct LINEPROVIDERLIST {
+    pub dwTotalSize: u32,
+    pub dwNeededSize: u32,
+    pub dwUsedSize: u32,
+    pub dwNumProviders: u32,
+    pub dwProviderListSize: u32,
+    pub dwProviderListOffset: u32,
+}
+impl ::core::marker::Copy for LINEPROVIDERLIST {}
+impl ::core::clone::Clone for LINEPROVIDERLIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
+pub struct LINEPROXYREQUEST {
+    pub dwSize: u32,
+    pub dwClientMachineNameSize: u32,
+    pub dwClientMachineNameOffset: u32,
+    pub dwClientUserNameSize: u32,
+    pub dwClientUserNameOffset: u32,
+    pub dwClientAppAPIVersion: u32,
+    pub dwRequestType: u32,
+    pub Anonymous: LINEPROXYREQUEST_0,
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::marker::Copy for LINEPROXYREQUEST {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for LINEPROXYREQUEST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct LINEPROXYREQUEST(i32);
+#[cfg(feature = "Win32_System_Com")]
+pub union LINEPROXYREQUEST_0 {
+    pub SetAgentGroup: LINEPROXYREQUEST_0_14,
+    pub SetAgentState: LINEPROXYREQUEST_0_18,
+    pub SetAgentActivity: LINEPROXYREQUEST_0_13,
+    pub GetAgentCaps: LINEPROXYREQUEST_0_4,
+    pub GetAgentStatus: LINEPROXYREQUEST_0_9,
+    pub AgentSpecific: LINEPROXYREQUEST_0_0,
+    pub GetAgentActivityList: LINEPROXYREQUEST_0_3,
+    pub GetAgentGroupList: LINEPROXYREQUEST_0_5,
+    pub CreateAgent: LINEPROXYREQUEST_0_2,
+    pub SetAgentStateEx: LINEPROXYREQUEST_0_17,
+    pub SetAgentMeasurementPeriod: LINEPROXYREQUEST_0_15,
+    pub GetAgentInfo: LINEPROXYREQUEST_0_6,
+    pub CreateAgentSession: LINEPROXYREQUEST_0_1,
+    pub GetAgentSessionList: LINEPROXYREQUEST_0_8,
+    pub GetAgentSessionInfo: LINEPROXYREQUEST_0_7,
+    pub SetAgentSessionState: LINEPROXYREQUEST_0_16,
+    pub GetQueueList: LINEPROXYREQUEST_0_12,
+    pub SetQueueMeasurementPeriod: LINEPROXYREQUEST_0_19,
+    pub GetQueueInfo: LINEPROXYREQUEST_0_11,
+    pub GetGroupList: LINEPROXYREQUEST_0_10,
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::marker::Copy for LINEPROXYREQUEST_0 {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for LINEPROXYREQUEST_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_System_Com")]
+pub struct LINEPROXYREQUEST_0_0 {
+    pub dwAddressID: u32,
+    pub dwAgentExtensionIDIndex: u32,
+    pub dwSize: u32,
+    pub Params: [u8; 1],
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::marker::Copy for LINEPROXYREQUEST_0_0 {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for LINEPROXYREQUEST_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_System_Com")]
+pub struct LINEPROXYREQUEST_0_1 {
+    pub hAgentSession: u32,
+    pub dwAgentPINSize: u32,
+    pub dwAgentPINOffset: u32,
+    pub hAgent: u32,
+    pub GroupID: ::windows_sys::core::GUID,
+    pub dwWorkingAddressID: u32,
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::marker::Copy for LINEPROXYREQUEST_0_1 {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for LINEPROXYREQUEST_0_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_System_Com")]
+pub struct LINEPROXYREQUEST_0_2 {
+    pub hAgent: u32,
+    pub dwAgentIDSize: u32,
+    pub dwAgentIDOffset: u32,
+    pub dwAgentPINSize: u32,
+    pub dwAgentPINOffset: u32,
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::marker::Copy for LINEPROXYREQUEST_0_2 {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for LINEPROXYREQUEST_0_2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_System_Com")]
+pub struct LINEPROXYREQUEST_0_3 {
+    pub dwAddressID: u32,
+    pub ActivityList: LINEAGENTACTIVITYLIST,
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::marker::Copy for LINEPROXYREQUEST_0_3 {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for LINEPROXYREQUEST_0_3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_System_Com")]
+pub struct LINEPROXYREQUEST_0_4 {
+    pub dwAddressID: u32,
+    pub AgentCaps: LINEAGENTCAPS,
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::marker::Copy for LINEPROXYREQUEST_0_4 {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for LINEPROXYREQUEST_0_4 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_System_Com")]
+pub struct LINEPROXYREQUEST_0_5 {
+    pub dwAddressID: u32,
+    pub GroupList: LINEAGENTGROUPLIST,
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::marker::Copy for LINEPROXYREQUEST_0_5 {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for LINEPROXYREQUEST_0_5 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_System_Com")]
+pub struct LINEPROXYREQUEST_0_6 {
+    pub hAgent: u32,
+    pub AgentInfo: LINEAGENTINFO,
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::marker::Copy for LINEPROXYREQUEST_0_6 {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for LINEPROXYREQUEST_0_6 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_System_Com")]
+pub struct LINEPROXYREQUEST_0_7 {
+    pub hAgentSession: u32,
+    pub SessionInfo: LINEAGENTSESSIONINFO,
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::marker::Copy for LINEPROXYREQUEST_0_7 {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for LINEPROXYREQUEST_0_7 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_System_Com")]
+pub struct LINEPROXYREQUEST_0_8 {
+    pub hAgent: u32,
+    pub SessionList: LINEAGENTSESSIONLIST,
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::marker::Copy for LINEPROXYREQUEST_0_8 {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for LINEPROXYREQUEST_0_8 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_System_Com")]
+pub struct LINEPROXYREQUEST_0_9 {
+    pub dwAddressID: u32,
+    pub AgentStatus: LINEAGENTSTATUS,
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::marker::Copy for LINEPROXYREQUEST_0_9 {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for LINEPROXYREQUEST_0_9 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct LINEPROXYREQUESTLIST(i32);
+#[cfg(feature = "Win32_System_Com")]
+pub struct LINEPROXYREQUEST_0_10 {
+    pub GroupList: LINEAGENTGROUPLIST,
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::marker::Copy for LINEPROXYREQUEST_0_10 {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for LINEPROXYREQUEST_0_10 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_System_Com")]
+pub struct LINEPROXYREQUEST_0_11 {
+    pub dwQueueID: u32,
+    pub QueueInfo: LINEQUEUEINFO,
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::marker::Copy for LINEPROXYREQUEST_0_11 {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for LINEPROXYREQUEST_0_11 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_System_Com")]
+pub struct LINEPROXYREQUEST_0_12 {
+    pub GroupID: ::windows_sys::core::GUID,
+    pub QueueList: LINEQUEUELIST,
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::marker::Copy for LINEPROXYREQUEST_0_12 {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for LINEPROXYREQUEST_0_12 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_System_Com")]
+pub struct LINEPROXYREQUEST_0_13 {
+    pub dwAddressID: u32,
+    pub dwActivityID: u32,
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::marker::Copy for LINEPROXYREQUEST_0_13 {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for LINEPROXYREQUEST_0_13 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_System_Com")]
+pub struct LINEPROXYREQUEST_0_14 {
+    pub dwAddressID: u32,
+    pub GroupList: LINEAGENTGROUPLIST,
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::marker::Copy for LINEPROXYREQUEST_0_14 {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for LINEPROXYREQUEST_0_14 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_System_Com")]
+pub struct LINEPROXYREQUEST_0_15 {
+    pub hAgent: u32,
+    pub dwMeasurementPeriod: u32,
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::marker::Copy for LINEPROXYREQUEST_0_15 {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for LINEPROXYREQUEST_0_15 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_System_Com")]
+pub struct LINEPROXYREQUEST_0_16 {
+    pub hAgentSession: u32,
+    pub dwAgentSessionState: u32,
+    pub dwNextAgentSessionState: u32,
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::marker::Copy for LINEPROXYREQUEST_0_16 {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for LINEPROXYREQUEST_0_16 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_System_Com")]
+pub struct LINEPROXYREQUEST_0_17 {
+    pub hAgent: u32,
+    pub dwAgentState: u32,
+    pub dwNextAgentState: u32,
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::marker::Copy for LINEPROXYREQUEST_0_17 {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for LINEPROXYREQUEST_0_17 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_System_Com")]
+pub struct LINEPROXYREQUEST_0_18 {
+    pub dwAddressID: u32,
+    pub dwAgentState: u32,
+    pub dwNextAgentState: u32,
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::marker::Copy for LINEPROXYREQUEST_0_18 {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for LINEPROXYREQUEST_0_18 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_System_Com")]
+pub struct LINEPROXYREQUEST_0_19 {
+    pub dwQueueID: u32,
+    pub dwMeasurementPeriod: u32,
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::marker::Copy for LINEPROXYREQUEST_0_19 {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for LINEPROXYREQUEST_0_19 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub struct LINEPROXYREQUESTLIST {
+    pub dwTotalSize: u32,
+    pub dwNeededSize: u32,
+    pub dwUsedSize: u32,
+    pub dwNumEntries: u32,
+    pub dwListSize: u32,
+    pub dwListOffset: u32,
+}
+impl ::core::marker::Copy for LINEPROXYREQUESTLIST {}
+impl ::core::clone::Clone for LINEPROXYREQUESTLIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const LINEPROXYREQUEST_AGENTSPECIFIC: u32 = 6u32;
 pub const LINEPROXYREQUEST_CREATEAGENT: u32 = 9u32;
 pub const LINEPROXYREQUEST_CREATEAGENTSESSION: u32 = 12u32;
@@ -1586,24 +3004,99 @@ pub const LINEQOSREQUESTTYPE_SERVICELEVEL: u32 = 1u32;
 pub const LINEQOSSERVICELEVEL_BESTEFFORT: u32 = 3u32;
 pub const LINEQOSSERVICELEVEL_IFAVAILABLE: u32 = 2u32;
 pub const LINEQOSSERVICELEVEL_NEEDED: u32 = 1u32;
-#[repr(C)]
-pub struct LINEQUEUEENTRY(i32);
-#[repr(C)]
-pub struct LINEQUEUEINFO(i32);
-#[repr(C)]
-pub struct LINEQUEUELIST(i32);
+#[repr(C, packed(1))]
+pub struct LINEQUEUEENTRY {
+    pub dwQueueID: u32,
+    pub dwNameSize: u32,
+    pub dwNameOffset: u32,
+}
+impl ::core::marker::Copy for LINEQUEUEENTRY {}
+impl ::core::clone::Clone for LINEQUEUEENTRY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub struct LINEQUEUEINFO {
+    pub dwTotalSize: u32,
+    pub dwNeededSize: u32,
+    pub dwUsedSize: u32,
+    pub dwMeasurementPeriod: u32,
+    pub dwTotalCallsQueued: u32,
+    pub dwCurrentCallsQueued: u32,
+    pub dwTotalCallsAbandoned: u32,
+    pub dwTotalCallsFlowedIn: u32,
+    pub dwTotalCallsFlowedOut: u32,
+    pub dwLongestEverWaitTime: u32,
+    pub dwCurrentLongestWaitTime: u32,
+    pub dwAverageWaitTime: u32,
+    pub dwFinalDisposition: u32,
+}
+impl ::core::marker::Copy for LINEQUEUEINFO {}
+impl ::core::clone::Clone for LINEQUEUEINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub struct LINEQUEUELIST {
+    pub dwTotalSize: u32,
+    pub dwNeededSize: u32,
+    pub dwUsedSize: u32,
+    pub dwNumEntries: u32,
+    pub dwListSize: u32,
+    pub dwListOffset: u32,
+}
+impl ::core::marker::Copy for LINEQUEUELIST {}
+impl ::core::clone::Clone for LINEQUEUELIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const LINEQUEUESTATUS_NEWQUEUE: u32 = 2u32;
 pub const LINEQUEUESTATUS_QUEUEREMOVED: u32 = 4u32;
 pub const LINEQUEUESTATUS_UPDATEINFO: u32 = 1u32;
 pub const LINEREMOVEFROMCONF_ANY: u32 = 3u32;
 pub const LINEREMOVEFROMCONF_LAST: u32 = 2u32;
 pub const LINEREMOVEFROMCONF_NONE: u32 = 1u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct LINEREQMAKECALL(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct LINEREQMEDIACALL(i32);
+pub struct LINEREQMAKECALL {
+    pub szDestAddress: [super::super::Foundation::CHAR; 80],
+    pub szAppName: [super::super::Foundation::CHAR; 40],
+    pub szCalledParty: [super::super::Foundation::CHAR; 40],
+    pub szComment: [super::super::Foundation::CHAR; 80],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for LINEREQMAKECALL {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for LINEREQMAKECALL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Foundation")]
+pub struct LINEREQMEDIACALL {
+    pub hWnd: super::super::Foundation::HWND,
+    pub wRequestID: super::super::Foundation::WPARAM,
+    pub szDeviceClass: [super::super::Foundation::CHAR; 40],
+    pub ucDeviceID: [u8; 40],
+    pub dwSize: u32,
+    pub dwSecure: u32,
+    pub szDestAddress: [super::super::Foundation::CHAR; 80],
+    pub szAppName: [super::super::Foundation::CHAR; 40],
+    pub szCalledParty: [super::super::Foundation::CHAR; 40],
+    pub szComment: [super::super::Foundation::CHAR; 80],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for LINEREQMEDIACALL {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for LINEREQMEDIACALL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const LINEREQUESTMODE_DROP: u32 = 4u32;
 pub const LINEREQUESTMODE_MAKECALL: u32 = 1u32;
 pub const LINEREQUESTMODE_MEDIACALL: u32 = 2u32;
@@ -1617,8 +3110,18 @@ pub const LINESPECIALINFO_NOCIRCUIT: u32 = 1u32;
 pub const LINESPECIALINFO_REORDER: u32 = 4u32;
 pub const LINESPECIALINFO_UNAVAIL: u32 = 16u32;
 pub const LINESPECIALINFO_UNKNOWN: u32 = 8u32;
-#[repr(C)]
-pub struct LINETERMCAPS(i32);
+#[repr(C, packed(1))]
+pub struct LINETERMCAPS {
+    pub dwTermDev: u32,
+    pub dwTermModes: u32,
+    pub dwTermSharing: u32,
+}
+impl ::core::marker::Copy for LINETERMCAPS {}
+impl ::core::clone::Clone for LINETERMCAPS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const LINETERMDEV_HEADSET: u32 = 2u32;
 pub const LINETERMDEV_PHONE: u32 = 1u32;
 pub const LINETERMDEV_SPEAKER: u32 = 4u32;
@@ -1642,14 +3145,49 @@ pub const LINETONEMODE_CUSTOM: u32 = 1u32;
 pub const LINETONEMODE_RINGBACK: u32 = 2u32;
 pub const LINETRANSFERMODE_CONFERENCE: u32 = 2u32;
 pub const LINETRANSFERMODE_TRANSFER: u32 = 1u32;
-#[repr(C)]
-pub struct LINETRANSLATECAPS(i32);
+#[repr(C, packed(1))]
+pub struct LINETRANSLATECAPS {
+    pub dwTotalSize: u32,
+    pub dwNeededSize: u32,
+    pub dwUsedSize: u32,
+    pub dwNumLocations: u32,
+    pub dwLocationListSize: u32,
+    pub dwLocationListOffset: u32,
+    pub dwCurrentLocationID: u32,
+    pub dwNumCards: u32,
+    pub dwCardListSize: u32,
+    pub dwCardListOffset: u32,
+    pub dwCurrentPreferredCardID: u32,
+}
+impl ::core::marker::Copy for LINETRANSLATECAPS {}
+impl ::core::clone::Clone for LINETRANSLATECAPS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const LINETRANSLATEOPTION_CANCELCALLWAITING: u32 = 2u32;
 pub const LINETRANSLATEOPTION_CARDOVERRIDE: u32 = 1u32;
 pub const LINETRANSLATEOPTION_FORCELD: u32 = 8u32;
 pub const LINETRANSLATEOPTION_FORCELOCAL: u32 = 4u32;
-#[repr(C)]
-pub struct LINETRANSLATEOUTPUT(i32);
+#[repr(C, packed(1))]
+pub struct LINETRANSLATEOUTPUT {
+    pub dwTotalSize: u32,
+    pub dwNeededSize: u32,
+    pub dwUsedSize: u32,
+    pub dwDialableStringSize: u32,
+    pub dwDialableStringOffset: u32,
+    pub dwDisplayableStringSize: u32,
+    pub dwDisplayableStringOffset: u32,
+    pub dwCurrentCountry: u32,
+    pub dwDestCountry: u32,
+    pub dwTranslateResults: u32,
+}
+impl ::core::marker::Copy for LINETRANSLATEOUTPUT {}
+impl ::core::clone::Clone for LINETRANSLATEOUTPUT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const LINETRANSLATERESULT_CANONICAL: u32 = 1u32;
 pub const LINETRANSLATERESULT_DIALBILLING: u32 = 64u32;
 pub const LINETRANSLATERESULT_DIALDIALTONE: u32 = 256u32;
@@ -1701,6 +3239,12 @@ pub type LPOPENTNEFSTREAMEX = unsafe extern "system" fn(lpvsupport: *mut ::core:
 pub struct MSP_ADDRESS_EVENT(pub i32);
 pub const ADDRESS_TERMINAL_AVAILABLE: MSP_ADDRESS_EVENT = MSP_ADDRESS_EVENT(0i32);
 pub const ADDRESS_TERMINAL_UNAVAILABLE: MSP_ADDRESS_EVENT = MSP_ADDRESS_EVENT(1i32);
+impl ::core::marker::Copy for MSP_ADDRESS_EVENT {}
+impl ::core::clone::Clone for MSP_ADDRESS_EVENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MSP_CALL_EVENT(pub i32);
 pub const CALL_NEW_STREAM: MSP_CALL_EVENT = MSP_CALL_EVENT(0i32);
@@ -1709,6 +3253,12 @@ pub const CALL_TERMINAL_FAIL: MSP_CALL_EVENT = MSP_CALL_EVENT(2i32);
 pub const CALL_STREAM_NOT_USED: MSP_CALL_EVENT = MSP_CALL_EVENT(3i32);
 pub const CALL_STREAM_ACTIVE: MSP_CALL_EVENT = MSP_CALL_EVENT(4i32);
 pub const CALL_STREAM_INACTIVE: MSP_CALL_EVENT = MSP_CALL_EVENT(5i32);
+impl ::core::marker::Copy for MSP_CALL_EVENT {}
+impl ::core::clone::Clone for MSP_CALL_EVENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MSP_CALL_EVENT_CAUSE(pub i32);
 pub const CALL_CAUSE_UNKNOWN: MSP_CALL_EVENT_CAUSE = MSP_CALL_EVENT_CAUSE(0i32);
@@ -1719,6 +3269,12 @@ pub const CALL_CAUSE_REMOTE_REQUEST: MSP_CALL_EVENT_CAUSE = MSP_CALL_EVENT_CAUSE
 pub const CALL_CAUSE_MEDIA_TIMEOUT: MSP_CALL_EVENT_CAUSE = MSP_CALL_EVENT_CAUSE(5i32);
 pub const CALL_CAUSE_MEDIA_RECOVERED: MSP_CALL_EVENT_CAUSE = MSP_CALL_EVENT_CAUSE(6i32);
 pub const CALL_CAUSE_QUALITY_OF_SERVICE: MSP_CALL_EVENT_CAUSE = MSP_CALL_EVENT_CAUSE(7i32);
+impl ::core::marker::Copy for MSP_CALL_EVENT_CAUSE {}
+impl ::core::clone::Clone for MSP_CALL_EVENT_CAUSE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MSP_EVENT(pub i32);
 pub const ME_ADDRESS_EVENT: MSP_EVENT = MSP_EVENT(0i32);
@@ -1729,14 +3285,198 @@ pub const ME_ASR_TERMINAL_EVENT: MSP_EVENT = MSP_EVENT(4i32);
 pub const ME_TTS_TERMINAL_EVENT: MSP_EVENT = MSP_EVENT(5i32);
 pub const ME_FILE_TERMINAL_EVENT: MSP_EVENT = MSP_EVENT(6i32);
 pub const ME_TONE_TERMINAL_EVENT: MSP_EVENT = MSP_EVENT(7i32);
+impl ::core::marker::Copy for MSP_EVENT {}
+impl ::core::clone::Clone for MSP_EVENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
+pub struct MSP_EVENT_INFO {
+    pub dwSize: u32,
+    pub Event: MSP_EVENT,
+    pub hCall: *mut i32,
+    pub Anonymous: MSP_EVENT_INFO_0,
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::marker::Copy for MSP_EVENT_INFO {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for MSP_EVENT_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct MSP_EVENT_INFO(i32);
+#[cfg(feature = "Win32_System_Com")]
+pub union MSP_EVENT_INFO_0 {
+    pub MSP_ADDRESS_EVENT_INFO: MSP_EVENT_INFO_0_0,
+    pub MSP_CALL_EVENT_INFO: MSP_EVENT_INFO_0_2,
+    pub MSP_TSP_DATA: MSP_EVENT_INFO_0_6,
+    pub MSP_PRIVATE_EVENT_INFO: MSP_EVENT_INFO_0_4,
+    pub MSP_FILE_TERMINAL_EVENT_INFO: MSP_EVENT_INFO_0_3,
+    pub MSP_ASR_TERMINAL_EVENT_INFO: MSP_EVENT_INFO_0_1,
+    pub MSP_TTS_TERMINAL_EVENT_INFO: MSP_EVENT_INFO_0_7,
+    pub MSP_TONE_TERMINAL_EVENT_INFO: MSP_EVENT_INFO_0_5,
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::marker::Copy for MSP_EVENT_INFO_0 {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for MSP_EVENT_INFO_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct McastAddressAllocation(i32);
+#[cfg(feature = "Win32_System_Com")]
+pub struct MSP_EVENT_INFO_0_0 {
+    pub Type: MSP_ADDRESS_EVENT,
+    pub pTerminal: ::core::option::Option<ITTerminal>,
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::marker::Copy for MSP_EVENT_INFO_0_0 {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for MSP_EVENT_INFO_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Com")]
+pub struct MSP_EVENT_INFO_0_1 {
+    pub pASRTerminal: ::core::option::Option<ITTerminal>,
+    pub hrErrorCode: ::windows_sys::core::HRESULT,
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::marker::Copy for MSP_EVENT_INFO_0_1 {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for MSP_EVENT_INFO_0_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Com")]
+pub struct MSP_EVENT_INFO_0_2 {
+    pub Type: MSP_CALL_EVENT,
+    pub Cause: MSP_CALL_EVENT_CAUSE,
+    pub pStream: ::core::option::Option<ITStream>,
+    pub pTerminal: ::core::option::Option<ITTerminal>,
+    pub hrError: ::windows_sys::core::HRESULT,
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::marker::Copy for MSP_EVENT_INFO_0_2 {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for MSP_EVENT_INFO_0_2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Com")]
+pub struct MSP_EVENT_INFO_0_3 {
+    pub pParentFileTerminal: ::core::option::Option<ITTerminal>,
+    pub pFileTrack: ::core::option::Option<ITFileTrack>,
+    pub TerminalMediaState: TERMINAL_MEDIA_STATE,
+    pub ftecEventCause: FT_STATE_EVENT_CAUSE,
+    pub hrErrorCode: ::windows_sys::core::HRESULT,
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::marker::Copy for MSP_EVENT_INFO_0_3 {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for MSP_EVENT_INFO_0_3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Com")]
+pub struct MSP_EVENT_INFO_0_4 {
+    pub pEvent: ::core::option::Option<super::super::System::Com::IDispatch>,
+    pub lEventCode: i32,
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::marker::Copy for MSP_EVENT_INFO_0_4 {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for MSP_EVENT_INFO_0_4 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Com")]
+pub struct MSP_EVENT_INFO_0_5 {
+    pub pToneTerminal: ::core::option::Option<ITTerminal>,
+    pub hrErrorCode: ::windows_sys::core::HRESULT,
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::marker::Copy for MSP_EVENT_INFO_0_5 {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for MSP_EVENT_INFO_0_5 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Com")]
+pub struct MSP_EVENT_INFO_0_6 {
+    pub dwBufferSize: u32,
+    pub pBuffer: [u8; 1],
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::marker::Copy for MSP_EVENT_INFO_0_6 {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for MSP_EVENT_INFO_0_6 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Com")]
+pub struct MSP_EVENT_INFO_0_7 {
+    pub pTTSTerminal: ::core::option::Option<ITTerminal>,
+    pub hrErrorCode: ::windows_sys::core::HRESULT,
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::marker::Copy for MSP_EVENT_INFO_0_7 {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for MSP_EVENT_INFO_0_7 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+pub const McastAddressAllocation: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3742215922, data2: 41609, data3: 4561, data4: [134, 151, 0, 96, 8, 176, 229, 210] };
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+pub struct NSID {
+    pub dwSize: u32,
+    pub uchType: [u8; 16],
+    pub xtype: u32,
+    pub lTime: i32,
+    pub address: NSID_0,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for NSID {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for NSID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct NSID(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub union NSID_0 {
+    pub alias: _ADDR_ALIAS,
+    pub rgchInterNet: [super::super::Foundation::CHAR; 1],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for NSID_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for NSID_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const PHONEBUTTONFUNCTION_ABBREVDIAL: u32 = 11u32;
 pub const PHONEBUTTONFUNCTION_BRIDGEDAPP: u32 = 28u32;
 pub const PHONEBUTTONFUNCTION_BUSY: u32 = 29u32;
@@ -1785,8 +3525,25 @@ pub const PHONEBUTTONFUNCTION_TRANSFER: u32 = 2u32;
 pub const PHONEBUTTONFUNCTION_UNKNOWN: u32 = 0u32;
 pub const PHONEBUTTONFUNCTION_VOLUMEDOWN: u32 = 20u32;
 pub const PHONEBUTTONFUNCTION_VOLUMEUP: u32 = 19u32;
-#[repr(C)]
-pub struct PHONEBUTTONINFO(i32);
+#[repr(C, packed(1))]
+pub struct PHONEBUTTONINFO {
+    pub dwTotalSize: u32,
+    pub dwNeededSize: u32,
+    pub dwUsedSize: u32,
+    pub dwButtonMode: u32,
+    pub dwButtonFunction: u32,
+    pub dwButtonTextSize: u32,
+    pub dwButtonTextOffset: u32,
+    pub dwDevSpecificSize: u32,
+    pub dwDevSpecificOffset: u32,
+    pub dwButtonState: u32,
+}
+impl ::core::marker::Copy for PHONEBUTTONINFO {}
+impl ::core::clone::Clone for PHONEBUTTONINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const PHONEBUTTONMODE_CALL: u32 = 2u32;
 pub const PHONEBUTTONMODE_DISPLAY: u32 = 32u32;
 pub const PHONEBUTTONMODE_DUMMY: u32 = 1u32;
@@ -1798,11 +3555,70 @@ pub const PHONEBUTTONSTATE_UNAVAIL: u32 = 8u32;
 pub const PHONEBUTTONSTATE_UNKNOWN: u32 = 4u32;
 pub const PHONEBUTTONSTATE_UP: u32 = 1u32;
 pub type PHONECALLBACK = unsafe extern "system" fn(hdevice: u32, dwmessage: u32, dwinstance: usize, dwparam1: usize, dwparam2: usize, dwparam3: usize);
-#[repr(C)]
-pub struct PHONECAPS(i32);
+#[repr(C, packed(1))]
+pub struct PHONECAPS {
+    pub dwTotalSize: u32,
+    pub dwNeededSize: u32,
+    pub dwUsedSize: u32,
+    pub dwProviderInfoSize: u32,
+    pub dwProviderInfoOffset: u32,
+    pub dwPhoneInfoSize: u32,
+    pub dwPhoneInfoOffset: u32,
+    pub dwPermanentPhoneID: u32,
+    pub dwPhoneNameSize: u32,
+    pub dwPhoneNameOffset: u32,
+    pub dwStringFormat: u32,
+    pub dwPhoneStates: u32,
+    pub dwHookSwitchDevs: u32,
+    pub dwHandsetHookSwitchModes: u32,
+    pub dwSpeakerHookSwitchModes: u32,
+    pub dwHeadsetHookSwitchModes: u32,
+    pub dwVolumeFlags: u32,
+    pub dwGainFlags: u32,
+    pub dwDisplayNumRows: u32,
+    pub dwDisplayNumColumns: u32,
+    pub dwNumRingModes: u32,
+    pub dwNumButtonLamps: u32,
+    pub dwButtonModesSize: u32,
+    pub dwButtonModesOffset: u32,
+    pub dwButtonFunctionsSize: u32,
+    pub dwButtonFunctionsOffset: u32,
+    pub dwLampModesSize: u32,
+    pub dwLampModesOffset: u32,
+    pub dwNumSetData: u32,
+    pub dwSetDataSize: u32,
+    pub dwSetDataOffset: u32,
+    pub dwNumGetData: u32,
+    pub dwGetDataSize: u32,
+    pub dwGetDataOffset: u32,
+    pub dwDevSpecificSize: u32,
+    pub dwDevSpecificOffset: u32,
+    pub dwDeviceClassesSize: u32,
+    pub dwDeviceClassesOffset: u32,
+    pub dwPhoneFeatures: u32,
+    pub dwSettableHandsetHookSwitchModes: u32,
+    pub dwSettableSpeakerHookSwitchModes: u32,
+    pub dwSettableHeadsetHookSwitchModes: u32,
+    pub dwMonitoredHandsetHookSwitchModes: u32,
+    pub dwMonitoredSpeakerHookSwitchModes: u32,
+    pub dwMonitoredHeadsetHookSwitchModes: u32,
+    pub PermanentPhoneGuid: ::windows_sys::core::GUID,
+}
+impl ::core::marker::Copy for PHONECAPS {}
+impl ::core::clone::Clone for PHONECAPS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PHONECAPS_BUFFER(pub i32);
 pub const PCB_DEVSPECIFICBUFFER: PHONECAPS_BUFFER = PHONECAPS_BUFFER(0i32);
+impl ::core::marker::Copy for PHONECAPS_BUFFER {}
+impl ::core::clone::Clone for PHONECAPS_BUFFER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PHONECAPS_LONG(pub i32);
 pub const PCL_HOOKSWITCHES: PHONECAPS_LONG = PHONECAPS_LONG(0i32);
@@ -1814,11 +3630,23 @@ pub const PCL_DISPLAYNUMCOLUMNS: PHONECAPS_LONG = PHONECAPS_LONG(5i32);
 pub const PCL_NUMRINGMODES: PHONECAPS_LONG = PHONECAPS_LONG(6i32);
 pub const PCL_NUMBUTTONLAMPS: PHONECAPS_LONG = PHONECAPS_LONG(7i32);
 pub const PCL_GENERICPHONE: PHONECAPS_LONG = PHONECAPS_LONG(8i32);
+impl ::core::marker::Copy for PHONECAPS_LONG {}
+impl ::core::clone::Clone for PHONECAPS_LONG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PHONECAPS_STRING(pub i32);
 pub const PCS_PHONENAME: PHONECAPS_STRING = PHONECAPS_STRING(0i32);
 pub const PCS_PHONEINFO: PHONECAPS_STRING = PHONECAPS_STRING(1i32);
 pub const PCS_PROVIDERINFO: PHONECAPS_STRING = PHONECAPS_STRING(2i32);
+impl ::core::marker::Copy for PHONECAPS_STRING {}
+impl ::core::clone::Clone for PHONECAPS_STRING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const PHONEERR_ALLOCATED: u32 = 2415919105u32;
 pub const PHONEERR_BADDEVICEID: u32 = 2415919106u32;
 pub const PHONEERR_DISCONNECTED: u32 = 2415919140u32;
@@ -1856,8 +3684,19 @@ pub const PHONEERR_SERVICE_NOT_RUNNING: u32 = 2415919141u32;
 pub const PHONEERR_STRUCTURETOOSMALL: u32 = 2415919137u32;
 pub const PHONEERR_UNINITIALIZED: u32 = 2415919138u32;
 pub type PHONEEVENT = unsafe extern "system" fn(htphone: *mut HTAPIPHONE__, dwmsg: u32, dwparam1: usize, dwparam2: usize, dwparam3: usize);
-#[repr(C)]
-pub struct PHONEEXTENSIONID(i32);
+#[repr(C, packed(1))]
+pub struct PHONEEXTENSIONID {
+    pub dwExtensionID0: u32,
+    pub dwExtensionID1: u32,
+    pub dwExtensionID2: u32,
+    pub dwExtensionID3: u32,
+}
+impl ::core::marker::Copy for PHONEEXTENSIONID {}
+impl ::core::clone::Clone for PHONEEXTENSIONID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const PHONEFEATURE_GENERICPHONE: u32 = 268435456u32;
 pub const PHONEFEATURE_GETBUTTONINFO: u32 = 1u32;
 pub const PHONEFEATURE_GETDATA: u32 = 2u32;
@@ -1898,9 +3737,38 @@ pub const PHONEHOOKSWITCHMODE_UNKNOWN: u32 = 16u32;
 pub const PHONEINITIALIZEEXOPTION_USECOMPLETIONPORT: u32 = 3u32;
 pub const PHONEINITIALIZEEXOPTION_USEEVENT: u32 = 2u32;
 pub const PHONEINITIALIZEEXOPTION_USEHIDDENWINDOW: u32 = 1u32;
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct PHONEINITIALIZEEXPARAMS(i32);
+pub struct PHONEINITIALIZEEXPARAMS {
+    pub dwTotalSize: u32,
+    pub dwNeededSize: u32,
+    pub dwUsedSize: u32,
+    pub dwOptions: u32,
+    pub Handles: PHONEINITIALIZEEXPARAMS_0,
+    pub dwCompletionKey: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for PHONEINITIALIZEEXPARAMS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for PHONEINITIALIZEEXPARAMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_Foundation")]
+pub union PHONEINITIALIZEEXPARAMS_0 {
+    pub hEvent: super::super::Foundation::HANDLE,
+    pub hCompletionPort: super::super::Foundation::HANDLE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for PHONEINITIALIZEEXPARAMS_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for PHONEINITIALIZEEXPARAMS_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const PHONELAMPMODE_BROKENFLUTTER: u32 = 64u32;
 pub const PHONELAMPMODE_DUMMY: u32 = 1u32;
 pub const PHONELAMPMODE_FLASH: u32 = 16u32;
@@ -1909,8 +3777,21 @@ pub const PHONELAMPMODE_OFF: u32 = 2u32;
 pub const PHONELAMPMODE_STEADY: u32 = 4u32;
 pub const PHONELAMPMODE_UNKNOWN: u32 = 128u32;
 pub const PHONELAMPMODE_WINK: u32 = 8u32;
-#[repr(C)]
-pub struct PHONEMESSAGE(i32);
+#[repr(C, packed(1))]
+pub struct PHONEMESSAGE {
+    pub hDevice: u32,
+    pub dwMessageID: u32,
+    pub dwCallbackInstance: usize,
+    pub dwParam1: usize,
+    pub dwParam2: usize,
+    pub dwParam3: usize,
+}
+impl ::core::marker::Copy for PHONEMESSAGE {}
+impl ::core::clone::Clone for PHONEMESSAGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const PHONEPRIVILEGE_MONITOR: u32 = 1u32;
 pub const PHONEPRIVILEGE_OWNER: u32 = 2u32;
 pub const PHONESTATE_CAPSCHANGE: u32 = 4194304u32;
@@ -1937,8 +3818,41 @@ pub const PHONESTATE_SPEAKERGAIN: u32 = 16384u32;
 pub const PHONESTATE_SPEAKERHOOKSWITCH: u32 = 4096u32;
 pub const PHONESTATE_SPEAKERVOLUME: u32 = 8192u32;
 pub const PHONESTATE_SUSPEND: u32 = 262144u32;
-#[repr(C)]
-pub struct PHONESTATUS(i32);
+#[repr(C, packed(1))]
+pub struct PHONESTATUS {
+    pub dwTotalSize: u32,
+    pub dwNeededSize: u32,
+    pub dwUsedSize: u32,
+    pub dwStatusFlags: u32,
+    pub dwNumOwners: u32,
+    pub dwNumMonitors: u32,
+    pub dwRingMode: u32,
+    pub dwRingVolume: u32,
+    pub dwHandsetHookSwitchMode: u32,
+    pub dwHandsetVolume: u32,
+    pub dwHandsetGain: u32,
+    pub dwSpeakerHookSwitchMode: u32,
+    pub dwSpeakerVolume: u32,
+    pub dwSpeakerGain: u32,
+    pub dwHeadsetHookSwitchMode: u32,
+    pub dwHeadsetVolume: u32,
+    pub dwHeadsetGain: u32,
+    pub dwDisplaySize: u32,
+    pub dwDisplayOffset: u32,
+    pub dwLampModesSize: u32,
+    pub dwLampModesOffset: u32,
+    pub dwOwnerNameSize: u32,
+    pub dwOwnerNameOffset: u32,
+    pub dwDevSpecificSize: u32,
+    pub dwDevSpecificOffset: u32,
+    pub dwPhoneFeatures: u32,
+}
+impl ::core::marker::Copy for PHONESTATUS {}
+impl ::core::clone::Clone for PHONESTATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const PHONESTATUSFLAGS_CONNECTED: u32 = 1u32;
 pub const PHONESTATUSFLAGS_SUSPENDED: u32 = 2u32;
 pub const PHONE_BUTTON: i32 = 14i32;
@@ -1992,6 +3906,12 @@ pub const PBF_SAVEREPEAT: PHONE_BUTTON_FUNCTION = PHONE_BUTTON_FUNCTION(44i32);
 pub const PBF_QUEUECALL: PHONE_BUTTON_FUNCTION = PHONE_BUTTON_FUNCTION(45i32);
 pub const PBF_NONE: PHONE_BUTTON_FUNCTION = PHONE_BUTTON_FUNCTION(46i32);
 pub const PBF_SEND: PHONE_BUTTON_FUNCTION = PHONE_BUTTON_FUNCTION(47i32);
+impl ::core::marker::Copy for PHONE_BUTTON_FUNCTION {}
+impl ::core::clone::Clone for PHONE_BUTTON_FUNCTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PHONE_BUTTON_MODE(pub i32);
 pub const PBM_DUMMY: PHONE_BUTTON_MODE = PHONE_BUTTON_MODE(0i32);
@@ -2000,12 +3920,24 @@ pub const PBM_FEATURE: PHONE_BUTTON_MODE = PHONE_BUTTON_MODE(2i32);
 pub const PBM_KEYPAD: PHONE_BUTTON_MODE = PHONE_BUTTON_MODE(3i32);
 pub const PBM_LOCAL: PHONE_BUTTON_MODE = PHONE_BUTTON_MODE(4i32);
 pub const PBM_DISPLAY: PHONE_BUTTON_MODE = PHONE_BUTTON_MODE(5i32);
+impl ::core::marker::Copy for PHONE_BUTTON_MODE {}
+impl ::core::clone::Clone for PHONE_BUTTON_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PHONE_BUTTON_STATE(pub i32);
 pub const PBS_UP: PHONE_BUTTON_STATE = PHONE_BUTTON_STATE(1i32);
 pub const PBS_DOWN: PHONE_BUTTON_STATE = PHONE_BUTTON_STATE(2i32);
 pub const PBS_UNKNOWN: PHONE_BUTTON_STATE = PHONE_BUTTON_STATE(4i32);
 pub const PBS_UNAVAIL: PHONE_BUTTON_STATE = PHONE_BUTTON_STATE(8i32);
+impl ::core::marker::Copy for PHONE_BUTTON_STATE {}
+impl ::core::clone::Clone for PHONE_BUTTON_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const PHONE_CLOSE: i32 = 15i32;
 pub const PHONE_CREATE: i32 = 20i32;
 pub const PHONE_DEVSPECIFIC: i32 = 16i32;
@@ -2024,17 +3956,35 @@ pub const PE_DIALING: PHONE_EVENT = PHONE_EVENT(9i32);
 pub const PE_ANSWER: PHONE_EVENT = PHONE_EVENT(10i32);
 pub const PE_DISCONNECT: PHONE_EVENT = PHONE_EVENT(11i32);
 pub const PE_LASTITEM: PHONE_EVENT = PHONE_EVENT(11i32);
+impl ::core::marker::Copy for PHONE_EVENT {}
+impl ::core::clone::Clone for PHONE_EVENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PHONE_HOOK_SWITCH_DEVICE(pub i32);
 pub const PHSD_HANDSET: PHONE_HOOK_SWITCH_DEVICE = PHONE_HOOK_SWITCH_DEVICE(1i32);
 pub const PHSD_SPEAKERPHONE: PHONE_HOOK_SWITCH_DEVICE = PHONE_HOOK_SWITCH_DEVICE(2i32);
 pub const PHSD_HEADSET: PHONE_HOOK_SWITCH_DEVICE = PHONE_HOOK_SWITCH_DEVICE(4i32);
+impl ::core::marker::Copy for PHONE_HOOK_SWITCH_DEVICE {}
+impl ::core::clone::Clone for PHONE_HOOK_SWITCH_DEVICE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PHONE_HOOK_SWITCH_STATE(pub i32);
 pub const PHSS_ONHOOK: PHONE_HOOK_SWITCH_STATE = PHONE_HOOK_SWITCH_STATE(1i32);
 pub const PHSS_OFFHOOK_MIC_ONLY: PHONE_HOOK_SWITCH_STATE = PHONE_HOOK_SWITCH_STATE(2i32);
 pub const PHSS_OFFHOOK_SPEAKER_ONLY: PHONE_HOOK_SWITCH_STATE = PHONE_HOOK_SWITCH_STATE(4i32);
 pub const PHSS_OFFHOOK: PHONE_HOOK_SWITCH_STATE = PHONE_HOOK_SWITCH_STATE(8i32);
+impl ::core::marker::Copy for PHONE_HOOK_SWITCH_STATE {}
+impl ::core::clone::Clone for PHONE_HOOK_SWITCH_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PHONE_LAMP_MODE(pub i32);
 pub const LM_DUMMY: PHONE_LAMP_MODE = PHONE_LAMP_MODE(1i32);
@@ -2045,10 +3995,22 @@ pub const LM_FLASH: PHONE_LAMP_MODE = PHONE_LAMP_MODE(16i32);
 pub const LM_FLUTTER: PHONE_LAMP_MODE = PHONE_LAMP_MODE(32i32);
 pub const LM_BROKENFLUTTER: PHONE_LAMP_MODE = PHONE_LAMP_MODE(64i32);
 pub const LM_UNKNOWN: PHONE_LAMP_MODE = PHONE_LAMP_MODE(128i32);
+impl ::core::marker::Copy for PHONE_LAMP_MODE {}
+impl ::core::clone::Clone for PHONE_LAMP_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PHONE_PRIVILEGE(pub i32);
 pub const PP_OWNER: PHONE_PRIVILEGE = PHONE_PRIVILEGE(0i32);
 pub const PP_MONITOR: PHONE_PRIVILEGE = PHONE_PRIVILEGE(1i32);
+impl ::core::marker::Copy for PHONE_PRIVILEGE {}
+impl ::core::clone::Clone for PHONE_PRIVILEGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const PHONE_REMOVE: i32 = 26i32;
 pub const PHONE_REPLY: i32 = 17i32;
 pub const PHONE_STATE: i32 = 18i32;
@@ -2076,6 +4038,12 @@ pub const PT_BUSY: PHONE_TONE = PHONE_TONE(18i32);
 pub const PT_RINGBACK: PHONE_TONE = PHONE_TONE(19i32);
 pub const PT_ERRORTONE: PHONE_TONE = PHONE_TONE(20i32);
 pub const PT_SILENCE: PHONE_TONE = PHONE_TONE(21i32);
+impl ::core::marker::Copy for PHONE_TONE {}
+impl ::core::clone::Clone for PHONE_TONE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const PRIVATEOBJECT_ADDRESS: u32 = 6u32;
 pub const PRIVATEOBJECT_CALL: u32 = 4u32;
 pub const PRIVATEOBJECT_CALLID: u32 = 2u32;
@@ -2089,11 +4057,23 @@ pub const QE_ADMISSIONFAILURE: QOS_EVENT = QOS_EVENT(2i32);
 pub const QE_POLICYFAILURE: QOS_EVENT = QOS_EVENT(3i32);
 pub const QE_GENERICERROR: QOS_EVENT = QOS_EVENT(4i32);
 pub const QE_LASTITEM: QOS_EVENT = QOS_EVENT(4i32);
+impl ::core::marker::Copy for QOS_EVENT {}
+impl ::core::clone::Clone for QOS_EVENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct QOS_SERVICE_LEVEL(pub i32);
 pub const QSL_NEEDED: QOS_SERVICE_LEVEL = QOS_SERVICE_LEVEL(1i32);
 pub const QSL_IF_AVAILABLE: QOS_SERVICE_LEVEL = QOS_SERVICE_LEVEL(2i32);
 pub const QSL_BEST_EFFORT: QOS_SERVICE_LEVEL = QOS_SERVICE_LEVEL(3i32);
+impl ::core::marker::Copy for QOS_SERVICE_LEVEL {}
+impl ::core::clone::Clone for QOS_SERVICE_LEVEL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const RENDBIND_AUTHENTICATE: u32 = 1u32;
 pub const RENDBIND_DEFAULTCREDENTIALS: u32 = 14u32;
 pub const RENDBIND_DEFAULTDOMAINNAME: u32 = 2u32;
@@ -2105,10 +4085,14 @@ pub const RAS_LOCAL: RND_ADVERTISING_SCOPE = RND_ADVERTISING_SCOPE(1i32);
 pub const RAS_SITE: RND_ADVERTISING_SCOPE = RND_ADVERTISING_SCOPE(2i32);
 pub const RAS_REGION: RND_ADVERTISING_SCOPE = RND_ADVERTISING_SCOPE(3i32);
 pub const RAS_WORLD: RND_ADVERTISING_SCOPE = RND_ADVERTISING_SCOPE(4i32);
-#[repr(C)]
-pub struct Rendezvous(i32);
-#[repr(C)]
-pub struct RequestMakeCall(i32);
+impl ::core::marker::Copy for RND_ADVERTISING_SCOPE {}
+impl ::core::clone::Clone for RND_ADVERTISING_SCOPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+pub const Rendezvous: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4043480667, data2: 52059, data3: 4560, data4: [141, 89, 0, 192, 79, 217, 26, 192] };
+pub const RequestMakeCall: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2890465248, data2: 63684, data3: 4561, data4: [160, 48, 0, 192, 79, 182, 128, 159] };
 pub const STRINGFORMAT_ASCII: u32 = 1u32;
 pub const STRINGFORMAT_BINARY: u32 = 4u32;
 pub const STRINGFORMAT_DBCS: u32 = 2u32;
@@ -2120,11 +4104,30 @@ pub const STRM_RUNNING: u32 = 4u32;
 pub const STRM_STOPPED: u32 = 16u32;
 pub const STRM_TERMINALSELECTED: u32 = 1u32;
 #[repr(C)]
-pub struct STnefProblem(i32);
+pub struct STnefProblem {
+    pub ulComponent: u32,
+    pub ulAttribute: u32,
+    pub ulPropTag: u32,
+    pub scode: i32,
+}
+impl ::core::marker::Copy for STnefProblem {}
+impl ::core::clone::Clone for STnefProblem {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct STnefProblemArray(i32);
-#[repr(C)]
-pub struct TAPI(i32);
+pub struct STnefProblemArray {
+    pub cProblem: u32,
+    pub aProblem: [STnefProblem; 1],
+}
+impl ::core::marker::Copy for STnefProblemArray {}
+impl ::core::clone::Clone for STnefProblemArray {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+pub const TAPI: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 567727246, data2: 43147, data3: 4560, data4: [131, 221, 0, 170, 0, 60, 202, 189] };
 pub const TAPIERR_CONNECTED: i32 = 0i32;
 pub const TAPIERR_DESTBUSY: i32 = -11i32;
 pub const TAPIERR_DESTNOANSWER: i32 = -12i32;
@@ -2169,11 +4172,40 @@ pub const TE_TRANSLATECHANGE: TAPIOBJECT_EVENT = TAPIOBJECT_EVENT(3i32);
 pub const TE_ADDRESSCLOSE: TAPIOBJECT_EVENT = TAPIOBJECT_EVENT(4i32);
 pub const TE_PHONECREATE: TAPIOBJECT_EVENT = TAPIOBJECT_EVENT(5i32);
 pub const TE_PHONEREMOVE: TAPIOBJECT_EVENT = TAPIOBJECT_EVENT(6i32);
+impl ::core::marker::Copy for TAPIOBJECT_EVENT {}
+impl ::core::clone::Clone for TAPIOBJECT_EVENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const TAPI_CURRENT_VERSION: u32 = 131074u32;
 #[repr(C)]
-pub struct TAPI_CUSTOMTONE(i32);
+pub struct TAPI_CUSTOMTONE {
+    pub dwFrequency: u32,
+    pub dwCadenceOn: u32,
+    pub dwCadenceOff: u32,
+    pub dwVolume: u32,
+}
+impl ::core::marker::Copy for TAPI_CUSTOMTONE {}
+impl ::core::clone::Clone for TAPI_CUSTOMTONE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct TAPI_DETECTTONE(i32);
+pub struct TAPI_DETECTTONE {
+    pub dwAppSpecific: u32,
+    pub dwDuration: u32,
+    pub dwFrequency1: u32,
+    pub dwFrequency2: u32,
+    pub dwFrequency3: u32,
+}
+impl ::core::marker::Copy for TAPI_DETECTTONE {}
+impl ::core::clone::Clone for TAPI_DETECTTONE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TAPI_EVENT(pub i32);
 pub const TE_TAPIOBJECT: TAPI_EVENT = TAPI_EVENT(1i32);
@@ -2202,6 +4234,12 @@ pub const TE_TONEEVENT: TAPI_EVENT = TAPI_EVENT(4194304i32);
 pub const TE_GATHERDIGITS: TAPI_EVENT = TAPI_EVENT(8388608i32);
 pub const TE_ADDRESSDEVSPECIFIC: TAPI_EVENT = TAPI_EVENT(16777216i32);
 pub const TE_PHONEDEVSPECIFIC: TAPI_EVENT = TAPI_EVENT(33554432i32);
+impl ::core::marker::Copy for TAPI_EVENT {}
+impl ::core::clone::Clone for TAPI_EVENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const TAPI_E_ADDRESSBLOCKED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147221462i32 as _);
 pub const TAPI_E_ALLOCATED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147221498i32 as _);
 pub const TAPI_E_BILLINGREJECTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147221461i32 as _);
@@ -2299,6 +4337,12 @@ pub const TGT_TERMDIGIT: TAPI_GATHERTERM = TAPI_GATHERTERM(2i32);
 pub const TGT_FIRSTTIMEOUT: TAPI_GATHERTERM = TAPI_GATHERTERM(4i32);
 pub const TGT_INTERTIMEOUT: TAPI_GATHERTERM = TAPI_GATHERTERM(8i32);
 pub const TGT_CANCEL: TAPI_GATHERTERM = TAPI_GATHERTERM(16i32);
+impl ::core::marker::Copy for TAPI_GATHERTERM {}
+impl ::core::clone::Clone for TAPI_GATHERTERM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TAPI_OBJECT_TYPE(pub i32);
 pub const TOT_NONE: TAPI_OBJECT_TYPE = TAPI_OBJECT_TYPE(0i32);
@@ -2308,6 +4352,12 @@ pub const TOT_TERMINAL: TAPI_OBJECT_TYPE = TAPI_OBJECT_TYPE(3i32);
 pub const TOT_CALL: TAPI_OBJECT_TYPE = TAPI_OBJECT_TYPE(4i32);
 pub const TOT_CALLHUB: TAPI_OBJECT_TYPE = TAPI_OBJECT_TYPE(5i32);
 pub const TOT_PHONE: TAPI_OBJECT_TYPE = TAPI_OBJECT_TYPE(6i32);
+impl ::core::marker::Copy for TAPI_OBJECT_TYPE {}
+impl ::core::clone::Clone for TAPI_OBJECT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const TAPI_REPLY: u32 = 1123u32;
 #[repr(transparent)]
 pub struct TAPI_TONEMODE(pub i32);
@@ -2315,6 +4365,12 @@ pub const TTM_RINGBACK: TAPI_TONEMODE = TAPI_TONEMODE(2i32);
 pub const TTM_BUSY: TAPI_TONEMODE = TAPI_TONEMODE(4i32);
 pub const TTM_BEEP: TAPI_TONEMODE = TAPI_TONEMODE(8i32);
 pub const TTM_BILLING: TAPI_TONEMODE = TAPI_TONEMODE(16i32);
+impl ::core::marker::Copy for TAPI_TONEMODE {}
+impl ::core::clone::Clone for TAPI_TONEMODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TERMINAL_DIRECTION(pub i32);
 pub const TD_CAPTURE: TERMINAL_DIRECTION = TERMINAL_DIRECTION(0i32);
@@ -2322,20 +4378,44 @@ pub const TD_RENDER: TERMINAL_DIRECTION = TERMINAL_DIRECTION(1i32);
 pub const TD_BIDIRECTIONAL: TERMINAL_DIRECTION = TERMINAL_DIRECTION(2i32);
 pub const TD_MULTITRACK_MIXED: TERMINAL_DIRECTION = TERMINAL_DIRECTION(3i32);
 pub const TD_NONE: TERMINAL_DIRECTION = TERMINAL_DIRECTION(4i32);
+impl ::core::marker::Copy for TERMINAL_DIRECTION {}
+impl ::core::clone::Clone for TERMINAL_DIRECTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TERMINAL_MEDIA_STATE(pub i32);
 pub const TMS_IDLE: TERMINAL_MEDIA_STATE = TERMINAL_MEDIA_STATE(0i32);
 pub const TMS_ACTIVE: TERMINAL_MEDIA_STATE = TERMINAL_MEDIA_STATE(1i32);
 pub const TMS_PAUSED: TERMINAL_MEDIA_STATE = TERMINAL_MEDIA_STATE(2i32);
 pub const TMS_LASTITEM: TERMINAL_MEDIA_STATE = TERMINAL_MEDIA_STATE(2i32);
+impl ::core::marker::Copy for TERMINAL_MEDIA_STATE {}
+impl ::core::clone::Clone for TERMINAL_MEDIA_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TERMINAL_STATE(pub i32);
 pub const TS_INUSE: TERMINAL_STATE = TERMINAL_STATE(0i32);
 pub const TS_NOTINUSE: TERMINAL_STATE = TERMINAL_STATE(1i32);
+impl ::core::marker::Copy for TERMINAL_STATE {}
+impl ::core::clone::Clone for TERMINAL_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct TERMINAL_TYPE(pub i32);
 pub const TT_STATIC: TERMINAL_TYPE = TERMINAL_TYPE(0i32);
 pub const TT_DYNAMIC: TERMINAL_TYPE = TERMINAL_TYPE(1i32);
+impl ::core::marker::Copy for TERMINAL_TYPE {}
+impl ::core::clone::Clone for TERMINAL_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const TSPI_LINEACCEPT: u32 = 500u32;
 pub const TSPI_LINEADDTOCONFERENCE: u32 = 501u32;
 pub const TSPI_LINEANSWER: u32 = 502u32;
@@ -2448,32 +4528,141 @@ pub const TSPI_PROVIDERINIT: u32 = 591u32;
 pub const TSPI_PROVIDERINSTALL: u32 = 592u32;
 pub const TSPI_PROVIDERREMOVE: u32 = 593u32;
 pub const TSPI_PROVIDERSHUTDOWN: u32 = 594u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct TUISPICREATEDIALOGINSTANCEPARAMS(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct TUISPICREATEDIALOGINSTANCEPARAMS {
+    pub dwRequestID: u32,
+    pub hdDlgInst: *mut HDRVDIALOGINSTANCE__,
+    pub htDlgInst: u32,
+    pub lpszUIDLLName: super::super::Foundation::PWSTR,
+    pub lpParams: *mut ::core::ffi::c_void,
+    pub dwSize: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for TUISPICREATEDIALOGINSTANCEPARAMS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for TUISPICREATEDIALOGINSTANCEPARAMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub type TUISPIDLLCALLBACK = unsafe extern "system" fn(dwobjectid: usize, dwobjecttype: u32, lpparams: *mut ::core::ffi::c_void, dwsize: u32) -> i32;
 pub const TUISPIDLL_OBJECT_DIALOGINSTANCE: i32 = 4i32;
 pub const TUISPIDLL_OBJECT_LINEID: i32 = 1i32;
 pub const TUISPIDLL_OBJECT_PHONEID: i32 = 2i32;
 pub const TUISPIDLL_OBJECT_PROVIDERID: i32 = 3i32;
+#[repr(C, packed(1))]
+pub struct VARSTRING {
+    pub dwTotalSize: u32,
+    pub dwNeededSize: u32,
+    pub dwUsedSize: u32,
+    pub dwStringFormat: u32,
+    pub dwStringSize: u32,
+    pub dwStringOffset: u32,
+}
+impl ::core::marker::Copy for VARSTRING {}
+impl ::core::clone::Clone for VARSTRING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct VARSTRING(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct _ADDR_ALIAS {
+    pub rgchName: [super::super::Foundation::CHAR; 41],
+    pub rgchEName: [super::super::Foundation::CHAR; 11],
+    pub rgchSrvr: [super::super::Foundation::CHAR; 12],
+    pub dibDetail: u32,
+    pub r#type: u16,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for _ADDR_ALIAS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for _ADDR_ALIAS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub struct _dtr {
+    pub wYear: u16,
+    pub wMonth: u16,
+    pub wDay: u16,
+    pub wHour: u16,
+    pub wMinute: u16,
+    pub wSecond: u16,
+    pub wDayOfWeek: u16,
+}
+impl ::core::marker::Copy for _dtr {}
+impl ::core::clone::Clone for _dtr {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+pub struct _renddata {
+    pub atyp: u16,
+    pub ulPosition: u32,
+    pub dxWidth: u16,
+    pub dyHeight: u16,
+    pub dwFlags: u32,
+}
+impl ::core::marker::Copy for _renddata {}
+impl ::core::clone::Clone for _renddata {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct _ADDR_ALIAS(i32);
-#[repr(C)]
-pub struct _dtr(i32);
-#[repr(C)]
-pub struct _renddata(i32);
-#[repr(C)]
-pub struct _trp(i32);
+pub struct _trp {
+    pub trpid: u16,
+    pub cbgrtrp: u16,
+    pub cch: u16,
+    pub cbRgb: u16,
+}
+impl ::core::marker::Copy for _trp {}
+impl ::core::clone::Clone for _trp {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const atypFile: i32 = 1i32;
 pub const atypMax: i32 = 4i32;
 pub const atypNull: i32 = 0i32;
 pub const atypOle: i32 = 2i32;
 pub const atypPicture: i32 = 3i32;
-#[repr(C)]
-pub struct linereqmakecallW_tag(i32);
+#[repr(C, packed(1))]
+pub struct linereqmakecallW_tag {
+    pub szDestAddress: [u16; 80],
+    pub szAppName: [u16; 40],
+    pub szCalledParty: [u16; 40],
+    pub szComment: [u16; 80],
+}
+impl ::core::marker::Copy for linereqmakecallW_tag {}
+impl ::core::clone::Clone for linereqmakecallW_tag {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct linereqmediacallW_tag(i32);
+pub struct linereqmediacallW_tag {
+    pub hWnd: super::super::Foundation::HWND,
+    pub wRequestID: super::super::Foundation::WPARAM,
+    pub szDeviceClass: [u16; 40],
+    pub ucDeviceID: [u8; 40],
+    pub dwSize: u32,
+    pub dwSecure: u32,
+    pub szDestAddress: [u16; 80],
+    pub szAppName: [u16; 40],
+    pub szCalledParty: [u16; 40],
+    pub szComment: [u16; 80],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for linereqmediacallW_tag {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for linereqmediacallW_tag {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

@@ -119,6 +119,12 @@ impl SmartCardActivationPolicyChangeResult {
     pub const Denied: Self = Self(0i32);
     pub const Allowed: Self = Self(1i32);
 }
+impl ::core::marker::Copy for SmartCardActivationPolicyChangeResult {}
+impl ::core::clone::Clone for SmartCardActivationPolicyChangeResult {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SmartCardAppletIdGroup(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -127,6 +133,12 @@ impl SmartCardAppletIdGroupActivationPolicy {
     pub const Disabled: Self = Self(0i32);
     pub const ForegroundOverride: Self = Self(1i32);
     pub const Enabled: Self = Self(2i32);
+}
+impl ::core::marker::Copy for SmartCardAppletIdGroupActivationPolicy {}
+impl ::core::clone::Clone for SmartCardAppletIdGroupActivationPolicy {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct SmartCardAppletIdGroupRegistration(pub *mut ::core::ffi::c_void);
@@ -139,8 +151,12 @@ impl SmartCardAutomaticResponseStatus {
     pub const Success: Self = Self(1i32);
     pub const UnknownError: Self = Self(2i32);
 }
-#[repr(C)]
-pub struct SmartCardBackgroundTriggerContract(i32);
+impl ::core::marker::Copy for SmartCardAutomaticResponseStatus {}
+impl ::core::clone::Clone for SmartCardAutomaticResponseStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SmartCardChallengeContext(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -157,6 +173,12 @@ impl SmartCardCryptogramAlgorithm {
     pub const SignedDynamicApplicationData: Self = Self(6i32);
     pub const RsaPkcs1: Self = Self(7i32);
     pub const Sha256Hmac: Self = Self(8i32);
+}
+impl ::core::marker::Copy for SmartCardCryptogramAlgorithm {}
+impl ::core::clone::Clone for SmartCardCryptogramAlgorithm {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct SmartCardCryptogramGenerator(pub *mut ::core::ffi::c_void);
@@ -178,6 +200,12 @@ impl SmartCardCryptogramGeneratorOperationStatus {
     pub const ValidationFailed: Self = Self(12i32);
     pub const NotSupported: Self = Self(13i32);
 }
+impl ::core::marker::Copy for SmartCardCryptogramGeneratorOperationStatus {}
+impl ::core::clone::Clone for SmartCardCryptogramGeneratorOperationStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -194,11 +222,23 @@ impl SmartCardCryptogramMaterialPackageConfirmationResponseFormat {
     pub const None: Self = Self(0i32);
     pub const VisaHmac: Self = Self(1i32);
 }
+impl ::core::marker::Copy for SmartCardCryptogramMaterialPackageConfirmationResponseFormat {}
+impl ::core::clone::Clone for SmartCardCryptogramMaterialPackageConfirmationResponseFormat {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SmartCardCryptogramMaterialPackageFormat(pub i32);
 impl SmartCardCryptogramMaterialPackageFormat {
     pub const None: Self = Self(0i32);
     pub const JweRsaPki: Self = Self(1i32);
+}
+impl ::core::marker::Copy for SmartCardCryptogramMaterialPackageFormat {}
+impl ::core::clone::Clone for SmartCardCryptogramMaterialPackageFormat {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct SmartCardCryptogramMaterialPossessionProof(pub *mut ::core::ffi::c_void);
@@ -207,6 +247,12 @@ pub struct SmartCardCryptogramMaterialProtectionMethod(pub i32);
 impl SmartCardCryptogramMaterialProtectionMethod {
     pub const None: Self = Self(0i32);
     pub const WhiteBoxing: Self = Self(1i32);
+}
+impl ::core::marker::Copy for SmartCardCryptogramMaterialProtectionMethod {}
+impl ::core::clone::Clone for SmartCardCryptogramMaterialProtectionMethod {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct SmartCardCryptogramMaterialType(pub i32);
@@ -217,12 +263,24 @@ impl SmartCardCryptogramMaterialType {
     pub const Aes: Self = Self(3i32);
     pub const RsaPkcs1: Self = Self(4i32);
 }
+impl ::core::marker::Copy for SmartCardCryptogramMaterialType {}
+impl ::core::clone::Clone for SmartCardCryptogramMaterialType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SmartCardCryptogramPlacementOptions(pub u32);
 impl SmartCardCryptogramPlacementOptions {
     pub const None: Self = Self(0u32);
     pub const UnitsAreInNibbles: Self = Self(1u32);
     pub const ChainOutput: Self = Self(2u32);
+}
+impl ::core::marker::Copy for SmartCardCryptogramPlacementOptions {}
+impl ::core::clone::Clone for SmartCardCryptogramPlacementOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct SmartCardCryptogramPlacementStep(pub *mut ::core::ffi::c_void);
@@ -232,12 +290,24 @@ impl SmartCardCryptogramStorageKeyAlgorithm {
     pub const None: Self = Self(0i32);
     pub const Rsa2048: Self = Self(1i32);
 }
+impl ::core::marker::Copy for SmartCardCryptogramStorageKeyAlgorithm {}
+impl ::core::clone::Clone for SmartCardCryptogramStorageKeyAlgorithm {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SmartCardCryptogramStorageKeyCapabilities(pub u32);
 impl SmartCardCryptogramStorageKeyCapabilities {
     pub const None: Self = Self(0u32);
     pub const HardwareProtection: Self = Self(1u32);
     pub const UnlockPrompt: Self = Self(2u32);
+}
+impl ::core::marker::Copy for SmartCardCryptogramStorageKeyCapabilities {}
+impl ::core::clone::Clone for SmartCardCryptogramStorageKeyCapabilities {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct SmartCardCryptogramStorageKeyCharacteristics(pub *mut ::core::ffi::c_void);
@@ -255,11 +325,23 @@ impl SmartCardCryptographicKeyAttestationStatus {
     pub const TpmKeyWithLongTermAttestationFailure: Self = Self(6i32);
     pub const TpmKeyWithAttestation: Self = Self(7i32);
 }
+impl ::core::marker::Copy for SmartCardCryptographicKeyAttestationStatus {}
+impl ::core::clone::Clone for SmartCardCryptographicKeyAttestationStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SmartCardEmulationCategory(pub i32);
 impl SmartCardEmulationCategory {
     pub const Other: Self = Self(0i32);
     pub const Payment: Self = Self(1i32);
+}
+impl ::core::marker::Copy for SmartCardEmulationCategory {}
+impl ::core::clone::Clone for SmartCardEmulationCategory {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct SmartCardEmulationType(pub i32);
@@ -267,6 +349,12 @@ impl SmartCardEmulationType {
     pub const Host: Self = Self(0i32);
     pub const Uicc: Self = Self(1i32);
     pub const EmbeddedSE: Self = Self(2i32);
+}
+impl ::core::marker::Copy for SmartCardEmulationType {}
+impl ::core::clone::Clone for SmartCardEmulationType {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct SmartCardEmulator(pub *mut ::core::ffi::c_void);
@@ -280,6 +368,12 @@ impl SmartCardEmulatorConnectionDeactivatedReason {
     pub const ConnectionLost: Self = Self(0i32);
     pub const ConnectionRedirected: Self = Self(1i32);
 }
+impl ::core::marker::Copy for SmartCardEmulatorConnectionDeactivatedReason {}
+impl ::core::clone::Clone for SmartCardEmulatorConnectionDeactivatedReason {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SmartCardEmulatorConnectionProperties(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -288,8 +382,12 @@ impl SmartCardEmulatorConnectionSource {
     pub const Unknown: Self = Self(0i32);
     pub const NfcReader: Self = Self(1i32);
 }
-#[repr(C)]
-pub struct SmartCardEmulatorContract(i32);
+impl ::core::marker::Copy for SmartCardEmulatorConnectionSource {}
+impl ::core::clone::Clone for SmartCardEmulatorConnectionSource {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SmartCardEmulatorEnablementPolicy(pub i32);
 impl SmartCardEmulatorEnablementPolicy {
@@ -298,11 +396,23 @@ impl SmartCardEmulatorEnablementPolicy {
     pub const ScreenOn: Self = Self(2i32);
     pub const ScreenUnlocked: Self = Self(3i32);
 }
+impl ::core::marker::Copy for SmartCardEmulatorEnablementPolicy {}
+impl ::core::clone::Clone for SmartCardEmulatorEnablementPolicy {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SmartCardLaunchBehavior(pub i32);
 impl SmartCardLaunchBehavior {
     pub const Default: Self = Self(0i32);
     pub const AboveLock: Self = Self(1i32);
+}
+impl ::core::marker::Copy for SmartCardLaunchBehavior {}
+impl ::core::clone::Clone for SmartCardLaunchBehavior {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct SmartCardPinCharacterPolicyOption(pub i32);
@@ -310,6 +420,12 @@ impl SmartCardPinCharacterPolicyOption {
     pub const Allow: Self = Self(0i32);
     pub const RequireAtLeastOne: Self = Self(1i32);
     pub const Disallow: Self = Self(2i32);
+}
+impl ::core::marker::Copy for SmartCardPinCharacterPolicyOption {}
+impl ::core::clone::Clone for SmartCardPinCharacterPolicyOption {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct SmartCardPinPolicy(pub *mut ::core::ffi::c_void);
@@ -333,12 +449,24 @@ impl SmartCardReaderKind {
     pub const Uicc: Self = Self(4i32);
     pub const EmbeddedSE: Self = Self(5i32);
 }
+impl ::core::marker::Copy for SmartCardReaderKind {}
+impl ::core::clone::Clone for SmartCardReaderKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SmartCardReaderStatus(pub i32);
 impl SmartCardReaderStatus {
     pub const Disconnected: Self = Self(0i32);
     pub const Ready: Self = Self(1i32);
     pub const Exclusive: Self = Self(2i32);
+}
+impl ::core::marker::Copy for SmartCardReaderStatus {}
+impl ::core::clone::Clone for SmartCardReaderStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct SmartCardStatus(pub i32);
@@ -348,6 +476,12 @@ impl SmartCardStatus {
     pub const Shared: Self = Self(2i32);
     pub const Exclusive: Self = Self(3i32);
     pub const Unresponsive: Self = Self(4i32);
+}
+impl ::core::marker::Copy for SmartCardStatus {}
+impl ::core::clone::Clone for SmartCardStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct SmartCardTriggerDetails(pub *mut ::core::ffi::c_void);
@@ -361,10 +495,22 @@ impl SmartCardTriggerType {
     pub const EmulatorAppletIdGroupRegistrationChanged: Self = Self(4i32);
     pub const ReaderCardAdded: Self = Self(5i32);
 }
+impl ::core::marker::Copy for SmartCardTriggerType {}
+impl ::core::clone::Clone for SmartCardTriggerType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SmartCardUnlockPromptingBehavior(pub i32);
 impl SmartCardUnlockPromptingBehavior {
     pub const AllowUnlockPrompt: Self = Self(0i32);
     pub const RequireUnlockPrompt: Self = Self(1i32);
     pub const PreventUnlockPrompt: Self = Self(2i32);
+}
+impl ::core::marker::Copy for SmartCardUnlockPromptingBehavior {}
+impl ::core::clone::Clone for SmartCardUnlockPromptingBehavior {
+    fn clone(&self) -> Self {
+        *self
+    }
 }

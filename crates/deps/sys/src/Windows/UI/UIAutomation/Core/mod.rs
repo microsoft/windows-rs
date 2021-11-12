@@ -2,9 +2,25 @@
 #[link(name = "windows")]
 extern "system" {}
 #[repr(C)]
-pub struct AutomationAnnotationTypeRegistration(i32);
+pub struct AutomationAnnotationTypeRegistration {
+    pub LocalId: i32,
+}
+impl ::core::marker::Copy for AutomationAnnotationTypeRegistration {}
+impl ::core::clone::Clone for AutomationAnnotationTypeRegistration {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct AutomationRemoteOperationOperandId(i32);
+pub struct AutomationRemoteOperationOperandId {
+    pub Value: i32,
+}
+impl ::core::marker::Copy for AutomationRemoteOperationOperandId {}
+impl ::core::clone::Clone for AutomationRemoteOperationOperandId {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AutomationRemoteOperationResult(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -15,6 +31,12 @@ impl AutomationRemoteOperationStatus {
     pub const InstructionLimitExceeded: Self = Self(2i32);
     pub const UnhandledException: Self = Self(3i32);
     pub const ExecutionFailure: Self = Self(4i32);
+}
+impl ::core::marker::Copy for AutomationRemoteOperationStatus {}
+impl ::core::clone::Clone for AutomationRemoteOperationStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct CoreAutomationRemoteOperation(pub *mut ::core::ffi::c_void);

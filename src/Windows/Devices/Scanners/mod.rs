@@ -1783,6 +1783,3 @@ unsafe impl ::windows::core::RuntimeType for ImageScannerScanSource {
 impl ::windows::core::DefaultType for ImageScannerScanSource {
     type DefaultType = Self;
 }
-#[repr(C)]
-#[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
-pub struct ScannerDeviceContract(pub u8);

@@ -21,5 +21,3 @@ pub mod System;
 pub mod UI;
 #[link(name = "windows")]
 extern "system" {}
-#[repr(C)]
-pub struct PhoneContract(i32);

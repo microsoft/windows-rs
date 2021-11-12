@@ -19,6 +19,12 @@ impl BluetoothLEAdvertisementFlags {
     pub const DualModeControllerCapable: Self = Self(8u32);
     pub const DualModeHostCapable: Self = Self(16u32);
 }
+impl ::core::marker::Copy for BluetoothLEAdvertisementFlags {}
+impl ::core::clone::Clone for BluetoothLEAdvertisementFlags {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct BluetoothLEAdvertisementPublisher(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -30,6 +36,12 @@ impl BluetoothLEAdvertisementPublisherStatus {
     pub const Stopping: Self = Self(3i32);
     pub const Stopped: Self = Self(4i32);
     pub const Aborted: Self = Self(5i32);
+}
+impl ::core::marker::Copy for BluetoothLEAdvertisementPublisherStatus {}
+impl ::core::clone::Clone for BluetoothLEAdvertisementPublisherStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct BluetoothLEAdvertisementPublisherStatusChangedEventArgs(pub *mut ::core::ffi::c_void);
@@ -45,6 +57,12 @@ impl BluetoothLEAdvertisementType {
     pub const ScanResponse: Self = Self(4i32);
     pub const Extended: Self = Self(5i32);
 }
+impl ::core::marker::Copy for BluetoothLEAdvertisementType {}
+impl ::core::clone::Clone for BluetoothLEAdvertisementType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct BluetoothLEAdvertisementWatcher(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -56,6 +74,12 @@ impl BluetoothLEAdvertisementWatcherStatus {
     pub const Stopped: Self = Self(3i32);
     pub const Aborted: Self = Self(4i32);
 }
+impl ::core::marker::Copy for BluetoothLEAdvertisementWatcherStatus {}
+impl ::core::clone::Clone for BluetoothLEAdvertisementWatcherStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct BluetoothLEAdvertisementWatcherStoppedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -66,6 +90,12 @@ impl BluetoothLEScanningMode {
     pub const Passive: Self = Self(0i32);
     pub const Active: Self = Self(1i32);
     pub const None: Self = Self(2i32);
+}
+impl ::core::marker::Copy for BluetoothLEScanningMode {}
+impl ::core::clone::Clone for BluetoothLEScanningMode {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct IBluetoothLEAdvertisement(pub *mut ::core::ffi::c_void);

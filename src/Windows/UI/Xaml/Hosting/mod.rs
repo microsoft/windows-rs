@@ -743,9 +743,6 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a E
 }
 unsafe impl ::core::marker::Send for ElementCompositionPreview {}
 unsafe impl ::core::marker::Sync for ElementCompositionPreview {}
-#[repr(C)]
-#[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
-pub struct HostingContract(pub u8);
 #[repr(transparent)]
 #[doc(hidden)]
 pub struct IDesignerAppExitedEventArgs(pub ::windows::core::IInspectable);

@@ -782,28 +782,171 @@ pub const CLCTL_NOTIFY_OWNER_CHANGE: CLCTL_CODES = CLCTL_CODES(5251362i32);
 pub const CLCTL_VALIDATE_CHANGE_GROUP: CLCTL_CODES = CLCTL_CODES(1057061i32);
 pub const CLCTL_CHECK_DRAIN_VETO: CLCTL_CODES = CLCTL_CODES(1057069i32);
 pub const CLCTL_NOTIFY_DRAIN_COMPLETE: CLCTL_CODES = CLCTL_CODES(1057073i32);
+impl ::core::marker::Copy for CLCTL_CODES {}
+impl ::core::clone::Clone for CLCTL_CODES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CLCTL_GLOBAL_SHIFT: u32 = 23u32;
 pub const CLCTL_INTERNAL_SHIFT: u32 = 20u32;
 pub const CLCTL_MODIFY_SHIFT: u32 = 22u32;
 pub const CLCTL_USER_SHIFT: u32 = 21u32;
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+pub struct CLRES_CALLBACK_FUNCTION_TABLE {
+    pub LogEvent: ::core::option::Option<PLOG_EVENT_ROUTINE>,
+    pub SetResourceStatusEx: ::core::option::Option<PSET_RESOURCE_STATUS_ROUTINE_EX>,
+    pub SetResourceLockedMode: ::core::option::Option<PSET_RESOURCE_LOCKED_MODE_ROUTINE>,
+    pub SignalFailure: ::core::option::Option<PSIGNAL_FAILURE_ROUTINE>,
+    pub SetResourceInMemoryNodeLocalProperties: ::core::option::Option<PSET_RESOURCE_INMEMORY_NODELOCAL_PROPERTIES_ROUTINE>,
+    pub EndControlCall: ::core::option::Option<PEND_CONTROL_CALL>,
+    pub EndTypeControlCall: ::core::option::Option<PEND_TYPE_CONTROL_CALL>,
+    pub ExtendControlCall: ::core::option::Option<PEXTEND_RES_CONTROL_CALL>,
+    pub ExtendTypeControlCall: ::core::option::Option<PEXTEND_RES_TYPE_CONTROL_CALL>,
+    pub RaiseResTypeNotification: ::core::option::Option<PRAISE_RES_TYPE_NOTIFICATION>,
+    pub ChangeResourceProcessForDumps: ::core::option::Option<PCHANGE_RESOURCE_PROCESS_FOR_DUMPS>,
+    pub ChangeResTypeProcessForDumps: ::core::option::Option<PCHANGE_RES_TYPE_PROCESS_FOR_DUMPS>,
+    pub SetInternalState: ::core::option::Option<PSET_INTERNAL_STATE>,
+    pub SetResourceLockedModeEx: ::core::option::Option<PSET_RESOURCE_LOCKED_MODE_EX_ROUTINE>,
+    pub RequestDump: ::core::option::Option<PREQUEST_DUMP_ROUTINE>,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CLRES_CALLBACK_FUNCTION_TABLE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CLRES_CALLBACK_FUNCTION_TABLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CLRES_CALLBACK_FUNCTION_TABLE(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-#[repr(C)]
-pub struct CLRES_FUNCTION_TABLE(i32);
+pub struct CLRES_FUNCTION_TABLE {
+    pub TableSize: u32,
+    pub Version: u32,
+    pub Anonymous: CLRES_FUNCTION_TABLE_0,
+}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-#[repr(C)]
-pub struct CLRES_V1_FUNCTIONS(i32);
+impl ::core::marker::Copy for CLRES_FUNCTION_TABLE {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+impl ::core::clone::Clone for CLRES_FUNCTION_TABLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CLRES_V2_FUNCTIONS(i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-#[repr(C)]
-pub struct CLRES_V3_FUNCTIONS(i32);
+pub union CLRES_FUNCTION_TABLE_0 {
+    pub V1Functions: CLRES_V1_FUNCTIONS,
+    pub V2Functions: CLRES_V2_FUNCTIONS,
+    pub V3Functions: CLRES_V3_FUNCTIONS,
+    pub V4Functions: CLRES_V4_FUNCTIONS,
+}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+impl ::core::marker::Copy for CLRES_FUNCTION_TABLE_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+impl ::core::clone::Clone for CLRES_FUNCTION_TABLE_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CLRES_V4_FUNCTIONS(i32);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+pub struct CLRES_V1_FUNCTIONS {
+    pub Open: ::core::option::Option<POPEN_ROUTINE>,
+    pub Close: ::core::option::Option<PCLOSE_ROUTINE>,
+    pub Online: ::core::option::Option<PONLINE_ROUTINE>,
+    pub Offline: ::core::option::Option<POFFLINE_ROUTINE>,
+    pub Terminate: ::core::option::Option<PTERMINATE_ROUTINE>,
+    pub LooksAlive: ::core::option::Option<PLOOKS_ALIVE_ROUTINE>,
+    pub IsAlive: ::core::option::Option<PIS_ALIVE_ROUTINE>,
+    pub Arbitrate: ::core::option::Option<PARBITRATE_ROUTINE>,
+    pub Release: ::core::option::Option<PRELEASE_ROUTINE>,
+    pub ResourceControl: ::core::option::Option<PRESOURCE_CONTROL_ROUTINE>,
+    pub ResourceTypeControl: ::core::option::Option<PRESOURCE_TYPE_CONTROL_ROUTINE>,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+impl ::core::marker::Copy for CLRES_V1_FUNCTIONS {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+impl ::core::clone::Clone for CLRES_V1_FUNCTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+pub struct CLRES_V2_FUNCTIONS {
+    pub Open: ::core::option::Option<POPEN_V2_ROUTINE>,
+    pub Close: ::core::option::Option<PCLOSE_ROUTINE>,
+    pub Online: ::core::option::Option<PONLINE_V2_ROUTINE>,
+    pub Offline: ::core::option::Option<POFFLINE_V2_ROUTINE>,
+    pub Terminate: ::core::option::Option<PTERMINATE_ROUTINE>,
+    pub LooksAlive: ::core::option::Option<PLOOKS_ALIVE_ROUTINE>,
+    pub IsAlive: ::core::option::Option<PIS_ALIVE_ROUTINE>,
+    pub Arbitrate: ::core::option::Option<PARBITRATE_ROUTINE>,
+    pub Release: ::core::option::Option<PRELEASE_ROUTINE>,
+    pub ResourceControl: ::core::option::Option<PRESOURCE_CONTROL_ROUTINE>,
+    pub ResourceTypeControl: ::core::option::Option<PRESOURCE_TYPE_CONTROL_ROUTINE>,
+    pub Cancel: ::core::option::Option<PCANCEL_ROUTINE>,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+impl ::core::marker::Copy for CLRES_V2_FUNCTIONS {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+impl ::core::clone::Clone for CLRES_V2_FUNCTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+pub struct CLRES_V3_FUNCTIONS {
+    pub Open: ::core::option::Option<POPEN_V2_ROUTINE>,
+    pub Close: ::core::option::Option<PCLOSE_ROUTINE>,
+    pub Online: ::core::option::Option<PONLINE_V2_ROUTINE>,
+    pub Offline: ::core::option::Option<POFFLINE_V2_ROUTINE>,
+    pub Terminate: ::core::option::Option<PTERMINATE_ROUTINE>,
+    pub LooksAlive: ::core::option::Option<PLOOKS_ALIVE_ROUTINE>,
+    pub IsAlive: ::core::option::Option<PIS_ALIVE_ROUTINE>,
+    pub Arbitrate: ::core::option::Option<PARBITRATE_ROUTINE>,
+    pub Release: ::core::option::Option<PRELEASE_ROUTINE>,
+    pub BeginResourceControl: ::core::option::Option<PBEGIN_RESCALL_ROUTINE>,
+    pub BeginResourceTypeControl: ::core::option::Option<PBEGIN_RESTYPECALL_ROUTINE>,
+    pub Cancel: ::core::option::Option<PCANCEL_ROUTINE>,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+impl ::core::marker::Copy for CLRES_V3_FUNCTIONS {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+impl ::core::clone::Clone for CLRES_V3_FUNCTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+pub struct CLRES_V4_FUNCTIONS {
+    pub Open: ::core::option::Option<POPEN_V2_ROUTINE>,
+    pub Close: ::core::option::Option<PCLOSE_ROUTINE>,
+    pub Online: ::core::option::Option<PONLINE_V2_ROUTINE>,
+    pub Offline: ::core::option::Option<POFFLINE_V2_ROUTINE>,
+    pub Terminate: ::core::option::Option<PTERMINATE_ROUTINE>,
+    pub LooksAlive: ::core::option::Option<PLOOKS_ALIVE_ROUTINE>,
+    pub IsAlive: ::core::option::Option<PIS_ALIVE_ROUTINE>,
+    pub Arbitrate: ::core::option::Option<PARBITRATE_ROUTINE>,
+    pub Release: ::core::option::Option<PRELEASE_ROUTINE>,
+    pub BeginResourceControl: ::core::option::Option<PBEGIN_RESCALL_ROUTINE>,
+    pub BeginResourceTypeControl: ::core::option::Option<PBEGIN_RESTYPECALL_ROUTINE>,
+    pub Cancel: ::core::option::Option<PCANCEL_ROUTINE>,
+    pub BeginResourceControlAsUser: ::core::option::Option<PBEGIN_RESCALL_AS_USER_ROUTINE>,
+    pub BeginResourceTypeControlAsUser: ::core::option::Option<PBEGIN_RESTYPECALL_AS_USER_ROUTINE>,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+impl ::core::marker::Copy for CLRES_V4_FUNCTIONS {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+impl ::core::clone::Clone for CLRES_V4_FUNCTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CLRES_VERSION_V1_00: u32 = 256u32;
 pub const CLRES_VERSION_V2_00: u32 = 512u32;
 pub const CLRES_VERSION_V3_00: u32 = 768u32;
@@ -818,6 +961,12 @@ pub const CLUADMEX_OT_RESOURCE: CLUADMEX_OBJECT_TYPE = CLUADMEX_OBJECT_TYPE(4i32
 pub const CLUADMEX_OT_RESOURCETYPE: CLUADMEX_OBJECT_TYPE = CLUADMEX_OBJECT_TYPE(5i32);
 pub const CLUADMEX_OT_NETWORK: CLUADMEX_OBJECT_TYPE = CLUADMEX_OBJECT_TYPE(6i32);
 pub const CLUADMEX_OT_NETINTERFACE: CLUADMEX_OBJECT_TYPE = CLUADMEX_OBJECT_TYPE(7i32);
+impl ::core::marker::Copy for CLUADMEX_OBJECT_TYPE {}
+impl ::core::clone::Clone for CLUADMEX_OBJECT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CLUSAPI_CHANGE_ACCESS: i32 = 2i32;
 pub const CLUSAPI_CHANGE_RESOURCE_GROUP_FORCE_MOVE_TO_CSV: u64 = 1u64;
 pub const CLUSAPI_GROUP_MOVE_FAILBACK: u32 = 16u32;
@@ -869,6 +1018,12 @@ pub const CLUSCTL_AFFINITYRULE_GET_RO_COMMON_PROPERTIES: CLUSCTL_AFFINITYRULE_CO
 pub const CLUSCTL_AFFINITYRULE_SET_COMMON_PROPERTIES: CLUSCTL_AFFINITYRULE_CODES = CLUSCTL_AFFINITYRULE_CODES(155189342i32);
 pub const CLUSCTL_AFFINITYRULE_GET_ID: CLUSCTL_AFFINITYRULE_CODES = CLUSCTL_AFFINITYRULE_CODES(150995001i32);
 pub const CLUSCTL_AFFINITYRULE_GET_GROUPNAMES: CLUSCTL_AFFINITYRULE_CODES = CLUSCTL_AFFINITYRULE_CODES(151006577i32);
+impl ::core::marker::Copy for CLUSCTL_AFFINITYRULE_CODES {}
+impl ::core::clone::Clone for CLUSCTL_AFFINITYRULE_CODES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CLUSCTL_CLUSTER_CODES(pub i32);
 pub const CLUSCTL_CLUSTER_UNKNOWN: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(117440512i32);
@@ -909,6 +1064,12 @@ pub const CLUSCTL_CLUSTER_ENUM_AFFINITY_RULE_NAMES: CLUSCTL_CLUSTER_CODES = CLUS
 pub const CLUSCTL_CLUSTER_GET_NODES_IN_FD: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(117452257i32);
 pub const CLUSCTL_CLUSTER_FORCE_FLUSH_DB: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(121646566i32);
 pub const CLUSCTL_CLUSTER_GET_CLMUSR_TOKEN: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(117440877i32);
+impl ::core::marker::Copy for CLUSCTL_CLUSTER_CODES {}
+impl ::core::clone::Clone for CLUSCTL_CLUSTER_CODES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CLUSCTL_CONTROL_CODE_MASK: u32 = 4194303u32;
 pub const CLUSCTL_FUNCTION_SHIFT: u32 = 2u32;
 pub const CLUSCTL_GET_OPERATION_CONTEXT_PARAMS_VERSION_1: u32 = 1u32;
@@ -923,6 +1084,12 @@ pub const CLUSCTL_GROUPSET_GET_PROVIDER_GROUPSETS: CLUSCTL_GROUPSET_CODES = CLUS
 pub const CLUSCTL_GROUP_GET_PROVIDER_GROUPS: CLUSCTL_GROUPSET_CODES = CLUSCTL_GROUPSET_CODES(134229373i32);
 pub const CLUSCTL_GROUP_GET_PROVIDER_GROUPSETS: CLUSCTL_GROUPSET_CODES = CLUSCTL_GROUPSET_CODES(134229377i32);
 pub const CLUSCTL_GROUPSET_GET_ID: CLUSCTL_GROUPSET_CODES = CLUSCTL_GROUPSET_CODES(134217785i32);
+impl ::core::marker::Copy for CLUSCTL_GROUPSET_CODES {}
+impl ::core::clone::Clone for CLUSCTL_GROUPSET_CODES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CLUSCTL_GROUP_CODES(pub i32);
 pub const CLUSCTL_GROUP_UNKNOWN: CLUSCTL_GROUP_CODES = CLUSCTL_GROUP_CODES(50331648i32);
@@ -946,9 +1113,27 @@ pub const CLUSCTL_GROUP_GET_PRIVATE_PROPERTY_FMTS: CLUSCTL_GROUP_CODES = CLUSCTL
 pub const CLUSCTL_GROUP_GET_FAILURE_INFO: CLUSCTL_GROUP_CODES = CLUSCTL_GROUP_CODES(50331673i32);
 pub const CLUSCTL_GROUP_GET_LAST_MOVE_TIME: CLUSCTL_GROUP_CODES = CLUSCTL_GROUP_CODES(50332377i32);
 pub const CLUSCTL_GROUP_SET_CCF_FROM_MASTER: CLUSCTL_GROUP_CODES = CLUSCTL_GROUP_CODES(54537606i32);
-#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CLUSCTL_GROUP_CODES {}
+impl ::core::clone::Clone for CLUSCTL_GROUP_CODES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CLUSCTL_GROUP_GET_LAST_MOVE_TIME_OUTPUT(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CLUSCTL_GROUP_GET_LAST_MOVE_TIME_OUTPUT {
+    pub GetTickCount64: u64,
+    pub GetSystemTime: super::super::Foundation::SYSTEMTIME,
+    pub NodeId: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CLUSCTL_GROUP_GET_LAST_MOVE_TIME_OUTPUT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CLUSCTL_GROUP_GET_LAST_MOVE_TIME_OUTPUT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CLUSCTL_NETINTERFACE_CODES(pub i32);
 pub const CLUSCTL_NETINTERFACE_UNKNOWN: CLUSCTL_NETINTERFACE_CODES = CLUSCTL_NETINTERFACE_CODES(100663296i32);
@@ -970,6 +1155,12 @@ pub const CLUSCTL_NETINTERFACE_SET_PRIVATE_PROPERTIES: CLUSCTL_NETINTERFACE_CODE
 pub const CLUSCTL_NETINTERFACE_VALIDATE_PRIVATE_PROPERTIES: CLUSCTL_NETINTERFACE_CODES = CLUSCTL_NETINTERFACE_CODES(100663433i32);
 pub const CLUSCTL_NETINTERFACE_GET_COMMON_PROPERTY_FMTS: CLUSCTL_NETINTERFACE_CODES = CLUSCTL_NETINTERFACE_CODES(100663397i32);
 pub const CLUSCTL_NETINTERFACE_GET_PRIVATE_PROPERTY_FMTS: CLUSCTL_NETINTERFACE_CODES = CLUSCTL_NETINTERFACE_CODES(100663437i32);
+impl ::core::marker::Copy for CLUSCTL_NETINTERFACE_CODES {}
+impl ::core::clone::Clone for CLUSCTL_NETINTERFACE_CODES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CLUSCTL_NETWORK_CODES(pub i32);
 pub const CLUSCTL_NETWORK_UNKNOWN: CLUSCTL_NETWORK_CODES = CLUSCTL_NETWORK_CODES(83886080i32);
@@ -989,6 +1180,12 @@ pub const CLUSCTL_NETWORK_SET_PRIVATE_PROPERTIES: CLUSCTL_NETWORK_CODES = CLUSCT
 pub const CLUSCTL_NETWORK_VALIDATE_PRIVATE_PROPERTIES: CLUSCTL_NETWORK_CODES = CLUSCTL_NETWORK_CODES(83886217i32);
 pub const CLUSCTL_NETWORK_GET_COMMON_PROPERTY_FMTS: CLUSCTL_NETWORK_CODES = CLUSCTL_NETWORK_CODES(83886181i32);
 pub const CLUSCTL_NETWORK_GET_PRIVATE_PROPERTY_FMTS: CLUSCTL_NETWORK_CODES = CLUSCTL_NETWORK_CODES(83886221i32);
+impl ::core::marker::Copy for CLUSCTL_NETWORK_CODES {}
+impl ::core::clone::Clone for CLUSCTL_NETWORK_CODES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CLUSCTL_NODE_CODES(pub i32);
 pub const CLUSCTL_NODE_UNKNOWN: CLUSCTL_NODE_CODES = CLUSCTL_NODE_CODES(67108864i32);
@@ -1015,6 +1212,12 @@ pub const CLUSCTL_NODE_INTRODUCE_GEM_REPAIR_DELAY: CLUSCTL_NODE_CODES = CLUSCTL_
 pub const CLUSCTL_NODE_SEND_DUMMY_GEM_MESSAGES: CLUSCTL_NODE_CODES = CLUSCTL_NODE_CODES(67109577i32);
 pub const CLUSCTL_NODE_BLOCK_GEM_SEND_RECV: CLUSCTL_NODE_CODES = CLUSCTL_NODE_CODES(67109581i32);
 pub const CLUSCTL_NODE_GET_GEMID_VECTOR: CLUSCTL_NODE_CODES = CLUSCTL_NODE_CODES(67109585i32);
+impl ::core::marker::Copy for CLUSCTL_NODE_CODES {}
+impl ::core::clone::Clone for CLUSCTL_NODE_CODES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CLUSCTL_OBJECT_MASK: u32 = 255u32;
 pub const CLUSCTL_OBJECT_SHIFT: u32 = 24u32;
 #[repr(transparent)]
@@ -1129,8 +1332,24 @@ pub const CLUSCTL_RESOURCE_SCALEOUT_GET_CLUSTERS: CLUSCTL_RESOURCE_CODES = CLUSC
 pub const CLUSCTL_RESOURCE_CHECK_DRAIN_VETO: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(17834285i32);
 pub const CLUSCTL_RESOURCE_NOTIFY_DRAIN_COMPLETE: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(17834289i32);
 pub const CLUSCTL_RESOURCE_GET_NODES_IN_FD: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16788961i32);
+impl ::core::marker::Copy for CLUSCTL_RESOURCE_CODES {}
+impl ::core::clone::Clone for CLUSCTL_RESOURCE_CODES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CLUSCTL_RESOURCE_STATE_CHANGE_REASON_STRUCT(i32);
+pub struct CLUSCTL_RESOURCE_STATE_CHANGE_REASON_STRUCT {
+    pub dwSize: u32,
+    pub dwVersion: u32,
+    pub eReason: CLUSTER_RESOURCE_STATE_CHANGE_REASON,
+}
+impl ::core::marker::Copy for CLUSCTL_RESOURCE_STATE_CHANGE_REASON_STRUCT {}
+impl ::core::clone::Clone for CLUSCTL_RESOURCE_STATE_CHANGE_REASON_STRUCT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CLUSCTL_RESOURCE_STATE_CHANGE_REASON_VERSION_1: u32 = 1u32;
 #[repr(transparent)]
 pub struct CLUSCTL_RESOURCE_TYPE_CODES(pub i32);
@@ -1199,11 +1418,26 @@ pub const CLUSCTL_RESOURCE_TYPE_UPGRADE_COMPLETED: CLUSCTL_RESOURCE_TYPE_CODES =
 pub const CLUSCTL_RESOURCE_TYPE_NOTIFY_MONITOR_SHUTTING_DOWN: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(34603137i32);
 pub const CLUSCTL_RESOURCE_TYPE_CHECK_DRAIN_VETO: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(34611501i32);
 pub const CLUSCTL_RESOURCE_TYPE_NOTIFY_DRAIN_COMPLETE: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(34611505i32);
+impl ::core::marker::Copy for CLUSCTL_RESOURCE_TYPE_CODES {}
+impl ::core::clone::Clone for CLUSCTL_RESOURCE_TYPE_CODES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CLUSCTL_RESOURCE_TYPE_STORAGE_GET_AVAILABLE_DISKS_EX2_FLAG_ADD_VOLUME_INFO: u32 = 1u32;
 pub const CLUSCTL_RESOURCE_TYPE_STORAGE_GET_AVAILABLE_DISKS_EX2_FLAG_FILTER_BY_POOL: u32 = 2u32;
 pub const CLUSCTL_RESOURCE_TYPE_STORAGE_GET_AVAILABLE_DISKS_EX2_FLAG_INCLUDE_NON_SHARED_DISKS: u32 = 4u32;
 #[repr(C)]
-pub struct CLUSCTL_RESOURCE_TYPE_STORAGE_GET_AVAILABLE_DISKS_EX2_INPUT(i32);
+pub struct CLUSCTL_RESOURCE_TYPE_STORAGE_GET_AVAILABLE_DISKS_EX2_INPUT {
+    pub dwFlags: u32,
+    pub guidPoolFilter: ::windows_sys::core::GUID,
+}
+impl ::core::marker::Copy for CLUSCTL_RESOURCE_TYPE_STORAGE_GET_AVAILABLE_DISKS_EX2_INPUT {}
+impl ::core::clone::Clone for CLUSCTL_RESOURCE_TYPE_STORAGE_GET_AVAILABLE_DISKS_EX2_INPUT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CLUSGROUPSET_STATUS_APPLICATION_READY: u64 = 8u64;
 pub const CLUSGROUPSET_STATUS_GROUPS_ONLINE: u64 = 2u64;
 pub const CLUSGROUPSET_STATUS_GROUPS_PENDING: u64 = 1u64;
@@ -1240,6 +1474,12 @@ pub const ClusGroupTypeCrossClusterOrchestrator: CLUSGROUP_TYPE = CLUSGROUP_TYPE
 pub const ClusGroupTypeInfrastructureFileServer: CLUSGROUP_TYPE = CLUSGROUP_TYPE(122i32);
 pub const ClusGroupTypeCoreSddc: CLUSGROUP_TYPE = CLUSGROUP_TYPE(123i32);
 pub const ClusGroupTypeUnknown: CLUSGROUP_TYPE = CLUSGROUP_TYPE(9999i32);
+impl ::core::marker::Copy for CLUSGROUP_TYPE {}
+impl ::core::clone::Clone for CLUSGROUP_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CLUSGRP_STATUS_APPLICATION_READY: u64 = 1024u64;
 pub const CLUSGRP_STATUS_EMBEDDED_FAILURE: u64 = 32u64;
 pub const CLUSGRP_STATUS_LOCKED_MODE: u64 = 1u64;
@@ -1254,34 +1494,169 @@ pub const CLUSGRP_STATUS_WAITING_FOR_DEPENDENCIES: u64 = 4096u64;
 pub const CLUSGRP_STATUS_WAITING_IN_QUEUE_FOR_MOVE: u64 = 4u64;
 pub const CLUSGRP_STATUS_WAITING_TO_START: u64 = 16u64;
 #[repr(C)]
-pub struct CLUSPROP_BINARY(i32);
+pub struct CLUSPROP_BINARY {
+    pub __AnonymousBase_clusapi_L5129_C41: CLUSPROP_VALUE,
+    pub rgb: [u8; 1],
+}
+impl ::core::marker::Copy for CLUSPROP_BINARY {}
+impl ::core::clone::Clone for CLUSPROP_BINARY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+pub union CLUSPROP_BUFFER_HELPER {
+    pub pb: *mut u8,
+    pub pw: *mut u16,
+    pub pdw: *mut u32,
+    pub pl: *mut i32,
+    pub psz: super::super::Foundation::PWSTR,
+    pub pList: *mut CLUSPROP_LIST,
+    pub pSyntax: *mut CLUSPROP_SYNTAX,
+    pub pName: *mut CLUSPROP_SZ,
+    pub pValue: *mut CLUSPROP_VALUE,
+    pub pBinaryValue: *mut CLUSPROP_BINARY,
+    pub pWordValue: *mut CLUSPROP_WORD,
+    pub pDwordValue: *mut CLUSPROP_DWORD,
+    pub pLongValue: *mut CLUSPROP_LONG,
+    pub pULargeIntegerValue: *mut CLUSPROP_ULARGE_INTEGER,
+    pub pLargeIntegerValue: *mut CLUSPROP_LARGE_INTEGER,
+    pub pStringValue: *mut CLUSPROP_SZ,
+    pub pMultiSzValue: *mut CLUSPROP_SZ,
+    pub pSecurityDescriptor: *mut CLUSPROP_SECURITY_DESCRIPTOR,
+    pub pResourceClassValue: *mut CLUSPROP_RESOURCE_CLASS,
+    pub pResourceClassInfoValue: *mut CLUSPROP_RESOURCE_CLASS_INFO,
+    pub pDiskSignatureValue: *mut CLUSPROP_DWORD,
+    pub pScsiAddressValue: *mut CLUSPROP_SCSI_ADDRESS,
+    pub pDiskNumberValue: *mut CLUSPROP_DWORD,
+    pub pPartitionInfoValue: *mut CLUSPROP_PARTITION_INFO,
+    pub pRequiredDependencyValue: *mut CLUSPROP_REQUIRED_DEPENDENCY,
+    pub pPartitionInfoValueEx: *mut CLUSPROP_PARTITION_INFO_EX,
+    pub pPartitionInfoValueEx2: *mut CLUSPROP_PARTITION_INFO_EX2,
+    pub pFileTimeValue: *mut CLUSPROP_FILETIME,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+impl ::core::marker::Copy for CLUSPROP_BUFFER_HELPER {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+impl ::core::clone::Clone for CLUSPROP_BUFFER_HELPER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CLUSPROP_BUFFER_HELPER(i32);
+pub struct CLUSPROP_DWORD {
+    pub __AnonymousBase_clusapi_L5149_C40: CLUSPROP_VALUE,
+    pub dw: u32,
+}
+impl ::core::marker::Copy for CLUSPROP_DWORD {}
+impl ::core::clone::Clone for CLUSPROP_DWORD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CLUSPROP_DWORD(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct CLUSPROP_FILETIME {
+    pub __AnonymousBase_clusapi_L5225_C14: CLUSPROP_VALUE,
+    pub ft: super::super::Foundation::FILETIME,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CLUSPROP_FILETIME {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CLUSPROP_FILETIME {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CLUSPROP_FILETIME(i32);
-#[repr(C)]
-pub struct CLUSPROP_FTSET_INFO(i32);
+pub struct CLUSPROP_FTSET_INFO {
+    pub __AnonymousBase_clusapi_L5555_C14: CLUSPROP_VALUE,
+    pub __AnonymousBase_clusapi_L5556_C14: CLUS_FTSET_INFO,
+}
+impl ::core::marker::Copy for CLUSPROP_FTSET_INFO {}
+impl ::core::clone::Clone for CLUSPROP_FTSET_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CLUSPROP_IPADDR_ENABLENETBIOS(pub i32);
 pub const CLUSPROP_IPADDR_ENABLENETBIOS_DISABLED: CLUSPROP_IPADDR_ENABLENETBIOS = CLUSPROP_IPADDR_ENABLENETBIOS(0i32);
 pub const CLUSPROP_IPADDR_ENABLENETBIOS_ENABLED: CLUSPROP_IPADDR_ENABLENETBIOS = CLUSPROP_IPADDR_ENABLENETBIOS(1i32);
 pub const CLUSPROP_IPADDR_ENABLENETBIOS_TRACK_NIC: CLUSPROP_IPADDR_ENABLENETBIOS = CLUSPROP_IPADDR_ENABLENETBIOS(2i32);
+impl ::core::marker::Copy for CLUSPROP_IPADDR_ENABLENETBIOS {}
+impl ::core::clone::Clone for CLUSPROP_IPADDR_ENABLENETBIOS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CLUSPROP_LARGE_INTEGER(i32);
+pub struct CLUSPROP_LARGE_INTEGER {
+    pub __AnonymousBase_clusapi_L5199_C14: CLUSPROP_VALUE,
+    pub li: i64,
+}
+impl ::core::marker::Copy for CLUSPROP_LARGE_INTEGER {}
+impl ::core::clone::Clone for CLUSPROP_LARGE_INTEGER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CLUSPROP_LIST(i32);
+pub struct CLUSPROP_LIST {
+    pub nPropertyCount: u32,
+    pub PropertyName: CLUSPROP_SZ,
+}
+impl ::core::marker::Copy for CLUSPROP_LIST {}
+impl ::core::clone::Clone for CLUSPROP_LIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CLUSPROP_LONG(i32);
+pub struct CLUSPROP_LONG {
+    pub __AnonymousBase_clusapi_L5159_C39: CLUSPROP_VALUE,
+    pub l: i32,
+}
+impl ::core::marker::Copy for CLUSPROP_LONG {}
+impl ::core::clone::Clone for CLUSPROP_LONG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CLUSPROP_PARTITION_INFO(i32);
+pub struct CLUSPROP_PARTITION_INFO {
+    pub __AnonymousBase_clusapi_L5507_C14: CLUSPROP_VALUE,
+    pub __AnonymousBase_clusapi_L5508_C14: CLUS_PARTITION_INFO,
+}
+impl ::core::marker::Copy for CLUSPROP_PARTITION_INFO {}
+impl ::core::clone::Clone for CLUSPROP_PARTITION_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CLUSPROP_PARTITION_INFO_EX(i32);
+pub struct CLUSPROP_PARTITION_INFO_EX {
+    pub __AnonymousBase_clusapi_L5519_C14: CLUSPROP_VALUE,
+    pub __AnonymousBase_clusapi_L5520_C14: CLUS_PARTITION_INFO_EX,
+}
+impl ::core::marker::Copy for CLUSPROP_PARTITION_INFO_EX {}
+impl ::core::clone::Clone for CLUSPROP_PARTITION_INFO_EX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CLUSPROP_PARTITION_INFO_EX2(i32);
+pub struct CLUSPROP_PARTITION_INFO_EX2 {
+    pub __AnonymousBase_clusapi_L5533_C14: CLUSPROP_PARTITION_INFO_EX,
+    pub __AnonymousBase_clusapi_L5534_C14: CLUS_PARTITION_INFO_EX2,
+}
+impl ::core::marker::Copy for CLUSPROP_PARTITION_INFO_EX2 {}
+impl ::core::clone::Clone for CLUSPROP_PARTITION_INFO_EX2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CLUSPROP_PIFLAGS(pub i32);
 pub const CLUSPROP_PIFLAG_STICKY: CLUSPROP_PIFLAGS = CLUSPROP_PIFLAGS(1i32);
@@ -1292,27 +1667,151 @@ pub const CLUSPROP_PIFLAG_USABLE_FOR_CSV: CLUSPROP_PIFLAGS = CLUSPROP_PIFLAGS(16
 pub const CLUSPROP_PIFLAG_ENCRYPTION_ENABLED: CLUSPROP_PIFLAGS = CLUSPROP_PIFLAGS(32i32);
 pub const CLUSPROP_PIFLAG_RAW: CLUSPROP_PIFLAGS = CLUSPROP_PIFLAGS(64i32);
 pub const CLUSPROP_PIFLAG_UNKNOWN: CLUSPROP_PIFLAGS = CLUSPROP_PIFLAGS(-2147483648i32);
+impl ::core::marker::Copy for CLUSPROP_PIFLAGS {}
+impl ::core::clone::Clone for CLUSPROP_PIFLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CLUSPROP_REQUIRED_DEPENDENCY(i32);
+pub union CLUSPROP_REQUIRED_DEPENDENCY {
+    pub Value: CLUSPROP_VALUE,
+    pub ResClass: CLUSPROP_RESOURCE_CLASS,
+    pub ResTypeName: CLUSPROP_SZ,
+}
+impl ::core::marker::Copy for CLUSPROP_REQUIRED_DEPENDENCY {}
+impl ::core::clone::Clone for CLUSPROP_REQUIRED_DEPENDENCY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CLUSPROP_RESOURCE_CLASS(i32);
+pub struct CLUSPROP_RESOURCE_CLASS {
+    pub __AnonymousBase_clusapi_L5250_C14: CLUSPROP_VALUE,
+    pub rc: CLUSTER_RESOURCE_CLASS,
+}
+impl ::core::marker::Copy for CLUSPROP_RESOURCE_CLASS {}
+impl ::core::clone::Clone for CLUSPROP_RESOURCE_CLASS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CLUSPROP_RESOURCE_CLASS_INFO(i32);
+pub struct CLUSPROP_RESOURCE_CLASS_INFO {
+    pub __AnonymousBase_clusapi_L5261_C14: CLUSPROP_VALUE,
+    pub __AnonymousBase_clusapi_L5262_C14: CLUS_RESOURCE_CLASS_INFO,
+}
+impl ::core::marker::Copy for CLUSPROP_RESOURCE_CLASS_INFO {}
+impl ::core::clone::Clone for CLUSPROP_RESOURCE_CLASS_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CLUSPROP_SCSI_ADDRESS(i32);
+pub struct CLUSPROP_SCSI_ADDRESS {
+    pub __AnonymousBase_clusapi_L5583_C14: CLUSPROP_VALUE,
+    pub __AnonymousBase_clusapi_L5584_C14: CLUS_SCSI_ADDRESS,
+}
+impl ::core::marker::Copy for CLUSPROP_SCSI_ADDRESS {}
+impl ::core::clone::Clone for CLUSPROP_SCSI_ADDRESS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_System_SystemServices")]
+pub struct CLUSPROP_SECURITY_DESCRIPTOR {
+    pub __AnonymousBase_clusapi_L5211_C54: CLUSPROP_VALUE,
+    pub Anonymous: CLUSPROP_SECURITY_DESCRIPTOR_0,
+}
+#[cfg(feature = "Win32_System_SystemServices")]
+impl ::core::marker::Copy for CLUSPROP_SECURITY_DESCRIPTOR {}
+#[cfg(feature = "Win32_System_SystemServices")]
+impl ::core::clone::Clone for CLUSPROP_SECURITY_DESCRIPTOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CLUSPROP_SECURITY_DESCRIPTOR(i32);
+#[cfg(feature = "Win32_System_SystemServices")]
+pub union CLUSPROP_SECURITY_DESCRIPTOR_0 {
+    pub sd: super::super::System::SystemServices::SECURITY_DESCRIPTOR_RELATIVE,
+    pub rgbSecurityDescriptor: [u8; 1],
+}
+#[cfg(feature = "Win32_System_SystemServices")]
+impl ::core::marker::Copy for CLUSPROP_SECURITY_DESCRIPTOR_0 {}
+#[cfg(feature = "Win32_System_SystemServices")]
+impl ::core::clone::Clone for CLUSPROP_SECURITY_DESCRIPTOR_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CLUSPROP_SYNTAX(i32);
+pub union CLUSPROP_SYNTAX {
+    pub dw: u32,
+    pub Anonymous: CLUSPROP_SYNTAX_0,
+}
+impl ::core::marker::Copy for CLUSPROP_SYNTAX {}
+impl ::core::clone::Clone for CLUSPROP_SYNTAX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CLUSPROP_SZ(i32);
+pub struct CLUSPROP_SYNTAX_0 {
+    pub wFormat: u16,
+    pub wType: u16,
+}
+impl ::core::marker::Copy for CLUSPROP_SYNTAX_0 {}
+impl ::core::clone::Clone for CLUSPROP_SYNTAX_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CLUSPROP_ULARGE_INTEGER(i32);
+pub struct CLUSPROP_SZ {
+    pub __AnonymousBase_clusapi_L5169_C37: CLUSPROP_VALUE,
+    pub sz: [u16; 1],
+}
+impl ::core::marker::Copy for CLUSPROP_SZ {}
+impl ::core::clone::Clone for CLUSPROP_SZ {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CLUSPROP_VALUE(i32);
+pub struct CLUSPROP_ULARGE_INTEGER {
+    pub __AnonymousBase_clusapi_L5186_C14: CLUSPROP_VALUE,
+    pub li: u64,
+}
+impl ::core::marker::Copy for CLUSPROP_ULARGE_INTEGER {}
+impl ::core::clone::Clone for CLUSPROP_ULARGE_INTEGER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CLUSPROP_WORD(i32);
+pub struct CLUSPROP_VALUE {
+    pub Syntax: CLUSPROP_SYNTAX,
+    pub cbLength: u32,
+}
+impl ::core::marker::Copy for CLUSPROP_VALUE {}
+impl ::core::clone::Clone for CLUSPROP_VALUE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct CLUSPROP_WORD {
+    pub __AnonymousBase_clusapi_L5139_C39: CLUSPROP_VALUE,
+    pub w: u16,
+}
+impl ::core::marker::Copy for CLUSPROP_WORD {}
+impl ::core::clone::Clone for CLUSPROP_WORD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CLUSREG_DATABASE_ISOLATE_READ: u32 = 2u32;
 pub const CLUSREG_DATABASE_SYNC_WRITE_TO_ALL_NODES: u32 = 1u32;
 pub const CLUSRESDLL_STATUS_DO_NOT_COLLECT_WER_REPORT: u32 = 1073741824u32;
@@ -1342,17 +1841,80 @@ pub const CLUSTERSET_OBJECT_TYPE_NONE: CLUSTERSET_OBJECT_TYPE = CLUSTERSET_OBJEC
 pub const CLUSTERSET_OBJECT_TYPE_MEMBER: CLUSTERSET_OBJECT_TYPE = CLUSTERSET_OBJECT_TYPE(1i32);
 pub const CLUSTERSET_OBJECT_TYPE_WORKLOAD: CLUSTERSET_OBJECT_TYPE = CLUSTERSET_OBJECT_TYPE(2i32);
 pub const CLUSTERSET_OBJECT_TYPE_DATABASE: CLUSTERSET_OBJECT_TYPE = CLUSTERSET_OBJECT_TYPE(3i32);
+impl ::core::marker::Copy for CLUSTERSET_OBJECT_TYPE {}
+impl ::core::clone::Clone for CLUSTERSET_OBJECT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CLUSTERVERSIONINFO(i32);
+pub struct CLUSTERVERSIONINFO {
+    pub dwVersionInfoSize: u32,
+    pub MajorVersion: u16,
+    pub MinorVersion: u16,
+    pub BuildNumber: u16,
+    pub szVendorId: [u16; 64],
+    pub szCSDVersion: [u16; 64],
+    pub dwClusterHighestVersion: u32,
+    pub dwClusterLowestVersion: u32,
+    pub dwFlags: u32,
+    pub dwReserved: u32,
+}
+impl ::core::marker::Copy for CLUSTERVERSIONINFO {}
+impl ::core::clone::Clone for CLUSTERVERSIONINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CLUSTERVERSIONINFO_NT4(i32);
+pub struct CLUSTERVERSIONINFO_NT4 {
+    pub dwVersionInfoSize: u32,
+    pub MajorVersion: u16,
+    pub MinorVersion: u16,
+    pub BuildNumber: u16,
+    pub szVendorId: [u16; 64],
+    pub szCSDVersion: [u16; 64],
+}
+impl ::core::marker::Copy for CLUSTERVERSIONINFO_NT4 {}
+impl ::core::clone::Clone for CLUSTERVERSIONINFO_NT4 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct CLUSTER_AVAILABILITY_SET_CONFIG(i32);
+pub struct CLUSTER_AVAILABILITY_SET_CONFIG {
+    pub dwVersion: u32,
+    pub dwUpdateDomains: u32,
+    pub dwFaultDomains: u32,
+    pub bReserveSpareNode: super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CLUSTER_AVAILABILITY_SET_CONFIG {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CLUSTER_AVAILABILITY_SET_CONFIG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CLUSTER_AVAILABILITY_SET_CONFIG_V1: u32 = 1u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CLUSTER_BATCH_COMMAND(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CLUSTER_BATCH_COMMAND {
+    pub Command: CLUSTER_REG_COMMAND,
+    pub dwOptions: u32,
+    pub wzName: super::super::Foundation::PWSTR,
+    pub lpData: *mut u8,
+    pub cbData: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CLUSTER_BATCH_COMMAND {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CLUSTER_BATCH_COMMAND {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CLUSTER_CHANGE(pub i32);
 pub const CLUSTER_CHANGE_NODE_STATE: CLUSTER_CHANGE = CLUSTER_CHANGE(1i32);
@@ -1388,6 +1950,12 @@ pub const CLUSTER_CHANGE_CLUSTER_STATE: CLUSTER_CHANGE = CLUSTER_CHANGE(53687091
 pub const CLUSTER_CHANGE_CLUSTER_PROPERTY: CLUSTER_CHANGE = CLUSTER_CHANGE(1073741824i32);
 pub const CLUSTER_CHANGE_HANDLE_CLOSE: CLUSTER_CHANGE = CLUSTER_CHANGE(-2147483648i32);
 pub const CLUSTER_CHANGE_ALL: CLUSTER_CHANGE = CLUSTER_CHANGE(-1i32);
+impl ::core::marker::Copy for CLUSTER_CHANGE {}
+impl ::core::clone::Clone for CLUSTER_CHANGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CLUSTER_CHANGE_CLUSTER_V2(pub i32);
 pub const CLUSTER_CHANGE_CLUSTER_RECONNECT_V2: CLUSTER_CHANGE_CLUSTER_V2 = CLUSTER_CHANGE_CLUSTER_V2(1i32);
@@ -1404,6 +1972,12 @@ pub const CLUSTER_CHANGE_CLUSTER_RENAME_V2: CLUSTER_CHANGE_CLUSTER_V2 = CLUSTER_
 pub const CLUSTER_CHANGE_CLUSTER_MEMBERSHIP_V2: CLUSTER_CHANGE_CLUSTER_V2 = CLUSTER_CHANGE_CLUSTER_V2(2048i32);
 pub const CLUSTER_CHANGE_CLUSTER_UPGRADED_V2: CLUSTER_CHANGE_CLUSTER_V2 = CLUSTER_CHANGE_CLUSTER_V2(4096i32);
 pub const CLUSTER_CHANGE_CLUSTER_ALL_V2: CLUSTER_CHANGE_CLUSTER_V2 = CLUSTER_CHANGE_CLUSTER_V2(8191i32);
+impl ::core::marker::Copy for CLUSTER_CHANGE_CLUSTER_V2 {}
+impl ::core::clone::Clone for CLUSTER_CHANGE_CLUSTER_V2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CLUSTER_CHANGE_GROUPSET_V2(pub i32);
 pub const CLUSTER_CHANGE_GROUPSET_DELETED_v2: CLUSTER_CHANGE_GROUPSET_V2 = CLUSTER_CHANGE_GROUPSET_V2(1i32);
@@ -1416,6 +1990,12 @@ pub const CLUSTER_CHANGE_GROUPSET_DEPENDENCIES_V2: CLUSTER_CHANGE_GROUPSET_V2 = 
 pub const CLUSTER_CHANGE_GROUPSET_DEPENDENTS_V2: CLUSTER_CHANGE_GROUPSET_V2 = CLUSTER_CHANGE_GROUPSET_V2(128i32);
 pub const CLUSTER_CHANGE_GROUPSET_HANDLE_CLOSE_v2: CLUSTER_CHANGE_GROUPSET_V2 = CLUSTER_CHANGE_GROUPSET_V2(256i32);
 pub const CLUSTER_CHANGE_GROUPSET_ALL_V2: CLUSTER_CHANGE_GROUPSET_V2 = CLUSTER_CHANGE_GROUPSET_V2(511i32);
+impl ::core::marker::Copy for CLUSTER_CHANGE_GROUPSET_V2 {}
+impl ::core::clone::Clone for CLUSTER_CHANGE_GROUPSET_V2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CLUSTER_CHANGE_GROUP_V2(pub i32);
 pub const CLUSTER_CHANGE_GROUP_DELETED_V2: CLUSTER_CHANGE_GROUP_V2 = CLUSTER_CHANGE_GROUP_V2(1i32);
@@ -1429,6 +2009,12 @@ pub const CLUSTER_CHANGE_GROUP_RESOURCE_GAINED_V2: CLUSTER_CHANGE_GROUP_V2 = CLU
 pub const CLUSTER_CHANGE_GROUP_RESOURCE_LOST_V2: CLUSTER_CHANGE_GROUP_V2 = CLUSTER_CHANGE_GROUP_V2(256i32);
 pub const CLUSTER_CHANGE_GROUP_HANDLE_CLOSE_V2: CLUSTER_CHANGE_GROUP_V2 = CLUSTER_CHANGE_GROUP_V2(512i32);
 pub const CLUSTER_CHANGE_GROUP_ALL_V2: CLUSTER_CHANGE_GROUP_V2 = CLUSTER_CHANGE_GROUP_V2(1023i32);
+impl ::core::marker::Copy for CLUSTER_CHANGE_GROUP_V2 {}
+impl ::core::clone::Clone for CLUSTER_CHANGE_GROUP_V2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CLUSTER_CHANGE_NETINTERFACE_V2(pub i32);
 pub const CLUSTER_CHANGE_NETINTERFACE_DELETED_V2: CLUSTER_CHANGE_NETINTERFACE_V2 = CLUSTER_CHANGE_NETINTERFACE_V2(1i32);
@@ -1437,6 +2023,12 @@ pub const CLUSTER_CHANGE_NETINTERFACE_PRIVATE_PROPERTY_V2: CLUSTER_CHANGE_NETINT
 pub const CLUSTER_CHANGE_NETINTERFACE_STATE_V2: CLUSTER_CHANGE_NETINTERFACE_V2 = CLUSTER_CHANGE_NETINTERFACE_V2(8i32);
 pub const CLUSTER_CHANGE_NETINTERFACE_HANDLE_CLOSE_V2: CLUSTER_CHANGE_NETINTERFACE_V2 = CLUSTER_CHANGE_NETINTERFACE_V2(16i32);
 pub const CLUSTER_CHANGE_NETINTERFACE_ALL_V2: CLUSTER_CHANGE_NETINTERFACE_V2 = CLUSTER_CHANGE_NETINTERFACE_V2(31i32);
+impl ::core::marker::Copy for CLUSTER_CHANGE_NETINTERFACE_V2 {}
+impl ::core::clone::Clone for CLUSTER_CHANGE_NETINTERFACE_V2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CLUSTER_CHANGE_NETWORK_V2(pub i32);
 pub const CLUSTER_CHANGE_NETWORK_DELETED_V2: CLUSTER_CHANGE_NETWORK_V2 = CLUSTER_CHANGE_NETWORK_V2(1i32);
@@ -1445,12 +2037,24 @@ pub const CLUSTER_CHANGE_NETWORK_PRIVATE_PROPERTY_V2: CLUSTER_CHANGE_NETWORK_V2 
 pub const CLUSTER_CHANGE_NETWORK_STATE_V2: CLUSTER_CHANGE_NETWORK_V2 = CLUSTER_CHANGE_NETWORK_V2(8i32);
 pub const CLUSTER_CHANGE_NETWORK_HANDLE_CLOSE_V2: CLUSTER_CHANGE_NETWORK_V2 = CLUSTER_CHANGE_NETWORK_V2(16i32);
 pub const CLUSTER_CHANGE_NETWORK_ALL_V2: CLUSTER_CHANGE_NETWORK_V2 = CLUSTER_CHANGE_NETWORK_V2(31i32);
+impl ::core::marker::Copy for CLUSTER_CHANGE_NETWORK_V2 {}
+impl ::core::clone::Clone for CLUSTER_CHANGE_NETWORK_V2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CLUSTER_CHANGE_NODE_UPGRADE_PHASE_V2(pub i32);
 pub const CLUSTER_CHANGE_UPGRADE_NODE_PREPARE: CLUSTER_CHANGE_NODE_UPGRADE_PHASE_V2 = CLUSTER_CHANGE_NODE_UPGRADE_PHASE_V2(1i32);
 pub const CLUSTER_CHANGE_UPGRADE_NODE_COMMIT: CLUSTER_CHANGE_NODE_UPGRADE_PHASE_V2 = CLUSTER_CHANGE_NODE_UPGRADE_PHASE_V2(2i32);
 pub const CLUSTER_CHANGE_UPGRADE_NODE_POSTCOMMIT: CLUSTER_CHANGE_NODE_UPGRADE_PHASE_V2 = CLUSTER_CHANGE_NODE_UPGRADE_PHASE_V2(4i32);
 pub const CLUSTER_CHANGE_UPGRADE_ALL: CLUSTER_CHANGE_NODE_UPGRADE_PHASE_V2 = CLUSTER_CHANGE_NODE_UPGRADE_PHASE_V2(7i32);
+impl ::core::marker::Copy for CLUSTER_CHANGE_NODE_UPGRADE_PHASE_V2 {}
+impl ::core::clone::Clone for CLUSTER_CHANGE_NODE_UPGRADE_PHASE_V2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CLUSTER_CHANGE_NODE_V2(pub i32);
 pub const CLUSTER_CHANGE_NODE_NETINTERFACE_ADDED_V2: CLUSTER_CHANGE_NODE_V2 = CLUSTER_CHANGE_NODE_V2(1i32);
@@ -1462,10 +2066,22 @@ pub const CLUSTER_CHANGE_NODE_GROUP_GAINED_V2: CLUSTER_CHANGE_NODE_V2 = CLUSTER_
 pub const CLUSTER_CHANGE_NODE_GROUP_LOST_V2: CLUSTER_CHANGE_NODE_V2 = CLUSTER_CHANGE_NODE_V2(64i32);
 pub const CLUSTER_CHANGE_NODE_HANDLE_CLOSE_V2: CLUSTER_CHANGE_NODE_V2 = CLUSTER_CHANGE_NODE_V2(128i32);
 pub const CLUSTER_CHANGE_NODE_ALL_V2: CLUSTER_CHANGE_NODE_V2 = CLUSTER_CHANGE_NODE_V2(255i32);
+impl ::core::marker::Copy for CLUSTER_CHANGE_NODE_V2 {}
+impl ::core::clone::Clone for CLUSTER_CHANGE_NODE_V2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CLUSTER_CHANGE_QUORUM_V2(pub i32);
 pub const CLUSTER_CHANGE_QUORUM_STATE_V2: CLUSTER_CHANGE_QUORUM_V2 = CLUSTER_CHANGE_QUORUM_V2(1i32);
 pub const CLUSTER_CHANGE_QUORUM_ALL_V2: CLUSTER_CHANGE_QUORUM_V2 = CLUSTER_CHANGE_QUORUM_V2(1i32);
+impl ::core::marker::Copy for CLUSTER_CHANGE_QUORUM_V2 {}
+impl ::core::clone::Clone for CLUSTER_CHANGE_QUORUM_V2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CLUSTER_CHANGE_REGISTRY_V2(pub i32);
 pub const CLUSTER_CHANGE_REGISTRY_ATTRIBUTES_V2: CLUSTER_CHANGE_REGISTRY_V2 = CLUSTER_CHANGE_REGISTRY_V2(1i32);
@@ -1474,6 +2090,12 @@ pub const CLUSTER_CHANGE_REGISTRY_SUBTREE_V2: CLUSTER_CHANGE_REGISTRY_V2 = CLUST
 pub const CLUSTER_CHANGE_REGISTRY_VALUE_V2: CLUSTER_CHANGE_REGISTRY_V2 = CLUSTER_CHANGE_REGISTRY_V2(8i32);
 pub const CLUSTER_CHANGE_REGISTRY_HANDLE_CLOSE_V2: CLUSTER_CHANGE_REGISTRY_V2 = CLUSTER_CHANGE_REGISTRY_V2(16i32);
 pub const CLUSTER_CHANGE_REGISTRY_ALL_V2: CLUSTER_CHANGE_REGISTRY_V2 = CLUSTER_CHANGE_REGISTRY_V2(31i32);
+impl ::core::marker::Copy for CLUSTER_CHANGE_REGISTRY_V2 {}
+impl ::core::clone::Clone for CLUSTER_CHANGE_REGISTRY_V2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CLUSTER_CHANGE_RESOURCE_TYPE_V2(pub i32);
 pub const CLUSTER_CHANGE_RESOURCE_TYPE_DELETED_V2: CLUSTER_CHANGE_RESOURCE_TYPE_V2 = CLUSTER_CHANGE_RESOURCE_TYPE_V2(1i32);
@@ -1483,6 +2105,12 @@ pub const CLUSTER_CHANGE_RESOURCE_TYPE_POSSIBLE_OWNERS_V2: CLUSTER_CHANGE_RESOUR
 pub const CLUSTER_CHANGE_RESOURCE_TYPE_DLL_UPGRADED_V2: CLUSTER_CHANGE_RESOURCE_TYPE_V2 = CLUSTER_CHANGE_RESOURCE_TYPE_V2(16i32);
 pub const CLUSTER_RESOURCE_TYPE_SPECIFIC_V2: CLUSTER_CHANGE_RESOURCE_TYPE_V2 = CLUSTER_CHANGE_RESOURCE_TYPE_V2(32i32);
 pub const CLUSTER_CHANGE_RESOURCE_TYPE_ALL_V2: CLUSTER_CHANGE_RESOURCE_TYPE_V2 = CLUSTER_CHANGE_RESOURCE_TYPE_V2(63i32);
+impl ::core::marker::Copy for CLUSTER_CHANGE_RESOURCE_TYPE_V2 {}
+impl ::core::clone::Clone for CLUSTER_CHANGE_RESOURCE_TYPE_V2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CLUSTER_CHANGE_RESOURCE_V2(pub i32);
 pub const CLUSTER_CHANGE_RESOURCE_COMMON_PROPERTY_V2: CLUSTER_CHANGE_RESOURCE_V2 = CLUSTER_CHANGE_RESOURCE_V2(1i32);
@@ -1497,21 +2125,45 @@ pub const CLUSTER_CHANGE_RESOURCE_DLL_UPGRADED_V2: CLUSTER_CHANGE_RESOURCE_V2 = 
 pub const CLUSTER_CHANGE_RESOURCE_HANDLE_CLOSE_V2: CLUSTER_CHANGE_RESOURCE_V2 = CLUSTER_CHANGE_RESOURCE_V2(512i32);
 pub const CLUSTER_CHANGE_RESOURCE_TERMINAL_STATE_V2: CLUSTER_CHANGE_RESOURCE_V2 = CLUSTER_CHANGE_RESOURCE_V2(1024i32);
 pub const CLUSTER_CHANGE_RESOURCE_ALL_V2: CLUSTER_CHANGE_RESOURCE_V2 = CLUSTER_CHANGE_RESOURCE_V2(2047i32);
+impl ::core::marker::Copy for CLUSTER_CHANGE_RESOURCE_V2 {}
+impl ::core::clone::Clone for CLUSTER_CHANGE_RESOURCE_V2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CLUSTER_CHANGE_SHARED_VOLUME_V2(pub i32);
 pub const CLUSTER_CHANGE_SHARED_VOLUME_STATE_V2: CLUSTER_CHANGE_SHARED_VOLUME_V2 = CLUSTER_CHANGE_SHARED_VOLUME_V2(1i32);
 pub const CLUSTER_CHANGE_SHARED_VOLUME_ADDED_V2: CLUSTER_CHANGE_SHARED_VOLUME_V2 = CLUSTER_CHANGE_SHARED_VOLUME_V2(2i32);
 pub const CLUSTER_CHANGE_SHARED_VOLUME_REMOVED_V2: CLUSTER_CHANGE_SHARED_VOLUME_V2 = CLUSTER_CHANGE_SHARED_VOLUME_V2(4i32);
 pub const CLUSTER_CHANGE_SHARED_VOLUME_ALL_V2: CLUSTER_CHANGE_SHARED_VOLUME_V2 = CLUSTER_CHANGE_SHARED_VOLUME_V2(7i32);
+impl ::core::marker::Copy for CLUSTER_CHANGE_SHARED_VOLUME_V2 {}
+impl ::core::clone::Clone for CLUSTER_CHANGE_SHARED_VOLUME_V2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CLUSTER_CHANGE_SPACEPORT_V2(pub i32);
 pub const CLUSTER_CHANGE_SPACEPORT_CUSTOM_PNP_V2: CLUSTER_CHANGE_SPACEPORT_V2 = CLUSTER_CHANGE_SPACEPORT_V2(1i32);
+impl ::core::marker::Copy for CLUSTER_CHANGE_SPACEPORT_V2 {}
+impl ::core::clone::Clone for CLUSTER_CHANGE_SPACEPORT_V2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CLUSTER_CLOUD_TYPE(pub i32);
 pub const CLUSTER_CLOUD_TYPE_NONE: CLUSTER_CLOUD_TYPE = CLUSTER_CLOUD_TYPE(0i32);
 pub const CLUSTER_CLOUD_TYPE_AZURE: CLUSTER_CLOUD_TYPE = CLUSTER_CLOUD_TYPE(1i32);
 pub const CLUSTER_CLOUD_TYPE_MIXED: CLUSTER_CLOUD_TYPE = CLUSTER_CLOUD_TYPE(128i32);
 pub const CLUSTER_CLOUD_TYPE_UNKNOWN: CLUSTER_CLOUD_TYPE = CLUSTER_CLOUD_TYPE(-1i32);
+impl ::core::marker::Copy for CLUSTER_CLOUD_TYPE {}
+impl ::core::clone::Clone for CLUSTER_CLOUD_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CLUSTER_CONFIGURED: u32 = 2u32;
 #[repr(transparent)]
 pub struct CLUSTER_CONTROL_OBJECT(pub i32);
@@ -1526,8 +2178,23 @@ pub const CLUS_OBJECT_CLUSTER: CLUSTER_CONTROL_OBJECT = CLUSTER_CONTROL_OBJECT(7
 pub const CLUS_OBJECT_GROUPSET: CLUSTER_CONTROL_OBJECT = CLUSTER_CONTROL_OBJECT(8i32);
 pub const CLUS_OBJECT_AFFINITYRULE: CLUSTER_CONTROL_OBJECT = CLUSTER_CONTROL_OBJECT(9i32);
 pub const CLUS_OBJECT_USER: CLUSTER_CONTROL_OBJECT = CLUSTER_CONTROL_OBJECT(128i32);
+impl ::core::marker::Copy for CLUSTER_CONTROL_OBJECT {}
+impl ::core::clone::Clone for CLUSTER_CONTROL_OBJECT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CLUSTER_CREATE_GROUP_INFO(i32);
+pub struct CLUSTER_CREATE_GROUP_INFO {
+    pub dwVersion: u32,
+    pub groupType: CLUSGROUP_TYPE,
+}
+impl ::core::marker::Copy for CLUSTER_CREATE_GROUP_INFO {}
+impl ::core::clone::Clone for CLUSTER_CREATE_GROUP_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CLUSTER_CREATE_GROUP_INFO_VERSION: u32 = 1u32;
 pub const CLUSTER_CREATE_GROUP_INFO_VERSION_1: u32 = 1u32;
 #[repr(transparent)]
@@ -1537,6 +2204,12 @@ pub const VolumeStateNoDirectIO: CLUSTER_CSV_VOLUME_FAULT_STATE = CLUSTER_CSV_VO
 pub const VolumeStateNoAccess: CLUSTER_CSV_VOLUME_FAULT_STATE = CLUSTER_CSV_VOLUME_FAULT_STATE(2i32);
 pub const VolumeStateInMaintenance: CLUSTER_CSV_VOLUME_FAULT_STATE = CLUSTER_CSV_VOLUME_FAULT_STATE(4i32);
 pub const VolumeStateDismounted: CLUSTER_CSV_VOLUME_FAULT_STATE = CLUSTER_CSV_VOLUME_FAULT_STATE(8i32);
+impl ::core::marker::Copy for CLUSTER_CSV_VOLUME_FAULT_STATE {}
+impl ::core::clone::Clone for CLUSTER_CSV_VOLUME_FAULT_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CLUSTER_DELETE_ACCESS_CONTROL_ENTRY: u32 = 2u32;
 #[repr(transparent)]
 pub struct CLUSTER_ENUM(pub i32);
@@ -1550,9 +2223,30 @@ pub const CLUSTER_ENUM_SHARED_VOLUME_GROUP: CLUSTER_ENUM = CLUSTER_ENUM(53687091
 pub const CLUSTER_ENUM_SHARED_VOLUME_RESOURCE: CLUSTER_ENUM = CLUSTER_ENUM(1073741824i32);
 pub const CLUSTER_ENUM_INTERNAL_NETWORK: CLUSTER_ENUM = CLUSTER_ENUM(-2147483648i32);
 pub const CLUSTER_ENUM_ALL: CLUSTER_ENUM = CLUSTER_ENUM(63i32);
-#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CLUSTER_ENUM {}
+impl ::core::clone::Clone for CLUSTER_ENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CLUSTER_ENUM_ITEM(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CLUSTER_ENUM_ITEM {
+    pub dwVersion: u32,
+    pub dwType: u32,
+    pub cbId: u32,
+    pub lpszId: super::super::Foundation::PWSTR,
+    pub cbName: u32,
+    pub lpszName: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CLUSTER_ENUM_ITEM {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CLUSTER_ENUM_ITEM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CLUSTER_ENUM_ITEM_VERSION: u32 = 1u32;
 pub const CLUSTER_ENUM_ITEM_VERSION_1: u32 = 1u32;
 #[repr(transparent)]
@@ -1560,14 +2254,48 @@ pub struct CLUSTER_GROUP_AUTOFAILBACK_TYPE(pub i32);
 pub const ClusterGroupPreventFailback: CLUSTER_GROUP_AUTOFAILBACK_TYPE = CLUSTER_GROUP_AUTOFAILBACK_TYPE(0i32);
 pub const ClusterGroupAllowFailback: CLUSTER_GROUP_AUTOFAILBACK_TYPE = CLUSTER_GROUP_AUTOFAILBACK_TYPE(1i32);
 pub const ClusterGroupFailbackTypeCount: CLUSTER_GROUP_AUTOFAILBACK_TYPE = CLUSTER_GROUP_AUTOFAILBACK_TYPE(2i32);
+impl ::core::marker::Copy for CLUSTER_GROUP_AUTOFAILBACK_TYPE {}
+impl ::core::clone::Clone for CLUSTER_GROUP_AUTOFAILBACK_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CLUSTER_GROUP_ENUM(pub i32);
 pub const CLUSTER_GROUP_ENUM_CONTAINS: CLUSTER_GROUP_ENUM = CLUSTER_GROUP_ENUM(1i32);
 pub const CLUSTER_GROUP_ENUM_NODES: CLUSTER_GROUP_ENUM = CLUSTER_GROUP_ENUM(2i32);
 pub const CLUSTER_GROUP_ENUM_ALL: CLUSTER_GROUP_ENUM = CLUSTER_GROUP_ENUM(3i32);
-#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CLUSTER_GROUP_ENUM {}
+impl ::core::clone::Clone for CLUSTER_GROUP_ENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CLUSTER_GROUP_ENUM_ITEM(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CLUSTER_GROUP_ENUM_ITEM {
+    pub dwVersion: u32,
+    pub cbId: u32,
+    pub lpszId: super::super::Foundation::PWSTR,
+    pub cbName: u32,
+    pub lpszName: super::super::Foundation::PWSTR,
+    pub state: CLUSTER_GROUP_STATE,
+    pub cbOwnerNode: u32,
+    pub lpszOwnerNode: super::super::Foundation::PWSTR,
+    pub dwFlags: u32,
+    pub cbProperties: u32,
+    pub pProperties: *mut ::core::ffi::c_void,
+    pub cbRoProperties: u32,
+    pub pRoProperties: *mut ::core::ffi::c_void,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CLUSTER_GROUP_ENUM_ITEM {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CLUSTER_GROUP_ENUM_ITEM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CLUSTER_GROUP_ENUM_ITEM_VERSION: u32 = 1u32;
 pub const CLUSTER_GROUP_ENUM_ITEM_VERSION_1: u32 = 1u32;
 #[repr(transparent)]
@@ -1576,6 +2304,12 @@ pub const PriorityDisabled: CLUSTER_GROUP_PRIORITY = CLUSTER_GROUP_PRIORITY(0i32
 pub const PriorityLow: CLUSTER_GROUP_PRIORITY = CLUSTER_GROUP_PRIORITY(1000i32);
 pub const PriorityMedium: CLUSTER_GROUP_PRIORITY = CLUSTER_GROUP_PRIORITY(2000i32);
 pub const PriorityHigh: CLUSTER_GROUP_PRIORITY = CLUSTER_GROUP_PRIORITY(3000i32);
+impl ::core::marker::Copy for CLUSTER_GROUP_PRIORITY {}
+impl ::core::clone::Clone for CLUSTER_GROUP_PRIORITY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CLUSTER_GROUP_STATE(pub i32);
 pub const ClusterGroupStateUnknown: CLUSTER_GROUP_STATE = CLUSTER_GROUP_STATE(-1i32);
@@ -1584,13 +2318,46 @@ pub const ClusterGroupOffline: CLUSTER_GROUP_STATE = CLUSTER_GROUP_STATE(1i32);
 pub const ClusterGroupFailed: CLUSTER_GROUP_STATE = CLUSTER_GROUP_STATE(2i32);
 pub const ClusterGroupPartialOnline: CLUSTER_GROUP_STATE = CLUSTER_GROUP_STATE(3i32);
 pub const ClusterGroupPending: CLUSTER_GROUP_STATE = CLUSTER_GROUP_STATE(4i32);
-#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CLUSTER_GROUP_STATE {}
+impl ::core::clone::Clone for CLUSTER_GROUP_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CLUSTER_HEALTH_FAULT(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CLUSTER_HEALTH_FAULT {
+    pub Id: super::super::Foundation::PWSTR,
+    pub ErrorType: u32,
+    pub ErrorCode: u32,
+    pub Description: super::super::Foundation::PWSTR,
+    pub Provider: super::super::Foundation::PWSTR,
+    pub Flags: u32,
+    pub Reserved: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CLUSTER_HEALTH_FAULT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CLUSTER_HEALTH_FAULT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CLUSTER_HEALTH_FAULT_ARGS: u32 = 7u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CLUSTER_HEALTH_FAULT_ARRAY(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CLUSTER_HEALTH_FAULT_ARRAY {
+    pub numFaults: u32,
+    pub faults: *mut CLUSTER_HEALTH_FAULT,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CLUSTER_HEALTH_FAULT_ARRAY {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CLUSTER_HEALTH_FAULT_ARRAY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CLUSTER_HEALTH_FAULT_DESCRIPTION: u32 = 3u32;
 pub const CLUSTER_HEALTH_FAULT_ERRORCODE: u32 = 2u32;
 pub const CLUSTER_HEALTH_FAULT_ERRORTYPE: u32 = 1u32;
@@ -1599,23 +2366,58 @@ pub const CLUSTER_HEALTH_FAULT_ID: u32 = 0u32;
 pub const CLUSTER_HEALTH_FAULT_PROVIDER: u32 = 4u32;
 pub const CLUSTER_HEALTH_FAULT_RESERVED: u32 = 6u32;
 pub const CLUSTER_INSTALLED: u32 = 1u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CLUSTER_IP_ENTRY(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct CLUSTER_IP_ENTRY {
+    pub lpszIpAddress: super::super::Foundation::PWSTR,
+    pub dwPrefixLength: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CLUSTER_IP_ENTRY {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CLUSTER_IP_ENTRY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CLUSTER_MEMBERSHIP_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CLUSTER_MEMBERSHIP_INFO {
+    pub HasQuorum: super::super::Foundation::BOOL,
+    pub UpnodesSize: u32,
+    pub Upnodes: [u8; 1],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CLUSTER_MEMBERSHIP_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CLUSTER_MEMBERSHIP_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CLUSTER_MGMT_POINT_RESTYPE(pub i32);
 pub const CLUSTER_MGMT_POINT_RESTYPE_AUTO: CLUSTER_MGMT_POINT_RESTYPE = CLUSTER_MGMT_POINT_RESTYPE(0i32);
 pub const CLUSTER_MGMT_POINT_RESTYPE_SNN: CLUSTER_MGMT_POINT_RESTYPE = CLUSTER_MGMT_POINT_RESTYPE(1i32);
 pub const CLUSTER_MGMT_POINT_RESTYPE_DNN: CLUSTER_MGMT_POINT_RESTYPE = CLUSTER_MGMT_POINT_RESTYPE(2i32);
+impl ::core::marker::Copy for CLUSTER_MGMT_POINT_RESTYPE {}
+impl ::core::clone::Clone for CLUSTER_MGMT_POINT_RESTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CLUSTER_MGMT_POINT_TYPE(pub i32);
 pub const CLUSTER_MGMT_POINT_TYPE_NONE: CLUSTER_MGMT_POINT_TYPE = CLUSTER_MGMT_POINT_TYPE(0i32);
 pub const CLUSTER_MGMT_POINT_TYPE_CNO: CLUSTER_MGMT_POINT_TYPE = CLUSTER_MGMT_POINT_TYPE(1i32);
 pub const CLUSTER_MGMT_POINT_TYPE_DNS_ONLY: CLUSTER_MGMT_POINT_TYPE = CLUSTER_MGMT_POINT_TYPE(2i32);
 pub const CLUSTER_MGMT_POINT_TYPE_CNO_ONLY: CLUSTER_MGMT_POINT_TYPE = CLUSTER_MGMT_POINT_TYPE(3i32);
+impl ::core::marker::Copy for CLUSTER_MGMT_POINT_TYPE {}
+impl ::core::clone::Clone for CLUSTER_MGMT_POINT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CLUSTER_NETINTERFACE_STATE(pub i32);
 pub const ClusterNetInterfaceStateUnknown: CLUSTER_NETINTERFACE_STATE = CLUSTER_NETINTERFACE_STATE(-1i32);
@@ -1623,16 +2425,34 @@ pub const ClusterNetInterfaceUnavailable: CLUSTER_NETINTERFACE_STATE = CLUSTER_N
 pub const ClusterNetInterfaceFailed: CLUSTER_NETINTERFACE_STATE = CLUSTER_NETINTERFACE_STATE(1i32);
 pub const ClusterNetInterfaceUnreachable: CLUSTER_NETINTERFACE_STATE = CLUSTER_NETINTERFACE_STATE(2i32);
 pub const ClusterNetInterfaceUp: CLUSTER_NETINTERFACE_STATE = CLUSTER_NETINTERFACE_STATE(3i32);
+impl ::core::marker::Copy for CLUSTER_NETINTERFACE_STATE {}
+impl ::core::clone::Clone for CLUSTER_NETINTERFACE_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CLUSTER_NETWORK_ENUM(pub i32);
 pub const CLUSTER_NETWORK_ENUM_NETINTERFACES: CLUSTER_NETWORK_ENUM = CLUSTER_NETWORK_ENUM(1i32);
 pub const CLUSTER_NETWORK_ENUM_ALL: CLUSTER_NETWORK_ENUM = CLUSTER_NETWORK_ENUM(1i32);
+impl ::core::marker::Copy for CLUSTER_NETWORK_ENUM {}
+impl ::core::clone::Clone for CLUSTER_NETWORK_ENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CLUSTER_NETWORK_ROLE(pub i32);
 pub const ClusterNetworkRoleNone: CLUSTER_NETWORK_ROLE = CLUSTER_NETWORK_ROLE(0i32);
 pub const ClusterNetworkRoleInternalUse: CLUSTER_NETWORK_ROLE = CLUSTER_NETWORK_ROLE(1i32);
 pub const ClusterNetworkRoleClientAccess: CLUSTER_NETWORK_ROLE = CLUSTER_NETWORK_ROLE(2i32);
 pub const ClusterNetworkRoleInternalAndClient: CLUSTER_NETWORK_ROLE = CLUSTER_NETWORK_ROLE(3i32);
+impl ::core::marker::Copy for CLUSTER_NETWORK_ROLE {}
+impl ::core::clone::Clone for CLUSTER_NETWORK_ROLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CLUSTER_NETWORK_STATE(pub i32);
 pub const ClusterNetworkStateUnknown: CLUSTER_NETWORK_STATE = CLUSTER_NETWORK_STATE(-1i32);
@@ -1640,6 +2460,12 @@ pub const ClusterNetworkUnavailable: CLUSTER_NETWORK_STATE = CLUSTER_NETWORK_STA
 pub const ClusterNetworkDown: CLUSTER_NETWORK_STATE = CLUSTER_NETWORK_STATE(1i32);
 pub const ClusterNetworkPartitioned: CLUSTER_NETWORK_STATE = CLUSTER_NETWORK_STATE(2i32);
 pub const ClusterNetworkUp: CLUSTER_NETWORK_STATE = CLUSTER_NETWORK_STATE(3i32);
+impl ::core::marker::Copy for CLUSTER_NETWORK_STATE {}
+impl ::core::clone::Clone for CLUSTER_NETWORK_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CLUSTER_NODE_DRAIN_STATUS(pub i32);
 pub const NodeDrainStatusNotInitiated: CLUSTER_NODE_DRAIN_STATUS = CLUSTER_NODE_DRAIN_STATUS(0i32);
@@ -1647,18 +2473,36 @@ pub const NodeDrainStatusInProgress: CLUSTER_NODE_DRAIN_STATUS = CLUSTER_NODE_DR
 pub const NodeDrainStatusCompleted: CLUSTER_NODE_DRAIN_STATUS = CLUSTER_NODE_DRAIN_STATUS(2i32);
 pub const NodeDrainStatusFailed: CLUSTER_NODE_DRAIN_STATUS = CLUSTER_NODE_DRAIN_STATUS(3i32);
 pub const ClusterNodeDrainStatusCount: CLUSTER_NODE_DRAIN_STATUS = CLUSTER_NODE_DRAIN_STATUS(4i32);
+impl ::core::marker::Copy for CLUSTER_NODE_DRAIN_STATUS {}
+impl ::core::clone::Clone for CLUSTER_NODE_DRAIN_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CLUSTER_NODE_ENUM(pub i32);
 pub const CLUSTER_NODE_ENUM_NETINTERFACES: CLUSTER_NODE_ENUM = CLUSTER_NODE_ENUM(1i32);
 pub const CLUSTER_NODE_ENUM_GROUPS: CLUSTER_NODE_ENUM = CLUSTER_NODE_ENUM(2i32);
 pub const CLUSTER_NODE_ENUM_PREFERRED_GROUPS: CLUSTER_NODE_ENUM = CLUSTER_NODE_ENUM(4i32);
 pub const CLUSTER_NODE_ENUM_ALL: CLUSTER_NODE_ENUM = CLUSTER_NODE_ENUM(3i32);
+impl ::core::marker::Copy for CLUSTER_NODE_ENUM {}
+impl ::core::clone::Clone for CLUSTER_NODE_ENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CLUSTER_NODE_RESUME_FAILBACK_TYPE(pub i32);
 pub const DoNotFailbackGroups: CLUSTER_NODE_RESUME_FAILBACK_TYPE = CLUSTER_NODE_RESUME_FAILBACK_TYPE(0i32);
 pub const FailbackGroupsImmediately: CLUSTER_NODE_RESUME_FAILBACK_TYPE = CLUSTER_NODE_RESUME_FAILBACK_TYPE(1i32);
 pub const FailbackGroupsPerPolicy: CLUSTER_NODE_RESUME_FAILBACK_TYPE = CLUSTER_NODE_RESUME_FAILBACK_TYPE(2i32);
 pub const ClusterNodeResumeFailbackTypeCount: CLUSTER_NODE_RESUME_FAILBACK_TYPE = CLUSTER_NODE_RESUME_FAILBACK_TYPE(3i32);
+impl ::core::marker::Copy for CLUSTER_NODE_RESUME_FAILBACK_TYPE {}
+impl ::core::clone::Clone for CLUSTER_NODE_RESUME_FAILBACK_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CLUSTER_NODE_STATE(pub i32);
 pub const ClusterNodeStateUnknown: CLUSTER_NODE_STATE = CLUSTER_NODE_STATE(-1i32);
@@ -1666,6 +2510,12 @@ pub const ClusterNodeUp: CLUSTER_NODE_STATE = CLUSTER_NODE_STATE(0i32);
 pub const ClusterNodeDown: CLUSTER_NODE_STATE = CLUSTER_NODE_STATE(1i32);
 pub const ClusterNodePaused: CLUSTER_NODE_STATE = CLUSTER_NODE_STATE(2i32);
 pub const ClusterNodeJoining: CLUSTER_NODE_STATE = CLUSTER_NODE_STATE(3i32);
+impl ::core::marker::Copy for CLUSTER_NODE_STATE {}
+impl ::core::clone::Clone for CLUSTER_NODE_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CLUSTER_NODE_STATUS(pub i32);
 pub const NodeStatusNormal: CLUSTER_NODE_STATUS = CLUSTER_NODE_STATUS(0i32);
@@ -1676,10 +2526,22 @@ pub const NodeStatusDrainCompleted: CLUSTER_NODE_STATUS = CLUSTER_NODE_STATUS(8i
 pub const NodeStatusDrainFailed: CLUSTER_NODE_STATUS = CLUSTER_NODE_STATUS(16i32);
 pub const NodeStatusAvoidPlacement: CLUSTER_NODE_STATUS = CLUSTER_NODE_STATUS(32i32);
 pub const NodeStatusMax: CLUSTER_NODE_STATUS = CLUSTER_NODE_STATUS(51i32);
+impl ::core::marker::Copy for CLUSTER_NODE_STATUS {}
+impl ::core::clone::Clone for CLUSTER_NODE_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CLUSTER_NOTIFICATIONS_VERSION(pub i32);
 pub const CLUSTER_NOTIFICATIONS_V1: CLUSTER_NOTIFICATIONS_VERSION = CLUSTER_NOTIFICATIONS_VERSION(1i32);
 pub const CLUSTER_NOTIFICATIONS_V2: CLUSTER_NOTIFICATIONS_VERSION = CLUSTER_NOTIFICATIONS_VERSION(2i32);
+impl ::core::marker::Copy for CLUSTER_NOTIFICATIONS_VERSION {}
+impl ::core::clone::Clone for CLUSTER_NOTIFICATIONS_VERSION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CLUSTER_OBJECT_TYPE(pub i32);
 pub const CLUSTER_OBJECT_TYPE_NONE: CLUSTER_OBJECT_TYPE = CLUSTER_OBJECT_TYPE(0i32);
@@ -1695,6 +2557,12 @@ pub const CLUSTER_OBJECT_TYPE_QUORUM: CLUSTER_OBJECT_TYPE = CLUSTER_OBJECT_TYPE(
 pub const CLUSTER_OBJECT_TYPE_SHARED_VOLUME: CLUSTER_OBJECT_TYPE = CLUSTER_OBJECT_TYPE(10i32);
 pub const CLUSTER_OBJECT_TYPE_GROUPSET: CLUSTER_OBJECT_TYPE = CLUSTER_OBJECT_TYPE(13i32);
 pub const CLUSTER_OBJECT_TYPE_AFFINITYRULE: CLUSTER_OBJECT_TYPE = CLUSTER_OBJECT_TYPE(16i32);
+impl ::core::marker::Copy for CLUSTER_OBJECT_TYPE {}
+impl ::core::clone::Clone for CLUSTER_OBJECT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CLUSTER_PROPERTY_FORMAT(pub i32);
 pub const CLUSPROP_FORMAT_UNKNOWN: CLUSTER_PROPERTY_FORMAT = CLUSTER_PROPERTY_FORMAT(0i32);
@@ -1713,6 +2581,12 @@ pub const CLUSPROP_FORMAT_FILETIME: CLUSTER_PROPERTY_FORMAT = CLUSTER_PROPERTY_F
 pub const CLUSPROP_FORMAT_VALUE_LIST: CLUSTER_PROPERTY_FORMAT = CLUSTER_PROPERTY_FORMAT(13i32);
 pub const CLUSPROP_FORMAT_PROPERTY_LIST: CLUSTER_PROPERTY_FORMAT = CLUSTER_PROPERTY_FORMAT(14i32);
 pub const CLUSPROP_FORMAT_USER: CLUSTER_PROPERTY_FORMAT = CLUSTER_PROPERTY_FORMAT(32768i32);
+impl ::core::marker::Copy for CLUSTER_PROPERTY_FORMAT {}
+impl ::core::clone::Clone for CLUSTER_PROPERTY_FORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CLUSTER_PROPERTY_SYNTAX(pub u32);
 pub const CLUSPROP_SYNTAX_ENDMARK: CLUSTER_PROPERTY_SYNTAX = CLUSTER_PROPERTY_SYNTAX(0u32);
@@ -1742,6 +2616,12 @@ pub const CLUSPROP_SYNTAX_DISK_SIZE: CLUSTER_PROPERTY_SYNTAX = CLUSTER_PROPERTY_
 pub const CLUSPROP_SYNTAX_PARTITION_INFO_EX: CLUSTER_PROPERTY_SYNTAX = CLUSTER_PROPERTY_SYNTAX(851969u32);
 pub const CLUSPROP_SYNTAX_PARTITION_INFO_EX2: CLUSTER_PROPERTY_SYNTAX = CLUSTER_PROPERTY_SYNTAX(917505u32);
 pub const CLUSPROP_SYNTAX_STORAGE_DEVICE_ID_DESCRIPTOR: CLUSTER_PROPERTY_SYNTAX = CLUSTER_PROPERTY_SYNTAX(983041u32);
+impl ::core::marker::Copy for CLUSTER_PROPERTY_SYNTAX {}
+impl ::core::clone::Clone for CLUSTER_PROPERTY_SYNTAX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CLUSTER_PROPERTY_TYPE(pub i32);
 pub const CLUSPROP_TYPE_UNKNOWN: CLUSTER_PROPERTY_TYPE = CLUSTER_PROPERTY_TYPE(-1i32);
@@ -1762,17 +2642,50 @@ pub const CLUSPROP_TYPE_PARTITION_INFO_EX: CLUSTER_PROPERTY_TYPE = CLUSTER_PROPE
 pub const CLUSPROP_TYPE_PARTITION_INFO_EX2: CLUSTER_PROPERTY_TYPE = CLUSTER_PROPERTY_TYPE(14i32);
 pub const CLUSPROP_TYPE_STORAGE_DEVICE_ID_DESCRIPTOR: CLUSTER_PROPERTY_TYPE = CLUSTER_PROPERTY_TYPE(15i32);
 pub const CLUSPROP_TYPE_USER: CLUSTER_PROPERTY_TYPE = CLUSTER_PROPERTY_TYPE(32768i32);
+impl ::core::marker::Copy for CLUSTER_PROPERTY_TYPE {}
+impl ::core::clone::Clone for CLUSTER_PROPERTY_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CLUSTER_QUORUM_TYPE(pub i32);
 pub const OperationalQuorum: CLUSTER_QUORUM_TYPE = CLUSTER_QUORUM_TYPE(0i32);
 pub const ModifyQuorum: CLUSTER_QUORUM_TYPE = CLUSTER_QUORUM_TYPE(1i32);
+impl ::core::marker::Copy for CLUSTER_QUORUM_TYPE {}
+impl ::core::clone::Clone for CLUSTER_QUORUM_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CLUSTER_QUORUM_VALUE(pub i32);
 pub const CLUSTER_QUORUM_MAINTAINED: CLUSTER_QUORUM_VALUE = CLUSTER_QUORUM_VALUE(0i32);
 pub const CLUSTER_QUORUM_LOST: CLUSTER_QUORUM_VALUE = CLUSTER_QUORUM_VALUE(1i32);
-#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CLUSTER_QUORUM_VALUE {}
+impl ::core::clone::Clone for CLUSTER_QUORUM_VALUE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CLUSTER_READ_BATCH_COMMAND(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CLUSTER_READ_BATCH_COMMAND {
+    pub Command: CLUSTER_REG_COMMAND,
+    pub dwOptions: u32,
+    pub wzSubkeyName: super::super::Foundation::PWSTR,
+    pub wzValueName: super::super::Foundation::PWSTR,
+    pub lpData: *mut u8,
+    pub cbData: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CLUSTER_READ_BATCH_COMMAND {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CLUSTER_READ_BATCH_COMMAND {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CLUSTER_REG_COMMAND(pub i32);
 pub const CLUSREG_COMMAND_NONE: CLUSTER_REG_COMMAND = CLUSTER_REG_COMMAND(0i32);
@@ -1795,36 +2708,94 @@ pub const CLUSREG_CONDITION_IS_LESS_THAN: CLUSTER_REG_COMMAND = CLUSTER_REG_COMM
 pub const CLUSREG_CONDITION_KEY_EXISTS: CLUSTER_REG_COMMAND = CLUSTER_REG_COMMAND(17i32);
 pub const CLUSREG_CONDITION_KEY_NOT_EXISTS: CLUSTER_REG_COMMAND = CLUSTER_REG_COMMAND(18i32);
 pub const CLUSREG_LAST_COMMAND: CLUSTER_REG_COMMAND = CLUSTER_REG_COMMAND(19i32);
+impl ::core::marker::Copy for CLUSTER_REG_COMMAND {}
+impl ::core::clone::Clone for CLUSTER_REG_COMMAND {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CLUSTER_RESOURCE_APPLICATION_STATE(pub i32);
 pub const ClusterResourceApplicationStateUnknown: CLUSTER_RESOURCE_APPLICATION_STATE = CLUSTER_RESOURCE_APPLICATION_STATE(1i32);
 pub const ClusterResourceApplicationOSHeartBeat: CLUSTER_RESOURCE_APPLICATION_STATE = CLUSTER_RESOURCE_APPLICATION_STATE(2i32);
 pub const ClusterResourceApplicationReady: CLUSTER_RESOURCE_APPLICATION_STATE = CLUSTER_RESOURCE_APPLICATION_STATE(3i32);
+impl ::core::marker::Copy for CLUSTER_RESOURCE_APPLICATION_STATE {}
+impl ::core::clone::Clone for CLUSTER_RESOURCE_APPLICATION_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CLUSTER_RESOURCE_CLASS(pub i32);
 pub const CLUS_RESCLASS_UNKNOWN: CLUSTER_RESOURCE_CLASS = CLUSTER_RESOURCE_CLASS(0i32);
 pub const CLUS_RESCLASS_STORAGE: CLUSTER_RESOURCE_CLASS = CLUSTER_RESOURCE_CLASS(1i32);
 pub const CLUS_RESCLASS_NETWORK: CLUSTER_RESOURCE_CLASS = CLUSTER_RESOURCE_CLASS(2i32);
 pub const CLUS_RESCLASS_USER: CLUSTER_RESOURCE_CLASS = CLUSTER_RESOURCE_CLASS(32768i32);
+impl ::core::marker::Copy for CLUSTER_RESOURCE_CLASS {}
+impl ::core::clone::Clone for CLUSTER_RESOURCE_CLASS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CLUSTER_RESOURCE_CREATE_FLAGS(pub i32);
 pub const CLUSTER_RESOURCE_DEFAULT_MONITOR: CLUSTER_RESOURCE_CREATE_FLAGS = CLUSTER_RESOURCE_CREATE_FLAGS(0i32);
 pub const CLUSTER_RESOURCE_SEPARATE_MONITOR: CLUSTER_RESOURCE_CREATE_FLAGS = CLUSTER_RESOURCE_CREATE_FLAGS(1i32);
 pub const CLUSTER_RESOURCE_VALID_FLAGS: CLUSTER_RESOURCE_CREATE_FLAGS = CLUSTER_RESOURCE_CREATE_FLAGS(1i32);
+impl ::core::marker::Copy for CLUSTER_RESOURCE_CREATE_FLAGS {}
+impl ::core::clone::Clone for CLUSTER_RESOURCE_CREATE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CLUSTER_RESOURCE_EMBEDDED_FAILURE_ACTION(pub i32);
 pub const ClusterResourceEmbeddedFailureActionNone: CLUSTER_RESOURCE_EMBEDDED_FAILURE_ACTION = CLUSTER_RESOURCE_EMBEDDED_FAILURE_ACTION(0i32);
 pub const ClusterResourceEmbeddedFailureActionLogOnly: CLUSTER_RESOURCE_EMBEDDED_FAILURE_ACTION = CLUSTER_RESOURCE_EMBEDDED_FAILURE_ACTION(1i32);
 pub const ClusterResourceEmbeddedFailureActionRecover: CLUSTER_RESOURCE_EMBEDDED_FAILURE_ACTION = CLUSTER_RESOURCE_EMBEDDED_FAILURE_ACTION(2i32);
+impl ::core::marker::Copy for CLUSTER_RESOURCE_EMBEDDED_FAILURE_ACTION {}
+impl ::core::clone::Clone for CLUSTER_RESOURCE_EMBEDDED_FAILURE_ACTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CLUSTER_RESOURCE_ENUM(pub i32);
 pub const CLUSTER_RESOURCE_ENUM_DEPENDS: CLUSTER_RESOURCE_ENUM = CLUSTER_RESOURCE_ENUM(1i32);
 pub const CLUSTER_RESOURCE_ENUM_PROVIDES: CLUSTER_RESOURCE_ENUM = CLUSTER_RESOURCE_ENUM(2i32);
 pub const CLUSTER_RESOURCE_ENUM_NODES: CLUSTER_RESOURCE_ENUM = CLUSTER_RESOURCE_ENUM(4i32);
 pub const CLUSTER_RESOURCE_ENUM_ALL: CLUSTER_RESOURCE_ENUM = CLUSTER_RESOURCE_ENUM(7i32);
-#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CLUSTER_RESOURCE_ENUM {}
+impl ::core::clone::Clone for CLUSTER_RESOURCE_ENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CLUSTER_RESOURCE_ENUM_ITEM(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CLUSTER_RESOURCE_ENUM_ITEM {
+    pub dwVersion: u32,
+    pub cbId: u32,
+    pub lpszId: super::super::Foundation::PWSTR,
+    pub cbName: u32,
+    pub lpszName: super::super::Foundation::PWSTR,
+    pub cbOwnerGroupName: u32,
+    pub lpszOwnerGroupName: super::super::Foundation::PWSTR,
+    pub cbOwnerGroupId: u32,
+    pub lpszOwnerGroupId: super::super::Foundation::PWSTR,
+    pub cbProperties: u32,
+    pub pProperties: *mut ::core::ffi::c_void,
+    pub cbRoProperties: u32,
+    pub pRoProperties: *mut ::core::ffi::c_void,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CLUSTER_RESOURCE_ENUM_ITEM {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CLUSTER_RESOURCE_ENUM_ITEM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CLUSTER_RESOURCE_ENUM_ITEM_VERSION: u32 = 1u32;
 pub const CLUSTER_RESOURCE_ENUM_ITEM_VERSION_1: u32 = 1u32;
 #[repr(transparent)]
@@ -1833,6 +2804,12 @@ pub const ClusterResourceDontRestart: CLUSTER_RESOURCE_RESTART_ACTION = CLUSTER_
 pub const ClusterResourceRestartNoNotify: CLUSTER_RESOURCE_RESTART_ACTION = CLUSTER_RESOURCE_RESTART_ACTION(1i32);
 pub const ClusterResourceRestartNotify: CLUSTER_RESOURCE_RESTART_ACTION = CLUSTER_RESOURCE_RESTART_ACTION(2i32);
 pub const ClusterResourceRestartActionCount: CLUSTER_RESOURCE_RESTART_ACTION = CLUSTER_RESOURCE_RESTART_ACTION(3i32);
+impl ::core::marker::Copy for CLUSTER_RESOURCE_RESTART_ACTION {}
+impl ::core::clone::Clone for CLUSTER_RESOURCE_RESTART_ACTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CLUSTER_RESOURCE_STATE(pub i32);
 pub const ClusterResourceStateUnknown: CLUSTER_RESOURCE_STATE = CLUSTER_RESOURCE_STATE(-1i32);
@@ -1844,6 +2821,12 @@ pub const ClusterResourceFailed: CLUSTER_RESOURCE_STATE = CLUSTER_RESOURCE_STATE
 pub const ClusterResourcePending: CLUSTER_RESOURCE_STATE = CLUSTER_RESOURCE_STATE(128i32);
 pub const ClusterResourceOnlinePending: CLUSTER_RESOURCE_STATE = CLUSTER_RESOURCE_STATE(129i32);
 pub const ClusterResourceOfflinePending: CLUSTER_RESOURCE_STATE = CLUSTER_RESOURCE_STATE(130i32);
+impl ::core::marker::Copy for CLUSTER_RESOURCE_STATE {}
+impl ::core::clone::Clone for CLUSTER_RESOURCE_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CLUSTER_RESOURCE_STATE_CHANGE_REASON(pub i32);
 pub const eResourceStateChangeReasonUnknown: CLUSTER_RESOURCE_STATE_CHANGE_REASON = CLUSTER_RESOURCE_STATE_CHANGE_REASON(0i32);
@@ -1852,11 +2835,23 @@ pub const eResourceStateChangeReasonFailover: CLUSTER_RESOURCE_STATE_CHANGE_REAS
 pub const eResourceStateChangeReasonFailedMove: CLUSTER_RESOURCE_STATE_CHANGE_REASON = CLUSTER_RESOURCE_STATE_CHANGE_REASON(3i32);
 pub const eResourceStateChangeReasonShutdown: CLUSTER_RESOURCE_STATE_CHANGE_REASON = CLUSTER_RESOURCE_STATE_CHANGE_REASON(4i32);
 pub const eResourceStateChangeReasonRundown: CLUSTER_RESOURCE_STATE_CHANGE_REASON = CLUSTER_RESOURCE_STATE_CHANGE_REASON(5i32);
+impl ::core::marker::Copy for CLUSTER_RESOURCE_STATE_CHANGE_REASON {}
+impl ::core::clone::Clone for CLUSTER_RESOURCE_STATE_CHANGE_REASON {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CLUSTER_RESOURCE_TYPE_ENUM(pub i32);
 pub const CLUSTER_RESOURCE_TYPE_ENUM_NODES: CLUSTER_RESOURCE_TYPE_ENUM = CLUSTER_RESOURCE_TYPE_ENUM(1i32);
 pub const CLUSTER_RESOURCE_TYPE_ENUM_RESOURCES: CLUSTER_RESOURCE_TYPE_ENUM = CLUSTER_RESOURCE_TYPE_ENUM(2i32);
 pub const CLUSTER_RESOURCE_TYPE_ENUM_ALL: CLUSTER_RESOURCE_TYPE_ENUM = CLUSTER_RESOURCE_TYPE_ENUM(3i32);
+impl ::core::marker::Copy for CLUSTER_RESOURCE_TYPE_ENUM {}
+impl ::core::clone::Clone for CLUSTER_RESOURCE_TYPE_ENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CLUSTER_ROLE(pub i32);
 pub const ClusterRoleDHCP: CLUSTER_ROLE = CLUSTER_ROLE(0i32);
@@ -1891,11 +2886,23 @@ pub const ClusterRoleStoragePool: CLUSTER_ROLE = CLUSTER_ROLE(28i32);
 pub const ClusterRoleVirtualMachine: CLUSTER_ROLE = CLUSTER_ROLE(29i32);
 pub const ClusterRoleVirtualMachineConfiguration: CLUSTER_ROLE = CLUSTER_ROLE(30i32);
 pub const ClusterRoleVirtualMachineReplicaBroker: CLUSTER_ROLE = CLUSTER_ROLE(31i32);
+impl ::core::marker::Copy for CLUSTER_ROLE {}
+impl ::core::clone::Clone for CLUSTER_ROLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CLUSTER_ROLE_STATE(pub i32);
 pub const ClusterRoleUnknown: CLUSTER_ROLE_STATE = CLUSTER_ROLE_STATE(-1i32);
 pub const ClusterRoleClustered: CLUSTER_ROLE_STATE = CLUSTER_ROLE_STATE(0i32);
 pub const ClusterRoleUnclustered: CLUSTER_ROLE_STATE = CLUSTER_ROLE_STATE(1i32);
+impl ::core::marker::Copy for CLUSTER_ROLE_STATE {}
+impl ::core::clone::Clone for CLUSTER_ROLE_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CLUSTER_RUNNING: u32 = 16u32;
 #[repr(transparent)]
 pub struct CLUSTER_SETUP_PHASE(pub i32);
@@ -1927,34 +2934,105 @@ pub const ClusterSetupPhaseEvictNode: CLUSTER_SETUP_PHASE = CLUSTER_SETUP_PHASE(
 pub const ClusterSetupPhaseCleanupNode: CLUSTER_SETUP_PHASE = CLUSTER_SETUP_PHASE(405i32);
 pub const ClusterSetupPhaseCoreGroupCleanup: CLUSTER_SETUP_PHASE = CLUSTER_SETUP_PHASE(406i32);
 pub const ClusterSetupPhaseFailureCleanup: CLUSTER_SETUP_PHASE = CLUSTER_SETUP_PHASE(999i32);
+impl ::core::marker::Copy for CLUSTER_SETUP_PHASE {}
+impl ::core::clone::Clone for CLUSTER_SETUP_PHASE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CLUSTER_SETUP_PHASE_SEVERITY(pub i32);
 pub const ClusterSetupPhaseInformational: CLUSTER_SETUP_PHASE_SEVERITY = CLUSTER_SETUP_PHASE_SEVERITY(1i32);
 pub const ClusterSetupPhaseWarning: CLUSTER_SETUP_PHASE_SEVERITY = CLUSTER_SETUP_PHASE_SEVERITY(2i32);
 pub const ClusterSetupPhaseFatal: CLUSTER_SETUP_PHASE_SEVERITY = CLUSTER_SETUP_PHASE_SEVERITY(3i32);
+impl ::core::marker::Copy for CLUSTER_SETUP_PHASE_SEVERITY {}
+impl ::core::clone::Clone for CLUSTER_SETUP_PHASE_SEVERITY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CLUSTER_SETUP_PHASE_TYPE(pub i32);
 pub const ClusterSetupPhaseStart: CLUSTER_SETUP_PHASE_TYPE = CLUSTER_SETUP_PHASE_TYPE(1i32);
 pub const ClusterSetupPhaseContinue: CLUSTER_SETUP_PHASE_TYPE = CLUSTER_SETUP_PHASE_TYPE(2i32);
 pub const ClusterSetupPhaseEnd: CLUSTER_SETUP_PHASE_TYPE = CLUSTER_SETUP_PHASE_TYPE(3i32);
 pub const ClusterSetupPhaseReport: CLUSTER_SETUP_PHASE_TYPE = CLUSTER_SETUP_PHASE_TYPE(4i32);
+impl ::core::marker::Copy for CLUSTER_SETUP_PHASE_TYPE {}
+impl ::core::clone::Clone for CLUSTER_SETUP_PHASE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CLUSTER_SET_ACCESS_TYPE_ALLOWED: u32 = 0u32;
 pub const CLUSTER_SET_ACCESS_TYPE_DENIED: u32 = 1u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CLUSTER_SET_PASSWORD_STATUS(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CLUSTER_SET_PASSWORD_STATUS {
+    pub NodeId: u32,
+    pub SetAttempted: super::super::Foundation::BOOLEAN,
+    pub ReturnStatus: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CLUSTER_SET_PASSWORD_STATUS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CLUSTER_SET_PASSWORD_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CLUSTER_SHARED_VOLUME_BACKUP_STATE(pub i32);
 pub const VolumeBackupNone: CLUSTER_SHARED_VOLUME_BACKUP_STATE = CLUSTER_SHARED_VOLUME_BACKUP_STATE(0i32);
 pub const VolumeBackupInProgress: CLUSTER_SHARED_VOLUME_BACKUP_STATE = CLUSTER_SHARED_VOLUME_BACKUP_STATE(1i32);
+impl ::core::marker::Copy for CLUSTER_SHARED_VOLUME_BACKUP_STATE {}
+impl ::core::clone::Clone for CLUSTER_SHARED_VOLUME_BACKUP_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CLUSTER_SHARED_VOLUME_RENAME_GUID_INPUT(i32);
+pub struct CLUSTER_SHARED_VOLUME_RENAME_GUID_INPUT {
+    pub __AnonymousBase_clusapi_L5475_C14: CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME,
+    pub __AnonymousBase_clusapi_L5476_C14: CLUSTER_SHARED_VOLUME_RENAME_INPUT_GUID_NAME,
+}
+impl ::core::marker::Copy for CLUSTER_SHARED_VOLUME_RENAME_GUID_INPUT {}
+impl ::core::clone::Clone for CLUSTER_SHARED_VOLUME_RENAME_GUID_INPUT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CLUSTER_SHARED_VOLUME_RENAME_INPUT(i32);
+pub struct CLUSTER_SHARED_VOLUME_RENAME_INPUT {
+    pub __AnonymousBase_clusapi_L5464_C14: CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME,
+    pub __AnonymousBase_clusapi_L5465_C14: CLUSTER_SHARED_VOLUME_RENAME_INPUT_NAME,
+}
+impl ::core::marker::Copy for CLUSTER_SHARED_VOLUME_RENAME_INPUT {}
+impl ::core::clone::Clone for CLUSTER_SHARED_VOLUME_RENAME_INPUT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CLUSTER_SHARED_VOLUME_RENAME_INPUT_GUID_NAME(i32);
+pub struct CLUSTER_SHARED_VOLUME_RENAME_INPUT_GUID_NAME {
+    pub NewVolumeName: [u16; 260],
+    pub NewVolumeGuid: [u16; 50],
+}
+impl ::core::marker::Copy for CLUSTER_SHARED_VOLUME_RENAME_INPUT_GUID_NAME {}
+impl ::core::clone::Clone for CLUSTER_SHARED_VOLUME_RENAME_INPUT_GUID_NAME {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CLUSTER_SHARED_VOLUME_RENAME_INPUT_NAME(i32);
+pub struct CLUSTER_SHARED_VOLUME_RENAME_INPUT_NAME {
+    pub NewVolumeName: [u16; 260],
+}
+impl ::core::marker::Copy for CLUSTER_SHARED_VOLUME_RENAME_INPUT_NAME {}
+impl ::core::clone::Clone for CLUSTER_SHARED_VOLUME_RENAME_INPUT_NAME {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CLUSTER_SHARED_VOLUME_RENAME_INPUT_TYPE(pub i32);
 pub const ClusterSharedVolumeRenameInputTypeNone: CLUSTER_SHARED_VOLUME_RENAME_INPUT_TYPE = CLUSTER_SHARED_VOLUME_RENAME_INPUT_TYPE(0i32);
@@ -1962,14 +3040,48 @@ pub const ClusterSharedVolumeRenameInputTypeVolumeOffset: CLUSTER_SHARED_VOLUME_
 pub const ClusterSharedVolumeRenameInputTypeVolumeId: CLUSTER_SHARED_VOLUME_RENAME_INPUT_TYPE = CLUSTER_SHARED_VOLUME_RENAME_INPUT_TYPE(2i32);
 pub const ClusterSharedVolumeRenameInputTypeVolumeName: CLUSTER_SHARED_VOLUME_RENAME_INPUT_TYPE = CLUSTER_SHARED_VOLUME_RENAME_INPUT_TYPE(3i32);
 pub const ClusterSharedVolumeRenameInputTypeVolumeGuid: CLUSTER_SHARED_VOLUME_RENAME_INPUT_TYPE = CLUSTER_SHARED_VOLUME_RENAME_INPUT_TYPE(4i32);
+impl ::core::marker::Copy for CLUSTER_SHARED_VOLUME_RENAME_INPUT_TYPE {}
+impl ::core::clone::Clone for CLUSTER_SHARED_VOLUME_RENAME_INPUT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME(i32);
+pub struct CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME {
+    pub InputType: CLUSTER_SHARED_VOLUME_RENAME_INPUT_TYPE,
+    pub Anonymous: CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME_0,
+}
+impl ::core::marker::Copy for CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME {}
+impl ::core::clone::Clone for CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub union CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME_0 {
+    pub VolumeOffset: u64,
+    pub VolumeId: [u16; 260],
+    pub VolumeName: [u16; 260],
+    pub VolumeGuid: [u16; 50],
+}
+impl ::core::marker::Copy for CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME_0 {}
+impl ::core::clone::Clone for CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CLUSTER_SHARED_VOLUME_SNAPSHOT_STATE(pub i32);
 pub const ClusterSharedVolumeSnapshotStateUnknown: CLUSTER_SHARED_VOLUME_SNAPSHOT_STATE = CLUSTER_SHARED_VOLUME_SNAPSHOT_STATE(0i32);
 pub const ClusterSharedVolumePrepareForHWSnapshot: CLUSTER_SHARED_VOLUME_SNAPSHOT_STATE = CLUSTER_SHARED_VOLUME_SNAPSHOT_STATE(1i32);
 pub const ClusterSharedVolumeHWSnapshotCompleted: CLUSTER_SHARED_VOLUME_SNAPSHOT_STATE = CLUSTER_SHARED_VOLUME_SNAPSHOT_STATE(2i32);
 pub const ClusterSharedVolumePrepareForFreeze: CLUSTER_SHARED_VOLUME_SNAPSHOT_STATE = CLUSTER_SHARED_VOLUME_SNAPSHOT_STATE(3i32);
+impl ::core::marker::Copy for CLUSTER_SHARED_VOLUME_SNAPSHOT_STATE {}
+impl ::core::clone::Clone for CLUSTER_SHARED_VOLUME_SNAPSHOT_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CLUSTER_SHARED_VOLUME_STATE(pub i32);
 pub const SharedVolumeStateUnavailable: CLUSTER_SHARED_VOLUME_STATE = CLUSTER_SHARED_VOLUME_STATE(0i32);
@@ -1977,10 +3089,39 @@ pub const SharedVolumeStatePaused: CLUSTER_SHARED_VOLUME_STATE = CLUSTER_SHARED_
 pub const SharedVolumeStateActive: CLUSTER_SHARED_VOLUME_STATE = CLUSTER_SHARED_VOLUME_STATE(2i32);
 pub const SharedVolumeStateActiveRedirected: CLUSTER_SHARED_VOLUME_STATE = CLUSTER_SHARED_VOLUME_STATE(3i32);
 pub const SharedVolumeStateActiveVolumeRedirected: CLUSTER_SHARED_VOLUME_STATE = CLUSTER_SHARED_VOLUME_STATE(4i32);
+impl ::core::marker::Copy for CLUSTER_SHARED_VOLUME_STATE {}
+impl ::core::clone::Clone for CLUSTER_SHARED_VOLUME_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CLUSTER_SHARED_VOLUME_STATE_INFO(i32);
+pub struct CLUSTER_SHARED_VOLUME_STATE_INFO {
+    pub szVolumeName: [u16; 260],
+    pub szNodeName: [u16; 260],
+    pub VolumeState: CLUSTER_SHARED_VOLUME_STATE,
+}
+impl ::core::marker::Copy for CLUSTER_SHARED_VOLUME_STATE_INFO {}
+impl ::core::clone::Clone for CLUSTER_SHARED_VOLUME_STATE_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CLUSTER_SHARED_VOLUME_STATE_INFO_EX(i32);
+pub struct CLUSTER_SHARED_VOLUME_STATE_INFO_EX {
+    pub szVolumeName: [u16; 260],
+    pub szNodeName: [u16; 260],
+    pub VolumeState: CLUSTER_SHARED_VOLUME_STATE,
+    pub szVolumeFriendlyName: [u16; 260],
+    pub RedirectedIOReason: u64,
+    pub VolumeRedirectedIOReason: u64,
+}
+impl ::core::marker::Copy for CLUSTER_SHARED_VOLUME_STATE_INFO_EX {}
+impl ::core::clone::Clone for CLUSTER_SHARED_VOLUME_STATE_INFO_EX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CLUSTER_STORAGENODE_STATE(pub i32);
 pub const ClusterStorageNodeStateUnknown: CLUSTER_STORAGENODE_STATE = CLUSTER_STORAGENODE_STATE(0i32);
@@ -1989,6 +3130,12 @@ pub const ClusterStorageNodeDown: CLUSTER_STORAGENODE_STATE = CLUSTER_STORAGENOD
 pub const ClusterStorageNodePaused: CLUSTER_STORAGENODE_STATE = CLUSTER_STORAGENODE_STATE(3i32);
 pub const ClusterStorageNodeStarting: CLUSTER_STORAGENODE_STATE = CLUSTER_STORAGENODE_STATE(4i32);
 pub const ClusterStorageNodeStopping: CLUSTER_STORAGENODE_STATE = CLUSTER_STORAGENODE_STATE(5i32);
+impl ::core::marker::Copy for CLUSTER_STORAGENODE_STATE {}
+impl ::core::clone::Clone for CLUSTER_STORAGENODE_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CLUSTER_UPGRADE_PHASE(pub i32);
 pub const ClusterUpgradePhaseInitialize: CLUSTER_UPGRADE_PHASE = CLUSTER_UPGRADE_PHASE(1i32);
@@ -1996,14 +3143,52 @@ pub const ClusterUpgradePhaseValidatingUpgrade: CLUSTER_UPGRADE_PHASE = CLUSTER_
 pub const ClusterUpgradePhaseUpgradingComponents: CLUSTER_UPGRADE_PHASE = CLUSTER_UPGRADE_PHASE(3i32);
 pub const ClusterUpgradePhaseInstallingNewComponents: CLUSTER_UPGRADE_PHASE = CLUSTER_UPGRADE_PHASE(4i32);
 pub const ClusterUpgradePhaseUpgradeComplete: CLUSTER_UPGRADE_PHASE = CLUSTER_UPGRADE_PHASE(5i32);
+impl ::core::marker::Copy for CLUSTER_UPGRADE_PHASE {}
+impl ::core::clone::Clone for CLUSTER_UPGRADE_PHASE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CLUSTER_VALIDATE_CSV_FILENAME(i32);
+pub struct CLUSTER_VALIDATE_CSV_FILENAME {
+    pub szFileName: [u16; 1],
+}
+impl ::core::marker::Copy for CLUSTER_VALIDATE_CSV_FILENAME {}
+impl ::core::clone::Clone for CLUSTER_VALIDATE_CSV_FILENAME {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CLUSTER_VALIDATE_DIRECTORY(i32);
+pub struct CLUSTER_VALIDATE_DIRECTORY {
+    pub szPath: [u16; 1],
+}
+impl ::core::marker::Copy for CLUSTER_VALIDATE_DIRECTORY {}
+impl ::core::clone::Clone for CLUSTER_VALIDATE_DIRECTORY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CLUSTER_VALIDATE_NETNAME(i32);
+pub struct CLUSTER_VALIDATE_NETNAME {
+    pub szNetworkName: [u16; 1],
+}
+impl ::core::marker::Copy for CLUSTER_VALIDATE_NETNAME {}
+impl ::core::clone::Clone for CLUSTER_VALIDATE_NETNAME {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CLUSTER_VALIDATE_PATH(i32);
+pub struct CLUSTER_VALIDATE_PATH {
+    pub szPath: [u16; 1],
+}
+impl ::core::marker::Copy for CLUSTER_VALIDATE_PATH {}
+impl ::core::clone::Clone for CLUSTER_VALIDATE_PATH {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CLUSTER_VERSION_FLAG_MIXED_MODE: u32 = 1u32;
 pub const CLUSTER_VERSION_UNKNOWN: u32 = 4294967295u32;
 pub const CLUS_ACCESS_ANY: u32 = 0u32;
@@ -2018,6 +3203,12 @@ pub const CLUS_AFFINITY_RULE_DIFFERENT_FAULT_DOMAIN: CLUS_AFFINITY_RULE_TYPE = C
 pub const CLUS_AFFINITY_RULE_DIFFERENT_NODE: CLUS_AFFINITY_RULE_TYPE = CLUS_AFFINITY_RULE_TYPE(4i32);
 pub const CLUS_AFFINITY_RULE_MIN: CLUS_AFFINITY_RULE_TYPE = CLUS_AFFINITY_RULE_TYPE(0i32);
 pub const CLUS_AFFINITY_RULE_MAX: CLUS_AFFINITY_RULE_TYPE = CLUS_AFFINITY_RULE_TYPE(4i32);
+impl ::core::marker::Copy for CLUS_AFFINITY_RULE_TYPE {}
+impl ::core::clone::Clone for CLUS_AFFINITY_RULE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CLUS_CHARACTERISTICS(pub i32);
 pub const CLUS_CHAR_UNKNOWN: CLUS_CHARACTERISTICS = CLUS_CHARACTERISTICS(0i32);
@@ -2041,72 +3232,330 @@ pub const CLUS_CHAR_SUPPORTS_UNMONITORED_STATE: CLUS_CHARACTERISTICS = CLUS_CHAR
 pub const CLUS_CHAR_INFRASTRUCTURE: CLUS_CHARACTERISTICS = CLUS_CHARACTERISTICS(131072i32);
 pub const CLUS_CHAR_VETO_DRAIN: CLUS_CHARACTERISTICS = CLUS_CHARACTERISTICS(262144i32);
 pub const CLUS_CHAR_DRAIN_LOCAL_OFFLINE: CLUS_CHARACTERISTICS = CLUS_CHARACTERISTICS(524288i32);
+impl ::core::marker::Copy for CLUS_CHARACTERISTICS {}
+impl ::core::clone::Clone for CLUS_CHARACTERISTICS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CLUS_CHKDSK_INFO(i32);
+pub struct CLUS_CHKDSK_INFO {
+    pub PartitionNumber: u32,
+    pub ChkdskState: u32,
+    pub FileIdCount: u32,
+    pub FileIdList: [u64; 1],
+}
+impl ::core::marker::Copy for CLUS_CHKDSK_INFO {}
+impl ::core::clone::Clone for CLUS_CHKDSK_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CLUS_CREATE_CRYPT_CONTAINER_NOT_FOUND: u32 = 1u32;
 #[repr(C)]
-pub struct CLUS_CREATE_INFRASTRUCTURE_FILESERVER_INPUT(i32);
+pub struct CLUS_CREATE_INFRASTRUCTURE_FILESERVER_INPUT {
+    pub FileServerName: [u16; 16],
+}
+impl ::core::marker::Copy for CLUS_CREATE_INFRASTRUCTURE_FILESERVER_INPUT {}
+impl ::core::clone::Clone for CLUS_CREATE_INFRASTRUCTURE_FILESERVER_INPUT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CLUS_CREATE_INFRASTRUCTURE_FILESERVER_OUTPUT(i32);
+pub struct CLUS_CREATE_INFRASTRUCTURE_FILESERVER_OUTPUT {
+    pub FileServerName: [u16; 260],
+}
+impl ::core::marker::Copy for CLUS_CREATE_INFRASTRUCTURE_FILESERVER_OUTPUT {}
+impl ::core::clone::Clone for CLUS_CREATE_INFRASTRUCTURE_FILESERVER_OUTPUT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct CLUS_CSV_MAINTENANCE_MODE_INFO(i32);
-#[repr(C)]
-pub struct CLUS_CSV_VOLUME_INFO(i32);
-#[repr(C)]
-pub struct CLUS_CSV_VOLUME_NAME(i32);
-#[repr(C)]
-pub struct CLUS_DISK_NUMBER_INFO(i32);
+pub struct CLUS_CSV_MAINTENANCE_MODE_INFO {
+    pub InMaintenance: super::super::Foundation::BOOL,
+    pub VolumeName: [u16; 260],
+}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CLUS_CSV_MAINTENANCE_MODE_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CLUS_CSV_MAINTENANCE_MODE_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CLUS_DNN_LEADER_STATUS(i32);
+pub struct CLUS_CSV_VOLUME_INFO {
+    pub VolumeOffset: u64,
+    pub PartitionNumber: u32,
+    pub FaultState: CLUSTER_CSV_VOLUME_FAULT_STATE,
+    pub BackupState: CLUSTER_SHARED_VOLUME_BACKUP_STATE,
+    pub szVolumeFriendlyName: [u16; 260],
+    pub szVolumeName: [u16; 50],
+}
+impl ::core::marker::Copy for CLUS_CSV_VOLUME_INFO {}
+impl ::core::clone::Clone for CLUS_CSV_VOLUME_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CLUS_DNN_SODAFS_CLONE_STATUS(i32);
+pub struct CLUS_CSV_VOLUME_NAME {
+    pub VolumeOffset: i64,
+    pub szVolumeName: [u16; 260],
+    pub szRootPath: [u16; 263],
+}
+impl ::core::marker::Copy for CLUS_CSV_VOLUME_NAME {}
+impl ::core::clone::Clone for CLUS_CSV_VOLUME_NAME {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct CLUS_DISK_NUMBER_INFO {
+    pub DiskNumber: u32,
+    pub BytesPerSector: u32,
+}
+impl ::core::marker::Copy for CLUS_DISK_NUMBER_INFO {}
+impl ::core::clone::Clone for CLUS_DISK_NUMBER_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct CLUS_DNN_LEADER_STATUS {
+    pub IsOnline: super::super::Foundation::BOOL,
+    pub IsFileServerPresent: super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CLUS_DNN_LEADER_STATUS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CLUS_DNN_LEADER_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct CLUS_DNN_SODAFS_CLONE_STATUS {
+    pub NodeId: u32,
+    pub Status: CLUSTER_RESOURCE_STATE,
+}
+impl ::core::marker::Copy for CLUS_DNN_SODAFS_CLONE_STATUS {}
+impl ::core::clone::Clone for CLUS_DNN_SODAFS_CLONE_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CLUS_FLAGS(pub i32);
 pub const CLUS_FLAG_CORE: CLUS_FLAGS = CLUS_FLAGS(1i32);
+impl ::core::marker::Copy for CLUS_FLAGS {}
+impl ::core::clone::Clone for CLUS_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CLUS_FORCE_QUORUM_INFO(i32);
+pub struct CLUS_FORCE_QUORUM_INFO {
+    pub dwSize: u32,
+    pub dwNodeBitMask: u32,
+    pub dwMaxNumberofNodes: u32,
+    pub multiszNodeList: [u16; 1],
+}
+impl ::core::marker::Copy for CLUS_FORCE_QUORUM_INFO {}
+impl ::core::clone::Clone for CLUS_FORCE_QUORUM_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CLUS_FTSET_INFO(i32);
+pub struct CLUS_FTSET_INFO {
+    pub dwRootSignature: u32,
+    pub dwFtType: u32,
+}
+impl ::core::marker::Copy for CLUS_FTSET_INFO {}
+impl ::core::clone::Clone for CLUS_FTSET_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CLUS_GLOBAL: u32 = 1u32;
 #[repr(transparent)]
 pub struct CLUS_GROUP_START_SETTING(pub i32);
 pub const CLUS_GROUP_START_ALWAYS: CLUS_GROUP_START_SETTING = CLUS_GROUP_START_SETTING(0i32);
 pub const CLUS_GROUP_DO_NOT_START: CLUS_GROUP_START_SETTING = CLUS_GROUP_START_SETTING(1i32);
 pub const CLUS_GROUP_START_ALLOWED: CLUS_GROUP_START_SETTING = CLUS_GROUP_START_SETTING(2i32);
+impl ::core::marker::Copy for CLUS_GROUP_START_SETTING {}
+impl ::core::clone::Clone for CLUS_GROUP_START_SETTING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CLUS_GRP_MOVE_ALLOWED: u32 = 0u32;
 pub const CLUS_GRP_MOVE_LOCKED: u32 = 1u32;
 pub const CLUS_HYBRID_QUORUM: u32 = 1024u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CLUS_MAINTENANCE_MODE_INFO(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct CLUS_MAINTENANCE_MODE_INFO {
+    pub InMaintenance: super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CLUS_MAINTENANCE_MODE_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CLUS_MAINTENANCE_MODE_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CLUS_MAINTENANCE_MODE_INFOEX(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CLUS_MAINTENANCE_MODE_INFOEX {
+    pub InMaintenance: super::super::Foundation::BOOL,
+    pub MaintainenceModeType: MAINTENANCE_MODE_TYPE_ENUM,
+    pub InternalState: CLUSTER_RESOURCE_STATE,
+    pub Signature: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CLUS_MAINTENANCE_MODE_INFOEX {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CLUS_MAINTENANCE_MODE_INFOEX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CLUS_MODIFY: u32 = 1u32;
 #[repr(C)]
-pub struct CLUS_NETNAME_IP_INFO_ENTRY(i32);
+pub struct CLUS_NETNAME_IP_INFO_ENTRY {
+    pub NodeId: u32,
+    pub AddressSize: u32,
+    pub Address: [u8; 1],
+}
+impl ::core::marker::Copy for CLUS_NETNAME_IP_INFO_ENTRY {}
+impl ::core::clone::Clone for CLUS_NETNAME_IP_INFO_ENTRY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CLUS_NETNAME_IP_INFO_FOR_MULTICHANNEL(i32);
+pub struct CLUS_NETNAME_IP_INFO_FOR_MULTICHANNEL {
+    pub szName: [u16; 64],
+    pub NumEntries: u32,
+    pub IpInfo: [CLUS_NETNAME_IP_INFO_ENTRY; 1],
+}
+impl ::core::marker::Copy for CLUS_NETNAME_IP_INFO_FOR_MULTICHANNEL {}
+impl ::core::clone::Clone for CLUS_NETNAME_IP_INFO_FOR_MULTICHANNEL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CLUS_NETNAME_PWD_INFO(i32);
+pub struct CLUS_NETNAME_PWD_INFO {
+    pub Flags: u32,
+    pub Password: [u16; 16],
+    pub CreatingDC: [u16; 258],
+    pub ObjectGuid: [u16; 64],
+}
+impl ::core::marker::Copy for CLUS_NETNAME_PWD_INFO {}
+impl ::core::clone::Clone for CLUS_NETNAME_PWD_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CLUS_NETNAME_PWD_INFOEX(i32);
+pub struct CLUS_NETNAME_PWD_INFOEX {
+    pub Flags: u32,
+    pub Password: [u16; 128],
+    pub CreatingDC: [u16; 258],
+    pub ObjectGuid: [u16; 64],
+}
+impl ::core::marker::Copy for CLUS_NETNAME_PWD_INFOEX {}
+impl ::core::clone::Clone for CLUS_NETNAME_PWD_INFOEX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct CLUS_NETNAME_VS_TOKEN_INFO(i32);
+pub struct CLUS_NETNAME_VS_TOKEN_INFO {
+    pub ProcessID: u32,
+    pub DesiredAccess: u32,
+    pub InheritHandle: super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CLUS_NETNAME_VS_TOKEN_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CLUS_NETNAME_VS_TOKEN_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CLUS_NODE_MAJORITY_QUORUM: u32 = 0u32;
 pub const CLUS_NOT_GLOBAL: u32 = 0u32;
 pub const CLUS_NO_MODIFY: u32 = 0u32;
 #[repr(C)]
-pub struct CLUS_PARTITION_INFO(i32);
+pub struct CLUS_PARTITION_INFO {
+    pub dwFlags: u32,
+    pub szDeviceName: [u16; 260],
+    pub szVolumeLabel: [u16; 260],
+    pub dwSerialNumber: u32,
+    pub rgdwMaximumComponentLength: u32,
+    pub dwFileSystemFlags: u32,
+    pub szFileSystem: [u16; 32],
+}
+impl ::core::marker::Copy for CLUS_PARTITION_INFO {}
+impl ::core::clone::Clone for CLUS_PARTITION_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CLUS_PARTITION_INFO_EX(i32);
+pub struct CLUS_PARTITION_INFO_EX {
+    pub dwFlags: u32,
+    pub szDeviceName: [u16; 260],
+    pub szVolumeLabel: [u16; 260],
+    pub dwSerialNumber: u32,
+    pub rgdwMaximumComponentLength: u32,
+    pub dwFileSystemFlags: u32,
+    pub szFileSystem: [u16; 32],
+    pub TotalSizeInBytes: u64,
+    pub FreeSizeInBytes: u64,
+    pub DeviceNumber: u32,
+    pub PartitionNumber: u32,
+    pub VolumeGuid: ::windows_sys::core::GUID,
+}
+impl ::core::marker::Copy for CLUS_PARTITION_INFO_EX {}
+impl ::core::clone::Clone for CLUS_PARTITION_INFO_EX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CLUS_PARTITION_INFO_EX2(i32);
+pub struct CLUS_PARTITION_INFO_EX2 {
+    pub GptPartitionId: ::windows_sys::core::GUID,
+    pub szPartitionName: [u16; 260],
+    pub EncryptionFlags: u32,
+}
+impl ::core::marker::Copy for CLUS_PARTITION_INFO_EX2 {}
+impl ::core::clone::Clone for CLUS_PARTITION_INFO_EX2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CLUS_PROVIDER_STATE_CHANGE_INFO(i32);
+pub struct CLUS_PROVIDER_STATE_CHANGE_INFO {
+    pub dwSize: u32,
+    pub resourceState: CLUSTER_RESOURCE_STATE,
+    pub szProviderId: [u16; 1],
+}
+impl ::core::marker::Copy for CLUS_PROVIDER_STATE_CHANGE_INFO {}
+impl ::core::clone::Clone for CLUS_PROVIDER_STATE_CHANGE_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CLUS_RESDLL_OFFLINE_DO_NOT_UPDATE_PERSISTENT_STATE: u32 = 64u32;
 pub const CLUS_RESDLL_OFFLINE_DUE_TO_EMBEDDED_FAILURE: u32 = 16u32;
 pub const CLUS_RESDLL_OFFLINE_IGNORE_NETWORK_CONNECTIVITY: u32 = 32u32;
@@ -2122,153 +3571,375 @@ pub const CLUS_RESDLL_ONLINE_RETURN_TO_SOURCE_NODE_ON_ERROR: u32 = 4u32;
 pub const CLUS_RESDLL_OPEN_DONT_DELETE_TEMP_DISK: u32 = 2u32;
 pub const CLUS_RESDLL_OPEN_RECOVER_MONITOR_STATE: u32 = 1u32;
 #[repr(C)]
-pub struct CLUS_RESOURCE_CLASS_INFO(i32);
+pub struct CLUS_RESOURCE_CLASS_INFO {
+    pub Anonymous: CLUS_RESOURCE_CLASS_INFO_0,
+}
+impl ::core::marker::Copy for CLUS_RESOURCE_CLASS_INFO {}
+impl ::core::clone::Clone for CLUS_RESOURCE_CLASS_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub union CLUS_RESOURCE_CLASS_INFO_0 {
+    pub Anonymous: CLUS_RESOURCE_CLASS_INFO_0_0,
+    pub li: u64,
+}
+impl ::core::marker::Copy for CLUS_RESOURCE_CLASS_INFO_0 {}
+impl ::core::clone::Clone for CLUS_RESOURCE_CLASS_INFO_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct CLUS_RESOURCE_CLASS_INFO_0_0 {
+    pub Anonymous: CLUS_RESOURCE_CLASS_INFO_0_0_0,
+    pub SubClass: u32,
+}
+impl ::core::marker::Copy for CLUS_RESOURCE_CLASS_INFO_0_0 {}
+impl ::core::clone::Clone for CLUS_RESOURCE_CLASS_INFO_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub union CLUS_RESOURCE_CLASS_INFO_0_0_0 {
+    pub dw: u32,
+    pub rc: CLUSTER_RESOURCE_CLASS,
+}
+impl ::core::marker::Copy for CLUS_RESOURCE_CLASS_INFO_0_0_0 {}
+impl ::core::clone::Clone for CLUS_RESOURCE_CLASS_INFO_0_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CLUS_RESSUBCLASS(pub i32);
 pub const CLUS_RESSUBCLASS_SHARED: CLUS_RESSUBCLASS = CLUS_RESSUBCLASS(-2147483648i32);
+impl ::core::marker::Copy for CLUS_RESSUBCLASS {}
+impl ::core::clone::Clone for CLUS_RESSUBCLASS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CLUS_RESSUBCLASS_NETWORK(pub i32);
 pub const CLUS_RESSUBCLASS_NETWORK_INTERNET_PROTOCOL: CLUS_RESSUBCLASS_NETWORK = CLUS_RESSUBCLASS_NETWORK(-2147483648i32);
+impl ::core::marker::Copy for CLUS_RESSUBCLASS_NETWORK {}
+impl ::core::clone::Clone for CLUS_RESSUBCLASS_NETWORK {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CLUS_RESSUBCLASS_STORAGE(pub i32);
 pub const CLUS_RESSUBCLASS_STORAGE_SHARED_BUS: CLUS_RESSUBCLASS_STORAGE = CLUS_RESSUBCLASS_STORAGE(-2147483648i32);
 pub const CLUS_RESSUBCLASS_STORAGE_DISK: CLUS_RESSUBCLASS_STORAGE = CLUS_RESSUBCLASS_STORAGE(1073741824i32);
 pub const CLUS_RESSUBCLASS_STORAGE_REPLICATION: CLUS_RESSUBCLASS_STORAGE = CLUS_RESSUBCLASS_STORAGE(268435456i32);
+impl ::core::marker::Copy for CLUS_RESSUBCLASS_STORAGE {}
+impl ::core::clone::Clone for CLUS_RESSUBCLASS_STORAGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CLUS_SCSI_ADDRESS(i32);
+pub struct CLUS_SCSI_ADDRESS {
+    pub Anonymous: CLUS_SCSI_ADDRESS_0,
+}
+impl ::core::marker::Copy for CLUS_SCSI_ADDRESS {}
+impl ::core::clone::Clone for CLUS_SCSI_ADDRESS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub union CLUS_SCSI_ADDRESS_0 {
+    pub Anonymous: CLUS_SCSI_ADDRESS_0_0,
+    pub dw: u32,
+}
+impl ::core::marker::Copy for CLUS_SCSI_ADDRESS_0 {}
+impl ::core::clone::Clone for CLUS_SCSI_ADDRESS_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct CLUS_SCSI_ADDRESS_0_0 {
+    pub PortNumber: u8,
+    pub PathId: u8,
+    pub TargetId: u8,
+    pub Lun: u8,
+}
+impl ::core::marker::Copy for CLUS_SCSI_ADDRESS_0_0 {}
+impl ::core::clone::Clone for CLUS_SCSI_ADDRESS_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct CLUS_SET_MAINTENANCE_MODE_INPUT(i32);
-#[repr(C)]
-pub struct CLUS_SHARED_VOLUME_BACKUP_MODE(i32);
+pub struct CLUS_SET_MAINTENANCE_MODE_INPUT {
+    pub InMaintenance: super::super::Foundation::BOOL,
+    pub ExtraParameterSize: u32,
+    pub ExtraParameter: [u8; 1],
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct CLUS_STARTING_PARAMS(i32);
-#[repr(C)]
-pub struct CLUS_STORAGE_GET_AVAILABLE_DRIVELETTERS(i32);
-#[repr(C)]
-pub struct CLUS_STORAGE_REMAP_DRIVELETTER(i32);
-#[repr(C)]
-pub struct CLUS_STORAGE_SET_DRIVELETTER(i32);
+impl ::core::marker::Copy for CLUS_SET_MAINTENANCE_MODE_INPUT {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CLUS_SET_MAINTENANCE_MODE_INPUT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CLUS_WORKER(i32);
+pub struct CLUS_SHARED_VOLUME_BACKUP_MODE {
+    pub BackupState: CLUSTER_SHARED_VOLUME_BACKUP_STATE,
+    pub DelayTimerInSecs: u32,
+    pub VolumeName: [u16; 260],
+}
+impl ::core::marker::Copy for CLUS_SHARED_VOLUME_BACKUP_MODE {}
+impl ::core::clone::Clone for CLUS_SHARED_VOLUME_BACKUP_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct CLUS_STARTING_PARAMS {
+    pub dwSize: u32,
+    pub bForm: super::super::Foundation::BOOL,
+    pub bFirst: super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CLUS_STARTING_PARAMS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CLUS_STARTING_PARAMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct CLUS_STORAGE_GET_AVAILABLE_DRIVELETTERS {
+    pub AvailDrivelettersMask: u32,
+}
+impl ::core::marker::Copy for CLUS_STORAGE_GET_AVAILABLE_DRIVELETTERS {}
+impl ::core::clone::Clone for CLUS_STORAGE_GET_AVAILABLE_DRIVELETTERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct CLUS_STORAGE_REMAP_DRIVELETTER {
+    pub CurrentDriveLetterMask: u32,
+    pub TargetDriveLetterMask: u32,
+}
+impl ::core::marker::Copy for CLUS_STORAGE_REMAP_DRIVELETTER {}
+impl ::core::clone::Clone for CLUS_STORAGE_REMAP_DRIVELETTER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct CLUS_STORAGE_SET_DRIVELETTER {
+    pub PartitionNumber: u32,
+    pub DriveLetterMask: u32,
+}
+impl ::core::marker::Copy for CLUS_STORAGE_SET_DRIVELETTER {}
+impl ::core::clone::Clone for CLUS_STORAGE_SET_DRIVELETTER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct CLUS_WORKER {
+    pub hThread: super::super::Foundation::HANDLE,
+    pub Terminate: super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CLUS_WORKER {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CLUS_WORKER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CREATEDC_PRESENT: u32 = 2u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct CREATE_CLUSTER_CONFIG(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CREATE_CLUSTER_CONFIG {
+    pub dwVersion: u32,
+    pub lpszClusterName: super::super::Foundation::PWSTR,
+    pub cNodes: u32,
+    pub ppszNodeNames: *mut super::super::Foundation::PWSTR,
+    pub cIpEntries: u32,
+    pub pIpEntries: *mut CLUSTER_IP_ENTRY,
+    pub fEmptyCluster: super::super::Foundation::BOOLEAN,
+    pub managementPointType: CLUSTER_MGMT_POINT_TYPE,
+    pub managementPointResType: CLUSTER_MGMT_POINT_RESTYPE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CREATE_CLUSTER_CONFIG {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CREATE_CLUSTER_CONFIG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CREATE_CLUSTER_MAJOR_VERSION_MASK: u32 = 4294967040u32;
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct CREATE_CLUSTER_NAME_ACCOUNT(i32);
+pub struct CREATE_CLUSTER_NAME_ACCOUNT {
+    pub dwVersion: u32,
+    pub lpszClusterName: super::super::Foundation::PWSTR,
+    pub dwFlags: u32,
+    pub pszUserName: super::super::Foundation::PWSTR,
+    pub pszPassword: super::super::Foundation::PWSTR,
+    pub pszDomain: super::super::Foundation::PWSTR,
+    pub managementPointType: CLUSTER_MGMT_POINT_TYPE,
+    pub managementPointResType: CLUSTER_MGMT_POINT_RESTYPE,
+    pub bUpgradeVCOs: super::super::Foundation::BOOLEAN,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CREATE_CLUSTER_NAME_ACCOUNT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CREATE_CLUSTER_NAME_ACCOUNT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const CREATE_CLUSTER_VERSION: u32 = 1536u32;
-#[repr(C)]
-pub struct ClusApplication(i32);
-#[repr(C)]
-pub struct ClusCryptoKeys(i32);
-#[repr(C)]
-pub struct ClusDisk(i32);
-#[repr(C)]
-pub struct ClusDisks(i32);
-#[repr(C)]
-pub struct ClusNetInterface(i32);
-#[repr(C)]
-pub struct ClusNetInterfaces(i32);
-#[repr(C)]
-pub struct ClusNetwork(i32);
-#[repr(C)]
-pub struct ClusNetworkNetInterfaces(i32);
-#[repr(C)]
-pub struct ClusNetworks(i32);
-#[repr(C)]
-pub struct ClusNode(i32);
-#[repr(C)]
-pub struct ClusNodeNetInterfaces(i32);
-#[repr(C)]
-pub struct ClusNodes(i32);
-#[repr(C)]
-pub struct ClusPartition(i32);
-#[repr(C)]
-pub struct ClusPartitionEx(i32);
-#[repr(C)]
-pub struct ClusPartitions(i32);
-#[repr(C)]
-pub struct ClusProperties(i32);
-#[repr(C)]
-pub struct ClusProperty(i32);
-#[repr(C)]
-pub struct ClusPropertyValue(i32);
-#[repr(C)]
-pub struct ClusPropertyValueData(i32);
-#[repr(C)]
-pub struct ClusPropertyValues(i32);
-#[repr(C)]
-pub struct ClusRefObject(i32);
-#[repr(C)]
-pub struct ClusRegistryKeys(i32);
-#[repr(C)]
-pub struct ClusResDependencies(i32);
-#[repr(C)]
-pub struct ClusResDependents(i32);
-#[repr(C)]
-pub struct ClusResGroup(i32);
-#[repr(C)]
-pub struct ClusResGroupPreferredOwnerNodes(i32);
-#[repr(C)]
-pub struct ClusResGroupResources(i32);
-#[repr(C)]
-pub struct ClusResGroups(i32);
-#[repr(C)]
-pub struct ClusResPossibleOwnerNodes(i32);
-#[repr(C)]
-pub struct ClusResType(i32);
-#[repr(C)]
-pub struct ClusResTypePossibleOwnerNodes(i32);
-#[repr(C)]
-pub struct ClusResTypeResources(i32);
-#[repr(C)]
-pub struct ClusResTypes(i32);
-#[repr(C)]
-pub struct ClusResource(i32);
-#[repr(C)]
-pub struct ClusResources(i32);
-#[repr(C)]
-pub struct ClusScsiAddress(i32);
-#[repr(C)]
-pub struct ClusVersion(i32);
-#[repr(C)]
-pub struct Cluster(i32);
-#[repr(C)]
-pub struct ClusterNames(i32);
+pub const ClusApplication: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161317, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusCryptoKeys: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161387, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusDisk: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161379, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusDisks: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161381, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusNetInterface: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161325, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusNetInterfaces: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161327, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusNetwork: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161329, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusNetworkNetInterfaces: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161333, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusNetworks: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161331, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusNode: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161335, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusNodeNetInterfaces: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161339, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusNodes: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161337, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusPartition: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161375, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusPartitionEx: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1406475558,
+    data2: 46363,
+    data3: 19065,
+    data4: [178, 195, 80, 72, 217, 58, 152, 252],
+};
+pub const ClusPartitions: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161377, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusProperties: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161343, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusProperty: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161341, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusPropertyValue: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161369, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusPropertyValueData: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161373, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusPropertyValues: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161371, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusRefObject: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161345, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusRegistryKeys: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161385, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusResDependencies: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161347, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusResDependents: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161389, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusResGroup: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161349, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusResGroupPreferredOwnerNodes: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161319, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusResGroupResources: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161321, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusResGroups: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161351, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusResPossibleOwnerNodes: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161357, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusResType: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161359, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusResTypePossibleOwnerNodes: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161367, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusResTypeResources: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161363, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusResTypes: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161361, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusResource: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161353, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusResources: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161355, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusScsiAddress: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161383, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusVersion: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161365, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const Cluster: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161315, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusterNames: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161323, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
 pub const DNS_LENGTH: u32 = 64u32;
-#[repr(C)]
-pub struct DomainNames(i32);
+pub const DomainNames: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161313, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
 #[repr(transparent)]
 pub struct FAILURE_TYPE(pub i32);
 pub const FAILURE_TYPE_GENERAL: FAILURE_TYPE = FAILURE_TYPE(0i32);
 pub const FAILURE_TYPE_EMBEDDED: FAILURE_TYPE = FAILURE_TYPE(1i32);
 pub const FAILURE_TYPE_NETWORK_LOSS: FAILURE_TYPE = FAILURE_TYPE(2i32);
+impl ::core::marker::Copy for FAILURE_TYPE {}
+impl ::core::clone::Clone for FAILURE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const FE_UPGRADE_VERSION: u32 = 4u32;
 #[repr(C)]
-pub struct FILESHARE_CHANGE(i32);
+pub struct FILESHARE_CHANGE {
+    pub Change: FILESHARE_CHANGE_ENUM,
+    pub ShareName: [u16; 84],
+}
+impl ::core::marker::Copy for FILESHARE_CHANGE {}
+impl ::core::clone::Clone for FILESHARE_CHANGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct FILESHARE_CHANGE_ENUM(pub i32);
 pub const FILESHARE_CHANGE_NONE: FILESHARE_CHANGE_ENUM = FILESHARE_CHANGE_ENUM(0i32);
 pub const FILESHARE_CHANGE_ADD: FILESHARE_CHANGE_ENUM = FILESHARE_CHANGE_ENUM(1i32);
 pub const FILESHARE_CHANGE_DEL: FILESHARE_CHANGE_ENUM = FILESHARE_CHANGE_ENUM(2i32);
 pub const FILESHARE_CHANGE_MODIFY: FILESHARE_CHANGE_ENUM = FILESHARE_CHANGE_ENUM(3i32);
+impl ::core::marker::Copy for FILESHARE_CHANGE_ENUM {}
+impl ::core::clone::Clone for FILESHARE_CHANGE_ENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct FILESHARE_CHANGE_LIST(i32);
+pub struct FILESHARE_CHANGE_LIST {
+    pub NumEntries: u32,
+    pub ChangeEntry: [FILESHARE_CHANGE; 1],
+}
+impl ::core::marker::Copy for FILESHARE_CHANGE_LIST {}
+impl ::core::clone::Clone for FILESHARE_CHANGE_LIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct GET_OPERATION_CONTEXT_PARAMS(i32);
+pub struct GET_OPERATION_CONTEXT_PARAMS {
+    pub Size: u32,
+    pub Version: u32,
+    pub Type: RESDLL_CONTEXT_OPERATION_TYPE,
+    pub Priority: u32,
+}
+impl ::core::marker::Copy for GET_OPERATION_CONTEXT_PARAMS {}
+impl ::core::clone::Clone for GET_OPERATION_CONTEXT_PARAMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const GROUPSET_READY_SETTING_APPLICATION_READY: u32 = 4u32;
 pub const GROUPSET_READY_SETTING_DELAY: u32 = 1u32;
 pub const GROUPSET_READY_SETTING_ONLINE: u32 = 2u32;
 pub const GROUPSET_READY_SETTING_OS_HEARTBEAT: u32 = 3u32;
 #[repr(C)]
-pub struct GROUP_FAILURE_INFO(i32);
+pub struct GROUP_FAILURE_INFO {
+    pub dwFailoverAttemptsRemaining: u32,
+    pub dwFailoverPeriodRemaining: u32,
+}
+impl ::core::marker::Copy for GROUP_FAILURE_INFO {}
+impl ::core::clone::Clone for GROUP_FAILURE_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct GROUP_FAILURE_INFO_BUFFER(i32);
+pub struct GROUP_FAILURE_INFO_BUFFER {
+    pub dwVersion: u32,
+    pub Info: GROUP_FAILURE_INFO,
+}
+impl ::core::marker::Copy for GROUP_FAILURE_INFO_BUFFER {}
+impl ::core::clone::Clone for GROUP_FAILURE_INFO_BUFFER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const GROUP_FAILURE_INFO_VERSION_1: u32 = 1u32;
 #[repr(transparent)]
 pub struct GRP_PLACEMENT_OPTIONS(pub i32);
@@ -2276,6 +3947,12 @@ pub const GRP_PLACEMENT_OPTIONS_MIN_VALUE: GRP_PLACEMENT_OPTIONS = GRP_PLACEMENT
 pub const GRP_PLACEMENT_OPTIONS_DEFAULT: GRP_PLACEMENT_OPTIONS = GRP_PLACEMENT_OPTIONS(0i32);
 pub const GRP_PLACEMENT_OPTIONS_DISABLE_AUTOBALANCING: GRP_PLACEMENT_OPTIONS = GRP_PLACEMENT_OPTIONS(1i32);
 pub const GRP_PLACEMENT_OPTIONS_ALL: GRP_PLACEMENT_OPTIONS = GRP_PLACEMENT_OPTIONS(1i32);
+impl ::core::marker::Copy for GRP_PLACEMENT_OPTIONS {}
+impl ::core::clone::Clone for GRP_PLACEMENT_OPTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const GUID_PRESENT: u32 = 1u32;
 pub const HCI_UPGRADE_BIT: u32 = 32768u32;
 #[repr(transparent)]
@@ -2399,6 +4076,12 @@ pub const LOG_INFORMATION: LOG_LEVEL = LOG_LEVEL(0i32);
 pub const LOG_WARNING: LOG_LEVEL = LOG_LEVEL(1i32);
 pub const LOG_ERROR: LOG_LEVEL = LOG_LEVEL(2i32);
 pub const LOG_SEVERE: LOG_LEVEL = LOG_LEVEL(3i32);
+impl ::core::marker::Copy for LOG_LEVEL {}
+impl ::core::clone::Clone for LOG_LEVEL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub type LPGROUP_CALLBACK_EX = unsafe extern "system" fn(param0: *mut _HCLUSTER, param1: *mut _HGROUP, param2: *mut _HGROUP, param3: *mut ::core::ffi::c_void) -> u32;
 pub type LPNODE_CALLBACK = unsafe extern "system" fn(param0: *mut _HCLUSTER, param1: *mut _HNODE, param2: CLUSTER_NODE_STATE, param3: *mut ::core::ffi::c_void) -> u32;
 pub type LPRESOURCE_CALLBACK = unsafe extern "system" fn(param0: *mut _HRESOURCE, param1: *mut _HRESOURCE, param2: *mut ::core::ffi::c_void) -> u32;
@@ -2408,6 +4091,12 @@ pub struct MAINTENANCE_MODE_TYPE_ENUM(pub i32);
 pub const MaintenanceModeTypeDisableIsAliveCheck: MAINTENANCE_MODE_TYPE_ENUM = MAINTENANCE_MODE_TYPE_ENUM(1i32);
 pub const MaintenanceModeTypeOfflineResource: MAINTENANCE_MODE_TYPE_ENUM = MAINTENANCE_MODE_TYPE_ENUM(2i32);
 pub const MaintenanceModeTypeUnclusterResource: MAINTENANCE_MODE_TYPE_ENUM = MAINTENANCE_MODE_TYPE_ENUM(3i32);
+impl ::core::marker::Copy for MAINTENANCE_MODE_TYPE_ENUM {}
+impl ::core::clone::Clone for MAINTENANCE_MODE_TYPE_ENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MAINTENANCE_MODE_V2_SIG: u32 = 2881155087u32;
 pub const MAX_CLUSTERNAME_LENGTH: u32 = 63u32;
 pub const MAX_CO_PASSWORD_LENGTH: u32 = 16u32;
@@ -2416,9 +4105,22 @@ pub const MAX_CO_PASSWORD_STORAGEEX: u32 = 128u32;
 pub const MAX_CREATINGDC_LENGTH: u32 = 256u32;
 pub const MAX_OBJECTID: u32 = 64u32;
 pub const MN_UPGRADE_VERSION: u32 = 3u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct MONITOR_STATE(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct MONITOR_STATE {
+    pub LastUpdate: i64,
+    pub State: RESOURCE_MONITOR_STATE,
+    pub ActiveResource: super::super::Foundation::HANDLE,
+    pub ResmonStop: super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MONITOR_STATE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MONITOR_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const NINETEEN_H1_UPGRADE_VERSION: u32 = 1u32;
 pub const NINETEEN_H2_UPGRADE_VERSION: u32 = 2u32;
 pub const NNLEN: u32 = 80u32;
@@ -2428,8 +4130,23 @@ pub const ClusterStateNotInstalled: NODE_CLUSTER_STATE = NODE_CLUSTER_STATE(0i32
 pub const ClusterStateNotConfigured: NODE_CLUSTER_STATE = NODE_CLUSTER_STATE(1i32);
 pub const ClusterStateNotRunning: NODE_CLUSTER_STATE = NODE_CLUSTER_STATE(3i32);
 pub const ClusterStateRunning: NODE_CLUSTER_STATE = NODE_CLUSTER_STATE(19i32);
+impl ::core::marker::Copy for NODE_CLUSTER_STATE {}
+impl ::core::clone::Clone for NODE_CLUSTER_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct NOTIFY_FILTER_AND_TYPE(i32);
+pub struct NOTIFY_FILTER_AND_TYPE {
+    pub dwObjectType: u32,
+    pub FilterFlags: i64,
+}
+impl ::core::marker::Copy for NOTIFY_FILTER_AND_TYPE {}
+impl ::core::clone::Clone for NOTIFY_FILTER_AND_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const NT10_MAJOR_VERSION: u32 = 9u32;
 pub const NT11_MAJOR_VERSION: u32 = 10u32;
 pub const NT12_MAJOR_VERSION: u32 = 11u32;
@@ -2443,7 +4160,17 @@ pub const NT7_MAJOR_VERSION: u32 = 6u32;
 pub const NT8_MAJOR_VERSION: u32 = 7u32;
 pub const NT9_MAJOR_VERSION: u32 = 8u32;
 #[repr(C)]
-pub struct NodeUtilizationInfoElement(i32);
+pub struct NodeUtilizationInfoElement {
+    pub Id: u64,
+    pub AvailableMemory: u64,
+    pub AvailableMemoryAfterReclamation: u64,
+}
+impl ::core::marker::Copy for NodeUtilizationInfoElement {}
+impl ::core::clone::Clone for NodeUtilizationInfoElement {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub type PARBITRATE_ROUTINE = unsafe extern "system" fn(resource: *mut ::core::ffi::c_void, lostquorumresource: PQUORUM_RESOURCE_LOST) -> u32;
 #[cfg(feature = "Win32_Foundation")]
 pub type PBEGIN_RESCALL_AS_USER_ROUTINE = unsafe extern "system" fn(resource: *mut ::core::ffi::c_void, tokenhandle: super::super::Foundation::HANDLE, controlcode: u32, inbuffer: *mut ::core::ffi::c_void, inbuffersize: u32, outbuffer: *mut ::core::ffi::c_void, outbuffersize: u32, bytesreturned: *mut u32, context: i64, returnedasynchronously: *mut super::super::Foundation::BOOL) -> u32;
@@ -2821,6 +4548,12 @@ pub const PLACEMENT_OPTIONS_DONT_RESUME_AVAILABILTY_SET_VMS_WITH_EXISTING_TEMP_D
 pub const PLACEMENT_OPTIONS_SAVE_AVAILABILTY_SET_VMS_WITH_LOCAL_DISK_ON_DRAIN_OVERWRITE: PLACEMENT_OPTIONS = PLACEMENT_OPTIONS(256i32);
 pub const PLACEMENT_OPTIONS_AVAILABILITY_SET_DOMAIN_AFFINITY: PLACEMENT_OPTIONS = PLACEMENT_OPTIONS(512i32);
 pub const PLACEMENT_OPTIONS_ALL: PLACEMENT_OPTIONS = PLACEMENT_OPTIONS(1023i32);
+impl ::core::marker::Copy for PLACEMENT_OPTIONS {}
+impl ::core::clone::Clone for PLACEMENT_OPTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[cfg(feature = "Win32_Foundation")]
 pub type PLOG_EVENT_ROUTINE = unsafe extern "system" fn(resourcehandle: isize, loglevel: LOG_LEVEL, formatstring: super::super::Foundation::PWSTR);
 #[cfg(feature = "Win32_Foundation")]
@@ -2841,7 +4574,19 @@ pub type POPEN_ROUTINE = unsafe extern "system" fn(resourcename: super::super::F
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub type POPEN_V2_ROUTINE = unsafe extern "system" fn(resourcename: super::super::Foundation::PWSTR, resourcekey: super::super::System::Registry::HKEY, resourcehandle: isize, openflags: u32) -> *mut ::core::ffi::c_void;
 #[repr(C)]
-pub struct POST_UPGRADE_VERSION_INFO(i32);
+pub struct POST_UPGRADE_VERSION_INFO {
+    pub newMajorVersion: u32,
+    pub newUpgradeVersion: u32,
+    pub oldMajorVersion: u32,
+    pub oldUpgradeVersion: u32,
+    pub reserved: u32,
+}
+impl ::core::marker::Copy for POST_UPGRADE_VERSION_INFO {}
+impl ::core::clone::Clone for POST_UPGRADE_VERSION_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[cfg(feature = "Win32_Foundation")]
 pub type PQUERY_APPINSTANCE_VERSION = unsafe extern "system" fn(appinstanceid: *const ::windows_sys::core::GUID, instanceversionhigh: *mut u64, instanceversionlow: *mut u64, versionstatus: *mut super::super::Foundation::NTSTATUS) -> u32;
 pub type PQUORUM_RESOURCE_LOST = unsafe extern "system" fn(resource: isize);
@@ -3034,7 +4779,27 @@ pub type PTERMINATE_ROUTINE = unsafe extern "system" fn(resource: *mut ::core::f
 #[cfg(feature = "Win32_Foundation")]
 pub type PWORKER_START_ROUTINE = unsafe extern "system" fn(pworker: *mut CLUS_WORKER, lpthreadparameter: *mut ::core::ffi::c_void) -> u32;
 #[repr(C)]
-pub struct PaxosTagCStruct(i32);
+pub struct PaxosTagCStruct {
+    pub __padding__PaxosTagVtable: u64,
+    pub __padding__NextEpochVtable: u64,
+    pub __padding__NextEpoch_DateTimeVtable: u64,
+    pub NextEpoch_DateTime_ticks: u64,
+    pub NextEpoch_Value: i32,
+    pub __padding__BoundryNextEpoch: u32,
+    pub __padding__EpochVtable: u64,
+    pub __padding__Epoch_DateTimeVtable: u64,
+    pub Epoch_DateTime_ticks: u64,
+    pub Epoch_Value: i32,
+    pub __padding__BoundryEpoch: u32,
+    pub Sequence: i32,
+    pub __padding__BoundrySequence: u32,
+}
+impl ::core::marker::Copy for PaxosTagCStruct {}
+impl ::core::clone::Clone for PaxosTagCStruct {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RESDLL_CONTEXT_OPERATION_TYPE(pub i32);
 pub const ResdllContextOperationTypeFailback: RESDLL_CONTEXT_OPERATION_TYPE = RESDLL_CONTEXT_OPERATION_TYPE(0i32);
@@ -3044,15 +4809,45 @@ pub const ResdllContextOperationTypeEmbeddedFailure: RESDLL_CONTEXT_OPERATION_TY
 pub const ResdllContextOperationTypePreemption: RESDLL_CONTEXT_OPERATION_TYPE = RESDLL_CONTEXT_OPERATION_TYPE(4i32);
 pub const ResdllContextOperationTypeNetworkDisconnect: RESDLL_CONTEXT_OPERATION_TYPE = RESDLL_CONTEXT_OPERATION_TYPE(5i32);
 pub const ResdllContextOperationTypeNetworkDisconnectMoveRetry: RESDLL_CONTEXT_OPERATION_TYPE = RESDLL_CONTEXT_OPERATION_TYPE(6i32);
+impl ::core::marker::Copy for RESDLL_CONTEXT_OPERATION_TYPE {}
+impl ::core::clone::Clone for RESDLL_CONTEXT_OPERATION_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RESOURCE_EXIT_STATE(pub i32);
 pub const ResourceExitStateContinue: RESOURCE_EXIT_STATE = RESOURCE_EXIT_STATE(0i32);
 pub const ResourceExitStateTerminate: RESOURCE_EXIT_STATE = RESOURCE_EXIT_STATE(1i32);
 pub const ResourceExitStateMax: RESOURCE_EXIT_STATE = RESOURCE_EXIT_STATE(2i32);
+impl ::core::marker::Copy for RESOURCE_EXIT_STATE {}
+impl ::core::clone::Clone for RESOURCE_EXIT_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct RESOURCE_FAILURE_INFO(i32);
+pub struct RESOURCE_FAILURE_INFO {
+    pub dwRestartAttemptsRemaining: u32,
+    pub dwRestartPeriodRemaining: u32,
+}
+impl ::core::marker::Copy for RESOURCE_FAILURE_INFO {}
+impl ::core::clone::Clone for RESOURCE_FAILURE_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct RESOURCE_FAILURE_INFO_BUFFER(i32);
+pub struct RESOURCE_FAILURE_INFO_BUFFER {
+    pub dwVersion: u32,
+    pub Info: RESOURCE_FAILURE_INFO,
+}
+impl ::core::marker::Copy for RESOURCE_FAILURE_INFO_BUFFER {}
+impl ::core::clone::Clone for RESOURCE_FAILURE_INFO_BUFFER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const RESOURCE_FAILURE_INFO_VERSION_1: u32 = 1u32;
 #[repr(transparent)]
 pub struct RESOURCE_MONITOR_STATE(pub i32);
@@ -3072,31 +4867,143 @@ pub const RmonResourceControl: RESOURCE_MONITOR_STATE = RESOURCE_MONITOR_STATE(1
 pub const RmonResourceTypeControl: RESOURCE_MONITOR_STATE = RESOURCE_MONITOR_STATE(13i32);
 pub const RmonTerminateResource: RESOURCE_MONITOR_STATE = RESOURCE_MONITOR_STATE(14i32);
 pub const RmonDeadlocked: RESOURCE_MONITOR_STATE = RESOURCE_MONITOR_STATE(15i32);
-#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for RESOURCE_MONITOR_STATE {}
+impl ::core::clone::Clone for RESOURCE_MONITOR_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct RESOURCE_STATUS(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct RESOURCE_STATUS_EX(i32);
+pub struct RESOURCE_STATUS {
+    pub ResourceState: CLUSTER_RESOURCE_STATE,
+    pub CheckPoint: u32,
+    pub WaitHint: u32,
+    pub EventHandle: super::super::Foundation::HANDLE,
+}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for RESOURCE_STATUS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for RESOURCE_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct RESOURCE_TERMINAL_FAILURE_INFO_BUFFER(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct RESOURCE_STATUS_EX {
+    pub ResourceState: CLUSTER_RESOURCE_STATE,
+    pub CheckPoint: u32,
+    pub EventHandle: super::super::Foundation::HANDLE,
+    pub ApplicationSpecificErrorCode: u32,
+    pub Flags: u32,
+    pub WaitHint: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for RESOURCE_STATUS_EX {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for RESOURCE_STATUS_EX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct RESOURCE_TERMINAL_FAILURE_INFO_BUFFER {
+    pub isTerminalFailure: super::super::Foundation::BOOL,
+    pub restartPeriodRemaining: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for RESOURCE_TERMINAL_FAILURE_INFO_BUFFER {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for RESOURCE_TERMINAL_FAILURE_INFO_BUFFER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const RESTYPE_MONITOR_SHUTTING_DOWN_CLUSSVC_CRASH: u32 = 2u32;
 pub const RESTYPE_MONITOR_SHUTTING_DOWN_NODE_STOP: u32 = 1u32;
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct RESUTIL_FILETIME_DATA(i32);
-#[repr(C)]
-pub struct RESUTIL_LARGEINT_DATA(i32);
+pub struct RESUTIL_FILETIME_DATA {
+    pub Default: super::super::Foundation::FILETIME,
+    pub Minimum: super::super::Foundation::FILETIME,
+    pub Maximum: super::super::Foundation::FILETIME,
+}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for RESUTIL_FILETIME_DATA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for RESUTIL_FILETIME_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct RESUTIL_PROPERTY_ITEM(i32);
+pub struct RESUTIL_LARGEINT_DATA {
+    pub Default: i64,
+    pub Minimum: i64,
+    pub Maximum: i64,
+}
+impl ::core::marker::Copy for RESUTIL_LARGEINT_DATA {}
+impl ::core::clone::Clone for RESUTIL_LARGEINT_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct RESUTIL_PROPERTY_ITEM {
+    pub Name: super::super::Foundation::PWSTR,
+    pub KeyName: super::super::Foundation::PWSTR,
+    pub Format: u32,
+    pub Anonymous: RESUTIL_PROPERTY_ITEM_0,
+    pub Minimum: u32,
+    pub Maximum: u32,
+    pub Flags: u32,
+    pub Offset: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for RESUTIL_PROPERTY_ITEM {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for RESUTIL_PROPERTY_ITEM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub union RESUTIL_PROPERTY_ITEM_0 {
+    pub DefaultPtr: usize,
+    pub Default: u32,
+    pub lpDefault: *mut ::core::ffi::c_void,
+    pub LargeIntData: *mut RESUTIL_LARGEINT_DATA,
+    pub ULargeIntData: *mut RESUTIL_ULARGEINT_DATA,
+    pub FileTimeData: *mut RESUTIL_FILETIME_DATA,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for RESUTIL_PROPERTY_ITEM_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for RESUTIL_PROPERTY_ITEM_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const RESUTIL_PROPITEM_IN_MEMORY: u32 = 8u32;
 pub const RESUTIL_PROPITEM_READ_ONLY: u32 = 1u32;
 pub const RESUTIL_PROPITEM_REQUIRED: u32 = 2u32;
 pub const RESUTIL_PROPITEM_SIGNED: u32 = 4u32;
 #[repr(C)]
-pub struct RESUTIL_ULARGEINT_DATA(i32);
+pub struct RESUTIL_ULARGEINT_DATA {
+    pub Default: u64,
+    pub Minimum: u64,
+    pub Maximum: u64,
+}
+impl ::core::marker::Copy for RESUTIL_ULARGEINT_DATA {}
+impl ::core::clone::Clone for RESUTIL_ULARGEINT_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const RS3_UPGRADE_VERSION: u32 = 1u32;
 pub const RS4_UPGRADE_VERSION: u32 = 2u32;
 pub const RS5_UPGRADE_VERSION: u32 = 3u32;
@@ -3108,7 +5015,16 @@ pub const RedirectedIOReasonUnsafeFileSystemFilter: u64 = 2u64;
 pub const RedirectedIOReasonUnsafeVolumeFilter: u64 = 4u64;
 pub const RedirectedIOReasonUserRequest: u64 = 1u64;
 #[repr(C)]
-pub struct ResourceUtilizationInfoElement(i32);
+pub struct ResourceUtilizationInfoElement {
+    pub PhysicalNumaId: u64,
+    pub CurrentMemory: u64,
+}
+impl ::core::marker::Copy for ResourceUtilizationInfoElement {}
+impl ::core::clone::Clone for ResourceUtilizationInfoElement {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SET_APPINSTANCE_CSV_FLAGS_VALID_ONLY_IF_CSV_COORDINATOR: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
 pub type SET_APP_INSTANCE_CSV_FLAGS = unsafe extern "system" fn(processhandle: super::super::Foundation::HANDLE, mask: u32, flags: u32) -> u32;
@@ -3126,6 +5042,12 @@ pub const SrDiskReplicationEligibleFileSystemNotSupported: SR_DISK_REPLICATION_E
 pub const SrDiskReplicationEligibleAlreadyInReplication: SR_DISK_REPLICATION_ELIGIBLE = SR_DISK_REPLICATION_ELIGIBLE(9i32);
 pub const SrDiskReplicationEligibleSameAsSpecifiedDisk: SR_DISK_REPLICATION_ELIGIBLE = SR_DISK_REPLICATION_ELIGIBLE(10i32);
 pub const SrDiskReplicationEligibleOther: SR_DISK_REPLICATION_ELIGIBLE = SR_DISK_REPLICATION_ELIGIBLE(9999i32);
+impl ::core::marker::Copy for SR_DISK_REPLICATION_ELIGIBLE {}
+impl ::core::clone::Clone for SR_DISK_REPLICATION_ELIGIBLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SR_REPLICATED_DISK_TYPE(pub i32);
 pub const SrReplicatedDiskTypeNone: SR_REPLICATED_DISK_TYPE = SR_REPLICATED_DISK_TYPE(0i32);
@@ -3136,33 +5058,160 @@ pub const SrReplicatedDiskTypeLogDestination: SR_REPLICATED_DISK_TYPE = SR_REPLI
 pub const SrReplicatedDiskTypeNotInParthership: SR_REPLICATED_DISK_TYPE = SR_REPLICATED_DISK_TYPE(5i32);
 pub const SrReplicatedDiskTypeLogNotInParthership: SR_REPLICATED_DISK_TYPE = SR_REPLICATED_DISK_TYPE(6i32);
 pub const SrReplicatedDiskTypeOther: SR_REPLICATED_DISK_TYPE = SR_REPLICATED_DISK_TYPE(7i32);
+impl ::core::marker::Copy for SR_REPLICATED_DISK_TYPE {}
+impl ::core::clone::Clone for SR_REPLICATED_DISK_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SR_REPLICATED_PARTITION_DISALLOW_MULTINODE_IO: u32 = 1u32;
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP(i32);
-#[repr(C)]
-pub struct SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP_RESULT(i32);
-#[repr(C)]
-pub struct SR_RESOURCE_TYPE_DISK_INFO(i32);
-#[repr(C)]
-pub struct SR_RESOURCE_TYPE_ELIGIBLE_DISKS_RESULT(i32);
+pub struct SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP {
+    pub ReplicationGroupName: [u16; 260],
+    pub Description: [u16; 260],
+    pub LogPath: [u16; 260],
+    pub MaxLogSizeInBytes: u64,
+    pub LogType: u16,
+    pub ReplicationMode: u32,
+    pub MinimumPartnersInSync: u32,
+    pub EnableWriteConsistency: super::super::Foundation::BOOLEAN,
+    pub EnableEncryption: super::super::Foundation::BOOLEAN,
+    pub CertificateThumbprint: [u16; 260],
+    pub VolumeNameCount: u32,
+    pub VolumeNames: [u16; 260],
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct SR_RESOURCE_TYPE_QUERY_ELIGIBLE_LOGDISKS(i32);
+impl ::core::marker::Copy for SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct SR_RESOURCE_TYPE_QUERY_ELIGIBLE_SOURCE_DATADISKS(i32);
+pub struct SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP_RESULT {
+    pub Result: u32,
+    pub ErrorString: [u16; 260],
+}
+impl ::core::marker::Copy for SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP_RESULT {}
+impl ::core::clone::Clone for SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP_RESULT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct SR_RESOURCE_TYPE_DISK_INFO {
+    pub Reason: SR_DISK_REPLICATION_ELIGIBLE,
+    pub DiskGuid: ::windows_sys::core::GUID,
+}
+impl ::core::marker::Copy for SR_RESOURCE_TYPE_DISK_INFO {}
+impl ::core::clone::Clone for SR_RESOURCE_TYPE_DISK_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct SR_RESOURCE_TYPE_ELIGIBLE_DISKS_RESULT {
+    pub Count: u16,
+    pub DiskInfo: [SR_RESOURCE_TYPE_DISK_INFO; 1],
+}
+impl ::core::marker::Copy for SR_RESOURCE_TYPE_ELIGIBLE_DISKS_RESULT {}
+impl ::core::clone::Clone for SR_RESOURCE_TYPE_ELIGIBLE_DISKS_RESULT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+pub struct SR_RESOURCE_TYPE_QUERY_ELIGIBLE_LOGDISKS {
+    pub DataDiskGuid: ::windows_sys::core::GUID,
+    pub IncludeOfflineDisks: super::super::Foundation::BOOLEAN,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SR_RESOURCE_TYPE_QUERY_ELIGIBLE_LOGDISKS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SR_RESOURCE_TYPE_QUERY_ELIGIBLE_LOGDISKS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct SR_RESOURCE_TYPE_QUERY_ELIGIBLE_TARGET_DATADISKS(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct SR_RESOURCE_TYPE_QUERY_ELIGIBLE_SOURCE_DATADISKS {
+    pub DataDiskGuid: ::windows_sys::core::GUID,
+    pub IncludeAvailableStoargeDisks: super::super::Foundation::BOOLEAN,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SR_RESOURCE_TYPE_QUERY_ELIGIBLE_SOURCE_DATADISKS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SR_RESOURCE_TYPE_QUERY_ELIGIBLE_SOURCE_DATADISKS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct SR_RESOURCE_TYPE_REPLICATED_DISK(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct SR_RESOURCE_TYPE_QUERY_ELIGIBLE_TARGET_DATADISKS {
+    pub SourceDataDiskGuid: ::windows_sys::core::GUID,
+    pub TargetReplicationGroupGuid: ::windows_sys::core::GUID,
+    pub SkipConnectivityCheck: super::super::Foundation::BOOLEAN,
+    pub IncludeOfflineDisks: super::super::Foundation::BOOLEAN,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SR_RESOURCE_TYPE_QUERY_ELIGIBLE_TARGET_DATADISKS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SR_RESOURCE_TYPE_QUERY_ELIGIBLE_TARGET_DATADISKS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct SR_RESOURCE_TYPE_REPLICATED_DISKS_RESULT(i32);
+pub struct SR_RESOURCE_TYPE_REPLICATED_DISK {
+    pub Type: SR_REPLICATED_DISK_TYPE,
+    pub ClusterDiskResourceGuid: ::windows_sys::core::GUID,
+    pub ReplicationGroupId: ::windows_sys::core::GUID,
+    pub ReplicationGroupName: [u16; 260],
+}
+impl ::core::marker::Copy for SR_RESOURCE_TYPE_REPLICATED_DISK {}
+impl ::core::clone::Clone for SR_RESOURCE_TYPE_REPLICATED_DISK {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct SR_RESOURCE_TYPE_REPLICATED_PARTITION_ARRAY(i32);
+pub struct SR_RESOURCE_TYPE_REPLICATED_DISKS_RESULT {
+    pub Count: u16,
+    pub ReplicatedDisks: [SR_RESOURCE_TYPE_REPLICATED_DISK; 1],
+}
+impl ::core::marker::Copy for SR_RESOURCE_TYPE_REPLICATED_DISKS_RESULT {}
+impl ::core::clone::Clone for SR_RESOURCE_TYPE_REPLICATED_DISKS_RESULT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct SR_RESOURCE_TYPE_REPLICATED_PARTITION_INFO(i32);
+pub struct SR_RESOURCE_TYPE_REPLICATED_PARTITION_ARRAY {
+    pub Count: u32,
+    pub PartitionArray: [SR_RESOURCE_TYPE_REPLICATED_PARTITION_INFO; 1],
+}
+impl ::core::marker::Copy for SR_RESOURCE_TYPE_REPLICATED_PARTITION_ARRAY {}
+impl ::core::clone::Clone for SR_RESOURCE_TYPE_REPLICATED_PARTITION_ARRAY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct SR_RESOURCE_TYPE_REPLICATED_PARTITION_INFO {
+    pub PartitionOffset: u64,
+    pub Capabilities: u32,
+}
+impl ::core::marker::Copy for SR_RESOURCE_TYPE_REPLICATED_PARTITION_INFO {}
+impl ::core::clone::Clone for SR_RESOURCE_TYPE_REPLICATED_PARTITION_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct VM_RESDLL_CONTEXT(pub i32);
 pub const VmResdllContextTurnOff: VM_RESDLL_CONTEXT = VM_RESDLL_CONTEXT(0i32);
@@ -3170,6 +5219,12 @@ pub const VmResdllContextSave: VM_RESDLL_CONTEXT = VM_RESDLL_CONTEXT(1i32);
 pub const VmResdllContextShutdown: VM_RESDLL_CONTEXT = VM_RESDLL_CONTEXT(2i32);
 pub const VmResdllContextShutdownForce: VM_RESDLL_CONTEXT = VM_RESDLL_CONTEXT(3i32);
 pub const VmResdllContextLiveMigration: VM_RESDLL_CONTEXT = VM_RESDLL_CONTEXT(4i32);
+impl ::core::marker::Copy for VM_RESDLL_CONTEXT {}
+impl ::core::clone::Clone for VM_RESDLL_CONTEXT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const VolumeRedirectedIOReasonMax: u64 = 9223372036854775808u64;
 pub const VolumeRedirectedIOReasonNoDiskConnectivity: u64 = 1u64;
 pub const VolumeRedirectedIOReasonStorageSpaceNotAttached: u64 = 2u64;
@@ -3178,58 +5233,77 @@ pub const WS2016_RTM_UPGRADE_VERSION: u32 = 8u32;
 pub const WS2016_TP4_UPGRADE_VERSION: u32 = 6u32;
 pub const WS2016_TP5_UPGRADE_VERSION: u32 = 7u32;
 #[repr(C)]
-pub struct WitnessTagHelper(i32);
+pub struct WitnessTagHelper {
+    pub Version: i32,
+    pub paxosToValidate: PaxosTagCStruct,
+}
+impl ::core::marker::Copy for WitnessTagHelper {}
+impl ::core::clone::Clone for WitnessTagHelper {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct WitnessTagUpdateHelper(i32);
+pub struct WitnessTagUpdateHelper {
+    pub Version: i32,
+    pub paxosToSet: PaxosTagCStruct,
+    pub paxosToValidate: PaxosTagCStruct,
+}
+impl ::core::marker::Copy for WitnessTagUpdateHelper {}
+impl ::core::clone::Clone for WitnessTagUpdateHelper {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct _HCHANGE(i32);
+pub struct _HCHANGE(pub u8);
 #[repr(C)]
-pub struct _HCLUSCRYPTPROVIDER(i32);
+pub struct _HCLUSCRYPTPROVIDER(pub u8);
 #[repr(C)]
-pub struct _HCLUSENUM(i32);
+pub struct _HCLUSENUM(pub u8);
 #[repr(C)]
-pub struct _HCLUSENUMEX(i32);
+pub struct _HCLUSENUMEX(pub u8);
 #[repr(C)]
-pub struct _HCLUSTER(i32);
+pub struct _HCLUSTER(pub u8);
 #[repr(C)]
-pub struct _HGROUP(i32);
+pub struct _HGROUP(pub u8);
 #[repr(C)]
-pub struct _HGROUPENUM(i32);
+pub struct _HGROUPENUM(pub u8);
 #[repr(C)]
-pub struct _HGROUPENUMEX(i32);
+pub struct _HGROUPENUMEX(pub u8);
 #[repr(C)]
-pub struct _HGROUPSET(i32);
+pub struct _HGROUPSET(pub u8);
 #[repr(C)]
-pub struct _HGROUPSETENUM(i32);
+pub struct _HGROUPSETENUM(pub u8);
 #[repr(C)]
-pub struct _HNETINTERFACE(i32);
+pub struct _HNETINTERFACE(pub u8);
 #[repr(C)]
-pub struct _HNETINTERFACEENUM(i32);
+pub struct _HNETINTERFACEENUM(pub u8);
 #[repr(C)]
-pub struct _HNETWORK(i32);
+pub struct _HNETWORK(pub u8);
 #[repr(C)]
-pub struct _HNETWORKENUM(i32);
+pub struct _HNETWORKENUM(pub u8);
 #[repr(C)]
-pub struct _HNODE(i32);
+pub struct _HNODE(pub u8);
 #[repr(C)]
-pub struct _HNODEENUM(i32);
+pub struct _HNODEENUM(pub u8);
 #[repr(C)]
-pub struct _HNODEENUMEX(i32);
+pub struct _HNODEENUMEX(pub u8);
 #[repr(C)]
-pub struct _HREGBATCH(i32);
+pub struct _HREGBATCH(pub u8);
 #[repr(C)]
-pub struct _HREGBATCHNOTIFICATION(i32);
+pub struct _HREGBATCHNOTIFICATION(pub u8);
 #[repr(C)]
-pub struct _HREGBATCHPORT(i32);
+pub struct _HREGBATCHPORT(pub u8);
 #[repr(C)]
-pub struct _HREGREADBATCH(i32);
+pub struct _HREGREADBATCH(pub u8);
 #[repr(C)]
-pub struct _HREGREADBATCHREPLY(i32);
+pub struct _HREGREADBATCHREPLY(pub u8);
 #[repr(C)]
-pub struct _HRESENUM(i32);
+pub struct _HRESENUM(pub u8);
 #[repr(C)]
-pub struct _HRESENUMEX(i32);
+pub struct _HRESENUMEX(pub u8);
 #[repr(C)]
-pub struct _HRESOURCE(i32);
+pub struct _HRESOURCE(pub u8);
 #[repr(C)]
-pub struct _HRESTYPEENUM(i32);
+pub struct _HRESTYPEENUM(pub u8);

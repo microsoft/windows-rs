@@ -547,12 +547,9 @@ pub const DISPID_XTLRUNTIME_FORMATNUMBER: u32 = 193u32;
 pub const DISPID_XTLRUNTIME_FORMATTIME: u32 = 195u32;
 pub const DISPID_XTLRUNTIME_UNIQUEID: u32 = 187u32;
 pub const DISPID_XTLRUNTIME__TOP: u32 = 196u32;
-#[repr(C)]
-pub struct DOMDocument(i32);
-#[repr(C)]
-pub struct DOMDocument60(i32);
-#[repr(C)]
-pub struct DOMFreeThreadedDocument(i32);
+pub const DOMDocument: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 691257232, data2: 31542, data3: 4562, data4: [178, 14, 0, 192, 79, 152, 62, 96] };
+pub const DOMDocument60: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2295949829, data2: 61842, data3: 4564, data4: [166, 95, 0, 64, 150, 50, 81, 229] };
+pub const DOMFreeThreadedDocument: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 691257233, data2: 31542, data3: 4562, data4: [178, 14, 0, 192, 79, 152, 62, 96] };
 #[repr(transparent)]
 pub struct DOMNodeType(pub i32);
 pub const NODE_INVALID: DOMNodeType = DOMNodeType(0i32);
@@ -568,14 +565,18 @@ pub const NODE_DOCUMENT: DOMNodeType = DOMNodeType(9i32);
 pub const NODE_DOCUMENT_TYPE: DOMNodeType = DOMNodeType(10i32);
 pub const NODE_DOCUMENT_FRAGMENT: DOMNodeType = DOMNodeType(11i32);
 pub const NODE_NOTATION: DOMNodeType = DOMNodeType(12i32);
+impl ::core::marker::Copy for DOMNodeType {}
+impl ::core::clone::Clone for DOMNodeType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const E_XML_BUFFERTOOSMALL: i32 = -1072897498i32;
 pub const E_XML_INVALID: i32 = -1072897499i32;
 pub const E_XML_NODTD: i32 = -1072897500i32;
 pub const E_XML_NOTWF: i32 = -1072897501i32;
-#[repr(C)]
-pub struct FreeThreadedDOMDocument60(i32);
-#[repr(C)]
-pub struct FreeThreadedXMLHTTP60(i32);
+pub const FreeThreadedDOMDocument60: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2295949830, data2: 61842, data3: 4564, data4: [166, 95, 0, 64, 150, 50, 81, 229] };
+pub const FreeThreadedXMLHTTP60: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2295949833, data2: 61842, data3: 4564, data4: [166, 95, 0, 64, 150, 50, 81, 229] };
 #[repr(transparent)]
 pub struct IMXAttributes(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -748,22 +749,23 @@ pub struct IXSLProcessor(pub *mut ::core::ffi::c_void);
 pub struct IXSLTemplate(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IXTLRuntime(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct MXHTMLWriter60(i32);
-#[repr(C)]
-pub struct MXNamespaceManager60(i32);
-#[repr(C)]
-pub struct MXXMLWriter60(i32);
-#[repr(C)]
-pub struct SAXAttributes60(i32);
-#[repr(C)]
-pub struct SAXXMLReader60(i32);
+pub const MXHTMLWriter60: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2295949840, data2: 61842, data3: 4564, data4: [166, 95, 0, 64, 150, 50, 81, 229] };
+pub const MXNamespaceManager60: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2295949841, data2: 61842, data3: 4564, data4: [166, 95, 0, 64, 150, 50, 81, 229] };
+pub const MXXMLWriter60: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2295949839, data2: 61842, data3: 4564, data4: [166, 95, 0, 64, 150, 50, 81, 229] };
+pub const SAXAttributes60: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2295949838, data2: 61842, data3: 4564, data4: [166, 95, 0, 64, 150, 50, 81, 229] };
+pub const SAXXMLReader60: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2295949836, data2: 61842, data3: 4564, data4: [166, 95, 0, 64, 150, 50, 81, 229] };
 #[repr(transparent)]
 pub struct SCHEMACONTENTTYPE(pub i32);
 pub const SCHEMACONTENTTYPE_EMPTY: SCHEMACONTENTTYPE = SCHEMACONTENTTYPE(0i32);
 pub const SCHEMACONTENTTYPE_TEXTONLY: SCHEMACONTENTTYPE = SCHEMACONTENTTYPE(1i32);
 pub const SCHEMACONTENTTYPE_ELEMENTONLY: SCHEMACONTENTTYPE = SCHEMACONTENTTYPE(2i32);
 pub const SCHEMACONTENTTYPE_MIXED: SCHEMACONTENTTYPE = SCHEMACONTENTTYPE(3i32);
+impl ::core::marker::Copy for SCHEMACONTENTTYPE {}
+impl ::core::clone::Clone for SCHEMACONTENTTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SCHEMADERIVATIONMETHOD(pub i32);
 pub const SCHEMADERIVATIONMETHOD_EMPTY: SCHEMADERIVATIONMETHOD = SCHEMADERIVATIONMETHOD(0i32);
@@ -774,29 +776,59 @@ pub const SCHEMADERIVATIONMETHOD_LIST: SCHEMADERIVATIONMETHOD = SCHEMADERIVATION
 pub const SCHEMADERIVATIONMETHOD_UNION: SCHEMADERIVATIONMETHOD = SCHEMADERIVATIONMETHOD(16i32);
 pub const SCHEMADERIVATIONMETHOD_ALL: SCHEMADERIVATIONMETHOD = SCHEMADERIVATIONMETHOD(255i32);
 pub const SCHEMADERIVATIONMETHOD_NONE: SCHEMADERIVATIONMETHOD = SCHEMADERIVATIONMETHOD(256i32);
+impl ::core::marker::Copy for SCHEMADERIVATIONMETHOD {}
+impl ::core::clone::Clone for SCHEMADERIVATIONMETHOD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SCHEMAPROCESSCONTENTS(pub i32);
 pub const SCHEMAPROCESSCONTENTS_NONE: SCHEMAPROCESSCONTENTS = SCHEMAPROCESSCONTENTS(0i32);
 pub const SCHEMAPROCESSCONTENTS_SKIP: SCHEMAPROCESSCONTENTS = SCHEMAPROCESSCONTENTS(1i32);
 pub const SCHEMAPROCESSCONTENTS_LAX: SCHEMAPROCESSCONTENTS = SCHEMAPROCESSCONTENTS(2i32);
 pub const SCHEMAPROCESSCONTENTS_STRICT: SCHEMAPROCESSCONTENTS = SCHEMAPROCESSCONTENTS(3i32);
+impl ::core::marker::Copy for SCHEMAPROCESSCONTENTS {}
+impl ::core::clone::Clone for SCHEMAPROCESSCONTENTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SCHEMATYPEVARIETY(pub i32);
 pub const SCHEMATYPEVARIETY_NONE: SCHEMATYPEVARIETY = SCHEMATYPEVARIETY(-1i32);
 pub const SCHEMATYPEVARIETY_ATOMIC: SCHEMATYPEVARIETY = SCHEMATYPEVARIETY(0i32);
 pub const SCHEMATYPEVARIETY_LIST: SCHEMATYPEVARIETY = SCHEMATYPEVARIETY(1i32);
 pub const SCHEMATYPEVARIETY_UNION: SCHEMATYPEVARIETY = SCHEMATYPEVARIETY(2i32);
+impl ::core::marker::Copy for SCHEMATYPEVARIETY {}
+impl ::core::clone::Clone for SCHEMATYPEVARIETY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SCHEMAUSE(pub i32);
 pub const SCHEMAUSE_OPTIONAL: SCHEMAUSE = SCHEMAUSE(0i32);
 pub const SCHEMAUSE_PROHIBITED: SCHEMAUSE = SCHEMAUSE(1i32);
 pub const SCHEMAUSE_REQUIRED: SCHEMAUSE = SCHEMAUSE(2i32);
+impl ::core::marker::Copy for SCHEMAUSE {}
+impl ::core::clone::Clone for SCHEMAUSE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SCHEMAWHITESPACE(pub i32);
 pub const SCHEMAWHITESPACE_NONE: SCHEMAWHITESPACE = SCHEMAWHITESPACE(-1i32);
 pub const SCHEMAWHITESPACE_PRESERVE: SCHEMAWHITESPACE = SCHEMAWHITESPACE(0i32);
 pub const SCHEMAWHITESPACE_REPLACE: SCHEMAWHITESPACE = SCHEMAWHITESPACE(1i32);
 pub const SCHEMAWHITESPACE_COLLAPSE: SCHEMAWHITESPACE = SCHEMAWHITESPACE(2i32);
+impl ::core::marker::Copy for SCHEMAWHITESPACE {}
+impl ::core::clone::Clone for SCHEMAWHITESPACE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SERVERXMLHTTP_OPTION(pub i32);
 pub const SXH_OPTION_URL: SERVERXMLHTTP_OPTION = SERVERXMLHTTP_OPTION(-1i32);
@@ -804,6 +836,12 @@ pub const SXH_OPTION_URL_CODEPAGE: SERVERXMLHTTP_OPTION = SERVERXMLHTTP_OPTION(0
 pub const SXH_OPTION_ESCAPE_PERCENT_IN_URL: SERVERXMLHTTP_OPTION = SERVERXMLHTTP_OPTION(1i32);
 pub const SXH_OPTION_IGNORE_SERVER_SSL_CERT_ERROR_FLAGS: SERVERXMLHTTP_OPTION = SERVERXMLHTTP_OPTION(2i32);
 pub const SXH_OPTION_SELECT_CLIENT_SSL_CERT: SERVERXMLHTTP_OPTION = SERVERXMLHTTP_OPTION(3i32);
+impl ::core::marker::Copy for SERVERXMLHTTP_OPTION {}
+impl ::core::clone::Clone for SERVERXMLHTTP_OPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SOMITEMTYPE(pub i32);
 pub const SOMITEM_SCHEMA: SOMITEMTYPE = SOMITEMTYPE(4096i32);
@@ -879,12 +917,24 @@ pub const SOMITEM_NULL_TYPE: SOMITEMTYPE = SOMITEMTYPE(10240i32);
 pub const SOMITEM_NULL_ANY: SOMITEMTYPE = SOMITEMTYPE(18433i32);
 pub const SOMITEM_NULL_ANYATTRIBUTE: SOMITEMTYPE = SOMITEMTYPE(18434i32);
 pub const SOMITEM_NULL_ELEMENT: SOMITEMTYPE = SOMITEMTYPE(18435i32);
+impl ::core::marker::Copy for SOMITEMTYPE {}
+impl ::core::clone::Clone for SOMITEMTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SXH_PROXY_SETTING(pub i32);
 pub const SXH_PROXY_SET_DEFAULT: SXH_PROXY_SETTING = SXH_PROXY_SETTING(0i32);
 pub const SXH_PROXY_SET_PRECONFIG: SXH_PROXY_SETTING = SXH_PROXY_SETTING(0i32);
 pub const SXH_PROXY_SET_DIRECT: SXH_PROXY_SETTING = SXH_PROXY_SETTING(1i32);
 pub const SXH_PROXY_SET_PROXY: SXH_PROXY_SETTING = SXH_PROXY_SETTING(2i32);
+impl ::core::marker::Copy for SXH_PROXY_SETTING {}
+impl ::core::clone::Clone for SXH_PROXY_SETTING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SXH_SERVER_CERT_OPTION(pub i32);
 pub const SXH_SERVER_CERT_IGNORE_UNKNOWN_CA: SXH_SERVER_CERT_OPTION = SXH_SERVER_CERT_OPTION(256i32);
@@ -892,15 +942,35 @@ pub const SXH_SERVER_CERT_IGNORE_WRONG_USAGE: SXH_SERVER_CERT_OPTION = SXH_SERVE
 pub const SXH_SERVER_CERT_IGNORE_CERT_CN_INVALID: SXH_SERVER_CERT_OPTION = SXH_SERVER_CERT_OPTION(4096i32);
 pub const SXH_SERVER_CERT_IGNORE_CERT_DATE_INVALID: SXH_SERVER_CERT_OPTION = SXH_SERVER_CERT_OPTION(8192i32);
 pub const SXH_SERVER_CERT_IGNORE_ALL_SERVER_ERRORS: SXH_SERVER_CERT_OPTION = SXH_SERVER_CERT_OPTION(13056i32);
-#[repr(C)]
-pub struct ServerXMLHTTP60(i32);
+impl ::core::marker::Copy for SXH_SERVER_CERT_OPTION {}
+impl ::core::clone::Clone for SXH_SERVER_CERT_OPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+pub const ServerXMLHTTP60: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2295949835, data2: 61842, data3: 4564, data4: [166, 95, 0, 64, 150, 50, 81, 229] };
 #[repr(transparent)]
 pub struct XHR_AUTH(pub i32);
 pub const XHR_AUTH_ALL: XHR_AUTH = XHR_AUTH(0i32);
 pub const XHR_AUTH_NONE: XHR_AUTH = XHR_AUTH(1i32);
 pub const XHR_AUTH_PROXY: XHR_AUTH = XHR_AUTH(2i32);
+impl ::core::marker::Copy for XHR_AUTH {}
+impl ::core::clone::Clone for XHR_AUTH {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct XHR_CERT(i32);
+pub struct XHR_CERT {
+    pub cbCert: u32,
+    pub pbCert: *mut u8,
+}
+impl ::core::marker::Copy for XHR_CERT {}
+impl ::core::clone::Clone for XHR_CERT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct XHR_CERT_ERROR_FLAG(pub u32);
 pub const XHR_CERT_ERROR_REVOCATION_FAILED: XHR_CERT_ERROR_FLAG = XHR_CERT_ERROR_FLAG(8388608u32);
@@ -908,6 +978,12 @@ pub const XHR_CERT_ERROR_UNKNOWN_CA: XHR_CERT_ERROR_FLAG = XHR_CERT_ERROR_FLAG(1
 pub const XHR_CERT_ERROR_CERT_CN_INVALID: XHR_CERT_ERROR_FLAG = XHR_CERT_ERROR_FLAG(33554432u32);
 pub const XHR_CERT_ERROR_CERT_DATE_INVALID: XHR_CERT_ERROR_FLAG = XHR_CERT_ERROR_FLAG(67108864u32);
 pub const XHR_CERT_ERROR_ALL_SERVER_ERRORS: XHR_CERT_ERROR_FLAG = XHR_CERT_ERROR_FLAG(125829120u32);
+impl ::core::marker::Copy for XHR_CERT_ERROR_FLAG {}
+impl ::core::clone::Clone for XHR_CERT_ERROR_FLAG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct XHR_CERT_IGNORE_FLAG(pub u32);
 pub const XHR_CERT_IGNORE_REVOCATION_FAILED: XHR_CERT_IGNORE_FLAG = XHR_CERT_IGNORE_FLAG(128u32);
@@ -915,9 +991,30 @@ pub const XHR_CERT_IGNORE_UNKNOWN_CA: XHR_CERT_IGNORE_FLAG = XHR_CERT_IGNORE_FLA
 pub const XHR_CERT_IGNORE_CERT_CN_INVALID: XHR_CERT_IGNORE_FLAG = XHR_CERT_IGNORE_FLAG(4096u32);
 pub const XHR_CERT_IGNORE_CERT_DATE_INVALID: XHR_CERT_IGNORE_FLAG = XHR_CERT_IGNORE_FLAG(8192u32);
 pub const XHR_CERT_IGNORE_ALL_SERVER_ERRORS: XHR_CERT_IGNORE_FLAG = XHR_CERT_IGNORE_FLAG(12672u32);
-#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for XHR_CERT_IGNORE_FLAG {}
+impl ::core::clone::Clone for XHR_CERT_IGNORE_FLAG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct XHR_COOKIE(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct XHR_COOKIE {
+    pub pwszUrl: super::super::super::Foundation::PWSTR,
+    pub pwszName: super::super::super::Foundation::PWSTR,
+    pub pwszValue: super::super::super::Foundation::PWSTR,
+    pub pwszP3PPolicy: super::super::super::Foundation::PWSTR,
+    pub ftExpires: super::super::super::Foundation::FILETIME,
+    pub dwFlags: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for XHR_COOKIE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for XHR_COOKIE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct XHR_COOKIE_FLAG(pub i32);
 pub const XHR_COOKIE_IS_SECURE: XHR_COOKIE_FLAG = XHR_COOKIE_FLAG(1i32);
@@ -932,6 +1029,12 @@ pub const XHR_COOKIE_IE6: XHR_COOKIE_FLAG = XHR_COOKIE_FLAG(1024i32);
 pub const XHR_COOKIE_IS_LEGACY: XHR_COOKIE_FLAG = XHR_COOKIE_FLAG(2048i32);
 pub const XHR_COOKIE_NON_SCRIPT: XHR_COOKIE_FLAG = XHR_COOKIE_FLAG(4096i32);
 pub const XHR_COOKIE_HTTPONLY: XHR_COOKIE_FLAG = XHR_COOKIE_FLAG(8192i32);
+impl ::core::marker::Copy for XHR_COOKIE_FLAG {}
+impl ::core::clone::Clone for XHR_COOKIE_FLAG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct XHR_COOKIE_STATE(pub i32);
 pub const XHR_COOKIE_STATE_UNKNOWN: XHR_COOKIE_STATE = XHR_COOKIE_STATE(0i32);
@@ -940,11 +1043,23 @@ pub const XHR_COOKIE_STATE_PROMPT: XHR_COOKIE_STATE = XHR_COOKIE_STATE(2i32);
 pub const XHR_COOKIE_STATE_LEASH: XHR_COOKIE_STATE = XHR_COOKIE_STATE(3i32);
 pub const XHR_COOKIE_STATE_DOWNGRADE: XHR_COOKIE_STATE = XHR_COOKIE_STATE(4i32);
 pub const XHR_COOKIE_STATE_REJECT: XHR_COOKIE_STATE = XHR_COOKIE_STATE(5i32);
+impl ::core::marker::Copy for XHR_COOKIE_STATE {}
+impl ::core::clone::Clone for XHR_COOKIE_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct XHR_CRED_PROMPT(pub i32);
 pub const XHR_CRED_PROMPT_ALL: XHR_CRED_PROMPT = XHR_CRED_PROMPT(0i32);
 pub const XHR_CRED_PROMPT_NONE: XHR_CRED_PROMPT = XHR_CRED_PROMPT(1i32);
 pub const XHR_CRED_PROMPT_PROXY: XHR_CRED_PROMPT = XHR_CRED_PROMPT(2i32);
+impl ::core::marker::Copy for XHR_CRED_PROMPT {}
+impl ::core::clone::Clone for XHR_CRED_PROMPT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct XHR_PROPERTY(pub i32);
 pub const XHR_PROP_NO_CRED_PROMPT: XHR_PROPERTY = XHR_PROPERTY(0i32);
@@ -959,14 +1074,18 @@ pub const XHR_PROP_IGNORE_CERT_ERRORS: XHR_PROPERTY = XHR_PROPERTY(8i32);
 pub const XHR_PROP_ONDATA_THRESHOLD: XHR_PROPERTY = XHR_PROPERTY(9i32);
 pub const XHR_PROP_SET_ENTERPRISEID: XHR_PROPERTY = XHR_PROPERTY(10i32);
 pub const XHR_PROP_MAX_CONNECTIONS: XHR_PROPERTY = XHR_PROPERTY(11i32);
+impl ::core::marker::Copy for XHR_PROPERTY {}
+impl ::core::clone::Clone for XHR_PROPERTY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const XHR_PROP_ONDATA_ALWAYS: u32 = 0u32;
 pub const XHR_PROP_ONDATA_NEVER: u64 = 18446744073709551615u64;
 #[repr(transparent)]
 pub struct XMLDOMDocumentEvents(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct XMLDSOControl(i32);
-#[repr(C)]
-pub struct XMLDocument(i32);
+pub const XMLDSOControl: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1426971184, data2: 1345, data3: 4562, data4: [156, 169, 0, 96, 176, 236, 61, 57] };
+pub const XMLDocument: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3485702575, data2: 55414, data3: 4560, data4: [156, 16, 0, 192, 79, 201, 156, 142] };
 #[repr(transparent)]
 pub struct XMLEMEM_TYPE(pub i32);
 pub const XMLELEMTYPE_ELEMENT: XMLEMEM_TYPE = XMLEMEM_TYPE(0i32);
@@ -976,16 +1095,64 @@ pub const XMLELEMTYPE_DOCUMENT: XMLEMEM_TYPE = XMLEMEM_TYPE(3i32);
 pub const XMLELEMTYPE_DTD: XMLEMEM_TYPE = XMLEMEM_TYPE(4i32);
 pub const XMLELEMTYPE_PI: XMLEMEM_TYPE = XMLEMEM_TYPE(5i32);
 pub const XMLELEMTYPE_OTHER: XMLEMEM_TYPE = XMLEMEM_TYPE(6i32);
+impl ::core::marker::Copy for XMLEMEM_TYPE {}
+impl ::core::clone::Clone for XMLEMEM_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+pub const XMLHTTP60: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2295949834, data2: 61842, data3: 4564, data4: [166, 95, 0, 64, 150, 50, 81, 229] };
+pub const XMLHTTPRequest: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3985379470, data2: 17225, data3: 4562, data4: [145, 164, 0, 192, 79, 121, 105, 232] };
+pub const XMLSchemaCache60: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2295949831, data2: 61842, data3: 4564, data4: [166, 95, 0, 64, 150, 50, 81, 229] };
 #[repr(C)]
-pub struct XMLHTTP60(i32);
-#[repr(C)]
-pub struct XMLHTTPRequest(i32);
-#[repr(C)]
-pub struct XMLSchemaCache60(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct XML_ERROR {
+    pub _nLine: u32,
+    pub _pchBuf: super::super::super::Foundation::BSTR,
+    pub _cchBuf: u32,
+    pub _ich: u32,
+    pub _pszFound: super::super::super::Foundation::BSTR,
+    pub _pszExpected: super::super::super::Foundation::BSTR,
+    pub _reserved1: u32,
+    pub _reserved2: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for XML_ERROR {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for XML_ERROR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+pub const XSLTemplate60: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2295949832, data2: 61842, data3: 4564, data4: [166, 95, 0, 64, 150, 50, 81, 229] };
 #[repr(C)]
-pub struct XML_ERROR(i32);
-#[repr(C)]
-pub struct XSLTemplate60(i32);
-#[repr(C)]
-pub struct __msxml6_ReferenceRemainingTypes__(i32);
+pub struct __msxml6_ReferenceRemainingTypes__ {
+    pub __tagDomNodeType__: DOMNodeType,
+    pub __domNodeType__: DOMNodeType,
+    pub __serverXmlHttpOptionEnum__: SERVERXMLHTTP_OPTION,
+    pub __serverXmlHttpOption__: SERVERXMLHTTP_OPTION,
+    pub __serverCertOptionEnum__: SXH_SERVER_CERT_OPTION,
+    pub __serverCertOption__: SXH_SERVER_CERT_OPTION,
+    pub __proxySettingEnum__: SXH_PROXY_SETTING,
+    pub __proxySetting__: SXH_PROXY_SETTING,
+    pub __somItemTypeEnum__: SOMITEMTYPE,
+    pub __somItemType__: SOMITEMTYPE,
+    pub __schemaUseEnum__: SCHEMAUSE,
+    pub __schemaUse__: SCHEMAUSE,
+    pub __schemaDerivationMethodEnum__: SCHEMADERIVATIONMETHOD,
+    pub __schemaDerivationMethod__: SCHEMADERIVATIONMETHOD,
+    pub __schemaContentTypeEnum__: SCHEMACONTENTTYPE,
+    pub __schemaContentType__: SCHEMACONTENTTYPE,
+    pub __schemaProcessContentsEnum__: SCHEMAPROCESSCONTENTS,
+    pub __schemaProcessContents__: SCHEMAPROCESSCONTENTS,
+    pub __schemaWhitespaceEnum__: SCHEMAWHITESPACE,
+    pub __schemaWhitespace__: SCHEMAWHITESPACE,
+    pub __schemaTypeVarietyEnum__: SCHEMATYPEVARIETY,
+    pub __schemaTypeVariety__: SCHEMATYPEVARIETY,
+}
+impl ::core::marker::Copy for __msxml6_ReferenceRemainingTypes__ {}
+impl ::core::clone::Clone for __msxml6_ReferenceRemainingTypes__ {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

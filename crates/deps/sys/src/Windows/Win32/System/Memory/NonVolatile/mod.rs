@@ -17,4 +17,13 @@ extern "system" {
     pub fn RtlWriteNonVolatileMemory(nvtoken: *const ::core::ffi::c_void, nvdestination: *mut ::core::ffi::c_void, source: *const ::core::ffi::c_void, size: usize, flags: u32) -> u32;
 }
 #[repr(C)]
-pub struct NV_MEMORY_RANGE(i32);
+pub struct NV_MEMORY_RANGE {
+    pub BaseAddress: *mut ::core::ffi::c_void,
+    pub Length: usize,
+}
+impl ::core::marker::Copy for NV_MEMORY_RANGE {}
+impl ::core::clone::Clone for NV_MEMORY_RANGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

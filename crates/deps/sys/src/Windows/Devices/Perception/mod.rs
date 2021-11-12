@@ -127,6 +127,12 @@ impl PerceptionFrameSourceAccessStatus {
     pub const DeniedByUser: Self = Self(2i32);
     pub const DeniedBySystem: Self = Self(3i32);
 }
+impl ::core::marker::Copy for PerceptionFrameSourceAccessStatus {}
+impl ::core::clone::Clone for PerceptionFrameSourceAccessStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PerceptionFrameSourcePropertiesChangedEventArgs(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -140,6 +146,12 @@ impl PerceptionFrameSourcePropertyChangeStatus {
     pub const PropertyNotSupported: Self = Self(3i32);
     pub const PropertyReadOnly: Self = Self(4i32);
     pub const ValueOutOfRange: Self = Self(5i32);
+}
+impl ::core::marker::Copy for PerceptionFrameSourcePropertyChangeStatus {}
+impl ::core::clone::Clone for PerceptionFrameSourcePropertyChangeStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct PerceptionInfraredFrame(pub *mut ::core::ffi::c_void);

@@ -1,14 +1,10 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[link(name = "windows")]
 extern "system" {}
-#[repr(C)]
-pub struct Catalog(i32);
-#[repr(C)]
-pub struct CatalogCollection(i32);
-#[repr(C)]
-pub struct CatalogObject(i32);
-#[repr(C)]
-pub struct ComponentUtil(i32);
+pub const Catalog: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1857169537, data2: 35353, data3: 4560, data4: [129, 182, 0, 160, 201, 35, 28, 41] };
+pub const CatalogCollection: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1857169539, data2: 35353, data3: 4560, data4: [129, 182, 0, 160, 201, 35, 28, 41] };
+pub const CatalogObject: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1857169538, data2: 35353, data3: 4560, data4: [129, 182, 0, 160, 201, 35, 28, 41] };
+pub const ComponentUtil: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1857169540, data2: 35353, data3: 4560, data4: [129, 182, 0, 160, 201, 35, 28, 41] };
 #[repr(transparent)]
 pub struct ICatalog(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -19,18 +15,27 @@ pub struct IPackageUtil(pub *mut ::core::ffi::c_void);
 pub struct IRemoteComponentUtil(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IRoleAssociationUtil(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct PackageUtil(i32);
-#[repr(C)]
-pub struct RemoteComponentUtil(i32);
-#[repr(C)]
-pub struct RoleAssociationUtil(i32);
+pub const PackageUtil: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1857169541, data2: 35353, data3: 4560, data4: [129, 182, 0, 160, 201, 35, 28, 41] };
+pub const RemoteComponentUtil: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1857169542, data2: 35353, data3: 4560, data4: [129, 182, 0, 160, 201, 35, 28, 41] };
+pub const RoleAssociationUtil: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1857169543, data2: 35353, data3: 4560, data4: [129, 182, 0, 160, 201, 35, 28, 41] };
 #[repr(transparent)]
 pub struct __MIDL___MIDL_itf_mtxadmin_0107_0001(pub i32);
 pub const mtsInstallUsers: __MIDL___MIDL_itf_mtxadmin_0107_0001 = __MIDL___MIDL_itf_mtxadmin_0107_0001(1i32);
+impl ::core::marker::Copy for __MIDL___MIDL_itf_mtxadmin_0107_0001 {}
+impl ::core::clone::Clone for __MIDL___MIDL_itf_mtxadmin_0107_0001 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct __MIDL___MIDL_itf_mtxadmin_0107_0002(pub i32);
 pub const mtsExportUsers: __MIDL___MIDL_itf_mtxadmin_0107_0002 = __MIDL___MIDL_itf_mtxadmin_0107_0002(1i32);
+impl ::core::marker::Copy for __MIDL___MIDL_itf_mtxadmin_0107_0002 {}
+impl ::core::clone::Clone for __MIDL___MIDL_itf_mtxadmin_0107_0002 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct __MIDL___MIDL_itf_mtxadmin_0107_0003(pub i32);
 pub const mtsErrObjectErrors: __MIDL___MIDL_itf_mtxadmin_0107_0003 = __MIDL___MIDL_itf_mtxadmin_0107_0003(-2146368511i32);
@@ -78,3 +83,9 @@ pub const mtsErrNotChangeable: __MIDL___MIDL_itf_mtxadmin_0107_0003 = __MIDL___M
 pub const mtsErrNotDeletable: __MIDL___MIDL_itf_mtxadmin_0107_0003 = __MIDL___MIDL_itf_mtxadmin_0107_0003(-2146368469i32);
 pub const mtsErrSession: __MIDL___MIDL_itf_mtxadmin_0107_0003 = __MIDL___MIDL_itf_mtxadmin_0107_0003(-2146368468i32);
 pub const mtsErrCompFileNoRegistrar: __MIDL___MIDL_itf_mtxadmin_0107_0003 = __MIDL___MIDL_itf_mtxadmin_0107_0003(-2146368460i32);
+impl ::core::marker::Copy for __MIDL___MIDL_itf_mtxadmin_0107_0003 {}
+impl ::core::clone::Clone for __MIDL___MIDL_itf_mtxadmin_0107_0003 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

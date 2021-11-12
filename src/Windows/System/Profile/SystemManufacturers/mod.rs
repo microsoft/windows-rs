@@ -196,9 +196,6 @@ impl SmbiosInformation {
 impl ::windows::core::RuntimeName for SmbiosInformation {
     const NAME: &'static str = "Windows.System.Profile.SystemManufacturers.SmbiosInformation";
 }
-#[repr(C)]
-#[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
-pub struct SystemManufacturersContract(pub u8);
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
 pub struct SystemSupportDeviceInfo(pub ::windows::core::IInspectable);

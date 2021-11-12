@@ -19,6 +19,12 @@ pub const RSF_INVITEE: RENDEZVOUS_SESSION_FLAGS = RENDEZVOUS_SESSION_FLAGS(2i32)
 pub const RSF_ORIGINAL_INVITER: RENDEZVOUS_SESSION_FLAGS = RENDEZVOUS_SESSION_FLAGS(4i32);
 pub const RSF_REMOTE_LEGACYSESSION: RENDEZVOUS_SESSION_FLAGS = RENDEZVOUS_SESSION_FLAGS(8i32);
 pub const RSF_REMOTE_WIN7SESSION: RENDEZVOUS_SESSION_FLAGS = RENDEZVOUS_SESSION_FLAGS(16i32);
+impl ::core::marker::Copy for RENDEZVOUS_SESSION_FLAGS {}
+impl ::core::clone::Clone for RENDEZVOUS_SESSION_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RENDEZVOUS_SESSION_STATE(pub i32);
 pub const RSS_UNKNOWN: RENDEZVOUS_SESSION_STATE = RENDEZVOUS_SESSION_STATE(0i32);
@@ -29,5 +35,15 @@ pub const RSS_CONNECTED: RENDEZVOUS_SESSION_STATE = RENDEZVOUS_SESSION_STATE(4i3
 pub const RSS_CANCELLED: RENDEZVOUS_SESSION_STATE = RENDEZVOUS_SESSION_STATE(5i32);
 pub const RSS_DECLINED: RENDEZVOUS_SESSION_STATE = RENDEZVOUS_SESSION_STATE(6i32);
 pub const RSS_TERMINATED: RENDEZVOUS_SESSION_STATE = RENDEZVOUS_SESSION_STATE(7i32);
-#[repr(C)]
-pub struct RendezvousApplication(i32);
+impl ::core::marker::Copy for RENDEZVOUS_SESSION_STATE {}
+impl ::core::clone::Clone for RENDEZVOUS_SESSION_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+pub const RendezvousApplication: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 192807322,
+    data2: 46558,
+    data3: 18426,
+    data4: [137, 102, 144, 130, 248, 47, 177, 146],
+};

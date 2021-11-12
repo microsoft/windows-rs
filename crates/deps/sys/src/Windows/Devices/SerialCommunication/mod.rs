@@ -24,6 +24,12 @@ impl SerialError {
     pub const ReceiveParity: Self = Self(3i32);
     pub const TransmitFull: Self = Self(4i32);
 }
+impl ::core::marker::Copy for SerialError {}
+impl ::core::clone::Clone for SerialError {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SerialHandshake(pub i32);
 impl SerialHandshake {
@@ -31,6 +37,12 @@ impl SerialHandshake {
     pub const RequestToSend: Self = Self(1i32);
     pub const XOnXOff: Self = Self(2i32);
     pub const RequestToSendXOnXOff: Self = Self(3i32);
+}
+impl ::core::marker::Copy for SerialHandshake {}
+impl ::core::clone::Clone for SerialHandshake {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[repr(transparent)]
 pub struct SerialParity(pub i32);
@@ -41,6 +53,12 @@ impl SerialParity {
     pub const Mark: Self = Self(3i32);
     pub const Space: Self = Self(4i32);
 }
+impl ::core::marker::Copy for SerialParity {}
+impl ::core::clone::Clone for SerialParity {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SerialPinChange(pub i32);
 impl SerialPinChange {
@@ -50,10 +68,22 @@ impl SerialPinChange {
     pub const DataSetReady: Self = Self(3i32);
     pub const RingIndicator: Self = Self(4i32);
 }
+impl ::core::marker::Copy for SerialPinChange {}
+impl ::core::clone::Clone for SerialPinChange {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SerialStopBitCount(pub i32);
 impl SerialStopBitCount {
     pub const One: Self = Self(0i32);
     pub const OnePointFive: Self = Self(1i32);
     pub const Two: Self = Self(2i32);
+}
+impl ::core::marker::Copy for SerialStopBitCount {}
+impl ::core::clone::Clone for SerialStopBitCount {
+    fn clone(&self) -> Self {
+        *self
+    }
 }

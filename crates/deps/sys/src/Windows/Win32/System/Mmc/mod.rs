@@ -4,19 +4,34 @@ extern "system" {}
 pub const AUTO_WIDTH: i32 = -1i32;
 #[repr(transparent)]
 pub struct AppEvents(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct AppEventsDHTMLConnector(i32);
-#[repr(C)]
-pub struct Application(i32);
+pub const AppEventsDHTMLConnector: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2917549131, data2: 51487, data3: 20023, data4: [146, 164, 91, 180, 48, 163, 51, 64] };
+pub const Application: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 1236433178,
+    data2: 45486,
+    data3: 19600,
+    data4: [155, 142, 232, 96, 186, 7, 248, 137],
+};
 #[repr(transparent)]
 pub struct CCM_COMMANDID_MASK_CONSTANTS(pub u32);
 pub const CCM_COMMANDID_MASK_RESERVED: CCM_COMMANDID_MASK_CONSTANTS = CCM_COMMANDID_MASK_CONSTANTS(4294901760u32);
+impl ::core::marker::Copy for CCM_COMMANDID_MASK_CONSTANTS {}
+impl ::core::clone::Clone for CCM_COMMANDID_MASK_CONSTANTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CCM_INSERTIONALLOWED(pub i32);
 pub const CCM_INSERTIONALLOWED_TOP: CCM_INSERTIONALLOWED = CCM_INSERTIONALLOWED(1i32);
 pub const CCM_INSERTIONALLOWED_NEW: CCM_INSERTIONALLOWED = CCM_INSERTIONALLOWED(2i32);
 pub const CCM_INSERTIONALLOWED_TASK: CCM_INSERTIONALLOWED = CCM_INSERTIONALLOWED(4i32);
 pub const CCM_INSERTIONALLOWED_VIEW: CCM_INSERTIONALLOWED = CCM_INSERTIONALLOWED(8i32);
+impl ::core::marker::Copy for CCM_INSERTIONALLOWED {}
+impl ::core::clone::Clone for CCM_INSERTIONALLOWED {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CCM_INSERTIONPOINTID(pub i32);
 pub const CCM_INSERTIONPOINTID_MASK_SPECIAL: CCM_INSERTIONPOINTID = CCM_INSERTIONPOINTID(-65536i32);
@@ -34,6 +49,12 @@ pub const CCM_INSERTIONPOINTID_PRIMARY_HELP: CCM_INSERTIONPOINTID = CCM_INSERTIO
 pub const CCM_INSERTIONPOINTID_3RDPARTY_NEW: CCM_INSERTIONPOINTID = CCM_INSERTIONPOINTID(-1879048191i32);
 pub const CCM_INSERTIONPOINTID_3RDPARTY_TASK: CCM_INSERTIONPOINTID = CCM_INSERTIONPOINTID(-1879048190i32);
 pub const CCM_INSERTIONPOINTID_ROOT_MENU: CCM_INSERTIONPOINTID = CCM_INSERTIONPOINTID(-2147483648i32);
+impl ::core::marker::Copy for CCM_INSERTIONPOINTID {}
+impl ::core::clone::Clone for CCM_INSERTIONPOINTID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CCM_SPECIAL(pub i32);
 pub const CCM_SPECIAL_SEPARATOR: CCM_SPECIAL = CCM_SPECIAL(1i32);
@@ -41,18 +62,54 @@ pub const CCM_SPECIAL_SUBMENU: CCM_SPECIAL = CCM_SPECIAL(2i32);
 pub const CCM_SPECIAL_DEFAULT_ITEM: CCM_SPECIAL = CCM_SPECIAL(4i32);
 pub const CCM_SPECIAL_INSERTION_POINT: CCM_SPECIAL = CCM_SPECIAL(8i32);
 pub const CCM_SPECIAL_TESTONLY: CCM_SPECIAL = CCM_SPECIAL(16i32);
-#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CCM_SPECIAL {}
+impl ::core::clone::Clone for CCM_SPECIAL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CONTEXTMENUITEM(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct CONTEXTMENUITEM {
+    pub strName: super::super::Foundation::PWSTR,
+    pub strStatusBarText: super::super::Foundation::PWSTR,
+    pub lCommandID: i32,
+    pub lInsertionPointID: i32,
+    pub fFlags: i32,
+    pub fSpecialFlags: i32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CONTEXTMENUITEM {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CONTEXTMENUITEM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct CONTEXTMENUITEM2(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct CONTEXTMENUITEM2 {
+    pub strName: super::super::Foundation::PWSTR,
+    pub strStatusBarText: super::super::Foundation::PWSTR,
+    pub lCommandID: i32,
+    pub lInsertionPointID: i32,
+    pub fFlags: i32,
+    pub fSpecialFlags: i32,
+    pub strLanguageIndependentName: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CONTEXTMENUITEM2 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CONTEXTMENUITEM2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct Column(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct Columns(pub *mut ::core::ffi::c_void);
-#[repr(C)]
-pub struct ConsolePower(i32);
+pub const ConsolePower: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4029174644, data2: 57329, data3: 4563, data4: [180, 51, 0, 192, 79, 142, 205, 120] };
 #[repr(transparent)]
 pub struct ContextMenu(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -61,6 +118,12 @@ pub const CCT_SCOPE: DATA_OBJECT_TYPES = DATA_OBJECT_TYPES(32768i32);
 pub const CCT_RESULT: DATA_OBJECT_TYPES = DATA_OBJECT_TYPES(32769i32);
 pub const CCT_SNAPIN_MANAGER: DATA_OBJECT_TYPES = DATA_OBJECT_TYPES(32770i32);
 pub const CCT_UNINITIALIZED: DATA_OBJECT_TYPES = DATA_OBJECT_TYPES(65535i32);
+impl ::core::marker::Copy for DATA_OBJECT_TYPES {}
+impl ::core::clone::Clone for DATA_OBJECT_TYPES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct Document(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -178,11 +241,42 @@ pub const Icon_Warning: IconIdentifier = IconIdentifier(32515i32);
 pub const Icon_Information: IconIdentifier = IconIdentifier(32516i32);
 pub const Icon_First: IconIdentifier = IconIdentifier(32513i32);
 pub const Icon_Last: IconIdentifier = IconIdentifier(32516i32);
+impl ::core::marker::Copy for IconIdentifier {}
+impl ::core::clone::Clone for IconIdentifier {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct MENUBUTTONDATA(i32);
+pub struct MENUBUTTONDATA {
+    pub idCommand: i32,
+    pub x: i32,
+    pub y: i32,
+}
+impl ::core::marker::Copy for MENUBUTTONDATA {}
+impl ::core::clone::Clone for MENUBUTTONDATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct MMCBUTTON(i32);
+pub struct MMCBUTTON {
+    pub nBitmap: i32,
+    pub idCommand: i32,
+    pub fsState: u8,
+    pub fsType: u8,
+    pub lpButtonText: super::super::Foundation::PWSTR,
+    pub lpTooltipText: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MMCBUTTON {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MMCBUTTON {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MMCLV_AUTO: i32 = -1i32;
 pub const MMCLV_NOICON: i32 = -1i32;
 pub const MMCLV_NOPARAM: i32 = -2i32;
@@ -194,14 +288,24 @@ pub const MMCLV_VIEWSTYLE_ICON: u32 = 0u32;
 pub const MMCLV_VIEWSTYLE_LIST: u32 = 3u32;
 pub const MMCLV_VIEWSTYLE_REPORT: u32 = 1u32;
 pub const MMCLV_VIEWSTYLE_SMALLICON: u32 = 2u32;
-#[repr(C)]
-pub struct MMCVersionInfo(i32);
+pub const MMCVersionInfo: ::windows_sys::core::GUID = ::windows_sys::GUID {
+    data1: 3607026461,
+    data2: 53025,
+    data3: 19417,
+    data4: [175, 59, 197, 70, 142, 156, 102, 132],
+};
 #[repr(transparent)]
 pub struct MMC_ACTION_TYPE(pub i32);
 pub const MMC_ACTION_UNINITIALIZED: MMC_ACTION_TYPE = MMC_ACTION_TYPE(-1i32);
 pub const MMC_ACTION_ID: MMC_ACTION_TYPE = MMC_ACTION_TYPE(0i32);
 pub const MMC_ACTION_LINK: MMC_ACTION_TYPE = MMC_ACTION_TYPE(1i32);
 pub const MMC_ACTION_SCRIPT: MMC_ACTION_TYPE = MMC_ACTION_TYPE(2i32);
+impl ::core::marker::Copy for MMC_ACTION_TYPE {}
+impl ::core::clone::Clone for MMC_ACTION_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MMC_BUTTON_STATE(pub i32);
 pub const ENABLED: MMC_BUTTON_STATE = MMC_BUTTON_STATE(1i32);
@@ -209,10 +313,37 @@ pub const CHECKED: MMC_BUTTON_STATE = MMC_BUTTON_STATE(2i32);
 pub const HIDDEN: MMC_BUTTON_STATE = MMC_BUTTON_STATE(4i32);
 pub const INDETERMINATE: MMC_BUTTON_STATE = MMC_BUTTON_STATE(8i32);
 pub const BUTTONPRESSED: MMC_BUTTON_STATE = MMC_BUTTON_STATE(16i32);
+impl ::core::marker::Copy for MMC_BUTTON_STATE {}
+impl ::core::clone::Clone for MMC_BUTTON_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct MMC_COLUMN_DATA(i32);
+pub struct MMC_COLUMN_DATA {
+    pub nColIndex: i32,
+    pub dwFlags: u32,
+    pub nWidth: i32,
+    pub ulReserved: usize,
+}
+impl ::core::marker::Copy for MMC_COLUMN_DATA {}
+impl ::core::clone::Clone for MMC_COLUMN_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct MMC_COLUMN_SET_DATA(i32);
+pub struct MMC_COLUMN_SET_DATA {
+    pub cbSize: i32,
+    pub nNumCols: i32,
+    pub pColData: *mut MMC_COLUMN_DATA,
+}
+impl ::core::marker::Copy for MMC_COLUMN_SET_DATA {}
+impl ::core::clone::Clone for MMC_COLUMN_SET_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MMC_CONSOLE_VERB(pub i32);
 pub const MMC_VERB_NONE: MMC_CONSOLE_VERB = MMC_CONSOLE_VERB(0i32);
@@ -228,41 +359,121 @@ pub const MMC_VERB_CUT: MMC_CONSOLE_VERB = MMC_CONSOLE_VERB(32776i32);
 pub const MMC_VERB_MAX: MMC_CONSOLE_VERB = MMC_CONSOLE_VERB(32777i32);
 pub const MMC_VERB_FIRST: MMC_CONSOLE_VERB = MMC_CONSOLE_VERB(32768i32);
 pub const MMC_VERB_LAST: MMC_CONSOLE_VERB = MMC_CONSOLE_VERB(32776i32);
+impl ::core::marker::Copy for MMC_CONSOLE_VERB {}
+impl ::core::clone::Clone for MMC_CONSOLE_VERB {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MMC_CONTROL_TYPE(pub i32);
 pub const TOOLBAR: MMC_CONTROL_TYPE = MMC_CONTROL_TYPE(0i32);
 pub const MENUBUTTON: MMC_CONTROL_TYPE = MMC_CONTROL_TYPE(1i32);
 pub const COMBOBOXBAR: MMC_CONTROL_TYPE = MMC_CONTROL_TYPE(2i32);
+impl ::core::marker::Copy for MMC_CONTROL_TYPE {}
+impl ::core::clone::Clone for MMC_CONTROL_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MMC_DEFAULT_OPERATION_COPY: u32 = 1u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct MMC_EXPANDSYNC_STRUCT(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct MMC_EXT_VIEW_DATA(i32);
+pub struct MMC_EXPANDSYNC_STRUCT {
+    pub bHandled: super::super::Foundation::BOOL,
+    pub bExpanding: super::super::Foundation::BOOL,
+    pub hItem: isize,
+}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MMC_EXPANDSYNC_STRUCT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MMC_EXPANDSYNC_STRUCT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct MMC_FILTERDATA(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct MMC_EXT_VIEW_DATA {
+    pub viewID: ::windows_sys::core::GUID,
+    pub pszURL: super::super::Foundation::PWSTR,
+    pub pszViewTitle: super::super::Foundation::PWSTR,
+    pub pszTooltipText: super::super::Foundation::PWSTR,
+    pub bReplacesDefaultView: super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MMC_EXT_VIEW_DATA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MMC_EXT_VIEW_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct MMC_FILTERDATA {
+    pub pszText: super::super::Foundation::PWSTR,
+    pub cchTextMax: i32,
+    pub lValue: i32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MMC_FILTERDATA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MMC_FILTERDATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MMC_FILTER_CHANGE_CODE(pub i32);
 pub const MFCC_DISABLE: MMC_FILTER_CHANGE_CODE = MMC_FILTER_CHANGE_CODE(0i32);
 pub const MFCC_ENABLE: MMC_FILTER_CHANGE_CODE = MMC_FILTER_CHANGE_CODE(1i32);
 pub const MFCC_VALUE_CHANGE: MMC_FILTER_CHANGE_CODE = MMC_FILTER_CHANGE_CODE(2i32);
+impl ::core::marker::Copy for MMC_FILTER_CHANGE_CODE {}
+impl ::core::clone::Clone for MMC_FILTER_CHANGE_CODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MMC_FILTER_TYPE(pub i32);
 pub const MMC_STRING_FILTER: MMC_FILTER_TYPE = MMC_FILTER_TYPE(0i32);
 pub const MMC_INT_FILTER: MMC_FILTER_TYPE = MMC_FILTER_TYPE(1i32);
 pub const MMC_FILTER_NOVALUE: MMC_FILTER_TYPE = MMC_FILTER_TYPE(32768i32);
+impl ::core::marker::Copy for MMC_FILTER_TYPE {}
+impl ::core::clone::Clone for MMC_FILTER_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MMC_IMAGECALLBACK: i32 = -1i32;
 pub const MMC_ITEM_OVERLAY_STATE_MASK: u32 = 3840u32;
 pub const MMC_ITEM_OVERLAY_STATE_SHIFT: u32 = 8u32;
 pub const MMC_ITEM_STATE_MASK: u32 = 255u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct MMC_LISTPAD_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct MMC_LISTPAD_INFO {
+    pub szTitle: super::super::Foundation::PWSTR,
+    pub szButtonText: super::super::Foundation::PWSTR,
+    pub nCommandID: isize,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MMC_LISTPAD_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MMC_LISTPAD_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MMC_MENU_COMMAND_IDS(pub i32);
 pub const MMCC_STANDARD_VIEW_SELECT: MMC_MENU_COMMAND_IDS = MMC_MENU_COMMAND_IDS(-1i32);
+impl ::core::marker::Copy for MMC_MENU_COMMAND_IDS {}
+impl ::core::clone::Clone for MMC_MENU_COMMAND_IDS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MMC_MULTI_SELECT_COOKIE: i32 = -2i32;
 pub const MMC_NODEID_SLOW_RETRIEVAL: u32 = 1u32;
 #[repr(transparent)]
@@ -302,6 +513,12 @@ pub const MMCN_LISTPAD: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32800i32);
 pub const MMCN_EXPANDSYNC: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32801i32);
 pub const MMCN_COLUMNS_CHANGED: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32802i32);
 pub const MMCN_CANPASTE_OUTOFPROC: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32803i32);
+impl ::core::marker::Copy for MMC_NOTIFY_TYPE {}
+impl ::core::clone::Clone for MMC_NOTIFY_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MMC_NW_OPTION_CUSTOMTITLE: u32 = 8u32;
 pub const MMC_NW_OPTION_NOACTIONPANE: u32 = 32u32;
 pub const MMC_NW_OPTION_NONE: u32 = 0u32;
@@ -314,6 +531,12 @@ pub struct MMC_PROPERTY_ACTION(pub i32);
 pub const MMC_PROPACT_DELETING: MMC_PROPERTY_ACTION = MMC_PROPERTY_ACTION(1i32);
 pub const MMC_PROPACT_CHANGING: MMC_PROPERTY_ACTION = MMC_PROPERTY_ACTION(2i32);
 pub const MMC_PROPACT_INITIALIZED: MMC_PROPERTY_ACTION = MMC_PROPERTY_ACTION(3i32);
+impl ::core::marker::Copy for MMC_PROPERTY_ACTION {}
+impl ::core::clone::Clone for MMC_PROPERTY_ACTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MMC_PROP_CHANGEAFFECTSUI: u32 = 1u32;
 pub const MMC_PROP_MODIFIABLE: u32 = 2u32;
 pub const MMC_PROP_PERSIST: u32 = 8u32;
@@ -322,39 +545,173 @@ pub const MMC_PSO_HASHELP: u32 = 2u32;
 pub const MMC_PSO_NEWWIZARDTYPE: u32 = 4u32;
 pub const MMC_PSO_NOAPPLYNOW: u32 = 1u32;
 pub const MMC_PSO_NO_PROPTITLE: u32 = 8u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct MMC_RESTORE_VIEW(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct MMC_RESTORE_VIEW {
+    pub dwSize: u32,
+    pub cookie: isize,
+    pub pViewType: super::super::Foundation::PWSTR,
+    pub lViewOptions: i32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MMC_RESTORE_VIEW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MMC_RESTORE_VIEW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MMC_RESULT_VIEW_STYLE(pub i32);
 pub const MMC_SINGLESEL: MMC_RESULT_VIEW_STYLE = MMC_RESULT_VIEW_STYLE(1i32);
 pub const MMC_SHOWSELALWAYS: MMC_RESULT_VIEW_STYLE = MMC_RESULT_VIEW_STYLE(2i32);
 pub const MMC_NOSORTHEADER: MMC_RESULT_VIEW_STYLE = MMC_RESULT_VIEW_STYLE(4i32);
 pub const MMC_ENSUREFOCUSVISIBLE: MMC_RESULT_VIEW_STYLE = MMC_RESULT_VIEW_STYLE(8i32);
+impl ::core::marker::Copy for MMC_RESULT_VIEW_STYLE {}
+impl ::core::clone::Clone for MMC_RESULT_VIEW_STYLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MMC_SCOPE_ITEM_STATE(pub i32);
 pub const MMC_SCOPE_ITEM_STATE_NORMAL: MMC_SCOPE_ITEM_STATE = MMC_SCOPE_ITEM_STATE(1i32);
 pub const MMC_SCOPE_ITEM_STATE_BOLD: MMC_SCOPE_ITEM_STATE = MMC_SCOPE_ITEM_STATE(2i32);
 pub const MMC_SCOPE_ITEM_STATE_EXPANDEDONCE: MMC_SCOPE_ITEM_STATE = MMC_SCOPE_ITEM_STATE(3i32);
+impl ::core::marker::Copy for MMC_SCOPE_ITEM_STATE {}
+impl ::core::clone::Clone for MMC_SCOPE_ITEM_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub struct MMC_SNAPIN_PROPERTY {
+    pub pszPropName: super::super::Foundation::PWSTR,
+    pub varValue: super::Com::VARIANT,
+    pub eAction: MMC_PROPERTY_ACTION,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::core::marker::Copy for MMC_SNAPIN_PROPERTY {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::core::clone::Clone for MMC_SNAPIN_PROPERTY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct MMC_SNAPIN_PROPERTY(i32);
+pub struct MMC_SORT_DATA {
+    pub nColIndex: i32,
+    pub dwSortOptions: u32,
+    pub ulReserved: usize,
+}
+impl ::core::marker::Copy for MMC_SORT_DATA {}
+impl ::core::clone::Clone for MMC_SORT_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct MMC_SORT_DATA(i32);
+pub struct MMC_SORT_SET_DATA {
+    pub cbSize: i32,
+    pub nNumItems: i32,
+    pub pSortData: *mut MMC_SORT_DATA,
+}
+impl ::core::marker::Copy for MMC_SORT_SET_DATA {}
+impl ::core::clone::Clone for MMC_SORT_SET_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct MMC_SORT_SET_DATA(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct MMC_TASK(i32);
+pub struct MMC_TASK {
+    pub sDisplayObject: MMC_TASK_DISPLAY_OBJECT,
+    pub szText: super::super::Foundation::PWSTR,
+    pub szHelpString: super::super::Foundation::PWSTR,
+    pub eActionType: MMC_ACTION_TYPE,
+    pub Anonymous: MMC_TASK_0,
+}
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct MMC_TASK_DISPLAY_BITMAP(i32);
+impl ::core::marker::Copy for MMC_TASK {}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MMC_TASK {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct MMC_TASK_DISPLAY_OBJECT(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub union MMC_TASK_0 {
+    pub nCommandID: isize,
+    pub szActionURL: super::super::Foundation::PWSTR,
+    pub szScript: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MMC_TASK_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MMC_TASK_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct MMC_TASK_DISPLAY_SYMBOL(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct MMC_TASK_DISPLAY_BITMAP {
+    pub szMouseOverBitmap: super::super::Foundation::PWSTR,
+    pub szMouseOffBitmap: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MMC_TASK_DISPLAY_BITMAP {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MMC_TASK_DISPLAY_BITMAP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct MMC_TASK_DISPLAY_OBJECT {
+    pub eDisplayType: MMC_TASK_DISPLAY_TYPE,
+    pub Anonymous: MMC_TASK_DISPLAY_OBJECT_0,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MMC_TASK_DISPLAY_OBJECT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MMC_TASK_DISPLAY_OBJECT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub union MMC_TASK_DISPLAY_OBJECT_0 {
+    pub uBitmap: MMC_TASK_DISPLAY_BITMAP,
+    pub uSymbol: MMC_TASK_DISPLAY_SYMBOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MMC_TASK_DISPLAY_OBJECT_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MMC_TASK_DISPLAY_OBJECT_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct MMC_TASK_DISPLAY_SYMBOL {
+    pub szFontFamilyName: super::super::Foundation::PWSTR,
+    pub szURLtoEOT: super::super::Foundation::PWSTR,
+    pub szSymbolString: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MMC_TASK_DISPLAY_SYMBOL {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MMC_TASK_DISPLAY_SYMBOL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MMC_TASK_DISPLAY_TYPE(pub i32);
 pub const MMC_TASK_DISPLAY_UNINITIALIZED: MMC_TASK_DISPLAY_TYPE = MMC_TASK_DISPLAY_TYPE(0i32);
@@ -362,6 +719,12 @@ pub const MMC_TASK_DISPLAY_TYPE_SYMBOL: MMC_TASK_DISPLAY_TYPE = MMC_TASK_DISPLAY
 pub const MMC_TASK_DISPLAY_TYPE_VANILLA_GIF: MMC_TASK_DISPLAY_TYPE = MMC_TASK_DISPLAY_TYPE(2i32);
 pub const MMC_TASK_DISPLAY_TYPE_CHOCOLATE_GIF: MMC_TASK_DISPLAY_TYPE = MMC_TASK_DISPLAY_TYPE(3i32);
 pub const MMC_TASK_DISPLAY_TYPE_BITMAP: MMC_TASK_DISPLAY_TYPE = MMC_TASK_DISPLAY_TYPE(4i32);
+impl ::core::marker::Copy for MMC_TASK_DISPLAY_TYPE {}
+impl ::core::clone::Clone for MMC_TASK_DISPLAY_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MMC_VER: u32 = 512u32;
 pub const MMC_VIEW_OPTIONS_CREATENEW: u32 = 16u32;
 pub const MMC_VIEW_OPTIONS_EXCLUDE_SCOPE_ITEMS_FROM_LIST: u32 = 64u32;
@@ -377,8 +740,23 @@ pub struct MMC_VIEW_TYPE(pub i32);
 pub const MMC_VIEW_TYPE_LIST: MMC_VIEW_TYPE = MMC_VIEW_TYPE(0i32);
 pub const MMC_VIEW_TYPE_HTML: MMC_VIEW_TYPE = MMC_VIEW_TYPE(1i32);
 pub const MMC_VIEW_TYPE_OCX: MMC_VIEW_TYPE = MMC_VIEW_TYPE(2i32);
+impl ::core::marker::Copy for MMC_VIEW_TYPE {}
+impl ::core::clone::Clone for MMC_VIEW_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct MMC_VISIBLE_COLUMNS(i32);
+pub struct MMC_VISIBLE_COLUMNS {
+    pub nVisibleColumns: i32,
+    pub rgVisibleCols: [i32; 1],
+}
+impl ::core::marker::Copy for MMC_VISIBLE_COLUMNS {}
+impl ::core::clone::Clone for MMC_VISIBLE_COLUMNS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MMC_WINDOW_COOKIE: i32 = -3i32;
 #[repr(transparent)]
 pub struct MenuItem(pub *mut ::core::ffi::c_void);
@@ -391,27 +769,141 @@ pub struct Properties(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct Property(pub *mut ::core::ffi::c_void);
 pub const RDCI_ScopeItem: u32 = 2147483648u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct RDCOMPARE(i32);
 #[cfg(feature = "Win32_Foundation")]
+pub struct RDCOMPARE {
+    pub cbSize: u32,
+    pub dwFlags: u32,
+    pub nColumn: i32,
+    pub lUserParam: super::super::Foundation::LPARAM,
+    pub prdch1: *mut RDITEMHDR,
+    pub prdch2: *mut RDITEMHDR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for RDCOMPARE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for RDCOMPARE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct RDITEMHDR(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct RDITEMHDR {
+    pub dwFlags: u32,
+    pub cookie: isize,
+    pub lpReserved: super::super::Foundation::LPARAM,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for RDITEMHDR {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for RDITEMHDR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const RDI_IMAGE: u32 = 4u32;
 pub const RDI_INDENT: u32 = 64u32;
 pub const RDI_INDEX: u32 = 32u32;
 pub const RDI_PARAM: u32 = 16u32;
 pub const RDI_STATE: u32 = 8u32;
 pub const RDI_STR: u32 = 2u32;
-#[cfg(feature = "Win32_Foundation")]
 #[repr(C)]
-pub struct RESULTDATAITEM(i32);
 #[cfg(feature = "Win32_Foundation")]
-#[repr(C)]
-pub struct RESULTFINDINFO(i32);
+pub struct RESULTDATAITEM {
+    pub mask: u32,
+    pub bScopeItem: super::super::Foundation::BOOL,
+    pub itemID: isize,
+    pub nIndex: i32,
+    pub nCol: i32,
+    pub str: super::super::Foundation::PWSTR,
+    pub nImage: i32,
+    pub nState: u32,
+    pub lParam: super::super::Foundation::LPARAM,
+    pub iIndent: i32,
+}
 #[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for RESULTDATAITEM {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for RESULTDATAITEM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct RESULT_VIEW_TYPE_INFO(i32);
+#[cfg(feature = "Win32_Foundation")]
+pub struct RESULTFINDINFO {
+    pub psz: super::super::Foundation::PWSTR,
+    pub nStart: i32,
+    pub dwOptions: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for RESULTFINDINFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for RESULTFINDINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct RESULT_VIEW_TYPE_INFO {
+    pub pstrPersistableViewDescription: super::super::Foundation::PWSTR,
+    pub eViewType: MMC_VIEW_TYPE,
+    pub dwMiscOptions: u32,
+    pub Anonymous: RESULT_VIEW_TYPE_INFO_0,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for RESULT_VIEW_TYPE_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for RESULT_VIEW_TYPE_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub union RESULT_VIEW_TYPE_INFO_0 {
+    pub dwListOptions: u32,
+    pub Anonymous1: RESULT_VIEW_TYPE_INFO_0_0,
+    pub Anonymous2: RESULT_VIEW_TYPE_INFO_0_1,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for RESULT_VIEW_TYPE_INFO_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for RESULT_VIEW_TYPE_INFO_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct RESULT_VIEW_TYPE_INFO_0_0 {
+    pub dwHTMLOptions: u32,
+    pub pstrURL: super::super::Foundation::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for RESULT_VIEW_TYPE_INFO_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for RESULT_VIEW_TYPE_INFO_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+pub struct RESULT_VIEW_TYPE_INFO_0_1 {
+    pub dwOCXOptions: u32,
+    pub pUnkControl: ::core::option::Option<::windows_sys::core::IUnknown>,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for RESULT_VIEW_TYPE_INFO_0_1 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for RESULT_VIEW_TYPE_INFO_0_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const RFI_PARTIAL: u32 = 1u32;
 pub const RFI_WRAP: u32 = 2u32;
 pub const RSI_DESCENDING: u32 = 1u32;
@@ -430,11 +922,39 @@ pub const RVTI_MISC_OPTIONS_NOLISTVIEWS: u32 = 1u32;
 pub const RVTI_OCX_OPTIONS_CACHE_OCX: u32 = 2u32;
 pub const RVTI_OCX_OPTIONS_NOLISTVIEW: u32 = 1u32;
 pub const RVTI_OCX_OPTIONS_NONE: u32 = 0u32;
+#[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
+pub struct SCOPEDATAITEM {
+    pub mask: u32,
+    pub displayname: super::super::Foundation::PWSTR,
+    pub nImage: i32,
+    pub nOpenImage: i32,
+    pub nState: u32,
+    pub cChildren: i32,
+    pub lParam: super::super::Foundation::LPARAM,
+    pub relativeID: isize,
+    pub ID: isize,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SCOPEDATAITEM {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SCOPEDATAITEM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct SCOPEDATAITEM(i32);
-#[repr(C)]
-pub struct SColumnSetID(i32);
+pub struct SColumnSetID {
+    pub dwFlags: u32,
+    pub cBytes: u32,
+    pub id: [u8; 1],
+}
+impl ::core::marker::Copy for SColumnSetID {}
+impl ::core::clone::Clone for SColumnSetID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SDI_CHILDREN: u32 = 64u32;
 pub const SDI_FIRST: u32 = 134217728u32;
 pub const SDI_IMAGE: u32 = 4u32;
@@ -445,15 +965,54 @@ pub const SDI_PARENT: u32 = 0u32;
 pub const SDI_PREVIOUS: u32 = 268435456u32;
 pub const SDI_STATE: u32 = 16u32;
 pub const SDI_STR: u32 = 2u32;
+#[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
+pub struct SMMCDataObjects {
+    pub count: u32,
+    pub lpDataObject: [::core::option::Option<super::Com::IDataObject>; 1],
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::marker::Copy for SMMCDataObjects {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for SMMCDataObjects {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct SMMCDataObjects(i32);
+pub struct SMMCObjectTypes {
+    pub count: u32,
+    pub guid: [::windows_sys::core::GUID; 1],
+}
+impl ::core::marker::Copy for SMMCObjectTypes {}
+impl ::core::clone::Clone for SMMCObjectTypes {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct SMMCObjectTypes(i32);
+pub struct SNodeID {
+    pub cBytes: u32,
+    pub id: [u8; 1],
+}
+impl ::core::marker::Copy for SNodeID {}
+impl ::core::clone::Clone for SNodeID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
-pub struct SNodeID(i32);
-#[repr(C)]
-pub struct SNodeID2(i32);
+pub struct SNodeID2 {
+    pub dwFlags: u32,
+    pub cBytes: u32,
+    pub id: [u8; 1],
+}
+impl ::core::marker::Copy for SNodeID2 {}
+impl ::core::clone::Clone for SNodeID2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const SPECIAL_COOKIE_MAX: i32 = -1i32;
 pub const SPECIAL_COOKIE_MIN: i32 = -10i32;
 pub const SPECIAL_DOBJ_MAX: u32 = 0u32;
@@ -476,12 +1035,24 @@ pub struct _Application(pub *mut ::core::ffi::c_void);
 pub struct _ColumnSortOrder(pub i32);
 pub const SortOrder_Ascending: _ColumnSortOrder = _ColumnSortOrder(0i32);
 pub const SortOrder_Descending: _ColumnSortOrder = _ColumnSortOrder(1i32);
+impl ::core::marker::Copy for _ColumnSortOrder {}
+impl ::core::clone::Clone for _ColumnSortOrder {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct _DocumentMode(pub i32);
 pub const DocumentMode_Author: _DocumentMode = _DocumentMode(0i32);
 pub const DocumentMode_User: _DocumentMode = _DocumentMode(1i32);
 pub const DocumentMode_User_MDI: _DocumentMode = _DocumentMode(2i32);
 pub const DocumentMode_User_SDI: _DocumentMode = _DocumentMode(3i32);
+impl ::core::marker::Copy for _DocumentMode {}
+impl ::core::clone::Clone for _DocumentMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct _EventConnector(pub *mut ::core::ffi::c_void);
 #[repr(transparent)]
@@ -490,6 +1061,12 @@ pub const ExportListOptions_Default: _ExportListOptions = _ExportListOptions(0i3
 pub const ExportListOptions_Unicode: _ExportListOptions = _ExportListOptions(1i32);
 pub const ExportListOptions_TabDelimited: _ExportListOptions = _ExportListOptions(2i32);
 pub const ExportListOptions_SelectedItemsOnly: _ExportListOptions = _ExportListOptions(4i32);
+impl ::core::marker::Copy for _ExportListOptions {}
+impl ::core::clone::Clone for _ExportListOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct _ListViewMode(pub i32);
 pub const ListMode_Small_Icons: _ListViewMode = _ListViewMode(0i32);
@@ -497,6 +1074,12 @@ pub const ListMode_Large_Icons: _ListViewMode = _ListViewMode(1i32);
 pub const ListMode_List: _ListViewMode = _ListViewMode(2i32);
 pub const ListMode_Detail: _ListViewMode = _ListViewMode(3i32);
 pub const ListMode_Filtered: _ListViewMode = _ListViewMode(4i32);
+impl ::core::marker::Copy for _ListViewMode {}
+impl ::core::clone::Clone for _ListViewMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct _ViewOptions(pub i32);
 pub const ViewOption_Default: _ViewOptions = _ViewOptions(0i32);
@@ -504,3 +1087,9 @@ pub const ViewOption_ScopeTreeHidden: _ViewOptions = _ViewOptions(1i32);
 pub const ViewOption_NoToolBars: _ViewOptions = _ViewOptions(2i32);
 pub const ViewOption_NotPersistable: _ViewOptions = _ViewOptions(4i32);
 pub const ViewOption_ActionPaneHidden: _ViewOptions = _ViewOptions(8i32);
+impl ::core::marker::Copy for _ViewOptions {}
+impl ::core::clone::Clone for _ViewOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

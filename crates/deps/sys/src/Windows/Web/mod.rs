@@ -72,3 +72,9 @@ impl WebErrorStatus {
     pub const GatewayTimeout: Self = Self(504i32);
     pub const HttpVersionNotSupported: Self = Self(505i32);
 }
+impl ::core::marker::Copy for WebErrorStatus {}
+impl ::core::clone::Clone for WebErrorStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
