@@ -289,7 +289,7 @@ impl ::core::clone::Clone for UI_ANIMATION_IDLE_BEHAVIOR {
         *self
     }
 }
-#[repr(C)]
+#[repr(transparent)]
 pub struct UI_ANIMATION_KEYFRAME(pub isize);
 impl ::core::marker::Copy for UI_ANIMATION_KEYFRAME {}
 impl ::core::clone::Clone for UI_ANIMATION_KEYFRAME {

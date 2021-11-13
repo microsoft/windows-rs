@@ -744,7 +744,7 @@ pub const LINE_RATE: u32 = 50003u32;
 pub const LOCAL_QOSABILITY: u32 = 50005u32;
 pub const LOCAL_TRAFFIC_CONTROL: u32 = 50004u32;
 pub const LPM_API_VERSION_1: u32 = 1u32;
-#[repr(C)]
+#[repr(transparent)]
 pub struct LPM_HANDLE(pub isize);
 impl ::core::marker::Copy for LPM_HANDLE {}
 impl ::core::clone::Clone for LPM_HANDLE {
@@ -1229,7 +1229,7 @@ impl ::core::clone::Clone for RESV_STYLE {
         *self
     }
 }
-#[repr(C)]
+#[repr(transparent)]
 pub struct RHANDLE(pub isize);
 impl ::core::marker::Copy for RHANDLE {}
 impl ::core::clone::Clone for RHANDLE {

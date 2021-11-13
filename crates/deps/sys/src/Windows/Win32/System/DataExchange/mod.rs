@@ -433,7 +433,7 @@ pub const DMLERR_SERVER_DIED: u32 = 16398u32;
 pub const DMLERR_SYS_ERROR: u32 = 16399u32;
 pub const DMLERR_UNADVACKTIMEOUT: u32 = 16400u32;
 pub const DMLERR_UNFOUND_QUEUE_ID: u32 = 16401u32;
-#[repr(C)]
+#[repr(transparent)]
 pub struct HCONV(pub isize);
 impl ::core::marker::Copy for HCONV {}
 impl ::core::clone::Clone for HCONV {
@@ -441,7 +441,7 @@ impl ::core::clone::Clone for HCONV {
         *self
     }
 }
-#[repr(C)]
+#[repr(transparent)]
 pub struct HCONVLIST(pub isize);
 impl ::core::marker::Copy for HCONVLIST {}
 impl ::core::clone::Clone for HCONVLIST {
@@ -450,7 +450,7 @@ impl ::core::clone::Clone for HCONVLIST {
     }
 }
 pub const HDATA_APPOWNED: u32 = 1u32;
-#[repr(C)]
+#[repr(transparent)]
 pub struct HDDEDATA(pub isize);
 impl ::core::marker::Copy for HDDEDATA {}
 impl ::core::clone::Clone for HDDEDATA {
@@ -458,7 +458,7 @@ impl ::core::clone::Clone for HDDEDATA {
         *self
     }
 }
-#[repr(C)]
+#[repr(transparent)]
 pub struct HSZ(pub isize);
 impl ::core::marker::Copy for HSZ {}
 impl ::core::clone::Clone for HSZ {

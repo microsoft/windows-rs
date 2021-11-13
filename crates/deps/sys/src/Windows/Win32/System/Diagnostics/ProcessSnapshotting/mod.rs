@@ -15,7 +15,7 @@ extern "system" {
     pub fn PssWalkMarkerSetPosition(walkmarkerhandle: HPSSWALK, position: usize) -> u32;
     pub fn PssWalkSnapshot(snapshothandle: HPSS, informationclass: PSS_WALK_INFORMATION_CLASS, walkmarkerhandle: HPSSWALK, buffer: *mut ::core::ffi::c_void, bufferlength: u32) -> u32;
 }
-#[repr(C)]
+#[repr(transparent)]
 pub struct HPSS(pub isize);
 impl ::core::marker::Copy for HPSS {}
 impl ::core::clone::Clone for HPSS {
@@ -23,7 +23,7 @@ impl ::core::clone::Clone for HPSS {
         *self
     }
 }
-#[repr(C)]
+#[repr(transparent)]
 pub struct HPSSWALK(pub isize);
 impl ::core::marker::Copy for HPSSWALK {}
 impl ::core::clone::Clone for HPSSWALK {

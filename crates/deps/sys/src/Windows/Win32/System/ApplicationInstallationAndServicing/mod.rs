@@ -1906,7 +1906,7 @@ impl ::core::clone::Clone for MSIFILEHASHINFO {
         *self
     }
 }
-#[repr(C)]
+#[repr(transparent)]
 pub struct MSIHANDLE(pub u32);
 impl ::core::marker::Copy for MSIHANDLE {}
 impl ::core::clone::Clone for MSIHANDLE {

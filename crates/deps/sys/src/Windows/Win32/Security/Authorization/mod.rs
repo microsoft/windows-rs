@@ -648,7 +648,7 @@ impl ::core::clone::Clone for AUTHZ_ACCESS_CHECK_FLAGS {
         *self
     }
 }
-#[repr(C)]
+#[repr(transparent)]
 pub struct AUTHZ_ACCESS_CHECK_RESULTS_HANDLE(pub isize);
 impl ::core::marker::Copy for AUTHZ_ACCESS_CHECK_RESULTS_HANDLE {}
 impl ::core::clone::Clone for AUTHZ_ACCESS_CHECK_RESULTS_HANDLE {
@@ -687,7 +687,7 @@ impl ::core::clone::Clone for AUTHZ_ACCESS_REQUEST {
     }
 }
 pub const AUTHZ_ALLOW_MULTIPLE_SOURCE_INSTANCES: u32 = 1u32;
-#[repr(C)]
+#[repr(transparent)]
 pub struct AUTHZ_AUDIT_EVENT_HANDLE(pub isize);
 impl ::core::marker::Copy for AUTHZ_AUDIT_EVENT_HANDLE {}
 impl ::core::clone::Clone for AUTHZ_AUDIT_EVENT_HANDLE {
@@ -708,7 +708,7 @@ impl ::core::clone::Clone for AUTHZ_AUDIT_EVENT_INFORMATION_CLASS {
         *self
     }
 }
-#[repr(C)]
+#[repr(transparent)]
 pub struct AUTHZ_AUDIT_EVENT_TYPE_HANDLE(pub isize);
 impl ::core::marker::Copy for AUTHZ_AUDIT_EVENT_TYPE_HANDLE {}
 impl ::core::clone::Clone for AUTHZ_AUDIT_EVENT_TYPE_HANDLE {
@@ -767,7 +767,7 @@ impl ::core::clone::Clone for AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE__ {
         *self
     }
 }
-#[repr(C)]
+#[repr(transparent)]
 pub struct AUTHZ_CLIENT_CONTEXT_HANDLE(pub isize);
 impl ::core::marker::Copy for AUTHZ_CLIENT_CONTEXT_HANDLE {}
 impl ::core::clone::Clone for AUTHZ_CLIENT_CONTEXT_HANDLE {
@@ -869,7 +869,7 @@ impl ::core::clone::Clone for AUTHZ_RESOURCE_MANAGER_FLAGS {
         *self
     }
 }
-#[repr(C)]
+#[repr(transparent)]
 pub struct AUTHZ_RESOURCE_MANAGER_HANDLE(pub isize);
 impl ::core::marker::Copy for AUTHZ_RESOURCE_MANAGER_HANDLE {}
 impl ::core::clone::Clone for AUTHZ_RESOURCE_MANAGER_HANDLE {
@@ -1019,7 +1019,7 @@ impl ::core::clone::Clone for AUTHZ_SECURITY_ATTRIBUTE_V1_0 {
         *self
     }
 }
-#[repr(C)]
+#[repr(transparent)]
 pub struct AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE(pub isize);
 impl ::core::marker::Copy for AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE {}
 impl ::core::clone::Clone for AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE {

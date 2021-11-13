@@ -775,7 +775,7 @@ impl ::core::clone::Clone for GRE_CONFIG_PARAMS0 {
         *self
     }
 }
-#[repr(C)]
+#[repr(transparent)]
 pub struct HRASCONN(pub isize);
 impl ::core::marker::Copy for HRASCONN {}
 impl ::core::clone::Clone for HRASCONN {

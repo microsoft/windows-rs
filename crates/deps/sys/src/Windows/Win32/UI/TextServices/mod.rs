@@ -296,7 +296,7 @@ pub const GUID_TS_SERVICE_DATAOBJECT: ::windows_sys::core::GUID = ::windows_sys:
 };
 pub const GXFPF_NEAREST: u32 = 2u32;
 pub const GXFPF_ROUND_NEAREST: u32 = 1u32;
-#[repr(C)]
+#[repr(transparent)]
 pub struct HKL(pub isize);
 impl ::core::marker::Copy for HKL {}
 impl ::core::clone::Clone for HKL {

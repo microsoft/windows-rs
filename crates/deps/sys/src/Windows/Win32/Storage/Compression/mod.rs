@@ -26,7 +26,7 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn SetDecompressorInformation(decompressorhandle: isize, compressinformationclass: COMPRESS_INFORMATION_CLASS, compressinformation: *const ::core::ffi::c_void, compressinformationsize: usize) -> super::super::Foundation::BOOL;
 }
-#[repr(C)]
+#[repr(transparent)]
 pub struct COMPRESSOR_HANDLE(pub isize);
 impl ::core::marker::Copy for COMPRESSOR_HANDLE {}
 impl ::core::clone::Clone for COMPRESSOR_HANDLE {

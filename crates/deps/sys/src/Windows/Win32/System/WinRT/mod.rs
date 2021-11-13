@@ -132,7 +132,7 @@ impl ::core::clone::Clone for ACTIVATIONTYPE {
         *self
     }
 }
-#[repr(C)]
+#[repr(transparent)]
 pub struct APARTMENT_SHUTDOWN_REGISTRATION_COOKIE(pub isize);
 impl ::core::marker::Copy for APARTMENT_SHUTDOWN_REGISTRATION_COOKIE {}
 impl ::core::clone::Clone for APARTMENT_SHUTDOWN_REGISTRATION_COOKIE {
@@ -234,7 +234,7 @@ impl ::core::clone::Clone for EventRegistrationToken {
         *self
     }
 }
-#[repr(C)]
+#[repr(transparent)]
 pub struct HSTRING_BUFFER(pub isize);
 impl ::core::marker::Copy for HSTRING_BUFFER {}
 impl ::core::clone::Clone for HSTRING_BUFFER {
@@ -561,7 +561,7 @@ pub const MAX_ERROR_MESSAGE_CHARS: u32 = 512u32;
 pub type PINSPECT_HSTRING_CALLBACK = unsafe extern "system" fn(context: *const ::core::ffi::c_void, readaddress: usize, length: u32, buffer: *mut u8) -> ::windows_sys::core::HRESULT;
 pub type PINSPECT_HSTRING_CALLBACK2 = unsafe extern "system" fn(context: *const ::core::ffi::c_void, readaddress: u64, length: u32, buffer: *mut u8) -> ::windows_sys::core::HRESULT;
 pub type PINSPECT_MEMORY_CALLBACK = unsafe extern "system" fn(context: *const ::core::ffi::c_void, readaddress: usize, length: u32, buffer: *mut u8) -> ::windows_sys::core::HRESULT;
-#[repr(C)]
+#[repr(transparent)]
 pub struct ROPARAMIIDHANDLE(pub isize);
 impl ::core::marker::Copy for ROPARAMIIDHANDLE {}
 impl ::core::clone::Clone for ROPARAMIIDHANDLE {

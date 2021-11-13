@@ -75,7 +75,7 @@ impl ::core::clone::Clone for CROSS_SLIDE_THRESHOLD {
         *self
     }
 }
-#[repr(C)]
+#[repr(transparent)]
 pub struct HINTERACTIONCONTEXT(pub isize);
 impl ::core::marker::Copy for HINTERACTIONCONTEXT {}
 impl ::core::clone::Clone for HINTERACTIONCONTEXT {

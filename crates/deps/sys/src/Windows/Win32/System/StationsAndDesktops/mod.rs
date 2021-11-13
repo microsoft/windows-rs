@@ -112,7 +112,7 @@ impl ::core::clone::Clone for BSMINFO {
 pub type DESKTOPENUMPROCA = unsafe extern "system" fn(param0: super::super::Foundation::PSTR, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
 pub type DESKTOPENUMPROCW = unsafe extern "system" fn(param0: super::super::Foundation::PWSTR, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
-#[repr(C)]
+#[repr(transparent)]
 pub struct HDESK(pub isize);
 impl ::core::marker::Copy for HDESK {}
 impl ::core::clone::Clone for HDESK {
@@ -120,7 +120,7 @@ impl ::core::clone::Clone for HDESK {
         *self
     }
 }
-#[repr(C)]
+#[repr(transparent)]
 pub struct HWINSTA(pub isize);
 impl ::core::marker::Copy for HWINSTA {}
 impl ::core::clone::Clone for HWINSTA {

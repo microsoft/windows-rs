@@ -229,7 +229,7 @@ impl ::core::clone::Clone for HCS_NOTIFICATION_FLAGS {
         *self
     }
 }
-#[repr(C)]
+#[repr(transparent)]
 pub struct HCS_OPERATION(pub isize);
 impl ::core::marker::Copy for HCS_OPERATION {}
 impl ::core::clone::Clone for HCS_OPERATION {
@@ -263,7 +263,7 @@ impl ::core::clone::Clone for HCS_OPERATION_TYPE {
         *self
     }
 }
-#[repr(C)]
+#[repr(transparent)]
 pub struct HCS_PROCESS(pub isize);
 impl ::core::marker::Copy for HCS_PROCESS {}
 impl ::core::clone::Clone for HCS_PROCESS {
@@ -288,7 +288,7 @@ impl ::core::clone::Clone for HCS_PROCESS_INFORMATION {
         *self
     }
 }
-#[repr(C)]
+#[repr(transparent)]
 pub struct HCS_SYSTEM(pub isize);
 impl ::core::marker::Copy for HCS_SYSTEM {}
 impl ::core::clone::Clone for HCS_SYSTEM {

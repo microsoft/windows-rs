@@ -118,7 +118,7 @@ impl ::core::clone::Clone for DRAWPATRECT {
         *self
     }
 }
-#[repr(C)]
+#[repr(transparent)]
 pub struct HPTPROVIDER(pub isize);
 impl ::core::marker::Copy for HPTPROVIDER {}
 impl ::core::clone::Clone for HPTPROVIDER {

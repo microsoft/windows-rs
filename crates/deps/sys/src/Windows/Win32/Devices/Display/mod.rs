@@ -853,7 +853,7 @@ pub const DEVPKEY_IndirectDisplay: super::super::UI::Shell::PropertiesSystem::PR
     },
     pid: 1u32,
 };
-#[repr(C)]
+#[repr(transparent)]
 pub struct DHPDEV(pub isize);
 impl ::core::marker::Copy for DHPDEV {}
 impl ::core::clone::Clone for DHPDEV {
@@ -861,7 +861,7 @@ impl ::core::clone::Clone for DHPDEV {
         *self
     }
 }
-#[repr(C)]
+#[repr(transparent)]
 pub struct DHSURF(pub isize);
 impl ::core::marker::Copy for DHSURF {}
 impl ::core::clone::Clone for DHSURF {
@@ -2599,7 +2599,7 @@ pub const GX_GENERAL: i32 = 3i32;
 pub const GX_IDENTITY: i32 = 0i32;
 pub const GX_OFFSET: i32 = 1i32;
 pub const GX_SCALE: i32 = 2i32;
-#[repr(C)]
+#[repr(transparent)]
 pub struct HBM(pub isize);
 impl ::core::marker::Copy for HBM {}
 impl ::core::clone::Clone for HBM {
@@ -2607,7 +2607,7 @@ impl ::core::clone::Clone for HBM {
         *self
     }
 }
-#[repr(C)]
+#[repr(transparent)]
 pub struct HDEV(pub isize);
 impl ::core::marker::Copy for HDEV {}
 impl ::core::clone::Clone for HDEV {
@@ -2615,7 +2615,7 @@ impl ::core::clone::Clone for HDEV {
         *self
     }
 }
-#[repr(C)]
+#[repr(transparent)]
 pub struct HDRVOBJ(pub isize);
 impl ::core::marker::Copy for HDRVOBJ {}
 impl ::core::clone::Clone for HDRVOBJ {
@@ -2623,7 +2623,7 @@ impl ::core::clone::Clone for HDRVOBJ {
         *self
     }
 }
-#[repr(C)]
+#[repr(transparent)]
 pub struct HFASTMUTEX(pub isize);
 impl ::core::marker::Copy for HFASTMUTEX {}
 impl ::core::clone::Clone for HFASTMUTEX {
@@ -2659,7 +2659,7 @@ pub const HOST_DSI_OS_REJECTED_PACKET: u32 = 512u32;
 pub const HOST_DSI_TRANSMISSION_CANCELLED: u32 = 16u32;
 pub const HOST_DSI_TRANSMISSION_DROPPED: u32 = 32u32;
 pub const HOST_DSI_TRANSMISSION_TIMEOUT: u32 = 64u32;
-#[repr(C)]
+#[repr(transparent)]
 pub struct HSEMAPHORE(pub isize);
 impl ::core::marker::Copy for HSEMAPHORE {}
 impl ::core::clone::Clone for HSEMAPHORE {
@@ -2667,7 +2667,7 @@ impl ::core::clone::Clone for HSEMAPHORE {
         *self
     }
 }
-#[repr(C)]
+#[repr(transparent)]
 pub struct HSURF(pub isize);
 impl ::core::marker::Copy for HSURF {}
 impl ::core::clone::Clone for HSURF {

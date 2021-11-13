@@ -1406,7 +1406,7 @@ impl ::core::clone::Clone for WHV_PARTITION_COUNTER_SET {
         *self
     }
 }
-#[repr(C)]
+#[repr(transparent)]
 pub struct WHV_PARTITION_HANDLE(pub isize);
 impl ::core::marker::Copy for WHV_PARTITION_HANDLE {}
 impl ::core::clone::Clone for WHV_PARTITION_HANDLE {

@@ -2037,7 +2037,7 @@ impl ::core::clone::Clone for DNS_WKS_DATA {
         *self
     }
 }
-#[repr(C)]
+#[repr(transparent)]
 pub struct DnsContextHandle(pub isize);
 impl ::core::marker::Copy for DnsContextHandle {}
 impl ::core::clone::Clone for DnsContextHandle {

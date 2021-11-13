@@ -140,7 +140,7 @@ impl ::core::clone::Clone for PRJ_COMPLETE_COMMAND_TYPE {
         *self
     }
 }
-#[repr(C)]
+#[repr(transparent)]
 pub struct PRJ_DIR_ENTRY_BUFFER_HANDLE(pub isize);
 impl ::core::marker::Copy for PRJ_DIR_ENTRY_BUFFER_HANDLE {}
 impl ::core::clone::Clone for PRJ_DIR_ENTRY_BUFFER_HANDLE {
@@ -238,7 +238,7 @@ pub type PRJ_GET_DIRECTORY_ENUMERATION_CB = unsafe extern "system" fn(callbackda
 pub type PRJ_GET_FILE_DATA_CB = unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA, byteoffset: u64, length: u32) -> ::windows_sys::core::HRESULT;
 #[cfg(feature = "Win32_Foundation")]
 pub type PRJ_GET_PLACEHOLDER_INFO_CB = unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA) -> ::windows_sys::core::HRESULT;
-#[repr(C)]
+#[repr(transparent)]
 pub struct PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT(pub isize);
 impl ::core::marker::Copy for PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT {}
 impl ::core::clone::Clone for PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT {

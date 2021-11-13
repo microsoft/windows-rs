@@ -585,7 +585,7 @@ impl ::core::clone::Clone for APP_MEMORY_INFORMATION {
         *self
     }
 }
-#[repr(C)]
+#[repr(transparent)]
 pub struct BoundaryDescriptorHandle(pub isize);
 impl ::core::marker::Copy for BoundaryDescriptorHandle {}
 impl ::core::clone::Clone for BoundaryDescriptorHandle {
@@ -649,7 +649,7 @@ impl ::core::clone::Clone for IO_COUNTERS {
     }
 }
 pub type LPFIBER_START_ROUTINE = unsafe extern "system" fn(lpfiberparameter: *mut ::core::ffi::c_void);
-#[repr(C)]
+#[repr(transparent)]
 pub struct LPPROC_THREAD_ATTRIBUTE_LIST(pub *mut ::core::ffi::c_void);
 impl ::core::marker::Copy for LPPROC_THREAD_ATTRIBUTE_LIST {}
 impl ::core::clone::Clone for LPPROC_THREAD_ATTRIBUTE_LIST {
@@ -693,7 +693,7 @@ impl ::core::clone::Clone for MEMORY_PRIORITY_INFORMATION {
     }
 }
 pub const MUTEX_MODIFY_STATE: u32 = 1u32;
-#[repr(C)]
+#[repr(transparent)]
 pub struct NamespaceHandle(pub isize);
 impl ::core::marker::Copy for NamespaceHandle {}
 impl ::core::clone::Clone for NamespaceHandle {
@@ -1136,7 +1136,7 @@ pub const PROC_THREAD_ATTRIBUTE_REPLACE_VALUE: u32 = 1u32;
 pub type PRTL_UMS_SCHEDULER_ENTRY_POINT = unsafe extern "system" fn(reason: super::SystemServices::RTL_UMS_SCHEDULER_REASON, activationpayload: usize, schedulerparam: *const ::core::ffi::c_void);
 pub type PTIMERAPCROUTINE = unsafe extern "system" fn(lpargtocompletionroutine: *const ::core::ffi::c_void, dwtimerlowvalue: u32, dwtimerhighvalue: u32);
 pub type PTP_CLEANUP_GROUP_CANCEL_CALLBACK = unsafe extern "system" fn(objectcontext: *mut ::core::ffi::c_void, cleanupcontext: *mut ::core::ffi::c_void);
-#[repr(C)]
+#[repr(transparent)]
 pub struct PTP_POOL(pub isize);
 impl ::core::marker::Copy for PTP_POOL {}
 impl ::core::clone::Clone for PTP_POOL {
@@ -1602,7 +1602,7 @@ pub struct TP_TIMER(pub u8);
 pub struct TP_WAIT(pub u8);
 #[repr(C)]
 pub struct TP_WORK(pub u8);
-#[repr(C)]
+#[repr(transparent)]
 pub struct TimerQueueHandle(pub isize);
 impl ::core::marker::Copy for TimerQueueHandle {}
 impl ::core::clone::Clone for TimerQueueHandle {

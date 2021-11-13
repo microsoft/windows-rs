@@ -2077,7 +2077,7 @@ impl ::core::clone::Clone for TDH_CONTEXT_TYPE {
         *self
     }
 }
-#[repr(C)]
+#[repr(transparent)]
 pub struct TDH_HANDLE(pub isize);
 impl ::core::marker::Copy for TDH_HANDLE {}
 impl ::core::clone::Clone for TDH_HANDLE {
