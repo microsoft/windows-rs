@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {}
 pub const CLSID_AudioFrameNativeFactory: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 379626425, data2: 40805, data3: 16642, data4: [147, 103, 44, 218, 58, 79, 55, 42] };
