@@ -1052,7 +1052,7 @@ pub const GenericAudioServiceClassID_UUID16: u32 = 4611u32;
 pub const GenericFileTransferServiceClassID_UUID16: u32 = 4610u32;
 pub const GenericNetworkingServiceClassID_UUID16: u32 = 4609u32;
 pub const GenericTelephonyServiceClassID_UUID16: u32 = 4612u32;
-#[repr(C)]
+#[repr(transparent)]
 pub struct HANDLE_SDP_TYPE(pub u64);
 impl ::core::marker::Copy for HANDLE_SDP_TYPE {}
 impl ::core::clone::Clone for HANDLE_SDP_TYPE {

@@ -2731,7 +2731,7 @@ impl ::core::clone::Clone for LSA_TRUST_INFORMATION {
         *self
     }
 }
-#[repr(C)]
+#[repr(transparent)]
 pub struct LsaHandle(pub isize);
 impl ::core::marker::Copy for LsaHandle {}
 impl ::core::clone::Clone for LsaHandle {

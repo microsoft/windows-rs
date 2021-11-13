@@ -5213,7 +5213,7 @@ pub const GPFIDL_ALTNAME: i32 = 1i32;
 pub const GPFIDL_DEFAULT: i32 = 0i32;
 pub const GPFIDL_UNCPRINTER: i32 = 2i32;
 pub const GenericCredentialProvider: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 634108310, data2: 37613, data3: 17790, data4: [178, 140, 71, 116, 8, 75, 213, 98] };
-#[repr(C)]
+#[repr(transparent)]
 pub struct HDROP(pub isize);
 impl ::core::marker::Copy for HDROP {}
 impl ::core::clone::Clone for HDROP {
@@ -5462,7 +5462,7 @@ impl ::core::clone::Clone for HOMEGROUPSHARINGCHOICES {
         *self
     }
 }
-#[repr(C)]
+#[repr(transparent)]
 pub struct HPSXA(pub isize);
 impl ::core::marker::Copy for HPSXA {}
 impl ::core::clone::Clone for HPSXA {
@@ -13148,7 +13148,7 @@ pub const SelectedItemCount_Property_GUID: ::windows_sys::core::GUID = ::windows
     data3: 17930,
     data4: [156, 30, 72, 242, 115, 212, 112, 163],
 };
-#[repr(C)]
+#[repr(transparent)]
 pub struct ShFindChangeNotificationHandle(pub isize);
 impl ::core::marker::Copy for ShFindChangeNotificationHandle {}
 impl ::core::clone::Clone for ShFindChangeNotificationHandle {

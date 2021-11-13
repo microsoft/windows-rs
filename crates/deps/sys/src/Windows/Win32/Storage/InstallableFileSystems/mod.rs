@@ -290,7 +290,7 @@ impl ::core::clone::Clone for FLT_FILESYSTEM_TYPE {
     }
 }
 pub const FLT_PORT_FLAG_SYNC_HANDLE: u32 = 1u32;
-#[repr(C)]
+#[repr(transparent)]
 pub struct FilterFindHandle(pub isize);
 impl ::core::marker::Copy for FilterFindHandle {}
 impl ::core::clone::Clone for FilterFindHandle {
@@ -298,7 +298,7 @@ impl ::core::clone::Clone for FilterFindHandle {
         *self
     }
 }
-#[repr(C)]
+#[repr(transparent)]
 pub struct FilterInstanceFindHandle(pub isize);
 impl ::core::marker::Copy for FilterInstanceFindHandle {}
 impl ::core::clone::Clone for FilterInstanceFindHandle {
@@ -306,7 +306,7 @@ impl ::core::clone::Clone for FilterInstanceFindHandle {
         *self
     }
 }
-#[repr(C)]
+#[repr(transparent)]
 pub struct FilterVolumeFindHandle(pub isize);
 impl ::core::marker::Copy for FilterVolumeFindHandle {}
 impl ::core::clone::Clone for FilterVolumeFindHandle {
@@ -314,7 +314,7 @@ impl ::core::clone::Clone for FilterVolumeFindHandle {
         *self
     }
 }
-#[repr(C)]
+#[repr(transparent)]
 pub struct FilterVolumeInstanceFindHandle(pub isize);
 impl ::core::marker::Copy for FilterVolumeInstanceFindHandle {}
 impl ::core::clone::Clone for FilterVolumeInstanceFindHandle {
@@ -322,7 +322,7 @@ impl ::core::clone::Clone for FilterVolumeInstanceFindHandle {
         *self
     }
 }
-#[repr(C)]
+#[repr(transparent)]
 pub struct HFILTER(pub isize);
 impl ::core::marker::Copy for HFILTER {}
 impl ::core::clone::Clone for HFILTER {
@@ -330,7 +330,7 @@ impl ::core::clone::Clone for HFILTER {
         *self
     }
 }
-#[repr(C)]
+#[repr(transparent)]
 pub struct HFILTER_INSTANCE(pub isize);
 impl ::core::marker::Copy for HFILTER_INSTANCE {}
 impl ::core::clone::Clone for HFILTER_INSTANCE {

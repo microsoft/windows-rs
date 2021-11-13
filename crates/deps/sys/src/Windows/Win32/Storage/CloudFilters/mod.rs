@@ -506,7 +506,7 @@ impl ::core::clone::Clone for CF_CALLBACK_VALIDATE_DATA_FLAGS {
         *self
     }
 }
-#[repr(C)]
+#[repr(transparent)]
 pub struct CF_CONNECTION_KEY(pub isize);
 impl ::core::marker::Copy for CF_CONNECTION_KEY {}
 impl ::core::clone::Clone for CF_CONNECTION_KEY {

@@ -2673,7 +2673,7 @@ impl ::core::clone::Clone for FIO_CONTEXT {
         *self
     }
 }
-#[repr(C)]
+#[repr(transparent)]
 pub struct FindChangeNotificationHandle(pub isize);
 impl ::core::marker::Copy for FindChangeNotificationHandle {}
 impl ::core::clone::Clone for FindChangeNotificationHandle {
@@ -2681,7 +2681,7 @@ impl ::core::clone::Clone for FindChangeNotificationHandle {
         *self
     }
 }
-#[repr(C)]
+#[repr(transparent)]
 pub struct FindFileHandle(pub isize);
 impl ::core::marker::Copy for FindFileHandle {}
 impl ::core::clone::Clone for FindFileHandle {
@@ -2689,7 +2689,7 @@ impl ::core::clone::Clone for FindFileHandle {
         *self
     }
 }
-#[repr(C)]
+#[repr(transparent)]
 pub struct FindFileNameHandle(pub isize);
 impl ::core::marker::Copy for FindFileNameHandle {}
 impl ::core::clone::Clone for FindFileNameHandle {
@@ -2697,7 +2697,7 @@ impl ::core::clone::Clone for FindFileNameHandle {
         *self
     }
 }
-#[repr(C)]
+#[repr(transparent)]
 pub struct FindStreamHandle(pub isize);
 impl ::core::marker::Copy for FindStreamHandle {}
 impl ::core::clone::Clone for FindStreamHandle {
@@ -2705,7 +2705,7 @@ impl ::core::clone::Clone for FindStreamHandle {
         *self
     }
 }
-#[repr(C)]
+#[repr(transparent)]
 pub struct FindVolumeHandle(pub isize);
 impl ::core::marker::Copy for FindVolumeHandle {}
 impl ::core::clone::Clone for FindVolumeHandle {
@@ -2713,7 +2713,7 @@ impl ::core::clone::Clone for FindVolumeHandle {
         *self
     }
 }
-#[repr(C)]
+#[repr(transparent)]
 pub struct FindVolumeMointPointHandle(pub isize);
 impl ::core::marker::Copy for FindVolumeMointPointHandle {}
 impl ::core::clone::Clone for FindVolumeMointPointHandle {

@@ -1912,7 +1912,7 @@ impl ::core::clone::Clone for PerfCounterDataType {
         *self
     }
 }
-#[repr(C)]
+#[repr(transparent)]
 pub struct PerfProviderHandle(pub isize);
 impl ::core::marker::Copy for PerfProviderHandle {}
 impl ::core::clone::Clone for PerfProviderHandle {
@@ -1920,7 +1920,7 @@ impl ::core::clone::Clone for PerfProviderHandle {
         *self
     }
 }
-#[repr(C)]
+#[repr(transparent)]
 pub struct PerfQueryHandle(pub isize);
 impl ::core::marker::Copy for PerfQueryHandle {}
 impl ::core::clone::Clone for PerfQueryHandle {

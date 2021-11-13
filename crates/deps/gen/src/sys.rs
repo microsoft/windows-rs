@@ -139,6 +139,8 @@ fn gen_struct(def: &TypeDef, gen: &Gen) -> TokenStream {
 
 fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen, cfg: &TokenStream) -> TokenStream {
     let name = to_ident(struct_name);
+    let is_union = def.is_explicit();
+    let is_handle = def.is_handle();
 
     let (doc, cfg) = if cfg.is_empty() {
         let features = features(def, gen);
@@ -180,12 +182,11 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen, cfg: &Token
     let repr = if let Some(layout) = def.class_layout() {
         let packing = Literal::u32_unsuffixed(layout.packing_size());
         quote! { #[repr(C, packed(#packing))] }
+    } else if is_handle {
+        quote! { #[repr(transparent)] }
     } else {
         quote! { #[repr(C)] }
     };
-
-    let is_union = def.is_explicit();
-    let is_handle = def.is_handle();
 
     let fields = fields.iter().map(|(_, signature, name)| {
         let kind = gen_sys_sig(signature, gen);

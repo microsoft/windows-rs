@@ -244,7 +244,7 @@ pub const DTRESULTPROB: u32 = 2u32;
 pub const EISAFLAG_NO_IO_MERGE: u32 = 1u32;
 pub const EISAFLAG_SLOT_IO_FIRST: u32 = 2u32;
 pub const EISA_NO_MAX_FUNCTION: u32 = 255u32;
-#[repr(C)]
+#[repr(transparent)]
 pub struct HKEY(pub isize);
 impl ::core::marker::Copy for HKEY {}
 impl ::core::clone::Clone for HKEY {

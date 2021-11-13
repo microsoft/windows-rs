@@ -921,7 +921,7 @@ impl ::core::clone::Clone for SERVICE_STATUS_CURRENT_STATE {
         *self
     }
 }
-#[repr(C)]
+#[repr(transparent)]
 pub struct SERVICE_STATUS_HANDLE(pub isize);
 impl ::core::marker::Copy for SERVICE_STATUS_HANDLE {}
 impl ::core::clone::Clone for SERVICE_STATUS_HANDLE {

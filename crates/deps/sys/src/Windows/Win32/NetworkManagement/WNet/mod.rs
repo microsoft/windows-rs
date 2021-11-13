@@ -436,7 +436,7 @@ impl ::core::clone::Clone for NP_PROPERTY_DIALOG_SELECTION {
         *self
     }
 }
-#[repr(C)]
+#[repr(transparent)]
 pub struct NetEnumHandle(pub isize);
 impl ::core::marker::Copy for NetEnumHandle {}
 impl ::core::clone::Clone for NetEnumHandle {

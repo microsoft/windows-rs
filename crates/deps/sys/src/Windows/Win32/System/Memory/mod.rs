@@ -277,7 +277,7 @@ impl ::core::clone::Clone for HEAP_SUMMARY {
         *self
     }
 }
-#[repr(C)]
+#[repr(transparent)]
 pub struct HeapHandle(pub isize);
 impl ::core::marker::Copy for HeapHandle {}
 impl ::core::clone::Clone for HeapHandle {

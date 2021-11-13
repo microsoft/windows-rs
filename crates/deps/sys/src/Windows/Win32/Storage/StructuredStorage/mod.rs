@@ -1,7 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {}
-#[repr(C)]
+#[repr(transparent)]
 pub struct JET_API_PTR(pub usize);
 impl ::core::marker::Copy for JET_API_PTR {}
 impl ::core::clone::Clone for JET_API_PTR {
@@ -9,7 +9,7 @@ impl ::core::clone::Clone for JET_API_PTR {
         *self
     }
 }
-#[repr(C)]
+#[repr(transparent)]
 pub struct JET_HANDLE(pub usize);
 impl ::core::marker::Copy for JET_HANDLE {}
 impl ::core::clone::Clone for JET_HANDLE {
@@ -17,7 +17,7 @@ impl ::core::clone::Clone for JET_HANDLE {
         *self
     }
 }
-#[repr(C)]
+#[repr(transparent)]
 pub struct JET_INSTANCE(pub usize);
 impl ::core::marker::Copy for JET_INSTANCE {}
 impl ::core::clone::Clone for JET_INSTANCE {
@@ -25,7 +25,7 @@ impl ::core::clone::Clone for JET_INSTANCE {
         *self
     }
 }
-#[repr(C)]
+#[repr(transparent)]
 pub struct JET_SESID(pub usize);
 impl ::core::marker::Copy for JET_SESID {}
 impl ::core::clone::Clone for JET_SESID {
@@ -33,7 +33,7 @@ impl ::core::clone::Clone for JET_SESID {
         *self
     }
 }
-#[repr(C)]
+#[repr(transparent)]
 pub struct JET_TABLEID(pub usize);
 impl ::core::marker::Copy for JET_TABLEID {}
 impl ::core::clone::Clone for JET_TABLEID {

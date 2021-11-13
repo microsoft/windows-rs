@@ -420,7 +420,7 @@ pub const DISPID_PROP_REMOTEDESKTOPCLIENT_TOUCH_POINTER: u32 = 712u32;
 pub const DOMAIN_LENGTH: u32 = 17u32;
 pub const FORCE_REJOIN: u32 = 2u32;
 pub const FORCE_REJOIN_IN_CLUSTERMODE: u32 = 3u32;
-#[repr(C)]
+#[repr(transparent)]
 pub struct HwtsVirtualChannelHandle(pub isize);
 impl ::core::marker::Copy for HwtsVirtualChannelHandle {}
 impl ::core::clone::Clone for HwtsVirtualChannelHandle {

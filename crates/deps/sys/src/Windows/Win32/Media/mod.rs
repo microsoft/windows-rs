@@ -35,7 +35,7 @@ extern "system" {
     pub fn timeKillEvent(utimerid: u32) -> u32;
     pub fn timeSetEvent(udelay: u32, uresolution: u32, fptc: LPTIMECALLBACK, dwuser: usize, fuevent: u32) -> u32;
 }
-#[repr(C)]
+#[repr(transparent)]
 pub struct HTASK(pub isize);
 impl ::core::marker::Copy for HTASK {}
 impl ::core::clone::Clone for HTASK {

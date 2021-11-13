@@ -111,7 +111,7 @@ impl ::core::clone::Clone for WEB_SOCKET_CLOSE_STATUS {
         *self
     }
 }
-#[repr(C)]
+#[repr(transparent)]
 pub struct WEB_SOCKET_HANDLE(pub isize);
 impl ::core::marker::Copy for WEB_SOCKET_HANDLE {}
 impl ::core::clone::Clone for WEB_SOCKET_HANDLE {

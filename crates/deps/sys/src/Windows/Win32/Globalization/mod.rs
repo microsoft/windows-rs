@@ -2212,7 +2212,7 @@ pub const GSS_ALLOW_INHERITED_COMMON: u32 = 1u32;
 pub const HIGHLEVEL_SERVICE_TYPES: u32 = 1u32;
 pub const HIGH_SURROGATE_END: u32 = 56319u32;
 pub const HIGH_SURROGATE_START: u32 = 55296u32;
-#[repr(C)]
+#[repr(transparent)]
 pub struct HIMC(pub isize);
 impl ::core::marker::Copy for HIMC {}
 impl ::core::clone::Clone for HIMC {
@@ -2220,7 +2220,7 @@ impl ::core::clone::Clone for HIMC {
         *self
     }
 }
-#[repr(C)]
+#[repr(transparent)]
 pub struct HIMCC(pub isize);
 impl ::core::marker::Copy for HIMCC {}
 impl ::core::clone::Clone for HIMCC {
@@ -2228,7 +2228,7 @@ impl ::core::clone::Clone for HIMCC {
         *self
     }
 }
-#[repr(C)]
+#[repr(transparent)]
 pub struct HSAVEDUILANGUAGES(pub isize);
 impl ::core::marker::Copy for HSAVEDUILANGUAGES {}
 impl ::core::clone::Clone for HSAVEDUILANGUAGES {

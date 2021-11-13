@@ -1438,7 +1438,7 @@ impl ::core::clone::Clone for HTTP_PUSH_TRANSPORT_SETTING {
         *self
     }
 }
-#[repr(C)]
+#[repr(transparent)]
 pub struct HTTP_PUSH_WAIT_HANDLE(pub isize);
 impl ::core::marker::Copy for HTTP_PUSH_WAIT_HANDLE {}
 impl ::core::clone::Clone for HTTP_PUSH_WAIT_HANDLE {

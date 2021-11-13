@@ -88,7 +88,7 @@ impl ::core::clone::Clone for GESTURENOTIFYSTRUCT {
         *self
     }
 }
-#[repr(C)]
+#[repr(transparent)]
 pub struct HGESTUREINFO(pub isize);
 impl ::core::marker::Copy for HGESTUREINFO {}
 impl ::core::clone::Clone for HGESTUREINFO {
@@ -96,7 +96,7 @@ impl ::core::clone::Clone for HGESTUREINFO {
         *self
     }
 }
-#[repr(C)]
+#[repr(transparent)]
 pub struct HTOUCHINPUT(pub isize);
 impl ::core::marker::Copy for HTOUCHINPUT {}
 impl ::core::clone::Clone for HTOUCHINPUT {

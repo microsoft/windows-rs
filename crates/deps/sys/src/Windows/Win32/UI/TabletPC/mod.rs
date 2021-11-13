@@ -1259,7 +1259,7 @@ pub const GestureRecognizer: ::windows_sys::core::GUID = ::windows_sys::core::GU
     data3: 17439,
     data4: [172, 0, 149, 249, 161, 150, 120, 44],
 };
-#[repr(C)]
+#[repr(transparent)]
 pub struct HRECOALT(pub isize);
 impl ::core::marker::Copy for HRECOALT {}
 impl ::core::clone::Clone for HRECOALT {
@@ -1267,7 +1267,7 @@ impl ::core::clone::Clone for HRECOALT {
         *self
     }
 }
-#[repr(C)]
+#[repr(transparent)]
 pub struct HRECOCONTEXT(pub isize);
 impl ::core::marker::Copy for HRECOCONTEXT {}
 impl ::core::clone::Clone for HRECOCONTEXT {
@@ -1275,7 +1275,7 @@ impl ::core::clone::Clone for HRECOCONTEXT {
         *self
     }
 }
-#[repr(C)]
+#[repr(transparent)]
 pub struct HRECOGNIZER(pub isize);
 impl ::core::marker::Copy for HRECOGNIZER {}
 impl ::core::clone::Clone for HRECOGNIZER {
@@ -1283,7 +1283,7 @@ impl ::core::clone::Clone for HRECOGNIZER {
         *self
     }
 }
-#[repr(C)]
+#[repr(transparent)]
 pub struct HRECOLATTICE(pub isize);
 impl ::core::marker::Copy for HRECOLATTICE {}
 impl ::core::clone::Clone for HRECOLATTICE {
@@ -1291,7 +1291,7 @@ impl ::core::clone::Clone for HRECOLATTICE {
         *self
     }
 }
-#[repr(C)]
+#[repr(transparent)]
 pub struct HRECOWORDLIST(pub isize);
 impl ::core::marker::Copy for HRECOWORDLIST {}
 impl ::core::clone::Clone for HRECOWORDLIST {
