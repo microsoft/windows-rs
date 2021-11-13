@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
     #[cfg(feature = "Win32_System_Com")]
@@ -27,12 +27,36 @@ impl ::core::clone::Clone for DtdProcessing {
 }
 #[repr(transparent)]
 pub struct IXmlReader(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IXmlReader {}
+impl ::core::clone::Clone for IXmlReader {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IXmlResolver(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IXmlResolver {}
+impl ::core::clone::Clone for IXmlResolver {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IXmlWriter(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IXmlWriter {}
+impl ::core::clone::Clone for IXmlWriter {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IXmlWriterLite(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IXmlWriterLite {}
+impl ::core::clone::Clone for IXmlWriterLite {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct XmlConformanceLevel(pub i32);
 pub const XmlConformanceLevel_Auto: XmlConformanceLevel = XmlConformanceLevel(0i32);
@@ -215,6 +239,6 @@ impl ::core::clone::Clone for XmlWriterProperty {
         *self
     }
 }
-pub const _IID_IXmlReader: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1920597121, data2: 28829, data3: 16533, data4: [182, 61, 105, 254, 75, 13, 144, 48] };
-pub const _IID_IXmlResolver: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1920597122, data2: 28829, data3: 16533, data4: [182, 61, 105, 254, 75, 13, 144, 48] };
-pub const _IID_IXmlWriter: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1920597128, data2: 28829, data3: 16533, data4: [182, 61, 105, 254, 75, 13, 144, 48] };
+pub const _IID_IXmlReader: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1920597121, data2: 28829, data3: 16533, data4: [182, 61, 105, 254, 75, 13, 144, 48] };
+pub const _IID_IXmlResolver: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1920597122, data2: 28829, data3: 16533, data4: [182, 61, 105, 254, 75, 13, 144, 48] };
+pub const _IID_IXmlWriter: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1920597128, data2: 28829, data3: 16533, data4: [182, 61, 105, 254, 75, 13, 144, 48] };

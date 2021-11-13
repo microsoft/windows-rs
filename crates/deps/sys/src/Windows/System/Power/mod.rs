@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[cfg(feature = "System_Power_Diagnostics")]
 pub mod Diagnostics;
 #[link(name = "windows")]
@@ -32,10 +32,28 @@ impl ::core::clone::Clone for EnergySaverStatus {
 }
 #[repr(transparent)]
 pub struct IBackgroundEnergyManagerStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBackgroundEnergyManagerStatics {}
+impl ::core::clone::Clone for IBackgroundEnergyManagerStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IForegroundEnergyManagerStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IForegroundEnergyManagerStatics {}
+impl ::core::clone::Clone for IForegroundEnergyManagerStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPowerManagerStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPowerManagerStatics {}
+impl ::core::clone::Clone for IPowerManagerStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PowerSupplyStatus(pub i32);
 impl PowerSupplyStatus {

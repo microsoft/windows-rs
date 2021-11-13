@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
@@ -245,34 +245,34 @@ impl ::core::clone::Clone for CANDIDATELIST {
         *self
     }
 }
-pub const CATID_MSIME_IImePadApplet: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CATID_MSIME_IImePadApplet: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1969670865,
     data2: 20169,
     data3: 17528,
     data4: [159, 233, 142, 215, 102, 97, 158, 223],
 };
-pub const CATID_MSIME_IImePadApplet1000: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CATID_MSIME_IImePadApplet1000: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3766608342,
     data2: 9097,
     data3: 17355,
     data4: [182, 111, 96, 159, 130, 61, 159, 156],
 };
-pub const CATID_MSIME_IImePadApplet1200: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CATID_MSIME_IImePadApplet1200: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2759833084,
     data2: 32021,
     data3: 16931,
     data4: [167, 137, 183, 129, 191, 154, 230, 103],
 };
-pub const CATID_MSIME_IImePadApplet900: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CATID_MSIME_IImePadApplet900: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4205728191,
     data2: 24155,
     data3: 18973,
     data4: [141, 225, 23, 193, 217, 225, 114, 141],
 };
-pub const CATID_MSIME_IImePadApplet_VER7: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1242533425, data2: 50158, data3: 4561, data4: [175, 239, 0, 128, 95, 12, 139, 109] };
-pub const CATID_MSIME_IImePadApplet_VER80: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1459070866, data2: 65265, data3: 4563, data4: [132, 99, 0, 192, 79, 122, 6, 229] };
-pub const CATID_MSIME_IImePadApplet_VER81: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1701126320, data2: 48008, data3: 4564, data4: [132, 192, 0, 192, 79, 122, 6, 229] };
-pub const CActiveIMM: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1230363955, data2: 45401, data3: 4560, data4: [143, 207, 0, 170, 0, 107, 204, 89] };
+pub const CATID_MSIME_IImePadApplet_VER7: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1242533425, data2: 50158, data3: 4561, data4: [175, 239, 0, 128, 95, 12, 139, 109] };
+pub const CATID_MSIME_IImePadApplet_VER80: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1459070866, data2: 65265, data3: 4563, data4: [132, 99, 0, 192, 79, 122, 6, 229] };
+pub const CATID_MSIME_IImePadApplet_VER81: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1701126320, data2: 48008, data3: 4564, data4: [132, 192, 0, 192, 79, 122, 6, 229] };
+pub const CActiveIMM: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1230363955, data2: 45401, data3: 4560, data4: [143, 207, 0, 170, 0, 107, 204, 89] };
 pub const CFS_CANDIDATEPOS: u32 = 64u32;
 pub const CFS_DEFAULT: u32 = 0u32;
 pub const CFS_EXCLUDE: u32 = 128u32;
@@ -282,19 +282,19 @@ pub const CFS_RECT: u32 = 1u32;
 pub const CHARINFO_APPLETID_MASK: u32 = 4278190080u32;
 pub const CHARINFO_CHARID_MASK: u32 = 65535u32;
 pub const CHARINFO_FEID_MASK: u32 = 15728640u32;
-pub const CLSID_ImePlugInDictDictionaryList_CHS: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CLSID_ImePlugInDictDictionaryList_CHS: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2079330971,
     data2: 23535,
     data3: 19940,
     data4: [155, 11, 94, 219, 102, 172, 47, 166],
 };
-pub const CLSID_ImePlugInDictDictionaryList_JPN: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CLSID_ImePlugInDictDictionaryList_JPN: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1340241771,
     data2: 45305,
     data3: 17302,
     data4: [181, 252, 233, 212, 207, 30, 193, 149],
 };
-pub const CLSID_VERSION_DEPENDENT_MSIME_JAPANESE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CLSID_VERSION_DEPENDENT_MSIME_JAPANESE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1787888286,
     data2: 43593,
     data3: 18203,
@@ -488,27 +488,93 @@ pub const IACE_DEFAULT: u32 = 16u32;
 pub const IACE_IGNORENOCONTEXT: u32 = 32u32;
 #[repr(transparent)]
 pub struct IActiveIME(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IActiveIME {}
+impl ::core::clone::Clone for IActiveIME {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IActiveIME2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IActiveIME2 {}
+impl ::core::clone::Clone for IActiveIME2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IActiveIMMApp(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IActiveIMMApp {}
+impl ::core::clone::Clone for IActiveIMMApp {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IActiveIMMIME(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IActiveIMMIME {}
+impl ::core::clone::Clone for IActiveIMMIME {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IActiveIMMMessagePumpOwner(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IActiveIMMMessagePumpOwner {}
+impl ::core::clone::Clone for IActiveIMMMessagePumpOwner {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IActiveIMMRegistrar(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IActiveIMMRegistrar {}
+impl ::core::clone::Clone for IActiveIMMRegistrar {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEnumInputContext(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnumInputContext {}
+impl ::core::clone::Clone for IEnumInputContext {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEnumRegisterWordA(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnumRegisterWordA {}
+impl ::core::clone::Clone for IEnumRegisterWordA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEnumRegisterWordW(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnumRegisterWordW {}
+impl ::core::clone::Clone for IEnumRegisterWordW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const IFEC_S_ALREADY_DEFAULT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(291840i32 as _);
 #[repr(transparent)]
 pub struct IFEClassFactory(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFEClassFactory {}
+impl ::core::clone::Clone for IFEClassFactory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFECommon(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFECommon {}
+impl ::core::clone::Clone for IFECommon {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const IFED_E_INVALID_FORMAT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147192063i32 as _);
 pub const IFED_E_NOT_FOUND: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147192064i32 as _);
 pub const IFED_E_NOT_SUPPORTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147192057i32 as _);
@@ -567,8 +633,20 @@ pub const IFED_TYPE_REVERSE: u32 = 8u32;
 pub const IFED_TYPE_SPEECH: u32 = 4u32;
 #[repr(transparent)]
 pub struct IFEDictionary(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFEDictionary {}
+impl ::core::clone::Clone for IFEDictionary {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFELanguage(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFELanguage {}
+impl ::core::clone::Clone for IFELanguage {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const IGIMIF_RIGHTMENU: u32 = 1u32;
 pub const IGIMII_CMODE: u32 = 1u32;
 pub const IGIMII_CONFIGURE: u32 = 4u32;
@@ -579,12 +657,36 @@ pub const IGIMII_SMODE: u32 = 2u32;
 pub const IGIMII_TOOLS: u32 = 8u32;
 #[repr(transparent)]
 pub struct IImePad(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IImePad {}
+impl ::core::clone::Clone for IImePad {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IImePadApplet(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IImePadApplet {}
+impl ::core::clone::Clone for IImePadApplet {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IImePlugInDictDictionaryList(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IImePlugInDictDictionaryList {}
+impl ::core::clone::Clone for IImePlugInDictDictionaryList {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IImeSpecifyApplets(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IImeSpecifyApplets {}
+impl ::core::clone::Clone for IImeSpecifyApplets {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
 pub type IMCENUMPROC = unsafe extern "system" fn(param0: super::super::super::Globalization::HIMC, param1: super::super::super::Foundation::LPARAM) -> super::super::super::Foundation::BOOL;
 pub const IMC_CLOSESTATUSWINDOW: u32 = 33u32;

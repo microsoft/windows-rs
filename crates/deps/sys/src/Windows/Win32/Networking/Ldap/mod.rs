@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
     pub fn LdapGetLastError() -> u32;
@@ -672,9 +672,9 @@ pub const LDAP_PORT: u32 = 389u32;
 #[cfg(feature = "Win32_Foundation")]
 pub struct LDAP_REFERRAL_CALLBACK {
     pub SizeOfCallbacks: u32,
-    pub QueryForConnection: ::core::option::Option<QUERYFORCONNECTION>,
-    pub NotifyRoutine: ::core::option::Option<NOTIFYOFNEWCONNECTION>,
-    pub DereferenceRoutine: ::core::option::Option<DEREFERENCECONNECTION>,
+    pub QueryForConnection: QUERYFORCONNECTION,
+    pub NotifyRoutine: NOTIFYOFNEWCONNECTION,
+    pub DereferenceRoutine: DEREFERENCECONNECTION,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for LDAP_REFERRAL_CALLBACK {}

@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[cfg(feature = "Win32_System_Search_Common")]
 pub mod Common;
 #[link(name = "windows")]
@@ -477,13 +477,13 @@ pub const CI_S_CATALOG_RESET: ::windows_sys::core::HRESULT = ::windows_sys::core
 pub const CI_S_CLIENT_REQUESTED_ABORT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(268331i32 as _);
 pub const CI_S_NEW_AUXMETADATA: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(268329i32 as _);
 pub const CI_S_RETRY_DOCUMENT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(268332i32 as _);
-pub const CLSID_DataShapeProvider: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 877240776, data2: 50540, data3: 4560, data4: [173, 114, 0, 192, 79, 194, 152, 99] };
-pub const CLSID_MSDASQL: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3367314123, data2: 23795, data3: 4558, data4: [173, 229, 0, 170, 0, 68, 119, 61] };
-pub const CLSID_MSDASQL_ENUMERATOR: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3367314125, data2: 23795, data3: 4558, data4: [173, 229, 0, 170, 0, 68, 119, 61] };
-pub const CLSID_MSPersist: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2080891088, data2: 17432, data3: 4562, data4: [146, 18, 0, 192, 79, 187, 191, 179] };
-pub const CLSID_SQLOLEDB: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 209711468, data2: 14563, data3: 4560, data4: [151, 171, 0, 192, 79, 194, 173, 152] };
-pub const CLSID_SQLOLEDB_ENUMERATOR: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3751947150, data2: 59021, data3: 4560, data4: [151, 228, 0, 192, 79, 194, 173, 152] };
-pub const CLSID_SQLOLEDB_ERROR: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3230870626, data2: 14565, data3: 4560, data4: [151, 171, 0, 192, 79, 194, 173, 152] };
+pub const CLSID_DataShapeProvider: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 877240776, data2: 50540, data3: 4560, data4: [173, 114, 0, 192, 79, 194, 152, 99] };
+pub const CLSID_MSDASQL: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3367314123, data2: 23795, data3: 4558, data4: [173, 229, 0, 170, 0, 68, 119, 61] };
+pub const CLSID_MSDASQL_ENUMERATOR: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3367314125, data2: 23795, data3: 4558, data4: [173, 229, 0, 170, 0, 68, 119, 61] };
+pub const CLSID_MSPersist: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2080891088, data2: 17432, data3: 4562, data4: [146, 18, 0, 192, 79, 187, 191, 179] };
+pub const CLSID_SQLOLEDB: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 209711468, data2: 14563, data3: 4560, data4: [151, 171, 0, 192, 79, 194, 173, 152] };
+pub const CLSID_SQLOLEDB_ENUMERATOR: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3751947150, data2: 59021, data3: 4560, data4: [151, 228, 0, 192, 79, 194, 173, 152] };
+pub const CLSID_SQLOLEDB_ERROR: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3230870626, data2: 14565, data3: 4560, data4: [151, 171, 0, 192, 79, 194, 173, 152] };
 #[repr(transparent)]
 pub struct CLUSION_REASON(pub i32);
 pub const CLUSIONREASON_UNKNOWNSCOPE: CLUSION_REASON = CLUSION_REASON(0i32);
@@ -642,10 +642,10 @@ pub const CRESTRICTIONS_MDSCHEMA_MEMBERS: u32 = 12u32;
 pub const CRESTRICTIONS_MDSCHEMA_PROPERTIES: u32 = 9u32;
 pub const CRESTRICTIONS_MDSCHEMA_SETS: u32 = 5u32;
 pub const CSTORAGEPROPERTY: u32 = 23u32;
-pub const CSearchLanguageSupport: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1785252992, data2: 17207, data3: 19900, data4: [189, 39, 251, 251, 16, 83, 130, 11] };
-pub const CSearchManager: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2097769567, data2: 44040, data3: 20255, data4: [190, 183, 92, 34, 197, 23, 206, 57] };
-pub const CSearchRoot: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 813067218, data2: 59932, data3: 20264, data4: [191, 39, 11, 68, 226, 246, 141, 183] };
-pub const CSearchScopeRule: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CSearchLanguageSupport: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1785252992, data2: 17207, data3: 19900, data4: [189, 39, 251, 251, 16, 83, 130, 11] };
+pub const CSearchManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2097769567, data2: 44040, data3: 20255, data4: [190, 183, 92, 34, 197, 23, 206, 57] };
+pub const CSearchRoot: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 813067218, data2: 59932, data3: 20264, data4: [191, 39, 11, 68, 226, 246, 141, 183] };
+pub const CSearchScopeRule: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3862816592,
     data2: 15319,
     data3: 19429,
@@ -685,8 +685,8 @@ impl ::core::clone::Clone for CatalogStatus {
         *self
     }
 }
-pub const CompoundCondition: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 292523283, data2: 4126, data3: 20389, data4: [132, 212, 255, 130, 121, 56, 25, 53] };
-pub const ConditionFactory: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CompoundCondition: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 292523283, data2: 4126, data3: 20389, data4: [132, 212, 255, 130, 121, 56, 25, 53] };
+pub const ConditionFactory: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3762193840,
     data2: 31715,
     data3: 16384,
@@ -784,7 +784,7 @@ pub struct DBBINDING {
     pub obValue: usize,
     pub obLength: usize,
     pub obStatus: usize,
-    pub pTypeInfo: ::core::option::Option<super::Com::ITypeInfo>,
+    pub pTypeInfo: super::Com::ITypeInfo,
     pub pObject: *mut DBOBJECT,
     pub pBindExt: *mut DBBINDEXT,
     pub dwPart: u32,
@@ -814,7 +814,7 @@ pub struct DBBINDING {
     pub obValue: usize,
     pub obLength: usize,
     pub obStatus: usize,
-    pub pTypeInfo: ::core::option::Option<super::Com::ITypeInfo>,
+    pub pTypeInfo: super::Com::ITypeInfo,
     pub pObject: *mut DBOBJECT,
     pub pBindExt: *mut DBBINDEXT,
     pub dwPart: u32,
@@ -952,7 +952,7 @@ impl ::core::clone::Clone for DBCOLUMNACCESS {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub struct DBCOLUMNDESC {
     pub pwszTypeName: super::super::Foundation::PWSTR,
-    pub pTypeInfo: ::core::option::Option<super::Com::ITypeInfo>,
+    pub pTypeInfo: super::Com::ITypeInfo,
     pub rgPropertySets: *mut DBPROPSET,
     pub pclsid: *mut ::windows_sys::core::GUID,
     pub cPropertySets: u32,
@@ -977,7 +977,7 @@ impl ::core::clone::Clone for DBCOLUMNDESC {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub struct DBCOLUMNDESC {
     pub pwszTypeName: super::super::Foundation::PWSTR,
-    pub pTypeInfo: ::core::option::Option<super::Com::ITypeInfo>,
+    pub pTypeInfo: super::Com::ITypeInfo,
     pub rgPropertySets: *mut DBPROPSET,
     pub pclsid: *mut ::windows_sys::core::GUID,
     pub cPropertySets: u32,
@@ -1080,7 +1080,7 @@ impl ::core::clone::Clone for DBCOLUMNFLAGSENUM26 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
 pub struct DBCOLUMNINFO {
     pub pwszName: super::super::Foundation::PWSTR,
-    pub pTypeInfo: ::core::option::Option<super::Com::ITypeInfo>,
+    pub pTypeInfo: super::Com::ITypeInfo,
     pub iOrdinal: usize,
     pub dwFlags: u32,
     pub ulColumnSize: usize,
@@ -1104,7 +1104,7 @@ impl ::core::clone::Clone for DBCOLUMNINFO {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
 pub struct DBCOLUMNINFO {
     pub pwszName: super::super::Foundation::PWSTR,
-    pub pTypeInfo: ::core::option::Option<super::Com::ITypeInfo>,
+    pub pTypeInfo: super::Com::ITypeInfo,
     pub iOrdinal: usize,
     pub dwFlags: u32,
     pub ulColumnSize: usize,
@@ -1447,14 +1447,14 @@ impl ::core::clone::Clone for DBFAILUREINFO {
         *self
     }
 }
-pub const DBGUID_MSSQLXML: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1565727922, data2: 59117, data3: 4562, data4: [178, 82, 0, 192, 79, 104, 27, 113] };
-pub const DBGUID_XPATH: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3962192531, data2: 59544, data3: 4562, data4: [177, 183, 0, 192, 79, 104, 12, 86] };
+pub const DBGUID_MSSQLXML: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1565727922, data2: 59117, data3: 4562, data4: [178, 82, 0, 192, 79, 104, 27, 113] };
+pub const DBGUID_XPATH: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3962192531, data2: 59544, data3: 4562, data4: [177, 183, 0, 192, 79, 104, 12, 86] };
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct DBIMPLICITSESSION {
-    pub pUnkOuter: ::core::option::Option<::windows_sys::core::IUnknown>,
+    pub pUnkOuter: ::windows_sys::core::IUnknown,
     pub piid: *mut ::windows_sys::core::GUID,
-    pub pSession: ::core::option::Option<::windows_sys::core::IUnknown>,
+    pub pSession: ::windows_sys::core::IUnknown,
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::core::marker::Copy for DBIMPLICITSESSION {}
@@ -1467,9 +1467,9 @@ impl ::core::clone::Clone for DBIMPLICITSESSION {
 #[repr(C, packed(2))]
 #[cfg(any(target_arch = "x86",))]
 pub struct DBIMPLICITSESSION {
-    pub pUnkOuter: ::core::option::Option<::windows_sys::core::IUnknown>,
+    pub pUnkOuter: ::windows_sys::core::IUnknown,
     pub piid: *mut ::windows_sys::core::GUID,
-    pub pSession: ::core::option::Option<::windows_sys::core::IUnknown>,
+    pub pSession: ::windows_sys::core::IUnknown,
 }
 #[cfg(any(target_arch = "x86",))]
 impl ::core::marker::Copy for DBIMPLICITSESSION {}
@@ -1754,7 +1754,7 @@ pub struct DBPARAMINFO {
     pub dwFlags: u32,
     pub iOrdinal: usize,
     pub pwszName: super::super::Foundation::PWSTR,
-    pub pTypeInfo: ::core::option::Option<super::Com::ITypeInfo>,
+    pub pTypeInfo: super::Com::ITypeInfo,
     pub ulParamSize: usize,
     pub wType: u16,
     pub bPrecision: u8,
@@ -1777,7 +1777,7 @@ pub struct DBPARAMINFO {
     pub dwFlags: u32,
     pub iOrdinal: usize,
     pub pwszName: super::super::Foundation::PWSTR,
-    pub pTypeInfo: ::core::option::Option<super::Com::ITypeInfo>,
+    pub pTypeInfo: super::Com::ITypeInfo,
     pub ulParamSize: usize,
     pub wType: u16,
     pub bPrecision: u8,
@@ -2458,28 +2458,28 @@ impl ::core::clone::Clone for DBPROPSET {
         *self
     }
 }
-pub const DBPROPSET_MSDAORA8_ROWSET: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const DBPROPSET_MSDAORA8_ROWSET: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2131141493,
     data2: 56682,
     data3: 17371,
     data4: [180, 224, 31, 193, 33, 229, 230, 43],
 };
-pub const DBPROPSET_MSDAORA_ROWSET: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3905703101, data2: 65023, data3: 4560, data4: [184, 101, 0, 160, 201, 8, 28, 29] };
-pub const DBPROPSET_MSDSDBINIT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1439404456, data2: 23674, data3: 4561, data4: [173, 173, 0, 192, 79, 194, 152, 99] };
-pub const DBPROPSET_MSDSSESSION: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3992024374, data2: 44991, data3: 4561, data4: [136, 71, 0, 0, 248, 121, 249, 140] };
-pub const DBPROPSET_PERSIST: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1299724704, data2: 23438, data3: 4561, data4: [166, 179, 0, 160, 201, 19, 140, 102] };
-pub const DBPROPSET_PROVIDERCONNATTR: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1232888036, data2: 28963, data3: 4559, data4: [177, 113, 0, 170, 0, 87, 89, 158] };
-pub const DBPROPSET_PROVIDERDATASOURCEINFO: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1232888032, data2: 28963, data3: 4559, data4: [177, 113, 0, 170, 0, 87, 89, 158] };
-pub const DBPROPSET_PROVIDERDBINIT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1232888034, data2: 28963, data3: 4559, data4: [177, 113, 0, 170, 0, 87, 89, 158] };
-pub const DBPROPSET_PROVIDERROWSET: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1232888033, data2: 28963, data3: 4559, data4: [177, 113, 0, 170, 0, 87, 89, 158] };
-pub const DBPROPSET_PROVIDERSTMTATTR: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1232888035, data2: 28963, data3: 4559, data4: [177, 113, 0, 170, 0, 87, 89, 158] };
-pub const DBPROPSET_SQLSERVERCOLUMN: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 996408158, data2: 16315, data3: 4563, data4: [159, 41, 0, 192, 79, 142, 233, 220] };
-pub const DBPROPSET_SQLSERVERDATASOURCE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 686796516, data2: 11564, data3: 4561, data4: [152, 7, 0, 192, 79, 194, 173, 152] };
-pub const DBPROPSET_SQLSERVERDATASOURCEINFO: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3742419860, data2: 13814, data3: 4562, data4: [156, 84, 0, 192, 79, 121, 113, 211] };
-pub const DBPROPSET_SQLSERVERDBINIT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1559546384, data2: 61217, data3: 4560, data4: [151, 231, 0, 192, 79, 194, 173, 152] };
-pub const DBPROPSET_SQLSERVERROWSET: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1559546385, data2: 61217, data3: 4560, data4: [151, 231, 0, 192, 79, 194, 173, 152] };
-pub const DBPROPSET_SQLSERVERSESSION: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 686796517, data2: 11564, data3: 4561, data4: [152, 7, 0, 192, 79, 194, 173, 152] };
-pub const DBPROPSET_SQLSERVERSTREAM: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const DBPROPSET_MSDAORA_ROWSET: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3905703101, data2: 65023, data3: 4560, data4: [184, 101, 0, 160, 201, 8, 28, 29] };
+pub const DBPROPSET_MSDSDBINIT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1439404456, data2: 23674, data3: 4561, data4: [173, 173, 0, 192, 79, 194, 152, 99] };
+pub const DBPROPSET_MSDSSESSION: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3992024374, data2: 44991, data3: 4561, data4: [136, 71, 0, 0, 248, 121, 249, 140] };
+pub const DBPROPSET_PERSIST: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1299724704, data2: 23438, data3: 4561, data4: [166, 179, 0, 160, 201, 19, 140, 102] };
+pub const DBPROPSET_PROVIDERCONNATTR: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1232888036, data2: 28963, data3: 4559, data4: [177, 113, 0, 170, 0, 87, 89, 158] };
+pub const DBPROPSET_PROVIDERDATASOURCEINFO: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1232888032, data2: 28963, data3: 4559, data4: [177, 113, 0, 170, 0, 87, 89, 158] };
+pub const DBPROPSET_PROVIDERDBINIT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1232888034, data2: 28963, data3: 4559, data4: [177, 113, 0, 170, 0, 87, 89, 158] };
+pub const DBPROPSET_PROVIDERROWSET: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1232888033, data2: 28963, data3: 4559, data4: [177, 113, 0, 170, 0, 87, 89, 158] };
+pub const DBPROPSET_PROVIDERSTMTATTR: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1232888035, data2: 28963, data3: 4559, data4: [177, 113, 0, 170, 0, 87, 89, 158] };
+pub const DBPROPSET_SQLSERVERCOLUMN: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 996408158, data2: 16315, data3: 4563, data4: [159, 41, 0, 192, 79, 142, 233, 220] };
+pub const DBPROPSET_SQLSERVERDATASOURCE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 686796516, data2: 11564, data3: 4561, data4: [152, 7, 0, 192, 79, 194, 173, 152] };
+pub const DBPROPSET_SQLSERVERDATASOURCEINFO: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3742419860, data2: 13814, data3: 4562, data4: [156, 84, 0, 192, 79, 121, 113, 211] };
+pub const DBPROPSET_SQLSERVERDBINIT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1559546384, data2: 61217, data3: 4560, data4: [151, 231, 0, 192, 79, 194, 173, 152] };
+pub const DBPROPSET_SQLSERVERROWSET: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1559546385, data2: 61217, data3: 4560, data4: [151, 231, 0, 192, 79, 194, 173, 152] };
+pub const DBPROPSET_SQLSERVERSESSION: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 686796517, data2: 11564, data3: 4561, data4: [152, 7, 0, 192, 79, 194, 173, 152] };
+pub const DBPROPSET_SQLSERVERSTREAM: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2675556467,
     data2: 35437,
     data3: 19402,
@@ -2852,7 +2852,7 @@ impl ::core::clone::Clone for DBROWSTATUSENUM20 {
         *self
     }
 }
-pub const DBSCHEMA_LINKEDSERVERS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2425604852, data2: 11948, data3: 4561, data4: [152, 9, 0, 192, 79, 194, 173, 152] };
+pub const DBSCHEMA_LINKEDSERVERS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2425604852, data2: 11948, data3: 4561, data4: [152, 9, 0, 192, 79, 194, 173, 152] };
 #[repr(transparent)]
 pub struct DBSEEKENUM(pub i32);
 pub const DBSEEK_INVALID: DBSEEKENUM = DBSEEKENUM(0i32);
@@ -3484,13 +3484,31 @@ pub const DS_E_TOOMANYDATASOURCES: i32 = -2147220461i32;
 pub const DS_E_UNKNOWNPARAM: i32 = -2147220450i32;
 pub const DS_E_UNKNOWNREQUEST: i32 = -2147220476i32;
 pub const DS_E_VALUETOOLARGE: i32 = -2147220451i32;
-pub const DataLinks: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 570871218, data2: 6593, data3: 4561, data4: [137, 224, 0, 192, 79, 215, 168, 41] };
+pub const DataLinks: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 570871218, data2: 6593, data3: 4561, data4: [137, 224, 0, 192, 79, 215, 168, 41] };
 #[repr(transparent)]
 pub struct DataSource(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for DataSource {}
+impl ::core::clone::Clone for DataSource {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DataSourceListener(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for DataSourceListener {}
+impl ::core::clone::Clone for DataSourceListener {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DataSourceObject(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for DataSourceObject {}
+impl ::core::clone::Clone for DataSourceObject {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct EBindInfoOptions(pub i32);
 pub const BIO_BINDER: EBindInfoOptions = EBindInfoOptions(1i32);
@@ -3881,7 +3899,7 @@ pub const FTE_S_RESOURCES_STARTING_TO_GET_LOW: i32 = 275993i32;
 pub const FTE_S_RESUME: i32 = 276014i32;
 pub const FTE_S_STATUS_CHANGE_REQUEST: i32 = 276011i32;
 pub const FTE_S_TRY_TO_FLUSH: i32 = 276055i32;
-pub const FilterRegistration: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2652330893, data2: 62762, data3: 4568, data4: [185, 165, 80, 80, 84, 80, 48, 48] };
+pub const FilterRegistration: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2652330893, data2: 62762, data3: 4568, data4: [185, 165, 80, 80, 84, 80, 48, 48] };
 pub const GENERATE_METHOD_PREFIXMATCH: u32 = 1u32;
 pub const GENERATE_METHOD_STEMMED: u32 = 2u32;
 pub const GHTR_E_INSUFFICIENT_DISK_SPACE: i32 = -2147218037i32;
@@ -4038,82 +4056,316 @@ impl ::core::clone::Clone for HITRANGE {
 }
 #[repr(transparent)]
 pub struct IAccessor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAccessor {}
+impl ::core::clone::Clone for IAccessor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAlterIndex(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAlterIndex {}
+impl ::core::clone::Clone for IAlterIndex {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAlterTable(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAlterTable {}
+impl ::core::clone::Clone for IAlterTable {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBindResource(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBindResource {}
+impl ::core::clone::Clone for IBindResource {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IChapteredRowset(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IChapteredRowset {}
+impl ::core::clone::Clone for IChapteredRowset {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IColumnMapper(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IColumnMapper {}
+impl ::core::clone::Clone for IColumnMapper {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IColumnMapperCreator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IColumnMapperCreator {}
+impl ::core::clone::Clone for IColumnMapperCreator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IColumnsInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IColumnsInfo {}
+impl ::core::clone::Clone for IColumnsInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IColumnsInfo2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IColumnsInfo2 {}
+impl ::core::clone::Clone for IColumnsInfo2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IColumnsRowset(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IColumnsRowset {}
+impl ::core::clone::Clone for IColumnsRowset {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICommand(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICommand {}
+impl ::core::clone::Clone for ICommand {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICommandCost(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICommandCost {}
+impl ::core::clone::Clone for ICommandCost {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICommandPersist(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICommandPersist {}
+impl ::core::clone::Clone for ICommandPersist {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICommandPrepare(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICommandPrepare {}
+impl ::core::clone::Clone for ICommandPrepare {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICommandProperties(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICommandProperties {}
+impl ::core::clone::Clone for ICommandProperties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICommandStream(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICommandStream {}
+impl ::core::clone::Clone for ICommandStream {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICommandText(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICommandText {}
+impl ::core::clone::Clone for ICommandText {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICommandValidate(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICommandValidate {}
+impl ::core::clone::Clone for ICommandValidate {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICommandWithParameters(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICommandWithParameters {}
+impl ::core::clone::Clone for ICommandWithParameters {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICondition(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICondition {}
+impl ::core::clone::Clone for ICondition {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICondition2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICondition2 {}
+impl ::core::clone::Clone for ICondition2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IConditionFactory(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IConditionFactory {}
+impl ::core::clone::Clone for IConditionFactory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IConditionFactory2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IConditionFactory2 {}
+impl ::core::clone::Clone for IConditionFactory2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IConditionGenerator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IConditionGenerator {}
+impl ::core::clone::Clone for IConditionGenerator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IConvertType(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IConvertType {}
+impl ::core::clone::Clone for IConvertType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICreateRow(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICreateRow {}
+impl ::core::clone::Clone for ICreateRow {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDBAsynchNotify(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDBAsynchNotify {}
+impl ::core::clone::Clone for IDBAsynchNotify {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDBAsynchStatus(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDBAsynchStatus {}
+impl ::core::clone::Clone for IDBAsynchStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDBBinderProperties(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDBBinderProperties {}
+impl ::core::clone::Clone for IDBBinderProperties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDBCreateCommand(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDBCreateCommand {}
+impl ::core::clone::Clone for IDBCreateCommand {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDBCreateSession(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDBCreateSession {}
+impl ::core::clone::Clone for IDBCreateSession {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDBDataSourceAdmin(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDBDataSourceAdmin {}
+impl ::core::clone::Clone for IDBDataSourceAdmin {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDBInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDBInfo {}
+impl ::core::clone::Clone for IDBInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDBInitialize(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDBInitialize {}
+impl ::core::clone::Clone for IDBInitialize {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDBPromptInitialize(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDBPromptInitialize {}
+impl ::core::clone::Clone for IDBPromptInitialize {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDBProperties(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDBProperties {}
+impl ::core::clone::Clone for IDBProperties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDBSchemaCommand(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDBSchemaCommand {}
+impl ::core::clone::Clone for IDBSchemaCommand {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDBSchemaRowset(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDBSchemaRowset {}
+impl ::core::clone::Clone for IDBSchemaRowset {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDCInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDCInfo {}
+impl ::core::clone::Clone for IDCInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const IDENTIFIER_SDK_ERROR: u32 = 268435456u32;
 pub const IDENTIFIER_SDK_MASK: u32 = 4026531840u32;
 pub const IDS_MON_BUILTIN_PROPERTY: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(264511i32 as _);
@@ -4174,50 +4426,188 @@ pub const IDX_S_SEARCH_SERVER_ALREADY_EXISTS: i32 = 266517i32;
 pub const IDX_S_SEARCH_SERVER_DOES_NOT_EXIST: i32 = 266518i32;
 #[repr(transparent)]
 pub struct IDataConvert(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDataConvert {}
+impl ::core::clone::Clone for IDataConvert {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDataInitialize(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDataInitialize {}
+impl ::core::clone::Clone for IDataInitialize {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDataSourceLocator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDataSourceLocator {}
+impl ::core::clone::Clone for IDataSourceLocator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEntity(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEntity {}
+impl ::core::clone::Clone for IEntity {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEnumItemProperties(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnumItemProperties {}
+impl ::core::clone::Clone for IEnumItemProperties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEnumSearchRoots(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnumSearchRoots {}
+impl ::core::clone::Clone for IEnumSearchRoots {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEnumSearchScopeRules(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnumSearchScopeRules {}
+impl ::core::clone::Clone for IEnumSearchScopeRules {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEnumSubscription(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnumSubscription {}
+impl ::core::clone::Clone for IEnumSubscription {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IErrorLookup(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IErrorLookup {}
+impl ::core::clone::Clone for IErrorLookup {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IErrorRecords(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IErrorRecords {}
+impl ::core::clone::Clone for IErrorRecords {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGetDataSource(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGetDataSource {}
+impl ::core::clone::Clone for IGetDataSource {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGetRow(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGetRow {}
+impl ::core::clone::Clone for IGetRow {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGetSession(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGetSession {}
+impl ::core::clone::Clone for IGetSession {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGetSourceRow(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGetSourceRow {}
+impl ::core::clone::Clone for IGetSourceRow {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IIndexDefinition(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IIndexDefinition {}
+impl ::core::clone::Clone for IIndexDefinition {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInterval(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInterval {}
+impl ::core::clone::Clone for IInterval {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ILoadFilter(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ILoadFilter {}
+impl ::core::clone::Clone for ILoadFilter {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ILoadFilterWithPrivateComActivation(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ILoadFilterWithPrivateComActivation {}
+impl ::core::clone::Clone for ILoadFilterWithPrivateComActivation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMDDataset(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMDDataset {}
+impl ::core::clone::Clone for IMDDataset {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMDFind(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMDFind {}
+impl ::core::clone::Clone for IMDFind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMDRangeRowset(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMDRangeRowset {}
+impl ::core::clone::Clone for IMDRangeRowset {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMetaData(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMetaData {}
+impl ::core::clone::Clone for IMetaData {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMultipleResults(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMultipleResults {}
+impl ::core::clone::Clone for IMultipleResults {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct INCREMENTAL_ACCESS_INFO {
@@ -4256,176 +4646,686 @@ impl ::core::clone::Clone for INTERVAL_LIMIT_KIND {
 }
 #[repr(transparent)]
 pub struct INamedEntity(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for INamedEntity {}
+impl ::core::clone::Clone for INamedEntity {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct INamedEntityCollector(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for INamedEntityCollector {}
+impl ::core::clone::Clone for INamedEntityCollector {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IObjectAccessControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IObjectAccessControl {}
+impl ::core::clone::Clone for IObjectAccessControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IOpLockStatus(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IOpLockStatus {}
+impl ::core::clone::Clone for IOpLockStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IOpenRowset(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IOpenRowset {}
+impl ::core::clone::Clone for IOpenRowset {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IParentRowset(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IParentRowset {}
+impl ::core::clone::Clone for IParentRowset {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IProtocolHandlerSite(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IProtocolHandlerSite {}
+impl ::core::clone::Clone for IProtocolHandlerSite {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IProvideMoniker(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IProvideMoniker {}
+impl ::core::clone::Clone for IProvideMoniker {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IQueryParser(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IQueryParser {}
+impl ::core::clone::Clone for IQueryParser {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IQueryParserManager(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IQueryParserManager {}
+impl ::core::clone::Clone for IQueryParserManager {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IQuerySolution(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IQuerySolution {}
+impl ::core::clone::Clone for IQuerySolution {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IReadData(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IReadData {}
+impl ::core::clone::Clone for IReadData {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRegisterProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRegisterProvider {}
+impl ::core::clone::Clone for IRegisterProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRelationship(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRelationship {}
+impl ::core::clone::Clone for IRelationship {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRichChunk(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRichChunk {}
+impl ::core::clone::Clone for IRichChunk {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRow(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRow {}
+impl ::core::clone::Clone for IRow {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRowChange(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRowChange {}
+impl ::core::clone::Clone for IRowChange {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRowPosition(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRowPosition {}
+impl ::core::clone::Clone for IRowPosition {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRowPositionChange(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRowPositionChange {}
+impl ::core::clone::Clone for IRowPositionChange {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRowSchemaChange(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRowSchemaChange {}
+impl ::core::clone::Clone for IRowSchemaChange {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRowset(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRowset {}
+impl ::core::clone::Clone for IRowset {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRowsetAsynch(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRowsetAsynch {}
+impl ::core::clone::Clone for IRowsetAsynch {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRowsetBookmark(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRowsetBookmark {}
+impl ::core::clone::Clone for IRowsetBookmark {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRowsetChange(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRowsetChange {}
+impl ::core::clone::Clone for IRowsetChange {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRowsetChangeExtInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRowsetChangeExtInfo {}
+impl ::core::clone::Clone for IRowsetChangeExtInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRowsetChapterMember(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRowsetChapterMember {}
+impl ::core::clone::Clone for IRowsetChapterMember {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRowsetCopyRows(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRowsetCopyRows {}
+impl ::core::clone::Clone for IRowsetCopyRows {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRowsetCurrentIndex(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRowsetCurrentIndex {}
+impl ::core::clone::Clone for IRowsetCurrentIndex {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRowsetEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRowsetEvents {}
+impl ::core::clone::Clone for IRowsetEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct IRowsetExactScroll(pub u8);
 #[repr(transparent)]
 pub struct IRowsetFastLoad(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRowsetFastLoad {}
+impl ::core::clone::Clone for IRowsetFastLoad {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRowsetFind(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRowsetFind {}
+impl ::core::clone::Clone for IRowsetFind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRowsetIdentity(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRowsetIdentity {}
+impl ::core::clone::Clone for IRowsetIdentity {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRowsetIndex(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRowsetIndex {}
+impl ::core::clone::Clone for IRowsetIndex {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRowsetInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRowsetInfo {}
+impl ::core::clone::Clone for IRowsetInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRowsetKeys(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRowsetKeys {}
+impl ::core::clone::Clone for IRowsetKeys {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRowsetLocate(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRowsetLocate {}
+impl ::core::clone::Clone for IRowsetLocate {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRowsetNewRowAfter(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRowsetNewRowAfter {}
+impl ::core::clone::Clone for IRowsetNewRowAfter {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRowsetNextRowset(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRowsetNextRowset {}
+impl ::core::clone::Clone for IRowsetNextRowset {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRowsetNotify(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRowsetNotify {}
+impl ::core::clone::Clone for IRowsetNotify {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRowsetPrioritization(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRowsetPrioritization {}
+impl ::core::clone::Clone for IRowsetPrioritization {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRowsetQueryStatus(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRowsetQueryStatus {}
+impl ::core::clone::Clone for IRowsetQueryStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRowsetRefresh(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRowsetRefresh {}
+impl ::core::clone::Clone for IRowsetRefresh {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRowsetResynch(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRowsetResynch {}
+impl ::core::clone::Clone for IRowsetResynch {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRowsetScroll(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRowsetScroll {}
+impl ::core::clone::Clone for IRowsetScroll {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRowsetUpdate(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRowsetUpdate {}
+impl ::core::clone::Clone for IRowsetUpdate {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRowsetView(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRowsetView {}
+impl ::core::clone::Clone for IRowsetView {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRowsetWatchAll(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRowsetWatchAll {}
+impl ::core::clone::Clone for IRowsetWatchAll {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRowsetWatchNotify(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRowsetWatchNotify {}
+impl ::core::clone::Clone for IRowsetWatchNotify {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRowsetWatchRegion(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRowsetWatchRegion {}
+impl ::core::clone::Clone for IRowsetWatchRegion {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRowsetWithParameters(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRowsetWithParameters {}
+impl ::core::clone::Clone for IRowsetWithParameters {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISQLErrorInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISQLErrorInfo {}
+impl ::core::clone::Clone for ISQLErrorInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISQLGetDiagField(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISQLGetDiagField {}
+impl ::core::clone::Clone for ISQLGetDiagField {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISQLRequestDiagFields(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISQLRequestDiagFields {}
+impl ::core::clone::Clone for ISQLRequestDiagFields {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISQLServerErrorInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISQLServerErrorInfo {}
+impl ::core::clone::Clone for ISQLServerErrorInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISchemaLocalizerSupport(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISchemaLocalizerSupport {}
+impl ::core::clone::Clone for ISchemaLocalizerSupport {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISchemaLock(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISchemaLock {}
+impl ::core::clone::Clone for ISchemaLock {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISchemaProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISchemaProvider {}
+impl ::core::clone::Clone for ISchemaProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IScopedOperations(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IScopedOperations {}
+impl ::core::clone::Clone for IScopedOperations {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISearchCatalogManager(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISearchCatalogManager {}
+impl ::core::clone::Clone for ISearchCatalogManager {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISearchCatalogManager2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISearchCatalogManager2 {}
+impl ::core::clone::Clone for ISearchCatalogManager2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISearchCrawlScopeManager(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISearchCrawlScopeManager {}
+impl ::core::clone::Clone for ISearchCrawlScopeManager {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISearchCrawlScopeManager2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISearchCrawlScopeManager2 {}
+impl ::core::clone::Clone for ISearchCrawlScopeManager2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISearchItemsChangedSink(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISearchItemsChangedSink {}
+impl ::core::clone::Clone for ISearchItemsChangedSink {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISearchLanguageSupport(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISearchLanguageSupport {}
+impl ::core::clone::Clone for ISearchLanguageSupport {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISearchManager(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISearchManager {}
+impl ::core::clone::Clone for ISearchManager {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISearchManager2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISearchManager2 {}
+impl ::core::clone::Clone for ISearchManager2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISearchNotifyInlineSite(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISearchNotifyInlineSite {}
+impl ::core::clone::Clone for ISearchNotifyInlineSite {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISearchPersistentItemsChangedSink(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISearchPersistentItemsChangedSink {}
+impl ::core::clone::Clone for ISearchPersistentItemsChangedSink {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISearchProtocol(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISearchProtocol {}
+impl ::core::clone::Clone for ISearchProtocol {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISearchProtocol2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISearchProtocol2 {}
+impl ::core::clone::Clone for ISearchProtocol2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISearchProtocolThreadContext(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISearchProtocolThreadContext {}
+impl ::core::clone::Clone for ISearchProtocolThreadContext {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISearchQueryHelper(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISearchQueryHelper {}
+impl ::core::clone::Clone for ISearchQueryHelper {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISearchQueryHits(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISearchQueryHits {}
+impl ::core::clone::Clone for ISearchQueryHits {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISearchRoot(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISearchRoot {}
+impl ::core::clone::Clone for ISearchRoot {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISearchScopeRule(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISearchScopeRule {}
+impl ::core::clone::Clone for ISearchScopeRule {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISearchViewChangedSink(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISearchViewChangedSink {}
+impl ::core::clone::Clone for ISearchViewChangedSink {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISecurityInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISecurityInfo {}
+impl ::core::clone::Clone for ISecurityInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IService(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IService {}
+impl ::core::clone::Clone for IService {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISessionProperties(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISessionProperties {}
+impl ::core::clone::Clone for ISessionProperties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISimpleCommandCreator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISimpleCommandCreator {}
+impl ::core::clone::Clone for ISimpleCommandCreator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISourcesRowset(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISourcesRowset {}
+impl ::core::clone::Clone for ISourcesRowset {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IStemmer(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IStemmer {}
+impl ::core::clone::Clone for IStemmer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISubscriptionItem(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISubscriptionItem {}
+impl ::core::clone::Clone for ISubscriptionItem {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISubscriptionMgr(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISubscriptionMgr {}
+impl ::core::clone::Clone for ISubscriptionMgr {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISubscriptionMgr2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISubscriptionMgr2 {}
+impl ::core::clone::Clone for ISubscriptionMgr2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub struct ITEMPROP {
@@ -4459,51 +5359,189 @@ impl ::core::clone::Clone for ITEM_INFO {
 }
 #[repr(transparent)]
 pub struct ITableCreation(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITableCreation {}
+impl ::core::clone::Clone for ITableCreation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITableDefinition(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITableDefinition {}
+impl ::core::clone::Clone for ITableDefinition {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITableDefinitionWithConstraints(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITableDefinitionWithConstraints {}
+impl ::core::clone::Clone for ITableDefinitionWithConstraints {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITableRename(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITableRename {}
+impl ::core::clone::Clone for ITableRename {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITokenCollection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITokenCollection {}
+impl ::core::clone::Clone for ITokenCollection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITransactionJoin(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITransactionJoin {}
+impl ::core::clone::Clone for ITransactionJoin {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITransactionLocal(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITransactionLocal {}
+impl ::core::clone::Clone for ITransactionLocal {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITransactionObject(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITransactionObject {}
+impl ::core::clone::Clone for ITransactionObject {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITrusteeAdmin(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITrusteeAdmin {}
+impl ::core::clone::Clone for ITrusteeAdmin {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITrusteeGroupAdmin(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITrusteeGroupAdmin {}
+impl ::core::clone::Clone for ITrusteeGroupAdmin {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUMS(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUMS {}
+impl ::core::clone::Clone for IUMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUMSInitialize(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUMSInitialize {}
+impl ::core::clone::Clone for IUMSInitialize {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUrlAccessor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUrlAccessor {}
+impl ::core::clone::Clone for IUrlAccessor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUrlAccessor2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUrlAccessor2 {}
+impl ::core::clone::Clone for IUrlAccessor2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUrlAccessor3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUrlAccessor3 {}
+impl ::core::clone::Clone for IUrlAccessor3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUrlAccessor4(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUrlAccessor4 {}
+impl ::core::clone::Clone for IUrlAccessor4 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IViewChapter(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IViewChapter {}
+impl ::core::clone::Clone for IViewChapter {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IViewFilter(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IViewFilter {}
+impl ::core::clone::Clone for IViewFilter {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IViewRowset(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IViewRowset {}
+impl ::core::clone::Clone for IViewRowset {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IViewSort(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IViewSort {}
+impl ::core::clone::Clone for IViewSort {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWordBreaker(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWordBreaker {}
+impl ::core::clone::Clone for IWordBreaker {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWordFormSink(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWordFormSink {}
+impl ::core::clone::Clone for IWordFormSink {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWordSink(pub *mut ::core::ffi::c_void);
-pub const Interval: ::windows_sys::core::GUID = ::windows_sys::GUID {
+impl ::core::marker::Copy for IWordSink {}
+impl ::core::clone::Clone for IWordSink {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+pub const Interval: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3646363423,
     data2: 19449,
     data3: 19938,
@@ -4614,7 +5652,7 @@ impl ::core::clone::Clone for LOCKMODEENUM {
         *self
     }
 }
-pub const LeafCondition: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const LeafCondition: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1391549577,
     data2: 23063,
     data3: 18657,
@@ -4819,21 +5857,21 @@ pub const MD_E_INVALIDAXIS: ::windows_sys::core::HRESULT = ::windows_sys::core::
 pub const MD_E_INVALIDCELLRANGE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147217820i32 as _);
 pub const MINFATALERR: u32 = 20u32;
 pub const MIN_USER_DATATYPE: u32 = 256u32;
-pub const MSDAINITIALIZE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 570871216, data2: 6593, data3: 4561, data4: [137, 224, 0, 192, 79, 215, 168, 41] };
-pub const MSDAORA: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3905703102, data2: 65023, data3: 4560, data4: [184, 101, 0, 160, 201, 8, 28, 29] };
-pub const MSDAORA8: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MSDAINITIALIZE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 570871216, data2: 6593, data3: 4561, data4: [137, 224, 0, 192, 79, 215, 168, 41] };
+pub const MSDAORA: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3905703102, data2: 65023, data3: 4560, data4: [184, 101, 0, 160, 201, 8, 28, 29] };
+pub const MSDAORA8: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2131141491,
     data2: 56682,
     data3: 17371,
     data4: [180, 224, 31, 193, 33, 229, 230, 43],
 };
-pub const MSDAORA8_ERROR: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MSDAORA8_ERROR: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2131141492,
     data2: 56682,
     data3: 17371,
     data4: [180, 224, 31, 193, 33, 229, 230, 43],
 };
-pub const MSDAORA_ERROR: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3905703103, data2: 65023, data3: 4560, data4: [184, 101, 0, 160, 201, 8, 28, 29] };
+pub const MSDAORA_ERROR: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3905703103, data2: 65023, data3: 4560, data4: [184, 101, 0, 160, 201, 8, 28, 29] };
 #[repr(transparent)]
 pub struct MSDSDBINITPROPENUM(pub i32);
 pub const DBPROP_MSDS_DBINIT_DATAPROVIDER: MSDSDBINITPROPENUM = MSDSDBINITPROPENUM(2i32);
@@ -4947,7 +5985,7 @@ impl ::core::clone::Clone for NOTRESTRICTION {
     }
 }
 pub const NOT_N_PARSE_ERROR: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(526638i32 as _);
-pub const NegationCondition: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2380908364, data2: 24666, data3: 19149, data4: [190, 227, 43, 34, 42, 162, 210, 61] };
+pub const NegationCondition: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2380908364, data2: 24666, data3: 19149, data4: [190, 227, 43, 34, 42, 162, 210, 61] };
 pub const OCC_INVALID: u32 = 4294967295u32;
 pub const ODBCVER: u32 = 896u32;
 pub const ODBC_ADD_DSN: u32 = 1u32;
@@ -5041,8 +6079,20 @@ pub const ODBC_VS_FLAG_UNICODE_ARG: i32 = 1i32;
 pub const ODBC_VS_FLAG_UNICODE_COR: i32 = 2i32;
 #[repr(transparent)]
 pub struct OLEDBSimpleProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for OLEDBSimpleProvider {}
+impl ::core::clone::Clone for OLEDBSimpleProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct OLEDBSimpleProviderListener(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for OLEDBSimpleProviderListener {}
+impl ::core::clone::Clone for OLEDBSimpleProviderListener {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const OLEDBVER: u32 = 624u32;
 pub const OLEDB_BINDER_CUSTOM_ERROR: i32 = -2147212032i32;
 #[repr(transparent)]
@@ -5108,7 +6158,7 @@ impl ::core::clone::Clone for OSPXFER {
     }
 }
 pub const OSP_IndexLabel: u32 = 0u32;
-pub const PDPO: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3434409056, data2: 47580, data3: 4561, data4: [172, 128, 0, 160, 201, 3, 72, 115] };
+pub const PDPO: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3434409056, data2: 47580, data3: 4561, data4: [172, 128, 0, 160, 201, 3, 72, 115] };
 pub const PEOPLE_IMPORT_E_CANONICALURL_TOOLONG: i32 = -2147205110i32;
 pub const PEOPLE_IMPORT_E_DATATYPENOTSUPPORTED: i32 = -2147205115i32;
 pub const PEOPLE_IMPORT_E_DBCONNFAIL: i32 = -2147205120i32;
@@ -5290,8 +6340,8 @@ pub const QUERY_SORTDEFAULT: u32 = 4u32;
 pub const QUERY_SORTXASCEND: u32 = 2u32;
 pub const QUERY_SORTXDESCEND: u32 = 3u32;
 pub const QUERY_VALIDBITS: u32 = 3u32;
-pub const QueryParser: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3073347544, data2: 4011, data3: 19929, data4: [189, 191, 36, 90, 108, 225, 72, 91] };
-pub const QueryParserManager: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1351136154, data2: 10676, data3: 19869, data4: [130, 69, 78, 226, 137, 34, 47, 102] };
+pub const QueryParser: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3073347544, data2: 4011, data3: 19929, data4: [189, 191, 36, 90, 108, 225, 72, 91] };
+pub const QueryParserManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1351136154, data2: 10676, data3: 19869, data4: [130, 69, 78, 226, 137, 34, 47, 102] };
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 pub struct RANGECATEGORIZE {
@@ -5355,16 +6405,16 @@ pub const REXSPH_S_REDIRECTED: i32 = 275713i32;
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
 pub struct RMTPACK {
-    pub pISeqStream: ::core::option::Option<super::Com::ISequentialStream>,
+    pub pISeqStream: super::Com::ISequentialStream,
     pub cbData: u32,
     pub cBSTR: u32,
     pub rgBSTR: *mut super::super::Foundation::BSTR,
     pub cVARIANT: u32,
     pub rgVARIANT: *mut super::Com::VARIANT,
     pub cIDISPATCH: u32,
-    pub rgIDISPATCH: *mut ::core::option::Option<super::Com::IDispatch>,
+    pub rgIDISPATCH: *mut super::Com::IDispatch,
     pub cIUNKNOWN: u32,
-    pub rgIUNKNOWN: *mut ::core::option::Option<::windows_sys::core::IUnknown>,
+    pub rgIUNKNOWN: *mut ::windows_sys::core::IUnknown,
     pub cPROPVARIANT: u32,
     pub rgPROPVARIANT: *mut super::Com::StructuredStorage::PROPVARIANT,
     pub cArray: u32,
@@ -5384,16 +6434,16 @@ impl ::core::clone::Clone for RMTPACK {
 #[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
 pub struct RMTPACK {
-    pub pISeqStream: ::core::option::Option<super::Com::ISequentialStream>,
+    pub pISeqStream: super::Com::ISequentialStream,
     pub cbData: u32,
     pub cBSTR: u32,
     pub rgBSTR: *mut super::super::Foundation::BSTR,
     pub cVARIANT: u32,
     pub rgVARIANT: *mut super::Com::VARIANT,
     pub cIDISPATCH: u32,
-    pub rgIDISPATCH: *mut ::core::option::Option<super::Com::IDispatch>,
+    pub rgIDISPATCH: *mut super::Com::IDispatch,
     pub cIUNKNOWN: u32,
-    pub rgIUNKNOWN: *mut ::core::option::Option<::windows_sys::core::IUnknown>,
+    pub rgIUNKNOWN: *mut ::windows_sys::core::IUnknown,
     pub cPROPVARIANT: u32,
     pub rgPROPVARIANT: *mut super::Com::StructuredStorage::PROPVARIANT,
     pub cArray: u32,
@@ -5446,7 +6496,7 @@ pub const RTOr: u32 = 2u32;
 pub const RTProperty: u32 = 5u32;
 pub const RTProximity: u32 = 6u32;
 pub const RTVector: u32 = 7u32;
-pub const RootBinder: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4279572514, data2: 45247, data3: 4561, data4: [168, 13, 0, 0, 0, 0, 0, 0] };
+pub const RootBinder: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4279572514, data2: 45247, data3: 4561, data4: [168, 13, 0, 0, 0, 0, 0, 0] };
 pub const SCHEMA_E_ADDSTOPWORDS: i32 = -2147218420i32;
 pub const SCHEMA_E_BADATTRIBUTE: i32 = -2147218412i32;
 pub const SCHEMA_E_BADCOLUMNNAME: i32 = -2147218414i32;
@@ -7514,7 +8564,7 @@ impl ::core::clone::Clone for SSVARIANT_0 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct SSVARIANT_0_0 {
     pub dbobj: DBOBJECT,
-    pub pUnk: ::core::option::Option<::windows_sys::core::IUnknown>,
+    pub pUnk: ::windows_sys::core::IUnknown,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::marker::Copy for SSVARIANT_0_0 {}
@@ -7784,11 +8834,11 @@ pub const SUBSMGRUPDATE_MINIMIZE: u32 = 1u32;
 pub const SUCCEED: u32 = 1u32;
 pub const SUCCEED_ABORT: u32 = 2u32;
 pub const SUCCEED_ASYNC: u32 = 3u32;
-pub const SubscriptionMgr: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2881368528, data2: 28078, data3: 4560, data4: [190, 202, 0, 192, 79, 217, 64, 190] };
+pub const SubscriptionMgr: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2881368528, data2: 28078, data3: 4560, data4: [190, 202, 0, 192, 79, 217, 64, 190] };
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TEXT_SOURCE {
-    pub pfnFillTextBuffer: ::core::option::Option<PFNFILLTEXTBUFFER>,
+    pub pfnFillTextBuffer: PFNFILLTEXTBUFFER,
     pub awcBuffer: super::super::Foundation::PWSTR,
     pub iEnd: u32,
     pub iCur: u32,

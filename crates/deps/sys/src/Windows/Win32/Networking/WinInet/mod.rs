@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
     #[cfg(feature = "Win32_Foundation")]
@@ -431,9 +431,9 @@ extern "system" {
     pub fn InternetSetPerSiteCookieDecisionA(pchhostname: super::super::Foundation::PSTR, dwdecision: u32) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
     pub fn InternetSetPerSiteCookieDecisionW(pchhostname: super::super::Foundation::PWSTR, dwdecision: u32) -> super::super::Foundation::BOOL;
-    pub fn InternetSetStatusCallback(hinternet: *const ::core::ffi::c_void, lpfninternetcallback: LPINTERNET_STATUS_CALLBACK) -> ::core::option::Option<LPINTERNET_STATUS_CALLBACK>;
-    pub fn InternetSetStatusCallbackA(hinternet: *const ::core::ffi::c_void, lpfninternetcallback: LPINTERNET_STATUS_CALLBACK) -> ::core::option::Option<LPINTERNET_STATUS_CALLBACK>;
-    pub fn InternetSetStatusCallbackW(hinternet: *const ::core::ffi::c_void, lpfninternetcallback: LPINTERNET_STATUS_CALLBACK) -> ::core::option::Option<LPINTERNET_STATUS_CALLBACK>;
+    pub fn InternetSetStatusCallback(hinternet: *const ::core::ffi::c_void, lpfninternetcallback: LPINTERNET_STATUS_CALLBACK) -> LPINTERNET_STATUS_CALLBACK;
+    pub fn InternetSetStatusCallbackA(hinternet: *const ::core::ffi::c_void, lpfninternetcallback: LPINTERNET_STATUS_CALLBACK) -> LPINTERNET_STATUS_CALLBACK;
+    pub fn InternetSetStatusCallbackW(hinternet: *const ::core::ffi::c_void, lpfninternetcallback: LPINTERNET_STATUS_CALLBACK) -> LPINTERNET_STATUS_CALLBACK;
     #[cfg(feature = "Win32_Foundation")]
     pub fn InternetShowSecurityInfoByURL(lpszurl: super::super::Foundation::PSTR, hwndparent: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
@@ -1643,10 +1643,28 @@ pub const IDSI_FLAG_SECURE: u32 = 2u32;
 pub const IDSI_FLAG_TUNNEL: u32 = 8u32;
 #[repr(transparent)]
 pub struct IDialBranding(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDialBranding {}
+impl ::core::clone::Clone for IDialBranding {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDialEngine(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDialEngine {}
+impl ::core::clone::Clone for IDialEngine {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDialEventSink(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDialEventSink {}
+impl ::core::clone::Clone for IDialEventSink {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const IMMUTABLE_CACHE_ENTRY: u32 = 524288u32;
 pub const INSTALLED_CACHE_ENTRY: u32 = 268435456u32;
 pub const INTERENT_GOONLINE_MASK: u32 = 3u32;
@@ -1678,7 +1696,7 @@ impl ::core::clone::Clone for INTERNET_ASYNC_RESULT {
 pub struct INTERNET_AUTH_NOTIFY_DATA {
     pub cbStruct: u32,
     pub dwOptions: u32,
-    pub pfnNotify: ::core::option::Option<PFN_AUTH_NOTIFY>,
+    pub pfnNotify: PFN_AUTH_NOTIFY,
     pub dwContext: usize,
 }
 impl ::core::marker::Copy for INTERNET_AUTH_NOTIFY_DATA {}
@@ -2874,8 +2892,20 @@ impl ::core::clone::Clone for INTERNET_VERSION_INFO {
 }
 #[repr(transparent)]
 pub struct IProofOfPossessionCookieInfoManager(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IProofOfPossessionCookieInfoManager {}
+impl ::core::clone::Clone for IProofOfPossessionCookieInfoManager {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IProofOfPossessionCookieInfoManager2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IProofOfPossessionCookieInfoManager2 {}
+impl ::core::clone::Clone for IProofOfPossessionCookieInfoManager2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const IRF_ASYNC: u32 = 1u32;
 pub const IRF_NO_WAIT: u32 = 8u32;
 pub const IRF_SYNC: u32 = 4u32;
@@ -3010,7 +3040,7 @@ impl ::core::clone::Clone for ProofOfPossessionCookieInfo {
         *self
     }
 }
-pub const ProofOfPossessionCookieInfoManager: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2844950405, data2: 41732, data3: 17296, data4: [139, 35, 167, 95, 28, 102, 134, 0] };
+pub const ProofOfPossessionCookieInfoManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2844950405, data2: 41732, data3: 17296, data4: [139, 35, 167, 95, 28, 102, 134, 0] };
 pub const REDIRECT_CACHE_ENTRY: u32 = 2048u32;
 #[repr(transparent)]
 pub struct REQUEST_TIMES(pub i32);

@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {}
 #[repr(transparent)]
@@ -46,28 +46,100 @@ impl ::core::clone::Clone for FILTER_COMBINATION_TYPE {
 }
 #[repr(transparent)]
 pub struct IAsynchronousDataRetriever(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAsynchronousDataRetriever {}
+impl ::core::clone::Clone for IAsynchronousDataRetriever {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IChangeConflict(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IChangeConflict {}
+impl ::core::clone::Clone for IChangeConflict {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IChangeUnitException(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IChangeUnitException {}
+impl ::core::clone::Clone for IChangeUnitException {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IChangeUnitListFilterInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IChangeUnitListFilterInfo {}
+impl ::core::clone::Clone for IChangeUnitListFilterInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IClockVector(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IClockVector {}
+impl ::core::clone::Clone for IClockVector {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IClockVectorElement(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IClockVectorElement {}
+impl ::core::clone::Clone for IClockVectorElement {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICombinedFilterInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICombinedFilterInfo {}
+impl ::core::clone::Clone for ICombinedFilterInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IConstraintConflict(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IConstraintConflict {}
+impl ::core::clone::Clone for IConstraintConflict {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IConstructReplicaKeyMap(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IConstructReplicaKeyMap {}
+impl ::core::clone::Clone for IConstructReplicaKeyMap {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICoreFragment(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICoreFragment {}
+impl ::core::clone::Clone for ICoreFragment {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICoreFragmentInspector(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICoreFragmentInspector {}
+impl ::core::clone::Clone for ICoreFragmentInspector {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICustomFilterInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICustomFilterInfo {}
+impl ::core::clone::Clone for ICustomFilterInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ID_PARAMETERS {
@@ -100,138 +172,540 @@ impl ::core::clone::Clone for ID_PARAMETER_PAIR {
 }
 #[repr(transparent)]
 pub struct IDataRetrieverCallback(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDataRetrieverCallback {}
+impl ::core::clone::Clone for IDataRetrieverCallback {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEnumChangeUnitExceptions(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnumChangeUnitExceptions {}
+impl ::core::clone::Clone for IEnumChangeUnitExceptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEnumClockVector(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnumClockVector {}
+impl ::core::clone::Clone for IEnumClockVector {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEnumFeedClockVector(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnumFeedClockVector {}
+impl ::core::clone::Clone for IEnumFeedClockVector {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEnumItemIds(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnumItemIds {}
+impl ::core::clone::Clone for IEnumItemIds {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEnumRangeExceptions(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnumRangeExceptions {}
+impl ::core::clone::Clone for IEnumRangeExceptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEnumSingleItemExceptions(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnumSingleItemExceptions {}
+impl ::core::clone::Clone for IEnumSingleItemExceptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEnumSyncChangeUnits(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnumSyncChangeUnits {}
+impl ::core::clone::Clone for IEnumSyncChangeUnits {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEnumSyncChanges(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnumSyncChanges {}
+impl ::core::clone::Clone for IEnumSyncChanges {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEnumSyncProviderConfigUIInfos(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnumSyncProviderConfigUIInfos {}
+impl ::core::clone::Clone for IEnumSyncProviderConfigUIInfos {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEnumSyncProviderInfos(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnumSyncProviderInfos {}
+impl ::core::clone::Clone for IEnumSyncProviderInfos {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFeedClockVector(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFeedClockVector {}
+impl ::core::clone::Clone for IFeedClockVector {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFeedClockVectorElement(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFeedClockVectorElement {}
+impl ::core::clone::Clone for IFeedClockVectorElement {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFilterKeyMap(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFilterKeyMap {}
+impl ::core::clone::Clone for IFilterKeyMap {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFilterRequestCallback(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFilterRequestCallback {}
+impl ::core::clone::Clone for IFilterRequestCallback {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFilterTrackingProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFilterTrackingProvider {}
+impl ::core::clone::Clone for IFilterTrackingProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFilterTrackingRequestCallback(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFilterTrackingRequestCallback {}
+impl ::core::clone::Clone for IFilterTrackingRequestCallback {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFilterTrackingSyncChangeBuilder(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFilterTrackingSyncChangeBuilder {}
+impl ::core::clone::Clone for IFilterTrackingSyncChangeBuilder {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IForgottenKnowledge(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IForgottenKnowledge {}
+impl ::core::clone::Clone for IForgottenKnowledge {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IKnowledgeSyncProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IKnowledgeSyncProvider {}
+impl ::core::clone::Clone for IKnowledgeSyncProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ILoadChangeContext(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ILoadChangeContext {}
+impl ::core::clone::Clone for ILoadChangeContext {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IProviderConverter(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IProviderConverter {}
+impl ::core::clone::Clone for IProviderConverter {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRangeException(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRangeException {}
+impl ::core::clone::Clone for IRangeException {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRecoverableError(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRecoverableError {}
+impl ::core::clone::Clone for IRecoverableError {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRecoverableErrorData(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRecoverableErrorData {}
+impl ::core::clone::Clone for IRecoverableErrorData {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRegisteredSyncProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRegisteredSyncProvider {}
+impl ::core::clone::Clone for IRegisteredSyncProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IReplicaKeyMap(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IReplicaKeyMap {}
+impl ::core::clone::Clone for IReplicaKeyMap {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRequestFilteredSync(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRequestFilteredSync {}
+impl ::core::clone::Clone for IRequestFilteredSync {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISingleItemException(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISingleItemException {}
+impl ::core::clone::Clone for ISingleItemException {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISupportFilteredSync(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISupportFilteredSync {}
+impl ::core::clone::Clone for ISupportFilteredSync {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISupportLastWriteTime(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISupportLastWriteTime {}
+impl ::core::clone::Clone for ISupportLastWriteTime {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISyncCallback(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISyncCallback {}
+impl ::core::clone::Clone for ISyncCallback {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISyncCallback2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISyncCallback2 {}
+impl ::core::clone::Clone for ISyncCallback2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISyncChange(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISyncChange {}
+impl ::core::clone::Clone for ISyncChange {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISyncChangeBatch(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISyncChangeBatch {}
+impl ::core::clone::Clone for ISyncChangeBatch {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISyncChangeBatch2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISyncChangeBatch2 {}
+impl ::core::clone::Clone for ISyncChangeBatch2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISyncChangeBatchAdvanced(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISyncChangeBatchAdvanced {}
+impl ::core::clone::Clone for ISyncChangeBatchAdvanced {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISyncChangeBatchBase(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISyncChangeBatchBase {}
+impl ::core::clone::Clone for ISyncChangeBatchBase {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISyncChangeBatchBase2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISyncChangeBatchBase2 {}
+impl ::core::clone::Clone for ISyncChangeBatchBase2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISyncChangeBatchWithFilterKeyMap(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISyncChangeBatchWithFilterKeyMap {}
+impl ::core::clone::Clone for ISyncChangeBatchWithFilterKeyMap {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISyncChangeBatchWithPrerequisite(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISyncChangeBatchWithPrerequisite {}
+impl ::core::clone::Clone for ISyncChangeBatchWithPrerequisite {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISyncChangeBuilder(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISyncChangeBuilder {}
+impl ::core::clone::Clone for ISyncChangeBuilder {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISyncChangeUnit(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISyncChangeUnit {}
+impl ::core::clone::Clone for ISyncChangeUnit {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISyncChangeWithFilterKeyMap(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISyncChangeWithFilterKeyMap {}
+impl ::core::clone::Clone for ISyncChangeWithFilterKeyMap {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISyncChangeWithPrerequisite(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISyncChangeWithPrerequisite {}
+impl ::core::clone::Clone for ISyncChangeWithPrerequisite {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISyncConstraintCallback(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISyncConstraintCallback {}
+impl ::core::clone::Clone for ISyncConstraintCallback {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISyncDataConverter(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISyncDataConverter {}
+impl ::core::clone::Clone for ISyncDataConverter {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISyncFilter(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISyncFilter {}
+impl ::core::clone::Clone for ISyncFilter {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISyncFilterDeserializer(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISyncFilterDeserializer {}
+impl ::core::clone::Clone for ISyncFilterDeserializer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISyncFilterInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISyncFilterInfo {}
+impl ::core::clone::Clone for ISyncFilterInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISyncFilterInfo2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISyncFilterInfo2 {}
+impl ::core::clone::Clone for ISyncFilterInfo2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISyncFullEnumerationChange(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISyncFullEnumerationChange {}
+impl ::core::clone::Clone for ISyncFullEnumerationChange {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISyncFullEnumerationChangeBatch(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISyncFullEnumerationChangeBatch {}
+impl ::core::clone::Clone for ISyncFullEnumerationChangeBatch {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISyncFullEnumerationChangeBatch2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISyncFullEnumerationChangeBatch2 {}
+impl ::core::clone::Clone for ISyncFullEnumerationChangeBatch2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISyncKnowledge(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISyncKnowledge {}
+impl ::core::clone::Clone for ISyncKnowledge {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISyncKnowledge2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISyncKnowledge2 {}
+impl ::core::clone::Clone for ISyncKnowledge2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISyncMergeTombstoneChange(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISyncMergeTombstoneChange {}
+impl ::core::clone::Clone for ISyncMergeTombstoneChange {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISyncProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISyncProvider {}
+impl ::core::clone::Clone for ISyncProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISyncProviderConfigUI(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISyncProviderConfigUI {}
+impl ::core::clone::Clone for ISyncProviderConfigUI {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISyncProviderConfigUIInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISyncProviderConfigUIInfo {}
+impl ::core::clone::Clone for ISyncProviderConfigUIInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISyncProviderInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISyncProviderInfo {}
+impl ::core::clone::Clone for ISyncProviderInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISyncProviderRegistration(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISyncProviderRegistration {}
+impl ::core::clone::Clone for ISyncProviderRegistration {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISyncRegistrationChange(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISyncRegistrationChange {}
+impl ::core::clone::Clone for ISyncRegistrationChange {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISyncSessionExtendedErrorInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISyncSessionExtendedErrorInfo {}
+impl ::core::clone::Clone for ISyncSessionExtendedErrorInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISyncSessionState(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISyncSessionState {}
+impl ::core::clone::Clone for ISyncSessionState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISyncSessionState2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISyncSessionState2 {}
+impl ::core::clone::Clone for ISyncSessionState2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISynchronousDataRetriever(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISynchronousDataRetriever {}
+impl ::core::clone::Clone for ISynchronousDataRetriever {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct KNOWLEDGE_COOKIE_COMPARISON_RESULT(pub i32);
 pub const KCCR_COOKIE_KNOWLEDGE_EQUAL: KNOWLEDGE_COOKIE_COMPARISON_RESULT = KNOWLEDGE_COOKIE_COMPARISON_RESULT(0i32);
@@ -246,7 +720,7 @@ impl ::core::clone::Clone for KNOWLEDGE_COOKIE_COMPARISON_RESULT {
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_CONFIGUI_CAPABILITIES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::GUID {
+    fmtid: ::windows_sys::core::GUID {
         data1: 1430988010,
         data2: 59619,
         data3: 17850,
@@ -256,7 +730,7 @@ pub const PKEY_CONFIGUI_CAPABILITIES: super::super::UI::Shell::PropertiesSystem:
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_CONFIGUI_CLSID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::GUID {
+    fmtid: ::windows_sys::core::GUID {
         data1: 1430988010,
         data2: 59619,
         data3: 17850,
@@ -266,7 +740,7 @@ pub const PKEY_CONFIGUI_CLSID: super::super::UI::Shell::PropertiesSystem::PROPER
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_CONFIGUI_CONTENTTYPE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::GUID {
+    fmtid: ::windows_sys::core::GUID {
         data1: 1430988010,
         data2: 59619,
         data3: 17850,
@@ -276,7 +750,7 @@ pub const PKEY_CONFIGUI_CONTENTTYPE: super::super::UI::Shell::PropertiesSystem::
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_CONFIGUI_DESCRIPTION: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::GUID {
+    fmtid: ::windows_sys::core::GUID {
         data1: 1430988010,
         data2: 59619,
         data3: 17850,
@@ -286,7 +760,7 @@ pub const PKEY_CONFIGUI_DESCRIPTION: super::super::UI::Shell::PropertiesSystem::
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_CONFIGUI_ICON: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::GUID {
+    fmtid: ::windows_sys::core::GUID {
         data1: 1430988010,
         data2: 59619,
         data3: 17850,
@@ -296,7 +770,7 @@ pub const PKEY_CONFIGUI_ICON: super::super::UI::Shell::PropertiesSystem::PROPERT
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_CONFIGUI_INSTANCEID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::GUID {
+    fmtid: ::windows_sys::core::GUID {
         data1: 1430988010,
         data2: 59619,
         data3: 17850,
@@ -306,7 +780,7 @@ pub const PKEY_CONFIGUI_INSTANCEID: super::super::UI::Shell::PropertiesSystem::P
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_CONFIGUI_IS_GLOBAL: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::GUID {
+    fmtid: ::windows_sys::core::GUID {
         data1: 1430988010,
         data2: 59619,
         data3: 17850,
@@ -316,7 +790,7 @@ pub const PKEY_CONFIGUI_IS_GLOBAL: super::super::UI::Shell::PropertiesSystem::PR
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_CONFIGUI_MENUITEM: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::GUID {
+    fmtid: ::windows_sys::core::GUID {
         data1: 1430988010,
         data2: 59619,
         data3: 17850,
@@ -326,7 +800,7 @@ pub const PKEY_CONFIGUI_MENUITEM: super::super::UI::Shell::PropertiesSystem::PRO
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_CONFIGUI_MENUITEM_NOUI: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::GUID {
+    fmtid: ::windows_sys::core::GUID {
         data1: 1430988010,
         data2: 59619,
         data3: 17850,
@@ -336,7 +810,7 @@ pub const PKEY_CONFIGUI_MENUITEM_NOUI: super::super::UI::Shell::PropertiesSystem
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_CONFIGUI_NAME: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::GUID {
+    fmtid: ::windows_sys::core::GUID {
         data1: 1430988010,
         data2: 59619,
         data3: 17850,
@@ -346,7 +820,7 @@ pub const PKEY_CONFIGUI_NAME: super::super::UI::Shell::PropertiesSystem::PROPERT
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_CONFIGUI_SUPPORTED_ARCHITECTURE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::GUID {
+    fmtid: ::windows_sys::core::GUID {
         data1: 1430988010,
         data2: 59619,
         data3: 17850,
@@ -356,7 +830,7 @@ pub const PKEY_CONFIGUI_SUPPORTED_ARCHITECTURE: super::super::UI::Shell::Propert
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_CONFIGUI_TOOLTIPS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::GUID {
+    fmtid: ::windows_sys::core::GUID {
         data1: 1430988010,
         data2: 59619,
         data3: 17850,
@@ -366,7 +840,7 @@ pub const PKEY_CONFIGUI_TOOLTIPS: super::super::UI::Shell::PropertiesSystem::PRO
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_PROVIDER_CAPABILITIES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::GUID {
+    fmtid: ::windows_sys::core::GUID {
         data1: 2216140385,
         data2: 24822,
         data3: 19484,
@@ -376,7 +850,7 @@ pub const PKEY_PROVIDER_CAPABILITIES: super::super::UI::Shell::PropertiesSystem:
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_PROVIDER_CLSID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::GUID {
+    fmtid: ::windows_sys::core::GUID {
         data1: 2216140385,
         data2: 24822,
         data3: 19484,
@@ -386,7 +860,7 @@ pub const PKEY_PROVIDER_CLSID: super::super::UI::Shell::PropertiesSystem::PROPER
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_PROVIDER_CONFIGUI: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::GUID {
+    fmtid: ::windows_sys::core::GUID {
         data1: 2216140385,
         data2: 24822,
         data3: 19484,
@@ -396,7 +870,7 @@ pub const PKEY_PROVIDER_CONFIGUI: super::super::UI::Shell::PropertiesSystem::PRO
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_PROVIDER_CONTENTTYPE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::GUID {
+    fmtid: ::windows_sys::core::GUID {
         data1: 2216140385,
         data2: 24822,
         data3: 19484,
@@ -406,7 +880,7 @@ pub const PKEY_PROVIDER_CONTENTTYPE: super::super::UI::Shell::PropertiesSystem::
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_PROVIDER_DESCRIPTION: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::GUID {
+    fmtid: ::windows_sys::core::GUID {
         data1: 2216140385,
         data2: 24822,
         data3: 19484,
@@ -416,7 +890,7 @@ pub const PKEY_PROVIDER_DESCRIPTION: super::super::UI::Shell::PropertiesSystem::
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_PROVIDER_ICON: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::GUID {
+    fmtid: ::windows_sys::core::GUID {
         data1: 2216140385,
         data2: 24822,
         data3: 19484,
@@ -426,7 +900,7 @@ pub const PKEY_PROVIDER_ICON: super::super::UI::Shell::PropertiesSystem::PROPERT
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_PROVIDER_INSTANCEID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::GUID {
+    fmtid: ::windows_sys::core::GUID {
         data1: 2216140385,
         data2: 24822,
         data3: 19484,
@@ -436,7 +910,7 @@ pub const PKEY_PROVIDER_INSTANCEID: super::super::UI::Shell::PropertiesSystem::P
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_PROVIDER_NAME: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::GUID {
+    fmtid: ::windows_sys::core::GUID {
         data1: 2216140385,
         data2: 24822,
         data3: 19484,
@@ -446,7 +920,7 @@ pub const PKEY_PROVIDER_NAME: super::super::UI::Shell::PropertiesSystem::PROPERT
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_PROVIDER_SUPPORTED_ARCHITECTURE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::GUID {
+    fmtid: ::windows_sys::core::GUID {
         data1: 2216140385,
         data2: 24822,
         data3: 19484,
@@ -456,7 +930,7 @@ pub const PKEY_PROVIDER_SUPPORTED_ARCHITECTURE: super::super::UI::Shell::Propert
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_PROVIDER_TOOLTIPS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::GUID {
+    fmtid: ::windows_sys::core::GUID {
         data1: 2216140385,
         data2: 24822,
         data3: 19484,
@@ -663,4 +1137,4 @@ impl ::core::clone::Clone for SyncProviderConfiguration {
         *self
     }
 }
-pub const SyncProviderRegistration: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4163587825, data2: 37801, data3: 19934, data4: [128, 21, 247, 149, 10, 26, 110, 49] };
+pub const SyncProviderRegistration: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4163587825, data2: 37801, data3: 19934, data4: [128, 21, 247, 149, 10, 26, 110, 49] };

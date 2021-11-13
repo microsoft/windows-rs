@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
     #[cfg(feature = "Win32_Foundation")]
@@ -51,8 +51,8 @@ pub const COMPRESS_ALGORITHM_MAX: u32 = 6u32;
 pub const COMPRESS_ALGORITHM_NULL: u32 = 1u32;
 #[repr(C)]
 pub struct COMPRESS_ALLOCATION_ROUTINES {
-    pub Allocate: ::core::option::Option<PFN_COMPRESS_ALLOCATE>,
-    pub Free: ::core::option::Option<PFN_COMPRESS_FREE>,
+    pub Allocate: PFN_COMPRESS_ALLOCATE,
+    pub Free: PFN_COMPRESS_FREE,
     pub UserContext: *mut ::core::ffi::c_void,
 }
 impl ::core::marker::Copy for COMPRESS_ALLOCATION_ROUTINES {}

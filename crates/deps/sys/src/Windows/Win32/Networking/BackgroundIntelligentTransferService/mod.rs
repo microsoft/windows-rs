@@ -1,8 +1,14 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {}
 #[repr(transparent)]
 pub struct AsyncIBackgroundCopyCallback(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for AsyncIBackgroundCopyCallback {}
+impl ::core::clone::Clone for AsyncIBackgroundCopyCallback {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct BG_AUTH_CREDENTIALS {
@@ -402,7 +408,7 @@ impl ::core::clone::Clone for BG_TOKEN {
         *self
     }
 }
-pub const BITSExtensionSetupFactory: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const BITSExtensionSetupFactory: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4022053736,
     data2: 29318,
     data3: 18307,
@@ -498,42 +504,42 @@ pub const BITS_MC_JOB_TAKE_OWNERSHIP: i32 = -2145828860i32;
 pub const BITS_MC_PEERCACHING_PORT: i32 = -2145828854i32;
 pub const BITS_MC_STATE_FILE_CORRUPT: i32 = -2145828857i32;
 pub const BITS_MC_WSD_PORT: i32 = -2145828853i32;
-pub const BackgroundCopyManager: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const BackgroundCopyManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1234293579,
     data2: 32929,
     data3: 17041,
     data4: [131, 182, 51, 40, 54, 107, 144, 151],
 };
-pub const BackgroundCopyManager10_1: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1272177889, data2: 31700, data3: 18987, data4: [153, 100, 73, 100, 0, 222, 81, 147] };
-pub const BackgroundCopyManager10_2: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const BackgroundCopyManager10_1: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1272177889, data2: 31700, data3: 18987, data4: [153, 100, 73, 100, 0, 222, 81, 147] };
+pub const BackgroundCopyManager10_2: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1165312911,
     data2: 42696,
     data3: 18806,
     data4: [176, 254, 47, 38, 184, 13, 149, 158],
 };
-pub const BackgroundCopyManager10_3: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const BackgroundCopyManager10_3: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1607740117,
     data2: 49230,
     data3: 19766,
     data4: [173, 199, 224, 143, 241, 87, 55, 173],
 };
-pub const BackgroundCopyManager1_5: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const BackgroundCopyManager1_5: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4035409695,
     data2: 55119,
     data3: 19482,
     data4: [187, 138, 225, 106, 202, 145, 36, 234],
 };
-pub const BackgroundCopyManager2_0: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1830333714, data2: 48611, data3: 17299, data4: [179, 17, 9, 156, 52, 110, 109, 249] };
-pub const BackgroundCopyManager2_5: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 63609046, data2: 65373, data3: 18872, data4: [171, 198, 3, 221, 132, 18, 112, 32] };
-pub const BackgroundCopyManager3_0: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1704779431, data2: 18590, data3: 4569, data4: [169, 205, 0, 13, 86, 150, 82, 81] };
-pub const BackgroundCopyManager4_0: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3144545643, data2: 51918, data3: 4572, data4: [153, 146, 0, 25, 185, 58, 58, 132] };
-pub const BackgroundCopyManager5_0: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const BackgroundCopyManager2_0: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1830333714, data2: 48611, data3: 17299, data4: [179, 17, 9, 156, 52, 110, 109, 249] };
+pub const BackgroundCopyManager2_5: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 63609046, data2: 65373, data3: 18872, data4: [171, 198, 3, 221, 132, 18, 112, 32] };
+pub const BackgroundCopyManager3_0: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1704779431, data2: 18590, data3: 4569, data4: [169, 205, 0, 13, 86, 150, 82, 81] };
+pub const BackgroundCopyManager4_0: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3144545643, data2: 51918, data3: 4572, data4: [153, 146, 0, 25, 185, 58, 58, 132] };
+pub const BackgroundCopyManager5_0: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 516727628,
     data2: 59530,
     data3: 17635,
     data4: [141, 106, 137, 33, 189, 233, 228, 82],
 };
-pub const BackgroundCopyQMgr: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1772964590, data2: 20926, data3: 17307, data4: [169, 44, 134, 174, 73, 14, 139, 48] };
+pub const BackgroundCopyQMgr: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1772964590, data2: 20926, data3: 17307, data4: [169, 44, 134, 174, 73, 14, 139, 48] };
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct FILESETINFO {
@@ -572,76 +578,292 @@ impl ::core::clone::Clone for GROUPPROP {
 }
 #[repr(transparent)]
 pub struct IBITSExtensionSetup(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBITSExtensionSetup {}
+impl ::core::clone::Clone for IBITSExtensionSetup {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBITSExtensionSetupFactory(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBITSExtensionSetupFactory {}
+impl ::core::clone::Clone for IBITSExtensionSetupFactory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBackgroundCopyCallback(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBackgroundCopyCallback {}
+impl ::core::clone::Clone for IBackgroundCopyCallback {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBackgroundCopyCallback1(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBackgroundCopyCallback1 {}
+impl ::core::clone::Clone for IBackgroundCopyCallback1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBackgroundCopyCallback2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBackgroundCopyCallback2 {}
+impl ::core::clone::Clone for IBackgroundCopyCallback2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBackgroundCopyCallback3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBackgroundCopyCallback3 {}
+impl ::core::clone::Clone for IBackgroundCopyCallback3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBackgroundCopyError(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBackgroundCopyError {}
+impl ::core::clone::Clone for IBackgroundCopyError {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBackgroundCopyFile(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBackgroundCopyFile {}
+impl ::core::clone::Clone for IBackgroundCopyFile {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBackgroundCopyFile2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBackgroundCopyFile2 {}
+impl ::core::clone::Clone for IBackgroundCopyFile2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBackgroundCopyFile3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBackgroundCopyFile3 {}
+impl ::core::clone::Clone for IBackgroundCopyFile3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBackgroundCopyFile4(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBackgroundCopyFile4 {}
+impl ::core::clone::Clone for IBackgroundCopyFile4 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBackgroundCopyFile5(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBackgroundCopyFile5 {}
+impl ::core::clone::Clone for IBackgroundCopyFile5 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBackgroundCopyFile6(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBackgroundCopyFile6 {}
+impl ::core::clone::Clone for IBackgroundCopyFile6 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBackgroundCopyGroup(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBackgroundCopyGroup {}
+impl ::core::clone::Clone for IBackgroundCopyGroup {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBackgroundCopyJob(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBackgroundCopyJob {}
+impl ::core::clone::Clone for IBackgroundCopyJob {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBackgroundCopyJob1(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBackgroundCopyJob1 {}
+impl ::core::clone::Clone for IBackgroundCopyJob1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBackgroundCopyJob2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBackgroundCopyJob2 {}
+impl ::core::clone::Clone for IBackgroundCopyJob2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBackgroundCopyJob3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBackgroundCopyJob3 {}
+impl ::core::clone::Clone for IBackgroundCopyJob3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBackgroundCopyJob4(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBackgroundCopyJob4 {}
+impl ::core::clone::Clone for IBackgroundCopyJob4 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBackgroundCopyJob5(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBackgroundCopyJob5 {}
+impl ::core::clone::Clone for IBackgroundCopyJob5 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBackgroundCopyJobHttpOptions(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBackgroundCopyJobHttpOptions {}
+impl ::core::clone::Clone for IBackgroundCopyJobHttpOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBackgroundCopyJobHttpOptions2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBackgroundCopyJobHttpOptions2 {}
+impl ::core::clone::Clone for IBackgroundCopyJobHttpOptions2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBackgroundCopyJobHttpOptions3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBackgroundCopyJobHttpOptions3 {}
+impl ::core::clone::Clone for IBackgroundCopyJobHttpOptions3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBackgroundCopyManager(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBackgroundCopyManager {}
+impl ::core::clone::Clone for IBackgroundCopyManager {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBackgroundCopyQMgr(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBackgroundCopyQMgr {}
+impl ::core::clone::Clone for IBackgroundCopyQMgr {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBackgroundCopyServerCertificateValidationCallback(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBackgroundCopyServerCertificateValidationCallback {}
+impl ::core::clone::Clone for IBackgroundCopyServerCertificateValidationCallback {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBitsPeer(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBitsPeer {}
+impl ::core::clone::Clone for IBitsPeer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBitsPeerCacheAdministration(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBitsPeerCacheAdministration {}
+impl ::core::clone::Clone for IBitsPeerCacheAdministration {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBitsPeerCacheRecord(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBitsPeerCacheRecord {}
+impl ::core::clone::Clone for IBitsPeerCacheRecord {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBitsTokenOptions(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBitsTokenOptions {}
+impl ::core::clone::Clone for IBitsTokenOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEnumBackgroundCopyFiles(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnumBackgroundCopyFiles {}
+impl ::core::clone::Clone for IEnumBackgroundCopyFiles {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEnumBackgroundCopyGroups(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnumBackgroundCopyGroups {}
+impl ::core::clone::Clone for IEnumBackgroundCopyGroups {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEnumBackgroundCopyJobs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnumBackgroundCopyJobs {}
+impl ::core::clone::Clone for IEnumBackgroundCopyJobs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEnumBackgroundCopyJobs1(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnumBackgroundCopyJobs1 {}
+impl ::core::clone::Clone for IEnumBackgroundCopyJobs1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEnumBitsPeerCacheRecords(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnumBitsPeerCacheRecords {}
+impl ::core::clone::Clone for IEnumBitsPeerCacheRecords {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEnumBitsPeers(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnumBitsPeers {}
+impl ::core::clone::Clone for IEnumBitsPeers {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const QM_E_DOWNLOADER_UNAVAILABLE: u32 = 2164264963u32;
 pub const QM_E_INVALID_STATE: u32 = 2164264961u32;
 pub const QM_E_ITEM_NOT_FOUND: u32 = 2164264964u32;

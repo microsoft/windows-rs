@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
     #[cfg(feature = "Win32_Foundation")]
@@ -102,8 +102,8 @@ impl ::core::clone::Clone for GAMING_DEVICE_VENDOR_ID {
         *self
     }
 }
-pub const GameExplorer: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2589895056, data2: 12340, data3: 19823, data4: [145, 40, 1, 243, 198, 16, 34, 188] };
-pub const GameStatistics: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GameExplorer: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2589895056, data2: 12340, data3: 19823, data4: [145, 40, 1, 243, 198, 16, 34, 188] };
+pub const GameStatistics: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3687340588,
     data2: 49372,
     data3: 18785,
@@ -112,18 +112,60 @@ pub const GameStatistics: ::windows_sys::core::GUID = ::windows_sys::GUID {
 pub type GameUICompletionRoutine = unsafe extern "system" fn(returncode: ::windows_sys::core::HRESULT, context: *const ::core::ffi::c_void);
 #[repr(transparent)]
 pub struct IGameExplorer(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGameExplorer {}
+impl ::core::clone::Clone for IGameExplorer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGameExplorer2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGameExplorer2 {}
+impl ::core::clone::Clone for IGameExplorer2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGameStatistics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGameStatistics {}
+impl ::core::clone::Clone for IGameStatistics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGameStatisticsMgr(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGameStatisticsMgr {}
+impl ::core::clone::Clone for IGameStatisticsMgr {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IXblIdpAuthManager(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IXblIdpAuthManager {}
+impl ::core::clone::Clone for IXblIdpAuthManager {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IXblIdpAuthTokenResult(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IXblIdpAuthTokenResult {}
+impl ::core::clone::Clone for IXblIdpAuthTokenResult {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IXblIdpAuthTokenResult2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IXblIdpAuthTokenResult2 {}
+impl ::core::clone::Clone for IXblIdpAuthTokenResult2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct KnownGamingPrivileges(pub i32);
 pub const XPRIVILEGE_BROADCAST: KnownGamingPrivileges = KnownGamingPrivileges(190i32);
@@ -172,13 +214,13 @@ impl ::core::clone::Clone for XBL_IDP_AUTH_TOKEN_STATUS {
         *self
     }
 }
-pub const XblIdpAuthManager: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const XblIdpAuthManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3458421579,
     data2: 22232,
     data3: 18808,
     data4: [134, 162, 126, 229, 112, 100, 4, 104],
 };
-pub const XblIdpAuthTokenResult: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const XblIdpAuthTokenResult: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2672374849,
     data2: 29770,
     data3: 16652,

@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {}
 #[repr(transparent)]
@@ -499,3 +499,9 @@ impl ::core::clone::Clone for D2D_VECTOR_4F {
 }
 #[repr(transparent)]
 pub struct ID2D1SimplifiedGeometrySink(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID2D1SimplifiedGeometrySink {}
+impl ::core::clone::Clone for ID2D1SimplifiedGeometrySink {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

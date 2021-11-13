@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
     pub fn CreatePresentationFactory(d3ddevice: ::windows_sys::core::IUnknown, riid: *const ::windows_sys::core::GUID, presentationfactory: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
@@ -36,22 +36,76 @@ impl ::core::clone::Clone for CompositionFrameInstanceKind {
 }
 #[repr(transparent)]
 pub struct ICompositionFramePresentStatistics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICompositionFramePresentStatistics {}
+impl ::core::clone::Clone for ICompositionFramePresentStatistics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IIndependentFlipFramePresentStatistics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IIndependentFlipFramePresentStatistics {}
+impl ::core::clone::Clone for IIndependentFlipFramePresentStatistics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPresentStatistics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPresentStatistics {}
+impl ::core::clone::Clone for IPresentStatistics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPresentStatusPresentStatistics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPresentStatusPresentStatistics {}
+impl ::core::clone::Clone for IPresentStatusPresentStatistics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPresentationBuffer(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPresentationBuffer {}
+impl ::core::clone::Clone for IPresentationBuffer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPresentationContent(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPresentationContent {}
+impl ::core::clone::Clone for IPresentationContent {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPresentationFactory(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPresentationFactory {}
+impl ::core::clone::Clone for IPresentationFactory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPresentationManager(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPresentationManager {}
+impl ::core::clone::Clone for IPresentationManager {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPresentationSurface(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPresentationSurface {}
+impl ::core::clone::Clone for IPresentationSurface {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PresentStatisticsKind(pub i32);
 pub const PresentStatisticsKind_PresentStatus: PresentStatisticsKind = PresentStatisticsKind(1i32);

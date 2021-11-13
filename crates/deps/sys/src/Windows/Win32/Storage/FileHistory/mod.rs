@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
     #[cfg(feature = "Win32_System_WindowsProgramming")]
@@ -159,13 +159,37 @@ impl ::core::clone::Clone for FhBackupStopReason {
         *self
     }
 }
-pub const FhConfigMgr: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3980639036, data2: 2537, data3: 18826, data4: [157, 246, 33, 119, 36, 76, 109, 180] };
-pub const FhReassociation: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1299353141, data2: 5882, data3: 17184, data4: [158, 139, 191, 215, 16, 10, 136, 70] };
+pub const FhConfigMgr: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3980639036, data2: 2537, data3: 18826, data4: [157, 246, 33, 119, 36, 76, 109, 180] };
+pub const FhReassociation: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1299353141, data2: 5882, data3: 17184, data4: [158, 139, 191, 215, 16, 10, 136, 70] };
 #[repr(transparent)]
 pub struct IFhConfigMgr(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFhConfigMgr {}
+impl ::core::clone::Clone for IFhConfigMgr {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFhReassociation(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFhReassociation {}
+impl ::core::clone::Clone for IFhReassociation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFhScopeIterator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFhScopeIterator {}
+impl ::core::clone::Clone for IFhScopeIterator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFhTarget(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFhTarget {}
+impl ::core::clone::Clone for IFhTarget {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

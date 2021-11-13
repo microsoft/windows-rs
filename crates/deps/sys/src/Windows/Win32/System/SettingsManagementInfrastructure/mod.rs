@@ -1,25 +1,73 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {}
 #[repr(transparent)]
 pub struct IItemEnumerator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IItemEnumerator {}
+impl ::core::clone::Clone for IItemEnumerator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISettingsContext(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISettingsContext {}
+impl ::core::clone::Clone for ISettingsContext {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISettingsEngine(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISettingsEngine {}
+impl ::core::clone::Clone for ISettingsEngine {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISettingsIdentity(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISettingsIdentity {}
+impl ::core::clone::Clone for ISettingsIdentity {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISettingsItem(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISettingsItem {}
+impl ::core::clone::Clone for ISettingsItem {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISettingsNamespace(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISettingsNamespace {}
+impl ::core::clone::Clone for ISettingsNamespace {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISettingsResult(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISettingsResult {}
+impl ::core::clone::Clone for ISettingsResult {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITargetInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITargetInfo {}
+impl ::core::clone::Clone for ITargetInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const LIMITED_VALIDATION_MODE: u32 = 1u32;
 pub const LINK_STORE_TO_ENGINE_INSTANCE: u32 = 1u32;
-pub const SettingsEngine: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2675801013, data2: 8371, data3: 4570, data4: [129, 165, 0, 48, 241, 100, 46, 60] };
+pub const SettingsEngine: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2675801013, data2: 8371, data3: 4570, data4: [129, 165, 0, 48, 241, 100, 46, 60] };
 pub const WCM_E_ABORTOPERATION: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2145255384i32 as _);
 pub const WCM_E_ASSERTIONFAILED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2145255398i32 as _);
 pub const WCM_E_ATTRIBUTENOTALLOWED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2145255420i32 as _);

@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[cfg(feature = "Gaming_Input_Custom")]
 pub mod Custom;
 #[cfg(feature = "Gaming_Input_ForceFeedback")]
@@ -9,6 +9,12 @@ pub mod Preview;
 extern "system" {}
 #[repr(transparent)]
 pub struct ArcadeStick(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ArcadeStick {}
+impl ::core::clone::Clone for ArcadeStick {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ArcadeStickButtons(pub u32);
 impl ArcadeStickButtons {
@@ -45,6 +51,12 @@ impl ::core::clone::Clone for ArcadeStickReading {
 }
 #[repr(transparent)]
 pub struct FlightStick(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for FlightStick {}
+impl ::core::clone::Clone for FlightStick {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct FlightStickButtons(pub u32);
 impl FlightStickButtons {
@@ -187,6 +199,12 @@ impl ::core::clone::Clone for GameControllerSwitchPosition {
 }
 #[repr(transparent)]
 pub struct Gamepad(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for Gamepad {}
+impl ::core::clone::Clone for Gamepad {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct GamepadButtons(pub u32);
 impl GamepadButtons {
@@ -248,48 +266,180 @@ impl ::core::clone::Clone for GamepadVibration {
 }
 #[repr(transparent)]
 pub struct Headset(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for Headset {}
+impl ::core::clone::Clone for Headset {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IArcadeStick(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IArcadeStick {}
+impl ::core::clone::Clone for IArcadeStick {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IArcadeStickStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IArcadeStickStatics {}
+impl ::core::clone::Clone for IArcadeStickStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IArcadeStickStatics2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IArcadeStickStatics2 {}
+impl ::core::clone::Clone for IArcadeStickStatics2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFlightStick(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFlightStick {}
+impl ::core::clone::Clone for IFlightStick {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFlightStickStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFlightStickStatics {}
+impl ::core::clone::Clone for IFlightStickStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGameController(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGameController {}
+impl ::core::clone::Clone for IGameController {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGameControllerBatteryInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGameControllerBatteryInfo {}
+impl ::core::clone::Clone for IGameControllerBatteryInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGamepad(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGamepad {}
+impl ::core::clone::Clone for IGamepad {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGamepad2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGamepad2 {}
+impl ::core::clone::Clone for IGamepad2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGamepadStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGamepadStatics {}
+impl ::core::clone::Clone for IGamepadStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGamepadStatics2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGamepadStatics2 {}
+impl ::core::clone::Clone for IGamepadStatics2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IHeadset(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IHeadset {}
+impl ::core::clone::Clone for IHeadset {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRacingWheel(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRacingWheel {}
+impl ::core::clone::Clone for IRacingWheel {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRacingWheelStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRacingWheelStatics {}
+impl ::core::clone::Clone for IRacingWheelStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRacingWheelStatics2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRacingWheelStatics2 {}
+impl ::core::clone::Clone for IRacingWheelStatics2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRawGameController(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRawGameController {}
+impl ::core::clone::Clone for IRawGameController {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRawGameController2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRawGameController2 {}
+impl ::core::clone::Clone for IRawGameController2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRawGameControllerStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRawGameControllerStatics {}
+impl ::core::clone::Clone for IRawGameControllerStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUINavigationController(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUINavigationController {}
+impl ::core::clone::Clone for IUINavigationController {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUINavigationControllerStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUINavigationControllerStatics {}
+impl ::core::clone::Clone for IUINavigationControllerStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUINavigationControllerStatics2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUINavigationControllerStatics2 {}
+impl ::core::clone::Clone for IUINavigationControllerStatics2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct OptionalUINavigationButtons(pub u32);
 impl OptionalUINavigationButtons {
@@ -315,6 +465,12 @@ impl ::core::clone::Clone for OptionalUINavigationButtons {
 }
 #[repr(transparent)]
 pub struct RacingWheel(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for RacingWheel {}
+impl ::core::clone::Clone for RacingWheel {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RacingWheelButtons(pub u32);
 impl RacingWheelButtons {
@@ -367,6 +523,12 @@ impl ::core::clone::Clone for RacingWheelReading {
 }
 #[repr(transparent)]
 pub struct RawGameController(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for RawGameController {}
+impl ::core::clone::Clone for RawGameController {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RequiredUINavigationButtons(pub u32);
 impl RequiredUINavigationButtons {
@@ -388,6 +550,12 @@ impl ::core::clone::Clone for RequiredUINavigationButtons {
 }
 #[repr(transparent)]
 pub struct UINavigationController(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for UINavigationController {}
+impl ::core::clone::Clone for UINavigationController {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct UINavigationReading {
     pub Timestamp: u64,

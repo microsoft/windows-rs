@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[cfg(feature = "Web_AtomPub")]
 pub mod AtomPub;
 #[cfg(feature = "Web_Http")]
@@ -11,8 +11,20 @@ pub mod UI;
 extern "system" {}
 #[repr(transparent)]
 pub struct IUriToStreamResolver(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUriToStreamResolver {}
+impl ::core::clone::Clone for IUriToStreamResolver {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWebErrorStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWebErrorStatics {}
+impl ::core::clone::Clone for IWebErrorStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WebErrorStatus(pub i32);
 impl WebErrorStatus {

@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
     #[cfg(feature = "Win32_Foundation")]
@@ -436,7 +436,7 @@ impl ::core::clone::Clone for CODEBASEHOLD {
 #[repr(C)]
 pub struct CONFIRMSAFETY {
     pub clsid: ::windows_sys::core::GUID,
-    pub pUnk: ::core::option::Option<::windows_sys::core::IUnknown>,
+    pub pUnk: ::windows_sys::core::IUnknown,
     pub dwFlags: u32,
 }
 impl ::core::marker::Copy for CONFIRMSAFETY {}
@@ -500,16 +500,52 @@ impl ::core::clone::Clone for HIT_LOGGING_INFO {
 }
 #[repr(transparent)]
 pub struct IBindCallbackRedirect(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBindCallbackRedirect {}
+impl ::core::clone::Clone for IBindCallbackRedirect {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBindHttpSecurity(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBindHttpSecurity {}
+impl ::core::clone::Clone for IBindHttpSecurity {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBindProtocol(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBindProtocol {}
+impl ::core::clone::Clone for IBindProtocol {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICatalogFileInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICatalogFileInfo {}
+impl ::core::clone::Clone for ICatalogFileInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICodeInstall(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICodeInstall {}
+impl ::core::clone::Clone for ICodeInstall {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDataFilter(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDataFilter {}
+impl ::core::clone::Clone for IDataFilter {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEObjectType(pub i32);
 pub const IE_EPM_OBJECT_EVENT: IEObjectType = IEObjectType(0i32);
@@ -528,58 +564,220 @@ impl ::core::clone::Clone for IEObjectType {
 }
 #[repr(transparent)]
 pub struct IEncodingFilterFactory(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEncodingFilterFactory {}
+impl ::core::clone::Clone for IEncodingFilterFactory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGetBindHandle(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGetBindHandle {}
+impl ::core::clone::Clone for IGetBindHandle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IHttpNegotiate(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IHttpNegotiate {}
+impl ::core::clone::Clone for IHttpNegotiate {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IHttpNegotiate2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IHttpNegotiate2 {}
+impl ::core::clone::Clone for IHttpNegotiate2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IHttpNegotiate3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IHttpNegotiate3 {}
+impl ::core::clone::Clone for IHttpNegotiate3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IHttpSecurity(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IHttpSecurity {}
+impl ::core::clone::Clone for IHttpSecurity {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInternet(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInternet {}
+impl ::core::clone::Clone for IInternet {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInternetBindInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInternetBindInfo {}
+impl ::core::clone::Clone for IInternetBindInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInternetBindInfoEx(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInternetBindInfoEx {}
+impl ::core::clone::Clone for IInternetBindInfoEx {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInternetHostSecurityManager(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInternetHostSecurityManager {}
+impl ::core::clone::Clone for IInternetHostSecurityManager {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInternetPriority(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInternetPriority {}
+impl ::core::clone::Clone for IInternetPriority {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInternetProtocol(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInternetProtocol {}
+impl ::core::clone::Clone for IInternetProtocol {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInternetProtocolEx(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInternetProtocolEx {}
+impl ::core::clone::Clone for IInternetProtocolEx {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInternetProtocolInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInternetProtocolInfo {}
+impl ::core::clone::Clone for IInternetProtocolInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInternetProtocolRoot(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInternetProtocolRoot {}
+impl ::core::clone::Clone for IInternetProtocolRoot {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInternetProtocolSink(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInternetProtocolSink {}
+impl ::core::clone::Clone for IInternetProtocolSink {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInternetProtocolSinkStackable(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInternetProtocolSinkStackable {}
+impl ::core::clone::Clone for IInternetProtocolSinkStackable {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInternetSecurityManager(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInternetSecurityManager {}
+impl ::core::clone::Clone for IInternetSecurityManager {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInternetSecurityManagerEx(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInternetSecurityManagerEx {}
+impl ::core::clone::Clone for IInternetSecurityManagerEx {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInternetSecurityManagerEx2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInternetSecurityManagerEx2 {}
+impl ::core::clone::Clone for IInternetSecurityManagerEx2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInternetSecurityMgrSite(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInternetSecurityMgrSite {}
+impl ::core::clone::Clone for IInternetSecurityMgrSite {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInternetSession(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInternetSession {}
+impl ::core::clone::Clone for IInternetSession {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInternetThreadSwitch(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInternetThreadSwitch {}
+impl ::core::clone::Clone for IInternetThreadSwitch {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInternetZoneManager(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInternetZoneManager {}
+impl ::core::clone::Clone for IInternetZoneManager {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInternetZoneManagerEx(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInternetZoneManagerEx {}
+impl ::core::clone::Clone for IInternetZoneManagerEx {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInternetZoneManagerEx2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInternetZoneManagerEx2 {}
+impl ::core::clone::Clone for IInternetZoneManagerEx2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMonikerProp(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMonikerProp {}
+impl ::core::clone::Clone for IMonikerProp {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const INET_E_AUTHENTICATION_REQUIRED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2146697207i32 as _);
 pub const INET_E_BLOCKED_ENHANCEDPROTECTEDMODE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2146695930i32 as _);
 pub const INET_E_BLOCKED_PLUGGABLE_PROTOCOL: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2146695931i32 as _);
@@ -679,32 +877,116 @@ impl ::core::clone::Clone for INTERNETFEATURELIST {
 }
 #[repr(transparent)]
 pub struct IPersistMoniker(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPersistMoniker {}
+impl ::core::clone::Clone for IPersistMoniker {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISoftDistExt(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISoftDistExt {}
+impl ::core::clone::Clone for ISoftDistExt {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUriBuilderFactory(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUriBuilderFactory {}
+impl ::core::clone::Clone for IUriBuilderFactory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUriContainer(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUriContainer {}
+impl ::core::clone::Clone for IUriContainer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWinInetCacheHints(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWinInetCacheHints {}
+impl ::core::clone::Clone for IWinInetCacheHints {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWinInetCacheHints2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWinInetCacheHints2 {}
+impl ::core::clone::Clone for IWinInetCacheHints2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWinInetFileStream(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWinInetFileStream {}
+impl ::core::clone::Clone for IWinInetFileStream {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWinInetHttpInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWinInetHttpInfo {}
+impl ::core::clone::Clone for IWinInetHttpInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWinInetHttpTimeouts(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWinInetHttpTimeouts {}
+impl ::core::clone::Clone for IWinInetHttpTimeouts {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWinInetInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWinInetInfo {}
+impl ::core::clone::Clone for IWinInetInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWindowForBindingUI(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWindowForBindingUI {}
+impl ::core::clone::Clone for IWindowForBindingUI {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWrappedProtocol(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWrappedProtocol {}
+impl ::core::clone::Clone for IWrappedProtocol {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IZoneIdentifier(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IZoneIdentifier {}
+impl ::core::clone::Clone for IZoneIdentifier {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IZoneIdentifier2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IZoneIdentifier2 {}
+impl ::core::clone::Clone for IZoneIdentifier2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MAX_SIZE_SECURITY_ID: u32 = 512u32;
 pub const MKSYS_URLMONIKER: u32 = 6u32;
 pub const MK_S_ASYNCHRONOUS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(262632i32 as _);
@@ -807,9 +1089,9 @@ impl ::core::clone::Clone for PROTOCOLDATA {
 #[repr(C)]
 pub struct PROTOCOLFILTERDATA {
     pub cbSize: u32,
-    pub pProtocolSink: ::core::option::Option<IInternetProtocolSink>,
-    pub pProtocol: ::core::option::Option<IInternetProtocol>,
-    pub pUnk: ::core::option::Option<::windows_sys::core::IUnknown>,
+    pub pProtocolSink: IInternetProtocolSink,
+    pub pProtocol: IInternetProtocol,
+    pub pUnk: ::windows_sys::core::IUnknown,
     pub dwFilterFlags: u32,
 }
 impl ::core::marker::Copy for PROTOCOLFILTERDATA {}
@@ -935,7 +1217,7 @@ pub struct RemBINDINFO {
     pub dwCodePage: u32,
     pub securityAttributes: REMSECURITY_ATTRIBUTES,
     pub iid: ::windows_sys::core::GUID,
-    pub pUnk: ::core::option::Option<::windows_sys::core::IUnknown>,
+    pub pUnk: ::windows_sys::core::IUnknown,
     pub dwReserved: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1017,8 +1299,8 @@ pub const S_ASYNCHRONOUS: i32 = 262632i32;
 #[repr(C)]
 pub struct StartParam {
     pub iid: ::windows_sys::core::GUID,
-    pub pIBindCtx: ::core::option::Option<super::IBindCtx>,
-    pub pItf: ::core::option::Option<::windows_sys::core::IUnknown>,
+    pub pIBindCtx: super::IBindCtx,
+    pub pItf: ::windows_sys::core::IUnknown,
 }
 impl ::core::marker::Copy for StartParam {}
 impl ::core::clone::Clone for StartParam {

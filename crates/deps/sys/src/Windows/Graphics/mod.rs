@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[cfg(feature = "Graphics_Capture")]
 pub mod Capture;
 #[cfg(feature = "Graphics_DirectX")]
@@ -40,6 +40,12 @@ impl ::core::clone::Clone for DisplayId {
 }
 #[repr(transparent)]
 pub struct IGeometrySource2D(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGeometrySource2D {}
+impl ::core::clone::Clone for IGeometrySource2D {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct PointInt32 {
     pub X: i32,

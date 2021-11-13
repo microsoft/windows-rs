@@ -1,12 +1,30 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {}
 #[repr(transparent)]
 pub struct ISystemUpdateItem(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISystemUpdateItem {}
+impl ::core::clone::Clone for ISystemUpdateItem {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISystemUpdateLastErrorInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISystemUpdateLastErrorInfo {}
+impl ::core::clone::Clone for ISystemUpdateLastErrorInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISystemUpdateManagerStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISystemUpdateManagerStatics {}
+impl ::core::clone::Clone for ISystemUpdateManagerStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SystemUpdateAttentionRequiredReason(pub i32);
 impl SystemUpdateAttentionRequiredReason {
@@ -24,6 +42,12 @@ impl ::core::clone::Clone for SystemUpdateAttentionRequiredReason {
 }
 #[repr(transparent)]
 pub struct SystemUpdateItem(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for SystemUpdateItem {}
+impl ::core::clone::Clone for SystemUpdateItem {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SystemUpdateItemState(pub i32);
 impl SystemUpdateItemState {
@@ -45,6 +69,12 @@ impl ::core::clone::Clone for SystemUpdateItemState {
 }
 #[repr(transparent)]
 pub struct SystemUpdateLastErrorInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for SystemUpdateLastErrorInfo {}
+impl ::core::clone::Clone for SystemUpdateLastErrorInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SystemUpdateManagerState(pub i32);
 impl SystemUpdateManagerState {

@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
     #[cfg(feature = "Win32_Foundation")]
@@ -575,28 +575,100 @@ pub const ERROR_WSMAN_WMI_SVC_ACCESS_DENIED: u32 = 2150859012u32;
 pub const ERROR_WSMAN_WRONG_METADATA: u32 = 2150859233u32;
 #[repr(transparent)]
 pub struct IWSMan(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWSMan {}
+impl ::core::clone::Clone for IWSMan {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWSManConnectionOptions(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWSManConnectionOptions {}
+impl ::core::clone::Clone for IWSManConnectionOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWSManConnectionOptionsEx(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWSManConnectionOptionsEx {}
+impl ::core::clone::Clone for IWSManConnectionOptionsEx {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWSManConnectionOptionsEx2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWSManConnectionOptionsEx2 {}
+impl ::core::clone::Clone for IWSManConnectionOptionsEx2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWSManEnumerator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWSManEnumerator {}
+impl ::core::clone::Clone for IWSManEnumerator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWSManEx(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWSManEx {}
+impl ::core::clone::Clone for IWSManEx {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWSManEx2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWSManEx2 {}
+impl ::core::clone::Clone for IWSManEx2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWSManEx3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWSManEx3 {}
+impl ::core::clone::Clone for IWSManEx3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWSManInternal(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWSManInternal {}
+impl ::core::clone::Clone for IWSManInternal {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWSManResourceLocator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWSManResourceLocator {}
+impl ::core::clone::Clone for IWSManResourceLocator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWSManResourceLocatorInternal(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWSManResourceLocatorInternal {}
+impl ::core::clone::Clone for IWSManResourceLocatorInternal {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWSManSession(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWSManSession {}
+impl ::core::clone::Clone for IWSManSession {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct WSMAN_API(pub u8);
 #[repr(C)]
@@ -1078,7 +1150,7 @@ pub struct WSMAN_SHELL(pub u8);
 #[cfg(feature = "Win32_Foundation")]
 pub struct WSMAN_SHELL_ASYNC {
     pub operationContext: *mut ::core::ffi::c_void,
-    pub completionFunction: ::core::option::Option<WSMAN_SHELL_COMPLETION_FUNCTION>,
+    pub completionFunction: WSMAN_SHELL_COMPLETION_FUNCTION,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WSMAN_SHELL_ASYNC {}
@@ -1159,7 +1231,7 @@ impl ::core::clone::Clone for WSMAN_USERNAME_PASSWORD_CREDS {
         *self
     }
 }
-pub const WSMan: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const WSMan: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3169673595,
     data2: 60419,
     data3: 16907,
@@ -1228,7 +1300,7 @@ impl ::core::clone::Clone for WSManEnumFlags {
         *self
     }
 }
-pub const WSManInternal: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2111866789, data2: 24011, data3: 19959, data4: [187, 18, 9, 36, 173, 143, 189, 154] };
+pub const WSManInternal: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2111866789, data2: 24011, data3: 19959, data4: [187, 18, 9, 36, 173, 143, 189, 154] };
 #[repr(transparent)]
 pub struct WSManProxyAccessType(pub i32);
 pub const WSMAN_OPTION_PROXY_IE_PROXY_CONFIG: WSManProxyAccessType = WSManProxyAccessType(1i32);

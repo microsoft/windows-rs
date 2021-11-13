@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -166,9 +166,9 @@ extern "system" {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn WaitServiceState(hservice: super::super::Security::SC_HANDLE, dwnotify: u32, dwtimeout: u32, hcancelevent: super::super::Foundation::HANDLE) -> u32;
 }
-pub const CUSTOM_SYSTEM_STATE_CHANGE_EVENT_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 762980374, data2: 3166, data3: 17916, data4: [156, 231, 87, 14, 94, 205, 233, 201] };
-pub const DOMAIN_JOIN_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 484575930, data2: 38993, data3: 17441, data4: [148, 48, 29, 222, 183, 102, 232, 9] };
-pub const DOMAIN_LEAVE_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CUSTOM_SYSTEM_STATE_CHANGE_EVENT_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 762980374, data2: 3166, data3: 17916, data4: [156, 231, 87, 14, 94, 205, 233, 201] };
+pub const DOMAIN_JOIN_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 484575930, data2: 38993, data3: 17441, data4: [148, 48, 29, 222, 183, 102, 232, 9] };
+pub const DOMAIN_LEAVE_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3719254382,
     data2: 22722,
     data3: 18534,
@@ -265,13 +265,13 @@ impl ::core::clone::Clone for ENUM_SERVICE_TYPE {
         *self
     }
 }
-pub const FIREWALL_PORT_CLOSE_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FIREWALL_PORT_CLOSE_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2705648952,
     data2: 36370,
     data3: 19940,
     data4: [157, 150, 230, 71, 64, 177, 165, 36],
 };
-pub const FIREWALL_PORT_OPEN_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3075907079, data2: 33825, data3: 20192, data4: [173, 16, 134, 145, 90, 253, 173, 9] };
+pub const FIREWALL_PORT_OPEN_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3075907079, data2: 33825, data3: 20192, data4: [173, 16, 134, 145, 90, 253, 173, 9] };
 pub type HANDLER_FUNCTION = unsafe extern "system" fn(dwcontrol: u32);
 pub type HANDLER_FUNCTION_EX = unsafe extern "system" fn(dwcontrol: u32, dweventtype: u32, lpeventdata: *mut ::core::ffi::c_void, lpcontext: *mut ::core::ffi::c_void) -> u32;
 pub type LPHANDLER_FUNCTION = unsafe extern "system" fn(dwcontrol: u32);
@@ -280,20 +280,20 @@ pub type LPHANDLER_FUNCTION_EX = unsafe extern "system" fn(dwcontrol: u32, dweve
 pub type LPSERVICE_MAIN_FUNCTIONA = unsafe extern "system" fn(dwnumservicesargs: u32, lpserviceargvectors: *mut super::super::Foundation::PSTR);
 #[cfg(feature = "Win32_Foundation")]
 pub type LPSERVICE_MAIN_FUNCTIONW = unsafe extern "system" fn(dwnumservicesargs: u32, lpserviceargvectors: *mut super::super::Foundation::PWSTR);
-pub const MACHINE_POLICY_PRESENT_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MACHINE_POLICY_PRESENT_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1704970982,
     data2: 23515,
     data3: 19881,
     data4: [177, 255, 202, 42, 23, 141, 70, 224],
 };
-pub const NAMED_PIPE_EVENT_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 528601393, data2: 16300, data3: 17719, data4: [158, 12, 126, 123, 12, 47, 75, 85] };
-pub const NETWORK_MANAGER_FIRST_IP_ADDRESS_ARRIVAL_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const NAMED_PIPE_EVENT_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 528601393, data2: 16300, data3: 17719, data4: [158, 12, 126, 123, 12, 47, 75, 85] };
+pub const NETWORK_MANAGER_FIRST_IP_ADDRESS_ARRIVAL_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1328018142,
     data2: 5346,
     data3: 17163,
     data4: [165, 73, 124, 212, 140, 188, 130, 69],
 };
-pub const NETWORK_MANAGER_LAST_IP_ADDRESS_REMOVAL_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const NETWORK_MANAGER_LAST_IP_ADDRESS_REMOVAL_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3427509802,
     data2: 5678,
     data3: 17992,
@@ -373,7 +373,7 @@ impl ::core::clone::Clone for QUERY_SERVICE_LOCK_STATUSW {
         *self
     }
 }
-pub const RPC_INTERFACE_EVENT_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const RPC_INTERFACE_EVENT_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3163607399,
     data2: 38000,
     data3: 16697,
@@ -704,7 +704,7 @@ impl ::core::clone::Clone for SERVICE_NOTIFY {
 #[repr(C)]
 pub struct SERVICE_NOTIFY_1 {
     pub dwVersion: u32,
-    pub pfnNotifyCallback: ::core::option::Option<PFN_SC_NOTIFY_CALLBACK>,
+    pub pfnNotifyCallback: PFN_SC_NOTIFY_CALLBACK,
     pub pContext: *mut ::core::ffi::c_void,
     pub dwNotificationStatus: u32,
     pub ServiceStatus: SERVICE_STATUS_PROCESS,
@@ -719,7 +719,7 @@ impl ::core::clone::Clone for SERVICE_NOTIFY_1 {
 #[cfg(feature = "Win32_Foundation")]
 pub struct SERVICE_NOTIFY_2A {
     pub dwVersion: u32,
-    pub pfnNotifyCallback: ::core::option::Option<PFN_SC_NOTIFY_CALLBACK>,
+    pub pfnNotifyCallback: PFN_SC_NOTIFY_CALLBACK,
     pub pContext: *mut ::core::ffi::c_void,
     pub dwNotificationStatus: u32,
     pub ServiceStatus: SERVICE_STATUS_PROCESS,
@@ -738,7 +738,7 @@ impl ::core::clone::Clone for SERVICE_NOTIFY_2A {
 #[cfg(feature = "Win32_Foundation")]
 pub struct SERVICE_NOTIFY_2W {
     pub dwVersion: u32,
-    pub pfnNotifyCallback: ::core::option::Option<PFN_SC_NOTIFY_CALLBACK>,
+    pub pfnNotifyCallback: PFN_SC_NOTIFY_CALLBACK,
     pub pContext: *mut ::core::ffi::c_void,
     pub dwNotificationStatus: u32,
     pub ServiceStatus: SERVICE_STATUS_PROCESS,
@@ -995,7 +995,7 @@ pub const SERVICE_STOP_REASON_MINOR_WMI: u32 = 18u32;
 #[cfg(feature = "Win32_Foundation")]
 pub struct SERVICE_TABLE_ENTRYA {
     pub lpServiceName: super::super::Foundation::PSTR,
-    pub lpServiceProc: ::core::option::Option<LPSERVICE_MAIN_FUNCTIONA>,
+    pub lpServiceProc: LPSERVICE_MAIN_FUNCTIONA,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SERVICE_TABLE_ENTRYA {}
@@ -1009,7 +1009,7 @@ impl ::core::clone::Clone for SERVICE_TABLE_ENTRYA {
 #[cfg(feature = "Win32_Foundation")]
 pub struct SERVICE_TABLE_ENTRYW {
     pub lpServiceName: super::super::Foundation::PWSTR,
-    pub lpServiceProc: ::core::option::Option<LPSERVICE_MAIN_FUNCTIONW>,
+    pub lpServiceProc: LPSERVICE_MAIN_FUNCTIONW,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SERVICE_TABLE_ENTRYW {}
@@ -1119,6 +1119,6 @@ impl ::core::clone::Clone for SERVICE_TRIGGER_TYPE {
 pub const SERVICE_TRIGGER_TYPE_AGGREGATE: u32 = 30u32;
 pub const SERVICE_TRIGGER_TYPE_CUSTOM_SYSTEM_STATE_CHANGE: u32 = 7u32;
 pub const SERVICE_USER_DEFINED_CONTROL: u32 = 256u32;
-pub const USER_POLICY_PRESENT_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1425753800, data2: 61577, data3: 17996, data4: [177, 253, 89, 209, 182, 44, 59, 80] };
+pub const USER_POLICY_PRESENT_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1425753800, data2: 61577, data3: 17996, data4: [177, 253, 89, 209, 182, 44, 59, 80] };
 #[repr(C)]
 pub struct _SC_NOTIFICATION_REGISTRATION(pub u8);

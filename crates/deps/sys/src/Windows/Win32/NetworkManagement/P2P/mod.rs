@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
     pub fn DrtClose(hdrt: *const ::core::ffi::c_void);
@@ -706,8 +706,8 @@ pub const DRT_S_RETRY: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESU
 pub const FACILITY_DRT: u32 = 98u32;
 pub const NS_PNRPCLOUD: u32 = 39u32;
 pub const NS_PNRPNAME: u32 = 38u32;
-pub const NS_PROVIDER_PNRPCLOUD: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 67013070, data2: 30317, data3: 18806, data4: [185, 193, 187, 155, 196, 44, 123, 77] };
-pub const NS_PROVIDER_PNRPNAME: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 67013069, data2: 30317, data3: 18806, data4: [185, 193, 187, 155, 196, 44, 123, 77] };
+pub const NS_PROVIDER_PNRPCLOUD: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 67013070, data2: 30317, data3: 18806, data4: [185, 193, 187, 155, 196, 44, 123, 77] };
+pub const NS_PROVIDER_PNRPNAME: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 67013069, data2: 30317, data3: 18806, data4: [185, 193, 187, 155, 196, 44, 123, 77] };
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PEERDIST_CLIENT_BASIC_INFO {
@@ -949,7 +949,7 @@ impl ::core::clone::Clone for PEER_COLLAB_EVENT_TYPE {
         *self
     }
 }
-pub const PEER_COLLAB_OBJECTID_USER_PICTURE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3709203487, data2: 64590, data3: 18722, data4: [176, 53, 76, 6, 167, 84, 208, 29] };
+pub const PEER_COLLAB_OBJECTID_USER_PICTURE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3709203487, data2: 64590, data3: 18722, data4: [176, 53, 76, 6, 167, 84, 208, 29] };
 #[repr(transparent)]
 pub struct PEER_CONNECTION_FLAGS(pub i32);
 pub const PEER_CONNECTION_NEIGHBOR: PEER_CONNECTION_FLAGS = PEER_CONNECTION_FLAGS(1i32);
@@ -1484,14 +1484,14 @@ impl ::core::clone::Clone for PEER_GROUP_PROPERTY_FLAGS {
         *self
     }
 }
-pub const PEER_GROUP_ROLE_ADMIN: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 70807847, data2: 43606, data3: 17674, data4: [140, 229, 79, 86, 92, 103, 144, 244] };
-pub const PEER_GROUP_ROLE_INVITING_MEMBER: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const PEER_GROUP_ROLE_ADMIN: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 70807847, data2: 43606, data3: 17674, data4: [140, 229, 79, 86, 92, 103, 144, 244] };
+pub const PEER_GROUP_ROLE_INVITING_MEMBER: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1131478409,
     data2: 56344,
     data3: 19707,
     data4: [141, 191, 152, 83, 168, 169, 249, 5],
 };
-pub const PEER_GROUP_ROLE_MEMBER: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const PEER_GROUP_ROLE_MEMBER: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4046308551,
     data2: 2135,
     data3: 19616,
@@ -1842,10 +1842,10 @@ pub struct PEER_SECURITY_INTERFACE {
     pub cbSecurityInfo: u32,
     pub pbSecurityInfo: *mut u8,
     pub pvContext: *mut ::core::ffi::c_void,
-    pub pfnValidateRecord: ::core::option::Option<PFNPEER_VALIDATE_RECORD>,
-    pub pfnSecureRecord: ::core::option::Option<PFNPEER_SECURE_RECORD>,
-    pub pfnFreeSecurityData: ::core::option::Option<PFNPEER_FREE_SECURITY_DATA>,
-    pub pfnAuthFailed: ::core::option::Option<PFNPEER_ON_PASSWORD_AUTH_FAILED>,
+    pub pfnValidateRecord: PFNPEER_VALIDATE_RECORD,
+    pub pfnSecureRecord: PFNPEER_SECURE_RECORD,
+    pub pfnFreeSecurityData: PFNPEER_FREE_SECURITY_DATA,
+    pub pfnAuthFailed: PFNPEER_ON_PASSWORD_AUTH_FAILED,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PEER_SECURITY_INTERFACE {}
@@ -2055,9 +2055,9 @@ impl ::core::clone::Clone for PNRP_SCOPE {
         *self
     }
 }
-pub const SVCID_PNRPCLOUD: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3257113830, data2: 192, data3: 20415, data4: [186, 214, 24, 19, 147, 133, 164, 154] };
-pub const SVCID_PNRPNAME_V1: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3257113829, data2: 192, data3: 20415, data4: [186, 214, 24, 19, 147, 133, 164, 154] };
-pub const SVCID_PNRPNAME_V2: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3257113831, data2: 192, data3: 20415, data4: [186, 214, 24, 19, 147, 133, 164, 154] };
+pub const SVCID_PNRPCLOUD: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3257113830, data2: 192, data3: 20415, data4: [186, 214, 24, 19, 147, 133, 164, 154] };
+pub const SVCID_PNRPNAME_V1: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3257113829, data2: 192, data3: 20415, data4: [186, 214, 24, 19, 147, 133, 164, 154] };
+pub const SVCID_PNRPNAME_V2: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3257113831, data2: 192, data3: 20415, data4: [186, 214, 24, 19, 147, 133, 164, 154] };
 pub const WSA_PNRP_CLIENT_INVALID_COMPARTMENT_ID: u32 = 11506u32;
 pub const WSA_PNRP_CLOUD_DISABLED: u32 = 11502u32;
 pub const WSA_PNRP_CLOUD_IS_DEAD: u32 = 11509u32;

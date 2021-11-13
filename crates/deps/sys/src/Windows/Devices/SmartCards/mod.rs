@@ -1,118 +1,454 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {}
 #[repr(transparent)]
 pub struct CardAddedEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for CardAddedEventArgs {}
+impl ::core::clone::Clone for CardAddedEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CardRemovedEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for CardRemovedEventArgs {}
+impl ::core::clone::Clone for CardRemovedEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICardAddedEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICardAddedEventArgs {}
+impl ::core::clone::Clone for ICardAddedEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICardRemovedEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICardRemovedEventArgs {}
+impl ::core::clone::Clone for ICardRemovedEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IKnownSmartCardAppletIds(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IKnownSmartCardAppletIds {}
+impl ::core::clone::Clone for IKnownSmartCardAppletIds {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISmartCard(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISmartCard {}
+impl ::core::clone::Clone for ISmartCard {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISmartCardAppletIdGroup(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISmartCardAppletIdGroup {}
+impl ::core::clone::Clone for ISmartCardAppletIdGroup {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISmartCardAppletIdGroup2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISmartCardAppletIdGroup2 {}
+impl ::core::clone::Clone for ISmartCardAppletIdGroup2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISmartCardAppletIdGroupFactory(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISmartCardAppletIdGroupFactory {}
+impl ::core::clone::Clone for ISmartCardAppletIdGroupFactory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISmartCardAppletIdGroupRegistration(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISmartCardAppletIdGroupRegistration {}
+impl ::core::clone::Clone for ISmartCardAppletIdGroupRegistration {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISmartCardAppletIdGroupRegistration2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISmartCardAppletIdGroupRegistration2 {}
+impl ::core::clone::Clone for ISmartCardAppletIdGroupRegistration2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISmartCardAppletIdGroupStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISmartCardAppletIdGroupStatics {}
+impl ::core::clone::Clone for ISmartCardAppletIdGroupStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISmartCardAutomaticResponseApdu(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISmartCardAutomaticResponseApdu {}
+impl ::core::clone::Clone for ISmartCardAutomaticResponseApdu {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISmartCardAutomaticResponseApdu2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISmartCardAutomaticResponseApdu2 {}
+impl ::core::clone::Clone for ISmartCardAutomaticResponseApdu2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISmartCardAutomaticResponseApdu3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISmartCardAutomaticResponseApdu3 {}
+impl ::core::clone::Clone for ISmartCardAutomaticResponseApdu3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISmartCardAutomaticResponseApduFactory(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISmartCardAutomaticResponseApduFactory {}
+impl ::core::clone::Clone for ISmartCardAutomaticResponseApduFactory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISmartCardChallengeContext(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISmartCardChallengeContext {}
+impl ::core::clone::Clone for ISmartCardChallengeContext {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISmartCardConnect(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISmartCardConnect {}
+impl ::core::clone::Clone for ISmartCardConnect {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISmartCardConnection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISmartCardConnection {}
+impl ::core::clone::Clone for ISmartCardConnection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISmartCardCryptogramGenerator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISmartCardCryptogramGenerator {}
+impl ::core::clone::Clone for ISmartCardCryptogramGenerator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISmartCardCryptogramGenerator2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISmartCardCryptogramGenerator2 {}
+impl ::core::clone::Clone for ISmartCardCryptogramGenerator2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISmartCardCryptogramGeneratorStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISmartCardCryptogramGeneratorStatics {}
+impl ::core::clone::Clone for ISmartCardCryptogramGeneratorStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISmartCardCryptogramGeneratorStatics2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISmartCardCryptogramGeneratorStatics2 {}
+impl ::core::clone::Clone for ISmartCardCryptogramGeneratorStatics2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult {}
+impl ::core::clone::Clone for ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult {}
+impl ::core::clone::Clone for ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult {}
+impl ::core::clone::Clone for ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISmartCardCryptogramMaterialCharacteristics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISmartCardCryptogramMaterialCharacteristics {}
+impl ::core::clone::Clone for ISmartCardCryptogramMaterialCharacteristics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISmartCardCryptogramMaterialPackageCharacteristics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISmartCardCryptogramMaterialPackageCharacteristics {}
+impl ::core::clone::Clone for ISmartCardCryptogramMaterialPackageCharacteristics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISmartCardCryptogramMaterialPossessionProof(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISmartCardCryptogramMaterialPossessionProof {}
+impl ::core::clone::Clone for ISmartCardCryptogramMaterialPossessionProof {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISmartCardCryptogramPlacementStep(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISmartCardCryptogramPlacementStep {}
+impl ::core::clone::Clone for ISmartCardCryptogramPlacementStep {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISmartCardCryptogramStorageKeyCharacteristics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISmartCardCryptogramStorageKeyCharacteristics {}
+impl ::core::clone::Clone for ISmartCardCryptogramStorageKeyCharacteristics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISmartCardCryptogramStorageKeyInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISmartCardCryptogramStorageKeyInfo {}
+impl ::core::clone::Clone for ISmartCardCryptogramStorageKeyInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISmartCardCryptogramStorageKeyInfo2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISmartCardCryptogramStorageKeyInfo2 {}
+impl ::core::clone::Clone for ISmartCardCryptogramStorageKeyInfo2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISmartCardEmulator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISmartCardEmulator {}
+impl ::core::clone::Clone for ISmartCardEmulator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISmartCardEmulator2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISmartCardEmulator2 {}
+impl ::core::clone::Clone for ISmartCardEmulator2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISmartCardEmulatorApduReceivedEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISmartCardEmulatorApduReceivedEventArgs {}
+impl ::core::clone::Clone for ISmartCardEmulatorApduReceivedEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISmartCardEmulatorApduReceivedEventArgs2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISmartCardEmulatorApduReceivedEventArgs2 {}
+impl ::core::clone::Clone for ISmartCardEmulatorApduReceivedEventArgs2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISmartCardEmulatorApduReceivedEventArgsWithCryptograms(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISmartCardEmulatorApduReceivedEventArgsWithCryptograms {}
+impl ::core::clone::Clone for ISmartCardEmulatorApduReceivedEventArgsWithCryptograms {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISmartCardEmulatorConnectionDeactivatedEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISmartCardEmulatorConnectionDeactivatedEventArgs {}
+impl ::core::clone::Clone for ISmartCardEmulatorConnectionDeactivatedEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISmartCardEmulatorConnectionProperties(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISmartCardEmulatorConnectionProperties {}
+impl ::core::clone::Clone for ISmartCardEmulatorConnectionProperties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISmartCardEmulatorStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISmartCardEmulatorStatics {}
+impl ::core::clone::Clone for ISmartCardEmulatorStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISmartCardEmulatorStatics2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISmartCardEmulatorStatics2 {}
+impl ::core::clone::Clone for ISmartCardEmulatorStatics2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISmartCardEmulatorStatics3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISmartCardEmulatorStatics3 {}
+impl ::core::clone::Clone for ISmartCardEmulatorStatics3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISmartCardPinPolicy(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISmartCardPinPolicy {}
+impl ::core::clone::Clone for ISmartCardPinPolicy {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISmartCardPinResetDeferral(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISmartCardPinResetDeferral {}
+impl ::core::clone::Clone for ISmartCardPinResetDeferral {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISmartCardPinResetRequest(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISmartCardPinResetRequest {}
+impl ::core::clone::Clone for ISmartCardPinResetRequest {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISmartCardProvisioning(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISmartCardProvisioning {}
+impl ::core::clone::Clone for ISmartCardProvisioning {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISmartCardProvisioning2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISmartCardProvisioning2 {}
+impl ::core::clone::Clone for ISmartCardProvisioning2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISmartCardProvisioningStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISmartCardProvisioningStatics {}
+impl ::core::clone::Clone for ISmartCardProvisioningStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISmartCardProvisioningStatics2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISmartCardProvisioningStatics2 {}
+impl ::core::clone::Clone for ISmartCardProvisioningStatics2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISmartCardReader(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISmartCardReader {}
+impl ::core::clone::Clone for ISmartCardReader {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISmartCardReaderStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISmartCardReaderStatics {}
+impl ::core::clone::Clone for ISmartCardReaderStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISmartCardTriggerDetails(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISmartCardTriggerDetails {}
+impl ::core::clone::Clone for ISmartCardTriggerDetails {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISmartCardTriggerDetails2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISmartCardTriggerDetails2 {}
+impl ::core::clone::Clone for ISmartCardTriggerDetails2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISmartCardTriggerDetails3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISmartCardTriggerDetails3 {}
+impl ::core::clone::Clone for ISmartCardTriggerDetails3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SmartCard(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for SmartCard {}
+impl ::core::clone::Clone for SmartCard {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SmartCardActivationPolicyChangeResult(pub i32);
 impl SmartCardActivationPolicyChangeResult {
@@ -127,6 +463,12 @@ impl ::core::clone::Clone for SmartCardActivationPolicyChangeResult {
 }
 #[repr(transparent)]
 pub struct SmartCardAppletIdGroup(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for SmartCardAppletIdGroup {}
+impl ::core::clone::Clone for SmartCardAppletIdGroup {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SmartCardAppletIdGroupActivationPolicy(pub i32);
 impl SmartCardAppletIdGroupActivationPolicy {
@@ -142,8 +484,20 @@ impl ::core::clone::Clone for SmartCardAppletIdGroupActivationPolicy {
 }
 #[repr(transparent)]
 pub struct SmartCardAppletIdGroupRegistration(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for SmartCardAppletIdGroupRegistration {}
+impl ::core::clone::Clone for SmartCardAppletIdGroupRegistration {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SmartCardAutomaticResponseApdu(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for SmartCardAutomaticResponseApdu {}
+impl ::core::clone::Clone for SmartCardAutomaticResponseApdu {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SmartCardAutomaticResponseStatus(pub i32);
 impl SmartCardAutomaticResponseStatus {
@@ -159,8 +513,20 @@ impl ::core::clone::Clone for SmartCardAutomaticResponseStatus {
 }
 #[repr(transparent)]
 pub struct SmartCardChallengeContext(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for SmartCardChallengeContext {}
+impl ::core::clone::Clone for SmartCardChallengeContext {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SmartCardConnection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for SmartCardConnection {}
+impl ::core::clone::Clone for SmartCardConnection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SmartCardCryptogramAlgorithm(pub i32);
 impl SmartCardCryptogramAlgorithm {
@@ -182,6 +548,12 @@ impl ::core::clone::Clone for SmartCardCryptogramAlgorithm {
 }
 #[repr(transparent)]
 pub struct SmartCardCryptogramGenerator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for SmartCardCryptogramGenerator {}
+impl ::core::clone::Clone for SmartCardCryptogramGenerator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SmartCardCryptogramGeneratorOperationStatus(pub i32);
 impl SmartCardCryptogramGeneratorOperationStatus {
@@ -208,14 +580,44 @@ impl ::core::clone::Clone for SmartCardCryptogramGeneratorOperationStatus {
 }
 #[repr(transparent)]
 pub struct SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult {}
+impl ::core::clone::Clone for SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult {}
+impl ::core::clone::Clone for SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult {}
+impl ::core::clone::Clone for SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SmartCardCryptogramMaterialCharacteristics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for SmartCardCryptogramMaterialCharacteristics {}
+impl ::core::clone::Clone for SmartCardCryptogramMaterialCharacteristics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SmartCardCryptogramMaterialPackageCharacteristics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for SmartCardCryptogramMaterialPackageCharacteristics {}
+impl ::core::clone::Clone for SmartCardCryptogramMaterialPackageCharacteristics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SmartCardCryptogramMaterialPackageConfirmationResponseFormat(pub i32);
 impl SmartCardCryptogramMaterialPackageConfirmationResponseFormat {
@@ -242,6 +644,12 @@ impl ::core::clone::Clone for SmartCardCryptogramMaterialPackageFormat {
 }
 #[repr(transparent)]
 pub struct SmartCardCryptogramMaterialPossessionProof(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for SmartCardCryptogramMaterialPossessionProof {}
+impl ::core::clone::Clone for SmartCardCryptogramMaterialPossessionProof {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SmartCardCryptogramMaterialProtectionMethod(pub i32);
 impl SmartCardCryptogramMaterialProtectionMethod {
@@ -284,6 +692,12 @@ impl ::core::clone::Clone for SmartCardCryptogramPlacementOptions {
 }
 #[repr(transparent)]
 pub struct SmartCardCryptogramPlacementStep(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for SmartCardCryptogramPlacementStep {}
+impl ::core::clone::Clone for SmartCardCryptogramPlacementStep {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SmartCardCryptogramStorageKeyAlgorithm(pub i32);
 impl SmartCardCryptogramStorageKeyAlgorithm {
@@ -311,8 +725,20 @@ impl ::core::clone::Clone for SmartCardCryptogramStorageKeyCapabilities {
 }
 #[repr(transparent)]
 pub struct SmartCardCryptogramStorageKeyCharacteristics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for SmartCardCryptogramStorageKeyCharacteristics {}
+impl ::core::clone::Clone for SmartCardCryptogramStorageKeyCharacteristics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SmartCardCryptogramStorageKeyInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for SmartCardCryptogramStorageKeyInfo {}
+impl ::core::clone::Clone for SmartCardCryptogramStorageKeyInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SmartCardCryptographicKeyAttestationStatus(pub i32);
 impl SmartCardCryptographicKeyAttestationStatus {
@@ -358,10 +784,28 @@ impl ::core::clone::Clone for SmartCardEmulationType {
 }
 #[repr(transparent)]
 pub struct SmartCardEmulator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for SmartCardEmulator {}
+impl ::core::clone::Clone for SmartCardEmulator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SmartCardEmulatorApduReceivedEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for SmartCardEmulatorApduReceivedEventArgs {}
+impl ::core::clone::Clone for SmartCardEmulatorApduReceivedEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SmartCardEmulatorConnectionDeactivatedEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for SmartCardEmulatorConnectionDeactivatedEventArgs {}
+impl ::core::clone::Clone for SmartCardEmulatorConnectionDeactivatedEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SmartCardEmulatorConnectionDeactivatedReason(pub i32);
 impl SmartCardEmulatorConnectionDeactivatedReason {
@@ -376,6 +820,12 @@ impl ::core::clone::Clone for SmartCardEmulatorConnectionDeactivatedReason {
 }
 #[repr(transparent)]
 pub struct SmartCardEmulatorConnectionProperties(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for SmartCardEmulatorConnectionProperties {}
+impl ::core::clone::Clone for SmartCardEmulatorConnectionProperties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SmartCardEmulatorConnectionSource(pub i32);
 impl SmartCardEmulatorConnectionSource {
@@ -429,16 +879,52 @@ impl ::core::clone::Clone for SmartCardPinCharacterPolicyOption {
 }
 #[repr(transparent)]
 pub struct SmartCardPinPolicy(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for SmartCardPinPolicy {}
+impl ::core::clone::Clone for SmartCardPinPolicy {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SmartCardPinResetDeferral(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for SmartCardPinResetDeferral {}
+impl ::core::clone::Clone for SmartCardPinResetDeferral {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SmartCardPinResetHandler(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for SmartCardPinResetHandler {}
+impl ::core::clone::Clone for SmartCardPinResetHandler {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SmartCardPinResetRequest(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for SmartCardPinResetRequest {}
+impl ::core::clone::Clone for SmartCardPinResetRequest {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SmartCardProvisioning(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for SmartCardProvisioning {}
+impl ::core::clone::Clone for SmartCardProvisioning {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SmartCardReader(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for SmartCardReader {}
+impl ::core::clone::Clone for SmartCardReader {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SmartCardReaderKind(pub i32);
 impl SmartCardReaderKind {
@@ -485,6 +971,12 @@ impl ::core::clone::Clone for SmartCardStatus {
 }
 #[repr(transparent)]
 pub struct SmartCardTriggerDetails(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for SmartCardTriggerDetails {}
+impl ::core::clone::Clone for SmartCardTriggerDetails {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SmartCardTriggerType(pub i32);
 impl SmartCardTriggerType {

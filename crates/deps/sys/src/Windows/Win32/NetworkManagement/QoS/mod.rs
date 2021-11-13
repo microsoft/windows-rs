@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -390,27 +390,27 @@ pub const GUAR_ADSPARM_Ctot: i32 = 133i32;
 pub const GUAR_ADSPARM_D: i32 = 132i32;
 pub const GUAR_ADSPARM_Dsum: i32 = 136i32;
 pub const GUAR_ADSPARM_Dtot: i32 = 134i32;
-pub const GUID_QOS_BESTEFFORT_BANDWIDTH: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3985134224, data2: 16620, data3: 4561, data4: [44, 145, 0, 170, 0, 87, 73, 21] };
-pub const GUID_QOS_ENABLE_AVG_STATS: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_QOS_BESTEFFORT_BANDWIDTH: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3985134224, data2: 16620, data3: 4561, data4: [44, 145, 0, 170, 0, 87, 73, 21] };
+pub const GUID_QOS_ENABLE_AVG_STATS: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3137039633,
     data2: 10180,
     data3: 18433,
     data4: [164, 111, 239, 128, 128, 193, 136, 200],
 };
-pub const GUID_QOS_ENABLE_WINDOW_ADJUSTMENT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2861983525, data2: 54249, data3: 19541, data4: [179, 53, 42, 0, 39, 154, 30, 100] };
-pub const GUID_QOS_FLOW_8021P_CONFORMING: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 146923539, data2: 64722, data3: 4562, data4: [190, 30, 0, 160, 201, 158, 230, 59] };
-pub const GUID_QOS_FLOW_8021P_NONCONFORMING: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 151142289, data2: 64722, data3: 4562, data4: [190, 30, 0, 160, 201, 158, 230, 59] };
-pub const GUID_QOS_FLOW_COUNT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 289929344, data2: 16621, data3: 4561, data4: [44, 145, 0, 170, 0, 87, 73, 21] };
-pub const GUID_QOS_FLOW_IP_CONFORMING: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 133798539, data2: 64722, data3: 4562, data4: [190, 30, 0, 160, 201, 158, 230, 59] };
-pub const GUID_QOS_FLOW_IP_NONCONFORMING: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 142236039, data2: 64722, data3: 4562, data4: [190, 30, 0, 160, 201, 158, 230, 59] };
-pub const GUID_QOS_FLOW_MODE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1552034058, data2: 20826, data3: 4562, data4: [142, 88, 0, 192, 79, 201, 191, 203] };
-pub const GUID_QOS_ISSLOW_FLOW: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2884793252, data2: 60935, data3: 4562, data4: [190, 27, 0, 160, 201, 158, 230, 59] };
-pub const GUID_QOS_LATENCY: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4232089328, data2: 16620, data3: 4561, data4: [44, 145, 0, 170, 0, 87, 73, 21] };
-pub const GUID_QOS_MAX_OUTSTANDING_SENDS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 371194502, data2: 24864, data3: 4561, data4: [44, 145, 0, 170, 0, 87, 73, 21] };
-pub const GUID_QOS_NON_BESTEFFORT_LIMIT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 408700128, data2: 16621, data3: 4561, data4: [44, 145, 0, 170, 0, 87, 73, 21] };
-pub const GUID_QOS_REMAINING_BANDWIDTH: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3301250848, data2: 16620, data3: 4561, data4: [44, 145, 0, 170, 0, 87, 73, 21] };
-pub const GUID_QOS_STATISTICS_BUFFER: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3140225408, data2: 59648, data3: 4561, data4: [176, 126, 0, 128, 199, 19, 130, 191] };
-pub const GUID_QOS_TIMER_RESOLUTION: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3121663112, data2: 61758, data3: 4562, data4: [190, 27, 0, 160, 201, 158, 230, 59] };
+pub const GUID_QOS_ENABLE_WINDOW_ADJUSTMENT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2861983525, data2: 54249, data3: 19541, data4: [179, 53, 42, 0, 39, 154, 30, 100] };
+pub const GUID_QOS_FLOW_8021P_CONFORMING: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 146923539, data2: 64722, data3: 4562, data4: [190, 30, 0, 160, 201, 158, 230, 59] };
+pub const GUID_QOS_FLOW_8021P_NONCONFORMING: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 151142289, data2: 64722, data3: 4562, data4: [190, 30, 0, 160, 201, 158, 230, 59] };
+pub const GUID_QOS_FLOW_COUNT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 289929344, data2: 16621, data3: 4561, data4: [44, 145, 0, 170, 0, 87, 73, 21] };
+pub const GUID_QOS_FLOW_IP_CONFORMING: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 133798539, data2: 64722, data3: 4562, data4: [190, 30, 0, 160, 201, 158, 230, 59] };
+pub const GUID_QOS_FLOW_IP_NONCONFORMING: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 142236039, data2: 64722, data3: 4562, data4: [190, 30, 0, 160, 201, 158, 230, 59] };
+pub const GUID_QOS_FLOW_MODE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1552034058, data2: 20826, data3: 4562, data4: [142, 88, 0, 192, 79, 201, 191, 203] };
+pub const GUID_QOS_ISSLOW_FLOW: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2884793252, data2: 60935, data3: 4562, data4: [190, 27, 0, 160, 201, 158, 230, 59] };
+pub const GUID_QOS_LATENCY: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4232089328, data2: 16620, data3: 4561, data4: [44, 145, 0, 170, 0, 87, 73, 21] };
+pub const GUID_QOS_MAX_OUTSTANDING_SENDS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 371194502, data2: 24864, data3: 4561, data4: [44, 145, 0, 170, 0, 87, 73, 21] };
+pub const GUID_QOS_NON_BESTEFFORT_LIMIT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 408700128, data2: 16621, data3: 4561, data4: [44, 145, 0, 170, 0, 87, 73, 21] };
+pub const GUID_QOS_REMAINING_BANDWIDTH: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3301250848, data2: 16620, data3: 4561, data4: [44, 145, 0, 170, 0, 87, 73, 21] };
+pub const GUID_QOS_STATISTICS_BUFFER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3140225408, data2: 59648, data3: 4561, data4: [176, 126, 0, 128, 199, 19, 130, 191] };
+pub const GUID_QOS_TIMER_RESOLUTION: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3121663112, data2: 61758, data3: 4562, data4: [190, 27, 0, 160, 201, 158, 230, 59] };
 #[repr(C)]
 pub struct Gads_parms_t {
     pub Gads_serv_hdr: IntServServiceHdr,
@@ -757,10 +757,10 @@ pub struct LPM_INIT_INFO {
     pub PcmVersionNumber: u32,
     pub ResultTimeLimit: u32,
     pub ConfiguredLpmCount: i32,
-    pub AllocMemory: ::core::option::Option<PALLOCMEM>,
-    pub FreeMemory: ::core::option::Option<PFREEMEM>,
-    pub PcmAdmitResultCallback: ::core::option::Option<CBADMITRESULT>,
-    pub GetRsvpObjectsCallback: ::core::option::Option<CBGETRSVPOBJECTS>,
+    pub AllocMemory: PALLOCMEM,
+    pub FreeMemory: PFREEMEM,
+    pub PcmAdmitResultCallback: CBADMITRESULT,
+    pub GetRsvpObjectsCallback: CBGETRSVPOBJECTS,
 }
 impl ::core::marker::Copy for LPM_INIT_INFO {}
 impl ::core::clone::Clone for LPM_INIT_INFO {
@@ -1811,10 +1811,10 @@ pub type TCI_ADD_FLOW_COMPLETE_HANDLER = unsafe extern "system" fn(clflowctx: su
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TCI_CLIENT_FUNC_LIST {
-    pub ClNotifyHandler: ::core::option::Option<TCI_NOTIFY_HANDLER>,
-    pub ClAddFlowCompleteHandler: ::core::option::Option<TCI_ADD_FLOW_COMPLETE_HANDLER>,
-    pub ClModifyFlowCompleteHandler: ::core::option::Option<TCI_MOD_FLOW_COMPLETE_HANDLER>,
-    pub ClDeleteFlowCompleteHandler: ::core::option::Option<TCI_DEL_FLOW_COMPLETE_HANDLER>,
+    pub ClNotifyHandler: TCI_NOTIFY_HANDLER,
+    pub ClAddFlowCompleteHandler: TCI_ADD_FLOW_COMPLETE_HANDLER,
+    pub ClModifyFlowCompleteHandler: TCI_MOD_FLOW_COMPLETE_HANDLER,
+    pub ClDeleteFlowCompleteHandler: TCI_DEL_FLOW_COMPLETE_HANDLER,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for TCI_CLIENT_FUNC_LIST {}

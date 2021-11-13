@@ -1,8 +1,14 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {}
 #[repr(transparent)]
 pub struct IWaaSAssessor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWaaSAssessor {}
+impl ::core::clone::Clone for IWaaSAssessor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct OSUpdateAssessment {
@@ -69,4 +75,4 @@ impl ::core::clone::Clone for UpdateImpactLevel {
         *self
     }
 }
-pub const WaaSAssessor: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 160364657, data2: 64159, data3: 18095, data4: [137, 88, 192, 131, 81, 93, 124, 156] };
+pub const WaaSAssessor: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 160364657, data2: 64159, data3: 18095, data4: [137, 88, 192, 131, 81, 93, 124, 156] };

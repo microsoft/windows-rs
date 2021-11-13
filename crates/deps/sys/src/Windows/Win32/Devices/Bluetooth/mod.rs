@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
     #[cfg(feature = "Win32_Foundation")]
@@ -434,7 +434,7 @@ pub struct BLUETOOTH_SELECT_DEVICE_PARAMS {
     pub fShowUnknown: super::super::Foundation::BOOL,
     pub fAddNewDeviceWizard: super::super::Foundation::BOOL,
     pub fSkipServicesPage: super::super::Foundation::BOOL,
-    pub pfnDeviceCallback: ::core::option::Option<PFN_DEVICE_CALLBACK>,
+    pub pfnDeviceCallback: PFN_DEVICE_CALLBACK,
     pub pvParam: *mut ::core::ffi::c_void,
     pub cNumDevices: u32,
     pub pDevices: *mut BLUETOOTH_DEVICE_INFO,
@@ -630,7 +630,7 @@ impl ::core::clone::Clone for BTH_L2CAP_EVENT_INFO {
         *self
     }
 }
-pub const BTH_LE_ATT_BLUETOOTH_BASE_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 0, data2: 0, data3: 4096, data4: [128, 0, 0, 128, 95, 155, 52, 251] };
+pub const BTH_LE_ATT_BLUETOOTH_BASE_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 0, data2: 0, data3: 4096, data4: [128, 0, 0, 128, 95, 155, 52, 251] };
 pub const BTH_LE_ATT_CID: u32 = 4u32;
 pub const BTH_LE_ATT_MAX_VALUE_SIZE: u32 = 512u32;
 pub const BTH_LE_ATT_TRANSACTION_TIMEOUT: u32 = 30u32;
@@ -867,7 +867,7 @@ pub const BT_PORT_MAX: u32 = 65535u32;
 pub const BT_PORT_MIN: u32 = 1u32;
 pub const BasicPrintingProfileID_UUID16: u32 = 4386u32;
 pub const BasicPrintingServiceClassID_UUID16: u32 = 4386u32;
-pub const Bluetooth_Base_UUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 0, data2: 0, data3: 4096, data4: [128, 0, 0, 128, 95, 155, 52, 251] };
+pub const Bluetooth_Base_UUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 0, data2: 0, data3: 4096, data4: [128, 0, 0, 128, 95, 155, 52, 251] };
 pub const BrowseGroupDescriptorServiceClassID_UUID16: u32 = 4097u32;
 pub const CMPT_PROTOCOL_UUID16: u32 = 27u32;
 pub const COD_AUDIO_MINOR_CAMCORDER: u32 = 13u32;
@@ -997,57 +997,57 @@ pub const FaxServiceClassID_UUID16: u32 = 4369u32;
 pub const GNSSProfileID_UUID16: u32 = 4405u32;
 pub const GNSSServerServiceClassID_UUID16: u32 = 4406u32;
 pub const GNServiceClassID_UUID16: u32 = 4375u32;
-pub const GUID_BLUETOOTHLE_DEVICE_INTERFACE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_BLUETOOTHLE_DEVICE_INTERFACE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2015030808,
     data2: 30515,
     data3: 19684,
     data4: [173, 208, 145, 244, 28, 103, 181, 146],
 };
-pub const GUID_BLUETOOTH_AUTHENTICATION_REQUEST: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_BLUETOOTH_AUTHENTICATION_REQUEST: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1573458797,
     data2: 39276,
     data3: 18139,
     data4: [132, 245, 50, 192, 163, 244, 115, 82],
 };
-pub const GUID_BLUETOOTH_GATT_SERVICE_DEVICE_INTERFACE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1849407097, data2: 17266, data3: 16584, data4: [158, 170, 69, 9, 223, 38, 12, 216] };
-pub const GUID_BLUETOOTH_HCI_EVENT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_BLUETOOTH_GATT_SERVICE_DEVICE_INTERFACE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1849407097, data2: 17266, data3: 16584, data4: [158, 170, 69, 9, 223, 38, 12, 216] };
+pub const GUID_BLUETOOTH_HCI_EVENT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4230217826,
     data2: 5441,
     data3: 18878,
     data4: [180, 99, 132, 196, 220, 215, 191, 127],
 };
-pub const GUID_BLUETOOTH_HCI_VENDOR_EVENT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_BLUETOOTH_HCI_VENDOR_EVENT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1416775654,
     data2: 17851,
     data3: 19507,
     data4: [175, 140, 192, 14, 254, 21, 167, 29],
 };
-pub const GUID_BLUETOOTH_KEYPRESS_EVENT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3597197261, data2: 3918, data3: 20220, data4: [191, 224, 57, 46, 238, 197, 16, 156] };
-pub const GUID_BLUETOOTH_L2CAP_EVENT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_BLUETOOTH_KEYPRESS_EVENT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3597197261, data2: 3918, data3: 20220, data4: [191, 224, 57, 46, 238, 197, 16, 156] };
+pub const GUID_BLUETOOTH_L2CAP_EVENT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2125348912,
     data2: 46857,
     data3: 19112,
     data4: [172, 85, 233, 83, 130, 156, 157, 170],
 };
-pub const GUID_BLUETOOTH_RADIO_IN_RANGE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_BLUETOOTH_RADIO_IN_RANGE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3929758594,
     data2: 9966,
     data3: 17678,
     data4: [176, 216, 210, 111, 227, 10, 56, 105],
 };
-pub const GUID_BLUETOOTH_RADIO_OUT_OF_RANGE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_BLUETOOTH_RADIO_OUT_OF_RANGE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3800590281,
     data2: 49834,
     data3: 19693,
     data4: [185, 105, 69, 112, 134, 96, 55, 196],
 };
-pub const GUID_BTHPORT_DEVICE_INTERFACE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_BTHPORT_DEVICE_INTERFACE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 139472938,
     data2: 45892,
     data3: 20442,
     data4: [155, 233, 144, 87, 107, 141, 70, 240],
 };
-pub const GUID_BTH_RFCOMM_SERVICE_DEVICE_INTERFACE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2973957182, data2: 64078, data3: 17931, data4: [138, 188, 7, 43, 98, 139, 60, 112] };
+pub const GUID_BTH_RFCOMM_SERVICE_DEVICE_INTERFACE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2973957182, data2: 64078, data3: 17931, data4: [138, 188, 7, 43, 98, 139, 60, 112] };
 pub const GenericAudioServiceClassID_UUID16: u32 = 4611u32;
 pub const GenericFileTransferServiceClassID_UUID16: u32 = 4610u32;
 pub const GenericNetworkingServiceClassID_UUID16: u32 = 4609u32;
@@ -1588,7 +1588,7 @@ pub const SO_BTH_MTU_MIN: u32 = 2147483658u32;
 pub const STRING_DESCRIPTION_OFFSET: u32 = 1u32;
 pub const STRING_NAME_OFFSET: u32 = 0u32;
 pub const STRING_PROVIDER_NAME_OFFSET: u32 = 2u32;
-pub const SVCID_BTH_PROVIDER: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 111829984, data2: 32096, data3: 16895, data4: [175, 178, 62, 230, 210, 217, 57, 45] };
+pub const SVCID_BTH_PROVIDER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 111829984, data2: 32096, data3: 16895, data4: [175, 178, 62, 230, 210, 217, 57, 45] };
 pub const SYNCH_DATA_STORE_CALENDAR: u32 = 3u32;
 pub const SYNCH_DATA_STORE_MESSAGES: u32 = 6u32;
 pub const SYNCH_DATA_STORE_NOTES: u32 = 5u32;

@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
     #[cfg(feature = "Win32_Foundation")]
@@ -22,20 +22,68 @@ pub const ASP_MD_SERVER_BASE: u32 = 7000u32;
 pub const ASP_MD_UT_APP: u32 = 101u32;
 #[repr(transparent)]
 pub struct AsyncIFtpAuthenticationProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for AsyncIFtpAuthenticationProvider {}
+impl ::core::clone::Clone for AsyncIFtpAuthenticationProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AsyncIFtpAuthorizationProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for AsyncIFtpAuthorizationProvider {}
+impl ::core::clone::Clone for AsyncIFtpAuthorizationProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AsyncIFtpHomeDirectoryProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for AsyncIFtpHomeDirectoryProvider {}
+impl ::core::clone::Clone for AsyncIFtpHomeDirectoryProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AsyncIFtpLogProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for AsyncIFtpLogProvider {}
+impl ::core::clone::Clone for AsyncIFtpLogProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AsyncIFtpPostprocessProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for AsyncIFtpPostprocessProvider {}
+impl ::core::clone::Clone for AsyncIFtpPostprocessProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AsyncIFtpPreprocessProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for AsyncIFtpPreprocessProvider {}
+impl ::core::clone::Clone for AsyncIFtpPreprocessProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AsyncIFtpRoleProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for AsyncIFtpRoleProvider {}
+impl ::core::clone::Clone for AsyncIFtpRoleProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct AsyncIMSAdminBaseSinkW(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for AsyncIMSAdminBaseSinkW {}
+impl ::core::clone::Clone for AsyncIMSAdminBaseSinkW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct CERT_CONTEXT_EX {
@@ -51,15 +99,15 @@ impl ::core::clone::Clone for CERT_CONTEXT_EX {
         *self
     }
 }
-pub const CLSID_IImgCtx: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810611670, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-pub const CLSID_IisServiceControl: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3908797985, data2: 22671, data3: 4562, data4: [157, 97, 0, 192, 79, 121, 197, 254] };
-pub const CLSID_MSAdminBase_W: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2850461200, data2: 47117, data3: 4560, data4: [185, 185, 0, 160, 201, 34, 231, 80] };
-pub const CLSID_Request: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2450269648, data2: 9689, data3: 4560, data4: [165, 95, 0, 160, 201, 12, 32, 145] };
-pub const CLSID_Response: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1189190560, data2: 9693, data3: 4560, data4: [165, 95, 0, 160, 201, 12, 32, 145] };
-pub const CLSID_ScriptingContext: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3648679328, data2: 43112, data3: 4559, data4: [131, 174, 17, 176, 201, 12, 43, 216] };
-pub const CLSID_Server: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2768687456, data2: 9696, data3: 4560, data4: [165, 95, 0, 160, 201, 12, 32, 145] };
-pub const CLSID_Session: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1352634144, data2: 9694, data3: 4560, data4: [165, 95, 0, 160, 201, 12, 32, 145] };
-pub const CLSID_WamAdmin: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1634960964, data2: 61846, data3: 4560, data4: [153, 83, 0, 192, 79, 217, 25, 193] };
+pub const CLSID_IImgCtx: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611670, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
+pub const CLSID_IisServiceControl: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3908797985, data2: 22671, data3: 4562, data4: [157, 97, 0, 192, 79, 121, 197, 254] };
+pub const CLSID_MSAdminBase_W: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2850461200, data2: 47117, data3: 4560, data4: [185, 185, 0, 160, 201, 34, 231, 80] };
+pub const CLSID_Request: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2450269648, data2: 9689, data3: 4560, data4: [165, 95, 0, 160, 201, 12, 32, 145] };
+pub const CLSID_Response: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1189190560, data2: 9693, data3: 4560, data4: [165, 95, 0, 160, 201, 12, 32, 145] };
+pub const CLSID_ScriptingContext: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3648679328, data2: 43112, data3: 4559, data4: [131, 174, 17, 176, 201, 12, 43, 216] };
+pub const CLSID_Server: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2768687456, data2: 9696, data3: 4560, data4: [165, 95, 0, 160, 201, 12, 32, 145] };
+pub const CLSID_Session: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1352634144, data2: 9694, data3: 4560, data4: [165, 95, 0, 160, 201, 12, 32, 145] };
+pub const CLSID_WamAdmin: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1634960964, data2: 61846, data3: 4560, data4: [153, 83, 0, 192, 79, 217, 25, 193] };
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CONFIGURATION_ENTRY {
@@ -153,24 +201,24 @@ impl ::core::clone::Clone for FTP_PROCESS_STATUS {
         *self
     }
 }
-pub const FtpProvider: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FtpProvider: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1891485287,
     data2: 13234,
     data3: 17904,
     data4: [172, 82, 195, 202, 70, 247, 166, 86],
 };
-pub const GUID_IIS_ALL_TRACE_PROVIDERS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 0, data2: 0, data3: 0, data4: [0, 0, 0, 0, 0, 0, 0, 0] };
-pub const GUID_IIS_ASPNET_TRACE_PROVIDER: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2951774718, data2: 583, data3: 17013, data4: [156, 78, 2, 31, 61, 193, 218, 53] };
-pub const GUID_IIS_ASP_TRACE_TRACE_PROVIDER: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_IIS_ALL_TRACE_PROVIDERS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 0, data2: 0, data3: 0, data4: [0, 0, 0, 0, 0, 0, 0, 0] };
+pub const GUID_IIS_ASPNET_TRACE_PROVIDER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2951774718, data2: 583, data3: 17013, data4: [156, 78, 2, 31, 61, 193, 218, 53] };
+pub const GUID_IIS_ASP_TRACE_TRACE_PROVIDER: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 112807322,
     data2: 45406,
     data3: 17774,
     data4: [164, 239, 55, 201, 132, 162, 203, 75],
 };
-pub const GUID_IIS_ISAPI_TRACE_PROVIDER: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2713846798, data2: 34880, data3: 19505, data4: [186, 17, 152, 113, 3, 26, 25, 234] };
-pub const GUID_IIS_WWW_GLOBAL_TRACE_PROVIDER: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3579657161, data2: 52137, data3: 17631, data4: [130, 126, 19, 45, 58, 69, 150, 194] };
-pub const GUID_IIS_WWW_SERVER_TRACE_PROVIDER: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 975851140, data2: 19489, data3: 18817, data4: [174, 16, 63, 218, 13, 155, 15, 131] };
-pub const GUID_IIS_WWW_SERVER_V2_TRACE_PROVIDER: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3729148361, data2: 5608, data3: 20458, data4: [157, 133, 28, 221, 165, 32, 195, 52] };
+pub const GUID_IIS_ISAPI_TRACE_PROVIDER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2713846798, data2: 34880, data3: 19505, data4: [186, 17, 152, 113, 3, 26, 25, 234] };
+pub const GUID_IIS_WWW_GLOBAL_TRACE_PROVIDER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3579657161, data2: 52137, data3: 17631, data4: [130, 126, 19, 45, 58, 69, 150, 194] };
+pub const GUID_IIS_WWW_SERVER_TRACE_PROVIDER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 975851140, data2: 19489, data3: 18817, data4: [174, 16, 63, 218, 13, 155, 15, 131] };
+pub const GUID_IIS_WWW_SERVER_V2_TRACE_PROVIDER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3729148361, data2: 5608, data3: 20458, data4: [157, 133, 28, 221, 165, 32, 195, 52] };
 pub const HSE_APPEND_LOG_PARAMETER: u32 = 1003u32;
 pub const HSE_APP_FLAG_IN_PROCESS: u32 = 0u32;
 pub const HSE_APP_FLAG_ISOLATED_OOP: u32 = 1u32;
@@ -372,7 +420,7 @@ pub const HSE_TERM_MUST_UNLOAD: u32 = 2u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HSE_TF_INFO {
-    pub pfnHseIO: ::core::option::Option<PFN_HSE_IO_COMPLETION>,
+    pub pfnHseIO: PFN_HSE_IO_COMPLETION,
     pub pContext: *mut ::core::ffi::c_void,
     pub hFile: super::super::Foundation::HANDLE,
     pub pszStatusCode: super::super::Foundation::PSTR,
@@ -737,22 +785,76 @@ impl ::core::clone::Clone for HTTP_TRACE_TYPE {
 }
 #[repr(transparent)]
 pub struct IADMEXT(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IADMEXT {}
+impl ::core::clone::Clone for IADMEXT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFtpAuthenticationProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFtpAuthenticationProvider {}
+impl ::core::clone::Clone for IFtpAuthenticationProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFtpAuthorizationProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFtpAuthorizationProvider {}
+impl ::core::clone::Clone for IFtpAuthorizationProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFtpHomeDirectoryProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFtpHomeDirectoryProvider {}
+impl ::core::clone::Clone for IFtpHomeDirectoryProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFtpLogProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFtpLogProvider {}
+impl ::core::clone::Clone for IFtpLogProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFtpPostprocessProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFtpPostprocessProvider {}
+impl ::core::clone::Clone for IFtpPostprocessProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFtpPreprocessProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFtpPreprocessProvider {}
+impl ::core::clone::Clone for IFtpPreprocessProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFtpProviderConstruct(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFtpProviderConstruct {}
+impl ::core::clone::Clone for IFtpProviderConstruct {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFtpRoleProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFtpRoleProvider {}
+impl ::core::clone::Clone for IFtpRoleProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const IIS_MD_ADSI_METAID_BEGIN: u32 = 130000u32;
 pub const IIS_MD_APPPOOL_BASE: u32 = 9000u32;
 pub const IIS_MD_APP_BASE: u32 = 9100u32;
@@ -796,17 +898,47 @@ pub const IMGTRANS_MASK: u32 = 536870912u32;
 pub const IMGTRANS_OPAQUE: u32 = 536870912u32;
 #[repr(transparent)]
 pub struct IMSAdminBase2W(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSAdminBase2W {}
+impl ::core::clone::Clone for IMSAdminBase2W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSAdminBase3W(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSAdminBase3W {}
+impl ::core::clone::Clone for IMSAdminBase3W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSAdminBaseSinkW(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSAdminBaseSinkW {}
+impl ::core::clone::Clone for IMSAdminBaseSinkW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSAdminBaseW(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSAdminBaseW {}
+impl ::core::clone::Clone for IMSAdminBaseW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSImpExpHelpW(pub *mut ::core::ffi::c_void);
-pub const LIBID_ASPTypeLibrary: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3648679328, data2: 43100, data3: 4559, data4: [131, 174, 0, 160, 201, 12, 43, 216] };
-pub const LIBID_IISRSTALib: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3908797972, data2: 22671, data3: 4562, data4: [157, 97, 0, 192, 79, 121, 197, 254] };
-pub const LIBID_WAMREGLib: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 696396456, data2: 62210, data3: 4560, data4: [153, 83, 0, 192, 79, 217, 25, 193] };
+impl ::core::marker::Copy for IMSImpExpHelpW {}
+impl ::core::clone::Clone for IMSImpExpHelpW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+pub const LIBID_ASPTypeLibrary: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3648679328, data2: 43100, data3: 4559, data4: [131, 174, 0, 160, 201, 12, 43, 216] };
+pub const LIBID_IISRSTALib: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3908797972, data2: 22671, data3: 4562, data4: [157, 97, 0, 192, 79, 121, 197, 254] };
+pub const LIBID_WAMREGLib: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 696396456, data2: 62210, data3: 4560, data4: [153, 83, 0, 192, 79, 217, 25, 193] };
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct LOGGING_PARAMETERS {

@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
     pub fn NdfCancelIncident(handle: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
@@ -181,14 +181,44 @@ impl ::core::clone::Clone for HypothesisResult {
 }
 #[repr(transparent)]
 pub struct INetDiagExtensibleHelper(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for INetDiagExtensibleHelper {}
+impl ::core::clone::Clone for INetDiagExtensibleHelper {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct INetDiagHelper(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for INetDiagHelper {}
+impl ::core::clone::Clone for INetDiagHelper {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct INetDiagHelperEx(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for INetDiagHelperEx {}
+impl ::core::clone::Clone for INetDiagHelperEx {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct INetDiagHelperInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for INetDiagHelperInfo {}
+impl ::core::clone::Clone for INetDiagHelperInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct INetDiagHelperUtilFactory(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for INetDiagHelperUtilFactory {}
+impl ::core::clone::Clone for INetDiagHelperUtilFactory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct LIFE_TIME {

@@ -1,34 +1,112 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[cfg(feature = "ApplicationModel_Wallet_System")]
 pub mod System;
 #[link(name = "windows")]
 extern "system" {}
 #[repr(transparent)]
 pub struct IWalletBarcode(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWalletBarcode {}
+impl ::core::clone::Clone for IWalletBarcode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWalletBarcodeFactory(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWalletBarcodeFactory {}
+impl ::core::clone::Clone for IWalletBarcodeFactory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWalletItem(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWalletItem {}
+impl ::core::clone::Clone for IWalletItem {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWalletItemCustomProperty(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWalletItemCustomProperty {}
+impl ::core::clone::Clone for IWalletItemCustomProperty {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWalletItemCustomPropertyFactory(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWalletItemCustomPropertyFactory {}
+impl ::core::clone::Clone for IWalletItemCustomPropertyFactory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWalletItemFactory(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWalletItemFactory {}
+impl ::core::clone::Clone for IWalletItemFactory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWalletItemStore(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWalletItemStore {}
+impl ::core::clone::Clone for IWalletItemStore {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWalletItemStore2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWalletItemStore2 {}
+impl ::core::clone::Clone for IWalletItemStore2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWalletManagerStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWalletManagerStatics {}
+impl ::core::clone::Clone for IWalletManagerStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWalletRelevantLocation(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWalletRelevantLocation {}
+impl ::core::clone::Clone for IWalletRelevantLocation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWalletTransaction(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWalletTransaction {}
+impl ::core::clone::Clone for IWalletTransaction {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWalletVerb(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWalletVerb {}
+impl ::core::clone::Clone for IWalletVerb {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWalletVerbFactory(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWalletVerbFactory {}
+impl ::core::clone::Clone for IWalletVerbFactory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WalletActionKind(pub i32);
 impl WalletActionKind {
@@ -46,6 +124,12 @@ impl ::core::clone::Clone for WalletActionKind {
 }
 #[repr(transparent)]
 pub struct WalletBarcode(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for WalletBarcode {}
+impl ::core::clone::Clone for WalletBarcode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WalletBarcodeSymbology(pub i32);
 impl WalletBarcodeSymbology {
@@ -95,8 +179,20 @@ impl ::core::clone::Clone for WalletDetailViewPosition {
 }
 #[repr(transparent)]
 pub struct WalletItem(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for WalletItem {}
+impl ::core::clone::Clone for WalletItem {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WalletItemCustomProperty(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for WalletItemCustomProperty {}
+impl ::core::clone::Clone for WalletItemCustomProperty {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WalletItemKind(pub i32);
 impl WalletItemKind {
@@ -116,8 +212,20 @@ impl ::core::clone::Clone for WalletItemKind {
 }
 #[repr(transparent)]
 pub struct WalletItemStore(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for WalletItemStore {}
+impl ::core::clone::Clone for WalletItemStore {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WalletRelevantLocation(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for WalletRelevantLocation {}
+impl ::core::clone::Clone for WalletRelevantLocation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WalletSummaryViewPosition(pub i32);
 impl WalletSummaryViewPosition {
@@ -133,5 +241,17 @@ impl ::core::clone::Clone for WalletSummaryViewPosition {
 }
 #[repr(transparent)]
 pub struct WalletTransaction(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for WalletTransaction {}
+impl ::core::clone::Clone for WalletTransaction {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct WalletVerb(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for WalletVerb {}
+impl ::core::clone::Clone for WalletVerb {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

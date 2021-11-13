@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
     #[cfg(feature = "Win32_Foundation")]
@@ -198,7 +198,7 @@ impl ::core::clone::Clone for AATrustClassID {
     }
 }
 pub const ACQUIRE_TARGET_LOCK_TIMEOUT: u32 = 300000u32;
-pub const ADsTSUserEx: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const ADsTSUserEx: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3806972646,
     data2: 7803,
     data3: 19342,
@@ -263,10 +263,10 @@ impl ::core::clone::Clone for CHANNEL_DEF {
 pub struct CHANNEL_ENTRY_POINTS {
     pub cbSize: u32,
     pub protocolVersion: u32,
-    pub pVirtualChannelInit: ::core::option::Option<PVIRTUALCHANNELINIT>,
-    pub pVirtualChannelOpen: ::core::option::Option<PVIRTUALCHANNELOPEN>,
-    pub pVirtualChannelClose: ::core::option::Option<PVIRTUALCHANNELCLOSE>,
-    pub pVirtualChannelWrite: ::core::option::Option<PVIRTUALCHANNELWRITE>,
+    pub pVirtualChannelInit: PVIRTUALCHANNELINIT,
+    pub pVirtualChannelOpen: PVIRTUALCHANNELOPEN,
+    pub pVirtualChannelClose: PVIRTUALCHANNELCLOSE,
+    pub pVirtualChannelWrite: PVIRTUALCHANNELWRITE,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CHANNEL_ENTRY_POINTS {}
@@ -375,13 +375,13 @@ impl ::core::clone::Clone for CONNECTION_CHANGE_NOTIFICATION {
         *self
     }
 }
-pub const CONNECTION_PROPERTY_CURSOR_BLINK_DISABLED: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CONNECTION_PROPERTY_CURSOR_BLINK_DISABLED: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1259668864,
     data2: 65188,
     data3: 19772,
     data4: [157, 228, 116, 51, 166, 102, 24, 247],
 };
-pub const CONNECTION_PROPERTY_IDLE_TIME_WARNING: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1765769205, data2: 3150, data3: 19735, data4: [184, 224, 31, 112, 50, 94, 93, 88] };
+pub const CONNECTION_PROPERTY_IDLE_TIME_WARNING: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1765769205, data2: 3150, data3: 19735, data4: [184, 224, 31, 112, 50, 94, 93, 88] };
 pub const DISPID_AX_ADMINMESSAGERECEIVED: u32 = 760u32;
 pub const DISPID_AX_AUTORECONNECTED: u32 = 756u32;
 pub const DISPID_AX_AUTORECONNECTING: u32 = 755u32;
@@ -430,204 +430,804 @@ impl ::core::clone::Clone for HwtsVirtualChannelHandle {
 }
 #[repr(transparent)]
 pub struct IADsTSUserEx(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IADsTSUserEx {}
+impl ::core::clone::Clone for IADsTSUserEx {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAudioDeviceEndpoint(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAudioDeviceEndpoint {}
+impl ::core::clone::Clone for IAudioDeviceEndpoint {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAudioEndpoint(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAudioEndpoint {}
+impl ::core::clone::Clone for IAudioEndpoint {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAudioEndpointControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAudioEndpointControl {}
+impl ::core::clone::Clone for IAudioEndpointControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAudioEndpointRT(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAudioEndpointRT {}
+impl ::core::clone::Clone for IAudioEndpointRT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAudioInputEndpointRT(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAudioInputEndpointRT {}
+impl ::core::clone::Clone for IAudioInputEndpointRT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAudioOutputEndpointRT(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAudioOutputEndpointRT {}
+impl ::core::clone::Clone for IAudioOutputEndpointRT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRemoteDesktopClient(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRemoteDesktopClient {}
+impl ::core::clone::Clone for IRemoteDesktopClient {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRemoteDesktopClientActions(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRemoteDesktopClientActions {}
+impl ::core::clone::Clone for IRemoteDesktopClientActions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRemoteDesktopClientSettings(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRemoteDesktopClientSettings {}
+impl ::core::clone::Clone for IRemoteDesktopClientSettings {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRemoteDesktopClientTouchPointer(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRemoteDesktopClientTouchPointer {}
+impl ::core::clone::Clone for IRemoteDesktopClientTouchPointer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRemoteSystemAdditionalInfoProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRemoteSystemAdditionalInfoProvider {}
+impl ::core::clone::Clone for IRemoteSystemAdditionalInfoProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITSGAccountingEngine(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITSGAccountingEngine {}
+impl ::core::clone::Clone for ITSGAccountingEngine {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITSGAuthenticateUserSink(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITSGAuthenticateUserSink {}
+impl ::core::clone::Clone for ITSGAuthenticateUserSink {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITSGAuthenticationEngine(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITSGAuthenticationEngine {}
+impl ::core::clone::Clone for ITSGAuthenticationEngine {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITSGAuthorizeConnectionSink(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITSGAuthorizeConnectionSink {}
+impl ::core::clone::Clone for ITSGAuthorizeConnectionSink {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITSGAuthorizeResourceSink(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITSGAuthorizeResourceSink {}
+impl ::core::clone::Clone for ITSGAuthorizeResourceSink {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITSGPolicyEngine(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITSGPolicyEngine {}
+impl ::core::clone::Clone for ITSGPolicyEngine {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITsSbBaseNotifySink(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITsSbBaseNotifySink {}
+impl ::core::clone::Clone for ITsSbBaseNotifySink {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITsSbClientConnection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITsSbClientConnection {}
+impl ::core::clone::Clone for ITsSbClientConnection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITsSbClientConnectionPropertySet(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITsSbClientConnectionPropertySet {}
+impl ::core::clone::Clone for ITsSbClientConnectionPropertySet {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITsSbEnvironment(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITsSbEnvironment {}
+impl ::core::clone::Clone for ITsSbEnvironment {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITsSbEnvironmentPropertySet(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITsSbEnvironmentPropertySet {}
+impl ::core::clone::Clone for ITsSbEnvironmentPropertySet {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITsSbFilterPluginStore(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITsSbFilterPluginStore {}
+impl ::core::clone::Clone for ITsSbFilterPluginStore {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITsSbGenericNotifySink(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITsSbGenericNotifySink {}
+impl ::core::clone::Clone for ITsSbGenericNotifySink {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITsSbGlobalStore(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITsSbGlobalStore {}
+impl ::core::clone::Clone for ITsSbGlobalStore {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITsSbLoadBalanceResult(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITsSbLoadBalanceResult {}
+impl ::core::clone::Clone for ITsSbLoadBalanceResult {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITsSbLoadBalancing(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITsSbLoadBalancing {}
+impl ::core::clone::Clone for ITsSbLoadBalancing {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITsSbLoadBalancingNotifySink(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITsSbLoadBalancingNotifySink {}
+impl ::core::clone::Clone for ITsSbLoadBalancingNotifySink {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITsSbOrchestration(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITsSbOrchestration {}
+impl ::core::clone::Clone for ITsSbOrchestration {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITsSbOrchestrationNotifySink(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITsSbOrchestrationNotifySink {}
+impl ::core::clone::Clone for ITsSbOrchestrationNotifySink {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITsSbPlacement(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITsSbPlacement {}
+impl ::core::clone::Clone for ITsSbPlacement {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITsSbPlacementNotifySink(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITsSbPlacementNotifySink {}
+impl ::core::clone::Clone for ITsSbPlacementNotifySink {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITsSbPlugin(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITsSbPlugin {}
+impl ::core::clone::Clone for ITsSbPlugin {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITsSbPluginNotifySink(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITsSbPluginNotifySink {}
+impl ::core::clone::Clone for ITsSbPluginNotifySink {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITsSbPluginPropertySet(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITsSbPluginPropertySet {}
+impl ::core::clone::Clone for ITsSbPluginPropertySet {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITsSbPropertySet(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITsSbPropertySet {}
+impl ::core::clone::Clone for ITsSbPropertySet {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITsSbProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITsSbProvider {}
+impl ::core::clone::Clone for ITsSbProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITsSbProvisioning(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITsSbProvisioning {}
+impl ::core::clone::Clone for ITsSbProvisioning {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITsSbProvisioningPluginNotifySink(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITsSbProvisioningPluginNotifySink {}
+impl ::core::clone::Clone for ITsSbProvisioningPluginNotifySink {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITsSbResourceNotification(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITsSbResourceNotification {}
+impl ::core::clone::Clone for ITsSbResourceNotification {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITsSbResourceNotificationEx(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITsSbResourceNotificationEx {}
+impl ::core::clone::Clone for ITsSbResourceNotificationEx {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITsSbResourcePlugin(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITsSbResourcePlugin {}
+impl ::core::clone::Clone for ITsSbResourcePlugin {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITsSbResourcePluginStore(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITsSbResourcePluginStore {}
+impl ::core::clone::Clone for ITsSbResourcePluginStore {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITsSbServiceNotification(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITsSbServiceNotification {}
+impl ::core::clone::Clone for ITsSbServiceNotification {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITsSbSession(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITsSbSession {}
+impl ::core::clone::Clone for ITsSbSession {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITsSbTarget(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITsSbTarget {}
+impl ::core::clone::Clone for ITsSbTarget {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITsSbTargetPropertySet(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITsSbTargetPropertySet {}
+impl ::core::clone::Clone for ITsSbTargetPropertySet {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITsSbTaskInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITsSbTaskInfo {}
+impl ::core::clone::Clone for ITsSbTaskInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITsSbTaskPlugin(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITsSbTaskPlugin {}
+impl ::core::clone::Clone for ITsSbTaskPlugin {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITsSbTaskPluginNotifySink(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITsSbTaskPluginNotifySink {}
+impl ::core::clone::Clone for ITsSbTaskPluginNotifySink {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWRdsEnhancedFastReconnectArbitrator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWRdsEnhancedFastReconnectArbitrator {}
+impl ::core::clone::Clone for IWRdsEnhancedFastReconnectArbitrator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWRdsGraphicsChannel(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWRdsGraphicsChannel {}
+impl ::core::clone::Clone for IWRdsGraphicsChannel {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWRdsGraphicsChannelEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWRdsGraphicsChannelEvents {}
+impl ::core::clone::Clone for IWRdsGraphicsChannelEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWRdsGraphicsChannelManager(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWRdsGraphicsChannelManager {}
+impl ::core::clone::Clone for IWRdsGraphicsChannelManager {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWRdsProtocolConnection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWRdsProtocolConnection {}
+impl ::core::clone::Clone for IWRdsProtocolConnection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWRdsProtocolConnectionCallback(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWRdsProtocolConnectionCallback {}
+impl ::core::clone::Clone for IWRdsProtocolConnectionCallback {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWRdsProtocolConnectionSettings(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWRdsProtocolConnectionSettings {}
+impl ::core::clone::Clone for IWRdsProtocolConnectionSettings {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWRdsProtocolLicenseConnection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWRdsProtocolLicenseConnection {}
+impl ::core::clone::Clone for IWRdsProtocolLicenseConnection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWRdsProtocolListener(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWRdsProtocolListener {}
+impl ::core::clone::Clone for IWRdsProtocolListener {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWRdsProtocolListenerCallback(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWRdsProtocolListenerCallback {}
+impl ::core::clone::Clone for IWRdsProtocolListenerCallback {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWRdsProtocolLogonErrorRedirector(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWRdsProtocolLogonErrorRedirector {}
+impl ::core::clone::Clone for IWRdsProtocolLogonErrorRedirector {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWRdsProtocolManager(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWRdsProtocolManager {}
+impl ::core::clone::Clone for IWRdsProtocolManager {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWRdsProtocolSettings(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWRdsProtocolSettings {}
+impl ::core::clone::Clone for IWRdsProtocolSettings {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWRdsProtocolShadowCallback(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWRdsProtocolShadowCallback {}
+impl ::core::clone::Clone for IWRdsProtocolShadowCallback {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWRdsProtocolShadowConnection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWRdsProtocolShadowConnection {}
+impl ::core::clone::Clone for IWRdsProtocolShadowConnection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWRdsWddmIddProps(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWRdsWddmIddProps {}
+impl ::core::clone::Clone for IWRdsWddmIddProps {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWTSBitmapRenderService(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWTSBitmapRenderService {}
+impl ::core::clone::Clone for IWTSBitmapRenderService {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWTSBitmapRenderer(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWTSBitmapRenderer {}
+impl ::core::clone::Clone for IWTSBitmapRenderer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWTSBitmapRendererCallback(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWTSBitmapRendererCallback {}
+impl ::core::clone::Clone for IWTSBitmapRendererCallback {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWTSListener(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWTSListener {}
+impl ::core::clone::Clone for IWTSListener {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWTSListenerCallback(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWTSListenerCallback {}
+impl ::core::clone::Clone for IWTSListenerCallback {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWTSPlugin(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWTSPlugin {}
+impl ::core::clone::Clone for IWTSPlugin {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWTSPluginServiceProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWTSPluginServiceProvider {}
+impl ::core::clone::Clone for IWTSPluginServiceProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWTSProtocolConnection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWTSProtocolConnection {}
+impl ::core::clone::Clone for IWTSProtocolConnection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWTSProtocolConnectionCallback(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWTSProtocolConnectionCallback {}
+impl ::core::clone::Clone for IWTSProtocolConnectionCallback {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWTSProtocolLicenseConnection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWTSProtocolLicenseConnection {}
+impl ::core::clone::Clone for IWTSProtocolLicenseConnection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWTSProtocolListener(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWTSProtocolListener {}
+impl ::core::clone::Clone for IWTSProtocolListener {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWTSProtocolListenerCallback(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWTSProtocolListenerCallback {}
+impl ::core::clone::Clone for IWTSProtocolListenerCallback {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWTSProtocolLogonErrorRedirector(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWTSProtocolLogonErrorRedirector {}
+impl ::core::clone::Clone for IWTSProtocolLogonErrorRedirector {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWTSProtocolManager(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWTSProtocolManager {}
+impl ::core::clone::Clone for IWTSProtocolManager {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWTSProtocolShadowCallback(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWTSProtocolShadowCallback {}
+impl ::core::clone::Clone for IWTSProtocolShadowCallback {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWTSProtocolShadowConnection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWTSProtocolShadowConnection {}
+impl ::core::clone::Clone for IWTSProtocolShadowConnection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWTSSBPlugin(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWTSSBPlugin {}
+impl ::core::clone::Clone for IWTSSBPlugin {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWTSVirtualChannel(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWTSVirtualChannel {}
+impl ::core::clone::Clone for IWTSVirtualChannel {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWTSVirtualChannelCallback(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWTSVirtualChannelCallback {}
+impl ::core::clone::Clone for IWTSVirtualChannelCallback {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWTSVirtualChannelManager(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWTSVirtualChannelManager {}
+impl ::core::clone::Clone for IWTSVirtualChannelManager {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWorkspace(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWorkspace {}
+impl ::core::clone::Clone for IWorkspace {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWorkspace2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWorkspace2 {}
+impl ::core::clone::Clone for IWorkspace2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWorkspace3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWorkspace3 {}
+impl ::core::clone::Clone for IWorkspace3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWorkspaceClientExt(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWorkspaceClientExt {}
+impl ::core::clone::Clone for IWorkspaceClientExt {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWorkspaceRegistration(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWorkspaceRegistration {}
+impl ::core::clone::Clone for IWorkspaceRegistration {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWorkspaceRegistration2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWorkspaceRegistration2 {}
+impl ::core::clone::Clone for IWorkspaceRegistration2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWorkspaceReportMessage(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWorkspaceReportMessage {}
+impl ::core::clone::Clone for IWorkspaceReportMessage {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWorkspaceResTypeRegistry(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWorkspaceResTypeRegistry {}
+impl ::core::clone::Clone for IWorkspaceResTypeRegistry {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWorkspaceScriptable(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWorkspaceScriptable {}
+impl ::core::clone::Clone for IWorkspaceScriptable {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWorkspaceScriptable2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWorkspaceScriptable2 {}
+impl ::core::clone::Clone for IWorkspaceScriptable2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWorkspaceScriptable3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWorkspaceScriptable3 {}
+impl ::core::clone::Clone for IWorkspaceScriptable3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ItsPubPlugin(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ItsPubPlugin {}
+impl ::core::clone::Clone for ItsPubPlugin {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ItsPubPlugin2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ItsPubPlugin2 {}
+impl ::core::clone::Clone for ItsPubPlugin2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const KEEP_EXISTING_SESSIONS: u32 = 8u32;
 #[repr(transparent)]
 pub struct KeyCombinationType(pub i32);
@@ -676,20 +1276,20 @@ impl ::core::clone::Clone for PLUGIN_TYPE {
 }
 pub const PRODUCTINFO_COMPANYNAME_LENGTH: u32 = 256u32;
 pub const PRODUCTINFO_PRODUCTID_LENGTH: u32 = 4u32;
-pub const PROPERTY_DYNAMIC_TIME_ZONE_INFORMATION: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const PROPERTY_DYNAMIC_TIME_ZONE_INFORMATION: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 215995022,
     data2: 53433,
     data3: 19487,
     data4: [165, 235, 109, 31, 108, 101, 53, 185],
 };
-pub const PROPERTY_TYPE_ENABLE_UNIVERSAL_APPS_FOR_CUSTOM_SHELL: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const PROPERTY_TYPE_ENABLE_UNIVERSAL_APPS_FOR_CUSTOM_SHELL: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3979100122,
     data2: 13197,
     data3: 19775,
     data4: [129, 163, 231, 103, 49, 13, 144, 142],
 };
-pub const PROPERTY_TYPE_GET_FAST_RECONNECT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1645401943, data2: 67, data3: 18530, data4: [153, 195, 159, 48, 89, 172, 42, 59] };
-pub const PROPERTY_TYPE_GET_FAST_RECONNECT_USER_SID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 427573882, data2: 309, data3: 19309, data4: [156, 94, 230, 87, 154, 10, 182, 37] };
+pub const PROPERTY_TYPE_GET_FAST_RECONNECT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1645401943, data2: 67, data3: 18530, data4: [153, 195, 159, 48, 89, 172, 42, 59] };
+pub const PROPERTY_TYPE_GET_FAST_RECONNECT_USER_SID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 427573882, data2: 309, data3: 19309, data4: [156, 94, 230, 87, 154, 10, 182, 37] };
 pub type PVIRTUALCHANNELCLOSE = unsafe extern "system" fn(openhandle: u32) -> u32;
 #[cfg(feature = "Win32_Foundation")]
 pub type PVIRTUALCHANNELENTRY = unsafe extern "system" fn(pentrypoints: *mut CHANNEL_ENTRY_POINTS) -> super::super::Foundation::BOOL;
@@ -725,7 +1325,7 @@ impl ::core::clone::Clone for PolicyAttributeType {
         *self
     }
 }
-pub const RDCLIENT_BITMAP_RENDER_SERVICE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3838576843, data2: 37934, data3: 19225, data4: [133, 4, 189, 90, 137, 167, 71, 245] };
+pub const RDCLIENT_BITMAP_RENDER_SERVICE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3838576843, data2: 37934, data3: 19225, data4: [133, 4, 189, 90, 137, 167, 71, 245] };
 #[repr(transparent)]
 pub struct RDV_TASK_STATUS(pub i32);
 pub const RDV_TASK_STATUS_UNKNOWN: RDV_TASK_STATUS = RDV_TASK_STATUS(0i32);
@@ -1104,7 +1704,7 @@ impl ::core::clone::Clone for TSSESSION_STATE {
         *self
     }
 }
-pub const TSUserExInterfaces: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 152100097, data2: 57228, data3: 4561, data4: [174, 39, 0, 192, 79, 163, 88, 19] };
+pub const TSUserExInterfaces: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 152100097, data2: 57228, data3: 4561, data4: [174, 39, 0, 192, 79, 163, 88, 19] };
 #[repr(transparent)]
 pub struct TS_SB_SORT_BY(pub i32);
 pub const TS_SB_SORT_BY_NONE: TS_SB_SORT_BY = TS_SB_SORT_BY(0i32);
@@ -1391,7 +1991,7 @@ pub const WRDS_PERF_ENABLE_DESKTOP_COMPOSITION: u32 = 256u32;
 pub const WRDS_PERF_ENABLE_ENHANCED_GRAPHICS: u32 = 16u32;
 pub const WRDS_PERF_ENABLE_FONT_SMOOTHING: u32 = 128u32;
 pub const WRDS_PROTOCOL_NAME_LENGTH: u32 = 8u32;
-pub const WRDS_SERVICE_ID_GRAPHICS_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3533258573, data2: 719, data3: 17024, data4: [140, 72, 22, 36, 180, 79, 135, 6] };
+pub const WRDS_SERVICE_ID_GRAPHICS_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3533258573, data2: 719, data3: 17024, data4: [140, 72, 22, 36, 180, 79, 135, 6] };
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union WRDS_SETTING {
@@ -2586,15 +3186,15 @@ impl ::core::clone::Clone for WTS_PROTOCOL_STATUS {
 pub const WTS_PROTOCOL_TYPE_CONSOLE: u32 = 0u32;
 pub const WTS_PROTOCOL_TYPE_ICA: u32 = 1u32;
 pub const WTS_PROTOCOL_TYPE_RDP: u32 = 2u32;
-pub const WTS_QUERY_ALLOWED_INITIAL_APP: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const WTS_QUERY_ALLOWED_INITIAL_APP: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3346864944,
     data2: 23521,
     data3: 19563,
     data4: [160, 225, 189, 109, 46, 92, 159, 204],
 };
-pub const WTS_QUERY_AUDIOENUM_DLL: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2616523415, data2: 51331, data3: 19498, data4: [128, 171, 90, 57, 201, 175, 0, 219] };
-pub const WTS_QUERY_LOGON_SCREEN_SIZE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2341343207, data2: 2052, data3: 18958, data4: [178, 121, 134, 96, 177, 223, 0, 73] };
-pub const WTS_QUERY_MF_FORMAT_SUPPORT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const WTS_QUERY_AUDIOENUM_DLL: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2616523415, data2: 51331, data3: 19498, data4: [128, 171, 90, 57, 201, 175, 0, 219] };
+pub const WTS_QUERY_LOGON_SCREEN_SIZE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2341343207, data2: 2052, data3: 18958, data4: [178, 121, 134, 96, 177, 223, 0, 73] };
+pub const WTS_QUERY_MF_FORMAT_SUPPORT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1099340496,
     data2: 25394,
     data3: 19912,
@@ -2944,9 +3544,15 @@ pub const WTS_WSD_LOGOFF: u32 = 1u32;
 pub const WTS_WSD_POWEROFF: u32 = 8u32;
 pub const WTS_WSD_REBOOT: u32 = 4u32;
 pub const WTS_WSD_SHUTDOWN: u32 = 2u32;
-pub const Workspace: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1327365286, data2: 15021, data3: 18657, data4: [132, 6, 75, 194, 26, 80, 29, 124] };
+pub const Workspace: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1327365286, data2: 15021, data3: 18657, data4: [132, 6, 75, 194, 26, 80, 29, 124] };
 #[repr(transparent)]
 pub struct _ITSWkspEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for _ITSWkspEvents {}
+impl ::core::clone::Clone for _ITSWkspEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct _WTS_PRODUCT_INFOA {

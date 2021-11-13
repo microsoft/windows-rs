@@ -1,20 +1,20 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {}
-pub const CLSID_IITCmdInt: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1180883618, data2: 54163, data3: 4560, data4: [154, 86, 0, 192, 79, 182, 139, 247] };
-pub const CLSID_IITDatabase: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1718039634, data2: 35875, data3: 4560, data4: [168, 78, 0, 170, 0, 108, 125, 1] };
-pub const CLSID_IITDatabaseLocal: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1180883625, data2: 54163, data3: 4560, data4: [154, 86, 0, 192, 79, 182, 139, 247] };
-pub const CLSID_IITGroupUpdate: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1180883620, data2: 54163, data3: 4560, data4: [154, 86, 0, 192, 79, 182, 139, 247] };
-pub const CLSID_IITIndexBuild: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2409682346, data2: 57055, data3: 4560, data4: [154, 97, 0, 192, 79, 182, 139, 247] };
-pub const CLSID_IITPropList: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1180883630, data2: 54163, data3: 4560, data4: [154, 86, 0, 192, 79, 182, 139, 247] };
-pub const CLSID_IITResultSet: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1180883623, data2: 54163, data3: 4560, data4: [154, 86, 0, 192, 79, 182, 139, 247] };
-pub const CLSID_IITSvMgr: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1180883619, data2: 54163, data3: 4560, data4: [154, 86, 0, 192, 79, 182, 139, 247] };
-pub const CLSID_IITWWFilterBuild: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2409682347, data2: 57055, data3: 4560, data4: [154, 97, 0, 192, 79, 182, 139, 247] };
-pub const CLSID_IITWordWheel: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3610715586, data2: 35858, data3: 4560, data4: [168, 78, 0, 170, 0, 108, 125, 1] };
-pub const CLSID_IITWordWheelLocal: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1180883624, data2: 54163, data3: 4560, data4: [154, 86, 0, 192, 79, 182, 139, 247] };
-pub const CLSID_IITWordWheelUpdate: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1180883621, data2: 54163, data3: 4560, data4: [154, 86, 0, 192, 79, 182, 139, 247] };
-pub const CLSID_ITEngStemmer: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2409682344, data2: 57055, data3: 4560, data4: [154, 97, 0, 192, 79, 182, 139, 247] };
-pub const CLSID_ITStdBreaker: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1180883631, data2: 54163, data3: 4560, data4: [154, 86, 0, 192, 79, 182, 139, 247] };
+pub const CLSID_IITCmdInt: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1180883618, data2: 54163, data3: 4560, data4: [154, 86, 0, 192, 79, 182, 139, 247] };
+pub const CLSID_IITDatabase: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1718039634, data2: 35875, data3: 4560, data4: [168, 78, 0, 170, 0, 108, 125, 1] };
+pub const CLSID_IITDatabaseLocal: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1180883625, data2: 54163, data3: 4560, data4: [154, 86, 0, 192, 79, 182, 139, 247] };
+pub const CLSID_IITGroupUpdate: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1180883620, data2: 54163, data3: 4560, data4: [154, 86, 0, 192, 79, 182, 139, 247] };
+pub const CLSID_IITIndexBuild: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2409682346, data2: 57055, data3: 4560, data4: [154, 97, 0, 192, 79, 182, 139, 247] };
+pub const CLSID_IITPropList: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1180883630, data2: 54163, data3: 4560, data4: [154, 86, 0, 192, 79, 182, 139, 247] };
+pub const CLSID_IITResultSet: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1180883623, data2: 54163, data3: 4560, data4: [154, 86, 0, 192, 79, 182, 139, 247] };
+pub const CLSID_IITSvMgr: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1180883619, data2: 54163, data3: 4560, data4: [154, 86, 0, 192, 79, 182, 139, 247] };
+pub const CLSID_IITWWFilterBuild: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2409682347, data2: 57055, data3: 4560, data4: [154, 97, 0, 192, 79, 182, 139, 247] };
+pub const CLSID_IITWordWheel: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3610715586, data2: 35858, data3: 4560, data4: [168, 78, 0, 170, 0, 108, 125, 1] };
+pub const CLSID_IITWordWheelLocal: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1180883624, data2: 54163, data3: 4560, data4: [154, 86, 0, 192, 79, 182, 139, 247] };
+pub const CLSID_IITWordWheelUpdate: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1180883621, data2: 54163, data3: 4560, data4: [154, 86, 0, 192, 79, 182, 139, 247] };
+pub const CLSID_ITEngStemmer: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2409682344, data2: 57055, data3: 4560, data4: [154, 97, 0, 192, 79, 182, 139, 247] };
+pub const CLSID_ITStdBreaker: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1180883631, data2: 54163, data3: 4560, data4: [154, 86, 0, 192, 79, 182, 139, 247] };
 #[repr(C)]
 pub struct COLUMNSTATUS {
     pub cPropCount: i32,
@@ -500,24 +500,60 @@ pub const IDTB_TOC_PREV: u32 = 224u32;
 pub const IDTB_ZOOM: u32 = 222u32;
 #[repr(transparent)]
 pub struct IITDatabase(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IITDatabase {}
+impl ::core::clone::Clone for IITDatabase {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct IITGroup(pub u8);
 #[repr(transparent)]
 pub struct IITPropList(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IITPropList {}
+impl ::core::clone::Clone for IITPropList {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct IITQuery(pub u8);
 #[repr(transparent)]
 pub struct IITResultSet(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IITResultSet {}
+impl ::core::clone::Clone for IITResultSet {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct IITStopWordList(pub u8);
 pub const IITWBC_BREAK_ACCEPT_WILDCARDS: u32 = 1u32;
 pub const IITWBC_BREAK_AND_STEM: u32 = 2u32;
 #[repr(transparent)]
 pub struct IITWordWheel(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IITWordWheel {}
+impl ::core::clone::Clone for IITWordWheel {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IStemSink(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IStemSink {}
+impl ::core::clone::Clone for IStemSink {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IStemmerConfig(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IStemmerConfig {}
+impl ::core::clone::Clone for IStemmerConfig {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const ITWW_CBKEY_MAX: u32 = 1024u32;
 pub const ITWW_OPEN_NOCONNECT: u32 = 1u32;
 pub const IT_EXCLUSIVE: i32 = 1i32;
@@ -525,6 +561,12 @@ pub const IT_HIDDEN: i32 = 2i32;
 pub const IT_INCLUSIVE: i32 = 0i32;
 #[repr(transparent)]
 pub struct IWordBreakerConfig(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWordBreakerConfig {}
+impl ::core::clone::Clone for IWordBreakerConfig {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MAX_COLUMNS: u32 = 256u32;
 pub type PFNCOLHEAPFREE = unsafe extern "system" fn(param0: *mut ::core::ffi::c_void) -> i32;
 #[repr(transparent)]

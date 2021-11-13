@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {}
 #[repr(C)]
@@ -61,7 +61,7 @@ impl ::core::clone::Clone for DEDUP_SET_PARAM_TYPE {
         *self
     }
 }
-pub const DedupBackupSupport: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const DedupBackupSupport: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1943450285,
     data2: 10628,
     data3: 18197,
@@ -110,7 +110,7 @@ impl ::core::clone::Clone for DedupCompressionAlgorithm {
         *self
     }
 }
-pub const DedupDataPort: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2400219655, data2: 6185, data3: 18610, data4: [166, 75, 230, 31, 142, 13, 154, 203] };
+pub const DedupDataPort: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2400219655, data2: 6185, data3: 18610, data4: [166, 75, 230, 31, 142, 13, 154, 203] };
 #[repr(transparent)]
 pub struct DedupDataPortManagerOption(pub i32);
 pub const DedupDataPortManagerOption_None: DedupDataPortManagerOption = DedupDataPortManagerOption(0i32);
@@ -201,13 +201,49 @@ impl ::core::clone::Clone for DedupStreamEntry {
 }
 #[repr(transparent)]
 pub struct IDedupBackupSupport(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDedupBackupSupport {}
+impl ::core::clone::Clone for IDedupBackupSupport {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDedupChunkLibrary(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDedupChunkLibrary {}
+impl ::core::clone::Clone for IDedupChunkLibrary {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDedupDataPort(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDedupDataPort {}
+impl ::core::clone::Clone for IDedupDataPort {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDedupDataPortManager(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDedupDataPortManager {}
+impl ::core::clone::Clone for IDedupDataPortManager {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDedupIterateChunksHash32(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDedupIterateChunksHash32 {}
+impl ::core::clone::Clone for IDedupIterateChunksHash32 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDedupReadFileCallback(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDedupReadFileCallback {}
+impl ::core::clone::Clone for IDedupReadFileCallback {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

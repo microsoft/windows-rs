@@ -51,10 +51,20 @@ fn gen_type_def(def: &TypeDef, gen: &Gen) -> TokenStream {
 }
 
 fn gen_interface(def: &TypeDef, gen: &Gen) -> TokenStream {
+    let generics = def.generics.iter().map(|g| gen_name(g, gen));
+    let generics = quote! { #(#generics),* };
+    let phantoms = gen_phantoms(def);
     let name = gen_type_name(def, gen);
+
     quote! {
         #[repr(transparent)]
-        pub struct #name(pub *mut ::core::ffi::c_void);
+        pub struct #name(pub *mut ::core::ffi::c_void, #(#phantoms,)*);
+        impl<#generics> ::core::marker::Copy for #name {}
+        impl<#generics> ::core::clone::Clone for #name {
+            fn clone(&self) -> Self {
+                *self
+            }
+        }
     }
 }
 
@@ -62,11 +72,7 @@ fn gen_class(def: &TypeDef, gen: &Gen) -> TokenStream {
     let has_default = def.interface_impls().any(|interface| interface.is_default());
 
     if has_default {
-        let name = gen_type_name(def, gen);
-        quote! {
-            #[repr(transparent)]
-            pub struct #name(pub *mut ::core::ffi::c_void);
-        }
+        gen_interface(def, gen)
     } else {
         quote! {}
     }
@@ -398,7 +404,7 @@ fn gen_sys_guid(guid: &GUID) -> TokenStream {
     // TODO: once code complete measure how much longer it takes if-any to use from_u128 to produce a more compact package
 
     quote! {
-        ::windows_sys::GUID { data1:#a, data2:#b, data3:#c, data4:[#d, #e, #f, #g, #h, #i, #j, #k] }
+        ::windows_sys::core::GUID { data1:#a, data2:#b, data3:#c, data4:[#d, #e, #f, #g, #h, #i, #j, #k] }
     }
 }
 
@@ -422,16 +428,7 @@ fn gen_sys_sig(sig: &Signature, gen: &Gen) -> TokenStream {
         }
     }
 
-    let kind = gen_sys_name(&sig.kind, gen);
-
-    if sig.kind.is_nullable() {
-        tokens.combine(&quote! {
-            ::core::option::Option<#kind>
-        });
-    } else {
-        tokens.combine(&kind)
-    }
-
+    tokens.combine(&gen_sys_name(&sig.kind, gen));
     tokens
 }
 

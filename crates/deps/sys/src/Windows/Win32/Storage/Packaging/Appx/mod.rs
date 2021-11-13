@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
     pub fn ActivatePackageVirtualizationContext(context: *const PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__, cookie: *mut usize) -> ::windows_sys::core::HRESULT;
@@ -216,7 +216,7 @@ pub struct APPX_ENCRYPTED_PACKAGE_SETTINGS {
     pub keyLength: u32,
     pub encryptionAlgorithm: super::super::super::Foundation::PWSTR,
     pub useDiffusion: super::super::super::Foundation::BOOL,
-    pub blockMapHashAlgorithm: ::core::option::Option<super::super::super::System::Com::IUri>,
+    pub blockMapHashAlgorithm: super::super::super::System::Com::IUri,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::marker::Copy for APPX_ENCRYPTED_PACKAGE_SETTINGS {}
@@ -231,7 +231,7 @@ impl ::core::clone::Clone for APPX_ENCRYPTED_PACKAGE_SETTINGS {
 pub struct APPX_ENCRYPTED_PACKAGE_SETTINGS2 {
     pub keyLength: u32,
     pub encryptionAlgorithm: super::super::super::Foundation::PWSTR,
-    pub blockMapHashAlgorithm: ::core::option::Option<super::super::super::System::Com::IUri>,
+    pub blockMapHashAlgorithm: super::super::super::System::Com::IUri,
     pub options: u32,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -320,7 +320,7 @@ impl ::core::clone::Clone for APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct APPX_PACKAGE_SETTINGS {
     pub forceZip32: super::super::super::Foundation::BOOL,
-    pub hashMethod: ::core::option::Option<super::super::super::System::Com::IUri>,
+    pub hashMethod: super::super::super::System::Com::IUri,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::marker::Copy for APPX_PACKAGE_SETTINGS {}
@@ -333,7 +333,7 @@ impl ::core::clone::Clone for APPX_PACKAGE_SETTINGS {
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct APPX_PACKAGE_WRITER_PAYLOAD_STREAM {
-    pub inputStream: ::core::option::Option<super::super::super::System::Com::IStream>,
+    pub inputStream: super::super::super::System::Com::IStream,
     pub fileName: super::super::super::Foundation::PWSTR,
     pub contentType: super::super::super::Foundation::PWSTR,
     pub compressionOption: APPX_COMPRESSION_OPTION,
@@ -452,31 +452,31 @@ impl ::core::clone::Clone for AppPolicyWindowingModel {
         *self
     }
 }
-pub const AppxBundleFactory: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const AppxBundleFactory: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 932054086,
     data2: 21380,
     data3: 17335,
     data4: [136, 119, 231, 219, 221, 136, 52, 70],
 };
-pub const AppxEncryptionFactory: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const AppxEncryptionFactory: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3697692637,
     data2: 55400,
     data3: 18158,
     data4: [135, 128, 141, 25, 108, 183, 57, 247],
 };
-pub const AppxFactory: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const AppxFactory: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1480761664,
     data2: 65439,
     data3: 16742,
     data4: [143, 92, 98, 245, 183, 176, 199, 129],
 };
-pub const AppxPackageEditor: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const AppxPackageEditor: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4026856138,
     data2: 44732,
     data3: 19213,
     data4: [191, 88, 229, 22, 213, 188, 192, 171],
 };
-pub const AppxPackagingDiagnosticEventSinkManager: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const AppxPackagingDiagnosticEventSinkManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1355418182,
     data2: 5512,
     data3: 16737,
@@ -507,166 +507,652 @@ impl ::core::clone::Clone for DX_FEATURE_LEVEL {
 }
 #[repr(transparent)]
 pub struct IAppxBlockMapBlock(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppxBlockMapBlock {}
+impl ::core::clone::Clone for IAppxBlockMapBlock {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppxBlockMapBlocksEnumerator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppxBlockMapBlocksEnumerator {}
+impl ::core::clone::Clone for IAppxBlockMapBlocksEnumerator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppxBlockMapFile(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppxBlockMapFile {}
+impl ::core::clone::Clone for IAppxBlockMapFile {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppxBlockMapFilesEnumerator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppxBlockMapFilesEnumerator {}
+impl ::core::clone::Clone for IAppxBlockMapFilesEnumerator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppxBlockMapReader(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppxBlockMapReader {}
+impl ::core::clone::Clone for IAppxBlockMapReader {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppxBundleFactory(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppxBundleFactory {}
+impl ::core::clone::Clone for IAppxBundleFactory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppxBundleManifestOptionalBundleInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppxBundleManifestOptionalBundleInfo {}
+impl ::core::clone::Clone for IAppxBundleManifestOptionalBundleInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppxBundleManifestOptionalBundleInfoEnumerator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppxBundleManifestOptionalBundleInfoEnumerator {}
+impl ::core::clone::Clone for IAppxBundleManifestOptionalBundleInfoEnumerator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppxBundleManifestPackageInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppxBundleManifestPackageInfo {}
+impl ::core::clone::Clone for IAppxBundleManifestPackageInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppxBundleManifestPackageInfo2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppxBundleManifestPackageInfo2 {}
+impl ::core::clone::Clone for IAppxBundleManifestPackageInfo2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppxBundleManifestPackageInfo3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppxBundleManifestPackageInfo3 {}
+impl ::core::clone::Clone for IAppxBundleManifestPackageInfo3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppxBundleManifestPackageInfo4(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppxBundleManifestPackageInfo4 {}
+impl ::core::clone::Clone for IAppxBundleManifestPackageInfo4 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppxBundleManifestPackageInfoEnumerator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppxBundleManifestPackageInfoEnumerator {}
+impl ::core::clone::Clone for IAppxBundleManifestPackageInfoEnumerator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppxBundleManifestReader(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppxBundleManifestReader {}
+impl ::core::clone::Clone for IAppxBundleManifestReader {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppxBundleManifestReader2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppxBundleManifestReader2 {}
+impl ::core::clone::Clone for IAppxBundleManifestReader2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppxBundleReader(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppxBundleReader {}
+impl ::core::clone::Clone for IAppxBundleReader {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppxBundleWriter(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppxBundleWriter {}
+impl ::core::clone::Clone for IAppxBundleWriter {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppxBundleWriter2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppxBundleWriter2 {}
+impl ::core::clone::Clone for IAppxBundleWriter2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppxBundleWriter3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppxBundleWriter3 {}
+impl ::core::clone::Clone for IAppxBundleWriter3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppxBundleWriter4(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppxBundleWriter4 {}
+impl ::core::clone::Clone for IAppxBundleWriter4 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppxContentGroup(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppxContentGroup {}
+impl ::core::clone::Clone for IAppxContentGroup {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppxContentGroupFilesEnumerator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppxContentGroupFilesEnumerator {}
+impl ::core::clone::Clone for IAppxContentGroupFilesEnumerator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppxContentGroupMapReader(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppxContentGroupMapReader {}
+impl ::core::clone::Clone for IAppxContentGroupMapReader {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppxContentGroupMapWriter(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppxContentGroupMapWriter {}
+impl ::core::clone::Clone for IAppxContentGroupMapWriter {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppxContentGroupsEnumerator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppxContentGroupsEnumerator {}
+impl ::core::clone::Clone for IAppxContentGroupsEnumerator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppxEncryptedBundleWriter(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppxEncryptedBundleWriter {}
+impl ::core::clone::Clone for IAppxEncryptedBundleWriter {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppxEncryptedBundleWriter2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppxEncryptedBundleWriter2 {}
+impl ::core::clone::Clone for IAppxEncryptedBundleWriter2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppxEncryptedBundleWriter3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppxEncryptedBundleWriter3 {}
+impl ::core::clone::Clone for IAppxEncryptedBundleWriter3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppxEncryptedPackageWriter(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppxEncryptedPackageWriter {}
+impl ::core::clone::Clone for IAppxEncryptedPackageWriter {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppxEncryptedPackageWriter2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppxEncryptedPackageWriter2 {}
+impl ::core::clone::Clone for IAppxEncryptedPackageWriter2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppxEncryptionFactory(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppxEncryptionFactory {}
+impl ::core::clone::Clone for IAppxEncryptionFactory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppxEncryptionFactory2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppxEncryptionFactory2 {}
+impl ::core::clone::Clone for IAppxEncryptionFactory2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppxEncryptionFactory3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppxEncryptionFactory3 {}
+impl ::core::clone::Clone for IAppxEncryptionFactory3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppxEncryptionFactory4(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppxEncryptionFactory4 {}
+impl ::core::clone::Clone for IAppxEncryptionFactory4 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppxFactory(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppxFactory {}
+impl ::core::clone::Clone for IAppxFactory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppxFactory2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppxFactory2 {}
+impl ::core::clone::Clone for IAppxFactory2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppxFile(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppxFile {}
+impl ::core::clone::Clone for IAppxFile {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppxFilesEnumerator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppxFilesEnumerator {}
+impl ::core::clone::Clone for IAppxFilesEnumerator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppxManifestApplication(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppxManifestApplication {}
+impl ::core::clone::Clone for IAppxManifestApplication {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppxManifestApplicationsEnumerator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppxManifestApplicationsEnumerator {}
+impl ::core::clone::Clone for IAppxManifestApplicationsEnumerator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppxManifestCapabilitiesEnumerator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppxManifestCapabilitiesEnumerator {}
+impl ::core::clone::Clone for IAppxManifestCapabilitiesEnumerator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppxManifestDeviceCapabilitiesEnumerator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppxManifestDeviceCapabilitiesEnumerator {}
+impl ::core::clone::Clone for IAppxManifestDeviceCapabilitiesEnumerator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppxManifestDriverConstraint(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppxManifestDriverConstraint {}
+impl ::core::clone::Clone for IAppxManifestDriverConstraint {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppxManifestDriverConstraintsEnumerator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppxManifestDriverConstraintsEnumerator {}
+impl ::core::clone::Clone for IAppxManifestDriverConstraintsEnumerator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppxManifestDriverDependenciesEnumerator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppxManifestDriverDependenciesEnumerator {}
+impl ::core::clone::Clone for IAppxManifestDriverDependenciesEnumerator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppxManifestDriverDependency(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppxManifestDriverDependency {}
+impl ::core::clone::Clone for IAppxManifestDriverDependency {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppxManifestHostRuntimeDependenciesEnumerator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppxManifestHostRuntimeDependenciesEnumerator {}
+impl ::core::clone::Clone for IAppxManifestHostRuntimeDependenciesEnumerator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppxManifestHostRuntimeDependency(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppxManifestHostRuntimeDependency {}
+impl ::core::clone::Clone for IAppxManifestHostRuntimeDependency {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppxManifestHostRuntimeDependency2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppxManifestHostRuntimeDependency2 {}
+impl ::core::clone::Clone for IAppxManifestHostRuntimeDependency2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppxManifestMainPackageDependenciesEnumerator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppxManifestMainPackageDependenciesEnumerator {}
+impl ::core::clone::Clone for IAppxManifestMainPackageDependenciesEnumerator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppxManifestMainPackageDependency(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppxManifestMainPackageDependency {}
+impl ::core::clone::Clone for IAppxManifestMainPackageDependency {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppxManifestOSPackageDependenciesEnumerator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppxManifestOSPackageDependenciesEnumerator {}
+impl ::core::clone::Clone for IAppxManifestOSPackageDependenciesEnumerator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppxManifestOSPackageDependency(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppxManifestOSPackageDependency {}
+impl ::core::clone::Clone for IAppxManifestOSPackageDependency {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppxManifestOptionalPackageInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppxManifestOptionalPackageInfo {}
+impl ::core::clone::Clone for IAppxManifestOptionalPackageInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppxManifestPackageDependenciesEnumerator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppxManifestPackageDependenciesEnumerator {}
+impl ::core::clone::Clone for IAppxManifestPackageDependenciesEnumerator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppxManifestPackageDependency(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppxManifestPackageDependency {}
+impl ::core::clone::Clone for IAppxManifestPackageDependency {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppxManifestPackageDependency2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppxManifestPackageDependency2 {}
+impl ::core::clone::Clone for IAppxManifestPackageDependency2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppxManifestPackageDependency3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppxManifestPackageDependency3 {}
+impl ::core::clone::Clone for IAppxManifestPackageDependency3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppxManifestPackageId(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppxManifestPackageId {}
+impl ::core::clone::Clone for IAppxManifestPackageId {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppxManifestPackageId2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppxManifestPackageId2 {}
+impl ::core::clone::Clone for IAppxManifestPackageId2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppxManifestProperties(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppxManifestProperties {}
+impl ::core::clone::Clone for IAppxManifestProperties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppxManifestQualifiedResource(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppxManifestQualifiedResource {}
+impl ::core::clone::Clone for IAppxManifestQualifiedResource {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppxManifestQualifiedResourcesEnumerator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppxManifestQualifiedResourcesEnumerator {}
+impl ::core::clone::Clone for IAppxManifestQualifiedResourcesEnumerator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppxManifestReader(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppxManifestReader {}
+impl ::core::clone::Clone for IAppxManifestReader {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppxManifestReader2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppxManifestReader2 {}
+impl ::core::clone::Clone for IAppxManifestReader2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppxManifestReader3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppxManifestReader3 {}
+impl ::core::clone::Clone for IAppxManifestReader3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppxManifestReader4(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppxManifestReader4 {}
+impl ::core::clone::Clone for IAppxManifestReader4 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppxManifestReader5(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppxManifestReader5 {}
+impl ::core::clone::Clone for IAppxManifestReader5 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppxManifestReader6(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppxManifestReader6 {}
+impl ::core::clone::Clone for IAppxManifestReader6 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppxManifestReader7(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppxManifestReader7 {}
+impl ::core::clone::Clone for IAppxManifestReader7 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppxManifestResourcesEnumerator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppxManifestResourcesEnumerator {}
+impl ::core::clone::Clone for IAppxManifestResourcesEnumerator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppxManifestTargetDeviceFamiliesEnumerator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppxManifestTargetDeviceFamiliesEnumerator {}
+impl ::core::clone::Clone for IAppxManifestTargetDeviceFamiliesEnumerator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppxManifestTargetDeviceFamily(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppxManifestTargetDeviceFamily {}
+impl ::core::clone::Clone for IAppxManifestTargetDeviceFamily {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppxPackageEditor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppxPackageEditor {}
+impl ::core::clone::Clone for IAppxPackageEditor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppxPackageReader(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppxPackageReader {}
+impl ::core::clone::Clone for IAppxPackageReader {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppxPackageWriter(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppxPackageWriter {}
+impl ::core::clone::Clone for IAppxPackageWriter {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppxPackageWriter2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppxPackageWriter2 {}
+impl ::core::clone::Clone for IAppxPackageWriter2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppxPackageWriter3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppxPackageWriter3 {}
+impl ::core::clone::Clone for IAppxPackageWriter3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppxPackagingDiagnosticEventSink(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppxPackagingDiagnosticEventSink {}
+impl ::core::clone::Clone for IAppxPackagingDiagnosticEventSink {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppxPackagingDiagnosticEventSinkManager(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppxPackagingDiagnosticEventSinkManager {}
+impl ::core::clone::Clone for IAppxPackagingDiagnosticEventSinkManager {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppxSourceContentGroupMapReader(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppxSourceContentGroupMapReader {}
+impl ::core::clone::Clone for IAppxSourceContentGroupMapReader {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct PACKAGEDEPENDENCY_CONTEXT__ {
     pub unused: i32,

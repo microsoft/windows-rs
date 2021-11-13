@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
     #[cfg(feature = "Win32_Foundation")]
@@ -449,7 +449,7 @@ impl ::core::clone::Clone for PURGE_COMM_FLAGS {
         *self
     }
 }
-pub const SID_3GPP_SUPSVCMODEL: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const SID_3GPP_SUPSVCMODEL: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3620769287,
     data2: 55143,
     data3: 17528,

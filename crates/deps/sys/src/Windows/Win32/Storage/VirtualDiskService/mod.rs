@@ -1,13 +1,13 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {}
-pub const CLSID_VdsLoader: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CLSID_VdsLoader: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2620976481,
     data2: 54629,
     data3: 18216,
     data4: [174, 238, 200, 9, 82, 240, 236, 222],
 };
-pub const CLSID_VdsService: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CLSID_VdsService: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2098803659,
     data2: 34550,
     data3: 19096,
@@ -16,76 +16,292 @@ pub const CLSID_VdsService: ::windows_sys::core::GUID = ::windows_sys::GUID {
 pub const GPT_PARTITION_NAME_LENGTH: u32 = 36u32;
 #[repr(transparent)]
 pub struct IEnumVdsObject(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnumVdsObject {}
+impl ::core::clone::Clone for IEnumVdsObject {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVdsAdmin(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVdsAdmin {}
+impl ::core::clone::Clone for IVdsAdmin {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVdsAdviseSink(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVdsAdviseSink {}
+impl ::core::clone::Clone for IVdsAdviseSink {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVdsAsync(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVdsAsync {}
+impl ::core::clone::Clone for IVdsAsync {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVdsController(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVdsController {}
+impl ::core::clone::Clone for IVdsController {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVdsControllerControllerPort(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVdsControllerControllerPort {}
+impl ::core::clone::Clone for IVdsControllerControllerPort {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVdsControllerPort(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVdsControllerPort {}
+impl ::core::clone::Clone for IVdsControllerPort {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVdsDrive(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVdsDrive {}
+impl ::core::clone::Clone for IVdsDrive {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVdsDrive2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVdsDrive2 {}
+impl ::core::clone::Clone for IVdsDrive2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVdsHwProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVdsHwProvider {}
+impl ::core::clone::Clone for IVdsHwProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVdsHwProviderPrivate(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVdsHwProviderPrivate {}
+impl ::core::clone::Clone for IVdsHwProviderPrivate {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVdsHwProviderPrivateMpio(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVdsHwProviderPrivateMpio {}
+impl ::core::clone::Clone for IVdsHwProviderPrivateMpio {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVdsHwProviderStoragePools(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVdsHwProviderStoragePools {}
+impl ::core::clone::Clone for IVdsHwProviderStoragePools {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVdsHwProviderType(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVdsHwProviderType {}
+impl ::core::clone::Clone for IVdsHwProviderType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVdsHwProviderType2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVdsHwProviderType2 {}
+impl ::core::clone::Clone for IVdsHwProviderType2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVdsIscsiPortal(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVdsIscsiPortal {}
+impl ::core::clone::Clone for IVdsIscsiPortal {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVdsIscsiPortalGroup(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVdsIscsiPortalGroup {}
+impl ::core::clone::Clone for IVdsIscsiPortalGroup {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVdsIscsiTarget(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVdsIscsiTarget {}
+impl ::core::clone::Clone for IVdsIscsiTarget {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVdsLun(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVdsLun {}
+impl ::core::clone::Clone for IVdsLun {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVdsLun2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVdsLun2 {}
+impl ::core::clone::Clone for IVdsLun2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVdsLunControllerPorts(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVdsLunControllerPorts {}
+impl ::core::clone::Clone for IVdsLunControllerPorts {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVdsLunIscsi(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVdsLunIscsi {}
+impl ::core::clone::Clone for IVdsLunIscsi {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVdsLunMpio(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVdsLunMpio {}
+impl ::core::clone::Clone for IVdsLunMpio {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVdsLunNaming(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVdsLunNaming {}
+impl ::core::clone::Clone for IVdsLunNaming {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVdsLunNumber(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVdsLunNumber {}
+impl ::core::clone::Clone for IVdsLunNumber {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVdsLunPlex(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVdsLunPlex {}
+impl ::core::clone::Clone for IVdsLunPlex {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVdsMaintenance(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVdsMaintenance {}
+impl ::core::clone::Clone for IVdsMaintenance {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVdsProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVdsProvider {}
+impl ::core::clone::Clone for IVdsProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVdsProviderPrivate(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVdsProviderPrivate {}
+impl ::core::clone::Clone for IVdsProviderPrivate {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVdsProviderSupport(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVdsProviderSupport {}
+impl ::core::clone::Clone for IVdsProviderSupport {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVdsStoragePool(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVdsStoragePool {}
+impl ::core::clone::Clone for IVdsStoragePool {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVdsSubSystem(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVdsSubSystem {}
+impl ::core::clone::Clone for IVdsSubSystem {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVdsSubSystem2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVdsSubSystem2 {}
+impl ::core::clone::Clone for IVdsSubSystem2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVdsSubSystemInterconnect(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVdsSubSystemInterconnect {}
+impl ::core::clone::Clone for IVdsSubSystemInterconnect {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVdsSubSystemIscsi(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVdsSubSystemIscsi {}
+impl ::core::clone::Clone for IVdsSubSystemIscsi {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVdsSubSystemNaming(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVdsSubSystemNaming {}
+impl ::core::clone::Clone for IVdsSubSystemNaming {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MAX_FS_ALLOWED_CLUSTER_SIZES_SIZE: u32 = 32u32;
 pub const MAX_FS_FORMAT_SUPPORT_NAME_SIZE: u32 = 32u32;
 pub const MAX_FS_NAME_SIZE: u32 = 8u32;
@@ -119,7 +335,7 @@ impl ::core::clone::Clone for VDS_ASYNC_OUTPUT_0 {
 }
 #[repr(C)]
 pub struct VDS_ASYNC_OUTPUT_0_0 {
-    pub pVolumeUnk: ::core::option::Option<::windows_sys::core::IUnknown>,
+    pub pVolumeUnk: ::windows_sys::core::IUnknown,
 }
 impl ::core::marker::Copy for VDS_ASYNC_OUTPUT_0_0 {}
 impl ::core::clone::Clone for VDS_ASYNC_OUTPUT_0_0 {
@@ -129,7 +345,7 @@ impl ::core::clone::Clone for VDS_ASYNC_OUTPUT_0_0 {
 }
 #[repr(C)]
 pub struct VDS_ASYNC_OUTPUT_0_1 {
-    pub pLunUnk: ::core::option::Option<::windows_sys::core::IUnknown>,
+    pub pLunUnk: ::windows_sys::core::IUnknown,
 }
 impl ::core::marker::Copy for VDS_ASYNC_OUTPUT_0_1 {}
 impl ::core::clone::Clone for VDS_ASYNC_OUTPUT_0_1 {
@@ -150,7 +366,7 @@ impl ::core::clone::Clone for VDS_ASYNC_OUTPUT_0_2 {
 }
 #[repr(C)]
 pub struct VDS_ASYNC_OUTPUT_0_3 {
-    pub pPortalGroupUnk: ::core::option::Option<::windows_sys::core::IUnknown>,
+    pub pPortalGroupUnk: ::windows_sys::core::IUnknown,
 }
 impl ::core::marker::Copy for VDS_ASYNC_OUTPUT_0_3 {}
 impl ::core::clone::Clone for VDS_ASYNC_OUTPUT_0_3 {
@@ -160,7 +376,7 @@ impl ::core::clone::Clone for VDS_ASYNC_OUTPUT_0_3 {
 }
 #[repr(C)]
 pub struct VDS_ASYNC_OUTPUT_0_4 {
-    pub pTargetUnk: ::core::option::Option<::windows_sys::core::IUnknown>,
+    pub pTargetUnk: ::windows_sys::core::IUnknown,
 }
 impl ::core::marker::Copy for VDS_ASYNC_OUTPUT_0_4 {}
 impl ::core::clone::Clone for VDS_ASYNC_OUTPUT_0_4 {
@@ -170,7 +386,7 @@ impl ::core::clone::Clone for VDS_ASYNC_OUTPUT_0_4 {
 }
 #[repr(C)]
 pub struct VDS_ASYNC_OUTPUT_0_5 {
-    pub pVolumeUnk: ::core::option::Option<::windows_sys::core::IUnknown>,
+    pub pVolumeUnk: ::windows_sys::core::IUnknown,
 }
 impl ::core::marker::Copy for VDS_ASYNC_OUTPUT_0_5 {}
 impl ::core::clone::Clone for VDS_ASYNC_OUTPUT_0_5 {
@@ -180,7 +396,7 @@ impl ::core::clone::Clone for VDS_ASYNC_OUTPUT_0_5 {
 }
 #[repr(C)]
 pub struct VDS_ASYNC_OUTPUT_0_6 {
-    pub pVDiskUnk: ::core::option::Option<::windows_sys::core::IUnknown>,
+    pub pVDiskUnk: ::windows_sys::core::IUnknown,
 }
 impl ::core::marker::Copy for VDS_ASYNC_OUTPUT_0_6 {}
 impl ::core::clone::Clone for VDS_ASYNC_OUTPUT_0_6 {

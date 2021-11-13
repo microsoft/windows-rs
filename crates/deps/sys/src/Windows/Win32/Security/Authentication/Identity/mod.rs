@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[cfg(feature = "Win32_Security_Authentication_Identity_Provider")]
 pub mod Provider;
 #[link(name = "windows")]
@@ -509,74 +509,74 @@ pub const AUTH_REQ_OK_AS_DELEGATE: u32 = 256u32;
 pub const AUTH_REQ_PREAUTH_REQUIRED: u32 = 512u32;
 pub const AUTH_REQ_TRANSITIVE_TRUST: u32 = 1024u32;
 pub const AUTH_REQ_VALIDATE_CLIENT: u32 = 128u32;
-pub const Audit_AccountLogon: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1771542608, data2: 31098, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
-pub const Audit_AccountLogon_CredentialValidation: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 214864447, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
-pub const Audit_AccountLogon_KerbCredentialValidation: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 214864450, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
-pub const Audit_AccountLogon_Kerberos: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 214864448, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
-pub const Audit_AccountLogon_Others: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 214864449, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
-pub const Audit_AccountManagement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1771542606, data2: 31098, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
-pub const Audit_AccountManagement_ApplicationGroup: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 214864441, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
-pub const Audit_AccountManagement_ComputerAccount: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 214864438, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
-pub const Audit_AccountManagement_DistributionGroup: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 214864440, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
-pub const Audit_AccountManagement_Others: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 214864442, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
-pub const Audit_AccountManagement_SecurityGroup: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 214864439, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
-pub const Audit_AccountManagement_UserAccount: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 214864437, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
-pub const Audit_DSAccess_DSAccess: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 214864443, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
-pub const Audit_DetailedTracking: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1771542604, data2: 31098, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
-pub const Audit_DetailedTracking_DpapiActivity: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 214864429, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
-pub const Audit_DetailedTracking_PnpActivity: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 214864456, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
-pub const Audit_DetailedTracking_ProcessCreation: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 214864427, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
-pub const Audit_DetailedTracking_ProcessTermination: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 214864428, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
-pub const Audit_DetailedTracking_RpcCall: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 214864430, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
-pub const Audit_DetailedTracking_TokenRightAdjusted: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 214864458, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
-pub const Audit_DirectoryServiceAccess: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1771542607, data2: 31098, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
-pub const Audit_DsAccess_AdAuditChanges: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 214864444, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
-pub const Audit_Ds_DetailedReplication: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 214864446, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
-pub const Audit_Ds_Replication: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 214864445, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
-pub const Audit_Logon: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1771542601, data2: 31098, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
-pub const Audit_Logon_AccountLockout: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 214864407, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
-pub const Audit_Logon_Claims: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 214864455, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
-pub const Audit_Logon_Groups: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 214864457, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
-pub const Audit_Logon_IPSecMainMode: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 214864408, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
-pub const Audit_Logon_IPSecQuickMode: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 214864409, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
-pub const Audit_Logon_IPSecUserMode: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 214864410, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
-pub const Audit_Logon_Logoff: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 214864406, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
-pub const Audit_Logon_Logon: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 214864405, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
-pub const Audit_Logon_NPS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 214864451, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
-pub const Audit_Logon_Others: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 214864412, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
-pub const Audit_Logon_SpecialLogon: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 214864411, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
-pub const Audit_ObjectAccess: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1771542602, data2: 31098, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
-pub const Audit_ObjectAccess_ApplicationGenerated: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 214864418, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
-pub const Audit_ObjectAccess_CbacStaging: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 214864454, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
-pub const Audit_ObjectAccess_CertificationServices: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 214864417, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
-pub const Audit_ObjectAccess_DetailedFileShare: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 214864452, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
-pub const Audit_ObjectAccess_FileSystem: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 214864413, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
-pub const Audit_ObjectAccess_FirewallConnection: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 214864422, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
-pub const Audit_ObjectAccess_FirewallPacketDrops: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 214864421, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
-pub const Audit_ObjectAccess_Handle: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 214864419, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
-pub const Audit_ObjectAccess_Kernel: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 214864415, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
-pub const Audit_ObjectAccess_Other: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 214864423, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
-pub const Audit_ObjectAccess_Registry: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 214864414, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
-pub const Audit_ObjectAccess_RemovableStorage: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 214864453, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
-pub const Audit_ObjectAccess_Sam: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 214864416, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
-pub const Audit_ObjectAccess_Share: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 214864420, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
-pub const Audit_PolicyChange: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1771542605, data2: 31098, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
-pub const Audit_PolicyChange_AuditPolicy: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 214864431, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
-pub const Audit_PolicyChange_AuthenticationPolicy: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 214864432, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
-pub const Audit_PolicyChange_AuthorizationPolicy: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 214864433, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
-pub const Audit_PolicyChange_MpsscvRulePolicy: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 214864434, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
-pub const Audit_PolicyChange_Others: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 214864436, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
-pub const Audit_PolicyChange_WfpIPSecPolicy: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 214864435, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
-pub const Audit_PrivilegeUse: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1771542603, data2: 31098, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
-pub const Audit_PrivilegeUse_NonSensitive: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 214864425, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
-pub const Audit_PrivilegeUse_Others: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 214864426, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
-pub const Audit_PrivilegeUse_Sensitive: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 214864424, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
-pub const Audit_System: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1771542600, data2: 31098, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
-pub const Audit_System_IPSecDriverEvents: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 214864403, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
-pub const Audit_System_Integrity: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 214864402, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
-pub const Audit_System_Others: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 214864404, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
-pub const Audit_System_SecurityStateChange: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 214864400, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
-pub const Audit_System_SecuritySubsystemExtension: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 214864401, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
+pub const Audit_AccountLogon: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1771542608, data2: 31098, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
+pub const Audit_AccountLogon_CredentialValidation: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 214864447, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
+pub const Audit_AccountLogon_KerbCredentialValidation: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 214864450, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
+pub const Audit_AccountLogon_Kerberos: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 214864448, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
+pub const Audit_AccountLogon_Others: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 214864449, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
+pub const Audit_AccountManagement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1771542606, data2: 31098, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
+pub const Audit_AccountManagement_ApplicationGroup: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 214864441, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
+pub const Audit_AccountManagement_ComputerAccount: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 214864438, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
+pub const Audit_AccountManagement_DistributionGroup: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 214864440, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
+pub const Audit_AccountManagement_Others: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 214864442, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
+pub const Audit_AccountManagement_SecurityGroup: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 214864439, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
+pub const Audit_AccountManagement_UserAccount: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 214864437, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
+pub const Audit_DSAccess_DSAccess: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 214864443, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
+pub const Audit_DetailedTracking: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1771542604, data2: 31098, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
+pub const Audit_DetailedTracking_DpapiActivity: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 214864429, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
+pub const Audit_DetailedTracking_PnpActivity: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 214864456, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
+pub const Audit_DetailedTracking_ProcessCreation: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 214864427, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
+pub const Audit_DetailedTracking_ProcessTermination: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 214864428, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
+pub const Audit_DetailedTracking_RpcCall: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 214864430, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
+pub const Audit_DetailedTracking_TokenRightAdjusted: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 214864458, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
+pub const Audit_DirectoryServiceAccess: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1771542607, data2: 31098, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
+pub const Audit_DsAccess_AdAuditChanges: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 214864444, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
+pub const Audit_Ds_DetailedReplication: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 214864446, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
+pub const Audit_Ds_Replication: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 214864445, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
+pub const Audit_Logon: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1771542601, data2: 31098, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
+pub const Audit_Logon_AccountLockout: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 214864407, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
+pub const Audit_Logon_Claims: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 214864455, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
+pub const Audit_Logon_Groups: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 214864457, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
+pub const Audit_Logon_IPSecMainMode: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 214864408, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
+pub const Audit_Logon_IPSecQuickMode: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 214864409, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
+pub const Audit_Logon_IPSecUserMode: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 214864410, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
+pub const Audit_Logon_Logoff: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 214864406, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
+pub const Audit_Logon_Logon: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 214864405, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
+pub const Audit_Logon_NPS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 214864451, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
+pub const Audit_Logon_Others: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 214864412, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
+pub const Audit_Logon_SpecialLogon: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 214864411, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
+pub const Audit_ObjectAccess: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1771542602, data2: 31098, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
+pub const Audit_ObjectAccess_ApplicationGenerated: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 214864418, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
+pub const Audit_ObjectAccess_CbacStaging: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 214864454, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
+pub const Audit_ObjectAccess_CertificationServices: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 214864417, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
+pub const Audit_ObjectAccess_DetailedFileShare: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 214864452, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
+pub const Audit_ObjectAccess_FileSystem: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 214864413, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
+pub const Audit_ObjectAccess_FirewallConnection: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 214864422, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
+pub const Audit_ObjectAccess_FirewallPacketDrops: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 214864421, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
+pub const Audit_ObjectAccess_Handle: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 214864419, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
+pub const Audit_ObjectAccess_Kernel: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 214864415, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
+pub const Audit_ObjectAccess_Other: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 214864423, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
+pub const Audit_ObjectAccess_Registry: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 214864414, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
+pub const Audit_ObjectAccess_RemovableStorage: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 214864453, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
+pub const Audit_ObjectAccess_Sam: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 214864416, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
+pub const Audit_ObjectAccess_Share: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 214864420, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
+pub const Audit_PolicyChange: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1771542605, data2: 31098, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
+pub const Audit_PolicyChange_AuditPolicy: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 214864431, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
+pub const Audit_PolicyChange_AuthenticationPolicy: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 214864432, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
+pub const Audit_PolicyChange_AuthorizationPolicy: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 214864433, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
+pub const Audit_PolicyChange_MpsscvRulePolicy: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 214864434, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
+pub const Audit_PolicyChange_Others: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 214864436, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
+pub const Audit_PolicyChange_WfpIPSecPolicy: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 214864435, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
+pub const Audit_PrivilegeUse: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1771542603, data2: 31098, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
+pub const Audit_PrivilegeUse_NonSensitive: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 214864425, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
+pub const Audit_PrivilegeUse_Others: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 214864426, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
+pub const Audit_PrivilegeUse_Sensitive: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 214864424, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
+pub const Audit_System: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1771542600, data2: 31098, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
+pub const Audit_System_IPSecDriverEvents: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 214864403, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
+pub const Audit_System_Integrity: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 214864402, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
+pub const Audit_System_Others: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 214864404, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
+pub const Audit_System_SecurityStateChange: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 214864400, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
+pub const Audit_System_SecuritySubsystemExtension: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 214864401, data2: 27054, data3: 4569, data4: [190, 211, 80, 80, 84, 80, 48, 48] };
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CENTRAL_ACCESS_POLICY {
@@ -764,6 +764,12 @@ pub type FREE_CONTEXT_BUFFER_FN = unsafe extern "system" fn(param0: *mut ::core:
 pub type FREE_CREDENTIALS_HANDLE_FN = unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle) -> i32;
 #[repr(transparent)]
 pub struct ICcgDomainAuthCredentials(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICcgDomainAuthCredentials {}
+impl ::core::clone::Clone for ICcgDomainAuthCredentials {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[cfg(feature = "Win32_Security_Credentials")]
 pub type IMPERSONATE_SECURITY_CONTEXT_FN = unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle) -> i32;
 #[cfg(feature = "Win32_Security_Credentials")]
@@ -2310,17 +2316,17 @@ pub const LSA_CALL_LICENSE_SERVER: u32 = 2147483648u32;
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub struct LSA_DISPATCH_TABLE {
-    pub CreateLogonSession: ::core::option::Option<PLSA_CREATE_LOGON_SESSION>,
-    pub DeleteLogonSession: ::core::option::Option<PLSA_DELETE_LOGON_SESSION>,
-    pub AddCredential: ::core::option::Option<PLSA_ADD_CREDENTIAL>,
-    pub GetCredentials: ::core::option::Option<PLSA_GET_CREDENTIALS>,
-    pub DeleteCredential: ::core::option::Option<PLSA_DELETE_CREDENTIAL>,
-    pub AllocateLsaHeap: ::core::option::Option<PLSA_ALLOCATE_LSA_HEAP>,
-    pub FreeLsaHeap: ::core::option::Option<PLSA_FREE_LSA_HEAP>,
-    pub AllocateClientBuffer: ::core::option::Option<PLSA_ALLOCATE_CLIENT_BUFFER>,
-    pub FreeClientBuffer: ::core::option::Option<PLSA_FREE_CLIENT_BUFFER>,
-    pub CopyToClientBuffer: ::core::option::Option<PLSA_COPY_TO_CLIENT_BUFFER>,
-    pub CopyFromClientBuffer: ::core::option::Option<PLSA_COPY_FROM_CLIENT_BUFFER>,
+    pub CreateLogonSession: PLSA_CREATE_LOGON_SESSION,
+    pub DeleteLogonSession: PLSA_DELETE_LOGON_SESSION,
+    pub AddCredential: PLSA_ADD_CREDENTIAL,
+    pub GetCredentials: PLSA_GET_CREDENTIALS,
+    pub DeleteCredential: PLSA_DELETE_CREDENTIAL,
+    pub AllocateLsaHeap: PLSA_ALLOCATE_LSA_HEAP,
+    pub FreeLsaHeap: PLSA_FREE_LSA_HEAP,
+    pub AllocateClientBuffer: PLSA_ALLOCATE_CLIENT_BUFFER,
+    pub FreeClientBuffer: PLSA_FREE_CLIENT_BUFFER,
+    pub CopyToClientBuffer: PLSA_COPY_TO_CLIENT_BUFFER,
+    pub CopyFromClientBuffer: PLSA_COPY_FROM_CLIENT_BUFFER,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::marker::Copy for LSA_DISPATCH_TABLE {}
@@ -2522,69 +2528,69 @@ impl ::core::clone::Clone for LSA_REFERENCED_DOMAIN_LIST {
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials", feature = "Win32_System_Kernel", feature = "Win32_System_Threading"))]
 pub struct LSA_SECPKG_FUNCTION_TABLE {
-    pub CreateLogonSession: ::core::option::Option<PLSA_CREATE_LOGON_SESSION>,
-    pub DeleteLogonSession: ::core::option::Option<PLSA_DELETE_LOGON_SESSION>,
-    pub AddCredential: ::core::option::Option<PLSA_ADD_CREDENTIAL>,
-    pub GetCredentials: ::core::option::Option<PLSA_GET_CREDENTIALS>,
-    pub DeleteCredential: ::core::option::Option<PLSA_DELETE_CREDENTIAL>,
-    pub AllocateLsaHeap: ::core::option::Option<PLSA_ALLOCATE_LSA_HEAP>,
-    pub FreeLsaHeap: ::core::option::Option<PLSA_FREE_LSA_HEAP>,
-    pub AllocateClientBuffer: ::core::option::Option<PLSA_ALLOCATE_CLIENT_BUFFER>,
-    pub FreeClientBuffer: ::core::option::Option<PLSA_FREE_CLIENT_BUFFER>,
-    pub CopyToClientBuffer: ::core::option::Option<PLSA_COPY_TO_CLIENT_BUFFER>,
-    pub CopyFromClientBuffer: ::core::option::Option<PLSA_COPY_FROM_CLIENT_BUFFER>,
-    pub ImpersonateClient: ::core::option::Option<PLSA_IMPERSONATE_CLIENT>,
-    pub UnloadPackage: ::core::option::Option<PLSA_UNLOAD_PACKAGE>,
-    pub DuplicateHandle: ::core::option::Option<PLSA_DUPLICATE_HANDLE>,
-    pub SaveSupplementalCredentials: ::core::option::Option<PLSA_SAVE_SUPPLEMENTAL_CREDENTIALS>,
-    pub CreateThread: ::core::option::Option<PLSA_CREATE_THREAD>,
-    pub GetClientInfo: ::core::option::Option<PLSA_GET_CLIENT_INFO>,
-    pub RegisterNotification: ::core::option::Option<PLSA_REGISTER_NOTIFICATION>,
-    pub CancelNotification: ::core::option::Option<PLSA_CANCEL_NOTIFICATION>,
-    pub MapBuffer: ::core::option::Option<PLSA_MAP_BUFFER>,
-    pub CreateToken: ::core::option::Option<PLSA_CREATE_TOKEN>,
-    pub AuditLogon: ::core::option::Option<PLSA_AUDIT_LOGON>,
-    pub CallPackage: ::core::option::Option<PLSA_CALL_PACKAGE>,
-    pub FreeReturnBuffer: ::core::option::Option<PLSA_FREE_LSA_HEAP>,
-    pub GetCallInfo: ::core::option::Option<PLSA_GET_CALL_INFO>,
-    pub CallPackageEx: ::core::option::Option<PLSA_CALL_PACKAGEEX>,
-    pub CreateSharedMemory: ::core::option::Option<PLSA_CREATE_SHARED_MEMORY>,
-    pub AllocateSharedMemory: ::core::option::Option<PLSA_ALLOCATE_SHARED_MEMORY>,
-    pub FreeSharedMemory: ::core::option::Option<PLSA_FREE_SHARED_MEMORY>,
-    pub DeleteSharedMemory: ::core::option::Option<PLSA_DELETE_SHARED_MEMORY>,
-    pub OpenSamUser: ::core::option::Option<PLSA_OPEN_SAM_USER>,
-    pub GetUserCredentials: ::core::option::Option<PLSA_GET_USER_CREDENTIALS>,
-    pub GetUserAuthData: ::core::option::Option<PLSA_GET_USER_AUTH_DATA>,
-    pub CloseSamUser: ::core::option::Option<PLSA_CLOSE_SAM_USER>,
-    pub ConvertAuthDataToToken: ::core::option::Option<PLSA_CONVERT_AUTH_DATA_TO_TOKEN>,
-    pub ClientCallback: ::core::option::Option<PLSA_CLIENT_CALLBACK>,
-    pub UpdateCredentials: ::core::option::Option<PLSA_UPDATE_PRIMARY_CREDENTIALS>,
-    pub GetAuthDataForUser: ::core::option::Option<PLSA_GET_AUTH_DATA_FOR_USER>,
-    pub CrackSingleName: ::core::option::Option<PLSA_CRACK_SINGLE_NAME>,
-    pub AuditAccountLogon: ::core::option::Option<PLSA_AUDIT_ACCOUNT_LOGON>,
-    pub CallPackagePassthrough: ::core::option::Option<PLSA_CALL_PACKAGE_PASSTHROUGH>,
-    pub CrediRead: ::core::option::Option<CredReadFn>,
-    pub CrediReadDomainCredentials: ::core::option::Option<CredReadDomainCredentialsFn>,
-    pub CrediFreeCredentials: ::core::option::Option<CredFreeCredentialsFn>,
-    pub LsaProtectMemory: ::core::option::Option<PLSA_PROTECT_MEMORY>,
-    pub LsaUnprotectMemory: ::core::option::Option<PLSA_PROTECT_MEMORY>,
-    pub OpenTokenByLogonId: ::core::option::Option<PLSA_OPEN_TOKEN_BY_LOGON_ID>,
-    pub ExpandAuthDataForDomain: ::core::option::Option<PLSA_EXPAND_AUTH_DATA_FOR_DOMAIN>,
-    pub AllocatePrivateHeap: ::core::option::Option<PLSA_ALLOCATE_PRIVATE_HEAP>,
-    pub FreePrivateHeap: ::core::option::Option<PLSA_FREE_PRIVATE_HEAP>,
-    pub CreateTokenEx: ::core::option::Option<PLSA_CREATE_TOKEN_EX>,
-    pub CrediWrite: ::core::option::Option<CredWriteFn>,
-    pub CrediUnmarshalandDecodeString: ::core::option::Option<CrediUnmarshalandDecodeStringFn>,
-    pub DummyFunction6: ::core::option::Option<PLSA_PROTECT_MEMORY>,
-    pub GetExtendedCallFlags: ::core::option::Option<PLSA_GET_EXTENDED_CALL_FLAGS>,
-    pub DuplicateTokenHandle: ::core::option::Option<PLSA_DUPLICATE_HANDLE>,
-    pub GetServiceAccountPassword: ::core::option::Option<PLSA_GET_SERVICE_ACCOUNT_PASSWORD>,
-    pub DummyFunction7: ::core::option::Option<PLSA_PROTECT_MEMORY>,
-    pub AuditLogonEx: ::core::option::Option<PLSA_AUDIT_LOGON_EX>,
-    pub CheckProtectedUserByToken: ::core::option::Option<PLSA_CHECK_PROTECTED_USER_BY_TOKEN>,
-    pub QueryClientRequest: ::core::option::Option<PLSA_QUERY_CLIENT_REQUEST>,
-    pub GetAppModeInfo: ::core::option::Option<PLSA_GET_APP_MODE_INFO>,
-    pub SetAppModeInfo: ::core::option::Option<PLSA_SET_APP_MODE_INFO>,
+    pub CreateLogonSession: PLSA_CREATE_LOGON_SESSION,
+    pub DeleteLogonSession: PLSA_DELETE_LOGON_SESSION,
+    pub AddCredential: PLSA_ADD_CREDENTIAL,
+    pub GetCredentials: PLSA_GET_CREDENTIALS,
+    pub DeleteCredential: PLSA_DELETE_CREDENTIAL,
+    pub AllocateLsaHeap: PLSA_ALLOCATE_LSA_HEAP,
+    pub FreeLsaHeap: PLSA_FREE_LSA_HEAP,
+    pub AllocateClientBuffer: PLSA_ALLOCATE_CLIENT_BUFFER,
+    pub FreeClientBuffer: PLSA_FREE_CLIENT_BUFFER,
+    pub CopyToClientBuffer: PLSA_COPY_TO_CLIENT_BUFFER,
+    pub CopyFromClientBuffer: PLSA_COPY_FROM_CLIENT_BUFFER,
+    pub ImpersonateClient: PLSA_IMPERSONATE_CLIENT,
+    pub UnloadPackage: PLSA_UNLOAD_PACKAGE,
+    pub DuplicateHandle: PLSA_DUPLICATE_HANDLE,
+    pub SaveSupplementalCredentials: PLSA_SAVE_SUPPLEMENTAL_CREDENTIALS,
+    pub CreateThread: PLSA_CREATE_THREAD,
+    pub GetClientInfo: PLSA_GET_CLIENT_INFO,
+    pub RegisterNotification: PLSA_REGISTER_NOTIFICATION,
+    pub CancelNotification: PLSA_CANCEL_NOTIFICATION,
+    pub MapBuffer: PLSA_MAP_BUFFER,
+    pub CreateToken: PLSA_CREATE_TOKEN,
+    pub AuditLogon: PLSA_AUDIT_LOGON,
+    pub CallPackage: PLSA_CALL_PACKAGE,
+    pub FreeReturnBuffer: PLSA_FREE_LSA_HEAP,
+    pub GetCallInfo: PLSA_GET_CALL_INFO,
+    pub CallPackageEx: PLSA_CALL_PACKAGEEX,
+    pub CreateSharedMemory: PLSA_CREATE_SHARED_MEMORY,
+    pub AllocateSharedMemory: PLSA_ALLOCATE_SHARED_MEMORY,
+    pub FreeSharedMemory: PLSA_FREE_SHARED_MEMORY,
+    pub DeleteSharedMemory: PLSA_DELETE_SHARED_MEMORY,
+    pub OpenSamUser: PLSA_OPEN_SAM_USER,
+    pub GetUserCredentials: PLSA_GET_USER_CREDENTIALS,
+    pub GetUserAuthData: PLSA_GET_USER_AUTH_DATA,
+    pub CloseSamUser: PLSA_CLOSE_SAM_USER,
+    pub ConvertAuthDataToToken: PLSA_CONVERT_AUTH_DATA_TO_TOKEN,
+    pub ClientCallback: PLSA_CLIENT_CALLBACK,
+    pub UpdateCredentials: PLSA_UPDATE_PRIMARY_CREDENTIALS,
+    pub GetAuthDataForUser: PLSA_GET_AUTH_DATA_FOR_USER,
+    pub CrackSingleName: PLSA_CRACK_SINGLE_NAME,
+    pub AuditAccountLogon: PLSA_AUDIT_ACCOUNT_LOGON,
+    pub CallPackagePassthrough: PLSA_CALL_PACKAGE_PASSTHROUGH,
+    pub CrediRead: CredReadFn,
+    pub CrediReadDomainCredentials: CredReadDomainCredentialsFn,
+    pub CrediFreeCredentials: CredFreeCredentialsFn,
+    pub LsaProtectMemory: PLSA_PROTECT_MEMORY,
+    pub LsaUnprotectMemory: PLSA_PROTECT_MEMORY,
+    pub OpenTokenByLogonId: PLSA_OPEN_TOKEN_BY_LOGON_ID,
+    pub ExpandAuthDataForDomain: PLSA_EXPAND_AUTH_DATA_FOR_DOMAIN,
+    pub AllocatePrivateHeap: PLSA_ALLOCATE_PRIVATE_HEAP,
+    pub FreePrivateHeap: PLSA_FREE_PRIVATE_HEAP,
+    pub CreateTokenEx: PLSA_CREATE_TOKEN_EX,
+    pub CrediWrite: CredWriteFn,
+    pub CrediUnmarshalandDecodeString: CrediUnmarshalandDecodeStringFn,
+    pub DummyFunction6: PLSA_PROTECT_MEMORY,
+    pub GetExtendedCallFlags: PLSA_GET_EXTENDED_CALL_FLAGS,
+    pub DuplicateTokenHandle: PLSA_DUPLICATE_HANDLE,
+    pub GetServiceAccountPassword: PLSA_GET_SERVICE_ACCOUNT_PASSWORD,
+    pub DummyFunction7: PLSA_PROTECT_MEMORY,
+    pub AuditLogonEx: PLSA_AUDIT_LOGON_EX,
+    pub CheckProtectedUserByToken: PLSA_CHECK_PROTECTED_USER_BY_TOKEN,
+    pub QueryClientRequest: PLSA_QUERY_CLIENT_REQUEST,
+    pub GetAppModeInfo: PLSA_GET_APP_MODE_INFO,
+    pub SetAppModeInfo: PLSA_SET_APP_MODE_INFO,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials", feature = "Win32_System_Kernel", feature = "Win32_System_Threading"))]
 impl ::core::marker::Copy for LSA_SECPKG_FUNCTION_TABLE {}
@@ -4916,10 +4922,10 @@ pub const SECPKG_CRED_RESERVED: u32 = 4026531840u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SECPKG_DLL_FUNCTIONS {
-    pub AllocateHeap: ::core::option::Option<PLSA_ALLOCATE_LSA_HEAP>,
-    pub FreeHeap: ::core::option::Option<PLSA_FREE_LSA_HEAP>,
-    pub RegisterCallback: ::core::option::Option<PLSA_REGISTER_CALLBACK>,
-    pub LocatePackageById: ::core::option::Option<PLSA_LOCATE_PKG_BY_ID>,
+    pub AllocateHeap: PLSA_ALLOCATE_LSA_HEAP,
+    pub FreeHeap: PLSA_FREE_LSA_HEAP,
+    pub RegisterCallback: PLSA_REGISTER_CALLBACK,
+    pub LocatePackageById: PLSA_LOCATE_PKG_BY_ID,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SECPKG_DLL_FUNCTIONS {}
@@ -5056,48 +5062,48 @@ pub const SECPKG_FLAG_TOKEN_ONLY: u32 = 4u32;
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials", feature = "Win32_System_Kernel", feature = "Win32_System_Threading"))]
 pub struct SECPKG_FUNCTION_TABLE {
-    pub InitializePackage: ::core::option::Option<PLSA_AP_INITIALIZE_PACKAGE>,
-    pub LogonUserA: ::core::option::Option<PLSA_AP_LOGON_USER>,
-    pub CallPackage: ::core::option::Option<PLSA_AP_CALL_PACKAGE>,
-    pub LogonTerminated: ::core::option::Option<PLSA_AP_LOGON_TERMINATED>,
-    pub CallPackageUntrusted: ::core::option::Option<PLSA_AP_CALL_PACKAGE>,
-    pub CallPackagePassthrough: ::core::option::Option<PLSA_AP_CALL_PACKAGE_PASSTHROUGH>,
-    pub LogonUserExA: ::core::option::Option<PLSA_AP_LOGON_USER_EX>,
-    pub LogonUserEx2: ::core::option::Option<PLSA_AP_LOGON_USER_EX2>,
-    pub Initialize: ::core::option::Option<SpInitializeFn>,
-    pub Shutdown: ::core::option::Option<SpShutdownFn>,
-    pub GetInfo: ::core::option::Option<SpGetInfoFn>,
-    pub AcceptCredentials: ::core::option::Option<SpAcceptCredentialsFn>,
-    pub AcquireCredentialsHandleA: ::core::option::Option<SpAcquireCredentialsHandleFn>,
-    pub QueryCredentialsAttributesA: ::core::option::Option<SpQueryCredentialsAttributesFn>,
-    pub FreeCredentialsHandle: ::core::option::Option<SpFreeCredentialsHandleFn>,
-    pub SaveCredentials: ::core::option::Option<SpSaveCredentialsFn>,
-    pub GetCredentials: ::core::option::Option<SpGetCredentialsFn>,
-    pub DeleteCredentials: ::core::option::Option<SpDeleteCredentialsFn>,
-    pub InitLsaModeContext: ::core::option::Option<SpInitLsaModeContextFn>,
-    pub AcceptLsaModeContext: ::core::option::Option<SpAcceptLsaModeContextFn>,
-    pub DeleteContext: ::core::option::Option<SpDeleteContextFn>,
-    pub ApplyControlToken: ::core::option::Option<SpApplyControlTokenFn>,
-    pub GetUserInfo: ::core::option::Option<SpGetUserInfoFn>,
-    pub GetExtendedInformation: ::core::option::Option<SpGetExtendedInformationFn>,
-    pub QueryContextAttributesA: ::core::option::Option<SpQueryContextAttributesFn>,
-    pub AddCredentialsA: ::core::option::Option<SpAddCredentialsFn>,
-    pub SetExtendedInformation: ::core::option::Option<SpSetExtendedInformationFn>,
-    pub SetContextAttributesA: ::core::option::Option<SpSetContextAttributesFn>,
-    pub SetCredentialsAttributesA: ::core::option::Option<SpSetCredentialsAttributesFn>,
-    pub ChangeAccountPasswordA: ::core::option::Option<SpChangeAccountPasswordFn>,
-    pub QueryMetaData: ::core::option::Option<SpQueryMetaDataFn>,
-    pub ExchangeMetaData: ::core::option::Option<SpExchangeMetaDataFn>,
-    pub GetCredUIContext: ::core::option::Option<SpGetCredUIContextFn>,
-    pub UpdateCredentials: ::core::option::Option<SpUpdateCredentialsFn>,
-    pub ValidateTargetInfo: ::core::option::Option<SpValidateTargetInfoFn>,
-    pub PostLogonUser: ::core::option::Option<LSA_AP_POST_LOGON_USER>,
-    pub GetRemoteCredGuardLogonBuffer: ::core::option::Option<SpGetRemoteCredGuardLogonBufferFn>,
-    pub GetRemoteCredGuardSupplementalCreds: ::core::option::Option<SpGetRemoteCredGuardSupplementalCredsFn>,
-    pub GetTbalSupplementalCreds: ::core::option::Option<SpGetTbalSupplementalCredsFn>,
-    pub LogonUserEx3: ::core::option::Option<PLSA_AP_LOGON_USER_EX3>,
-    pub PreLogonUserSurrogate: ::core::option::Option<PLSA_AP_PRE_LOGON_USER_SURROGATE>,
-    pub PostLogonUserSurrogate: ::core::option::Option<PLSA_AP_POST_LOGON_USER_SURROGATE>,
+    pub InitializePackage: PLSA_AP_INITIALIZE_PACKAGE,
+    pub LogonUserA: PLSA_AP_LOGON_USER,
+    pub CallPackage: PLSA_AP_CALL_PACKAGE,
+    pub LogonTerminated: PLSA_AP_LOGON_TERMINATED,
+    pub CallPackageUntrusted: PLSA_AP_CALL_PACKAGE,
+    pub CallPackagePassthrough: PLSA_AP_CALL_PACKAGE_PASSTHROUGH,
+    pub LogonUserExA: PLSA_AP_LOGON_USER_EX,
+    pub LogonUserEx2: PLSA_AP_LOGON_USER_EX2,
+    pub Initialize: SpInitializeFn,
+    pub Shutdown: SpShutdownFn,
+    pub GetInfo: SpGetInfoFn,
+    pub AcceptCredentials: SpAcceptCredentialsFn,
+    pub AcquireCredentialsHandleA: SpAcquireCredentialsHandleFn,
+    pub QueryCredentialsAttributesA: SpQueryCredentialsAttributesFn,
+    pub FreeCredentialsHandle: SpFreeCredentialsHandleFn,
+    pub SaveCredentials: SpSaveCredentialsFn,
+    pub GetCredentials: SpGetCredentialsFn,
+    pub DeleteCredentials: SpDeleteCredentialsFn,
+    pub InitLsaModeContext: SpInitLsaModeContextFn,
+    pub AcceptLsaModeContext: SpAcceptLsaModeContextFn,
+    pub DeleteContext: SpDeleteContextFn,
+    pub ApplyControlToken: SpApplyControlTokenFn,
+    pub GetUserInfo: SpGetUserInfoFn,
+    pub GetExtendedInformation: SpGetExtendedInformationFn,
+    pub QueryContextAttributesA: SpQueryContextAttributesFn,
+    pub AddCredentialsA: SpAddCredentialsFn,
+    pub SetExtendedInformation: SpSetExtendedInformationFn,
+    pub SetContextAttributesA: SpSetContextAttributesFn,
+    pub SetCredentialsAttributesA: SpSetCredentialsAttributesFn,
+    pub ChangeAccountPasswordA: SpChangeAccountPasswordFn,
+    pub QueryMetaData: SpQueryMetaDataFn,
+    pub ExchangeMetaData: SpExchangeMetaDataFn,
+    pub GetCredUIContext: SpGetCredUIContextFn,
+    pub UpdateCredentials: SpUpdateCredentialsFn,
+    pub ValidateTargetInfo: SpValidateTargetInfoFn,
+    pub PostLogonUser: LSA_AP_POST_LOGON_USER,
+    pub GetRemoteCredGuardLogonBuffer: SpGetRemoteCredGuardLogonBufferFn,
+    pub GetRemoteCredGuardSupplementalCreds: SpGetRemoteCredGuardSupplementalCredsFn,
+    pub GetTbalSupplementalCreds: SpGetTbalSupplementalCredsFn,
+    pub LogonUserEx3: PLSA_AP_LOGON_USER_EX3,
+    pub PreLogonUserSurrogate: PLSA_AP_PRE_LOGON_USER_SURROGATE,
+    pub PostLogonUserSurrogate: PLSA_AP_POST_LOGON_USER_SURROGATE,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials", feature = "Win32_System_Kernel", feature = "Win32_System_Threading"))]
 impl ::core::marker::Copy for SECPKG_FUNCTION_TABLE {}
@@ -5132,15 +5138,15 @@ pub const SECPKG_INTERFACE_VERSION_9: u32 = 16777216u32;
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub struct SECPKG_KERNEL_FUNCTIONS {
-    pub AllocateHeap: ::core::option::Option<PLSA_ALLOCATE_LSA_HEAP>,
-    pub FreeHeap: ::core::option::Option<PLSA_FREE_LSA_HEAP>,
-    pub CreateContextList: ::core::option::Option<PKSEC_CREATE_CONTEXT_LIST>,
-    pub InsertListEntry: ::core::option::Option<PKSEC_INSERT_LIST_ENTRY>,
-    pub ReferenceListEntry: ::core::option::Option<PKSEC_REFERENCE_LIST_ENTRY>,
-    pub DereferenceListEntry: ::core::option::Option<PKSEC_DEREFERENCE_LIST_ENTRY>,
-    pub SerializeWinntAuthData: ::core::option::Option<PKSEC_SERIALIZE_WINNT_AUTH_DATA>,
-    pub SerializeSchannelAuthData: ::core::option::Option<PKSEC_SERIALIZE_SCHANNEL_AUTH_DATA>,
-    pub LocatePackageById: ::core::option::Option<PKSEC_LOCATE_PKG_BY_ID>,
+    pub AllocateHeap: PLSA_ALLOCATE_LSA_HEAP,
+    pub FreeHeap: PLSA_FREE_LSA_HEAP,
+    pub CreateContextList: PKSEC_CREATE_CONTEXT_LIST,
+    pub InsertListEntry: PKSEC_INSERT_LIST_ENTRY,
+    pub ReferenceListEntry: PKSEC_REFERENCE_LIST_ENTRY,
+    pub DereferenceListEntry: PKSEC_DEREFERENCE_LIST_ENTRY,
+    pub SerializeWinntAuthData: PKSEC_SERIALIZE_WINNT_AUTH_DATA,
+    pub SerializeSchannelAuthData: PKSEC_SERIALIZE_SCHANNEL_AUTH_DATA,
+    pub LocatePackageById: PKSEC_LOCATE_PKG_BY_ID,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::marker::Copy for SECPKG_KERNEL_FUNCTIONS {}
@@ -5153,21 +5159,21 @@ impl ::core::clone::Clone for SECPKG_KERNEL_FUNCTIONS {
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub struct SECPKG_KERNEL_FUNCTION_TABLE {
-    pub Initialize: ::core::option::Option<KspInitPackageFn>,
-    pub DeleteContext: ::core::option::Option<KspDeleteContextFn>,
-    pub InitContext: ::core::option::Option<KspInitContextFn>,
-    pub MapHandle: ::core::option::Option<KspMapHandleFn>,
-    pub Sign: ::core::option::Option<KspMakeSignatureFn>,
-    pub Verify: ::core::option::Option<KspVerifySignatureFn>,
-    pub Seal: ::core::option::Option<KspSealMessageFn>,
-    pub Unseal: ::core::option::Option<KspUnsealMessageFn>,
-    pub GetToken: ::core::option::Option<KspGetTokenFn>,
-    pub QueryAttributes: ::core::option::Option<KspQueryAttributesFn>,
-    pub CompleteToken: ::core::option::Option<KspCompleteTokenFn>,
-    pub ExportContext: ::core::option::Option<SpExportSecurityContextFn>,
-    pub ImportContext: ::core::option::Option<SpImportSecurityContextFn>,
-    pub SetPackagePagingMode: ::core::option::Option<KspSetPagingModeFn>,
-    pub SerializeAuthData: ::core::option::Option<KspSerializeAuthDataFn>,
+    pub Initialize: KspInitPackageFn,
+    pub DeleteContext: KspDeleteContextFn,
+    pub InitContext: KspInitContextFn,
+    pub MapHandle: KspMapHandleFn,
+    pub Sign: KspMakeSignatureFn,
+    pub Verify: KspVerifySignatureFn,
+    pub Seal: KspSealMessageFn,
+    pub Unseal: KspUnsealMessageFn,
+    pub GetToken: KspGetTokenFn,
+    pub QueryAttributes: KspQueryAttributesFn,
+    pub CompleteToken: KspCompleteTokenFn,
+    pub ExportContext: SpExportSecurityContextFn,
+    pub ImportContext: SpImportSecurityContextFn,
+    pub SetPackagePagingMode: KspSetPagingModeFn,
+    pub SerializeAuthData: KspSerializeAuthDataFn,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::marker::Copy for SECPKG_KERNEL_FUNCTION_TABLE {}
@@ -5324,11 +5330,11 @@ pub const SECPKG_PRIMARY_CRED_EX_FLAGS_EX_DELEGATION_TOKEN: u32 = 1u32;
 pub struct SECPKG_REDIRECTED_LOGON_BUFFER {
     pub RedirectedLogonGuid: ::windows_sys::core::GUID,
     pub RedirectedLogonHandle: super::super::super::Foundation::HANDLE,
-    pub Init: ::core::option::Option<PLSA_REDIRECTED_LOGON_INIT>,
-    pub Callback: ::core::option::Option<PLSA_REDIRECTED_LOGON_CALLBACK>,
-    pub CleanupCallback: ::core::option::Option<PLSA_REDIRECTED_LOGON_CLEANUP_CALLBACK>,
-    pub GetLogonCreds: ::core::option::Option<PLSA_REDIRECTED_LOGON_GET_LOGON_CREDS>,
-    pub GetSupplementalCreds: ::core::option::Option<PLSA_REDIRECTED_LOGON_GET_SUPP_CREDS>,
+    pub Init: PLSA_REDIRECTED_LOGON_INIT,
+    pub Callback: PLSA_REDIRECTED_LOGON_CALLBACK,
+    pub CleanupCallback: PLSA_REDIRECTED_LOGON_CLEANUP_CALLBACK,
+    pub GetLogonCreds: PLSA_REDIRECTED_LOGON_GET_LOGON_CREDS,
+    pub GetSupplementalCreds: PLSA_REDIRECTED_LOGON_GET_SUPP_CREDS,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SECPKG_REDIRECTED_LOGON_BUFFER {}
@@ -5467,21 +5473,21 @@ pub const SECPKG_UNICODE_ATTRIBUTE: u32 = 2147483648u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SECPKG_USER_FUNCTION_TABLE {
-    pub InstanceInit: ::core::option::Option<SpInstanceInitFn>,
-    pub InitUserModeContext: ::core::option::Option<SpInitUserModeContextFn>,
-    pub MakeSignature: ::core::option::Option<SpMakeSignatureFn>,
-    pub VerifySignature: ::core::option::Option<SpVerifySignatureFn>,
-    pub SealMessage: ::core::option::Option<SpSealMessageFn>,
-    pub UnsealMessage: ::core::option::Option<SpUnsealMessageFn>,
-    pub GetContextToken: ::core::option::Option<SpGetContextTokenFn>,
-    pub QueryContextAttributesA: ::core::option::Option<SpQueryContextAttributesFn>,
-    pub CompleteAuthToken: ::core::option::Option<SpCompleteAuthTokenFn>,
-    pub DeleteUserModeContext: ::core::option::Option<SpDeleteContextFn>,
-    pub FormatCredentials: ::core::option::Option<SpFormatCredentialsFn>,
-    pub MarshallSupplementalCreds: ::core::option::Option<SpMarshallSupplementalCredsFn>,
-    pub ExportContext: ::core::option::Option<SpExportSecurityContextFn>,
-    pub ImportContext: ::core::option::Option<SpImportSecurityContextFn>,
-    pub MarshalAttributeData: ::core::option::Option<SpMarshalAttributeDataFn>,
+    pub InstanceInit: SpInstanceInitFn,
+    pub InitUserModeContext: SpInitUserModeContextFn,
+    pub MakeSignature: SpMakeSignatureFn,
+    pub VerifySignature: SpVerifySignatureFn,
+    pub SealMessage: SpSealMessageFn,
+    pub UnsealMessage: SpUnsealMessageFn,
+    pub GetContextToken: SpGetContextTokenFn,
+    pub QueryContextAttributesA: SpQueryContextAttributesFn,
+    pub CompleteAuthToken: SpCompleteAuthTokenFn,
+    pub DeleteUserModeContext: SpDeleteContextFn,
+    pub FormatCredentials: SpFormatCredentialsFn,
+    pub MarshallSupplementalCreds: SpMarshallSupplementalCredsFn,
+    pub ExportContext: SpExportSecurityContextFn,
+    pub ImportContext: SpImportSecurityContextFn,
+    pub MarshalAttributeData: SpMarshalAttributeDataFn,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SECPKG_USER_FUNCTION_TABLE {}
@@ -7739,37 +7745,37 @@ impl ::core::clone::Clone for SecPkgInfoW {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
 pub struct SecurityFunctionTableA {
     pub dwVersion: u32,
-    pub EnumerateSecurityPackagesA: ::core::option::Option<ENUMERATE_SECURITY_PACKAGES_FN_A>,
-    pub QueryCredentialsAttributesA: ::core::option::Option<QUERY_CREDENTIALS_ATTRIBUTES_FN_A>,
-    pub AcquireCredentialsHandleA: ::core::option::Option<ACQUIRE_CREDENTIALS_HANDLE_FN_A>,
-    pub FreeCredentialsHandle: ::core::option::Option<FREE_CREDENTIALS_HANDLE_FN>,
+    pub EnumerateSecurityPackagesA: ENUMERATE_SECURITY_PACKAGES_FN_A,
+    pub QueryCredentialsAttributesA: QUERY_CREDENTIALS_ATTRIBUTES_FN_A,
+    pub AcquireCredentialsHandleA: ACQUIRE_CREDENTIALS_HANDLE_FN_A,
+    pub FreeCredentialsHandle: FREE_CREDENTIALS_HANDLE_FN,
     pub Reserved2: *mut ::core::ffi::c_void,
-    pub InitializeSecurityContextA: ::core::option::Option<INITIALIZE_SECURITY_CONTEXT_FN_A>,
-    pub AcceptSecurityContext: ::core::option::Option<ACCEPT_SECURITY_CONTEXT_FN>,
-    pub CompleteAuthToken: ::core::option::Option<COMPLETE_AUTH_TOKEN_FN>,
-    pub DeleteSecurityContext: ::core::option::Option<DELETE_SECURITY_CONTEXT_FN>,
-    pub ApplyControlToken: ::core::option::Option<APPLY_CONTROL_TOKEN_FN>,
-    pub QueryContextAttributesA: ::core::option::Option<QUERY_CONTEXT_ATTRIBUTES_FN_A>,
-    pub ImpersonateSecurityContext: ::core::option::Option<IMPERSONATE_SECURITY_CONTEXT_FN>,
-    pub RevertSecurityContext: ::core::option::Option<REVERT_SECURITY_CONTEXT_FN>,
-    pub MakeSignature: ::core::option::Option<MAKE_SIGNATURE_FN>,
-    pub VerifySignature: ::core::option::Option<VERIFY_SIGNATURE_FN>,
-    pub FreeContextBuffer: ::core::option::Option<FREE_CONTEXT_BUFFER_FN>,
-    pub QuerySecurityPackageInfoA: ::core::option::Option<QUERY_SECURITY_PACKAGE_INFO_FN_A>,
+    pub InitializeSecurityContextA: INITIALIZE_SECURITY_CONTEXT_FN_A,
+    pub AcceptSecurityContext: ACCEPT_SECURITY_CONTEXT_FN,
+    pub CompleteAuthToken: COMPLETE_AUTH_TOKEN_FN,
+    pub DeleteSecurityContext: DELETE_SECURITY_CONTEXT_FN,
+    pub ApplyControlToken: APPLY_CONTROL_TOKEN_FN,
+    pub QueryContextAttributesA: QUERY_CONTEXT_ATTRIBUTES_FN_A,
+    pub ImpersonateSecurityContext: IMPERSONATE_SECURITY_CONTEXT_FN,
+    pub RevertSecurityContext: REVERT_SECURITY_CONTEXT_FN,
+    pub MakeSignature: MAKE_SIGNATURE_FN,
+    pub VerifySignature: VERIFY_SIGNATURE_FN,
+    pub FreeContextBuffer: FREE_CONTEXT_BUFFER_FN,
+    pub QuerySecurityPackageInfoA: QUERY_SECURITY_PACKAGE_INFO_FN_A,
     pub Reserved3: *mut ::core::ffi::c_void,
     pub Reserved4: *mut ::core::ffi::c_void,
-    pub ExportSecurityContext: ::core::option::Option<EXPORT_SECURITY_CONTEXT_FN>,
-    pub ImportSecurityContextA: ::core::option::Option<IMPORT_SECURITY_CONTEXT_FN_A>,
-    pub AddCredentialsA: ::core::option::Option<ADD_CREDENTIALS_FN_A>,
+    pub ExportSecurityContext: EXPORT_SECURITY_CONTEXT_FN,
+    pub ImportSecurityContextA: IMPORT_SECURITY_CONTEXT_FN_A,
+    pub AddCredentialsA: ADD_CREDENTIALS_FN_A,
     pub Reserved8: *mut ::core::ffi::c_void,
-    pub QuerySecurityContextToken: ::core::option::Option<QUERY_SECURITY_CONTEXT_TOKEN_FN>,
-    pub EncryptMessage: ::core::option::Option<ENCRYPT_MESSAGE_FN>,
-    pub DecryptMessage: ::core::option::Option<DECRYPT_MESSAGE_FN>,
-    pub SetContextAttributesA: ::core::option::Option<SET_CONTEXT_ATTRIBUTES_FN_A>,
-    pub SetCredentialsAttributesA: ::core::option::Option<SET_CREDENTIALS_ATTRIBUTES_FN_A>,
-    pub ChangeAccountPasswordA: ::core::option::Option<CHANGE_PASSWORD_FN_A>,
-    pub QueryContextAttributesExA: ::core::option::Option<QUERY_CONTEXT_ATTRIBUTES_EX_FN_A>,
-    pub QueryCredentialsAttributesExA: ::core::option::Option<QUERY_CREDENTIALS_ATTRIBUTES_EX_FN_A>,
+    pub QuerySecurityContextToken: QUERY_SECURITY_CONTEXT_TOKEN_FN,
+    pub EncryptMessage: ENCRYPT_MESSAGE_FN,
+    pub DecryptMessage: DECRYPT_MESSAGE_FN,
+    pub SetContextAttributesA: SET_CONTEXT_ATTRIBUTES_FN_A,
+    pub SetCredentialsAttributesA: SET_CREDENTIALS_ATTRIBUTES_FN_A,
+    pub ChangeAccountPasswordA: CHANGE_PASSWORD_FN_A,
+    pub QueryContextAttributesExA: QUERY_CONTEXT_ATTRIBUTES_EX_FN_A,
+    pub QueryCredentialsAttributesExA: QUERY_CREDENTIALS_ATTRIBUTES_EX_FN_A,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
 impl ::core::marker::Copy for SecurityFunctionTableA {}
@@ -7783,37 +7789,37 @@ impl ::core::clone::Clone for SecurityFunctionTableA {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
 pub struct SecurityFunctionTableW {
     pub dwVersion: u32,
-    pub EnumerateSecurityPackagesW: ::core::option::Option<ENUMERATE_SECURITY_PACKAGES_FN_W>,
-    pub QueryCredentialsAttributesW: ::core::option::Option<QUERY_CREDENTIALS_ATTRIBUTES_FN_W>,
-    pub AcquireCredentialsHandleW: ::core::option::Option<ACQUIRE_CREDENTIALS_HANDLE_FN_W>,
-    pub FreeCredentialsHandle: ::core::option::Option<FREE_CREDENTIALS_HANDLE_FN>,
+    pub EnumerateSecurityPackagesW: ENUMERATE_SECURITY_PACKAGES_FN_W,
+    pub QueryCredentialsAttributesW: QUERY_CREDENTIALS_ATTRIBUTES_FN_W,
+    pub AcquireCredentialsHandleW: ACQUIRE_CREDENTIALS_HANDLE_FN_W,
+    pub FreeCredentialsHandle: FREE_CREDENTIALS_HANDLE_FN,
     pub Reserved2: *mut ::core::ffi::c_void,
-    pub InitializeSecurityContextW: ::core::option::Option<INITIALIZE_SECURITY_CONTEXT_FN_W>,
-    pub AcceptSecurityContext: ::core::option::Option<ACCEPT_SECURITY_CONTEXT_FN>,
-    pub CompleteAuthToken: ::core::option::Option<COMPLETE_AUTH_TOKEN_FN>,
-    pub DeleteSecurityContext: ::core::option::Option<DELETE_SECURITY_CONTEXT_FN>,
-    pub ApplyControlToken: ::core::option::Option<APPLY_CONTROL_TOKEN_FN>,
-    pub QueryContextAttributesW: ::core::option::Option<QUERY_CONTEXT_ATTRIBUTES_FN_W>,
-    pub ImpersonateSecurityContext: ::core::option::Option<IMPERSONATE_SECURITY_CONTEXT_FN>,
-    pub RevertSecurityContext: ::core::option::Option<REVERT_SECURITY_CONTEXT_FN>,
-    pub MakeSignature: ::core::option::Option<MAKE_SIGNATURE_FN>,
-    pub VerifySignature: ::core::option::Option<VERIFY_SIGNATURE_FN>,
-    pub FreeContextBuffer: ::core::option::Option<FREE_CONTEXT_BUFFER_FN>,
-    pub QuerySecurityPackageInfoW: ::core::option::Option<QUERY_SECURITY_PACKAGE_INFO_FN_W>,
+    pub InitializeSecurityContextW: INITIALIZE_SECURITY_CONTEXT_FN_W,
+    pub AcceptSecurityContext: ACCEPT_SECURITY_CONTEXT_FN,
+    pub CompleteAuthToken: COMPLETE_AUTH_TOKEN_FN,
+    pub DeleteSecurityContext: DELETE_SECURITY_CONTEXT_FN,
+    pub ApplyControlToken: APPLY_CONTROL_TOKEN_FN,
+    pub QueryContextAttributesW: QUERY_CONTEXT_ATTRIBUTES_FN_W,
+    pub ImpersonateSecurityContext: IMPERSONATE_SECURITY_CONTEXT_FN,
+    pub RevertSecurityContext: REVERT_SECURITY_CONTEXT_FN,
+    pub MakeSignature: MAKE_SIGNATURE_FN,
+    pub VerifySignature: VERIFY_SIGNATURE_FN,
+    pub FreeContextBuffer: FREE_CONTEXT_BUFFER_FN,
+    pub QuerySecurityPackageInfoW: QUERY_SECURITY_PACKAGE_INFO_FN_W,
     pub Reserved3: *mut ::core::ffi::c_void,
     pub Reserved4: *mut ::core::ffi::c_void,
-    pub ExportSecurityContext: ::core::option::Option<EXPORT_SECURITY_CONTEXT_FN>,
-    pub ImportSecurityContextW: ::core::option::Option<IMPORT_SECURITY_CONTEXT_FN_W>,
-    pub AddCredentialsW: ::core::option::Option<ADD_CREDENTIALS_FN_W>,
+    pub ExportSecurityContext: EXPORT_SECURITY_CONTEXT_FN,
+    pub ImportSecurityContextW: IMPORT_SECURITY_CONTEXT_FN_W,
+    pub AddCredentialsW: ADD_CREDENTIALS_FN_W,
     pub Reserved8: *mut ::core::ffi::c_void,
-    pub QuerySecurityContextToken: ::core::option::Option<QUERY_SECURITY_CONTEXT_TOKEN_FN>,
-    pub EncryptMessage: ::core::option::Option<ENCRYPT_MESSAGE_FN>,
-    pub DecryptMessage: ::core::option::Option<DECRYPT_MESSAGE_FN>,
-    pub SetContextAttributesW: ::core::option::Option<SET_CONTEXT_ATTRIBUTES_FN_W>,
-    pub SetCredentialsAttributesW: ::core::option::Option<SET_CREDENTIALS_ATTRIBUTES_FN_W>,
-    pub ChangeAccountPasswordW: ::core::option::Option<CHANGE_PASSWORD_FN_W>,
-    pub QueryContextAttributesExW: ::core::option::Option<QUERY_CONTEXT_ATTRIBUTES_EX_FN_W>,
-    pub QueryCredentialsAttributesExW: ::core::option::Option<QUERY_CREDENTIALS_ATTRIBUTES_EX_FN_W>,
+    pub QuerySecurityContextToken: QUERY_SECURITY_CONTEXT_TOKEN_FN,
+    pub EncryptMessage: ENCRYPT_MESSAGE_FN,
+    pub DecryptMessage: DECRYPT_MESSAGE_FN,
+    pub SetContextAttributesW: SET_CONTEXT_ATTRIBUTES_FN_W,
+    pub SetCredentialsAttributesW: SET_CREDENTIALS_ATTRIBUTES_FN_W,
+    pub ChangeAccountPasswordW: CHANGE_PASSWORD_FN_W,
+    pub QueryContextAttributesExW: QUERY_CONTEXT_ATTRIBUTES_EX_FN_W,
+    pub QueryCredentialsAttributesExW: QUERY_CREDENTIALS_ATTRIBUTES_EX_FN_W,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
 impl ::core::marker::Copy for SecurityFunctionTableW {}
@@ -8338,7 +8344,7 @@ pub const USER_USE_DES_KEY_ONLY: u32 = 32768u32;
 pub const USER_WORKSTATION_TRUST_ACCOUNT: u32 = 128u32;
 #[cfg(feature = "Win32_Security_Credentials")]
 pub type VERIFY_SIGNATURE_FN = unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle, param1: *mut SecBufferDesc, param2: u32, param3: *mut u32) -> i32;
-pub const WINDOWS_SLID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1439246132, data2: 54914, data3: 19825, data4: [152, 62, 214, 236, 63, 22, 5, 159] };
+pub const WINDOWS_SLID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1439246132, data2: 54914, data3: 19825, data4: [152, 62, 214, 236, 63, 22, 5, 159] };
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct X509Certificate {

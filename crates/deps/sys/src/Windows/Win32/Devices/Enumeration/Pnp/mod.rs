@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
     pub fn SwDeviceClose(hswdevice: HSWDEVICE);
@@ -33,56 +33,212 @@ impl ::core::clone::Clone for HSWDEVICE {
 }
 #[repr(transparent)]
 pub struct IUPnPAddressFamilyControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUPnPAddressFamilyControl {}
+impl ::core::clone::Clone for IUPnPAddressFamilyControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUPnPAsyncResult(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUPnPAsyncResult {}
+impl ::core::clone::Clone for IUPnPAsyncResult {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUPnPDescriptionDocument(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUPnPDescriptionDocument {}
+impl ::core::clone::Clone for IUPnPDescriptionDocument {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUPnPDescriptionDocumentCallback(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUPnPDescriptionDocumentCallback {}
+impl ::core::clone::Clone for IUPnPDescriptionDocumentCallback {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUPnPDevice(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUPnPDevice {}
+impl ::core::clone::Clone for IUPnPDevice {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUPnPDeviceControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUPnPDeviceControl {}
+impl ::core::clone::Clone for IUPnPDeviceControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUPnPDeviceControlHttpHeaders(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUPnPDeviceControlHttpHeaders {}
+impl ::core::clone::Clone for IUPnPDeviceControlHttpHeaders {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUPnPDeviceDocumentAccess(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUPnPDeviceDocumentAccess {}
+impl ::core::clone::Clone for IUPnPDeviceDocumentAccess {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUPnPDeviceDocumentAccessEx(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUPnPDeviceDocumentAccessEx {}
+impl ::core::clone::Clone for IUPnPDeviceDocumentAccessEx {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUPnPDeviceFinder(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUPnPDeviceFinder {}
+impl ::core::clone::Clone for IUPnPDeviceFinder {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUPnPDeviceFinderAddCallbackWithInterface(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUPnPDeviceFinderAddCallbackWithInterface {}
+impl ::core::clone::Clone for IUPnPDeviceFinderAddCallbackWithInterface {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUPnPDeviceFinderCallback(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUPnPDeviceFinderCallback {}
+impl ::core::clone::Clone for IUPnPDeviceFinderCallback {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUPnPDeviceProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUPnPDeviceProvider {}
+impl ::core::clone::Clone for IUPnPDeviceProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUPnPDevices(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUPnPDevices {}
+impl ::core::clone::Clone for IUPnPDevices {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUPnPEventSink(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUPnPEventSink {}
+impl ::core::clone::Clone for IUPnPEventSink {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUPnPEventSource(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUPnPEventSource {}
+impl ::core::clone::Clone for IUPnPEventSource {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUPnPHttpHeaderControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUPnPHttpHeaderControl {}
+impl ::core::clone::Clone for IUPnPHttpHeaderControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUPnPRegistrar(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUPnPRegistrar {}
+impl ::core::clone::Clone for IUPnPRegistrar {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUPnPRemoteEndpointInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUPnPRemoteEndpointInfo {}
+impl ::core::clone::Clone for IUPnPRemoteEndpointInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUPnPReregistrar(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUPnPReregistrar {}
+impl ::core::clone::Clone for IUPnPReregistrar {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUPnPService(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUPnPService {}
+impl ::core::clone::Clone for IUPnPService {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUPnPServiceAsync(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUPnPServiceAsync {}
+impl ::core::clone::Clone for IUPnPServiceAsync {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUPnPServiceCallback(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUPnPServiceCallback {}
+impl ::core::clone::Clone for IUPnPServiceCallback {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUPnPServiceDocumentAccess(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUPnPServiceDocumentAccess {}
+impl ::core::clone::Clone for IUPnPServiceDocumentAccess {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUPnPServiceEnumProperty(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUPnPServiceEnumProperty {}
+impl ::core::clone::Clone for IUPnPServiceEnumProperty {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUPnPServices(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUPnPServices {}
+impl ::core::clone::Clone for IUPnPServices {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SW_DEVICE_CAPABILITIES(pub i32);
 pub const SWDeviceCapabilitiesNone: SW_DEVICE_CAPABILITIES = SW_DEVICE_CAPABILITIES(0i32);
@@ -168,23 +324,23 @@ pub const UPNP_E_URLBASE_PRESENT: ::windows_sys::core::HRESULT = ::windows_sys::
 pub const UPNP_E_VALUE_TOO_LONG: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147180496i32 as _);
 pub const UPNP_E_VARIABLE_VALUE_UNKNOWN: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220974i32 as _);
 pub const UPNP_SERVICE_DELAY_SCPD_AND_SUBSCRIPTION: u32 = 1u32;
-pub const UPnPDescriptionDocument: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 495622983, data2: 14888, data3: 19682, data4: [138, 75, 189, 52, 228, 91, 206, 235] };
-pub const UPnPDescriptionDocumentEx: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 872220003, data2: 55322, data3: 17299, data4: [131, 204, 1, 149, 177, 218, 47, 145] };
-pub const UPnPDevice: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2737132229, data2: 47713, data3: 17786, data4: [181, 154, 162, 86, 30, 18, 94, 51] };
-pub const UPnPDeviceFinder: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const UPnPDescriptionDocument: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 495622983, data2: 14888, data3: 19682, data4: [138, 75, 189, 52, 228, 91, 206, 235] };
+pub const UPnPDescriptionDocumentEx: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 872220003, data2: 55322, data3: 17299, data4: [131, 204, 1, 149, 177, 218, 47, 145] };
+pub const UPnPDevice: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2737132229, data2: 47713, data3: 17786, data4: [181, 154, 162, 86, 30, 18, 94, 51] };
+pub const UPnPDeviceFinder: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3792199464,
     data2: 65207,
     data3: 16458,
     data4: [184, 231, 230, 89, 189, 234, 170, 2],
 };
-pub const UPnPDeviceFinderEx: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 404444412, data2: 14347, data3: 19061, data4: [179, 241, 74, 196, 94, 150, 5, 176] };
-pub const UPnPDevices: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const UPnPDeviceFinderEx: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 404444412, data2: 14347, data3: 19061, data4: [179, 241, 74, 196, 94, 150, 5, 176] };
+pub const UPnPDevices: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3119009789,
     data2: 44348,
     data3: 16548,
     data4: [184, 53, 8, 130, 235, 203, 170, 168],
 };
-pub const UPnPRegistrar: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 541593785, data2: 29618, data3: 4564, data4: [191, 66, 0, 176, 208, 17, 139, 86] };
-pub const UPnPRemoteEndpointInfo: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 777946345, data2: 16457, data3: 16964, data4: [183, 40, 45, 36, 34, 113, 87, 199] };
-pub const UPnPService: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3324295829, data2: 64459, data3: 17417, data4: [140, 3, 140, 206, 236, 83, 62, 241] };
-pub const UPnPServices: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3233565514, data2: 41990, data3: 20220, data4: [147, 47, 184, 84, 107, 129, 0, 204] };
+pub const UPnPRegistrar: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 541593785, data2: 29618, data3: 4564, data4: [191, 66, 0, 176, 208, 17, 139, 86] };
+pub const UPnPRemoteEndpointInfo: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 777946345, data2: 16457, data3: 16964, data4: [183, 40, 45, 36, 34, 113, 87, 199] };
+pub const UPnPService: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3324295829, data2: 64459, data3: 17417, data4: [140, 3, 140, 206, 236, 83, 62, 241] };
+pub const UPnPServices: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3233565514, data2: 41990, data3: 20220, data4: [147, 47, 184, 84, 107, 129, 0, 204] };

@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
     #[cfg(feature = "Win32_System_Ole")]
@@ -356,7 +356,7 @@ pub struct ADSPROPINITPARAMS {
     pub dwSize: u32,
     pub dwFlags: u32,
     pub hr: ::windows_sys::core::HRESULT,
-    pub pDsObj: ::core::option::Option<IDirectoryObject>,
+    pub pDsObj: IDirectoryObject,
     pub pwzCN: super::super::Foundation::PWSTR,
     pub pWritableAttrs: *mut ADS_ATTR_INFO,
 }
@@ -1239,40 +1239,40 @@ impl ::core::clone::Clone for ADS_VLV {
         *self
     }
 }
-pub const ADSystemInfo: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1354117759, data2: 45009, data3: 4562, data4: [156, 185, 0, 0, 248, 122, 54, 158] };
-pub const ADsSecurityUtility: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const ADSystemInfo: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1354117759, data2: 45009, data3: 4562, data4: [156, 185, 0, 0, 248, 122, 54, 158] };
+pub const ADsSecurityUtility: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4067477066,
     data2: 65464,
     data3: 19172,
     data4: [133, 254, 58, 117, 229, 52, 121, 102],
 };
-pub const AccessControlEntry: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3076177920, data2: 39901, data3: 4560, data4: [133, 44, 0, 192, 79, 216, 213, 3] };
-pub const AccessControlList: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3093209170, data2: 39901, data3: 4560, data4: [133, 44, 0, 192, 79, 216, 213, 3] };
-pub const BackLink: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4240412783, data2: 16512, data3: 4561, data4: [163, 172, 0, 192, 79, 185, 80, 220] };
-pub const CLSID_CommonQuery: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2210160320, data2: 28458, data3: 4560, data4: [161, 196, 0, 170, 0, 193, 110, 101] };
-pub const CLSID_DsAdminCreateObj: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3808534537, data2: 63745, data3: 4562, data4: [130, 185, 0, 192, 79, 104, 146, 139] };
-pub const CLSID_DsDisplaySpecifier: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 448047296, data2: 27147, data3: 4562, data4: [173, 73, 0, 192, 79, 163, 26, 134] };
-pub const CLSID_DsDomainTreeBrowser: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 379091210, data2: 58036, data3: 4560, data4: [176, 177, 0, 192, 79, 216, 220, 166] };
-pub const CLSID_DsFindAdvanced: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2213429219, data2: 22489, data3: 4560, data4: [185, 50, 0, 160, 36, 171, 45, 187] };
-pub const CLSID_DsFindComputer: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 369125120, data2: 34733, data3: 4560, data4: [145, 64, 0, 170, 0, 193, 110, 101] };
-pub const CLSID_DsFindContainer: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3249785842, data2: 34922, data3: 4560, data4: [145, 64, 0, 170, 0, 193, 110, 101] };
-pub const CLSID_DsFindDomainController: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1401715582, data2: 53854, data3: 4560, data4: [151, 66, 0, 160, 201, 6, 175, 69] };
-pub const CLSID_DsFindFrsMembers: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2496547608, data2: 46035, data3: 4561, data4: [185, 180, 0, 192, 79, 216, 213, 176] };
-pub const CLSID_DsFindObjects: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2213429217, data2: 22489, data3: 4560, data4: [185, 50, 0, 160, 36, 171, 45, 187] };
-pub const CLSID_DsFindPeople: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2213429218, data2: 22489, data3: 4560, data4: [185, 50, 0, 160, 36, 171, 45, 187] };
-pub const CLSID_DsFindPrinter: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3044536432, data2: 32482, data3: 4560, data4: [145, 63, 0, 170, 0, 193, 110, 101] };
-pub const CLSID_DsFindVolume: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3249785841, data2: 34922, data3: 4560, data4: [145, 64, 0, 170, 0, 193, 110, 101] };
-pub const CLSID_DsFindWriteableDomainController: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const AccessControlEntry: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3076177920, data2: 39901, data3: 4560, data4: [133, 44, 0, 192, 79, 216, 213, 3] };
+pub const AccessControlList: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3093209170, data2: 39901, data3: 4560, data4: [133, 44, 0, 192, 79, 216, 213, 3] };
+pub const BackLink: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4240412783, data2: 16512, data3: 4561, data4: [163, 172, 0, 192, 79, 185, 80, 220] };
+pub const CLSID_CommonQuery: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2210160320, data2: 28458, data3: 4560, data4: [161, 196, 0, 170, 0, 193, 110, 101] };
+pub const CLSID_DsAdminCreateObj: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3808534537, data2: 63745, data3: 4562, data4: [130, 185, 0, 192, 79, 104, 146, 139] };
+pub const CLSID_DsDisplaySpecifier: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 448047296, data2: 27147, data3: 4562, data4: [173, 73, 0, 192, 79, 163, 26, 134] };
+pub const CLSID_DsDomainTreeBrowser: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 379091210, data2: 58036, data3: 4560, data4: [176, 177, 0, 192, 79, 216, 220, 166] };
+pub const CLSID_DsFindAdvanced: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2213429219, data2: 22489, data3: 4560, data4: [185, 50, 0, 160, 36, 171, 45, 187] };
+pub const CLSID_DsFindComputer: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 369125120, data2: 34733, data3: 4560, data4: [145, 64, 0, 170, 0, 193, 110, 101] };
+pub const CLSID_DsFindContainer: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3249785842, data2: 34922, data3: 4560, data4: [145, 64, 0, 170, 0, 193, 110, 101] };
+pub const CLSID_DsFindDomainController: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1401715582, data2: 53854, data3: 4560, data4: [151, 66, 0, 160, 201, 6, 175, 69] };
+pub const CLSID_DsFindFrsMembers: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2496547608, data2: 46035, data3: 4561, data4: [185, 180, 0, 192, 79, 216, 213, 176] };
+pub const CLSID_DsFindObjects: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2213429217, data2: 22489, data3: 4560, data4: [185, 50, 0, 160, 36, 171, 45, 187] };
+pub const CLSID_DsFindPeople: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2213429218, data2: 22489, data3: 4560, data4: [185, 50, 0, 160, 36, 171, 45, 187] };
+pub const CLSID_DsFindPrinter: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3044536432, data2: 32482, data3: 4560, data4: [145, 63, 0, 170, 0, 193, 110, 101] };
+pub const CLSID_DsFindVolume: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3249785841, data2: 34922, data3: 4560, data4: [145, 64, 0, 170, 0, 193, 110, 101] };
+pub const CLSID_DsFindWriteableDomainController: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2092888185,
     data2: 43652,
     data3: 17483,
     data4: [188, 112, 104, 228, 18, 131, 234, 188],
 };
-pub const CLSID_DsFolderProperties: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2656166096, data2: 28175, data3: 4562, data4: [150, 1, 0, 192, 79, 163, 26, 134] };
-pub const CLSID_DsObjectPicker: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 399953112, data2: 15227, data3: 4562, data4: [185, 224, 0, 192, 79, 216, 219, 247] };
-pub const CLSID_DsPropertyPages: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 222680368, data2: 30283, data3: 4560, data4: [161, 202, 0, 170, 0, 193, 110, 101] };
-pub const CLSID_DsQuery: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2317608542, data2: 12738, data3: 4560, data4: [137, 28, 0, 160, 36, 171, 45, 187] };
-pub const CLSID_MicrosoftDS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4262629616, data2: 53181, data3: 4559, data4: [163, 48, 0, 170, 0, 193, 110, 101] };
+pub const CLSID_DsFolderProperties: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2656166096, data2: 28175, data3: 4562, data4: [150, 1, 0, 192, 79, 163, 26, 134] };
+pub const CLSID_DsObjectPicker: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 399953112, data2: 15227, data3: 4562, data4: [185, 224, 0, 192, 79, 216, 219, 247] };
+pub const CLSID_DsPropertyPages: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 222680368, data2: 30283, data3: 4560, data4: [161, 202, 0, 170, 0, 193, 110, 101] };
+pub const CLSID_DsQuery: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2317608542, data2: 12738, data3: 4560, data4: [137, 28, 0, 160, 36, 171, 45, 187] };
+pub const CLSID_MicrosoftDS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4262629616, data2: 53181, data3: 4559, data4: [163, 48, 0, 170, 0, 193, 110, 101] };
 pub const CQFF_ISOPTIONAL: u32 = 2u32;
 pub const CQFF_NOGLOBALPAGES: u32 = 1u32;
 #[repr(C)]
@@ -1297,11 +1297,11 @@ impl ::core::clone::Clone for CQFORM {
 pub struct CQPAGE {
     pub cbStruct: u32,
     pub dwFlags: u32,
-    pub pPageProc: ::core::option::Option<LPCQPAGEPROC>,
+    pub pPageProc: LPCQPAGEPROC,
     pub hInstance: super::super::Foundation::HINSTANCE,
     pub idPageName: i32,
     pub idPageTemplate: i32,
-    pub pDlgProc: ::core::option::Option<super::super::UI::WindowsAndMessaging::DLGPROC>,
+    pub pDlgProc: super::super::UI::WindowsAndMessaging::DLGPROC,
     pub lParam: super::super::Foundation::LPARAM,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -1321,14 +1321,14 @@ pub const CQPM_INITIALIZE: u32 = 1u32;
 pub const CQPM_PERSIST: u32 = 7u32;
 pub const CQPM_RELEASE: u32 = 2u32;
 pub const CQPM_SETDEFAULTPARAMETERS: u32 = 9u32;
-pub const CaseIgnoreList: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 368609877, data2: 18048, data3: 4561, data4: [163, 180, 0, 192, 79, 185, 80, 220] };
+pub const CaseIgnoreList: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 368609877, data2: 18048, data3: 4561, data4: [163, 180, 0, 192, 79, 185, 80, 220] };
 pub const DBDTF_RETURNEXTERNAL: u32 = 4u32;
 pub const DBDTF_RETURNFQDN: u32 = 1u32;
 pub const DBDTF_RETURNINBOUND: u32 = 8u32;
 pub const DBDTF_RETURNINOUTBOUND: u32 = 16u32;
 pub const DBDTF_RETURNMIXEDDOMAINS: u32 = 2u32;
-pub const DNWithBinary: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2124005539, data2: 63797, data3: 4562, data4: [186, 150, 0, 192, 79, 182, 208, 209] };
-pub const DNWithString: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 860379084, data2: 63796, data3: 4562, data4: [186, 150, 0, 192, 79, 182, 208, 209] };
+pub const DNWithBinary: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2124005539, data2: 63797, data3: 4562, data4: [186, 150, 0, 192, 79, 182, 208, 209] };
+pub const DNWithString: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 860379084, data2: 63796, data3: 4562, data4: [186, 150, 0, 192, 79, 182, 208, 209] };
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DOMAINDESC {
@@ -1511,7 +1511,7 @@ pub struct DSBROWSEINFOA {
     pub pszPath: super::super::Foundation::PWSTR,
     pub cchPath: u32,
     pub dwFlags: u32,
-    pub pfnCallback: ::core::option::Option<super::super::UI::Shell::BFFCALLBACK>,
+    pub pfnCallback: super::super::UI::Shell::BFFCALLBACK,
     pub lParam: super::super::Foundation::LPARAM,
     pub dwReturnFormat: u32,
     pub pUserName: super::super::Foundation::PWSTR,
@@ -1538,7 +1538,7 @@ pub struct DSBROWSEINFOW {
     pub pszPath: super::super::Foundation::PWSTR,
     pub cchPath: u32,
     pub dwFlags: u32,
-    pub pfnCallback: ::core::option::Option<super::super::UI::Shell::BFFCALLBACK>,
+    pub pfnCallback: super::super::UI::Shell::BFFCALLBACK,
     pub lParam: super::super::Foundation::LPARAM,
     pub dwReturnFormat: u32,
     pub pUserName: super::super::Foundation::PWSTR,
@@ -3231,7 +3231,7 @@ pub const DS_WEB_SERVICE_REQUIRED: u32 = 1048576u32;
 pub const DS_WRITABLE_FLAG: u32 = 256u32;
 pub const DS_WRITABLE_REQUIRED: u32 = 4096u32;
 pub const DS_WS_FLAG: u32 = 8192u32;
-pub const Email: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2408753239, data2: 18318, data3: 4561, data4: [163, 180, 0, 192, 79, 185, 80, 220] };
+pub const Email: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2408753239, data2: 18318, data3: 4561, data4: [163, 180, 0, 192, 79, 185, 80, 220] };
 pub const FACILITY_BACKUP: u32 = 2047u32;
 pub const FACILITY_NTDSB: u32 = 2048u32;
 pub const FACILITY_SYSTEM: u32 = 0u32;
@@ -3241,7 +3241,7 @@ pub const FLAG_FOREST_OPTIONAL_FEATURE: u32 = 1u32;
 pub const FLAG_SERVER_OPTIONAL_FEATURE: u32 = 8u32;
 pub const FRSCONN_MAX_PRIORITY: u32 = 8u32;
 pub const FRSCONN_PRIORITY_MASK: u32 = 1879048192u32;
-pub const FaxNumber: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2768642581, data2: 18049, data3: 4561, data4: [163, 180, 0, 192, 79, 185, 80, 220] };
+pub const FaxNumber: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2768642581, data2: 18049, data3: 4561, data4: [163, 180, 0, 192, 79, 185, 80, 220] };
 #[repr(C)]
 pub struct GetDcContextHandle(pub isize);
 impl ::core::marker::Copy for GetDcContextHandle {}
@@ -3250,163 +3250,631 @@ impl ::core::clone::Clone for GetDcContextHandle {
         *self
     }
 }
-pub const Hold: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3014475283, data2: 16512, data3: 4561, data4: [163, 172, 0, 192, 79, 185, 80, 220] };
+pub const Hold: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3014475283, data2: 16512, data3: 4561, data4: [163, 172, 0, 192, 79, 185, 80, 220] };
 #[repr(transparent)]
 pub struct IADs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IADs {}
+impl ::core::clone::Clone for IADs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IADsADSystemInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IADsADSystemInfo {}
+impl ::core::clone::Clone for IADsADSystemInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IADsAccessControlEntry(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IADsAccessControlEntry {}
+impl ::core::clone::Clone for IADsAccessControlEntry {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IADsAccessControlList(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IADsAccessControlList {}
+impl ::core::clone::Clone for IADsAccessControlList {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IADsAcl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IADsAcl {}
+impl ::core::clone::Clone for IADsAcl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IADsAggregatee(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IADsAggregatee {}
+impl ::core::clone::Clone for IADsAggregatee {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IADsAggregator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IADsAggregator {}
+impl ::core::clone::Clone for IADsAggregator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IADsBackLink(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IADsBackLink {}
+impl ::core::clone::Clone for IADsBackLink {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IADsCaseIgnoreList(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IADsCaseIgnoreList {}
+impl ::core::clone::Clone for IADsCaseIgnoreList {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IADsClass(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IADsClass {}
+impl ::core::clone::Clone for IADsClass {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IADsCollection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IADsCollection {}
+impl ::core::clone::Clone for IADsCollection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IADsComputer(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IADsComputer {}
+impl ::core::clone::Clone for IADsComputer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IADsComputerOperations(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IADsComputerOperations {}
+impl ::core::clone::Clone for IADsComputerOperations {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IADsContainer(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IADsContainer {}
+impl ::core::clone::Clone for IADsContainer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IADsDNWithBinary(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IADsDNWithBinary {}
+impl ::core::clone::Clone for IADsDNWithBinary {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IADsDNWithString(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IADsDNWithString {}
+impl ::core::clone::Clone for IADsDNWithString {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IADsDeleteOps(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IADsDeleteOps {}
+impl ::core::clone::Clone for IADsDeleteOps {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IADsDomain(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IADsDomain {}
+impl ::core::clone::Clone for IADsDomain {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IADsEmail(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IADsEmail {}
+impl ::core::clone::Clone for IADsEmail {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IADsExtension(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IADsExtension {}
+impl ::core::clone::Clone for IADsExtension {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IADsFaxNumber(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IADsFaxNumber {}
+impl ::core::clone::Clone for IADsFaxNumber {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IADsFileService(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IADsFileService {}
+impl ::core::clone::Clone for IADsFileService {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IADsFileServiceOperations(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IADsFileServiceOperations {}
+impl ::core::clone::Clone for IADsFileServiceOperations {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IADsFileShare(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IADsFileShare {}
+impl ::core::clone::Clone for IADsFileShare {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IADsGroup(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IADsGroup {}
+impl ::core::clone::Clone for IADsGroup {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IADsHold(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IADsHold {}
+impl ::core::clone::Clone for IADsHold {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IADsLargeInteger(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IADsLargeInteger {}
+impl ::core::clone::Clone for IADsLargeInteger {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IADsLocality(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IADsLocality {}
+impl ::core::clone::Clone for IADsLocality {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IADsMembers(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IADsMembers {}
+impl ::core::clone::Clone for IADsMembers {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IADsNameTranslate(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IADsNameTranslate {}
+impl ::core::clone::Clone for IADsNameTranslate {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IADsNamespaces(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IADsNamespaces {}
+impl ::core::clone::Clone for IADsNamespaces {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IADsNetAddress(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IADsNetAddress {}
+impl ::core::clone::Clone for IADsNetAddress {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IADsO(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IADsO {}
+impl ::core::clone::Clone for IADsO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IADsOU(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IADsOU {}
+impl ::core::clone::Clone for IADsOU {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IADsObjectOptions(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IADsObjectOptions {}
+impl ::core::clone::Clone for IADsObjectOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IADsOctetList(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IADsOctetList {}
+impl ::core::clone::Clone for IADsOctetList {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IADsOpenDSObject(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IADsOpenDSObject {}
+impl ::core::clone::Clone for IADsOpenDSObject {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IADsPath(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IADsPath {}
+impl ::core::clone::Clone for IADsPath {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IADsPathname(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IADsPathname {}
+impl ::core::clone::Clone for IADsPathname {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IADsPostalAddress(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IADsPostalAddress {}
+impl ::core::clone::Clone for IADsPostalAddress {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IADsPrintJob(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IADsPrintJob {}
+impl ::core::clone::Clone for IADsPrintJob {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IADsPrintJobOperations(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IADsPrintJobOperations {}
+impl ::core::clone::Clone for IADsPrintJobOperations {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IADsPrintQueue(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IADsPrintQueue {}
+impl ::core::clone::Clone for IADsPrintQueue {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IADsPrintQueueOperations(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IADsPrintQueueOperations {}
+impl ::core::clone::Clone for IADsPrintQueueOperations {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IADsProperty(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IADsProperty {}
+impl ::core::clone::Clone for IADsProperty {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IADsPropertyEntry(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IADsPropertyEntry {}
+impl ::core::clone::Clone for IADsPropertyEntry {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IADsPropertyList(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IADsPropertyList {}
+impl ::core::clone::Clone for IADsPropertyList {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IADsPropertyValue(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IADsPropertyValue {}
+impl ::core::clone::Clone for IADsPropertyValue {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IADsPropertyValue2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IADsPropertyValue2 {}
+impl ::core::clone::Clone for IADsPropertyValue2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IADsReplicaPointer(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IADsReplicaPointer {}
+impl ::core::clone::Clone for IADsReplicaPointer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IADsResource(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IADsResource {}
+impl ::core::clone::Clone for IADsResource {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IADsSecurityDescriptor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IADsSecurityDescriptor {}
+impl ::core::clone::Clone for IADsSecurityDescriptor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IADsSecurityUtility(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IADsSecurityUtility {}
+impl ::core::clone::Clone for IADsSecurityUtility {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IADsService(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IADsService {}
+impl ::core::clone::Clone for IADsService {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IADsServiceOperations(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IADsServiceOperations {}
+impl ::core::clone::Clone for IADsServiceOperations {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IADsSession(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IADsSession {}
+impl ::core::clone::Clone for IADsSession {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IADsSyntax(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IADsSyntax {}
+impl ::core::clone::Clone for IADsSyntax {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IADsTimestamp(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IADsTimestamp {}
+impl ::core::clone::Clone for IADsTimestamp {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IADsTypedName(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IADsTypedName {}
+impl ::core::clone::Clone for IADsTypedName {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IADsUser(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IADsUser {}
+impl ::core::clone::Clone for IADsUser {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IADsWinNTSystemInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IADsWinNTSystemInfo {}
+impl ::core::clone::Clone for IADsWinNTSystemInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICommonQuery(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICommonQuery {}
+impl ::core::clone::Clone for ICommonQuery {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDirectoryObject(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDirectoryObject {}
+impl ::core::clone::Clone for IDirectoryObject {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDirectorySchemaMgmt(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDirectorySchemaMgmt {}
+impl ::core::clone::Clone for IDirectorySchemaMgmt {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDirectorySearch(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDirectorySearch {}
+impl ::core::clone::Clone for IDirectorySearch {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDsAdminCreateObj(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDsAdminCreateObj {}
+impl ::core::clone::Clone for IDsAdminCreateObj {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDsAdminNewObj(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDsAdminNewObj {}
+impl ::core::clone::Clone for IDsAdminNewObj {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDsAdminNewObjExt(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDsAdminNewObjExt {}
+impl ::core::clone::Clone for IDsAdminNewObjExt {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDsAdminNewObjPrimarySite(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDsAdminNewObjPrimarySite {}
+impl ::core::clone::Clone for IDsAdminNewObjPrimarySite {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDsAdminNotifyHandler(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDsAdminNotifyHandler {}
+impl ::core::clone::Clone for IDsAdminNotifyHandler {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDsBrowseDomainTree(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDsBrowseDomainTree {}
+impl ::core::clone::Clone for IDsBrowseDomainTree {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDsDisplaySpecifier(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDsDisplaySpecifier {}
+impl ::core::clone::Clone for IDsDisplaySpecifier {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDsObjectPicker(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDsObjectPicker {}
+impl ::core::clone::Clone for IDsObjectPicker {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDsObjectPickerCredentials(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDsObjectPickerCredentials {}
+impl ::core::clone::Clone for IDsObjectPickerCredentials {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPersistQuery(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPersistQuery {}
+impl ::core::clone::Clone for IPersistQuery {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPrivateDispatch(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPrivateDispatch {}
+impl ::core::clone::Clone for IPrivateDispatch {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPrivateUnknown(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPrivateUnknown {}
+impl ::core::clone::Clone for IPrivateUnknown {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IQueryForm(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IQueryForm {}
+impl ::core::clone::Clone for IQueryForm {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub type LPCQADDFORMSPROC = unsafe extern "system" fn(lparam: super::super::Foundation::LPARAM, pform: *mut CQFORM) -> ::windows_sys::core::HRESULT;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -3415,7 +3883,7 @@ pub type LPCQADDPAGESPROC = unsafe extern "system" fn(lparam: super::super::Foun
 pub type LPCQPAGEPROC = unsafe extern "system" fn(ppage: *mut CQPAGE, hwnd: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> ::windows_sys::core::HRESULT;
 #[cfg(feature = "Win32_Foundation")]
 pub type LPDSENUMATTRIBUTES = unsafe extern "system" fn(lparam: super::super::Foundation::LPARAM, pszattributename: super::super::Foundation::PWSTR, pszdisplayname: super::super::Foundation::PWSTR, dwflags: u32) -> ::windows_sys::core::HRESULT;
-pub const LargeInteger: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2457432565, data2: 2361, data3: 4561, data4: [139, 225, 0, 192, 79, 216, 213, 3] };
+pub const LargeInteger: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2457432565, data2: 2361, data3: 4561, data4: [139, 225, 0, 192, 79, 216, 213, 3] };
 pub const NTDSAPI_BIND_ALLOW_DELEGATION: u32 = 1u32;
 pub const NTDSAPI_BIND_FIND_BINDING: u32 = 2u32;
 pub const NTDSAPI_BIND_FORCE_KERBEROS: u32 = 4u32;
@@ -3467,8 +3935,8 @@ pub const NTDSSITELINK_OPT_TWOWAY_SYNC: u32 = 2u32;
 pub const NTDSSITELINK_OPT_USE_NOTIFY: u32 = 1u32;
 pub const NTDSTRANSPORT_OPT_BRIDGES_REQUIRED: u32 = 2u32;
 pub const NTDSTRANSPORT_OPT_IGNORE_SCHEDULES: u32 = 1u32;
-pub const NameTranslate: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 659533343, data2: 13862, data3: 4561, data4: [163, 164, 0, 192, 79, 185, 80, 220] };
-pub const NetAddress: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2964787783, data2: 16512, data3: 4561, data4: [163, 172, 0, 192, 79, 185, 80, 220] };
+pub const NameTranslate: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 659533343, data2: 13862, data3: 4561, data4: [163, 164, 0, 192, 79, 185, 80, 220] };
+pub const NetAddress: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2964787783, data2: 16512, data3: 4561, data4: [163, 172, 0, 192, 79, 185, 80, 220] };
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 pub struct OPENQUERYWINDOW {
@@ -3477,7 +3945,7 @@ pub struct OPENQUERYWINDOW {
     pub clsidHandler: ::windows_sys::core::GUID,
     pub pHandlerParameters: *mut ::core::ffi::c_void,
     pub clsidDefaultForm: ::windows_sys::core::GUID,
-    pub pPersistQuery: ::core::option::Option<IPersistQuery>,
+    pub pPersistQuery: IPersistQuery,
     pub Anonymous: OPENQUERYWINDOW_0,
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
@@ -3492,7 +3960,7 @@ impl ::core::clone::Clone for OPENQUERYWINDOW {
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 pub union OPENQUERYWINDOW_0 {
     pub pFormParameters: *mut ::core::ffi::c_void,
-    pub ppbFormParameters: ::core::option::Option<super::super::System::Com::StructuredStorage::IPropertyBag>,
+    pub ppbFormParameters: super::super::System::Com::StructuredStorage::IPropertyBag,
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ::core::marker::Copy for OPENQUERYWINDOW_0 {}
@@ -3514,15 +3982,15 @@ pub const OQWF_REMOVESCOPES: u32 = 16u32;
 pub const OQWF_SAVEQUERYONOK: u32 = 512u32;
 pub const OQWF_SHOWOPTIONAL: u32 = 128u32;
 pub const OQWF_SINGLESELECT: u32 = 4u32;
-pub const OctetList: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 306266127, data2: 18048, data3: 4561, data4: [163, 180, 0, 192, 79, 185, 80, 220] };
-pub const Path: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2991819033, data2: 16512, data3: 4561, data4: [163, 172, 0, 192, 79, 185, 80, 220] };
-pub const Pathname: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 135073144, data2: 62497, data3: 4560, data4: [163, 110, 0, 192, 79, 185, 80, 220] };
-pub const PostalAddress: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 175484877, data2: 18048, data3: 4561, data4: [163, 180, 0, 192, 79, 185, 80, 220] };
-pub const PropertyEntry: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1926491586, data2: 42180, data3: 4560, data4: [133, 51, 0, 192, 79, 216, 213, 3] };
-pub const PropertyValue: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2073966768, data2: 43388, data3: 4560, data4: [133, 52, 0, 192, 79, 216, 213, 3] };
+pub const OctetList: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 306266127, data2: 18048, data3: 4561, data4: [163, 180, 0, 192, 79, 185, 80, 220] };
+pub const Path: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2991819033, data2: 16512, data3: 4561, data4: [163, 172, 0, 192, 79, 185, 80, 220] };
+pub const Pathname: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 135073144, data2: 62497, data3: 4560, data4: [163, 110, 0, 192, 79, 185, 80, 220] };
+pub const PostalAddress: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 175484877, data2: 18048, data3: 4561, data4: [163, 180, 0, 192, 79, 185, 80, 220] };
+pub const PropertyEntry: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1926491586, data2: 42180, data3: 4560, data4: [133, 51, 0, 192, 79, 216, 213, 3] };
+pub const PropertyValue: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2073966768, data2: 43388, data3: 4560, data4: [133, 52, 0, 192, 79, 216, 213, 3] };
 pub const QUERYFORM_CHANGESFORMLIST: u64 = 1u64;
 pub const QUERYFORM_CHANGESOPTFORMLIST: u64 = 2u64;
-pub const ReplicaPointer: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4124162783, data2: 16512, data3: 4561, data4: [163, 172, 0, 192, 79, 185, 80, 220] };
+pub const ReplicaPointer: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4124162783, data2: 16512, data3: 4561, data4: [163, 172, 0, 192, 79, 185, 80, 220] };
 #[repr(C)]
 pub struct SCHEDULE {
     pub Size: u32,
@@ -3554,9 +4022,9 @@ pub const STATUS_SEVERITY_ERROR: u32 = 3u32;
 pub const STATUS_SEVERITY_INFORMATIONAL: u32 = 1u32;
 pub const STATUS_SEVERITY_SUCCESS: u32 = 0u32;
 pub const STATUS_SEVERITY_WARNING: u32 = 2u32;
-pub const SecurityDescriptor: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3109615420, data2: 39901, data3: 4560, data4: [133, 44, 0, 192, 79, 216, 213, 3] };
-pub const Timestamp: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2998850283, data2: 16512, data3: 4561, data4: [163, 172, 0, 192, 79, 185, 80, 220] };
-pub const TypedName: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3006350283, data2: 16512, data3: 4561, data4: [163, 172, 0, 192, 79, 185, 80, 220] };
+pub const SecurityDescriptor: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3109615420, data2: 39901, data3: 4560, data4: [133, 44, 0, 192, 79, 216, 213, 3] };
+pub const Timestamp: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2998850283, data2: 16512, data3: 4561, data4: [163, 172, 0, 192, 79, 185, 80, 220] };
+pub const TypedName: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3006350283, data2: 16512, data3: 4561, data4: [163, 172, 0, 192, 79, 185, 80, 220] };
 pub const WM_ADSPROP_NOTIFY_APPLY: u32 = 2128u32;
 pub const WM_ADSPROP_NOTIFY_CHANGE: u32 = 2127u32;
 pub const WM_ADSPROP_NOTIFY_ERROR: u32 = 2134u32;
@@ -3565,7 +4033,7 @@ pub const WM_ADSPROP_NOTIFY_FOREGROUND: u32 = 2130u32;
 pub const WM_ADSPROP_NOTIFY_PAGEHWND: u32 = 2126u32;
 pub const WM_ADSPROP_NOTIFY_PAGEINIT: u32 = 2125u32;
 pub const WM_ADSPROP_NOTIFY_SETFOCUS: u32 = 2129u32;
-pub const WinNTSystemInfo: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1712860868, data2: 45009, data3: 4562, data4: [156, 185, 0, 0, 248, 122, 54, 158] };
+pub const WinNTSystemInfo: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1712860868, data2: 45009, data3: 4562, data4: [156, 185, 0, 0, 248, 122, 54, 158] };
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ads_search_column {

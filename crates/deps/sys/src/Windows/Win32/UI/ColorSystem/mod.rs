@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
     #[cfg(feature = "Win32_Foundation")]
@@ -301,7 +301,7 @@ impl ::core::clone::Clone for BlackInformation {
         *self
     }
 }
-pub const CATID_WcsPlugin: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CATID_WcsPlugin: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2696151776,
     data2: 33344,
     data3: 16479,
@@ -408,9 +408,9 @@ pub struct COLORMATCHSETUPA {
     pub ccPrinterProfile: u32,
     pub pTargetProfile: super::super::Foundation::PSTR,
     pub ccTargetProfile: u32,
-    pub lpfnHook: ::core::option::Option<super::WindowsAndMessaging::DLGPROC>,
+    pub lpfnHook: super::WindowsAndMessaging::DLGPROC,
     pub lParam: super::super::Foundation::LPARAM,
-    pub lpfnApplyCallback: ::core::option::Option<PCMSCALLBACKA>,
+    pub lpfnApplyCallback: PCMSCALLBACKA,
     pub lParamApplyCallback: super::super::Foundation::LPARAM,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -439,9 +439,9 @@ pub struct COLORMATCHSETUPW {
     pub ccPrinterProfile: u32,
     pub pTargetProfile: super::super::Foundation::PWSTR,
     pub ccTargetProfile: u32,
-    pub lpfnHook: ::core::option::Option<super::WindowsAndMessaging::DLGPROC>,
+    pub lpfnHook: super::WindowsAndMessaging::DLGPROC,
     pub lParam: super::super::Foundation::LPARAM,
-    pub lpfnApplyCallback: ::core::option::Option<PCMSCALLBACKW>,
+    pub lpfnApplyCallback: PCMSCALLBACKW,
     pub lParamApplyCallback: super::super::Foundation::LPARAM,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -745,8 +745,20 @@ impl ::core::clone::Clone for ICM_COMMAND {
 }
 #[repr(transparent)]
 pub struct IDeviceModelPlugIn(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDeviceModelPlugIn {}
+impl ::core::clone::Clone for IDeviceModelPlugIn {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGamutMapModelPlugIn(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGamutMapModelPlugIn {}
+impl ::core::clone::Clone for IGamutMapModelPlugIn {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const INDEX_DONT_CARE: u32 = 0u32;
 pub const INTENT_ABSOLUTE_COLORIMETRIC: u32 = 3u32;
 pub const INTENT_PERCEPTUAL: u32 = 0u32;

@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {}
 pub const DEFAULT_WEIGHT: u32 = 1u32;
@@ -747,196 +747,772 @@ impl ::core::clone::Clone for DISPID_SpeechXMLRecoResult {
 }
 #[repr(transparent)]
 pub struct IEnumSpObjectTokens(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnumSpObjectTokens {}
+impl ::core::clone::Clone for IEnumSpObjectTokens {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpAudio(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpAudio {}
+impl ::core::clone::Clone for ISpAudio {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpContainerLexicon(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpContainerLexicon {}
+impl ::core::clone::Clone for ISpContainerLexicon {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpDataKey(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpDataKey {}
+impl ::core::clone::Clone for ISpDataKey {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpDisplayAlternates(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpDisplayAlternates {}
+impl ::core::clone::Clone for ISpDisplayAlternates {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpEnginePronunciation(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpEnginePronunciation {}
+impl ::core::clone::Clone for ISpEnginePronunciation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpEventSink(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpEventSink {}
+impl ::core::clone::Clone for ISpEventSink {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpEventSource(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpEventSource {}
+impl ::core::clone::Clone for ISpEventSource {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpEventSource2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpEventSource2 {}
+impl ::core::clone::Clone for ISpEventSource2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpGrammarBuilder(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpGrammarBuilder {}
+impl ::core::clone::Clone for ISpGrammarBuilder {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpGrammarBuilder2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpGrammarBuilder2 {}
+impl ::core::clone::Clone for ISpGrammarBuilder2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpLexicon(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpLexicon {}
+impl ::core::clone::Clone for ISpLexicon {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpMMSysAudio(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpMMSysAudio {}
+impl ::core::clone::Clone for ISpMMSysAudio {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpNotifyCallback(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpNotifyCallback {}
+impl ::core::clone::Clone for ISpNotifyCallback {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpNotifySink(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpNotifySink {}
+impl ::core::clone::Clone for ISpNotifySink {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpNotifySource(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpNotifySource {}
+impl ::core::clone::Clone for ISpNotifySource {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpNotifyTranslator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpNotifyTranslator {}
+impl ::core::clone::Clone for ISpNotifyTranslator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpObjectToken(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpObjectToken {}
+impl ::core::clone::Clone for ISpObjectToken {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpObjectTokenCategory(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpObjectTokenCategory {}
+impl ::core::clone::Clone for ISpObjectTokenCategory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpObjectTokenInit(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpObjectTokenInit {}
+impl ::core::clone::Clone for ISpObjectTokenInit {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpObjectWithToken(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpObjectWithToken {}
+impl ::core::clone::Clone for ISpObjectWithToken {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpPhoneConverter(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpPhoneConverter {}
+impl ::core::clone::Clone for ISpPhoneConverter {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpPhoneticAlphabetConverter(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpPhoneticAlphabetConverter {}
+impl ::core::clone::Clone for ISpPhoneticAlphabetConverter {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpPhoneticAlphabetSelection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpPhoneticAlphabetSelection {}
+impl ::core::clone::Clone for ISpPhoneticAlphabetSelection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpPhrase(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpPhrase {}
+impl ::core::clone::Clone for ISpPhrase {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpPhrase2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpPhrase2 {}
+impl ::core::clone::Clone for ISpPhrase2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpPhraseAlt(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpPhraseAlt {}
+impl ::core::clone::Clone for ISpPhraseAlt {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpProperties(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpProperties {}
+impl ::core::clone::Clone for ISpProperties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpRecoContext(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpRecoContext {}
+impl ::core::clone::Clone for ISpRecoContext {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpRecoContext2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpRecoContext2 {}
+impl ::core::clone::Clone for ISpRecoContext2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpRecoGrammar(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpRecoGrammar {}
+impl ::core::clone::Clone for ISpRecoGrammar {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpRecoGrammar2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpRecoGrammar2 {}
+impl ::core::clone::Clone for ISpRecoGrammar2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpRecoResult(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpRecoResult {}
+impl ::core::clone::Clone for ISpRecoResult {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpRecoResult2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpRecoResult2 {}
+impl ::core::clone::Clone for ISpRecoResult2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpRecognizer(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpRecognizer {}
+impl ::core::clone::Clone for ISpRecognizer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpRecognizer2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpRecognizer2 {}
+impl ::core::clone::Clone for ISpRecognizer2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpRegDataKey(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpRegDataKey {}
+impl ::core::clone::Clone for ISpRegDataKey {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpResourceManager(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpResourceManager {}
+impl ::core::clone::Clone for ISpResourceManager {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpSerializeState(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpSerializeState {}
+impl ::core::clone::Clone for ISpSerializeState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpShortcut(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpShortcut {}
+impl ::core::clone::Clone for ISpShortcut {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpStream(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpStream {}
+impl ::core::clone::Clone for ISpStream {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpStreamFormat(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpStreamFormat {}
+impl ::core::clone::Clone for ISpStreamFormat {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpStreamFormatConverter(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpStreamFormatConverter {}
+impl ::core::clone::Clone for ISpStreamFormatConverter {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpTranscript(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpTranscript {}
+impl ::core::clone::Clone for ISpTranscript {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpVoice(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpVoice {}
+impl ::core::clone::Clone for ISpVoice {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpXMLRecoResult(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpXMLRecoResult {}
+impl ::core::clone::Clone for ISpXMLRecoResult {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpeechAudio(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpeechAudio {}
+impl ::core::clone::Clone for ISpeechAudio {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpeechAudioBufferInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpeechAudioBufferInfo {}
+impl ::core::clone::Clone for ISpeechAudioBufferInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpeechAudioFormat(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpeechAudioFormat {}
+impl ::core::clone::Clone for ISpeechAudioFormat {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpeechAudioStatus(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpeechAudioStatus {}
+impl ::core::clone::Clone for ISpeechAudioStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpeechBaseStream(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpeechBaseStream {}
+impl ::core::clone::Clone for ISpeechBaseStream {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpeechCustomStream(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpeechCustomStream {}
+impl ::core::clone::Clone for ISpeechCustomStream {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpeechDataKey(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpeechDataKey {}
+impl ::core::clone::Clone for ISpeechDataKey {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpeechFileStream(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpeechFileStream {}
+impl ::core::clone::Clone for ISpeechFileStream {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpeechGrammarRule(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpeechGrammarRule {}
+impl ::core::clone::Clone for ISpeechGrammarRule {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpeechGrammarRuleState(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpeechGrammarRuleState {}
+impl ::core::clone::Clone for ISpeechGrammarRuleState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpeechGrammarRuleStateTransition(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpeechGrammarRuleStateTransition {}
+impl ::core::clone::Clone for ISpeechGrammarRuleStateTransition {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpeechGrammarRuleStateTransitions(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpeechGrammarRuleStateTransitions {}
+impl ::core::clone::Clone for ISpeechGrammarRuleStateTransitions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpeechGrammarRules(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpeechGrammarRules {}
+impl ::core::clone::Clone for ISpeechGrammarRules {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpeechLexicon(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpeechLexicon {}
+impl ::core::clone::Clone for ISpeechLexicon {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpeechLexiconPronunciation(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpeechLexiconPronunciation {}
+impl ::core::clone::Clone for ISpeechLexiconPronunciation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpeechLexiconPronunciations(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpeechLexiconPronunciations {}
+impl ::core::clone::Clone for ISpeechLexiconPronunciations {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpeechLexiconWord(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpeechLexiconWord {}
+impl ::core::clone::Clone for ISpeechLexiconWord {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpeechLexiconWords(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpeechLexiconWords {}
+impl ::core::clone::Clone for ISpeechLexiconWords {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpeechMMSysAudio(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpeechMMSysAudio {}
+impl ::core::clone::Clone for ISpeechMMSysAudio {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpeechMemoryStream(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpeechMemoryStream {}
+impl ::core::clone::Clone for ISpeechMemoryStream {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpeechObjectToken(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpeechObjectToken {}
+impl ::core::clone::Clone for ISpeechObjectToken {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpeechObjectTokenCategory(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpeechObjectTokenCategory {}
+impl ::core::clone::Clone for ISpeechObjectTokenCategory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpeechObjectTokens(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpeechObjectTokens {}
+impl ::core::clone::Clone for ISpeechObjectTokens {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpeechPhoneConverter(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpeechPhoneConverter {}
+impl ::core::clone::Clone for ISpeechPhoneConverter {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpeechPhraseAlternate(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpeechPhraseAlternate {}
+impl ::core::clone::Clone for ISpeechPhraseAlternate {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpeechPhraseAlternates(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpeechPhraseAlternates {}
+impl ::core::clone::Clone for ISpeechPhraseAlternates {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpeechPhraseElement(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpeechPhraseElement {}
+impl ::core::clone::Clone for ISpeechPhraseElement {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpeechPhraseElements(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpeechPhraseElements {}
+impl ::core::clone::Clone for ISpeechPhraseElements {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpeechPhraseInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpeechPhraseInfo {}
+impl ::core::clone::Clone for ISpeechPhraseInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpeechPhraseInfoBuilder(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpeechPhraseInfoBuilder {}
+impl ::core::clone::Clone for ISpeechPhraseInfoBuilder {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpeechPhraseProperties(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpeechPhraseProperties {}
+impl ::core::clone::Clone for ISpeechPhraseProperties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpeechPhraseProperty(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpeechPhraseProperty {}
+impl ::core::clone::Clone for ISpeechPhraseProperty {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpeechPhraseReplacement(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpeechPhraseReplacement {}
+impl ::core::clone::Clone for ISpeechPhraseReplacement {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpeechPhraseReplacements(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpeechPhraseReplacements {}
+impl ::core::clone::Clone for ISpeechPhraseReplacements {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpeechPhraseRule(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpeechPhraseRule {}
+impl ::core::clone::Clone for ISpeechPhraseRule {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpeechPhraseRules(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpeechPhraseRules {}
+impl ::core::clone::Clone for ISpeechPhraseRules {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpeechRecoContext(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpeechRecoContext {}
+impl ::core::clone::Clone for ISpeechRecoContext {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpeechRecoGrammar(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpeechRecoGrammar {}
+impl ::core::clone::Clone for ISpeechRecoGrammar {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpeechRecoResult(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpeechRecoResult {}
+impl ::core::clone::Clone for ISpeechRecoResult {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpeechRecoResult2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpeechRecoResult2 {}
+impl ::core::clone::Clone for ISpeechRecoResult2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpeechRecoResultDispatch(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpeechRecoResultDispatch {}
+impl ::core::clone::Clone for ISpeechRecoResultDispatch {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpeechRecoResultTimes(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpeechRecoResultTimes {}
+impl ::core::clone::Clone for ISpeechRecoResultTimes {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpeechRecognizer(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpeechRecognizer {}
+impl ::core::clone::Clone for ISpeechRecognizer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpeechRecognizerStatus(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpeechRecognizerStatus {}
+impl ::core::clone::Clone for ISpeechRecognizerStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpeechResourceLoader(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpeechResourceLoader {}
+impl ::core::clone::Clone for ISpeechResourceLoader {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpeechTextSelectionInformation(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpeechTextSelectionInformation {}
+impl ::core::clone::Clone for ISpeechTextSelectionInformation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpeechVoice(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpeechVoice {}
+impl ::core::clone::Clone for ISpeechVoice {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpeechVoiceStatus(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpeechVoiceStatus {}
+impl ::core::clone::Clone for ISpeechVoiceStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpeechWaveFormatEx(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpeechWaveFormatEx {}
+impl ::core::clone::Clone for ISpeechWaveFormatEx {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpeechXMLRecoResult(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpeechXMLRecoResult {}
+impl ::core::clone::Clone for ISpeechXMLRecoResult {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PHONETICALPHABET(pub i32);
 pub const PA_Ipa: PHONETICALPHABET = PHONETICALPHABET(0i32);
@@ -2267,99 +2843,99 @@ pub const SP_MAX_WORD_LENGTH: u32 = 128u32;
 pub const SP_NORMAL_CONFIDENCE: u32 = 0u32;
 pub const SP_STREAMPOS_ASAP: u32 = 0u32;
 pub const SP_STREAMPOS_REALTIME: i32 = -1i32;
-pub const SpAudioFormat: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2667145328, data2: 57696, data3: 18322, data4: [130, 13, 72, 207, 6, 73, 228, 236] };
-pub const SpCompressedLexicon: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2425370390, data2: 12098, data3: 4563, data4: [156, 38, 0, 192, 79, 142, 248, 124] };
-pub const SpCustomStream: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const SpAudioFormat: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2667145328, data2: 57696, data3: 18322, data4: [130, 13, 72, 207, 6, 73, 228, 236] };
+pub const SpCompressedLexicon: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2425370390, data2: 12098, data3: 4563, data4: [156, 38, 0, 192, 79, 142, 248, 124] };
+pub const SpCustomStream: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2378101055,
     data2: 6472,
     data3: 19112,
     data4: [140, 240, 4, 142, 235, 237, 149, 216],
 };
-pub const SpFileStream: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const SpFileStream: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2490897075,
     data2: 10977,
     data3: 17988,
     data4: [186, 134, 158, 144, 222, 215, 236, 145],
 };
-pub const SpInProcRecoContext: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const SpInProcRecoContext: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1940744258,
     data2: 44256,
     data3: 17896,
     data4: [164, 221, 135, 149, 136, 26, 44, 42],
 };
-pub const SpInprocRecognizer: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1102617451, data2: 37785, data3: 4562, data4: [150, 35, 0, 192, 79, 142, 230, 40] };
-pub const SpLexicon: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 106292118, data2: 9680, data3: 4563, data4: [156, 38, 0, 192, 79, 142, 248, 124] };
-pub const SpMMAudioEnum: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2870513824, data2: 59679, data3: 4562, data4: [187, 145, 0, 192, 79, 142, 230, 192] };
-pub const SpMMAudioIn: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3476893264, data2: 21490, data3: 4562, data4: [150, 12, 0, 192, 79, 142, 230, 40] };
-pub const SpMMAudioOut: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2831581419, data2: 15666, data3: 4562, data4: [158, 231, 0, 192, 79, 121, 115, 150] };
-pub const SpMemoryStream: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const SpInprocRecognizer: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1102617451, data2: 37785, data3: 4562, data4: [150, 35, 0, 192, 79, 142, 230, 40] };
+pub const SpLexicon: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 106292118, data2: 9680, data3: 4563, data4: [156, 38, 0, 192, 79, 142, 248, 124] };
+pub const SpMMAudioEnum: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2870513824, data2: 59679, data3: 4562, data4: [187, 145, 0, 192, 79, 142, 230, 192] };
+pub const SpMMAudioIn: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3476893264, data2: 21490, data3: 4562, data4: [150, 12, 0, 192, 79, 142, 230, 40] };
+pub const SpMMAudioOut: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2831581419, data2: 15666, data3: 4562, data4: [158, 231, 0, 192, 79, 121, 115, 150] };
+pub const SpMemoryStream: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1605889917,
     data2: 57332,
     data3: 18058,
     data4: [182, 183, 47, 203, 209, 136, 249, 148],
 };
-pub const SpNotifyTranslator: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3803075442, data2: 23872, data3: 4562, data4: [150, 14, 0, 192, 79, 142, 230, 40] };
-pub const SpNullPhoneConverter: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const SpNotifyTranslator: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3803075442, data2: 23872, data3: 4562, data4: [150, 14, 0, 192, 79, 142, 230, 40] };
+pub const SpNullPhoneConverter: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1163863273,
     data2: 29590,
     data3: 18966,
     data4: [151, 21, 124, 15, 219, 227, 239, 227],
 };
-pub const SpObjectToken: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const SpObjectToken: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4014020434,
     data2: 14134,
     data3: 19636,
     data4: [156, 140, 142, 244, 204, 181, 142, 254],
 };
-pub const SpObjectTokenCategory: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const SpObjectTokenCategory: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2836404351,
     data2: 3194,
     data3: 17836,
     data4: [146, 204, 89, 237, 175, 183, 123, 83],
 };
-pub const SpPhoneConverter: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const SpPhoneConverter: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2441475907,
     data2: 4419,
     data3: 19496,
     data4: [134, 181, 191, 241, 79, 32, 229, 200],
 };
-pub const SpPhoneticAlphabetConverter: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const SpPhoneticAlphabetConverter: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1329676582,
     data2: 57315,
     data3: 17961,
     data4: [153, 238, 121, 121, 120, 49, 126, 173],
 };
-pub const SpPhraseInfoBuilder: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const SpPhraseInfoBuilder: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3258958477,
     data2: 50527,
     data3: 18208,
     data4: [139, 50, 145, 247, 60, 43, 213, 209],
 };
-pub const SpResourceManager: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2524222323, data2: 13201, data3: 4562, data4: [158, 227, 0, 192, 79, 121, 115, 150] };
-pub const SpSharedRecoContext: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1193304580, data2: 24266, data3: 4562, data4: [150, 15, 0, 192, 79, 142, 230, 40] };
-pub const SpSharedRecognizer: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1005471888, data2: 20457, data3: 18999, data4: [140, 30, 94, 126, 18, 121, 28, 31] };
-pub const SpShortcut: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const SpResourceManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2524222323, data2: 13201, data3: 4562, data4: [158, 227, 0, 192, 79, 121, 115, 150] };
+pub const SpSharedRecoContext: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1193304580, data2: 24266, data3: 4562, data4: [150, 15, 0, 192, 79, 142, 230, 40] };
+pub const SpSharedRecognizer: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1005471888, data2: 20457, data3: 18999, data4: [140, 30, 94, 126, 18, 121, 28, 31] };
+pub const SpShortcut: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 225586970,
     data2: 40911,
     data3: 20066,
     data4: [150, 216, 109, 248, 240, 26, 38, 170],
 };
-pub const SpStream: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1901960281, data2: 17474, data3: 4562, data4: [150, 5, 0, 192, 79, 142, 230, 40] };
-pub const SpStreamFormatConverter: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1880331322, data2: 58092, data3: 4562, data4: [160, 134, 0, 192, 79, 142, 249, 181] };
-pub const SpTextSelectionInformation: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const SpStream: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1901960281, data2: 17474, data3: 4562, data4: [150, 5, 0, 192, 79, 142, 230, 40] };
+pub const SpStreamFormatConverter: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1880331322, data2: 58092, data3: 4562, data4: [160, 134, 0, 192, 79, 142, 249, 181] };
+pub const SpTextSelectionInformation: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 261227274,
     data2: 52221,
     data3: 19128,
     data4: [161, 100, 255, 89, 133, 84, 127, 246],
 };
-pub const SpUnCompressedLexicon: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const SpUnCompressedLexicon: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3387128853,
     data2: 57234,
     data3: 18215,
     data4: [133, 214, 114, 229, 238, 182, 153, 90],
 };
-pub const SpVoice: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2524222327, data2: 13201, data3: 4562, data4: [158, 227, 0, 192, 79, 121, 115, 150] };
-pub const SpWaveFormatEx: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const SpVoice: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2524222327, data2: 13201, data3: 4562, data4: [158, 227, 0, 192, 79, 121, 115, 150] };
+pub const SpWaveFormatEx: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3348780876,
     data2: 25534,
     data3: 17593,
@@ -2922,5 +3498,17 @@ pub const Speech_StreamPos_Asap: i32 = 0i32;
 pub const Speech_StreamPos_RealTime: i32 = -1i32;
 #[repr(transparent)]
 pub struct _ISpeechRecoContextEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for _ISpeechRecoContextEvents {}
+impl ::core::clone::Clone for _ISpeechRecoContextEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct _ISpeechVoiceEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for _ISpeechVoiceEvents {}
+impl ::core::clone::Clone for _ISpeechVoiceEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

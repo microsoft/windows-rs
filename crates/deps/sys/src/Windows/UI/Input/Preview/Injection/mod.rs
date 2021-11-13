@@ -1,26 +1,86 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {}
 #[repr(transparent)]
 pub struct IInjectedInputGamepadInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInjectedInputGamepadInfo {}
+impl ::core::clone::Clone for IInjectedInputGamepadInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInjectedInputGamepadInfoFactory(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInjectedInputGamepadInfoFactory {}
+impl ::core::clone::Clone for IInjectedInputGamepadInfoFactory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInjectedInputKeyboardInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInjectedInputKeyboardInfo {}
+impl ::core::clone::Clone for IInjectedInputKeyboardInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInjectedInputMouseInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInjectedInputMouseInfo {}
+impl ::core::clone::Clone for IInjectedInputMouseInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInjectedInputPenInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInjectedInputPenInfo {}
+impl ::core::clone::Clone for IInjectedInputPenInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInjectedInputTouchInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInjectedInputTouchInfo {}
+impl ::core::clone::Clone for IInjectedInputTouchInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInputInjector(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInputInjector {}
+impl ::core::clone::Clone for IInputInjector {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInputInjector2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInputInjector2 {}
+impl ::core::clone::Clone for IInputInjector2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInputInjectorStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInputInjectorStatics {}
+impl ::core::clone::Clone for IInputInjectorStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInputInjectorStatics2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInputInjectorStatics2 {}
+impl ::core::clone::Clone for IInputInjectorStatics2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct InjectedInputButtonChangeKind(pub i32);
 impl InjectedInputButtonChangeKind {
@@ -44,6 +104,12 @@ impl ::core::clone::Clone for InjectedInputButtonChangeKind {
 }
 #[repr(transparent)]
 pub struct InjectedInputGamepadInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for InjectedInputGamepadInfo {}
+impl ::core::clone::Clone for InjectedInputGamepadInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct InjectedInputKeyOptions(pub u32);
 impl InjectedInputKeyOptions {
@@ -61,8 +127,20 @@ impl ::core::clone::Clone for InjectedInputKeyOptions {
 }
 #[repr(transparent)]
 pub struct InjectedInputKeyboardInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for InjectedInputKeyboardInfo {}
+impl ::core::clone::Clone for InjectedInputKeyboardInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct InjectedInputMouseInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for InjectedInputMouseInfo {}
+impl ::core::clone::Clone for InjectedInputMouseInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct InjectedInputMouseOptions(pub u32);
 impl InjectedInputMouseOptions {
@@ -104,6 +182,12 @@ impl ::core::clone::Clone for InjectedInputPenButtons {
 }
 #[repr(transparent)]
 pub struct InjectedInputPenInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for InjectedInputPenInfo {}
+impl ::core::clone::Clone for InjectedInputPenInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct InjectedInputPenParameters(pub u32);
 impl InjectedInputPenParameters {
@@ -195,6 +279,12 @@ impl ::core::clone::Clone for InjectedInputShortcut {
 }
 #[repr(transparent)]
 pub struct InjectedInputTouchInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for InjectedInputTouchInfo {}
+impl ::core::clone::Clone for InjectedInputTouchInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct InjectedInputTouchParameters(pub u32);
 impl InjectedInputTouchParameters {
@@ -224,3 +314,9 @@ impl ::core::clone::Clone for InjectedInputVisualizationMode {
 }
 #[repr(transparent)]
 pub struct InputInjector(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for InputInjector {}
+impl ::core::clone::Clone for InputInjector {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

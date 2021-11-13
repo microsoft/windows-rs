@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
     pub fn CertSrvBackupClose(hbc: *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
@@ -159,46 +159,46 @@ pub const CA_DISP_INVALID: u32 = 4u32;
 pub const CA_DISP_REVOKED: u32 = 2u32;
 pub const CA_DISP_UNDER_SUBMISSION: u32 = 5u32;
 pub const CA_DISP_VALID: u32 = 3u32;
-pub const CAlternativeName: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2286821395, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
-pub const CAlternativeNames: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2286821396, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
-pub const CBinaryConverter: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2286821378, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
+pub const CAlternativeName: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2286821395, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
+pub const CAlternativeNames: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2286821396, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
+pub const CBinaryConverter: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2286821378, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
 pub const CCLOCKSKEWMINUTESDEFAULT: u32 = 10u32;
 pub const CC_UIPICKCONFIGSKIPLOCALCA: u32 = 5u32;
-pub const CCertAdmin: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 938130160, data2: 32694, data3: 4560, data4: [136, 23, 0, 160, 201, 3, 184, 60] };
-pub const CCertConfig: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 925879864, data2: 17188, data3: 4560, data4: [136, 16, 0, 160, 201, 3, 184, 60] };
-pub const CCertEncodeAltName: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 486296794, data2: 4721, data3: 4561, data4: [155, 212, 0, 192, 79, 182, 131, 250] };
-pub const CCertEncodeBitString: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1835744472, data2: 4728, data3: 4561, data4: [155, 212, 0, 192, 79, 182, 131, 250] };
-pub const CCertEncodeCRLDistInfo: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 33185952, data2: 48127, data3: 4560, data4: [136, 37, 0, 160, 201, 3, 184, 60] };
-pub const CCertEncodeDateArray: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 807368624, data2: 42096, data3: 4560, data4: [136, 33, 0, 160, 201, 3, 184, 60] };
-pub const CCertEncodeLongArray: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1309048992, data2: 41122, data3: 4560, data4: [136, 33, 0, 160, 201, 3, 184, 60] };
-pub const CCertEncodeStringArray: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 430403552, data2: 29844, data3: 4560, data4: [136, 22, 0, 160, 201, 3, 184, 60] };
-pub const CCertGetConfig: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3335276976, data2: 52759, data3: 4560, data4: [136, 51, 0, 160, 201, 3, 184, 60] };
-pub const CCertProperties: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2286821423, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
-pub const CCertProperty: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2286821422, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
-pub const CCertPropertyArchived: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2286821431, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
-pub const CCertPropertyArchivedKeyHash: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2286821435, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
-pub const CCertPropertyAutoEnroll: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2286821426, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
-pub const CCertPropertyBackedUp: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2286821432, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
-pub const CCertPropertyDescription: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2286821425, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
-pub const CCertPropertyEnrollment: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2286821433, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
-pub const CCertPropertyEnrollmentPolicyServer: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2286821452, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
-pub const CCertPropertyFriendlyName: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2286821424, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
-pub const CCertPropertyKeyProvInfo: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2286821430, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
-pub const CCertPropertyRenewal: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2286821434, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
-pub const CCertPropertyRequestOriginator: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2286821427, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
-pub const CCertPropertySHA1Hash: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2286821428, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
-pub const CCertRequest: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2561668080, data2: 21796, data3: 4560, data4: [136, 18, 0, 160, 201, 3, 184, 60] };
-pub const CCertServerExit: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1279942208, data2: 29484, data3: 4560, data4: [136, 22, 0, 160, 201, 3, 184, 60] };
-pub const CCertServerPolicy: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2852129062, data2: 65470, data3: 4559, data4: [136, 0, 0, 160, 201, 3, 184, 60] };
-pub const CCertView: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2704084858, data2: 7812, data3: 4561, data4: [155, 214, 0, 192, 79, 182, 131, 250] };
-pub const CCertificateAttestationChallenge: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 325234081, data2: 60256, data3: 17770, data4: [182, 225, 17, 128, 80, 219, 116, 27] };
-pub const CCertificatePolicies: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2286821407, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
-pub const CCertificatePolicy: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2286821406, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
-pub const CCryptAttribute: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2286821420, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
-pub const CCryptAttributes: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2286821421, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
-pub const CCspInformation: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2286821383, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
-pub const CCspInformations: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2286821384, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
-pub const CCspStatus: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2286821385, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
+pub const CCertAdmin: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 938130160, data2: 32694, data3: 4560, data4: [136, 23, 0, 160, 201, 3, 184, 60] };
+pub const CCertConfig: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 925879864, data2: 17188, data3: 4560, data4: [136, 16, 0, 160, 201, 3, 184, 60] };
+pub const CCertEncodeAltName: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 486296794, data2: 4721, data3: 4561, data4: [155, 212, 0, 192, 79, 182, 131, 250] };
+pub const CCertEncodeBitString: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1835744472, data2: 4728, data3: 4561, data4: [155, 212, 0, 192, 79, 182, 131, 250] };
+pub const CCertEncodeCRLDistInfo: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 33185952, data2: 48127, data3: 4560, data4: [136, 37, 0, 160, 201, 3, 184, 60] };
+pub const CCertEncodeDateArray: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 807368624, data2: 42096, data3: 4560, data4: [136, 33, 0, 160, 201, 3, 184, 60] };
+pub const CCertEncodeLongArray: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1309048992, data2: 41122, data3: 4560, data4: [136, 33, 0, 160, 201, 3, 184, 60] };
+pub const CCertEncodeStringArray: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 430403552, data2: 29844, data3: 4560, data4: [136, 22, 0, 160, 201, 3, 184, 60] };
+pub const CCertGetConfig: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3335276976, data2: 52759, data3: 4560, data4: [136, 51, 0, 160, 201, 3, 184, 60] };
+pub const CCertProperties: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2286821423, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
+pub const CCertProperty: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2286821422, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
+pub const CCertPropertyArchived: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2286821431, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
+pub const CCertPropertyArchivedKeyHash: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2286821435, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
+pub const CCertPropertyAutoEnroll: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2286821426, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
+pub const CCertPropertyBackedUp: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2286821432, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
+pub const CCertPropertyDescription: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2286821425, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
+pub const CCertPropertyEnrollment: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2286821433, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
+pub const CCertPropertyEnrollmentPolicyServer: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2286821452, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
+pub const CCertPropertyFriendlyName: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2286821424, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
+pub const CCertPropertyKeyProvInfo: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2286821430, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
+pub const CCertPropertyRenewal: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2286821434, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
+pub const CCertPropertyRequestOriginator: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2286821427, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
+pub const CCertPropertySHA1Hash: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2286821428, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
+pub const CCertRequest: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2561668080, data2: 21796, data3: 4560, data4: [136, 18, 0, 160, 201, 3, 184, 60] };
+pub const CCertServerExit: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1279942208, data2: 29484, data3: 4560, data4: [136, 22, 0, 160, 201, 3, 184, 60] };
+pub const CCertServerPolicy: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2852129062, data2: 65470, data3: 4559, data4: [136, 0, 0, 160, 201, 3, 184, 60] };
+pub const CCertView: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2704084858, data2: 7812, data3: 4561, data4: [155, 214, 0, 192, 79, 182, 131, 250] };
+pub const CCertificateAttestationChallenge: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 325234081, data2: 60256, data3: 17770, data4: [182, 225, 17, 128, 80, 219, 116, 27] };
+pub const CCertificatePolicies: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2286821407, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
+pub const CCertificatePolicy: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2286821406, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
+pub const CCryptAttribute: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2286821420, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
+pub const CCryptAttributes: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2286821421, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
+pub const CCspInformation: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2286821383, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
+pub const CCspInformations: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2286821384, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
+pub const CCspStatus: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2286821385, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
 #[repr(transparent)]
 pub struct CERTADMIN_GET_ROLES_FLAGS(pub u32);
 pub const CA_ACCESS_ADMIN: CERTADMIN_GET_ROLES_FLAGS = CERTADMIN_GET_ROLES_FLAGS(1u32);
@@ -917,12 +917,12 @@ impl ::core::clone::Clone for CERT_VIEW_SEEK_OPERATOR_FLAGS {
         *self
     }
 }
-pub const CEnroll: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1140388489, data2: 31264, data3: 4560, data4: [143, 6, 0, 192, 79, 194, 149, 225] };
-pub const CEnroll2: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 309762276, data2: 59184, data3: 20060, data4: [162, 177, 33, 73, 10, 112, 200, 161] };
+pub const CEnroll: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1140388489, data2: 31264, data3: 4560, data4: [143, 6, 0, 192, 79, 194, 149, 225] };
+pub const CEnroll2: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 309762276, data2: 59184, data3: 20060, data4: [162, 177, 33, 73, 10, 112, 200, 161] };
 pub const CMM_READONLY: u32 = 2u32;
 pub const CMM_REFRESHONLY: u32 = 1u32;
-pub const CObjectId: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2286821376, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
-pub const CObjectIds: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2286821377, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
+pub const CObjectId: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2286821376, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
+pub const CObjectIds: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2286821377, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
 pub const CPF_BADURL_ERROR: u32 = 32u32;
 pub const CPF_BASE: u32 = 1u32;
 pub const CPF_CASTORE_ERROR: u32 = 16u32;
@@ -937,8 +937,8 @@ pub const CPF_POSTPONED_BASE_FILE_ERROR: u32 = 8192u32;
 pub const CPF_POSTPONED_BASE_LDAP_ERROR: u32 = 4096u32;
 pub const CPF_SHADOW: u32 = 8u32;
 pub const CPF_SIGNATURE_ERROR: u32 = 128u32;
-pub const CPolicyQualifier: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2286821404, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
-pub const CPolicyQualifiers: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2286821405, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
+pub const CPolicyQualifier: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2286821404, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
+pub const CPolicyQualifiers: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2286821405, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
 pub const CRLF_ALLOW_REQUEST_ATTRIBUTE_SUBJECT: u32 = 65536u32;
 pub const CRLF_BUILD_ROOTCA_CRLENTRIES_BASEDONKEY: u32 = 2097152u32;
 pub const CRLF_CRLNUMBER_CRITICAL: u32 = 4u32;
@@ -1160,9 +1160,9 @@ pub const CSVER_MINOR_WIN2K: u32 = 1u32;
 pub const CSVER_MINOR_WIN7: u32 = 1u32;
 pub const CSVER_MINOR_WIN8: u32 = 1u32;
 pub const CSVER_MINOR_WINBLUE: u32 = 1u32;
-pub const CSignerCertificate: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2286821437, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
-pub const CSmimeCapabilities: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2286821402, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
-pub const CSmimeCapability: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2286821401, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
+pub const CSignerCertificate: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2286821437, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
+pub const CSmimeCapabilities: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2286821402, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
+pub const CSmimeCapability: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2286821401, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
 pub const CVIEWAGEMINUTESDEFAULT: u32 = 16u32;
 #[repr(transparent)]
 pub struct CVRC_COLUMN(pub u32);
@@ -1204,56 +1204,56 @@ pub const CV_OUT_ENCODEMASK: u32 = 255u32;
 pub const CV_OUT_HEXRAW: u32 = 12u32;
 pub const CV_OUT_NOCR: u32 = 2147483648u32;
 pub const CV_OUT_NOCRLF: u32 = 1073741824u32;
-pub const CX500DistinguishedName: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2286821379, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
-pub const CX509Attribute: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2286821410, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
-pub const CX509AttributeArchiveKey: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2286821415, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
-pub const CX509AttributeArchiveKeyHash: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2286821416, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
-pub const CX509AttributeClientId: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2286821413, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
-pub const CX509AttributeCspProvider: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2286821419, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
-pub const CX509AttributeExtensions: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2286821412, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
-pub const CX509AttributeOSVersion: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2286821418, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
-pub const CX509AttributeRenewalCertificate: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2286821414, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
-pub const CX509Attributes: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2286821411, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
-pub const CX509CertificateRequestCertificate: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2286821443, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
-pub const CX509CertificateRequestCmc: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2286821445, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
-pub const CX509CertificateRequestPkcs10: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2286821442, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
-pub const CX509CertificateRequestPkcs7: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2286821444, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
-pub const CX509CertificateRevocationList: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2286821472, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
-pub const CX509CertificateRevocationListEntries: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2286821471, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
-pub const CX509CertificateRevocationListEntry: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2286821470, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
-pub const CX509CertificateTemplateADWritable: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CX500DistinguishedName: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2286821379, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
+pub const CX509Attribute: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2286821410, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
+pub const CX509AttributeArchiveKey: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2286821415, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
+pub const CX509AttributeArchiveKeyHash: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2286821416, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
+pub const CX509AttributeClientId: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2286821413, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
+pub const CX509AttributeCspProvider: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2286821419, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
+pub const CX509AttributeExtensions: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2286821412, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
+pub const CX509AttributeOSVersion: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2286821418, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
+pub const CX509AttributeRenewalCertificate: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2286821414, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
+pub const CX509Attributes: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2286821411, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
+pub const CX509CertificateRequestCertificate: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2286821443, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
+pub const CX509CertificateRequestCmc: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2286821445, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
+pub const CX509CertificateRequestPkcs10: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2286821442, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
+pub const CX509CertificateRequestPkcs7: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2286821444, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
+pub const CX509CertificateRevocationList: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2286821472, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
+pub const CX509CertificateRevocationListEntries: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2286821471, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
+pub const CX509CertificateRevocationListEntry: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2286821470, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
+pub const CX509CertificateTemplateADWritable: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2201412387,
     data2: 11882,
     data3: 18948,
     data4: [147, 124, 84, 143, 104, 24, 57, 179],
 };
-pub const CX509EndorsementKey: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 295852573, data2: 47523, data3: 20189, data4: [175, 131, 59, 89, 173, 190, 211, 97] };
-pub const CX509Enrollment: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2286821446, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
-pub const CX509EnrollmentHelper: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2286821456, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
-pub const CX509EnrollmentPolicyActiveDirectory: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2448658471, data2: 8575, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
-pub const CX509EnrollmentPolicyWebService: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2448658472, data2: 8575, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
-pub const CX509EnrollmentWebClassFactory: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2286821449, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
-pub const CX509Extension: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2286821389, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
-pub const CX509ExtensionAlternativeNames: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2286821397, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
-pub const CX509ExtensionAuthorityKeyIdentifier: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2286821400, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
-pub const CX509ExtensionBasicConstraints: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2286821398, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
-pub const CX509ExtensionCertificatePolicies: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2286821408, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
-pub const CX509ExtensionEnhancedKeyUsage: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2286821392, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
-pub const CX509ExtensionKeyUsage: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2286821391, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
-pub const CX509ExtensionMSApplicationPolicies: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2286821409, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
-pub const CX509ExtensionSmimeCapabilities: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2286821403, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
-pub const CX509ExtensionSubjectKeyIdentifier: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2286821399, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
-pub const CX509ExtensionTemplate: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2286821394, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
-pub const CX509ExtensionTemplateName: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2286821393, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
-pub const CX509Extensions: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2286821390, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
-pub const CX509MachineEnrollmentFactory: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2286821457, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
-pub const CX509NameValuePair: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2286821439, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
-pub const CX509PolicyServerListManager: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2448658473, data2: 8575, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
-pub const CX509PolicyServerUrl: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2448658474, data2: 8575, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
-pub const CX509PrivateKey: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2286821388, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
-pub const CX509PublicKey: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2286821387, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
-pub const CX509SCEPEnrollment: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2286821473, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
-pub const CX509SCEPEnrollmentHelper: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2286821474, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
+pub const CX509EndorsementKey: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 295852573, data2: 47523, data3: 20189, data4: [175, 131, 59, 89, 173, 190, 211, 97] };
+pub const CX509Enrollment: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2286821446, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
+pub const CX509EnrollmentHelper: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2286821456, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
+pub const CX509EnrollmentPolicyActiveDirectory: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2448658471, data2: 8575, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
+pub const CX509EnrollmentPolicyWebService: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2448658472, data2: 8575, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
+pub const CX509EnrollmentWebClassFactory: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2286821449, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
+pub const CX509Extension: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2286821389, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
+pub const CX509ExtensionAlternativeNames: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2286821397, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
+pub const CX509ExtensionAuthorityKeyIdentifier: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2286821400, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
+pub const CX509ExtensionBasicConstraints: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2286821398, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
+pub const CX509ExtensionCertificatePolicies: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2286821408, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
+pub const CX509ExtensionEnhancedKeyUsage: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2286821392, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
+pub const CX509ExtensionKeyUsage: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2286821391, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
+pub const CX509ExtensionMSApplicationPolicies: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2286821409, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
+pub const CX509ExtensionSmimeCapabilities: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2286821403, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
+pub const CX509ExtensionSubjectKeyIdentifier: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2286821399, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
+pub const CX509ExtensionTemplate: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2286821394, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
+pub const CX509ExtensionTemplateName: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2286821393, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
+pub const CX509Extensions: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2286821390, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
+pub const CX509MachineEnrollmentFactory: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2286821457, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
+pub const CX509NameValuePair: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2286821439, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
+pub const CX509PolicyServerListManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2448658473, data2: 8575, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
+pub const CX509PolicyServerUrl: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2448658474, data2: 8575, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
+pub const CX509PrivateKey: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2286821388, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
+pub const CX509PublicKey: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2286821387, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
+pub const CX509SCEPEnrollment: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2286821473, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
+pub const CX509SCEPEnrollmentHelper: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2286821474, data2: 8573, data3: 4570, data4: [178, 164, 0, 14, 123, 187, 43, 9] };
 #[repr(transparent)]
 pub struct CommitTemplateFlags(pub i32);
 pub const CommitFlagSaveTemplateGenerateOID: CommitTemplateFlags = CommitTemplateFlags(1i32);
@@ -1606,154 +1606,598 @@ impl ::core::clone::Clone for FULL_RESPONSE_PROPERTY_ID {
 }
 #[repr(transparent)]
 pub struct IAlternativeName(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAlternativeName {}
+impl ::core::clone::Clone for IAlternativeName {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAlternativeNames(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAlternativeNames {}
+impl ::core::clone::Clone for IAlternativeNames {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBinaryConverter(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBinaryConverter {}
+impl ::core::clone::Clone for IBinaryConverter {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBinaryConverter2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBinaryConverter2 {}
+impl ::core::clone::Clone for IBinaryConverter2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICEnroll(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICEnroll {}
+impl ::core::clone::Clone for ICEnroll {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICEnroll2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICEnroll2 {}
+impl ::core::clone::Clone for ICEnroll2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICEnroll3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICEnroll3 {}
+impl ::core::clone::Clone for ICEnroll3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICEnroll4(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICEnroll4 {}
+impl ::core::clone::Clone for ICEnroll4 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const ICF_ALLOWFOREIGN: u32 = 65536u32;
 pub const ICF_EXISTINGROW: u32 = 131072u32;
 #[repr(transparent)]
 pub struct ICertAdmin(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICertAdmin {}
+impl ::core::clone::Clone for ICertAdmin {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICertAdmin2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICertAdmin2 {}
+impl ::core::clone::Clone for ICertAdmin2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICertConfig(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICertConfig {}
+impl ::core::clone::Clone for ICertConfig {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICertConfig2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICertConfig2 {}
+impl ::core::clone::Clone for ICertConfig2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICertEncodeAltName(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICertEncodeAltName {}
+impl ::core::clone::Clone for ICertEncodeAltName {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICertEncodeAltName2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICertEncodeAltName2 {}
+impl ::core::clone::Clone for ICertEncodeAltName2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICertEncodeBitString(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICertEncodeBitString {}
+impl ::core::clone::Clone for ICertEncodeBitString {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICertEncodeBitString2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICertEncodeBitString2 {}
+impl ::core::clone::Clone for ICertEncodeBitString2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICertEncodeCRLDistInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICertEncodeCRLDistInfo {}
+impl ::core::clone::Clone for ICertEncodeCRLDistInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICertEncodeCRLDistInfo2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICertEncodeCRLDistInfo2 {}
+impl ::core::clone::Clone for ICertEncodeCRLDistInfo2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICertEncodeDateArray(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICertEncodeDateArray {}
+impl ::core::clone::Clone for ICertEncodeDateArray {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICertEncodeDateArray2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICertEncodeDateArray2 {}
+impl ::core::clone::Clone for ICertEncodeDateArray2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICertEncodeLongArray(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICertEncodeLongArray {}
+impl ::core::clone::Clone for ICertEncodeLongArray {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICertEncodeLongArray2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICertEncodeLongArray2 {}
+impl ::core::clone::Clone for ICertEncodeLongArray2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICertEncodeStringArray(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICertEncodeStringArray {}
+impl ::core::clone::Clone for ICertEncodeStringArray {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICertEncodeStringArray2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICertEncodeStringArray2 {}
+impl ::core::clone::Clone for ICertEncodeStringArray2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICertExit(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICertExit {}
+impl ::core::clone::Clone for ICertExit {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICertExit2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICertExit2 {}
+impl ::core::clone::Clone for ICertExit2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICertGetConfig(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICertGetConfig {}
+impl ::core::clone::Clone for ICertGetConfig {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICertManageModule(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICertManageModule {}
+impl ::core::clone::Clone for ICertManageModule {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICertPolicy(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICertPolicy {}
+impl ::core::clone::Clone for ICertPolicy {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICertPolicy2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICertPolicy2 {}
+impl ::core::clone::Clone for ICertPolicy2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICertProperties(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICertProperties {}
+impl ::core::clone::Clone for ICertProperties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICertProperty(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICertProperty {}
+impl ::core::clone::Clone for ICertProperty {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICertPropertyArchived(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICertPropertyArchived {}
+impl ::core::clone::Clone for ICertPropertyArchived {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICertPropertyArchivedKeyHash(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICertPropertyArchivedKeyHash {}
+impl ::core::clone::Clone for ICertPropertyArchivedKeyHash {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICertPropertyAutoEnroll(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICertPropertyAutoEnroll {}
+impl ::core::clone::Clone for ICertPropertyAutoEnroll {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICertPropertyBackedUp(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICertPropertyBackedUp {}
+impl ::core::clone::Clone for ICertPropertyBackedUp {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICertPropertyDescription(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICertPropertyDescription {}
+impl ::core::clone::Clone for ICertPropertyDescription {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICertPropertyEnrollment(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICertPropertyEnrollment {}
+impl ::core::clone::Clone for ICertPropertyEnrollment {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICertPropertyEnrollmentPolicyServer(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICertPropertyEnrollmentPolicyServer {}
+impl ::core::clone::Clone for ICertPropertyEnrollmentPolicyServer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICertPropertyFriendlyName(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICertPropertyFriendlyName {}
+impl ::core::clone::Clone for ICertPropertyFriendlyName {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICertPropertyKeyProvInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICertPropertyKeyProvInfo {}
+impl ::core::clone::Clone for ICertPropertyKeyProvInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICertPropertyRenewal(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICertPropertyRenewal {}
+impl ::core::clone::Clone for ICertPropertyRenewal {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICertPropertyRequestOriginator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICertPropertyRequestOriginator {}
+impl ::core::clone::Clone for ICertPropertyRequestOriginator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICertPropertySHA1Hash(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICertPropertySHA1Hash {}
+impl ::core::clone::Clone for ICertPropertySHA1Hash {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICertRequest(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICertRequest {}
+impl ::core::clone::Clone for ICertRequest {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICertRequest2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICertRequest2 {}
+impl ::core::clone::Clone for ICertRequest2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICertRequest3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICertRequest3 {}
+impl ::core::clone::Clone for ICertRequest3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICertRequestD(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICertRequestD {}
+impl ::core::clone::Clone for ICertRequestD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICertRequestD2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICertRequestD2 {}
+impl ::core::clone::Clone for ICertRequestD2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICertServerExit(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICertServerExit {}
+impl ::core::clone::Clone for ICertServerExit {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICertServerPolicy(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICertServerPolicy {}
+impl ::core::clone::Clone for ICertServerPolicy {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICertView(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICertView {}
+impl ::core::clone::Clone for ICertView {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICertView2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICertView2 {}
+impl ::core::clone::Clone for ICertView2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICertificateAttestationChallenge(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICertificateAttestationChallenge {}
+impl ::core::clone::Clone for ICertificateAttestationChallenge {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICertificateAttestationChallenge2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICertificateAttestationChallenge2 {}
+impl ::core::clone::Clone for ICertificateAttestationChallenge2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICertificatePolicies(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICertificatePolicies {}
+impl ::core::clone::Clone for ICertificatePolicies {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICertificatePolicy(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICertificatePolicy {}
+impl ::core::clone::Clone for ICertificatePolicy {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICertificationAuthorities(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICertificationAuthorities {}
+impl ::core::clone::Clone for ICertificationAuthorities {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICertificationAuthority(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICertificationAuthority {}
+impl ::core::clone::Clone for ICertificationAuthority {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICryptAttribute(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICryptAttribute {}
+impl ::core::clone::Clone for ICryptAttribute {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICryptAttributes(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICryptAttributes {}
+impl ::core::clone::Clone for ICryptAttributes {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICspAlgorithm(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICspAlgorithm {}
+impl ::core::clone::Clone for ICspAlgorithm {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICspAlgorithms(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICspAlgorithms {}
+impl ::core::clone::Clone for ICspAlgorithms {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICspInformation(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICspInformation {}
+impl ::core::clone::Clone for ICspInformation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICspInformations(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICspInformations {}
+impl ::core::clone::Clone for ICspInformations {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICspStatus(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICspStatus {}
+impl ::core::clone::Clone for ICspStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICspStatuses(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICspStatuses {}
+impl ::core::clone::Clone for ICspStatuses {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEnroll(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnroll {}
+impl ::core::clone::Clone for IEnroll {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEnroll2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnroll2 {}
+impl ::core::clone::Clone for IEnroll2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEnroll4(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnroll4 {}
+impl ::core::clone::Clone for IEnroll4 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEnumCERTVIEWATTRIBUTE(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnumCERTVIEWATTRIBUTE {}
+impl ::core::clone::Clone for IEnumCERTVIEWATTRIBUTE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEnumCERTVIEWCOLUMN(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnumCERTVIEWCOLUMN {}
+impl ::core::clone::Clone for IEnumCERTVIEWCOLUMN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEnumCERTVIEWEXTENSION(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnumCERTVIEWEXTENSION {}
+impl ::core::clone::Clone for IEnumCERTVIEWEXTENSION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEnumCERTVIEWROW(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnumCERTVIEWROW {}
+impl ::core::clone::Clone for IEnumCERTVIEWROW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const IF_ENABLEADMINASAUDITOR: u32 = 4096u32;
 pub const IF_ENABLEEXITKEYRETRIEVAL: u32 = 2048u32;
 pub const IF_ENFORCEENCRYPTICERTADMIN: u32 = 1024u32;
@@ -1770,24 +2214,84 @@ pub const IF_NOSNAPSHOTBACKUP: u32 = 256u32;
 pub const IKF_OVERWRITE: u32 = 65536u32;
 #[repr(transparent)]
 pub struct INDESPolicy(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for INDESPolicy {}
+impl ::core::clone::Clone for INDESPolicy {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IOCSPAdmin(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IOCSPAdmin {}
+impl ::core::clone::Clone for IOCSPAdmin {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IOCSPCAConfiguration(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IOCSPCAConfiguration {}
+impl ::core::clone::Clone for IOCSPCAConfiguration {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IOCSPCAConfigurationCollection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IOCSPCAConfigurationCollection {}
+impl ::core::clone::Clone for IOCSPCAConfigurationCollection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IOCSPProperty(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IOCSPProperty {}
+impl ::core::clone::Clone for IOCSPProperty {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IOCSPPropertyCollection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IOCSPPropertyCollection {}
+impl ::core::clone::Clone for IOCSPPropertyCollection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IObjectId(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IObjectId {}
+impl ::core::clone::Clone for IObjectId {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IObjectIds(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IObjectIds {}
+impl ::core::clone::Clone for IObjectIds {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPolicyQualifier(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPolicyQualifier {}
+impl ::core::clone::Clone for IPolicyQualifier {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPolicyQualifiers(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPolicyQualifiers {}
+impl ::core::clone::Clone for IPolicyQualifiers {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const ISSCERT_DEFAULT_DS: u32 = 256u32;
 pub const ISSCERT_DEFAULT_NODS: u32 = 256u32;
 pub const ISSCERT_ENABLE: u32 = 256u32;
@@ -1798,130 +2302,508 @@ pub const ISSCERT_LDAPURL_OLD: u32 = 1u32;
 pub const ISSCERT_URLMASK_OLD: u32 = 255u32;
 #[repr(transparent)]
 pub struct ISignerCertificate(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISignerCertificate {}
+impl ::core::clone::Clone for ISignerCertificate {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISignerCertificates(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISignerCertificates {}
+impl ::core::clone::Clone for ISignerCertificates {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISmimeCapabilities(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISmimeCapabilities {}
+impl ::core::clone::Clone for ISmimeCapabilities {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISmimeCapability(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISmimeCapability {}
+impl ::core::clone::Clone for ISmimeCapability {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IX500DistinguishedName(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IX500DistinguishedName {}
+impl ::core::clone::Clone for IX500DistinguishedName {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IX509Attribute(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IX509Attribute {}
+impl ::core::clone::Clone for IX509Attribute {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IX509AttributeArchiveKey(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IX509AttributeArchiveKey {}
+impl ::core::clone::Clone for IX509AttributeArchiveKey {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IX509AttributeArchiveKeyHash(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IX509AttributeArchiveKeyHash {}
+impl ::core::clone::Clone for IX509AttributeArchiveKeyHash {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IX509AttributeClientId(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IX509AttributeClientId {}
+impl ::core::clone::Clone for IX509AttributeClientId {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IX509AttributeCspProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IX509AttributeCspProvider {}
+impl ::core::clone::Clone for IX509AttributeCspProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IX509AttributeExtensions(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IX509AttributeExtensions {}
+impl ::core::clone::Clone for IX509AttributeExtensions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IX509AttributeOSVersion(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IX509AttributeOSVersion {}
+impl ::core::clone::Clone for IX509AttributeOSVersion {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IX509AttributeRenewalCertificate(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IX509AttributeRenewalCertificate {}
+impl ::core::clone::Clone for IX509AttributeRenewalCertificate {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IX509Attributes(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IX509Attributes {}
+impl ::core::clone::Clone for IX509Attributes {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IX509CertificateRequest(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IX509CertificateRequest {}
+impl ::core::clone::Clone for IX509CertificateRequest {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IX509CertificateRequestCertificate(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IX509CertificateRequestCertificate {}
+impl ::core::clone::Clone for IX509CertificateRequestCertificate {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IX509CertificateRequestCertificate2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IX509CertificateRequestCertificate2 {}
+impl ::core::clone::Clone for IX509CertificateRequestCertificate2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IX509CertificateRequestCmc(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IX509CertificateRequestCmc {}
+impl ::core::clone::Clone for IX509CertificateRequestCmc {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IX509CertificateRequestCmc2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IX509CertificateRequestCmc2 {}
+impl ::core::clone::Clone for IX509CertificateRequestCmc2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IX509CertificateRequestPkcs10(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IX509CertificateRequestPkcs10 {}
+impl ::core::clone::Clone for IX509CertificateRequestPkcs10 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IX509CertificateRequestPkcs10V2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IX509CertificateRequestPkcs10V2 {}
+impl ::core::clone::Clone for IX509CertificateRequestPkcs10V2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IX509CertificateRequestPkcs10V3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IX509CertificateRequestPkcs10V3 {}
+impl ::core::clone::Clone for IX509CertificateRequestPkcs10V3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IX509CertificateRequestPkcs10V4(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IX509CertificateRequestPkcs10V4 {}
+impl ::core::clone::Clone for IX509CertificateRequestPkcs10V4 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IX509CertificateRequestPkcs7(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IX509CertificateRequestPkcs7 {}
+impl ::core::clone::Clone for IX509CertificateRequestPkcs7 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IX509CertificateRequestPkcs7V2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IX509CertificateRequestPkcs7V2 {}
+impl ::core::clone::Clone for IX509CertificateRequestPkcs7V2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IX509CertificateRevocationList(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IX509CertificateRevocationList {}
+impl ::core::clone::Clone for IX509CertificateRevocationList {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IX509CertificateRevocationListEntries(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IX509CertificateRevocationListEntries {}
+impl ::core::clone::Clone for IX509CertificateRevocationListEntries {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IX509CertificateRevocationListEntry(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IX509CertificateRevocationListEntry {}
+impl ::core::clone::Clone for IX509CertificateRevocationListEntry {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IX509CertificateTemplate(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IX509CertificateTemplate {}
+impl ::core::clone::Clone for IX509CertificateTemplate {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IX509CertificateTemplateWritable(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IX509CertificateTemplateWritable {}
+impl ::core::clone::Clone for IX509CertificateTemplateWritable {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IX509CertificateTemplates(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IX509CertificateTemplates {}
+impl ::core::clone::Clone for IX509CertificateTemplates {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IX509EndorsementKey(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IX509EndorsementKey {}
+impl ::core::clone::Clone for IX509EndorsementKey {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IX509Enrollment(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IX509Enrollment {}
+impl ::core::clone::Clone for IX509Enrollment {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IX509Enrollment2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IX509Enrollment2 {}
+impl ::core::clone::Clone for IX509Enrollment2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IX509EnrollmentHelper(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IX509EnrollmentHelper {}
+impl ::core::clone::Clone for IX509EnrollmentHelper {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IX509EnrollmentPolicyServer(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IX509EnrollmentPolicyServer {}
+impl ::core::clone::Clone for IX509EnrollmentPolicyServer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IX509EnrollmentStatus(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IX509EnrollmentStatus {}
+impl ::core::clone::Clone for IX509EnrollmentStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IX509EnrollmentWebClassFactory(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IX509EnrollmentWebClassFactory {}
+impl ::core::clone::Clone for IX509EnrollmentWebClassFactory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IX509Extension(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IX509Extension {}
+impl ::core::clone::Clone for IX509Extension {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IX509ExtensionAlternativeNames(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IX509ExtensionAlternativeNames {}
+impl ::core::clone::Clone for IX509ExtensionAlternativeNames {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IX509ExtensionAuthorityKeyIdentifier(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IX509ExtensionAuthorityKeyIdentifier {}
+impl ::core::clone::Clone for IX509ExtensionAuthorityKeyIdentifier {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IX509ExtensionBasicConstraints(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IX509ExtensionBasicConstraints {}
+impl ::core::clone::Clone for IX509ExtensionBasicConstraints {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IX509ExtensionCertificatePolicies(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IX509ExtensionCertificatePolicies {}
+impl ::core::clone::Clone for IX509ExtensionCertificatePolicies {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IX509ExtensionEnhancedKeyUsage(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IX509ExtensionEnhancedKeyUsage {}
+impl ::core::clone::Clone for IX509ExtensionEnhancedKeyUsage {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IX509ExtensionKeyUsage(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IX509ExtensionKeyUsage {}
+impl ::core::clone::Clone for IX509ExtensionKeyUsage {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IX509ExtensionMSApplicationPolicies(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IX509ExtensionMSApplicationPolicies {}
+impl ::core::clone::Clone for IX509ExtensionMSApplicationPolicies {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IX509ExtensionSmimeCapabilities(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IX509ExtensionSmimeCapabilities {}
+impl ::core::clone::Clone for IX509ExtensionSmimeCapabilities {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IX509ExtensionSubjectKeyIdentifier(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IX509ExtensionSubjectKeyIdentifier {}
+impl ::core::clone::Clone for IX509ExtensionSubjectKeyIdentifier {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IX509ExtensionTemplate(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IX509ExtensionTemplate {}
+impl ::core::clone::Clone for IX509ExtensionTemplate {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IX509ExtensionTemplateName(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IX509ExtensionTemplateName {}
+impl ::core::clone::Clone for IX509ExtensionTemplateName {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IX509Extensions(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IX509Extensions {}
+impl ::core::clone::Clone for IX509Extensions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IX509MachineEnrollmentFactory(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IX509MachineEnrollmentFactory {}
+impl ::core::clone::Clone for IX509MachineEnrollmentFactory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IX509NameValuePair(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IX509NameValuePair {}
+impl ::core::clone::Clone for IX509NameValuePair {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IX509NameValuePairs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IX509NameValuePairs {}
+impl ::core::clone::Clone for IX509NameValuePairs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IX509PolicyServerListManager(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IX509PolicyServerListManager {}
+impl ::core::clone::Clone for IX509PolicyServerListManager {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IX509PolicyServerUrl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IX509PolicyServerUrl {}
+impl ::core::clone::Clone for IX509PolicyServerUrl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IX509PrivateKey(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IX509PrivateKey {}
+impl ::core::clone::Clone for IX509PrivateKey {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IX509PrivateKey2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IX509PrivateKey2 {}
+impl ::core::clone::Clone for IX509PrivateKey2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IX509PublicKey(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IX509PublicKey {}
+impl ::core::clone::Clone for IX509PublicKey {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IX509SCEPEnrollment(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IX509SCEPEnrollment {}
+impl ::core::clone::Clone for IX509SCEPEnrollment {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IX509SCEPEnrollment2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IX509SCEPEnrollment2 {}
+impl ::core::clone::Clone for IX509SCEPEnrollment2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IX509SCEPEnrollmentHelper(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IX509SCEPEnrollmentHelper {}
+impl ::core::clone::Clone for IX509SCEPEnrollmentHelper {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IX509SignatureInformation(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IX509SignatureInformation {}
+impl ::core::clone::Clone for IX509SignatureInformation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ImportPFXFlags(pub i32);
 pub const ImportNone: ImportPFXFlags = ImportPFXFlags(0i32);
@@ -2006,13 +2888,13 @@ impl ::core::clone::Clone for KeyIdentifierHashAlgorithm {
 }
 pub const LDAPF_SIGNDISABLE: u32 = 2u32;
 pub const LDAPF_SSLENABLE: u32 = 1u32;
-pub const OCSPAdmin: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const OCSPAdmin: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3556193553,
     data2: 37577,
     data3: 18379,
     data4: [143, 242, 141, 137, 26, 124, 77, 228],
 };
-pub const OCSPPropertyCollection: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const OCSPPropertyCollection: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4181042472,
     data2: 47754,
     data3: 19929,

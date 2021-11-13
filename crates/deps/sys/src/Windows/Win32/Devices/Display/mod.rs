@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
     #[cfg(feature = "Win32_Foundation")]
@@ -815,7 +815,7 @@ impl ::core::clone::Clone for DEVINFO {
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_Device_ActivityId: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::GUID {
+    fmtid: ::windows_sys::core::GUID {
         data1: 3305783056,
         data2: 43612,
         data3: 16967,
@@ -825,7 +825,7 @@ pub const DEVPKEY_Device_ActivityId: super::super::UI::Shell::PropertiesSystem::
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_Device_AdapterLuid: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::GUID {
+    fmtid: ::windows_sys::core::GUID {
         data1: 3305783056,
         data2: 43612,
         data3: 16967,
@@ -835,7 +835,7 @@ pub const DEVPKEY_Device_AdapterLuid: super::super::UI::Shell::PropertiesSystem:
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_Device_TerminalLuid: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::GUID {
+    fmtid: ::windows_sys::core::GUID {
         data1: 3305783056,
         data2: 43612,
         data3: 16967,
@@ -845,7 +845,7 @@ pub const DEVPKEY_Device_TerminalLuid: super::super::UI::Shell::PropertiesSystem
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_IndirectDisplay: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::GUID {
+    fmtid: ::windows_sys::core::GUID {
         data1: 3305783056,
         data2: 43612,
         data3: 16967,
@@ -1674,7 +1674,7 @@ impl ::core::clone::Clone for DRH_APIBITMAPDATA {
 #[cfg(feature = "Win32_Foundation")]
 pub struct DRIVEROBJ {
     pub pvObj: *mut ::core::ffi::c_void,
-    pub pFreeProc: ::core::option::Option<FREEOBJPROC>,
+    pub pFreeProc: FREEOBJPROC,
     pub hdev: HDEV,
     pub dhpdev: DHPDEV,
 }
@@ -1701,7 +1701,7 @@ impl ::core::clone::Clone for DRVENABLEDATA {
 #[repr(C)]
 pub struct DRVFN {
     pub iFunc: u32,
-    pub pfn: ::core::option::Option<PFN>,
+    pub pfn: PFN,
 }
 impl ::core::marker::Copy for DRVFN {}
 impl ::core::clone::Clone for DRVFN {
@@ -2575,21 +2575,21 @@ impl ::core::clone::Clone for GLYPHPOS {
 pub const GS_16BIT_HANDLES: u32 = 4u32;
 pub const GS_8BIT_HANDLES: u32 = 2u32;
 pub const GS_UNICODE_HANDLES: u32 = 1u32;
-pub const GUID_DEVINTERFACE_DISPLAY_ADAPTER: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_DEVINTERFACE_DISPLAY_ADAPTER: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1531256861,
     data2: 62194,
     data3: 20283,
     data4: [133, 187, 48, 255, 31, 149, 53, 153],
 };
-pub const GUID_DEVINTERFACE_MONITOR: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_DEVINTERFACE_MONITOR: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3874519903,
     data2: 61079,
     data3: 19088,
     data4: [176, 118, 51, 245, 123, 244, 234, 167],
 };
-pub const GUID_DEVINTERFACE_VIDEO_OUTPUT_ARRIVAL: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 450487536, data2: 63629, data3: 17248, data4: [186, 185, 76, 45, 85, 229, 100, 205] };
-pub const GUID_DISPLAY_DEVICE_ARRIVAL: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 480268672, data2: 42649, data3: 17674, data4: [154, 12, 222, 79, 190, 61, 221, 137] };
-pub const GUID_MONITOR_OVERRIDE_PSEUDO_SPECIALIZED: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_DEVINTERFACE_VIDEO_OUTPUT_ARRIVAL: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 450487536, data2: 63629, data3: 17248, data4: [186, 185, 76, 45, 85, 229, 100, 205] };
+pub const GUID_DISPLAY_DEVICE_ARRIVAL: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 480268672, data2: 42649, data3: 17674, data4: [154, 12, 222, 79, 190, 61, 221, 137] };
+pub const GUID_MONITOR_OVERRIDE_PSEUDO_SPECIALIZED: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4053188655,
     data2: 63599,
     data3: 20378,
@@ -2729,6 +2729,12 @@ pub const HT_USERPAT_CY_MAX: u32 = 256u32;
 pub const HT_USERPAT_CY_MIN: u32 = 4u32;
 #[repr(transparent)]
 pub struct ICloneViewHelper(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICloneViewHelper {}
+impl ::core::clone::Clone for ICloneViewHelper {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct IFIEXTRA {
     pub ulIdentifier: u32,
@@ -3087,6 +3093,12 @@ pub const IOCTL_VIDEO_USE_DEVICE_IN_SESSION: u32 = 2293800u32;
 pub const IOCTL_VIDEO_VALIDATE_CHILD_STATE_CONFIGURATION: u32 = 2294916u32;
 #[repr(transparent)]
 pub struct IViewHelper(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IViewHelper {}
+impl ::core::clone::Clone for IViewHelper {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const JOIN_BEVEL: i32 = 1i32;
 pub const JOIN_MITER: i32 = 2i32;
 pub const JOIN_ROUND: i32 = 0i32;
@@ -4785,7 +4797,7 @@ impl ::core::clone::Clone for VIDEO_VDM {
 #[cfg(feature = "Win32_Foundation")]
 pub struct VIDEO_WIN32K_CALLBACKS {
     pub PhysDisp: *mut ::core::ffi::c_void,
-    pub Callout: ::core::option::Option<PVIDEO_WIN32K_CALLOUT>,
+    pub Callout: PVIDEO_WIN32K_CALLOUT,
     pub bACPI: u32,
     pub pPhysDeviceObject: super::super::Foundation::HANDLE,
     pub DualviewFlags: u32,

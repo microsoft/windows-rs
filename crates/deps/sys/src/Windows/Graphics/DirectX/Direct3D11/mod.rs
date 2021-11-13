@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {}
 #[repr(transparent)]
@@ -61,5 +61,17 @@ impl ::core::clone::Clone for Direct3DUsage {
 }
 #[repr(transparent)]
 pub struct IDirect3DDevice(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDirect3DDevice {}
+impl ::core::clone::Clone for IDirect3DDevice {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDirect3DSurface(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDirect3DSurface {}
+impl ::core::clone::Clone for IDirect3DSurface {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

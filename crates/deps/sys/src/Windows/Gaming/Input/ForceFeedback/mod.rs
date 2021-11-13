@@ -1,8 +1,14 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {}
 #[repr(transparent)]
 pub struct ConditionForceEffect(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ConditionForceEffect {}
+impl ::core::clone::Clone for ConditionForceEffect {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ConditionForceEffectKind(pub i32);
 impl ConditionForceEffectKind {
@@ -19,6 +25,12 @@ impl ::core::clone::Clone for ConditionForceEffectKind {
 }
 #[repr(transparent)]
 pub struct ConstantForceEffect(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ConstantForceEffect {}
+impl ::core::clone::Clone for ConstantForceEffect {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ForceFeedbackEffectAxes(pub u32);
 impl ForceFeedbackEffectAxes {
@@ -62,24 +74,84 @@ impl ::core::clone::Clone for ForceFeedbackLoadEffectResult {
 }
 #[repr(transparent)]
 pub struct ForceFeedbackMotor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ForceFeedbackMotor {}
+impl ::core::clone::Clone for ForceFeedbackMotor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IConditionForceEffect(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IConditionForceEffect {}
+impl ::core::clone::Clone for IConditionForceEffect {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IConditionForceEffectFactory(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IConditionForceEffectFactory {}
+impl ::core::clone::Clone for IConditionForceEffectFactory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IConstantForceEffect(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IConstantForceEffect {}
+impl ::core::clone::Clone for IConstantForceEffect {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IForceFeedbackEffect(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IForceFeedbackEffect {}
+impl ::core::clone::Clone for IForceFeedbackEffect {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IForceFeedbackMotor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IForceFeedbackMotor {}
+impl ::core::clone::Clone for IForceFeedbackMotor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPeriodicForceEffect(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPeriodicForceEffect {}
+impl ::core::clone::Clone for IPeriodicForceEffect {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPeriodicForceEffectFactory(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPeriodicForceEffectFactory {}
+impl ::core::clone::Clone for IPeriodicForceEffectFactory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRampForceEffect(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRampForceEffect {}
+impl ::core::clone::Clone for IRampForceEffect {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PeriodicForceEffect(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for PeriodicForceEffect {}
+impl ::core::clone::Clone for PeriodicForceEffect {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PeriodicForceEffectKind(pub i32);
 impl PeriodicForceEffectKind {
@@ -97,3 +169,9 @@ impl ::core::clone::Clone for PeriodicForceEffectKind {
 }
 #[repr(transparent)]
 pub struct RampForceEffect(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for RampForceEffect {}
+impl ::core::clone::Clone for RampForceEffect {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

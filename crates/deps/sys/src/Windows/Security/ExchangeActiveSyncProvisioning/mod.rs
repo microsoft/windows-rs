@@ -1,12 +1,30 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {}
 #[repr(transparent)]
 pub struct EasClientDeviceInformation(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for EasClientDeviceInformation {}
+impl ::core::clone::Clone for EasClientDeviceInformation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct EasClientSecurityPolicy(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for EasClientSecurityPolicy {}
+impl ::core::clone::Clone for EasClientSecurityPolicy {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct EasComplianceResults(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for EasComplianceResults {}
+impl ::core::clone::Clone for EasComplianceResults {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct EasDisallowConvenienceLogonResult(pub i32);
 impl EasDisallowConvenienceLogonResult {
@@ -179,11 +197,41 @@ impl ::core::clone::Clone for EasRequireEncryptionResult {
 }
 #[repr(transparent)]
 pub struct IEasClientDeviceInformation(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEasClientDeviceInformation {}
+impl ::core::clone::Clone for IEasClientDeviceInformation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEasClientDeviceInformation2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEasClientDeviceInformation2 {}
+impl ::core::clone::Clone for IEasClientDeviceInformation2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEasClientSecurityPolicy(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEasClientSecurityPolicy {}
+impl ::core::clone::Clone for IEasClientSecurityPolicy {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEasComplianceResults(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEasComplianceResults {}
+impl ::core::clone::Clone for IEasComplianceResults {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEasComplianceResults2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEasComplianceResults2 {}
+impl ::core::clone::Clone for IEasComplianceResults2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

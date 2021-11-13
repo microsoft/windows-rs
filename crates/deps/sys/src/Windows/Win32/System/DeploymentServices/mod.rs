@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
     #[cfg(feature = "Win32_Foundation")]
@@ -207,54 +207,204 @@ pub const FACILITY_WDSMCSERVER: u32 = 289u32;
 pub const FACILITY_WDSTPTMGMT: u32 = 272u32;
 #[repr(transparent)]
 pub struct IWdsTransportCacheable(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWdsTransportCacheable {}
+impl ::core::clone::Clone for IWdsTransportCacheable {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWdsTransportClient(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWdsTransportClient {}
+impl ::core::clone::Clone for IWdsTransportClient {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWdsTransportCollection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWdsTransportCollection {}
+impl ::core::clone::Clone for IWdsTransportCollection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWdsTransportConfigurationManager(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWdsTransportConfigurationManager {}
+impl ::core::clone::Clone for IWdsTransportConfigurationManager {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWdsTransportConfigurationManager2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWdsTransportConfigurationManager2 {}
+impl ::core::clone::Clone for IWdsTransportConfigurationManager2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWdsTransportContent(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWdsTransportContent {}
+impl ::core::clone::Clone for IWdsTransportContent {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWdsTransportContentProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWdsTransportContentProvider {}
+impl ::core::clone::Clone for IWdsTransportContentProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWdsTransportDiagnosticsPolicy(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWdsTransportDiagnosticsPolicy {}
+impl ::core::clone::Clone for IWdsTransportDiagnosticsPolicy {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWdsTransportManager(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWdsTransportManager {}
+impl ::core::clone::Clone for IWdsTransportManager {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWdsTransportMulticastSessionPolicy(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWdsTransportMulticastSessionPolicy {}
+impl ::core::clone::Clone for IWdsTransportMulticastSessionPolicy {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWdsTransportNamespace(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWdsTransportNamespace {}
+impl ::core::clone::Clone for IWdsTransportNamespace {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWdsTransportNamespaceAutoCast(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWdsTransportNamespaceAutoCast {}
+impl ::core::clone::Clone for IWdsTransportNamespaceAutoCast {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWdsTransportNamespaceManager(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWdsTransportNamespaceManager {}
+impl ::core::clone::Clone for IWdsTransportNamespaceManager {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWdsTransportNamespaceScheduledCast(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWdsTransportNamespaceScheduledCast {}
+impl ::core::clone::Clone for IWdsTransportNamespaceScheduledCast {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWdsTransportNamespaceScheduledCastAutoStart(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWdsTransportNamespaceScheduledCastAutoStart {}
+impl ::core::clone::Clone for IWdsTransportNamespaceScheduledCastAutoStart {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWdsTransportNamespaceScheduledCastManualStart(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWdsTransportNamespaceScheduledCastManualStart {}
+impl ::core::clone::Clone for IWdsTransportNamespaceScheduledCastManualStart {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWdsTransportServer(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWdsTransportServer {}
+impl ::core::clone::Clone for IWdsTransportServer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWdsTransportServer2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWdsTransportServer2 {}
+impl ::core::clone::Clone for IWdsTransportServer2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWdsTransportServicePolicy(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWdsTransportServicePolicy {}
+impl ::core::clone::Clone for IWdsTransportServicePolicy {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWdsTransportServicePolicy2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWdsTransportServicePolicy2 {}
+impl ::core::clone::Clone for IWdsTransportServicePolicy2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWdsTransportSession(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWdsTransportSession {}
+impl ::core::clone::Clone for IWdsTransportSession {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWdsTransportSetupManager(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWdsTransportSetupManager {}
+impl ::core::clone::Clone for IWdsTransportSetupManager {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWdsTransportSetupManager2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWdsTransportSetupManager2 {}
+impl ::core::clone::Clone for IWdsTransportSetupManager2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWdsTransportTftpClient(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWdsTransportTftpClient {}
+impl ::core::clone::Clone for IWdsTransportTftpClient {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWdsTransportTftpManager(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWdsTransportTftpManager {}
+impl ::core::clone::Clone for IWdsTransportTftpManager {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MC_SERVER_CURRENT_VERSION: u32 = 1u32;
 #[repr(transparent)]
 pub struct PFN_WDS_CLI_CALLBACK_MESSAGE_ID(pub u32);
@@ -835,12 +985,12 @@ pub const WDS_MC_TRACE_WARNING: u32 = 262144u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WDS_TRANSPORTCLIENT_CALLBACKS {
-    pub SessionStart: ::core::option::Option<PFN_WdsTransportClientSessionStart>,
-    pub SessionStartEx: ::core::option::Option<PFN_WdsTransportClientSessionStartEx>,
-    pub ReceiveContents: ::core::option::Option<PFN_WdsTransportClientReceiveContents>,
-    pub ReceiveMetadata: ::core::option::Option<PFN_WdsTransportClientReceiveMetadata>,
-    pub SessionComplete: ::core::option::Option<PFN_WdsTransportClientSessionComplete>,
-    pub SessionNegotiate: ::core::option::Option<PFN_WdsTransportClientSessionNegotiate>,
+    pub SessionStart: PFN_WdsTransportClientSessionStart,
+    pub SessionStartEx: PFN_WdsTransportClientSessionStartEx,
+    pub ReceiveContents: PFN_WdsTransportClientReceiveContents,
+    pub ReceiveMetadata: PFN_WdsTransportClientReceiveMetadata,
+    pub SessionComplete: PFN_WdsTransportClientSessionComplete,
+    pub SessionNegotiate: PFN_WdsTransportClientSessionNegotiate,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WDS_TRANSPORTCLIENT_CALLBACKS {}
@@ -917,69 +1067,69 @@ impl ::core::clone::Clone for WDS_TRANSPORTPROVIDER_SETTINGS {
 }
 pub const WdsCliFlagEnumFilterFirmware: i32 = 2i32;
 pub const WdsCliFlagEnumFilterVersion: i32 = 1i32;
-pub const WdsTransportCacheable: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1884883734, data2: 61766, data3: 18109, data4: [189, 157, 74, 170, 144, 8, 75, 245] };
-pub const WdsTransportClient: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1725089257, data2: 4086, data3: 18924, data4: [151, 51, 218, 251, 30, 1, 223, 28] };
-pub const WdsTransportCollection: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const WdsTransportCacheable: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1884883734, data2: 61766, data3: 18109, data4: [189, 157, 74, 170, 144, 8, 75, 245] };
+pub const WdsTransportClient: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1725089257, data2: 4086, data3: 18924, data4: [151, 51, 218, 251, 30, 1, 223, 28] };
+pub const WdsTransportCollection: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3354495753,
     data2: 14622,
     data3: 17262,
     data4: [177, 11, 195, 239, 70, 242, 195, 79],
 };
-pub const WdsTransportConfigurationManager: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const WdsTransportConfigurationManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2269378164,
     data2: 36940,
     data3: 18378,
     data4: [133, 18, 53, 254, 152, 246, 176, 172],
 };
-pub const WdsTransportContent: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const WdsTransportContent: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 176758759,
     data2: 19007,
     data3: 19557,
     data4: [182, 242, 20, 103, 97, 150, 121, 234],
 };
-pub const WdsTransportContentProvider: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3770577951, data2: 23157, data3: 20153, data4: [138, 45, 94, 24, 155, 69, 243, 39] };
-pub const WdsTransportDiagnosticsPolicy: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3946001377, data2: 42925, data3: 18165, data4: [128, 214, 107, 116, 2, 4, 229, 9] };
-pub const WdsTransportManager: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const WdsTransportContentProvider: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3770577951, data2: 23157, data3: 20153, data4: [138, 45, 94, 24, 155, 69, 243, 39] };
+pub const WdsTransportDiagnosticsPolicy: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3946001377, data2: 42925, data3: 18165, data4: [128, 214, 107, 116, 2, 4, 229, 9] };
+pub const WdsTransportManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4061471734,
     data2: 33660,
     data3: 19032,
     data4: [175, 153, 138, 126, 39, 248, 255, 89],
 };
-pub const WdsTransportMulticastSessionPolicy: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1013695476, data2: 25624, data3: 18218, data4: [182, 241, 82, 212, 87, 25, 84, 55] };
-pub const WdsTransportNamespace: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3627571048, data2: 1842, data3: 20161, data4: [149, 234, 22, 218, 88, 25, 8, 161] };
-pub const WdsTransportNamespaceAutoCast: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2962355624, data2: 27289, data3: 18317, data4: [178, 59, 9, 232, 254, 224, 69, 116] };
-pub const WdsTransportNamespaceManager: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const WdsTransportMulticastSessionPolicy: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1013695476, data2: 25624, data3: 18218, data4: [182, 241, 82, 212, 87, 25, 84, 55] };
+pub const WdsTransportNamespace: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3627571048, data2: 1842, data3: 20161, data4: [149, 234, 22, 218, 88, 25, 8, 161] };
+pub const WdsTransportNamespaceAutoCast: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2962355624, data2: 27289, data3: 18317, data4: [178, 59, 9, 232, 254, 224, 69, 116] };
+pub const WdsTransportNamespaceManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4035763043,
     data2: 34270,
     data3: 18984,
     data4: [161, 169, 92, 163, 231, 239, 218, 115],
 };
-pub const WdsTransportNamespaceScheduledCast: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3134986391, data2: 28709, data3: 17643, data4: [145, 8, 251, 97, 196, 5, 87, 146] };
-pub const WdsTransportNamespaceScheduledCastAutoStart: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2702209106, data2: 4652, data3: 19329, data4: [155, 124, 56, 110, 104, 85, 56, 63] };
-pub const WdsTransportNamespaceScheduledCastManualStart: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const WdsTransportNamespaceScheduledCast: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3134986391, data2: 28709, data3: 17643, data4: [145, 8, 251, 97, 196, 5, 87, 146] };
+pub const WdsTransportNamespaceScheduledCastAutoStart: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2702209106, data2: 4652, data3: 19329, data4: [155, 124, 56, 110, 104, 85, 56, 63] };
+pub const WdsTransportNamespaceScheduledCastManualStart: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3554779818,
     data2: 51884,
     data3: 17934,
     data4: [185, 138, 71, 249, 243, 24, 161, 250],
 };
-pub const WdsTransportServer: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3927553603, data2: 19167, data3: 17427, data4: [148, 44, 20, 243, 121, 17, 135, 96] };
-pub const WdsTransportServicePolicy: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const WdsTransportServer: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3927553603, data2: 19167, data3: 17427, data4: [148, 44, 20, 243, 121, 17, 135, 96] };
+pub const WdsTransportServicePolicy: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1705831132,
     data2: 12043,
     data3: 20291,
     data4: [159, 77, 129, 24, 101, 216, 206, 173],
 };
-pub const WdsTransportSession: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const WdsTransportSession: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1956300000,
     data2: 26556,
     data3: 18243,
     data4: [191, 229, 202, 203, 31, 38, 245, 127],
 };
-pub const WdsTransportSetupManager: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3351177901, data2: 40708, data3: 18723, data4: [159, 12, 251, 245, 43, 199, 89, 15] };
-pub const WdsTransportTftpClient: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const WdsTransportSetupManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3351177901, data2: 40708, data3: 18723, data4: [159, 12, 251, 245, 43, 199, 89, 15] };
+pub const WdsTransportTftpClient: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1345599781,
     data2: 31836,
     data3: 19596,
     data4: [150, 196, 173, 159, 165, 0, 95, 186],
 };
-pub const WdsTransportTftpManager: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3370769570, data2: 12865, data3: 20045, data4: [184, 6, 188, 116, 1, 157, 254, 218] };
+pub const WdsTransportTftpManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3370769570, data2: 12865, data3: 20045, data4: [184, 6, 188, 116, 1, 157, 254, 218] };

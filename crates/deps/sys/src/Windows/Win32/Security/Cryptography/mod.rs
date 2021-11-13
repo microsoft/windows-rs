@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[cfg(feature = "Win32_Security_Cryptography_Catalog")]
 pub mod Catalog;
 #[cfg(feature = "Win32_Security_Cryptography_Certificates")]
@@ -1530,25 +1530,25 @@ impl ::core::clone::Clone for CASetupProperty {
         *self
     }
 }
-pub const CCertSrvSetup: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CCertSrvSetup: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2518620175,
     data2: 62812,
     data3: 16701,
     data4: [169, 179, 125, 42, 244, 216, 228, 47],
 };
-pub const CCertSrvSetupKeyInformation: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CCertSrvSetupKeyInformation: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 943143174,
     data2: 21555,
     data3: 17971,
     data4: [176, 251, 41, 183, 231, 130, 98, 225],
 };
-pub const CCertificateEnrollmentPolicyServerSetup: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CCertificateEnrollmentPolicyServerSetup: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2950887986,
     data2: 16817,
     data3: 17821,
     data4: [165, 222, 73, 173, 216, 167, 33, 130],
 };
-pub const CCertificateEnrollmentServerSetup: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2567107516, data2: 34991, data3: 19704, data4: [174, 98, 113, 64, 83, 21, 82, 182] };
+pub const CCertificateEnrollmentServerSetup: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2567107516, data2: 34991, data3: 19704, data4: [174, 98, 113, 64, 83, 21, 82, 182] };
 #[repr(transparent)]
 pub struct CEPSetupProperty(pub i32);
 pub const ENUM_CEPSETUPPROP_AUTHENTICATION: CEPSetupProperty = CEPSetupProperty(0i32);
@@ -1926,7 +1926,7 @@ pub struct CERT_CHAIN_FIND_BY_ISSUER_PARA {
     pub dwAcquirePrivateKeyFlags: u32,
     pub cIssuer: u32,
     pub rgIssuer: *mut CRYPTOAPI_BLOB,
-    pub pfnFindCallback: ::core::option::Option<PFN_CERT_CHAIN_FIND_BY_ISSUER_CALLBACK>,
+    pub pfnFindCallback: PFN_CERT_CHAIN_FIND_BY_ISSUER_CALLBACK,
     pub pvFindArg: *mut ::core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2107,9 +2107,9 @@ pub const CERT_CREATE_CONTEXT_NO_HCRYPTMSG_FLAG: u32 = 4u32;
 #[cfg(feature = "Win32_Foundation")]
 pub struct CERT_CREATE_CONTEXT_PARA {
     pub cbSize: u32,
-    pub pfnFree: ::core::option::Option<PFN_CRYPT_FREE>,
+    pub pfnFree: PFN_CRYPT_FREE,
     pub pvFree: *mut ::core::ffi::c_void,
-    pub pfnSort: ::core::option::Option<PFN_CERT_CREATE_CONTEXT_SORT_FUNC>,
+    pub pfnSort: PFN_CERT_CREATE_CONTEXT_SORT_FUNC,
     pub pvSort: *mut ::core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3584,7 +3584,7 @@ pub struct CERT_SERVER_OCSP_RESPONSE_OPEN_PARA {
     pub dwFlags: u32,
     pub pcbUsedSize: *mut u32,
     pub pwszOcspDirectory: super::super::Foundation::PWSTR,
-    pub pfnUpdateCallback: ::core::option::Option<PFN_CERT_SERVER_OCSP_RESPONSE_UPDATE_CALLBACK>,
+    pub pfnUpdateCallback: PFN_CERT_SERVER_OCSP_RESPONSE_UPDATE_CALLBACK,
     pub pvUpdateCallbackArg: *mut ::core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4343,7 +4343,7 @@ impl ::core::clone::Clone for CMC_TAGGED_REQUEST_0 {
         *self
     }
 }
-pub const CMSCEPSetup: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CMSCEPSetup: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2857327618,
     data2: 36476,
     data3: 18884,
@@ -4416,8 +4416,8 @@ pub const CMSG_CMS_SIGNER_INFO_PARAM: u32 = 39u32;
 pub struct CMSG_CNG_CONTENT_DECRYPT_INFO {
     pub cbSize: u32,
     pub ContentEncryptionAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
-    pub pfnAlloc: ::core::option::Option<PFN_CMSG_ALLOC>,
-    pub pfnFree: ::core::option::Option<PFN_CMSG_FREE>,
+    pub pfnAlloc: PFN_CMSG_ALLOC,
+    pub pfnFree: PFN_CMSG_FREE,
     pub hNCryptKey: usize,
     pub pbContentEncryptKey: *mut u8,
     pub cbContentEncryptKey: u32,
@@ -4445,8 +4445,8 @@ pub struct CMSG_CONTENT_ENCRYPT_INFO {
     pub pvEncryptionAuxInfo: *mut ::core::ffi::c_void,
     pub cRecipients: u32,
     pub rgCmsRecipients: *mut CMSG_RECIPIENT_ENCODE_INFO,
-    pub pfnAlloc: ::core::option::Option<PFN_CMSG_ALLOC>,
-    pub pfnFree: ::core::option::Option<PFN_CMSG_FREE>,
+    pub pfnAlloc: PFN_CMSG_ALLOC,
+    pub pfnFree: PFN_CMSG_FREE,
     pub dwEncryptFlags: u32,
     pub Anonymous: CMSG_CONTENT_ENCRYPT_INFO_0,
     pub dwFlags: u32,
@@ -5224,7 +5224,7 @@ pub const CMSG_SP3_COMPATIBLE_ENCRYPT_FLAG: u32 = 2147483648u32;
 #[cfg(feature = "Win32_Foundation")]
 pub struct CMSG_STREAM_INFO {
     pub cbContent: u32,
-    pub pfnStreamOutput: ::core::option::Option<PFN_CMSG_STREAM_OUTPUT>,
+    pub pfnStreamOutput: PFN_CMSG_STREAM_OUTPUT,
     pub pvArg: *mut ::core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5690,7 +5690,7 @@ pub const CRYPT_ASYNC_RETRIEVAL: u32 = 16u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CRYPT_ASYNC_RETRIEVAL_COMPLETION {
-    pub pfnCompletion: ::core::option::Option<PFN_CRYPT_ASYNC_RETRIEVAL_COMPLETION_FUNC>,
+    pub pfnCompletion: PFN_CRYPT_ASYNC_RETRIEVAL_COMPLETION_FUNC,
     pub pvCompletion: *mut ::core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5911,8 +5911,8 @@ pub const CRYPT_DECODE_NO_SIGNATURE_BYTE_REVERSAL_FLAG: u32 = 8u32;
 #[repr(C)]
 pub struct CRYPT_DECODE_PARA {
     pub cbSize: u32,
-    pub pfnAlloc: ::core::option::Option<PFN_CRYPT_ALLOC>,
-    pub pfnFree: ::core::option::Option<PFN_CRYPT_FREE>,
+    pub pfnAlloc: PFN_CRYPT_ALLOC,
+    pub pfnFree: PFN_CRYPT_FREE,
 }
 impl ::core::marker::Copy for CRYPT_DECODE_PARA {}
 impl ::core::clone::Clone for CRYPT_DECODE_PARA {
@@ -6044,8 +6044,8 @@ impl ::core::clone::Clone for CRYPT_ENCODE_OBJECT_FLAGS {
 #[repr(C)]
 pub struct CRYPT_ENCODE_PARA {
     pub cbSize: u32,
-    pub pfnAlloc: ::core::option::Option<PFN_CRYPT_ALLOC>,
-    pub pfnFree: ::core::option::Option<PFN_CRYPT_FREE>,
+    pub pfnAlloc: PFN_CRYPT_ALLOC,
+    pub pfnFree: PFN_CRYPT_FREE,
 }
 impl ::core::marker::Copy for CRYPT_ENCODE_PARA {}
 impl ::core::clone::Clone for CRYPT_ENCODE_PARA {
@@ -6482,11 +6482,11 @@ pub const CRYPT_OBJECT_LOCATOR_LAST_RESERVED_USER_NAME_TYPE: u32 = 65535u32;
 #[cfg(feature = "Win32_Foundation")]
 pub struct CRYPT_OBJECT_LOCATOR_PROVIDER_TABLE {
     pub cbSize: u32,
-    pub pfnGet: ::core::option::Option<PFN_CRYPT_OBJECT_LOCATOR_PROVIDER_GET>,
-    pub pfnRelease: ::core::option::Option<PFN_CRYPT_OBJECT_LOCATOR_PROVIDER_RELEASE>,
-    pub pfnFreePassword: ::core::option::Option<PFN_CRYPT_OBJECT_LOCATOR_PROVIDER_FREE_PASSWORD>,
-    pub pfnFree: ::core::option::Option<PFN_CRYPT_OBJECT_LOCATOR_PROVIDER_FREE>,
-    pub pfnFreeIdentifier: ::core::option::Option<PFN_CRYPT_OBJECT_LOCATOR_PROVIDER_FREE_IDENTIFIER>,
+    pub pfnGet: PFN_CRYPT_OBJECT_LOCATOR_PROVIDER_GET,
+    pub pfnRelease: PFN_CRYPT_OBJECT_LOCATOR_PROVIDER_RELEASE,
+    pub pfnFreePassword: PFN_CRYPT_OBJECT_LOCATOR_PROVIDER_FREE_PASSWORD,
+    pub pfnFree: PFN_CRYPT_OBJECT_LOCATOR_PROVIDER_FREE,
+    pub pfnFreeIdentifier: PFN_CRYPT_OBJECT_LOCATOR_PROVIDER_FREE_IDENTIFIER,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CRYPT_OBJECT_LOCATOR_PROVIDER_TABLE {}
@@ -6639,7 +6639,7 @@ pub struct CRYPT_PKCS8_EXPORT_PARAMS {
     pub hCryptProv: usize,
     pub dwKeySpec: u32,
     pub pszPrivateKeyObjId: super::super::Foundation::PSTR,
-    pub pEncryptPrivateKeyFunc: ::core::option::Option<PCRYPT_ENCRYPT_PRIVATE_KEY_FUNC>,
+    pub pEncryptPrivateKeyFunc: PCRYPT_ENCRYPT_PRIVATE_KEY_FUNC,
     pub pVoidEncryptFunc: *mut ::core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6654,9 +6654,9 @@ impl ::core::clone::Clone for CRYPT_PKCS8_EXPORT_PARAMS {
 #[cfg(feature = "Win32_Foundation")]
 pub struct CRYPT_PKCS8_IMPORT_PARAMS {
     pub PrivateKey: CRYPTOAPI_BLOB,
-    pub pResolvehCryptProvFunc: ::core::option::Option<PCRYPT_RESOLVE_HCRYPTPROV_FUNC>,
+    pub pResolvehCryptProvFunc: PCRYPT_RESOLVE_HCRYPTPROV_FUNC,
     pub pVoidResolveFunc: *mut ::core::ffi::c_void,
-    pub pDecryptPrivateKeyFunc: ::core::option::Option<PCRYPT_DECRYPT_PRIVATE_KEY_FUNC>,
+    pub pDecryptPrivateKeyFunc: PCRYPT_DECRYPT_PRIVATE_KEY_FUNC,
     pub pVoidDecryptFunc: *mut ::core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7263,7 +7263,7 @@ pub struct CRYPT_VERIFY_MESSAGE_PARA {
     pub cbSize: u32,
     pub dwMsgAndCertEncodingType: u32,
     pub hCryptProv: usize,
-    pub pfnGetSignerCertificate: ::core::option::Option<PFN_CRYPT_GET_SIGNER_CERTIFICATE>,
+    pub pfnGetSignerCertificate: PFN_CRYPT_GET_SIGNER_CERTIFICATE,
     pub pvGetArg: *mut ::core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7365,14 +7365,14 @@ impl ::core::clone::Clone for CRYPT_XML_CHARSET {
 #[cfg(feature = "Win32_Foundation")]
 pub struct CRYPT_XML_CRYPTOGRAPHIC_INTERFACE {
     pub cbSize: u32,
-    pub fpCryptXmlEncodeAlgorithm: ::core::option::Option<CryptXmlDllEncodeAlgorithm>,
-    pub fpCryptXmlCreateDigest: ::core::option::Option<CryptXmlDllCreateDigest>,
-    pub fpCryptXmlDigestData: ::core::option::Option<CryptXmlDllDigestData>,
-    pub fpCryptXmlFinalizeDigest: ::core::option::Option<CryptXmlDllFinalizeDigest>,
-    pub fpCryptXmlCloseDigest: ::core::option::Option<CryptXmlDllCloseDigest>,
-    pub fpCryptXmlSignData: ::core::option::Option<CryptXmlDllSignData>,
-    pub fpCryptXmlVerifySignature: ::core::option::Option<CryptXmlDllVerifySignature>,
-    pub fpCryptXmlGetAlgorithmInfo: ::core::option::Option<CryptXmlDllGetAlgorithmInfo>,
+    pub fpCryptXmlEncodeAlgorithm: CryptXmlDllEncodeAlgorithm,
+    pub fpCryptXmlCreateDigest: CryptXmlDllCreateDigest,
+    pub fpCryptXmlDigestData: CryptXmlDllDigestData,
+    pub fpCryptXmlFinalizeDigest: CryptXmlDllFinalizeDigest,
+    pub fpCryptXmlCloseDigest: CryptXmlDllCloseDigest,
+    pub fpCryptXmlSignData: CryptXmlDllSignData,
+    pub fpCryptXmlVerifySignature: CryptXmlDllVerifySignature,
+    pub fpCryptXmlGetAlgorithmInfo: CryptXmlDllGetAlgorithmInfo,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CRYPT_XML_CRYPTOGRAPHIC_INTERFACE {}
@@ -7397,8 +7397,8 @@ impl ::core::clone::Clone for CRYPT_XML_DATA_BLOB {
 pub struct CRYPT_XML_DATA_PROVIDER {
     pub pvCallbackState: *mut ::core::ffi::c_void,
     pub cbBufferSize: u32,
-    pub pfnRead: ::core::option::Option<PFN_CRYPT_XML_DATA_PROVIDER_READ>,
-    pub pfnClose: ::core::option::Option<PFN_CRYPT_XML_DATA_PROVIDER_CLOSE>,
+    pub pfnRead: PFN_CRYPT_XML_DATA_PROVIDER_READ,
+    pub pfnClose: PFN_CRYPT_XML_DATA_PROVIDER_CLOSE,
 }
 impl ::core::marker::Copy for CRYPT_XML_DATA_PROVIDER {}
 impl ::core::clone::Clone for CRYPT_XML_DATA_PROVIDER {
@@ -7862,7 +7862,7 @@ pub struct CRYPT_XML_TRANSFORM_INFO {
     pub wszAlgorithm: super::super::Foundation::PWSTR,
     pub cbBufferSize: u32,
     pub dwFlags: CRYPT_XML_TRANSFORM_FLAGS,
-    pub pfnCreateTransform: ::core::option::Option<PFN_CRYPT_XML_CREATE_TRANSFORM>,
+    pub pfnCreateTransform: PFN_CRYPT_XML_CREATE_TRANSFORM,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CRYPT_XML_TRANSFORM_INFO {}
@@ -8391,19 +8391,55 @@ impl ::core::clone::Clone for HandleType {
 }
 #[repr(transparent)]
 pub struct ICertSrvSetup(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICertSrvSetup {}
+impl ::core::clone::Clone for ICertSrvSetup {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICertSrvSetupKeyInformation(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICertSrvSetupKeyInformation {}
+impl ::core::clone::Clone for ICertSrvSetupKeyInformation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICertSrvSetupKeyInformationCollection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICertSrvSetupKeyInformationCollection {}
+impl ::core::clone::Clone for ICertSrvSetupKeyInformationCollection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICertificateEnrollmentPolicyServerSetup(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICertificateEnrollmentPolicyServerSetup {}
+impl ::core::clone::Clone for ICertificateEnrollmentPolicyServerSetup {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICertificateEnrollmentServerSetup(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICertificateEnrollmentServerSetup {}
+impl ::core::clone::Clone for ICertificateEnrollmentServerSetup {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const IFX_RSA_KEYGEN_VUL_AFFECTED_LEVEL_1: u32 = 1u32;
 pub const IFX_RSA_KEYGEN_VUL_AFFECTED_LEVEL_2: u32 = 2u32;
 pub const IFX_RSA_KEYGEN_VUL_NOT_AFFECTED: u32 = 0u32;
 #[repr(transparent)]
 pub struct IMSCEPSetup(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSCEPSetup {}
+impl ::core::clone::Clone for IMSCEPSetup {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct INFORMATIONCARD_ASYMMETRIC_CRYPTO_PARAMETERS {
@@ -8621,8 +8657,8 @@ impl ::core::clone::Clone for NCRYPT_ALGORITHM_NAME_CLASS {
 #[repr(C)]
 pub struct NCRYPT_ALLOC_PARA {
     pub cbSize: u32,
-    pub pfnAlloc: ::core::option::Option<PFN_NCRYPT_ALLOC>,
-    pub pfnFree: ::core::option::Option<PFN_NCRYPT_FREE>,
+    pub pfnAlloc: PFN_NCRYPT_ALLOC,
+    pub pfnFree: PFN_NCRYPT_FREE,
 }
 impl ::core::marker::Copy for NCRYPT_ALLOC_PARA {}
 impl ::core::clone::Clone for NCRYPT_ALLOC_PARA {
@@ -8878,7 +8914,7 @@ pub const NCRYPT_PROTECTION_INFO_TYPE_DESCRIPTOR_STRING: u32 = 1u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NCRYPT_PROTECT_STREAM_INFO {
-    pub pfnStreamOutput: ::core::option::Option<PFNCryptStreamOutputCallback>,
+    pub pfnStreamOutput: PFNCryptStreamOutputCallback,
     pub pvCallbackCtxt: *mut ::core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8892,7 +8928,7 @@ impl ::core::clone::Clone for NCRYPT_PROTECT_STREAM_INFO {
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NCRYPT_PROTECT_STREAM_INFO_EX {
-    pub pfnStreamOutput: ::core::option::Option<PFNCryptStreamOutputCallbackEx>,
+    pub pfnStreamOutput: PFNCryptStreamOutputCallbackEx,
     pub pvCallbackCtxt: *mut ::core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Foundation")]

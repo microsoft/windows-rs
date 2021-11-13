@@ -1,12 +1,24 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[cfg(feature = "Media_Protection_PlayReady")]
 pub mod PlayReady;
 #[link(name = "windows")]
 extern "system" {}
 #[repr(transparent)]
 pub struct ComponentLoadFailedEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ComponentLoadFailedEventArgs {}
+impl ::core::clone::Clone for ComponentLoadFailedEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ComponentLoadFailedEventHandler(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ComponentLoadFailedEventHandler {}
+impl ::core::clone::Clone for ComponentLoadFailedEventHandler {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct GraphicsTrustStatus(pub i32);
 impl GraphicsTrustStatus {
@@ -38,6 +50,12 @@ impl ::core::clone::Clone for HdcpProtection {
 }
 #[repr(transparent)]
 pub struct HdcpSession(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for HdcpSession {}
+impl ::core::clone::Clone for HdcpSession {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct HdcpSetProtectionResult(pub i32);
 impl HdcpSetProtectionResult {
@@ -54,38 +72,140 @@ impl ::core::clone::Clone for HdcpSetProtectionResult {
 }
 #[repr(transparent)]
 pub struct IComponentLoadFailedEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IComponentLoadFailedEventArgs {}
+impl ::core::clone::Clone for IComponentLoadFailedEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IComponentRenewalStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IComponentRenewalStatics {}
+impl ::core::clone::Clone for IComponentRenewalStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IHdcpSession(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IHdcpSession {}
+impl ::core::clone::Clone for IHdcpSession {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMediaProtectionManager(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMediaProtectionManager {}
+impl ::core::clone::Clone for IMediaProtectionManager {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMediaProtectionPMPServer(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMediaProtectionPMPServer {}
+impl ::core::clone::Clone for IMediaProtectionPMPServer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMediaProtectionPMPServerFactory(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMediaProtectionPMPServerFactory {}
+impl ::core::clone::Clone for IMediaProtectionPMPServerFactory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMediaProtectionServiceCompletion(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMediaProtectionServiceCompletion {}
+impl ::core::clone::Clone for IMediaProtectionServiceCompletion {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMediaProtectionServiceRequest(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMediaProtectionServiceRequest {}
+impl ::core::clone::Clone for IMediaProtectionServiceRequest {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IProtectionCapabilities(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IProtectionCapabilities {}
+impl ::core::clone::Clone for IProtectionCapabilities {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRevocationAndRenewalInformation(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRevocationAndRenewalInformation {}
+impl ::core::clone::Clone for IRevocationAndRenewalInformation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRevocationAndRenewalItem(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRevocationAndRenewalItem {}
+impl ::core::clone::Clone for IRevocationAndRenewalItem {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IServiceRequestedEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IServiceRequestedEventArgs {}
+impl ::core::clone::Clone for IServiceRequestedEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IServiceRequestedEventArgs2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IServiceRequestedEventArgs2 {}
+impl ::core::clone::Clone for IServiceRequestedEventArgs2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MediaProtectionManager(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for MediaProtectionManager {}
+impl ::core::clone::Clone for MediaProtectionManager {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MediaProtectionPMPServer(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for MediaProtectionPMPServer {}
+impl ::core::clone::Clone for MediaProtectionPMPServer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MediaProtectionServiceCompletion(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for MediaProtectionServiceCompletion {}
+impl ::core::clone::Clone for MediaProtectionServiceCompletion {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ProtectionCapabilities(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ProtectionCapabilities {}
+impl ::core::clone::Clone for ProtectionCapabilities {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ProtectionCapabilityResult(pub i32);
 impl ProtectionCapabilityResult {
@@ -101,6 +221,12 @@ impl ::core::clone::Clone for ProtectionCapabilityResult {
 }
 #[repr(transparent)]
 pub struct RebootNeededEventHandler(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for RebootNeededEventHandler {}
+impl ::core::clone::Clone for RebootNeededEventHandler {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RenewalStatus(pub i32);
 impl RenewalStatus {
@@ -118,8 +244,20 @@ impl ::core::clone::Clone for RenewalStatus {
 }
 #[repr(transparent)]
 pub struct RevocationAndRenewalInformation(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for RevocationAndRenewalInformation {}
+impl ::core::clone::Clone for RevocationAndRenewalInformation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RevocationAndRenewalItem(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for RevocationAndRenewalItem {}
+impl ::core::clone::Clone for RevocationAndRenewalItem {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RevocationAndRenewalReasons(pub u32);
 impl RevocationAndRenewalReasons {
@@ -147,5 +285,17 @@ impl ::core::clone::Clone for RevocationAndRenewalReasons {
 }
 #[repr(transparent)]
 pub struct ServiceRequestedEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ServiceRequestedEventArgs {}
+impl ::core::clone::Clone for ServiceRequestedEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ServiceRequestedEventHandler(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ServiceRequestedEventHandler {}
+impl ::core::clone::Clone for ServiceRequestedEventHandler {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

@@ -1,16 +1,46 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {}
 #[repr(transparent)]
 pub struct IPhoneNumberFormatter(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPhoneNumberFormatter {}
+impl ::core::clone::Clone for IPhoneNumberFormatter {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPhoneNumberFormatterStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPhoneNumberFormatterStatics {}
+impl ::core::clone::Clone for IPhoneNumberFormatterStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPhoneNumberInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPhoneNumberInfo {}
+impl ::core::clone::Clone for IPhoneNumberInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPhoneNumberInfoFactory(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPhoneNumberInfoFactory {}
+impl ::core::clone::Clone for IPhoneNumberInfoFactory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPhoneNumberInfoStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPhoneNumberInfoStatics {}
+impl ::core::clone::Clone for IPhoneNumberInfoStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PhoneNumberFormat(pub i32);
 impl PhoneNumberFormat {
@@ -27,8 +57,20 @@ impl ::core::clone::Clone for PhoneNumberFormat {
 }
 #[repr(transparent)]
 pub struct PhoneNumberFormatter(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for PhoneNumberFormatter {}
+impl ::core::clone::Clone for PhoneNumberFormatter {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PhoneNumberInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for PhoneNumberInfo {}
+impl ::core::clone::Clone for PhoneNumberInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PhoneNumberMatchResult(pub i32);
 impl PhoneNumberMatchResult {

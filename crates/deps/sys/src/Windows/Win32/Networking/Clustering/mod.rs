@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
     pub fn AddClusterGroupDependency(hdependentgroup: *const _HGROUP, hprovidergroup: *const _HGROUP) -> u32;
@@ -795,21 +795,21 @@ pub const CLCTL_USER_SHIFT: u32 = 21u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CLRES_CALLBACK_FUNCTION_TABLE {
-    pub LogEvent: ::core::option::Option<PLOG_EVENT_ROUTINE>,
-    pub SetResourceStatusEx: ::core::option::Option<PSET_RESOURCE_STATUS_ROUTINE_EX>,
-    pub SetResourceLockedMode: ::core::option::Option<PSET_RESOURCE_LOCKED_MODE_ROUTINE>,
-    pub SignalFailure: ::core::option::Option<PSIGNAL_FAILURE_ROUTINE>,
-    pub SetResourceInMemoryNodeLocalProperties: ::core::option::Option<PSET_RESOURCE_INMEMORY_NODELOCAL_PROPERTIES_ROUTINE>,
-    pub EndControlCall: ::core::option::Option<PEND_CONTROL_CALL>,
-    pub EndTypeControlCall: ::core::option::Option<PEND_TYPE_CONTROL_CALL>,
-    pub ExtendControlCall: ::core::option::Option<PEXTEND_RES_CONTROL_CALL>,
-    pub ExtendTypeControlCall: ::core::option::Option<PEXTEND_RES_TYPE_CONTROL_CALL>,
-    pub RaiseResTypeNotification: ::core::option::Option<PRAISE_RES_TYPE_NOTIFICATION>,
-    pub ChangeResourceProcessForDumps: ::core::option::Option<PCHANGE_RESOURCE_PROCESS_FOR_DUMPS>,
-    pub ChangeResTypeProcessForDumps: ::core::option::Option<PCHANGE_RES_TYPE_PROCESS_FOR_DUMPS>,
-    pub SetInternalState: ::core::option::Option<PSET_INTERNAL_STATE>,
-    pub SetResourceLockedModeEx: ::core::option::Option<PSET_RESOURCE_LOCKED_MODE_EX_ROUTINE>,
-    pub RequestDump: ::core::option::Option<PREQUEST_DUMP_ROUTINE>,
+    pub LogEvent: PLOG_EVENT_ROUTINE,
+    pub SetResourceStatusEx: PSET_RESOURCE_STATUS_ROUTINE_EX,
+    pub SetResourceLockedMode: PSET_RESOURCE_LOCKED_MODE_ROUTINE,
+    pub SignalFailure: PSIGNAL_FAILURE_ROUTINE,
+    pub SetResourceInMemoryNodeLocalProperties: PSET_RESOURCE_INMEMORY_NODELOCAL_PROPERTIES_ROUTINE,
+    pub EndControlCall: PEND_CONTROL_CALL,
+    pub EndTypeControlCall: PEND_TYPE_CONTROL_CALL,
+    pub ExtendControlCall: PEXTEND_RES_CONTROL_CALL,
+    pub ExtendTypeControlCall: PEXTEND_RES_TYPE_CONTROL_CALL,
+    pub RaiseResTypeNotification: PRAISE_RES_TYPE_NOTIFICATION,
+    pub ChangeResourceProcessForDumps: PCHANGE_RESOURCE_PROCESS_FOR_DUMPS,
+    pub ChangeResTypeProcessForDumps: PCHANGE_RES_TYPE_PROCESS_FOR_DUMPS,
+    pub SetInternalState: PSET_INTERNAL_STATE,
+    pub SetResourceLockedModeEx: PSET_RESOURCE_LOCKED_MODE_EX_ROUTINE,
+    pub RequestDump: PREQUEST_DUMP_ROUTINE,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CLRES_CALLBACK_FUNCTION_TABLE {}
@@ -853,17 +853,17 @@ impl ::core::clone::Clone for CLRES_FUNCTION_TABLE_0 {
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub struct CLRES_V1_FUNCTIONS {
-    pub Open: ::core::option::Option<POPEN_ROUTINE>,
-    pub Close: ::core::option::Option<PCLOSE_ROUTINE>,
-    pub Online: ::core::option::Option<PONLINE_ROUTINE>,
-    pub Offline: ::core::option::Option<POFFLINE_ROUTINE>,
-    pub Terminate: ::core::option::Option<PTERMINATE_ROUTINE>,
-    pub LooksAlive: ::core::option::Option<PLOOKS_ALIVE_ROUTINE>,
-    pub IsAlive: ::core::option::Option<PIS_ALIVE_ROUTINE>,
-    pub Arbitrate: ::core::option::Option<PARBITRATE_ROUTINE>,
-    pub Release: ::core::option::Option<PRELEASE_ROUTINE>,
-    pub ResourceControl: ::core::option::Option<PRESOURCE_CONTROL_ROUTINE>,
-    pub ResourceTypeControl: ::core::option::Option<PRESOURCE_TYPE_CONTROL_ROUTINE>,
+    pub Open: POPEN_ROUTINE,
+    pub Close: PCLOSE_ROUTINE,
+    pub Online: PONLINE_ROUTINE,
+    pub Offline: POFFLINE_ROUTINE,
+    pub Terminate: PTERMINATE_ROUTINE,
+    pub LooksAlive: PLOOKS_ALIVE_ROUTINE,
+    pub IsAlive: PIS_ALIVE_ROUTINE,
+    pub Arbitrate: PARBITRATE_ROUTINE,
+    pub Release: PRELEASE_ROUTINE,
+    pub ResourceControl: PRESOURCE_CONTROL_ROUTINE,
+    pub ResourceTypeControl: PRESOURCE_TYPE_CONTROL_ROUTINE,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 impl ::core::marker::Copy for CLRES_V1_FUNCTIONS {}
@@ -876,18 +876,18 @@ impl ::core::clone::Clone for CLRES_V1_FUNCTIONS {
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub struct CLRES_V2_FUNCTIONS {
-    pub Open: ::core::option::Option<POPEN_V2_ROUTINE>,
-    pub Close: ::core::option::Option<PCLOSE_ROUTINE>,
-    pub Online: ::core::option::Option<PONLINE_V2_ROUTINE>,
-    pub Offline: ::core::option::Option<POFFLINE_V2_ROUTINE>,
-    pub Terminate: ::core::option::Option<PTERMINATE_ROUTINE>,
-    pub LooksAlive: ::core::option::Option<PLOOKS_ALIVE_ROUTINE>,
-    pub IsAlive: ::core::option::Option<PIS_ALIVE_ROUTINE>,
-    pub Arbitrate: ::core::option::Option<PARBITRATE_ROUTINE>,
-    pub Release: ::core::option::Option<PRELEASE_ROUTINE>,
-    pub ResourceControl: ::core::option::Option<PRESOURCE_CONTROL_ROUTINE>,
-    pub ResourceTypeControl: ::core::option::Option<PRESOURCE_TYPE_CONTROL_ROUTINE>,
-    pub Cancel: ::core::option::Option<PCANCEL_ROUTINE>,
+    pub Open: POPEN_V2_ROUTINE,
+    pub Close: PCLOSE_ROUTINE,
+    pub Online: PONLINE_V2_ROUTINE,
+    pub Offline: POFFLINE_V2_ROUTINE,
+    pub Terminate: PTERMINATE_ROUTINE,
+    pub LooksAlive: PLOOKS_ALIVE_ROUTINE,
+    pub IsAlive: PIS_ALIVE_ROUTINE,
+    pub Arbitrate: PARBITRATE_ROUTINE,
+    pub Release: PRELEASE_ROUTINE,
+    pub ResourceControl: PRESOURCE_CONTROL_ROUTINE,
+    pub ResourceTypeControl: PRESOURCE_TYPE_CONTROL_ROUTINE,
+    pub Cancel: PCANCEL_ROUTINE,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 impl ::core::marker::Copy for CLRES_V2_FUNCTIONS {}
@@ -900,18 +900,18 @@ impl ::core::clone::Clone for CLRES_V2_FUNCTIONS {
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub struct CLRES_V3_FUNCTIONS {
-    pub Open: ::core::option::Option<POPEN_V2_ROUTINE>,
-    pub Close: ::core::option::Option<PCLOSE_ROUTINE>,
-    pub Online: ::core::option::Option<PONLINE_V2_ROUTINE>,
-    pub Offline: ::core::option::Option<POFFLINE_V2_ROUTINE>,
-    pub Terminate: ::core::option::Option<PTERMINATE_ROUTINE>,
-    pub LooksAlive: ::core::option::Option<PLOOKS_ALIVE_ROUTINE>,
-    pub IsAlive: ::core::option::Option<PIS_ALIVE_ROUTINE>,
-    pub Arbitrate: ::core::option::Option<PARBITRATE_ROUTINE>,
-    pub Release: ::core::option::Option<PRELEASE_ROUTINE>,
-    pub BeginResourceControl: ::core::option::Option<PBEGIN_RESCALL_ROUTINE>,
-    pub BeginResourceTypeControl: ::core::option::Option<PBEGIN_RESTYPECALL_ROUTINE>,
-    pub Cancel: ::core::option::Option<PCANCEL_ROUTINE>,
+    pub Open: POPEN_V2_ROUTINE,
+    pub Close: PCLOSE_ROUTINE,
+    pub Online: PONLINE_V2_ROUTINE,
+    pub Offline: POFFLINE_V2_ROUTINE,
+    pub Terminate: PTERMINATE_ROUTINE,
+    pub LooksAlive: PLOOKS_ALIVE_ROUTINE,
+    pub IsAlive: PIS_ALIVE_ROUTINE,
+    pub Arbitrate: PARBITRATE_ROUTINE,
+    pub Release: PRELEASE_ROUTINE,
+    pub BeginResourceControl: PBEGIN_RESCALL_ROUTINE,
+    pub BeginResourceTypeControl: PBEGIN_RESTYPECALL_ROUTINE,
+    pub Cancel: PCANCEL_ROUTINE,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 impl ::core::marker::Copy for CLRES_V3_FUNCTIONS {}
@@ -924,20 +924,20 @@ impl ::core::clone::Clone for CLRES_V3_FUNCTIONS {
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub struct CLRES_V4_FUNCTIONS {
-    pub Open: ::core::option::Option<POPEN_V2_ROUTINE>,
-    pub Close: ::core::option::Option<PCLOSE_ROUTINE>,
-    pub Online: ::core::option::Option<PONLINE_V2_ROUTINE>,
-    pub Offline: ::core::option::Option<POFFLINE_V2_ROUTINE>,
-    pub Terminate: ::core::option::Option<PTERMINATE_ROUTINE>,
-    pub LooksAlive: ::core::option::Option<PLOOKS_ALIVE_ROUTINE>,
-    pub IsAlive: ::core::option::Option<PIS_ALIVE_ROUTINE>,
-    pub Arbitrate: ::core::option::Option<PARBITRATE_ROUTINE>,
-    pub Release: ::core::option::Option<PRELEASE_ROUTINE>,
-    pub BeginResourceControl: ::core::option::Option<PBEGIN_RESCALL_ROUTINE>,
-    pub BeginResourceTypeControl: ::core::option::Option<PBEGIN_RESTYPECALL_ROUTINE>,
-    pub Cancel: ::core::option::Option<PCANCEL_ROUTINE>,
-    pub BeginResourceControlAsUser: ::core::option::Option<PBEGIN_RESCALL_AS_USER_ROUTINE>,
-    pub BeginResourceTypeControlAsUser: ::core::option::Option<PBEGIN_RESTYPECALL_AS_USER_ROUTINE>,
+    pub Open: POPEN_V2_ROUTINE,
+    pub Close: PCLOSE_ROUTINE,
+    pub Online: PONLINE_V2_ROUTINE,
+    pub Offline: POFFLINE_V2_ROUTINE,
+    pub Terminate: PTERMINATE_ROUTINE,
+    pub LooksAlive: PLOOKS_ALIVE_ROUTINE,
+    pub IsAlive: PIS_ALIVE_ROUTINE,
+    pub Arbitrate: PARBITRATE_ROUTINE,
+    pub Release: PRELEASE_ROUTINE,
+    pub BeginResourceControl: PBEGIN_RESCALL_ROUTINE,
+    pub BeginResourceTypeControl: PBEGIN_RESTYPECALL_ROUTINE,
+    pub Cancel: PCANCEL_ROUTINE,
+    pub BeginResourceControlAsUser: PBEGIN_RESCALL_AS_USER_ROUTINE,
+    pub BeginResourceTypeControlAsUser: PBEGIN_RESTYPECALL_AS_USER_ROUTINE,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 impl ::core::marker::Copy for CLRES_V4_FUNCTIONS {}
@@ -3809,52 +3809,52 @@ impl ::core::clone::Clone for CREATE_CLUSTER_NAME_ACCOUNT {
     }
 }
 pub const CREATE_CLUSTER_VERSION: u32 = 1536u32;
-pub const ClusApplication: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161317, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
-pub const ClusCryptoKeys: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161387, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
-pub const ClusDisk: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161379, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
-pub const ClusDisks: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161381, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
-pub const ClusNetInterface: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161325, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
-pub const ClusNetInterfaces: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161327, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
-pub const ClusNetwork: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161329, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
-pub const ClusNetworkNetInterfaces: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161333, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
-pub const ClusNetworks: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161331, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
-pub const ClusNode: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161335, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
-pub const ClusNodeNetInterfaces: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161339, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
-pub const ClusNodes: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161337, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
-pub const ClusPartition: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161375, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
-pub const ClusPartitionEx: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const ClusApplication: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4075161317, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusCryptoKeys: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4075161387, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusDisk: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4075161379, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusDisks: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4075161381, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusNetInterface: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4075161325, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusNetInterfaces: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4075161327, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusNetwork: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4075161329, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusNetworkNetInterfaces: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4075161333, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusNetworks: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4075161331, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusNode: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4075161335, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusNodeNetInterfaces: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4075161339, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusNodes: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4075161337, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusPartition: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4075161375, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusPartitionEx: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1406475558,
     data2: 46363,
     data3: 19065,
     data4: [178, 195, 80, 72, 217, 58, 152, 252],
 };
-pub const ClusPartitions: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161377, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
-pub const ClusProperties: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161343, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
-pub const ClusProperty: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161341, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
-pub const ClusPropertyValue: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161369, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
-pub const ClusPropertyValueData: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161373, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
-pub const ClusPropertyValues: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161371, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
-pub const ClusRefObject: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161345, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
-pub const ClusRegistryKeys: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161385, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
-pub const ClusResDependencies: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161347, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
-pub const ClusResDependents: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161389, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
-pub const ClusResGroup: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161349, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
-pub const ClusResGroupPreferredOwnerNodes: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161319, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
-pub const ClusResGroupResources: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161321, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
-pub const ClusResGroups: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161351, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
-pub const ClusResPossibleOwnerNodes: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161357, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
-pub const ClusResType: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161359, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
-pub const ClusResTypePossibleOwnerNodes: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161367, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
-pub const ClusResTypeResources: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161363, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
-pub const ClusResTypes: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161361, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
-pub const ClusResource: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161353, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
-pub const ClusResources: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161355, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
-pub const ClusScsiAddress: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161383, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
-pub const ClusVersion: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161365, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
-pub const Cluster: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161315, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
-pub const ClusterNames: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161323, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusPartitions: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4075161377, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusProperties: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4075161343, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusProperty: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4075161341, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusPropertyValue: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4075161369, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusPropertyValueData: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4075161373, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusPropertyValues: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4075161371, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusRefObject: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4075161345, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusRegistryKeys: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4075161385, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusResDependencies: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4075161347, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusResDependents: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4075161389, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusResGroup: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4075161349, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusResGroupPreferredOwnerNodes: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4075161319, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusResGroupResources: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4075161321, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusResGroups: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4075161351, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusResPossibleOwnerNodes: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4075161357, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusResType: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4075161359, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusResTypePossibleOwnerNodes: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4075161367, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusResTypeResources: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4075161363, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusResTypes: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4075161361, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusResource: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4075161353, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusResources: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4075161355, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusScsiAddress: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4075161383, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusVersion: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4075161365, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const Cluster: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4075161315, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const ClusterNames: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4075161323, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
 pub const DNS_LENGTH: u32 = 64u32;
-pub const DomainNames: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4075161313, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
+pub const DomainNames: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4075161313, data2: 9777, data3: 4561, data4: [137, 241, 0, 160, 201, 13, 6, 30] };
 #[repr(transparent)]
 pub struct FAILURE_TYPE(pub i32);
 pub const FAILURE_TYPE_GENERAL: FAILURE_TYPE = FAILURE_TYPE(0i32);
@@ -3957,118 +3957,460 @@ pub const GUID_PRESENT: u32 = 1u32;
 pub const HCI_UPGRADE_BIT: u32 = 32768u32;
 #[repr(transparent)]
 pub struct IGetClusterDataInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGetClusterDataInfo {}
+impl ::core::clone::Clone for IGetClusterDataInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGetClusterGroupInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGetClusterGroupInfo {}
+impl ::core::clone::Clone for IGetClusterGroupInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGetClusterNetInterfaceInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGetClusterNetInterfaceInfo {}
+impl ::core::clone::Clone for IGetClusterNetInterfaceInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGetClusterNetworkInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGetClusterNetworkInfo {}
+impl ::core::clone::Clone for IGetClusterNetworkInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGetClusterNodeInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGetClusterNodeInfo {}
+impl ::core::clone::Clone for IGetClusterNodeInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGetClusterObjectInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGetClusterObjectInfo {}
+impl ::core::clone::Clone for IGetClusterObjectInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGetClusterResourceInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGetClusterResourceInfo {}
+impl ::core::clone::Clone for IGetClusterResourceInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGetClusterUIInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGetClusterUIInfo {}
+impl ::core::clone::Clone for IGetClusterUIInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISClusApplication(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISClusApplication {}
+impl ::core::clone::Clone for ISClusApplication {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISClusCryptoKeys(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISClusCryptoKeys {}
+impl ::core::clone::Clone for ISClusCryptoKeys {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISClusDisk(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISClusDisk {}
+impl ::core::clone::Clone for ISClusDisk {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISClusDisks(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISClusDisks {}
+impl ::core::clone::Clone for ISClusDisks {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISClusNetInterface(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISClusNetInterface {}
+impl ::core::clone::Clone for ISClusNetInterface {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISClusNetInterfaces(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISClusNetInterfaces {}
+impl ::core::clone::Clone for ISClusNetInterfaces {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISClusNetwork(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISClusNetwork {}
+impl ::core::clone::Clone for ISClusNetwork {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISClusNetworkNetInterfaces(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISClusNetworkNetInterfaces {}
+impl ::core::clone::Clone for ISClusNetworkNetInterfaces {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISClusNetworks(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISClusNetworks {}
+impl ::core::clone::Clone for ISClusNetworks {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISClusNode(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISClusNode {}
+impl ::core::clone::Clone for ISClusNode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISClusNodeNetInterfaces(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISClusNodeNetInterfaces {}
+impl ::core::clone::Clone for ISClusNodeNetInterfaces {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISClusNodes(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISClusNodes {}
+impl ::core::clone::Clone for ISClusNodes {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISClusPartition(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISClusPartition {}
+impl ::core::clone::Clone for ISClusPartition {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISClusPartitionEx(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISClusPartitionEx {}
+impl ::core::clone::Clone for ISClusPartitionEx {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISClusPartitions(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISClusPartitions {}
+impl ::core::clone::Clone for ISClusPartitions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISClusProperties(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISClusProperties {}
+impl ::core::clone::Clone for ISClusProperties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISClusProperty(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISClusProperty {}
+impl ::core::clone::Clone for ISClusProperty {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISClusPropertyValue(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISClusPropertyValue {}
+impl ::core::clone::Clone for ISClusPropertyValue {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISClusPropertyValueData(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISClusPropertyValueData {}
+impl ::core::clone::Clone for ISClusPropertyValueData {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISClusPropertyValues(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISClusPropertyValues {}
+impl ::core::clone::Clone for ISClusPropertyValues {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISClusRefObject(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISClusRefObject {}
+impl ::core::clone::Clone for ISClusRefObject {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISClusRegistryKeys(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISClusRegistryKeys {}
+impl ::core::clone::Clone for ISClusRegistryKeys {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISClusResDependencies(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISClusResDependencies {}
+impl ::core::clone::Clone for ISClusResDependencies {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISClusResDependents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISClusResDependents {}
+impl ::core::clone::Clone for ISClusResDependents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISClusResGroup(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISClusResGroup {}
+impl ::core::clone::Clone for ISClusResGroup {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISClusResGroupPreferredOwnerNodes(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISClusResGroupPreferredOwnerNodes {}
+impl ::core::clone::Clone for ISClusResGroupPreferredOwnerNodes {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISClusResGroupResources(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISClusResGroupResources {}
+impl ::core::clone::Clone for ISClusResGroupResources {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISClusResGroups(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISClusResGroups {}
+impl ::core::clone::Clone for ISClusResGroups {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISClusResPossibleOwnerNodes(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISClusResPossibleOwnerNodes {}
+impl ::core::clone::Clone for ISClusResPossibleOwnerNodes {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISClusResType(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISClusResType {}
+impl ::core::clone::Clone for ISClusResType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISClusResTypePossibleOwnerNodes(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISClusResTypePossibleOwnerNodes {}
+impl ::core::clone::Clone for ISClusResTypePossibleOwnerNodes {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISClusResTypeResources(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISClusResTypeResources {}
+impl ::core::clone::Clone for ISClusResTypeResources {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISClusResTypes(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISClusResTypes {}
+impl ::core::clone::Clone for ISClusResTypes {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISClusResource(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISClusResource {}
+impl ::core::clone::Clone for ISClusResource {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISClusResources(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISClusResources {}
+impl ::core::clone::Clone for ISClusResources {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISClusScsiAddress(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISClusScsiAddress {}
+impl ::core::clone::Clone for ISClusScsiAddress {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISClusVersion(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISClusVersion {}
+impl ::core::clone::Clone for ISClusVersion {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISCluster(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISCluster {}
+impl ::core::clone::Clone for ISCluster {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISClusterNames(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISClusterNames {}
+impl ::core::clone::Clone for ISClusterNames {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISDomainNames(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISDomainNames {}
+impl ::core::clone::Clone for ISDomainNames {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWCContextMenuCallback(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWCContextMenuCallback {}
+impl ::core::clone::Clone for IWCContextMenuCallback {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWCPropertySheetCallback(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWCPropertySheetCallback {}
+impl ::core::clone::Clone for IWCPropertySheetCallback {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWCWizard97Callback(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWCWizard97Callback {}
+impl ::core::clone::Clone for IWCWizard97Callback {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWCWizardCallback(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWCWizardCallback {}
+impl ::core::clone::Clone for IWCWizardCallback {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWEExtendContextMenu(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWEExtendContextMenu {}
+impl ::core::clone::Clone for IWEExtendContextMenu {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWEExtendPropertySheet(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWEExtendPropertySheet {}
+impl ::core::clone::Clone for IWEExtendPropertySheet {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWEExtendWizard(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWEExtendWizard {}
+impl ::core::clone::Clone for IWEExtendWizard {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWEExtendWizard97(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWEExtendWizard97 {}
+impl ::core::clone::Clone for IWEExtendWizard97 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWEInvokeCommand(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWEInvokeCommand {}
+impl ::core::clone::Clone for IWEInvokeCommand {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const LOCKED_MODE_FLAGS_DONT_REMOVE_FROM_MOVE_QUEUE: u32 = 1u32;
 #[repr(transparent)]
 pub struct LOG_LEVEL(pub i32);

@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {}
 #[repr(transparent)]
@@ -14,88 +14,340 @@ impl ::core::clone::Clone for FOREIGN_STATUS {
 }
 #[repr(transparent)]
 pub struct IMSMQApplication(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSMQApplication {}
+impl ::core::clone::Clone for IMSMQApplication {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSMQApplication2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSMQApplication2 {}
+impl ::core::clone::Clone for IMSMQApplication2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSMQApplication3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSMQApplication3 {}
+impl ::core::clone::Clone for IMSMQApplication3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSMQCollection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSMQCollection {}
+impl ::core::clone::Clone for IMSMQCollection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSMQCoordinatedTransactionDispenser(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSMQCoordinatedTransactionDispenser {}
+impl ::core::clone::Clone for IMSMQCoordinatedTransactionDispenser {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSMQCoordinatedTransactionDispenser2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSMQCoordinatedTransactionDispenser2 {}
+impl ::core::clone::Clone for IMSMQCoordinatedTransactionDispenser2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSMQCoordinatedTransactionDispenser3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSMQCoordinatedTransactionDispenser3 {}
+impl ::core::clone::Clone for IMSMQCoordinatedTransactionDispenser3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSMQDestination(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSMQDestination {}
+impl ::core::clone::Clone for IMSMQDestination {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSMQEvent(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSMQEvent {}
+impl ::core::clone::Clone for IMSMQEvent {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSMQEvent2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSMQEvent2 {}
+impl ::core::clone::Clone for IMSMQEvent2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSMQEvent3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSMQEvent3 {}
+impl ::core::clone::Clone for IMSMQEvent3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSMQManagement(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSMQManagement {}
+impl ::core::clone::Clone for IMSMQManagement {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSMQMessage(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSMQMessage {}
+impl ::core::clone::Clone for IMSMQMessage {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSMQMessage2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSMQMessage2 {}
+impl ::core::clone::Clone for IMSMQMessage2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSMQMessage3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSMQMessage3 {}
+impl ::core::clone::Clone for IMSMQMessage3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSMQMessage4(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSMQMessage4 {}
+impl ::core::clone::Clone for IMSMQMessage4 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSMQOutgoingQueueManagement(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSMQOutgoingQueueManagement {}
+impl ::core::clone::Clone for IMSMQOutgoingQueueManagement {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSMQPrivateDestination(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSMQPrivateDestination {}
+impl ::core::clone::Clone for IMSMQPrivateDestination {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSMQPrivateEvent(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSMQPrivateEvent {}
+impl ::core::clone::Clone for IMSMQPrivateEvent {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSMQQuery(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSMQQuery {}
+impl ::core::clone::Clone for IMSMQQuery {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSMQQuery2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSMQQuery2 {}
+impl ::core::clone::Clone for IMSMQQuery2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSMQQuery3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSMQQuery3 {}
+impl ::core::clone::Clone for IMSMQQuery3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSMQQuery4(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSMQQuery4 {}
+impl ::core::clone::Clone for IMSMQQuery4 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSMQQueue(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSMQQueue {}
+impl ::core::clone::Clone for IMSMQQueue {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSMQQueue2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSMQQueue2 {}
+impl ::core::clone::Clone for IMSMQQueue2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSMQQueue3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSMQQueue3 {}
+impl ::core::clone::Clone for IMSMQQueue3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSMQQueue4(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSMQQueue4 {}
+impl ::core::clone::Clone for IMSMQQueue4 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSMQQueueInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSMQQueueInfo {}
+impl ::core::clone::Clone for IMSMQQueueInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSMQQueueInfo2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSMQQueueInfo2 {}
+impl ::core::clone::Clone for IMSMQQueueInfo2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSMQQueueInfo3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSMQQueueInfo3 {}
+impl ::core::clone::Clone for IMSMQQueueInfo3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSMQQueueInfo4(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSMQQueueInfo4 {}
+impl ::core::clone::Clone for IMSMQQueueInfo4 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSMQQueueInfos(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSMQQueueInfos {}
+impl ::core::clone::Clone for IMSMQQueueInfos {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSMQQueueInfos2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSMQQueueInfos2 {}
+impl ::core::clone::Clone for IMSMQQueueInfos2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSMQQueueInfos3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSMQQueueInfos3 {}
+impl ::core::clone::Clone for IMSMQQueueInfos3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSMQQueueInfos4(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSMQQueueInfos4 {}
+impl ::core::clone::Clone for IMSMQQueueInfos4 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSMQQueueManagement(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSMQQueueManagement {}
+impl ::core::clone::Clone for IMSMQQueueManagement {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSMQTransaction(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSMQTransaction {}
+impl ::core::clone::Clone for IMSMQTransaction {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSMQTransaction2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSMQTransaction2 {}
+impl ::core::clone::Clone for IMSMQTransaction2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSMQTransaction3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSMQTransaction3 {}
+impl ::core::clone::Clone for IMSMQTransaction3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSMQTransactionDispenser(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSMQTransactionDispenser {}
+impl ::core::clone::Clone for IMSMQTransactionDispenser {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSMQTransactionDispenser2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSMQTransactionDispenser2 {}
+impl ::core::clone::Clone for IMSMQTransactionDispenser2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSMQTransactionDispenser3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSMQTransactionDispenser3 {}
+impl ::core::clone::Clone for IMSMQTransactionDispenser3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const LONG_LIVED: u32 = 4294967294u32;
 #[repr(transparent)]
 pub struct MQACCESS(pub i32);
@@ -600,26 +852,26 @@ pub const MQ_LOOKUP_RECEIVE_NEXT: u32 = 1073741857u32;
 pub const MQ_LOOKUP_RECEIVE_PREV: u32 = 1073741858u32;
 pub const MQ_MOVE_ACCESS: u32 = 4u32;
 pub const MQ_OK: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(0i32 as _);
-pub const MSMQApplication: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3621183622, data2: 56525, data3: 4560, data4: [170, 75, 0, 96, 151, 13, 235, 174] };
-pub const MSMQCollection: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4146827313, data2: 12044, data3: 17384, data4: [146, 78, 230, 5, 44, 220, 73, 63] };
-pub const MSMQCoordinatedTransactionDispenser: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3621183618, data2: 56525, data3: 4560, data4: [170, 75, 0, 96, 151, 13, 235, 174] };
-pub const MSMQDestination: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3953748760, data2: 8552, data3: 4563, data4: [137, 140, 0, 224, 44, 7, 79, 107] };
-pub const MSMQEvent: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3621183610, data2: 56525, data3: 4560, data4: [170, 75, 0, 96, 151, 13, 235, 174] };
-pub const MSMQManagement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 969840382, data2: 62661, data3: 17540, data4: [161, 67, 76, 45, 93, 50, 66, 41] };
-pub const MSMQMessage: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3621183605, data2: 56525, data3: 4560, data4: [170, 75, 0, 96, 151, 13, 235, 174] };
-pub const MSMQOutgoingQueueManagement: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 25706524, data2: 9338, data3: 20461, data4: [153, 198, 191, 20, 17, 157, 112, 85] };
-pub const MSMQQuery: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3621183603, data2: 56525, data3: 4560, data4: [170, 75, 0, 96, 151, 13, 235, 174] };
-pub const MSMQQueue: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3621183609, data2: 56525, data3: 4560, data4: [170, 75, 0, 96, 151, 13, 235, 174] };
-pub const MSMQQueueInfo: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3621183612, data2: 56525, data3: 4560, data4: [170, 75, 0, 96, 151, 13, 235, 174] };
-pub const MSMQQueueInfos: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3621183614, data2: 56525, data3: 4560, data4: [170, 75, 0, 96, 151, 13, 235, 174] };
-pub const MSMQQueueManagement: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MSMQApplication: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3621183622, data2: 56525, data3: 4560, data4: [170, 75, 0, 96, 151, 13, 235, 174] };
+pub const MSMQCollection: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4146827313, data2: 12044, data3: 17384, data4: [146, 78, 230, 5, 44, 220, 73, 63] };
+pub const MSMQCoordinatedTransactionDispenser: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3621183618, data2: 56525, data3: 4560, data4: [170, 75, 0, 96, 151, 13, 235, 174] };
+pub const MSMQDestination: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3953748760, data2: 8552, data3: 4563, data4: [137, 140, 0, 224, 44, 7, 79, 107] };
+pub const MSMQEvent: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3621183610, data2: 56525, data3: 4560, data4: [170, 75, 0, 96, 151, 13, 235, 174] };
+pub const MSMQManagement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 969840382, data2: 62661, data3: 17540, data4: [161, 67, 76, 45, 93, 50, 66, 41] };
+pub const MSMQMessage: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3621183605, data2: 56525, data3: 4560, data4: [170, 75, 0, 96, 151, 13, 235, 174] };
+pub const MSMQOutgoingQueueManagement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 25706524, data2: 9338, data3: 20461, data4: [153, 198, 191, 20, 17, 157, 112, 85] };
+pub const MSMQQuery: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3621183603, data2: 56525, data3: 4560, data4: [170, 75, 0, 96, 151, 13, 235, 174] };
+pub const MSMQQueue: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3621183609, data2: 56525, data3: 4560, data4: [170, 75, 0, 96, 151, 13, 235, 174] };
+pub const MSMQQueueInfo: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3621183612, data2: 56525, data3: 4560, data4: [170, 75, 0, 96, 151, 13, 235, 174] };
+pub const MSMQQueueInfos: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3621183614, data2: 56525, data3: 4560, data4: [170, 75, 0, 96, 151, 13, 235, 174] };
+pub const MSMQQueueManagement: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 867618942,
     data2: 62077,
     data3: 17146,
     data4: [178, 215, 191, 130, 225, 30, 147, 116],
 };
-pub const MSMQTransaction: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3621183616, data2: 56525, data3: 4560, data4: [170, 75, 0, 96, 151, 13, 235, 174] };
-pub const MSMQTransactionDispenser: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3621183620, data2: 56525, data3: 4560, data4: [170, 75, 0, 96, 151, 13, 235, 174] };
+pub const MSMQTransaction: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3621183616, data2: 56525, data3: 4560, data4: [170, 75, 0, 96, 151, 13, 235, 174] };
+pub const MSMQTransactionDispenser: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3621183620, data2: 56525, data3: 4560, data4: [170, 75, 0, 96, 151, 13, 235, 174] };
 pub const PREQ: u32 = 4u32;
 pub const PRGE: u32 = 3u32;
 pub const PRGT: u32 = 2u32;
@@ -826,3 +1078,9 @@ impl ::core::clone::Clone for XACT_STATUS {
 }
 #[repr(transparent)]
 pub struct _DMSMQEventEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for _DMSMQEventEvents {}
+impl ::core::clone::Clone for _DMSMQEventEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

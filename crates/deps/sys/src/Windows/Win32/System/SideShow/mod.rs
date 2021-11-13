@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {}
 #[repr(C, packed(1))]
@@ -55,29 +55,95 @@ impl ::core::clone::Clone for EVENT_DATA_HEADER {
         *self
     }
 }
-pub const GUID_DEVINTERFACE_SIDESHOW: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 355358737, data2: 65209, data3: 19200, data4: [144, 244, 211, 41, 71, 174, 22, 129] };
+pub const GUID_DEVINTERFACE_SIDESHOW: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 355358737, data2: 65209, data3: 19200, data4: [144, 244, 211, 41, 71, 174, 22, 129] };
 #[repr(transparent)]
 pub struct ISideShowBulkCapabilities(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISideShowBulkCapabilities {}
+impl ::core::clone::Clone for ISideShowBulkCapabilities {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISideShowCapabilities(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISideShowCapabilities {}
+impl ::core::clone::Clone for ISideShowCapabilities {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISideShowCapabilitiesCollection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISideShowCapabilitiesCollection {}
+impl ::core::clone::Clone for ISideShowCapabilitiesCollection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISideShowContent(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISideShowContent {}
+impl ::core::clone::Clone for ISideShowContent {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISideShowContentManager(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISideShowContentManager {}
+impl ::core::clone::Clone for ISideShowContentManager {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISideShowEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISideShowEvents {}
+impl ::core::clone::Clone for ISideShowEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISideShowKeyCollection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISideShowKeyCollection {}
+impl ::core::clone::Clone for ISideShowKeyCollection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISideShowNotification(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISideShowNotification {}
+impl ::core::clone::Clone for ISideShowNotification {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISideShowNotificationManager(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISideShowNotificationManager {}
+impl ::core::clone::Clone for ISideShowNotificationManager {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISideShowPropVariantCollection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISideShowPropVariantCollection {}
+impl ::core::clone::Clone for ISideShowPropVariantCollection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISideShowSession(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISideShowSession {}
+impl ::core::clone::Clone for ISideShowSession {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C, packed(1))]
 pub struct NEW_EVENT_DATA_AVAILABLE {
     pub cbNewEventDataAvailable: u32,
@@ -170,71 +236,71 @@ impl ::core::clone::Clone for SCF_NAVIGATION_EVENT {
         *self
     }
 }
-pub const SIDESHOW_APPLICATION_EVENT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1286959866, data2: 7483, data3: 18867, data4: [161, 122, 46, 107, 255, 5, 40, 84] };
+pub const SIDESHOW_APPLICATION_EVENT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1286959866, data2: 7483, data3: 18867, data4: [161, 122, 46, 107, 255, 5, 40, 84] };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const SIDESHOW_CAPABILITY_CLIENT_AREA_HEIGHT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::GUID { data1: 2327611560, data2: 34171, data3: 19159, data4: [163, 90, 181, 148, 47, 73, 43, 153] },
+    fmtid: ::windows_sys::core::GUID { data1: 2327611560, data2: 34171, data3: 19159, data4: [163, 90, 181, 148, 47, 73, 43, 153] },
     pid: 16u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const SIDESHOW_CAPABILITY_CLIENT_AREA_WIDTH: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::GUID { data1: 2327611560, data2: 34171, data3: 19159, data4: [163, 90, 181, 148, 47, 73, 43, 153] },
+    fmtid: ::windows_sys::core::GUID { data1: 2327611560, data2: 34171, data3: 19159, data4: [163, 90, 181, 148, 47, 73, 43, 153] },
     pid: 15u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const SIDESHOW_CAPABILITY_COLOR_DEPTH: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::GUID { data1: 2327611560, data2: 34171, data3: 19159, data4: [163, 90, 181, 148, 47, 73, 43, 153] },
+    fmtid: ::windows_sys::core::GUID { data1: 2327611560, data2: 34171, data3: 19159, data4: [163, 90, 181, 148, 47, 73, 43, 153] },
     pid: 5u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const SIDESHOW_CAPABILITY_COLOR_TYPE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::GUID { data1: 2327611560, data2: 34171, data3: 19159, data4: [163, 90, 181, 148, 47, 73, 43, 153] },
+    fmtid: ::windows_sys::core::GUID { data1: 2327611560, data2: 34171, data3: 19159, data4: [163, 90, 181, 148, 47, 73, 43, 153] },
     pid: 6u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const SIDESHOW_CAPABILITY_CURRENT_LANGUAGE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::GUID { data1: 2327611560, data2: 34171, data3: 19159, data4: [163, 90, 181, 148, 47, 73, 43, 153] },
+    fmtid: ::windows_sys::core::GUID { data1: 2327611560, data2: 34171, data3: 19159, data4: [163, 90, 181, 148, 47, 73, 43, 153] },
     pid: 9u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const SIDESHOW_CAPABILITY_DATA_CACHE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::GUID { data1: 2327611560, data2: 34171, data3: 19159, data4: [163, 90, 181, 148, 47, 73, 43, 153] },
+    fmtid: ::windows_sys::core::GUID { data1: 2327611560, data2: 34171, data3: 19159, data4: [163, 90, 181, 148, 47, 73, 43, 153] },
     pid: 7u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const SIDESHOW_CAPABILITY_DEVICE_ID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::GUID { data1: 2327611560, data2: 34171, data3: 19159, data4: [163, 90, 181, 148, 47, 73, 43, 153] },
+    fmtid: ::windows_sys::core::GUID { data1: 2327611560, data2: 34171, data3: 19159, data4: [163, 90, 181, 148, 47, 73, 43, 153] },
     pid: 1u32,
 };
-pub const SIDESHOW_CAPABILITY_DEVICE_PROPERTIES: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2327611560, data2: 34171, data3: 19159, data4: [163, 90, 181, 148, 47, 73, 43, 153] };
+pub const SIDESHOW_CAPABILITY_DEVICE_PROPERTIES: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2327611560, data2: 34171, data3: 19159, data4: [163, 90, 181, 148, 47, 73, 43, 153] };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const SIDESHOW_CAPABILITY_SCREEN_HEIGHT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::GUID { data1: 2327611560, data2: 34171, data3: 19159, data4: [163, 90, 181, 148, 47, 73, 43, 153] },
+    fmtid: ::windows_sys::core::GUID { data1: 2327611560, data2: 34171, data3: 19159, data4: [163, 90, 181, 148, 47, 73, 43, 153] },
     pid: 4u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const SIDESHOW_CAPABILITY_SCREEN_TYPE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::GUID { data1: 2327611560, data2: 34171, data3: 19159, data4: [163, 90, 181, 148, 47, 73, 43, 153] },
+    fmtid: ::windows_sys::core::GUID { data1: 2327611560, data2: 34171, data3: 19159, data4: [163, 90, 181, 148, 47, 73, 43, 153] },
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const SIDESHOW_CAPABILITY_SCREEN_WIDTH: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::GUID { data1: 2327611560, data2: 34171, data3: 19159, data4: [163, 90, 181, 148, 47, 73, 43, 153] },
+    fmtid: ::windows_sys::core::GUID { data1: 2327611560, data2: 34171, data3: 19159, data4: [163, 90, 181, 148, 47, 73, 43, 153] },
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const SIDESHOW_CAPABILITY_SUPPORTED_IMAGE_FORMATS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::GUID { data1: 2327611560, data2: 34171, data3: 19159, data4: [163, 90, 181, 148, 47, 73, 43, 153] },
+    fmtid: ::windows_sys::core::GUID { data1: 2327611560, data2: 34171, data3: 19159, data4: [163, 90, 181, 148, 47, 73, 43, 153] },
     pid: 14u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const SIDESHOW_CAPABILITY_SUPPORTED_LANGUAGES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::GUID { data1: 2327611560, data2: 34171, data3: 19159, data4: [163, 90, 181, 148, 47, 73, 43, 153] },
+    fmtid: ::windows_sys::core::GUID { data1: 2327611560, data2: 34171, data3: 19159, data4: [163, 90, 181, 148, 47, 73, 43, 153] },
     pid: 8u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const SIDESHOW_CAPABILITY_SUPPORTED_THEMES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::GUID { data1: 2327611560, data2: 34171, data3: 19159, data4: [163, 90, 181, 148, 47, 73, 43, 153] },
+    fmtid: ::windows_sys::core::GUID { data1: 2327611560, data2: 34171, data3: 19159, data4: [163, 90, 181, 148, 47, 73, 43, 153] },
     pid: 10u32,
 };
 #[repr(transparent)]
@@ -248,9 +314,9 @@ impl ::core::clone::Clone for SIDESHOW_COLOR_TYPE {
         *self
     }
 }
-pub const SIDESHOW_CONTENT_MISSING_EVENT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1342700456, data2: 54035, data3: 17311, data4: [190, 162, 165, 2, 1, 211, 233, 168] };
-pub const SIDESHOW_ENDPOINT_ICAL: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1308571317, data2: 40414, data3: 20342, data4: [154, 42, 150, 67, 80, 71, 6, 61] };
-pub const SIDESHOW_ENDPOINT_SIMPLE_CONTENT_FORMAT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const SIDESHOW_CONTENT_MISSING_EVENT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1342700456, data2: 54035, data3: 17311, data4: [190, 162, 165, 2, 1, 211, 233, 168] };
+pub const SIDESHOW_ENDPOINT_ICAL: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1308571317, data2: 40414, data3: 20342, data4: [154, 42, 150, 67, 80, 71, 6, 61] };
+pub const SIDESHOW_ENDPOINT_SIMPLE_CONTENT_FORMAT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2846176575,
     data2: 11595,
     data3: 18382,
@@ -258,7 +324,7 @@ pub const SIDESHOW_ENDPOINT_SIMPLE_CONTENT_FORMAT: ::windows_sys::core::GUID = :
 };
 pub const SIDESHOW_EVENTID_APPLICATION_ENTER: u32 = 4294901760u32;
 pub const SIDESHOW_EVENTID_APPLICATION_EXIT: u32 = 4294901761u32;
-pub const SIDESHOW_NEW_EVENT_DATA_AVAILABLE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1468086356, data2: 12225, data3: 16668, data4: [165, 159, 242, 73, 39, 96, 136, 4] };
+pub const SIDESHOW_NEW_EVENT_DATA_AVAILABLE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1468086356, data2: 12225, data3: 16668, data4: [165, 159, 242, 73, 39, 96, 136, 4] };
 #[repr(transparent)]
 pub struct SIDESHOW_SCREEN_TYPE(pub i32);
 pub const SIDESHOW_SCREEN_TYPE_BITMAP: SIDESHOW_SCREEN_TYPE = SIDESHOW_SCREEN_TYPE(0i32);
@@ -269,26 +335,26 @@ impl ::core::clone::Clone for SIDESHOW_SCREEN_TYPE {
         *self
     }
 }
-pub const SIDESHOW_USER_CHANGE_REQUEST_EVENT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const SIDESHOW_USER_CHANGE_REQUEST_EVENT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1342793532,
     data2: 16253,
     data3: 19582,
     data4: [153, 113, 234, 162, 233, 31, 21, 117],
 };
-pub const SideShowKeyCollection: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const SideShowKeyCollection: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3753630712,
     data2: 6366,
     data3: 18872,
     data4: [131, 220, 235, 199, 39, 198, 45, 148],
 };
-pub const SideShowNotification: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const SideShowNotification: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 216262767,
     data2: 54733,
     data3: 17701,
     data4: [167, 102, 26, 186, 177, 167, 82, 245],
 };
-pub const SideShowPropVariantCollection: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3863016469, data2: 21406, data3: 18723, data4: [150, 205, 95, 9, 59, 194, 80, 205] };
-pub const SideShowSession: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const SideShowPropVariantCollection: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3863016469, data2: 21406, data3: 18723, data4: [150, 205, 95, 9, 59, 194, 80, 205] };
+pub const SideShowSession: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3791995833,
     data2: 63365,
     data3: 20130,

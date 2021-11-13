@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
     #[cfg(feature = "Win32_Foundation")]
@@ -50,7 +50,7 @@ extern "system" {
     pub fn AVIStreamGetFrame(pg: IGetFrame, lpos: i32) -> *mut ::core::ffi::c_void;
     pub fn AVIStreamGetFrameClose(pg: IGetFrame) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub fn AVIStreamGetFrameOpen(pavi: IAVIStream, lpbiwanted: *const super::super::Graphics::Gdi::BITMAPINFOHEADER) -> ::core::option::Option<IGetFrame>;
+    pub fn AVIStreamGetFrameOpen(pavi: IAVIStream, lpbiwanted: *const super::super::Graphics::Gdi::BITMAPINFOHEADER) -> IGetFrame;
     #[cfg(feature = "Win32_Foundation")]
     pub fn AVIStreamInfoA(pavi: IAVIStream, psi: *mut AVISTREAMINFOA, lsize: i32) -> ::windows_sys::core::HRESULT;
     #[cfg(feature = "Win32_Foundation")]
@@ -217,7 +217,7 @@ extern "system" {
     pub fn mciGetErrorStringA(mcierr: u32, psztext: super::super::Foundation::PSTR, cchtext: u32) -> super::super::Foundation::BOOL;
     #[cfg(feature = "Win32_Foundation")]
     pub fn mciGetErrorStringW(mcierr: u32, psztext: super::super::Foundation::PWSTR, cchtext: u32) -> super::super::Foundation::BOOL;
-    pub fn mciGetYieldProc(mciid: u32, pdwyielddata: *const u32) -> ::core::option::Option<YIELDPROC>;
+    pub fn mciGetYieldProc(mciid: u32, pdwyielddata: *const u32) -> YIELDPROC;
     #[cfg(feature = "Win32_Foundation")]
     pub fn mciLoadCommandResource(hinstance: super::super::Foundation::HANDLE, lpresname: super::super::Foundation::PWSTR, wtype: u32) -> u32;
     pub fn mciSendCommandA(mciid: u32, umsg: u32, dwparam1: usize, dwparam2: usize) -> u32;
@@ -249,9 +249,9 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn mmioGetInfo(hmmio: HMMIO, pmmioinfo: *mut MMIOINFO, fuinfo: u32) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn mmioInstallIOProcA(fccioproc: u32, pioproc: LPMMIOPROC, dwflags: u32) -> ::core::option::Option<LPMMIOPROC>;
+    pub fn mmioInstallIOProcA(fccioproc: u32, pioproc: LPMMIOPROC, dwflags: u32) -> LPMMIOPROC;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn mmioInstallIOProcW(fccioproc: u32, pioproc: LPMMIOPROC, dwflags: u32) -> ::core::option::Option<LPMMIOPROC>;
+    pub fn mmioInstallIOProcW(fccioproc: u32, pioproc: LPMMIOPROC, dwflags: u32) -> LPMMIOPROC;
     #[cfg(feature = "Win32_Foundation")]
     pub fn mmioOpenA(pszfilename: super::super::Foundation::PSTR, pmmioinfo: *mut MMIOINFO, fdwopen: u32) -> HMMIO;
     #[cfg(feature = "Win32_Foundation")]
@@ -664,8 +664,8 @@ impl ::core::clone::Clone for CHANNEL_CAPS {
         *self
     }
 }
-pub const CLSID_AVIFile: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 131072, data2: 0, data3: 0, data4: [192, 0, 0, 0, 0, 0, 0, 70] };
-pub const CLSID_AVISimpleUnMarshal: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 131081, data2: 0, data3: 0, data4: [192, 0, 0, 0, 0, 0, 0, 70] };
+pub const CLSID_AVIFile: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 131072, data2: 0, data3: 0, data4: [192, 0, 0, 0, 0, 0, 0, 70] };
+pub const CLSID_AVISimpleUnMarshal: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 131081, data2: 0, data3: 0, data4: [192, 0, 0, 0, 0, 0, 0, 70] };
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct COMPVARS {
@@ -1205,14 +1205,44 @@ impl ::core::clone::Clone for HVIDEO {
 }
 #[repr(transparent)]
 pub struct IAVIEditStream(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAVIEditStream {}
+impl ::core::clone::Clone for IAVIEditStream {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAVIFile(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAVIFile {}
+impl ::core::clone::Clone for IAVIFile {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAVIPersistFile(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAVIPersistFile {}
+impl ::core::clone::Clone for IAVIPersistFile {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAVIStream(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAVIStream {}
+impl ::core::clone::Clone for IAVIStream {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAVIStreaming(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAVIStreaming {}
+impl ::core::clone::Clone for IAVIStreaming {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct ICCOMPRESS {
@@ -1638,6 +1668,12 @@ pub const IDS_CAP_WAVE_SIZE_ERROR: u32 = 423u32;
 pub const IDS_CAP_WRITEERROR: u32 = 414u32;
 #[repr(transparent)]
 pub struct IGetFrame(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGetFrame {}
+impl ::core::clone::Clone for IGetFrame {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
 pub struct IMAADPCMWAVEFORMAT {
@@ -1992,7 +2028,7 @@ pub const JPEG_PROCESS_BASELINE: u32 = 0u32;
 pub const JPEG_RGB: u32 = 3u32;
 pub const JPEG_Y: u32 = 1u32;
 pub const JPEG_YCbCr: u32 = 2u32;
-pub const KSDATAFORMAT_SUBTYPE_IEEE_FLOAT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const KSDATAFORMAT_SUBTYPE_IEEE_FLOAT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 pub type LPFNEXTDEVIO = unsafe extern "system" fn(lparam: super::super::Foundation::LPARAM, dwflags: u32, dwiocontrolcode: u32, lpinbuffer: *mut ::core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut ::core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
@@ -4129,7 +4165,7 @@ pub const MMIOERR_UNBUFFERED: u32 = 266u32;
 pub struct MMIOINFO {
     pub dwFlags: u32,
     pub fccIOProc: u32,
-    pub pIOProc: ::core::option::Option<LPMMIOPROC>,
+    pub pIOProc: LPMMIOPROC,
     pub wErrorRet: u32,
     pub htask: super::HTASK,
     pub cchBuffer: i32,
@@ -7107,7 +7143,7 @@ pub const TDD_SETTIMEREVENT: u32 = 2052u32;
 pub struct TIMEREVENT {
     pub wDelay: u16,
     pub wResolution: u16,
-    pub lpFunction: ::core::option::Option<super::LPTIMECALLBACK>,
+    pub lpFunction: super::LPTIMECALLBACK,
     pub dwUser: u32,
     pub wFlags: u16,
     pub wReserved1: u16,

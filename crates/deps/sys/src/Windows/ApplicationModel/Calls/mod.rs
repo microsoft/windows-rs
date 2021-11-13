@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[cfg(feature = "ApplicationModel_Calls_Background")]
 pub mod Background;
 #[cfg(feature = "ApplicationModel_Calls_Provider")]
@@ -7,10 +7,28 @@ pub mod Provider;
 extern "system" {}
 #[repr(transparent)]
 pub struct CallAnswerEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for CallAnswerEventArgs {}
+impl ::core::clone::Clone for CallAnswerEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CallRejectEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for CallRejectEventArgs {}
+impl ::core::clone::Clone for CallRejectEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CallStateChangeEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for CallStateChangeEventArgs {}
+impl ::core::clone::Clone for CallStateChangeEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct CellularDtmfMode(pub i32);
 impl CellularDtmfMode {
@@ -59,108 +77,420 @@ impl ::core::clone::Clone for DtmfToneAudioPlayback {
 }
 #[repr(transparent)]
 pub struct ICallAnswerEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICallAnswerEventArgs {}
+impl ::core::clone::Clone for ICallAnswerEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICallRejectEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICallRejectEventArgs {}
+impl ::core::clone::Clone for ICallRejectEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICallStateChangeEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICallStateChangeEventArgs {}
+impl ::core::clone::Clone for ICallStateChangeEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ILockScreenCallEndCallDeferral(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ILockScreenCallEndCallDeferral {}
+impl ::core::clone::Clone for ILockScreenCallEndCallDeferral {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ILockScreenCallEndRequestedEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ILockScreenCallEndRequestedEventArgs {}
+impl ::core::clone::Clone for ILockScreenCallEndRequestedEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ILockScreenCallUI(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ILockScreenCallUI {}
+impl ::core::clone::Clone for ILockScreenCallUI {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMuteChangeEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMuteChangeEventArgs {}
+impl ::core::clone::Clone for IMuteChangeEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPhoneCall(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPhoneCall {}
+impl ::core::clone::Clone for IPhoneCall {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPhoneCallBlockingStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPhoneCallBlockingStatics {}
+impl ::core::clone::Clone for IPhoneCallBlockingStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPhoneCallHistoryEntry(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPhoneCallHistoryEntry {}
+impl ::core::clone::Clone for IPhoneCallHistoryEntry {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPhoneCallHistoryEntryAddress(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPhoneCallHistoryEntryAddress {}
+impl ::core::clone::Clone for IPhoneCallHistoryEntryAddress {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPhoneCallHistoryEntryAddressFactory(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPhoneCallHistoryEntryAddressFactory {}
+impl ::core::clone::Clone for IPhoneCallHistoryEntryAddressFactory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPhoneCallHistoryEntryQueryOptions(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPhoneCallHistoryEntryQueryOptions {}
+impl ::core::clone::Clone for IPhoneCallHistoryEntryQueryOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPhoneCallHistoryEntryReader(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPhoneCallHistoryEntryReader {}
+impl ::core::clone::Clone for IPhoneCallHistoryEntryReader {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPhoneCallHistoryManagerForUser(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPhoneCallHistoryManagerForUser {}
+impl ::core::clone::Clone for IPhoneCallHistoryManagerForUser {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPhoneCallHistoryManagerStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPhoneCallHistoryManagerStatics {}
+impl ::core::clone::Clone for IPhoneCallHistoryManagerStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPhoneCallHistoryManagerStatics2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPhoneCallHistoryManagerStatics2 {}
+impl ::core::clone::Clone for IPhoneCallHistoryManagerStatics2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPhoneCallHistoryStore(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPhoneCallHistoryStore {}
+impl ::core::clone::Clone for IPhoneCallHistoryStore {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPhoneCallInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPhoneCallInfo {}
+impl ::core::clone::Clone for IPhoneCallInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPhoneCallManagerStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPhoneCallManagerStatics {}
+impl ::core::clone::Clone for IPhoneCallManagerStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPhoneCallManagerStatics2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPhoneCallManagerStatics2 {}
+impl ::core::clone::Clone for IPhoneCallManagerStatics2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPhoneCallStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPhoneCallStatics {}
+impl ::core::clone::Clone for IPhoneCallStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPhoneCallStore(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPhoneCallStore {}
+impl ::core::clone::Clone for IPhoneCallStore {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPhoneCallVideoCapabilities(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPhoneCallVideoCapabilities {}
+impl ::core::clone::Clone for IPhoneCallVideoCapabilities {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPhoneCallVideoCapabilitiesManagerStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPhoneCallVideoCapabilitiesManagerStatics {}
+impl ::core::clone::Clone for IPhoneCallVideoCapabilitiesManagerStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPhoneCallsResult(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPhoneCallsResult {}
+impl ::core::clone::Clone for IPhoneCallsResult {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPhoneDialOptions(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPhoneDialOptions {}
+impl ::core::clone::Clone for IPhoneDialOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPhoneLine(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPhoneLine {}
+impl ::core::clone::Clone for IPhoneLine {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPhoneLine2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPhoneLine2 {}
+impl ::core::clone::Clone for IPhoneLine2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPhoneLine3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPhoneLine3 {}
+impl ::core::clone::Clone for IPhoneLine3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPhoneLineCellularDetails(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPhoneLineCellularDetails {}
+impl ::core::clone::Clone for IPhoneLineCellularDetails {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPhoneLineConfiguration(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPhoneLineConfiguration {}
+impl ::core::clone::Clone for IPhoneLineConfiguration {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPhoneLineDialResult(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPhoneLineDialResult {}
+impl ::core::clone::Clone for IPhoneLineDialResult {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPhoneLineStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPhoneLineStatics {}
+impl ::core::clone::Clone for IPhoneLineStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPhoneLineTransportDevice(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPhoneLineTransportDevice {}
+impl ::core::clone::Clone for IPhoneLineTransportDevice {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPhoneLineTransportDevice2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPhoneLineTransportDevice2 {}
+impl ::core::clone::Clone for IPhoneLineTransportDevice2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPhoneLineTransportDeviceStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPhoneLineTransportDeviceStatics {}
+impl ::core::clone::Clone for IPhoneLineTransportDeviceStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPhoneLineWatcher(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPhoneLineWatcher {}
+impl ::core::clone::Clone for IPhoneLineWatcher {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPhoneLineWatcherEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPhoneLineWatcherEventArgs {}
+impl ::core::clone::Clone for IPhoneLineWatcherEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPhoneVoicemail(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPhoneVoicemail {}
+impl ::core::clone::Clone for IPhoneVoicemail {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVoipCallCoordinator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVoipCallCoordinator {}
+impl ::core::clone::Clone for IVoipCallCoordinator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVoipCallCoordinator2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVoipCallCoordinator2 {}
+impl ::core::clone::Clone for IVoipCallCoordinator2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVoipCallCoordinator3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVoipCallCoordinator3 {}
+impl ::core::clone::Clone for IVoipCallCoordinator3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVoipCallCoordinator4(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVoipCallCoordinator4 {}
+impl ::core::clone::Clone for IVoipCallCoordinator4 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVoipCallCoordinatorStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVoipCallCoordinatorStatics {}
+impl ::core::clone::Clone for IVoipCallCoordinatorStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVoipPhoneCall(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVoipPhoneCall {}
+impl ::core::clone::Clone for IVoipPhoneCall {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVoipPhoneCall2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVoipPhoneCall2 {}
+impl ::core::clone::Clone for IVoipPhoneCall2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVoipPhoneCall3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVoipPhoneCall3 {}
+impl ::core::clone::Clone for IVoipPhoneCall3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct LockScreenCallEndCallDeferral(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for LockScreenCallEndCallDeferral {}
+impl ::core::clone::Clone for LockScreenCallEndCallDeferral {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct LockScreenCallEndRequestedEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for LockScreenCallEndRequestedEventArgs {}
+impl ::core::clone::Clone for LockScreenCallEndRequestedEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct LockScreenCallUI(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for LockScreenCallUI {}
+impl ::core::clone::Clone for LockScreenCallUI {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MuteChangeEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for MuteChangeEventArgs {}
+impl ::core::clone::Clone for MuteChangeEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PhoneAudioRoutingEndpoint(pub i32);
 impl PhoneAudioRoutingEndpoint {
@@ -176,6 +506,12 @@ impl ::core::clone::Clone for PhoneAudioRoutingEndpoint {
 }
 #[repr(transparent)]
 pub struct PhoneCall(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for PhoneCall {}
+impl ::core::clone::Clone for PhoneCall {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PhoneCallAudioDevice(pub i32);
 impl PhoneCallAudioDevice {
@@ -204,8 +540,20 @@ impl ::core::clone::Clone for PhoneCallDirection {
 }
 #[repr(transparent)]
 pub struct PhoneCallHistoryEntry(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for PhoneCallHistoryEntry {}
+impl ::core::clone::Clone for PhoneCallHistoryEntry {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PhoneCallHistoryEntryAddress(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for PhoneCallHistoryEntryAddress {}
+impl ::core::clone::Clone for PhoneCallHistoryEntryAddress {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PhoneCallHistoryEntryMedia(pub i32);
 impl PhoneCallHistoryEntryMedia {
@@ -246,6 +594,12 @@ impl ::core::clone::Clone for PhoneCallHistoryEntryQueryDesiredMedia {
 }
 #[repr(transparent)]
 pub struct PhoneCallHistoryEntryQueryOptions(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for PhoneCallHistoryEntryQueryOptions {}
+impl ::core::clone::Clone for PhoneCallHistoryEntryQueryOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PhoneCallHistoryEntryRawAddressKind(pub i32);
 impl PhoneCallHistoryEntryRawAddressKind {
@@ -260,8 +614,20 @@ impl ::core::clone::Clone for PhoneCallHistoryEntryRawAddressKind {
 }
 #[repr(transparent)]
 pub struct PhoneCallHistoryEntryReader(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for PhoneCallHistoryEntryReader {}
+impl ::core::clone::Clone for PhoneCallHistoryEntryReader {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PhoneCallHistoryManagerForUser(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for PhoneCallHistoryManagerForUser {}
+impl ::core::clone::Clone for PhoneCallHistoryManagerForUser {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PhoneCallHistorySourceIdKind(pub i32);
 impl PhoneCallHistorySourceIdKind {
@@ -276,6 +642,12 @@ impl ::core::clone::Clone for PhoneCallHistorySourceIdKind {
 }
 #[repr(transparent)]
 pub struct PhoneCallHistoryStore(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for PhoneCallHistoryStore {}
+impl ::core::clone::Clone for PhoneCallHistoryStore {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PhoneCallHistoryStoreAccessType(pub i32);
 impl PhoneCallHistoryStoreAccessType {
@@ -291,6 +663,12 @@ impl ::core::clone::Clone for PhoneCallHistoryStoreAccessType {
 }
 #[repr(transparent)]
 pub struct PhoneCallInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for PhoneCallInfo {}
+impl ::core::clone::Clone for PhoneCallInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PhoneCallMedia(pub i32);
 impl PhoneCallMedia {
@@ -337,20 +715,68 @@ impl ::core::clone::Clone for PhoneCallStatus {
 }
 #[repr(transparent)]
 pub struct PhoneCallStore(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for PhoneCallStore {}
+impl ::core::clone::Clone for PhoneCallStore {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PhoneCallVideoCapabilities(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for PhoneCallVideoCapabilities {}
+impl ::core::clone::Clone for PhoneCallVideoCapabilities {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PhoneCallsResult(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for PhoneCallsResult {}
+impl ::core::clone::Clone for PhoneCallsResult {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PhoneDialOptions(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for PhoneDialOptions {}
+impl ::core::clone::Clone for PhoneDialOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PhoneLine(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for PhoneLine {}
+impl ::core::clone::Clone for PhoneLine {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PhoneLineCellularDetails(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for PhoneLineCellularDetails {}
+impl ::core::clone::Clone for PhoneLineCellularDetails {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PhoneLineConfiguration(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for PhoneLineConfiguration {}
+impl ::core::clone::Clone for PhoneLineConfiguration {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PhoneLineDialResult(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for PhoneLineDialResult {}
+impl ::core::clone::Clone for PhoneLineDialResult {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PhoneLineNetworkOperatorDisplayTextLocation(pub i32);
 impl PhoneLineNetworkOperatorDisplayTextLocation {
@@ -395,10 +821,28 @@ impl ::core::clone::Clone for PhoneLineTransport {
 }
 #[repr(transparent)]
 pub struct PhoneLineTransportDevice(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for PhoneLineTransportDevice {}
+impl ::core::clone::Clone for PhoneLineTransportDevice {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PhoneLineWatcher(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for PhoneLineWatcher {}
+impl ::core::clone::Clone for PhoneLineWatcher {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PhoneLineWatcherEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for PhoneLineWatcherEventArgs {}
+impl ::core::clone::Clone for PhoneLineWatcherEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PhoneLineWatcherStatus(pub i32);
 impl PhoneLineWatcherStatus {
@@ -451,6 +895,12 @@ impl ::core::clone::Clone for PhoneSimState {
 }
 #[repr(transparent)]
 pub struct PhoneVoicemail(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for PhoneVoicemail {}
+impl ::core::clone::Clone for PhoneVoicemail {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PhoneVoicemailType(pub i32);
 impl PhoneVoicemailType {
@@ -479,8 +929,20 @@ impl ::core::clone::Clone for TransportDeviceAudioRoutingStatus {
 }
 #[repr(transparent)]
 pub struct VoipCallCoordinator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for VoipCallCoordinator {}
+impl ::core::clone::Clone for VoipCallCoordinator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct VoipPhoneCall(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for VoipPhoneCall {}
+impl ::core::clone::Clone for VoipPhoneCall {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct VoipPhoneCallMedia(pub u32);
 impl VoipPhoneCallMedia {

@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[cfg(feature = "Win32_System_WinRT_AllJoyn")]
 pub mod AllJoyn;
 #[cfg(feature = "Win32_System_WinRT_Composition")]
@@ -271,76 +271,292 @@ impl ::core::clone::Clone for HSTRING_HEADER_0 {
 }
 #[repr(transparent)]
 pub struct IAccountsSettingsPaneInterop(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAccountsSettingsPaneInterop {}
+impl ::core::clone::Clone for IAccountsSettingsPaneInterop {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IActivationFactory(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IActivationFactory {}
+impl ::core::clone::Clone for IActivationFactory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAgileReference(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAgileReference {}
+impl ::core::clone::Clone for IAgileReference {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IApartmentShutdown(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IApartmentShutdown {}
+impl ::core::clone::Clone for IApartmentShutdown {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAppServiceConnectionExtendedExecution(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppServiceConnectionExtendedExecution {}
+impl ::core::clone::Clone for IAppServiceConnectionExtendedExecution {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBufferByteAccess(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBufferByteAccess {}
+impl ::core::clone::Clone for IBufferByteAccess {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICastingController(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICastingController {}
+impl ::core::clone::Clone for ICastingController {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICastingEventHandler(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICastingEventHandler {}
+impl ::core::clone::Clone for ICastingEventHandler {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICastingSourceInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICastingSourceInfo {}
+impl ::core::clone::Clone for ICastingSourceInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICorrelationVectorInformation(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICorrelationVectorInformation {}
+impl ::core::clone::Clone for ICorrelationVectorInformation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICorrelationVectorSource(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICorrelationVectorSource {}
+impl ::core::clone::Clone for ICorrelationVectorSource {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDragDropManagerInterop(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDragDropManagerInterop {}
+impl ::core::clone::Clone for IDragDropManagerInterop {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IHolographicSpaceInterop(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IHolographicSpaceInterop {}
+impl ::core::clone::Clone for IHolographicSpaceInterop {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInputPaneInterop(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInputPaneInterop {}
+impl ::core::clone::Clone for IInputPaneInterop {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ILanguageExceptionErrorInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ILanguageExceptionErrorInfo {}
+impl ::core::clone::Clone for ILanguageExceptionErrorInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ILanguageExceptionErrorInfo2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ILanguageExceptionErrorInfo2 {}
+impl ::core::clone::Clone for ILanguageExceptionErrorInfo2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ILanguageExceptionStackBackTrace(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ILanguageExceptionStackBackTrace {}
+impl ::core::clone::Clone for ILanguageExceptionStackBackTrace {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ILanguageExceptionTransform(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ILanguageExceptionTransform {}
+impl ::core::clone::Clone for ILanguageExceptionTransform {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMemoryBufferByteAccess(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMemoryBufferByteAccess {}
+impl ::core::clone::Clone for IMemoryBufferByteAccess {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMessageDispatcher(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMessageDispatcher {}
+impl ::core::clone::Clone for IMessageDispatcher {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPlayToManagerInterop(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPlayToManagerInterop {}
+impl ::core::clone::Clone for IPlayToManagerInterop {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRestrictedErrorInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRestrictedErrorInfo {}
+impl ::core::clone::Clone for IRestrictedErrorInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRoMetaDataLocator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRoMetaDataLocator {}
+impl ::core::clone::Clone for IRoMetaDataLocator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRoSimpleMetaDataBuilder(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRoSimpleMetaDataBuilder {}
+impl ::core::clone::Clone for IRoSimpleMetaDataBuilder {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IShareWindowCommandEventArgsInterop(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IShareWindowCommandEventArgsInterop {}
+impl ::core::clone::Clone for IShareWindowCommandEventArgsInterop {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IShareWindowCommandSourceInterop(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IShareWindowCommandSourceInterop {}
+impl ::core::clone::Clone for IShareWindowCommandSourceInterop {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpatialInteractionManagerInterop(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpatialInteractionManagerInterop {}
+impl ::core::clone::Clone for ISpatialInteractionManagerInterop {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISystemMediaTransportControlsInterop(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISystemMediaTransportControlsInterop {}
+impl ::core::clone::Clone for ISystemMediaTransportControlsInterop {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUIViewSettingsInterop(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUIViewSettingsInterop {}
+impl ::core::clone::Clone for IUIViewSettingsInterop {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUserActivityInterop(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUserActivityInterop {}
+impl ::core::clone::Clone for IUserActivityInterop {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUserActivityRequestManagerInterop(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUserActivityRequestManagerInterop {}
+impl ::core::clone::Clone for IUserActivityRequestManagerInterop {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUserActivitySourceHostInterop(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUserActivitySourceHostInterop {}
+impl ::core::clone::Clone for IUserActivitySourceHostInterop {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUserConsentVerifierInterop(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUserConsentVerifierInterop {}
+impl ::core::clone::Clone for IUserConsentVerifierInterop {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWeakReference(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWeakReference {}
+impl ::core::clone::Clone for IWeakReference {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWeakReferenceSource(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWeakReferenceSource {}
+impl ::core::clone::Clone for IWeakReferenceSource {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWebAuthenticationCoreManagerInterop(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWebAuthenticationCoreManagerInterop {}
+impl ::core::clone::Clone for IWebAuthenticationCoreManagerInterop {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MAX_ERROR_MESSAGE_CHARS: u32 = 512u32;
 pub type PINSPECT_HSTRING_CALLBACK = unsafe extern "system" fn(context: *const ::core::ffi::c_void, readaddress: usize, length: u32, buffer: *mut u8) -> ::windows_sys::core::HRESULT;
 pub type PINSPECT_HSTRING_CALLBACK2 = unsafe extern "system" fn(context: *const ::core::ffi::c_void, readaddress: u64, length: u32, buffer: *mut u8) -> ::windows_sys::core::HRESULT;

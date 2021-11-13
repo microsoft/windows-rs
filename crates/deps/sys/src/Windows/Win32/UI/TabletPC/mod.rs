@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
     #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -901,7 +901,7 @@ impl ::core::clone::Clone for DISPID_StrokeEvent {
 #[repr(C)]
 pub struct DYNAMIC_RENDERER_CACHED_DATA {
     pub strokeId: i32,
-    pub dynamicRenderer: ::core::option::Option<IDynamicRenderer>,
+    pub dynamicRenderer: IDynamicRenderer,
 }
 impl ::core::marker::Copy for DYNAMIC_RENDERER_CACHED_DATA {}
 impl ::core::clone::Clone for DYNAMIC_RENDERER_CACHED_DATA {
@@ -909,7 +909,7 @@ impl ::core::clone::Clone for DYNAMIC_RENDERER_CACHED_DATA {
         *self
     }
 }
-pub const DynamicRenderer: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3973262058, data2: 29807, data3: 19915, data4: [191, 104, 8, 39, 87, 250, 255, 24] };
+pub const DynamicRenderer: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3973262058, data2: 29807, data3: 19915, data4: [191, 104, 8, 39, 87, 250, 255, 24] };
 pub const EM_GETDRAWATTR: u32 = 1541u32;
 pub const EM_GETFACTOID: u32 = 1549u32;
 pub const EM_GETGESTURESTATUS: u32 = 1545u32;
@@ -1170,90 +1170,90 @@ pub const GESTURE_UP_LEFT: u32 = 61544u32;
 pub const GESTURE_UP_LEFT_LONG: u32 = 61540u32;
 pub const GESTURE_UP_RIGHT: u32 = 61545u32;
 pub const GESTURE_UP_RIGHT_LONG: u32 = 61541u32;
-pub const GUID_DYNAMIC_RENDERER_CACHED_DATA: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3209894802, data2: 9663, data3: 19093, data4: [137, 173, 14, 71, 107, 52, 180, 245] };
-pub const GUID_GESTURE_DATA: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_DYNAMIC_RENDERER_CACHED_DATA: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3209894802, data2: 9663, data3: 19093, data4: [137, 173, 14, 71, 107, 52, 180, 245] };
+pub const GUID_GESTURE_DATA: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1105521679,
     data2: 9898,
     data3: 17754,
     data4: [154, 165, 44, 211, 108, 246, 63, 185],
 };
-pub const GUID_PACKETPROPERTY_GUID_ALTITUDE_ORIENTATION: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_PACKETPROPERTY_GUID_ALTITUDE_ORIENTATION: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2195637703,
     data2: 63162,
     data3: 18694,
     data4: [137, 79, 102, 214, 141, 252, 69, 108],
 };
-pub const GUID_PACKETPROPERTY_GUID_AZIMUTH_ORIENTATION: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 43066292, data2: 34856, data3: 16651, data4: [178, 80, 160, 83, 101, 149, 229, 220] };
-pub const GUID_PACKETPROPERTY_GUID_BUTTON_PRESSURE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_PACKETPROPERTY_GUID_AZIMUTH_ORIENTATION: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 43066292, data2: 34856, data3: 16651, data4: [178, 80, 160, 83, 101, 149, 229, 220] };
+pub const GUID_PACKETPROPERTY_GUID_BUTTON_PRESSURE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2340417476,
     data2: 38570,
     data3: 19454,
     data4: [172, 38, 138, 95, 11, 224, 123, 245],
 };
-pub const GUID_PACKETPROPERTY_GUID_DEVICE_CONTACT_ID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 39345041, data2: 1179, data3: 18256, data4: [150, 21, 223, 137, 72, 171, 60, 156] };
-pub const GUID_PACKETPROPERTY_GUID_FINGERCONTACTCONFIDENCE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_PACKETPROPERTY_GUID_DEVICE_CONTACT_ID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 39345041, data2: 1179, data3: 18256, data4: [150, 21, 223, 137, 72, 171, 60, 156] };
+pub const GUID_PACKETPROPERTY_GUID_FINGERCONTACTCONFIDENCE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3875981316,
     data2: 22512,
     data3: 20224,
     data4: [138, 12, 133, 61, 87, 120, 155, 233],
 };
-pub const GUID_PACKETPROPERTY_GUID_HEIGHT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3860355282, data2: 58439, data3: 16920, data4: [157, 63, 24, 134, 92, 32, 61, 244] };
-pub const GUID_PACKETPROPERTY_GUID_NORMAL_PRESSURE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_PACKETPROPERTY_GUID_HEIGHT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3860355282, data2: 58439, data3: 16920, data4: [157, 63, 24, 134, 92, 32, 61, 244] };
+pub const GUID_PACKETPROPERTY_GUID_NORMAL_PRESSURE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1929859117,
     data2: 63988,
     data3: 19992,
     data4: [179, 242, 44, 225, 177, 163, 97, 12],
 };
-pub const GUID_PACKETPROPERTY_GUID_PACKET_STATUS: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_PACKETPROPERTY_GUID_PACKET_STATUS: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1846413247,
     data2: 45031,
     data3: 19703,
     data4: [135, 209, 175, 100, 70, 32, 132, 24],
 };
-pub const GUID_PACKETPROPERTY_GUID_PITCH_ROTATION: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2138986423, data2: 48695, data3: 19425, data4: [163, 86, 122, 132, 22, 14, 24, 147] };
-pub const GUID_PACKETPROPERTY_GUID_ROLL_ROTATION: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_PACKETPROPERTY_GUID_PITCH_ROTATION: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2138986423, data2: 48695, data3: 19425, data4: [163, 86, 122, 132, 22, 14, 24, 147] };
+pub const GUID_PACKETPROPERTY_GUID_ROLL_ROTATION: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1566400086,
     data2: 27561,
     data3: 19547,
     data4: [159, 176, 133, 28, 145, 113, 78, 86],
 };
-pub const GUID_PACKETPROPERTY_GUID_SERIAL_NUMBER: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2024282966, data2: 2357, data3: 17555, data4: [186, 174, 0, 84, 26, 138, 22, 196] };
-pub const GUID_PACKETPROPERTY_GUID_TANGENT_PRESSURE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1839483019, data2: 21060, data3: 16876, data4: [144, 91, 50, 216, 154, 184, 8, 9] };
-pub const GUID_PACKETPROPERTY_GUID_TIMER_TICK: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_PACKETPROPERTY_GUID_SERIAL_NUMBER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2024282966, data2: 2357, data3: 17555, data4: [186, 174, 0, 84, 26, 138, 22, 196] };
+pub const GUID_PACKETPROPERTY_GUID_TANGENT_PRESSURE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1839483019, data2: 21060, data3: 16876, data4: [144, 91, 50, 216, 154, 184, 8, 9] };
+pub const GUID_PACKETPROPERTY_GUID_TIMER_TICK: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1130696901,
     data2: 65235,
     data3: 17873,
     data4: [139, 118, 113, 211, 234, 122, 130, 157],
 };
-pub const GUID_PACKETPROPERTY_GUID_TWIST_ORIENTATION: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 221399392, data2: 5042, data3: 16868, data4: [172, 230, 122, 233, 212, 61, 45, 59] };
-pub const GUID_PACKETPROPERTY_GUID_WIDTH: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_PACKETPROPERTY_GUID_TWIST_ORIENTATION: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 221399392, data2: 5042, data3: 16868, data4: [172, 230, 122, 233, 212, 61, 45, 59] };
+pub const GUID_PACKETPROPERTY_GUID_WIDTH: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3131828557,
     data2: 10002,
     data3: 18677,
     data4: [190, 157, 143, 139, 94, 160, 113, 26],
 };
-pub const GUID_PACKETPROPERTY_GUID_X: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_PACKETPROPERTY_GUID_X: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1502243471,
     data2: 21184,
     data3: 19360,
     data4: [147, 175, 175, 53, 116, 17, 165, 97],
 };
-pub const GUID_PACKETPROPERTY_GUID_X_TILT_ORIENTATION: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_PACKETPROPERTY_GUID_X_TILT_ORIENTATION: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2832235322,
     data2: 35824,
     data3: 16560,
     data4: [149, 169, 184, 10, 107, 183, 135, 191],
 };
-pub const GUID_PACKETPROPERTY_GUID_Y: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3040845685, data2: 1248, data3: 17560, data4: [167, 238, 195, 13, 187, 90, 144, 17] };
-pub const GUID_PACKETPROPERTY_GUID_YAW_ROTATION: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_PACKETPROPERTY_GUID_Y: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3040845685, data2: 1248, data3: 17560, data4: [167, 238, 195, 13, 187, 90, 144, 17] };
+pub const GUID_PACKETPROPERTY_GUID_YAW_ROTATION: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1787074944,
     data2: 31802,
     data3: 17847,
     data4: [170, 130, 144, 162, 98, 149, 14, 137],
 };
-pub const GUID_PACKETPROPERTY_GUID_Y_TILT_ORIENTATION: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 244523913, data2: 7543, data3: 17327, data4: [172, 0, 91, 149, 13, 109, 75, 45] };
-pub const GUID_PACKETPROPERTY_GUID_Z: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1935334192, data2: 3771, data3: 18312, data4: [160, 228, 15, 49, 100, 144, 5, 93] };
-pub const GestureRecognizer: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_PACKETPROPERTY_GUID_Y_TILT_ORIENTATION: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 244523913, data2: 7543, data3: 17327, data4: [172, 0, 91, 149, 13, 109, 75, 45] };
+pub const GUID_PACKETPROPERTY_GUID_Z: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1935334192, data2: 3771, data3: 18312, data4: [160, 228, 15, 49, 100, 144, 5, 93] };
+pub const GestureRecognizer: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3929065044,
     data2: 50732,
     data3: 17439,
@@ -1299,9 +1299,15 @@ impl ::core::clone::Clone for HRECOWORDLIST {
         *self
     }
 }
-pub const HandwrittenTextInsertion: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2668056290, data2: 59113, data3: 19850, data4: [160, 71, 235, 91, 92, 60, 85, 218] };
+pub const HandwrittenTextInsertion: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2668056290, data2: 59113, data3: 19850, data4: [160, 71, 235, 91, 92, 60, 85, 218] };
 #[repr(transparent)]
 pub struct IDynamicRenderer(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDynamicRenderer {}
+impl ::core::clone::Clone for IDynamicRenderer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const IECN_GESTURE: u32 = 2050u32;
 pub const IECN_RECOGNITIONRESULT: u32 = 2051u32;
 pub const IECN_STROKE: u32 = 2049u32;
@@ -1310,8 +1316,8 @@ pub const IECN__BASE: u32 = 2048u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Controls"))]
 pub struct IEC_GESTUREINFO {
     pub nmhdr: super::Controls::NMHDR,
-    pub Cursor: ::core::option::Option<IInkCursor>,
-    pub Strokes: ::core::option::Option<IInkStrokes>,
+    pub Cursor: IInkCursor,
+    pub Strokes: IInkStrokes,
     pub Gestures: super::super::System::Com::VARIANT,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Controls"))]
@@ -1326,7 +1332,7 @@ impl ::core::clone::Clone for IEC_GESTUREINFO {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 pub struct IEC_RECOGNITIONRESULTINFO {
     pub nmhdr: super::Controls::NMHDR,
-    pub RecognitionResult: ::core::option::Option<IInkRecognitionResult>,
+    pub RecognitionResult: IInkRecognitionResult,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 impl ::core::marker::Copy for IEC_RECOGNITIONRESULTINFO {}
@@ -1340,8 +1346,8 @@ impl ::core::clone::Clone for IEC_RECOGNITIONRESULTINFO {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 pub struct IEC_STROKEINFO {
     pub nmhdr: super::Controls::NMHDR,
-    pub Cursor: ::core::option::Option<IInkCursor>,
-    pub Stroke: ::core::option::Option<IInkStrokeDisp>,
+    pub Cursor: IInkCursor,
+    pub Stroke: IInkStrokeDisp,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 impl ::core::marker::Copy for IEC_STROKEINFO {}
@@ -1354,92 +1360,356 @@ impl ::core::clone::Clone for IEC_STROKEINFO {
 pub const IEC__BASE: u32 = 1536u32;
 #[repr(transparent)]
 pub struct IGestureRecognizer(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGestureRecognizer {}
+impl ::core::clone::Clone for IGestureRecognizer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IHandwrittenTextInsertion(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IHandwrittenTextInsertion {}
+impl ::core::clone::Clone for IHandwrittenTextInsertion {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInk(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInk {}
+impl ::core::clone::Clone for IInk {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInkCollector(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInkCollector {}
+impl ::core::clone::Clone for IInkCollector {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInkCursor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInkCursor {}
+impl ::core::clone::Clone for IInkCursor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInkCursorButton(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInkCursorButton {}
+impl ::core::clone::Clone for IInkCursorButton {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInkCursorButtons(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInkCursorButtons {}
+impl ::core::clone::Clone for IInkCursorButtons {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInkCursors(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInkCursors {}
+impl ::core::clone::Clone for IInkCursors {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInkCustomStrokes(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInkCustomStrokes {}
+impl ::core::clone::Clone for IInkCustomStrokes {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInkDisp(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInkDisp {}
+impl ::core::clone::Clone for IInkDisp {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInkDivider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInkDivider {}
+impl ::core::clone::Clone for IInkDivider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInkDivisionResult(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInkDivisionResult {}
+impl ::core::clone::Clone for IInkDivisionResult {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInkDivisionUnit(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInkDivisionUnit {}
+impl ::core::clone::Clone for IInkDivisionUnit {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInkDivisionUnits(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInkDivisionUnits {}
+impl ::core::clone::Clone for IInkDivisionUnits {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInkDrawingAttributes(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInkDrawingAttributes {}
+impl ::core::clone::Clone for IInkDrawingAttributes {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInkEdit(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInkEdit {}
+impl ::core::clone::Clone for IInkEdit {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInkExtendedProperties(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInkExtendedProperties {}
+impl ::core::clone::Clone for IInkExtendedProperties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInkExtendedProperty(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInkExtendedProperty {}
+impl ::core::clone::Clone for IInkExtendedProperty {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInkGesture(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInkGesture {}
+impl ::core::clone::Clone for IInkGesture {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInkLineInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInkLineInfo {}
+impl ::core::clone::Clone for IInkLineInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInkOverlay(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInkOverlay {}
+impl ::core::clone::Clone for IInkOverlay {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInkPicture(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInkPicture {}
+impl ::core::clone::Clone for IInkPicture {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInkRecognitionAlternate(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInkRecognitionAlternate {}
+impl ::core::clone::Clone for IInkRecognitionAlternate {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInkRecognitionAlternates(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInkRecognitionAlternates {}
+impl ::core::clone::Clone for IInkRecognitionAlternates {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInkRecognitionResult(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInkRecognitionResult {}
+impl ::core::clone::Clone for IInkRecognitionResult {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInkRecognizer(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInkRecognizer {}
+impl ::core::clone::Clone for IInkRecognizer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInkRecognizer2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInkRecognizer2 {}
+impl ::core::clone::Clone for IInkRecognizer2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInkRecognizerContext(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInkRecognizerContext {}
+impl ::core::clone::Clone for IInkRecognizerContext {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInkRecognizerContext2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInkRecognizerContext2 {}
+impl ::core::clone::Clone for IInkRecognizerContext2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInkRecognizerGuide(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInkRecognizerGuide {}
+impl ::core::clone::Clone for IInkRecognizerGuide {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInkRecognizers(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInkRecognizers {}
+impl ::core::clone::Clone for IInkRecognizers {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInkRectangle(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInkRectangle {}
+impl ::core::clone::Clone for IInkRectangle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInkRenderer(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInkRenderer {}
+impl ::core::clone::Clone for IInkRenderer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInkStrokeDisp(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInkStrokeDisp {}
+impl ::core::clone::Clone for IInkStrokeDisp {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInkStrokes(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInkStrokes {}
+impl ::core::clone::Clone for IInkStrokes {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInkTablet(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInkTablet {}
+impl ::core::clone::Clone for IInkTablet {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInkTablet2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInkTablet2 {}
+impl ::core::clone::Clone for IInkTablet2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInkTablet3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInkTablet3 {}
+impl ::core::clone::Clone for IInkTablet3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInkTablets(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInkTablets {}
+impl ::core::clone::Clone for IInkTablets {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInkTransform(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInkTransform {}
+impl ::core::clone::Clone for IInkTransform {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInkWordList(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInkWordList {}
+impl ::core::clone::Clone for IInkWordList {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInkWordList2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInkWordList2 {}
+impl ::core::clone::Clone for IInkWordList2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInputPanelWindowHandle(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInputPanelWindowHandle {}
+impl ::core::clone::Clone for IInputPanelWindowHandle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMathInputControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMathInputControl {}
+impl ::core::clone::Clone for IMathInputControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct INKMETRIC {
     pub iHeight: i32,
@@ -1459,34 +1729,124 @@ pub const IP_INVERTED: u32 = 2u32;
 pub const IP_MARGIN: u32 = 4u32;
 #[repr(transparent)]
 pub struct IPenInputPanel(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPenInputPanel {}
+impl ::core::clone::Clone for IPenInputPanel {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRealTimeStylus(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRealTimeStylus {}
+impl ::core::clone::Clone for IRealTimeStylus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRealTimeStylus2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRealTimeStylus2 {}
+impl ::core::clone::Clone for IRealTimeStylus2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRealTimeStylus3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRealTimeStylus3 {}
+impl ::core::clone::Clone for IRealTimeStylus3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRealTimeStylusSynchronization(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRealTimeStylusSynchronization {}
+impl ::core::clone::Clone for IRealTimeStylusSynchronization {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISketchInk(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISketchInk {}
+impl ::core::clone::Clone for ISketchInk {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IStrokeBuilder(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IStrokeBuilder {}
+impl ::core::clone::Clone for IStrokeBuilder {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IStylusAsyncPlugin(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IStylusAsyncPlugin {}
+impl ::core::clone::Clone for IStylusAsyncPlugin {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IStylusPlugin(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IStylusPlugin {}
+impl ::core::clone::Clone for IStylusPlugin {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IStylusSyncPlugin(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IStylusSyncPlugin {}
+impl ::core::clone::Clone for IStylusSyncPlugin {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITextInputPanel(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITextInputPanel {}
+impl ::core::clone::Clone for ITextInputPanel {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITextInputPanelEventSink(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITextInputPanelEventSink {}
+impl ::core::clone::Clone for ITextInputPanelEventSink {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITextInputPanelRunInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITextInputPanelRunInfo {}
+impl ::core::clone::Clone for ITextInputPanelRunInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITipAutoCompleteClient(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITipAutoCompleteClient {}
+impl ::core::clone::Clone for ITipAutoCompleteClient {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITipAutoCompleteProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITipAutoCompleteProvider {}
+impl ::core::clone::Clone for ITipAutoCompleteProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct InPlaceDirection(pub i32);
 pub const InPlaceDirection_Auto: InPlaceDirection = InPlaceDirection(0i32);
@@ -1509,7 +1869,7 @@ impl ::core::clone::Clone for InPlaceState {
         *self
     }
 }
-pub const Ink: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const Ink: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 333335106,
     data2: 36129,
     data3: 19598,
@@ -1622,7 +1982,7 @@ impl ::core::clone::Clone for InkCollectionMode {
         *self
     }
 }
-pub const InkCollector: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const InkCollector: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1140528467,
     data2: 44404,
     data3: 20200,
@@ -1667,7 +2027,7 @@ impl ::core::clone::Clone for InkCursorButtonState {
         *self
     }
 }
-pub const InkDisp: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const InkDisp: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2474383924,
     data2: 5405,
     data3: 17936,
@@ -1683,7 +2043,7 @@ impl ::core::clone::Clone for InkDisplayMode {
         *self
     }
 }
-pub const InkDivider: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const InkDivider: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2287269536,
     data2: 18051,
     data3: 19175,
@@ -1701,13 +2061,13 @@ impl ::core::clone::Clone for InkDivisionType {
         *self
     }
 }
-pub const InkDrawingAttributes: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const InkDrawingAttributes: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3636408994,
     data2: 1445,
     data3: 17603,
     data4: [179, 170, 94, 128, 172, 125, 37, 118],
 };
-pub const InkEdit: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const InkEdit: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3855243765,
     data2: 22468,
     data3: 19928,
@@ -1793,7 +2153,7 @@ impl ::core::clone::Clone for InkMousePointer {
         *self
     }
 }
-pub const InkOverlay: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const InkOverlay: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1708131910,
     data2: 52707,
     data3: 19080,
@@ -1863,7 +2223,7 @@ impl ::core::clone::Clone for InkPersistenceFormat {
         *self
     }
 }
-pub const InkPicture: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 77718867, data2: 65078, data3: 20446, data4: [134, 94, 52, 65, 148, 230, 148, 36] };
+pub const InkPicture: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 77718867, data2: 65078, data3: 20446, data4: [134, 94, 52, 65, 148, 230, 148, 36] };
 #[repr(transparent)]
 pub struct InkPictureSizeMode(pub i32);
 pub const IPSM_AutoSize: InkPictureSizeMode = InkPictureSizeMode(0i32);
@@ -2016,21 +2376,21 @@ impl ::core::clone::Clone for InkRecognizerCharacterAutoCompletionMode {
         *self
     }
 }
-pub const InkRecognizerContext: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const InkRecognizerContext: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2864998967,
     data2: 37417,
     data3: 20416,
     data4: [140, 206, 68, 151, 86, 155, 244, 209],
 };
-pub const InkRecognizerGuide: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const InkRecognizerGuide: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2272319809,
     data2: 42554,
     data3: 18033,
     data4: [163, 117, 40, 85, 161, 142, 186, 115],
 };
-pub const InkRecognizers: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2681530376, data2: 63206, data3: 20069, data4: [152, 211, 170, 57, 5, 76, 18, 85] };
-pub const InkRectangle: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1135637286, data2: 43744, data3: 19298, data4: [168, 61, 95, 215, 104, 183, 53, 60] };
-pub const InkRenderer: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const InkRecognizers: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2681530376, data2: 63206, data3: 20069, data4: [152, 211, 170, 57, 5, 76, 18, 85] };
+pub const InkRectangle: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1135637286, data2: 43744, data3: 19298, data4: [168, 61, 95, 215, 104, 183, 53, 60] };
+pub const InkRenderer: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2619131620,
     data2: 55275,
     data3: 20203,
@@ -2057,7 +2417,7 @@ impl ::core::clone::Clone for InkShiftKeyModifierFlags {
         *self
     }
 }
-pub const InkStrokes: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1223987644, data2: 9230, data3: 18528, data4: [176, 121, 161, 233, 77, 61, 44, 134] };
+pub const InkStrokes: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1223987644, data2: 9230, data3: 18528, data4: [176, 121, 161, 233, 77, 61, 44, 134] };
 #[repr(transparent)]
 pub struct InkSystemGesture(pub i32);
 pub const ISG_Tap: InkSystemGesture = InkSystemGesture(16i32);
@@ -2076,9 +2436,9 @@ impl ::core::clone::Clone for InkSystemGesture {
         *self
     }
 }
-pub const InkTablets: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1850723090, data2: 20746, data3: 19776, data4: [147, 4, 29, 161, 10, 233, 20, 124] };
-pub const InkTransform: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3822442812, data2: 5731, data3: 19064, data4: [161, 167, 34, 55, 93, 254, 186, 238] };
-pub const InkWordList: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const InkTablets: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1850723090, data2: 20746, data3: 19776, data4: [147, 4, 29, 161, 10, 233, 20, 124] };
+pub const InkTransform: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3822442812, data2: 5731, data3: 19064, data4: [161, 167, 34, 55, 93, 254, 186, 238] };
+pub const InkWordList: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2649247892,
     data2: 63263,
     data3: 17649,
@@ -2189,7 +2549,7 @@ impl ::core::clone::Clone for MICUIELEMENTSTATE {
         *self
     }
 }
-pub const MathInputControl: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MathInputControl: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3311501676,
     data2: 5336,
     data3: 16528,
@@ -2295,13 +2655,13 @@ impl ::core::clone::Clone for PanelType {
         *self
     }
 }
-pub const PenInputPanel: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const PenInputPanel: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4148487318,
     data2: 7002,
     data3: 18590,
     data4: [129, 220, 251, 215, 172, 98, 152, 168],
 };
-pub const PenInputPanel_Internal: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2150309817, data2: 1387, data3: 18208, data4: [176, 204, 128, 210, 59, 113, 23, 30] };
+pub const PenInputPanel_Internal: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2150309817, data2: 1387, data3: 18208, data4: [176, 204, 128, 210, 59, 113, 23, 30] };
 pub type PfnRecoCallback = unsafe extern "system" fn(param0: u32, param1: *mut u8, param2: HRECOCONTEXT) -> ::windows_sys::core::HRESULT;
 pub const RECOCONF_HIGHCONFIDENCE: u32 = 1u32;
 pub const RECOCONF_LOWCONFIDENCE: i32 = -1i32;
@@ -2442,7 +2802,7 @@ pub const RF_PERSONALIZABLE: i32 = 16384i32;
 pub const RF_REQUIRESSEGMENTATIONBREAKING: i32 = 131072i32;
 pub const RF_RIGHT_AND_DOWN: i32 = 64i32;
 pub const RF_STROKEREORDER: i32 = 8192i32;
-pub const RealTimeStylus: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const RealTimeStylus: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3798677101,
     data2: 63896,
     data3: 17358,
@@ -2568,13 +2928,13 @@ impl ::core::clone::Clone for SelectionHitResult {
         *self
     }
 }
-pub const SketchInk: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const SketchInk: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4029223041,
     data2: 59516,
     data3: 19975,
     data4: [151, 218, 160, 160, 55, 97, 229, 134],
 };
-pub const StrokeBuilder: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const StrokeBuilder: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3893415655,
     data2: 28241,
     data3: 19632,
@@ -2657,8 +3017,8 @@ impl ::core::clone::Clone for TabletPropertyMetricUnit {
         *self
     }
 }
-pub const TextInputPanel: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4189161943, data2: 8843, data3: 20267, data4: [134, 80, 185, 127, 89, 224, 44, 140] };
-pub const TipAutoCompleteClient: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const TextInputPanel: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4189161943, data2: 8843, data3: 20267, data4: [134, 80, 185, 127, 89, 224, 44, 140] };
+pub const TipAutoCompleteClient: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2155617900,
     data2: 7424,
     data3: 17727,
@@ -2685,22 +3045,76 @@ pub const WM_TABLET_MAXOFFSET: u32 = 32u32;
 pub const WM_TABLET_QUERYSYSTEMGESTURESTATUS: u32 = 716u32;
 #[repr(transparent)]
 pub struct _IInkCollectorEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for _IInkCollectorEvents {}
+impl ::core::clone::Clone for _IInkCollectorEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct _IInkEditEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for _IInkEditEvents {}
+impl ::core::clone::Clone for _IInkEditEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct _IInkEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for _IInkEvents {}
+impl ::core::clone::Clone for _IInkEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct _IInkOverlayEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for _IInkOverlayEvents {}
+impl ::core::clone::Clone for _IInkOverlayEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct _IInkPictureEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for _IInkPictureEvents {}
+impl ::core::clone::Clone for _IInkPictureEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct _IInkRecognitionEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for _IInkRecognitionEvents {}
+impl ::core::clone::Clone for _IInkRecognitionEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct _IInkStrokesEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for _IInkStrokesEvents {}
+impl ::core::clone::Clone for _IInkStrokesEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct _IMathInputControlEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for _IMathInputControlEvents {}
+impl ::core::clone::Clone for _IMathInputControlEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct _IPenInputPanelEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for _IPenInputPanelEvents {}
+impl ::core::clone::Clone for _IPenInputPanelEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct enumGetCandidateFlags(pub i32);
 pub const TCF_ALLOW_RECOGNITION: enumGetCandidateFlags = enumGetCandidateFlags(1i32);

@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
     #[cfg(feature = "Win32_Foundation")]
@@ -67,7 +67,7 @@ pub struct CHOOSECOLORA {
     pub lpCustColors: *mut u32,
     pub Flags: u32,
     pub lCustData: super::super::super::Foundation::LPARAM,
-    pub lpfnHook: ::core::option::Option<LPCCHOOKPROC>,
+    pub lpfnHook: LPCCHOOKPROC,
     pub lpTemplateName: super::super::super::Foundation::PSTR,
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -91,7 +91,7 @@ pub struct CHOOSECOLORA {
     pub lpCustColors: *mut u32,
     pub Flags: u32,
     pub lCustData: super::super::super::Foundation::LPARAM,
-    pub lpfnHook: ::core::option::Option<LPCCHOOKPROC>,
+    pub lpfnHook: LPCCHOOKPROC,
     pub lpTemplateName: super::super::super::Foundation::PSTR,
 }
 #[cfg(any(target_arch = "x86",))]
@@ -115,7 +115,7 @@ pub struct CHOOSECOLORW {
     pub lpCustColors: *mut u32,
     pub Flags: u32,
     pub lCustData: super::super::super::Foundation::LPARAM,
-    pub lpfnHook: ::core::option::Option<LPCCHOOKPROC>,
+    pub lpfnHook: LPCCHOOKPROC,
     pub lpTemplateName: super::super::super::Foundation::PWSTR,
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -139,7 +139,7 @@ pub struct CHOOSECOLORW {
     pub lpCustColors: *mut u32,
     pub Flags: u32,
     pub lCustData: super::super::super::Foundation::LPARAM,
-    pub lpfnHook: ::core::option::Option<LPCCHOOKPROC>,
+    pub lpfnHook: LPCCHOOKPROC,
     pub lpTemplateName: super::super::super::Foundation::PWSTR,
 }
 #[cfg(any(target_arch = "x86",))]
@@ -164,7 +164,7 @@ pub struct CHOOSEFONTA {
     pub Flags: CHOOSEFONT_FLAGS,
     pub rgbColors: u32,
     pub lCustData: super::super::super::Foundation::LPARAM,
-    pub lpfnHook: ::core::option::Option<LPCFHOOKPROC>,
+    pub lpfnHook: LPCFHOOKPROC,
     pub lpTemplateName: super::super::super::Foundation::PSTR,
     pub hInstance: super::super::super::Foundation::HINSTANCE,
     pub lpszStyle: super::super::super::Foundation::PSTR,
@@ -195,7 +195,7 @@ pub struct CHOOSEFONTA {
     pub Flags: CHOOSEFONT_FLAGS,
     pub rgbColors: u32,
     pub lCustData: super::super::super::Foundation::LPARAM,
-    pub lpfnHook: ::core::option::Option<LPCFHOOKPROC>,
+    pub lpfnHook: LPCFHOOKPROC,
     pub lpTemplateName: super::super::super::Foundation::PSTR,
     pub hInstance: super::super::super::Foundation::HINSTANCE,
     pub lpszStyle: super::super::super::Foundation::PSTR,
@@ -226,7 +226,7 @@ pub struct CHOOSEFONTW {
     pub Flags: CHOOSEFONT_FLAGS,
     pub rgbColors: u32,
     pub lCustData: super::super::super::Foundation::LPARAM,
-    pub lpfnHook: ::core::option::Option<LPCFHOOKPROC>,
+    pub lpfnHook: LPCFHOOKPROC,
     pub lpTemplateName: super::super::super::Foundation::PWSTR,
     pub hInstance: super::super::super::Foundation::HINSTANCE,
     pub lpszStyle: super::super::super::Foundation::PWSTR,
@@ -257,7 +257,7 @@ pub struct CHOOSEFONTW {
     pub Flags: CHOOSEFONT_FLAGS,
     pub rgbColors: u32,
     pub lCustData: super::super::super::Foundation::LPARAM,
-    pub lpfnHook: ::core::option::Option<LPCFHOOKPROC>,
+    pub lpfnHook: LPCFHOOKPROC,
     pub lpTemplateName: super::super::super::Foundation::PWSTR,
     pub hInstance: super::super::super::Foundation::HINSTANCE,
     pub lpszStyle: super::super::super::Foundation::PWSTR,
@@ -449,7 +449,7 @@ pub struct FINDREPLACEA {
     pub wFindWhatLen: u16,
     pub wReplaceWithLen: u16,
     pub lCustData: super::super::super::Foundation::LPARAM,
-    pub lpfnHook: ::core::option::Option<LPFRHOOKPROC>,
+    pub lpfnHook: LPFRHOOKPROC,
     pub lpTemplateName: super::super::super::Foundation::PSTR,
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -475,7 +475,7 @@ pub struct FINDREPLACEA {
     pub wFindWhatLen: u16,
     pub wReplaceWithLen: u16,
     pub lCustData: super::super::super::Foundation::LPARAM,
-    pub lpfnHook: ::core::option::Option<LPFRHOOKPROC>,
+    pub lpfnHook: LPFRHOOKPROC,
     pub lpTemplateName: super::super::super::Foundation::PSTR,
 }
 #[cfg(any(target_arch = "x86",))]
@@ -501,7 +501,7 @@ pub struct FINDREPLACEW {
     pub wFindWhatLen: u16,
     pub wReplaceWithLen: u16,
     pub lCustData: super::super::super::Foundation::LPARAM,
-    pub lpfnHook: ::core::option::Option<LPFRHOOKPROC>,
+    pub lpfnHook: LPFRHOOKPROC,
     pub lpTemplateName: super::super::super::Foundation::PWSTR,
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -527,7 +527,7 @@ pub struct FINDREPLACEW {
     pub wFindWhatLen: u16,
     pub wReplaceWithLen: u16,
     pub lCustData: super::super::super::Foundation::LPARAM,
-    pub lpfnHook: ::core::option::Option<LPFRHOOKPROC>,
+    pub lpfnHook: LPFRHOOKPROC,
     pub lpTemplateName: super::super::super::Foundation::PWSTR,
 }
 #[cfg(any(target_arch = "x86",))]
@@ -575,8 +575,20 @@ pub const FR_SHOWWRAPAROUND: u32 = 262144u32;
 pub const FR_WRAPAROUND: u32 = 1048576u32;
 #[repr(transparent)]
 pub struct IPrintDialogCallback(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPrintDialogCallback {}
+impl ::core::clone::Clone for IPrintDialogCallback {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPrintDialogServices(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPrintDialogServices {}
+impl ::core::clone::Clone for IPrintDialogServices {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[cfg(feature = "Win32_Foundation")]
 pub type LPCCHOOKPROC = unsafe extern "system" fn(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> usize;
 #[cfg(feature = "Win32_Foundation")]
@@ -768,7 +780,7 @@ pub struct OPENFILENAMEA {
     pub nFileExtension: u16,
     pub lpstrDefExt: super::super::super::Foundation::PSTR,
     pub lCustData: super::super::super::Foundation::LPARAM,
-    pub lpfnHook: ::core::option::Option<LPOFNHOOKPROC>,
+    pub lpfnHook: LPOFNHOOKPROC,
     pub lpTemplateName: super::super::super::Foundation::PSTR,
     pub pvReserved: *mut ::core::ffi::c_void,
     pub dwReserved: u32,
@@ -806,7 +818,7 @@ pub struct OPENFILENAMEA {
     pub nFileExtension: u16,
     pub lpstrDefExt: super::super::super::Foundation::PSTR,
     pub lCustData: super::super::super::Foundation::LPARAM,
-    pub lpfnHook: ::core::option::Option<LPOFNHOOKPROC>,
+    pub lpfnHook: LPOFNHOOKPROC,
     pub lpTemplateName: super::super::super::Foundation::PSTR,
     pub pvReserved: *mut ::core::ffi::c_void,
     pub dwReserved: u32,
@@ -844,7 +856,7 @@ pub struct OPENFILENAMEW {
     pub nFileExtension: u16,
     pub lpstrDefExt: super::super::super::Foundation::PWSTR,
     pub lCustData: super::super::super::Foundation::LPARAM,
-    pub lpfnHook: ::core::option::Option<LPOFNHOOKPROC>,
+    pub lpfnHook: LPOFNHOOKPROC,
     pub lpTemplateName: super::super::super::Foundation::PWSTR,
     pub pvReserved: *mut ::core::ffi::c_void,
     pub dwReserved: u32,
@@ -882,7 +894,7 @@ pub struct OPENFILENAMEW {
     pub nFileExtension: u16,
     pub lpstrDefExt: super::super::super::Foundation::PWSTR,
     pub lCustData: super::super::super::Foundation::LPARAM,
-    pub lpfnHook: ::core::option::Option<LPOFNHOOKPROC>,
+    pub lpfnHook: LPOFNHOOKPROC,
     pub lpTemplateName: super::super::super::Foundation::PWSTR,
     pub pvReserved: *mut ::core::ffi::c_void,
     pub dwReserved: u32,
@@ -920,7 +932,7 @@ pub struct OPENFILENAME_NT4A {
     pub nFileExtension: u16,
     pub lpstrDefExt: super::super::super::Foundation::PSTR,
     pub lCustData: super::super::super::Foundation::LPARAM,
-    pub lpfnHook: ::core::option::Option<LPOFNHOOKPROC>,
+    pub lpfnHook: LPOFNHOOKPROC,
     pub lpTemplateName: super::super::super::Foundation::PSTR,
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -955,7 +967,7 @@ pub struct OPENFILENAME_NT4A {
     pub nFileExtension: u16,
     pub lpstrDefExt: super::super::super::Foundation::PSTR,
     pub lCustData: super::super::super::Foundation::LPARAM,
-    pub lpfnHook: ::core::option::Option<LPOFNHOOKPROC>,
+    pub lpfnHook: LPOFNHOOKPROC,
     pub lpTemplateName: super::super::super::Foundation::PSTR,
 }
 #[cfg(any(target_arch = "x86",))]
@@ -990,7 +1002,7 @@ pub struct OPENFILENAME_NT4W {
     pub nFileExtension: u16,
     pub lpstrDefExt: super::super::super::Foundation::PWSTR,
     pub lCustData: super::super::super::Foundation::LPARAM,
-    pub lpfnHook: ::core::option::Option<LPOFNHOOKPROC>,
+    pub lpfnHook: LPOFNHOOKPROC,
     pub lpTemplateName: super::super::super::Foundation::PWSTR,
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -1025,7 +1037,7 @@ pub struct OPENFILENAME_NT4W {
     pub nFileExtension: u16,
     pub lpstrDefExt: super::super::super::Foundation::PWSTR,
     pub lCustData: super::super::super::Foundation::LPARAM,
-    pub lpfnHook: ::core::option::Option<LPOFNHOOKPROC>,
+    pub lpfnHook: LPOFNHOOKPROC,
     pub lpTemplateName: super::super::super::Foundation::PWSTR,
 }
 #[cfg(any(target_arch = "x86",))]
@@ -1096,8 +1108,8 @@ pub struct PAGESETUPDLGA {
     pub rtMargin: super::super::super::Foundation::RECT,
     pub hInstance: super::super::super::Foundation::HINSTANCE,
     pub lCustData: super::super::super::Foundation::LPARAM,
-    pub lpfnPageSetupHook: ::core::option::Option<LPPAGESETUPHOOK>,
-    pub lpfnPagePaintHook: ::core::option::Option<LPPAGEPAINTHOOK>,
+    pub lpfnPageSetupHook: LPPAGESETUPHOOK,
+    pub lpfnPagePaintHook: LPPAGEPAINTHOOK,
     pub lpPageSetupTemplateName: super::super::super::Foundation::PSTR,
     pub hPageSetupTemplate: isize,
 }
@@ -1125,8 +1137,8 @@ pub struct PAGESETUPDLGA {
     pub rtMargin: super::super::super::Foundation::RECT,
     pub hInstance: super::super::super::Foundation::HINSTANCE,
     pub lCustData: super::super::super::Foundation::LPARAM,
-    pub lpfnPageSetupHook: ::core::option::Option<LPPAGESETUPHOOK>,
-    pub lpfnPagePaintHook: ::core::option::Option<LPPAGEPAINTHOOK>,
+    pub lpfnPageSetupHook: LPPAGESETUPHOOK,
+    pub lpfnPagePaintHook: LPPAGEPAINTHOOK,
     pub lpPageSetupTemplateName: super::super::super::Foundation::PSTR,
     pub hPageSetupTemplate: isize,
 }
@@ -1154,8 +1166,8 @@ pub struct PAGESETUPDLGW {
     pub rtMargin: super::super::super::Foundation::RECT,
     pub hInstance: super::super::super::Foundation::HINSTANCE,
     pub lCustData: super::super::super::Foundation::LPARAM,
-    pub lpfnPageSetupHook: ::core::option::Option<LPPAGESETUPHOOK>,
-    pub lpfnPagePaintHook: ::core::option::Option<LPPAGEPAINTHOOK>,
+    pub lpfnPageSetupHook: LPPAGESETUPHOOK,
+    pub lpfnPagePaintHook: LPPAGEPAINTHOOK,
     pub lpPageSetupTemplateName: super::super::super::Foundation::PWSTR,
     pub hPageSetupTemplate: isize,
 }
@@ -1183,8 +1195,8 @@ pub struct PAGESETUPDLGW {
     pub rtMargin: super::super::super::Foundation::RECT,
     pub hInstance: super::super::super::Foundation::HINSTANCE,
     pub lCustData: super::super::super::Foundation::LPARAM,
-    pub lpfnPageSetupHook: ::core::option::Option<LPPAGESETUPHOOK>,
-    pub lpfnPagePaintHook: ::core::option::Option<LPPAGEPAINTHOOK>,
+    pub lpfnPageSetupHook: LPPAGESETUPHOOK,
+    pub lpfnPagePaintHook: LPPAGEPAINTHOOK,
     pub lpPageSetupTemplateName: super::super::super::Foundation::PWSTR,
     pub hPageSetupTemplate: isize,
 }
@@ -1245,8 +1257,8 @@ pub struct PRINTDLGA {
     pub nCopies: u16,
     pub hInstance: super::super::super::Foundation::HINSTANCE,
     pub lCustData: super::super::super::Foundation::LPARAM,
-    pub lpfnPrintHook: ::core::option::Option<LPPRINTHOOKPROC>,
-    pub lpfnSetupHook: ::core::option::Option<LPSETUPHOOKPROC>,
+    pub lpfnPrintHook: LPPRINTHOOKPROC,
+    pub lpfnSetupHook: LPSETUPHOOKPROC,
     pub lpPrintTemplateName: super::super::super::Foundation::PSTR,
     pub lpSetupTemplateName: super::super::super::Foundation::PSTR,
     pub hPrintTemplate: isize,
@@ -1279,8 +1291,8 @@ pub struct PRINTDLGA {
     pub nCopies: u16,
     pub hInstance: super::super::super::Foundation::HINSTANCE,
     pub lCustData: super::super::super::Foundation::LPARAM,
-    pub lpfnPrintHook: ::core::option::Option<LPPRINTHOOKPROC>,
-    pub lpfnSetupHook: ::core::option::Option<LPSETUPHOOKPROC>,
+    pub lpfnPrintHook: LPPRINTHOOKPROC,
+    pub lpfnSetupHook: LPSETUPHOOKPROC,
     pub lpPrintTemplateName: super::super::super::Foundation::PSTR,
     pub lpSetupTemplateName: super::super::super::Foundation::PSTR,
     pub hPrintTemplate: isize,
@@ -1316,7 +1328,7 @@ pub struct PRINTDLGEXA {
     pub nCopies: u32,
     pub hInstance: super::super::super::Foundation::HINSTANCE,
     pub lpPrintTemplateName: super::super::super::Foundation::PSTR,
-    pub lpCallback: ::core::option::Option<::windows_sys::core::IUnknown>,
+    pub lpCallback: ::windows_sys::core::IUnknown,
     pub nPropertyPages: u32,
     pub lphPropertyPages: *mut super::HPROPSHEETPAGE,
     pub nStartPage: u32,
@@ -1352,7 +1364,7 @@ pub struct PRINTDLGEXA {
     pub nCopies: u32,
     pub hInstance: super::super::super::Foundation::HINSTANCE,
     pub lpPrintTemplateName: super::super::super::Foundation::PSTR,
-    pub lpCallback: ::core::option::Option<::windows_sys::core::IUnknown>,
+    pub lpCallback: ::windows_sys::core::IUnknown,
     pub nPropertyPages: u32,
     pub lphPropertyPages: *mut super::HPROPSHEETPAGE,
     pub nStartPage: u32,
@@ -1388,7 +1400,7 @@ pub struct PRINTDLGEXW {
     pub nCopies: u32,
     pub hInstance: super::super::super::Foundation::HINSTANCE,
     pub lpPrintTemplateName: super::super::super::Foundation::PWSTR,
-    pub lpCallback: ::core::option::Option<::windows_sys::core::IUnknown>,
+    pub lpCallback: ::windows_sys::core::IUnknown,
     pub nPropertyPages: u32,
     pub lphPropertyPages: *mut super::HPROPSHEETPAGE,
     pub nStartPage: u32,
@@ -1424,7 +1436,7 @@ pub struct PRINTDLGEXW {
     pub nCopies: u32,
     pub hInstance: super::super::super::Foundation::HINSTANCE,
     pub lpPrintTemplateName: super::super::super::Foundation::PWSTR,
-    pub lpCallback: ::core::option::Option<::windows_sys::core::IUnknown>,
+    pub lpCallback: ::windows_sys::core::IUnknown,
     pub nPropertyPages: u32,
     pub lphPropertyPages: *mut super::HPROPSHEETPAGE,
     pub nStartPage: u32,
@@ -1493,8 +1505,8 @@ pub struct PRINTDLGW {
     pub nCopies: u16,
     pub hInstance: super::super::super::Foundation::HINSTANCE,
     pub lCustData: super::super::super::Foundation::LPARAM,
-    pub lpfnPrintHook: ::core::option::Option<LPPRINTHOOKPROC>,
-    pub lpfnSetupHook: ::core::option::Option<LPSETUPHOOKPROC>,
+    pub lpfnPrintHook: LPPRINTHOOKPROC,
+    pub lpfnSetupHook: LPSETUPHOOKPROC,
     pub lpPrintTemplateName: super::super::super::Foundation::PWSTR,
     pub lpSetupTemplateName: super::super::super::Foundation::PWSTR,
     pub hPrintTemplate: isize,
@@ -1527,8 +1539,8 @@ pub struct PRINTDLGW {
     pub nCopies: u16,
     pub hInstance: super::super::super::Foundation::HINSTANCE,
     pub lCustData: super::super::super::Foundation::LPARAM,
-    pub lpfnPrintHook: ::core::option::Option<LPPRINTHOOKPROC>,
-    pub lpfnSetupHook: ::core::option::Option<LPSETUPHOOKPROC>,
+    pub lpfnPrintHook: LPPRINTHOOKPROC,
+    pub lpfnSetupHook: LPSETUPHOOKPROC,
     pub lpPrintTemplateName: super::super::super::Foundation::PWSTR,
     pub lpSetupTemplateName: super::super::super::Foundation::PWSTR,
     pub hPrintTemplate: isize,

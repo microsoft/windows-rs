@@ -1,12 +1,30 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {}
 #[repr(transparent)]
 pub struct IPlatformDiagnosticActionsStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPlatformDiagnosticActionsStatics {}
+impl ::core::clone::Clone for IPlatformDiagnosticActionsStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPlatformDiagnosticTraceInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPlatformDiagnosticTraceInfo {}
+impl ::core::clone::Clone for IPlatformDiagnosticTraceInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPlatformDiagnosticTraceRuntimeInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPlatformDiagnosticTraceRuntimeInfo {}
+impl ::core::clone::Clone for IPlatformDiagnosticTraceRuntimeInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PlatformDiagnosticActionState(pub i32);
 impl PlatformDiagnosticActionState {
@@ -47,6 +65,12 @@ impl ::core::clone::Clone for PlatformDiagnosticEventBufferLatencies {
 }
 #[repr(transparent)]
 pub struct PlatformDiagnosticTraceInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for PlatformDiagnosticTraceInfo {}
+impl ::core::clone::Clone for PlatformDiagnosticTraceInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PlatformDiagnosticTracePriority(pub i32);
 impl PlatformDiagnosticTracePriority {
@@ -61,6 +85,12 @@ impl ::core::clone::Clone for PlatformDiagnosticTracePriority {
 }
 #[repr(transparent)]
 pub struct PlatformDiagnosticTraceRuntimeInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for PlatformDiagnosticTraceRuntimeInfo {}
+impl ::core::clone::Clone for PlatformDiagnosticTraceRuntimeInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct PlatformDiagnosticTraceSlotState(pub i32);
 impl PlatformDiagnosticTraceSlotState {

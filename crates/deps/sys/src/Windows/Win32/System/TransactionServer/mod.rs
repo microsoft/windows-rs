@@ -1,23 +1,53 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {}
-pub const Catalog: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1857169537, data2: 35353, data3: 4560, data4: [129, 182, 0, 160, 201, 35, 28, 41] };
-pub const CatalogCollection: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1857169539, data2: 35353, data3: 4560, data4: [129, 182, 0, 160, 201, 35, 28, 41] };
-pub const CatalogObject: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1857169538, data2: 35353, data3: 4560, data4: [129, 182, 0, 160, 201, 35, 28, 41] };
-pub const ComponentUtil: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1857169540, data2: 35353, data3: 4560, data4: [129, 182, 0, 160, 201, 35, 28, 41] };
+pub const Catalog: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1857169537, data2: 35353, data3: 4560, data4: [129, 182, 0, 160, 201, 35, 28, 41] };
+pub const CatalogCollection: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1857169539, data2: 35353, data3: 4560, data4: [129, 182, 0, 160, 201, 35, 28, 41] };
+pub const CatalogObject: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1857169538, data2: 35353, data3: 4560, data4: [129, 182, 0, 160, 201, 35, 28, 41] };
+pub const ComponentUtil: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1857169540, data2: 35353, data3: 4560, data4: [129, 182, 0, 160, 201, 35, 28, 41] };
 #[repr(transparent)]
 pub struct ICatalog(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICatalog {}
+impl ::core::clone::Clone for ICatalog {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IComponentUtil(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IComponentUtil {}
+impl ::core::clone::Clone for IComponentUtil {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPackageUtil(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPackageUtil {}
+impl ::core::clone::Clone for IPackageUtil {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRemoteComponentUtil(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRemoteComponentUtil {}
+impl ::core::clone::Clone for IRemoteComponentUtil {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRoleAssociationUtil(pub *mut ::core::ffi::c_void);
-pub const PackageUtil: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1857169541, data2: 35353, data3: 4560, data4: [129, 182, 0, 160, 201, 35, 28, 41] };
-pub const RemoteComponentUtil: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1857169542, data2: 35353, data3: 4560, data4: [129, 182, 0, 160, 201, 35, 28, 41] };
-pub const RoleAssociationUtil: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1857169543, data2: 35353, data3: 4560, data4: [129, 182, 0, 160, 201, 35, 28, 41] };
+impl ::core::marker::Copy for IRoleAssociationUtil {}
+impl ::core::clone::Clone for IRoleAssociationUtil {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+pub const PackageUtil: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1857169541, data2: 35353, data3: 4560, data4: [129, 182, 0, 160, 201, 35, 28, 41] };
+pub const RemoteComponentUtil: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1857169542, data2: 35353, data3: 4560, data4: [129, 182, 0, 160, 201, 35, 28, 41] };
+pub const RoleAssociationUtil: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1857169543, data2: 35353, data3: 4560, data4: [129, 182, 0, 160, 201, 35, 28, 41] };
 #[repr(transparent)]
 pub struct __MIDL___MIDL_itf_mtxadmin_0107_0001(pub i32);
 pub const mtsInstallUsers: __MIDL___MIDL_itf_mtxadmin_0107_0001 = __MIDL___MIDL_itf_mtxadmin_0107_0001(1i32);

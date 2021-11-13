@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
     pub fn MI_Application_InitializeV1(flags: u32, applicationid: *const u16, extendederror: *mut *mut MI_Instance, application: *mut MI_Application) -> MI_Result;
@@ -32,144 +32,564 @@ impl ::core::clone::Clone for CIMTYPE_ENUMERATION {
 }
 #[repr(transparent)]
 pub struct IEnumWbemClassObject(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnumWbemClassObject {}
+impl ::core::clone::Clone for IEnumWbemClassObject {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMofCompiler(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMofCompiler {}
+impl ::core::clone::Clone for IMofCompiler {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISWbemDateTime(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISWbemDateTime {}
+impl ::core::clone::Clone for ISWbemDateTime {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISWbemEventSource(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISWbemEventSource {}
+impl ::core::clone::Clone for ISWbemEventSource {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISWbemLastError(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISWbemLastError {}
+impl ::core::clone::Clone for ISWbemLastError {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISWbemLocator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISWbemLocator {}
+impl ::core::clone::Clone for ISWbemLocator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISWbemMethod(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISWbemMethod {}
+impl ::core::clone::Clone for ISWbemMethod {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISWbemMethodSet(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISWbemMethodSet {}
+impl ::core::clone::Clone for ISWbemMethodSet {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISWbemNamedValue(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISWbemNamedValue {}
+impl ::core::clone::Clone for ISWbemNamedValue {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISWbemNamedValueSet(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISWbemNamedValueSet {}
+impl ::core::clone::Clone for ISWbemNamedValueSet {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISWbemObject(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISWbemObject {}
+impl ::core::clone::Clone for ISWbemObject {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISWbemObjectEx(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISWbemObjectEx {}
+impl ::core::clone::Clone for ISWbemObjectEx {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISWbemObjectPath(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISWbemObjectPath {}
+impl ::core::clone::Clone for ISWbemObjectPath {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISWbemObjectSet(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISWbemObjectSet {}
+impl ::core::clone::Clone for ISWbemObjectSet {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISWbemPrivilege(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISWbemPrivilege {}
+impl ::core::clone::Clone for ISWbemPrivilege {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISWbemPrivilegeSet(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISWbemPrivilegeSet {}
+impl ::core::clone::Clone for ISWbemPrivilegeSet {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISWbemProperty(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISWbemProperty {}
+impl ::core::clone::Clone for ISWbemProperty {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISWbemPropertySet(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISWbemPropertySet {}
+impl ::core::clone::Clone for ISWbemPropertySet {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISWbemQualifier(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISWbemQualifier {}
+impl ::core::clone::Clone for ISWbemQualifier {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISWbemQualifierSet(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISWbemQualifierSet {}
+impl ::core::clone::Clone for ISWbemQualifierSet {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISWbemRefreshableItem(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISWbemRefreshableItem {}
+impl ::core::clone::Clone for ISWbemRefreshableItem {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISWbemRefresher(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISWbemRefresher {}
+impl ::core::clone::Clone for ISWbemRefresher {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISWbemSecurity(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISWbemSecurity {}
+impl ::core::clone::Clone for ISWbemSecurity {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISWbemServices(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISWbemServices {}
+impl ::core::clone::Clone for ISWbemServices {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISWbemServicesEx(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISWbemServicesEx {}
+impl ::core::clone::Clone for ISWbemServicesEx {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISWbemSink(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISWbemSink {}
+impl ::core::clone::Clone for ISWbemSink {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISWbemSinkEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISWbemSinkEvents {}
+impl ::core::clone::Clone for ISWbemSinkEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUnsecuredApartment(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUnsecuredApartment {}
+impl ::core::clone::Clone for IUnsecuredApartment {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMIExtension(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMIExtension {}
+impl ::core::clone::Clone for IWMIExtension {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWbemAddressResolution(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWbemAddressResolution {}
+impl ::core::clone::Clone for IWbemAddressResolution {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWbemBackupRestore(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWbemBackupRestore {}
+impl ::core::clone::Clone for IWbemBackupRestore {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWbemBackupRestoreEx(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWbemBackupRestoreEx {}
+impl ::core::clone::Clone for IWbemBackupRestoreEx {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWbemCallResult(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWbemCallResult {}
+impl ::core::clone::Clone for IWbemCallResult {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWbemClassObject(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWbemClassObject {}
+impl ::core::clone::Clone for IWbemClassObject {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWbemClientConnectionTransport(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWbemClientConnectionTransport {}
+impl ::core::clone::Clone for IWbemClientConnectionTransport {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWbemClientTransport(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWbemClientTransport {}
+impl ::core::clone::Clone for IWbemClientTransport {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWbemConfigureRefresher(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWbemConfigureRefresher {}
+impl ::core::clone::Clone for IWbemConfigureRefresher {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWbemConnectorLogin(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWbemConnectorLogin {}
+impl ::core::clone::Clone for IWbemConnectorLogin {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWbemConstructClassObject(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWbemConstructClassObject {}
+impl ::core::clone::Clone for IWbemConstructClassObject {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWbemContext(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWbemContext {}
+impl ::core::clone::Clone for IWbemContext {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWbemDecoupledBasicEventProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWbemDecoupledBasicEventProvider {}
+impl ::core::clone::Clone for IWbemDecoupledBasicEventProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWbemDecoupledRegistrar(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWbemDecoupledRegistrar {}
+impl ::core::clone::Clone for IWbemDecoupledRegistrar {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWbemEventConsumerProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWbemEventConsumerProvider {}
+impl ::core::clone::Clone for IWbemEventConsumerProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWbemEventProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWbemEventProvider {}
+impl ::core::clone::Clone for IWbemEventProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWbemEventProviderQuerySink(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWbemEventProviderQuerySink {}
+impl ::core::clone::Clone for IWbemEventProviderQuerySink {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWbemEventProviderSecurity(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWbemEventProviderSecurity {}
+impl ::core::clone::Clone for IWbemEventProviderSecurity {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWbemEventSink(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWbemEventSink {}
+impl ::core::clone::Clone for IWbemEventSink {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWbemHiPerfEnum(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWbemHiPerfEnum {}
+impl ::core::clone::Clone for IWbemHiPerfEnum {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWbemHiPerfProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWbemHiPerfProvider {}
+impl ::core::clone::Clone for IWbemHiPerfProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWbemLevel1Login(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWbemLevel1Login {}
+impl ::core::clone::Clone for IWbemLevel1Login {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWbemLocator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWbemLocator {}
+impl ::core::clone::Clone for IWbemLocator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWbemObjectAccess(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWbemObjectAccess {}
+impl ::core::clone::Clone for IWbemObjectAccess {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWbemObjectSink(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWbemObjectSink {}
+impl ::core::clone::Clone for IWbemObjectSink {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWbemObjectSinkEx(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWbemObjectSinkEx {}
+impl ::core::clone::Clone for IWbemObjectSinkEx {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWbemObjectTextSrc(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWbemObjectTextSrc {}
+impl ::core::clone::Clone for IWbemObjectTextSrc {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWbemPath(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWbemPath {}
+impl ::core::clone::Clone for IWbemPath {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWbemPathKeyList(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWbemPathKeyList {}
+impl ::core::clone::Clone for IWbemPathKeyList {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWbemPropertyProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWbemPropertyProvider {}
+impl ::core::clone::Clone for IWbemPropertyProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWbemProviderIdentity(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWbemProviderIdentity {}
+impl ::core::clone::Clone for IWbemProviderIdentity {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWbemProviderInit(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWbemProviderInit {}
+impl ::core::clone::Clone for IWbemProviderInit {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWbemProviderInitSink(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWbemProviderInitSink {}
+impl ::core::clone::Clone for IWbemProviderInitSink {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWbemQualifierSet(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWbemQualifierSet {}
+impl ::core::clone::Clone for IWbemQualifierSet {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWbemQuery(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWbemQuery {}
+impl ::core::clone::Clone for IWbemQuery {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWbemRefresher(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWbemRefresher {}
+impl ::core::clone::Clone for IWbemRefresher {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWbemServices(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWbemServices {}
+impl ::core::clone::Clone for IWbemServices {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWbemShutdown(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWbemShutdown {}
+impl ::core::clone::Clone for IWbemShutdown {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWbemStatusCodeText(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWbemStatusCodeText {}
+impl ::core::clone::Clone for IWbemStatusCodeText {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWbemTransport(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWbemTransport {}
+impl ::core::clone::Clone for IWbemTransport {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWbemUnboundObjectSink(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWbemUnboundObjectSink {}
+impl ::core::clone::Clone for IWbemUnboundObjectSink {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWbemUnsecuredApartment(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWbemUnsecuredApartment {}
+impl ::core::clone::Clone for IWbemUnsecuredApartment {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct MI_Application {
     pub reserved1: u64,
@@ -1411,7 +1831,7 @@ pub struct MI_MethodDecl {
     pub origin: *mut u16,
     pub propagator: *mut u16,
     pub schema: *mut MI_SchemaDecl,
-    pub function: ::core::option::Option<MI_MethodDecl_Invoke>,
+    pub function: MI_MethodDecl_Invoke,
 }
 impl ::core::marker::Copy for MI_MethodDecl {}
 impl ::core::clone::Clone for MI_MethodDecl {
@@ -1427,8 +1847,8 @@ pub struct MI_Module {
     pub flags: u32,
     pub charSize: u32,
     pub schemaDecl: *mut MI_SchemaDecl,
-    pub Load: ::core::option::Option<MI_Module_Load>,
-    pub Unload: ::core::option::Option<MI_Module_Unload>,
+    pub Load: MI_Module_Load,
+    pub Unload: MI_Module_Unload,
     pub dynamicProviderFT: *mut MI_ProviderFT,
 }
 impl ::core::marker::Copy for MI_Module {}
@@ -1504,14 +1924,14 @@ pub type MI_OperationCallback_WriteProgress = unsafe extern "system" fn(operatio
 #[repr(C)]
 pub struct MI_OperationCallbacks {
     pub callbackContext: *mut ::core::ffi::c_void,
-    pub promptUser: ::core::option::Option<MI_OperationCallback_PromptUser>,
-    pub writeError: ::core::option::Option<MI_OperationCallback_WriteError>,
-    pub writeMessage: ::core::option::Option<MI_OperationCallback_WriteMessage>,
-    pub writeProgress: ::core::option::Option<MI_OperationCallback_WriteProgress>,
-    pub instanceResult: ::core::option::Option<MI_OperationCallback_Instance>,
-    pub indicationResult: ::core::option::Option<MI_OperationCallback_Indication>,
-    pub classResult: ::core::option::Option<MI_OperationCallback_Class>,
-    pub streamedParameterResult: ::core::option::Option<MI_OperationCallback_StreamedParameter>,
+    pub promptUser: MI_OperationCallback_PromptUser,
+    pub writeError: MI_OperationCallback_WriteError,
+    pub writeMessage: MI_OperationCallback_WriteMessage,
+    pub writeProgress: MI_OperationCallback_WriteProgress,
+    pub instanceResult: MI_OperationCallback_Instance,
+    pub indicationResult: MI_OperationCallback_Indication,
+    pub classResult: MI_OperationCallback_Class,
+    pub streamedParameterResult: MI_OperationCallback_StreamedParameter,
 }
 impl ::core::marker::Copy for MI_OperationCallbacks {}
 impl ::core::clone::Clone for MI_OperationCallbacks {
@@ -1682,20 +2102,20 @@ impl ::core::clone::Clone for MI_ProviderArchitecture {
 }
 #[repr(C)]
 pub struct MI_ProviderFT {
-    pub Load: ::core::option::Option<MI_ProviderFT_Load>,
-    pub Unload: ::core::option::Option<MI_ProviderFT_Unload>,
-    pub GetInstance: ::core::option::Option<MI_ProviderFT_GetInstance>,
-    pub EnumerateInstances: ::core::option::Option<MI_ProviderFT_EnumerateInstances>,
-    pub CreateInstance: ::core::option::Option<MI_ProviderFT_CreateInstance>,
-    pub ModifyInstance: ::core::option::Option<MI_ProviderFT_ModifyInstance>,
-    pub DeleteInstance: ::core::option::Option<MI_ProviderFT_DeleteInstance>,
-    pub AssociatorInstances: ::core::option::Option<MI_ProviderFT_AssociatorInstances>,
-    pub ReferenceInstances: ::core::option::Option<MI_ProviderFT_ReferenceInstances>,
-    pub EnableIndications: ::core::option::Option<MI_ProviderFT_EnableIndications>,
-    pub DisableIndications: ::core::option::Option<MI_ProviderFT_DisableIndications>,
-    pub Subscribe: ::core::option::Option<MI_ProviderFT_Subscribe>,
-    pub Unsubscribe: ::core::option::Option<MI_ProviderFT_Unsubscribe>,
-    pub Invoke: ::core::option::Option<MI_ProviderFT_Invoke>,
+    pub Load: MI_ProviderFT_Load,
+    pub Unload: MI_ProviderFT_Unload,
+    pub GetInstance: MI_ProviderFT_GetInstance,
+    pub EnumerateInstances: MI_ProviderFT_EnumerateInstances,
+    pub CreateInstance: MI_ProviderFT_CreateInstance,
+    pub ModifyInstance: MI_ProviderFT_ModifyInstance,
+    pub DeleteInstance: MI_ProviderFT_DeleteInstance,
+    pub AssociatorInstances: MI_ProviderFT_AssociatorInstances,
+    pub ReferenceInstances: MI_ProviderFT_ReferenceInstances,
+    pub EnableIndications: MI_ProviderFT_EnableIndications,
+    pub DisableIndications: MI_ProviderFT_DisableIndications,
+    pub Subscribe: MI_ProviderFT_Subscribe,
+    pub Unsubscribe: MI_ProviderFT_Unsubscribe,
+    pub Invoke: MI_ProviderFT_Invoke,
 }
 impl ::core::marker::Copy for MI_ProviderFT {}
 impl ::core::clone::Clone for MI_ProviderFT {
@@ -2531,7 +2951,7 @@ impl ::core::clone::Clone for MI_Value {
 pub const MI_WRITEMESSAGE_CHANNEL_DEBUG: u32 = 2u32;
 pub const MI_WRITEMESSAGE_CHANNEL_VERBOSE: u32 = 1u32;
 pub const MI_WRITEMESSAGE_CHANNEL_WARNING: u32 = 0u32;
-pub const MofCompiler: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1840224087, data2: 11831, data3: 4562, data4: [174, 201, 0, 192, 79, 182, 136, 32] };
+pub const MofCompiler: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1840224087, data2: 11831, data3: 4562, data4: [174, 201, 0, 192, 79, 182, 136, 32] };
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SWbemAnalysisMatrix {
@@ -2573,7 +2993,7 @@ pub struct SWbemAssocQueryInf {
     pub m_uVersion: u32,
     pub m_uAnalysisType: u32,
     pub m_uFeatureMask: u32,
-    pub m_pPath: ::core::option::Option<IWbemPath>,
+    pub m_pPath: IWbemPath,
     pub m_pszPath: super::super::Foundation::PWSTR,
     pub m_pszQueryText: super::super::Foundation::PWSTR,
     pub m_pszResultClass: super::super::Foundation::PWSTR,
@@ -2591,29 +3011,29 @@ impl ::core::clone::Clone for SWbemAssocQueryInf {
         *self
     }
 }
-pub const SWbemDateTime: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1205845588, data2: 53110, data3: 4563, data4: [179, 143, 0, 16, 90, 31, 71, 58] };
-pub const SWbemEventSource: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 79183192, data2: 8622, data3: 4562, data4: [139, 51, 0, 96, 8, 6, 217, 182] };
-pub const SWbemLastError: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3271487148, data2: 53197, data3: 4561, data4: [139, 5, 0, 96, 8, 6, 217, 182] };
-pub const SWbemLocator: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1990607192, data2: 52033, data3: 4561, data4: [139, 2, 0, 96, 8, 6, 217, 182] };
-pub const SWbemMethod: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 79183195, data2: 8622, data3: 4562, data4: [139, 51, 0, 96, 8, 6, 217, 182] };
-pub const SWbemMethodSet: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 79183194, data2: 8622, data3: 4562, data4: [139, 51, 0, 96, 8, 6, 217, 182] };
-pub const SWbemNamedValue: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 79183200, data2: 8622, data3: 4562, data4: [139, 51, 0, 96, 8, 6, 217, 182] };
-pub const SWbemNamedValueSet: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2599237710, data2: 52875, data3: 4561, data4: [139, 5, 0, 96, 8, 6, 217, 182] };
-pub const SWbemObject: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 79183202, data2: 8622, data3: 4562, data4: [139, 51, 0, 96, 8, 6, 217, 182] };
-pub const SWbemObjectEx: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const SWbemDateTime: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1205845588, data2: 53110, data3: 4563, data4: [179, 143, 0, 16, 90, 31, 71, 58] };
+pub const SWbemEventSource: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 79183192, data2: 8622, data3: 4562, data4: [139, 51, 0, 96, 8, 6, 217, 182] };
+pub const SWbemLastError: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3271487148, data2: 53197, data3: 4561, data4: [139, 5, 0, 96, 8, 6, 217, 182] };
+pub const SWbemLocator: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1990607192, data2: 52033, data3: 4561, data4: [139, 2, 0, 96, 8, 6, 217, 182] };
+pub const SWbemMethod: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 79183195, data2: 8622, data3: 4562, data4: [139, 51, 0, 96, 8, 6, 217, 182] };
+pub const SWbemMethodSet: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 79183194, data2: 8622, data3: 4562, data4: [139, 51, 0, 96, 8, 6, 217, 182] };
+pub const SWbemNamedValue: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 79183200, data2: 8622, data3: 4562, data4: [139, 51, 0, 96, 8, 6, 217, 182] };
+pub const SWbemNamedValueSet: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2599237710, data2: 52875, data3: 4561, data4: [139, 5, 0, 96, 8, 6, 217, 182] };
+pub const SWbemObject: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 79183202, data2: 8622, data3: 4562, data4: [139, 51, 0, 96, 8, 6, 217, 182] };
+pub const SWbemObjectEx: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3602755506,
     data2: 37941,
     data3: 18719,
     data4: [187, 135, 106, 160, 240, 188, 49, 162],
 };
-pub const SWbemObjectPath: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1469168678, data2: 52892, data3: 4561, data4: [151, 191, 0, 0, 248, 30, 132, 156] };
-pub const SWbemObjectSet: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 79183201, data2: 8622, data3: 4562, data4: [139, 51, 0, 96, 8, 6, 217, 182] };
-pub const SWbemPrivilege: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 653158332, data2: 22532, data3: 4562, data4: [139, 74, 0, 96, 8, 6, 217, 182] };
-pub const SWbemPrivilegeSet: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 653158334, data2: 22532, data3: 4562, data4: [139, 74, 0, 96, 8, 6, 217, 182] };
-pub const SWbemProperty: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 79183197, data2: 8622, data3: 4562, data4: [139, 51, 0, 96, 8, 6, 217, 182] };
-pub const SWbemPropertySet: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 79183196, data2: 8622, data3: 4562, data4: [139, 51, 0, 96, 8, 6, 217, 182] };
-pub const SWbemQualifier: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 79183199, data2: 8622, data3: 4562, data4: [139, 51, 0, 96, 8, 6, 217, 182] };
-pub const SWbemQualifierSet: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 79183198, data2: 8622, data3: 4562, data4: [139, 51, 0, 96, 8, 6, 217, 182] };
+pub const SWbemObjectPath: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1469168678, data2: 52892, data3: 4561, data4: [151, 191, 0, 0, 248, 30, 132, 156] };
+pub const SWbemObjectSet: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 79183201, data2: 8622, data3: 4562, data4: [139, 51, 0, 96, 8, 6, 217, 182] };
+pub const SWbemPrivilege: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 653158332, data2: 22532, data3: 4562, data4: [139, 74, 0, 96, 8, 6, 217, 182] };
+pub const SWbemPrivilegeSet: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 653158334, data2: 22532, data3: 4562, data4: [139, 74, 0, 96, 8, 6, 217, 182] };
+pub const SWbemProperty: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 79183197, data2: 8622, data3: 4562, data4: [139, 51, 0, 96, 8, 6, 217, 182] };
+pub const SWbemPropertySet: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 79183196, data2: 8622, data3: 4562, data4: [139, 51, 0, 96, 8, 6, 217, 182] };
+pub const SWbemQualifier: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 79183199, data2: 8622, data3: 4562, data4: [139, 51, 0, 96, 8, 6, 217, 182] };
+pub const SWbemQualifierSet: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 79183198, data2: 8622, data3: 4562, data4: [139, 51, 0, 96, 8, 6, 217, 182] };
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SWbemQueryQualifiedName {
@@ -2633,8 +3053,8 @@ impl ::core::clone::Clone for SWbemQueryQualifiedName {
         *self
     }
 }
-pub const SWbemRefreshableItem: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2355647676, data2: 56907, data3: 4563, data4: [179, 144, 0, 16, 90, 31, 71, 58] };
-pub const SWbemRefresher: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3530145628, data2: 55745, data3: 4563, data4: [179, 143, 0, 16, 90, 31, 71, 58] };
+pub const SWbemRefreshableItem: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2355647676, data2: 56907, data3: 4563, data4: [179, 144, 0, 16, 90, 31, 71, 58] };
+pub const SWbemRefresher: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3530145628, data2: 55745, data3: 4563, data4: [179, 143, 0, 16, 90, 31, 71, 58] };
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union SWbemRpnConst {
@@ -2720,11 +3140,11 @@ impl ::core::clone::Clone for SWbemRpnTokenList {
         *self
     }
 }
-pub const SWbemSecurity: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3041748713, data2: 8839, data3: 4562, data4: [139, 51, 0, 96, 8, 6, 217, 182] };
-pub const SWbemServices: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 79183203, data2: 8622, data3: 4562, data4: [139, 51, 0, 96, 8, 6, 217, 182] };
-pub const SWbemServicesEx: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1659183836, data2: 36083, data3: 16552, data4: [139, 46, 55, 213, 149, 101, 30, 64] };
-pub const SWbemSink: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1970375834, data2: 61481, data3: 4561, data4: [161, 172, 0, 192, 79, 182, 194, 35] };
-pub const UnsecuredApartment: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1237131304, data2: 5411, data3: 4561, data4: [173, 121, 0, 192, 79, 216, 253, 255] };
+pub const SWbemSecurity: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3041748713, data2: 8839, data3: 4562, data4: [139, 51, 0, 96, 8, 6, 217, 182] };
+pub const SWbemServices: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 79183203, data2: 8622, data3: 4562, data4: [139, 51, 0, 96, 8, 6, 217, 182] };
+pub const SWbemServicesEx: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1659183836, data2: 36083, data3: 16552, data4: [139, 46, 55, 213, 149, 101, 30, 64] };
+pub const SWbemSink: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1970375834, data2: 61481, data3: 4561, data4: [161, 172, 0, 192, 79, 182, 194, 35] };
+pub const UnsecuredApartment: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1237131304, data2: 5411, data3: 4561, data4: [173, 121, 0, 192, 79, 216, 253, 255] };
 #[repr(transparent)]
 pub struct WBEMSTATUS(pub i32);
 pub const WBEM_NO_ERROR: WBEMSTATUS = WBEMSTATUS(0i32);
@@ -3346,7 +3766,7 @@ impl ::core::clone::Clone for WBEM_UNSECAPP_FLAG_TYPE {
         *self
     }
 }
-pub const WMIExtension: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4036451070, data2: 23679, data3: 4562, data4: [139, 116, 0, 16, 75, 42, 251, 65] };
+pub const WMIExtension: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4036451070, data2: 23679, data3: 4562, data4: [139, 116, 0, 16, 75, 42, 251, 65] };
 #[repr(transparent)]
 pub struct WMIQ_ANALYSIS_TYPE(pub i32);
 pub const WMIQ_ANALYSIS_RPN_SEQUENCE: WMIQ_ANALYSIS_TYPE = WMIQ_ANALYSIS_TYPE(1i32);
@@ -3513,8 +3933,8 @@ impl ::core::clone::Clone for WMI_OBJ_TEXT {
         *self
     }
 }
-pub const WbemAdministrativeLocator: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3414513100, data2: 37160, data3: 4561, data4: [173, 155, 0, 192, 79, 216, 253, 255] };
-pub const WbemAuthenticatedLocator: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3440919350, data2: 37160, data3: 4561, data4: [173, 155, 0, 192, 79, 216, 253, 255] };
+pub const WbemAdministrativeLocator: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3414513100, data2: 37160, data3: 4561, data4: [173, 155, 0, 192, 79, 216, 253, 255] };
+pub const WbemAuthenticatedLocator: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3440919350, data2: 37160, data3: 4561, data4: [173, 155, 0, 192, 79, 216, 253, 255] };
 #[repr(transparent)]
 pub struct WbemAuthenticationLevelEnum(pub i32);
 pub const wbemAuthenticationLevelDefault: WbemAuthenticationLevelEnum = WbemAuthenticationLevelEnum(0i32);
@@ -3530,7 +3950,7 @@ impl ::core::clone::Clone for WbemAuthenticationLevelEnum {
         *self
     }
 }
-pub const WbemBackupRestore: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3298702022, data2: 48267, data3: 4562, data4: [133, 212, 0, 16, 90, 31, 131, 4] };
+pub const WbemBackupRestore: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3298702022, data2: 48267, data3: 4562, data4: [133, 212, 0, 16, 90, 31, 131, 4] };
 #[repr(transparent)]
 pub struct WbemChangeFlagEnum(pub i32);
 pub const wbemChangeFlagCreateOrUpdate: WbemChangeFlagEnum = WbemChangeFlagEnum(0i32);
@@ -3571,7 +3991,7 @@ impl ::core::clone::Clone for WbemCimtypeEnum {
         *self
     }
 }
-pub const WbemClassObject: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2590322822, data2: 5967, data3: 4562, data4: [181, 249, 0, 16, 75, 112, 62, 253] };
+pub const WbemClassObject: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2590322822, data2: 5967, data3: 4562, data4: [181, 249, 0, 16, 75, 112, 62, 253] };
 #[repr(transparent)]
 pub struct WbemComparisonFlagEnum(pub i32);
 pub const wbemComparisonFlagIncludeAll: WbemComparisonFlagEnum = WbemComparisonFlagEnum(0i32);
@@ -3596,21 +4016,21 @@ impl ::core::clone::Clone for WbemConnectOptionsEnum {
         *self
     }
 }
-pub const WbemContext: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1732994712, data2: 61074, data3: 4560, data4: [173, 113, 0, 192, 79, 216, 253, 255] };
-pub const WbemDCOMTransport: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4157484563, data2: 35984, data3: 4561, data4: [158, 123, 0, 192, 79, 195, 36, 168] };
-pub const WbemDecoupledBasicEventProvider: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const WbemContext: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1732994712, data2: 61074, data3: 4560, data4: [173, 113, 0, 192, 79, 216, 253, 255] };
+pub const WbemDCOMTransport: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4157484563, data2: 35984, data3: 4561, data4: [158, 123, 0, 192, 79, 195, 36, 168] };
+pub const WbemDecoupledBasicEventProvider: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4126627639,
     data2: 10307,
     data3: 20258,
     data4: [147, 61, 199, 106, 151, 205, 166, 47],
 };
-pub const WbemDecoupledRegistrar: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const WbemDecoupledRegistrar: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1291614514,
     data2: 3997,
     data3: 19439,
     data4: [156, 50, 142, 162, 166, 181, 111, 203],
 };
-pub const WbemDefPath: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const WbemDefPath: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3477914629,
     data2: 58053,
     data3: 19933,
@@ -3787,9 +4207,9 @@ impl ::core::clone::Clone for WbemImpersonationLevelEnum {
         *self
     }
 }
-pub const WbemLevel1Login: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2344874078, data2: 55403, data3: 4560, data4: [160, 117, 0, 192, 79, 182, 136, 32] };
-pub const WbemLocalAddrRes: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2701412353, data2: 36734, data3: 4561, data4: [158, 124, 0, 192, 79, 195, 36, 168] };
-pub const WbemLocator: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1167128593, data2: 7482, data3: 4560, data4: [137, 31, 0, 170, 0, 75, 46, 36] };
+pub const WbemLevel1Login: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2344874078, data2: 55403, data3: 4560, data4: [160, 117, 0, 192, 79, 182, 136, 32] };
+pub const WbemLocalAddrRes: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2701412353, data2: 36734, data3: 4561, data4: [158, 124, 0, 192, 79, 195, 36, 168] };
+pub const WbemLocator: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1167128593, data2: 7482, data3: 4560, data4: [137, 31, 0, 170, 0, 75, 46, 36] };
 #[repr(transparent)]
 pub struct WbemObjectTextFormatEnum(pub i32);
 pub const wbemObjectTextFormatCIMDTD20: WbemObjectTextFormatEnum = WbemObjectTextFormatEnum(1i32);
@@ -3800,7 +4220,7 @@ impl ::core::clone::Clone for WbemObjectTextFormatEnum {
         *self
     }
 }
-pub const WbemObjectTextSrc: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const WbemObjectTextSrc: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2367444381,
     data2: 34032,
     data3: 19379,
@@ -3841,7 +4261,7 @@ impl ::core::clone::Clone for WbemPrivilegeEnum {
         *self
     }
 }
-pub const WbemQuery: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const WbemQuery: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3939016740,
     data2: 8674,
     data3: 17699,
@@ -3858,8 +4278,8 @@ impl ::core::clone::Clone for WbemQueryFlagEnum {
         *self
     }
 }
-pub const WbemRefresher: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3340068594, data2: 22046, data3: 4561, data4: [173, 135, 0, 192, 79, 216, 253, 255] };
-pub const WbemStatusCodeText: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3951550909, data2: 12851, data3: 4562, data4: [174, 201, 0, 192, 79, 182, 136, 32] };
+pub const WbemRefresher: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3340068594, data2: 22046, data3: 4561, data4: [173, 135, 0, 192, 79, 216, 253, 255] };
+pub const WbemStatusCodeText: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3951550909, data2: 12851, data3: 4562, data4: [174, 201, 0, 192, 79, 182, 136, 32] };
 #[repr(transparent)]
 pub struct WbemTextFlagEnum(pub i32);
 pub const wbemTextFlagNoFlavors: WbemTextFlagEnum = WbemTextFlagEnum(1i32);
@@ -3878,8 +4298,8 @@ impl ::core::clone::Clone for WbemTimeout {
         *self
     }
 }
-pub const WbemUnauthenticatedLocator: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1144945529, data2: 56881, data3: 4562, data4: [179, 64, 0, 16, 75, 204, 75, 74] };
-pub const WbemUninitializedClassObject: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2046961654, data2: 28936, data3: 4561, data4: [173, 144, 0, 192, 79, 216, 253, 255] };
+pub const WbemUnauthenticatedLocator: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1144945529, data2: 56881, data3: 4562, data4: [179, 64, 0, 16, 75, 204, 75, 74] };
+pub const WbemUninitializedClassObject: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2046961654, data2: 28936, data3: 4561, data4: [173, 144, 0, 192, 79, 216, 253, 255] };
 #[repr(transparent)]
 pub struct tag_WBEM_LOGIN_TYPE(pub i32);
 pub const WBEM_FLAG_INPROC_LOGIN: tag_WBEM_LOGIN_TYPE = tag_WBEM_LOGIN_TYPE(0i32);

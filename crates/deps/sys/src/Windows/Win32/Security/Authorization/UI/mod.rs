@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
     #[cfg(feature = "Win32_UI_Controls")]
@@ -31,18 +31,60 @@ impl ::core::clone::Clone for EFFPERM_RESULT_LIST {
 }
 #[repr(transparent)]
 pub struct IEffectivePermission(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEffectivePermission {}
+impl ::core::clone::Clone for IEffectivePermission {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEffectivePermission2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEffectivePermission2 {}
+impl ::core::clone::Clone for IEffectivePermission2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISecurityInformation(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISecurityInformation {}
+impl ::core::clone::Clone for ISecurityInformation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISecurityInformation2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISecurityInformation2 {}
+impl ::core::clone::Clone for ISecurityInformation2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISecurityInformation3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISecurityInformation3 {}
+impl ::core::clone::Clone for ISecurityInformation3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISecurityInformation4(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISecurityInformation4 {}
+impl ::core::clone::Clone for ISecurityInformation4 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISecurityObjectTypeInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISecurityObjectTypeInfo {}
+impl ::core::clone::Clone for ISecurityObjectTypeInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SECURITY_INFO_PAGE_FLAGS(pub u32);
 pub const SI_ADVANCED: SECURITY_INFO_PAGE_FLAGS = SECURITY_INFO_PAGE_FLAGS(16u32);

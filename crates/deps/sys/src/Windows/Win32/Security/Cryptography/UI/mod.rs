@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
     #[cfg(feature = "Win32_Foundation")]
@@ -74,8 +74,8 @@ pub struct CERT_SELECT_STRUCT_A {
     pub cCertContext: u32,
     pub arrayCertContext: *mut *mut super::CERT_CONTEXT,
     pub lCustData: super::super::super::Foundation::LPARAM,
-    pub pfnHook: ::core::option::Option<PFNCMHOOKPROC>,
-    pub pfnFilter: ::core::option::Option<PFNCMFILTERPROC>,
+    pub pfnHook: PFNCMHOOKPROC,
+    pub pfnFilter: PFNCMFILTERPROC,
     pub szHelpFileName: super::super::super::Foundation::PSTR,
     pub dwHelpId: u32,
     pub hprov: usize,
@@ -117,8 +117,8 @@ pub struct CERT_SELECT_STRUCT_W {
     pub cCertContext: u32,
     pub arrayCertContext: *mut *mut super::CERT_CONTEXT,
     pub lCustData: super::super::super::Foundation::LPARAM,
-    pub pfnHook: ::core::option::Option<PFNCMHOOKPROC>,
-    pub pfnFilter: ::core::option::Option<PFNCMFILTERPROC>,
+    pub pfnHook: PFNCMHOOKPROC,
+    pub pfnFilter: PFNCMFILTERPROC,
     pub szHelpFileName: super::super::super::Foundation::PWSTR,
     pub dwHelpId: u32,
     pub hprov: usize,
@@ -172,7 +172,7 @@ pub struct CERT_VERIFY_CERTIFICATE_TRUST {
     pub cTrustStores: u32,
     pub rghstoreTrust: *mut *mut ::core::ffi::c_void,
     pub lCustData: super::super::super::Foundation::LPARAM,
-    pub pfnTrustHelper: ::core::option::Option<PFNTRUSTHELPER>,
+    pub pfnTrustHelper: PFNTRUSTHELPER,
     pub pcChain: *mut u32,
     pub prgChain: *mut *mut *mut super::CERT_CONTEXT,
     pub prgdwErrors: *mut *mut u32,
@@ -665,7 +665,7 @@ pub struct CRYPTUI_WIZ_DIGITAL_SIGN_STORE_INFO {
     pub dwSize: u32,
     pub cCertStore: u32,
     pub rghCertStore: *mut *mut ::core::ffi::c_void,
-    pub pFilterCallback: ::core::option::Option<PFNCFILTERPROC>,
+    pub pFilterCallback: PFNCFILTERPROC,
     pub pvCallbackData: *mut ::core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Foundation")]

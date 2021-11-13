@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -327,7 +327,7 @@ extern "system" {
     pub fn OPMXboxGetHDCPStatus(phdcpstatus: *mut OPM_HDCP_STATUS) -> ::windows_sys::core::HRESULT;
     pub fn OPMXboxGetHDCPStatusAndType(phdcpstatus: *mut OPM_HDCP_STATUS, phdcptype: *mut OPM_HDCP_TYPE) -> ::windows_sys::core::HRESULT;
 }
-pub const AACMFTEncoder: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2477722705, data2: 8821, data3: 17874, data4: [163, 91, 242, 186, 33, 202, 237, 0] };
+pub const AACMFTEncoder: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2477722705, data2: 8821, data3: 17874, data4: [163, 91, 242, 186, 33, 202, 237, 0] };
 #[repr(transparent)]
 pub struct AEC_INPUT_STREAM(pub i32);
 pub const AEC_CAPTURE_STREAM: AEC_INPUT_STREAM = AEC_INPUT_STREAM(0i32);
@@ -366,8 +366,8 @@ impl ::core::clone::Clone for AEC_VAD_MODE {
         *self
     }
 }
-pub const ALawCodecWrapper: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 919301644, data2: 30913, data3: 17074, data4: [153, 67, 132, 98, 98, 243, 23, 134] };
-pub const AM_MEDIA_TYPE_REPRESENTATION: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3806603986, data2: 4908, data3: 18718, data4: [162, 104, 60, 124, 45, 202, 24, 31] };
+pub const ALawCodecWrapper: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 919301644, data2: 30913, data3: 17074, data4: [153, 67, 132, 98, 98, 243, 23, 134] };
+pub const AM_MEDIA_TYPE_REPRESENTATION: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3806603986, data2: 4908, data3: 18718, data4: [162, 104, 60, 124, 45, 202, 24, 31] };
 #[repr(C, packed(1))]
 pub struct ASF_FLAT_PICTURE {
     pub bPictureType: u8,
@@ -478,1408 +478,1408 @@ impl ::core::clone::Clone for AecQualityMetrics_Struct {
         *self
     }
 }
-pub const CAC3DecMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 64473090, data2: 60666, data3: 18393, data4: [178, 104, 95, 179, 227, 16, 222, 228] };
-pub const CClusterDetectorDmo: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 921182404, data2: 5722, data3: 17697, data4: [134, 60, 97, 158, 17, 96, 212, 212] };
-pub const CColorControlDmo: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CAC3DecMediaObject: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 64473090, data2: 60666, data3: 18393, data4: [178, 104, 95, 179, 227, 16, 222, 228] };
+pub const CClusterDetectorDmo: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 921182404, data2: 5722, data3: 17697, data4: [134, 60, 97, 158, 17, 96, 212, 212] };
+pub const CColorControlDmo: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2038454768,
     data2: 35274,
     data3: 16736,
     data4: [179, 37, 174, 180, 142, 254, 79, 154],
 };
-pub const CColorConvertDMO: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2552431985, data2: 135, data3: 16900, data4: [176, 32, 50, 130, 83, 142, 87, 211] };
-pub const CColorLegalizerDmo: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CColorConvertDMO: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2552431985, data2: 135, data3: 16900, data4: [176, 32, 50, 130, 83, 142, 87, 211] };
+pub const CColorLegalizerDmo: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4261062483,
     data2: 58510,
     data3: 20019,
     data4: [156, 116, 152, 162, 127, 198, 114, 106],
 };
-pub const CDTVAudDecoderDS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2384891954, data2: 65027, data3: 18259, data4: [155, 23, 24, 37, 60, 33, 114, 46] };
-pub const CDTVVidDecoderDS: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CDTVAudDecoderDS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2384891954, data2: 65027, data3: 18259, data4: [155, 23, 24, 37, 60, 33, 114, 46] };
+pub const CDTVVidDecoderDS: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1685552584,
     data2: 20004,
     data3: 19435,
     data4: [157, 25, 96, 163, 91, 225, 218, 175],
 };
-pub const CDVDecoderMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3846638021, data2: 7703, data3: 19597, data4: [148, 231, 71, 137, 64, 67, 53, 132] };
-pub const CDVEncoderMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CDVDecoderMediaObject: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3846638021, data2: 7703, data3: 19597, data4: [148, 231, 71, 137, 64, 67, 53, 132] };
+pub const CDVEncoderMediaObject: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3358254889,
     data2: 49959,
     data3: 19662,
     data4: [145, 77, 129, 113, 254, 254, 190, 251],
 };
-pub const CDeColorConvMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CDeColorConvMediaObject: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1224952837,
     data2: 62524,
     data3: 16399,
     data4: [132, 193, 144, 166, 131, 25, 90, 58],
 };
-pub const CFrameInterpDMO: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CFrameInterpDMO: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 175963675,
     data2: 27317,
     data3: 17204,
     data4: [158, 216, 63, 151, 203, 55, 218, 161],
 };
-pub const CFrameRateConvertDmo: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 32730338, data2: 2311, data3: 19851, data4: [151, 157, 241, 81, 190, 145, 200, 131] };
-pub const CInterlaceMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CFrameRateConvertDmo: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 32730338, data2: 2311, data3: 19851, data4: [151, 157, 241, 81, 190, 145, 200, 131] };
+pub const CInterlaceMediaObject: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3047726208,
     data2: 18689,
     data3: 16507,
     data4: [154, 188, 144, 217, 166, 68, 187, 70],
 };
-pub const CLSID_AudioResamplerMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CLSID_AudioResamplerMediaObject: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4098340510,
     data2: 6276,
     data3: 19070,
     data4: [128, 85, 52, 111, 116, 214, 237, 179],
 };
-pub const CLSID_CAsfTocParser: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2608316658, data2: 34613, data3: 18117, data4: [185, 15, 95, 11, 48, 62, 246, 171] };
-pub const CLSID_CAviTocParser: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 987555276, data2: 5064, data3: 17779, data4: [179, 40, 237, 67, 142, 182, 148, 249] };
-pub const CLSID_CClusterDetectorEx: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CLSID_CAsfTocParser: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2608316658, data2: 34613, data3: 18117, data4: [185, 15, 95, 11, 48, 62, 246, 171] };
+pub const CLSID_CAviTocParser: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 987555276, data2: 5064, data3: 17779, data4: [179, 40, 237, 67, 142, 182, 148, 249] };
+pub const CLSID_CClusterDetectorEx: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1194673298,
     data2: 33406,
     data3: 19338,
     data4: [179, 24, 200, 14, 186, 19, 129, 240],
 };
-pub const CLSID_CFileClient: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3217871253, data2: 4676, data3: 18496, data4: [171, 68, 72, 9, 117, 196, 255, 228] };
-pub const CLSID_CFileIo: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 295252373, data2: 4676, data3: 18496, data4: [171, 68, 72, 9, 117, 196, 255, 228] };
-pub const CLSID_CToc: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CLSID_CFileClient: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3217871253, data2: 4676, data3: 18496, data4: [171, 68, 72, 9, 117, 196, 255, 228] };
+pub const CLSID_CFileIo: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 295252373, data2: 4676, data3: 18496, data4: [171, 68, 72, 9, 117, 196, 255, 228] };
+pub const CLSID_CToc: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1340228757,
     data2: 10446,
     data3: 18720,
     data4: [164, 196, 229, 86, 225, 240, 223, 42],
 };
-pub const CLSID_CTocCollection: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1347954989, data2: 41540, data3: 18496, data4: [171, 68, 72, 9, 117, 196, 255, 228] };
-pub const CLSID_CTocEntry: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CLSID_CTocCollection: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1347954989, data2: 41540, data3: 18496, data4: [171, 68, 72, 9, 117, 196, 255, 228] };
+pub const CLSID_CTocEntry: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4063190533,
     data2: 22620,
     data3: 19951,
     data4: [133, 35, 101, 85, 207, 188, 12, 179],
 };
-pub const CLSID_CTocEntryList: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 982305980, data2: 3837, data3: 17315, data4: [184, 56, 243, 138, 85, 43, 162, 55] };
-pub const CLSID_CTocParser: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1235136234, data2: 10039, data3: 18505, data4: [139, 182, 71, 241, 7, 234, 243, 88] };
-pub const CLSID_CreateMediaExtensionObject: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4016416077, data2: 1928, data3: 17848, data4: [139, 20, 188, 15, 106, 107, 81, 55] };
-pub const CLSID_FrameServerNetworkCameraSource: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CLSID_CTocEntryList: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 982305980, data2: 3837, data3: 17315, data4: [184, 56, 243, 138, 85, 43, 162, 55] };
+pub const CLSID_CTocParser: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1235136234, data2: 10039, data3: 18505, data4: [139, 182, 71, 241, 7, 234, 243, 88] };
+pub const CLSID_CreateMediaExtensionObject: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4016416077, data2: 1928, data3: 17848, data4: [139, 20, 188, 15, 106, 107, 81, 55] };
+pub const CLSID_FrameServerNetworkCameraSource: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2048998055,
     data2: 34415,
     data3: 16714,
     data4: [140, 26, 39, 92, 114, 131, 163, 149],
 };
-pub const CLSID_HttpSchemePlugin: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1154171947, data2: 40361, data3: 18911, data4: [179, 253, 2, 55, 119, 177, 110, 80] };
-pub const CLSID_MFByteStreamProxyClassFactory: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CLSID_HttpSchemePlugin: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1154171947, data2: 40361, data3: 18911, data4: [179, 253, 2, 55, 119, 177, 110, 80] };
+pub const CLSID_MFByteStreamProxyClassFactory: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1997442679,
     data2: 18710,
     data3: 17436,
     data4: [169, 167, 179, 66, 208, 238, 188, 113],
 };
-pub const CLSID_MFCaptureEngine: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CLSID_MFCaptureEngine: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4023269587,
     data2: 35092,
     data3: 18036,
     data4: [167, 223, 174, 27, 61, 101, 75, 138],
 };
-pub const CLSID_MFCaptureEngineClassFactory: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CLSID_MFCaptureEngineClassFactory: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4023269587,
     data2: 35092,
     data3: 18036,
     data4: [167, 223, 174, 27, 61, 101, 75, 138],
 };
-pub const CLSID_MFImageSharingEngineClassFactory: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CLSID_MFImageSharingEngineClassFactory: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2989241145,
     data2: 34803,
     data3: 16473,
     data4: [160, 197, 3, 122, 169, 112, 126, 175],
 };
-pub const CLSID_MFMediaEngineClassFactory: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CLSID_MFMediaEngineClassFactory: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3024327386,
     data2: 18843,
     data3: 17515,
     data4: [164, 203, 0, 95, 234, 208, 230, 213],
 };
-pub const CLSID_MFMediaSharingEngineClassFactory: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CLSID_MFMediaSharingEngineClassFactory: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4175628283,
     data2: 27973,
     data3: 19155,
     data4: [153, 147, 102, 205, 90, 82, 150, 89],
 };
-pub const CLSID_MFReadWriteClassFactory: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1222831375, data2: 39106, data3: 18999, data4: [190, 213, 22, 99, 18, 221, 216, 63] };
-pub const CLSID_MFSinkWriter: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CLSID_MFReadWriteClassFactory: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1222831375, data2: 39106, data3: 18999, data4: [190, 213, 22, 99, 18, 221, 216, 63] };
+pub const CLSID_MFSinkWriter: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2747005719,
     data2: 33395,
     data3: 20050,
     data4: [158, 14, 151, 57, 220, 136, 121, 144],
 };
-pub const CLSID_MFSourceReader: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 393679676, data2: 2177, data3: 16667, data4: [165, 119, 173, 84, 95, 7, 20, 196] };
-pub const CLSID_MFSourceResolver: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CLSID_MFSourceReader: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 393679676, data2: 2177, data3: 16667, data4: [165, 119, 173, 84, 95, 7, 20, 196] };
+pub const CLSID_MFSourceResolver: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2431301135,
     data2: 58426,
     data3: 16776,
     data4: [188, 196, 228, 127, 223, 4, 134, 140],
 };
-pub const CLSID_MP3DecMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CLSID_MP3DecMediaObject: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3152980033,
     data2: 2659,
     data3: 20306,
     data4: [167, 171, 169, 179, 168, 78, 211, 138],
 };
-pub const CLSID_MPEG2ByteStreamPlugin: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CLSID_MPEG2ByteStreamPlugin: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1082596441,
     data2: 43840,
     data3: 18207,
     data4: [141, 195, 31, 37, 157, 134, 36, 121],
 };
-pub const CLSID_MPEG2DLNASink: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4200589253, data2: 27165, data3: 19217, data4: [180, 31, 249, 89, 214, 199, 101, 0] };
-pub const CLSID_MSAACDecMFT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 852592295, data2: 8591, data3: 19573, data4: [136, 118, 221, 119, 39, 58, 137, 153] };
-pub const CLSID_MSDDPlusDecMFT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 394005246, data2: 36875, data3: 18644, data4: [158, 76, 87, 173, 210, 80, 179, 212] };
-pub const CLSID_MSH264DecoderMFT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1657699954, data2: 19569, data3: 19744, data4: [177, 93, 69, 40, 49, 168, 125, 157] };
-pub const CLSID_MSH264EncoderMFT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1822753604, data2: 1306, data3: 19949, data4: [151, 121, 164, 51, 5, 22, 94, 53] };
-pub const CLSID_MSH265DecoderMFT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1107972515, data2: 54789, data3: 17164, data4: [180, 252, 69, 39, 79, 166, 197, 98] };
-pub const CLSID_MSMPEGAudDecMFT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CLSID_MPEG2DLNASink: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4200589253, data2: 27165, data3: 19217, data4: [180, 31, 249, 89, 214, 199, 101, 0] };
+pub const CLSID_MSAACDecMFT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 852592295, data2: 8591, data3: 19573, data4: [136, 118, 221, 119, 39, 58, 137, 153] };
+pub const CLSID_MSDDPlusDecMFT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 394005246, data2: 36875, data3: 18644, data4: [158, 76, 87, 173, 210, 80, 179, 212] };
+pub const CLSID_MSH264DecoderMFT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1657699954, data2: 19569, data3: 19744, data4: [177, 93, 69, 40, 49, 168, 125, 157] };
+pub const CLSID_MSH264EncoderMFT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1822753604, data2: 1306, data3: 19949, data4: [151, 121, 164, 51, 5, 22, 94, 53] };
+pub const CLSID_MSH265DecoderMFT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1107972515, data2: 54789, data3: 17164, data4: [180, 252, 69, 39, 79, 166, 197, 98] };
+pub const CLSID_MSMPEGAudDecMFT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1886419769,
     data2: 45770,
     data3: 16405,
     data4: [171, 234, 248, 68, 125, 34, 216, 139],
 };
-pub const CLSID_MSMPEGDecoderMFT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CLSID_MSMPEGDecoderMFT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 762355282,
     data2: 4671,
     data3: 18869,
     data4: [156, 188, 154, 245, 205, 226, 143, 185],
 };
-pub const CLSID_MSOpusDecoder: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CLSID_MSOpusDecoder: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1675721744,
     data2: 11587,
     data3: 19522,
     data4: [143, 227, 141, 139, 99, 228, 106, 106],
 };
-pub const CLSID_MSVPxDecoder: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3819631944, data2: 51620, data3: 19566, data4: [35, 77, 90, 218, 55, 75, 0, 0] };
-pub const CLSID_NetSchemePlugin: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CLSID_MSVPxDecoder: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3819631944, data2: 51620, data3: 19566, data4: [35, 77, 90, 218, 55, 75, 0, 0] };
+pub const CLSID_NetSchemePlugin: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3925142443,
     data2: 55675,
     data3: 17982,
     data4: [162, 177, 197, 78, 227, 249, 65, 77],
 };
-pub const CLSID_PlayToSourceClassFactory: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3658961818, data2: 15811, data3: 17089, data4: [167, 73, 161, 131, 181, 31, 8, 94] };
-pub const CLSID_UrlmonSchemePlugin: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CLSID_PlayToSourceClassFactory: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3658961818, data2: 15811, data3: 17089, data4: [167, 73, 161, 131, 181, 31, 8, 94] };
+pub const CLSID_UrlmonSchemePlugin: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2663691513,
     data2: 12329,
     data3: 17837,
     data4: [148, 123, 52, 77, 226, 162, 73, 226],
 };
-pub const CLSID_VideoProcessorMFT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CLSID_VideoProcessorMFT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2289384230,
     data2: 23332,
     data3: 18877,
     data4: [178, 231, 12, 68, 92, 120, 201, 130],
 };
-pub const CLSID_WMADecMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 787172063, data2: 17784, data3: 19728, data4: [188, 167, 187, 149, 95, 86, 50, 10] };
-pub const CLSID_WMDRMSystemID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2303245090, data2: 4541, data3: 18326, data4: [147, 227, 151, 77, 27, 87, 86, 120] };
-pub const CLSID_WMVDecoderMFT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CLSID_WMADecMediaObject: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 787172063, data2: 17784, data3: 19728, data4: [188, 167, 187, 149, 95, 86, 50, 10] };
+pub const CLSID_WMDRMSystemID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2303245090, data2: 4541, data3: 18326, data4: [147, 227, 151, 77, 27, 87, 86, 120] };
+pub const CLSID_WMVDecoderMFT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2194887647,
     data2: 37053,
     data3: 17282,
     data4: [139, 194, 63, 97, 146, 183, 110, 52],
 };
-pub const CMP3DecMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CMP3DecMediaObject: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3152980033,
     data2: 2659,
     data3: 20306,
     data4: [167, 171, 169, 179, 168, 78, 211, 138],
 };
-pub const CMPEG2AudDecoderDS: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CMPEG2AudDecoderDS: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3790708920,
     data2: 48878,
     data3: 18701,
     data4: [186, 124, 6, 108, 64, 181, 226, 185],
 };
-pub const CMPEG2AudioEncoderMFT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CMPEG2AudioEncoderMFT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1185209692,
     data2: 29688,
     data3: 17156,
     data4: [148, 223, 48, 143, 118, 9, 116, 244],
 };
-pub const CMPEG2EncoderAudioDS: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CMPEG2EncoderAudioDS: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2899596220,
     data2: 50570,
     data3: 17617,
     data4: [187, 245, 191, 179, 37, 190, 45, 120],
 };
-pub const CMPEG2EncoderDS: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CMPEG2EncoderDS: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1599799114,
     data2: 12159,
     data3: 17017,
     data4: [136, 194, 205, 136, 235, 57, 209, 68],
 };
-pub const CMPEG2EncoderVideoDS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1108675801, data2: 51866, data3: 20133, data4: [153, 57, 48, 238, 3, 127, 110, 116] };
-pub const CMPEG2VidDecoderDS: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CMPEG2EncoderVideoDS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1108675801, data2: 51866, data3: 20133, data4: [153, 57, 48, 238, 3, 127, 110, 116] };
+pub const CMPEG2VidDecoderDS: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 556175611,
     data2: 33765,
     data3: 17702,
     data4: [143, 215, 116, 71, 139, 121, 57, 205],
 };
-pub const CMPEG2VideoEncoderMFT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CMPEG2VideoEncoderMFT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3862126338,
     data2: 32951,
     data3: 19908,
     data4: [173, 250, 223, 231, 33, 13, 32, 213],
 };
-pub const CMPEGAACDecMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CMPEGAACDecMediaObject: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2380142450,
     data2: 60845,
     data3: 16835,
     data4: [180, 190, 31, 48, 251, 78, 224, 214],
 };
-pub const CMSAACDecMFT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 852592295, data2: 8591, data3: 19573, data4: [136, 118, 221, 119, 39, 58, 137, 153] };
-pub const CMSAC3Enc: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CMSAACDecMFT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 852592295, data2: 8591, data3: 19573, data4: [136, 118, 221, 119, 39, 58, 137, 153] };
+pub const CMSAC3Enc: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3333685474,
     data2: 8359,
     data3: 20056,
     data4: [162, 254, 36, 97, 150, 130, 206, 108],
 };
-pub const CMSALACDecMFT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3234692370, data2: 12796, data3: 19388, data4: [179, 99, 115, 34, 238, 62, 24, 121] };
-pub const CMSALACEncMFT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CMSALACDecMFT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3234692370, data2: 12796, data3: 19388, data4: [179, 99, 115, 34, 238, 62, 24, 121] };
+pub const CMSALACEncMFT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2595660428,
     data2: 29838,
     data3: 19306,
     data4: [191, 255, 204, 68, 59, 142, 143, 180],
 };
-pub const CMSDDPlusDecMFT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 394005246, data2: 36875, data3: 18644, data4: [158, 76, 87, 173, 210, 80, 179, 212] };
-pub const CMSDolbyDigitalEncMFT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CMSDDPlusDecMFT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 394005246, data2: 36875, data3: 18644, data4: [158, 76, 87, 173, 210, 80, 179, 212] };
+pub const CMSDolbyDigitalEncMFT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2889029065,
     data2: 62593,
     data3: 17879,
     data4: [130, 108, 11, 64, 108, 31, 100, 184],
 };
-pub const CMSFLACDecMFT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CMSFLACDecMFT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1795898987,
     data2: 41669,
     data3: 17684,
     data4: [128, 85, 175, 232, 169, 82, 66, 217],
 };
-pub const CMSFLACEncMFT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CMSFLACEncMFT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 310708713,
     data2: 50254,
     data3: 17884,
     data4: [149, 233, 194, 85, 184, 244, 102, 166],
 };
-pub const CMSH263EncoderMFT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3158834430, data2: 39072, data3: 20263, data4: [187, 7, 105, 138, 242, 79, 43, 56] };
-pub const CMSH264DecoderMFT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1657699954, data2: 19569, data3: 19744, data4: [177, 93, 69, 40, 49, 168, 125, 157] };
-pub const CMSH264EncoderMFT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1822753604, data2: 1306, data3: 19949, data4: [151, 121, 164, 51, 5, 22, 94, 53] };
-pub const CMSH264RemuxMFT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 94666427, data2: 35824, data3: 19647, data4: [173, 47, 59, 113, 215, 88, 102, 245] };
-pub const CMSH265EncoderMFT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CMSH263EncoderMFT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3158834430, data2: 39072, data3: 20263, data4: [187, 7, 105, 138, 242, 79, 43, 56] };
+pub const CMSH264DecoderMFT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1657699954, data2: 19569, data3: 19744, data4: [177, 93, 69, 40, 49, 168, 125, 157] };
+pub const CMSH264EncoderMFT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1822753604, data2: 1306, data3: 19949, data4: [151, 121, 164, 51, 5, 22, 94, 53] };
+pub const CMSH264RemuxMFT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 94666427, data2: 35824, data3: 19647, data4: [173, 47, 59, 113, 215, 88, 102, 245] };
+pub const CMSH265EncoderMFT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4076355700,
     data2: 35786,
     data3: 16573,
     data4: [145, 89, 232, 128, 246, 115, 221, 59],
 };
-pub const CMSMPEGAudDecMFT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CMSMPEGAudDecMFT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1886419769,
     data2: 45770,
     data3: 16405,
     data4: [171, 234, 248, 68, 125, 34, 216, 139],
 };
-pub const CMSMPEGDecoderMFT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CMSMPEGDecoderMFT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 762355282,
     data2: 4671,
     data3: 18869,
     data4: [156, 188, 154, 245, 205, 226, 143, 185],
 };
-pub const CMSOpusDecMFT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CMSOpusDecMFT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1675721744,
     data2: 11587,
     data3: 19522,
     data4: [143, 227, 141, 139, 99, 228, 106, 106],
 };
-pub const CMSSCDecMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2075112369, data2: 55540, data3: 17017, data4: [146, 83, 39, 218, 66, 49, 8, 222] };
-pub const CMSSCEncMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CMSSCDecMediaObject: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2075112369, data2: 55540, data3: 17017, data4: [146, 83, 39, 218, 66, 49, 8, 222] };
+pub const CMSSCEncMediaObject: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2360986630,
     data2: 53561,
     data3: 19174,
     data4: [139, 180, 65, 230, 18, 225, 65, 213],
 };
-pub const CMSSCEncMediaObject2: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CMSSCEncMediaObject2: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4160741536,
     data2: 42229,
     data3: 17589,
     data4: [148, 158, 21, 237, 43, 198, 111, 157],
 };
-pub const CMSVPXEncoderMFT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CMSVPXEncoderMFT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2931214165,
     data2: 9542,
     data3: 18561,
     data4: [130, 204, 225, 90, 229, 235, 255, 61],
 };
-pub const CMSVideoDSPMFT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1364662084, data2: 32740, data3: 20466, data4: [164, 152, 45, 195, 79, 247, 79, 27] };
-pub const CMpeg2DecMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CMSVideoDSPMFT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1364662084, data2: 32740, data3: 20466, data4: [164, 152, 45, 195, 79, 247, 79, 27] };
+pub const CMpeg2DecMediaObject: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2252170957,
     data2: 52686,
     data3: 17943,
     data4: [180, 127, 200, 146, 156, 252, 40, 166],
 };
-pub const CMpeg43DecMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CMpeg43DecMediaObject: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3416909707,
     data2: 18851,
     data3: 18922,
     data4: [147, 212, 107, 203, 168, 196, 222, 7],
 };
-pub const CMpeg4DecMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4084298378, data2: 24658, data3: 19783, data4: [130, 124, 208, 57, 51, 93, 254, 10] };
-pub const CMpeg4EncMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CMpeg4DecMediaObject: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4084298378, data2: 24658, data3: 19783, data4: [130, 124, 208, 57, 51, 93, 254, 10] };
+pub const CMpeg4EncMediaObject: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 619862232,
     data2: 50769,
     data3: 16450,
     data4: [147, 228, 202, 101, 74, 187, 104, 44],
 };
-pub const CMpeg4sDecMFT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CMpeg4sDecMFT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1451663577,
     data2: 65081,
     data3: 16543,
     data4: [157, 255, 63, 219, 200, 73, 249, 245],
 };
-pub const CMpeg4sDecMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CMpeg4sDecMediaObject: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 705805026,
     data2: 65134,
     data3: 16969,
     data4: [134, 75, 158, 158, 214, 232, 219, 194],
 };
-pub const CMpeg4sEncMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CMpeg4sEncMediaObject: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1858447294,
     data2: 55326,
     data3: 20382,
     data4: [173, 163, 205, 27, 242, 98, 182, 216],
 };
-pub const CNokiaAACCCDecMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CNokiaAACCCDecMediaObject: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3938417263,
     data2: 52410,
     data3: 19808,
     data4: [134, 32, 177, 82, 204, 151, 114, 99],
 };
-pub const CNokiaAACDecMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1018346980, data2: 20009, data3: 19524, data4: [167, 62, 45, 124, 44, 70, 214, 236] };
-pub const CODECAPI_AVAudioChannelConfig: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 402169011, data2: 50061, data3: 17256, data4: [158, 222, 99, 185, 77, 23, 127, 159] };
-pub const CODECAPI_AVAudioChannelCount: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 490046404, data2: 5507, data3: 18254, data4: [183, 26, 94, 228, 99, 193, 152, 228] };
-pub const CODECAPI_AVAudioSampleRate: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2535270179, data2: 6859, data3: 17127, data4: [133, 92, 82, 10, 75, 112, 165, 242] };
-pub const CODECAPI_AVDDSurroundMode: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CNokiaAACDecMediaObject: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1018346980, data2: 20009, data3: 19524, data4: [167, 62, 45, 124, 44, 70, 214, 236] };
+pub const CODECAPI_AVAudioChannelConfig: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 402169011, data2: 50061, data3: 17256, data4: [158, 222, 99, 185, 77, 23, 127, 159] };
+pub const CODECAPI_AVAudioChannelCount: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 490046404, data2: 5507, data3: 18254, data4: [183, 26, 94, 228, 99, 193, 152, 228] };
+pub const CODECAPI_AVAudioSampleRate: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2535270179, data2: 6859, data3: 17127, data4: [133, 92, 82, 10, 75, 112, 165, 242] };
+pub const CODECAPI_AVDDSurroundMode: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2582836102,
     data2: 39121,
     data3: 17490,
     data4: [161, 99, 171, 199, 138, 110, 183, 112],
 };
-pub const CODECAPI_AVDSPLoudnessEqualization: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2331843093, data2: 6162, data3: 19647, data4: [147, 25, 67, 58, 91, 42, 59, 39] };
-pub const CODECAPI_AVDSPSpeakerFill: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVDSPLoudnessEqualization: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2331843093, data2: 6162, data3: 19647, data4: [147, 25, 67, 58, 91, 42, 59, 39] };
+pub const CODECAPI_AVDSPSpeakerFill: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1444068513,
     data2: 22234,
     data3: 17794,
     data4: [141, 161, 202, 128, 144, 249, 39, 104],
 };
-pub const CODECAPI_AVDecAACDownmixMode: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 19350645, data2: 63163, data3: 16407, data4: [176, 132, 129, 167, 99, 201, 66, 212] };
-pub const CODECAPI_AVDecAudioDualMono: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1246940584, data2: 12536, data3: 16918, data4: [190, 15, 186, 11, 32, 37, 146, 29] };
-pub const CODECAPI_AVDecAudioDualMonoReproMode: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVDecAACDownmixMode: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 19350645, data2: 63163, data3: 16407, data4: [176, 132, 129, 167, 99, 201, 66, 212] };
+pub const CODECAPI_AVDecAudioDualMono: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1246940584, data2: 12536, data3: 16918, data4: [190, 15, 186, 11, 32, 37, 146, 29] };
+pub const CODECAPI_AVDecAudioDualMonoReproMode: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2769314182,
     data2: 52372,
     data3: 19401,
     data4: [140, 217, 170, 47, 97, 246, 128, 126],
 };
-pub const CODECAPI_AVDecCommonInputFormat: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVDecCommonInputFormat: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3842003513,
     data2: 48521,
     data3: 19427,
     data4: [156, 15, 93, 222, 49, 121, 136, 204],
 };
-pub const CODECAPI_AVDecCommonMeanBitRate: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1497924119, data2: 122, data3: 20346, data4: [142, 65, 92, 72, 177, 234, 197, 198] };
-pub const CODECAPI_AVDecCommonMeanBitRateInterval: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 249837510, data2: 14503, data3: 19548, data4: [148, 76, 104, 171, 66, 17, 107, 133] };
-pub const CODECAPI_AVDecCommonOutputFormat: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVDecCommonMeanBitRate: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1497924119, data2: 122, data3: 20346, data4: [142, 65, 92, 72, 177, 234, 197, 198] };
+pub const CODECAPI_AVDecCommonMeanBitRateInterval: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 249837510, data2: 14503, data3: 19548, data4: [148, 76, 104, 171, 66, 17, 107, 133] };
+pub const CODECAPI_AVDecCommonOutputFormat: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1014562856,
     data2: 49358,
     data3: 16982,
     data4: [177, 162, 27, 15, 200, 177, 220, 220],
 };
-pub const CODECAPI_AVDecDDDynamicRangeScaleHigh: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVDecDDDynamicRangeScaleHigh: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1343843361,
     data2: 7987,
     data3: 19189,
     data4: [178, 150, 17, 66, 109, 108, 135, 137],
 };
-pub const CODECAPI_AVDecDDDynamicRangeScaleLow: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 72245988, data2: 4517, data3: 17109, data4: [163, 178, 59, 178, 199, 194, 215, 207] };
-pub const CODECAPI_AVDecDDMatrixDecodingMode: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3720876453, data2: 1261, data3: 19443, data4: [160, 202, 208, 4, 73, 249, 53, 95] };
-pub const CODECAPI_AVDecDDOperationalMode: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVDecDDDynamicRangeScaleLow: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 72245988, data2: 4517, data3: 17109, data4: [163, 178, 59, 178, 199, 194, 215, 207] };
+pub const CODECAPI_AVDecDDMatrixDecodingMode: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3720876453, data2: 1261, data3: 19443, data4: [160, 202, 208, 4, 73, 249, 53, 95] };
+pub const CODECAPI_AVDecDDOperationalMode: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3604399825,
     data2: 1614,
     data3: 20445,
     data4: [164, 14, 62, 203, 252, 183, 235, 208],
 };
-pub const CODECAPI_AVDecDDStereoDownMixMode: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVDecDDStereoDownMixMode: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1826886188,
     data2: 16105,
     data3: 16770,
     data4: [180, 174, 193, 15, 192, 136, 100, 157],
 };
-pub const CODECAPI_AVDecDisableVideoPostProcessing: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVDecDisableVideoPostProcessing: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4168389011,
     data2: 26234,
     data3: 20268,
     data4: [169, 232, 93, 74, 249, 36, 240, 143],
 };
-pub const CODECAPI_AVDecHEAACDynamicRangeControl: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVDecHEAACDynamicRangeControl: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 679250622,
     data2: 27044,
     data3: 19769,
     data4: [128, 128, 211, 217, 113, 33, 120, 160],
 };
-pub const CODECAPI_AVDecNumWorkerThreads: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVDecNumWorkerThreads: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2506212328,
     data2: 60062,
     data3: 17461,
     data4: [155, 30, 169, 62, 105, 24, 148, 216],
 };
-pub const CODECAPI_AVDecSoftwareDynamicFormatChange: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2251173642, data2: 20603, data3: 18431, data4: [175, 71, 1, 226, 98, 66, 152, 183] };
-pub const CODECAPI_AVDecVideoAcceleration_H264: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVDecSoftwareDynamicFormatChange: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2251173642, data2: 20603, data3: 18431, data4: [175, 71, 1, 226, 98, 66, 152, 183] };
+pub const CODECAPI_AVDecVideoAcceleration_H264: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4158360111,
     data2: 20296,
     data3: 20200,
     data4: [174, 49, 139, 110, 190, 85, 138, 226],
 };
-pub const CODECAPI_AVDecVideoAcceleration_MPEG2: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVDecVideoAcceleration_MPEG2: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4158360110,
     data2: 20296,
     data3: 20200,
     data4: [174, 49, 139, 110, 190, 85, 138, 226],
 };
-pub const CODECAPI_AVDecVideoAcceleration_VC1: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVDecVideoAcceleration_VC1: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4158360112,
     data2: 20296,
     data3: 20200,
     data4: [174, 49, 139, 110, 190, 85, 138, 226],
 };
-pub const CODECAPI_AVDecVideoCodecType: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVDecVideoCodecType: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1128605925,
     data2: 8688,
     data3: 18102,
     data4: [182, 44, 155, 27, 107, 101, 140, 209],
 };
-pub const CODECAPI_AVDecVideoDXVABusEncryption: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVDecVideoDXVABusEncryption: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1108688011,
     data2: 64779,
     data3: 18277,
     data4: [164, 98, 221, 217, 232, 188, 195, 136],
 };
-pub const CODECAPI_AVDecVideoDXVAMode: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVDecVideoDXVAMode: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4149801118,
     data2: 29495,
     data3: 19175,
     data4: [131, 135, 115, 220, 45, 84, 230, 125],
 };
-pub const CODECAPI_AVDecVideoDropPicWithMissingRef: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4163003267, data2: 5314, data3: 17767, data4: [151, 52, 80, 4, 233, 111, 248, 135] };
-pub const CODECAPI_AVDecVideoFastDecodeMode: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVDecVideoDropPicWithMissingRef: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4163003267, data2: 5314, data3: 17767, data4: [151, 52, 80, 4, 233, 111, 248, 135] };
+pub const CODECAPI_AVDecVideoFastDecodeMode: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1800576893,
     data2: 54193,
     data3: 18886,
     data4: [169, 153, 158, 198, 145, 27, 237, 191],
 };
-pub const CODECAPI_AVDecVideoH264ErrorConcealment: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVDecVideoH264ErrorConcealment: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3974933736,
     data2: 13366,
     data3: 17964,
     data4: [146, 148, 205, 123, 172, 215, 88, 169],
 };
-pub const CODECAPI_AVDecVideoImageSize: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVDecVideoImageSize: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1592095868,
     data2: 26625,
     data3: 19627,
     data4: [170, 241, 98, 72, 250, 132, 27, 164],
 };
-pub const CODECAPI_AVDecVideoInputScanType: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 944209439, data2: 3751, data3: 17101, data4: [140, 209, 19, 12, 237, 87, 197, 128] };
-pub const CODECAPI_AVDecVideoMPEG2ErrorConcealment: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVDecVideoInputScanType: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 944209439, data2: 3751, data3: 17101, data4: [140, 209, 19, 12, 237, 87, 197, 128] };
+pub const CODECAPI_AVDecVideoMPEG2ErrorConcealment: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2636906008,
     data2: 29325,
     data3: 18642,
     data4: [179, 88, 188, 126, 67, 108, 102, 116],
 };
-pub const CODECAPI_AVDecVideoMaxCodedHeight: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVDecVideoMaxCodedHeight: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1919066474,
     data2: 53980,
     data3: 20085,
     data4: [155, 168, 101, 192, 198, 211, 43, 19],
 };
-pub const CODECAPI_AVDecVideoMaxCodedWidth: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVDecVideoMaxCodedWidth: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1524979640,
     data2: 30639,
     data3: 16885,
     data4: [159, 166, 77, 178, 254, 29, 75, 202],
 };
-pub const CODECAPI_AVDecVideoPixelAspectRatio: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2966389317, data2: 62253, data3: 16863, data4: [176, 44, 135, 189, 48, 77, 18, 171] };
-pub const CODECAPI_AVDecVideoProcDeinterlaceCSC: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVDecVideoPixelAspectRatio: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2966389317, data2: 62253, data3: 16863, data4: [176, 44, 135, 189, 48, 77, 18, 171] };
+pub const CODECAPI_AVDecVideoProcDeinterlaceCSC: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4158360113,
     data2: 20296,
     data3: 20200,
     data4: [174, 49, 139, 110, 190, 85, 138, 226],
 };
-pub const CODECAPI_AVDecVideoSWPowerLevel: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVDecVideoSWPowerLevel: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4217185095,
     data2: 19928,
     data3: 17673,
     data4: [174, 208, 219, 95, 169, 170, 147, 244],
 };
-pub const CODECAPI_AVDecVideoSoftwareDeinterlaceMode: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 201904590, data2: 40173, data3: 17728, data4: [186, 227, 206, 179, 128, 20, 17, 9] };
-pub const CODECAPI_AVDecVideoThumbnailGenerationMode: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVDecVideoSoftwareDeinterlaceMode: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 201904590, data2: 40173, data3: 17728, data4: [186, 227, 206, 179, 128, 20, 17, 9] };
+pub const CODECAPI_AVDecVideoThumbnailGenerationMode: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 788369134,
     data2: 4432,
     data3: 17192,
     data4: [156, 245, 102, 220, 233, 51, 252, 244],
 };
-pub const CODECAPI_AVEnableInLoopDeblockFilter: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3538477977, data2: 1571, data3: 19443, data4: [146, 168, 77, 24, 24, 82, 157, 237] };
-pub const CODECAPI_AVEncAdaptiveMode: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1142534533, data2: 55839, data3: 20307, data4: [188, 118, 9, 125, 12, 30, 251, 30] };
-pub const CODECAPI_AVEncAudioDualMono: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 910692971, data2: 41960, data3: 17193, data4: [155, 58, 92, 229, 102, 164, 59, 211] };
-pub const CODECAPI_AVEncAudioInputContent: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVEnableInLoopDeblockFilter: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3538477977, data2: 1571, data3: 19443, data4: [146, 168, 77, 24, 24, 82, 157, 237] };
+pub const CODECAPI_AVEncAdaptiveMode: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1142534533, data2: 55839, data3: 20307, data4: [188, 118, 9, 125, 12, 30, 251, 30] };
+pub const CODECAPI_AVEncAudioDualMono: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 910692971, data2: 41960, data3: 17193, data4: [155, 58, 92, 229, 102, 164, 59, 211] };
+pub const CODECAPI_AVEncAudioInputContent: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1042443307,
     data2: 24761,
     data3: 19001,
     data4: [176, 11, 167, 180, 15, 112, 213, 102],
 };
-pub const CODECAPI_AVEncAudioIntervalToEncode: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2255375181, data2: 29274, data3: 18044, data4: [187, 1, 180, 150, 178, 59, 37, 249] };
-pub const CODECAPI_AVEncAudioIntervalToSkip: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVEncAudioIntervalToEncode: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2255375181, data2: 29274, data3: 18044, data4: [187, 1, 180, 150, 178, 59, 37, 249] };
+pub const CODECAPI_AVEncAudioIntervalToSkip: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2294374292,
     data2: 50060,
     data3: 18326,
     data4: [169, 232, 150, 233, 103, 152, 63, 38],
 };
-pub const CODECAPI_AVEncAudioMapDestChannel0: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3160214368, data2: 57194, data3: 19990, data4: [152, 3, 184, 32, 7, 163, 12, 141] };
-pub const CODECAPI_AVEncAudioMapDestChannel1: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3160214369, data2: 57194, data3: 19990, data4: [152, 3, 184, 32, 7, 163, 12, 141] };
-pub const CODECAPI_AVEncAudioMapDestChannel10: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3160214378, data2: 57194, data3: 19990, data4: [152, 3, 184, 32, 7, 163, 12, 141] };
-pub const CODECAPI_AVEncAudioMapDestChannel11: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3160214379, data2: 57194, data3: 19990, data4: [152, 3, 184, 32, 7, 163, 12, 141] };
-pub const CODECAPI_AVEncAudioMapDestChannel12: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3160214380, data2: 57194, data3: 19990, data4: [152, 3, 184, 32, 7, 163, 12, 141] };
-pub const CODECAPI_AVEncAudioMapDestChannel13: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3160214381, data2: 57194, data3: 19990, data4: [152, 3, 184, 32, 7, 163, 12, 141] };
-pub const CODECAPI_AVEncAudioMapDestChannel14: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3160214382, data2: 57194, data3: 19990, data4: [152, 3, 184, 32, 7, 163, 12, 141] };
-pub const CODECAPI_AVEncAudioMapDestChannel15: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3160214383, data2: 57194, data3: 19990, data4: [152, 3, 184, 32, 7, 163, 12, 141] };
-pub const CODECAPI_AVEncAudioMapDestChannel2: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3160214370, data2: 57194, data3: 19990, data4: [152, 3, 184, 32, 7, 163, 12, 141] };
-pub const CODECAPI_AVEncAudioMapDestChannel3: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3160214371, data2: 57194, data3: 19990, data4: [152, 3, 184, 32, 7, 163, 12, 141] };
-pub const CODECAPI_AVEncAudioMapDestChannel4: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3160214372, data2: 57194, data3: 19990, data4: [152, 3, 184, 32, 7, 163, 12, 141] };
-pub const CODECAPI_AVEncAudioMapDestChannel5: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3160214373, data2: 57194, data3: 19990, data4: [152, 3, 184, 32, 7, 163, 12, 141] };
-pub const CODECAPI_AVEncAudioMapDestChannel6: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3160214374, data2: 57194, data3: 19990, data4: [152, 3, 184, 32, 7, 163, 12, 141] };
-pub const CODECAPI_AVEncAudioMapDestChannel7: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3160214375, data2: 57194, data3: 19990, data4: [152, 3, 184, 32, 7, 163, 12, 141] };
-pub const CODECAPI_AVEncAudioMapDestChannel8: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3160214376, data2: 57194, data3: 19990, data4: [152, 3, 184, 32, 7, 163, 12, 141] };
-pub const CODECAPI_AVEncAudioMapDestChannel9: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3160214377, data2: 57194, data3: 19990, data4: [152, 3, 184, 32, 7, 163, 12, 141] };
-pub const CODECAPI_AVEncAudioMeanBitRate: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVEncAudioMapDestChannel0: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3160214368, data2: 57194, data3: 19990, data4: [152, 3, 184, 32, 7, 163, 12, 141] };
+pub const CODECAPI_AVEncAudioMapDestChannel1: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3160214369, data2: 57194, data3: 19990, data4: [152, 3, 184, 32, 7, 163, 12, 141] };
+pub const CODECAPI_AVEncAudioMapDestChannel10: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3160214378, data2: 57194, data3: 19990, data4: [152, 3, 184, 32, 7, 163, 12, 141] };
+pub const CODECAPI_AVEncAudioMapDestChannel11: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3160214379, data2: 57194, data3: 19990, data4: [152, 3, 184, 32, 7, 163, 12, 141] };
+pub const CODECAPI_AVEncAudioMapDestChannel12: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3160214380, data2: 57194, data3: 19990, data4: [152, 3, 184, 32, 7, 163, 12, 141] };
+pub const CODECAPI_AVEncAudioMapDestChannel13: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3160214381, data2: 57194, data3: 19990, data4: [152, 3, 184, 32, 7, 163, 12, 141] };
+pub const CODECAPI_AVEncAudioMapDestChannel14: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3160214382, data2: 57194, data3: 19990, data4: [152, 3, 184, 32, 7, 163, 12, 141] };
+pub const CODECAPI_AVEncAudioMapDestChannel15: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3160214383, data2: 57194, data3: 19990, data4: [152, 3, 184, 32, 7, 163, 12, 141] };
+pub const CODECAPI_AVEncAudioMapDestChannel2: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3160214370, data2: 57194, data3: 19990, data4: [152, 3, 184, 32, 7, 163, 12, 141] };
+pub const CODECAPI_AVEncAudioMapDestChannel3: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3160214371, data2: 57194, data3: 19990, data4: [152, 3, 184, 32, 7, 163, 12, 141] };
+pub const CODECAPI_AVEncAudioMapDestChannel4: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3160214372, data2: 57194, data3: 19990, data4: [152, 3, 184, 32, 7, 163, 12, 141] };
+pub const CODECAPI_AVEncAudioMapDestChannel5: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3160214373, data2: 57194, data3: 19990, data4: [152, 3, 184, 32, 7, 163, 12, 141] };
+pub const CODECAPI_AVEncAudioMapDestChannel6: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3160214374, data2: 57194, data3: 19990, data4: [152, 3, 184, 32, 7, 163, 12, 141] };
+pub const CODECAPI_AVEncAudioMapDestChannel7: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3160214375, data2: 57194, data3: 19990, data4: [152, 3, 184, 32, 7, 163, 12, 141] };
+pub const CODECAPI_AVEncAudioMapDestChannel8: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3160214376, data2: 57194, data3: 19990, data4: [152, 3, 184, 32, 7, 163, 12, 141] };
+pub const CODECAPI_AVEncAudioMapDestChannel9: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3160214377, data2: 57194, data3: 19990, data4: [152, 3, 184, 32, 7, 163, 12, 141] };
+pub const CODECAPI_AVEncAudioMeanBitRate: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2450691515,
     data2: 20426,
     data3: 18041,
     data4: [170, 184, 158, 42, 29, 117, 51, 132],
 };
-pub const CODECAPI_AVEncChromaEncodeMode: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2319952730, data2: 18328, data3: 19603, data4: [181, 165, 85, 79, 154, 59, 159, 80] };
-pub const CODECAPI_AVEncChromaUpdateTime: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1263524248, data2: 17012, data3: 16571, data4: [142, 228, 7, 85, 62, 126, 45, 58] };
-pub const CODECAPI_AVEncCodecType: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVEncChromaEncodeMode: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2319952730, data2: 18328, data3: 19603, data4: [181, 165, 85, 79, 154, 59, 159, 80] };
+pub const CODECAPI_AVEncChromaUpdateTime: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1263524248, data2: 17012, data3: 16571, data4: [142, 228, 7, 85, 62, 126, 45, 58] };
+pub const CODECAPI_AVEncCodecType: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 145705665,
     data2: 62450,
     data3: 19572,
     data4: [157, 207, 55, 242, 236, 121, 248, 38],
 };
-pub const CODECAPI_AVEncCommonAllowFrameDrops: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3628563915, data2: 38296, data3: 18659, data4: [141, 12, 117, 43, 242, 6, 9, 62] };
-pub const CODECAPI_AVEncCommonBufferInLevel: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVEncCommonAllowFrameDrops: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3628563915, data2: 38296, data3: 18659, data4: [141, 12, 117, 43, 242, 6, 9, 62] };
+pub const CODECAPI_AVEncCommonBufferInLevel: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3653617883,
     data2: 64628,
     data3: 16484,
     data4: [148, 233, 205, 25, 249, 71, 237, 69],
 };
-pub const CODECAPI_AVEncCommonBufferOutLevel: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3433987913, data2: 53436, data3: 20029, data4: [165, 126, 251, 87, 64, 20, 0, 105] };
-pub const CODECAPI_AVEncCommonBufferSize: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 230253940, data2: 46756, data3: 19595, data4: [129, 6, 55, 115, 222, 3, 16, 205] };
-pub const CODECAPI_AVEncCommonFormatConstraint: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1472969144, data2: 4463, data3: 18769, data4: [180, 12, 194, 160, 53, 237, 143, 23] };
-pub const CODECAPI_AVEncCommonLowLatency: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVEncCommonBufferOutLevel: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3433987913, data2: 53436, data3: 20029, data4: [165, 126, 251, 87, 64, 20, 0, 105] };
+pub const CODECAPI_AVEncCommonBufferSize: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 230253940, data2: 46756, data3: 19595, data4: [129, 6, 55, 115, 222, 3, 16, 205] };
+pub const CODECAPI_AVEncCommonFormatConstraint: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1472969144, data2: 4463, data3: 18769, data4: [180, 12, 194, 160, 53, 237, 143, 23] };
+pub const CODECAPI_AVEncCommonLowLatency: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2638138709,
     data2: 35304,
     data3: 18698,
     data4: [151, 10, 12, 149, 72, 213, 165, 110],
 };
-pub const CODECAPI_AVEncCommonMaxBitRate: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVEncCommonMaxBitRate: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2521950948,
     data2: 14777,
     data3: 20159,
     data4: [133, 239, 215, 244, 68, 236, 116, 101],
 };
-pub const CODECAPI_AVEncCommonMeanBitRate: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4146209652, data2: 8516, data3: 18453, data4: [181, 80, 163, 127, 142, 18, 238, 82] };
-pub const CODECAPI_AVEncCommonMeanBitRateInterval: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3215601420, data2: 52098, data3: 19392, data4: [132, 116, 240, 106, 138, 13, 2, 88] };
-pub const CODECAPI_AVEncCommonMinBitRate: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 269747634, data2: 8323, data3: 16436, data4: [168, 6, 239, 190, 221, 215, 201, 255] };
-pub const CODECAPI_AVEncCommonMultipassMode: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVEncCommonMeanBitRate: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4146209652, data2: 8516, data3: 18453, data4: [181, 80, 163, 127, 142, 18, 238, 82] };
+pub const CODECAPI_AVEncCommonMeanBitRateInterval: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3215601420, data2: 52098, data3: 19392, data4: [132, 116, 240, 106, 138, 13, 2, 88] };
+pub const CODECAPI_AVEncCommonMinBitRate: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 269747634, data2: 8323, data3: 16436, data4: [168, 6, 239, 190, 221, 215, 201, 255] };
+pub const CODECAPI_AVEncCommonMultipassMode: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 575880524,
     data2: 18401,
     data3: 16821,
     data4: [147, 82, 162, 183, 120, 14, 122, 196],
 };
-pub const CODECAPI_AVEncCommonPassEnd: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 238879164, data2: 51292, data3: 18045, data4: [139, 96, 196, 16, 18, 238, 59, 246] };
-pub const CODECAPI_AVEncCommonPassStart: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVEncCommonPassEnd: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 238879164, data2: 51292, data3: 18045, data4: [139, 96, 196, 16, 18, 238, 59, 246] };
+pub const CODECAPI_AVEncCommonPassStart: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1785164703,
     data2: 20149,
     data3: 17285,
     data4: [153, 40, 242, 118, 169, 57, 239, 149],
 };
-pub const CODECAPI_AVEncCommonQuality: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVEncCommonQuality: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4240398243,
     data2: 32421,
     data3: 19212,
     data4: [150, 68, 105, 180, 12, 57, 195, 145],
 };
-pub const CODECAPI_AVEncCommonQualityVsSpeed: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2553490936, data2: 973, data3: 18283, data4: [137, 250, 63, 158, 68, 45, 236, 159] };
-pub const CODECAPI_AVEncCommonRateControlMode: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 470157545, data2: 14092, data3: 18192, data4: [138, 88, 203, 97, 129, 196, 36, 35] };
-pub const CODECAPI_AVEncCommonRealTime: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVEncCommonQualityVsSpeed: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2553490936, data2: 973, data3: 18283, data4: [137, 250, 63, 158, 68, 45, 236, 159] };
+pub const CODECAPI_AVEncCommonRateControlMode: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 470157545, data2: 14092, data3: 18192, data4: [138, 88, 203, 97, 129, 196, 36, 35] };
+pub const CODECAPI_AVEncCommonRealTime: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 339349494,
     data2: 41265,
     data3: 17370,
     data4: [184, 30, 152, 251, 184, 236, 55, 142],
 };
-pub const CODECAPI_AVEncCommonStreamEndHandling: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVEncCommonStreamEndHandling: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1789735087,
     data2: 27560,
     data3: 19660,
     data4: [143, 202, 24, 209, 155, 234, 235, 28],
 };
-pub const CODECAPI_AVEncCommonTranscodeEncodingProfile: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVEncCommonTranscodeEncodingProfile: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1766291580,
     data2: 62728,
     data3: 20137,
     data4: [177, 233, 161, 254, 58, 73, 251, 201],
 };
-pub const CODECAPI_AVEncDDAtoDConverterType: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1906284050, data2: 33185, data3: 18400, data4: [154, 5, 217, 74, 213, 252, 169, 72] };
-pub const CODECAPI_AVEncDDCentreDownMixLevel: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVEncDDAtoDConverterType: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1906284050, data2: 33185, data3: 18400, data4: [154, 5, 217, 74, 213, 252, 169, 72] };
+pub const CODECAPI_AVEncDDCentreDownMixLevel: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3800368940,
     data2: 51544,
     data3: 19073,
     data4: [175, 210, 229, 224, 218, 241, 177, 72],
 };
-pub const CODECAPI_AVEncDDChannelBWLowPassFilter: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3784802845, data2: 53991, data3: 17378, data4: [173, 44, 0, 88, 47, 81, 133, 69] };
-pub const CODECAPI_AVEncDDCopyright: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVEncDDChannelBWLowPassFilter: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3784802845, data2: 53991, data3: 17378, data4: [173, 44, 0, 88, 47, 81, 133, 69] };
+pub const CODECAPI_AVEncDDCopyright: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2257907830,
     data2: 52597,
     data3: 18461,
     data4: [165, 198, 169, 4, 220, 200, 40, 240],
 };
-pub const CODECAPI_AVEncDDDCHighPassFilter: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVEncDDDCHighPassFilter: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2506433439,
     data2: 34332,
     data3: 19144,
     data4: [191, 218, 224, 12, 180, 219, 133, 72],
 };
-pub const CODECAPI_AVEncDDDialogNormalization: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3607452367, data2: 61733, data3: 17277, data4: [167, 4, 121, 199, 159, 4, 4, 168] };
-pub const CODECAPI_AVEncDDDigitalDeemphasis: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3760497346, data2: 38012, data3: 17836, data4: [135, 216, 241, 3, 12, 92, 0, 130] };
-pub const CODECAPI_AVEncDDDynamicRangeCompressionControl: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVEncDDDialogNormalization: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3607452367, data2: 61733, data3: 17277, data4: [167, 4, 121, 199, 159, 4, 4, 168] };
+pub const CODECAPI_AVEncDDDigitalDeemphasis: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3760497346, data2: 38012, data3: 17836, data4: [135, 216, 241, 3, 12, 92, 0, 130] };
+pub const CODECAPI_AVEncDDDynamicRangeCompressionControl: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3485663085,
     data2: 31160,
     data3: 19341,
     data4: [168, 170, 160, 201, 189, 28, 41, 64],
 };
-pub const CODECAPI_AVEncDDHeadphoneMode: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1079172076, data2: 21237, data3: 17141, data4: [155, 0, 209, 52, 177, 52, 27, 157] };
-pub const CODECAPI_AVEncDDLFELowPassFilter: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3552055151, data2: 40213, data3: 17893, data4: [145, 190, 1, 156, 63, 171, 31, 1] };
-pub const CODECAPI_AVEncDDLoRoCenterMixLvl_x10: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 486253090, data2: 9651, data3: 19444, data4: [155, 253, 231, 17, 18, 103, 133, 140] };
-pub const CODECAPI_AVEncDDLoRoSurroundMixLvl_x10: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3878014966, data2: 60246, data3: 16583, data4: [132, 80, 43, 147, 103, 233, 21, 85] };
-pub const CODECAPI_AVEncDDLtRtCenterMixLvl_x10: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVEncDDHeadphoneMode: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1079172076, data2: 21237, data3: 17141, data4: [155, 0, 209, 52, 177, 52, 27, 157] };
+pub const CODECAPI_AVEncDDLFELowPassFilter: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3552055151, data2: 40213, data3: 17893, data4: [145, 190, 1, 156, 63, 171, 31, 1] };
+pub const CODECAPI_AVEncDDLoRoCenterMixLvl_x10: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 486253090, data2: 9651, data3: 19444, data4: [155, 253, 231, 17, 18, 103, 133, 140] };
+pub const CODECAPI_AVEncDDLoRoSurroundMixLvl_x10: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3878014966, data2: 60246, data3: 16583, data4: [132, 80, 43, 147, 103, 233, 21, 85] };
+pub const CODECAPI_AVEncDDLtRtCenterMixLvl_x10: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3701549218,
     data2: 18719,
     data3: 17920,
     data4: [178, 218, 118, 227, 52, 75, 65, 151],
 };
-pub const CODECAPI_AVEncDDLtRtSurroundMixLvl_x10: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 555894471, data2: 15660, data3: 19962, data4: [188, 33, 101, 42, 144, 152, 105, 13] };
-pub const CODECAPI_AVEncDDOriginalBitstream: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2523588608, data2: 23507, data3: 20473, data4: [149, 185, 211, 5, 102, 39, 56, 86] };
-pub const CODECAPI_AVEncDDPreferredStereoDownMixMode: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVEncDDLtRtSurroundMixLvl_x10: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 555894471, data2: 15660, data3: 19962, data4: [188, 33, 101, 42, 144, 152, 105, 13] };
+pub const CODECAPI_AVEncDDOriginalBitstream: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2523588608, data2: 23507, data3: 20473, data4: [149, 185, 211, 5, 102, 39, 56, 86] };
+pub const CODECAPI_AVEncDDPreferredStereoDownMixMode: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2135845681,
     data2: 37253,
     data3: 16445,
     data4: [176, 162, 118, 55, 67, 230, 240, 99],
 };
-pub const CODECAPI_AVEncDDProductionInfoExists: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVEncDDProductionInfoExists: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2964848223,
     data2: 46763,
     data3: 20288,
     data4: [150, 77, 141, 145, 241, 124, 25, 232],
 };
-pub const CODECAPI_AVEncDDProductionMixLevel: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 807211066, data2: 52217, data3: 18294, data4: [136, 153, 124, 21, 180, 97, 171, 38] };
-pub const CODECAPI_AVEncDDProductionRoomType: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVEncDDProductionMixLevel: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 807211066, data2: 52217, data3: 18294, data4: [136, 153, 124, 21, 180, 97, 171, 38] };
+pub const CODECAPI_AVEncDDProductionRoomType: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3671567712,
     data2: 9176,
     data3: 19127,
     data4: [162, 132, 85, 105, 134, 216, 166, 254],
 };
-pub const CODECAPI_AVEncDDRFPreEmphasisFilter: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 565134528, data2: 9294, data3: 20285, data4: [162, 204, 61, 48, 104, 178, 231, 63] };
-pub const CODECAPI_AVEncDDService: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVEncDDRFPreEmphasisFilter: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 565134528, data2: 9294, data3: 20285, data4: [162, 204, 61, 48, 104, 178, 231, 63] };
+pub const CODECAPI_AVEncDDService: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3538009799,
     data2: 20850,
     data3: 19754,
     data4: [165, 14, 47, 59, 130, 177, 221, 248],
 };
-pub const CODECAPI_AVEncDDSurround3dBAttenuation: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1296284061, data2: 12770, data3: 18617, data4: [191, 46, 92, 191, 26, 87, 39, 132] };
-pub const CODECAPI_AVEncDDSurround90DegreeePhaseShift: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 636284061, data2: 13651, data3: 17088, data4: [187, 86, 210, 87, 146, 16, 79, 128] };
-pub const CODECAPI_AVEncDDSurroundDownMixLevel: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2065749733, data2: 3023, data3: 17011, data4: [164, 135, 80, 107, 4, 121, 151, 233] };
-pub const CODECAPI_AVEncDDSurroundExMode: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVEncDDSurround3dBAttenuation: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1296284061, data2: 12770, data3: 18617, data4: [191, 46, 92, 191, 26, 87, 39, 132] };
+pub const CODECAPI_AVEncDDSurround90DegreeePhaseShift: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 636284061, data2: 13651, data3: 17088, data4: [187, 86, 210, 87, 146, 16, 79, 128] };
+pub const CODECAPI_AVEncDDSurroundDownMixLevel: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2065749733, data2: 3023, data3: 17011, data4: [164, 135, 80, 107, 4, 121, 151, 233] };
+pub const CODECAPI_AVEncDDSurroundExMode: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2439019758,
     data2: 56285,
     data3: 20150,
     data4: [188, 162, 170, 223, 175, 163, 221, 104],
 };
-pub const CODECAPI_AVEncEnableVideoProcessing: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 7293942, data2: 3747, data3: 19778, data4: [135, 2, 181, 216, 190, 15, 122, 146] };
-pub const CODECAPI_AVEncH264CABACEnable: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVEncEnableVideoProcessing: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 7293942, data2: 3747, data3: 19778, data4: [135, 2, 181, 216, 190, 15, 122, 146] };
+pub const CODECAPI_AVEncH264CABACEnable: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4000099682,
     data2: 54021,
     data3: 16968,
     data4: [165, 14, 225, 178, 85, 247, 202, 248],
 };
-pub const CODECAPI_AVEncH264PPSID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3219300034, data2: 1388, data3: 19816, data4: [163, 141, 174, 89, 68, 200, 88, 46] };
-pub const CODECAPI_AVEncH264SPSID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1358139217, data2: 11129, data3: 16611, data4: [179, 156, 126, 159, 160, 119, 5, 1] };
-pub const CODECAPI_AVEncInputVideoSystem: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVEncH264PPSID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3219300034, data2: 1388, data3: 19816, data4: [163, 141, 174, 89, 68, 200, 88, 46] };
+pub const CODECAPI_AVEncH264SPSID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1358139217, data2: 11129, data3: 16611, data4: [179, 156, 126, 159, 160, 119, 5, 1] };
+pub const CODECAPI_AVEncInputVideoSystem: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3202225261,
     data2: 46614,
     data3: 19911,
     data4: [146, 178, 245, 217, 250, 146, 152, 247],
 };
-pub const CODECAPI_AVEncLowPowerEncoder: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3060323714, data2: 35757, data3: 20330, data4: [145, 65, 55, 90, 149, 53, 139, 109] };
-pub const CODECAPI_AVEncMP12MuxDVDNavPacks: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVEncLowPowerEncoder: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3060323714, data2: 35757, data3: 20330, data4: [145, 65, 55, 90, 149, 53, 139, 109] };
+pub const CODECAPI_AVEncMP12MuxDVDNavPacks: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3344989421,
     data2: 36081,
     data3: 19097,
     data4: [131, 161, 238, 84, 97, 190, 53, 116],
 };
-pub const CODECAPI_AVEncMP12MuxEarliestPTS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 359805622, data2: 63497, data3: 18254, data4: [148, 100, 167, 249, 48, 20, 168, 23] };
-pub const CODECAPI_AVEncMP12MuxInitialSCR: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 875801889, data2: 7057, data3: 18955, data4: [177, 144, 43, 119, 6, 59, 99, 164] };
-pub const CODECAPI_AVEncMP12MuxLargestPacketSize: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 902739729, data2: 62561, data3: 19346, data4: [164, 239, 23, 182, 132, 30, 210, 84] };
-pub const CODECAPI_AVEncMP12MuxMuxRate: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVEncMP12MuxEarliestPTS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 359805622, data2: 63497, data3: 18254, data4: [148, 100, 167, 249, 48, 20, 168, 23] };
+pub const CODECAPI_AVEncMP12MuxInitialSCR: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 875801889, data2: 7057, data3: 18955, data4: [177, 144, 43, 119, 6, 59, 99, 164] };
+pub const CODECAPI_AVEncMP12MuxLargestPacketSize: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 902739729, data2: 62561, data3: 19346, data4: [164, 239, 23, 182, 132, 30, 210, 84] };
+pub const CODECAPI_AVEncMP12MuxMuxRate: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3993271410,
     data2: 19419,
     data3: 19101,
     data4: [142, 33, 65, 146, 108, 130, 61, 167],
 };
-pub const CODECAPI_AVEncMP12MuxNumStreams: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVEncMP12MuxNumStreams: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4145433153,
     data2: 56557,
     data3: 18009,
     data4: [168, 242, 251, 105, 63, 42, 76, 208],
 };
-pub const CODECAPI_AVEncMP12MuxPackSize: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4178969914, data2: 7400, data3: 20399, data4: [170, 11, 186, 49, 200, 0, 52, 184] };
-pub const CODECAPI_AVEncMP12MuxPacketOverhead: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVEncMP12MuxPackSize: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4178969914, data2: 7400, data3: 20399, data4: [170, 11, 186, 49, 200, 0, 52, 184] };
+pub const CODECAPI_AVEncMP12MuxPacketOverhead: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3825981216,
     data2: 14677,
     data3: 17491,
     data4: [172, 249, 183, 145, 50, 163, 143, 160],
 };
-pub const CODECAPI_AVEncMP12MuxSysAudioLock: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 263935826, data2: 7491, data3: 18367, data4: [189, 121, 242, 41, 61, 140, 227, 55] };
-pub const CODECAPI_AVEncMP12MuxSysCSPS: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVEncMP12MuxSysAudioLock: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 263935826, data2: 7491, data3: 18367, data4: [189, 121, 242, 41, 61, 140, 227, 55] };
+pub const CODECAPI_AVEncMP12MuxSysCSPS: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2035482437,
     data2: 39949,
     data3: 18466,
     data4: [188, 130, 138, 215, 114, 224, 41, 147],
 };
-pub const CODECAPI_AVEncMP12MuxSysFixed: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVEncMP12MuxSysFixed: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3472595070,
     data2: 35151,
     data3: 17710,
     data4: [143, 137, 164, 239, 140, 236, 6, 58],
 };
-pub const CODECAPI_AVEncMP12MuxSysRateBound: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 99631754, data2: 60976, data3: 18589, data4: [174, 40, 32, 92, 114, 68, 103, 16] };
-pub const CODECAPI_AVEncMP12MuxSysSTDBufferBound: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 896821507, data2: 46405, data3: 17383, data4: [187, 53, 197, 224, 167, 213, 9, 60] };
-pub const CODECAPI_AVEncMP12MuxSysVideoLock: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVEncMP12MuxSysRateBound: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 99631754, data2: 60976, data3: 18589, data4: [174, 40, 32, 92, 114, 68, 103, 16] };
+pub const CODECAPI_AVEncMP12MuxSysSTDBufferBound: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 896821507, data2: 46405, data3: 17383, data4: [187, 53, 197, 224, 167, 213, 9, 60] };
+pub const CODECAPI_AVEncMP12MuxSysVideoLock: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3089720328,
     data2: 9264,
     data3: 19767,
     data4: [162, 161, 149, 179, 228, 53, 169, 29],
 };
-pub const CODECAPI_AVEncMP12MuxTargetPacketizer: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3630309674, data2: 8213, data3: 17885, data4: [154, 50, 27, 58, 168, 130, 5, 160] };
-pub const CODECAPI_AVEncMP12PktzCopyright: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVEncMP12MuxTargetPacketizer: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3630309674, data2: 8213, data3: 17885, data4: [154, 50, 27, 58, 168, 130, 5, 160] };
+pub const CODECAPI_AVEncMP12PktzCopyright: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3371479233,
     data2: 2380,
     data3: 17351,
     data4: [142, 104, 165, 149, 64, 90, 110, 248],
 };
-pub const CODECAPI_AVEncMP12PktzInitialPTS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 709828709, data2: 39523, data3: 19744, data4: [174, 34, 10, 27, 200, 150, 163, 21] };
-pub const CODECAPI_AVEncMP12PktzOriginal: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVEncMP12PktzInitialPTS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 709828709, data2: 39523, data3: 19744, data4: [174, 34, 10, 27, 200, 150, 163, 21] };
+pub const CODECAPI_AVEncMP12PktzOriginal: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1796703254,
     data2: 12729,
     data3: 18788,
     data4: [148, 203, 107, 255, 134, 108, 223, 131],
 };
-pub const CODECAPI_AVEncMP12PktzPacketSize: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVEncMP12PktzPacketSize: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2876322938,
     data2: 4914,
     data3: 19934,
     data4: [160, 229, 204, 247, 218, 138, 15, 34],
 };
-pub const CODECAPI_AVEncMP12PktzSTDBuffer: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 192224208, data2: 33182, data3: 18316, data4: [148, 53, 117, 32, 137, 38, 179, 119] };
-pub const CODECAPI_AVEncMP12PktzStreamID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVEncMP12PktzSTDBuffer: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 192224208, data2: 33182, data3: 18316, data4: [148, 53, 117, 32, 137, 38, 179, 119] };
+pub const CODECAPI_AVEncMP12PktzStreamID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3358904376,
     data2: 62952,
     data3: 17416,
     data4: [155, 96, 136, 243, 100, 147, 254, 223],
 };
-pub const CODECAPI_AVEncMPACodingMode: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2976570883, data2: 19347, data3: 17367, data4: [165, 80, 144, 180, 254, 34, 69, 55] };
-pub const CODECAPI_AVEncMPACopyright: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVEncMPACodingMode: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2976570883, data2: 19347, data3: 17367, data4: [165, 80, 144, 180, 254, 34, 69, 55] };
+pub const CODECAPI_AVEncMPACopyright: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2796451370,
     data2: 53417,
     data3: 17492,
     data4: [184, 239, 242, 219, 238, 253, 211, 189],
 };
-pub const CODECAPI_AVEncMPAEmphasisType: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 760872154, data2: 48974, data3: 20182, data4: [181, 223, 91, 3, 179, 107, 10, 31] };
-pub const CODECAPI_AVEncMPAEnableRedundancyProtection: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVEncMPAEmphasisType: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 760872154, data2: 48974, data3: 20182, data4: [181, 223, 91, 3, 179, 107, 10, 31] };
+pub const CODECAPI_AVEncMPAEnableRedundancyProtection: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1582608542,
     data2: 45799,
     data3: 18803,
     data4: [168, 155, 11, 54, 80, 163, 190, 218],
 };
-pub const CODECAPI_AVEncMPALayer: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2637656624, data2: 63771, data3: 17725, data4: [156, 224, 120, 68, 84, 20, 194, 45] };
-pub const CODECAPI_AVEncMPAOriginalBitstream: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVEncMPALayer: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2637656624, data2: 63771, data3: 17725, data4: [156, 224, 120, 68, 84, 20, 194, 45] };
+pub const CODECAPI_AVEncMPAOriginalBitstream: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1023113301,
     data2: 40137,
     data3: 18431,
     data4: [184, 41, 179, 103, 134, 201, 35, 70],
 };
-pub const CODECAPI_AVEncMPAPrivateUserBit: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2946827726, data2: 49635, data3: 20029, data4: [133, 27, 97, 183, 0, 229, 230, 204] };
-pub const CODECAPI_AVEncMPVAddSeqEndCode: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVEncMPAPrivateUserBit: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2946827726, data2: 49635, data3: 20029, data4: [133, 27, 97, 183, 0, 229, 230, 204] };
+pub const CODECAPI_AVEncMPVAddSeqEndCode: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2820872079,
     data2: 22495,
     data3: 19578,
     data4: [184, 253, 229, 236, 136, 135, 112, 141],
 };
-pub const CODECAPI_AVEncMPVDefaultBPictureCount: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVEncMPVDefaultBPictureCount: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2369325740,
     data2: 56412,
     data3: 16896,
     data4: [181, 127, 129, 77, 4, 186, 186, 178],
 };
-pub const CODECAPI_AVEncMPVFrameFieldMode: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2897600150, data2: 31635, data3: 19503, data4: [136, 37, 176, 41, 95, 169, 59, 244] };
-pub const CODECAPI_AVEncMPVGOPOpen: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2983580838, data2: 13056, data3: 18865, data4: [174, 97, 160, 153, 55, 171, 14, 73] };
-pub const CODECAPI_AVEncMPVGOPSInSeq: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2570326228, data2: 9873, data3: 16786, data4: [153, 120, 152, 220, 38, 3, 102, 159] };
-pub const CODECAPI_AVEncMPVGOPSize: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVEncMPVFrameFieldMode: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2897600150, data2: 31635, data3: 19503, data4: [136, 37, 176, 41, 95, 169, 59, 244] };
+pub const CODECAPI_AVEncMPVGOPOpen: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2983580838, data2: 13056, data3: 18865, data4: [174, 97, 160, 153, 55, 171, 14, 73] };
+pub const CODECAPI_AVEncMPVGOPSInSeq: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2570326228, data2: 9873, data3: 16786, data4: [153, 120, 152, 220, 38, 3, 102, 159] };
+pub const CODECAPI_AVEncMPVGOPSize: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2515737382,
     data2: 38308,
     data3: 16810,
     data4: [147, 3, 36, 106, 127, 198, 238, 241],
 };
-pub const CODECAPI_AVEncMPVGOPSizeMax: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4269663428, data2: 6454, data3: 20450, data4: [189, 247, 31, 24, 202, 29, 0, 31] };
-pub const CODECAPI_AVEncMPVGOPSizeMin: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVEncMPVGOPSizeMax: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4269663428, data2: 6454, data3: 20450, data4: [189, 247, 31, 24, 202, 29, 0, 31] };
+pub const CODECAPI_AVEncMPVGOPSizeMin: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1901448992,
     data2: 54336,
     data3: 18514,
     data4: [173, 15, 156, 74, 191, 227, 122, 106],
 };
-pub const CODECAPI_AVEncMPVGenerateHeaderPicDispExt: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVEncMPVGenerateHeaderPicDispExt: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3326160772,
     data2: 49215,
     data3: 20288,
     data4: [160, 12, 66, 147, 223, 131, 149, 187],
 };
-pub const CODECAPI_AVEncMPVGenerateHeaderPicExt: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 461661355, data2: 37967, data3: 17904, data4: [183, 78, 58, 88, 218, 209, 31, 55] };
-pub const CODECAPI_AVEncMPVGenerateHeaderSeqDispExt: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVEncMPVGenerateHeaderPicExt: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 461661355, data2: 37967, data3: 17904, data4: [183, 78, 58, 88, 218, 209, 31, 55] };
+pub const CODECAPI_AVEncMPVGenerateHeaderSeqDispExt: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1681369711,
     data2: 23100,
     data3: 19945,
     data4: [138, 22, 83, 217, 196, 173, 50, 111],
 };
-pub const CODECAPI_AVEncMPVGenerateHeaderSeqExt: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3588720145, data2: 2093, data3: 20075, data4: [152, 175, 15, 81, 171, 19, 146, 34] };
-pub const CODECAPI_AVEncMPVGenerateHeaderSeqScaleExt: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 119723567, data2: 56665, data3: 19078, data4: [156, 213, 100, 79, 142, 38, 83, 216] };
-pub const CODECAPI_AVEncMPVIntraDCPrecision: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVEncMPVGenerateHeaderSeqExt: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3588720145, data2: 2093, data3: 20075, data4: [152, 175, 15, 81, 171, 19, 146, 34] };
+pub const CODECAPI_AVEncMPVGenerateHeaderSeqScaleExt: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 119723567, data2: 56665, data3: 19078, data4: [156, 213, 100, 79, 142, 38, 83, 216] };
+pub const CODECAPI_AVEncMPVIntraDCPrecision: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2685493585,
     data2: 52168,
     data3: 19187,
     data4: [151, 220, 208, 12, 206, 184, 45, 121],
 };
-pub const CODECAPI_AVEncMPVIntraVLCTable: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVEncMPVIntraVLCTable: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2729983989,
     data2: 6809,
     data3: 16474,
     data4: [175, 149, 197, 153, 125, 85, 141, 58],
 };
-pub const CODECAPI_AVEncMPVLevel: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1860439104, data2: 42508, data3: 16879, data4: [143, 80, 55, 194, 36, 158, 44, 179] };
-pub const CODECAPI_AVEncMPVProfile: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3669709642, data2: 7577, data3: 17028, data4: [151, 90, 217, 14, 34, 57, 186, 161] };
-pub const CODECAPI_AVEncMPVQScaleType: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVEncMPVLevel: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1860439104, data2: 42508, data3: 16879, data4: [143, 80, 55, 194, 36, 158, 44, 179] };
+pub const CODECAPI_AVEncMPVProfile: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3669709642, data2: 7577, data3: 17028, data4: [151, 90, 217, 14, 34, 57, 186, 161] };
+pub const CODECAPI_AVEncMPVQScaleType: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 729410487,
     data2: 62596,
     data3: 19191,
     data4: [187, 88, 162, 161, 136, 197, 203, 190],
 };
-pub const CODECAPI_AVEncMPVQuantMatrixChromaIntra: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2662984916, data2: 397, data3: 20477, data4: [143, 45, 57, 228, 159, 7, 177, 122] };
-pub const CODECAPI_AVEncMPVQuantMatrixChromaNonIntra: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 336967345, data2: 13866, data3: 17208, data4: [186, 154, 30, 245, 135, 3, 192, 91] };
-pub const CODECAPI_AVEncMPVQuantMatrixIntra: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVEncMPVQuantMatrixChromaIntra: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2662984916, data2: 397, data3: 20477, data4: [143, 45, 57, 228, 159, 7, 177, 122] };
+pub const CODECAPI_AVEncMPVQuantMatrixChromaNonIntra: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 336967345, data2: 13866, data3: 17208, data4: [186, 154, 30, 245, 135, 3, 192, 91] };
+pub const CODECAPI_AVEncMPVQuantMatrixIntra: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2615805171,
     data2: 26145,
     data3: 17452,
     data4: [139, 161, 58, 195, 120, 151, 150, 152],
 };
-pub const CODECAPI_AVEncMPVQuantMatrixNonIntra: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVEncMPVQuantMatrixNonIntra: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2280931800,
     data2: 2455,
     data3: 19435,
     data4: [160, 142, 133, 115, 212, 9, 207, 117],
 };
-pub const CODECAPI_AVEncMPVScanPattern: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVEncMPVScanPattern: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2139768718,
     data2: 31675,
     data3: 19170,
     data4: [178, 252, 150, 209, 127, 196, 162, 214],
 };
-pub const CODECAPI_AVEncMPVSceneDetection: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1428658673, data2: 56140, data3: 16475, data4: [138, 58, 201, 63, 45, 6, 116, 220] };
-pub const CODECAPI_AVEncMPVUseConcealmentMotionVectors: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVEncMPVSceneDetection: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1428658673, data2: 56140, data3: 16475, data4: [138, 58, 201, 63, 45, 6, 116, 220] };
+pub const CODECAPI_AVEncMPVUseConcealmentMotionVectors: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3967225075,
     data2: 26888,
     data3: 19275,
     data4: [170, 48, 127, 185, 134, 33, 79, 234],
 };
-pub const CODECAPI_AVEncMaxFrameRate: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVEncMaxFrameRate: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3113098033,
     data2: 6650,
     data3: 19791,
     data4: [153, 49, 214, 165, 184, 170, 185, 60],
 };
-pub const CODECAPI_AVEncMuxOutputStreamType: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3470630543, data2: 13523, data3: 17627, data4: [161, 216, 248, 21, 32, 37, 79, 62] };
-pub const CODECAPI_AVEncNoInputCopy: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVEncMuxOutputStreamType: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3470630543, data2: 13523, data3: 17627, data4: [161, 216, 248, 21, 32, 37, 79, 62] };
+pub const CODECAPI_AVEncNoInputCopy: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3535039018,
     data2: 59630,
     data3: 20165,
     data4: [134, 158, 68, 155, 108, 98, 200, 26],
 };
-pub const CODECAPI_AVEncNumWorkerThreads: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2965946208, data2: 5879, data3: 18769, data4: [163, 11, 29, 177, 96, 146, 147, 214] };
-pub const CODECAPI_AVEncProgressiveUpdateTime: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVEncNumWorkerThreads: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2965946208, data2: 5879, data3: 18769, data4: [163, 11, 29, 177, 96, 146, 147, 214] };
+pub const CODECAPI_AVEncProgressiveUpdateTime: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1688186726,
     data2: 44998,
     data3: 18472,
     data4: [143, 220, 7, 113, 205, 154, 177, 125],
 };
-pub const CODECAPI_AVEncSliceControlMode: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVEncSliceControlMode: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3924263663,
     data2: 24344,
     data3: 17609,
     data4: [169, 11, 233, 195, 194, 193, 123, 11],
 };
-pub const CODECAPI_AVEncSliceControlSize: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVEncSliceControlSize: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2465537523,
     data2: 1957,
     data3: 16754,
     data4: [174, 254, 198, 156, 163, 182, 14, 53],
 };
-pub const CODECAPI_AVEncSliceGenerationMode: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVEncSliceGenerationMode: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2322318975,
     data2: 38039,
     data3: 17030,
     data4: [180, 107, 2, 219, 141, 96, 237, 188],
 };
-pub const CODECAPI_AVEncStatAudioAverageBPS: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVEncStatAudioAverageBPS: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3395757275,
     data2: 28761,
     data3: 17233,
     data4: [139, 67, 248, 33, 152, 130, 106, 20],
 };
-pub const CODECAPI_AVEncStatAudioAveragePCMValue: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVEncStatAudioAveragePCMValue: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2542957304,
     data2: 53631,
     data3: 20018,
     data4: [187, 115, 78, 115, 28, 104, 186, 45],
 };
-pub const CODECAPI_AVEncStatAudioPeakPCMValue: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3706191156, data2: 56320, data3: 19478, data4: [130, 27, 53, 217, 235, 0, 251, 26] };
-pub const CODECAPI_AVEncStatAverageBPS: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVEncStatAudioPeakPCMValue: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3706191156, data2: 56320, data3: 19478, data4: [130, 27, 53, 217, 235, 0, 251, 26] };
+pub const CODECAPI_AVEncStatAverageBPS: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3395757275,
     data2: 28761,
     data3: 17233,
     data4: [139, 67, 248, 33, 152, 130, 106, 20],
 };
-pub const CODECAPI_AVEncStatCommonCompletedPasses: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVEncStatCommonCompletedPasses: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1046340915,
     data2: 40439,
     data3: 17292,
     data4: [133, 79, 159, 125, 211, 104, 61, 52],
 };
-pub const CODECAPI_AVEncStatHardwareBandwidthUtilitization: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 19184283, data2: 56385, data3: 18470, data4: [180, 95, 24, 172, 1, 179, 213, 168] };
-pub const CODECAPI_AVEncStatHardwareProcessorUtilitization: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVEncStatHardwareBandwidthUtilitization: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 19184283, data2: 56385, data3: 18470, data4: [180, 95, 24, 172, 1, 179, 213, 168] };
+pub const CODECAPI_AVEncStatHardwareProcessorUtilitization: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2573058087,
     data2: 52117,
     data3: 18918,
     data4: [185, 27, 89, 103, 117, 60, 220, 184],
 };
-pub const CODECAPI_AVEncStatMPVSkippedEmptyFrames: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 840523731, data2: 22797, data3: 18450, data4: [167, 237, 109, 99, 154, 31, 151, 17] };
-pub const CODECAPI_AVEncStatVideoCodedFrames: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVEncStatMPVSkippedEmptyFrames: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 840523731, data2: 22797, data3: 18450, data4: [167, 237, 109, 99, 154, 31, 151, 17] };
+pub const CODECAPI_AVEncStatVideoCodedFrames: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3565129057,
     data2: 28506,
     data3: 18982,
     data4: [187, 159, 205, 149, 24, 70, 43, 205],
 };
-pub const CODECAPI_AVEncStatVideoOutputFrameRate: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVEncStatVideoOutputFrameRate: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3195304009,
     data2: 39604,
     data3: 19043,
     data4: [152, 254, 241, 67, 240, 79, 142, 233],
 };
-pub const CODECAPI_AVEncStatVideoTotalFrames: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVEncStatVideoTotalFrames: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4255815958,
     data2: 4506,
     data3: 16930,
     data4: [154, 214, 63, 124, 171, 153, 204, 139],
 };
-pub const CODECAPI_AVEncStatWMVCBAvg: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVEncStatWMVCBAvg: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1789272735,
     data2: 54786,
     data3: 19357,
     data4: [182, 140, 193, 173, 120, 136, 75, 239],
 };
-pub const CODECAPI_AVEncStatWMVCBMax: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3916873464, data2: 254, data3: 17588, data4: [182, 37, 143, 35, 139, 192, 52, 153] };
-pub const CODECAPI_AVEncStatWMVDecoderComplexityProfile: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2313592771, data2: 3995, data3: 17260, data4: [151, 74, 223, 130, 18, 39, 201, 13] };
-pub const CODECAPI_AVEncVideoCBRMotionTradeoff: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 222905630, data2: 6357, data3: 17255, data4: [164, 239, 50, 64, 223, 22, 147, 196] };
-pub const CODECAPI_AVEncVideoCTBSize: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVEncStatWMVCBMax: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3916873464, data2: 254, data3: 17588, data4: [182, 37, 143, 35, 139, 192, 52, 153] };
+pub const CODECAPI_AVEncStatWMVDecoderComplexityProfile: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2313592771, data2: 3995, data3: 17260, data4: [151, 74, 223, 130, 18, 39, 201, 13] };
+pub const CODECAPI_AVEncVideoCBRMotionTradeoff: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 222905630, data2: 6357, data3: 17255, data4: [164, 239, 50, 64, 223, 22, 147, 196] };
+pub const CODECAPI_AVEncVideoCTBSize: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3565009074,
     data2: 59195,
     data3: 19641,
     data4: [140, 62, 189, 135, 125, 6, 215, 123],
 };
-pub const CODECAPI_AVEncVideoCodedVideoAccessUnitSize: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVEncVideoCodedVideoAccessUnitSize: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3031501845,
     data2: 5287,
     data3: 19688,
     data4: [177, 115, 220, 144, 160, 180, 252, 219],
 };
-pub const CODECAPI_AVEncVideoContentType: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVEncVideoContentType: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1712421578,
     data2: 60279,
     data3: 17821,
     data4: [147, 12, 164, 141, 157, 6, 131, 252],
 };
-pub const CODECAPI_AVEncVideoDefaultUpperFieldDominant: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2164352964, data2: 3009, data3: 18378, data4: [143, 194, 87, 5, 90, 20, 116, 165] };
-pub const CODECAPI_AVEncVideoDirtyRectEnabled: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2328596445, data2: 24076, data3: 19558, data4: [135, 41, 184, 246, 41, 171, 4, 251] };
-pub const CODECAPI_AVEncVideoDisplayDimension: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVEncVideoDefaultUpperFieldDominant: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2164352964, data2: 3009, data3: 18378, data4: [143, 194, 87, 5, 90, 20, 116, 165] };
+pub const CODECAPI_AVEncVideoDirtyRectEnabled: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2328596445, data2: 24076, data3: 19558, data4: [135, 41, 184, 246, 41, 171, 4, 251] };
+pub const CODECAPI_AVEncVideoDisplayDimension: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3724883560,
     data2: 62700,
     data3: 18345,
     data4: [134, 208, 131, 103, 112, 240, 193, 213],
 };
-pub const CODECAPI_AVEncVideoEncodeDimension: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVEncVideoEncodeDimension: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 276094760,
     data2: 32271,
     data3: 18340,
     data4: [164, 83, 205, 215, 56, 112, 245, 206],
 };
-pub const CODECAPI_AVEncVideoEncodeFrameTypeQP: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2859513360, data2: 57407, data3: 17676, data4: [173, 7, 7, 49, 78, 99, 156, 231] };
-pub const CODECAPI_AVEncVideoEncodeOffsetOrigin: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1807784190, data2: 42778, data3: 17492, data4: [133, 46, 77, 45, 222, 178, 205, 36] };
-pub const CODECAPI_AVEncVideoEncodeQP: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 750086507, data2: 9211, data3: 19681, data4: [160, 249, 239, 91, 144, 253, 85, 202] };
-pub const CODECAPI_AVEncVideoFieldSwap: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4278023529, data2: 19978, data3: 18930, data4: [159, 43, 54, 14, 164, 140, 25, 162] };
-pub const CODECAPI_AVEncVideoForceKeyFrame: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 965483416, data2: 33619, data3: 18266, data4: [158, 242, 143, 38, 93, 38, 3, 69] };
-pub const CODECAPI_AVEncVideoForceSourceScanType: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 519177823, data2: 1418, data3: 18277, data4: [164, 252, 138, 134, 76, 16, 48, 18] };
-pub const CODECAPI_AVEncVideoGradualIntraRefresh: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2402581998, data2: 51981, data3: 18874, data4: [180, 98, 219, 105, 39, 238, 33, 1] };
-pub const CODECAPI_AVEncVideoHeaderDropFrame: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1859772708, data2: 31013, data3: 17406, data4: [151, 27, 224, 25, 246, 34, 34, 180] };
-pub const CODECAPI_AVEncVideoHeaderFrames: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2950034791, data2: 23579, data3: 19164, data4: [189, 175, 115, 86, 16, 56, 20, 54] };
-pub const CODECAPI_AVEncVideoHeaderHours: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 718042882, data2: 58074, data3: 16728, data4: [191, 155, 136, 136, 1, 41, 215, 64] };
-pub const CODECAPI_AVEncVideoHeaderMinutes: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3692730830, data2: 775, data3: 16523, data4: [136, 11, 184, 52, 142, 232, 202, 127] };
-pub const CODECAPI_AVEncVideoHeaderSeconds: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVEncVideoEncodeFrameTypeQP: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2859513360, data2: 57407, data3: 17676, data4: [173, 7, 7, 49, 78, 99, 156, 231] };
+pub const CODECAPI_AVEncVideoEncodeOffsetOrigin: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1807784190, data2: 42778, data3: 17492, data4: [133, 46, 77, 45, 222, 178, 205, 36] };
+pub const CODECAPI_AVEncVideoEncodeQP: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 750086507, data2: 9211, data3: 19681, data4: [160, 249, 239, 91, 144, 253, 85, 202] };
+pub const CODECAPI_AVEncVideoFieldSwap: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4278023529, data2: 19978, data3: 18930, data4: [159, 43, 54, 14, 164, 140, 25, 162] };
+pub const CODECAPI_AVEncVideoForceKeyFrame: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 965483416, data2: 33619, data3: 18266, data4: [158, 242, 143, 38, 93, 38, 3, 69] };
+pub const CODECAPI_AVEncVideoForceSourceScanType: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 519177823, data2: 1418, data3: 18277, data4: [164, 252, 138, 134, 76, 16, 48, 18] };
+pub const CODECAPI_AVEncVideoGradualIntraRefresh: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2402581998, data2: 51981, data3: 18874, data4: [180, 98, 219, 105, 39, 238, 33, 1] };
+pub const CODECAPI_AVEncVideoHeaderDropFrame: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1859772708, data2: 31013, data3: 17406, data4: [151, 27, 224, 25, 246, 34, 34, 180] };
+pub const CODECAPI_AVEncVideoHeaderFrames: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2950034791, data2: 23579, data3: 19164, data4: [189, 175, 115, 86, 16, 56, 20, 54] };
+pub const CODECAPI_AVEncVideoHeaderHours: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 718042882, data2: 58074, data3: 16728, data4: [191, 155, 136, 136, 1, 41, 215, 64] };
+pub const CODECAPI_AVEncVideoHeaderMinutes: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3692730830, data2: 775, data3: 16523, data4: [136, 11, 184, 52, 142, 232, 202, 127] };
+pub const CODECAPI_AVEncVideoHeaderSeconds: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1244535301,
     data2: 42880,
     data3: 20312,
     data4: [129, 32, 154, 68, 157, 105, 101, 107],
 };
-pub const CODECAPI_AVEncVideoInputChromaResolution: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3138186291, data2: 5873, data3: 18352, data4: [138, 136, 55, 129, 91, 238, 23, 57] };
-pub const CODECAPI_AVEncVideoInputChromaSubsampling: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2833726009, data2: 17461, data3: 20163, data4: [166, 234, 152, 48, 15, 75, 54, 247] };
-pub const CODECAPI_AVEncVideoInputColorLighting: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1185518921, data2: 21, data3: 19013, data4: [156, 48, 29, 92, 250, 37, 131, 22] };
-pub const CODECAPI_AVEncVideoInputColorNominalRange: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 382674374, data2: 41638, data3: 18665, data4: [174, 128, 33, 174, 196, 29, 66, 126] };
-pub const CODECAPI_AVEncVideoInputColorPrimaries: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVEncVideoInputChromaResolution: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3138186291, data2: 5873, data3: 18352, data4: [138, 136, 55, 129, 91, 238, 23, 57] };
+pub const CODECAPI_AVEncVideoInputChromaSubsampling: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2833726009, data2: 17461, data3: 20163, data4: [166, 234, 152, 48, 15, 75, 54, 247] };
+pub const CODECAPI_AVEncVideoInputColorLighting: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1185518921, data2: 21, data3: 19013, data4: [156, 48, 29, 92, 250, 37, 131, 22] };
+pub const CODECAPI_AVEncVideoInputColorNominalRange: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 382674374, data2: 41638, data3: 18665, data4: [174, 128, 33, 174, 196, 29, 66, 126] };
+pub const CODECAPI_AVEncVideoInputColorPrimaries: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3259856959,
     data2: 31974,
     data3: 17016,
     data4: [144, 171, 40, 164, 241, 229, 248, 108],
 };
-pub const CODECAPI_AVEncVideoInputColorTransferFunction: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVEncVideoInputColorTransferFunction: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2349162769,
     data2: 43459,
     data3: 19208,
     data4: [160, 160, 206, 19, 248, 162, 124, 117],
 };
-pub const CODECAPI_AVEncVideoInputColorTransferMatrix: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1391290553, data2: 29397, data3: 16521, data4: [149, 141, 245, 64, 93, 85, 8, 28] };
-pub const CODECAPI_AVEncVideoInstantTemporalUpSwitching: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2737865479, data2: 3478, data3: 19364, data4: [177, 240, 185, 26, 94, 73, 223, 16] };
-pub const CODECAPI_AVEncVideoIntraLayerPrediction: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVEncVideoInputColorTransferMatrix: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1391290553, data2: 29397, data3: 16521, data4: [149, 141, 245, 64, 93, 85, 8, 28] };
+pub const CODECAPI_AVEncVideoInstantTemporalUpSwitching: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2737865479, data2: 3478, data3: 19364, data4: [177, 240, 185, 26, 94, 73, 223, 16] };
+pub const CODECAPI_AVEncVideoIntraLayerPrediction: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3551479480,
     data2: 48967,
     data3: 17595,
     data4: [162, 131, 105, 240, 176, 34, 143, 249],
 };
-pub const CODECAPI_AVEncVideoInverseTelecineEnable: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVEncVideoInverseTelecineEnable: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 782829963,
     data2: 59245,
     data3: 19661,
     data4: [160, 48, 211, 184, 137, 193, 182, 76],
 };
-pub const CODECAPI_AVEncVideoInverseTelecineThreshold: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1076133252, data2: 59541, data3: 18815, data4: [180, 76, 183, 69, 96, 172, 254, 39] };
-pub const CODECAPI_AVEncVideoLTRBufferControl: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVEncVideoInverseTelecineThreshold: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1076133252, data2: 59541, data3: 18815, data4: [180, 76, 183, 69, 96, 172, 254, 39] };
+pub const CODECAPI_AVEncVideoLTRBufferControl: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2762008893,
     data2: 19644,
     data3: 17484,
     data4: [137, 244, 130, 109, 49, 14, 146, 167],
 };
-pub const CODECAPI_AVEncVideoMarkLTRFrame: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3828303688, data2: 41069, data3: 20217, data4: [140, 234, 61, 5, 253, 227, 189, 59] };
-pub const CODECAPI_AVEncVideoMaxCTBSize: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVEncVideoMarkLTRFrame: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3828303688, data2: 41069, data3: 20217, data4: [140, 234, 61, 5, 253, 227, 189, 59] };
+pub const CODECAPI_AVEncVideoMaxCTBSize: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2183357439,
     data2: 52936,
     data3: 17381,
     data4: [146, 253, 224, 151, 72, 132, 133, 233],
 };
-pub const CODECAPI_AVEncVideoMaxKeyframeDistance: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 696717882, data2: 47763, data3: 18180, data4: [180, 137, 236, 30, 95, 37, 41, 44] };
-pub const CODECAPI_AVEncVideoMaxNumRefFrame: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVEncVideoMaxKeyframeDistance: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 696717882, data2: 47763, data3: 18180, data4: [180, 137, 236, 30, 95, 37, 41, 44] };
+pub const CODECAPI_AVEncVideoMaxNumRefFrame: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2521311725,
     data2: 38137,
     data3: 17332,
     data4: [183, 77, 239, 64, 148, 75, 105, 160],
 };
-pub const CODECAPI_AVEncVideoMaxQP: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVEncVideoMaxQP: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1034907494,
     data2: 42663,
     data3: 17888,
     data4: [168, 229, 242, 116, 63, 70, 163, 162],
 };
-pub const CODECAPI_AVEncVideoMaxTemporalLayers: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVEncVideoMaxTemporalLayers: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2623966462,
     data2: 2273,
     data3: 16970,
     data4: [147, 78, 183, 100, 176, 100, 128, 42],
 };
-pub const CODECAPI_AVEncVideoMeanAbsoluteDifference: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3854614799, data2: 33188, data3: 16941, data4: [140, 63, 180, 116, 164, 88, 19, 54] };
-pub const CODECAPI_AVEncVideoMinQP: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 249703530, data2: 41852, data3: 17768, data4: [181, 241, 157, 76, 43, 58, 184, 134] };
-pub const CODECAPI_AVEncVideoNoOfFieldsToEncode: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVEncVideoMeanAbsoluteDifference: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3854614799, data2: 33188, data3: 16941, data4: [140, 63, 180, 116, 164, 88, 19, 54] };
+pub const CODECAPI_AVEncVideoMinQP: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 249703530, data2: 41852, data3: 17768, data4: [181, 241, 157, 76, 43, 58, 184, 134] };
+pub const CODECAPI_AVEncVideoNoOfFieldsToEncode: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1642380258,
     data2: 20192,
     data3: 16615,
     data4: [128, 171, 81, 221, 238, 190, 98, 145],
 };
-pub const CODECAPI_AVEncVideoNoOfFieldsToSkip: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVEncVideoNoOfFieldsToSkip: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2843611712,
     data2: 5159,
     data3: 19478,
     data4: [167, 247, 61, 207, 216, 186, 76, 197],
 };
-pub const CODECAPI_AVEncVideoNumGOPsPerIDR: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2210159579, data2: 23433, data3: 17697, data4: [143, 102, 51, 21, 28, 55, 49, 118] };
-pub const CODECAPI_AVEncVideoOutputChromaResolution: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVEncVideoNumGOPsPerIDR: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2210159579, data2: 23433, data3: 17697, data4: [143, 102, 51, 21, 28, 55, 49, 118] };
+pub const CODECAPI_AVEncVideoOutputChromaResolution: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1620554953,
     data2: 31773,
     data3: 20068,
     data4: [191, 204, 158, 151, 101, 49, 138, 231],
 };
-pub const CODECAPI_AVEncVideoOutputChromaSubsampling: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4199947372, data2: 32023, data3: 17648, data4: [131, 201, 50, 237, 18, 233, 99, 67] };
-pub const CODECAPI_AVEncVideoOutputColorLighting: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVEncVideoOutputChromaSubsampling: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4199947372, data2: 32023, data3: 17648, data4: [131, 201, 50, 237, 18, 233, 99, 67] };
+pub const CODECAPI_AVEncVideoOutputColorLighting: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 240822982,
     data2: 44262,
     data3: 19548,
     data4: [153, 142, 26, 140, 156, 108, 15, 137],
 };
-pub const CODECAPI_AVEncVideoOutputColorNominalRange: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2535994861, data2: 34741, data3: 20117, data4: [149, 0, 199, 57, 88, 86, 110, 84] };
-pub const CODECAPI_AVEncVideoOutputColorPrimaries: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVEncVideoOutputColorNominalRange: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2535994861, data2: 34741, data3: 20117, data4: [149, 0, 199, 57, 88, 86, 110, 84] };
+pub const CODECAPI_AVEncVideoOutputColorPrimaries: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3197472892,
     data2: 40196,
     data3: 18721,
     data4: [137, 133, 166, 214, 216, 125, 26, 108],
 };
-pub const CODECAPI_AVEncVideoOutputColorTransferFunction: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1249871946, data2: 59921, data3: 17933, data4: [191, 87, 184, 139, 199, 89, 0, 222] };
-pub const CODECAPI_AVEncVideoOutputColorTransferMatrix: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVEncVideoOutputColorTransferFunction: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1249871946, data2: 59921, data3: 17933, data4: [191, 87, 184, 139, 199, 89, 0, 222] };
+pub const CODECAPI_AVEncVideoOutputColorTransferMatrix: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2847474756,
     data2: 44864,
     data3: 17168,
     data4: [143, 190, 237, 109, 147, 63, 137, 43],
 };
-pub const CODECAPI_AVEncVideoOutputFrameRate: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVEncVideoOutputFrameRate: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3934644163,
     data2: 38247,
     data3: 19865,
     data4: [135, 196, 2, 193, 194, 120, 202, 124],
 };
-pub const CODECAPI_AVEncVideoOutputFrameRateConversion: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVEncVideoOutputFrameRateConversion: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2349239284,
     data2: 13978,
     data3: 19363,
     data4: [130, 253, 178, 81, 143, 179, 57, 110],
 };
-pub const CODECAPI_AVEncVideoOutputScanType: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVEncVideoOutputScanType: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1175147894,
     data2: 33838,
     data3: 18859,
     data4: [166, 45, 179, 111, 115, 18, 201, 219],
 };
-pub const CODECAPI_AVEncVideoPixelAspectRatio: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1021079951, data2: 46057, data3: 20150, data4: [165, 127, 207, 31, 27, 50, 27, 135] };
-pub const CODECAPI_AVEncVideoROIEnabled: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVEncVideoPixelAspectRatio: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1021079951, data2: 46057, data3: 20150, data4: [165, 127, 207, 31, 27, 50, 27, 135] };
+pub const CODECAPI_AVEncVideoROIEnabled: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3612311320,
     data2: 17629,
     data3: 19333,
     data4: [171, 163, 5, 217, 244, 42, 130, 128],
 };
-pub const CODECAPI_AVEncVideoRateControlParams: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVEncVideoRateControlParams: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2278831975,
     data2: 30277,
     data3: 17644,
     data4: [180, 56, 211, 50, 47, 188, 162, 159],
 };
-pub const CODECAPI_AVEncVideoSelectLayer: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3943728373, data2: 27306, data3: 18708, data4: [187, 47, 97, 71, 34, 127, 18, 231] };
-pub const CODECAPI_AVEncVideoSourceFilmContent: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 395429451, data2: 52476, data3: 18471, data4: [160, 237, 37, 87, 121, 59, 43, 28] };
-pub const CODECAPI_AVEncVideoSourceIsBW: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1124058267, data2: 6162, data3: 20444, data4: [141, 36, 112, 84, 197, 33, 230, 235] };
-pub const CODECAPI_AVEncVideoSupportedControls: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3555987421, data2: 30649, data3: 18237, data4: [129, 150, 6, 18, 89, 230, 156, 255] };
-pub const CODECAPI_AVEncVideoTemporalLayerCount: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 432729087, data2: 46925, data3: 19709, data4: [140, 39, 194, 249, 217, 125, 95, 82] };
-pub const CODECAPI_AVEncVideoUsage: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVEncVideoSelectLayer: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3943728373, data2: 27306, data3: 18708, data4: [187, 47, 97, 71, 34, 127, 18, 231] };
+pub const CODECAPI_AVEncVideoSourceFilmContent: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 395429451, data2: 52476, data3: 18471, data4: [160, 237, 37, 87, 121, 59, 43, 28] };
+pub const CODECAPI_AVEncVideoSourceIsBW: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1124058267, data2: 6162, data3: 20444, data4: [141, 36, 112, 84, 197, 33, 230, 235] };
+pub const CODECAPI_AVEncVideoSupportedControls: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3555987421, data2: 30649, data3: 18237, data4: [129, 150, 6, 18, 89, 230, 156, 255] };
+pub const CODECAPI_AVEncVideoTemporalLayerCount: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 432729087, data2: 46925, data3: 19709, data4: [140, 39, 194, 249, 217, 125, 95, 82] };
+pub const CODECAPI_AVEncVideoUsage: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 526608457,
     data2: 24001,
     data3: 18929,
     data4: [177, 216, 206, 60, 246, 46, 163, 133],
 };
-pub const CODECAPI_AVEncVideoUseLTRFrame: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 7679416, data2: 22007, data3: 20352, data4: [137, 91, 39, 99, 145, 149, 242, 173] };
-pub const CODECAPI_AVEncWMVDecoderComplexity: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVEncVideoUseLTRFrame: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 7679416, data2: 22007, data3: 20352, data4: [137, 91, 39, 99, 145, 149, 242, 173] };
+pub const CODECAPI_AVEncWMVDecoderComplexity: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4079750571,
     data2: 62411,
     data3: 16919,
     data4: [183, 159, 135, 98, 118, 139, 95, 103],
 };
-pub const CODECAPI_AVEncWMVInterlacedEncoding: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVEncWMVInterlacedEncoding: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3822063498,
     data2: 50933,
     data3: 19988,
     data4: [165, 136, 14, 200, 122, 114, 111, 155],
 };
-pub const CODECAPI_AVEncWMVKeyFrameBufferLevelMarker: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1375670549, data2: 13228, data3: 17004, data4: [161, 177, 9, 50, 27, 223, 150, 180] };
-pub const CODECAPI_AVEncWMVKeyFrameDistance: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVEncWMVKeyFrameBufferLevelMarker: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1375670549, data2: 13228, data3: 17004, data4: [161, 177, 9, 50, 27, 223, 150, 180] };
+pub const CODECAPI_AVEncWMVKeyFrameDistance: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1432946014,
     data2: 57960,
     data3: 18289,
     data4: [184, 62, 149, 85, 234, 40, 174, 211],
 };
-pub const CODECAPI_AVEncWMVProduceDummyFrames: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3597258753, data2: 6204, data3: 17123, data4: [163, 202, 47, 69, 134, 210, 57, 108] };
-pub const CODECAPI_AVLowLatencyMode: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVEncWMVProduceDummyFrames: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3597258753, data2: 6204, data3: 17123, data4: [163, 202, 47, 69, 134, 210, 57, 108] };
+pub const CODECAPI_AVLowLatencyMode: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2619836698,
     data2: 60794,
     data3: 16609,
     data4: [136, 232, 178, 39, 39, 160, 36, 238],
 };
-pub const CODECAPI_AVPriorityControl: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1421491656, data2: 48606, data3: 17193, data4: [177, 135, 32, 24, 188, 92, 43, 161] };
-pub const CODECAPI_AVRealtimeControl: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1866729010, data2: 50349, data3: 19447, data4: [158, 82, 69, 105, 66, 180, 84, 176] };
-pub const CODECAPI_AVScenarioInfo: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2995416676, data2: 16377, data3: 17514, data4: [138, 75, 13, 122, 83, 65, 50, 54] };
-pub const CODECAPI_GUID_AVDecAudioInputAAC: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2548004904, data2: 47434, data3: 18402, data4: [164, 188, 81, 25, 77, 178, 42, 77] };
-pub const CODECAPI_GUID_AVDecAudioInputDTS: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_AVPriorityControl: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1421491656, data2: 48606, data3: 17193, data4: [177, 135, 32, 24, 188, 92, 43, 161] };
+pub const CODECAPI_AVRealtimeControl: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1866729010, data2: 50349, data3: 19447, data4: [158, 82, 69, 105, 66, 180, 84, 176] };
+pub const CODECAPI_AVScenarioInfo: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2995416676, data2: 16377, data3: 17514, data4: [138, 75, 13, 122, 83, 65, 50, 54] };
+pub const CODECAPI_GUID_AVDecAudioInputAAC: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2548004904, data2: 47434, data3: 18402, data4: [164, 188, 81, 25, 77, 178, 42, 77] };
+pub const CODECAPI_GUID_AVDecAudioInputDTS: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1611382986,
     data2: 27167,
     data3: 20113,
     data4: [178, 65, 27, 190, 177, 203, 25, 224],
 };
-pub const CODECAPI_GUID_AVDecAudioInputDolby: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_GUID_AVDecAudioInputDolby: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2386700448,
     data2: 61440,
     data3: 19979,
     data4: [143, 84, 171, 141, 36, 173, 97, 162],
 };
-pub const CODECAPI_GUID_AVDecAudioInputDolbyDigitalPlus: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 134472069, data2: 36701, data3: 18421, data4: [153, 8, 25, 165, 187, 201, 254, 52] };
-pub const CODECAPI_GUID_AVDecAudioInputHEAAC: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_GUID_AVDecAudioInputDolbyDigitalPlus: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 134472069, data2: 36701, data3: 18421, data4: [153, 8, 25, 165, 187, 201, 254, 52] };
+pub const CODECAPI_GUID_AVDecAudioInputHEAAC: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 384808106,
     data2: 13070,
     data3: 20316,
     data4: [152, 168, 207, 106, 197, 92, 190, 96],
 };
-pub const CODECAPI_GUID_AVDecAudioInputMPEG: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2433773366, data2: 709, data3: 20341, data4: [151, 25, 59, 122, 191, 117, 225, 246] };
-pub const CODECAPI_GUID_AVDecAudioInputPCM: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4064419237, data2: 48052, data3: 19669, data4: [169, 150, 147, 60, 107, 93, 19, 71] };
-pub const CODECAPI_GUID_AVDecAudioInputWMA: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3378417103, data2: 16472, data3: 16900, data4: [140, 66, 203, 36, 217, 30, 75, 155] };
-pub const CODECAPI_GUID_AVDecAudioInputWMAPro: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 19445703, data2: 55922, data3: 20451, data4: [190, 248, 92, 82, 227, 85, 119, 4] };
-pub const CODECAPI_GUID_AVDecAudioOutputFormat_PCM: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1768824113, data2: 21647, data3: 16438, data4: [130, 95, 112, 38, 198, 0, 17, 189] };
-pub const CODECAPI_GUID_AVDecAudioOutputFormat_PCM_Headphones: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1768824116, data2: 21647, data3: 16438, data4: [130, 95, 112, 38, 198, 0, 17, 189] };
-pub const CODECAPI_GUID_AVDecAudioOutputFormat_PCM_Stereo_Auto: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1768824117, data2: 21647, data3: 16438, data4: [130, 95, 112, 38, 198, 0, 17, 189] };
-pub const CODECAPI_GUID_AVDecAudioOutputFormat_PCM_Stereo_MatrixEncoded: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1768824112, data2: 21647, data3: 16438, data4: [130, 95, 112, 38, 198, 0, 17, 189] };
-pub const CODECAPI_GUID_AVDecAudioOutputFormat_SPDIF_Bitstream: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1768824115, data2: 21647, data3: 16438, data4: [130, 95, 112, 38, 198, 0, 17, 189] };
-pub const CODECAPI_GUID_AVDecAudioOutputFormat_SPDIF_PCM: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1768824114, data2: 21647, data3: 16438, data4: [130, 95, 112, 38, 198, 0, 17, 189] };
-pub const CODECAPI_GUID_AVEncCommonFormatATSC: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_GUID_AVDecAudioInputMPEG: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2433773366, data2: 709, data3: 20341, data4: [151, 25, 59, 122, 191, 117, 225, 246] };
+pub const CODECAPI_GUID_AVDecAudioInputPCM: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4064419237, data2: 48052, data3: 19669, data4: [169, 150, 147, 60, 107, 93, 19, 71] };
+pub const CODECAPI_GUID_AVDecAudioInputWMA: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3378417103, data2: 16472, data3: 16900, data4: [140, 66, 203, 36, 217, 30, 75, 155] };
+pub const CODECAPI_GUID_AVDecAudioInputWMAPro: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 19445703, data2: 55922, data3: 20451, data4: [190, 248, 92, 82, 227, 85, 119, 4] };
+pub const CODECAPI_GUID_AVDecAudioOutputFormat_PCM: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1768824113, data2: 21647, data3: 16438, data4: [130, 95, 112, 38, 198, 0, 17, 189] };
+pub const CODECAPI_GUID_AVDecAudioOutputFormat_PCM_Headphones: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1768824116, data2: 21647, data3: 16438, data4: [130, 95, 112, 38, 198, 0, 17, 189] };
+pub const CODECAPI_GUID_AVDecAudioOutputFormat_PCM_Stereo_Auto: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1768824117, data2: 21647, data3: 16438, data4: [130, 95, 112, 38, 198, 0, 17, 189] };
+pub const CODECAPI_GUID_AVDecAudioOutputFormat_PCM_Stereo_MatrixEncoded: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1768824112, data2: 21647, data3: 16438, data4: [130, 95, 112, 38, 198, 0, 17, 189] };
+pub const CODECAPI_GUID_AVDecAudioOutputFormat_SPDIF_Bitstream: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1768824115, data2: 21647, data3: 16438, data4: [130, 95, 112, 38, 198, 0, 17, 189] };
+pub const CODECAPI_GUID_AVDecAudioOutputFormat_SPDIF_PCM: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1768824114, data2: 21647, data3: 16438, data4: [130, 95, 112, 38, 198, 0, 17, 189] };
+pub const CODECAPI_GUID_AVEncCommonFormatATSC: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2373683580,
     data2: 40985,
     data3: 18032,
     data4: [170, 118, 46, 220, 172, 122, 194, 150],
 };
-pub const CODECAPI_GUID_AVEncCommonFormatDVB: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_GUID_AVEncCommonFormatDVB: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1904414095,
     data2: 27699,
     data3: 17165,
     data4: [132, 75, 194, 112, 91, 170, 230, 219],
 };
-pub const CODECAPI_GUID_AVEncCommonFormatDVD_DashVR: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3847330262, data2: 1100, data3: 19886, data4: [164, 136, 83, 30, 211, 6, 35, 91] };
-pub const CODECAPI_GUID_AVEncCommonFormatDVD_PlusVR: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_GUID_AVEncCommonFormatDVD_DashVR: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3847330262, data2: 1100, data3: 19886, data4: [164, 136, 83, 30, 211, 6, 35, 91] };
+pub const CODECAPI_GUID_AVEncCommonFormatDVD_PlusVR: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3880546094,
     data2: 60471,
     data3: 18317,
     data4: [154, 244, 165, 225, 53, 182, 39, 28],
 };
-pub const CODECAPI_GUID_AVEncCommonFormatDVD_V: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_GUID_AVEncCommonFormatDVD_V: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3432356036,
     data2: 59390,
     data3: 17693,
     data4: [177, 202, 118, 27, 200, 64, 183, 243],
 };
-pub const CODECAPI_GUID_AVEncCommonFormatHighMAT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_GUID_AVEncCommonFormatHighMAT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 514582368,
     data2: 64299,
     data3: 18728,
     data4: [144, 209, 120, 219, 136, 238, 232, 137],
 };
-pub const CODECAPI_GUID_AVEncCommonFormatHighMPV: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_GUID_AVEncCommonFormatHighMPV: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2731695544,
     data2: 47353,
     data3: 17090,
     data4: [139, 199, 11, 147, 207, 96, 71, 136],
 };
-pub const CODECAPI_GUID_AVEncCommonFormatMP3: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_GUID_AVEncCommonFormatMP3: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 882324429,
     data2: 60168,
     data3: 19906,
     data4: [129, 151, 228, 152, 53, 239, 130, 139],
 };
-pub const CODECAPI_GUID_AVEncCommonFormatSVCD: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_GUID_AVEncCommonFormatSVCD: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1373132824,
     data2: 33312,
     data3: 17548,
     data4: [128, 102, 214, 155, 237, 22, 201, 173],
 };
-pub const CODECAPI_GUID_AVEncCommonFormatUnSpecified: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_GUID_AVEncCommonFormatUnSpecified: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2940642138,
     data2: 24612,
     data3: 17701,
     data4: [164, 138, 9, 75, 151, 245, 179, 194],
 };
-pub const CODECAPI_GUID_AVEncCommonFormatVCD: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_GUID_AVEncCommonFormatVCD: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2500025335,
     data2: 40336,
     data3: 16639,
     data4: [173, 92, 92, 248, 207, 113, 202, 29],
 };
-pub const CODECAPI_GUID_AVEncDTS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1174129314, data2: 24174, data3: 19120, data4: [136, 147, 89, 3, 190, 233, 58, 207] };
-pub const CODECAPI_GUID_AVEncDTSHD: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_GUID_AVEncDTS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1174129314, data2: 24174, data3: 19120, data4: [136, 147, 89, 3, 190, 233, 58, 207] };
+pub const CODECAPI_GUID_AVEncDTSHD: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 542303792,
     data2: 18077,
     data3: 19451,
     data4: [128, 202, 29, 101, 110, 126, 145, 143],
 };
-pub const CODECAPI_GUID_AVEncDV: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 163015111, data2: 13097, data3: 17659, data4: [137, 84, 250, 48, 147, 125, 61, 90] };
-pub const CODECAPI_GUID_AVEncDolbyDigitalConsumer: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3248996204, data2: 89, data3: 19450, data4: [148, 239, 239, 116, 122, 118, 141, 82] };
-pub const CODECAPI_GUID_AVEncDolbyDigitalPlus: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1770855296, data2: 63453, data3: 16732, data4: [151, 28, 66, 73, 42, 32, 86, 198] };
-pub const CODECAPI_GUID_AVEncDolbyDigitalPro: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4122900172, data2: 4088, data3: 16619, data4: [156, 177, 187, 169, 64, 4, 212, 79] };
-pub const CODECAPI_GUID_AVEncH264Video: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2500087467, data2: 12723, data3: 18398, data4: [142, 117, 56, 164, 43, 176, 62, 40] };
-pub const CODECAPI_GUID_AVEncMLP: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 100089385, data2: 61649, data3: 17182, data4: [164, 28, 164, 116, 50, 236, 90, 102] };
-pub const CODECAPI_GUID_AVEncMPEG1Audio: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3571258210, data2: 52554, data3: 19670, data4: [129, 56, 185, 77, 180, 84, 43, 4] };
-pub const CODECAPI_GUID_AVEncMPEG1Video: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_GUID_AVEncDV: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 163015111, data2: 13097, data3: 17659, data4: [137, 84, 250, 48, 147, 125, 61, 90] };
+pub const CODECAPI_GUID_AVEncDolbyDigitalConsumer: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3248996204, data2: 89, data3: 19450, data4: [148, 239, 239, 116, 122, 118, 141, 82] };
+pub const CODECAPI_GUID_AVEncDolbyDigitalPlus: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1770855296, data2: 63453, data3: 16732, data4: [151, 28, 66, 73, 42, 32, 86, 198] };
+pub const CODECAPI_GUID_AVEncDolbyDigitalPro: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4122900172, data2: 4088, data3: 16619, data4: [156, 177, 187, 169, 64, 4, 212, 79] };
+pub const CODECAPI_GUID_AVEncH264Video: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2500087467, data2: 12723, data3: 18398, data4: [142, 117, 56, 164, 43, 176, 62, 40] };
+pub const CODECAPI_GUID_AVEncMLP: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 100089385, data2: 61649, data3: 17182, data4: [164, 28, 164, 116, 50, 236, 90, 102] };
+pub const CODECAPI_GUID_AVEncMPEG1Audio: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3571258210, data2: 52554, data3: 19670, data4: [129, 56, 185, 77, 180, 84, 43, 4] };
+pub const CODECAPI_GUID_AVEncMPEG1Video: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3369795326,
     data2: 55838,
     data3: 18292,
     data4: [178, 125, 17, 131, 12, 22, 177, 254],
 };
-pub const CODECAPI_GUID_AVEncMPEG2Audio: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_GUID_AVEncMPEG2Audio: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3998006047,
     data2: 39999,
     data3: 18288,
     data4: [146, 181, 252, 183, 194, 168, 211, 129],
 };
-pub const CODECAPI_GUID_AVEncMPEG2Video: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 74301850, data2: 26231, data3: 19114, data4: [163, 29, 193, 171, 113, 111, 69, 96] };
-pub const CODECAPI_GUID_AVEncPCM: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2219567092, data2: 9935, data3: 18297, data4: [179, 134, 204, 5, 209, 135, 153, 12] };
-pub const CODECAPI_GUID_AVEncSDDS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 499234863, data2: 4552, data3: 19569, data4: [183, 182, 238, 62, 185, 188, 43, 148] };
-pub const CODECAPI_GUID_AVEncWMALossless: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1439330917, data2: 9176, data3: 18273, data4: [144, 49, 183, 79, 190, 18, 244, 193] };
-pub const CODECAPI_GUID_AVEncWMAPro: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_GUID_AVEncMPEG2Video: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 74301850, data2: 26231, data3: 19114, data4: [163, 29, 193, 171, 113, 111, 69, 96] };
+pub const CODECAPI_GUID_AVEncPCM: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2219567092, data2: 9935, data3: 18297, data4: [179, 134, 204, 5, 209, 135, 153, 12] };
+pub const CODECAPI_GUID_AVEncSDDS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 499234863, data2: 4552, data3: 19569, data4: [183, 182, 238, 62, 185, 188, 43, 148] };
+pub const CODECAPI_GUID_AVEncWMALossless: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1439330917, data2: 9176, data3: 18273, data4: [144, 49, 183, 79, 190, 18, 244, 193] };
+pub const CODECAPI_GUID_AVEncWMAPro: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 425064716,
     data2: 13303,
     data3: 19048,
     data4: [171, 129, 83, 245, 101, 113, 37, 196],
 };
-pub const CODECAPI_GUID_AVEncWMAVoice: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_GUID_AVEncWMAVoice: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 334305483,
     data2: 20712,
     data3: 17014,
     data4: [162, 136, 166, 170, 34, 131, 130, 217],
 };
-pub const CODECAPI_GUID_AVEncWMV: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1309667227, data2: 7491, data3: 16829, data4: [184, 189, 77, 123, 247, 69, 122, 42] };
-pub const CODECAPI_GUID_AVEndMPEG4Video: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3711414570, data2: 38147, data3: 20363, data4: [184, 208, 50, 74, 0, 192, 161, 207] };
-pub const CODECAPI_GetOPMContext: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 788753413, data2: 19476, data3: 18057, data4: [136, 57, 41, 76, 109, 115, 224, 83] };
-pub const CODECAPI_SetHDCPManagerContext: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_GUID_AVEncWMV: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1309667227, data2: 7491, data3: 16829, data4: [184, 189, 77, 123, 247, 69, 122, 42] };
+pub const CODECAPI_GUID_AVEndMPEG4Video: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3711414570, data2: 38147, data3: 20363, data4: [184, 208, 50, 74, 0, 192, 161, 207] };
+pub const CODECAPI_GetOPMContext: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 788753413, data2: 19476, data3: 18057, data4: [136, 57, 41, 76, 109, 115, 224, 83] };
+pub const CODECAPI_SetHDCPManagerContext: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1831673800,
     data2: 15817,
     data3: 18411,
     data4: [161, 162, 71, 28, 128, 205, 96, 208],
 };
-pub const CODECAPI_VideoEncoderDisplayContentType: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CODECAPI_VideoEncoderDisplayContentType: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2042170151,
     data2: 62641,
     data3: 17116,
@@ -1892,114 +1892,114 @@ pub const COPP_ProtectionType_Mask: i32 = -2147483641i32;
 pub const COPP_ProtectionType_None: i32 = 0i32;
 pub const COPP_ProtectionType_Reserved: i32 = 2147483640i32;
 pub const COPP_ProtectionType_Unknown: i32 = -2147483648i32;
-pub const CPK_DS_AC3Decoder: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CPK_DS_AC3Decoder: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1822190038,
     data2: 4092,
     data3: 17537,
     data4: [175, 219, 205, 241, 199, 156, 111, 62],
 };
-pub const CPK_DS_MPEG2Decoder: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CPK_DS_MPEG2Decoder: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2568013261,
     data2: 38345,
     data3: 19974,
     data4: [134, 90, 239, 161, 200, 1, 107, 244],
 };
-pub const CResamplerMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CResamplerMediaObject: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4098340510,
     data2: 6276,
     data3: 19070,
     data4: [128, 85, 52, 111, 116, 214, 237, 179],
 };
-pub const CResizerDMO: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 513927700, data2: 18676, data3: 16468, data4: [173, 26, 232, 174, 225, 10, 200, 5] };
-pub const CResizerMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CResizerDMO: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 513927700, data2: 18676, data3: 16468, data4: [173, 26, 232, 174, 225, 10, 200, 5] };
+pub const CResizerMediaObject: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3555494795,
     data2: 30504,
     data3: 20440,
     data4: [159, 224, 123, 103, 209, 159, 115, 163],
 };
-pub const CShotDetectorDmo: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CShotDetectorDmo: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1454308045,
     data2: 4364,
     data3: 17303,
     data4: [146, 146, 176, 160, 198, 27, 103, 80],
 };
-pub const CSmpteTransformsDmo: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3185981579, data2: 55845, data3: 18525, data4: [186, 127, 250, 188, 40, 178, 3, 24] };
-pub const CThumbnailGeneratorDmo: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CSmpteTransformsDmo: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3185981579, data2: 55845, data3: 18525, data4: [186, 127, 250, 188, 40, 178, 3, 24] };
+pub const CThumbnailGeneratorDmo: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1436314541,
     data2: 7848,
     data3: 18787,
     data4: [160, 135, 138, 104, 16, 249, 33, 139],
 };
-pub const CTocGeneratorDmo: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1306138945, data2: 30624, data3: 20401, data4: [165, 24, 226, 24, 80, 65, 215, 12] };
-pub const CVodafoneAACCCDecMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CTocGeneratorDmo: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1306138945, data2: 30624, data3: 20401, data4: [165, 24, 226, 24, 80, 65, 215, 12] };
+pub const CVodafoneAACCCDecMediaObject: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2121711487,
     data2: 51603,
     data3: 20006,
     data4: [143, 171, 71, 10, 112, 192, 213, 156],
 };
-pub const CVodafoneAACDecMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2134309186, data2: 56563, data3: 19842, data4: [146, 137, 91, 24, 32, 39, 143, 124] };
-pub const CWMADecMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 787172063, data2: 17784, data3: 19728, data4: [188, 167, 187, 149, 95, 86, 50, 10] };
-pub const CWMAEncMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CVodafoneAACDecMediaObject: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2134309186, data2: 56563, data3: 19842, data4: [146, 137, 91, 24, 32, 39, 143, 124] };
+pub const CWMADecMediaObject: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 787172063, data2: 17784, data3: 19728, data4: [188, 167, 187, 149, 95, 86, 50, 10] };
+pub const CWMAEncMediaObject: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1895143657,
     data2: 62635,
     data3: 18778,
     data4: [153, 226, 167, 196, 211, 216, 154, 191],
 };
-pub const CWMATransMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3989494219, data2: 12583, data3: 16607, data4: [181, 39, 1, 82, 204, 179, 246, 245] };
-pub const CWMAudioAEC: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1951422407, data2: 62291, data3: 20269, data4: [167, 238, 88, 67, 68, 119, 115, 14] };
-pub const CWMAudioCAPXGFXAPO: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 329989821, data2: 4990, data3: 18691, data4: [157, 137, 96, 190, 130, 119, 253, 23] };
-pub const CWMAudioCAPXLFXAPO: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CWMATransMediaObject: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3989494219, data2: 12583, data3: 16607, data4: [181, 39, 1, 82, 204, 179, 246, 245] };
+pub const CWMAudioAEC: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1951422407, data2: 62291, data3: 20269, data4: [167, 238, 88, 67, 68, 119, 115, 14] };
+pub const CWMAudioCAPXGFXAPO: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 329989821, data2: 4990, data3: 18691, data4: [157, 137, 96, 190, 130, 119, 253, 23] };
+pub const CWMAudioCAPXLFXAPO: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3376758387,
     data2: 35932,
     data3: 17507,
     data4: [153, 132, 175, 139, 171, 47, 84, 71],
 };
-pub const CWMAudioGFXAPO: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1669089549, data2: 61155, data3: 19466, data4: [151, 63, 55, 25, 88, 128, 45, 162] };
-pub const CWMAudioLFXAPO: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1658591891, data2: 44580, data3: 17996, data4: [164, 62, 69, 47, 130, 76, 66, 80] };
-pub const CWMAudioSpdTxDMO: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CWMAudioGFXAPO: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1669089549, data2: 61155, data3: 19466, data4: [151, 63, 55, 25, 88, 128, 45, 162] };
+pub const CWMAudioLFXAPO: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1658591891, data2: 44580, data3: 17996, data4: [164, 62, 69, 47, 130, 76, 66, 80] };
+pub const CWMAudioSpdTxDMO: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1376844004,
     data2: 45243,
     data3: 18371,
     data4: [168, 217, 123, 34, 130, 204, 121, 237],
 };
-pub const CWMSPDecMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2269196747, data2: 20172, data3: 17467, data4: [137, 72, 116, 107, 137, 89, 93, 32] };
-pub const CWMSPEncMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CWMSPDecMediaObject: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2269196747, data2: 20172, data3: 17467, data4: [137, 72, 116, 107, 137, 89, 93, 32] };
+pub const CWMSPEncMediaObject: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1736710915,
     data2: 50825,
     data3: 16776,
     data4: [173, 63, 76, 158, 190, 236, 113, 11],
 };
-pub const CWMSPEncMediaObject2: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 522145306, data2: 8786, data3: 16483, data4: [132, 187, 238, 231, 95, 136, 86, 213] };
-pub const CWMTDecMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4191929934, data2: 11728, data3: 17885, data4: [155, 82, 102, 100, 46, 249, 68, 49] };
-pub const CWMTEncMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1622570578, data2: 58475, data3: 20036, data4: [134, 9, 247, 75, 255, 220, 8, 60] };
-pub const CWMV9EncMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3527119056, data2: 5199, data3: 18109, data4: [132, 29, 89, 228, 235, 25, 220, 89] };
-pub const CWMVDecMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CWMSPEncMediaObject2: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 522145306, data2: 8786, data3: 16483, data4: [132, 187, 238, 231, 95, 136, 86, 213] };
+pub const CWMTDecMediaObject: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4191929934, data2: 11728, data3: 17885, data4: [155, 82, 102, 100, 46, 249, 68, 49] };
+pub const CWMTEncMediaObject: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1622570578, data2: 58475, data3: 20036, data4: [134, 9, 247, 75, 255, 220, 8, 60] };
+pub const CWMV9EncMediaObject: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3527119056, data2: 5199, data3: 18109, data4: [132, 29, 89, 228, 235, 25, 220, 89] };
+pub const CWMVDecMediaObject: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2194887647,
     data2: 37053,
     data3: 17282,
     data4: [139, 194, 63, 97, 146, 183, 110, 52],
 };
-pub const CWMVEncMediaObject2: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2528476381, data2: 35174, data3: 16652, data4: [187, 31, 201, 126, 234, 118, 92, 4] };
-pub const CWMVXEncMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2117206162, data2: 22890, data3: 16818, data4: [187, 235, 23, 93, 16, 80, 78, 182] };
-pub const CWVC1DecMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CWMVEncMediaObject2: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2528476381, data2: 35174, data3: 16652, data4: [187, 31, 201, 126, 234, 118, 92, 4] };
+pub const CWMVXEncMediaObject: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2117206162, data2: 22890, data3: 16818, data4: [187, 235, 23, 93, 16, 80, 78, 182] };
+pub const CWVC1DecMediaObject: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3384786127,
     data2: 58894,
     data3: 17800,
     data4: [163, 223, 90, 3, 177, 253, 149, 133],
 };
-pub const CWVC1EncMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CWVC1EncMediaObject: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1147485453,
     data2: 36042,
     data3: 16871,
     data4: [186, 202, 136, 67, 55, 183, 71, 172],
 };
-pub const CZuneAACCCDecMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CZuneAACCCDecMediaObject: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2806946034,
     data2: 21206,
     data3: 19278,
     data4: [136, 91, 224, 166, 202, 79, 24, 122],
 };
-pub const CZuneM4S2DecMediaObject: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3312435804, data2: 4038, data3: 16458, data4: [149, 3, 177, 11, 245, 26, 138, 185] };
+pub const CZuneM4S2DecMediaObject: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3312435804, data2: 4038, data3: 16458, data4: [149, 3, 177, 11, 245, 26, 138, 185] };
 #[repr(C)]
 pub struct CodecAPIEventData {
     pub guid: ::windows_sys::core::GUID,
@@ -2748,7 +2748,7 @@ impl ::core::clone::Clone for D3D12_QUERY_DATA_VIDEO_DECODE_STATISTICS {
 }
 #[repr(C)]
 pub struct D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_INPUT {
-    pub pMotionVectorHeap: ::core::option::Option<ID3D12VideoMotionVectorHeap>,
+    pub pMotionVectorHeap: ID3D12VideoMotionVectorHeap,
     pub PixelWidth: u32,
     pub PixelHeight: u32,
 }
@@ -2761,7 +2761,7 @@ impl ::core::clone::Clone for D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_INPUT {
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub struct D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_OUTPUT {
-    pub pMotionVectorTexture2D: ::core::option::Option<super::super::Graphics::Direct3D12::ID3D12Resource>,
+    pub pMotionVectorTexture2D: super::super::Graphics::Direct3D12::ID3D12Resource,
     pub MotionVectorCoordinate: D3D12_RESOURCE_COORDINATE,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -2831,7 +2831,7 @@ impl ::core::clone::Clone for D3D12_VIDEO_DECODE_ARGUMENT_TYPE {
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub struct D3D12_VIDEO_DECODE_COMPRESSED_BITSTREAM {
-    pub pBuffer: ::core::option::Option<super::super::Graphics::Direct3D12::ID3D12Resource>,
+    pub pBuffer: super::super::Graphics::Direct3D12::ID3D12Resource,
     pub Offset: u64,
     pub Size: u64,
 }
@@ -2872,7 +2872,7 @@ impl ::core::clone::Clone for D3D12_VIDEO_DECODE_CONFIGURATION_FLAGS {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 pub struct D3D12_VIDEO_DECODE_CONVERSION_ARGUMENTS {
     pub Enable: super::super::Foundation::BOOL,
-    pub pReferenceTexture2D: ::core::option::Option<super::super::Graphics::Direct3D12::ID3D12Resource>,
+    pub pReferenceTexture2D: super::super::Graphics::Direct3D12::ID3D12Resource,
     pub ReferenceSubresource: u32,
     pub OutputColorSpace: super::super::Graphics::Dxgi::Common::DXGI_COLOR_SPACE_TYPE,
     pub DecodeColorSpace: super::super::Graphics::Dxgi::Common::DXGI_COLOR_SPACE_TYPE,
@@ -2889,7 +2889,7 @@ impl ::core::clone::Clone for D3D12_VIDEO_DECODE_CONVERSION_ARGUMENTS {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 pub struct D3D12_VIDEO_DECODE_CONVERSION_ARGUMENTS1 {
     pub Enable: super::super::Foundation::BOOL,
-    pub pReferenceTexture2D: ::core::option::Option<super::super::Graphics::Direct3D12::ID3D12Resource>,
+    pub pReferenceTexture2D: super::super::Graphics::Direct3D12::ID3D12Resource,
     pub ReferenceSubresource: u32,
     pub OutputColorSpace: super::super::Graphics::Dxgi::Common::DXGI_COLOR_SPACE_TYPE,
     pub DecodeColorSpace: super::super::Graphics::Dxgi::Common::DXGI_COLOR_SPACE_TYPE,
@@ -2964,7 +2964,7 @@ pub struct D3D12_VIDEO_DECODE_INPUT_STREAM_ARGUMENTS {
     pub FrameArguments: [D3D12_VIDEO_DECODE_FRAME_ARGUMENT; 10],
     pub ReferenceFrames: D3D12_VIDEO_DECODE_REFERENCE_FRAMES,
     pub CompressedBitstream: D3D12_VIDEO_DECODE_COMPRESSED_BITSTREAM,
-    pub pHeap: ::core::option::Option<ID3D12VideoDecoderHeap>,
+    pub pHeap: ID3D12VideoDecoderHeap,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::marker::Copy for D3D12_VIDEO_DECODE_INPUT_STREAM_ARGUMENTS {}
@@ -2978,7 +2978,7 @@ impl ::core::clone::Clone for D3D12_VIDEO_DECODE_INPUT_STREAM_ARGUMENTS {
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub struct D3D12_VIDEO_DECODE_OUTPUT_HISTOGRAM {
     pub Offset: u64,
-    pub pBuffer: ::core::option::Option<super::super::Graphics::Direct3D12::ID3D12Resource>,
+    pub pBuffer: super::super::Graphics::Direct3D12::ID3D12Resource,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::marker::Copy for D3D12_VIDEO_DECODE_OUTPUT_HISTOGRAM {}
@@ -2991,7 +2991,7 @@ impl ::core::clone::Clone for D3D12_VIDEO_DECODE_OUTPUT_HISTOGRAM {
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 pub struct D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS {
-    pub pOutputTexture2D: ::core::option::Option<super::super::Graphics::Direct3D12::ID3D12Resource>,
+    pub pOutputTexture2D: super::super::Graphics::Direct3D12::ID3D12Resource,
     pub OutputSubresource: u32,
     pub ConversionArguments: D3D12_VIDEO_DECODE_CONVERSION_ARGUMENTS,
 }
@@ -3006,7 +3006,7 @@ impl ::core::clone::Clone for D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS {
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 pub struct D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS1 {
-    pub pOutputTexture2D: ::core::option::Option<super::super::Graphics::Direct3D12::ID3D12Resource>,
+    pub pOutputTexture2D: super::super::Graphics::Direct3D12::ID3D12Resource,
     pub OutputSubresource: u32,
     pub ConversionArguments: D3D12_VIDEO_DECODE_CONVERSION_ARGUMENTS1,
     pub Histograms: [D3D12_VIDEO_DECODE_OUTPUT_HISTOGRAM; 4],
@@ -3019,78 +3019,78 @@ impl ::core::clone::Clone for D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS1 {
         *self
     }
 }
-pub const D3D12_VIDEO_DECODE_PROFILE_AV1_12BIT_PROFILE2: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const D3D12_VIDEO_DECODE_PROFILE_AV1_12BIT_PROFILE2: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 387084297,
     data2: 40975,
     data3: 19681,
     data4: [153, 78, 191, 64, 129, 246, 243, 240],
 };
-pub const D3D12_VIDEO_DECODE_PROFILE_AV1_12BIT_PROFILE2_420: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const D3D12_VIDEO_DECODE_PROFILE_AV1_12BIT_PROFILE2_420: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 763412182,
     data2: 40108,
     data3: 18485,
     data4: [158, 145, 50, 123, 188, 79, 158, 232],
 };
-pub const D3D12_VIDEO_DECODE_PROFILE_AV1_PROFILE0: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const D3D12_VIDEO_DECODE_PROFILE_AV1_PROFILE0: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3099479243,
     data2: 53075,
     data3: 18106,
     data4: [141, 89, 214, 184, 166, 218, 93, 42],
 };
-pub const D3D12_VIDEO_DECODE_PROFILE_AV1_PROFILE1: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const D3D12_VIDEO_DECODE_PROFILE_AV1_PROFILE1: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1765211919,
     data2: 17841,
     data3: 16739,
     data4: [156, 193, 100, 110, 246, 148, 97, 8],
 };
-pub const D3D12_VIDEO_DECODE_PROFILE_AV1_PROFILE2: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 207563425, data2: 58689, data3: 16521, data4: [187, 123, 152, 17, 10, 25, 215, 200] };
-pub const D3D12_VIDEO_DECODE_PROFILE_H264: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 461487720, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
-pub const D3D12_VIDEO_DECODE_PROFILE_H264_MULTIVIEW: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const D3D12_VIDEO_DECODE_PROFILE_AV1_PROFILE2: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 207563425, data2: 58689, data3: 16521, data4: [187, 123, 152, 17, 10, 25, 215, 200] };
+pub const D3D12_VIDEO_DECODE_PROFILE_H264: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 461487720, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
+pub const D3D12_VIDEO_DECODE_PROFILE_H264_MULTIVIEW: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1885052290,
     data2: 30415,
     data3: 18902,
     data4: [183, 230, 172, 136, 114, 219, 1, 60],
 };
-pub const D3D12_VIDEO_DECODE_PROFILE_H264_STEREO: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4188720315, data2: 49846, data3: 19708, data4: [135, 121, 87, 7, 177, 118, 5, 82] };
-pub const D3D12_VIDEO_DECODE_PROFILE_H264_STEREO_PROGRESSIVE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3617319130, data2: 3313, data3: 19585, data4: [184, 42, 105, 164, 226, 54, 244, 61] };
-pub const D3D12_VIDEO_DECODE_PROFILE_HEVC_MAIN: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1527895323, data2: 12108, data3: 17490, data4: [188, 195, 9, 242, 161, 22, 12, 192] };
-pub const D3D12_VIDEO_DECODE_PROFILE_HEVC_MAIN10: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 276492512, data2: 61210, data3: 19737, data4: [171, 168, 103, 161, 99, 7, 61, 19] };
-pub const D3D12_VIDEO_DECODE_PROFILE_MPEG1_AND_MPEG2: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const D3D12_VIDEO_DECODE_PROFILE_H264_STEREO: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4188720315, data2: 49846, data3: 19708, data4: [135, 121, 87, 7, 177, 118, 5, 82] };
+pub const D3D12_VIDEO_DECODE_PROFILE_H264_STEREO_PROGRESSIVE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3617319130, data2: 3313, data3: 19585, data4: [184, 42, 105, 164, 226, 54, 244, 61] };
+pub const D3D12_VIDEO_DECODE_PROFILE_HEVC_MAIN: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1527895323, data2: 12108, data3: 17490, data4: [188, 195, 9, 242, 161, 22, 12, 192] };
+pub const D3D12_VIDEO_DECODE_PROFILE_HEVC_MAIN10: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 276492512, data2: 61210, data3: 19737, data4: [171, 168, 103, 161, 99, 7, 61, 19] };
+pub const D3D12_VIDEO_DECODE_PROFILE_MPEG1_AND_MPEG2: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2255052562,
     data2: 13326,
     data3: 20228,
     data4: [159, 211, 146, 83, 221, 50, 116, 96],
 };
-pub const D3D12_VIDEO_DECODE_PROFILE_MPEG2: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3995550079, data2: 24104, data3: 20069, data4: [190, 234, 29, 38, 181, 8, 173, 201] };
-pub const D3D12_VIDEO_DECODE_PROFILE_MPEG4PT2_ADVSIMPLE_NOGMC: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3980495519, data2: 269, data3: 20186, data4: [154, 227, 154, 101, 53, 141, 141, 46] };
-pub const D3D12_VIDEO_DECODE_PROFILE_MPEG4PT2_SIMPLE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const D3D12_VIDEO_DECODE_PROFILE_MPEG2: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3995550079, data2: 24104, data3: 20069, data4: [190, 234, 29, 38, 181, 8, 173, 201] };
+pub const D3D12_VIDEO_DECODE_PROFILE_MPEG4PT2_ADVSIMPLE_NOGMC: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3980495519, data2: 269, data3: 20186, data4: [154, 227, 154, 101, 53, 141, 141, 46] };
+pub const D3D12_VIDEO_DECODE_PROFILE_MPEG4PT2_SIMPLE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4023799156,
     data2: 51688,
     data3: 16855,
     data4: [165, 233, 233, 176, 227, 159, 163, 25],
 };
-pub const D3D12_VIDEO_DECODE_PROFILE_VC1: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 461487779, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
-pub const D3D12_VIDEO_DECODE_PROFILE_VC1_D2010: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 461487780, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
-pub const D3D12_VIDEO_DECODE_PROFILE_VP8: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const D3D12_VIDEO_DECODE_PROFILE_VC1: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 461487779, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
+pub const D3D12_VIDEO_DECODE_PROFILE_VC1_D2010: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 461487780, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
+pub const D3D12_VIDEO_DECODE_PROFILE_VP8: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2428017130,
     data2: 14946,
     data3: 18181,
     data4: [136, 179, 141, 240, 75, 39, 68, 231],
 };
-pub const D3D12_VIDEO_DECODE_PROFILE_VP9: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const D3D12_VIDEO_DECODE_PROFILE_VP9: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1178011640,
     data2: 41424,
     data3: 17797,
     data4: [135, 109, 131, 170, 109, 96, 184, 158],
 };
-pub const D3D12_VIDEO_DECODE_PROFILE_VP9_10BIT_PROFILE2: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2764524015, data2: 28367, data3: 18602, data4: [132, 72, 80, 167, 161, 22, 95, 247] };
+pub const D3D12_VIDEO_DECODE_PROFILE_VP9_10BIT_PROFILE2: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2764524015, data2: 28367, data3: 18602, data4: [132, 72, 80, 167, 161, 22, 95, 247] };
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub struct D3D12_VIDEO_DECODE_REFERENCE_FRAMES {
     pub NumTexture2Ds: u32,
-    pub ppTexture2Ds: *mut ::core::option::Option<super::super::Graphics::Direct3D12::ID3D12Resource>,
+    pub ppTexture2Ds: *mut super::super::Graphics::Direct3D12::ID3D12Resource,
     pub pSubresources: *mut u32,
-    pub ppHeaps: *mut ::core::option::Option<ID3D12VideoDecoderHeap>,
+    pub ppHeaps: *mut ID3D12VideoDecoderHeap,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::marker::Copy for D3D12_VIDEO_DECODE_REFERENCE_FRAMES {}
@@ -3426,7 +3426,7 @@ impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub struct D3D12_VIDEO_ENCODER_COMPRESSED_BITSTREAM {
-    pub pBuffer: ::core::option::Option<super::super::Graphics::Direct3D12::ID3D12Resource>,
+    pub pBuffer: super::super::Graphics::Direct3D12::ID3D12Resource,
     pub FrameStartOffset: u64,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -3461,7 +3461,7 @@ impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_DESC {
 pub struct D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENTS {
     pub SequenceControlDesc: D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_DESC,
     pub PictureControlDesc: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_DESC,
-    pub pInputFrame: ::core::option::Option<super::super::Graphics::Direct3D12::ID3D12Resource>,
+    pub pInputFrame: super::super::Graphics::Direct3D12::ID3D12Resource,
     pub InputFrameSubresource: u32,
     pub CurrentFrameBitstreamMetadataSize: u32,
 }
@@ -3505,7 +3505,7 @@ impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_ENCODE_ERROR_FLAGS {
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub struct D3D12_VIDEO_ENCODER_ENCODE_OPERATION_METADATA_BUFFER {
-    pub pBuffer: ::core::option::Option<super::super::Graphics::Direct3D12::ID3D12Resource>,
+    pub pBuffer: super::super::Graphics::Direct3D12::ID3D12Resource,
     pub Offset: u64,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -4147,7 +4147,7 @@ impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_RATE_CONTROL_VBR {
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub struct D3D12_VIDEO_ENCODER_RECONSTRUCTED_PICTURE {
-    pub pReconstructedPicture: ::core::option::Option<super::super::Graphics::Direct3D12::ID3D12Resource>,
+    pub pReconstructedPicture: super::super::Graphics::Direct3D12::ID3D12Resource,
     pub ReconstructedPictureSubresource: u32,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -4358,7 +4358,7 @@ impl ::core::clone::Clone for D3D12_VIDEO_ENCODER_VALIDATION_FLAGS {
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub struct D3D12_VIDEO_ENCODE_REFERENCE_FRAMES {
     pub NumTexture2Ds: u32,
-    pub ppTexture2Ds: *mut ::core::option::Option<super::super::Graphics::Direct3D12::ID3D12Resource>,
+    pub ppTexture2Ds: *mut super::super::Graphics::Direct3D12::ID3D12Resource,
     pub pSubresources: *mut u32,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -4523,11 +4523,11 @@ impl ::core::clone::Clone for D3D12_VIDEO_MOTION_ESTIMATOR_DESC {
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub struct D3D12_VIDEO_MOTION_ESTIMATOR_INPUT {
-    pub pInputTexture2D: ::core::option::Option<super::super::Graphics::Direct3D12::ID3D12Resource>,
+    pub pInputTexture2D: super::super::Graphics::Direct3D12::ID3D12Resource,
     pub InputSubresourceIndex: u32,
-    pub pReferenceTexture2D: ::core::option::Option<super::super::Graphics::Direct3D12::ID3D12Resource>,
+    pub pReferenceTexture2D: super::super::Graphics::Direct3D12::ID3D12Resource,
     pub ReferenceSubresourceIndex: u32,
-    pub pHintMotionVectorHeap: ::core::option::Option<ID3D12VideoMotionVectorHeap>,
+    pub pHintMotionVectorHeap: ID3D12VideoMotionVectorHeap,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::marker::Copy for D3D12_VIDEO_MOTION_ESTIMATOR_INPUT {}
@@ -4539,7 +4539,7 @@ impl ::core::clone::Clone for D3D12_VIDEO_MOTION_ESTIMATOR_INPUT {
 }
 #[repr(C)]
 pub struct D3D12_VIDEO_MOTION_ESTIMATOR_OUTPUT {
-    pub pMotionVectorHeap: ::core::option::Option<ID3D12VideoMotionVectorHeap>,
+    pub pMotionVectorHeap: ID3D12VideoMotionVectorHeap,
 }
 impl ::core::marker::Copy for D3D12_VIDEO_MOTION_ESTIMATOR_OUTPUT {}
 impl ::core::clone::Clone for D3D12_VIDEO_MOTION_ESTIMATOR_OUTPUT {
@@ -4724,7 +4724,7 @@ impl ::core::clone::Clone for D3D12_VIDEO_PROCESS_FILTER_RANGE {
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub struct D3D12_VIDEO_PROCESS_INPUT_STREAM {
-    pub pTexture2D: ::core::option::Option<super::super::Graphics::Direct3D12::ID3D12Resource>,
+    pub pTexture2D: super::super::Graphics::Direct3D12::ID3D12Resource,
     pub Subresource: u32,
     pub ReferenceSet: D3D12_VIDEO_PROCESS_REFERENCE_SET,
 }
@@ -4858,7 +4858,7 @@ impl ::core::clone::Clone for D3D12_VIDEO_PROCESS_ORIENTATION {
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub struct D3D12_VIDEO_PROCESS_OUTPUT_STREAM {
-    pub pTexture2D: ::core::option::Option<super::super::Graphics::Direct3D12::ID3D12Resource>,
+    pub pTexture2D: super::super::Graphics::Direct3D12::ID3D12Resource,
     pub Subresource: u32,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -4906,10 +4906,10 @@ impl ::core::clone::Clone for D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC {
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub struct D3D12_VIDEO_PROCESS_REFERENCE_SET {
     pub NumPastFrames: u32,
-    pub ppPastFrames: *mut ::core::option::Option<super::super::Graphics::Direct3D12::ID3D12Resource>,
+    pub ppPastFrames: *mut super::super::Graphics::Direct3D12::ID3D12Resource,
     pub pPastSubresources: *mut u32,
     pub NumFutureFrames: u32,
-    pub ppFutureFrames: *mut ::core::option::Option<super::super::Graphics::Direct3D12::ID3D12Resource>,
+    pub ppFutureFrames: *mut super::super::Graphics::Direct3D12::ID3D12Resource,
     pub pFutureSubresources: *mut u32,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -5070,7 +5070,7 @@ impl ::core::clone::Clone for DEVICE_INFO {
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_DeviceInterface_IsVirtualCamera: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::GUID { data1: 1859937037, data2: 49891, data3: 17335, data4: [178, 209, 32, 82, 90, 26, 241, 32] },
+    fmtid: ::windows_sys::core::GUID { data1: 1859937037, data2: 49891, data3: 17335, data4: [178, 209, 32, 82, 90, 26, 241, 32] },
     pid: 3u32,
 };
 #[repr(C)]
@@ -5370,85 +5370,85 @@ impl ::core::clone::Clone for DXVA2_Frequency {
         *self
     }
 }
-pub const DXVA2_ModeH264_A: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 461487716, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
-pub const DXVA2_ModeH264_B: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 461487717, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
-pub const DXVA2_ModeH264_C: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 461487718, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
-pub const DXVA2_ModeH264_D: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 461487719, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
-pub const DXVA2_ModeH264_E: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 461487720, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
-pub const DXVA2_ModeH264_F: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 461487721, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
-pub const DXVA2_ModeH264_VLD_Multiview_NoFGT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const DXVA2_ModeH264_A: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 461487716, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
+pub const DXVA2_ModeH264_B: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 461487717, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
+pub const DXVA2_ModeH264_C: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 461487718, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
+pub const DXVA2_ModeH264_D: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 461487719, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
+pub const DXVA2_ModeH264_E: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 461487720, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
+pub const DXVA2_ModeH264_F: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 461487721, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
+pub const DXVA2_ModeH264_VLD_Multiview_NoFGT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1885052290,
     data2: 30415,
     data3: 18902,
     data4: [183, 230, 172, 136, 114, 219, 1, 60],
 };
-pub const DXVA2_ModeH264_VLD_Stereo_NoFGT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4188720315, data2: 49846, data3: 19708, data4: [135, 121, 87, 7, 177, 118, 5, 82] };
-pub const DXVA2_ModeH264_VLD_Stereo_Progressive_NoFGT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3617319130, data2: 3313, data3: 19585, data4: [184, 42, 105, 164, 226, 54, 244, 61] };
-pub const DXVA2_ModeH264_VLD_WithFMOASO_NoFGT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const DXVA2_ModeH264_VLD_Stereo_NoFGT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4188720315, data2: 49846, data3: 19708, data4: [135, 121, 87, 7, 177, 118, 5, 82] };
+pub const DXVA2_ModeH264_VLD_Stereo_Progressive_NoFGT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3617319130, data2: 3313, data3: 19585, data4: [184, 42, 105, 164, 226, 54, 244, 61] };
+pub const DXVA2_ModeH264_VLD_WithFMOASO_NoFGT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3589296121,
     data2: 13336,
     data3: 17880,
     data4: [149, 97, 50, 167, 106, 174, 45, 221],
 };
-pub const DXVA2_ModeHEVC_VLD_Main: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1527895323, data2: 12108, data3: 17490, data4: [188, 195, 9, 242, 161, 22, 12, 192] };
-pub const DXVA2_ModeHEVC_VLD_Main10: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 276492512, data2: 61210, data3: 19737, data4: [171, 168, 103, 161, 99, 7, 61, 19] };
-pub const DXVA2_ModeMPEG1_VLD: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const DXVA2_ModeHEVC_VLD_Main: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1527895323, data2: 12108, data3: 17490, data4: [188, 195, 9, 242, 161, 22, 12, 192] };
+pub const DXVA2_ModeHEVC_VLD_Main10: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 276492512, data2: 61210, data3: 19737, data4: [171, 168, 103, 161, 99, 7, 61, 19] };
+pub const DXVA2_ModeMPEG1_VLD: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1866385177,
     data2: 14133,
     data3: 17100,
     data4: [128, 99, 101, 204, 60, 179, 102, 22],
 };
-pub const DXVA2_ModeMPEG2_IDCT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3206720768, data2: 1002, data3: 18064, data4: [128, 119, 71, 51, 70, 32, 155, 126] };
-pub const DXVA2_ModeMPEG2_MoComp: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const DXVA2_ModeMPEG2_IDCT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3206720768, data2: 1002, data3: 18064, data4: [128, 119, 71, 51, 70, 32, 155, 126] };
+pub const DXVA2_ModeMPEG2_MoComp: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3869897803,
     data2: 25008,
     data3: 17763,
     data4: [158, 164, 99, 210, 163, 198, 254, 102],
 };
-pub const DXVA2_ModeMPEG2_VLD: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3995550079, data2: 24104, data3: 20069, data4: [190, 234, 29, 38, 181, 8, 173, 201] };
-pub const DXVA2_ModeMPEG2and1_VLD: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const DXVA2_ModeMPEG2_VLD: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3995550079, data2: 24104, data3: 20069, data4: [190, 234, 29, 38, 181, 8, 173, 201] };
+pub const DXVA2_ModeMPEG2and1_VLD: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2255052562,
     data2: 13326,
     data3: 20228,
     data4: [159, 211, 146, 83, 221, 50, 116, 96],
 };
-pub const DXVA2_ModeMPEG4pt2_VLD_AdvSimple_GMC: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const DXVA2_ModeMPEG4pt2_VLD_AdvSimple_GMC: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2878966619,
     data2: 16984,
     data3: 17577,
     data4: [159, 235, 148, 229, 151, 166, 186, 174],
 };
-pub const DXVA2_ModeMPEG4pt2_VLD_AdvSimple_NoGMC: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3980495519, data2: 269, data3: 20186, data4: [154, 227, 154, 101, 53, 141, 141, 46] };
-pub const DXVA2_ModeMPEG4pt2_VLD_Simple: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const DXVA2_ModeMPEG4pt2_VLD_AdvSimple_NoGMC: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3980495519, data2: 269, data3: 20186, data4: [154, 227, 154, 101, 53, 141, 141, 46] };
+pub const DXVA2_ModeMPEG4pt2_VLD_Simple: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4023799156,
     data2: 51688,
     data3: 16855,
     data4: [165, 233, 233, 176, 227, 159, 163, 25],
 };
-pub const DXVA2_ModeVC1_A: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 461487776, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
-pub const DXVA2_ModeVC1_B: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 461487777, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
-pub const DXVA2_ModeVC1_C: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 461487778, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
-pub const DXVA2_ModeVC1_D: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 461487779, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
-pub const DXVA2_ModeVC1_D2010: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 461487780, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
-pub const DXVA2_ModeVP8_VLD: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const DXVA2_ModeVC1_A: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 461487776, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
+pub const DXVA2_ModeVC1_B: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 461487777, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
+pub const DXVA2_ModeVC1_C: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 461487778, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
+pub const DXVA2_ModeVC1_D: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 461487779, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
+pub const DXVA2_ModeVC1_D2010: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 461487780, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
+pub const DXVA2_ModeVP8_VLD: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2428017130,
     data2: 14946,
     data3: 18181,
     data4: [136, 179, 141, 240, 75, 39, 68, 231],
 };
-pub const DXVA2_ModeVP9_VLD_10bit_Profile2: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2764524015, data2: 28367, data3: 18602, data4: [132, 72, 80, 167, 161, 22, 95, 247] };
-pub const DXVA2_ModeVP9_VLD_Profile0: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const DXVA2_ModeVP9_VLD_10bit_Profile2: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2764524015, data2: 28367, data3: 18602, data4: [132, 72, 80, 167, 161, 22, 95, 247] };
+pub const DXVA2_ModeVP9_VLD_Profile0: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1178011640,
     data2: 41424,
     data3: 17797,
     data4: [135, 109, 131, 170, 109, 96, 184, 158],
 };
-pub const DXVA2_ModeWMV8_A: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 461487744, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
-pub const DXVA2_ModeWMV8_B: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 461487745, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
-pub const DXVA2_ModeWMV9_A: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 461487760, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
-pub const DXVA2_ModeWMV9_B: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 461487761, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
-pub const DXVA2_ModeWMV9_C: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 461487764, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
-pub const DXVA2_NoEncrypt: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 461487824, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
+pub const DXVA2_ModeWMV8_A: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 461487744, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
+pub const DXVA2_ModeWMV8_B: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 461487745, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
+pub const DXVA2_ModeWMV9_A: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 461487760, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
+pub const DXVA2_ModeWMV9_B: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 461487761, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
+pub const DXVA2_ModeWMV9_C: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 461487764, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
+pub const DXVA2_NoEncrypt: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 461487824, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
 #[repr(transparent)]
 pub struct DXVA2_NoiseFilterTech(pub i32);
 pub const DXVA2_NoiseFilterTech_Unsupported: DXVA2_NoiseFilterTech = DXVA2_NoiseFilterTech(0i32);
@@ -5640,19 +5640,19 @@ impl ::core::clone::Clone for DXVA2_VideoPrimaries {
         *self
     }
 }
-pub const DXVA2_VideoProcBobDevice: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const DXVA2_VideoProcBobDevice: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 861578094,
     data2: 30852,
     data3: 17316,
     data4: [156, 145, 127, 135, 250, 243, 227, 126],
 };
-pub const DXVA2_VideoProcProgressiveDevice: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const DXVA2_VideoProcProgressiveDevice: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1515495625,
     data2: 51180,
     data3: 19417,
     data4: [142, 222, 243, 199, 93, 196, 57, 59],
 };
-pub const DXVA2_VideoProcSoftwareDevice: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const DXVA2_VideoProcSoftwareDevice: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1163121791,
     data2: 61054,
     data3: 20031,
@@ -5748,7 +5748,7 @@ pub struct DXVA2_VideoSample {
     pub Start: i64,
     pub End: i64,
     pub SampleFormat: DXVA2_ExtendedFormat,
-    pub SrcSurface: ::core::option::Option<super::super::Graphics::Direct3D9::IDirect3DSurface9>,
+    pub SrcSurface: super::super::Graphics::Direct3D9::IDirect3DSurface9,
     pub SrcRect: super::super::Foundation::RECT,
     pub DstRect: super::super::Foundation::RECT,
     pub Pal: [DXVA2_AYUVSample8; 16],
@@ -5825,28 +5825,28 @@ impl ::core::clone::Clone for DXVACompBufferInfo {
         *self
     }
 }
-pub const DXVAHDControlGuid: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2688052853, data2: 63244, data3: 17996, data4: [169, 206, 51, 196, 78, 9, 22, 35] };
-pub const DXVAHDETWGUID_CREATEVIDEOPROCESSOR: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1746812190, data2: 22132, data3: 20403, data4: [165, 3, 47, 32, 85, 233, 31, 96] };
-pub const DXVAHDETWGUID_DESTROYVIDEOPROCESSOR: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const DXVAHDControlGuid: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2688052853, data2: 63244, data3: 17996, data4: [169, 206, 51, 196, 78, 9, 22, 35] };
+pub const DXVAHDETWGUID_CREATEVIDEOPROCESSOR: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1746812190, data2: 22132, data3: 20403, data4: [165, 3, 47, 32, 85, 233, 31, 96] };
+pub const DXVAHDETWGUID_DESTROYVIDEOPROCESSOR: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4181979296,
     data2: 16150,
     data3: 17376,
     data4: [128, 147, 16, 90, 152, 106, 165, 241],
 };
-pub const DXVAHDETWGUID_VIDEOPROCESSBLTHD: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3203650613, data2: 30919, data3: 19939, data4: [151, 7, 205, 27, 8, 59, 22, 10] };
-pub const DXVAHDETWGUID_VIDEOPROCESSBLTHD_STREAM: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const DXVAHDETWGUID_VIDEOPROCESSBLTHD: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3203650613, data2: 30919, data3: 19939, data4: [151, 7, 205, 27, 8, 59, 22, 10] };
+pub const DXVAHDETWGUID_VIDEOPROCESSBLTHD_STREAM: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 665732926,
     data2: 42492,
     data3: 19429,
     data4: [180, 227, 242, 73, 148, 211, 196, 149],
 };
-pub const DXVAHDETWGUID_VIDEOPROCESSBLTSTATE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const DXVAHDETWGUID_VIDEOPROCESSBLTSTATE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1992903514,
     data2: 6463,
     data3: 18066,
     data4: [148, 132, 164, 217, 153, 218, 129, 168],
 };
-pub const DXVAHDETWGUID_VIDEOPROCESSSTREAMSTATE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 640420610, data2: 8349, data3: 18413, data4: [148, 216, 130, 174, 2, 184, 74, 167] };
+pub const DXVAHDETWGUID_VIDEOPROCESSSTREAMSTATE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 640420610, data2: 8349, data3: 18413, data4: [148, 216, 130, 174, 2, 184, 74, 167] };
 #[repr(C)]
 pub struct DXVAHDETW_CREATEVIDEOPROCESSOR {
     pub pObject: u64,
@@ -5949,22 +5949,22 @@ impl ::core::clone::Clone for DXVAHDETW_VIDEOPROCESSSTREAMSTATE {
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 pub struct DXVAHDSW_CALLBACKS {
-    pub CreateDevice: ::core::option::Option<PDXVAHDSW_CreateDevice>,
-    pub ProposeVideoPrivateFormat: ::core::option::Option<PDXVAHDSW_ProposeVideoPrivateFormat>,
-    pub GetVideoProcessorDeviceCaps: ::core::option::Option<PDXVAHDSW_GetVideoProcessorDeviceCaps>,
-    pub GetVideoProcessorOutputFormats: ::core::option::Option<PDXVAHDSW_GetVideoProcessorOutputFormats>,
-    pub GetVideoProcessorInputFormats: ::core::option::Option<PDXVAHDSW_GetVideoProcessorInputFormats>,
-    pub GetVideoProcessorCaps: ::core::option::Option<PDXVAHDSW_GetVideoProcessorCaps>,
-    pub GetVideoProcessorCustomRates: ::core::option::Option<PDXVAHDSW_GetVideoProcessorCustomRates>,
-    pub GetVideoProcessorFilterRange: ::core::option::Option<PDXVAHDSW_GetVideoProcessorFilterRange>,
-    pub DestroyDevice: ::core::option::Option<PDXVAHDSW_DestroyDevice>,
-    pub CreateVideoProcessor: ::core::option::Option<PDXVAHDSW_CreateVideoProcessor>,
-    pub SetVideoProcessBltState: ::core::option::Option<PDXVAHDSW_SetVideoProcessBltState>,
-    pub GetVideoProcessBltStatePrivate: ::core::option::Option<PDXVAHDSW_GetVideoProcessBltStatePrivate>,
-    pub SetVideoProcessStreamState: ::core::option::Option<PDXVAHDSW_SetVideoProcessStreamState>,
-    pub GetVideoProcessStreamStatePrivate: ::core::option::Option<PDXVAHDSW_GetVideoProcessStreamStatePrivate>,
-    pub VideoProcessBltHD: ::core::option::Option<PDXVAHDSW_VideoProcessBltHD>,
-    pub DestroyVideoProcessor: ::core::option::Option<PDXVAHDSW_DestroyVideoProcessor>,
+    pub CreateDevice: PDXVAHDSW_CreateDevice,
+    pub ProposeVideoPrivateFormat: PDXVAHDSW_ProposeVideoPrivateFormat,
+    pub GetVideoProcessorDeviceCaps: PDXVAHDSW_GetVideoProcessorDeviceCaps,
+    pub GetVideoProcessorOutputFormats: PDXVAHDSW_GetVideoProcessorOutputFormats,
+    pub GetVideoProcessorInputFormats: PDXVAHDSW_GetVideoProcessorInputFormats,
+    pub GetVideoProcessorCaps: PDXVAHDSW_GetVideoProcessorCaps,
+    pub GetVideoProcessorCustomRates: PDXVAHDSW_GetVideoProcessorCustomRates,
+    pub GetVideoProcessorFilterRange: PDXVAHDSW_GetVideoProcessorFilterRange,
+    pub DestroyDevice: PDXVAHDSW_DestroyDevice,
+    pub CreateVideoProcessor: PDXVAHDSW_CreateVideoProcessor,
+    pub SetVideoProcessBltState: PDXVAHDSW_SetVideoProcessBltState,
+    pub GetVideoProcessBltStatePrivate: PDXVAHDSW_GetVideoProcessBltStatePrivate,
+    pub SetVideoProcessStreamState: PDXVAHDSW_SetVideoProcessStreamState,
+    pub GetVideoProcessStreamStatePrivate: PDXVAHDSW_GetVideoProcessStreamStatePrivate,
+    pub VideoProcessBltHD: PDXVAHDSW_VideoProcessBltHD,
+    pub DestroyVideoProcessor: PDXVAHDSW_DestroyVideoProcessor,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 impl ::core::marker::Copy for DXVAHDSW_CALLBACKS {}
@@ -6340,9 +6340,9 @@ pub struct DXVAHD_STREAM_DATA {
     pub InputFrameOrField: u32,
     pub PastFrames: u32,
     pub FutureFrames: u32,
-    pub ppPastSurfaces: *mut ::core::option::Option<super::super::Graphics::Direct3D9::IDirect3DSurface9>,
-    pub pInputSurface: ::core::option::Option<super::super::Graphics::Direct3D9::IDirect3DSurface9>,
-    pub ppFutureSurfaces: *mut ::core::option::Option<super::super::Graphics::Direct3D9::IDirect3DSurface9>,
+    pub ppPastSurfaces: *mut super::super::Graphics::Direct3D9::IDirect3DSurface9,
+    pub pInputSurface: super::super::Graphics::Direct3D9::IDirect3DSurface9,
+    pub ppFutureSurfaces: *mut super::super::Graphics::Direct3D9::IDirect3DSurface9,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 impl ::core::marker::Copy for DXVAHD_STREAM_DATA {}
@@ -6542,7 +6542,7 @@ impl ::core::clone::Clone for DXVAHD_STREAM_STATE_PRIVATE_DATA {
         *self
     }
 }
-pub const DXVAHD_STREAM_STATE_PRIVATE_IVTC: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2623544892, data2: 3891, data3: 16716, data4: [167, 57, 153, 84, 14, 228, 45, 165] };
+pub const DXVAHD_STREAM_STATE_PRIVATE_IVTC: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2623544892, data2: 3891, data3: 16716, data4: [167, 57, 153, 84, 14, 228, 45, 165] };
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DXVAHD_STREAM_STATE_PRIVATE_IVTC_DATA {
@@ -7284,21 +7284,21 @@ impl ::core::clone::Clone for DXVA_VideoTransferMatrix {
         *self
     }
 }
-pub const DXVAp_DeinterlaceBobDevice: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const DXVAp_DeinterlaceBobDevice: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 861578094,
     data2: 30852,
     data3: 17316,
     data4: [156, 145, 127, 135, 250, 243, 227, 126],
 };
-pub const DXVAp_DeinterlaceContainerDevice: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const DXVAp_DeinterlaceContainerDevice: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 243649427,
     data2: 12358,
     data3: 20464,
     data4: [174, 204, 213, 140, 181, 240, 53, 253],
 };
-pub const DXVAp_ModeMPEG2_A: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 461487626, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
-pub const DXVAp_ModeMPEG2_C: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 461487628, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
-pub const DXVAp_NoEncrypt: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 461487824, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
+pub const DXVAp_ModeMPEG2_A: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 461487626, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
+pub const DXVAp_ModeMPEG2_C: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 461487628, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
+pub const DXVAp_NoEncrypt: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 461487824, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
 #[repr(transparent)]
 pub struct DeviceStreamState(pub i32);
 pub const DeviceStreamState_Stop: DeviceStreamState = DeviceStreamState(0i32);
@@ -7374,727 +7374,2851 @@ impl ::core::clone::Clone for FILE_OPENMODE {
         *self
     }
 }
-pub const FORMAT_MFVideoFormat: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FORMAT_MFVideoFormat: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2933173037,
     data2: 29478,
     data3: 17355,
     data4: [148, 100, 200, 121, 202, 185, 196, 61],
 };
-pub const GUID_NativeDeviceService: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_NativeDeviceService: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4017218876,
     data2: 21236,
     data3: 17349,
     data4: [184, 106, 173, 108, 178, 22, 166, 30],
 };
-pub const GUID_PlayToService: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4138270621, data2: 40468, data3: 16841, data4: [191, 15, 18, 10, 43, 60, 225, 32] };
+pub const GUID_PlayToService: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4138270621, data2: 40468, data3: 16841, data4: [191, 15, 18, 10, 43, 60, 225, 32] };
 #[repr(transparent)]
 pub struct IAdvancedMediaCapture(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAdvancedMediaCapture {}
+impl ::core::clone::Clone for IAdvancedMediaCapture {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAdvancedMediaCaptureInitializationSettings(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAdvancedMediaCaptureInitializationSettings {}
+impl ::core::clone::Clone for IAdvancedMediaCaptureInitializationSettings {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAdvancedMediaCaptureSettings(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAdvancedMediaCaptureSettings {}
+impl ::core::clone::Clone for IAdvancedMediaCaptureSettings {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAudioSourceProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAudioSourceProvider {}
+impl ::core::clone::Clone for IAudioSourceProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IClusterDetector(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IClusterDetector {}
+impl ::core::clone::Clone for IClusterDetector {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICodecAPI(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICodecAPI {}
+impl ::core::clone::Clone for ICodecAPI {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D12VideoDecodeCommandList(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D12VideoDecodeCommandList {}
+impl ::core::clone::Clone for ID3D12VideoDecodeCommandList {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D12VideoDecodeCommandList1(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D12VideoDecodeCommandList1 {}
+impl ::core::clone::Clone for ID3D12VideoDecodeCommandList1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D12VideoDecodeCommandList2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D12VideoDecodeCommandList2 {}
+impl ::core::clone::Clone for ID3D12VideoDecodeCommandList2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D12VideoDecoder(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D12VideoDecoder {}
+impl ::core::clone::Clone for ID3D12VideoDecoder {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D12VideoDecoder1(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D12VideoDecoder1 {}
+impl ::core::clone::Clone for ID3D12VideoDecoder1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D12VideoDecoderHeap(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D12VideoDecoderHeap {}
+impl ::core::clone::Clone for ID3D12VideoDecoderHeap {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D12VideoDecoderHeap1(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D12VideoDecoderHeap1 {}
+impl ::core::clone::Clone for ID3D12VideoDecoderHeap1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D12VideoDevice(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D12VideoDevice {}
+impl ::core::clone::Clone for ID3D12VideoDevice {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D12VideoDevice1(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D12VideoDevice1 {}
+impl ::core::clone::Clone for ID3D12VideoDevice1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D12VideoDevice2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D12VideoDevice2 {}
+impl ::core::clone::Clone for ID3D12VideoDevice2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D12VideoDevice3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D12VideoDevice3 {}
+impl ::core::clone::Clone for ID3D12VideoDevice3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D12VideoEncodeCommandList(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D12VideoEncodeCommandList {}
+impl ::core::clone::Clone for ID3D12VideoEncodeCommandList {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D12VideoEncodeCommandList1(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D12VideoEncodeCommandList1 {}
+impl ::core::clone::Clone for ID3D12VideoEncodeCommandList1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D12VideoEncodeCommandList2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D12VideoEncodeCommandList2 {}
+impl ::core::clone::Clone for ID3D12VideoEncodeCommandList2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D12VideoEncoder(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D12VideoEncoder {}
+impl ::core::clone::Clone for ID3D12VideoEncoder {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D12VideoEncoderHeap(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D12VideoEncoderHeap {}
+impl ::core::clone::Clone for ID3D12VideoEncoderHeap {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D12VideoExtensionCommand(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D12VideoExtensionCommand {}
+impl ::core::clone::Clone for ID3D12VideoExtensionCommand {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D12VideoMotionEstimator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D12VideoMotionEstimator {}
+impl ::core::clone::Clone for ID3D12VideoMotionEstimator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D12VideoMotionVectorHeap(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D12VideoMotionVectorHeap {}
+impl ::core::clone::Clone for ID3D12VideoMotionVectorHeap {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D12VideoProcessCommandList(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D12VideoProcessCommandList {}
+impl ::core::clone::Clone for ID3D12VideoProcessCommandList {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D12VideoProcessCommandList1(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D12VideoProcessCommandList1 {}
+impl ::core::clone::Clone for ID3D12VideoProcessCommandList1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D12VideoProcessCommandList2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D12VideoProcessCommandList2 {}
+impl ::core::clone::Clone for ID3D12VideoProcessCommandList2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D12VideoProcessor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D12VideoProcessor {}
+impl ::core::clone::Clone for ID3D12VideoProcessor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D12VideoProcessor1(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D12VideoProcessor1 {}
+impl ::core::clone::Clone for ID3D12VideoProcessor1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDXVAHD_Device(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDXVAHD_Device {}
+impl ::core::clone::Clone for IDXVAHD_Device {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDXVAHD_VideoProcessor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDXVAHD_VideoProcessor {}
+impl ::core::clone::Clone for IDXVAHD_VideoProcessor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDirect3D9ExOverlayExtension(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDirect3D9ExOverlayExtension {}
+impl ::core::clone::Clone for IDirect3D9ExOverlayExtension {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDirect3DAuthenticatedChannel9(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDirect3DAuthenticatedChannel9 {}
+impl ::core::clone::Clone for IDirect3DAuthenticatedChannel9 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDirect3DCryptoSession9(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDirect3DCryptoSession9 {}
+impl ::core::clone::Clone for IDirect3DCryptoSession9 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDirect3DDevice9Video(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDirect3DDevice9Video {}
+impl ::core::clone::Clone for IDirect3DDevice9Video {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDirect3DDeviceManager9(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDirect3DDeviceManager9 {}
+impl ::core::clone::Clone for IDirect3DDeviceManager9 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDirectXVideoAccelerationService(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDirectXVideoAccelerationService {}
+impl ::core::clone::Clone for IDirectXVideoAccelerationService {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDirectXVideoDecoder(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDirectXVideoDecoder {}
+impl ::core::clone::Clone for IDirectXVideoDecoder {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDirectXVideoDecoderService(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDirectXVideoDecoderService {}
+impl ::core::clone::Clone for IDirectXVideoDecoderService {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDirectXVideoMemoryConfiguration(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDirectXVideoMemoryConfiguration {}
+impl ::core::clone::Clone for IDirectXVideoMemoryConfiguration {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDirectXVideoProcessor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDirectXVideoProcessor {}
+impl ::core::clone::Clone for IDirectXVideoProcessor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDirectXVideoProcessorService(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDirectXVideoProcessorService {}
+impl ::core::clone::Clone for IDirectXVideoProcessorService {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEVRFilterConfig(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEVRFilterConfig {}
+impl ::core::clone::Clone for IEVRFilterConfig {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEVRFilterConfigEx(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEVRFilterConfigEx {}
+impl ::core::clone::Clone for IEVRFilterConfigEx {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEVRTrustedVideoPlugin(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEVRTrustedVideoPlugin {}
+impl ::core::clone::Clone for IEVRTrustedVideoPlugin {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEVRVideoStreamControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEVRVideoStreamControl {}
+impl ::core::clone::Clone for IEVRVideoStreamControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFileClient(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFileClient {}
+impl ::core::clone::Clone for IFileClient {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFileIo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFileIo {}
+impl ::core::clone::Clone for IFileIo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMF2DBuffer(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMF2DBuffer {}
+impl ::core::clone::Clone for IMF2DBuffer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMF2DBuffer2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMF2DBuffer2 {}
+impl ::core::clone::Clone for IMF2DBuffer2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFASFContentInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFASFContentInfo {}
+impl ::core::clone::Clone for IMFASFContentInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFASFIndexer(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFASFIndexer {}
+impl ::core::clone::Clone for IMFASFIndexer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFASFMultiplexer(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFASFMultiplexer {}
+impl ::core::clone::Clone for IMFASFMultiplexer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFASFMutualExclusion(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFASFMutualExclusion {}
+impl ::core::clone::Clone for IMFASFMutualExclusion {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFASFProfile(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFASFProfile {}
+impl ::core::clone::Clone for IMFASFProfile {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFASFSplitter(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFASFSplitter {}
+impl ::core::clone::Clone for IMFASFSplitter {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFASFStreamConfig(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFASFStreamConfig {}
+impl ::core::clone::Clone for IMFASFStreamConfig {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFASFStreamPrioritization(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFASFStreamPrioritization {}
+impl ::core::clone::Clone for IMFASFStreamPrioritization {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFASFStreamSelector(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFASFStreamSelector {}
+impl ::core::clone::Clone for IMFASFStreamSelector {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFActivate(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFActivate {}
+impl ::core::clone::Clone for IMFActivate {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFAsyncCallback(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFAsyncCallback {}
+impl ::core::clone::Clone for IMFAsyncCallback {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFAsyncCallbackLogging(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFAsyncCallbackLogging {}
+impl ::core::clone::Clone for IMFAsyncCallbackLogging {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFAsyncResult(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFAsyncResult {}
+impl ::core::clone::Clone for IMFAsyncResult {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFAttributes(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFAttributes {}
+impl ::core::clone::Clone for IMFAttributes {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFAudioMediaType(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFAudioMediaType {}
+impl ::core::clone::Clone for IMFAudioMediaType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFAudioPolicy(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFAudioPolicy {}
+impl ::core::clone::Clone for IMFAudioPolicy {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFAudioStreamVolume(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFAudioStreamVolume {}
+impl ::core::clone::Clone for IMFAudioStreamVolume {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFBufferListNotify(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFBufferListNotify {}
+impl ::core::clone::Clone for IMFBufferListNotify {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFByteStream(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFByteStream {}
+impl ::core::clone::Clone for IMFByteStream {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFByteStreamBuffering(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFByteStreamBuffering {}
+impl ::core::clone::Clone for IMFByteStreamBuffering {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFByteStreamCacheControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFByteStreamCacheControl {}
+impl ::core::clone::Clone for IMFByteStreamCacheControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFByteStreamCacheControl2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFByteStreamCacheControl2 {}
+impl ::core::clone::Clone for IMFByteStreamCacheControl2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFByteStreamHandler(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFByteStreamHandler {}
+impl ::core::clone::Clone for IMFByteStreamHandler {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFByteStreamProxyClassFactory(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFByteStreamProxyClassFactory {}
+impl ::core::clone::Clone for IMFByteStreamProxyClassFactory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFByteStreamTimeSeek(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFByteStreamTimeSeek {}
+impl ::core::clone::Clone for IMFByteStreamTimeSeek {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFCameraOcclusionStateMonitor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFCameraOcclusionStateMonitor {}
+impl ::core::clone::Clone for IMFCameraOcclusionStateMonitor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFCameraOcclusionStateReport(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFCameraOcclusionStateReport {}
+impl ::core::clone::Clone for IMFCameraOcclusionStateReport {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFCameraOcclusionStateReportCallback(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFCameraOcclusionStateReportCallback {}
+impl ::core::clone::Clone for IMFCameraOcclusionStateReportCallback {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFCameraSyncObject(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFCameraSyncObject {}
+impl ::core::clone::Clone for IMFCameraSyncObject {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFCaptureEngine(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFCaptureEngine {}
+impl ::core::clone::Clone for IMFCaptureEngine {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFCaptureEngineClassFactory(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFCaptureEngineClassFactory {}
+impl ::core::clone::Clone for IMFCaptureEngineClassFactory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFCaptureEngineOnEventCallback(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFCaptureEngineOnEventCallback {}
+impl ::core::clone::Clone for IMFCaptureEngineOnEventCallback {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFCaptureEngineOnSampleCallback(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFCaptureEngineOnSampleCallback {}
+impl ::core::clone::Clone for IMFCaptureEngineOnSampleCallback {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFCaptureEngineOnSampleCallback2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFCaptureEngineOnSampleCallback2 {}
+impl ::core::clone::Clone for IMFCaptureEngineOnSampleCallback2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFCapturePhotoConfirmation(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFCapturePhotoConfirmation {}
+impl ::core::clone::Clone for IMFCapturePhotoConfirmation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFCapturePhotoSink(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFCapturePhotoSink {}
+impl ::core::clone::Clone for IMFCapturePhotoSink {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFCapturePreviewSink(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFCapturePreviewSink {}
+impl ::core::clone::Clone for IMFCapturePreviewSink {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFCaptureRecordSink(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFCaptureRecordSink {}
+impl ::core::clone::Clone for IMFCaptureRecordSink {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFCaptureSink(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFCaptureSink {}
+impl ::core::clone::Clone for IMFCaptureSink {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFCaptureSink2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFCaptureSink2 {}
+impl ::core::clone::Clone for IMFCaptureSink2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFCaptureSource(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFCaptureSource {}
+impl ::core::clone::Clone for IMFCaptureSource {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFCdmSuspendNotify(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFCdmSuspendNotify {}
+impl ::core::clone::Clone for IMFCdmSuspendNotify {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFClock(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFClock {}
+impl ::core::clone::Clone for IMFClock {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFClockConsumer(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFClockConsumer {}
+impl ::core::clone::Clone for IMFClockConsumer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFClockStateSink(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFClockStateSink {}
+impl ::core::clone::Clone for IMFClockStateSink {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFCollection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFCollection {}
+impl ::core::clone::Clone for IMFCollection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFContentDecryptionModule(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFContentDecryptionModule {}
+impl ::core::clone::Clone for IMFContentDecryptionModule {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFContentDecryptionModuleAccess(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFContentDecryptionModuleAccess {}
+impl ::core::clone::Clone for IMFContentDecryptionModuleAccess {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFContentDecryptionModuleFactory(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFContentDecryptionModuleFactory {}
+impl ::core::clone::Clone for IMFContentDecryptionModuleFactory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFContentDecryptionModuleSession(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFContentDecryptionModuleSession {}
+impl ::core::clone::Clone for IMFContentDecryptionModuleSession {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFContentDecryptionModuleSessionCallbacks(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFContentDecryptionModuleSessionCallbacks {}
+impl ::core::clone::Clone for IMFContentDecryptionModuleSessionCallbacks {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFContentDecryptorContext(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFContentDecryptorContext {}
+impl ::core::clone::Clone for IMFContentDecryptorContext {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFContentEnabler(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFContentEnabler {}
+impl ::core::clone::Clone for IMFContentEnabler {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFContentProtectionDevice(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFContentProtectionDevice {}
+impl ::core::clone::Clone for IMFContentProtectionDevice {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFContentProtectionManager(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFContentProtectionManager {}
+impl ::core::clone::Clone for IMFContentProtectionManager {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFD3D12SynchronizationObject(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFD3D12SynchronizationObject {}
+impl ::core::clone::Clone for IMFD3D12SynchronizationObject {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFD3D12SynchronizationObjectCommands(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFD3D12SynchronizationObjectCommands {}
+impl ::core::clone::Clone for IMFD3D12SynchronizationObjectCommands {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFDLNASinkInit(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFDLNASinkInit {}
+impl ::core::clone::Clone for IMFDLNASinkInit {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFDRMNetHelper(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFDRMNetHelper {}
+impl ::core::clone::Clone for IMFDRMNetHelper {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFDXGIBuffer(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFDXGIBuffer {}
+impl ::core::clone::Clone for IMFDXGIBuffer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFDXGIDeviceManager(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFDXGIDeviceManager {}
+impl ::core::clone::Clone for IMFDXGIDeviceManager {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFDXGIDeviceManagerSource(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFDXGIDeviceManagerSource {}
+impl ::core::clone::Clone for IMFDXGIDeviceManagerSource {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFDesiredSample(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFDesiredSample {}
+impl ::core::clone::Clone for IMFDesiredSample {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFExtendedCameraControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFExtendedCameraControl {}
+impl ::core::clone::Clone for IMFExtendedCameraControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFExtendedCameraController(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFExtendedCameraController {}
+impl ::core::clone::Clone for IMFExtendedCameraController {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFExtendedCameraIntrinsicModel(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFExtendedCameraIntrinsicModel {}
+impl ::core::clone::Clone for IMFExtendedCameraIntrinsicModel {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFExtendedCameraIntrinsics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFExtendedCameraIntrinsics {}
+impl ::core::clone::Clone for IMFExtendedCameraIntrinsics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFExtendedCameraIntrinsicsDistortionModel6KT(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFExtendedCameraIntrinsicsDistortionModel6KT {}
+impl ::core::clone::Clone for IMFExtendedCameraIntrinsicsDistortionModel6KT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFExtendedCameraIntrinsicsDistortionModelArcTan(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFExtendedCameraIntrinsicsDistortionModelArcTan {}
+impl ::core::clone::Clone for IMFExtendedCameraIntrinsicsDistortionModelArcTan {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFExtendedDRMTypeSupport(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFExtendedDRMTypeSupport {}
+impl ::core::clone::Clone for IMFExtendedDRMTypeSupport {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFFieldOfUseMFTUnlock(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFFieldOfUseMFTUnlock {}
+impl ::core::clone::Clone for IMFFieldOfUseMFTUnlock {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFFinalizableMediaSink(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFFinalizableMediaSink {}
+impl ::core::clone::Clone for IMFFinalizableMediaSink {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFGetService(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFGetService {}
+impl ::core::clone::Clone for IMFGetService {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFHDCPStatus(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFHDCPStatus {}
+impl ::core::clone::Clone for IMFHDCPStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFHttpDownloadRequest(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFHttpDownloadRequest {}
+impl ::core::clone::Clone for IMFHttpDownloadRequest {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFHttpDownloadSession(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFHttpDownloadSession {}
+impl ::core::clone::Clone for IMFHttpDownloadSession {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFHttpDownloadSessionProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFHttpDownloadSessionProvider {}
+impl ::core::clone::Clone for IMFHttpDownloadSessionProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFImageSharingEngine(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFImageSharingEngine {}
+impl ::core::clone::Clone for IMFImageSharingEngine {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFImageSharingEngineClassFactory(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFImageSharingEngineClassFactory {}
+impl ::core::clone::Clone for IMFImageSharingEngineClassFactory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFInputTrustAuthority(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFInputTrustAuthority {}
+impl ::core::clone::Clone for IMFInputTrustAuthority {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFLocalMFTRegistration(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFLocalMFTRegistration {}
+impl ::core::clone::Clone for IMFLocalMFTRegistration {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFMediaBuffer(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFMediaBuffer {}
+impl ::core::clone::Clone for IMFMediaBuffer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFMediaEngine(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFMediaEngine {}
+impl ::core::clone::Clone for IMFMediaEngine {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFMediaEngineAudioEndpointId(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFMediaEngineAudioEndpointId {}
+impl ::core::clone::Clone for IMFMediaEngineAudioEndpointId {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFMediaEngineClassFactory(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFMediaEngineClassFactory {}
+impl ::core::clone::Clone for IMFMediaEngineClassFactory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFMediaEngineClassFactory2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFMediaEngineClassFactory2 {}
+impl ::core::clone::Clone for IMFMediaEngineClassFactory2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFMediaEngineClassFactory3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFMediaEngineClassFactory3 {}
+impl ::core::clone::Clone for IMFMediaEngineClassFactory3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFMediaEngineClassFactory4(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFMediaEngineClassFactory4 {}
+impl ::core::clone::Clone for IMFMediaEngineClassFactory4 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFMediaEngineClassFactoryEx(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFMediaEngineClassFactoryEx {}
+impl ::core::clone::Clone for IMFMediaEngineClassFactoryEx {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFMediaEngineEME(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFMediaEngineEME {}
+impl ::core::clone::Clone for IMFMediaEngineEME {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFMediaEngineEMENotify(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFMediaEngineEMENotify {}
+impl ::core::clone::Clone for IMFMediaEngineEMENotify {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFMediaEngineEx(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFMediaEngineEx {}
+impl ::core::clone::Clone for IMFMediaEngineEx {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFMediaEngineExtension(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFMediaEngineExtension {}
+impl ::core::clone::Clone for IMFMediaEngineExtension {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFMediaEngineNeedKeyNotify(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFMediaEngineNeedKeyNotify {}
+impl ::core::clone::Clone for IMFMediaEngineNeedKeyNotify {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFMediaEngineNotify(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFMediaEngineNotify {}
+impl ::core::clone::Clone for IMFMediaEngineNotify {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFMediaEngineOPMInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFMediaEngineOPMInfo {}
+impl ::core::clone::Clone for IMFMediaEngineOPMInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFMediaEngineProtectedContent(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFMediaEngineProtectedContent {}
+impl ::core::clone::Clone for IMFMediaEngineProtectedContent {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFMediaEngineSrcElements(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFMediaEngineSrcElements {}
+impl ::core::clone::Clone for IMFMediaEngineSrcElements {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFMediaEngineSrcElementsEx(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFMediaEngineSrcElementsEx {}
+impl ::core::clone::Clone for IMFMediaEngineSrcElementsEx {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFMediaEngineSupportsSourceTransfer(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFMediaEngineSupportsSourceTransfer {}
+impl ::core::clone::Clone for IMFMediaEngineSupportsSourceTransfer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFMediaEngineTransferSource(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFMediaEngineTransferSource {}
+impl ::core::clone::Clone for IMFMediaEngineTransferSource {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFMediaEngineWebSupport(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFMediaEngineWebSupport {}
+impl ::core::clone::Clone for IMFMediaEngineWebSupport {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFMediaError(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFMediaError {}
+impl ::core::clone::Clone for IMFMediaError {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFMediaEvent(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFMediaEvent {}
+impl ::core::clone::Clone for IMFMediaEvent {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFMediaEventGenerator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFMediaEventGenerator {}
+impl ::core::clone::Clone for IMFMediaEventGenerator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFMediaEventQueue(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFMediaEventQueue {}
+impl ::core::clone::Clone for IMFMediaEventQueue {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFMediaKeySession(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFMediaKeySession {}
+impl ::core::clone::Clone for IMFMediaKeySession {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFMediaKeySession2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFMediaKeySession2 {}
+impl ::core::clone::Clone for IMFMediaKeySession2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFMediaKeySessionNotify(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFMediaKeySessionNotify {}
+impl ::core::clone::Clone for IMFMediaKeySessionNotify {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFMediaKeySessionNotify2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFMediaKeySessionNotify2 {}
+impl ::core::clone::Clone for IMFMediaKeySessionNotify2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFMediaKeySystemAccess(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFMediaKeySystemAccess {}
+impl ::core::clone::Clone for IMFMediaKeySystemAccess {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFMediaKeys(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFMediaKeys {}
+impl ::core::clone::Clone for IMFMediaKeys {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFMediaKeys2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFMediaKeys2 {}
+impl ::core::clone::Clone for IMFMediaKeys2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFMediaSession(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFMediaSession {}
+impl ::core::clone::Clone for IMFMediaSession {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFMediaSharingEngine(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFMediaSharingEngine {}
+impl ::core::clone::Clone for IMFMediaSharingEngine {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFMediaSharingEngineClassFactory(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFMediaSharingEngineClassFactory {}
+impl ::core::clone::Clone for IMFMediaSharingEngineClassFactory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFMediaSink(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFMediaSink {}
+impl ::core::clone::Clone for IMFMediaSink {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFMediaSinkPreroll(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFMediaSinkPreroll {}
+impl ::core::clone::Clone for IMFMediaSinkPreroll {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFMediaSource(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFMediaSource {}
+impl ::core::clone::Clone for IMFMediaSource {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFMediaSource2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFMediaSource2 {}
+impl ::core::clone::Clone for IMFMediaSource2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFMediaSourceEx(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFMediaSourceEx {}
+impl ::core::clone::Clone for IMFMediaSourceEx {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFMediaSourceExtension(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFMediaSourceExtension {}
+impl ::core::clone::Clone for IMFMediaSourceExtension {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFMediaSourceExtensionLiveSeekableRange(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFMediaSourceExtensionLiveSeekableRange {}
+impl ::core::clone::Clone for IMFMediaSourceExtensionLiveSeekableRange {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFMediaSourceExtensionNotify(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFMediaSourceExtensionNotify {}
+impl ::core::clone::Clone for IMFMediaSourceExtensionNotify {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFMediaSourcePresentationProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFMediaSourcePresentationProvider {}
+impl ::core::clone::Clone for IMFMediaSourcePresentationProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFMediaSourceTopologyProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFMediaSourceTopologyProvider {}
+impl ::core::clone::Clone for IMFMediaSourceTopologyProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFMediaStream(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFMediaStream {}
+impl ::core::clone::Clone for IMFMediaStream {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFMediaStream2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFMediaStream2 {}
+impl ::core::clone::Clone for IMFMediaStream2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFMediaStreamSourceSampleRequest(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFMediaStreamSourceSampleRequest {}
+impl ::core::clone::Clone for IMFMediaStreamSourceSampleRequest {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFMediaTimeRange(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFMediaTimeRange {}
+impl ::core::clone::Clone for IMFMediaTimeRange {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFMediaType(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFMediaType {}
+impl ::core::clone::Clone for IMFMediaType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFMediaTypeHandler(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFMediaTypeHandler {}
+impl ::core::clone::Clone for IMFMediaTypeHandler {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFMetadata(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFMetadata {}
+impl ::core::clone::Clone for IMFMetadata {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFMetadataProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFMetadataProvider {}
+impl ::core::clone::Clone for IMFMetadataProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFMuxStreamAttributesManager(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFMuxStreamAttributesManager {}
+impl ::core::clone::Clone for IMFMuxStreamAttributesManager {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFMuxStreamMediaTypeManager(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFMuxStreamMediaTypeManager {}
+impl ::core::clone::Clone for IMFMuxStreamMediaTypeManager {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFMuxStreamSampleManager(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFMuxStreamSampleManager {}
+impl ::core::clone::Clone for IMFMuxStreamSampleManager {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFNetCredential(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFNetCredential {}
+impl ::core::clone::Clone for IMFNetCredential {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFNetCredentialCache(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFNetCredentialCache {}
+impl ::core::clone::Clone for IMFNetCredentialCache {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFNetCredentialManager(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFNetCredentialManager {}
+impl ::core::clone::Clone for IMFNetCredentialManager {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFNetCrossOriginSupport(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFNetCrossOriginSupport {}
+impl ::core::clone::Clone for IMFNetCrossOriginSupport {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFNetProxyLocator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFNetProxyLocator {}
+impl ::core::clone::Clone for IMFNetProxyLocator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFNetProxyLocatorFactory(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFNetProxyLocatorFactory {}
+impl ::core::clone::Clone for IMFNetProxyLocatorFactory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFNetResourceFilter(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFNetResourceFilter {}
+impl ::core::clone::Clone for IMFNetResourceFilter {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFNetSchemeHandlerConfig(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFNetSchemeHandlerConfig {}
+impl ::core::clone::Clone for IMFNetSchemeHandlerConfig {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFObjectReferenceStream(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFObjectReferenceStream {}
+impl ::core::clone::Clone for IMFObjectReferenceStream {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFOutputPolicy(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFOutputPolicy {}
+impl ::core::clone::Clone for IMFOutputPolicy {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFOutputSchema(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFOutputSchema {}
+impl ::core::clone::Clone for IMFOutputSchema {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFOutputTrustAuthority(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFOutputTrustAuthority {}
+impl ::core::clone::Clone for IMFOutputTrustAuthority {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFPMPClient(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFPMPClient {}
+impl ::core::clone::Clone for IMFPMPClient {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFPMPClientApp(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFPMPClientApp {}
+impl ::core::clone::Clone for IMFPMPClientApp {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFPMPHost(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFPMPHost {}
+impl ::core::clone::Clone for IMFPMPHost {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFPMPHostApp(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFPMPHostApp {}
+impl ::core::clone::Clone for IMFPMPHostApp {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFPMPServer(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFPMPServer {}
+impl ::core::clone::Clone for IMFPMPServer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFPMediaItem(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFPMediaItem {}
+impl ::core::clone::Clone for IMFPMediaItem {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFPMediaPlayer(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFPMediaPlayer {}
+impl ::core::clone::Clone for IMFPMediaPlayer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFPMediaPlayerCallback(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFPMediaPlayerCallback {}
+impl ::core::clone::Clone for IMFPMediaPlayerCallback {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFPluginControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFPluginControl {}
+impl ::core::clone::Clone for IMFPluginControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFPluginControl2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFPluginControl2 {}
+impl ::core::clone::Clone for IMFPluginControl2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFPresentationClock(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFPresentationClock {}
+impl ::core::clone::Clone for IMFPresentationClock {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFPresentationDescriptor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFPresentationDescriptor {}
+impl ::core::clone::Clone for IMFPresentationDescriptor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFPresentationTimeSource(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFPresentationTimeSource {}
+impl ::core::clone::Clone for IMFPresentationTimeSource {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFProtectedEnvironmentAccess(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFProtectedEnvironmentAccess {}
+impl ::core::clone::Clone for IMFProtectedEnvironmentAccess {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFQualityAdvise(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFQualityAdvise {}
+impl ::core::clone::Clone for IMFQualityAdvise {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFQualityAdvise2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFQualityAdvise2 {}
+impl ::core::clone::Clone for IMFQualityAdvise2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFQualityAdviseLimits(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFQualityAdviseLimits {}
+impl ::core::clone::Clone for IMFQualityAdviseLimits {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFQualityManager(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFQualityManager {}
+impl ::core::clone::Clone for IMFQualityManager {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFRateControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFRateControl {}
+impl ::core::clone::Clone for IMFRateControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFRateSupport(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFRateSupport {}
+impl ::core::clone::Clone for IMFRateSupport {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFReadWriteClassFactory(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFReadWriteClassFactory {}
+impl ::core::clone::Clone for IMFReadWriteClassFactory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFRealTimeClient(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFRealTimeClient {}
+impl ::core::clone::Clone for IMFRealTimeClient {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFRealTimeClientEx(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFRealTimeClientEx {}
+impl ::core::clone::Clone for IMFRealTimeClientEx {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFRelativePanelReport(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFRelativePanelReport {}
+impl ::core::clone::Clone for IMFRelativePanelReport {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFRelativePanelWatcher(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFRelativePanelWatcher {}
+impl ::core::clone::Clone for IMFRelativePanelWatcher {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFRemoteAsyncCallback(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFRemoteAsyncCallback {}
+impl ::core::clone::Clone for IMFRemoteAsyncCallback {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFRemoteDesktopPlugin(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFRemoteDesktopPlugin {}
+impl ::core::clone::Clone for IMFRemoteDesktopPlugin {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFRemoteProxy(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFRemoteProxy {}
+impl ::core::clone::Clone for IMFRemoteProxy {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFSAMIStyle(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFSAMIStyle {}
+impl ::core::clone::Clone for IMFSAMIStyle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFSSLCertificateManager(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFSSLCertificateManager {}
+impl ::core::clone::Clone for IMFSSLCertificateManager {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFSample(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFSample {}
+impl ::core::clone::Clone for IMFSample {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFSampleAllocatorControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFSampleAllocatorControl {}
+impl ::core::clone::Clone for IMFSampleAllocatorControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFSampleGrabberSinkCallback(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFSampleGrabberSinkCallback {}
+impl ::core::clone::Clone for IMFSampleGrabberSinkCallback {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFSampleGrabberSinkCallback2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFSampleGrabberSinkCallback2 {}
+impl ::core::clone::Clone for IMFSampleGrabberSinkCallback2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFSampleOutputStream(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFSampleOutputStream {}
+impl ::core::clone::Clone for IMFSampleOutputStream {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFSampleProtection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFSampleProtection {}
+impl ::core::clone::Clone for IMFSampleProtection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFSaveJob(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFSaveJob {}
+impl ::core::clone::Clone for IMFSaveJob {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFSchemeHandler(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFSchemeHandler {}
+impl ::core::clone::Clone for IMFSchemeHandler {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFSecureBuffer(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFSecureBuffer {}
+impl ::core::clone::Clone for IMFSecureBuffer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFSecureChannel(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFSecureChannel {}
+impl ::core::clone::Clone for IMFSecureChannel {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFSeekInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFSeekInfo {}
+impl ::core::clone::Clone for IMFSeekInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFSensorActivitiesReport(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFSensorActivitiesReport {}
+impl ::core::clone::Clone for IMFSensorActivitiesReport {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFSensorActivitiesReportCallback(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFSensorActivitiesReportCallback {}
+impl ::core::clone::Clone for IMFSensorActivitiesReportCallback {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFSensorActivityMonitor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFSensorActivityMonitor {}
+impl ::core::clone::Clone for IMFSensorActivityMonitor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFSensorActivityReport(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFSensorActivityReport {}
+impl ::core::clone::Clone for IMFSensorActivityReport {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFSensorDevice(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFSensorDevice {}
+impl ::core::clone::Clone for IMFSensorDevice {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFSensorGroup(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFSensorGroup {}
+impl ::core::clone::Clone for IMFSensorGroup {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFSensorProcessActivity(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFSensorProcessActivity {}
+impl ::core::clone::Clone for IMFSensorProcessActivity {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFSensorProfile(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFSensorProfile {}
+impl ::core::clone::Clone for IMFSensorProfile {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFSensorProfileCollection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFSensorProfileCollection {}
+impl ::core::clone::Clone for IMFSensorProfileCollection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFSensorStream(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFSensorStream {}
+impl ::core::clone::Clone for IMFSensorStream {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFSensorTransformFactory(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFSensorTransformFactory {}
+impl ::core::clone::Clone for IMFSensorTransformFactory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFSequencerSource(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFSequencerSource {}
+impl ::core::clone::Clone for IMFSequencerSource {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFSharingEngineClassFactory(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFSharingEngineClassFactory {}
+impl ::core::clone::Clone for IMFSharingEngineClassFactory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFShutdown(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFShutdown {}
+impl ::core::clone::Clone for IMFShutdown {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFSignedLibrary(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFSignedLibrary {}
+impl ::core::clone::Clone for IMFSignedLibrary {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFSimpleAudioVolume(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFSimpleAudioVolume {}
+impl ::core::clone::Clone for IMFSimpleAudioVolume {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFSinkWriter(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFSinkWriter {}
+impl ::core::clone::Clone for IMFSinkWriter {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFSinkWriterCallback(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFSinkWriterCallback {}
+impl ::core::clone::Clone for IMFSinkWriterCallback {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFSinkWriterCallback2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFSinkWriterCallback2 {}
+impl ::core::clone::Clone for IMFSinkWriterCallback2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFSinkWriterEncoderConfig(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFSinkWriterEncoderConfig {}
+impl ::core::clone::Clone for IMFSinkWriterEncoderConfig {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFSinkWriterEx(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFSinkWriterEx {}
+impl ::core::clone::Clone for IMFSinkWriterEx {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFSourceBuffer(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFSourceBuffer {}
+impl ::core::clone::Clone for IMFSourceBuffer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFSourceBufferAppendMode(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFSourceBufferAppendMode {}
+impl ::core::clone::Clone for IMFSourceBufferAppendMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFSourceBufferList(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFSourceBufferList {}
+impl ::core::clone::Clone for IMFSourceBufferList {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFSourceBufferNotify(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFSourceBufferNotify {}
+impl ::core::clone::Clone for IMFSourceBufferNotify {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFSourceOpenMonitor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFSourceOpenMonitor {}
+impl ::core::clone::Clone for IMFSourceOpenMonitor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFSourceReader(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFSourceReader {}
+impl ::core::clone::Clone for IMFSourceReader {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFSourceReaderCallback(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFSourceReaderCallback {}
+impl ::core::clone::Clone for IMFSourceReaderCallback {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFSourceReaderCallback2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFSourceReaderCallback2 {}
+impl ::core::clone::Clone for IMFSourceReaderCallback2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFSourceReaderEx(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFSourceReaderEx {}
+impl ::core::clone::Clone for IMFSourceReaderEx {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFSourceResolver(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFSourceResolver {}
+impl ::core::clone::Clone for IMFSourceResolver {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFSpatialAudioObjectBuffer(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFSpatialAudioObjectBuffer {}
+impl ::core::clone::Clone for IMFSpatialAudioObjectBuffer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFSpatialAudioSample(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFSpatialAudioSample {}
+impl ::core::clone::Clone for IMFSpatialAudioSample {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFStreamDescriptor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFStreamDescriptor {}
+impl ::core::clone::Clone for IMFStreamDescriptor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFStreamSink(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFStreamSink {}
+impl ::core::clone::Clone for IMFStreamSink {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFStreamingSinkConfig(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFStreamingSinkConfig {}
+impl ::core::clone::Clone for IMFStreamingSinkConfig {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFSystemId(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFSystemId {}
+impl ::core::clone::Clone for IMFSystemId {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFTimecodeTranslate(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFTimecodeTranslate {}
+impl ::core::clone::Clone for IMFTimecodeTranslate {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFTimedText(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFTimedText {}
+impl ::core::clone::Clone for IMFTimedText {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFTimedTextBinary(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFTimedTextBinary {}
+impl ::core::clone::Clone for IMFTimedTextBinary {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFTimedTextBouten(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFTimedTextBouten {}
+impl ::core::clone::Clone for IMFTimedTextBouten {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFTimedTextCue(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFTimedTextCue {}
+impl ::core::clone::Clone for IMFTimedTextCue {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFTimedTextCueList(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFTimedTextCueList {}
+impl ::core::clone::Clone for IMFTimedTextCueList {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFTimedTextFormattedText(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFTimedTextFormattedText {}
+impl ::core::clone::Clone for IMFTimedTextFormattedText {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFTimedTextNotify(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFTimedTextNotify {}
+impl ::core::clone::Clone for IMFTimedTextNotify {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFTimedTextRegion(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFTimedTextRegion {}
+impl ::core::clone::Clone for IMFTimedTextRegion {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFTimedTextRuby(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFTimedTextRuby {}
+impl ::core::clone::Clone for IMFTimedTextRuby {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFTimedTextStyle(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFTimedTextStyle {}
+impl ::core::clone::Clone for IMFTimedTextStyle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFTimedTextStyle2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFTimedTextStyle2 {}
+impl ::core::clone::Clone for IMFTimedTextStyle2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFTimedTextTrack(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFTimedTextTrack {}
+impl ::core::clone::Clone for IMFTimedTextTrack {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFTimedTextTrackList(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFTimedTextTrackList {}
+impl ::core::clone::Clone for IMFTimedTextTrackList {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFTimer(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFTimer {}
+impl ::core::clone::Clone for IMFTimer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFTopoLoader(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFTopoLoader {}
+impl ::core::clone::Clone for IMFTopoLoader {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFTopology(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFTopology {}
+impl ::core::clone::Clone for IMFTopology {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFTopologyNode(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFTopologyNode {}
+impl ::core::clone::Clone for IMFTopologyNode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFTopologyNodeAttributeEditor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFTopologyNodeAttributeEditor {}
+impl ::core::clone::Clone for IMFTopologyNodeAttributeEditor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFTopologyServiceLookup(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFTopologyServiceLookup {}
+impl ::core::clone::Clone for IMFTopologyServiceLookup {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFTopologyServiceLookupClient(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFTopologyServiceLookupClient {}
+impl ::core::clone::Clone for IMFTopologyServiceLookupClient {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFTrackedSample(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFTrackedSample {}
+impl ::core::clone::Clone for IMFTrackedSample {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFTranscodeProfile(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFTranscodeProfile {}
+impl ::core::clone::Clone for IMFTranscodeProfile {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFTranscodeSinkInfoProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFTranscodeSinkInfoProvider {}
+impl ::core::clone::Clone for IMFTranscodeSinkInfoProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFTransform(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFTransform {}
+impl ::core::clone::Clone for IMFTransform {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFTrustedInput(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFTrustedInput {}
+impl ::core::clone::Clone for IMFTrustedInput {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFTrustedOutput(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFTrustedOutput {}
+impl ::core::clone::Clone for IMFTrustedOutput {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFVideoCaptureSampleAllocator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFVideoCaptureSampleAllocator {}
+impl ::core::clone::Clone for IMFVideoCaptureSampleAllocator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFVideoDeviceID(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFVideoDeviceID {}
+impl ::core::clone::Clone for IMFVideoDeviceID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFVideoDisplayControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFVideoDisplayControl {}
+impl ::core::clone::Clone for IMFVideoDisplayControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFVideoMediaType(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFVideoMediaType {}
+impl ::core::clone::Clone for IMFVideoMediaType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFVideoMixerBitmap(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFVideoMixerBitmap {}
+impl ::core::clone::Clone for IMFVideoMixerBitmap {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFVideoMixerControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFVideoMixerControl {}
+impl ::core::clone::Clone for IMFVideoMixerControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFVideoMixerControl2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFVideoMixerControl2 {}
+impl ::core::clone::Clone for IMFVideoMixerControl2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFVideoPositionMapper(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFVideoPositionMapper {}
+impl ::core::clone::Clone for IMFVideoPositionMapper {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFVideoPresenter(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFVideoPresenter {}
+impl ::core::clone::Clone for IMFVideoPresenter {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFVideoProcessor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFVideoProcessor {}
+impl ::core::clone::Clone for IMFVideoProcessor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFVideoProcessorControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFVideoProcessorControl {}
+impl ::core::clone::Clone for IMFVideoProcessorControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFVideoProcessorControl2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFVideoProcessorControl2 {}
+impl ::core::clone::Clone for IMFVideoProcessorControl2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFVideoProcessorControl3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFVideoProcessorControl3 {}
+impl ::core::clone::Clone for IMFVideoProcessorControl3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFVideoRenderer(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFVideoRenderer {}
+impl ::core::clone::Clone for IMFVideoRenderer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFVideoRendererEffectControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFVideoRendererEffectControl {}
+impl ::core::clone::Clone for IMFVideoRendererEffectControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFVideoSampleAllocator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFVideoSampleAllocator {}
+impl ::core::clone::Clone for IMFVideoSampleAllocator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFVideoSampleAllocatorCallback(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFVideoSampleAllocatorCallback {}
+impl ::core::clone::Clone for IMFVideoSampleAllocatorCallback {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFVideoSampleAllocatorEx(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFVideoSampleAllocatorEx {}
+impl ::core::clone::Clone for IMFVideoSampleAllocatorEx {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFVideoSampleAllocatorNotify(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFVideoSampleAllocatorNotify {}
+impl ::core::clone::Clone for IMFVideoSampleAllocatorNotify {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFVideoSampleAllocatorNotifyEx(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFVideoSampleAllocatorNotifyEx {}
+impl ::core::clone::Clone for IMFVideoSampleAllocatorNotifyEx {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFVirtualCamera(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFVirtualCamera {}
+impl ::core::clone::Clone for IMFVirtualCamera {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFWorkQueueServices(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFWorkQueueServices {}
+impl ::core::clone::Clone for IMFWorkQueueServices {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFWorkQueueServicesEx(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFWorkQueueServicesEx {}
+impl ::core::clone::Clone for IMFWorkQueueServicesEx {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IOPMVideoOutput(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IOPMVideoOutput {}
+impl ::core::clone::Clone for IOPMVideoOutput {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPlayToControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPlayToControl {}
+impl ::core::clone::Clone for IPlayToControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPlayToControlWithCapabilities(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPlayToControlWithCapabilities {}
+impl ::core::clone::Clone for IPlayToControlWithCapabilities {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPlayToSourceClassFactory(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPlayToSourceClassFactory {}
+impl ::core::clone::Clone for IPlayToSourceClassFactory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IToc(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IToc {}
+impl ::core::clone::Clone for IToc {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITocCollection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITocCollection {}
+impl ::core::clone::Clone for ITocCollection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITocEntry(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITocEntry {}
+impl ::core::clone::Clone for ITocEntry {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITocEntryList(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITocEntryList {}
+impl ::core::clone::Clone for ITocEntryList {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITocParser(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITocParser {}
+impl ::core::clone::Clone for ITocParser {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IValidateBinding(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IValidateBinding {}
+impl ::core::clone::Clone for IValidateBinding {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMCodecLeakyBucket(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMCodecLeakyBucket {}
+impl ::core::clone::Clone for IWMCodecLeakyBucket {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMCodecOutputTimestamp(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMCodecOutputTimestamp {}
+impl ::core::clone::Clone for IWMCodecOutputTimestamp {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMCodecPrivateData(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMCodecPrivateData {}
+impl ::core::clone::Clone for IWMCodecPrivateData {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMCodecProps(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMCodecProps {}
+impl ::core::clone::Clone for IWMCodecProps {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMCodecStrings(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMCodecStrings {}
+impl ::core::clone::Clone for IWMCodecStrings {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMColorConvProps(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMColorConvProps {}
+impl ::core::clone::Clone for IWMColorConvProps {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMColorLegalizerProps(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMColorLegalizerProps {}
+impl ::core::clone::Clone for IWMColorLegalizerProps {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMFrameInterpProps(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMFrameInterpProps {}
+impl ::core::clone::Clone for IWMFrameInterpProps {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMInterlaceProps(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMInterlaceProps {}
+impl ::core::clone::Clone for IWMInterlaceProps {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMResamplerProps(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMResamplerProps {}
+impl ::core::clone::Clone for IWMResamplerProps {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMResizerProps(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMResizerProps {}
+impl ::core::clone::Clone for IWMResizerProps {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMSampleExtensionSupport(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMSampleExtensionSupport {}
+impl ::core::clone::Clone for IWMSampleExtensionSupport {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMValidate(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMValidate {}
+impl ::core::clone::Clone for IWMValidate {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMVideoDecoderHurryup(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMVideoDecoderHurryup {}
+impl ::core::clone::Clone for IWMVideoDecoderHurryup {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMVideoDecoderReconBuffer(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMVideoDecoderReconBuffer {}
+impl ::core::clone::Clone for IWMVideoDecoderReconBuffer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMVideoForceKeyFrame(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMVideoForceKeyFrame {}
+impl ::core::clone::Clone for IWMVideoForceKeyFrame {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct KSMETHOD_OPMVIDEOOUTPUT(pub i32);
 pub const KSMETHOD_OPMVIDEOOUTPUT_STARTINITIALIZATION: KSMETHOD_OPMVIDEOOUTPUT = KSMETHOD_OPMVIDEOOUTPUT(0i32);
@@ -8106,7 +10230,7 @@ impl ::core::clone::Clone for KSMETHOD_OPMVIDEOOUTPUT {
         *self
     }
 }
-pub const KSPROPSETID_OPMVideoOutput: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const KSPROPSETID_OPMVideoOutput: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 116659387,
     data2: 62522,
     data3: 20450,
@@ -8139,74 +10263,74 @@ pub const MEDIASINK_CLOCK_REQUIRED: u32 = 8u32;
 pub const MEDIASINK_FIXED_STREAMS: u32 = 1u32;
 pub const MEDIASINK_RATELESS: u32 = 4u32;
 pub const MEDIASINK_REQUIRE_REFERENCE_MEDIATYPE: u32 = 32u32;
-pub const MEDIASUBTYPE_AVC1: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 826496577, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MEDIASUBTYPE_DOLBY_DDPLUS: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MEDIASUBTYPE_AVC1: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 826496577, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MEDIASUBTYPE_DOLBY_DDPLUS: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2818279343,
     data2: 11522,
     data3: 17147,
     data4: [164, 212, 5, 205, 147, 132, 59, 221],
 };
-pub const MEDIASUBTYPE_DOLBY_TRUEHD: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3945254596, data2: 5694, data3: 19619, data4: [139, 116, 142, 37, 249, 27, 81, 126] };
-pub const MEDIASUBTYPE_DTS2: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 8193, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MEDIASUBTYPE_DTS_HD: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2732953271, data2: 4009, data3: 18619, data4: [164, 12, 250, 14, 21, 109, 6, 69] };
-pub const MEDIASUBTYPE_DTS_HD_HRA: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2786771812, data2: 44302, data3: 18244, data4: [137, 255, 33, 60, 224, 223, 136, 4] };
-pub const MEDIASUBTYPE_DVM: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 8192, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MEDIASUBTYPE_I420: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 808596553, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MEDIASUBTYPE_M4S2: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 844313677, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MEDIASUBTYPE_MP42: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 842289229, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MEDIASUBTYPE_MP43: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 859066445, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MEDIASUBTYPE_MP4S: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1395937357, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MEDIASUBTYPE_MPEG_ADTS_AAC: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 5632, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MEDIASUBTYPE_MPEG_HEAAC: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 5648, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MEDIASUBTYPE_MPEG_LOAS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 5634, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MEDIASUBTYPE_MPEG_RAW_AAC: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 5633, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MEDIASUBTYPE_MPG4: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 877088845, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MEDIASUBTYPE_MSAUDIO1: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 352, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MEDIASUBTYPE_MSS1: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 827544397, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MEDIASUBTYPE_MSS2: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 844321613, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MEDIASUBTYPE_NOKIA_MPEG_ADTS_AAC: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 5640, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MEDIASUBTYPE_NOKIA_MPEG_RAW_AAC: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 5641, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MEDIASUBTYPE_NV11: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 825316942, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MEDIASUBTYPE_None: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3828804494, data2: 21071, data3: 4558, data4: [159, 83, 0, 32, 175, 11, 167, 112] };
-pub const MEDIASUBTYPE_RAW_AAC1: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 255, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MEDIASUBTYPE_V216: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 909193814, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MEDIASUBTYPE_V410: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 808531030, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MEDIASUBTYPE_VODAFONE_MPEG_ADTS_AAC: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 5642, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MEDIASUBTYPE_VODAFONE_MPEG_RAW_AAC: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 5643, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MEDIASUBTYPE_WMASPDIF: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 356, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MEDIASUBTYPE_WMAUDIO2: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 353, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MEDIASUBTYPE_WMAUDIO3: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 354, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MEDIASUBTYPE_WMAUDIO4: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 360, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MEDIASUBTYPE_WMAUDIO_LOSSLESS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 355, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MEDIASUBTYPE_WMV1: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 827739479, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MEDIASUBTYPE_WMV2: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 844516695, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MEDIASUBTYPE_WMV3: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 861293911, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MEDIASUBTYPE_WMVA: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1096174935, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MEDIASUBTYPE_WMVB: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1112952151, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MEDIASUBTYPE_WMVP: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1347833175, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MEDIASUBTYPE_WMVR: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1381387607, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MEDIASUBTYPE_WVC1: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 826496599, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MEDIASUBTYPE_WVP2: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 844125783, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MEDIASUBTYPE_X264: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 875967064, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MEDIASUBTYPE_Y41T: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1412510809, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MEDIASUBTYPE_Y42T: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1412576345, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MEDIASUBTYPE_h264: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 875967080, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MEDIASUBTYPE_m4s2: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 846410861, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MEDIASUBTYPE_mp42: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 842297453, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MEDIASUBTYPE_mp43: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 859074669, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MEDIASUBTYPE_mp4s: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1932816493, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MEDIASUBTYPE_mpg4: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 879194221, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MEDIASUBTYPE_v210: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 808530550, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MEDIASUBTYPE_wmv1: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 829844855, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MEDIASUBTYPE_wmv2: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 846622071, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MEDIASUBTYPE_wmv3: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 863399287, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MEDIASUBTYPE_wmva: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1635151223, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MEDIASUBTYPE_wmvb: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1651928439, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MEDIASUBTYPE_wmvp: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1886809463, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MEDIASUBTYPE_wmvr: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1920363895, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MEDIASUBTYPE_wvc1: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 828601975, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MEDIASUBTYPE_wvp2: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 846231159, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MEDIASUBTYPE_x264: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 875967096, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MEDIASUBTYPE_DOLBY_TRUEHD: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3945254596, data2: 5694, data3: 19619, data4: [139, 116, 142, 37, 249, 27, 81, 126] };
+pub const MEDIASUBTYPE_DTS2: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 8193, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MEDIASUBTYPE_DTS_HD: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2732953271, data2: 4009, data3: 18619, data4: [164, 12, 250, 14, 21, 109, 6, 69] };
+pub const MEDIASUBTYPE_DTS_HD_HRA: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2786771812, data2: 44302, data3: 18244, data4: [137, 255, 33, 60, 224, 223, 136, 4] };
+pub const MEDIASUBTYPE_DVM: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 8192, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MEDIASUBTYPE_I420: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 808596553, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MEDIASUBTYPE_M4S2: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 844313677, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MEDIASUBTYPE_MP42: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 842289229, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MEDIASUBTYPE_MP43: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 859066445, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MEDIASUBTYPE_MP4S: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1395937357, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MEDIASUBTYPE_MPEG_ADTS_AAC: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 5632, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MEDIASUBTYPE_MPEG_HEAAC: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 5648, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MEDIASUBTYPE_MPEG_LOAS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 5634, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MEDIASUBTYPE_MPEG_RAW_AAC: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 5633, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MEDIASUBTYPE_MPG4: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 877088845, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MEDIASUBTYPE_MSAUDIO1: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 352, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MEDIASUBTYPE_MSS1: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 827544397, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MEDIASUBTYPE_MSS2: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 844321613, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MEDIASUBTYPE_NOKIA_MPEG_ADTS_AAC: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 5640, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MEDIASUBTYPE_NOKIA_MPEG_RAW_AAC: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 5641, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MEDIASUBTYPE_NV11: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 825316942, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MEDIASUBTYPE_None: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3828804494, data2: 21071, data3: 4558, data4: [159, 83, 0, 32, 175, 11, 167, 112] };
+pub const MEDIASUBTYPE_RAW_AAC1: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 255, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MEDIASUBTYPE_V216: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 909193814, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MEDIASUBTYPE_V410: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 808531030, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MEDIASUBTYPE_VODAFONE_MPEG_ADTS_AAC: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 5642, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MEDIASUBTYPE_VODAFONE_MPEG_RAW_AAC: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 5643, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MEDIASUBTYPE_WMASPDIF: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 356, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MEDIASUBTYPE_WMAUDIO2: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 353, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MEDIASUBTYPE_WMAUDIO3: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 354, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MEDIASUBTYPE_WMAUDIO4: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 360, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MEDIASUBTYPE_WMAUDIO_LOSSLESS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 355, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MEDIASUBTYPE_WMV1: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 827739479, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MEDIASUBTYPE_WMV2: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 844516695, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MEDIASUBTYPE_WMV3: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 861293911, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MEDIASUBTYPE_WMVA: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1096174935, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MEDIASUBTYPE_WMVB: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1112952151, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MEDIASUBTYPE_WMVP: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1347833175, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MEDIASUBTYPE_WMVR: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1381387607, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MEDIASUBTYPE_WVC1: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 826496599, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MEDIASUBTYPE_WVP2: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 844125783, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MEDIASUBTYPE_X264: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 875967064, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MEDIASUBTYPE_Y41T: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1412510809, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MEDIASUBTYPE_Y42T: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1412576345, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MEDIASUBTYPE_h264: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 875967080, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MEDIASUBTYPE_m4s2: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 846410861, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MEDIASUBTYPE_mp42: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 842297453, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MEDIASUBTYPE_mp43: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 859074669, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MEDIASUBTYPE_mp4s: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1932816493, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MEDIASUBTYPE_mpg4: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 879194221, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MEDIASUBTYPE_v210: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 808530550, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MEDIASUBTYPE_wmv1: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 829844855, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MEDIASUBTYPE_wmv2: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 846622071, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MEDIASUBTYPE_wmv3: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 863399287, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MEDIASUBTYPE_wmva: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1635151223, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MEDIASUBTYPE_wmvb: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1651928439, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MEDIASUBTYPE_wmvp: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1886809463, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MEDIASUBTYPE_wmvr: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1920363895, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MEDIASUBTYPE_wvc1: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 828601975, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MEDIASUBTYPE_wvp2: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 846231159, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MEDIASUBTYPE_x264: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 875967096, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
 #[repr(transparent)]
 pub struct MEDIA_EVENT_GENERATOR_GET_EVENT_FLAGS(pub u32);
 pub const MF_EVENT_FLAG_NONE: MEDIA_EVENT_GENERATOR_GET_EVENT_FLAGS = MEDIA_EVENT_GENERATOR_GET_EVENT_FLAGS(0u32);
@@ -8217,7 +10341,7 @@ impl ::core::clone::Clone for MEDIA_EVENT_GENERATOR_GET_EVENT_FLAGS {
         *self
     }
 }
-pub const MEDeviceStreamCreated: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 38969807, data2: 13632, data3: 17332, data4: [145, 100, 215, 46, 180, 5, 250, 64] };
+pub const MEDeviceStreamCreated: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 38969807, data2: 13632, data3: 17332, data4: [145, 100, 215, 46, 180, 5, 250, 64] };
 #[repr(transparent)]
 pub struct MF2DBuffer_LockFlags(pub i32);
 pub const MF2DBuffer_LockFlags_LockTypeMask: MF2DBuffer_LockFlags = MF2DBuffer_LockFlags(3i32);
@@ -8241,8 +10365,8 @@ impl ::core::clone::Clone for MF3DVideoOutputType {
         *self
     }
 }
-pub const MFAMRNBByteStreamHandler: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4024836234, data2: 2604, data3: 18938, data4: [138, 1, 55, 104, 181, 89, 182, 218] };
-pub const MFAMRNBSinkClassFactory: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFAMRNBByteStreamHandler: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4024836234, data2: 2604, data3: 18938, data4: [138, 1, 55, 104, 181, 89, 182, 218] };
+pub const MFAMRNBSinkClassFactory: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2955350360,
     data2: 28882,
     data3: 19547,
@@ -8265,45 +10389,45 @@ pub const MFASFINDEXER_APPROX_SEEK_TIME_UNKNOWN: u64 = 18446744073709551615u64;
 pub const MFASFINDEXER_NO_FIXED_INTERVAL: u32 = 4294967295u32;
 pub const MFASFINDEXER_PER_ENTRY_BYTES_DYNAMIC: u32 = 65535u32;
 pub const MFASFINDEXER_READ_FOR_REVERSEPLAYBACK_OUTOFDATASEGMENT: u64 = 18446744073709551615u64;
-pub const MFASFINDEXER_TYPE_TIMECODE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1233211953, data2: 27565, data3: 17661, data4: [129, 10, 63, 96, 152, 78, 199, 253] };
-pub const MFASFMutexType_Bitrate: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1914145836, data2: 58459, data3: 4565, data4: [188, 42, 0, 176, 208, 243, 244, 171] };
-pub const MFASFMutexType_Language: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1914145835, data2: 58459, data3: 4565, data4: [188, 42, 0, 176, 208, 243, 244, 171] };
-pub const MFASFMutexType_Presentation: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1914145837, data2: 58459, data3: 4565, data4: [188, 42, 0, 176, 208, 243, 244, 171] };
-pub const MFASFMutexType_Unknown: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1914145838, data2: 58459, data3: 4565, data4: [188, 42, 0, 176, 208, 243, 244, 171] };
-pub const MFASFSPLITTER_PACKET_BOUNDARY: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4267198981, data2: 59606, data3: 17123, data4: [177, 118, 241, 33, 23, 5, 251, 111] };
-pub const MFASFSampleExtension_ContentType: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFASFINDEXER_TYPE_TIMECODE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1233211953, data2: 27565, data3: 17661, data4: [129, 10, 63, 96, 152, 78, 199, 253] };
+pub const MFASFMutexType_Bitrate: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1914145836, data2: 58459, data3: 4565, data4: [188, 42, 0, 176, 208, 243, 244, 171] };
+pub const MFASFMutexType_Language: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1914145835, data2: 58459, data3: 4565, data4: [188, 42, 0, 176, 208, 243, 244, 171] };
+pub const MFASFMutexType_Presentation: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1914145837, data2: 58459, data3: 4565, data4: [188, 42, 0, 176, 208, 243, 244, 171] };
+pub const MFASFMutexType_Unknown: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1914145838, data2: 58459, data3: 4565, data4: [188, 42, 0, 176, 208, 243, 244, 171] };
+pub const MFASFSPLITTER_PACKET_BOUNDARY: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4267198981, data2: 59606, data3: 17123, data4: [177, 118, 241, 33, 23, 5, 251, 111] };
+pub const MFASFSampleExtension_ContentType: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3583040544,
     data2: 1980,
     data3: 17260,
     data4: [156, 247, 243, 187, 251, 241, 164, 220],
 };
-pub const MFASFSampleExtension_Encryption_KeyID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFASFSampleExtension_Encryption_KeyID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1983341969,
     data2: 31071,
     data3: 19873,
     data4: [134, 237, 157, 70, 236, 161, 9, 169],
 };
-pub const MFASFSampleExtension_Encryption_SampleID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1721284686, data2: 2810, data3: 17200, data4: [174, 178, 28, 10, 152, 215, 164, 77] };
-pub const MFASFSampleExtension_FileName: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFASFSampleExtension_Encryption_SampleID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1721284686, data2: 2810, data3: 17200, data4: [174, 178, 28, 10, 152, 215, 164, 77] };
+pub const MFASFSampleExtension_FileName: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3781553166,
     data2: 6637,
     data3: 17879,
     data4: [180, 167, 37, 203, 209, 226, 142, 155],
 };
-pub const MFASFSampleExtension_OutputCleanPoint: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4146740335, data2: 28340, data3: 20156, data4: [177, 146, 9, 173, 151, 89, 232, 40] };
-pub const MFASFSampleExtension_PixelAspectRatio: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFASFSampleExtension_OutputCleanPoint: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4146740335, data2: 28340, data3: 20156, data4: [177, 146, 9, 173, 151, 89, 232, 40] };
+pub const MFASFSampleExtension_PixelAspectRatio: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 455009620,
     data2: 63978,
     data3: 19400,
     data4: [130, 26, 55, 107, 116, 228, 196, 184],
 };
-pub const MFASFSampleExtension_SMPTE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFASFSampleExtension_SMPTE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 966104556,
     data2: 34407,
     data3: 20013,
     data4: [143, 219, 152, 129, 76, 231, 108, 30],
 };
-pub const MFASFSampleExtension_SampleDuration: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFASFSampleExtension_SampleDuration: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3334313040,
     data2: 34431,
     data3: 18695,
@@ -8356,6 +10480,12 @@ impl ::core::clone::Clone for MFASF_STREAMSELECTOR_FLAGS {
 }
 #[repr(transparent)]
 pub struct MFASYNCRESULT(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for MFASYNCRESULT {}
+impl ::core::clone::Clone for MFASYNCRESULT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MFASYNC_BLOCKING_CALLBACK: u32 = 4u32;
 pub const MFASYNC_CALLBACK_QUEUE_ALL: u32 = 4294967295u32;
 pub const MFASYNC_CALLBACK_QUEUE_IO: u32 = 3u32;
@@ -8418,103 +10548,103 @@ impl ::core::clone::Clone for MFAudioDecoderDegradationInfo {
         *self
     }
 }
-pub const MFAudioFormat_AAC: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 5648, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MFAudioFormat_AAC_HDCP: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFAudioFormat_AAC: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 5648, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MFAudioFormat_AAC_HDCP: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1100729974,
     data2: 35698,
     data3: 16399,
     data4: [173, 235, 132, 181, 125, 99, 72, 77],
 };
-pub const MFAudioFormat_ADTS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 5632, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MFAudioFormat_ADTS_HDCP: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3662242723, data2: 5336, data3: 19919, data4: [146, 183, 25, 62, 184, 67, 99, 219] };
-pub const MFAudioFormat_ALAC: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 27745, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MFAudioFormat_AMR_NB: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 29537, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MFAudioFormat_AMR_WB: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 29538, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MFAudioFormat_AMR_WP: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 29539, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MFAudioFormat_Base: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 0, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MFAudioFormat_Base_HDCP: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 948221372, data2: 57975, data3: 17405, data4: [152, 61, 3, 138, 168, 217, 182, 5] };
-pub const MFAudioFormat_DRM: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 9, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MFAudioFormat_DTS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 8, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MFAudioFormat_DTS_HD: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2732953271, data2: 4009, data3: 18619, data4: [164, 12, 250, 14, 21, 109, 6, 69] };
-pub const MFAudioFormat_DTS_LBR: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFAudioFormat_ADTS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 5632, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MFAudioFormat_ADTS_HDCP: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3662242723, data2: 5336, data3: 19919, data4: [146, 183, 25, 62, 184, 67, 99, 219] };
+pub const MFAudioFormat_ALAC: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 27745, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MFAudioFormat_AMR_NB: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 29537, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MFAudioFormat_AMR_WB: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 29538, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MFAudioFormat_AMR_WP: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 29539, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MFAudioFormat_Base: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 0, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MFAudioFormat_Base_HDCP: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 948221372, data2: 57975, data3: 17405, data4: [152, 61, 3, 138, 168, 217, 182, 5] };
+pub const MFAudioFormat_DRM: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 9, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MFAudioFormat_DTS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 8, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MFAudioFormat_DTS_HD: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2732953271, data2: 4009, data3: 18619, data4: [164, 12, 250, 14, 21, 109, 6, 69] };
+pub const MFAudioFormat_DTS_LBR: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3271454474,
     data2: 20028,
     data3: 19953,
     data4: [155, 96, 80, 134, 48, 145, 228, 185],
 };
-pub const MFAudioFormat_DTS_RAW: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3765272627, data2: 56134, data3: 4559, data4: [180, 209, 0, 128, 95, 108, 187, 234] };
-pub const MFAudioFormat_DTS_UHD: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2265055511, data2: 44259, data3: 17118, data4: [183, 62, 198, 86, 112, 98, 99, 248] };
-pub const MFAudioFormat_DTS_UHDY: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFAudioFormat_DTS_RAW: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3765272627, data2: 56134, data3: 4559, data4: [180, 209, 0, 128, 95, 108, 187, 234] };
+pub const MFAudioFormat_DTS_UHD: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2265055511, data2: 44259, data3: 17118, data4: [183, 62, 198, 86, 112, 98, 99, 248] };
+pub const MFAudioFormat_DTS_UHDY: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2610743808,
     data2: 37305,
     data3: 19660,
     data4: [136, 58, 143, 120, 122, 195, 204, 134],
 };
-pub const MFAudioFormat_DTS_XLL: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFAudioFormat_DTS_XLL: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1169390619,
     data2: 35952,
     data3: 20057,
     data4: [167, 190, 161, 228, 44, 129, 200, 13],
 };
-pub const MFAudioFormat_Dolby_AC3: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3765272620, data2: 56134, data3: 4559, data4: [180, 209, 0, 128, 95, 108, 187, 234] };
-pub const MFAudioFormat_Dolby_AC3_HDCP: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFAudioFormat_Dolby_AC3: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3765272620, data2: 56134, data3: 4559, data4: [180, 209, 0, 128, 95, 108, 187, 234] };
+pub const MFAudioFormat_Dolby_AC3_HDCP: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2540059264,
     data2: 36859,
     data3: 17477,
     data4: [166, 186, 121, 45, 144, 143, 73, 127],
 };
-pub const MFAudioFormat_Dolby_AC3_SPDIF: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 146, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MFAudioFormat_Dolby_AC4: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 44096, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MFAudioFormat_Dolby_AC4_V1: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFAudioFormat_Dolby_AC3_SPDIF: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 146, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MFAudioFormat_Dolby_AC4: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 44096, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MFAudioFormat_Dolby_AC4_V1: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 918000252,
     data2: 15751,
     data3: 18986,
     data4: [145, 150, 162, 26, 217, 233, 53, 230],
 };
-pub const MFAudioFormat_Dolby_AC4_V1_ES: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFAudioFormat_Dolby_AC4_V1_ES: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2643315910,
     data2: 53590,
     data3: 20408,
     data4: [151, 156, 168, 91, 231, 210, 29, 250],
 };
-pub const MFAudioFormat_Dolby_AC4_V2: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFAudioFormat_Dolby_AC4_V2: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2040050336,
     data2: 6109,
     data3: 18870,
     data4: [141, 250, 155, 39, 133, 82, 162, 172],
 };
-pub const MFAudioFormat_Dolby_AC4_V2_ES: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFAudioFormat_Dolby_AC4_V2_ES: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2119748089,
     data2: 45168,
     data3: 17908,
     data4: [140, 205, 169, 154, 4, 23, 193, 172],
 };
-pub const MFAudioFormat_Dolby_DDPlus: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFAudioFormat_Dolby_DDPlus: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2818279343,
     data2: 11522,
     data3: 17147,
     data4: [164, 212, 5, 205, 147, 132, 59, 221],
 };
-pub const MFAudioFormat_FLAC: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 61868, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MFAudioFormat_Float: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MFAudioFormat_Float_SpatialObjects: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFAudioFormat_FLAC: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 61868, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MFAudioFormat_Float: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MFAudioFormat_Float_SpatialObjects: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4198092180,
     data2: 48228,
     data3: 19121,
     data4: [155, 113, 220, 208, 157, 90, 126, 122],
 };
-pub const MFAudioFormat_LPCM: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3765272626, data2: 56134, data3: 4559, data4: [180, 209, 0, 128, 95, 108, 187, 234] };
-pub const MFAudioFormat_MP3: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 85, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MFAudioFormat_MPEG: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 80, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MFAudioFormat_MSP1: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 10, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MFAudioFormat_Opus: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 28751, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MFAudioFormat_PCM: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MFAudioFormat_PCM_HDCP: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2783444737, data2: 33809, data3: 19148, data4: [168, 101, 95, 73, 65, 40, 141, 128] };
-pub const MFAudioFormat_Vorbis: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2368721163, data2: 22593, data3: 19051, data4: [137, 5, 88, 143, 236, 26, 222, 217] };
-pub const MFAudioFormat_WMASPDIF: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 356, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MFAudioFormat_WMAudioV8: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 353, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MFAudioFormat_WMAudioV9: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 354, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MFAudioFormat_WMAudio_Lossless: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 355, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MFAudioFormat_LPCM: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3765272626, data2: 56134, data3: 4559, data4: [180, 209, 0, 128, 95, 108, 187, 234] };
+pub const MFAudioFormat_MP3: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 85, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MFAudioFormat_MPEG: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 80, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MFAudioFormat_MSP1: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 10, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MFAudioFormat_Opus: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 28751, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MFAudioFormat_PCM: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MFAudioFormat_PCM_HDCP: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2783444737, data2: 33809, data3: 19148, data4: [168, 101, 95, 73, 65, 40, 141, 128] };
+pub const MFAudioFormat_Vorbis: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2368721163, data2: 22593, data3: 19051, data4: [137, 5, 88, 143, 236, 26, 222, 217] };
+pub const MFAudioFormat_WMASPDIF: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 356, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MFAudioFormat_WMAudioV8: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 353, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MFAudioFormat_WMAudioV9: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 354, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MFAudioFormat_WMAudio_Lossless: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 355, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
 #[repr(C)]
 pub struct MFBYTESTREAM_BUFFERING_PARAMS {
     pub cbTotalFileSize: u64,
@@ -8607,33 +10737,33 @@ impl ::core::clone::Clone for MFCLOCK_STATE {
     }
 }
 pub const MFCLOCK_TOLERANCE_UNKNOWN: u32 = 50000u32;
-pub const MFCONNECTOR_AGP: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2889543520, data2: 52803, data3: 4569, data4: [146, 219, 0, 11, 219, 40, 255, 152] };
-pub const MFCONNECTOR_COMPONENT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1473075563, data2: 52807, data3: 4569, data4: [146, 219, 0, 11, 219, 40, 255, 152] };
-pub const MFCONNECTOR_COMPOSITE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1473075562, data2: 52807, data3: 4569, data4: [146, 219, 0, 11, 219, 40, 255, 152] };
-pub const MFCONNECTOR_DISPLAYPORT_EMBEDDED: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1473075571, data2: 52807, data3: 4569, data4: [146, 219, 0, 11, 219, 40, 255, 152] };
-pub const MFCONNECTOR_DISPLAYPORT_EXTERNAL: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1473075570, data2: 52807, data3: 4569, data4: [146, 219, 0, 11, 219, 40, 255, 152] };
-pub const MFCONNECTOR_DVI: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1473075564, data2: 52807, data3: 4569, data4: [146, 219, 0, 11, 219, 40, 255, 152] };
-pub const MFCONNECTOR_D_JPN: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1473075568, data2: 52807, data3: 4569, data4: [146, 219, 0, 11, 219, 40, 255, 152] };
-pub const MFCONNECTOR_HDMI: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1473075565, data2: 52807, data3: 4569, data4: [146, 219, 0, 11, 219, 40, 255, 152] };
-pub const MFCONNECTOR_LVDS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1473075566, data2: 52807, data3: 4569, data4: [146, 219, 0, 11, 219, 40, 255, 152] };
-pub const MFCONNECTOR_MIRACAST: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1473075575, data2: 52807, data3: 4569, data4: [146, 219, 0, 11, 219, 40, 255, 152] };
-pub const MFCONNECTOR_PCI: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2889543517, data2: 52803, data3: 4569, data4: [146, 219, 0, 11, 219, 40, 255, 152] };
-pub const MFCONNECTOR_PCIX: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2889543518, data2: 52803, data3: 4569, data4: [146, 219, 0, 11, 219, 40, 255, 152] };
-pub const MFCONNECTOR_PCI_Express: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2889543519, data2: 52803, data3: 4569, data4: [146, 219, 0, 11, 219, 40, 255, 152] };
-pub const MFCONNECTOR_SDI: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1473075569, data2: 52807, data3: 4569, data4: [146, 219, 0, 11, 219, 40, 255, 152] };
-pub const MFCONNECTOR_SPDIF: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFCONNECTOR_AGP: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2889543520, data2: 52803, data3: 4569, data4: [146, 219, 0, 11, 219, 40, 255, 152] };
+pub const MFCONNECTOR_COMPONENT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1473075563, data2: 52807, data3: 4569, data4: [146, 219, 0, 11, 219, 40, 255, 152] };
+pub const MFCONNECTOR_COMPOSITE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1473075562, data2: 52807, data3: 4569, data4: [146, 219, 0, 11, 219, 40, 255, 152] };
+pub const MFCONNECTOR_DISPLAYPORT_EMBEDDED: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1473075571, data2: 52807, data3: 4569, data4: [146, 219, 0, 11, 219, 40, 255, 152] };
+pub const MFCONNECTOR_DISPLAYPORT_EXTERNAL: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1473075570, data2: 52807, data3: 4569, data4: [146, 219, 0, 11, 219, 40, 255, 152] };
+pub const MFCONNECTOR_DVI: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1473075564, data2: 52807, data3: 4569, data4: [146, 219, 0, 11, 219, 40, 255, 152] };
+pub const MFCONNECTOR_D_JPN: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1473075568, data2: 52807, data3: 4569, data4: [146, 219, 0, 11, 219, 40, 255, 152] };
+pub const MFCONNECTOR_HDMI: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1473075565, data2: 52807, data3: 4569, data4: [146, 219, 0, 11, 219, 40, 255, 152] };
+pub const MFCONNECTOR_LVDS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1473075566, data2: 52807, data3: 4569, data4: [146, 219, 0, 11, 219, 40, 255, 152] };
+pub const MFCONNECTOR_MIRACAST: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1473075575, data2: 52807, data3: 4569, data4: [146, 219, 0, 11, 219, 40, 255, 152] };
+pub const MFCONNECTOR_PCI: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2889543517, data2: 52803, data3: 4569, data4: [146, 219, 0, 11, 219, 40, 255, 152] };
+pub const MFCONNECTOR_PCIX: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2889543518, data2: 52803, data3: 4569, data4: [146, 219, 0, 11, 219, 40, 255, 152] };
+pub const MFCONNECTOR_PCI_Express: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2889543519, data2: 52803, data3: 4569, data4: [146, 219, 0, 11, 219, 40, 255, 152] };
+pub const MFCONNECTOR_SDI: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1473075569, data2: 52807, data3: 4569, data4: [146, 219, 0, 11, 219, 40, 255, 152] };
+pub const MFCONNECTOR_SPDIF: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 194291474,
     data2: 44350,
     data3: 19694,
     data4: [131, 206, 206, 50, 227, 219, 101, 34],
 };
-pub const MFCONNECTOR_SVIDEO: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1473075561, data2: 52807, data3: 4569, data4: [146, 219, 0, 11, 219, 40, 255, 152] };
-pub const MFCONNECTOR_TRANSPORT_AGNOSTIC_DIGITAL_MODE_A: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1473075576, data2: 52807, data3: 4569, data4: [146, 219, 0, 11, 219, 40, 255, 152] };
-pub const MFCONNECTOR_TRANSPORT_AGNOSTIC_DIGITAL_MODE_B: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1473075577, data2: 52807, data3: 4569, data4: [146, 219, 0, 11, 219, 40, 255, 152] };
-pub const MFCONNECTOR_UDI_EMBEDDED: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1473075573, data2: 52807, data3: 4569, data4: [146, 219, 0, 11, 219, 40, 255, 152] };
-pub const MFCONNECTOR_UDI_EXTERNAL: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1473075572, data2: 52807, data3: 4569, data4: [146, 219, 0, 11, 219, 40, 255, 152] };
-pub const MFCONNECTOR_UNKNOWN: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2889543516, data2: 52803, data3: 4569, data4: [146, 219, 0, 11, 219, 40, 255, 152] };
-pub const MFCONNECTOR_VGA: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1473075560, data2: 52807, data3: 4569, data4: [146, 219, 0, 11, 219, 40, 255, 152] };
+pub const MFCONNECTOR_SVIDEO: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1473075561, data2: 52807, data3: 4569, data4: [146, 219, 0, 11, 219, 40, 255, 152] };
+pub const MFCONNECTOR_TRANSPORT_AGNOSTIC_DIGITAL_MODE_A: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1473075576, data2: 52807, data3: 4569, data4: [146, 219, 0, 11, 219, 40, 255, 152] };
+pub const MFCONNECTOR_TRANSPORT_AGNOSTIC_DIGITAL_MODE_B: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1473075577, data2: 52807, data3: 4569, data4: [146, 219, 0, 11, 219, 40, 255, 152] };
+pub const MFCONNECTOR_UDI_EMBEDDED: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1473075573, data2: 52807, data3: 4569, data4: [146, 219, 0, 11, 219, 40, 255, 152] };
+pub const MFCONNECTOR_UDI_EXTERNAL: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1473075572, data2: 52807, data3: 4569, data4: [146, 219, 0, 11, 219, 40, 255, 152] };
+pub const MFCONNECTOR_UNKNOWN: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2889543516, data2: 52803, data3: 4569, data4: [146, 219, 0, 11, 219, 40, 255, 152] };
+pub const MFCONNECTOR_VGA: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1473075560, data2: 52807, data3: 4569, data4: [146, 219, 0, 11, 219, 40, 255, 152] };
 pub const MFCONTENTPROTECTIONDEVICE_FUNCTIONID_START: u32 = 67108864u32;
 #[repr(C)]
 pub struct MFCONTENTPROTECTIONDEVICE_INPUT_DATA {
@@ -8801,27 +10931,27 @@ impl ::core::clone::Clone for MFDepthMeasurement {
         *self
     }
 }
-pub const MFENABLETYPE_MF_RebootRequired: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1833778507, data2: 3790, data3: 18002, data4: [139, 58, 242, 210, 66, 96, 216, 135] };
-pub const MFENABLETYPE_MF_UpdateRevocationInformation: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFENABLETYPE_MF_RebootRequired: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1833778507, data2: 3790, data3: 18002, data4: [139, 58, 242, 210, 66, 96, 216, 135] };
+pub const MFENABLETYPE_MF_UpdateRevocationInformation: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3847794869,
     data2: 46020,
     data3: 17568,
     data4: [146, 76, 80, 209, 120, 147, 35, 133],
 };
-pub const MFENABLETYPE_MF_UpdateUntrustedComponent: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFENABLETYPE_MF_UpdateUntrustedComponent: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2558129110,
     data2: 52962,
     data3: 18662,
     data4: [181, 115, 151, 103, 171, 23, 47, 22],
 };
-pub const MFENABLETYPE_WMDRMV1_LicenseAcquisition: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFENABLETYPE_WMDRMV1_LicenseAcquisition: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1341583023,
     data2: 2883,
     data3: 18327,
     data4: [155, 133, 171, 243, 24, 21, 231, 176],
 };
-pub const MFENABLETYPE_WMDRMV7_Individualization: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2899494986, data2: 45827, data3: 20325, data4: [188, 44, 44, 132, 141, 1, 169, 137] };
-pub const MFENABLETYPE_WMDRMV7_LicenseAcquisition: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3344095, data2: 18950, data3: 18564, data4: [160, 151, 239, 109, 34, 236, 132, 163] };
+pub const MFENABLETYPE_WMDRMV7_Individualization: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2899494986, data2: 45827, data3: 20325, data4: [188, 44, 44, 132, 141, 1, 169, 137] };
+pub const MFENABLETYPE_WMDRMV7_LicenseAcquisition: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3344095, data2: 18950, data3: 18564, data4: [160, 151, 239, 109, 34, 236, 132, 163] };
 pub const MFEVRDLL: u32 = 0u32;
 #[repr(C)]
 pub struct MFExtendedCameraIntrinsic_IntrinsicModel {
@@ -8836,8 +10966,8 @@ impl ::core::clone::Clone for MFExtendedCameraIntrinsic_IntrinsicModel {
         *self
     }
 }
-pub const MFFLACBytestreamHandler: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 239194040, data2: 1286, data3: 16628, data4: [165, 22, 119, 204, 35, 100, 45, 145] };
-pub const MFFLACSinkClassFactory: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFFLACBytestreamHandler: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 239194040, data2: 1286, data3: 16628, data4: [165, 22, 119, 204, 35, 100, 45, 145] };
+pub const MFFLACSinkClassFactory: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2100938095,
     data2: 24693,
     data3: 18377,
@@ -8899,8 +11029,8 @@ impl ::core::clone::Clone for MFINPUTTRUSTAUTHORITY_ACCESS_PARAMS {
         *self
     }
 }
-pub const MFImageFormat_JPEG: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 434415018, data2: 22114, data3: 20421, data4: [160, 192, 23, 88, 2, 142, 16, 87] };
-pub const MFImageFormat_RGB32: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 22, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MFImageFormat_JPEG: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 434415018, data2: 22114, data3: 20421, data4: [160, 192, 23, 88, 2, 142, 16, 87] };
+pub const MFImageFormat_RGB32: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 22, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
 #[repr(transparent)]
 pub struct MFMEDIASOURCE_CHARACTERISTICS(pub i32);
 pub const MFMEDIASOURCE_IS_LIVE: MFMEDIASOURCE_CHARACTERISTICS = MFMEDIASOURCE_CHARACTERISTICS(1i32);
@@ -8943,7 +11073,7 @@ impl ::core::clone::Clone for MFMPEG2DLNASINKSTATS {
         *self
     }
 }
-pub const MFMPEG4Format_Base: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 0, data2: 30330, data3: 18765, data4: [180, 120, 242, 157, 37, 220, 144, 55] };
+pub const MFMPEG4Format_Base: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 0, data2: 30330, data3: 18765, data4: [180, 120, 242, 157, 37, 220, 144, 55] };
 #[repr(C)]
 pub struct MFMediaKeyStatus {
     pub pbKeyId: *mut u8,
@@ -8956,38 +11086,38 @@ impl ::core::clone::Clone for MFMediaKeyStatus {
         *self
     }
 }
-pub const MFMediaType_Audio: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1935963489, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MFMediaType_Binary: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1914145829, data2: 58459, data3: 4565, data4: [188, 42, 0, 176, 208, 243, 244, 171] };
-pub const MFMediaType_Default: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2175013606, data2: 33027, data3: 19206, data4: [133, 127, 24, 98, 120, 16, 36, 172] };
-pub const MFMediaType_FileTransfer: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1914145830, data2: 58459, data3: 4565, data4: [188, 42, 0, 176, 208, 243, 244, 171] };
-pub const MFMediaType_HTML: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1914145828, data2: 58459, data3: 4565, data4: [188, 42, 0, 176, 208, 243, 244, 171] };
-pub const MFMediaType_Image: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1914145827, data2: 58459, data3: 4565, data4: [188, 42, 0, 176, 208, 243, 244, 171] };
-pub const MFMediaType_Metadata: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFMediaType_Audio: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1935963489, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MFMediaType_Binary: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1914145829, data2: 58459, data3: 4565, data4: [188, 42, 0, 176, 208, 243, 244, 171] };
+pub const MFMediaType_Default: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2175013606, data2: 33027, data3: 19206, data4: [133, 127, 24, 98, 120, 16, 36, 172] };
+pub const MFMediaType_FileTransfer: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1914145830, data2: 58459, data3: 4565, data4: [188, 42, 0, 176, 208, 243, 244, 171] };
+pub const MFMediaType_HTML: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1914145828, data2: 58459, data3: 4565, data4: [188, 42, 0, 176, 208, 243, 244, 171] };
+pub const MFMediaType_Image: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1914145827, data2: 58459, data3: 4565, data4: [188, 42, 0, 176, 208, 243, 244, 171] };
+pub const MFMediaType_Metadata: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 747610636,
     data2: 33467,
     data3: 18306,
     data4: [144, 160, 152, 162, 165, 189, 142, 248],
 };
-pub const MFMediaType_MultiplexedFrames: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1856324272, data2: 10271, data3: 16945, data4: [164, 100, 254, 47, 80, 34, 80, 28] };
-pub const MFMediaType_Perception: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1501558521, data2: 28322, data3: 18032, data4: [133, 180, 234, 132, 7, 63, 233, 64] };
-pub const MFMediaType_Protected: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFMediaType_MultiplexedFrames: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1856324272, data2: 10271, data3: 16945, data4: [164, 100, 254, 47, 80, 34, 80, 28] };
+pub const MFMediaType_Perception: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1501558521, data2: 28322, data3: 18032, data4: [133, 180, 234, 132, 7, 63, 233, 64] };
+pub const MFMediaType_Protected: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2068541414,
     data2: 40196,
     data3: 17556,
     data4: [190, 20, 126, 11, 208, 118, 200, 228],
 };
-pub const MFMediaType_SAMI: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3868617120, data2: 15821, data3: 16587, data4: [158, 46, 55, 8, 56, 124, 6, 22] };
-pub const MFMediaType_Script: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1914145826, data2: 58459, data3: 4565, data4: [188, 42, 0, 176, 208, 243, 244, 171] };
-pub const MFMediaType_Stream: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3828804483, data2: 21071, data3: 4558, data4: [159, 83, 0, 32, 175, 11, 167, 112] };
-pub const MFMediaType_Subtitle: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2798728577, data2: 60752, data3: 20069, data4: [174, 8, 38, 6, 85, 118, 170, 204] };
-pub const MFMediaType_Video: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1935960438, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MFNETSOURCE_ACCELERATEDSTREAMINGDURATION: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1018294903, data2: 1285, data3: 19549, data4: [174, 113, 10, 85, 99, 68, 239, 161] };
-pub const MFNETSOURCE_AUTORECONNECTLIMIT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1018294906, data2: 1285, data3: 19549, data4: [174, 113, 10, 85, 99, 68, 239, 161] };
-pub const MFNETSOURCE_AUTORECONNECTPROGRESS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1018294914, data2: 1285, data3: 19549, data4: [174, 113, 10, 85, 99, 68, 239, 161] };
-pub const MFNETSOURCE_BROWSERUSERAGENT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1018294923, data2: 1285, data3: 19549, data4: [174, 113, 10, 85, 99, 68, 239, 161] };
-pub const MFNETSOURCE_BROWSERWEBPAGE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1018294924, data2: 1285, data3: 19549, data4: [174, 113, 10, 85, 99, 68, 239, 161] };
-pub const MFNETSOURCE_BUFFERINGTIME: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1018294902, data2: 1285, data3: 19549, data4: [174, 113, 10, 85, 99, 68, 239, 161] };
-pub const MFNETSOURCE_CACHEENABLED: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1018294905, data2: 1285, data3: 19549, data4: [174, 113, 10, 85, 99, 68, 239, 161] };
+pub const MFMediaType_SAMI: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3868617120, data2: 15821, data3: 16587, data4: [158, 46, 55, 8, 56, 124, 6, 22] };
+pub const MFMediaType_Script: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1914145826, data2: 58459, data3: 4565, data4: [188, 42, 0, 176, 208, 243, 244, 171] };
+pub const MFMediaType_Stream: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3828804483, data2: 21071, data3: 4558, data4: [159, 83, 0, 32, 175, 11, 167, 112] };
+pub const MFMediaType_Subtitle: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2798728577, data2: 60752, data3: 20069, data4: [174, 8, 38, 6, 85, 118, 170, 204] };
+pub const MFMediaType_Video: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1935960438, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MFNETSOURCE_ACCELERATEDSTREAMINGDURATION: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1018294903, data2: 1285, data3: 19549, data4: [174, 113, 10, 85, 99, 68, 239, 161] };
+pub const MFNETSOURCE_AUTORECONNECTLIMIT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1018294906, data2: 1285, data3: 19549, data4: [174, 113, 10, 85, 99, 68, 239, 161] };
+pub const MFNETSOURCE_AUTORECONNECTPROGRESS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1018294914, data2: 1285, data3: 19549, data4: [174, 113, 10, 85, 99, 68, 239, 161] };
+pub const MFNETSOURCE_BROWSERUSERAGENT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1018294923, data2: 1285, data3: 19549, data4: [174, 113, 10, 85, 99, 68, 239, 161] };
+pub const MFNETSOURCE_BROWSERWEBPAGE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1018294924, data2: 1285, data3: 19549, data4: [174, 113, 10, 85, 99, 68, 239, 161] };
+pub const MFNETSOURCE_BUFFERINGTIME: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1018294902, data2: 1285, data3: 19549, data4: [174, 113, 10, 85, 99, 68, 239, 161] };
+pub const MFNETSOURCE_CACHEENABLED: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1018294905, data2: 1285, data3: 19549, data4: [174, 113, 10, 85, 99, 68, 239, 161] };
 #[repr(transparent)]
 pub struct MFNETSOURCE_CACHE_STATE(pub i32);
 pub const MFNETSOURCE_CACHE_UNAVAILABLE: MFNETSOURCE_CACHE_STATE = MFNETSOURCE_CACHE_STATE(0i32);
@@ -8999,64 +11129,64 @@ impl ::core::clone::Clone for MFNETSOURCE_CACHE_STATE {
         *self
     }
 }
-pub const MFNETSOURCE_CLIENTGUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFNETSOURCE_CLIENTGUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1621279910,
     data2: 61847,
     data3: 19476,
     data4: [165, 191, 136, 131, 13, 36, 88, 175],
 };
-pub const MFNETSOURCE_CONNECTIONBANDWIDTH: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1018294904, data2: 1285, data3: 19549, data4: [174, 113, 10, 85, 99, 68, 239, 161] };
-pub const MFNETSOURCE_CREDENTIAL_MANAGER: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1018294912, data2: 1285, data3: 19549, data4: [174, 113, 10, 85, 99, 68, 239, 161] };
-pub const MFNETSOURCE_CROSS_ORIGIN_SUPPORT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFNETSOURCE_CONNECTIONBANDWIDTH: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1018294904, data2: 1285, data3: 19549, data4: [174, 113, 10, 85, 99, 68, 239, 161] };
+pub const MFNETSOURCE_CREDENTIAL_MANAGER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1018294912, data2: 1285, data3: 19549, data4: [174, 113, 10, 85, 99, 68, 239, 161] };
+pub const MFNETSOURCE_CROSS_ORIGIN_SUPPORT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2554470524,
     data2: 45100,
     data3: 17009,
     data4: [162, 252, 114, 228, 147, 8, 229, 194],
 };
-pub const MFNETSOURCE_DRMNET_LICENSE_REPRESENTATION: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFNETSOURCE_DRMNET_LICENSE_REPRESENTATION: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1206575549,
     data2: 48638,
     data3: 17122,
     data4: [130, 243, 84, 164, 140, 23, 150, 45],
 };
-pub const MFNETSOURCE_ENABLE_DOWNLOAD: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1018294941, data2: 1285, data3: 19549, data4: [174, 113, 10, 85, 99, 68, 239, 161] };
-pub const MFNETSOURCE_ENABLE_HTTP: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1018294937, data2: 1285, data3: 19549, data4: [174, 113, 10, 85, 99, 68, 239, 161] };
-pub const MFNETSOURCE_ENABLE_MSB: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1018294934, data2: 1285, data3: 19549, data4: [174, 113, 10, 85, 99, 68, 239, 161] };
-pub const MFNETSOURCE_ENABLE_PRIVATEMODE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFNETSOURCE_ENABLE_DOWNLOAD: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1018294941, data2: 1285, data3: 19549, data4: [174, 113, 10, 85, 99, 68, 239, 161] };
+pub const MFNETSOURCE_ENABLE_HTTP: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1018294937, data2: 1285, data3: 19549, data4: [174, 113, 10, 85, 99, 68, 239, 161] };
+pub const MFNETSOURCE_ENABLE_MSB: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1018294934, data2: 1285, data3: 19549, data4: [174, 113, 10, 85, 99, 68, 239, 161] };
+pub const MFNETSOURCE_ENABLE_PRIVATEMODE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2185722328,
     data2: 61835,
     data3: 17413,
     data4: [140, 241, 70, 79, 181, 170, 143, 113],
 };
-pub const MFNETSOURCE_ENABLE_RTSP: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1018294936, data2: 1285, data3: 19549, data4: [174, 113, 10, 85, 99, 68, 239, 161] };
-pub const MFNETSOURCE_ENABLE_STREAMING: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1018294940, data2: 1285, data3: 19549, data4: [174, 113, 10, 85, 99, 68, 239, 161] };
-pub const MFNETSOURCE_ENABLE_TCP: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1018294933, data2: 1285, data3: 19549, data4: [174, 113, 10, 85, 99, 68, 239, 161] };
-pub const MFNETSOURCE_ENABLE_UDP: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1018294932, data2: 1285, data3: 19549, data4: [174, 113, 10, 85, 99, 68, 239, 161] };
-pub const MFNETSOURCE_FRIENDLYNAME: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1529509719, data2: 48235, data3: 17534, data4: [170, 6, 13, 218, 28, 100, 110, 47] };
-pub const MFNETSOURCE_HOSTEXE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1018294927, data2: 1285, data3: 19549, data4: [174, 113, 10, 85, 99, 68, 239, 161] };
-pub const MFNETSOURCE_HOSTVERSION: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1018294929, data2: 1285, data3: 19549, data4: [174, 113, 10, 85, 99, 68, 239, 161] };
-pub const MFNETSOURCE_HTTP_DOWNLOAD_SESSION_PROVIDER: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2102724638, data2: 12413, data3: 19821, data4: [166, 99, 169, 59, 233, 124, 75, 92] };
-pub const MFNETSOURCE_LOGPARAMS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1687382760, data2: 37912, data3: 17722, data4: [140, 218, 62, 10, 102, 139, 53, 59] };
-pub const MFNETSOURCE_LOGURL: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1018294931, data2: 1285, data3: 19549, data4: [174, 113, 10, 85, 99, 68, 239, 161] };
-pub const MFNETSOURCE_MAXBUFFERTIMEMS: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFNETSOURCE_ENABLE_RTSP: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1018294936, data2: 1285, data3: 19549, data4: [174, 113, 10, 85, 99, 68, 239, 161] };
+pub const MFNETSOURCE_ENABLE_STREAMING: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1018294940, data2: 1285, data3: 19549, data4: [174, 113, 10, 85, 99, 68, 239, 161] };
+pub const MFNETSOURCE_ENABLE_TCP: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1018294933, data2: 1285, data3: 19549, data4: [174, 113, 10, 85, 99, 68, 239, 161] };
+pub const MFNETSOURCE_ENABLE_UDP: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1018294932, data2: 1285, data3: 19549, data4: [174, 113, 10, 85, 99, 68, 239, 161] };
+pub const MFNETSOURCE_FRIENDLYNAME: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1529509719, data2: 48235, data3: 17534, data4: [170, 6, 13, 218, 28, 100, 110, 47] };
+pub const MFNETSOURCE_HOSTEXE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1018294927, data2: 1285, data3: 19549, data4: [174, 113, 10, 85, 99, 68, 239, 161] };
+pub const MFNETSOURCE_HOSTVERSION: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1018294929, data2: 1285, data3: 19549, data4: [174, 113, 10, 85, 99, 68, 239, 161] };
+pub const MFNETSOURCE_HTTP_DOWNLOAD_SESSION_PROVIDER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2102724638, data2: 12413, data3: 19821, data4: [166, 99, 169, 59, 233, 124, 75, 92] };
+pub const MFNETSOURCE_LOGPARAMS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1687382760, data2: 37912, data3: 17722, data4: [140, 218, 62, 10, 102, 139, 53, 59] };
+pub const MFNETSOURCE_LOGURL: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1018294931, data2: 1285, data3: 19549, data4: [174, 113, 10, 85, 99, 68, 239, 161] };
+pub const MFNETSOURCE_MAXBUFFERTIMEMS: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1082860774,
     data2: 16440,
     data3: 17409,
     data4: [181, 178, 254, 112, 26, 158, 191, 16],
 };
-pub const MFNETSOURCE_MAXUDPACCELERATEDSTREAMINGDURATION: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1252731001, data2: 48097, data3: 18836, data4: [159, 240, 84, 149, 189, 37, 1, 41] };
-pub const MFNETSOURCE_PEERMANAGER: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFNETSOURCE_MAXUDPACCELERATEDSTREAMINGDURATION: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1252731001, data2: 48097, data3: 18836, data4: [159, 240, 84, 149, 189, 37, 1, 41] };
+pub const MFNETSOURCE_PEERMANAGER: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1219664603,
     data2: 65215,
     data3: 17902,
     data4: [169, 191, 239, 184, 28, 73, 46, 252],
 };
-pub const MFNETSOURCE_PLAYERID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1018294926, data2: 1285, data3: 19549, data4: [174, 113, 10, 85, 99, 68, 239, 161] };
-pub const MFNETSOURCE_PLAYERUSERAGENT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1018294930, data2: 1285, data3: 19549, data4: [174, 113, 10, 85, 99, 68, 239, 161] };
-pub const MFNETSOURCE_PLAYERVERSION: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1018294925, data2: 1285, data3: 19549, data4: [174, 113, 10, 85, 99, 68, 239, 161] };
-pub const MFNETSOURCE_PPBANDWIDTH: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1018294913, data2: 1285, data3: 19549, data4: [174, 113, 10, 85, 99, 68, 239, 161] };
-pub const MFNETSOURCE_PREVIEWMODEENABLED: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1018294911, data2: 1285, data3: 19549, data4: [174, 113, 10, 85, 99, 68, 239, 161] };
-pub const MFNETSOURCE_PROTOCOL: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1018294909, data2: 1285, data3: 19549, data4: [174, 113, 10, 85, 99, 68, 239, 161] };
+pub const MFNETSOURCE_PLAYERID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1018294926, data2: 1285, data3: 19549, data4: [174, 113, 10, 85, 99, 68, 239, 161] };
+pub const MFNETSOURCE_PLAYERUSERAGENT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1018294930, data2: 1285, data3: 19549, data4: [174, 113, 10, 85, 99, 68, 239, 161] };
+pub const MFNETSOURCE_PLAYERVERSION: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1018294925, data2: 1285, data3: 19549, data4: [174, 113, 10, 85, 99, 68, 239, 161] };
+pub const MFNETSOURCE_PPBANDWIDTH: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1018294913, data2: 1285, data3: 19549, data4: [174, 113, 10, 85, 99, 68, 239, 161] };
+pub const MFNETSOURCE_PREVIEWMODEENABLED: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1018294911, data2: 1285, data3: 19549, data4: [174, 113, 10, 85, 99, 68, 239, 161] };
+pub const MFNETSOURCE_PROTOCOL: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1018294909, data2: 1285, data3: 19549, data4: [174, 113, 10, 85, 99, 68, 239, 161] };
 #[repr(transparent)]
 pub struct MFNETSOURCE_PROTOCOL_TYPE(pub i32);
 pub const MFNETSOURCE_UNDEFINED: MFNETSOURCE_PROTOCOL_TYPE = MFNETSOURCE_PROTOCOL_TYPE(0i32);
@@ -9070,28 +11200,28 @@ impl ::core::clone::Clone for MFNETSOURCE_PROTOCOL_TYPE {
         *self
     }
 }
-pub const MFNETSOURCE_PROXYBYPASSFORLOCAL: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1018294918, data2: 1285, data3: 19549, data4: [174, 113, 10, 85, 99, 68, 239, 161] };
-pub const MFNETSOURCE_PROXYEXCEPTIONLIST: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1018294917, data2: 1285, data3: 19549, data4: [174, 113, 10, 85, 99, 68, 239, 161] };
-pub const MFNETSOURCE_PROXYHOSTNAME: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1018294916, data2: 1285, data3: 19549, data4: [174, 113, 10, 85, 99, 68, 239, 161] };
-pub const MFNETSOURCE_PROXYINFO: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1018294939, data2: 1285, data3: 19549, data4: [174, 113, 10, 85, 99, 68, 239, 161] };
-pub const MFNETSOURCE_PROXYLOCATORFACTORY: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1018294915, data2: 1285, data3: 19549, data4: [174, 113, 10, 85, 99, 68, 239, 161] };
-pub const MFNETSOURCE_PROXYPORT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1018294920, data2: 1285, data3: 19549, data4: [174, 113, 10, 85, 99, 68, 239, 161] };
-pub const MFNETSOURCE_PROXYRERUNAUTODETECTION: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1018294921, data2: 1285, data3: 19549, data4: [174, 113, 10, 85, 99, 68, 239, 161] };
-pub const MFNETSOURCE_PROXYSETTINGS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1018294919, data2: 1285, data3: 19549, data4: [174, 113, 10, 85, 99, 68, 239, 161] };
-pub const MFNETSOURCE_RESENDSENABLED: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1018294907, data2: 1285, data3: 19549, data4: [174, 113, 10, 85, 99, 68, 239, 161] };
-pub const MFNETSOURCE_RESOURCE_FILTER: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFNETSOURCE_PROXYBYPASSFORLOCAL: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1018294918, data2: 1285, data3: 19549, data4: [174, 113, 10, 85, 99, 68, 239, 161] };
+pub const MFNETSOURCE_PROXYEXCEPTIONLIST: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1018294917, data2: 1285, data3: 19549, data4: [174, 113, 10, 85, 99, 68, 239, 161] };
+pub const MFNETSOURCE_PROXYHOSTNAME: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1018294916, data2: 1285, data3: 19549, data4: [174, 113, 10, 85, 99, 68, 239, 161] };
+pub const MFNETSOURCE_PROXYINFO: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1018294939, data2: 1285, data3: 19549, data4: [174, 113, 10, 85, 99, 68, 239, 161] };
+pub const MFNETSOURCE_PROXYLOCATORFACTORY: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1018294915, data2: 1285, data3: 19549, data4: [174, 113, 10, 85, 99, 68, 239, 161] };
+pub const MFNETSOURCE_PROXYPORT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1018294920, data2: 1285, data3: 19549, data4: [174, 113, 10, 85, 99, 68, 239, 161] };
+pub const MFNETSOURCE_PROXYRERUNAUTODETECTION: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1018294921, data2: 1285, data3: 19549, data4: [174, 113, 10, 85, 99, 68, 239, 161] };
+pub const MFNETSOURCE_PROXYSETTINGS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1018294919, data2: 1285, data3: 19549, data4: [174, 113, 10, 85, 99, 68, 239, 161] };
+pub const MFNETSOURCE_RESENDSENABLED: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1018294907, data2: 1285, data3: 19549, data4: [174, 113, 10, 85, 99, 68, 239, 161] };
+pub const MFNETSOURCE_RESOURCE_FILTER: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2170359798,
     data2: 9818,
     data3: 17527,
     data4: [158, 70, 123, 128, 173, 128, 181, 251],
 };
-pub const MFNETSOURCE_SSLCERTIFICATE_MANAGER: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFNETSOURCE_SSLCERTIFICATE_MANAGER: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1441188647,
     data2: 59035,
     data3: 16999,
     data4: [148, 12, 45, 126, 197, 187, 138, 15],
 };
-pub const MFNETSOURCE_STATISTICS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1018294900, data2: 1285, data3: 19549, data4: [174, 113, 10, 85, 99, 68, 239, 161] };
+pub const MFNETSOURCE_STATISTICS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1018294900, data2: 1285, data3: 19549, data4: [174, 113, 10, 85, 99, 68, 239, 161] };
 #[repr(transparent)]
 pub struct MFNETSOURCE_STATISTICS_IDS(pub i32);
 pub const MFNETSOURCE_RECVPACKETS_ID: MFNETSOURCE_STATISTICS_IDS = MFNETSOURCE_STATISTICS_IDS(0i32);
@@ -9130,15 +11260,15 @@ impl ::core::clone::Clone for MFNETSOURCE_STATISTICS_IDS {
         *self
     }
 }
-pub const MFNETSOURCE_STATISTICS_SERVICE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1018294901, data2: 1285, data3: 19549, data4: [174, 113, 10, 85, 99, 68, 239, 161] };
-pub const MFNETSOURCE_STREAM_LANGUAGE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFNETSOURCE_STATISTICS_SERVICE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1018294901, data2: 1285, data3: 19549, data4: [174, 113, 10, 85, 99, 68, 239, 161] };
+pub const MFNETSOURCE_STREAM_LANGUAGE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2595504920,
     data2: 63437,
     data3: 20269,
     data4: [141, 109, 250, 53, 180, 146, 206, 203],
 };
-pub const MFNETSOURCE_THINNINGENABLED: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1018294908, data2: 1285, data3: 19549, data4: [174, 113, 10, 85, 99, 68, 239, 161] };
-pub const MFNETSOURCE_TRANSPORT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1018294910, data2: 1285, data3: 19549, data4: [174, 113, 10, 85, 99, 68, 239, 161] };
+pub const MFNETSOURCE_THINNINGENABLED: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1018294908, data2: 1285, data3: 19549, data4: [174, 113, 10, 85, 99, 68, 239, 161] };
+pub const MFNETSOURCE_TRANSPORT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1018294910, data2: 1285, data3: 19549, data4: [174, 113, 10, 85, 99, 68, 239, 161] };
 #[repr(transparent)]
 pub struct MFNETSOURCE_TRANSPORT_TYPE(pub i32);
 pub const MFNETSOURCE_UDP: MFNETSOURCE_TRANSPORT_TYPE = MFNETSOURCE_TRANSPORT_TYPE(0i32);
@@ -9149,7 +11279,7 @@ impl ::core::clone::Clone for MFNETSOURCE_TRANSPORT_TYPE {
         *self
     }
 }
-pub const MFNETSOURCE_UDP_PORT_RANGE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1018294938, data2: 1285, data3: 19549, data4: [174, 113, 10, 85, 99, 68, 239, 161] };
+pub const MFNETSOURCE_UDP_PORT_RANGE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1018294938, data2: 1285, data3: 19549, data4: [174, 113, 10, 85, 99, 68, 239, 161] };
 #[repr(transparent)]
 pub struct MFNET_PROXYSETTINGS(pub i32);
 pub const MFNET_PROXYSETTING_NONE: MFNET_PROXYSETTINGS = MFNET_PROXYSETTINGS(0i32);
@@ -9162,7 +11292,7 @@ impl ::core::clone::Clone for MFNET_PROXYSETTINGS {
         *self
     }
 }
-pub const MFNET_SAVEJOB_SERVICE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFNET_SAVEJOB_SERVICE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3092928639,
     data2: 15618,
     data3: 20050,
@@ -9276,76 +11406,76 @@ impl ::core::clone::Clone for MFPOLICYMANAGER_ACTION {
         *self
     }
 }
-pub const MFPROTECTIONATTRIBUTE_BEST_EFFORT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3370148657, data2: 30192, data3: 20161, data4: [142, 119, 23, 87, 143, 119, 59, 70] };
-pub const MFPROTECTIONATTRIBUTE_CONSTRICTVIDEO_IMAGESIZE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 8681212, data2: 19288, data3: 19840, data4: [167, 144, 231, 41, 118, 115, 22, 29] };
-pub const MFPROTECTIONATTRIBUTE_FAIL_OVER: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFPROTECTIONATTRIBUTE_BEST_EFFORT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3370148657, data2: 30192, data3: 20161, data4: [142, 119, 23, 87, 143, 119, 59, 70] };
+pub const MFPROTECTIONATTRIBUTE_CONSTRICTVIDEO_IMAGESIZE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 8681212, data2: 19288, data3: 19840, data4: [167, 144, 231, 41, 118, 115, 22, 29] };
+pub const MFPROTECTIONATTRIBUTE_FAIL_OVER: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2234952645,
     data2: 14577,
     data3: 16721,
     data4: [156, 206, 245, 93, 148, 18, 41, 172],
 };
-pub const MFPROTECTIONATTRIBUTE_HDCP_SRM: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1865425159, data2: 13431, data3: 17512, data4: [138, 8, 238, 249, 219, 16, 226, 15] };
-pub const MFPROTECTION_ACP: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3288142278, data2: 63671, data3: 19744, data4: [176, 8, 29, 177, 125, 97, 242, 218] };
-pub const MFPROTECTION_CGMSA: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3850267113, data2: 8811, data3: 19761, data4: [180, 227, 211, 219, 0, 135, 54, 221] };
-pub const MFPROTECTION_CONSTRICTAUDIO: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFPROTECTIONATTRIBUTE_HDCP_SRM: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1865425159, data2: 13431, data3: 17512, data4: [138, 8, 238, 249, 219, 16, 226, 15] };
+pub const MFPROTECTION_ACP: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3288142278, data2: 63671, data3: 19744, data4: [176, 8, 29, 177, 125, 97, 242, 218] };
+pub const MFPROTECTION_CGMSA: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3850267113, data2: 8811, data3: 19761, data4: [180, 227, 211, 219, 0, 135, 54, 221] };
+pub const MFPROTECTION_CONSTRICTAUDIO: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4291402564,
     data2: 57160,
     data3: 19990,
     data4: [142, 102, 9, 104, 146, 193, 87, 138],
 };
-pub const MFPROTECTION_CONSTRICTVIDEO: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 422801614, data2: 50660, data3: 19514, data4: [138, 102, 105, 89, 180, 218, 68, 66] };
-pub const MFPROTECTION_CONSTRICTVIDEO_NOOPM: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFPROTECTION_CONSTRICTVIDEO: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 422801614, data2: 50660, data3: 19514, data4: [138, 102, 105, 89, 180, 218, 68, 66] };
+pub const MFPROTECTION_CONSTRICTVIDEO_NOOPM: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2776688845,
     data2: 49735,
     data3: 18775,
     data4: [185, 131, 60, 46, 235, 209, 255, 89],
 };
-pub const MFPROTECTION_DISABLE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2361841691, data2: 65222, data3: 19855, data4: [150, 75, 207, 186, 11, 13, 173, 13] };
-pub const MFPROTECTION_DISABLE_SCREEN_SCRAPE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFPROTECTION_DISABLE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2361841691, data2: 65222, data3: 19855, data4: [150, 75, 207, 186, 11, 13, 173, 13] };
+pub const MFPROTECTION_DISABLE_SCREEN_SCRAPE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2719054244,
     data2: 47053,
     data3: 16600,
     data4: [150, 20, 142, 242, 55, 27, 167, 141],
 };
-pub const MFPROTECTION_FFT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFPROTECTION_FFT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1177179826,
     data2: 10342,
     data3: 19382,
     data4: [152, 13, 109, 141, 158, 219, 26, 140],
 };
-pub const MFPROTECTION_GRAPHICS_TRANSFER_AES_ENCRYPTION: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFPROTECTION_GRAPHICS_TRANSFER_AES_ENCRYPTION: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3363036772,
     data2: 55461,
     data3: 18918,
     data4: [136, 187, 251, 150, 63, 211, 212, 206],
 };
-pub const MFPROTECTION_HARDWARE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFPROTECTION_HARDWARE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1323823297,
     data2: 40663,
     data3: 16975,
     data4: [182, 190, 153, 107, 51, 82, 136, 86],
 };
-pub const MFPROTECTION_HDCP: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFPROTECTION_HDCP: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2927411261,
     data2: 51240,
     data3: 16417,
     data4: [172, 183, 213, 120, 210, 122, 175, 19],
 };
-pub const MFPROTECTION_HDCP_WITH_TYPE_ENFORCEMENT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2762311144, data2: 60768, data3: 17453, data4: [129, 77, 219, 77, 66, 32, 160, 109] };
-pub const MFPROTECTION_PROTECTED_SURFACE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFPROTECTION_HDCP_WITH_TYPE_ENFORCEMENT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2762311144, data2: 60768, data3: 17453, data4: [129, 77, 219, 77, 66, 32, 160, 109] };
+pub const MFPROTECTION_PROTECTED_SURFACE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1331533158,
     data2: 59202,
     data3: 18981,
     data4: [141, 31, 210, 135, 181, 250, 10, 222],
 };
-pub const MFPROTECTION_TRUSTEDAUDIODRIVERS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1706947538, data2: 360, data3: 18454, data4: [165, 51, 85, 212, 123, 2, 113, 1] };
-pub const MFPROTECTION_VIDEO_FRAMES: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFPROTECTION_TRUSTEDAUDIODRIVERS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1706947538, data2: 360, data3: 18454, data4: [165, 51, 85, 212, 123, 2, 113, 1] };
+pub const MFPROTECTION_VIDEO_FRAMES: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 916823228,
     data2: 29697,
     data3: 19084,
     data4: [188, 32, 70, 167, 201, 229, 151, 240],
 };
-pub const MFPROTECTION_WMDRMOTA: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2724701857, data2: 13870, data3: 18384, data4: [136, 5, 70, 40, 89, 138, 35, 228] };
+pub const MFPROTECTION_WMDRMOTA: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2724701857, data2: 13870, data3: 18384, data4: [136, 5, 70, 40, 89, 138, 35, 228] };
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub struct MFP_ACQUIRE_USER_CREDENTIAL_EVENT {
@@ -9359,7 +11489,7 @@ pub struct MFP_ACQUIRE_USER_CREDENTIAL_EVENT {
     pub pwszPackage: super::super::Foundation::PWSTR,
     pub nRetries: i32,
     pub flags: u32,
-    pub pCredential: ::core::option::Option<IMFNetCredential>,
+    pub pCredential: IMFNetCredential,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl ::core::marker::Copy for MFP_ACQUIRE_USER_CREDENTIAL_EVENT {}
@@ -9399,9 +11529,9 @@ impl ::core::clone::Clone for MFP_ERROR_EVENT {
 pub struct MFP_EVENT_HEADER {
     pub eEventType: MFP_EVENT_TYPE,
     pub hrEvent: ::windows_sys::core::HRESULT,
-    pub pMediaPlayer: ::core::option::Option<IMFPMediaPlayer>,
+    pub pMediaPlayer: IMFPMediaPlayer,
     pub eState: MFP_MEDIAPLAYER_STATE,
-    pub pPropertyStore: ::core::option::Option<super::super::UI::Shell::PropertiesSystem::IPropertyStore>,
+    pub pPropertyStore: super::super::UI::Shell::PropertiesSystem::IPropertyStore,
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl ::core::marker::Copy for MFP_EVENT_HEADER {}
@@ -9436,7 +11566,7 @@ impl ::core::clone::Clone for MFP_EVENT_TYPE {
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub struct MFP_FRAME_STEP_EVENT {
     pub header: MFP_EVENT_HEADER,
-    pub pMediaItem: ::core::option::Option<IMFPMediaItem>,
+    pub pMediaItem: IMFPMediaItem,
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl ::core::marker::Copy for MFP_FRAME_STEP_EVENT {}
@@ -9450,7 +11580,7 @@ impl ::core::clone::Clone for MFP_FRAME_STEP_EVENT {
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub struct MFP_MEDIAITEM_CLEARED_EVENT {
     pub header: MFP_EVENT_HEADER,
-    pub pMediaItem: ::core::option::Option<IMFPMediaItem>,
+    pub pMediaItem: IMFPMediaItem,
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl ::core::marker::Copy for MFP_MEDIAITEM_CLEARED_EVENT {}
@@ -9464,7 +11594,7 @@ impl ::core::clone::Clone for MFP_MEDIAITEM_CLEARED_EVENT {
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub struct MFP_MEDIAITEM_CREATED_EVENT {
     pub header: MFP_EVENT_HEADER,
-    pub pMediaItem: ::core::option::Option<IMFPMediaItem>,
+    pub pMediaItem: IMFPMediaItem,
     pub dwUserData: usize,
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -9479,7 +11609,7 @@ impl ::core::clone::Clone for MFP_MEDIAITEM_CREATED_EVENT {
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub struct MFP_MEDIAITEM_SET_EVENT {
     pub header: MFP_EVENT_HEADER,
-    pub pMediaItem: ::core::option::Option<IMFPMediaItem>,
+    pub pMediaItem: IMFPMediaItem,
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl ::core::marker::Copy for MFP_MEDIAITEM_SET_EVENT {}
@@ -9507,8 +11637,8 @@ impl ::core::clone::Clone for MFP_MEDIAPLAYER_STATE {
 pub struct MFP_MF_EVENT {
     pub header: MFP_EVENT_HEADER,
     pub MFEventType: u32,
-    pub pMFMediaEvent: ::core::option::Option<IMFMediaEvent>,
-    pub pMediaItem: ::core::option::Option<IMFPMediaItem>,
+    pub pMFMediaEvent: IMFMediaEvent,
+    pub pMediaItem: IMFPMediaItem,
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl ::core::marker::Copy for MFP_MF_EVENT {}
@@ -9522,7 +11652,7 @@ impl ::core::clone::Clone for MFP_MF_EVENT {
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub struct MFP_PAUSE_EVENT {
     pub header: MFP_EVENT_HEADER,
-    pub pMediaItem: ::core::option::Option<IMFPMediaItem>,
+    pub pMediaItem: IMFPMediaItem,
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl ::core::marker::Copy for MFP_PAUSE_EVENT {}
@@ -9536,7 +11666,7 @@ impl ::core::clone::Clone for MFP_PAUSE_EVENT {
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub struct MFP_PLAYBACK_ENDED_EVENT {
     pub header: MFP_EVENT_HEADER,
-    pub pMediaItem: ::core::option::Option<IMFPMediaItem>,
+    pub pMediaItem: IMFPMediaItem,
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl ::core::marker::Copy for MFP_PLAYBACK_ENDED_EVENT {}
@@ -9550,7 +11680,7 @@ impl ::core::clone::Clone for MFP_PLAYBACK_ENDED_EVENT {
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub struct MFP_PLAY_EVENT {
     pub header: MFP_EVENT_HEADER,
-    pub pMediaItem: ::core::option::Option<IMFPMediaItem>,
+    pub pMediaItem: IMFPMediaItem,
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl ::core::marker::Copy for MFP_PLAY_EVENT {}
@@ -9560,12 +11690,12 @@ impl ::core::clone::Clone for MFP_PLAY_EVENT {
         *self
     }
 }
-pub const MFP_POSITIONTYPE_100NS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 0, data2: 0, data3: 0, data4: [0, 0, 0, 0, 0, 0, 0, 0] };
+pub const MFP_POSITIONTYPE_100NS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 0, data2: 0, data3: 0, data4: [0, 0, 0, 0, 0, 0, 0, 0] };
 #[repr(C)]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub struct MFP_POSITION_SET_EVENT {
     pub header: MFP_EVENT_HEADER,
-    pub pMediaItem: ::core::option::Option<IMFPMediaItem>,
+    pub pMediaItem: IMFPMediaItem,
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl ::core::marker::Copy for MFP_POSITION_SET_EVENT {}
@@ -9579,7 +11709,7 @@ impl ::core::clone::Clone for MFP_POSITION_SET_EVENT {
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub struct MFP_RATE_SET_EVENT {
     pub header: MFP_EVENT_HEADER,
-    pub pMediaItem: ::core::option::Option<IMFPMediaItem>,
+    pub pMediaItem: IMFPMediaItem,
     pub flRate: f32,
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -9594,7 +11724,7 @@ impl ::core::clone::Clone for MFP_RATE_SET_EVENT {
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub struct MFP_STOP_EVENT {
     pub header: MFP_EVENT_HEADER,
-    pub pMediaItem: ::core::option::Option<IMFPMediaItem>,
+    pub pMediaItem: IMFPMediaItem,
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl ::core::marker::Copy for MFP_STOP_EVENT {}
@@ -9773,265 +11903,265 @@ impl ::core::clone::Clone for MFSampleEncryptionProtectionScheme {
         *self
     }
 }
-pub const MFSampleExtension_3DVideo: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4168062884, data2: 56660, data3: 20014, data4: [154, 94, 85, 252, 45, 116, 160, 5] };
-pub const MFSampleExtension_3DVideo_SampleFormat: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 140973938, data2: 58223, data3: 19711, data4: [151, 179, 215, 46, 32, 152, 122, 72] };
-pub const MFSampleExtension_AccumulatedNonRefPicPercent: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFSampleExtension_3DVideo: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4168062884, data2: 56660, data3: 20014, data4: [154, 94, 85, 252, 45, 116, 160, 5] };
+pub const MFSampleExtension_3DVideo_SampleFormat: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 140973938, data2: 58223, data3: 19711, data4: [151, 179, 215, 46, 32, 152, 122, 72] };
+pub const MFSampleExtension_AccumulatedNonRefPicPercent: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2045408479,
     data2: 42816,
     data3: 17499,
     data4: [188, 152, 201, 237, 31, 38, 14, 238],
 };
-pub const MFSampleExtension_BottomFieldFirst: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2484920483, data2: 27363, data3: 19930, data4: [154, 8, 166, 66, 152, 52, 6, 23] };
-pub const MFSampleExtension_CameraExtrinsics: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFSampleExtension_BottomFieldFirst: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2484920483, data2: 27363, data3: 19930, data4: [154, 8, 166, 66, 152, 52, 6, 23] };
+pub const MFSampleExtension_CameraExtrinsics: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1802901080,
     data2: 47084,
     data3: 19515,
     data4: [130, 37, 134, 35, 202, 190, 195, 29],
 };
-pub const MFSampleExtension_CaptureMetadata: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 784212904, data2: 64245, data3: 17482, data4: [166, 162, 235, 129, 8, 128, 171, 93] };
-pub const MFSampleExtension_ChromaOnly: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 515446684, data2: 40991, data3: 18501, data4: [140, 4, 14, 101, 162, 110, 176, 79] };
-pub const MFSampleExtension_CleanPoint: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFSampleExtension_CaptureMetadata: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 784212904, data2: 64245, data3: 17482, data4: [166, 162, 235, 129, 8, 128, 171, 93] };
+pub const MFSampleExtension_ChromaOnly: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 515446684, data2: 40991, data3: 18501, data4: [140, 4, 14, 101, 162, 110, 176, 79] };
+pub const MFSampleExtension_CleanPoint: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2631860696,
     data2: 41200,
     data3: 17338,
     data4: [176, 119, 234, 160, 108, 189, 114, 138],
 };
-pub const MFSampleExtension_ClosedCaption_CEA708: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 653299816, data2: 59204, data3: 18396, data4: [170, 3, 219, 242, 4, 3, 189, 230] };
+pub const MFSampleExtension_ClosedCaption_CEA708: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 653299816, data2: 59204, data3: 18396, data4: [170, 3, 219, 242, 4, 3, 189, 230] };
 pub const MFSampleExtension_ClosedCaption_CEA708_MAX_SIZE: u32 = 256u32;
-pub const MFSampleExtension_Content_KeyID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFSampleExtension_Content_KeyID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3334993328,
     data2: 44234,
     data3: 16731,
     data4: [135, 217, 16, 68, 20, 105, 239, 198],
 };
-pub const MFSampleExtension_DecodeTimestamp: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFSampleExtension_DecodeTimestamp: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1940477140,
     data2: 2530,
     data3: 18529,
     data4: [190, 252, 148, 189, 151, 192, 142, 110],
 };
-pub const MFSampleExtension_Depth_MaxReliableDepth: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3830793681, data2: 7951, data3: 18994, data4: [168, 167, 97, 1, 162, 78, 168, 190] };
-pub const MFSampleExtension_Depth_MinReliableDepth: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFSampleExtension_Depth_MaxReliableDepth: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3830793681, data2: 7951, data3: 18994, data4: [168, 167, 97, 1, 162, 78, 168, 190] };
+pub const MFSampleExtension_Depth_MinReliableDepth: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1602585266,
     data2: 58219,
     data3: 18376,
     data4: [155, 135, 254, 225, 202, 114, 197, 176],
 };
-pub const MFSampleExtension_DerivedFromTopField: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1750222426, data2: 44572, data3: 17747, data4: [142, 155, 195, 66, 15, 203, 22, 55] };
-pub const MFSampleExtension_DescrambleData: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1128807398, data2: 18691, data3: 17172, data4: [176, 50, 41, 81, 54, 89, 54, 252] };
-pub const MFSampleExtension_DeviceReferenceSystemTime: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFSampleExtension_DerivedFromTopField: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1750222426, data2: 44572, data3: 17747, data4: [142, 155, 195, 66, 15, 203, 22, 55] };
+pub const MFSampleExtension_DescrambleData: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1128807398, data2: 18691, data3: 17172, data4: [176, 50, 41, 81, 54, 89, 54, 252] };
+pub const MFSampleExtension_DeviceReferenceSystemTime: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1696823130,
     data2: 47661,
     data3: 16479,
     data4: [178, 197, 1, 255, 136, 226, 232, 246],
 };
-pub const MFSampleExtension_DeviceTimestamp: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2403218919, data2: 11725, data3: 18567, data4: [134, 34, 42, 88, 186, 166, 82, 176] };
-pub const MFSampleExtension_DirtyRects: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFSampleExtension_DeviceTimestamp: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2403218919, data2: 11725, data3: 18567, data4: [134, 34, 42, 88, 186, 166, 82, 176] };
+pub const MFSampleExtension_DirtyRects: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2611413541,
     data2: 45890,
     data3: 20119,
     data4: [145, 38, 11, 86, 106, 183, 234, 126],
 };
-pub const MFSampleExtension_Discontinuity: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFSampleExtension_Discontinuity: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2631860697,
     data2: 41200,
     data3: 17338,
     data4: [176, 119, 234, 160, 108, 189, 114, 138],
 };
-pub const MFSampleExtension_Encryption_ClearSliceHeaderData: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFSampleExtension_Encryption_ClearSliceHeaderData: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1426695412,
     data2: 12813,
     data3: 20076,
     data4: [141, 26, 148, 198, 109, 210, 12, 176],
 };
-pub const MFSampleExtension_Encryption_CryptByteBlock: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2642684059, data2: 3199, data3: 18195, data4: [171, 149, 16, 138, 180, 42, 216, 1] };
-pub const MFSampleExtension_Encryption_HardwareProtection: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFSampleExtension_Encryption_CryptByteBlock: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2642684059, data2: 3199, data3: 18195, data4: [171, 149, 16, 138, 180, 42, 216, 1] };
+pub const MFSampleExtension_Encryption_HardwareProtection: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2586520875,
     data2: 33392,
     data3: 17379,
     data4: [132, 72, 153, 79, 66, 110, 136, 134],
 };
-pub const MFSampleExtension_Encryption_HardwareProtection_KeyInfo: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFSampleExtension_Encryption_HardwareProtection_KeyInfo: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2989957248,
     data2: 17755,
     data3: 19927,
     data4: [153, 137, 26, 149, 87, 132, 183, 84],
 };
-pub const MFSampleExtension_Encryption_HardwareProtection_KeyInfoID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFSampleExtension_Encryption_HardwareProtection_KeyInfoID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2361380075,
     data2: 38053,
     data3: 19937,
     data4: [130, 49, 168, 94, 71, 207, 129, 231],
 };
-pub const MFSampleExtension_Encryption_HardwareProtection_VideoDecryptorContext: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1765044424, data2: 59447, data3: 18336, data4: [136, 203, 83, 91, 144, 94, 53, 130] };
-pub const MFSampleExtension_Encryption_KeyID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFSampleExtension_Encryption_HardwareProtection_VideoDecryptorContext: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1765044424, data2: 59447, data3: 18336, data4: [136, 203, 83, 91, 144, 94, 53, 130] };
+pub const MFSampleExtension_Encryption_KeyID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1983341969,
     data2: 31071,
     data3: 19873,
     data4: [134, 237, 157, 70, 236, 161, 9, 169],
 };
-pub const MFSampleExtension_Encryption_NALUTypes: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2968545223, data2: 29004, data3: 16748, data4: [141, 89, 95, 77, 223, 137, 19, 182] };
-pub const MFSampleExtension_Encryption_Opaque_Data: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 575502309, data2: 5009, data3: 20475, data4: [159, 65, 180, 50, 246, 140, 97, 29] };
-pub const MFSampleExtension_Encryption_ProtectionScheme: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3495219350, data2: 10427, data3: 17882, data4: [135, 236, 116, 243, 81, 135, 20, 6] };
-pub const MFSampleExtension_Encryption_ResumeVideoOutput: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFSampleExtension_Encryption_NALUTypes: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2968545223, data2: 29004, data3: 16748, data4: [141, 89, 95, 77, 223, 137, 19, 182] };
+pub const MFSampleExtension_Encryption_Opaque_Data: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 575502309, data2: 5009, data3: 20475, data4: [159, 65, 180, 50, 246, 140, 97, 29] };
+pub const MFSampleExtension_Encryption_ProtectionScheme: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3495219350, data2: 10427, data3: 17882, data4: [135, 236, 116, 243, 81, 135, 20, 6] };
+pub const MFSampleExtension_Encryption_ResumeVideoOutput: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2754980773,
     data2: 45022,
     data3: 19701,
     data4: [188, 28, 246, 172, 175, 19, 148, 157],
 };
-pub const MFSampleExtension_Encryption_SEIData: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1022421362, data2: 17730, data3: 18055, data4: [153, 153, 88, 95, 86, 95, 186, 125] };
-pub const MFSampleExtension_Encryption_SPSPPSData: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2933788578, data2: 3596, data3: 17724, data4: [183, 243, 222, 134, 147, 54, 77, 17] };
-pub const MFSampleExtension_Encryption_SampleID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1721284686, data2: 2810, data3: 17200, data4: [174, 178, 28, 10, 152, 215, 164, 77] };
-pub const MFSampleExtension_Encryption_SkipByteBlock: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 223675720, data2: 33559, data3: 19121, data4: [132, 95, 208, 99, 6, 226, 147, 227] };
-pub const MFSampleExtension_Encryption_SubSampleMappingSplit: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFSampleExtension_Encryption_SEIData: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1022421362, data2: 17730, data3: 18055, data4: [153, 153, 88, 95, 86, 95, 186, 125] };
+pub const MFSampleExtension_Encryption_SPSPPSData: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2933788578, data2: 3596, data3: 17724, data4: [183, 243, 222, 134, 147, 54, 77, 17] };
+pub const MFSampleExtension_Encryption_SampleID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1721284686, data2: 2810, data3: 17200, data4: [174, 178, 28, 10, 152, 215, 164, 77] };
+pub const MFSampleExtension_Encryption_SkipByteBlock: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 223675720, data2: 33559, data3: 19121, data4: [132, 95, 208, 99, 6, 226, 147, 227] };
+pub const MFSampleExtension_Encryption_SubSampleMappingSplit: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4261565625,
     data2: 10917,
     data3: 20188,
     data4: [153, 247, 23, 232, 157, 191, 145, 116],
 };
-pub const MFSampleExtension_Encryption_SubSample_Mapping: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2219111034, data2: 27041, data3: 18650, data4: [189, 8, 17, 206, 243, 104, 48, 210] };
-pub const MFSampleExtension_ExtendedCameraIntrinsics: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFSampleExtension_Encryption_SubSample_Mapping: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2219111034, data2: 27041, data3: 18650, data4: [189, 8, 17, 206, 243, 104, 48, 210] };
+pub const MFSampleExtension_ExtendedCameraIntrinsics: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1443611813,
     data2: 19936,
     data3: 16659,
     data4: [156, 220, 131, 45, 185, 116, 15, 61],
 };
-pub const MFSampleExtension_FeatureMap: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2687684965, data2: 18172, data3: 16394, data4: [180, 73, 73, 222, 83, 230, 42, 110] };
-pub const MFSampleExtension_ForwardedDecodeUnitType: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 144594887, data2: 18387, data3: 18982, data4: [191, 156, 75, 100, 250, 251, 93, 30] };
-pub const MFSampleExtension_ForwardedDecodeUnits: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFSampleExtension_FeatureMap: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2687684965, data2: 18172, data3: 16394, data4: [180, 73, 73, 222, 83, 230, 42, 110] };
+pub const MFSampleExtension_ForwardedDecodeUnitType: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 144594887, data2: 18387, data3: 18982, data4: [191, 156, 75, 100, 250, 251, 93, 30] };
+pub const MFSampleExtension_ForwardedDecodeUnits: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1112307020,
     data2: 38856,
     data3: 18646,
     data4: [135, 119, 252, 65, 247, 182, 8, 121],
 };
-pub const MFSampleExtension_FrameCorruption: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3034401420, data2: 3051, data3: 17604, data4: [139, 117, 176, 43, 145, 59, 4, 240] };
-pub const MFSampleExtension_GenKeyCtx: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 411115723, data2: 55258, data3: 19289, data4: [155, 62, 146, 82, 253, 55, 48, 28] };
-pub const MFSampleExtension_GenKeyFunc: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFSampleExtension_FrameCorruption: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3034401420, data2: 3051, data3: 17604, data4: [139, 117, 176, 43, 145, 59, 4, 240] };
+pub const MFSampleExtension_GenKeyCtx: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 411115723, data2: 55258, data3: 19289, data4: [155, 62, 146, 82, 253, 55, 48, 28] };
+pub const MFSampleExtension_GenKeyFunc: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1142727150,
     data2: 27423,
     data3: 17665,
     data4: [144, 58, 222, 135, 223, 66, 246, 237],
 };
-pub const MFSampleExtension_HDCP_FrameCounter: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2637732960, data2: 62727, data3: 19110, data4: [164, 10, 113, 2, 122, 2, 243, 222] };
-pub const MFSampleExtension_HDCP_OptionalHeader: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFSampleExtension_HDCP_FrameCounter: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2637732960, data2: 62727, data3: 19110, data4: [164, 10, 113, 2, 122, 2, 243, 222] };
+pub const MFSampleExtension_HDCP_OptionalHeader: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2586735504,
     data2: 4639,
     data3: 17759,
     data4: [131, 118, 201, 116, 40, 224, 181, 64],
 };
-pub const MFSampleExtension_HDCP_StreamID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 394157428, data2: 50032, data3: 19066, data4: [149, 162, 54, 131, 60, 1, 208, 175] };
-pub const MFSampleExtension_Interlaced: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFSampleExtension_HDCP_StreamID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 394157428, data2: 50032, data3: 19066, data4: [149, 162, 54, 131, 60, 1, 208, 175] };
+pub const MFSampleExtension_Interlaced: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2983559946,
     data2: 57016,
     data3: 16611,
     data4: [144, 250, 56, 153, 67, 113, 100, 97],
 };
-pub const MFSampleExtension_LastSlice: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFSampleExtension_LastSlice: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 727536727,
     data2: 21831,
     data3: 20231,
     data4: [184, 200, 180, 163, 169, 161, 218, 172],
 };
-pub const MFSampleExtension_LongTermReferenceFrameInfo: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFSampleExtension_LongTermReferenceFrameInfo: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2438230847,
     data2: 57789,
     data3: 16831,
     data4: [129, 211, 252, 217, 24, 247, 19, 50],
 };
-pub const MFSampleExtension_MDLCacheCookie: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFSampleExtension_MDLCacheCookie: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1593846521,
     data2: 55545,
     data3: 16803,
     data4: [182, 195, 162, 173, 67, 246, 71, 173],
 };
-pub const MFSampleExtension_MULTIPLEXED_MANAGER: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFSampleExtension_MULTIPLEXED_MANAGER: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2379083385,
     data2: 27482,
     data3: 19525,
     data4: [141, 185, 32, 179, 149, 240, 47, 207],
 };
-pub const MFSampleExtension_MaxDecodeFrameSize: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFSampleExtension_MaxDecodeFrameSize: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3553387855,
     data2: 63987,
     data3: 18963,
     data4: [136, 159, 240, 78, 178, 181, 185, 87],
 };
-pub const MFSampleExtension_MeanAbsoluteDifference: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 484171281, data2: 2228, data3: 17169, data4: [166, 221, 15, 159, 55, 25, 7, 170] };
-pub const MFSampleExtension_MoveRegions: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFSampleExtension_MeanAbsoluteDifference: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 484171281, data2: 2228, data3: 17169, data4: [166, 221, 15, 159, 55, 25, 7, 170] };
+pub const MFSampleExtension_MoveRegions: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3802580627,
     data2: 14987,
     data3: 19341,
     data4: [149, 208, 246, 2, 129, 161, 47, 183],
 };
-pub const MFSampleExtension_NALULengthInfo: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 420630140, data2: 44363, data3: 18015, data4: [187, 24, 32, 24, 98, 135, 182, 175] };
-pub const MFSampleExtension_PacketCrossOffsets: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFSampleExtension_NALULengthInfo: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 420630140, data2: 44363, data3: 18015, data4: [187, 24, 32, 24, 98, 135, 182, 175] };
+pub const MFSampleExtension_PacketCrossOffsets: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 663316253,
     data2: 14495,
     data3: 16571,
     data4: [144, 217, 194, 130, 247, 127, 154, 189],
 };
-pub const MFSampleExtension_PhotoThumbnail: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFSampleExtension_PhotoThumbnail: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1958463580,
     data2: 51387,
     data3: 17116,
     data4: [181, 134, 218, 23, 255, 211, 93, 204],
 };
-pub const MFSampleExtension_PhotoThumbnailMediaType: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFSampleExtension_PhotoThumbnailMediaType: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1638749216,
     data2: 60408,
     data3: 16707,
     data4: [137, 175, 107, 242, 95, 103, 45, 239],
 };
-pub const MFSampleExtension_PinholeCameraIntrinsics: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFSampleExtension_PinholeCameraIntrinsics: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1323546309,
     data2: 27157,
     data3: 20082,
     data4: [151, 97, 112, 193, 219, 139, 159, 227],
 };
-pub const MFSampleExtension_ROIRectangle: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 873767992, data2: 18840, data3: 19756, data4: [190, 130, 190, 60, 160, 178, 77, 67] };
-pub const MFSampleExtension_RepeatFirstField: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFSampleExtension_ROIRectangle: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 873767992, data2: 18840, data3: 19756, data4: [190, 130, 190, 60, 160, 178, 77, 67] };
+pub const MFSampleExtension_RepeatFirstField: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 810362236,
     data2: 29843,
     data3: 20413,
     data4: [177, 73, 146, 40, 222, 141, 154, 153],
 };
-pub const MFSampleExtension_RepeatFrame: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2294182799, data2: 1809, data3: 20290, data4: [180, 88, 52, 74, 237, 66, 236, 47] };
-pub const MFSampleExtension_SampleKeyID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFSampleExtension_RepeatFrame: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2294182799, data2: 1809, data3: 20290, data4: [180, 88, 52, 74, 237, 66, 236, 47] };
+pub const MFSampleExtension_SampleKeyID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2664895432,
     data2: 39815,
     data3: 19238,
     data4: [130, 151, 169, 59, 12, 90, 138, 204],
 };
-pub const MFSampleExtension_SingleField: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFSampleExtension_SingleField: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2642802710,
     data2: 25995,
     data3: 17754,
     data4: [189, 224, 159, 167, 225, 90, 184, 249],
 };
-pub const MFSampleExtension_Spatial_CameraCoordinateSystem: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2635319343, data2: 8601, data3: 20071, data4: [145, 205, 209, 164, 24, 31, 37, 52] };
-pub const MFSampleExtension_Spatial_CameraProjectionTransform: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFSampleExtension_Spatial_CameraCoordinateSystem: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2635319343, data2: 8601, data3: 20071, data4: [145, 205, 209, 164, 24, 31, 37, 52] };
+pub const MFSampleExtension_Spatial_CameraProjectionTransform: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1207565493,
     data2: 10754,
     data3: 20262,
     data4: [164, 119, 121, 47, 223, 149, 136, 106],
 };
-pub const MFSampleExtension_Spatial_CameraViewTransform: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFSampleExtension_Spatial_CameraViewTransform: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1311055780,
     data2: 33551,
     data3: 18288,
     data4: [133, 154, 75, 141, 153, 170, 128, 155],
 };
-pub const MFSampleExtension_TargetGlobalLuminance: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1063317302, data2: 12783, data3: 19887, data4: [131, 96, 148, 3, 151, 228, 30, 243] };
-pub const MFSampleExtension_Timestamp: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 507734425, data2: 27070, data3: 19578, data4: [147, 105, 112, 6, 140, 2, 96, 203] };
-pub const MFSampleExtension_Token: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2190793318, data2: 62248, data3: 18437, data4: [181, 81, 0, 222, 180, 197, 122, 97] };
-pub const MFSampleExtension_VideoDSPMode: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFSampleExtension_TargetGlobalLuminance: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1063317302, data2: 12783, data3: 19887, data4: [131, 96, 148, 3, 151, 228, 30, 243] };
+pub const MFSampleExtension_Timestamp: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 507734425, data2: 27070, data3: 19578, data4: [147, 105, 112, 6, 140, 2, 96, 203] };
+pub const MFSampleExtension_Token: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2190793318, data2: 62248, data3: 18437, data4: [181, 81, 0, 222, 180, 197, 122, 97] };
+pub const MFSampleExtension_VideoDSPMode: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3240973771,
     data2: 55257,
     data3: 18285,
     data4: [129, 243, 105, 17, 127, 22, 62, 160],
 };
-pub const MFSampleExtension_VideoEncodePictureType: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2536965350, data2: 52500, data3: 18492, data4: [143, 32, 201, 252, 9, 40, 186, 213] };
-pub const MFSampleExtension_VideoEncodeQP: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3002066040, data2: 63865, data3: 19558, data4: [185, 94, 238, 43, 130, 200, 47, 54] };
+pub const MFSampleExtension_VideoEncodePictureType: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2536965350, data2: 52500, data3: 18492, data4: [143, 32, 201, 252, 9, 40, 186, 213] };
+pub const MFSampleExtension_VideoEncodeQP: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3002066040, data2: 63865, data3: 19558, data4: [185, 94, 238, 43, 130, 200, 47, 54] };
 #[repr(transparent)]
 pub struct MFSensorDeviceMode(pub i32);
 pub const MFSensorDeviceMode_Controller: MFSensorDeviceMode = MFSensorDeviceMode(0i32);
@@ -10093,50 +12223,50 @@ impl ::core::clone::Clone for MFStandardVideoFormat {
         *self
     }
 }
-pub const MFStreamExtension_CameraExtrinsics: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1751226064, data2: 5090, data3: 16857, data4: [150, 56, 239, 3, 44, 39, 42, 82] };
-pub const MFStreamExtension_ExtendedCameraIntrinsics: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFStreamExtension_CameraExtrinsics: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1751226064, data2: 5090, data3: 16857, data4: [150, 56, 239, 3, 44, 39, 42, 82] };
+pub const MFStreamExtension_ExtendedCameraIntrinsics: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2859774943,
     data2: 39468,
     data3: 18646,
     data4: [131, 147, 91, 209, 193, 168, 30, 110],
 };
-pub const MFStreamExtension_PinholeCameraIntrinsics: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3685483605, data2: 3784, data3: 19183, data4: [156, 50, 122, 62, 227, 69, 111, 83] };
-pub const MFStreamFormat_MPEG2Program: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFStreamExtension_PinholeCameraIntrinsics: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3685483605, data2: 3784, data3: 19183, data4: [156, 50, 122, 62, 227, 69, 111, 83] };
+pub const MFStreamFormat_MPEG2Program: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 640706513,
     data2: 54064,
     data3: 17884,
     data4: [182, 105, 52, 217, 134, 228, 227, 225],
 };
-pub const MFStreamFormat_MPEG2Transport: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3765272611, data2: 56134, data3: 4559, data4: [180, 209, 0, 128, 95, 108, 187, 234] };
-pub const MFSubtitleFormat_ATSC: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFStreamFormat_MPEG2Transport: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3765272611, data2: 56134, data3: 4559, data4: [180, 209, 0, 128, 95, 108, 187, 234] };
+pub const MFSubtitleFormat_ATSC: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2141715107,
     data2: 65198,
     data3: 19990,
     data4: [174, 223, 54, 185, 172, 251, 176, 153],
 };
-pub const MFSubtitleFormat_CustomUserData: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFSubtitleFormat_CustomUserData: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 464771145,
     data2: 26132,
     data3: 19840,
     data4: [136, 130, 237, 36, 170, 130, 218, 146],
 };
-pub const MFSubtitleFormat_PGS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1911819850, data2: 4728, data3: 17474, data4: [179, 13, 57, 221, 29, 119, 34, 188] };
-pub const MFSubtitleFormat_SRT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFSubtitleFormat_PGS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1911819850, data2: 4728, data3: 17474, data4: [179, 13, 57, 221, 29, 119, 34, 188] };
+pub const MFSubtitleFormat_SRT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1581678382,
     data2: 30666,
     data3: 19621,
     data4: [131, 145, 209, 66, 237, 75, 118, 200],
 };
-pub const MFSubtitleFormat_SSA: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1461152283, data2: 6814, data3: 20202, data4: [171, 239, 198, 23, 96, 25, 138, 196] };
-pub const MFSubtitleFormat_TTML: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1944533394, data2: 39440, data3: 17238, data4: [149, 87, 113, 148, 233, 30, 62, 84] };
-pub const MFSubtitleFormat_VobSub: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1804484852, data2: 36140, data3: 19693, data4: [173, 145, 89, 96, 228, 91, 68, 51] };
-pub const MFSubtitleFormat_WebVTT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFSubtitleFormat_SSA: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1461152283, data2: 6814, data3: 20202, data4: [171, 239, 198, 23, 96, 25, 138, 196] };
+pub const MFSubtitleFormat_TTML: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1944533394, data2: 39440, data3: 17238, data4: [149, 87, 113, 148, 233, 30, 62, 84] };
+pub const MFSubtitleFormat_VobSub: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1804484852, data2: 36140, data3: 19693, data4: [173, 145, 89, 96, 228, 91, 68, 51] };
+pub const MFSubtitleFormat_WebVTT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3364278805,
     data2: 62597,
     data3: 16571,
     data4: [141, 182, 250, 219, 198, 25, 164, 93],
 };
-pub const MFSubtitleFormat_XML: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 537327951, data2: 10698, data3: 16789, data4: [184, 219, 0, 222, 216, 255, 12, 151] };
+pub const MFSubtitleFormat_XML: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 537327951, data2: 10698, data3: 16789, data4: [184, 219, 0, 222, 216, 255, 12, 151] };
 #[repr(transparent)]
 pub struct MFTIMER_FLAGS(pub i32);
 pub const MFTIMER_RELATIVE: MFTIMER_FLAGS = MFTIMER_FLAGS(1i32);
@@ -10193,13 +12323,13 @@ impl ::core::clone::Clone for MFTOPONODE_ATTRIBUTE_UPDATE_0 {
         *self
     }
 }
-pub const MFT_AUDIO_DECODER_AUDIO_ENDPOINT_ID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFT_AUDIO_DECODER_AUDIO_ENDPOINT_ID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3352092014,
     data2: 21400,
     data3: 18069,
     data4: [139, 231, 81, 179, 233, 81, 17, 189],
 };
-pub const MFT_AUDIO_DECODER_DEGRADATION_INFO_ATTRIBUTE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFT_AUDIO_DECODER_DEGRADATION_INFO_ATTRIBUTE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1815316141,
     data2: 60448,
     data3: 17165,
@@ -10227,56 +12357,56 @@ impl ::core::clone::Clone for MFT_AUDIO_DECODER_DEGRADATION_TYPE {
         *self
     }
 }
-pub const MFT_AUDIO_DECODER_SPATIAL_METADATA_CLIENT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 93879796, data2: 4720, data3: 18841, data4: [146, 95, 142, 147, 154, 124, 10, 247] };
-pub const MFT_CATEGORY_AUDIO_DECODER: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2661760948, data2: 61306, data3: 17753, data4: [141, 93, 113, 157, 143, 4, 38, 199] };
-pub const MFT_CATEGORY_AUDIO_EFFECT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 285625416, data2: 13896, data3: 20176, data4: [147, 46, 5, 206, 138, 200, 17, 183] };
-pub const MFT_CATEGORY_AUDIO_ENCODER: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFT_AUDIO_DECODER_SPATIAL_METADATA_CLIENT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 93879796, data2: 4720, data3: 18841, data4: [146, 95, 142, 147, 154, 124, 10, 247] };
+pub const MFT_CATEGORY_AUDIO_DECODER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2661760948, data2: 61306, data3: 17753, data4: [141, 93, 113, 157, 143, 4, 38, 199] };
+pub const MFT_CATEGORY_AUDIO_EFFECT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 285625416, data2: 13896, data3: 20176, data4: [147, 46, 5, 206, 138, 200, 17, 183] };
+pub const MFT_CATEGORY_AUDIO_ENCODER: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2445691856,
     data2: 63774,
     data3: 19852,
     data4: [146, 118, 219, 36, 130, 121, 217, 117],
 };
-pub const MFT_CATEGORY_DEMULTIPLEXER: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFT_CATEGORY_DEMULTIPLEXER: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2825915002,
     data2: 37787,
     data3: 17605,
     data4: [153, 215, 118, 34, 107, 35, 179, 241],
 };
-pub const MFT_CATEGORY_ENCRYPTOR: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2965800894, data2: 461, data3: 17589, data4: [184, 178, 124, 29, 126, 5, 139, 31] };
-pub const MFT_CATEGORY_MULTIPLEXER: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 94131742, data2: 1454, data3: 19297, data4: [182, 157, 85, 182, 30, 229, 74, 123] };
-pub const MFT_CATEGORY_OTHER: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFT_CATEGORY_ENCRYPTOR: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2965800894, data2: 461, data3: 17589, data4: [184, 178, 124, 29, 126, 5, 139, 31] };
+pub const MFT_CATEGORY_MULTIPLEXER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 94131742, data2: 1454, data3: 19297, data4: [182, 157, 85, 182, 30, 229, 74, 123] };
+pub const MFT_CATEGORY_OTHER: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2417450327,
     data2: 47082,
     data3: 18689,
     data4: [174, 179, 147, 58, 135, 71, 117, 111],
 };
-pub const MFT_CATEGORY_VIDEO_DECODER: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3602918731, data2: 26675, data3: 17844, data4: [151, 26, 5, 164, 176, 75, 171, 145] };
-pub const MFT_CATEGORY_VIDEO_EFFECT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 316767265, data2: 21292, data3: 19054, data4: [138, 28, 64, 130, 90, 115, 99, 151] };
-pub const MFT_CATEGORY_VIDEO_ENCODER: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFT_CATEGORY_VIDEO_DECODER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3602918731, data2: 26675, data3: 17844, data4: [151, 26, 5, 164, 176, 75, 171, 145] };
+pub const MFT_CATEGORY_VIDEO_EFFECT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 316767265, data2: 21292, data3: 19054, data4: [138, 28, 64, 130, 90, 115, 99, 151] };
+pub const MFT_CATEGORY_VIDEO_ENCODER: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4154371197,
     data2: 58693,
     data3: 17287,
     data4: [189, 238, 214, 71, 215, 189, 228, 42],
 };
-pub const MFT_CATEGORY_VIDEO_PROCESSOR: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 808363004, data2: 43615, data3: 18425, data4: [159, 122, 194, 24, 139, 177, 99, 2] };
-pub const MFT_CATEGORY_VIDEO_RENDERER_EFFECT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFT_CATEGORY_VIDEO_PROCESSOR: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 808363004, data2: 43615, data3: 18425, data4: [159, 122, 194, 24, 139, 177, 99, 2] };
+pub const MFT_CATEGORY_VIDEO_RENDERER_EFFECT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 341629108,
     data2: 37620,
     data3: 19235,
     data4: [138, 231, 224, 223, 6, 194, 218, 149],
 };
-pub const MFT_CODEC_MERIT_Attribute: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2292697877, data2: 31495, data3: 18996, data4: [145, 40, 230, 76, 103, 3, 196, 211] };
-pub const MFT_CONNECTED_STREAM_ATTRIBUTE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFT_CODEC_MERIT_Attribute: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2292697877, data2: 31495, data3: 18996, data4: [145, 40, 230, 76, 103, 3, 196, 211] };
+pub const MFT_CONNECTED_STREAM_ATTRIBUTE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1911470112,
     data2: 42399,
     data3: 19938,
     data4: [188, 236, 56, 219, 29, 214, 17, 164],
 };
-pub const MFT_CONNECTED_TO_HW_STREAM: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 887547688, data2: 1750, data3: 17553, data4: [165, 83, 71, 149, 101, 13, 185, 18] };
-pub const MFT_DECODER_EXPOSE_OUTPUT_TYPES_IN_NATIVE_ORDER: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4018176831, data2: 63738, data3: 17625, data4: [128, 216, 65, 237, 98, 50, 103, 12] };
-pub const MFT_DECODER_FINAL_VIDEO_RESOLUTION_HINT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3694101654, data2: 5572, data3: 16506, data4: [182, 240, 27, 102, 171, 95, 191, 83] };
-pub const MFT_DECODER_QUALITY_MANAGEMENT_CUSTOM_CONTROL: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2723033303, data2: 56869, data3: 17752, data4: [187, 251, 113, 7, 10, 45, 51, 46] };
-pub const MFT_DECODER_QUALITY_MANAGEMENT_RECOVERY_WITHOUT_ARTIFACTS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3633843691, data2: 2632, data3: 16991, data4: [134, 35, 97, 29, 180, 29, 56, 16] };
+pub const MFT_CONNECTED_TO_HW_STREAM: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 887547688, data2: 1750, data3: 17553, data4: [165, 83, 71, 149, 101, 13, 185, 18] };
+pub const MFT_DECODER_EXPOSE_OUTPUT_TYPES_IN_NATIVE_ORDER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4018176831, data2: 63738, data3: 17625, data4: [128, 216, 65, 237, 98, 50, 103, 12] };
+pub const MFT_DECODER_FINAL_VIDEO_RESOLUTION_HINT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3694101654, data2: 5572, data3: 16506, data4: [182, 240, 27, 102, 171, 95, 191, 83] };
+pub const MFT_DECODER_QUALITY_MANAGEMENT_CUSTOM_CONTROL: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2723033303, data2: 56869, data3: 17752, data4: [187, 251, 113, 7, 10, 45, 51, 46] };
+pub const MFT_DECODER_QUALITY_MANAGEMENT_RECOVERY_WITHOUT_ARTIFACTS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3633843691, data2: 2632, data3: 16991, data4: [134, 35, 97, 29, 180, 29, 56, 16] };
 #[repr(transparent)]
 pub struct MFT_DRAIN_TYPE(pub i32);
 pub const MFT_DRAIN_PRODUCE_TAILS: MFT_DRAIN_TYPE = MFT_DRAIN_TYPE(0i32);
@@ -10287,23 +12417,23 @@ impl ::core::clone::Clone for MFT_DRAIN_TYPE {
         *self
     }
 }
-pub const MFT_ENCODER_ERROR: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3369201060, data2: 39140, data3: 16853, data4: [146, 151, 68, 245, 56, 82, 249, 14] };
-pub const MFT_ENCODER_SUPPORTS_CONFIG_EVENT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2258851246, data2: 14967, data3: 20164, data4: [159, 49, 1, 20, 154, 78, 146, 222] };
-pub const MFT_END_STREAMING_AWARE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1895548997, data2: 45182, data3: 16521, data4: [176, 100, 57, 157, 198, 17, 15, 41] };
-pub const MFT_ENUM_ADAPTER_LUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 490295692, data2: 57888, data3: 19880, data4: [160, 127, 186, 23, 37, 82, 214, 177] };
-pub const MFT_ENUM_HARDWARE_URL_Attribute: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 800614060, data2: 45176, data3: 18754, data4: [171, 108, 0, 61, 5, 205, 166, 116] };
-pub const MFT_ENUM_HARDWARE_VENDOR_ID_Attribute: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 988590284, data2: 859, data3: 19404, data4: [129, 133, 43, 141, 85, 30, 243, 175] };
-pub const MFT_ENUM_TRANSCODE_ONLY_ATTRIBUTE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFT_ENCODER_ERROR: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3369201060, data2: 39140, data3: 16853, data4: [146, 151, 68, 245, 56, 82, 249, 14] };
+pub const MFT_ENCODER_SUPPORTS_CONFIG_EVENT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2258851246, data2: 14967, data3: 20164, data4: [159, 49, 1, 20, 154, 78, 146, 222] };
+pub const MFT_END_STREAMING_AWARE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1895548997, data2: 45182, data3: 16521, data4: [176, 100, 57, 157, 198, 17, 15, 41] };
+pub const MFT_ENUM_ADAPTER_LUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 490295692, data2: 57888, data3: 19880, data4: [160, 127, 186, 23, 37, 82, 214, 177] };
+pub const MFT_ENUM_HARDWARE_URL_Attribute: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 800614060, data2: 45176, data3: 18754, data4: [171, 108, 0, 61, 5, 205, 166, 116] };
+pub const MFT_ENUM_HARDWARE_VENDOR_ID_Attribute: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 988590284, data2: 859, data3: 19404, data4: [129, 133, 43, 141, 85, 30, 243, 175] };
+pub const MFT_ENUM_TRANSCODE_ONLY_ATTRIBUTE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 287221965,
     data2: 46634,
     data3: 19419,
     data4: [137, 246, 103, 255, 205, 194, 69, 139],
 };
-pub const MFT_ENUM_VIDEO_RENDERER_EXTENSION_PROFILE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1657104680, data2: 39502, data3: 17467, data4: [185, 220, 202, 200, 48, 194, 65, 0] };
-pub const MFT_FIELDOFUSE_UNLOCK_Attribute: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2395138557, data2: 37192, data3: 16653, data4: [131, 30, 112, 36, 57, 70, 26, 142] };
-pub const MFT_FRIENDLY_NAME_Attribute: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 827325358, data2: 23361, data3: 19605, data4: [156, 25, 78, 125, 88, 111, 172, 227] };
-pub const MFT_GFX_DRIVER_VERSION_ID_Attribute: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4081815699, data2: 1504, data3: 19222, data4: [153, 61, 62, 42, 44, 222, 106, 211] };
-pub const MFT_HW_TIMESTAMP_WITH_QPC_Attribute: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFT_ENUM_VIDEO_RENDERER_EXTENSION_PROFILE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1657104680, data2: 39502, data3: 17467, data4: [185, 220, 202, 200, 48, 194, 65, 0] };
+pub const MFT_FIELDOFUSE_UNLOCK_Attribute: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2395138557, data2: 37192, data3: 16653, data4: [131, 30, 112, 36, 57, 70, 26, 142] };
+pub const MFT_FRIENDLY_NAME_Attribute: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 827325358, data2: 23361, data3: 19605, data4: [156, 25, 78, 125, 88, 111, 172, 227] };
+pub const MFT_GFX_DRIVER_VERSION_ID_Attribute: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4081815699, data2: 1504, data3: 19222, data4: [153, 61, 62, 42, 44, 222, 106, 211] };
+pub const MFT_HW_TIMESTAMP_WITH_QPC_Attribute: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2365788088,
     data2: 52291,
     data3: 16984,
@@ -10323,7 +12453,7 @@ impl ::core::clone::Clone for MFT_INPUT_STREAM_INFO {
         *self
     }
 }
-pub const MFT_INPUT_TYPES_Attributes: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFT_INPUT_TYPES_Attributes: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1115081137,
     data2: 30109,
     data3: 19443,
@@ -10356,9 +12486,9 @@ pub const MFT_OUTPUT_BOUND_UPPER_UNBOUNDED: u64 = 9223372036854775807u64;
 #[repr(C)]
 pub struct MFT_OUTPUT_DATA_BUFFER {
     pub dwStreamID: u32,
-    pub pSample: ::core::option::Option<IMFSample>,
+    pub pSample: IMFSample,
     pub dwStatus: u32,
-    pub pEvents: ::core::option::Option<IMFCollection>,
+    pub pEvents: IMFCollection,
 }
 impl ::core::marker::Copy for MFT_OUTPUT_DATA_BUFFER {}
 impl ::core::clone::Clone for MFT_OUTPUT_DATA_BUFFER {
@@ -10378,16 +12508,16 @@ impl ::core::clone::Clone for MFT_OUTPUT_STREAM_INFO {
         *self
     }
 }
-pub const MFT_OUTPUT_TYPES_Attributes: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2393804019, data2: 42063, data3: 17158, data4: [186, 92, 191, 93, 218, 36, 40, 24] };
-pub const MFT_POLICY_SET_AWARE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1516452633, data2: 52281, data3: 20392, data4: [140, 165, 89, 152, 27, 122, 0, 24] };
-pub const MFT_PREFERRED_ENCODER_PROFILE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFT_OUTPUT_TYPES_Attributes: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2393804019, data2: 42063, data3: 17158, data4: [186, 92, 191, 93, 218, 36, 40, 24] };
+pub const MFT_POLICY_SET_AWARE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1516452633, data2: 52281, data3: 20392, data4: [140, 165, 89, 152, 27, 122, 0, 24] };
+pub const MFT_PREFERRED_ENCODER_PROFILE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1392527625,
     data2: 7925,
     data3: 18135,
     data4: [161, 142, 90, 117, 248, 181, 144, 95],
 };
-pub const MFT_PREFERRED_OUTPUTTYPE_Attribute: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2121270425, data2: 14698, data3: 18926, data4: [177, 180, 246, 40, 2, 30, 140, 157] };
-pub const MFT_PROCESS_LOCAL_Attribute: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFT_PREFERRED_OUTPUTTYPE_Attribute: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2121270425, data2: 14698, data3: 18926, data4: [177, 180, 246, 40, 2, 30, 140, 157] };
+pub const MFT_PROCESS_LOCAL_Attribute: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1412531940,
     data2: 17993,
     data3: 20069,
@@ -10424,7 +12554,7 @@ impl ::core::clone::Clone for MFT_REGISTRATION_INFO {
         *self
     }
 }
-pub const MFT_REMUX_MARK_I_PICTURE_AS_CLEAN_POINT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 911118213, data2: 16174, data3: 17260, data4: [178, 162, 68, 64, 160, 18, 169, 232] };
+pub const MFT_REMUX_MARK_I_PICTURE_AS_CLEAN_POINT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 911118213, data2: 16174, data3: 17260, data4: [178, 162, 68, 64, 160, 18, 169, 232] };
 pub const MFT_STREAMS_UNLIMITED: u32 = 4294967295u32;
 #[repr(C)]
 pub struct MFT_STREAM_STATE_PARAM {
@@ -10437,52 +12567,52 @@ impl ::core::clone::Clone for MFT_STREAM_STATE_PARAM {
         *self
     }
 }
-pub const MFT_SUPPORT_3DVIDEO: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 155156913, data2: 20270, data3: 17969, data4: [129, 104, 121, 52, 3, 42, 1, 211] };
-pub const MFT_SUPPORT_DYNAMIC_FORMAT_CHANGE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1397189137, data2: 16147, data3: 18939, data4: [172, 66, 238, 39, 51, 201, 103, 65] };
-pub const MFT_TRANSFORM_CLSID_Attribute: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFT_SUPPORT_3DVIDEO: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 155156913, data2: 20270, data3: 17969, data4: [129, 104, 121, 52, 3, 42, 1, 211] };
+pub const MFT_SUPPORT_DYNAMIC_FORMAT_CHANGE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1397189137, data2: 16147, data3: 18939, data4: [172, 66, 238, 39, 51, 201, 103, 65] };
+pub const MFT_TRANSFORM_CLSID_Attribute: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1747043371,
     data2: 26020,
     data3: 20098,
     data4: [153, 188, 154, 136, 32, 94, 205, 12],
 };
-pub const MFT_USING_HARDWARE_DRM: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 888842109, data2: 55198, data3: 18775, data4: [184, 206, 54, 43, 38, 132, 153, 108] };
-pub const MFTranscodeContainerType_3GP: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFT_USING_HARDWARE_DRM: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 888842109, data2: 55198, data3: 18775, data4: [184, 206, 54, 43, 38, 132, 153, 108] };
+pub const MFTranscodeContainerType_3GP: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 885326183,
     data2: 17522,
     data3: 20276,
     data4: [158, 160, 196, 159, 186, 207, 3, 125],
 };
-pub const MFTranscodeContainerType_AC3: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1837994435, data2: 35985, data3: 20177, data4: [135, 66, 140, 52, 125, 91, 68, 208] };
-pub const MFTranscodeContainerType_ADTS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 321901181, data2: 3842, data3: 17374, data4: [163, 1, 56, 251, 187, 179, 131, 78] };
-pub const MFTranscodeContainerType_AMR: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 39672531, data2: 25114, data3: 18267, data4: [150, 77, 102, 177, 200, 36, 240, 121] };
-pub const MFTranscodeContainerType_ASF: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFTranscodeContainerType_AC3: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1837994435, data2: 35985, data3: 20177, data4: [135, 66, 140, 52, 125, 91, 68, 208] };
+pub const MFTranscodeContainerType_ADTS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 321901181, data2: 3842, data3: 17374, data4: [163, 1, 56, 251, 187, 179, 131, 78] };
+pub const MFTranscodeContainerType_AMR: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 39672531, data2: 25114, data3: 18267, data4: [150, 77, 102, 177, 200, 36, 240, 121] };
+pub const MFTranscodeContainerType_ASF: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1125085038,
     data2: 46783,
     data3: 20417,
     data4: [160, 189, 158, 228, 110, 238, 42, 251],
 };
-pub const MFTranscodeContainerType_AVI: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFTranscodeContainerType_AVI: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2128603311,
     data2: 16431,
     data3: 19830,
     data4: [163, 60, 97, 159, 209, 87, 208, 241],
 };
-pub const MFTranscodeContainerType_FLAC: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 825510563, data2: 1449, data3: 17077, data4: [144, 27, 142, 157, 66, 87, 247, 94] };
-pub const MFTranscodeContainerType_FMPEG4: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2611508977, data2: 16799, data3: 19319, data4: [161, 224, 53, 149, 157, 157, 64, 4] };
-pub const MFTranscodeContainerType_MP3: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFTranscodeContainerType_FLAC: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 825510563, data2: 1449, data3: 17077, data4: [144, 27, 142, 157, 66, 87, 247, 94] };
+pub const MFTranscodeContainerType_FMPEG4: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2611508977, data2: 16799, data3: 19319, data4: [161, 224, 53, 149, 157, 157, 64, 4] };
+pub const MFTranscodeContainerType_MP3: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3828922642,
     data2: 33777,
     data3: 19942,
     data4: [158, 58, 159, 251, 198, 221, 36, 209],
 };
-pub const MFTranscodeContainerType_MPEG2: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFTranscodeContainerType_MPEG2: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3217218553,
     data2: 31668,
     data3: 20367,
     data4: [175, 222, 225, 18, 196, 75, 168, 130],
 };
-pub const MFTranscodeContainerType_MPEG4: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3698118749, data2: 47568, data3: 16623, data4: [189, 53, 250, 98, 44, 26, 178, 138] };
-pub const MFTranscodeContainerType_WAVE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFTranscodeContainerType_MPEG4: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3698118749, data2: 47568, data3: 16623, data4: [189, 53, 250, 98, 44, 26, 178, 138] };
+pub const MFTranscodeContainerType_WAVE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1690518844,
     data2: 3878,
     data3: 18241,
@@ -10562,7 +12692,7 @@ impl ::core::clone::Clone for MFVideoAlphaBitmap {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_Gdi"))]
 pub union MFVideoAlphaBitmap_0 {
     pub hdc: super::super::Graphics::Gdi::HDC,
-    pub pDDS: ::core::option::Option<super::super::Graphics::Direct3D9::IDirect3DSurface9>,
+    pub pDDS: super::super::Graphics::Direct3D9::IDirect3DSurface9,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for MFVideoAlphaBitmap_0 {}
@@ -10713,94 +12843,94 @@ impl ::core::clone::Clone for MFVideoFlags {
         *self
     }
 }
-pub const MFVideoFormat_420O: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1328558644, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MFVideoFormat_A16B16G16R16F: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 113, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MFVideoFormat_A2R10G10B10: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 31, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MFVideoFormat_AI44: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 875841857, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MFVideoFormat_ARGB32: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 21, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MFVideoFormat_AV1: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 825251393, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MFVideoFormat_AYUV: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1448433985, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MFVideoFormat_Base: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 0, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MFVideoFormat_Base_HDCP: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFVideoFormat_420O: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1328558644, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MFVideoFormat_A16B16G16R16F: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 113, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MFVideoFormat_A2R10G10B10: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 31, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MFVideoFormat_AI44: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 875841857, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MFVideoFormat_ARGB32: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 21, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MFVideoFormat_AV1: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 825251393, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MFVideoFormat_AYUV: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1448433985, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MFVideoFormat_Base: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 0, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MFVideoFormat_Base_HDCP: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3938695637,
     data2: 48404,
     data3: 16951,
     data4: [143, 31, 186, 180, 40, 228, 147, 18],
 };
-pub const MFVideoFormat_D16: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 80, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MFVideoFormat_DV25: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 892499556, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MFVideoFormat_DV50: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 808810084, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MFVideoFormat_DVH1: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 828929636, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MFVideoFormat_DVHD: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1684567652, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MFVideoFormat_DVSD: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1685288548, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MFVideoFormat_DVSL: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1819506276, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MFVideoFormat_H263: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 859189832, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MFVideoFormat_H264: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 875967048, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MFVideoFormat_H264_ES: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFVideoFormat_D16: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 80, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MFVideoFormat_DV25: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 892499556, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MFVideoFormat_DV50: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 808810084, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MFVideoFormat_DVH1: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 828929636, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MFVideoFormat_DVHD: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1684567652, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MFVideoFormat_DVSD: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1685288548, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MFVideoFormat_DVSL: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1819506276, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MFVideoFormat_H263: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 859189832, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MFVideoFormat_H264: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 875967048, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MFVideoFormat_H264_ES: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1061221616,
     data2: 22050,
     data3: 20472,
     data4: [182, 216, 161, 122, 88, 75, 238, 94],
 };
-pub const MFVideoFormat_H264_HDCP: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MFVideoFormat_H264_HDCP: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1561127389,
     data2: 38935,
     data3: 18906,
     data4: [189, 253, 245, 245, 185, 143, 24, 166],
 };
-pub const MFVideoFormat_H265: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 892744264, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MFVideoFormat_HEVC: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1129727304, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MFVideoFormat_HEVC_ES: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1398162760, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MFVideoFormat_HEVC_HDCP: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1023283174, data2: 1476, data3: 18396, data4: [157, 112, 75, 219, 41, 89, 114, 15] };
-pub const MFVideoFormat_I420: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 808596553, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MFVideoFormat_IYUV: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1448433993, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MFVideoFormat_L16: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 81, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MFVideoFormat_L8: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 50, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MFVideoFormat_M4S2: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 844313677, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MFVideoFormat_MJPG: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1196444237, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MFVideoFormat_MP43: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 859066445, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MFVideoFormat_MP4S: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1395937357, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MFVideoFormat_MP4V: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1446269005, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MFVideoFormat_MPEG2: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3765272614, data2: 56134, data3: 4559, data4: [180, 209, 0, 128, 95, 108, 187, 234] };
-pub const MFVideoFormat_MPG1: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 826757197, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MFVideoFormat_MSS1: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 827544397, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MFVideoFormat_MSS2: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 844321613, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MFVideoFormat_NV11: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 825316942, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MFVideoFormat_NV12: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 842094158, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MFVideoFormat_NV21: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 825382478, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MFVideoFormat_ORAW: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1463898703, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MFVideoFormat_P010: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 808530000, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MFVideoFormat_P016: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 909193296, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MFVideoFormat_P210: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 808530512, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MFVideoFormat_P216: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 909193808, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MFVideoFormat_RGB24: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 20, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MFVideoFormat_RGB32: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 22, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MFVideoFormat_RGB555: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 24, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MFVideoFormat_RGB565: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 23, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MFVideoFormat_RGB8: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 41, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MFVideoFormat_Theora: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1868916852, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MFVideoFormat_UYVY: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1498831189, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MFVideoFormat_VP10: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 808538198, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MFVideoFormat_VP80: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 808996950, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MFVideoFormat_VP90: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 809062486, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MFVideoFormat_WMV1: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 827739479, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MFVideoFormat_WMV2: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 844516695, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MFVideoFormat_WMV3: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 861293911, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MFVideoFormat_WVC1: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 826496599, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MFVideoFormat_Y210: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 808530521, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MFVideoFormat_Y216: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 909193817, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MFVideoFormat_Y410: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 808531033, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MFVideoFormat_Y416: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 909194329, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MFVideoFormat_Y41P: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1345401945, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MFVideoFormat_Y41T: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1412510809, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MFVideoFormat_Y42T: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1412576345, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MFVideoFormat_YUY2: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 844715353, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MFVideoFormat_YV12: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 842094169, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MFVideoFormat_YVU9: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 961893977, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MFVideoFormat_YVYU: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1431918169, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MFVideoFormat_v210: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 808530550, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MFVideoFormat_v216: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 909193846, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
-pub const MFVideoFormat_v410: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 808531062, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MFVideoFormat_H265: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 892744264, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MFVideoFormat_HEVC: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1129727304, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MFVideoFormat_HEVC_ES: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1398162760, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MFVideoFormat_HEVC_HDCP: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1023283174, data2: 1476, data3: 18396, data4: [157, 112, 75, 219, 41, 89, 114, 15] };
+pub const MFVideoFormat_I420: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 808596553, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MFVideoFormat_IYUV: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1448433993, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MFVideoFormat_L16: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 81, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MFVideoFormat_L8: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 50, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MFVideoFormat_M4S2: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 844313677, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MFVideoFormat_MJPG: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1196444237, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MFVideoFormat_MP43: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 859066445, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MFVideoFormat_MP4S: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1395937357, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MFVideoFormat_MP4V: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1446269005, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MFVideoFormat_MPEG2: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3765272614, data2: 56134, data3: 4559, data4: [180, 209, 0, 128, 95, 108, 187, 234] };
+pub const MFVideoFormat_MPG1: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 826757197, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MFVideoFormat_MSS1: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 827544397, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MFVideoFormat_MSS2: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 844321613, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MFVideoFormat_NV11: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 825316942, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MFVideoFormat_NV12: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 842094158, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MFVideoFormat_NV21: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 825382478, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MFVideoFormat_ORAW: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1463898703, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MFVideoFormat_P010: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 808530000, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MFVideoFormat_P016: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 909193296, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MFVideoFormat_P210: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 808530512, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MFVideoFormat_P216: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 909193808, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MFVideoFormat_RGB24: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 20, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MFVideoFormat_RGB32: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 22, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MFVideoFormat_RGB555: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 24, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MFVideoFormat_RGB565: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 23, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MFVideoFormat_RGB8: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 41, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MFVideoFormat_Theora: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1868916852, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MFVideoFormat_UYVY: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1498831189, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MFVideoFormat_VP10: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 808538198, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MFVideoFormat_VP80: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 808996950, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MFVideoFormat_VP90: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 809062486, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MFVideoFormat_WMV1: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 827739479, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MFVideoFormat_WMV2: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 844516695, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MFVideoFormat_WMV3: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 861293911, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MFVideoFormat_WVC1: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 826496599, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MFVideoFormat_Y210: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 808530521, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MFVideoFormat_Y216: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 909193817, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MFVideoFormat_Y410: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 808531033, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MFVideoFormat_Y416: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 909194329, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MFVideoFormat_Y41P: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1345401945, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MFVideoFormat_Y41T: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1412510809, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MFVideoFormat_Y42T: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1412576345, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MFVideoFormat_YUY2: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 844715353, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MFVideoFormat_YV12: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 842094169, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MFVideoFormat_YVU9: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 961893977, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MFVideoFormat_YVYU: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1431918169, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MFVideoFormat_v210: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 808530550, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MFVideoFormat_v216: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 909193846, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
+pub const MFVideoFormat_v410: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 808531062, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MFVideoInfo {
@@ -11064,7 +13194,7 @@ pub const MF_512_BYTE_ALIGNMENT: u32 = 511u32;
 pub const MF_64_BYTE_ALIGNMENT: u32 = 63u32;
 pub const MF_8192_BYTE_ALIGNMENT: u32 = 8191u32;
 pub const MF_8_BYTE_ALIGNMENT: u32 = 7u32;
-pub const MF_ACCESS_CONTROLLED_MEDIASOURCE_SERVICE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_ACCESS_CONTROLLED_MEDIASOURCE_SERVICE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 21647409,
     data2: 12037,
     data3: 19562,
@@ -11088,74 +13218,74 @@ impl ::core::clone::Clone for MF_ACTIVATE_CUSTOM_PRESENTER {
         *self
     }
 }
-pub const MF_ACTIVATE_CUSTOM_VIDEO_MIXER_ACTIVATE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_ACTIVATE_CUSTOM_VIDEO_MIXER_ACTIVATE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3125351265,
     data2: 48720,
     data3: 17694,
     data4: [149, 171, 109, 74, 204, 199, 218, 216],
 };
-pub const MF_ACTIVATE_CUSTOM_VIDEO_MIXER_CLSID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_ACTIVATE_CUSTOM_VIDEO_MIXER_CLSID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3125351264,
     data2: 48720,
     data3: 17694,
     data4: [149, 171, 109, 74, 204, 199, 218, 216],
 };
-pub const MF_ACTIVATE_CUSTOM_VIDEO_MIXER_FLAGS: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_ACTIVATE_CUSTOM_VIDEO_MIXER_FLAGS: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3125351266,
     data2: 48720,
     data3: 17694,
     data4: [149, 171, 109, 74, 204, 199, 218, 216],
 };
-pub const MF_ACTIVATE_CUSTOM_VIDEO_PRESENTER_ACTIVATE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_ACTIVATE_CUSTOM_VIDEO_PRESENTER_ACTIVATE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3125351269,
     data2: 48720,
     data3: 17694,
     data4: [149, 171, 109, 74, 204, 199, 218, 216],
 };
-pub const MF_ACTIVATE_CUSTOM_VIDEO_PRESENTER_CLSID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_ACTIVATE_CUSTOM_VIDEO_PRESENTER_CLSID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3125351268,
     data2: 48720,
     data3: 17694,
     data4: [149, 171, 109, 74, 204, 199, 218, 216],
 };
-pub const MF_ACTIVATE_CUSTOM_VIDEO_PRESENTER_FLAGS: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_ACTIVATE_CUSTOM_VIDEO_PRESENTER_FLAGS: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3125351270,
     data2: 48720,
     data3: 17694,
     data4: [149, 171, 109, 74, 204, 199, 218, 216],
 };
-pub const MF_ACTIVATE_MFT_LOCKED: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_ACTIVATE_MFT_LOCKED: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3254126908,
     data2: 32613,
     data3: 20413,
     data4: [158, 57, 95, 174, 195, 196, 251, 215],
 };
-pub const MF_ACTIVATE_VIDEO_WINDOW: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_ACTIVATE_VIDEO_WINDOW: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2586688477,
     data2: 62846,
     data3: 16738,
     data4: [130, 185, 104, 49, 55, 118, 130, 211],
 };
 pub const MF_API_VERSION: u32 = 112u32;
-pub const MF_ASFPROFILE_MAXPACKETSIZE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_ASFPROFILE_MAXPACKETSIZE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 576222759,
     data2: 18398,
     data3: 16744,
     data4: [135, 245, 181, 170, 155, 18, 168, 240],
 };
-pub const MF_ASFPROFILE_MINPACKETSIZE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_ASFPROFILE_MINPACKETSIZE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 576222758,
     data2: 18398,
     data3: 16744,
     data4: [135, 245, 181, 170, 155, 18, 168, 240],
 };
-pub const MF_ASFSTREAMCONFIG_LEAKYBUCKET1: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_ASFSTREAMCONFIG_LEAKYBUCKET1: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3332069633,
     data2: 59930,
     data3: 19611,
     data4: [182, 146, 226, 160, 210, 154, 138, 221],
 };
-pub const MF_ASFSTREAMCONFIG_LEAKYBUCKET2: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_ASFSTREAMCONFIG_LEAKYBUCKET2: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3332069634,
     data2: 59930,
     data3: 19611,
@@ -11198,19 +13328,19 @@ impl ::core::clone::Clone for MF_ATTRIBUTE_TYPE {
         *self
     }
 }
-pub const MF_AUDIO_RENDERER_ATTRIBUTE_ENDPOINT_ID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_AUDIO_RENDERER_ATTRIBUTE_ENDPOINT_ID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2970267331,
     data2: 61297,
     data3: 19651,
     data4: [184, 115, 5, 169, 160, 139, 159, 142],
 };
-pub const MF_AUDIO_RENDERER_ATTRIBUTE_ENDPOINT_ROLE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_AUDIO_RENDERER_ATTRIBUTE_ENDPOINT_ROLE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1806058751,
     data2: 10181,
     data3: 19714,
     data4: [152, 135, 194, 134, 25, 253, 185, 27],
 };
-pub const MF_AUDIO_RENDERER_ATTRIBUTE_FLAGS: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_AUDIO_RENDERER_ATTRIBUTE_FLAGS: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3991188960,
     data2: 63493,
     data3: 19820,
@@ -11219,13 +13349,13 @@ pub const MF_AUDIO_RENDERER_ATTRIBUTE_FLAGS: ::windows_sys::core::GUID = ::windo
 pub const MF_AUDIO_RENDERER_ATTRIBUTE_FLAGS_CROSSPROCESS: u32 = 1u32;
 pub const MF_AUDIO_RENDERER_ATTRIBUTE_FLAGS_DONT_ALLOW_FORMAT_CHANGES: u32 = 4u32;
 pub const MF_AUDIO_RENDERER_ATTRIBUTE_FLAGS_NOPERSIST: u32 = 2u32;
-pub const MF_AUDIO_RENDERER_ATTRIBUTE_SESSION_ID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_AUDIO_RENDERER_ATTRIBUTE_SESSION_ID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3991188963,
     data2: 63493,
     data3: 19820,
     data4: [153, 179, 219, 1, 191, 149, 223, 171],
 };
-pub const MF_AUDIO_RENDERER_ATTRIBUTE_STREAM_CATEGORY: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_AUDIO_RENDERER_ATTRIBUTE_STREAM_CATEGORY: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2843149425,
     data2: 37612,
     data3: 19956,
@@ -11243,23 +13373,23 @@ impl ::core::clone::Clone for MF_AUVRHP_ROOMMODEL {
         *self
     }
 }
-pub const MF_BD_MVC_PLANE_OFFSET_METADATA: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1655067876, data2: 46956, data3: 18689, data4: [152, 35, 44, 182, 21, 212, 115, 24] };
+pub const MF_BD_MVC_PLANE_OFFSET_METADATA: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1655067876, data2: 46956, data3: 18689, data4: [152, 35, 44, 182, 21, 212, 115, 24] };
 pub const MF_BOOT_DRIVER_VERIFICATION_FAILED: u32 = 1048576u32;
-pub const MF_BYTESTREAMHANDLER_ACCEPTS_SHARE_WRITE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2799826739, data2: 12289, data3: 18709, data4: [129, 80, 21, 88, 162, 24, 14, 200] };
-pub const MF_BYTESTREAM_CONTENT_TYPE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4231365257, data2: 15542, data3: 17932, data4: [164, 36, 182, 104, 18, 96, 55, 90] };
-pub const MF_BYTESTREAM_DLNA_PROFILE_ID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4231365261, data2: 15542, data3: 17932, data4: [164, 36, 182, 104, 18, 96, 55, 90] };
-pub const MF_BYTESTREAM_DURATION: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4231365258, data2: 15542, data3: 17932, data4: [164, 36, 182, 104, 18, 96, 55, 90] };
-pub const MF_BYTESTREAM_EFFECTIVE_URL: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_BYTESTREAMHANDLER_ACCEPTS_SHARE_WRITE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2799826739, data2: 12289, data3: 18709, data4: [129, 80, 21, 88, 162, 24, 14, 200] };
+pub const MF_BYTESTREAM_CONTENT_TYPE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4231365257, data2: 15542, data3: 17932, data4: [164, 36, 182, 104, 18, 96, 55, 90] };
+pub const MF_BYTESTREAM_DLNA_PROFILE_ID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4231365261, data2: 15542, data3: 17932, data4: [164, 36, 182, 104, 18, 96, 55, 90] };
+pub const MF_BYTESTREAM_DURATION: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4231365258, data2: 15542, data3: 17932, data4: [164, 36, 182, 104, 18, 96, 55, 90] };
+pub const MF_BYTESTREAM_EFFECTIVE_URL: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2600075785,
     data2: 35281,
     data3: 17071,
     data4: [132, 86, 29, 230, 181, 98, 214, 145],
 };
-pub const MF_BYTESTREAM_IFO_FILE_URI: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4231365260, data2: 15542, data3: 17932, data4: [164, 36, 182, 104, 18, 96, 55, 90] };
-pub const MF_BYTESTREAM_LAST_MODIFIED_TIME: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4231365259, data2: 15542, data3: 17932, data4: [164, 36, 182, 104, 18, 96, 55, 90] };
-pub const MF_BYTESTREAM_ORIGIN_NAME: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4231365256, data2: 15542, data3: 17932, data4: [164, 36, 182, 104, 18, 96, 55, 90] };
-pub const MF_BYTESTREAM_SERVICE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2869059115, data2: 5849, data3: 16768, data4: [161, 39, 186, 108, 112, 21, 97, 97] };
-pub const MF_BYTESTREAM_TRANSCODED: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_BYTESTREAM_IFO_FILE_URI: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4231365260, data2: 15542, data3: 17932, data4: [164, 36, 182, 104, 18, 96, 55, 90] };
+pub const MF_BYTESTREAM_LAST_MODIFIED_TIME: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4231365259, data2: 15542, data3: 17932, data4: [164, 36, 182, 104, 18, 96, 55, 90] };
+pub const MF_BYTESTREAM_ORIGIN_NAME: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4231365256, data2: 15542, data3: 17932, data4: [164, 36, 182, 104, 18, 96, 55, 90] };
+pub const MF_BYTESTREAM_SERVICE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2869059115, data2: 5849, data3: 16768, data4: [161, 39, 186, 108, 112, 21, 97, 97] };
+pub const MF_BYTESTREAM_TRANSCODED: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3066413698,
     data2: 19913,
     data3: 19897,
@@ -11276,13 +13406,13 @@ impl ::core::clone::Clone for MF_BYTE_STREAM_CACHE_RANGE {
         *self
     }
 }
-pub const MF_CAPTURE_ENGINE_ALL_EFFECTS_REMOVED: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_CAPTURE_ENGINE_ALL_EFFECTS_REMOVED: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4260197665,
     data2: 36568,
     data3: 17178,
     data4: [169, 107, 243, 226, 86, 94, 152, 28],
 };
-pub const MF_CAPTURE_ENGINE_AUDIO_PROCESSING: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 284278366, data2: 32273, data3: 16651, data4: [151, 61, 244, 182, 16, 144, 0, 254] };
+pub const MF_CAPTURE_ENGINE_AUDIO_PROCESSING: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 284278366, data2: 32273, data3: 16651, data4: [151, 61, 244, 182, 16, 144, 0, 254] };
 #[repr(transparent)]
 pub struct MF_CAPTURE_ENGINE_AUDIO_PROCESSING_MODE(pub i32);
 pub const MF_CAPTURE_ENGINE_AUDIO_PROCESSING_DEFAULT: MF_CAPTURE_ENGINE_AUDIO_PROCESSING_MODE = MF_CAPTURE_ENGINE_AUDIO_PROCESSING_MODE(0i32);
@@ -11293,20 +13423,20 @@ impl ::core::clone::Clone for MF_CAPTURE_ENGINE_AUDIO_PROCESSING_MODE {
         *self
     }
 }
-pub const MF_CAPTURE_ENGINE_CAMERA_STREAM_BLOCKED: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2753598487, data2: 36153, data3: 18163, data4: [183, 89, 89, 18, 82, 143, 66, 7] };
-pub const MF_CAPTURE_ENGINE_CAMERA_STREAM_UNBLOCKED: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_CAPTURE_ENGINE_CAMERA_STREAM_BLOCKED: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2753598487, data2: 36153, data3: 18163, data4: [183, 89, 89, 18, 82, 143, 66, 7] };
+pub const MF_CAPTURE_ENGINE_CAMERA_STREAM_UNBLOCKED: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2615799536,
     data2: 52655,
     data3: 18199,
     data4: [133, 100, 131, 74, 174, 102, 65, 92],
 };
-pub const MF_CAPTURE_ENGINE_D3D_MANAGER: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_CAPTURE_ENGINE_D3D_MANAGER: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1994546811,
     data2: 54677,
     data3: 17027,
     data4: [150, 44, 197, 148, 175, 215, 141, 223],
 };
-pub const MF_CAPTURE_ENGINE_DECODER_MFT_FIELDOFUSE_UNLOCK_Attribute: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 730518248, data2: 31435, data3: 17185, data4: [166, 6, 50, 92, 66, 73, 244, 252] };
+pub const MF_CAPTURE_ENGINE_DECODER_MFT_FIELDOFUSE_UNLOCK_Attribute: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 730518248, data2: 31435, data3: 17185, data4: [166, 6, 50, 92, 66, 73, 244, 252] };
 #[repr(transparent)]
 pub struct MF_CAPTURE_ENGINE_DEVICE_TYPE(pub i32);
 pub const MF_CAPTURE_ENGINE_DEVICE_TYPE_AUDIO: MF_CAPTURE_ENGINE_DEVICE_TYPE = MF_CAPTURE_ENGINE_DEVICE_TYPE(0i32);
@@ -11317,68 +13447,68 @@ impl ::core::clone::Clone for MF_CAPTURE_ENGINE_DEVICE_TYPE {
         *self
     }
 }
-pub const MF_CAPTURE_ENGINE_DISABLE_DXVA: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_CAPTURE_ENGINE_DISABLE_DXVA: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4186015842,
     data2: 6045,
     data3: 17215,
     data4: [163, 47, 116, 203, 207, 116, 70, 109],
 };
-pub const MF_CAPTURE_ENGINE_DISABLE_HARDWARE_TRANSFORMS: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_CAPTURE_ENGINE_DISABLE_HARDWARE_TRANSFORMS: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3083086443,
     data2: 12807,
     data3: 17557,
     data4: [180, 231, 129, 249, 195, 93, 89, 145],
 };
-pub const MF_CAPTURE_ENGINE_EFFECT_ADDED: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_CAPTURE_ENGINE_EFFECT_ADDED: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2861418421,
     data2: 41032,
     data3: 19987,
     data4: [142, 190, 242, 60, 70, 200, 48, 193],
 };
-pub const MF_CAPTURE_ENGINE_EFFECT_REMOVED: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_CAPTURE_ENGINE_EFFECT_REMOVED: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3337149191,
     data2: 64265,
     data3: 19016,
     data4: [137, 198, 191, 146, 160, 66, 34, 201],
 };
-pub const MF_CAPTURE_ENGINE_ENABLE_CAMERA_STREAMSTATE_NOTIFICATION: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1283493533, data2: 43757, data3: 18195, data4: [144, 251, 203, 36, 6, 74, 184, 218] };
-pub const MF_CAPTURE_ENGINE_ENCODER_MFT_FIELDOFUSE_UNLOCK_Attribute: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_CAPTURE_ENGINE_ENABLE_CAMERA_STREAMSTATE_NOTIFICATION: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1283493533, data2: 43757, data3: 18195, data4: [144, 251, 203, 36, 6, 74, 184, 218] };
+pub const MF_CAPTURE_ENGINE_ENCODER_MFT_FIELDOFUSE_UNLOCK_Attribute: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1422277120,
     data2: 30933,
     data3: 16943,
     data4: [170, 62, 94, 153, 172, 100, 146, 105],
 };
-pub const MF_CAPTURE_ENGINE_ERROR: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_CAPTURE_ENGINE_ERROR: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1186504646,
     data2: 13260,
     data3: 17305,
     data4: [157, 173, 120, 77, 231, 125, 88, 124],
 };
-pub const MF_CAPTURE_ENGINE_EVENT_GENERATOR_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_CAPTURE_ENGINE_EVENT_GENERATOR_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2885323477,
     data2: 64621,
     data3: 18705,
     data4: [135, 224, 150, 25, 69, 248, 247, 206],
 };
-pub const MF_CAPTURE_ENGINE_EVENT_STREAM_INDEX: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_CAPTURE_ENGINE_EVENT_STREAM_INDEX: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2187951940,
     data2: 45519,
     data3: 17131,
     data4: [151, 83, 248, 109, 100, 156, 136, 101],
 };
-pub const MF_CAPTURE_ENGINE_INITIALIZED: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_CAPTURE_ENGINE_INITIALIZED: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 563712700,
     data2: 53138,
     data3: 17713,
     data4: [161, 174, 150, 225, 232, 134, 200, 241],
 };
-pub const MF_CAPTURE_ENGINE_MEDIASOURCE_CONFIG: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_CAPTURE_ENGINE_MEDIASOURCE_CONFIG: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3161033170,
     data2: 4033,
     data3: 18145,
     data4: [167, 79, 239, 211, 107, 199, 136, 222],
 };
-pub const MF_CAPTURE_ENGINE_MEDIA_CATEGORY: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_CAPTURE_ENGINE_MEDIA_CATEGORY: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2386516949,
     data2: 56255,
     data3: 17136,
@@ -11400,43 +13530,43 @@ impl ::core::clone::Clone for MF_CAPTURE_ENGINE_MEDIA_CATEGORY_TYPE {
         *self
     }
 }
-pub const MF_CAPTURE_ENGINE_OUTPUT_MEDIA_TYPE_SET: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3400194452, data2: 33772, data3: 17897, data4: [163, 10, 31, 32, 170, 219, 152, 49] };
-pub const MF_CAPTURE_ENGINE_PHOTO_TAKEN: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_CAPTURE_ENGINE_OUTPUT_MEDIA_TYPE_SET: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3400194452, data2: 33772, data3: 17897, data4: [163, 10, 31, 32, 170, 219, 152, 49] };
+pub const MF_CAPTURE_ENGINE_PHOTO_TAKEN: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1011926085,
     data2: 29444,
     data3: 18667,
     data4: [134, 93, 187, 161, 155, 163, 175, 92],
 };
-pub const MF_CAPTURE_ENGINE_PREVIEW_STARTED: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2752962337, data2: 63955, data3: 19060, data4: [153, 27, 184, 23, 41, 137, 82, 196] };
-pub const MF_CAPTURE_ENGINE_PREVIEW_STOPPED: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 332731452, data2: 7901, data3: 20048, data4: [162, 239, 53, 10, 71, 103, 128, 96] };
-pub const MF_CAPTURE_ENGINE_RECORD_SINK_AUDIO_MAX_PROCESSED_SAMPLES: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_CAPTURE_ENGINE_PREVIEW_STARTED: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2752962337, data2: 63955, data3: 19060, data4: [153, 27, 184, 23, 41, 137, 82, 196] };
+pub const MF_CAPTURE_ENGINE_PREVIEW_STOPPED: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 332731452, data2: 7901, data3: 20048, data4: [162, 239, 53, 10, 71, 103, 128, 96] };
+pub const MF_CAPTURE_ENGINE_RECORD_SINK_AUDIO_MAX_PROCESSED_SAMPLES: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2560024874,
     data2: 63239,
     data3: 17664,
     data4: [182, 189, 219, 142, 184, 16, 181, 15],
 };
-pub const MF_CAPTURE_ENGINE_RECORD_SINK_AUDIO_MAX_UNPROCESSED_SAMPLES: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 484290881, data2: 42996, data3: 19800, data4: [152, 150, 77, 21, 165, 60, 78, 254] };
-pub const MF_CAPTURE_ENGINE_RECORD_SINK_VIDEO_MAX_PROCESSED_SAMPLES: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3887375518, data2: 14380, data3: 19183, data4: [169, 70, 174, 213, 73, 11, 113, 17] };
-pub const MF_CAPTURE_ENGINE_RECORD_SINK_VIDEO_MAX_UNPROCESSED_SAMPLES: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_CAPTURE_ENGINE_RECORD_SINK_AUDIO_MAX_UNPROCESSED_SAMPLES: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 484290881, data2: 42996, data3: 19800, data4: [152, 150, 77, 21, 165, 60, 78, 254] };
+pub const MF_CAPTURE_ENGINE_RECORD_SINK_VIDEO_MAX_PROCESSED_SAMPLES: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3887375518, data2: 14380, data3: 19183, data4: [169, 70, 174, 213, 73, 11, 113, 17] };
+pub const MF_CAPTURE_ENGINE_RECORD_SINK_VIDEO_MAX_UNPROCESSED_SAMPLES: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3026712325,
     data2: 30995,
     data3: 18580,
     data4: [157, 66, 162, 21, 254, 162, 61, 169],
 };
-pub const MF_CAPTURE_ENGINE_RECORD_STARTED: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_CAPTURE_ENGINE_RECORD_STARTED: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2888499835,
     data2: 56825,
     data3: 18592,
     data4: [137, 190, 56, 171, 53, 239, 69, 192],
 };
-pub const MF_CAPTURE_ENGINE_RECORD_STOPPED: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_CAPTURE_ENGINE_RECORD_STOPPED: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1441079306,
     data2: 63887,
     data3: 19469,
     data4: [169, 236, 158, 178, 94, 211, 215, 115],
 };
-pub const MF_CAPTURE_ENGINE_SELECTEDCAMERAPROFILE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 51776382, data2: 7279, data3: 19890, data4: [173, 86, 167, 196, 48, 248, 35, 146] };
-pub const MF_CAPTURE_ENGINE_SELECTEDCAMERAPROFILE_INDEX: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_CAPTURE_ENGINE_SELECTEDCAMERAPROFILE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 51776382, data2: 7279, data3: 19890, data4: [173, 86, 167, 196, 48, 248, 35, 146] };
+pub const MF_CAPTURE_ENGINE_SELECTEDCAMERAPROFILE_INDEX: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1021871635,
     data2: 8724,
     data3: 18115,
@@ -11482,129 +13612,129 @@ impl ::core::clone::Clone for MF_CAPTURE_ENGINE_STREAM_CATEGORY {
         *self
     }
 }
-pub const MF_CAPTURE_ENGINE_USE_AUDIO_DEVICE_ONLY: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 478181338, data2: 33894, data3: 19908, data4: [139, 142, 39, 107, 63, 133, 146, 59] };
-pub const MF_CAPTURE_ENGINE_USE_VIDEO_DEVICE_ONLY: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2114081137, data2: 53042, data3: 20270, data4: [143, 25, 65, 5, 119, 183, 58, 102] };
-pub const MF_CAPTURE_METADATA_DIGITALWINDOW: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 661615266, data2: 22984, data3: 20329, data4: [151, 180, 6, 139, 140, 14, 192, 68] };
-pub const MF_CAPTURE_METADATA_EXIF: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_CAPTURE_ENGINE_USE_AUDIO_DEVICE_ONLY: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 478181338, data2: 33894, data3: 19908, data4: [139, 142, 39, 107, 63, 133, 146, 59] };
+pub const MF_CAPTURE_ENGINE_USE_VIDEO_DEVICE_ONLY: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2114081137, data2: 53042, data3: 20270, data4: [143, 25, 65, 5, 119, 183, 58, 102] };
+pub const MF_CAPTURE_METADATA_DIGITALWINDOW: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 661615266, data2: 22984, data3: 20329, data4: [151, 180, 6, 139, 140, 14, 192, 68] };
+pub const MF_CAPTURE_METADATA_EXIF: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 781546936,
     data2: 35889,
     data3: 18946,
     data4: [133, 117, 66, 177, 151, 183, 21, 146],
 };
-pub const MF_CAPTURE_METADATA_EXPOSURE_COMPENSATION: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_CAPTURE_METADATA_EXPOSURE_COMPENSATION: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3516443253,
     data2: 19298,
     data3: 17221,
     data4: [171, 243, 60, 49, 250, 18, 194, 153],
 };
-pub const MF_CAPTURE_METADATA_EXPOSURE_TIME: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_CAPTURE_METADATA_EXPOSURE_TIME: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 381267609,
     data2: 52612,
     data3: 16483,
     data4: [135, 157, 162, 140, 118, 51, 114, 158],
 };
-pub const MF_CAPTURE_METADATA_FACEROICHARACTERIZATIONS: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_CAPTURE_METADATA_FACEROICHARACTERIZATIONS: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3106382248,
     data2: 6383,
     data3: 18131,
     data4: [179, 175, 105, 55, 47, 148, 217, 178],
 };
-pub const MF_CAPTURE_METADATA_FACEROIS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2253333926, data2: 13471, data3: 18097, data4: [163, 14, 84, 204, 34, 146, 138, 71] };
-pub const MF_CAPTURE_METADATA_FACEROITIMESTAMPS: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_CAPTURE_METADATA_FACEROIS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2253333926, data2: 13471, data3: 18097, data4: [163, 14, 84, 204, 34, 146, 138, 71] };
+pub const MF_CAPTURE_METADATA_FACEROITIMESTAMPS: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3914158284,
     data2: 15776,
     data3: 17620,
     data4: [187, 52, 131, 25, 138, 116, 24, 104],
 };
-pub const MF_CAPTURE_METADATA_FIRST_SCANLINE_START_TIME_QPC: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_CAPTURE_METADATA_FIRST_SCANLINE_START_TIME_QPC: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1781287409,
     data2: 57426,
     data3: 18102,
     data4: [178, 217, 115, 193, 85, 135, 9, 175],
 };
-pub const MF_CAPTURE_METADATA_FLASH: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1246843403, data2: 64310, data3: 17516, data4: [157, 242, 104, 23, 27, 154, 3, 137] };
-pub const MF_CAPTURE_METADATA_FLASH_POWER: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2618166601, data2: 517, data3: 18714, data4: [188, 157, 45, 110, 31, 77, 86, 132] };
-pub const MF_CAPTURE_METADATA_FOCUSSTATE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2826887508, data2: 39295, data3: 18013, data4: [185, 31, 41, 213, 59, 152, 43, 136] };
-pub const MF_CAPTURE_METADATA_FRAME_BACKGROUND_MASK: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 66145747, data2: 30173, data3: 17210, data4: [168, 226, 30, 63, 95, 42, 80, 160] };
-pub const MF_CAPTURE_METADATA_FRAME_ILLUMINATION: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_CAPTURE_METADATA_FLASH: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1246843403, data2: 64310, data3: 17516, data4: [157, 242, 104, 23, 27, 154, 3, 137] };
+pub const MF_CAPTURE_METADATA_FLASH_POWER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2618166601, data2: 517, data3: 18714, data4: [188, 157, 45, 110, 31, 77, 86, 132] };
+pub const MF_CAPTURE_METADATA_FOCUSSTATE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2826887508, data2: 39295, data3: 18013, data4: [185, 31, 41, 213, 59, 152, 43, 136] };
+pub const MF_CAPTURE_METADATA_FRAME_BACKGROUND_MASK: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 66145747, data2: 30173, data3: 17210, data4: [168, 226, 30, 63, 95, 42, 80, 160] };
+pub const MF_CAPTURE_METADATA_FRAME_ILLUMINATION: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1835569148,
     data2: 25555,
     data3: 18174,
     data4: [186, 218, 91, 148, 125, 176, 208, 128],
 };
-pub const MF_CAPTURE_METADATA_FRAME_RAWSTREAM: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2454849403, data2: 9856, data3: 18873, data4: [174, 2, 177, 144, 117, 151, 59, 112] };
-pub const MF_CAPTURE_METADATA_HISTOGRAM: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_CAPTURE_METADATA_FRAME_RAWSTREAM: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2454849403, data2: 9856, data3: 18873, data4: [174, 2, 177, 144, 117, 151, 59, 112] };
+pub const MF_CAPTURE_METADATA_HISTOGRAM: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2234876978,
     data2: 12022,
     data3: 19369,
     data4: [163, 251, 6, 216, 41, 116, 184, 149],
 };
-pub const MF_CAPTURE_METADATA_ISO_GAINS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 92285641, data2: 3613, data3: 16839, data4: [168, 200, 126, 115, 105, 248, 78, 30] };
-pub const MF_CAPTURE_METADATA_ISO_SPEED: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3844646543, data2: 45795, data3: 17662, data4: [139, 101, 7, 191, 75, 90, 19, 255] };
-pub const MF_CAPTURE_METADATA_LAST_SCANLINE_END_TIME_QPC: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_CAPTURE_METADATA_ISO_GAINS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 92285641, data2: 3613, data3: 16839, data4: [168, 200, 126, 115, 105, 248, 78, 30] };
+pub const MF_CAPTURE_METADATA_ISO_SPEED: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3844646543, data2: 45795, data3: 17662, data4: [139, 101, 7, 191, 75, 90, 19, 255] };
+pub const MF_CAPTURE_METADATA_LAST_SCANLINE_END_TIME_QPC: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3704282827,
     data2: 50388,
     data3: 16397,
     data4: [180, 24, 16, 232, 133, 37, 225, 246],
 };
-pub const MF_CAPTURE_METADATA_LENS_POSITION: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3053227654, data2: 4561, data3: 20080, data4: [129, 155, 114, 58, 137, 250, 69, 32] };
-pub const MF_CAPTURE_METADATA_PHOTO_FRAME_FLASH: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 262002374, data2: 24579, data3: 17880, data4: [189, 89, 241, 245, 62, 61, 4, 232] };
-pub const MF_CAPTURE_METADATA_REQUESTED_FRAME_SETTING_ID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_CAPTURE_METADATA_LENS_POSITION: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3053227654, data2: 4561, data3: 20080, data4: [129, 155, 114, 58, 137, 250, 69, 32] };
+pub const MF_CAPTURE_METADATA_PHOTO_FRAME_FLASH: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 262002374, data2: 24579, data3: 17880, data4: [189, 89, 241, 245, 62, 61, 4, 232] };
+pub const MF_CAPTURE_METADATA_REQUESTED_FRAME_SETTING_ID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3140949721,
     data2: 35425,
     data3: 18340,
     data4: [129, 151, 69, 156, 127, 241, 116, 213],
 };
-pub const MF_CAPTURE_METADATA_SCANLINE_DIRECTION: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_CAPTURE_METADATA_SCANLINE_DIRECTION: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1687593914,
     data2: 6407,
     data3: 18918,
     data4: [176, 195, 18, 55, 149, 243, 128, 169],
 };
-pub const MF_CAPTURE_METADATA_SCANLINE_TIME_QPC_ACCURACY: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_CAPTURE_METADATA_SCANLINE_TIME_QPC_ACCURACY: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1289198673,
     data2: 63333,
     data3: 19209,
     data4: [177, 225, 39, 209, 247, 235, 234, 9],
 };
-pub const MF_CAPTURE_METADATA_SCENE_MODE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_CAPTURE_METADATA_SCENE_MODE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2630071629,
     data2: 24275,
     data3: 19374,
     data4: [179, 136, 118, 112, 174, 245, 158, 19],
 };
-pub const MF_CAPTURE_METADATA_SENSORFRAMERATE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3679532414, data2: 40253, data3: 18786, data4: [176, 109, 7, 206, 101, 13, 154, 10] };
-pub const MF_CAPTURE_METADATA_UVC_PAYLOADHEADER: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_CAPTURE_METADATA_SENSORFRAMERATE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3679532414, data2: 40253, data3: 18786, data4: [176, 109, 7, 206, 101, 13, 154, 10] };
+pub const MF_CAPTURE_METADATA_UVC_PAYLOADHEADER: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4193815175,
     data2: 57821,
     data3: 17438,
     data4: [149, 203, 66, 226, 26, 100, 241, 217],
 };
-pub const MF_CAPTURE_METADATA_WHITEBALANCE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_CAPTURE_METADATA_WHITEBALANCE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3342269815,
     data2: 4025,
     data3: 20014,
     data4: [151, 162, 252, 212, 144, 115, 158, 233],
 };
-pub const MF_CAPTURE_METADATA_WHITEBALANCE_GAINS: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_CAPTURE_METADATA_WHITEBALANCE_GAINS: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3881241743,
     data2: 11723,
     data3: 19580,
     data4: [170, 206, 34, 236, 231, 204, 230, 71],
 };
-pub const MF_CAPTURE_METADATA_ZOOMFACTOR: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_CAPTURE_METADATA_ZOOMFACTOR: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3842706305,
     data2: 58625,
     data3: 17090,
     data4: [171, 242, 133, 126, 203, 19, 250, 92],
 };
-pub const MF_CAPTURE_SINK_PREPARED: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_CAPTURE_SINK_PREPARED: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2080170583,
     data2: 4785,
     data3: 17417,
     data4: [140, 52, 212, 69, 218, 171, 117, 120],
 };
-pub const MF_CAPTURE_SOURCE_CURRENT_DEVICE_MEDIA_TYPE_SET: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3890699852, data2: 924, data3: 17424, data4: [129, 91, 135, 65, 48, 123, 99, 170] };
+pub const MF_CAPTURE_SOURCE_CURRENT_DEVICE_MEDIA_TYPE_SET: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3890699852, data2: 924, data3: 17424, data4: [129, 91, 135, 65, 48, 123, 99, 170] };
 pub const MF_COMPONENT_CERT_REVOKED: u32 = 32768u32;
 pub const MF_COMPONENT_HS_CERT_REVOKED: u32 = 131072u32;
 pub const MF_COMPONENT_INVALID_EKU: u32 = 16384u32;
@@ -11625,14 +13755,14 @@ impl ::core::clone::Clone for MF_CONNECT_METHOD {
         *self
     }
 }
-pub const MF_CONTENTDECRYPTIONMODULE_SERVICE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 355601477, data2: 65408, data3: 18506, data4: [157, 203, 13, 248, 148, 230, 154, 1] };
-pub const MF_CONTENT_DECRYPTOR_SERVICE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_CONTENTDECRYPTIONMODULE_SERVICE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 355601477, data2: 65408, data3: 18506, data4: [157, 203, 13, 248, 148, 230, 154, 1] };
+pub const MF_CONTENT_DECRYPTOR_SERVICE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1755785511,
     data2: 64635,
     data3: 17646,
     data4: [133, 244, 124, 81, 189, 85, 166, 89],
 };
-pub const MF_CONTENT_PROTECTION_DEVICE_SERVICE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_CONTENT_PROTECTION_DEVICE_SERVICE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4283974511,
     data2: 30368,
     data3: 16894,
@@ -11659,250 +13789,250 @@ impl ::core::clone::Clone for MF_CUSTOM_DECODE_UNIT_TYPE {
         *self
     }
 }
-pub const MF_D3D12_SYNCHRONIZATION_OBJECT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 712805738, data2: 34214, data3: 18765, data4: [160, 70, 6, 234, 26, 19, 143, 75] };
-pub const MF_DECODER_FWD_CUSTOM_SEI_DECODE_ORDER: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_D3D12_SYNCHRONIZATION_OBJECT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 712805738, data2: 34214, data3: 18765, data4: [160, 70, 6, 234, 26, 19, 143, 75] };
+pub const MF_DECODER_FWD_CUSTOM_SEI_DECODE_ORDER: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4047224380,
     data2: 14036,
     data3: 16650,
     data4: [185, 133, 122, 149, 26, 30, 98, 148],
 };
-pub const MF_DEVICEMFT_CONNECTED_FILTER_KSCONTROL: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_DEVICEMFT_CONNECTED_FILTER_KSCONTROL: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1781288870,
     data2: 53625,
     data3: 16845,
     data4: [149, 35, 130, 35, 113, 234, 64, 229],
 };
-pub const MF_DEVICEMFT_CONNECTED_PIN_KSCONTROL: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_DEVICEMFT_CONNECTED_PIN_KSCONTROL: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3862106359,
     data2: 45636,
     data3: 20216,
     data4: [154, 125, 36, 199, 78, 50, 235, 208],
 };
-pub const MF_DEVICEMFT_EXTENSION_PLUGIN_CLSID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_DEVICEMFT_EXTENSION_PLUGIN_CLSID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 138730414,
     data2: 13562,
     data3: 18592,
     data4: [167, 131, 142, 105, 111, 177, 201, 168],
 };
-pub const MF_DEVICEMFT_SENSORPROFILE_COLLECTION: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 921427012, data2: 45356, data3: 17435, data4: [137, 244, 8, 178, 244, 26, 156, 252] };
-pub const MF_DEVICESTREAM_ATTRIBUTE_FACEAUTH_CAPABILITY: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_DEVICEMFT_SENSORPROFILE_COLLECTION: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 921427012, data2: 45356, data3: 17435, data4: [137, 244, 8, 178, 244, 26, 156, 252] };
+pub const MF_DEVICESTREAM_ATTRIBUTE_FACEAUTH_CAPABILITY: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3413102890,
     data2: 8776,
     data3: 20033,
     data4: [173, 70, 231, 139, 185, 10, 185, 252],
 };
-pub const MF_DEVICESTREAM_ATTRIBUTE_FRAMESOURCE_TYPES: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 387211217, data2: 6955, data3: 16956, data4: [128, 1, 43, 104, 51, 237, 53, 136] };
-pub const MF_DEVICESTREAM_ATTRIBUTE_SECURE_CAPABILITY: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_DEVICESTREAM_ATTRIBUTE_FRAMESOURCE_TYPES: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 387211217, data2: 6955, data3: 16956, data4: [128, 1, 43, 104, 51, 237, 53, 136] };
+pub const MF_DEVICESTREAM_ATTRIBUTE_SECURE_CAPABILITY: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2484065830,
     data2: 60014,
     data3: 18052,
     data4: [152, 64, 54, 189, 110, 201, 251, 239],
 };
-pub const MF_DEVICESTREAM_EXTENSION_PLUGIN_CLSID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 76440920, data2: 24772, data3: 16755, data4: [189, 91, 106, 60, 162, 137, 106, 238] };
-pub const MF_DEVICESTREAM_EXTENSION_PLUGIN_CONNECTION_POINT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_DEVICESTREAM_EXTENSION_PLUGIN_CLSID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 76440920, data2: 24772, data3: 16755, data4: [189, 91, 106, 60, 162, 137, 106, 238] };
+pub const MF_DEVICESTREAM_EXTENSION_PLUGIN_CONNECTION_POINT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 939079516,
     data2: 58980,
     data3: 20132,
     data4: [170, 228, 203, 109, 29, 172, 161, 244],
 };
-pub const MF_DEVICESTREAM_FILTER_KSCONTROL: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_DEVICESTREAM_FILTER_KSCONTROL: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1182285002,
     data2: 15861,
     data3: 18723,
     data4: [169, 239, 54, 183, 34, 62, 221, 224],
 };
-pub const MF_DEVICESTREAM_FRAMESERVER_HIDDEN: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4093793915, data2: 19857, data3: 16761, data4: [150, 209, 116, 200, 72, 12, 32, 52] };
-pub const MF_DEVICESTREAM_FRAMESERVER_SHARED: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 481523945, data2: 45689, data3: 16852, data4: [175, 151, 52, 162, 67, 230, 131, 32] };
-pub const MF_DEVICESTREAM_IMAGE_STREAM: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_DEVICESTREAM_FRAMESERVER_HIDDEN: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4093793915, data2: 19857, data3: 16761, data4: [150, 209, 116, 200, 72, 12, 32, 52] };
+pub const MF_DEVICESTREAM_FRAMESERVER_SHARED: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 481523945, data2: 45689, data3: 16852, data4: [175, 151, 52, 162, 67, 230, 131, 32] };
+pub const MF_DEVICESTREAM_IMAGE_STREAM: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2818553957,
     data2: 59314,
     data3: 17328,
     data4: [159, 111, 154, 242, 160, 229, 15, 192],
 };
-pub const MF_DEVICESTREAM_INDEPENDENT_IMAGE_STREAM: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_DEVICESTREAM_INDEPENDENT_IMAGE_STREAM: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 65989758,
     data2: 54789,
     data3: 17782,
     data4: [139, 41, 101, 128, 180, 144, 215, 211],
 };
-pub const MF_DEVICESTREAM_MAX_FRAME_BUFFERS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 377802430, data2: 12661, data3: 18821, data4: [136, 44, 14, 253, 62, 138, 193, 30] };
-pub const MF_DEVICESTREAM_MULTIPLEXED_MANAGER: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1856324272, data2: 10271, data3: 16945, data4: [164, 100, 254, 47, 80, 34, 80, 28] };
-pub const MF_DEVICESTREAM_PIN_KSCONTROL: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_DEVICESTREAM_MAX_FRAME_BUFFERS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 377802430, data2: 12661, data3: 18821, data4: [136, 44, 14, 253, 62, 138, 193, 30] };
+pub const MF_DEVICESTREAM_MULTIPLEXED_MANAGER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1856324272, data2: 10271, data3: 16945, data4: [164, 100, 254, 47, 80, 34, 80, 28] };
+pub const MF_DEVICESTREAM_PIN_KSCONTROL: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4013881767,
     data2: 34802,
     data3: 18634,
     data4: [190, 2, 103, 72, 120, 145, 142, 152],
 };
-pub const MF_DEVICESTREAM_REQUIRED_CAPABILITIES: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1837864318, data2: 31990, data3: 17396, data4: [175, 86, 156, 14, 30, 79, 203, 225] };
-pub const MF_DEVICESTREAM_REQUIRED_SDDL: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_DEVICESTREAM_REQUIRED_CAPABILITIES: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1837864318, data2: 31990, data3: 17396, data4: [175, 86, 156, 14, 30, 79, 203, 225] };
+pub const MF_DEVICESTREAM_REQUIRED_SDDL: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 857401437,
     data2: 49363,
     data3: 18874,
     data4: [131, 186, 130, 161, 45, 99, 205, 214],
 };
-pub const MF_DEVICESTREAM_SENSORSTREAM_ID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3814432740, data2: 1625, data3: 19629, data4: [187, 81, 51, 22, 11, 231, 228, 19] };
-pub const MF_DEVICESTREAM_SOURCE_ATTRIBUTES: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_DEVICESTREAM_SENSORSTREAM_ID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3814432740, data2: 1625, data3: 19629, data4: [187, 81, 51, 22, 11, 231, 228, 19] };
+pub const MF_DEVICESTREAM_SOURCE_ATTRIBUTES: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 797750807,
     data2: 13851,
     data3: 17231,
     data4: [133, 234, 153, 160, 62, 28, 228, 224],
 };
-pub const MF_DEVICESTREAM_STREAM_CATEGORY: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 691660728, data2: 42542, data3: 17785, data4: [182, 116, 212, 7, 61, 250, 187, 186] };
-pub const MF_DEVICESTREAM_STREAM_ID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 297619744, data2: 53540, data3: 17515, data4: [136, 230, 23, 6, 2, 87, 255, 249] };
-pub const MF_DEVICESTREAM_TAKEPHOTO_TRIGGER: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_DEVICESTREAM_STREAM_CATEGORY: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 691660728, data2: 42542, data3: 17785, data4: [182, 116, 212, 7, 61, 250, 187, 186] };
+pub const MF_DEVICESTREAM_STREAM_ID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 297619744, data2: 53540, data3: 17515, data4: [136, 230, 23, 6, 2, 87, 255, 249] };
+pub const MF_DEVICESTREAM_TAKEPHOTO_TRIGGER: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 488115764,
     data2: 21388,
     data3: 20411,
     data4: [167, 90, 133, 154, 247, 210, 97, 166],
 };
-pub const MF_DEVICESTREAM_TRANSFORM_STREAM_ID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_DEVICESTREAM_TRANSFORM_STREAM_ID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3862509495,
     data2: 55983,
     data3: 19785,
     data4: [129, 95, 216, 38, 248, 173, 49, 231],
 };
-pub const MF_DEVICE_THERMAL_STATE_CHANGED: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_DEVICE_THERMAL_STATE_CHANGED: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1892470959,
     data2: 64671,
     data3: 19947,
     data4: [168, 117, 159, 236, 209, 108, 91, 212],
 };
-pub const MF_DEVSOURCE_ATTRIBUTE_FRIENDLY_NAME: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_DEVSOURCE_ATTRIBUTE_FRIENDLY_NAME: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1624302937,
     data2: 21240,
     data3: 20386,
     data4: [187, 206, 172, 219, 52, 168, 236, 1],
 };
-pub const MF_DEVSOURCE_ATTRIBUTE_MEDIA_TYPE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1453857226, data2: 3192, data3: 19940, data4: [160, 167, 61, 218, 186, 15, 36, 212] };
-pub const MF_DEVSOURCE_ATTRIBUTE_SOURCE_PASSWORD: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_DEVSOURCE_ATTRIBUTE_MEDIA_TYPE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1453857226, data2: 3192, data3: 19940, data4: [160, 167, 61, 218, 186, 15, 36, 212] };
+pub const MF_DEVSOURCE_ATTRIBUTE_SOURCE_PASSWORD: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2700967446,
     data2: 17113,
     data3: 18911,
     data4: [132, 192, 232, 44, 94, 171, 136, 116],
 };
-pub const MF_DEVSOURCE_ATTRIBUTE_SOURCE_STREAM_URL: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_DEVSOURCE_ATTRIBUTE_SOURCE_STREAM_URL: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2642100434,
     data2: 13847,
     data3: 16451,
     data4: [147, 227, 141, 109, 169, 187, 52, 146],
 };
-pub const MF_DEVSOURCE_ATTRIBUTE_SOURCE_TYPE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_DEVSOURCE_ATTRIBUTE_SOURCE_TYPE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3322594814,
     data2: 9514,
     data3: 18319,
     data4: [160, 239, 188, 143, 165, 247, 202, 211],
 };
-pub const MF_DEVSOURCE_ATTRIBUTE_SOURCE_TYPE_AUDCAP_ENDPOINT_ID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 819630680, data2: 65209, data3: 18343, data4: [164, 83, 118, 58, 122, 142, 28, 95] };
-pub const MF_DEVSOURCE_ATTRIBUTE_SOURCE_TYPE_AUDCAP_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_DEVSOURCE_ATTRIBUTE_SOURCE_TYPE_AUDCAP_ENDPOINT_ID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 819630680, data2: 65209, data3: 18343, data4: [164, 83, 118, 58, 122, 142, 28, 95] };
+pub const MF_DEVSOURCE_ATTRIBUTE_SOURCE_TYPE_AUDCAP_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 350067228,
     data2: 31999,
     data3: 16830,
     data4: [177, 185, 186, 26, 198, 236, 181, 113],
 };
-pub const MF_DEVSOURCE_ATTRIBUTE_SOURCE_TYPE_AUDCAP_ROLE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3164410254, data2: 35943, data3: 18968, data4: [133, 212, 18, 211, 0, 64, 5, 82] };
-pub const MF_DEVSOURCE_ATTRIBUTE_SOURCE_TYPE_AUDCAP_SYMBOLIC_LINK: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2563918686, data2: 22832, data3: 17940, data4: [181, 161, 246, 0, 249, 53, 90, 120] };
-pub const MF_DEVSOURCE_ATTRIBUTE_SOURCE_TYPE_VIDCAP_CATEGORY: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2012261993, data2: 50109, data3: 17673, data4: [148, 29, 70, 126, 77, 36, 137, 158] };
-pub const MF_DEVSOURCE_ATTRIBUTE_SOURCE_TYPE_VIDCAP_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2328057978, data2: 19175, data3: 17112, data4: [153, 224, 10, 96, 19, 238, 249, 15] };
-pub const MF_DEVSOURCE_ATTRIBUTE_SOURCE_TYPE_VIDCAP_HW_SOURCE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_DEVSOURCE_ATTRIBUTE_SOURCE_TYPE_AUDCAP_ROLE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3164410254, data2: 35943, data3: 18968, data4: [133, 212, 18, 211, 0, 64, 5, 82] };
+pub const MF_DEVSOURCE_ATTRIBUTE_SOURCE_TYPE_AUDCAP_SYMBOLIC_LINK: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2563918686, data2: 22832, data3: 17940, data4: [181, 161, 246, 0, 249, 53, 90, 120] };
+pub const MF_DEVSOURCE_ATTRIBUTE_SOURCE_TYPE_VIDCAP_CATEGORY: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2012261993, data2: 50109, data3: 17673, data4: [148, 29, 70, 126, 77, 36, 137, 158] };
+pub const MF_DEVSOURCE_ATTRIBUTE_SOURCE_TYPE_VIDCAP_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2328057978, data2: 19175, data3: 17112, data4: [153, 224, 10, 96, 19, 238, 249, 15] };
+pub const MF_DEVSOURCE_ATTRIBUTE_SOURCE_TYPE_VIDCAP_HW_SOURCE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3731900090,
     data2: 21718,
     data3: 17543,
     data4: [162, 164, 236, 124, 13, 27, 209, 99],
 };
-pub const MF_DEVSOURCE_ATTRIBUTE_SOURCE_TYPE_VIDCAP_MAX_BUFFERS: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_DEVSOURCE_ATTRIBUTE_SOURCE_TYPE_VIDCAP_MAX_BUFFERS: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2111420208,
     data2: 20269,
     data3: 16853,
     data4: [143, 149, 12, 201, 169, 18, 186, 38],
 };
-pub const MF_DEVSOURCE_ATTRIBUTE_SOURCE_TYPE_VIDCAP_PROVIDER_DEVICE_ID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 912825666, data2: 41068, data3: 16558, data4: [132, 207, 245, 160, 52, 6, 124, 196] };
-pub const MF_DEVSOURCE_ATTRIBUTE_SOURCE_TYPE_VIDCAP_SYMBOLIC_LINK: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_DEVSOURCE_ATTRIBUTE_SOURCE_TYPE_VIDCAP_PROVIDER_DEVICE_ID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 912825666, data2: 41068, data3: 16558, data4: [132, 207, 245, 160, 52, 6, 124, 196] };
+pub const MF_DEVSOURCE_ATTRIBUTE_SOURCE_TYPE_VIDCAP_SYMBOLIC_LINK: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1492167384,
     data2: 8895,
     data3: 20362,
     data4: [187, 61, 210, 196, 151, 140, 110, 47],
 };
-pub const MF_DEVSOURCE_ATTRIBUTE_SOURCE_USERNAME: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 97524445, data2: 38047, data3: 18155, data4: [188, 142, 139, 13, 43, 50, 215, 157] };
-pub const MF_DEVSOURCE_ATTRIBUTE_SOURCE_XADDRESS: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_DEVSOURCE_ATTRIBUTE_SOURCE_USERNAME: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 97524445, data2: 38047, data3: 18155, data4: [188, 142, 139, 13, 43, 50, 215, 157] };
+pub const MF_DEVSOURCE_ATTRIBUTE_SOURCE_XADDRESS: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3164651090,
     data2: 49959,
     data3: 17607,
     data4: [155, 125, 127, 168, 217, 181, 188, 218],
 };
-pub const MF_DISABLE_FRAME_CORRUPTION_INFO: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_DISABLE_FRAME_CORRUPTION_INFO: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1887887724,
     data2: 18885,
     data3: 16897,
     data4: [136, 42, 133, 56, 243, 140, 241, 58],
 };
-pub const MF_DISABLE_LOCALLY_REGISTERED_PLUGINS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1722903977, data2: 44500, data3: 18400, data4: [161, 107, 90, 241, 251, 72, 54, 52] };
-pub const MF_DMFT_FRAME_BUFFER_INFO: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 963437001, data2: 26537, data3: 17740, data4: [135, 151, 149, 164, 87, 153, 216, 4] };
-pub const MF_ENABLE_3DVIDEO_OUTPUT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3182263242, data2: 3679, data3: 19216, data4: [171, 22, 38, 222, 56, 27, 98, 147] };
-pub const MF_EVENT_DO_THINNING: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 840869627, data2: 56025, data3: 18148, data4: [179, 29, 210, 234, 231, 9, 14, 48] };
-pub const MF_EVENT_MFT_CONTEXT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_DISABLE_LOCALLY_REGISTERED_PLUGINS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1722903977, data2: 44500, data3: 18400, data4: [161, 107, 90, 241, 251, 72, 54, 52] };
+pub const MF_DMFT_FRAME_BUFFER_INFO: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 963437001, data2: 26537, data3: 17740, data4: [135, 151, 149, 164, 87, 153, 216, 4] };
+pub const MF_ENABLE_3DVIDEO_OUTPUT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3182263242, data2: 3679, data3: 19216, data4: [171, 22, 38, 222, 56, 27, 98, 147] };
+pub const MF_EVENT_DO_THINNING: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 840869627, data2: 56025, data3: 18148, data4: [179, 29, 210, 234, 231, 9, 14, 48] };
+pub const MF_EVENT_MFT_CONTEXT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3083678193,
     data2: 35230,
     data3: 19265,
     data4: [128, 201, 38, 168, 150, 211, 41, 119],
 };
-pub const MF_EVENT_MFT_INPUT_STREAM_ID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_EVENT_MFT_INPUT_STREAM_ID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4070321354,
     data2: 31462,
     data3: 17106,
     data4: [178, 132, 191, 131, 124, 200, 116, 226],
 };
-pub const MF_EVENT_OUTPUT_NODE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2198805131, data2: 49248, data3: 18141, data4: [168, 1, 28, 149, 222, 201, 177, 7] };
-pub const MF_EVENT_PRESENTATION_TIME_OFFSET: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_EVENT_OUTPUT_NODE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2198805131, data2: 49248, data3: 18141, data4: [168, 1, 28, 149, 222, 201, 177, 7] };
+pub const MF_EVENT_PRESENTATION_TIME_OFFSET: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1524176081,
     data2: 39749,
     data3: 19085,
     data4: [162, 192, 129, 209, 229, 11, 251, 7],
 };
-pub const MF_EVENT_SCRUBSAMPLE_TIME: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2596737715, data2: 56504, data3: 17621, data4: [141, 12, 55, 69, 90, 39, 130, 227] };
-pub const MF_EVENT_SESSIONCAPS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2120137936, data2: 4536, data3: 19134, data4: [175, 173, 16, 246, 89, 154, 127, 66] };
-pub const MF_EVENT_SESSIONCAPS_DELTA: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2120137937, data2: 4536, data3: 19134, data4: [175, 173, 16, 246, 89, 154, 127, 66] };
-pub const MF_EVENT_SOURCE_ACTUAL_START: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2831963561, data2: 27441, data3: 16799, data4: [132, 93, 255, 179, 81, 162, 67, 75] };
-pub const MF_EVENT_SOURCE_CHARACTERISTICS: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_EVENT_SCRUBSAMPLE_TIME: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2596737715, data2: 56504, data3: 17621, data4: [141, 12, 55, 69, 90, 39, 130, 227] };
+pub const MF_EVENT_SESSIONCAPS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2120137936, data2: 4536, data3: 19134, data4: [175, 173, 16, 246, 89, 154, 127, 66] };
+pub const MF_EVENT_SESSIONCAPS_DELTA: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2120137937, data2: 4536, data3: 19134, data4: [175, 173, 16, 246, 89, 154, 127, 66] };
+pub const MF_EVENT_SOURCE_ACTUAL_START: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2831963561, data2: 27441, data3: 16799, data4: [132, 93, 255, 179, 81, 162, 67, 75] };
+pub const MF_EVENT_SOURCE_CHARACTERISTICS: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1205568656,
     data2: 35618,
     data3: 20306,
     data4: [175, 218, 156, 225, 178, 211, 207, 168],
 };
-pub const MF_EVENT_SOURCE_CHARACTERISTICS_OLD: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_EVENT_SOURCE_CHARACTERISTICS_OLD: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1205568657,
     data2: 35618,
     data3: 20306,
     data4: [175, 218, 156, 225, 178, 211, 207, 168],
 };
-pub const MF_EVENT_SOURCE_FAKE_START: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2831963559, data2: 27441, data3: 16799, data4: [132, 93, 255, 179, 81, 162, 67, 75] };
-pub const MF_EVENT_SOURCE_PROJECTSTART: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2831963560, data2: 27441, data3: 16799, data4: [132, 93, 255, 179, 81, 162, 67, 75] };
-pub const MF_EVENT_SOURCE_TOPOLOGY_CANCELED: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_EVENT_SOURCE_FAKE_START: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2831963559, data2: 27441, data3: 16799, data4: [132, 93, 255, 179, 81, 162, 67, 75] };
+pub const MF_EVENT_SOURCE_PROJECTSTART: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2831963560, data2: 27441, data3: 16799, data4: [132, 93, 255, 179, 81, 162, 67, 75] };
+pub const MF_EVENT_SOURCE_TOPOLOGY_CANCELED: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3680695888,
     data2: 39518,
     data3: 18180,
     data4: [172, 243, 86, 59, 198, 167, 51, 100],
 };
-pub const MF_EVENT_START_PRESENTATION_TIME: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_EVENT_START_PRESENTATION_TIME: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1524176080,
     data2: 39749,
     data3: 19085,
     data4: [162, 192, 129, 209, 229, 11, 251, 7],
 };
-pub const MF_EVENT_START_PRESENTATION_TIME_AT_OUTPUT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_EVENT_START_PRESENTATION_TIME_AT_OUTPUT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1524176082,
     data2: 39749,
     data3: 19085,
     data4: [162, 192, 129, 209, 229, 11, 251, 7],
 };
-pub const MF_EVENT_STREAM_METADATA_CONTENT_KEYIDS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1348682909, data2: 52265, data3: 20422, data4: [167, 90, 210, 71, 179, 90, 248, 92] };
-pub const MF_EVENT_STREAM_METADATA_KEYDATA: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_EVENT_STREAM_METADATA_CONTENT_KEYIDS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1348682909, data2: 52265, data3: 20422, data4: [167, 90, 210, 71, 179, 90, 248, 92] };
+pub const MF_EVENT_STREAM_METADATA_KEYDATA: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3445204129,
     data2: 19003,
     data3: 19389,
     data4: [134, 101, 114, 164, 15, 190, 167, 118],
 };
-pub const MF_EVENT_STREAM_METADATA_SYSTEMID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 513994596, data2: 47638, data3: 18998, data4: [135, 25, 254, 117, 96, 186, 50, 173] };
-pub const MF_EVENT_TOPOLOGY_STATUS: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_EVENT_STREAM_METADATA_SYSTEMID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 513994596, data2: 47638, data3: 18998, data4: [135, 25, 254, 117, 96, 186, 50, 173] };
+pub const MF_EVENT_TOPOLOGY_STATUS: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 818217357,
     data2: 39507,
     data3: 17739,
@@ -12432,32 +14562,32 @@ impl ::core::clone::Clone for MF_FLOAT3 {
         *self
     }
 }
-pub const MF_FRAMESERVER_VCAMEVENT_EXTENDED_CUSTOM_EVENT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_FRAMESERVER_VCAMEVENT_EXTENDED_CUSTOM_EVENT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1851345052,
     data2: 18387,
     data3: 17511,
     data4: [131, 239, 18, 211, 78, 135, 22, 101],
 };
-pub const MF_FRAMESERVER_VCAMEVENT_EXTENDED_PIPELINE_SHUTDOWN: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_FRAMESERVER_VCAMEVENT_EXTENDED_PIPELINE_SHUTDOWN: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1168644913,
     data2: 17400,
     data3: 20061,
     data4: [140, 226, 34, 220, 224, 38, 153, 109],
 };
-pub const MF_FRAMESERVER_VCAMEVENT_EXTENDED_SOURCE_INITIALIZE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_FRAMESERVER_VCAMEVENT_EXTENDED_SOURCE_INITIALIZE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3844886015,
     data2: 58477,
     data3: 19723,
     data4: [188, 117, 221, 212, 200, 114, 63, 150],
 };
-pub const MF_FRAMESERVER_VCAMEVENT_EXTENDED_SOURCE_START: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2985212297, data2: 46166, data3: 20298, data4: [174, 64, 7, 156, 40, 226, 74, 248] };
-pub const MF_FRAMESERVER_VCAMEVENT_EXTENDED_SOURCE_STOP: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_FRAMESERVER_VCAMEVENT_EXTENDED_SOURCE_START: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2985212297, data2: 46166, data3: 20298, data4: [174, 64, 7, 156, 40, 226, 74, 248] };
+pub const MF_FRAMESERVER_VCAMEVENT_EXTENDED_SOURCE_STOP: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3086908001,
     data2: 65169,
     data3: 16734,
     data4: [134, 8, 211, 125, 237, 177, 165, 139],
 };
-pub const MF_FRAMESERVER_VCAMEVENT_EXTENDED_SOURCE_UNINITIALIZE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2699799463, data2: 42018, data3: 20019, data4: [132, 1, 179, 125, 40, 0, 170, 103] };
+pub const MF_FRAMESERVER_VCAMEVENT_EXTENDED_SOURCE_UNINITIALIZE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2699799463, data2: 42018, data3: 20019, data4: [132, 1, 179, 125, 40, 0, 170, 103] };
 pub const MF_GRL_ABSENT: u32 = 4096u32;
 pub const MF_GRL_LOAD_FAILED: u32 = 16u32;
 #[repr(transparent)]
@@ -12477,7 +14607,7 @@ pub const MF_HISTOGRAM_CHANNEL_Cr: u32 = 32u32;
 pub const MF_HISTOGRAM_CHANNEL_G: u32 = 4u32;
 pub const MF_HISTOGRAM_CHANNEL_R: u32 = 2u32;
 pub const MF_HISTOGRAM_CHANNEL_Y: u32 = 1u32;
-pub const MF_INDEPENDENT_STILL_IMAGE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_INDEPENDENT_STILL_IMAGE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3927093057,
     data2: 1808,
     data3: 17097,
@@ -12501,27 +14631,27 @@ impl ::core::clone::Clone for MF_LEAKY_BUCKET_PAIR {
         *self
     }
 }
-pub const MF_LOCAL_MFT_REGISTRATION_SERVICE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_LOCAL_MFT_REGISTRATION_SERVICE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3723874204,
     data2: 17670,
     data3: 17834,
     data4: [171, 240, 109, 93, 148, 221, 27, 74],
 };
-pub const MF_LOCAL_PLUGIN_CONTROL_POLICY: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_LOCAL_PLUGIN_CONTROL_POLICY: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3642425477,
     data2: 51309,
     data3: 20353,
     data4: [136, 34, 140, 104, 225, 215, 250, 4],
 };
-pub const MF_LOW_LATENCY: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_LOW_LATENCY: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2619836698,
     data2: 60794,
     data3: 16609,
     data4: [136, 232, 178, 39, 39, 160, 36, 238],
 };
-pub const MF_LUMA_KEY_ENABLE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1936294415, data2: 30430, data3: 17354, data4: [146, 132, 71, 184, 243, 126, 6, 73] };
-pub const MF_LUMA_KEY_LOWER: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2480388309, data2: 2945, data3: 18197, data4: [174, 160, 135, 37, 135, 22, 33, 233] };
-pub const MF_LUMA_KEY_UPPER: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3500095931, data2: 17922, data3: 19505, data4: [167, 6, 161, 33, 113, 165, 17, 10] };
+pub const MF_LUMA_KEY_ENABLE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1936294415, data2: 30430, data3: 17354, data4: [146, 132, 71, 184, 243, 126, 6, 73] };
+pub const MF_LUMA_KEY_LOWER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2480388309, data2: 2945, data3: 18197, data4: [174, 160, 135, 37, 135, 22, 33, 233] };
+pub const MF_LUMA_KEY_UPPER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3500095931, data2: 17922, data3: 19505, data4: [167, 6, 161, 33, 113, 165, 17, 10] };
 #[repr(transparent)]
 pub struct MF_MEDIAKEYSESSION_MESSAGETYPE(pub i32);
 pub const MF_MEDIAKEYSESSION_MESSAGETYPE_LICENSE_REQUEST: MF_MEDIAKEYSESSION_MESSAGETYPE = MF_MEDIAKEYSESSION_MESSAGETYPE(0i32);
@@ -12573,15 +14703,15 @@ impl ::core::clone::Clone for MF_MEDIAKEY_STATUS {
         *self
     }
 }
-pub const MF_MEDIASINK_AUTOFINALIZE_SUPPORTED: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1220620734, data2: 4954, data3: 16843, data4: [130, 144, 3, 101, 37, 9, 201, 153] };
-pub const MF_MEDIASINK_ENABLE_AUTOFINALIZE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 872497765, data2: 52094, data3: 19678, data4: [172, 124, 239, 253, 59, 60, 37, 48] };
-pub const MF_MEDIASOURCE_EXPOSE_ALL_STREAMS: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MEDIASINK_AUTOFINALIZE_SUPPORTED: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1220620734, data2: 4954, data3: 16843, data4: [130, 144, 3, 101, 37, 9, 201, 153] };
+pub const MF_MEDIASINK_ENABLE_AUTOFINALIZE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 872497765, data2: 52094, data3: 19678, data4: [172, 124, 239, 253, 59, 60, 37, 48] };
+pub const MF_MEDIASOURCE_EXPOSE_ALL_STREAMS: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3891417272,
     data2: 36825,
     data3: 18953,
     data4: [182, 193, 106, 49, 92, 124, 114, 14],
 };
-pub const MF_MEDIASOURCE_SERVICE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MEDIASOURCE_SERVICE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4036596471,
     data2: 40890,
     data3: 19530,
@@ -12591,30 +14721,30 @@ pub const MF_MEDIATYPE_EQUAL_FORMAT_DATA: u32 = 4u32;
 pub const MF_MEDIATYPE_EQUAL_FORMAT_TYPES: u32 = 2u32;
 pub const MF_MEDIATYPE_EQUAL_FORMAT_USER_DATA: u32 = 8u32;
 pub const MF_MEDIATYPE_EQUAL_MAJOR_TYPES: u32 = 1u32;
-pub const MF_MEDIATYPE_MULTIPLEXED_MANAGER: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 331845557, data2: 62069, data3: 20128, data4: [187, 95, 2, 73, 131, 43, 13, 110] };
-pub const MF_MEDIA_ENGINE_AUDIO_CATEGORY: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3369387293, data2: 13582, data3: 16882, data4: [186, 70, 250, 235, 187, 8, 87, 246] };
-pub const MF_MEDIA_ENGINE_AUDIO_ENDPOINT_ROLE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MEDIATYPE_MULTIPLEXED_MANAGER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 331845557, data2: 62069, data3: 20128, data4: [187, 95, 2, 73, 131, 43, 13, 110] };
+pub const MF_MEDIA_ENGINE_AUDIO_CATEGORY: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3369387293, data2: 13582, data3: 16882, data4: [186, 70, 250, 235, 187, 8, 87, 246] };
+pub const MF_MEDIA_ENGINE_AUDIO_ENDPOINT_ROLE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3536557009,
     data2: 4458,
     data3: 17650,
     data4: [147, 133, 247, 208, 253, 162, 251, 70],
 };
-pub const MF_MEDIA_ENGINE_BROWSER_COMPATIBILITY_MODE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MEDIA_ENGINE_BROWSER_COMPATIBILITY_MODE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1308758754,
     data2: 57743,
     data3: 16865,
     data4: [149, 229, 192, 231, 233, 35, 91, 195],
 };
-pub const MF_MEDIA_ENGINE_BROWSER_COMPATIBILITY_MODE_IE10: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 295992061, data2: 25993, data3: 16676, data4: [179, 18, 97, 88, 236, 81, 127, 195] };
-pub const MF_MEDIA_ENGINE_BROWSER_COMPATIBILITY_MODE_IE11: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 485568863, data2: 52799, data3: 16437, data4: [147, 145, 22, 20, 47, 119, 81, 137] };
-pub const MF_MEDIA_ENGINE_BROWSER_COMPATIBILITY_MODE_IE9: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 86781241, data2: 16576, data3: 16776, data4: [171, 134, 248, 40, 39, 59, 117, 34] };
-pub const MF_MEDIA_ENGINE_BROWSER_COMPATIBILITY_MODE_IE_EDGE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MEDIA_ENGINE_BROWSER_COMPATIBILITY_MODE_IE10: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 295992061, data2: 25993, data3: 16676, data4: [179, 18, 97, 88, 236, 81, 127, 195] };
+pub const MF_MEDIA_ENGINE_BROWSER_COMPATIBILITY_MODE_IE11: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 485568863, data2: 52799, data3: 16437, data4: [147, 145, 22, 20, 47, 119, 81, 137] };
+pub const MF_MEDIA_ENGINE_BROWSER_COMPATIBILITY_MODE_IE9: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 86781241, data2: 16576, data3: 16776, data4: [171, 134, 248, 40, 39, 59, 117, 34] };
+pub const MF_MEDIA_ENGINE_BROWSER_COMPATIBILITY_MODE_IE_EDGE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2801001573,
     data2: 15050,
     data3: 17452,
     data4: [163, 240, 173, 109, 218, 216, 57, 174],
 };
-pub const MF_MEDIA_ENGINE_CALLBACK: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3322118584, data2: 33700, data3: 16888, data4: [163, 208, 222, 5, 7, 104, 73, 169] };
+pub const MF_MEDIA_ENGINE_CALLBACK: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3322118584, data2: 33700, data3: 16888, data4: [163, 208, 222, 5, 7, 104, 73, 169] };
 #[repr(transparent)]
 pub struct MF_MEDIA_ENGINE_CANPLAY(pub i32);
 pub const MF_MEDIA_ENGINE_CANPLAY_NOT_SUPPORTED: MF_MEDIA_ENGINE_CANPLAY = MF_MEDIA_ENGINE_CANPLAY(0i32);
@@ -12626,38 +14756,38 @@ impl ::core::clone::Clone for MF_MEDIA_ENGINE_CANPLAY {
         *self
     }
 }
-pub const MF_MEDIA_ENGINE_COMPATIBILITY_MODE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MEDIA_ENGINE_COMPATIBILITY_MODE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1056074452,
     data2: 56404,
     data3: 17886,
     data4: [185, 175, 118, 200, 198, 107, 250, 142],
 };
-pub const MF_MEDIA_ENGINE_COMPATIBILITY_MODE_WIN10: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MEDIA_ENGINE_COMPATIBILITY_MODE_WIN10: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1529208969,
     data2: 27815,
     data3: 16697,
     data4: [162, 203, 252, 170, 179, 149, 82, 163],
 };
-pub const MF_MEDIA_ENGINE_COMPATIBILITY_MODE_WWA_EDGE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MEDIA_ENGINE_COMPATIBILITY_MODE_WWA_EDGE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 364023960,
     data2: 40705,
     data3: 20045,
     data4: [182, 90, 192, 108, 108, 137, 218, 42],
 };
-pub const MF_MEDIA_ENGINE_CONTENT_PROTECTION_FLAGS: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MEDIA_ENGINE_CONTENT_PROTECTION_FLAGS: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3761570339,
     data2: 23215,
     data3: 19830,
     data4: [167, 195, 6, 222, 112, 137, 77, 180],
 };
-pub const MF_MEDIA_ENGINE_CONTENT_PROTECTION_MANAGER: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MEDIA_ENGINE_CONTENT_PROTECTION_MANAGER: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4258717610,
     data2: 48517,
     data3: 19187,
     data4: [158, 15, 160, 29, 83, 157, 135, 106],
 };
-pub const MF_MEDIA_ENGINE_CONTINUE_ON_CODEC_ERROR: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3687692281, data2: 18660, data3: 17045, data4: [183, 13, 213, 24, 35, 78, 235, 56] };
-pub const MF_MEDIA_ENGINE_COREWINDOW: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MEDIA_ENGINE_CONTINUE_ON_CODEC_ERROR: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3687692281, data2: 18660, data3: 17045, data4: [183, 13, 213, 24, 35, 78, 235, 56] };
+pub const MF_MEDIA_ENGINE_COREWINDOW: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4241155292,
     data2: 2943,
     data3: 16834,
@@ -12677,8 +14807,8 @@ impl ::core::clone::Clone for MF_MEDIA_ENGINE_CREATEFLAGS {
         *self
     }
 }
-pub const MF_MEDIA_ENGINE_DXGI_MANAGER: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 106365658, data2: 4244, data3: 18541, data4: [134, 23, 238, 124, 196, 238, 70, 72] };
-pub const MF_MEDIA_ENGINE_EME_CALLBACK: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1229280167, data2: 42113, data3: 19639, data4: [190, 197, 56, 9, 3, 81, 55, 49] };
+pub const MF_MEDIA_ENGINE_DXGI_MANAGER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 106365658, data2: 4244, data3: 18541, data4: [134, 23, 238, 124, 196, 238, 70, 72] };
+pub const MF_MEDIA_ENGINE_EME_CALLBACK: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1229280167, data2: 42113, data3: 19639, data4: [190, 197, 56, 9, 3, 81, 55, 49] };
 #[repr(transparent)]
 pub struct MF_MEDIA_ENGINE_ERR(pub i32);
 pub const MF_MEDIA_ENGINE_ERR_NOERROR: MF_MEDIA_ENGINE_ERR = MF_MEDIA_ENGINE_ERR(0i32);
@@ -12740,7 +14870,7 @@ impl ::core::clone::Clone for MF_MEDIA_ENGINE_EVENT {
         *self
     }
 }
-pub const MF_MEDIA_ENGINE_EXTENSION: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 822738246, data2: 1549, data3: 19298, data4: [141, 207, 250, 255, 129, 19, 24, 210] };
+pub const MF_MEDIA_ENGINE_EXTENSION: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 822738246, data2: 1549, data3: 19298, data4: [141, 207, 250, 255, 129, 19, 24, 210] };
 #[repr(transparent)]
 pub struct MF_MEDIA_ENGINE_EXTENSION_TYPE(pub i32);
 pub const MF_MEDIA_ENGINE_EXTENSION_TYPE_MEDIASOURCE: MF_MEDIA_ENGINE_EXTENSION_TYPE = MF_MEDIA_ENGINE_EXTENSION_TYPE(0i32);
@@ -12776,13 +14906,13 @@ impl ::core::clone::Clone for MF_MEDIA_ENGINE_KEYERR {
         *self
     }
 }
-pub const MF_MEDIA_ENGINE_MEDIA_PLAYER_MODE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MEDIA_ENGINE_MEDIA_PLAYER_MODE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1037929797,
     data2: 23201,
     data3: 16658,
     data4: [130, 229, 54, 246, 162, 25, 126, 110],
 };
-pub const MF_MEDIA_ENGINE_NEEDKEY_CALLBACK: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MEDIA_ENGINE_NEEDKEY_CALLBACK: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2124941379,
     data2: 46820,
     data3: 17196,
@@ -12800,7 +14930,7 @@ impl ::core::clone::Clone for MF_MEDIA_ENGINE_NETWORK {
         *self
     }
 }
-pub const MF_MEDIA_ENGINE_OPM_HWND: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2696842983, data2: 1394, data3: 20268, data4: [168, 1, 42, 21, 27, 211, 231, 38] };
+pub const MF_MEDIA_ENGINE_OPM_HWND: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2696842983, data2: 1394, data3: 20268, data4: [168, 1, 42, 21, 27, 211, 231, 38] };
 #[repr(transparent)]
 pub struct MF_MEDIA_ENGINE_OPM_STATUS(pub i32);
 pub const MF_MEDIA_ENGINE_OPM_NOT_REQUESTED: MF_MEDIA_ENGINE_OPM_STATUS = MF_MEDIA_ENGINE_OPM_STATUS(0i32);
@@ -12815,13 +14945,13 @@ impl ::core::clone::Clone for MF_MEDIA_ENGINE_OPM_STATUS {
         *self
     }
 }
-pub const MF_MEDIA_ENGINE_PLAYBACK_HWND: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MEDIA_ENGINE_PLAYBACK_HWND: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3649603483,
     data2: 26569,
     data3: 19858,
     data4: [186, 167, 110, 173, 212, 70, 3, 157],
 };
-pub const MF_MEDIA_ENGINE_PLAYBACK_VISUAL: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MEDIA_ENGINE_PLAYBACK_VISUAL: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1844171375,
     data2: 27321,
     data3: 19838,
@@ -12885,7 +15015,7 @@ impl ::core::clone::Clone for MF_MEDIA_ENGINE_SEEK_MODE {
         *self
     }
 }
-pub const MF_MEDIA_ENGINE_SOURCE_RESOLVER_CONFIG_STORE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MEDIA_ENGINE_SOURCE_RESOLVER_CONFIG_STORE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 180405399,
     data2: 46020,
     data3: 18633,
@@ -12918,50 +15048,50 @@ impl ::core::clone::Clone for MF_MEDIA_ENGINE_STREAMTYPE_FAILED {
         *self
     }
 }
-pub const MF_MEDIA_ENGINE_STREAM_CONTAINS_ALPHA_CHANNEL: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MEDIA_ENGINE_STREAM_CONTAINS_ALPHA_CHANNEL: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1556066116,
     data2: 53938,
     data3: 19707,
     data4: [128, 167, 212, 41, 199, 76, 120, 157],
 };
-pub const MF_MEDIA_ENGINE_SYNCHRONOUS_CLOSE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MEDIA_ENGINE_SYNCHRONOUS_CLOSE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3284328751,
     data2: 32270,
     data3: 20035,
     data4: [185, 28, 220, 153, 44, 205, 250, 94],
 };
-pub const MF_MEDIA_ENGINE_TELEMETRY_APPLICATION_ID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MEDIA_ENGINE_TELEMETRY_APPLICATION_ID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 511387451,
     data2: 42980,
     data3: 16426,
     data4: [143, 81, 196, 142, 136, 162, 202, 188],
 };
-pub const MF_MEDIA_ENGINE_TIMEDTEXT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MEDIA_ENGINE_TIMEDTEXT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2153686033,
     data2: 37600,
     data3: 20057,
     data4: [155, 110, 92, 125, 121, 21, 230, 79],
 };
-pub const MF_MEDIA_ENGINE_TRACK_ID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MEDIA_ENGINE_TRACK_ID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1706992402,
     data2: 16451,
     data3: 18453,
     data4: [142, 171, 68, 220, 226, 239, 143, 42],
 };
-pub const MF_MEDIA_ENGINE_VIDEO_OUTPUT_FORMAT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1348897084, data2: 36089, data3: 17084, data4: [139, 138, 71, 34, 18, 229, 39, 38] };
-pub const MF_MEDIA_PROTECTION_MANAGER_PROPERTIES: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MEDIA_ENGINE_VIDEO_OUTPUT_FORMAT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1348897084, data2: 36089, data3: 17084, data4: [139, 138, 71, 34, 18, 229, 39, 38] };
+pub const MF_MEDIA_PROTECTION_MANAGER_PROPERTIES: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 951943593,
     data2: 44266,
     data3: 19571,
     data4: [137, 178, 85, 50, 192, 174, 202, 121],
 };
-pub const MF_MEDIA_SHARING_ENGINE_DEVICE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MEDIA_SHARING_ENGINE_DEVICE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3026306442,
     data2: 31240,
     data3: 19352,
     data4: [153, 168, 112, 253, 95, 59, 173, 253],
 };
-pub const MF_MEDIA_SHARING_ENGINE_DEVICE_NAME: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MEDIA_SHARING_ENGINE_DEVICE_NAME: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1998456273,
     data2: 34351,
     data3: 17049,
@@ -12976,7 +15106,7 @@ impl ::core::clone::Clone for MF_MEDIA_SHARING_ENGINE_EVENT {
         *self
     }
 }
-pub const MF_MEDIA_SHARING_ENGINE_INITIAL_SEEK_TIME: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MEDIA_SHARING_ENGINE_INITIAL_SEEK_TIME: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1865717749,
     data2: 54568,
     data3: 19023,
@@ -12985,59 +15115,59 @@ pub const MF_MEDIA_SHARING_ENGINE_INITIAL_SEEK_TIME: ::windows_sys::core::GUID =
 pub const MF_METADATAFACIALEXPRESSION_SMILE: u32 = 1u32;
 pub const MF_METADATATIMESTAMPS_DEVICE: u32 = 1u32;
 pub const MF_METADATATIMESTAMPS_PRESENTATION: u32 = 2u32;
-pub const MF_METADATA_PROVIDER_SERVICE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3676389508, data2: 22692, data3: 19758, data4: [184, 79, 111, 117, 91, 47, 122, 13] };
+pub const MF_METADATA_PROVIDER_SERVICE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3676389508, data2: 22692, data3: 19758, data4: [184, 79, 111, 117, 91, 47, 122, 13] };
 pub const MF_MINCRYPT_FAILURE: u32 = 268435456u32;
-pub const MF_MP2DLNA_AUDIO_BIT_RATE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MP2DLNA_AUDIO_BIT_RATE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 756811534,
     data2: 11103,
     data3: 19123,
     data4: [167, 230, 141, 148, 59, 168, 208, 10],
 };
-pub const MF_MP2DLNA_ENCODE_QUALITY: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3039001047, data2: 7494, data3: 20406, data4: [163, 23, 164, 165, 246, 9, 89, 248] };
-pub const MF_MP2DLNA_STATISTICS: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MP2DLNA_ENCODE_QUALITY: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3039001047, data2: 7494, data3: 20406, data4: [163, 23, 164, 165, 246, 9, 89, 248] };
+pub const MF_MP2DLNA_STATISTICS: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1977911459,
     data2: 54701,
     data3: 18584,
     data4: [133, 224, 188, 206, 36, 167, 34, 215],
 };
-pub const MF_MP2DLNA_USE_MMCSS: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MP2DLNA_USE_MMCSS: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1425269486,
     data2: 41634,
     data3: 18813,
     data4: [152, 52, 151, 58, 253, 229, 33, 235],
 };
-pub const MF_MP2DLNA_VIDEO_BIT_RATE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MP2DLNA_VIDEO_BIT_RATE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3901049054,
     data2: 29620,
     data3: 17111,
     data4: [156, 117, 173, 250, 10, 42, 110, 76],
 };
-pub const MF_MPEG4SINK_MAX_CODED_SEQUENCES_PER_FRAGMENT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MPEG4SINK_MAX_CODED_SEQUENCES_PER_FRAGMENT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4229643222,
     data2: 26925,
     data3: 19685,
     data4: [146, 153, 115, 138, 165, 70, 62, 154],
 };
-pub const MF_MPEG4SINK_MINIMUM_PROPERTIES_SIZE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MPEG4SINK_MINIMUM_PROPERTIES_SIZE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3701599570,
     data2: 17678,
     data3: 18978,
     data4: [140, 98, 78, 212, 82, 247, 161, 135],
 };
-pub const MF_MPEG4SINK_MIN_FRAGMENT_DURATION: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MPEG4SINK_MIN_FRAGMENT_DURATION: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2735429388,
     data2: 36605,
     data3: 17896,
     data4: [148, 254, 39, 200, 75, 91, 223, 246],
 };
-pub const MF_MPEG4SINK_MOOV_BEFORE_MDAT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4134724524, data2: 57830, data3: 20240, data4: [181, 236, 95, 59, 48, 130, 136, 22] };
-pub const MF_MPEG4SINK_SPSPPS_PASSTHROUGH: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MPEG4SINK_MOOV_BEFORE_MDAT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4134724524, data2: 57830, data3: 20240, data4: [181, 236, 95, 59, 48, 130, 136, 22] };
+pub const MF_MPEG4SINK_SPSPPS_PASSTHROUGH: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1442947380,
     data2: 8197,
     data3: 19154,
     data4: [179, 125, 34, 166, 197, 84, 222, 178],
 };
-pub const MF_MSE_ACTIVELIST_CALLBACK: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MSE_ACTIVELIST_CALLBACK: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2493241871,
     data2: 17737,
     data3: 18133,
@@ -13053,13 +15183,13 @@ impl ::core::clone::Clone for MF_MSE_APPEND_MODE {
         *self
     }
 }
-pub const MF_MSE_BUFFERLIST_CALLBACK: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MSE_BUFFERLIST_CALLBACK: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1122396592,
     data2: 54798,
     data3: 19195,
     data4: [168, 91, 216, 229, 254, 107, 218, 181],
 };
-pub const MF_MSE_CALLBACK: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MSE_CALLBACK: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2422450112,
     data2: 17093,
     data3: 20477,
@@ -13077,7 +15207,7 @@ impl ::core::clone::Clone for MF_MSE_ERROR {
         *self
     }
 }
-pub const MF_MSE_OPUS_SUPPORT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MSE_OPUS_SUPPORT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1294093505,
     data2: 36036,
     data3: 18595,
@@ -13104,7 +15234,7 @@ impl ::core::clone::Clone for MF_MSE_READY {
         *self
     }
 }
-pub const MF_MSE_VP9_SUPPORT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MSE_VP9_SUPPORT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2463597609,
     data2: 55435,
     data3: 20464,
@@ -13121,133 +15251,133 @@ impl ::core::clone::Clone for MF_MSE_VP9_SUPPORT_TYPE {
         *self
     }
 }
-pub const MF_MT_AAC_AUDIO_PROFILE_LEVEL_INDICATION: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MT_AAC_AUDIO_PROFILE_LEVEL_INDICATION: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1983049958,
     data2: 38200,
     data3: 19809,
     data4: [172, 218, 234, 41, 200, 193, 68, 86],
 };
-pub const MF_MT_AAC_PAYLOAD_TYPE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MT_AAC_PAYLOAD_TYPE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3216686713,
     data2: 29748,
     data3: 19740,
     data4: [148, 240, 114, 163, 185, 225, 113, 136],
 };
-pub const MF_MT_ALL_SAMPLES_INDEPENDENT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3373741881, data2: 24150, data3: 17948, data4: [183, 19, 70, 251, 153, 92, 185, 95] };
-pub const MF_MT_ALPHA_MODE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1570085645, data2: 19647, data3: 19716, data4: [145, 159, 63, 95, 127, 40, 66, 17] };
-pub const MF_MT_AM_FORMAT_TYPE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1943078701, data2: 6256, data3: 16756, data4: [160, 99, 41, 255, 79, 246, 193, 30] };
-pub const MF_MT_ARBITRARY_FORMAT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MT_ALL_SAMPLES_INDEPENDENT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3373741881, data2: 24150, data3: 17948, data4: [183, 19, 70, 251, 153, 92, 185, 95] };
+pub const MF_MT_ALPHA_MODE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1570085645, data2: 19647, data3: 19716, data4: [145, 159, 63, 95, 127, 40, 66, 17] };
+pub const MF_MT_AM_FORMAT_TYPE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1943078701, data2: 6256, data3: 16756, data4: [160, 99, 41, 255, 79, 246, 193, 30] };
+pub const MF_MT_ARBITRARY_FORMAT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1517662793,
     data2: 3453,
     data3: 18849,
     data4: [161, 195, 224, 216, 127, 12, 173, 229],
 };
-pub const MF_MT_ARBITRARY_HEADER: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2657867509, data2: 265, data3: 20373, data4: [132, 172, 147, 9, 21, 58, 25, 252] };
-pub const MF_MT_AUDIO_AVG_BYTES_PER_SECOND: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 447444424, data2: 53231, data3: 17692, data4: [171, 149, 172, 3, 75, 142, 23, 49] };
-pub const MF_MT_AUDIO_BITS_PER_SAMPLE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4074681727, data2: 16634, data3: 18276, data4: [170, 51, 237, 79, 45, 31, 246, 105] };
-pub const MF_MT_AUDIO_BLOCK_ALIGNMENT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 841867824, data2: 40683, data3: 17341, data4: [171, 122, 255, 65, 34, 81, 84, 29] };
-pub const MF_MT_AUDIO_CHANNEL_MASK: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MT_ARBITRARY_HEADER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2657867509, data2: 265, data3: 20373, data4: [132, 172, 147, 9, 21, 58, 25, 252] };
+pub const MF_MT_AUDIO_AVG_BYTES_PER_SECOND: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 447444424, data2: 53231, data3: 17692, data4: [171, 149, 172, 3, 75, 142, 23, 49] };
+pub const MF_MT_AUDIO_BITS_PER_SAMPLE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4074681727, data2: 16634, data3: 18276, data4: [170, 51, 237, 79, 45, 31, 246, 105] };
+pub const MF_MT_AUDIO_BLOCK_ALIGNMENT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 841867824, data2: 40683, data3: 17341, data4: [171, 122, 255, 65, 34, 81, 84, 29] };
+pub const MF_MT_AUDIO_CHANNEL_MASK: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1442535269,
     data2: 25674,
     data3: 19631,
     data4: [132, 121, 147, 137, 131, 187, 21, 136],
 };
-pub const MF_MT_AUDIO_FLAC_MAX_BLOCK_SIZE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2340531630, data2: 19290, data3: 19776, data4: [128, 34, 243, 141, 9, 202, 60, 92] };
-pub const MF_MT_AUDIO_FLOAT_SAMPLES_PER_SECOND: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4214977098, data2: 53173, data3: 17177, data4: [174, 254, 110, 66, 178, 64, 97, 50] };
-pub const MF_MT_AUDIO_FOLDDOWN_MATRIX: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MT_AUDIO_FLAC_MAX_BLOCK_SIZE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2340531630, data2: 19290, data3: 19776, data4: [128, 34, 243, 141, 9, 202, 60, 92] };
+pub const MF_MT_AUDIO_FLOAT_SAMPLES_PER_SECOND: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4214977098, data2: 53173, data3: 17177, data4: [174, 254, 110, 66, 178, 64, 97, 50] };
+pub const MF_MT_AUDIO_FOLDDOWN_MATRIX: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2640482940,
     data2: 14014,
     data3: 19698,
     data4: [181, 196, 163, 146, 110, 62, 135, 17],
 };
-pub const MF_MT_AUDIO_NUM_CHANNELS: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MT_AUDIO_NUM_CHANNELS: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 937724917,
     data2: 25694,
     data3: 19547,
     data4: [137, 222, 173, 169, 226, 155, 105, 106],
 };
-pub const MF_MT_AUDIO_PREFER_WAVEFORMATEX: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2835458746, data2: 57399, data3: 17802, data4: [189, 246, 84, 91, 226, 7, 64, 66] };
-pub const MF_MT_AUDIO_SAMPLES_PER_BLOCK: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2863749804, data2: 57658, data3: 18837, data4: [146, 34, 80, 30, 161, 92, 104, 119] };
-pub const MF_MT_AUDIO_SAMPLES_PER_SECOND: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MT_AUDIO_PREFER_WAVEFORMATEX: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2835458746, data2: 57399, data3: 17802, data4: [189, 246, 84, 91, 226, 7, 64, 66] };
+pub const MF_MT_AUDIO_SAMPLES_PER_BLOCK: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2863749804, data2: 57658, data3: 18837, data4: [146, 34, 80, 30, 161, 92, 104, 119] };
+pub const MF_MT_AUDIO_SAMPLES_PER_SECOND: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1605298919,
     data2: 656,
     data3: 19505,
     data4: [158, 138, 197, 52, 246, 141, 157, 186],
 };
-pub const MF_MT_AUDIO_VALID_BITS_PER_SAMPLE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MT_AUDIO_VALID_BITS_PER_SAMPLE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3653209450,
     data2: 38192,
     data3: 19324,
     data4: [157, 223, 255, 111, 213, 139, 189, 6],
 };
-pub const MF_MT_AUDIO_WMADRC_AVGREF: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MT_AUDIO_WMADRC_AVGREF: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2640482943,
     data2: 14014,
     data3: 19698,
     data4: [181, 196, 163, 146, 110, 62, 135, 17],
 };
-pub const MF_MT_AUDIO_WMADRC_AVGTARGET: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MT_AUDIO_WMADRC_AVGTARGET: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2640482944,
     data2: 14014,
     data3: 19698,
     data4: [181, 196, 163, 146, 110, 62, 135, 17],
 };
-pub const MF_MT_AUDIO_WMADRC_PEAKREF: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MT_AUDIO_WMADRC_PEAKREF: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2640482941,
     data2: 14014,
     data3: 19698,
     data4: [181, 196, 163, 146, 110, 62, 135, 17],
 };
-pub const MF_MT_AUDIO_WMADRC_PEAKTARGET: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MT_AUDIO_WMADRC_PEAKTARGET: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2640482942,
     data2: 14014,
     data3: 19698,
     data4: [181, 196, 163, 146, 110, 62, 135, 17],
 };
-pub const MF_MT_AVG_BITRATE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 540223012, data2: 64269, data3: 19870, data4: [189, 13, 203, 246, 120, 108, 16, 46] };
-pub const MF_MT_AVG_BIT_ERROR_RATE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MT_AVG_BITRATE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 540223012, data2: 64269, data3: 19870, data4: [189, 13, 203, 246, 120, 108, 16, 46] };
+pub const MF_MT_AVG_BIT_ERROR_RATE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2040310742,
     data2: 13576,
     data3: 19892,
     data4: [163, 199, 86, 156, 213, 51, 222, 177],
 };
-pub const MF_MT_COMPRESSED: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 989662446, data2: 6386, data3: 19365, data4: [161, 16, 139, 234, 80, 46, 31, 146] };
-pub const MF_MT_CONTAINER_RATE_SCALING: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MT_COMPRESSED: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 989662446, data2: 6386, data3: 19365, data4: [161, 16, 139, 234, 80, 46, 31, 146] };
+pub const MF_MT_CONTAINER_RATE_SCALING: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2206695262,
     data2: 1092,
     data3: 20008,
     data4: [132, 121, 109, 176, 152, 155, 140, 9],
 };
-pub const MF_MT_CUSTOM_VIDEO_PRIMARIES: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MT_CUSTOM_VIDEO_PRIMARIES: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1196651027,
     data2: 36091,
     data3: 18210,
     data4: [170, 52, 251, 201, 226, 77, 119, 184],
 };
-pub const MF_MT_D3D12_CPU_READBACK: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MT_D3D12_CPU_READBACK: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 686727139,
     data2: 54401,
     data3: 18086,
     data4: [185, 138, 127, 105, 213, 40, 14, 130],
 };
-pub const MF_MT_D3D12_RESOURCE_FLAG_ALLOW_CROSS_ADAPTER: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MT_D3D12_RESOURCE_FLAG_ALLOW_CROSS_ADAPTER: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2795627577,
     data2: 12182,
     data3: 19125,
     data4: [152, 220, 173, 247, 73, 115, 80, 93],
 };
-pub const MF_MT_D3D12_RESOURCE_FLAG_ALLOW_DEPTH_STENCIL: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2970848707, data2: 469, data3: 19476, data4: [155, 220, 205, 201, 51, 111, 85, 185] };
-pub const MF_MT_D3D12_RESOURCE_FLAG_ALLOW_RENDER_TARGET: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MT_D3D12_RESOURCE_FLAG_ALLOW_DEPTH_STENCIL: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2970848707, data2: 469, data3: 19476, data4: [155, 220, 205, 201, 51, 111, 85, 185] };
+pub const MF_MT_D3D12_RESOURCE_FLAG_ALLOW_RENDER_TARGET: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4004259205,
     data2: 13360,
     data3: 18828,
     data4: [132, 162, 119, 177, 187, 165, 112, 246],
 };
-pub const MF_MT_D3D12_RESOURCE_FLAG_ALLOW_SIMULTANEOUS_ACCESS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 172572850, data2: 53206, data3: 18232, data4: [157, 2, 152, 17, 55, 52, 1, 90] };
-pub const MF_MT_D3D12_RESOURCE_FLAG_ALLOW_UNORDERED_ACCESS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2194167367, data2: 20567, data3: 18784, data4: [149, 89, 244, 91, 142, 39, 20, 39] };
-pub const MF_MT_D3D12_RESOURCE_FLAG_DENY_SHADER_RESOURCE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3121004460, data2: 65507, data3: 18250, data4: [171, 85, 22, 30, 228, 65, 122, 46] };
-pub const MF_MT_D3D12_TEXTURE_LAYOUT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2546490538, data2: 3051, data3: 20193, data4: [151, 21, 242, 47, 173, 140, 16, 245] };
-pub const MF_MT_D3D_RESOURCE_VERSION: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 391061125, data2: 65062, data3: 17725, data4: [181, 46, 91, 221, 78, 85, 185, 68] };
+pub const MF_MT_D3D12_RESOURCE_FLAG_ALLOW_SIMULTANEOUS_ACCESS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 172572850, data2: 53206, data3: 18232, data4: [157, 2, 152, 17, 55, 52, 1, 90] };
+pub const MF_MT_D3D12_RESOURCE_FLAG_ALLOW_UNORDERED_ACCESS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2194167367, data2: 20567, data3: 18784, data4: [149, 89, 244, 91, 142, 39, 20, 39] };
+pub const MF_MT_D3D12_RESOURCE_FLAG_DENY_SHADER_RESOURCE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3121004460, data2: 65507, data3: 18250, data4: [171, 85, 22, 30, 228, 65, 122, 46] };
+pub const MF_MT_D3D12_TEXTURE_LAYOUT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2546490538, data2: 3051, data3: 20193, data4: [151, 21, 242, 47, 173, 140, 16, 245] };
+pub const MF_MT_D3D_RESOURCE_VERSION: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 391061125, data2: 65062, data3: 17725, data4: [181, 46, 91, 221, 78, 85, 185, 68] };
 #[repr(transparent)]
 pub struct MF_MT_D3D_RESOURCE_VERSION_ENUM(pub i32);
 pub const MF_D3D11_RESOURCE: MF_MT_D3D_RESOURCE_VERSION_ENUM = MF_MT_D3D_RESOURCE_VERSION_ENUM(0i32);
@@ -13258,408 +15388,408 @@ impl ::core::clone::Clone for MF_MT_D3D_RESOURCE_VERSION_ENUM {
         *self
     }
 }
-pub const MF_MT_DECODER_MAX_DPB_COUNT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1740510284, data2: 34999, data3: 19625, data4: [150, 40, 200, 8, 213, 38, 34, 23] };
-pub const MF_MT_DECODER_USE_MAX_RESOLUTION: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MT_DECODER_MAX_DPB_COUNT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1740510284, data2: 34999, data3: 19625, data4: [150, 40, 200, 8, 213, 38, 34, 23] };
+pub const MF_MT_DECODER_USE_MAX_RESOLUTION: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1280605220,
     data2: 44954,
     data3: 20280,
     data4: [150, 173, 151, 135, 115, 207, 83, 231],
 };
-pub const MF_MT_DEFAULT_STRIDE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MT_DEFAULT_STRIDE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1682656840,
     data2: 7682,
     data3: 17686,
     data4: [176, 235, 192, 28, 169, 212, 154, 198],
 };
-pub const MF_MT_DEPTH_MEASUREMENT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4250584201, data2: 2327, data3: 19382, data4: [157, 84, 49, 34, 191, 112, 20, 75] };
-pub const MF_MT_DEPTH_VALUE_UNIT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 564658421, data2: 12681, data3: 18327, data4: [190, 186, 241, 60, 217, 163, 26, 94] };
-pub const MF_MT_DRM_FLAGS: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MT_DEPTH_MEASUREMENT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4250584201, data2: 2327, data3: 19382, data4: [157, 84, 49, 34, 191, 112, 20, 75] };
+pub const MF_MT_DEPTH_VALUE_UNIT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 564658421, data2: 12681, data3: 18327, data4: [190, 186, 241, 60, 217, 163, 26, 94] };
+pub const MF_MT_DRM_FLAGS: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2272457507,
     data2: 13658,
     data3: 19655,
     data4: [187, 120, 109, 97, 160, 72, 174, 130],
 };
-pub const MF_MT_DV_AAUX_CTRL_PACK_0: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MT_DV_AAUX_CTRL_PACK_0: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4147183694,
     data2: 7633,
     data3: 17685,
     data4: [170, 190, 240, 192, 106, 165, 54, 172],
 };
-pub const MF_MT_DV_AAUX_CTRL_PACK_1: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MT_DV_AAUX_CTRL_PACK_1: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3441379085,
     data2: 7940,
     data3: 20448,
     data4: [191, 185, 208, 122, 224, 56, 106, 216],
 };
-pub const MF_MT_DV_AAUX_SRC_PACK_0: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MT_DV_AAUX_SRC_PACK_0: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2227002760,
     data2: 4024,
     data3: 19144,
     data4: [190, 75, 168, 132, 139, 239, 152, 243],
 };
-pub const MF_MT_DV_AAUX_SRC_PACK_1: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1913546052, data2: 549, data3: 16387, data4: [166, 81, 1, 150, 86, 58, 149, 142] };
-pub const MF_MT_DV_VAUX_CTRL_PACK: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 797237700, data2: 3489, data3: 18312, data4: [147, 142, 13, 251, 251, 179, 75, 72] };
-pub const MF_MT_DV_VAUX_SRC_PACK: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1094725021, data2: 31575, data3: 17350, data4: [177, 41, 44, 185, 151, 241, 80, 9] };
-pub const MF_MT_FIXED_SIZE_SAMPLES: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MT_DV_AAUX_SRC_PACK_1: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1913546052, data2: 549, data3: 16387, data4: [166, 81, 1, 150, 86, 58, 149, 142] };
+pub const MF_MT_DV_VAUX_CTRL_PACK: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 797237700, data2: 3489, data3: 18312, data4: [147, 142, 13, 251, 251, 179, 75, 72] };
+pub const MF_MT_DV_VAUX_SRC_PACK: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1094725021, data2: 31575, data3: 17350, data4: [177, 41, 44, 185, 151, 241, 80, 9] };
+pub const MF_MT_FIXED_SIZE_SAMPLES: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3102470063,
     data2: 46872,
     data3: 19972,
     data4: [176, 169, 17, 103, 117, 227, 50, 27],
 };
-pub const MF_MT_FORWARD_CUSTOM_NALU: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3979570941, data2: 9295, data3: 17037, data4: [145, 83, 40, 243, 153, 69, 136, 144] };
-pub const MF_MT_FORWARD_CUSTOM_SEI: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MT_FORWARD_CUSTOM_NALU: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3979570941, data2: 9295, data3: 17037, data4: [145, 83, 40, 243, 153, 69, 136, 144] };
+pub const MF_MT_FORWARD_CUSTOM_SEI: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3799212785,
     data2: 45366,
     data3: 16849,
     data4: [149, 148, 58, 126, 79, 235, 242, 209],
 };
-pub const MF_MT_FRAME_RATE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MT_FRAME_RATE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3294208744,
     data2: 15660,
     data3: 20036,
     data4: [177, 50, 254, 229, 21, 108, 123, 176],
 };
-pub const MF_MT_FRAME_RATE_RANGE_MAX: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MT_FRAME_RATE_RANGE_MAX: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3812040001,
     data2: 46287,
     data3: 18949,
     data4: [189, 78, 32, 184, 139, 178, 196, 214],
 };
-pub const MF_MT_FRAME_RATE_RANGE_MIN: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MT_FRAME_RATE_RANGE_MIN: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3538376076,
     data2: 56351,
     data3: 16447,
     data4: [154, 114, 210, 139, 177, 235, 59, 94],
 };
-pub const MF_MT_FRAME_SIZE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 374522685, data2: 54962, data3: 16402, data4: [184, 52, 114, 3, 8, 73, 163, 125] };
-pub const MF_MT_GEOMETRIC_APERTURE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MT_FRAME_SIZE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 374522685, data2: 54962, data3: 16402, data4: [184, 52, 114, 3, 8, 73, 163, 125] };
+pub const MF_MT_GEOMETRIC_APERTURE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1718978371,
     data2: 32351,
     data3: 16397,
     data4: [152, 10, 170, 133, 150, 200, 86, 150],
 };
-pub const MF_MT_H264_CAPABILITIES: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3141260552, data2: 18698, data3: 4576, data4: [153, 228, 19, 22, 223, 215, 32, 133] };
-pub const MF_MT_H264_LAYOUT_PER_STREAM: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MT_H264_CAPABILITIES: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3141260552, data2: 18698, data3: 4576, data4: [153, 228, 19, 22, 223, 215, 32, 133] };
+pub const MF_MT_H264_LAYOUT_PER_STREAM: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2246220210,
     data2: 37091,
     data3: 20456,
     data4: [178, 245, 192, 103, 224, 191, 229, 122],
 };
-pub const MF_MT_H264_MAX_CODEC_CONFIG_DELAY: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MT_H264_MAX_CODEC_CONFIG_DELAY: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4120025478,
     data2: 19525,
     data3: 20411,
     data4: [187, 73, 108, 197, 52, 208, 91, 155],
 };
-pub const MF_MT_H264_MAX_MB_PER_SEC: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MT_H264_MAX_MB_PER_SEC: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1160080688,
     data2: 29205,
     data3: 17782,
     data4: [147, 54, 176, 241, 188, 213, 155, 178],
 };
-pub const MF_MT_H264_RATE_CONTROL_MODES: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MT_H264_RATE_CONTROL_MODES: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1884387288,
     data2: 17867,
     data3: 4576,
     data4: [172, 125, 185, 28, 224, 215, 32, 133],
 };
-pub const MF_MT_H264_RESOLUTION_SCALING: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MT_H264_RESOLUTION_SCALING: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3817161330,
     data2: 63253,
     data3: 18263,
     data4: [186, 144, 27, 105, 108, 119, 52, 87],
 };
-pub const MF_MT_H264_SIMULCAST_SUPPORT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MT_H264_SIMULCAST_SUPPORT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2661471805,
     data2: 21488,
     data3: 18996,
     data4: [185, 78, 157, 228, 154, 7, 140, 179],
 };
-pub const MF_MT_H264_SUPPORTED_RATE_CONTROL_MODES: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MT_H264_SUPPORTED_RATE_CONTROL_MODES: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1787479166,
     data2: 20892,
     data3: 20248,
     data4: [155, 179, 126, 234, 174, 165, 89, 77],
 };
-pub const MF_MT_H264_SUPPORTED_SLICE_MODES: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3367901495, data2: 19812, data3: 17737, data4: [131, 67, 168, 8, 108, 11, 253, 165] };
-pub const MF_MT_H264_SUPPORTED_SYNC_FRAME_TYPES: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2309303297, data2: 62082, data3: 18642, data4: [181, 34, 34, 230, 174, 99, 49, 153] };
-pub const MF_MT_H264_SUPPORTED_USAGES: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MT_H264_SUPPORTED_SLICE_MODES: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3367901495, data2: 19812, data3: 17737, data4: [131, 67, 168, 8, 108, 11, 253, 165] };
+pub const MF_MT_H264_SUPPORTED_SYNC_FRAME_TYPES: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2309303297, data2: 62082, data3: 18642, data4: [181, 34, 34, 230, 174, 99, 49, 153] };
+pub const MF_MT_H264_SUPPORTED_USAGES: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1622256024,
     data2: 56321,
     data3: 16590,
     data4: [151, 54, 171, 168, 69, 162, 219, 220],
 };
-pub const MF_MT_H264_SVC_CAPABILITIES: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MT_H264_SVC_CAPABILITIES: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4170791614,
     data2: 55607,
     data3: 19087,
     data4: [187, 202, 105, 102, 254, 158, 17, 82],
 };
-pub const MF_MT_H264_USAGE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 899474341, data2: 44800, data3: 18890, data4: [162, 244, 42, 201, 76, 168, 43, 97] };
-pub const MF_MT_IMAGE_LOSS_TOLERANT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3976604916, data2: 58190, data3: 18722, data4: [190, 153, 147, 64, 50, 19, 61, 124] };
-pub const MF_MT_INTERLACE_MODE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MT_H264_USAGE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 899474341, data2: 44800, data3: 18890, data4: [162, 244, 42, 201, 76, 168, 43, 97] };
+pub const MF_MT_IMAGE_LOSS_TOLERANT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3976604916, data2: 58190, data3: 18722, data4: [190, 153, 147, 64, 50, 19, 61, 124] };
+pub const MF_MT_INTERLACE_MODE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3799141304,
     data2: 58998,
     data3: 18438,
     data4: [180, 178, 168, 214, 239, 180, 76, 205],
 };
-pub const MF_MT_IN_BAND_PARAMETER_SET: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MT_IN_BAND_PARAMETER_SET: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1977241744,
     data2: 37131,
     data3: 18947,
     data4: [137, 108, 123, 137, 143, 238, 165, 175],
 };
-pub const MF_MT_MAJOR_TYPE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MT_MAJOR_TYPE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1223401870,
     data2: 63689,
     data3: 18055,
     data4: [191, 17, 10, 116, 201, 249, 106, 143],
 };
-pub const MF_MT_MAX_FRAME_AVERAGE_LUMINANCE_LEVEL: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MT_MAX_FRAME_AVERAGE_LUMINANCE_LEVEL: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1490337623,
     data2: 28498,
     data3: 18227,
     data4: [161, 149, 169, 226, 158, 207, 158, 39],
 };
-pub const MF_MT_MAX_KEYFRAME_SPACING: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3245258027, data2: 29601, data3: 18287, data4: [141, 98, 131, 157, 106, 2, 6, 82] };
-pub const MF_MT_MAX_LUMINANCE_LEVEL: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MT_MAX_KEYFRAME_SPACING: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3245258027, data2: 29601, data3: 18287, data4: [141, 98, 131, 157, 106, 2, 6, 82] };
+pub const MF_MT_MAX_LUMINANCE_LEVEL: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1344614696,
     data2: 49424,
     data3: 19940,
     data4: [152, 174, 70, 163, 36, 250, 230, 218],
 };
-pub const MF_MT_MAX_MASTERING_LUMINANCE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3603347863, data2: 10031, data3: 19617, data4: [141, 0, 128, 66, 17, 26, 15, 246] };
-pub const MF_MT_MINIMUM_DISPLAY_APERTURE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MT_MAX_MASTERING_LUMINANCE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3603347863, data2: 10031, data3: 19617, data4: [141, 0, 128, 66, 17, 26, 15, 246] };
+pub const MF_MT_MINIMUM_DISPLAY_APERTURE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3610806118,
     data2: 6398,
     data3: 18630,
     data4: [161, 119, 238, 137, 72, 103, 200, 196],
 };
-pub const MF_MT_MIN_MASTERING_LUMINANCE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2207925344, data2: 20094, data3: 19279, data4: [174, 121, 204, 8, 144, 92, 123, 39] };
-pub const MF_MT_MPEG2_CONTENT_PACKET: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2187154916, data2: 20242, data3: 16791, data4: [158, 179, 89, 182, 228, 113, 15, 6] };
-pub const MF_MT_MPEG2_FLAGS: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MT_MIN_MASTERING_LUMINANCE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2207925344, data2: 20094, data3: 19279, data4: [174, 121, 204, 8, 144, 92, 123, 39] };
+pub const MF_MT_MPEG2_CONTENT_PACKET: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2187154916, data2: 20242, data3: 16791, data4: [158, 179, 89, 182, 228, 113, 15, 6] };
+pub const MF_MT_MPEG2_FLAGS: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 836999453,
     data2: 63233,
     data3: 19247,
     data4: [180, 38, 138, 227, 189, 169, 224, 75],
 };
-pub const MF_MT_MPEG2_HDCP: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MT_MPEG2_HDCP: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 378477386,
     data2: 16017,
     data3: 17679,
     data4: [174, 167, 228, 186, 234, 218, 229, 186],
 };
-pub const MF_MT_MPEG2_LEVEL: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MT_MPEG2_LEVEL: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2532730228,
     data2: 4549,
     data3: 16405,
     data4: [134, 102, 191, 245, 22, 67, 109, 167],
 };
-pub const MF_MT_MPEG2_ONE_FRAME_PER_PACKET: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MT_MPEG2_ONE_FRAME_PER_PACKET: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2443484853,
     data2: 7456,
     data3: 19266,
     data4: [172, 232, 128, 66, 105, 191, 149, 237],
 };
-pub const MF_MT_MPEG2_PROFILE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MT_MPEG2_PROFILE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2910234635,
     data2: 11612,
     data3: 19979,
     data4: [179, 117, 100, 229, 32, 19, 112, 54],
 };
-pub const MF_MT_MPEG2_STANDARD: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MT_MPEG2_STANDARD: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2718628328,
     data2: 37514,
     data3: 19238,
     data4: [170, 169, 240, 92, 116, 202, 196, 124],
 };
-pub const MF_MT_MPEG2_TIMECODE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1378466320, data2: 58013, data3: 20352, data4: [165, 156, 223, 79, 24, 2, 7, 210] };
-pub const MF_MT_MPEG4_CURRENT_SAMPLE_ENTRY: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2594693461, data2: 46666, data3: 19485, data4: [165, 0, 69, 93, 96, 11, 101, 96] };
-pub const MF_MT_MPEG4_SAMPLE_DESCRIPTION: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MT_MPEG2_TIMECODE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1378466320, data2: 58013, data3: 20352, data4: [165, 156, 223, 79, 24, 2, 7, 210] };
+pub const MF_MT_MPEG4_CURRENT_SAMPLE_ENTRY: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2594693461, data2: 46666, data3: 19485, data4: [165, 0, 69, 93, 96, 11, 101, 96] };
+pub const MF_MT_MPEG4_SAMPLE_DESCRIPTION: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 639540611,
     data2: 38185,
     data3: 19343,
     data4: [161, 17, 139, 156, 149, 10, 129, 169],
 };
-pub const MF_MT_MPEG4_TRACK_TYPE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MT_MPEG4_TRACK_TYPE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1425311453,
     data2: 37671,
     data3: 20333,
     data4: [128, 171, 111, 112, 158, 187, 76, 206],
 };
-pub const MF_MT_MPEG_SEQUENCE_HEADER: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MT_MPEG_SEQUENCE_HEADER: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1006857703,
     data2: 15056,
     data3: 19614,
     data4: [146, 22, 238, 109, 106, 194, 28, 179],
 };
-pub const MF_MT_MPEG_START_TIME_CODE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MT_MPEG_START_TIME_CODE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2448849029,
     data2: 17203,
     data3: 17024,
     data4: [151, 205, 189, 90, 108, 3, 160, 110],
 };
-pub const MF_MT_ORIGINAL_4CC: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MT_ORIGINAL_4CC: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3619569632,
     data2: 11207,
     data3: 18733,
     data4: [184, 67, 97, 161, 145, 155, 112, 195],
 };
-pub const MF_MT_ORIGINAL_WAVE_FORMAT_TAG: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2361116739, data2: 40921, data3: 18882, data4: [136, 47, 167, 37, 134, 196, 8, 173] };
-pub const MF_MT_OUTPUT_BUFFER_NUM: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MT_ORIGINAL_WAVE_FORMAT_TAG: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2361116739, data2: 40921, data3: 18882, data4: [136, 47, 167, 37, 134, 196, 8, 173] };
+pub const MF_MT_OUTPUT_BUFFER_NUM: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2768622508,
     data2: 63792,
     data3: 17262,
     data4: [142, 222, 147, 165, 9, 206, 35, 178],
 };
-pub const MF_MT_PAD_CONTROL_FLAGS: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MT_PAD_CONTROL_FLAGS: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1292792805,
     data2: 33002,
     data3: 17236,
     data4: [169, 208, 17, 118, 206, 176, 40, 234],
 };
-pub const MF_MT_PALETTE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1831354178, data2: 38982, data3: 17424, data4: [175, 217, 101, 77, 80, 59, 26, 84] };
-pub const MF_MT_PAN_SCAN_APERTURE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MT_PALETTE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1831354178, data2: 38982, data3: 17424, data4: [175, 217, 101, 77, 80, 59, 26, 84] };
+pub const MF_MT_PAN_SCAN_APERTURE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2036420062,
     data2: 37255,
     data3: 18683,
     data4: [184, 199, 77, 82, 104, 157, 230, 73],
 };
-pub const MF_MT_PAN_SCAN_ENABLED: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MT_PAN_SCAN_ENABLED: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1266641859,
     data2: 35603,
     data3: 16562,
     data4: [169, 147, 171, 246, 48, 184, 32, 78],
 };
-pub const MF_MT_PIXEL_ASPECT_RATIO: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MT_PIXEL_ASPECT_RATIO: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3325520414,
     data2: 36106,
     data3: 16423,
     data4: [190, 69, 109, 154, 10, 211, 155, 182],
 };
-pub const MF_MT_REALTIME_CONTENT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MT_REALTIME_CONTENT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3138572834,
     data2: 11227,
     data3: 16990,
     data4: [145, 236, 35, 8, 225, 137, 165, 143],
 };
-pub const MF_MT_SAMPLE_SIZE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MT_SAMPLE_SIZE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3671305080,
     data2: 6544,
     data3: 16523,
     data4: [188, 226, 235, 166, 115, 218, 204, 16],
 };
-pub const MF_MT_SECURE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3316434173, data2: 772, data3: 20175, data4: [128, 159, 71, 188, 151, 255, 99, 189] };
-pub const MF_MT_SOURCE_CONTENT_HINT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1756144588, data2: 8912, data3: 17638, data4: [133, 248, 40, 22, 113, 151, 250, 56] };
-pub const MF_MT_SPATIAL_AUDIO_DATA_PRESENT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MT_SECURE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3316434173, data2: 772, data3: 20175, data4: [128, 159, 71, 188, 151, 255, 99, 189] };
+pub const MF_MT_SOURCE_CONTENT_HINT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1756144588, data2: 8912, data3: 17638, data4: [133, 248, 40, 22, 113, 151, 250, 56] };
+pub const MF_MT_SPATIAL_AUDIO_DATA_PRESENT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1749219047,
     data2: 54334,
     data3: 20155,
     data4: [156, 156, 201, 111, 65, 120, 72, 99],
 };
-pub const MF_MT_SPATIAL_AUDIO_MAX_DYNAMIC_OBJECTS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3707478602, data2: 9737, data3: 16960, data4: [167, 33, 63, 174, 167, 106, 77, 249] };
-pub const MF_MT_SPATIAL_AUDIO_MAX_METADATA_ITEMS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 296386740, data2: 57562, data3: 18374, data4: [128, 96, 150, 193, 37, 154, 229, 13] };
-pub const MF_MT_SPATIAL_AUDIO_MIN_METADATA_ITEM_OFFSET_SPACING: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2213113545, data2: 4484, data3: 16766, data4: [130, 84, 159, 38, 145, 88, 252, 6] };
-pub const MF_MT_SPATIAL_AUDIO_OBJECT_METADATA_FORMAT_ID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MT_SPATIAL_AUDIO_MAX_DYNAMIC_OBJECTS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3707478602, data2: 9737, data3: 16960, data4: [167, 33, 63, 174, 167, 106, 77, 249] };
+pub const MF_MT_SPATIAL_AUDIO_MAX_METADATA_ITEMS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 296386740, data2: 57562, data3: 18374, data4: [128, 96, 150, 193, 37, 154, 229, 13] };
+pub const MF_MT_SPATIAL_AUDIO_MIN_METADATA_ITEM_OFFSET_SPACING: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2213113545, data2: 4484, data3: 16766, data4: [130, 84, 159, 38, 145, 88, 252, 6] };
+pub const MF_MT_SPATIAL_AUDIO_OBJECT_METADATA_FORMAT_ID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 716643264,
     data2: 25123,
     data3: 19367,
     data4: [173, 100, 123, 148, 180, 122, 231, 146],
 };
-pub const MF_MT_SPATIAL_AUDIO_OBJECT_METADATA_LENGTH: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MT_SPATIAL_AUDIO_OBJECT_METADATA_LENGTH: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 155953342,
     data2: 55075,
     data3: 18591,
     data4: [146, 250, 118, 103, 119, 179, 71, 38],
 };
-pub const MF_MT_SUBTYPE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4158868634, data2: 17128, data3: 18196, data4: [183, 75, 203, 41, 215, 44, 53, 229] };
-pub const MF_MT_TIMESTAMP_CAN_BE_DTS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 613892629, data2: 7035, data3: 16868, data4: [134, 37, 172, 70, 159, 45, 237, 170] };
-pub const MF_MT_TRANSFER_FUNCTION: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MT_SUBTYPE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4158868634, data2: 17128, data3: 18196, data4: [183, 75, 203, 41, 215, 44, 53, 229] };
+pub const MF_MT_TIMESTAMP_CAN_BE_DTS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 613892629, data2: 7035, data3: 16868, data4: [134, 37, 172, 70, 159, 45, 237, 170] };
+pub const MF_MT_TRANSFER_FUNCTION: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1605434601,
     data2: 48732,
     data3: 18741,
     data4: [168, 17, 236, 131, 143, 142, 237, 147],
 };
-pub const MF_MT_USER_DATA: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MT_USER_DATA: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3065804383,
     data2: 19515,
     data3: 16548,
     data4: [189, 81, 37, 53, 182, 111, 224, 157],
 };
-pub const MF_MT_VIDEO_3D: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MT_VIDEO_3D: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3411970255,
     data2: 31579,
     data3: 18283,
     data4: [133, 170, 28, 165, 174, 24, 117, 85],
 };
-pub const MF_MT_VIDEO_3D_FIRST_IS_LEFT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MT_VIDEO_3D_FIRST_IS_LEFT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3962143891,
     data2: 2778,
     data3: 20129,
     data4: [164, 254, 203, 189, 54, 206, 147, 49],
 };
-pub const MF_MT_VIDEO_3D_FORMAT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1393940640, data2: 34757, data3: 18071, data4: [183, 147, 102, 6, 198, 124, 4, 155] };
-pub const MF_MT_VIDEO_3D_LEFT_IS_BASE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MT_VIDEO_3D_FORMAT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1393940640, data2: 34757, data3: 18071, data4: [183, 147, 102, 6, 198, 124, 4, 155] };
+pub const MF_MT_VIDEO_3D_LEFT_IS_BASE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1833663487,
     data2: 22057,
     data3: 17412,
     data4: [148, 140, 198, 52, 244, 206, 38, 212],
 };
-pub const MF_MT_VIDEO_3D_NUM_VIEWS: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MT_VIDEO_3D_NUM_VIEWS: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3137830538,
     data2: 56511,
     data3: 17131,
     data4: [175, 96, 65, 141, 249, 138, 164, 149],
 };
-pub const MF_MT_VIDEO_CHROMA_SITING: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1709122416, data2: 51059, data3: 19507, data4: [170, 100, 132, 62, 6, 142, 251, 12] };
-pub const MF_MT_VIDEO_H264_NO_FMOASO: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MT_VIDEO_CHROMA_SITING: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1709122416, data2: 51059, data3: 19507, data4: [170, 100, 132, 62, 6, 142, 251, 12] };
+pub const MF_MT_VIDEO_H264_NO_FMOASO: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3980795094,
     data2: 60575,
     data3: 16746,
     data4: [168, 163, 38, 215, 211, 16, 24, 215],
 };
-pub const MF_MT_VIDEO_LEVEL: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MT_VIDEO_LEVEL: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2532730228,
     data2: 4549,
     data3: 16405,
     data4: [134, 102, 191, 245, 22, 67, 109, 167],
 };
-pub const MF_MT_VIDEO_LIGHTING: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MT_VIDEO_LIGHTING: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1403015836,
     data2: 35083,
     data3: 16918,
     data4: [139, 249, 89, 147, 103, 173, 109, 32],
 };
-pub const MF_MT_VIDEO_NOMINAL_RANGE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3256585957, data2: 47446, data3: 16497, data4: [141, 175, 50, 94, 223, 92, 171, 17] };
-pub const MF_MT_VIDEO_NO_FRAME_ORDERING: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1062932591, data2: 27586, data3: 20195, data4: [183, 237, 137, 2, 193, 143, 83, 81] };
-pub const MF_MT_VIDEO_PRIMARIES: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3690718423, data2: 1856, data3: 20192, data4: [129, 146, 133, 10, 176, 226, 25, 53] };
-pub const MF_MT_VIDEO_PROFILE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MT_VIDEO_NOMINAL_RANGE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3256585957, data2: 47446, data3: 16497, data4: [141, 175, 50, 94, 223, 92, 171, 17] };
+pub const MF_MT_VIDEO_NO_FRAME_ORDERING: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1062932591, data2: 27586, data3: 20195, data4: [183, 237, 137, 2, 193, 143, 83, 81] };
+pub const MF_MT_VIDEO_PRIMARIES: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3690718423, data2: 1856, data3: 20192, data4: [129, 146, 133, 10, 176, 226, 25, 53] };
+pub const MF_MT_VIDEO_PROFILE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2910234635,
     data2: 11612,
     data3: 19979,
     data4: [179, 117, 100, 229, 32, 19, 112, 54],
 };
-pub const MF_MT_VIDEO_RENDERER_EXTENSION_PROFILE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MT_VIDEO_RENDERER_EXTENSION_PROFILE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2218251449,
     data2: 54344,
     data3: 20429,
     data4: [155, 107, 131, 155, 249, 108, 119, 152],
 };
-pub const MF_MT_VIDEO_ROTATION: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MT_VIDEO_ROTATION: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3279963741,
     data2: 8817,
     data3: 17036,
     data4: [155, 131, 236, 234, 59, 74, 133, 193],
 };
-pub const MF_MT_WRAPPED_TYPE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_MT_WRAPPED_TYPE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1296005923,
     data2: 53295,
     data3: 20076,
     data4: [155, 238, 228, 191, 44, 108, 105, 93],
 };
-pub const MF_MT_YUV_MATRIX: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1042535504, data2: 11381, data3: 19749, data4: [160, 14, 185, 22, 112, 209, 35, 39] };
-pub const MF_NALU_LENGTH_INFORMATION: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 420630140, data2: 44363, data3: 18015, data4: [187, 24, 32, 24, 98, 135, 182, 175] };
-pub const MF_NALU_LENGTH_SET: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2811305299, data2: 4772, data3: 18789, data4: [174, 112, 110, 173, 214, 255, 5, 81] };
+pub const MF_MT_YUV_MATRIX: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1042535504, data2: 11381, data3: 19749, data4: [160, 14, 185, 22, 112, 209, 35, 39] };
+pub const MF_NALU_LENGTH_INFORMATION: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 420630140, data2: 44363, data3: 18015, data4: [187, 24, 32, 24, 98, 135, 182, 175] };
+pub const MF_NALU_LENGTH_SET: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2811305299, data2: 4772, data3: 18789, data4: [174, 112, 110, 173, 214, 255, 5, 81] };
 pub const MF_NOT_FOUND_ERR: u32 = 2154823688u32;
 pub const MF_NOT_SUPPORTED_ERR: u32 = 2154823689u32;
 #[repr(transparent)]
@@ -13701,234 +15831,234 @@ impl ::core::clone::Clone for MF_OPM_CGMSA_PROTECTION_LEVEL {
     }
 }
 pub const MF_PARSE_ERR: u32 = 2154823761u32;
-pub const MF_PD_ADAPTIVE_STREAMING: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3926744471, data2: 10745, data3: 18571, data4: [174, 107, 125, 107, 65, 54, 17, 43] };
-pub const MF_PD_APP_CONTEXT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_PD_ADAPTIVE_STREAMING: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3926744471, data2: 10745, data3: 18571, data4: [174, 107, 125, 107, 65, 54, 17, 43] };
+pub const MF_PD_APP_CONTEXT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1821969714,
     data2: 48014,
     data3: 18298,
     data4: [133, 152, 13, 93, 150, 252, 216, 138],
 };
-pub const MF_PD_ASF_CODECLIST: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_PD_ASF_CODECLIST: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3837474057,
     data2: 49549,
     data3: 19953,
     data4: [187, 153, 122, 54, 179, 204, 65, 25],
 };
-pub const MF_PD_ASF_CONTENTENCRYPTIONEX_ENCRYPTION_DATA: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_PD_ASF_CONTENTENCRYPTIONEX_ENCRYPTION_DATA: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1649445861,
     data2: 60639,
     data3: 18724,
     data4: [163, 89, 114, 186, 179, 57, 123, 157],
 };
-pub const MF_PD_ASF_CONTENTENCRYPTION_KEYID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_PD_ASF_CONTENTENCRYPTION_KEYID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2233531966,
     data2: 10110,
     data3: 18154,
     data4: [153, 228, 227, 10, 134, 219, 18, 190],
 };
-pub const MF_PD_ASF_CONTENTENCRYPTION_LICENSE_URL: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_PD_ASF_CONTENTENCRYPTION_LICENSE_URL: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2233531968,
     data2: 10110,
     data3: 18154,
     data4: [153, 228, 227, 10, 134, 219, 18, 190],
 };
-pub const MF_PD_ASF_CONTENTENCRYPTION_SECRET_DATA: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_PD_ASF_CONTENTENCRYPTION_SECRET_DATA: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2233531967,
     data2: 10110,
     data3: 18154,
     data4: [153, 228, 227, 10, 134, 219, 18, 190],
 };
-pub const MF_PD_ASF_CONTENTENCRYPTION_TYPE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_PD_ASF_CONTENTENCRYPTION_TYPE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2233531965,
     data2: 10110,
     data3: 18154,
     data4: [153, 228, 227, 10, 134, 219, 18, 190],
 };
-pub const MF_PD_ASF_DATA_LENGTH: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_PD_ASF_DATA_LENGTH: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3889542120,
     data2: 7977,
     data3: 17875,
     data4: [136, 34, 62, 120, 250, 226, 114, 237],
 };
-pub const MF_PD_ASF_DATA_START_OFFSET: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_PD_ASF_DATA_START_OFFSET: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3889542119,
     data2: 7977,
     data3: 17875,
     data4: [136, 34, 62, 120, 250, 226, 114, 237],
 };
-pub const MF_PD_ASF_FILEPROPERTIES_CREATION_TIME: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_PD_ASF_FILEPROPERTIES_CREATION_TIME: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1038502326,
     data2: 55149,
     data3: 20070,
     data4: [158, 201, 120, 18, 15, 180, 199, 227],
 };
-pub const MF_PD_ASF_FILEPROPERTIES_FILE_ID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_PD_ASF_FILEPROPERTIES_FILE_ID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1038502324,
     data2: 55149,
     data3: 20070,
     data4: [158, 201, 120, 18, 15, 180, 199, 227],
 };
-pub const MF_PD_ASF_FILEPROPERTIES_FLAGS: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_PD_ASF_FILEPROPERTIES_FLAGS: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1038502331,
     data2: 55149,
     data3: 20070,
     data4: [158, 201, 120, 18, 15, 180, 199, 227],
 };
-pub const MF_PD_ASF_FILEPROPERTIES_MAX_BITRATE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_PD_ASF_FILEPROPERTIES_MAX_BITRATE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1038502334,
     data2: 55149,
     data3: 20070,
     data4: [158, 201, 120, 18, 15, 180, 199, 227],
 };
-pub const MF_PD_ASF_FILEPROPERTIES_MAX_PACKET_SIZE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_PD_ASF_FILEPROPERTIES_MAX_PACKET_SIZE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1038502333,
     data2: 55149,
     data3: 20070,
     data4: [158, 201, 120, 18, 15, 180, 199, 227],
 };
-pub const MF_PD_ASF_FILEPROPERTIES_MIN_PACKET_SIZE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_PD_ASF_FILEPROPERTIES_MIN_PACKET_SIZE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1038502332,
     data2: 55149,
     data3: 20070,
     data4: [158, 201, 120, 18, 15, 180, 199, 227],
 };
-pub const MF_PD_ASF_FILEPROPERTIES_PACKETS: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_PD_ASF_FILEPROPERTIES_PACKETS: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1038502327,
     data2: 55149,
     data3: 20070,
     data4: [158, 201, 120, 18, 15, 180, 199, 227],
 };
-pub const MF_PD_ASF_FILEPROPERTIES_PLAY_DURATION: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_PD_ASF_FILEPROPERTIES_PLAY_DURATION: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1038502328,
     data2: 55149,
     data3: 20070,
     data4: [158, 201, 120, 18, 15, 180, 199, 227],
 };
-pub const MF_PD_ASF_FILEPROPERTIES_PREROLL: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_PD_ASF_FILEPROPERTIES_PREROLL: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1038502330,
     data2: 55149,
     data3: 20070,
     data4: [158, 201, 120, 18, 15, 180, 199, 227],
 };
-pub const MF_PD_ASF_FILEPROPERTIES_SEND_DURATION: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_PD_ASF_FILEPROPERTIES_SEND_DURATION: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1038502329,
     data2: 55149,
     data3: 20070,
     data4: [158, 201, 120, 18, 15, 180, 199, 227],
 };
-pub const MF_PD_ASF_INFO_HAS_AUDIO: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2162565781, data2: 8854, data3: 19012, data4: [179, 28, 209, 3, 198, 254, 210, 60] };
-pub const MF_PD_ASF_INFO_HAS_NON_AUDIO_VIDEO: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2162565783, data2: 8854, data3: 19012, data4: [179, 28, 209, 3, 198, 254, 210, 60] };
-pub const MF_PD_ASF_INFO_HAS_VIDEO: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2162565782, data2: 8854, data3: 19012, data4: [179, 28, 209, 3, 198, 254, 210, 60] };
-pub const MF_PD_ASF_LANGLIST: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_PD_ASF_INFO_HAS_AUDIO: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2162565781, data2: 8854, data3: 19012, data4: [179, 28, 209, 3, 198, 254, 210, 60] };
+pub const MF_PD_ASF_INFO_HAS_NON_AUDIO_VIDEO: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2162565783, data2: 8854, data3: 19012, data4: [179, 28, 209, 3, 198, 254, 210, 60] };
+pub const MF_PD_ASF_INFO_HAS_VIDEO: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2162565782, data2: 8854, data3: 19012, data4: [179, 28, 209, 3, 198, 254, 210, 60] };
+pub const MF_PD_ASF_LANGLIST: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4064142396,
     data2: 39287,
     data3: 17933,
     data4: [166, 236, 50, 147, 127, 22, 15, 125],
 };
-pub const MF_PD_ASF_LANGLIST_LEGACYORDER: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_PD_ASF_LANGLIST_LEGACYORDER: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4064142397,
     data2: 39287,
     data3: 17933,
     data4: [166, 236, 50, 147, 127, 22, 15, 125],
 };
-pub const MF_PD_ASF_MARKER: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_PD_ASF_MARKER: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1362375438,
     data2: 33702,
     data3: 18270,
     data4: [169, 213, 79, 184, 117, 251, 46, 49],
 };
-pub const MF_PD_ASF_METADATA_IS_VBR: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_PD_ASF_METADATA_IS_VBR: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1606849658,
     data2: 61280,
     data3: 17501,
     data4: [180, 73, 68, 46, 204, 120, 180, 193],
 };
-pub const MF_PD_ASF_METADATA_LEAKY_BUCKET_PAIRS: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_PD_ASF_METADATA_LEAKY_BUCKET_PAIRS: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1606849661,
     data2: 61280,
     data3: 17501,
     data4: [180, 73, 68, 46, 204, 120, 180, 193],
 };
-pub const MF_PD_ASF_METADATA_V8_BUFFERAVERAGE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_PD_ASF_METADATA_V8_BUFFERAVERAGE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1606849660,
     data2: 61280,
     data3: 17501,
     data4: [180, 73, 68, 46, 204, 120, 180, 193],
 };
-pub const MF_PD_ASF_METADATA_V8_VBRPEAK: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_PD_ASF_METADATA_V8_VBRPEAK: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1606849659,
     data2: 61280,
     data3: 17501,
     data4: [180, 73, 68, 46, 204, 120, 180, 193],
 };
-pub const MF_PD_ASF_SCRIPT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_PD_ASF_SCRIPT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3801927895,
     data2: 54786,
     data3: 18723,
     data4: [167, 254, 115, 253, 151, 236, 198, 80],
 };
-pub const MF_PD_AUDIO_ENCODING_BITRATE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_PD_AUDIO_ENCODING_BITRATE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1821969717,
     data2: 48014,
     data3: 18298,
     data4: [133, 152, 13, 93, 150, 252, 216, 138],
 };
-pub const MF_PD_AUDIO_ISVARIABLEBITRATE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 855797472, data2: 58247, data3: 17794, data4: [174, 10, 52, 162, 173, 59, 170, 24] };
-pub const MF_PD_DURATION: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_PD_AUDIO_ISVARIABLEBITRATE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 855797472, data2: 58247, data3: 17794, data4: [174, 10, 52, 162, 173, 59, 170, 24] };
+pub const MF_PD_DURATION: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1821969715,
     data2: 48014,
     data3: 18298,
     data4: [133, 152, 13, 93, 150, 252, 216, 138],
 };
-pub const MF_PD_LAST_MODIFIED_TIME: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_PD_LAST_MODIFIED_TIME: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1821969720,
     data2: 48014,
     data3: 18298,
     data4: [133, 152, 13, 93, 150, 252, 216, 138],
 };
-pub const MF_PD_MIME_TYPE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_PD_MIME_TYPE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1821969719,
     data2: 48014,
     data3: 18298,
     data4: [133, 152, 13, 93, 150, 252, 216, 138],
 };
-pub const MF_PD_PLAYBACK_BOUNDARY_TIME: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_PD_PLAYBACK_BOUNDARY_TIME: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1821969723,
     data2: 48014,
     data3: 18298,
     data4: [133, 152, 13, 93, 150, 252, 216, 138],
 };
-pub const MF_PD_PLAYBACK_ELEMENT_ID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_PD_PLAYBACK_ELEMENT_ID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1821969721,
     data2: 48014,
     data3: 18298,
     data4: [133, 152, 13, 93, 150, 252, 216, 138],
 };
-pub const MF_PD_PMPHOST_CONTEXT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_PD_PMPHOST_CONTEXT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1821969713,
     data2: 48014,
     data3: 18298,
     data4: [133, 152, 13, 93, 150, 252, 216, 138],
 };
-pub const MF_PD_PREFERRED_LANGUAGE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_PD_PREFERRED_LANGUAGE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1821969722,
     data2: 48014,
     data3: 18298,
     data4: [133, 152, 13, 93, 150, 252, 216, 138],
 };
-pub const MF_PD_SAMI_STYLELIST: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_PD_SAMI_STYLELIST: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3770104959,
     data2: 18541,
     data3: 18510,
     data4: [152, 114, 77, 229, 25, 42, 123, 248],
 };
-pub const MF_PD_TOTAL_FILE_SIZE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_PD_TOTAL_FILE_SIZE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1821969716,
     data2: 48014,
     data3: 18298,
     data4: [133, 152, 13, 93, 150, 252, 216, 138],
 };
-pub const MF_PD_VIDEO_ENCODING_BITRATE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_PD_VIDEO_ENCODING_BITRATE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1821969718,
     data2: 48014,
     data3: 18298,
@@ -13946,26 +16076,26 @@ impl ::core::clone::Clone for MF_PLUGIN_CONTROL_POLICY {
         *self
     }
 }
-pub const MF_PMP_SERVER_CONTEXT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_PMP_SERVER_CONTEXT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 788580624,
     data2: 53967,
     data3: 17016,
     data4: [139, 106, 208, 119, 250, 195, 162, 95],
 };
-pub const MF_POLICY_ID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_POLICY_ID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2975908429,
     data2: 49241,
     data3: 18673,
     data4: [169, 1, 158, 226, 152, 169, 168, 195],
 };
-pub const MF_PREFERRED_SOURCE_URI: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1606964360, data2: 17258, data3: 19896, data4: [144, 175, 77, 180, 2, 174, 92, 87] };
-pub const MF_PROGRESSIVE_CODING_CONTENT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_PREFERRED_SOURCE_URI: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1606964360, data2: 17258, data3: 19896, data4: [144, 175, 77, 180, 2, 174, 92, 87] };
+pub const MF_PROGRESSIVE_CODING_CONTENT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2399276778,
     data2: 5384,
     data3: 18207,
     data4: [157, 166, 80, 125, 124, 250, 64, 219],
 };
-pub const MF_PROPERTY_HANDLER_SERVICE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_PROPERTY_HANDLER_SERVICE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2751122946,
     data2: 12984,
     data3: 16861,
@@ -14022,9 +16152,9 @@ impl ::core::clone::Clone for MF_QUALITY_LEVEL {
         *self
     }
 }
-pub const MF_QUALITY_NOTIFY_PROCESSING_LATENCY: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4139010808, data2: 24653, data3: 18174, data4: [169, 93, 69, 71, 155, 16, 201, 188] };
-pub const MF_QUALITY_NOTIFY_SAMPLE_LAG: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 819024390, data2: 60714, data3: 18272, data4: [190, 23, 235, 74, 159, 18, 41, 92] };
-pub const MF_QUALITY_SERVICES: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_QUALITY_NOTIFY_PROCESSING_LATENCY: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4139010808, data2: 24653, data3: 18174, data4: [169, 93, 69, 71, 155, 16, 201, 188] };
+pub const MF_QUALITY_NOTIFY_SAMPLE_LAG: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 819024390, data2: 60714, data3: 18272, data4: [190, 23, 235, 74, 159, 18, 41, 92] };
+pub const MF_QUALITY_SERVICES: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3085090321,
     data2: 12182,
     data3: 17984,
@@ -14044,41 +16174,41 @@ impl ::core::clone::Clone for MF_QUATERNION {
     }
 }
 pub const MF_QUOTA_EXCEEDED_ERR: u32 = 2154823702u32;
-pub const MF_RATE_CONTROL_SERVICE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_RATE_CONTROL_SERVICE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2255463063,
     data2: 47106,
     data3: 19448,
     data4: [157, 201, 94, 59, 106, 159, 83, 201],
 };
-pub const MF_READWRITE_D3D_OPTIONAL: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 560232921, data2: 12401, data3: 17098, data4: [187, 108, 76, 34, 16, 46, 29, 24] };
-pub const MF_READWRITE_DISABLE_CONVERTERS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2564141157, data2: 4980, data3: 18503, data4: [141, 93, 49, 82, 15, 238, 113, 86] };
-pub const MF_READWRITE_ENABLE_AUTOFINALIZE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_READWRITE_D3D_OPTIONAL: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 560232921, data2: 12401, data3: 17098, data4: [187, 108, 76, 34, 16, 46, 29, 24] };
+pub const MF_READWRITE_DISABLE_CONVERTERS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2564141157, data2: 4980, data3: 18503, data4: [141, 93, 49, 82, 15, 238, 113, 86] };
+pub const MF_READWRITE_ENABLE_AUTOFINALIZE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3715932457,
     data2: 36049,
     data3: 19909,
     data4: [157, 222, 206, 22, 134, 117, 222, 97],
 };
-pub const MF_READWRITE_ENABLE_HARDWARE_TRANSFORMS: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_READWRITE_ENABLE_HARDWARE_TRANSFORMS: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2788469020,
     data2: 33323,
     data3: 16825,
     data4: [164, 148, 77, 228, 100, 54, 18, 176],
 };
-pub const MF_READWRITE_MMCSS_CLASS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 959988480, data2: 53483, data3: 16561, data4: [135, 160, 51, 24, 135, 27, 90, 83] };
-pub const MF_READWRITE_MMCSS_CLASS_AUDIO: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1124616154, data2: 2192, data3: 19214, data4: [147, 140, 5, 67, 50, 197, 71, 225] };
-pub const MF_READWRITE_MMCSS_PRIORITY: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_READWRITE_MMCSS_CLASS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 959988480, data2: 53483, data3: 16561, data4: [135, 160, 51, 24, 135, 27, 90, 83] };
+pub const MF_READWRITE_MMCSS_CLASS_AUDIO: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1124616154, data2: 2192, data3: 19214, data4: [147, 140, 5, 67, 50, 197, 71, 225] };
+pub const MF_READWRITE_MMCSS_PRIORITY: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1135417806,
     data2: 62271,
     data3: 19369,
     data4: [165, 128, 228, 205, 18, 242, 209, 68],
 };
-pub const MF_READWRITE_MMCSS_PRIORITY_AUDIO: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_READWRITE_MMCSS_PRIORITY_AUDIO: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 658356357,
     data2: 11746,
     data3: 19890,
     data4: [166, 167, 253, 182, 111, 180, 11, 97],
 };
-pub const MF_REMOTE_PROXY: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_REMOTE_PROXY: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 788580622,
     data2: 53967,
     data3: 17016,
@@ -14103,147 +16233,147 @@ impl ::core::clone::Clone for MF_RESOLUTION_FLAGS {
         *self
     }
 }
-pub const MF_SAMI_SERVICE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1235786471, data2: 46297, data3: 20210, data4: [170, 92, 246, 90, 62, 5, 174, 78] };
-pub const MF_SAMPLEGRABBERSINK_IGNORE_CLOCK: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_SAMI_SERVICE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1235786471, data2: 46297, data3: 20210, data4: [170, 92, 246, 90, 62, 5, 174, 78] };
+pub const MF_SAMPLEGRABBERSINK_IGNORE_CLOCK: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 251503296,
     data2: 11113,
     data3: 20014,
     data4: [171, 141, 70, 220, 191, 247, 210, 93],
 };
-pub const MF_SAMPLEGRABBERSINK_SAMPLE_TIME_OFFSET: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_SAMPLEGRABBERSINK_SAMPLE_TIME_OFFSET: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1659098998,
     data2: 33024,
     data3: 19971,
     data4: [166, 232, 189, 56, 87, 172, 156, 71],
 };
-pub const MF_SA_AUDIO_ENDPOINT_AWARE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_SA_AUDIO_ENDPOINT_AWARE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3224901377,
     data2: 32860,
     data3: 17074,
     data4: [172, 141, 226, 180, 191, 33, 244, 248],
 };
-pub const MF_SA_BUFFERS_PER_SAMPLE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2268877169, data2: 7741, data3: 20005, data4: [152, 141, 180, 51, 206, 4, 25, 131] };
-pub const MF_SA_D3D11_ALLOCATE_DISPLAYABLE_RESOURCES: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_SA_BUFFERS_PER_SAMPLE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2268877169, data2: 7741, data3: 20005, data4: [152, 141, 180, 51, 206, 4, 25, 131] };
+pub const MF_SA_D3D11_ALLOCATE_DISPLAYABLE_RESOURCES: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4009414253,
     data2: 11945,
     data3: 19167,
     data4: [187, 223, 123, 188, 72, 42, 27, 109],
 };
-pub const MF_SA_D3D11_ALLOW_DYNAMIC_YUV_TEXTURE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_SA_D3D11_ALLOW_DYNAMIC_YUV_TEXTURE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3456554143,
     data2: 1555,
     data3: 19357,
     data4: [134, 166, 216, 196, 249, 193, 0, 117],
 };
-pub const MF_SA_D3D11_AWARE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_SA_D3D11_AWARE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 543903688,
     data2: 64761,
     data3: 19537,
     data4: [175, 227, 151, 100, 54, 158, 51, 160],
 };
-pub const MF_SA_D3D11_BINDFLAGS: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_SA_D3D11_BINDFLAGS: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3939473325,
     data2: 1628,
     data3: 17416,
     data4: [190, 227, 253, 203, 253, 18, 139, 226],
 };
-pub const MF_SA_D3D11_HW_PROTECTED: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_SA_D3D11_HW_PROTECTED: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 982231513,
     data2: 37578,
     data3: 17159,
     data4: [163, 145, 105, 153, 219, 243, 182, 206],
 };
-pub const MF_SA_D3D11_SHARED: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2072982211, data2: 28054, data3: 19337, data4: [146, 3, 221, 56, 182, 20, 20, 243] };
-pub const MF_SA_D3D11_SHARED_WITHOUT_MUTEX: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 970708045, data2: 11844, data3: 18737, data4: [164, 200, 53, 45, 61, 196, 33, 21] };
-pub const MF_SA_D3D11_USAGE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_SA_D3D11_SHARED: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2072982211, data2: 28054, data3: 19337, data4: [146, 3, 221, 56, 182, 20, 20, 243] };
+pub const MF_SA_D3D11_SHARED_WITHOUT_MUTEX: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 970708045, data2: 11844, data3: 18737, data4: [164, 200, 53, 45, 61, 196, 33, 21] };
+pub const MF_SA_D3D11_USAGE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3898598466,
     data2: 11427,
     data3: 18542,
     data4: [169, 199, 16, 157, 218, 96, 152, 128],
 };
-pub const MF_SA_D3D12_CLEAR_VALUE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_SA_D3D12_CLEAR_VALUE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2260376121,
     data2: 1318,
     data3: 18781,
     data4: [154, 181, 84, 236, 159, 173, 111, 195],
 };
-pub const MF_SA_D3D12_HEAP_FLAGS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1231762022, data2: 53903, data3: 20364, data4: [147, 167, 74, 89, 107, 26, 49, 161] };
-pub const MF_SA_D3D12_HEAP_TYPE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_SA_D3D12_HEAP_FLAGS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1231762022, data2: 53903, data3: 20364, data4: [147, 167, 74, 89, 107, 26, 49, 161] };
+pub const MF_SA_D3D12_HEAP_TYPE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1458727542,
     data2: 48065,
     data3: 19680,
     data4: [187, 17, 226, 35, 104, 216, 116, 237],
 };
-pub const MF_SA_D3D_AWARE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3936574505, data2: 30558, data3: 18574, data4: [155, 97, 179, 40, 62, 73, 88, 59] };
-pub const MF_SA_MINIMUM_OUTPUT_SAMPLE_COUNT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2232894933, data2: 50134, data3: 18285, data4: [149, 39, 73, 142, 242, 209, 13, 24] };
-pub const MF_SA_MINIMUM_OUTPUT_SAMPLE_COUNT_PROGRESSIVE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 257237925, data2: 7346, data3: 18373, data4: [165, 80, 46, 235, 132, 180, 209, 74] };
-pub const MF_SA_REQUIRED_SAMPLE_COUNT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_SA_D3D_AWARE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3936574505, data2: 30558, data3: 18574, data4: [155, 97, 179, 40, 62, 73, 88, 59] };
+pub const MF_SA_MINIMUM_OUTPUT_SAMPLE_COUNT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2232894933, data2: 50134, data3: 18285, data4: [149, 39, 73, 142, 242, 209, 13, 24] };
+pub const MF_SA_MINIMUM_OUTPUT_SAMPLE_COUNT_PROGRESSIVE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 257237925, data2: 7346, data3: 18373, data4: [165, 80, 46, 235, 132, 180, 209, 74] };
+pub const MF_SA_REQUIRED_SAMPLE_COUNT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 411053153,
     data2: 12875,
     data3: 18770,
     data4: [171, 208, 23, 111, 245, 198, 150, 255],
 };
-pub const MF_SA_REQUIRED_SAMPLE_COUNT_PROGRESSIVE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_SA_REQUIRED_SAMPLE_COUNT_PROGRESSIVE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2977093006,
     data2: 64119,
     data3: 20040,
     data4: [141, 42, 29, 242, 216, 80, 234, 194],
 };
 pub const MF_SDK_VERSION: u32 = 2u32;
-pub const MF_SD_AMBISONICS_SAMPLE3D_DESCRIPTION: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_SD_AMBISONICS_SAMPLE3D_DESCRIPTION: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4145401662,
     data2: 43364,
     data3: 19519,
     data4: [148, 174, 157, 107, 167, 38, 70, 65],
 };
-pub const MF_SD_ASF_EXTSTRMPROP_AVG_BUFFERSIZE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1224254756, data2: 12381, data3: 16941, data4: [133, 36, 37, 2, 221, 163, 54, 128] };
-pub const MF_SD_ASF_EXTSTRMPROP_AVG_DATA_BITRATE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1224254755, data2: 12381, data3: 16941, data4: [133, 36, 37, 2, 221, 163, 54, 128] };
-pub const MF_SD_ASF_EXTSTRMPROP_LANGUAGE_ID_INDEX: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1224254754, data2: 12381, data3: 16941, data4: [133, 36, 37, 2, 221, 163, 54, 128] };
-pub const MF_SD_ASF_EXTSTRMPROP_MAX_BUFFERSIZE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1224254758, data2: 12381, data3: 16941, data4: [133, 36, 37, 2, 221, 163, 54, 128] };
-pub const MF_SD_ASF_EXTSTRMPROP_MAX_DATA_BITRATE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1224254757, data2: 12381, data3: 16941, data4: [133, 36, 37, 2, 221, 163, 54, 128] };
-pub const MF_SD_ASF_METADATA_DEVICE_CONFORMANCE_TEMPLATE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_SD_ASF_EXTSTRMPROP_AVG_BUFFERSIZE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1224254756, data2: 12381, data3: 16941, data4: [133, 36, 37, 2, 221, 163, 54, 128] };
+pub const MF_SD_ASF_EXTSTRMPROP_AVG_DATA_BITRATE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1224254755, data2: 12381, data3: 16941, data4: [133, 36, 37, 2, 221, 163, 54, 128] };
+pub const MF_SD_ASF_EXTSTRMPROP_LANGUAGE_ID_INDEX: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1224254754, data2: 12381, data3: 16941, data4: [133, 36, 37, 2, 221, 163, 54, 128] };
+pub const MF_SD_ASF_EXTSTRMPROP_MAX_BUFFERSIZE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1224254758, data2: 12381, data3: 16941, data4: [133, 36, 37, 2, 221, 163, 54, 128] };
+pub const MF_SD_ASF_EXTSTRMPROP_MAX_DATA_BITRATE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1224254757, data2: 12381, data3: 16941, data4: [133, 36, 37, 2, 221, 163, 54, 128] };
+pub const MF_SD_ASF_METADATA_DEVICE_CONFORMANCE_TEMPLATE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 610177693,
     data2: 50254,
     data3: 20350,
     data4: [187, 60, 119, 212, 223, 210, 127, 138],
 };
-pub const MF_SD_ASF_STREAMBITRATES_BITRATE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_SD_ASF_STREAMBITRATES_BITRATE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2833351405,
     data2: 45000,
     data3: 17360,
     data4: [176, 209, 246, 91, 173, 157, 165, 88],
 };
-pub const MF_SD_AUDIO_ENCODER_DELAY: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2391097900, data2: 29662, data3: 16447, data4: [154, 53, 85, 10, 214, 232, 185, 81] };
-pub const MF_SD_AUDIO_ENCODER_PADDING: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1385987884, data2: 44107, data3: 20031, data4: [191, 195, 9, 2, 25, 73, 130, 203] };
-pub const MF_SD_LANGUAGE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 11477376, data2: 48578, data3: 16956, data4: [171, 202, 245, 3, 89, 59, 193, 33] };
-pub const MF_SD_MEDIASOURCE_STATUS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 420702091, data2: 64527, data3: 17626, data4: [143, 67, 27, 163, 181, 38, 244, 174] };
-pub const MF_SD_MUTUALLY_EXCLUSIVE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_SD_AUDIO_ENCODER_DELAY: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2391097900, data2: 29662, data3: 16447, data4: [154, 53, 85, 10, 214, 232, 185, 81] };
+pub const MF_SD_AUDIO_ENCODER_PADDING: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1385987884, data2: 44107, data3: 20031, data4: [191, 195, 9, 2, 25, 73, 130, 203] };
+pub const MF_SD_LANGUAGE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 11477376, data2: 48578, data3: 16956, data4: [171, 202, 245, 3, 89, 59, 193, 33] };
+pub const MF_SD_MEDIASOURCE_STATUS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 420702091, data2: 64527, data3: 17626, data4: [143, 67, 27, 163, 181, 38, 244, 174] };
+pub const MF_SD_MUTUALLY_EXCLUSIVE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 37681052,
     data2: 14477,
     data3: 18559,
     data4: [172, 23, 105, 108, 214, 227, 198, 245],
 };
-pub const MF_SD_PROTECTED: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 11477377, data2: 48578, data3: 16956, data4: [171, 202, 245, 3, 89, 59, 193, 33] };
-pub const MF_SD_SAMI_LANGUAGE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_SD_PROTECTED: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 11477377, data2: 48578, data3: 16956, data4: [171, 202, 245, 3, 89, 59, 193, 33] };
+pub const MF_SD_SAMI_LANGUAGE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 922532234,
     data2: 27856,
     data3: 17611,
     data4: [172, 185, 168, 245, 96, 13, 208, 187],
 };
-pub const MF_SD_STREAM_NAME: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_SD_STREAM_NAME: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1327171997,
     data2: 54036,
     data3: 16869,
     data4: [167, 129, 127, 239, 170, 76, 80, 31],
 };
-pub const MF_SD_VIDEO_SPHERICAL: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2770183241, data2: 16348, data3: 18316, data4: [188, 181, 48, 190, 118, 89, 95, 85] };
-pub const MF_SD_VIDEO_SPHERICAL_FORMAT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_SD_VIDEO_SPHERICAL: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2770183241, data2: 16348, data3: 18316, data4: [188, 181, 48, 190, 118, 89, 95, 85] };
+pub const MF_SD_VIDEO_SPHERICAL_FORMAT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1250935815,
     data2: 28321,
     data3: 18120,
     data4: [181, 103, 105, 113, 212, 161, 57, 195],
 };
-pub const MF_SD_VIDEO_SPHERICAL_INITIAL_VIEWDIRECTION: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_SD_VIDEO_SPHERICAL_INITIAL_VIEWDIRECTION: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 298998345,
     data2: 47970,
     data3: 18047,
@@ -14263,29 +16393,29 @@ impl ::core::clone::Clone for MF_SERVICE_LOOKUP_TYPE {
         *self
     }
 }
-pub const MF_SESSION_APPROX_EVENT_OCCURRENCE_TIME: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_SESSION_APPROX_EVENT_OCCURRENCE_TIME: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 420381999,
     data2: 25144,
     data3: 17105,
     data4: [181, 175, 105, 234, 51, 142, 248, 80],
 };
-pub const MF_SESSION_CONTENT_PROTECTION_MANAGER: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 511956098, data2: 7964, data3: 17777, data4: [132, 5, 136, 244, 178, 24, 31, 116] };
-pub const MF_SESSION_GLOBAL_TIME: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 511956098, data2: 7964, data3: 17777, data4: [132, 5, 136, 244, 178, 24, 31, 114] };
-pub const MF_SESSION_QUALITY_MANAGER: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 511956098, data2: 7964, data3: 17777, data4: [132, 5, 136, 244, 178, 24, 31, 115] };
-pub const MF_SESSION_REMOTE_SOURCE_MODE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_SESSION_CONTENT_PROTECTION_MANAGER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 511956098, data2: 7964, data3: 17777, data4: [132, 5, 136, 244, 178, 24, 31, 116] };
+pub const MF_SESSION_GLOBAL_TIME: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 511956098, data2: 7964, data3: 17777, data4: [132, 5, 136, 244, 178, 24, 31, 114] };
+pub const MF_SESSION_QUALITY_MANAGER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 511956098, data2: 7964, data3: 17777, data4: [132, 5, 136, 244, 178, 24, 31, 115] };
+pub const MF_SESSION_REMOTE_SOURCE_MODE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4093853428,
     data2: 39859,
     data3: 17272,
     data4: [148, 31, 133, 160, 133, 107, 194, 68],
 };
-pub const MF_SESSION_SERVER_CONTEXT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_SESSION_SERVER_CONTEXT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2951066257,
     data2: 20730,
     data3: 18152,
     data4: [185, 190, 12, 12, 60, 228, 179, 165],
 };
-pub const MF_SESSION_TOPOLOADER: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 511956098, data2: 7964, data3: 17777, data4: [132, 5, 136, 244, 178, 24, 31, 113] };
-pub const MF_SHARING_ENGINE_CALLBACK: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_SESSION_TOPOLOADER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 511956098, data2: 7964, data3: 17777, data4: [132, 5, 136, 244, 178, 24, 31, 113] };
+pub const MF_SHARING_ENGINE_CALLBACK: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1474043541,
     data2: 53842,
     data3: 17402,
@@ -14304,34 +16434,34 @@ impl ::core::clone::Clone for MF_SHARING_ENGINE_EVENT {
         *self
     }
 }
-pub const MF_SHARING_ENGINE_SHAREDRENDERER: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_SHARING_ENGINE_SHAREDRENDERER: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4020520608,
     data2: 29671,
     data3: 16462,
     data4: [138, 226, 254, 246, 10, 245, 163, 43],
 };
-pub const MF_SHUTDOWN_RENDERER_ON_ENGINE_SHUTDOWN: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_SHUTDOWN_RENDERER_ON_ENGINE_SHUTDOWN: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3239237965,
     data2: 27548,
     data3: 18680,
     data4: [182, 249, 121, 80, 255, 154, 183, 30],
 };
-pub const MF_SINK_VIDEO_DISPLAY_ASPECT_RATIO_DENOMINATOR: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1856105367, data2: 8160, data3: 20240, data4: [166, 228, 31, 79, 102, 21, 100, 224] };
-pub const MF_SINK_VIDEO_DISPLAY_ASPECT_RATIO_NUMERATOR: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_SINK_VIDEO_DISPLAY_ASPECT_RATIO_DENOMINATOR: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1856105367, data2: 8160, data3: 20240, data4: [166, 228, 31, 79, 102, 21, 100, 224] };
+pub const MF_SINK_VIDEO_DISPLAY_ASPECT_RATIO_NUMERATOR: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3505601314,
     data2: 46986,
     data3: 18553,
     data4: [180, 85, 240, 62, 243, 250, 130, 205],
 };
-pub const MF_SINK_VIDEO_NATIVE_HEIGHT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_SINK_VIDEO_NATIVE_HEIGHT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4039796485,
     data2: 18700,
     data3: 17384,
     data4: [148, 28, 192, 179, 32, 107, 154, 101],
 };
-pub const MF_SINK_VIDEO_NATIVE_WIDTH: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3872827143, data2: 5381, data3: 18247, data4: [155, 16, 114, 210, 209, 88, 203, 58] };
-pub const MF_SINK_VIDEO_PTS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 560119271, data2: 16926, data3: 19344, data4: [155, 51, 229, 143, 191, 29, 88, 182] };
-pub const MF_SINK_WRITER_ASYNC_CALLBACK: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1221269566, data2: 31499, data3: 18164, data4: [130, 46, 94, 29, 45, 218, 67, 84] };
+pub const MF_SINK_VIDEO_NATIVE_WIDTH: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3872827143, data2: 5381, data3: 18247, data4: [155, 16, 114, 210, 209, 88, 203, 58] };
+pub const MF_SINK_VIDEO_PTS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 560119271, data2: 16926, data3: 19344, data4: [155, 51, 229, 143, 191, 29, 88, 182] };
+pub const MF_SINK_WRITER_ASYNC_CALLBACK: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1221269566, data2: 31499, data3: 18164, data4: [130, 46, 94, 29, 45, 218, 67, 84] };
 #[repr(transparent)]
 pub struct MF_SINK_WRITER_CONSTANTS(pub u32);
 pub const MF_SINK_WRITER_INVALID_STREAM_INDEX: MF_SINK_WRITER_CONSTANTS = MF_SINK_WRITER_CONSTANTS(4294967295u32);
@@ -14343,14 +16473,14 @@ impl ::core::clone::Clone for MF_SINK_WRITER_CONSTANTS {
         *self
     }
 }
-pub const MF_SINK_WRITER_D3D_MANAGER: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_SINK_WRITER_D3D_MANAGER: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3967954338,
     data2: 57833,
     data3: 19241,
     data4: [160, 216, 86, 60, 113, 159, 82, 105],
 };
-pub const MF_SINK_WRITER_DISABLE_THROTTLING: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 146294232, data2: 11124, data3: 19198, data4: [157, 83, 190, 22, 210, 213, 174, 79] };
-pub const MF_SINK_WRITER_ENCODER_CONFIG: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_SINK_WRITER_DISABLE_THROTTLING: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 146294232, data2: 11124, data3: 19198, data4: [157, 83, 190, 22, 210, 213, 174, 79] };
+pub const MF_SINK_WRITER_ENCODER_CONFIG: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2912013572,
     data2: 42956,
     data3: 19143,
@@ -14381,8 +16511,8 @@ impl ::core::clone::Clone for MF_SINK_WRITER_STATISTICS {
         *self
     }
 }
-pub const MF_SOURCE_PRESENTATION_PROVIDER_SERVICE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3758271196, data2: 62639, data3: 20197, data4: [152, 71, 5, 62, 223, 132, 4, 38] };
-pub const MF_SOURCE_READER_ASYNC_CALLBACK: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 507362988, data2: 47939, data3: 19509, data4: [181, 7, 205, 100, 68, 100, 201, 101] };
+pub const MF_SOURCE_PRESENTATION_PROVIDER_SERVICE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3758271196, data2: 62639, data3: 20197, data4: [152, 71, 5, 62, 223, 132, 4, 38] };
+pub const MF_SOURCE_READER_ASYNC_CALLBACK: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 507362988, data2: 47939, data3: 19509, data4: [181, 7, 205, 100, 68, 100, 201, 101] };
 #[repr(transparent)]
 pub struct MF_SOURCE_READER_CONSTANTS(pub i32);
 pub const MF_SOURCE_READER_INVALID_STREAM_INDEX: MF_SOURCE_READER_CONSTANTS = MF_SOURCE_READER_CONSTANTS(-1i32);
@@ -14415,34 +16545,34 @@ impl ::core::clone::Clone for MF_SOURCE_READER_CURRENT_TYPE_CONSTANTS {
         *self
     }
 }
-pub const MF_SOURCE_READER_D3D11_BIND_FLAGS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 871569787, data2: 63290, data3: 19988, data4: [141, 133, 14, 76, 67, 104, 120, 141] };
-pub const MF_SOURCE_READER_D3D_MANAGER: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_SOURCE_READER_D3D11_BIND_FLAGS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 871569787, data2: 63290, data3: 19988, data4: [141, 133, 14, 76, 67, 104, 120, 141] };
+pub const MF_SOURCE_READER_D3D_MANAGER: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3967954338,
     data2: 57833,
     data3: 19241,
     data4: [160, 216, 86, 60, 113, 159, 82, 105],
 };
-pub const MF_SOURCE_READER_DISABLE_CAMERA_PLUGINS: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_SOURCE_READER_DISABLE_CAMERA_PLUGINS: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2637391325,
     data2: 1423,
     data3: 19707,
     data4: [159, 151, 179, 20, 204, 153, 200, 173],
 };
-pub const MF_SOURCE_READER_DISABLE_DXVA: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2856676605, data2: 14659, data3: 18974, data4: [167, 125, 24, 56, 192, 234, 46, 53] };
-pub const MF_SOURCE_READER_DISCONNECT_MEDIASOURCE_ON_SHUTDOWN: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1454797157, data2: 8606, data3: 17773, data4: [162, 46, 45, 48, 4, 199, 254, 86] };
-pub const MF_SOURCE_READER_ENABLE_ADVANCED_VIDEO_PROCESSING: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_SOURCE_READER_DISABLE_DXVA: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2856676605, data2: 14659, data3: 18974, data4: [167, 125, 24, 56, 192, 234, 46, 53] };
+pub const MF_SOURCE_READER_DISCONNECT_MEDIASOURCE_ON_SHUTDOWN: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1454797157, data2: 8606, data3: 17773, data4: [162, 46, 45, 48, 4, 199, 254, 86] };
+pub const MF_SOURCE_READER_ENABLE_ADVANCED_VIDEO_PROCESSING: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 260168236,
     data2: 46391,
     data3: 18034,
     data4: [168, 178, 166, 129, 177, 115, 7, 163],
 };
-pub const MF_SOURCE_READER_ENABLE_TRANSCODE_ONLY_TRANSFORMS: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_SOURCE_READER_ENABLE_TRANSCODE_ONLY_TRANSFORMS: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3755274248,
     data2: 46589,
     data3: 20088,
     data4: [174, 68, 98, 161, 230, 123, 190, 39],
 };
-pub const MF_SOURCE_READER_ENABLE_VIDEO_PROCESSING: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_SOURCE_READER_ENABLE_VIDEO_PROCESSING: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4214837053,
     data2: 52465,
     data3: 17134,
@@ -14463,33 +16593,33 @@ impl ::core::clone::Clone for MF_SOURCE_READER_FLAG {
         *self
     }
 }
-pub const MF_SOURCE_READER_MEDIASOURCE_CHARACTERISTICS: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_SOURCE_READER_MEDIASOURCE_CHARACTERISTICS: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1831073224,
     data2: 50647,
     data3: 19099,
     data4: [153, 113, 93, 17, 248, 188, 168, 128],
 };
-pub const MF_SOURCE_READER_MEDIASOURCE_CONFIG: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2424679403, data2: 852, data3: 18681, data4: [171, 181, 32, 13, 248, 56, 198, 142] };
-pub const MF_SOURCE_STREAM_SUPPORTS_HW_CONNECTION: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_SOURCE_READER_MEDIASOURCE_CONFIG: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2424679403, data2: 852, data3: 18681, data4: [171, 181, 32, 13, 248, 56, 198, 142] };
+pub const MF_SOURCE_STREAM_SUPPORTS_HW_CONNECTION: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2743227306,
     data2: 25364,
     data3: 17149,
     data4: [163, 206, 187, 39, 182, 133, 153, 70],
 };
-pub const MF_STF_VERSION_DATE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_STF_VERSION_DATE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 832660949,
     data2: 57191,
     data3: 16533,
     data4: [142, 68, 136, 104, 252, 32, 219, 253],
 };
-pub const MF_STF_VERSION_INFO: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_STF_VERSION_INFO: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1735441721,
     data2: 61314,
     data3: 17646,
     data4: [164, 155, 147, 75, 235, 36, 174, 247],
 };
-pub const MF_STREAM_SINK_SUPPORTS_HW_CONNECTION: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2605079743, data2: 1431, data3: 20382, data4: [159, 60, 185, 126, 238, 249, 3, 89] };
-pub const MF_STREAM_SINK_SUPPORTS_ROTATION: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_STREAM_SINK_SUPPORTS_HW_CONNECTION: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2605079743, data2: 1431, data3: 20382, data4: [159, 60, 185, 126, 238, 249, 3, 89] };
+pub const MF_STREAM_SINK_SUPPORTS_ROTATION: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3018416768,
     data2: 48389,
     data3: 16805,
@@ -14506,7 +16636,7 @@ impl ::core::clone::Clone for MF_STREAM_STATE {
         *self
     }
 }
-pub const MF_ST_MEDIASOURCE_COLLECTION: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1634593138, data2: 33709, data3: 18768, data4: [129, 112, 99, 13, 25, 203, 227, 7] };
+pub const MF_ST_MEDIASOURCE_COLLECTION: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1634593138, data2: 33709, data3: 18768, data4: [129, 112, 99, 13, 25, 203, 227, 7] };
 pub const MF_SYNTAX_ERR: u32 = 2154823692u32;
 pub const MF_S_ACTIVATE_REPLACED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(866045i32 as _);
 pub const MF_S_ASF_PARSEINPROGRESS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(1074608792i32 as _);
@@ -14520,9 +16650,9 @@ pub const MF_S_SINK_NOT_FINALIZED: ::windows_sys::core::HRESULT = ::windows_sys:
 pub const MF_S_TRANSFORM_DO_NOT_PROPAGATE_EVENT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(879989i32 as _);
 pub const MF_S_VIDEO_DISABLED_WITH_UNKNOWN_SOFTWARE_OUTPUT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(881001i32 as _);
 pub const MF_S_WAIT_FOR_POLICY_SET: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(881000i32 as _);
-pub const MF_SampleProtectionSalt: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1409539822, data2: 47598, data3: 17295, data4: [170, 131, 56, 4, 153, 126, 86, 157] };
+pub const MF_SampleProtectionSalt: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1409539822, data2: 47598, data3: 17295, data4: [170, 131, 56, 4, 153, 126, 86, 157] };
 pub const MF_TEST_SIGNED_COMPONENT_LOADING: u32 = 16777216u32;
-pub const MF_TIMECODE_SERVICE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2698314407, data2: 3763, data3: 18565, data4: [177, 185, 159, 235, 13, 8, 52, 84] };
+pub const MF_TIMECODE_SERVICE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2698314407, data2: 3763, data3: 18565, data4: [177, 185, 159, 235, 13, 8, 52, 84] };
 #[repr(transparent)]
 pub struct MF_TIMED_TEXT_ALIGNMENT(pub i32);
 pub const MF_TIMED_TEXT_ALIGNMENT_START: MF_TIMED_TEXT_ALIGNMENT = MF_TIMED_TEXT_ALIGNMENT(0i32);
@@ -14716,64 +16846,64 @@ impl ::core::clone::Clone for MF_TIMED_TEXT_WRITING_MODE {
         *self
     }
 }
-pub const MF_TIME_FORMAT_ENTRY_RELATIVE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_TIME_FORMAT_ENTRY_RELATIVE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1134162296,
     data2: 18131,
     data3: 17668,
     data4: [175, 218, 32, 211, 46, 155, 163, 96],
 };
-pub const MF_TIME_FORMAT_SEGMENT_OFFSET: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3367550583, data2: 34460, data3: 17181, data4: [129, 46, 22, 150, 147, 246, 90, 57] };
-pub const MF_TOPOLOGY_DXVA_MODE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_TIME_FORMAT_SEGMENT_OFFSET: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3367550583, data2: 34460, data3: 17181, data4: [129, 46, 22, 150, 147, 246, 90, 57] };
+pub const MF_TOPOLOGY_DXVA_MODE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 512570614,
     data2: 62891,
     data3: 20003,
     data4: [187, 136, 135, 74, 163, 161, 167, 77],
 };
-pub const MF_TOPOLOGY_DYNAMIC_CHANGE_NOT_ALLOWED: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_TOPOLOGY_DYNAMIC_CHANGE_NOT_ALLOWED: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3576272139,
     data2: 54404,
     data3: 17703,
     data4: [169, 205, 177, 144, 149, 50, 181, 176],
 };
-pub const MF_TOPOLOGY_ENABLE_XVP_FOR_PLAYBACK: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 426210079, data2: 52600, data3: 17148, data4: [176, 38, 9, 146, 165, 110, 86, 147] };
-pub const MF_TOPOLOGY_ENUMERATE_SOURCE_TYPES: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_TOPOLOGY_ENABLE_XVP_FOR_PLAYBACK: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 426210079, data2: 52600, data3: 17148, data4: [176, 38, 9, 146, 165, 110, 86, 147] };
+pub const MF_TOPOLOGY_ENUMERATE_SOURCE_TYPES: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1648935789,
     data2: 23819,
     data3: 20288,
     data4: [160, 187, 176, 179, 5, 247, 118, 152],
 };
-pub const MF_TOPOLOGY_HARDWARE_MODE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_TOPOLOGY_HARDWARE_MODE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3537068797,
     data2: 20047,
     data3: 16785,
     data4: [165, 121, 198, 24, 182, 103, 6, 175],
 };
-pub const MF_TOPOLOGY_NO_MARKIN_MARKOUT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_TOPOLOGY_NO_MARKIN_MARKOUT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2127820804,
     data2: 34491,
     data3: 19263,
     data4: [183, 228, 124, 180, 58, 253, 75, 128],
 };
-pub const MF_TOPOLOGY_PLAYBACK_FRAMERATE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3244585850, data2: 49841, data3: 17747, data4: [131, 187, 90, 82, 96, 114, 68, 143] };
-pub const MF_TOPOLOGY_PLAYBACK_MAX_DIMS: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_TOPOLOGY_PLAYBACK_FRAMERATE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3244585850, data2: 49841, data3: 17747, data4: [131, 187, 90, 82, 96, 114, 68, 143] };
+pub const MF_TOPOLOGY_PLAYBACK_MAX_DIMS: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1461047065,
     data2: 22376,
     data3: 17578,
     data4: [173, 110, 135, 33, 241, 176, 249, 187],
 };
-pub const MF_TOPOLOGY_PROJECTSTART: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_TOPOLOGY_PROJECTSTART: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2127820802,
     data2: 34491,
     data3: 19263,
     data4: [183, 228, 124, 180, 58, 253, 75, 128],
 };
-pub const MF_TOPOLOGY_PROJECTSTOP: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_TOPOLOGY_PROJECTSTOP: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2127820803,
     data2: 34491,
     data3: 19263,
     data4: [183, 228, 124, 180, 58, 253, 75, 128],
 };
-pub const MF_TOPOLOGY_RESOLUTION_STATUS: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_TOPOLOGY_RESOLUTION_STATUS: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1229700318,
     data2: 45105,
     data3: 20024,
@@ -14790,13 +16920,13 @@ impl ::core::clone::Clone for MF_TOPOLOGY_RESOLUTION_STATUS_FLAGS {
         *self
     }
 }
-pub const MF_TOPOLOGY_START_TIME_ON_PRESENTATION_SWITCH: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_TOPOLOGY_START_TIME_ON_PRESENTATION_SWITCH: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3368816959,
     data2: 31057,
     data3: 17736,
     data4: [170, 214, 158, 214, 32, 46, 98, 179],
 };
-pub const MF_TOPOLOGY_STATIC_PLAYBACK_OPTIMIZATIONS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3094129730, data2: 16806, data3: 19321, data4: [137, 122, 26, 176, 229, 43, 74, 27] };
+pub const MF_TOPOLOGY_STATIC_PLAYBACK_OPTIMIZATIONS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3094129730, data2: 16806, data3: 19321, data4: [137, 122, 26, 176, 229, 43, 74, 27] };
 #[repr(transparent)]
 pub struct MF_TOPOLOGY_TYPE(pub i32);
 pub const MF_TOPOLOGY_OUTPUT_NODE: MF_TOPOLOGY_TYPE = MF_TOPOLOGY_TYPE(0i32);
@@ -14810,39 +16940,39 @@ impl ::core::clone::Clone for MF_TOPOLOGY_TYPE {
         *self
     }
 }
-pub const MF_TOPONODE_ATTRIBUTE_EDITOR_SERVICE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1701146138, data2: 1919, data3: 17522, data4: [131, 239, 49, 111, 17, 213, 8, 122] };
-pub const MF_TOPONODE_CONNECT_METHOD: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_TOPONODE_ATTRIBUTE_EDITOR_SERVICE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1701146138, data2: 1919, data3: 17522, data4: [131, 239, 49, 111, 17, 213, 8, 122] };
+pub const MF_TOPONODE_CONNECT_METHOD: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1229700337,
     data2: 45105,
     data3: 20024,
     data4: [151, 196, 213, 66, 45, 214, 24, 220],
 };
-pub const MF_TOPONODE_D3DAWARE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_TOPONODE_D3DAWARE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1229700333,
     data2: 45105,
     data3: 20024,
     data4: [151, 196, 213, 66, 45, 214, 24, 220],
 };
-pub const MF_TOPONODE_DECODER: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_TOPONODE_DECODER: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1229700354,
     data2: 45105,
     data3: 20024,
     data4: [151, 196, 213, 66, 45, 214, 24, 220],
 };
-pub const MF_TOPONODE_DECRYPTOR: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_TOPONODE_DECRYPTOR: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1229700346,
     data2: 45105,
     data3: 20024,
     data4: [151, 196, 213, 66, 45, 214, 24, 220],
 };
-pub const MF_TOPONODE_DISABLE_PREROLL: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 345190302, data2: 36999, data3: 19380, data4: [132, 18, 81, 103, 20, 92, 190, 4] };
-pub const MF_TOPONODE_DISCARDABLE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_TOPONODE_DISABLE_PREROLL: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 345190302, data2: 36999, data3: 19380, data4: [132, 18, 81, 103, 20, 92, 190, 4] };
+pub const MF_TOPONODE_DISCARDABLE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1229700347,
     data2: 45105,
     data3: 20024,
     data4: [151, 196, 213, 66, 45, 214, 24, 220],
 };
-pub const MF_TOPONODE_DRAIN: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_TOPONODE_DRAIN: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1229700329,
     data2: 45105,
     data3: 20024,
@@ -14859,25 +16989,25 @@ impl ::core::clone::Clone for MF_TOPONODE_DRAIN_MODE {
         *self
     }
 }
-pub const MF_TOPONODE_ERRORCODE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_TOPONODE_ERRORCODE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1229700334,
     data2: 45105,
     data3: 20024,
     data4: [151, 196, 213, 66, 45, 214, 24, 220],
 };
-pub const MF_TOPONODE_ERROR_MAJORTYPE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_TOPONODE_ERROR_MAJORTYPE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1229700349,
     data2: 45105,
     data3: 20024,
     data4: [151, 196, 213, 66, 45, 214, 24, 220],
 };
-pub const MF_TOPONODE_ERROR_SUBTYPE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_TOPONODE_ERROR_SUBTYPE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1229700350,
     data2: 45105,
     data3: 20024,
     data4: [151, 196, 213, 66, 45, 214, 24, 220],
 };
-pub const MF_TOPONODE_FLUSH: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_TOPONODE_FLUSH: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1229700328,
     data2: 45105,
     data3: 20024,
@@ -14894,100 +17024,100 @@ impl ::core::clone::Clone for MF_TOPONODE_FLUSH_MODE {
         *self
     }
 }
-pub const MF_TOPONODE_LOCKED: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_TOPONODE_LOCKED: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1229700343,
     data2: 45105,
     data3: 20024,
     data4: [151, 196, 213, 66, 45, 214, 24, 220],
 };
-pub const MF_TOPONODE_MARKIN_HERE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_TOPONODE_MARKIN_HERE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1229700352,
     data2: 45105,
     data3: 20024,
     data4: [151, 196, 213, 66, 45, 214, 24, 220],
 };
-pub const MF_TOPONODE_MARKOUT_HERE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_TOPONODE_MARKOUT_HERE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1229700353,
     data2: 45105,
     data3: 20024,
     data4: [151, 196, 213, 66, 45, 214, 24, 220],
 };
-pub const MF_TOPONODE_MEDIASTART: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_TOPONODE_MEDIASTART: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2203867370,
     data2: 57461,
     data3: 19399,
     data4: [188, 186, 77, 224, 0, 223, 154, 230],
 };
-pub const MF_TOPONODE_MEDIASTOP: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_TOPONODE_MEDIASTOP: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2203867371,
     data2: 57461,
     data3: 19399,
     data4: [188, 186, 77, 224, 0, 223, 154, 230],
 };
-pub const MF_TOPONODE_NOSHUTDOWN_ON_REMOVE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 345190300, data2: 36999, data3: 19380, data4: [132, 18, 81, 103, 20, 92, 190, 4] };
-pub const MF_TOPONODE_PRESENTATION_DESCRIPTOR: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_TOPONODE_NOSHUTDOWN_ON_REMOVE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 345190300, data2: 36999, data3: 19380, data4: [132, 18, 81, 103, 20, 92, 190, 4] };
+pub const MF_TOPONODE_PRESENTATION_DESCRIPTOR: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2203867373,
     data2: 57461,
     data3: 19399,
     data4: [188, 186, 77, 224, 0, 223, 154, 230],
 };
-pub const MF_TOPONODE_PRIMARYOUTPUT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_TOPONODE_PRIMARYOUTPUT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1661267865,
     data2: 5810,
     data3: 20158,
     data4: [157, 103, 228, 197, 57, 179, 162, 89],
 };
-pub const MF_TOPONODE_RATELESS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 345190301, data2: 36999, data3: 19380, data4: [132, 18, 81, 103, 20, 92, 190, 4] };
-pub const MF_TOPONODE_SEQUENCE_ELEMENTID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_TOPONODE_RATELESS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 345190301, data2: 36999, data3: 19380, data4: [132, 18, 81, 103, 20, 92, 190, 4] };
+pub const MF_TOPONODE_SEQUENCE_ELEMENTID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2203867375,
     data2: 57461,
     data3: 19399,
     data4: [188, 186, 77, 224, 0, 223, 154, 230],
 };
-pub const MF_TOPONODE_SOURCE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_TOPONODE_SOURCE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2203867372,
     data2: 57461,
     data3: 19399,
     data4: [188, 186, 77, 224, 0, 223, 154, 230],
 };
-pub const MF_TOPONODE_STREAMID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 345190299, data2: 36999, data3: 19380, data4: [132, 18, 81, 103, 20, 92, 190, 4] };
-pub const MF_TOPONODE_STREAM_DESCRIPTOR: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_TOPONODE_STREAMID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 345190299, data2: 36999, data3: 19380, data4: [132, 18, 81, 103, 20, 92, 190, 4] };
+pub const MF_TOPONODE_STREAM_DESCRIPTOR: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2203867374,
     data2: 57461,
     data3: 19399,
     data4: [188, 186, 77, 224, 0, 223, 154, 230],
 };
-pub const MF_TOPONODE_TRANSFORM_OBJECTID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_TOPONODE_TRANSFORM_OBJECTID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2296168649,
     data2: 10558,
     data3: 20107,
     data4: [154, 235, 10, 214, 76, 192, 22, 176],
 };
-pub const MF_TOPONODE_WORKQUEUE_ID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_TOPONODE_WORKQUEUE_ID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1229700344,
     data2: 45105,
     data3: 20024,
     data4: [151, 196, 213, 66, 45, 214, 24, 220],
 };
-pub const MF_TOPONODE_WORKQUEUE_ITEM_PRIORITY: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_TOPONODE_WORKQUEUE_ITEM_PRIORITY: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2717882814,
     data2: 24215,
     data3: 19027,
     data4: [180, 148, 86, 140, 100, 44, 15, 243],
 };
-pub const MF_TOPONODE_WORKQUEUE_MMCSS_CLASS: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_TOPONODE_WORKQUEUE_MMCSS_CLASS: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1229700345,
     data2: 45105,
     data3: 20024,
     data4: [151, 196, 213, 66, 45, 214, 24, 220],
 };
-pub const MF_TOPONODE_WORKQUEUE_MMCSS_PRIORITY: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_TOPONODE_WORKQUEUE_MMCSS_PRIORITY: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1342306368,
     data2: 10262,
     data3: 18676,
     data4: [147, 100, 173, 30, 246, 97, 161, 35],
 };
-pub const MF_TOPONODE_WORKQUEUE_MMCSS_TASKID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_TOPONODE_WORKQUEUE_MMCSS_TASKID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1229700351,
     data2: 45105,
     data3: 20024,
@@ -15007,7 +17137,7 @@ impl ::core::clone::Clone for MF_TOPOSTATUS {
         *self
     }
 }
-pub const MF_TRANSCODE_ADJUST_PROFILE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_TRANSCODE_ADJUST_PROFILE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2620899867,
     data2: 1551,
     data3: 18556,
@@ -15023,26 +17153,26 @@ impl ::core::clone::Clone for MF_TRANSCODE_ADJUST_PROFILE_FLAGS {
         *self
     }
 }
-pub const MF_TRANSCODE_CONTAINERTYPE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_TRANSCODE_CONTAINERTYPE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 353366591,
     data2: 19132,
     data3: 18315,
     data4: [172, 79, 225, 145, 111, 186, 28, 202],
 };
-pub const MF_TRANSCODE_DONOT_INSERT_ENCODER: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4099581902, data2: 43812, data3: 16402, data4: [161, 27, 220, 130, 32, 32, 20, 16] };
-pub const MF_TRANSCODE_ENCODINGPROFILE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_TRANSCODE_DONOT_INSERT_ENCODER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4099581902, data2: 43812, data3: 16402, data4: [161, 27, 220, 130, 32, 32, 20, 16] };
+pub const MF_TRANSCODE_ENCODINGPROFILE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1766291580,
     data2: 62728,
     data3: 20137,
     data4: [177, 233, 161, 254, 58, 73, 251, 201],
 };
-pub const MF_TRANSCODE_QUALITYVSSPEED: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2553490936, data2: 973, data3: 18283, data4: [137, 250, 63, 158, 68, 45, 236, 159] };
+pub const MF_TRANSCODE_QUALITYVSSPEED: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2553490936, data2: 973, data3: 18283, data4: [137, 250, 63, 158, 68, 45, 236, 159] };
 #[repr(C)]
 pub struct MF_TRANSCODE_SINK_INFO {
     pub dwVideoStreamID: u32,
-    pub pVideoMediaType: ::core::option::Option<IMFMediaType>,
+    pub pVideoMediaType: IMFMediaType,
     pub dwAudioStreamID: u32,
-    pub pAudioMediaType: ::core::option::Option<IMFMediaType>,
+    pub pAudioMediaType: IMFMediaType,
 }
 impl ::core::marker::Copy for MF_TRANSCODE_SINK_INFO {}
 impl ::core::clone::Clone for MF_TRANSCODE_SINK_INFO {
@@ -15050,13 +17180,13 @@ impl ::core::clone::Clone for MF_TRANSCODE_SINK_INFO {
         *self
     }
 }
-pub const MF_TRANSCODE_SKIP_METADATA_TRANSFER: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_TRANSCODE_SKIP_METADATA_TRANSFER: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1313106415,
     data2: 46449,
     data3: 18777,
     data4: [143, 131, 61, 207, 186, 51, 163, 147],
 };
-pub const MF_TRANSCODE_TOPOLOGYMODE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_TRANSCODE_TOPOLOGYMODE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1044248080,
     data2: 14666,
     data3: 16562,
@@ -15072,25 +17202,25 @@ impl ::core::clone::Clone for MF_TRANSCODE_TOPOLOGYMODE_FLAGS {
         *self
     }
 }
-pub const MF_TRANSFORM_ASYNC: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_TRANSFORM_ASYNC: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4162480538,
     data2: 25754,
     data3: 18813,
     data4: [140, 115, 41, 248, 254, 214, 173, 122],
 };
-pub const MF_TRANSFORM_ASYNC_UNLOCK: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_TRANSFORM_ASYNC_UNLOCK: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3848695147,
     data2: 13346,
     data3: 20150,
     data4: [164, 33, 218, 125, 177, 248, 226, 7],
 };
-pub const MF_TRANSFORM_CATEGORY_Attribute: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_TRANSFORM_CATEGORY_Attribute: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3467360841,
     data2: 20589,
     data3: 18263,
     data4: [166, 255, 102, 193, 132, 152, 126, 78],
 };
-pub const MF_TRANSFORM_FLAGS_Attribute: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2472131454, data2: 25205, data3: 18116, data4: [160, 37, 28, 1, 228, 95, 26, 134] };
+pub const MF_TRANSFORM_FLAGS_Attribute: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2472131454, data2: 25205, data3: 18116, data4: [160, 37, 28, 1, 228, 95, 26, 134] };
 pub const MF_TYPE_ERR: u32 = 2154840069u32;
 pub const MF_UNKNOWN_DURATION: u32 = 0u32;
 #[repr(transparent)]
@@ -15104,12 +17234,12 @@ impl ::core::clone::Clone for MF_URL_TRUST_STATUS {
         *self
     }
 }
-pub const MF_USER_DATA_PAYLOAD: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3520370781, data2: 56466, data3: 17786, data4: [179, 160, 101, 26, 51, 163, 16, 71] };
-pub const MF_USER_EXTENDED_ATTRIBUTES: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3224025798, data2: 65202, data3: 17729, data4: [146, 47, 146, 11, 67, 112, 39, 34] };
+pub const MF_USER_DATA_PAYLOAD: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3520370781, data2: 56466, data3: 17786, data4: [179, 160, 101, 26, 51, 163, 16, 71] };
+pub const MF_USER_EXTENDED_ATTRIBUTES: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3224025798, data2: 65202, data3: 17729, data4: [146, 47, 146, 11, 67, 112, 39, 34] };
 pub const MF_USER_MODE_COMPONENT_LOAD: u32 = 1u32;
-pub const MF_VIDEODSP_MODE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 383197424, data2: 30348, data3: 4574, data4: [138, 57, 8, 0, 32, 12, 154, 102] };
-pub const MF_VIDEO_MAX_MB_PER_SEC: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3824345603, data2: 54341, data3: 19340, data4: [146, 17, 174, 57, 13, 59, 160, 23] };
-pub const MF_VIDEO_PROCESSOR_ALGORITHM: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_VIDEODSP_MODE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 383197424, data2: 30348, data3: 4574, data4: [138, 57, 8, 0, 32, 12, 154, 102] };
+pub const MF_VIDEO_MAX_MB_PER_SEC: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3824345603, data2: 54341, data3: 19340, data4: [146, 17, 174, 57, 13, 59, 160, 23] };
+pub const MF_VIDEO_PROCESSOR_ALGORITHM: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1242177055,
     data2: 10028,
     data3: 20406,
@@ -15146,7 +17276,7 @@ impl ::core::clone::Clone for MF_VIDEO_PROCESSOR_ROTATION {
         *self
     }
 }
-pub const MF_VIDEO_RENDERER_EFFECT_APP_SERVICE_NAME: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_VIDEO_RENDERER_EFFECT_APP_SERVICE_NAME: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3322227328,
     data2: 28060,
     data3: 16547,
@@ -15164,40 +17294,40 @@ impl ::core::clone::Clone for MF_VIDEO_SPHERICAL_VIEWDIRECTION {
         *self
     }
 }
-pub const MF_VIRTUALCAMERA_CONFIGURATION_APP_PACKAGE_FAMILY_NAME: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_VIRTUALCAMERA_CONFIGURATION_APP_PACKAGE_FAMILY_NAME: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1703591505,
     data2: 32836,
     data3: 17966,
     data4: [151, 234, 230, 118, 253, 114, 5, 95],
 };
-pub const MF_WORKQUEUE_SERVICES: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_WORKQUEUE_SERVICES: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2386023561,
     data2: 16864,
     data3: 16698,
     data4: [144, 104, 40, 124, 136, 109, 141, 218],
 };
-pub const MF_WRAPPED_BUFFER_SERVICE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2874425458, data2: 49769, data3: 20156, data4: [165, 82, 28, 59, 50, 190, 213, 202] };
-pub const MF_WRAPPED_OBJECT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_WRAPPED_BUFFER_SERVICE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2874425458, data2: 49769, data3: 20156, data4: [165, 82, 28, 59, 50, 190, 213, 202] };
+pub const MF_WRAPPED_OBJECT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 723004492,
     data2: 54956,
     data3: 18932,
     data4: [137, 21, 247, 24, 135, 219, 112, 205],
 };
-pub const MF_WRAPPED_SAMPLE_SERVICE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 838151154, data2: 53310, data3: 16456, data4: [128, 208, 156, 16, 70, 216, 124, 97] };
-pub const MF_WVC1_PROG_SINGLE_SLICE_CONTENT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_WRAPPED_SAMPLE_SERVICE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 838151154, data2: 53310, data3: 16456, data4: [128, 208, 156, 16, 70, 216, 124, 97] };
+pub const MF_WVC1_PROG_SINGLE_SLICE_CONTENT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1743529305,
     data2: 3887,
     data3: 17440,
     data4: [164, 221, 47, 142, 231, 165, 115, 139],
 };
-pub const MF_XVP_CALLER_ALLOCATES_OUTPUT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 77777596, data2: 3243, data3: 16561, data4: [161, 185, 117, 188, 54, 88, 240, 0] };
-pub const MF_XVP_DISABLE_FRC: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MF_XVP_CALLER_ALLOCATES_OUTPUT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 77777596, data2: 3243, data3: 16561, data4: [161, 185, 117, 188, 54, 88, 240, 0] };
+pub const MF_XVP_DISABLE_FRC: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 738916889,
     data2: 31383,
     data3: 19802,
     data4: [158, 232, 22, 212, 252, 81, 141, 140],
 };
-pub const MF_XVP_SAMPLE_LOCK_TIMEOUT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2857229097, data2: 20788, data3: 17251, data4: [172, 114, 131, 236, 75, 193, 4, 38] };
+pub const MF_XVP_SAMPLE_LOCK_TIMEOUT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2857229097, data2: 20788, data3: 17251, data4: [172, 114, 131, 236, 75, 193, 4, 38] };
 #[repr(transparent)]
 pub struct MIC_ARRAY_MODE(pub i32);
 pub const MICARRAY_SINGLE_CHAN: MIC_ARRAY_MODE = MIC_ARRAY_MODE(0i32);
@@ -15240,37 +17370,37 @@ impl ::core::clone::Clone for MOVE_RECT {
         *self
     }
 }
-pub const MP3ACMCodecWrapper: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 286274593, data2: 13644, data3: 19658, data4: [167, 163, 26, 255, 154, 91, 103, 1] };
-pub const MR_AUDIO_POLICY_SERVICE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MP3ACMCodecWrapper: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 286274593, data2: 13644, data3: 19658, data4: [167, 163, 26, 255, 154, 91, 103, 1] };
+pub const MR_AUDIO_POLICY_SERVICE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2434783031,
     data2: 26485,
     data3: 19120,
     data4: [166, 20, 41, 120, 98, 253, 172, 136],
 };
-pub const MR_BUFFER_SERVICE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MR_BUFFER_SERVICE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2774672524,
     data2: 39622,
     data3: 20476,
     data4: [159, 186, 58, 248, 248, 173, 26, 77],
 };
-pub const MR_CAPTURE_POLICY_VOLUME_SERVICE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 604179149, data2: 4218, data3: 16997, data4: [151, 92, 65, 78, 51, 230, 95, 42] };
-pub const MR_POLICY_VOLUME_SERVICE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 448438956, data2: 40251, data3: 18374, data4: [171, 72, 197, 149, 6, 222, 120, 77] };
-pub const MR_STREAM_VOLUME_SERVICE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4172675631, data2: 13039, data3: 18165, data4: [177, 114, 19, 33, 33, 47, 178, 196] };
-pub const MR_VIDEO_ACCELERATION_SERVICE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MR_CAPTURE_POLICY_VOLUME_SERVICE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 604179149, data2: 4218, data3: 16997, data4: [151, 92, 65, 78, 51, 230, 95, 42] };
+pub const MR_POLICY_VOLUME_SERVICE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 448438956, data2: 40251, data3: 18374, data4: [171, 72, 197, 149, 6, 222, 120, 77] };
+pub const MR_STREAM_VOLUME_SERVICE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4172675631, data2: 13039, data3: 18165, data4: [177, 114, 19, 33, 33, 47, 178, 196] };
+pub const MR_VIDEO_ACCELERATION_SERVICE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4025438581,
     data2: 23677,
     data3: 19682,
     data4: [187, 189, 52, 255, 139, 202, 101, 84],
 };
-pub const MR_VIDEO_MIXER_SERVICE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 121426684, data2: 27892, data3: 16567, data4: [136, 89, 232, 149, 82, 200, 65, 248] };
-pub const MR_VIDEO_RENDER_SERVICE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 278046828, data2: 43802, data3: 17818, data4: [163, 54, 131, 31, 188, 77, 17, 255] };
-pub const MSAMRNBDecoder: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MR_VIDEO_MIXER_SERVICE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 121426684, data2: 27892, data3: 16567, data4: [136, 89, 232, 149, 82, 200, 65, 248] };
+pub const MR_VIDEO_RENDER_SERVICE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 278046828, data2: 43802, data3: 17818, data4: [163, 54, 131, 31, 188, 77, 17, 255] };
+pub const MSAMRNBDecoder: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 642781614,
     data2: 21633,
     data3: 20343,
     data4: [162, 149, 171, 182, 255, 232, 214, 62],
 };
-pub const MSAMRNBEncoder: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 799967998, data2: 1187, data3: 16954, data4: [168, 20, 133, 219, 69, 71, 18, 176] };
+pub const MSAMRNBEncoder: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 799967998, data2: 1187, data3: 16954, data4: [168, 20, 133, 219, 69, 71, 18, 176] };
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MT_ARBITRARY_HEADER {
@@ -15306,7 +17436,7 @@ impl ::core::clone::Clone for MT_CUSTOM_VIDEO_PRIMARIES {
         *self
     }
 }
-pub const MULawCodecWrapper: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2461425792, data2: 24109, data3: 17566, data4: [144, 196, 196, 31, 38, 142, 85, 20] };
+pub const MULawCodecWrapper: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2461425792, data2: 24109, data3: 17566, data4: [144, 196, 196, 31, 38, 142, 85, 20] };
 #[repr(C, packed(1))]
 pub struct OPM_ACP_AND_CGMSA_SIGNALING {
     pub rnRandomNumber: OPM_RANDOM_NUMBER,
@@ -15471,21 +17601,21 @@ impl ::core::clone::Clone for OPM_ENCRYPTED_INITIALIZATION_PARAMETERS {
         *self
     }
 }
-pub const OPM_GET_ACP_AND_CGMSA_SIGNALING: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const OPM_GET_ACP_AND_CGMSA_SIGNALING: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1714005393,
     data2: 15225,
     data3: 19699,
     data4: [146, 74, 17, 232, 231, 129, 22, 113],
 };
-pub const OPM_GET_ACTUAL_OUTPUT_FORMAT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3619625891, data2: 44307, data3: 20366, data4: [175, 152, 13, 203, 60, 162, 4, 204] };
-pub const OPM_GET_ACTUAL_PROTECTION_LEVEL: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const OPM_GET_ACTUAL_OUTPUT_FORMAT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3619625891, data2: 44307, data3: 20366, data4: [175, 152, 13, 203, 60, 162, 4, 204] };
+pub const OPM_GET_ACTUAL_PROTECTION_LEVEL: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 425140490,
     data2: 30566,
     data3: 17706,
     data4: [185, 154, 210, 122, 237, 84, 240, 58],
 };
-pub const OPM_GET_ADAPTER_BUS_TYPE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3337934451, data2: 24948, data3: 16772, data4: [142, 53, 246, 219, 82, 0, 188, 186] };
-pub const OPM_GET_CODEC_INFO: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const OPM_GET_ADAPTER_BUS_TYPE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3337934451, data2: 24948, data3: 16772, data4: [142, 53, 246, 219, 82, 0, 188, 186] };
+pub const OPM_GET_CODEC_INFO: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1329022097,
     data2: 36703,
     data3: 17477,
@@ -15513,15 +17643,15 @@ impl ::core::clone::Clone for OPM_GET_CODEC_INFO_PARAMETERS {
         *self
     }
 }
-pub const OPM_GET_CONNECTED_HDCP_DEVICE_INFORMATION: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 230006132, data2: 43410, data3: 18734, data4: [160, 189, 194, 63, 218, 86, 78, 0] };
-pub const OPM_GET_CONNECTOR_TYPE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const OPM_GET_CONNECTED_HDCP_DEVICE_INFORMATION: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 230006132, data2: 43410, data3: 18734, data4: [160, 189, 194, 63, 218, 86, 78, 0] };
+pub const OPM_GET_CONNECTOR_TYPE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2177941461,
     data2: 27390,
     data3: 18626,
     data4: [153, 192, 149, 160, 143, 151, 197, 218],
 };
-pub const OPM_GET_CURRENT_HDCP_SRM_VERSION: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2579877631, data2: 24349, data3: 18553, data4: [129, 193, 197, 36, 67, 201, 72, 43] };
-pub const OPM_GET_DVI_CHARACTERISTICS: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const OPM_GET_CURRENT_HDCP_SRM_VERSION: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2579877631, data2: 24349, data3: 18553, data4: [129, 193, 197, 36, 67, 201, 72, 43] };
+pub const OPM_GET_DVI_CHARACTERISTICS: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2758849467,
     data2: 24023,
     data3: 16754,
@@ -15542,10 +17672,10 @@ impl ::core::clone::Clone for OPM_GET_INFO_PARAMETERS {
         *self
     }
 }
-pub const OPM_GET_OUTPUT_HARDWARE_PROTECTION_SUPPORT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 991073673, data2: 11000, data3: 20208, data4: [150, 162, 112, 74, 132, 90, 33, 142] };
-pub const OPM_GET_OUTPUT_ID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1925934579, data2: 9295, data3: 16590, data4: [176, 158, 32, 80, 106, 246, 48, 47] };
-pub const OPM_GET_SUPPORTED_PROTECTION_TYPES: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 955426817, data2: 39532, data3: 18619, data4: [145, 7, 182, 105, 110, 111, 23, 151] };
-pub const OPM_GET_VIRTUAL_PROTECTION_LEVEL: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2986825815, data2: 16090, data3: 19805, data4: [136, 219, 116, 143, 140, 26, 5, 73] };
+pub const OPM_GET_OUTPUT_HARDWARE_PROTECTION_SUPPORT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 991073673, data2: 11000, data3: 20208, data4: [150, 162, 112, 74, 132, 90, 33, 142] };
+pub const OPM_GET_OUTPUT_ID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1925934579, data2: 9295, data3: 16590, data4: [176, 158, 32, 80, 106, 246, 48, 47] };
+pub const OPM_GET_SUPPORTED_PROTECTION_TYPES: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 955426817, data2: 39532, data3: 18619, data4: [145, 7, 182, 105, 110, 111, 23, 151] };
+pub const OPM_GET_VIRTUAL_PROTECTION_LEVEL: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2986825815, data2: 16090, data3: 19805, data4: [136, 219, 116, 143, 140, 26, 5, 73] };
 #[repr(transparent)]
 pub struct OPM_HDCP_FLAGS(pub u32);
 pub const OPM_HDCP_FLAG_NONE: OPM_HDCP_FLAGS = OPM_HDCP_FLAGS(0u32);
@@ -15709,7 +17839,7 @@ impl ::core::clone::Clone for OPM_REQUESTED_INFORMATION {
         *self
     }
 }
-pub const OPM_SET_ACP_AND_CGMSA_SIGNALING: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 161886629, data2: 54916, data3: 19552, data4: [142, 77, 211, 187, 15, 11, 227, 238] };
+pub const OPM_SET_ACP_AND_CGMSA_SIGNALING: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 161886629, data2: 54916, data3: 19552, data4: [142, 77, 211, 187, 15, 11, 227, 238] };
 #[repr(C, packed(1))]
 pub struct OPM_SET_ACP_AND_CGMSA_SIGNALING_PARAMETERS {
     pub ulNewTVProtectionStandard: u32,
@@ -15729,7 +17859,7 @@ impl ::core::clone::Clone for OPM_SET_ACP_AND_CGMSA_SIGNALING_PARAMETERS {
         *self
     }
 }
-pub const OPM_SET_HDCP_SRM: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const OPM_SET_HDCP_SRM: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2338256337,
     data2: 49933,
     data3: 17663,
@@ -15745,8 +17875,8 @@ impl ::core::clone::Clone for OPM_SET_HDCP_SRM_PARAMETERS {
         *self
     }
 }
-pub const OPM_SET_PROTECTION_LEVEL: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2612605564, data2: 20149, data3: 18215, data4: [159, 0, 180, 43, 9, 25, 192, 218] };
-pub const OPM_SET_PROTECTION_LEVEL_ACCORDING_TO_CSS_DVD: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const OPM_SET_PROTECTION_LEVEL: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2612605564, data2: 20149, data3: 18215, data4: [159, 0, 180, 43, 9, 25, 192, 218] };
+pub const OPM_SET_PROTECTION_LEVEL_ACCORDING_TO_CSS_DVD: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 969814846,
     data2: 19648,
     data3: 17582,
@@ -16017,13 +18147,13 @@ impl ::core::clone::Clone for TOC_POS_TYPE {
         *self
     }
 }
-pub const VIDEO_ZOOM_RECT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const VIDEO_ZOOM_RECT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2057967160,
     data2: 7039,
     data3: 19603,
     data4: [189, 137, 91, 156, 159, 182, 252, 240],
 };
-pub const VorbisDecoderMFT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 437882610, data2: 24805, data3: 20136, data4: [144, 216, 218, 31, 40, 50, 194, 136] };
+pub const VorbisDecoderMFT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 437882610, data2: 24805, data3: 20136, data4: [144, 216, 218, 31, 40, 50, 194, 136] };
 pub const WMAAECMA_E_NO_ACTIVE_RENDER_STREAM: u32 = 2278293514u32;
 #[repr(transparent)]
 pub struct WMT_PROP_DATATYPE(pub i32);

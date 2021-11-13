@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
@@ -311,8 +311,20 @@ impl ::core::clone::Clone for IFILTER_INIT {
 }
 #[repr(transparent)]
 pub struct IFilter(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFilter {}
+impl ::core::clone::Clone for IFilter {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPhraseSink(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPhraseSink {}
+impl ::core::clone::Clone for IPhraseSink {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const LIFF_FORCE_TEXT_FILTER_FALLBACK: u32 = 3u32;
 pub const LIFF_IMPLEMENT_TEXT_FILTER_FALLBACK_POLICY: u32 = 2u32;
 pub const LIFF_LOAD_DEFINED_FILTER: u32 = 1u32;

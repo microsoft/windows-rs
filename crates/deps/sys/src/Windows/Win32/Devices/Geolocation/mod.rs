@@ -1,18 +1,18 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {}
 pub const BREADCRUMBING_UNSUPPORTED: u32 = 0u32;
 pub const BREADCRUMBING_VERSION_1: u32 = 1u32;
-pub const CivicAddressReport: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3550378973, data2: 32005, data3: 18104, data4: [135, 33, 128, 207, 3, 95, 87, 215] };
-pub const CivicAddressReportFactory: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 705819692, data2: 16001, data3: 19156, data4: [156, 190, 69, 87, 157, 137, 103, 26] };
-pub const DefaultLocation: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2340405216, data2: 23767, data3: 18762, data4: [175, 140, 40, 58, 101, 112, 117, 6] };
-pub const DispCivicAddressReport: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CivicAddressReport: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3550378973, data2: 32005, data3: 18104, data4: [135, 33, 128, 207, 3, 95, 87, 215] };
+pub const CivicAddressReportFactory: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 705819692, data2: 16001, data3: 19156, data4: [156, 190, 69, 87, 157, 137, 103, 26] };
+pub const DefaultLocation: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2340405216, data2: 23767, data3: 18762, data4: [175, 140, 40, 58, 101, 112, 117, 6] };
+pub const DispCivicAddressReport: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1280928492,
     data2: 34116,
     data3: 16514,
     data4: [186, 159, 235, 10, 125, 142, 101, 198],
 };
-pub const DispLatLongReport: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const DispLatLongReport: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2054959735,
     data2: 36740,
     data3: 17974,
@@ -1176,31 +1176,103 @@ impl ::core::clone::Clone for GNSS_V2UPL_NI_INFO {
         *self
     }
 }
-pub const GUID_DEVINTERFACE_GNSS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 859235812, data2: 394, data3: 18025, data4: [132, 197, 189, 5, 243, 189, 54, 139] };
+pub const GUID_DEVINTERFACE_GNSS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 859235812, data2: 394, data3: 18025, data4: [132, 197, 189, 5, 243, 189, 54, 139] };
 #[repr(transparent)]
 pub struct ICivicAddressReport(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICivicAddressReport {}
+impl ::core::clone::Clone for ICivicAddressReport {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICivicAddressReportFactory(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICivicAddressReportFactory {}
+impl ::core::clone::Clone for ICivicAddressReportFactory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDefaultLocation(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDefaultLocation {}
+impl ::core::clone::Clone for IDefaultLocation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDispCivicAddressReport(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDispCivicAddressReport {}
+impl ::core::clone::Clone for IDispCivicAddressReport {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDispLatLongReport(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDispLatLongReport {}
+impl ::core::clone::Clone for IDispLatLongReport {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ILatLongReport(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ILatLongReport {}
+impl ::core::clone::Clone for ILatLongReport {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ILatLongReportFactory(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ILatLongReportFactory {}
+impl ::core::clone::Clone for ILatLongReportFactory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ILocation(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ILocation {}
+impl ::core::clone::Clone for ILocation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ILocationEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ILocationEvents {}
+impl ::core::clone::Clone for ILocationEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ILocationPower(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ILocationPower {}
+impl ::core::clone::Clone for ILocationPower {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ILocationReport(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ILocationReport {}
+impl ::core::clone::Clone for ILocationReport {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ILocationReportFactory(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ILocationReportFactory {}
+impl ::core::clone::Clone for ILocationReportFactory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const IOCTL_GNSS_CONFIG_SUPL_CERT: u32 = 2228488u32;
 pub const IOCTL_GNSS_CREATE_GEOFENCE: u32 = 2228544u32;
 pub const IOCTL_GNSS_DELETE_GEOFENCE: u32 = 2228548u32;
@@ -1243,9 +1315,9 @@ impl ::core::clone::Clone for LOCATION_REPORT_STATUS {
         *self
     }
 }
-pub const LatLongReport: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3984703603, data2: 8068, data3: 19624, data4: [161, 97, 24, 60, 119, 107, 198, 81] };
-pub const LatLongReportFactory: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2647407816, data2: 34313, data3: 18531, data4: [186, 212, 3, 96, 31, 76, 101, 232] };
-pub const Location: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const LatLongReport: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3984703603, data2: 8068, data3: 19624, data4: [161, 97, 24, 60, 119, 107, 198, 81] };
+pub const LatLongReportFactory: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2647407816, data2: 34313, data3: 18531, data4: [186, 212, 3, 96, 31, 76, 101, 232] };
+pub const Location: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3854098553,
     data2: 61037,
     data3: 20019,
@@ -1256,5 +1328,17 @@ pub const MIN_BREADCRUMBS_SUPPORTED: u32 = 120u32;
 pub const MIN_GEOFENCES_REQUIRED: u32 = 100u32;
 #[repr(transparent)]
 pub struct _ICivicAddressReportFactoryEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for _ICivicAddressReportFactoryEvents {}
+impl ::core::clone::Clone for _ICivicAddressReportFactoryEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct _ILatLongReportFactoryEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for _ILatLongReportFactoryEvents {}
+impl ::core::clone::Clone for _ILatLongReportFactoryEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
     pub fn DWriteCreateFactory(factorytype: DWRITE_FACTORY_TYPE, iid: *const ::windows_sys::core::GUID, factory: *mut ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT;
@@ -610,7 +610,7 @@ impl ::core::clone::Clone for DWRITE_GLYPH_ORIENTATION_ANGLE {
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DWRITE_GLYPH_RUN {
-    pub fontFace: ::core::option::Option<IDWriteFontFace>,
+    pub fontFace: IDWriteFontFace,
     pub fontEmSize: f32,
     pub glyphCount: u32,
     pub glyphIndices: *mut u16,
@@ -1771,179 +1771,713 @@ impl ::core::clone::Clone for DWRITE_WORD_WRAPPING {
 pub const FACILITY_DWRITE: u32 = 2200u32;
 #[repr(transparent)]
 pub struct IDWriteAsyncResult(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDWriteAsyncResult {}
+impl ::core::clone::Clone for IDWriteAsyncResult {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDWriteBitmapRenderTarget(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDWriteBitmapRenderTarget {}
+impl ::core::clone::Clone for IDWriteBitmapRenderTarget {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDWriteBitmapRenderTarget1(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDWriteBitmapRenderTarget1 {}
+impl ::core::clone::Clone for IDWriteBitmapRenderTarget1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDWriteColorGlyphRunEnumerator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDWriteColorGlyphRunEnumerator {}
+impl ::core::clone::Clone for IDWriteColorGlyphRunEnumerator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDWriteColorGlyphRunEnumerator1(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDWriteColorGlyphRunEnumerator1 {}
+impl ::core::clone::Clone for IDWriteColorGlyphRunEnumerator1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDWriteFactory(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDWriteFactory {}
+impl ::core::clone::Clone for IDWriteFactory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDWriteFactory1(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDWriteFactory1 {}
+impl ::core::clone::Clone for IDWriteFactory1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDWriteFactory2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDWriteFactory2 {}
+impl ::core::clone::Clone for IDWriteFactory2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDWriteFactory3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDWriteFactory3 {}
+impl ::core::clone::Clone for IDWriteFactory3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDWriteFactory4(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDWriteFactory4 {}
+impl ::core::clone::Clone for IDWriteFactory4 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDWriteFactory5(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDWriteFactory5 {}
+impl ::core::clone::Clone for IDWriteFactory5 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDWriteFactory6(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDWriteFactory6 {}
+impl ::core::clone::Clone for IDWriteFactory6 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDWriteFactory7(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDWriteFactory7 {}
+impl ::core::clone::Clone for IDWriteFactory7 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDWriteFont(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDWriteFont {}
+impl ::core::clone::Clone for IDWriteFont {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDWriteFont1(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDWriteFont1 {}
+impl ::core::clone::Clone for IDWriteFont1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDWriteFont2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDWriteFont2 {}
+impl ::core::clone::Clone for IDWriteFont2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDWriteFont3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDWriteFont3 {}
+impl ::core::clone::Clone for IDWriteFont3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDWriteFontCollection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDWriteFontCollection {}
+impl ::core::clone::Clone for IDWriteFontCollection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDWriteFontCollection1(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDWriteFontCollection1 {}
+impl ::core::clone::Clone for IDWriteFontCollection1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDWriteFontCollection2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDWriteFontCollection2 {}
+impl ::core::clone::Clone for IDWriteFontCollection2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDWriteFontCollection3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDWriteFontCollection3 {}
+impl ::core::clone::Clone for IDWriteFontCollection3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDWriteFontCollectionLoader(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDWriteFontCollectionLoader {}
+impl ::core::clone::Clone for IDWriteFontCollectionLoader {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDWriteFontDownloadListener(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDWriteFontDownloadListener {}
+impl ::core::clone::Clone for IDWriteFontDownloadListener {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDWriteFontDownloadQueue(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDWriteFontDownloadQueue {}
+impl ::core::clone::Clone for IDWriteFontDownloadQueue {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDWriteFontFace(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDWriteFontFace {}
+impl ::core::clone::Clone for IDWriteFontFace {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDWriteFontFace1(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDWriteFontFace1 {}
+impl ::core::clone::Clone for IDWriteFontFace1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDWriteFontFace2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDWriteFontFace2 {}
+impl ::core::clone::Clone for IDWriteFontFace2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDWriteFontFace3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDWriteFontFace3 {}
+impl ::core::clone::Clone for IDWriteFontFace3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDWriteFontFace4(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDWriteFontFace4 {}
+impl ::core::clone::Clone for IDWriteFontFace4 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDWriteFontFace5(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDWriteFontFace5 {}
+impl ::core::clone::Clone for IDWriteFontFace5 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDWriteFontFace6(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDWriteFontFace6 {}
+impl ::core::clone::Clone for IDWriteFontFace6 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDWriteFontFaceReference(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDWriteFontFaceReference {}
+impl ::core::clone::Clone for IDWriteFontFaceReference {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDWriteFontFaceReference1(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDWriteFontFaceReference1 {}
+impl ::core::clone::Clone for IDWriteFontFaceReference1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDWriteFontFallback(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDWriteFontFallback {}
+impl ::core::clone::Clone for IDWriteFontFallback {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDWriteFontFallback1(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDWriteFontFallback1 {}
+impl ::core::clone::Clone for IDWriteFontFallback1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDWriteFontFallbackBuilder(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDWriteFontFallbackBuilder {}
+impl ::core::clone::Clone for IDWriteFontFallbackBuilder {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDWriteFontFamily(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDWriteFontFamily {}
+impl ::core::clone::Clone for IDWriteFontFamily {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDWriteFontFamily1(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDWriteFontFamily1 {}
+impl ::core::clone::Clone for IDWriteFontFamily1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDWriteFontFamily2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDWriteFontFamily2 {}
+impl ::core::clone::Clone for IDWriteFontFamily2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDWriteFontFile(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDWriteFontFile {}
+impl ::core::clone::Clone for IDWriteFontFile {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDWriteFontFileEnumerator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDWriteFontFileEnumerator {}
+impl ::core::clone::Clone for IDWriteFontFileEnumerator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDWriteFontFileLoader(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDWriteFontFileLoader {}
+impl ::core::clone::Clone for IDWriteFontFileLoader {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDWriteFontFileStream(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDWriteFontFileStream {}
+impl ::core::clone::Clone for IDWriteFontFileStream {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDWriteFontList(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDWriteFontList {}
+impl ::core::clone::Clone for IDWriteFontList {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDWriteFontList1(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDWriteFontList1 {}
+impl ::core::clone::Clone for IDWriteFontList1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDWriteFontList2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDWriteFontList2 {}
+impl ::core::clone::Clone for IDWriteFontList2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDWriteFontResource(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDWriteFontResource {}
+impl ::core::clone::Clone for IDWriteFontResource {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDWriteFontSet(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDWriteFontSet {}
+impl ::core::clone::Clone for IDWriteFontSet {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDWriteFontSet1(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDWriteFontSet1 {}
+impl ::core::clone::Clone for IDWriteFontSet1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDWriteFontSet2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDWriteFontSet2 {}
+impl ::core::clone::Clone for IDWriteFontSet2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDWriteFontSet3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDWriteFontSet3 {}
+impl ::core::clone::Clone for IDWriteFontSet3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDWriteFontSetBuilder(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDWriteFontSetBuilder {}
+impl ::core::clone::Clone for IDWriteFontSetBuilder {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDWriteFontSetBuilder1(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDWriteFontSetBuilder1 {}
+impl ::core::clone::Clone for IDWriteFontSetBuilder1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDWriteFontSetBuilder2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDWriteFontSetBuilder2 {}
+impl ::core::clone::Clone for IDWriteFontSetBuilder2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDWriteGdiInterop(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDWriteGdiInterop {}
+impl ::core::clone::Clone for IDWriteGdiInterop {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDWriteGdiInterop1(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDWriteGdiInterop1 {}
+impl ::core::clone::Clone for IDWriteGdiInterop1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDWriteGlyphRunAnalysis(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDWriteGlyphRunAnalysis {}
+impl ::core::clone::Clone for IDWriteGlyphRunAnalysis {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDWriteInMemoryFontFileLoader(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDWriteInMemoryFontFileLoader {}
+impl ::core::clone::Clone for IDWriteInMemoryFontFileLoader {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDWriteInlineObject(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDWriteInlineObject {}
+impl ::core::clone::Clone for IDWriteInlineObject {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDWriteLocalFontFileLoader(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDWriteLocalFontFileLoader {}
+impl ::core::clone::Clone for IDWriteLocalFontFileLoader {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDWriteLocalizedStrings(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDWriteLocalizedStrings {}
+impl ::core::clone::Clone for IDWriteLocalizedStrings {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDWriteNumberSubstitution(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDWriteNumberSubstitution {}
+impl ::core::clone::Clone for IDWriteNumberSubstitution {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDWritePixelSnapping(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDWritePixelSnapping {}
+impl ::core::clone::Clone for IDWritePixelSnapping {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDWriteRemoteFontFileLoader(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDWriteRemoteFontFileLoader {}
+impl ::core::clone::Clone for IDWriteRemoteFontFileLoader {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDWriteRemoteFontFileStream(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDWriteRemoteFontFileStream {}
+impl ::core::clone::Clone for IDWriteRemoteFontFileStream {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDWriteRenderingParams(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDWriteRenderingParams {}
+impl ::core::clone::Clone for IDWriteRenderingParams {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDWriteRenderingParams1(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDWriteRenderingParams1 {}
+impl ::core::clone::Clone for IDWriteRenderingParams1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDWriteRenderingParams2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDWriteRenderingParams2 {}
+impl ::core::clone::Clone for IDWriteRenderingParams2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDWriteRenderingParams3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDWriteRenderingParams3 {}
+impl ::core::clone::Clone for IDWriteRenderingParams3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDWriteStringList(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDWriteStringList {}
+impl ::core::clone::Clone for IDWriteStringList {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDWriteTextAnalysisSink(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDWriteTextAnalysisSink {}
+impl ::core::clone::Clone for IDWriteTextAnalysisSink {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDWriteTextAnalysisSink1(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDWriteTextAnalysisSink1 {}
+impl ::core::clone::Clone for IDWriteTextAnalysisSink1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDWriteTextAnalysisSource(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDWriteTextAnalysisSource {}
+impl ::core::clone::Clone for IDWriteTextAnalysisSource {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDWriteTextAnalysisSource1(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDWriteTextAnalysisSource1 {}
+impl ::core::clone::Clone for IDWriteTextAnalysisSource1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDWriteTextAnalyzer(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDWriteTextAnalyzer {}
+impl ::core::clone::Clone for IDWriteTextAnalyzer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDWriteTextAnalyzer1(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDWriteTextAnalyzer1 {}
+impl ::core::clone::Clone for IDWriteTextAnalyzer1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDWriteTextAnalyzer2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDWriteTextAnalyzer2 {}
+impl ::core::clone::Clone for IDWriteTextAnalyzer2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDWriteTextFormat(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDWriteTextFormat {}
+impl ::core::clone::Clone for IDWriteTextFormat {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDWriteTextFormat1(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDWriteTextFormat1 {}
+impl ::core::clone::Clone for IDWriteTextFormat1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDWriteTextFormat2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDWriteTextFormat2 {}
+impl ::core::clone::Clone for IDWriteTextFormat2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDWriteTextFormat3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDWriteTextFormat3 {}
+impl ::core::clone::Clone for IDWriteTextFormat3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDWriteTextLayout(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDWriteTextLayout {}
+impl ::core::clone::Clone for IDWriteTextLayout {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDWriteTextLayout1(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDWriteTextLayout1 {}
+impl ::core::clone::Clone for IDWriteTextLayout1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDWriteTextLayout2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDWriteTextLayout2 {}
+impl ::core::clone::Clone for IDWriteTextLayout2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDWriteTextLayout3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDWriteTextLayout3 {}
+impl ::core::clone::Clone for IDWriteTextLayout3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDWriteTextLayout4(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDWriteTextLayout4 {}
+impl ::core::clone::Clone for IDWriteTextLayout4 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDWriteTextRenderer(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDWriteTextRenderer {}
+impl ::core::clone::Clone for IDWriteTextRenderer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDWriteTextRenderer1(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDWriteTextRenderer1 {}
+impl ::core::clone::Clone for IDWriteTextRenderer1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDWriteTypography(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDWriteTypography {}
+impl ::core::clone::Clone for IDWriteTypography {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

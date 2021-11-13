@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[cfg(feature = "Devices_Adc")]
 pub mod Adc;
 #[cfg(feature = "Devices_AllJoyn")]
@@ -65,13 +65,49 @@ pub mod WiFiDirect;
 extern "system" {}
 #[repr(transparent)]
 pub struct ILowLevelDevicesAggregateProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ILowLevelDevicesAggregateProvider {}
+impl ::core::clone::Clone for ILowLevelDevicesAggregateProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ILowLevelDevicesAggregateProviderFactory(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ILowLevelDevicesAggregateProviderFactory {}
+impl ::core::clone::Clone for ILowLevelDevicesAggregateProviderFactory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ILowLevelDevicesController(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ILowLevelDevicesController {}
+impl ::core::clone::Clone for ILowLevelDevicesController {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ILowLevelDevicesControllerStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ILowLevelDevicesControllerStatics {}
+impl ::core::clone::Clone for ILowLevelDevicesControllerStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct LowLevelDevicesAggregateProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for LowLevelDevicesAggregateProvider {}
+impl ::core::clone::Clone for LowLevelDevicesAggregateProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct LowLevelDevicesController(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for LowLevelDevicesController {}
+impl ::core::clone::Clone for LowLevelDevicesController {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
     pub fn ApplyGuestMemoryFix(vmsavedstatedumphandle: *mut ::core::ffi::c_void, vpid: u32, virtualaddress: u64, fixbuffer: *const ::core::ffi::c_void, fixbuffersize: u32) -> ::windows_sys::core::HRESULT;
@@ -264,7 +264,7 @@ impl ::core::clone::Clone for GUEST_OS_VENDOR {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub type GUEST_SYMBOLS_PROVIDER_DEBUG_INFO_CALLBACK = unsafe extern "system" fn(infomessage: super::super::Foundation::PSTR);
-pub const GUID_DEVINTERFACE_VM_GENCOUNTER: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1072875819, data2: 26008, data3: 20064, data4: [142, 28, 12, 207, 73, 39, 227, 25] };
+pub const GUID_DEVINTERFACE_VM_GENCOUNTER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1072875819, data2: 26008, data3: 20064, data4: [142, 28, 12, 207, 73, 39, 227, 25] };
 #[repr(transparent)]
 pub struct HDV_DEVICE_TYPE(pub i32);
 pub const HdvDeviceTypeUndefined: HDV_DEVICE_TYPE = HDV_DEVICE_TYPE(0i32);
@@ -321,16 +321,16 @@ pub type HDV_PCI_DEVICE_INITIALIZE = unsafe extern "system" fn(devicecontext: *c
 #[cfg(feature = "Win32_Foundation")]
 pub struct HDV_PCI_DEVICE_INTERFACE {
     pub Version: HDV_PCI_INTERFACE_VERSION,
-    pub Initialize: ::core::option::Option<HDV_PCI_DEVICE_INITIALIZE>,
-    pub Teardown: ::core::option::Option<HDV_PCI_DEVICE_TEARDOWN>,
-    pub SetConfiguration: ::core::option::Option<HDV_PCI_DEVICE_SET_CONFIGURATION>,
-    pub GetDetails: ::core::option::Option<HDV_PCI_DEVICE_GET_DETAILS>,
-    pub Start: ::core::option::Option<HDV_PCI_DEVICE_START>,
-    pub Stop: ::core::option::Option<HDV_PCI_DEVICE_STOP>,
-    pub ReadConfigSpace: ::core::option::Option<HDV_PCI_READ_CONFIG_SPACE>,
-    pub WriteConfigSpace: ::core::option::Option<HDV_PCI_WRITE_CONFIG_SPACE>,
-    pub ReadInterceptedMemory: ::core::option::Option<HDV_PCI_READ_INTERCEPTED_MEMORY>,
-    pub WriteInterceptedMemory: ::core::option::Option<HDV_PCI_WRITE_INTERCEPTED_MEMORY>,
+    pub Initialize: HDV_PCI_DEVICE_INITIALIZE,
+    pub Teardown: HDV_PCI_DEVICE_TEARDOWN,
+    pub SetConfiguration: HDV_PCI_DEVICE_SET_CONFIGURATION,
+    pub GetDetails: HDV_PCI_DEVICE_GET_DETAILS,
+    pub Start: HDV_PCI_DEVICE_START,
+    pub Stop: HDV_PCI_DEVICE_STOP,
+    pub ReadConfigSpace: HDV_PCI_READ_CONFIG_SPACE,
+    pub WriteConfigSpace: HDV_PCI_WRITE_CONFIG_SPACE,
+    pub ReadInterceptedMemory: HDV_PCI_READ_INTERCEPTED_MEMORY,
+    pub WriteInterceptedMemory: HDV_PCI_WRITE_INTERCEPTED_MEMORY,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for HDV_PCI_DEVICE_INTERFACE {}
@@ -394,33 +394,33 @@ pub const HVSOCKET_CONNECTED_SUSPEND: u32 = 4u32;
 pub const HVSOCKET_CONNECT_TIMEOUT: u32 = 1u32;
 pub const HVSOCKET_CONNECT_TIMEOUT_MAX: u32 = 300000u32;
 pub const HVSOCKET_CONTAINER_PASSTHRU: u32 = 2u32;
-pub const HV_GUID_BROADCAST: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const HV_GUID_BROADCAST: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4294967295,
     data2: 65535,
     data3: 65535,
     data4: [255, 255, 255, 255, 255, 255, 255, 255],
 };
-pub const HV_GUID_CHILDREN: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const HV_GUID_CHILDREN: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2430307209,
     data2: 3381,
     data3: 20345,
     data4: [140, 233, 73, 234, 10, 200, 183, 205],
 };
-pub const HV_GUID_LOOPBACK: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const HV_GUID_LOOPBACK: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3772866967,
     data2: 56662,
     data3: 18960,
     data4: [145, 149, 94, 231, 161, 85, 168, 56],
 };
-pub const HV_GUID_PARENT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const HV_GUID_PARENT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2754510042,
     data2: 53311,
     data3: 18444,
     data4: [156, 194, 164, 222, 32, 171, 184, 120],
 };
-pub const HV_GUID_SILOHOST: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 918359132, data2: 29302, data3: 16931, data4: [136, 186, 125, 3, 182, 84, 197, 104] };
-pub const HV_GUID_VSOCK_TEMPLATE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 0, data2: 64203, data3: 4582, data4: [189, 88, 100, 0, 106, 121, 134, 211] };
-pub const HV_GUID_ZERO: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 0, data2: 0, data3: 0, data4: [0, 0, 0, 0, 0, 0, 0, 0] };
+pub const HV_GUID_SILOHOST: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 918359132, data2: 29302, data3: 16931, data4: [136, 186, 125, 3, 182, 84, 197, 104] };
+pub const HV_GUID_VSOCK_TEMPLATE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 0, data2: 64203, data3: 4582, data4: [189, 88, 100, 0, 106, 121, 134, 211] };
+pub const HV_GUID_ZERO: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 0, data2: 0, data3: 0, data4: [0, 0, 0, 0, 0, 0, 0, 0] };
 pub const HV_PROTOCOL_RAW: u32 = 1u32;
 pub const IOCTL_VMGENCOUNTER_READ: u32 = 3325956u32;
 #[repr(C)]
@@ -1051,11 +1051,11 @@ impl ::core::clone::Clone for WHV_DOORBELL_MATCH_DATA {
 pub struct WHV_EMULATOR_CALLBACKS {
     pub Size: u32,
     pub Reserved: u32,
-    pub WHvEmulatorIoPortCallback: ::core::option::Option<WHV_EMULATOR_IO_PORT_CALLBACK>,
-    pub WHvEmulatorMemoryCallback: ::core::option::Option<WHV_EMULATOR_MEMORY_CALLBACK>,
-    pub WHvEmulatorGetVirtualProcessorRegisters: ::core::option::Option<WHV_EMULATOR_GET_VIRTUAL_PROCESSOR_REGISTERS_CALLBACK>,
-    pub WHvEmulatorSetVirtualProcessorRegisters: ::core::option::Option<WHV_EMULATOR_SET_VIRTUAL_PROCESSOR_REGISTERS_CALLBACK>,
-    pub WHvEmulatorTranslateGvaPage: ::core::option::Option<WHV_EMULATOR_TRANSLATE_GVA_PAGE_CALLBACK>,
+    pub WHvEmulatorIoPortCallback: WHV_EMULATOR_IO_PORT_CALLBACK,
+    pub WHvEmulatorMemoryCallback: WHV_EMULATOR_MEMORY_CALLBACK,
+    pub WHvEmulatorGetVirtualProcessorRegisters: WHV_EMULATOR_GET_VIRTUAL_PROCESSOR_REGISTERS_CALLBACK,
+    pub WHvEmulatorSetVirtualProcessorRegisters: WHV_EMULATOR_SET_VIRTUAL_PROCESSOR_REGISTERS_CALLBACK,
+    pub WHvEmulatorTranslateGvaPage: WHV_EMULATOR_TRANSLATE_GVA_PAGE_CALLBACK,
 }
 impl ::core::marker::Copy for WHV_EMULATOR_CALLBACKS {}
 impl ::core::clone::Clone for WHV_EMULATOR_CALLBACKS {

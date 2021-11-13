@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[cfg(feature = "Win32_Security_Authorization_UI")]
 pub mod UI;
 #[link(name = "windows")]
@@ -827,11 +827,11 @@ impl ::core::clone::Clone for AUTHZ_INITIALIZE_OBJECT_ACCESS_AUDIT_EVENT_FLAGS {
 pub struct AUTHZ_INIT_INFO {
     pub version: u16,
     pub szResourceManagerName: super::super::Foundation::PWSTR,
-    pub pfnDynamicAccessCheck: ::core::option::Option<PFN_AUTHZ_DYNAMIC_ACCESS_CHECK>,
-    pub pfnComputeDynamicGroups: ::core::option::Option<PFN_AUTHZ_COMPUTE_DYNAMIC_GROUPS>,
-    pub pfnFreeDynamicGroups: ::core::option::Option<PFN_AUTHZ_FREE_DYNAMIC_GROUPS>,
-    pub pfnGetCentralAccessPolicy: ::core::option::Option<PFN_AUTHZ_GET_CENTRAL_ACCESS_POLICY>,
-    pub pfnFreeCentralAccessPolicy: ::core::option::Option<PFN_AUTHZ_FREE_CENTRAL_ACCESS_POLICY>,
+    pub pfnDynamicAccessCheck: PFN_AUTHZ_DYNAMIC_ACCESS_CHECK,
+    pub pfnComputeDynamicGroups: PFN_AUTHZ_COMPUTE_DYNAMIC_GROUPS,
+    pub pfnFreeDynamicGroups: PFN_AUTHZ_FREE_DYNAMIC_GROUPS,
+    pub pfnGetCentralAccessPolicy: PFN_AUTHZ_GET_CENTRAL_ACCESS_POLICY,
+    pub pfnFreeCentralAccessPolicy: PFN_AUTHZ_FREE_CENTRAL_ACCESS_POLICY,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for AUTHZ_INIT_INFO {}
@@ -1183,19 +1183,19 @@ impl ::core::clone::Clone for AZ_PROP_CONSTANTS {
         *self
     }
 }
-pub const AzAuthorizationStore: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const AzAuthorizationStore: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2998730585,
     data2: 42839,
     data3: 19211,
     data4: [161, 188, 234, 105, 152, 29, 166, 158],
 };
-pub const AzBizRuleContext: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const AzBizRuleContext: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1546504559,
     data2: 36177,
     data3: 17227,
     data4: [179, 60, 55, 155, 204, 174, 119, 195],
 };
-pub const AzPrincipalLocator: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1211824989, data2: 28895, data3: 19990, data4: [171, 220, 161, 222, 77, 1, 90, 62] };
+pub const AzPrincipalLocator: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1211824989, data2: 28895, data3: 19990, data4: [171, 220, 161, 222, 77, 1, 90, 62] };
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EXPLICIT_ACCESS_A {
@@ -1242,72 +1242,276 @@ impl ::core::clone::Clone for FN_OBJECT_MGR_FUNCTIONS {
 pub type FN_PROGRESS = unsafe extern "system" fn(pobjectname: super::super::Foundation::PWSTR, status: u32, pinvokesetting: *mut PROG_INVOKE_SETTING, args: *const ::core::ffi::c_void, securityset: super::super::Foundation::BOOL);
 #[repr(transparent)]
 pub struct IAzApplication(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAzApplication {}
+impl ::core::clone::Clone for IAzApplication {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAzApplication2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAzApplication2 {}
+impl ::core::clone::Clone for IAzApplication2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAzApplication3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAzApplication3 {}
+impl ::core::clone::Clone for IAzApplication3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAzApplicationGroup(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAzApplicationGroup {}
+impl ::core::clone::Clone for IAzApplicationGroup {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAzApplicationGroup2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAzApplicationGroup2 {}
+impl ::core::clone::Clone for IAzApplicationGroup2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAzApplicationGroups(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAzApplicationGroups {}
+impl ::core::clone::Clone for IAzApplicationGroups {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAzApplications(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAzApplications {}
+impl ::core::clone::Clone for IAzApplications {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAzAuthorizationStore(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAzAuthorizationStore {}
+impl ::core::clone::Clone for IAzAuthorizationStore {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAzAuthorizationStore2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAzAuthorizationStore2 {}
+impl ::core::clone::Clone for IAzAuthorizationStore2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAzAuthorizationStore3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAzAuthorizationStore3 {}
+impl ::core::clone::Clone for IAzAuthorizationStore3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAzBizRuleContext(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAzBizRuleContext {}
+impl ::core::clone::Clone for IAzBizRuleContext {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAzBizRuleInterfaces(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAzBizRuleInterfaces {}
+impl ::core::clone::Clone for IAzBizRuleInterfaces {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAzBizRuleParameters(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAzBizRuleParameters {}
+impl ::core::clone::Clone for IAzBizRuleParameters {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAzClientContext(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAzClientContext {}
+impl ::core::clone::Clone for IAzClientContext {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAzClientContext2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAzClientContext2 {}
+impl ::core::clone::Clone for IAzClientContext2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAzClientContext3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAzClientContext3 {}
+impl ::core::clone::Clone for IAzClientContext3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAzNameResolver(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAzNameResolver {}
+impl ::core::clone::Clone for IAzNameResolver {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAzObjectPicker(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAzObjectPicker {}
+impl ::core::clone::Clone for IAzObjectPicker {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAzOperation(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAzOperation {}
+impl ::core::clone::Clone for IAzOperation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAzOperation2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAzOperation2 {}
+impl ::core::clone::Clone for IAzOperation2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAzOperations(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAzOperations {}
+impl ::core::clone::Clone for IAzOperations {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAzPrincipalLocator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAzPrincipalLocator {}
+impl ::core::clone::Clone for IAzPrincipalLocator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAzRole(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAzRole {}
+impl ::core::clone::Clone for IAzRole {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAzRoleAssignment(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAzRoleAssignment {}
+impl ::core::clone::Clone for IAzRoleAssignment {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAzRoleAssignments(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAzRoleAssignments {}
+impl ::core::clone::Clone for IAzRoleAssignments {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAzRoleDefinition(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAzRoleDefinition {}
+impl ::core::clone::Clone for IAzRoleDefinition {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAzRoleDefinitions(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAzRoleDefinitions {}
+impl ::core::clone::Clone for IAzRoleDefinitions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAzRoles(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAzRoles {}
+impl ::core::clone::Clone for IAzRoles {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAzScope(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAzScope {}
+impl ::core::clone::Clone for IAzScope {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAzScope2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAzScope2 {}
+impl ::core::clone::Clone for IAzScope2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAzScopes(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAzScopes {}
+impl ::core::clone::Clone for IAzScopes {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAzTask(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAzTask {}
+impl ::core::clone::Clone for IAzTask {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAzTask2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAzTask2 {}
+impl ::core::clone::Clone for IAzTask2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAzTasks(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAzTasks {}
+impl ::core::clone::Clone for IAzTasks {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const INHERITED_ACCESS_ENTRY: u32 = 16u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]

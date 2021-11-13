@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
     #[cfg(feature = "Win32_Foundation")]
@@ -205,10 +205,28 @@ extern "system" {
 }
 #[repr(transparent)]
 pub struct IMarshal(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMarshal {}
+impl ::core::clone::Clone for IMarshal {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMarshal2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMarshal2 {}
+impl ::core::clone::Clone for IMarshal2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMarshalingStream(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMarshalingStream {}
+impl ::core::clone::Clone for IMarshalingStream {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct STDMSHLFLAGS(pub i32);
 pub const SMEXF_SERVER: STDMSHLFLAGS = STDMSHLFLAGS(1i32);

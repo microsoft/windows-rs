@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {}
 #[repr(transparent)]
@@ -52,8 +52,20 @@ impl ::core::clone::Clone for HdmiDisplayHdrOption {
 }
 #[repr(transparent)]
 pub struct HdmiDisplayInformation(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for HdmiDisplayInformation {}
+impl ::core::clone::Clone for HdmiDisplayInformation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct HdmiDisplayMode(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for HdmiDisplayMode {}
+impl ::core::clone::Clone for HdmiDisplayMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct HdmiDisplayPixelEncoding(pub i32);
 impl HdmiDisplayPixelEncoding {
@@ -70,9 +82,33 @@ impl ::core::clone::Clone for HdmiDisplayPixelEncoding {
 }
 #[repr(transparent)]
 pub struct IHdmiDisplayInformation(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IHdmiDisplayInformation {}
+impl ::core::clone::Clone for IHdmiDisplayInformation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IHdmiDisplayInformationStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IHdmiDisplayInformationStatics {}
+impl ::core::clone::Clone for IHdmiDisplayInformationStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IHdmiDisplayMode(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IHdmiDisplayMode {}
+impl ::core::clone::Clone for IHdmiDisplayMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IHdmiDisplayMode2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IHdmiDisplayMode2 {}
+impl ::core::clone::Clone for IHdmiDisplayMode2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

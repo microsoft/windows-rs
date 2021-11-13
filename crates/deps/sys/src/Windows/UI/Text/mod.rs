@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[cfg(feature = "UI_Text_Core")]
 pub mod Core;
 #[link(name = "windows")]
@@ -17,6 +17,12 @@ impl ::core::clone::Clone for CaretType {
 }
 #[repr(transparent)]
 pub struct ContentLinkInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ContentLinkInfo {}
+impl ::core::clone::Clone for ContentLinkInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct FindOptions(pub u32);
 impl FindOptions {
@@ -75,6 +81,12 @@ impl ::core::clone::Clone for FontWeight {
 }
 #[repr(transparent)]
 pub struct FontWeights(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for FontWeights {}
+impl ::core::clone::Clone for FontWeights {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct FormatEffect(pub i32);
 impl FormatEffect {
@@ -104,30 +116,108 @@ impl ::core::clone::Clone for HorizontalCharacterAlignment {
 }
 #[repr(transparent)]
 pub struct IContentLinkInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IContentLinkInfo {}
+impl ::core::clone::Clone for IContentLinkInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFontWeights(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFontWeights {}
+impl ::core::clone::Clone for IFontWeights {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFontWeightsStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFontWeightsStatics {}
+impl ::core::clone::Clone for IFontWeightsStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRichEditTextRange(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRichEditTextRange {}
+impl ::core::clone::Clone for IRichEditTextRange {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITextCharacterFormat(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITextCharacterFormat {}
+impl ::core::clone::Clone for ITextCharacterFormat {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITextConstantsStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITextConstantsStatics {}
+impl ::core::clone::Clone for ITextConstantsStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITextDocument(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITextDocument {}
+impl ::core::clone::Clone for ITextDocument {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITextDocument2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITextDocument2 {}
+impl ::core::clone::Clone for ITextDocument2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITextDocument3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITextDocument3 {}
+impl ::core::clone::Clone for ITextDocument3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITextDocument4(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITextDocument4 {}
+impl ::core::clone::Clone for ITextDocument4 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITextParagraphFormat(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITextParagraphFormat {}
+impl ::core::clone::Clone for ITextParagraphFormat {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITextRange(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITextRange {}
+impl ::core::clone::Clone for ITextRange {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITextSelection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITextSelection {}
+impl ::core::clone::Clone for ITextSelection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct LetterCase(pub i32);
 impl LetterCase {
@@ -327,8 +417,20 @@ impl ::core::clone::Clone for RichEditMathMode {
 }
 #[repr(transparent)]
 pub struct RichEditTextDocument(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for RichEditTextDocument {}
+impl ::core::clone::Clone for RichEditTextDocument {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RichEditTextRange(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for RichEditTextRange {}
+impl ::core::clone::Clone for RichEditTextRange {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct SelectionOptions(pub u32);
 impl SelectionOptions {

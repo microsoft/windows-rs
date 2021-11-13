@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
     pub fn PrjAllocateAlignedBuffer(namespacevirtualizationcontext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, size: usize) -> *mut ::core::ffi::c_void;
@@ -36,14 +36,14 @@ extern "system" {
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PRJ_CALLBACKS {
-    pub StartDirectoryEnumerationCallback: ::core::option::Option<PRJ_START_DIRECTORY_ENUMERATION_CB>,
-    pub EndDirectoryEnumerationCallback: ::core::option::Option<PRJ_END_DIRECTORY_ENUMERATION_CB>,
-    pub GetDirectoryEnumerationCallback: ::core::option::Option<PRJ_GET_DIRECTORY_ENUMERATION_CB>,
-    pub GetPlaceholderInfoCallback: ::core::option::Option<PRJ_GET_PLACEHOLDER_INFO_CB>,
-    pub GetFileDataCallback: ::core::option::Option<PRJ_GET_FILE_DATA_CB>,
-    pub QueryFileNameCallback: ::core::option::Option<PRJ_QUERY_FILE_NAME_CB>,
-    pub NotificationCallback: ::core::option::Option<PRJ_NOTIFICATION_CB>,
-    pub CancelCommandCallback: ::core::option::Option<PRJ_CANCEL_COMMAND_CB>,
+    pub StartDirectoryEnumerationCallback: PRJ_START_DIRECTORY_ENUMERATION_CB,
+    pub EndDirectoryEnumerationCallback: PRJ_END_DIRECTORY_ENUMERATION_CB,
+    pub GetDirectoryEnumerationCallback: PRJ_GET_DIRECTORY_ENUMERATION_CB,
+    pub GetPlaceholderInfoCallback: PRJ_GET_PLACEHOLDER_INFO_CB,
+    pub GetFileDataCallback: PRJ_GET_FILE_DATA_CB,
+    pub QueryFileNameCallback: PRJ_QUERY_FILE_NAME_CB,
+    pub NotificationCallback: PRJ_NOTIFICATION_CB,
+    pub CancelCommandCallback: PRJ_CANCEL_COMMAND_CB,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PRJ_CALLBACKS {}

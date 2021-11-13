@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
     #[cfg(feature = "Win32_Foundation")]
@@ -309,6 +309,12 @@ extern "system" {
 }
 #[repr(transparent)]
 pub struct IContentPrefetcherTaskTrigger(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IContentPrefetcherTaskTrigger {}
+impl ::core::clone::Clone for IContentPrefetcherTaskTrigger {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const WEBAUTHN_API_CURRENT_VERSION: u32 = 3u32;
 pub const WEBAUTHN_API_VERSION_1: u32 = 1u32;
 pub const WEBAUTHN_API_VERSION_2: u32 = 2u32;
@@ -774,7 +780,7 @@ impl ::core::clone::Clone for WS_ANY_ATTRIBUTES {
 pub type WS_ASYNC_CALLBACK = unsafe extern "system" fn(errorcode: ::windows_sys::core::HRESULT, callbackmodel: WS_CALLBACK_MODEL, callbackstate: *const ::core::ffi::c_void);
 #[repr(C)]
 pub struct WS_ASYNC_CONTEXT {
-    pub callback: ::core::option::Option<WS_ASYNC_CALLBACK>,
+    pub callback: WS_ASYNC_CALLBACK,
     pub callbackState: *mut ::core::ffi::c_void,
 }
 impl ::core::marker::Copy for WS_ASYNC_CONTEXT {}
@@ -786,7 +792,7 @@ impl ::core::clone::Clone for WS_ASYNC_CONTEXT {
 pub type WS_ASYNC_FUNCTION = unsafe extern "system" fn(hr: ::windows_sys::core::HRESULT, callbackmodel: WS_CALLBACK_MODEL, callbackstate: *const ::core::ffi::c_void, next: *mut WS_ASYNC_OPERATION, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows_sys::core::HRESULT;
 #[repr(C)]
 pub struct WS_ASYNC_OPERATION {
-    pub function: ::core::option::Option<WS_ASYNC_FUNCTION>,
+    pub function: WS_ASYNC_FUNCTION,
 }
 impl ::core::marker::Copy for WS_ASYNC_OPERATION {}
 impl ::core::clone::Clone for WS_ASYNC_OPERATION {
@@ -954,7 +960,7 @@ pub type WS_CERTIFICATE_VALIDATION_CALLBACK = unsafe extern "system" fn(certcont
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct WS_CERTIFICATE_VALIDATION_CALLBACK_CONTEXT {
-    pub callback: ::core::option::Option<WS_CERTIFICATE_VALIDATION_CALLBACK>,
+    pub callback: WS_CERTIFICATE_VALIDATION_CALLBACK,
     pub state: *mut ::core::ffi::c_void,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
@@ -1022,7 +1028,7 @@ pub struct WS_CERT_SIGNED_SAML_AUTHENTICATOR {
     pub trustedIssuerCerts: *mut *mut super::super::Security::Cryptography::CERT_CONTEXT,
     pub trustedIssuerCertCount: u32,
     pub decryptionCert: *mut super::super::Security::Cryptography::CERT_CONTEXT,
-    pub samlValidator: ::core::option::Option<WS_VALIDATE_SAML_CALLBACK>,
+    pub samlValidator: WS_VALIDATE_SAML_CALLBACK,
     pub samlValidatorCallbackState: *mut ::core::ffi::c_void,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
@@ -1052,12 +1058,12 @@ impl ::core::clone::Clone for WS_CHANNEL_BINDING {
 #[cfg(feature = "Win32_Foundation")]
 pub struct WS_CHANNEL_DECODER {
     pub createContext: *mut ::core::ffi::c_void,
-    pub createDecoderCallback: ::core::option::Option<WS_CREATE_DECODER_CALLBACK>,
-    pub decoderGetContentTypeCallback: ::core::option::Option<WS_DECODER_GET_CONTENT_TYPE_CALLBACK>,
-    pub decoderStartCallback: ::core::option::Option<WS_DECODER_START_CALLBACK>,
-    pub decoderDecodeCallback: ::core::option::Option<WS_DECODER_DECODE_CALLBACK>,
-    pub decoderEndCallback: ::core::option::Option<WS_DECODER_END_CALLBACK>,
-    pub freeDecoderCallback: ::core::option::Option<WS_FREE_DECODER_CALLBACK>,
+    pub createDecoderCallback: WS_CREATE_DECODER_CALLBACK,
+    pub decoderGetContentTypeCallback: WS_DECODER_GET_CONTENT_TYPE_CALLBACK,
+    pub decoderStartCallback: WS_DECODER_START_CALLBACK,
+    pub decoderDecodeCallback: WS_DECODER_DECODE_CALLBACK,
+    pub decoderEndCallback: WS_DECODER_END_CALLBACK,
+    pub freeDecoderCallback: WS_FREE_DECODER_CALLBACK,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WS_CHANNEL_DECODER {}
@@ -1071,12 +1077,12 @@ impl ::core::clone::Clone for WS_CHANNEL_DECODER {
 #[cfg(feature = "Win32_Foundation")]
 pub struct WS_CHANNEL_ENCODER {
     pub createContext: *mut ::core::ffi::c_void,
-    pub createEncoderCallback: ::core::option::Option<WS_CREATE_ENCODER_CALLBACK>,
-    pub encoderGetContentTypeCallback: ::core::option::Option<WS_ENCODER_GET_CONTENT_TYPE_CALLBACK>,
-    pub encoderStartCallback: ::core::option::Option<WS_ENCODER_START_CALLBACK>,
-    pub encoderEncodeCallback: ::core::option::Option<WS_ENCODER_ENCODE_CALLBACK>,
-    pub encoderEndCallback: ::core::option::Option<WS_ENCODER_END_CALLBACK>,
-    pub freeEncoderCallback: ::core::option::Option<WS_FREE_ENCODER_CALLBACK>,
+    pub createEncoderCallback: WS_CREATE_ENCODER_CALLBACK,
+    pub encoderGetContentTypeCallback: WS_ENCODER_GET_CONTENT_TYPE_CALLBACK,
+    pub encoderStartCallback: WS_ENCODER_START_CALLBACK,
+    pub encoderEncodeCallback: WS_ENCODER_ENCODE_CALLBACK,
+    pub encoderEndCallback: WS_ENCODER_END_CALLBACK,
+    pub freeEncoderCallback: WS_FREE_ENCODER_CALLBACK,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WS_CHANNEL_ENCODER {}
@@ -1280,9 +1286,9 @@ pub type WS_CREATE_LISTENER_CALLBACK = unsafe extern "system" fn(channeltype: WS
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity", feature = "Win32_Security_Cryptography"))]
 pub struct WS_CUSTOM_CERT_CREDENTIAL {
     pub credential: WS_CERT_CREDENTIAL,
-    pub getCertCallback: ::core::option::Option<WS_GET_CERT_CALLBACK>,
+    pub getCertCallback: WS_GET_CERT_CALLBACK,
     pub getCertCallbackState: *mut ::core::ffi::c_void,
-    pub certIssuerListNotificationCallback: ::core::option::Option<WS_CERT_ISSUER_LIST_NOTIFICATION_CALLBACK>,
+    pub certIssuerListNotificationCallback: WS_CERT_ISSUER_LIST_NOTIFICATION_CALLBACK,
     pub certIssuerListNotificationCallbackState: *mut ::core::ffi::c_void,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity", feature = "Win32_Security_Cryptography"))]
@@ -1296,20 +1302,20 @@ impl ::core::clone::Clone for WS_CUSTOM_CERT_CREDENTIAL {
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WS_CUSTOM_CHANNEL_CALLBACKS {
-    pub createChannelCallback: ::core::option::Option<WS_CREATE_CHANNEL_CALLBACK>,
-    pub freeChannelCallback: ::core::option::Option<WS_FREE_CHANNEL_CALLBACK>,
-    pub resetChannelCallback: ::core::option::Option<WS_RESET_CHANNEL_CALLBACK>,
-    pub openChannelCallback: ::core::option::Option<WS_OPEN_CHANNEL_CALLBACK>,
-    pub closeChannelCallback: ::core::option::Option<WS_CLOSE_CHANNEL_CALLBACK>,
-    pub abortChannelCallback: ::core::option::Option<WS_ABORT_CHANNEL_CALLBACK>,
-    pub getChannelPropertyCallback: ::core::option::Option<WS_GET_CHANNEL_PROPERTY_CALLBACK>,
-    pub setChannelPropertyCallback: ::core::option::Option<WS_SET_CHANNEL_PROPERTY_CALLBACK>,
-    pub writeMessageStartCallback: ::core::option::Option<WS_WRITE_MESSAGE_START_CALLBACK>,
-    pub writeMessageEndCallback: ::core::option::Option<WS_WRITE_MESSAGE_END_CALLBACK>,
-    pub readMessageStartCallback: ::core::option::Option<WS_READ_MESSAGE_START_CALLBACK>,
-    pub readMessageEndCallback: ::core::option::Option<WS_READ_MESSAGE_END_CALLBACK>,
-    pub abandonMessageCallback: ::core::option::Option<WS_ABANDON_MESSAGE_CALLBACK>,
-    pub shutdownSessionChannelCallback: ::core::option::Option<WS_SHUTDOWN_SESSION_CHANNEL_CALLBACK>,
+    pub createChannelCallback: WS_CREATE_CHANNEL_CALLBACK,
+    pub freeChannelCallback: WS_FREE_CHANNEL_CALLBACK,
+    pub resetChannelCallback: WS_RESET_CHANNEL_CALLBACK,
+    pub openChannelCallback: WS_OPEN_CHANNEL_CALLBACK,
+    pub closeChannelCallback: WS_CLOSE_CHANNEL_CALLBACK,
+    pub abortChannelCallback: WS_ABORT_CHANNEL_CALLBACK,
+    pub getChannelPropertyCallback: WS_GET_CHANNEL_PROPERTY_CALLBACK,
+    pub setChannelPropertyCallback: WS_SET_CHANNEL_PROPERTY_CALLBACK,
+    pub writeMessageStartCallback: WS_WRITE_MESSAGE_START_CALLBACK,
+    pub writeMessageEndCallback: WS_WRITE_MESSAGE_END_CALLBACK,
+    pub readMessageStartCallback: WS_READ_MESSAGE_START_CALLBACK,
+    pub readMessageEndCallback: WS_READ_MESSAGE_END_CALLBACK,
+    pub abandonMessageCallback: WS_ABANDON_MESSAGE_CALLBACK,
+    pub shutdownSessionChannelCallback: WS_SHUTDOWN_SESSION_CHANNEL_CALLBACK,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WS_CUSTOM_CHANNEL_CALLBACKS {}
@@ -1336,16 +1342,16 @@ impl ::core::clone::Clone for WS_CUSTOM_HTTP_PROXY {
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WS_CUSTOM_LISTENER_CALLBACKS {
-    pub createListenerCallback: ::core::option::Option<WS_CREATE_LISTENER_CALLBACK>,
-    pub freeListenerCallback: ::core::option::Option<WS_FREE_LISTENER_CALLBACK>,
-    pub resetListenerCallback: ::core::option::Option<WS_RESET_LISTENER_CALLBACK>,
-    pub openListenerCallback: ::core::option::Option<WS_OPEN_LISTENER_CALLBACK>,
-    pub closeListenerCallback: ::core::option::Option<WS_CLOSE_LISTENER_CALLBACK>,
-    pub abortListenerCallback: ::core::option::Option<WS_ABORT_LISTENER_CALLBACK>,
-    pub getListenerPropertyCallback: ::core::option::Option<WS_GET_LISTENER_PROPERTY_CALLBACK>,
-    pub setListenerPropertyCallback: ::core::option::Option<WS_SET_LISTENER_PROPERTY_CALLBACK>,
-    pub createChannelForListenerCallback: ::core::option::Option<WS_CREATE_CHANNEL_FOR_LISTENER_CALLBACK>,
-    pub acceptChannelCallback: ::core::option::Option<WS_ACCEPT_CHANNEL_CALLBACK>,
+    pub createListenerCallback: WS_CREATE_LISTENER_CALLBACK,
+    pub freeListenerCallback: WS_FREE_LISTENER_CALLBACK,
+    pub resetListenerCallback: WS_RESET_LISTENER_CALLBACK,
+    pub openListenerCallback: WS_OPEN_LISTENER_CALLBACK,
+    pub closeListenerCallback: WS_CLOSE_LISTENER_CALLBACK,
+    pub abortListenerCallback: WS_ABORT_LISTENER_CALLBACK,
+    pub getListenerPropertyCallback: WS_GET_LISTENER_PROPERTY_CALLBACK,
+    pub setListenerPropertyCallback: WS_SET_LISTENER_PROPERTY_CALLBACK,
+    pub createChannelForListenerCallback: WS_CREATE_CHANNEL_FOR_LISTENER_CALLBACK,
+    pub acceptChannelCallback: WS_ACCEPT_CHANNEL_CALLBACK,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WS_CUSTOM_LISTENER_CALLBACKS {}
@@ -1360,10 +1366,10 @@ impl ::core::clone::Clone for WS_CUSTOM_LISTENER_CALLBACKS {
 pub struct WS_CUSTOM_TYPE_DESCRIPTION {
     pub size: u32,
     pub alignment: u32,
-    pub readCallback: ::core::option::Option<WS_READ_TYPE_CALLBACK>,
-    pub writeCallback: ::core::option::Option<WS_WRITE_TYPE_CALLBACK>,
+    pub readCallback: WS_READ_TYPE_CALLBACK,
+    pub writeCallback: WS_WRITE_TYPE_CALLBACK,
     pub descriptionData: *mut ::core::ffi::c_void,
-    pub isDefaultValueCallback: ::core::option::Option<WS_IS_DEFAULT_VALUE_CALLBACK>,
+    pub isDefaultValueCallback: WS_IS_DEFAULT_VALUE_CALLBACK,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WS_CUSTOM_TYPE_DESCRIPTION {}
@@ -1513,7 +1519,7 @@ pub type WS_DURATION_COMPARISON_CALLBACK = unsafe extern "system" fn(duration1: 
 pub struct WS_DURATION_DESCRIPTION {
     pub minValue: WS_DURATION,
     pub maxValue: WS_DURATION,
-    pub comparer: ::core::option::Option<WS_DURATION_COMPARISON_CALLBACK>,
+    pub comparer: WS_DURATION_COMPARISON_CALLBACK,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WS_DURATION_DESCRIPTION {}
@@ -2156,7 +2162,7 @@ pub type WS_HTTP_REDIRECT_CALLBACK = unsafe extern "system" fn(state: *const ::c
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WS_HTTP_REDIRECT_CALLBACK_CONTEXT {
-    pub callback: ::core::option::Option<WS_HTTP_REDIRECT_CALLBACK>,
+    pub callback: WS_HTTP_REDIRECT_CALLBACK,
     pub state: *mut ::core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2893,7 +2899,7 @@ pub struct WS_OPERATION_DESCRIPTION {
     pub outputMessageOptions: u32,
     pub parameterCount: u16,
     pub parameterDescription: *mut WS_PARAMETER_DESCRIPTION,
-    pub stubCallback: ::core::option::Option<WS_SERVICE_STUB_CALLBACK>,
+    pub stubCallback: WS_SERVICE_STUB_CALLBACK,
     pub style: WS_OPERATION_STYLE,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3034,7 +3040,7 @@ impl ::core::clone::Clone for WS_PROTECTION_LEVEL {
 pub type WS_PROXY_MESSAGE_CALLBACK = unsafe extern "system" fn(message: *const WS_MESSAGE, heap: *const WS_HEAP, state: *const ::core::ffi::c_void, error: *const WS_ERROR) -> ::windows_sys::core::HRESULT;
 #[repr(C)]
 pub struct WS_PROXY_MESSAGE_CALLBACK_CONTEXT {
-    pub callback: ::core::option::Option<WS_PROXY_MESSAGE_CALLBACK>,
+    pub callback: WS_PROXY_MESSAGE_CALLBACK,
     pub state: *mut ::core::ffi::c_void,
 }
 impl ::core::marker::Copy for WS_PROXY_MESSAGE_CALLBACK_CONTEXT {}
@@ -3798,7 +3804,7 @@ pub type WS_SERVICE_CLOSE_CHANNEL_CALLBACK = unsafe extern "system" fn(context: 
 #[cfg(feature = "Win32_Foundation")]
 pub struct WS_SERVICE_CONTRACT {
     pub contractDescription: *mut WS_CONTRACT_DESCRIPTION,
-    pub defaultMessageHandlerCallback: ::core::option::Option<WS_SERVICE_MESSAGE_RECEIVE_CALLBACK>,
+    pub defaultMessageHandlerCallback: WS_SERVICE_MESSAGE_RECEIVE_CALLBACK,
     pub methodTable: *mut ::core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3817,7 +3823,7 @@ pub struct WS_SERVICE_ENDPOINT {
     pub channelType: WS_CHANNEL_TYPE,
     pub securityDescription: *mut WS_SECURITY_DESCRIPTION,
     pub contract: *mut WS_SERVICE_CONTRACT,
-    pub authorizationCallback: ::core::option::Option<WS_SERVICE_SECURITY_CALLBACK>,
+    pub authorizationCallback: WS_SERVICE_SECURITY_CALLBACK,
     pub properties: *mut WS_SERVICE_ENDPOINT_PROPERTY,
     pub propertyCount: u32,
     pub channelProperties: WS_CHANNEL_PROPERTIES,
@@ -3942,7 +3948,7 @@ impl ::core::clone::Clone for WS_SERVICE_PROPERTY {
 }
 #[repr(C)]
 pub struct WS_SERVICE_PROPERTY_ACCEPT_CALLBACK {
-    pub callback: ::core::option::Option<WS_SERVICE_ACCEPT_CHANNEL_CALLBACK>,
+    pub callback: WS_SERVICE_ACCEPT_CHANNEL_CALLBACK,
 }
 impl ::core::marker::Copy for WS_SERVICE_PROPERTY_ACCEPT_CALLBACK {}
 impl ::core::clone::Clone for WS_SERVICE_PROPERTY_ACCEPT_CALLBACK {
@@ -3952,7 +3958,7 @@ impl ::core::clone::Clone for WS_SERVICE_PROPERTY_ACCEPT_CALLBACK {
 }
 #[repr(C)]
 pub struct WS_SERVICE_PROPERTY_CLOSE_CALLBACK {
-    pub callback: ::core::option::Option<WS_SERVICE_CLOSE_CHANNEL_CALLBACK>,
+    pub callback: WS_SERVICE_CLOSE_CHANNEL_CALLBACK,
 }
 impl ::core::marker::Copy for WS_SERVICE_PROPERTY_CLOSE_CALLBACK {}
 impl ::core::clone::Clone for WS_SERVICE_PROPERTY_CLOSE_CALLBACK {
@@ -4895,7 +4901,7 @@ pub struct WS_USERNAME_MESSAGE_SECURITY_BINDING {
     pub binding: WS_SECURITY_BINDING,
     pub bindingUsage: WS_MESSAGE_SECURITY_USAGE,
     pub clientCredential: *mut WS_USERNAME_CREDENTIAL,
-    pub passwordValidator: ::core::option::Option<WS_VALIDATE_PASSWORD_CALLBACK>,
+    pub passwordValidator: WS_VALIDATE_PASSWORD_CALLBACK,
     pub passwordValidatorCallbackState: *mut ::core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4933,7 +4939,7 @@ impl ::core::clone::Clone for WS_USERNAME_MESSAGE_SECURITY_BINDING_POLICY_DESCRI
 pub struct WS_USERNAME_MESSAGE_SECURITY_BINDING_TEMPLATE {
     pub securityBindingProperties: WS_SECURITY_BINDING_PROPERTIES,
     pub clientCredential: *mut WS_USERNAME_CREDENTIAL,
-    pub passwordValidator: ::core::option::Option<WS_VALIDATE_PASSWORD_CALLBACK>,
+    pub passwordValidator: WS_VALIDATE_PASSWORD_CALLBACK,
     pub passwordValidatorCallbackState: *mut ::core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5536,7 +5542,7 @@ impl ::core::clone::Clone for WS_XML_READER_RAW_ENCODING {
 #[repr(C)]
 pub struct WS_XML_READER_STREAM_INPUT {
     pub input: WS_XML_READER_INPUT,
-    pub readCallback: ::core::option::Option<WS_READ_CALLBACK>,
+    pub readCallback: WS_READ_CALLBACK,
     pub readCallbackState: *mut ::core::ffi::c_void,
 }
 impl ::core::marker::Copy for WS_XML_READER_STREAM_INPUT {}
@@ -5730,7 +5736,7 @@ pub struct WS_XML_WRITER(pub u8);
 pub struct WS_XML_WRITER_BINARY_ENCODING {
     pub encoding: WS_XML_WRITER_ENCODING,
     pub staticDictionary: *mut WS_XML_DICTIONARY,
-    pub dynamicStringCallback: ::core::option::Option<WS_DYNAMIC_STRING_CALLBACK>,
+    pub dynamicStringCallback: WS_DYNAMIC_STRING_CALLBACK,
     pub dynamicStringCallbackState: *mut ::core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5875,7 +5881,7 @@ impl ::core::clone::Clone for WS_XML_WRITER_RAW_ENCODING {
 #[repr(C)]
 pub struct WS_XML_WRITER_STREAM_OUTPUT {
     pub output: WS_XML_WRITER_OUTPUT,
-    pub writeCallback: ::core::option::Option<WS_WRITE_CALLBACK>,
+    pub writeCallback: WS_WRITE_CALLBACK,
     pub writeCallbackState: *mut ::core::ffi::c_void,
 }
 impl ::core::marker::Copy for WS_XML_WRITER_STREAM_OUTPUT {}

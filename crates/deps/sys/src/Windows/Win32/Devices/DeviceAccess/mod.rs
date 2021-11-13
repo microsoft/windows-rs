@@ -1,10 +1,10 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn CreateDeviceAccessInstance(deviceinterfacepath: super::super::Foundation::PWSTR, desiredaccess: u32, createasync: *mut ICreateDeviceAccessAsync) -> ::windows_sys::core::HRESULT;
 }
-pub const CLSID_DeviceIoControl: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CLSID_DeviceIoControl: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 315876210,
     data2: 34635,
     data3: 17789,
@@ -56,7 +56,25 @@ pub const ED_TOP: u32 = 1u32;
 pub const ED_VIDEO: i32 = 33554432i32;
 #[repr(transparent)]
 pub struct ICreateDeviceAccessAsync(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICreateDeviceAccessAsync {}
+impl ::core::clone::Clone for ICreateDeviceAccessAsync {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDeviceIoControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDeviceIoControl {}
+impl ::core::clone::Clone for IDeviceIoControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDeviceRequestCompletionCallback(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDeviceRequestCompletionCallback {}
+impl ::core::clone::Clone for IDeviceRequestCompletionCallback {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

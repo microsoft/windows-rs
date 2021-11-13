@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
     pub fn MLCreateOperatorRegistry(registry: *mut IMLOperatorRegistry) -> ::windows_sys::core::HRESULT;
@@ -6,36 +6,132 @@ extern "system" {
 }
 #[repr(transparent)]
 pub struct IMLOperatorAttributes(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMLOperatorAttributes {}
+impl ::core::clone::Clone for IMLOperatorAttributes {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMLOperatorKernel(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMLOperatorKernel {}
+impl ::core::clone::Clone for IMLOperatorKernel {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMLOperatorKernelContext(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMLOperatorKernelContext {}
+impl ::core::clone::Clone for IMLOperatorKernelContext {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMLOperatorKernelCreationContext(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMLOperatorKernelCreationContext {}
+impl ::core::clone::Clone for IMLOperatorKernelCreationContext {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMLOperatorKernelFactory(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMLOperatorKernelFactory {}
+impl ::core::clone::Clone for IMLOperatorKernelFactory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMLOperatorRegistry(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMLOperatorRegistry {}
+impl ::core::clone::Clone for IMLOperatorRegistry {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMLOperatorShapeInferenceContext(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMLOperatorShapeInferenceContext {}
+impl ::core::clone::Clone for IMLOperatorShapeInferenceContext {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMLOperatorShapeInferrer(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMLOperatorShapeInferrer {}
+impl ::core::clone::Clone for IMLOperatorShapeInferrer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMLOperatorTensor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMLOperatorTensor {}
+impl ::core::clone::Clone for IMLOperatorTensor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMLOperatorTensorShapeDescription(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMLOperatorTensorShapeDescription {}
+impl ::core::clone::Clone for IMLOperatorTensorShapeDescription {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMLOperatorTypeInferenceContext(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMLOperatorTypeInferenceContext {}
+impl ::core::clone::Clone for IMLOperatorTypeInferenceContext {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMLOperatorTypeInferrer(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMLOperatorTypeInferrer {}
+impl ::core::clone::Clone for IMLOperatorTypeInferrer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWinMLEvaluationContext(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWinMLEvaluationContext {}
+impl ::core::clone::Clone for IWinMLEvaluationContext {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWinMLModel(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWinMLModel {}
+impl ::core::clone::Clone for IWinMLModel {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWinMLRuntime(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWinMLRuntime {}
+impl ::core::clone::Clone for IWinMLRuntime {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWinMLRuntimeFactory(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWinMLRuntimeFactory {}
+impl ::core::clone::Clone for IWinMLRuntimeFactory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MLOperatorAttribute {
@@ -481,7 +577,7 @@ pub struct WINML_RESOURCE_BINDING_DESC {
     pub ElementType: WINML_TENSOR_DATA_TYPE,
     pub NumDimensions: u32,
     pub pShape: *mut i64,
-    pub pResource: ::core::option::Option<super::super::super::Graphics::Direct3D12::ID3D12Resource>,
+    pub pResource: super::super::super::Graphics::Direct3D12::ID3D12Resource,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::marker::Copy for WINML_RESOURCE_BINDING_DESC {}

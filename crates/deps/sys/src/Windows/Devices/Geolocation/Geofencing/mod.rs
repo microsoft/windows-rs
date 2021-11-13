@@ -1,10 +1,22 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {}
 #[repr(transparent)]
 pub struct Geofence(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for Geofence {}
+impl ::core::clone::Clone for Geofence {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct GeofenceMonitor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for GeofenceMonitor {}
+impl ::core::clone::Clone for GeofenceMonitor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct GeofenceMonitorStatus(pub i32);
 impl GeofenceMonitorStatus {
@@ -49,16 +61,52 @@ impl ::core::clone::Clone for GeofenceState {
 }
 #[repr(transparent)]
 pub struct GeofenceStateChangeReport(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for GeofenceStateChangeReport {}
+impl ::core::clone::Clone for GeofenceStateChangeReport {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGeofence(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGeofence {}
+impl ::core::clone::Clone for IGeofence {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGeofenceFactory(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGeofenceFactory {}
+impl ::core::clone::Clone for IGeofenceFactory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGeofenceMonitor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGeofenceMonitor {}
+impl ::core::clone::Clone for IGeofenceMonitor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGeofenceMonitorStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGeofenceMonitorStatics {}
+impl ::core::clone::Clone for IGeofenceMonitorStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGeofenceStateChangeReport(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGeofenceStateChangeReport {}
+impl ::core::clone::Clone for IGeofenceStateChangeReport {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MonitoredGeofenceStates(pub u32);
 impl MonitoredGeofenceStates {

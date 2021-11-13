@@ -1,16 +1,46 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {}
 #[repr(transparent)]
 pub struct IUserDataAvailabilityStateChangedEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUserDataAvailabilityStateChangedEventArgs {}
+impl ::core::clone::Clone for IUserDataAvailabilityStateChangedEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUserDataBufferUnprotectResult(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUserDataBufferUnprotectResult {}
+impl ::core::clone::Clone for IUserDataBufferUnprotectResult {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUserDataProtectionManager(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUserDataProtectionManager {}
+impl ::core::clone::Clone for IUserDataProtectionManager {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUserDataProtectionManagerStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUserDataProtectionManagerStatics {}
+impl ::core::clone::Clone for IUserDataProtectionManagerStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUserDataStorageItemProtectionInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUserDataStorageItemProtectionInfo {}
+impl ::core::clone::Clone for IUserDataStorageItemProtectionInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UserDataAvailability(pub i32);
 impl UserDataAvailability {
@@ -26,8 +56,20 @@ impl ::core::clone::Clone for UserDataAvailability {
 }
 #[repr(transparent)]
 pub struct UserDataAvailabilityStateChangedEventArgs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for UserDataAvailabilityStateChangedEventArgs {}
+impl ::core::clone::Clone for UserDataAvailabilityStateChangedEventArgs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UserDataBufferUnprotectResult(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for UserDataBufferUnprotectResult {}
+impl ::core::clone::Clone for UserDataBufferUnprotectResult {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UserDataBufferUnprotectStatus(pub i32);
 impl UserDataBufferUnprotectStatus {
@@ -42,8 +84,20 @@ impl ::core::clone::Clone for UserDataBufferUnprotectStatus {
 }
 #[repr(transparent)]
 pub struct UserDataProtectionManager(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for UserDataProtectionManager {}
+impl ::core::clone::Clone for UserDataProtectionManager {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UserDataStorageItemProtectionInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for UserDataStorageItemProtectionInfo {}
+impl ::core::clone::Clone for UserDataStorageItemProtectionInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct UserDataStorageItemProtectionStatus(pub i32);
 impl UserDataStorageItemProtectionStatus {

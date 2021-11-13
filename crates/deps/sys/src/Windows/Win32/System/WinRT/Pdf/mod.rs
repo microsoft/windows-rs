@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
     #[cfg(feature = "Win32_Graphics_Dxgi")]
@@ -6,6 +6,12 @@ extern "system" {
 }
 #[repr(transparent)]
 pub struct IPdfRendererNative(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPdfRendererNative {}
+impl ::core::clone::Clone for IPdfRendererNative {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
 pub struct PDF_RENDER_PARAMS {

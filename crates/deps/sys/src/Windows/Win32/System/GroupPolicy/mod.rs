@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
     #[cfg(feature = "Win32_Foundation")]
@@ -87,9 +87,9 @@ impl ::core::clone::Clone for APPSTATE {
         *self
     }
 }
-pub const CLSID_GPESnapIn: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2411771700, data2: 41185, data3: 4561, data4: [167, 211, 0, 0, 248, 117, 113, 227] };
-pub const CLSID_GroupPolicyObject: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3931121442, data2: 41533, data3: 4561, data4: [167, 211, 0, 0, 248, 117, 113, 227] };
-pub const CLSID_RSOPSnapIn: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CLSID_GPESnapIn: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2411771700, data2: 41185, data3: 4561, data4: [167, 211, 0, 0, 248, 117, 113, 227] };
+pub const CLSID_GroupPolicyObject: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3931121442, data2: 41533, data3: 4561, data4: [167, 211, 0, 0, 248, 117, 113, 227] };
+pub const CLSID_RSOPSnapIn: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1841528907,
     data2: 29202,
     data3: 17805,
@@ -115,27 +115,27 @@ pub const FLAG_NO_GPO_FILTER: u32 = 2147483648u32;
 pub const FLAG_NO_USER: u32 = 1u32;
 pub const FLAG_PLANNING_MODE: u32 = 16777216u32;
 pub const GPC_BLOCK_POLICY: u32 = 1u32;
-pub const GPM: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GPM: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4117317384,
     data2: 35070,
     data3: 19253,
     data4: [186, 191, 229, 97, 98, 213, 251, 200],
 };
-pub const GPMAsyncCancel: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 925341353, data2: 30444, data3: 18333, data4: [173, 108, 85, 99, 24, 237, 95, 157] };
-pub const GPMBackup: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GPMAsyncCancel: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 925341353, data2: 30444, data3: 18333, data4: [173, 108, 85, 99, 24, 237, 95, 157] };
+pub const GPMBackup: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3977925816,
     data2: 24314,
     data3: 18474,
     data4: [147, 192, 138, 216, 111, 13, 104, 195],
 };
-pub const GPMBackupCollection: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GPMBackupCollection: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3952018267,
     data2: 28891,
     data3: 19103,
     data4: [150, 118, 55, 194, 89, 148, 233, 220],
 };
-pub const GPMBackupDir: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4242843037, data2: 3873, data3: 19194, data4: [184, 89, 230, 208, 198, 44, 209, 12] };
-pub const GPMBackupDirEx: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GPMBackupDir: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4242843037, data2: 3873, data3: 19194, data4: [184, 89, 230, 208, 198, 44, 209, 12] };
+pub const GPMBackupDirEx: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3904936074,
     data2: 52995,
     data3: 19547,
@@ -151,19 +151,19 @@ impl ::core::clone::Clone for GPMBackupType {
         *self
     }
 }
-pub const GPMCSECollection: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GPMCSECollection: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3482499112,
     data2: 11588,
     data3: 19297,
     data4: [177, 10, 179, 39, 175, 212, 45, 168],
 };
-pub const GPMClientSideExtension: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GPMClientSideExtension: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3248678670,
     data2: 26012,
     data3: 19226,
     data4: [148, 11, 248, 139, 10, 249, 200, 164],
 };
-pub const GPMConstants: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 945154176, data2: 52638, data3: 19724, data4: [158, 175, 21, 121, 40, 58, 24, 136] };
+pub const GPMConstants: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 945154176, data2: 52638, data3: 19724, data4: [158, 175, 21, 121, 40, 58, 24, 136] };
 #[repr(transparent)]
 pub struct GPMDestinationOption(pub i32);
 pub const opDestinationSameAsSource: GPMDestinationOption = GPMDestinationOption(0i32);
@@ -176,7 +176,7 @@ impl ::core::clone::Clone for GPMDestinationOption {
         *self
     }
 }
-pub const GPMDomain: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GPMDomain: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1896415678,
     data2: 4176,
     data3: 19633,
@@ -197,34 +197,34 @@ impl ::core::clone::Clone for GPMEntryType {
         *self
     }
 }
-pub const GPMGPO: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GPMGPO: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3536726420,
     data2: 22965,
     data3: 16484,
     data4: [181, 129, 77, 104, 72, 106, 22, 196],
 };
-pub const GPMGPOCollection: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2047177509, data2: 33581, data3: 19939, data4: [164, 31, 199, 128, 67, 106, 78, 9] };
-pub const GPMGPOLink: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GPMGPOCollection: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2047177509, data2: 33581, data3: 19939, data4: [164, 31, 199, 128, 67, 106, 78, 9] };
+pub const GPMGPOLink: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3252656256,
     data2: 21251,
     data3: 17094,
     data4: [138, 60, 4, 136, 225, 191, 115, 100],
 };
-pub const GPMGPOLinksCollection: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GPMGPOLinksCollection: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4142749722,
     data2: 18853,
     data3: 18402,
     data4: [183, 113, 253, 141, 192, 43, 98, 89],
 };
-pub const GPMMapEntry: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2358727251, data2: 21553, data3: 17521, data4: [179, 93, 6, 38, 201, 40, 37, 138] };
-pub const GPMMapEntryCollection: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GPMMapEntry: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2358727251, data2: 21553, data3: 17521, data4: [179, 93, 6, 38, 201, 40, 37, 138] };
+pub const GPMMapEntryCollection: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 217537883,
     data2: 41889,
     data3: 19541,
     data4: [180, 254, 158, 20, 156, 65, 246, 109],
 };
-pub const GPMMigrationTable: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1437548611, data2: 10758, data3: 20338, data4: [171, 239, 99, 27, 68, 7, 156, 118] };
-pub const GPMPermission: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1483842570, data2: 59840, data3: 18156, data4: [145, 62, 148, 78, 249, 34, 90, 148] };
+pub const GPMMigrationTable: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1437548611, data2: 10758, data3: 20338, data4: [171, 239, 99, 27, 68, 7, 156, 118] };
+pub const GPMPermission: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1483842570, data2: 59840, data3: 18156, data4: [145, 62, 148, 78, 249, 34, 90, 148] };
 #[repr(transparent)]
 pub struct GPMPermissionType(pub i32);
 pub const permGPOApply: GPMPermissionType = GPMPermissionType(65536i32);
@@ -252,7 +252,7 @@ impl ::core::clone::Clone for GPMPermissionType {
         *self
     }
 }
-pub const GPMRSOP: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GPMRSOP: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1218120879,
     data2: 40642,
     data3: 20151,
@@ -293,19 +293,19 @@ impl ::core::clone::Clone for GPMReportingOptions {
         *self
     }
 }
-pub const GPMResult: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GPMResult: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2450528960,
     data2: 37511,
     data3: 16902,
     data4: [163, 178, 75, 219, 115, 210, 37, 246],
 };
-pub const GPMSOM: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GPMSOM: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 853098412,
     data2: 17678,
     data3: 17615,
     data4: [130, 156, 139, 34, 255, 107, 218, 225],
 };
-pub const GPMSOMCollection: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 616689991, data2: 14112, data3: 20315, data4: [169, 195, 6, 180, 228, 249, 49, 210] };
+pub const GPMSOMCollection: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 616689991, data2: 14112, data3: 20315, data4: [169, 195, 6, 180, 228, 249, 49, 210] };
 #[repr(transparent)]
 pub struct GPMSOMType(pub i32);
 pub const somSite: GPMSOMType = GPMSOMType(0i32);
@@ -317,7 +317,7 @@ impl ::core::clone::Clone for GPMSOMType {
         *self
     }
 }
-pub const GPMSearchCriteria: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 397068838, data2: 23776, data3: 17658, data4: [140, 192, 82, 89, 230, 72, 53, 102] };
+pub const GPMSearchCriteria: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 397068838, data2: 23776, data3: 17658, data4: [140, 192, 82, 89, 230, 72, 53, 102] };
 #[repr(transparent)]
 pub struct GPMSearchOperation(pub i32);
 pub const opEquals: GPMSearchOperation = GPMSearchOperation(0i32);
@@ -353,21 +353,21 @@ impl ::core::clone::Clone for GPMSearchProperty {
         *self
     }
 }
-pub const GPMSecurityInfo: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GPMSecurityInfo: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1417305743,
     data2: 37218,
     data3: 17686,
     data4: [164, 223, 157, 219, 150, 134, 216, 70],
 };
-pub const GPMSitesContainer: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GPMSitesContainer: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 580869186,
     data2: 34092,
     data3: 19248,
     data4: [148, 95, 197, 34, 190, 155, 211, 134],
 };
-pub const GPMStarterGPOBackup: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 949895178, data2: 55535, data3: 17755, data4: [168, 97, 95, 156, 163, 74, 106, 2] };
-pub const GPMStarterGPOBackupCollection: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3881739677, data2: 6891, data3: 19637, data4: [167, 138, 40, 29, 170, 88, 36, 6] };
-pub const GPMStarterGPOCollection: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GPMStarterGPOBackup: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 949895178, data2: 55535, data3: 17755, data4: [168, 97, 95, 156, 163, 74, 106, 2] };
+pub const GPMStarterGPOBackupCollection: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3881739677, data2: 6891, data3: 19637, data4: [167, 138, 40, 29, 170, 88, 36, 6] };
+pub const GPMStarterGPOCollection: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2197334667,
     data2: 18874,
     data3: 17330,
@@ -383,22 +383,22 @@ impl ::core::clone::Clone for GPMStarterGPOType {
         *self
     }
 }
-pub const GPMStatusMessage: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1266142356, data2: 53845, data3: 16539, data4: [188, 98, 55, 8, 129, 113, 90, 25] };
-pub const GPMStatusMsgCollection: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 673506494, data2: 19404, data3: 19628, data4: [158, 96, 14, 62, 215, 241, 36, 150] };
-pub const GPMTemplate: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GPMStatusMessage: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1266142356, data2: 53845, data3: 16539, data4: [188, 98, 55, 8, 129, 113, 90, 25] };
+pub const GPMStatusMsgCollection: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 673506494, data2: 19404, data3: 19628, data4: [158, 96, 14, 62, 215, 241, 36, 150] };
+pub const GPMTemplate: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3975271508,
     data2: 29146,
     data3: 20015,
     data4: [168, 192, 129, 133, 70, 89, 17, 217],
 };
-pub const GPMTrustee: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3309989901, data2: 6582, data3: 16913, data4: [188, 176, 232, 226, 71, 94, 71, 30] };
-pub const GPMWMIFilter: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GPMTrustee: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3309989901, data2: 6582, data3: 16913, data4: [188, 176, 232, 226, 71, 94, 71, 30] };
+pub const GPMWMIFilter: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1650935256,
     data2: 3562,
     data3: 16482,
     data4: [191, 96, 207, 197, 177, 202, 18, 134],
 };
-pub const GPMWMIFilterCollection: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GPMWMIFilterCollection: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1960602920,
     data2: 59424,
     data3: 18390,
@@ -554,90 +554,348 @@ impl ::core::clone::Clone for GROUP_POLICY_OBJECT_TYPE {
 }
 #[repr(transparent)]
 pub struct IGPEInformation(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGPEInformation {}
+impl ::core::clone::Clone for IGPEInformation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGPM(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGPM {}
+impl ::core::clone::Clone for IGPM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGPM2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGPM2 {}
+impl ::core::clone::Clone for IGPM2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGPMAsyncCancel(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGPMAsyncCancel {}
+impl ::core::clone::Clone for IGPMAsyncCancel {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGPMAsyncProgress(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGPMAsyncProgress {}
+impl ::core::clone::Clone for IGPMAsyncProgress {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGPMBackup(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGPMBackup {}
+impl ::core::clone::Clone for IGPMBackup {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGPMBackupCollection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGPMBackupCollection {}
+impl ::core::clone::Clone for IGPMBackupCollection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGPMBackupDir(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGPMBackupDir {}
+impl ::core::clone::Clone for IGPMBackupDir {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGPMBackupDirEx(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGPMBackupDirEx {}
+impl ::core::clone::Clone for IGPMBackupDirEx {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGPMCSECollection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGPMCSECollection {}
+impl ::core::clone::Clone for IGPMCSECollection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGPMClientSideExtension(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGPMClientSideExtension {}
+impl ::core::clone::Clone for IGPMClientSideExtension {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGPMConstants(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGPMConstants {}
+impl ::core::clone::Clone for IGPMConstants {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGPMConstants2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGPMConstants2 {}
+impl ::core::clone::Clone for IGPMConstants2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGPMDomain(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGPMDomain {}
+impl ::core::clone::Clone for IGPMDomain {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGPMDomain2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGPMDomain2 {}
+impl ::core::clone::Clone for IGPMDomain2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGPMDomain3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGPMDomain3 {}
+impl ::core::clone::Clone for IGPMDomain3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGPMGPO(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGPMGPO {}
+impl ::core::clone::Clone for IGPMGPO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGPMGPO2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGPMGPO2 {}
+impl ::core::clone::Clone for IGPMGPO2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGPMGPO3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGPMGPO3 {}
+impl ::core::clone::Clone for IGPMGPO3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGPMGPOCollection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGPMGPOCollection {}
+impl ::core::clone::Clone for IGPMGPOCollection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGPMGPOLink(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGPMGPOLink {}
+impl ::core::clone::Clone for IGPMGPOLink {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGPMGPOLinksCollection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGPMGPOLinksCollection {}
+impl ::core::clone::Clone for IGPMGPOLinksCollection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGPMMapEntry(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGPMMapEntry {}
+impl ::core::clone::Clone for IGPMMapEntry {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGPMMapEntryCollection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGPMMapEntryCollection {}
+impl ::core::clone::Clone for IGPMMapEntryCollection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGPMMigrationTable(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGPMMigrationTable {}
+impl ::core::clone::Clone for IGPMMigrationTable {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGPMPermission(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGPMPermission {}
+impl ::core::clone::Clone for IGPMPermission {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGPMRSOP(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGPMRSOP {}
+impl ::core::clone::Clone for IGPMRSOP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGPMResult(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGPMResult {}
+impl ::core::clone::Clone for IGPMResult {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGPMSOM(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGPMSOM {}
+impl ::core::clone::Clone for IGPMSOM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGPMSOMCollection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGPMSOMCollection {}
+impl ::core::clone::Clone for IGPMSOMCollection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGPMSearchCriteria(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGPMSearchCriteria {}
+impl ::core::clone::Clone for IGPMSearchCriteria {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGPMSecurityInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGPMSecurityInfo {}
+impl ::core::clone::Clone for IGPMSecurityInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGPMSitesContainer(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGPMSitesContainer {}
+impl ::core::clone::Clone for IGPMSitesContainer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGPMStarterGPO(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGPMStarterGPO {}
+impl ::core::clone::Clone for IGPMStarterGPO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGPMStarterGPOBackup(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGPMStarterGPOBackup {}
+impl ::core::clone::Clone for IGPMStarterGPOBackup {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGPMStarterGPOBackupCollection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGPMStarterGPOBackupCollection {}
+impl ::core::clone::Clone for IGPMStarterGPOBackupCollection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGPMStarterGPOCollection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGPMStarterGPOCollection {}
+impl ::core::clone::Clone for IGPMStarterGPOCollection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGPMStatusMessage(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGPMStatusMessage {}
+impl ::core::clone::Clone for IGPMStatusMessage {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGPMStatusMsgCollection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGPMStatusMsgCollection {}
+impl ::core::clone::Clone for IGPMStatusMsgCollection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGPMTrustee(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGPMTrustee {}
+impl ::core::clone::Clone for IGPMTrustee {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGPMWMIFilter(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGPMWMIFilter {}
+impl ::core::clone::Clone for IGPMWMIFilter {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGPMWMIFilterCollection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGPMWMIFilterCollection {}
+impl ::core::clone::Clone for IGPMWMIFilterCollection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGroupPolicyObject(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGroupPolicyObject {}
+impl ::core::clone::Clone for IGroupPolicyObject {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct INSTALLDATA {
@@ -710,6 +968,12 @@ impl ::core::clone::Clone for INSTALLSPECTYPE {
 }
 #[repr(transparent)]
 pub struct IRSOPInformation(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRSOPInformation {}
+impl ::core::clone::Clone for IRSOPInformation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct LOCALMANAGEDAPPLICATION {
@@ -767,29 +1031,29 @@ pub const MANAGED_APPS_USERAPPLICATIONS: u32 = 1u32;
 pub const MANAGED_APPTYPE_SETUPEXE: u32 = 2u32;
 pub const MANAGED_APPTYPE_UNSUPPORTED: u32 = 3u32;
 pub const MANAGED_APPTYPE_WINDOWSINSTALLER: u32 = 1u32;
-pub const NODEID_Machine: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2411771703, data2: 41185, data3: 4561, data4: [167, 211, 0, 0, 248, 117, 113, 227] };
-pub const NODEID_MachineSWSettings: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2411771706, data2: 41185, data3: 4561, data4: [167, 211, 0, 0, 248, 117, 113, 227] };
-pub const NODEID_RSOPMachine: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const NODEID_Machine: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2411771703, data2: 41185, data3: 4561, data4: [167, 211, 0, 0, 248, 117, 113, 227] };
+pub const NODEID_MachineSWSettings: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2411771706, data2: 41185, data3: 4561, data4: [167, 211, 0, 0, 248, 117, 113, 227] };
+pub const NODEID_RSOPMachine: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3175881262,
     data2: 2938,
     data3: 19042,
     data4: [166, 176, 192, 87, 117, 57, 201, 126],
 };
-pub const NODEID_RSOPMachineSWSettings: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1786128190, data2: 60302, data3: 17883, data4: [148, 197, 37, 102, 58, 95, 44, 26] };
-pub const NODEID_RSOPUser: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const NODEID_RSOPMachineSWSettings: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1786128190, data2: 60302, data3: 17883, data4: [148, 197, 37, 102, 58, 95, 44, 26] };
+pub const NODEID_RSOPUser: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2877765199,
     data2: 3308,
     data3: 19672,
     data4: [155, 248, 137, 143, 52, 98, 143, 184],
 };
-pub const NODEID_RSOPUserSWSettings: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const NODEID_RSOPUserSWSettings: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3844889827,
     data2: 64807,
     data3: 17410,
     data4: [132, 222, 217, 165, 242, 133, 137, 16],
 };
-pub const NODEID_User: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2411771704, data2: 41185, data3: 4561, data4: [167, 211, 0, 0, 248, 117, 113, 227] };
-pub const NODEID_UserSWSettings: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2411771708, data2: 41185, data3: 4561, data4: [167, 211, 0, 0, 248, 117, 113, 227] };
+pub const NODEID_User: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2411771704, data2: 41185, data3: 4561, data4: [167, 211, 0, 0, 248, 117, 113, 227] };
+pub const NODEID_UserSWSettings: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2411771708, data2: 41185, data3: 4561, data4: [167, 211, 0, 0, 248, 117, 113, 227] };
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Wmi"))]
 pub type PFNGENERATEGROUPPOLICY = unsafe extern "system" fn(dwflags: u32, pbabort: *mut super::super::Foundation::BOOL, pwszsite: super::super::Foundation::PWSTR, pcomputertarget: *const RSOP_TARGET, pusertarget: *const RSOP_TARGET) -> u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
@@ -842,7 +1106,7 @@ pub struct RSOP_TARGET {
     pub psaSecurityGroups: *mut super::Com::SAFEARRAY,
     pub pRsopToken: *mut ::core::ffi::c_void,
     pub pGPOList: *mut GROUP_POLICY_OBJECTA,
-    pub pWbemServices: ::core::option::Option<super::Wmi::IWbemServices>,
+    pub pWbemServices: super::Wmi::IWbemServices,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Wmi"))]
 impl ::core::marker::Copy for RSOP_TARGET {}

@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
     #[cfg(feature = "Win32_Foundation")]
@@ -30,24 +30,84 @@ impl ::core::clone::Clone for ICS_TARGETTYPE {
 }
 #[repr(transparent)]
 pub struct IDynamicPortMapping(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDynamicPortMapping {}
+impl ::core::clone::Clone for IDynamicPortMapping {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDynamicPortMappingCollection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDynamicPortMappingCollection {}
+impl ::core::clone::Clone for IDynamicPortMappingCollection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEnumNetConnection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnumNetConnection {}
+impl ::core::clone::Clone for IEnumNetConnection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEnumNetSharingEveryConnection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnumNetSharingEveryConnection {}
+impl ::core::clone::Clone for IEnumNetSharingEveryConnection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEnumNetSharingPortMapping(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnumNetSharingPortMapping {}
+impl ::core::clone::Clone for IEnumNetSharingPortMapping {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEnumNetSharingPrivateConnection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnumNetSharingPrivateConnection {}
+impl ::core::clone::Clone for IEnumNetSharingPrivateConnection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEnumNetSharingPublicConnection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnumNetSharingPublicConnection {}
+impl ::core::clone::Clone for IEnumNetSharingPublicConnection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct INATEventManager(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for INATEventManager {}
+impl ::core::clone::Clone for INATEventManager {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct INATExternalIPAddressCallback(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for INATExternalIPAddressCallback {}
+impl ::core::clone::Clone for INATExternalIPAddressCallback {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct INATNumberOfEntriesCallback(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for INATNumberOfEntriesCallback {}
+impl ::core::clone::Clone for INATNumberOfEntriesCallback {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct INET_FIREWALL_AC_BINARIES {
@@ -155,72 +215,276 @@ impl ::core::clone::Clone for INET_FIREWALL_APP_CONTAINER {
 }
 #[repr(transparent)]
 pub struct INetConnection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for INetConnection {}
+impl ::core::clone::Clone for INetConnection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct INetConnectionConnectUi(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for INetConnectionConnectUi {}
+impl ::core::clone::Clone for INetConnectionConnectUi {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct INetConnectionManager(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for INetConnectionManager {}
+impl ::core::clone::Clone for INetConnectionManager {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct INetConnectionProps(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for INetConnectionProps {}
+impl ::core::clone::Clone for INetConnectionProps {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct INetFwAuthorizedApplication(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for INetFwAuthorizedApplication {}
+impl ::core::clone::Clone for INetFwAuthorizedApplication {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct INetFwAuthorizedApplications(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for INetFwAuthorizedApplications {}
+impl ::core::clone::Clone for INetFwAuthorizedApplications {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct INetFwIcmpSettings(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for INetFwIcmpSettings {}
+impl ::core::clone::Clone for INetFwIcmpSettings {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct INetFwMgr(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for INetFwMgr {}
+impl ::core::clone::Clone for INetFwMgr {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct INetFwOpenPort(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for INetFwOpenPort {}
+impl ::core::clone::Clone for INetFwOpenPort {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct INetFwOpenPorts(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for INetFwOpenPorts {}
+impl ::core::clone::Clone for INetFwOpenPorts {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct INetFwPolicy(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for INetFwPolicy {}
+impl ::core::clone::Clone for INetFwPolicy {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct INetFwPolicy2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for INetFwPolicy2 {}
+impl ::core::clone::Clone for INetFwPolicy2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct INetFwProduct(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for INetFwProduct {}
+impl ::core::clone::Clone for INetFwProduct {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct INetFwProducts(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for INetFwProducts {}
+impl ::core::clone::Clone for INetFwProducts {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct INetFwProfile(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for INetFwProfile {}
+impl ::core::clone::Clone for INetFwProfile {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct INetFwRemoteAdminSettings(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for INetFwRemoteAdminSettings {}
+impl ::core::clone::Clone for INetFwRemoteAdminSettings {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct INetFwRule(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for INetFwRule {}
+impl ::core::clone::Clone for INetFwRule {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct INetFwRule2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for INetFwRule2 {}
+impl ::core::clone::Clone for INetFwRule2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct INetFwRule3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for INetFwRule3 {}
+impl ::core::clone::Clone for INetFwRule3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct INetFwRules(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for INetFwRules {}
+impl ::core::clone::Clone for INetFwRules {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct INetFwService(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for INetFwService {}
+impl ::core::clone::Clone for INetFwService {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct INetFwServiceRestriction(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for INetFwServiceRestriction {}
+impl ::core::clone::Clone for INetFwServiceRestriction {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct INetFwServices(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for INetFwServices {}
+impl ::core::clone::Clone for INetFwServices {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct INetSharingConfiguration(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for INetSharingConfiguration {}
+impl ::core::clone::Clone for INetSharingConfiguration {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct INetSharingEveryConnectionCollection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for INetSharingEveryConnectionCollection {}
+impl ::core::clone::Clone for INetSharingEveryConnectionCollection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct INetSharingManager(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for INetSharingManager {}
+impl ::core::clone::Clone for INetSharingManager {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct INetSharingPortMapping(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for INetSharingPortMapping {}
+impl ::core::clone::Clone for INetSharingPortMapping {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct INetSharingPortMappingCollection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for INetSharingPortMappingCollection {}
+impl ::core::clone::Clone for INetSharingPortMappingCollection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct INetSharingPortMappingProps(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for INetSharingPortMappingProps {}
+impl ::core::clone::Clone for INetSharingPortMappingProps {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct INetSharingPrivateConnectionCollection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for INetSharingPrivateConnectionCollection {}
+impl ::core::clone::Clone for INetSharingPrivateConnectionCollection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct INetSharingPublicConnectionCollection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for INetSharingPublicConnectionCollection {}
+impl ::core::clone::Clone for INetSharingPublicConnectionCollection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IStaticPortMapping(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IStaticPortMapping {}
+impl ::core::clone::Clone for IStaticPortMapping {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IStaticPortMappingCollection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IStaticPortMappingCollection {}
+impl ::core::clone::Clone for IStaticPortMappingCollection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUPnPNAT(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUPnPNAT {}
+impl ::core::clone::Clone for IUPnPNAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct NETCONMGR_ENUM_FLAGS(pub i32);
 pub const NCME_DEFAULT: NETCONMGR_ENUM_FLAGS = NETCONMGR_ENUM_FLAGS(0i32);
@@ -529,29 +793,29 @@ impl ::core::clone::Clone for NET_FW_SERVICE_TYPE {
         *self
     }
 }
-pub const NetFwAuthorizedApplication: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3969402547, data2: 10082, data3: 19051, data4: [162, 20, 106, 203, 96, 52, 98, 210] };
-pub const NetFwMgr: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 810346818, data2: 28217, data3: 16600, data4: [148, 58, 185, 19, 196, 12, 156, 212] };
-pub const NetFwOpenPort: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 212157894, data2: 14253, data3: 19052, data4: [191, 146, 159, 118, 16, 6, 126, 245] };
-pub const NetFwPolicy2: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const NetFwAuthorizedApplication: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3969402547, data2: 10082, data3: 19051, data4: [162, 20, 106, 203, 96, 52, 98, 210] };
+pub const NetFwMgr: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810346818, data2: 28217, data3: 16600, data4: [148, 58, 185, 19, 196, 12, 156, 212] };
+pub const NetFwOpenPort: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 212157894, data2: 14253, data3: 19052, data4: [191, 146, 159, 118, 16, 6, 126, 245] };
+pub const NetFwPolicy2: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3803433343,
     data2: 27361,
     data3: 16812,
     data4: [129, 122, 246, 249, 33, 102, 215, 221],
 };
-pub const NetFwProduct: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2641649368, data2: 50452, data3: 19741, data4: [191, 66, 117, 31, 237, 45, 90, 199] };
-pub const NetFwProducts: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const NetFwProduct: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2641649368, data2: 50452, data3: 19741, data4: [191, 66, 117, 31, 237, 45, 90, 199] };
+pub const NetFwProducts: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3424192411,
     data2: 33394,
     data3: 19827,
     data4: [187, 112, 205, 181, 51, 82, 123, 97],
 };
-pub const NetFwRule: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const NetFwRule: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 744211518,
     data2: 13161,
     data3: 19507,
     data4: [171, 12, 190, 148, 105, 103, 122, 244],
 };
-pub const NetSharingManager: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1550041517, data2: 14678, data3: 20472, data4: [132, 134, 64, 3, 71, 88, 49, 91] };
+pub const NetSharingManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1550041517, data2: 14678, data3: 20472, data4: [132, 134, 64, 3, 71, 88, 49, 91] };
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub type PAC_CHANGES_CALLBACK_FN = unsafe extern "system" fn(context: *const ::core::ffi::c_void, pchange: *const INET_FIREWALL_AC_CHANGE);
 #[cfg(feature = "Win32_Foundation")]
@@ -588,7 +852,7 @@ impl ::core::clone::Clone for SHARINGCONNECTION_ENUM_FLAGS {
     }
 }
 pub const S_OBJECT_NO_LONGER_VALID: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(2i32 as _);
-pub const UPnPNAT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const UPnPNAT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2921201834,
     data2: 16341,
     data3: 16444,

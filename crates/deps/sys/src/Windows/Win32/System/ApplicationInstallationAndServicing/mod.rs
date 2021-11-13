@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
     #[cfg(feature = "Win32_Foundation")]
@@ -484,10 +484,10 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn MsiSetComponentStateW(hinstall: MSIHANDLE, szcomponent: super::super::Foundation::PWSTR, istate: INSTALLSTATE) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MsiSetExternalUIA(puihandler: INSTALLUI_HANDLERA, dwmessagefilter: u32, pvcontext: *const ::core::ffi::c_void) -> ::core::option::Option<INSTALLUI_HANDLERA>;
+    pub fn MsiSetExternalUIA(puihandler: INSTALLUI_HANDLERA, dwmessagefilter: u32, pvcontext: *const ::core::ffi::c_void) -> INSTALLUI_HANDLERA;
     pub fn MsiSetExternalUIRecord(puihandler: PINSTALLUI_HANDLER_RECORD, dwmessagefilter: u32, pvcontext: *const ::core::ffi::c_void, ppuiprevhandler: PINSTALLUI_HANDLER_RECORD) -> u32;
     #[cfg(feature = "Win32_Foundation")]
-    pub fn MsiSetExternalUIW(puihandler: INSTALLUI_HANDLERW, dwmessagefilter: u32, pvcontext: *const ::core::ffi::c_void) -> ::core::option::Option<INSTALLUI_HANDLERW>;
+    pub fn MsiSetExternalUIW(puihandler: INSTALLUI_HANDLERW, dwmessagefilter: u32, pvcontext: *const ::core::ffi::c_void) -> INSTALLUI_HANDLERW;
     #[cfg(feature = "Win32_Foundation")]
     pub fn MsiSetFeatureAttributesA(hinstall: MSIHANDLE, szfeature: super::super::Foundation::PSTR, dwattributes: u32) -> u32;
     #[cfg(feature = "Win32_Foundation")]
@@ -926,8 +926,8 @@ impl ::core::clone::Clone for ASSEMBLY_INFO {
         *self
     }
 }
-pub const CLSID_EvalCom2: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1851660560, data2: 32851, data3: 18016, data4: [183, 149, 107, 97, 46, 41, 188, 88] };
-pub const CLSID_MsmMerge2: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4182345173, data2: 10745, data3: 18243, data4: [152, 5, 153, 188, 63, 53, 182, 120] };
+pub const CLSID_EvalCom2: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1851660560, data2: 32851, data3: 18016, data4: [183, 149, 107, 97, 46, 41, 188, 88] };
+pub const CLSID_MsmMerge2: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4182345173, data2: 10745, data3: 18243, data4: [152, 5, 153, 188, 63, 53, 182, 120] };
 #[repr(C)]
 pub struct COMPATIBILITY_CONTEXT_ELEMENT {
     pub Id: ::windows_sys::core::GUID,
@@ -1222,19 +1222,19 @@ impl ::core::clone::Clone for FUSION_INSTALL_REFERENCE {
         *self
     }
 }
-pub const FUSION_REFCOUNT_FILEPATH_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FUSION_REFCOUNT_FILEPATH_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2955910501,
     data2: 64375,
     data3: 20346,
     data4: [175, 165, 179, 145, 48, 159, 17, 201],
 };
-pub const FUSION_REFCOUNT_OPAQUE_STRING_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FUSION_REFCOUNT_OPAQUE_STRING_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 784938083,
     data2: 45251,
     data3: 17889,
     data4: [131, 100, 50, 126, 150, 174, 168, 86],
 };
-pub const FUSION_REFCOUNT_UNINSTALL_SUBKEY_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FUSION_REFCOUNT_UNINSTALL_SUBKEY_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2364391957,
     data2: 44107,
     data3: 18571,
@@ -1258,30 +1258,108 @@ impl ::core::clone::Clone for IASSEMBLYCACHE_UNINSTALL_DISPOSITION {
 }
 #[repr(transparent)]
 pub struct IAssemblyCache(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAssemblyCache {}
+impl ::core::clone::Clone for IAssemblyCache {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAssemblyCacheItem(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAssemblyCacheItem {}
+impl ::core::clone::Clone for IAssemblyCacheItem {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAssemblyName(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAssemblyName {}
+impl ::core::clone::Clone for IAssemblyName {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEnumMsmDependency(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnumMsmDependency {}
+impl ::core::clone::Clone for IEnumMsmDependency {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEnumMsmError(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnumMsmError {}
+impl ::core::clone::Clone for IEnumMsmError {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEnumMsmString(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnumMsmString {}
+impl ::core::clone::Clone for IEnumMsmString {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMsmDependencies(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMsmDependencies {}
+impl ::core::clone::Clone for IMsmDependencies {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMsmDependency(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMsmDependency {}
+impl ::core::clone::Clone for IMsmDependency {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMsmError(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMsmError {}
+impl ::core::clone::Clone for IMsmError {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMsmErrors(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMsmErrors {}
+impl ::core::clone::Clone for IMsmErrors {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMsmGetFiles(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMsmGetFiles {}
+impl ::core::clone::Clone for IMsmGetFiles {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMsmMerge(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMsmMerge {}
+impl ::core::clone::Clone for IMsmMerge {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMsmStrings(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMsmStrings {}
+impl ::core::clone::Clone for IMsmStrings {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const INFO_BASE: u32 = 3222229249u32;
 pub const INFO_ENTERING_PHASE_I: u32 = 3222229251u32;
 pub const INFO_ENTERING_PHASE_II: u32 = 3222229256u32;
@@ -1466,57 +1544,213 @@ pub type INSTALLUI_HANDLERA = unsafe extern "system" fn(pvcontext: *mut ::core::
 pub type INSTALLUI_HANDLERW = unsafe extern "system" fn(pvcontext: *mut ::core::ffi::c_void, imessagetype: u32, szmessage: super::super::Foundation::PWSTR) -> i32;
 #[repr(transparent)]
 pub struct IPMApplicationInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPMApplicationInfo {}
+impl ::core::clone::Clone for IPMApplicationInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPMApplicationInfoEnumerator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPMApplicationInfoEnumerator {}
+impl ::core::clone::Clone for IPMApplicationInfoEnumerator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPMBackgroundServiceAgentInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPMBackgroundServiceAgentInfo {}
+impl ::core::clone::Clone for IPMBackgroundServiceAgentInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPMBackgroundServiceAgentInfoEnumerator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPMBackgroundServiceAgentInfoEnumerator {}
+impl ::core::clone::Clone for IPMBackgroundServiceAgentInfoEnumerator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPMBackgroundWorkerInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPMBackgroundWorkerInfo {}
+impl ::core::clone::Clone for IPMBackgroundWorkerInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPMBackgroundWorkerInfoEnumerator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPMBackgroundWorkerInfoEnumerator {}
+impl ::core::clone::Clone for IPMBackgroundWorkerInfoEnumerator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPMDeploymentManager(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPMDeploymentManager {}
+impl ::core::clone::Clone for IPMDeploymentManager {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPMEnumerationManager(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPMEnumerationManager {}
+impl ::core::clone::Clone for IPMEnumerationManager {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPMExtensionCachedFileUpdaterInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPMExtensionCachedFileUpdaterInfo {}
+impl ::core::clone::Clone for IPMExtensionCachedFileUpdaterInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPMExtensionContractInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPMExtensionContractInfo {}
+impl ::core::clone::Clone for IPMExtensionContractInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPMExtensionFileExtensionInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPMExtensionFileExtensionInfo {}
+impl ::core::clone::Clone for IPMExtensionFileExtensionInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPMExtensionFileOpenPickerInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPMExtensionFileOpenPickerInfo {}
+impl ::core::clone::Clone for IPMExtensionFileOpenPickerInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPMExtensionFileSavePickerInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPMExtensionFileSavePickerInfo {}
+impl ::core::clone::Clone for IPMExtensionFileSavePickerInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPMExtensionInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPMExtensionInfo {}
+impl ::core::clone::Clone for IPMExtensionInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPMExtensionInfoEnumerator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPMExtensionInfoEnumerator {}
+impl ::core::clone::Clone for IPMExtensionInfoEnumerator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPMExtensionProtocolInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPMExtensionProtocolInfo {}
+impl ::core::clone::Clone for IPMExtensionProtocolInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPMExtensionShareTargetInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPMExtensionShareTargetInfo {}
+impl ::core::clone::Clone for IPMExtensionShareTargetInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPMLiveTileJobInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPMLiveTileJobInfo {}
+impl ::core::clone::Clone for IPMLiveTileJobInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPMLiveTileJobInfoEnumerator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPMLiveTileJobInfoEnumerator {}
+impl ::core::clone::Clone for IPMLiveTileJobInfoEnumerator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPMTaskInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPMTaskInfo {}
+impl ::core::clone::Clone for IPMTaskInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPMTaskInfoEnumerator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPMTaskInfoEnumerator {}
+impl ::core::clone::Clone for IPMTaskInfoEnumerator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPMTileInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPMTileInfo {}
+impl ::core::clone::Clone for IPMTileInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPMTileInfoEnumerator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPMTileInfoEnumerator {}
+impl ::core::clone::Clone for IPMTileInfoEnumerator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPMTilePropertyEnumerator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPMTilePropertyEnumerator {}
+impl ::core::clone::Clone for IPMTilePropertyEnumerator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPMTilePropertyInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPMTilePropertyInfo {}
+impl ::core::clone::Clone for IPMTilePropertyInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IValidate(pub *mut ::core::ffi::c_void);
-pub const LIBID_MsmMergeTypeLib: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 182298671, data2: 11302, data3: 4562, data4: [173, 101, 0, 160, 201, 175, 17, 166] };
+impl ::core::marker::Copy for IValidate {}
+impl ::core::clone::Clone for IValidate {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+pub const LIBID_MsmMergeTypeLib: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 182298671, data2: 11302, data3: 4562, data4: [173, 101, 0, 160, 201, 175, 17, 166] };
 pub const LOGALL: u32 = 15u32;
 pub const LOGERR: u32 = 4u32;
 pub const LOGINFO: u32 = 1u32;
@@ -1879,7 +2113,7 @@ impl ::core::clone::Clone for MSITRANSFORM_VALIDATE {
 }
 pub const MSI_INVALID_HASH_IS_FATAL: u32 = 1u32;
 pub const MSI_NULL_INTEGER: u32 = 2147483648u32;
-pub const MsmMerge: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 182298672, data2: 11302, data3: 4562, data4: [173, 101, 0, 160, 201, 175, 17, 166] };
+pub const MsmMerge: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 182298672, data2: 11302, data3: 4562, data4: [173, 101, 0, 160, 201, 175, 17, 166] };
 #[repr(transparent)]
 pub struct PACKMAN_RUNTIME(pub i32);
 pub const PACKMAN_RUNTIME_NATIVE: PACKMAN_RUNTIME = PACKMAN_RUNTIME(1i32);
@@ -2023,7 +2257,7 @@ pub struct PATCH_OPTION_DATA {
     pub NewFileSymbolPath: super::super::Foundation::PSTR,
     pub OldFileSymbolPathArray: *mut super::super::Foundation::PSTR,
     pub ExtendedOptionFlags: u32,
-    pub SymLoadCallback: ::core::option::Option<PPATCH_SYMLOAD_CALLBACK>,
+    pub SymLoadCallback: PPATCH_SYMLOAD_CALLBACK,
     pub SymLoadContext: *mut ::core::ffi::c_void,
     pub InterleaveMapArray: *mut *mut PATCH_INTERLEAVE_MAP,
     pub MaxLzxWindowSize: u32,
@@ -2102,7 +2336,7 @@ impl ::core::clone::Clone for PMSIHANDLE {
         *self
     }
 }
-pub const PMSvc: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const PMSvc: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3118797308,
     data2: 58212,
     data3: 18810,

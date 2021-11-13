@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
@@ -1532,7 +1532,7 @@ impl ::core::clone::Clone for D3D10_PASS_DESC {
 }
 #[repr(C)]
 pub struct D3D10_PASS_SHADER_DESC {
-    pub pShaderVariable: ::core::option::Option<ID3D10EffectShaderVariable>,
+    pub pShaderVariable: ID3D10EffectShaderVariable,
     pub ShaderIndex: u32,
 }
 impl ::core::marker::Copy for D3D10_PASS_SHADER_DESC {}
@@ -2797,118 +2797,448 @@ pub const D3D_SPEC_DATE_DAY: u32 = 8u32;
 pub const D3D_SPEC_DATE_MONTH: u32 = 8u32;
 pub const D3D_SPEC_DATE_YEAR: u32 = 2006u32;
 pub const D3D_SPEC_VERSION: f64 = 1.050005f64;
-pub const DXGI_DEBUG_D3D10: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 607865938, data2: 13830, data3: 19770, data4: [153, 215, 167, 231, 179, 62, 215, 6] };
-pub const GUID_DeviceType: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3609393997, data2: 31336, data3: 17274, data4: [178, 12, 88, 4, 238, 36, 148, 166] };
+pub const DXGI_DEBUG_D3D10: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 607865938, data2: 13830, data3: 19770, data4: [153, 215, 167, 231, 179, 62, 215, 6] };
+pub const GUID_DeviceType: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3609393997, data2: 31336, data3: 17274, data4: [178, 12, 88, 4, 238, 36, 148, 166] };
 #[repr(transparent)]
 pub struct ID3D10Asynchronous(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D10Asynchronous {}
+impl ::core::clone::Clone for ID3D10Asynchronous {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D10BlendState(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D10BlendState {}
+impl ::core::clone::Clone for ID3D10BlendState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D10BlendState1(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D10BlendState1 {}
+impl ::core::clone::Clone for ID3D10BlendState1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D10Buffer(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D10Buffer {}
+impl ::core::clone::Clone for ID3D10Buffer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D10Counter(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D10Counter {}
+impl ::core::clone::Clone for ID3D10Counter {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D10Debug(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D10Debug {}
+impl ::core::clone::Clone for ID3D10Debug {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D10DepthStencilState(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D10DepthStencilState {}
+impl ::core::clone::Clone for ID3D10DepthStencilState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D10DepthStencilView(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D10DepthStencilView {}
+impl ::core::clone::Clone for ID3D10DepthStencilView {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D10Device(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D10Device {}
+impl ::core::clone::Clone for ID3D10Device {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D10Device1(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D10Device1 {}
+impl ::core::clone::Clone for ID3D10Device1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D10DeviceChild(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D10DeviceChild {}
+impl ::core::clone::Clone for ID3D10DeviceChild {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D10Effect(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D10Effect {}
+impl ::core::clone::Clone for ID3D10Effect {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D10EffectBlendVariable(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D10EffectBlendVariable {}
+impl ::core::clone::Clone for ID3D10EffectBlendVariable {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D10EffectConstantBuffer(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D10EffectConstantBuffer {}
+impl ::core::clone::Clone for ID3D10EffectConstantBuffer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D10EffectDepthStencilVariable(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D10EffectDepthStencilVariable {}
+impl ::core::clone::Clone for ID3D10EffectDepthStencilVariable {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D10EffectDepthStencilViewVariable(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D10EffectDepthStencilViewVariable {}
+impl ::core::clone::Clone for ID3D10EffectDepthStencilViewVariable {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D10EffectMatrixVariable(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D10EffectMatrixVariable {}
+impl ::core::clone::Clone for ID3D10EffectMatrixVariable {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D10EffectPass(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D10EffectPass {}
+impl ::core::clone::Clone for ID3D10EffectPass {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D10EffectPool(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D10EffectPool {}
+impl ::core::clone::Clone for ID3D10EffectPool {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D10EffectRasterizerVariable(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D10EffectRasterizerVariable {}
+impl ::core::clone::Clone for ID3D10EffectRasterizerVariable {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D10EffectRenderTargetViewVariable(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D10EffectRenderTargetViewVariable {}
+impl ::core::clone::Clone for ID3D10EffectRenderTargetViewVariable {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D10EffectSamplerVariable(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D10EffectSamplerVariable {}
+impl ::core::clone::Clone for ID3D10EffectSamplerVariable {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D10EffectScalarVariable(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D10EffectScalarVariable {}
+impl ::core::clone::Clone for ID3D10EffectScalarVariable {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D10EffectShaderResourceVariable(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D10EffectShaderResourceVariable {}
+impl ::core::clone::Clone for ID3D10EffectShaderResourceVariable {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D10EffectShaderVariable(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D10EffectShaderVariable {}
+impl ::core::clone::Clone for ID3D10EffectShaderVariable {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D10EffectStringVariable(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D10EffectStringVariable {}
+impl ::core::clone::Clone for ID3D10EffectStringVariable {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D10EffectTechnique(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D10EffectTechnique {}
+impl ::core::clone::Clone for ID3D10EffectTechnique {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D10EffectType(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D10EffectType {}
+impl ::core::clone::Clone for ID3D10EffectType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D10EffectVariable(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D10EffectVariable {}
+impl ::core::clone::Clone for ID3D10EffectVariable {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D10EffectVectorVariable(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D10EffectVectorVariable {}
+impl ::core::clone::Clone for ID3D10EffectVectorVariable {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D10GeometryShader(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D10GeometryShader {}
+impl ::core::clone::Clone for ID3D10GeometryShader {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D10InfoQueue(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D10InfoQueue {}
+impl ::core::clone::Clone for ID3D10InfoQueue {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D10InputLayout(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D10InputLayout {}
+impl ::core::clone::Clone for ID3D10InputLayout {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D10Multithread(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D10Multithread {}
+impl ::core::clone::Clone for ID3D10Multithread {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D10PixelShader(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D10PixelShader {}
+impl ::core::clone::Clone for ID3D10PixelShader {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D10Predicate(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D10Predicate {}
+impl ::core::clone::Clone for ID3D10Predicate {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D10Query(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D10Query {}
+impl ::core::clone::Clone for ID3D10Query {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D10RasterizerState(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D10RasterizerState {}
+impl ::core::clone::Clone for ID3D10RasterizerState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D10RenderTargetView(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D10RenderTargetView {}
+impl ::core::clone::Clone for ID3D10RenderTargetView {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D10Resource(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D10Resource {}
+impl ::core::clone::Clone for ID3D10Resource {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D10SamplerState(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D10SamplerState {}
+impl ::core::clone::Clone for ID3D10SamplerState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D10ShaderReflection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D10ShaderReflection {}
+impl ::core::clone::Clone for ID3D10ShaderReflection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D10ShaderReflection1(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D10ShaderReflection1 {}
+impl ::core::clone::Clone for ID3D10ShaderReflection1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D10ShaderReflectionConstantBuffer(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D10ShaderReflectionConstantBuffer {}
+impl ::core::clone::Clone for ID3D10ShaderReflectionConstantBuffer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D10ShaderReflectionType(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D10ShaderReflectionType {}
+impl ::core::clone::Clone for ID3D10ShaderReflectionType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D10ShaderReflectionVariable(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D10ShaderReflectionVariable {}
+impl ::core::clone::Clone for ID3D10ShaderReflectionVariable {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D10ShaderResourceView(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D10ShaderResourceView {}
+impl ::core::clone::Clone for ID3D10ShaderResourceView {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D10ShaderResourceView1(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D10ShaderResourceView1 {}
+impl ::core::clone::Clone for ID3D10ShaderResourceView1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D10StateBlock(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D10StateBlock {}
+impl ::core::clone::Clone for ID3D10StateBlock {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D10SwitchToRef(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D10SwitchToRef {}
+impl ::core::clone::Clone for ID3D10SwitchToRef {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D10Texture1D(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D10Texture1D {}
+impl ::core::clone::Clone for ID3D10Texture1D {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D10Texture2D(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D10Texture2D {}
+impl ::core::clone::Clone for ID3D10Texture2D {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D10Texture3D(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D10Texture3D {}
+impl ::core::clone::Clone for ID3D10Texture3D {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D10VertexShader(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D10VertexShader {}
+impl ::core::clone::Clone for ID3D10VertexShader {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D10View(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D10View {}
+impl ::core::clone::Clone for ID3D10View {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
 pub type PFN_D3D10_CREATE_DEVICE1 = unsafe extern "system" fn(param0: super::Dxgi::IDXGIAdapter, param1: D3D10_DRIVER_TYPE, param2: super::super::Foundation::HINSTANCE, param3: u32, param4: D3D10_FEATURE_LEVEL1, param5: u32, param6: *mut ID3D10Device1) -> ::windows_sys::core::HRESULT;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Dxgi_Common"))]

@@ -1,12 +1,30 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {}
 #[repr(transparent)]
 pub struct INamedPolicyData(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for INamedPolicyData {}
+impl ::core::clone::Clone for INamedPolicyData {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct INamedPolicyStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for INamedPolicyStatics {}
+impl ::core::clone::Clone for INamedPolicyStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct NamedPolicyData(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for NamedPolicyData {}
+impl ::core::clone::Clone for NamedPolicyData {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct NamedPolicyKind(pub i32);
 impl NamedPolicyKind {

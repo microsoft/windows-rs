@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[cfg(feature = "Win32_Media_DirectShow_Xml")]
 pub mod Xml;
 #[link(name = "windows")]
@@ -903,7 +903,7 @@ pub struct AM_MEDIA_TYPE {
     pub bTemporalCompression: super::super::Foundation::BOOL,
     pub lSampleSize: u32,
     pub formattype: ::windows_sys::core::GUID,
-    pub pUnk: ::core::option::Option<::windows_sys::core::IUnknown>,
+    pub pUnk: ::windows_sys::core::IUnknown,
     pub cbFormat: u32,
     pub pbFormat: *mut u8,
 }
@@ -1324,16 +1324,16 @@ impl ::core::clone::Clone for ANALOGVIDEOINFO {
         *self
     }
 }
-pub const ANALOG_AUXIN_NETWORK_TYPE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1949235303, data2: 2529, data3: 16547, data4: [130, 211, 150, 105, 186, 53, 50, 95] };
-pub const ANALOG_FM_NETWORK_TYPE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const ANALOG_AUXIN_NETWORK_TYPE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1949235303, data2: 2529, data3: 16547, data4: [130, 211, 150, 105, 186, 53, 50, 95] };
+pub const ANALOG_FM_NETWORK_TYPE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1999112315,
     data2: 11193,
     data3: 20016,
     data4: [128, 120, 68, 148, 118, 229, 157, 187],
 };
-pub const ANALOG_TV_NETWORK_TYPE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3089160318, data2: 57571, data3: 18319, data4: [138, 56, 78, 19, 247, 179, 223, 66] };
-pub const ATSCChannelTuneRequest: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 57259238, data2: 17846, data3: 4563, data4: [182, 80, 0, 192, 79, 121, 73, 142] };
-pub const ATSCComponentType: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const ANALOG_TV_NETWORK_TYPE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3089160318, data2: 57571, data3: 18319, data4: [138, 56, 78, 19, 247, 179, 223, 66] };
+pub const ATSCChannelTuneRequest: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 57259238, data2: 17846, data3: 4563, data4: [182, 80, 0, 192, 79, 121, 73, 142] };
+pub const ATSCComponentType: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2833052629,
     data2: 1920,
     data3: 20212,
@@ -1348,13 +1348,13 @@ impl ::core::clone::Clone for ATSCComponentTypeFlags {
         *self
     }
 }
-pub const ATSCLocator: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const ATSCLocator: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2289237787,
     data2: 39162,
     data3: 19834,
     data4: [141, 147, 201, 241, 5, 95, 133, 187],
 };
-pub const ATSCTuningSpace: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2732787536, data2: 27709, data3: 4563, data4: [182, 83, 0, 192, 79, 121, 73, 142] };
+pub const ATSCTuningSpace: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2732787536, data2: 27709, data3: 4563, data4: [182, 83, 0, 192, 79, 121, 73, 142] };
 pub const ATSC_EIT_TID: u32 = 203u32;
 pub const ATSC_ETM_LOCATION_IN_PTC_FOR_EVENT: u32 = 2u32;
 pub const ATSC_ETM_LOCATION_IN_PTC_FOR_PSIP: u32 = 1u32;
@@ -1382,7 +1382,7 @@ pub const ATSC_RRT_PID: u32 = 8187u32;
 pub const ATSC_RRT_TID: u32 = 202u32;
 pub const ATSC_STT_PID: u32 = 8187u32;
 pub const ATSC_STT_TID: u32 = 205u32;
-pub const ATSC_TERRESTRIAL_TV_NETWORK_TYPE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 229453789, data2: 24535, data3: 4563, data4: [143, 80, 0, 192, 79, 121, 113, 226] };
+pub const ATSC_TERRESTRIAL_TV_NETWORK_TYPE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 229453789, data2: 24535, data3: 4563, data4: [143, 80, 0, 192, 79, 121, 113, 226] };
 pub const ATSC_VCT_CABL_TID: u32 = 201u32;
 pub const ATSC_VCT_PID: u32 = 8187u32;
 pub const ATSC_VCT_TERR_TID: u32 = 200u32;
@@ -1736,15 +1736,15 @@ pub const AVI_INDEX_OF_SUB_2FIELD: u32 = 3u32;
 pub const AVI_INDEX_OF_TIMED_CHUNKS: u32 = 2u32;
 pub const AVI_INDEX_SUB_2FIELD: u32 = 1u32;
 pub const AVI_INDEX_SUB_DEFAULT: u32 = 0u32;
-pub const AnalogAudioComponentType: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 682295301, data2: 59461, data3: 20474, data4: [170, 155, 244, 102, 82, 54, 20, 28] };
-pub const AnalogLocator: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const AnalogAudioComponentType: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 682295301, data2: 59461, data3: 20474, data4: [170, 155, 244, 102, 82, 54, 20, 28] };
+pub const AnalogLocator: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1231260561,
     data2: 18603,
     data3: 18615,
     data4: [164, 122, 125, 14, 117, 160, 142, 222],
 };
-pub const AnalogRadioTuningSpace: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2322025292, data2: 8035, data3: 4563, data4: [182, 76, 0, 192, 79, 121, 73, 142] };
-pub const AnalogTVTuningSpace: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2322025293, data2: 8035, data3: 4563, data4: [182, 76, 0, 192, 79, 121, 73, 142] };
+pub const AnalogRadioTuningSpace: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2322025292, data2: 8035, data3: 4563, data4: [182, 76, 0, 192, 79, 121, 73, 142] };
+pub const AnalogTVTuningSpace: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2322025293, data2: 8035, data3: 4563, data4: [182, 76, 0, 192, 79, 121, 73, 142] };
 #[repr(transparent)]
 pub struct AnalogVideoStandard(pub i32);
 pub const AnalogVideo_None: AnalogVideoStandard = AnalogVideoStandard(0i32);
@@ -1806,13 +1806,13 @@ pub const AudioType_Reserved: i32 = -1i32;
 pub const AudioType_Standard: u32 = 0u32;
 pub const AudioType_Visually_Impaired: u32 = 2u32;
 pub const AudioType_Voiceover: u32 = 7u32;
-pub const AuxInTuningSpace: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const AuxInTuningSpace: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4185299462,
     data2: 31434,
     data3: 20025,
     data4: [156, 251, 151, 187, 53, 240, 231, 126],
 };
-pub const BDANETWORKTYPE_ATSC: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1905811281, data2: 7329, data3: 4563, data4: [156, 200, 0, 192, 79, 121, 113, 224] };
+pub const BDANETWORKTYPE_ATSC: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1905811281, data2: 7329, data3: 4563, data4: [156, 200, 0, 192, 79, 121, 113, 224] };
 #[repr(C)]
 pub struct BDANODE_DESCRIPTOR {
     pub ulBdaNodeType: u32,
@@ -2000,8 +2000,8 @@ impl ::core::clone::Clone for BDA_DEBUG_DATA {
         *self
     }
 }
-pub const BDA_DEBUG_DATA_AVAILABLE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1774341972, data2: 39299, data3: 18814, data4: [180, 21, 40, 43, 228, 197, 85, 251] };
-pub const BDA_DEBUG_DATA_TYPE_STRING: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2819024743, data2: 56924, data3: 17164, data4: [128, 191, 162, 30, 190, 6, 199, 72] };
+pub const BDA_DEBUG_DATA_AVAILABLE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1774341972, data2: 39299, data3: 18814, data4: [180, 21, 40, 43, 228, 197, 85, 251] };
+pub const BDA_DEBUG_DATA_TYPE_STRING: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2819024743, data2: 56924, data3: 17164, data4: [128, 191, 162, 30, 190, 6, 199, 72] };
 #[repr(transparent)]
 pub struct BDA_DISCOVERY_STATE(pub i32);
 pub const BDA_DISCOVERY_UNSPECIFIED: BDA_DISCOVERY_STATE = BDA_DISCOVERY_STATE(0i32);
@@ -2700,7 +2700,7 @@ impl ::core::clone::Clone for BDA_WMDRM_STATUS {
         *self
     }
 }
-pub const BSKYB_TERRESTRIAL_TV_NETWORK_TYPE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2661172934, data2: 15034, data3: 20232, data4: [173, 14, 204, 90, 200, 20, 140, 43] };
+pub const BSKYB_TERRESTRIAL_TV_NETWORK_TYPE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2661172934, data2: 15034, data3: 20232, data4: [173, 14, 204, 90, 200, 20, 140, 43] };
 #[repr(C, packed(1))]
 pub struct BadSampleInfo {
     pub hrReason: ::windows_sys::core::HRESULT,
@@ -2798,7 +2798,7 @@ impl ::core::clone::Clone for BinaryConvolutionCodeRate {
         *self
     }
 }
-pub const BroadcastEventService: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 188742546, data2: 2329, data3: 18740, data4: [157, 91, 97, 156, 113, 157, 2, 2] };
+pub const BroadcastEventService: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 188742546, data2: 2329, data3: 18740, data4: [157, 91, 97, 156, 113, 157, 2, 2] };
 #[repr(C)]
 pub struct CAPTURE_STREAMTIME {
     pub StreamTime: i64,
@@ -2818,56 +2818,56 @@ pub const CDEF_DEVMON_PNP_DEVICE: u32 = 64u32;
 pub const CDEF_DEVMON_SELECTIVE_MASK: u32 = 240u32;
 pub const CDEF_MERIT_ABOVE_DO_NOT_USE: u32 = 8u32;
 pub const CHARS_IN_GUID: u32 = 39u32;
-pub const CLSID_AMAudioData: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4064707968, data2: 44938, data3: 4560, data4: [130, 18, 0, 192, 79, 195, 44, 69] };
-pub const CLSID_AMAudioStream: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2224480320, data2: 44876, data3: 4560, data4: [130, 18, 0, 192, 79, 195, 44, 69] };
-pub const CLSID_AMDirectDrawStream: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1237613796, data2: 39844, data3: 4560, data4: [130, 18, 0, 192, 79, 195, 44, 69] };
-pub const CLSID_AMMediaTypeStream: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3473878908, data2: 63423, data3: 4560, data4: [144, 13, 0, 192, 79, 217, 24, 157] };
-pub const CLSID_AMMultiMediaStream: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1237613797, data2: 39844, data3: 4560, data4: [130, 18, 0, 192, 79, 195, 44, 69] };
-pub const CLSID_CPCAFiltersCategory: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3301229820, data2: 73, data3: 20011, data4: [152, 251, 149, 55, 246, 206, 81, 109] };
-pub const CLSID_DMOFilterCategory: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CLSID_AMAudioData: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4064707968, data2: 44938, data3: 4560, data4: [130, 18, 0, 192, 79, 195, 44, 69] };
+pub const CLSID_AMAudioStream: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2224480320, data2: 44876, data3: 4560, data4: [130, 18, 0, 192, 79, 195, 44, 69] };
+pub const CLSID_AMDirectDrawStream: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1237613796, data2: 39844, data3: 4560, data4: [130, 18, 0, 192, 79, 195, 44, 69] };
+pub const CLSID_AMMediaTypeStream: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3473878908, data2: 63423, data3: 4560, data4: [144, 13, 0, 192, 79, 217, 24, 157] };
+pub const CLSID_AMMultiMediaStream: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1237613797, data2: 39844, data3: 4560, data4: [130, 18, 0, 192, 79, 195, 44, 69] };
+pub const CLSID_CPCAFiltersCategory: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3301229820, data2: 73, data3: 20011, data4: [152, 251, 149, 55, 246, 206, 81, 109] };
+pub const CLSID_DMOFilterCategory: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3168106860,
     data2: 48466,
     data3: 19760,
     data4: [171, 118, 112, 249, 117, 184, 145, 153],
 };
-pub const CLSID_DMOWrapperFilter: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CLSID_DMOWrapperFilter: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2485743683,
     data2: 48514,
     data3: 19965,
     data4: [176, 222, 129, 119, 115, 156, 109, 32],
 };
-pub const CLSID_DTFilterEncProperties: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3301229698, data2: 73, data3: 20011, data4: [152, 251, 149, 55, 246, 206, 81, 109] };
-pub const CLSID_DTFilterTagProperties: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3301229714, data2: 73, data3: 20011, data4: [152, 251, 149, 55, 246, 206, 81, 109] };
-pub const CLSID_ETFilterEncProperties: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3301229697, data2: 73, data3: 20011, data4: [152, 251, 149, 55, 246, 206, 81, 109] };
-pub const CLSID_ETFilterTagProperties: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3301229713, data2: 73, data3: 20011, data4: [152, 251, 149, 55, 246, 206, 81, 109] };
-pub const CLSID_Mpeg2TableFilter: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CLSID_DTFilterEncProperties: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3301229698, data2: 73, data3: 20011, data4: [152, 251, 149, 55, 246, 206, 81, 109] };
+pub const CLSID_DTFilterTagProperties: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3301229714, data2: 73, data3: 20011, data4: [152, 251, 149, 55, 246, 206, 81, 109] };
+pub const CLSID_ETFilterEncProperties: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3301229697, data2: 73, data3: 20011, data4: [152, 251, 149, 55, 246, 206, 81, 109] };
+pub const CLSID_ETFilterTagProperties: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3301229713, data2: 73, data3: 20011, data4: [152, 251, 149, 55, 246, 206, 81, 109] };
+pub const CLSID_Mpeg2TableFilter: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1965573617,
     data2: 30095,
     data3: 19587,
     data4: [160, 67, 66, 112, 197, 147, 48, 142],
 };
-pub const CLSID_PBDA_AUX_DATA_TYPE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CLSID_PBDA_AUX_DATA_TYPE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4249183091,
     data2: 13091,
     data3: 16528,
     data4: [173, 202, 142, 212, 95, 85, 207, 16],
 };
-pub const CLSID_PBDA_Encoder_DATA_TYPE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CLSID_PBDA_Encoder_DATA_TYPE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1922029244,
     data2: 21830,
     data3: 18198,
     data4: [177, 3, 248, 153, 245, 161, 250, 104],
 };
-pub const CLSID_PBDA_FDC_DATA_TYPE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3889953184, data2: 8875, data3: 16455, data4: [142, 103, 239, 154, 213, 4, 231, 41] };
-pub const CLSID_PBDA_GDDS_DATA_TYPE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3356233203, data2: 24658, data3: 19478, data4: [159, 86, 196, 76, 33, 247, 60, 69] };
-pub const CLSID_PTFilter: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const CLSID_PBDA_FDC_DATA_TYPE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3889953184, data2: 8875, data3: 16455, data4: [142, 103, 239, 154, 213, 4, 231, 41] };
+pub const CLSID_PBDA_GDDS_DATA_TYPE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3356233203, data2: 24658, data3: 19478, data4: [159, 86, 196, 76, 33, 247, 60, 69] };
+pub const CLSID_PTFilter: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2631079447,
     data2: 45827,
     data3: 20374,
     data4: [131, 48, 46, 177, 115, 234, 77, 198],
 };
-pub const CLSID_XDSCodecProperties: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3301229699, data2: 73, data3: 20011, data4: [152, 251, 149, 55, 246, 206, 81, 109] };
-pub const CLSID_XDSCodecTagProperties: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3301229715, data2: 73, data3: 20011, data4: [152, 251, 149, 55, 246, 206, 81, 109] };
+pub const CLSID_XDSCodecProperties: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3301229699, data2: 73, data3: 20011, data4: [152, 251, 149, 55, 246, 206, 81, 109] };
+pub const CLSID_XDSCodecTagProperties: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3301229715, data2: 73, data3: 20011, data4: [152, 251, 149, 55, 246, 206, 81, 109] };
 #[repr(C)]
 pub struct COLORKEY {
     pub KeyType: u32,
@@ -3143,7 +3143,7 @@ impl ::core::clone::Clone for CROSSBAR_DEFAULT_FLAGS {
         *self
     }
 }
-pub const CXDSData: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3301229812, data2: 73, data3: 20011, data4: [152, 251, 149, 55, 246, 206, 81, 109] };
+pub const CXDSData: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3301229812, data2: 73, data3: 20011, data4: [152, 251, 149, 55, 246, 206, 81, 109] };
 #[repr(transparent)]
 pub struct CameraControlFlags(pub i32);
 pub const CameraControl_Flags_Auto: CameraControlFlags = CameraControlFlags(1i32);
@@ -3190,13 +3190,13 @@ impl ::core::clone::Clone for ChannelChangeSpanningEvent_State {
         *self
     }
 }
-pub const ChannelIDTuneRequest: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const ChannelIDTuneRequest: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 982788263,
     data2: 12708,
     data3: 17897,
     data4: [158, 251, 224, 85, 191, 123, 179, 219],
 };
-pub const ChannelIDTuningSpace: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const ChannelIDTuningSpace: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3431111215,
     data2: 13157,
     data3: 17983,
@@ -3257,7 +3257,7 @@ impl ::core::clone::Clone for ChannelInfo_0_2 {
         *self
     }
 }
-pub const ChannelTuneRequest: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 57259237, data2: 17846, data3: 4563, data4: [182, 80, 0, 192, 79, 121, 73, 142] };
+pub const ChannelTuneRequest: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 57259237, data2: 17846, data3: 4563, data4: [182, 80, 0, 192, 79, 121, 73, 142] };
 #[repr(transparent)]
 pub struct ChannelType(pub i32);
 pub const ChannelTypeNone: ChannelType = ChannelType(0i32);
@@ -3286,7 +3286,7 @@ impl ::core::clone::Clone for ChannelTypeInfo {
         *self
     }
 }
-pub const Component: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1507608488, data2: 4460, data3: 4563, data4: [157, 142, 0, 192, 79, 114, 217, 128] };
+pub const Component: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1507608488, data2: 4460, data3: 4563, data4: [157, 142, 0, 192, 79, 114, 217, 128] };
 #[repr(transparent)]
 pub struct ComponentCategory(pub i32);
 pub const CategoryNotSet: ComponentCategory = ComponentCategory(-1i32);
@@ -3316,9 +3316,9 @@ impl ::core::clone::Clone for ComponentStatus {
         *self
     }
 }
-pub const ComponentType: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2184525216, data2: 792, data3: 4563, data4: [157, 142, 0, 192, 79, 114, 217, 128] };
-pub const ComponentTypes: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2711794116, data2: 3642, data3: 4563, data4: [157, 142, 0, 192, 79, 114, 217, 128] };
-pub const Components: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2157667937, data2: 38084, data3: 18918, data4: [182, 236, 63, 15, 134, 34, 21, 170] };
+pub const ComponentType: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2184525216, data2: 792, data3: 4563, data4: [157, 142, 0, 192, 79, 114, 217, 128] };
+pub const ComponentTypes: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2711794116, data2: 3642, data3: 4563, data4: [157, 142, 0, 192, 79, 114, 217, 128] };
+pub const Components: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2157667937, data2: 38084, data3: 18918, data4: [182, 236, 63, 15, 134, 34, 21, 170] };
 #[repr(transparent)]
 pub struct CompressionCaps(pub i32);
 pub const CompressionCaps_CanQuality: CompressionCaps = CompressionCaps(1i32);
@@ -3332,7 +3332,7 @@ impl ::core::clone::Clone for CompressionCaps {
         *self
     }
 }
-pub const CreatePropBagOnRegKey: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2322025289, data2: 8035, data3: 4563, data4: [182, 76, 0, 192, 79, 121, 73, 142] };
+pub const CreatePropBagOnRegKey: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2322025289, data2: 8035, data3: 4563, data4: [182, 76, 0, 192, 79, 121, 73, 142] };
 #[repr(transparent)]
 pub struct DDSFF_FLAGS(pub u32);
 pub const DDSFF_PROGRESSIVERENDER: DDSFF_FLAGS = DDSFF_FLAGS(1u32);
@@ -3375,8 +3375,8 @@ impl ::core::clone::Clone for DESC_LINKAGE_TYPE {
         *self
     }
 }
-pub const DIGITAL_CABLE_NETWORK_TYPE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 339224491, data2: 63355, data3: 18829, data4: [129, 202, 90, 0, 122, 236, 40, 191] };
-pub const DIRECT_TV_SATELLITE_TV_NETWORK_TYPE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2478206901, data2: 37844, data3: 17187, data4: [146, 28, 193, 245, 45, 246, 29, 63] };
+pub const DIGITAL_CABLE_NETWORK_TYPE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 339224491, data2: 63355, data3: 18829, data4: [129, 202, 90, 0, 122, 236, 40, 191] };
+pub const DIRECT_TV_SATELLITE_TV_NETWORK_TYPE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2478206901, data2: 37844, data3: 17187, data4: [146, 28, 193, 245, 45, 246, 29, 63] };
 #[repr(transparent)]
 pub struct DISPID_TUNER(pub i32);
 pub const DISPID_TUNER_TS_UNIQUENAME: DISPID_TUNER = DISPID_TUNER(1i32);
@@ -3497,13 +3497,13 @@ impl ::core::clone::Clone for DISPID_TUNER {
         *self
     }
 }
-pub const DSATTRIB_BadSampleInfo: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const DSATTRIB_BadSampleInfo: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3833884122,
     data2: 22584,
     data3: 17076,
     data4: [184, 151, 111, 126, 95, 170, 47, 47],
 };
-pub const DSATTRIB_WMDRMProtectionInfo: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const DSATTRIB_WMDRMProtectionInfo: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1081382275,
     data2: 27549,
     data3: 20204,
@@ -3612,7 +3612,7 @@ impl ::core::clone::Clone for DSMCC_SECTION_1 {
         *self
     }
 }
-pub const DTFilter: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3301229810, data2: 73, data3: 20011, data4: [152, 251, 149, 55, 246, 206, 81, 109] };
+pub const DTFilter: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3301229810, data2: 73, data3: 20011, data4: [152, 251, 149, 55, 246, 206, 81, 109] };
 pub const DTV_CardStatus_Error: u32 = 2u32;
 pub const DTV_CardStatus_FirmwareDownload: u32 = 3u32;
 pub const DTV_CardStatus_Inserted: u32 = 0u32;
@@ -3622,9 +3622,9 @@ pub const DTV_Entitlement_NotEntitled: u32 = 1u32;
 pub const DTV_Entitlement_TechnicalFailure: u32 = 2u32;
 pub const DTV_MMIMessage_Close: u32 = 1u32;
 pub const DTV_MMIMessage_Open: u32 = 0u32;
-pub const DVBCLocator: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3308378621, data2: 38533, data3: 16424, data4: [139, 104, 110, 18, 50, 7, 159, 30] };
-pub const DVBSLocator: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 502780198, data2: 16464, data3: 18416, data4: [167, 207, 76, 76, 169, 36, 19, 51] };
-pub const DVBSTuningSpace: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3057653491, data2: 51618, data3: 16486, data4: [150, 240, 189, 149, 99, 49, 71, 38] };
+pub const DVBCLocator: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3308378621, data2: 38533, data3: 16424, data4: [139, 104, 110, 18, 50, 7, 159, 30] };
+pub const DVBSLocator: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 502780198, data2: 16464, data3: 18416, data4: [167, 207, 76, 76, 169, 36, 19, 51] };
+pub const DVBSTuningSpace: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3057653491, data2: 51618, data3: 16486, data4: [150, 240, 189, 149, 99, 49, 71, 38] };
 pub const DVBS_SCAN_TABLE_MAX_SIZE: u32 = 400u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -3653,25 +3653,25 @@ impl ::core::clone::Clone for DVBSystemType {
         *self
     }
 }
-pub const DVBTLocator: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const DVBTLocator: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2631288577,
     data2: 48627,
     data3: 19732,
     data4: [142, 3, 241, 41, 131, 216, 102, 100],
 };
-pub const DVBTLocator2: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const DVBTLocator2: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4024695298,
     data2: 17879,
     data3: 18720,
     data4: [190, 150, 83, 250, 127, 53, 176, 230],
 };
-pub const DVBTuneRequest: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const DVBTuneRequest: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 366366794,
     data2: 21652,
     data3: 18844,
     data4: [136, 108, 151, 60, 158, 83, 185, 241],
 };
-pub const DVBTuningSpace: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const DVBTuningSpace: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3333507890,
     data2: 30378,
     data3: 19078,
@@ -3679,7 +3679,7 @@ pub const DVBTuningSpace: ::windows_sys::core::GUID = ::windows_sys::GUID {
 };
 pub const DVB_BAT_PID: u32 = 17u32;
 pub const DVB_BAT_TID: u32 = 74u32;
-pub const DVB_CABLE_TV_NETWORK_TYPE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3691778023, data2: 1157, data3: 16998, data4: [185, 63, 104, 251, 248, 14, 216, 52] };
+pub const DVB_CABLE_TV_NETWORK_TYPE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3691778023, data2: 1157, data3: 16998, data4: [185, 63, 104, 251, 248, 14, 216, 52] };
 pub const DVB_DIT_PID: u32 = 30u32;
 pub const DVB_DIT_TID: u32 = 126u32;
 pub const DVB_EIT_ACTUAL_TID: u32 = 78u32;
@@ -3704,7 +3704,7 @@ pub const DVB_NIT_OTHER_TID: u32 = 65u32;
 pub const DVB_NIT_PID: u32 = 16u32;
 pub const DVB_RST_PID: u32 = 19u32;
 pub const DVB_RST_TID: u32 = 113u32;
-pub const DVB_SATELLITE_TV_NETWORK_TYPE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4199233370, data2: 17844, data3: 19781, data4: [132, 64, 38, 57, 87, 177, 22, 35] };
+pub const DVB_SATELLITE_TV_NETWORK_TYPE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4199233370, data2: 17844, data3: 19781, data4: [132, 64, 38, 57, 87, 177, 22, 35] };
 pub const DVB_SDT_ACTUAL_TID: u32 = 66u32;
 pub const DVB_SDT_OTHER_TID: u32 = 70u32;
 pub const DVB_SDT_PID: u32 = 17u32;
@@ -3730,7 +3730,7 @@ pub const DVB_ST_PID_20: u32 = 20u32;
 pub const DVB_ST_TID: u32 = 114u32;
 pub const DVB_TDT_PID: u32 = 20u32;
 pub const DVB_TDT_TID: u32 = 112u32;
-pub const DVB_TERRESTRIAL_TV_NETWORK_TYPE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 560751327, data2: 28031, data3: 20122, data4: [133, 113, 5, 241, 78, 219, 118, 106] };
+pub const DVB_TERRESTRIAL_TV_NETWORK_TYPE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 560751327, data2: 28031, data3: 20122, data4: [133, 113, 5, 241, 78, 219, 118, 106] };
 pub const DVB_TOT_PID: u32 = 20u32;
 pub const DVB_TOT_TID: u32 = 115u32;
 #[repr(transparent)]
@@ -4563,19 +4563,19 @@ pub const DWORD_ALLPARAMS: i32 = -1i32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Media_MediaFoundation"))]
 pub struct DXVA2SW_CALLBACKS {
     pub Size: u32,
-    pub GetVideoProcessorRenderTargetCount: ::core::option::Option<PDXVA2SW_GETVIDEOPROCESSORRENDERTARGETCOUNT>,
-    pub GetVideoProcessorRenderTargets: ::core::option::Option<PDXVA2SW_GETVIDEOPROCESSORRENDERTARGETS>,
-    pub GetVideoProcessorCaps: ::core::option::Option<PDXVA2SW_GETVIDEOPROCESSORCAPS>,
-    pub GetVideoProcessorSubStreamFormatCount: ::core::option::Option<PDXVA2SW_GETVIDEOPROCESSORSUBSTREAMFORMATCOUNT>,
-    pub GetVideoProcessorSubStreamFormats: ::core::option::Option<PDXVA2SW_GETVIDEOPROCESSORSUBSTREAMFORMATS>,
-    pub GetProcAmpRange: ::core::option::Option<PDXVA2SW_GETPROCAMPRANGE>,
-    pub GetFilterPropertyRange: ::core::option::Option<PDXVA2SW_GETFILTERPROPERTYRANGE>,
-    pub CreateVideoProcessDevice: ::core::option::Option<PDXVA2SW_CREATEVIDEOPROCESSDEVICE>,
-    pub DestroyVideoProcessDevice: ::core::option::Option<PDXVA2SW_DESTROYVIDEOPROCESSDEVICE>,
-    pub VideoProcessBeginFrame: ::core::option::Option<PDXVA2SW_VIDEOPROCESSBEGINFRAME>,
-    pub VideoProcessEndFrame: ::core::option::Option<PDXVA2SW_VIDEOPROCESSENDFRAME>,
-    pub VideoProcessSetRenderTarget: ::core::option::Option<PDXVA2SW_VIDEOPROCESSSETRENDERTARGET>,
-    pub VideoProcessBlt: ::core::option::Option<PDXVA2SW_VIDEOPROCESSBLT>,
+    pub GetVideoProcessorRenderTargetCount: PDXVA2SW_GETVIDEOPROCESSORRENDERTARGETCOUNT,
+    pub GetVideoProcessorRenderTargets: PDXVA2SW_GETVIDEOPROCESSORRENDERTARGETS,
+    pub GetVideoProcessorCaps: PDXVA2SW_GETVIDEOPROCESSORCAPS,
+    pub GetVideoProcessorSubStreamFormatCount: PDXVA2SW_GETVIDEOPROCESSORSUBSTREAMFORMATCOUNT,
+    pub GetVideoProcessorSubStreamFormats: PDXVA2SW_GETVIDEOPROCESSORSUBSTREAMFORMATS,
+    pub GetProcAmpRange: PDXVA2SW_GETPROCAMPRANGE,
+    pub GetFilterPropertyRange: PDXVA2SW_GETFILTERPROPERTYRANGE,
+    pub CreateVideoProcessDevice: PDXVA2SW_CREATEVIDEOPROCESSDEVICE,
+    pub DestroyVideoProcessDevice: PDXVA2SW_DESTROYVIDEOPROCESSDEVICE,
+    pub VideoProcessBeginFrame: PDXVA2SW_VIDEOPROCESSBEGINFRAME,
+    pub VideoProcessEndFrame: PDXVA2SW_VIDEOPROCESSENDFRAME,
+    pub VideoProcessSetRenderTarget: PDXVA2SW_VIDEOPROCESSSETRENDERTARGET,
+    pub VideoProcessBlt: PDXVA2SW_VIDEOPROCESSBLT,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Media_MediaFoundation"))]
 impl ::core::marker::Copy for DXVA2SW_CALLBACKS {}
@@ -4603,8 +4603,8 @@ impl ::core::clone::Clone for DXVA2TraceVideoProcessBltData {
         *self
     }
 }
-pub const DXVA2Trace_Control: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2688052853, data2: 63244, data3: 17996, data4: [169, 206, 51, 196, 78, 9, 22, 35] };
-pub const DXVA2Trace_DecodeDevBeginFrame: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2681318646, data2: 17611, data3: 17975, data4: [188, 98, 44, 17, 169, 96, 143, 144] };
+pub const DXVA2Trace_Control: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2688052853, data2: 63244, data3: 17996, data4: [169, 206, 51, 196, 78, 9, 22, 35] };
+pub const DXVA2Trace_DecodeDevBeginFrame: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2681318646, data2: 17611, data3: 17975, data4: [188, 98, 44, 17, 169, 96, 143, 144] };
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Etw"))]
 pub struct DXVA2Trace_DecodeDevBeginFrameData {
@@ -4621,7 +4621,7 @@ impl ::core::clone::Clone for DXVA2Trace_DecodeDevBeginFrameData {
         *self
     }
 }
-pub const DXVA2Trace_DecodeDevCreated: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const DXVA2Trace_DecodeDevCreated: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3034453921,
     data2: 50610,
     data3: 17662,
@@ -4646,20 +4646,20 @@ impl ::core::clone::Clone for DXVA2Trace_DecodeDevCreatedData {
         *self
     }
 }
-pub const DXVA2Trace_DecodeDevDestroyed: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const DXVA2Trace_DecodeDevDestroyed: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2235481586,
     data2: 16736,
     data3: 16925,
     data4: [136, 147, 99, 220, 234, 79, 24, 187],
 };
-pub const DXVA2Trace_DecodeDevEndFrame: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const DXVA2Trace_DecodeDevEndFrame: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2679360307,
     data2: 18396,
     data3: 18585,
     data4: [152, 200, 192, 198, 205, 124, 211, 203],
 };
-pub const DXVA2Trace_DecodeDevExecute: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2232085324, data2: 53658, data3: 17929, data4: [179, 180, 188, 191, 14, 34, 18, 30] };
-pub const DXVA2Trace_DecodeDevGetBuffer: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1471228155, data2: 29387, data3: 16695, data4: [165, 117, 217, 31, 163, 22, 8, 151] };
+pub const DXVA2Trace_DecodeDevExecute: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2232085324, data2: 53658, data3: 17929, data4: [179, 180, 188, 191, 14, 34, 18, 30] };
+pub const DXVA2Trace_DecodeDevGetBuffer: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1471228155, data2: 29387, data3: 16695, data4: [165, 117, 217, 31, 163, 22, 8, 151] };
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Etw"))]
 pub struct DXVA2Trace_DecodeDevGetBufferData {
@@ -4691,8 +4691,8 @@ impl ::core::clone::Clone for DXVA2Trace_DecodeDeviceData {
         *self
     }
 }
-pub const DXVA2Trace_VideoProcessBlt: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1762172096, data2: 29099, data3: 17104, data4: [149, 58, 40, 135, 191, 5, 168, 175] };
-pub const DXVA2Trace_VideoProcessDevCreated: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const DXVA2Trace_VideoProcessBlt: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1762172096, data2: 29099, data3: 17104, data4: [149, 58, 40, 135, 191, 5, 168, 175] };
+pub const DXVA2Trace_VideoProcessDevCreated: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2304051398,
     data2: 21517,
     data3: 19591,
@@ -4718,7 +4718,7 @@ impl ::core::clone::Clone for DXVA2Trace_VideoProcessDevCreatedData {
         *self
     }
 }
-pub const DXVA2Trace_VideoProcessDevDestroyed: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const DXVA2Trace_VideoProcessDevDestroyed: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4185862321,
     data2: 64329,
     data3: 17095,
@@ -4846,7 +4846,7 @@ pub const DXVA_CONFIG_DATA_TYPE_AYUV: u32 = 3u32;
 pub const DXVA_CONFIG_DATA_TYPE_DPXD: u32 = 2u32;
 pub const DXVA_CONFIG_DATA_TYPE_IA44: u32 = 0u32;
 pub const DXVA_COPPCommandFnCode: u32 = 4u32;
-pub const DXVA_COPPDevice: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const DXVA_COPPDevice: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3527768797,
     data2: 35225,
     data3: 17901,
@@ -4854,24 +4854,24 @@ pub const DXVA_COPPDevice: ::windows_sys::core::GUID = ::windows_sys::GUID {
 };
 pub const DXVA_COPPGetCertificateLengthFnCode: u32 = 1u32;
 pub const DXVA_COPPKeyExchangeFnCode: u32 = 2u32;
-pub const DXVA_COPPQueryBusData: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3337934451, data2: 24948, data3: 16772, data4: [142, 53, 246, 219, 82, 0, 188, 186] };
-pub const DXVA_COPPQueryConnectorType: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const DXVA_COPPQueryBusData: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3337934451, data2: 24948, data3: 16772, data4: [142, 53, 246, 219, 82, 0, 188, 186] };
+pub const DXVA_COPPQueryConnectorType: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2177941461,
     data2: 27390,
     data3: 18626,
     data4: [153, 192, 149, 160, 143, 151, 197, 218],
 };
-pub const DXVA_COPPQueryDisplayData: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3619625891, data2: 44307, data3: 20366, data4: [175, 152, 13, 203, 60, 162, 4, 204] };
-pub const DXVA_COPPQueryGlobalProtectionLevel: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const DXVA_COPPQueryDisplayData: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3619625891, data2: 44307, data3: 20366, data4: [175, 152, 13, 203, 60, 162, 4, 204] };
+pub const DXVA_COPPQueryGlobalProtectionLevel: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 425140490,
     data2: 30566,
     data3: 17706,
     data4: [185, 154, 210, 122, 237, 84, 240, 58],
 };
-pub const DXVA_COPPQueryHDCPKeyData: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 230006132, data2: 43410, data3: 18734, data4: [160, 189, 194, 63, 218, 86, 78, 0] };
-pub const DXVA_COPPQueryLocalProtectionLevel: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2986825815, data2: 16090, data3: 19805, data4: [136, 219, 116, 143, 140, 26, 5, 73] };
-pub const DXVA_COPPQueryProtectionType: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 955426817, data2: 39532, data3: 18619, data4: [145, 7, 182, 105, 110, 111, 23, 151] };
-pub const DXVA_COPPQuerySignaling: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const DXVA_COPPQueryHDCPKeyData: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 230006132, data2: 43410, data3: 18734, data4: [160, 189, 194, 63, 218, 86, 78, 0] };
+pub const DXVA_COPPQueryLocalProtectionLevel: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2986825815, data2: 16090, data3: 19805, data4: [136, 219, 116, 143, 140, 26, 5, 73] };
+pub const DXVA_COPPQueryProtectionType: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 955426817, data2: 39532, data3: 18619, data4: [145, 7, 182, 105, 110, 111, 23, 151] };
+pub const DXVA_COPPQuerySignaling: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1714005393,
     data2: 15225,
     data3: 19699,
@@ -4879,7 +4879,7 @@ pub const DXVA_COPPQuerySignaling: ::windows_sys::core::GUID = ::windows_sys::GU
 };
 pub const DXVA_COPPQueryStatusFnCode: u32 = 5u32;
 pub const DXVA_COPPSequenceStartFnCode: u32 = 3u32;
-pub const DXVA_COPPSetProtectionLevel: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2612605564, data2: 20149, data3: 18215, data4: [159, 0, 180, 43, 9, 25, 192, 218] };
+pub const DXVA_COPPSetProtectionLevel: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2612605564, data2: 20149, data3: 18215, data4: [159, 0, 180, 43, 9, 25, 192, 218] };
 #[repr(C)]
 pub struct DXVA_COPPSetProtectionLevelCmdData {
     pub ProtType: u32,
@@ -4893,7 +4893,7 @@ impl ::core::clone::Clone for DXVA_COPPSetProtectionLevelCmdData {
         *self
     }
 }
-pub const DXVA_COPPSetSignaling: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 161886629, data2: 54916, data3: 19552, data4: [142, 77, 211, 187, 15, 11, 227, 238] };
+pub const DXVA_COPPSetSignaling: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 161886629, data2: 54916, data3: 19552, data4: [142, 77, 211, 187, 15, 11, 227, 238] };
 #[repr(C)]
 pub struct DXVA_COPPSetSignalingCmdData {
     pub ActiveTVProtectionStandard: u32,
@@ -4987,13 +4987,13 @@ pub const DXVA_DEBLOCKING_FILTER_FUNCTION: u32 = 5u32;
 pub const DXVA_DPXD_SURFACE_BUFFER: u32 = 10u32;
 pub const DXVA_DeinterlaceBltExFnCode: u32 = 2u32;
 pub const DXVA_DeinterlaceBltFnCode: u32 = 1u32;
-pub const DXVA_DeinterlaceBobDevice: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const DXVA_DeinterlaceBobDevice: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 861578094,
     data2: 30852,
     data3: 17316,
     data4: [156, 145, 127, 135, 250, 243, 227, 126],
 };
-pub const DXVA_DeinterlaceContainerDevice: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const DXVA_DeinterlaceContainerDevice: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 243649427,
     data2: 12358,
     data3: 20464,
@@ -5019,117 +5019,117 @@ pub const DXVA_MOTION_VECTOR_BUFFER: u32 = 16u32;
 pub const DXVA_MV_PRECISION_AND_CHROMA_RELATION_H261: u32 = 2u32;
 pub const DXVA_MV_PRECISION_AND_CHROMA_RELATION_H263: u32 = 1u32;
 pub const DXVA_MV_PRECISION_AND_CHROMA_RELATION_MPEG2: u32 = 0u32;
-pub const DXVA_ModeAV1_VLD_12bit_Profile2: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const DXVA_ModeAV1_VLD_12bit_Profile2: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 387084297,
     data2: 40975,
     data3: 19681,
     data4: [153, 78, 191, 64, 129, 246, 243, 240],
 };
-pub const DXVA_ModeAV1_VLD_12bit_Profile2_420: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const DXVA_ModeAV1_VLD_12bit_Profile2_420: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 763412182,
     data2: 40108,
     data3: 18485,
     data4: [158, 145, 50, 123, 188, 79, 158, 232],
 };
-pub const DXVA_ModeAV1_VLD_Profile0: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const DXVA_ModeAV1_VLD_Profile0: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3099479243,
     data2: 53075,
     data3: 18106,
     data4: [141, 89, 214, 184, 166, 218, 93, 42],
 };
-pub const DXVA_ModeAV1_VLD_Profile1: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const DXVA_ModeAV1_VLD_Profile1: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1765211919,
     data2: 17841,
     data3: 16739,
     data4: [156, 193, 100, 110, 246, 148, 97, 8],
 };
-pub const DXVA_ModeAV1_VLD_Profile2: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 207563425, data2: 58689, data3: 16521, data4: [187, 123, 152, 17, 10, 25, 215, 200] };
-pub const DXVA_ModeH261_A: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 461487617, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
-pub const DXVA_ModeH261_B: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 461487618, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
-pub const DXVA_ModeH263_A: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 461487619, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
-pub const DXVA_ModeH263_B: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 461487620, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
-pub const DXVA_ModeH263_C: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 461487621, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
-pub const DXVA_ModeH263_D: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 461487622, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
-pub const DXVA_ModeH263_E: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 461487623, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
-pub const DXVA_ModeH263_F: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 461487624, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
-pub const DXVA_ModeH264_A: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 461487716, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
-pub const DXVA_ModeH264_B: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 461487717, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
-pub const DXVA_ModeH264_C: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 461487718, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
-pub const DXVA_ModeH264_D: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 461487719, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
-pub const DXVA_ModeH264_E: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 461487720, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
-pub const DXVA_ModeH264_F: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 461487721, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
-pub const DXVA_ModeH264_VLD_Multiview_NoFGT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const DXVA_ModeAV1_VLD_Profile2: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 207563425, data2: 58689, data3: 16521, data4: [187, 123, 152, 17, 10, 25, 215, 200] };
+pub const DXVA_ModeH261_A: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 461487617, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
+pub const DXVA_ModeH261_B: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 461487618, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
+pub const DXVA_ModeH263_A: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 461487619, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
+pub const DXVA_ModeH263_B: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 461487620, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
+pub const DXVA_ModeH263_C: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 461487621, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
+pub const DXVA_ModeH263_D: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 461487622, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
+pub const DXVA_ModeH263_E: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 461487623, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
+pub const DXVA_ModeH263_F: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 461487624, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
+pub const DXVA_ModeH264_A: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 461487716, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
+pub const DXVA_ModeH264_B: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 461487717, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
+pub const DXVA_ModeH264_C: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 461487718, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
+pub const DXVA_ModeH264_D: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 461487719, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
+pub const DXVA_ModeH264_E: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 461487720, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
+pub const DXVA_ModeH264_F: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 461487721, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
+pub const DXVA_ModeH264_VLD_Multiview_NoFGT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1885052290,
     data2: 30415,
     data3: 18902,
     data4: [183, 230, 172, 136, 114, 219, 1, 60],
 };
-pub const DXVA_ModeH264_VLD_Stereo_NoFGT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4188720315, data2: 49846, data3: 19708, data4: [135, 121, 87, 7, 177, 118, 5, 82] };
-pub const DXVA_ModeH264_VLD_Stereo_Progressive_NoFGT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3617319130, data2: 3313, data3: 19585, data4: [184, 42, 105, 164, 226, 54, 244, 61] };
-pub const DXVA_ModeH264_VLD_WithFMOASO_NoFGT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const DXVA_ModeH264_VLD_Stereo_NoFGT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4188720315, data2: 49846, data3: 19708, data4: [135, 121, 87, 7, 177, 118, 5, 82] };
+pub const DXVA_ModeH264_VLD_Stereo_Progressive_NoFGT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3617319130, data2: 3313, data3: 19585, data4: [184, 42, 105, 164, 226, 54, 244, 61] };
+pub const DXVA_ModeH264_VLD_WithFMOASO_NoFGT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3589296121,
     data2: 13336,
     data3: 17880,
     data4: [149, 97, 50, 167, 106, 174, 45, 221],
 };
-pub const DXVA_ModeHEVC_VLD_Main: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1527895323, data2: 12108, data3: 17490, data4: [188, 195, 9, 242, 161, 22, 12, 192] };
-pub const DXVA_ModeHEVC_VLD_Main10: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 276492512, data2: 61210, data3: 19737, data4: [171, 168, 103, 161, 99, 7, 61, 19] };
-pub const DXVA_ModeMPEG1_A: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 461487625, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
-pub const DXVA_ModeMPEG1_VLD: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const DXVA_ModeHEVC_VLD_Main: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1527895323, data2: 12108, data3: 17490, data4: [188, 195, 9, 242, 161, 22, 12, 192] };
+pub const DXVA_ModeHEVC_VLD_Main10: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 276492512, data2: 61210, data3: 19737, data4: [171, 168, 103, 161, 99, 7, 61, 19] };
+pub const DXVA_ModeMPEG1_A: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 461487625, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
+pub const DXVA_ModeMPEG1_VLD: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1866385177,
     data2: 14133,
     data3: 17100,
     data4: [128, 99, 101, 204, 60, 179, 102, 22],
 };
-pub const DXVA_ModeMPEG2_A: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 461487626, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
-pub const DXVA_ModeMPEG2_B: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 461487627, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
-pub const DXVA_ModeMPEG2_C: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 461487628, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
-pub const DXVA_ModeMPEG2_D: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 461487629, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
-pub const DXVA_ModeMPEG2and1_VLD: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const DXVA_ModeMPEG2_A: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 461487626, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
+pub const DXVA_ModeMPEG2_B: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 461487627, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
+pub const DXVA_ModeMPEG2_C: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 461487628, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
+pub const DXVA_ModeMPEG2_D: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 461487629, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
+pub const DXVA_ModeMPEG2and1_VLD: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2255052562,
     data2: 13326,
     data3: 20228,
     data4: [159, 211, 146, 83, 221, 50, 116, 96],
 };
-pub const DXVA_ModeMPEG4pt2_VLD_AdvSimple_GMC: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const DXVA_ModeMPEG4pt2_VLD_AdvSimple_GMC: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2878966619,
     data2: 16984,
     data3: 17577,
     data4: [159, 235, 148, 229, 151, 166, 186, 174],
 };
-pub const DXVA_ModeMPEG4pt2_VLD_AdvSimple_NoGMC: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3980495519, data2: 269, data3: 20186, data4: [154, 227, 154, 101, 53, 141, 141, 46] };
-pub const DXVA_ModeMPEG4pt2_VLD_Simple: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const DXVA_ModeMPEG4pt2_VLD_AdvSimple_NoGMC: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3980495519, data2: 269, data3: 20186, data4: [154, 227, 154, 101, 53, 141, 141, 46] };
+pub const DXVA_ModeMPEG4pt2_VLD_Simple: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4023799156,
     data2: 51688,
     data3: 16855,
     data4: [165, 233, 233, 176, 227, 159, 163, 25],
 };
-pub const DXVA_ModeNone: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 461487616, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
-pub const DXVA_ModeVC1_A: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 461487776, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
-pub const DXVA_ModeVC1_B: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 461487777, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
-pub const DXVA_ModeVC1_C: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 461487778, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
-pub const DXVA_ModeVC1_D: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 461487779, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
-pub const DXVA_ModeVC1_D2010: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 461487780, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
-pub const DXVA_ModeVP8_VLD: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const DXVA_ModeNone: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 461487616, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
+pub const DXVA_ModeVC1_A: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 461487776, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
+pub const DXVA_ModeVC1_B: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 461487777, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
+pub const DXVA_ModeVC1_C: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 461487778, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
+pub const DXVA_ModeVC1_D: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 461487779, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
+pub const DXVA_ModeVC1_D2010: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 461487780, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
+pub const DXVA_ModeVP8_VLD: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2428017130,
     data2: 14946,
     data3: 18181,
     data4: [136, 179, 141, 240, 75, 39, 68, 231],
 };
-pub const DXVA_ModeVP9_VLD_10bit_Profile2: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2764524015, data2: 28367, data3: 18602, data4: [132, 72, 80, 167, 161, 22, 95, 247] };
-pub const DXVA_ModeVP9_VLD_Profile0: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const DXVA_ModeVP9_VLD_10bit_Profile2: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2764524015, data2: 28367, data3: 18602, data4: [132, 72, 80, 167, 161, 22, 95, 247] };
+pub const DXVA_ModeVP9_VLD_Profile0: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1178011640,
     data2: 41424,
     data3: 17797,
     data4: [135, 109, 131, 170, 109, 96, 184, 158],
 };
-pub const DXVA_ModeWMV8_A: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 461487744, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
-pub const DXVA_ModeWMV8_B: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 461487745, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
-pub const DXVA_ModeWMV9_A: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 461487760, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
-pub const DXVA_ModeWMV9_B: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 461487761, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
-pub const DXVA_ModeWMV9_C: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 461487764, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
+pub const DXVA_ModeWMV8_A: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 461487744, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
+pub const DXVA_ModeWMV8_B: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 461487745, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
+pub const DXVA_ModeWMV9_A: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 461487760, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
+pub const DXVA_ModeWMV9_B: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 461487761, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
+pub const DXVA_ModeWMV9_C: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 461487764, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
 pub const DXVA_NUM_TYPES_COMP_BUFFERS: u32 = 18u32;
-pub const DXVA_NoEncrypt: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 461487824, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
+pub const DXVA_NoEncrypt: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 461487824, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
 pub const DXVA_NumMV_OBMC_off_BinPBwith4MV_off: u32 = 4u32;
 pub const DXVA_NumMV_OBMC_off_BinPBwith4MV_on: u32 = 5u32;
 pub const DXVA_NumMV_OBMC_on__BinPB_off: u32 = 10u32;
@@ -5142,7 +5142,7 @@ pub const DXVA_PICTURE_STRUCTURE_BOTTOM_FIELD: u32 = 2u32;
 pub const DXVA_PICTURE_STRUCTURE_FRAME: u32 = 3u32;
 pub const DXVA_PICTURE_STRUCTURE_TOP_FIELD: u32 = 1u32;
 pub const DXVA_ProcAmpControlBltFnCode: u32 = 1u32;
-pub const DXVA_ProcAmpControlDevice: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2669676819, data2: 12285, data3: 16470, data4: [159, 30, 225, 181, 8, 242, 45, 207] };
+pub const DXVA_ProcAmpControlDevice: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2669676819, data2: 12285, data3: 16470, data4: [159, 30, 225, 181, 8, 242, 45, 207] };
 pub const DXVA_ProcAmpControlQueryCapsFnCode: u32 = 3u32;
 pub const DXVA_ProcAmpControlQueryRangeFnCode: u32 = 4u32;
 pub const DXVA_QUERYORREPLYFUNCFLAG_ACCEL_LOCK_FALSE_PLUS: u32 = 16777215u32;
@@ -5216,20 +5216,20 @@ pub const DXVA_SLICE_CONTROL_BUFFER: u32 = 6u32;
 pub const DXVA_STATUS_REPORTING_FUNCTION: u32 = 7u32;
 pub const DXVA_USUAL_BLOCK_HEIGHT: u32 = 8u32;
 pub const DXVA_USUAL_BLOCK_WIDTH: u32 = 8u32;
-pub const DigitalCableLocator: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 62940182, data2: 53543, data3: 16506, data4: [171, 76, 253, 210, 121, 171, 190, 93] };
-pub const DigitalCableTuneRequest: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const DigitalCableLocator: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 62940182, data2: 53543, data3: 16506, data4: [171, 76, 253, 210, 121, 171, 190, 93] };
+pub const DigitalCableTuneRequest: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 653003619,
     data2: 43664,
     data3: 17802,
     data4: [141, 244, 86, 89, 242, 200, 161, 138],
 };
-pub const DigitalCableTuningSpace: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const DigitalCableTuningSpace: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3652930798,
     data2: 47226,
     data3: 18417,
     data4: [172, 146, 176, 141, 156, 120, 19, 252],
 };
-pub const DigitalLocator: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1850788877, data2: 49563, data3: 19446, data4: [129, 11, 91, 214, 7, 97, 245, 204] };
+pub const DigitalLocator: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1850788877, data2: 49563, data3: 19446, data4: [129, 11, 91, 214, 7, 97, 245, 204] };
 #[repr(transparent)]
 pub struct DisplaySizeList(pub i32);
 pub const dslDefaultSize: DisplaySizeList = DisplaySizeList(0i32);
@@ -5311,7 +5311,7 @@ impl ::core::clone::Clone for EALocationCodeType {
         *self
     }
 }
-pub const ECHOSTAR_SATELLITE_TV_NETWORK_TYPE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const ECHOSTAR_SATELLITE_TV_NETWORK_TYPE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3304502043,
     data2: 50879,
     data3: 18265,
@@ -5422,323 +5422,323 @@ pub const EC_WINDOW_DESTROYED: u32 = 21u32;
 pub const EC_WMT_EVENT: u32 = 594u32;
 pub const EC_WMT_EVENT_BASE: u32 = 593u32;
 pub const EC_WMT_INDEX_EVENT: u32 = 593u32;
-pub const ESEventFactory: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const ESEventFactory: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2391410650,
     data2: 29176,
     data3: 16577,
     data4: [169, 41, 94, 58, 134, 138, 194, 198],
 };
-pub const ESEventService: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const ESEventService: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3255060476,
     data2: 60512,
     data3: 18270,
     data4: [129, 63, 210, 176, 166, 222, 206, 254],
 };
-pub const ETFilter: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3301229809, data2: 73, data3: 20011, data4: [152, 251, 149, 55, 246, 206, 81, 109] };
-pub const EVENTID_ARIBcontentSpanningEvent: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 982859907, data2: 37840, data3: 17982, data4: [144, 178, 7, 66, 196, 150, 237, 240] };
-pub const EVENTID_AudioDescriptorSpanningEvent: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const ETFilter: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3301229809, data2: 73, data3: 20011, data4: [152, 251, 149, 55, 246, 206, 81, 109] };
+pub const EVENTID_ARIBcontentSpanningEvent: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 982859907, data2: 37840, data3: 17982, data4: [144, 178, 7, 66, 196, 150, 237, 240] };
+pub const EVENTID_AudioDescriptorSpanningEvent: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 276550684,
     data2: 42714,
     data3: 18065,
     data4: [131, 105, 17, 178, 205, 170, 40, 142],
 };
-pub const EVENTID_AudioTypeSpanningEvent: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const EVENTID_AudioTypeSpanningEvent: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1344061374,
     data2: 47177,
     data3: 17102,
     data4: [155, 233, 61, 184, 105, 251, 130, 179],
 };
-pub const EVENTID_BDAConditionalAccessTAG: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const EVENTID_BDAConditionalAccessTAG: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4022576217,
     data2: 44683,
     data3: 19274,
     data4: [143, 233, 121, 160, 208, 151, 243, 234],
 };
-pub const EVENTID_BDAEventingServicePendingEvent: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1554323217, data2: 24028, data3: 16806, data4: [148, 48, 228, 27, 139, 59, 188, 91] };
-pub const EVENTID_BDA_CASBroadcastMMI: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const EVENTID_BDAEventingServicePendingEvent: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1554323217, data2: 24028, data3: 16806, data4: [148, 48, 228, 27, 139, 59, 188, 91] };
+pub const EVENTID_BDA_CASBroadcastMMI: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1734899440,
     data2: 4402,
     data3: 16460,
     data4: [167, 202, 231, 32, 105, 169, 213, 79],
 };
-pub const EVENTID_BDA_CASCloseMMI: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const EVENTID_BDA_CASCloseMMI: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1561285903,
     data2: 56878,
     data3: 18333,
     data4: [131, 69, 236, 14, 149, 87, 232, 162],
 };
-pub const EVENTID_BDA_CASOpenMMI: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const EVENTID_BDA_CASOpenMMI: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2245708053,
     data2: 58771,
     data3: 16653,
     data4: [132, 113, 214, 129, 33, 5, 242, 142],
 };
-pub const EVENTID_BDA_CASReleaseTuner: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const EVENTID_BDA_CASReleaseTuner: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 549560683,
     data2: 17439,
     data3: 18853,
     data4: [187, 92, 233, 160, 68, 149, 198, 193],
 };
-pub const EVENTID_BDA_CASRequestTuner: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const EVENTID_BDA_CASRequestTuner: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3476662744,
     data2: 62931,
     data3: 18053,
     data4: [190, 87, 237, 129, 219, 164, 107, 39],
 };
-pub const EVENTID_BDA_DiseqCResponseAvailable: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const EVENTID_BDA_DiseqCResponseAvailable: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4020644088,
     data2: 7980,
     data3: 19303,
     data4: [158, 165, 172, 246, 250, 154, 31, 54],
 };
-pub const EVENTID_BDA_EncoderSignalLock: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1590234809, data2: 14842, data3: 19708, data4: [185, 63, 0, 187, 17, 7, 127, 94] };
-pub const EVENTID_BDA_FdcStatus: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 99767142, data2: 53483, data3: 17362, data4: [188, 60, 104, 43, 134, 61, 241, 66] };
-pub const EVENTID_BDA_FdcTableSection: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const EVENTID_BDA_EncoderSignalLock: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1590234809, data2: 14842, data3: 19708, data4: [185, 63, 0, 187, 17, 7, 127, 94] };
+pub const EVENTID_BDA_FdcStatus: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 99767142, data2: 53483, data3: 17362, data4: [188, 60, 104, 43, 134, 61, 241, 66] };
+pub const EVENTID_BDA_FdcTableSection: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1779226455,
     data2: 19683,
     data3: 20059,
     data4: [148, 68, 113, 135, 184, 113, 82, 197],
 };
-pub const EVENTID_BDA_GPNVValueUpdate: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const EVENTID_BDA_GPNVValueUpdate: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4285908620,
     data2: 62486,
     data3: 20094,
     data4: [191, 23, 109, 85, 197, 223, 21, 117],
 };
-pub const EVENTID_BDA_GuideDataAvailable: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const EVENTID_BDA_GuideDataAvailable: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2564518266,
     data2: 18314,
     data3: 19668,
     data4: [146, 208, 149, 246, 107, 137, 229, 177],
 };
-pub const EVENTID_BDA_GuideDataError: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2889073736, data2: 28531, data3: 20439, data4: [179, 65, 89, 76, 54, 13, 141, 116] };
-pub const EVENTID_BDA_GuideServiceInformationUpdated: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2713971243, data2: 5983, data3: 17496, data4: [183, 53, 80, 125, 34, 219, 35, 166] };
-pub const EVENTID_BDA_IsdbCASResponse: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const EVENTID_BDA_GuideDataError: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2889073736, data2: 28531, data3: 20439, data4: [179, 65, 89, 76, 54, 13, 141, 116] };
+pub const EVENTID_BDA_GuideServiceInformationUpdated: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2713971243, data2: 5983, data3: 17496, data4: [183, 53, 80, 125, 34, 219, 35, 166] };
+pub const EVENTID_BDA_IsdbCASResponse: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3570080102,
     data2: 16828,
     data3: 19693,
     data4: [154, 32, 253, 206, 172, 120, 247, 13],
 };
-pub const EVENTID_BDA_LbigsCloseConnectionHandle: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const EVENTID_BDA_LbigsCloseConnectionHandle: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3270544281,
     data2: 26095,
     data3: 17172,
     data4: [150, 113, 233, 157, 76, 206, 11, 174],
 };
-pub const EVENTID_BDA_LbigsOpenConnection: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const EVENTID_BDA_LbigsOpenConnection: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 895616946,
     data2: 28465,
     data3: 20144,
     data4: [162, 113, 179, 250, 107, 183, 104, 15],
 };
-pub const EVENTID_BDA_LbigsSendData: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 287516539, data2: 61894, data3: 16724, data4: [139, 13, 72, 230, 21, 112, 89, 170] };
-pub const EVENTID_BDA_RatingPinReset: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3336587456, data2: 50548, data3: 19494, data4: [188, 218, 47, 77, 53, 235, 94, 133] };
-pub const EVENTID_BDA_TransprtStreamSelectorInfo: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const EVENTID_BDA_LbigsSendData: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 287516539, data2: 61894, data3: 16724, data4: [139, 13, 72, 230, 21, 112, 89, 170] };
+pub const EVENTID_BDA_RatingPinReset: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3336587456, data2: 50548, data3: 19494, data4: [188, 218, 47, 77, 53, 235, 94, 133] };
+pub const EVENTID_BDA_TransprtStreamSelectorInfo: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3289358213,
     data2: 2512,
     data3: 18588,
     data4: [158, 156, 10, 187, 181, 105, 81, 176],
 };
-pub const EVENTID_BDA_TunerNoSignal: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3801823275, data2: 7901, data3: 18736, data4: [188, 70, 104, 47, 215, 45, 45, 251] };
-pub const EVENTID_BDA_TunerSignalLock: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 410183488, data2: 62835, data3: 17051, data4: [160, 14, 217, 193, 228, 8, 175, 9] };
-pub const EVENTID_BDA_UpdateDrmStatus: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const EVENTID_BDA_TunerNoSignal: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3801823275, data2: 7901, data3: 18736, data4: [188, 70, 104, 47, 215, 45, 45, 251] };
+pub const EVENTID_BDA_TunerSignalLock: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 410183488, data2: 62835, data3: 17051, data4: [160, 14, 217, 193, 228, 8, 175, 9] };
+pub const EVENTID_BDA_UpdateDrmStatus: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1705440897,
     data2: 5218,
     data3: 18235,
     data4: [136, 206, 203, 115, 20, 39, 189, 181],
 };
-pub const EVENTID_BDA_UpdateScanState: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1433414480, data2: 31561, data3: 17080, data4: [168, 47, 74, 251, 105, 27, 6, 40] };
-pub const EVENTID_CADenialCountChanged: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 711312680, data2: 8777, data3: 16496, data4: [172, 22, 0, 57, 12, 223, 178, 221] };
-pub const EVENTID_CASFailureSpanningEvent: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const EVENTID_BDA_UpdateScanState: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1433414480, data2: 31561, data3: 17080, data4: [168, 47, 74, 251, 105, 27, 6, 40] };
+pub const EVENTID_CADenialCountChanged: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 711312680, data2: 8777, data3: 16496, data4: [172, 22, 0, 57, 12, 223, 178, 221] };
+pub const EVENTID_CASFailureSpanningEvent: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3940037038,
     data2: 21801,
     data3: 19743,
     data4: [175, 206, 13, 140, 209, 37, 125, 48],
 };
-pub const EVENTID_CSDescriptorSpanningEvent: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const EVENTID_CSDescriptorSpanningEvent: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4024924633,
     data2: 38896,
     data3: 18310,
     data4: [128, 13, 149, 207, 80, 93, 220, 102],
 };
-pub const EVENTID_CandidatePostTuneData: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const EVENTID_CandidatePostTuneData: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2667762640,
     data2: 40710,
     data3: 17257,
     data4: [159, 30, 58, 214, 202, 25, 128, 126],
 };
-pub const EVENTID_CardStatusChanged: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const EVENTID_CardStatusChanged: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2724592362,
     data2: 63604,
     data3: 19256,
     data4: [159, 247, 197, 61, 2, 150, 153, 150],
 };
-pub const EVENTID_ChannelChangeSpanningEvent: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const EVENTID_ChannelChangeSpanningEvent: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2422719973,
     data2: 19548,
     data3: 16901,
     data4: [134, 200, 122, 254, 32, 254, 30, 250],
 };
-pub const EVENTID_ChannelInfoSpanningEvent: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1106472320, data2: 16690, data3: 19650, data4: [177, 33, 1, 164, 50, 25, 216, 27] };
-pub const EVENTID_ChannelTypeSpanningEvent: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1923816785, data2: 34770, data3: 18587, data4: [186, 17, 14, 8, 220, 33, 2, 67] };
-pub const EVENTID_CtxADescriptorSpanningEvent: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 984916710, data2: 16967, data3: 19252, data4: [137, 108, 48, 175, 165, 210, 28, 36] };
-pub const EVENTID_DFNWithNoActualAVData: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const EVENTID_ChannelInfoSpanningEvent: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1106472320, data2: 16690, data3: 19650, data4: [177, 33, 1, 164, 50, 25, 216, 27] };
+pub const EVENTID_ChannelTypeSpanningEvent: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1923816785, data2: 34770, data3: 18587, data4: [186, 17, 14, 8, 220, 33, 2, 67] };
+pub const EVENTID_CtxADescriptorSpanningEvent: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 984916710, data2: 16967, data3: 19252, data4: [137, 108, 48, 175, 165, 210, 28, 36] };
+pub const EVENTID_DFNWithNoActualAVData: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4117274622,
     data2: 22009,
     data3: 19379,
     data4: [150, 190, 174, 151, 28, 99, 186, 224],
 };
-pub const EVENTID_DRMParingStatusChanged: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 591605, data2: 61649, data3: 16854, data4: [167, 223, 64, 40, 105, 118, 105, 246] };
-pub const EVENTID_DRMParingStepComplete: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const EVENTID_DRMParingStatusChanged: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 591605, data2: 61649, data3: 16854, data4: [167, 223, 64, 40, 105, 118, 105, 246] };
+pub const EVENTID_DRMParingStepComplete: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1529790328,
     data2: 46930,
     data3: 17440,
     data4: [180, 30, 164, 114, 220, 149, 130, 142],
 };
-pub const EVENTID_DTFilterCOPPBlock: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3301229802, data2: 73, data3: 20011, data4: [152, 251, 149, 55, 246, 206, 81, 109] };
-pub const EVENTID_DTFilterCOPPUnblock: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3301229800, data2: 73, data3: 20011, data4: [152, 251, 149, 55, 246, 206, 81, 109] };
-pub const EVENTID_DTFilterDataFormatFailure: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3301229805, data2: 73, data3: 20011, data4: [152, 251, 149, 55, 246, 206, 81, 109] };
-pub const EVENTID_DTFilterDataFormatOK: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3301229804, data2: 73, data3: 20011, data4: [152, 251, 149, 55, 246, 206, 81, 109] };
-pub const EVENTID_DTFilterRatingChange: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3301229794, data2: 73, data3: 20011, data4: [152, 251, 149, 55, 246, 206, 81, 109] };
-pub const EVENTID_DTFilterRatingsBlock: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3301229795, data2: 73, data3: 20011, data4: [152, 251, 149, 55, 246, 206, 81, 109] };
-pub const EVENTID_DTFilterRatingsUnblock: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3301229796, data2: 73, data3: 20011, data4: [152, 251, 149, 55, 246, 206, 81, 109] };
-pub const EVENTID_DTFilterXDSPacket: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3301229797, data2: 73, data3: 20011, data4: [152, 251, 149, 55, 246, 206, 81, 109] };
-pub const EVENTID_DVBScramblingControlSpanningEvent: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1272242628, data2: 37025, data3: 16649, data4: [130, 54, 39, 240, 14, 125, 204, 91] };
-pub const EVENTID_DemultiplexerFilterDiscontinuity: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const EVENTID_DTFilterCOPPBlock: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3301229802, data2: 73, data3: 20011, data4: [152, 251, 149, 55, 246, 206, 81, 109] };
+pub const EVENTID_DTFilterCOPPUnblock: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3301229800, data2: 73, data3: 20011, data4: [152, 251, 149, 55, 246, 206, 81, 109] };
+pub const EVENTID_DTFilterDataFormatFailure: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3301229805, data2: 73, data3: 20011, data4: [152, 251, 149, 55, 246, 206, 81, 109] };
+pub const EVENTID_DTFilterDataFormatOK: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3301229804, data2: 73, data3: 20011, data4: [152, 251, 149, 55, 246, 206, 81, 109] };
+pub const EVENTID_DTFilterRatingChange: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3301229794, data2: 73, data3: 20011, data4: [152, 251, 149, 55, 246, 206, 81, 109] };
+pub const EVENTID_DTFilterRatingsBlock: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3301229795, data2: 73, data3: 20011, data4: [152, 251, 149, 55, 246, 206, 81, 109] };
+pub const EVENTID_DTFilterRatingsUnblock: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3301229796, data2: 73, data3: 20011, data4: [152, 251, 149, 55, 246, 206, 81, 109] };
+pub const EVENTID_DTFilterXDSPacket: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3301229797, data2: 73, data3: 20011, data4: [152, 251, 149, 55, 246, 206, 81, 109] };
+pub const EVENTID_DVBScramblingControlSpanningEvent: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1272242628, data2: 37025, data3: 16649, data4: [130, 54, 39, 240, 14, 125, 204, 91] };
+pub const EVENTID_DemultiplexerFilterDiscontinuity: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 370497392,
     data2: 44757,
     data3: 18268,
     data4: [187, 152, 149, 163, 48, 112, 223, 12],
 };
-pub const EVENTID_DualMonoSpanningEvent: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const EVENTID_DualMonoSpanningEvent: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2846006102,
     data2: 43083,
     data3: 18572,
     data4: [137, 213, 13, 78, 118, 87, 200, 206],
 };
-pub const EVENTID_DvbParentalRatingDescriptor: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const EVENTID_DvbParentalRatingDescriptor: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 711435661,
     data2: 60581,
     data3: 20140,
     data4: [171, 203, 231, 52, 211, 119, 109, 10],
 };
-pub const EVENTID_EASMessageReceived: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const EVENTID_EASMessageReceived: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3507354069,
     data2: 49761,
     data3: 19333,
     data4: [158, 138, 81, 123, 50, 153, 202, 178],
 };
-pub const EVENTID_ETDTFilterLicenseFailure: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3301229807, data2: 73, data3: 20011, data4: [152, 251, 149, 55, 246, 206, 81, 109] };
-pub const EVENTID_ETDTFilterLicenseOK: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3301229806, data2: 73, data3: 20011, data4: [152, 251, 149, 55, 246, 206, 81, 109] };
-pub const EVENTID_ETFilterCopyNever: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3301229808, data2: 73, data3: 20011, data4: [152, 251, 149, 55, 246, 206, 81, 109] };
-pub const EVENTID_ETFilterCopyOnce: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3301229803, data2: 73, data3: 20011, data4: [152, 251, 149, 55, 246, 206, 81, 109] };
-pub const EVENTID_ETFilterEncryptionOff: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3301229799, data2: 73, data3: 20011, data4: [152, 251, 149, 55, 246, 206, 81, 109] };
-pub const EVENTID_ETFilterEncryptionOn: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3301229798, data2: 73, data3: 20011, data4: [152, 251, 149, 55, 246, 206, 81, 109] };
-pub const EVENTID_EmmMessageSpanningEvent: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const EVENTID_ETDTFilterLicenseFailure: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3301229807, data2: 73, data3: 20011, data4: [152, 251, 149, 55, 246, 206, 81, 109] };
+pub const EVENTID_ETDTFilterLicenseOK: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3301229806, data2: 73, data3: 20011, data4: [152, 251, 149, 55, 246, 206, 81, 109] };
+pub const EVENTID_ETFilterCopyNever: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3301229808, data2: 73, data3: 20011, data4: [152, 251, 149, 55, 246, 206, 81, 109] };
+pub const EVENTID_ETFilterCopyOnce: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3301229803, data2: 73, data3: 20011, data4: [152, 251, 149, 55, 246, 206, 81, 109] };
+pub const EVENTID_ETFilterEncryptionOff: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3301229799, data2: 73, data3: 20011, data4: [152, 251, 149, 55, 246, 206, 81, 109] };
+pub const EVENTID_ETFilterEncryptionOn: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3301229798, data2: 73, data3: 20011, data4: [152, 251, 149, 55, 246, 206, 81, 109] };
+pub const EVENTID_EmmMessageSpanningEvent: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1810891368,
     data2: 20350,
     data3: 17044,
     data4: [170, 135, 233, 233, 83, 228, 63, 20],
 };
-pub const EVENTID_EncDecFilterError: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3301229801, data2: 73, data3: 20011, data4: [152, 251, 149, 55, 246, 206, 81, 109] };
-pub const EVENTID_EncDecFilterEvent: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1243301467, data2: 4025, data3: 16729, data4: [175, 189, 227, 48, 6, 160, 249, 244] };
-pub const EVENTID_EntitlementChanged: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const EVENTID_EncDecFilterError: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3301229801, data2: 73, data3: 20011, data4: [152, 251, 149, 55, 246, 206, 81, 109] };
+pub const EVENTID_EncDecFilterEvent: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1243301467, data2: 4025, data3: 16729, data4: [175, 189, 227, 48, 6, 160, 249, 244] };
+pub const EVENTID_EntitlementChanged: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2423369053,
     data2: 9049,
     data3: 19605,
     data4: [134, 148, 175, 168, 29, 112, 191, 213],
 };
-pub const EVENTID_FormatNotSupportedEvent: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 615655434, data2: 45738, data3: 18295, data4: [191, 101, 99, 243, 94, 123, 2, 74] };
-pub const EVENTID_LanguageSpanningEvent: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const EVENTID_FormatNotSupportedEvent: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 615655434, data2: 45738, data3: 18295, data4: [191, 101, 99, 243, 94, 123, 2, 74] };
+pub const EVENTID_LanguageSpanningEvent: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3801245293,
     data2: 39938,
     data3: 17549,
     data4: [170, 141, 120, 26, 147, 253, 195, 149],
 };
-pub const EVENTID_MMIMessage: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 86780335, data2: 2468, data3: 19347, data4: [137, 15, 189, 106, 52, 137, 104, 164] };
-pub const EVENTID_NewSignalAcquired: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3363751213, data2: 52504, data3: 16458, data4: [160, 118, 192, 42, 39, 61, 61, 231] };
-pub const EVENTID_PBDAParentalControlEvent: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const EVENTID_MMIMessage: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 86780335, data2: 2468, data3: 19347, data4: [137, 15, 189, 106, 52, 137, 104, 164] };
+pub const EVENTID_NewSignalAcquired: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3363751213, data2: 52504, data3: 16458, data4: [160, 118, 192, 42, 39, 61, 61, 231] };
+pub const EVENTID_PBDAParentalControlEvent: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4182223493,
     data2: 64338,
     data3: 18664,
     data4: [185, 197, 225, 225, 244, 17, 165, 26],
 };
-pub const EVENTID_PIDListSpanningEvent: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const EVENTID_PIDListSpanningEvent: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1207734117,
     data2: 58043,
     data3: 17972,
     data4: [156, 239, 253, 191, 230, 38, 29, 92],
 };
-pub const EVENTID_PSITable: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 463222531, data2: 54343, data3: 19990, data4: [151, 187, 1, 121, 159, 192, 49, 237] };
-pub const EVENTID_RRTSpanningEvent: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const EVENTID_PSITable: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 463222531, data2: 54343, data3: 19990, data4: [151, 187, 1, 121, 159, 192, 49, 237] };
+pub const EVENTID_RRTSpanningEvent: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4140812532,
     data2: 55955,
     data3: 20271,
     data4: [191, 248, 186, 30, 230, 252, 163, 162],
 };
-pub const EVENTID_SBE2RecControlStarted: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const EVENTID_SBE2RecControlStarted: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2305206430,
     data2: 63550,
     data3: 19470,
     data4: [188, 59, 191, 167, 100, 158, 4, 203],
 };
-pub const EVENTID_SBE2RecControlStopped: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const EVENTID_SBE2RecControlStopped: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1162550984,
     data2: 3227,
     data3: 19626,
     data4: [177, 161, 30, 122, 38, 102, 246, 195],
 };
-pub const EVENTID_STBChannelNumber: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 398776112, data2: 53488, data3: 16698, data4: [140, 153, 80, 4, 105, 222, 53, 173] };
-pub const EVENTID_ServiceTerminated: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 169695516, data2: 57554, data3: 20366, data4: [137, 96, 35, 53, 190, 244, 92, 203] };
-pub const EVENTID_SignalAndServiceStatusSpanningEvent: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2154350027, data2: 15364, data3: 18731, data4: [180, 125, 3, 8, 130, 13, 206, 81] };
-pub const EVENTID_SignalStatusChanged: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const EVENTID_STBChannelNumber: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 398776112, data2: 53488, data3: 16698, data4: [140, 153, 80, 4, 105, 222, 53, 173] };
+pub const EVENTID_ServiceTerminated: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 169695516, data2: 57554, data3: 20366, data4: [137, 96, 35, 53, 190, 244, 92, 203] };
+pub const EVENTID_SignalAndServiceStatusSpanningEvent: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2154350027, data2: 15364, data3: 18731, data4: [180, 125, 3, 8, 130, 13, 206, 81] };
+pub const EVENTID_SignalStatusChanged: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1839004402,
     data2: 28717,
     data3: 19201,
     data4: [141, 255, 104, 146, 173, 32, 209, 145],
 };
-pub const EVENTID_StreamIDSpanningEvent: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const EVENTID_StreamIDSpanningEvent: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3404835688,
     data2: 57683,
     data3: 19777,
     data4: [166, 179, 167, 201, 152, 219, 117, 238],
 };
-pub const EVENTID_StreamTypeSpanningEvent: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2192518844, data2: 12454, data3: 16996, data4: [168, 11, 173, 46, 19, 114, 172, 96] };
-pub const EVENTID_SubtitleSpanningEvent: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1573830728, data2: 53433, data3: 16739, data4: [135, 44, 79, 50, 34, 59, 232, 138] };
-pub const EVENTID_TeletextSpanningEvent: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const EVENTID_StreamTypeSpanningEvent: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2192518844, data2: 12454, data3: 16996, data4: [168, 11, 173, 46, 19, 114, 172, 96] };
+pub const EVENTID_SubtitleSpanningEvent: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1573830728, data2: 53433, data3: 16739, data4: [135, 44, 79, 50, 34, 59, 232, 138] };
+pub const EVENTID_TeletextSpanningEvent: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2509887824,
     data2: 24371,
     data3: 17943,
     data4: [175, 124, 30, 84, 181, 16, 218, 163],
 };
-pub const EVENTID_TuneFailureEvent: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const EVENTID_TuneFailureEvent: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3648161714,
     data2: 11773,
     data3: 17258,
     data4: [148, 133, 153, 215, 212, 171, 90, 105],
 };
-pub const EVENTID_TuneFailureSpanningEvent: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const EVENTID_TuneFailureSpanningEvent: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1871357013,
     data2: 24289,
     data3: 18603,
     data4: [162, 124, 76, 141, 112, 185, 174, 186],
 };
-pub const EVENTID_TuningChanged: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const EVENTID_TuningChanged: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2642305589,
     data2: 19325,
     data3: 16989,
     data4: [166, 209, 215, 23, 195, 59, 156, 76],
 };
-pub const EVENTID_TuningChanging: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const EVENTID_TuningChanging: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2199403523,
     data2: 49310,
     data3: 17860,
     data4: [167, 25, 128, 122, 148, 149, 43, 249],
 };
-pub const EVENTID_XDSCodecDuplicateXDSRating: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3301229791, data2: 73, data3: 20011, data4: [152, 251, 149, 55, 246, 206, 81, 109] };
-pub const EVENTID_XDSCodecNewXDSPacket: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3301229793, data2: 73, data3: 20011, data4: [152, 251, 149, 55, 246, 206, 81, 109] };
-pub const EVENTID_XDSCodecNewXDSRating: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3301229792, data2: 73, data3: 20011, data4: [152, 251, 149, 55, 246, 206, 81, 109] };
-pub const EVENTTYPE_CASDescrambleFailureEvent: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const EVENTID_XDSCodecDuplicateXDSRating: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3301229791, data2: 73, data3: 20011, data4: [152, 251, 149, 55, 246, 206, 81, 109] };
+pub const EVENTID_XDSCodecNewXDSPacket: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3301229793, data2: 73, data3: 20011, data4: [152, 251, 149, 55, 246, 206, 81, 109] };
+pub const EVENTID_XDSCodecNewXDSRating: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3301229792, data2: 73, data3: 20011, data4: [152, 251, 149, 55, 246, 206, 81, 109] };
+pub const EVENTTYPE_CASDescrambleFailureEvent: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2987556162,
     data2: 31717,
     data3: 20299,
@@ -5895,7 +5895,7 @@ impl ::core::clone::Clone for EntitlementType {
         *self
     }
 }
-pub const EvalRat: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3318072817, data2: 15036, data3: 4566, data4: [178, 91, 0, 192, 79, 160, 192, 38] };
+pub const EvalRat: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3318072817, data2: 15036, data3: 4566, data4: [178, 91, 0, 192, 79, 160, 192, 38] };
 #[repr(transparent)]
 pub struct FECMethod(pub i32);
 pub const BDA_FEC_METHOD_NOT_SET: FECMethod = FECMethod(-1i32);
@@ -5915,7 +5915,7 @@ impl ::core::clone::Clone for FECMethod {
 #[repr(C)]
 pub struct FILTER_INFO {
     pub achName: [u16; 128],
-    pub pGraph: ::core::option::Option<IFilterGraph>,
+    pub pGraph: IFilterGraph,
 }
 impl ::core::marker::Copy for FILTER_INFO {}
 impl ::core::clone::Clone for FILTER_INFO {
@@ -5934,14 +5934,14 @@ impl ::core::clone::Clone for FILTER_STATE {
         *self
     }
 }
-pub const FORMATTYPE_CPFilters_Processed: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const FORMATTYPE_CPFilters_Processed: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1731834735,
     data2: 7519,
     data3: 19138,
     data4: [129, 146, 40, 187, 14, 115, 209, 106],
 };
-pub const FORMATTYPE_ETDTFilter_Tagged: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3301229777, data2: 73, data3: 20011, data4: [152, 251, 149, 55, 246, 206, 81, 109] };
-pub const FilgraphManager: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3828804531, data2: 21071, data3: 4558, data4: [159, 83, 0, 32, 175, 11, 167, 112] };
+pub const FORMATTYPE_ETDTFilter_Tagged: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3301229777, data2: 73, data3: 20011, data4: [152, 251, 149, 55, 246, 206, 81, 109] };
+pub const FilgraphManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3828804531, data2: 21071, data3: 4558, data4: [159, 83, 0, 32, 175, 11, 167, 112] };
 #[repr(transparent)]
 pub struct FormatNotSupportedEvents(pub i32);
 pub const FORMATNOTSUPPORTED_CLEAR: FormatNotSupportedEvents = FormatNotSupportedEvents(0i32);
@@ -5952,14 +5952,14 @@ impl ::core::clone::Clone for FormatNotSupportedEvents {
         *self
     }
 }
-pub const GUID_TIME_MUSIC: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 91538589, data2: 23300, data3: 19221, data4: [165, 66, 174, 40, 32, 48, 17, 123] };
-pub const GUID_TIME_REFERENCE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_TIME_MUSIC: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 91538589, data2: 23300, data3: 19221, data4: [165, 66, 174, 40, 32, 48, 17, 123] };
+pub const GUID_TIME_REFERENCE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2477617451,
     data2: 55968,
     data3: 20478,
     data4: [188, 129, 176, 206, 80, 15, 205, 217],
 };
-pub const GUID_TIME_SAMPLES: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2824420613, data2: 3139, data3: 18820, data4: [154, 99, 151, 175, 158, 2, 196, 192] };
+pub const GUID_TIME_SAMPLES: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2824420613, data2: 3139, data3: 18820, data4: [154, 99, 151, 175, 158, 2, 196, 192] };
 #[repr(transparent)]
 pub struct GuardInterval(pub i32);
 pub const BDA_GUARD_NOT_SET: GuardInterval = GuardInterval(-1i32);
@@ -6026,570 +6026,2268 @@ impl ::core::clone::Clone for HierarchyAlpha {
 }
 #[repr(transparent)]
 pub struct IAMAnalogVideoDecoder(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMAnalogVideoDecoder {}
+impl ::core::clone::Clone for IAMAnalogVideoDecoder {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMAnalogVideoEncoder(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMAnalogVideoEncoder {}
+impl ::core::clone::Clone for IAMAnalogVideoEncoder {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMAsyncReaderTimestampScaling(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMAsyncReaderTimestampScaling {}
+impl ::core::clone::Clone for IAMAsyncReaderTimestampScaling {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMAudioInputMixer(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMAudioInputMixer {}
+impl ::core::clone::Clone for IAMAudioInputMixer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMAudioRendererStats(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMAudioRendererStats {}
+impl ::core::clone::Clone for IAMAudioRendererStats {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMBufferNegotiation(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMBufferNegotiation {}
+impl ::core::clone::Clone for IAMBufferNegotiation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMCameraControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMCameraControl {}
+impl ::core::clone::Clone for IAMCameraControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMCertifiedOutputProtection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMCertifiedOutputProtection {}
+impl ::core::clone::Clone for IAMCertifiedOutputProtection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMChannelInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMChannelInfo {}
+impl ::core::clone::Clone for IAMChannelInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMClockAdjust(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMClockAdjust {}
+impl ::core::clone::Clone for IAMClockAdjust {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMClockSlave(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMClockSlave {}
+impl ::core::clone::Clone for IAMClockSlave {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMCollection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMCollection {}
+impl ::core::clone::Clone for IAMCollection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMCopyCaptureFileProgress(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMCopyCaptureFileProgress {}
+impl ::core::clone::Clone for IAMCopyCaptureFileProgress {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMCrossbar(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMCrossbar {}
+impl ::core::clone::Clone for IAMCrossbar {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMDecoderCaps(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMDecoderCaps {}
+impl ::core::clone::Clone for IAMDecoderCaps {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMDevMemoryAllocator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMDevMemoryAllocator {}
+impl ::core::clone::Clone for IAMDevMemoryAllocator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMDevMemoryControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMDevMemoryControl {}
+impl ::core::clone::Clone for IAMDevMemoryControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMDeviceRemoval(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMDeviceRemoval {}
+impl ::core::clone::Clone for IAMDeviceRemoval {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMDirectSound(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMDirectSound {}
+impl ::core::clone::Clone for IAMDirectSound {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMDroppedFrames(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMDroppedFrames {}
+impl ::core::clone::Clone for IAMDroppedFrames {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMExtDevice(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMExtDevice {}
+impl ::core::clone::Clone for IAMExtDevice {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMExtTransport(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMExtTransport {}
+impl ::core::clone::Clone for IAMExtTransport {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMExtendedErrorInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMExtendedErrorInfo {}
+impl ::core::clone::Clone for IAMExtendedErrorInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMExtendedSeeking(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMExtendedSeeking {}
+impl ::core::clone::Clone for IAMExtendedSeeking {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMFilterGraphCallback(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMFilterGraphCallback {}
+impl ::core::clone::Clone for IAMFilterGraphCallback {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMFilterMiscFlags(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMFilterMiscFlags {}
+impl ::core::clone::Clone for IAMFilterMiscFlags {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMGraphBuilderCallback(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMGraphBuilderCallback {}
+impl ::core::clone::Clone for IAMGraphBuilderCallback {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMGraphStreams(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMGraphStreams {}
+impl ::core::clone::Clone for IAMGraphStreams {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMLatency(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMLatency {}
+impl ::core::clone::Clone for IAMLatency {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMLine21Decoder(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMLine21Decoder {}
+impl ::core::clone::Clone for IAMLine21Decoder {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMMediaContent(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMMediaContent {}
+impl ::core::clone::Clone for IAMMediaContent {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMMediaContent2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMMediaContent2 {}
+impl ::core::clone::Clone for IAMMediaContent2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMMediaStream(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMMediaStream {}
+impl ::core::clone::Clone for IAMMediaStream {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMMediaTypeSample(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMMediaTypeSample {}
+impl ::core::clone::Clone for IAMMediaTypeSample {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMMediaTypeStream(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMMediaTypeStream {}
+impl ::core::clone::Clone for IAMMediaTypeStream {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMMultiMediaStream(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMMultiMediaStream {}
+impl ::core::clone::Clone for IAMMultiMediaStream {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMNetShowConfig(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMNetShowConfig {}
+impl ::core::clone::Clone for IAMNetShowConfig {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMNetShowExProps(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMNetShowExProps {}
+impl ::core::clone::Clone for IAMNetShowExProps {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMNetShowPreroll(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMNetShowPreroll {}
+impl ::core::clone::Clone for IAMNetShowPreroll {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMNetworkStatus(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMNetworkStatus {}
+impl ::core::clone::Clone for IAMNetworkStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMOpenProgress(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMOpenProgress {}
+impl ::core::clone::Clone for IAMOpenProgress {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMOverlayFX(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMOverlayFX {}
+impl ::core::clone::Clone for IAMOverlayFX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMParse(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMParse {}
+impl ::core::clone::Clone for IAMParse {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMPhysicalPinInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMPhysicalPinInfo {}
+impl ::core::clone::Clone for IAMPhysicalPinInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMPlayList(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMPlayList {}
+impl ::core::clone::Clone for IAMPlayList {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMPlayListItem(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMPlayListItem {}
+impl ::core::clone::Clone for IAMPlayListItem {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMPluginControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMPluginControl {}
+impl ::core::clone::Clone for IAMPluginControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMPushSource(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMPushSource {}
+impl ::core::clone::Clone for IAMPushSource {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMRebuild(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMRebuild {}
+impl ::core::clone::Clone for IAMRebuild {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMResourceControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMResourceControl {}
+impl ::core::clone::Clone for IAMResourceControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMStats(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMStats {}
+impl ::core::clone::Clone for IAMStats {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMStreamConfig(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMStreamConfig {}
+impl ::core::clone::Clone for IAMStreamConfig {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMStreamControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMStreamControl {}
+impl ::core::clone::Clone for IAMStreamControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMStreamSelect(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMStreamSelect {}
+impl ::core::clone::Clone for IAMStreamSelect {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMTVAudio(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMTVAudio {}
+impl ::core::clone::Clone for IAMTVAudio {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMTVAudioNotification(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMTVAudioNotification {}
+impl ::core::clone::Clone for IAMTVAudioNotification {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMTVTuner(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMTVTuner {}
+impl ::core::clone::Clone for IAMTVTuner {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMTimecodeDisplay(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMTimecodeDisplay {}
+impl ::core::clone::Clone for IAMTimecodeDisplay {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMTimecodeGenerator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMTimecodeGenerator {}
+impl ::core::clone::Clone for IAMTimecodeGenerator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMTimecodeReader(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMTimecodeReader {}
+impl ::core::clone::Clone for IAMTimecodeReader {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMTuner(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMTuner {}
+impl ::core::clone::Clone for IAMTuner {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMTunerNotification(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMTunerNotification {}
+impl ::core::clone::Clone for IAMTunerNotification {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMVfwCaptureDialogs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMVfwCaptureDialogs {}
+impl ::core::clone::Clone for IAMVfwCaptureDialogs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMVfwCompressDialogs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMVfwCompressDialogs {}
+impl ::core::clone::Clone for IAMVfwCompressDialogs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMVideoAccelerator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMVideoAccelerator {}
+impl ::core::clone::Clone for IAMVideoAccelerator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMVideoAcceleratorNotify(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMVideoAcceleratorNotify {}
+impl ::core::clone::Clone for IAMVideoAcceleratorNotify {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMVideoCompression(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMVideoCompression {}
+impl ::core::clone::Clone for IAMVideoCompression {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMVideoControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMVideoControl {}
+impl ::core::clone::Clone for IAMVideoControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMVideoDecimationProperties(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMVideoDecimationProperties {}
+impl ::core::clone::Clone for IAMVideoDecimationProperties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMVideoProcAmp(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMVideoProcAmp {}
+impl ::core::clone::Clone for IAMVideoProcAmp {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMWstDecoder(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMWstDecoder {}
+impl ::core::clone::Clone for IAMWstDecoder {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAMovieSetup(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAMovieSetup {}
+impl ::core::clone::Clone for IAMovieSetup {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IATSCChannelTuneRequest(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IATSCChannelTuneRequest {}
+impl ::core::clone::Clone for IATSCChannelTuneRequest {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IATSCComponentType(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IATSCComponentType {}
+impl ::core::clone::Clone for IATSCComponentType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IATSCLocator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IATSCLocator {}
+impl ::core::clone::Clone for IATSCLocator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IATSCLocator2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IATSCLocator2 {}
+impl ::core::clone::Clone for IATSCLocator2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IATSCTuningSpace(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IATSCTuningSpace {}
+impl ::core::clone::Clone for IATSCTuningSpace {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IATSC_EIT(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IATSC_EIT {}
+impl ::core::clone::Clone for IATSC_EIT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IATSC_ETT(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IATSC_ETT {}
+impl ::core::clone::Clone for IATSC_ETT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IATSC_MGT(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IATSC_MGT {}
+impl ::core::clone::Clone for IATSC_MGT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IATSC_STT(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IATSC_STT {}
+impl ::core::clone::Clone for IATSC_STT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IATSC_VCT(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IATSC_VCT {}
+impl ::core::clone::Clone for IATSC_VCT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAnalogAudioComponentType(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAnalogAudioComponentType {}
+impl ::core::clone::Clone for IAnalogAudioComponentType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAnalogLocator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAnalogLocator {}
+impl ::core::clone::Clone for IAnalogLocator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAnalogRadioTuningSpace(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAnalogRadioTuningSpace {}
+impl ::core::clone::Clone for IAnalogRadioTuningSpace {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAnalogRadioTuningSpace2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAnalogRadioTuningSpace2 {}
+impl ::core::clone::Clone for IAnalogRadioTuningSpace2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAnalogTVTuningSpace(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAnalogTVTuningSpace {}
+impl ::core::clone::Clone for IAnalogTVTuningSpace {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAsyncReader(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAsyncReader {}
+impl ::core::clone::Clone for IAsyncReader {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAtscContentAdvisoryDescriptor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAtscContentAdvisoryDescriptor {}
+impl ::core::clone::Clone for IAtscContentAdvisoryDescriptor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAtscPsipParser(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAtscPsipParser {}
+impl ::core::clone::Clone for IAtscPsipParser {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAttributeGet(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAttributeGet {}
+impl ::core::clone::Clone for IAttributeGet {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAttributeSet(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAttributeSet {}
+impl ::core::clone::Clone for IAttributeSet {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAudioData(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAudioData {}
+impl ::core::clone::Clone for IAudioData {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAudioMediaStream(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAudioMediaStream {}
+impl ::core::clone::Clone for IAudioMediaStream {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAudioStreamSample(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAudioStreamSample {}
+impl ::core::clone::Clone for IAudioStreamSample {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAuxInTuningSpace(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAuxInTuningSpace {}
+impl ::core::clone::Clone for IAuxInTuningSpace {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAuxInTuningSpace2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAuxInTuningSpace2 {}
+impl ::core::clone::Clone for IAuxInTuningSpace2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBDAComparable(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBDAComparable {}
+impl ::core::clone::Clone for IBDAComparable {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBDACreateTuneRequestEx(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBDACreateTuneRequestEx {}
+impl ::core::clone::Clone for IBDACreateTuneRequestEx {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBDA_AUX(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBDA_AUX {}
+impl ::core::clone::Clone for IBDA_AUX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBDA_AutoDemodulate(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBDA_AutoDemodulate {}
+impl ::core::clone::Clone for IBDA_AutoDemodulate {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBDA_AutoDemodulateEx(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBDA_AutoDemodulateEx {}
+impl ::core::clone::Clone for IBDA_AutoDemodulateEx {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBDA_ConditionalAccess(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBDA_ConditionalAccess {}
+impl ::core::clone::Clone for IBDA_ConditionalAccess {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBDA_ConditionalAccessEx(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBDA_ConditionalAccessEx {}
+impl ::core::clone::Clone for IBDA_ConditionalAccessEx {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBDA_DRIDRMService(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBDA_DRIDRMService {}
+impl ::core::clone::Clone for IBDA_DRIDRMService {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBDA_DRIWMDRMSession(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBDA_DRIWMDRMSession {}
+impl ::core::clone::Clone for IBDA_DRIWMDRMSession {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBDA_DRM(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBDA_DRM {}
+impl ::core::clone::Clone for IBDA_DRM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBDA_DRMService(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBDA_DRMService {}
+impl ::core::clone::Clone for IBDA_DRMService {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBDA_DeviceControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBDA_DeviceControl {}
+impl ::core::clone::Clone for IBDA_DeviceControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBDA_DiagnosticProperties(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBDA_DiagnosticProperties {}
+impl ::core::clone::Clone for IBDA_DiagnosticProperties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBDA_DigitalDemodulator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBDA_DigitalDemodulator {}
+impl ::core::clone::Clone for IBDA_DigitalDemodulator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBDA_DigitalDemodulator2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBDA_DigitalDemodulator2 {}
+impl ::core::clone::Clone for IBDA_DigitalDemodulator2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBDA_DigitalDemodulator3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBDA_DigitalDemodulator3 {}
+impl ::core::clone::Clone for IBDA_DigitalDemodulator3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBDA_DiseqCommand(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBDA_DiseqCommand {}
+impl ::core::clone::Clone for IBDA_DiseqCommand {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBDA_EasMessage(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBDA_EasMessage {}
+impl ::core::clone::Clone for IBDA_EasMessage {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBDA_Encoder(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBDA_Encoder {}
+impl ::core::clone::Clone for IBDA_Encoder {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBDA_EthernetFilter(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBDA_EthernetFilter {}
+impl ::core::clone::Clone for IBDA_EthernetFilter {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBDA_EventingService(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBDA_EventingService {}
+impl ::core::clone::Clone for IBDA_EventingService {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBDA_FDC(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBDA_FDC {}
+impl ::core::clone::Clone for IBDA_FDC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBDA_FrequencyFilter(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBDA_FrequencyFilter {}
+impl ::core::clone::Clone for IBDA_FrequencyFilter {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBDA_GuideDataDeliveryService(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBDA_GuideDataDeliveryService {}
+impl ::core::clone::Clone for IBDA_GuideDataDeliveryService {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBDA_IPSinkControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBDA_IPSinkControl {}
+impl ::core::clone::Clone for IBDA_IPSinkControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBDA_IPSinkInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBDA_IPSinkInfo {}
+impl ::core::clone::Clone for IBDA_IPSinkInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBDA_IPV4Filter(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBDA_IPV4Filter {}
+impl ::core::clone::Clone for IBDA_IPV4Filter {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBDA_IPV6Filter(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBDA_IPV6Filter {}
+impl ::core::clone::Clone for IBDA_IPV6Filter {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBDA_ISDBConditionalAccess(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBDA_ISDBConditionalAccess {}
+impl ::core::clone::Clone for IBDA_ISDBConditionalAccess {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBDA_LNBInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBDA_LNBInfo {}
+impl ::core::clone::Clone for IBDA_LNBInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBDA_MUX(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBDA_MUX {}
+impl ::core::clone::Clone for IBDA_MUX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBDA_NameValueService(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBDA_NameValueService {}
+impl ::core::clone::Clone for IBDA_NameValueService {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBDA_NetworkProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBDA_NetworkProvider {}
+impl ::core::clone::Clone for IBDA_NetworkProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBDA_NullTransform(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBDA_NullTransform {}
+impl ::core::clone::Clone for IBDA_NullTransform {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBDA_PinControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBDA_PinControl {}
+impl ::core::clone::Clone for IBDA_PinControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBDA_SignalProperties(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBDA_SignalProperties {}
+impl ::core::clone::Clone for IBDA_SignalProperties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBDA_SignalStatistics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBDA_SignalStatistics {}
+impl ::core::clone::Clone for IBDA_SignalStatistics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBDA_TIF_REGISTRATION(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBDA_TIF_REGISTRATION {}
+impl ::core::clone::Clone for IBDA_TIF_REGISTRATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBDA_Topology(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBDA_Topology {}
+impl ::core::clone::Clone for IBDA_Topology {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBDA_TransportStreamInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBDA_TransportStreamInfo {}
+impl ::core::clone::Clone for IBDA_TransportStreamInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBDA_TransportStreamSelector(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBDA_TransportStreamSelector {}
+impl ::core::clone::Clone for IBDA_TransportStreamSelector {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBDA_UserActivityService(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBDA_UserActivityService {}
+impl ::core::clone::Clone for IBDA_UserActivityService {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBDA_VoidTransform(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBDA_VoidTransform {}
+impl ::core::clone::Clone for IBDA_VoidTransform {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBDA_WMDRMSession(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBDA_WMDRMSession {}
+impl ::core::clone::Clone for IBDA_WMDRMSession {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBDA_WMDRMTuner(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBDA_WMDRMTuner {}
+impl ::core::clone::Clone for IBDA_WMDRMTuner {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBPCSatelliteTuner(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBPCSatelliteTuner {}
+impl ::core::clone::Clone for IBPCSatelliteTuner {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBaseFilter(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBaseFilter {}
+impl ::core::clone::Clone for IBaseFilter {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBaseVideoMixer(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBaseVideoMixer {}
+impl ::core::clone::Clone for IBaseVideoMixer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBasicAudio(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBasicAudio {}
+impl ::core::clone::Clone for IBasicAudio {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBasicVideo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBasicVideo {}
+impl ::core::clone::Clone for IBasicVideo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBasicVideo2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBasicVideo2 {}
+impl ::core::clone::Clone for IBasicVideo2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBroadcastEvent(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBroadcastEvent {}
+impl ::core::clone::Clone for IBroadcastEvent {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBroadcastEventEx(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBroadcastEventEx {}
+impl ::core::clone::Clone for IBroadcastEventEx {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IBufferingTime(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBufferingTime {}
+impl ::core::clone::Clone for IBufferingTime {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICAT(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICAT {}
+impl ::core::clone::Clone for ICAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICCSubStreamFiltering(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICCSubStreamFiltering {}
+impl ::core::clone::Clone for ICCSubStreamFiltering {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICameraControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICameraControl {}
+impl ::core::clone::Clone for ICameraControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICaptionServiceDescriptor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICaptionServiceDescriptor {}
+impl ::core::clone::Clone for ICaptionServiceDescriptor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICaptureGraphBuilder(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICaptureGraphBuilder {}
+impl ::core::clone::Clone for ICaptureGraphBuilder {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICaptureGraphBuilder2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICaptureGraphBuilder2 {}
+impl ::core::clone::Clone for ICaptureGraphBuilder2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IChannelIDTuneRequest(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IChannelIDTuneRequest {}
+impl ::core::clone::Clone for IChannelIDTuneRequest {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IChannelTuneRequest(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IChannelTuneRequest {}
+impl ::core::clone::Clone for IChannelTuneRequest {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IComponent(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IComponent {}
+impl ::core::clone::Clone for IComponent {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IComponentType(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IComponentType {}
+impl ::core::clone::Clone for IComponentType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IComponentTypes(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IComponentTypes {}
+impl ::core::clone::Clone for IComponentTypes {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IComponents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IComponents {}
+impl ::core::clone::Clone for IComponents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IComponentsOld(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IComponentsOld {}
+impl ::core::clone::Clone for IComponentsOld {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IConfigAsfWriter(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IConfigAsfWriter {}
+impl ::core::clone::Clone for IConfigAsfWriter {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IConfigAsfWriter2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IConfigAsfWriter2 {}
+impl ::core::clone::Clone for IConfigAsfWriter2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IConfigAviMux(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IConfigAviMux {}
+impl ::core::clone::Clone for IConfigAviMux {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IConfigInterleaving(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IConfigInterleaving {}
+impl ::core::clone::Clone for IConfigInterleaving {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICreateDevEnum(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICreateDevEnum {}
+impl ::core::clone::Clone for ICreateDevEnum {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICreatePropBagOnRegKey(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICreatePropBagOnRegKey {}
+impl ::core::clone::Clone for ICreatePropBagOnRegKey {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDDrawExclModeVideo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDDrawExclModeVideo {}
+impl ::core::clone::Clone for IDDrawExclModeVideo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDDrawExclModeVideoCallback(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDDrawExclModeVideoCallback {}
+impl ::core::clone::Clone for IDDrawExclModeVideoCallback {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDMOWrapperFilter(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDMOWrapperFilter {}
+impl ::core::clone::Clone for IDMOWrapperFilter {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDShowPlugin(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDShowPlugin {}
+impl ::core::clone::Clone for IDShowPlugin {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDTFilter(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDTFilter {}
+impl ::core::clone::Clone for IDTFilter {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDTFilter2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDTFilter2 {}
+impl ::core::clone::Clone for IDTFilter2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDTFilter3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDTFilter3 {}
+impl ::core::clone::Clone for IDTFilter3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDTFilterConfig(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDTFilterConfig {}
+impl ::core::clone::Clone for IDTFilterConfig {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDTFilterEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDTFilterEvents {}
+impl ::core::clone::Clone for IDTFilterEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDTFilterLicenseRenewal(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDTFilterLicenseRenewal {}
+impl ::core::clone::Clone for IDTFilterLicenseRenewal {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDVBCLocator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDVBCLocator {}
+impl ::core::clone::Clone for IDVBCLocator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDVBSLocator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDVBSLocator {}
+impl ::core::clone::Clone for IDVBSLocator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDVBSLocator2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDVBSLocator2 {}
+impl ::core::clone::Clone for IDVBSLocator2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDVBSTuningSpace(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDVBSTuningSpace {}
+impl ::core::clone::Clone for IDVBSTuningSpace {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDVBTLocator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDVBTLocator {}
+impl ::core::clone::Clone for IDVBTLocator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDVBTLocator2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDVBTLocator2 {}
+impl ::core::clone::Clone for IDVBTLocator2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDVBTuneRequest(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDVBTuneRequest {}
+impl ::core::clone::Clone for IDVBTuneRequest {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDVBTuningSpace(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDVBTuningSpace {}
+impl ::core::clone::Clone for IDVBTuningSpace {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDVBTuningSpace2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDVBTuningSpace2 {}
+impl ::core::clone::Clone for IDVBTuningSpace2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDVB_BAT(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDVB_BAT {}
+impl ::core::clone::Clone for IDVB_BAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDVB_DIT(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDVB_DIT {}
+impl ::core::clone::Clone for IDVB_DIT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDVB_EIT(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDVB_EIT {}
+impl ::core::clone::Clone for IDVB_EIT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDVB_EIT2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDVB_EIT2 {}
+impl ::core::clone::Clone for IDVB_EIT2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDVB_NIT(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDVB_NIT {}
+impl ::core::clone::Clone for IDVB_NIT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDVB_RST(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDVB_RST {}
+impl ::core::clone::Clone for IDVB_RST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDVB_SDT(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDVB_SDT {}
+impl ::core::clone::Clone for IDVB_SDT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDVB_SIT(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDVB_SIT {}
+impl ::core::clone::Clone for IDVB_SIT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDVB_ST(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDVB_ST {}
+impl ::core::clone::Clone for IDVB_ST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDVB_TDT(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDVB_TDT {}
+impl ::core::clone::Clone for IDVB_TDT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDVB_TOT(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDVB_TOT {}
+impl ::core::clone::Clone for IDVB_TOT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDVEnc(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDVEnc {}
+impl ::core::clone::Clone for IDVEnc {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDVRGB219(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDVRGB219 {}
+impl ::core::clone::Clone for IDVRGB219 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDVSplitter(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDVSplitter {}
+impl ::core::clone::Clone for IDVSplitter {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDecimateVideoImage(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDecimateVideoImage {}
+impl ::core::clone::Clone for IDecimateVideoImage {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDeferredCommand(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDeferredCommand {}
+impl ::core::clone::Clone for IDeferredCommand {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDigitalCableLocator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDigitalCableLocator {}
+impl ::core::clone::Clone for IDigitalCableLocator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDigitalCableTuneRequest(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDigitalCableTuneRequest {}
+impl ::core::clone::Clone for IDigitalCableTuneRequest {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDigitalCableTuningSpace(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDigitalCableTuningSpace {}
+impl ::core::clone::Clone for IDigitalCableTuningSpace {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDigitalLocator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDigitalLocator {}
+impl ::core::clone::Clone for IDigitalLocator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDirectDrawMediaSample(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDirectDrawMediaSample {}
+impl ::core::clone::Clone for IDirectDrawMediaSample {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDirectDrawMediaSampleAllocator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDirectDrawMediaSampleAllocator {}
+impl ::core::clone::Clone for IDirectDrawMediaSampleAllocator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDirectDrawMediaStream(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDirectDrawMediaStream {}
+impl ::core::clone::Clone for IDirectDrawMediaStream {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDirectDrawStreamSample(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDirectDrawStreamSample {}
+impl ::core::clone::Clone for IDirectDrawStreamSample {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDirectDrawVideo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDirectDrawVideo {}
+impl ::core::clone::Clone for IDirectDrawVideo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDistributorNotify(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDistributorNotify {}
+impl ::core::clone::Clone for IDistributorNotify {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDrawVideoImage(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDrawVideoImage {}
+impl ::core::clone::Clone for IDrawVideoImage {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDvbCableDeliverySystemDescriptor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDvbCableDeliverySystemDescriptor {}
+impl ::core::clone::Clone for IDvbCableDeliverySystemDescriptor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDvbComponentDescriptor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDvbComponentDescriptor {}
+impl ::core::clone::Clone for IDvbComponentDescriptor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDvbContentDescriptor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDvbContentDescriptor {}
+impl ::core::clone::Clone for IDvbContentDescriptor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDvbContentIdentifierDescriptor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDvbContentIdentifierDescriptor {}
+impl ::core::clone::Clone for IDvbContentIdentifierDescriptor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDvbDataBroadcastDescriptor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDvbDataBroadcastDescriptor {}
+impl ::core::clone::Clone for IDvbDataBroadcastDescriptor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDvbDataBroadcastIDDescriptor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDvbDataBroadcastIDDescriptor {}
+impl ::core::clone::Clone for IDvbDataBroadcastIDDescriptor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDvbDefaultAuthorityDescriptor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDvbDefaultAuthorityDescriptor {}
+impl ::core::clone::Clone for IDvbDefaultAuthorityDescriptor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDvbExtendedEventDescriptor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDvbExtendedEventDescriptor {}
+impl ::core::clone::Clone for IDvbExtendedEventDescriptor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDvbFrequencyListDescriptor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDvbFrequencyListDescriptor {}
+impl ::core::clone::Clone for IDvbFrequencyListDescriptor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDvbHDSimulcastLogicalChannelDescriptor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDvbHDSimulcastLogicalChannelDescriptor {}
+impl ::core::clone::Clone for IDvbHDSimulcastLogicalChannelDescriptor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDvbLinkageDescriptor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDvbLinkageDescriptor {}
+impl ::core::clone::Clone for IDvbLinkageDescriptor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDvbLogicalChannel2Descriptor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDvbLogicalChannel2Descriptor {}
+impl ::core::clone::Clone for IDvbLogicalChannel2Descriptor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDvbLogicalChannelDescriptor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDvbLogicalChannelDescriptor {}
+impl ::core::clone::Clone for IDvbLogicalChannelDescriptor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDvbLogicalChannelDescriptor2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDvbLogicalChannelDescriptor2 {}
+impl ::core::clone::Clone for IDvbLogicalChannelDescriptor2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDvbMultilingualServiceNameDescriptor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDvbMultilingualServiceNameDescriptor {}
+impl ::core::clone::Clone for IDvbMultilingualServiceNameDescriptor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDvbNetworkNameDescriptor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDvbNetworkNameDescriptor {}
+impl ::core::clone::Clone for IDvbNetworkNameDescriptor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDvbParentalRatingDescriptor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDvbParentalRatingDescriptor {}
+impl ::core::clone::Clone for IDvbParentalRatingDescriptor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDvbPrivateDataSpecifierDescriptor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDvbPrivateDataSpecifierDescriptor {}
+impl ::core::clone::Clone for IDvbPrivateDataSpecifierDescriptor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDvbSatelliteDeliverySystemDescriptor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDvbSatelliteDeliverySystemDescriptor {}
+impl ::core::clone::Clone for IDvbSatelliteDeliverySystemDescriptor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDvbServiceAttributeDescriptor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDvbServiceAttributeDescriptor {}
+impl ::core::clone::Clone for IDvbServiceAttributeDescriptor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDvbServiceDescriptor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDvbServiceDescriptor {}
+impl ::core::clone::Clone for IDvbServiceDescriptor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDvbServiceDescriptor2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDvbServiceDescriptor2 {}
+impl ::core::clone::Clone for IDvbServiceDescriptor2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDvbServiceListDescriptor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDvbServiceListDescriptor {}
+impl ::core::clone::Clone for IDvbServiceListDescriptor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDvbShortEventDescriptor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDvbShortEventDescriptor {}
+impl ::core::clone::Clone for IDvbShortEventDescriptor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDvbSiParser(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDvbSiParser {}
+impl ::core::clone::Clone for IDvbSiParser {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDvbSiParser2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDvbSiParser2 {}
+impl ::core::clone::Clone for IDvbSiParser2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDvbSubtitlingDescriptor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDvbSubtitlingDescriptor {}
+impl ::core::clone::Clone for IDvbSubtitlingDescriptor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDvbTeletextDescriptor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDvbTeletextDescriptor {}
+impl ::core::clone::Clone for IDvbTeletextDescriptor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDvbTerrestrial2DeliverySystemDescriptor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDvbTerrestrial2DeliverySystemDescriptor {}
+impl ::core::clone::Clone for IDvbTerrestrial2DeliverySystemDescriptor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDvbTerrestrialDeliverySystemDescriptor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDvbTerrestrialDeliverySystemDescriptor {}
+impl ::core::clone::Clone for IDvbTerrestrialDeliverySystemDescriptor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDvdCmd(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDvdCmd {}
+impl ::core::clone::Clone for IDvdCmd {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDvdControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDvdControl {}
+impl ::core::clone::Clone for IDvdControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDvdControl2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDvdControl2 {}
+impl ::core::clone::Clone for IDvdControl2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDvdGraphBuilder(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDvdGraphBuilder {}
+impl ::core::clone::Clone for IDvdGraphBuilder {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDvdInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDvdInfo {}
+impl ::core::clone::Clone for IDvdInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDvdInfo2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDvdInfo2 {}
+impl ::core::clone::Clone for IDvdInfo2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDvdState(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDvdState {}
+impl ::core::clone::Clone for IDvdState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IESCloseMmiEvent(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IESCloseMmiEvent {}
+impl ::core::clone::Clone for IESCloseMmiEvent {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IESEvent(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IESEvent {}
+impl ::core::clone::Clone for IESEvent {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IESEventFactory(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IESEventFactory {}
+impl ::core::clone::Clone for IESEventFactory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IESEventService(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IESEventService {}
+impl ::core::clone::Clone for IESEventService {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IESEventServiceConfiguration(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IESEventServiceConfiguration {}
+impl ::core::clone::Clone for IESEventServiceConfiguration {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IESEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IESEvents {}
+impl ::core::clone::Clone for IESEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IESFileExpiryDateEvent(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IESFileExpiryDateEvent {}
+impl ::core::clone::Clone for IESFileExpiryDateEvent {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IESIsdbCasResponseEvent(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IESIsdbCasResponseEvent {}
+impl ::core::clone::Clone for IESIsdbCasResponseEvent {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IESLicenseRenewalResultEvent(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IESLicenseRenewalResultEvent {}
+impl ::core::clone::Clone for IESLicenseRenewalResultEvent {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IESOpenMmiEvent(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IESOpenMmiEvent {}
+impl ::core::clone::Clone for IESOpenMmiEvent {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IESRequestTunerEvent(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IESRequestTunerEvent {}
+impl ::core::clone::Clone for IESRequestTunerEvent {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IESValueUpdatedEvent(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IESValueUpdatedEvent {}
+impl ::core::clone::Clone for IESValueUpdatedEvent {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IETFilter(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IETFilter {}
+impl ::core::clone::Clone for IETFilter {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IETFilterConfig(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IETFilterConfig {}
+impl ::core::clone::Clone for IETFilterConfig {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IETFilterEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IETFilterEvents {}
+impl ::core::clone::Clone for IETFilterEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEncoderAPI(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEncoderAPI {}
+impl ::core::clone::Clone for IEncoderAPI {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEnumComponentTypes(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnumComponentTypes {}
+impl ::core::clone::Clone for IEnumComponentTypes {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEnumComponents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnumComponents {}
+impl ::core::clone::Clone for IEnumComponents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEnumFilters(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnumFilters {}
+impl ::core::clone::Clone for IEnumFilters {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEnumGuideDataProperties(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnumGuideDataProperties {}
+impl ::core::clone::Clone for IEnumGuideDataProperties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEnumMSVidGraphSegment(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnumMSVidGraphSegment {}
+impl ::core::clone::Clone for IEnumMSVidGraphSegment {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEnumMediaTypes(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnumMediaTypes {}
+impl ::core::clone::Clone for IEnumMediaTypes {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEnumPIDMap(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnumPIDMap {}
+impl ::core::clone::Clone for IEnumPIDMap {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEnumPins(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnumPins {}
+impl ::core::clone::Clone for IEnumPins {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEnumRegFilters(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnumRegFilters {}
+impl ::core::clone::Clone for IEnumRegFilters {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEnumStreamBufferRecordingAttrib(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnumStreamBufferRecordingAttrib {}
+impl ::core::clone::Clone for IEnumStreamBufferRecordingAttrib {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEnumStreamIdMap(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnumStreamIdMap {}
+impl ::core::clone::Clone for IEnumStreamIdMap {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEnumTuneRequests(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnumTuneRequests {}
+impl ::core::clone::Clone for IEnumTuneRequests {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEnumTuningSpaces(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnumTuningSpaces {}
+impl ::core::clone::Clone for IEnumTuningSpaces {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEvalRat(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEvalRat {}
+impl ::core::clone::Clone for IEvalRat {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFILTERMAPPER_MERIT(pub i32);
 pub const MERIT_PREFERRED: IFILTERMAPPER_MERIT = IFILTERMAPPER_MERIT(8388608i32);
@@ -6606,412 +8304,1636 @@ impl ::core::clone::Clone for IFILTERMAPPER_MERIT {
 }
 #[repr(transparent)]
 pub struct IFileSinkFilter(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFileSinkFilter {}
+impl ::core::clone::Clone for IFileSinkFilter {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFileSinkFilter2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFileSinkFilter2 {}
+impl ::core::clone::Clone for IFileSinkFilter2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFileSourceFilter(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFileSourceFilter {}
+impl ::core::clone::Clone for IFileSourceFilter {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFilterChain(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFilterChain {}
+impl ::core::clone::Clone for IFilterChain {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFilterGraph(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFilterGraph {}
+impl ::core::clone::Clone for IFilterGraph {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFilterGraph2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFilterGraph2 {}
+impl ::core::clone::Clone for IFilterGraph2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFilterGraph3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFilterGraph3 {}
+impl ::core::clone::Clone for IFilterGraph3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFilterInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFilterInfo {}
+impl ::core::clone::Clone for IFilterInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFilterMapper(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFilterMapper {}
+impl ::core::clone::Clone for IFilterMapper {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFilterMapper2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFilterMapper2 {}
+impl ::core::clone::Clone for IFilterMapper2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFilterMapper3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFilterMapper3 {}
+impl ::core::clone::Clone for IFilterMapper3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFrequencyMap(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFrequencyMap {}
+impl ::core::clone::Clone for IFrequencyMap {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFullScreenVideo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFullScreenVideo {}
+impl ::core::clone::Clone for IFullScreenVideo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFullScreenVideoEx(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFullScreenVideoEx {}
+impl ::core::clone::Clone for IFullScreenVideoEx {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGenericDescriptor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGenericDescriptor {}
+impl ::core::clone::Clone for IGenericDescriptor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGenericDescriptor2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGenericDescriptor2 {}
+impl ::core::clone::Clone for IGenericDescriptor2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGetCapabilitiesKey(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGetCapabilitiesKey {}
+impl ::core::clone::Clone for IGetCapabilitiesKey {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGpnvsCommonBase(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGpnvsCommonBase {}
+impl ::core::clone::Clone for IGpnvsCommonBase {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGraphBuilder(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGraphBuilder {}
+impl ::core::clone::Clone for IGraphBuilder {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGraphConfig(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGraphConfig {}
+impl ::core::clone::Clone for IGraphConfig {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGraphConfigCallback(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGraphConfigCallback {}
+impl ::core::clone::Clone for IGraphConfigCallback {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGraphVersion(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGraphVersion {}
+impl ::core::clone::Clone for IGraphVersion {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGuideData(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGuideData {}
+impl ::core::clone::Clone for IGuideData {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGuideDataEvent(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGuideDataEvent {}
+impl ::core::clone::Clone for IGuideDataEvent {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGuideDataLoader(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGuideDataLoader {}
+impl ::core::clone::Clone for IGuideDataLoader {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGuideDataProperty(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGuideDataProperty {}
+impl ::core::clone::Clone for IGuideDataProperty {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IIPDVDec(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IIPDVDec {}
+impl ::core::clone::Clone for IIPDVDec {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IISDBSLocator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IISDBSLocator {}
+impl ::core::clone::Clone for IISDBSLocator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IISDB_BIT(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IISDB_BIT {}
+impl ::core::clone::Clone for IISDB_BIT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IISDB_CDT(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IISDB_CDT {}
+impl ::core::clone::Clone for IISDB_CDT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IISDB_EMM(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IISDB_EMM {}
+impl ::core::clone::Clone for IISDB_EMM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IISDB_LDT(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IISDB_LDT {}
+impl ::core::clone::Clone for IISDB_LDT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IISDB_NBIT(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IISDB_NBIT {}
+impl ::core::clone::Clone for IISDB_NBIT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IISDB_SDT(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IISDB_SDT {}
+impl ::core::clone::Clone for IISDB_SDT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IISDB_SDTT(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IISDB_SDTT {}
+impl ::core::clone::Clone for IISDB_SDTT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IIsdbAudioComponentDescriptor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IIsdbAudioComponentDescriptor {}
+impl ::core::clone::Clone for IIsdbAudioComponentDescriptor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IIsdbCAContractInformationDescriptor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IIsdbCAContractInformationDescriptor {}
+impl ::core::clone::Clone for IIsdbCAContractInformationDescriptor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IIsdbCADescriptor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IIsdbCADescriptor {}
+impl ::core::clone::Clone for IIsdbCADescriptor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IIsdbCAServiceDescriptor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IIsdbCAServiceDescriptor {}
+impl ::core::clone::Clone for IIsdbCAServiceDescriptor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IIsdbComponentGroupDescriptor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IIsdbComponentGroupDescriptor {}
+impl ::core::clone::Clone for IIsdbComponentGroupDescriptor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IIsdbDataContentDescriptor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IIsdbDataContentDescriptor {}
+impl ::core::clone::Clone for IIsdbDataContentDescriptor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IIsdbDigitalCopyControlDescriptor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IIsdbDigitalCopyControlDescriptor {}
+impl ::core::clone::Clone for IIsdbDigitalCopyControlDescriptor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IIsdbDownloadContentDescriptor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IIsdbDownloadContentDescriptor {}
+impl ::core::clone::Clone for IIsdbDownloadContentDescriptor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IIsdbEmergencyInformationDescriptor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IIsdbEmergencyInformationDescriptor {}
+impl ::core::clone::Clone for IIsdbEmergencyInformationDescriptor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IIsdbEventGroupDescriptor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IIsdbEventGroupDescriptor {}
+impl ::core::clone::Clone for IIsdbEventGroupDescriptor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IIsdbHierarchicalTransmissionDescriptor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IIsdbHierarchicalTransmissionDescriptor {}
+impl ::core::clone::Clone for IIsdbHierarchicalTransmissionDescriptor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IIsdbLogoTransmissionDescriptor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IIsdbLogoTransmissionDescriptor {}
+impl ::core::clone::Clone for IIsdbLogoTransmissionDescriptor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IIsdbSIParameterDescriptor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IIsdbSIParameterDescriptor {}
+impl ::core::clone::Clone for IIsdbSIParameterDescriptor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IIsdbSeriesDescriptor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IIsdbSeriesDescriptor {}
+impl ::core::clone::Clone for IIsdbSeriesDescriptor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IIsdbSiParser2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IIsdbSiParser2 {}
+impl ::core::clone::Clone for IIsdbSiParser2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IIsdbTSInformationDescriptor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IIsdbTSInformationDescriptor {}
+impl ::core::clone::Clone for IIsdbTSInformationDescriptor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IIsdbTerrestrialDeliverySystemDescriptor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IIsdbTerrestrialDeliverySystemDescriptor {}
+impl ::core::clone::Clone for IIsdbTerrestrialDeliverySystemDescriptor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IKsNodeControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IKsNodeControl {}
+impl ::core::clone::Clone for IKsNodeControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IKsTopologyInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IKsTopologyInfo {}
+impl ::core::clone::Clone for IKsTopologyInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ILanguageComponentType(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ILanguageComponentType {}
+impl ::core::clone::Clone for ILanguageComponentType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ILocator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ILocator {}
+impl ::core::clone::Clone for ILocator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMPEG2Component(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMPEG2Component {}
+impl ::core::clone::Clone for IMPEG2Component {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMPEG2ComponentType(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMPEG2ComponentType {}
+impl ::core::clone::Clone for IMPEG2ComponentType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMPEG2PIDMap(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMPEG2PIDMap {}
+impl ::core::clone::Clone for IMPEG2PIDMap {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMPEG2StreamIdMap(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMPEG2StreamIdMap {}
+impl ::core::clone::Clone for IMPEG2StreamIdMap {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMPEG2TuneRequest(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMPEG2TuneRequest {}
+impl ::core::clone::Clone for IMPEG2TuneRequest {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMPEG2TuneRequestFactory(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMPEG2TuneRequestFactory {}
+impl ::core::clone::Clone for IMPEG2TuneRequestFactory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMPEG2TuneRequestSupport(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMPEG2TuneRequestSupport {}
+impl ::core::clone::Clone for IMPEG2TuneRequestSupport {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMPEG2_TIF_CONTROL(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMPEG2_TIF_CONTROL {}
+impl ::core::clone::Clone for IMPEG2_TIF_CONTROL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSEventBinder(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSEventBinder {}
+impl ::core::clone::Clone for IMSEventBinder {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidAnalogTuner(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidAnalogTuner {}
+impl ::core::clone::Clone for IMSVidAnalogTuner {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidAnalogTuner2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidAnalogTuner2 {}
+impl ::core::clone::Clone for IMSVidAnalogTuner2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidAnalogTunerEvent(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidAnalogTunerEvent {}
+impl ::core::clone::Clone for IMSVidAnalogTunerEvent {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidAudioRenderer(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidAudioRenderer {}
+impl ::core::clone::Clone for IMSVidAudioRenderer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidAudioRendererDevices(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidAudioRendererDevices {}
+impl ::core::clone::Clone for IMSVidAudioRendererDevices {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidAudioRendererEvent(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidAudioRendererEvent {}
+impl ::core::clone::Clone for IMSVidAudioRendererEvent {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidAudioRendererEvent2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidAudioRendererEvent2 {}
+impl ::core::clone::Clone for IMSVidAudioRendererEvent2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidClosedCaptioning(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidClosedCaptioning {}
+impl ::core::clone::Clone for IMSVidClosedCaptioning {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidClosedCaptioning2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidClosedCaptioning2 {}
+impl ::core::clone::Clone for IMSVidClosedCaptioning2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidClosedCaptioning3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidClosedCaptioning3 {}
+impl ::core::clone::Clone for IMSVidClosedCaptioning3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidCompositionSegment(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidCompositionSegment {}
+impl ::core::clone::Clone for IMSVidCompositionSegment {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidCtl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidCtl {}
+impl ::core::clone::Clone for IMSVidCtl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidDataServices(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidDataServices {}
+impl ::core::clone::Clone for IMSVidDataServices {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidDataServicesEvent(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidDataServicesEvent {}
+impl ::core::clone::Clone for IMSVidDataServicesEvent {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidDevice(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidDevice {}
+impl ::core::clone::Clone for IMSVidDevice {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidDevice2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidDevice2 {}
+impl ::core::clone::Clone for IMSVidDevice2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidDeviceEvent(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidDeviceEvent {}
+impl ::core::clone::Clone for IMSVidDeviceEvent {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidEVR(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidEVR {}
+impl ::core::clone::Clone for IMSVidEVR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidEVREvent(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidEVREvent {}
+impl ::core::clone::Clone for IMSVidEVREvent {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidEncoder(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidEncoder {}
+impl ::core::clone::Clone for IMSVidEncoder {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidFeature(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidFeature {}
+impl ::core::clone::Clone for IMSVidFeature {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidFeatureEvent(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidFeatureEvent {}
+impl ::core::clone::Clone for IMSVidFeatureEvent {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidFeatures(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidFeatures {}
+impl ::core::clone::Clone for IMSVidFeatures {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidFilePlayback(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidFilePlayback {}
+impl ::core::clone::Clone for IMSVidFilePlayback {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidFilePlayback2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidFilePlayback2 {}
+impl ::core::clone::Clone for IMSVidFilePlayback2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidFilePlaybackEvent(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidFilePlaybackEvent {}
+impl ::core::clone::Clone for IMSVidFilePlaybackEvent {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidGenericSink(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidGenericSink {}
+impl ::core::clone::Clone for IMSVidGenericSink {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidGenericSink2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidGenericSink2 {}
+impl ::core::clone::Clone for IMSVidGenericSink2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidGraphSegment(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidGraphSegment {}
+impl ::core::clone::Clone for IMSVidGraphSegment {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidGraphSegmentContainer(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidGraphSegmentContainer {}
+impl ::core::clone::Clone for IMSVidGraphSegmentContainer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidGraphSegmentUserInput(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidGraphSegmentUserInput {}
+impl ::core::clone::Clone for IMSVidGraphSegmentUserInput {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidInputDevice(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidInputDevice {}
+impl ::core::clone::Clone for IMSVidInputDevice {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidInputDeviceEvent(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidInputDeviceEvent {}
+impl ::core::clone::Clone for IMSVidInputDeviceEvent {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidInputDevices(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidInputDevices {}
+impl ::core::clone::Clone for IMSVidInputDevices {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidOutputDevice(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidOutputDevice {}
+impl ::core::clone::Clone for IMSVidOutputDevice {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidOutputDeviceEvent(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidOutputDeviceEvent {}
+impl ::core::clone::Clone for IMSVidOutputDeviceEvent {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidOutputDevices(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidOutputDevices {}
+impl ::core::clone::Clone for IMSVidOutputDevices {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidPlayback(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidPlayback {}
+impl ::core::clone::Clone for IMSVidPlayback {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidPlaybackEvent(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidPlaybackEvent {}
+impl ::core::clone::Clone for IMSVidPlaybackEvent {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidRect(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidRect {}
+impl ::core::clone::Clone for IMSVidRect {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidStreamBufferRecordingControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidStreamBufferRecordingControl {}
+impl ::core::clone::Clone for IMSVidStreamBufferRecordingControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidStreamBufferSink(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidStreamBufferSink {}
+impl ::core::clone::Clone for IMSVidStreamBufferSink {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidStreamBufferSink2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidStreamBufferSink2 {}
+impl ::core::clone::Clone for IMSVidStreamBufferSink2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidStreamBufferSink3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidStreamBufferSink3 {}
+impl ::core::clone::Clone for IMSVidStreamBufferSink3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidStreamBufferSinkEvent(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidStreamBufferSinkEvent {}
+impl ::core::clone::Clone for IMSVidStreamBufferSinkEvent {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidStreamBufferSinkEvent2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidStreamBufferSinkEvent2 {}
+impl ::core::clone::Clone for IMSVidStreamBufferSinkEvent2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidStreamBufferSinkEvent3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidStreamBufferSinkEvent3 {}
+impl ::core::clone::Clone for IMSVidStreamBufferSinkEvent3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidStreamBufferSinkEvent4(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidStreamBufferSinkEvent4 {}
+impl ::core::clone::Clone for IMSVidStreamBufferSinkEvent4 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidStreamBufferSource(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidStreamBufferSource {}
+impl ::core::clone::Clone for IMSVidStreamBufferSource {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidStreamBufferSource2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidStreamBufferSource2 {}
+impl ::core::clone::Clone for IMSVidStreamBufferSource2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidStreamBufferSourceEvent(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidStreamBufferSourceEvent {}
+impl ::core::clone::Clone for IMSVidStreamBufferSourceEvent {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidStreamBufferSourceEvent2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidStreamBufferSourceEvent2 {}
+impl ::core::clone::Clone for IMSVidStreamBufferSourceEvent2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidStreamBufferSourceEvent3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidStreamBufferSourceEvent3 {}
+impl ::core::clone::Clone for IMSVidStreamBufferSourceEvent3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidStreamBufferV2SourceEvent(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidStreamBufferV2SourceEvent {}
+impl ::core::clone::Clone for IMSVidStreamBufferV2SourceEvent {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidTuner(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidTuner {}
+impl ::core::clone::Clone for IMSVidTuner {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidTunerEvent(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidTunerEvent {}
+impl ::core::clone::Clone for IMSVidTunerEvent {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidVMR9(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidVMR9 {}
+impl ::core::clone::Clone for IMSVidVMR9 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidVRGraphSegment(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidVRGraphSegment {}
+impl ::core::clone::Clone for IMSVidVRGraphSegment {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidVideoInputDevice(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidVideoInputDevice {}
+impl ::core::clone::Clone for IMSVidVideoInputDevice {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidVideoRenderer(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidVideoRenderer {}
+impl ::core::clone::Clone for IMSVidVideoRenderer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidVideoRenderer2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidVideoRenderer2 {}
+impl ::core::clone::Clone for IMSVidVideoRenderer2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidVideoRendererDevices(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidVideoRendererDevices {}
+impl ::core::clone::Clone for IMSVidVideoRendererDevices {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidVideoRendererEvent(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidVideoRendererEvent {}
+impl ::core::clone::Clone for IMSVidVideoRendererEvent {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidVideoRendererEvent2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidVideoRendererEvent2 {}
+impl ::core::clone::Clone for IMSVidVideoRendererEvent2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidWebDVD(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidWebDVD {}
+impl ::core::clone::Clone for IMSVidWebDVD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidWebDVD2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidWebDVD2 {}
+impl ::core::clone::Clone for IMSVidWebDVD2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidWebDVDAdm(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidWebDVDAdm {}
+impl ::core::clone::Clone for IMSVidWebDVDAdm {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidWebDVDEvent(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidWebDVDEvent {}
+impl ::core::clone::Clone for IMSVidWebDVDEvent {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidXDS(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidXDS {}
+impl ::core::clone::Clone for IMSVidXDS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMSVidXDSEvent(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMSVidXDSEvent {}
+impl ::core::clone::Clone for IMSVidXDSEvent {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMceBurnerControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMceBurnerControl {}
+impl ::core::clone::Clone for IMceBurnerControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMediaControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMediaControl {}
+impl ::core::clone::Clone for IMediaControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMediaEvent(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMediaEvent {}
+impl ::core::clone::Clone for IMediaEvent {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMediaEventEx(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMediaEventEx {}
+impl ::core::clone::Clone for IMediaEventEx {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMediaEventSink(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMediaEventSink {}
+impl ::core::clone::Clone for IMediaEventSink {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMediaFilter(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMediaFilter {}
+impl ::core::clone::Clone for IMediaFilter {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMediaParamInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMediaParamInfo {}
+impl ::core::clone::Clone for IMediaParamInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMediaParams(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMediaParams {}
+impl ::core::clone::Clone for IMediaParams {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMediaPosition(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMediaPosition {}
+impl ::core::clone::Clone for IMediaPosition {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMediaPropertyBag(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMediaPropertyBag {}
+impl ::core::clone::Clone for IMediaPropertyBag {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMediaSample(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMediaSample {}
+impl ::core::clone::Clone for IMediaSample {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMediaSample2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMediaSample2 {}
+impl ::core::clone::Clone for IMediaSample2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMediaSample2Config(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMediaSample2Config {}
+impl ::core::clone::Clone for IMediaSample2Config {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMediaSeeking(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMediaSeeking {}
+impl ::core::clone::Clone for IMediaSeeking {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMediaStream(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMediaStream {}
+impl ::core::clone::Clone for IMediaStream {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMediaStreamFilter(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMediaStreamFilter {}
+impl ::core::clone::Clone for IMediaStreamFilter {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMediaTypeInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMediaTypeInfo {}
+impl ::core::clone::Clone for IMediaTypeInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMemAllocator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMemAllocator {}
+impl ::core::clone::Clone for IMemAllocator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMemAllocatorCallbackTemp(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMemAllocatorCallbackTemp {}
+impl ::core::clone::Clone for IMemAllocatorCallbackTemp {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMemAllocatorNotifyCallbackTemp(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMemAllocatorNotifyCallbackTemp {}
+impl ::core::clone::Clone for IMemAllocatorNotifyCallbackTemp {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMemInputPin(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMemInputPin {}
+impl ::core::clone::Clone for IMemInputPin {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMemoryData(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMemoryData {}
+impl ::core::clone::Clone for IMemoryData {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMixerOCX(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMixerOCX {}
+impl ::core::clone::Clone for IMixerOCX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMixerOCXNotify(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMixerOCXNotify {}
+impl ::core::clone::Clone for IMixerOCXNotify {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMixerPinConfig(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMixerPinConfig {}
+impl ::core::clone::Clone for IMixerPinConfig {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMixerPinConfig2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMixerPinConfig2 {}
+impl ::core::clone::Clone for IMixerPinConfig2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMpeg2Data(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMpeg2Data {}
+impl ::core::clone::Clone for IMpeg2Data {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMpeg2Demultiplexer(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMpeg2Demultiplexer {}
+impl ::core::clone::Clone for IMpeg2Demultiplexer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMpeg2Stream(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMpeg2Stream {}
+impl ::core::clone::Clone for IMpeg2Stream {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMpeg2TableFilter(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMpeg2TableFilter {}
+impl ::core::clone::Clone for IMpeg2TableFilter {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMpegAudioDecoder(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMpegAudioDecoder {}
+impl ::core::clone::Clone for IMpegAudioDecoder {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMultiMediaStream(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMultiMediaStream {}
+impl ::core::clone::Clone for IMultiMediaStream {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IOverlay(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IOverlay {}
+impl ::core::clone::Clone for IOverlay {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IOverlayNotify(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IOverlayNotify {}
+impl ::core::clone::Clone for IOverlayNotify {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IOverlayNotify2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IOverlayNotify2 {}
+impl ::core::clone::Clone for IOverlayNotify2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPAT(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPAT {}
+impl ::core::clone::Clone for IPAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPBDAAttributesDescriptor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPBDAAttributesDescriptor {}
+impl ::core::clone::Clone for IPBDAAttributesDescriptor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPBDAEntitlementDescriptor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPBDAEntitlementDescriptor {}
+impl ::core::clone::Clone for IPBDAEntitlementDescriptor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPBDASiParser(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPBDASiParser {}
+impl ::core::clone::Clone for IPBDASiParser {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPBDA_EIT(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPBDA_EIT {}
+impl ::core::clone::Clone for IPBDA_EIT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPBDA_Services(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPBDA_Services {}
+impl ::core::clone::Clone for IPBDA_Services {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPMT(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPMT {}
+impl ::core::clone::Clone for IPMT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPSITables(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPSITables {}
+impl ::core::clone::Clone for IPSITables {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPTFilterLicenseRenewal(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPTFilterLicenseRenewal {}
+impl ::core::clone::Clone for IPTFilterLicenseRenewal {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPersistMediaPropertyBag(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPersistMediaPropertyBag {}
+impl ::core::clone::Clone for IPersistMediaPropertyBag {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPersistTuneXml(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPersistTuneXml {}
+impl ::core::clone::Clone for IPersistTuneXml {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPersistTuneXmlUtility(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPersistTuneXmlUtility {}
+impl ::core::clone::Clone for IPersistTuneXmlUtility {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPersistTuneXmlUtility2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPersistTuneXmlUtility2 {}
+impl ::core::clone::Clone for IPersistTuneXmlUtility2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPin(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPin {}
+impl ::core::clone::Clone for IPin {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPinConnection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPinConnection {}
+impl ::core::clone::Clone for IPinConnection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPinFlowControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPinFlowControl {}
+impl ::core::clone::Clone for IPinFlowControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPinInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPinInfo {}
+impl ::core::clone::Clone for IPinInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IQualProp(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IQualProp {}
+impl ::core::clone::Clone for IQualProp {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IQualityControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IQualityControl {}
+impl ::core::clone::Clone for IQualityControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IQueueCommand(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IQueueCommand {}
+impl ::core::clone::Clone for IQueueCommand {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRegFilterInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRegFilterInfo {}
+impl ::core::clone::Clone for IRegFilterInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRegisterServiceProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRegisterServiceProvider {}
+impl ::core::clone::Clone for IRegisterServiceProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRegisterTuner(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRegisterTuner {}
+impl ::core::clone::Clone for IRegisterTuner {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IResourceConsumer(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IResourceConsumer {}
+impl ::core::clone::Clone for IResourceConsumer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IResourceManager(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IResourceManager {}
+impl ::core::clone::Clone for IResourceManager {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISBE2Crossbar(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISBE2Crossbar {}
+impl ::core::clone::Clone for ISBE2Crossbar {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISBE2EnumStream(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISBE2EnumStream {}
+impl ::core::clone::Clone for ISBE2EnumStream {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISBE2FileScan(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISBE2FileScan {}
+impl ::core::clone::Clone for ISBE2FileScan {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISBE2GlobalEvent(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISBE2GlobalEvent {}
+impl ::core::clone::Clone for ISBE2GlobalEvent {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISBE2GlobalEvent2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISBE2GlobalEvent2 {}
+impl ::core::clone::Clone for ISBE2GlobalEvent2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISBE2MediaTypeProfile(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISBE2MediaTypeProfile {}
+impl ::core::clone::Clone for ISBE2MediaTypeProfile {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISBE2SpanningEvent(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISBE2SpanningEvent {}
+impl ::core::clone::Clone for ISBE2SpanningEvent {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISBE2StreamMap(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISBE2StreamMap {}
+impl ::core::clone::Clone for ISBE2StreamMap {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISCTE_EAS(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISCTE_EAS {}
+impl ::core::clone::Clone for ISCTE_EAS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISDBCAS_REQUEST_ID(pub i32);
 pub const ISDBCAS_REQUEST_ID_EMG: ISDBCAS_REQUEST_ID = ISDBCAS_REQUEST_ID(56i32);
@@ -7022,10 +9944,10 @@ impl ::core::clone::Clone for ISDBCAS_REQUEST_ID {
         *self
     }
 }
-pub const ISDBSLocator: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1694805997, data2: 42537, data3: 17756, data4: [167, 241, 4, 150, 77, 234, 92, 196] };
+pub const ISDBSLocator: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1694805997, data2: 42537, data3: 17756, data4: [167, 241, 4, 150, 77, 234, 92, 196] };
 pub const ISDB_BIT_PID: u32 = 36u32;
 pub const ISDB_BIT_TID: u32 = 196u32;
-pub const ISDB_CABLE_TV_NETWORK_TYPE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const ISDB_CABLE_TV_NETWORK_TYPE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3379879349,
     data2: 16894,
     data3: 19237,
@@ -7039,7 +9961,7 @@ pub const ISDB_LDT_TID: u32 = 199u32;
 pub const ISDB_NBIT_MSG_TID: u32 = 197u32;
 pub const ISDB_NBIT_PID: u32 = 37u32;
 pub const ISDB_NBIT_REF_TID: u32 = 198u32;
-pub const ISDB_SATELLITE_TV_NETWORK_TYPE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const ISDB_SATELLITE_TV_NETWORK_TYPE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2963596960,
     data2: 27162,
     data3: 19331,
@@ -7049,14 +9971,14 @@ pub const ISDB_SDTT_ALT_PID: u32 = 40u32;
 pub const ISDB_SDTT_PID: u32 = 35u32;
 pub const ISDB_SDTT_TID: u32 = 195u32;
 pub const ISDB_ST_TID: u32 = 114u32;
-pub const ISDB_S_NETWORK_TYPE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2716303874, data2: 5209, data3: 16817, data4: [156, 169, 42, 146, 88, 122, 66, 204] };
-pub const ISDB_TERRESTRIAL_TV_NETWORK_TYPE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const ISDB_S_NETWORK_TYPE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2716303874, data2: 5209, data3: 16817, data4: [156, 169, 42, 146, 88, 122, 66, 204] };
+pub const ISDB_TERRESTRIAL_TV_NETWORK_TYPE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2500034415,
     data2: 15047,
     data3: 17490,
     data4: [182, 196, 69, 169, 206, 146, 146, 162],
 };
-pub const ISDB_T_NETWORK_TYPE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const ISDB_T_NETWORK_TYPE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4231550374,
     data2: 51457,
     data3: 20270,
@@ -7064,166 +9986,652 @@ pub const ISDB_T_NETWORK_TYPE: ::windows_sys::core::GUID = ::windows_sys::GUID {
 };
 #[repr(transparent)]
 pub struct ISIInbandEPG(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISIInbandEPG {}
+impl ::core::clone::Clone for ISIInbandEPG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISIInbandEPGEvent(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISIInbandEPGEvent {}
+impl ::core::clone::Clone for ISIInbandEPGEvent {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IScanningTuner(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IScanningTuner {}
+impl ::core::clone::Clone for IScanningTuner {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IScanningTunerEx(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IScanningTunerEx {}
+impl ::core::clone::Clone for IScanningTunerEx {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISectionList(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISectionList {}
+impl ::core::clone::Clone for ISectionList {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISeekingPassThru(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISeekingPassThru {}
+impl ::core::clone::Clone for ISeekingPassThru {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISelector(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISelector {}
+impl ::core::clone::Clone for ISelector {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IServiceLocationDescriptor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IServiceLocationDescriptor {}
+impl ::core::clone::Clone for IServiceLocationDescriptor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpecifyParticularPages(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpecifyParticularPages {}
+impl ::core::clone::Clone for ISpecifyParticularPages {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IStreamBufferConfigure(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IStreamBufferConfigure {}
+impl ::core::clone::Clone for IStreamBufferConfigure {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IStreamBufferConfigure2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IStreamBufferConfigure2 {}
+impl ::core::clone::Clone for IStreamBufferConfigure2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IStreamBufferConfigure3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IStreamBufferConfigure3 {}
+impl ::core::clone::Clone for IStreamBufferConfigure3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IStreamBufferDataCounters(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IStreamBufferDataCounters {}
+impl ::core::clone::Clone for IStreamBufferDataCounters {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IStreamBufferInitialize(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IStreamBufferInitialize {}
+impl ::core::clone::Clone for IStreamBufferInitialize {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IStreamBufferMediaSeeking(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IStreamBufferMediaSeeking {}
+impl ::core::clone::Clone for IStreamBufferMediaSeeking {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IStreamBufferMediaSeeking2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IStreamBufferMediaSeeking2 {}
+impl ::core::clone::Clone for IStreamBufferMediaSeeking2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IStreamBufferRecComp(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IStreamBufferRecComp {}
+impl ::core::clone::Clone for IStreamBufferRecComp {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IStreamBufferRecordControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IStreamBufferRecordControl {}
+impl ::core::clone::Clone for IStreamBufferRecordControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IStreamBufferRecordingAttribute(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IStreamBufferRecordingAttribute {}
+impl ::core::clone::Clone for IStreamBufferRecordingAttribute {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IStreamBufferSink(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IStreamBufferSink {}
+impl ::core::clone::Clone for IStreamBufferSink {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IStreamBufferSink2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IStreamBufferSink2 {}
+impl ::core::clone::Clone for IStreamBufferSink2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IStreamBufferSink3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IStreamBufferSink3 {}
+impl ::core::clone::Clone for IStreamBufferSink3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IStreamBufferSource(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IStreamBufferSource {}
+impl ::core::clone::Clone for IStreamBufferSource {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IStreamBuilder(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IStreamBuilder {}
+impl ::core::clone::Clone for IStreamBuilder {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IStreamSample(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IStreamSample {}
+impl ::core::clone::Clone for IStreamSample {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITSDT(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITSDT {}
+impl ::core::clone::Clone for ITSDT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITuneRequest(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITuneRequest {}
+impl ::core::clone::Clone for ITuneRequest {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITuneRequestInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITuneRequestInfo {}
+impl ::core::clone::Clone for ITuneRequestInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITuneRequestInfoEx(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITuneRequestInfoEx {}
+impl ::core::clone::Clone for ITuneRequestInfoEx {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITuner(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITuner {}
+impl ::core::clone::Clone for ITuner {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITunerCap(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITunerCap {}
+impl ::core::clone::Clone for ITunerCap {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITunerCapEx(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITunerCapEx {}
+impl ::core::clone::Clone for ITunerCapEx {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITuningSpace(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITuningSpace {}
+impl ::core::clone::Clone for ITuningSpace {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITuningSpaceContainer(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITuningSpaceContainer {}
+impl ::core::clone::Clone for ITuningSpaceContainer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITuningSpaces(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITuningSpaces {}
+impl ::core::clone::Clone for ITuningSpaces {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVMRAspectRatioControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVMRAspectRatioControl {}
+impl ::core::clone::Clone for IVMRAspectRatioControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVMRAspectRatioControl9(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVMRAspectRatioControl9 {}
+impl ::core::clone::Clone for IVMRAspectRatioControl9 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVMRDeinterlaceControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVMRDeinterlaceControl {}
+impl ::core::clone::Clone for IVMRDeinterlaceControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVMRDeinterlaceControl9(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVMRDeinterlaceControl9 {}
+impl ::core::clone::Clone for IVMRDeinterlaceControl9 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVMRFilterConfig(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVMRFilterConfig {}
+impl ::core::clone::Clone for IVMRFilterConfig {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVMRFilterConfig9(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVMRFilterConfig9 {}
+impl ::core::clone::Clone for IVMRFilterConfig9 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVMRImageCompositor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVMRImageCompositor {}
+impl ::core::clone::Clone for IVMRImageCompositor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVMRImageCompositor9(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVMRImageCompositor9 {}
+impl ::core::clone::Clone for IVMRImageCompositor9 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVMRImagePresenter(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVMRImagePresenter {}
+impl ::core::clone::Clone for IVMRImagePresenter {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVMRImagePresenter9(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVMRImagePresenter9 {}
+impl ::core::clone::Clone for IVMRImagePresenter9 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVMRImagePresenterConfig(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVMRImagePresenterConfig {}
+impl ::core::clone::Clone for IVMRImagePresenterConfig {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVMRImagePresenterConfig9(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVMRImagePresenterConfig9 {}
+impl ::core::clone::Clone for IVMRImagePresenterConfig9 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVMRImagePresenterExclModeConfig(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVMRImagePresenterExclModeConfig {}
+impl ::core::clone::Clone for IVMRImagePresenterExclModeConfig {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVMRMixerBitmap(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVMRMixerBitmap {}
+impl ::core::clone::Clone for IVMRMixerBitmap {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVMRMixerBitmap9(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVMRMixerBitmap9 {}
+impl ::core::clone::Clone for IVMRMixerBitmap9 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVMRMixerControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVMRMixerControl {}
+impl ::core::clone::Clone for IVMRMixerControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVMRMixerControl9(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVMRMixerControl9 {}
+impl ::core::clone::Clone for IVMRMixerControl9 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVMRMonitorConfig(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVMRMonitorConfig {}
+impl ::core::clone::Clone for IVMRMonitorConfig {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVMRMonitorConfig9(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVMRMonitorConfig9 {}
+impl ::core::clone::Clone for IVMRMonitorConfig9 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVMRSurface(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVMRSurface {}
+impl ::core::clone::Clone for IVMRSurface {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVMRSurface9(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVMRSurface9 {}
+impl ::core::clone::Clone for IVMRSurface9 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVMRSurfaceAllocator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVMRSurfaceAllocator {}
+impl ::core::clone::Clone for IVMRSurfaceAllocator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVMRSurfaceAllocator9(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVMRSurfaceAllocator9 {}
+impl ::core::clone::Clone for IVMRSurfaceAllocator9 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVMRSurfaceAllocatorEx9(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVMRSurfaceAllocatorEx9 {}
+impl ::core::clone::Clone for IVMRSurfaceAllocatorEx9 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVMRSurfaceAllocatorNotify(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVMRSurfaceAllocatorNotify {}
+impl ::core::clone::Clone for IVMRSurfaceAllocatorNotify {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVMRSurfaceAllocatorNotify9(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVMRSurfaceAllocatorNotify9 {}
+impl ::core::clone::Clone for IVMRSurfaceAllocatorNotify9 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVMRVideoStreamControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVMRVideoStreamControl {}
+impl ::core::clone::Clone for IVMRVideoStreamControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVMRVideoStreamControl9(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVMRVideoStreamControl9 {}
+impl ::core::clone::Clone for IVMRVideoStreamControl9 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVMRWindowlessControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVMRWindowlessControl {}
+impl ::core::clone::Clone for IVMRWindowlessControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVMRWindowlessControl9(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVMRWindowlessControl9 {}
+impl ::core::clone::Clone for IVMRWindowlessControl9 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVPBaseConfig(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVPBaseConfig {}
+impl ::core::clone::Clone for IVPBaseConfig {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVPBaseNotify(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVPBaseNotify {}
+impl ::core::clone::Clone for IVPBaseNotify {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVPConfig(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVPConfig {}
+impl ::core::clone::Clone for IVPConfig {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVPManager(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVPManager {}
+impl ::core::clone::Clone for IVPManager {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVPNotify(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVPNotify {}
+impl ::core::clone::Clone for IVPNotify {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVPNotify2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVPNotify2 {}
+impl ::core::clone::Clone for IVPNotify2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVPVBIConfig(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVPVBIConfig {}
+impl ::core::clone::Clone for IVPVBIConfig {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVPVBINotify(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVPVBINotify {}
+impl ::core::clone::Clone for IVPVBINotify {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVideoEncoder(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVideoEncoder {}
+impl ::core::clone::Clone for IVideoEncoder {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVideoFrameStep(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVideoFrameStep {}
+impl ::core::clone::Clone for IVideoFrameStep {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVideoProcAmp(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVideoProcAmp {}
+impl ::core::clone::Clone for IVideoProcAmp {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVideoWindow(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVideoWindow {}
+impl ::core::clone::Clone for IVideoWindow {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IXDSCodec(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IXDSCodec {}
+impl ::core::clone::Clone for IXDSCodec {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IXDSCodecConfig(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IXDSCodecConfig {}
+impl ::core::clone::Clone for IXDSCodecConfig {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IXDSCodecEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IXDSCodecEvents {}
+impl ::core::clone::Clone for IXDSCodecEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IXDSToRat(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IXDSToRat {}
+impl ::core::clone::Clone for IXDSToRat {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct InterleavingMode(pub i32);
 pub const INTERLEAVE_NONE: InterleavingMode = InterleavingMode(0i32);
@@ -7236,49 +10644,49 @@ impl ::core::clone::Clone for InterleavingMode {
         *self
     }
 }
-pub const KSCATEGORY_BDA_IP_SINK: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1905811274, data2: 7329, data3: 4563, data4: [156, 200, 0, 192, 79, 121, 113, 224] };
-pub const KSCATEGORY_BDA_NETWORK_EPG: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1905811273, data2: 7329, data3: 4563, data4: [156, 200, 0, 192, 79, 121, 113, 224] };
-pub const KSCATEGORY_BDA_NETWORK_PROVIDER: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1905811275, data2: 7329, data3: 4563, data4: [156, 200, 0, 192, 79, 121, 113, 224] };
-pub const KSCATEGORY_BDA_NETWORK_TUNER: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1905811272, data2: 7329, data3: 4563, data4: [156, 200, 0, 192, 79, 121, 113, 224] };
-pub const KSCATEGORY_BDA_RECEIVER_COMPONENT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4245314292, data2: 46109, data3: 4562, data4: [156, 149, 0, 192, 79, 121, 113, 224] };
-pub const KSCATEGORY_BDA_TRANSPORT_INFORMATION: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2732787535, data2: 27709, data3: 4563, data4: [182, 83, 0, 192, 79, 121, 73, 142] };
-pub const KSDATAFORMAT_SPECIFIER_BDA_IP: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1804145696, data2: 56073, data3: 4562, data4: [143, 50, 0, 192, 79, 121, 113, 226] };
-pub const KSDATAFORMAT_SPECIFIER_BDA_TRANSPORT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const KSCATEGORY_BDA_IP_SINK: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1905811274, data2: 7329, data3: 4563, data4: [156, 200, 0, 192, 79, 121, 113, 224] };
+pub const KSCATEGORY_BDA_NETWORK_EPG: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1905811273, data2: 7329, data3: 4563, data4: [156, 200, 0, 192, 79, 121, 113, 224] };
+pub const KSCATEGORY_BDA_NETWORK_PROVIDER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1905811275, data2: 7329, data3: 4563, data4: [156, 200, 0, 192, 79, 121, 113, 224] };
+pub const KSCATEGORY_BDA_NETWORK_TUNER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1905811272, data2: 7329, data3: 4563, data4: [156, 200, 0, 192, 79, 121, 113, 224] };
+pub const KSCATEGORY_BDA_RECEIVER_COMPONENT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4245314292, data2: 46109, data3: 4562, data4: [156, 149, 0, 192, 79, 121, 113, 224] };
+pub const KSCATEGORY_BDA_TRANSPORT_INFORMATION: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2732787535, data2: 27709, data3: 4563, data4: [182, 83, 0, 192, 79, 121, 73, 142] };
+pub const KSDATAFORMAT_SPECIFIER_BDA_IP: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1804145696, data2: 56073, data3: 4562, data4: [143, 50, 0, 192, 79, 121, 113, 226] };
+pub const KSDATAFORMAT_SPECIFIER_BDA_TRANSPORT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2381162237,
     data2: 44127,
     data3: 17204,
     data4: [142, 207, 164, 186, 143, 167, 208, 240],
 };
-pub const KSDATAFORMAT_SUBTYPE_ATSC_SI: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const KSDATAFORMAT_SUBTYPE_ATSC_SI: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3016178044,
     data2: 54019,
     data3: 16717,
     data4: [179, 60, 78, 210, 201, 210, 151, 51],
 };
-pub const KSDATAFORMAT_SUBTYPE_BDA_IP: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1520050492, data2: 56072, data3: 4562, data4: [143, 50, 0, 192, 79, 121, 113, 226] };
-pub const KSDATAFORMAT_SUBTYPE_BDA_IP_CONTROL: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const KSDATAFORMAT_SUBTYPE_BDA_IP: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1520050492, data2: 56072, data3: 4562, data4: [143, 50, 0, 192, 79, 121, 113, 226] };
+pub const KSDATAFORMAT_SUBTYPE_BDA_IP_CONTROL: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1234720488,
     data2: 59483,
     data3: 18669,
     data4: [155, 234, 65, 13, 13, 212, 239, 129],
 };
-pub const KSDATAFORMAT_SUBTYPE_BDA_MPEG2_TRANSPORT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4105089858, data2: 809, data3: 20445, data4: [168, 253, 74, 255, 73, 38, 201, 120] };
-pub const KSDATAFORMAT_SUBTYPE_BDA_OPENCABLE_OOB_PSIP: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2501322715, data2: 53966, data3: 17704, data4: [150, 246, 51, 1, 250, 187, 45, 224] };
-pub const KSDATAFORMAT_SUBTYPE_BDA_OPENCABLE_PSIP: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1982742374, data2: 13167, data3: 18641, data4: [191, 131, 43, 0, 53, 44, 17, 240] };
-pub const KSDATAFORMAT_SUBTYPE_DVB_SI: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3923587491, data2: 8733, data3: 19163, data4: [133, 50, 154, 243, 9, 193, 164, 8] };
-pub const KSDATAFORMAT_SUBTYPE_ISDB_SI: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1244588953, data2: 25688, data3: 17720, data4: [177, 135, 4, 1, 124, 65, 65, 63] };
-pub const KSDATAFORMAT_SUBTYPE_PBDA_TRANSPORT_RAW: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 226159938, data2: 52122, data3: 4571, data4: [151, 5, 0, 80, 86, 192, 0, 8] };
-pub const KSDATAFORMAT_TYPE_BDA_ANTENNA: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1905811265, data2: 7329, data3: 4563, data4: [156, 200, 0, 192, 79, 121, 113, 224] };
-pub const KSDATAFORMAT_TYPE_BDA_IF_SIGNAL: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1639844679, data2: 42475, data3: 18843, data4: [154, 133, 91, 22, 192, 127, 18, 88] };
-pub const KSDATAFORMAT_TYPE_BDA_IP: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3797908366, data2: 52428, data3: 4562, data4: [143, 37, 0, 192, 79, 121, 113, 226] };
-pub const KSDATAFORMAT_TYPE_BDA_IP_CONTROL: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3671938969, data2: 32091, data3: 19299, data4: [128, 251, 209, 68, 47, 38, 182, 33] };
-pub const KSDATAFORMAT_TYPE_MPE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const KSDATAFORMAT_SUBTYPE_BDA_MPEG2_TRANSPORT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4105089858, data2: 809, data3: 20445, data4: [168, 253, 74, 255, 73, 38, 201, 120] };
+pub const KSDATAFORMAT_SUBTYPE_BDA_OPENCABLE_OOB_PSIP: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2501322715, data2: 53966, data3: 17704, data4: [150, 246, 51, 1, 250, 187, 45, 224] };
+pub const KSDATAFORMAT_SUBTYPE_BDA_OPENCABLE_PSIP: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1982742374, data2: 13167, data3: 18641, data4: [191, 131, 43, 0, 53, 44, 17, 240] };
+pub const KSDATAFORMAT_SUBTYPE_DVB_SI: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3923587491, data2: 8733, data3: 19163, data4: [133, 50, 154, 243, 9, 193, 164, 8] };
+pub const KSDATAFORMAT_SUBTYPE_ISDB_SI: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1244588953, data2: 25688, data3: 17720, data4: [177, 135, 4, 1, 124, 65, 65, 63] };
+pub const KSDATAFORMAT_SUBTYPE_PBDA_TRANSPORT_RAW: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 226159938, data2: 52122, data3: 4571, data4: [151, 5, 0, 80, 86, 192, 0, 8] };
+pub const KSDATAFORMAT_TYPE_BDA_ANTENNA: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1905811265, data2: 7329, data3: 4563, data4: [156, 200, 0, 192, 79, 121, 113, 224] };
+pub const KSDATAFORMAT_TYPE_BDA_IF_SIGNAL: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1639844679, data2: 42475, data3: 18843, data4: [154, 133, 91, 22, 192, 127, 18, 88] };
+pub const KSDATAFORMAT_TYPE_BDA_IP: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3797908366, data2: 52428, data3: 4562, data4: [143, 37, 0, 192, 79, 121, 113, 226] };
+pub const KSDATAFORMAT_TYPE_BDA_IP_CONTROL: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3671938969, data2: 32091, data3: 19299, data4: [128, 251, 209, 68, 47, 38, 182, 33] };
+pub const KSDATAFORMAT_TYPE_MPE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1163859820,
     data2: 19206,
     data3: 18382,
     data4: [154, 239, 140, 174, 247, 61, 247, 181],
 };
-pub const KSDATAFORMAT_TYPE_MPEG2_SECTIONS: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const KSDATAFORMAT_TYPE_MPEG2_SECTIONS: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1163859820,
     data2: 19206,
     data3: 18382,
@@ -7300,16 +10708,16 @@ impl ::core::clone::Clone for KSEVENTDATA_BDA_RF_TUNER_SCAN_S {
         *self
     }
 }
-pub const KSEVENTSETID_BdaCAEvent: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1217154252, data2: 46952, data3: 16681, data4: [142, 177, 176, 10, 7, 31, 144, 104] };
-pub const KSEVENTSETID_BdaDiseqCEvent: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const KSEVENTSETID_BdaCAEvent: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1217154252, data2: 46952, data3: 16681, data4: [142, 177, 176, 10, 7, 31, 144, 104] };
+pub const KSEVENTSETID_BdaDiseqCEvent: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2333719536,
     data2: 16772,
     data3: 17324,
     data4: [173, 60, 12, 136, 155, 228, 194, 18],
 };
-pub const KSEVENTSETID_BdaEvent: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2927515058, data2: 38615, data3: 20009, data4: [144, 143, 98, 249, 91, 42, 22, 121] };
-pub const KSEVENTSETID_BdaPinEvent: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 273121741, data2: 20669, data3: 16597, data4: [149, 251, 8, 126, 14, 134, 165, 145] };
-pub const KSEVENTSETID_BdaTunerEvent: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const KSEVENTSETID_BdaEvent: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2927515058, data2: 38615, data3: 20009, data4: [144, 143, 98, 249, 91, 42, 22, 121] };
+pub const KSEVENTSETID_BdaPinEvent: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 273121741, data2: 20669, data3: 16597, data4: [149, 251, 8, 126, 14, 134, 165, 145] };
+pub const KSEVENTSETID_BdaTunerEvent: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2864029207,
     data2: 457,
     data3: 20159,
@@ -7333,53 +10741,53 @@ impl ::core::clone::Clone for KSEVENT_BDA_TUNER {
         *self
     }
 }
-pub const KSMETHODSETID_BdaChangeSync: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4245314291, data2: 46109, data3: 4562, data4: [156, 149, 0, 192, 79, 121, 113, 224] };
-pub const KSMETHODSETID_BdaConditionalAccessService: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 281990068, data2: 12811, data3: 16831, data4: [152, 36, 27, 46, 104, 231, 30, 185] };
-pub const KSMETHODSETID_BdaDebug: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 222990572, data2: 50845, data3: 20194, data4: [140, 90, 251, 31, 99, 165, 13, 161] };
-pub const KSMETHODSETID_BdaDeviceConfiguration: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1905811269, data2: 7329, data3: 4563, data4: [156, 200, 0, 192, 79, 121, 113, 224] };
-pub const KSMETHODSETID_BdaDrmService: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const KSMETHODSETID_BdaChangeSync: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4245314291, data2: 46109, data3: 4562, data4: [156, 149, 0, 192, 79, 121, 113, 224] };
+pub const KSMETHODSETID_BdaConditionalAccessService: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 281990068, data2: 12811, data3: 16831, data4: [152, 36, 27, 46, 104, 231, 30, 185] };
+pub const KSMETHODSETID_BdaDebug: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 222990572, data2: 50845, data3: 20194, data4: [140, 90, 251, 31, 99, 165, 13, 161] };
+pub const KSMETHODSETID_BdaDeviceConfiguration: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1905811269, data2: 7329, data3: 4563, data4: [156, 200, 0, 192, 79, 121, 113, 224] };
+pub const KSMETHODSETID_BdaDrmService: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3220616635,
     data2: 45230,
     data3: 18508,
     data4: [157, 202, 115, 82, 143, 176, 180, 110],
 };
-pub const KSMETHODSETID_BdaEventing: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const KSMETHODSETID_BdaEventing: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4187263706,
     data2: 24979,
     data3: 20144,
     data4: [134, 144, 102, 134, 203, 255, 113, 62],
 };
-pub const KSMETHODSETID_BdaGuideDataDeliveryService: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2375898466, data2: 5513, data3: 16765, data4: [153, 206, 172, 83, 29, 218, 25, 249] };
-pub const KSMETHODSETID_BdaIsdbConditionalAccess: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1583924775, data2: 5826, data3: 20076, data4: [177, 226, 208, 1, 112, 205, 170, 15] };
-pub const KSMETHODSETID_BdaMux: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const KSMETHODSETID_BdaGuideDataDeliveryService: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2375898466, data2: 5513, data3: 16765, data4: [153, 206, 172, 83, 29, 218, 25, 249] };
+pub const KSMETHODSETID_BdaIsdbConditionalAccess: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1583924775, data2: 5826, data3: 20076, data4: [177, 226, 208, 1, 112, 205, 170, 15] };
+pub const KSMETHODSETID_BdaMux: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2485825516,
     data2: 19461,
     data3: 19572,
     data4: [184, 235, 135, 6, 194, 164, 148, 63],
 };
-pub const KSMETHODSETID_BdaNameValue: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 920679172, data2: 40717, data3: 20104, data4: [145, 24, 172, 11, 163, 23, 183, 242] };
-pub const KSMETHODSETID_BdaNameValueA: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 203688301, data2: 24565, data3: 18398, data4: [168, 86, 6, 46, 88, 126, 55, 39] };
-pub const KSMETHODSETID_BdaScanning: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const KSMETHODSETID_BdaNameValue: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 920679172, data2: 40717, data3: 20104, data4: [145, 24, 172, 11, 163, 23, 183, 242] };
+pub const KSMETHODSETID_BdaNameValueA: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 203688301, data2: 24565, data3: 18398, data4: [168, 86, 6, 46, 88, 126, 55, 39] };
+pub const KSMETHODSETID_BdaScanning: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 317409759,
     data2: 25161,
     data3: 18419,
     data4: [177, 144, 226, 30, 110, 47, 138, 156],
 };
-pub const KSMETHODSETID_BdaTSSelector: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 500150249, data2: 46174, data3: 16819, data4: [187, 42, 86, 30, 177, 41, 174, 152] };
-pub const KSMETHODSETID_BdaTuner: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3077836847, data2: 44039, data3: 18314, data4: [130, 40, 39, 66, 217, 97, 250, 126] };
-pub const KSMETHODSETID_BdaUserActivity: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const KSMETHODSETID_BdaTSSelector: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 500150249, data2: 46174, data3: 16819, data4: [187, 42, 86, 30, 177, 41, 174, 152] };
+pub const KSMETHODSETID_BdaTuner: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3077836847, data2: 44039, data3: 18314, data4: [130, 40, 39, 66, 217, 97, 250, 126] };
+pub const KSMETHODSETID_BdaUserActivity: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3987064884,
     data2: 17713,
     data3: 18492,
     data4: [190, 10, 148, 230, 201, 111, 243, 150],
 };
-pub const KSMETHODSETID_BdaWmdrmSession: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const KSMETHODSETID_BdaWmdrmSession: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1273428541,
     data2: 1997,
     data3: 16697,
     data4: [139, 128, 140, 24, 186, 58, 236, 136],
 };
-pub const KSMETHODSETID_BdaWmdrmTuner: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const KSMETHODSETID_BdaWmdrmTuner: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2262399439,
     data2: 43175,
     data3: 20372,
@@ -8041,82 +11449,82 @@ impl ::core::clone::Clone for KSM_BDA_WMDRM_RENEWLICENSE {
         *self
     }
 }
-pub const KSNODE_BDA_8PSK_DEMODULATOR: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3914834151, data2: 56728, data3: 19004, data4: [129, 11, 53, 37, 21, 122, 182, 46] };
-pub const KSNODE_BDA_8VSB_DEMODULATOR: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1905811279, data2: 7329, data3: 4563, data4: [156, 200, 0, 192, 79, 121, 113, 224] };
-pub const KSNODE_BDA_ANALOG_DEMODULATOR: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const KSNODE_BDA_8PSK_DEMODULATOR: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3914834151, data2: 56728, data3: 19004, data4: [129, 11, 53, 37, 21, 122, 182, 46] };
+pub const KSNODE_BDA_8VSB_DEMODULATOR: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1905811279, data2: 7329, data3: 4563, data4: [156, 200, 0, 192, 79, 121, 113, 224] };
+pub const KSNODE_BDA_ANALOG_DEMODULATOR: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1666036121,
     data2: 10205,
     data3: 18104,
     data4: [172, 251, 236, 201, 142, 97, 162, 173],
 };
-pub const KSNODE_BDA_COFDM_DEMODULATOR: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const KSNODE_BDA_COFDM_DEMODULATOR: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 766275077,
     data2: 60862,
     data3: 19356,
     data4: [179, 135, 27, 111, 173, 125, 100, 149],
 };
-pub const KSNODE_BDA_COMMON_CA_POD: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const KSNODE_BDA_COMMON_CA_POD: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3628005628,
     data2: 62392,
     data3: 17835,
     data4: [139, 113, 236, 247, 195, 57, 222, 180],
 };
-pub const KSNODE_BDA_DRI_DRM: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const KSNODE_BDA_DRI_DRM: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1335209332,
     data2: 52987,
     data3: 17106,
     data4: [148, 169, 104, 197, 178, 193, 170, 190],
 };
-pub const KSNODE_BDA_IP_SINK: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1905811278, data2: 7329, data3: 4563, data4: [156, 200, 0, 192, 79, 121, 113, 224] };
-pub const KSNODE_BDA_ISDB_S_DEMODULATOR: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3990758154, data2: 36998, data3: 17197, data4: [184, 165, 102, 112, 38, 56, 7, 233] };
-pub const KSNODE_BDA_ISDB_T_DEMODULATOR: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4243208931, data2: 11442, data3: 17997, data4: [143, 93, 48, 92, 11, 183, 120, 162] };
-pub const KSNODE_BDA_OPENCABLE_POD: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const KSNODE_BDA_IP_SINK: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1905811278, data2: 7329, data3: 4563, data4: [156, 200, 0, 192, 79, 121, 113, 224] };
+pub const KSNODE_BDA_ISDB_S_DEMODULATOR: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3990758154, data2: 36998, data3: 17197, data4: [184, 165, 102, 112, 38, 56, 7, 233] };
+pub const KSNODE_BDA_ISDB_T_DEMODULATOR: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4243208931, data2: 11442, data3: 17997, data4: [143, 93, 48, 92, 11, 183, 120, 162] };
+pub const KSNODE_BDA_OPENCABLE_POD: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 878187168,
     data2: 64380,
     data3: 18320,
     data4: [170, 126, 177, 219, 136, 172, 25, 201],
 };
-pub const KSNODE_BDA_PBDA_CAS: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const KSNODE_BDA_PBDA_CAS: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3223750303,
     data2: 28969,
     data3: 20081,
     data4: [134, 150, 236, 143, 117, 41, 155, 119],
 };
-pub const KSNODE_BDA_PBDA_DRM: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const KSNODE_BDA_PBDA_DRM: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2666446083,
     data2: 61089,
     data3: 17679,
     data4: [150, 174, 99, 62, 109, 230, 60, 206],
 };
-pub const KSNODE_BDA_PBDA_ISDBCAS: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const KSNODE_BDA_PBDA_ISDBCAS: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4073663155,
     data2: 23453,
     data3: 16558,
     data4: [171, 124, 78, 122, 208, 189, 28, 82],
 };
-pub const KSNODE_BDA_PBDA_MUX: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4169955207, data2: 26232, data3: 20299, data4: [161, 62, 218, 9, 134, 29, 104, 43] };
-pub const KSNODE_BDA_PBDA_TUNER: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const KSNODE_BDA_PBDA_MUX: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4169955207, data2: 26232, data3: 20299, data4: [161, 62, 218, 9, 134, 29, 104, 43] };
+pub const KSNODE_BDA_PBDA_TUNER: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2858320518,
     data2: 22844,
     data3: 18809,
     data4: [148, 148, 70, 162, 169, 223, 224, 118],
 };
-pub const KSNODE_BDA_PID_FILTER: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const KSNODE_BDA_PID_FILTER: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4114687881,
     data2: 45216,
     data3: 17633,
     data4: [174, 79, 238, 153, 155, 27, 127, 190],
 };
-pub const KSNODE_BDA_QAM_DEMODULATOR: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1905811277, data2: 7329, data3: 4563, data4: [156, 200, 0, 192, 79, 121, 113, 224] };
-pub const KSNODE_BDA_QPSK_DEMODULATOR: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1670433029, data2: 10177, data3: 19815, data4: [189, 183, 119, 197, 13, 7, 147, 0] };
-pub const KSNODE_BDA_RF_TUNER: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1905811276, data2: 7329, data3: 4563, data4: [156, 200, 0, 192, 79, 121, 113, 224] };
-pub const KSNODE_BDA_TS_SELECTOR: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const KSNODE_BDA_QAM_DEMODULATOR: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1905811277, data2: 7329, data3: 4563, data4: [156, 200, 0, 192, 79, 121, 113, 224] };
+pub const KSNODE_BDA_QPSK_DEMODULATOR: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1670433029, data2: 10177, data3: 19815, data4: [189, 183, 119, 197, 13, 7, 147, 0] };
+pub const KSNODE_BDA_RF_TUNER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1905811276, data2: 7329, data3: 4563, data4: [156, 200, 0, 192, 79, 121, 113, 224] };
+pub const KSNODE_BDA_TS_SELECTOR: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1591603589,
     data2: 65233,
     data3: 20293,
     data4: [150, 133, 187, 183, 60, 50, 60, 252],
 };
-pub const KSNODE_BDA_VIDEO_ENCODER: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const KSNODE_BDA_VIDEO_ENCODER: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3649317347,
     data2: 26057,
     data3: 19140,
@@ -8434,42 +11842,42 @@ impl ::core::clone::Clone for KSPROPERTY_IPSINK {
         *self
     }
 }
-pub const KSPROPSETID_BdaAutodemodulate: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3723582226, data2: 48421, data3: 4562, data4: [156, 160, 0, 192, 79, 121, 113, 224] };
-pub const KSPROPSETID_BdaCA: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2959685478, data2: 21112, data3: 20166, data4: [185, 225, 60, 228, 5, 96, 239, 90] };
-pub const KSPROPSETID_BdaDigitalDemodulator: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4012962681, data2: 39003, data3: 19728, data4: [182, 64, 167, 157, 94, 4, 225, 224] };
-pub const KSPROPSETID_BdaDiseqCommand: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const KSPROPSETID_BdaAutodemodulate: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3723582226, data2: 48421, data3: 4562, data4: [156, 160, 0, 192, 79, 121, 113, 224] };
+pub const KSPROPSETID_BdaCA: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2959685478, data2: 21112, data3: 20166, data4: [185, 225, 60, 228, 5, 96, 239, 90] };
+pub const KSPROPSETID_BdaDigitalDemodulator: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4012962681, data2: 39003, data3: 19728, data4: [182, 64, 167, 157, 94, 4, 225, 224] };
+pub const KSPROPSETID_BdaDiseqCommand: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4165872304,
     data2: 15467,
     data3: 17891,
     data4: [160, 252, 134, 105, 212, 184, 31, 17],
 };
-pub const KSPROPSETID_BdaEthernetFilter: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1905811267, data2: 7329, data3: 4563, data4: [156, 200, 0, 192, 79, 121, 113, 224] };
-pub const KSPROPSETID_BdaFrequencyFilter: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1905811271, data2: 7329, data3: 4563, data4: [156, 200, 0, 192, 79, 121, 113, 224] };
-pub const KSPROPSETID_BdaIPv4Filter: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1905811268, data2: 7329, data3: 4563, data4: [156, 200, 0, 192, 79, 121, 113, 224] };
-pub const KSPROPSETID_BdaIPv6Filter: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const KSPROPSETID_BdaEthernetFilter: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1905811267, data2: 7329, data3: 4563, data4: [156, 200, 0, 192, 79, 121, 113, 224] };
+pub const KSPROPSETID_BdaFrequencyFilter: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1905811271, data2: 7329, data3: 4563, data4: [156, 200, 0, 192, 79, 121, 113, 224] };
+pub const KSPROPSETID_BdaIPv4Filter: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1905811268, data2: 7329, data3: 4563, data4: [156, 200, 0, 192, 79, 121, 113, 224] };
+pub const KSPROPSETID_BdaIPv6Filter: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3782761076,
     data2: 10787,
     data3: 20403,
     data4: [146, 69, 168, 248, 128, 23, 239, 51],
 };
-pub const KSPROPSETID_BdaLNBInfo: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2569859330, data2: 18937, data3: 18201, data4: [166, 100, 196, 242, 62, 36, 8, 244] };
-pub const KSPROPSETID_BdaNullTransform: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3723582221, data2: 48421, data3: 4562, data4: [156, 160, 0, 192, 79, 121, 113, 224] };
-pub const KSPROPSETID_BdaPIDFilter: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3500572005, data2: 2271, data3: 20460, data4: [133, 51, 229, 181, 80, 65, 11, 133] };
-pub const KSPROPSETID_BdaPinControl: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const KSPROPSETID_BdaLNBInfo: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2569859330, data2: 18937, data3: 18201, data4: [166, 100, 196, 242, 62, 36, 8, 244] };
+pub const KSPROPSETID_BdaNullTransform: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3723582221, data2: 48421, data3: 4562, data4: [156, 160, 0, 192, 79, 121, 113, 224] };
+pub const KSPROPSETID_BdaPIDFilter: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3500572005, data2: 2271, data3: 20460, data4: [133, 51, 229, 181, 80, 65, 11, 133] };
+pub const KSPROPSETID_BdaPinControl: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 233654741,
     data2: 43191,
     data3: 19805,
     data4: [151, 161, 18, 176, 193, 149, 135, 77],
 };
-pub const KSPROPSETID_BdaSignalStats: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 323473670, data2: 53050, data3: 17034, data4: [165, 203, 172, 13, 154, 42, 67, 56] };
-pub const KSPROPSETID_BdaTableSection: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const KSPROPSETID_BdaSignalStats: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 323473670, data2: 53050, data3: 17034, data4: [165, 203, 172, 13, 154, 42, 67, 56] };
+pub const KSPROPSETID_BdaTableSection: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1366006213,
     data2: 38684,
     data3: 19119,
     data4: [179, 243, 217, 253, 168, 161, 94, 22],
 };
-pub const KSPROPSETID_BdaTopology: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2706303029, data2: 2595, data3: 4563, data4: [156, 199, 0, 192, 79, 121, 113, 224] };
-pub const KSPROPSETID_BdaVoidTransform: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1905811270, data2: 7329, data3: 4563, data4: [156, 200, 0, 192, 79, 121, 113, 224] };
+pub const KSPROPSETID_BdaTopology: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2706303029, data2: 2595, data3: 4563, data4: [156, 199, 0, 192, 79, 121, 113, 224] };
+pub const KSPROPSETID_BdaVoidTransform: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1905811270, data2: 7329, data3: 4563, data4: [156, 200, 0, 192, 79, 121, 113, 224] };
 #[repr(C)]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KSP_BDA_NODE_PIN {
@@ -8542,8 +11950,8 @@ impl ::core::clone::Clone for KS_DATARANGE_BDA_TRANSPORT {
         *self
     }
 }
-pub const LIBID_QuartzNetTypeLib: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1453877425, data2: 2772, data3: 4558, data4: [176, 58, 0, 32, 175, 11, 167, 112] };
-pub const LIBID_QuartzTypeLib: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1453877424, data2: 2772, data3: 4558, data4: [176, 58, 0, 32, 175, 11, 167, 112] };
+pub const LIBID_QuartzNetTypeLib: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1453877425, data2: 2772, data3: 4558, data4: [176, 58, 0, 32, 175, 11, 167, 112] };
+pub const LIBID_QuartzTypeLib: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1453877424, data2: 2772, data3: 4558, data4: [176, 58, 0, 32, 175, 11, 167, 112] };
 #[repr(transparent)]
 pub struct LNB_Source(pub i32);
 pub const BDA_LNB_SOURCE_NOT_SET: LNB_Source = LNB_Source(-1i32);
@@ -8597,7 +12005,7 @@ impl ::core::clone::Clone for LONG_SECTION_1 {
         *self
     }
 }
-pub const LanguageComponentType: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 467967792, data2: 3611, data3: 4563, data4: [157, 142, 0, 192, 79, 114, 217, 128] };
+pub const LanguageComponentType: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 467967792, data2: 3611, data3: 4563, data4: [157, 142, 0, 192, 79, 114, 217, 128] };
 #[repr(C)]
 pub struct LanguageInfo {
     pub LangID: u16,
@@ -8631,7 +12039,7 @@ impl ::core::clone::Clone for LocationCodeSchemeType {
         *self
     }
 }
-pub const Locator: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 143181955, data2: 44111, data3: 18755, data4: [181, 22, 44, 56, 217, 179, 69, 98] };
+pub const Locator: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 143181955, data2: 44111, data3: 18755, data4: [181, 22, 44, 56, 217, 179, 69, 98] };
 pub const MAX_COUNTRY_CODE_STRING: u32 = 3u32;
 pub const MAX_DEINTERLACE_DEVICE_GUIDS: u32 = 32u32;
 pub const MAX_DEINTERLACE_SURFACES: u32 = 32u32;
@@ -8639,9 +12047,9 @@ pub const MAX_ERROR_TEXT_LEN: u32 = 160u32;
 pub const MAX_FILTER_NAME: u32 = 128u32;
 pub const MAX_PIN_NAME: u32 = 128u32;
 pub const MAX_SIZE_MPEG1_SEQUENCE_INFO: u32 = 140u32;
-pub const MEDIASUBTYPE_CPFilters_Processed: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1185791272, data2: 28624, data3: 18326, data4: [147, 178, 21, 92, 81, 220, 4, 141] };
-pub const MEDIASUBTYPE_ETDTFilter_Tagged: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3301229776, data2: 73, data3: 20011, data4: [152, 251, 149, 55, 246, 206, 81, 109] };
-pub const MEDIATYPE_MPEG2_PACK: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 911358739, data2: 36581, data3: 4561, data4: [140, 163, 0, 96, 176, 87, 102, 74] };
+pub const MEDIASUBTYPE_CPFilters_Processed: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1185791272, data2: 28624, data3: 18326, data4: [147, 178, 21, 92, 81, 220, 4, 141] };
+pub const MEDIASUBTYPE_ETDTFilter_Tagged: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3301229776, data2: 73, data3: 20011, data4: [152, 251, 149, 55, 246, 206, 81, 109] };
+pub const MEDIATYPE_MPEG2_PACK: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 911358739, data2: 36581, data3: 4561, data4: [140, 163, 0, 96, 176, 87, 102, 74] };
 #[repr(transparent)]
 pub struct MEDIA_SAMPLE_CONTENT(pub i32);
 pub const MEDIA_TRANSPORT_PACKET: MEDIA_SAMPLE_CONTENT = MEDIA_SAMPLE_CONTENT(0i32);
@@ -8705,8 +12113,8 @@ impl ::core::clone::Clone for MPEG1WAVEFORMAT {
         *self
     }
 }
-pub const MPEG2Component: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 89961175, data2: 10601, data3: 17869, data4: [145, 75, 118, 137, 7, 34, 241, 18] };
-pub const MPEG2ComponentType: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1098909939, data2: 53095, data3: 18024, data4: [150, 40, 16, 220, 82, 190, 29, 8] };
+pub const MPEG2Component: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 89961175, data2: 10601, data3: 17869, data4: [145, 75, 118, 137, 7, 34, 241, 18] };
+pub const MPEG2ComponentType: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1098909939, data2: 53095, data3: 18024, data4: [150, 40, 16, 220, 82, 190, 29, 8] };
 #[repr(transparent)]
 pub struct MPEG2StreamType(pub i32);
 pub const BDA_UNITIALIZED_MPEG2STREAMTYPE: MPEG2StreamType = MPEG2StreamType(-1i32);
@@ -8751,8 +12159,8 @@ impl ::core::clone::Clone for MPEG2StreamType {
         *self
     }
 }
-pub const MPEG2TuneRequest: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 156609634, data2: 48942, data3: 19642, data4: [162, 185, 166, 63, 119, 45, 70, 207] };
-pub const MPEG2TuneRequestFactory: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MPEG2TuneRequest: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 156609634, data2: 48942, data3: 19642, data4: [162, 185, 166, 63, 119, 45, 70, 207] };
+pub const MPEG2TuneRequestFactory: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 744744171,
     data2: 19690,
     data3: 16824,
@@ -9288,31 +12696,31 @@ impl ::core::clone::Clone for MP_TYPE {
 }
 pub const MSDRI_S_MMI_PENDING: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(2i32 as _);
 pub const MSDRI_S_PENDING: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(1i32 as _);
-pub const MSEventBinder: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MSEventBinder: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1467984408,
     data2: 17688,
     data3: 17502,
     data4: [143, 112, 20, 115, 248, 207, 75, 164],
 };
-pub const MSPID_PrimaryAudio: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2740974955, data2: 40922, data3: 4560, data4: [143, 223, 0, 192, 79, 217, 24, 157] };
-pub const MSPID_PrimaryVideo: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2740974954, data2: 40922, data3: 4560, data4: [143, 223, 0, 192, 79, 217, 24, 157] };
-pub const MSVidAnalogCaptureToCCA: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2485877001, data2: 41614, data3: 18849, data4: [162, 7, 52, 235, 203, 203, 75, 59] };
-pub const MSVidAnalogCaptureToDataServices: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3312463062, data2: 39801, data3: 4563, data4: [182, 84, 0, 192, 79, 121, 73, 142] };
-pub const MSVidAnalogCaptureToOverlayMixer: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3783980890, data2: 2223, data3: 4563, data4: [182, 74, 0, 192, 79, 121, 73, 142] };
-pub const MSVidAnalogCaptureToStreamBufferSink: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2672879793, data2: 38192, data3: 19932, data4: [130, 94, 26, 248, 29, 71, 174, 214] };
-pub const MSVidAnalogCaptureToXDS: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MSPID_PrimaryAudio: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2740974955, data2: 40922, data3: 4560, data4: [143, 223, 0, 192, 79, 217, 24, 157] };
+pub const MSPID_PrimaryVideo: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2740974954, data2: 40922, data3: 4560, data4: [143, 223, 0, 192, 79, 217, 24, 157] };
+pub const MSVidAnalogCaptureToCCA: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2485877001, data2: 41614, data3: 18849, data4: [162, 7, 52, 235, 203, 203, 75, 59] };
+pub const MSVidAnalogCaptureToDataServices: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3312463062, data2: 39801, data3: 4563, data4: [182, 84, 0, 192, 79, 121, 73, 142] };
+pub const MSVidAnalogCaptureToOverlayMixer: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3783980890, data2: 2223, data3: 4563, data4: [182, 74, 0, 192, 79, 121, 73, 142] };
+pub const MSVidAnalogCaptureToStreamBufferSink: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2672879793, data2: 38192, data3: 19932, data4: [130, 94, 26, 248, 29, 71, 174, 214] };
+pub const MSVidAnalogCaptureToXDS: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 893441088,
     data2: 23325,
     data3: 18891,
     data4: [130, 26, 232, 75, 140, 240, 101, 167],
 };
-pub const MSVidAnalogTVToEncoder: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 680867425, data2: 561, data3: 16859, data4: [137, 134, 33, 255, 67, 136, 238, 155] };
-pub const MSVidAnalogTunerDevice: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 471192708, data2: 37149, data3: 4562, data4: [182, 50, 0, 192, 79, 121, 73, 142] };
-pub const MSVidAudioRenderer: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 934294852, data2: 42184, data3: 4562, data4: [182, 52, 0, 192, 79, 121, 73, 142] };
-pub const MSVidAudioRendererDevices: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3312463055, data2: 39801, data3: 4563, data4: [182, 84, 0, 192, 79, 121, 73, 142] };
-pub const MSVidBDATunerDevice: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2732787534, data2: 27709, data3: 4563, data4: [182, 83, 0, 192, 79, 121, 73, 142] };
-pub const MSVidCCA: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2249529383, data2: 58491, data3: 17902, data4: [132, 33, 209, 14, 110, 105, 9, 121] };
-pub const MSVidCCAToStreamBufferSink: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MSVidAnalogTVToEncoder: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 680867425, data2: 561, data3: 16859, data4: [137, 134, 33, 255, 67, 136, 238, 155] };
+pub const MSVidAnalogTunerDevice: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 471192708, data2: 37149, data3: 4562, data4: [182, 50, 0, 192, 79, 121, 73, 142] };
+pub const MSVidAudioRenderer: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 934294852, data2: 42184, data3: 4562, data4: [182, 52, 0, 192, 79, 121, 73, 142] };
+pub const MSVidAudioRendererDevices: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3312463055, data2: 39801, data3: 4563, data4: [182, 84, 0, 192, 79, 121, 73, 142] };
+pub const MSVidBDATunerDevice: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2732787534, data2: 27709, data3: 4563, data4: [182, 83, 0, 192, 79, 121, 73, 142] };
+pub const MSVidCCA: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2249529383, data2: 58491, data3: 17902, data4: [132, 33, 209, 14, 110, 105, 9, 121] };
+pub const MSVidCCAToStreamBufferSink: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1056402792,
     data2: 34401,
     data3: 18499,
@@ -9334,31 +12742,31 @@ impl ::core::clone::Clone for MSVidCCService {
         *self
     }
 }
-pub const MSVidCCToAR: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MSVidCCToAR: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3613603018,
     data2: 55454,
     data3: 19375,
     data4: [134, 171, 221, 181, 147, 114, 175, 194],
 };
-pub const MSVidCCToVMR: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MSVidCCToVMR: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3300861828,
     data2: 44544,
     data3: 16826,
     data4: [152, 40, 156, 149, 59, 211, 197, 74],
 };
-pub const MSVidClosedCaptioning: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MSVidClosedCaptioning: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2140975437,
     data2: 18660,
     data3: 17334,
     data4: [147, 70, 26, 235, 195, 156, 100, 211],
 };
-pub const MSVidClosedCaptioningSI: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MSVidClosedCaptioningSI: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2465040575,
     data2: 34718,
     data3: 17551,
     data4: [182, 182, 163, 133, 188, 235, 132, 109],
 };
-pub const MSVidCtl: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2968383843, data2: 37130, data3: 4562, data4: [182, 50, 0, 192, 79, 121, 73, 142] };
+pub const MSVidCtl: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2968383843, data2: 37130, data3: 4562, data4: [182, 50, 0, 192, 79, 121, 73, 142] };
 #[repr(transparent)]
 pub struct MSVidCtlButtonstate(pub i32);
 pub const MSVIDCTL_LEFT_BUTTON: MSVidCtlButtonstate = MSVidCtlButtonstate(1i32);
@@ -9387,86 +12795,86 @@ impl ::core::clone::Clone for MSVidCtlStateList {
         *self
     }
 }
-pub const MSVidDataServices: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 859907520, data2: 30693, data3: 4563, data4: [182, 83, 0, 192, 79, 121, 73, 142] };
-pub const MSVidDataServicesToStreamBufferSink: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 955266086, data2: 59451, data3: 20072, data4: [182, 91, 220, 174, 115, 48, 72, 56] };
-pub const MSVidDataServicesToXDS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 69856366, data2: 4420, data3: 19437, data4: [184, 139, 47, 185, 137, 154, 74, 61] };
-pub const MSVidDevice: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MSVidDataServices: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 859907520, data2: 30693, data3: 4563, data4: [182, 83, 0, 192, 79, 121, 73, 142] };
+pub const MSVidDataServicesToStreamBufferSink: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 955266086, data2: 59451, data3: 20072, data4: [182, 91, 220, 174, 115, 48, 72, 56] };
+pub const MSVidDataServicesToXDS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 69856366, data2: 4420, data3: 19437, data4: [184, 139, 47, 185, 137, 154, 74, 61] };
+pub const MSVidDevice: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1849706351,
     data2: 40009,
     data3: 19518,
     data4: [139, 185, 133, 135, 149, 142, 255, 116],
 };
-pub const MSVidDevice2: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 815366013, data2: 46005, data3: 18972, data4: [152, 58, 31, 232, 9, 140, 183, 125] };
-pub const MSVidDigitalCaptureToCCA: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1943093815, data2: 47579, data3: 20218, data4: [166, 221, 132, 53, 4, 33, 251, 47] };
-pub const MSVidDigitalCaptureToITV: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1569616887, data2: 18825, data3: 19144, data4: [138, 152, 57, 186, 13, 50, 83, 2] };
-pub const MSVidDigitalCaptureToStreamBufferSink: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2883846197, data2: 10179, data3: 18991, data4: [129, 83, 102, 36, 71, 22, 8, 175] };
-pub const MSVidEVR: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MSVidDevice2: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 815366013, data2: 46005, data3: 18972, data4: [152, 58, 31, 232, 9, 140, 183, 125] };
+pub const MSVidDigitalCaptureToCCA: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1943093815, data2: 47579, data3: 20218, data4: [166, 221, 132, 53, 4, 33, 251, 47] };
+pub const MSVidDigitalCaptureToITV: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1569616887, data2: 18825, data3: 19144, data4: [138, 152, 57, 186, 13, 50, 83, 2] };
+pub const MSVidDigitalCaptureToStreamBufferSink: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2883846197, data2: 10179, data3: 18991, data4: [129, 83, 102, 36, 71, 22, 8, 175] };
+pub const MSVidEVR: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3293735074,
     data2: 64129,
     data3: 19993,
     data4: [177, 227, 114, 237, 189, 96, 174, 218],
 };
-pub const MSVidEncoder: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3142782051, data2: 55775, data3: 19273, data4: [148, 57, 99, 69, 57, 98, 229, 152] };
-pub const MSVidEncoderToStreamBufferSink: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MSVidEncoder: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3142782051, data2: 55775, data3: 19273, data4: [148, 57, 99, 69, 57, 98, 229, 152] };
+pub const MSVidEncoderToStreamBufferSink: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2696524951,
     data2: 44988,
     data3: 17837,
     data4: [168, 166, 155, 7, 124, 64, 212, 242],
 };
-pub const MSVidFeature: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MSVidFeature: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2001228555,
     data2: 49290,
     data3: 18410,
     data4: [178, 76, 190, 134, 149, 255, 64, 95],
 };
-pub const MSVidFeatures: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3312463056, data2: 39801, data3: 4563, data4: [182, 84, 0, 192, 79, 121, 73, 142] };
-pub const MSVidFilePlaybackDevice: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 934294844, data2: 42184, data3: 4562, data4: [182, 52, 0, 192, 79, 121, 73, 142] };
-pub const MSVidFilePlaybackToAudioRenderer: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MSVidFeatures: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3312463056, data2: 39801, data3: 4563, data4: [182, 84, 0, 192, 79, 121, 73, 142] };
+pub const MSVidFilePlaybackDevice: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 934294844, data2: 42184, data3: 4562, data4: [182, 52, 0, 192, 79, 121, 73, 142] };
+pub const MSVidFilePlaybackToAudioRenderer: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3424908599,
     data2: 6356,
     data3: 20174,
     data4: [147, 189, 32, 122, 132, 114, 105, 121],
 };
-pub const MSVidFilePlaybackToVideoRenderer: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MSVidFilePlaybackToVideoRenderer: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3020015083,
     data2: 33879,
     data3: 17023,
     data4: [132, 234, 164, 210, 54, 51, 100, 176],
 };
-pub const MSVidGenericComposite: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 660913381, data2: 52281, data3: 4562, data4: [182, 57, 0, 192, 79, 121, 73, 142] };
-pub const MSVidGenericSink: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MSVidGenericComposite: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 660913381, data2: 52281, data3: 4562, data4: [182, 57, 0, 192, 79, 121, 73, 142] };
+pub const MSVidGenericSink: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1247308239,
     data2: 37533,
     data3: 16448,
     data4: [174, 3, 252, 175, 197, 185, 205, 66],
 };
-pub const MSVidITVCapture: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MSVidITVCapture: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1463853826,
     data2: 61195,
     data3: 17870,
     data4: [191, 59, 68, 112, 161, 74, 137, 128],
 };
-pub const MSVidITVPlayback: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MSVidITVPlayback: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2658762448,
     data2: 21075,
     data3: 16963,
     data4: [169, 183, 189, 6, 197, 143, 142, 243],
 };
-pub const MSVidITVToStreamBufferSink: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2461616168, data2: 6903, data3: 20078, data4: [158, 191, 119, 6, 87, 247, 122, 245] };
-pub const MSVidInputDevice: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2887348978, data2: 5002, data3: 19619, data4: [144, 218, 174, 81, 17, 46, 218, 40] };
-pub const MSVidInputDevices: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3312463052, data2: 39801, data3: 4563, data4: [182, 84, 0, 192, 79, 121, 73, 142] };
-pub const MSVidMPEG2DecoderToClosedCaptioning: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1792184033, data2: 20482, data3: 20081, data4: [170, 247, 189, 7, 121, 7, 177, 164] };
-pub const MSVidOutput: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2280360205, data2: 941, data3: 20125, data4: [152, 102, 55, 110, 94, 197, 114, 237] };
-pub const MSVidOutputDevices: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3312463053, data2: 39801, data3: 4563, data4: [182, 84, 0, 192, 79, 121, 73, 142] };
-pub const MSVidRect: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MSVidITVToStreamBufferSink: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2461616168, data2: 6903, data3: 20078, data4: [158, 191, 119, 6, 87, 247, 122, 245] };
+pub const MSVidInputDevice: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2887348978, data2: 5002, data3: 19619, data4: [144, 218, 174, 81, 17, 46, 218, 40] };
+pub const MSVidInputDevices: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3312463052, data2: 39801, data3: 4563, data4: [182, 84, 0, 192, 79, 121, 73, 142] };
+pub const MSVidMPEG2DecoderToClosedCaptioning: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1792184033, data2: 20482, data3: 20081, data4: [170, 247, 189, 7, 121, 7, 177, 164] };
+pub const MSVidOutput: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2280360205, data2: 941, data3: 20125, data4: [152, 102, 55, 110, 94, 197, 114, 237] };
+pub const MSVidOutputDevices: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3312463053, data2: 39801, data3: 4563, data4: [182, 84, 0, 192, 79, 121, 73, 142] };
+pub const MSVidRect: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3410130662,
     data2: 32095,
     data3: 19697,
     data4: [151, 39, 98, 156, 94, 109, 182, 174],
 };
-pub const MSVidSBESourceToCC: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2442373369, data2: 3258, data3: 16398, data4: [170, 151, 235, 71, 9, 22, 69, 118] };
-pub const MSVidSBESourceToGenericSink: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2568857573, data2: 38207, data3: 17243, data4: [190, 94, 185, 42, 5, 237, 252, 66] };
-pub const MSVidSBESourceToITV: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 579946380, data2: 24291, data3: 19439, data4: [171, 93, 181, 255, 44, 245, 131, 82] };
+pub const MSVidSBESourceToCC: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2442373369, data2: 3258, data3: 16398, data4: [170, 151, 235, 71, 9, 22, 69, 118] };
+pub const MSVidSBESourceToGenericSink: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2568857573, data2: 38207, data3: 17243, data4: [190, 94, 185, 42, 5, 237, 252, 66] };
+pub const MSVidSBESourceToITV: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 579946380, data2: 24291, data3: 19439, data4: [171, 93, 181, 255, 44, 245, 131, 82] };
 #[repr(transparent)]
 pub struct MSVidSegmentType(pub i32);
 pub const MSVidSEG_SOURCE: MSVidSegmentType = MSVidSegmentType(0i32);
@@ -9489,51 +12897,51 @@ impl ::core::clone::Clone for MSVidSinkStreams {
         *self
     }
 }
-pub const MSVidStreamBufferRecordingControl: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3400523139, data2: 52988, data3: 20029, data4: [186, 3, 23, 95, 23, 162, 79, 145] };
-pub const MSVidStreamBufferSink: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MSVidStreamBufferRecordingControl: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3400523139, data2: 52988, data3: 20029, data4: [186, 3, 23, 95, 23, 162, 79, 145] };
+pub const MSVidStreamBufferSink: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2658642628,
     data2: 13797,
     data3: 17057,
     data4: [189, 194, 143, 63, 243, 153, 132, 124],
 };
-pub const MSVidStreamBufferSource: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MSVidStreamBufferSource: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2911785229,
     data2: 8575,
     data3: 16539,
     data4: [128, 118, 41, 197, 231, 59, 152, 232],
 };
-pub const MSVidStreamBufferSourceToVideoRenderer: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1011288284, data2: 45441, data3: 18088, data4: [141, 168, 74, 176, 55, 23, 88, 205] };
-pub const MSVidStreamBufferV2Source: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MSVidStreamBufferSourceToVideoRenderer: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1011288284, data2: 45441, data3: 18088, data4: [141, 168, 74, 176, 55, 23, 88, 205] };
+pub const MSVidStreamBufferV2Source: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4248116897,
     data2: 16755,
     data3: 19188,
     data4: [130, 29, 128, 212, 174, 151, 144, 72],
 };
-pub const MSVidVMR9: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 618412405, data2: 2495, data3: 16945, data4: [134, 85, 62, 231, 31, 67, 131, 125] };
-pub const MSVidVideoInputDevice: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MSVidVMR9: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 618412405, data2: 2495, data3: 16945, data4: [134, 85, 62, 231, 31, 67, 131, 125] };
+pub const MSVidVideoInputDevice: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2515829259,
     data2: 47930,
     data3: 20013,
     data4: [188, 100, 91, 129, 123, 194, 195, 14],
 };
-pub const MSVidVideoPlaybackDevice: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 428922420, data2: 6750, data3: 16497, data4: [163, 74, 83, 170, 255, 206, 159, 54] };
-pub const MSVidVideoRenderer: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 934294851, data2: 42184, data3: 4562, data4: [182, 52, 0, 192, 79, 121, 73, 142] };
-pub const MSVidVideoRendererDevices: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3312463054, data2: 39801, data3: 4563, data4: [182, 84, 0, 192, 79, 121, 73, 142] };
-pub const MSVidWebDVD: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MSVidVideoPlaybackDevice: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 428922420, data2: 6750, data3: 16497, data4: [163, 74, 83, 170, 255, 206, 159, 54] };
+pub const MSVidVideoRenderer: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 934294851, data2: 42184, data3: 4562, data4: [182, 52, 0, 192, 79, 121, 73, 142] };
+pub const MSVidVideoRendererDevices: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3312463054, data2: 39801, data3: 4563, data4: [182, 84, 0, 192, 79, 121, 73, 142] };
+pub const MSVidWebDVD: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 18560537,
     data2: 65123,
     data3: 18452,
     data4: [138, 132, 21, 161, 148, 206, 156, 227],
 };
-pub const MSVidWebDVDAdm: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MSVidWebDVDAdm: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4202444635,
     data2: 26279,
     data3: 17024,
     data4: [135, 157, 253, 69, 156, 132, 187, 2],
 };
-pub const MSVidWebDVDToAudioRenderer: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2365858702, data2: 40913, data3: 16838, data4: [141, 227, 158, 30, 227, 9, 233, 53] };
-pub const MSVidWebDVDToVideoRenderer: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 645771443, data2: 21987, data3: 18690, data4: [148, 155, 223, 143, 92, 236, 1, 145] };
-pub const MSVidXDS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 21622495, data2: 53391, data3: 16706, data4: [141, 115, 210, 57, 3, 210, 30, 144] };
+pub const MSVidWebDVDToAudioRenderer: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2365858702, data2: 40913, data3: 16838, data4: [141, 227, 158, 30, 227, 9, 233, 53] };
+pub const MSVidWebDVDToVideoRenderer: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 645771443, data2: 21987, data3: 18690, data4: [148, 155, 223, 143, 92, 236, 1, 145] };
+pub const MSVidXDS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 21622495, data2: 53391, data3: 16706, data4: [141, 115, 210, 57, 3, 210, 30, 144] };
 #[repr(transparent)]
 pub struct MSViddispidList(pub i32);
 pub const dispidInputs: MSViddispidList = MSViddispidList(0i32);
@@ -9648,14 +13056,14 @@ impl ::core::clone::Clone for ModulationType {
         *self
     }
 }
-pub const Mpeg2Data: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const Mpeg2Data: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3328631061,
     data2: 47970,
     data3: 16423,
     data4: [161, 19, 130, 214, 67, 254, 45, 153],
 };
-pub const Mpeg2DataLib: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3685706779, data2: 46756, data3: 18584, data4: [174, 101, 32, 79, 13, 149, 9, 161] };
-pub const Mpeg2Stream: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const Mpeg2DataLib: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3685706779, data2: 46756, data3: 18584, data4: [174, 101, 32, 79, 13, 149, 9, 161] };
+pub const Mpeg2Stream: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4179465927,
     data2: 34057,
     data3: 19723,
@@ -9727,9 +13135,9 @@ impl ::core::clone::Clone for PBDAParentalControl {
         *self
     }
 }
-pub const PBDA_ALWAYS_TUNE_IN_MUX: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 505246017, data2: 22591, data3: 19138, data4: [176, 25, 31, 67, 14, 218, 15, 76] };
-pub const PBDA_AUX_CONNECTOR_TYPE_Composite: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4129917772, data2: 50981, data3: 19778, data4: [132, 155, 65, 11, 187, 20, 234, 98] };
-pub const PBDA_AUX_CONNECTOR_TYPE_SVideo: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2699625972, data2: 9417, data3: 19028, data4: [183, 97, 33, 51, 85, 239, 193, 58] };
+pub const PBDA_ALWAYS_TUNE_IN_MUX: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 505246017, data2: 22591, data3: 19138, data4: [176, 25, 31, 67, 14, 218, 15, 76] };
+pub const PBDA_AUX_CONNECTOR_TYPE_Composite: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4129917772, data2: 50981, data3: 19778, data4: [132, 155, 65, 11, 187, 20, 234, 98] };
+pub const PBDA_AUX_CONNECTOR_TYPE_SVideo: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2699625972, data2: 9417, data3: 19028, data4: [183, 97, 33, 51, 85, 239, 193, 58] };
 pub const PBDA_Encoder_Audio_AlgorithmType_AC3: u32 = 1u32;
 pub const PBDA_Encoder_Audio_AlgorithmType_MPEG1LayerII: u32 = 0u32;
 pub const PBDA_Encoder_BitrateMode_Average: u32 = 3u32;
@@ -9832,24 +13240,24 @@ impl ::core::clone::Clone for PID_MAP {
         *self
     }
 }
-pub const PINNAME_BDA_ANALOG_AUDIO: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const PINNAME_BDA_ANALOG_AUDIO: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3532281866,
     data2: 39711,
     data3: 19212,
     data4: [156, 51, 155, 240, 168, 234, 99, 107],
 };
-pub const PINNAME_BDA_ANALOG_VIDEO: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1544323713, data2: 22119, data3: 18540, data4: [132, 130, 99, 227, 31, 1, 166, 233] };
-pub const PINNAME_BDA_FM_RADIO: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const PINNAME_BDA_ANALOG_VIDEO: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1544323713, data2: 22119, data3: 18540, data4: [132, 130, 99, 227, 31, 1, 166, 233] };
+pub const PINNAME_BDA_FM_RADIO: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3531956205,
     data2: 45779,
     data3: 20203,
     data4: [155, 208, 25, 52, 54, 162, 248, 144],
 };
-pub const PINNAME_BDA_IF_PIN: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 446515778, data2: 62413, data3: 18593, data4: [154, 234, 113, 222, 19, 60, 190, 20] };
-pub const PINNAME_BDA_OPENCABLE_PSIP_PIN: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 695972100, data2: 58825, data3: 19150, data4: [177, 35, 149, 195, 203, 178, 77, 79] };
-pub const PINNAME_BDA_TRANSPORT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2015455873, data2: 53160, data3: 18750, data4: [151, 17, 54, 166, 28, 8, 189, 157] };
-pub const PINNAME_IPSINK_INPUT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1071643248, data2: 44186, data3: 4562, data4: [143, 23, 0, 192, 79, 121, 113, 226] };
-pub const PINNAME_MPE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3249565043, data2: 7611, data3: 4563, data4: [143, 70, 0, 192, 79, 121, 113, 226] };
+pub const PINNAME_BDA_IF_PIN: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 446515778, data2: 62413, data3: 18593, data4: [154, 234, 113, 222, 19, 60, 190, 20] };
+pub const PINNAME_BDA_OPENCABLE_PSIP_PIN: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 695972100, data2: 58825, data3: 19150, data4: [177, 35, 149, 195, 203, 178, 77, 79] };
+pub const PINNAME_BDA_TRANSPORT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2015455873, data2: 53160, data3: 18750, data4: [151, 17, 54, 166, 28, 8, 189, 157] };
+pub const PINNAME_IPSINK_INPUT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1071643248, data2: 44186, data3: 4562, data4: [143, 23, 0, 192, 79, 121, 113, 226] };
+pub const PINNAME_MPE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3249565043, data2: 7611, data3: 4563, data4: [143, 70, 0, 192, 79, 121, 113, 226] };
 #[repr(transparent)]
 pub struct PIN_DIRECTION(pub i32);
 pub const PINDIR_INPUT: PIN_DIRECTION = PIN_DIRECTION(0i32);
@@ -9862,7 +13270,7 @@ impl ::core::clone::Clone for PIN_DIRECTION {
 }
 #[repr(C)]
 pub struct PIN_INFO {
-    pub pFilter: ::core::option::Option<IBaseFilter>,
+    pub pFilter: IBaseFilter,
     pub dir: PIN_DIRECTION,
     pub achName: [u16; 128],
 }
@@ -9872,7 +13280,7 @@ impl ::core::clone::Clone for PIN_INFO {
         *self
     }
 }
-pub const PersistTuneXmlUtility: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const PersistTuneXmlUtility: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3882886832,
     data2: 47487,
     data3: 19643,
@@ -10298,15 +13706,15 @@ impl ::core::clone::Clone for SBE2_STREAM_DESC {
         *self
     }
 }
-pub const SBE2_STREAM_DESC_EVENT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const SBE2_STREAM_DESC_EVENT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 588489965,
     data2: 48941,
     data3: 17743,
     data4: [173, 138, 217, 91, 167, 249, 31, 238],
 };
 pub const SBE2_STREAM_DESC_VERSION: u32 = 1u32;
-pub const SBE2_V1_STREAMS_CREATION_EVENT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1036041, data2: 38901, data3: 18092, data4: [151, 105, 122, 131, 179, 83, 132, 251] };
-pub const SBE2_V2_STREAMS_CREATION_EVENT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const SBE2_V1_STREAMS_CREATION_EVENT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1036041, data2: 38901, data3: 18092, data4: [151, 105, 122, 131, 179, 83, 132, 251] };
+pub const SBE2_V2_STREAMS_CREATION_EVENT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2804232355,
     data2: 836,
     data3: 19627,
@@ -10352,8 +13760,8 @@ impl ::core::clone::Clone for SECTION_0 {
         *self
     }
 }
-pub const SID_DRMSecureServiceChannel: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3301229764, data2: 73, data3: 20011, data4: [152, 251, 149, 55, 246, 206, 81, 109] };
-pub const SID_MSVidCtl_CurrentAudioEndpoint: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const SID_DRMSecureServiceChannel: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3301229764, data2: 73, data3: 20011, data4: [152, 251, 149, 55, 246, 206, 81, 109] };
+pub const SID_MSVidCtl_CurrentAudioEndpoint: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3483011316,
     data2: 43983,
     data3: 20184,
@@ -10381,7 +13789,7 @@ impl ::core::clone::Clone for SNDDEV_ERR {
         *self
     }
 }
-pub const SPECIFYPAGES_STATISTICS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1279490962, data2: 28318, data3: 4561, data4: [167, 4, 0, 96, 151, 196, 228, 118] };
+pub const SPECIFYPAGES_STATISTICS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1279490962, data2: 28318, data3: 4561, data4: [167, 4, 0, 96, 151, 196, 228, 118] };
 #[repr(transparent)]
 pub struct SSUPDATE_TYPE(pub i32);
 pub const SSUPDATE_ASYNC: SSUPDATE_TYPE = SSUPDATE_TYPE(1i32);
@@ -10523,7 +13931,7 @@ impl ::core::clone::Clone for ScanModulationTypes {
         *self
     }
 }
-pub const SectionList: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const SectionList: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1943690500,
     data2: 17223,
     data3: 17875,
@@ -10942,7 +14350,7 @@ impl ::core::clone::Clone for SpectralInversion {
         *self
     }
 }
-pub const SystemTuningSpaces: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3492457552, data2: 638, data3: 4563, data4: [157, 142, 0, 192, 79, 114, 217, 128] };
+pub const SystemTuningSpaces: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3492457552, data2: 638, data3: 4563, data4: [157, 142, 0, 192, 79, 114, 217, 128] };
 #[repr(C, packed(1))]
 pub struct TID_EXTENSION {
     pub wTidExt: u16,
@@ -10954,7 +14362,7 @@ impl ::core::clone::Clone for TID_EXTENSION {
         *self
     }
 }
-pub const TIFLoad: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const TIFLoad: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 350979912,
     data2: 5971,
     data3: 17299,
@@ -11058,7 +14466,7 @@ impl ::core::clone::Clone for TransmissionMode {
         *self
     }
 }
-pub const TuneRequest: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3027111224, data2: 43829, data3: 18950, data4: [161, 55, 112, 87, 107, 1, 179, 159] };
+pub const TuneRequest: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3027111224, data2: 43829, data3: 18950, data4: [161, 55, 112, 87, 107, 1, 179, 159] };
 #[repr(transparent)]
 pub struct TunerInputType(pub i32);
 pub const TunerInputCable: TunerInputType = TunerInputType(0i32);
@@ -11069,8 +14477,8 @@ impl ::core::clone::Clone for TunerInputType {
         *self
     }
 }
-pub const TunerMarshaler: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1681413899, data2: 3080, data3: 18981, data4: [149, 4, 128, 18, 187, 77, 80, 207] };
-pub const TuningSpace: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const TunerMarshaler: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1681413899, data2: 3080, data3: 18981, data4: [149, 4, 128, 18, 187, 77, 80, 207] };
+pub const TuningSpace: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1610466790,
     data2: 47162,
     data3: 19285,
@@ -11545,7 +14953,7 @@ impl ::core::clone::Clone for VMR9AllocationInfo {
 pub struct VMR9AlphaBitmap {
     pub dwFlags: u32,
     pub hdc: super::super::Graphics::Gdi::HDC,
-    pub pDDS: ::core::option::Option<super::super::Graphics::Direct3D9::IDirect3DSurface9>,
+    pub pDDS: super::super::Graphics::Direct3D9::IDirect3DSurface9,
     pub rSrc: super::super::Foundation::RECT,
     pub rDest: VMR9NormalizedRect,
     pub fAlpha: f32,
@@ -11730,7 +15138,7 @@ impl ::core::clone::Clone for VMR9PresentationFlags {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 pub struct VMR9PresentationInfo {
     pub dwFlags: u32,
-    pub lpSurf: ::core::option::Option<super::super::Graphics::Direct3D9::IDirect3DSurface9>,
+    pub lpSurf: super::super::Graphics::Direct3D9::IDirect3DSurface9,
     pub rtStart: i64,
     pub rtEnd: i64,
     pub szAspectRatio: super::super::Foundation::SIZE,
@@ -11834,7 +15242,7 @@ impl ::core::clone::Clone for VMR9VideoDesc {
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub struct VMR9VideoStreamInfo {
-    pub pddsVideoSurface: ::core::option::Option<super::super::Graphics::Direct3D9::IDirect3DSurface9>,
+    pub pddsVideoSurface: super::super::Graphics::Direct3D9::IDirect3DSurface9,
     pub dwWidth: u32,
     pub dwHeight: u32,
     pub dwStrmID: u32,
@@ -11891,7 +15299,7 @@ impl ::core::clone::Clone for VMRALLOCATIONINFO {
 pub struct VMRALPHABITMAP {
     pub dwFlags: u32,
     pub hdc: super::super::Graphics::Gdi::HDC,
-    pub pDDS: ::core::option::Option<super::super::Graphics::DirectDraw::IDirectDrawSurface7>,
+    pub pDDS: super::super::Graphics::DirectDraw::IDirectDrawSurface7,
     pub rSrc: super::super::Foundation::RECT,
     pub rDest: NORMALIZEDRECT,
     pub fAlpha: f32,
@@ -12040,7 +15448,7 @@ impl ::core::clone::Clone for VMRMode {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 pub struct VMRPRESENTATIONINFO {
     pub dwFlags: u32,
-    pub lpSurf: ::core::option::Option<super::super::Graphics::DirectDraw::IDirectDrawSurface7>,
+    pub lpSurf: super::super::Graphics::DirectDraw::IDirectDrawSurface7,
     pub rtStart: i64,
     pub rtEnd: i64,
     pub szAspectRatio: super::super::Foundation::SIZE,
@@ -12104,7 +15512,7 @@ impl ::core::clone::Clone for VMRSurfaceAllocationFlags {
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
 pub struct VMRVIDEOSTREAMINFO {
-    pub pddsVideoSurface: ::core::option::Option<super::super::Graphics::DirectDraw::IDirectDrawSurface7>,
+    pub pddsVideoSurface: super::super::Graphics::DirectDraw::IDirectDrawSurface7,
     pub dwWidth: u32,
     pub dwHeight: u32,
     pub dwStrmID: u32,
@@ -12240,8 +15648,8 @@ impl ::core::clone::Clone for WMDRMProtectionInfo {
         *self
     }
 }
-pub const XDSCodec: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3301229811, data2: 73, data3: 20011, data4: [152, 251, 149, 55, 246, 206, 81, 109] };
-pub const XDSToRat: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3318072816, data2: 15036, data3: 4566, data4: [178, 91, 0, 192, 79, 160, 192, 38] };
+pub const XDSCodec: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3301229811, data2: 73, data3: 20011, data4: [152, 251, 149, 55, 246, 206, 81, 109] };
+pub const XDSToRat: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3318072816, data2: 15036, data3: 4566, data4: [178, 91, 0, 192, 79, 160, 192, 38] };
 #[repr(transparent)]
 pub struct _AMRESCTL_RESERVEFLAGS(pub i32);
 pub const AMRESCTL_RESERVEFLAGS_RESERVE: _AMRESCTL_RESERVEFLAGS = _AMRESCTL_RESERVEFLAGS(0i32);
@@ -12414,6 +15822,12 @@ impl ::core::clone::Clone for _DVRESOLUTION {
 }
 #[repr(transparent)]
 pub struct _IMSVidCtlEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for _IMSVidCtlEvents {}
+impl ::core::clone::Clone for _IMSVidCtlEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct _REM_FILTER_FLAGS(pub i32);
 pub const REMFILTERF_LEAVECONNECTED: _REM_FILTER_FLAGS = _REM_FILTER_FLAGS(1i32);

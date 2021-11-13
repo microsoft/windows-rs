@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
     #[cfg(feature = "Win32_Foundation")]
@@ -1444,5 +1444,5 @@ pub const VIRTUAL_STORAGE_TYPE_DEVICE_UNKNOWN: u32 = 0u32;
 pub const VIRTUAL_STORAGE_TYPE_DEVICE_VHD: u32 = 2u32;
 pub const VIRTUAL_STORAGE_TYPE_DEVICE_VHDSET: u32 = 4u32;
 pub const VIRTUAL_STORAGE_TYPE_DEVICE_VHDX: u32 = 3u32;
-pub const VIRTUAL_STORAGE_TYPE_VENDOR_MICROSOFT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3969403628, data2: 41209, data3: 18409, data4: [144, 31, 113, 65, 90, 102, 52, 91] };
-pub const VIRTUAL_STORAGE_TYPE_VENDOR_UNKNOWN: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 0, data2: 0, data3: 0, data4: [0, 0, 0, 0, 0, 0, 0, 0] };
+pub const VIRTUAL_STORAGE_TYPE_VENDOR_MICROSOFT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3969403628, data2: 41209, data3: 18409, data4: [144, 31, 113, 65, 90, 102, 52, 91] };
+pub const VIRTUAL_STORAGE_TYPE_VENDOR_UNKNOWN: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 0, data2: 0, data3: 0, data4: [0, 0, 0, 0, 0, 0, 0, 0] };

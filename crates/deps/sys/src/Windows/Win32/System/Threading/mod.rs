@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
     pub fn AcquireSRWLockExclusive(srwlock: *mut RTL_SRWLOCK);
@@ -719,7 +719,7 @@ pub struct PEB {
     pub AtlThunkSListPtr32: u32,
     pub Reserved9: [*mut ::core::ffi::c_void; 45],
     pub Reserved10: [u8; 96],
-    pub PostProcessInitRoutine: ::core::option::Option<PPS_POST_PROCESS_INIT_ROUTINE>,
+    pub PostProcessInitRoutine: PPS_POST_PROCESS_INIT_ROUTINE,
     pub Reserved11: [u8; 128],
     pub Reserved12: [*mut ::core::ffi::c_void; 1],
     pub SessionId: u32,
@@ -1531,10 +1531,10 @@ pub struct TP_CALLBACK_ENVIRON_V3 {
     pub Version: u32,
     pub Pool: PTP_POOL,
     pub CleanupGroup: isize,
-    pub CleanupGroupCancelCallback: ::core::option::Option<PTP_CLEANUP_GROUP_CANCEL_CALLBACK>,
+    pub CleanupGroupCancelCallback: PTP_CLEANUP_GROUP_CANCEL_CALLBACK,
     pub RaceDll: *mut ::core::ffi::c_void,
     pub ActivationContext: isize,
-    pub FinalizationCallback: ::core::option::Option<PTP_SIMPLE_CALLBACK>,
+    pub FinalizationCallback: PTP_SIMPLE_CALLBACK,
     pub u: TP_CALLBACK_ENVIRON_V3_1,
     pub CallbackPriority: TP_CALLBACK_PRIORITY,
     pub Size: u32,
@@ -1615,7 +1615,7 @@ impl ::core::clone::Clone for TimerQueueHandle {
 pub struct UMS_SCHEDULER_STARTUP_INFO {
     pub UmsVersion: u32,
     pub CompletionList: *mut ::core::ffi::c_void,
-    pub SchedulerProc: ::core::option::Option<PRTL_UMS_SCHEDULER_ENTRY_POINT>,
+    pub SchedulerProc: PRTL_UMS_SCHEDULER_ENTRY_POINT,
     pub SchedulerParam: *mut ::core::ffi::c_void,
 }
 #[cfg(feature = "Win32_System_SystemServices")]

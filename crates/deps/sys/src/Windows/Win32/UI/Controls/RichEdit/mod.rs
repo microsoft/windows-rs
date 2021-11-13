@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {}
 pub const ATP_CHANGE: u32 = 1u32;
@@ -352,7 +352,7 @@ pub const ECO_WANTRETURN: u32 = 4096u32;
 pub struct EDITSTREAM {
     pub dwCookie: usize,
     pub dwError: u32,
-    pub pfnCallback: ::core::option::Option<EDITSTREAMCALLBACK>,
+    pub pfnCallback: EDITSTREAMCALLBACK,
 }
 impl ::core::marker::Copy for EDITSTREAM {}
 impl ::core::clone::Clone for EDITSTREAM {
@@ -898,52 +898,196 @@ pub const IMF_UIFONTS: u32 = 32u32;
 pub const IMF_VERTICAL: u32 = 32u32;
 #[repr(transparent)]
 pub struct IRichEditOle(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRichEditOle {}
+impl ::core::clone::Clone for IRichEditOle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRichEditOleCallback(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRichEditOleCallback {}
+impl ::core::clone::Clone for IRichEditOleCallback {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRicheditUiaOverrides(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRicheditUiaOverrides {}
+impl ::core::clone::Clone for IRicheditUiaOverrides {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITextDisplays(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITextDisplays {}
+impl ::core::clone::Clone for ITextDisplays {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITextDocument(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITextDocument {}
+impl ::core::clone::Clone for ITextDocument {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITextDocument2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITextDocument2 {}
+impl ::core::clone::Clone for ITextDocument2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITextDocument2Old(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITextDocument2Old {}
+impl ::core::clone::Clone for ITextDocument2Old {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITextFont(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITextFont {}
+impl ::core::clone::Clone for ITextFont {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITextFont2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITextFont2 {}
+impl ::core::clone::Clone for ITextFont2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITextHost(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITextHost {}
+impl ::core::clone::Clone for ITextHost {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITextHost2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITextHost2 {}
+impl ::core::clone::Clone for ITextHost2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITextPara(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITextPara {}
+impl ::core::clone::Clone for ITextPara {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITextPara2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITextPara2 {}
+impl ::core::clone::Clone for ITextPara2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITextRange(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITextRange {}
+impl ::core::clone::Clone for ITextRange {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITextRange2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITextRange2 {}
+impl ::core::clone::Clone for ITextRange2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITextRow(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITextRow {}
+impl ::core::clone::Clone for ITextRow {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITextSelection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITextSelection {}
+impl ::core::clone::Clone for ITextSelection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITextSelection2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITextSelection2 {}
+impl ::core::clone::Clone for ITextSelection2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITextServices(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITextServices {}
+impl ::core::clone::Clone for ITextServices {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITextServices2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITextServices2 {}
+impl ::core::clone::Clone for ITextServices2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITextStory(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITextStory {}
+impl ::core::clone::Clone for ITextStory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITextStoryRanges(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITextStoryRanges {}
+impl ::core::clone::Clone for ITextStoryRanges {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITextStoryRanges2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITextStoryRanges2 {}
+impl ::core::clone::Clone for ITextStoryRanges2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITextStrings(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITextStrings {}
+impl ::core::clone::Clone for ITextStrings {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct KHYPH(pub i32);
 pub const khyphNil: KHYPH = KHYPH(0i32);
@@ -1253,9 +1397,9 @@ pub struct REOBJECT {
     pub cbStruct: u32,
     pub cp: i32,
     pub clsid: ::windows_sys::core::GUID,
-    pub poleobj: ::core::option::Option<super::super::super::System::Ole::IOleObject>,
-    pub pstg: ::core::option::Option<super::super::super::System::Com::StructuredStorage::IStorage>,
-    pub polesite: ::core::option::Option<super::super::super::System::Ole::IOleClientSite>,
+    pub poleobj: super::super::super::System::Ole::IOleObject,
+    pub pstg: super::super::super::System::Com::StructuredStorage::IStorage,
+    pub polesite: super::super::super::System::Ole::IOleClientSite,
     pub sizel: super::super::super::Foundation::SIZE,
     pub dvaspect: u32,
     pub dwFlags: REOBJECT_FLAGS,
@@ -1334,7 +1478,7 @@ pub struct RICHEDIT_IMAGE_PARAMETERS {
     pub Ascent: i32,
     pub Type: super::super::super::Graphics::Gdi::TEXT_ALIGN_OPTIONS,
     pub pwszAlternateText: super::super::super::Foundation::PWSTR,
-    pub pIStream: ::core::option::Option<super::super::super::System::Com::IStream>,
+    pub pIStream: super::super::super::System::Com::IStream,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
 impl ::core::marker::Copy for RICHEDIT_IMAGE_PARAMETERS {}

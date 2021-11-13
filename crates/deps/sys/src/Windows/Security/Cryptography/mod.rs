@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[cfg(feature = "Security_Cryptography_Certificates")]
 pub mod Certificates;
 #[cfg(feature = "Security_Cryptography_Core")]
@@ -22,3 +22,9 @@ impl ::core::clone::Clone for BinaryStringEncoding {
 }
 #[repr(transparent)]
 pub struct ICryptographicBufferStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICryptographicBufferStatics {}
+impl ::core::clone::Clone for ICryptographicBufferStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

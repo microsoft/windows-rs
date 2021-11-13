@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
     #[cfg(feature = "Win32_Foundation")]
@@ -79,18 +79,60 @@ impl ::core::clone::Clone for EnumType {
 }
 #[repr(transparent)]
 pub struct IBitmapData(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IBitmapData {}
+impl ::core::clone::Clone for IBitmapData {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVisualTreeService(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVisualTreeService {}
+impl ::core::clone::Clone for IVisualTreeService {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVisualTreeService2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVisualTreeService2 {}
+impl ::core::clone::Clone for IVisualTreeService2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVisualTreeService3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVisualTreeService3 {}
+impl ::core::clone::Clone for IVisualTreeService3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVisualTreeServiceCallback(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVisualTreeServiceCallback {}
+impl ::core::clone::Clone for IVisualTreeServiceCallback {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVisualTreeServiceCallback2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVisualTreeServiceCallback2 {}
+impl ::core::clone::Clone for IVisualTreeServiceCallback2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IXamlDiagnostics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IXamlDiagnostics {}
+impl ::core::clone::Clone for IXamlDiagnostics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MetadataBit(pub i32);
 impl MetadataBit {

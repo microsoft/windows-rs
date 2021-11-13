@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
     #[cfg(feature = "Win32_Foundation")]
@@ -12,7 +12,7 @@ extern "system" {
     pub fn D3DPERF_SetOptions(dwoptions: u32);
     #[cfg(feature = "Win32_Foundation")]
     pub fn D3DPERF_SetRegion(col: u32, wszname: super::super::Foundation::PWSTR);
-    pub fn Direct3DCreate9(sdkversion: u32) -> ::core::option::Option<IDirect3D9>;
+    pub fn Direct3DCreate9(sdkversion: u32) -> IDirect3D9;
     pub fn Direct3DCreate9Ex(sdkversion: u32, param1: *mut IDirect3D9Ex) -> ::windows_sys::core::HRESULT;
 }
 pub const D3D9_RESOURCE_PRIORITY_HIGH: u32 = 2684354560u32;
@@ -583,79 +583,79 @@ impl ::core::clone::Clone for D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT {
         *self
     }
 }
-pub const D3DAUTHENTICATEDCONFIGURE_CRYPTOSESSION: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1665584212, data2: 11516, data3: 19156, data4: [130, 36, 209, 88, 55, 222, 119, 0] };
-pub const D3DAUTHENTICATEDCONFIGURE_ENCRYPTIONWHENACCESSIBLE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const D3DAUTHENTICATEDCONFIGURE_CRYPTOSESSION: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1665584212, data2: 11516, data3: 19156, data4: [130, 36, 209, 88, 55, 222, 119, 0] };
+pub const D3DAUTHENTICATEDCONFIGURE_ENCRYPTIONWHENACCESSIBLE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1107292806,
     data2: 27360,
     data3: 19779,
     data4: [157, 85, 164, 110, 158, 253, 21, 138],
 };
-pub const D3DAUTHENTICATEDCONFIGURE_INITIALIZE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const D3DAUTHENTICATEDCONFIGURE_INITIALIZE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 101796827,
     data2: 13603,
     data3: 18186,
     data4: [141, 202, 251, 194, 132, 81, 84, 240],
 };
-pub const D3DAUTHENTICATEDCONFIGURE_PROTECTION: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const D3DAUTHENTICATEDCONFIGURE_PROTECTION: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1346721368,
     data2: 16199,
     data3: 17250,
     data4: [191, 153, 191, 223, 205, 233, 237, 41],
 };
-pub const D3DAUTHENTICATEDCONFIGURE_SHAREDRESOURCE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 124964935, data2: 6976, data3: 18664, data4: [156, 166, 181, 245, 16, 222, 159, 1] };
-pub const D3DAUTHENTICATEDQUERY_ACCESSIBILITYATTRIBUTES: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const D3DAUTHENTICATEDCONFIGURE_SHAREDRESOURCE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 124964935, data2: 6976, data3: 18664, data4: [156, 166, 181, 245, 16, 222, 159, 1] };
+pub const D3DAUTHENTICATEDQUERY_ACCESSIBILITYATTRIBUTES: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1645533650,
     data2: 17196,
     data3: 19131,
     data4: [159, 206, 33, 110, 234, 38, 158, 59],
 };
-pub const D3DAUTHENTICATEDQUERY_CHANNELTYPE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const D3DAUTHENTICATEDQUERY_CHANNELTYPE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3155892389,
     data2: 45563,
     data3: 17067,
     data4: [189, 148, 181, 130, 139, 75, 247, 190],
 };
-pub const D3DAUTHENTICATEDQUERY_CRYPTOSESSION: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 640960926, data2: 53272, data3: 19828, data4: [172, 23, 127, 114, 64, 89, 82, 141] };
-pub const D3DAUTHENTICATEDQUERY_CURRENTENCRYPTIONWHENACCESSIBLE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const D3DAUTHENTICATEDQUERY_CRYPTOSESSION: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 640960926, data2: 53272, data3: 19828, data4: [172, 23, 127, 114, 64, 89, 82, 141] };
+pub const D3DAUTHENTICATEDQUERY_CURRENTENCRYPTIONWHENACCESSIBLE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3960967623,
     data2: 56019,
     data3: 20245,
     data4: [158, 195, 250, 169, 61, 96, 212, 240],
 };
-pub const D3DAUTHENTICATEDQUERY_DEVICEHANDLE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const D3DAUTHENTICATEDQUERY_DEVICEHANDLE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3961279389,
     data2: 36095,
     data3: 20010,
     data4: [188, 196, 245, 105, 47, 153, 244, 128],
 };
-pub const D3DAUTHENTICATEDQUERY_ENCRYPTIONWHENACCESSIBLEGUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4164573528, data2: 59782, data3: 19418, data4: [190, 176, 65, 31, 106, 122, 1, 183] };
-pub const D3DAUTHENTICATEDQUERY_ENCRYPTIONWHENACCESSIBLEGUIDCOUNT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3004133478, data2: 8252, data3: 19207, data4: [147, 252, 206, 170, 253, 97, 36, 30] };
-pub const D3DAUTHENTICATEDQUERY_OUTPUTID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const D3DAUTHENTICATEDQUERY_ENCRYPTIONWHENACCESSIBLEGUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4164573528, data2: 59782, data3: 19418, data4: [190, 176, 65, 31, 106, 122, 1, 183] };
+pub const D3DAUTHENTICATEDQUERY_ENCRYPTIONWHENACCESSIBLEGUIDCOUNT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3004133478, data2: 8252, data3: 19207, data4: [147, 252, 206, 170, 253, 97, 36, 30] };
+pub const D3DAUTHENTICATEDQUERY_OUTPUTID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2208160931,
     data2: 39758,
     data3: 16868,
     data4: [176, 83, 137, 43, 210, 161, 30, 231],
 };
-pub const D3DAUTHENTICATEDQUERY_OUTPUTIDCOUNT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const D3DAUTHENTICATEDQUERY_OUTPUTIDCOUNT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 738470750,
     data2: 35847,
     data3: 18133,
     data4: [170, 190, 143, 117, 203, 173, 76, 49],
 };
-pub const D3DAUTHENTICATEDQUERY_PROTECTION: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const D3DAUTHENTICATEDQUERY_PROTECTION: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2823730564,
     data2: 50325,
     data3: 18602,
     data4: [185, 77, 139, 210, 214, 251, 206, 5],
 };
-pub const D3DAUTHENTICATEDQUERY_RESTRICTEDSHAREDRESOURCEPROCESS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1687927515, data2: 61684, data3: 17977, data4: [161, 91, 36, 57, 63, 195, 171, 172] };
-pub const D3DAUTHENTICATEDQUERY_RESTRICTEDSHAREDRESOURCEPROCESSCOUNT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const D3DAUTHENTICATEDQUERY_RESTRICTEDSHAREDRESOURCEPROCESS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1687927515, data2: 61684, data3: 17977, data4: [161, 91, 36, 57, 63, 195, 171, 172] };
+pub const D3DAUTHENTICATEDQUERY_RESTRICTEDSHAREDRESOURCEPROCESSCOUNT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 229771187,
     data2: 37968,
     data3: 18086,
     data4: [130, 222, 27, 150, 212, 79, 156, 242],
 };
-pub const D3DAUTHENTICATEDQUERY_UNRESTRICTEDPROTECTEDSHAREDRESOURCECOUNT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 19860438, data2: 58978, data3: 17524, data4: [190, 253, 170, 83, 229, 20, 60, 109] };
+pub const D3DAUTHENTICATEDQUERY_UNRESTRICTEDPROTECTEDSHAREDRESOURCECOUNT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 19860438, data2: 58978, data3: 17524, data4: [190, 253, 170, 83, 229, 20, 60, 109] };
 #[repr(transparent)]
 pub struct D3DBACKBUFFER_TYPE(pub u32);
 pub const D3DBACKBUFFER_TYPE_MONO: D3DBACKBUFFER_TYPE = D3DBACKBUFFER_TYPE(0u32);
@@ -955,13 +955,13 @@ pub const D3DCREATE_NOWINDOWCHANGES: i32 = 2048i32;
 pub const D3DCREATE_PUREDEVICE: i32 = 16i32;
 pub const D3DCREATE_SCREENSAVER: i32 = 268435456i32;
 pub const D3DCREATE_SOFTWARE_VERTEXPROCESSING: i32 = 32i32;
-pub const D3DCRYPTOTYPE_AES128_CTR: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const D3DCRYPTOTYPE_AES128_CTR: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2607535889,
     data2: 20340,
     data3: 16841,
     data4: [158, 123, 11, 226, 215, 217, 59, 79],
 };
-pub const D3DCRYPTOTYPE_PROPRIETARY: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2874055421, data2: 7452, data3: 18150, data4: [167, 47, 8, 105, 145, 123, 13, 232] };
+pub const D3DCRYPTOTYPE_PROPRIETARY: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2874055421, data2: 7452, data3: 18150, data4: [167, 47, 8, 105, 145, 123, 13, 232] };
 pub const D3DCS_BACK: i32 = 32i32;
 pub const D3DCS_BOTTOM: i32 = 8i32;
 pub const D3DCS_FRONT: i32 = 16i32;
@@ -1444,13 +1444,13 @@ impl ::core::clone::Clone for D3DINDEXBUFFER_DESC {
 }
 pub const D3DISSUE_BEGIN: u32 = 2u32;
 pub const D3DISSUE_END: u32 = 1u32;
-pub const D3DKEYEXCHANGE_DXVA: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const D3DKEYEXCHANGE_DXVA: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1137932124,
     data2: 14565,
     data3: 18724,
     data4: [141, 134, 211, 252, 207, 21, 62, 155],
 };
-pub const D3DKEYEXCHANGE_RSAES_OAEP: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3247741077, data2: 55082, data3: 18973, data4: [142, 93, 237, 133, 125, 23, 21, 32] };
+pub const D3DKEYEXCHANGE_RSAES_OAEP: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3247741077, data2: 55082, data3: 18973, data4: [142, 93, 237, 133, 125, 23, 21, 32] };
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 pub struct D3DLIGHT9 {
@@ -2714,44 +2714,164 @@ pub const D3D_OMAC_SIZE: u32 = 16u32;
 pub const D3D_SDK_VERSION: u32 = 32u32;
 #[repr(transparent)]
 pub struct IDirect3D9(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDirect3D9 {}
+impl ::core::clone::Clone for IDirect3D9 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDirect3D9Ex(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDirect3D9Ex {}
+impl ::core::clone::Clone for IDirect3D9Ex {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDirect3DBaseTexture9(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDirect3DBaseTexture9 {}
+impl ::core::clone::Clone for IDirect3DBaseTexture9 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDirect3DCubeTexture9(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDirect3DCubeTexture9 {}
+impl ::core::clone::Clone for IDirect3DCubeTexture9 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDirect3DDevice9(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDirect3DDevice9 {}
+impl ::core::clone::Clone for IDirect3DDevice9 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDirect3DDevice9Ex(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDirect3DDevice9Ex {}
+impl ::core::clone::Clone for IDirect3DDevice9Ex {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDirect3DIndexBuffer9(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDirect3DIndexBuffer9 {}
+impl ::core::clone::Clone for IDirect3DIndexBuffer9 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDirect3DPixelShader9(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDirect3DPixelShader9 {}
+impl ::core::clone::Clone for IDirect3DPixelShader9 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDirect3DQuery9(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDirect3DQuery9 {}
+impl ::core::clone::Clone for IDirect3DQuery9 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDirect3DResource9(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDirect3DResource9 {}
+impl ::core::clone::Clone for IDirect3DResource9 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDirect3DStateBlock9(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDirect3DStateBlock9 {}
+impl ::core::clone::Clone for IDirect3DStateBlock9 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDirect3DSurface9(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDirect3DSurface9 {}
+impl ::core::clone::Clone for IDirect3DSurface9 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDirect3DSwapChain9(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDirect3DSwapChain9 {}
+impl ::core::clone::Clone for IDirect3DSwapChain9 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDirect3DSwapChain9Ex(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDirect3DSwapChain9Ex {}
+impl ::core::clone::Clone for IDirect3DSwapChain9Ex {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDirect3DTexture9(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDirect3DTexture9 {}
+impl ::core::clone::Clone for IDirect3DTexture9 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDirect3DVertexBuffer9(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDirect3DVertexBuffer9 {}
+impl ::core::clone::Clone for IDirect3DVertexBuffer9 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDirect3DVertexDeclaration9(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDirect3DVertexDeclaration9 {}
+impl ::core::clone::Clone for IDirect3DVertexDeclaration9 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDirect3DVertexShader9(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDirect3DVertexShader9 {}
+impl ::core::clone::Clone for IDirect3DVertexShader9 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDirect3DVolume9(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDirect3DVolume9 {}
+impl ::core::clone::Clone for IDirect3DVolume9 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDirect3DVolumeTexture9(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDirect3DVolumeTexture9 {}
+impl ::core::clone::Clone for IDirect3DVolumeTexture9 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MAXD3DDECLLENGTH: u32 = 64u32;
 pub const MAXD3DDECLUSAGEINDEX: u32 = 15u32;
 pub const MAX_DEVICE_IDENTIFIER_STRING: u32 = 512u32;

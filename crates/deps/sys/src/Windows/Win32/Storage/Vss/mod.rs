@@ -1,63 +1,219 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
     pub fn CreateVssExpressWriterInternal(ppwriter: *mut IVssExpressWriter) -> ::windows_sys::core::HRESULT;
 }
 #[repr(transparent)]
 pub struct IVssAdmin(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVssAdmin {}
+impl ::core::clone::Clone for IVssAdmin {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVssAdminEx(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVssAdminEx {}
+impl ::core::clone::Clone for IVssAdminEx {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVssAsync(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVssAsync {}
+impl ::core::clone::Clone for IVssAsync {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVssComponent(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVssComponent {}
+impl ::core::clone::Clone for IVssComponent {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVssComponentEx(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVssComponentEx {}
+impl ::core::clone::Clone for IVssComponentEx {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVssComponentEx2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVssComponentEx2 {}
+impl ::core::clone::Clone for IVssComponentEx2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVssCreateExpressWriterMetadata(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVssCreateExpressWriterMetadata {}
+impl ::core::clone::Clone for IVssCreateExpressWriterMetadata {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVssCreateWriterMetadata(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVssCreateWriterMetadata {}
+impl ::core::clone::Clone for IVssCreateWriterMetadata {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVssDifferentialSoftwareSnapshotMgmt(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVssDifferentialSoftwareSnapshotMgmt {}
+impl ::core::clone::Clone for IVssDifferentialSoftwareSnapshotMgmt {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVssDifferentialSoftwareSnapshotMgmt2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVssDifferentialSoftwareSnapshotMgmt2 {}
+impl ::core::clone::Clone for IVssDifferentialSoftwareSnapshotMgmt2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVssDifferentialSoftwareSnapshotMgmt3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVssDifferentialSoftwareSnapshotMgmt3 {}
+impl ::core::clone::Clone for IVssDifferentialSoftwareSnapshotMgmt3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVssEnumMgmtObject(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVssEnumMgmtObject {}
+impl ::core::clone::Clone for IVssEnumMgmtObject {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVssEnumObject(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVssEnumObject {}
+impl ::core::clone::Clone for IVssEnumObject {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct IVssExamineWriterMetadata(pub u8);
 #[repr(transparent)]
 pub struct IVssExpressWriter(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVssExpressWriter {}
+impl ::core::clone::Clone for IVssExpressWriter {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVssFileShareSnapshotProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVssFileShareSnapshotProvider {}
+impl ::core::clone::Clone for IVssFileShareSnapshotProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVssHardwareSnapshotProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVssHardwareSnapshotProvider {}
+impl ::core::clone::Clone for IVssHardwareSnapshotProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVssHardwareSnapshotProviderEx(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVssHardwareSnapshotProviderEx {}
+impl ::core::clone::Clone for IVssHardwareSnapshotProviderEx {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVssProviderCreateSnapshotSet(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVssProviderCreateSnapshotSet {}
+impl ::core::clone::Clone for IVssProviderCreateSnapshotSet {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVssProviderNotifications(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVssProviderNotifications {}
+impl ::core::clone::Clone for IVssProviderNotifications {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVssSnapshotMgmt(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVssSnapshotMgmt {}
+impl ::core::clone::Clone for IVssSnapshotMgmt {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVssSnapshotMgmt2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVssSnapshotMgmt2 {}
+impl ::core::clone::Clone for IVssSnapshotMgmt2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVssSoftwareSnapshotProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVssSoftwareSnapshotProvider {}
+impl ::core::clone::Clone for IVssSoftwareSnapshotProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVssWMDependency(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVssWMDependency {}
+impl ::core::clone::Clone for IVssWMDependency {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVssWMFiledesc(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVssWMFiledesc {}
+impl ::core::clone::Clone for IVssWMFiledesc {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVssWriterComponents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVssWriterComponents {}
+impl ::core::clone::Clone for IVssWriterComponents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVssWriterImpl(pub *mut ::core::ffi::c_void);
-pub const VSSCoordinator: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3849956191, data2: 7364, data3: 17588, data4: [190, 217, 222, 9, 145, 255, 6, 35] };
+impl ::core::marker::Copy for IVssWriterImpl {}
+impl ::core::clone::Clone for IVssWriterImpl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+pub const VSSCoordinator: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3849956191, data2: 7364, data3: 17588, data4: [190, 217, 222, 9, 145, 255, 6, 35] };
 #[repr(transparent)]
 pub struct VSS_ALTERNATE_WRITER_STATE(pub i32);
 pub const VSS_AWS_UNDEFINED: VSS_ALTERNATE_WRITER_STATE = VSS_ALTERNATE_WRITER_STATE(0i32);
@@ -743,7 +899,7 @@ impl ::core::clone::Clone for VSS_WRITER_STATE {
         *self
     }
 }
-pub const VssSnapshotMgmt: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const VssSnapshotMgmt: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 190458962,
     data2: 16057,
     data3: 18186,

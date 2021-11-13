@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
@@ -486,63 +486,219 @@ impl ::core::clone::Clone for GETPROPERTYSTOREFLAGS {
 }
 #[repr(transparent)]
 pub struct ICreateObject(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICreateObject {}
+impl ::core::clone::Clone for ICreateObject {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDelayedPropertyStoreFactory(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDelayedPropertyStoreFactory {}
+impl ::core::clone::Clone for IDelayedPropertyStoreFactory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInitializeWithFile(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInitializeWithFile {}
+impl ::core::clone::Clone for IInitializeWithFile {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInitializeWithStream(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInitializeWithStream {}
+impl ::core::clone::Clone for IInitializeWithStream {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct INamedPropertyStore(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for INamedPropertyStore {}
+impl ::core::clone::Clone for INamedPropertyStore {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IObjectWithPropertyKey(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IObjectWithPropertyKey {}
+impl ::core::clone::Clone for IObjectWithPropertyKey {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPersistSerializedPropStorage(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPersistSerializedPropStorage {}
+impl ::core::clone::Clone for IPersistSerializedPropStorage {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPersistSerializedPropStorage2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPersistSerializedPropStorage2 {}
+impl ::core::clone::Clone for IPersistSerializedPropStorage2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPropertyChange(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPropertyChange {}
+impl ::core::clone::Clone for IPropertyChange {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPropertyChangeArray(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPropertyChangeArray {}
+impl ::core::clone::Clone for IPropertyChangeArray {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPropertyDescription(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPropertyDescription {}
+impl ::core::clone::Clone for IPropertyDescription {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPropertyDescription2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPropertyDescription2 {}
+impl ::core::clone::Clone for IPropertyDescription2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPropertyDescriptionAliasInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPropertyDescriptionAliasInfo {}
+impl ::core::clone::Clone for IPropertyDescriptionAliasInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPropertyDescriptionList(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPropertyDescriptionList {}
+impl ::core::clone::Clone for IPropertyDescriptionList {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPropertyDescriptionRelatedPropertyInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPropertyDescriptionRelatedPropertyInfo {}
+impl ::core::clone::Clone for IPropertyDescriptionRelatedPropertyInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPropertyDescriptionSearchInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPropertyDescriptionSearchInfo {}
+impl ::core::clone::Clone for IPropertyDescriptionSearchInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPropertyEnumType(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPropertyEnumType {}
+impl ::core::clone::Clone for IPropertyEnumType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPropertyEnumType2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPropertyEnumType2 {}
+impl ::core::clone::Clone for IPropertyEnumType2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPropertyEnumTypeList(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPropertyEnumTypeList {}
+impl ::core::clone::Clone for IPropertyEnumTypeList {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPropertyStore(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPropertyStore {}
+impl ::core::clone::Clone for IPropertyStore {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPropertyStoreCache(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPropertyStoreCache {}
+impl ::core::clone::Clone for IPropertyStoreCache {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPropertyStoreCapabilities(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPropertyStoreCapabilities {}
+impl ::core::clone::Clone for IPropertyStoreCapabilities {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPropertyStoreFactory(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPropertyStoreFactory {}
+impl ::core::clone::Clone for IPropertyStoreFactory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPropertySystem(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPropertySystem {}
+impl ::core::clone::Clone for IPropertySystem {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPropertySystemChangeNotify(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPropertySystemChangeNotify {}
+impl ::core::clone::Clone for IPropertySystemChangeNotify {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPropertyUI(pub *mut ::core::ffi::c_void);
-pub const InMemoryPropertyStore: ::windows_sys::core::GUID = ::windows_sys::GUID {
+impl ::core::marker::Copy for IPropertyUI {}
+impl ::core::clone::Clone for IPropertyUI {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+pub const InMemoryPropertyStore: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2583879698,
     data2: 25347,
     data3: 19998,
     data4: [185, 161, 99, 15, 128, 37, 146, 197],
 };
-pub const InMemoryPropertyStoreMarshalByValue: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const InMemoryPropertyStoreMarshalByValue: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3570011693,
     data2: 28071,
     data3: 19317,
@@ -937,7 +1093,7 @@ impl ::core::clone::Clone for PSTIME_FLAGS {
         *self
     }
 }
-pub const PropertySystem: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3096870789, data2: 22702, data3: 20294, data4: [159, 178, 93, 121, 4, 121, 143, 75] };
+pub const PropertySystem: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3096870789, data2: 22702, data3: 20294, data4: [159, 178, 93, 121, 4, 121, 143, 75] };
 #[repr(C)]
 pub struct SERIALIZEDPROPSTORAGE(pub u8);
 #[repr(transparent)]

@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {}
 #[repr(transparent)]
@@ -188,58 +188,220 @@ pub const DISPID_RDPSRAPI_PROP_WINDOW_LIST: u32 = 216u32;
 pub const DISPID_RDPSRAPI_PROP_WNDFLAGS: u32 = 224u32;
 #[repr(transparent)]
 pub struct IRDPSRAPIApplication(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRDPSRAPIApplication {}
+impl ::core::clone::Clone for IRDPSRAPIApplication {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRDPSRAPIApplicationFilter(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRDPSRAPIApplicationFilter {}
+impl ::core::clone::Clone for IRDPSRAPIApplicationFilter {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRDPSRAPIApplicationList(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRDPSRAPIApplicationList {}
+impl ::core::clone::Clone for IRDPSRAPIApplicationList {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRDPSRAPIAttendee(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRDPSRAPIAttendee {}
+impl ::core::clone::Clone for IRDPSRAPIAttendee {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRDPSRAPIAttendeeDisconnectInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRDPSRAPIAttendeeDisconnectInfo {}
+impl ::core::clone::Clone for IRDPSRAPIAttendeeDisconnectInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRDPSRAPIAttendeeManager(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRDPSRAPIAttendeeManager {}
+impl ::core::clone::Clone for IRDPSRAPIAttendeeManager {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRDPSRAPIAudioStream(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRDPSRAPIAudioStream {}
+impl ::core::clone::Clone for IRDPSRAPIAudioStream {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRDPSRAPIClipboardUseEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRDPSRAPIClipboardUseEvents {}
+impl ::core::clone::Clone for IRDPSRAPIClipboardUseEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRDPSRAPIDebug(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRDPSRAPIDebug {}
+impl ::core::clone::Clone for IRDPSRAPIDebug {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRDPSRAPIFrameBuffer(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRDPSRAPIFrameBuffer {}
+impl ::core::clone::Clone for IRDPSRAPIFrameBuffer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRDPSRAPIInvitation(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRDPSRAPIInvitation {}
+impl ::core::clone::Clone for IRDPSRAPIInvitation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRDPSRAPIInvitationManager(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRDPSRAPIInvitationManager {}
+impl ::core::clone::Clone for IRDPSRAPIInvitationManager {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRDPSRAPIPerfCounterLogger(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRDPSRAPIPerfCounterLogger {}
+impl ::core::clone::Clone for IRDPSRAPIPerfCounterLogger {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRDPSRAPIPerfCounterLoggingManager(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRDPSRAPIPerfCounterLoggingManager {}
+impl ::core::clone::Clone for IRDPSRAPIPerfCounterLoggingManager {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRDPSRAPISessionProperties(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRDPSRAPISessionProperties {}
+impl ::core::clone::Clone for IRDPSRAPISessionProperties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRDPSRAPISharingSession(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRDPSRAPISharingSession {}
+impl ::core::clone::Clone for IRDPSRAPISharingSession {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRDPSRAPISharingSession2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRDPSRAPISharingSession2 {}
+impl ::core::clone::Clone for IRDPSRAPISharingSession2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRDPSRAPITcpConnectionInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRDPSRAPITcpConnectionInfo {}
+impl ::core::clone::Clone for IRDPSRAPITcpConnectionInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRDPSRAPITransportStream(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRDPSRAPITransportStream {}
+impl ::core::clone::Clone for IRDPSRAPITransportStream {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRDPSRAPITransportStreamBuffer(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRDPSRAPITransportStreamBuffer {}
+impl ::core::clone::Clone for IRDPSRAPITransportStreamBuffer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRDPSRAPITransportStreamEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRDPSRAPITransportStreamEvents {}
+impl ::core::clone::Clone for IRDPSRAPITransportStreamEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRDPSRAPIViewer(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRDPSRAPIViewer {}
+impl ::core::clone::Clone for IRDPSRAPIViewer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRDPSRAPIVirtualChannel(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRDPSRAPIVirtualChannel {}
+impl ::core::clone::Clone for IRDPSRAPIVirtualChannel {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRDPSRAPIVirtualChannelManager(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRDPSRAPIVirtualChannelManager {}
+impl ::core::clone::Clone for IRDPSRAPIVirtualChannelManager {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRDPSRAPIWindow(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRDPSRAPIWindow {}
+impl ::core::clone::Clone for IRDPSRAPIWindow {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRDPSRAPIWindowList(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRDPSRAPIWindowList {}
+impl ::core::clone::Clone for IRDPSRAPIWindowList {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRDPViewerInputSink(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRDPViewerInputSink {}
+impl ::core::clone::Clone for IRDPViewerInputSink {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct RDPENCOMAPI_ATTENDEE_FLAGS(pub i32);
 pub const ATTENDEE_FLAGS_LOCAL: RDPENCOMAPI_ATTENDEE_FLAGS = RDPENCOMAPI_ATTENDEE_FLAGS(1i32);
@@ -249,59 +411,59 @@ impl ::core::clone::Clone for RDPENCOMAPI_ATTENDEE_FLAGS {
         *self
     }
 }
-pub const RDPSRAPIApplication: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const RDPSRAPIApplication: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3239486596,
     data2: 19237,
     data3: 19359,
     data4: [138, 84, 185, 52, 176, 110, 87, 250],
 };
-pub const RDPSRAPIApplicationFilter: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3814379145, data2: 51176, data3: 17022, data4: [164, 249, 185, 218, 7, 40, 38, 189] };
-pub const RDPSRAPIApplicationList: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const RDPSRAPIApplicationFilter: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3814379145, data2: 51176, data3: 17022, data4: [164, 249, 185, 218, 7, 40, 38, 189] };
+pub const RDPSRAPIApplicationList: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2654062613,
     data2: 29747,
     data3: 18550,
     data4: [151, 251, 237, 89, 254, 43, 170, 34],
 };
-pub const RDPSRAPIAttendee: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1962490805, data2: 30047, data3: 18574, data4: [138, 41, 35, 144, 16, 138, 239, 85] };
-pub const RDPSRAPIAttendeeDisconnectInfo: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const RDPSRAPIAttendee: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1962490805, data2: 30047, data3: 18574, data4: [138, 41, 35, 144, 16, 138, 239, 85] };
+pub const RDPSRAPIAttendeeDisconnectInfo: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3028120144,
     data2: 23515,
     data3: 16477,
     data4: [180, 135, 202, 173, 156, 86, 244, 248],
 };
-pub const RDPSRAPIAttendeeManager: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const RDPSRAPIAttendeeManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3618716161,
     data2: 63444,
     data3: 17062,
     data4: [133, 149, 18, 252, 140, 36, 232, 81],
 };
-pub const RDPSRAPIFrameBuffer: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2767612876, data2: 21390, data3: 16641, data4: [149, 29, 48, 132, 122, 219, 81, 1] };
-pub const RDPSRAPIInvitation: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const RDPSRAPIFrameBuffer: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2767612876, data2: 21390, data3: 16641, data4: [149, 29, 48, 132, 122, 219, 81, 1] };
+pub const RDPSRAPIInvitation: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1226264006,
     data2: 1841,
     data3: 19294,
     data4: [142, 225, 131, 166, 61, 56, 104, 250],
 };
-pub const RDPSRAPIInvitationManager: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const RDPSRAPIInvitationManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1406781915,
     data2: 30123,
     data3: 17009,
     data4: [148, 138, 76, 78, 179, 106, 143, 43],
 };
-pub const RDPSRAPISessionProperties: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const RDPSRAPISessionProperties: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3715470591,
     data2: 59946,
     data3: 19462,
     data4: [143, 223, 19, 45, 228, 139, 101, 16],
 };
-pub const RDPSRAPITcpConnectionInfo: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const RDPSRAPITcpConnectionInfo: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3192511295,
     data2: 60342,
     data3: 17016,
     data4: [140, 224, 213, 69, 88, 51, 234, 238],
 };
-pub const RDPSRAPIWindow: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 63915739, data2: 52805, data3: 19766, data4: [134, 237, 237, 40, 183, 67, 152, 191] };
-pub const RDPSRAPIWindowList: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2619466424, data2: 24020, data3: 17100, data4: [129, 186, 28, 9, 152, 82, 230, 250] };
+pub const RDPSRAPIWindow: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 63915739, data2: 52805, data3: 19766, data4: [134, 237, 237, 40, 183, 67, 152, 191] };
+pub const RDPSRAPIWindowList: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2619466424, data2: 24020, data3: 17100, data4: [129, 186, 28, 9, 152, 82, 230, 250] };
 #[repr(transparent)]
 pub struct RDPSRAPI_APP_FLAGS(pub i32);
 pub const APP_FLAG_PRIVILEGED: RDPSRAPI_APP_FLAGS = RDPSRAPI_APP_FLAGS(1i32);
@@ -356,27 +518,33 @@ impl ::core::clone::Clone for RDPSRAPI_WND_FLAGS {
         *self
     }
 }
-pub const RDPSession: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const RDPSession: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2608394470,
     data2: 15877,
     data3: 19035,
     data4: [178, 232, 231, 67, 168, 149, 107, 101],
 };
-pub const RDPTransportStreamBuffer: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const RDPTransportStreamBuffer: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2370444393,
     data2: 61823,
     data3: 17737,
     data4: [166, 153, 118, 28, 110, 107, 92, 10],
 };
-pub const RDPTransportStreamEvents: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const RDPTransportStreamEvents: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 837004064,
     data2: 21328,
     data3: 18495,
     data4: [157, 198, 103, 72, 102, 94, 253, 235],
 };
-pub const RDPViewer: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 851336914, data2: 23686, data3: 18447, data4: [169, 20, 15, 248, 136, 90, 27, 63] };
+pub const RDPViewer: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 851336914, data2: 23686, data3: 18447, data4: [169, 20, 15, 248, 136, 90, 27, 63] };
 #[repr(transparent)]
 pub struct _IRDPSessionEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for _IRDPSessionEvents {}
+impl ::core::clone::Clone for _IRDPSessionEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct __MIDL___MIDL_itf_rdpencomapi_0000_0027_0001(pub i32);
 pub const CONST_MAX_CHANNEL_MESSAGE_SIZE: __MIDL___MIDL_itf_rdpencomapi_0000_0027_0001 = __MIDL___MIDL_itf_rdpencomapi_0000_0027_0001(1024i32);

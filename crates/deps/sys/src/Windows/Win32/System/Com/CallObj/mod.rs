@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
     pub fn CoGetInterceptor(iidintercepted: *const ::windows_sys::core::GUID, punkouter: ::windows_sys::core::IUnknown, iid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
@@ -75,7 +75,7 @@ pub struct CALLFRAME_MARSHALCONTEXT {
     pub fIn: super::super::super::Foundation::BOOLEAN,
     pub dwDestContext: u32,
     pub pvDestContext: *mut ::core::ffi::c_void,
-    pub punkReserved: ::core::option::Option<::windows_sys::core::IUnknown>,
+    pub punkReserved: ::windows_sys::core::IUnknown,
     pub guidTransferSyntax: ::windows_sys::core::GUID,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -111,15 +111,57 @@ impl ::core::clone::Clone for CALLFRAME_WALK {
 }
 #[repr(transparent)]
 pub struct ICallFrame(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICallFrame {}
+impl ::core::clone::Clone for ICallFrame {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICallFrameEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICallFrameEvents {}
+impl ::core::clone::Clone for ICallFrameEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICallFrameWalker(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICallFrameWalker {}
+impl ::core::clone::Clone for ICallFrameWalker {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICallIndirect(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICallIndirect {}
+impl ::core::clone::Clone for ICallIndirect {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICallInterceptor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICallInterceptor {}
+impl ::core::clone::Clone for ICallInterceptor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICallUnmarshal(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICallUnmarshal {}
+impl ::core::clone::Clone for ICallUnmarshal {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IInterfaceRelated(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IInterfaceRelated {}
+impl ::core::clone::Clone for IInterfaceRelated {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

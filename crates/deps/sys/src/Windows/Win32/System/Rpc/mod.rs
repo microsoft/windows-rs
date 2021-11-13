@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
     pub fn DceErrorInqTextA(rpcstatus: RPC_STATUS, errortext: *mut u8) -> RPC_STATUS;
@@ -62,7 +62,7 @@ extern "system" {
     pub fn I_RpcServerCheckClientRestriction(context: *mut ::core::ffi::c_void) -> RPC_STATUS;
     pub fn I_RpcServerDisableExceptionFilter() -> i32;
     pub fn I_RpcServerGetAssociationID(binding: *const ::core::ffi::c_void, associationid: *mut u32) -> RPC_STATUS;
-    pub fn I_RpcServerInqAddressChangeFn() -> *mut ::core::option::Option<RPC_ADDRESS_CHANGE_FN>;
+    pub fn I_RpcServerInqAddressChangeFn() -> *mut RPC_ADDRESS_CHANGE_FN;
     pub fn I_RpcServerInqLocalConnAddress(binding: *mut ::core::ffi::c_void, buffer: *mut ::core::ffi::c_void, buffersize: *mut u32, addressformat: *mut u32) -> RPC_STATUS;
     pub fn I_RpcServerInqRemoteConnAddress(binding: *mut ::core::ffi::c_void, buffer: *mut ::core::ffi::c_void, buffersize: *mut u32, addressformat: *mut u32) -> RPC_STATUS;
     pub fn I_RpcServerInqTransportType(r#type: *mut u32) -> RPC_STATUS;
@@ -799,8 +799,8 @@ impl ::core::clone::Clone for FULL_PTR_XLAT_TABLES {
 pub struct GENERIC_BINDING_INFO {
     pub pObj: *mut ::core::ffi::c_void,
     pub Size: u32,
-    pub pfnBind: ::core::option::Option<GENERIC_BINDING_ROUTINE>,
-    pub pfnUnbind: ::core::option::Option<GENERIC_UNBIND_ROUTINE>,
+    pub pfnBind: GENERIC_BINDING_ROUTINE,
+    pub pfnUnbind: GENERIC_UNBIND_ROUTINE,
 }
 impl ::core::marker::Copy for GENERIC_BINDING_INFO {}
 impl ::core::clone::Clone for GENERIC_BINDING_INFO {
@@ -811,8 +811,8 @@ impl ::core::clone::Clone for GENERIC_BINDING_INFO {
 pub type GENERIC_BINDING_ROUTINE = unsafe extern "system" fn(param0: *mut ::core::ffi::c_void) -> *mut ::core::ffi::c_void;
 #[repr(C)]
 pub struct GENERIC_BINDING_ROUTINE_PAIR {
-    pub pfnBind: ::core::option::Option<GENERIC_BINDING_ROUTINE>,
-    pub pfnUnbind: ::core::option::Option<GENERIC_UNBIND_ROUTINE>,
+    pub pfnBind: GENERIC_BINDING_ROUTINE,
+    pub pfnUnbind: GENERIC_UNBIND_ROUTINE,
 }
 impl ::core::marker::Copy for GENERIC_BINDING_ROUTINE_PAIR {}
 impl ::core::clone::Clone for GENERIC_BINDING_ROUTINE_PAIR {
@@ -848,15 +848,15 @@ pub type I_RpcPerformCalloutFn = unsafe extern "system" fn(context: *mut ::core:
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct I_RpcProxyCallbackInterface {
-    pub IsValidMachineFn: ::core::option::Option<I_RpcProxyIsValidMachineFn>,
-    pub GetClientAddressFn: ::core::option::Option<I_RpcProxyGetClientAddressFn>,
-    pub GetConnectionTimeoutFn: ::core::option::Option<I_RpcProxyGetConnectionTimeoutFn>,
-    pub PerformCalloutFn: ::core::option::Option<I_RpcPerformCalloutFn>,
-    pub FreeCalloutStateFn: ::core::option::Option<I_RpcFreeCalloutStateFn>,
-    pub GetClientSessionAndResourceUUIDFn: ::core::option::Option<I_RpcProxyGetClientSessionAndResourceUUID>,
-    pub ProxyFilterIfFn: ::core::option::Option<I_RpcProxyFilterIfFn>,
-    pub RpcProxyUpdatePerfCounterFn: ::core::option::Option<I_RpcProxyUpdatePerfCounterFn>,
-    pub RpcProxyUpdatePerfCounterBackendServerFn: ::core::option::Option<I_RpcProxyUpdatePerfCounterBackendServerFn>,
+    pub IsValidMachineFn: I_RpcProxyIsValidMachineFn,
+    pub GetClientAddressFn: I_RpcProxyGetClientAddressFn,
+    pub GetConnectionTimeoutFn: I_RpcProxyGetConnectionTimeoutFn,
+    pub PerformCalloutFn: I_RpcPerformCalloutFn,
+    pub FreeCalloutStateFn: I_RpcFreeCalloutStateFn,
+    pub GetClientSessionAndResourceUUIDFn: I_RpcProxyGetClientSessionAndResourceUUID,
+    pub ProxyFilterIfFn: I_RpcProxyFilterIfFn,
+    pub RpcProxyUpdatePerfCounterFn: I_RpcProxyUpdatePerfCounterFn,
+    pub RpcProxyUpdatePerfCounterBackendServerFn: I_RpcProxyUpdatePerfCounterBackendServerFn,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for I_RpcProxyCallbackInterface {}
@@ -983,10 +983,10 @@ impl ::core::clone::Clone for MIDL_METHOD_PROPERTY_MAP {
 #[cfg(feature = "Win32_System_Com")]
 pub struct MIDL_SERVER_INFO {
     pub pStubDesc: *mut MIDL_STUB_DESC,
-    pub DispatchTable: *mut ::core::option::Option<SERVER_ROUTINE>,
+    pub DispatchTable: *mut SERVER_ROUTINE,
     pub ProcString: *mut u8,
     pub FmtStringOffset: *mut u16,
-    pub ThunkTable: *mut ::core::option::Option<STUB_THUNK>,
+    pub ThunkTable: *mut STUB_THUNK,
     pub pTransferSyntax: *mut RPC_SYNTAX_IDENTIFIER,
     pub nCount: usize,
     pub pSyntaxInfo: *mut MIDL_SYNTAX_INFO,
@@ -1024,9 +1024,9 @@ pub struct MIDL_STUB_DESC {
     pub pfnAllocate: isize,
     pub pfnFree: isize,
     pub IMPLICIT_HANDLE_INFO: MIDL_STUB_DESC_0,
-    pub apfnNdrRundownRoutines: *mut ::core::option::Option<NDR_RUNDOWN>,
+    pub apfnNdrRundownRoutines: *mut NDR_RUNDOWN,
     pub aGenericBindingRoutinePairs: *mut GENERIC_BINDING_ROUTINE_PAIR,
-    pub apfnExprEval: *mut ::core::option::Option<EXPR_EVAL>,
+    pub apfnExprEval: *mut EXPR_EVAL,
     pub aXmitQuintuple: *mut XMIT_ROUTINE_QUINTUPLE,
     pub pFormatTypes: *mut u8,
     pub fCheckBounds: i32,
@@ -1035,7 +1035,7 @@ pub struct MIDL_STUB_DESC {
     pub MIDLVersion: i32,
     pub CommFaultOffsets: *mut COMM_FAULT_OFFSETS,
     pub aUserMarshalQuadruple: *mut USER_MARSHAL_ROUTINE_QUADRUPLE,
-    pub NotifyRoutineTable: *mut ::core::option::Option<NDR_NOTIFY_ROUTINE>,
+    pub NotifyRoutineTable: *mut NDR_NOTIFY_ROUTINE,
     pub mFlags: usize,
     pub CsRoutineTables: *mut NDR_CS_ROUTINES,
     pub ProxyServerInfo: *mut ::core::ffi::c_void,
@@ -1104,7 +1104,7 @@ pub struct MIDL_STUB_MESSAGE {
     pub pvDestContext: *mut ::core::ffi::c_void,
     pub SavedContextHandles: *mut *mut NDR_SCONTEXT_1,
     pub ParamNumber: i32,
-    pub pRpcChannelBuffer: ::core::option::Option<super::Com::IRpcChannelBuffer>,
+    pub pRpcChannelBuffer: super::Com::IRpcChannelBuffer,
     pub pArrayInfo: *mut ARRAY_INFO,
     pub SizePtrCountArray: *mut u32,
     pub SizePtrOffsetArray: *mut u32,
@@ -2029,7 +2029,7 @@ pub struct NDR_ALLOC_ALL_NODES_CONTEXT(pub u8);
 #[repr(C)]
 pub struct NDR_CS_ROUTINES {
     pub pSizeConvertRoutines: *mut NDR_CS_SIZE_CONVERT_ROUTINES,
-    pub pTagGettingRoutines: *mut ::core::option::Option<CS_TAG_GETTING_ROUTINE>,
+    pub pTagGettingRoutines: *mut CS_TAG_GETTING_ROUTINE,
 }
 impl ::core::marker::Copy for NDR_CS_ROUTINES {}
 impl ::core::clone::Clone for NDR_CS_ROUTINES {
@@ -2039,10 +2039,10 @@ impl ::core::clone::Clone for NDR_CS_ROUTINES {
 }
 #[repr(C)]
 pub struct NDR_CS_SIZE_CONVERT_ROUTINES {
-    pub pfnNetSize: ::core::option::Option<CS_TYPE_NET_SIZE_ROUTINE>,
-    pub pfnToNetCs: ::core::option::Option<CS_TYPE_TO_NETCS_ROUTINE>,
-    pub pfnLocalSize: ::core::option::Option<CS_TYPE_LOCAL_SIZE_ROUTINE>,
-    pub pfnFromNetCs: ::core::option::Option<CS_TYPE_FROM_NETCS_ROUTINE>,
+    pub pfnNetSize: CS_TYPE_NET_SIZE_ROUTINE,
+    pub pfnToNetCs: CS_TYPE_TO_NETCS_ROUTINE,
+    pub pfnLocalSize: CS_TYPE_LOCAL_SIZE_ROUTINE,
+    pub pfnFromNetCs: CS_TYPE_FROM_NETCS_ROUTINE,
 }
 impl ::core::marker::Copy for NDR_CS_SIZE_CONVERT_ROUTINES {}
 impl ::core::clone::Clone for NDR_CS_SIZE_CONVERT_ROUTINES {
@@ -2113,7 +2113,7 @@ pub struct NDR_USER_MARSHAL_INFO_LEVEL1 {
     pub BufferSize: u32,
     pub pfnAllocate: isize,
     pub pfnFree: isize,
-    pub pRpcChannelBuffer: ::core::option::Option<super::Com::IRpcChannelBuffer>,
+    pub pRpcChannelBuffer: super::Com::IRpcChannelBuffer,
     pub Reserved: [usize; 5],
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2212,7 +2212,7 @@ pub union RPC_ASYNC_NOTIFICATION_INFO {
     pub IOC: RPC_ASYNC_NOTIFICATION_INFO_1,
     pub IntPtr: RPC_ASYNC_NOTIFICATION_INFO_2,
     pub hEvent: super::super::Foundation::HANDLE,
-    pub NotificationRoutine: ::core::option::Option<PFN_RPCNOTIFICATION_ROUTINE>,
+    pub NotificationRoutine: PFN_RPCNOTIFICATION_ROUTINE,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl ::core::marker::Copy for RPC_ASYNC_NOTIFICATION_INFO {}
@@ -2225,7 +2225,7 @@ impl ::core::clone::Clone for RPC_ASYNC_NOTIFICATION_INFO {
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 pub struct RPC_ASYNC_NOTIFICATION_INFO_0 {
-    pub NotificationRoutine: ::core::option::Option<PFN_RPCNOTIFICATION_ROUTINE>,
+    pub NotificationRoutine: PFN_RPCNOTIFICATION_ROUTINE,
     pub hThread: super::super::Foundation::HANDLE,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -2828,7 +2828,7 @@ pub type RPC_DISPATCH_FUNCTION = unsafe extern "system" fn(message: *mut RPC_MES
 #[repr(C)]
 pub struct RPC_DISPATCH_TABLE {
     pub DispatchTableCount: u32,
-    pub DispatchTable: ::core::option::Option<RPC_DISPATCH_FUNCTION>,
+    pub DispatchTable: RPC_DISPATCH_FUNCTION,
     pub Reserved: isize,
 }
 impl ::core::marker::Copy for RPC_DISPATCH_TABLE {}
@@ -3121,7 +3121,7 @@ pub struct RPC_INTERFACE_TEMPLATEA {
     pub Flags: u32,
     pub MaxCalls: u32,
     pub MaxRpcSize: u32,
-    pub IfCallback: ::core::option::Option<RPC_IF_CALLBACK_FN>,
+    pub IfCallback: RPC_IF_CALLBACK_FN,
     pub UuidVector: *mut UUID_VECTOR,
     pub Annotation: *mut u8,
     pub SecurityDescriptor: *mut ::core::ffi::c_void,
@@ -3141,7 +3141,7 @@ pub struct RPC_INTERFACE_TEMPLATEW {
     pub Flags: u32,
     pub MaxCalls: u32,
     pub MaxRpcSize: u32,
-    pub IfCallback: ::core::option::Option<RPC_IF_CALLBACK_FN>,
+    pub IfCallback: RPC_IF_CALLBACK_FN,
     pub UuidVector: *mut UUID_VECTOR,
     pub Annotation: *mut u16,
     pub SecurityDescriptor: *mut ::core::ffi::c_void,
@@ -3916,10 +3916,10 @@ pub type USER_MARSHAL_FREEING_ROUTINE = unsafe extern "system" fn(param0: *mut u
 pub type USER_MARSHAL_MARSHALLING_ROUTINE = unsafe extern "system" fn(param0: *mut u32, param1: *mut u8, param2: *mut ::core::ffi::c_void) -> *mut u8;
 #[repr(C)]
 pub struct USER_MARSHAL_ROUTINE_QUADRUPLE {
-    pub pfnBufferSize: ::core::option::Option<USER_MARSHAL_SIZING_ROUTINE>,
-    pub pfnMarshall: ::core::option::Option<USER_MARSHAL_MARSHALLING_ROUTINE>,
-    pub pfnUnmarshall: ::core::option::Option<USER_MARSHAL_UNMARSHALLING_ROUTINE>,
-    pub pfnFree: ::core::option::Option<USER_MARSHAL_FREEING_ROUTINE>,
+    pub pfnBufferSize: USER_MARSHAL_SIZING_ROUTINE,
+    pub pfnMarshall: USER_MARSHAL_MARSHALLING_ROUTINE,
+    pub pfnUnmarshall: USER_MARSHAL_UNMARSHALLING_ROUTINE,
+    pub pfnFree: USER_MARSHAL_FREEING_ROUTINE,
 }
 impl ::core::marker::Copy for USER_MARSHAL_ROUTINE_QUADRUPLE {}
 impl ::core::clone::Clone for USER_MARSHAL_ROUTINE_QUADRUPLE {
@@ -3955,10 +3955,10 @@ pub type XMIT_HELPER_ROUTINE = unsafe extern "system" fn(param0: *mut MIDL_STUB_
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 pub struct XMIT_ROUTINE_QUINTUPLE {
-    pub pfnTranslateToXmit: ::core::option::Option<XMIT_HELPER_ROUTINE>,
-    pub pfnTranslateFromXmit: ::core::option::Option<XMIT_HELPER_ROUTINE>,
-    pub pfnFreeXmit: ::core::option::Option<XMIT_HELPER_ROUTINE>,
-    pub pfnFreeInst: ::core::option::Option<XMIT_HELPER_ROUTINE>,
+    pub pfnTranslateToXmit: XMIT_HELPER_ROUTINE,
+    pub pfnTranslateFromXmit: XMIT_HELPER_ROUTINE,
+    pub pfnFreeXmit: XMIT_HELPER_ROUTINE,
+    pub pfnFreeInst: XMIT_HELPER_ROUTINE,
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for XMIT_ROUTINE_QUINTUPLE {}

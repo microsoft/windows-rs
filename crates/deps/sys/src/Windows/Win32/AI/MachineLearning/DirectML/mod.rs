@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -420,7 +420,7 @@ impl ::core::clone::Clone for DML_BINDING_PROPERTIES {
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub struct DML_BINDING_TABLE_DESC {
-    pub Dispatchable: ::core::option::Option<IDMLDispatchable>,
+    pub Dispatchable: IDMLDispatchable,
     pub CPUDescriptorHandle: super::super::super::Graphics::Direct3D12::D3D12_CPU_DESCRIPTOR_HANDLE,
     pub GPUDescriptorHandle: super::super::super::Graphics::Direct3D12::D3D12_GPU_DESCRIPTOR_HANDLE,
     pub SizeInDescriptors: u32,
@@ -461,7 +461,7 @@ impl ::core::clone::Clone for DML_BUFFER_ARRAY_BINDING {
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub struct DML_BUFFER_BINDING {
-    pub Buffer: ::core::option::Option<super::super::super::Graphics::Direct3D12::ID3D12Resource>,
+    pub Buffer: super::super::super::Graphics::Direct3D12::ID3D12Resource,
     pub Offset: u64,
     pub SizeInBytes: u64,
 }
@@ -2041,7 +2041,7 @@ impl ::core::clone::Clone for DML_OPERATOR_DESC {
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DML_OPERATOR_GRAPH_NODE_DESC {
-    pub Operator: ::core::option::Option<IDMLOperator>,
+    pub Operator: IDMLOperator,
     pub Name: super::super::super::Foundation::PSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2796,25 +2796,97 @@ impl ::core::clone::Clone for DML_VALUE_SCALE_2D_OPERATOR_DESC {
 }
 #[repr(transparent)]
 pub struct IDMLBindingTable(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDMLBindingTable {}
+impl ::core::clone::Clone for IDMLBindingTable {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDMLCommandRecorder(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDMLCommandRecorder {}
+impl ::core::clone::Clone for IDMLCommandRecorder {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDMLCompiledOperator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDMLCompiledOperator {}
+impl ::core::clone::Clone for IDMLCompiledOperator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDMLDebugDevice(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDMLDebugDevice {}
+impl ::core::clone::Clone for IDMLDebugDevice {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDMLDevice(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDMLDevice {}
+impl ::core::clone::Clone for IDMLDevice {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDMLDevice1(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDMLDevice1 {}
+impl ::core::clone::Clone for IDMLDevice1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDMLDeviceChild(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDMLDeviceChild {}
+impl ::core::clone::Clone for IDMLDeviceChild {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDMLDispatchable(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDMLDispatchable {}
+impl ::core::clone::Clone for IDMLDispatchable {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDMLObject(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDMLObject {}
+impl ::core::clone::Clone for IDMLObject {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDMLOperator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDMLOperator {}
+impl ::core::clone::Clone for IDMLOperator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDMLOperatorInitializer(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDMLOperatorInitializer {}
+impl ::core::clone::Clone for IDMLOperatorInitializer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDMLPageable(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDMLPageable {}
+impl ::core::clone::Clone for IDMLPageable {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

@@ -1,10 +1,22 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {}
 #[repr(transparent)]
 pub struct ISceSvcAttachmentData(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISceSvcAttachmentData {}
+impl ::core::clone::Clone for ISceSvcAttachmentData {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISceSvcAttachmentPersistInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISceSvcAttachmentPersistInfo {}
+impl ::core::clone::Clone for ISceSvcAttachmentPersistInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub type PFSCE_FREE_INFO = unsafe extern "system" fn(pvserviceinfo: *mut ::core::ffi::c_void) -> u32;
 pub type PFSCE_LOG_INFO = unsafe extern "system" fn(errlevel: SCE_LOG_ERR_LEVEL, win32rc: u32, perrfmt: *mut i8) -> u32;
 #[cfg(feature = "Win32_Foundation")]
@@ -62,10 +74,10 @@ impl ::core::clone::Clone for SCESVC_ANALYSIS_LINE {
 #[cfg(feature = "Win32_Foundation")]
 pub struct SCESVC_CALLBACK_INFO {
     pub sceHandle: *mut ::core::ffi::c_void,
-    pub pfQueryInfo: ::core::option::Option<PFSCE_QUERY_INFO>,
-    pub pfSetInfo: ::core::option::Option<PFSCE_SET_INFO>,
-    pub pfFreeInfo: ::core::option::Option<PFSCE_FREE_INFO>,
-    pub pfLogInfo: ::core::option::Option<PFSCE_LOG_INFO>,
+    pub pfQueryInfo: PFSCE_QUERY_INFO,
+    pub pfSetInfo: PFSCE_SET_INFO,
+    pub pfFreeInfo: PFSCE_FREE_INFO,
+    pub pfLogInfo: PFSCE_LOG_INFO,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SCESVC_CALLBACK_INFO {}
@@ -123,6 +135,6 @@ impl ::core::clone::Clone for SCE_LOG_ERR_LEVEL {
         *self
     }
 }
-pub const cNodetypeSceAnalysisServices: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1736462535, data2: 8184, data3: 4561, data4: [175, 251, 0, 192, 79, 185, 132, 249] };
-pub const cNodetypeSceEventLog: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 752903832, data2: 19443, data3: 4561, data4: [140, 48, 0, 192, 79, 185, 132, 249] };
-pub const cNodetypeSceTemplateServices: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 614987543, data2: 7948, data3: 4561, data4: [175, 251, 0, 192, 79, 185, 132, 249] };
+pub const cNodetypeSceAnalysisServices: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1736462535, data2: 8184, data3: 4561, data4: [175, 251, 0, 192, 79, 185, 132, 249] };
+pub const cNodetypeSceEventLog: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 752903832, data2: 19443, data3: 4561, data4: [140, 48, 0, 192, 79, 185, 132, 249] };
+pub const cNodetypeSceTemplateServices: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 614987543, data2: 7948, data3: 4561, data4: [175, 251, 0, 192, 79, 185, 132, 249] };

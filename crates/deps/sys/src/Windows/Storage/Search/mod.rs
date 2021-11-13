@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {}
 #[repr(transparent)]
@@ -42,8 +42,20 @@ impl ::core::clone::Clone for CommonFolderQuery {
 }
 #[repr(transparent)]
 pub struct ContentIndexer(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ContentIndexer {}
+impl ::core::clone::Clone for ContentIndexer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ContentIndexerQuery(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ContentIndexerQuery {}
+impl ::core::clone::Clone for ContentIndexerQuery {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DateStackOption(pub i32);
 impl DateStackOption {
@@ -71,40 +83,148 @@ impl ::core::clone::Clone for FolderDepth {
 }
 #[repr(transparent)]
 pub struct IContentIndexer(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IContentIndexer {}
+impl ::core::clone::Clone for IContentIndexer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IContentIndexerQuery(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IContentIndexerQuery {}
+impl ::core::clone::Clone for IContentIndexerQuery {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IContentIndexerQueryOperations(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IContentIndexerQueryOperations {}
+impl ::core::clone::Clone for IContentIndexerQueryOperations {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IContentIndexerStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IContentIndexerStatics {}
+impl ::core::clone::Clone for IContentIndexerStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IIndexableContent(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IIndexableContent {}
+impl ::core::clone::Clone for IIndexableContent {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IQueryOptions(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IQueryOptions {}
+impl ::core::clone::Clone for IQueryOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IQueryOptionsFactory(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IQueryOptionsFactory {}
+impl ::core::clone::Clone for IQueryOptionsFactory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IQueryOptionsWithProviderFilter(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IQueryOptionsWithProviderFilter {}
+impl ::core::clone::Clone for IQueryOptionsWithProviderFilter {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IStorageFileQueryResult(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IStorageFileQueryResult {}
+impl ::core::clone::Clone for IStorageFileQueryResult {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IStorageFileQueryResult2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IStorageFileQueryResult2 {}
+impl ::core::clone::Clone for IStorageFileQueryResult2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IStorageFolderQueryOperations(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IStorageFolderQueryOperations {}
+impl ::core::clone::Clone for IStorageFolderQueryOperations {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IStorageFolderQueryResult(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IStorageFolderQueryResult {}
+impl ::core::clone::Clone for IStorageFolderQueryResult {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IStorageItemQueryResult(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IStorageItemQueryResult {}
+impl ::core::clone::Clone for IStorageItemQueryResult {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IStorageLibraryChangeTrackerTriggerDetails(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IStorageLibraryChangeTrackerTriggerDetails {}
+impl ::core::clone::Clone for IStorageLibraryChangeTrackerTriggerDetails {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IStorageLibraryContentChangedTriggerDetails(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IStorageLibraryContentChangedTriggerDetails {}
+impl ::core::clone::Clone for IStorageLibraryContentChangedTriggerDetails {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IStorageQueryResultBase(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IStorageQueryResultBase {}
+impl ::core::clone::Clone for IStorageQueryResultBase {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IValueAndLanguage(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IValueAndLanguage {}
+impl ::core::clone::Clone for IValueAndLanguage {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IndexableContent(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IndexableContent {}
+impl ::core::clone::Clone for IndexableContent {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IndexedState(pub i32);
 impl IndexedState {
@@ -135,6 +255,12 @@ impl ::core::clone::Clone for IndexerOption {
 }
 #[repr(transparent)]
 pub struct QueryOptions(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for QueryOptions {}
+impl ::core::clone::Clone for QueryOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct SortEntry {
     pub PropertyName: ::windows_sys::core::HSTRING,
@@ -148,15 +274,57 @@ impl ::core::clone::Clone for SortEntry {
 }
 #[repr(transparent)]
 pub struct SortEntryVector(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for SortEntryVector {}
+impl ::core::clone::Clone for SortEntryVector {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct StorageFileQueryResult(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for StorageFileQueryResult {}
+impl ::core::clone::Clone for StorageFileQueryResult {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct StorageFolderQueryResult(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for StorageFolderQueryResult {}
+impl ::core::clone::Clone for StorageFolderQueryResult {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct StorageItemQueryResult(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for StorageItemQueryResult {}
+impl ::core::clone::Clone for StorageItemQueryResult {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct StorageLibraryChangeTrackerTriggerDetails(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for StorageLibraryChangeTrackerTriggerDetails {}
+impl ::core::clone::Clone for StorageLibraryChangeTrackerTriggerDetails {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct StorageLibraryContentChangedTriggerDetails(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for StorageLibraryContentChangedTriggerDetails {}
+impl ::core::clone::Clone for StorageLibraryContentChangedTriggerDetails {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ValueAndLanguage(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ValueAndLanguage {}
+impl ::core::clone::Clone for ValueAndLanguage {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

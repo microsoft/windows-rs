@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
     pub fn CoCreateActivity(piunknown: ::windows_sys::core::IUnknown, riid: *const ::windows_sys::core::GUID, ppobj: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
@@ -12,7 +12,7 @@ extern "system" {
     pub fn RecycleSurrogate(lreasoncode: i32) -> ::windows_sys::core::HRESULT;
     pub fn SafeRef(rid: *const ::windows_sys::core::GUID, punk: ::windows_sys::core::IUnknown) -> *mut ::core::ffi::c_void;
 }
-pub const AppDomainHelper: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const AppDomainHelper: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4012177033,
     data2: 5368,
     data3: 19858,
@@ -135,7 +135,7 @@ impl ::core::clone::Clone for AutoSvcs_Error_Constants {
         *self
     }
 }
-pub const ByotServerEx: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3970674858, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
+pub const ByotServerEx: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3970674858, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
 #[repr(C)]
 pub struct CAppData {
     pub m_idApp: u32,
@@ -275,9 +275,9 @@ impl ::core::clone::Clone for COMAdminAuthenticationLevelOptions {
         *self
     }
 }
-pub const COMAdminCatalog: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4128818452, data2: 57272, data3: 4561, data4: [162, 207, 0, 128, 95, 199, 146, 53] };
-pub const COMAdminCatalogCollection: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4128818454, data2: 57272, data3: 4561, data4: [162, 207, 0, 128, 95, 199, 146, 53] };
-pub const COMAdminCatalogObject: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4128818453, data2: 57272, data3: 4561, data4: [162, 207, 0, 128, 95, 199, 146, 53] };
+pub const COMAdminCatalog: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4128818452, data2: 57272, data3: 4561, data4: [162, 207, 0, 128, 95, 199, 146, 53] };
+pub const COMAdminCatalogCollection: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4128818454, data2: 57272, data3: 4561, data4: [162, 207, 0, 128, 95, 199, 146, 53] };
+pub const COMAdminCatalogObject: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4128818453, data2: 57272, data3: 4561, data4: [162, 207, 0, 128, 95, 199, 146, 53] };
 #[repr(transparent)]
 pub struct COMAdminComponentFlags(pub i32);
 pub const COMAdminCompFlagTypeInfoFound: COMAdminComponentFlags = COMAdminComponentFlags(1i32);
@@ -585,7 +585,7 @@ impl ::core::clone::Clone for COMAdminTxIsolationLevelOptions {
         *self
     }
 }
-pub const COMEvents: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3970674859, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
+pub const COMEvents: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3970674859, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
 #[repr(transparent)]
 pub struct COMPLUS_APPTYPE(pub i32);
 pub const APPTYPE_UNKNOWN: COMPLUS_APPTYPE = COMPLUS_APPTYPE(-1i32);
@@ -617,7 +617,7 @@ impl ::core::clone::Clone for COMSVCSEVENTINFO {
         *self
     }
 }
-pub const CRMClerk: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3970674877, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
+pub const CRMClerk: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3970674877, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
 #[repr(transparent)]
 pub struct CRMFLAGS(pub i32);
 pub const CRMFLAG_FORGETTARGET: CRMFLAGS = CRMFLAGS(1i32);
@@ -646,7 +646,7 @@ impl ::core::clone::Clone for CRMREGFLAGS {
         *self
     }
 }
-pub const CRMRecoveryClerk: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3970674878, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
+pub const CRMRecoveryClerk: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3970674878, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
 pub const CRR_ACTIVATION_LIMIT: u32 = 4294967294u32;
 pub const CRR_CALL_LIMIT: u32 = 4294967293u32;
 pub const CRR_LIFETIME_LIMIT: u32 = 4294967295u32;
@@ -761,11 +761,11 @@ impl ::core::clone::Clone for CSC_TransactionConfig {
         *self
     }
 }
-pub const CServiceConfig: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3970674888, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
-pub const ClrAssemblyLocator: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1166713781, data2: 9818, data3: 19317, data4: [188, 5, 155, 234, 70, 48, 207, 24] };
-pub const CoMTSLocator: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3970674860, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
-pub const ComServiceEvents: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3970674883, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
-pub const ComSystemAppEventData: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3970674886, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
+pub const CServiceConfig: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3970674888, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
+pub const ClrAssemblyLocator: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1166713781, data2: 9818, data3: 19317, data4: [188, 5, 155, 234, 70, 48, 207, 24] };
+pub const CoMTSLocator: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3970674860, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
+pub const ComServiceEvents: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3970674883, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
+pub const ComSystemAppEventData: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3970674886, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ComponentHangMonitorInfo {
@@ -823,8 +823,20 @@ impl ::core::clone::Clone for ComponentSummary {
 }
 #[repr(transparent)]
 pub struct ContextInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ContextInfo {}
+impl ::core::clone::Clone for ContextInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ContextInfo2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ContextInfo2 {}
+impl ::core::clone::Clone for ContextInfo2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 pub struct CrmLogRecordRead {
@@ -864,9 +876,9 @@ impl ::core::clone::Clone for DUMPTYPE {
         *self
     }
 }
-pub const DispenserManager: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3970674880, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
-pub const Dummy30040732: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3970674857, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
-pub const EventServer: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3970674620, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
+pub const DispenserManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3970674880, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
+pub const Dummy30040732: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3970674857, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
+pub const EventServer: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3970674620, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
 pub const GUID_STRING_SIZE: u32 = 40u32;
 #[repr(transparent)]
 pub struct GetAppTrackerDataFlags(pub i32);
@@ -881,7 +893,7 @@ impl ::core::clone::Clone for GetAppTrackerDataFlags {
         *self
     }
 }
-pub const GetSecurityCallContextAppObject: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3970674856, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
+pub const GetSecurityCallContextAppObject: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3970674856, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HANG_INFO {
@@ -902,241 +914,949 @@ impl ::core::clone::Clone for HANG_INFO {
 }
 #[repr(transparent)]
 pub struct IAppDomainHelper(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAppDomainHelper {}
+impl ::core::clone::Clone for IAppDomainHelper {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAssemblyLocator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAssemblyLocator {}
+impl ::core::clone::Clone for IAssemblyLocator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAsyncErrorNotify(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAsyncErrorNotify {}
+impl ::core::clone::Clone for IAsyncErrorNotify {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICOMAdminCatalog(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICOMAdminCatalog {}
+impl ::core::clone::Clone for ICOMAdminCatalog {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICOMAdminCatalog2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICOMAdminCatalog2 {}
+impl ::core::clone::Clone for ICOMAdminCatalog2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICOMLBArguments(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICOMLBArguments {}
+impl ::core::clone::Clone for ICOMLBArguments {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICatalogCollection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICatalogCollection {}
+impl ::core::clone::Clone for ICatalogCollection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICatalogObject(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICatalogObject {}
+impl ::core::clone::Clone for ICatalogObject {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICheckSxsConfig(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICheckSxsConfig {}
+impl ::core::clone::Clone for ICheckSxsConfig {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IComActivityEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IComActivityEvents {}
+impl ::core::clone::Clone for IComActivityEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IComApp2Events(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IComApp2Events {}
+impl ::core::clone::Clone for IComApp2Events {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IComAppEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IComAppEvents {}
+impl ::core::clone::Clone for IComAppEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IComCRMEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IComCRMEvents {}
+impl ::core::clone::Clone for IComCRMEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IComExceptionEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IComExceptionEvents {}
+impl ::core::clone::Clone for IComExceptionEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IComIdentityEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IComIdentityEvents {}
+impl ::core::clone::Clone for IComIdentityEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IComInstance2Events(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IComInstance2Events {}
+impl ::core::clone::Clone for IComInstance2Events {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IComInstanceEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IComInstanceEvents {}
+impl ::core::clone::Clone for IComInstanceEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IComLTxEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IComLTxEvents {}
+impl ::core::clone::Clone for IComLTxEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IComMethod2Events(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IComMethod2Events {}
+impl ::core::clone::Clone for IComMethod2Events {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IComMethodEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IComMethodEvents {}
+impl ::core::clone::Clone for IComMethodEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IComMtaThreadPoolKnobs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IComMtaThreadPoolKnobs {}
+impl ::core::clone::Clone for IComMtaThreadPoolKnobs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IComObjectConstruction2Events(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IComObjectConstruction2Events {}
+impl ::core::clone::Clone for IComObjectConstruction2Events {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IComObjectConstructionEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IComObjectConstructionEvents {}
+impl ::core::clone::Clone for IComObjectConstructionEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IComObjectEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IComObjectEvents {}
+impl ::core::clone::Clone for IComObjectEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IComObjectPool2Events(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IComObjectPool2Events {}
+impl ::core::clone::Clone for IComObjectPool2Events {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IComObjectPoolEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IComObjectPoolEvents {}
+impl ::core::clone::Clone for IComObjectPoolEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IComObjectPoolEvents2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IComObjectPoolEvents2 {}
+impl ::core::clone::Clone for IComObjectPoolEvents2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IComQCEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IComQCEvents {}
+impl ::core::clone::Clone for IComQCEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IComResourceEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IComResourceEvents {}
+impl ::core::clone::Clone for IComResourceEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IComSecurityEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IComSecurityEvents {}
+impl ::core::clone::Clone for IComSecurityEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IComStaThreadPoolKnobs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IComStaThreadPoolKnobs {}
+impl ::core::clone::Clone for IComStaThreadPoolKnobs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IComStaThreadPoolKnobs2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IComStaThreadPoolKnobs2 {}
+impl ::core::clone::Clone for IComStaThreadPoolKnobs2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IComThreadEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IComThreadEvents {}
+impl ::core::clone::Clone for IComThreadEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IComTrackingInfoCollection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IComTrackingInfoCollection {}
+impl ::core::clone::Clone for IComTrackingInfoCollection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IComTrackingInfoEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IComTrackingInfoEvents {}
+impl ::core::clone::Clone for IComTrackingInfoEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IComTrackingInfoObject(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IComTrackingInfoObject {}
+impl ::core::clone::Clone for IComTrackingInfoObject {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IComTrackingInfoProperties(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IComTrackingInfoProperties {}
+impl ::core::clone::Clone for IComTrackingInfoProperties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IComTransaction2Events(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IComTransaction2Events {}
+impl ::core::clone::Clone for IComTransaction2Events {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IComTransactionEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IComTransactionEvents {}
+impl ::core::clone::Clone for IComTransactionEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IComUserEvent(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IComUserEvent {}
+impl ::core::clone::Clone for IComUserEvent {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IContextProperties(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IContextProperties {}
+impl ::core::clone::Clone for IContextProperties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IContextSecurityPerimeter(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IContextSecurityPerimeter {}
+impl ::core::clone::Clone for IContextSecurityPerimeter {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IContextState(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IContextState {}
+impl ::core::clone::Clone for IContextState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICreateWithLocalTransaction(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICreateWithLocalTransaction {}
+impl ::core::clone::Clone for ICreateWithLocalTransaction {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICreateWithTipTransactionEx(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICreateWithTipTransactionEx {}
+impl ::core::clone::Clone for ICreateWithTipTransactionEx {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICreateWithTransactionEx(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICreateWithTransactionEx {}
+impl ::core::clone::Clone for ICreateWithTransactionEx {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICrmCompensator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICrmCompensator {}
+impl ::core::clone::Clone for ICrmCompensator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICrmCompensatorVariants(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICrmCompensatorVariants {}
+impl ::core::clone::Clone for ICrmCompensatorVariants {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICrmFormatLogRecords(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICrmFormatLogRecords {}
+impl ::core::clone::Clone for ICrmFormatLogRecords {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICrmLogControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICrmLogControl {}
+impl ::core::clone::Clone for ICrmLogControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICrmMonitor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICrmMonitor {}
+impl ::core::clone::Clone for ICrmMonitor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICrmMonitorClerks(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICrmMonitorClerks {}
+impl ::core::clone::Clone for ICrmMonitorClerks {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICrmMonitorLogRecords(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICrmMonitorLogRecords {}
+impl ::core::clone::Clone for ICrmMonitorLogRecords {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDispenserDriver(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDispenserDriver {}
+impl ::core::clone::Clone for IDispenserDriver {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDispenserManager(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDispenserManager {}
+impl ::core::clone::Clone for IDispenserManager {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEnumNames(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnumNames {}
+impl ::core::clone::Clone for IEnumNames {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEventServerTrace(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEventServerTrace {}
+impl ::core::clone::Clone for IEventServerTrace {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGetAppTrackerData(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGetAppTrackerData {}
+impl ::core::clone::Clone for IGetAppTrackerData {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGetContextProperties(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGetContextProperties {}
+impl ::core::clone::Clone for IGetContextProperties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGetSecurityCallContext(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGetSecurityCallContext {}
+impl ::core::clone::Clone for IGetSecurityCallContext {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IHolder(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IHolder {}
+impl ::core::clone::Clone for IHolder {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ILBEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ILBEvents {}
+impl ::core::clone::Clone for ILBEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMTSActivity(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMTSActivity {}
+impl ::core::clone::Clone for IMTSActivity {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMTSCall(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMTSCall {}
+impl ::core::clone::Clone for IMTSCall {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMTSLocator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMTSLocator {}
+impl ::core::clone::Clone for IMTSLocator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IManagedActivationEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IManagedActivationEvents {}
+impl ::core::clone::Clone for IManagedActivationEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IManagedObjectInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IManagedObjectInfo {}
+impl ::core::clone::Clone for IManagedObjectInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IManagedPoolAction(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IManagedPoolAction {}
+impl ::core::clone::Clone for IManagedPoolAction {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IManagedPooledObj(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IManagedPooledObj {}
+impl ::core::clone::Clone for IManagedPooledObj {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMessageMover(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMessageMover {}
+impl ::core::clone::Clone for IMessageMover {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMtsEventInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMtsEventInfo {}
+impl ::core::clone::Clone for IMtsEventInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMtsEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMtsEvents {}
+impl ::core::clone::Clone for IMtsEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMtsGrp(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMtsGrp {}
+impl ::core::clone::Clone for IMtsGrp {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IObjPool(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IObjPool {}
+impl ::core::clone::Clone for IObjPool {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IObjectConstruct(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IObjectConstruct {}
+impl ::core::clone::Clone for IObjectConstruct {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IObjectConstructString(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IObjectConstructString {}
+impl ::core::clone::Clone for IObjectConstructString {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IObjectContext(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IObjectContext {}
+impl ::core::clone::Clone for IObjectContext {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IObjectContextActivity(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IObjectContextActivity {}
+impl ::core::clone::Clone for IObjectContextActivity {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IObjectContextInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IObjectContextInfo {}
+impl ::core::clone::Clone for IObjectContextInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IObjectContextInfo2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IObjectContextInfo2 {}
+impl ::core::clone::Clone for IObjectContextInfo2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IObjectContextTip(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IObjectContextTip {}
+impl ::core::clone::Clone for IObjectContextTip {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IObjectControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IObjectControl {}
+impl ::core::clone::Clone for IObjectControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPlaybackControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPlaybackControl {}
+impl ::core::clone::Clone for IPlaybackControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPoolManager(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPoolManager {}
+impl ::core::clone::Clone for IPoolManager {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IProcessInitializer(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IProcessInitializer {}
+impl ::core::clone::Clone for IProcessInitializer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISecurityCallContext(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISecurityCallContext {}
+impl ::core::clone::Clone for ISecurityCallContext {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISecurityCallersColl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISecurityCallersColl {}
+impl ::core::clone::Clone for ISecurityCallersColl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISecurityIdentityColl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISecurityIdentityColl {}
+impl ::core::clone::Clone for ISecurityIdentityColl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISecurityProperty(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISecurityProperty {}
+impl ::core::clone::Clone for ISecurityProperty {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISelectCOMLBServer(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISelectCOMLBServer {}
+impl ::core::clone::Clone for ISelectCOMLBServer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISendMethodEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISendMethodEvents {}
+impl ::core::clone::Clone for ISendMethodEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IServiceActivity(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IServiceActivity {}
+impl ::core::clone::Clone for IServiceActivity {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IServiceCall(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IServiceCall {}
+impl ::core::clone::Clone for IServiceCall {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IServiceComTIIntrinsicsConfig(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IServiceComTIIntrinsicsConfig {}
+impl ::core::clone::Clone for IServiceComTIIntrinsicsConfig {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IServiceIISIntrinsicsConfig(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IServiceIISIntrinsicsConfig {}
+impl ::core::clone::Clone for IServiceIISIntrinsicsConfig {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IServiceInheritanceConfig(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IServiceInheritanceConfig {}
+impl ::core::clone::Clone for IServiceInheritanceConfig {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IServicePartitionConfig(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IServicePartitionConfig {}
+impl ::core::clone::Clone for IServicePartitionConfig {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IServicePool(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IServicePool {}
+impl ::core::clone::Clone for IServicePool {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IServicePoolConfig(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IServicePoolConfig {}
+impl ::core::clone::Clone for IServicePoolConfig {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IServiceSxsConfig(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IServiceSxsConfig {}
+impl ::core::clone::Clone for IServiceSxsConfig {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IServiceSynchronizationConfig(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IServiceSynchronizationConfig {}
+impl ::core::clone::Clone for IServiceSynchronizationConfig {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IServiceSysTxnConfig(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IServiceSysTxnConfig {}
+impl ::core::clone::Clone for IServiceSysTxnConfig {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IServiceThreadPoolConfig(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IServiceThreadPoolConfig {}
+impl ::core::clone::Clone for IServiceThreadPoolConfig {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IServiceTrackerConfig(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IServiceTrackerConfig {}
+impl ::core::clone::Clone for IServiceTrackerConfig {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IServiceTransactionConfig(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IServiceTransactionConfig {}
+impl ::core::clone::Clone for IServiceTransactionConfig {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IServiceTransactionConfigBase(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IServiceTransactionConfigBase {}
+impl ::core::clone::Clone for IServiceTransactionConfigBase {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISharedProperty(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISharedProperty {}
+impl ::core::clone::Clone for ISharedProperty {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISharedPropertyGroup(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISharedPropertyGroup {}
+impl ::core::clone::Clone for ISharedPropertyGroup {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISharedPropertyGroupManager(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISharedPropertyGroupManager {}
+impl ::core::clone::Clone for ISharedPropertyGroupManager {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISystemAppEventData(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISystemAppEventData {}
+impl ::core::clone::Clone for ISystemAppEventData {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IThreadPoolKnobs(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IThreadPoolKnobs {}
+impl ::core::clone::Clone for IThreadPoolKnobs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITransactionContext(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITransactionContext {}
+impl ::core::clone::Clone for ITransactionContext {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITransactionContextEx(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITransactionContextEx {}
+impl ::core::clone::Clone for ITransactionContextEx {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITransactionProperty(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITransactionProperty {}
+impl ::core::clone::Clone for ITransactionProperty {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITransactionProxy(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITransactionProxy {}
+impl ::core::clone::Clone for ITransactionProxy {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITransactionResourcePool(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITransactionResourcePool {}
+impl ::core::clone::Clone for ITransactionResourcePool {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITransactionStatus(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITransactionStatus {}
+impl ::core::clone::Clone for ITransactionStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITxProxyHolder(pub *mut ::core::ffi::c_void);
-pub const LBEvents: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3970674881, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
+impl ::core::marker::Copy for ITxProxyHolder {}
+impl ::core::clone::Clone for ITxProxyHolder {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+pub const LBEvents: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3970674881, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
 #[repr(transparent)]
 pub struct LockModes(pub i32);
 pub const LockSetGet: LockModes = LockModes(0i32);
@@ -1148,13 +1868,25 @@ impl ::core::clone::Clone for LockModes {
     }
 }
 pub const MTXDM_E_ENLISTRESOURCEFAILED: u32 = 2147803392u32;
-pub const MessageMover: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3970674879, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
-pub const MtsGrp: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1261344141, data2: 915, data3: 4561, data4: [177, 171, 0, 170, 0, 186, 50, 88] };
+pub const MessageMover: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3970674879, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
+pub const MtsGrp: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1261344141, data2: 915, data3: 4561, data4: [177, 171, 0, 170, 0, 186, 50, 88] };
 #[repr(transparent)]
 pub struct ObjectContext(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ObjectContext {}
+impl ::core::clone::Clone for ObjectContext {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ObjectControl(pub *mut ::core::ffi::c_void);
-pub const PoolMgr: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3970674613, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
+impl ::core::marker::Copy for ObjectControl {}
+impl ::core::clone::Clone for ObjectControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+pub const PoolMgr: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3970674613, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
 #[repr(C)]
 pub struct RECYCLE_INFO {
     pub guidCombaseProcessIdentifier: ::windows_sys::core::GUID,
@@ -1179,16 +1911,22 @@ impl ::core::clone::Clone for ReleaseModes {
         *self
     }
 }
-pub const SecurityCallContext: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3970674855, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
-pub const SecurityCallers: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3970674854, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
-pub const SecurityIdentity: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3970674853, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
+pub const SecurityCallContext: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3970674855, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
+pub const SecurityCallers: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3970674854, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
+pub const SecurityIdentity: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3970674853, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
 #[repr(transparent)]
 pub struct SecurityProperty(pub *mut ::core::ffi::c_void);
-pub const ServicePool: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3970674889, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
-pub const ServicePoolConfig: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3970674890, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
-pub const SharedProperty: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 704666629, data2: 42462, data3: 4559, data4: [158, 102, 0, 170, 0, 163, 244, 100] };
-pub const SharedPropertyGroup: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 704666635, data2: 42462, data3: 4559, data4: [158, 102, 0, 170, 0, 163, 244, 100] };
-pub const SharedPropertyGroupManager: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 704666641, data2: 42462, data3: 4559, data4: [158, 102, 0, 170, 0, 163, 244, 100] };
+impl ::core::marker::Copy for SecurityProperty {}
+impl ::core::clone::Clone for SecurityProperty {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+pub const ServicePool: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3970674889, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
+pub const ServicePoolConfig: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3970674890, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
+pub const SharedProperty: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 704666629, data2: 42462, data3: 4559, data4: [158, 102, 0, 170, 0, 163, 244, 100] };
+pub const SharedPropertyGroup: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 704666635, data2: 42462, data3: 4559, data4: [158, 102, 0, 170, 0, 163, 244, 100] };
+pub const SharedPropertyGroupManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 704666641, data2: 42462, data3: 4559, data4: [158, 102, 0, 170, 0, 163, 244, 100] };
 #[repr(transparent)]
 pub struct TRACKING_COLL_TYPE(pub i32);
 pub const TRKCOLL_PROCESSES: TRACKING_COLL_TYPE = TRACKING_COLL_TYPE(0i32);
@@ -1200,9 +1938,9 @@ impl ::core::clone::Clone for TRACKING_COLL_TYPE {
         *self
     }
 }
-pub const TrackerServer: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3970674617, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
-pub const TransactionContext: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2040134693, data2: 54214, data3: 4559, data4: [172, 171, 0, 160, 36, 165, 90, 239] };
-pub const TransactionContextEx: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1555457648, data2: 54228, data3: 4559, data4: [172, 171, 0, 160, 36, 165, 90, 239] };
+pub const TrackerServer: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3970674617, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
+pub const TransactionContext: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2040134693, data2: 54214, data3: 4559, data4: [172, 171, 0, 160, 36, 165, 90, 239] };
+pub const TransactionContextEx: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1555457648, data2: 54228, data3: 4559, data4: [172, 171, 0, 160, 36, 165, 90, 239] };
 #[repr(transparent)]
 pub struct TransactionVote(pub i32);
 pub const TxCommit: TransactionVote = TransactionVote(0i32);

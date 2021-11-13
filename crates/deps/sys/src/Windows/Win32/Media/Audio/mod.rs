@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[cfg(feature = "Win32_Media_Audio_Apo")]
 pub mod Apo;
 #[cfg(feature = "Win32_Media_Audio_DirectMusic")]
@@ -423,7 +423,7 @@ pub struct ACMFILTERCHOOSEA {
     pub hInstance: super::super::Foundation::HINSTANCE,
     pub pszTemplateName: super::super::Foundation::PSTR,
     pub lCustData: super::super::Foundation::LPARAM,
-    pub pfnHook: ::core::option::Option<ACMFILTERCHOOSEHOOKPROCA>,
+    pub pfnHook: ACMFILTERCHOOSEHOOKPROCA,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for ACMFILTERCHOOSEA {}
@@ -455,7 +455,7 @@ pub struct ACMFILTERCHOOSEW {
     pub hInstance: super::super::Foundation::HINSTANCE,
     pub pszTemplateName: super::super::Foundation::PWSTR,
     pub lCustData: super::super::Foundation::LPARAM,
-    pub pfnHook: ::core::option::Option<ACMFILTERCHOOSEHOOKPROCW>,
+    pub pfnHook: ACMFILTERCHOOSEHOOKPROCW,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for ACMFILTERCHOOSEW {}
@@ -569,7 +569,7 @@ pub struct ACMFORMATCHOOSEA {
     pub hInstance: super::super::Foundation::HINSTANCE,
     pub pszTemplateName: super::super::Foundation::PSTR,
     pub lCustData: super::super::Foundation::LPARAM,
-    pub pfnHook: ::core::option::Option<ACMFORMATCHOOSEHOOKPROCA>,
+    pub pfnHook: ACMFORMATCHOOSEHOOKPROCA,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for ACMFORMATCHOOSEA {}
@@ -601,7 +601,7 @@ pub struct ACMFORMATCHOOSEW {
     pub hInstance: super::super::Foundation::HINSTANCE,
     pub pszTemplateName: super::super::Foundation::PWSTR,
     pub lCustData: super::super::Foundation::LPARAM,
-    pub pfnHook: ::core::option::Option<ACMFORMATCHOOSEHOOKPROCW>,
+    pub pfnHook: ACMFORMATCHOOSEHOOKPROCW,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for ACMFORMATCHOOSEW {}
@@ -1147,9 +1147,9 @@ impl ::core::clone::Clone for AudioClientProperties {
 #[cfg(feature = "Win32_Foundation")]
 pub struct AudioExtensionParams {
     pub AddPageParam: super::super::Foundation::LPARAM,
-    pub pEndpoint: ::core::option::Option<IMMDevice>,
-    pub pPnpInterface: ::core::option::Option<IMMDevice>,
-    pub pPnpDevnode: ::core::option::Option<IMMDevice>,
+    pub pEndpoint: IMMDevice,
+    pub pPnpInterface: IMMDevice,
+    pub pPnpDevnode: IMMDevice,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for AudioExtensionParams {}
@@ -1243,15 +1243,15 @@ pub const DEVICE_STATE_ACTIVE: u32 = 1u32;
 pub const DEVICE_STATE_DISABLED: u32 = 2u32;
 pub const DEVICE_STATE_NOTPRESENT: u32 = 4u32;
 pub const DEVICE_STATE_UNPLUGGED: u32 = 8u32;
-pub const DEVINTERFACE_AUDIO_CAPTURE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 787448254, data2: 13306, data3: 18432, data4: [150, 112, 28, 212, 116, 151, 44, 63] };
-pub const DEVINTERFACE_AUDIO_RENDER: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const DEVINTERFACE_AUDIO_CAPTURE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 787448254, data2: 13306, data3: 18432, data4: [150, 112, 28, 212, 116, 151, 44, 63] };
+pub const DEVINTERFACE_AUDIO_RENDER: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3862068397,
     data2: 56556,
     data3: 18761,
     data4: [174, 138, 153, 30, 151, 106, 121, 210],
 };
-pub const DEVINTERFACE_MIDI_INPUT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1347150636, data2: 52470, data3: 19756, data4: [183, 63, 111, 139, 55, 71, 226, 43] };
-pub const DEVINTERFACE_MIDI_OUTPUT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const DEVINTERFACE_MIDI_INPUT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1347150636, data2: 52470, data3: 19756, data4: [183, 63, 111, 139, 55, 71, 226, 43] };
+pub const DEVINTERFACE_MIDI_OUTPUT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1841443616,
     data2: 43827,
     data3: 19684,
@@ -1283,7 +1283,7 @@ impl ::core::clone::Clone for DataFlow {
         *self
     }
 }
-pub const DeviceTopology: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const DeviceTopology: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 502675920,
     data2: 24257,
     data3: 18346,
@@ -1331,7 +1331,7 @@ impl ::core::clone::Clone for ERole {
         *self
     }
 }
-pub const EVENTCONTEXT_VOLUMESLIDER: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3804424670, data2: 2481, data3: 19204, data4: [132, 229, 7, 147, 18, 37, 238, 4] };
+pub const EVENTCONTEXT_VOLUMESLIDER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3804424670, data2: 2481, data3: 19204, data4: [132, 229, 7, 147, 18, 37, 238, 4] };
 #[repr(transparent)]
 pub struct EndpointFormFactor(pub i32);
 pub const RemoteNetworkDevice: EndpointFormFactor = EndpointFormFactor(0i32);
@@ -1466,152 +1466,596 @@ impl ::core::clone::Clone for HWAVEOUT {
 }
 #[repr(transparent)]
 pub struct IActivateAudioInterfaceAsyncOperation(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IActivateAudioInterfaceAsyncOperation {}
+impl ::core::clone::Clone for IActivateAudioInterfaceAsyncOperation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IActivateAudioInterfaceCompletionHandler(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IActivateAudioInterfaceCompletionHandler {}
+impl ::core::clone::Clone for IActivateAudioInterfaceCompletionHandler {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAudioAmbisonicsControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAudioAmbisonicsControl {}
+impl ::core::clone::Clone for IAudioAmbisonicsControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAudioAutoGainControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAudioAutoGainControl {}
+impl ::core::clone::Clone for IAudioAutoGainControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAudioBass(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAudioBass {}
+impl ::core::clone::Clone for IAudioBass {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAudioCaptureClient(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAudioCaptureClient {}
+impl ::core::clone::Clone for IAudioCaptureClient {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAudioChannelConfig(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAudioChannelConfig {}
+impl ::core::clone::Clone for IAudioChannelConfig {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAudioClient(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAudioClient {}
+impl ::core::clone::Clone for IAudioClient {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAudioClient2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAudioClient2 {}
+impl ::core::clone::Clone for IAudioClient2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAudioClient3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAudioClient3 {}
+impl ::core::clone::Clone for IAudioClient3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAudioClientDuckingControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAudioClientDuckingControl {}
+impl ::core::clone::Clone for IAudioClientDuckingControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAudioClock(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAudioClock {}
+impl ::core::clone::Clone for IAudioClock {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAudioClock2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAudioClock2 {}
+impl ::core::clone::Clone for IAudioClock2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAudioClockAdjustment(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAudioClockAdjustment {}
+impl ::core::clone::Clone for IAudioClockAdjustment {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAudioEffectsChangedNotificationClient(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAudioEffectsChangedNotificationClient {}
+impl ::core::clone::Clone for IAudioEffectsChangedNotificationClient {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAudioEffectsManager(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAudioEffectsManager {}
+impl ::core::clone::Clone for IAudioEffectsManager {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAudioFormatEnumerator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAudioFormatEnumerator {}
+impl ::core::clone::Clone for IAudioFormatEnumerator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAudioInputSelector(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAudioInputSelector {}
+impl ::core::clone::Clone for IAudioInputSelector {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAudioLoudness(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAudioLoudness {}
+impl ::core::clone::Clone for IAudioLoudness {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAudioMidrange(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAudioMidrange {}
+impl ::core::clone::Clone for IAudioMidrange {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAudioMute(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAudioMute {}
+impl ::core::clone::Clone for IAudioMute {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAudioOutputSelector(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAudioOutputSelector {}
+impl ::core::clone::Clone for IAudioOutputSelector {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAudioPeakMeter(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAudioPeakMeter {}
+impl ::core::clone::Clone for IAudioPeakMeter {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAudioRenderClient(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAudioRenderClient {}
+impl ::core::clone::Clone for IAudioRenderClient {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAudioSessionControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAudioSessionControl {}
+impl ::core::clone::Clone for IAudioSessionControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAudioSessionControl2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAudioSessionControl2 {}
+impl ::core::clone::Clone for IAudioSessionControl2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAudioSessionEnumerator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAudioSessionEnumerator {}
+impl ::core::clone::Clone for IAudioSessionEnumerator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAudioSessionEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAudioSessionEvents {}
+impl ::core::clone::Clone for IAudioSessionEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAudioSessionManager(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAudioSessionManager {}
+impl ::core::clone::Clone for IAudioSessionManager {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAudioSessionManager2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAudioSessionManager2 {}
+impl ::core::clone::Clone for IAudioSessionManager2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAudioSessionNotification(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAudioSessionNotification {}
+impl ::core::clone::Clone for IAudioSessionNotification {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAudioStateMonitor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAudioStateMonitor {}
+impl ::core::clone::Clone for IAudioStateMonitor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAudioStreamVolume(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAudioStreamVolume {}
+impl ::core::clone::Clone for IAudioStreamVolume {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAudioSystemEffectsPropertyChangeNotificationClient(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAudioSystemEffectsPropertyChangeNotificationClient {}
+impl ::core::clone::Clone for IAudioSystemEffectsPropertyChangeNotificationClient {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAudioSystemEffectsPropertyStore(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAudioSystemEffectsPropertyStore {}
+impl ::core::clone::Clone for IAudioSystemEffectsPropertyStore {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAudioTreble(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAudioTreble {}
+impl ::core::clone::Clone for IAudioTreble {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAudioVolumeDuckNotification(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAudioVolumeDuckNotification {}
+impl ::core::clone::Clone for IAudioVolumeDuckNotification {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IAudioVolumeLevel(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAudioVolumeLevel {}
+impl ::core::clone::Clone for IAudioVolumeLevel {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IChannelAudioVolume(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IChannelAudioVolume {}
+impl ::core::clone::Clone for IChannelAudioVolume {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IConnector(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IConnector {}
+impl ::core::clone::Clone for IConnector {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IControlChangeNotify(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IControlChangeNotify {}
+impl ::core::clone::Clone for IControlChangeNotify {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IControlInterface(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IControlInterface {}
+impl ::core::clone::Clone for IControlInterface {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDeviceSpecificProperty(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDeviceSpecificProperty {}
+impl ::core::clone::Clone for IDeviceSpecificProperty {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDeviceTopology(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDeviceTopology {}
+impl ::core::clone::Clone for IDeviceTopology {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMMDevice(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMMDevice {}
+impl ::core::clone::Clone for IMMDevice {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMMDeviceActivator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMMDeviceActivator {}
+impl ::core::clone::Clone for IMMDeviceActivator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMMDeviceCollection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMMDeviceCollection {}
+impl ::core::clone::Clone for IMMDeviceCollection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMMDeviceEnumerator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMMDeviceEnumerator {}
+impl ::core::clone::Clone for IMMDeviceEnumerator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMMEndpoint(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMMEndpoint {}
+impl ::core::clone::Clone for IMMEndpoint {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMMNotificationClient(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMMNotificationClient {}
+impl ::core::clone::Clone for IMMNotificationClient {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMessageFilter(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMessageFilter {}
+impl ::core::clone::Clone for IMessageFilter {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPart(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPart {}
+impl ::core::clone::Clone for IPart {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPartsList(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPartsList {}
+impl ::core::clone::Clone for IPartsList {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPerChannelDbLevel(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPerChannelDbLevel {}
+impl ::core::clone::Clone for IPerChannelDbLevel {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISimpleAudioVolume(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISimpleAudioVolume {}
+impl ::core::clone::Clone for ISimpleAudioVolume {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpatialAudioClient(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpatialAudioClient {}
+impl ::core::clone::Clone for ISpatialAudioClient {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpatialAudioClient2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpatialAudioClient2 {}
+impl ::core::clone::Clone for ISpatialAudioClient2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpatialAudioMetadataClient(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpatialAudioMetadataClient {}
+impl ::core::clone::Clone for ISpatialAudioMetadataClient {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpatialAudioMetadataCopier(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpatialAudioMetadataCopier {}
+impl ::core::clone::Clone for ISpatialAudioMetadataCopier {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpatialAudioMetadataItems(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpatialAudioMetadataItems {}
+impl ::core::clone::Clone for ISpatialAudioMetadataItems {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpatialAudioMetadataItemsBuffer(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpatialAudioMetadataItemsBuffer {}
+impl ::core::clone::Clone for ISpatialAudioMetadataItemsBuffer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpatialAudioMetadataReader(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpatialAudioMetadataReader {}
+impl ::core::clone::Clone for ISpatialAudioMetadataReader {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpatialAudioMetadataWriter(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpatialAudioMetadataWriter {}
+impl ::core::clone::Clone for ISpatialAudioMetadataWriter {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpatialAudioObject(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpatialAudioObject {}
+impl ::core::clone::Clone for ISpatialAudioObject {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpatialAudioObjectBase(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpatialAudioObjectBase {}
+impl ::core::clone::Clone for ISpatialAudioObjectBase {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpatialAudioObjectForHrtf(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpatialAudioObjectForHrtf {}
+impl ::core::clone::Clone for ISpatialAudioObjectForHrtf {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpatialAudioObjectForMetadataCommands(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpatialAudioObjectForMetadataCommands {}
+impl ::core::clone::Clone for ISpatialAudioObjectForMetadataCommands {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpatialAudioObjectForMetadataItems(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpatialAudioObjectForMetadataItems {}
+impl ::core::clone::Clone for ISpatialAudioObjectForMetadataItems {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpatialAudioObjectRenderStream(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpatialAudioObjectRenderStream {}
+impl ::core::clone::Clone for ISpatialAudioObjectRenderStream {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpatialAudioObjectRenderStreamBase(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpatialAudioObjectRenderStreamBase {}
+impl ::core::clone::Clone for ISpatialAudioObjectRenderStreamBase {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpatialAudioObjectRenderStreamForHrtf(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpatialAudioObjectRenderStreamForHrtf {}
+impl ::core::clone::Clone for ISpatialAudioObjectRenderStreamForHrtf {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpatialAudioObjectRenderStreamForMetadata(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpatialAudioObjectRenderStreamForMetadata {}
+impl ::core::clone::Clone for ISpatialAudioObjectRenderStreamForMetadata {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpatialAudioObjectRenderStreamNotify(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpatialAudioObjectRenderStreamNotify {}
+impl ::core::clone::Clone for ISpatialAudioObjectRenderStreamNotify {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISubunit(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISubunit {}
+impl ::core::clone::Clone for ISubunit {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[cfg(feature = "Win32_Foundation")]
 pub type LPACMDRIVERPROC = unsafe extern "system" fn(param0: usize, param1: HACMDRIVERID, param2: u32, param3: super::super::Foundation::LPARAM, param4: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
 #[cfg(feature = "Win32_Media_Multimedia")]
@@ -2460,7 +2904,7 @@ pub const MIXER_SETCONTROLDETAILSF_CUSTOM: i32 = 1i32;
 pub const MIXER_SETCONTROLDETAILSF_QUERYMASK: i32 = 15i32;
 pub const MIXER_SETCONTROLDETAILSF_VALUE: i32 = 0i32;
 pub const MIXER_SHORT_NAME_CHARS: u32 = 16u32;
-pub const MMDeviceEnumerator: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MMDeviceEnumerator: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3168666517,
     data2: 58671,
     data3: 18044,
@@ -2489,7 +2933,7 @@ impl ::core::clone::Clone for PCMWAVEFORMAT {
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_AudioEndpointLogo_IconEffects: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::GUID {
+    fmtid: ::windows_sys::core::GUID {
         data1: 4054546445,
         data2: 8208,
         data3: 20179,
@@ -2499,7 +2943,7 @@ pub const PKEY_AudioEndpointLogo_IconEffects: super::super::UI::Shell::Propertie
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_AudioEndpointLogo_IconPath: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::GUID {
+    fmtid: ::windows_sys::core::GUID {
         data1: 4054546445,
         data2: 8208,
         data3: 20179,
@@ -2509,17 +2953,17 @@ pub const PKEY_AudioEndpointLogo_IconPath: super::super::UI::Shell::PropertiesSy
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_AudioEndpointSettings_LaunchContract: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::GUID { data1: 337911810, data2: 800, data3: 19940, data4: [149, 85, 167, 216, 43, 115, 194, 134] },
+    fmtid: ::windows_sys::core::GUID { data1: 337911810, data2: 800, data3: 19940, data4: [149, 85, 167, 216, 43, 115, 194, 134] },
     pid: 1u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_AudioEndpointSettings_MenuText: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::GUID { data1: 337911810, data2: 800, data3: 19940, data4: [149, 85, 167, 216, 43, 115, 194, 134] },
+    fmtid: ::windows_sys::core::GUID { data1: 337911810, data2: 800, data3: 19940, data4: [149, 85, 167, 216, 43, 115, 194, 134] },
     pid: 0u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_AudioEndpoint_Association: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::GUID {
+    fmtid: ::windows_sys::core::GUID {
         data1: 497408003,
         data2: 54418,
         data3: 20189,
@@ -2529,7 +2973,7 @@ pub const PKEY_AudioEndpoint_Association: super::super::UI::Shell::PropertiesSys
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_AudioEndpoint_ControlPanelPageProvider: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::GUID {
+    fmtid: ::windows_sys::core::GUID {
         data1: 497408003,
         data2: 54418,
         data3: 20189,
@@ -2539,7 +2983,7 @@ pub const PKEY_AudioEndpoint_ControlPanelPageProvider: super::super::UI::Shell::
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_AudioEndpoint_Default_VolumeInDb: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::GUID {
+    fmtid: ::windows_sys::core::GUID {
         data1: 497408003,
         data2: 54418,
         data3: 20189,
@@ -2549,7 +2993,7 @@ pub const PKEY_AudioEndpoint_Default_VolumeInDb: super::super::UI::Shell::Proper
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_AudioEndpoint_Disable_SysFx: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::GUID {
+    fmtid: ::windows_sys::core::GUID {
         data1: 497408003,
         data2: 54418,
         data3: 20189,
@@ -2559,7 +3003,7 @@ pub const PKEY_AudioEndpoint_Disable_SysFx: super::super::UI::Shell::PropertiesS
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_AudioEndpoint_FormFactor: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::GUID {
+    fmtid: ::windows_sys::core::GUID {
         data1: 497408003,
         data2: 54418,
         data3: 20189,
@@ -2569,7 +3013,7 @@ pub const PKEY_AudioEndpoint_FormFactor: super::super::UI::Shell::PropertiesSyst
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_AudioEndpoint_FullRangeSpeakers: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::GUID {
+    fmtid: ::windows_sys::core::GUID {
         data1: 497408003,
         data2: 54418,
         data3: 20189,
@@ -2579,7 +3023,7 @@ pub const PKEY_AudioEndpoint_FullRangeSpeakers: super::super::UI::Shell::Propert
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_AudioEndpoint_GUID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::GUID {
+    fmtid: ::windows_sys::core::GUID {
         data1: 497408003,
         data2: 54418,
         data3: 20189,
@@ -2589,7 +3033,7 @@ pub const PKEY_AudioEndpoint_GUID: super::super::UI::Shell::PropertiesSystem::PR
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_AudioEndpoint_JackSubType: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::GUID {
+    fmtid: ::windows_sys::core::GUID {
         data1: 497408003,
         data2: 54418,
         data3: 20189,
@@ -2599,7 +3043,7 @@ pub const PKEY_AudioEndpoint_JackSubType: super::super::UI::Shell::PropertiesSys
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_AudioEndpoint_PhysicalSpeakers: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::GUID {
+    fmtid: ::windows_sys::core::GUID {
         data1: 497408003,
         data2: 54418,
         data3: 20189,
@@ -2609,7 +3053,7 @@ pub const PKEY_AudioEndpoint_PhysicalSpeakers: super::super::UI::Shell::Properti
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_AudioEndpoint_Supports_EventDriven_Mode: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::GUID {
+    fmtid: ::windows_sys::core::GUID {
         data1: 497408003,
         data2: 54418,
         data3: 20189,
@@ -2619,7 +3063,7 @@ pub const PKEY_AudioEndpoint_Supports_EventDriven_Mode: super::super::UI::Shell:
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_AudioEngine_DeviceFormat: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::GUID {
+    fmtid: ::windows_sys::core::GUID {
         data1: 4053730893,
         data2: 2092,
         data3: 20007,
@@ -2629,7 +3073,7 @@ pub const PKEY_AudioEngine_DeviceFormat: super::super::UI::Shell::PropertiesSyst
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_AudioEngine_OEMFormat: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::GUID { data1: 3834056230, data2: 15557, data3: 19666, data4: [186, 70, 202, 10, 154, 112, 237, 4] },
+    fmtid: ::windows_sys::core::GUID { data1: 3834056230, data2: 15557, data3: 19666, data4: [186, 70, 202, 10, 154, 112, 237, 4] },
     pid: 3u32,
 };
 #[repr(transparent)]
@@ -2744,7 +3188,7 @@ pub struct SpatialAudioHrtfActivationParams {
     pub MaxDynamicObjectCount: u32,
     pub Category: AUDIO_STREAM_CATEGORY,
     pub EventHandle: super::super::Foundation::HANDLE,
-    pub NotifyObject: ::core::option::Option<ISpatialAudioObjectRenderStreamNotify>,
+    pub NotifyObject: ISpatialAudioObjectRenderStreamNotify,
     pub DistanceDecay: *mut SpatialAudioHrtfDistanceDecay,
     pub Directivity: *mut SpatialAudioHrtfDirectivityUnion,
     pub Environment: *mut SpatialAudioHrtfEnvironmentType,
@@ -2767,7 +3211,7 @@ pub struct SpatialAudioHrtfActivationParams2 {
     pub MaxDynamicObjectCount: u32,
     pub Category: AUDIO_STREAM_CATEGORY,
     pub EventHandle: super::super::Foundation::HANDLE,
-    pub NotifyObject: ::core::option::Option<ISpatialAudioObjectRenderStreamNotify>,
+    pub NotifyObject: ISpatialAudioObjectRenderStreamNotify,
     pub DistanceDecay: *mut SpatialAudioHrtfDistanceDecay,
     pub Directivity: *mut SpatialAudioHrtfDirectivityUnion,
     pub Environment: *mut SpatialAudioHrtfEnvironmentType,
@@ -2921,7 +3365,7 @@ pub struct SpatialAudioObjectRenderStreamActivationParams {
     pub MaxDynamicObjectCount: u32,
     pub Category: AUDIO_STREAM_CATEGORY,
     pub EventHandle: super::super::Foundation::HANDLE,
-    pub NotifyObject: ::core::option::Option<ISpatialAudioObjectRenderStreamNotify>,
+    pub NotifyObject: ISpatialAudioObjectRenderStreamNotify,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SpatialAudioObjectRenderStreamActivationParams {}
@@ -2940,7 +3384,7 @@ pub struct SpatialAudioObjectRenderStreamActivationParams2 {
     pub MaxDynamicObjectCount: u32,
     pub Category: AUDIO_STREAM_CATEGORY,
     pub EventHandle: super::super::Foundation::HANDLE,
-    pub NotifyObject: ::core::option::Option<ISpatialAudioObjectRenderStreamNotify>,
+    pub NotifyObject: ISpatialAudioObjectRenderStreamNotify,
     pub Options: SPATIAL_AUDIO_STREAM_OPTIONS,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2963,7 +3407,7 @@ pub struct SpatialAudioObjectRenderStreamForMetadataActivationParams {
     pub MetadataFormatId: ::windows_sys::core::GUID,
     pub MaxMetadataItemCount: u16,
     pub MetadataActivationParams: *mut super::super::System::Com::StructuredStorage::PROPVARIANT,
-    pub NotifyObject: ::core::option::Option<ISpatialAudioObjectRenderStreamNotify>,
+    pub NotifyObject: ISpatialAudioObjectRenderStreamNotify,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 impl ::core::marker::Copy for SpatialAudioObjectRenderStreamForMetadataActivationParams {}
@@ -2985,7 +3429,7 @@ pub struct SpatialAudioObjectRenderStreamForMetadataActivationParams2 {
     pub MetadataFormatId: ::windows_sys::core::GUID,
     pub MaxMetadataItemCount: u32,
     pub MetadataActivationParams: *mut super::super::System::Com::StructuredStorage::PROPVARIANT,
-    pub NotifyObject: ::core::option::Option<ISpatialAudioObjectRenderStreamNotify>,
+    pub NotifyObject: ISpatialAudioObjectRenderStreamNotify,
     pub Options: SPATIAL_AUDIO_STREAM_OPTIONS,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]

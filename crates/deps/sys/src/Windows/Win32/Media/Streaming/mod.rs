@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {}
 #[repr(C)]
@@ -141,8 +141,20 @@ impl ::core::clone::Clone for HistogramHeader {
 }
 #[repr(transparent)]
 pub struct IMFDeviceTransform(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFDeviceTransform {}
+impl ::core::clone::Clone for IMFDeviceTransform {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMFDeviceTransformCallback(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMFDeviceTransformCallback {}
+impl ::core::clone::Clone for IMFDeviceTransformCallback {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MF_MEDIASOURCE_STATUS_INFO(pub i32);
 pub const MF_MEDIASOURCE_STATUS_INFO_FULLYSUPPORTED: MF_MEDIASOURCE_STATUS_INFO = MF_MEDIASOURCE_STATUS_INFO(0i32);

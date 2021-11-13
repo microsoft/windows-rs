@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -909,7 +909,7 @@ pub const CIF_SHOWHELP: i32 = 1i32;
 pub const CIF_USEICONEXE: i32 = 16i32;
 #[repr(C)]
 pub struct CLEANLOCALSTORAGE {
-    pub pInterface: ::core::option::Option<::windows_sys::core::IUnknown>,
+    pub pInterface: ::windows_sys::core::IUnknown,
     pub pStorage: *mut ::core::ffi::c_void,
     pub flags: u32,
 }
@@ -919,13 +919,13 @@ impl ::core::clone::Clone for CLEANLOCALSTORAGE {
         *self
     }
 }
-pub const CLSID_CColorPropPage: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 199447041, data2: 36753, data3: 4558, data4: [157, 227, 0, 170, 0, 75, 184, 81] };
-pub const CLSID_CFontPropPage: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 199447040, data2: 36753, data3: 4558, data4: [157, 227, 0, 170, 0, 75, 184, 81] };
-pub const CLSID_CPicturePropPage: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 199447042, data2: 36753, data3: 4558, data4: [157, 227, 0, 170, 0, 75, 184, 81] };
-pub const CLSID_ConvertVBX: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4220454946, data2: 356, data3: 4123, data4: [132, 237, 8, 0, 43, 46, 199, 19] };
-pub const CLSID_PersistPropset: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4220454945, data2: 356, data3: 4123, data4: [132, 237, 8, 0, 43, 46, 199, 19] };
-pub const CLSID_StdFont: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 199447043, data2: 36753, data3: 4558, data4: [157, 227, 0, 170, 0, 75, 184, 81] };
-pub const CLSID_StdPicture: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 199447044, data2: 36753, data3: 4558, data4: [157, 227, 0, 170, 0, 75, 184, 81] };
+pub const CLSID_CColorPropPage: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 199447041, data2: 36753, data3: 4558, data4: [157, 227, 0, 170, 0, 75, 184, 81] };
+pub const CLSID_CFontPropPage: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 199447040, data2: 36753, data3: 4558, data4: [157, 227, 0, 170, 0, 75, 184, 81] };
+pub const CLSID_CPicturePropPage: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 199447042, data2: 36753, data3: 4558, data4: [157, 227, 0, 170, 0, 75, 184, 81] };
+pub const CLSID_ConvertVBX: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4220454946, data2: 356, data3: 4123, data4: [132, 237, 8, 0, 43, 46, 199, 19] };
+pub const CLSID_PersistPropset: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4220454945, data2: 356, data3: 4123, data4: [132, 237, 8, 0, 43, 46, 199, 19] };
+pub const CLSID_StdFont: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 199447043, data2: 36753, data3: 4558, data4: [157, 227, 0, 170, 0, 75, 184, 81] };
+pub const CLSID_StdPicture: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 199447044, data2: 36753, data3: 4558, data4: [157, 227, 0, 170, 0, 75, 184, 81] };
 pub const CONNECT_E_ADVISELIMIT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220991i32 as _);
 pub const CONNECT_E_CANNOTCONNECT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220990i32 as _);
 pub const CONNECT_E_FIRST: i32 = -2147220992i32;
@@ -1242,26 +1242,26 @@ impl ::core::clone::Clone for GUIDKIND {
         *self
     }
 }
-pub const GUID_CHECKVALUEEXCLUSIVE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1716536076, data2: 48655, data3: 4122, data4: [139, 187, 0, 170, 0, 48, 12, 171] };
-pub const GUID_COLOR: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1716536065, data2: 48655, data3: 4122, data4: [139, 187, 0, 170, 0, 48, 12, 171] };
-pub const GUID_FONTBOLD: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1716536079, data2: 48655, data3: 4122, data4: [139, 187, 0, 170, 0, 48, 12, 171] };
-pub const GUID_FONTITALIC: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1716536080, data2: 48655, data3: 4122, data4: [139, 187, 0, 170, 0, 48, 12, 171] };
-pub const GUID_FONTNAME: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1716536077, data2: 48655, data3: 4122, data4: [139, 187, 0, 170, 0, 48, 12, 171] };
-pub const GUID_FONTSIZE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1716536078, data2: 48655, data3: 4122, data4: [139, 187, 0, 170, 0, 48, 12, 171] };
-pub const GUID_FONTSTRIKETHROUGH: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1716536082, data2: 48655, data3: 4122, data4: [139, 187, 0, 170, 0, 48, 12, 171] };
-pub const GUID_FONTUNDERSCORE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1716536081, data2: 48655, data3: 4122, data4: [139, 187, 0, 170, 0, 48, 12, 171] };
-pub const GUID_HANDLE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1716536083, data2: 48655, data3: 4122, data4: [139, 187, 0, 170, 0, 48, 12, 171] };
-pub const GUID_HIMETRIC: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1716536064, data2: 48655, data3: 4122, data4: [139, 187, 0, 170, 0, 48, 12, 171] };
-pub const GUID_OPTIONVALUEEXCLUSIVE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1716536075, data2: 48655, data3: 4122, data4: [139, 187, 0, 170, 0, 48, 12, 171] };
-pub const GUID_TRISTATE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1716536074, data2: 48655, data3: 4122, data4: [139, 187, 0, 170, 0, 48, 12, 171] };
-pub const GUID_XPOS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1716536070, data2: 48655, data3: 4122, data4: [139, 187, 0, 170, 0, 48, 12, 171] };
-pub const GUID_XPOSPIXEL: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1716536066, data2: 48655, data3: 4122, data4: [139, 187, 0, 170, 0, 48, 12, 171] };
-pub const GUID_XSIZE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1716536072, data2: 48655, data3: 4122, data4: [139, 187, 0, 170, 0, 48, 12, 171] };
-pub const GUID_XSIZEPIXEL: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1716536068, data2: 48655, data3: 4122, data4: [139, 187, 0, 170, 0, 48, 12, 171] };
-pub const GUID_YPOS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1716536071, data2: 48655, data3: 4122, data4: [139, 187, 0, 170, 0, 48, 12, 171] };
-pub const GUID_YPOSPIXEL: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1716536067, data2: 48655, data3: 4122, data4: [139, 187, 0, 170, 0, 48, 12, 171] };
-pub const GUID_YSIZE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1716536073, data2: 48655, data3: 4122, data4: [139, 187, 0, 170, 0, 48, 12, 171] };
-pub const GUID_YSIZEPIXEL: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1716536069, data2: 48655, data3: 4122, data4: [139, 187, 0, 170, 0, 48, 12, 171] };
+pub const GUID_CHECKVALUEEXCLUSIVE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1716536076, data2: 48655, data3: 4122, data4: [139, 187, 0, 170, 0, 48, 12, 171] };
+pub const GUID_COLOR: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1716536065, data2: 48655, data3: 4122, data4: [139, 187, 0, 170, 0, 48, 12, 171] };
+pub const GUID_FONTBOLD: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1716536079, data2: 48655, data3: 4122, data4: [139, 187, 0, 170, 0, 48, 12, 171] };
+pub const GUID_FONTITALIC: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1716536080, data2: 48655, data3: 4122, data4: [139, 187, 0, 170, 0, 48, 12, 171] };
+pub const GUID_FONTNAME: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1716536077, data2: 48655, data3: 4122, data4: [139, 187, 0, 170, 0, 48, 12, 171] };
+pub const GUID_FONTSIZE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1716536078, data2: 48655, data3: 4122, data4: [139, 187, 0, 170, 0, 48, 12, 171] };
+pub const GUID_FONTSTRIKETHROUGH: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1716536082, data2: 48655, data3: 4122, data4: [139, 187, 0, 170, 0, 48, 12, 171] };
+pub const GUID_FONTUNDERSCORE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1716536081, data2: 48655, data3: 4122, data4: [139, 187, 0, 170, 0, 48, 12, 171] };
+pub const GUID_HANDLE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1716536083, data2: 48655, data3: 4122, data4: [139, 187, 0, 170, 0, 48, 12, 171] };
+pub const GUID_HIMETRIC: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1716536064, data2: 48655, data3: 4122, data4: [139, 187, 0, 170, 0, 48, 12, 171] };
+pub const GUID_OPTIONVALUEEXCLUSIVE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1716536075, data2: 48655, data3: 4122, data4: [139, 187, 0, 170, 0, 48, 12, 171] };
+pub const GUID_TRISTATE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1716536074, data2: 48655, data3: 4122, data4: [139, 187, 0, 170, 0, 48, 12, 171] };
+pub const GUID_XPOS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1716536070, data2: 48655, data3: 4122, data4: [139, 187, 0, 170, 0, 48, 12, 171] };
+pub const GUID_XPOSPIXEL: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1716536066, data2: 48655, data3: 4122, data4: [139, 187, 0, 170, 0, 48, 12, 171] };
+pub const GUID_XSIZE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1716536072, data2: 48655, data3: 4122, data4: [139, 187, 0, 170, 0, 48, 12, 171] };
+pub const GUID_XSIZEPIXEL: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1716536068, data2: 48655, data3: 4122, data4: [139, 187, 0, 170, 0, 48, 12, 171] };
+pub const GUID_YPOS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1716536071, data2: 48655, data3: 4122, data4: [139, 187, 0, 170, 0, 48, 12, 171] };
+pub const GUID_YPOSPIXEL: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1716536067, data2: 48655, data3: 4122, data4: [139, 187, 0, 170, 0, 48, 12, 171] };
+pub const GUID_YSIZE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1716536073, data2: 48655, data3: 4122, data4: [139, 187, 0, 170, 0, 48, 12, 171] };
+pub const GUID_YSIZEPIXEL: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1716536069, data2: 48655, data3: 4122, data4: [139, 187, 0, 170, 0, 48, 12, 171] };
 #[repr(transparent)]
 pub struct HITRESULT(pub i32);
 pub const HITRESULT_OUTSIDE: HITRESULT = HITRESULT(0i32);
@@ -1276,24 +1276,84 @@ impl ::core::clone::Clone for HITRESULT {
 }
 #[repr(transparent)]
 pub struct IAdviseSinkEx(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IAdviseSinkEx {}
+impl ::core::clone::Clone for IAdviseSinkEx {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICanHandleException(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICanHandleException {}
+impl ::core::clone::Clone for ICanHandleException {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IClassFactory2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IClassFactory2 {}
+impl ::core::clone::Clone for IClassFactory2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IContinue(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IContinue {}
+impl ::core::clone::Clone for IContinue {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IContinueCallback(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IContinueCallback {}
+impl ::core::clone::Clone for IContinueCallback {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICreateErrorInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICreateErrorInfo {}
+impl ::core::clone::Clone for ICreateErrorInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICreateTypeInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICreateTypeInfo {}
+impl ::core::clone::Clone for ICreateTypeInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICreateTypeInfo2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICreateTypeInfo2 {}
+impl ::core::clone::Clone for ICreateTypeInfo2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICreateTypeLib(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICreateTypeLib {}
+impl ::core::clone::Clone for ICreateTypeLib {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ICreateTypeLib2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ICreateTypeLib2 {}
+impl ::core::clone::Clone for ICreateTypeLib2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const IDC_BZ_ICON: u32 = 601u32;
 pub const IDC_BZ_MESSAGE1: u32 = 602u32;
 pub const IDC_BZ_RETRY: u32 = 600u32;
@@ -1435,30 +1495,108 @@ pub const ID_BROWSE_INSERTFILE: u32 = 2u32;
 pub const ID_DEFAULTINST: i32 = -2i32;
 #[repr(transparent)]
 pub struct IDispError(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDispError {}
+impl ::core::clone::Clone for IDispError {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDispatchEx(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDispatchEx {}
+impl ::core::clone::Clone for IDispatchEx {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDropSource(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDropSource {}
+impl ::core::clone::Clone for IDropSource {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDropSourceNotify(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDropSourceNotify {}
+impl ::core::clone::Clone for IDropSourceNotify {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDropTarget(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDropTarget {}
+impl ::core::clone::Clone for IDropTarget {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEnterpriseDropTarget(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnterpriseDropTarget {}
+impl ::core::clone::Clone for IEnterpriseDropTarget {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEnumOLEVERB(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnumOLEVERB {}
+impl ::core::clone::Clone for IEnumOLEVERB {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEnumOleDocumentViews(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnumOleDocumentViews {}
+impl ::core::clone::Clone for IEnumOleDocumentViews {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEnumOleUndoUnits(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnumOleUndoUnits {}
+impl ::core::clone::Clone for IEnumOleUndoUnits {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEnumVARIANT(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnumVARIANT {}
+impl ::core::clone::Clone for IEnumVARIANT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFont(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFont {}
+impl ::core::clone::Clone for IFont {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFontDisp(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFontDisp {}
+impl ::core::clone::Clone for IFontDisp {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IFontEventsDisp(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IFontEventsDisp {}
+impl ::core::clone::Clone for IFontEventsDisp {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGNOREMIME(pub i32);
 pub const IGNOREMIME_PROMPT: IGNOREMIME = IGNOREMIME(1i32);
@@ -1471,8 +1609,20 @@ impl ::core::clone::Clone for IGNOREMIME {
 }
 #[repr(transparent)]
 pub struct IGetOleObject(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGetOleObject {}
+impl ::core::clone::Clone for IGetOleObject {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGetVBAObject(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGetVBAObject {}
+impl ::core::clone::Clone for IGetVBAObject {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const IMPLTYPEFLAG_FDEFAULT: u32 = 1u32;
 pub const IMPLTYPEFLAG_FDEFAULTVTABLE: u32 = 8u32;
 pub const IMPLTYPEFLAG_FRESTRICTED: u32 = 4u32;
@@ -1510,140 +1660,548 @@ pub const IOF_SHOWINSERTCONTROL: i32 = 4096i32;
 pub const IOF_VERIFYSERVERSEXIST: i32 = 512i32;
 #[repr(transparent)]
 pub struct IObjectIdentity(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IObjectIdentity {}
+impl ::core::clone::Clone for IObjectIdentity {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IObjectWithSite(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IObjectWithSite {}
+impl ::core::clone::Clone for IObjectWithSite {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IOleAdviseHolder(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IOleAdviseHolder {}
+impl ::core::clone::Clone for IOleAdviseHolder {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IOleCache(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IOleCache {}
+impl ::core::clone::Clone for IOleCache {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IOleCache2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IOleCache2 {}
+impl ::core::clone::Clone for IOleCache2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IOleCacheControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IOleCacheControl {}
+impl ::core::clone::Clone for IOleCacheControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IOleClientSite(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IOleClientSite {}
+impl ::core::clone::Clone for IOleClientSite {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IOleCommandTarget(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IOleCommandTarget {}
+impl ::core::clone::Clone for IOleCommandTarget {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IOleContainer(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IOleContainer {}
+impl ::core::clone::Clone for IOleContainer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IOleControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IOleControl {}
+impl ::core::clone::Clone for IOleControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IOleControlSite(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IOleControlSite {}
+impl ::core::clone::Clone for IOleControlSite {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IOleDocument(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IOleDocument {}
+impl ::core::clone::Clone for IOleDocument {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IOleDocumentSite(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IOleDocumentSite {}
+impl ::core::clone::Clone for IOleDocumentSite {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IOleDocumentView(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IOleDocumentView {}
+impl ::core::clone::Clone for IOleDocumentView {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IOleInPlaceActiveObject(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IOleInPlaceActiveObject {}
+impl ::core::clone::Clone for IOleInPlaceActiveObject {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IOleInPlaceFrame(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IOleInPlaceFrame {}
+impl ::core::clone::Clone for IOleInPlaceFrame {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IOleInPlaceObject(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IOleInPlaceObject {}
+impl ::core::clone::Clone for IOleInPlaceObject {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IOleInPlaceObjectWindowless(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IOleInPlaceObjectWindowless {}
+impl ::core::clone::Clone for IOleInPlaceObjectWindowless {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IOleInPlaceSite(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IOleInPlaceSite {}
+impl ::core::clone::Clone for IOleInPlaceSite {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IOleInPlaceSiteEx(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IOleInPlaceSiteEx {}
+impl ::core::clone::Clone for IOleInPlaceSiteEx {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IOleInPlaceSiteWindowless(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IOleInPlaceSiteWindowless {}
+impl ::core::clone::Clone for IOleInPlaceSiteWindowless {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IOleInPlaceUIWindow(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IOleInPlaceUIWindow {}
+impl ::core::clone::Clone for IOleInPlaceUIWindow {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IOleItemContainer(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IOleItemContainer {}
+impl ::core::clone::Clone for IOleItemContainer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IOleLink(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IOleLink {}
+impl ::core::clone::Clone for IOleLink {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IOleObject(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IOleObject {}
+impl ::core::clone::Clone for IOleObject {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IOleParentUndoUnit(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IOleParentUndoUnit {}
+impl ::core::clone::Clone for IOleParentUndoUnit {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IOleUILinkContainerA(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IOleUILinkContainerA {}
+impl ::core::clone::Clone for IOleUILinkContainerA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IOleUILinkContainerW(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IOleUILinkContainerW {}
+impl ::core::clone::Clone for IOleUILinkContainerW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IOleUILinkInfoA(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IOleUILinkInfoA {}
+impl ::core::clone::Clone for IOleUILinkInfoA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IOleUILinkInfoW(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IOleUILinkInfoW {}
+impl ::core::clone::Clone for IOleUILinkInfoW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IOleUIObjInfoA(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IOleUIObjInfoA {}
+impl ::core::clone::Clone for IOleUIObjInfoA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IOleUIObjInfoW(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IOleUIObjInfoW {}
+impl ::core::clone::Clone for IOleUIObjInfoW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IOleUndoManager(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IOleUndoManager {}
+impl ::core::clone::Clone for IOleUndoManager {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IOleUndoUnit(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IOleUndoUnit {}
+impl ::core::clone::Clone for IOleUndoUnit {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IOleWindow(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IOleWindow {}
+impl ::core::clone::Clone for IOleWindow {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IParseDisplayName(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IParseDisplayName {}
+impl ::core::clone::Clone for IParseDisplayName {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPerPropertyBrowsing(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPerPropertyBrowsing {}
+impl ::core::clone::Clone for IPerPropertyBrowsing {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPersistPropertyBag(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPersistPropertyBag {}
+impl ::core::clone::Clone for IPersistPropertyBag {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPersistPropertyBag2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPersistPropertyBag2 {}
+impl ::core::clone::Clone for IPersistPropertyBag2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPicture(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPicture {}
+impl ::core::clone::Clone for IPicture {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPicture2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPicture2 {}
+impl ::core::clone::Clone for IPicture2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPictureDisp(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPictureDisp {}
+impl ::core::clone::Clone for IPictureDisp {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPointerInactive(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPointerInactive {}
+impl ::core::clone::Clone for IPointerInactive {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPrint(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPrint {}
+impl ::core::clone::Clone for IPrint {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPropertyNotifySink(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPropertyNotifySink {}
+impl ::core::clone::Clone for IPropertyNotifySink {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPropertyPage(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPropertyPage {}
+impl ::core::clone::Clone for IPropertyPage {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPropertyPage2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPropertyPage2 {}
+impl ::core::clone::Clone for IPropertyPage2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPropertyPageSite(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPropertyPageSite {}
+impl ::core::clone::Clone for IPropertyPageSite {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IProtectFocus(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IProtectFocus {}
+impl ::core::clone::Clone for IProtectFocus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IProtectedModeMenuServices(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IProtectedModeMenuServices {}
+impl ::core::clone::Clone for IProtectedModeMenuServices {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IProvideClassInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IProvideClassInfo {}
+impl ::core::clone::Clone for IProvideClassInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IProvideClassInfo2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IProvideClassInfo2 {}
+impl ::core::clone::Clone for IProvideClassInfo2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IProvideMultipleClassInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IProvideMultipleClassInfo {}
+impl ::core::clone::Clone for IProvideMultipleClassInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IProvideRuntimeContext(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IProvideRuntimeContext {}
+impl ::core::clone::Clone for IProvideRuntimeContext {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IQuickActivate(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IQuickActivate {}
+impl ::core::clone::Clone for IQuickActivate {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRecordInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRecordInfo {}
+impl ::core::clone::Clone for IRecordInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISimpleFrameSite(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISimpleFrameSite {}
+impl ::core::clone::Clone for ISimpleFrameSite {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpecifyPropertyPages(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpecifyPropertyPages {}
+impl ::core::clone::Clone for ISpecifyPropertyPages {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITypeChangeEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITypeChangeEvents {}
+impl ::core::clone::Clone for ITypeChangeEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITypeFactory(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITypeFactory {}
+impl ::core::clone::Clone for ITypeFactory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITypeMarshal(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITypeMarshal {}
+impl ::core::clone::Clone for ITypeMarshal {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVBFormat(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVBFormat {}
+impl ::core::clone::Clone for IVBFormat {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVBGetControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVBGetControl {}
+impl ::core::clone::Clone for IVBGetControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IVariantChangeType(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IVariantChangeType {}
+impl ::core::clone::Clone for IVariantChangeType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IViewObject(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IViewObject {}
+impl ::core::clone::Clone for IViewObject {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IViewObject2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IViewObject2 {}
+impl ::core::clone::Clone for IViewObject2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IViewObjectEx(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IViewObjectEx {}
+impl ::core::clone::Clone for IViewObjectEx {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IZoomEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IZoomEvents {}
+impl ::core::clone::Clone for IZoomEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct LIBFLAGS(pub i32);
 pub const LIBFLAG_FRESTRICTED: LIBFLAGS = LIBFLAGS(1i32);
@@ -1793,7 +2351,7 @@ pub struct OCPFIPARAMS {
     pub y: i32,
     pub lpszCaption: super::super::Foundation::PWSTR,
     pub cObjects: u32,
-    pub lplpUnk: *mut ::core::option::Option<::windows_sys::core::IUnknown>,
+    pub lplpUnk: *mut ::windows_sys::core::IUnknown,
     pub cPages: u32,
     pub lpPages: *mut ::windows_sys::core::GUID,
     pub lcid: u32,
@@ -2231,7 +2789,7 @@ pub struct OLEUIBUSYA {
     pub dwFlags: u32,
     pub hWndOwner: super::super::Foundation::HWND,
     pub lpszCaption: super::super::Foundation::PSTR,
-    pub lpfnHook: ::core::option::Option<LPFNOLEUIHOOK>,
+    pub lpfnHook: LPFNOLEUIHOOK,
     pub lCustData: super::super::Foundation::LPARAM,
     pub hInstance: super::super::Foundation::HINSTANCE,
     pub lpszTemplate: super::super::Foundation::PSTR,
@@ -2254,7 +2812,7 @@ pub struct OLEUIBUSYW {
     pub dwFlags: u32,
     pub hWndOwner: super::super::Foundation::HWND,
     pub lpszCaption: super::super::Foundation::PWSTR,
-    pub lpfnHook: ::core::option::Option<LPFNOLEUIHOOK>,
+    pub lpfnHook: LPFNOLEUIHOOK,
     pub lCustData: super::super::Foundation::LPARAM,
     pub hInstance: super::super::Foundation::HINSTANCE,
     pub lpszTemplate: super::super::Foundation::PWSTR,
@@ -2277,7 +2835,7 @@ pub struct OLEUICHANGEICONA {
     pub dwFlags: u32,
     pub hWndOwner: super::super::Foundation::HWND,
     pub lpszCaption: super::super::Foundation::PSTR,
-    pub lpfnHook: ::core::option::Option<LPFNOLEUIHOOK>,
+    pub lpfnHook: LPFNOLEUIHOOK,
     pub lCustData: super::super::Foundation::LPARAM,
     pub hInstance: super::super::Foundation::HINSTANCE,
     pub lpszTemplate: super::super::Foundation::PSTR,
@@ -2302,7 +2860,7 @@ pub struct OLEUICHANGEICONW {
     pub dwFlags: u32,
     pub hWndOwner: super::super::Foundation::HWND,
     pub lpszCaption: super::super::Foundation::PWSTR,
-    pub lpfnHook: ::core::option::Option<LPFNOLEUIHOOK>,
+    pub lpfnHook: LPFNOLEUIHOOK,
     pub lCustData: super::super::Foundation::LPARAM,
     pub hInstance: super::super::Foundation::HINSTANCE,
     pub lpszTemplate: super::super::Foundation::PWSTR,
@@ -2327,14 +2885,14 @@ pub struct OLEUICHANGESOURCEA {
     pub dwFlags: u32,
     pub hWndOwner: super::super::Foundation::HWND,
     pub lpszCaption: super::super::Foundation::PSTR,
-    pub lpfnHook: ::core::option::Option<LPFNOLEUIHOOK>,
+    pub lpfnHook: LPFNOLEUIHOOK,
     pub lCustData: super::super::Foundation::LPARAM,
     pub hInstance: super::super::Foundation::HINSTANCE,
     pub lpszTemplate: super::super::Foundation::PSTR,
     pub hResource: super::super::Foundation::HRSRC,
     pub lpOFN: *mut super::super::UI::Controls::Dialogs::OPENFILENAMEA,
     pub dwReserved1: [u32; 4],
-    pub lpOleUILinkContainer: ::core::option::Option<IOleUILinkContainerA>,
+    pub lpOleUILinkContainer: IOleUILinkContainerA,
     pub dwLink: u32,
     pub lpszDisplayName: super::super::Foundation::PSTR,
     pub nFileLength: u32,
@@ -2356,14 +2914,14 @@ pub struct OLEUICHANGESOURCEW {
     pub dwFlags: u32,
     pub hWndOwner: super::super::Foundation::HWND,
     pub lpszCaption: super::super::Foundation::PWSTR,
-    pub lpfnHook: ::core::option::Option<LPFNOLEUIHOOK>,
+    pub lpfnHook: LPFNOLEUIHOOK,
     pub lCustData: super::super::Foundation::LPARAM,
     pub hInstance: super::super::Foundation::HINSTANCE,
     pub lpszTemplate: super::super::Foundation::PWSTR,
     pub hResource: super::super::Foundation::HRSRC,
     pub lpOFN: *mut super::super::UI::Controls::Dialogs::OPENFILENAMEW,
     pub dwReserved1: [u32; 4],
-    pub lpOleUILinkContainer: ::core::option::Option<IOleUILinkContainerW>,
+    pub lpOleUILinkContainer: IOleUILinkContainerW,
     pub dwLink: u32,
     pub lpszDisplayName: super::super::Foundation::PWSTR,
     pub nFileLength: u32,
@@ -2385,7 +2943,7 @@ pub struct OLEUICONVERTA {
     pub dwFlags: u32,
     pub hWndOwner: super::super::Foundation::HWND,
     pub lpszCaption: super::super::Foundation::PSTR,
-    pub lpfnHook: ::core::option::Option<LPFNOLEUIHOOK>,
+    pub lpfnHook: LPFNOLEUIHOOK,
     pub lCustData: super::super::Foundation::LPARAM,
     pub hInstance: super::super::Foundation::HINSTANCE,
     pub lpszTemplate: super::super::Foundation::PSTR,
@@ -2419,7 +2977,7 @@ pub struct OLEUICONVERTW {
     pub dwFlags: u32,
     pub hWndOwner: super::super::Foundation::HWND,
     pub lpszCaption: super::super::Foundation::PWSTR,
-    pub lpfnHook: ::core::option::Option<LPFNOLEUIHOOK>,
+    pub lpfnHook: LPFNOLEUIHOOK,
     pub lCustData: super::super::Foundation::LPARAM,
     pub hInstance: super::super::Foundation::HINSTANCE,
     pub lpszTemplate: super::super::Foundation::PWSTR,
@@ -2453,12 +3011,12 @@ pub struct OLEUIEDITLINKSA {
     pub dwFlags: u32,
     pub hWndOwner: super::super::Foundation::HWND,
     pub lpszCaption: super::super::Foundation::PSTR,
-    pub lpfnHook: ::core::option::Option<LPFNOLEUIHOOK>,
+    pub lpfnHook: LPFNOLEUIHOOK,
     pub lCustData: super::super::Foundation::LPARAM,
     pub hInstance: super::super::Foundation::HINSTANCE,
     pub lpszTemplate: super::super::Foundation::PSTR,
     pub hResource: super::super::Foundation::HRSRC,
-    pub lpOleUILinkContainer: ::core::option::Option<IOleUILinkContainerA>,
+    pub lpOleUILinkContainer: IOleUILinkContainerA,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for OLEUIEDITLINKSA {}
@@ -2475,12 +3033,12 @@ pub struct OLEUIEDITLINKSW {
     pub dwFlags: u32,
     pub hWndOwner: super::super::Foundation::HWND,
     pub lpszCaption: super::super::Foundation::PWSTR,
-    pub lpfnHook: ::core::option::Option<LPFNOLEUIHOOK>,
+    pub lpfnHook: LPFNOLEUIHOOK,
     pub lCustData: super::super::Foundation::LPARAM,
     pub hInstance: super::super::Foundation::HINSTANCE,
     pub lpszTemplate: super::super::Foundation::PWSTR,
     pub hResource: super::super::Foundation::HRSRC,
-    pub lpOleUILinkContainer: ::core::option::Option<IOleUILinkContainerW>,
+    pub lpOleUILinkContainer: IOleUILinkContainerW,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for OLEUIEDITLINKSW {}
@@ -2496,7 +3054,7 @@ pub struct OLEUIGNRLPROPSA {
     pub cbStruct: u32,
     pub dwFlags: u32,
     pub dwReserved1: [u32; 2],
-    pub lpfnHook: ::core::option::Option<LPFNOLEUIHOOK>,
+    pub lpfnHook: LPFNOLEUIHOOK,
     pub lCustData: super::super::Foundation::LPARAM,
     pub dwReserved2: [u32; 3],
     pub lpOP: *mut OLEUIOBJECTPROPSA,
@@ -2515,7 +3073,7 @@ pub struct OLEUIGNRLPROPSW {
     pub cbStruct: u32,
     pub dwFlags: u32,
     pub dwReserved1: [u32; 2],
-    pub lpfnHook: ::core::option::Option<LPFNOLEUIHOOK>,
+    pub lpfnHook: LPFNOLEUIHOOK,
     pub lCustData: super::super::Foundation::LPARAM,
     pub dwReserved2: [u32; 3],
     pub lpOP: *mut OLEUIOBJECTPROPSW,
@@ -2535,7 +3093,7 @@ pub struct OLEUIINSERTOBJECTA {
     pub dwFlags: u32,
     pub hWndOwner: super::super::Foundation::HWND,
     pub lpszCaption: super::super::Foundation::PSTR,
-    pub lpfnHook: ::core::option::Option<LPFNOLEUIHOOK>,
+    pub lpfnHook: LPFNOLEUIHOOK,
     pub lCustData: super::super::Foundation::LPARAM,
     pub hInstance: super::super::Foundation::HINSTANCE,
     pub lpszTemplate: super::super::Foundation::PSTR,
@@ -2548,8 +3106,8 @@ pub struct OLEUIINSERTOBJECTA {
     pub iid: ::windows_sys::core::GUID,
     pub oleRender: u32,
     pub lpFormatEtc: *mut super::Com::FORMATETC,
-    pub lpIOleClientSite: ::core::option::Option<IOleClientSite>,
-    pub lpIStorage: ::core::option::Option<super::Com::StructuredStorage::IStorage>,
+    pub lpIOleClientSite: IOleClientSite,
+    pub lpIStorage: super::Com::StructuredStorage::IStorage,
     pub ppvObj: *mut *mut ::core::ffi::c_void,
     pub sc: i32,
     pub hMetaPict: isize,
@@ -2569,7 +3127,7 @@ pub struct OLEUIINSERTOBJECTW {
     pub dwFlags: u32,
     pub hWndOwner: super::super::Foundation::HWND,
     pub lpszCaption: super::super::Foundation::PWSTR,
-    pub lpfnHook: ::core::option::Option<LPFNOLEUIHOOK>,
+    pub lpfnHook: LPFNOLEUIHOOK,
     pub lCustData: super::super::Foundation::LPARAM,
     pub hInstance: super::super::Foundation::HINSTANCE,
     pub lpszTemplate: super::super::Foundation::PWSTR,
@@ -2582,8 +3140,8 @@ pub struct OLEUIINSERTOBJECTW {
     pub iid: ::windows_sys::core::GUID,
     pub oleRender: u32,
     pub lpFormatEtc: *mut super::Com::FORMATETC,
-    pub lpIOleClientSite: ::core::option::Option<IOleClientSite>,
-    pub lpIStorage: ::core::option::Option<super::Com::StructuredStorage::IStorage>,
+    pub lpIOleClientSite: IOleClientSite,
+    pub lpIStorage: super::Com::StructuredStorage::IStorage,
     pub ppvObj: *mut *mut ::core::ffi::c_void,
     pub sc: i32,
     pub hMetaPict: isize,
@@ -2602,7 +3160,7 @@ pub struct OLEUILINKPROPSA {
     pub cbStruct: u32,
     pub dwFlags: u32,
     pub dwReserved1: [u32; 2],
-    pub lpfnHook: ::core::option::Option<LPFNOLEUIHOOK>,
+    pub lpfnHook: LPFNOLEUIHOOK,
     pub lCustData: super::super::Foundation::LPARAM,
     pub dwReserved2: [u32; 3],
     pub lpOP: *mut OLEUIOBJECTPROPSA,
@@ -2621,7 +3179,7 @@ pub struct OLEUILINKPROPSW {
     pub cbStruct: u32,
     pub dwFlags: u32,
     pub dwReserved1: [u32; 2],
-    pub lpfnHook: ::core::option::Option<LPFNOLEUIHOOK>,
+    pub lpfnHook: LPFNOLEUIHOOK,
     pub lCustData: super::super::Foundation::LPARAM,
     pub dwReserved2: [u32; 3],
     pub lpOP: *mut OLEUIOBJECTPROPSW,
@@ -2641,9 +3199,9 @@ pub struct OLEUIOBJECTPROPSA {
     pub dwFlags: u32,
     pub lpPS: *mut super::super::UI::Controls::PROPSHEETHEADERA_V2,
     pub dwObject: u32,
-    pub lpObjInfo: ::core::option::Option<IOleUIObjInfoA>,
+    pub lpObjInfo: IOleUIObjInfoA,
     pub dwLink: u32,
-    pub lpLinkInfo: ::core::option::Option<IOleUILinkInfoA>,
+    pub lpLinkInfo: IOleUILinkInfoA,
     pub lpGP: *mut OLEUIGNRLPROPSA,
     pub lpVP: *mut OLEUIVIEWPROPSA,
     pub lpLP: *mut OLEUILINKPROPSA,
@@ -2663,9 +3221,9 @@ pub struct OLEUIOBJECTPROPSW {
     pub dwFlags: u32,
     pub lpPS: *mut super::super::UI::Controls::PROPSHEETHEADERW_V2,
     pub dwObject: u32,
-    pub lpObjInfo: ::core::option::Option<IOleUIObjInfoW>,
+    pub lpObjInfo: IOleUIObjInfoW,
     pub dwLink: u32,
-    pub lpLinkInfo: ::core::option::Option<IOleUILinkInfoW>,
+    pub lpLinkInfo: IOleUILinkInfoW,
     pub lpGP: *mut OLEUIGNRLPROPSW,
     pub lpVP: *mut OLEUIVIEWPROPSW,
     pub lpLP: *mut OLEUILINKPROPSW,
@@ -2739,12 +3297,12 @@ pub struct OLEUIPASTESPECIALA {
     pub dwFlags: u32,
     pub hWndOwner: super::super::Foundation::HWND,
     pub lpszCaption: super::super::Foundation::PSTR,
-    pub lpfnHook: ::core::option::Option<LPFNOLEUIHOOK>,
+    pub lpfnHook: LPFNOLEUIHOOK,
     pub lCustData: super::super::Foundation::LPARAM,
     pub hInstance: super::super::Foundation::HINSTANCE,
     pub lpszTemplate: super::super::Foundation::PSTR,
     pub hResource: super::super::Foundation::HRSRC,
-    pub lpSrcDataObj: ::core::option::Option<super::Com::IDataObject>,
+    pub lpSrcDataObj: super::Com::IDataObject,
     pub arrPasteEntries: *mut OLEUIPASTEENTRYA,
     pub cPasteEntries: i32,
     pub arrLinkTypes: *mut u32,
@@ -2771,12 +3329,12 @@ pub struct OLEUIPASTESPECIALW {
     pub dwFlags: u32,
     pub hWndOwner: super::super::Foundation::HWND,
     pub lpszCaption: super::super::Foundation::PWSTR,
-    pub lpfnHook: ::core::option::Option<LPFNOLEUIHOOK>,
+    pub lpfnHook: LPFNOLEUIHOOK,
     pub lCustData: super::super::Foundation::LPARAM,
     pub hInstance: super::super::Foundation::HINSTANCE,
     pub lpszTemplate: super::super::Foundation::PWSTR,
     pub hResource: super::super::Foundation::HRSRC,
-    pub lpSrcDataObj: ::core::option::Option<super::Com::IDataObject>,
+    pub lpSrcDataObj: super::Com::IDataObject,
     pub arrPasteEntries: *mut OLEUIPASTEENTRYW,
     pub cPasteEntries: i32,
     pub arrLinkTypes: *mut u32,
@@ -2802,7 +3360,7 @@ pub struct OLEUIVIEWPROPSA {
     pub cbStruct: u32,
     pub dwFlags: u32,
     pub dwReserved1: [u32; 2],
-    pub lpfnHook: ::core::option::Option<LPFNOLEUIHOOK>,
+    pub lpfnHook: LPFNOLEUIHOOK,
     pub lCustData: super::super::Foundation::LPARAM,
     pub dwReserved2: [u32; 3],
     pub lpOP: *mut OLEUIOBJECTPROPSA,
@@ -2823,7 +3381,7 @@ pub struct OLEUIVIEWPROPSW {
     pub cbStruct: u32,
     pub dwFlags: u32,
     pub dwReserved1: [u32; 2],
-    pub lpfnHook: ::core::option::Option<LPFNOLEUIHOOK>,
+    pub lpfnHook: LPFNOLEUIHOOK,
     pub lCustData: super::super::Foundation::LPARAM,
     pub dwReserved2: [u32; 3],
     pub lpOP: *mut OLEUIOBJECTPROPSW,
@@ -3288,21 +3846,21 @@ impl ::core::clone::Clone for PictureAttributes {
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
 pub struct QACONTAINER {
     pub cbSize: u32,
-    pub pClientSite: ::core::option::Option<IOleClientSite>,
-    pub pAdviseSink: ::core::option::Option<IAdviseSinkEx>,
-    pub pPropertyNotifySink: ::core::option::Option<IPropertyNotifySink>,
-    pub pUnkEventSink: ::core::option::Option<::windows_sys::core::IUnknown>,
+    pub pClientSite: IOleClientSite,
+    pub pAdviseSink: IAdviseSinkEx,
+    pub pPropertyNotifySink: IPropertyNotifySink,
+    pub pUnkEventSink: ::windows_sys::core::IUnknown,
     pub dwAmbientFlags: u32,
     pub colorFore: u32,
     pub colorBack: u32,
-    pub pFont: ::core::option::Option<IFont>,
-    pub pUndoMgr: ::core::option::Option<IOleUndoManager>,
+    pub pFont: IFont,
+    pub pUndoMgr: IOleUndoManager,
     pub dwAppearance: u32,
     pub lcid: i32,
     pub hpal: super::super::Graphics::Gdi::HPALETTE,
-    pub pBindHost: ::core::option::Option<super::Com::IBindHost>,
-    pub pOleControlSite: ::core::option::Option<IOleControlSite>,
-    pub pServiceProvider: ::core::option::Option<super::Com::IServiceProvider>,
+    pub pBindHost: super::Com::IBindHost,
+    pub pOleControlSite: IOleControlSite,
+    pub pServiceProvider: super::Com::IServiceProvider,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
 impl ::core::marker::Copy for QACONTAINER {}
@@ -3392,9 +3950,9 @@ impl ::core::clone::Clone for SF_TYPE {
         *self
     }
 }
-pub const SID_GetCaller: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1192741952, data2: 48313, data3: 4560, data4: [147, 54, 0, 160, 201, 13, 202, 169] };
-pub const SID_ProvideRuntimeContext: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1956971532, data2: 56588, data3: 18672, data4: [172, 133, 25, 76, 50, 89, 24, 10] };
-pub const SID_VariantConversion: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 521147521, data2: 48333, data3: 4560, data4: [147, 54, 0, 160, 201, 13, 202, 169] };
+pub const SID_GetCaller: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1192741952, data2: 48313, data3: 4560, data4: [147, 54, 0, 160, 201, 13, 202, 169] };
+pub const SID_ProvideRuntimeContext: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1956971532, data2: 56588, data3: 18672, data4: [172, 133, 25, 76, 50, 89, 24, 10] };
+pub const SID_VariantConversion: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 521147521, data2: 48333, data3: 4560, data4: [147, 54, 0, 160, 201, 13, 202, 169] };
 pub const STDOLE2_LCID: u32 = 0u32;
 pub const STDOLE2_MAJORVERNUM: u32 = 2u32;
 pub const STDOLE2_MINORVERNUM: u32 = 0u32;
@@ -3623,7 +4181,7 @@ impl ::core::clone::Clone for XFORMCOORDS {
 pub struct _wireBRECORD {
     pub fFlags: u32,
     pub clSize: u32,
-    pub pRecInfo: ::core::option::Option<IRecordInfo>,
+    pub pRecInfo: IRecordInfo,
     pub pRecord: *mut u8,
 }
 impl ::core::marker::Copy for _wireBRECORD {}
@@ -3715,7 +4273,7 @@ impl ::core::clone::Clone for _wireSAFEARR_BSTR {
 #[cfg(feature = "Win32_System_Com")]
 pub struct _wireSAFEARR_DISPATCH {
     pub Size: u32,
-    pub apDispatch: *mut ::core::option::Option<super::Com::IDispatch>,
+    pub apDispatch: *mut super::Com::IDispatch,
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for _wireSAFEARR_DISPATCH {}
@@ -3728,7 +4286,7 @@ impl ::core::clone::Clone for _wireSAFEARR_DISPATCH {
 #[repr(C)]
 pub struct _wireSAFEARR_HAVEIID {
     pub Size: u32,
-    pub apUnknown: *mut ::core::option::Option<::windows_sys::core::IUnknown>,
+    pub apUnknown: *mut ::windows_sys::core::IUnknown,
     pub iid: ::windows_sys::core::GUID,
 }
 impl ::core::marker::Copy for _wireSAFEARR_HAVEIID {}
@@ -3740,7 +4298,7 @@ impl ::core::clone::Clone for _wireSAFEARR_HAVEIID {
 #[repr(C)]
 pub struct _wireSAFEARR_UNKNOWN {
     pub Size: u32,
-    pub apUnknown: *mut ::core::option::Option<::windows_sys::core::IUnknown>,
+    pub apUnknown: *mut ::windows_sys::core::IUnknown,
 }
 impl ::core::marker::Copy for _wireSAFEARR_UNKNOWN {}
 impl ::core::clone::Clone for _wireSAFEARR_UNKNOWN {
@@ -3795,8 +4353,8 @@ pub union _wireVARIANT_0 {
     pub cyVal: super::Com::CY,
     pub date: f64,
     pub bstrVal: *mut super::Com::FLAGGED_WORD_BLOB,
-    pub punkVal: ::core::option::Option<::windows_sys::core::IUnknown>,
-    pub pdispVal: ::core::option::Option<super::Com::IDispatch>,
+    pub punkVal: ::windows_sys::core::IUnknown,
+    pub pdispVal: super::Com::IDispatch,
     pub parray: *mut *mut _wireSAFEARRAY,
     pub brecVal: *mut _wireBRECORD,
     pub pbVal: *mut u8,
@@ -3810,8 +4368,8 @@ pub union _wireVARIANT_0 {
     pub pcyVal: *mut super::Com::CY,
     pub pdate: *mut f64,
     pub pbstrVal: *mut *mut super::Com::FLAGGED_WORD_BLOB,
-    pub ppunkVal: *mut ::core::option::Option<::windows_sys::core::IUnknown>,
-    pub ppdispVal: *mut ::core::option::Option<super::Com::IDispatch>,
+    pub ppunkVal: *mut ::windows_sys::core::IUnknown,
+    pub ppdispVal: *mut super::Com::IDispatch,
     pub pparray: *mut *mut *mut _wireSAFEARRAY,
     pub pvarVal: *mut *mut _wireVARIANT,
     pub cVal: super::super::Foundation::CHAR,

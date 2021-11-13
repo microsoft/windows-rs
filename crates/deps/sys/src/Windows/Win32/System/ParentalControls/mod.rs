@@ -1,24 +1,72 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {}
 pub const ARRAY_SEP_CHAR: u32 = 9u32;
 pub const FACILITY_WPC: u32 = 2457u32;
 #[repr(transparent)]
 pub struct IWPCGamesSettings(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWPCGamesSettings {}
+impl ::core::clone::Clone for IWPCGamesSettings {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWPCProviderConfig(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWPCProviderConfig {}
+impl ::core::clone::Clone for IWPCProviderConfig {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWPCProviderState(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWPCProviderState {}
+impl ::core::clone::Clone for IWPCProviderState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWPCProviderSupport(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWPCProviderSupport {}
+impl ::core::clone::Clone for IWPCProviderSupport {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWPCSettings(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWPCSettings {}
+impl ::core::clone::Clone for IWPCSettings {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWPCWebSettings(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWPCWebSettings {}
+impl ::core::clone::Clone for IWPCWebSettings {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWindowsParentalControls(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWindowsParentalControls {}
+impl ::core::clone::Clone for IWindowsParentalControls {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWindowsParentalControlsCore(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWindowsParentalControlsCore {}
+impl ::core::clone::Clone for IWindowsParentalControlsCore {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MSG_Event_AppBlocked: i32 = -1342177264i32;
 pub const MSG_Event_AppOverride: i32 = -1342177263i32;
 pub const MSG_Event_Application: i32 = -1342177260i32;
@@ -212,7 +260,7 @@ impl ::core::clone::Clone for WPCFLAG_WEB_SETTING {
         *self
     }
 }
-pub const WPCPROV: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 17367141, data2: 46183, data3: 17667, data4: [155, 40, 83, 55, 102, 118, 16, 135] };
+pub const WPCPROV: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 17367141, data2: 46183, data3: 17667, data4: [155, 40, 83, 55, 102, 118, 16, 135] };
 pub const WPCPROV_KEYWORD_ThirdParty: u32 = 32u32;
 pub const WPCPROV_KEYWORD_WPC: u32 = 16u32;
 pub const WPCPROV_TASK_AppBlocked: u32 = 16u32;
@@ -678,6 +726,6 @@ pub const WPC_SETTINGS_LOCATE: u32 = 20u32;
 pub const WPC_SETTINGS_MODIFY: u32 = 21u32;
 pub const WPC_SYSTEM: u32 = 23u32;
 pub const WPC_WEB: u32 = 24u32;
-pub const WindowsParentalControls: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3883714715, data2: 29697, data3: 19460, data4: [140, 237, 20, 157, 179, 90, 221, 4] };
-pub const WpcProviderSupport: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3138963360, data2: 8582, data3: 19424, data4: [151, 216, 4, 132, 123, 98, 142, 2] };
-pub const WpcSettingsProvider: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 895352746, data2: 15263, data3: 17244, data4: [180, 40, 93, 68, 41, 11, 197, 242] };
+pub const WindowsParentalControls: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3883714715, data2: 29697, data3: 19460, data4: [140, 237, 20, 157, 179, 90, 221, 4] };
+pub const WpcProviderSupport: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3138963360, data2: 8582, data3: 19424, data4: [151, 216, 4, 132, 123, 98, 142, 2] };
+pub const WpcSettingsProvider: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 895352746, data2: 15263, data3: 17244, data4: [180, 40, 93, 68, 41, 11, 197, 242] };

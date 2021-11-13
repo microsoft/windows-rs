@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
     #[cfg(feature = "Win32_Graphics_Dxgi")]
@@ -8,3 +8,9 @@ extern "system" {
 }
 #[repr(transparent)]
 pub struct IDirect3DDxgiInterfaceAccess(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDirect3DDxgiInterfaceAccess {}
+impl ::core::clone::Clone for IDirect3DDxgiInterfaceAccess {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

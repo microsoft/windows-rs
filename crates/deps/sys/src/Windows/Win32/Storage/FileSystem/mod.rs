@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
     #[cfg(feature = "Win32_Foundation")]
@@ -1138,7 +1138,7 @@ impl ::core::clone::Clone for CLFS_STREAM_ID_INFORMATION {
         *self
     }
 }
-pub const CLSID_DiskQuotaControl: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2039002481, data2: 60553, data3: 4559, data4: [156, 0, 0, 170, 0, 161, 79, 86] };
+pub const CLSID_DiskQuotaControl: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2039002481, data2: 60553, data3: 4559, data4: [156, 0, 0, 170, 0, 161, 79, 86] };
 #[repr(C)]
 pub struct CLS_ARCHIVE_DESCRIPTOR {
     pub coffLow: u64,
@@ -1352,7 +1352,7 @@ pub struct COPYFILE2_EXTENDED_PARAMETERS {
     pub dwSize: u32,
     pub dwCopyFlags: u32,
     pub pfCancel: *mut super::super::Foundation::BOOL,
-    pub pProgressRoutine: ::core::option::Option<PCOPYFILE2_PROGRESS_ROUTINE>,
+    pub pProgressRoutine: PCOPYFILE2_PROGRESS_ROUTINE,
     pub pvCallbackContext: *mut ::core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1369,7 +1369,7 @@ pub struct COPYFILE2_EXTENDED_PARAMETERS_V2 {
     pub dwSize: u32,
     pub dwCopyFlags: u32,
     pub pfCancel: *mut super::super::Foundation::BOOL,
-    pub pProgressRoutine: ::core::option::Option<PCOPYFILE2_PROGRESS_ROUTINE>,
+    pub pProgressRoutine: PCOPYFILE2_PROGRESS_ROUTINE,
     pub pvCallbackContext: *mut ::core::ffi::c_void,
     pub dwCopyFlagsV2: u32,
     pub ioDesiredSize: u32,
@@ -1933,7 +1933,7 @@ pub struct FH_OVERLAPPED {
     pub Offset: u32,
     pub OffsetHigh: u32,
     pub hEvent: super::super::Foundation::HANDLE,
-    pub pfnCompletion: ::core::option::Option<PFN_IO_COMPLETION>,
+    pub pfnCompletion: PFN_IO_COMPLETION,
     pub Reserved1: usize,
     pub Reserved2: usize,
     pub Reserved3: usize,
@@ -2764,14 +2764,44 @@ impl ::core::clone::Clone for HIORING__ {
 }
 #[repr(transparent)]
 pub struct IDiskQuotaControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDiskQuotaControl {}
+impl ::core::clone::Clone for IDiskQuotaControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDiskQuotaEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDiskQuotaEvents {}
+impl ::core::clone::Clone for IDiskQuotaEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDiskQuotaUser(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDiskQuotaUser {}
+impl ::core::clone::Clone for IDiskQuotaUser {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDiskQuotaUserBatch(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDiskQuotaUserBatch {}
+impl ::core::clone::Clone for IDiskQuotaUserBatch {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEnumDiskQuotaUsers(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnumDiskQuotaUsers {}
+impl ::core::clone::Clone for IEnumDiskQuotaUsers {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const INVALID_FILE_ATTRIBUTES: u32 = 4294967295u32;
 pub const INVALID_SET_FILE_POINTER: u32 = 4294967295u32;
 pub const IOCTL_VOLUME_ALLOCATE_BC_STREAM: u32 = 5685312u32;
@@ -3053,9 +3083,9 @@ impl ::core::clone::Clone for LOCK_FILE_FLAGS {
 #[cfg(feature = "Win32_Foundation")]
 pub struct LOG_MANAGEMENT_CALLBACKS {
     pub CallbackContext: *mut ::core::ffi::c_void,
-    pub AdvanceTailCallback: ::core::option::Option<PLOG_TAIL_ADVANCE_CALLBACK>,
-    pub LogFullHandlerCallback: ::core::option::Option<PLOG_FULL_HANDLER_CALLBACK>,
-    pub LogUnpinnedCallback: ::core::option::Option<PLOG_UNPINNED_CALLBACK>,
+    pub AdvanceTailCallback: PLOG_TAIL_ADVANCE_CALLBACK,
+    pub LogFullHandlerCallback: PLOG_FULL_HANDLER_CALLBACK,
+    pub LogUnpinnedCallback: PLOG_UNPINNED_CALLBACK,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for LOG_MANAGEMENT_CALLBACKS {}
@@ -4703,95 +4733,95 @@ impl ::core::clone::Clone for OFSTRUCT {
         *self
     }
 }
-pub const PARTITION_BASIC_DATA_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const PARTITION_BASIC_DATA_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3956318370,
     data2: 47589,
     data3: 17459,
     data4: [135, 192, 104, 182, 183, 38, 153, 199],
 };
-pub const PARTITION_BSP_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1464029011, data2: 19961, data3: 17849, data4: [142, 158, 35, 112, 240, 6, 69, 124] };
-pub const PARTITION_CLUSTER_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const PARTITION_BSP_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1464029011, data2: 19961, data3: 17849, data4: [142, 158, 35, 112, 240, 6, 69, 124] };
+pub const PARTITION_CLUSTER_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3684162473,
     data2: 2112,
     data3: 19374,
     data4: [151, 240, 255, 185, 163, 39, 199, 225],
 };
-pub const PARTITION_DPP_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const PARTITION_DPP_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1464029011,
     data2: 38091,
     data3: 17392,
     data4: [165, 51, 215, 60, 16, 207, 165, 125],
 };
-pub const PARTITION_ENTRY_UNUSED_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 0, data2: 0, data3: 0, data4: [0, 0, 0, 0, 0, 0, 0, 0] };
-pub const PARTITION_LDM_DATA_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2946195616, data2: 5169, data3: 20322, data4: [188, 104, 51, 17, 113, 74, 105, 173] };
-pub const PARTITION_LDM_METADATA_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const PARTITION_ENTRY_UNUSED_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 0, data2: 0, data3: 0, data4: [0, 0, 0, 0, 0, 0, 0, 0] };
+pub const PARTITION_LDM_DATA_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2946195616, data2: 5169, data3: 20322, data4: [188, 104, 51, 17, 113, 74, 105, 173] };
+pub const PARTITION_LDM_METADATA_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1476970666,
     data2: 32399,
     data3: 17120,
     data4: [133, 210, 225, 233, 4, 52, 207, 179],
 };
-pub const PARTITION_LEGACY_BL_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const PARTITION_LEGACY_BL_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1112318178,
     data2: 31922,
     data3: 20409,
     data4: [129, 67, 197, 42, 153, 57, 139, 198],
 };
-pub const PARTITION_LEGACY_BL_GUID_BACKUP: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const PARTITION_LEGACY_BL_GUID_BACKUP: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1112292972,
     data2: 55199,
     data3: 18891,
     data4: [147, 93, 54, 215, 20, 103, 162, 136],
 };
-pub const PARTITION_MAIN_OS_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1464029011, data2: 36677, data3: 16478, data4: [138, 35, 24, 109, 138, 67, 48, 211] };
-pub const PARTITION_MSFT_RECOVERY_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const PARTITION_MAIN_OS_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1464029011, data2: 36677, data3: 16478, data4: [138, 35, 24, 109, 138, 67, 48, 211] };
+pub const PARTITION_MSFT_RECOVERY_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3734289316,
     data2: 1745,
     data3: 19776,
     data4: [161, 106, 191, 213, 1, 121, 214, 172],
 };
-pub const PARTITION_MSFT_RESERVED_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3821658902, data2: 2908, data3: 19896, data4: [129, 125, 249, 45, 240, 2, 21, 174] };
-pub const PARTITION_MSFT_SNAPSHOT_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3403541489, data2: 17408, data3: 19944, data4: [177, 3, 18, 17, 125, 207, 60, 207] };
-pub const PARTITION_OS_DATA_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1464029011, data2: 9202, data3: 17621, data4: [168, 48, 103, 187, 218, 166, 9, 249] };
-pub const PARTITION_PATCH_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2305271430, data2: 38570, data3: 27304, data4: [149, 137, 168, 66, 86, 84, 16, 144] };
-pub const PARTITION_PRE_INSTALLED_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1464029011, data2: 32736, data3: 16790, data4: [155, 66, 66, 123, 81, 100, 52, 132] };
-pub const PARTITION_SERVICING_FILES_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const PARTITION_MSFT_RESERVED_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3821658902, data2: 2908, data3: 19896, data4: [129, 125, 249, 45, 240, 2, 21, 174] };
+pub const PARTITION_MSFT_SNAPSHOT_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3403541489, data2: 17408, data3: 19944, data4: [177, 3, 18, 17, 125, 207, 60, 207] };
+pub const PARTITION_OS_DATA_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1464029011, data2: 9202, data3: 17621, data4: [168, 48, 103, 187, 218, 166, 9, 249] };
+pub const PARTITION_PATCH_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2305271430, data2: 38570, data3: 27304, data4: [149, 137, 168, 66, 86, 84, 16, 144] };
+pub const PARTITION_PRE_INSTALLED_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1464029011, data2: 32736, data3: 16790, data4: [155, 66, 66, 123, 81, 100, 52, 132] };
+pub const PARTITION_SERVICING_FILES_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1464029011,
     data2: 17198,
     data3: 16404,
     data4: [174, 76, 141, 234, 169, 192, 0, 106],
 };
-pub const PARTITION_SERVICING_METADATA_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const PARTITION_SERVICING_METADATA_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1464029011,
     data2: 50833,
     data3: 18949,
     data4: [187, 78, 112, 61, 175, 210, 41, 206],
 };
-pub const PARTITION_SERVICING_RESERVE_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const PARTITION_SERVICING_RESERVE_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1464029011,
     data2: 19329,
     data3: 17931,
     data4: [163, 25, 255, 182, 254, 19, 109, 20],
 };
-pub const PARTITION_SERVICING_STAGING_ROOT_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const PARTITION_SERVICING_STAGING_ROOT_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1464029011,
     data2: 59469,
     data3: 20100,
     data4: [170, 243, 236, 187, 189, 4, 185, 223],
 };
-pub const PARTITION_SPACES_DATA_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const PARTITION_SPACES_DATA_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3886931124,
     data2: 56372,
     data3: 17721,
     data4: [154, 118, 235, 189, 7, 190, 111, 126],
 };
-pub const PARTITION_SPACES_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const PARTITION_SPACES_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3881611151,
     data2: 63104,
     data3: 19694,
     data4: [175, 163, 176, 1, 229, 110, 252, 45],
 };
-pub const PARTITION_SYSTEM_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3240784680, data2: 63519, data3: 4562, data4: [186, 75, 0, 160, 201, 62, 201, 59] };
-pub const PARTITION_WINDOWS_SYSTEM_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const PARTITION_SYSTEM_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3240784680, data2: 63519, data3: 4562, data4: [186, 75, 0, 160, 201, 62, 201, 59] };
+pub const PARTITION_WINDOWS_SYSTEM_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1464029011,
     data2: 58339,
     data3: 17969,

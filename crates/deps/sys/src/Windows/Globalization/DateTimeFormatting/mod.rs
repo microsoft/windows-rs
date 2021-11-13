@@ -1,8 +1,14 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {}
 #[repr(transparent)]
 pub struct DateTimeFormatter(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for DateTimeFormatter {}
+impl ::core::clone::Clone for DateTimeFormatter {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DayFormat(pub i32);
 impl DayFormat {
@@ -43,12 +49,36 @@ impl ::core::clone::Clone for HourFormat {
 }
 #[repr(transparent)]
 pub struct IDateTimeFormatter(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDateTimeFormatter {}
+impl ::core::clone::Clone for IDateTimeFormatter {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDateTimeFormatter2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDateTimeFormatter2 {}
+impl ::core::clone::Clone for IDateTimeFormatter2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDateTimeFormatterFactory(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDateTimeFormatterFactory {}
+impl ::core::clone::Clone for IDateTimeFormatterFactory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDateTimeFormatterStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDateTimeFormatterStatics {}
+impl ::core::clone::Clone for IDateTimeFormatterStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct MinuteFormat(pub i32);
 impl MinuteFormat {

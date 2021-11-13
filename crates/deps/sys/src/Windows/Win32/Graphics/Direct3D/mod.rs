@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[cfg(feature = "Win32_Graphics_Direct3D_Dxc")]
 pub mod Dxc;
 #[cfg(feature = "Win32_Graphics_Direct3D_Fxc")]
@@ -869,8 +869,8 @@ impl ::core::clone::Clone for D3D_TESSELLATOR_PARTITIONING {
         *self
     }
 }
-pub const D3D_TEXTURE_LAYOUT_64KB_STANDARD_SWIZZLE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1276062179, data2: 16223, data3: 19765, data4: [132, 201, 188, 9, 131, 182, 44, 40] };
-pub const D3D_TEXTURE_LAYOUT_ROW_MAJOR: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const D3D_TEXTURE_LAYOUT_64KB_STANDARD_SWIZZLE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1276062179, data2: 16223, data3: 19765, data4: [132, 201, 188, 9, 131, 182, 44, 40] };
+pub const D3D_TEXTURE_LAYOUT_ROW_MAJOR: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3051103055,
     data2: 29371,
     data3: 19436,
@@ -878,20 +878,38 @@ pub const D3D_TEXTURE_LAYOUT_ROW_MAJOR: ::windows_sys::core::GUID = ::windows_sy
 };
 #[repr(transparent)]
 pub struct ID3DBlob(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3DBlob {}
+impl ::core::clone::Clone for ID3DBlob {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3DDestructionNotifier(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3DDestructionNotifier {}
+impl ::core::clone::Clone for ID3DDestructionNotifier {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3DInclude(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3DInclude {}
+impl ::core::clone::Clone for ID3DInclude {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub type PFN_DESTRUCTION_CALLBACK = unsafe extern "system" fn(pdata: *mut ::core::ffi::c_void);
-pub const WKPDID_CommentStringW: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3491012032, data2: 37096, data3: 20168, data4: [129, 68, 233, 0, 173, 38, 107, 178] };
-pub const WKPDID_D3D12UniqueObjectId: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 456777237, data2: 60420, data3: 19374, data4: [186, 77, 140, 239, 121, 252, 4, 193] };
-pub const WKPDID_D3DDebugObjectName: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const WKPDID_CommentStringW: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3491012032, data2: 37096, data3: 20168, data4: [129, 68, 233, 0, 173, 38, 107, 178] };
+pub const WKPDID_D3D12UniqueObjectId: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 456777237, data2: 60420, data3: 19374, data4: [186, 77, 140, 239, 121, 252, 4, 193] };
+pub const WKPDID_D3DDebugObjectName: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1117490210,
     data2: 37256,
     data3: 19212,
     data4: [135, 66, 172, 176, 191, 133, 194, 0],
 };
-pub const WKPDID_D3DDebugObjectNameW: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const WKPDID_D3DDebugObjectNameW: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1288331224,
     data2: 37407,
     data3: 17096,

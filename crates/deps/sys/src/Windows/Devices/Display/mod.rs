@@ -1,10 +1,16 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[cfg(feature = "Devices_Display_Core")]
 pub mod Core;
 #[link(name = "windows")]
 extern "system" {}
 #[repr(transparent)]
 pub struct DisplayMonitor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for DisplayMonitor {}
+impl ::core::clone::Clone for DisplayMonitor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct DisplayMonitorConnectionKind(pub i32);
 impl DisplayMonitorConnectionKind {
@@ -64,7 +70,25 @@ impl ::core::clone::Clone for DisplayMonitorUsageKind {
 }
 #[repr(transparent)]
 pub struct IDisplayMonitor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDisplayMonitor {}
+impl ::core::clone::Clone for IDisplayMonitor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDisplayMonitor2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDisplayMonitor2 {}
+impl ::core::clone::Clone for IDisplayMonitor2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDisplayMonitorStatics(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDisplayMonitorStatics {}
+impl ::core::clone::Clone for IDisplayMonitorStatics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}

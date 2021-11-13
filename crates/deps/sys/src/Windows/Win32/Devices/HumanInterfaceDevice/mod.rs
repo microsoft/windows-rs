@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
     #[cfg(feature = "Win32_Foundation")]
@@ -111,10 +111,10 @@ pub const BUTTON_BIT_SEARCH: u32 = 64u32;
 pub const BUTTON_BIT_VOLUMEDOWN: u32 = 8u32;
 pub const BUTTON_BIT_VOLUMEUP: u32 = 4u32;
 pub const BUTTON_BIT_WINDOWS: u32 = 2u32;
-pub const CLSID_DirectInput: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 635832800, data2: 45657, data3: 4559, data4: [191, 199, 68, 69, 83, 84, 0, 0] };
-pub const CLSID_DirectInput8: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 635832804, data2: 45657, data3: 4559, data4: [191, 199, 68, 69, 83, 84, 0, 0] };
-pub const CLSID_DirectInputDevice: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 635832801, data2: 45657, data3: 4559, data4: [191, 199, 68, 69, 83, 84, 0, 0] };
-pub const CLSID_DirectInputDevice8: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 635832805, data2: 45657, data3: 4559, data4: [191, 199, 68, 69, 83, 84, 0, 0] };
+pub const CLSID_DirectInput: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 635832800, data2: 45657, data3: 4559, data4: [191, 199, 68, 69, 83, 84, 0, 0] };
+pub const CLSID_DirectInput8: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 635832804, data2: 45657, data3: 4559, data4: [191, 199, 68, 69, 83, 84, 0, 0] };
+pub const CLSID_DirectInputDevice: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 635832801, data2: 45657, data3: 4559, data4: [191, 199, 68, 69, 83, 84, 0, 0] };
+pub const CLSID_DirectInputDevice8: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 635832805, data2: 45657, data3: 4559, data4: [191, 199, 68, 69, 83, 84, 0, 0] };
 #[repr(C)]
 pub struct CPOINT {
     pub lP: i32,
@@ -128,42 +128,42 @@ impl ::core::clone::Clone for CPOINT {
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_DeviceInterface_HID_BackgroundAccess: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::GUID { data1: 3421733648, data2: 18967, data3: 17168, data4: [161, 235, 36, 127, 11, 103, 89, 59] },
+    fmtid: ::windows_sys::core::GUID { data1: 3421733648, data2: 18967, data3: 17168, data4: [161, 235, 36, 127, 11, 103, 89, 59] },
     pid: 8u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_DeviceInterface_HID_IsReadOnly: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::GUID { data1: 3421733648, data2: 18967, data3: 17168, data4: [161, 235, 36, 127, 11, 103, 89, 59] },
+    fmtid: ::windows_sys::core::GUID { data1: 3421733648, data2: 18967, data3: 17168, data4: [161, 235, 36, 127, 11, 103, 89, 59] },
     pid: 4u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_DeviceInterface_HID_ProductId: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::GUID { data1: 3421733648, data2: 18967, data3: 17168, data4: [161, 235, 36, 127, 11, 103, 89, 59] },
+    fmtid: ::windows_sys::core::GUID { data1: 3421733648, data2: 18967, data3: 17168, data4: [161, 235, 36, 127, 11, 103, 89, 59] },
     pid: 6u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_DeviceInterface_HID_UsageId: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::GUID { data1: 3421733648, data2: 18967, data3: 17168, data4: [161, 235, 36, 127, 11, 103, 89, 59] },
+    fmtid: ::windows_sys::core::GUID { data1: 3421733648, data2: 18967, data3: 17168, data4: [161, 235, 36, 127, 11, 103, 89, 59] },
     pid: 3u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_DeviceInterface_HID_UsagePage: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::GUID { data1: 3421733648, data2: 18967, data3: 17168, data4: [161, 235, 36, 127, 11, 103, 89, 59] },
+    fmtid: ::windows_sys::core::GUID { data1: 3421733648, data2: 18967, data3: 17168, data4: [161, 235, 36, 127, 11, 103, 89, 59] },
     pid: 2u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_DeviceInterface_HID_VendorId: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::GUID { data1: 3421733648, data2: 18967, data3: 17168, data4: [161, 235, 36, 127, 11, 103, 89, 59] },
+    fmtid: ::windows_sys::core::GUID { data1: 3421733648, data2: 18967, data3: 17168, data4: [161, 235, 36, 127, 11, 103, 89, 59] },
     pid: 5u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_DeviceInterface_HID_VersionNumber: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::GUID { data1: 3421733648, data2: 18967, data3: 17168, data4: [161, 235, 36, 127, 11, 103, 89, 59] },
+    fmtid: ::windows_sys::core::GUID { data1: 3421733648, data2: 18967, data3: 17168, data4: [161, 235, 36, 127, 11, 103, 89, 59] },
     pid: 7u32,
 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_DeviceInterface_HID_WakeScreenOnInputCapable: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows_sys::GUID { data1: 3421733648, data2: 18967, data3: 17168, data4: [161, 235, 36, 127, 11, 103, 89, 59] },
+    fmtid: ::windows_sys::core::GUID { data1: 3421733648, data2: 18967, data3: 17168, data4: [161, 235, 36, 127, 11, 103, 89, 59] },
     pid: 9u32,
 };
 pub const DI8DEVCLASS_ALL: u32 = 0u32;
@@ -1245,7 +1245,7 @@ pub struct DICONFIGUREDEVICESPARAMSA {
     pub lprgFormats: *mut DIACTIONFORMATA,
     pub hwnd: super::super::Foundation::HWND,
     pub dics: DICOLORSET,
-    pub lpUnkDDSTarget: ::core::option::Option<::windows_sys::core::IUnknown>,
+    pub lpUnkDDSTarget: ::windows_sys::core::IUnknown,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DICONFIGUREDEVICESPARAMSA {}
@@ -1265,7 +1265,7 @@ pub struct DICONFIGUREDEVICESPARAMSW {
     pub lprgFormats: *mut DIACTIONFORMATW,
     pub hwnd: super::super::Foundation::HWND,
     pub dics: DICOLORSET,
-    pub lpUnkDDSTarget: ::core::option::Option<::windows_sys::core::IUnknown>,
+    pub lpUnkDDSTarget: ::windows_sys::core::IUnknown,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DICONFIGUREDEVICESPARAMSW {}
@@ -2849,50 +2849,50 @@ impl ::core::clone::Clone for GPIOBUTTONS_BUTTON_TYPE {
         *self
     }
 }
-pub const GUID_Button: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2741830384, data2: 51699, data3: 4559, data4: [191, 199, 68, 69, 83, 84, 0, 0] };
-pub const GUID_ConstantForce: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 324279328, data2: 36403, data3: 4560, data4: [154, 208, 0, 160, 201, 160, 110, 53] };
-pub const GUID_CustomForce: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 324279339, data2: 36403, data3: 4560, data4: [154, 208, 0, 160, 201, 160, 110, 53] };
-pub const GUID_DEVINTERFACE_HID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1293833650, data2: 61807, data3: 4559, data4: [136, 203, 0, 17, 17, 0, 0, 48] };
-pub const GUID_DEVINTERFACE_KEYBOARD: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2286655171, data2: 22255, data3: 4561, data4: [188, 140, 0, 160, 201, 20, 5, 221] };
-pub const GUID_DEVINTERFACE_MOUSE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 932045900, data2: 22255, data3: 4561, data4: [188, 140, 0, 160, 201, 20, 5, 221] };
-pub const GUID_Damper: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 324279336, data2: 36403, data3: 4560, data4: [154, 208, 0, 160, 201, 160, 110, 53] };
-pub const GUID_Friction: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 324279338, data2: 36403, data3: 4560, data4: [154, 208, 0, 160, 201, 160, 110, 53] };
-pub const GUID_HIDClass: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1952061344, data2: 29907, data3: 4560, data4: [182, 254, 0, 160, 201, 15, 87, 218] };
-pub const GUID_HID_INTERFACE_HIDPARSE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const GUID_Button: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2741830384, data2: 51699, data3: 4559, data4: [191, 199, 68, 69, 83, 84, 0, 0] };
+pub const GUID_ConstantForce: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 324279328, data2: 36403, data3: 4560, data4: [154, 208, 0, 160, 201, 160, 110, 53] };
+pub const GUID_CustomForce: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 324279339, data2: 36403, data3: 4560, data4: [154, 208, 0, 160, 201, 160, 110, 53] };
+pub const GUID_DEVINTERFACE_HID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1293833650, data2: 61807, data3: 4559, data4: [136, 203, 0, 17, 17, 0, 0, 48] };
+pub const GUID_DEVINTERFACE_KEYBOARD: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2286655171, data2: 22255, data3: 4561, data4: [188, 140, 0, 160, 201, 20, 5, 221] };
+pub const GUID_DEVINTERFACE_MOUSE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 932045900, data2: 22255, data3: 4561, data4: [188, 140, 0, 160, 201, 20, 5, 221] };
+pub const GUID_Damper: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 324279336, data2: 36403, data3: 4560, data4: [154, 208, 0, 160, 201, 160, 110, 53] };
+pub const GUID_Friction: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 324279338, data2: 36403, data3: 4560, data4: [154, 208, 0, 160, 201, 160, 110, 53] };
+pub const GUID_HIDClass: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1952061344, data2: 29907, data3: 4560, data4: [182, 254, 0, 160, 201, 15, 87, 218] };
+pub const GUID_HID_INTERFACE_HIDPARSE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4123202981,
     data2: 27052,
     data3: 19394,
     data4: [146, 121, 208, 182, 69, 118, 244, 75],
 };
-pub const GUID_HID_INTERFACE_NOTIFY: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 743321224, data2: 9702, data3: 19507, data4: [136, 47, 61, 130, 230, 7, 54, 129] };
-pub const GUID_Inertia: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 324279337, data2: 36403, data3: 4560, data4: [154, 208, 0, 160, 201, 160, 110, 53] };
-pub const GUID_Joystick: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1864182640, data2: 54688, data3: 4559, data4: [191, 199, 68, 69, 83, 84, 0, 0] };
-pub const GUID_Key: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1433567776, data2: 54076, data3: 4559, data4: [191, 199, 68, 69, 83, 84, 0, 0] };
-pub const GUID_KeyboardClass: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1295444331, data2: 58149, data3: 4558, data4: [191, 193, 8, 0, 43, 225, 3, 24] };
-pub const GUID_MediaClass: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1295444332, data2: 58149, data3: 4558, data4: [191, 193, 8, 0, 43, 225, 3, 24] };
-pub const GUID_MouseClass: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1295444335, data2: 58149, data3: 4558, data4: [191, 193, 8, 0, 43, 225, 3, 24] };
-pub const GUID_POV: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2741830386, data2: 51699, data3: 4559, data4: [191, 199, 68, 69, 83, 84, 0, 0] };
-pub const GUID_RampForce: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 324279329, data2: 36403, data3: 4560, data4: [154, 208, 0, 160, 201, 160, 110, 53] };
-pub const GUID_RxAxis: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2741830388, data2: 51699, data3: 4559, data4: [191, 199, 68, 69, 83, 84, 0, 0] };
-pub const GUID_RyAxis: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2741830389, data2: 51699, data3: 4559, data4: [191, 199, 68, 69, 83, 84, 0, 0] };
-pub const GUID_RzAxis: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2741830371, data2: 51699, data3: 4559, data4: [191, 199, 68, 69, 83, 84, 0, 0] };
-pub const GUID_SawtoothDown: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 324279334, data2: 36403, data3: 4560, data4: [154, 208, 0, 160, 201, 160, 110, 53] };
-pub const GUID_SawtoothUp: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 324279333, data2: 36403, data3: 4560, data4: [154, 208, 0, 160, 201, 160, 110, 53] };
-pub const GUID_Sine: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 324279331, data2: 36403, data3: 4560, data4: [154, 208, 0, 160, 201, 160, 110, 53] };
-pub const GUID_Slider: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2741830372, data2: 51699, data3: 4559, data4: [191, 199, 68, 69, 83, 84, 0, 0] };
-pub const GUID_Spring: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 324279335, data2: 36403, data3: 4560, data4: [154, 208, 0, 160, 201, 160, 110, 53] };
-pub const GUID_Square: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 324279330, data2: 36403, data3: 4560, data4: [154, 208, 0, 160, 201, 160, 110, 53] };
-pub const GUID_SysKeyboard: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1864182625, data2: 54688, data3: 4559, data4: [191, 199, 68, 69, 83, 84, 0, 0] };
-pub const GUID_SysKeyboardEm: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1864182658, data2: 54688, data3: 4559, data4: [191, 199, 68, 69, 83, 84, 0, 0] };
-pub const GUID_SysKeyboardEm2: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1864182659, data2: 54688, data3: 4559, data4: [191, 199, 68, 69, 83, 84, 0, 0] };
-pub const GUID_SysMouse: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1864182624, data2: 54688, data3: 4559, data4: [191, 199, 68, 69, 83, 84, 0, 0] };
-pub const GUID_SysMouseEm: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1864182656, data2: 54688, data3: 4559, data4: [191, 199, 68, 69, 83, 84, 0, 0] };
-pub const GUID_SysMouseEm2: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1864182657, data2: 54688, data3: 4559, data4: [191, 199, 68, 69, 83, 84, 0, 0] };
-pub const GUID_Triangle: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 324279332, data2: 36403, data3: 4560, data4: [154, 208, 0, 160, 201, 160, 110, 53] };
-pub const GUID_Unknown: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2741830387, data2: 51699, data3: 4559, data4: [191, 199, 68, 69, 83, 84, 0, 0] };
-pub const GUID_XAxis: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2741830368, data2: 51699, data3: 4559, data4: [191, 199, 68, 69, 83, 84, 0, 0] };
-pub const GUID_YAxis: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2741830369, data2: 51699, data3: 4559, data4: [191, 199, 68, 69, 83, 84, 0, 0] };
-pub const GUID_ZAxis: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2741830370, data2: 51699, data3: 4559, data4: [191, 199, 68, 69, 83, 84, 0, 0] };
+pub const GUID_HID_INTERFACE_NOTIFY: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 743321224, data2: 9702, data3: 19507, data4: [136, 47, 61, 130, 230, 7, 54, 129] };
+pub const GUID_Inertia: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 324279337, data2: 36403, data3: 4560, data4: [154, 208, 0, 160, 201, 160, 110, 53] };
+pub const GUID_Joystick: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1864182640, data2: 54688, data3: 4559, data4: [191, 199, 68, 69, 83, 84, 0, 0] };
+pub const GUID_Key: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1433567776, data2: 54076, data3: 4559, data4: [191, 199, 68, 69, 83, 84, 0, 0] };
+pub const GUID_KeyboardClass: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1295444331, data2: 58149, data3: 4558, data4: [191, 193, 8, 0, 43, 225, 3, 24] };
+pub const GUID_MediaClass: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1295444332, data2: 58149, data3: 4558, data4: [191, 193, 8, 0, 43, 225, 3, 24] };
+pub const GUID_MouseClass: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1295444335, data2: 58149, data3: 4558, data4: [191, 193, 8, 0, 43, 225, 3, 24] };
+pub const GUID_POV: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2741830386, data2: 51699, data3: 4559, data4: [191, 199, 68, 69, 83, 84, 0, 0] };
+pub const GUID_RampForce: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 324279329, data2: 36403, data3: 4560, data4: [154, 208, 0, 160, 201, 160, 110, 53] };
+pub const GUID_RxAxis: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2741830388, data2: 51699, data3: 4559, data4: [191, 199, 68, 69, 83, 84, 0, 0] };
+pub const GUID_RyAxis: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2741830389, data2: 51699, data3: 4559, data4: [191, 199, 68, 69, 83, 84, 0, 0] };
+pub const GUID_RzAxis: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2741830371, data2: 51699, data3: 4559, data4: [191, 199, 68, 69, 83, 84, 0, 0] };
+pub const GUID_SawtoothDown: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 324279334, data2: 36403, data3: 4560, data4: [154, 208, 0, 160, 201, 160, 110, 53] };
+pub const GUID_SawtoothUp: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 324279333, data2: 36403, data3: 4560, data4: [154, 208, 0, 160, 201, 160, 110, 53] };
+pub const GUID_Sine: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 324279331, data2: 36403, data3: 4560, data4: [154, 208, 0, 160, 201, 160, 110, 53] };
+pub const GUID_Slider: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2741830372, data2: 51699, data3: 4559, data4: [191, 199, 68, 69, 83, 84, 0, 0] };
+pub const GUID_Spring: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 324279335, data2: 36403, data3: 4560, data4: [154, 208, 0, 160, 201, 160, 110, 53] };
+pub const GUID_Square: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 324279330, data2: 36403, data3: 4560, data4: [154, 208, 0, 160, 201, 160, 110, 53] };
+pub const GUID_SysKeyboard: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1864182625, data2: 54688, data3: 4559, data4: [191, 199, 68, 69, 83, 84, 0, 0] };
+pub const GUID_SysKeyboardEm: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1864182658, data2: 54688, data3: 4559, data4: [191, 199, 68, 69, 83, 84, 0, 0] };
+pub const GUID_SysKeyboardEm2: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1864182659, data2: 54688, data3: 4559, data4: [191, 199, 68, 69, 83, 84, 0, 0] };
+pub const GUID_SysMouse: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1864182624, data2: 54688, data3: 4559, data4: [191, 199, 68, 69, 83, 84, 0, 0] };
+pub const GUID_SysMouseEm: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1864182656, data2: 54688, data3: 4559, data4: [191, 199, 68, 69, 83, 84, 0, 0] };
+pub const GUID_SysMouseEm2: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1864182657, data2: 54688, data3: 4559, data4: [191, 199, 68, 69, 83, 84, 0, 0] };
+pub const GUID_Triangle: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 324279332, data2: 36403, data3: 4560, data4: [154, 208, 0, 160, 201, 160, 110, 53] };
+pub const GUID_Unknown: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2741830387, data2: 51699, data3: 4559, data4: [191, 199, 68, 69, 83, 84, 0, 0] };
+pub const GUID_XAxis: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2741830368, data2: 51699, data3: 4559, data4: [191, 199, 68, 69, 83, 84, 0, 0] };
+pub const GUID_YAxis: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2741830369, data2: 51699, data3: 4559, data4: [191, 199, 68, 69, 83, 84, 0, 0] };
+pub const GUID_ZAxis: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2741830370, data2: 51699, data3: 4559, data4: [191, 199, 68, 69, 83, 84, 0, 0] };
 #[repr(C)]
 pub struct HIDD_ATTRIBUTES {
     pub Size: u32,
@@ -3907,44 +3907,164 @@ impl ::core::clone::Clone for HID_XFER_PACKET {
 pub const HORIZONTAL_WHEEL_PRESENT: u32 = 32768u32;
 #[repr(transparent)]
 pub struct IDirectInput2A(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDirectInput2A {}
+impl ::core::clone::Clone for IDirectInput2A {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDirectInput2W(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDirectInput2W {}
+impl ::core::clone::Clone for IDirectInput2W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDirectInput7A(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDirectInput7A {}
+impl ::core::clone::Clone for IDirectInput7A {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDirectInput7W(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDirectInput7W {}
+impl ::core::clone::Clone for IDirectInput7W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDirectInput8A(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDirectInput8A {}
+impl ::core::clone::Clone for IDirectInput8A {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDirectInput8W(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDirectInput8W {}
+impl ::core::clone::Clone for IDirectInput8W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDirectInputA(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDirectInputA {}
+impl ::core::clone::Clone for IDirectInputA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDirectInputDevice2A(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDirectInputDevice2A {}
+impl ::core::clone::Clone for IDirectInputDevice2A {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDirectInputDevice2W(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDirectInputDevice2W {}
+impl ::core::clone::Clone for IDirectInputDevice2W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDirectInputDevice7A(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDirectInputDevice7A {}
+impl ::core::clone::Clone for IDirectInputDevice7A {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDirectInputDevice7W(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDirectInputDevice7W {}
+impl ::core::clone::Clone for IDirectInputDevice7W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDirectInputDevice8A(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDirectInputDevice8A {}
+impl ::core::clone::Clone for IDirectInputDevice8A {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDirectInputDevice8W(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDirectInputDevice8W {}
+impl ::core::clone::Clone for IDirectInputDevice8W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDirectInputDeviceA(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDirectInputDeviceA {}
+impl ::core::clone::Clone for IDirectInputDeviceA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDirectInputDeviceW(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDirectInputDeviceW {}
+impl ::core::clone::Clone for IDirectInputDeviceW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDirectInputEffect(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDirectInputEffect {}
+impl ::core::clone::Clone for IDirectInputEffect {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDirectInputEffectDriver(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDirectInputEffectDriver {}
+impl ::core::clone::Clone for IDirectInputEffectDriver {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDirectInputJoyConfig(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDirectInputJoyConfig {}
+impl ::core::clone::Clone for IDirectInputJoyConfig {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDirectInputJoyConfig8(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDirectInputJoyConfig8 {}
+impl ::core::clone::Clone for IDirectInputJoyConfig8 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDirectInputW(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDirectInputW {}
+impl ::core::clone::Clone for IDirectInputW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 pub struct INDICATOR_LIST {
     pub MakeCode: u16,

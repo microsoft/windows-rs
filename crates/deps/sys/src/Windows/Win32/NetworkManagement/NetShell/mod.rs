@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
     #[cfg(feature = "Win32_Foundation")]
@@ -21,11 +21,11 @@ extern "system" {
 #[cfg(feature = "Win32_Foundation")]
 pub struct CMD_ENTRY {
     pub pwszCmdToken: super::super::Foundation::PWSTR,
-    pub pfnCmdHandler: ::core::option::Option<PFN_HANDLE_CMD>,
+    pub pfnCmdHandler: PFN_HANDLE_CMD,
     pub dwShortCmdHelpToken: u32,
     pub dwCmdHlpToken: u32,
     pub dwFlags: u32,
-    pub pOsVersionCheck: ::core::option::Option<PNS_OSVERSIONCHECK>,
+    pub pOsVersionCheck: PNS_OSVERSIONCHECK,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CMD_ENTRY {}
@@ -43,7 +43,7 @@ pub struct CMD_GROUP_ENTRY {
     pub ulCmdGroupSize: u32,
     pub dwFlags: u32,
     pub pCmdGroup: *mut CMD_ENTRY,
-    pub pOsVersionCheck: ::core::option::Option<PNS_OSVERSIONCHECK>,
+    pub pOsVersionCheck: PNS_OSVERSIONCHECK,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CMD_GROUP_ENTRY {}
@@ -108,11 +108,11 @@ pub struct NS_CONTEXT_ATTRIBUTES {
     pub pTopCmds: *mut CMD_ENTRY,
     pub ulNumGroups: u32,
     pub pCmdGroups: *mut CMD_GROUP_ENTRY,
-    pub pfnCommitFn: ::core::option::Option<PNS_CONTEXT_COMMIT_FN>,
-    pub pfnDumpFn: ::core::option::Option<PNS_CONTEXT_DUMP_FN>,
-    pub pfnConnectFn: ::core::option::Option<PNS_CONTEXT_CONNECT_FN>,
+    pub pfnCommitFn: PNS_CONTEXT_COMMIT_FN,
+    pub pfnDumpFn: PNS_CONTEXT_DUMP_FN,
+    pub pfnConnectFn: PNS_CONTEXT_CONNECT_FN,
     pub pReserved: *mut ::core::ffi::c_void,
-    pub pfnOsVersionCheck: ::core::option::Option<PNS_OSVERSIONCHECK>,
+    pub pfnOsVersionCheck: PNS_OSVERSIONCHECK,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for NS_CONTEXT_ATTRIBUTES {}
@@ -167,8 +167,8 @@ impl ::core::clone::Clone for NS_EVENTS {
 pub struct NS_HELPER_ATTRIBUTES {
     pub Anonymous: NS_HELPER_ATTRIBUTES_0,
     pub guidHelper: ::windows_sys::core::GUID,
-    pub pfnStart: ::core::option::Option<PNS_HELPER_START_FN>,
-    pub pfnStop: ::core::option::Option<PNS_HELPER_STOP_FN>,
+    pub pfnStart: PNS_HELPER_START_FN,
+    pub pfnStop: PNS_HELPER_STOP_FN,
 }
 impl ::core::marker::Copy for NS_HELPER_ATTRIBUTES {}
 impl ::core::clone::Clone for NS_HELPER_ATTRIBUTES {

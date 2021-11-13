@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
     #[cfg(feature = "Win32_Foundation")]
@@ -41,8 +41,8 @@ impl ::core::clone::Clone for BOID {
         *self
     }
 }
-pub const CLSID_MSDtcTransaction: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 972609387, data2: 2344, data3: 4561, data4: [151, 223, 0, 192, 79, 185, 97, 138] };
-pub const CLSID_MSDtcTransactionManager: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1528343393, data2: 2333, data3: 4561, data4: [151, 223, 0, 192, 79, 185, 97, 138] };
+pub const CLSID_MSDtcTransaction: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 972609387, data2: 2344, data3: 4561, data4: [151, 223, 0, 192, 79, 185, 97, 138] };
+pub const CLSID_MSDtcTransactionManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1528343393, data2: 2333, data3: 4561, data4: [151, 223, 0, 192, 79, 185, 97, 138] };
 pub const DTCINSTALL_E_CLIENT_ALREADY_INSTALLED: i32 = 384i32;
 pub const DTCINSTALL_E_SERVER_ALREADY_INSTALLED: i32 = 385i32;
 #[cfg(feature = "Win32_Foundation")]
@@ -74,70 +74,268 @@ impl ::core::clone::Clone for DTC_STATUS_ {
 }
 #[repr(transparent)]
 pub struct IDtcLuConfigure(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDtcLuConfigure {}
+impl ::core::clone::Clone for IDtcLuConfigure {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDtcLuRecovery(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDtcLuRecovery {}
+impl ::core::clone::Clone for IDtcLuRecovery {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDtcLuRecoveryFactory(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDtcLuRecoveryFactory {}
+impl ::core::clone::Clone for IDtcLuRecoveryFactory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDtcLuRecoveryInitiatedByDtc(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDtcLuRecoveryInitiatedByDtc {}
+impl ::core::clone::Clone for IDtcLuRecoveryInitiatedByDtc {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDtcLuRecoveryInitiatedByDtcStatusWork(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDtcLuRecoveryInitiatedByDtcStatusWork {}
+impl ::core::clone::Clone for IDtcLuRecoveryInitiatedByDtcStatusWork {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDtcLuRecoveryInitiatedByDtcTransWork(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDtcLuRecoveryInitiatedByDtcTransWork {}
+impl ::core::clone::Clone for IDtcLuRecoveryInitiatedByDtcTransWork {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDtcLuRecoveryInitiatedByLu(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDtcLuRecoveryInitiatedByLu {}
+impl ::core::clone::Clone for IDtcLuRecoveryInitiatedByLu {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDtcLuRecoveryInitiatedByLuWork(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDtcLuRecoveryInitiatedByLuWork {}
+impl ::core::clone::Clone for IDtcLuRecoveryInitiatedByLuWork {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDtcLuRmEnlistment(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDtcLuRmEnlistment {}
+impl ::core::clone::Clone for IDtcLuRmEnlistment {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDtcLuRmEnlistmentFactory(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDtcLuRmEnlistmentFactory {}
+impl ::core::clone::Clone for IDtcLuRmEnlistmentFactory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDtcLuRmEnlistmentSink(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDtcLuRmEnlistmentSink {}
+impl ::core::clone::Clone for IDtcLuRmEnlistmentSink {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDtcLuSubordinateDtc(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDtcLuSubordinateDtc {}
+impl ::core::clone::Clone for IDtcLuSubordinateDtc {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDtcLuSubordinateDtcFactory(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDtcLuSubordinateDtcFactory {}
+impl ::core::clone::Clone for IDtcLuSubordinateDtcFactory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDtcLuSubordinateDtcSink(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDtcLuSubordinateDtcSink {}
+impl ::core::clone::Clone for IDtcLuSubordinateDtcSink {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDtcNetworkAccessConfig(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDtcNetworkAccessConfig {}
+impl ::core::clone::Clone for IDtcNetworkAccessConfig {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDtcNetworkAccessConfig2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDtcNetworkAccessConfig2 {}
+impl ::core::clone::Clone for IDtcNetworkAccessConfig2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDtcNetworkAccessConfig3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDtcNetworkAccessConfig3 {}
+impl ::core::clone::Clone for IDtcNetworkAccessConfig3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDtcToXaHelper(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDtcToXaHelper {}
+impl ::core::clone::Clone for IDtcToXaHelper {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDtcToXaHelperFactory(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDtcToXaHelperFactory {}
+impl ::core::clone::Clone for IDtcToXaHelperFactory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDtcToXaHelperSinglePipe(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDtcToXaHelperSinglePipe {}
+impl ::core::clone::Clone for IDtcToXaHelperSinglePipe {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IDtcToXaMapper(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IDtcToXaMapper {}
+impl ::core::clone::Clone for IDtcToXaMapper {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IGetDispenser(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IGetDispenser {}
+impl ::core::clone::Clone for IGetDispenser {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IKernelTransaction(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IKernelTransaction {}
+impl ::core::clone::Clone for IKernelTransaction {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ILastResourceManager(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ILastResourceManager {}
+impl ::core::clone::Clone for ILastResourceManager {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPrepareInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPrepareInfo {}
+impl ::core::clone::Clone for IPrepareInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IPrepareInfo2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IPrepareInfo2 {}
+impl ::core::clone::Clone for IPrepareInfo2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IRMHelper(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IRMHelper {}
+impl ::core::clone::Clone for IRMHelper {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IResourceManager(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IResourceManager {}
+impl ::core::clone::Clone for IResourceManager {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IResourceManager2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IResourceManager2 {}
+impl ::core::clone::Clone for IResourceManager2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IResourceManagerFactory(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IResourceManagerFactory {}
+impl ::core::clone::Clone for IResourceManagerFactory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IResourceManagerFactory2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IResourceManagerFactory2 {}
+impl ::core::clone::Clone for IResourceManagerFactory2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IResourceManagerRejoinable(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IResourceManagerRejoinable {}
+impl ::core::clone::Clone for IResourceManagerRejoinable {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IResourceManagerSink(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IResourceManagerSink {}
+impl ::core::clone::Clone for IResourceManagerSink {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISOFLAG(pub i32);
 pub const ISOFLAG_RETAIN_COMMIT_DC: ISOFLAG = ISOFLAG(1i32);
@@ -176,70 +374,268 @@ impl ::core::clone::Clone for ISOLATIONLEVEL {
 }
 #[repr(transparent)]
 pub struct ITipHelper(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITipHelper {}
+impl ::core::clone::Clone for ITipHelper {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITipPullSink(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITipPullSink {}
+impl ::core::clone::Clone for ITipPullSink {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITipTransaction(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITipTransaction {}
+impl ::core::clone::Clone for ITipTransaction {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITmNodeName(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITmNodeName {}
+impl ::core::clone::Clone for ITmNodeName {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITransaction(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITransaction {}
+impl ::core::clone::Clone for ITransaction {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITransaction2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITransaction2 {}
+impl ::core::clone::Clone for ITransaction2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITransactionCloner(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITransactionCloner {}
+impl ::core::clone::Clone for ITransactionCloner {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITransactionDispenser(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITransactionDispenser {}
+impl ::core::clone::Clone for ITransactionDispenser {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITransactionEnlistmentAsync(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITransactionEnlistmentAsync {}
+impl ::core::clone::Clone for ITransactionEnlistmentAsync {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITransactionExport(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITransactionExport {}
+impl ::core::clone::Clone for ITransactionExport {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITransactionExportFactory(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITransactionExportFactory {}
+impl ::core::clone::Clone for ITransactionExportFactory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITransactionImport(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITransactionImport {}
+impl ::core::clone::Clone for ITransactionImport {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITransactionImportWhereabouts(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITransactionImportWhereabouts {}
+impl ::core::clone::Clone for ITransactionImportWhereabouts {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITransactionLastEnlistmentAsync(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITransactionLastEnlistmentAsync {}
+impl ::core::clone::Clone for ITransactionLastEnlistmentAsync {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITransactionLastResourceAsync(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITransactionLastResourceAsync {}
+impl ::core::clone::Clone for ITransactionLastResourceAsync {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITransactionOptions(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITransactionOptions {}
+impl ::core::clone::Clone for ITransactionOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITransactionOutcomeEvents(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITransactionOutcomeEvents {}
+impl ::core::clone::Clone for ITransactionOutcomeEvents {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITransactionPhase0EnlistmentAsync(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITransactionPhase0EnlistmentAsync {}
+impl ::core::clone::Clone for ITransactionPhase0EnlistmentAsync {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITransactionPhase0Factory(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITransactionPhase0Factory {}
+impl ::core::clone::Clone for ITransactionPhase0Factory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITransactionPhase0NotifyAsync(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITransactionPhase0NotifyAsync {}
+impl ::core::clone::Clone for ITransactionPhase0NotifyAsync {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITransactionReceiver(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITransactionReceiver {}
+impl ::core::clone::Clone for ITransactionReceiver {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITransactionReceiverFactory(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITransactionReceiverFactory {}
+impl ::core::clone::Clone for ITransactionReceiverFactory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITransactionResource(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITransactionResource {}
+impl ::core::clone::Clone for ITransactionResource {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITransactionResourceAsync(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITransactionResourceAsync {}
+impl ::core::clone::Clone for ITransactionResourceAsync {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITransactionTransmitter(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITransactionTransmitter {}
+impl ::core::clone::Clone for ITransactionTransmitter {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITransactionTransmitterFactory(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITransactionTransmitterFactory {}
+impl ::core::clone::Clone for ITransactionTransmitterFactory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITransactionVoterBallotAsync2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITransactionVoterBallotAsync2 {}
+impl ::core::clone::Clone for ITransactionVoterBallotAsync2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITransactionVoterFactory2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITransactionVoterFactory2 {}
+impl ::core::clone::Clone for ITransactionVoterFactory2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ITransactionVoterNotifyAsync2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ITransactionVoterNotifyAsync2 {}
+impl ::core::clone::Clone for ITransactionVoterNotifyAsync2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IXAConfig(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IXAConfig {}
+impl ::core::clone::Clone for IXAConfig {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IXAObtainRMInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IXAObtainRMInfo {}
+impl ::core::clone::Clone for IXAObtainRMInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IXATransLookup(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IXATransLookup {}
+impl ::core::clone::Clone for IXATransLookup {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IXATransLookup2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IXATransLookup2 {}
+impl ::core::clone::Clone for IXATransLookup2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MAXBQUALSIZE: u32 = 64u32;
 pub const MAXGTRIDSIZE: u32 = 64u32;
 pub const MAXINFOSIZE: u32 = 256u32;

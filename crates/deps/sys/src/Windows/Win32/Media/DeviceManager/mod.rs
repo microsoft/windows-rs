@@ -1,9 +1,9 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {}
 pub const ALLOW_OUTOFBAND_NOTIFICATION: u32 = 2u32;
 pub const DO_NOT_VIRTUALIZE_STORAGES_AS_DEVICES: u32 = 1u32;
-pub const EVENT_WMDM_CONTENT_TRANSFER: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const EVENT_WMDM_CONTENT_TRANSFER: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 865901556,
     data2: 48382,
     data3: 20184,
@@ -11,121 +11,469 @@ pub const EVENT_WMDM_CONTENT_TRANSFER: ::windows_sys::core::GUID = ::windows_sys
 };
 #[repr(transparent)]
 pub struct IComponentAuthenticate(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IComponentAuthenticate {}
+impl ::core::clone::Clone for IComponentAuthenticate {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMDSPDevice(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMDSPDevice {}
+impl ::core::clone::Clone for IMDSPDevice {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMDSPDevice2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMDSPDevice2 {}
+impl ::core::clone::Clone for IMDSPDevice2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMDSPDevice3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMDSPDevice3 {}
+impl ::core::clone::Clone for IMDSPDevice3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMDSPDeviceControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMDSPDeviceControl {}
+impl ::core::clone::Clone for IMDSPDeviceControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMDSPDirectTransfer(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMDSPDirectTransfer {}
+impl ::core::clone::Clone for IMDSPDirectTransfer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMDSPEnumDevice(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMDSPEnumDevice {}
+impl ::core::clone::Clone for IMDSPEnumDevice {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMDSPEnumStorage(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMDSPEnumStorage {}
+impl ::core::clone::Clone for IMDSPEnumStorage {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMDSPObject(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMDSPObject {}
+impl ::core::clone::Clone for IMDSPObject {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMDSPObject2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMDSPObject2 {}
+impl ::core::clone::Clone for IMDSPObject2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMDSPObjectInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMDSPObjectInfo {}
+impl ::core::clone::Clone for IMDSPObjectInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMDSPRevoked(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMDSPRevoked {}
+impl ::core::clone::Clone for IMDSPRevoked {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMDSPStorage(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMDSPStorage {}
+impl ::core::clone::Clone for IMDSPStorage {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMDSPStorage2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMDSPStorage2 {}
+impl ::core::clone::Clone for IMDSPStorage2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMDSPStorage3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMDSPStorage3 {}
+impl ::core::clone::Clone for IMDSPStorage3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMDSPStorage4(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMDSPStorage4 {}
+impl ::core::clone::Clone for IMDSPStorage4 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMDSPStorageGlobals(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMDSPStorageGlobals {}
+impl ::core::clone::Clone for IMDSPStorageGlobals {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMDServiceProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMDServiceProvider {}
+impl ::core::clone::Clone for IMDServiceProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMDServiceProvider2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMDServiceProvider2 {}
+impl ::core::clone::Clone for IMDServiceProvider2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMDServiceProvider3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMDServiceProvider3 {}
+impl ::core::clone::Clone for IMDServiceProvider3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const IOCTL_MTP_CUSTOM_COMMAND: u32 = 827348045u32;
 #[repr(transparent)]
 pub struct ISCPSecureAuthenticate(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISCPSecureAuthenticate {}
+impl ::core::clone::Clone for ISCPSecureAuthenticate {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISCPSecureAuthenticate2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISCPSecureAuthenticate2 {}
+impl ::core::clone::Clone for ISCPSecureAuthenticate2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISCPSecureExchange(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISCPSecureExchange {}
+impl ::core::clone::Clone for ISCPSecureExchange {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISCPSecureExchange2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISCPSecureExchange2 {}
+impl ::core::clone::Clone for ISCPSecureExchange2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISCPSecureExchange3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISCPSecureExchange3 {}
+impl ::core::clone::Clone for ISCPSecureExchange3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISCPSecureQuery(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISCPSecureQuery {}
+impl ::core::clone::Clone for ISCPSecureQuery {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISCPSecureQuery2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISCPSecureQuery2 {}
+impl ::core::clone::Clone for ISCPSecureQuery2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISCPSecureQuery3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISCPSecureQuery3 {}
+impl ::core::clone::Clone for ISCPSecureQuery3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISCPSession(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISCPSession {}
+impl ::core::clone::Clone for ISCPSession {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMDMDevice(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMDMDevice {}
+impl ::core::clone::Clone for IWMDMDevice {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMDMDevice2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMDMDevice2 {}
+impl ::core::clone::Clone for IWMDMDevice2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMDMDevice3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMDMDevice3 {}
+impl ::core::clone::Clone for IWMDMDevice3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMDMDeviceControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMDMDeviceControl {}
+impl ::core::clone::Clone for IWMDMDeviceControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMDMDeviceSession(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMDMDeviceSession {}
+impl ::core::clone::Clone for IWMDMDeviceSession {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMDMEnumDevice(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMDMEnumDevice {}
+impl ::core::clone::Clone for IWMDMEnumDevice {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMDMEnumStorage(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMDMEnumStorage {}
+impl ::core::clone::Clone for IWMDMEnumStorage {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMDMLogger(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMDMLogger {}
+impl ::core::clone::Clone for IWMDMLogger {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMDMMetaData(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMDMMetaData {}
+impl ::core::clone::Clone for IWMDMMetaData {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMDMNotification(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMDMNotification {}
+impl ::core::clone::Clone for IWMDMNotification {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMDMObjectInfo(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMDMObjectInfo {}
+impl ::core::clone::Clone for IWMDMObjectInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMDMOperation(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMDMOperation {}
+impl ::core::clone::Clone for IWMDMOperation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMDMOperation2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMDMOperation2 {}
+impl ::core::clone::Clone for IWMDMOperation2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMDMOperation3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMDMOperation3 {}
+impl ::core::clone::Clone for IWMDMOperation3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMDMProgress(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMDMProgress {}
+impl ::core::clone::Clone for IWMDMProgress {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMDMProgress2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMDMProgress2 {}
+impl ::core::clone::Clone for IWMDMProgress2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMDMProgress3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMDMProgress3 {}
+impl ::core::clone::Clone for IWMDMProgress3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMDMRevoked(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMDMRevoked {}
+impl ::core::clone::Clone for IWMDMRevoked {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMDMStorage(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMDMStorage {}
+impl ::core::clone::Clone for IWMDMStorage {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMDMStorage2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMDMStorage2 {}
+impl ::core::clone::Clone for IWMDMStorage2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMDMStorage3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMDMStorage3 {}
+impl ::core::clone::Clone for IWMDMStorage3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMDMStorage4(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMDMStorage4 {}
+impl ::core::clone::Clone for IWMDMStorage4 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMDMStorageControl(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMDMStorageControl {}
+impl ::core::clone::Clone for IWMDMStorageControl {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMDMStorageControl2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMDMStorageControl2 {}
+impl ::core::clone::Clone for IWMDMStorageControl2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMDMStorageControl3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMDMStorageControl3 {}
+impl ::core::clone::Clone for IWMDMStorageControl3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMDMStorageGlobals(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMDMStorageGlobals {}
+impl ::core::clone::Clone for IWMDMStorageGlobals {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMDeviceManager(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMDeviceManager {}
+impl ::core::clone::Clone for IWMDeviceManager {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMDeviceManager2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMDeviceManager2 {}
+impl ::core::clone::Clone for IWMDeviceManager2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IWMDeviceManager3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IWMDeviceManager3 {}
+impl ::core::clone::Clone for IWMDeviceManager3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const MDSP_READ: u32 = 1u32;
 pub const MDSP_SEEK_BOF: u32 = 1u32;
 pub const MDSP_SEEK_CUR: u32 = 2u32;
@@ -166,8 +514,8 @@ pub const MTP_NEXTPHASE_READ_DATA: u32 = 1u32;
 pub const MTP_NEXTPHASE_WRITE_DATA: u32 = 2u32;
 pub const MTP_RESPONSE_MAX_PARAMS: u32 = 5u32;
 pub const MTP_RESPONSE_OK: u16 = 8193u16;
-pub const MediaDevMgr: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 632991105, data2: 13664, data3: 4563, data4: [132, 113, 0, 192, 79, 121, 219, 192] };
-pub const MediaDevMgrClassFactory: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const MediaDevMgr: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 632991105, data2: 13664, data3: 4563, data4: [132, 113, 0, 192, 79, 121, 219, 192] };
+pub const MediaDevMgrClassFactory: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1342442525,
     data2: 48575,
     data3: 18724,
@@ -193,15 +541,15 @@ pub const SAC_MAC_LEN: u32 = 8u32;
 pub const SAC_PROTOCOL_V1: u32 = 2u32;
 pub const SAC_PROTOCOL_WMDM: u32 = 1u32;
 pub const SAC_SESSION_KEYLEN: u32 = 8u32;
-pub const SCP_EVENTID_ACQSECURECLOCK: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2250542281, data2: 19033, data3: 17378, data4: [145, 70, 72, 167, 243, 244, 20, 12] };
-pub const SCP_EVENTID_DRMINFO: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 557699719, data2: 16850, data3: 17195, data4: [158, 63, 59, 79, 123, 53, 129, 221] };
-pub const SCP_EVENTID_NEEDTOINDIV: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const SCP_EVENTID_ACQSECURECLOCK: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2250542281, data2: 19033, data3: 17378, data4: [145, 70, 72, 167, 243, 244, 20, 12] };
+pub const SCP_EVENTID_DRMINFO: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 557699719, data2: 16850, data3: 17195, data4: [158, 63, 59, 79, 123, 53, 129, 221] };
+pub const SCP_EVENTID_NEEDTOINDIV: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2275739591,
     data2: 46185,
     data3: 17286,
     data4: [185, 118, 213, 209, 206, 83, 138, 111],
 };
-pub const SCP_PARAMID_DRMVERSION: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1104155997, data2: 31943, data3: 16919, data4: [173, 169, 0, 80, 116, 98, 77, 164] };
+pub const SCP_PARAMID_DRMVERSION: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1104155997, data2: 31943, data3: 16919, data4: [173, 169, 0, 80, 116, 98, 77, 164] };
 #[repr(C)]
 pub struct WMDMDATETIME {
     pub wYear: u16,
@@ -308,8 +656,8 @@ impl ::core::clone::Clone for WMDMDetermineMaxPropStringLen {
         *self
     }
 }
-pub const WMDMDevice: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2155560159, data2: 13690, data3: 4563, data4: [132, 113, 0, 192, 79, 121, 219, 192] };
-pub const WMDMDeviceEnum: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1125004719, data2: 14705, data3: 4563, data4: [132, 116, 0, 192, 79, 121, 219, 192] };
+pub const WMDMDevice: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2155560159, data2: 13690, data3: 4563, data4: [132, 113, 0, 192, 79, 121, 219, 192] };
+pub const WMDMDeviceEnum: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1125004719, data2: 14705, data3: 4563, data4: [132, 116, 0, 192, 79, 121, 219, 192] };
 #[repr(C)]
 pub struct WMDMID {
     pub cbSize: u32,
@@ -324,7 +672,7 @@ impl ::core::clone::Clone for WMDMID {
     }
 }
 pub const WMDMID_LENGTH: u32 = 128u32;
-pub const WMDMLogger: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 285880834, data2: 23161, data3: 4563, data4: [141, 120, 68, 69, 83, 84, 0, 0] };
+pub const WMDMLogger: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 285880834, data2: 23161, data3: 4563, data4: [141, 120, 68, 69, 83, 84, 0, 0] };
 #[repr(transparent)]
 pub struct WMDMMessage(pub i32);
 pub const WMDM_MSG_DEVICE_ARRIVAL: WMDMMessage = WMDMMessage(0i32);
@@ -368,9 +716,9 @@ impl ::core::clone::Clone for WMDMRIGHTS {
         *self
     }
 }
-pub const WMDMStorage: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2155560160, data2: 13690, data3: 4563, data4: [132, 113, 0, 192, 79, 121, 219, 192] };
-pub const WMDMStorageEnum: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3946846779, data2: 15095, data3: 4563, data4: [132, 116, 0, 192, 79, 121, 219, 192] };
-pub const WMDMStorageGlobal: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2155560161, data2: 13690, data3: 4563, data4: [132, 113, 0, 192, 79, 121, 219, 192] };
+pub const WMDMStorage: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2155560160, data2: 13690, data3: 4563, data4: [132, 113, 0, 192, 79, 121, 219, 192] };
+pub const WMDMStorageEnum: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3946846779, data2: 15095, data3: 4563, data4: [132, 116, 0, 192, 79, 121, 219, 192] };
+pub const WMDMStorageGlobal: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2155560161, data2: 13690, data3: 4563, data4: [132, 113, 0, 192, 79, 121, 219, 192] };
 pub const WMDM_APP_REVOKED: u32 = 2u32;
 pub const WMDM_CONTENT_FILE: u32 = 4u32;
 pub const WMDM_CONTENT_FOLDER: u32 = 8u32;
@@ -384,19 +732,19 @@ pub const WMDM_DEVICECAP_CANSTOP: u32 = 64u32;
 pub const WMDM_DEVICECAP_CANSTREAMPLAY: u32 = 2u32;
 pub const WMDM_DEVICECAP_CANSTREAMRECORD: u32 = 8u32;
 pub const WMDM_DEVICECAP_HASSECURECLOCK: u32 = 256u32;
-pub const WMDM_DEVICE_PROTOCOL_MSC: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const WMDM_DEVICE_PROTOCOL_MSC: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2765275756,
     data2: 43137,
     data3: 17595,
     data4: [189, 93, 31, 112, 60, 113, 247, 169],
 };
-pub const WMDM_DEVICE_PROTOCOL_MTP: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const WMDM_DEVICE_PROTOCOL_MTP: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2543736037,
     data2: 2812,
     data3: 17924,
     data4: [141, 147, 220, 121, 138, 75, 207, 69],
 };
-pub const WMDM_DEVICE_PROTOCOL_RAPI: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 705818001, data2: 35983, data3: 16868, data4: [130, 209, 131, 134, 224, 3, 86, 28] };
+pub const WMDM_DEVICE_PROTOCOL_RAPI: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 705818001, data2: 35983, data3: 16868, data4: [130, 209, 131, 134, 224, 3, 86, 28] };
 pub const WMDM_DEVICE_TYPE_DECODE: u32 = 4u32;
 pub const WMDM_DEVICE_TYPE_ENCODE: u32 = 8u32;
 pub const WMDM_DEVICE_TYPE_FILELISTRESYNC: u32 = 512u32;
@@ -703,7 +1051,7 @@ pub const WMDM_SEEK_CURRENT: u32 = 2u32;
 pub const WMDM_SEEK_END: u32 = 8u32;
 pub const WMDM_SEEK_REMOTECONTROL: u32 = 1u32;
 pub const WMDM_SEEK_STREAMINGAUDIO: u32 = 2u32;
-pub const WMDM_SERVICE_PROVIDER_VENDOR_MICROSOFT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const WMDM_SERVICE_PROVIDER_VENDOR_MICROSOFT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2112383085,
     data2: 30958,
     data3: 17386,

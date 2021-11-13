@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
     pub fn CompareStringA(locale: u32, dwcmpflags: u32, lpstring1: *const i8, cchcount1: i32, lpstring2: *const i8, cchcount2: i32) -> i32;
@@ -1776,9 +1776,9 @@ impl ::core::clone::Clone for CHARSETINFO {
         *self
     }
 }
-pub const CMLangConvertCharset: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3597496217, data2: 52650, data3: 4560, data4: [184, 34, 0, 192, 79, 201, 179, 31] };
-pub const CMLangString: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3226297807, data2: 46861, data3: 4560, data4: [177, 136, 0, 170, 0, 56, 201, 105] };
-pub const CMultiLanguage: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 660349922, data2: 14151, data3: 4560, data4: [159, 234, 0, 170, 0, 63, 134, 70] };
+pub const CMLangConvertCharset: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3597496217, data2: 52650, data3: 4560, data4: [184, 34, 0, 192, 79, 201, 179, 31] };
+pub const CMLangString: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3226297807, data2: 46861, data3: 4560, data4: [177, 136, 0, 170, 0, 56, 201, 105] };
+pub const CMultiLanguage: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 660349922, data2: 14151, data3: 4560, data4: [159, 234, 0, 170, 0, 63, 134, 70] };
 #[cfg(feature = "Win32_Foundation")]
 pub type CODEPAGE_ENUMPROCA = unsafe extern "system" fn(param0: super::Foundation::PSTR) -> super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
@@ -2048,35 +2048,35 @@ impl ::core::clone::Clone for DetectEncodingInfo {
         *self
     }
 }
-pub const ELS_GUID_LANGUAGE_DETECTION: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3481141425, data2: 37019, data3: 19861, data4: [168, 244, 97, 31, 124, 55, 119, 2] };
-pub const ELS_GUID_SCRIPT_DETECTION: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const ELS_GUID_LANGUAGE_DETECTION: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3481141425, data2: 37019, data3: 19861, data4: [168, 244, 97, 31, 124, 55, 119, 2] };
+pub const ELS_GUID_SCRIPT_DETECTION: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 761574457,
     data2: 27823,
     data3: 20331,
     data4: [182, 136, 229, 208, 244, 250, 167, 215],
 };
-pub const ELS_GUID_TRANSLITERATION_BENGALI_TO_LATIN: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const ELS_GUID_TRANSLITERATION_BENGALI_TO_LATIN: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4108310565,
     data2: 37284,
     data3: 18591,
     data4: [133, 94, 154, 217, 190, 229, 87, 39],
 };
-pub const ELS_GUID_TRANSLITERATION_CYRILLIC_TO_LATIN: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1037118104, data2: 23293, data3: 18691, data4: [161, 63, 225, 126, 108, 11, 254, 1] };
-pub const ELS_GUID_TRANSLITERATION_DEVANAGARI_TO_LATIN: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3299138814, data2: 9825, data3: 19714, data4: [152, 53, 244, 129, 135, 16, 152, 3] };
-pub const ELS_GUID_TRANSLITERATION_HANGUL_DECOMPOSITION: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const ELS_GUID_TRANSLITERATION_CYRILLIC_TO_LATIN: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1037118104, data2: 23293, data3: 18691, data4: [161, 63, 225, 126, 108, 11, 254, 1] };
+pub const ELS_GUID_TRANSLITERATION_DEVANAGARI_TO_LATIN: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3299138814, data2: 9825, data3: 19714, data4: [152, 53, 244, 129, 135, 16, 152, 3] };
+pub const ELS_GUID_TRANSLITERATION_HANGUL_DECOMPOSITION: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1268950817,
     data2: 58429,
     data3: 16823,
     data4: [179, 48, 83, 106, 225, 228, 136, 99],
 };
-pub const ELS_GUID_TRANSLITERATION_HANS_TO_HANT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const ELS_GUID_TRANSLITERATION_HANS_TO_HANT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1017957832,
     data2: 21904,
     data3: 17116,
     data4: [154, 123, 181, 166, 181, 179, 182, 59],
 };
-pub const ELS_GUID_TRANSLITERATION_HANT_TO_HANS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2745709371, data2: 62716, data3: 17142, data4: [160, 196, 4, 98, 254, 115, 23, 203] };
-pub const ELS_GUID_TRANSLITERATION_MALAYALAM_TO_LATIN: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3636036529, data2: 63679, data3: 18987, data4: [188, 213, 91, 94, 162, 6, 19, 225] };
+pub const ELS_GUID_TRANSLITERATION_HANT_TO_HANS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2745709371, data2: 62716, data3: 17142, data4: [160, 196, 4, 98, 254, 115, 23, 203] };
+pub const ELS_GUID_TRANSLITERATION_MALAYALAM_TO_LATIN: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3636036529, data2: 63679, data3: 18987, data4: [188, 213, 91, 94, 162, 6, 19, 225] };
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct ENUMTEXTMETRICA {
@@ -2238,18 +2238,48 @@ impl ::core::clone::Clone for HSAVEDUILANGUAGES {
 }
 #[repr(transparent)]
 pub struct IComprehensiveSpellCheckProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IComprehensiveSpellCheckProvider {}
+impl ::core::clone::Clone for IComprehensiveSpellCheckProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const IDN_ALLOW_UNASSIGNED: u32 = 1u32;
 pub const IDN_EMAIL_ADDRESS: u32 = 4u32;
 pub const IDN_RAW_PUNYCODE: u32 = 8u32;
 pub const IDN_USE_STD3_ASCII_RULES: u32 = 2u32;
 #[repr(transparent)]
 pub struct IEnumCodePage(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnumCodePage {}
+impl ::core::clone::Clone for IEnumCodePage {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEnumRfc1766(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnumRfc1766 {}
+impl ::core::clone::Clone for IEnumRfc1766 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEnumScript(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnumScript {}
+impl ::core::clone::Clone for IEnumScript {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IEnumSpellingError(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IEnumSpellingError {}
+impl ::core::clone::Clone for IEnumSpellingError {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const IME_CMODE_ALPHANUMERIC: u32 = 0u32;
 pub const IME_CMODE_CHARCODE: u32 = 32u32;
 pub const IME_CMODE_CHINESE: u32 = 1u32;
@@ -2264,32 +2294,116 @@ pub const IME_CMODE_NATIVESYMBOL: u32 = 128u32;
 pub const IME_CMODE_ROMAN: u32 = 16u32;
 #[repr(transparent)]
 pub struct IMLangCodePages(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMLangCodePages {}
+impl ::core::clone::Clone for IMLangCodePages {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMLangConvertCharset(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMLangConvertCharset {}
+impl ::core::clone::Clone for IMLangConvertCharset {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMLangFontLink(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMLangFontLink {}
+impl ::core::clone::Clone for IMLangFontLink {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMLangFontLink2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMLangFontLink2 {}
+impl ::core::clone::Clone for IMLangFontLink2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMLangLineBreakConsole(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMLangLineBreakConsole {}
+impl ::core::clone::Clone for IMLangLineBreakConsole {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMLangString(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMLangString {}
+impl ::core::clone::Clone for IMLangString {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMLangStringAStr(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMLangStringAStr {}
+impl ::core::clone::Clone for IMLangStringAStr {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMLangStringBufA(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMLangStringBufA {}
+impl ::core::clone::Clone for IMLangStringBufA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMLangStringBufW(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMLangStringBufW {}
+impl ::core::clone::Clone for IMLangStringBufW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMLangStringWStr(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMLangStringWStr {}
+impl ::core::clone::Clone for IMLangStringWStr {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMultiLanguage(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMultiLanguage {}
+impl ::core::clone::Clone for IMultiLanguage {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMultiLanguage2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMultiLanguage2 {}
+impl ::core::clone::Clone for IMultiLanguage2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IMultiLanguage3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IMultiLanguage3 {}
+impl ::core::clone::Clone for IMultiLanguage3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IOptionDescription(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IOptionDescription {}
+impl ::core::clone::Clone for IOptionDescription {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IS_TEXT_UNICODE_RESULT(pub u32);
 pub const IS_TEXT_UNICODE_ASCII16: IS_TEXT_UNICODE_RESULT = IS_TEXT_UNICODE_RESULT(1u32);
@@ -2325,20 +2439,68 @@ impl ::core::clone::Clone for IS_VALID_LOCALE_FLAGS {
 }
 #[repr(transparent)]
 pub struct ISpellCheckProvider(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpellCheckProvider {}
+impl ::core::clone::Clone for ISpellCheckProvider {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpellCheckProviderFactory(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpellCheckProviderFactory {}
+impl ::core::clone::Clone for ISpellCheckProviderFactory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpellChecker(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpellChecker {}
+impl ::core::clone::Clone for ISpellChecker {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpellChecker2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpellChecker2 {}
+impl ::core::clone::Clone for ISpellChecker2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpellCheckerChangedEventHandler(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpellCheckerChangedEventHandler {}
+impl ::core::clone::Clone for ISpellCheckerChangedEventHandler {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpellCheckerFactory(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpellCheckerFactory {}
+impl ::core::clone::Clone for ISpellCheckerFactory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ISpellingError(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ISpellingError {}
+impl ::core::clone::Clone for ISpellingError {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct IUserDictionariesRegistrar(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for IUserDictionariesRegistrar {}
+impl ::core::clone::Clone for IUserDictionariesRegistrar {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[cfg(feature = "Win32_Foundation")]
 pub type LANGGROUPLOCALE_ENUMPROCA = unsafe extern "system" fn(param0: u32, param1: u32, param2: super::Foundation::PSTR, param3: isize) -> super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
@@ -2626,10 +2788,10 @@ pub struct MAPPING_OPTIONS {
     pub pszInputContentType: super::Foundation::PWSTR,
     pub pszOutputContentType: super::Foundation::PWSTR,
     pub pszUILanguage: super::Foundation::PWSTR,
-    pub pfnRecognizeCallback: ::core::option::Option<PFN_MAPPINGCALLBACKPROC>,
+    pub pfnRecognizeCallback: PFN_MAPPINGCALLBACKPROC,
     pub pRecognizeCallerData: *mut ::core::ffi::c_void,
     pub dwRecognizeCallerDataSize: u32,
-    pub pfnActionCallback: ::core::option::Option<PFN_MAPPINGCALLBACKPROC>,
+    pub pfnActionCallback: PFN_MAPPINGCALLBACKPROC,
     pub pActionCallerData: *mut ::core::ffi::c_void,
     pub dwActionCallerDataSize: u32,
     pub dwServiceFlag: u32,
@@ -3258,7 +3420,7 @@ impl ::core::clone::Clone for SYSNLS_FUNCTION {
         *self
     }
 }
-pub const SpellCheckerFactory: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const SpellCheckerFactory: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2058577491,
     data2: 6038,
     data3: 18507,
@@ -4057,16 +4219,16 @@ pub struct UCharIterator {
     pub index: i32,
     pub limit: i32,
     pub reservedField: i32,
-    pub getIndex: ::core::option::Option<UCharIteratorGetIndex>,
-    pub r#move: ::core::option::Option<UCharIteratorMove>,
-    pub hasNext: ::core::option::Option<UCharIteratorHasNext>,
-    pub hasPrevious: ::core::option::Option<UCharIteratorHasPrevious>,
-    pub current: ::core::option::Option<UCharIteratorCurrent>,
-    pub next: ::core::option::Option<UCharIteratorNext>,
-    pub previous: ::core::option::Option<UCharIteratorPrevious>,
-    pub reservedFn: ::core::option::Option<UCharIteratorReserved>,
-    pub getState: ::core::option::Option<UCharIteratorGetState>,
-    pub setState: ::core::option::Option<UCharIteratorSetState>,
+    pub getIndex: UCharIteratorGetIndex,
+    pub r#move: UCharIteratorMove,
+    pub hasNext: UCharIteratorHasNext,
+    pub hasPrevious: UCharIteratorHasPrevious,
+    pub current: UCharIteratorCurrent,
+    pub next: UCharIteratorNext,
+    pub previous: UCharIteratorPrevious,
+    pub reservedFn: UCharIteratorReserved,
+    pub getState: UCharIteratorGetState,
+    pub setState: UCharIteratorSetState,
 }
 impl ::core::marker::Copy for UCharIterator {}
 impl ::core::clone::Clone for UCharIterator {
@@ -6552,18 +6714,18 @@ pub struct UTextFuncs {
     pub reserved1: i32,
     pub reserved2: i32,
     pub reserved3: i32,
-    pub clone: ::core::option::Option<UTextClone>,
-    pub nativeLength: ::core::option::Option<UTextNativeLength>,
-    pub access: ::core::option::Option<UTextAccess>,
-    pub extract: ::core::option::Option<UTextExtract>,
-    pub replace: ::core::option::Option<UTextReplace>,
-    pub copy: ::core::option::Option<UTextCopy>,
-    pub mapOffsetToNative: ::core::option::Option<UTextMapOffsetToNative>,
-    pub mapNativeIndexToUTF16: ::core::option::Option<UTextMapNativeIndexToUTF16>,
-    pub close: ::core::option::Option<UTextClose>,
-    pub spare1: ::core::option::Option<UTextClose>,
-    pub spare2: ::core::option::Option<UTextClose>,
-    pub spare3: ::core::option::Option<UTextClose>,
+    pub clone: UTextClone,
+    pub nativeLength: UTextNativeLength,
+    pub access: UTextAccess,
+    pub extract: UTextExtract,
+    pub replace: UTextReplace,
+    pub copy: UTextCopy,
+    pub mapOffsetToNative: UTextMapOffsetToNative,
+    pub mapNativeIndexToUTF16: UTextMapNativeIndexToUTF16,
+    pub close: UTextClose,
+    pub spare1: UTextClose,
+    pub spare2: UTextClose,
+    pub spare3: UTextClose,
 }
 impl ::core::marker::Copy for UTextFuncs {}
 impl ::core::clone::Clone for UTextFuncs {

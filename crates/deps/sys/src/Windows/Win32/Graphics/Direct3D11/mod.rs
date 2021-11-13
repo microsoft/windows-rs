@@ -1,4 +1,4 @@
-#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi"))]
@@ -96,7 +96,7 @@ impl ::core::clone::Clone for D3D11_AUTHENTICATED_CONFIGURE_ACCESSIBLE_ENCRYPTIO
         *self
     }
 }
-pub const D3D11_AUTHENTICATED_CONFIGURE_CRYPTO_SESSION: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1665584212, data2: 11516, data3: 19156, data4: [130, 36, 209, 88, 55, 222, 119, 0] };
+pub const D3D11_AUTHENTICATED_CONFIGURE_CRYPTO_SESSION: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1665584212, data2: 11516, data3: 19156, data4: [130, 36, 209, 88, 55, 222, 119, 0] };
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3D11_AUTHENTICATED_CONFIGURE_CRYPTO_SESSION_INPUT {
@@ -113,13 +113,13 @@ impl ::core::clone::Clone for D3D11_AUTHENTICATED_CONFIGURE_CRYPTO_SESSION_INPUT
         *self
     }
 }
-pub const D3D11_AUTHENTICATED_CONFIGURE_ENCRYPTION_WHEN_ACCESSIBLE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const D3D11_AUTHENTICATED_CONFIGURE_ENCRYPTION_WHEN_ACCESSIBLE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1107292806,
     data2: 27360,
     data3: 19779,
     data4: [157, 85, 164, 110, 158, 253, 21, 138],
 };
-pub const D3D11_AUTHENTICATED_CONFIGURE_INITIALIZE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const D3D11_AUTHENTICATED_CONFIGURE_INITIALIZE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 101796827,
     data2: 13603,
     data3: 18186,
@@ -173,7 +173,7 @@ impl ::core::clone::Clone for D3D11_AUTHENTICATED_CONFIGURE_OUTPUT {
         *self
     }
 }
-pub const D3D11_AUTHENTICATED_CONFIGURE_PROTECTION: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const D3D11_AUTHENTICATED_CONFIGURE_PROTECTION: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1346721368,
     data2: 16199,
     data3: 17250,
@@ -193,7 +193,7 @@ impl ::core::clone::Clone for D3D11_AUTHENTICATED_CONFIGURE_PROTECTION_INPUT {
         *self
     }
 }
-pub const D3D11_AUTHENTICATED_CONFIGURE_SHARED_RESOURCE: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 124964935, data2: 6976, data3: 18664, data4: [156, 166, 181, 245, 16, 222, 159, 1] };
+pub const D3D11_AUTHENTICATED_CONFIGURE_SHARED_RESOURCE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 124964935, data2: 6976, data3: 18664, data4: [156, 166, 181, 245, 16, 222, 159, 1] };
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3D11_AUTHENTICATED_CONFIGURE_SHARED_RESOURCE_INPUT {
@@ -242,7 +242,7 @@ impl ::core::clone::Clone for D3D11_AUTHENTICATED_PROTECTION_FLAGS_0 {
         *self
     }
 }
-pub const D3D11_AUTHENTICATED_QUERY_ACCESSIBILITY_ATTRIBUTES: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const D3D11_AUTHENTICATED_QUERY_ACCESSIBILITY_ATTRIBUTES: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1645533650,
     data2: 17196,
     data3: 19131,
@@ -307,7 +307,7 @@ impl ::core::clone::Clone for D3D11_AUTHENTICATED_QUERY_ACCESSIBILITY_OUTPUT {
         *self
     }
 }
-pub const D3D11_AUTHENTICATED_QUERY_CHANNEL_TYPE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const D3D11_AUTHENTICATED_QUERY_CHANNEL_TYPE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3155892389,
     data2: 45563,
     data3: 17067,
@@ -327,7 +327,7 @@ impl ::core::clone::Clone for D3D11_AUTHENTICATED_QUERY_CHANNEL_TYPE_OUTPUT {
         *self
     }
 }
-pub const D3D11_AUTHENTICATED_QUERY_CRYPTO_SESSION: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 640960926, data2: 53272, data3: 19828, data4: [172, 23, 127, 114, 64, 89, 82, 141] };
+pub const D3D11_AUTHENTICATED_QUERY_CRYPTO_SESSION: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 640960926, data2: 53272, data3: 19828, data4: [172, 23, 127, 114, 64, 89, 82, 141] };
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3D11_AUTHENTICATED_QUERY_CRYPTO_SESSION_INPUT {
@@ -372,13 +372,13 @@ impl ::core::clone::Clone for D3D11_AUTHENTICATED_QUERY_CURRENT_ACCESSIBILITY_EN
         *self
     }
 }
-pub const D3D11_AUTHENTICATED_QUERY_CURRENT_ENCRYPTION_WHEN_ACCESSIBLE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const D3D11_AUTHENTICATED_QUERY_CURRENT_ENCRYPTION_WHEN_ACCESSIBLE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3960967623,
     data2: 56019,
     data3: 20245,
     data4: [158, 195, 250, 169, 61, 96, 212, 240],
 };
-pub const D3D11_AUTHENTICATED_QUERY_DEVICE_HANDLE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const D3D11_AUTHENTICATED_QUERY_DEVICE_HANDLE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3961279389,
     data2: 36095,
     data3: 20010,
@@ -398,8 +398,8 @@ impl ::core::clone::Clone for D3D11_AUTHENTICATED_QUERY_DEVICE_HANDLE_OUTPUT {
         *self
     }
 }
-pub const D3D11_AUTHENTICATED_QUERY_ENCRYPTION_WHEN_ACCESSIBLE_GUID: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4164573528, data2: 59782, data3: 19418, data4: [190, 176, 65, 31, 106, 122, 1, 183] };
-pub const D3D11_AUTHENTICATED_QUERY_ENCRYPTION_WHEN_ACCESSIBLE_GUID_COUNT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3004133478, data2: 8252, data3: 19207, data4: [147, 252, 206, 170, 253, 97, 36, 30] };
+pub const D3D11_AUTHENTICATED_QUERY_ENCRYPTION_WHEN_ACCESSIBLE_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4164573528, data2: 59782, data3: 19418, data4: [190, 176, 65, 31, 106, 122, 1, 183] };
+pub const D3D11_AUTHENTICATED_QUERY_ENCRYPTION_WHEN_ACCESSIBLE_GUID_COUNT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3004133478, data2: 8252, data3: 19207, data4: [147, 252, 206, 170, 253, 97, 36, 30] };
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3D11_AUTHENTICATED_QUERY_INPUT {
@@ -432,13 +432,13 @@ impl ::core::clone::Clone for D3D11_AUTHENTICATED_QUERY_OUTPUT {
         *self
     }
 }
-pub const D3D11_AUTHENTICATED_QUERY_OUTPUT_ID: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const D3D11_AUTHENTICATED_QUERY_OUTPUT_ID: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2208160931,
     data2: 39758,
     data3: 16868,
     data4: [176, 83, 137, 43, 210, 161, 30, 231],
 };
-pub const D3D11_AUTHENTICATED_QUERY_OUTPUT_ID_COUNT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const D3D11_AUTHENTICATED_QUERY_OUTPUT_ID_COUNT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 738470750,
     data2: 35847,
     data3: 18133,
@@ -508,7 +508,7 @@ impl ::core::clone::Clone for D3D11_AUTHENTICATED_QUERY_OUTPUT_ID_OUTPUT {
         *self
     }
 }
-pub const D3D11_AUTHENTICATED_QUERY_PROTECTION: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const D3D11_AUTHENTICATED_QUERY_PROTECTION: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2823730564,
     data2: 50325,
     data3: 18602,
@@ -528,8 +528,8 @@ impl ::core::clone::Clone for D3D11_AUTHENTICATED_QUERY_PROTECTION_OUTPUT {
         *self
     }
 }
-pub const D3D11_AUTHENTICATED_QUERY_RESTRICTED_SHARED_RESOURCE_PROCESS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1687927515, data2: 61684, data3: 17977, data4: [161, 91, 36, 57, 63, 195, 171, 172] };
-pub const D3D11_AUTHENTICATED_QUERY_RESTRICTED_SHARED_RESOURCE_PROCESS_COUNT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const D3D11_AUTHENTICATED_QUERY_RESTRICTED_SHARED_RESOURCE_PROCESS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1687927515, data2: 61684, data3: 17977, data4: [161, 91, 36, 57, 63, 195, 171, 172] };
+pub const D3D11_AUTHENTICATED_QUERY_RESTRICTED_SHARED_RESOURCE_PROCESS_COUNT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 229771187,
     data2: 37968,
     data3: 18086,
@@ -579,7 +579,7 @@ impl ::core::clone::Clone for D3D11_AUTHENTICATED_QUERY_RESTRICTED_SHARED_RESOUR
         *self
     }
 }
-pub const D3D11_AUTHENTICATED_QUERY_UNRESTRICTED_PROTECTED_SHARED_RESOURCE_COUNT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 19860438, data2: 58978, data3: 17524, data4: [190, 253, 170, 83, 229, 20, 60, 109] };
+pub const D3D11_AUTHENTICATED_QUERY_UNRESTRICTED_PROTECTED_SHARED_RESOURCE_COUNT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 19860438, data2: 58978, data3: 17524, data4: [190, 253, 170, 83, 229, 20, 60, 109] };
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3D11_AUTHENTICATED_QUERY_UNRESTRICTED_PROTECTED_SHARED_RESOURCE_COUNT_OUTPUT {
@@ -1117,7 +1117,7 @@ impl ::core::clone::Clone for D3D11_CRYPTO_SESSION_STATUS {
         *self
     }
 }
-pub const D3D11_CRYPTO_TYPE_AES128_CTR: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const D3D11_CRYPTO_TYPE_AES128_CTR: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2607535889,
     data2: 20340,
     data3: 16841,
@@ -1200,122 +1200,122 @@ pub const D3D11_DEBUG_FEATURE_FINISH_PER_RENDER_OP: u32 = 2u32;
 pub const D3D11_DEBUG_FEATURE_FLUSH_PER_RENDER_OP: u32 = 1u32;
 pub const D3D11_DEBUG_FEATURE_NEVER_DISCARD_OFFERED_RESOURCE: u32 = 16u32;
 pub const D3D11_DEBUG_FEATURE_PRESENT_PER_RENDER_OP: u32 = 4u32;
-pub const D3D11_DECODER_BITSTREAM_ENCRYPTION_TYPE_CBCS: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1110283033, data2: 40225, data3: 19383, data4: [147, 113, 250, 245, 168, 44, 62, 4] };
-pub const D3D11_DECODER_BITSTREAM_ENCRYPTION_TYPE_CENC: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const D3D11_DECODER_BITSTREAM_ENCRYPTION_TYPE_CBCS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1110283033, data2: 40225, data3: 19383, data4: [147, 113, 250, 245, 168, 44, 62, 4] };
+pub const D3D11_DECODER_BITSTREAM_ENCRYPTION_TYPE_CENC: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2957005365,
     data2: 49469,
     data3: 17650,
     data4: [154, 229, 221, 72, 224, 142, 91, 103],
 };
-pub const D3D11_DECODER_ENCRYPTION_HW_CENC: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const D3D11_DECODER_ENCRYPTION_HW_CENC: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2312547407,
     data2: 2546,
     data3: 16937,
     data4: [178, 205, 55, 116, 10, 109, 253, 129],
 };
-pub const D3D11_DECODER_PROFILE_AV1_VLD_12BIT_PROFILE2: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const D3D11_DECODER_PROFILE_AV1_VLD_12BIT_PROFILE2: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 387084297,
     data2: 40975,
     data3: 19681,
     data4: [153, 78, 191, 64, 129, 246, 243, 240],
 };
-pub const D3D11_DECODER_PROFILE_AV1_VLD_12BIT_PROFILE2_420: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const D3D11_DECODER_PROFILE_AV1_VLD_12BIT_PROFILE2_420: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 763412182,
     data2: 40108,
     data3: 18485,
     data4: [158, 145, 50, 123, 188, 79, 158, 232],
 };
-pub const D3D11_DECODER_PROFILE_AV1_VLD_PROFILE0: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const D3D11_DECODER_PROFILE_AV1_VLD_PROFILE0: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3099479243,
     data2: 53075,
     data3: 18106,
     data4: [141, 89, 214, 184, 166, 218, 93, 42],
 };
-pub const D3D11_DECODER_PROFILE_AV1_VLD_PROFILE1: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const D3D11_DECODER_PROFILE_AV1_VLD_PROFILE1: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1765211919,
     data2: 17841,
     data3: 16739,
     data4: [156, 193, 100, 110, 246, 148, 97, 8],
 };
-pub const D3D11_DECODER_PROFILE_AV1_VLD_PROFILE2: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 207563425, data2: 58689, data3: 16521, data4: [187, 123, 152, 17, 10, 25, 215, 200] };
-pub const D3D11_DECODER_PROFILE_H264_IDCT_FGT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 461487719, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
-pub const D3D11_DECODER_PROFILE_H264_IDCT_NOFGT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 461487718, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
-pub const D3D11_DECODER_PROFILE_H264_MOCOMP_FGT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 461487717, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
-pub const D3D11_DECODER_PROFILE_H264_MOCOMP_NOFGT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 461487716, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
-pub const D3D11_DECODER_PROFILE_H264_VLD_FGT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 461487721, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
-pub const D3D11_DECODER_PROFILE_H264_VLD_MULTIVIEW_NOFGT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const D3D11_DECODER_PROFILE_AV1_VLD_PROFILE2: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 207563425, data2: 58689, data3: 16521, data4: [187, 123, 152, 17, 10, 25, 215, 200] };
+pub const D3D11_DECODER_PROFILE_H264_IDCT_FGT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 461487719, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
+pub const D3D11_DECODER_PROFILE_H264_IDCT_NOFGT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 461487718, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
+pub const D3D11_DECODER_PROFILE_H264_MOCOMP_FGT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 461487717, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
+pub const D3D11_DECODER_PROFILE_H264_MOCOMP_NOFGT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 461487716, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
+pub const D3D11_DECODER_PROFILE_H264_VLD_FGT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 461487721, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
+pub const D3D11_DECODER_PROFILE_H264_VLD_MULTIVIEW_NOFGT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1885052290,
     data2: 30415,
     data3: 18902,
     data4: [183, 230, 172, 136, 114, 219, 1, 60],
 };
-pub const D3D11_DECODER_PROFILE_H264_VLD_NOFGT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 461487720, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
-pub const D3D11_DECODER_PROFILE_H264_VLD_STEREO_NOFGT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 4188720315, data2: 49846, data3: 19708, data4: [135, 121, 87, 7, 177, 118, 5, 82] };
-pub const D3D11_DECODER_PROFILE_H264_VLD_STEREO_PROGRESSIVE_NOFGT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3617319130, data2: 3313, data3: 19585, data4: [184, 42, 105, 164, 226, 54, 244, 61] };
-pub const D3D11_DECODER_PROFILE_H264_VLD_WITHFMOASO_NOFGT: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const D3D11_DECODER_PROFILE_H264_VLD_NOFGT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 461487720, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
+pub const D3D11_DECODER_PROFILE_H264_VLD_STEREO_NOFGT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4188720315, data2: 49846, data3: 19708, data4: [135, 121, 87, 7, 177, 118, 5, 82] };
+pub const D3D11_DECODER_PROFILE_H264_VLD_STEREO_PROGRESSIVE_NOFGT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3617319130, data2: 3313, data3: 19585, data4: [184, 42, 105, 164, 226, 54, 244, 61] };
+pub const D3D11_DECODER_PROFILE_H264_VLD_WITHFMOASO_NOFGT: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3589296121,
     data2: 13336,
     data3: 17880,
     data4: [149, 97, 50, 167, 106, 174, 45, 221],
 };
-pub const D3D11_DECODER_PROFILE_HEVC_VLD_MAIN: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 1527895323, data2: 12108, data3: 17490, data4: [188, 195, 9, 242, 161, 22, 12, 192] };
-pub const D3D11_DECODER_PROFILE_HEVC_VLD_MAIN10: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 276492512, data2: 61210, data3: 19737, data4: [171, 168, 103, 161, 99, 7, 61, 19] };
-pub const D3D11_DECODER_PROFILE_MPEG1_VLD: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const D3D11_DECODER_PROFILE_HEVC_VLD_MAIN: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1527895323, data2: 12108, data3: 17490, data4: [188, 195, 9, 242, 161, 22, 12, 192] };
+pub const D3D11_DECODER_PROFILE_HEVC_VLD_MAIN10: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 276492512, data2: 61210, data3: 19737, data4: [171, 168, 103, 161, 99, 7, 61, 19] };
+pub const D3D11_DECODER_PROFILE_MPEG1_VLD: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1866385177,
     data2: 14133,
     data3: 17100,
     data4: [128, 99, 101, 204, 60, 179, 102, 22],
 };
-pub const D3D11_DECODER_PROFILE_MPEG2_IDCT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3206720768, data2: 1002, data3: 18064, data4: [128, 119, 71, 51, 70, 32, 155, 126] };
-pub const D3D11_DECODER_PROFILE_MPEG2_MOCOMP: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const D3D11_DECODER_PROFILE_MPEG2_IDCT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3206720768, data2: 1002, data3: 18064, data4: [128, 119, 71, 51, 70, 32, 155, 126] };
+pub const D3D11_DECODER_PROFILE_MPEG2_MOCOMP: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3869897803,
     data2: 25008,
     data3: 17763,
     data4: [158, 164, 99, 210, 163, 198, 254, 102],
 };
-pub const D3D11_DECODER_PROFILE_MPEG2_VLD: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3995550079, data2: 24104, data3: 20069, data4: [190, 234, 29, 38, 181, 8, 173, 201] };
-pub const D3D11_DECODER_PROFILE_MPEG2and1_VLD: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const D3D11_DECODER_PROFILE_MPEG2_VLD: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3995550079, data2: 24104, data3: 20069, data4: [190, 234, 29, 38, 181, 8, 173, 201] };
+pub const D3D11_DECODER_PROFILE_MPEG2and1_VLD: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2255052562,
     data2: 13326,
     data3: 20228,
     data4: [159, 211, 146, 83, 221, 50, 116, 96],
 };
-pub const D3D11_DECODER_PROFILE_MPEG4PT2_VLD_ADVSIMPLE_GMC: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const D3D11_DECODER_PROFILE_MPEG4PT2_VLD_ADVSIMPLE_GMC: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2878966619,
     data2: 16984,
     data3: 17577,
     data4: [159, 235, 148, 229, 151, 166, 186, 174],
 };
-pub const D3D11_DECODER_PROFILE_MPEG4PT2_VLD_ADVSIMPLE_NOGMC: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3980495519, data2: 269, data3: 20186, data4: [154, 227, 154, 101, 53, 141, 141, 46] };
-pub const D3D11_DECODER_PROFILE_MPEG4PT2_VLD_SIMPLE: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const D3D11_DECODER_PROFILE_MPEG4PT2_VLD_ADVSIMPLE_NOGMC: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3980495519, data2: 269, data3: 20186, data4: [154, 227, 154, 101, 53, 141, 141, 46] };
+pub const D3D11_DECODER_PROFILE_MPEG4PT2_VLD_SIMPLE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 4023799156,
     data2: 51688,
     data3: 16855,
     data4: [165, 233, 233, 176, 227, 159, 163, 25],
 };
-pub const D3D11_DECODER_PROFILE_VC1_D2010: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 461487780, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
-pub const D3D11_DECODER_PROFILE_VC1_IDCT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 461487778, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
-pub const D3D11_DECODER_PROFILE_VC1_MOCOMP: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 461487777, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
-pub const D3D11_DECODER_PROFILE_VC1_POSTPROC: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 461487776, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
-pub const D3D11_DECODER_PROFILE_VC1_VLD: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 461487779, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
-pub const D3D11_DECODER_PROFILE_VP8_VLD: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const D3D11_DECODER_PROFILE_VC1_D2010: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 461487780, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
+pub const D3D11_DECODER_PROFILE_VC1_IDCT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 461487778, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
+pub const D3D11_DECODER_PROFILE_VC1_MOCOMP: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 461487777, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
+pub const D3D11_DECODER_PROFILE_VC1_POSTPROC: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 461487776, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
+pub const D3D11_DECODER_PROFILE_VC1_VLD: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 461487779, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
+pub const D3D11_DECODER_PROFILE_VP8_VLD: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2428017130,
     data2: 14946,
     data3: 18181,
     data4: [136, 179, 141, 240, 75, 39, 68, 231],
 };
-pub const D3D11_DECODER_PROFILE_VP9_VLD_10BIT_PROFILE2: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 2764524015, data2: 28367, data3: 18602, data4: [132, 72, 80, 167, 161, 22, 95, 247] };
-pub const D3D11_DECODER_PROFILE_VP9_VLD_PROFILE0: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const D3D11_DECODER_PROFILE_VP9_VLD_10BIT_PROFILE2: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2764524015, data2: 28367, data3: 18602, data4: [132, 72, 80, 167, 161, 22, 95, 247] };
+pub const D3D11_DECODER_PROFILE_VP9_VLD_PROFILE0: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1178011640,
     data2: 41424,
     data3: 17797,
     data4: [135, 109, 131, 170, 109, 96, 184, 158],
 };
-pub const D3D11_DECODER_PROFILE_WMV8_MOCOMP: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 461487745, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
-pub const D3D11_DECODER_PROFILE_WMV8_POSTPROC: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 461487744, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
-pub const D3D11_DECODER_PROFILE_WMV9_IDCT: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 461487764, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
-pub const D3D11_DECODER_PROFILE_WMV9_MOCOMP: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 461487761, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
-pub const D3D11_DECODER_PROFILE_WMV9_POSTPROC: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 461487760, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
+pub const D3D11_DECODER_PROFILE_WMV8_MOCOMP: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 461487745, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
+pub const D3D11_DECODER_PROFILE_WMV8_POSTPROC: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 461487744, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
+pub const D3D11_DECODER_PROFILE_WMV9_IDCT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 461487764, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
+pub const D3D11_DECODER_PROFILE_WMV9_MOCOMP: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 461487761, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
+pub const D3D11_DECODER_PROFILE_WMV9_POSTPROC: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 461487760, data2: 41159, data3: 4563, data4: [185, 132, 0, 192, 79, 46, 115, 197] };
 pub const D3D11_DEFAULT_BLEND_FACTOR_ALPHA: f32 = 1f32;
 pub const D3D11_DEFAULT_BLEND_FACTOR_BLUE: f32 = 1f32;
 pub const D3D11_DEFAULT_BLEND_FACTOR_GREEN: f32 = 1f32;
@@ -2233,7 +2233,7 @@ pub const D3D11_INTEGER_DIVIDE_BY_ZERO_QUOTIENT: u32 = 4294967295u32;
 pub const D3D11_INTEGER_DIVIDE_BY_ZERO_REMAINDER: u32 = 4294967295u32;
 pub const D3D11_KEEP_RENDER_TARGETS_AND_DEPTH_STENCIL: u32 = 4294967295u32;
 pub const D3D11_KEEP_UNORDERED_ACCESS_VIEWS: u32 = 4294967295u32;
-pub const D3D11_KEY_EXCHANGE_HW_PROTECTION: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const D3D11_KEY_EXCHANGE_HW_PROTECTION: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2971078026,
     data2: 25229,
     data3: 19875,
@@ -2279,7 +2279,7 @@ impl ::core::clone::Clone for D3D11_KEY_EXCHANGE_HW_PROTECTION_OUTPUT_DATA {
         *self
     }
 }
-pub const D3D11_KEY_EXCHANGE_RSAES_OAEP: ::windows_sys::core::GUID = ::windows_sys::GUID { data1: 3247741077, data2: 55082, data3: 18973, data4: [142, 93, 237, 133, 125, 23, 21, 32] };
+pub const D3D11_KEY_EXCHANGE_RSAES_OAEP: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3247741077, data2: 55082, data3: 18973, data4: [142, 93, 237, 133, 125, 23, 21, 32] };
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3D11_LIBRARY_DESC {
@@ -5711,7 +5711,7 @@ impl ::core::clone::Clone for D3D11_VIDEO_CONTENT_PROTECTION_CAPS {
 }
 #[repr(C)]
 pub struct D3D11_VIDEO_DECODER_BEGIN_FRAME_CRYPTO_SESSION {
-    pub pCryptoSession: ::core::option::Option<ID3D11CryptoSession>,
+    pub pCryptoSession: ID3D11CryptoSession,
     pub BlobSize: u32,
     pub pBlob: *mut ::core::ffi::c_void,
     pub pKeyInfoId: *mut ::windows_sys::core::GUID,
@@ -5864,7 +5864,7 @@ pub struct D3D11_VIDEO_DECODER_EXTENSION {
     pub pPrivateOutputData: *mut ::core::ffi::c_void,
     pub PrivateOutputDataSize: u32,
     pub ResourceCount: u32,
-    pub ppResourceList: *mut ::core::option::Option<ID3D11Resource>,
+    pub ppResourceList: *mut ID3D11Resource,
 }
 impl ::core::marker::Copy for D3D11_VIDEO_DECODER_EXTENSION {}
 impl ::core::clone::Clone for D3D11_VIDEO_DECODER_EXTENSION {
@@ -6323,12 +6323,12 @@ pub struct D3D11_VIDEO_PROCESSOR_STREAM {
     pub InputFrameOrField: u32,
     pub PastFrames: u32,
     pub FutureFrames: u32,
-    pub ppPastSurfaces: *mut ::core::option::Option<ID3D11VideoProcessorInputView>,
-    pub pInputSurface: ::core::option::Option<ID3D11VideoProcessorInputView>,
-    pub ppFutureSurfaces: *mut ::core::option::Option<ID3D11VideoProcessorInputView>,
-    pub ppPastSurfacesRight: *mut ::core::option::Option<ID3D11VideoProcessorInputView>,
-    pub pInputSurfaceRight: ::core::option::Option<ID3D11VideoProcessorInputView>,
-    pub ppFutureSurfacesRight: *mut ::core::option::Option<ID3D11VideoProcessorInputView>,
+    pub ppPastSurfaces: *mut ID3D11VideoProcessorInputView,
+    pub pInputSurface: ID3D11VideoProcessorInputView,
+    pub ppFutureSurfaces: *mut ID3D11VideoProcessorInputView,
+    pub ppPastSurfacesRight: *mut ID3D11VideoProcessorInputView,
+    pub pInputSurfaceRight: ID3D11VideoProcessorInputView,
+    pub ppFutureSurfacesRight: *mut ID3D11VideoProcessorInputView,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for D3D11_VIDEO_PROCESSOR_STREAM {}
@@ -6537,7 +6537,7 @@ pub const D3D_SHADER_REQUIRES_LEVEL_9_COMPARISON_FILTERING: u32 = 128u32;
 pub const D3D_SHADER_REQUIRES_MINIMUM_PRECISION: u32 = 16u32;
 pub const D3D_SHADER_REQUIRES_TILED_RESOURCES: u32 = 256u32;
 pub const D3D_SHADER_REQUIRES_UAVS_AT_EVERY_STAGE: u32 = 4u32;
-pub const DXGI_DEBUG_D3D11: ::windows_sys::core::GUID = ::windows_sys::GUID {
+pub const DXGI_DEBUG_D3D11: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1268330875,
     data2: 44089,
     data3: 19110,
@@ -6545,188 +6545,740 @@ pub const DXGI_DEBUG_D3D11: ::windows_sys::core::GUID = ::windows_sys::GUID {
 };
 #[repr(transparent)]
 pub struct ID3D11Asynchronous(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D11Asynchronous {}
+impl ::core::clone::Clone for ID3D11Asynchronous {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D11AuthenticatedChannel(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D11AuthenticatedChannel {}
+impl ::core::clone::Clone for ID3D11AuthenticatedChannel {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D11BlendState(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D11BlendState {}
+impl ::core::clone::Clone for ID3D11BlendState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D11BlendState1(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D11BlendState1 {}
+impl ::core::clone::Clone for ID3D11BlendState1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D11Buffer(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D11Buffer {}
+impl ::core::clone::Clone for ID3D11Buffer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D11ClassInstance(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D11ClassInstance {}
+impl ::core::clone::Clone for ID3D11ClassInstance {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D11ClassLinkage(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D11ClassLinkage {}
+impl ::core::clone::Clone for ID3D11ClassLinkage {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D11CommandList(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D11CommandList {}
+impl ::core::clone::Clone for ID3D11CommandList {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D11ComputeShader(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D11ComputeShader {}
+impl ::core::clone::Clone for ID3D11ComputeShader {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D11Counter(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D11Counter {}
+impl ::core::clone::Clone for ID3D11Counter {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D11CryptoSession(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D11CryptoSession {}
+impl ::core::clone::Clone for ID3D11CryptoSession {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D11Debug(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D11Debug {}
+impl ::core::clone::Clone for ID3D11Debug {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D11DepthStencilState(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D11DepthStencilState {}
+impl ::core::clone::Clone for ID3D11DepthStencilState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D11DepthStencilView(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D11DepthStencilView {}
+impl ::core::clone::Clone for ID3D11DepthStencilView {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D11Device(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D11Device {}
+impl ::core::clone::Clone for ID3D11Device {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D11Device1(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D11Device1 {}
+impl ::core::clone::Clone for ID3D11Device1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D11Device2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D11Device2 {}
+impl ::core::clone::Clone for ID3D11Device2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D11Device3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D11Device3 {}
+impl ::core::clone::Clone for ID3D11Device3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D11Device4(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D11Device4 {}
+impl ::core::clone::Clone for ID3D11Device4 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D11Device5(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D11Device5 {}
+impl ::core::clone::Clone for ID3D11Device5 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D11DeviceChild(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D11DeviceChild {}
+impl ::core::clone::Clone for ID3D11DeviceChild {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D11DeviceContext(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D11DeviceContext {}
+impl ::core::clone::Clone for ID3D11DeviceContext {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D11DeviceContext1(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D11DeviceContext1 {}
+impl ::core::clone::Clone for ID3D11DeviceContext1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D11DeviceContext2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D11DeviceContext2 {}
+impl ::core::clone::Clone for ID3D11DeviceContext2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D11DeviceContext3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D11DeviceContext3 {}
+impl ::core::clone::Clone for ID3D11DeviceContext3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D11DeviceContext4(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D11DeviceContext4 {}
+impl ::core::clone::Clone for ID3D11DeviceContext4 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D11DomainShader(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D11DomainShader {}
+impl ::core::clone::Clone for ID3D11DomainShader {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D11Fence(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D11Fence {}
+impl ::core::clone::Clone for ID3D11Fence {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D11FunctionLinkingGraph(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D11FunctionLinkingGraph {}
+impl ::core::clone::Clone for ID3D11FunctionLinkingGraph {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D11FunctionParameterReflection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D11FunctionParameterReflection {}
+impl ::core::clone::Clone for ID3D11FunctionParameterReflection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D11FunctionReflection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D11FunctionReflection {}
+impl ::core::clone::Clone for ID3D11FunctionReflection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D11GeometryShader(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D11GeometryShader {}
+impl ::core::clone::Clone for ID3D11GeometryShader {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D11HullShader(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D11HullShader {}
+impl ::core::clone::Clone for ID3D11HullShader {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D11InfoQueue(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D11InfoQueue {}
+impl ::core::clone::Clone for ID3D11InfoQueue {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D11InputLayout(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D11InputLayout {}
+impl ::core::clone::Clone for ID3D11InputLayout {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D11LibraryReflection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D11LibraryReflection {}
+impl ::core::clone::Clone for ID3D11LibraryReflection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D11Linker(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D11Linker {}
+impl ::core::clone::Clone for ID3D11Linker {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D11LinkingNode(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D11LinkingNode {}
+impl ::core::clone::Clone for ID3D11LinkingNode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D11Module(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D11Module {}
+impl ::core::clone::Clone for ID3D11Module {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D11ModuleInstance(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D11ModuleInstance {}
+impl ::core::clone::Clone for ID3D11ModuleInstance {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D11Multithread(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D11Multithread {}
+impl ::core::clone::Clone for ID3D11Multithread {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D11PixelShader(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D11PixelShader {}
+impl ::core::clone::Clone for ID3D11PixelShader {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D11Predicate(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D11Predicate {}
+impl ::core::clone::Clone for ID3D11Predicate {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D11Query(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D11Query {}
+impl ::core::clone::Clone for ID3D11Query {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D11Query1(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D11Query1 {}
+impl ::core::clone::Clone for ID3D11Query1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D11RasterizerState(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D11RasterizerState {}
+impl ::core::clone::Clone for ID3D11RasterizerState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D11RasterizerState1(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D11RasterizerState1 {}
+impl ::core::clone::Clone for ID3D11RasterizerState1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D11RasterizerState2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D11RasterizerState2 {}
+impl ::core::clone::Clone for ID3D11RasterizerState2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D11RefDefaultTrackingOptions(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D11RefDefaultTrackingOptions {}
+impl ::core::clone::Clone for ID3D11RefDefaultTrackingOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D11RefTrackingOptions(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D11RefTrackingOptions {}
+impl ::core::clone::Clone for ID3D11RefTrackingOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D11RenderTargetView(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D11RenderTargetView {}
+impl ::core::clone::Clone for ID3D11RenderTargetView {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D11RenderTargetView1(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D11RenderTargetView1 {}
+impl ::core::clone::Clone for ID3D11RenderTargetView1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D11Resource(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D11Resource {}
+impl ::core::clone::Clone for ID3D11Resource {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D11SamplerState(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D11SamplerState {}
+impl ::core::clone::Clone for ID3D11SamplerState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D11ShaderReflection(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D11ShaderReflection {}
+impl ::core::clone::Clone for ID3D11ShaderReflection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D11ShaderReflectionConstantBuffer(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D11ShaderReflectionConstantBuffer {}
+impl ::core::clone::Clone for ID3D11ShaderReflectionConstantBuffer {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D11ShaderReflectionType(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D11ShaderReflectionType {}
+impl ::core::clone::Clone for ID3D11ShaderReflectionType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D11ShaderReflectionVariable(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D11ShaderReflectionVariable {}
+impl ::core::clone::Clone for ID3D11ShaderReflectionVariable {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D11ShaderResourceView(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D11ShaderResourceView {}
+impl ::core::clone::Clone for ID3D11ShaderResourceView {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D11ShaderResourceView1(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D11ShaderResourceView1 {}
+impl ::core::clone::Clone for ID3D11ShaderResourceView1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D11ShaderTrace(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D11ShaderTrace {}
+impl ::core::clone::Clone for ID3D11ShaderTrace {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D11ShaderTraceFactory(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D11ShaderTraceFactory {}
+impl ::core::clone::Clone for ID3D11ShaderTraceFactory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D11SwitchToRef(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D11SwitchToRef {}
+impl ::core::clone::Clone for ID3D11SwitchToRef {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D11Texture1D(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D11Texture1D {}
+impl ::core::clone::Clone for ID3D11Texture1D {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D11Texture2D(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D11Texture2D {}
+impl ::core::clone::Clone for ID3D11Texture2D {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D11Texture2D1(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D11Texture2D1 {}
+impl ::core::clone::Clone for ID3D11Texture2D1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D11Texture3D(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D11Texture3D {}
+impl ::core::clone::Clone for ID3D11Texture3D {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D11Texture3D1(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D11Texture3D1 {}
+impl ::core::clone::Clone for ID3D11Texture3D1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D11TracingDevice(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D11TracingDevice {}
+impl ::core::clone::Clone for ID3D11TracingDevice {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D11UnorderedAccessView(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D11UnorderedAccessView {}
+impl ::core::clone::Clone for ID3D11UnorderedAccessView {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D11UnorderedAccessView1(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D11UnorderedAccessView1 {}
+impl ::core::clone::Clone for ID3D11UnorderedAccessView1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D11VertexShader(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D11VertexShader {}
+impl ::core::clone::Clone for ID3D11VertexShader {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D11VideoContext(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D11VideoContext {}
+impl ::core::clone::Clone for ID3D11VideoContext {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D11VideoContext1(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D11VideoContext1 {}
+impl ::core::clone::Clone for ID3D11VideoContext1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D11VideoContext2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D11VideoContext2 {}
+impl ::core::clone::Clone for ID3D11VideoContext2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D11VideoContext3(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D11VideoContext3 {}
+impl ::core::clone::Clone for ID3D11VideoContext3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D11VideoDecoder(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D11VideoDecoder {}
+impl ::core::clone::Clone for ID3D11VideoDecoder {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D11VideoDecoderOutputView(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D11VideoDecoderOutputView {}
+impl ::core::clone::Clone for ID3D11VideoDecoderOutputView {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D11VideoDevice(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D11VideoDevice {}
+impl ::core::clone::Clone for ID3D11VideoDevice {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D11VideoDevice1(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D11VideoDevice1 {}
+impl ::core::clone::Clone for ID3D11VideoDevice1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D11VideoDevice2(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D11VideoDevice2 {}
+impl ::core::clone::Clone for ID3D11VideoDevice2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D11VideoProcessor(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D11VideoProcessor {}
+impl ::core::clone::Clone for ID3D11VideoProcessor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D11VideoProcessorEnumerator(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D11VideoProcessorEnumerator {}
+impl ::core::clone::Clone for ID3D11VideoProcessorEnumerator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D11VideoProcessorEnumerator1(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D11VideoProcessorEnumerator1 {}
+impl ::core::clone::Clone for ID3D11VideoProcessorEnumerator1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D11VideoProcessorInputView(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D11VideoProcessorInputView {}
+impl ::core::clone::Clone for ID3D11VideoProcessorInputView {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D11VideoProcessorOutputView(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D11VideoProcessorOutputView {}
+impl ::core::clone::Clone for ID3D11VideoProcessorOutputView {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3D11View(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3D11View {}
+impl ::core::clone::Clone for ID3D11View {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3DDeviceContextState(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3DDeviceContextState {}
+impl ::core::clone::Clone for ID3DDeviceContextState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3DUserDefinedAnnotation(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3DUserDefinedAnnotation {}
+impl ::core::clone::Clone for ID3DUserDefinedAnnotation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3DX11FFT(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3DX11FFT {}
+impl ::core::clone::Clone for ID3DX11FFT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3DX11Scan(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3DX11Scan {}
+impl ::core::clone::Clone for ID3DX11Scan {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(transparent)]
 pub struct ID3DX11SegmentedScan(pub *mut ::core::ffi::c_void);
+impl ::core::marker::Copy for ID3DX11SegmentedScan {}
+impl ::core::clone::Clone for ID3DX11SegmentedScan {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi"))]
 pub type PFN_D3D11_CREATE_DEVICE = unsafe extern "system" fn(param0: super::Dxgi::IDXGIAdapter, param1: super::Direct3D::D3D_DRIVER_TYPE, param2: super::super::Foundation::HINSTANCE, param3: u32, param4: *const super::Direct3D::D3D_FEATURE_LEVEL, featurelevels: u32, param6: u32, param7: *mut ID3D11Device, param8: *mut super::Direct3D::D3D_FEATURE_LEVEL, param9: *mut ID3D11DeviceContext) -> ::windows_sys::core::HRESULT;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Dxgi_Common"))]
