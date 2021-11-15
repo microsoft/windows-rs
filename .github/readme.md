@@ -53,3 +53,38 @@ fn main() -> Result<()> {
     Ok(())
 }
 ```
+
+## windows-sys
+
+The `windows-sys` crate is a zero-overhead fallback for the most demanding situations and primary where the absolute best compile time is essential. It only includes function declarations (externs), structs, and constants. No convenience helpers, traits, or wrappers are included.
+
+Start by adding the following to your Cargo.toml file:
+
+```toml
+[dependencies.windows-sys]
+version = "0.27.0"
+features = [
+    "Win32_Foundation",
+    "Win32_Security",
+    "Win32_System_Threading",
+    "Win32_UI_WindowsAndMessaging",
+]
+
+```
+
+Make use of any Windows APIs as needed.
+
+```rust
+use windows_sys::{Win32::Foundation::*, Win32::System::Threading::*, Win32::UI::WindowsAndMessaging::*};
+
+fn main() {
+    unsafe {
+        let event = CreateEventW(std::ptr::null_mut(), BOOL(1), BOOL(0), PWSTR(std::ptr::null_mut()));
+        SetEvent(event);
+        WaitForSingleObject(event, 0);
+        CloseHandle(event);
+
+        MessageBoxA(HWND(0), PSTR(b"Text\0".as_ptr() as _), PSTR(b"Caption\0".as_ptr() as _), MB_OK);
+    }
+}
+```
