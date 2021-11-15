@@ -56,7 +56,7 @@ fn main() -> Result<()> {
 
 ## windows-sys
 
-The `windows-sys` crate is a zero-overhead fallback for the most demanding situations and primary where the absolute best compile time is essential. It only includes function declarations (externs), structs, and constants. No convenience helpers, traits, or wrappers are included.
+The `windows-sys` crate is a zero-overhead fallback for the most demanding situations and primarily where the absolute best compile time is essential. It only includes function declarations (externs), structs, and constants. No convenience helpers, traits, or wrappers are provided.
 
 Start by adding the following to your Cargo.toml file:
 
