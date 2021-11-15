@@ -146,7 +146,7 @@ jobs:
     runs-on: windows-latest
     strategy:
       matrix:
-        generator: [bindings, api]
+        generator: [bindings, api, sys]
 
     steps:
     - name: Checkout

@@ -38,7 +38,7 @@ license = "MIT OR Apache-2.0"
 description = "Rust for Windows"
 repository = "https://github.com/microsoft/windows-rs"
 documentation = "https://microsoft.github.io/windows-docs-rs/"
-readme = ".github/readme.md"
+readme = "../../../.github/readme.md"
 
 [target.i686-pc-windows-msvc.dependencies]
 windows_i686_msvc = { path = "../../targets/i686_msvc", version = "0.27.0" }
