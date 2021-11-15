@@ -1,3 +1,11 @@
+# 0.27
+
+- Introduce `windows-sys` crate ([1310](https://github.com/microsoft/windows-rs/pull/1310)) - here's [a comparison](https://github.com/microsoft/windows-rs/pull/1314)
+- Simpler `const` representation for `GUID`s ([1306](https://github.com/microsoft/windows-rs/pull/1306))
+- `std` and `alloc` improvements ([1309](https://github.com/microsoft/windows-rs/pull/1309))
+- Rename `runtime` to `core` to make room for the `windows-sys` crate ([1311](https://github.com/microsoft/windows-rs/pull/1311))
+- Other small improvements and fixes
+
 # 0.26
 
 - `no_std` support by default (use the `std` feature to enable use of the standard library)
