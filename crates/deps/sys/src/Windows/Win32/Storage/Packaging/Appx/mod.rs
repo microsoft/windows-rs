@@ -115,76 +115,36 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn VerifyPackageRelativeApplicationId(packagerelativeapplicationid: super::super::super::Foundation::PWSTR) -> i32;
 }
-#[repr(transparent)]
-pub struct APPX_BUNDLE_FOOTPRINT_FILE_TYPE(pub i32);
-pub const APPX_BUNDLE_FOOTPRINT_FILE_TYPE_FIRST: APPX_BUNDLE_FOOTPRINT_FILE_TYPE = APPX_BUNDLE_FOOTPRINT_FILE_TYPE(0i32);
-pub const APPX_BUNDLE_FOOTPRINT_FILE_TYPE_MANIFEST: APPX_BUNDLE_FOOTPRINT_FILE_TYPE = APPX_BUNDLE_FOOTPRINT_FILE_TYPE(0i32);
-pub const APPX_BUNDLE_FOOTPRINT_FILE_TYPE_BLOCKMAP: APPX_BUNDLE_FOOTPRINT_FILE_TYPE = APPX_BUNDLE_FOOTPRINT_FILE_TYPE(1i32);
-pub const APPX_BUNDLE_FOOTPRINT_FILE_TYPE_SIGNATURE: APPX_BUNDLE_FOOTPRINT_FILE_TYPE = APPX_BUNDLE_FOOTPRINT_FILE_TYPE(2i32);
-pub const APPX_BUNDLE_FOOTPRINT_FILE_TYPE_LAST: APPX_BUNDLE_FOOTPRINT_FILE_TYPE = APPX_BUNDLE_FOOTPRINT_FILE_TYPE(2i32);
-impl ::core::marker::Copy for APPX_BUNDLE_FOOTPRINT_FILE_TYPE {}
-impl ::core::clone::Clone for APPX_BUNDLE_FOOTPRINT_FILE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE(pub i32);
-pub const APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE_APPLICATION: APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE = APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE(0i32);
-pub const APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE_RESOURCE: APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE = APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE(1i32);
-impl ::core::marker::Copy for APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE {}
-impl ::core::clone::Clone for APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct APPX_CAPABILITIES(pub u32);
-pub const APPX_CAPABILITY_INTERNET_CLIENT: APPX_CAPABILITIES = APPX_CAPABILITIES(1u32);
-pub const APPX_CAPABILITY_INTERNET_CLIENT_SERVER: APPX_CAPABILITIES = APPX_CAPABILITIES(2u32);
-pub const APPX_CAPABILITY_PRIVATE_NETWORK_CLIENT_SERVER: APPX_CAPABILITIES = APPX_CAPABILITIES(4u32);
-pub const APPX_CAPABILITY_DOCUMENTS_LIBRARY: APPX_CAPABILITIES = APPX_CAPABILITIES(8u32);
-pub const APPX_CAPABILITY_PICTURES_LIBRARY: APPX_CAPABILITIES = APPX_CAPABILITIES(16u32);
-pub const APPX_CAPABILITY_VIDEOS_LIBRARY: APPX_CAPABILITIES = APPX_CAPABILITIES(32u32);
-pub const APPX_CAPABILITY_MUSIC_LIBRARY: APPX_CAPABILITIES = APPX_CAPABILITIES(64u32);
-pub const APPX_CAPABILITY_ENTERPRISE_AUTHENTICATION: APPX_CAPABILITIES = APPX_CAPABILITIES(128u32);
-pub const APPX_CAPABILITY_SHARED_USER_CERTIFICATES: APPX_CAPABILITIES = APPX_CAPABILITIES(256u32);
-pub const APPX_CAPABILITY_REMOVABLE_STORAGE: APPX_CAPABILITIES = APPX_CAPABILITIES(512u32);
-pub const APPX_CAPABILITY_APPOINTMENTS: APPX_CAPABILITIES = APPX_CAPABILITIES(1024u32);
-pub const APPX_CAPABILITY_CONTACTS: APPX_CAPABILITIES = APPX_CAPABILITIES(2048u32);
-impl ::core::marker::Copy for APPX_CAPABILITIES {}
-impl ::core::clone::Clone for APPX_CAPABILITIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct APPX_CAPABILITY_CLASS_TYPE(pub i32);
-pub const APPX_CAPABILITY_CLASS_DEFAULT: APPX_CAPABILITY_CLASS_TYPE = APPX_CAPABILITY_CLASS_TYPE(0i32);
-pub const APPX_CAPABILITY_CLASS_GENERAL: APPX_CAPABILITY_CLASS_TYPE = APPX_CAPABILITY_CLASS_TYPE(1i32);
-pub const APPX_CAPABILITY_CLASS_RESTRICTED: APPX_CAPABILITY_CLASS_TYPE = APPX_CAPABILITY_CLASS_TYPE(2i32);
-pub const APPX_CAPABILITY_CLASS_WINDOWS: APPX_CAPABILITY_CLASS_TYPE = APPX_CAPABILITY_CLASS_TYPE(4i32);
-pub const APPX_CAPABILITY_CLASS_ALL: APPX_CAPABILITY_CLASS_TYPE = APPX_CAPABILITY_CLASS_TYPE(7i32);
-pub const APPX_CAPABILITY_CLASS_CUSTOM: APPX_CAPABILITY_CLASS_TYPE = APPX_CAPABILITY_CLASS_TYPE(8i32);
-impl ::core::marker::Copy for APPX_CAPABILITY_CLASS_TYPE {}
-impl ::core::clone::Clone for APPX_CAPABILITY_CLASS_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct APPX_COMPRESSION_OPTION(pub i32);
-pub const APPX_COMPRESSION_OPTION_NONE: APPX_COMPRESSION_OPTION = APPX_COMPRESSION_OPTION(0i32);
-pub const APPX_COMPRESSION_OPTION_NORMAL: APPX_COMPRESSION_OPTION = APPX_COMPRESSION_OPTION(1i32);
-pub const APPX_COMPRESSION_OPTION_MAXIMUM: APPX_COMPRESSION_OPTION = APPX_COMPRESSION_OPTION(2i32);
-pub const APPX_COMPRESSION_OPTION_FAST: APPX_COMPRESSION_OPTION = APPX_COMPRESSION_OPTION(3i32);
-pub const APPX_COMPRESSION_OPTION_SUPERFAST: APPX_COMPRESSION_OPTION = APPX_COMPRESSION_OPTION(4i32);
-impl ::core::marker::Copy for APPX_COMPRESSION_OPTION {}
-impl ::core::clone::Clone for APPX_COMPRESSION_OPTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const APPX_BUNDLE_FOOTPRINT_FILE_TYPE_FIRST: i32 = 0i32;
+pub const APPX_BUNDLE_FOOTPRINT_FILE_TYPE_MANIFEST: i32 = 0i32;
+pub const APPX_BUNDLE_FOOTPRINT_FILE_TYPE_BLOCKMAP: i32 = 1i32;
+pub const APPX_BUNDLE_FOOTPRINT_FILE_TYPE_SIGNATURE: i32 = 2i32;
+pub const APPX_BUNDLE_FOOTPRINT_FILE_TYPE_LAST: i32 = 2i32;
+pub const APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE_APPLICATION: i32 = 0i32;
+pub const APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE_RESOURCE: i32 = 1i32;
+pub const APPX_CAPABILITY_INTERNET_CLIENT: u32 = 1u32;
+pub const APPX_CAPABILITY_INTERNET_CLIENT_SERVER: u32 = 2u32;
+pub const APPX_CAPABILITY_PRIVATE_NETWORK_CLIENT_SERVER: u32 = 4u32;
+pub const APPX_CAPABILITY_DOCUMENTS_LIBRARY: u32 = 8u32;
+pub const APPX_CAPABILITY_PICTURES_LIBRARY: u32 = 16u32;
+pub const APPX_CAPABILITY_VIDEOS_LIBRARY: u32 = 32u32;
+pub const APPX_CAPABILITY_MUSIC_LIBRARY: u32 = 64u32;
+pub const APPX_CAPABILITY_ENTERPRISE_AUTHENTICATION: u32 = 128u32;
+pub const APPX_CAPABILITY_SHARED_USER_CERTIFICATES: u32 = 256u32;
+pub const APPX_CAPABILITY_REMOVABLE_STORAGE: u32 = 512u32;
+pub const APPX_CAPABILITY_APPOINTMENTS: u32 = 1024u32;
+pub const APPX_CAPABILITY_CONTACTS: u32 = 2048u32;
+pub const APPX_CAPABILITY_CLASS_DEFAULT: i32 = 0i32;
+pub const APPX_CAPABILITY_CLASS_GENERAL: i32 = 1i32;
+pub const APPX_CAPABILITY_CLASS_RESTRICTED: i32 = 2i32;
+pub const APPX_CAPABILITY_CLASS_WINDOWS: i32 = 4i32;
+pub const APPX_CAPABILITY_CLASS_ALL: i32 = 7i32;
+pub const APPX_CAPABILITY_CLASS_CUSTOM: i32 = 8i32;
+pub const APPX_COMPRESSION_OPTION_NONE: i32 = 0i32;
+pub const APPX_COMPRESSION_OPTION_NORMAL: i32 = 1i32;
+pub const APPX_COMPRESSION_OPTION_MAXIMUM: i32 = 2i32;
+pub const APPX_COMPRESSION_OPTION_FAST: i32 = 3i32;
+pub const APPX_COMPRESSION_OPTION_SUPERFAST: i32 = 4i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct APPX_ENCRYPTED_EXEMPTIONS {
@@ -199,17 +159,9 @@ impl ::core::clone::Clone for APPX_ENCRYPTED_EXEMPTIONS {
         *self
     }
 }
-#[repr(transparent)]
-pub struct APPX_ENCRYPTED_PACKAGE_OPTIONS(pub u32);
-pub const APPX_ENCRYPTED_PACKAGE_OPTION_NONE: APPX_ENCRYPTED_PACKAGE_OPTIONS = APPX_ENCRYPTED_PACKAGE_OPTIONS(0u32);
-pub const APPX_ENCRYPTED_PACKAGE_OPTION_DIFFUSION: APPX_ENCRYPTED_PACKAGE_OPTIONS = APPX_ENCRYPTED_PACKAGE_OPTIONS(1u32);
-pub const APPX_ENCRYPTED_PACKAGE_OPTION_PAGE_HASHING: APPX_ENCRYPTED_PACKAGE_OPTIONS = APPX_ENCRYPTED_PACKAGE_OPTIONS(2u32);
-impl ::core::marker::Copy for APPX_ENCRYPTED_PACKAGE_OPTIONS {}
-impl ::core::clone::Clone for APPX_ENCRYPTED_PACKAGE_OPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const APPX_ENCRYPTED_PACKAGE_OPTION_NONE: u32 = 0u32;
+pub const APPX_ENCRYPTED_PACKAGE_OPTION_DIFFUSION: u32 = 1u32;
+pub const APPX_ENCRYPTED_PACKAGE_OPTION_PAGE_HASHING: u32 = 2u32;
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct APPX_ENCRYPTED_PACKAGE_SETTINGS {
@@ -242,19 +194,11 @@ impl ::core::clone::Clone for APPX_ENCRYPTED_PACKAGE_SETTINGS2 {
         *self
     }
 }
-#[repr(transparent)]
-pub struct APPX_FOOTPRINT_FILE_TYPE(pub i32);
-pub const APPX_FOOTPRINT_FILE_TYPE_MANIFEST: APPX_FOOTPRINT_FILE_TYPE = APPX_FOOTPRINT_FILE_TYPE(0i32);
-pub const APPX_FOOTPRINT_FILE_TYPE_BLOCKMAP: APPX_FOOTPRINT_FILE_TYPE = APPX_FOOTPRINT_FILE_TYPE(1i32);
-pub const APPX_FOOTPRINT_FILE_TYPE_SIGNATURE: APPX_FOOTPRINT_FILE_TYPE = APPX_FOOTPRINT_FILE_TYPE(2i32);
-pub const APPX_FOOTPRINT_FILE_TYPE_CODEINTEGRITY: APPX_FOOTPRINT_FILE_TYPE = APPX_FOOTPRINT_FILE_TYPE(3i32);
-pub const APPX_FOOTPRINT_FILE_TYPE_CONTENTGROUPMAP: APPX_FOOTPRINT_FILE_TYPE = APPX_FOOTPRINT_FILE_TYPE(4i32);
-impl ::core::marker::Copy for APPX_FOOTPRINT_FILE_TYPE {}
-impl ::core::clone::Clone for APPX_FOOTPRINT_FILE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const APPX_FOOTPRINT_FILE_TYPE_MANIFEST: i32 = 0i32;
+pub const APPX_FOOTPRINT_FILE_TYPE_BLOCKMAP: i32 = 1i32;
+pub const APPX_FOOTPRINT_FILE_TYPE_SIGNATURE: i32 = 2i32;
+pub const APPX_FOOTPRINT_FILE_TYPE_CODEINTEGRITY: i32 = 3i32;
+pub const APPX_FOOTPRINT_FILE_TYPE_CONTENTGROUPMAP: i32 = 4i32;
 #[repr(C)]
 pub struct APPX_KEY_INFO {
     pub keyLength: u32,
@@ -268,54 +212,22 @@ impl ::core::clone::Clone for APPX_KEY_INFO {
         *self
     }
 }
-#[repr(transparent)]
-pub struct APPX_PACKAGE_ARCHITECTURE(pub i32);
-pub const APPX_PACKAGE_ARCHITECTURE_X86: APPX_PACKAGE_ARCHITECTURE = APPX_PACKAGE_ARCHITECTURE(0i32);
-pub const APPX_PACKAGE_ARCHITECTURE_ARM: APPX_PACKAGE_ARCHITECTURE = APPX_PACKAGE_ARCHITECTURE(5i32);
-pub const APPX_PACKAGE_ARCHITECTURE_X64: APPX_PACKAGE_ARCHITECTURE = APPX_PACKAGE_ARCHITECTURE(9i32);
-pub const APPX_PACKAGE_ARCHITECTURE_NEUTRAL: APPX_PACKAGE_ARCHITECTURE = APPX_PACKAGE_ARCHITECTURE(11i32);
-pub const APPX_PACKAGE_ARCHITECTURE_ARM64: APPX_PACKAGE_ARCHITECTURE = APPX_PACKAGE_ARCHITECTURE(12i32);
-impl ::core::marker::Copy for APPX_PACKAGE_ARCHITECTURE {}
-impl ::core::clone::Clone for APPX_PACKAGE_ARCHITECTURE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct APPX_PACKAGE_ARCHITECTURE2(pub i32);
-pub const APPX_PACKAGE_ARCHITECTURE2_X86: APPX_PACKAGE_ARCHITECTURE2 = APPX_PACKAGE_ARCHITECTURE2(0i32);
-pub const APPX_PACKAGE_ARCHITECTURE2_ARM: APPX_PACKAGE_ARCHITECTURE2 = APPX_PACKAGE_ARCHITECTURE2(5i32);
-pub const APPX_PACKAGE_ARCHITECTURE2_X64: APPX_PACKAGE_ARCHITECTURE2 = APPX_PACKAGE_ARCHITECTURE2(9i32);
-pub const APPX_PACKAGE_ARCHITECTURE2_NEUTRAL: APPX_PACKAGE_ARCHITECTURE2 = APPX_PACKAGE_ARCHITECTURE2(11i32);
-pub const APPX_PACKAGE_ARCHITECTURE2_ARM64: APPX_PACKAGE_ARCHITECTURE2 = APPX_PACKAGE_ARCHITECTURE2(12i32);
-pub const APPX_PACKAGE_ARCHITECTURE2_X86_ON_ARM64: APPX_PACKAGE_ARCHITECTURE2 = APPX_PACKAGE_ARCHITECTURE2(14i32);
-pub const APPX_PACKAGE_ARCHITECTURE2_UNKNOWN: APPX_PACKAGE_ARCHITECTURE2 = APPX_PACKAGE_ARCHITECTURE2(65535i32);
-impl ::core::marker::Copy for APPX_PACKAGE_ARCHITECTURE2 {}
-impl ::core::clone::Clone for APPX_PACKAGE_ARCHITECTURE2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS(pub u32);
-pub const APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTION_NONE: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS = APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS(0u32);
-pub const APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTION_SKIP_VALIDATION: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS = APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS(1u32);
-pub const APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTION_LOCALIZED: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS = APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS(2u32);
-impl ::core::marker::Copy for APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS {}
-impl ::core::clone::Clone for APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION(pub i32);
-pub const APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION_APPEND_DELTA: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION = APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION(0i32);
-impl ::core::marker::Copy for APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION {}
-impl ::core::clone::Clone for APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const APPX_PACKAGE_ARCHITECTURE_X86: i32 = 0i32;
+pub const APPX_PACKAGE_ARCHITECTURE_ARM: i32 = 5i32;
+pub const APPX_PACKAGE_ARCHITECTURE_X64: i32 = 9i32;
+pub const APPX_PACKAGE_ARCHITECTURE_NEUTRAL: i32 = 11i32;
+pub const APPX_PACKAGE_ARCHITECTURE_ARM64: i32 = 12i32;
+pub const APPX_PACKAGE_ARCHITECTURE2_X86: i32 = 0i32;
+pub const APPX_PACKAGE_ARCHITECTURE2_ARM: i32 = 5i32;
+pub const APPX_PACKAGE_ARCHITECTURE2_X64: i32 = 9i32;
+pub const APPX_PACKAGE_ARCHITECTURE2_NEUTRAL: i32 = 11i32;
+pub const APPX_PACKAGE_ARCHITECTURE2_ARM64: i32 = 12i32;
+pub const APPX_PACKAGE_ARCHITECTURE2_X86_ON_ARM64: i32 = 14i32;
+pub const APPX_PACKAGE_ARCHITECTURE2_UNKNOWN: i32 = 65535i32;
+pub const APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTION_NONE: u32 = 0u32;
+pub const APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTION_SKIP_VALIDATION: u32 = 1u32;
+pub const APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTION_LOCALIZED: u32 = 2u32;
+pub const APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION_APPEND_DELTA: i32 = 0i32;
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct APPX_PACKAGE_SETTINGS {
@@ -346,112 +258,32 @@ impl ::core::clone::Clone for APPX_PACKAGE_WRITER_PAYLOAD_STREAM {
         *self
     }
 }
-#[repr(transparent)]
-pub struct APPX_PACKAGING_CONTEXT_CHANGE_TYPE(pub i32);
-pub const APPX_PACKAGING_CONTEXT_CHANGE_TYPE_START: APPX_PACKAGING_CONTEXT_CHANGE_TYPE = APPX_PACKAGING_CONTEXT_CHANGE_TYPE(0i32);
-pub const APPX_PACKAGING_CONTEXT_CHANGE_TYPE_CHANGE: APPX_PACKAGING_CONTEXT_CHANGE_TYPE = APPX_PACKAGING_CONTEXT_CHANGE_TYPE(1i32);
-pub const APPX_PACKAGING_CONTEXT_CHANGE_TYPE_DETAILS: APPX_PACKAGING_CONTEXT_CHANGE_TYPE = APPX_PACKAGING_CONTEXT_CHANGE_TYPE(2i32);
-pub const APPX_PACKAGING_CONTEXT_CHANGE_TYPE_END: APPX_PACKAGING_CONTEXT_CHANGE_TYPE = APPX_PACKAGING_CONTEXT_CHANGE_TYPE(3i32);
-impl ::core::marker::Copy for APPX_PACKAGING_CONTEXT_CHANGE_TYPE {}
-impl ::core::clone::Clone for APPX_PACKAGING_CONTEXT_CHANGE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct AddPackageDependencyOptions(pub i32);
-pub const AddPackageDependencyOptions_None: AddPackageDependencyOptions = AddPackageDependencyOptions(0i32);
-pub const AddPackageDependencyOptions_PrependIfRankCollision: AddPackageDependencyOptions = AddPackageDependencyOptions(1i32);
-impl ::core::marker::Copy for AddPackageDependencyOptions {}
-impl ::core::clone::Clone for AddPackageDependencyOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct AppPolicyClrCompat(pub i32);
-pub const AppPolicyClrCompat_Other: AppPolicyClrCompat = AppPolicyClrCompat(0i32);
-pub const AppPolicyClrCompat_ClassicDesktop: AppPolicyClrCompat = AppPolicyClrCompat(1i32);
-pub const AppPolicyClrCompat_Universal: AppPolicyClrCompat = AppPolicyClrCompat(2i32);
-pub const AppPolicyClrCompat_PackagedDesktop: AppPolicyClrCompat = AppPolicyClrCompat(3i32);
-impl ::core::marker::Copy for AppPolicyClrCompat {}
-impl ::core::clone::Clone for AppPolicyClrCompat {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct AppPolicyCreateFileAccess(pub i32);
-pub const AppPolicyCreateFileAccess_Full: AppPolicyCreateFileAccess = AppPolicyCreateFileAccess(0i32);
-pub const AppPolicyCreateFileAccess_Limited: AppPolicyCreateFileAccess = AppPolicyCreateFileAccess(1i32);
-impl ::core::marker::Copy for AppPolicyCreateFileAccess {}
-impl ::core::clone::Clone for AppPolicyCreateFileAccess {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct AppPolicyLifecycleManagement(pub i32);
-pub const AppPolicyLifecycleManagement_Unmanaged: AppPolicyLifecycleManagement = AppPolicyLifecycleManagement(0i32);
-pub const AppPolicyLifecycleManagement_Managed: AppPolicyLifecycleManagement = AppPolicyLifecycleManagement(1i32);
-impl ::core::marker::Copy for AppPolicyLifecycleManagement {}
-impl ::core::clone::Clone for AppPolicyLifecycleManagement {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct AppPolicyMediaFoundationCodecLoading(pub i32);
-pub const AppPolicyMediaFoundationCodecLoading_All: AppPolicyMediaFoundationCodecLoading = AppPolicyMediaFoundationCodecLoading(0i32);
-pub const AppPolicyMediaFoundationCodecLoading_InboxOnly: AppPolicyMediaFoundationCodecLoading = AppPolicyMediaFoundationCodecLoading(1i32);
-impl ::core::marker::Copy for AppPolicyMediaFoundationCodecLoading {}
-impl ::core::clone::Clone for AppPolicyMediaFoundationCodecLoading {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct AppPolicyProcessTerminationMethod(pub i32);
-pub const AppPolicyProcessTerminationMethod_ExitProcess: AppPolicyProcessTerminationMethod = AppPolicyProcessTerminationMethod(0i32);
-pub const AppPolicyProcessTerminationMethod_TerminateProcess: AppPolicyProcessTerminationMethod = AppPolicyProcessTerminationMethod(1i32);
-impl ::core::marker::Copy for AppPolicyProcessTerminationMethod {}
-impl ::core::clone::Clone for AppPolicyProcessTerminationMethod {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct AppPolicyShowDeveloperDiagnostic(pub i32);
-pub const AppPolicyShowDeveloperDiagnostic_None: AppPolicyShowDeveloperDiagnostic = AppPolicyShowDeveloperDiagnostic(0i32);
-pub const AppPolicyShowDeveloperDiagnostic_ShowUI: AppPolicyShowDeveloperDiagnostic = AppPolicyShowDeveloperDiagnostic(1i32);
-impl ::core::marker::Copy for AppPolicyShowDeveloperDiagnostic {}
-impl ::core::clone::Clone for AppPolicyShowDeveloperDiagnostic {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct AppPolicyThreadInitializationType(pub i32);
-pub const AppPolicyThreadInitializationType_None: AppPolicyThreadInitializationType = AppPolicyThreadInitializationType(0i32);
-pub const AppPolicyThreadInitializationType_InitializeWinRT: AppPolicyThreadInitializationType = AppPolicyThreadInitializationType(1i32);
-impl ::core::marker::Copy for AppPolicyThreadInitializationType {}
-impl ::core::clone::Clone for AppPolicyThreadInitializationType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct AppPolicyWindowingModel(pub i32);
-pub const AppPolicyWindowingModel_None: AppPolicyWindowingModel = AppPolicyWindowingModel(0i32);
-pub const AppPolicyWindowingModel_Universal: AppPolicyWindowingModel = AppPolicyWindowingModel(1i32);
-pub const AppPolicyWindowingModel_ClassicDesktop: AppPolicyWindowingModel = AppPolicyWindowingModel(2i32);
-pub const AppPolicyWindowingModel_ClassicPhone: AppPolicyWindowingModel = AppPolicyWindowingModel(3i32);
-impl ::core::marker::Copy for AppPolicyWindowingModel {}
-impl ::core::clone::Clone for AppPolicyWindowingModel {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const APPX_PACKAGING_CONTEXT_CHANGE_TYPE_START: i32 = 0i32;
+pub const APPX_PACKAGING_CONTEXT_CHANGE_TYPE_CHANGE: i32 = 1i32;
+pub const APPX_PACKAGING_CONTEXT_CHANGE_TYPE_DETAILS: i32 = 2i32;
+pub const APPX_PACKAGING_CONTEXT_CHANGE_TYPE_END: i32 = 3i32;
+pub const AddPackageDependencyOptions_None: i32 = 0i32;
+pub const AddPackageDependencyOptions_PrependIfRankCollision: i32 = 1i32;
+pub const AppPolicyClrCompat_Other: i32 = 0i32;
+pub const AppPolicyClrCompat_ClassicDesktop: i32 = 1i32;
+pub const AppPolicyClrCompat_Universal: i32 = 2i32;
+pub const AppPolicyClrCompat_PackagedDesktop: i32 = 3i32;
+pub const AppPolicyCreateFileAccess_Full: i32 = 0i32;
+pub const AppPolicyCreateFileAccess_Limited: i32 = 1i32;
+pub const AppPolicyLifecycleManagement_Unmanaged: i32 = 0i32;
+pub const AppPolicyLifecycleManagement_Managed: i32 = 1i32;
+pub const AppPolicyMediaFoundationCodecLoading_All: i32 = 0i32;
+pub const AppPolicyMediaFoundationCodecLoading_InboxOnly: i32 = 1i32;
+pub const AppPolicyProcessTerminationMethod_ExitProcess: i32 = 0i32;
+pub const AppPolicyProcessTerminationMethod_TerminateProcess: i32 = 1i32;
+pub const AppPolicyShowDeveloperDiagnostic_None: i32 = 0i32;
+pub const AppPolicyShowDeveloperDiagnostic_ShowUI: i32 = 1i32;
+pub const AppPolicyThreadInitializationType_None: i32 = 0i32;
+pub const AppPolicyThreadInitializationType_InitializeWinRT: i32 = 1i32;
+pub const AppPolicyWindowingModel_None: i32 = 0i32;
+pub const AppPolicyWindowingModel_Universal: i32 = 1i32;
+pub const AppPolicyWindowingModel_ClassicDesktop: i32 = 2i32;
+pub const AppPolicyWindowingModel_ClassicPhone: i32 = 3i32;
 pub const AppxBundleFactory: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 932054086,
     data2: 21380,
@@ -482,29 +314,13 @@ pub const AppxPackagingDiagnosticEventSinkManager: ::windows_sys::core::GUID = :
     data3: 16737,
     data4: [142, 210, 239, 158, 70, 156, 237, 93],
 };
-#[repr(transparent)]
-pub struct CreatePackageDependencyOptions(pub i32);
-pub const CreatePackageDependencyOptions_None: CreatePackageDependencyOptions = CreatePackageDependencyOptions(0i32);
-pub const CreatePackageDependencyOptions_DoNotVerifyDependencyResolution: CreatePackageDependencyOptions = CreatePackageDependencyOptions(1i32);
-pub const CreatePackageDependencyOptions_ScopeIsSystem: CreatePackageDependencyOptions = CreatePackageDependencyOptions(2i32);
-impl ::core::marker::Copy for CreatePackageDependencyOptions {}
-impl ::core::clone::Clone for CreatePackageDependencyOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DX_FEATURE_LEVEL(pub i32);
-pub const DX_FEATURE_LEVEL_UNSPECIFIED: DX_FEATURE_LEVEL = DX_FEATURE_LEVEL(0i32);
-pub const DX_FEATURE_LEVEL_9: DX_FEATURE_LEVEL = DX_FEATURE_LEVEL(1i32);
-pub const DX_FEATURE_LEVEL_10: DX_FEATURE_LEVEL = DX_FEATURE_LEVEL(2i32);
-pub const DX_FEATURE_LEVEL_11: DX_FEATURE_LEVEL = DX_FEATURE_LEVEL(3i32);
-impl ::core::marker::Copy for DX_FEATURE_LEVEL {}
-impl ::core::clone::Clone for DX_FEATURE_LEVEL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const CreatePackageDependencyOptions_None: i32 = 0i32;
+pub const CreatePackageDependencyOptions_DoNotVerifyDependencyResolution: i32 = 1i32;
+pub const CreatePackageDependencyOptions_ScopeIsSystem: i32 = 2i32;
+pub const DX_FEATURE_LEVEL_UNSPECIFIED: i32 = 0i32;
+pub const DX_FEATURE_LEVEL_9: i32 = 1i32;
+pub const DX_FEATURE_LEVEL_10: i32 = 2i32;
+pub const DX_FEATURE_LEVEL_11: i32 = 3i32;
 #[repr(transparent)]
 pub struct IAppxBlockMapBlock(pub *mut ::core::ffi::c_void);
 impl ::core::marker::Copy for IAppxBlockMapBlock {}
@@ -1266,61 +1082,29 @@ impl ::core::clone::Clone for PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__ {
         *self
     }
 }
-#[repr(transparent)]
-pub struct PackageDependencyLifetimeKind(pub i32);
-pub const PackageDependencyLifetimeKind_Process: PackageDependencyLifetimeKind = PackageDependencyLifetimeKind(0i32);
-pub const PackageDependencyLifetimeKind_FilePath: PackageDependencyLifetimeKind = PackageDependencyLifetimeKind(1i32);
-pub const PackageDependencyLifetimeKind_RegistryKey: PackageDependencyLifetimeKind = PackageDependencyLifetimeKind(2i32);
-impl ::core::marker::Copy for PackageDependencyLifetimeKind {}
-impl ::core::clone::Clone for PackageDependencyLifetimeKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct PackageDependencyProcessorArchitectures(pub i32);
-pub const PackageDependencyProcessorArchitectures_None: PackageDependencyProcessorArchitectures = PackageDependencyProcessorArchitectures(0i32);
-pub const PackageDependencyProcessorArchitectures_Neutral: PackageDependencyProcessorArchitectures = PackageDependencyProcessorArchitectures(1i32);
-pub const PackageDependencyProcessorArchitectures_X86: PackageDependencyProcessorArchitectures = PackageDependencyProcessorArchitectures(2i32);
-pub const PackageDependencyProcessorArchitectures_X64: PackageDependencyProcessorArchitectures = PackageDependencyProcessorArchitectures(4i32);
-pub const PackageDependencyProcessorArchitectures_Arm: PackageDependencyProcessorArchitectures = PackageDependencyProcessorArchitectures(8i32);
-pub const PackageDependencyProcessorArchitectures_Arm64: PackageDependencyProcessorArchitectures = PackageDependencyProcessorArchitectures(16i32);
-pub const PackageDependencyProcessorArchitectures_X86A64: PackageDependencyProcessorArchitectures = PackageDependencyProcessorArchitectures(32i32);
-impl ::core::marker::Copy for PackageDependencyProcessorArchitectures {}
-impl ::core::clone::Clone for PackageDependencyProcessorArchitectures {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct PackageOrigin(pub i32);
-pub const PackageOrigin_Unknown: PackageOrigin = PackageOrigin(0i32);
-pub const PackageOrigin_Unsigned: PackageOrigin = PackageOrigin(1i32);
-pub const PackageOrigin_Inbox: PackageOrigin = PackageOrigin(2i32);
-pub const PackageOrigin_Store: PackageOrigin = PackageOrigin(3i32);
-pub const PackageOrigin_DeveloperUnsigned: PackageOrigin = PackageOrigin(4i32);
-pub const PackageOrigin_DeveloperSigned: PackageOrigin = PackageOrigin(5i32);
-pub const PackageOrigin_LineOfBusiness: PackageOrigin = PackageOrigin(6i32);
-impl ::core::marker::Copy for PackageOrigin {}
-impl ::core::clone::Clone for PackageOrigin {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct PackagePathType(pub i32);
-pub const PackagePathType_Install: PackagePathType = PackagePathType(0i32);
-pub const PackagePathType_Mutable: PackagePathType = PackagePathType(1i32);
-pub const PackagePathType_Effective: PackagePathType = PackagePathType(2i32);
-pub const PackagePathType_MachineExternal: PackagePathType = PackagePathType(3i32);
-pub const PackagePathType_UserExternal: PackagePathType = PackagePathType(4i32);
-pub const PackagePathType_EffectiveExternal: PackagePathType = PackagePathType(5i32);
-impl ::core::marker::Copy for PackagePathType {}
-impl ::core::clone::Clone for PackagePathType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const PackageDependencyLifetimeKind_Process: i32 = 0i32;
+pub const PackageDependencyLifetimeKind_FilePath: i32 = 1i32;
+pub const PackageDependencyLifetimeKind_RegistryKey: i32 = 2i32;
+pub const PackageDependencyProcessorArchitectures_None: i32 = 0i32;
+pub const PackageDependencyProcessorArchitectures_Neutral: i32 = 1i32;
+pub const PackageDependencyProcessorArchitectures_X86: i32 = 2i32;
+pub const PackageDependencyProcessorArchitectures_X64: i32 = 4i32;
+pub const PackageDependencyProcessorArchitectures_Arm: i32 = 8i32;
+pub const PackageDependencyProcessorArchitectures_Arm64: i32 = 16i32;
+pub const PackageDependencyProcessorArchitectures_X86A64: i32 = 32i32;
+pub const PackageOrigin_Unknown: i32 = 0i32;
+pub const PackageOrigin_Unsigned: i32 = 1i32;
+pub const PackageOrigin_Inbox: i32 = 2i32;
+pub const PackageOrigin_Store: i32 = 3i32;
+pub const PackageOrigin_DeveloperUnsigned: i32 = 4i32;
+pub const PackageOrigin_DeveloperSigned: i32 = 5i32;
+pub const PackageOrigin_LineOfBusiness: i32 = 6i32;
+pub const PackagePathType_Install: i32 = 0i32;
+pub const PackagePathType_Mutable: i32 = 1i32;
+pub const PackagePathType_Effective: i32 = 2i32;
+pub const PackagePathType_MachineExternal: i32 = 3i32;
+pub const PackagePathType_UserExternal: i32 = 4i32;
+pub const PackagePathType_EffectiveExternal: i32 = 5i32;
 #[repr(C)]
 pub struct _PACKAGE_INFO_REFERENCE {
     pub reserved: *mut ::core::ffi::c_void,

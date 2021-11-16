@@ -66,16 +66,8 @@ pub const SENSGUID_EVENTCLASS_ONNOW: ::windows_sys::core::GUID = ::windows_sys::
 pub const SENSGUID_PUBLISHER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1609440214, data2: 23451, data3: 4561, data4: [141, 210, 0, 170, 0, 74, 189, 94] };
 pub const SENSGUID_SUBSCRIBER_LCE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3549661872, data2: 23453, data3: 4561, data4: [141, 210, 0, 170, 0, 74, 189, 94] };
 pub const SENSGUID_SUBSCRIBER_WININET: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3549661877, data2: 23453, data3: 4561, data4: [141, 210, 0, 170, 0, 74, 189, 94] };
-#[repr(transparent)]
-pub struct SENS_CONNECTION_TYPE(pub u32);
-pub const CONNECTION_LAN: SENS_CONNECTION_TYPE = SENS_CONNECTION_TYPE(0u32);
-pub const CONNECTION_WAN: SENS_CONNECTION_TYPE = SENS_CONNECTION_TYPE(1u32);
-impl ::core::marker::Copy for SENS_CONNECTION_TYPE {}
-impl ::core::clone::Clone for SENS_CONNECTION_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const CONNECTION_LAN: u32 = 0u32;
+pub const CONNECTION_WAN: u32 = 1u32;
 #[repr(C)]
 pub struct SENS_QOCINFO {
     pub dwSize: u32,

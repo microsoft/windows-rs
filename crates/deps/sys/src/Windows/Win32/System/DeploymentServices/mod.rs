@@ -171,17 +171,9 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn WdsTransportServerTraceV(hprovider: super::super::Foundation::HANDLE, severity: u32, pwszformat: super::super::Foundation::PWSTR, params: *const i8) -> ::windows_sys::core::HRESULT;
 }
-#[repr(transparent)]
-pub struct CPU_ARCHITECTURE(pub u32);
-pub const CPU_ARCHITECTURE_AMD64: CPU_ARCHITECTURE = CPU_ARCHITECTURE(9u32);
-pub const CPU_ARCHITECTURE_IA64: CPU_ARCHITECTURE = CPU_ARCHITECTURE(6u32);
-pub const CPU_ARCHITECTURE_INTEL: CPU_ARCHITECTURE = CPU_ARCHITECTURE(0u32);
-impl ::core::marker::Copy for CPU_ARCHITECTURE {}
-impl ::core::clone::Clone for CPU_ARCHITECTURE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const CPU_ARCHITECTURE_AMD64: u32 = 9u32;
+pub const CPU_ARCHITECTURE_IA64: u32 = 6u32;
+pub const CPU_ARCHITECTURE_INTEL: u32 = 0u32;
 pub const EVT_WDSMCS_E_CP_CALLBACKS_NOT_REG: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1054801324i32 as _);
 pub const EVT_WDSMCS_E_CP_CLOSE_INSTANCE_FAILED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1054801320i32 as _);
 pub const EVT_WDSMCS_E_CP_DLL_LOAD_FAILED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1054801328i32 as _);
@@ -406,18 +398,10 @@ impl ::core::clone::Clone for IWdsTransportTftpManager {
     }
 }
 pub const MC_SERVER_CURRENT_VERSION: u32 = 1u32;
-#[repr(transparent)]
-pub struct PFN_WDS_CLI_CALLBACK_MESSAGE_ID(pub u32);
-pub const WDS_CLI_MSG_START: PFN_WDS_CLI_CALLBACK_MESSAGE_ID = PFN_WDS_CLI_CALLBACK_MESSAGE_ID(0u32);
-pub const WDS_CLI_MSG_COMPLETE: PFN_WDS_CLI_CALLBACK_MESSAGE_ID = PFN_WDS_CLI_CALLBACK_MESSAGE_ID(1u32);
-pub const WDS_CLI_MSG_PROGRESS: PFN_WDS_CLI_CALLBACK_MESSAGE_ID = PFN_WDS_CLI_CALLBACK_MESSAGE_ID(2u32);
-pub const WDS_CLI_MSG_TEXT: PFN_WDS_CLI_CALLBACK_MESSAGE_ID = PFN_WDS_CLI_CALLBACK_MESSAGE_ID(3u32);
-impl ::core::marker::Copy for PFN_WDS_CLI_CALLBACK_MESSAGE_ID {}
-impl ::core::clone::Clone for PFN_WDS_CLI_CALLBACK_MESSAGE_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const WDS_CLI_MSG_START: u32 = 0u32;
+pub const WDS_CLI_MSG_COMPLETE: u32 = 1u32;
+pub const WDS_CLI_MSG_PROGRESS: u32 = 2u32;
+pub const WDS_CLI_MSG_TEXT: u32 = 3u32;
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_WdsCliCallback = unsafe extern "system" fn(dwmessageid: PFN_WDS_CLI_CALLBACK_MESSAGE_ID, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, pvuserdata: *const ::core::ffi::c_void);
 #[cfg(feature = "Win32_Foundation")]
@@ -625,21 +609,13 @@ pub const PXE_TRACE_FATAL: u32 = 1048576u32;
 pub const PXE_TRACE_INFO: u32 = 131072u32;
 pub const PXE_TRACE_VERBOSE: u32 = 65536u32;
 pub const PXE_TRACE_WARNING: u32 = 262144u32;
-#[repr(transparent)]
-pub struct TRANSPORTCLIENT_CALLBACK_ID(pub i32);
-pub const WDS_TRANSPORTCLIENT_SESSION_START: TRANSPORTCLIENT_CALLBACK_ID = TRANSPORTCLIENT_CALLBACK_ID(0i32);
-pub const WDS_TRANSPORTCLIENT_RECEIVE_CONTENTS: TRANSPORTCLIENT_CALLBACK_ID = TRANSPORTCLIENT_CALLBACK_ID(1i32);
-pub const WDS_TRANSPORTCLIENT_SESSION_COMPLETE: TRANSPORTCLIENT_CALLBACK_ID = TRANSPORTCLIENT_CALLBACK_ID(2i32);
-pub const WDS_TRANSPORTCLIENT_RECEIVE_METADATA: TRANSPORTCLIENT_CALLBACK_ID = TRANSPORTCLIENT_CALLBACK_ID(3i32);
-pub const WDS_TRANSPORTCLIENT_SESSION_STARTEX: TRANSPORTCLIENT_CALLBACK_ID = TRANSPORTCLIENT_CALLBACK_ID(4i32);
-pub const WDS_TRANSPORTCLIENT_SESSION_NEGOTIATE: TRANSPORTCLIENT_CALLBACK_ID = TRANSPORTCLIENT_CALLBACK_ID(5i32);
-pub const WDS_TRANSPORTCLIENT_MAX_CALLBACKS: TRANSPORTCLIENT_CALLBACK_ID = TRANSPORTCLIENT_CALLBACK_ID(6i32);
-impl ::core::marker::Copy for TRANSPORTCLIENT_CALLBACK_ID {}
-impl ::core::clone::Clone for TRANSPORTCLIENT_CALLBACK_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const WDS_TRANSPORTCLIENT_SESSION_START: i32 = 0i32;
+pub const WDS_TRANSPORTCLIENT_RECEIVE_CONTENTS: i32 = 1i32;
+pub const WDS_TRANSPORTCLIENT_SESSION_COMPLETE: i32 = 2i32;
+pub const WDS_TRANSPORTCLIENT_RECEIVE_METADATA: i32 = 3i32;
+pub const WDS_TRANSPORTCLIENT_SESSION_STARTEX: i32 = 4i32;
+pub const WDS_TRANSPORTCLIENT_SESSION_NEGOTIATE: i32 = 5i32;
+pub const WDS_TRANSPORTCLIENT_MAX_CALLBACKS: i32 = 6i32;
 #[repr(C)]
 pub struct TRANSPORTCLIENT_SESSION_INFO {
     pub ulStructureLength: u32,
@@ -652,27 +628,19 @@ impl ::core::clone::Clone for TRANSPORTCLIENT_SESSION_INFO {
         *self
     }
 }
-#[repr(transparent)]
-pub struct TRANSPORTPROVIDER_CALLBACK_ID(pub i32);
-pub const WDS_TRANSPORTPROVIDER_CREATE_INSTANCE: TRANSPORTPROVIDER_CALLBACK_ID = TRANSPORTPROVIDER_CALLBACK_ID(0i32);
-pub const WDS_TRANSPORTPROVIDER_COMPARE_CONTENT: TRANSPORTPROVIDER_CALLBACK_ID = TRANSPORTPROVIDER_CALLBACK_ID(1i32);
-pub const WDS_TRANSPORTPROVIDER_OPEN_CONTENT: TRANSPORTPROVIDER_CALLBACK_ID = TRANSPORTPROVIDER_CALLBACK_ID(2i32);
-pub const WDS_TRANSPORTPROVIDER_USER_ACCESS_CHECK: TRANSPORTPROVIDER_CALLBACK_ID = TRANSPORTPROVIDER_CALLBACK_ID(3i32);
-pub const WDS_TRANSPORTPROVIDER_GET_CONTENT_SIZE: TRANSPORTPROVIDER_CALLBACK_ID = TRANSPORTPROVIDER_CALLBACK_ID(4i32);
-pub const WDS_TRANSPORTPROVIDER_READ_CONTENT: TRANSPORTPROVIDER_CALLBACK_ID = TRANSPORTPROVIDER_CALLBACK_ID(5i32);
-pub const WDS_TRANSPORTPROVIDER_CLOSE_CONTENT: TRANSPORTPROVIDER_CALLBACK_ID = TRANSPORTPROVIDER_CALLBACK_ID(6i32);
-pub const WDS_TRANSPORTPROVIDER_CLOSE_INSTANCE: TRANSPORTPROVIDER_CALLBACK_ID = TRANSPORTPROVIDER_CALLBACK_ID(7i32);
-pub const WDS_TRANSPORTPROVIDER_SHUTDOWN: TRANSPORTPROVIDER_CALLBACK_ID = TRANSPORTPROVIDER_CALLBACK_ID(8i32);
-pub const WDS_TRANSPORTPROVIDER_DUMP_STATE: TRANSPORTPROVIDER_CALLBACK_ID = TRANSPORTPROVIDER_CALLBACK_ID(9i32);
-pub const WDS_TRANSPORTPROVIDER_REFRESH_SETTINGS: TRANSPORTPROVIDER_CALLBACK_ID = TRANSPORTPROVIDER_CALLBACK_ID(10i32);
-pub const WDS_TRANSPORTPROVIDER_GET_CONTENT_METADATA: TRANSPORTPROVIDER_CALLBACK_ID = TRANSPORTPROVIDER_CALLBACK_ID(11i32);
-pub const WDS_TRANSPORTPROVIDER_MAX_CALLBACKS: TRANSPORTPROVIDER_CALLBACK_ID = TRANSPORTPROVIDER_CALLBACK_ID(12i32);
-impl ::core::marker::Copy for TRANSPORTPROVIDER_CALLBACK_ID {}
-impl ::core::clone::Clone for TRANSPORTPROVIDER_CALLBACK_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const WDS_TRANSPORTPROVIDER_CREATE_INSTANCE: i32 = 0i32;
+pub const WDS_TRANSPORTPROVIDER_COMPARE_CONTENT: i32 = 1i32;
+pub const WDS_TRANSPORTPROVIDER_OPEN_CONTENT: i32 = 2i32;
+pub const WDS_TRANSPORTPROVIDER_USER_ACCESS_CHECK: i32 = 3i32;
+pub const WDS_TRANSPORTPROVIDER_GET_CONTENT_SIZE: i32 = 4i32;
+pub const WDS_TRANSPORTPROVIDER_READ_CONTENT: i32 = 5i32;
+pub const WDS_TRANSPORTPROVIDER_CLOSE_CONTENT: i32 = 6i32;
+pub const WDS_TRANSPORTPROVIDER_CLOSE_INSTANCE: i32 = 7i32;
+pub const WDS_TRANSPORTPROVIDER_SHUTDOWN: i32 = 8i32;
+pub const WDS_TRANSPORTPROVIDER_DUMP_STATE: i32 = 9i32;
+pub const WDS_TRANSPORTPROVIDER_REFRESH_SETTINGS: i32 = 10i32;
+pub const WDS_TRANSPORTPROVIDER_GET_CONTENT_METADATA: i32 = 11i32;
+pub const WDS_TRANSPORTPROVIDER_MAX_CALLBACKS: i32 = 12i32;
 pub const TRANSPORTPROVIDER_CURRENT_VERSION: u32 = 1u32;
 pub const WDSBP_OPTVAL_ACTION_ABORT: u32 = 5u32;
 pub const WDSBP_OPTVAL_ACTION_APPROVAL: u32 = 1u32;
@@ -764,140 +732,44 @@ pub const WDSTPTMGMT_E_TFTP_VAR_WINDOW_NOT_SUPPORTED: ::windows_sys::core::HRESU
 pub const WDSTPTMGMT_E_TRANSPORT_SERVER_ROLE_NOT_CONFIGURED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1055915770i32 as _);
 pub const WDSTPTMGMT_E_TRANSPORT_SERVER_UNAVAILABLE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1055915757i32 as _);
 pub const WDSTPTMGMT_E_UDP_PORT_POLICY_NOT_SUPPORTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-1055915744i32 as _);
-#[repr(transparent)]
-pub struct WDSTRANSPORT_DIAGNOSTICS_COMPONENT_FLAGS(pub i32);
-pub const WdsTptDiagnosticsComponentPxe: WDSTRANSPORT_DIAGNOSTICS_COMPONENT_FLAGS = WDSTRANSPORT_DIAGNOSTICS_COMPONENT_FLAGS(1i32);
-pub const WdsTptDiagnosticsComponentTftp: WDSTRANSPORT_DIAGNOSTICS_COMPONENT_FLAGS = WDSTRANSPORT_DIAGNOSTICS_COMPONENT_FLAGS(2i32);
-pub const WdsTptDiagnosticsComponentImageServer: WDSTRANSPORT_DIAGNOSTICS_COMPONENT_FLAGS = WDSTRANSPORT_DIAGNOSTICS_COMPONENT_FLAGS(4i32);
-pub const WdsTptDiagnosticsComponentMulticast: WDSTRANSPORT_DIAGNOSTICS_COMPONENT_FLAGS = WDSTRANSPORT_DIAGNOSTICS_COMPONENT_FLAGS(8i32);
-impl ::core::marker::Copy for WDSTRANSPORT_DIAGNOSTICS_COMPONENT_FLAGS {}
-impl ::core::clone::Clone for WDSTRANSPORT_DIAGNOSTICS_COMPONENT_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WDSTRANSPORT_DISCONNECT_TYPE(pub i32);
-pub const WdsTptDisconnectUnknown: WDSTRANSPORT_DISCONNECT_TYPE = WDSTRANSPORT_DISCONNECT_TYPE(0i32);
-pub const WdsTptDisconnectFallback: WDSTRANSPORT_DISCONNECT_TYPE = WDSTRANSPORT_DISCONNECT_TYPE(1i32);
-pub const WdsTptDisconnectAbort: WDSTRANSPORT_DISCONNECT_TYPE = WDSTRANSPORT_DISCONNECT_TYPE(2i32);
-impl ::core::marker::Copy for WDSTRANSPORT_DISCONNECT_TYPE {}
-impl ::core::clone::Clone for WDSTRANSPORT_DISCONNECT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WDSTRANSPORT_FEATURE_FLAGS(pub i32);
-pub const WdsTptFeatureAdminPack: WDSTRANSPORT_FEATURE_FLAGS = WDSTRANSPORT_FEATURE_FLAGS(1i32);
-pub const WdsTptFeatureTransportServer: WDSTRANSPORT_FEATURE_FLAGS = WDSTRANSPORT_FEATURE_FLAGS(2i32);
-pub const WdsTptFeatureDeploymentServer: WDSTRANSPORT_FEATURE_FLAGS = WDSTRANSPORT_FEATURE_FLAGS(4i32);
-impl ::core::marker::Copy for WDSTRANSPORT_FEATURE_FLAGS {}
-impl ::core::clone::Clone for WDSTRANSPORT_FEATURE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE(pub i32);
-pub const WdsTptIpAddressSourceUnknown: WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE = WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE(0i32);
-pub const WdsTptIpAddressSourceDhcp: WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE = WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE(1i32);
-pub const WdsTptIpAddressSourceRange: WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE = WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE(2i32);
-impl ::core::marker::Copy for WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE {}
-impl ::core::clone::Clone for WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WDSTRANSPORT_IP_ADDRESS_TYPE(pub i32);
-pub const WdsTptIpAddressUnknown: WDSTRANSPORT_IP_ADDRESS_TYPE = WDSTRANSPORT_IP_ADDRESS_TYPE(0i32);
-pub const WdsTptIpAddressIpv4: WDSTRANSPORT_IP_ADDRESS_TYPE = WDSTRANSPORT_IP_ADDRESS_TYPE(1i32);
-pub const WdsTptIpAddressIpv6: WDSTRANSPORT_IP_ADDRESS_TYPE = WDSTRANSPORT_IP_ADDRESS_TYPE(2i32);
-impl ::core::marker::Copy for WDSTRANSPORT_IP_ADDRESS_TYPE {}
-impl ::core::clone::Clone for WDSTRANSPORT_IP_ADDRESS_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WDSTRANSPORT_NAMESPACE_TYPE(pub i32);
-pub const WdsTptNamespaceTypeUnknown: WDSTRANSPORT_NAMESPACE_TYPE = WDSTRANSPORT_NAMESPACE_TYPE(0i32);
-pub const WdsTptNamespaceTypeAutoCast: WDSTRANSPORT_NAMESPACE_TYPE = WDSTRANSPORT_NAMESPACE_TYPE(1i32);
-pub const WdsTptNamespaceTypeScheduledCastManualStart: WDSTRANSPORT_NAMESPACE_TYPE = WDSTRANSPORT_NAMESPACE_TYPE(2i32);
-pub const WdsTptNamespaceTypeScheduledCastAutoStart: WDSTRANSPORT_NAMESPACE_TYPE = WDSTRANSPORT_NAMESPACE_TYPE(3i32);
-impl ::core::marker::Copy for WDSTRANSPORT_NAMESPACE_TYPE {}
-impl ::core::clone::Clone for WDSTRANSPORT_NAMESPACE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WDSTRANSPORT_NETWORK_PROFILE_TYPE(pub i32);
-pub const WdsTptNetworkProfileUnknown: WDSTRANSPORT_NETWORK_PROFILE_TYPE = WDSTRANSPORT_NETWORK_PROFILE_TYPE(0i32);
-pub const WdsTptNetworkProfileCustom: WDSTRANSPORT_NETWORK_PROFILE_TYPE = WDSTRANSPORT_NETWORK_PROFILE_TYPE(1i32);
-pub const WdsTptNetworkProfile10Mbps: WDSTRANSPORT_NETWORK_PROFILE_TYPE = WDSTRANSPORT_NETWORK_PROFILE_TYPE(2i32);
-pub const WdsTptNetworkProfile100Mbps: WDSTRANSPORT_NETWORK_PROFILE_TYPE = WDSTRANSPORT_NETWORK_PROFILE_TYPE(3i32);
-pub const WdsTptNetworkProfile1Gbps: WDSTRANSPORT_NETWORK_PROFILE_TYPE = WDSTRANSPORT_NETWORK_PROFILE_TYPE(4i32);
-impl ::core::marker::Copy for WDSTRANSPORT_NETWORK_PROFILE_TYPE {}
-impl ::core::clone::Clone for WDSTRANSPORT_NETWORK_PROFILE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WDSTRANSPORT_PROTOCOL_FLAGS(pub i32);
-pub const WdsTptProtocolUnicast: WDSTRANSPORT_PROTOCOL_FLAGS = WDSTRANSPORT_PROTOCOL_FLAGS(1i32);
-pub const WdsTptProtocolMulticast: WDSTRANSPORT_PROTOCOL_FLAGS = WDSTRANSPORT_PROTOCOL_FLAGS(2i32);
-impl ::core::marker::Copy for WDSTRANSPORT_PROTOCOL_FLAGS {}
-impl ::core::clone::Clone for WDSTRANSPORT_PROTOCOL_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const WdsTptDiagnosticsComponentPxe: i32 = 1i32;
+pub const WdsTptDiagnosticsComponentTftp: i32 = 2i32;
+pub const WdsTptDiagnosticsComponentImageServer: i32 = 4i32;
+pub const WdsTptDiagnosticsComponentMulticast: i32 = 8i32;
+pub const WdsTptDisconnectUnknown: i32 = 0i32;
+pub const WdsTptDisconnectFallback: i32 = 1i32;
+pub const WdsTptDisconnectAbort: i32 = 2i32;
+pub const WdsTptFeatureAdminPack: i32 = 1i32;
+pub const WdsTptFeatureTransportServer: i32 = 2i32;
+pub const WdsTptFeatureDeploymentServer: i32 = 4i32;
+pub const WdsTptIpAddressSourceUnknown: i32 = 0i32;
+pub const WdsTptIpAddressSourceDhcp: i32 = 1i32;
+pub const WdsTptIpAddressSourceRange: i32 = 2i32;
+pub const WdsTptIpAddressUnknown: i32 = 0i32;
+pub const WdsTptIpAddressIpv4: i32 = 1i32;
+pub const WdsTptIpAddressIpv6: i32 = 2i32;
+pub const WdsTptNamespaceTypeUnknown: i32 = 0i32;
+pub const WdsTptNamespaceTypeAutoCast: i32 = 1i32;
+pub const WdsTptNamespaceTypeScheduledCastManualStart: i32 = 2i32;
+pub const WdsTptNamespaceTypeScheduledCastAutoStart: i32 = 3i32;
+pub const WdsTptNetworkProfileUnknown: i32 = 0i32;
+pub const WdsTptNetworkProfileCustom: i32 = 1i32;
+pub const WdsTptNetworkProfile10Mbps: i32 = 2i32;
+pub const WdsTptNetworkProfile100Mbps: i32 = 3i32;
+pub const WdsTptNetworkProfile1Gbps: i32 = 4i32;
+pub const WdsTptProtocolUnicast: i32 = 1i32;
+pub const WdsTptProtocolMulticast: i32 = 2i32;
 pub const WDSTRANSPORT_RESOURCE_UTILIZATION_UNKNOWN: u32 = 255u32;
-#[repr(transparent)]
-pub struct WDSTRANSPORT_SERVICE_NOTIFICATION(pub i32);
-pub const WdsTptServiceNotifyUnknown: WDSTRANSPORT_SERVICE_NOTIFICATION = WDSTRANSPORT_SERVICE_NOTIFICATION(0i32);
-pub const WdsTptServiceNotifyReadSettings: WDSTRANSPORT_SERVICE_NOTIFICATION = WDSTRANSPORT_SERVICE_NOTIFICATION(1i32);
-impl ::core::marker::Copy for WDSTRANSPORT_SERVICE_NOTIFICATION {}
-impl ::core::clone::Clone for WDSTRANSPORT_SERVICE_NOTIFICATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WDSTRANSPORT_SLOW_CLIENT_HANDLING_TYPE(pub i32);
-pub const WdsTptSlowClientHandlingUnknown: WDSTRANSPORT_SLOW_CLIENT_HANDLING_TYPE = WDSTRANSPORT_SLOW_CLIENT_HANDLING_TYPE(0i32);
-pub const WdsTptSlowClientHandlingNone: WDSTRANSPORT_SLOW_CLIENT_HANDLING_TYPE = WDSTRANSPORT_SLOW_CLIENT_HANDLING_TYPE(1i32);
-pub const WdsTptSlowClientHandlingAutoDisconnect: WDSTRANSPORT_SLOW_CLIENT_HANDLING_TYPE = WDSTRANSPORT_SLOW_CLIENT_HANDLING_TYPE(2i32);
-pub const WdsTptSlowClientHandlingMultistream: WDSTRANSPORT_SLOW_CLIENT_HANDLING_TYPE = WDSTRANSPORT_SLOW_CLIENT_HANDLING_TYPE(3i32);
-impl ::core::marker::Copy for WDSTRANSPORT_SLOW_CLIENT_HANDLING_TYPE {}
-impl ::core::clone::Clone for WDSTRANSPORT_SLOW_CLIENT_HANDLING_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WDSTRANSPORT_TFTP_CAPABILITY(pub i32);
-pub const WdsTptTftpCapMaximumBlockSize: WDSTRANSPORT_TFTP_CAPABILITY = WDSTRANSPORT_TFTP_CAPABILITY(1i32);
-pub const WdsTptTftpCapVariableWindow: WDSTRANSPORT_TFTP_CAPABILITY = WDSTRANSPORT_TFTP_CAPABILITY(2i32);
-impl ::core::marker::Copy for WDSTRANSPORT_TFTP_CAPABILITY {}
-impl ::core::clone::Clone for WDSTRANSPORT_TFTP_CAPABILITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WDSTRANSPORT_UDP_PORT_POLICY(pub i32);
-pub const WdsTptUdpPortPolicyDynamic: WDSTRANSPORT_UDP_PORT_POLICY = WDSTRANSPORT_UDP_PORT_POLICY(0i32);
-pub const WdsTptUdpPortPolicyFixed: WDSTRANSPORT_UDP_PORT_POLICY = WDSTRANSPORT_UDP_PORT_POLICY(1i32);
-impl ::core::marker::Copy for WDSTRANSPORT_UDP_PORT_POLICY {}
-impl ::core::clone::Clone for WDSTRANSPORT_UDP_PORT_POLICY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const WdsTptServiceNotifyUnknown: i32 = 0i32;
+pub const WdsTptServiceNotifyReadSettings: i32 = 1i32;
+pub const WdsTptSlowClientHandlingUnknown: i32 = 0i32;
+pub const WdsTptSlowClientHandlingNone: i32 = 1i32;
+pub const WdsTptSlowClientHandlingAutoDisconnect: i32 = 2i32;
+pub const WdsTptSlowClientHandlingMultistream: i32 = 3i32;
+pub const WdsTptTftpCapMaximumBlockSize: i32 = 1i32;
+pub const WdsTptTftpCapVariableWindow: i32 = 2i32;
+pub const WdsTptUdpPortPolicyDynamic: i32 = 0i32;
+pub const WdsTptUdpPortPolicyFixed: i32 = 1i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WDS_CLI_CRED {
@@ -913,40 +785,16 @@ impl ::core::clone::Clone for WDS_CLI_CRED {
         *self
     }
 }
-#[repr(transparent)]
-pub struct WDS_CLI_FIRMWARE_TYPE(pub i32);
-pub const WDS_CLI_FIRMWARE_UNKNOWN: WDS_CLI_FIRMWARE_TYPE = WDS_CLI_FIRMWARE_TYPE(0i32);
-pub const WDS_CLI_FIRMWARE_BIOS: WDS_CLI_FIRMWARE_TYPE = WDS_CLI_FIRMWARE_TYPE(1i32);
-pub const WDS_CLI_FIRMWARE_EFI: WDS_CLI_FIRMWARE_TYPE = WDS_CLI_FIRMWARE_TYPE(2i32);
-impl ::core::marker::Copy for WDS_CLI_FIRMWARE_TYPE {}
-impl ::core::clone::Clone for WDS_CLI_FIRMWARE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WDS_CLI_IMAGE_PARAM_TYPE(pub i32);
-pub const WDS_CLI_IMAGE_PARAM_UNKNOWN: WDS_CLI_IMAGE_PARAM_TYPE = WDS_CLI_IMAGE_PARAM_TYPE(0i32);
-pub const WDS_CLI_IMAGE_PARAM_SPARSE_FILE: WDS_CLI_IMAGE_PARAM_TYPE = WDS_CLI_IMAGE_PARAM_TYPE(1i32);
-pub const WDS_CLI_IMAGE_PARAM_SUPPORTED_FIRMWARES: WDS_CLI_IMAGE_PARAM_TYPE = WDS_CLI_IMAGE_PARAM_TYPE(2i32);
-impl ::core::marker::Copy for WDS_CLI_IMAGE_PARAM_TYPE {}
-impl ::core::clone::Clone for WDS_CLI_IMAGE_PARAM_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WDS_CLI_IMAGE_TYPE(pub i32);
-pub const WDS_CLI_IMAGE_TYPE_UNKNOWN: WDS_CLI_IMAGE_TYPE = WDS_CLI_IMAGE_TYPE(0i32);
-pub const WDS_CLI_IMAGE_TYPE_WIM: WDS_CLI_IMAGE_TYPE = WDS_CLI_IMAGE_TYPE(1i32);
-pub const WDS_CLI_IMAGE_TYPE_VHD: WDS_CLI_IMAGE_TYPE = WDS_CLI_IMAGE_TYPE(2i32);
-pub const WDS_CLI_IMAGE_TYPE_VHDX: WDS_CLI_IMAGE_TYPE = WDS_CLI_IMAGE_TYPE(3i32);
-impl ::core::marker::Copy for WDS_CLI_IMAGE_TYPE {}
-impl ::core::clone::Clone for WDS_CLI_IMAGE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const WDS_CLI_FIRMWARE_UNKNOWN: i32 = 0i32;
+pub const WDS_CLI_FIRMWARE_BIOS: i32 = 1i32;
+pub const WDS_CLI_FIRMWARE_EFI: i32 = 2i32;
+pub const WDS_CLI_IMAGE_PARAM_UNKNOWN: i32 = 0i32;
+pub const WDS_CLI_IMAGE_PARAM_SPARSE_FILE: i32 = 1i32;
+pub const WDS_CLI_IMAGE_PARAM_SUPPORTED_FIRMWARES: i32 = 2i32;
+pub const WDS_CLI_IMAGE_TYPE_UNKNOWN: i32 = 0i32;
+pub const WDS_CLI_IMAGE_TYPE_WIM: i32 = 1i32;
+pub const WDS_CLI_IMAGE_TYPE_VHD: i32 = 2i32;
+pub const WDS_CLI_IMAGE_TYPE_VHDX: i32 = 3i32;
 pub const WDS_CLI_NO_SPARSE_FILE: u32 = 2u32;
 pub const WDS_CLI_TRANSFER_ASYNCHRONOUS: u32 = 1u32;
 pub const WDS_LOG_LEVEL_DISABLED: i32 = 0i32;
@@ -1025,16 +873,8 @@ impl ::core::clone::Clone for WDS_TRANSPORTCLIENT_REQUEST {
         *self
     }
 }
-#[repr(transparent)]
-pub struct WDS_TRANSPORTCLIENT_REQUEST_AUTH_LEVEL(pub u32);
-pub const WDS_TRANSPORTCLIENT_AUTH: WDS_TRANSPORTCLIENT_REQUEST_AUTH_LEVEL = WDS_TRANSPORTCLIENT_REQUEST_AUTH_LEVEL(1u32);
-pub const WDS_TRANSPORTCLIENT_NO_AUTH: WDS_TRANSPORTCLIENT_REQUEST_AUTH_LEVEL = WDS_TRANSPORTCLIENT_REQUEST_AUTH_LEVEL(2u32);
-impl ::core::marker::Copy for WDS_TRANSPORTCLIENT_REQUEST_AUTH_LEVEL {}
-impl ::core::clone::Clone for WDS_TRANSPORTCLIENT_REQUEST_AUTH_LEVEL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const WDS_TRANSPORTCLIENT_AUTH: u32 = 1u32;
+pub const WDS_TRANSPORTCLIENT_NO_AUTH: u32 = 2u32;
 pub const WDS_TRANSPORTCLIENT_STATUS_FAILURE: u32 = 3u32;
 pub const WDS_TRANSPORTCLIENT_STATUS_IN_PROGRESS: u32 = 1u32;
 pub const WDS_TRANSPORTCLIENT_STATUS_SUCCESS: u32 = 2u32;

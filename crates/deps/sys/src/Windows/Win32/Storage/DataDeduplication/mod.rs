@@ -12,16 +12,8 @@ impl ::core::clone::Clone for DDP_FILE_EXTENT {
         *self
     }
 }
-#[repr(transparent)]
-pub struct DEDUP_BACKUP_SUPPORT_PARAM_TYPE(pub i32);
-pub const DEDUP_RECONSTRUCT_UNOPTIMIZED: DEDUP_BACKUP_SUPPORT_PARAM_TYPE = DEDUP_BACKUP_SUPPORT_PARAM_TYPE(1i32);
-pub const DEDUP_RECONSTRUCT_OPTIMIZED: DEDUP_BACKUP_SUPPORT_PARAM_TYPE = DEDUP_BACKUP_SUPPORT_PARAM_TYPE(2i32);
-impl ::core::marker::Copy for DEDUP_BACKUP_SUPPORT_PARAM_TYPE {}
-impl ::core::clone::Clone for DEDUP_BACKUP_SUPPORT_PARAM_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const DEDUP_RECONSTRUCT_UNOPTIMIZED: i32 = 1i32;
+pub const DEDUP_RECONSTRUCT_OPTIMIZED: i32 = 2i32;
 pub const DEDUP_CHUNKLIB_MAX_CHUNKS_ENUM: u32 = 1024u32;
 #[repr(C)]
 pub struct DEDUP_CHUNK_INFO_HASH32 {
@@ -48,19 +40,11 @@ impl ::core::clone::Clone for DEDUP_CONTAINER_EXTENT {
         *self
     }
 }
-#[repr(transparent)]
-pub struct DEDUP_SET_PARAM_TYPE(pub i32);
-pub const DEDUP_PT_MinChunkSizeBytes: DEDUP_SET_PARAM_TYPE = DEDUP_SET_PARAM_TYPE(1i32);
-pub const DEDUP_PT_MaxChunkSizeBytes: DEDUP_SET_PARAM_TYPE = DEDUP_SET_PARAM_TYPE(2i32);
-pub const DEDUP_PT_AvgChunkSizeBytes: DEDUP_SET_PARAM_TYPE = DEDUP_SET_PARAM_TYPE(3i32);
-pub const DEDUP_PT_InvariantChunking: DEDUP_SET_PARAM_TYPE = DEDUP_SET_PARAM_TYPE(4i32);
-pub const DEDUP_PT_DisableStrongHashComputation: DEDUP_SET_PARAM_TYPE = DEDUP_SET_PARAM_TYPE(5i32);
-impl ::core::marker::Copy for DEDUP_SET_PARAM_TYPE {}
-impl ::core::clone::Clone for DEDUP_SET_PARAM_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const DEDUP_PT_MinChunkSizeBytes: i32 = 1i32;
+pub const DEDUP_PT_MaxChunkSizeBytes: i32 = 2i32;
+pub const DEDUP_PT_AvgChunkSizeBytes: i32 = 3i32;
+pub const DEDUP_PT_InvariantChunking: i32 = 4i32;
+pub const DEDUP_PT_DisableStrongHashComputation: i32 = 5i32;
 pub const DedupBackupSupport: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1943450285,
     data2: 10628,
@@ -80,77 +64,29 @@ impl ::core::clone::Clone for DedupChunk {
         *self
     }
 }
-#[repr(transparent)]
-pub struct DedupChunkFlags(pub i32);
-pub const DedupChunkFlags_None: DedupChunkFlags = DedupChunkFlags(0i32);
-pub const DedupChunkFlags_Compressed: DedupChunkFlags = DedupChunkFlags(1i32);
-impl ::core::marker::Copy for DedupChunkFlags {}
-impl ::core::clone::Clone for DedupChunkFlags {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DedupChunkingAlgorithm(pub i32);
-pub const DedupChunkingAlgorithm_Unknonwn: DedupChunkingAlgorithm = DedupChunkingAlgorithm(0i32);
-pub const DedupChunkingAlgorithm_V1: DedupChunkingAlgorithm = DedupChunkingAlgorithm(1i32);
-impl ::core::marker::Copy for DedupChunkingAlgorithm {}
-impl ::core::clone::Clone for DedupChunkingAlgorithm {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DedupCompressionAlgorithm(pub i32);
-pub const DedupCompressionAlgorithm_Unknonwn: DedupCompressionAlgorithm = DedupCompressionAlgorithm(0i32);
-pub const DedupCompressionAlgorithm_Xpress: DedupCompressionAlgorithm = DedupCompressionAlgorithm(1i32);
-impl ::core::marker::Copy for DedupCompressionAlgorithm {}
-impl ::core::clone::Clone for DedupCompressionAlgorithm {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const DedupChunkFlags_None: i32 = 0i32;
+pub const DedupChunkFlags_Compressed: i32 = 1i32;
+pub const DedupChunkingAlgorithm_Unknonwn: i32 = 0i32;
+pub const DedupChunkingAlgorithm_V1: i32 = 1i32;
+pub const DedupCompressionAlgorithm_Unknonwn: i32 = 0i32;
+pub const DedupCompressionAlgorithm_Xpress: i32 = 1i32;
 pub const DedupDataPort: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2400219655, data2: 6185, data3: 18610, data4: [166, 75, 230, 31, 142, 13, 154, 203] };
-#[repr(transparent)]
-pub struct DedupDataPortManagerOption(pub i32);
-pub const DedupDataPortManagerOption_None: DedupDataPortManagerOption = DedupDataPortManagerOption(0i32);
-pub const DedupDataPortManagerOption_AutoStart: DedupDataPortManagerOption = DedupDataPortManagerOption(1i32);
-pub const DedupDataPortManagerOption_SkipReconciliation: DedupDataPortManagerOption = DedupDataPortManagerOption(2i32);
-impl ::core::marker::Copy for DedupDataPortManagerOption {}
-impl ::core::clone::Clone for DedupDataPortManagerOption {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DedupDataPortRequestStatus(pub i32);
-pub const DedupDataPortRequestStatus_Unknown: DedupDataPortRequestStatus = DedupDataPortRequestStatus(0i32);
-pub const DedupDataPortRequestStatus_Queued: DedupDataPortRequestStatus = DedupDataPortRequestStatus(1i32);
-pub const DedupDataPortRequestStatus_Processing: DedupDataPortRequestStatus = DedupDataPortRequestStatus(2i32);
-pub const DedupDataPortRequestStatus_Partial: DedupDataPortRequestStatus = DedupDataPortRequestStatus(3i32);
-pub const DedupDataPortRequestStatus_Complete: DedupDataPortRequestStatus = DedupDataPortRequestStatus(4i32);
-pub const DedupDataPortRequestStatus_Failed: DedupDataPortRequestStatus = DedupDataPortRequestStatus(5i32);
-impl ::core::marker::Copy for DedupDataPortRequestStatus {}
-impl ::core::clone::Clone for DedupDataPortRequestStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DedupDataPortVolumeStatus(pub i32);
-pub const DedupDataPortVolumeStatus_Unknown: DedupDataPortVolumeStatus = DedupDataPortVolumeStatus(0i32);
-pub const DedupDataPortVolumeStatus_NotEnabled: DedupDataPortVolumeStatus = DedupDataPortVolumeStatus(1i32);
-pub const DedupDataPortVolumeStatus_NotAvailable: DedupDataPortVolumeStatus = DedupDataPortVolumeStatus(2i32);
-pub const DedupDataPortVolumeStatus_Initializing: DedupDataPortVolumeStatus = DedupDataPortVolumeStatus(3i32);
-pub const DedupDataPortVolumeStatus_Ready: DedupDataPortVolumeStatus = DedupDataPortVolumeStatus(4i32);
-pub const DedupDataPortVolumeStatus_Maintenance: DedupDataPortVolumeStatus = DedupDataPortVolumeStatus(5i32);
-pub const DedupDataPortVolumeStatus_Shutdown: DedupDataPortVolumeStatus = DedupDataPortVolumeStatus(6i32);
-impl ::core::marker::Copy for DedupDataPortVolumeStatus {}
-impl ::core::clone::Clone for DedupDataPortVolumeStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const DedupDataPortManagerOption_None: i32 = 0i32;
+pub const DedupDataPortManagerOption_AutoStart: i32 = 1i32;
+pub const DedupDataPortManagerOption_SkipReconciliation: i32 = 2i32;
+pub const DedupDataPortRequestStatus_Unknown: i32 = 0i32;
+pub const DedupDataPortRequestStatus_Queued: i32 = 1i32;
+pub const DedupDataPortRequestStatus_Processing: i32 = 2i32;
+pub const DedupDataPortRequestStatus_Partial: i32 = 3i32;
+pub const DedupDataPortRequestStatus_Complete: i32 = 4i32;
+pub const DedupDataPortRequestStatus_Failed: i32 = 5i32;
+pub const DedupDataPortVolumeStatus_Unknown: i32 = 0i32;
+pub const DedupDataPortVolumeStatus_NotEnabled: i32 = 1i32;
+pub const DedupDataPortVolumeStatus_NotAvailable: i32 = 2i32;
+pub const DedupDataPortVolumeStatus_Initializing: i32 = 3i32;
+pub const DedupDataPortVolumeStatus_Ready: i32 = 4i32;
+pub const DedupDataPortVolumeStatus_Maintenance: i32 = 5i32;
+pub const DedupDataPortVolumeStatus_Shutdown: i32 = 6i32;
 #[repr(C)]
 pub struct DedupHash {
     pub Hash: [u8; 32],
@@ -161,16 +97,8 @@ impl ::core::clone::Clone for DedupHash {
         *self
     }
 }
-#[repr(transparent)]
-pub struct DedupHashingAlgorithm(pub i32);
-pub const DedupHashingAlgorithm_Unknonwn: DedupHashingAlgorithm = DedupHashingAlgorithm(0i32);
-pub const DedupHashingAlgorithm_V1: DedupHashingAlgorithm = DedupHashingAlgorithm(1i32);
-impl ::core::marker::Copy for DedupHashingAlgorithm {}
-impl ::core::clone::Clone for DedupHashingAlgorithm {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const DedupHashingAlgorithm_Unknonwn: i32 = 0i32;
+pub const DedupHashingAlgorithm_V1: i32 = 1i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DedupStream {

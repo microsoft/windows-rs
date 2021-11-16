@@ -1,49 +1,17 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {}
-#[repr(transparent)]
-pub struct CONFLICT_RESOLUTION_POLICY(pub i32);
-pub const CRP_NONE: CONFLICT_RESOLUTION_POLICY = CONFLICT_RESOLUTION_POLICY(0i32);
-pub const CRP_DESTINATION_PROVIDER_WINS: CONFLICT_RESOLUTION_POLICY = CONFLICT_RESOLUTION_POLICY(1i32);
-pub const CRP_SOURCE_PROVIDER_WINS: CONFLICT_RESOLUTION_POLICY = CONFLICT_RESOLUTION_POLICY(2i32);
-pub const CRP_LAST: CONFLICT_RESOLUTION_POLICY = CONFLICT_RESOLUTION_POLICY(3i32);
-impl ::core::marker::Copy for CONFLICT_RESOLUTION_POLICY {}
-impl ::core::clone::Clone for CONFLICT_RESOLUTION_POLICY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct CONSTRAINT_CONFLICT_REASON(pub i32);
-pub const CCR_OTHER: CONSTRAINT_CONFLICT_REASON = CONSTRAINT_CONFLICT_REASON(0i32);
-pub const CCR_COLLISION: CONSTRAINT_CONFLICT_REASON = CONSTRAINT_CONFLICT_REASON(1i32);
-pub const CCR_NOPARENT: CONSTRAINT_CONFLICT_REASON = CONSTRAINT_CONFLICT_REASON(2i32);
-pub const CCR_IDENTITY: CONSTRAINT_CONFLICT_REASON = CONSTRAINT_CONFLICT_REASON(3i32);
-impl ::core::marker::Copy for CONSTRAINT_CONFLICT_REASON {}
-impl ::core::clone::Clone for CONSTRAINT_CONFLICT_REASON {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct FILTERING_TYPE(pub i32);
-pub const FT_CURRENT_ITEMS_ONLY: FILTERING_TYPE = FILTERING_TYPE(0i32);
-pub const FT_CURRENT_ITEMS_AND_VERSIONS_FOR_MOVED_OUT_ITEMS: FILTERING_TYPE = FILTERING_TYPE(1i32);
-impl ::core::marker::Copy for FILTERING_TYPE {}
-impl ::core::clone::Clone for FILTERING_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct FILTER_COMBINATION_TYPE(pub i32);
-pub const FCT_INTERSECTION: FILTER_COMBINATION_TYPE = FILTER_COMBINATION_TYPE(0i32);
-impl ::core::marker::Copy for FILTER_COMBINATION_TYPE {}
-impl ::core::clone::Clone for FILTER_COMBINATION_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const CRP_NONE: i32 = 0i32;
+pub const CRP_DESTINATION_PROVIDER_WINS: i32 = 1i32;
+pub const CRP_SOURCE_PROVIDER_WINS: i32 = 2i32;
+pub const CRP_LAST: i32 = 3i32;
+pub const CCR_OTHER: i32 = 0i32;
+pub const CCR_COLLISION: i32 = 1i32;
+pub const CCR_NOPARENT: i32 = 2i32;
+pub const CCR_IDENTITY: i32 = 3i32;
+pub const FT_CURRENT_ITEMS_ONLY: i32 = 0i32;
+pub const FT_CURRENT_ITEMS_AND_VERSIONS_FOR_MOVED_OUT_ITEMS: i32 = 1i32;
+pub const FCT_INTERSECTION: i32 = 0i32;
 #[repr(transparent)]
 pub struct IAsynchronousDataRetriever(pub *mut ::core::ffi::c_void);
 impl ::core::marker::Copy for IAsynchronousDataRetriever {}
@@ -706,18 +674,10 @@ impl ::core::clone::Clone for ISynchronousDataRetriever {
         *self
     }
 }
-#[repr(transparent)]
-pub struct KNOWLEDGE_COOKIE_COMPARISON_RESULT(pub i32);
-pub const KCCR_COOKIE_KNOWLEDGE_EQUAL: KNOWLEDGE_COOKIE_COMPARISON_RESULT = KNOWLEDGE_COOKIE_COMPARISON_RESULT(0i32);
-pub const KCCR_COOKIE_KNOWLEDGE_CONTAINED: KNOWLEDGE_COOKIE_COMPARISON_RESULT = KNOWLEDGE_COOKIE_COMPARISON_RESULT(1i32);
-pub const KCCR_COOKIE_KNOWLEDGE_CONTAINS: KNOWLEDGE_COOKIE_COMPARISON_RESULT = KNOWLEDGE_COOKIE_COMPARISON_RESULT(2i32);
-pub const KCCR_COOKIE_KNOWLEDGE_NOT_COMPARABLE: KNOWLEDGE_COOKIE_COMPARISON_RESULT = KNOWLEDGE_COOKIE_COMPARISON_RESULT(3i32);
-impl ::core::marker::Copy for KNOWLEDGE_COOKIE_COMPARISON_RESULT {}
-impl ::core::clone::Clone for KNOWLEDGE_COOKIE_COMPARISON_RESULT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const KCCR_COOKIE_KNOWLEDGE_EQUAL: i32 = 0i32;
+pub const KCCR_COOKIE_KNOWLEDGE_CONTAINED: i32 = 1i32;
+pub const KCCR_COOKIE_KNOWLEDGE_CONTAINS: i32 = 2i32;
+pub const KCCR_COOKIE_KNOWLEDGE_NOT_COMPARABLE: i32 = 3i32;
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_CONFIGUI_CAPABILITIES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY {
     fmtid: ::windows_sys::core::GUID {
@@ -941,21 +901,13 @@ pub const PKEY_PROVIDER_TOOLTIPS: super::super::UI::Shell::PropertiesSystem::PRO
 pub const SYNC_CHANGE_FLAG_DELETED: u32 = 1u32;
 pub const SYNC_CHANGE_FLAG_DOES_NOT_EXIST: u32 = 2u32;
 pub const SYNC_CHANGE_FLAG_GHOST: u32 = 4u32;
-#[repr(transparent)]
-pub struct SYNC_CONSTRAINT_RESOLVE_ACTION(pub i32);
-pub const SCRA_DEFER: SYNC_CONSTRAINT_RESOLVE_ACTION = SYNC_CONSTRAINT_RESOLVE_ACTION(0i32);
-pub const SCRA_ACCEPT_DESTINATION_PROVIDER: SYNC_CONSTRAINT_RESOLVE_ACTION = SYNC_CONSTRAINT_RESOLVE_ACTION(1i32);
-pub const SCRA_ACCEPT_SOURCE_PROVIDER: SYNC_CONSTRAINT_RESOLVE_ACTION = SYNC_CONSTRAINT_RESOLVE_ACTION(2i32);
-pub const SCRA_TRANSFER_AND_DEFER: SYNC_CONSTRAINT_RESOLVE_ACTION = SYNC_CONSTRAINT_RESOLVE_ACTION(3i32);
-pub const SCRA_MERGE: SYNC_CONSTRAINT_RESOLVE_ACTION = SYNC_CONSTRAINT_RESOLVE_ACTION(4i32);
-pub const SCRA_RENAME_SOURCE: SYNC_CONSTRAINT_RESOLVE_ACTION = SYNC_CONSTRAINT_RESOLVE_ACTION(5i32);
-pub const SCRA_RENAME_DESTINATION: SYNC_CONSTRAINT_RESOLVE_ACTION = SYNC_CONSTRAINT_RESOLVE_ACTION(6i32);
-impl ::core::marker::Copy for SYNC_CONSTRAINT_RESOLVE_ACTION {}
-impl ::core::clone::Clone for SYNC_CONSTRAINT_RESOLVE_ACTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const SCRA_DEFER: i32 = 0i32;
+pub const SCRA_ACCEPT_DESTINATION_PROVIDER: i32 = 1i32;
+pub const SCRA_ACCEPT_SOURCE_PROVIDER: i32 = 2i32;
+pub const SCRA_TRANSFER_AND_DEFER: i32 = 3i32;
+pub const SCRA_MERGE: i32 = 4i32;
+pub const SCRA_RENAME_SOURCE: i32 = 5i32;
+pub const SCRA_RENAME_DESTINATION: i32 = 6i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SYNC_FILTER_CHANGE {
@@ -974,38 +926,14 @@ pub const SYNC_FILTER_INFO_COMBINED: u32 = 8u32;
 pub const SYNC_FILTER_INFO_FLAG_CHANGE_UNIT_LIST: u32 = 2u32;
 pub const SYNC_FILTER_INFO_FLAG_CUSTOM: u32 = 4u32;
 pub const SYNC_FILTER_INFO_FLAG_ITEM_LIST: u32 = 1u32;
-#[repr(transparent)]
-pub struct SYNC_FULL_ENUMERATION_ACTION(pub i32);
-pub const SFEA_FULL_ENUMERATION: SYNC_FULL_ENUMERATION_ACTION = SYNC_FULL_ENUMERATION_ACTION(0i32);
-pub const SFEA_PARTIAL_SYNC: SYNC_FULL_ENUMERATION_ACTION = SYNC_FULL_ENUMERATION_ACTION(1i32);
-pub const SFEA_ABORT: SYNC_FULL_ENUMERATION_ACTION = SYNC_FULL_ENUMERATION_ACTION(2i32);
-impl ::core::marker::Copy for SYNC_FULL_ENUMERATION_ACTION {}
-impl ::core::clone::Clone for SYNC_FULL_ENUMERATION_ACTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct SYNC_PROGRESS_STAGE(pub i32);
-pub const SPS_CHANGE_DETECTION: SYNC_PROGRESS_STAGE = SYNC_PROGRESS_STAGE(0i32);
-pub const SPS_CHANGE_ENUMERATION: SYNC_PROGRESS_STAGE = SYNC_PROGRESS_STAGE(1i32);
-pub const SPS_CHANGE_APPLICATION: SYNC_PROGRESS_STAGE = SYNC_PROGRESS_STAGE(2i32);
-impl ::core::marker::Copy for SYNC_PROGRESS_STAGE {}
-impl ::core::clone::Clone for SYNC_PROGRESS_STAGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct SYNC_PROVIDER_ROLE(pub i32);
-pub const SPR_SOURCE: SYNC_PROVIDER_ROLE = SYNC_PROVIDER_ROLE(0i32);
-pub const SPR_DESTINATION: SYNC_PROVIDER_ROLE = SYNC_PROVIDER_ROLE(1i32);
-impl ::core::marker::Copy for SYNC_PROVIDER_ROLE {}
-impl ::core::clone::Clone for SYNC_PROVIDER_ROLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const SFEA_FULL_ENUMERATION: i32 = 0i32;
+pub const SFEA_PARTIAL_SYNC: i32 = 1i32;
+pub const SFEA_ABORT: i32 = 2i32;
+pub const SPS_CHANGE_DETECTION: i32 = 0i32;
+pub const SPS_CHANGE_ENUMERATION: i32 = 1i32;
+pub const SPS_CHANGE_APPLICATION: i32 = 2i32;
+pub const SPR_SOURCE: i32 = 0i32;
+pub const SPR_DESTINATION: i32 = 1i32;
 #[repr(C)]
 pub struct SYNC_RANGE {
     pub pbClosedLowerBound: *mut u8,
@@ -1017,46 +945,22 @@ impl ::core::clone::Clone for SYNC_RANGE {
         *self
     }
 }
-#[repr(transparent)]
-pub struct SYNC_REGISTRATION_EVENT(pub i32);
-pub const SRE_PROVIDER_ADDED: SYNC_REGISTRATION_EVENT = SYNC_REGISTRATION_EVENT(0i32);
-pub const SRE_PROVIDER_REMOVED: SYNC_REGISTRATION_EVENT = SYNC_REGISTRATION_EVENT(1i32);
-pub const SRE_PROVIDER_UPDATED: SYNC_REGISTRATION_EVENT = SYNC_REGISTRATION_EVENT(2i32);
-pub const SRE_PROVIDER_STATE_CHANGED: SYNC_REGISTRATION_EVENT = SYNC_REGISTRATION_EVENT(3i32);
-pub const SRE_CONFIGUI_ADDED: SYNC_REGISTRATION_EVENT = SYNC_REGISTRATION_EVENT(4i32);
-pub const SRE_CONFIGUI_REMOVED: SYNC_REGISTRATION_EVENT = SYNC_REGISTRATION_EVENT(5i32);
-pub const SRE_CONFIGUI_UPDATED: SYNC_REGISTRATION_EVENT = SYNC_REGISTRATION_EVENT(6i32);
-impl ::core::marker::Copy for SYNC_REGISTRATION_EVENT {}
-impl ::core::clone::Clone for SYNC_REGISTRATION_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct SYNC_RESOLVE_ACTION(pub i32);
-pub const SRA_DEFER: SYNC_RESOLVE_ACTION = SYNC_RESOLVE_ACTION(0i32);
-pub const SRA_ACCEPT_DESTINATION_PROVIDER: SYNC_RESOLVE_ACTION = SYNC_RESOLVE_ACTION(1i32);
-pub const SRA_ACCEPT_SOURCE_PROVIDER: SYNC_RESOLVE_ACTION = SYNC_RESOLVE_ACTION(2i32);
-pub const SRA_MERGE: SYNC_RESOLVE_ACTION = SYNC_RESOLVE_ACTION(3i32);
-pub const SRA_TRANSFER_AND_DEFER: SYNC_RESOLVE_ACTION = SYNC_RESOLVE_ACTION(4i32);
-pub const SRA_LAST: SYNC_RESOLVE_ACTION = SYNC_RESOLVE_ACTION(5i32);
-impl ::core::marker::Copy for SYNC_RESOLVE_ACTION {}
-impl ::core::clone::Clone for SYNC_RESOLVE_ACTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct SYNC_SERIALIZATION_VERSION(pub i32);
-pub const SYNC_SERIALIZATION_VERSION_V1: SYNC_SERIALIZATION_VERSION = SYNC_SERIALIZATION_VERSION(1i32);
-pub const SYNC_SERIALIZATION_VERSION_V2: SYNC_SERIALIZATION_VERSION = SYNC_SERIALIZATION_VERSION(4i32);
-pub const SYNC_SERIALIZATION_VERSION_V3: SYNC_SERIALIZATION_VERSION = SYNC_SERIALIZATION_VERSION(5i32);
-impl ::core::marker::Copy for SYNC_SERIALIZATION_VERSION {}
-impl ::core::clone::Clone for SYNC_SERIALIZATION_VERSION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const SRE_PROVIDER_ADDED: i32 = 0i32;
+pub const SRE_PROVIDER_REMOVED: i32 = 1i32;
+pub const SRE_PROVIDER_UPDATED: i32 = 2i32;
+pub const SRE_PROVIDER_STATE_CHANGED: i32 = 3i32;
+pub const SRE_CONFIGUI_ADDED: i32 = 4i32;
+pub const SRE_CONFIGUI_REMOVED: i32 = 5i32;
+pub const SRE_CONFIGUI_UPDATED: i32 = 6i32;
+pub const SRA_DEFER: i32 = 0i32;
+pub const SRA_ACCEPT_DESTINATION_PROVIDER: i32 = 1i32;
+pub const SRA_ACCEPT_SOURCE_PROVIDER: i32 = 2i32;
+pub const SRA_MERGE: i32 = 3i32;
+pub const SRA_TRANSFER_AND_DEFER: i32 = 4i32;
+pub const SRA_LAST: i32 = 5i32;
+pub const SYNC_SERIALIZATION_VERSION_V1: i32 = 1i32;
+pub const SYNC_SERIALIZATION_VERSION_V2: i32 = 4i32;
+pub const SYNC_SERIALIZATION_VERSION_V3: i32 = 5i32;
 pub const SYNC_SERIALIZE_REPLICA_KEY_MAP: u32 = 1u32;
 #[repr(C)]
 pub struct SYNC_SESSION_STATISTICS {
@@ -1069,15 +973,7 @@ impl ::core::clone::Clone for SYNC_SESSION_STATISTICS {
         *self
     }
 }
-#[repr(transparent)]
-pub struct SYNC_STATISTICS(pub i32);
-pub const SYNC_STATISTICS_RANGE_COUNT: SYNC_STATISTICS = SYNC_STATISTICS(0i32);
-impl ::core::marker::Copy for SYNC_STATISTICS {}
-impl ::core::clone::Clone for SYNC_STATISTICS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const SYNC_STATISTICS_RANGE_COUNT: i32 = 0i32;
 #[repr(C)]
 pub struct SYNC_TIME {
     pub dwDate: u32,

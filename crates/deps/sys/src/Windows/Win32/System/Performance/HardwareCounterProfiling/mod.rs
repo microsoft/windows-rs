@@ -22,16 +22,8 @@ impl ::core::clone::Clone for HARDWARE_COUNTER_DATA {
         *self
     }
 }
-#[repr(transparent)]
-pub struct HARDWARE_COUNTER_TYPE(pub i32);
-pub const PMCCounter: HARDWARE_COUNTER_TYPE = HARDWARE_COUNTER_TYPE(0i32);
-pub const MaxHardwareCounterType: HARDWARE_COUNTER_TYPE = HARDWARE_COUNTER_TYPE(1i32);
-impl ::core::marker::Copy for HARDWARE_COUNTER_TYPE {}
-impl ::core::clone::Clone for HARDWARE_COUNTER_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const PMCCounter: i32 = 0i32;
+pub const MaxHardwareCounterType: i32 = 1i32;
 #[repr(C)]
 pub struct PERFORMANCE_DATA {
     pub Size: u16,

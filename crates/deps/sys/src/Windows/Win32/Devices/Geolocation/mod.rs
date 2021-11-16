@@ -118,17 +118,9 @@ impl ::core::clone::Clone for GNSS_AGNSS_REQUEST_PARAM {
         *self
     }
 }
-#[repr(transparent)]
-pub struct GNSS_AGNSS_REQUEST_TYPE(pub i32);
-pub const GNSS_AGNSS_TimeInjection: GNSS_AGNSS_REQUEST_TYPE = GNSS_AGNSS_REQUEST_TYPE(1i32);
-pub const GNSS_AGNSS_PositionInjection: GNSS_AGNSS_REQUEST_TYPE = GNSS_AGNSS_REQUEST_TYPE(2i32);
-pub const GNSS_AGNSS_BlobInjection: GNSS_AGNSS_REQUEST_TYPE = GNSS_AGNSS_REQUEST_TYPE(3i32);
-impl ::core::marker::Copy for GNSS_AGNSS_REQUEST_TYPE {}
-impl ::core::clone::Clone for GNSS_AGNSS_REQUEST_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const GNSS_AGNSS_TimeInjection: i32 = 1i32;
+pub const GNSS_AGNSS_PositionInjection: i32 = 2i32;
+pub const GNSS_AGNSS_BlobInjection: i32 = 3i32;
 #[repr(C)]
 pub struct GNSS_BREADCRUMBING_ALERT_DATA {
     pub Size: u32,
@@ -333,36 +325,20 @@ impl ::core::clone::Clone for GNSS_DRIVERCOMMAND_PARAM {
         *self
     }
 }
-#[repr(transparent)]
-pub struct GNSS_DRIVERCOMMAND_TYPE(pub i32);
-pub const GNSS_SetLocationServiceEnabled: GNSS_DRIVERCOMMAND_TYPE = GNSS_DRIVERCOMMAND_TYPE(1i32);
-pub const GNSS_SetLocationNIRequestAllowed: GNSS_DRIVERCOMMAND_TYPE = GNSS_DRIVERCOMMAND_TYPE(2i32);
-pub const GNSS_ForceSatelliteSystem: GNSS_DRIVERCOMMAND_TYPE = GNSS_DRIVERCOMMAND_TYPE(3i32);
-pub const GNSS_ForceOperationMode: GNSS_DRIVERCOMMAND_TYPE = GNSS_DRIVERCOMMAND_TYPE(4i32);
-pub const GNSS_ResetEngine: GNSS_DRIVERCOMMAND_TYPE = GNSS_DRIVERCOMMAND_TYPE(9i32);
-pub const GNSS_ClearAgnssData: GNSS_DRIVERCOMMAND_TYPE = GNSS_DRIVERCOMMAND_TYPE(10i32);
-pub const GNSS_SetSuplVersion: GNSS_DRIVERCOMMAND_TYPE = GNSS_DRIVERCOMMAND_TYPE(12i32);
-pub const GNSS_SetNMEALogging: GNSS_DRIVERCOMMAND_TYPE = GNSS_DRIVERCOMMAND_TYPE(13i32);
-pub const GNSS_SetUplServerAccessInterval: GNSS_DRIVERCOMMAND_TYPE = GNSS_DRIVERCOMMAND_TYPE(14i32);
-pub const GNSS_SetNiTimeoutInterval: GNSS_DRIVERCOMMAND_TYPE = GNSS_DRIVERCOMMAND_TYPE(15i32);
-pub const GNSS_ResetGeofencesTracking: GNSS_DRIVERCOMMAND_TYPE = GNSS_DRIVERCOMMAND_TYPE(16i32);
-pub const GNSS_SetSuplVersion2: GNSS_DRIVERCOMMAND_TYPE = GNSS_DRIVERCOMMAND_TYPE(17i32);
-pub const GNSS_CustomCommand: GNSS_DRIVERCOMMAND_TYPE = GNSS_DRIVERCOMMAND_TYPE(256i32);
-impl ::core::marker::Copy for GNSS_DRIVERCOMMAND_TYPE {}
-impl ::core::clone::Clone for GNSS_DRIVERCOMMAND_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct GNSS_DRIVER_REQUEST(pub i32);
-pub const SUPL_CONFIG_DATA: GNSS_DRIVER_REQUEST = GNSS_DRIVER_REQUEST(1i32);
-impl ::core::marker::Copy for GNSS_DRIVER_REQUEST {}
-impl ::core::clone::Clone for GNSS_DRIVER_REQUEST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const GNSS_SetLocationServiceEnabled: i32 = 1i32;
+pub const GNSS_SetLocationNIRequestAllowed: i32 = 2i32;
+pub const GNSS_ForceSatelliteSystem: i32 = 3i32;
+pub const GNSS_ForceOperationMode: i32 = 4i32;
+pub const GNSS_ResetEngine: i32 = 9i32;
+pub const GNSS_ClearAgnssData: i32 = 10i32;
+pub const GNSS_SetSuplVersion: i32 = 12i32;
+pub const GNSS_SetNMEALogging: i32 = 13i32;
+pub const GNSS_SetUplServerAccessInterval: i32 = 14i32;
+pub const GNSS_SetNiTimeoutInterval: i32 = 15i32;
+pub const GNSS_ResetGeofencesTracking: i32 = 16i32;
+pub const GNSS_SetSuplVersion2: i32 = 17i32;
+pub const GNSS_CustomCommand: i32 = 256i32;
+pub const SUPL_CONFIG_DATA: i32 = 1i32;
 #[repr(C)]
 pub struct GNSS_DRIVER_REQUEST_DATA {
     pub Size: u32,
@@ -481,25 +457,17 @@ impl ::core::clone::Clone for GNSS_EVENT_2_0 {
         *self
     }
 }
-#[repr(transparent)]
-pub struct GNSS_EVENT_TYPE(pub i32);
-pub const GNSS_Event_FixAvailable: GNSS_EVENT_TYPE = GNSS_EVENT_TYPE(1i32);
-pub const GNSS_Event_RequireAgnss: GNSS_EVENT_TYPE = GNSS_EVENT_TYPE(2i32);
-pub const GNSS_Event_Error: GNSS_EVENT_TYPE = GNSS_EVENT_TYPE(3i32);
-pub const GNSS_Event_NiRequest: GNSS_EVENT_TYPE = GNSS_EVENT_TYPE(12i32);
-pub const GNSS_Event_NmeaData: GNSS_EVENT_TYPE = GNSS_EVENT_TYPE(13i32);
-pub const GNSS_Event_GeofenceAlertData: GNSS_EVENT_TYPE = GNSS_EVENT_TYPE(14i32);
-pub const GNSS_Event_GeofencesTrackingStatus: GNSS_EVENT_TYPE = GNSS_EVENT_TYPE(15i32);
-pub const GNSS_Event_DriverRequest: GNSS_EVENT_TYPE = GNSS_EVENT_TYPE(16i32);
-pub const GNSS_Event_BreadcrumbAlertEvent: GNSS_EVENT_TYPE = GNSS_EVENT_TYPE(17i32);
-pub const GNSS_Event_FixAvailable_2: GNSS_EVENT_TYPE = GNSS_EVENT_TYPE(18i32);
-pub const GNSS_Event_Custom: GNSS_EVENT_TYPE = GNSS_EVENT_TYPE(32768i32);
-impl ::core::marker::Copy for GNSS_EVENT_TYPE {}
-impl ::core::clone::Clone for GNSS_EVENT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const GNSS_Event_FixAvailable: i32 = 1i32;
+pub const GNSS_Event_RequireAgnss: i32 = 2i32;
+pub const GNSS_Event_Error: i32 = 3i32;
+pub const GNSS_Event_NiRequest: i32 = 12i32;
+pub const GNSS_Event_NmeaData: i32 = 13i32;
+pub const GNSS_Event_GeofenceAlertData: i32 = 14i32;
+pub const GNSS_Event_GeofencesTrackingStatus: i32 = 15i32;
+pub const GNSS_Event_DriverRequest: i32 = 16i32;
+pub const GNSS_Event_BreadcrumbAlertEvent: i32 = 17i32;
+pub const GNSS_Event_FixAvailable_2: i32 = 18i32;
+pub const GNSS_Event_Custom: i32 = 32768i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct GNSS_FIXDATA {
@@ -648,18 +616,10 @@ impl ::core::clone::Clone for GNSS_FIXDATA_SATELLITE {
 pub const GNSS_FIXDETAIL_ACCURACY: u32 = 2u32;
 pub const GNSS_FIXDETAIL_BASIC: u32 = 1u32;
 pub const GNSS_FIXDETAIL_SATELLITE: u32 = 4u32;
-#[repr(transparent)]
-pub struct GNSS_FIXSESSIONTYPE(pub i32);
-pub const GNSS_FixSession_SingleShot: GNSS_FIXSESSIONTYPE = GNSS_FIXSESSIONTYPE(1i32);
-pub const GNSS_FixSession_DistanceTracking: GNSS_FIXSESSIONTYPE = GNSS_FIXSESSIONTYPE(2i32);
-pub const GNSS_FixSession_ContinuousTracking: GNSS_FIXSESSIONTYPE = GNSS_FIXSESSIONTYPE(3i32);
-pub const GNSS_FixSession_LKG: GNSS_FIXSESSIONTYPE = GNSS_FIXSESSIONTYPE(4i32);
-impl ::core::marker::Copy for GNSS_FIXSESSIONTYPE {}
-impl ::core::clone::Clone for GNSS_FIXSESSIONTYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const GNSS_FixSession_SingleShot: i32 = 1i32;
+pub const GNSS_FixSession_DistanceTracking: i32 = 2i32;
+pub const GNSS_FixSession_ContinuousTracking: i32 = 3i32;
+pub const GNSS_FixSession_LKG: i32 = 4i32;
 #[repr(C)]
 pub struct GNSS_FIXSESSION_PARAM {
     pub Size: u32,
@@ -773,17 +733,9 @@ impl ::core::clone::Clone for GNSS_GEOFENCE_DELETE_PARAM {
         *self
     }
 }
-#[repr(transparent)]
-pub struct GNSS_GEOFENCE_STATE(pub i32);
-pub const GNSS_GeofenceState_Unknown: GNSS_GEOFENCE_STATE = GNSS_GEOFENCE_STATE(0i32);
-pub const GNSS_GeofenceState_Entered: GNSS_GEOFENCE_STATE = GNSS_GEOFENCE_STATE(1i32);
-pub const GNSS_GeofenceState_Exited: GNSS_GEOFENCE_STATE = GNSS_GEOFENCE_STATE(2i32);
-impl ::core::marker::Copy for GNSS_GEOFENCE_STATE {}
-impl ::core::clone::Clone for GNSS_GEOFENCE_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const GNSS_GeofenceState_Unknown: i32 = 0i32;
+pub const GNSS_GeofenceState_Entered: i32 = 1i32;
+pub const GNSS_GeofenceState_Exited: i32 = 2i32;
 #[repr(C)]
 pub struct GNSS_GEOREGION {
     pub Size: u32,
@@ -808,15 +760,7 @@ impl ::core::clone::Clone for GNSS_GEOREGION_0 {
         *self
     }
 }
-#[repr(transparent)]
-pub struct GNSS_GEOREGIONTYPE(pub i32);
-pub const GNSS_GeoRegion_Circle: GNSS_GEOREGIONTYPE = GNSS_GEOREGIONTYPE(1i32);
-impl ::core::marker::Copy for GNSS_GEOREGIONTYPE {}
-impl ::core::clone::Clone for GNSS_GEOREGIONTYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const GNSS_GeoRegion_Circle: i32 = 1i32;
 #[repr(C)]
 pub struct GNSS_GEOREGION_CIRCLE {
     pub Latitude: f64,
@@ -841,30 +785,14 @@ impl ::core::clone::Clone for GNSS_LKGFIX_PARAM {
     }
 }
 pub const GNSS_MAXSATELLITE: u32 = 64u32;
-#[repr(transparent)]
-pub struct GNSS_NI_NOTIFICATION_TYPE(pub i32);
-pub const GNSS_NI_NoNotifyNoVerify: GNSS_NI_NOTIFICATION_TYPE = GNSS_NI_NOTIFICATION_TYPE(1i32);
-pub const GNSS_NI_NotifyOnly: GNSS_NI_NOTIFICATION_TYPE = GNSS_NI_NOTIFICATION_TYPE(2i32);
-pub const GNSS_NI_NotifyVerifyDefaultAllow: GNSS_NI_NOTIFICATION_TYPE = GNSS_NI_NOTIFICATION_TYPE(3i32);
-pub const GNSS_NI_NotifyVerifyDefaultNotAllow: GNSS_NI_NOTIFICATION_TYPE = GNSS_NI_NOTIFICATION_TYPE(4i32);
-pub const GNSS_NI_PrivacyOverride: GNSS_NI_NOTIFICATION_TYPE = GNSS_NI_NOTIFICATION_TYPE(5i32);
-impl ::core::marker::Copy for GNSS_NI_NOTIFICATION_TYPE {}
-impl ::core::clone::Clone for GNSS_NI_NOTIFICATION_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct GNSS_NI_PLANE_TYPE(pub i32);
-pub const GNSS_NI_SUPL: GNSS_NI_PLANE_TYPE = GNSS_NI_PLANE_TYPE(1i32);
-pub const GNSS_NI_CP: GNSS_NI_PLANE_TYPE = GNSS_NI_PLANE_TYPE(2i32);
-pub const GNSS_NI_V2UPL: GNSS_NI_PLANE_TYPE = GNSS_NI_PLANE_TYPE(3i32);
-impl ::core::marker::Copy for GNSS_NI_PLANE_TYPE {}
-impl ::core::clone::Clone for GNSS_NI_PLANE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const GNSS_NI_NoNotifyNoVerify: i32 = 1i32;
+pub const GNSS_NI_NotifyOnly: i32 = 2i32;
+pub const GNSS_NI_NotifyVerifyDefaultAllow: i32 = 3i32;
+pub const GNSS_NI_NotifyVerifyDefaultNotAllow: i32 = 4i32;
+pub const GNSS_NI_PrivacyOverride: i32 = 5i32;
+pub const GNSS_NI_SUPL: i32 = 1i32;
+pub const GNSS_NI_CP: i32 = 2i32;
+pub const GNSS_NI_V2UPL: i32 = 3i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct GNSS_NI_REQUEST_PARAM {
@@ -901,16 +829,8 @@ impl ::core::clone::Clone for GNSS_NI_REQUEST_PARAM_0 {
         *self
     }
 }
-#[repr(transparent)]
-pub struct GNSS_NI_REQUEST_TYPE(pub i32);
-pub const GNSS_NI_Request_SingleShot: GNSS_NI_REQUEST_TYPE = GNSS_NI_REQUEST_TYPE(1i32);
-pub const GNSS_NI_Request_AreaTrigger: GNSS_NI_REQUEST_TYPE = GNSS_NI_REQUEST_TYPE(2i32);
-impl ::core::marker::Copy for GNSS_NI_REQUEST_TYPE {}
-impl ::core::clone::Clone for GNSS_NI_REQUEST_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const GNSS_NI_Request_SingleShot: i32 = 1i32;
+pub const GNSS_NI_Request_AreaTrigger: i32 = 2i32;
 #[repr(C)]
 pub struct GNSS_NI_RESPONSE {
     pub Size: u32,
@@ -924,17 +844,9 @@ impl ::core::clone::Clone for GNSS_NI_RESPONSE {
         *self
     }
 }
-#[repr(transparent)]
-pub struct GNSS_NI_USER_RESPONSE(pub i32);
-pub const GNSS_Ni_UserResponseAccept: GNSS_NI_USER_RESPONSE = GNSS_NI_USER_RESPONSE(1i32);
-pub const GNSS_Ni_UserResponseDeny: GNSS_NI_USER_RESPONSE = GNSS_NI_USER_RESPONSE(2i32);
-pub const GNSS_Ni_UserResponseTimeout: GNSS_NI_USER_RESPONSE = GNSS_NI_USER_RESPONSE(3i32);
-impl ::core::marker::Copy for GNSS_NI_USER_RESPONSE {}
-impl ::core::clone::Clone for GNSS_NI_USER_RESPONSE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const GNSS_Ni_UserResponseAccept: i32 = 1i32;
+pub const GNSS_Ni_UserResponseDeny: i32 = 2i32;
+pub const GNSS_Ni_UserResponseTimeout: i32 = 3i32;
 pub const GNSS_NMEALOGGING_ALL: u32 = 255u32;
 pub const GNSS_NMEALOGGING_NONE: u32 = 0u32;
 #[repr(C)]
@@ -1058,17 +970,9 @@ impl ::core::clone::Clone for GNSS_STOPFIXSESSION_PARAM {
         *self
     }
 }
-#[repr(transparent)]
-pub struct GNSS_SUPL_CERT_ACTION(pub i32);
-pub const GNSS_Supl_Cert_Inject: GNSS_SUPL_CERT_ACTION = GNSS_SUPL_CERT_ACTION(1i32);
-pub const GNSS_Supl_Cert_Delete: GNSS_SUPL_CERT_ACTION = GNSS_SUPL_CERT_ACTION(2i32);
-pub const GNSS_Supl_Cert_Purge: GNSS_SUPL_CERT_ACTION = GNSS_SUPL_CERT_ACTION(3i32);
-impl ::core::marker::Copy for GNSS_SUPL_CERT_ACTION {}
-impl ::core::clone::Clone for GNSS_SUPL_CERT_ACTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const GNSS_Supl_Cert_Inject: i32 = 1i32;
+pub const GNSS_Supl_Cert_Delete: i32 = 2i32;
+pub const GNSS_Supl_Cert_Purge: i32 = 3i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct GNSS_SUPL_CERT_CONFIG {
@@ -1302,19 +1206,11 @@ pub const IOCTL_GNSS_START_FIXSESSION: u32 = 2228288u32;
 pub const IOCTL_GNSS_STOP_BREADCRUMBING: u32 = 2228676u32;
 pub const IOCTL_GNSS_STOP_FIXSESSION: u32 = 2228296u32;
 pub const LOCATION_API_VERSION: u32 = 1u32;
-#[repr(transparent)]
-pub struct LOCATION_REPORT_STATUS(pub i32);
-pub const REPORT_NOT_SUPPORTED: LOCATION_REPORT_STATUS = LOCATION_REPORT_STATUS(0i32);
-pub const REPORT_ERROR: LOCATION_REPORT_STATUS = LOCATION_REPORT_STATUS(1i32);
-pub const REPORT_ACCESS_DENIED: LOCATION_REPORT_STATUS = LOCATION_REPORT_STATUS(2i32);
-pub const REPORT_INITIALIZING: LOCATION_REPORT_STATUS = LOCATION_REPORT_STATUS(3i32);
-pub const REPORT_RUNNING: LOCATION_REPORT_STATUS = LOCATION_REPORT_STATUS(4i32);
-impl ::core::marker::Copy for LOCATION_REPORT_STATUS {}
-impl ::core::clone::Clone for LOCATION_REPORT_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const REPORT_NOT_SUPPORTED: i32 = 0i32;
+pub const REPORT_ERROR: i32 = 1i32;
+pub const REPORT_ACCESS_DENIED: i32 = 2i32;
+pub const REPORT_INITIALIZING: i32 = 3i32;
+pub const REPORT_RUNNING: i32 = 4i32;
 pub const LatLongReport: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3984703603, data2: 8068, data3: 19624, data4: [161, 97, 24, 60, 119, 107, 198, 81] };
 pub const LatLongReportFactory: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2647407816, data2: 34313, data3: 18531, data4: [186, 212, 3, 96, 31, 76, 101, 232] };
 pub const Location: ::windows_sys::core::GUID = ::windows_sys::core::GUID {

@@ -36,32 +36,16 @@ extern "system" {
     pub fn RegisterRawInputDevices(prawinputdevices: *const RAWINPUTDEVICE, uinumdevices: u32, cbsize: u32) -> super::super::Foundation::BOOL;
 }
 pub type HRAWINPUT = isize;
-#[repr(transparent)]
-pub struct INPUT_MESSAGE_DEVICE_TYPE(pub i32);
-pub const IMDT_UNAVAILABLE: INPUT_MESSAGE_DEVICE_TYPE = INPUT_MESSAGE_DEVICE_TYPE(0i32);
-pub const IMDT_KEYBOARD: INPUT_MESSAGE_DEVICE_TYPE = INPUT_MESSAGE_DEVICE_TYPE(1i32);
-pub const IMDT_MOUSE: INPUT_MESSAGE_DEVICE_TYPE = INPUT_MESSAGE_DEVICE_TYPE(2i32);
-pub const IMDT_TOUCH: INPUT_MESSAGE_DEVICE_TYPE = INPUT_MESSAGE_DEVICE_TYPE(4i32);
-pub const IMDT_PEN: INPUT_MESSAGE_DEVICE_TYPE = INPUT_MESSAGE_DEVICE_TYPE(8i32);
-pub const IMDT_TOUCHPAD: INPUT_MESSAGE_DEVICE_TYPE = INPUT_MESSAGE_DEVICE_TYPE(16i32);
-impl ::core::marker::Copy for INPUT_MESSAGE_DEVICE_TYPE {}
-impl ::core::clone::Clone for INPUT_MESSAGE_DEVICE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct INPUT_MESSAGE_ORIGIN_ID(pub i32);
-pub const IMO_UNAVAILABLE: INPUT_MESSAGE_ORIGIN_ID = INPUT_MESSAGE_ORIGIN_ID(0i32);
-pub const IMO_HARDWARE: INPUT_MESSAGE_ORIGIN_ID = INPUT_MESSAGE_ORIGIN_ID(1i32);
-pub const IMO_INJECTED: INPUT_MESSAGE_ORIGIN_ID = INPUT_MESSAGE_ORIGIN_ID(2i32);
-pub const IMO_SYSTEM: INPUT_MESSAGE_ORIGIN_ID = INPUT_MESSAGE_ORIGIN_ID(4i32);
-impl ::core::marker::Copy for INPUT_MESSAGE_ORIGIN_ID {}
-impl ::core::clone::Clone for INPUT_MESSAGE_ORIGIN_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const IMDT_UNAVAILABLE: i32 = 0i32;
+pub const IMDT_KEYBOARD: i32 = 1i32;
+pub const IMDT_MOUSE: i32 = 2i32;
+pub const IMDT_TOUCH: i32 = 4i32;
+pub const IMDT_PEN: i32 = 8i32;
+pub const IMDT_TOUCHPAD: i32 = 16i32;
+pub const IMO_UNAVAILABLE: i32 = 0i32;
+pub const IMO_HARDWARE: i32 = 1i32;
+pub const IMO_INJECTED: i32 = 2i32;
+pub const IMO_SYSTEM: i32 = 4i32;
 #[repr(C)]
 pub struct INPUT_MESSAGE_SOURCE {
     pub deviceType: INPUT_MESSAGE_DEVICE_TYPE,
@@ -144,24 +128,16 @@ impl ::core::clone::Clone for RAWINPUTDEVICELIST {
         *self
     }
 }
-#[repr(transparent)]
-pub struct RAWINPUTDEVICE_FLAGS(pub u32);
-pub const RIDEV_REMOVE: RAWINPUTDEVICE_FLAGS = RAWINPUTDEVICE_FLAGS(1u32);
-pub const RIDEV_EXCLUDE: RAWINPUTDEVICE_FLAGS = RAWINPUTDEVICE_FLAGS(16u32);
-pub const RIDEV_PAGEONLY: RAWINPUTDEVICE_FLAGS = RAWINPUTDEVICE_FLAGS(32u32);
-pub const RIDEV_NOLEGACY: RAWINPUTDEVICE_FLAGS = RAWINPUTDEVICE_FLAGS(48u32);
-pub const RIDEV_INPUTSINK: RAWINPUTDEVICE_FLAGS = RAWINPUTDEVICE_FLAGS(256u32);
-pub const RIDEV_CAPTUREMOUSE: RAWINPUTDEVICE_FLAGS = RAWINPUTDEVICE_FLAGS(512u32);
-pub const RIDEV_NOHOTKEYS: RAWINPUTDEVICE_FLAGS = RAWINPUTDEVICE_FLAGS(512u32);
-pub const RIDEV_APPKEYS: RAWINPUTDEVICE_FLAGS = RAWINPUTDEVICE_FLAGS(1024u32);
-pub const RIDEV_EXINPUTSINK: RAWINPUTDEVICE_FLAGS = RAWINPUTDEVICE_FLAGS(4096u32);
-pub const RIDEV_DEVNOTIFY: RAWINPUTDEVICE_FLAGS = RAWINPUTDEVICE_FLAGS(8192u32);
-impl ::core::marker::Copy for RAWINPUTDEVICE_FLAGS {}
-impl ::core::clone::Clone for RAWINPUTDEVICE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const RIDEV_REMOVE: u32 = 1u32;
+pub const RIDEV_EXCLUDE: u32 = 16u32;
+pub const RIDEV_PAGEONLY: u32 = 32u32;
+pub const RIDEV_NOLEGACY: u32 = 48u32;
+pub const RIDEV_INPUTSINK: u32 = 256u32;
+pub const RIDEV_CAPTUREMOUSE: u32 = 512u32;
+pub const RIDEV_NOHOTKEYS: u32 = 512u32;
+pub const RIDEV_APPKEYS: u32 = 1024u32;
+pub const RIDEV_EXINPUTSINK: u32 = 4096u32;
+pub const RIDEV_DEVNOTIFY: u32 = 8192u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RAWINPUTHEADER {
@@ -230,27 +206,11 @@ impl ::core::clone::Clone for RAWMOUSE_0_0 {
         *self
     }
 }
-#[repr(transparent)]
-pub struct RAW_INPUT_DATA_COMMAND_FLAGS(pub u32);
-pub const RID_HEADER: RAW_INPUT_DATA_COMMAND_FLAGS = RAW_INPUT_DATA_COMMAND_FLAGS(268435461u32);
-pub const RID_INPUT: RAW_INPUT_DATA_COMMAND_FLAGS = RAW_INPUT_DATA_COMMAND_FLAGS(268435459u32);
-impl ::core::marker::Copy for RAW_INPUT_DATA_COMMAND_FLAGS {}
-impl ::core::clone::Clone for RAW_INPUT_DATA_COMMAND_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct RAW_INPUT_DEVICE_INFO_COMMAND(pub u32);
-pub const RIDI_PREPARSEDDATA: RAW_INPUT_DEVICE_INFO_COMMAND = RAW_INPUT_DEVICE_INFO_COMMAND(536870917u32);
-pub const RIDI_DEVICENAME: RAW_INPUT_DEVICE_INFO_COMMAND = RAW_INPUT_DEVICE_INFO_COMMAND(536870919u32);
-pub const RIDI_DEVICEINFO: RAW_INPUT_DEVICE_INFO_COMMAND = RAW_INPUT_DEVICE_INFO_COMMAND(536870923u32);
-impl ::core::marker::Copy for RAW_INPUT_DEVICE_INFO_COMMAND {}
-impl ::core::clone::Clone for RAW_INPUT_DEVICE_INFO_COMMAND {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const RID_HEADER: u32 = 268435461u32;
+pub const RID_INPUT: u32 = 268435459u32;
+pub const RIDI_PREPARSEDDATA: u32 = 536870917u32;
+pub const RIDI_DEVICENAME: u32 = 536870919u32;
+pub const RIDI_DEVICEINFO: u32 = 536870923u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RID_DEVICE_INFO {
@@ -326,14 +286,6 @@ impl ::core::clone::Clone for RID_DEVICE_INFO_MOUSE {
         *self
     }
 }
-#[repr(transparent)]
-pub struct RID_DEVICE_INFO_TYPE(pub u32);
-pub const RIM_TYPEMOUSE: RID_DEVICE_INFO_TYPE = RID_DEVICE_INFO_TYPE(0u32);
-pub const RIM_TYPEKEYBOARD: RID_DEVICE_INFO_TYPE = RID_DEVICE_INFO_TYPE(1u32);
-pub const RIM_TYPEHID: RID_DEVICE_INFO_TYPE = RID_DEVICE_INFO_TYPE(2u32);
-impl ::core::marker::Copy for RID_DEVICE_INFO_TYPE {}
-impl ::core::clone::Clone for RID_DEVICE_INFO_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const RIM_TYPEMOUSE: u32 = 0u32;
+pub const RIM_TYPEKEYBOARD: u32 = 1u32;
+pub const RIM_TYPEHID: u32 = 2u32;

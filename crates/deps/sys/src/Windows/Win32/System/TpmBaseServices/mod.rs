@@ -17,32 +17,16 @@ extern "system" {
     pub fn Tbsip_Context_Close(hcontext: *const ::core::ffi::c_void) -> u32;
     pub fn Tbsip_Submit_Command(hcontext: *const ::core::ffi::c_void, locality: TBS_COMMAND_LOCALITY, priority: TBS_COMMAND_PRIORITY, pabcommand: *const u8, cbcommand: u32, pabresult: *mut u8, pcbresult: *mut u32) -> u32;
 }
-#[repr(transparent)]
-pub struct TBS_COMMAND_LOCALITY(pub u32);
-pub const TBS_COMMAND_LOCALITY_ZERO: TBS_COMMAND_LOCALITY = TBS_COMMAND_LOCALITY(0u32);
-pub const TBS_COMMAND_LOCALITY_ONE: TBS_COMMAND_LOCALITY = TBS_COMMAND_LOCALITY(1u32);
-pub const TBS_COMMAND_LOCALITY_TWO: TBS_COMMAND_LOCALITY = TBS_COMMAND_LOCALITY(2u32);
-pub const TBS_COMMAND_LOCALITY_THREE: TBS_COMMAND_LOCALITY = TBS_COMMAND_LOCALITY(3u32);
-pub const TBS_COMMAND_LOCALITY_FOUR: TBS_COMMAND_LOCALITY = TBS_COMMAND_LOCALITY(4u32);
-impl ::core::marker::Copy for TBS_COMMAND_LOCALITY {}
-impl ::core::clone::Clone for TBS_COMMAND_LOCALITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct TBS_COMMAND_PRIORITY(pub u32);
-pub const TBS_COMMAND_PRIORITY_LOW: TBS_COMMAND_PRIORITY = TBS_COMMAND_PRIORITY(100u32);
-pub const TBS_COMMAND_PRIORITY_NORMAL: TBS_COMMAND_PRIORITY = TBS_COMMAND_PRIORITY(200u32);
-pub const TBS_COMMAND_PRIORITY_SYSTEM: TBS_COMMAND_PRIORITY = TBS_COMMAND_PRIORITY(400u32);
-pub const TBS_COMMAND_PRIORITY_HIGH: TBS_COMMAND_PRIORITY = TBS_COMMAND_PRIORITY(300u32);
-pub const TBS_COMMAND_PRIORITY_MAX: TBS_COMMAND_PRIORITY = TBS_COMMAND_PRIORITY(2147483648u32);
-impl ::core::marker::Copy for TBS_COMMAND_PRIORITY {}
-impl ::core::clone::Clone for TBS_COMMAND_PRIORITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const TBS_COMMAND_LOCALITY_ZERO: u32 = 0u32;
+pub const TBS_COMMAND_LOCALITY_ONE: u32 = 1u32;
+pub const TBS_COMMAND_LOCALITY_TWO: u32 = 2u32;
+pub const TBS_COMMAND_LOCALITY_THREE: u32 = 3u32;
+pub const TBS_COMMAND_LOCALITY_FOUR: u32 = 4u32;
+pub const TBS_COMMAND_PRIORITY_LOW: u32 = 100u32;
+pub const TBS_COMMAND_PRIORITY_NORMAL: u32 = 200u32;
+pub const TBS_COMMAND_PRIORITY_SYSTEM: u32 = 400u32;
+pub const TBS_COMMAND_PRIORITY_HIGH: u32 = 300u32;
+pub const TBS_COMMAND_PRIORITY_MAX: u32 = 2147483648u32;
 #[repr(C)]
 pub struct TBS_CONTEXT_PARAMS {
     pub version: u32,

@@ -16,15 +16,7 @@ extern "system" {
     pub fn UnregisterApplicationRecoveryCallback() -> ::windows_sys::core::HRESULT;
     pub fn UnregisterApplicationRestart() -> ::windows_sys::core::HRESULT;
 }
-#[repr(transparent)]
-pub struct REGISTER_APPLICATION_RESTART_FLAGS(pub u32);
-pub const RESTART_NO_CRASH: REGISTER_APPLICATION_RESTART_FLAGS = REGISTER_APPLICATION_RESTART_FLAGS(1u32);
-pub const RESTART_NO_HANG: REGISTER_APPLICATION_RESTART_FLAGS = REGISTER_APPLICATION_RESTART_FLAGS(2u32);
-pub const RESTART_NO_PATCH: REGISTER_APPLICATION_RESTART_FLAGS = REGISTER_APPLICATION_RESTART_FLAGS(4u32);
-pub const RESTART_NO_REBOOT: REGISTER_APPLICATION_RESTART_FLAGS = REGISTER_APPLICATION_RESTART_FLAGS(8u32);
-impl ::core::marker::Copy for REGISTER_APPLICATION_RESTART_FLAGS {}
-impl ::core::clone::Clone for REGISTER_APPLICATION_RESTART_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const RESTART_NO_CRASH: u32 = 1u32;
+pub const RESTART_NO_HANG: u32 = 2u32;
+pub const RESTART_NO_PATCH: u32 = 4u32;
+pub const RESTART_NO_REBOOT: u32 = 8u32;

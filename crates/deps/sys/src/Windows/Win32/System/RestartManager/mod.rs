@@ -22,49 +22,25 @@ extern "system" {
 pub const CCH_RM_MAX_APP_NAME: u32 = 255u32;
 pub const CCH_RM_MAX_SVC_NAME: u32 = 63u32;
 pub const CCH_RM_SESSION_KEY: u32 = 32u32;
-#[repr(transparent)]
-pub struct RM_APP_STATUS(pub i32);
-pub const RmStatusUnknown: RM_APP_STATUS = RM_APP_STATUS(0i32);
-pub const RmStatusRunning: RM_APP_STATUS = RM_APP_STATUS(1i32);
-pub const RmStatusStopped: RM_APP_STATUS = RM_APP_STATUS(2i32);
-pub const RmStatusStoppedOther: RM_APP_STATUS = RM_APP_STATUS(4i32);
-pub const RmStatusRestarted: RM_APP_STATUS = RM_APP_STATUS(8i32);
-pub const RmStatusErrorOnStop: RM_APP_STATUS = RM_APP_STATUS(16i32);
-pub const RmStatusErrorOnRestart: RM_APP_STATUS = RM_APP_STATUS(32i32);
-pub const RmStatusShutdownMasked: RM_APP_STATUS = RM_APP_STATUS(64i32);
-pub const RmStatusRestartMasked: RM_APP_STATUS = RM_APP_STATUS(128i32);
-impl ::core::marker::Copy for RM_APP_STATUS {}
-impl ::core::clone::Clone for RM_APP_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct RM_APP_TYPE(pub i32);
-pub const RmUnknownApp: RM_APP_TYPE = RM_APP_TYPE(0i32);
-pub const RmMainWindow: RM_APP_TYPE = RM_APP_TYPE(1i32);
-pub const RmOtherWindow: RM_APP_TYPE = RM_APP_TYPE(2i32);
-pub const RmService: RM_APP_TYPE = RM_APP_TYPE(3i32);
-pub const RmExplorer: RM_APP_TYPE = RM_APP_TYPE(4i32);
-pub const RmConsole: RM_APP_TYPE = RM_APP_TYPE(5i32);
-pub const RmCritical: RM_APP_TYPE = RM_APP_TYPE(1000i32);
-impl ::core::marker::Copy for RM_APP_TYPE {}
-impl ::core::clone::Clone for RM_APP_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct RM_FILTER_ACTION(pub i32);
-pub const RmInvalidFilterAction: RM_FILTER_ACTION = RM_FILTER_ACTION(0i32);
-pub const RmNoRestart: RM_FILTER_ACTION = RM_FILTER_ACTION(1i32);
-pub const RmNoShutdown: RM_FILTER_ACTION = RM_FILTER_ACTION(2i32);
-impl ::core::marker::Copy for RM_FILTER_ACTION {}
-impl ::core::clone::Clone for RM_FILTER_ACTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const RmStatusUnknown: i32 = 0i32;
+pub const RmStatusRunning: i32 = 1i32;
+pub const RmStatusStopped: i32 = 2i32;
+pub const RmStatusStoppedOther: i32 = 4i32;
+pub const RmStatusRestarted: i32 = 8i32;
+pub const RmStatusErrorOnStop: i32 = 16i32;
+pub const RmStatusErrorOnRestart: i32 = 32i32;
+pub const RmStatusShutdownMasked: i32 = 64i32;
+pub const RmStatusRestartMasked: i32 = 128i32;
+pub const RmUnknownApp: i32 = 0i32;
+pub const RmMainWindow: i32 = 1i32;
+pub const RmOtherWindow: i32 = 2i32;
+pub const RmService: i32 = 3i32;
+pub const RmExplorer: i32 = 4i32;
+pub const RmConsole: i32 = 5i32;
+pub const RmCritical: i32 = 1000i32;
+pub const RmInvalidFilterAction: i32 = 0i32;
+pub const RmNoRestart: i32 = 1i32;
+pub const RmNoShutdown: i32 = 2i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RM_FILTER_INFO {
@@ -96,18 +72,10 @@ impl ::core::clone::Clone for RM_FILTER_INFO_0 {
         *self
     }
 }
-#[repr(transparent)]
-pub struct RM_FILTER_TRIGGER(pub i32);
-pub const RmFilterTriggerInvalid: RM_FILTER_TRIGGER = RM_FILTER_TRIGGER(0i32);
-pub const RmFilterTriggerFile: RM_FILTER_TRIGGER = RM_FILTER_TRIGGER(1i32);
-pub const RmFilterTriggerProcess: RM_FILTER_TRIGGER = RM_FILTER_TRIGGER(2i32);
-pub const RmFilterTriggerService: RM_FILTER_TRIGGER = RM_FILTER_TRIGGER(3i32);
-impl ::core::marker::Copy for RM_FILTER_TRIGGER {}
-impl ::core::clone::Clone for RM_FILTER_TRIGGER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const RmFilterTriggerInvalid: i32 = 0i32;
+pub const RmFilterTriggerFile: i32 = 1i32;
+pub const RmFilterTriggerProcess: i32 = 2i32;
+pub const RmFilterTriggerService: i32 = 3i32;
 pub const RM_INVALID_PROCESS: i32 = -1i32;
 pub const RM_INVALID_TS_SESSION: i32 = -1i32;
 #[repr(C)]
@@ -129,30 +97,14 @@ impl ::core::clone::Clone for RM_PROCESS_INFO {
         *self
     }
 }
-#[repr(transparent)]
-pub struct RM_REBOOT_REASON(pub i32);
-pub const RmRebootReasonNone: RM_REBOOT_REASON = RM_REBOOT_REASON(0i32);
-pub const RmRebootReasonPermissionDenied: RM_REBOOT_REASON = RM_REBOOT_REASON(1i32);
-pub const RmRebootReasonSessionMismatch: RM_REBOOT_REASON = RM_REBOOT_REASON(2i32);
-pub const RmRebootReasonCriticalProcess: RM_REBOOT_REASON = RM_REBOOT_REASON(4i32);
-pub const RmRebootReasonCriticalService: RM_REBOOT_REASON = RM_REBOOT_REASON(8i32);
-pub const RmRebootReasonDetectedSelf: RM_REBOOT_REASON = RM_REBOOT_REASON(16i32);
-impl ::core::marker::Copy for RM_REBOOT_REASON {}
-impl ::core::clone::Clone for RM_REBOOT_REASON {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct RM_SHUTDOWN_TYPE(pub i32);
-pub const RmForceShutdown: RM_SHUTDOWN_TYPE = RM_SHUTDOWN_TYPE(1i32);
-pub const RmShutdownOnlyRegistered: RM_SHUTDOWN_TYPE = RM_SHUTDOWN_TYPE(16i32);
-impl ::core::marker::Copy for RM_SHUTDOWN_TYPE {}
-impl ::core::clone::Clone for RM_SHUTDOWN_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const RmRebootReasonNone: i32 = 0i32;
+pub const RmRebootReasonPermissionDenied: i32 = 1i32;
+pub const RmRebootReasonSessionMismatch: i32 = 2i32;
+pub const RmRebootReasonCriticalProcess: i32 = 4i32;
+pub const RmRebootReasonCriticalService: i32 = 8i32;
+pub const RmRebootReasonDetectedSelf: i32 = 16i32;
+pub const RmForceShutdown: i32 = 1i32;
+pub const RmShutdownOnlyRegistered: i32 = 16i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RM_UNIQUE_PROCESS {

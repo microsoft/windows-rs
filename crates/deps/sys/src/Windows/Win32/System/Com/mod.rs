@@ -164,21 +164,13 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn StringFromIID(rclsid: *const ::windows_sys::core::GUID, lplpsz: *mut super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
 }
-#[repr(transparent)]
-pub struct ADVF(pub i32);
-pub const ADVF_NODATA: ADVF = ADVF(1i32);
-pub const ADVF_PRIMEFIRST: ADVF = ADVF(2i32);
-pub const ADVF_ONLYONCE: ADVF = ADVF(4i32);
-pub const ADVF_DATAONSTOP: ADVF = ADVF(64i32);
-pub const ADVFCACHE_NOHANDLER: ADVF = ADVF(8i32);
-pub const ADVFCACHE_FORCEBUILTIN: ADVF = ADVF(16i32);
-pub const ADVFCACHE_ONSAVE: ADVF = ADVF(32i32);
-impl ::core::marker::Copy for ADVF {}
-impl ::core::clone::Clone for ADVF {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const ADVF_NODATA: i32 = 1i32;
+pub const ADVF_PRIMEFIRST: i32 = 2i32;
+pub const ADVF_ONLYONCE: i32 = 4i32;
+pub const ADVF_DATAONSTOP: i32 = 64i32;
+pub const ADVFCACHE_NOHANDLER: i32 = 8i32;
+pub const ADVFCACHE_FORCEBUILTIN: i32 = 16i32;
+pub const ADVFCACHE_ONSAVE: i32 = 32i32;
 pub const APPIDREGFLAGS_AAA_NO_IMPLICIT_ACTIVATE_AS_IU: u32 = 2048u32;
 pub const APPIDREGFLAGS_ACTIVATE_IUSERVER_INDESKTOP: u32 = 1u32;
 pub const APPIDREGFLAGS_ISSUE_ACTIVATION_RPC_AT_IDENTIFY: u32 = 4u32;
@@ -194,35 +186,19 @@ pub const APPIDREGFLAGS_RESERVED7: u32 = 4096u32;
 pub const APPIDREGFLAGS_RESERVED8: u32 = 8192u32;
 pub const APPIDREGFLAGS_RESERVED9: u32 = 16384u32;
 pub const APPIDREGFLAGS_SECURE_SERVER_PROCESS_SD_AND_BIND: u32 = 2u32;
-#[repr(transparent)]
-pub struct APTTYPE(pub i32);
-pub const APTTYPE_CURRENT: APTTYPE = APTTYPE(-1i32);
-pub const APTTYPE_STA: APTTYPE = APTTYPE(0i32);
-pub const APTTYPE_MTA: APTTYPE = APTTYPE(1i32);
-pub const APTTYPE_NA: APTTYPE = APTTYPE(2i32);
-pub const APTTYPE_MAINSTA: APTTYPE = APTTYPE(3i32);
-impl ::core::marker::Copy for APTTYPE {}
-impl ::core::clone::Clone for APTTYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct APTTYPEQUALIFIER(pub i32);
-pub const APTTYPEQUALIFIER_NONE: APTTYPEQUALIFIER = APTTYPEQUALIFIER(0i32);
-pub const APTTYPEQUALIFIER_IMPLICIT_MTA: APTTYPEQUALIFIER = APTTYPEQUALIFIER(1i32);
-pub const APTTYPEQUALIFIER_NA_ON_MTA: APTTYPEQUALIFIER = APTTYPEQUALIFIER(2i32);
-pub const APTTYPEQUALIFIER_NA_ON_STA: APTTYPEQUALIFIER = APTTYPEQUALIFIER(3i32);
-pub const APTTYPEQUALIFIER_NA_ON_IMPLICIT_MTA: APTTYPEQUALIFIER = APTTYPEQUALIFIER(4i32);
-pub const APTTYPEQUALIFIER_NA_ON_MAINSTA: APTTYPEQUALIFIER = APTTYPEQUALIFIER(5i32);
-pub const APTTYPEQUALIFIER_APPLICATION_STA: APTTYPEQUALIFIER = APTTYPEQUALIFIER(6i32);
-pub const APTTYPEQUALIFIER_RESERVED_1: APTTYPEQUALIFIER = APTTYPEQUALIFIER(7i32);
-impl ::core::marker::Copy for APTTYPEQUALIFIER {}
-impl ::core::clone::Clone for APTTYPEQUALIFIER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const APTTYPE_CURRENT: i32 = -1i32;
+pub const APTTYPE_STA: i32 = 0i32;
+pub const APTTYPE_MTA: i32 = 1i32;
+pub const APTTYPE_NA: i32 = 2i32;
+pub const APTTYPE_MAINSTA: i32 = 3i32;
+pub const APTTYPEQUALIFIER_NONE: i32 = 0i32;
+pub const APTTYPEQUALIFIER_IMPLICIT_MTA: i32 = 1i32;
+pub const APTTYPEQUALIFIER_NA_ON_MTA: i32 = 2i32;
+pub const APTTYPEQUALIFIER_NA_ON_STA: i32 = 3i32;
+pub const APTTYPEQUALIFIER_NA_ON_IMPLICIT_MTA: i32 = 4i32;
+pub const APTTYPEQUALIFIER_NA_ON_MAINSTA: i32 = 5i32;
+pub const APTTYPEQUALIFIER_APPLICATION_STA: i32 = 6i32;
+pub const APTTYPEQUALIFIER_RESERVED_1: i32 = 7i32;
 pub const ASYNC_MODE_COMPATIBILITY: i32 = 1i32;
 pub const ASYNC_MODE_DEFAULT: i32 = 0i32;
 #[repr(C)]
@@ -236,16 +212,8 @@ impl ::core::clone::Clone for AUTHENTICATEINFO {
         *self
     }
 }
-#[repr(transparent)]
-pub struct ApplicationType(pub i32);
-pub const ServerApplication: ApplicationType = ApplicationType(0i32);
-pub const LibraryApplication: ApplicationType = ApplicationType(1i32);
-impl ::core::marker::Copy for ApplicationType {}
-impl ::core::clone::Clone for ApplicationType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const ServerApplication: i32 = 0i32;
+pub const LibraryApplication: i32 = 1i32;
 #[repr(transparent)]
 pub struct AsyncIAdviseSink(pub *mut ::core::ffi::c_void);
 impl ::core::marker::Copy for AsyncIAdviseSink {}
@@ -328,16 +296,8 @@ impl ::core::clone::Clone for BINDINFO {
         *self
     }
 }
-#[repr(transparent)]
-pub struct BINDINFOF(pub i32);
-pub const BINDINFOF_URLENCODESTGMEDDATA: BINDINFOF = BINDINFOF(1i32);
-pub const BINDINFOF_URLENCODEDEXTRAINFO: BINDINFOF = BINDINFOF(2i32);
-impl ::core::marker::Copy for BINDINFOF {}
-impl ::core::clone::Clone for BINDINFOF {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const BINDINFOF_URLENCODESTGMEDDATA: i32 = 1i32;
+pub const BINDINFOF_URLENCODEDEXTRAINFO: i32 = 2i32;
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 pub union BINDPTR {
@@ -353,16 +313,8 @@ impl ::core::clone::Clone for BINDPTR {
         *self
     }
 }
-#[repr(transparent)]
-pub struct BIND_FLAGS(pub i32);
-pub const BIND_MAYBOTHERUSER: BIND_FLAGS = BIND_FLAGS(1i32);
-pub const BIND_JUSTTESTEXISTENCE: BIND_FLAGS = BIND_FLAGS(2i32);
-impl ::core::marker::Copy for BIND_FLAGS {}
-impl ::core::clone::Clone for BIND_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const BIND_MAYBOTHERUSER: i32 = 1i32;
+pub const BIND_JUSTTESTEXISTENCE: i32 = 2i32;
 #[repr(C)]
 pub struct BIND_OPTS {
     pub cbStruct: u32,
@@ -440,38 +392,22 @@ impl ::core::clone::Clone for BYTE_SIZEDARR {
         *self
     }
 }
-#[repr(transparent)]
-pub struct CALLCONV(pub i32);
-pub const CC_FASTCALL: CALLCONV = CALLCONV(0i32);
-pub const CC_CDECL: CALLCONV = CALLCONV(1i32);
-pub const CC_MSCPASCAL: CALLCONV = CALLCONV(2i32);
-pub const CC_PASCAL: CALLCONV = CALLCONV(2i32);
-pub const CC_MACPASCAL: CALLCONV = CALLCONV(3i32);
-pub const CC_STDCALL: CALLCONV = CALLCONV(4i32);
-pub const CC_FPFASTCALL: CALLCONV = CALLCONV(5i32);
-pub const CC_SYSCALL: CALLCONV = CALLCONV(6i32);
-pub const CC_MPWCDECL: CALLCONV = CALLCONV(7i32);
-pub const CC_MPWPASCAL: CALLCONV = CALLCONV(8i32);
-pub const CC_MAX: CALLCONV = CALLCONV(9i32);
-impl ::core::marker::Copy for CALLCONV {}
-impl ::core::clone::Clone for CALLCONV {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct CALLTYPE(pub i32);
-pub const CALLTYPE_TOPLEVEL: CALLTYPE = CALLTYPE(1i32);
-pub const CALLTYPE_NESTED: CALLTYPE = CALLTYPE(2i32);
-pub const CALLTYPE_ASYNC: CALLTYPE = CALLTYPE(3i32);
-pub const CALLTYPE_TOPLEVEL_CALLPENDING: CALLTYPE = CALLTYPE(4i32);
-pub const CALLTYPE_ASYNC_CALLPENDING: CALLTYPE = CALLTYPE(5i32);
-impl ::core::marker::Copy for CALLTYPE {}
-impl ::core::clone::Clone for CALLTYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const CC_FASTCALL: i32 = 0i32;
+pub const CC_CDECL: i32 = 1i32;
+pub const CC_MSCPASCAL: i32 = 2i32;
+pub const CC_PASCAL: i32 = 2i32;
+pub const CC_MACPASCAL: i32 = 3i32;
+pub const CC_STDCALL: i32 = 4i32;
+pub const CC_FPFASTCALL: i32 = 5i32;
+pub const CC_SYSCALL: i32 = 6i32;
+pub const CC_MPWCDECL: i32 = 7i32;
+pub const CC_MPWPASCAL: i32 = 8i32;
+pub const CC_MAX: i32 = 9i32;
+pub const CALLTYPE_TOPLEVEL: i32 = 1i32;
+pub const CALLTYPE_NESTED: i32 = 2i32;
+pub const CALLTYPE_ASYNC: i32 = 3i32;
+pub const CALLTYPE_TOPLEVEL_CALLPENDING: i32 = 4i32;
+pub const CALLTYPE_ASYNC_CALLPENDING: i32 = 5i32;
 #[repr(C)]
 pub struct CATEGORYINFO {
     pub catid: ::windows_sys::core::GUID,
@@ -484,43 +420,35 @@ impl ::core::clone::Clone for CATEGORYINFO {
         *self
     }
 }
-#[repr(transparent)]
-pub struct CLSCTX(pub u32);
-pub const CLSCTX_INPROC_SERVER: CLSCTX = CLSCTX(1u32);
-pub const CLSCTX_INPROC_HANDLER: CLSCTX = CLSCTX(2u32);
-pub const CLSCTX_LOCAL_SERVER: CLSCTX = CLSCTX(4u32);
-pub const CLSCTX_INPROC_SERVER16: CLSCTX = CLSCTX(8u32);
-pub const CLSCTX_REMOTE_SERVER: CLSCTX = CLSCTX(16u32);
-pub const CLSCTX_INPROC_HANDLER16: CLSCTX = CLSCTX(32u32);
-pub const CLSCTX_RESERVED1: CLSCTX = CLSCTX(64u32);
-pub const CLSCTX_RESERVED2: CLSCTX = CLSCTX(128u32);
-pub const CLSCTX_RESERVED3: CLSCTX = CLSCTX(256u32);
-pub const CLSCTX_RESERVED4: CLSCTX = CLSCTX(512u32);
-pub const CLSCTX_NO_CODE_DOWNLOAD: CLSCTX = CLSCTX(1024u32);
-pub const CLSCTX_RESERVED5: CLSCTX = CLSCTX(2048u32);
-pub const CLSCTX_NO_CUSTOM_MARSHAL: CLSCTX = CLSCTX(4096u32);
-pub const CLSCTX_ENABLE_CODE_DOWNLOAD: CLSCTX = CLSCTX(8192u32);
-pub const CLSCTX_NO_FAILURE_LOG: CLSCTX = CLSCTX(16384u32);
-pub const CLSCTX_DISABLE_AAA: CLSCTX = CLSCTX(32768u32);
-pub const CLSCTX_ENABLE_AAA: CLSCTX = CLSCTX(65536u32);
-pub const CLSCTX_FROM_DEFAULT_CONTEXT: CLSCTX = CLSCTX(131072u32);
-pub const CLSCTX_ACTIVATE_X86_SERVER: CLSCTX = CLSCTX(262144u32);
-pub const CLSCTX_ACTIVATE_32_BIT_SERVER: CLSCTX = CLSCTX(262144u32);
-pub const CLSCTX_ACTIVATE_64_BIT_SERVER: CLSCTX = CLSCTX(524288u32);
-pub const CLSCTX_ENABLE_CLOAKING: CLSCTX = CLSCTX(1048576u32);
-pub const CLSCTX_APPCONTAINER: CLSCTX = CLSCTX(4194304u32);
-pub const CLSCTX_ACTIVATE_AAA_AS_IU: CLSCTX = CLSCTX(8388608u32);
-pub const CLSCTX_RESERVED6: CLSCTX = CLSCTX(16777216u32);
-pub const CLSCTX_ACTIVATE_ARM32_SERVER: CLSCTX = CLSCTX(33554432u32);
-pub const CLSCTX_PS_DLL: CLSCTX = CLSCTX(2147483648u32);
-pub const CLSCTX_ALL: CLSCTX = CLSCTX(23u32);
-pub const CLSCTX_SERVER: CLSCTX = CLSCTX(21u32);
-impl ::core::marker::Copy for CLSCTX {}
-impl ::core::clone::Clone for CLSCTX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const CLSCTX_INPROC_SERVER: u32 = 1u32;
+pub const CLSCTX_INPROC_HANDLER: u32 = 2u32;
+pub const CLSCTX_LOCAL_SERVER: u32 = 4u32;
+pub const CLSCTX_INPROC_SERVER16: u32 = 8u32;
+pub const CLSCTX_REMOTE_SERVER: u32 = 16u32;
+pub const CLSCTX_INPROC_HANDLER16: u32 = 32u32;
+pub const CLSCTX_RESERVED1: u32 = 64u32;
+pub const CLSCTX_RESERVED2: u32 = 128u32;
+pub const CLSCTX_RESERVED3: u32 = 256u32;
+pub const CLSCTX_RESERVED4: u32 = 512u32;
+pub const CLSCTX_NO_CODE_DOWNLOAD: u32 = 1024u32;
+pub const CLSCTX_RESERVED5: u32 = 2048u32;
+pub const CLSCTX_NO_CUSTOM_MARSHAL: u32 = 4096u32;
+pub const CLSCTX_ENABLE_CODE_DOWNLOAD: u32 = 8192u32;
+pub const CLSCTX_NO_FAILURE_LOG: u32 = 16384u32;
+pub const CLSCTX_DISABLE_AAA: u32 = 32768u32;
+pub const CLSCTX_ENABLE_AAA: u32 = 65536u32;
+pub const CLSCTX_FROM_DEFAULT_CONTEXT: u32 = 131072u32;
+pub const CLSCTX_ACTIVATE_X86_SERVER: u32 = 262144u32;
+pub const CLSCTX_ACTIVATE_32_BIT_SERVER: u32 = 262144u32;
+pub const CLSCTX_ACTIVATE_64_BIT_SERVER: u32 = 524288u32;
+pub const CLSCTX_ENABLE_CLOAKING: u32 = 1048576u32;
+pub const CLSCTX_APPCONTAINER: u32 = 4194304u32;
+pub const CLSCTX_ACTIVATE_AAA_AS_IU: u32 = 8388608u32;
+pub const CLSCTX_RESERVED6: u32 = 16777216u32;
+pub const CLSCTX_ACTIVATE_ARM32_SERVER: u32 = 33554432u32;
+pub const CLSCTX_PS_DLL: u32 = 2147483648u32;
+pub const CLSCTX_ALL: u32 = 23u32;
+pub const CLSCTX_SERVER: u32 = 21u32;
 #[repr(C)]
 pub struct COAUTHIDENTITY {
     pub User: *mut u16,
@@ -556,39 +484,15 @@ impl ::core::clone::Clone for COAUTHINFO {
         *self
     }
 }
-#[repr(transparent)]
-pub struct COINIT(pub u32);
-pub const COINIT_APARTMENTTHREADED: COINIT = COINIT(2u32);
-pub const COINIT_MULTITHREADED: COINIT = COINIT(0u32);
-pub const COINIT_DISABLE_OLE1DDE: COINIT = COINIT(4u32);
-pub const COINIT_SPEED_OVER_MEMORY: COINIT = COINIT(8u32);
-impl ::core::marker::Copy for COINIT {}
-impl ::core::clone::Clone for COINIT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct COINITBASE(pub i32);
-pub const COINITBASE_MULTITHREADED: COINITBASE = COINITBASE(0i32);
-impl ::core::marker::Copy for COINITBASE {}
-impl ::core::clone::Clone for COINITBASE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct COMSD(pub i32);
-pub const SD_LAUNCHPERMISSIONS: COMSD = COMSD(0i32);
-pub const SD_ACCESSPERMISSIONS: COMSD = COMSD(1i32);
-pub const SD_LAUNCHRESTRICTIONS: COMSD = COMSD(2i32);
-pub const SD_ACCESSRESTRICTIONS: COMSD = COMSD(3i32);
-impl ::core::marker::Copy for COMSD {}
-impl ::core::clone::Clone for COMSD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const COINIT_APARTMENTTHREADED: u32 = 2u32;
+pub const COINIT_MULTITHREADED: u32 = 0u32;
+pub const COINIT_DISABLE_OLE1DDE: u32 = 4u32;
+pub const COINIT_SPEED_OVER_MEMORY: u32 = 8u32;
+pub const COINITBASE_MULTITHREADED: i32 = 0i32;
+pub const SD_LAUNCHPERMISSIONS: i32 = 0i32;
+pub const SD_ACCESSPERMISSIONS: i32 = 1i32;
+pub const SD_LAUNCHRESTRICTIONS: i32 = 2i32;
+pub const SD_ACCESSRESTRICTIONS: i32 = 3i32;
 pub const COM_RIGHTS_ACTIVATE_LOCAL: u32 = 8u32;
 pub const COM_RIGHTS_ACTIVATE_REMOTE: u32 = 16u32;
 pub const COM_RIGHTS_EXECUTE: u32 = 1u32;
@@ -623,48 +527,32 @@ impl ::core::clone::Clone for COSERVERINFO {
         *self
     }
 }
-#[repr(transparent)]
-pub struct COWAIT_FLAGS(pub i32);
-pub const COWAIT_DEFAULT: COWAIT_FLAGS = COWAIT_FLAGS(0i32);
-pub const COWAIT_WAITALL: COWAIT_FLAGS = COWAIT_FLAGS(1i32);
-pub const COWAIT_ALERTABLE: COWAIT_FLAGS = COWAIT_FLAGS(2i32);
-pub const COWAIT_INPUTAVAILABLE: COWAIT_FLAGS = COWAIT_FLAGS(4i32);
-pub const COWAIT_DISPATCH_CALLS: COWAIT_FLAGS = COWAIT_FLAGS(8i32);
-pub const COWAIT_DISPATCH_WINDOW_MESSAGES: COWAIT_FLAGS = COWAIT_FLAGS(16i32);
-impl ::core::marker::Copy for COWAIT_FLAGS {}
-impl ::core::clone::Clone for COWAIT_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const COWAIT_DEFAULT: i32 = 0i32;
+pub const COWAIT_WAITALL: i32 = 1i32;
+pub const COWAIT_ALERTABLE: i32 = 2i32;
+pub const COWAIT_INPUTAVAILABLE: i32 = 4i32;
+pub const COWAIT_DISPATCH_CALLS: i32 = 8i32;
+pub const COWAIT_DISPATCH_WINDOW_MESSAGES: i32 = 16i32;
 pub type CO_DEVICE_CATALOG_COOKIE = isize;
-#[repr(transparent)]
-pub struct CO_MARSHALING_CONTEXT_ATTRIBUTES(pub i32);
-pub const CO_MARSHALING_SOURCE_IS_APP_CONTAINER: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(0i32);
-pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_1: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483648i32);
-pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_2: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483647i32);
-pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_3: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483646i32);
-pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_4: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483645i32);
-pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_5: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483644i32);
-pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_6: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483643i32);
-pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_7: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483642i32);
-pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_8: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483641i32);
-pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_9: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483640i32);
-pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_10: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483639i32);
-pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_11: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483638i32);
-pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_12: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483637i32);
-pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_13: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483636i32);
-pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_14: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483635i32);
-pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_15: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483634i32);
-pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_16: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483633i32);
-pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_17: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483632i32);
-pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_18: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483631i32);
-impl ::core::marker::Copy for CO_MARSHALING_CONTEXT_ATTRIBUTES {}
-impl ::core::clone::Clone for CO_MARSHALING_CONTEXT_ATTRIBUTES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const CO_MARSHALING_SOURCE_IS_APP_CONTAINER: i32 = 0i32;
+pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_1: i32 = -2147483648i32;
+pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_2: i32 = -2147483647i32;
+pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_3: i32 = -2147483646i32;
+pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_4: i32 = -2147483645i32;
+pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_5: i32 = -2147483644i32;
+pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_6: i32 = -2147483643i32;
+pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_7: i32 = -2147483642i32;
+pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_8: i32 = -2147483641i32;
+pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_9: i32 = -2147483640i32;
+pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_10: i32 = -2147483639i32;
+pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_11: i32 = -2147483638i32;
+pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_12: i32 = -2147483637i32;
+pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_13: i32 = -2147483636i32;
+pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_14: i32 = -2147483635i32;
+pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_15: i32 = -2147483634i32;
+pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_16: i32 = -2147483633i32;
+pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_17: i32 = -2147483632i32;
+pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_18: i32 = -2147483631i32;
 pub type CO_MTA_USAGE_COOKIE = isize;
 #[repr(C)]
 pub struct CSPLATFORM {
@@ -707,17 +595,9 @@ impl ::core::clone::Clone for CUSTDATAITEM {
         *self
     }
 }
-#[repr(transparent)]
-pub struct CWMO_FLAGS(pub i32);
-pub const CWMO_DEFAULT: CWMO_FLAGS = CWMO_FLAGS(0i32);
-pub const CWMO_DISPATCH_CALLS: CWMO_FLAGS = CWMO_FLAGS(1i32);
-pub const CWMO_DISPATCH_WINDOW_MESSAGES: CWMO_FLAGS = CWMO_FLAGS(2i32);
-impl ::core::marker::Copy for CWMO_FLAGS {}
-impl ::core::clone::Clone for CWMO_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const CWMO_DEFAULT: i32 = 0i32;
+pub const CWMO_DISPATCH_CALLS: i32 = 1i32;
+pub const CWMO_DISPATCH_WINDOW_MESSAGES: i32 = 2i32;
 pub const CWMO_MAX_HANDLES: u32 = 56u32;
 #[repr(C)]
 pub union CY {
@@ -753,47 +633,23 @@ impl ::core::clone::Clone for ComCallData {
         *self
     }
 }
-#[repr(transparent)]
-pub struct DATADIR(pub i32);
-pub const DATADIR_GET: DATADIR = DATADIR(1i32);
-pub const DATADIR_SET: DATADIR = DATADIR(2i32);
-impl ::core::marker::Copy for DATADIR {}
-impl ::core::clone::Clone for DATADIR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const DATADIR_GET: i32 = 1i32;
+pub const DATADIR_SET: i32 = 2i32;
 pub const DCOMSCM_ACTIVATION_DISALLOW_UNSECURE_CALL: u32 = 2u32;
 pub const DCOMSCM_ACTIVATION_USE_ALL_AUTHNSERVICES: u32 = 1u32;
 pub const DCOMSCM_PING_DISALLOW_UNSECURE_CALL: u32 = 32u32;
 pub const DCOMSCM_PING_USE_MID_AUTHNSERVICE: u32 = 16u32;
 pub const DCOMSCM_RESOLVE_DISALLOW_UNSECURE_CALL: u32 = 8u32;
 pub const DCOMSCM_RESOLVE_USE_ALL_AUTHNSERVICES: u32 = 4u32;
-#[repr(transparent)]
-pub struct DCOM_CALL_STATE(pub i32);
-pub const DCOM_NONE: DCOM_CALL_STATE = DCOM_CALL_STATE(0i32);
-pub const DCOM_CALL_COMPLETE: DCOM_CALL_STATE = DCOM_CALL_STATE(1i32);
-pub const DCOM_CALL_CANCELED: DCOM_CALL_STATE = DCOM_CALL_STATE(2i32);
-impl ::core::marker::Copy for DCOM_CALL_STATE {}
-impl ::core::clone::Clone for DCOM_CALL_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DESCKIND(pub i32);
-pub const DESCKIND_NONE: DESCKIND = DESCKIND(0i32);
-pub const DESCKIND_FUNCDESC: DESCKIND = DESCKIND(1i32);
-pub const DESCKIND_VARDESC: DESCKIND = DESCKIND(2i32);
-pub const DESCKIND_TYPECOMP: DESCKIND = DESCKIND(3i32);
-pub const DESCKIND_IMPLICITAPPOBJ: DESCKIND = DESCKIND(4i32);
-pub const DESCKIND_MAX: DESCKIND = DESCKIND(5i32);
-impl ::core::marker::Copy for DESCKIND {}
-impl ::core::clone::Clone for DESCKIND {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const DCOM_NONE: i32 = 0i32;
+pub const DCOM_CALL_COMPLETE: i32 = 1i32;
+pub const DCOM_CALL_CANCELED: i32 = 2i32;
+pub const DESCKIND_NONE: i32 = 0i32;
+pub const DESCKIND_FUNCDESC: i32 = 1i32;
+pub const DESCKIND_VARDESC: i32 = 2i32;
+pub const DESCKIND_TYPECOMP: i32 = 3i32;
+pub const DESCKIND_IMPLICITAPPOBJ: i32 = 4i32;
+pub const DESCKIND_MAX: i32 = 5i32;
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 pub struct DISPPARAMS {
@@ -811,18 +667,10 @@ impl ::core::clone::Clone for DISPPARAMS {
     }
 }
 pub const DMUS_ERRBASE: u32 = 4096u32;
-#[repr(transparent)]
-pub struct DVASPECT(pub i32);
-pub const DVASPECT_CONTENT: DVASPECT = DVASPECT(1i32);
-pub const DVASPECT_THUMBNAIL: DVASPECT = DVASPECT(2i32);
-pub const DVASPECT_ICON: DVASPECT = DVASPECT(4i32);
-pub const DVASPECT_DOCPRINT: DVASPECT = DVASPECT(8i32);
-impl ::core::marker::Copy for DVASPECT {}
-impl ::core::clone::Clone for DVASPECT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const DVASPECT_CONTENT: i32 = 1i32;
+pub const DVASPECT_THUMBNAIL: i32 = 2i32;
+pub const DVASPECT_ICON: i32 = 4i32;
+pub const DVASPECT_DOCPRINT: i32 = 8i32;
 #[repr(C)]
 pub struct DVTARGETDEVICE {
     pub tdSize: u32,
@@ -877,30 +725,22 @@ impl ::core::clone::Clone for ELEMDESC_0 {
         *self
     }
 }
-#[repr(transparent)]
-pub struct EOLE_AUTHENTICATION_CAPABILITIES(pub i32);
-pub const EOAC_NONE: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(0i32);
-pub const EOAC_MUTUAL_AUTH: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(1i32);
-pub const EOAC_STATIC_CLOAKING: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(32i32);
-pub const EOAC_DYNAMIC_CLOAKING: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(64i32);
-pub const EOAC_ANY_AUTHORITY: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(128i32);
-pub const EOAC_MAKE_FULLSIC: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(256i32);
-pub const EOAC_DEFAULT: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(2048i32);
-pub const EOAC_SECURE_REFS: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(2i32);
-pub const EOAC_ACCESS_CONTROL: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(4i32);
-pub const EOAC_APPID: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(8i32);
-pub const EOAC_DYNAMIC: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(16i32);
-pub const EOAC_REQUIRE_FULLSIC: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(512i32);
-pub const EOAC_AUTO_IMPERSONATE: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(1024i32);
-pub const EOAC_DISABLE_AAA: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(4096i32);
-pub const EOAC_NO_CUSTOM_MARSHAL: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(8192i32);
-pub const EOAC_RESERVED1: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(16384i32);
-impl ::core::marker::Copy for EOLE_AUTHENTICATION_CAPABILITIES {}
-impl ::core::clone::Clone for EOLE_AUTHENTICATION_CAPABILITIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const EOAC_NONE: i32 = 0i32;
+pub const EOAC_MUTUAL_AUTH: i32 = 1i32;
+pub const EOAC_STATIC_CLOAKING: i32 = 32i32;
+pub const EOAC_DYNAMIC_CLOAKING: i32 = 64i32;
+pub const EOAC_ANY_AUTHORITY: i32 = 128i32;
+pub const EOAC_MAKE_FULLSIC: i32 = 256i32;
+pub const EOAC_DEFAULT: i32 = 2048i32;
+pub const EOAC_SECURE_REFS: i32 = 2i32;
+pub const EOAC_ACCESS_CONTROL: i32 = 4i32;
+pub const EOAC_APPID: i32 = 8i32;
+pub const EOAC_DYNAMIC: i32 = 16i32;
+pub const EOAC_REQUIRE_FULLSIC: i32 = 512i32;
+pub const EOAC_AUTO_IMPERSONATE: i32 = 1024i32;
+pub const EOAC_DISABLE_AAA: i32 = 4096i32;
+pub const EOAC_NO_CUSTOM_MARSHAL: i32 = 8192i32;
+pub const EOAC_RESERVED1: i32 = 16384i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EXCEPINFO {
@@ -922,17 +762,9 @@ impl ::core::clone::Clone for EXCEPINFO {
         *self
     }
 }
-#[repr(transparent)]
-pub struct EXTCONN(pub i32);
-pub const EXTCONN_STRONG: EXTCONN = EXTCONN(1i32);
-pub const EXTCONN_WEAK: EXTCONN = EXTCONN(2i32);
-pub const EXTCONN_CALLABLE: EXTCONN = EXTCONN(4i32);
-impl ::core::marker::Copy for EXTCONN {}
-impl ::core::clone::Clone for EXTCONN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const EXTCONN_STRONG: i32 = 1i32;
+pub const EXTCONN_WEAK: i32 = 2i32;
+pub const EXTCONN_CALLABLE: i32 = 4i32;
 #[repr(C)]
 pub struct FLAGGED_BYTE_BLOB {
     pub fFlags: u32,
@@ -1010,19 +842,11 @@ impl ::core::clone::Clone for FUNCDESC {
         *self
     }
 }
-#[repr(transparent)]
-pub struct FUNCKIND(pub i32);
-pub const FUNC_VIRTUAL: FUNCKIND = FUNCKIND(0i32);
-pub const FUNC_PUREVIRTUAL: FUNCKIND = FUNCKIND(1i32);
-pub const FUNC_NONVIRTUAL: FUNCKIND = FUNCKIND(2i32);
-pub const FUNC_STATIC: FUNCKIND = FUNCKIND(3i32);
-pub const FUNC_DISPATCH: FUNCKIND = FUNCKIND(4i32);
-impl ::core::marker::Copy for FUNCKIND {}
-impl ::core::clone::Clone for FUNCKIND {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const FUNC_VIRTUAL: i32 = 0i32;
+pub const FUNC_PUREVIRTUAL: i32 = 1i32;
+pub const FUNC_NONVIRTUAL: i32 = 2i32;
+pub const FUNC_STATIC: i32 = 3i32;
+pub const FUNC_DISPATCH: i32 = 4i32;
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
 pub struct GDI_OBJECT {
@@ -1052,74 +876,34 @@ impl ::core::clone::Clone for GDI_OBJECT_0 {
         *self
     }
 }
-#[repr(transparent)]
-pub struct GLOBALOPT_EH_VALUES(pub i32);
-pub const COMGLB_EXCEPTION_HANDLE: GLOBALOPT_EH_VALUES = GLOBALOPT_EH_VALUES(0i32);
-pub const COMGLB_EXCEPTION_DONOT_HANDLE_FATAL: GLOBALOPT_EH_VALUES = GLOBALOPT_EH_VALUES(1i32);
-pub const COMGLB_EXCEPTION_DONOT_HANDLE: GLOBALOPT_EH_VALUES = GLOBALOPT_EH_VALUES(1i32);
-pub const COMGLB_EXCEPTION_DONOT_HANDLE_ANY: GLOBALOPT_EH_VALUES = GLOBALOPT_EH_VALUES(2i32);
-impl ::core::marker::Copy for GLOBALOPT_EH_VALUES {}
-impl ::core::clone::Clone for GLOBALOPT_EH_VALUES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct GLOBALOPT_PROPERTIES(pub i32);
-pub const COMGLB_EXCEPTION_HANDLING: GLOBALOPT_PROPERTIES = GLOBALOPT_PROPERTIES(1i32);
-pub const COMGLB_APPID: GLOBALOPT_PROPERTIES = GLOBALOPT_PROPERTIES(2i32);
-pub const COMGLB_RPC_THREADPOOL_SETTING: GLOBALOPT_PROPERTIES = GLOBALOPT_PROPERTIES(3i32);
-pub const COMGLB_RO_SETTINGS: GLOBALOPT_PROPERTIES = GLOBALOPT_PROPERTIES(4i32);
-pub const COMGLB_UNMARSHALING_POLICY: GLOBALOPT_PROPERTIES = GLOBALOPT_PROPERTIES(5i32);
-pub const COMGLB_PROPERTIES_RESERVED1: GLOBALOPT_PROPERTIES = GLOBALOPT_PROPERTIES(6i32);
-pub const COMGLB_PROPERTIES_RESERVED2: GLOBALOPT_PROPERTIES = GLOBALOPT_PROPERTIES(7i32);
-pub const COMGLB_PROPERTIES_RESERVED3: GLOBALOPT_PROPERTIES = GLOBALOPT_PROPERTIES(8i32);
-impl ::core::marker::Copy for GLOBALOPT_PROPERTIES {}
-impl ::core::clone::Clone for GLOBALOPT_PROPERTIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct GLOBALOPT_RO_FLAGS(pub i32);
-pub const COMGLB_STA_MODALLOOP_REMOVE_TOUCH_MESSAGES: GLOBALOPT_RO_FLAGS = GLOBALOPT_RO_FLAGS(1i32);
-pub const COMGLB_STA_MODALLOOP_SHARED_QUEUE_REMOVE_INPUT_MESSAGES: GLOBALOPT_RO_FLAGS = GLOBALOPT_RO_FLAGS(2i32);
-pub const COMGLB_STA_MODALLOOP_SHARED_QUEUE_DONOT_REMOVE_INPUT_MESSAGES: GLOBALOPT_RO_FLAGS = GLOBALOPT_RO_FLAGS(4i32);
-pub const COMGLB_FAST_RUNDOWN: GLOBALOPT_RO_FLAGS = GLOBALOPT_RO_FLAGS(8i32);
-pub const COMGLB_RESERVED1: GLOBALOPT_RO_FLAGS = GLOBALOPT_RO_FLAGS(16i32);
-pub const COMGLB_RESERVED2: GLOBALOPT_RO_FLAGS = GLOBALOPT_RO_FLAGS(32i32);
-pub const COMGLB_RESERVED3: GLOBALOPT_RO_FLAGS = GLOBALOPT_RO_FLAGS(64i32);
-pub const COMGLB_STA_MODALLOOP_SHARED_QUEUE_REORDER_POINTER_MESSAGES: GLOBALOPT_RO_FLAGS = GLOBALOPT_RO_FLAGS(128i32);
-pub const COMGLB_RESERVED4: GLOBALOPT_RO_FLAGS = GLOBALOPT_RO_FLAGS(256i32);
-pub const COMGLB_RESERVED5: GLOBALOPT_RO_FLAGS = GLOBALOPT_RO_FLAGS(512i32);
-pub const COMGLB_RESERVED6: GLOBALOPT_RO_FLAGS = GLOBALOPT_RO_FLAGS(1024i32);
-impl ::core::marker::Copy for GLOBALOPT_RO_FLAGS {}
-impl ::core::clone::Clone for GLOBALOPT_RO_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct GLOBALOPT_RPCTP_VALUES(pub i32);
-pub const COMGLB_RPC_THREADPOOL_SETTING_DEFAULT_POOL: GLOBALOPT_RPCTP_VALUES = GLOBALOPT_RPCTP_VALUES(0i32);
-pub const COMGLB_RPC_THREADPOOL_SETTING_PRIVATE_POOL: GLOBALOPT_RPCTP_VALUES = GLOBALOPT_RPCTP_VALUES(1i32);
-impl ::core::marker::Copy for GLOBALOPT_RPCTP_VALUES {}
-impl ::core::clone::Clone for GLOBALOPT_RPCTP_VALUES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct GLOBALOPT_UNMARSHALING_POLICY_VALUES(pub i32);
-pub const COMGLB_UNMARSHALING_POLICY_NORMAL: GLOBALOPT_UNMARSHALING_POLICY_VALUES = GLOBALOPT_UNMARSHALING_POLICY_VALUES(0i32);
-pub const COMGLB_UNMARSHALING_POLICY_STRONG: GLOBALOPT_UNMARSHALING_POLICY_VALUES = GLOBALOPT_UNMARSHALING_POLICY_VALUES(1i32);
-pub const COMGLB_UNMARSHALING_POLICY_HYBRID: GLOBALOPT_UNMARSHALING_POLICY_VALUES = GLOBALOPT_UNMARSHALING_POLICY_VALUES(2i32);
-impl ::core::marker::Copy for GLOBALOPT_UNMARSHALING_POLICY_VALUES {}
-impl ::core::clone::Clone for GLOBALOPT_UNMARSHALING_POLICY_VALUES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const COMGLB_EXCEPTION_HANDLE: i32 = 0i32;
+pub const COMGLB_EXCEPTION_DONOT_HANDLE_FATAL: i32 = 1i32;
+pub const COMGLB_EXCEPTION_DONOT_HANDLE: i32 = 1i32;
+pub const COMGLB_EXCEPTION_DONOT_HANDLE_ANY: i32 = 2i32;
+pub const COMGLB_EXCEPTION_HANDLING: i32 = 1i32;
+pub const COMGLB_APPID: i32 = 2i32;
+pub const COMGLB_RPC_THREADPOOL_SETTING: i32 = 3i32;
+pub const COMGLB_RO_SETTINGS: i32 = 4i32;
+pub const COMGLB_UNMARSHALING_POLICY: i32 = 5i32;
+pub const COMGLB_PROPERTIES_RESERVED1: i32 = 6i32;
+pub const COMGLB_PROPERTIES_RESERVED2: i32 = 7i32;
+pub const COMGLB_PROPERTIES_RESERVED3: i32 = 8i32;
+pub const COMGLB_STA_MODALLOOP_REMOVE_TOUCH_MESSAGES: i32 = 1i32;
+pub const COMGLB_STA_MODALLOOP_SHARED_QUEUE_REMOVE_INPUT_MESSAGES: i32 = 2i32;
+pub const COMGLB_STA_MODALLOOP_SHARED_QUEUE_DONOT_REMOVE_INPUT_MESSAGES: i32 = 4i32;
+pub const COMGLB_FAST_RUNDOWN: i32 = 8i32;
+pub const COMGLB_RESERVED1: i32 = 16i32;
+pub const COMGLB_RESERVED2: i32 = 32i32;
+pub const COMGLB_RESERVED3: i32 = 64i32;
+pub const COMGLB_STA_MODALLOOP_SHARED_QUEUE_REORDER_POINTER_MESSAGES: i32 = 128i32;
+pub const COMGLB_RESERVED4: i32 = 256i32;
+pub const COMGLB_RESERVED5: i32 = 512i32;
+pub const COMGLB_RESERVED6: i32 = 1024i32;
+pub const COMGLB_RPC_THREADPOOL_SETTING_DEFAULT_POOL: i32 = 0i32;
+pub const COMGLB_RPC_THREADPOOL_SETTING_PRIVATE_POOL: i32 = 1i32;
+pub const COMGLB_UNMARSHALING_POLICY_NORMAL: i32 = 0i32;
+pub const COMGLB_UNMARSHALING_POLICY_STRONG: i32 = 1i32;
+pub const COMGLB_UNMARSHALING_POLICY_HYBRID: i32 = 2i32;
 #[repr(C)]
 pub struct HYPER_SIZEDARR {
     pub clSize: u32,
@@ -1590,18 +1374,10 @@ impl ::core::clone::Clone for INTERFACEINFO {
         *self
     }
 }
-#[repr(transparent)]
-pub struct INVOKEKIND(pub i32);
-pub const INVOKE_FUNC: INVOKEKIND = INVOKEKIND(1i32);
-pub const INVOKE_PROPERTYGET: INVOKEKIND = INVOKEKIND(2i32);
-pub const INVOKE_PROPERTYPUT: INVOKEKIND = INVOKEKIND(4i32);
-pub const INVOKE_PROPERTYPUTREF: INVOKEKIND = INVOKEKIND(8i32);
-impl ::core::marker::Copy for INVOKEKIND {}
-impl ::core::clone::Clone for INVOKEKIND {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const INVOKE_FUNC: i32 = 1i32;
+pub const INVOKE_PROPERTYGET: i32 = 2i32;
+pub const INVOKE_PROPERTYPUT: i32 = 4i32;
+pub const INVOKE_PROPERTYPUTREF: i32 = 8i32;
 #[repr(transparent)]
 pub struct INoMarshal(pub *mut ::core::ffi::c_void);
 impl ::core::marker::Copy for INoMarshal {}
@@ -2027,79 +1803,39 @@ pub type LPFNCANUNLOADNOW = unsafe extern "system" fn() -> ::windows_sys::core::
 pub type LPFNGETCLASSOBJECT = unsafe extern "system" fn(param0: *const ::windows_sys::core::GUID, param1: *const ::windows_sys::core::GUID, param2: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
 pub const MARSHALINTERFACE_MIN: u32 = 500u32;
 pub const MAXLSN: u64 = 9223372036854775807u64;
-#[repr(transparent)]
-pub struct MEMCTX(pub i32);
-pub const MEMCTX_TASK: MEMCTX = MEMCTX(1i32);
-pub const MEMCTX_SHARED: MEMCTX = MEMCTX(2i32);
-pub const MEMCTX_MACSYSTEM: MEMCTX = MEMCTX(3i32);
-pub const MEMCTX_UNKNOWN: MEMCTX = MEMCTX(-1i32);
-pub const MEMCTX_SAME: MEMCTX = MEMCTX(-2i32);
-impl ::core::marker::Copy for MEMCTX {}
-impl ::core::clone::Clone for MEMCTX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct MKREDUCE(pub i32);
-pub const MKRREDUCE_ONE: MKREDUCE = MKREDUCE(196608i32);
-pub const MKRREDUCE_TOUSER: MKREDUCE = MKREDUCE(131072i32);
-pub const MKRREDUCE_THROUGHUSER: MKREDUCE = MKREDUCE(65536i32);
-pub const MKRREDUCE_ALL: MKREDUCE = MKREDUCE(0i32);
-impl ::core::marker::Copy for MKREDUCE {}
-impl ::core::clone::Clone for MKREDUCE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct MKSYS(pub i32);
-pub const MKSYS_NONE: MKSYS = MKSYS(0i32);
-pub const MKSYS_GENERICCOMPOSITE: MKSYS = MKSYS(1i32);
-pub const MKSYS_FILEMONIKER: MKSYS = MKSYS(2i32);
-pub const MKSYS_ANTIMONIKER: MKSYS = MKSYS(3i32);
-pub const MKSYS_ITEMMONIKER: MKSYS = MKSYS(4i32);
-pub const MKSYS_POINTERMONIKER: MKSYS = MKSYS(5i32);
-pub const MKSYS_CLASSMONIKER: MKSYS = MKSYS(7i32);
-pub const MKSYS_OBJREFMONIKER: MKSYS = MKSYS(8i32);
-pub const MKSYS_SESSIONMONIKER: MKSYS = MKSYS(9i32);
-pub const MKSYS_LUAMONIKER: MKSYS = MKSYS(10i32);
-impl ::core::marker::Copy for MKSYS {}
-impl ::core::clone::Clone for MKSYS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct MSHCTX(pub i32);
-pub const MSHCTX_LOCAL: MSHCTX = MSHCTX(0i32);
-pub const MSHCTX_NOSHAREDMEM: MSHCTX = MSHCTX(1i32);
-pub const MSHCTX_DIFFERENTMACHINE: MSHCTX = MSHCTX(2i32);
-pub const MSHCTX_INPROC: MSHCTX = MSHCTX(3i32);
-pub const MSHCTX_CROSSCTX: MSHCTX = MSHCTX(4i32);
-pub const MSHCTX_CONTAINER: MSHCTX = MSHCTX(5i32);
-impl ::core::marker::Copy for MSHCTX {}
-impl ::core::clone::Clone for MSHCTX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct MSHLFLAGS(pub i32);
-pub const MSHLFLAGS_NORMAL: MSHLFLAGS = MSHLFLAGS(0i32);
-pub const MSHLFLAGS_TABLESTRONG: MSHLFLAGS = MSHLFLAGS(1i32);
-pub const MSHLFLAGS_TABLEWEAK: MSHLFLAGS = MSHLFLAGS(2i32);
-pub const MSHLFLAGS_NOPING: MSHLFLAGS = MSHLFLAGS(4i32);
-pub const MSHLFLAGS_RESERVED1: MSHLFLAGS = MSHLFLAGS(8i32);
-pub const MSHLFLAGS_RESERVED2: MSHLFLAGS = MSHLFLAGS(16i32);
-pub const MSHLFLAGS_RESERVED3: MSHLFLAGS = MSHLFLAGS(32i32);
-pub const MSHLFLAGS_RESERVED4: MSHLFLAGS = MSHLFLAGS(64i32);
-impl ::core::marker::Copy for MSHLFLAGS {}
-impl ::core::clone::Clone for MSHLFLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const MEMCTX_TASK: i32 = 1i32;
+pub const MEMCTX_SHARED: i32 = 2i32;
+pub const MEMCTX_MACSYSTEM: i32 = 3i32;
+pub const MEMCTX_UNKNOWN: i32 = -1i32;
+pub const MEMCTX_SAME: i32 = -2i32;
+pub const MKRREDUCE_ONE: i32 = 196608i32;
+pub const MKRREDUCE_TOUSER: i32 = 131072i32;
+pub const MKRREDUCE_THROUGHUSER: i32 = 65536i32;
+pub const MKRREDUCE_ALL: i32 = 0i32;
+pub const MKSYS_NONE: i32 = 0i32;
+pub const MKSYS_GENERICCOMPOSITE: i32 = 1i32;
+pub const MKSYS_FILEMONIKER: i32 = 2i32;
+pub const MKSYS_ANTIMONIKER: i32 = 3i32;
+pub const MKSYS_ITEMMONIKER: i32 = 4i32;
+pub const MKSYS_POINTERMONIKER: i32 = 5i32;
+pub const MKSYS_CLASSMONIKER: i32 = 7i32;
+pub const MKSYS_OBJREFMONIKER: i32 = 8i32;
+pub const MKSYS_SESSIONMONIKER: i32 = 9i32;
+pub const MKSYS_LUAMONIKER: i32 = 10i32;
+pub const MSHCTX_LOCAL: i32 = 0i32;
+pub const MSHCTX_NOSHAREDMEM: i32 = 1i32;
+pub const MSHCTX_DIFFERENTMACHINE: i32 = 2i32;
+pub const MSHCTX_INPROC: i32 = 3i32;
+pub const MSHCTX_CROSSCTX: i32 = 4i32;
+pub const MSHCTX_CONTAINER: i32 = 5i32;
+pub const MSHLFLAGS_NORMAL: i32 = 0i32;
+pub const MSHLFLAGS_TABLESTRONG: i32 = 1i32;
+pub const MSHLFLAGS_TABLEWEAK: i32 = 2i32;
+pub const MSHLFLAGS_NOPING: i32 = 4i32;
+pub const MSHLFLAGS_RESERVED1: i32 = 8i32;
+pub const MSHLFLAGS_RESERVED2: i32 = 16i32;
+pub const MSHLFLAGS_RESERVED3: i32 = 32i32;
+pub const MSHLFLAGS_RESERVED4: i32 = 64i32;
 #[repr(C)]
 pub struct MULTI_QI {
     pub pIID: *mut ::windows_sys::core::GUID,
@@ -2122,27 +1858,11 @@ impl ::core::clone::Clone for MachineGlobalObjectTableRegistrationToken__ {
         *self
     }
 }
-#[repr(transparent)]
-pub struct PENDINGMSG(pub i32);
-pub const PENDINGMSG_CANCELCALL: PENDINGMSG = PENDINGMSG(0i32);
-pub const PENDINGMSG_WAITNOPROCESS: PENDINGMSG = PENDINGMSG(1i32);
-pub const PENDINGMSG_WAITDEFPROCESS: PENDINGMSG = PENDINGMSG(2i32);
-impl ::core::marker::Copy for PENDINGMSG {}
-impl ::core::clone::Clone for PENDINGMSG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct PENDINGTYPE(pub i32);
-pub const PENDINGTYPE_TOPLEVEL: PENDINGTYPE = PENDINGTYPE(1i32);
-pub const PENDINGTYPE_NESTED: PENDINGTYPE = PENDINGTYPE(2i32);
-impl ::core::marker::Copy for PENDINGTYPE {}
-impl ::core::clone::Clone for PENDINGTYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const PENDINGMSG_CANCELCALL: i32 = 0i32;
+pub const PENDINGMSG_WAITNOPROCESS: i32 = 1i32;
+pub const PENDINGMSG_WAITDEFPROCESS: i32 = 2i32;
+pub const PENDINGTYPE_TOPLEVEL: i32 = 1i32;
+pub const PENDINGTYPE_NESTED: i32 = 2i32;
 pub type PFNCONTEXTCALL = unsafe extern "system" fn(pparam: *mut ComCallData) -> ::windows_sys::core::HRESULT;
 #[repr(C)]
 pub struct QUERYCONTEXT {
@@ -2158,20 +1878,12 @@ impl ::core::clone::Clone for QUERYCONTEXT {
         *self
     }
 }
-#[repr(transparent)]
-pub struct REGCLS(pub i32);
-pub const REGCLS_SINGLEUSE: REGCLS = REGCLS(0i32);
-pub const REGCLS_MULTIPLEUSE: REGCLS = REGCLS(1i32);
-pub const REGCLS_MULTI_SEPARATE: REGCLS = REGCLS(2i32);
-pub const REGCLS_SUSPENDED: REGCLS = REGCLS(4i32);
-pub const REGCLS_SURROGATE: REGCLS = REGCLS(8i32);
-pub const REGCLS_AGILE: REGCLS = REGCLS(16i32);
-impl ::core::marker::Copy for REGCLS {}
-impl ::core::clone::Clone for REGCLS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const REGCLS_SINGLEUSE: i32 = 0i32;
+pub const REGCLS_MULTIPLEUSE: i32 = 1i32;
+pub const REGCLS_MULTI_SEPARATE: i32 = 2i32;
+pub const REGCLS_SUSPENDED: i32 = 4i32;
+pub const REGCLS_SURROGATE: i32 = 8i32;
+pub const REGCLS_AGILE: i32 = 16i32;
 pub const ROTREGFLAGS_ALLOWANYCLIENT: u32 = 1u32;
 #[repr(C)]
 pub struct RPCOLEMESSAGE {
@@ -2189,59 +1901,27 @@ impl ::core::clone::Clone for RPCOLEMESSAGE {
         *self
     }
 }
-#[repr(transparent)]
-pub struct RPCOPT_PROPERTIES(pub i32);
-pub const COMBND_RPCTIMEOUT: RPCOPT_PROPERTIES = RPCOPT_PROPERTIES(1i32);
-pub const COMBND_SERVER_LOCALITY: RPCOPT_PROPERTIES = RPCOPT_PROPERTIES(2i32);
-pub const COMBND_RESERVED1: RPCOPT_PROPERTIES = RPCOPT_PROPERTIES(4i32);
-pub const COMBND_RESERVED2: RPCOPT_PROPERTIES = RPCOPT_PROPERTIES(5i32);
-pub const COMBND_RESERVED3: RPCOPT_PROPERTIES = RPCOPT_PROPERTIES(8i32);
-pub const COMBND_RESERVED4: RPCOPT_PROPERTIES = RPCOPT_PROPERTIES(16i32);
-impl ::core::marker::Copy for RPCOPT_PROPERTIES {}
-impl ::core::clone::Clone for RPCOPT_PROPERTIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct RPCOPT_SERVER_LOCALITY_VALUES(pub i32);
-pub const SERVER_LOCALITY_PROCESS_LOCAL: RPCOPT_SERVER_LOCALITY_VALUES = RPCOPT_SERVER_LOCALITY_VALUES(0i32);
-pub const SERVER_LOCALITY_MACHINE_LOCAL: RPCOPT_SERVER_LOCALITY_VALUES = RPCOPT_SERVER_LOCALITY_VALUES(1i32);
-pub const SERVER_LOCALITY_REMOTE: RPCOPT_SERVER_LOCALITY_VALUES = RPCOPT_SERVER_LOCALITY_VALUES(2i32);
-impl ::core::marker::Copy for RPCOPT_SERVER_LOCALITY_VALUES {}
-impl ::core::clone::Clone for RPCOPT_SERVER_LOCALITY_VALUES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct RPC_C_AUTHN_LEVEL(pub u32);
-pub const RPC_C_AUTHN_LEVEL_DEFAULT: RPC_C_AUTHN_LEVEL = RPC_C_AUTHN_LEVEL(0u32);
-pub const RPC_C_AUTHN_LEVEL_NONE: RPC_C_AUTHN_LEVEL = RPC_C_AUTHN_LEVEL(1u32);
-pub const RPC_C_AUTHN_LEVEL_CONNECT: RPC_C_AUTHN_LEVEL = RPC_C_AUTHN_LEVEL(2u32);
-pub const RPC_C_AUTHN_LEVEL_CALL: RPC_C_AUTHN_LEVEL = RPC_C_AUTHN_LEVEL(3u32);
-pub const RPC_C_AUTHN_LEVEL_PKT: RPC_C_AUTHN_LEVEL = RPC_C_AUTHN_LEVEL(4u32);
-pub const RPC_C_AUTHN_LEVEL_PKT_INTEGRITY: RPC_C_AUTHN_LEVEL = RPC_C_AUTHN_LEVEL(5u32);
-pub const RPC_C_AUTHN_LEVEL_PKT_PRIVACY: RPC_C_AUTHN_LEVEL = RPC_C_AUTHN_LEVEL(6u32);
-impl ::core::marker::Copy for RPC_C_AUTHN_LEVEL {}
-impl ::core::clone::Clone for RPC_C_AUTHN_LEVEL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct RPC_C_IMP_LEVEL(pub u32);
-pub const RPC_C_IMP_LEVEL_DEFAULT: RPC_C_IMP_LEVEL = RPC_C_IMP_LEVEL(0u32);
-pub const RPC_C_IMP_LEVEL_ANONYMOUS: RPC_C_IMP_LEVEL = RPC_C_IMP_LEVEL(1u32);
-pub const RPC_C_IMP_LEVEL_IDENTIFY: RPC_C_IMP_LEVEL = RPC_C_IMP_LEVEL(2u32);
-pub const RPC_C_IMP_LEVEL_IMPERSONATE: RPC_C_IMP_LEVEL = RPC_C_IMP_LEVEL(3u32);
-pub const RPC_C_IMP_LEVEL_DELEGATE: RPC_C_IMP_LEVEL = RPC_C_IMP_LEVEL(4u32);
-impl ::core::marker::Copy for RPC_C_IMP_LEVEL {}
-impl ::core::clone::Clone for RPC_C_IMP_LEVEL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const COMBND_RPCTIMEOUT: i32 = 1i32;
+pub const COMBND_SERVER_LOCALITY: i32 = 2i32;
+pub const COMBND_RESERVED1: i32 = 4i32;
+pub const COMBND_RESERVED2: i32 = 5i32;
+pub const COMBND_RESERVED3: i32 = 8i32;
+pub const COMBND_RESERVED4: i32 = 16i32;
+pub const SERVER_LOCALITY_PROCESS_LOCAL: i32 = 0i32;
+pub const SERVER_LOCALITY_MACHINE_LOCAL: i32 = 1i32;
+pub const SERVER_LOCALITY_REMOTE: i32 = 2i32;
+pub const RPC_C_AUTHN_LEVEL_DEFAULT: u32 = 0u32;
+pub const RPC_C_AUTHN_LEVEL_NONE: u32 = 1u32;
+pub const RPC_C_AUTHN_LEVEL_CONNECT: u32 = 2u32;
+pub const RPC_C_AUTHN_LEVEL_CALL: u32 = 3u32;
+pub const RPC_C_AUTHN_LEVEL_PKT: u32 = 4u32;
+pub const RPC_C_AUTHN_LEVEL_PKT_INTEGRITY: u32 = 5u32;
+pub const RPC_C_AUTHN_LEVEL_PKT_PRIVACY: u32 = 6u32;
+pub const RPC_C_IMP_LEVEL_DEFAULT: u32 = 0u32;
+pub const RPC_C_IMP_LEVEL_ANONYMOUS: u32 = 1u32;
+pub const RPC_C_IMP_LEVEL_IDENTIFY: u32 = 2u32;
+pub const RPC_C_IMP_LEVEL_IMPERSONATE: u32 = 3u32;
+pub const RPC_C_IMP_LEVEL_DELEGATE: u32 = 4u32;
 #[repr(C)]
 pub struct RemSTGMEDIUM {
     pub tymed: u32,
@@ -2298,17 +1978,9 @@ impl ::core::clone::Clone for SChannelHookCallInfo {
         *self
     }
 }
-#[repr(transparent)]
-pub struct SERVERCALL(pub i32);
-pub const SERVERCALL_ISHANDLED: SERVERCALL = SERVERCALL(0i32);
-pub const SERVERCALL_REJECTED: SERVERCALL = SERVERCALL(1i32);
-pub const SERVERCALL_RETRYLATER: SERVERCALL = SERVERCALL(2i32);
-impl ::core::marker::Copy for SERVERCALL {}
-impl ::core::clone::Clone for SERVERCALL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const SERVERCALL_ISHANDLED: i32 = 0i32;
+pub const SERVERCALL_REJECTED: i32 = 1i32;
+pub const SERVERCALL_RETRYLATER: i32 = 2i32;
 #[repr(C)]
 pub struct SHORT_SIZEDARR {
     pub clSize: u32,
@@ -2429,55 +2101,23 @@ impl ::core::clone::Clone for STGMEDIUM_0 {
         *self
     }
 }
-#[repr(transparent)]
-pub struct STGTY(pub i32);
-pub const STGTY_STORAGE: STGTY = STGTY(1i32);
-pub const STGTY_STREAM: STGTY = STGTY(2i32);
-pub const STGTY_LOCKBYTES: STGTY = STGTY(3i32);
-pub const STGTY_PROPERTY: STGTY = STGTY(4i32);
-impl ::core::marker::Copy for STGTY {}
-impl ::core::clone::Clone for STGTY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const STGTY_STORAGE: i32 = 1i32;
+pub const STGTY_STREAM: i32 = 2i32;
+pub const STGTY_LOCKBYTES: i32 = 3i32;
+pub const STGTY_PROPERTY: i32 = 4i32;
 pub const STGTY_REPEAT: i32 = 256i32;
 pub const STG_LAYOUT_INTERLEAVED: i32 = 1i32;
 pub const STG_LAYOUT_SEQUENTIAL: i32 = 0i32;
 pub const STG_TOEND: i32 = -1i32;
-#[repr(transparent)]
-pub struct STREAM_SEEK(pub u32);
-pub const STREAM_SEEK_SET: STREAM_SEEK = STREAM_SEEK(0u32);
-pub const STREAM_SEEK_CUR: STREAM_SEEK = STREAM_SEEK(1u32);
-pub const STREAM_SEEK_END: STREAM_SEEK = STREAM_SEEK(2u32);
-impl ::core::marker::Copy for STREAM_SEEK {}
-impl ::core::clone::Clone for STREAM_SEEK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct SYSKIND(pub i32);
-pub const SYS_WIN16: SYSKIND = SYSKIND(0i32);
-pub const SYS_WIN32: SYSKIND = SYSKIND(1i32);
-pub const SYS_MAC: SYSKIND = SYSKIND(2i32);
-pub const SYS_WIN64: SYSKIND = SYSKIND(3i32);
-impl ::core::marker::Copy for SYSKIND {}
-impl ::core::clone::Clone for SYSKIND {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ShutdownType(pub i32);
-pub const IdleShutdown: ShutdownType = ShutdownType(0i32);
-pub const ForcedShutdown: ShutdownType = ShutdownType(1i32);
-impl ::core::marker::Copy for ShutdownType {}
-impl ::core::clone::Clone for ShutdownType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const STREAM_SEEK_SET: u32 = 0u32;
+pub const STREAM_SEEK_CUR: u32 = 1u32;
+pub const STREAM_SEEK_END: u32 = 2u32;
+pub const SYS_WIN16: i32 = 0i32;
+pub const SYS_WIN32: i32 = 1i32;
+pub const SYS_MAC: i32 = 2i32;
+pub const SYS_WIN64: i32 = 3i32;
+pub const IdleShutdown: i32 = 0i32;
+pub const ForcedShutdown: i32 = 1i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct StorageLayout {
@@ -2494,16 +2134,8 @@ impl ::core::clone::Clone for StorageLayout {
         *self
     }
 }
-#[repr(transparent)]
-pub struct THDTYPE(pub i32);
-pub const THDTYPE_BLOCKMESSAGES: THDTYPE = THDTYPE(0i32);
-pub const THDTYPE_PROCESSMESSAGES: THDTYPE = THDTYPE(1i32);
-impl ::core::marker::Copy for THDTYPE {}
-impl ::core::clone::Clone for THDTYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const THDTYPE_BLOCKMESSAGES: i32 = 0i32;
+pub const THDTYPE_PROCESSMESSAGES: i32 = 1i32;
 #[repr(C)]
 pub struct TLIBATTR {
     pub guid: ::windows_sys::core::GUID,
@@ -2519,22 +2151,14 @@ impl ::core::clone::Clone for TLIBATTR {
         *self
     }
 }
-#[repr(transparent)]
-pub struct TYMED(pub i32);
-pub const TYMED_HGLOBAL: TYMED = TYMED(1i32);
-pub const TYMED_FILE: TYMED = TYMED(2i32);
-pub const TYMED_ISTREAM: TYMED = TYMED(4i32);
-pub const TYMED_ISTORAGE: TYMED = TYMED(8i32);
-pub const TYMED_GDI: TYMED = TYMED(16i32);
-pub const TYMED_MFPICT: TYMED = TYMED(32i32);
-pub const TYMED_ENHMF: TYMED = TYMED(64i32);
-pub const TYMED_NULL: TYMED = TYMED(0i32);
-impl ::core::marker::Copy for TYMED {}
-impl ::core::clone::Clone for TYMED {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const TYMED_HGLOBAL: i32 = 1i32;
+pub const TYMED_FILE: i32 = 2i32;
+pub const TYMED_ISTREAM: i32 = 4i32;
+pub const TYMED_ISTORAGE: i32 = 8i32;
+pub const TYMED_GDI: i32 = 16i32;
+pub const TYMED_MFPICT: i32 = 32i32;
+pub const TYMED_ENHMF: i32 = 64i32;
+pub const TYMED_NULL: i32 = 0i32;
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 pub struct TYPEATTR {
@@ -2594,95 +2218,63 @@ impl ::core::clone::Clone for TYPEDESC_0 {
         *self
     }
 }
-#[repr(transparent)]
-pub struct TYPEKIND(pub i32);
-pub const TKIND_ENUM: TYPEKIND = TYPEKIND(0i32);
-pub const TKIND_RECORD: TYPEKIND = TYPEKIND(1i32);
-pub const TKIND_MODULE: TYPEKIND = TYPEKIND(2i32);
-pub const TKIND_INTERFACE: TYPEKIND = TYPEKIND(3i32);
-pub const TKIND_DISPATCH: TYPEKIND = TYPEKIND(4i32);
-pub const TKIND_COCLASS: TYPEKIND = TYPEKIND(5i32);
-pub const TKIND_ALIAS: TYPEKIND = TYPEKIND(6i32);
-pub const TKIND_UNION: TYPEKIND = TYPEKIND(7i32);
-pub const TKIND_MAX: TYPEKIND = TYPEKIND(8i32);
-impl ::core::marker::Copy for TYPEKIND {}
-impl ::core::clone::Clone for TYPEKIND {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct TYSPEC(pub i32);
-pub const TYSPEC_CLSID: TYSPEC = TYSPEC(0i32);
-pub const TYSPEC_FILEEXT: TYSPEC = TYSPEC(1i32);
-pub const TYSPEC_MIMETYPE: TYSPEC = TYSPEC(2i32);
-pub const TYSPEC_FILENAME: TYSPEC = TYSPEC(3i32);
-pub const TYSPEC_PROGID: TYSPEC = TYSPEC(4i32);
-pub const TYSPEC_PACKAGENAME: TYSPEC = TYSPEC(5i32);
-pub const TYSPEC_OBJECTID: TYSPEC = TYSPEC(6i32);
-impl ::core::marker::Copy for TYSPEC {}
-impl ::core::clone::Clone for TYSPEC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct URI_CREATE_FLAGS(pub u32);
-pub const Uri_CREATE_ALLOW_RELATIVE: URI_CREATE_FLAGS = URI_CREATE_FLAGS(1u32);
-pub const Uri_CREATE_ALLOW_IMPLICIT_WILDCARD_SCHEME: URI_CREATE_FLAGS = URI_CREATE_FLAGS(2u32);
-pub const Uri_CREATE_ALLOW_IMPLICIT_FILE_SCHEME: URI_CREATE_FLAGS = URI_CREATE_FLAGS(4u32);
-pub const Uri_CREATE_NOFRAG: URI_CREATE_FLAGS = URI_CREATE_FLAGS(8u32);
-pub const Uri_CREATE_NO_CANONICALIZE: URI_CREATE_FLAGS = URI_CREATE_FLAGS(16u32);
-pub const Uri_CREATE_CANONICALIZE: URI_CREATE_FLAGS = URI_CREATE_FLAGS(256u32);
-pub const Uri_CREATE_FILE_USE_DOS_PATH: URI_CREATE_FLAGS = URI_CREATE_FLAGS(32u32);
-pub const Uri_CREATE_DECODE_EXTRA_INFO: URI_CREATE_FLAGS = URI_CREATE_FLAGS(64u32);
-pub const Uri_CREATE_NO_DECODE_EXTRA_INFO: URI_CREATE_FLAGS = URI_CREATE_FLAGS(128u32);
-pub const Uri_CREATE_CRACK_UNKNOWN_SCHEMES: URI_CREATE_FLAGS = URI_CREATE_FLAGS(512u32);
-pub const Uri_CREATE_NO_CRACK_UNKNOWN_SCHEMES: URI_CREATE_FLAGS = URI_CREATE_FLAGS(1024u32);
-pub const Uri_CREATE_PRE_PROCESS_HTML_URI: URI_CREATE_FLAGS = URI_CREATE_FLAGS(2048u32);
-pub const Uri_CREATE_NO_PRE_PROCESS_HTML_URI: URI_CREATE_FLAGS = URI_CREATE_FLAGS(4096u32);
-pub const Uri_CREATE_IE_SETTINGS: URI_CREATE_FLAGS = URI_CREATE_FLAGS(8192u32);
-pub const Uri_CREATE_NO_IE_SETTINGS: URI_CREATE_FLAGS = URI_CREATE_FLAGS(16384u32);
-pub const Uri_CREATE_NO_ENCODE_FORBIDDEN_CHARACTERS: URI_CREATE_FLAGS = URI_CREATE_FLAGS(32768u32);
-pub const Uri_CREATE_NORMALIZE_INTL_CHARACTERS: URI_CREATE_FLAGS = URI_CREATE_FLAGS(65536u32);
-pub const Uri_CREATE_CANONICALIZE_ABSOLUTE: URI_CREATE_FLAGS = URI_CREATE_FLAGS(131072u32);
-impl ::core::marker::Copy for URI_CREATE_FLAGS {}
-impl ::core::clone::Clone for URI_CREATE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct Uri_PROPERTY(pub i32);
-pub const Uri_PROPERTY_ABSOLUTE_URI: Uri_PROPERTY = Uri_PROPERTY(0i32);
-pub const Uri_PROPERTY_STRING_START: Uri_PROPERTY = Uri_PROPERTY(0i32);
-pub const Uri_PROPERTY_AUTHORITY: Uri_PROPERTY = Uri_PROPERTY(1i32);
-pub const Uri_PROPERTY_DISPLAY_URI: Uri_PROPERTY = Uri_PROPERTY(2i32);
-pub const Uri_PROPERTY_DOMAIN: Uri_PROPERTY = Uri_PROPERTY(3i32);
-pub const Uri_PROPERTY_EXTENSION: Uri_PROPERTY = Uri_PROPERTY(4i32);
-pub const Uri_PROPERTY_FRAGMENT: Uri_PROPERTY = Uri_PROPERTY(5i32);
-pub const Uri_PROPERTY_HOST: Uri_PROPERTY = Uri_PROPERTY(6i32);
-pub const Uri_PROPERTY_PASSWORD: Uri_PROPERTY = Uri_PROPERTY(7i32);
-pub const Uri_PROPERTY_PATH: Uri_PROPERTY = Uri_PROPERTY(8i32);
-pub const Uri_PROPERTY_PATH_AND_QUERY: Uri_PROPERTY = Uri_PROPERTY(9i32);
-pub const Uri_PROPERTY_QUERY: Uri_PROPERTY = Uri_PROPERTY(10i32);
-pub const Uri_PROPERTY_RAW_URI: Uri_PROPERTY = Uri_PROPERTY(11i32);
-pub const Uri_PROPERTY_SCHEME_NAME: Uri_PROPERTY = Uri_PROPERTY(12i32);
-pub const Uri_PROPERTY_USER_INFO: Uri_PROPERTY = Uri_PROPERTY(13i32);
-pub const Uri_PROPERTY_USER_NAME: Uri_PROPERTY = Uri_PROPERTY(14i32);
-pub const Uri_PROPERTY_STRING_LAST: Uri_PROPERTY = Uri_PROPERTY(14i32);
-pub const Uri_PROPERTY_HOST_TYPE: Uri_PROPERTY = Uri_PROPERTY(15i32);
-pub const Uri_PROPERTY_DWORD_START: Uri_PROPERTY = Uri_PROPERTY(15i32);
-pub const Uri_PROPERTY_PORT: Uri_PROPERTY = Uri_PROPERTY(16i32);
-pub const Uri_PROPERTY_SCHEME: Uri_PROPERTY = Uri_PROPERTY(17i32);
-pub const Uri_PROPERTY_ZONE: Uri_PROPERTY = Uri_PROPERTY(18i32);
-pub const Uri_PROPERTY_DWORD_LAST: Uri_PROPERTY = Uri_PROPERTY(18i32);
-impl ::core::marker::Copy for Uri_PROPERTY {}
-impl ::core::clone::Clone for Uri_PROPERTY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const TKIND_ENUM: i32 = 0i32;
+pub const TKIND_RECORD: i32 = 1i32;
+pub const TKIND_MODULE: i32 = 2i32;
+pub const TKIND_INTERFACE: i32 = 3i32;
+pub const TKIND_DISPATCH: i32 = 4i32;
+pub const TKIND_COCLASS: i32 = 5i32;
+pub const TKIND_ALIAS: i32 = 6i32;
+pub const TKIND_UNION: i32 = 7i32;
+pub const TKIND_MAX: i32 = 8i32;
+pub const TYSPEC_CLSID: i32 = 0i32;
+pub const TYSPEC_FILEEXT: i32 = 1i32;
+pub const TYSPEC_MIMETYPE: i32 = 2i32;
+pub const TYSPEC_FILENAME: i32 = 3i32;
+pub const TYSPEC_PROGID: i32 = 4i32;
+pub const TYSPEC_PACKAGENAME: i32 = 5i32;
+pub const TYSPEC_OBJECTID: i32 = 6i32;
+pub const Uri_CREATE_ALLOW_RELATIVE: u32 = 1u32;
+pub const Uri_CREATE_ALLOW_IMPLICIT_WILDCARD_SCHEME: u32 = 2u32;
+pub const Uri_CREATE_ALLOW_IMPLICIT_FILE_SCHEME: u32 = 4u32;
+pub const Uri_CREATE_NOFRAG: u32 = 8u32;
+pub const Uri_CREATE_NO_CANONICALIZE: u32 = 16u32;
+pub const Uri_CREATE_CANONICALIZE: u32 = 256u32;
+pub const Uri_CREATE_FILE_USE_DOS_PATH: u32 = 32u32;
+pub const Uri_CREATE_DECODE_EXTRA_INFO: u32 = 64u32;
+pub const Uri_CREATE_NO_DECODE_EXTRA_INFO: u32 = 128u32;
+pub const Uri_CREATE_CRACK_UNKNOWN_SCHEMES: u32 = 512u32;
+pub const Uri_CREATE_NO_CRACK_UNKNOWN_SCHEMES: u32 = 1024u32;
+pub const Uri_CREATE_PRE_PROCESS_HTML_URI: u32 = 2048u32;
+pub const Uri_CREATE_NO_PRE_PROCESS_HTML_URI: u32 = 4096u32;
+pub const Uri_CREATE_IE_SETTINGS: u32 = 8192u32;
+pub const Uri_CREATE_NO_IE_SETTINGS: u32 = 16384u32;
+pub const Uri_CREATE_NO_ENCODE_FORBIDDEN_CHARACTERS: u32 = 32768u32;
+pub const Uri_CREATE_NORMALIZE_INTL_CHARACTERS: u32 = 65536u32;
+pub const Uri_CREATE_CANONICALIZE_ABSOLUTE: u32 = 131072u32;
+pub const Uri_PROPERTY_ABSOLUTE_URI: i32 = 0i32;
+pub const Uri_PROPERTY_STRING_START: i32 = 0i32;
+pub const Uri_PROPERTY_AUTHORITY: i32 = 1i32;
+pub const Uri_PROPERTY_DISPLAY_URI: i32 = 2i32;
+pub const Uri_PROPERTY_DOMAIN: i32 = 3i32;
+pub const Uri_PROPERTY_EXTENSION: i32 = 4i32;
+pub const Uri_PROPERTY_FRAGMENT: i32 = 5i32;
+pub const Uri_PROPERTY_HOST: i32 = 6i32;
+pub const Uri_PROPERTY_PASSWORD: i32 = 7i32;
+pub const Uri_PROPERTY_PATH: i32 = 8i32;
+pub const Uri_PROPERTY_PATH_AND_QUERY: i32 = 9i32;
+pub const Uri_PROPERTY_QUERY: i32 = 10i32;
+pub const Uri_PROPERTY_RAW_URI: i32 = 11i32;
+pub const Uri_PROPERTY_SCHEME_NAME: i32 = 12i32;
+pub const Uri_PROPERTY_USER_INFO: i32 = 13i32;
+pub const Uri_PROPERTY_USER_NAME: i32 = 14i32;
+pub const Uri_PROPERTY_STRING_LAST: i32 = 14i32;
+pub const Uri_PROPERTY_HOST_TYPE: i32 = 15i32;
+pub const Uri_PROPERTY_DWORD_START: i32 = 15i32;
+pub const Uri_PROPERTY_PORT: i32 = 16i32;
+pub const Uri_PROPERTY_SCHEME: i32 = 17i32;
+pub const Uri_PROPERTY_ZONE: i32 = 18i32;
+pub const Uri_PROPERTY_DWORD_LAST: i32 = 18i32;
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 pub struct VARDESC {
@@ -2831,18 +2423,10 @@ impl ::core::clone::Clone for VARIANT_0_0_0_0 {
         *self
     }
 }
-#[repr(transparent)]
-pub struct VARKIND(pub i32);
-pub const VAR_PERINSTANCE: VARKIND = VARKIND(0i32);
-pub const VAR_STATIC: VARKIND = VARKIND(1i32);
-pub const VAR_CONST: VARKIND = VARKIND(2i32);
-pub const VAR_DISPATCH: VARKIND = VARKIND(3i32);
-impl ::core::marker::Copy for VARKIND {}
-impl ::core::clone::Clone for VARKIND {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const VAR_PERINSTANCE: i32 = 0i32;
+pub const VAR_STATIC: i32 = 1i32;
+pub const VAR_CONST: i32 = 2i32;
+pub const VAR_DISPATCH: i32 = 3i32;
 #[repr(C)]
 pub struct WORD_BLOB {
     pub clSize: u32,

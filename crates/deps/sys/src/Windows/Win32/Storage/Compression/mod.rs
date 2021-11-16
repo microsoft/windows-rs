@@ -27,18 +27,10 @@ extern "system" {
     pub fn SetDecompressorInformation(decompressorhandle: isize, compressinformationclass: COMPRESS_INFORMATION_CLASS, compressinformation: *const ::core::ffi::c_void, compressinformationsize: usize) -> super::super::Foundation::BOOL;
 }
 pub type COMPRESSOR_HANDLE = isize;
-#[repr(transparent)]
-pub struct COMPRESS_ALGORITHM(pub u32);
-pub const COMPRESS_ALGORITHM_MSZIP: COMPRESS_ALGORITHM = COMPRESS_ALGORITHM(2u32);
-pub const COMPRESS_ALGORITHM_XPRESS: COMPRESS_ALGORITHM = COMPRESS_ALGORITHM(3u32);
-pub const COMPRESS_ALGORITHM_XPRESS_HUFF: COMPRESS_ALGORITHM = COMPRESS_ALGORITHM(4u32);
-pub const COMPRESS_ALGORITHM_LZMS: COMPRESS_ALGORITHM = COMPRESS_ALGORITHM(5u32);
-impl ::core::marker::Copy for COMPRESS_ALGORITHM {}
-impl ::core::clone::Clone for COMPRESS_ALGORITHM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const COMPRESS_ALGORITHM_MSZIP: u32 = 2u32;
+pub const COMPRESS_ALGORITHM_XPRESS: u32 = 3u32;
+pub const COMPRESS_ALGORITHM_XPRESS_HUFF: u32 = 4u32;
+pub const COMPRESS_ALGORITHM_LZMS: u32 = 5u32;
 pub const COMPRESS_ALGORITHM_INVALID: u32 = 0u32;
 pub const COMPRESS_ALGORITHM_MAX: u32 = 6u32;
 pub const COMPRESS_ALGORITHM_NULL: u32 = 1u32;
@@ -54,17 +46,9 @@ impl ::core::clone::Clone for COMPRESS_ALLOCATION_ROUTINES {
         *self
     }
 }
-#[repr(transparent)]
-pub struct COMPRESS_INFORMATION_CLASS(pub i32);
-pub const COMPRESS_INFORMATION_CLASS_INVALID: COMPRESS_INFORMATION_CLASS = COMPRESS_INFORMATION_CLASS(0i32);
-pub const COMPRESS_INFORMATION_CLASS_BLOCK_SIZE: COMPRESS_INFORMATION_CLASS = COMPRESS_INFORMATION_CLASS(1i32);
-pub const COMPRESS_INFORMATION_CLASS_LEVEL: COMPRESS_INFORMATION_CLASS = COMPRESS_INFORMATION_CLASS(2i32);
-impl ::core::marker::Copy for COMPRESS_INFORMATION_CLASS {}
-impl ::core::clone::Clone for COMPRESS_INFORMATION_CLASS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const COMPRESS_INFORMATION_CLASS_INVALID: i32 = 0i32;
+pub const COMPRESS_INFORMATION_CLASS_BLOCK_SIZE: i32 = 1i32;
+pub const COMPRESS_INFORMATION_CLASS_LEVEL: i32 = 2i32;
 pub const COMPRESS_RAW: u32 = 536870912u32;
 pub type PFN_COMPRESS_ALLOCATE = unsafe extern "system" fn(usercontext: *const ::core::ffi::c_void, size: usize) -> *mut ::core::ffi::c_void;
 pub type PFN_COMPRESS_FREE = unsafe extern "system" fn(usercontext: *const ::core::ffi::c_void, memory: *const ::core::ffi::c_void);

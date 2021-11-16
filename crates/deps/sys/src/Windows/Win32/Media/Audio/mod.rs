@@ -801,25 +801,9 @@ pub const ACM_STREAMOPENF_QUERY: u32 = 1u32;
 pub const ACM_STREAMSIZEF_DESTINATION: i32 = 1i32;
 pub const ACM_STREAMSIZEF_QUERYMASK: i32 = 15i32;
 pub const ACM_STREAMSIZEF_SOURCE: i32 = 0i32;
-#[repr(transparent)]
-pub struct AMBISONICS_CHANNEL_ORDERING(pub i32);
-pub const AMBISONICS_CHANNEL_ORDERING_ACN: AMBISONICS_CHANNEL_ORDERING = AMBISONICS_CHANNEL_ORDERING(0i32);
-impl ::core::marker::Copy for AMBISONICS_CHANNEL_ORDERING {}
-impl ::core::clone::Clone for AMBISONICS_CHANNEL_ORDERING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct AMBISONICS_NORMALIZATION(pub i32);
-pub const AMBISONICS_NORMALIZATION_SN3D: AMBISONICS_NORMALIZATION = AMBISONICS_NORMALIZATION(0i32);
-pub const AMBISONICS_NORMALIZATION_N3D: AMBISONICS_NORMALIZATION = AMBISONICS_NORMALIZATION(1i32);
-impl ::core::marker::Copy for AMBISONICS_NORMALIZATION {}
-impl ::core::clone::Clone for AMBISONICS_NORMALIZATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const AMBISONICS_CHANNEL_ORDERING_ACN: i32 = 0i32;
+pub const AMBISONICS_NORMALIZATION_SN3D: i32 = 0i32;
+pub const AMBISONICS_NORMALIZATION_N3D: i32 = 1i32;
 #[repr(C)]
 pub struct AMBISONICS_PARAMS {
     pub u32Size: u32,
@@ -838,15 +822,7 @@ impl ::core::clone::Clone for AMBISONICS_PARAMS {
     }
 }
 pub const AMBISONICS_PARAM_VERSION_1: u32 = 1u32;
-#[repr(transparent)]
-pub struct AMBISONICS_TYPE(pub i32);
-pub const AMBISONICS_TYPE_FULL3D: AMBISONICS_TYPE = AMBISONICS_TYPE(0i32);
-impl ::core::marker::Copy for AMBISONICS_TYPE {}
-impl ::core::clone::Clone for AMBISONICS_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const AMBISONICS_TYPE_FULL3D: i32 = 0i32;
 pub const AUDCLNT_E_ALREADY_INITIALIZED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2004287486i32 as _);
 pub const AUDCLNT_E_BUFDURATION_PERIOD_NOT_EQUAL: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2004287469i32 as _);
 pub const AUDCLNT_E_BUFFER_ERROR: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2004287464i32 as _);
@@ -888,16 +864,8 @@ pub const AUDCLNT_E_WRONG_ENDPOINT_TYPE: ::windows_sys::core::HRESULT = ::window
 pub const AUDCLNT_SESSIONFLAGS_DISPLAY_HIDE: u32 = 536870912u32;
 pub const AUDCLNT_SESSIONFLAGS_DISPLAY_HIDEWHENEXPIRED: u32 = 1073741824u32;
 pub const AUDCLNT_SESSIONFLAGS_EXPIREWHENUNOWNED: u32 = 268435456u32;
-#[repr(transparent)]
-pub struct AUDCLNT_SHAREMODE(pub i32);
-pub const AUDCLNT_SHAREMODE_SHARED: AUDCLNT_SHAREMODE = AUDCLNT_SHAREMODE(0i32);
-pub const AUDCLNT_SHAREMODE_EXCLUSIVE: AUDCLNT_SHAREMODE = AUDCLNT_SHAREMODE(1i32);
-impl ::core::marker::Copy for AUDCLNT_SHAREMODE {}
-impl ::core::clone::Clone for AUDCLNT_SHAREMODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const AUDCLNT_SHAREMODE_SHARED: i32 = 0i32;
+pub const AUDCLNT_SHAREMODE_EXCLUSIVE: i32 = 1i32;
 pub const AUDCLNT_STREAMFLAGS_AUTOCONVERTPCM: u32 = 2147483648u32;
 pub const AUDCLNT_STREAMFLAGS_CROSSPROCESS: u32 = 65536u32;
 pub const AUDCLNT_STREAMFLAGS_EVENTCALLBACK: u32 = 262144u32;
@@ -905,18 +873,10 @@ pub const AUDCLNT_STREAMFLAGS_LOOPBACK: u32 = 131072u32;
 pub const AUDCLNT_STREAMFLAGS_NOPERSIST: u32 = 524288u32;
 pub const AUDCLNT_STREAMFLAGS_RATEADJUST: u32 = 1048576u32;
 pub const AUDCLNT_STREAMFLAGS_SRC_DEFAULT_QUALITY: u32 = 134217728u32;
-#[repr(transparent)]
-pub struct AUDCLNT_STREAMOPTIONS(pub u32);
-pub const AUDCLNT_STREAMOPTIONS_NONE: AUDCLNT_STREAMOPTIONS = AUDCLNT_STREAMOPTIONS(0u32);
-pub const AUDCLNT_STREAMOPTIONS_RAW: AUDCLNT_STREAMOPTIONS = AUDCLNT_STREAMOPTIONS(1u32);
-pub const AUDCLNT_STREAMOPTIONS_MATCH_FORMAT: AUDCLNT_STREAMOPTIONS = AUDCLNT_STREAMOPTIONS(2u32);
-pub const AUDCLNT_STREAMOPTIONS_AMBISONICS: AUDCLNT_STREAMOPTIONS = AUDCLNT_STREAMOPTIONS(4u32);
-impl ::core::marker::Copy for AUDCLNT_STREAMOPTIONS {}
-impl ::core::clone::Clone for AUDCLNT_STREAMOPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const AUDCLNT_STREAMOPTIONS_NONE: u32 = 0u32;
+pub const AUDCLNT_STREAMOPTIONS_RAW: u32 = 1u32;
+pub const AUDCLNT_STREAMOPTIONS_MATCH_FORMAT: u32 = 2u32;
+pub const AUDCLNT_STREAMOPTIONS_AMBISONICS: u32 = 4u32;
 pub const AUDCLNT_S_BUFFER_EMPTY: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(143196161i32 as _);
 pub const AUDCLNT_S_POSITION_STALLED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(143196163i32 as _);
 pub const AUDCLNT_S_THREAD_ALREADY_REGISTERED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(143196162i32 as _);
@@ -941,16 +901,8 @@ impl ::core::clone::Clone for AUDIOCLIENT_ACTIVATION_PARAMS_0 {
         *self
     }
 }
-#[repr(transparent)]
-pub struct AUDIOCLIENT_ACTIVATION_TYPE(pub i32);
-pub const AUDIOCLIENT_ACTIVATION_TYPE_DEFAULT: AUDIOCLIENT_ACTIVATION_TYPE = AUDIOCLIENT_ACTIVATION_TYPE(0i32);
-pub const AUDIOCLIENT_ACTIVATION_TYPE_PROCESS_LOOPBACK: AUDIOCLIENT_ACTIVATION_TYPE = AUDIOCLIENT_ACTIVATION_TYPE(1i32);
-impl ::core::marker::Copy for AUDIOCLIENT_ACTIVATION_TYPE {}
-impl ::core::clone::Clone for AUDIOCLIENT_ACTIVATION_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const AUDIOCLIENT_ACTIVATION_TYPE_DEFAULT: i32 = 0i32;
+pub const AUDIOCLIENT_ACTIVATION_TYPE_PROCESS_LOOPBACK: i32 = 1i32;
 #[repr(C)]
 pub struct AUDIOCLIENT_PROCESS_LOOPBACK_PARAMS {
     pub TargetProcessId: u32,
@@ -963,16 +915,8 @@ impl ::core::clone::Clone for AUDIOCLIENT_PROCESS_LOOPBACK_PARAMS {
     }
 }
 pub const AUDIOCLOCK_CHARACTERISTIC_FIXED_FREQ: u32 = 1u32;
-#[repr(transparent)]
-pub struct AUDIO_DUCKING_OPTIONS(pub u32);
-pub const AUDIO_DUCKING_OPTIONS_DEFAULT: AUDIO_DUCKING_OPTIONS = AUDIO_DUCKING_OPTIONS(0u32);
-pub const AUDIO_DUCKING_OPTIONS_DO_NOT_DUCK_OTHER_STREAMS: AUDIO_DUCKING_OPTIONS = AUDIO_DUCKING_OPTIONS(1u32);
-impl ::core::marker::Copy for AUDIO_DUCKING_OPTIONS {}
-impl ::core::clone::Clone for AUDIO_DUCKING_OPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const AUDIO_DUCKING_OPTIONS_DEFAULT: u32 = 0u32;
+pub const AUDIO_DUCKING_OPTIONS_DO_NOT_DUCK_OTHER_STREAMS: u32 = 1u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct AUDIO_EFFECT {
@@ -988,38 +932,22 @@ impl ::core::clone::Clone for AUDIO_EFFECT {
         *self
     }
 }
-#[repr(transparent)]
-pub struct AUDIO_EFFECT_STATE(pub i32);
-pub const AUDIO_EFFECT_STATE_OFF: AUDIO_EFFECT_STATE = AUDIO_EFFECT_STATE(0i32);
-pub const AUDIO_EFFECT_STATE_ON: AUDIO_EFFECT_STATE = AUDIO_EFFECT_STATE(1i32);
-impl ::core::marker::Copy for AUDIO_EFFECT_STATE {}
-impl ::core::clone::Clone for AUDIO_EFFECT_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct AUDIO_STREAM_CATEGORY(pub i32);
-pub const AudioCategory_Other: AUDIO_STREAM_CATEGORY = AUDIO_STREAM_CATEGORY(0i32);
-pub const AudioCategory_ForegroundOnlyMedia: AUDIO_STREAM_CATEGORY = AUDIO_STREAM_CATEGORY(1i32);
-pub const AudioCategory_Communications: AUDIO_STREAM_CATEGORY = AUDIO_STREAM_CATEGORY(3i32);
-pub const AudioCategory_Alerts: AUDIO_STREAM_CATEGORY = AUDIO_STREAM_CATEGORY(4i32);
-pub const AudioCategory_SoundEffects: AUDIO_STREAM_CATEGORY = AUDIO_STREAM_CATEGORY(5i32);
-pub const AudioCategory_GameEffects: AUDIO_STREAM_CATEGORY = AUDIO_STREAM_CATEGORY(6i32);
-pub const AudioCategory_GameMedia: AUDIO_STREAM_CATEGORY = AUDIO_STREAM_CATEGORY(7i32);
-pub const AudioCategory_GameChat: AUDIO_STREAM_CATEGORY = AUDIO_STREAM_CATEGORY(8i32);
-pub const AudioCategory_Speech: AUDIO_STREAM_CATEGORY = AUDIO_STREAM_CATEGORY(9i32);
-pub const AudioCategory_Movie: AUDIO_STREAM_CATEGORY = AUDIO_STREAM_CATEGORY(10i32);
-pub const AudioCategory_Media: AUDIO_STREAM_CATEGORY = AUDIO_STREAM_CATEGORY(11i32);
-pub const AudioCategory_FarFieldSpeech: AUDIO_STREAM_CATEGORY = AUDIO_STREAM_CATEGORY(12i32);
-pub const AudioCategory_UniformSpeech: AUDIO_STREAM_CATEGORY = AUDIO_STREAM_CATEGORY(13i32);
-pub const AudioCategory_VoiceTyping: AUDIO_STREAM_CATEGORY = AUDIO_STREAM_CATEGORY(14i32);
-impl ::core::marker::Copy for AUDIO_STREAM_CATEGORY {}
-impl ::core::clone::Clone for AUDIO_STREAM_CATEGORY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const AUDIO_EFFECT_STATE_OFF: i32 = 0i32;
+pub const AUDIO_EFFECT_STATE_ON: i32 = 1i32;
+pub const AudioCategory_Other: i32 = 0i32;
+pub const AudioCategory_ForegroundOnlyMedia: i32 = 1i32;
+pub const AudioCategory_Communications: i32 = 3i32;
+pub const AudioCategory_Alerts: i32 = 4i32;
+pub const AudioCategory_SoundEffects: i32 = 5i32;
+pub const AudioCategory_GameEffects: i32 = 6i32;
+pub const AudioCategory_GameMedia: i32 = 7i32;
+pub const AudioCategory_GameChat: i32 = 8i32;
+pub const AudioCategory_Speech: i32 = 9i32;
+pub const AudioCategory_Movie: i32 = 10i32;
+pub const AudioCategory_Media: i32 = 11i32;
+pub const AudioCategory_FarFieldSpeech: i32 = 12i32;
+pub const AudioCategory_UniformSpeech: i32 = 13i32;
+pub const AudioCategory_VoiceTyping: i32 = 14i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct AUDIO_VOLUME_NOTIFICATION_DATA {
@@ -1159,69 +1087,37 @@ impl ::core::clone::Clone for AudioExtensionParams {
         *self
     }
 }
-#[repr(transparent)]
-pub struct AudioObjectType(pub u32);
-pub const AudioObjectType_None: AudioObjectType = AudioObjectType(0u32);
-pub const AudioObjectType_Dynamic: AudioObjectType = AudioObjectType(1u32);
-pub const AudioObjectType_FrontLeft: AudioObjectType = AudioObjectType(2u32);
-pub const AudioObjectType_FrontRight: AudioObjectType = AudioObjectType(4u32);
-pub const AudioObjectType_FrontCenter: AudioObjectType = AudioObjectType(8u32);
-pub const AudioObjectType_LowFrequency: AudioObjectType = AudioObjectType(16u32);
-pub const AudioObjectType_SideLeft: AudioObjectType = AudioObjectType(32u32);
-pub const AudioObjectType_SideRight: AudioObjectType = AudioObjectType(64u32);
-pub const AudioObjectType_BackLeft: AudioObjectType = AudioObjectType(128u32);
-pub const AudioObjectType_BackRight: AudioObjectType = AudioObjectType(256u32);
-pub const AudioObjectType_TopFrontLeft: AudioObjectType = AudioObjectType(512u32);
-pub const AudioObjectType_TopFrontRight: AudioObjectType = AudioObjectType(1024u32);
-pub const AudioObjectType_TopBackLeft: AudioObjectType = AudioObjectType(2048u32);
-pub const AudioObjectType_TopBackRight: AudioObjectType = AudioObjectType(4096u32);
-pub const AudioObjectType_BottomFrontLeft: AudioObjectType = AudioObjectType(8192u32);
-pub const AudioObjectType_BottomFrontRight: AudioObjectType = AudioObjectType(16384u32);
-pub const AudioObjectType_BottomBackLeft: AudioObjectType = AudioObjectType(32768u32);
-pub const AudioObjectType_BottomBackRight: AudioObjectType = AudioObjectType(65536u32);
-pub const AudioObjectType_BackCenter: AudioObjectType = AudioObjectType(131072u32);
-impl ::core::marker::Copy for AudioObjectType {}
-impl ::core::clone::Clone for AudioObjectType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct AudioSessionDisconnectReason(pub i32);
-pub const DisconnectReasonDeviceRemoval: AudioSessionDisconnectReason = AudioSessionDisconnectReason(0i32);
-pub const DisconnectReasonServerShutdown: AudioSessionDisconnectReason = AudioSessionDisconnectReason(1i32);
-pub const DisconnectReasonFormatChanged: AudioSessionDisconnectReason = AudioSessionDisconnectReason(2i32);
-pub const DisconnectReasonSessionLogoff: AudioSessionDisconnectReason = AudioSessionDisconnectReason(3i32);
-pub const DisconnectReasonSessionDisconnected: AudioSessionDisconnectReason = AudioSessionDisconnectReason(4i32);
-pub const DisconnectReasonExclusiveModeOverride: AudioSessionDisconnectReason = AudioSessionDisconnectReason(5i32);
-impl ::core::marker::Copy for AudioSessionDisconnectReason {}
-impl ::core::clone::Clone for AudioSessionDisconnectReason {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct AudioSessionState(pub i32);
-pub const AudioSessionStateInactive: AudioSessionState = AudioSessionState(0i32);
-pub const AudioSessionStateActive: AudioSessionState = AudioSessionState(1i32);
-pub const AudioSessionStateExpired: AudioSessionState = AudioSessionState(2i32);
-impl ::core::marker::Copy for AudioSessionState {}
-impl ::core::clone::Clone for AudioSessionState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct AudioStateMonitorSoundLevel(pub i32);
-pub const Muted: AudioStateMonitorSoundLevel = AudioStateMonitorSoundLevel(0i32);
-pub const Low: AudioStateMonitorSoundLevel = AudioStateMonitorSoundLevel(1i32);
-pub const Full: AudioStateMonitorSoundLevel = AudioStateMonitorSoundLevel(2i32);
-impl ::core::marker::Copy for AudioStateMonitorSoundLevel {}
-impl ::core::clone::Clone for AudioStateMonitorSoundLevel {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const AudioObjectType_None: u32 = 0u32;
+pub const AudioObjectType_Dynamic: u32 = 1u32;
+pub const AudioObjectType_FrontLeft: u32 = 2u32;
+pub const AudioObjectType_FrontRight: u32 = 4u32;
+pub const AudioObjectType_FrontCenter: u32 = 8u32;
+pub const AudioObjectType_LowFrequency: u32 = 16u32;
+pub const AudioObjectType_SideLeft: u32 = 32u32;
+pub const AudioObjectType_SideRight: u32 = 64u32;
+pub const AudioObjectType_BackLeft: u32 = 128u32;
+pub const AudioObjectType_BackRight: u32 = 256u32;
+pub const AudioObjectType_TopFrontLeft: u32 = 512u32;
+pub const AudioObjectType_TopFrontRight: u32 = 1024u32;
+pub const AudioObjectType_TopBackLeft: u32 = 2048u32;
+pub const AudioObjectType_TopBackRight: u32 = 4096u32;
+pub const AudioObjectType_BottomFrontLeft: u32 = 8192u32;
+pub const AudioObjectType_BottomFrontRight: u32 = 16384u32;
+pub const AudioObjectType_BottomBackLeft: u32 = 32768u32;
+pub const AudioObjectType_BottomBackRight: u32 = 65536u32;
+pub const AudioObjectType_BackCenter: u32 = 131072u32;
+pub const DisconnectReasonDeviceRemoval: i32 = 0i32;
+pub const DisconnectReasonServerShutdown: i32 = 1i32;
+pub const DisconnectReasonFormatChanged: i32 = 2i32;
+pub const DisconnectReasonSessionLogoff: i32 = 3i32;
+pub const DisconnectReasonSessionDisconnected: i32 = 4i32;
+pub const DisconnectReasonExclusiveModeOverride: i32 = 5i32;
+pub const AudioSessionStateInactive: i32 = 0i32;
+pub const AudioSessionStateActive: i32 = 1i32;
+pub const AudioSessionStateExpired: i32 = 2i32;
+pub const Muted: i32 = 0i32;
+pub const Low: i32 = 1i32;
+pub const Full: i32 = 2i32;
 #[repr(transparent)]
 pub struct ConnectorType(pub i32);
 impl ConnectorType {
@@ -1273,16 +1169,8 @@ pub const DRVM_MAPPER: u32 = 8192u32;
 pub const DRVM_MAPPER_STATUS: u32 = 8192u32;
 pub const DRV_MAPPER_PREFERRED_INPUT_GET: u32 = 16384u32;
 pub const DRV_MAPPER_PREFERRED_OUTPUT_GET: u32 = 16386u32;
-#[repr(transparent)]
-pub struct DataFlow(pub i32);
-pub const In: DataFlow = DataFlow(0i32);
-pub const Out: DataFlow = DataFlow(1i32);
-impl ::core::marker::Copy for DataFlow {}
-impl ::core::clone::Clone for DataFlow {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const In: i32 = 0i32;
+pub const Out: i32 = 1i32;
 pub const DeviceTopology: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 502675920,
     data2: 24257,
@@ -1301,57 +1189,33 @@ impl ::core::clone::Clone for ECHOWAVEFILTER {
         *self
     }
 }
-#[repr(transparent)]
-pub struct EDataFlow(pub i32);
-pub const eRender: EDataFlow = EDataFlow(0i32);
-pub const eCapture: EDataFlow = EDataFlow(1i32);
-pub const eAll: EDataFlow = EDataFlow(2i32);
-pub const EDataFlow_enum_count: EDataFlow = EDataFlow(3i32);
-impl ::core::marker::Copy for EDataFlow {}
-impl ::core::clone::Clone for EDataFlow {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const eRender: i32 = 0i32;
+pub const eCapture: i32 = 1i32;
+pub const eAll: i32 = 2i32;
+pub const EDataFlow_enum_count: i32 = 3i32;
 pub const ENDPOINT_FORMAT_RESET_MIX_ONLY: u32 = 1u32;
 pub const ENDPOINT_HARDWARE_SUPPORT_METER: u32 = 4u32;
 pub const ENDPOINT_HARDWARE_SUPPORT_MUTE: u32 = 2u32;
 pub const ENDPOINT_HARDWARE_SUPPORT_VOLUME: u32 = 1u32;
 pub const ENDPOINT_SYSFX_DISABLED: u32 = 1u32;
 pub const ENDPOINT_SYSFX_ENABLED: u32 = 0u32;
-#[repr(transparent)]
-pub struct ERole(pub i32);
-pub const eConsole: ERole = ERole(0i32);
-pub const eMultimedia: ERole = ERole(1i32);
-pub const eCommunications: ERole = ERole(2i32);
-pub const ERole_enum_count: ERole = ERole(3i32);
-impl ::core::marker::Copy for ERole {}
-impl ::core::clone::Clone for ERole {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const eConsole: i32 = 0i32;
+pub const eMultimedia: i32 = 1i32;
+pub const eCommunications: i32 = 2i32;
+pub const ERole_enum_count: i32 = 3i32;
 pub const EVENTCONTEXT_VOLUMESLIDER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3804424670, data2: 2481, data3: 19204, data4: [132, 229, 7, 147, 18, 37, 238, 4] };
-#[repr(transparent)]
-pub struct EndpointFormFactor(pub i32);
-pub const RemoteNetworkDevice: EndpointFormFactor = EndpointFormFactor(0i32);
-pub const Speakers: EndpointFormFactor = EndpointFormFactor(1i32);
-pub const LineLevel: EndpointFormFactor = EndpointFormFactor(2i32);
-pub const Headphones: EndpointFormFactor = EndpointFormFactor(3i32);
-pub const Microphone: EndpointFormFactor = EndpointFormFactor(4i32);
-pub const Headset: EndpointFormFactor = EndpointFormFactor(5i32);
-pub const Handset: EndpointFormFactor = EndpointFormFactor(6i32);
-pub const UnknownDigitalPassthrough: EndpointFormFactor = EndpointFormFactor(7i32);
-pub const SPDIF: EndpointFormFactor = EndpointFormFactor(8i32);
-pub const DigitalAudioDisplayDevice: EndpointFormFactor = EndpointFormFactor(9i32);
-pub const UnknownFormFactor: EndpointFormFactor = EndpointFormFactor(10i32);
-pub const EndpointFormFactor_enum_count: EndpointFormFactor = EndpointFormFactor(11i32);
-impl ::core::marker::Copy for EndpointFormFactor {}
-impl ::core::clone::Clone for EndpointFormFactor {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const RemoteNetworkDevice: i32 = 0i32;
+pub const Speakers: i32 = 1i32;
+pub const LineLevel: i32 = 2i32;
+pub const Headphones: i32 = 3i32;
+pub const Microphone: i32 = 4i32;
+pub const Headset: i32 = 5i32;
+pub const Handset: i32 = 6i32;
+pub const UnknownDigitalPassthrough: i32 = 7i32;
+pub const SPDIF: i32 = 8i32;
+pub const DigitalAudioDisplayDevice: i32 = 9i32;
+pub const UnknownFormFactor: i32 = 10i32;
+pub const EndpointFormFactor_enum_count: i32 = 11i32;
 pub const FILTERCHOOSE_CUSTOM_VERIFY: u32 = 2u32;
 pub const FILTERCHOOSE_FILTERTAG_VERIFY: u32 = 0u32;
 pub const FILTERCHOOSE_FILTER_VERIFY: u32 = 1u32;
@@ -2221,28 +2085,20 @@ pub const MIDI_CACHE_ALL: u32 = 1u32;
 pub const MIDI_CACHE_BESTFIT: u32 = 2u32;
 pub const MIDI_CACHE_QUERY: u32 = 3u32;
 pub const MIDI_UNCACHE: u32 = 4u32;
-#[repr(transparent)]
-pub struct MIDI_WAVE_OPEN_TYPE(pub u32);
-pub const CALLBACK_TYPEMASK: MIDI_WAVE_OPEN_TYPE = MIDI_WAVE_OPEN_TYPE(458752u32);
-pub const CALLBACK_NULL: MIDI_WAVE_OPEN_TYPE = MIDI_WAVE_OPEN_TYPE(0u32);
-pub const CALLBACK_WINDOW: MIDI_WAVE_OPEN_TYPE = MIDI_WAVE_OPEN_TYPE(65536u32);
-pub const CALLBACK_TASK: MIDI_WAVE_OPEN_TYPE = MIDI_WAVE_OPEN_TYPE(131072u32);
-pub const CALLBACK_FUNCTION: MIDI_WAVE_OPEN_TYPE = MIDI_WAVE_OPEN_TYPE(196608u32);
-pub const CALLBACK_THREAD: MIDI_WAVE_OPEN_TYPE = MIDI_WAVE_OPEN_TYPE(131072u32);
-pub const CALLBACK_EVENT: MIDI_WAVE_OPEN_TYPE = MIDI_WAVE_OPEN_TYPE(327680u32);
-pub const WAVE_FORMAT_QUERY: MIDI_WAVE_OPEN_TYPE = MIDI_WAVE_OPEN_TYPE(1u32);
-pub const WAVE_ALLOWSYNC: MIDI_WAVE_OPEN_TYPE = MIDI_WAVE_OPEN_TYPE(2u32);
-pub const WAVE_MAPPED: MIDI_WAVE_OPEN_TYPE = MIDI_WAVE_OPEN_TYPE(4u32);
-pub const WAVE_FORMAT_DIRECT: MIDI_WAVE_OPEN_TYPE = MIDI_WAVE_OPEN_TYPE(8u32);
-pub const WAVE_FORMAT_DIRECT_QUERY: MIDI_WAVE_OPEN_TYPE = MIDI_WAVE_OPEN_TYPE(9u32);
-pub const WAVE_MAPPED_DEFAULT_COMMUNICATION_DEVICE: MIDI_WAVE_OPEN_TYPE = MIDI_WAVE_OPEN_TYPE(16u32);
-pub const MIDI_IO_STATUS: MIDI_WAVE_OPEN_TYPE = MIDI_WAVE_OPEN_TYPE(32u32);
-impl ::core::marker::Copy for MIDI_WAVE_OPEN_TYPE {}
-impl ::core::clone::Clone for MIDI_WAVE_OPEN_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const CALLBACK_TYPEMASK: u32 = 458752u32;
+pub const CALLBACK_NULL: u32 = 0u32;
+pub const CALLBACK_WINDOW: u32 = 65536u32;
+pub const CALLBACK_TASK: u32 = 131072u32;
+pub const CALLBACK_FUNCTION: u32 = 196608u32;
+pub const CALLBACK_THREAD: u32 = 131072u32;
+pub const CALLBACK_EVENT: u32 = 327680u32;
+pub const WAVE_FORMAT_QUERY: u32 = 1u32;
+pub const WAVE_ALLOWSYNC: u32 = 2u32;
+pub const WAVE_MAPPED: u32 = 4u32;
+pub const WAVE_FORMAT_DIRECT: u32 = 8u32;
+pub const WAVE_FORMAT_DIRECT_QUERY: u32 = 9u32;
+pub const WAVE_MAPPED_DEFAULT_COMMUNICATION_DEVICE: u32 = 16u32;
+pub const MIDI_IO_STATUS: u32 = 32u32;
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MIXERCAPS2A {
@@ -2743,34 +2599,26 @@ impl ::core::clone::Clone for MIXERLINEW_0 {
         *self
     }
 }
-#[repr(transparent)]
-pub struct MIXERLINE_COMPONENTTYPE(pub u32);
-pub const MIXERLINE_COMPONENTTYPE_DST_DIGITAL: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(1u32);
-pub const MIXERLINE_COMPONENTTYPE_DST_HEADPHONES: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(5u32);
-pub const MIXERLINE_COMPONENTTYPE_DST_LINE: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(2u32);
-pub const MIXERLINE_COMPONENTTYPE_DST_MONITOR: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(3u32);
-pub const MIXERLINE_COMPONENTTYPE_DST_SPEAKERS: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(4u32);
-pub const MIXERLINE_COMPONENTTYPE_DST_TELEPHONE: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(6u32);
-pub const MIXERLINE_COMPONENTTYPE_DST_UNDEFINED: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(0u32);
-pub const MIXERLINE_COMPONENTTYPE_DST_VOICEIN: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(8u32);
-pub const MIXERLINE_COMPONENTTYPE_DST_WAVEIN: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(7u32);
-pub const MIXERLINE_COMPONENTTYPE_SRC_ANALOG: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(4106u32);
-pub const MIXERLINE_COMPONENTTYPE_SRC_AUXILIARY: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(4105u32);
-pub const MIXERLINE_COMPONENTTYPE_SRC_COMPACTDISC: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(4101u32);
-pub const MIXERLINE_COMPONENTTYPE_SRC_DIGITAL: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(4097u32);
-pub const MIXERLINE_COMPONENTTYPE_SRC_LINE: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(4098u32);
-pub const MIXERLINE_COMPONENTTYPE_SRC_MICROPHONE: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(4099u32);
-pub const MIXERLINE_COMPONENTTYPE_SRC_PCSPEAKER: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(4103u32);
-pub const MIXERLINE_COMPONENTTYPE_SRC_SYNTHESIZER: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(4100u32);
-pub const MIXERLINE_COMPONENTTYPE_SRC_TELEPHONE: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(4102u32);
-pub const MIXERLINE_COMPONENTTYPE_SRC_UNDEFINED: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(4096u32);
-pub const MIXERLINE_COMPONENTTYPE_SRC_WAVEOUT: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(4104u32);
-impl ::core::marker::Copy for MIXERLINE_COMPONENTTYPE {}
-impl ::core::clone::Clone for MIXERLINE_COMPONENTTYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const MIXERLINE_COMPONENTTYPE_DST_DIGITAL: u32 = 1u32;
+pub const MIXERLINE_COMPONENTTYPE_DST_HEADPHONES: u32 = 5u32;
+pub const MIXERLINE_COMPONENTTYPE_DST_LINE: u32 = 2u32;
+pub const MIXERLINE_COMPONENTTYPE_DST_MONITOR: u32 = 3u32;
+pub const MIXERLINE_COMPONENTTYPE_DST_SPEAKERS: u32 = 4u32;
+pub const MIXERLINE_COMPONENTTYPE_DST_TELEPHONE: u32 = 6u32;
+pub const MIXERLINE_COMPONENTTYPE_DST_UNDEFINED: u32 = 0u32;
+pub const MIXERLINE_COMPONENTTYPE_DST_VOICEIN: u32 = 8u32;
+pub const MIXERLINE_COMPONENTTYPE_DST_WAVEIN: u32 = 7u32;
+pub const MIXERLINE_COMPONENTTYPE_SRC_ANALOG: u32 = 4106u32;
+pub const MIXERLINE_COMPONENTTYPE_SRC_AUXILIARY: u32 = 4105u32;
+pub const MIXERLINE_COMPONENTTYPE_SRC_COMPACTDISC: u32 = 4101u32;
+pub const MIXERLINE_COMPONENTTYPE_SRC_DIGITAL: u32 = 4097u32;
+pub const MIXERLINE_COMPONENTTYPE_SRC_LINE: u32 = 4098u32;
+pub const MIXERLINE_COMPONENTTYPE_SRC_MICROPHONE: u32 = 4099u32;
+pub const MIXERLINE_COMPONENTTYPE_SRC_PCSPEAKER: u32 = 4103u32;
+pub const MIXERLINE_COMPONENTTYPE_SRC_SYNTHESIZER: u32 = 4100u32;
+pub const MIXERLINE_COMPONENTTYPE_SRC_TELEPHONE: u32 = 4102u32;
+pub const MIXERLINE_COMPONENTTYPE_SRC_UNDEFINED: u32 = 4096u32;
+pub const MIXERLINE_COMPONENTTYPE_SRC_WAVEOUT: u32 = 4104u32;
 pub const MIXERLINE_COMPONENTTYPE_DST_FIRST: i32 = 0i32;
 pub const MIXERLINE_COMPONENTTYPE_DST_LAST: u32 = 8u32;
 pub const MIXERLINE_COMPONENTTYPE_SRC_FIRST: i32 = 4096i32;
@@ -2985,26 +2833,10 @@ pub const PKEY_AudioEngine_OEMFormat: super::super::UI::Shell::PropertiesSystem:
     fmtid: ::windows_sys::core::GUID { data1: 3834056230, data2: 15557, data3: 19666, data4: [186, 70, 202, 10, 154, 112, 237, 4] },
     pid: 3u32,
 };
-#[repr(transparent)]
-pub struct PROCESS_LOOPBACK_MODE(pub i32);
-pub const PROCESS_LOOPBACK_MODE_INCLUDE_TARGET_PROCESS_TREE: PROCESS_LOOPBACK_MODE = PROCESS_LOOPBACK_MODE(0i32);
-pub const PROCESS_LOOPBACK_MODE_EXCLUDE_TARGET_PROCESS_TREE: PROCESS_LOOPBACK_MODE = PROCESS_LOOPBACK_MODE(1i32);
-impl ::core::marker::Copy for PROCESS_LOOPBACK_MODE {}
-impl ::core::clone::Clone for PROCESS_LOOPBACK_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct PartType(pub i32);
-pub const Connector: PartType = PartType(0i32);
-pub const Subunit: PartType = PartType(1i32);
-impl ::core::marker::Copy for PartType {}
-impl ::core::clone::Clone for PartType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const PROCESS_LOOPBACK_MODE_INCLUDE_TARGET_PROCESS_TREE: i32 = 0i32;
+pub const PROCESS_LOOPBACK_MODE_EXCLUDE_TARGET_PROCESS_TREE: i32 = 1i32;
+pub const Connector: i32 = 0i32;
+pub const Subunit: i32 = 1i32;
 pub const SND_ALIAS: i32 = 65536i32;
 pub const SND_ALIAS_ID: i32 = 1114112i32;
 pub const SND_ALIAS_START: u32 = 0u32;
@@ -3024,16 +2856,8 @@ pub const SND_SYNC: u32 = 0u32;
 pub const SND_SYSTEM: i32 = 2097152i32;
 pub const SPATIAL_AUDIO_POSITION: u32 = 200u32;
 pub const SPATIAL_AUDIO_STANDARD_COMMANDS_START: u32 = 200u32;
-#[repr(transparent)]
-pub struct SPATIAL_AUDIO_STREAM_OPTIONS(pub u32);
-pub const SPATIAL_AUDIO_STREAM_OPTIONS_NONE: SPATIAL_AUDIO_STREAM_OPTIONS = SPATIAL_AUDIO_STREAM_OPTIONS(0u32);
-pub const SPATIAL_AUDIO_STREAM_OPTIONS_OFFLOAD: SPATIAL_AUDIO_STREAM_OPTIONS = SPATIAL_AUDIO_STREAM_OPTIONS(1u32);
-impl ::core::marker::Copy for SPATIAL_AUDIO_STREAM_OPTIONS {}
-impl ::core::clone::Clone for SPATIAL_AUDIO_STREAM_OPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const SPATIAL_AUDIO_STREAM_OPTIONS_NONE: u32 = 0u32;
+pub const SPATIAL_AUDIO_STREAM_OPTIONS_OFFLOAD: u32 = 1u32;
 pub const SPTLAUDCLNT_E_DESTROYED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2004287232i32 as _);
 pub const SPTLAUDCLNT_E_ERRORS_IN_OBJECT_CALLS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2004287227i32 as _);
 pub const SPTLAUDCLNT_E_INTERNAL: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2004287219i32 as _);
@@ -3169,17 +2993,9 @@ impl ::core::clone::Clone for SpatialAudioHrtfDirectivityCone {
         *self
     }
 }
-#[repr(transparent)]
-pub struct SpatialAudioHrtfDirectivityType(pub i32);
-pub const SpatialAudioHrtfDirectivity_OmniDirectional: SpatialAudioHrtfDirectivityType = SpatialAudioHrtfDirectivityType(0i32);
-pub const SpatialAudioHrtfDirectivity_Cardioid: SpatialAudioHrtfDirectivityType = SpatialAudioHrtfDirectivityType(1i32);
-pub const SpatialAudioHrtfDirectivity_Cone: SpatialAudioHrtfDirectivityType = SpatialAudioHrtfDirectivityType(2i32);
-impl ::core::marker::Copy for SpatialAudioHrtfDirectivityType {}
-impl ::core::clone::Clone for SpatialAudioHrtfDirectivityType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const SpatialAudioHrtfDirectivity_OmniDirectional: i32 = 0i32;
+pub const SpatialAudioHrtfDirectivity_Cardioid: i32 = 1i32;
+pub const SpatialAudioHrtfDirectivity_Cone: i32 = 2i32;
 #[repr(C)]
 pub union SpatialAudioHrtfDirectivityUnion {
     pub Cone: SpatialAudioHrtfDirectivityCone,
@@ -3206,41 +3022,17 @@ impl ::core::clone::Clone for SpatialAudioHrtfDistanceDecay {
         *self
     }
 }
-#[repr(transparent)]
-pub struct SpatialAudioHrtfDistanceDecayType(pub i32);
-pub const SpatialAudioHrtfDistanceDecay_NaturalDecay: SpatialAudioHrtfDistanceDecayType = SpatialAudioHrtfDistanceDecayType(0i32);
-pub const SpatialAudioHrtfDistanceDecay_CustomDecay: SpatialAudioHrtfDistanceDecayType = SpatialAudioHrtfDistanceDecayType(1i32);
-impl ::core::marker::Copy for SpatialAudioHrtfDistanceDecayType {}
-impl ::core::clone::Clone for SpatialAudioHrtfDistanceDecayType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct SpatialAudioHrtfEnvironmentType(pub i32);
-pub const SpatialAudioHrtfEnvironment_Small: SpatialAudioHrtfEnvironmentType = SpatialAudioHrtfEnvironmentType(0i32);
-pub const SpatialAudioHrtfEnvironment_Medium: SpatialAudioHrtfEnvironmentType = SpatialAudioHrtfEnvironmentType(1i32);
-pub const SpatialAudioHrtfEnvironment_Large: SpatialAudioHrtfEnvironmentType = SpatialAudioHrtfEnvironmentType(2i32);
-pub const SpatialAudioHrtfEnvironment_Outdoors: SpatialAudioHrtfEnvironmentType = SpatialAudioHrtfEnvironmentType(3i32);
-pub const SpatialAudioHrtfEnvironment_Average: SpatialAudioHrtfEnvironmentType = SpatialAudioHrtfEnvironmentType(4i32);
-impl ::core::marker::Copy for SpatialAudioHrtfEnvironmentType {}
-impl ::core::clone::Clone for SpatialAudioHrtfEnvironmentType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct SpatialAudioMetadataCopyMode(pub i32);
-pub const SpatialAudioMetadataCopy_Overwrite: SpatialAudioMetadataCopyMode = SpatialAudioMetadataCopyMode(0i32);
-pub const SpatialAudioMetadataCopy_Append: SpatialAudioMetadataCopyMode = SpatialAudioMetadataCopyMode(1i32);
-pub const SpatialAudioMetadataCopy_AppendMergeWithLast: SpatialAudioMetadataCopyMode = SpatialAudioMetadataCopyMode(2i32);
-pub const SpatialAudioMetadataCopy_AppendMergeWithFirst: SpatialAudioMetadataCopyMode = SpatialAudioMetadataCopyMode(3i32);
-impl ::core::marker::Copy for SpatialAudioMetadataCopyMode {}
-impl ::core::clone::Clone for SpatialAudioMetadataCopyMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const SpatialAudioHrtfDistanceDecay_NaturalDecay: i32 = 0i32;
+pub const SpatialAudioHrtfDistanceDecay_CustomDecay: i32 = 1i32;
+pub const SpatialAudioHrtfEnvironment_Small: i32 = 0i32;
+pub const SpatialAudioHrtfEnvironment_Medium: i32 = 1i32;
+pub const SpatialAudioHrtfEnvironment_Large: i32 = 2i32;
+pub const SpatialAudioHrtfEnvironment_Outdoors: i32 = 3i32;
+pub const SpatialAudioHrtfEnvironment_Average: i32 = 4i32;
+pub const SpatialAudioMetadataCopy_Overwrite: i32 = 0i32;
+pub const SpatialAudioMetadataCopy_Append: i32 = 1i32;
+pub const SpatialAudioMetadataCopy_AppendMergeWithLast: i32 = 2i32;
+pub const SpatialAudioMetadataCopy_AppendMergeWithFirst: i32 = 3i32;
 #[repr(C, packed(1))]
 pub struct SpatialAudioMetadataItemsInfo {
     pub FrameCount: u16,
@@ -3254,17 +3046,9 @@ impl ::core::clone::Clone for SpatialAudioMetadataItemsInfo {
         *self
     }
 }
-#[repr(transparent)]
-pub struct SpatialAudioMetadataWriterOverflowMode(pub i32);
-pub const SpatialAudioMetadataWriterOverflow_Fail: SpatialAudioMetadataWriterOverflowMode = SpatialAudioMetadataWriterOverflowMode(0i32);
-pub const SpatialAudioMetadataWriterOverflow_MergeWithNew: SpatialAudioMetadataWriterOverflowMode = SpatialAudioMetadataWriterOverflowMode(1i32);
-pub const SpatialAudioMetadataWriterOverflow_MergeWithLast: SpatialAudioMetadataWriterOverflowMode = SpatialAudioMetadataWriterOverflowMode(2i32);
-impl ::core::marker::Copy for SpatialAudioMetadataWriterOverflowMode {}
-impl ::core::clone::Clone for SpatialAudioMetadataWriterOverflowMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const SpatialAudioMetadataWriterOverflow_Fail: i32 = 0i32;
+pub const SpatialAudioMetadataWriterOverflow_MergeWithNew: i32 = 1i32;
+pub const SpatialAudioMetadataWriterOverflow_MergeWithLast: i32 = 2i32;
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SpatialAudioObjectRenderStreamActivationParams {
@@ -3655,29 +3439,13 @@ pub const WHDR_INQUEUE: u32 = 16u32;
 pub const WHDR_PREPARED: u32 = 2u32;
 pub const WIDM_MAPPER_STATUS: u32 = 8192u32;
 pub const WODM_MAPPER_STATUS: u32 = 8192u32;
-#[repr(transparent)]
-pub struct _AUDCLNT_BUFFERFLAGS(pub i32);
-pub const AUDCLNT_BUFFERFLAGS_DATA_DISCONTINUITY: _AUDCLNT_BUFFERFLAGS = _AUDCLNT_BUFFERFLAGS(1i32);
-pub const AUDCLNT_BUFFERFLAGS_SILENT: _AUDCLNT_BUFFERFLAGS = _AUDCLNT_BUFFERFLAGS(2i32);
-pub const AUDCLNT_BUFFERFLAGS_TIMESTAMP_ERROR: _AUDCLNT_BUFFERFLAGS = _AUDCLNT_BUFFERFLAGS(4i32);
-impl ::core::marker::Copy for _AUDCLNT_BUFFERFLAGS {}
-impl ::core::clone::Clone for _AUDCLNT_BUFFERFLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct __MIDL___MIDL_itf_mmdeviceapi_0000_0008_0002(pub i32);
-pub const AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE_DEFAULT: __MIDL___MIDL_itf_mmdeviceapi_0000_0008_0002 = __MIDL___MIDL_itf_mmdeviceapi_0000_0008_0002(0i32);
-pub const AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE_USER: __MIDL___MIDL_itf_mmdeviceapi_0000_0008_0002 = __MIDL___MIDL_itf_mmdeviceapi_0000_0008_0002(1i32);
-pub const AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE_VOLATILE: __MIDL___MIDL_itf_mmdeviceapi_0000_0008_0002 = __MIDL___MIDL_itf_mmdeviceapi_0000_0008_0002(2i32);
-pub const AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE_ENUM_COUNT: __MIDL___MIDL_itf_mmdeviceapi_0000_0008_0002 = __MIDL___MIDL_itf_mmdeviceapi_0000_0008_0002(3i32);
-impl ::core::marker::Copy for __MIDL___MIDL_itf_mmdeviceapi_0000_0008_0002 {}
-impl ::core::clone::Clone for __MIDL___MIDL_itf_mmdeviceapi_0000_0008_0002 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const AUDCLNT_BUFFERFLAGS_DATA_DISCONTINUITY: i32 = 1i32;
+pub const AUDCLNT_BUFFERFLAGS_SILENT: i32 = 2i32;
+pub const AUDCLNT_BUFFERFLAGS_TIMESTAMP_ERROR: i32 = 4i32;
+pub const AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE_DEFAULT: i32 = 0i32;
+pub const AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE_USER: i32 = 1i32;
+pub const AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE_VOLATILE: i32 = 2i32;
+pub const AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE_ENUM_COUNT: i32 = 3i32;
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct tACMDRVOPENDESCA {

@@ -83,7 +83,7 @@ fn gen_enum(def: &TypeDef, gen: &Gen) -> TokenStream {
     let underlying_type = def.underlying_type();
     let underlying_type = gen_name(&underlying_type, gen);
 
-    let fields = if def.is_scoped() {
+    if def.is_scoped() {
         let fields = def.fields().filter_map(|field| {
             if field.is_literal() {
                 let field_name = to_ident(field.name());
@@ -129,9 +129,7 @@ fn gen_enum(def: &TypeDef, gen: &Gen) -> TokenStream {
         quote! {
             #(#fields)*
         }
-    };
-
-
+    }
 }
 
 fn gen_struct(def: &TypeDef, gen: &Gen) -> TokenStream {

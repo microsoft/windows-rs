@@ -29,62 +29,54 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn UserHandleGrantAccess(huserhandle: super::super::Foundation::HANDLE, hjob: super::super::Foundation::HANDLE, bgrant: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
 }
-#[repr(transparent)]
-pub struct JOBOBJECTINFOCLASS(pub i32);
-pub const JobObjectBasicAccountingInformation: JOBOBJECTINFOCLASS = JOBOBJECTINFOCLASS(1i32);
-pub const JobObjectBasicLimitInformation: JOBOBJECTINFOCLASS = JOBOBJECTINFOCLASS(2i32);
-pub const JobObjectBasicProcessIdList: JOBOBJECTINFOCLASS = JOBOBJECTINFOCLASS(3i32);
-pub const JobObjectBasicUIRestrictions: JOBOBJECTINFOCLASS = JOBOBJECTINFOCLASS(4i32);
-pub const JobObjectSecurityLimitInformation: JOBOBJECTINFOCLASS = JOBOBJECTINFOCLASS(5i32);
-pub const JobObjectEndOfJobTimeInformation: JOBOBJECTINFOCLASS = JOBOBJECTINFOCLASS(6i32);
-pub const JobObjectAssociateCompletionPortInformation: JOBOBJECTINFOCLASS = JOBOBJECTINFOCLASS(7i32);
-pub const JobObjectBasicAndIoAccountingInformation: JOBOBJECTINFOCLASS = JOBOBJECTINFOCLASS(8i32);
-pub const JobObjectExtendedLimitInformation: JOBOBJECTINFOCLASS = JOBOBJECTINFOCLASS(9i32);
-pub const JobObjectJobSetInformation: JOBOBJECTINFOCLASS = JOBOBJECTINFOCLASS(10i32);
-pub const JobObjectGroupInformation: JOBOBJECTINFOCLASS = JOBOBJECTINFOCLASS(11i32);
-pub const JobObjectNotificationLimitInformation: JOBOBJECTINFOCLASS = JOBOBJECTINFOCLASS(12i32);
-pub const JobObjectLimitViolationInformation: JOBOBJECTINFOCLASS = JOBOBJECTINFOCLASS(13i32);
-pub const JobObjectGroupInformationEx: JOBOBJECTINFOCLASS = JOBOBJECTINFOCLASS(14i32);
-pub const JobObjectCpuRateControlInformation: JOBOBJECTINFOCLASS = JOBOBJECTINFOCLASS(15i32);
-pub const JobObjectCompletionFilter: JOBOBJECTINFOCLASS = JOBOBJECTINFOCLASS(16i32);
-pub const JobObjectCompletionCounter: JOBOBJECTINFOCLASS = JOBOBJECTINFOCLASS(17i32);
-pub const JobObjectReserved1Information: JOBOBJECTINFOCLASS = JOBOBJECTINFOCLASS(18i32);
-pub const JobObjectReserved2Information: JOBOBJECTINFOCLASS = JOBOBJECTINFOCLASS(19i32);
-pub const JobObjectReserved3Information: JOBOBJECTINFOCLASS = JOBOBJECTINFOCLASS(20i32);
-pub const JobObjectReserved4Information: JOBOBJECTINFOCLASS = JOBOBJECTINFOCLASS(21i32);
-pub const JobObjectReserved5Information: JOBOBJECTINFOCLASS = JOBOBJECTINFOCLASS(22i32);
-pub const JobObjectReserved6Information: JOBOBJECTINFOCLASS = JOBOBJECTINFOCLASS(23i32);
-pub const JobObjectReserved7Information: JOBOBJECTINFOCLASS = JOBOBJECTINFOCLASS(24i32);
-pub const JobObjectReserved8Information: JOBOBJECTINFOCLASS = JOBOBJECTINFOCLASS(25i32);
-pub const JobObjectReserved9Information: JOBOBJECTINFOCLASS = JOBOBJECTINFOCLASS(26i32);
-pub const JobObjectReserved10Information: JOBOBJECTINFOCLASS = JOBOBJECTINFOCLASS(27i32);
-pub const JobObjectReserved11Information: JOBOBJECTINFOCLASS = JOBOBJECTINFOCLASS(28i32);
-pub const JobObjectReserved12Information: JOBOBJECTINFOCLASS = JOBOBJECTINFOCLASS(29i32);
-pub const JobObjectReserved13Information: JOBOBJECTINFOCLASS = JOBOBJECTINFOCLASS(30i32);
-pub const JobObjectReserved14Information: JOBOBJECTINFOCLASS = JOBOBJECTINFOCLASS(31i32);
-pub const JobObjectNetRateControlInformation: JOBOBJECTINFOCLASS = JOBOBJECTINFOCLASS(32i32);
-pub const JobObjectNotificationLimitInformation2: JOBOBJECTINFOCLASS = JOBOBJECTINFOCLASS(33i32);
-pub const JobObjectLimitViolationInformation2: JOBOBJECTINFOCLASS = JOBOBJECTINFOCLASS(34i32);
-pub const JobObjectCreateSilo: JOBOBJECTINFOCLASS = JOBOBJECTINFOCLASS(35i32);
-pub const JobObjectSiloBasicInformation: JOBOBJECTINFOCLASS = JOBOBJECTINFOCLASS(36i32);
-pub const JobObjectReserved15Information: JOBOBJECTINFOCLASS = JOBOBJECTINFOCLASS(37i32);
-pub const JobObjectReserved16Information: JOBOBJECTINFOCLASS = JOBOBJECTINFOCLASS(38i32);
-pub const JobObjectReserved17Information: JOBOBJECTINFOCLASS = JOBOBJECTINFOCLASS(39i32);
-pub const JobObjectReserved18Information: JOBOBJECTINFOCLASS = JOBOBJECTINFOCLASS(40i32);
-pub const JobObjectReserved19Information: JOBOBJECTINFOCLASS = JOBOBJECTINFOCLASS(41i32);
-pub const JobObjectReserved20Information: JOBOBJECTINFOCLASS = JOBOBJECTINFOCLASS(42i32);
-pub const JobObjectReserved21Information: JOBOBJECTINFOCLASS = JOBOBJECTINFOCLASS(43i32);
-pub const JobObjectReserved22Information: JOBOBJECTINFOCLASS = JOBOBJECTINFOCLASS(44i32);
-pub const JobObjectReserved23Information: JOBOBJECTINFOCLASS = JOBOBJECTINFOCLASS(45i32);
-pub const JobObjectReserved24Information: JOBOBJECTINFOCLASS = JOBOBJECTINFOCLASS(46i32);
-pub const JobObjectReserved25Information: JOBOBJECTINFOCLASS = JOBOBJECTINFOCLASS(47i32);
-pub const MaxJobObjectInfoClass: JOBOBJECTINFOCLASS = JOBOBJECTINFOCLASS(48i32);
-impl ::core::marker::Copy for JOBOBJECTINFOCLASS {}
-impl ::core::clone::Clone for JOBOBJECTINFOCLASS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const JobObjectBasicAccountingInformation: i32 = 1i32;
+pub const JobObjectBasicLimitInformation: i32 = 2i32;
+pub const JobObjectBasicProcessIdList: i32 = 3i32;
+pub const JobObjectBasicUIRestrictions: i32 = 4i32;
+pub const JobObjectSecurityLimitInformation: i32 = 5i32;
+pub const JobObjectEndOfJobTimeInformation: i32 = 6i32;
+pub const JobObjectAssociateCompletionPortInformation: i32 = 7i32;
+pub const JobObjectBasicAndIoAccountingInformation: i32 = 8i32;
+pub const JobObjectExtendedLimitInformation: i32 = 9i32;
+pub const JobObjectJobSetInformation: i32 = 10i32;
+pub const JobObjectGroupInformation: i32 = 11i32;
+pub const JobObjectNotificationLimitInformation: i32 = 12i32;
+pub const JobObjectLimitViolationInformation: i32 = 13i32;
+pub const JobObjectGroupInformationEx: i32 = 14i32;
+pub const JobObjectCpuRateControlInformation: i32 = 15i32;
+pub const JobObjectCompletionFilter: i32 = 16i32;
+pub const JobObjectCompletionCounter: i32 = 17i32;
+pub const JobObjectReserved1Information: i32 = 18i32;
+pub const JobObjectReserved2Information: i32 = 19i32;
+pub const JobObjectReserved3Information: i32 = 20i32;
+pub const JobObjectReserved4Information: i32 = 21i32;
+pub const JobObjectReserved5Information: i32 = 22i32;
+pub const JobObjectReserved6Information: i32 = 23i32;
+pub const JobObjectReserved7Information: i32 = 24i32;
+pub const JobObjectReserved8Information: i32 = 25i32;
+pub const JobObjectReserved9Information: i32 = 26i32;
+pub const JobObjectReserved10Information: i32 = 27i32;
+pub const JobObjectReserved11Information: i32 = 28i32;
+pub const JobObjectReserved12Information: i32 = 29i32;
+pub const JobObjectReserved13Information: i32 = 30i32;
+pub const JobObjectReserved14Information: i32 = 31i32;
+pub const JobObjectNetRateControlInformation: i32 = 32i32;
+pub const JobObjectNotificationLimitInformation2: i32 = 33i32;
+pub const JobObjectLimitViolationInformation2: i32 = 34i32;
+pub const JobObjectCreateSilo: i32 = 35i32;
+pub const JobObjectSiloBasicInformation: i32 = 36i32;
+pub const JobObjectReserved15Information: i32 = 37i32;
+pub const JobObjectReserved16Information: i32 = 38i32;
+pub const JobObjectReserved17Information: i32 = 39i32;
+pub const JobObjectReserved18Information: i32 = 40i32;
+pub const JobObjectReserved19Information: i32 = 41i32;
+pub const JobObjectReserved20Information: i32 = 42i32;
+pub const JobObjectReserved21Information: i32 = 43i32;
+pub const JobObjectReserved22Information: i32 = 44i32;
+pub const JobObjectReserved23Information: i32 = 45i32;
+pub const JobObjectReserved24Information: i32 = 46i32;
+pub const JobObjectReserved25Information: i32 = 47i32;
+pub const MaxJobObjectInfoClass: i32 = 48i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct JOBOBJECT_ASSOCIATE_COMPLETION_PORT {
@@ -232,17 +224,9 @@ impl ::core::clone::Clone for JOBOBJECT_EXTENDED_LIMIT_INFORMATION {
         *self
     }
 }
-#[repr(transparent)]
-pub struct JOBOBJECT_IO_ATTRIBUTION_CONTROL_FLAGS(pub i32);
-pub const JOBOBJECT_IO_ATTRIBUTION_CONTROL_ENABLE: JOBOBJECT_IO_ATTRIBUTION_CONTROL_FLAGS = JOBOBJECT_IO_ATTRIBUTION_CONTROL_FLAGS(1i32);
-pub const JOBOBJECT_IO_ATTRIBUTION_CONTROL_DISABLE: JOBOBJECT_IO_ATTRIBUTION_CONTROL_FLAGS = JOBOBJECT_IO_ATTRIBUTION_CONTROL_FLAGS(2i32);
-pub const JOBOBJECT_IO_ATTRIBUTION_CONTROL_VALID_FLAGS: JOBOBJECT_IO_ATTRIBUTION_CONTROL_FLAGS = JOBOBJECT_IO_ATTRIBUTION_CONTROL_FLAGS(3i32);
-impl ::core::marker::Copy for JOBOBJECT_IO_ATTRIBUTION_CONTROL_FLAGS {}
-impl ::core::clone::Clone for JOBOBJECT_IO_ATTRIBUTION_CONTROL_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const JOBOBJECT_IO_ATTRIBUTION_CONTROL_ENABLE: i32 = 1i32;
+pub const JOBOBJECT_IO_ATTRIBUTION_CONTROL_DISABLE: i32 = 2i32;
+pub const JOBOBJECT_IO_ATTRIBUTION_CONTROL_VALID_FLAGS: i32 = 3i32;
 #[repr(C)]
 pub struct JOBOBJECT_IO_ATTRIBUTION_INFORMATION {
     pub ControlFlags: u32,
@@ -533,28 +517,12 @@ impl ::core::clone::Clone for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2_2 {
         *self
     }
 }
-#[repr(transparent)]
-pub struct JOBOBJECT_RATE_CONTROL_TOLERANCE(pub i32);
-pub const ToleranceLow: JOBOBJECT_RATE_CONTROL_TOLERANCE = JOBOBJECT_RATE_CONTROL_TOLERANCE(1i32);
-pub const ToleranceMedium: JOBOBJECT_RATE_CONTROL_TOLERANCE = JOBOBJECT_RATE_CONTROL_TOLERANCE(2i32);
-pub const ToleranceHigh: JOBOBJECT_RATE_CONTROL_TOLERANCE = JOBOBJECT_RATE_CONTROL_TOLERANCE(3i32);
-impl ::core::marker::Copy for JOBOBJECT_RATE_CONTROL_TOLERANCE {}
-impl ::core::clone::Clone for JOBOBJECT_RATE_CONTROL_TOLERANCE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL(pub i32);
-pub const ToleranceIntervalShort: JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL = JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL(1i32);
-pub const ToleranceIntervalMedium: JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL = JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL(2i32);
-pub const ToleranceIntervalLong: JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL = JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL(3i32);
-impl ::core::marker::Copy for JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL {}
-impl ::core::clone::Clone for JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const ToleranceLow: i32 = 1i32;
+pub const ToleranceMedium: i32 = 2i32;
+pub const ToleranceHigh: i32 = 3i32;
+pub const ToleranceIntervalShort: i32 = 1i32;
+pub const ToleranceIntervalMedium: i32 = 2i32;
+pub const ToleranceIntervalLong: i32 = 3i32;
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct JOBOBJECT_SECURITY_LIMIT_INFORMATION {
@@ -572,119 +540,63 @@ impl ::core::clone::Clone for JOBOBJECT_SECURITY_LIMIT_INFORMATION {
         *self
     }
 }
-#[repr(transparent)]
-pub struct JOB_OBJECT_CPU_RATE_CONTROL(pub u32);
-pub const JOB_OBJECT_CPU_RATE_CONTROL_ENABLE: JOB_OBJECT_CPU_RATE_CONTROL = JOB_OBJECT_CPU_RATE_CONTROL(1u32);
-pub const JOB_OBJECT_CPU_RATE_CONTROL_WEIGHT_BASED: JOB_OBJECT_CPU_RATE_CONTROL = JOB_OBJECT_CPU_RATE_CONTROL(2u32);
-pub const JOB_OBJECT_CPU_RATE_CONTROL_HARD_CAP: JOB_OBJECT_CPU_RATE_CONTROL = JOB_OBJECT_CPU_RATE_CONTROL(4u32);
-pub const JOB_OBJECT_CPU_RATE_CONTROL_NOTIFY: JOB_OBJECT_CPU_RATE_CONTROL = JOB_OBJECT_CPU_RATE_CONTROL(8u32);
-pub const JOB_OBJECT__CPU_RATE_CONTROL_MIN_MAX_RATE: JOB_OBJECT_CPU_RATE_CONTROL = JOB_OBJECT_CPU_RATE_CONTROL(16u32);
-impl ::core::marker::Copy for JOB_OBJECT_CPU_RATE_CONTROL {}
-impl ::core::clone::Clone for JOB_OBJECT_CPU_RATE_CONTROL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct JOB_OBJECT_IO_RATE_CONTROL_FLAGS(pub i32);
-pub const JOB_OBJECT_IO_RATE_CONTROL_ENABLE: JOB_OBJECT_IO_RATE_CONTROL_FLAGS = JOB_OBJECT_IO_RATE_CONTROL_FLAGS(1i32);
-pub const JOB_OBJECT_IO_RATE_CONTROL_STANDALONE_VOLUME: JOB_OBJECT_IO_RATE_CONTROL_FLAGS = JOB_OBJECT_IO_RATE_CONTROL_FLAGS(2i32);
-pub const JOB_OBJECT_IO_RATE_CONTROL_FORCE_UNIT_ACCESS_ALL: JOB_OBJECT_IO_RATE_CONTROL_FLAGS = JOB_OBJECT_IO_RATE_CONTROL_FLAGS(4i32);
-pub const JOB_OBJECT_IO_RATE_CONTROL_FORCE_UNIT_ACCESS_ON_SOFT_CAP: JOB_OBJECT_IO_RATE_CONTROL_FLAGS = JOB_OBJECT_IO_RATE_CONTROL_FLAGS(8i32);
-pub const JOB_OBJECT_IO_RATE_CONTROL_VALID_FLAGS: JOB_OBJECT_IO_RATE_CONTROL_FLAGS = JOB_OBJECT_IO_RATE_CONTROL_FLAGS(15i32);
-impl ::core::marker::Copy for JOB_OBJECT_IO_RATE_CONTROL_FLAGS {}
-impl ::core::clone::Clone for JOB_OBJECT_IO_RATE_CONTROL_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct JOB_OBJECT_LIMIT(pub u32);
-pub const JOB_OBJECT_LIMIT_WORKINGSET: JOB_OBJECT_LIMIT = JOB_OBJECT_LIMIT(1u32);
-pub const JOB_OBJECT_LIMIT_PROCESS_TIME: JOB_OBJECT_LIMIT = JOB_OBJECT_LIMIT(2u32);
-pub const JOB_OBJECT_LIMIT_JOB_TIME: JOB_OBJECT_LIMIT = JOB_OBJECT_LIMIT(4u32);
-pub const JOB_OBJECT_LIMIT_ACTIVE_PROCESS: JOB_OBJECT_LIMIT = JOB_OBJECT_LIMIT(8u32);
-pub const JOB_OBJECT_LIMIT_AFFINITY: JOB_OBJECT_LIMIT = JOB_OBJECT_LIMIT(16u32);
-pub const JOB_OBJECT_LIMIT_PRIORITY_CLASS: JOB_OBJECT_LIMIT = JOB_OBJECT_LIMIT(32u32);
-pub const JOB_OBJECT_LIMIT_PRESERVE_JOB_TIME: JOB_OBJECT_LIMIT = JOB_OBJECT_LIMIT(64u32);
-pub const JOB_OBJECT_LIMIT_SCHEDULING_CLASS: JOB_OBJECT_LIMIT = JOB_OBJECT_LIMIT(128u32);
-pub const JOB_OBJECT_LIMIT_PROCESS_MEMORY: JOB_OBJECT_LIMIT = JOB_OBJECT_LIMIT(256u32);
-pub const JOB_OBJECT_LIMIT_JOB_MEMORY: JOB_OBJECT_LIMIT = JOB_OBJECT_LIMIT(512u32);
-pub const JOB_OBJECT_LIMIT_JOB_MEMORY_HIGH: JOB_OBJECT_LIMIT = JOB_OBJECT_LIMIT(512u32);
-pub const JOB_OBJECT_LIMIT_DIE_ON_UNHANDLED_EXCEPTION: JOB_OBJECT_LIMIT = JOB_OBJECT_LIMIT(1024u32);
-pub const JOB_OBJECT_LIMIT_BREAKAWAY_OK: JOB_OBJECT_LIMIT = JOB_OBJECT_LIMIT(2048u32);
-pub const JOB_OBJECT_LIMIT_SILENT_BREAKAWAY_OK: JOB_OBJECT_LIMIT = JOB_OBJECT_LIMIT(4096u32);
-pub const JOB_OBJECT_LIMIT_KILL_ON_JOB_CLOSE: JOB_OBJECT_LIMIT = JOB_OBJECT_LIMIT(8192u32);
-pub const JOB_OBJECT_LIMIT_SUBSET_AFFINITY: JOB_OBJECT_LIMIT = JOB_OBJECT_LIMIT(16384u32);
-pub const JOB_OBJECT_LIMIT_JOB_MEMORY_LOW: JOB_OBJECT_LIMIT = JOB_OBJECT_LIMIT(32768u32);
-pub const JOB_OBJECT_LIMIT_JOB_READ_BYTES: JOB_OBJECT_LIMIT = JOB_OBJECT_LIMIT(65536u32);
-pub const JOB_OBJECT_LIMIT_JOB_WRITE_BYTES: JOB_OBJECT_LIMIT = JOB_OBJECT_LIMIT(131072u32);
-pub const JOB_OBJECT_LIMIT_RATE_CONTROL: JOB_OBJECT_LIMIT = JOB_OBJECT_LIMIT(262144u32);
-pub const JOB_OBJECT_LIMIT_CPU_RATE_CONTROL: JOB_OBJECT_LIMIT = JOB_OBJECT_LIMIT(262144u32);
-pub const JOB_OBJECT_LIMIT_IO_RATE_CONTROL: JOB_OBJECT_LIMIT = JOB_OBJECT_LIMIT(524288u32);
-pub const JOB_OBJECT_LIMIT_NET_RATE_CONTROL: JOB_OBJECT_LIMIT = JOB_OBJECT_LIMIT(1048576u32);
-pub const JOB_OBJECT_LIMIT_VALID_FLAGS: JOB_OBJECT_LIMIT = JOB_OBJECT_LIMIT(524287u32);
-pub const JOB_OBJECT_BASIC_LIMIT_VALID_FLAGS: JOB_OBJECT_LIMIT = JOB_OBJECT_LIMIT(255u32);
-pub const JOB_OBJECT_EXTENDED_LIMIT_VALID_FLAGS: JOB_OBJECT_LIMIT = JOB_OBJECT_LIMIT(32767u32);
-pub const JOB_OBJECT_NOTIFICATION_LIMIT_VALID_FLAGS: JOB_OBJECT_LIMIT = JOB_OBJECT_LIMIT(2064900u32);
-impl ::core::marker::Copy for JOB_OBJECT_LIMIT {}
-impl ::core::clone::Clone for JOB_OBJECT_LIMIT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct JOB_OBJECT_NET_RATE_CONTROL_FLAGS(pub i32);
-pub const JOB_OBJECT_NET_RATE_CONTROL_ENABLE: JOB_OBJECT_NET_RATE_CONTROL_FLAGS = JOB_OBJECT_NET_RATE_CONTROL_FLAGS(1i32);
-pub const JOB_OBJECT_NET_RATE_CONTROL_MAX_BANDWIDTH: JOB_OBJECT_NET_RATE_CONTROL_FLAGS = JOB_OBJECT_NET_RATE_CONTROL_FLAGS(2i32);
-pub const JOB_OBJECT_NET_RATE_CONTROL_DSCP_TAG: JOB_OBJECT_NET_RATE_CONTROL_FLAGS = JOB_OBJECT_NET_RATE_CONTROL_FLAGS(4i32);
-pub const JOB_OBJECT_NET_RATE_CONTROL_VALID_FLAGS: JOB_OBJECT_NET_RATE_CONTROL_FLAGS = JOB_OBJECT_NET_RATE_CONTROL_FLAGS(7i32);
-impl ::core::marker::Copy for JOB_OBJECT_NET_RATE_CONTROL_FLAGS {}
-impl ::core::clone::Clone for JOB_OBJECT_NET_RATE_CONTROL_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct JOB_OBJECT_SECURITY(pub u32);
-pub const JOB_OBJECT_SECURITY_NO_ADMIN: JOB_OBJECT_SECURITY = JOB_OBJECT_SECURITY(1u32);
-pub const JOB_OBJECT_SECURITY_RESTRICTED_TOKEN: JOB_OBJECT_SECURITY = JOB_OBJECT_SECURITY(2u32);
-pub const JOB_OBJECT_SECURITY_ONLY_TOKEN: JOB_OBJECT_SECURITY = JOB_OBJECT_SECURITY(4u32);
-pub const JOB_OBJECT_SECURITY_FILTER_TOKENS: JOB_OBJECT_SECURITY = JOB_OBJECT_SECURITY(8u32);
-pub const JOB_OBJECT_SECURITY_VALID_FLAGS: JOB_OBJECT_SECURITY = JOB_OBJECT_SECURITY(15u32);
-impl ::core::marker::Copy for JOB_OBJECT_SECURITY {}
-impl ::core::clone::Clone for JOB_OBJECT_SECURITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct JOB_OBJECT_TERMINATE_AT_END_ACTION(pub u32);
-pub const JOB_OBJECT_TERMINATE_AT_END_OF_JOB: JOB_OBJECT_TERMINATE_AT_END_ACTION = JOB_OBJECT_TERMINATE_AT_END_ACTION(0u32);
-pub const JOB_OBJECT_POST_AT_END_OF_JOB: JOB_OBJECT_TERMINATE_AT_END_ACTION = JOB_OBJECT_TERMINATE_AT_END_ACTION(1u32);
-impl ::core::marker::Copy for JOB_OBJECT_TERMINATE_AT_END_ACTION {}
-impl ::core::clone::Clone for JOB_OBJECT_TERMINATE_AT_END_ACTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct JOB_OBJECT_UILIMIT(pub u32);
-pub const JOB_OBJECT_UILIMIT_NONE: JOB_OBJECT_UILIMIT = JOB_OBJECT_UILIMIT(0u32);
-pub const JOB_OBJECT_UILIMIT_HANDLES: JOB_OBJECT_UILIMIT = JOB_OBJECT_UILIMIT(1u32);
-pub const JOB_OBJECT_UILIMIT_READCLIPBOARD: JOB_OBJECT_UILIMIT = JOB_OBJECT_UILIMIT(2u32);
-pub const JOB_OBJECT_UILIMIT_WRITECLIPBOARD: JOB_OBJECT_UILIMIT = JOB_OBJECT_UILIMIT(4u32);
-pub const JOB_OBJECT_UILIMIT_SYSTEMPARAMETERS: JOB_OBJECT_UILIMIT = JOB_OBJECT_UILIMIT(8u32);
-pub const JOB_OBJECT_UILIMIT_DISPLAYSETTINGS: JOB_OBJECT_UILIMIT = JOB_OBJECT_UILIMIT(16u32);
-pub const JOB_OBJECT_UILIMIT_GLOBALATOMS: JOB_OBJECT_UILIMIT = JOB_OBJECT_UILIMIT(32u32);
-pub const JOB_OBJECT_UILIMIT_DESKTOP: JOB_OBJECT_UILIMIT = JOB_OBJECT_UILIMIT(64u32);
-pub const JOB_OBJECT_UILIMIT_EXITWINDOWS: JOB_OBJECT_UILIMIT = JOB_OBJECT_UILIMIT(128u32);
-impl ::core::marker::Copy for JOB_OBJECT_UILIMIT {}
-impl ::core::clone::Clone for JOB_OBJECT_UILIMIT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const JOB_OBJECT_CPU_RATE_CONTROL_ENABLE: u32 = 1u32;
+pub const JOB_OBJECT_CPU_RATE_CONTROL_WEIGHT_BASED: u32 = 2u32;
+pub const JOB_OBJECT_CPU_RATE_CONTROL_HARD_CAP: u32 = 4u32;
+pub const JOB_OBJECT_CPU_RATE_CONTROL_NOTIFY: u32 = 8u32;
+pub const JOB_OBJECT__CPU_RATE_CONTROL_MIN_MAX_RATE: u32 = 16u32;
+pub const JOB_OBJECT_IO_RATE_CONTROL_ENABLE: i32 = 1i32;
+pub const JOB_OBJECT_IO_RATE_CONTROL_STANDALONE_VOLUME: i32 = 2i32;
+pub const JOB_OBJECT_IO_RATE_CONTROL_FORCE_UNIT_ACCESS_ALL: i32 = 4i32;
+pub const JOB_OBJECT_IO_RATE_CONTROL_FORCE_UNIT_ACCESS_ON_SOFT_CAP: i32 = 8i32;
+pub const JOB_OBJECT_IO_RATE_CONTROL_VALID_FLAGS: i32 = 15i32;
+pub const JOB_OBJECT_LIMIT_WORKINGSET: u32 = 1u32;
+pub const JOB_OBJECT_LIMIT_PROCESS_TIME: u32 = 2u32;
+pub const JOB_OBJECT_LIMIT_JOB_TIME: u32 = 4u32;
+pub const JOB_OBJECT_LIMIT_ACTIVE_PROCESS: u32 = 8u32;
+pub const JOB_OBJECT_LIMIT_AFFINITY: u32 = 16u32;
+pub const JOB_OBJECT_LIMIT_PRIORITY_CLASS: u32 = 32u32;
+pub const JOB_OBJECT_LIMIT_PRESERVE_JOB_TIME: u32 = 64u32;
+pub const JOB_OBJECT_LIMIT_SCHEDULING_CLASS: u32 = 128u32;
+pub const JOB_OBJECT_LIMIT_PROCESS_MEMORY: u32 = 256u32;
+pub const JOB_OBJECT_LIMIT_JOB_MEMORY: u32 = 512u32;
+pub const JOB_OBJECT_LIMIT_JOB_MEMORY_HIGH: u32 = 512u32;
+pub const JOB_OBJECT_LIMIT_DIE_ON_UNHANDLED_EXCEPTION: u32 = 1024u32;
+pub const JOB_OBJECT_LIMIT_BREAKAWAY_OK: u32 = 2048u32;
+pub const JOB_OBJECT_LIMIT_SILENT_BREAKAWAY_OK: u32 = 4096u32;
+pub const JOB_OBJECT_LIMIT_KILL_ON_JOB_CLOSE: u32 = 8192u32;
+pub const JOB_OBJECT_LIMIT_SUBSET_AFFINITY: u32 = 16384u32;
+pub const JOB_OBJECT_LIMIT_JOB_MEMORY_LOW: u32 = 32768u32;
+pub const JOB_OBJECT_LIMIT_JOB_READ_BYTES: u32 = 65536u32;
+pub const JOB_OBJECT_LIMIT_JOB_WRITE_BYTES: u32 = 131072u32;
+pub const JOB_OBJECT_LIMIT_RATE_CONTROL: u32 = 262144u32;
+pub const JOB_OBJECT_LIMIT_CPU_RATE_CONTROL: u32 = 262144u32;
+pub const JOB_OBJECT_LIMIT_IO_RATE_CONTROL: u32 = 524288u32;
+pub const JOB_OBJECT_LIMIT_NET_RATE_CONTROL: u32 = 1048576u32;
+pub const JOB_OBJECT_LIMIT_VALID_FLAGS: u32 = 524287u32;
+pub const JOB_OBJECT_BASIC_LIMIT_VALID_FLAGS: u32 = 255u32;
+pub const JOB_OBJECT_EXTENDED_LIMIT_VALID_FLAGS: u32 = 32767u32;
+pub const JOB_OBJECT_NOTIFICATION_LIMIT_VALID_FLAGS: u32 = 2064900u32;
+pub const JOB_OBJECT_NET_RATE_CONTROL_ENABLE: i32 = 1i32;
+pub const JOB_OBJECT_NET_RATE_CONTROL_MAX_BANDWIDTH: i32 = 2i32;
+pub const JOB_OBJECT_NET_RATE_CONTROL_DSCP_TAG: i32 = 4i32;
+pub const JOB_OBJECT_NET_RATE_CONTROL_VALID_FLAGS: i32 = 7i32;
+pub const JOB_OBJECT_SECURITY_NO_ADMIN: u32 = 1u32;
+pub const JOB_OBJECT_SECURITY_RESTRICTED_TOKEN: u32 = 2u32;
+pub const JOB_OBJECT_SECURITY_ONLY_TOKEN: u32 = 4u32;
+pub const JOB_OBJECT_SECURITY_FILTER_TOKENS: u32 = 8u32;
+pub const JOB_OBJECT_SECURITY_VALID_FLAGS: u32 = 15u32;
+pub const JOB_OBJECT_TERMINATE_AT_END_OF_JOB: u32 = 0u32;
+pub const JOB_OBJECT_POST_AT_END_OF_JOB: u32 = 1u32;
+pub const JOB_OBJECT_UILIMIT_NONE: u32 = 0u32;
+pub const JOB_OBJECT_UILIMIT_HANDLES: u32 = 1u32;
+pub const JOB_OBJECT_UILIMIT_READCLIPBOARD: u32 = 2u32;
+pub const JOB_OBJECT_UILIMIT_WRITECLIPBOARD: u32 = 4u32;
+pub const JOB_OBJECT_UILIMIT_SYSTEMPARAMETERS: u32 = 8u32;
+pub const JOB_OBJECT_UILIMIT_DISPLAYSETTINGS: u32 = 16u32;
+pub const JOB_OBJECT_UILIMIT_GLOBALATOMS: u32 = 32u32;
+pub const JOB_OBJECT_UILIMIT_DESKTOP: u32 = 64u32;
+pub const JOB_OBJECT_UILIMIT_EXITWINDOWS: u32 = 128u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct JOB_SET_ARRAY {

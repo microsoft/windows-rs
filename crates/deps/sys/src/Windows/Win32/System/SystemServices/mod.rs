@@ -29,32 +29,24 @@ pub const ACCESS_PROPERTY_SET_GUID: u32 = 1u32;
 pub const ACCESS_REASON_DATA_MASK: u32 = 65535u32;
 pub const ACCESS_REASON_EXDATA_MASK: u32 = 2130706432u32;
 pub const ACCESS_REASON_STAGING_MASK: u32 = 2147483648u32;
-#[repr(transparent)]
-pub struct ACCESS_REASON_TYPE(pub i32);
-pub const AccessReasonNone: ACCESS_REASON_TYPE = ACCESS_REASON_TYPE(0i32);
-pub const AccessReasonAllowedAce: ACCESS_REASON_TYPE = ACCESS_REASON_TYPE(65536i32);
-pub const AccessReasonDeniedAce: ACCESS_REASON_TYPE = ACCESS_REASON_TYPE(131072i32);
-pub const AccessReasonAllowedParentAce: ACCESS_REASON_TYPE = ACCESS_REASON_TYPE(196608i32);
-pub const AccessReasonDeniedParentAce: ACCESS_REASON_TYPE = ACCESS_REASON_TYPE(262144i32);
-pub const AccessReasonNotGrantedByCape: ACCESS_REASON_TYPE = ACCESS_REASON_TYPE(327680i32);
-pub const AccessReasonNotGrantedByParentCape: ACCESS_REASON_TYPE = ACCESS_REASON_TYPE(393216i32);
-pub const AccessReasonNotGrantedToAppContainer: ACCESS_REASON_TYPE = ACCESS_REASON_TYPE(458752i32);
-pub const AccessReasonMissingPrivilege: ACCESS_REASON_TYPE = ACCESS_REASON_TYPE(1048576i32);
-pub const AccessReasonFromPrivilege: ACCESS_REASON_TYPE = ACCESS_REASON_TYPE(2097152i32);
-pub const AccessReasonIntegrityLevel: ACCESS_REASON_TYPE = ACCESS_REASON_TYPE(3145728i32);
-pub const AccessReasonOwnership: ACCESS_REASON_TYPE = ACCESS_REASON_TYPE(4194304i32);
-pub const AccessReasonNullDacl: ACCESS_REASON_TYPE = ACCESS_REASON_TYPE(5242880i32);
-pub const AccessReasonEmptyDacl: ACCESS_REASON_TYPE = ACCESS_REASON_TYPE(6291456i32);
-pub const AccessReasonNoSD: ACCESS_REASON_TYPE = ACCESS_REASON_TYPE(7340032i32);
-pub const AccessReasonNoGrant: ACCESS_REASON_TYPE = ACCESS_REASON_TYPE(8388608i32);
-pub const AccessReasonTrustLabel: ACCESS_REASON_TYPE = ACCESS_REASON_TYPE(9437184i32);
-pub const AccessReasonFilterAce: ACCESS_REASON_TYPE = ACCESS_REASON_TYPE(10485760i32);
-impl ::core::marker::Copy for ACCESS_REASON_TYPE {}
-impl ::core::clone::Clone for ACCESS_REASON_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const AccessReasonNone: i32 = 0i32;
+pub const AccessReasonAllowedAce: i32 = 65536i32;
+pub const AccessReasonDeniedAce: i32 = 131072i32;
+pub const AccessReasonAllowedParentAce: i32 = 196608i32;
+pub const AccessReasonDeniedParentAce: i32 = 262144i32;
+pub const AccessReasonNotGrantedByCape: i32 = 327680i32;
+pub const AccessReasonNotGrantedByParentCape: i32 = 393216i32;
+pub const AccessReasonNotGrantedToAppContainer: i32 = 458752i32;
+pub const AccessReasonMissingPrivilege: i32 = 1048576i32;
+pub const AccessReasonFromPrivilege: i32 = 2097152i32;
+pub const AccessReasonIntegrityLevel: i32 = 3145728i32;
+pub const AccessReasonOwnership: i32 = 4194304i32;
+pub const AccessReasonNullDacl: i32 = 5242880i32;
+pub const AccessReasonEmptyDacl: i32 = 6291456i32;
+pub const AccessReasonNoSD: i32 = 7340032i32;
+pub const AccessReasonNoGrant: i32 = 8388608i32;
+pub const AccessReasonTrustLabel: i32 = 9437184i32;
+pub const AccessReasonFilterAce: i32 = 10485760i32;
 pub const ACCESS_REASON_TYPE_MASK: u32 = 16711680u32;
 pub const ACCESS_SYSTEM_SECURITY: u32 = 16777216u32;
 pub const ACL_REVISION1: u32 = 1u32;
@@ -64,24 +56,16 @@ pub const ACL_REVISION4: u32 = 4u32;
 pub const ACPI_PPM_HARDWARE_ALL: u32 = 254u32;
 pub const ACPI_PPM_SOFTWARE_ALL: u32 = 252u32;
 pub const ACPI_PPM_SOFTWARE_ANY: u32 = 253u32;
-#[repr(transparent)]
-pub struct ACTIVATION_CONTEXT_INFO_CLASS(pub i32);
-pub const ActivationContextBasicInformation: ACTIVATION_CONTEXT_INFO_CLASS = ACTIVATION_CONTEXT_INFO_CLASS(1i32);
-pub const ActivationContextDetailedInformation: ACTIVATION_CONTEXT_INFO_CLASS = ACTIVATION_CONTEXT_INFO_CLASS(2i32);
-pub const AssemblyDetailedInformationInActivationContext: ACTIVATION_CONTEXT_INFO_CLASS = ACTIVATION_CONTEXT_INFO_CLASS(3i32);
-pub const FileInformationInAssemblyOfAssemblyInActivationContext: ACTIVATION_CONTEXT_INFO_CLASS = ACTIVATION_CONTEXT_INFO_CLASS(4i32);
-pub const RunlevelInformationInActivationContext: ACTIVATION_CONTEXT_INFO_CLASS = ACTIVATION_CONTEXT_INFO_CLASS(5i32);
-pub const CompatibilityInformationInActivationContext: ACTIVATION_CONTEXT_INFO_CLASS = ACTIVATION_CONTEXT_INFO_CLASS(6i32);
-pub const ActivationContextManifestResourceName: ACTIVATION_CONTEXT_INFO_CLASS = ACTIVATION_CONTEXT_INFO_CLASS(7i32);
-pub const MaxActivationContextInfoClass: ACTIVATION_CONTEXT_INFO_CLASS = ACTIVATION_CONTEXT_INFO_CLASS(8i32);
-pub const AssemblyDetailedInformationInActivationContxt: ACTIVATION_CONTEXT_INFO_CLASS = ACTIVATION_CONTEXT_INFO_CLASS(3i32);
-pub const FileInformationInAssemblyOfAssemblyInActivationContxt: ACTIVATION_CONTEXT_INFO_CLASS = ACTIVATION_CONTEXT_INFO_CLASS(4i32);
-impl ::core::marker::Copy for ACTIVATION_CONTEXT_INFO_CLASS {}
-impl ::core::clone::Clone for ACTIVATION_CONTEXT_INFO_CLASS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const ActivationContextBasicInformation: i32 = 1i32;
+pub const ActivationContextDetailedInformation: i32 = 2i32;
+pub const AssemblyDetailedInformationInActivationContext: i32 = 3i32;
+pub const FileInformationInAssemblyOfAssemblyInActivationContext: i32 = 4i32;
+pub const RunlevelInformationInActivationContext: i32 = 5i32;
+pub const CompatibilityInformationInActivationContext: i32 = 6i32;
+pub const ActivationContextManifestResourceName: i32 = 7i32;
+pub const MaxActivationContextInfoClass: i32 = 8i32;
+pub const AssemblyDetailedInformationInActivationContxt: i32 = 3i32;
+pub const FileInformationInAssemblyOfAssemblyInActivationContxt: i32 = 4i32;
 pub const ACTIVATION_CONTEXT_PATH_TYPE_ASSEMBLYREF: u32 = 4u32;
 pub const ACTIVATION_CONTEXT_PATH_TYPE_NONE: u32 = 1u32;
 pub const ACTIVATION_CONTEXT_PATH_TYPE_URL: u32 = 3u32;
@@ -98,19 +82,11 @@ pub const ACTIVATION_CONTEXT_SECTION_DLL_REDIRECTION: u32 = 2u32;
 pub const ACTIVATION_CONTEXT_SECTION_GLOBAL_OBJECT_RENAME_TABLE: u32 = 8u32;
 pub const ACTIVATION_CONTEXT_SECTION_WINDOW_CLASS_REDIRECTION: u32 = 3u32;
 pub const ACTIVATION_CONTEXT_SECTION_WINRT_ACTIVATABLE_CLASSES: u32 = 12u32;
-#[repr(transparent)]
-pub struct ALERT_SYSTEM_SEV(pub u32);
-pub const ALERT_SYSTEM_INFORMATIONAL: ALERT_SYSTEM_SEV = ALERT_SYSTEM_SEV(1u32);
-pub const ALERT_SYSTEM_WARNING: ALERT_SYSTEM_SEV = ALERT_SYSTEM_SEV(2u32);
-pub const ALERT_SYSTEM_ERROR: ALERT_SYSTEM_SEV = ALERT_SYSTEM_SEV(3u32);
-pub const ALERT_SYSTEM_QUERY: ALERT_SYSTEM_SEV = ALERT_SYSTEM_SEV(4u32);
-pub const ALERT_SYSTEM_CRITICAL: ALERT_SYSTEM_SEV = ALERT_SYSTEM_SEV(5u32);
-impl ::core::marker::Copy for ALERT_SYSTEM_SEV {}
-impl ::core::clone::Clone for ALERT_SYSTEM_SEV {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const ALERT_SYSTEM_INFORMATIONAL: u32 = 1u32;
+pub const ALERT_SYSTEM_WARNING: u32 = 2u32;
+pub const ALERT_SYSTEM_ERROR: u32 = 3u32;
+pub const ALERT_SYSTEM_QUERY: u32 = 4u32;
+pub const ALERT_SYSTEM_CRITICAL: u32 = 5u32;
 pub const ALL_POWERSCHEMES_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1755441502, data2: 5098, data3: 16865, data4: [128, 17, 12, 73, 108, 164, 144, 176] };
 pub const ALL_PROCESSOR_GROUPS: u32 = 65535u32;
 #[repr(C)]
@@ -172,68 +148,60 @@ impl ::core::clone::Clone for ANON_OBJECT_HEADER_V2 {
 }
 pub const ANYSIZE_ARRAY: u32 = 1u32;
 pub type APC_CALLBACK_FUNCTION = unsafe extern "system" fn(param0: u32, param1: *mut ::core::ffi::c_void, param2: *mut ::core::ffi::c_void);
-#[repr(transparent)]
-pub struct APPCOMMAND_ID(pub u32);
-pub const APPCOMMAND_BROWSER_BACKWARD: APPCOMMAND_ID = APPCOMMAND_ID(1u32);
-pub const APPCOMMAND_BROWSER_FORWARD: APPCOMMAND_ID = APPCOMMAND_ID(2u32);
-pub const APPCOMMAND_BROWSER_REFRESH: APPCOMMAND_ID = APPCOMMAND_ID(3u32);
-pub const APPCOMMAND_BROWSER_STOP: APPCOMMAND_ID = APPCOMMAND_ID(4u32);
-pub const APPCOMMAND_BROWSER_SEARCH: APPCOMMAND_ID = APPCOMMAND_ID(5u32);
-pub const APPCOMMAND_BROWSER_FAVORITES: APPCOMMAND_ID = APPCOMMAND_ID(6u32);
-pub const APPCOMMAND_BROWSER_HOME: APPCOMMAND_ID = APPCOMMAND_ID(7u32);
-pub const APPCOMMAND_VOLUME_MUTE: APPCOMMAND_ID = APPCOMMAND_ID(8u32);
-pub const APPCOMMAND_VOLUME_DOWN: APPCOMMAND_ID = APPCOMMAND_ID(9u32);
-pub const APPCOMMAND_VOLUME_UP: APPCOMMAND_ID = APPCOMMAND_ID(10u32);
-pub const APPCOMMAND_MEDIA_NEXTTRACK: APPCOMMAND_ID = APPCOMMAND_ID(11u32);
-pub const APPCOMMAND_MEDIA_PREVIOUSTRACK: APPCOMMAND_ID = APPCOMMAND_ID(12u32);
-pub const APPCOMMAND_MEDIA_STOP: APPCOMMAND_ID = APPCOMMAND_ID(13u32);
-pub const APPCOMMAND_MEDIA_PLAY_PAUSE: APPCOMMAND_ID = APPCOMMAND_ID(14u32);
-pub const APPCOMMAND_LAUNCH_MAIL: APPCOMMAND_ID = APPCOMMAND_ID(15u32);
-pub const APPCOMMAND_LAUNCH_MEDIA_SELECT: APPCOMMAND_ID = APPCOMMAND_ID(16u32);
-pub const APPCOMMAND_LAUNCH_APP1: APPCOMMAND_ID = APPCOMMAND_ID(17u32);
-pub const APPCOMMAND_LAUNCH_APP2: APPCOMMAND_ID = APPCOMMAND_ID(18u32);
-pub const APPCOMMAND_BASS_DOWN: APPCOMMAND_ID = APPCOMMAND_ID(19u32);
-pub const APPCOMMAND_BASS_BOOST: APPCOMMAND_ID = APPCOMMAND_ID(20u32);
-pub const APPCOMMAND_BASS_UP: APPCOMMAND_ID = APPCOMMAND_ID(21u32);
-pub const APPCOMMAND_TREBLE_DOWN: APPCOMMAND_ID = APPCOMMAND_ID(22u32);
-pub const APPCOMMAND_TREBLE_UP: APPCOMMAND_ID = APPCOMMAND_ID(23u32);
-pub const APPCOMMAND_MICROPHONE_VOLUME_MUTE: APPCOMMAND_ID = APPCOMMAND_ID(24u32);
-pub const APPCOMMAND_MICROPHONE_VOLUME_DOWN: APPCOMMAND_ID = APPCOMMAND_ID(25u32);
-pub const APPCOMMAND_MICROPHONE_VOLUME_UP: APPCOMMAND_ID = APPCOMMAND_ID(26u32);
-pub const APPCOMMAND_HELP: APPCOMMAND_ID = APPCOMMAND_ID(27u32);
-pub const APPCOMMAND_FIND: APPCOMMAND_ID = APPCOMMAND_ID(28u32);
-pub const APPCOMMAND_NEW: APPCOMMAND_ID = APPCOMMAND_ID(29u32);
-pub const APPCOMMAND_OPEN: APPCOMMAND_ID = APPCOMMAND_ID(30u32);
-pub const APPCOMMAND_CLOSE: APPCOMMAND_ID = APPCOMMAND_ID(31u32);
-pub const APPCOMMAND_SAVE: APPCOMMAND_ID = APPCOMMAND_ID(32u32);
-pub const APPCOMMAND_PRINT: APPCOMMAND_ID = APPCOMMAND_ID(33u32);
-pub const APPCOMMAND_UNDO: APPCOMMAND_ID = APPCOMMAND_ID(34u32);
-pub const APPCOMMAND_REDO: APPCOMMAND_ID = APPCOMMAND_ID(35u32);
-pub const APPCOMMAND_COPY: APPCOMMAND_ID = APPCOMMAND_ID(36u32);
-pub const APPCOMMAND_CUT: APPCOMMAND_ID = APPCOMMAND_ID(37u32);
-pub const APPCOMMAND_PASTE: APPCOMMAND_ID = APPCOMMAND_ID(38u32);
-pub const APPCOMMAND_REPLY_TO_MAIL: APPCOMMAND_ID = APPCOMMAND_ID(39u32);
-pub const APPCOMMAND_FORWARD_MAIL: APPCOMMAND_ID = APPCOMMAND_ID(40u32);
-pub const APPCOMMAND_SEND_MAIL: APPCOMMAND_ID = APPCOMMAND_ID(41u32);
-pub const APPCOMMAND_SPELL_CHECK: APPCOMMAND_ID = APPCOMMAND_ID(42u32);
-pub const APPCOMMAND_DICTATE_OR_COMMAND_CONTROL_TOGGLE: APPCOMMAND_ID = APPCOMMAND_ID(43u32);
-pub const APPCOMMAND_MIC_ON_OFF_TOGGLE: APPCOMMAND_ID = APPCOMMAND_ID(44u32);
-pub const APPCOMMAND_CORRECTION_LIST: APPCOMMAND_ID = APPCOMMAND_ID(45u32);
-pub const APPCOMMAND_MEDIA_PLAY: APPCOMMAND_ID = APPCOMMAND_ID(46u32);
-pub const APPCOMMAND_MEDIA_PAUSE: APPCOMMAND_ID = APPCOMMAND_ID(47u32);
-pub const APPCOMMAND_MEDIA_RECORD: APPCOMMAND_ID = APPCOMMAND_ID(48u32);
-pub const APPCOMMAND_MEDIA_FAST_FORWARD: APPCOMMAND_ID = APPCOMMAND_ID(49u32);
-pub const APPCOMMAND_MEDIA_REWIND: APPCOMMAND_ID = APPCOMMAND_ID(50u32);
-pub const APPCOMMAND_MEDIA_CHANNEL_UP: APPCOMMAND_ID = APPCOMMAND_ID(51u32);
-pub const APPCOMMAND_MEDIA_CHANNEL_DOWN: APPCOMMAND_ID = APPCOMMAND_ID(52u32);
-pub const APPCOMMAND_DELETE: APPCOMMAND_ID = APPCOMMAND_ID(53u32);
-pub const APPCOMMAND_DWM_FLIP3D: APPCOMMAND_ID = APPCOMMAND_ID(54u32);
-impl ::core::marker::Copy for APPCOMMAND_ID {}
-impl ::core::clone::Clone for APPCOMMAND_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const APPCOMMAND_BROWSER_BACKWARD: u32 = 1u32;
+pub const APPCOMMAND_BROWSER_FORWARD: u32 = 2u32;
+pub const APPCOMMAND_BROWSER_REFRESH: u32 = 3u32;
+pub const APPCOMMAND_BROWSER_STOP: u32 = 4u32;
+pub const APPCOMMAND_BROWSER_SEARCH: u32 = 5u32;
+pub const APPCOMMAND_BROWSER_FAVORITES: u32 = 6u32;
+pub const APPCOMMAND_BROWSER_HOME: u32 = 7u32;
+pub const APPCOMMAND_VOLUME_MUTE: u32 = 8u32;
+pub const APPCOMMAND_VOLUME_DOWN: u32 = 9u32;
+pub const APPCOMMAND_VOLUME_UP: u32 = 10u32;
+pub const APPCOMMAND_MEDIA_NEXTTRACK: u32 = 11u32;
+pub const APPCOMMAND_MEDIA_PREVIOUSTRACK: u32 = 12u32;
+pub const APPCOMMAND_MEDIA_STOP: u32 = 13u32;
+pub const APPCOMMAND_MEDIA_PLAY_PAUSE: u32 = 14u32;
+pub const APPCOMMAND_LAUNCH_MAIL: u32 = 15u32;
+pub const APPCOMMAND_LAUNCH_MEDIA_SELECT: u32 = 16u32;
+pub const APPCOMMAND_LAUNCH_APP1: u32 = 17u32;
+pub const APPCOMMAND_LAUNCH_APP2: u32 = 18u32;
+pub const APPCOMMAND_BASS_DOWN: u32 = 19u32;
+pub const APPCOMMAND_BASS_BOOST: u32 = 20u32;
+pub const APPCOMMAND_BASS_UP: u32 = 21u32;
+pub const APPCOMMAND_TREBLE_DOWN: u32 = 22u32;
+pub const APPCOMMAND_TREBLE_UP: u32 = 23u32;
+pub const APPCOMMAND_MICROPHONE_VOLUME_MUTE: u32 = 24u32;
+pub const APPCOMMAND_MICROPHONE_VOLUME_DOWN: u32 = 25u32;
+pub const APPCOMMAND_MICROPHONE_VOLUME_UP: u32 = 26u32;
+pub const APPCOMMAND_HELP: u32 = 27u32;
+pub const APPCOMMAND_FIND: u32 = 28u32;
+pub const APPCOMMAND_NEW: u32 = 29u32;
+pub const APPCOMMAND_OPEN: u32 = 30u32;
+pub const APPCOMMAND_CLOSE: u32 = 31u32;
+pub const APPCOMMAND_SAVE: u32 = 32u32;
+pub const APPCOMMAND_PRINT: u32 = 33u32;
+pub const APPCOMMAND_UNDO: u32 = 34u32;
+pub const APPCOMMAND_REDO: u32 = 35u32;
+pub const APPCOMMAND_COPY: u32 = 36u32;
+pub const APPCOMMAND_CUT: u32 = 37u32;
+pub const APPCOMMAND_PASTE: u32 = 38u32;
+pub const APPCOMMAND_REPLY_TO_MAIL: u32 = 39u32;
+pub const APPCOMMAND_FORWARD_MAIL: u32 = 40u32;
+pub const APPCOMMAND_SEND_MAIL: u32 = 41u32;
+pub const APPCOMMAND_SPELL_CHECK: u32 = 42u32;
+pub const APPCOMMAND_DICTATE_OR_COMMAND_CONTROL_TOGGLE: u32 = 43u32;
+pub const APPCOMMAND_MIC_ON_OFF_TOGGLE: u32 = 44u32;
+pub const APPCOMMAND_CORRECTION_LIST: u32 = 45u32;
+pub const APPCOMMAND_MEDIA_PLAY: u32 = 46u32;
+pub const APPCOMMAND_MEDIA_PAUSE: u32 = 47u32;
+pub const APPCOMMAND_MEDIA_RECORD: u32 = 48u32;
+pub const APPCOMMAND_MEDIA_FAST_FORWARD: u32 = 49u32;
+pub const APPCOMMAND_MEDIA_REWIND: u32 = 50u32;
+pub const APPCOMMAND_MEDIA_CHANNEL_UP: u32 = 51u32;
+pub const APPCOMMAND_MEDIA_CHANNEL_DOWN: u32 = 52u32;
+pub const APPCOMMAND_DELETE: u32 = 53u32;
+pub const APPCOMMAND_DWM_FLIP3D: u32 = 54u32;
 #[repr(C)]
 pub struct APPLICATIONLAUNCH_SETTING_VALUE {
     pub ActivationTime: i64,
@@ -247,29 +215,13 @@ impl ::core::clone::Clone for APPLICATIONLAUNCH_SETTING_VALUE {
     }
 }
 pub const APPLICATION_ERROR_MASK: u32 = 536870912u32;
-#[repr(transparent)]
-pub struct ARM64_FNPDATA_CR(pub i32);
-pub const PdataCrUnchained: ARM64_FNPDATA_CR = ARM64_FNPDATA_CR(0i32);
-pub const PdataCrUnchainedSavedLr: ARM64_FNPDATA_CR = ARM64_FNPDATA_CR(1i32);
-pub const PdataCrChainedWithPac: ARM64_FNPDATA_CR = ARM64_FNPDATA_CR(2i32);
-pub const PdataCrChained: ARM64_FNPDATA_CR = ARM64_FNPDATA_CR(3i32);
-impl ::core::marker::Copy for ARM64_FNPDATA_CR {}
-impl ::core::clone::Clone for ARM64_FNPDATA_CR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ARM64_FNPDATA_FLAGS(pub i32);
-pub const PdataRefToFullXdata: ARM64_FNPDATA_FLAGS = ARM64_FNPDATA_FLAGS(0i32);
-pub const PdataPackedUnwindFunction: ARM64_FNPDATA_FLAGS = ARM64_FNPDATA_FLAGS(1i32);
-pub const PdataPackedUnwindFragment: ARM64_FNPDATA_FLAGS = ARM64_FNPDATA_FLAGS(2i32);
-impl ::core::marker::Copy for ARM64_FNPDATA_FLAGS {}
-impl ::core::clone::Clone for ARM64_FNPDATA_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const PdataCrUnchained: i32 = 0i32;
+pub const PdataCrUnchainedSavedLr: i32 = 1i32;
+pub const PdataCrChainedWithPac: i32 = 2i32;
+pub const PdataCrChained: i32 = 3i32;
+pub const PdataRefToFullXdata: i32 = 0i32;
+pub const PdataPackedUnwindFunction: i32 = 1i32;
+pub const PdataPackedUnwindFragment: i32 = 2i32;
 pub const ARM64_MAX_BREAKPOINTS: u32 = 8u32;
 pub const ARM64_MAX_WATCHPOINTS: u32 = 2u32;
 pub const ARM64_MULT_INTRINSICS_SUPPORTED: u32 = 1u32;
@@ -285,16 +237,8 @@ pub const ARM_CACHE_ALIGNMENT_SIZE: u32 = 128u32;
 pub const ARM_MAX_BREAKPOINTS: u32 = 8u32;
 pub const ARM_MAX_WATCHPOINTS: u32 = 1u32;
 pub const ASSERT_BREAKPOINT: u32 = 524291u32;
-#[repr(transparent)]
-pub struct ATF_FLAGS(pub u32);
-pub const ATF_TIMEOUTON: ATF_FLAGS = ATF_FLAGS(1u32);
-pub const ATF_ONOFFFEEDBACK: ATF_FLAGS = ATF_FLAGS(2u32);
-impl ::core::marker::Copy for ATF_FLAGS {}
-impl ::core::clone::Clone for ATF_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const ATF_TIMEOUTON: u32 = 1u32;
+pub const ATF_ONOFFFEEDBACK: u32 = 2u32;
 pub const AUDIT_ALLOW_NO_PRIVILEGE: u32 = 1u32;
 #[repr(C)]
 pub struct AtlThunkData_t(pub u8);
@@ -304,137 +248,89 @@ pub const BREAK_DEBUG_BASE: u32 = 524288u32;
 pub const BSF_MSGSRV32ISOK: u32 = 2147483648u32;
 pub const BSF_MSGSRV32ISOK_BIT: u32 = 31u32;
 pub const CACHE_FULLY_ASSOCIATIVE: u32 = 255u32;
-#[repr(transparent)]
-pub struct CFE_UNDERLINE(pub u32);
-pub const CFU_CF1UNDERLINE: CFE_UNDERLINE = CFE_UNDERLINE(255u32);
-pub const CFU_INVERT: CFE_UNDERLINE = CFE_UNDERLINE(254u32);
-pub const CFU_UNDERLINETHICKLONGDASH: CFE_UNDERLINE = CFE_UNDERLINE(18u32);
-pub const CFU_UNDERLINETHICKDOTTED: CFE_UNDERLINE = CFE_UNDERLINE(17u32);
-pub const CFU_UNDERLINETHICKDASHDOTDOT: CFE_UNDERLINE = CFE_UNDERLINE(16u32);
-pub const CFU_UNDERLINETHICKDASHDOT: CFE_UNDERLINE = CFE_UNDERLINE(15u32);
-pub const CFU_UNDERLINETHICKDASH: CFE_UNDERLINE = CFE_UNDERLINE(14u32);
-pub const CFU_UNDERLINELONGDASH: CFE_UNDERLINE = CFE_UNDERLINE(13u32);
-pub const CFU_UNDERLINEHEAVYWAVE: CFE_UNDERLINE = CFE_UNDERLINE(12u32);
-pub const CFU_UNDERLINEDOUBLEWAVE: CFE_UNDERLINE = CFE_UNDERLINE(11u32);
-pub const CFU_UNDERLINEHAIRLINE: CFE_UNDERLINE = CFE_UNDERLINE(10u32);
-pub const CFU_UNDERLINETHICK: CFE_UNDERLINE = CFE_UNDERLINE(9u32);
-pub const CFU_UNDERLINEWAVE: CFE_UNDERLINE = CFE_UNDERLINE(8u32);
-pub const CFU_UNDERLINEDASHDOTDOT: CFE_UNDERLINE = CFE_UNDERLINE(7u32);
-pub const CFU_UNDERLINEDASHDOT: CFE_UNDERLINE = CFE_UNDERLINE(6u32);
-pub const CFU_UNDERLINEDASH: CFE_UNDERLINE = CFE_UNDERLINE(5u32);
-pub const CFU_UNDERLINEDOTTED: CFE_UNDERLINE = CFE_UNDERLINE(4u32);
-pub const CFU_UNDERLINEDOUBLE: CFE_UNDERLINE = CFE_UNDERLINE(3u32);
-pub const CFU_UNDERLINEWORD: CFE_UNDERLINE = CFE_UNDERLINE(2u32);
-pub const CFU_UNDERLINE: CFE_UNDERLINE = CFE_UNDERLINE(1u32);
-pub const CFU_UNDERLINENONE: CFE_UNDERLINE = CFE_UNDERLINE(0u32);
-impl ::core::marker::Copy for CFE_UNDERLINE {}
-impl ::core::clone::Clone for CFE_UNDERLINE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const CFU_CF1UNDERLINE: u32 = 255u32;
+pub const CFU_INVERT: u32 = 254u32;
+pub const CFU_UNDERLINETHICKLONGDASH: u32 = 18u32;
+pub const CFU_UNDERLINETHICKDOTTED: u32 = 17u32;
+pub const CFU_UNDERLINETHICKDASHDOTDOT: u32 = 16u32;
+pub const CFU_UNDERLINETHICKDASHDOT: u32 = 15u32;
+pub const CFU_UNDERLINETHICKDASH: u32 = 14u32;
+pub const CFU_UNDERLINELONGDASH: u32 = 13u32;
+pub const CFU_UNDERLINEHEAVYWAVE: u32 = 12u32;
+pub const CFU_UNDERLINEDOUBLEWAVE: u32 = 11u32;
+pub const CFU_UNDERLINEHAIRLINE: u32 = 10u32;
+pub const CFU_UNDERLINETHICK: u32 = 9u32;
+pub const CFU_UNDERLINEWAVE: u32 = 8u32;
+pub const CFU_UNDERLINEDASHDOTDOT: u32 = 7u32;
+pub const CFU_UNDERLINEDASHDOT: u32 = 6u32;
+pub const CFU_UNDERLINEDASH: u32 = 5u32;
+pub const CFU_UNDERLINEDOTTED: u32 = 4u32;
+pub const CFU_UNDERLINEDOUBLE: u32 = 3u32;
+pub const CFU_UNDERLINEWORD: u32 = 2u32;
+pub const CFU_UNDERLINE: u32 = 1u32;
+pub const CFU_UNDERLINENONE: u32 = 0u32;
 pub const CFG_CALL_TARGET_CONVERT_EXPORT_SUPPRESSED_TO_VALID: u32 = 4u32;
 pub const CFG_CALL_TARGET_CONVERT_XFG_TO_CFG: u32 = 16u32;
 pub const CFG_CALL_TARGET_PROCESSED: u32 = 2u32;
 pub const CFG_CALL_TARGET_VALID: u32 = 1u32;
 pub const CFG_CALL_TARGET_VALID_XFG: u32 = 8u32;
-#[repr(transparent)]
-pub struct CHOOSECOLOR_FLAGS(pub u32);
-pub const CC_RGBINIT: CHOOSECOLOR_FLAGS = CHOOSECOLOR_FLAGS(1u32);
-pub const CC_FULLOPEN: CHOOSECOLOR_FLAGS = CHOOSECOLOR_FLAGS(2u32);
-pub const CC_PREVENTFULLOPEN: CHOOSECOLOR_FLAGS = CHOOSECOLOR_FLAGS(4u32);
-pub const CC_SHOWHELP: CHOOSECOLOR_FLAGS = CHOOSECOLOR_FLAGS(8u32);
-pub const CC_ENABLEHOOK: CHOOSECOLOR_FLAGS = CHOOSECOLOR_FLAGS(16u32);
-pub const CC_ENABLETEMPLATE: CHOOSECOLOR_FLAGS = CHOOSECOLOR_FLAGS(32u32);
-pub const CC_ENABLETEMPLATEHANDLE: CHOOSECOLOR_FLAGS = CHOOSECOLOR_FLAGS(64u32);
-pub const CC_SOLIDCOLOR: CHOOSECOLOR_FLAGS = CHOOSECOLOR_FLAGS(128u32);
-pub const CC_ANYCOLOR: CHOOSECOLOR_FLAGS = CHOOSECOLOR_FLAGS(256u32);
-impl ::core::marker::Copy for CHOOSECOLOR_FLAGS {}
-impl ::core::clone::Clone for CHOOSECOLOR_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const CC_RGBINIT: u32 = 1u32;
+pub const CC_FULLOPEN: u32 = 2u32;
+pub const CC_PREVENTFULLOPEN: u32 = 4u32;
+pub const CC_SHOWHELP: u32 = 8u32;
+pub const CC_ENABLEHOOK: u32 = 16u32;
+pub const CC_ENABLETEMPLATE: u32 = 32u32;
+pub const CC_ENABLETEMPLATEHANDLE: u32 = 64u32;
+pub const CC_SOLIDCOLOR: u32 = 128u32;
+pub const CC_ANYCOLOR: u32 = 256u32;
 pub const CLAIM_SECURITY_ATTRIBUTES_INFORMATION_VERSION: u32 = 1u32;
 pub const CLAIM_SECURITY_ATTRIBUTES_INFORMATION_VERSION_V1: u32 = 1u32;
 pub const CLAIM_SECURITY_ATTRIBUTE_CUSTOM_FLAGS: u32 = 4294901760u32;
 pub const CLAIM_SECURITY_ATTRIBUTE_TYPE_INVALID: u32 = 0u32;
-#[repr(transparent)]
-pub struct CLIPBOARD_FORMATS(pub u32);
-pub const CF_TEXT: CLIPBOARD_FORMATS = CLIPBOARD_FORMATS(1u32);
-pub const CF_BITMAP: CLIPBOARD_FORMATS = CLIPBOARD_FORMATS(2u32);
-pub const CF_METAFILEPICT: CLIPBOARD_FORMATS = CLIPBOARD_FORMATS(3u32);
-pub const CF_SYLK: CLIPBOARD_FORMATS = CLIPBOARD_FORMATS(4u32);
-pub const CF_DIF: CLIPBOARD_FORMATS = CLIPBOARD_FORMATS(5u32);
-pub const CF_TIFF: CLIPBOARD_FORMATS = CLIPBOARD_FORMATS(6u32);
-pub const CF_OEMTEXT: CLIPBOARD_FORMATS = CLIPBOARD_FORMATS(7u32);
-pub const CF_DIB: CLIPBOARD_FORMATS = CLIPBOARD_FORMATS(8u32);
-pub const CF_PALETTE: CLIPBOARD_FORMATS = CLIPBOARD_FORMATS(9u32);
-pub const CF_PENDATA: CLIPBOARD_FORMATS = CLIPBOARD_FORMATS(10u32);
-pub const CF_RIFF: CLIPBOARD_FORMATS = CLIPBOARD_FORMATS(11u32);
-pub const CF_WAVE: CLIPBOARD_FORMATS = CLIPBOARD_FORMATS(12u32);
-pub const CF_UNICODETEXT: CLIPBOARD_FORMATS = CLIPBOARD_FORMATS(13u32);
-pub const CF_ENHMETAFILE: CLIPBOARD_FORMATS = CLIPBOARD_FORMATS(14u32);
-pub const CF_HDROP: CLIPBOARD_FORMATS = CLIPBOARD_FORMATS(15u32);
-pub const CF_LOCALE: CLIPBOARD_FORMATS = CLIPBOARD_FORMATS(16u32);
-pub const CF_DIBV5: CLIPBOARD_FORMATS = CLIPBOARD_FORMATS(17u32);
-pub const CF_MAX: CLIPBOARD_FORMATS = CLIPBOARD_FORMATS(18u32);
-pub const CF_OWNERDISPLAY: CLIPBOARD_FORMATS = CLIPBOARD_FORMATS(128u32);
-pub const CF_DSPTEXT: CLIPBOARD_FORMATS = CLIPBOARD_FORMATS(129u32);
-pub const CF_DSPBITMAP: CLIPBOARD_FORMATS = CLIPBOARD_FORMATS(130u32);
-pub const CF_DSPMETAFILEPICT: CLIPBOARD_FORMATS = CLIPBOARD_FORMATS(131u32);
-pub const CF_DSPENHMETAFILE: CLIPBOARD_FORMATS = CLIPBOARD_FORMATS(142u32);
-pub const CF_PRIVATEFIRST: CLIPBOARD_FORMATS = CLIPBOARD_FORMATS(512u32);
-pub const CF_PRIVATELAST: CLIPBOARD_FORMATS = CLIPBOARD_FORMATS(767u32);
-pub const CF_GDIOBJFIRST: CLIPBOARD_FORMATS = CLIPBOARD_FORMATS(768u32);
-pub const CF_GDIOBJLAST: CLIPBOARD_FORMATS = CLIPBOARD_FORMATS(1023u32);
-impl ::core::marker::Copy for CLIPBOARD_FORMATS {}
-impl ::core::clone::Clone for CLIPBOARD_FORMATS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct CM_ERROR_CONTROL_TYPE(pub i32);
-pub const IgnoreError: CM_ERROR_CONTROL_TYPE = CM_ERROR_CONTROL_TYPE(0i32);
-pub const NormalError: CM_ERROR_CONTROL_TYPE = CM_ERROR_CONTROL_TYPE(1i32);
-pub const SevereError: CM_ERROR_CONTROL_TYPE = CM_ERROR_CONTROL_TYPE(2i32);
-pub const CriticalError: CM_ERROR_CONTROL_TYPE = CM_ERROR_CONTROL_TYPE(3i32);
-impl ::core::marker::Copy for CM_ERROR_CONTROL_TYPE {}
-impl ::core::clone::Clone for CM_ERROR_CONTROL_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct CM_SERVICE_LOAD_TYPE(pub i32);
-pub const BootLoad: CM_SERVICE_LOAD_TYPE = CM_SERVICE_LOAD_TYPE(0i32);
-pub const SystemLoad: CM_SERVICE_LOAD_TYPE = CM_SERVICE_LOAD_TYPE(1i32);
-pub const AutoLoad: CM_SERVICE_LOAD_TYPE = CM_SERVICE_LOAD_TYPE(2i32);
-pub const DemandLoad: CM_SERVICE_LOAD_TYPE = CM_SERVICE_LOAD_TYPE(3i32);
-pub const DisableLoad: CM_SERVICE_LOAD_TYPE = CM_SERVICE_LOAD_TYPE(4i32);
-impl ::core::marker::Copy for CM_SERVICE_LOAD_TYPE {}
-impl ::core::clone::Clone for CM_SERVICE_LOAD_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const CF_TEXT: u32 = 1u32;
+pub const CF_BITMAP: u32 = 2u32;
+pub const CF_METAFILEPICT: u32 = 3u32;
+pub const CF_SYLK: u32 = 4u32;
+pub const CF_DIF: u32 = 5u32;
+pub const CF_TIFF: u32 = 6u32;
+pub const CF_OEMTEXT: u32 = 7u32;
+pub const CF_DIB: u32 = 8u32;
+pub const CF_PALETTE: u32 = 9u32;
+pub const CF_PENDATA: u32 = 10u32;
+pub const CF_RIFF: u32 = 11u32;
+pub const CF_WAVE: u32 = 12u32;
+pub const CF_UNICODETEXT: u32 = 13u32;
+pub const CF_ENHMETAFILE: u32 = 14u32;
+pub const CF_HDROP: u32 = 15u32;
+pub const CF_LOCALE: u32 = 16u32;
+pub const CF_DIBV5: u32 = 17u32;
+pub const CF_MAX: u32 = 18u32;
+pub const CF_OWNERDISPLAY: u32 = 128u32;
+pub const CF_DSPTEXT: u32 = 129u32;
+pub const CF_DSPBITMAP: u32 = 130u32;
+pub const CF_DSPMETAFILEPICT: u32 = 131u32;
+pub const CF_DSPENHMETAFILE: u32 = 142u32;
+pub const CF_PRIVATEFIRST: u32 = 512u32;
+pub const CF_PRIVATELAST: u32 = 767u32;
+pub const CF_GDIOBJFIRST: u32 = 768u32;
+pub const CF_GDIOBJLAST: u32 = 1023u32;
+pub const IgnoreError: i32 = 0i32;
+pub const NormalError: i32 = 1i32;
+pub const SevereError: i32 = 2i32;
+pub const CriticalError: i32 = 3i32;
+pub const BootLoad: i32 = 0i32;
+pub const SystemLoad: i32 = 1i32;
+pub const AutoLoad: i32 = 2i32;
+pub const DemandLoad: i32 = 3i32;
+pub const DisableLoad: i32 = 4i32;
 pub const CM_SERVICE_MEASURED_BOOT_LOAD: u32 = 32u32;
 pub const CM_SERVICE_NETWORK_BOOT_LOAD: u32 = 1u32;
-#[repr(transparent)]
-pub struct CM_SERVICE_NODE_TYPE(pub i32);
-pub const DriverType: CM_SERVICE_NODE_TYPE = CM_SERVICE_NODE_TYPE(1i32);
-pub const FileSystemType: CM_SERVICE_NODE_TYPE = CM_SERVICE_NODE_TYPE(2i32);
-pub const Win32ServiceOwnProcess: CM_SERVICE_NODE_TYPE = CM_SERVICE_NODE_TYPE(16i32);
-pub const Win32ServiceShareProcess: CM_SERVICE_NODE_TYPE = CM_SERVICE_NODE_TYPE(32i32);
-pub const AdapterType: CM_SERVICE_NODE_TYPE = CM_SERVICE_NODE_TYPE(4i32);
-pub const RecognizerType: CM_SERVICE_NODE_TYPE = CM_SERVICE_NODE_TYPE(8i32);
-impl ::core::marker::Copy for CM_SERVICE_NODE_TYPE {}
-impl ::core::clone::Clone for CM_SERVICE_NODE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const DriverType: i32 = 1i32;
+pub const FileSystemType: i32 = 2i32;
+pub const Win32ServiceOwnProcess: i32 = 16i32;
+pub const Win32ServiceShareProcess: i32 = 32i32;
+pub const AdapterType: i32 = 4i32;
+pub const RecognizerType: i32 = 8i32;
 pub const CM_SERVICE_RAM_DISK_BOOT_LOAD: u32 = 256u32;
 pub const CM_SERVICE_SD_DISK_BOOT_LOAD: u32 = 8u32;
 pub const CM_SERVICE_USB3_DISK_BOOT_LOAD: u32 = 16u32;
@@ -1149,19 +1045,11 @@ impl ::core::clone::Clone for DEV_BROADCAST_HDR {
         *self
     }
 }
-#[repr(transparent)]
-pub struct DEV_BROADCAST_HDR_DEVICE_TYPE(pub u32);
-pub const DBT_DEVTYP_DEVICEINTERFACE: DEV_BROADCAST_HDR_DEVICE_TYPE = DEV_BROADCAST_HDR_DEVICE_TYPE(5u32);
-pub const DBT_DEVTYP_HANDLE: DEV_BROADCAST_HDR_DEVICE_TYPE = DEV_BROADCAST_HDR_DEVICE_TYPE(6u32);
-pub const DBT_DEVTYP_OEM: DEV_BROADCAST_HDR_DEVICE_TYPE = DEV_BROADCAST_HDR_DEVICE_TYPE(0u32);
-pub const DBT_DEVTYP_PORT: DEV_BROADCAST_HDR_DEVICE_TYPE = DEV_BROADCAST_HDR_DEVICE_TYPE(3u32);
-pub const DBT_DEVTYP_VOLUME: DEV_BROADCAST_HDR_DEVICE_TYPE = DEV_BROADCAST_HDR_DEVICE_TYPE(2u32);
-impl ::core::marker::Copy for DEV_BROADCAST_HDR_DEVICE_TYPE {}
-impl ::core::clone::Clone for DEV_BROADCAST_HDR_DEVICE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const DBT_DEVTYP_DEVICEINTERFACE: u32 = 5u32;
+pub const DBT_DEVTYP_HANDLE: u32 = 6u32;
+pub const DBT_DEVTYP_OEM: u32 = 0u32;
+pub const DBT_DEVTYP_PORT: u32 = 3u32;
+pub const DBT_DEVTYP_VOLUME: u32 = 2u32;
 #[repr(C)]
 pub struct DEV_BROADCAST_NET {
     pub dbcn_size: u32,
@@ -1233,16 +1121,8 @@ impl ::core::clone::Clone for DEV_BROADCAST_VOLUME {
         *self
     }
 }
-#[repr(transparent)]
-pub struct DEV_BROADCAST_VOLUME_FLAGS(pub u16);
-pub const DBTF_MEDIA: DEV_BROADCAST_VOLUME_FLAGS = DEV_BROADCAST_VOLUME_FLAGS(1u16);
-pub const DBTF_NET: DEV_BROADCAST_VOLUME_FLAGS = DEV_BROADCAST_VOLUME_FLAGS(2u16);
-impl ::core::marker::Copy for DEV_BROADCAST_VOLUME_FLAGS {}
-impl ::core::clone::Clone for DEV_BROADCAST_VOLUME_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const DBTF_MEDIA: u16 = 1u16;
+pub const DBTF_NET: u16 = 2u16;
 pub const DIAGNOSTIC_REASON_DETAILED_STRING: u32 = 2u32;
 pub const DIAGNOSTIC_REASON_NOT_SPECIFIED: u32 = 2147483648u32;
 pub const DIAGNOSTIC_REASON_SIMPLE_STRING: u32 = 1u32;
@@ -1414,17 +1294,9 @@ impl ::core::clone::Clone for ENLISTMENT_CRM_INFORMATION {
         *self
     }
 }
-#[repr(transparent)]
-pub struct ENLISTMENT_INFORMATION_CLASS(pub i32);
-pub const EnlistmentBasicInformation: ENLISTMENT_INFORMATION_CLASS = ENLISTMENT_INFORMATION_CLASS(0i32);
-pub const EnlistmentRecoveryInformation: ENLISTMENT_INFORMATION_CLASS = ENLISTMENT_INFORMATION_CLASS(1i32);
-pub const EnlistmentCrmInformation: ENLISTMENT_INFORMATION_CLASS = ENLISTMENT_INFORMATION_CLASS(2i32);
-impl ::core::marker::Copy for ENLISTMENT_INFORMATION_CLASS {}
-impl ::core::clone::Clone for ENLISTMENT_INFORMATION_CLASS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const EnlistmentBasicInformation: i32 = 0i32;
+pub const EnlistmentRecoveryInformation: i32 = 1i32;
+pub const EnlistmentCrmInformation: i32 = 2i32;
 pub const ENLISTMENT_QUERY_INFORMATION: u32 = 1u32;
 pub const ENLISTMENT_RECOVER: u32 = 4u32;
 pub const ENLISTMENT_SET_INFORMATION: u32 = 2u32;
@@ -1599,25 +1471,17 @@ pub const GENERIC_ALL: u32 = 268435456u32;
 pub const GENERIC_EXECUTE: u32 = 536870912u32;
 pub const GENERIC_READ: u32 = 2147483648u32;
 pub const GENERIC_WRITE: u32 = 1073741824u32;
-#[repr(transparent)]
-pub struct GESTURECONFIG_FLAGS(pub u32);
-pub const GC_ALLGESTURES: GESTURECONFIG_FLAGS = GESTURECONFIG_FLAGS(1u32);
-pub const GC_ZOOM: GESTURECONFIG_FLAGS = GESTURECONFIG_FLAGS(1u32);
-pub const GC_PAN: GESTURECONFIG_FLAGS = GESTURECONFIG_FLAGS(1u32);
-pub const GC_PAN_WITH_SINGLE_FINGER_VERTICALLY: GESTURECONFIG_FLAGS = GESTURECONFIG_FLAGS(2u32);
-pub const GC_PAN_WITH_SINGLE_FINGER_HORIZONTALLY: GESTURECONFIG_FLAGS = GESTURECONFIG_FLAGS(4u32);
-pub const GC_PAN_WITH_GUTTER: GESTURECONFIG_FLAGS = GESTURECONFIG_FLAGS(8u32);
-pub const GC_PAN_WITH_INERTIA: GESTURECONFIG_FLAGS = GESTURECONFIG_FLAGS(16u32);
-pub const GC_ROTATE: GESTURECONFIG_FLAGS = GESTURECONFIG_FLAGS(1u32);
-pub const GC_TWOFINGERTAP: GESTURECONFIG_FLAGS = GESTURECONFIG_FLAGS(1u32);
-pub const GC_PRESSANDTAP: GESTURECONFIG_FLAGS = GESTURECONFIG_FLAGS(1u32);
-pub const GC_ROLLOVER: GESTURECONFIG_FLAGS = GESTURECONFIG_FLAGS(1u32);
-impl ::core::marker::Copy for GESTURECONFIG_FLAGS {}
-impl ::core::clone::Clone for GESTURECONFIG_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const GC_ALLGESTURES: u32 = 1u32;
+pub const GC_ZOOM: u32 = 1u32;
+pub const GC_PAN: u32 = 1u32;
+pub const GC_PAN_WITH_SINGLE_FINGER_VERTICALLY: u32 = 2u32;
+pub const GC_PAN_WITH_SINGLE_FINGER_HORIZONTALLY: u32 = 4u32;
+pub const GC_PAN_WITH_GUTTER: u32 = 8u32;
+pub const GC_PAN_WITH_INERTIA: u32 = 16u32;
+pub const GC_ROTATE: u32 = 1u32;
+pub const GC_TWOFINGERTAP: u32 = 1u32;
+pub const GC_PRESSANDTAP: u32 = 1u32;
+pub const GC_ROLLOVER: u32 = 1u32;
 pub const GUID_ACDC_POWER_SOURCE: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1564383833,
     data2: 59861,
@@ -2453,41 +2317,25 @@ impl ::core::clone::Clone for HIBERFILE_BUCKET {
         *self
     }
 }
-#[repr(transparent)]
-pub struct HIBERFILE_BUCKET_SIZE(pub i32);
-pub const HiberFileBucket1GB: HIBERFILE_BUCKET_SIZE = HIBERFILE_BUCKET_SIZE(0i32);
-pub const HiberFileBucket2GB: HIBERFILE_BUCKET_SIZE = HIBERFILE_BUCKET_SIZE(1i32);
-pub const HiberFileBucket4GB: HIBERFILE_BUCKET_SIZE = HIBERFILE_BUCKET_SIZE(2i32);
-pub const HiberFileBucket8GB: HIBERFILE_BUCKET_SIZE = HIBERFILE_BUCKET_SIZE(3i32);
-pub const HiberFileBucket16GB: HIBERFILE_BUCKET_SIZE = HIBERFILE_BUCKET_SIZE(4i32);
-pub const HiberFileBucket32GB: HIBERFILE_BUCKET_SIZE = HIBERFILE_BUCKET_SIZE(5i32);
-pub const HiberFileBucketUnlimited: HIBERFILE_BUCKET_SIZE = HIBERFILE_BUCKET_SIZE(6i32);
-pub const HiberFileBucketMax: HIBERFILE_BUCKET_SIZE = HIBERFILE_BUCKET_SIZE(7i32);
-impl ::core::marker::Copy for HIBERFILE_BUCKET_SIZE {}
-impl ::core::clone::Clone for HIBERFILE_BUCKET_SIZE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const HiberFileBucket1GB: i32 = 0i32;
+pub const HiberFileBucket2GB: i32 = 1i32;
+pub const HiberFileBucket4GB: i32 = 2i32;
+pub const HiberFileBucket8GB: i32 = 3i32;
+pub const HiberFileBucket16GB: i32 = 4i32;
+pub const HiberFileBucket32GB: i32 = 5i32;
+pub const HiberFileBucketUnlimited: i32 = 6i32;
+pub const HiberFileBucketMax: i32 = 7i32;
 pub const HIBERFILE_TYPE_FULL: u32 = 2u32;
 pub const HIBERFILE_TYPE_MAX: u32 = 3u32;
 pub const HIBERFILE_TYPE_NONE: u32 = 0u32;
 pub const HIBERFILE_TYPE_REDUCED: u32 = 1u32;
-#[repr(transparent)]
-pub struct IGP_ID(pub u32);
-pub const IGP_GETIMEVERSION: IGP_ID = IGP_ID(4294967292u32);
-pub const IGP_PROPERTY: IGP_ID = IGP_ID(4u32);
-pub const IGP_CONVERSION: IGP_ID = IGP_ID(8u32);
-pub const IGP_SENTENCE: IGP_ID = IGP_ID(12u32);
-pub const IGP_UI: IGP_ID = IGP_ID(16u32);
-pub const IGP_SETCOMPSTR: IGP_ID = IGP_ID(20u32);
-pub const IGP_SELECT: IGP_ID = IGP_ID(24u32);
-impl ::core::marker::Copy for IGP_ID {}
-impl ::core::clone::Clone for IGP_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const IGP_GETIMEVERSION: u32 = 4294967292u32;
+pub const IGP_PROPERTY: u32 = 4u32;
+pub const IGP_CONVERSION: u32 = 8u32;
+pub const IGP_SENTENCE: u32 = 12u32;
+pub const IGP_UI: u32 = 16u32;
+pub const IGP_SETCOMPSTR: u32 = 20u32;
+pub const IGP_SELECT: u32 = 24u32;
 #[repr(C, packed(4))]
 pub struct IMAGE_ALPHA64_RUNTIME_FUNCTION_ENTRY {
     pub BeginAddress: u64,
@@ -2816,15 +2664,7 @@ impl ::core::clone::Clone for IMAGE_AUX_SYMBOL_TOKEN_DEF {
         *self
     }
 }
-#[repr(transparent)]
-pub struct IMAGE_AUX_SYMBOL_TYPE(pub i32);
-pub const IMAGE_AUX_SYMBOL_TYPE_TOKEN_DEF: IMAGE_AUX_SYMBOL_TYPE = IMAGE_AUX_SYMBOL_TYPE(1i32);
-impl ::core::marker::Copy for IMAGE_AUX_SYMBOL_TYPE {}
-impl ::core::clone::Clone for IMAGE_AUX_SYMBOL_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const IMAGE_AUX_SYMBOL_TYPE_TOKEN_DEF: i32 = 1i32;
 #[repr(C)]
 pub struct IMAGE_BASE_RELOCATION {
     pub VirtualAddress: u32,
@@ -3294,49 +3134,33 @@ impl ::core::clone::Clone for IMAGE_POLICY_ENTRY_0 {
         *self
     }
 }
-#[repr(transparent)]
-pub struct IMAGE_POLICY_ENTRY_TYPE(pub i32);
-pub const ImagePolicyEntryTypeNone: IMAGE_POLICY_ENTRY_TYPE = IMAGE_POLICY_ENTRY_TYPE(0i32);
-pub const ImagePolicyEntryTypeBool: IMAGE_POLICY_ENTRY_TYPE = IMAGE_POLICY_ENTRY_TYPE(1i32);
-pub const ImagePolicyEntryTypeInt8: IMAGE_POLICY_ENTRY_TYPE = IMAGE_POLICY_ENTRY_TYPE(2i32);
-pub const ImagePolicyEntryTypeUInt8: IMAGE_POLICY_ENTRY_TYPE = IMAGE_POLICY_ENTRY_TYPE(3i32);
-pub const ImagePolicyEntryTypeInt16: IMAGE_POLICY_ENTRY_TYPE = IMAGE_POLICY_ENTRY_TYPE(4i32);
-pub const ImagePolicyEntryTypeUInt16: IMAGE_POLICY_ENTRY_TYPE = IMAGE_POLICY_ENTRY_TYPE(5i32);
-pub const ImagePolicyEntryTypeInt32: IMAGE_POLICY_ENTRY_TYPE = IMAGE_POLICY_ENTRY_TYPE(6i32);
-pub const ImagePolicyEntryTypeUInt32: IMAGE_POLICY_ENTRY_TYPE = IMAGE_POLICY_ENTRY_TYPE(7i32);
-pub const ImagePolicyEntryTypeInt64: IMAGE_POLICY_ENTRY_TYPE = IMAGE_POLICY_ENTRY_TYPE(8i32);
-pub const ImagePolicyEntryTypeUInt64: IMAGE_POLICY_ENTRY_TYPE = IMAGE_POLICY_ENTRY_TYPE(9i32);
-pub const ImagePolicyEntryTypeAnsiString: IMAGE_POLICY_ENTRY_TYPE = IMAGE_POLICY_ENTRY_TYPE(10i32);
-pub const ImagePolicyEntryTypeUnicodeString: IMAGE_POLICY_ENTRY_TYPE = IMAGE_POLICY_ENTRY_TYPE(11i32);
-pub const ImagePolicyEntryTypeOverride: IMAGE_POLICY_ENTRY_TYPE = IMAGE_POLICY_ENTRY_TYPE(12i32);
-pub const ImagePolicyEntryTypeMaximum: IMAGE_POLICY_ENTRY_TYPE = IMAGE_POLICY_ENTRY_TYPE(13i32);
-impl ::core::marker::Copy for IMAGE_POLICY_ENTRY_TYPE {}
-impl ::core::clone::Clone for IMAGE_POLICY_ENTRY_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMAGE_POLICY_ID(pub i32);
-pub const ImagePolicyIdNone: IMAGE_POLICY_ID = IMAGE_POLICY_ID(0i32);
-pub const ImagePolicyIdEtw: IMAGE_POLICY_ID = IMAGE_POLICY_ID(1i32);
-pub const ImagePolicyIdDebug: IMAGE_POLICY_ID = IMAGE_POLICY_ID(2i32);
-pub const ImagePolicyIdCrashDump: IMAGE_POLICY_ID = IMAGE_POLICY_ID(3i32);
-pub const ImagePolicyIdCrashDumpKey: IMAGE_POLICY_ID = IMAGE_POLICY_ID(4i32);
-pub const ImagePolicyIdCrashDumpKeyGuid: IMAGE_POLICY_ID = IMAGE_POLICY_ID(5i32);
-pub const ImagePolicyIdParentSd: IMAGE_POLICY_ID = IMAGE_POLICY_ID(6i32);
-pub const ImagePolicyIdParentSdRev: IMAGE_POLICY_ID = IMAGE_POLICY_ID(7i32);
-pub const ImagePolicyIdSvn: IMAGE_POLICY_ID = IMAGE_POLICY_ID(8i32);
-pub const ImagePolicyIdDeviceId: IMAGE_POLICY_ID = IMAGE_POLICY_ID(9i32);
-pub const ImagePolicyIdCapability: IMAGE_POLICY_ID = IMAGE_POLICY_ID(10i32);
-pub const ImagePolicyIdScenarioId: IMAGE_POLICY_ID = IMAGE_POLICY_ID(11i32);
-pub const ImagePolicyIdMaximum: IMAGE_POLICY_ID = IMAGE_POLICY_ID(12i32);
-impl ::core::marker::Copy for IMAGE_POLICY_ID {}
-impl ::core::clone::Clone for IMAGE_POLICY_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const ImagePolicyEntryTypeNone: i32 = 0i32;
+pub const ImagePolicyEntryTypeBool: i32 = 1i32;
+pub const ImagePolicyEntryTypeInt8: i32 = 2i32;
+pub const ImagePolicyEntryTypeUInt8: i32 = 3i32;
+pub const ImagePolicyEntryTypeInt16: i32 = 4i32;
+pub const ImagePolicyEntryTypeUInt16: i32 = 5i32;
+pub const ImagePolicyEntryTypeInt32: i32 = 6i32;
+pub const ImagePolicyEntryTypeUInt32: i32 = 7i32;
+pub const ImagePolicyEntryTypeInt64: i32 = 8i32;
+pub const ImagePolicyEntryTypeUInt64: i32 = 9i32;
+pub const ImagePolicyEntryTypeAnsiString: i32 = 10i32;
+pub const ImagePolicyEntryTypeUnicodeString: i32 = 11i32;
+pub const ImagePolicyEntryTypeOverride: i32 = 12i32;
+pub const ImagePolicyEntryTypeMaximum: i32 = 13i32;
+pub const ImagePolicyIdNone: i32 = 0i32;
+pub const ImagePolicyIdEtw: i32 = 1i32;
+pub const ImagePolicyIdDebug: i32 = 2i32;
+pub const ImagePolicyIdCrashDump: i32 = 3i32;
+pub const ImagePolicyIdCrashDumpKey: i32 = 4i32;
+pub const ImagePolicyIdCrashDumpKeyGuid: i32 = 5i32;
+pub const ImagePolicyIdParentSd: i32 = 6i32;
+pub const ImagePolicyIdParentSdRev: i32 = 7i32;
+pub const ImagePolicyIdSvn: i32 = 8i32;
+pub const ImagePolicyIdDeviceId: i32 = 9i32;
+pub const ImagePolicyIdCapability: i32 = 10i32;
+pub const ImagePolicyIdScenarioId: i32 = 11i32;
+pub const ImagePolicyIdMaximum: i32 = 12i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct IMAGE_POLICY_METADATA {
@@ -4088,30 +3912,14 @@ impl ::core::clone::Clone for IMPORT_OBJECT_HEADER_0 {
         *self
     }
 }
-#[repr(transparent)]
-pub struct IMPORT_OBJECT_NAME_TYPE(pub i32);
-pub const IMPORT_OBJECT_ORDINAL: IMPORT_OBJECT_NAME_TYPE = IMPORT_OBJECT_NAME_TYPE(0i32);
-pub const IMPORT_OBJECT_NAME: IMPORT_OBJECT_NAME_TYPE = IMPORT_OBJECT_NAME_TYPE(1i32);
-pub const IMPORT_OBJECT_NAME_NO_PREFIX: IMPORT_OBJECT_NAME_TYPE = IMPORT_OBJECT_NAME_TYPE(2i32);
-pub const IMPORT_OBJECT_NAME_UNDECORATE: IMPORT_OBJECT_NAME_TYPE = IMPORT_OBJECT_NAME_TYPE(3i32);
-pub const IMPORT_OBJECT_NAME_EXPORTAS: IMPORT_OBJECT_NAME_TYPE = IMPORT_OBJECT_NAME_TYPE(4i32);
-impl ::core::marker::Copy for IMPORT_OBJECT_NAME_TYPE {}
-impl ::core::clone::Clone for IMPORT_OBJECT_NAME_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IMPORT_OBJECT_TYPE(pub i32);
-pub const IMPORT_OBJECT_CODE: IMPORT_OBJECT_TYPE = IMPORT_OBJECT_TYPE(0i32);
-pub const IMPORT_OBJECT_DATA: IMPORT_OBJECT_TYPE = IMPORT_OBJECT_TYPE(1i32);
-pub const IMPORT_OBJECT_CONST: IMPORT_OBJECT_TYPE = IMPORT_OBJECT_TYPE(2i32);
-impl ::core::marker::Copy for IMPORT_OBJECT_TYPE {}
-impl ::core::clone::Clone for IMPORT_OBJECT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const IMPORT_OBJECT_ORDINAL: i32 = 0i32;
+pub const IMPORT_OBJECT_NAME: i32 = 1i32;
+pub const IMPORT_OBJECT_NAME_NO_PREFIX: i32 = 2i32;
+pub const IMPORT_OBJECT_NAME_UNDECORATE: i32 = 3i32;
+pub const IMPORT_OBJECT_NAME_EXPORTAS: i32 = 4i32;
+pub const IMPORT_OBJECT_CODE: i32 = 0i32;
+pub const IMPORT_OBJECT_DATA: i32 = 1i32;
+pub const IMPORT_OBJECT_CONST: i32 = 2i32;
 pub const INITIAL_CPSR: u32 = 16u32;
 pub const INITIAL_FPCSR: u32 = 639u32;
 pub const INITIAL_FPSCR: u32 = 0u32;
@@ -4419,19 +4227,11 @@ impl ::core::clone::Clone for KTMOBJECT_CURSOR {
         *self
     }
 }
-#[repr(transparent)]
-pub struct KTMOBJECT_TYPE(pub i32);
-pub const KTMOBJECT_TRANSACTION: KTMOBJECT_TYPE = KTMOBJECT_TYPE(0i32);
-pub const KTMOBJECT_TRANSACTION_MANAGER: KTMOBJECT_TYPE = KTMOBJECT_TYPE(1i32);
-pub const KTMOBJECT_RESOURCE_MANAGER: KTMOBJECT_TYPE = KTMOBJECT_TYPE(2i32);
-pub const KTMOBJECT_ENLISTMENT: KTMOBJECT_TYPE = KTMOBJECT_TYPE(3i32);
-pub const KTMOBJECT_INVALID: KTMOBJECT_TYPE = KTMOBJECT_TYPE(4i32);
-impl ::core::marker::Copy for KTMOBJECT_TYPE {}
-impl ::core::clone::Clone for KTMOBJECT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const KTMOBJECT_TRANSACTION: i32 = 0i32;
+pub const KTMOBJECT_TRANSACTION_MANAGER: i32 = 1i32;
+pub const KTMOBJECT_RESOURCE_MANAGER: i32 = 2i32;
+pub const KTMOBJECT_ENLISTMENT: i32 = 3i32;
+pub const KTMOBJECT_INVALID: i32 = 4i32;
 pub const LANG_AFRIKAANS: u32 = 54u32;
 pub const LANG_ALBANIAN: u32 = 28u32;
 pub const LANG_ALSATIAN: u32 = 132u32;
@@ -4798,19 +4598,11 @@ impl ::core::clone::Clone for MEM_ADDRESS_REQUIREMENTS {
     }
 }
 pub const MEM_COALESCE_PLACEHOLDERS: u32 = 1u32;
-#[repr(transparent)]
-pub struct MEM_DEDICATED_ATTRIBUTE_TYPE(pub i32);
-pub const MemDedicatedAttributeReadBandwidth: MEM_DEDICATED_ATTRIBUTE_TYPE = MEM_DEDICATED_ATTRIBUTE_TYPE(0i32);
-pub const MemDedicatedAttributeReadLatency: MEM_DEDICATED_ATTRIBUTE_TYPE = MEM_DEDICATED_ATTRIBUTE_TYPE(1i32);
-pub const MemDedicatedAttributeWriteBandwidth: MEM_DEDICATED_ATTRIBUTE_TYPE = MEM_DEDICATED_ATTRIBUTE_TYPE(2i32);
-pub const MemDedicatedAttributeWriteLatency: MEM_DEDICATED_ATTRIBUTE_TYPE = MEM_DEDICATED_ATTRIBUTE_TYPE(3i32);
-pub const MemDedicatedAttributeMax: MEM_DEDICATED_ATTRIBUTE_TYPE = MEM_DEDICATED_ATTRIBUTE_TYPE(4i32);
-impl ::core::marker::Copy for MEM_DEDICATED_ATTRIBUTE_TYPE {}
-impl ::core::clone::Clone for MEM_DEDICATED_ATTRIBUTE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const MemDedicatedAttributeReadBandwidth: i32 = 0i32;
+pub const MemDedicatedAttributeReadLatency: i32 = 1i32;
+pub const MemDedicatedAttributeWriteBandwidth: i32 = 2i32;
+pub const MemDedicatedAttributeWriteLatency: i32 = 3i32;
+pub const MemDedicatedAttributeMax: i32 = 4i32;
 pub const MEM_DIFFERENT_IMAGE_BASE_OK: u32 = 8388608u32;
 pub const MEM_EXTENDED_PARAMETER_EC_CODE: u32 = 64u32;
 pub const MEM_EXTENDED_PARAMETER_GRAPHICS: u32 = 1u32;
@@ -4822,19 +4614,11 @@ pub const MEM_EXTENDED_PARAMETER_TYPE_BITS: u32 = 8u32;
 pub const MEM_EXTENDED_PARAMETER_ZERO_PAGES_OPTIONAL: u32 = 4u32;
 pub const MEM_PHYSICAL: u32 = 4194304u32;
 pub const MEM_ROTATE: u32 = 8388608u32;
-#[repr(transparent)]
-pub struct MEM_SECTION_EXTENDED_PARAMETER_TYPE(pub i32);
-pub const MemSectionExtendedParameterInvalidType: MEM_SECTION_EXTENDED_PARAMETER_TYPE = MEM_SECTION_EXTENDED_PARAMETER_TYPE(0i32);
-pub const MemSectionExtendedParameterUserPhysicalFlags: MEM_SECTION_EXTENDED_PARAMETER_TYPE = MEM_SECTION_EXTENDED_PARAMETER_TYPE(1i32);
-pub const MemSectionExtendedParameterNumaNode: MEM_SECTION_EXTENDED_PARAMETER_TYPE = MEM_SECTION_EXTENDED_PARAMETER_TYPE(2i32);
-pub const MemSectionExtendedParameterSigningLevel: MEM_SECTION_EXTENDED_PARAMETER_TYPE = MEM_SECTION_EXTENDED_PARAMETER_TYPE(3i32);
-pub const MemSectionExtendedParameterMax: MEM_SECTION_EXTENDED_PARAMETER_TYPE = MEM_SECTION_EXTENDED_PARAMETER_TYPE(4i32);
-impl ::core::marker::Copy for MEM_SECTION_EXTENDED_PARAMETER_TYPE {}
-impl ::core::clone::Clone for MEM_SECTION_EXTENDED_PARAMETER_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const MemSectionExtendedParameterInvalidType: i32 = 0i32;
+pub const MemSectionExtendedParameterUserPhysicalFlags: i32 = 1i32;
+pub const MemSectionExtendedParameterNumaNode: i32 = 2i32;
+pub const MemSectionExtendedParameterSigningLevel: i32 = 3i32;
+pub const MemSectionExtendedParameterMax: i32 = 4i32;
 pub const MEM_TOP_DOWN: u32 = 1048576u32;
 pub const MEM_WRITE_WATCH: u32 = 2097152u32;
 pub const MESSAGE_RESOURCE_UNICODE: u32 = 1u32;
@@ -4843,17 +4627,9 @@ pub const MINCHAR: u32 = 128u32;
 pub const MINLONG: u32 = 2147483648u32;
 pub const MINSHORT: u32 = 32768u32;
 pub const MIN_UCSCHAR: u32 = 0u32;
-#[repr(transparent)]
-pub struct MONITOR_DISPLAY_STATE(pub i32);
-pub const PowerMonitorOff: MONITOR_DISPLAY_STATE = MONITOR_DISPLAY_STATE(0i32);
-pub const PowerMonitorOn: MONITOR_DISPLAY_STATE = MONITOR_DISPLAY_STATE(1i32);
-pub const PowerMonitorDim: MONITOR_DISPLAY_STATE = MONITOR_DISPLAY_STATE(2i32);
-impl ::core::marker::Copy for MONITOR_DISPLAY_STATE {}
-impl ::core::clone::Clone for MONITOR_DISPLAY_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const PowerMonitorOff: i32 = 0i32;
+pub const PowerMonitorOn: i32 = 1i32;
+pub const PowerMonitorDim: i32 = 2i32;
 pub const MS_PPM_SOFTWARE_ALL: u32 = 1u32;
 pub const MUTANT_QUERY_STATE: u32 = 1u32;
 pub const NETWORK_APP_INSTANCE_CSV_FLAGS_VALID_ONLY_IF_CSV_COORDINATOR: u32 = 1u32;
@@ -5084,81 +4860,65 @@ impl ::core::clone::Clone for POWER_MONITOR_INVOCATION {
         *self
     }
 }
-#[repr(transparent)]
-pub struct POWER_MONITOR_REQUEST_REASON(pub i32);
-pub const MonitorRequestReasonUnknown: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(0i32);
-pub const MonitorRequestReasonPowerButton: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(1i32);
-pub const MonitorRequestReasonRemoteConnection: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(2i32);
-pub const MonitorRequestReasonScMonitorpower: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(3i32);
-pub const MonitorRequestReasonUserInput: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(4i32);
-pub const MonitorRequestReasonAcDcDisplayBurst: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(5i32);
-pub const MonitorRequestReasonUserDisplayBurst: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(6i32);
-pub const MonitorRequestReasonPoSetSystemState: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(7i32);
-pub const MonitorRequestReasonSetThreadExecutionState: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(8i32);
-pub const MonitorRequestReasonFullWake: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(9i32);
-pub const MonitorRequestReasonSessionUnlock: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(10i32);
-pub const MonitorRequestReasonScreenOffRequest: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(11i32);
-pub const MonitorRequestReasonIdleTimeout: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(12i32);
-pub const MonitorRequestReasonPolicyChange: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(13i32);
-pub const MonitorRequestReasonSleepButton: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(14i32);
-pub const MonitorRequestReasonLid: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(15i32);
-pub const MonitorRequestReasonBatteryCountChange: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(16i32);
-pub const MonitorRequestReasonGracePeriod: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(17i32);
-pub const MonitorRequestReasonPnP: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(18i32);
-pub const MonitorRequestReasonDP: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(19i32);
-pub const MonitorRequestReasonSxTransition: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(20i32);
-pub const MonitorRequestReasonSystemIdle: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(21i32);
-pub const MonitorRequestReasonNearProximity: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(22i32);
-pub const MonitorRequestReasonThermalStandby: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(23i32);
-pub const MonitorRequestReasonResumePdc: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(24i32);
-pub const MonitorRequestReasonResumeS4: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(25i32);
-pub const MonitorRequestReasonTerminal: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(26i32);
-pub const MonitorRequestReasonPdcSignal: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(27i32);
-pub const MonitorRequestReasonAcDcDisplayBurstSuppressed: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(28i32);
-pub const MonitorRequestReasonSystemStateEntered: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(29i32);
-pub const MonitorRequestReasonWinrt: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(30i32);
-pub const MonitorRequestReasonUserInputKeyboard: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(31i32);
-pub const MonitorRequestReasonUserInputMouse: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(32i32);
-pub const MonitorRequestReasonUserInputTouchpad: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(33i32);
-pub const MonitorRequestReasonUserInputPen: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(34i32);
-pub const MonitorRequestReasonUserInputAccelerometer: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(35i32);
-pub const MonitorRequestReasonUserInputHid: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(36i32);
-pub const MonitorRequestReasonUserInputPoUserPresent: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(37i32);
-pub const MonitorRequestReasonUserInputSessionSwitch: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(38i32);
-pub const MonitorRequestReasonUserInputInitialization: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(39i32);
-pub const MonitorRequestReasonPdcSignalWindowsMobilePwrNotif: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(40i32);
-pub const MonitorRequestReasonPdcSignalWindowsMobileShell: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(41i32);
-pub const MonitorRequestReasonPdcSignalHeyCortana: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(42i32);
-pub const MonitorRequestReasonPdcSignalHolographicShell: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(43i32);
-pub const MonitorRequestReasonPdcSignalFingerprint: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(44i32);
-pub const MonitorRequestReasonDirectedDrips: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(45i32);
-pub const MonitorRequestReasonDim: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(46i32);
-pub const MonitorRequestReasonBuiltinPanel: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(47i32);
-pub const MonitorRequestReasonDisplayRequiredUnDim: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(48i32);
-pub const MonitorRequestReasonBatteryCountChangeSuppressed: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(49i32);
-pub const MonitorRequestReasonResumeModernStandby: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(50i32);
-pub const MonitorRequestReasonTerminalInit: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(51i32);
-pub const MonitorRequestReasonPdcSignalSensorsHumanPresence: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(52i32);
-pub const MonitorRequestReasonBatteryPreCritical: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(53i32);
-pub const MonitorRequestReasonUserInputTouch: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(54i32);
-pub const MonitorRequestReasonMax: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(55i32);
-impl ::core::marker::Copy for POWER_MONITOR_REQUEST_REASON {}
-impl ::core::clone::Clone for POWER_MONITOR_REQUEST_REASON {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct POWER_MONITOR_REQUEST_TYPE(pub i32);
-pub const MonitorRequestTypeOff: POWER_MONITOR_REQUEST_TYPE = POWER_MONITOR_REQUEST_TYPE(0i32);
-pub const MonitorRequestTypeOnAndPresent: POWER_MONITOR_REQUEST_TYPE = POWER_MONITOR_REQUEST_TYPE(1i32);
-pub const MonitorRequestTypeToggleOn: POWER_MONITOR_REQUEST_TYPE = POWER_MONITOR_REQUEST_TYPE(2i32);
-impl ::core::marker::Copy for POWER_MONITOR_REQUEST_TYPE {}
-impl ::core::clone::Clone for POWER_MONITOR_REQUEST_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const MonitorRequestReasonUnknown: i32 = 0i32;
+pub const MonitorRequestReasonPowerButton: i32 = 1i32;
+pub const MonitorRequestReasonRemoteConnection: i32 = 2i32;
+pub const MonitorRequestReasonScMonitorpower: i32 = 3i32;
+pub const MonitorRequestReasonUserInput: i32 = 4i32;
+pub const MonitorRequestReasonAcDcDisplayBurst: i32 = 5i32;
+pub const MonitorRequestReasonUserDisplayBurst: i32 = 6i32;
+pub const MonitorRequestReasonPoSetSystemState: i32 = 7i32;
+pub const MonitorRequestReasonSetThreadExecutionState: i32 = 8i32;
+pub const MonitorRequestReasonFullWake: i32 = 9i32;
+pub const MonitorRequestReasonSessionUnlock: i32 = 10i32;
+pub const MonitorRequestReasonScreenOffRequest: i32 = 11i32;
+pub const MonitorRequestReasonIdleTimeout: i32 = 12i32;
+pub const MonitorRequestReasonPolicyChange: i32 = 13i32;
+pub const MonitorRequestReasonSleepButton: i32 = 14i32;
+pub const MonitorRequestReasonLid: i32 = 15i32;
+pub const MonitorRequestReasonBatteryCountChange: i32 = 16i32;
+pub const MonitorRequestReasonGracePeriod: i32 = 17i32;
+pub const MonitorRequestReasonPnP: i32 = 18i32;
+pub const MonitorRequestReasonDP: i32 = 19i32;
+pub const MonitorRequestReasonSxTransition: i32 = 20i32;
+pub const MonitorRequestReasonSystemIdle: i32 = 21i32;
+pub const MonitorRequestReasonNearProximity: i32 = 22i32;
+pub const MonitorRequestReasonThermalStandby: i32 = 23i32;
+pub const MonitorRequestReasonResumePdc: i32 = 24i32;
+pub const MonitorRequestReasonResumeS4: i32 = 25i32;
+pub const MonitorRequestReasonTerminal: i32 = 26i32;
+pub const MonitorRequestReasonPdcSignal: i32 = 27i32;
+pub const MonitorRequestReasonAcDcDisplayBurstSuppressed: i32 = 28i32;
+pub const MonitorRequestReasonSystemStateEntered: i32 = 29i32;
+pub const MonitorRequestReasonWinrt: i32 = 30i32;
+pub const MonitorRequestReasonUserInputKeyboard: i32 = 31i32;
+pub const MonitorRequestReasonUserInputMouse: i32 = 32i32;
+pub const MonitorRequestReasonUserInputTouchpad: i32 = 33i32;
+pub const MonitorRequestReasonUserInputPen: i32 = 34i32;
+pub const MonitorRequestReasonUserInputAccelerometer: i32 = 35i32;
+pub const MonitorRequestReasonUserInputHid: i32 = 36i32;
+pub const MonitorRequestReasonUserInputPoUserPresent: i32 = 37i32;
+pub const MonitorRequestReasonUserInputSessionSwitch: i32 = 38i32;
+pub const MonitorRequestReasonUserInputInitialization: i32 = 39i32;
+pub const MonitorRequestReasonPdcSignalWindowsMobilePwrNotif: i32 = 40i32;
+pub const MonitorRequestReasonPdcSignalWindowsMobileShell: i32 = 41i32;
+pub const MonitorRequestReasonPdcSignalHeyCortana: i32 = 42i32;
+pub const MonitorRequestReasonPdcSignalHolographicShell: i32 = 43i32;
+pub const MonitorRequestReasonPdcSignalFingerprint: i32 = 44i32;
+pub const MonitorRequestReasonDirectedDrips: i32 = 45i32;
+pub const MonitorRequestReasonDim: i32 = 46i32;
+pub const MonitorRequestReasonBuiltinPanel: i32 = 47i32;
+pub const MonitorRequestReasonDisplayRequiredUnDim: i32 = 48i32;
+pub const MonitorRequestReasonBatteryCountChangeSuppressed: i32 = 49i32;
+pub const MonitorRequestReasonResumeModernStandby: i32 = 50i32;
+pub const MonitorRequestReasonTerminalInit: i32 = 51i32;
+pub const MonitorRequestReasonPdcSignalSensorsHumanPresence: i32 = 52i32;
+pub const MonitorRequestReasonBatteryPreCritical: i32 = 53i32;
+pub const MonitorRequestReasonUserInputTouch: i32 = 54i32;
+pub const MonitorRequestReasonMax: i32 = 55i32;
+pub const MonitorRequestTypeOff: i32 = 0i32;
+pub const MonitorRequestTypeOnAndPresent: i32 = 1i32;
+pub const MonitorRequestTypeToggleOn: i32 = 2i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct POWER_PLATFORM_INFORMATION {
@@ -5240,21 +5000,13 @@ impl ::core::clone::Clone for POWER_SESSION_WINLOGON {
         *self
     }
 }
-#[repr(transparent)]
-pub struct POWER_SETTING_ALTITUDE(pub i32);
-pub const ALTITUDE_GROUP_POLICY: POWER_SETTING_ALTITUDE = POWER_SETTING_ALTITUDE(0i32);
-pub const ALTITUDE_USER: POWER_SETTING_ALTITUDE = POWER_SETTING_ALTITUDE(1i32);
-pub const ALTITUDE_RUNTIME_OVERRIDE: POWER_SETTING_ALTITUDE = POWER_SETTING_ALTITUDE(2i32);
-pub const ALTITUDE_PROVISIONING: POWER_SETTING_ALTITUDE = POWER_SETTING_ALTITUDE(3i32);
-pub const ALTITUDE_OEM_CUSTOMIZATION: POWER_SETTING_ALTITUDE = POWER_SETTING_ALTITUDE(4i32);
-pub const ALTITUDE_INTERNAL_OVERRIDE: POWER_SETTING_ALTITUDE = POWER_SETTING_ALTITUDE(5i32);
-pub const ALTITUDE_OS_DEFAULT: POWER_SETTING_ALTITUDE = POWER_SETTING_ALTITUDE(6i32);
-impl ::core::marker::Copy for POWER_SETTING_ALTITUDE {}
-impl ::core::clone::Clone for POWER_SETTING_ALTITUDE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const ALTITUDE_GROUP_POLICY: i32 = 0i32;
+pub const ALTITUDE_USER: i32 = 1i32;
+pub const ALTITUDE_RUNTIME_OVERRIDE: i32 = 2i32;
+pub const ALTITUDE_PROVISIONING: i32 = 3i32;
+pub const ALTITUDE_OEM_CUSTOMIZATION: i32 = 4i32;
+pub const ALTITUDE_INTERNAL_OVERRIDE: i32 = 5i32;
+pub const ALTITUDE_OS_DEFAULT: i32 = 6i32;
 pub const POWER_SETTING_VALUE_VERSION: u32 = 1u32;
 pub const POWER_SYSTEM_MAXIMUM: u32 = 7u32;
 pub const POWER_USER_NOTIFY_FORCED_SHUTDOWN: u32 = 32u32;
@@ -5268,17 +5020,9 @@ impl ::core::clone::Clone for POWER_USER_PRESENCE {
         *self
     }
 }
-#[repr(transparent)]
-pub struct POWER_USER_PRESENCE_TYPE(pub i32);
-pub const UserNotPresent: POWER_USER_PRESENCE_TYPE = POWER_USER_PRESENCE_TYPE(0i32);
-pub const UserPresent: POWER_USER_PRESENCE_TYPE = POWER_USER_PRESENCE_TYPE(1i32);
-pub const UserUnknown: POWER_USER_PRESENCE_TYPE = POWER_USER_PRESENCE_TYPE(255i32);
-impl ::core::marker::Copy for POWER_USER_PRESENCE_TYPE {}
-impl ::core::clone::Clone for POWER_USER_PRESENCE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const UserNotPresent: i32 = 0i32;
+pub const UserPresent: i32 = 1i32;
+pub const UserUnknown: i32 = 255i32;
 pub const PO_THROTTLE_ADAPTIVE: u32 = 3u32;
 pub const PO_THROTTLE_CONSTANT: u32 = 1u32;
 pub const PO_THROTTLE_DEGRADE: u32 = 2u32;
@@ -6527,16 +6271,8 @@ impl ::core::clone::Clone for RESOURCEMANAGER_COMPLETION_INFORMATION {
 }
 pub const RESOURCEMANAGER_ENLIST: u32 = 8u32;
 pub const RESOURCEMANAGER_GET_NOTIFICATION: u32 = 16u32;
-#[repr(transparent)]
-pub struct RESOURCEMANAGER_INFORMATION_CLASS(pub i32);
-pub const ResourceManagerBasicInformation: RESOURCEMANAGER_INFORMATION_CLASS = RESOURCEMANAGER_INFORMATION_CLASS(0i32);
-pub const ResourceManagerCompletionInformation: RESOURCEMANAGER_INFORMATION_CLASS = RESOURCEMANAGER_INFORMATION_CLASS(1i32);
-impl ::core::marker::Copy for RESOURCEMANAGER_INFORMATION_CLASS {}
-impl ::core::clone::Clone for RESOURCEMANAGER_INFORMATION_CLASS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const ResourceManagerBasicInformation: i32 = 0i32;
+pub const ResourceManagerCompletionInformation: i32 = 1i32;
 pub const RESOURCEMANAGER_QUERY_INFORMATION: u32 = 1u32;
 pub const RESOURCEMANAGER_RECOVER: u32 = 4u32;
 pub const RESOURCEMANAGER_REGISTER_PROTOCOL: u32 = 32u32;
@@ -6568,17 +6304,9 @@ pub const RTL_RUN_ONCE_ASYNC: u32 = 2u32;
 pub const RTL_RUN_ONCE_CHECK_ONLY: u32 = 1u32;
 pub const RTL_RUN_ONCE_CTX_RESERVED_BITS: u32 = 2u32;
 pub const RTL_RUN_ONCE_INIT_FAILED: u32 = 4u32;
-#[repr(transparent)]
-pub struct RTL_UMS_SCHEDULER_REASON(pub i32);
-pub const UmsSchedulerStartup: RTL_UMS_SCHEDULER_REASON = RTL_UMS_SCHEDULER_REASON(0i32);
-pub const UmsSchedulerThreadBlocked: RTL_UMS_SCHEDULER_REASON = RTL_UMS_SCHEDULER_REASON(1i32);
-pub const UmsSchedulerThreadYield: RTL_UMS_SCHEDULER_REASON = RTL_UMS_SCHEDULER_REASON(2i32);
-impl ::core::marker::Copy for RTL_UMS_SCHEDULER_REASON {}
-impl ::core::clone::Clone for RTL_UMS_SCHEDULER_REASON {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const UmsSchedulerStartup: i32 = 0i32;
+pub const UmsSchedulerThreadBlocked: i32 = 1i32;
+pub const UmsSchedulerThreadYield: i32 = 2i32;
 pub const RTL_UMS_VERSION: u32 = 256u32;
 pub const RTL_VIRTUAL_UNWIND2_VALIDATE_PAC: u32 = 1u32;
 pub const RUNTIME_FUNCTION_INDIRECT: u32 = 1u32;
@@ -6674,39 +6402,31 @@ impl ::core::clone::Clone for RemotableHandle_0 {
         *self
     }
 }
-#[repr(transparent)]
-pub struct ReplacesCorHdrNumericDefines(pub i32);
-pub const COMIMAGE_FLAGS_ILONLY: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(1i32);
-pub const COMIMAGE_FLAGS_32BITREQUIRED: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(2i32);
-pub const COMIMAGE_FLAGS_IL_LIBRARY: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(4i32);
-pub const COMIMAGE_FLAGS_STRONGNAMESIGNED: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(8i32);
-pub const COMIMAGE_FLAGS_NATIVE_ENTRYPOINT: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(16i32);
-pub const COMIMAGE_FLAGS_TRACKDEBUGDATA: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(65536i32);
-pub const COMIMAGE_FLAGS_32BITPREFERRED: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(131072i32);
-pub const COR_VERSION_MAJOR_V2: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(2i32);
-pub const COR_VERSION_MAJOR: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(2i32);
-pub const COR_VERSION_MINOR: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(5i32);
-pub const COR_DELETED_NAME_LENGTH: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(8i32);
-pub const COR_VTABLEGAP_NAME_LENGTH: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(8i32);
-pub const NATIVE_TYPE_MAX_CB: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(1i32);
-pub const COR_ILMETHOD_SECT_SMALL_MAX_DATASIZE: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(255i32);
-pub const IMAGE_COR_MIH_METHODRVA: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(1i32);
-pub const IMAGE_COR_MIH_EHRVA: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(2i32);
-pub const IMAGE_COR_MIH_BASICBLOCK: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(8i32);
-pub const COR_VTABLE_32BIT: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(1i32);
-pub const COR_VTABLE_64BIT: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(2i32);
-pub const COR_VTABLE_FROM_UNMANAGED: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(4i32);
-pub const COR_VTABLE_FROM_UNMANAGED_RETAIN_APPDOMAIN: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(8i32);
-pub const COR_VTABLE_CALL_MOST_DERIVED: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(16i32);
-pub const IMAGE_COR_EATJ_THUNK_SIZE: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(32i32);
-pub const MAX_CLASS_NAME: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(1024i32);
-pub const MAX_PACKAGE_NAME: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(1024i32);
-impl ::core::marker::Copy for ReplacesCorHdrNumericDefines {}
-impl ::core::clone::Clone for ReplacesCorHdrNumericDefines {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const COMIMAGE_FLAGS_ILONLY: i32 = 1i32;
+pub const COMIMAGE_FLAGS_32BITREQUIRED: i32 = 2i32;
+pub const COMIMAGE_FLAGS_IL_LIBRARY: i32 = 4i32;
+pub const COMIMAGE_FLAGS_STRONGNAMESIGNED: i32 = 8i32;
+pub const COMIMAGE_FLAGS_NATIVE_ENTRYPOINT: i32 = 16i32;
+pub const COMIMAGE_FLAGS_TRACKDEBUGDATA: i32 = 65536i32;
+pub const COMIMAGE_FLAGS_32BITPREFERRED: i32 = 131072i32;
+pub const COR_VERSION_MAJOR_V2: i32 = 2i32;
+pub const COR_VERSION_MAJOR: i32 = 2i32;
+pub const COR_VERSION_MINOR: i32 = 5i32;
+pub const COR_DELETED_NAME_LENGTH: i32 = 8i32;
+pub const COR_VTABLEGAP_NAME_LENGTH: i32 = 8i32;
+pub const NATIVE_TYPE_MAX_CB: i32 = 1i32;
+pub const COR_ILMETHOD_SECT_SMALL_MAX_DATASIZE: i32 = 255i32;
+pub const IMAGE_COR_MIH_METHODRVA: i32 = 1i32;
+pub const IMAGE_COR_MIH_EHRVA: i32 = 2i32;
+pub const IMAGE_COR_MIH_BASICBLOCK: i32 = 8i32;
+pub const COR_VTABLE_32BIT: i32 = 1i32;
+pub const COR_VTABLE_64BIT: i32 = 2i32;
+pub const COR_VTABLE_FROM_UNMANAGED: i32 = 4i32;
+pub const COR_VTABLE_FROM_UNMANAGED_RETAIN_APPDOMAIN: i32 = 8i32;
+pub const COR_VTABLE_CALL_MOST_DERIVED: i32 = 16i32;
+pub const IMAGE_COR_EATJ_THUNK_SIZE: i32 = 32i32;
+pub const MAX_CLASS_NAME: i32 = 1024i32;
+pub const MAX_PACKAGE_NAME: i32 = 1024i32;
 #[repr(C)]
 pub struct SCOPE_TABLE_AMD64 {
     pub Count: u32,
@@ -6863,21 +6583,13 @@ impl ::core::clone::Clone for SCRUB_PARITY_EXTENT_DATA {
         *self
     }
 }
-#[repr(transparent)]
-pub struct SECTION_FLAGS(pub u32);
-pub const SECTION_ALL_ACCESS: SECTION_FLAGS = SECTION_FLAGS(983071u32);
-pub const SECTION_QUERY: SECTION_FLAGS = SECTION_FLAGS(1u32);
-pub const SECTION_MAP_WRITE: SECTION_FLAGS = SECTION_FLAGS(2u32);
-pub const SECTION_MAP_READ: SECTION_FLAGS = SECTION_FLAGS(4u32);
-pub const SECTION_MAP_EXECUTE: SECTION_FLAGS = SECTION_FLAGS(8u32);
-pub const SECTION_EXTEND_SIZE: SECTION_FLAGS = SECTION_FLAGS(16u32);
-pub const SECTION_MAP_EXECUTE_EXPLICIT: SECTION_FLAGS = SECTION_FLAGS(32u32);
-impl ::core::marker::Copy for SECTION_FLAGS {}
-impl ::core::clone::Clone for SECTION_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const SECTION_ALL_ACCESS: u32 = 983071u32;
+pub const SECTION_QUERY: u32 = 1u32;
+pub const SECTION_MAP_WRITE: u32 = 2u32;
+pub const SECTION_MAP_READ: u32 = 4u32;
+pub const SECTION_MAP_EXECUTE: u32 = 8u32;
+pub const SECTION_EXTEND_SIZE: u32 = 16u32;
+pub const SECTION_MAP_EXECUTE_EXPLICIT: u32 = 32u32;
 pub const SECURITY_ANONYMOUS_LOGON_RID: i32 = 7i32;
 pub const SECURITY_APPPOOL_ID_BASE_RID: i32 = 82i32;
 pub const SECURITY_APPPOOL_ID_RID_COUNT: i32 = 6i32;
@@ -7064,19 +6776,11 @@ impl ::core::clone::Clone for SERVERSILO_BASIC_INFORMATION {
         *self
     }
 }
-#[repr(transparent)]
-pub struct SERVERSILO_STATE(pub i32);
-pub const SERVERSILO_INITING: SERVERSILO_STATE = SERVERSILO_STATE(0i32);
-pub const SERVERSILO_STARTED: SERVERSILO_STATE = SERVERSILO_STATE(1i32);
-pub const SERVERSILO_SHUTTING_DOWN: SERVERSILO_STATE = SERVERSILO_STATE(2i32);
-pub const SERVERSILO_TERMINATING: SERVERSILO_STATE = SERVERSILO_STATE(3i32);
-pub const SERVERSILO_TERMINATED: SERVERSILO_STATE = SERVERSILO_STATE(4i32);
-impl ::core::marker::Copy for SERVERSILO_STATE {}
-impl ::core::clone::Clone for SERVERSILO_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const SERVERSILO_INITING: i32 = 0i32;
+pub const SERVERSILO_STARTED: i32 = 1i32;
+pub const SERVERSILO_SHUTTING_DOWN: i32 = 2i32;
+pub const SERVERSILO_TERMINATING: i32 = 3i32;
+pub const SERVERSILO_TERMINATED: i32 = 4i32;
 pub const SERVICE_INTERACTIVE_PROCESS: u32 = 256u32;
 pub const SERVICE_PKG_SERVICE: u32 = 512u32;
 pub const SERVICE_USERSERVICE_INSTANCE: u32 = 128u32;
@@ -7100,33 +6804,17 @@ pub const SE_GROUP_MANDATORY: i32 = 1i32;
 pub const SE_GROUP_OWNER: i32 = 8i32;
 pub const SE_GROUP_RESOURCE: i32 = 536870912i32;
 pub const SE_GROUP_USE_FOR_DENY_ONLY: i32 = 16i32;
-#[repr(transparent)]
-pub struct SE_IMAGE_SIGNATURE_TYPE(pub i32);
-pub const SeImageSignatureNone: SE_IMAGE_SIGNATURE_TYPE = SE_IMAGE_SIGNATURE_TYPE(0i32);
-pub const SeImageSignatureEmbedded: SE_IMAGE_SIGNATURE_TYPE = SE_IMAGE_SIGNATURE_TYPE(1i32);
-pub const SeImageSignatureCache: SE_IMAGE_SIGNATURE_TYPE = SE_IMAGE_SIGNATURE_TYPE(2i32);
-pub const SeImageSignatureCatalogCached: SE_IMAGE_SIGNATURE_TYPE = SE_IMAGE_SIGNATURE_TYPE(3i32);
-pub const SeImageSignatureCatalogNotCached: SE_IMAGE_SIGNATURE_TYPE = SE_IMAGE_SIGNATURE_TYPE(4i32);
-pub const SeImageSignatureCatalogHint: SE_IMAGE_SIGNATURE_TYPE = SE_IMAGE_SIGNATURE_TYPE(5i32);
-pub const SeImageSignaturePackageCatalog: SE_IMAGE_SIGNATURE_TYPE = SE_IMAGE_SIGNATURE_TYPE(6i32);
-pub const SeImageSignaturePplMitigated: SE_IMAGE_SIGNATURE_TYPE = SE_IMAGE_SIGNATURE_TYPE(7i32);
-impl ::core::marker::Copy for SE_IMAGE_SIGNATURE_TYPE {}
-impl ::core::clone::Clone for SE_IMAGE_SIGNATURE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct SE_LEARNING_MODE_DATA_TYPE(pub i32);
-pub const SeLearningModeInvalidType: SE_LEARNING_MODE_DATA_TYPE = SE_LEARNING_MODE_DATA_TYPE(0i32);
-pub const SeLearningModeSettings: SE_LEARNING_MODE_DATA_TYPE = SE_LEARNING_MODE_DATA_TYPE(1i32);
-pub const SeLearningModeMax: SE_LEARNING_MODE_DATA_TYPE = SE_LEARNING_MODE_DATA_TYPE(2i32);
-impl ::core::marker::Copy for SE_LEARNING_MODE_DATA_TYPE {}
-impl ::core::clone::Clone for SE_LEARNING_MODE_DATA_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const SeImageSignatureNone: i32 = 0i32;
+pub const SeImageSignatureEmbedded: i32 = 1i32;
+pub const SeImageSignatureCache: i32 = 2i32;
+pub const SeImageSignatureCatalogCached: i32 = 3i32;
+pub const SeImageSignatureCatalogNotCached: i32 = 4i32;
+pub const SeImageSignatureCatalogHint: i32 = 5i32;
+pub const SeImageSignaturePackageCatalog: i32 = 6i32;
+pub const SeImageSignaturePplMitigated: i32 = 7i32;
+pub const SeLearningModeInvalidType: i32 = 0i32;
+pub const SeLearningModeSettings: i32 = 1i32;
+pub const SeLearningModeMax: i32 = 2i32;
 pub const SE_LEARNING_MODE_FLAG_PERMISSIVE: u32 = 1u32;
 pub const SE_OWNER_DEFAULTED: u32 = 1u32;
 pub const SE_RM_CONTROL_VALID: u32 = 16384u32;
@@ -7541,29 +7229,13 @@ pub const SYSTEM_PROCESS_TRUST_LABEL_VALID_MASK: u32 = 16777215u32;
 pub const SYSTEM_PROCESS_TRUST_NOCONSTRAINT_MASK: u32 = 4294967295u32;
 pub const SYSTEM_RESOURCE_ATTRIBUTE_ACE_TYPE: u32 = 18u32;
 pub const SYSTEM_SCOPED_POLICY_ID_ACE_TYPE: u32 = 19u32;
-#[repr(transparent)]
-pub struct SharedVirtualDiskHandleState(pub i32);
-pub const SharedVirtualDiskHandleStateNone: SharedVirtualDiskHandleState = SharedVirtualDiskHandleState(0i32);
-pub const SharedVirtualDiskHandleStateFileShared: SharedVirtualDiskHandleState = SharedVirtualDiskHandleState(1i32);
-pub const SharedVirtualDiskHandleStateHandleShared: SharedVirtualDiskHandleState = SharedVirtualDiskHandleState(3i32);
-impl ::core::marker::Copy for SharedVirtualDiskHandleState {}
-impl ::core::clone::Clone for SharedVirtualDiskHandleState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct SharedVirtualDiskSupportType(pub i32);
-pub const SharedVirtualDisksUnsupported: SharedVirtualDiskSupportType = SharedVirtualDiskSupportType(0i32);
-pub const SharedVirtualDisksSupported: SharedVirtualDiskSupportType = SharedVirtualDiskSupportType(1i32);
-pub const SharedVirtualDiskSnapshotsSupported: SharedVirtualDiskSupportType = SharedVirtualDiskSupportType(3i32);
-pub const SharedVirtualDiskCDPSnapshotsSupported: SharedVirtualDiskSupportType = SharedVirtualDiskSupportType(7i32);
-impl ::core::marker::Copy for SharedVirtualDiskSupportType {}
-impl ::core::clone::Clone for SharedVirtualDiskSupportType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const SharedVirtualDiskHandleStateNone: i32 = 0i32;
+pub const SharedVirtualDiskHandleStateFileShared: i32 = 1i32;
+pub const SharedVirtualDiskHandleStateHandleShared: i32 = 3i32;
+pub const SharedVirtualDisksUnsupported: i32 = 0i32;
+pub const SharedVirtualDisksSupported: i32 = 1i32;
+pub const SharedVirtualDiskSnapshotsSupported: i32 = 3i32;
+pub const SharedVirtualDiskCDPSnapshotsSupported: i32 = 7i32;
 pub const TAPE_CHECK_FOR_DRIVE_PROBLEM: i32 = 2i32;
 #[repr(C)]
 pub struct TAPE_CREATE_PARTITION {
@@ -7595,28 +7267,20 @@ pub const TAPE_DRIVE_GET_LOGICAL_BLK: u32 = 2097152u32;
 pub const TAPE_DRIVE_HIGH_FEATURES: u32 = 2147483648u32;
 pub const TAPE_DRIVE_INITIATOR: u32 = 4u32;
 pub const TAPE_DRIVE_PADDING: u32 = 262144u32;
-#[repr(transparent)]
-pub struct TAPE_DRIVE_PROBLEM_TYPE(pub i32);
-pub const TapeDriveProblemNone: TAPE_DRIVE_PROBLEM_TYPE = TAPE_DRIVE_PROBLEM_TYPE(0i32);
-pub const TapeDriveReadWriteWarning: TAPE_DRIVE_PROBLEM_TYPE = TAPE_DRIVE_PROBLEM_TYPE(1i32);
-pub const TapeDriveReadWriteError: TAPE_DRIVE_PROBLEM_TYPE = TAPE_DRIVE_PROBLEM_TYPE(2i32);
-pub const TapeDriveReadWarning: TAPE_DRIVE_PROBLEM_TYPE = TAPE_DRIVE_PROBLEM_TYPE(3i32);
-pub const TapeDriveWriteWarning: TAPE_DRIVE_PROBLEM_TYPE = TAPE_DRIVE_PROBLEM_TYPE(4i32);
-pub const TapeDriveReadError: TAPE_DRIVE_PROBLEM_TYPE = TAPE_DRIVE_PROBLEM_TYPE(5i32);
-pub const TapeDriveWriteError: TAPE_DRIVE_PROBLEM_TYPE = TAPE_DRIVE_PROBLEM_TYPE(6i32);
-pub const TapeDriveHardwareError: TAPE_DRIVE_PROBLEM_TYPE = TAPE_DRIVE_PROBLEM_TYPE(7i32);
-pub const TapeDriveUnsupportedMedia: TAPE_DRIVE_PROBLEM_TYPE = TAPE_DRIVE_PROBLEM_TYPE(8i32);
-pub const TapeDriveScsiConnectionError: TAPE_DRIVE_PROBLEM_TYPE = TAPE_DRIVE_PROBLEM_TYPE(9i32);
-pub const TapeDriveTimetoClean: TAPE_DRIVE_PROBLEM_TYPE = TAPE_DRIVE_PROBLEM_TYPE(10i32);
-pub const TapeDriveCleanDriveNow: TAPE_DRIVE_PROBLEM_TYPE = TAPE_DRIVE_PROBLEM_TYPE(11i32);
-pub const TapeDriveMediaLifeExpired: TAPE_DRIVE_PROBLEM_TYPE = TAPE_DRIVE_PROBLEM_TYPE(12i32);
-pub const TapeDriveSnappedTape: TAPE_DRIVE_PROBLEM_TYPE = TAPE_DRIVE_PROBLEM_TYPE(13i32);
-impl ::core::marker::Copy for TAPE_DRIVE_PROBLEM_TYPE {}
-impl ::core::clone::Clone for TAPE_DRIVE_PROBLEM_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const TapeDriveProblemNone: i32 = 0i32;
+pub const TapeDriveReadWriteWarning: i32 = 1i32;
+pub const TapeDriveReadWriteError: i32 = 2i32;
+pub const TapeDriveReadWarning: i32 = 3i32;
+pub const TapeDriveWriteWarning: i32 = 4i32;
+pub const TapeDriveReadError: i32 = 5i32;
+pub const TapeDriveWriteError: i32 = 6i32;
+pub const TapeDriveHardwareError: i32 = 7i32;
+pub const TapeDriveUnsupportedMedia: i32 = 8i32;
+pub const TapeDriveScsiConnectionError: i32 = 9i32;
+pub const TapeDriveTimetoClean: i32 = 10i32;
+pub const TapeDriveCleanDriveNow: i32 = 11i32;
+pub const TapeDriveMediaLifeExpired: i32 = 12i32;
+pub const TapeDriveSnappedTape: i32 = 13i32;
 pub const TAPE_DRIVE_REPORT_SMKS: u32 = 524288u32;
 pub const TAPE_DRIVE_RESERVED_BIT: u32 = 2147483648u32;
 pub const TAPE_DRIVE_SELECT: u32 = 2u32;
@@ -7649,43 +7313,35 @@ impl ::core::clone::Clone for TAPE_GET_DRIVE_PARAMETERS {
         *self
     }
 }
-#[repr(transparent)]
-pub struct TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(pub u32);
-pub const TAPE_DRIVE_ABS_BLK_IMMED: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147491840u32);
-pub const TAPE_DRIVE_ABSOLUTE_BLK: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147487744u32);
-pub const TAPE_DRIVE_END_OF_DATA: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147549184u32);
-pub const TAPE_DRIVE_FILEMARKS: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147745792u32);
-pub const TAPE_DRIVE_LOAD_UNLOAD: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147483649u32);
-pub const TAPE_DRIVE_LOAD_UNLD_IMMED: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147483680u32);
-pub const TAPE_DRIVE_LOCK_UNLOCK: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147483652u32);
-pub const TAPE_DRIVE_LOCK_UNLK_IMMED: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147483776u32);
-pub const TAPE_DRIVE_LOG_BLK_IMMED: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147516416u32);
-pub const TAPE_DRIVE_LOGICAL_BLK: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147500032u32);
-pub const TAPE_DRIVE_RELATIVE_BLKS: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147614720u32);
-pub const TAPE_DRIVE_REVERSE_POSITION: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2151677952u32);
-pub const TAPE_DRIVE_REWIND_IMMEDIATE: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147483656u32);
-pub const TAPE_DRIVE_SEQUENTIAL_FMKS: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2148007936u32);
-pub const TAPE_DRIVE_SEQUENTIAL_SMKS: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2149580800u32);
-pub const TAPE_DRIVE_SET_BLOCK_SIZE: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147483664u32);
-pub const TAPE_DRIVE_SET_COMPRESSION: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147484160u32);
-pub const TAPE_DRIVE_SET_ECC: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147483904u32);
-pub const TAPE_DRIVE_SET_PADDING: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147484672u32);
-pub const TAPE_DRIVE_SET_REPORT_SMKS: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147485696u32);
-pub const TAPE_DRIVE_SETMARKS: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2148532224u32);
-pub const TAPE_DRIVE_SPACE_IMMEDIATE: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2155872256u32);
-pub const TAPE_DRIVE_TENSION: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147483650u32);
-pub const TAPE_DRIVE_TENSION_IMMED: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147483712u32);
-pub const TAPE_DRIVE_WRITE_FILEMARKS: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2181038080u32);
-pub const TAPE_DRIVE_WRITE_LONG_FMKS: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2281701376u32);
-pub const TAPE_DRIVE_WRITE_MARK_IMMED: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2415919104u32);
-pub const TAPE_DRIVE_WRITE_SETMARKS: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2164260864u32);
-pub const TAPE_DRIVE_WRITE_SHORT_FMKS: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2214592512u32);
-impl ::core::marker::Copy for TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH {}
-impl ::core::clone::Clone for TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const TAPE_DRIVE_ABS_BLK_IMMED: u32 = 2147491840u32;
+pub const TAPE_DRIVE_ABSOLUTE_BLK: u32 = 2147487744u32;
+pub const TAPE_DRIVE_END_OF_DATA: u32 = 2147549184u32;
+pub const TAPE_DRIVE_FILEMARKS: u32 = 2147745792u32;
+pub const TAPE_DRIVE_LOAD_UNLOAD: u32 = 2147483649u32;
+pub const TAPE_DRIVE_LOAD_UNLD_IMMED: u32 = 2147483680u32;
+pub const TAPE_DRIVE_LOCK_UNLOCK: u32 = 2147483652u32;
+pub const TAPE_DRIVE_LOCK_UNLK_IMMED: u32 = 2147483776u32;
+pub const TAPE_DRIVE_LOG_BLK_IMMED: u32 = 2147516416u32;
+pub const TAPE_DRIVE_LOGICAL_BLK: u32 = 2147500032u32;
+pub const TAPE_DRIVE_RELATIVE_BLKS: u32 = 2147614720u32;
+pub const TAPE_DRIVE_REVERSE_POSITION: u32 = 2151677952u32;
+pub const TAPE_DRIVE_REWIND_IMMEDIATE: u32 = 2147483656u32;
+pub const TAPE_DRIVE_SEQUENTIAL_FMKS: u32 = 2148007936u32;
+pub const TAPE_DRIVE_SEQUENTIAL_SMKS: u32 = 2149580800u32;
+pub const TAPE_DRIVE_SET_BLOCK_SIZE: u32 = 2147483664u32;
+pub const TAPE_DRIVE_SET_COMPRESSION: u32 = 2147484160u32;
+pub const TAPE_DRIVE_SET_ECC: u32 = 2147483904u32;
+pub const TAPE_DRIVE_SET_PADDING: u32 = 2147484672u32;
+pub const TAPE_DRIVE_SET_REPORT_SMKS: u32 = 2147485696u32;
+pub const TAPE_DRIVE_SETMARKS: u32 = 2148532224u32;
+pub const TAPE_DRIVE_SPACE_IMMEDIATE: u32 = 2155872256u32;
+pub const TAPE_DRIVE_TENSION: u32 = 2147483650u32;
+pub const TAPE_DRIVE_TENSION_IMMED: u32 = 2147483712u32;
+pub const TAPE_DRIVE_WRITE_FILEMARKS: u32 = 2181038080u32;
+pub const TAPE_DRIVE_WRITE_LONG_FMKS: u32 = 2281701376u32;
+pub const TAPE_DRIVE_WRITE_MARK_IMMED: u32 = 2415919104u32;
+pub const TAPE_DRIVE_WRITE_SETMARKS: u32 = 2164260864u32;
+pub const TAPE_DRIVE_WRITE_SHORT_FMKS: u32 = 2214592512u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TAPE_GET_MEDIA_PARAMETERS {
@@ -7807,20 +7463,12 @@ impl ::core::clone::Clone for TRANSACTIONMANAGER_BASIC_INFORMATION {
 }
 pub const TRANSACTIONMANAGER_BIND_TRANSACTION: u32 = 32u32;
 pub const TRANSACTIONMANAGER_CREATE_RM: u32 = 16u32;
-#[repr(transparent)]
-pub struct TRANSACTIONMANAGER_INFORMATION_CLASS(pub i32);
-pub const TransactionManagerBasicInformation: TRANSACTIONMANAGER_INFORMATION_CLASS = TRANSACTIONMANAGER_INFORMATION_CLASS(0i32);
-pub const TransactionManagerLogInformation: TRANSACTIONMANAGER_INFORMATION_CLASS = TRANSACTIONMANAGER_INFORMATION_CLASS(1i32);
-pub const TransactionManagerLogPathInformation: TRANSACTIONMANAGER_INFORMATION_CLASS = TRANSACTIONMANAGER_INFORMATION_CLASS(2i32);
-pub const TransactionManagerRecoveryInformation: TRANSACTIONMANAGER_INFORMATION_CLASS = TRANSACTIONMANAGER_INFORMATION_CLASS(4i32);
-pub const TransactionManagerOnlineProbeInformation: TRANSACTIONMANAGER_INFORMATION_CLASS = TRANSACTIONMANAGER_INFORMATION_CLASS(3i32);
-pub const TransactionManagerOldestTransactionInformation: TRANSACTIONMANAGER_INFORMATION_CLASS = TRANSACTIONMANAGER_INFORMATION_CLASS(5i32);
-impl ::core::marker::Copy for TRANSACTIONMANAGER_INFORMATION_CLASS {}
-impl ::core::clone::Clone for TRANSACTIONMANAGER_INFORMATION_CLASS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const TransactionManagerBasicInformation: i32 = 0i32;
+pub const TransactionManagerLogInformation: i32 = 1i32;
+pub const TransactionManagerLogPathInformation: i32 = 2i32;
+pub const TransactionManagerRecoveryInformation: i32 = 4i32;
+pub const TransactionManagerOnlineProbeInformation: i32 = 3i32;
+pub const TransactionManagerOldestTransactionInformation: i32 = 5i32;
 #[repr(C)]
 pub struct TRANSACTIONMANAGER_LOGPATH_INFORMATION {
     pub LogPathLength: u32,
@@ -7915,20 +7563,12 @@ impl ::core::clone::Clone for TRANSACTION_ENLISTMENT_PAIR {
         *self
     }
 }
-#[repr(transparent)]
-pub struct TRANSACTION_INFORMATION_CLASS(pub i32);
-pub const TransactionBasicInformation: TRANSACTION_INFORMATION_CLASS = TRANSACTION_INFORMATION_CLASS(0i32);
-pub const TransactionPropertiesInformation: TRANSACTION_INFORMATION_CLASS = TRANSACTION_INFORMATION_CLASS(1i32);
-pub const TransactionEnlistmentInformation: TRANSACTION_INFORMATION_CLASS = TRANSACTION_INFORMATION_CLASS(2i32);
-pub const TransactionSuperiorEnlistmentInformation: TRANSACTION_INFORMATION_CLASS = TRANSACTION_INFORMATION_CLASS(3i32);
-pub const TransactionBindInformation: TRANSACTION_INFORMATION_CLASS = TRANSACTION_INFORMATION_CLASS(4i32);
-pub const TransactionDTCPrivateInformation: TRANSACTION_INFORMATION_CLASS = TRANSACTION_INFORMATION_CLASS(5i32);
-impl ::core::marker::Copy for TRANSACTION_INFORMATION_CLASS {}
-impl ::core::clone::Clone for TRANSACTION_INFORMATION_CLASS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const TransactionBasicInformation: i32 = 0i32;
+pub const TransactionPropertiesInformation: i32 = 1i32;
+pub const TransactionEnlistmentInformation: i32 = 2i32;
+pub const TransactionSuperiorEnlistmentInformation: i32 = 3i32;
+pub const TransactionBindInformation: i32 = 4i32;
+pub const TransactionDTCPrivateInformation: i32 = 5i32;
 #[repr(C)]
 pub struct TRANSACTION_LIST_ENTRY {
     pub UOW: ::windows_sys::core::GUID,
@@ -7970,17 +7610,9 @@ pub const TRANSACTION_QUERY_INFORMATION: u32 = 1u32;
 pub const TRANSACTION_RIGHT_RESERVED1: u32 = 64u32;
 pub const TRANSACTION_ROLLBACK: u32 = 16u32;
 pub const TRANSACTION_SET_INFORMATION: u32 = 2u32;
-#[repr(transparent)]
-pub struct TRANSACTION_STATE(pub i32);
-pub const TransactionStateNormal: TRANSACTION_STATE = TRANSACTION_STATE(1i32);
-pub const TransactionStateIndoubt: TRANSACTION_STATE = TRANSACTION_STATE(2i32);
-pub const TransactionStateCommittedNotify: TRANSACTION_STATE = TRANSACTION_STATE(3i32);
-impl ::core::marker::Copy for TRANSACTION_STATE {}
-impl ::core::clone::Clone for TRANSACTION_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const TransactionStateNormal: i32 = 1i32;
+pub const TransactionStateIndoubt: i32 = 2i32;
+pub const TransactionStateCommittedNotify: i32 = 3i32;
 #[repr(C)]
 pub struct TRANSACTION_SUPERIOR_ENLISTMENT_INFORMATION {
     pub SuperiorEnlistmentPair: TRANSACTION_ENLISTMENT_PAIR,
@@ -8014,19 +7646,11 @@ pub const UNIFIEDBUILDREVISION_MIN: u32 = 0u32;
 pub const UNWIND_CHAIN_LIMIT: u32 = 32u32;
 pub const UNWIND_HISTORY_TABLE_SIZE: u32 = 12u32;
 pub const UNW_FLAG_NO_EPILOGUE: u32 = 2147483648u32;
-#[repr(transparent)]
-pub struct USER_ACTIVITY_PRESENCE(pub i32);
-pub const PowerUserPresent: USER_ACTIVITY_PRESENCE = USER_ACTIVITY_PRESENCE(0i32);
-pub const PowerUserNotPresent: USER_ACTIVITY_PRESENCE = USER_ACTIVITY_PRESENCE(1i32);
-pub const PowerUserInactive: USER_ACTIVITY_PRESENCE = USER_ACTIVITY_PRESENCE(2i32);
-pub const PowerUserMaximum: USER_ACTIVITY_PRESENCE = USER_ACTIVITY_PRESENCE(3i32);
-pub const PowerUserInvalid: USER_ACTIVITY_PRESENCE = USER_ACTIVITY_PRESENCE(3i32);
-impl ::core::marker::Copy for USER_ACTIVITY_PRESENCE {}
-impl ::core::clone::Clone for USER_ACTIVITY_PRESENCE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const PowerUserPresent: i32 = 0i32;
+pub const PowerUserNotPresent: i32 = 1i32;
+pub const PowerUserInactive: i32 = 2i32;
+pub const PowerUserMaximum: i32 = 3i32;
+pub const PowerUserInvalid: i32 = 3i32;
 pub const VALID_INHERIT_FLAGS: u32 = 31u32;
 pub const VBS_BASIC_PAGE_MEASURED_DATA: u32 = 1u32;
 pub const VBS_BASIC_PAGE_SYSTEM_CALL: u32 = 5u32;

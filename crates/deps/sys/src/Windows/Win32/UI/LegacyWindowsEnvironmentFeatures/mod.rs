@@ -84,19 +84,11 @@ pub const REC_S_IDIDTHEUPDATES: ::windows_sys::core::HRESULT = ::windows_sys::co
 pub const REC_S_NOTCOMPLETE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(266241i32 as _);
 pub const REC_S_NOTCOMPLETEBUTPROPAGATE: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(266242i32 as _);
 pub const STATEBITS_FLAT: u32 = 1u32;
-#[repr(transparent)]
-pub struct _reconcilef(pub i32);
-pub const RECONCILEF_MAYBOTHERUSER: _reconcilef = _reconcilef(1i32);
-pub const RECONCILEF_FEEDBACKWINDOWVALID: _reconcilef = _reconcilef(2i32);
-pub const RECONCILEF_NORESIDUESOK: _reconcilef = _reconcilef(4i32);
-pub const RECONCILEF_OMITSELFRESIDUE: _reconcilef = _reconcilef(8i32);
-pub const RECONCILEF_RESUMERECONCILIATION: _reconcilef = _reconcilef(16i32);
-pub const RECONCILEF_YOUMAYDOTHEUPDATES: _reconcilef = _reconcilef(32i32);
-pub const RECONCILEF_ONLYYOUWERECHANGED: _reconcilef = _reconcilef(64i32);
-pub const ALL_RECONCILE_FLAGS: _reconcilef = _reconcilef(127i32);
-impl ::core::marker::Copy for _reconcilef {}
-impl ::core::clone::Clone for _reconcilef {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const RECONCILEF_MAYBOTHERUSER: i32 = 1i32;
+pub const RECONCILEF_FEEDBACKWINDOWVALID: i32 = 2i32;
+pub const RECONCILEF_NORESIDUESOK: i32 = 4i32;
+pub const RECONCILEF_OMITSELFRESIDUE: i32 = 8i32;
+pub const RECONCILEF_RESUMERECONCILIATION: i32 = 16i32;
+pub const RECONCILEF_YOUMAYDOTHEUPDATES: i32 = 32i32;
+pub const RECONCILEF_ONLYYOUWERECHANGED: i32 = 64i32;
+pub const ALL_RECONCILE_FLAGS: i32 = 127i32;

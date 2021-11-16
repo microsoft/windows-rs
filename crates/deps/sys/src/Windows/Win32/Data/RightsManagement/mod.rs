@@ -181,16 +181,8 @@ extern "system" {
     pub fn DRMVerify(wszdata: super::super::Foundation::PWSTR, pcattesteddata: *mut u32, wszattesteddata: super::super::Foundation::PWSTR, petype: *mut DRMATTESTTYPE, pcprincipal: *mut u32, wszprincipal: super::super::Foundation::PWSTR, pcmanifest: *mut u32, wszmanifest: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
 }
 pub const DRMACTSERVINFOVERSION: u32 = 0u32;
-#[repr(transparent)]
-pub struct DRMATTESTTYPE(pub i32);
-pub const DRMATTESTTYPE_FULLENVIRONMENT: DRMATTESTTYPE = DRMATTESTTYPE(0i32);
-pub const DRMATTESTTYPE_HASHONLY: DRMATTESTTYPE = DRMATTESTTYPE(1i32);
-impl ::core::marker::Copy for DRMATTESTTYPE {}
-impl ::core::clone::Clone for DRMATTESTTYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const DRMATTESTTYPE_FULLENVIRONMENT: i32 = 0i32;
+pub const DRMATTESTTYPE_HASHONLY: i32 = 1i32;
 pub const DRMBINDINGFLAGS_IGNORE_VALIDITY_INTERVALS: u32 = 1u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -218,31 +210,15 @@ pub const DRMBOUNDLICENSEPARAMSVERSION: u32 = 1u32;
 pub type DRMCALLBACK = unsafe extern "system" fn(param0: DRM_STATUS_MSG, param1: ::windows_sys::core::HRESULT, param2: *mut ::core::ffi::c_void, param3: *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
 pub const DRMCALLBACKVERSION: u32 = 1u32;
 pub const DRMCLIENTSTRUCTVERSION: u32 = 1u32;
-#[repr(transparent)]
-pub struct DRMENCODINGTYPE(pub i32);
-pub const DRMENCODINGTYPE_BASE64: DRMENCODINGTYPE = DRMENCODINGTYPE(0i32);
-pub const DRMENCODINGTYPE_STRING: DRMENCODINGTYPE = DRMENCODINGTYPE(1i32);
-pub const DRMENCODINGTYPE_LONG: DRMENCODINGTYPE = DRMENCODINGTYPE(2i32);
-pub const DRMENCODINGTYPE_TIME: DRMENCODINGTYPE = DRMENCODINGTYPE(3i32);
-pub const DRMENCODINGTYPE_UINT: DRMENCODINGTYPE = DRMENCODINGTYPE(4i32);
-pub const DRMENCODINGTYPE_RAW: DRMENCODINGTYPE = DRMENCODINGTYPE(5i32);
-impl ::core::marker::Copy for DRMENCODINGTYPE {}
-impl ::core::clone::Clone for DRMENCODINGTYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const DRMENCODINGTYPE_BASE64: i32 = 0i32;
+pub const DRMENCODINGTYPE_STRING: i32 = 1i32;
+pub const DRMENCODINGTYPE_LONG: i32 = 2i32;
+pub const DRMENCODINGTYPE_TIME: i32 = 3i32;
+pub const DRMENCODINGTYPE_UINT: i32 = 4i32;
+pub const DRMENCODINGTYPE_RAW: i32 = 5i32;
 pub const DRMENVHANDLE_INVALID: u32 = 0u32;
-#[repr(transparent)]
-pub struct DRMGLOBALOPTIONS(pub i32);
-pub const DRMGLOBALOPTIONS_USE_WINHTTP: DRMGLOBALOPTIONS = DRMGLOBALOPTIONS(0i32);
-pub const DRMGLOBALOPTIONS_USE_SERVERSECURITYPROCESSOR: DRMGLOBALOPTIONS = DRMGLOBALOPTIONS(1i32);
-impl ::core::marker::Copy for DRMGLOBALOPTIONS {}
-impl ::core::clone::Clone for DRMGLOBALOPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const DRMGLOBALOPTIONS_USE_WINHTTP: i32 = 0i32;
+pub const DRMGLOBALOPTIONS_USE_SERVERSECURITYPROCESSOR: i32 = 1i32;
 pub const DRMHANDLE_INVALID: u32 = 0u32;
 pub const DRMHSESSION_INVALID: u32 = 0u32;
 #[repr(C)]
@@ -264,35 +240,11 @@ pub const DRMIDVERSION: u32 = 0u32;
 pub const DRMLICENSEACQDATAVERSION: u32 = 0u32;
 pub const DRMPUBHANDLE_INVALID: u32 = 0u32;
 pub const DRMQUERYHANDLE_INVALID: u32 = 0u32;
-#[repr(transparent)]
-pub struct DRMSECURITYPROVIDERTYPE(pub i32);
-pub const DRMSECURITYPROVIDERTYPE_SOFTWARESECREP: DRMSECURITYPROVIDERTYPE = DRMSECURITYPROVIDERTYPE(0i32);
-impl ::core::marker::Copy for DRMSECURITYPROVIDERTYPE {}
-impl ::core::clone::Clone for DRMSECURITYPROVIDERTYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DRMSPECTYPE(pub i32);
-pub const DRMSPECTYPE_UNKNOWN: DRMSPECTYPE = DRMSPECTYPE(0i32);
-pub const DRMSPECTYPE_FILENAME: DRMSPECTYPE = DRMSPECTYPE(1i32);
-impl ::core::marker::Copy for DRMSPECTYPE {}
-impl ::core::clone::Clone for DRMSPECTYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DRMTIMETYPE(pub i32);
-pub const DRMTIMETYPE_SYSTEMUTC: DRMTIMETYPE = DRMTIMETYPE(0i32);
-pub const DRMTIMETYPE_SYSTEMLOCAL: DRMTIMETYPE = DRMTIMETYPE(1i32);
-impl ::core::marker::Copy for DRMTIMETYPE {}
-impl ::core::clone::Clone for DRMTIMETYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const DRMSECURITYPROVIDERTYPE_SOFTWARESECREP: i32 = 0i32;
+pub const DRMSPECTYPE_UNKNOWN: i32 = 0i32;
+pub const DRMSPECTYPE_FILENAME: i32 = 1i32;
+pub const DRMTIMETYPE_SYSTEMUTC: i32 = 0i32;
+pub const DRMTIMETYPE_SYSTEMLOCAL: i32 = 1i32;
 pub const DRM_ACTIVATE_CANCEL: u32 = 8u32;
 pub const DRM_ACTIVATE_DELAYED: u32 = 64u32;
 pub const DRM_ACTIVATE_GROUPIDENTITY: u32 = 2u32;
@@ -340,17 +292,9 @@ impl ::core::clone::Clone for DRM_CLIENT_VERSION_INFO {
         *self
     }
 }
-#[repr(transparent)]
-pub struct DRM_DISTRIBUTION_POINT_INFO(pub i32);
-pub const DRM_DISTRIBUTION_POINT_LICENSE_ACQUISITION: DRM_DISTRIBUTION_POINT_INFO = DRM_DISTRIBUTION_POINT_INFO(0i32);
-pub const DRM_DISTRIBUTION_POINT_PUBLISHING: DRM_DISTRIBUTION_POINT_INFO = DRM_DISTRIBUTION_POINT_INFO(1i32);
-pub const DRM_DISTRIBUTION_POINT_REFERRAL_INFO: DRM_DISTRIBUTION_POINT_INFO = DRM_DISTRIBUTION_POINT_INFO(2i32);
-impl ::core::marker::Copy for DRM_DISTRIBUTION_POINT_INFO {}
-impl ::core::clone::Clone for DRM_DISTRIBUTION_POINT_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const DRM_DISTRIBUTION_POINT_LICENSE_ACQUISITION: i32 = 0i32;
+pub const DRM_DISTRIBUTION_POINT_PUBLISHING: i32 = 1i32;
+pub const DRM_DISTRIBUTION_POINT_REFERRAL_INFO: i32 = 2i32;
 pub const DRM_EL_CLIENTLICENSOR: u32 = 128u32;
 pub const DRM_EL_CLIENTLICENSOR_LID: u32 = 256u32;
 pub const DRM_EL_EUL: u32 = 32u32;
@@ -402,32 +346,16 @@ pub const DRM_SERVICE_TYPE_SILENT: u32 = 16u32;
 pub const DRM_SIGN_CANCEL: u32 = 4u32;
 pub const DRM_SIGN_OFFLINE: u32 = 2u32;
 pub const DRM_SIGN_ONLINE: u32 = 1u32;
-#[repr(transparent)]
-pub struct DRM_STATUS_MSG(pub i32);
-pub const DRM_MSG_ACTIVATE_MACHINE: DRM_STATUS_MSG = DRM_STATUS_MSG(0i32);
-pub const DRM_MSG_ACTIVATE_GROUPIDENTITY: DRM_STATUS_MSG = DRM_STATUS_MSG(1i32);
-pub const DRM_MSG_ACQUIRE_LICENSE: DRM_STATUS_MSG = DRM_STATUS_MSG(2i32);
-pub const DRM_MSG_ACQUIRE_ADVISORY: DRM_STATUS_MSG = DRM_STATUS_MSG(3i32);
-pub const DRM_MSG_SIGN_ISSUANCE_LICENSE: DRM_STATUS_MSG = DRM_STATUS_MSG(4i32);
-pub const DRM_MSG_ACQUIRE_CLIENTLICENSOR: DRM_STATUS_MSG = DRM_STATUS_MSG(5i32);
-pub const DRM_MSG_ACQUIRE_ISSUANCE_LICENSE_TEMPLATE: DRM_STATUS_MSG = DRM_STATUS_MSG(6i32);
-impl ::core::marker::Copy for DRM_STATUS_MSG {}
-impl ::core::clone::Clone for DRM_STATUS_MSG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DRM_USAGEPOLICY_TYPE(pub i32);
-pub const DRM_USAGEPOLICY_TYPE_BYNAME: DRM_USAGEPOLICY_TYPE = DRM_USAGEPOLICY_TYPE(0i32);
-pub const DRM_USAGEPOLICY_TYPE_BYPUBLICKEY: DRM_USAGEPOLICY_TYPE = DRM_USAGEPOLICY_TYPE(1i32);
-pub const DRM_USAGEPOLICY_TYPE_BYDIGEST: DRM_USAGEPOLICY_TYPE = DRM_USAGEPOLICY_TYPE(2i32);
-pub const DRM_USAGEPOLICY_TYPE_OSEXCLUSION: DRM_USAGEPOLICY_TYPE = DRM_USAGEPOLICY_TYPE(3i32);
-impl ::core::marker::Copy for DRM_USAGEPOLICY_TYPE {}
-impl ::core::clone::Clone for DRM_USAGEPOLICY_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const DRM_MSG_ACTIVATE_MACHINE: i32 = 0i32;
+pub const DRM_MSG_ACTIVATE_GROUPIDENTITY: i32 = 1i32;
+pub const DRM_MSG_ACQUIRE_LICENSE: i32 = 2i32;
+pub const DRM_MSG_ACQUIRE_ADVISORY: i32 = 3i32;
+pub const DRM_MSG_SIGN_ISSUANCE_LICENSE: i32 = 4i32;
+pub const DRM_MSG_ACQUIRE_CLIENTLICENSOR: i32 = 5i32;
+pub const DRM_MSG_ACQUIRE_ISSUANCE_LICENSE_TEMPLATE: i32 = 6i32;
+pub const DRM_USAGEPOLICY_TYPE_BYNAME: i32 = 0i32;
+pub const DRM_USAGEPOLICY_TYPE_BYPUBLICKEY: i32 = 1i32;
+pub const DRM_USAGEPOLICY_TYPE_BYDIGEST: i32 = 2i32;
+pub const DRM_USAGEPOLICY_TYPE_OSEXCLUSION: i32 = 3i32;
 pub const MSDRM_CLIENT_ZONE: u32 = 52992u32;
 pub const MSDRM_POLICY_ZONE: u32 = 37632u32;

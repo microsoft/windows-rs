@@ -61,19 +61,11 @@ extern "system" {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
     pub fn WaitCommEvent(hfile: super::super::Foundation::HANDLE, lpevtmask: *mut COMM_EVENT_MASK, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
 }
-#[repr(transparent)]
-pub struct CLEAR_COMM_ERROR_FLAGS(pub u32);
-pub const CE_BREAK: CLEAR_COMM_ERROR_FLAGS = CLEAR_COMM_ERROR_FLAGS(16u32);
-pub const CE_FRAME: CLEAR_COMM_ERROR_FLAGS = CLEAR_COMM_ERROR_FLAGS(8u32);
-pub const CE_OVERRUN: CLEAR_COMM_ERROR_FLAGS = CLEAR_COMM_ERROR_FLAGS(2u32);
-pub const CE_RXOVER: CLEAR_COMM_ERROR_FLAGS = CLEAR_COMM_ERROR_FLAGS(1u32);
-pub const CE_RXPARITY: CLEAR_COMM_ERROR_FLAGS = CLEAR_COMM_ERROR_FLAGS(4u32);
-impl ::core::marker::Copy for CLEAR_COMM_ERROR_FLAGS {}
-impl ::core::clone::Clone for CLEAR_COMM_ERROR_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const CE_BREAK: u32 = 16u32;
+pub const CE_FRAME: u32 = 8u32;
+pub const CE_OVERRUN: u32 = 2u32;
+pub const CE_RXOVER: u32 = 1u32;
+pub const CE_RXPARITY: u32 = 4u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct COMMCONFIG {
@@ -121,22 +113,14 @@ impl ::core::clone::Clone for COMMPROP {
         *self
     }
 }
-#[repr(transparent)]
-pub struct COMMPROP_STOP_PARITY(pub u16);
-pub const STOPBITS_10: COMMPROP_STOP_PARITY = COMMPROP_STOP_PARITY(1u16);
-pub const STOPBITS_15: COMMPROP_STOP_PARITY = COMMPROP_STOP_PARITY(2u16);
-pub const STOPBITS_20: COMMPROP_STOP_PARITY = COMMPROP_STOP_PARITY(4u16);
-pub const PARITY_NONE: COMMPROP_STOP_PARITY = COMMPROP_STOP_PARITY(256u16);
-pub const PARITY_ODD: COMMPROP_STOP_PARITY = COMMPROP_STOP_PARITY(512u16);
-pub const PARITY_EVEN: COMMPROP_STOP_PARITY = COMMPROP_STOP_PARITY(1024u16);
-pub const PARITY_MARK: COMMPROP_STOP_PARITY = COMMPROP_STOP_PARITY(2048u16);
-pub const PARITY_SPACE: COMMPROP_STOP_PARITY = COMMPROP_STOP_PARITY(4096u16);
-impl ::core::marker::Copy for COMMPROP_STOP_PARITY {}
-impl ::core::clone::Clone for COMMPROP_STOP_PARITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const STOPBITS_10: u16 = 1u16;
+pub const STOPBITS_15: u16 = 2u16;
+pub const STOPBITS_20: u16 = 4u16;
+pub const PARITY_NONE: u16 = 256u16;
+pub const PARITY_ODD: u16 = 512u16;
+pub const PARITY_EVEN: u16 = 1024u16;
+pub const PARITY_MARK: u16 = 2048u16;
+pub const PARITY_SPACE: u16 = 4096u16;
 #[repr(C)]
 pub struct COMMTIMEOUTS {
     pub ReadIntervalTimeout: u32,
@@ -151,27 +135,19 @@ impl ::core::clone::Clone for COMMTIMEOUTS {
         *self
     }
 }
-#[repr(transparent)]
-pub struct COMM_EVENT_MASK(pub u32);
-pub const EV_BREAK: COMM_EVENT_MASK = COMM_EVENT_MASK(64u32);
-pub const EV_CTS: COMM_EVENT_MASK = COMM_EVENT_MASK(8u32);
-pub const EV_DSR: COMM_EVENT_MASK = COMM_EVENT_MASK(16u32);
-pub const EV_ERR: COMM_EVENT_MASK = COMM_EVENT_MASK(128u32);
-pub const EV_EVENT1: COMM_EVENT_MASK = COMM_EVENT_MASK(2048u32);
-pub const EV_EVENT2: COMM_EVENT_MASK = COMM_EVENT_MASK(4096u32);
-pub const EV_PERR: COMM_EVENT_MASK = COMM_EVENT_MASK(512u32);
-pub const EV_RING: COMM_EVENT_MASK = COMM_EVENT_MASK(256u32);
-pub const EV_RLSD: COMM_EVENT_MASK = COMM_EVENT_MASK(32u32);
-pub const EV_RX80FULL: COMM_EVENT_MASK = COMM_EVENT_MASK(1024u32);
-pub const EV_RXCHAR: COMM_EVENT_MASK = COMM_EVENT_MASK(1u32);
-pub const EV_RXFLAG: COMM_EVENT_MASK = COMM_EVENT_MASK(2u32);
-pub const EV_TXEMPTY: COMM_EVENT_MASK = COMM_EVENT_MASK(4u32);
-impl ::core::marker::Copy for COMM_EVENT_MASK {}
-impl ::core::clone::Clone for COMM_EVENT_MASK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const EV_BREAK: u32 = 64u32;
+pub const EV_CTS: u32 = 8u32;
+pub const EV_DSR: u32 = 16u32;
+pub const EV_ERR: u32 = 128u32;
+pub const EV_EVENT1: u32 = 2048u32;
+pub const EV_EVENT2: u32 = 4096u32;
+pub const EV_PERR: u32 = 512u32;
+pub const EV_RING: u32 = 256u32;
+pub const EV_RLSD: u32 = 32u32;
+pub const EV_RX80FULL: u32 = 1024u32;
+pub const EV_RXCHAR: u32 = 1u32;
+pub const EV_RXFLAG: u32 = 2u32;
+pub const EV_TXEMPTY: u32 = 4u32;
 #[repr(C)]
 pub struct COMSTAT {
     pub _bitfield: u32,
@@ -211,22 +187,14 @@ impl ::core::clone::Clone for DCB {
         *self
     }
 }
-#[repr(transparent)]
-pub struct ESCAPE_COMM_FUNCTION(pub u32);
-pub const CLRBREAK: ESCAPE_COMM_FUNCTION = ESCAPE_COMM_FUNCTION(9u32);
-pub const CLRDTR: ESCAPE_COMM_FUNCTION = ESCAPE_COMM_FUNCTION(6u32);
-pub const CLRRTS: ESCAPE_COMM_FUNCTION = ESCAPE_COMM_FUNCTION(4u32);
-pub const SETBREAK: ESCAPE_COMM_FUNCTION = ESCAPE_COMM_FUNCTION(8u32);
-pub const SETDTR: ESCAPE_COMM_FUNCTION = ESCAPE_COMM_FUNCTION(5u32);
-pub const SETRTS: ESCAPE_COMM_FUNCTION = ESCAPE_COMM_FUNCTION(3u32);
-pub const SETXOFF: ESCAPE_COMM_FUNCTION = ESCAPE_COMM_FUNCTION(1u32);
-pub const SETXON: ESCAPE_COMM_FUNCTION = ESCAPE_COMM_FUNCTION(2u32);
-impl ::core::marker::Copy for ESCAPE_COMM_FUNCTION {}
-impl ::core::clone::Clone for ESCAPE_COMM_FUNCTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const CLRBREAK: u32 = 9u32;
+pub const CLRDTR: u32 = 6u32;
+pub const CLRRTS: u32 = 4u32;
+pub const SETBREAK: u32 = 8u32;
+pub const SETDTR: u32 = 5u32;
+pub const SETRTS: u32 = 3u32;
+pub const SETXOFF: u32 = 1u32;
+pub const SETXON: u32 = 2u32;
 pub const MAXLENGTH_NAI: u32 = 72u32;
 pub const MAXLENGTH_UICCDATASTORE: u32 = 10u32;
 pub const MDM_ANALOG_RLP_OFF: u32 = 1u32;
@@ -347,40 +315,16 @@ impl ::core::clone::Clone for MODEMDEVCAPS {
         *self
     }
 }
-#[repr(transparent)]
-pub struct MODEMDEVCAPS_DIAL_OPTIONS(pub u32);
-pub const DIALOPTION_BILLING: MODEMDEVCAPS_DIAL_OPTIONS = MODEMDEVCAPS_DIAL_OPTIONS(64u32);
-pub const DIALOPTION_DIALTONE: MODEMDEVCAPS_DIAL_OPTIONS = MODEMDEVCAPS_DIAL_OPTIONS(256u32);
-pub const DIALOPTION_QUIET: MODEMDEVCAPS_DIAL_OPTIONS = MODEMDEVCAPS_DIAL_OPTIONS(128u32);
-impl ::core::marker::Copy for MODEMDEVCAPS_DIAL_OPTIONS {}
-impl ::core::clone::Clone for MODEMDEVCAPS_DIAL_OPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct MODEMDEVCAPS_SPEAKER_MODE(pub u32);
-pub const MDMSPKRFLAG_CALLSETUP: MODEMDEVCAPS_SPEAKER_MODE = MODEMDEVCAPS_SPEAKER_MODE(8u32);
-pub const MDMSPKRFLAG_DIAL: MODEMDEVCAPS_SPEAKER_MODE = MODEMDEVCAPS_SPEAKER_MODE(2u32);
-pub const MDMSPKRFLAG_OFF: MODEMDEVCAPS_SPEAKER_MODE = MODEMDEVCAPS_SPEAKER_MODE(1u32);
-pub const MDMSPKRFLAG_ON: MODEMDEVCAPS_SPEAKER_MODE = MODEMDEVCAPS_SPEAKER_MODE(4u32);
-impl ::core::marker::Copy for MODEMDEVCAPS_SPEAKER_MODE {}
-impl ::core::clone::Clone for MODEMDEVCAPS_SPEAKER_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct MODEMDEVCAPS_SPEAKER_VOLUME(pub u32);
-pub const MDMVOLFLAG_HIGH: MODEMDEVCAPS_SPEAKER_VOLUME = MODEMDEVCAPS_SPEAKER_VOLUME(4u32);
-pub const MDMVOLFLAG_LOW: MODEMDEVCAPS_SPEAKER_VOLUME = MODEMDEVCAPS_SPEAKER_VOLUME(1u32);
-pub const MDMVOLFLAG_MEDIUM: MODEMDEVCAPS_SPEAKER_VOLUME = MODEMDEVCAPS_SPEAKER_VOLUME(2u32);
-impl ::core::marker::Copy for MODEMDEVCAPS_SPEAKER_VOLUME {}
-impl ::core::clone::Clone for MODEMDEVCAPS_SPEAKER_VOLUME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const DIALOPTION_BILLING: u32 = 64u32;
+pub const DIALOPTION_DIALTONE: u32 = 256u32;
+pub const DIALOPTION_QUIET: u32 = 128u32;
+pub const MDMSPKRFLAG_CALLSETUP: u32 = 8u32;
+pub const MDMSPKRFLAG_DIAL: u32 = 2u32;
+pub const MDMSPKRFLAG_OFF: u32 = 1u32;
+pub const MDMSPKRFLAG_ON: u32 = 4u32;
+pub const MDMVOLFLAG_HIGH: u32 = 4u32;
+pub const MDMVOLFLAG_LOW: u32 = 1u32;
+pub const MDMVOLFLAG_MEDIUM: u32 = 2u32;
 #[repr(C)]
 pub struct MODEMSETTINGS {
     pub dwActualSize: u32,
@@ -402,53 +346,21 @@ impl ::core::clone::Clone for MODEMSETTINGS {
         *self
     }
 }
-#[repr(transparent)]
-pub struct MODEMSETTINGS_SPEAKER_MODE(pub u32);
-pub const MDMSPKR_CALLSETUP: MODEMSETTINGS_SPEAKER_MODE = MODEMSETTINGS_SPEAKER_MODE(8u32);
-pub const MDMSPKR_DIAL: MODEMSETTINGS_SPEAKER_MODE = MODEMSETTINGS_SPEAKER_MODE(2u32);
-pub const MDMSPKR_OFF: MODEMSETTINGS_SPEAKER_MODE = MODEMSETTINGS_SPEAKER_MODE(1u32);
-pub const MDMSPKR_ON: MODEMSETTINGS_SPEAKER_MODE = MODEMSETTINGS_SPEAKER_MODE(4u32);
-impl ::core::marker::Copy for MODEMSETTINGS_SPEAKER_MODE {}
-impl ::core::clone::Clone for MODEMSETTINGS_SPEAKER_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct MODEM_SPEAKER_VOLUME(pub u32);
-pub const MDMVOL_HIGH: MODEM_SPEAKER_VOLUME = MODEM_SPEAKER_VOLUME(2u32);
-pub const MDMVOL_LOW: MODEM_SPEAKER_VOLUME = MODEM_SPEAKER_VOLUME(0u32);
-pub const MDMVOL_MEDIUM: MODEM_SPEAKER_VOLUME = MODEM_SPEAKER_VOLUME(1u32);
-impl ::core::marker::Copy for MODEM_SPEAKER_VOLUME {}
-impl ::core::clone::Clone for MODEM_SPEAKER_VOLUME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct MODEM_STATUS_FLAGS(pub u32);
-pub const MS_CTS_ON: MODEM_STATUS_FLAGS = MODEM_STATUS_FLAGS(16u32);
-pub const MS_DSR_ON: MODEM_STATUS_FLAGS = MODEM_STATUS_FLAGS(32u32);
-pub const MS_RING_ON: MODEM_STATUS_FLAGS = MODEM_STATUS_FLAGS(64u32);
-pub const MS_RLSD_ON: MODEM_STATUS_FLAGS = MODEM_STATUS_FLAGS(128u32);
-impl ::core::marker::Copy for MODEM_STATUS_FLAGS {}
-impl ::core::clone::Clone for MODEM_STATUS_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct PURGE_COMM_FLAGS(pub u32);
-pub const PURGE_RXABORT: PURGE_COMM_FLAGS = PURGE_COMM_FLAGS(2u32);
-pub const PURGE_RXCLEAR: PURGE_COMM_FLAGS = PURGE_COMM_FLAGS(8u32);
-pub const PURGE_TXABORT: PURGE_COMM_FLAGS = PURGE_COMM_FLAGS(1u32);
-pub const PURGE_TXCLEAR: PURGE_COMM_FLAGS = PURGE_COMM_FLAGS(4u32);
-impl ::core::marker::Copy for PURGE_COMM_FLAGS {}
-impl ::core::clone::Clone for PURGE_COMM_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const MDMSPKR_CALLSETUP: u32 = 8u32;
+pub const MDMSPKR_DIAL: u32 = 2u32;
+pub const MDMSPKR_OFF: u32 = 1u32;
+pub const MDMSPKR_ON: u32 = 4u32;
+pub const MDMVOL_HIGH: u32 = 2u32;
+pub const MDMVOL_LOW: u32 = 0u32;
+pub const MDMVOL_MEDIUM: u32 = 1u32;
+pub const MS_CTS_ON: u32 = 16u32;
+pub const MS_DSR_ON: u32 = 32u32;
+pub const MS_RING_ON: u32 = 64u32;
+pub const MS_RLSD_ON: u32 = 128u32;
+pub const PURGE_RXABORT: u32 = 2u32;
+pub const PURGE_RXCLEAR: u32 = 8u32;
+pub const PURGE_TXABORT: u32 = 1u32;
+pub const PURGE_TXCLEAR: u32 = 4u32;
 pub const SID_3GPP_SUPSVCMODEL: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3620769287,
     data2: 55143,

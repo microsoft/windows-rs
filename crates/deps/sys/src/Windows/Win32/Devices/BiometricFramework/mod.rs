@@ -356,29 +356,13 @@ impl ::core::clone::Clone for WINBIO_ANTI_SPOOF_POLICY {
         *self
     }
 }
-#[repr(transparent)]
-pub struct WINBIO_ANTI_SPOOF_POLICY_ACTION(pub i32);
-pub const WINBIO_ANTI_SPOOF_DISABLE: WINBIO_ANTI_SPOOF_POLICY_ACTION = WINBIO_ANTI_SPOOF_POLICY_ACTION(0i32);
-pub const WINBIO_ANTI_SPOOF_ENABLE: WINBIO_ANTI_SPOOF_POLICY_ACTION = WINBIO_ANTI_SPOOF_POLICY_ACTION(1i32);
-pub const WINBIO_ANTI_SPOOF_REMOVE: WINBIO_ANTI_SPOOF_POLICY_ACTION = WINBIO_ANTI_SPOOF_POLICY_ACTION(2i32);
-impl ::core::marker::Copy for WINBIO_ANTI_SPOOF_POLICY_ACTION {}
-impl ::core::clone::Clone for WINBIO_ANTI_SPOOF_POLICY_ACTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WINBIO_ASYNC_NOTIFICATION_METHOD(pub i32);
-pub const WINBIO_ASYNC_NOTIFY_NONE: WINBIO_ASYNC_NOTIFICATION_METHOD = WINBIO_ASYNC_NOTIFICATION_METHOD(0i32);
-pub const WINBIO_ASYNC_NOTIFY_CALLBACK: WINBIO_ASYNC_NOTIFICATION_METHOD = WINBIO_ASYNC_NOTIFICATION_METHOD(1i32);
-pub const WINBIO_ASYNC_NOTIFY_MESSAGE: WINBIO_ASYNC_NOTIFICATION_METHOD = WINBIO_ASYNC_NOTIFICATION_METHOD(2i32);
-pub const WINBIO_ASYNC_NOTIFY_MAXIMUM_VALUE: WINBIO_ASYNC_NOTIFICATION_METHOD = WINBIO_ASYNC_NOTIFICATION_METHOD(3i32);
-impl ::core::marker::Copy for WINBIO_ASYNC_NOTIFICATION_METHOD {}
-impl ::core::clone::Clone for WINBIO_ASYNC_NOTIFICATION_METHOD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const WINBIO_ANTI_SPOOF_DISABLE: i32 = 0i32;
+pub const WINBIO_ANTI_SPOOF_ENABLE: i32 = 1i32;
+pub const WINBIO_ANTI_SPOOF_REMOVE: i32 = 2i32;
+pub const WINBIO_ASYNC_NOTIFY_NONE: i32 = 0i32;
+pub const WINBIO_ASYNC_NOTIFY_CALLBACK: i32 = 1i32;
+pub const WINBIO_ASYNC_NOTIFY_MESSAGE: i32 = 2i32;
+pub const WINBIO_ASYNC_NOTIFY_MAXIMUM_VALUE: i32 = 3i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINBIO_ASYNC_RESULT {
@@ -907,48 +891,16 @@ impl ::core::clone::Clone for WINBIO_CAPTURE_PARAMETERS {
         *self
     }
 }
-#[repr(transparent)]
-pub struct WINBIO_COMPONENT(pub u32);
-pub const WINBIO_COMPONENT_SENSOR: WINBIO_COMPONENT = WINBIO_COMPONENT(1u32);
-pub const WINBIO_COMPONENT_ENGINE: WINBIO_COMPONENT = WINBIO_COMPONENT(2u32);
-pub const WINBIO_COMPONENT_STORAGE: WINBIO_COMPONENT = WINBIO_COMPONENT(3u32);
-impl ::core::marker::Copy for WINBIO_COMPONENT {}
-impl ::core::clone::Clone for WINBIO_COMPONENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WINBIO_CREDENTIAL_FORMAT(pub i32);
-pub const WINBIO_PASSWORD_GENERIC: WINBIO_CREDENTIAL_FORMAT = WINBIO_CREDENTIAL_FORMAT(1i32);
-pub const WINBIO_PASSWORD_PACKED: WINBIO_CREDENTIAL_FORMAT = WINBIO_CREDENTIAL_FORMAT(2i32);
-pub const WINBIO_PASSWORD_PROTECTED: WINBIO_CREDENTIAL_FORMAT = WINBIO_CREDENTIAL_FORMAT(3i32);
-impl ::core::marker::Copy for WINBIO_CREDENTIAL_FORMAT {}
-impl ::core::clone::Clone for WINBIO_CREDENTIAL_FORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WINBIO_CREDENTIAL_STATE(pub i32);
-pub const WINBIO_CREDENTIAL_NOT_SET: WINBIO_CREDENTIAL_STATE = WINBIO_CREDENTIAL_STATE(1i32);
-pub const WINBIO_CREDENTIAL_SET: WINBIO_CREDENTIAL_STATE = WINBIO_CREDENTIAL_STATE(2i32);
-impl ::core::marker::Copy for WINBIO_CREDENTIAL_STATE {}
-impl ::core::clone::Clone for WINBIO_CREDENTIAL_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WINBIO_CREDENTIAL_TYPE(pub i32);
-pub const WINBIO_CREDENTIAL_PASSWORD: WINBIO_CREDENTIAL_TYPE = WINBIO_CREDENTIAL_TYPE(1i32);
-pub const WINBIO_CREDENTIAL_ALL: WINBIO_CREDENTIAL_TYPE = WINBIO_CREDENTIAL_TYPE(-1i32);
-impl ::core::marker::Copy for WINBIO_CREDENTIAL_TYPE {}
-impl ::core::clone::Clone for WINBIO_CREDENTIAL_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const WINBIO_COMPONENT_SENSOR: u32 = 1u32;
+pub const WINBIO_COMPONENT_ENGINE: u32 = 2u32;
+pub const WINBIO_COMPONENT_STORAGE: u32 = 3u32;
+pub const WINBIO_PASSWORD_GENERIC: i32 = 1i32;
+pub const WINBIO_PASSWORD_PACKED: i32 = 2i32;
+pub const WINBIO_PASSWORD_PROTECTED: i32 = 3i32;
+pub const WINBIO_CREDENTIAL_NOT_SET: i32 = 1i32;
+pub const WINBIO_CREDENTIAL_SET: i32 = 2i32;
+pub const WINBIO_CREDENTIAL_PASSWORD: i32 = 1i32;
+pub const WINBIO_CREDENTIAL_ALL: i32 = -1i32;
 #[repr(C)]
 pub struct WINBIO_DATA {
     pub Size: u32,
@@ -1796,28 +1748,12 @@ impl ::core::clone::Clone for WINBIO_PIPELINE {
         *self
     }
 }
-#[repr(transparent)]
-pub struct WINBIO_POLICY_SOURCE(pub i32);
-pub const WINBIO_POLICY_UNKNOWN: WINBIO_POLICY_SOURCE = WINBIO_POLICY_SOURCE(0i32);
-pub const WINBIO_POLICY_DEFAULT: WINBIO_POLICY_SOURCE = WINBIO_POLICY_SOURCE(1i32);
-pub const WINBIO_POLICY_LOCAL: WINBIO_POLICY_SOURCE = WINBIO_POLICY_SOURCE(2i32);
-pub const WINBIO_POLICY_ADMIN: WINBIO_POLICY_SOURCE = WINBIO_POLICY_SOURCE(3i32);
-impl ::core::marker::Copy for WINBIO_POLICY_SOURCE {}
-impl ::core::clone::Clone for WINBIO_POLICY_SOURCE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WINBIO_POOL(pub u32);
-pub const WINBIO_POOL_SYSTEM: WINBIO_POOL = WINBIO_POOL(1u32);
-pub const WINBIO_POOL_PRIVATE: WINBIO_POOL = WINBIO_POOL(2u32);
-impl ::core::marker::Copy for WINBIO_POOL {}
-impl ::core::clone::Clone for WINBIO_POOL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const WINBIO_POLICY_UNKNOWN: i32 = 0i32;
+pub const WINBIO_POLICY_DEFAULT: i32 = 1i32;
+pub const WINBIO_POLICY_LOCAL: i32 = 2i32;
+pub const WINBIO_POLICY_ADMIN: i32 = 3i32;
+pub const WINBIO_POOL_SYSTEM: u32 = 1u32;
+pub const WINBIO_POOL_PRIVATE: u32 = 2u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINBIO_PRESENCE {
@@ -2068,18 +2004,10 @@ impl ::core::clone::Clone for WINBIO_SENSOR_INTERFACE {
         *self
     }
 }
-#[repr(transparent)]
-pub struct WINBIO_SETTING_SOURCE(pub u32);
-pub const WINBIO_SETTING_SOURCE_INVALID: WINBIO_SETTING_SOURCE = WINBIO_SETTING_SOURCE(0u32);
-pub const WINBIO_SETTING_SOURCE_DEFAULT: WINBIO_SETTING_SOURCE = WINBIO_SETTING_SOURCE(1u32);
-pub const WINBIO_SETTING_SOURCE_LOCAL: WINBIO_SETTING_SOURCE = WINBIO_SETTING_SOURCE(3u32);
-pub const WINBIO_SETTING_SOURCE_POLICY: WINBIO_SETTING_SOURCE = WINBIO_SETTING_SOURCE(2u32);
-impl ::core::marker::Copy for WINBIO_SETTING_SOURCE {}
-impl ::core::clone::Clone for WINBIO_SETTING_SOURCE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const WINBIO_SETTING_SOURCE_INVALID: u32 = 0u32;
+pub const WINBIO_SETTING_SOURCE_DEFAULT: u32 = 1u32;
+pub const WINBIO_SETTING_SOURCE_LOCAL: u32 = 3u32;
+pub const WINBIO_SETTING_SOURCE_POLICY: u32 = 2u32;
 #[repr(C)]
 pub struct WINBIO_SET_INDICATOR {
     pub PayloadSize: u32,

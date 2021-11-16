@@ -153,50 +153,26 @@ impl ::core::clone::Clone for AAAccountingData {
         *self
     }
 }
-#[repr(transparent)]
-pub struct AAAccountingDataType(pub i32);
-pub const AA_MAIN_SESSION_CREATION: AAAccountingDataType = AAAccountingDataType(0i32);
-pub const AA_SUB_SESSION_CREATION: AAAccountingDataType = AAAccountingDataType(1i32);
-pub const AA_SUB_SESSION_CLOSED: AAAccountingDataType = AAAccountingDataType(2i32);
-pub const AA_MAIN_SESSION_CLOSED: AAAccountingDataType = AAAccountingDataType(3i32);
-impl ::core::marker::Copy for AAAccountingDataType {}
-impl ::core::clone::Clone for AAAccountingDataType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct AAAuthSchemes(pub i32);
-pub const AA_AUTH_MIN: AAAuthSchemes = AAAuthSchemes(0i32);
-pub const AA_AUTH_BASIC: AAAuthSchemes = AAAuthSchemes(1i32);
-pub const AA_AUTH_NTLM: AAAuthSchemes = AAAuthSchemes(2i32);
-pub const AA_AUTH_SC: AAAuthSchemes = AAAuthSchemes(3i32);
-pub const AA_AUTH_LOGGEDONCREDENTIALS: AAAuthSchemes = AAAuthSchemes(4i32);
-pub const AA_AUTH_NEGOTIATE: AAAuthSchemes = AAAuthSchemes(5i32);
-pub const AA_AUTH_ANY: AAAuthSchemes = AAAuthSchemes(6i32);
-pub const AA_AUTH_COOKIE: AAAuthSchemes = AAAuthSchemes(7i32);
-pub const AA_AUTH_DIGEST: AAAuthSchemes = AAAuthSchemes(8i32);
-pub const AA_AUTH_ORGID: AAAuthSchemes = AAAuthSchemes(9i32);
-pub const AA_AUTH_CONID: AAAuthSchemes = AAAuthSchemes(10i32);
-pub const AA_AUTH_SSPI_NTLM: AAAuthSchemes = AAAuthSchemes(11i32);
-pub const AA_AUTH_MAX: AAAuthSchemes = AAAuthSchemes(12i32);
-impl ::core::marker::Copy for AAAuthSchemes {}
-impl ::core::clone::Clone for AAAuthSchemes {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct AATrustClassID(pub i32);
-pub const AA_UNTRUSTED: AATrustClassID = AATrustClassID(0i32);
-pub const AA_TRUSTEDUSER_UNTRUSTEDCLIENT: AATrustClassID = AATrustClassID(1i32);
-pub const AA_TRUSTEDUSER_TRUSTEDCLIENT: AATrustClassID = AATrustClassID(2i32);
-impl ::core::marker::Copy for AATrustClassID {}
-impl ::core::clone::Clone for AATrustClassID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const AA_MAIN_SESSION_CREATION: i32 = 0i32;
+pub const AA_SUB_SESSION_CREATION: i32 = 1i32;
+pub const AA_SUB_SESSION_CLOSED: i32 = 2i32;
+pub const AA_MAIN_SESSION_CLOSED: i32 = 3i32;
+pub const AA_AUTH_MIN: i32 = 0i32;
+pub const AA_AUTH_BASIC: i32 = 1i32;
+pub const AA_AUTH_NTLM: i32 = 2i32;
+pub const AA_AUTH_SC: i32 = 3i32;
+pub const AA_AUTH_LOGGEDONCREDENTIALS: i32 = 4i32;
+pub const AA_AUTH_NEGOTIATE: i32 = 5i32;
+pub const AA_AUTH_ANY: i32 = 6i32;
+pub const AA_AUTH_COOKIE: i32 = 7i32;
+pub const AA_AUTH_DIGEST: i32 = 8i32;
+pub const AA_AUTH_ORGID: i32 = 9i32;
+pub const AA_AUTH_CONID: i32 = 10i32;
+pub const AA_AUTH_SSPI_NTLM: i32 = 11i32;
+pub const AA_AUTH_MAX: i32 = 12i32;
+pub const AA_UNTRUSTED: i32 = 0i32;
+pub const AA_TRUSTEDUSER_UNTRUSTEDCLIENT: i32 = 1i32;
+pub const AA_TRUSTEDUSER_TRUSTEDCLIENT: i32 = 2i32;
 pub const ACQUIRE_TARGET_LOCK_TIMEOUT: u32 = 300000u32;
 pub const ADsTSUserEx: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3806972646,
@@ -219,18 +195,10 @@ impl ::core::clone::Clone for AE_CURRENT_POSITION {
         *self
     }
 }
-#[repr(transparent)]
-pub struct AE_POSITION_FLAGS(pub i32);
-pub const POSITION_INVALID: AE_POSITION_FLAGS = AE_POSITION_FLAGS(0i32);
-pub const POSITION_DISCONTINUOUS: AE_POSITION_FLAGS = AE_POSITION_FLAGS(1i32);
-pub const POSITION_CONTINUOUS: AE_POSITION_FLAGS = AE_POSITION_FLAGS(2i32);
-pub const POSITION_QPC_ERROR: AE_POSITION_FLAGS = AE_POSITION_FLAGS(4i32);
-impl ::core::marker::Copy for AE_POSITION_FLAGS {}
-impl ::core::clone::Clone for AE_POSITION_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const POSITION_INVALID: i32 = 0i32;
+pub const POSITION_DISCONTINUOUS: i32 = 1i32;
+pub const POSITION_CONTINUOUS: i32 = 2i32;
+pub const POSITION_QPC_ERROR: i32 = 4i32;
 #[repr(C)]
 pub struct BITMAP_RENDERER_STATISTICS {
     pub dwFramesDelivered: u32,
@@ -347,34 +315,18 @@ impl ::core::clone::Clone for CLIENT_DISPLAY {
         *self
     }
 }
-#[repr(transparent)]
-pub struct CLIENT_MESSAGE_TYPE(pub i32);
-pub const CLIENT_MESSAGE_CONNECTION_INVALID: CLIENT_MESSAGE_TYPE = CLIENT_MESSAGE_TYPE(0i32);
-pub const CLIENT_MESSAGE_CONNECTION_STATUS: CLIENT_MESSAGE_TYPE = CLIENT_MESSAGE_TYPE(1i32);
-pub const CLIENT_MESSAGE_CONNECTION_ERROR: CLIENT_MESSAGE_TYPE = CLIENT_MESSAGE_TYPE(2i32);
-impl ::core::marker::Copy for CLIENT_MESSAGE_TYPE {}
-impl ::core::clone::Clone for CLIENT_MESSAGE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct CONNECTION_CHANGE_NOTIFICATION(pub i32);
-pub const CONNECTION_REQUEST_INVALID: CONNECTION_CHANGE_NOTIFICATION = CONNECTION_CHANGE_NOTIFICATION(0i32);
-pub const CONNECTION_REQUEST_PENDING: CONNECTION_CHANGE_NOTIFICATION = CONNECTION_CHANGE_NOTIFICATION(1i32);
-pub const CONNECTION_REQUEST_FAILED: CONNECTION_CHANGE_NOTIFICATION = CONNECTION_CHANGE_NOTIFICATION(2i32);
-pub const CONNECTION_REQUEST_TIMEDOUT: CONNECTION_CHANGE_NOTIFICATION = CONNECTION_CHANGE_NOTIFICATION(3i32);
-pub const CONNECTION_REQUEST_SUCCEEDED: CONNECTION_CHANGE_NOTIFICATION = CONNECTION_CHANGE_NOTIFICATION(4i32);
-pub const CONNECTION_REQUEST_CANCELLED: CONNECTION_CHANGE_NOTIFICATION = CONNECTION_CHANGE_NOTIFICATION(5i32);
-pub const CONNECTION_REQUEST_LB_COMPLETED: CONNECTION_CHANGE_NOTIFICATION = CONNECTION_CHANGE_NOTIFICATION(6i32);
-pub const CONNECTION_REQUEST_QUERY_PL_COMPLETED: CONNECTION_CHANGE_NOTIFICATION = CONNECTION_CHANGE_NOTIFICATION(7i32);
-pub const CONNECTION_REQUEST_ORCH_COMPLETED: CONNECTION_CHANGE_NOTIFICATION = CONNECTION_CHANGE_NOTIFICATION(8i32);
-impl ::core::marker::Copy for CONNECTION_CHANGE_NOTIFICATION {}
-impl ::core::clone::Clone for CONNECTION_CHANGE_NOTIFICATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const CLIENT_MESSAGE_CONNECTION_INVALID: i32 = 0i32;
+pub const CLIENT_MESSAGE_CONNECTION_STATUS: i32 = 1i32;
+pub const CLIENT_MESSAGE_CONNECTION_ERROR: i32 = 2i32;
+pub const CONNECTION_REQUEST_INVALID: i32 = 0i32;
+pub const CONNECTION_REQUEST_PENDING: i32 = 1i32;
+pub const CONNECTION_REQUEST_FAILED: i32 = 2i32;
+pub const CONNECTION_REQUEST_TIMEDOUT: i32 = 3i32;
+pub const CONNECTION_REQUEST_SUCCEEDED: i32 = 4i32;
+pub const CONNECTION_REQUEST_CANCELLED: i32 = 5i32;
+pub const CONNECTION_REQUEST_LB_COMPLETED: i32 = 6i32;
+pub const CONNECTION_REQUEST_QUERY_PL_COMPLETED: i32 = 7i32;
+pub const CONNECTION_REQUEST_ORCH_COMPLETED: i32 = 8i32;
 pub const CONNECTION_PROPERTY_CURSOR_BLINK_DISABLED: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 1259668864,
     data2: 65188,
@@ -1222,20 +1174,12 @@ impl ::core::clone::Clone for ItsPubPlugin2 {
     }
 }
 pub const KEEP_EXISTING_SESSIONS: u32 = 8u32;
-#[repr(transparent)]
-pub struct KeyCombinationType(pub i32);
-pub const KeyCombinationHome: KeyCombinationType = KeyCombinationType(0i32);
-pub const KeyCombinationLeft: KeyCombinationType = KeyCombinationType(1i32);
-pub const KeyCombinationUp: KeyCombinationType = KeyCombinationType(2i32);
-pub const KeyCombinationRight: KeyCombinationType = KeyCombinationType(3i32);
-pub const KeyCombinationDown: KeyCombinationType = KeyCombinationType(4i32);
-pub const KeyCombinationScroll: KeyCombinationType = KeyCombinationType(5i32);
-impl ::core::marker::Copy for KeyCombinationType {}
-impl ::core::clone::Clone for KeyCombinationType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const KeyCombinationHome: i32 = 0i32;
+pub const KeyCombinationLeft: i32 = 1i32;
+pub const KeyCombinationUp: i32 = 2i32;
+pub const KeyCombinationRight: i32 = 3i32;
+pub const KeyCombinationDown: i32 = 4i32;
+pub const KeyCombinationScroll: i32 = 5i32;
 pub const MAX_DATE_TIME_LENGTH: u32 = 56u32;
 pub const MAX_ELAPSED_TIME_LENGTH: u32 = 15u32;
 pub const MAX_POLICY_ATTRIBUTES: u32 = 20u32;
@@ -1251,22 +1195,14 @@ pub const NOTIFY_FOR_THIS_SESSION: u32 = 0u32;
 pub type PCHANNEL_INIT_EVENT_FN = unsafe extern "system" fn(pinithandle: *mut ::core::ffi::c_void, event: u32, pdata: *mut ::core::ffi::c_void, datalength: u32);
 pub type PCHANNEL_OPEN_EVENT_FN = unsafe extern "system" fn(openhandle: u32, event: u32, pdata: *mut ::core::ffi::c_void, datalength: u32, totallength: u32, dataflags: u32);
 pub const PLUGIN_CAPABILITY_EXTERNAL_REDIRECTION: u32 = 1u32;
-#[repr(transparent)]
-pub struct PLUGIN_TYPE(pub i32);
-pub const UNKNOWN_PLUGIN: PLUGIN_TYPE = PLUGIN_TYPE(0i32);
-pub const POLICY_PLUGIN: PLUGIN_TYPE = PLUGIN_TYPE(1i32);
-pub const RESOURCE_PLUGIN: PLUGIN_TYPE = PLUGIN_TYPE(2i32);
-pub const LOAD_BALANCING_PLUGIN: PLUGIN_TYPE = PLUGIN_TYPE(4i32);
-pub const PLACEMENT_PLUGIN: PLUGIN_TYPE = PLUGIN_TYPE(8i32);
-pub const ORCHESTRATION_PLUGIN: PLUGIN_TYPE = PLUGIN_TYPE(16i32);
-pub const PROVISIONING_PLUGIN: PLUGIN_TYPE = PLUGIN_TYPE(32i32);
-pub const TASK_PLUGIN: PLUGIN_TYPE = PLUGIN_TYPE(64i32);
-impl ::core::marker::Copy for PLUGIN_TYPE {}
-impl ::core::clone::Clone for PLUGIN_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const UNKNOWN_PLUGIN: i32 = 0i32;
+pub const POLICY_PLUGIN: i32 = 1i32;
+pub const RESOURCE_PLUGIN: i32 = 2i32;
+pub const LOAD_BALANCING_PLUGIN: i32 = 4i32;
+pub const PLACEMENT_PLUGIN: i32 = 8i32;
+pub const ORCHESTRATION_PLUGIN: i32 = 16i32;
+pub const PROVISIONING_PLUGIN: i32 = 32i32;
+pub const TASK_PLUGIN: i32 = 64i32;
 pub const PRODUCTINFO_COMPANYNAME_LENGTH: u32 = 256u32;
 pub const PRODUCTINFO_PRODUCTID_LENGTH: u32 = 4u32;
 pub const PROPERTY_DYNAMIC_TIME_ZONE_INFORMATION: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
@@ -1291,66 +1227,34 @@ pub type PVIRTUALCHANNELINIT = unsafe extern "system" fn(ppinithandle: *mut *mut
 #[cfg(feature = "Win32_Foundation")]
 pub type PVIRTUALCHANNELOPEN = unsafe extern "system" fn(pinithandle: *mut ::core::ffi::c_void, popenhandle: *mut u32, pchannelname: super::super::Foundation::PSTR, pchannelopeneventproc: PCHANNEL_OPEN_EVENT_FN) -> u32;
 pub type PVIRTUALCHANNELWRITE = unsafe extern "system" fn(openhandle: u32, pdata: *mut ::core::ffi::c_void, datalength: u32, puserdata: *mut ::core::ffi::c_void) -> u32;
-#[repr(transparent)]
-pub struct PasswordEncodingType(pub i32);
-pub const PasswordEncodingUTF8: PasswordEncodingType = PasswordEncodingType(0i32);
-pub const PasswordEncodingUTF16LE: PasswordEncodingType = PasswordEncodingType(1i32);
-pub const PasswordEncodingUTF16BE: PasswordEncodingType = PasswordEncodingType(2i32);
-impl ::core::marker::Copy for PasswordEncodingType {}
-impl ::core::clone::Clone for PasswordEncodingType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct PolicyAttributeType(pub i32);
-pub const EnableAllRedirections: PolicyAttributeType = PolicyAttributeType(0i32);
-pub const DisableAllRedirections: PolicyAttributeType = PolicyAttributeType(1i32);
-pub const DriveRedirectionDisabled: PolicyAttributeType = PolicyAttributeType(2i32);
-pub const PrinterRedirectionDisabled: PolicyAttributeType = PolicyAttributeType(3i32);
-pub const PortRedirectionDisabled: PolicyAttributeType = PolicyAttributeType(4i32);
-pub const ClipboardRedirectionDisabled: PolicyAttributeType = PolicyAttributeType(5i32);
-pub const PnpRedirectionDisabled: PolicyAttributeType = PolicyAttributeType(6i32);
-pub const AllowOnlySDRServers: PolicyAttributeType = PolicyAttributeType(7i32);
-impl ::core::marker::Copy for PolicyAttributeType {}
-impl ::core::clone::Clone for PolicyAttributeType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const PasswordEncodingUTF8: i32 = 0i32;
+pub const PasswordEncodingUTF16LE: i32 = 1i32;
+pub const PasswordEncodingUTF16BE: i32 = 2i32;
+pub const EnableAllRedirections: i32 = 0i32;
+pub const DisableAllRedirections: i32 = 1i32;
+pub const DriveRedirectionDisabled: i32 = 2i32;
+pub const PrinterRedirectionDisabled: i32 = 3i32;
+pub const PortRedirectionDisabled: i32 = 4i32;
+pub const ClipboardRedirectionDisabled: i32 = 5i32;
+pub const PnpRedirectionDisabled: i32 = 6i32;
+pub const AllowOnlySDRServers: i32 = 7i32;
 pub const RDCLIENT_BITMAP_RENDER_SERVICE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3838576843, data2: 37934, data3: 19225, data4: [133, 4, 189, 90, 137, 167, 71, 245] };
-#[repr(transparent)]
-pub struct RDV_TASK_STATUS(pub i32);
-pub const RDV_TASK_STATUS_UNKNOWN: RDV_TASK_STATUS = RDV_TASK_STATUS(0i32);
-pub const RDV_TASK_STATUS_SEARCHING: RDV_TASK_STATUS = RDV_TASK_STATUS(1i32);
-pub const RDV_TASK_STATUS_DOWNLOADING: RDV_TASK_STATUS = RDV_TASK_STATUS(2i32);
-pub const RDV_TASK_STATUS_APPLYING: RDV_TASK_STATUS = RDV_TASK_STATUS(3i32);
-pub const RDV_TASK_STATUS_REBOOTING: RDV_TASK_STATUS = RDV_TASK_STATUS(4i32);
-pub const RDV_TASK_STATUS_REBOOTED: RDV_TASK_STATUS = RDV_TASK_STATUS(5i32);
-pub const RDV_TASK_STATUS_SUCCESS: RDV_TASK_STATUS = RDV_TASK_STATUS(6i32);
-pub const RDV_TASK_STATUS_FAILED: RDV_TASK_STATUS = RDV_TASK_STATUS(7i32);
-pub const RDV_TASK_STATUS_TIMEOUT: RDV_TASK_STATUS = RDV_TASK_STATUS(8i32);
-impl ::core::marker::Copy for RDV_TASK_STATUS {}
-impl ::core::clone::Clone for RDV_TASK_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct RD_FARM_TYPE(pub i32);
-pub const RD_FARM_RDSH: RD_FARM_TYPE = RD_FARM_TYPE(0i32);
-pub const RD_FARM_TEMP_VM: RD_FARM_TYPE = RD_FARM_TYPE(1i32);
-pub const RD_FARM_MANUAL_PERSONAL_VM: RD_FARM_TYPE = RD_FARM_TYPE(2i32);
-pub const RD_FARM_AUTO_PERSONAL_VM: RD_FARM_TYPE = RD_FARM_TYPE(3i32);
-pub const RD_FARM_MANUAL_PERSONAL_RDSH: RD_FARM_TYPE = RD_FARM_TYPE(4i32);
-pub const RD_FARM_AUTO_PERSONAL_RDSH: RD_FARM_TYPE = RD_FARM_TYPE(5i32);
-pub const RD_FARM_TYPE_UNKNOWN: RD_FARM_TYPE = RD_FARM_TYPE(-1i32);
-impl ::core::marker::Copy for RD_FARM_TYPE {}
-impl ::core::clone::Clone for RD_FARM_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const RDV_TASK_STATUS_UNKNOWN: i32 = 0i32;
+pub const RDV_TASK_STATUS_SEARCHING: i32 = 1i32;
+pub const RDV_TASK_STATUS_DOWNLOADING: i32 = 2i32;
+pub const RDV_TASK_STATUS_APPLYING: i32 = 3i32;
+pub const RDV_TASK_STATUS_REBOOTING: i32 = 4i32;
+pub const RDV_TASK_STATUS_REBOOTED: i32 = 5i32;
+pub const RDV_TASK_STATUS_SUCCESS: i32 = 6i32;
+pub const RDV_TASK_STATUS_FAILED: i32 = 7i32;
+pub const RDV_TASK_STATUS_TIMEOUT: i32 = 8i32;
+pub const RD_FARM_RDSH: i32 = 0i32;
+pub const RD_FARM_TEMP_VM: i32 = 1i32;
+pub const RD_FARM_MANUAL_PERSONAL_VM: i32 = 2i32;
+pub const RD_FARM_AUTO_PERSONAL_VM: i32 = 3i32;
+pub const RD_FARM_MANUAL_PERSONAL_RDSH: i32 = 4i32;
+pub const RD_FARM_AUTO_PERSONAL_RDSH: i32 = 5i32;
+pub const RD_FARM_TYPE_UNKNOWN: i32 = -1i32;
 pub const REMOTECONTROL_KBDALT_HOTKEY: u32 = 4u32;
 pub const REMOTECONTROL_KBDCTRL_HOTKEY: u32 = 2u32;
 pub const REMOTECONTROL_KBDSHIFT_HOTKEY: u32 = 1u32;
@@ -1503,167 +1407,63 @@ impl ::core::clone::Clone for RFX_GFX_RECT {
     }
 }
 pub const RFX_RDP_MSG_PREFIX: u32 = 0u32;
-#[repr(transparent)]
-pub struct RemoteActionType(pub i32);
-pub const RemoteActionCharms: RemoteActionType = RemoteActionType(0i32);
-pub const RemoteActionAppbar: RemoteActionType = RemoteActionType(1i32);
-pub const RemoteActionSnap: RemoteActionType = RemoteActionType(2i32);
-pub const RemoteActionStartScreen: RemoteActionType = RemoteActionType(3i32);
-pub const RemoteActionAppSwitch: RemoteActionType = RemoteActionType(4i32);
-impl ::core::marker::Copy for RemoteActionType {}
-impl ::core::clone::Clone for RemoteActionType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const RemoteActionCharms: i32 = 0i32;
+pub const RemoteActionAppbar: i32 = 1i32;
+pub const RemoteActionSnap: i32 = 2i32;
+pub const RemoteActionStartScreen: i32 = 3i32;
+pub const RemoteActionAppSwitch: i32 = 4i32;
 pub const SB_SYNCH_CONFLICT_MAX_WRITE_ATTEMPTS: u32 = 100u32;
-#[repr(transparent)]
-pub struct SESSION_TIMEOUT_ACTION_TYPE(pub i32);
-pub const SESSION_TIMEOUT_ACTION_DISCONNECT: SESSION_TIMEOUT_ACTION_TYPE = SESSION_TIMEOUT_ACTION_TYPE(0i32);
-pub const SESSION_TIMEOUT_ACTION_SILENT_REAUTH: SESSION_TIMEOUT_ACTION_TYPE = SESSION_TIMEOUT_ACTION_TYPE(1i32);
-impl ::core::marker::Copy for SESSION_TIMEOUT_ACTION_TYPE {}
-impl ::core::clone::Clone for SESSION_TIMEOUT_ACTION_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const SESSION_TIMEOUT_ACTION_DISCONNECT: i32 = 0i32;
+pub const SESSION_TIMEOUT_ACTION_SILENT_REAUTH: i32 = 1i32;
 pub const SINGLE_SESSION: u32 = 1u32;
-#[repr(transparent)]
-pub struct SnapshotEncodingType(pub i32);
-pub const SnapshotEncodingDataUri: SnapshotEncodingType = SnapshotEncodingType(0i32);
-impl ::core::marker::Copy for SnapshotEncodingType {}
-impl ::core::clone::Clone for SnapshotEncodingType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct SnapshotFormatType(pub i32);
-pub const SnapshotFormatPng: SnapshotFormatType = SnapshotFormatType(0i32);
-pub const SnapshotFormatJpeg: SnapshotFormatType = SnapshotFormatType(1i32);
-pub const SnapshotFormatBmp: SnapshotFormatType = SnapshotFormatType(2i32);
-impl ::core::marker::Copy for SnapshotFormatType {}
-impl ::core::clone::Clone for SnapshotFormatType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct TARGET_CHANGE_TYPE(pub i32);
-pub const TARGET_CHANGE_UNSPEC: TARGET_CHANGE_TYPE = TARGET_CHANGE_TYPE(1i32);
-pub const TARGET_EXTERNALIP_CHANGED: TARGET_CHANGE_TYPE = TARGET_CHANGE_TYPE(2i32);
-pub const TARGET_INTERNALIP_CHANGED: TARGET_CHANGE_TYPE = TARGET_CHANGE_TYPE(4i32);
-pub const TARGET_JOINED: TARGET_CHANGE_TYPE = TARGET_CHANGE_TYPE(8i32);
-pub const TARGET_REMOVED: TARGET_CHANGE_TYPE = TARGET_CHANGE_TYPE(16i32);
-pub const TARGET_STATE_CHANGED: TARGET_CHANGE_TYPE = TARGET_CHANGE_TYPE(32i32);
-pub const TARGET_IDLE: TARGET_CHANGE_TYPE = TARGET_CHANGE_TYPE(64i32);
-pub const TARGET_PENDING: TARGET_CHANGE_TYPE = TARGET_CHANGE_TYPE(128i32);
-pub const TARGET_INUSE: TARGET_CHANGE_TYPE = TARGET_CHANGE_TYPE(256i32);
-pub const TARGET_PATCH_STATE_CHANGED: TARGET_CHANGE_TYPE = TARGET_CHANGE_TYPE(512i32);
-pub const TARGET_FARM_MEMBERSHIP_CHANGED: TARGET_CHANGE_TYPE = TARGET_CHANGE_TYPE(1024i32);
-impl ::core::marker::Copy for TARGET_CHANGE_TYPE {}
-impl ::core::clone::Clone for TARGET_CHANGE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct TARGET_OWNER(pub i32);
-pub const OWNER_UNKNOWN: TARGET_OWNER = TARGET_OWNER(0i32);
-pub const OWNER_MS_TS_PLUGIN: TARGET_OWNER = TARGET_OWNER(1i32);
-pub const OWNER_MS_VM_PLUGIN: TARGET_OWNER = TARGET_OWNER(2i32);
-impl ::core::marker::Copy for TARGET_OWNER {}
-impl ::core::clone::Clone for TARGET_OWNER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct TARGET_PATCH_STATE(pub i32);
-pub const TARGET_PATCH_UNKNOWN: TARGET_PATCH_STATE = TARGET_PATCH_STATE(0i32);
-pub const TARGET_PATCH_NOT_STARTED: TARGET_PATCH_STATE = TARGET_PATCH_STATE(1i32);
-pub const TARGET_PATCH_IN_PROGRESS: TARGET_PATCH_STATE = TARGET_PATCH_STATE(2i32);
-pub const TARGET_PATCH_COMPLETED: TARGET_PATCH_STATE = TARGET_PATCH_STATE(3i32);
-pub const TARGET_PATCH_FAILED: TARGET_PATCH_STATE = TARGET_PATCH_STATE(4i32);
-impl ::core::marker::Copy for TARGET_PATCH_STATE {}
-impl ::core::clone::Clone for TARGET_PATCH_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct TARGET_STATE(pub i32);
-pub const TARGET_UNKNOWN: TARGET_STATE = TARGET_STATE(1i32);
-pub const TARGET_INITIALIZING: TARGET_STATE = TARGET_STATE(2i32);
-pub const TARGET_RUNNING: TARGET_STATE = TARGET_STATE(3i32);
-pub const TARGET_DOWN: TARGET_STATE = TARGET_STATE(4i32);
-pub const TARGET_HIBERNATED: TARGET_STATE = TARGET_STATE(5i32);
-pub const TARGET_CHECKED_OUT: TARGET_STATE = TARGET_STATE(6i32);
-pub const TARGET_STOPPED: TARGET_STATE = TARGET_STATE(7i32);
-pub const TARGET_INVALID: TARGET_STATE = TARGET_STATE(8i32);
-pub const TARGET_STARTING: TARGET_STATE = TARGET_STATE(9i32);
-pub const TARGET_STOPPING: TARGET_STATE = TARGET_STATE(10i32);
-pub const TARGET_MAXSTATE: TARGET_STATE = TARGET_STATE(11i32);
-impl ::core::marker::Copy for TARGET_STATE {}
-impl ::core::clone::Clone for TARGET_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct TARGET_TYPE(pub i32);
-pub const UNKNOWN: TARGET_TYPE = TARGET_TYPE(0i32);
-pub const FARM: TARGET_TYPE = TARGET_TYPE(1i32);
-pub const NONFARM: TARGET_TYPE = TARGET_TYPE(2i32);
-impl ::core::marker::Copy for TARGET_TYPE {}
-impl ::core::clone::Clone for TARGET_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct TSPUB_PLUGIN_PD_ASSIGNMENT_TYPE(pub i32);
-pub const TSPUB_PLUGIN_PD_ASSIGNMENT_NEW: TSPUB_PLUGIN_PD_ASSIGNMENT_TYPE = TSPUB_PLUGIN_PD_ASSIGNMENT_TYPE(0i32);
-pub const TSPUB_PLUGIN_PD_ASSIGNMENT_EXISTING: TSPUB_PLUGIN_PD_ASSIGNMENT_TYPE = TSPUB_PLUGIN_PD_ASSIGNMENT_TYPE(1i32);
-impl ::core::marker::Copy for TSPUB_PLUGIN_PD_ASSIGNMENT_TYPE {}
-impl ::core::clone::Clone for TSPUB_PLUGIN_PD_ASSIGNMENT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct TSPUB_PLUGIN_PD_RESOLUTION_TYPE(pub i32);
-pub const TSPUB_PLUGIN_PD_QUERY_OR_CREATE: TSPUB_PLUGIN_PD_RESOLUTION_TYPE = TSPUB_PLUGIN_PD_RESOLUTION_TYPE(0i32);
-pub const TSPUB_PLUGIN_PD_QUERY_EXISTING: TSPUB_PLUGIN_PD_RESOLUTION_TYPE = TSPUB_PLUGIN_PD_RESOLUTION_TYPE(1i32);
-impl ::core::marker::Copy for TSPUB_PLUGIN_PD_RESOLUTION_TYPE {}
-impl ::core::clone::Clone for TSPUB_PLUGIN_PD_RESOLUTION_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct TSSB_NOTIFICATION_TYPE(pub i32);
-pub const TSSB_NOTIFY_INVALID: TSSB_NOTIFICATION_TYPE = TSSB_NOTIFICATION_TYPE(0i32);
-pub const TSSB_NOTIFY_TARGET_CHANGE: TSSB_NOTIFICATION_TYPE = TSSB_NOTIFICATION_TYPE(1i32);
-pub const TSSB_NOTIFY_SESSION_CHANGE: TSSB_NOTIFICATION_TYPE = TSSB_NOTIFICATION_TYPE(2i32);
-pub const TSSB_NOTIFY_CONNECTION_REQUEST_CHANGE: TSSB_NOTIFICATION_TYPE = TSSB_NOTIFICATION_TYPE(4i32);
-impl ::core::marker::Copy for TSSB_NOTIFICATION_TYPE {}
-impl ::core::clone::Clone for TSSB_NOTIFICATION_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct TSSD_AddrV46Type(pub i32);
-pub const TSSD_ADDR_UNDEFINED: TSSD_AddrV46Type = TSSD_AddrV46Type(0i32);
-pub const TSSD_ADDR_IPv4: TSSD_AddrV46Type = TSSD_AddrV46Type(4i32);
-pub const TSSD_ADDR_IPv6: TSSD_AddrV46Type = TSSD_AddrV46Type(6i32);
-impl ::core::marker::Copy for TSSD_AddrV46Type {}
-impl ::core::clone::Clone for TSSD_AddrV46Type {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const SnapshotEncodingDataUri: i32 = 0i32;
+pub const SnapshotFormatPng: i32 = 0i32;
+pub const SnapshotFormatJpeg: i32 = 1i32;
+pub const SnapshotFormatBmp: i32 = 2i32;
+pub const TARGET_CHANGE_UNSPEC: i32 = 1i32;
+pub const TARGET_EXTERNALIP_CHANGED: i32 = 2i32;
+pub const TARGET_INTERNALIP_CHANGED: i32 = 4i32;
+pub const TARGET_JOINED: i32 = 8i32;
+pub const TARGET_REMOVED: i32 = 16i32;
+pub const TARGET_STATE_CHANGED: i32 = 32i32;
+pub const TARGET_IDLE: i32 = 64i32;
+pub const TARGET_PENDING: i32 = 128i32;
+pub const TARGET_INUSE: i32 = 256i32;
+pub const TARGET_PATCH_STATE_CHANGED: i32 = 512i32;
+pub const TARGET_FARM_MEMBERSHIP_CHANGED: i32 = 1024i32;
+pub const OWNER_UNKNOWN: i32 = 0i32;
+pub const OWNER_MS_TS_PLUGIN: i32 = 1i32;
+pub const OWNER_MS_VM_PLUGIN: i32 = 2i32;
+pub const TARGET_PATCH_UNKNOWN: i32 = 0i32;
+pub const TARGET_PATCH_NOT_STARTED: i32 = 1i32;
+pub const TARGET_PATCH_IN_PROGRESS: i32 = 2i32;
+pub const TARGET_PATCH_COMPLETED: i32 = 3i32;
+pub const TARGET_PATCH_FAILED: i32 = 4i32;
+pub const TARGET_UNKNOWN: i32 = 1i32;
+pub const TARGET_INITIALIZING: i32 = 2i32;
+pub const TARGET_RUNNING: i32 = 3i32;
+pub const TARGET_DOWN: i32 = 4i32;
+pub const TARGET_HIBERNATED: i32 = 5i32;
+pub const TARGET_CHECKED_OUT: i32 = 6i32;
+pub const TARGET_STOPPED: i32 = 7i32;
+pub const TARGET_INVALID: i32 = 8i32;
+pub const TARGET_STARTING: i32 = 9i32;
+pub const TARGET_STOPPING: i32 = 10i32;
+pub const TARGET_MAXSTATE: i32 = 11i32;
+pub const UNKNOWN: i32 = 0i32;
+pub const FARM: i32 = 1i32;
+pub const NONFARM: i32 = 2i32;
+pub const TSPUB_PLUGIN_PD_ASSIGNMENT_NEW: i32 = 0i32;
+pub const TSPUB_PLUGIN_PD_ASSIGNMENT_EXISTING: i32 = 1i32;
+pub const TSPUB_PLUGIN_PD_QUERY_OR_CREATE: i32 = 0i32;
+pub const TSPUB_PLUGIN_PD_QUERY_EXISTING: i32 = 1i32;
+pub const TSSB_NOTIFY_INVALID: i32 = 0i32;
+pub const TSSB_NOTIFY_TARGET_CHANGE: i32 = 1i32;
+pub const TSSB_NOTIFY_SESSION_CHANGE: i32 = 2i32;
+pub const TSSB_NOTIFY_CONNECTION_REQUEST_CHANGE: i32 = 4i32;
+pub const TSSD_ADDR_UNDEFINED: i32 = 0i32;
+pub const TSSD_ADDR_IPv4: i32 = 4i32;
+pub const TSSD_ADDR_IPv6: i32 = 6i32;
 #[repr(C)]
 pub struct TSSD_ConnectionPoint {
     pub ServerAddressB: [u8; 16],
@@ -1677,55 +1477,31 @@ impl ::core::clone::Clone for TSSD_ConnectionPoint {
         *self
     }
 }
-#[repr(transparent)]
-pub struct TSSESSION_STATE(pub i32);
-pub const STATE_INVALID: TSSESSION_STATE = TSSESSION_STATE(-1i32);
-pub const STATE_ACTIVE: TSSESSION_STATE = TSSESSION_STATE(0i32);
-pub const STATE_CONNECTED: TSSESSION_STATE = TSSESSION_STATE(1i32);
-pub const STATE_CONNECTQUERY: TSSESSION_STATE = TSSESSION_STATE(2i32);
-pub const STATE_SHADOW: TSSESSION_STATE = TSSESSION_STATE(3i32);
-pub const STATE_DISCONNECTED: TSSESSION_STATE = TSSESSION_STATE(4i32);
-pub const STATE_IDLE: TSSESSION_STATE = TSSESSION_STATE(5i32);
-pub const STATE_LISTEN: TSSESSION_STATE = TSSESSION_STATE(6i32);
-pub const STATE_RESET: TSSESSION_STATE = TSSESSION_STATE(7i32);
-pub const STATE_DOWN: TSSESSION_STATE = TSSESSION_STATE(8i32);
-pub const STATE_INIT: TSSESSION_STATE = TSSESSION_STATE(9i32);
-pub const STATE_MAX: TSSESSION_STATE = TSSESSION_STATE(10i32);
-impl ::core::marker::Copy for TSSESSION_STATE {}
-impl ::core::clone::Clone for TSSESSION_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const STATE_INVALID: i32 = -1i32;
+pub const STATE_ACTIVE: i32 = 0i32;
+pub const STATE_CONNECTED: i32 = 1i32;
+pub const STATE_CONNECTQUERY: i32 = 2i32;
+pub const STATE_SHADOW: i32 = 3i32;
+pub const STATE_DISCONNECTED: i32 = 4i32;
+pub const STATE_IDLE: i32 = 5i32;
+pub const STATE_LISTEN: i32 = 6i32;
+pub const STATE_RESET: i32 = 7i32;
+pub const STATE_DOWN: i32 = 8i32;
+pub const STATE_INIT: i32 = 9i32;
+pub const STATE_MAX: i32 = 10i32;
 pub const TSUserExInterfaces: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 152100097, data2: 57228, data3: 4561, data4: [174, 39, 0, 192, 79, 163, 88, 19] };
-#[repr(transparent)]
-pub struct TS_SB_SORT_BY(pub i32);
-pub const TS_SB_SORT_BY_NONE: TS_SB_SORT_BY = TS_SB_SORT_BY(0i32);
-pub const TS_SB_SORT_BY_NAME: TS_SB_SORT_BY = TS_SB_SORT_BY(1i32);
-pub const TS_SB_SORT_BY_PROP: TS_SB_SORT_BY = TS_SB_SORT_BY(2i32);
-impl ::core::marker::Copy for TS_SB_SORT_BY {}
-impl ::core::clone::Clone for TS_SB_SORT_BY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const TS_SB_SORT_BY_NONE: i32 = 0i32;
+pub const TS_SB_SORT_BY_NAME: i32 = 1i32;
+pub const TS_SB_SORT_BY_PROP: i32 = 2i32;
 pub const TS_VC_LISTENER_STATIC_CHANNEL: u32 = 1u32;
 pub const USERNAME_LENGTH: u32 = 20u32;
 pub const VALIDATIONINFORMATION_HARDWAREID_LENGTH: u32 = 20u32;
 pub const VALIDATIONINFORMATION_LICENSE_LENGTH: u32 = 16384u32;
 pub const VIRTUAL_CHANNEL_VERSION_WIN2000: u32 = 1u32;
-#[repr(transparent)]
-pub struct VM_HOST_NOTIFY_STATUS(pub i32);
-pub const VM_HOST_STATUS_INIT_PENDING: VM_HOST_NOTIFY_STATUS = VM_HOST_NOTIFY_STATUS(0i32);
-pub const VM_HOST_STATUS_INIT_IN_PROGRESS: VM_HOST_NOTIFY_STATUS = VM_HOST_NOTIFY_STATUS(1i32);
-pub const VM_HOST_STATUS_INIT_COMPLETE: VM_HOST_NOTIFY_STATUS = VM_HOST_NOTIFY_STATUS(2i32);
-pub const VM_HOST_STATUS_INIT_FAILED: VM_HOST_NOTIFY_STATUS = VM_HOST_NOTIFY_STATUS(3i32);
-impl ::core::marker::Copy for VM_HOST_NOTIFY_STATUS {}
-impl ::core::clone::Clone for VM_HOST_NOTIFY_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const VM_HOST_STATUS_INIT_PENDING: i32 = 0i32;
+pub const VM_HOST_STATUS_INIT_IN_PROGRESS: i32 = 1i32;
+pub const VM_HOST_STATUS_INIT_COMPLETE: i32 = 2i32;
+pub const VM_HOST_STATUS_INIT_FAILED: i32 = 3i32;
 #[repr(C)]
 pub struct VM_NOTIFY_ENTRY {
     pub VmName: [u16; 128],
@@ -1748,19 +1524,11 @@ impl ::core::clone::Clone for VM_NOTIFY_INFO {
         *self
     }
 }
-#[repr(transparent)]
-pub struct VM_NOTIFY_STATUS(pub i32);
-pub const VM_NOTIFY_STATUS_PENDING: VM_NOTIFY_STATUS = VM_NOTIFY_STATUS(0i32);
-pub const VM_NOTIFY_STATUS_IN_PROGRESS: VM_NOTIFY_STATUS = VM_NOTIFY_STATUS(1i32);
-pub const VM_NOTIFY_STATUS_COMPLETE: VM_NOTIFY_STATUS = VM_NOTIFY_STATUS(2i32);
-pub const VM_NOTIFY_STATUS_FAILED: VM_NOTIFY_STATUS = VM_NOTIFY_STATUS(3i32);
-pub const VM_NOTIFY_STATUS_CANCELED: VM_NOTIFY_STATUS = VM_NOTIFY_STATUS(4i32);
-impl ::core::marker::Copy for VM_NOTIFY_STATUS {}
-impl ::core::clone::Clone for VM_NOTIFY_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const VM_NOTIFY_STATUS_PENDING: i32 = 0i32;
+pub const VM_NOTIFY_STATUS_IN_PROGRESS: i32 = 1i32;
+pub const VM_NOTIFY_STATUS_COMPLETE: i32 = 2i32;
+pub const VM_NOTIFY_STATUS_FAILED: i32 = 3i32;
+pub const VM_NOTIFY_STATUS_CANCELED: i32 = 4i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct VM_PATCH_INFO {
@@ -1886,16 +1654,8 @@ impl ::core::clone::Clone for WRDS_CONNECTION_SETTINGS_1 {
         *self
     }
 }
-#[repr(transparent)]
-pub struct WRDS_CONNECTION_SETTING_LEVEL(pub i32);
-pub const WRDS_CONNECTION_SETTING_LEVEL_INVALID: WRDS_CONNECTION_SETTING_LEVEL = WRDS_CONNECTION_SETTING_LEVEL(0i32);
-pub const WRDS_CONNECTION_SETTING_LEVEL_1: WRDS_CONNECTION_SETTING_LEVEL = WRDS_CONNECTION_SETTING_LEVEL(1i32);
-impl ::core::marker::Copy for WRDS_CONNECTION_SETTING_LEVEL {}
-impl ::core::clone::Clone for WRDS_CONNECTION_SETTING_LEVEL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const WRDS_CONNECTION_SETTING_LEVEL_INVALID: i32 = 0i32;
+pub const WRDS_CONNECTION_SETTING_LEVEL_1: i32 = 1i32;
 pub const WRDS_DEVICE_NAME_LENGTH: u32 = 19u32;
 pub const WRDS_DIRECTORY_LENGTH: u32 = 256u32;
 pub const WRDS_DOMAIN_LENGTH: u32 = 255u32;
@@ -1957,16 +1717,8 @@ impl ::core::clone::Clone for WRDS_LISTENER_SETTINGS_1 {
         *self
     }
 }
-#[repr(transparent)]
-pub struct WRDS_LISTENER_SETTING_LEVEL(pub i32);
-pub const WRDS_LISTENER_SETTING_LEVEL_INVALID: WRDS_LISTENER_SETTING_LEVEL = WRDS_LISTENER_SETTING_LEVEL(0i32);
-pub const WRDS_LISTENER_SETTING_LEVEL_1: WRDS_LISTENER_SETTING_LEVEL = WRDS_LISTENER_SETTING_LEVEL(1i32);
-impl ::core::marker::Copy for WRDS_LISTENER_SETTING_LEVEL {}
-impl ::core::clone::Clone for WRDS_LISTENER_SETTING_LEVEL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const WRDS_LISTENER_SETTING_LEVEL_INVALID: i32 = 0i32;
+pub const WRDS_LISTENER_SETTING_LEVEL_1: i32 = 1i32;
 pub const WRDS_MAX_CACHE_RESERVED: u32 = 20u32;
 pub const WRDS_MAX_COUNTERS: u32 = 100u32;
 pub const WRDS_MAX_DISPLAY_IOCTL_DATA: u32 = 256u32;
@@ -2056,55 +1808,23 @@ impl ::core::clone::Clone for WRDS_SETTINGS_1 {
         *self
     }
 }
-#[repr(transparent)]
-pub struct WRDS_SETTING_LEVEL(pub i32);
-pub const WRDS_SETTING_LEVEL_INVALID: WRDS_SETTING_LEVEL = WRDS_SETTING_LEVEL(0i32);
-pub const WRDS_SETTING_LEVEL_1: WRDS_SETTING_LEVEL = WRDS_SETTING_LEVEL(1i32);
-impl ::core::marker::Copy for WRDS_SETTING_LEVEL {}
-impl ::core::clone::Clone for WRDS_SETTING_LEVEL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WRDS_SETTING_STATUS(pub i32);
-pub const WRDS_SETTING_STATUS_NOTAPPLICABLE: WRDS_SETTING_STATUS = WRDS_SETTING_STATUS(-1i32);
-pub const WRDS_SETTING_STATUS_DISABLED: WRDS_SETTING_STATUS = WRDS_SETTING_STATUS(0i32);
-pub const WRDS_SETTING_STATUS_ENABLED: WRDS_SETTING_STATUS = WRDS_SETTING_STATUS(1i32);
-pub const WRDS_SETTING_STATUS_NOTCONFIGURED: WRDS_SETTING_STATUS = WRDS_SETTING_STATUS(2i32);
-impl ::core::marker::Copy for WRDS_SETTING_STATUS {}
-impl ::core::clone::Clone for WRDS_SETTING_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WRDS_SETTING_TYPE(pub i32);
-pub const WRDS_SETTING_TYPE_INVALID: WRDS_SETTING_TYPE = WRDS_SETTING_TYPE(0i32);
-pub const WRDS_SETTING_TYPE_MACHINE: WRDS_SETTING_TYPE = WRDS_SETTING_TYPE(1i32);
-pub const WRDS_SETTING_TYPE_USER: WRDS_SETTING_TYPE = WRDS_SETTING_TYPE(2i32);
-pub const WRDS_SETTING_TYPE_SAM: WRDS_SETTING_TYPE = WRDS_SETTING_TYPE(3i32);
-impl ::core::marker::Copy for WRDS_SETTING_TYPE {}
-impl ::core::clone::Clone for WRDS_SETTING_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const WRDS_SETTING_LEVEL_INVALID: i32 = 0i32;
+pub const WRDS_SETTING_LEVEL_1: i32 = 1i32;
+pub const WRDS_SETTING_STATUS_NOTAPPLICABLE: i32 = -1i32;
+pub const WRDS_SETTING_STATUS_DISABLED: i32 = 0i32;
+pub const WRDS_SETTING_STATUS_ENABLED: i32 = 1i32;
+pub const WRDS_SETTING_STATUS_NOTCONFIGURED: i32 = 2i32;
+pub const WRDS_SETTING_TYPE_INVALID: i32 = 0i32;
+pub const WRDS_SETTING_TYPE_MACHINE: i32 = 1i32;
+pub const WRDS_SETTING_TYPE_USER: i32 = 2i32;
+pub const WRDS_SETTING_TYPE_SAM: i32 = 3i32;
 pub const WRDS_USERNAME_LENGTH: u32 = 255u32;
 pub const WRDS_VALUE_TYPE_BINARY: u32 = 3u32;
 pub const WRDS_VALUE_TYPE_GUID: u32 = 4u32;
 pub const WRDS_VALUE_TYPE_STRING: u32 = 2u32;
 pub const WRDS_VALUE_TYPE_ULONG: u32 = 1u32;
-#[repr(transparent)]
-pub struct WRdsGraphicsChannelType(pub i32);
-pub const WRdsGraphicsChannelType_GuaranteedDelivery: WRdsGraphicsChannelType = WRdsGraphicsChannelType(0i32);
-pub const WRdsGraphicsChannelType_BestEffortDelivery: WRdsGraphicsChannelType = WRdsGraphicsChannelType(1i32);
-impl ::core::marker::Copy for WRdsGraphicsChannelType {}
-impl ::core::clone::Clone for WRdsGraphicsChannelType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const WRdsGraphicsChannelType_GuaranteedDelivery: i32 = 0i32;
+pub const WRdsGraphicsChannelType_BestEffortDelivery: i32 = 1i32;
 pub const WRdsGraphicsChannels_LossyChannelMaxMessageSize: u32 = 988u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -2447,19 +2167,11 @@ impl ::core::clone::Clone for WTSLISTENERCONFIGW {
         *self
     }
 }
-#[repr(transparent)]
-pub struct WTSSBX_ADDRESS_FAMILY(pub i32);
-pub const WTSSBX_ADDRESS_FAMILY_AF_UNSPEC: WTSSBX_ADDRESS_FAMILY = WTSSBX_ADDRESS_FAMILY(0i32);
-pub const WTSSBX_ADDRESS_FAMILY_AF_INET: WTSSBX_ADDRESS_FAMILY = WTSSBX_ADDRESS_FAMILY(1i32);
-pub const WTSSBX_ADDRESS_FAMILY_AF_INET6: WTSSBX_ADDRESS_FAMILY = WTSSBX_ADDRESS_FAMILY(2i32);
-pub const WTSSBX_ADDRESS_FAMILY_AF_IPX: WTSSBX_ADDRESS_FAMILY = WTSSBX_ADDRESS_FAMILY(3i32);
-pub const WTSSBX_ADDRESS_FAMILY_AF_NETBIOS: WTSSBX_ADDRESS_FAMILY = WTSSBX_ADDRESS_FAMILY(4i32);
-impl ::core::marker::Copy for WTSSBX_ADDRESS_FAMILY {}
-impl ::core::clone::Clone for WTSSBX_ADDRESS_FAMILY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const WTSSBX_ADDRESS_FAMILY_AF_UNSPEC: i32 = 0i32;
+pub const WTSSBX_ADDRESS_FAMILY_AF_INET: i32 = 1i32;
+pub const WTSSBX_ADDRESS_FAMILY_AF_INET6: i32 = 2i32;
+pub const WTSSBX_ADDRESS_FAMILY_AF_IPX: i32 = 3i32;
+pub const WTSSBX_ADDRESS_FAMILY_AF_NETBIOS: i32 = 4i32;
 #[repr(C)]
 pub struct WTSSBX_IP_ADDRESS {
     pub AddressFamily: WTSSBX_ADDRESS_FAMILY,
@@ -2486,17 +2198,9 @@ impl ::core::clone::Clone for WTSSBX_MACHINE_CONNECT_INFO {
         *self
     }
 }
-#[repr(transparent)]
-pub struct WTSSBX_MACHINE_DRAIN(pub i32);
-pub const WTSSBX_MACHINE_DRAIN_UNSPEC: WTSSBX_MACHINE_DRAIN = WTSSBX_MACHINE_DRAIN(0i32);
-pub const WTSSBX_MACHINE_DRAIN_OFF: WTSSBX_MACHINE_DRAIN = WTSSBX_MACHINE_DRAIN(1i32);
-pub const WTSSBX_MACHINE_DRAIN_ON: WTSSBX_MACHINE_DRAIN = WTSSBX_MACHINE_DRAIN(2i32);
-impl ::core::marker::Copy for WTSSBX_MACHINE_DRAIN {}
-impl ::core::clone::Clone for WTSSBX_MACHINE_DRAIN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const WTSSBX_MACHINE_DRAIN_UNSPEC: i32 = 0i32;
+pub const WTSSBX_MACHINE_DRAIN_OFF: i32 = 1i32;
+pub const WTSSBX_MACHINE_DRAIN_ON: i32 = 2i32;
 #[repr(C)]
 pub struct WTSSBX_MACHINE_INFO {
     pub ClientConnectInfo: WTSSBX_MACHINE_CONNECT_INFO,
@@ -2514,40 +2218,16 @@ impl ::core::clone::Clone for WTSSBX_MACHINE_INFO {
         *self
     }
 }
-#[repr(transparent)]
-pub struct WTSSBX_MACHINE_SESSION_MODE(pub i32);
-pub const WTSSBX_MACHINE_SESSION_MODE_UNSPEC: WTSSBX_MACHINE_SESSION_MODE = WTSSBX_MACHINE_SESSION_MODE(0i32);
-pub const WTSSBX_MACHINE_SESSION_MODE_SINGLE: WTSSBX_MACHINE_SESSION_MODE = WTSSBX_MACHINE_SESSION_MODE(1i32);
-pub const WTSSBX_MACHINE_SESSION_MODE_MULTIPLE: WTSSBX_MACHINE_SESSION_MODE = WTSSBX_MACHINE_SESSION_MODE(2i32);
-impl ::core::marker::Copy for WTSSBX_MACHINE_SESSION_MODE {}
-impl ::core::clone::Clone for WTSSBX_MACHINE_SESSION_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WTSSBX_MACHINE_STATE(pub i32);
-pub const WTSSBX_MACHINE_STATE_UNSPEC: WTSSBX_MACHINE_STATE = WTSSBX_MACHINE_STATE(0i32);
-pub const WTSSBX_MACHINE_STATE_READY: WTSSBX_MACHINE_STATE = WTSSBX_MACHINE_STATE(1i32);
-pub const WTSSBX_MACHINE_STATE_SYNCHRONIZING: WTSSBX_MACHINE_STATE = WTSSBX_MACHINE_STATE(2i32);
-impl ::core::marker::Copy for WTSSBX_MACHINE_STATE {}
-impl ::core::clone::Clone for WTSSBX_MACHINE_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WTSSBX_NOTIFICATION_TYPE(pub i32);
-pub const WTSSBX_NOTIFICATION_REMOVED: WTSSBX_NOTIFICATION_TYPE = WTSSBX_NOTIFICATION_TYPE(1i32);
-pub const WTSSBX_NOTIFICATION_CHANGED: WTSSBX_NOTIFICATION_TYPE = WTSSBX_NOTIFICATION_TYPE(2i32);
-pub const WTSSBX_NOTIFICATION_ADDED: WTSSBX_NOTIFICATION_TYPE = WTSSBX_NOTIFICATION_TYPE(4i32);
-pub const WTSSBX_NOTIFICATION_RESYNC: WTSSBX_NOTIFICATION_TYPE = WTSSBX_NOTIFICATION_TYPE(8i32);
-impl ::core::marker::Copy for WTSSBX_NOTIFICATION_TYPE {}
-impl ::core::clone::Clone for WTSSBX_NOTIFICATION_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const WTSSBX_MACHINE_SESSION_MODE_UNSPEC: i32 = 0i32;
+pub const WTSSBX_MACHINE_SESSION_MODE_SINGLE: i32 = 1i32;
+pub const WTSSBX_MACHINE_SESSION_MODE_MULTIPLE: i32 = 2i32;
+pub const WTSSBX_MACHINE_STATE_UNSPEC: i32 = 0i32;
+pub const WTSSBX_MACHINE_STATE_READY: i32 = 1i32;
+pub const WTSSBX_MACHINE_STATE_SYNCHRONIZING: i32 = 2i32;
+pub const WTSSBX_NOTIFICATION_REMOVED: i32 = 1i32;
+pub const WTSSBX_NOTIFICATION_CHANGED: i32 = 2i32;
+pub const WTSSBX_NOTIFICATION_ADDED: i32 = 4i32;
+pub const WTSSBX_NOTIFICATION_RESYNC: i32 = 8i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WTSSBX_SESSION_INFO {
@@ -2567,17 +2247,9 @@ impl ::core::clone::Clone for WTSSBX_SESSION_INFO {
         *self
     }
 }
-#[repr(transparent)]
-pub struct WTSSBX_SESSION_STATE(pub i32);
-pub const WTSSBX_SESSION_STATE_UNSPEC: WTSSBX_SESSION_STATE = WTSSBX_SESSION_STATE(0i32);
-pub const WTSSBX_SESSION_STATE_ACTIVE: WTSSBX_SESSION_STATE = WTSSBX_SESSION_STATE(1i32);
-pub const WTSSBX_SESSION_STATE_DISCONNECTED: WTSSBX_SESSION_STATE = WTSSBX_SESSION_STATE(2i32);
-impl ::core::marker::Copy for WTSSBX_SESSION_STATE {}
-impl ::core::clone::Clone for WTSSBX_SESSION_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const WTSSBX_SESSION_STATE_UNSPEC: i32 = 0i32;
+pub const WTSSBX_SESSION_STATE_ACTIVE: i32 = 1i32;
+pub const WTSSBX_SESSION_STATE_DISCONNECTED: i32 = 2i32;
 #[repr(C)]
 pub struct WTSSESSION_NOTIFICATION {
     pub cbSize: u32,
@@ -2671,17 +2343,9 @@ impl ::core::clone::Clone for WTS_CACHE_STATS_UN {
         *self
     }
 }
-#[repr(transparent)]
-pub struct WTS_CERT_TYPE(pub i32);
-pub const WTS_CERT_TYPE_INVALID: WTS_CERT_TYPE = WTS_CERT_TYPE(0i32);
-pub const WTS_CERT_TYPE_PROPRIETORY: WTS_CERT_TYPE = WTS_CERT_TYPE(1i32);
-pub const WTS_CERT_TYPE_X509: WTS_CERT_TYPE = WTS_CERT_TYPE(2i32);
-impl ::core::marker::Copy for WTS_CERT_TYPE {}
-impl ::core::clone::Clone for WTS_CERT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const WTS_CERT_TYPE_INVALID: i32 = 0i32;
+pub const WTS_CERT_TYPE_PROPRIETORY: i32 = 1i32;
+pub const WTS_CERT_TYPE_X509: i32 = 2i32;
 pub const WTS_CHANNEL_OPTION_DYNAMIC: u32 = 1u32;
 pub const WTS_CHANNEL_OPTION_DYNAMIC_NO_COMPRESS: u32 = 8u32;
 pub const WTS_CHANNEL_OPTION_DYNAMIC_PRI_HIGH: u32 = 4u32;
@@ -2782,61 +2446,37 @@ impl ::core::clone::Clone for WTS_CLIENT_DISPLAY {
 }
 pub const WTS_CLIENT_PRODUCT_ID_LENGTH: u32 = 32u32;
 pub const WTS_COMMENT_LENGTH: u32 = 60u32;
-#[repr(transparent)]
-pub struct WTS_CONFIG_CLASS(pub i32);
-pub const WTSUserConfigInitialProgram: WTS_CONFIG_CLASS = WTS_CONFIG_CLASS(0i32);
-pub const WTSUserConfigWorkingDirectory: WTS_CONFIG_CLASS = WTS_CONFIG_CLASS(1i32);
-pub const WTSUserConfigfInheritInitialProgram: WTS_CONFIG_CLASS = WTS_CONFIG_CLASS(2i32);
-pub const WTSUserConfigfAllowLogonTerminalServer: WTS_CONFIG_CLASS = WTS_CONFIG_CLASS(3i32);
-pub const WTSUserConfigTimeoutSettingsConnections: WTS_CONFIG_CLASS = WTS_CONFIG_CLASS(4i32);
-pub const WTSUserConfigTimeoutSettingsDisconnections: WTS_CONFIG_CLASS = WTS_CONFIG_CLASS(5i32);
-pub const WTSUserConfigTimeoutSettingsIdle: WTS_CONFIG_CLASS = WTS_CONFIG_CLASS(6i32);
-pub const WTSUserConfigfDeviceClientDrives: WTS_CONFIG_CLASS = WTS_CONFIG_CLASS(7i32);
-pub const WTSUserConfigfDeviceClientPrinters: WTS_CONFIG_CLASS = WTS_CONFIG_CLASS(8i32);
-pub const WTSUserConfigfDeviceClientDefaultPrinter: WTS_CONFIG_CLASS = WTS_CONFIG_CLASS(9i32);
-pub const WTSUserConfigBrokenTimeoutSettings: WTS_CONFIG_CLASS = WTS_CONFIG_CLASS(10i32);
-pub const WTSUserConfigReconnectSettings: WTS_CONFIG_CLASS = WTS_CONFIG_CLASS(11i32);
-pub const WTSUserConfigModemCallbackSettings: WTS_CONFIG_CLASS = WTS_CONFIG_CLASS(12i32);
-pub const WTSUserConfigModemCallbackPhoneNumber: WTS_CONFIG_CLASS = WTS_CONFIG_CLASS(13i32);
-pub const WTSUserConfigShadowingSettings: WTS_CONFIG_CLASS = WTS_CONFIG_CLASS(14i32);
-pub const WTSUserConfigTerminalServerProfilePath: WTS_CONFIG_CLASS = WTS_CONFIG_CLASS(15i32);
-pub const WTSUserConfigTerminalServerHomeDir: WTS_CONFIG_CLASS = WTS_CONFIG_CLASS(16i32);
-pub const WTSUserConfigTerminalServerHomeDirDrive: WTS_CONFIG_CLASS = WTS_CONFIG_CLASS(17i32);
-pub const WTSUserConfigfTerminalServerRemoteHomeDir: WTS_CONFIG_CLASS = WTS_CONFIG_CLASS(18i32);
-pub const WTSUserConfigUser: WTS_CONFIG_CLASS = WTS_CONFIG_CLASS(19i32);
-impl ::core::marker::Copy for WTS_CONFIG_CLASS {}
-impl ::core::clone::Clone for WTS_CONFIG_CLASS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WTS_CONFIG_SOURCE(pub i32);
-pub const WTSUserConfigSourceSAM: WTS_CONFIG_SOURCE = WTS_CONFIG_SOURCE(0i32);
-impl ::core::marker::Copy for WTS_CONFIG_SOURCE {}
-impl ::core::clone::Clone for WTS_CONFIG_SOURCE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WTS_CONNECTSTATE_CLASS(pub i32);
-pub const WTSActive: WTS_CONNECTSTATE_CLASS = WTS_CONNECTSTATE_CLASS(0i32);
-pub const WTSConnected: WTS_CONNECTSTATE_CLASS = WTS_CONNECTSTATE_CLASS(1i32);
-pub const WTSConnectQuery: WTS_CONNECTSTATE_CLASS = WTS_CONNECTSTATE_CLASS(2i32);
-pub const WTSShadow: WTS_CONNECTSTATE_CLASS = WTS_CONNECTSTATE_CLASS(3i32);
-pub const WTSDisconnected: WTS_CONNECTSTATE_CLASS = WTS_CONNECTSTATE_CLASS(4i32);
-pub const WTSIdle: WTS_CONNECTSTATE_CLASS = WTS_CONNECTSTATE_CLASS(5i32);
-pub const WTSListen: WTS_CONNECTSTATE_CLASS = WTS_CONNECTSTATE_CLASS(6i32);
-pub const WTSReset: WTS_CONNECTSTATE_CLASS = WTS_CONNECTSTATE_CLASS(7i32);
-pub const WTSDown: WTS_CONNECTSTATE_CLASS = WTS_CONNECTSTATE_CLASS(8i32);
-pub const WTSInit: WTS_CONNECTSTATE_CLASS = WTS_CONNECTSTATE_CLASS(9i32);
-impl ::core::marker::Copy for WTS_CONNECTSTATE_CLASS {}
-impl ::core::clone::Clone for WTS_CONNECTSTATE_CLASS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const WTSUserConfigInitialProgram: i32 = 0i32;
+pub const WTSUserConfigWorkingDirectory: i32 = 1i32;
+pub const WTSUserConfigfInheritInitialProgram: i32 = 2i32;
+pub const WTSUserConfigfAllowLogonTerminalServer: i32 = 3i32;
+pub const WTSUserConfigTimeoutSettingsConnections: i32 = 4i32;
+pub const WTSUserConfigTimeoutSettingsDisconnections: i32 = 5i32;
+pub const WTSUserConfigTimeoutSettingsIdle: i32 = 6i32;
+pub const WTSUserConfigfDeviceClientDrives: i32 = 7i32;
+pub const WTSUserConfigfDeviceClientPrinters: i32 = 8i32;
+pub const WTSUserConfigfDeviceClientDefaultPrinter: i32 = 9i32;
+pub const WTSUserConfigBrokenTimeoutSettings: i32 = 10i32;
+pub const WTSUserConfigReconnectSettings: i32 = 11i32;
+pub const WTSUserConfigModemCallbackSettings: i32 = 12i32;
+pub const WTSUserConfigModemCallbackPhoneNumber: i32 = 13i32;
+pub const WTSUserConfigShadowingSettings: i32 = 14i32;
+pub const WTSUserConfigTerminalServerProfilePath: i32 = 15i32;
+pub const WTSUserConfigTerminalServerHomeDir: i32 = 16i32;
+pub const WTSUserConfigTerminalServerHomeDirDrive: i32 = 17i32;
+pub const WTSUserConfigfTerminalServerRemoteHomeDir: i32 = 18i32;
+pub const WTSUserConfigUser: i32 = 19i32;
+pub const WTSUserConfigSourceSAM: i32 = 0i32;
+pub const WTSActive: i32 = 0i32;
+pub const WTSConnected: i32 = 1i32;
+pub const WTSConnectQuery: i32 = 2i32;
+pub const WTSShadow: i32 = 3i32;
+pub const WTSDisconnected: i32 = 4i32;
+pub const WTSIdle: i32 = 5i32;
+pub const WTSListen: i32 = 6i32;
+pub const WTSReset: i32 = 7i32;
+pub const WTSDown: i32 = 8i32;
+pub const WTSInit: i32 = 9i32;
 pub const WTS_CURRENT_SESSION: u32 = 4294967295u32;
 pub const WTS_DEVICE_NAME_LENGTH: u32 = 19u32;
 pub const WTS_DIRECTORY_LENGTH: u32 = 256u32;
@@ -2867,44 +2507,36 @@ pub const WTS_EVENT_NONE: u32 = 0u32;
 pub const WTS_EVENT_RENAME: u32 = 4u32;
 pub const WTS_EVENT_STATECHANGE: u32 = 128u32;
 pub const WTS_IMEFILENAME_LENGTH: u32 = 32u32;
-#[repr(transparent)]
-pub struct WTS_INFO_CLASS(pub i32);
-pub const WTSInitialProgram: WTS_INFO_CLASS = WTS_INFO_CLASS(0i32);
-pub const WTSApplicationName: WTS_INFO_CLASS = WTS_INFO_CLASS(1i32);
-pub const WTSWorkingDirectory: WTS_INFO_CLASS = WTS_INFO_CLASS(2i32);
-pub const WTSOEMId: WTS_INFO_CLASS = WTS_INFO_CLASS(3i32);
-pub const WTSSessionId: WTS_INFO_CLASS = WTS_INFO_CLASS(4i32);
-pub const WTSUserName: WTS_INFO_CLASS = WTS_INFO_CLASS(5i32);
-pub const WTSWinStationName: WTS_INFO_CLASS = WTS_INFO_CLASS(6i32);
-pub const WTSDomainName: WTS_INFO_CLASS = WTS_INFO_CLASS(7i32);
-pub const WTSConnectState: WTS_INFO_CLASS = WTS_INFO_CLASS(8i32);
-pub const WTSClientBuildNumber: WTS_INFO_CLASS = WTS_INFO_CLASS(9i32);
-pub const WTSClientName: WTS_INFO_CLASS = WTS_INFO_CLASS(10i32);
-pub const WTSClientDirectory: WTS_INFO_CLASS = WTS_INFO_CLASS(11i32);
-pub const WTSClientProductId: WTS_INFO_CLASS = WTS_INFO_CLASS(12i32);
-pub const WTSClientHardwareId: WTS_INFO_CLASS = WTS_INFO_CLASS(13i32);
-pub const WTSClientAddress: WTS_INFO_CLASS = WTS_INFO_CLASS(14i32);
-pub const WTSClientDisplay: WTS_INFO_CLASS = WTS_INFO_CLASS(15i32);
-pub const WTSClientProtocolType: WTS_INFO_CLASS = WTS_INFO_CLASS(16i32);
-pub const WTSIdleTime: WTS_INFO_CLASS = WTS_INFO_CLASS(17i32);
-pub const WTSLogonTime: WTS_INFO_CLASS = WTS_INFO_CLASS(18i32);
-pub const WTSIncomingBytes: WTS_INFO_CLASS = WTS_INFO_CLASS(19i32);
-pub const WTSOutgoingBytes: WTS_INFO_CLASS = WTS_INFO_CLASS(20i32);
-pub const WTSIncomingFrames: WTS_INFO_CLASS = WTS_INFO_CLASS(21i32);
-pub const WTSOutgoingFrames: WTS_INFO_CLASS = WTS_INFO_CLASS(22i32);
-pub const WTSClientInfo: WTS_INFO_CLASS = WTS_INFO_CLASS(23i32);
-pub const WTSSessionInfo: WTS_INFO_CLASS = WTS_INFO_CLASS(24i32);
-pub const WTSSessionInfoEx: WTS_INFO_CLASS = WTS_INFO_CLASS(25i32);
-pub const WTSConfigInfo: WTS_INFO_CLASS = WTS_INFO_CLASS(26i32);
-pub const WTSValidationInfo: WTS_INFO_CLASS = WTS_INFO_CLASS(27i32);
-pub const WTSSessionAddressV4: WTS_INFO_CLASS = WTS_INFO_CLASS(28i32);
-pub const WTSIsRemoteSession: WTS_INFO_CLASS = WTS_INFO_CLASS(29i32);
-impl ::core::marker::Copy for WTS_INFO_CLASS {}
-impl ::core::clone::Clone for WTS_INFO_CLASS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const WTSInitialProgram: i32 = 0i32;
+pub const WTSApplicationName: i32 = 1i32;
+pub const WTSWorkingDirectory: i32 = 2i32;
+pub const WTSOEMId: i32 = 3i32;
+pub const WTSSessionId: i32 = 4i32;
+pub const WTSUserName: i32 = 5i32;
+pub const WTSWinStationName: i32 = 6i32;
+pub const WTSDomainName: i32 = 7i32;
+pub const WTSConnectState: i32 = 8i32;
+pub const WTSClientBuildNumber: i32 = 9i32;
+pub const WTSClientName: i32 = 10i32;
+pub const WTSClientDirectory: i32 = 11i32;
+pub const WTSClientProductId: i32 = 12i32;
+pub const WTSClientHardwareId: i32 = 13i32;
+pub const WTSClientAddress: i32 = 14i32;
+pub const WTSClientDisplay: i32 = 15i32;
+pub const WTSClientProtocolType: i32 = 16i32;
+pub const WTSIdleTime: i32 = 17i32;
+pub const WTSLogonTime: i32 = 18i32;
+pub const WTSIncomingBytes: i32 = 19i32;
+pub const WTSOutgoingBytes: i32 = 20i32;
+pub const WTSIncomingFrames: i32 = 21i32;
+pub const WTSOutgoingFrames: i32 = 22i32;
+pub const WTSClientInfo: i32 = 23i32;
+pub const WTSSessionInfo: i32 = 24i32;
+pub const WTSSessionInfoEx: i32 = 25i32;
+pub const WTSConfigInfo: i32 = 26i32;
+pub const WTSValidationInfo: i32 = 27i32;
+pub const WTSSessionAddressV4: i32 = 28i32;
+pub const WTSIsRemoteSession: i32 = 29i32;
 pub const WTS_INITIALPROGRAM_LENGTH: u32 = 256u32;
 pub const WTS_KEY_EXCHANGE_ALG_DH: u32 = 2u32;
 pub const WTS_KEY_EXCHANGE_ALG_RSA: u32 = 1u32;
@@ -2931,19 +2563,11 @@ pub const WTS_LICENSE_PROTOCOL_VERSION: u32 = 65536u32;
 pub const WTS_LISTENER_CREATE: u32 = 1u32;
 pub const WTS_LISTENER_NAME_LENGTH: u32 = 32u32;
 pub const WTS_LISTENER_UPDATE: u32 = 16u32;
-#[repr(transparent)]
-pub struct WTS_LOGON_ERROR_REDIRECTOR_RESPONSE(pub i32);
-pub const WTS_LOGON_ERR_INVALID: WTS_LOGON_ERROR_REDIRECTOR_RESPONSE = WTS_LOGON_ERROR_REDIRECTOR_RESPONSE(0i32);
-pub const WTS_LOGON_ERR_NOT_HANDLED: WTS_LOGON_ERROR_REDIRECTOR_RESPONSE = WTS_LOGON_ERROR_REDIRECTOR_RESPONSE(1i32);
-pub const WTS_LOGON_ERR_HANDLED_SHOW: WTS_LOGON_ERROR_REDIRECTOR_RESPONSE = WTS_LOGON_ERROR_REDIRECTOR_RESPONSE(2i32);
-pub const WTS_LOGON_ERR_HANDLED_DONT_SHOW: WTS_LOGON_ERROR_REDIRECTOR_RESPONSE = WTS_LOGON_ERROR_REDIRECTOR_RESPONSE(3i32);
-pub const WTS_LOGON_ERR_HANDLED_DONT_SHOW_START_OVER: WTS_LOGON_ERROR_REDIRECTOR_RESPONSE = WTS_LOGON_ERROR_REDIRECTOR_RESPONSE(4i32);
-impl ::core::marker::Copy for WTS_LOGON_ERROR_REDIRECTOR_RESPONSE {}
-impl ::core::clone::Clone for WTS_LOGON_ERROR_REDIRECTOR_RESPONSE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const WTS_LOGON_ERR_INVALID: i32 = 0i32;
+pub const WTS_LOGON_ERR_NOT_HANDLED: i32 = 1i32;
+pub const WTS_LOGON_ERR_HANDLED_SHOW: i32 = 2i32;
+pub const WTS_LOGON_ERR_HANDLED_DONT_SHOW: i32 = 3i32;
+pub const WTS_LOGON_ERR_HANDLED_DONT_SHOW_START_OVER: i32 = 4i32;
 pub const WTS_MAX_CACHE_RESERVED: u32 = 20u32;
 pub const WTS_MAX_COUNTERS: u32 = 100u32;
 pub const WTS_MAX_DISPLAY_IOCTL_DATA: u32 = 256u32;
@@ -3193,28 +2817,12 @@ pub const WTS_QUERY_MF_FORMAT_SUPPORT: ::windows_sys::core::GUID = ::windows_sys
     data3: 19912,
     data4: [149, 213, 219, 116, 158, 47, 29, 148],
 };
-#[repr(transparent)]
-pub struct WTS_RCM_DRAIN_STATE(pub i32);
-pub const WTS_DRAIN_STATE_NONE: WTS_RCM_DRAIN_STATE = WTS_RCM_DRAIN_STATE(0i32);
-pub const WTS_DRAIN_IN_DRAIN: WTS_RCM_DRAIN_STATE = WTS_RCM_DRAIN_STATE(1i32);
-pub const WTS_DRAIN_NOT_IN_DRAIN: WTS_RCM_DRAIN_STATE = WTS_RCM_DRAIN_STATE(2i32);
-impl ::core::marker::Copy for WTS_RCM_DRAIN_STATE {}
-impl ::core::clone::Clone for WTS_RCM_DRAIN_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WTS_RCM_SERVICE_STATE(pub i32);
-pub const WTS_SERVICE_NONE: WTS_RCM_SERVICE_STATE = WTS_RCM_SERVICE_STATE(0i32);
-pub const WTS_SERVICE_START: WTS_RCM_SERVICE_STATE = WTS_RCM_SERVICE_STATE(1i32);
-pub const WTS_SERVICE_STOP: WTS_RCM_SERVICE_STATE = WTS_RCM_SERVICE_STATE(2i32);
-impl ::core::marker::Copy for WTS_RCM_SERVICE_STATE {}
-impl ::core::clone::Clone for WTS_RCM_SERVICE_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const WTS_DRAIN_STATE_NONE: i32 = 0i32;
+pub const WTS_DRAIN_IN_DRAIN: i32 = 1i32;
+pub const WTS_DRAIN_NOT_IN_DRAIN: i32 = 2i32;
+pub const WTS_SERVICE_NONE: i32 = 0i32;
+pub const WTS_SERVICE_START: i32 = 1i32;
+pub const WTS_SERVICE_STOP: i32 = 2i32;
 pub const WTS_SECURITY_CONNECT: u32 = 256u32;
 pub const WTS_SECURITY_DISCONNECT: u32 = 512u32;
 pub const WTS_SECURITY_GUEST_ACCESS: u32 = 32u32;
@@ -3451,17 +3059,9 @@ impl ::core::clone::Clone for WTS_TIME_ZONE_INFORMATION {
         *self
     }
 }
-#[repr(transparent)]
-pub struct WTS_TYPE_CLASS(pub i32);
-pub const WTSTypeProcessInfoLevel0: WTS_TYPE_CLASS = WTS_TYPE_CLASS(0i32);
-pub const WTSTypeProcessInfoLevel1: WTS_TYPE_CLASS = WTS_TYPE_CLASS(1i32);
-pub const WTSTypeSessionInfoLevel1: WTS_TYPE_CLASS = WTS_TYPE_CLASS(2i32);
-impl ::core::marker::Copy for WTS_TYPE_CLASS {}
-impl ::core::clone::Clone for WTS_TYPE_CLASS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const WTSTypeProcessInfoLevel0: i32 = 0i32;
+pub const WTSTypeProcessInfoLevel1: i32 = 1i32;
+pub const WTSTypeSessionInfoLevel1: i32 = 2i32;
 pub const WTS_USERNAME_LENGTH: u32 = 255u32;
 #[repr(C)]
 pub struct WTS_USER_CREDENTIAL {
@@ -3522,16 +3122,8 @@ pub const WTS_VALUE_TYPE_BINARY: u32 = 3u32;
 pub const WTS_VALUE_TYPE_GUID: u32 = 4u32;
 pub const WTS_VALUE_TYPE_STRING: u32 = 2u32;
 pub const WTS_VALUE_TYPE_ULONG: u32 = 1u32;
-#[repr(transparent)]
-pub struct WTS_VIRTUAL_CLASS(pub i32);
-pub const WTSVirtualClientData: WTS_VIRTUAL_CLASS = WTS_VIRTUAL_CLASS(0i32);
-pub const WTSVirtualFileHandle: WTS_VIRTUAL_CLASS = WTS_VIRTUAL_CLASS(1i32);
-impl ::core::marker::Copy for WTS_VIRTUAL_CLASS {}
-impl ::core::clone::Clone for WTS_VIRTUAL_CLASS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const WTSVirtualClientData: i32 = 0i32;
+pub const WTSVirtualFileHandle: i32 = 1i32;
 pub const WTS_WSD_FASTREBOOT: u32 = 16u32;
 pub const WTS_WSD_LOGOFF: u32 = 1u32;
 pub const WTS_WSD_POWEROFF: u32 = 8u32;

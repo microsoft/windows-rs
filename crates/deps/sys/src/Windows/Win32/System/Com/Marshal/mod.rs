@@ -227,13 +227,5 @@ impl ::core::clone::Clone for IMarshalingStream {
         *self
     }
 }
-#[repr(transparent)]
-pub struct STDMSHLFLAGS(pub i32);
-pub const SMEXF_SERVER: STDMSHLFLAGS = STDMSHLFLAGS(1i32);
-pub const SMEXF_HANDLER: STDMSHLFLAGS = STDMSHLFLAGS(2i32);
-impl ::core::marker::Copy for STDMSHLFLAGS {}
-impl ::core::clone::Clone for STDMSHLFLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const SMEXF_SERVER: i32 = 1i32;
+pub const SMEXF_HANDLER: i32 = 2i32;

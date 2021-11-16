@@ -55,137 +55,65 @@ extern "system" {
     pub fn SniffStream(pinstream: super::super::System::Com::IStream, pnformat: *mut u32, ppoutstream: *mut super::super::System::Com::IStream) -> ::windows_sys::core::HRESULT;
 }
 pub const ADDRESSBAND: u32 = 2u32;
-#[repr(transparent)]
-pub struct ADDURL_FLAG(pub i32);
-pub const ADDURL_FIRST: ADDURL_FLAG = ADDURL_FLAG(0i32);
-pub const ADDURL_ADDTOHISTORYANDCACHE: ADDURL_FLAG = ADDURL_FLAG(0i32);
-pub const ADDURL_ADDTOCACHE: ADDURL_FLAG = ADDURL_FLAG(1i32);
-pub const ADDURL_Max: ADDURL_FLAG = ADDURL_FLAG(2147483647i32);
-impl ::core::marker::Copy for ADDURL_FLAG {}
-impl ::core::clone::Clone for ADDURL_FLAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const ADDURL_FIRST: i32 = 0i32;
+pub const ADDURL_ADDTOHISTORYANDCACHE: i32 = 0i32;
+pub const ADDURL_ADDTOCACHE: i32 = 1i32;
+pub const ADDURL_Max: i32 = 2147483647i32;
 pub const AnchorClick: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 332742972, data2: 13241, data3: 4562, data4: [149, 167, 0, 192, 79, 142, 203, 2] };
 pub const ApplicationCache: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616873, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-#[repr(transparent)]
-pub struct BEHAVIOR_EVENT(pub i32);
-pub const BEHAVIOREVENT_FIRST: BEHAVIOR_EVENT = BEHAVIOR_EVENT(0i32);
-pub const BEHAVIOREVENT_CONTENTREADY: BEHAVIOR_EVENT = BEHAVIOR_EVENT(0i32);
-pub const BEHAVIOREVENT_DOCUMENTREADY: BEHAVIOR_EVENT = BEHAVIOR_EVENT(1i32);
-pub const BEHAVIOREVENT_APPLYSTYLE: BEHAVIOR_EVENT = BEHAVIOR_EVENT(2i32);
-pub const BEHAVIOREVENT_DOCUMENTCONTEXTCHANGE: BEHAVIOR_EVENT = BEHAVIOR_EVENT(3i32);
-pub const BEHAVIOREVENT_CONTENTSAVE: BEHAVIOR_EVENT = BEHAVIOR_EVENT(4i32);
-pub const BEHAVIOREVENT_LAST: BEHAVIOR_EVENT = BEHAVIOR_EVENT(4i32);
-pub const BEHAVIOR_EVENT_Max: BEHAVIOR_EVENT = BEHAVIOR_EVENT(2147483647i32);
-impl ::core::marker::Copy for BEHAVIOR_EVENT {}
-impl ::core::clone::Clone for BEHAVIOR_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct BEHAVIOR_EVENT_FLAGS(pub i32);
-pub const BEHAVIOREVENTFLAGS_BUBBLE: BEHAVIOR_EVENT_FLAGS = BEHAVIOR_EVENT_FLAGS(1i32);
-pub const BEHAVIOREVENTFLAGS_STANDARDADDITIVE: BEHAVIOR_EVENT_FLAGS = BEHAVIOR_EVENT_FLAGS(2i32);
-pub const BEHAVIOR_EVENT_FLAGS_Max: BEHAVIOR_EVENT_FLAGS = BEHAVIOR_EVENT_FLAGS(2147483647i32);
-impl ::core::marker::Copy for BEHAVIOR_EVENT_FLAGS {}
-impl ::core::clone::Clone for BEHAVIOR_EVENT_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct BEHAVIOR_LAYOUT_INFO(pub i32);
-pub const BEHAVIORLAYOUTINFO_FULLDELEGATION: BEHAVIOR_LAYOUT_INFO = BEHAVIOR_LAYOUT_INFO(1i32);
-pub const BEHAVIORLAYOUTINFO_MODIFYNATURAL: BEHAVIOR_LAYOUT_INFO = BEHAVIOR_LAYOUT_INFO(2i32);
-pub const BEHAVIORLAYOUTINFO_MAPSIZE: BEHAVIOR_LAYOUT_INFO = BEHAVIOR_LAYOUT_INFO(4i32);
-pub const BEHAVIOR_LAYOUT_INFO_Max: BEHAVIOR_LAYOUT_INFO = BEHAVIOR_LAYOUT_INFO(2147483647i32);
-impl ::core::marker::Copy for BEHAVIOR_LAYOUT_INFO {}
-impl ::core::clone::Clone for BEHAVIOR_LAYOUT_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct BEHAVIOR_LAYOUT_MODE(pub i32);
-pub const BEHAVIORLAYOUTMODE_NATURAL: BEHAVIOR_LAYOUT_MODE = BEHAVIOR_LAYOUT_MODE(1i32);
-pub const BEHAVIORLAYOUTMODE_MINWIDTH: BEHAVIOR_LAYOUT_MODE = BEHAVIOR_LAYOUT_MODE(2i32);
-pub const BEHAVIORLAYOUTMODE_MAXWIDTH: BEHAVIOR_LAYOUT_MODE = BEHAVIOR_LAYOUT_MODE(4i32);
-pub const BEHAVIORLAYOUTMODE_MEDIA_RESOLUTION: BEHAVIOR_LAYOUT_MODE = BEHAVIOR_LAYOUT_MODE(16384i32);
-pub const BEHAVIORLAYOUTMODE_FINAL_PERCENT: BEHAVIOR_LAYOUT_MODE = BEHAVIOR_LAYOUT_MODE(32768i32);
-pub const BEHAVIOR_LAYOUT_MODE_Max: BEHAVIOR_LAYOUT_MODE = BEHAVIOR_LAYOUT_MODE(2147483647i32);
-impl ::core::marker::Copy for BEHAVIOR_LAYOUT_MODE {}
-impl ::core::clone::Clone for BEHAVIOR_LAYOUT_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct BEHAVIOR_RELATION(pub i32);
-pub const BEHAVIOR_FIRSTRELATION: BEHAVIOR_RELATION = BEHAVIOR_RELATION(0i32);
-pub const BEHAVIOR_SAMEELEMENT: BEHAVIOR_RELATION = BEHAVIOR_RELATION(0i32);
-pub const BEHAVIOR_PARENT: BEHAVIOR_RELATION = BEHAVIOR_RELATION(1i32);
-pub const BEHAVIOR_CHILD: BEHAVIOR_RELATION = BEHAVIOR_RELATION(2i32);
-pub const BEHAVIOR_SIBLING: BEHAVIOR_RELATION = BEHAVIOR_RELATION(3i32);
-pub const BEHAVIOR_LASTRELATION: BEHAVIOR_RELATION = BEHAVIOR_RELATION(3i32);
-pub const BEHAVIOR_RELATION_Max: BEHAVIOR_RELATION = BEHAVIOR_RELATION(2147483647i32);
-impl ::core::marker::Copy for BEHAVIOR_RELATION {}
-impl ::core::clone::Clone for BEHAVIOR_RELATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct BEHAVIOR_RENDER_INFO(pub i32);
-pub const BEHAVIORRENDERINFO_BEFOREBACKGROUND: BEHAVIOR_RENDER_INFO = BEHAVIOR_RENDER_INFO(1i32);
-pub const BEHAVIORRENDERINFO_AFTERBACKGROUND: BEHAVIOR_RENDER_INFO = BEHAVIOR_RENDER_INFO(2i32);
-pub const BEHAVIORRENDERINFO_BEFORECONTENT: BEHAVIOR_RENDER_INFO = BEHAVIOR_RENDER_INFO(4i32);
-pub const BEHAVIORRENDERINFO_AFTERCONTENT: BEHAVIOR_RENDER_INFO = BEHAVIOR_RENDER_INFO(8i32);
-pub const BEHAVIORRENDERINFO_AFTERFOREGROUND: BEHAVIOR_RENDER_INFO = BEHAVIOR_RENDER_INFO(32i32);
-pub const BEHAVIORRENDERINFO_ABOVECONTENT: BEHAVIOR_RENDER_INFO = BEHAVIOR_RENDER_INFO(40i32);
-pub const BEHAVIORRENDERINFO_ALLLAYERS: BEHAVIOR_RENDER_INFO = BEHAVIOR_RENDER_INFO(255i32);
-pub const BEHAVIORRENDERINFO_DISABLEBACKGROUND: BEHAVIOR_RENDER_INFO = BEHAVIOR_RENDER_INFO(256i32);
-pub const BEHAVIORRENDERINFO_DISABLENEGATIVEZ: BEHAVIOR_RENDER_INFO = BEHAVIOR_RENDER_INFO(512i32);
-pub const BEHAVIORRENDERINFO_DISABLECONTENT: BEHAVIOR_RENDER_INFO = BEHAVIOR_RENDER_INFO(1024i32);
-pub const BEHAVIORRENDERINFO_DISABLEPOSITIVEZ: BEHAVIOR_RENDER_INFO = BEHAVIOR_RENDER_INFO(2048i32);
-pub const BEHAVIORRENDERINFO_DISABLEALLLAYERS: BEHAVIOR_RENDER_INFO = BEHAVIOR_RENDER_INFO(3840i32);
-pub const BEHAVIORRENDERINFO_HITTESTING: BEHAVIOR_RENDER_INFO = BEHAVIOR_RENDER_INFO(4096i32);
-pub const BEHAVIORRENDERINFO_SURFACE: BEHAVIOR_RENDER_INFO = BEHAVIOR_RENDER_INFO(1048576i32);
-pub const BEHAVIORRENDERINFO_3DSURFACE: BEHAVIOR_RENDER_INFO = BEHAVIOR_RENDER_INFO(2097152i32);
-pub const BEHAVIOR_RENDER_INFO_Max: BEHAVIOR_RENDER_INFO = BEHAVIOR_RENDER_INFO(2147483647i32);
-impl ::core::marker::Copy for BEHAVIOR_RENDER_INFO {}
-impl ::core::clone::Clone for BEHAVIOR_RENDER_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const BEHAVIOREVENT_FIRST: i32 = 0i32;
+pub const BEHAVIOREVENT_CONTENTREADY: i32 = 0i32;
+pub const BEHAVIOREVENT_DOCUMENTREADY: i32 = 1i32;
+pub const BEHAVIOREVENT_APPLYSTYLE: i32 = 2i32;
+pub const BEHAVIOREVENT_DOCUMENTCONTEXTCHANGE: i32 = 3i32;
+pub const BEHAVIOREVENT_CONTENTSAVE: i32 = 4i32;
+pub const BEHAVIOREVENT_LAST: i32 = 4i32;
+pub const BEHAVIOR_EVENT_Max: i32 = 2147483647i32;
+pub const BEHAVIOREVENTFLAGS_BUBBLE: i32 = 1i32;
+pub const BEHAVIOREVENTFLAGS_STANDARDADDITIVE: i32 = 2i32;
+pub const BEHAVIOR_EVENT_FLAGS_Max: i32 = 2147483647i32;
+pub const BEHAVIORLAYOUTINFO_FULLDELEGATION: i32 = 1i32;
+pub const BEHAVIORLAYOUTINFO_MODIFYNATURAL: i32 = 2i32;
+pub const BEHAVIORLAYOUTINFO_MAPSIZE: i32 = 4i32;
+pub const BEHAVIOR_LAYOUT_INFO_Max: i32 = 2147483647i32;
+pub const BEHAVIORLAYOUTMODE_NATURAL: i32 = 1i32;
+pub const BEHAVIORLAYOUTMODE_MINWIDTH: i32 = 2i32;
+pub const BEHAVIORLAYOUTMODE_MAXWIDTH: i32 = 4i32;
+pub const BEHAVIORLAYOUTMODE_MEDIA_RESOLUTION: i32 = 16384i32;
+pub const BEHAVIORLAYOUTMODE_FINAL_PERCENT: i32 = 32768i32;
+pub const BEHAVIOR_LAYOUT_MODE_Max: i32 = 2147483647i32;
+pub const BEHAVIOR_FIRSTRELATION: i32 = 0i32;
+pub const BEHAVIOR_SAMEELEMENT: i32 = 0i32;
+pub const BEHAVIOR_PARENT: i32 = 1i32;
+pub const BEHAVIOR_CHILD: i32 = 2i32;
+pub const BEHAVIOR_SIBLING: i32 = 3i32;
+pub const BEHAVIOR_LASTRELATION: i32 = 3i32;
+pub const BEHAVIOR_RELATION_Max: i32 = 2147483647i32;
+pub const BEHAVIORRENDERINFO_BEFOREBACKGROUND: i32 = 1i32;
+pub const BEHAVIORRENDERINFO_AFTERBACKGROUND: i32 = 2i32;
+pub const BEHAVIORRENDERINFO_BEFORECONTENT: i32 = 4i32;
+pub const BEHAVIORRENDERINFO_AFTERCONTENT: i32 = 8i32;
+pub const BEHAVIORRENDERINFO_AFTERFOREGROUND: i32 = 32i32;
+pub const BEHAVIORRENDERINFO_ABOVECONTENT: i32 = 40i32;
+pub const BEHAVIORRENDERINFO_ALLLAYERS: i32 = 255i32;
+pub const BEHAVIORRENDERINFO_DISABLEBACKGROUND: i32 = 256i32;
+pub const BEHAVIORRENDERINFO_DISABLENEGATIVEZ: i32 = 512i32;
+pub const BEHAVIORRENDERINFO_DISABLECONTENT: i32 = 1024i32;
+pub const BEHAVIORRENDERINFO_DISABLEPOSITIVEZ: i32 = 2048i32;
+pub const BEHAVIORRENDERINFO_DISABLEALLLAYERS: i32 = 3840i32;
+pub const BEHAVIORRENDERINFO_HITTESTING: i32 = 4096i32;
+pub const BEHAVIORRENDERINFO_SURFACE: i32 = 1048576i32;
+pub const BEHAVIORRENDERINFO_3DSURFACE: i32 = 2097152i32;
+pub const BEHAVIOR_RENDER_INFO_Max: i32 = 2147483647i32;
 pub const BlockFormats: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810612785, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-#[repr(transparent)]
-pub struct BoolValue(pub i32);
-pub const True: BoolValue = BoolValue(1i32);
-pub const False: BoolValue = BoolValue(0i32);
-pub const BoolValue_Max: BoolValue = BoolValue(2147483647i32);
-impl ::core::marker::Copy for BoolValue {}
-impl ::core::clone::Clone for BoolValue {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct CARET_DIRECTION(pub i32);
-pub const CARET_DIRECTION_INDETERMINATE: CARET_DIRECTION = CARET_DIRECTION(0i32);
-pub const CARET_DIRECTION_SAME: CARET_DIRECTION = CARET_DIRECTION(1i32);
-pub const CARET_DIRECTION_BACKWARD: CARET_DIRECTION = CARET_DIRECTION(2i32);
-pub const CARET_DIRECTION_FORWARD: CARET_DIRECTION = CARET_DIRECTION(3i32);
-pub const CARET_DIRECTION_Max: CARET_DIRECTION = CARET_DIRECTION(2147483647i32);
-impl ::core::marker::Copy for CARET_DIRECTION {}
-impl ::core::clone::Clone for CARET_DIRECTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const True: i32 = 1i32;
+pub const False: i32 = 0i32;
+pub const BoolValue_Max: i32 = 2147483647i32;
+pub const CARET_DIRECTION_INDETERMINATE: i32 = 0i32;
+pub const CARET_DIRECTION_SAME: i32 = 1i32;
+pub const CARET_DIRECTION_BACKWARD: i32 = 2i32;
+pub const CARET_DIRECTION_FORWARD: i32 = 3i32;
+pub const CARET_DIRECTION_Max: i32 = 2147483647i32;
 pub const CATID_MSOfficeAntiVirus: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1459604528, data2: 54168, data3: 4560, data4: [178, 174, 0, 160, 201, 8, 250, 73] };
 pub const CClientCaps: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2123088974, data2: 44799, data3: 4561, data4: [137, 194, 0, 192, 79, 182, 191, 196] };
 pub const CDeviceRect: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810612436, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
@@ -235,21 +163,13 @@ pub const COOKIEACTION_NONE: u32 = 0u32;
 pub const COOKIEACTION_READ: u32 = 32u32;
 pub const COOKIEACTION_REJECT: u32 = 2u32;
 pub const COOKIEACTION_SUPPRESS: u32 = 16u32;
-#[repr(transparent)]
-pub struct COORD_SYSTEM(pub i32);
-pub const COORD_SYSTEM_GLOBAL: COORD_SYSTEM = COORD_SYSTEM(0i32);
-pub const COORD_SYSTEM_PARENT: COORD_SYSTEM = COORD_SYSTEM(1i32);
-pub const COORD_SYSTEM_CONTAINER: COORD_SYSTEM = COORD_SYSTEM(2i32);
-pub const COORD_SYSTEM_CONTENT: COORD_SYSTEM = COORD_SYSTEM(3i32);
-pub const COORD_SYSTEM_FRAME: COORD_SYSTEM = COORD_SYSTEM(4i32);
-pub const COORD_SYSTEM_CLIENT: COORD_SYSTEM = COORD_SYSTEM(5i32);
-pub const COORD_SYSTEM_Max: COORD_SYSTEM = COORD_SYSTEM(2147483647i32);
-impl ::core::marker::Copy for COORD_SYSTEM {}
-impl ::core::clone::Clone for COORD_SYSTEM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const COORD_SYSTEM_GLOBAL: i32 = 0i32;
+pub const COORD_SYSTEM_PARENT: i32 = 1i32;
+pub const COORD_SYSTEM_CONTAINER: i32 = 2i32;
+pub const COORD_SYSTEM_CONTENT: i32 = 3i32;
+pub const COORD_SYSTEM_FRAME: i32 = 4i32;
+pub const COORD_SYSTEM_CLIENT: i32 = 5i32;
+pub const COORD_SYSTEM_Max: i32 = 2147483647i32;
 pub const COpsProfile: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611714, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const CPersistDataPeer: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611847, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const CPersistHistory: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611912, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
@@ -280,18 +200,10 @@ pub const DEBUGCALLBACKNOTIFICATION_TIMEOUT: u32 = 1u32;
 pub const DEBUGDOMEVENTPROPAGATIONSTATUS_DEFAULTCANCELED: u32 = 1u32;
 pub const DEBUGDOMEVENTPROPAGATIONSTATUS_STOPIMMEDIATEPROPAGATION: u32 = 2u32;
 pub const DEBUGDOMEVENTPROPAGATIONSTATUS_STOPPROPAGATION: u32 = 4u32;
-#[repr(transparent)]
-pub struct DEV_CONSOLE_MESSAGE_LEVEL(pub i32);
-pub const DCML_INFORMATIONAL: DEV_CONSOLE_MESSAGE_LEVEL = DEV_CONSOLE_MESSAGE_LEVEL(0i32);
-pub const DCML_WARNING: DEV_CONSOLE_MESSAGE_LEVEL = DEV_CONSOLE_MESSAGE_LEVEL(1i32);
-pub const DCML_ERROR: DEV_CONSOLE_MESSAGE_LEVEL = DEV_CONSOLE_MESSAGE_LEVEL(2i32);
-pub const DEV_CONSOLE_MESSAGE_LEVEL_Max: DEV_CONSOLE_MESSAGE_LEVEL = DEV_CONSOLE_MESSAGE_LEVEL(2147483647i32);
-impl ::core::marker::Copy for DEV_CONSOLE_MESSAGE_LEVEL {}
-impl ::core::clone::Clone for DEV_CONSOLE_MESSAGE_LEVEL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const DCML_INFORMATIONAL: i32 = 0i32;
+pub const DCML_WARNING: i32 = 1i32;
+pub const DCML_ERROR: i32 = 2i32;
+pub const DEV_CONSOLE_MESSAGE_LEVEL_Max: i32 = 2147483647i32;
 pub const DISP10_IE10_XMSARIAFLOWFROM: u32 = 66835u32;
 pub const DISPID_1D: u32 = 2000u32;
 pub const DISPID_2D: u32 = 1000u32;
@@ -6156,44 +6068,20 @@ pub const DISPID_XMLHTTPREQUEST: u32 = 1000u32;
 pub const DISPID_XMLSERIALIZER: u32 = 1000u32;
 pub const DISPID_XOBJ_EXPANDO: u32 = 72536u32;
 pub const DISPID_XOBJ_ORDINAL: u32 = 73536u32;
-#[repr(transparent)]
-pub struct DISPLAY_BREAK(pub i32);
-pub const DISPLAY_BREAK_None: DISPLAY_BREAK = DISPLAY_BREAK(0i32);
-pub const DISPLAY_BREAK_Block: DISPLAY_BREAK = DISPLAY_BREAK(1i32);
-pub const DISPLAY_BREAK_Break: DISPLAY_BREAK = DISPLAY_BREAK(2i32);
-pub const DISPLAY_BREAK_Max: DISPLAY_BREAK = DISPLAY_BREAK(2147483647i32);
-impl ::core::marker::Copy for DISPLAY_BREAK {}
-impl ::core::clone::Clone for DISPLAY_BREAK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DISPLAY_GRAVITY(pub i32);
-pub const DISPLAY_GRAVITY_PreviousLine: DISPLAY_GRAVITY = DISPLAY_GRAVITY(1i32);
-pub const DISPLAY_GRAVITY_NextLine: DISPLAY_GRAVITY = DISPLAY_GRAVITY(2i32);
-pub const DISPLAY_GRAVITY_Max: DISPLAY_GRAVITY = DISPLAY_GRAVITY(2147483647i32);
-impl ::core::marker::Copy for DISPLAY_GRAVITY {}
-impl ::core::clone::Clone for DISPLAY_GRAVITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DISPLAY_MOVEUNIT(pub i32);
-pub const DISPLAY_MOVEUNIT_PreviousLine: DISPLAY_MOVEUNIT = DISPLAY_MOVEUNIT(1i32);
-pub const DISPLAY_MOVEUNIT_NextLine: DISPLAY_MOVEUNIT = DISPLAY_MOVEUNIT(2i32);
-pub const DISPLAY_MOVEUNIT_CurrentLineStart: DISPLAY_MOVEUNIT = DISPLAY_MOVEUNIT(3i32);
-pub const DISPLAY_MOVEUNIT_CurrentLineEnd: DISPLAY_MOVEUNIT = DISPLAY_MOVEUNIT(4i32);
-pub const DISPLAY_MOVEUNIT_TopOfWindow: DISPLAY_MOVEUNIT = DISPLAY_MOVEUNIT(5i32);
-pub const DISPLAY_MOVEUNIT_BottomOfWindow: DISPLAY_MOVEUNIT = DISPLAY_MOVEUNIT(6i32);
-pub const DISPLAY_MOVEUNIT_Max: DISPLAY_MOVEUNIT = DISPLAY_MOVEUNIT(2147483647i32);
-impl ::core::marker::Copy for DISPLAY_MOVEUNIT {}
-impl ::core::clone::Clone for DISPLAY_MOVEUNIT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const DISPLAY_BREAK_None: i32 = 0i32;
+pub const DISPLAY_BREAK_Block: i32 = 1i32;
+pub const DISPLAY_BREAK_Break: i32 = 2i32;
+pub const DISPLAY_BREAK_Max: i32 = 2147483647i32;
+pub const DISPLAY_GRAVITY_PreviousLine: i32 = 1i32;
+pub const DISPLAY_GRAVITY_NextLine: i32 = 2i32;
+pub const DISPLAY_GRAVITY_Max: i32 = 2147483647i32;
+pub const DISPLAY_MOVEUNIT_PreviousLine: i32 = 1i32;
+pub const DISPLAY_MOVEUNIT_NextLine: i32 = 2i32;
+pub const DISPLAY_MOVEUNIT_CurrentLineStart: i32 = 3i32;
+pub const DISPLAY_MOVEUNIT_CurrentLineEnd: i32 = 4i32;
+pub const DISPLAY_MOVEUNIT_TopOfWindow: i32 = 5i32;
+pub const DISPLAY_MOVEUNIT_BottomOfWindow: i32 = 6i32;
+pub const DISPLAY_MOVEUNIT_Max: i32 = 2147483647i32;
 pub const DLCTL_BGSOUNDS: u32 = 64u32;
 pub const DLCTL_DLIMAGES: u32 = 16u32;
 pub const DLCTL_DOWNLOADONLY: u32 = 2048u32;
@@ -6215,55 +6103,39 @@ pub const DLCTL_SILENT: u32 = 1073741824u32;
 pub const DLCTL_URL_ENCODING_DISABLE_UTF8: u32 = 131072u32;
 pub const DLCTL_URL_ENCODING_ENABLE_UTF8: u32 = 262144u32;
 pub const DLCTL_VIDEOS: u32 = 32u32;
-#[repr(transparent)]
-pub struct DOCHOSTUIDBLCLK(pub i32);
-pub const DOCHOSTUIDBLCLK_DEFAULT: DOCHOSTUIDBLCLK = DOCHOSTUIDBLCLK(0i32);
-pub const DOCHOSTUIDBLCLK_SHOWPROPERTIES: DOCHOSTUIDBLCLK = DOCHOSTUIDBLCLK(1i32);
-pub const DOCHOSTUIDBLCLK_SHOWCODE: DOCHOSTUIDBLCLK = DOCHOSTUIDBLCLK(2i32);
-impl ::core::marker::Copy for DOCHOSTUIDBLCLK {}
-impl ::core::clone::Clone for DOCHOSTUIDBLCLK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DOCHOSTUIFLAG(pub i32);
-pub const DOCHOSTUIFLAG_DIALOG: DOCHOSTUIFLAG = DOCHOSTUIFLAG(1i32);
-pub const DOCHOSTUIFLAG_DISABLE_HELP_MENU: DOCHOSTUIFLAG = DOCHOSTUIFLAG(2i32);
-pub const DOCHOSTUIFLAG_NO3DBORDER: DOCHOSTUIFLAG = DOCHOSTUIFLAG(4i32);
-pub const DOCHOSTUIFLAG_SCROLL_NO: DOCHOSTUIFLAG = DOCHOSTUIFLAG(8i32);
-pub const DOCHOSTUIFLAG_DISABLE_SCRIPT_INACTIVE: DOCHOSTUIFLAG = DOCHOSTUIFLAG(16i32);
-pub const DOCHOSTUIFLAG_OPENNEWWIN: DOCHOSTUIFLAG = DOCHOSTUIFLAG(32i32);
-pub const DOCHOSTUIFLAG_DISABLE_OFFSCREEN: DOCHOSTUIFLAG = DOCHOSTUIFLAG(64i32);
-pub const DOCHOSTUIFLAG_FLAT_SCROLLBAR: DOCHOSTUIFLAG = DOCHOSTUIFLAG(128i32);
-pub const DOCHOSTUIFLAG_DIV_BLOCKDEFAULT: DOCHOSTUIFLAG = DOCHOSTUIFLAG(256i32);
-pub const DOCHOSTUIFLAG_ACTIVATE_CLIENTHIT_ONLY: DOCHOSTUIFLAG = DOCHOSTUIFLAG(512i32);
-pub const DOCHOSTUIFLAG_OVERRIDEBEHAVIORFACTORY: DOCHOSTUIFLAG = DOCHOSTUIFLAG(1024i32);
-pub const DOCHOSTUIFLAG_CODEPAGELINKEDFONTS: DOCHOSTUIFLAG = DOCHOSTUIFLAG(2048i32);
-pub const DOCHOSTUIFLAG_URL_ENCODING_DISABLE_UTF8: DOCHOSTUIFLAG = DOCHOSTUIFLAG(4096i32);
-pub const DOCHOSTUIFLAG_URL_ENCODING_ENABLE_UTF8: DOCHOSTUIFLAG = DOCHOSTUIFLAG(8192i32);
-pub const DOCHOSTUIFLAG_ENABLE_FORMS_AUTOCOMPLETE: DOCHOSTUIFLAG = DOCHOSTUIFLAG(16384i32);
-pub const DOCHOSTUIFLAG_ENABLE_INPLACE_NAVIGATION: DOCHOSTUIFLAG = DOCHOSTUIFLAG(65536i32);
-pub const DOCHOSTUIFLAG_IME_ENABLE_RECONVERSION: DOCHOSTUIFLAG = DOCHOSTUIFLAG(131072i32);
-pub const DOCHOSTUIFLAG_THEME: DOCHOSTUIFLAG = DOCHOSTUIFLAG(262144i32);
-pub const DOCHOSTUIFLAG_NOTHEME: DOCHOSTUIFLAG = DOCHOSTUIFLAG(524288i32);
-pub const DOCHOSTUIFLAG_NOPICS: DOCHOSTUIFLAG = DOCHOSTUIFLAG(1048576i32);
-pub const DOCHOSTUIFLAG_NO3DOUTERBORDER: DOCHOSTUIFLAG = DOCHOSTUIFLAG(2097152i32);
-pub const DOCHOSTUIFLAG_DISABLE_EDIT_NS_FIXUP: DOCHOSTUIFLAG = DOCHOSTUIFLAG(4194304i32);
-pub const DOCHOSTUIFLAG_LOCAL_MACHINE_ACCESS_CHECK: DOCHOSTUIFLAG = DOCHOSTUIFLAG(8388608i32);
-pub const DOCHOSTUIFLAG_DISABLE_UNTRUSTEDPROTOCOL: DOCHOSTUIFLAG = DOCHOSTUIFLAG(16777216i32);
-pub const DOCHOSTUIFLAG_HOST_NAVIGATES: DOCHOSTUIFLAG = DOCHOSTUIFLAG(33554432i32);
-pub const DOCHOSTUIFLAG_ENABLE_REDIRECT_NOTIFICATION: DOCHOSTUIFLAG = DOCHOSTUIFLAG(67108864i32);
-pub const DOCHOSTUIFLAG_USE_WINDOWLESS_SELECTCONTROL: DOCHOSTUIFLAG = DOCHOSTUIFLAG(134217728i32);
-pub const DOCHOSTUIFLAG_USE_WINDOWED_SELECTCONTROL: DOCHOSTUIFLAG = DOCHOSTUIFLAG(268435456i32);
-pub const DOCHOSTUIFLAG_ENABLE_ACTIVEX_INACTIVATE_MODE: DOCHOSTUIFLAG = DOCHOSTUIFLAG(536870912i32);
-pub const DOCHOSTUIFLAG_DPI_AWARE: DOCHOSTUIFLAG = DOCHOSTUIFLAG(1073741824i32);
-impl ::core::marker::Copy for DOCHOSTUIFLAG {}
-impl ::core::clone::Clone for DOCHOSTUIFLAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const DOCHOSTUIDBLCLK_DEFAULT: i32 = 0i32;
+pub const DOCHOSTUIDBLCLK_SHOWPROPERTIES: i32 = 1i32;
+pub const DOCHOSTUIDBLCLK_SHOWCODE: i32 = 2i32;
+pub const DOCHOSTUIFLAG_DIALOG: i32 = 1i32;
+pub const DOCHOSTUIFLAG_DISABLE_HELP_MENU: i32 = 2i32;
+pub const DOCHOSTUIFLAG_NO3DBORDER: i32 = 4i32;
+pub const DOCHOSTUIFLAG_SCROLL_NO: i32 = 8i32;
+pub const DOCHOSTUIFLAG_DISABLE_SCRIPT_INACTIVE: i32 = 16i32;
+pub const DOCHOSTUIFLAG_OPENNEWWIN: i32 = 32i32;
+pub const DOCHOSTUIFLAG_DISABLE_OFFSCREEN: i32 = 64i32;
+pub const DOCHOSTUIFLAG_FLAT_SCROLLBAR: i32 = 128i32;
+pub const DOCHOSTUIFLAG_DIV_BLOCKDEFAULT: i32 = 256i32;
+pub const DOCHOSTUIFLAG_ACTIVATE_CLIENTHIT_ONLY: i32 = 512i32;
+pub const DOCHOSTUIFLAG_OVERRIDEBEHAVIORFACTORY: i32 = 1024i32;
+pub const DOCHOSTUIFLAG_CODEPAGELINKEDFONTS: i32 = 2048i32;
+pub const DOCHOSTUIFLAG_URL_ENCODING_DISABLE_UTF8: i32 = 4096i32;
+pub const DOCHOSTUIFLAG_URL_ENCODING_ENABLE_UTF8: i32 = 8192i32;
+pub const DOCHOSTUIFLAG_ENABLE_FORMS_AUTOCOMPLETE: i32 = 16384i32;
+pub const DOCHOSTUIFLAG_ENABLE_INPLACE_NAVIGATION: i32 = 65536i32;
+pub const DOCHOSTUIFLAG_IME_ENABLE_RECONVERSION: i32 = 131072i32;
+pub const DOCHOSTUIFLAG_THEME: i32 = 262144i32;
+pub const DOCHOSTUIFLAG_NOTHEME: i32 = 524288i32;
+pub const DOCHOSTUIFLAG_NOPICS: i32 = 1048576i32;
+pub const DOCHOSTUIFLAG_NO3DOUTERBORDER: i32 = 2097152i32;
+pub const DOCHOSTUIFLAG_DISABLE_EDIT_NS_FIXUP: i32 = 4194304i32;
+pub const DOCHOSTUIFLAG_LOCAL_MACHINE_ACCESS_CHECK: i32 = 8388608i32;
+pub const DOCHOSTUIFLAG_DISABLE_UNTRUSTEDPROTOCOL: i32 = 16777216i32;
+pub const DOCHOSTUIFLAG_HOST_NAVIGATES: i32 = 33554432i32;
+pub const DOCHOSTUIFLAG_ENABLE_REDIRECT_NOTIFICATION: i32 = 67108864i32;
+pub const DOCHOSTUIFLAG_USE_WINDOWLESS_SELECTCONTROL: i32 = 134217728i32;
+pub const DOCHOSTUIFLAG_USE_WINDOWED_SELECTCONTROL: i32 = 268435456i32;
+pub const DOCHOSTUIFLAG_ENABLE_ACTIVEX_INACTIVATE_MODE: i32 = 536870912i32;
+pub const DOCHOSTUIFLAG_DPI_AWARE: i32 = 1073741824i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DOCHOSTUIINFO {
@@ -6281,16 +6153,8 @@ impl ::core::clone::Clone for DOCHOSTUIINFO {
         *self
     }
 }
-#[repr(transparent)]
-pub struct DOCHOSTUITYPE(pub i32);
-pub const DOCHOSTUITYPE_BROWSE: DOCHOSTUITYPE = DOCHOSTUITYPE(0i32);
-pub const DOCHOSTUITYPE_AUTHOR: DOCHOSTUITYPE = DOCHOSTUITYPE(1i32);
-impl ::core::marker::Copy for DOCHOSTUITYPE {}
-impl ::core::clone::Clone for DOCHOSTUITYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const DOCHOSTUITYPE_BROWSE: i32 = 0i32;
+pub const DOCHOSTUITYPE_AUTHOR: i32 = 1i32;
 pub const DOMBeforeUnloadEvent: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616676, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const DOMChildrenCollection: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810612138, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const DOMCloseEvent: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616832, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
@@ -6318,18 +6182,10 @@ pub const DOMStorageEvent: ::windows_sys::core::GUID = ::windows_sys::core::GUID
 pub const DOMTextEvent: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616533, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const DOMUIEvent: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616523, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const DOMWheelEvent: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616531, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-#[repr(transparent)]
-pub struct DOM_EVENT_PHASE(pub i32);
-pub const DEP_CAPTURING_PHASE: DOM_EVENT_PHASE = DOM_EVENT_PHASE(1i32);
-pub const DEP_AT_TARGET: DOM_EVENT_PHASE = DOM_EVENT_PHASE(2i32);
-pub const DEP_BUBBLING_PHASE: DOM_EVENT_PHASE = DOM_EVENT_PHASE(3i32);
-pub const DOM_EVENT_PHASE_Max: DOM_EVENT_PHASE = DOM_EVENT_PHASE(2147483647i32);
-impl ::core::marker::Copy for DOM_EVENT_PHASE {}
-impl ::core::clone::Clone for DOM_EVENT_PHASE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const DEP_CAPTURING_PHASE: i32 = 1i32;
+pub const DEP_AT_TARGET: i32 = 2i32;
+pub const DEP_BUBBLING_PHASE: i32 = 3i32;
+pub const DOM_EVENT_PHASE_Max: i32 = 2147483647i32;
 #[repr(transparent)]
 pub struct DWebBridgeEvents(pub *mut ::core::ffi::c_void);
 impl ::core::marker::Copy for DWebBridgeEvents {}
@@ -8274,411 +8130,363 @@ impl ::core::clone::Clone for DispXMLSerializer {
         *self
     }
 }
-#[repr(transparent)]
-pub struct DomConstructor(pub i32);
-pub const DomConstructorObject: DomConstructor = DomConstructor(0i32);
-pub const DomConstructorAttr: DomConstructor = DomConstructor(1i32);
-pub const DomConstructorBehaviorUrnsCollection: DomConstructor = DomConstructor(2i32);
-pub const DomConstructorBookmarkCollection: DomConstructor = DomConstructor(3i32);
-pub const DomConstructorCompatibleInfo: DomConstructor = DomConstructor(4i32);
-pub const DomConstructorCompatibleInfoCollection: DomConstructor = DomConstructor(5i32);
-pub const DomConstructorControlRangeCollection: DomConstructor = DomConstructor(6i32);
-pub const DomConstructorCSSCurrentStyleDeclaration: DomConstructor = DomConstructor(7i32);
-pub const DomConstructorCSSRuleList: DomConstructor = DomConstructor(8i32);
-pub const DomConstructorCSSRuleStyleDeclaration: DomConstructor = DomConstructor(9i32);
-pub const DomConstructorCSSStyleDeclaration: DomConstructor = DomConstructor(10i32);
-pub const DomConstructorCSSStyleRule: DomConstructor = DomConstructor(11i32);
-pub const DomConstructorCSSStyleSheet: DomConstructor = DomConstructor(12i32);
-pub const DomConstructorDataTransfer: DomConstructor = DomConstructor(13i32);
-pub const DomConstructorDOMImplementation: DomConstructor = DomConstructor(14i32);
-pub const DomConstructorElement: DomConstructor = DomConstructor(15i32);
-pub const DomConstructorEvent: DomConstructor = DomConstructor(16i32);
-pub const DomConstructorHistory: DomConstructor = DomConstructor(17i32);
-pub const DomConstructorHTCElementBehaviorDefaults: DomConstructor = DomConstructor(18i32);
-pub const DomConstructorHTMLAnchorElement: DomConstructor = DomConstructor(19i32);
-pub const DomConstructorHTMLAreaElement: DomConstructor = DomConstructor(20i32);
-pub const DomConstructorHTMLAreasCollection: DomConstructor = DomConstructor(21i32);
-pub const DomConstructorHTMLBaseElement: DomConstructor = DomConstructor(22i32);
-pub const DomConstructorHTMLBaseFontElement: DomConstructor = DomConstructor(23i32);
-pub const DomConstructorHTMLBGSoundElement: DomConstructor = DomConstructor(24i32);
-pub const DomConstructorHTMLBlockElement: DomConstructor = DomConstructor(25i32);
-pub const DomConstructorHTMLBodyElement: DomConstructor = DomConstructor(26i32);
-pub const DomConstructorHTMLBRElement: DomConstructor = DomConstructor(27i32);
-pub const DomConstructorHTMLButtonElement: DomConstructor = DomConstructor(28i32);
-pub const DomConstructorHTMLCollection: DomConstructor = DomConstructor(29i32);
-pub const DomConstructorHTMLCommentElement: DomConstructor = DomConstructor(30i32);
-pub const DomConstructorHTMLDDElement: DomConstructor = DomConstructor(31i32);
-pub const DomConstructorHTMLDivElement: DomConstructor = DomConstructor(32i32);
-pub const DomConstructorHTMLDocument: DomConstructor = DomConstructor(33i32);
-pub const DomConstructorHTMLDListElement: DomConstructor = DomConstructor(34i32);
-pub const DomConstructorHTMLDTElement: DomConstructor = DomConstructor(35i32);
-pub const DomConstructorHTMLEmbedElement: DomConstructor = DomConstructor(36i32);
-pub const DomConstructorHTMLFieldSetElement: DomConstructor = DomConstructor(37i32);
-pub const DomConstructorHTMLFontElement: DomConstructor = DomConstructor(38i32);
-pub const DomConstructorHTMLFormElement: DomConstructor = DomConstructor(39i32);
-pub const DomConstructorHTMLFrameElement: DomConstructor = DomConstructor(40i32);
-pub const DomConstructorHTMLFrameSetElement: DomConstructor = DomConstructor(41i32);
-pub const DomConstructorHTMLGenericElement: DomConstructor = DomConstructor(42i32);
-pub const DomConstructorHTMLHeadElement: DomConstructor = DomConstructor(43i32);
-pub const DomConstructorHTMLHeadingElement: DomConstructor = DomConstructor(44i32);
-pub const DomConstructorHTMLHRElement: DomConstructor = DomConstructor(45i32);
-pub const DomConstructorHTMLHtmlElement: DomConstructor = DomConstructor(46i32);
-pub const DomConstructorHTMLIFrameElement: DomConstructor = DomConstructor(47i32);
-pub const DomConstructorHTMLImageElement: DomConstructor = DomConstructor(48i32);
-pub const DomConstructorHTMLInputElement: DomConstructor = DomConstructor(49i32);
-pub const DomConstructorHTMLIsIndexElement: DomConstructor = DomConstructor(50i32);
-pub const DomConstructorHTMLLabelElement: DomConstructor = DomConstructor(51i32);
-pub const DomConstructorHTMLLegendElement: DomConstructor = DomConstructor(52i32);
-pub const DomConstructorHTMLLIElement: DomConstructor = DomConstructor(53i32);
-pub const DomConstructorHTMLLinkElement: DomConstructor = DomConstructor(54i32);
-pub const DomConstructorHTMLMapElement: DomConstructor = DomConstructor(55i32);
-pub const DomConstructorHTMLMarqueeElement: DomConstructor = DomConstructor(56i32);
-pub const DomConstructorHTMLMetaElement: DomConstructor = DomConstructor(57i32);
-pub const DomConstructorHTMLModelessDialog: DomConstructor = DomConstructor(58i32);
-pub const DomConstructorHTMLNamespaceInfo: DomConstructor = DomConstructor(59i32);
-pub const DomConstructorHTMLNamespaceInfoCollection: DomConstructor = DomConstructor(60i32);
-pub const DomConstructorHTMLNextIdElement: DomConstructor = DomConstructor(61i32);
-pub const DomConstructorHTMLNoShowElement: DomConstructor = DomConstructor(62i32);
-pub const DomConstructorHTMLObjectElement: DomConstructor = DomConstructor(63i32);
-pub const DomConstructorHTMLOListElement: DomConstructor = DomConstructor(64i32);
-pub const DomConstructorHTMLOptionElement: DomConstructor = DomConstructor(65i32);
-pub const DomConstructorHTMLParagraphElement: DomConstructor = DomConstructor(66i32);
-pub const DomConstructorHTMLParamElement: DomConstructor = DomConstructor(67i32);
-pub const DomConstructorHTMLPhraseElement: DomConstructor = DomConstructor(68i32);
-pub const DomConstructorHTMLPluginsCollection: DomConstructor = DomConstructor(69i32);
-pub const DomConstructorHTMLPopup: DomConstructor = DomConstructor(70i32);
-pub const DomConstructorHTMLScriptElement: DomConstructor = DomConstructor(71i32);
-pub const DomConstructorHTMLSelectElement: DomConstructor = DomConstructor(72i32);
-pub const DomConstructorHTMLSpanElement: DomConstructor = DomConstructor(73i32);
-pub const DomConstructorHTMLStyleElement: DomConstructor = DomConstructor(74i32);
-pub const DomConstructorHTMLTableCaptionElement: DomConstructor = DomConstructor(75i32);
-pub const DomConstructorHTMLTableCellElement: DomConstructor = DomConstructor(76i32);
-pub const DomConstructorHTMLTableColElement: DomConstructor = DomConstructor(77i32);
-pub const DomConstructorHTMLTableElement: DomConstructor = DomConstructor(78i32);
-pub const DomConstructorHTMLTableRowElement: DomConstructor = DomConstructor(79i32);
-pub const DomConstructorHTMLTableSectionElement: DomConstructor = DomConstructor(80i32);
-pub const DomConstructorHTMLTextAreaElement: DomConstructor = DomConstructor(81i32);
-pub const DomConstructorHTMLTextElement: DomConstructor = DomConstructor(82i32);
-pub const DomConstructorHTMLTitleElement: DomConstructor = DomConstructor(83i32);
-pub const DomConstructorHTMLUListElement: DomConstructor = DomConstructor(84i32);
-pub const DomConstructorHTMLUnknownElement: DomConstructor = DomConstructor(85i32);
-pub const DomConstructorImage: DomConstructor = DomConstructor(86i32);
-pub const DomConstructorLocation: DomConstructor = DomConstructor(87i32);
-pub const DomConstructorNamedNodeMap: DomConstructor = DomConstructor(88i32);
-pub const DomConstructorNavigator: DomConstructor = DomConstructor(89i32);
-pub const DomConstructorNodeList: DomConstructor = DomConstructor(90i32);
-pub const DomConstructorOption: DomConstructor = DomConstructor(91i32);
-pub const DomConstructorScreen: DomConstructor = DomConstructor(92i32);
-pub const DomConstructorSelection: DomConstructor = DomConstructor(93i32);
-pub const DomConstructorStaticNodeList: DomConstructor = DomConstructor(94i32);
-pub const DomConstructorStorage: DomConstructor = DomConstructor(95i32);
-pub const DomConstructorStyleSheetList: DomConstructor = DomConstructor(96i32);
-pub const DomConstructorStyleSheetPage: DomConstructor = DomConstructor(97i32);
-pub const DomConstructorStyleSheetPageList: DomConstructor = DomConstructor(98i32);
-pub const DomConstructorText: DomConstructor = DomConstructor(99i32);
-pub const DomConstructorTextRange: DomConstructor = DomConstructor(100i32);
-pub const DomConstructorTextRangeCollection: DomConstructor = DomConstructor(101i32);
-pub const DomConstructorTextRectangle: DomConstructor = DomConstructor(102i32);
-pub const DomConstructorTextRectangleList: DomConstructor = DomConstructor(103i32);
-pub const DomConstructorWindow: DomConstructor = DomConstructor(104i32);
-pub const DomConstructorXDomainRequest: DomConstructor = DomConstructor(105i32);
-pub const DomConstructorXMLHttpRequest: DomConstructor = DomConstructor(106i32);
-pub const DomConstructorMax: DomConstructor = DomConstructor(107i32);
-pub const DomConstructor_Max: DomConstructor = DomConstructor(2147483647i32);
-impl ::core::marker::Copy for DomConstructor {}
-impl ::core::clone::Clone for DomConstructor {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ELEMENTDESCRIPTOR_FLAGS(pub i32);
-pub const ELEMENTDESCRIPTORFLAGS_LITERAL: ELEMENTDESCRIPTOR_FLAGS = ELEMENTDESCRIPTOR_FLAGS(1i32);
-pub const ELEMENTDESCRIPTORFLAGS_NESTED_LITERAL: ELEMENTDESCRIPTOR_FLAGS = ELEMENTDESCRIPTOR_FLAGS(2i32);
-pub const ELEMENTDESCRIPTOR_FLAGS_Max: ELEMENTDESCRIPTOR_FLAGS = ELEMENTDESCRIPTOR_FLAGS(2147483647i32);
-impl ::core::marker::Copy for ELEMENTDESCRIPTOR_FLAGS {}
-impl ::core::clone::Clone for ELEMENTDESCRIPTOR_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ELEMENTNAMESPACE_FLAGS(pub i32);
-pub const ELEMENTNAMESPACEFLAGS_ALLOWANYTAG: ELEMENTNAMESPACE_FLAGS = ELEMENTNAMESPACE_FLAGS(1i32);
-pub const ELEMENTNAMESPACEFLAGS_QUERYFORUNKNOWNTAGS: ELEMENTNAMESPACE_FLAGS = ELEMENTNAMESPACE_FLAGS(2i32);
-pub const ELEMENTNAMESPACE_FLAGS_Max: ELEMENTNAMESPACE_FLAGS = ELEMENTNAMESPACE_FLAGS(2147483647i32);
-impl ::core::marker::Copy for ELEMENTNAMESPACE_FLAGS {}
-impl ::core::clone::Clone for ELEMENTNAMESPACE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ELEMENT_ADJACENCY(pub i32);
-pub const ELEM_ADJ_BeforeBegin: ELEMENT_ADJACENCY = ELEMENT_ADJACENCY(0i32);
-pub const ELEM_ADJ_AfterBegin: ELEMENT_ADJACENCY = ELEMENT_ADJACENCY(1i32);
-pub const ELEM_ADJ_BeforeEnd: ELEMENT_ADJACENCY = ELEMENT_ADJACENCY(2i32);
-pub const ELEM_ADJ_AfterEnd: ELEMENT_ADJACENCY = ELEMENT_ADJACENCY(3i32);
-pub const ELEMENT_ADJACENCY_Max: ELEMENT_ADJACENCY = ELEMENT_ADJACENCY(2147483647i32);
-impl ::core::marker::Copy for ELEMENT_ADJACENCY {}
-impl ::core::clone::Clone for ELEMENT_ADJACENCY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ELEMENT_CORNER(pub i32);
-pub const ELEMENT_CORNER_NONE: ELEMENT_CORNER = ELEMENT_CORNER(0i32);
-pub const ELEMENT_CORNER_TOP: ELEMENT_CORNER = ELEMENT_CORNER(1i32);
-pub const ELEMENT_CORNER_LEFT: ELEMENT_CORNER = ELEMENT_CORNER(2i32);
-pub const ELEMENT_CORNER_BOTTOM: ELEMENT_CORNER = ELEMENT_CORNER(3i32);
-pub const ELEMENT_CORNER_RIGHT: ELEMENT_CORNER = ELEMENT_CORNER(4i32);
-pub const ELEMENT_CORNER_TOPLEFT: ELEMENT_CORNER = ELEMENT_CORNER(5i32);
-pub const ELEMENT_CORNER_TOPRIGHT: ELEMENT_CORNER = ELEMENT_CORNER(6i32);
-pub const ELEMENT_CORNER_BOTTOMLEFT: ELEMENT_CORNER = ELEMENT_CORNER(7i32);
-pub const ELEMENT_CORNER_BOTTOMRIGHT: ELEMENT_CORNER = ELEMENT_CORNER(8i32);
-pub const ELEMENT_CORNER_Max: ELEMENT_CORNER = ELEMENT_CORNER(2147483647i32);
-impl ::core::marker::Copy for ELEMENT_CORNER {}
-impl ::core::clone::Clone for ELEMENT_CORNER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ELEMENT_TAG_ID(pub i32);
-pub const TAGID_NULL: ELEMENT_TAG_ID = ELEMENT_TAG_ID(0i32);
-pub const TAGID_UNKNOWN: ELEMENT_TAG_ID = ELEMENT_TAG_ID(1i32);
-pub const TAGID_A: ELEMENT_TAG_ID = ELEMENT_TAG_ID(2i32);
-pub const TAGID_ACRONYM: ELEMENT_TAG_ID = ELEMENT_TAG_ID(3i32);
-pub const TAGID_ADDRESS: ELEMENT_TAG_ID = ELEMENT_TAG_ID(4i32);
-pub const TAGID_APPLET: ELEMENT_TAG_ID = ELEMENT_TAG_ID(5i32);
-pub const TAGID_AREA: ELEMENT_TAG_ID = ELEMENT_TAG_ID(6i32);
-pub const TAGID_B: ELEMENT_TAG_ID = ELEMENT_TAG_ID(7i32);
-pub const TAGID_BASE: ELEMENT_TAG_ID = ELEMENT_TAG_ID(8i32);
-pub const TAGID_BASEFONT: ELEMENT_TAG_ID = ELEMENT_TAG_ID(9i32);
-pub const TAGID_BDO: ELEMENT_TAG_ID = ELEMENT_TAG_ID(10i32);
-pub const TAGID_BGSOUND: ELEMENT_TAG_ID = ELEMENT_TAG_ID(11i32);
-pub const TAGID_BIG: ELEMENT_TAG_ID = ELEMENT_TAG_ID(12i32);
-pub const TAGID_BLINK: ELEMENT_TAG_ID = ELEMENT_TAG_ID(13i32);
-pub const TAGID_BLOCKQUOTE: ELEMENT_TAG_ID = ELEMENT_TAG_ID(14i32);
-pub const TAGID_BODY: ELEMENT_TAG_ID = ELEMENT_TAG_ID(15i32);
-pub const TAGID_BR: ELEMENT_TAG_ID = ELEMENT_TAG_ID(16i32);
-pub const TAGID_BUTTON: ELEMENT_TAG_ID = ELEMENT_TAG_ID(17i32);
-pub const TAGID_CAPTION: ELEMENT_TAG_ID = ELEMENT_TAG_ID(18i32);
-pub const TAGID_CENTER: ELEMENT_TAG_ID = ELEMENT_TAG_ID(19i32);
-pub const TAGID_CITE: ELEMENT_TAG_ID = ELEMENT_TAG_ID(20i32);
-pub const TAGID_CODE: ELEMENT_TAG_ID = ELEMENT_TAG_ID(21i32);
-pub const TAGID_COL: ELEMENT_TAG_ID = ELEMENT_TAG_ID(22i32);
-pub const TAGID_COLGROUP: ELEMENT_TAG_ID = ELEMENT_TAG_ID(23i32);
-pub const TAGID_COMMENT: ELEMENT_TAG_ID = ELEMENT_TAG_ID(24i32);
-pub const TAGID_COMMENT_RAW: ELEMENT_TAG_ID = ELEMENT_TAG_ID(25i32);
-pub const TAGID_DD: ELEMENT_TAG_ID = ELEMENT_TAG_ID(26i32);
-pub const TAGID_DEL: ELEMENT_TAG_ID = ELEMENT_TAG_ID(27i32);
-pub const TAGID_DFN: ELEMENT_TAG_ID = ELEMENT_TAG_ID(28i32);
-pub const TAGID_DIR: ELEMENT_TAG_ID = ELEMENT_TAG_ID(29i32);
-pub const TAGID_DIV: ELEMENT_TAG_ID = ELEMENT_TAG_ID(30i32);
-pub const TAGID_DL: ELEMENT_TAG_ID = ELEMENT_TAG_ID(31i32);
-pub const TAGID_DT: ELEMENT_TAG_ID = ELEMENT_TAG_ID(32i32);
-pub const TAGID_EM: ELEMENT_TAG_ID = ELEMENT_TAG_ID(33i32);
-pub const TAGID_EMBED: ELEMENT_TAG_ID = ELEMENT_TAG_ID(34i32);
-pub const TAGID_FIELDSET: ELEMENT_TAG_ID = ELEMENT_TAG_ID(35i32);
-pub const TAGID_FONT: ELEMENT_TAG_ID = ELEMENT_TAG_ID(36i32);
-pub const TAGID_FORM: ELEMENT_TAG_ID = ELEMENT_TAG_ID(37i32);
-pub const TAGID_FRAME: ELEMENT_TAG_ID = ELEMENT_TAG_ID(38i32);
-pub const TAGID_FRAMESET: ELEMENT_TAG_ID = ELEMENT_TAG_ID(39i32);
-pub const TAGID_GENERIC: ELEMENT_TAG_ID = ELEMENT_TAG_ID(40i32);
-pub const TAGID_H1: ELEMENT_TAG_ID = ELEMENT_TAG_ID(41i32);
-pub const TAGID_H2: ELEMENT_TAG_ID = ELEMENT_TAG_ID(42i32);
-pub const TAGID_H3: ELEMENT_TAG_ID = ELEMENT_TAG_ID(43i32);
-pub const TAGID_H4: ELEMENT_TAG_ID = ELEMENT_TAG_ID(44i32);
-pub const TAGID_H5: ELEMENT_TAG_ID = ELEMENT_TAG_ID(45i32);
-pub const TAGID_H6: ELEMENT_TAG_ID = ELEMENT_TAG_ID(46i32);
-pub const TAGID_HEAD: ELEMENT_TAG_ID = ELEMENT_TAG_ID(47i32);
-pub const TAGID_HR: ELEMENT_TAG_ID = ELEMENT_TAG_ID(48i32);
-pub const TAGID_HTML: ELEMENT_TAG_ID = ELEMENT_TAG_ID(49i32);
-pub const TAGID_I: ELEMENT_TAG_ID = ELEMENT_TAG_ID(50i32);
-pub const TAGID_IFRAME: ELEMENT_TAG_ID = ELEMENT_TAG_ID(51i32);
-pub const TAGID_IMG: ELEMENT_TAG_ID = ELEMENT_TAG_ID(52i32);
-pub const TAGID_INPUT: ELEMENT_TAG_ID = ELEMENT_TAG_ID(53i32);
-pub const TAGID_INS: ELEMENT_TAG_ID = ELEMENT_TAG_ID(54i32);
-pub const TAGID_KBD: ELEMENT_TAG_ID = ELEMENT_TAG_ID(55i32);
-pub const TAGID_LABEL: ELEMENT_TAG_ID = ELEMENT_TAG_ID(56i32);
-pub const TAGID_LEGEND: ELEMENT_TAG_ID = ELEMENT_TAG_ID(57i32);
-pub const TAGID_LI: ELEMENT_TAG_ID = ELEMENT_TAG_ID(58i32);
-pub const TAGID_LINK: ELEMENT_TAG_ID = ELEMENT_TAG_ID(59i32);
-pub const TAGID_LISTING: ELEMENT_TAG_ID = ELEMENT_TAG_ID(60i32);
-pub const TAGID_MAP: ELEMENT_TAG_ID = ELEMENT_TAG_ID(61i32);
-pub const TAGID_MARQUEE: ELEMENT_TAG_ID = ELEMENT_TAG_ID(62i32);
-pub const TAGID_MENU: ELEMENT_TAG_ID = ELEMENT_TAG_ID(63i32);
-pub const TAGID_META: ELEMENT_TAG_ID = ELEMENT_TAG_ID(64i32);
-pub const TAGID_NEXTID: ELEMENT_TAG_ID = ELEMENT_TAG_ID(65i32);
-pub const TAGID_NOBR: ELEMENT_TAG_ID = ELEMENT_TAG_ID(66i32);
-pub const TAGID_NOEMBED: ELEMENT_TAG_ID = ELEMENT_TAG_ID(67i32);
-pub const TAGID_NOFRAMES: ELEMENT_TAG_ID = ELEMENT_TAG_ID(68i32);
-pub const TAGID_NOSCRIPT: ELEMENT_TAG_ID = ELEMENT_TAG_ID(69i32);
-pub const TAGID_OBJECT: ELEMENT_TAG_ID = ELEMENT_TAG_ID(70i32);
-pub const TAGID_OL: ELEMENT_TAG_ID = ELEMENT_TAG_ID(71i32);
-pub const TAGID_OPTION: ELEMENT_TAG_ID = ELEMENT_TAG_ID(72i32);
-pub const TAGID_P: ELEMENT_TAG_ID = ELEMENT_TAG_ID(73i32);
-pub const TAGID_PARAM: ELEMENT_TAG_ID = ELEMENT_TAG_ID(74i32);
-pub const TAGID_PLAINTEXT: ELEMENT_TAG_ID = ELEMENT_TAG_ID(75i32);
-pub const TAGID_PRE: ELEMENT_TAG_ID = ELEMENT_TAG_ID(76i32);
-pub const TAGID_Q: ELEMENT_TAG_ID = ELEMENT_TAG_ID(77i32);
-pub const TAGID_RP: ELEMENT_TAG_ID = ELEMENT_TAG_ID(78i32);
-pub const TAGID_RT: ELEMENT_TAG_ID = ELEMENT_TAG_ID(79i32);
-pub const TAGID_RUBY: ELEMENT_TAG_ID = ELEMENT_TAG_ID(80i32);
-pub const TAGID_S: ELEMENT_TAG_ID = ELEMENT_TAG_ID(81i32);
-pub const TAGID_SAMP: ELEMENT_TAG_ID = ELEMENT_TAG_ID(82i32);
-pub const TAGID_SCRIPT: ELEMENT_TAG_ID = ELEMENT_TAG_ID(83i32);
-pub const TAGID_SELECT: ELEMENT_TAG_ID = ELEMENT_TAG_ID(84i32);
-pub const TAGID_SMALL: ELEMENT_TAG_ID = ELEMENT_TAG_ID(85i32);
-pub const TAGID_SPAN: ELEMENT_TAG_ID = ELEMENT_TAG_ID(86i32);
-pub const TAGID_STRIKE: ELEMENT_TAG_ID = ELEMENT_TAG_ID(87i32);
-pub const TAGID_STRONG: ELEMENT_TAG_ID = ELEMENT_TAG_ID(88i32);
-pub const TAGID_STYLE: ELEMENT_TAG_ID = ELEMENT_TAG_ID(89i32);
-pub const TAGID_SUB: ELEMENT_TAG_ID = ELEMENT_TAG_ID(90i32);
-pub const TAGID_SUP: ELEMENT_TAG_ID = ELEMENT_TAG_ID(91i32);
-pub const TAGID_TABLE: ELEMENT_TAG_ID = ELEMENT_TAG_ID(92i32);
-pub const TAGID_TBODY: ELEMENT_TAG_ID = ELEMENT_TAG_ID(93i32);
-pub const TAGID_TC: ELEMENT_TAG_ID = ELEMENT_TAG_ID(94i32);
-pub const TAGID_TD: ELEMENT_TAG_ID = ELEMENT_TAG_ID(95i32);
-pub const TAGID_TEXTAREA: ELEMENT_TAG_ID = ELEMENT_TAG_ID(96i32);
-pub const TAGID_TFOOT: ELEMENT_TAG_ID = ELEMENT_TAG_ID(97i32);
-pub const TAGID_TH: ELEMENT_TAG_ID = ELEMENT_TAG_ID(98i32);
-pub const TAGID_THEAD: ELEMENT_TAG_ID = ELEMENT_TAG_ID(99i32);
-pub const TAGID_TITLE: ELEMENT_TAG_ID = ELEMENT_TAG_ID(100i32);
-pub const TAGID_TR: ELEMENT_TAG_ID = ELEMENT_TAG_ID(101i32);
-pub const TAGID_TT: ELEMENT_TAG_ID = ELEMENT_TAG_ID(102i32);
-pub const TAGID_U: ELEMENT_TAG_ID = ELEMENT_TAG_ID(103i32);
-pub const TAGID_UL: ELEMENT_TAG_ID = ELEMENT_TAG_ID(104i32);
-pub const TAGID_VAR: ELEMENT_TAG_ID = ELEMENT_TAG_ID(105i32);
-pub const TAGID_WBR: ELEMENT_TAG_ID = ELEMENT_TAG_ID(106i32);
-pub const TAGID_XMP: ELEMENT_TAG_ID = ELEMENT_TAG_ID(107i32);
-pub const TAGID_ROOT: ELEMENT_TAG_ID = ELEMENT_TAG_ID(108i32);
-pub const TAGID_OPTGROUP: ELEMENT_TAG_ID = ELEMENT_TAG_ID(109i32);
-pub const TAGID_ABBR: ELEMENT_TAG_ID = ELEMENT_TAG_ID(110i32);
-pub const TAGID_SVG_A: ELEMENT_TAG_ID = ELEMENT_TAG_ID(111i32);
-pub const TAGID_SVG_ALTGLYPH: ELEMENT_TAG_ID = ELEMENT_TAG_ID(112i32);
-pub const TAGID_SVG_ALTGLYPHDEF: ELEMENT_TAG_ID = ELEMENT_TAG_ID(113i32);
-pub const TAGID_SVG_ALTGLYPHITEM: ELEMENT_TAG_ID = ELEMENT_TAG_ID(114i32);
-pub const TAGID_SVG_ANIMATE: ELEMENT_TAG_ID = ELEMENT_TAG_ID(115i32);
-pub const TAGID_SVG_ANIMATECOLOR: ELEMENT_TAG_ID = ELEMENT_TAG_ID(116i32);
-pub const TAGID_SVG_ANIMATEMOTION: ELEMENT_TAG_ID = ELEMENT_TAG_ID(117i32);
-pub const TAGID_SVG_ANIMATETRANSFORM: ELEMENT_TAG_ID = ELEMENT_TAG_ID(118i32);
-pub const TAGID_SVG_CIRCLE: ELEMENT_TAG_ID = ELEMENT_TAG_ID(119i32);
-pub const TAGID_SVG_CLIPPATH: ELEMENT_TAG_ID = ELEMENT_TAG_ID(120i32);
-pub const TAGID_SVG_COLOR_PROFILE: ELEMENT_TAG_ID = ELEMENT_TAG_ID(121i32);
-pub const TAGID_SVG_CURSOR: ELEMENT_TAG_ID = ELEMENT_TAG_ID(122i32);
-pub const TAGID_SVG_DEFINITION_SRC: ELEMENT_TAG_ID = ELEMENT_TAG_ID(123i32);
-pub const TAGID_SVG_DEFS: ELEMENT_TAG_ID = ELEMENT_TAG_ID(124i32);
-pub const TAGID_SVG_DESC: ELEMENT_TAG_ID = ELEMENT_TAG_ID(125i32);
-pub const TAGID_SVG_ELLIPSE: ELEMENT_TAG_ID = ELEMENT_TAG_ID(126i32);
-pub const TAGID_SVG_FEBLEND: ELEMENT_TAG_ID = ELEMENT_TAG_ID(127i32);
-pub const TAGID_SVG_FECOLORMATRIX: ELEMENT_TAG_ID = ELEMENT_TAG_ID(128i32);
-pub const TAGID_SVG_FECOMPONENTTRANSFER: ELEMENT_TAG_ID = ELEMENT_TAG_ID(129i32);
-pub const TAGID_SVG_FECOMPOSITE: ELEMENT_TAG_ID = ELEMENT_TAG_ID(130i32);
-pub const TAGID_SVG_FECONVOLVEMATRIX: ELEMENT_TAG_ID = ELEMENT_TAG_ID(131i32);
-pub const TAGID_SVG_FEDIFFUSELIGHTING: ELEMENT_TAG_ID = ELEMENT_TAG_ID(132i32);
-pub const TAGID_SVG_FEDISPLACEMENTMAP: ELEMENT_TAG_ID = ELEMENT_TAG_ID(133i32);
-pub const TAGID_SVG_FEDISTANTLIGHT: ELEMENT_TAG_ID = ELEMENT_TAG_ID(134i32);
-pub const TAGID_SVG_FEFLOOD: ELEMENT_TAG_ID = ELEMENT_TAG_ID(135i32);
-pub const TAGID_SVG_FEFUNCA: ELEMENT_TAG_ID = ELEMENT_TAG_ID(136i32);
-pub const TAGID_SVG_FEFUNCB: ELEMENT_TAG_ID = ELEMENT_TAG_ID(137i32);
-pub const TAGID_SVG_FEFUNCG: ELEMENT_TAG_ID = ELEMENT_TAG_ID(138i32);
-pub const TAGID_SVG_FEFUNCR: ELEMENT_TAG_ID = ELEMENT_TAG_ID(139i32);
-pub const TAGID_SVG_FEGAUSSIANBLUR: ELEMENT_TAG_ID = ELEMENT_TAG_ID(140i32);
-pub const TAGID_SVG_FEIMAGE: ELEMENT_TAG_ID = ELEMENT_TAG_ID(141i32);
-pub const TAGID_SVG_FEMERGE: ELEMENT_TAG_ID = ELEMENT_TAG_ID(142i32);
-pub const TAGID_SVG_FEMERGENODE: ELEMENT_TAG_ID = ELEMENT_TAG_ID(143i32);
-pub const TAGID_SVG_FEMORPHOLOGY: ELEMENT_TAG_ID = ELEMENT_TAG_ID(144i32);
-pub const TAGID_SVG_FEOFFSET: ELEMENT_TAG_ID = ELEMENT_TAG_ID(145i32);
-pub const TAGID_SVG_FEPOINTLIGHT: ELEMENT_TAG_ID = ELEMENT_TAG_ID(146i32);
-pub const TAGID_SVG_FESPECULARLIGHTING: ELEMENT_TAG_ID = ELEMENT_TAG_ID(147i32);
-pub const TAGID_SVG_FESPOTLIGHT: ELEMENT_TAG_ID = ELEMENT_TAG_ID(148i32);
-pub const TAGID_SVG_FETILE: ELEMENT_TAG_ID = ELEMENT_TAG_ID(149i32);
-pub const TAGID_SVG_FETURBULENCE: ELEMENT_TAG_ID = ELEMENT_TAG_ID(150i32);
-pub const TAGID_SVG_FILTER: ELEMENT_TAG_ID = ELEMENT_TAG_ID(151i32);
-pub const TAGID_SVG_FONT: ELEMENT_TAG_ID = ELEMENT_TAG_ID(152i32);
-pub const TAGID_SVG_FONT_FACE: ELEMENT_TAG_ID = ELEMENT_TAG_ID(153i32);
-pub const TAGID_SVG_FONT_FACE_FORMAT: ELEMENT_TAG_ID = ELEMENT_TAG_ID(154i32);
-pub const TAGID_SVG_FONT_FACE_NAME: ELEMENT_TAG_ID = ELEMENT_TAG_ID(155i32);
-pub const TAGID_SVG_FONT_FACE_SRC: ELEMENT_TAG_ID = ELEMENT_TAG_ID(156i32);
-pub const TAGID_SVG_FONT_FACE_URI: ELEMENT_TAG_ID = ELEMENT_TAG_ID(157i32);
-pub const TAGID_SVG_FOREIGNOBJECT: ELEMENT_TAG_ID = ELEMENT_TAG_ID(158i32);
-pub const TAGID_SVG_G: ELEMENT_TAG_ID = ELEMENT_TAG_ID(159i32);
-pub const TAGID_SVG_GLYPH: ELEMENT_TAG_ID = ELEMENT_TAG_ID(160i32);
-pub const TAGID_SVG_GLYPHREF: ELEMENT_TAG_ID = ELEMENT_TAG_ID(161i32);
-pub const TAGID_SVG_HKERN: ELEMENT_TAG_ID = ELEMENT_TAG_ID(162i32);
-pub const TAGID_SVG_IMAGE: ELEMENT_TAG_ID = ELEMENT_TAG_ID(163i32);
-pub const TAGID_SVG_LINE: ELEMENT_TAG_ID = ELEMENT_TAG_ID(164i32);
-pub const TAGID_SVG_LINEARGRADIENT: ELEMENT_TAG_ID = ELEMENT_TAG_ID(165i32);
-pub const TAGID_SVG_MARKER: ELEMENT_TAG_ID = ELEMENT_TAG_ID(166i32);
-pub const TAGID_SVG_MASK: ELEMENT_TAG_ID = ELEMENT_TAG_ID(167i32);
-pub const TAGID_SVG_METADATA: ELEMENT_TAG_ID = ELEMENT_TAG_ID(168i32);
-pub const TAGID_SVG_MISSING_GLYPH: ELEMENT_TAG_ID = ELEMENT_TAG_ID(169i32);
-pub const TAGID_SVG_MPATH: ELEMENT_TAG_ID = ELEMENT_TAG_ID(170i32);
-pub const TAGID_SVG_PATH: ELEMENT_TAG_ID = ELEMENT_TAG_ID(171i32);
-pub const TAGID_SVG_PATTERN: ELEMENT_TAG_ID = ELEMENT_TAG_ID(172i32);
-pub const TAGID_SVG_POLYGON: ELEMENT_TAG_ID = ELEMENT_TAG_ID(173i32);
-pub const TAGID_SVG_POLYLINE: ELEMENT_TAG_ID = ELEMENT_TAG_ID(174i32);
-pub const TAGID_SVG_RADIALGRADIENT: ELEMENT_TAG_ID = ELEMENT_TAG_ID(175i32);
-pub const TAGID_SVG_RECT: ELEMENT_TAG_ID = ELEMENT_TAG_ID(176i32);
-pub const TAGID_SVG_SCRIPT: ELEMENT_TAG_ID = ELEMENT_TAG_ID(177i32);
-pub const TAGID_SVG_SET: ELEMENT_TAG_ID = ELEMENT_TAG_ID(178i32);
-pub const TAGID_SVG_STOP: ELEMENT_TAG_ID = ELEMENT_TAG_ID(179i32);
-pub const TAGID_SVG_STYLE: ELEMENT_TAG_ID = ELEMENT_TAG_ID(180i32);
-pub const TAGID_SVG_SVG: ELEMENT_TAG_ID = ELEMENT_TAG_ID(181i32);
-pub const TAGID_SVG_SWITCH: ELEMENT_TAG_ID = ELEMENT_TAG_ID(182i32);
-pub const TAGID_SVG_SYMBOL: ELEMENT_TAG_ID = ELEMENT_TAG_ID(183i32);
-pub const TAGID_SVG_TEXT: ELEMENT_TAG_ID = ELEMENT_TAG_ID(184i32);
-pub const TAGID_SVG_TEXTPATH: ELEMENT_TAG_ID = ELEMENT_TAG_ID(185i32);
-pub const TAGID_SVG_TITLE: ELEMENT_TAG_ID = ELEMENT_TAG_ID(186i32);
-pub const TAGID_SVG_TREF: ELEMENT_TAG_ID = ELEMENT_TAG_ID(187i32);
-pub const TAGID_SVG_TSPAN: ELEMENT_TAG_ID = ELEMENT_TAG_ID(188i32);
-pub const TAGID_SVG_USE: ELEMENT_TAG_ID = ELEMENT_TAG_ID(189i32);
-pub const TAGID_SVG_VIEW: ELEMENT_TAG_ID = ELEMENT_TAG_ID(190i32);
-pub const TAGID_SVG_VKERN: ELEMENT_TAG_ID = ELEMENT_TAG_ID(191i32);
-pub const TAGID_AUDIO: ELEMENT_TAG_ID = ELEMENT_TAG_ID(192i32);
-pub const TAGID_SOURCE: ELEMENT_TAG_ID = ELEMENT_TAG_ID(193i32);
-pub const TAGID_VIDEO: ELEMENT_TAG_ID = ELEMENT_TAG_ID(194i32);
-pub const TAGID_CANVAS: ELEMENT_TAG_ID = ELEMENT_TAG_ID(195i32);
-pub const TAGID_DOCTYPE: ELEMENT_TAG_ID = ELEMENT_TAG_ID(196i32);
-pub const TAGID_KEYGEN: ELEMENT_TAG_ID = ELEMENT_TAG_ID(197i32);
-pub const TAGID_PROCESSINGINSTRUCTION: ELEMENT_TAG_ID = ELEMENT_TAG_ID(198i32);
-pub const TAGID_ARTICLE: ELEMENT_TAG_ID = ELEMENT_TAG_ID(199i32);
-pub const TAGID_ASIDE: ELEMENT_TAG_ID = ELEMENT_TAG_ID(200i32);
-pub const TAGID_FIGCAPTION: ELEMENT_TAG_ID = ELEMENT_TAG_ID(201i32);
-pub const TAGID_FIGURE: ELEMENT_TAG_ID = ELEMENT_TAG_ID(202i32);
-pub const TAGID_FOOTER: ELEMENT_TAG_ID = ELEMENT_TAG_ID(203i32);
-pub const TAGID_HEADER: ELEMENT_TAG_ID = ELEMENT_TAG_ID(204i32);
-pub const TAGID_HGROUP: ELEMENT_TAG_ID = ELEMENT_TAG_ID(205i32);
-pub const TAGID_MARK: ELEMENT_TAG_ID = ELEMENT_TAG_ID(206i32);
-pub const TAGID_NAV: ELEMENT_TAG_ID = ELEMENT_TAG_ID(207i32);
-pub const TAGID_SECTION: ELEMENT_TAG_ID = ELEMENT_TAG_ID(208i32);
-pub const TAGID_PROGRESS: ELEMENT_TAG_ID = ELEMENT_TAG_ID(209i32);
-pub const TAGID_MATHML_ANNOTATION_XML: ELEMENT_TAG_ID = ELEMENT_TAG_ID(210i32);
-pub const TAGID_MATHML_MATH: ELEMENT_TAG_ID = ELEMENT_TAG_ID(211i32);
-pub const TAGID_MATHML_MI: ELEMENT_TAG_ID = ELEMENT_TAG_ID(212i32);
-pub const TAGID_MATHML_MN: ELEMENT_TAG_ID = ELEMENT_TAG_ID(213i32);
-pub const TAGID_MATHML_MO: ELEMENT_TAG_ID = ELEMENT_TAG_ID(214i32);
-pub const TAGID_MATHML_MS: ELEMENT_TAG_ID = ELEMENT_TAG_ID(215i32);
-pub const TAGID_MATHML_MTEXT: ELEMENT_TAG_ID = ELEMENT_TAG_ID(216i32);
-pub const TAGID_DATALIST: ELEMENT_TAG_ID = ELEMENT_TAG_ID(217i32);
-pub const TAGID_TRACK: ELEMENT_TAG_ID = ELEMENT_TAG_ID(218i32);
-pub const TAGID_ISINDEX: ELEMENT_TAG_ID = ELEMENT_TAG_ID(219i32);
-pub const TAGID_COMMAND: ELEMENT_TAG_ID = ELEMENT_TAG_ID(220i32);
-pub const TAGID_DETAILS: ELEMENT_TAG_ID = ELEMENT_TAG_ID(221i32);
-pub const TAGID_SUMMARY: ELEMENT_TAG_ID = ELEMENT_TAG_ID(222i32);
-pub const TAGID_X_MS_WEBVIEW: ELEMENT_TAG_ID = ELEMENT_TAG_ID(223i32);
-pub const TAGID_COUNT: ELEMENT_TAG_ID = ELEMENT_TAG_ID(224i32);
-pub const TAGID_LAST_PREDEFINED: ELEMENT_TAG_ID = ELEMENT_TAG_ID(10000i32);
-pub const ELEMENT_TAG_ID_Max: ELEMENT_TAG_ID = ELEMENT_TAG_ID(2147483647i32);
-impl ::core::marker::Copy for ELEMENT_TAG_ID {}
-impl ::core::clone::Clone for ELEMENT_TAG_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const DomConstructorObject: i32 = 0i32;
+pub const DomConstructorAttr: i32 = 1i32;
+pub const DomConstructorBehaviorUrnsCollection: i32 = 2i32;
+pub const DomConstructorBookmarkCollection: i32 = 3i32;
+pub const DomConstructorCompatibleInfo: i32 = 4i32;
+pub const DomConstructorCompatibleInfoCollection: i32 = 5i32;
+pub const DomConstructorControlRangeCollection: i32 = 6i32;
+pub const DomConstructorCSSCurrentStyleDeclaration: i32 = 7i32;
+pub const DomConstructorCSSRuleList: i32 = 8i32;
+pub const DomConstructorCSSRuleStyleDeclaration: i32 = 9i32;
+pub const DomConstructorCSSStyleDeclaration: i32 = 10i32;
+pub const DomConstructorCSSStyleRule: i32 = 11i32;
+pub const DomConstructorCSSStyleSheet: i32 = 12i32;
+pub const DomConstructorDataTransfer: i32 = 13i32;
+pub const DomConstructorDOMImplementation: i32 = 14i32;
+pub const DomConstructorElement: i32 = 15i32;
+pub const DomConstructorEvent: i32 = 16i32;
+pub const DomConstructorHistory: i32 = 17i32;
+pub const DomConstructorHTCElementBehaviorDefaults: i32 = 18i32;
+pub const DomConstructorHTMLAnchorElement: i32 = 19i32;
+pub const DomConstructorHTMLAreaElement: i32 = 20i32;
+pub const DomConstructorHTMLAreasCollection: i32 = 21i32;
+pub const DomConstructorHTMLBaseElement: i32 = 22i32;
+pub const DomConstructorHTMLBaseFontElement: i32 = 23i32;
+pub const DomConstructorHTMLBGSoundElement: i32 = 24i32;
+pub const DomConstructorHTMLBlockElement: i32 = 25i32;
+pub const DomConstructorHTMLBodyElement: i32 = 26i32;
+pub const DomConstructorHTMLBRElement: i32 = 27i32;
+pub const DomConstructorHTMLButtonElement: i32 = 28i32;
+pub const DomConstructorHTMLCollection: i32 = 29i32;
+pub const DomConstructorHTMLCommentElement: i32 = 30i32;
+pub const DomConstructorHTMLDDElement: i32 = 31i32;
+pub const DomConstructorHTMLDivElement: i32 = 32i32;
+pub const DomConstructorHTMLDocument: i32 = 33i32;
+pub const DomConstructorHTMLDListElement: i32 = 34i32;
+pub const DomConstructorHTMLDTElement: i32 = 35i32;
+pub const DomConstructorHTMLEmbedElement: i32 = 36i32;
+pub const DomConstructorHTMLFieldSetElement: i32 = 37i32;
+pub const DomConstructorHTMLFontElement: i32 = 38i32;
+pub const DomConstructorHTMLFormElement: i32 = 39i32;
+pub const DomConstructorHTMLFrameElement: i32 = 40i32;
+pub const DomConstructorHTMLFrameSetElement: i32 = 41i32;
+pub const DomConstructorHTMLGenericElement: i32 = 42i32;
+pub const DomConstructorHTMLHeadElement: i32 = 43i32;
+pub const DomConstructorHTMLHeadingElement: i32 = 44i32;
+pub const DomConstructorHTMLHRElement: i32 = 45i32;
+pub const DomConstructorHTMLHtmlElement: i32 = 46i32;
+pub const DomConstructorHTMLIFrameElement: i32 = 47i32;
+pub const DomConstructorHTMLImageElement: i32 = 48i32;
+pub const DomConstructorHTMLInputElement: i32 = 49i32;
+pub const DomConstructorHTMLIsIndexElement: i32 = 50i32;
+pub const DomConstructorHTMLLabelElement: i32 = 51i32;
+pub const DomConstructorHTMLLegendElement: i32 = 52i32;
+pub const DomConstructorHTMLLIElement: i32 = 53i32;
+pub const DomConstructorHTMLLinkElement: i32 = 54i32;
+pub const DomConstructorHTMLMapElement: i32 = 55i32;
+pub const DomConstructorHTMLMarqueeElement: i32 = 56i32;
+pub const DomConstructorHTMLMetaElement: i32 = 57i32;
+pub const DomConstructorHTMLModelessDialog: i32 = 58i32;
+pub const DomConstructorHTMLNamespaceInfo: i32 = 59i32;
+pub const DomConstructorHTMLNamespaceInfoCollection: i32 = 60i32;
+pub const DomConstructorHTMLNextIdElement: i32 = 61i32;
+pub const DomConstructorHTMLNoShowElement: i32 = 62i32;
+pub const DomConstructorHTMLObjectElement: i32 = 63i32;
+pub const DomConstructorHTMLOListElement: i32 = 64i32;
+pub const DomConstructorHTMLOptionElement: i32 = 65i32;
+pub const DomConstructorHTMLParagraphElement: i32 = 66i32;
+pub const DomConstructorHTMLParamElement: i32 = 67i32;
+pub const DomConstructorHTMLPhraseElement: i32 = 68i32;
+pub const DomConstructorHTMLPluginsCollection: i32 = 69i32;
+pub const DomConstructorHTMLPopup: i32 = 70i32;
+pub const DomConstructorHTMLScriptElement: i32 = 71i32;
+pub const DomConstructorHTMLSelectElement: i32 = 72i32;
+pub const DomConstructorHTMLSpanElement: i32 = 73i32;
+pub const DomConstructorHTMLStyleElement: i32 = 74i32;
+pub const DomConstructorHTMLTableCaptionElement: i32 = 75i32;
+pub const DomConstructorHTMLTableCellElement: i32 = 76i32;
+pub const DomConstructorHTMLTableColElement: i32 = 77i32;
+pub const DomConstructorHTMLTableElement: i32 = 78i32;
+pub const DomConstructorHTMLTableRowElement: i32 = 79i32;
+pub const DomConstructorHTMLTableSectionElement: i32 = 80i32;
+pub const DomConstructorHTMLTextAreaElement: i32 = 81i32;
+pub const DomConstructorHTMLTextElement: i32 = 82i32;
+pub const DomConstructorHTMLTitleElement: i32 = 83i32;
+pub const DomConstructorHTMLUListElement: i32 = 84i32;
+pub const DomConstructorHTMLUnknownElement: i32 = 85i32;
+pub const DomConstructorImage: i32 = 86i32;
+pub const DomConstructorLocation: i32 = 87i32;
+pub const DomConstructorNamedNodeMap: i32 = 88i32;
+pub const DomConstructorNavigator: i32 = 89i32;
+pub const DomConstructorNodeList: i32 = 90i32;
+pub const DomConstructorOption: i32 = 91i32;
+pub const DomConstructorScreen: i32 = 92i32;
+pub const DomConstructorSelection: i32 = 93i32;
+pub const DomConstructorStaticNodeList: i32 = 94i32;
+pub const DomConstructorStorage: i32 = 95i32;
+pub const DomConstructorStyleSheetList: i32 = 96i32;
+pub const DomConstructorStyleSheetPage: i32 = 97i32;
+pub const DomConstructorStyleSheetPageList: i32 = 98i32;
+pub const DomConstructorText: i32 = 99i32;
+pub const DomConstructorTextRange: i32 = 100i32;
+pub const DomConstructorTextRangeCollection: i32 = 101i32;
+pub const DomConstructorTextRectangle: i32 = 102i32;
+pub const DomConstructorTextRectangleList: i32 = 103i32;
+pub const DomConstructorWindow: i32 = 104i32;
+pub const DomConstructorXDomainRequest: i32 = 105i32;
+pub const DomConstructorXMLHttpRequest: i32 = 106i32;
+pub const DomConstructorMax: i32 = 107i32;
+pub const DomConstructor_Max: i32 = 2147483647i32;
+pub const ELEMENTDESCRIPTORFLAGS_LITERAL: i32 = 1i32;
+pub const ELEMENTDESCRIPTORFLAGS_NESTED_LITERAL: i32 = 2i32;
+pub const ELEMENTDESCRIPTOR_FLAGS_Max: i32 = 2147483647i32;
+pub const ELEMENTNAMESPACEFLAGS_ALLOWANYTAG: i32 = 1i32;
+pub const ELEMENTNAMESPACEFLAGS_QUERYFORUNKNOWNTAGS: i32 = 2i32;
+pub const ELEMENTNAMESPACE_FLAGS_Max: i32 = 2147483647i32;
+pub const ELEM_ADJ_BeforeBegin: i32 = 0i32;
+pub const ELEM_ADJ_AfterBegin: i32 = 1i32;
+pub const ELEM_ADJ_BeforeEnd: i32 = 2i32;
+pub const ELEM_ADJ_AfterEnd: i32 = 3i32;
+pub const ELEMENT_ADJACENCY_Max: i32 = 2147483647i32;
+pub const ELEMENT_CORNER_NONE: i32 = 0i32;
+pub const ELEMENT_CORNER_TOP: i32 = 1i32;
+pub const ELEMENT_CORNER_LEFT: i32 = 2i32;
+pub const ELEMENT_CORNER_BOTTOM: i32 = 3i32;
+pub const ELEMENT_CORNER_RIGHT: i32 = 4i32;
+pub const ELEMENT_CORNER_TOPLEFT: i32 = 5i32;
+pub const ELEMENT_CORNER_TOPRIGHT: i32 = 6i32;
+pub const ELEMENT_CORNER_BOTTOMLEFT: i32 = 7i32;
+pub const ELEMENT_CORNER_BOTTOMRIGHT: i32 = 8i32;
+pub const ELEMENT_CORNER_Max: i32 = 2147483647i32;
+pub const TAGID_NULL: i32 = 0i32;
+pub const TAGID_UNKNOWN: i32 = 1i32;
+pub const TAGID_A: i32 = 2i32;
+pub const TAGID_ACRONYM: i32 = 3i32;
+pub const TAGID_ADDRESS: i32 = 4i32;
+pub const TAGID_APPLET: i32 = 5i32;
+pub const TAGID_AREA: i32 = 6i32;
+pub const TAGID_B: i32 = 7i32;
+pub const TAGID_BASE: i32 = 8i32;
+pub const TAGID_BASEFONT: i32 = 9i32;
+pub const TAGID_BDO: i32 = 10i32;
+pub const TAGID_BGSOUND: i32 = 11i32;
+pub const TAGID_BIG: i32 = 12i32;
+pub const TAGID_BLINK: i32 = 13i32;
+pub const TAGID_BLOCKQUOTE: i32 = 14i32;
+pub const TAGID_BODY: i32 = 15i32;
+pub const TAGID_BR: i32 = 16i32;
+pub const TAGID_BUTTON: i32 = 17i32;
+pub const TAGID_CAPTION: i32 = 18i32;
+pub const TAGID_CENTER: i32 = 19i32;
+pub const TAGID_CITE: i32 = 20i32;
+pub const TAGID_CODE: i32 = 21i32;
+pub const TAGID_COL: i32 = 22i32;
+pub const TAGID_COLGROUP: i32 = 23i32;
+pub const TAGID_COMMENT: i32 = 24i32;
+pub const TAGID_COMMENT_RAW: i32 = 25i32;
+pub const TAGID_DD: i32 = 26i32;
+pub const TAGID_DEL: i32 = 27i32;
+pub const TAGID_DFN: i32 = 28i32;
+pub const TAGID_DIR: i32 = 29i32;
+pub const TAGID_DIV: i32 = 30i32;
+pub const TAGID_DL: i32 = 31i32;
+pub const TAGID_DT: i32 = 32i32;
+pub const TAGID_EM: i32 = 33i32;
+pub const TAGID_EMBED: i32 = 34i32;
+pub const TAGID_FIELDSET: i32 = 35i32;
+pub const TAGID_FONT: i32 = 36i32;
+pub const TAGID_FORM: i32 = 37i32;
+pub const TAGID_FRAME: i32 = 38i32;
+pub const TAGID_FRAMESET: i32 = 39i32;
+pub const TAGID_GENERIC: i32 = 40i32;
+pub const TAGID_H1: i32 = 41i32;
+pub const TAGID_H2: i32 = 42i32;
+pub const TAGID_H3: i32 = 43i32;
+pub const TAGID_H4: i32 = 44i32;
+pub const TAGID_H5: i32 = 45i32;
+pub const TAGID_H6: i32 = 46i32;
+pub const TAGID_HEAD: i32 = 47i32;
+pub const TAGID_HR: i32 = 48i32;
+pub const TAGID_HTML: i32 = 49i32;
+pub const TAGID_I: i32 = 50i32;
+pub const TAGID_IFRAME: i32 = 51i32;
+pub const TAGID_IMG: i32 = 52i32;
+pub const TAGID_INPUT: i32 = 53i32;
+pub const TAGID_INS: i32 = 54i32;
+pub const TAGID_KBD: i32 = 55i32;
+pub const TAGID_LABEL: i32 = 56i32;
+pub const TAGID_LEGEND: i32 = 57i32;
+pub const TAGID_LI: i32 = 58i32;
+pub const TAGID_LINK: i32 = 59i32;
+pub const TAGID_LISTING: i32 = 60i32;
+pub const TAGID_MAP: i32 = 61i32;
+pub const TAGID_MARQUEE: i32 = 62i32;
+pub const TAGID_MENU: i32 = 63i32;
+pub const TAGID_META: i32 = 64i32;
+pub const TAGID_NEXTID: i32 = 65i32;
+pub const TAGID_NOBR: i32 = 66i32;
+pub const TAGID_NOEMBED: i32 = 67i32;
+pub const TAGID_NOFRAMES: i32 = 68i32;
+pub const TAGID_NOSCRIPT: i32 = 69i32;
+pub const TAGID_OBJECT: i32 = 70i32;
+pub const TAGID_OL: i32 = 71i32;
+pub const TAGID_OPTION: i32 = 72i32;
+pub const TAGID_P: i32 = 73i32;
+pub const TAGID_PARAM: i32 = 74i32;
+pub const TAGID_PLAINTEXT: i32 = 75i32;
+pub const TAGID_PRE: i32 = 76i32;
+pub const TAGID_Q: i32 = 77i32;
+pub const TAGID_RP: i32 = 78i32;
+pub const TAGID_RT: i32 = 79i32;
+pub const TAGID_RUBY: i32 = 80i32;
+pub const TAGID_S: i32 = 81i32;
+pub const TAGID_SAMP: i32 = 82i32;
+pub const TAGID_SCRIPT: i32 = 83i32;
+pub const TAGID_SELECT: i32 = 84i32;
+pub const TAGID_SMALL: i32 = 85i32;
+pub const TAGID_SPAN: i32 = 86i32;
+pub const TAGID_STRIKE: i32 = 87i32;
+pub const TAGID_STRONG: i32 = 88i32;
+pub const TAGID_STYLE: i32 = 89i32;
+pub const TAGID_SUB: i32 = 90i32;
+pub const TAGID_SUP: i32 = 91i32;
+pub const TAGID_TABLE: i32 = 92i32;
+pub const TAGID_TBODY: i32 = 93i32;
+pub const TAGID_TC: i32 = 94i32;
+pub const TAGID_TD: i32 = 95i32;
+pub const TAGID_TEXTAREA: i32 = 96i32;
+pub const TAGID_TFOOT: i32 = 97i32;
+pub const TAGID_TH: i32 = 98i32;
+pub const TAGID_THEAD: i32 = 99i32;
+pub const TAGID_TITLE: i32 = 100i32;
+pub const TAGID_TR: i32 = 101i32;
+pub const TAGID_TT: i32 = 102i32;
+pub const TAGID_U: i32 = 103i32;
+pub const TAGID_UL: i32 = 104i32;
+pub const TAGID_VAR: i32 = 105i32;
+pub const TAGID_WBR: i32 = 106i32;
+pub const TAGID_XMP: i32 = 107i32;
+pub const TAGID_ROOT: i32 = 108i32;
+pub const TAGID_OPTGROUP: i32 = 109i32;
+pub const TAGID_ABBR: i32 = 110i32;
+pub const TAGID_SVG_A: i32 = 111i32;
+pub const TAGID_SVG_ALTGLYPH: i32 = 112i32;
+pub const TAGID_SVG_ALTGLYPHDEF: i32 = 113i32;
+pub const TAGID_SVG_ALTGLYPHITEM: i32 = 114i32;
+pub const TAGID_SVG_ANIMATE: i32 = 115i32;
+pub const TAGID_SVG_ANIMATECOLOR: i32 = 116i32;
+pub const TAGID_SVG_ANIMATEMOTION: i32 = 117i32;
+pub const TAGID_SVG_ANIMATETRANSFORM: i32 = 118i32;
+pub const TAGID_SVG_CIRCLE: i32 = 119i32;
+pub const TAGID_SVG_CLIPPATH: i32 = 120i32;
+pub const TAGID_SVG_COLOR_PROFILE: i32 = 121i32;
+pub const TAGID_SVG_CURSOR: i32 = 122i32;
+pub const TAGID_SVG_DEFINITION_SRC: i32 = 123i32;
+pub const TAGID_SVG_DEFS: i32 = 124i32;
+pub const TAGID_SVG_DESC: i32 = 125i32;
+pub const TAGID_SVG_ELLIPSE: i32 = 126i32;
+pub const TAGID_SVG_FEBLEND: i32 = 127i32;
+pub const TAGID_SVG_FECOLORMATRIX: i32 = 128i32;
+pub const TAGID_SVG_FECOMPONENTTRANSFER: i32 = 129i32;
+pub const TAGID_SVG_FECOMPOSITE: i32 = 130i32;
+pub const TAGID_SVG_FECONVOLVEMATRIX: i32 = 131i32;
+pub const TAGID_SVG_FEDIFFUSELIGHTING: i32 = 132i32;
+pub const TAGID_SVG_FEDISPLACEMENTMAP: i32 = 133i32;
+pub const TAGID_SVG_FEDISTANTLIGHT: i32 = 134i32;
+pub const TAGID_SVG_FEFLOOD: i32 = 135i32;
+pub const TAGID_SVG_FEFUNCA: i32 = 136i32;
+pub const TAGID_SVG_FEFUNCB: i32 = 137i32;
+pub const TAGID_SVG_FEFUNCG: i32 = 138i32;
+pub const TAGID_SVG_FEFUNCR: i32 = 139i32;
+pub const TAGID_SVG_FEGAUSSIANBLUR: i32 = 140i32;
+pub const TAGID_SVG_FEIMAGE: i32 = 141i32;
+pub const TAGID_SVG_FEMERGE: i32 = 142i32;
+pub const TAGID_SVG_FEMERGENODE: i32 = 143i32;
+pub const TAGID_SVG_FEMORPHOLOGY: i32 = 144i32;
+pub const TAGID_SVG_FEOFFSET: i32 = 145i32;
+pub const TAGID_SVG_FEPOINTLIGHT: i32 = 146i32;
+pub const TAGID_SVG_FESPECULARLIGHTING: i32 = 147i32;
+pub const TAGID_SVG_FESPOTLIGHT: i32 = 148i32;
+pub const TAGID_SVG_FETILE: i32 = 149i32;
+pub const TAGID_SVG_FETURBULENCE: i32 = 150i32;
+pub const TAGID_SVG_FILTER: i32 = 151i32;
+pub const TAGID_SVG_FONT: i32 = 152i32;
+pub const TAGID_SVG_FONT_FACE: i32 = 153i32;
+pub const TAGID_SVG_FONT_FACE_FORMAT: i32 = 154i32;
+pub const TAGID_SVG_FONT_FACE_NAME: i32 = 155i32;
+pub const TAGID_SVG_FONT_FACE_SRC: i32 = 156i32;
+pub const TAGID_SVG_FONT_FACE_URI: i32 = 157i32;
+pub const TAGID_SVG_FOREIGNOBJECT: i32 = 158i32;
+pub const TAGID_SVG_G: i32 = 159i32;
+pub const TAGID_SVG_GLYPH: i32 = 160i32;
+pub const TAGID_SVG_GLYPHREF: i32 = 161i32;
+pub const TAGID_SVG_HKERN: i32 = 162i32;
+pub const TAGID_SVG_IMAGE: i32 = 163i32;
+pub const TAGID_SVG_LINE: i32 = 164i32;
+pub const TAGID_SVG_LINEARGRADIENT: i32 = 165i32;
+pub const TAGID_SVG_MARKER: i32 = 166i32;
+pub const TAGID_SVG_MASK: i32 = 167i32;
+pub const TAGID_SVG_METADATA: i32 = 168i32;
+pub const TAGID_SVG_MISSING_GLYPH: i32 = 169i32;
+pub const TAGID_SVG_MPATH: i32 = 170i32;
+pub const TAGID_SVG_PATH: i32 = 171i32;
+pub const TAGID_SVG_PATTERN: i32 = 172i32;
+pub const TAGID_SVG_POLYGON: i32 = 173i32;
+pub const TAGID_SVG_POLYLINE: i32 = 174i32;
+pub const TAGID_SVG_RADIALGRADIENT: i32 = 175i32;
+pub const TAGID_SVG_RECT: i32 = 176i32;
+pub const TAGID_SVG_SCRIPT: i32 = 177i32;
+pub const TAGID_SVG_SET: i32 = 178i32;
+pub const TAGID_SVG_STOP: i32 = 179i32;
+pub const TAGID_SVG_STYLE: i32 = 180i32;
+pub const TAGID_SVG_SVG: i32 = 181i32;
+pub const TAGID_SVG_SWITCH: i32 = 182i32;
+pub const TAGID_SVG_SYMBOL: i32 = 183i32;
+pub const TAGID_SVG_TEXT: i32 = 184i32;
+pub const TAGID_SVG_TEXTPATH: i32 = 185i32;
+pub const TAGID_SVG_TITLE: i32 = 186i32;
+pub const TAGID_SVG_TREF: i32 = 187i32;
+pub const TAGID_SVG_TSPAN: i32 = 188i32;
+pub const TAGID_SVG_USE: i32 = 189i32;
+pub const TAGID_SVG_VIEW: i32 = 190i32;
+pub const TAGID_SVG_VKERN: i32 = 191i32;
+pub const TAGID_AUDIO: i32 = 192i32;
+pub const TAGID_SOURCE: i32 = 193i32;
+pub const TAGID_VIDEO: i32 = 194i32;
+pub const TAGID_CANVAS: i32 = 195i32;
+pub const TAGID_DOCTYPE: i32 = 196i32;
+pub const TAGID_KEYGEN: i32 = 197i32;
+pub const TAGID_PROCESSINGINSTRUCTION: i32 = 198i32;
+pub const TAGID_ARTICLE: i32 = 199i32;
+pub const TAGID_ASIDE: i32 = 200i32;
+pub const TAGID_FIGCAPTION: i32 = 201i32;
+pub const TAGID_FIGURE: i32 = 202i32;
+pub const TAGID_FOOTER: i32 = 203i32;
+pub const TAGID_HEADER: i32 = 204i32;
+pub const TAGID_HGROUP: i32 = 205i32;
+pub const TAGID_MARK: i32 = 206i32;
+pub const TAGID_NAV: i32 = 207i32;
+pub const TAGID_SECTION: i32 = 208i32;
+pub const TAGID_PROGRESS: i32 = 209i32;
+pub const TAGID_MATHML_ANNOTATION_XML: i32 = 210i32;
+pub const TAGID_MATHML_MATH: i32 = 211i32;
+pub const TAGID_MATHML_MI: i32 = 212i32;
+pub const TAGID_MATHML_MN: i32 = 213i32;
+pub const TAGID_MATHML_MO: i32 = 214i32;
+pub const TAGID_MATHML_MS: i32 = 215i32;
+pub const TAGID_MATHML_MTEXT: i32 = 216i32;
+pub const TAGID_DATALIST: i32 = 217i32;
+pub const TAGID_TRACK: i32 = 218i32;
+pub const TAGID_ISINDEX: i32 = 219i32;
+pub const TAGID_COMMAND: i32 = 220i32;
+pub const TAGID_DETAILS: i32 = 221i32;
+pub const TAGID_SUMMARY: i32 = 222i32;
+pub const TAGID_X_MS_WEBVIEW: i32 = 223i32;
+pub const TAGID_COUNT: i32 = 224i32;
+pub const TAGID_LAST_PREDEFINED: i32 = 10000i32;
+pub const ELEMENT_TAG_ID_Max: i32 = 2147483647i32;
 pub const E_SURFACE_DISCARDED: i32 = -2147434493i32;
 pub const E_SURFACE_NODC: i32 = -2147434492i32;
 pub const E_SURFACE_NOSURFACE: i32 = -2147434496i32;
@@ -8686,45 +8494,21 @@ pub const E_SURFACE_NOTMYDC: i32 = -2147434491i32;
 pub const E_SURFACE_NOTMYPOINTER: i32 = -2147434494i32;
 pub const E_SURFACE_UNKNOWN_FORMAT: i32 = -2147434495i32;
 pub const EventException: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616635, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-#[repr(transparent)]
-pub struct ExtensionValidationContexts(pub i32);
-pub const ExtensionValidationContextNone: ExtensionValidationContexts = ExtensionValidationContexts(0i32);
-pub const ExtensionValidationContextDynamic: ExtensionValidationContexts = ExtensionValidationContexts(1i32);
-pub const ExtensionValidationContextParsed: ExtensionValidationContexts = ExtensionValidationContexts(2i32);
-impl ::core::marker::Copy for ExtensionValidationContexts {}
-impl ::core::clone::Clone for ExtensionValidationContexts {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ExtensionValidationResults(pub i32);
-pub const ExtensionValidationResultNone: ExtensionValidationResults = ExtensionValidationResults(0i32);
-pub const ExtensionValidationResultDoNotInstantiate: ExtensionValidationResults = ExtensionValidationResults(1i32);
-pub const ExtensionValidationResultArrestPageLoad: ExtensionValidationResults = ExtensionValidationResults(2i32);
-impl ::core::marker::Copy for ExtensionValidationResults {}
-impl ::core::clone::Clone for ExtensionValidationResults {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct FINDTEXT_FLAGS(pub i32);
-pub const FINDTEXT_BACKWARDS: FINDTEXT_FLAGS = FINDTEXT_FLAGS(1i32);
-pub const FINDTEXT_WHOLEWORD: FINDTEXT_FLAGS = FINDTEXT_FLAGS(2i32);
-pub const FINDTEXT_MATCHCASE: FINDTEXT_FLAGS = FINDTEXT_FLAGS(4i32);
-pub const FINDTEXT_RAW: FINDTEXT_FLAGS = FINDTEXT_FLAGS(131072i32);
-pub const FINDTEXT_MATCHREPEATEDWHITESPACE: FINDTEXT_FLAGS = FINDTEXT_FLAGS(262144i32);
-pub const FINDTEXT_MATCHDIAC: FINDTEXT_FLAGS = FINDTEXT_FLAGS(536870912i32);
-pub const FINDTEXT_MATCHKASHIDA: FINDTEXT_FLAGS = FINDTEXT_FLAGS(1073741824i32);
-pub const FINDTEXT_MATCHALEFHAMZA: FINDTEXT_FLAGS = FINDTEXT_FLAGS(-2147483648i32);
-pub const FINDTEXT_FLAGS_Max: FINDTEXT_FLAGS = FINDTEXT_FLAGS(2147483647i32);
-impl ::core::marker::Copy for FINDTEXT_FLAGS {}
-impl ::core::clone::Clone for FINDTEXT_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const ExtensionValidationContextNone: i32 = 0i32;
+pub const ExtensionValidationContextDynamic: i32 = 1i32;
+pub const ExtensionValidationContextParsed: i32 = 2i32;
+pub const ExtensionValidationResultNone: i32 = 0i32;
+pub const ExtensionValidationResultDoNotInstantiate: i32 = 1i32;
+pub const ExtensionValidationResultArrestPageLoad: i32 = 2i32;
+pub const FINDTEXT_BACKWARDS: i32 = 1i32;
+pub const FINDTEXT_WHOLEWORD: i32 = 2i32;
+pub const FINDTEXT_MATCHCASE: i32 = 4i32;
+pub const FINDTEXT_RAW: i32 = 131072i32;
+pub const FINDTEXT_MATCHREPEATEDWHITESPACE: i32 = 262144i32;
+pub const FINDTEXT_MATCHDIAC: i32 = 536870912i32;
+pub const FINDTEXT_MATCHKASHIDA: i32 = 1073741824i32;
+pub const FINDTEXT_MATCHALEFHAMZA: i32 = -2147483648i32;
+pub const FINDTEXT_FLAGS_Max: i32 = 2147483647i32;
 pub const FontNames: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810612794, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const FramesCollection: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810612726, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const HTCAttachBehavior: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810612213, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
@@ -8751,21 +8535,13 @@ impl ::core::clone::Clone for HTMLAnchorEvents2 {
     }
 }
 pub const HTMLAppBehavior: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810612171, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-#[repr(transparent)]
-pub struct HTMLAppFlag(pub i32);
-pub const HTMLAppFlagNo: HTMLAppFlag = HTMLAppFlag(0i32);
-pub const HTMLAppFlagOff: HTMLAppFlag = HTMLAppFlag(0i32);
-pub const HTMLAppFlag0: HTMLAppFlag = HTMLAppFlag(0i32);
-pub const HTMLAppFlagYes: HTMLAppFlag = HTMLAppFlag(1i32);
-pub const HTMLAppFlagOn: HTMLAppFlag = HTMLAppFlag(1i32);
-pub const HTMLAppFlag1: HTMLAppFlag = HTMLAppFlag(1i32);
-pub const HTMLAppFlag_Max: HTMLAppFlag = HTMLAppFlag(2147483647i32);
-impl ::core::marker::Copy for HTMLAppFlag {}
-impl ::core::clone::Clone for HTMLAppFlag {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const HTMLAppFlagNo: i32 = 0i32;
+pub const HTMLAppFlagOff: i32 = 0i32;
+pub const HTMLAppFlag0: i32 = 0i32;
+pub const HTMLAppFlagYes: i32 = 1i32;
+pub const HTMLAppFlagOn: i32 = 1i32;
+pub const HTMLAppFlag1: i32 = 1i32;
+pub const HTMLAppFlag_Max: i32 = 2147483647i32;
 pub const HTMLAreaElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611331, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 #[repr(transparent)]
 pub struct HTMLAreaEvents(pub *mut ::core::ffi::c_void);
@@ -8793,33 +8569,17 @@ pub const HTMLBaseElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID
 pub const HTMLBaseFontElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611330, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const HTMLBlockElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611329, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const HTMLBody: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611274, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-#[repr(transparent)]
-pub struct HTMLBorder(pub i32);
-pub const HTMLBorderNone: HTMLBorder = HTMLBorder(0i32);
-pub const HTMLBorderThick: HTMLBorder = HTMLBorder(262144i32);
-pub const HTMLBorderDialog: HTMLBorder = HTMLBorder(4194304i32);
-pub const HTMLBorderThin: HTMLBorder = HTMLBorder(8388608i32);
-pub const HTMLBorder_Max: HTMLBorder = HTMLBorder(2147483647i32);
-impl ::core::marker::Copy for HTMLBorder {}
-impl ::core::clone::Clone for HTMLBorder {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HTMLBorderStyle(pub i32);
-pub const HTMLBorderStyleNormal: HTMLBorderStyle = HTMLBorderStyle(0i32);
-pub const HTMLBorderStyleRaised: HTMLBorderStyle = HTMLBorderStyle(256i32);
-pub const HTMLBorderStyleSunken: HTMLBorderStyle = HTMLBorderStyle(512i32);
-pub const HTMLBorderStylecombined: HTMLBorderStyle = HTMLBorderStyle(768i32);
-pub const HTMLBorderStyleStatic: HTMLBorderStyle = HTMLBorderStyle(131072i32);
-pub const HTMLBorderStyle_Max: HTMLBorderStyle = HTMLBorderStyle(2147483647i32);
-impl ::core::marker::Copy for HTMLBorderStyle {}
-impl ::core::clone::Clone for HTMLBorderStyle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const HTMLBorderNone: i32 = 0i32;
+pub const HTMLBorderThick: i32 = 262144i32;
+pub const HTMLBorderDialog: i32 = 4194304i32;
+pub const HTMLBorderThin: i32 = 8388608i32;
+pub const HTMLBorder_Max: i32 = 2147483647i32;
+pub const HTMLBorderStyleNormal: i32 = 0i32;
+pub const HTMLBorderStyleRaised: i32 = 256i32;
+pub const HTMLBorderStyleSunken: i32 = 512i32;
+pub const HTMLBorderStylecombined: i32 = 768i32;
+pub const HTMLBorderStyleStatic: i32 = 131072i32;
+pub const HTMLBorderStyle_Max: i32 = 2147483647i32;
 pub const HTMLButtonElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611398, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 #[repr(transparent)]
 pub struct HTMLButtonElementEvents(pub *mut ::core::ffi::c_void);
@@ -8844,17 +8604,9 @@ pub const HTMLCSSNamespaceRule: ::windows_sys::core::GUID = ::windows_sys::core:
 pub const HTMLCSSRule: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616559, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const HTMLCSSStyleDeclaration: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616641, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const HTMLCanvasElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616549, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-#[repr(transparent)]
-pub struct HTMLCaptionFlag(pub i32);
-pub const HTMLCaptionFlagNo: HTMLCaptionFlag = HTMLCaptionFlag(0i32);
-pub const HTMLCaptionFlagYes: HTMLCaptionFlag = HTMLCaptionFlag(12582912i32);
-pub const HTMLCaptionFlag_Max: HTMLCaptionFlag = HTMLCaptionFlag(2147483647i32);
-impl ::core::marker::Copy for HTMLCaptionFlag {}
-impl ::core::clone::Clone for HTMLCaptionFlag {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const HTMLCaptionFlagNo: i32 = 0i32;
+pub const HTMLCaptionFlagYes: i32 = 12582912i32;
+pub const HTMLCaptionFlag_Max: i32 = 2147483647i32;
 pub const HTMLCommentElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611479, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 #[repr(transparent)]
 pub struct HTMLControlElementEvents(pub *mut ::core::ffi::c_void);
@@ -8891,61 +8643,29 @@ pub const HTMLDefaults: ::windows_sys::core::GUID = ::windows_sys::core::GUID { 
 pub const HTMLDialog: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611338, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const HTMLDivElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611326, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const HTMLDivPosition: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611273, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-#[repr(transparent)]
-pub struct HTMLDlgBorder(pub i32);
-pub const HTMLDlgBorderThin: HTMLDlgBorder = HTMLDlgBorder(0i32);
-pub const HTMLDlgBorderThick: HTMLDlgBorder = HTMLDlgBorder(262144i32);
-pub const HTMLDlgBorder_Max: HTMLDlgBorder = HTMLDlgBorder(2147483647i32);
-impl ::core::marker::Copy for HTMLDlgBorder {}
-impl ::core::clone::Clone for HTMLDlgBorder {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HTMLDlgCenter(pub i32);
-pub const HTMLDlgCenterNo: HTMLDlgCenter = HTMLDlgCenter(0i32);
-pub const HTMLDlgCenterOff: HTMLDlgCenter = HTMLDlgCenter(0i32);
-pub const HTMLDlgCenter0: HTMLDlgCenter = HTMLDlgCenter(0i32);
-pub const HTMLDlgCenterYes: HTMLDlgCenter = HTMLDlgCenter(1i32);
-pub const HTMLDlgCenterOn: HTMLDlgCenter = HTMLDlgCenter(1i32);
-pub const HTMLDlgCenter1: HTMLDlgCenter = HTMLDlgCenter(1i32);
-pub const HTMLDlgCenterParent: HTMLDlgCenter = HTMLDlgCenter(1i32);
-pub const HTMLDlgCenterDesktop: HTMLDlgCenter = HTMLDlgCenter(2i32);
-pub const HTMLDlgCenter_Max: HTMLDlgCenter = HTMLDlgCenter(2147483647i32);
-impl ::core::marker::Copy for HTMLDlgCenter {}
-impl ::core::clone::Clone for HTMLDlgCenter {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HTMLDlgEdge(pub i32);
-pub const HTMLDlgEdgeSunken: HTMLDlgEdge = HTMLDlgEdge(0i32);
-pub const HTMLDlgEdgeRaised: HTMLDlgEdge = HTMLDlgEdge(16i32);
-pub const HTMLDlgEdge_Max: HTMLDlgEdge = HTMLDlgEdge(2147483647i32);
-impl ::core::marker::Copy for HTMLDlgEdge {}
-impl ::core::clone::Clone for HTMLDlgEdge {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HTMLDlgFlag(pub i32);
-pub const HTMLDlgFlagNo: HTMLDlgFlag = HTMLDlgFlag(0i32);
-pub const HTMLDlgFlagOff: HTMLDlgFlag = HTMLDlgFlag(0i32);
-pub const HTMLDlgFlag0: HTMLDlgFlag = HTMLDlgFlag(0i32);
-pub const HTMLDlgFlagYes: HTMLDlgFlag = HTMLDlgFlag(1i32);
-pub const HTMLDlgFlagOn: HTMLDlgFlag = HTMLDlgFlag(1i32);
-pub const HTMLDlgFlag1: HTMLDlgFlag = HTMLDlgFlag(1i32);
-pub const HTMLDlgFlagNotSet: HTMLDlgFlag = HTMLDlgFlag(-1i32);
-pub const HTMLDlgFlag_Max: HTMLDlgFlag = HTMLDlgFlag(2147483647i32);
-impl ::core::marker::Copy for HTMLDlgFlag {}
-impl ::core::clone::Clone for HTMLDlgFlag {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const HTMLDlgBorderThin: i32 = 0i32;
+pub const HTMLDlgBorderThick: i32 = 262144i32;
+pub const HTMLDlgBorder_Max: i32 = 2147483647i32;
+pub const HTMLDlgCenterNo: i32 = 0i32;
+pub const HTMLDlgCenterOff: i32 = 0i32;
+pub const HTMLDlgCenter0: i32 = 0i32;
+pub const HTMLDlgCenterYes: i32 = 1i32;
+pub const HTMLDlgCenterOn: i32 = 1i32;
+pub const HTMLDlgCenter1: i32 = 1i32;
+pub const HTMLDlgCenterParent: i32 = 1i32;
+pub const HTMLDlgCenterDesktop: i32 = 2i32;
+pub const HTMLDlgCenter_Max: i32 = 2147483647i32;
+pub const HTMLDlgEdgeSunken: i32 = 0i32;
+pub const HTMLDlgEdgeRaised: i32 = 16i32;
+pub const HTMLDlgEdge_Max: i32 = 2147483647i32;
+pub const HTMLDlgFlagNo: i32 = 0i32;
+pub const HTMLDlgFlagOff: i32 = 0i32;
+pub const HTMLDlgFlag0: i32 = 0i32;
+pub const HTMLDlgFlagYes: i32 = 1i32;
+pub const HTMLDlgFlagOn: i32 = 1i32;
+pub const HTMLDlgFlag1: i32 = 1i32;
+pub const HTMLDlgFlagNotSet: i32 = -1i32;
+pub const HTMLDlgFlag_Max: i32 = 2147483647i32;
 pub const HTMLDocument: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 624126240, data2: 1017, data3: 4559, data4: [143, 208, 0, 170, 0, 104, 111, 19] };
 pub const HTMLDocumentCompatibleInfo: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810615835, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const HTMLDocumentCompatibleInfoCollection: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810615833, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
@@ -9206,31 +8926,15 @@ impl ::core::clone::Clone for HTMLMarqueeElementEvents2 {
         *self
     }
 }
-#[repr(transparent)]
-pub struct HTMLMaximizeFlag(pub i32);
-pub const HTMLMaximizeFlagNo: HTMLMaximizeFlag = HTMLMaximizeFlag(0i32);
-pub const HTMLMaximizeFlagYes: HTMLMaximizeFlag = HTMLMaximizeFlag(65536i32);
-pub const HTMLMaximizeFlag_Max: HTMLMaximizeFlag = HTMLMaximizeFlag(2147483647i32);
-impl ::core::marker::Copy for HTMLMaximizeFlag {}
-impl ::core::clone::Clone for HTMLMaximizeFlag {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const HTMLMaximizeFlagNo: i32 = 0i32;
+pub const HTMLMaximizeFlagYes: i32 = 65536i32;
+pub const HTMLMaximizeFlag_Max: i32 = 2147483647i32;
 pub const HTMLMediaElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616588, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const HTMLMediaError: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616586, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const HTMLMetaElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611317, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-#[repr(transparent)]
-pub struct HTMLMinimizeFlag(pub i32);
-pub const HTMLMinimizeFlagNo: HTMLMinimizeFlag = HTMLMinimizeFlag(0i32);
-pub const HTMLMinimizeFlagYes: HTMLMinimizeFlag = HTMLMinimizeFlag(131072i32);
-pub const HTMLMinimizeFlag_Max: HTMLMinimizeFlag = HTMLMinimizeFlag(2147483647i32);
-impl ::core::marker::Copy for HTMLMinimizeFlag {}
-impl ::core::clone::Clone for HTMLMinimizeFlag {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const HTMLMinimizeFlagNo: i32 = 0i32;
+pub const HTMLMinimizeFlagYes: i32 = 131072i32;
+pub const HTMLMinimizeFlag_Max: i32 = 2147483647i32;
 pub const HTMLNamespace: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810612412, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const HTMLNamespaceCollection: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810612409, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 #[repr(transparent)]
@@ -9361,17 +9065,9 @@ pub const HTMLStyleSheetRule: ::windows_sys::core::GUID = ::windows_sys::core::G
 pub const HTMLStyleSheetRulesAppliedCollection: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3946248261, data2: 9109, data3: 18201, data4: [184, 92, 208, 216, 14, 24, 75, 217] };
 pub const HTMLStyleSheetRulesCollection: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611661, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const HTMLStyleSheetsCollection: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611583, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-#[repr(transparent)]
-pub struct HTMLSysMenuFlag(pub i32);
-pub const HTMLSysMenuFlagNo: HTMLSysMenuFlag = HTMLSysMenuFlag(0i32);
-pub const HTMLSysMenuFlagYes: HTMLSysMenuFlag = HTMLSysMenuFlag(524288i32);
-pub const HTMLSysMenuFlag_Max: HTMLSysMenuFlag = HTMLSysMenuFlag(2147483647i32);
-impl ::core::marker::Copy for HTMLSysMenuFlag {}
-impl ::core::clone::Clone for HTMLSysMenuFlag {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const HTMLSysMenuFlagNo: i32 = 0i32;
+pub const HTMLSysMenuFlagYes: i32 = 524288i32;
+pub const HTMLSysMenuFlag_Max: i32 = 2147483647i32;
 pub const HTMLTable: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611307, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const HTMLTableCaption: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611436, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const HTMLTableCell: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611270, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
@@ -9445,18 +9141,10 @@ impl ::core::clone::Clone for HTMLWindowEvents3 {
     }
 }
 pub const HTMLWindowProxy: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611601, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-#[repr(transparent)]
-pub struct HTMLWindowState(pub i32);
-pub const HTMLWindowStateNormal: HTMLWindowState = HTMLWindowState(1i32);
-pub const HTMLWindowStateMaximize: HTMLWindowState = HTMLWindowState(3i32);
-pub const HTMLWindowStateMinimize: HTMLWindowState = HTMLWindowState(6i32);
-pub const HTMLWindowState_Max: HTMLWindowState = HTMLWindowState(2147483647i32);
-impl ::core::marker::Copy for HTMLWindowState {}
-impl ::core::clone::Clone for HTMLWindowState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const HTMLWindowStateNormal: i32 = 1i32;
+pub const HTMLWindowStateMaximize: i32 = 3i32;
+pub const HTMLWindowStateMinimize: i32 = 6i32;
+pub const HTMLWindowState_Max: i32 = 2147483647i32;
 pub const HTMLWndOptionElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611408, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const HTMLWndSelectElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810611407, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const HTMLXMLHttpRequest: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810615819, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
@@ -9469,30 +9157,22 @@ impl ::core::clone::Clone for HTMLXMLHttpRequestEvents {
     }
 }
 pub const HTMLXMLHttpRequestFactory: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810615821, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-#[repr(transparent)]
-pub struct HTML_PAINTER(pub i32);
-pub const HTMLPAINTER_OPAQUE: HTML_PAINTER = HTML_PAINTER(1i32);
-pub const HTMLPAINTER_TRANSPARENT: HTML_PAINTER = HTML_PAINTER(2i32);
-pub const HTMLPAINTER_ALPHA: HTML_PAINTER = HTML_PAINTER(4i32);
-pub const HTMLPAINTER_COMPLEX: HTML_PAINTER = HTML_PAINTER(8i32);
-pub const HTMLPAINTER_OVERLAY: HTML_PAINTER = HTML_PAINTER(16i32);
-pub const HTMLPAINTER_HITTEST: HTML_PAINTER = HTML_PAINTER(32i32);
-pub const HTMLPAINTER_SURFACE: HTML_PAINTER = HTML_PAINTER(256i32);
-pub const HTMLPAINTER_3DSURFACE: HTML_PAINTER = HTML_PAINTER(512i32);
-pub const HTMLPAINTER_NOBAND: HTML_PAINTER = HTML_PAINTER(1024i32);
-pub const HTMLPAINTER_NODC: HTML_PAINTER = HTML_PAINTER(4096i32);
-pub const HTMLPAINTER_NOPHYSICALCLIP: HTML_PAINTER = HTML_PAINTER(8192i32);
-pub const HTMLPAINTER_NOSAVEDC: HTML_PAINTER = HTML_PAINTER(16384i32);
-pub const HTMLPAINTER_SUPPORTS_XFORM: HTML_PAINTER = HTML_PAINTER(32768i32);
-pub const HTMLPAINTER_EXPAND: HTML_PAINTER = HTML_PAINTER(65536i32);
-pub const HTMLPAINTER_NOSCROLLBITS: HTML_PAINTER = HTML_PAINTER(131072i32);
-pub const HTML_PAINTER_Max: HTML_PAINTER = HTML_PAINTER(2147483647i32);
-impl ::core::marker::Copy for HTML_PAINTER {}
-impl ::core::clone::Clone for HTML_PAINTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const HTMLPAINTER_OPAQUE: i32 = 1i32;
+pub const HTMLPAINTER_TRANSPARENT: i32 = 2i32;
+pub const HTMLPAINTER_ALPHA: i32 = 4i32;
+pub const HTMLPAINTER_COMPLEX: i32 = 8i32;
+pub const HTMLPAINTER_OVERLAY: i32 = 16i32;
+pub const HTMLPAINTER_HITTEST: i32 = 32i32;
+pub const HTMLPAINTER_SURFACE: i32 = 256i32;
+pub const HTMLPAINTER_3DSURFACE: i32 = 512i32;
+pub const HTMLPAINTER_NOBAND: i32 = 1024i32;
+pub const HTMLPAINTER_NODC: i32 = 4096i32;
+pub const HTMLPAINTER_NOPHYSICALCLIP: i32 = 8192i32;
+pub const HTMLPAINTER_NOSAVEDC: i32 = 16384i32;
+pub const HTMLPAINTER_SUPPORTS_XFORM: i32 = 32768i32;
+pub const HTMLPAINTER_EXPAND: i32 = 65536i32;
+pub const HTMLPAINTER_NOSCROLLBITS: i32 = 131072i32;
+pub const HTML_PAINTER_Max: i32 = 2147483647i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HTML_PAINTER_INFO {
@@ -9509,17 +9189,9 @@ impl ::core::clone::Clone for HTML_PAINTER_INFO {
         *self
     }
 }
-#[repr(transparent)]
-pub struct HTML_PAINT_DRAW_FLAGS(pub i32);
-pub const HTMLPAINT_DRAW_UPDATEREGION: HTML_PAINT_DRAW_FLAGS = HTML_PAINT_DRAW_FLAGS(1i32);
-pub const HTMLPAINT_DRAW_USE_XFORM: HTML_PAINT_DRAW_FLAGS = HTML_PAINT_DRAW_FLAGS(2i32);
-pub const HTML_PAINT_DRAW_FLAGS_Max: HTML_PAINT_DRAW_FLAGS = HTML_PAINT_DRAW_FLAGS(2147483647i32);
-impl ::core::marker::Copy for HTML_PAINT_DRAW_FLAGS {}
-impl ::core::clone::Clone for HTML_PAINT_DRAW_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const HTMLPAINT_DRAW_UPDATEREGION: i32 = 1i32;
+pub const HTMLPAINT_DRAW_USE_XFORM: i32 = 2i32;
+pub const HTML_PAINT_DRAW_FLAGS_Max: i32 = 2147483647i32;
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct HTML_PAINT_DRAW_INFO {
@@ -9535,29 +9207,13 @@ impl ::core::clone::Clone for HTML_PAINT_DRAW_INFO {
         *self
     }
 }
-#[repr(transparent)]
-pub struct HTML_PAINT_DRAW_INFO_FLAGS(pub i32);
-pub const HTMLPAINT_DRAWINFO_VIEWPORT: HTML_PAINT_DRAW_INFO_FLAGS = HTML_PAINT_DRAW_INFO_FLAGS(1i32);
-pub const HTMLPAINT_DRAWINFO_UPDATEREGION: HTML_PAINT_DRAW_INFO_FLAGS = HTML_PAINT_DRAW_INFO_FLAGS(2i32);
-pub const HTMLPAINT_DRAWINFO_XFORM: HTML_PAINT_DRAW_INFO_FLAGS = HTML_PAINT_DRAW_INFO_FLAGS(4i32);
-pub const HTML_PAINT_DRAW_INFO_FLAGS_Max: HTML_PAINT_DRAW_INFO_FLAGS = HTML_PAINT_DRAW_INFO_FLAGS(2147483647i32);
-impl ::core::marker::Copy for HTML_PAINT_DRAW_INFO_FLAGS {}
-impl ::core::clone::Clone for HTML_PAINT_DRAW_INFO_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HTML_PAINT_EVENT_FLAGS(pub i32);
-pub const HTMLPAINT_EVENT_TARGET: HTML_PAINT_EVENT_FLAGS = HTML_PAINT_EVENT_FLAGS(1i32);
-pub const HTMLPAINT_EVENT_SETCURSOR: HTML_PAINT_EVENT_FLAGS = HTML_PAINT_EVENT_FLAGS(2i32);
-pub const HTML_PAINT_EVENT_FLAGS_Max: HTML_PAINT_EVENT_FLAGS = HTML_PAINT_EVENT_FLAGS(2147483647i32);
-impl ::core::marker::Copy for HTML_PAINT_EVENT_FLAGS {}
-impl ::core::clone::Clone for HTML_PAINT_EVENT_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const HTMLPAINT_DRAWINFO_VIEWPORT: i32 = 1i32;
+pub const HTMLPAINT_DRAWINFO_UPDATEREGION: i32 = 2i32;
+pub const HTMLPAINT_DRAWINFO_XFORM: i32 = 4i32;
+pub const HTML_PAINT_DRAW_INFO_FLAGS_Max: i32 = 2147483647i32;
+pub const HTMLPAINT_EVENT_TARGET: i32 = 1i32;
+pub const HTMLPAINT_EVENT_SETCURSOR: i32 = 2i32;
+pub const HTML_PAINT_EVENT_FLAGS_Max: i32 = 2147483647i32;
 #[repr(C)]
 pub struct HTML_PAINT_XFORM {
     pub eM11: f32,
@@ -9573,44 +9229,20 @@ impl ::core::clone::Clone for HTML_PAINT_XFORM {
         *self
     }
 }
-#[repr(transparent)]
-pub struct HTML_PAINT_ZORDER(pub i32);
-pub const HTMLPAINT_ZORDER_NONE: HTML_PAINT_ZORDER = HTML_PAINT_ZORDER(0i32);
-pub const HTMLPAINT_ZORDER_REPLACE_ALL: HTML_PAINT_ZORDER = HTML_PAINT_ZORDER(1i32);
-pub const HTMLPAINT_ZORDER_REPLACE_CONTENT: HTML_PAINT_ZORDER = HTML_PAINT_ZORDER(2i32);
-pub const HTMLPAINT_ZORDER_REPLACE_BACKGROUND: HTML_PAINT_ZORDER = HTML_PAINT_ZORDER(3i32);
-pub const HTMLPAINT_ZORDER_BELOW_CONTENT: HTML_PAINT_ZORDER = HTML_PAINT_ZORDER(4i32);
-pub const HTMLPAINT_ZORDER_BELOW_FLOW: HTML_PAINT_ZORDER = HTML_PAINT_ZORDER(5i32);
-pub const HTMLPAINT_ZORDER_ABOVE_FLOW: HTML_PAINT_ZORDER = HTML_PAINT_ZORDER(6i32);
-pub const HTMLPAINT_ZORDER_ABOVE_CONTENT: HTML_PAINT_ZORDER = HTML_PAINT_ZORDER(7i32);
-pub const HTMLPAINT_ZORDER_WINDOW_TOP: HTML_PAINT_ZORDER = HTML_PAINT_ZORDER(8i32);
-pub const HTML_PAINT_ZORDER_Max: HTML_PAINT_ZORDER = HTML_PAINT_ZORDER(2147483647i32);
-impl ::core::marker::Copy for HTML_PAINT_ZORDER {}
-impl ::core::clone::Clone for HTML_PAINT_ZORDER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HT_OPTIONS(pub i32);
-pub const HT_OPT_AllowAfterEOL: HT_OPTIONS = HT_OPTIONS(1i32);
-pub const HT_OPTIONS_Max: HT_OPTIONS = HT_OPTIONS(2147483647i32);
-impl ::core::marker::Copy for HT_OPTIONS {}
-impl ::core::clone::Clone for HT_OPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HT_RESULTS(pub i32);
-pub const HT_RESULTS_Glyph: HT_RESULTS = HT_RESULTS(1i32);
-pub const HT_RESULTS_Max: HT_RESULTS = HT_RESULTS(2147483647i32);
-impl ::core::marker::Copy for HT_RESULTS {}
-impl ::core::clone::Clone for HT_RESULTS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const HTMLPAINT_ZORDER_NONE: i32 = 0i32;
+pub const HTMLPAINT_ZORDER_REPLACE_ALL: i32 = 1i32;
+pub const HTMLPAINT_ZORDER_REPLACE_CONTENT: i32 = 2i32;
+pub const HTMLPAINT_ZORDER_REPLACE_BACKGROUND: i32 = 3i32;
+pub const HTMLPAINT_ZORDER_BELOW_CONTENT: i32 = 4i32;
+pub const HTMLPAINT_ZORDER_BELOW_FLOW: i32 = 5i32;
+pub const HTMLPAINT_ZORDER_ABOVE_FLOW: i32 = 6i32;
+pub const HTMLPAINT_ZORDER_ABOVE_CONTENT: i32 = 7i32;
+pub const HTMLPAINT_ZORDER_WINDOW_TOP: i32 = 8i32;
+pub const HTML_PAINT_ZORDER_Max: i32 = 2147483647i32;
+pub const HT_OPT_AllowAfterEOL: i32 = 1i32;
+pub const HT_OPTIONS_Max: i32 = 2147483647i32;
+pub const HT_RESULTS_Glyph: i32 = 1i32;
+pub const HT_RESULTS_Max: i32 = 2147483647i32;
 pub const HomePage: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1986785966, data2: 54864, data3: 4561, data4: [152, 17, 0, 192, 79, 195, 29, 46] };
 pub const HomePageSetting: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 927788512,
@@ -10680,18 +10312,10 @@ pub const IECMDID_SETID_AUTOCOMPLETE_FOR_FORMS: u32 = 1u32;
 pub const IECMDID_SET_INVOKE_DEFAULT_BROWSER_ON_NEW_WINDOW: u32 = 5u32;
 #[cfg(feature = "Win32_Foundation")]
 pub type IEISXMLNSREGISTEREDFN = unsafe extern "system" fn(lpszuri: super::super::Foundation::PWSTR, pclsid: *mut ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
-#[repr(transparent)]
-pub struct IELAUNCHOPTION_FLAGS(pub i32);
-pub const IELAUNCHOPTION_SCRIPTDEBUG: IELAUNCHOPTION_FLAGS = IELAUNCHOPTION_FLAGS(1i32);
-pub const IELAUNCHOPTION_FORCE_COMPAT: IELAUNCHOPTION_FLAGS = IELAUNCHOPTION_FLAGS(2i32);
-pub const IELAUNCHOPTION_FORCE_EDGE: IELAUNCHOPTION_FLAGS = IELAUNCHOPTION_FLAGS(4i32);
-pub const IELAUNCHOPTION_LOCK_ENGINE: IELAUNCHOPTION_FLAGS = IELAUNCHOPTION_FLAGS(8i32);
-impl ::core::marker::Copy for IELAUNCHOPTION_FLAGS {}
-impl ::core::clone::Clone for IELAUNCHOPTION_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const IELAUNCHOPTION_SCRIPTDEBUG: i32 = 1i32;
+pub const IELAUNCHOPTION_FORCE_COMPAT: i32 = 2i32;
+pub const IELAUNCHOPTION_FORCE_EDGE: i32 = 4i32;
+pub const IELAUNCHOPTION_LOCK_ENGINE: i32 = 8i32;
 #[repr(C)]
 pub struct IELAUNCHURLINFO {
     pub cbSize: u32,
@@ -14059,17 +13683,9 @@ impl ::core::clone::Clone for IMediaActivityNotifySite {
         *self
     }
 }
-#[repr(transparent)]
-pub struct INTERNETEXPLORERCONFIGURATION(pub i32);
-pub const INTERNETEXPLORERCONFIGURATION_HOST: INTERNETEXPLORERCONFIGURATION = INTERNETEXPLORERCONFIGURATION(1i32);
-pub const INTERNETEXPLORERCONFIGURATION_WEB_DRIVER: INTERNETEXPLORERCONFIGURATION = INTERNETEXPLORERCONFIGURATION(2i32);
-pub const INTERNETEXPLORERCONFIGURATION_WEB_DRIVER_EDGE: INTERNETEXPLORERCONFIGURATION = INTERNETEXPLORERCONFIGURATION(4i32);
-impl ::core::marker::Copy for INTERNETEXPLORERCONFIGURATION {}
-impl ::core::clone::Clone for INTERNETEXPLORERCONFIGURATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const INTERNETEXPLORERCONFIGURATION_HOST: i32 = 1i32;
+pub const INTERNETEXPLORERCONFIGURATION_WEB_DRIVER: i32 = 2i32;
+pub const INTERNETEXPLORERCONFIGURATION_WEB_DRIVER_EDGE: i32 = 4i32;
 #[repr(transparent)]
 pub struct INavigatorDoNotTrack(pub *mut ::core::ffi::c_void);
 impl ::core::marker::Copy for INavigatorDoNotTrack {}
@@ -15480,17 +15096,9 @@ impl ::core::clone::Clone for Iwfolders {
         *self
     }
 }
-#[repr(transparent)]
-pub struct LINE_DIRECTION(pub i32);
-pub const LINE_DIRECTION_RightToLeft: LINE_DIRECTION = LINE_DIRECTION(1i32);
-pub const LINE_DIRECTION_LeftToRight: LINE_DIRECTION = LINE_DIRECTION(2i32);
-pub const LINE_DIRECTION_Max: LINE_DIRECTION = LINE_DIRECTION(2147483647i32);
-impl ::core::marker::Copy for LINE_DIRECTION {}
-impl ::core::clone::Clone for LINE_DIRECTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const LINE_DIRECTION_RightToLeft: i32 = 1i32;
+pub const LINE_DIRECTION_LeftToRight: i32 = 2i32;
+pub const LINE_DIRECTION_Max: i32 = 2147483647i32;
 pub const LINKSBAND: u32 = 4u32;
 #[repr(C)]
 pub struct LayoutRectEvents(pub u8);
@@ -15498,119 +15106,63 @@ pub const MAPMIME_CLSID: u32 = 1u32;
 pub const MAPMIME_DEFAULT: u32 = 0u32;
 pub const MAPMIME_DEFAULT_ALWAYS: u32 = 3u32;
 pub const MAPMIME_DISABLE: u32 = 2u32;
-#[repr(transparent)]
-pub struct MARKUP_CONTEXT_TYPE(pub i32);
-pub const CONTEXT_TYPE_None: MARKUP_CONTEXT_TYPE = MARKUP_CONTEXT_TYPE(0i32);
-pub const CONTEXT_TYPE_Text: MARKUP_CONTEXT_TYPE = MARKUP_CONTEXT_TYPE(1i32);
-pub const CONTEXT_TYPE_EnterScope: MARKUP_CONTEXT_TYPE = MARKUP_CONTEXT_TYPE(2i32);
-pub const CONTEXT_TYPE_ExitScope: MARKUP_CONTEXT_TYPE = MARKUP_CONTEXT_TYPE(3i32);
-pub const CONTEXT_TYPE_NoScope: MARKUP_CONTEXT_TYPE = MARKUP_CONTEXT_TYPE(4i32);
-pub const MARKUP_CONTEXT_TYPE_Max: MARKUP_CONTEXT_TYPE = MARKUP_CONTEXT_TYPE(2147483647i32);
-impl ::core::marker::Copy for MARKUP_CONTEXT_TYPE {}
-impl ::core::clone::Clone for MARKUP_CONTEXT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const CONTEXT_TYPE_None: i32 = 0i32;
+pub const CONTEXT_TYPE_Text: i32 = 1i32;
+pub const CONTEXT_TYPE_EnterScope: i32 = 2i32;
+pub const CONTEXT_TYPE_ExitScope: i32 = 3i32;
+pub const CONTEXT_TYPE_NoScope: i32 = 4i32;
+pub const MARKUP_CONTEXT_TYPE_Max: i32 = 2147483647i32;
 pub const MAX_SEARCH_FORMAT_STRING: u32 = 255u32;
 pub const MENUEXT_SHOWDIALOG: u32 = 1u32;
-#[repr(transparent)]
-pub struct MOVEUNIT_ACTION(pub i32);
-pub const MOVEUNIT_PREVCHAR: MOVEUNIT_ACTION = MOVEUNIT_ACTION(0i32);
-pub const MOVEUNIT_NEXTCHAR: MOVEUNIT_ACTION = MOVEUNIT_ACTION(1i32);
-pub const MOVEUNIT_PREVCLUSTERBEGIN: MOVEUNIT_ACTION = MOVEUNIT_ACTION(2i32);
-pub const MOVEUNIT_NEXTCLUSTERBEGIN: MOVEUNIT_ACTION = MOVEUNIT_ACTION(3i32);
-pub const MOVEUNIT_PREVCLUSTEREND: MOVEUNIT_ACTION = MOVEUNIT_ACTION(4i32);
-pub const MOVEUNIT_NEXTCLUSTEREND: MOVEUNIT_ACTION = MOVEUNIT_ACTION(5i32);
-pub const MOVEUNIT_PREVWORDBEGIN: MOVEUNIT_ACTION = MOVEUNIT_ACTION(6i32);
-pub const MOVEUNIT_NEXTWORDBEGIN: MOVEUNIT_ACTION = MOVEUNIT_ACTION(7i32);
-pub const MOVEUNIT_PREVWORDEND: MOVEUNIT_ACTION = MOVEUNIT_ACTION(8i32);
-pub const MOVEUNIT_NEXTWORDEND: MOVEUNIT_ACTION = MOVEUNIT_ACTION(9i32);
-pub const MOVEUNIT_PREVPROOFWORD: MOVEUNIT_ACTION = MOVEUNIT_ACTION(10i32);
-pub const MOVEUNIT_NEXTPROOFWORD: MOVEUNIT_ACTION = MOVEUNIT_ACTION(11i32);
-pub const MOVEUNIT_NEXTURLBEGIN: MOVEUNIT_ACTION = MOVEUNIT_ACTION(12i32);
-pub const MOVEUNIT_PREVURLBEGIN: MOVEUNIT_ACTION = MOVEUNIT_ACTION(13i32);
-pub const MOVEUNIT_NEXTURLEND: MOVEUNIT_ACTION = MOVEUNIT_ACTION(14i32);
-pub const MOVEUNIT_PREVURLEND: MOVEUNIT_ACTION = MOVEUNIT_ACTION(15i32);
-pub const MOVEUNIT_PREVSENTENCE: MOVEUNIT_ACTION = MOVEUNIT_ACTION(16i32);
-pub const MOVEUNIT_NEXTSENTENCE: MOVEUNIT_ACTION = MOVEUNIT_ACTION(17i32);
-pub const MOVEUNIT_PREVBLOCK: MOVEUNIT_ACTION = MOVEUNIT_ACTION(18i32);
-pub const MOVEUNIT_NEXTBLOCK: MOVEUNIT_ACTION = MOVEUNIT_ACTION(19i32);
-pub const MOVEUNIT_ACTION_Max: MOVEUNIT_ACTION = MOVEUNIT_ACTION(2147483647i32);
-impl ::core::marker::Copy for MOVEUNIT_ACTION {}
-impl ::core::clone::Clone for MOVEUNIT_ACTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct MediaActivityNotifyType(pub i32);
-pub const MediaPlayback: MediaActivityNotifyType = MediaActivityNotifyType(0i32);
-pub const MediaRecording: MediaActivityNotifyType = MediaActivityNotifyType(1i32);
-pub const MediaCasting: MediaActivityNotifyType = MediaActivityNotifyType(2i32);
-impl ::core::marker::Copy for MediaActivityNotifyType {}
-impl ::core::clone::Clone for MediaActivityNotifyType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const MOVEUNIT_PREVCHAR: i32 = 0i32;
+pub const MOVEUNIT_NEXTCHAR: i32 = 1i32;
+pub const MOVEUNIT_PREVCLUSTERBEGIN: i32 = 2i32;
+pub const MOVEUNIT_NEXTCLUSTERBEGIN: i32 = 3i32;
+pub const MOVEUNIT_PREVCLUSTEREND: i32 = 4i32;
+pub const MOVEUNIT_NEXTCLUSTEREND: i32 = 5i32;
+pub const MOVEUNIT_PREVWORDBEGIN: i32 = 6i32;
+pub const MOVEUNIT_NEXTWORDBEGIN: i32 = 7i32;
+pub const MOVEUNIT_PREVWORDEND: i32 = 8i32;
+pub const MOVEUNIT_NEXTWORDEND: i32 = 9i32;
+pub const MOVEUNIT_PREVPROOFWORD: i32 = 10i32;
+pub const MOVEUNIT_NEXTPROOFWORD: i32 = 11i32;
+pub const MOVEUNIT_NEXTURLBEGIN: i32 = 12i32;
+pub const MOVEUNIT_PREVURLBEGIN: i32 = 13i32;
+pub const MOVEUNIT_NEXTURLEND: i32 = 14i32;
+pub const MOVEUNIT_PREVURLEND: i32 = 15i32;
+pub const MOVEUNIT_PREVSENTENCE: i32 = 16i32;
+pub const MOVEUNIT_NEXTSENTENCE: i32 = 17i32;
+pub const MOVEUNIT_PREVBLOCK: i32 = 18i32;
+pub const MOVEUNIT_NEXTBLOCK: i32 = 19i32;
+pub const MOVEUNIT_ACTION_Max: i32 = 2147483647i32;
+pub const MediaPlayback: i32 = 0i32;
+pub const MediaRecording: i32 = 1i32;
+pub const MediaCasting: i32 = 2i32;
 pub const NodeIterator: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616645, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const OldHTMLDocument: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3565842121, data2: 27210, data3: 4559, data4: [148, 167, 68, 69, 83, 84, 0, 0] };
 pub const OldHTMLFormElement: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 218419845, data2: 27628, data3: 4559, data4: [139, 151, 0, 170, 0, 71, 109, 166] };
-#[repr(transparent)]
-pub struct OpenServiceActivityContentType(pub i32);
-pub const ActivityContentNone: OpenServiceActivityContentType = OpenServiceActivityContentType(-1i32);
-pub const ActivityContentDocument: OpenServiceActivityContentType = OpenServiceActivityContentType(0i32);
-pub const ActivityContentSelection: OpenServiceActivityContentType = OpenServiceActivityContentType(1i32);
-pub const ActivityContentLink: OpenServiceActivityContentType = OpenServiceActivityContentType(2i32);
-pub const ActivityContentCount: OpenServiceActivityContentType = OpenServiceActivityContentType(3i32);
-impl ::core::marker::Copy for OpenServiceActivityContentType {}
-impl ::core::clone::Clone for OpenServiceActivityContentType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const ActivityContentNone: i32 = -1i32;
+pub const ActivityContentDocument: i32 = 0i32;
+pub const ActivityContentSelection: i32 = 1i32;
+pub const ActivityContentLink: i32 = 2i32;
+pub const ActivityContentCount: i32 = 3i32;
 pub const OpenServiceActivityManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3320829955,
     data2: 20728,
     data3: 17357,
     data4: [154, 184, 170, 252, 19, 148, 201, 224],
 };
-#[repr(transparent)]
-pub struct OpenServiceErrors(pub i32);
-pub const OS_E_NOTFOUND: OpenServiceErrors = OpenServiceErrors(-2147287038i32);
-pub const OS_E_NOTSUPPORTED: OpenServiceErrors = OpenServiceErrors(-2147467231i32);
-pub const OS_E_CANCELLED: OpenServiceErrors = OpenServiceErrors(-2147471631i32);
-pub const OS_E_GPDISABLED: OpenServiceErrors = OpenServiceErrors(-1072886820i32);
-impl ::core::marker::Copy for OpenServiceErrors {}
-impl ::core::clone::Clone for OpenServiceErrors {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const OS_E_NOTFOUND: i32 = -2147287038i32;
+pub const OS_E_NOTSUPPORTED: i32 = -2147467231i32;
+pub const OS_E_CANCELLED: i32 = -2147471631i32;
+pub const OS_E_GPDISABLED: i32 = -1072886820i32;
 pub const OpenServiceManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 159936694, data2: 14826, data3: 18443, data4: [184, 181, 221, 1, 103, 196, 219, 89] };
-#[repr(transparent)]
-pub struct PARSE_FLAGS(pub i32);
-pub const PARSE_ABSOLUTIFYIE40URLS: PARSE_FLAGS = PARSE_FLAGS(1i32);
-pub const PARSE_DISABLEVML: PARSE_FLAGS = PARSE_FLAGS(2i32);
-pub const PARSE_FLAGS_Max: PARSE_FLAGS = PARSE_FLAGS(2147483647i32);
-impl ::core::marker::Copy for PARSE_FLAGS {}
-impl ::core::clone::Clone for PARSE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct POINTER_GRAVITY(pub i32);
-pub const POINTER_GRAVITY_Left: POINTER_GRAVITY = POINTER_GRAVITY(0i32);
-pub const POINTER_GRAVITY_Right: POINTER_GRAVITY = POINTER_GRAVITY(1i32);
-pub const POINTER_GRAVITY_Max: POINTER_GRAVITY = POINTER_GRAVITY(2147483647i32);
-impl ::core::marker::Copy for POINTER_GRAVITY {}
-impl ::core::clone::Clone for POINTER_GRAVITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const PARSE_ABSOLUTIFYIE40URLS: i32 = 1i32;
+pub const PARSE_DISABLEVML: i32 = 2i32;
+pub const PARSE_FLAGS_Max: i32 = 2147483647i32;
+pub const POINTER_GRAVITY_Left: i32 = 0i32;
+pub const POINTER_GRAVITY_Right: i32 = 1i32;
+pub const POINTER_GRAVITY_Max: i32 = 2147483647i32;
 pub const PRINT_DONTBOTHERUSER: u32 = 1u32;
 pub const PRINT_WAITFORCOMPLETION: u32 = 2u32;
 pub const PRIVACY_URLHASCOMPACTPOLICY: u32 = 131072u32;
@@ -15651,67 +15203,27 @@ pub const RulesAppliedCollection: ::windows_sys::core::GUID = ::windows_sys::cor
     data3: 16559,
     data4: [190, 143, 28, 186, 238, 100, 134, 232],
 };
-#[repr(transparent)]
-pub struct SAVE_SEGMENTS_FLAGS(pub i32);
-pub const SAVE_SEGMENTS_NoIE4SelectionCompat: SAVE_SEGMENTS_FLAGS = SAVE_SEGMENTS_FLAGS(1i32);
-pub const SAVE_SEGMENTS_FLAGS_Max: SAVE_SEGMENTS_FLAGS = SAVE_SEGMENTS_FLAGS(2147483647i32);
-impl ::core::marker::Copy for SAVE_SEGMENTS_FLAGS {}
-impl ::core::clone::Clone for SAVE_SEGMENTS_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct SCRIPT_TIMER_TYPE(pub i32);
-pub const STT_TIMEOUT: SCRIPT_TIMER_TYPE = SCRIPT_TIMER_TYPE(0i32);
-pub const STT_INTERVAL: SCRIPT_TIMER_TYPE = SCRIPT_TIMER_TYPE(1i32);
-pub const STT_IMMEDIATE: SCRIPT_TIMER_TYPE = SCRIPT_TIMER_TYPE(2i32);
-pub const STT_ANIMATION_FRAME: SCRIPT_TIMER_TYPE = SCRIPT_TIMER_TYPE(3i32);
-pub const SCRIPT_TIMER_TYPE_Max: SCRIPT_TIMER_TYPE = SCRIPT_TIMER_TYPE(2147483647i32);
-impl ::core::marker::Copy for SCRIPT_TIMER_TYPE {}
-impl ::core::clone::Clone for SCRIPT_TIMER_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct SCROLLABLECONTEXTMENU_PLACEMENT(pub i32);
-pub const SCMP_TOP: SCROLLABLECONTEXTMENU_PLACEMENT = SCROLLABLECONTEXTMENU_PLACEMENT(0i32);
-pub const SCMP_BOTTOM: SCROLLABLECONTEXTMENU_PLACEMENT = SCROLLABLECONTEXTMENU_PLACEMENT(1i32);
-pub const SCMP_LEFT: SCROLLABLECONTEXTMENU_PLACEMENT = SCROLLABLECONTEXTMENU_PLACEMENT(2i32);
-pub const SCMP_RIGHT: SCROLLABLECONTEXTMENU_PLACEMENT = SCROLLABLECONTEXTMENU_PLACEMENT(3i32);
-pub const SCMP_FULL: SCROLLABLECONTEXTMENU_PLACEMENT = SCROLLABLECONTEXTMENU_PLACEMENT(4i32);
-impl ::core::marker::Copy for SCROLLABLECONTEXTMENU_PLACEMENT {}
-impl ::core::clone::Clone for SCROLLABLECONTEXTMENU_PLACEMENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct SECUREURLHOSTVALIDATE_FLAGS(pub i32);
-pub const SUHV_PROMPTBEFORENO: SECUREURLHOSTVALIDATE_FLAGS = SECUREURLHOSTVALIDATE_FLAGS(1i32);
-pub const SUHV_SILENTYES: SECUREURLHOSTVALIDATE_FLAGS = SECUREURLHOSTVALIDATE_FLAGS(2i32);
-pub const SUHV_UNSECURESOURCE: SECUREURLHOSTVALIDATE_FLAGS = SECUREURLHOSTVALIDATE_FLAGS(4i32);
-pub const SECUREURLHOSTVALIDATE_FLAGS_Max: SECUREURLHOSTVALIDATE_FLAGS = SECUREURLHOSTVALIDATE_FLAGS(2147483647i32);
-impl ::core::marker::Copy for SECUREURLHOSTVALIDATE_FLAGS {}
-impl ::core::clone::Clone for SECUREURLHOSTVALIDATE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct SELECTION_TYPE(pub i32);
-pub const SELECTION_TYPE_None: SELECTION_TYPE = SELECTION_TYPE(0i32);
-pub const SELECTION_TYPE_Caret: SELECTION_TYPE = SELECTION_TYPE(1i32);
-pub const SELECTION_TYPE_Text: SELECTION_TYPE = SELECTION_TYPE(2i32);
-pub const SELECTION_TYPE_Control: SELECTION_TYPE = SELECTION_TYPE(3i32);
-pub const SELECTION_TYPE_Max: SELECTION_TYPE = SELECTION_TYPE(2147483647i32);
-impl ::core::marker::Copy for SELECTION_TYPE {}
-impl ::core::clone::Clone for SELECTION_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const SAVE_SEGMENTS_NoIE4SelectionCompat: i32 = 1i32;
+pub const SAVE_SEGMENTS_FLAGS_Max: i32 = 2147483647i32;
+pub const STT_TIMEOUT: i32 = 0i32;
+pub const STT_INTERVAL: i32 = 1i32;
+pub const STT_IMMEDIATE: i32 = 2i32;
+pub const STT_ANIMATION_FRAME: i32 = 3i32;
+pub const SCRIPT_TIMER_TYPE_Max: i32 = 2147483647i32;
+pub const SCMP_TOP: i32 = 0i32;
+pub const SCMP_BOTTOM: i32 = 1i32;
+pub const SCMP_LEFT: i32 = 2i32;
+pub const SCMP_RIGHT: i32 = 3i32;
+pub const SCMP_FULL: i32 = 4i32;
+pub const SUHV_PROMPTBEFORENO: i32 = 1i32;
+pub const SUHV_SILENTYES: i32 = 2i32;
+pub const SUHV_UNSECURESOURCE: i32 = 4i32;
+pub const SECUREURLHOSTVALIDATE_FLAGS_Max: i32 = 2147483647i32;
+pub const SELECTION_TYPE_None: i32 = 0i32;
+pub const SELECTION_TYPE_Caret: i32 = 1i32;
+pub const SELECTION_TYPE_Text: i32 = 2i32;
+pub const SELECTION_TYPE_Control: i32 = 3i32;
+pub const SELECTION_TYPE_Max: i32 = 2147483647i32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub type SHOWHTMLDIALOGEXFN = unsafe extern "system" fn(hwndparent: super::super::Foundation::HWND, pmk: super::super::System::Com::IMoniker, dwdialogflags: u32, pvarargin: *mut super::super::System::Com::VARIANT, pchoptions: super::super::Foundation::PWSTR, pvargout: *mut super::super::System::Com::VARIANT) -> ::windows_sys::core::HRESULT;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -15915,28 +15427,12 @@ pub const TIMERMODE_VISIBILITYAWARE: u32 = 1u32;
 pub const TOOLSBAND: u32 = 1u32;
 pub const ThreadDialogProcParam: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810612203, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const TreeWalker: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616647, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-#[repr(transparent)]
-pub struct VIEW_OBJECT_ALPHA_MODE(pub i32);
-pub const VIEW_OBJECT_ALPHA_MODE_IGNORE: VIEW_OBJECT_ALPHA_MODE = VIEW_OBJECT_ALPHA_MODE(0i32);
-pub const VIEW_OBJECT_ALPHA_MODE_PREMULTIPLIED: VIEW_OBJECT_ALPHA_MODE = VIEW_OBJECT_ALPHA_MODE(1i32);
-pub const VIEW_OBJECT_ALPHA_MODE_Max: VIEW_OBJECT_ALPHA_MODE = VIEW_OBJECT_ALPHA_MODE(2147483647i32);
-impl ::core::marker::Copy for VIEW_OBJECT_ALPHA_MODE {}
-impl ::core::clone::Clone for VIEW_OBJECT_ALPHA_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct VIEW_OBJECT_COMPOSITION_MODE(pub i32);
-pub const VIEW_OBJECT_COMPOSITION_MODE_LEGACY: VIEW_OBJECT_COMPOSITION_MODE = VIEW_OBJECT_COMPOSITION_MODE(0i32);
-pub const VIEW_OBJECT_COMPOSITION_MODE_SURFACEPRESENTER: VIEW_OBJECT_COMPOSITION_MODE = VIEW_OBJECT_COMPOSITION_MODE(1i32);
-pub const VIEW_OBJECT_COMPOSITION_MODE_Max: VIEW_OBJECT_COMPOSITION_MODE = VIEW_OBJECT_COMPOSITION_MODE(2147483647i32);
-impl ::core::marker::Copy for VIEW_OBJECT_COMPOSITION_MODE {}
-impl ::core::clone::Clone for VIEW_OBJECT_COMPOSITION_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const VIEW_OBJECT_ALPHA_MODE_IGNORE: i32 = 0i32;
+pub const VIEW_OBJECT_ALPHA_MODE_PREMULTIPLIED: i32 = 1i32;
+pub const VIEW_OBJECT_ALPHA_MODE_Max: i32 = 2147483647i32;
+pub const VIEW_OBJECT_COMPOSITION_MODE_LEGACY: i32 = 0i32;
+pub const VIEW_OBJECT_COMPOSITION_MODE_SURFACEPRESENTER: i32 = 1i32;
+pub const VIEW_OBJECT_COMPOSITION_MODE_Max: i32 = 2147483647i32;
 pub const WEBOC_DISPIDBASE: u32 = 70536u32;
 pub const WEBOC_DISPIDMAX: u32 = 70636u32;
 pub const WebGeocoordinates: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616776, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
@@ -15947,3054 +15443,1358 @@ pub const XDomainRequest: ::windows_sys::core::GUID = ::windows_sys::core::GUID 
 pub const XDomainRequestFactory: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810615895, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const XMLHttpRequestEventTarget: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616881, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
 pub const XMLSerializer: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 810616702, data2: 39093, data3: 4559, data4: [187, 130, 0, 170, 0, 189, 206, 11] };
-#[repr(transparent)]
-pub struct __MIDL_ITargetFrame2_0001(pub i32);
-pub const FINDFRAME_NONE: __MIDL_ITargetFrame2_0001 = __MIDL_ITargetFrame2_0001(0i32);
-pub const FINDFRAME_JUSTTESTEXISTENCE: __MIDL_ITargetFrame2_0001 = __MIDL_ITargetFrame2_0001(1i32);
-pub const FINDFRAME_INTERNAL: __MIDL_ITargetFrame2_0001 = __MIDL_ITargetFrame2_0001(-2147483648i32);
-impl ::core::marker::Copy for __MIDL_ITargetFrame2_0001 {}
-impl ::core::clone::Clone for __MIDL_ITargetFrame2_0001 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct __MIDL_ITargetFrame2_0002(pub i32);
-pub const FRAMEOPTIONS_SCROLL_YES: __MIDL_ITargetFrame2_0002 = __MIDL_ITargetFrame2_0002(1i32);
-pub const FRAMEOPTIONS_SCROLL_NO: __MIDL_ITargetFrame2_0002 = __MIDL_ITargetFrame2_0002(2i32);
-pub const FRAMEOPTIONS_SCROLL_AUTO: __MIDL_ITargetFrame2_0002 = __MIDL_ITargetFrame2_0002(4i32);
-pub const FRAMEOPTIONS_NORESIZE: __MIDL_ITargetFrame2_0002 = __MIDL_ITargetFrame2_0002(8i32);
-pub const FRAMEOPTIONS_NO3DBORDER: __MIDL_ITargetFrame2_0002 = __MIDL_ITargetFrame2_0002(16i32);
-pub const FRAMEOPTIONS_DESKTOP: __MIDL_ITargetFrame2_0002 = __MIDL_ITargetFrame2_0002(32i32);
-pub const FRAMEOPTIONS_BROWSERBAND: __MIDL_ITargetFrame2_0002 = __MIDL_ITargetFrame2_0002(64i32);
-impl ::core::marker::Copy for __MIDL_ITargetFrame2_0002 {}
-impl ::core::clone::Clone for __MIDL_ITargetFrame2_0002 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct __MIDL_ITargetFrame_0001(pub i32);
-pub const NAVIGATEFRAME_FL_RECORD: __MIDL_ITargetFrame_0001 = __MIDL_ITargetFrame_0001(1i32);
-pub const NAVIGATEFRAME_FL_POST: __MIDL_ITargetFrame_0001 = __MIDL_ITargetFrame_0001(2i32);
-pub const NAVIGATEFRAME_FL_NO_DOC_CACHE: __MIDL_ITargetFrame_0001 = __MIDL_ITargetFrame_0001(4i32);
-pub const NAVIGATEFRAME_FL_NO_IMAGE_CACHE: __MIDL_ITargetFrame_0001 = __MIDL_ITargetFrame_0001(8i32);
-pub const NAVIGATEFRAME_FL_AUTH_FAIL_CACHE_OK: __MIDL_ITargetFrame_0001 = __MIDL_ITargetFrame_0001(16i32);
-pub const NAVIGATEFRAME_FL_SENDING_FROM_FORM: __MIDL_ITargetFrame_0001 = __MIDL_ITargetFrame_0001(32i32);
-pub const NAVIGATEFRAME_FL_REALLY_SENDING_FROM_FORM: __MIDL_ITargetFrame_0001 = __MIDL_ITargetFrame_0001(64i32);
-impl ::core::marker::Copy for __MIDL_ITargetFrame_0001 {}
-impl ::core::clone::Clone for __MIDL_ITargetFrame_0001 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct bodyScroll(pub i32);
-pub const bodyScrollyes: bodyScroll = bodyScroll(1i32);
-pub const bodyScrollno: bodyScroll = bodyScroll(2i32);
-pub const bodyScrollauto: bodyScroll = bodyScroll(4i32);
-pub const bodyScrolldefault: bodyScroll = bodyScroll(3i32);
-pub const bodyScroll_Max: bodyScroll = bodyScroll(2147483647i32);
-impl ::core::marker::Copy for bodyScroll {}
-impl ::core::clone::Clone for bodyScroll {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct frameScrolling(pub i32);
-pub const frameScrollingyes: frameScrolling = frameScrolling(1i32);
-pub const frameScrollingno: frameScrolling = frameScrolling(2i32);
-pub const frameScrollingauto: frameScrolling = frameScrolling(4i32);
-pub const frameScrolling_Max: frameScrolling = frameScrolling(2147483647i32);
-impl ::core::marker::Copy for frameScrolling {}
-impl ::core::clone::Clone for frameScrolling {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct htmlAdjacency(pub i32);
-pub const htmlAdjacencyBeforeBegin: htmlAdjacency = htmlAdjacency(1i32);
-pub const htmlAdjacencyAfterBegin: htmlAdjacency = htmlAdjacency(2i32);
-pub const htmlAdjacencyBeforeEnd: htmlAdjacency = htmlAdjacency(3i32);
-pub const htmlAdjacencyAfterEnd: htmlAdjacency = htmlAdjacency(4i32);
-pub const htmlAdjacency_Max: htmlAdjacency = htmlAdjacency(2147483647i32);
-impl ::core::marker::Copy for htmlAdjacency {}
-impl ::core::clone::Clone for htmlAdjacency {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct htmlApplyLocation(pub i32);
-pub const htmlApplyLocationInside: htmlApplyLocation = htmlApplyLocation(0i32);
-pub const htmlApplyLocationOutside: htmlApplyLocation = htmlApplyLocation(1i32);
-pub const htmlApplyLocation_Max: htmlApplyLocation = htmlApplyLocation(2147483647i32);
-impl ::core::marker::Copy for htmlApplyLocation {}
-impl ::core::clone::Clone for htmlApplyLocation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct htmlBlockAlign(pub i32);
-pub const htmlBlockAlignNotSet: htmlBlockAlign = htmlBlockAlign(0i32);
-pub const htmlBlockAlignLeft: htmlBlockAlign = htmlBlockAlign(1i32);
-pub const htmlBlockAlignCenter: htmlBlockAlign = htmlBlockAlign(2i32);
-pub const htmlBlockAlignRight: htmlBlockAlign = htmlBlockAlign(3i32);
-pub const htmlBlockAlignJustify: htmlBlockAlign = htmlBlockAlign(4i32);
-pub const htmlBlockAlign_Max: htmlBlockAlign = htmlBlockAlign(2147483647i32);
-impl ::core::marker::Copy for htmlBlockAlign {}
-impl ::core::clone::Clone for htmlBlockAlign {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct htmlCaptionAlign(pub i32);
-pub const htmlCaptionAlignNotSet: htmlCaptionAlign = htmlCaptionAlign(0i32);
-pub const htmlCaptionAlignLeft: htmlCaptionAlign = htmlCaptionAlign(1i32);
-pub const htmlCaptionAlignCenter: htmlCaptionAlign = htmlCaptionAlign(2i32);
-pub const htmlCaptionAlignRight: htmlCaptionAlign = htmlCaptionAlign(3i32);
-pub const htmlCaptionAlignJustify: htmlCaptionAlign = htmlCaptionAlign(4i32);
-pub const htmlCaptionAlignTop: htmlCaptionAlign = htmlCaptionAlign(5i32);
-pub const htmlCaptionAlignBottom: htmlCaptionAlign = htmlCaptionAlign(6i32);
-pub const htmlCaptionAlign_Max: htmlCaptionAlign = htmlCaptionAlign(2147483647i32);
-impl ::core::marker::Copy for htmlCaptionAlign {}
-impl ::core::clone::Clone for htmlCaptionAlign {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct htmlCaptionVAlign(pub i32);
-pub const htmlCaptionVAlignNotSet: htmlCaptionVAlign = htmlCaptionVAlign(0i32);
-pub const htmlCaptionVAlignTop: htmlCaptionVAlign = htmlCaptionVAlign(1i32);
-pub const htmlCaptionVAlignBottom: htmlCaptionVAlign = htmlCaptionVAlign(2i32);
-pub const htmlCaptionVAlign_Max: htmlCaptionVAlign = htmlCaptionVAlign(2147483647i32);
-impl ::core::marker::Copy for htmlCaptionVAlign {}
-impl ::core::clone::Clone for htmlCaptionVAlign {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct htmlCellAlign(pub i32);
-pub const htmlCellAlignNotSet: htmlCellAlign = htmlCellAlign(0i32);
-pub const htmlCellAlignLeft: htmlCellAlign = htmlCellAlign(1i32);
-pub const htmlCellAlignCenter: htmlCellAlign = htmlCellAlign(2i32);
-pub const htmlCellAlignRight: htmlCellAlign = htmlCellAlign(3i32);
-pub const htmlCellAlignMiddle: htmlCellAlign = htmlCellAlign(2i32);
-pub const htmlCellAlign_Max: htmlCellAlign = htmlCellAlign(2147483647i32);
-impl ::core::marker::Copy for htmlCellAlign {}
-impl ::core::clone::Clone for htmlCellAlign {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct htmlCellVAlign(pub i32);
-pub const htmlCellVAlignNotSet: htmlCellVAlign = htmlCellVAlign(0i32);
-pub const htmlCellVAlignTop: htmlCellVAlign = htmlCellVAlign(1i32);
-pub const htmlCellVAlignMiddle: htmlCellVAlign = htmlCellVAlign(2i32);
-pub const htmlCellVAlignBottom: htmlCellVAlign = htmlCellVAlign(3i32);
-pub const htmlCellVAlignBaseline: htmlCellVAlign = htmlCellVAlign(4i32);
-pub const htmlCellVAlignCenter: htmlCellVAlign = htmlCellVAlign(2i32);
-pub const htmlCellVAlign_Max: htmlCellVAlign = htmlCellVAlign(2147483647i32);
-impl ::core::marker::Copy for htmlCellVAlign {}
-impl ::core::clone::Clone for htmlCellVAlign {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct htmlClear(pub i32);
-pub const htmlClearNotSet: htmlClear = htmlClear(0i32);
-pub const htmlClearAll: htmlClear = htmlClear(1i32);
-pub const htmlClearLeft: htmlClear = htmlClear(2i32);
-pub const htmlClearRight: htmlClear = htmlClear(3i32);
-pub const htmlClearBoth: htmlClear = htmlClear(4i32);
-pub const htmlClearNone: htmlClear = htmlClear(5i32);
-pub const htmlClear_Max: htmlClear = htmlClear(2147483647i32);
-impl ::core::marker::Copy for htmlClear {}
-impl ::core::clone::Clone for htmlClear {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct htmlCompatMode(pub i32);
-pub const htmlCompatModeBackCompat: htmlCompatMode = htmlCompatMode(0i32);
-pub const htmlCompatModeCSS1Compat: htmlCompatMode = htmlCompatMode(1i32);
-pub const htmlCompatMode_Max: htmlCompatMode = htmlCompatMode(2147483647i32);
-impl ::core::marker::Copy for htmlCompatMode {}
-impl ::core::clone::Clone for htmlCompatMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct htmlComponent(pub i32);
-pub const htmlComponentClient: htmlComponent = htmlComponent(0i32);
-pub const htmlComponentSbLeft: htmlComponent = htmlComponent(1i32);
-pub const htmlComponentSbPageLeft: htmlComponent = htmlComponent(2i32);
-pub const htmlComponentSbHThumb: htmlComponent = htmlComponent(3i32);
-pub const htmlComponentSbPageRight: htmlComponent = htmlComponent(4i32);
-pub const htmlComponentSbRight: htmlComponent = htmlComponent(5i32);
-pub const htmlComponentSbUp: htmlComponent = htmlComponent(6i32);
-pub const htmlComponentSbPageUp: htmlComponent = htmlComponent(7i32);
-pub const htmlComponentSbVThumb: htmlComponent = htmlComponent(8i32);
-pub const htmlComponentSbPageDown: htmlComponent = htmlComponent(9i32);
-pub const htmlComponentSbDown: htmlComponent = htmlComponent(10i32);
-pub const htmlComponentSbLeft2: htmlComponent = htmlComponent(11i32);
-pub const htmlComponentSbPageLeft2: htmlComponent = htmlComponent(12i32);
-pub const htmlComponentSbRight2: htmlComponent = htmlComponent(13i32);
-pub const htmlComponentSbPageRight2: htmlComponent = htmlComponent(14i32);
-pub const htmlComponentSbUp2: htmlComponent = htmlComponent(15i32);
-pub const htmlComponentSbPageUp2: htmlComponent = htmlComponent(16i32);
-pub const htmlComponentSbDown2: htmlComponent = htmlComponent(17i32);
-pub const htmlComponentSbPageDown2: htmlComponent = htmlComponent(18i32);
-pub const htmlComponentSbTop: htmlComponent = htmlComponent(19i32);
-pub const htmlComponentSbBottom: htmlComponent = htmlComponent(20i32);
-pub const htmlComponentOutside: htmlComponent = htmlComponent(21i32);
-pub const htmlComponentGHTopLeft: htmlComponent = htmlComponent(22i32);
-pub const htmlComponentGHLeft: htmlComponent = htmlComponent(23i32);
-pub const htmlComponentGHTop: htmlComponent = htmlComponent(24i32);
-pub const htmlComponentGHBottomLeft: htmlComponent = htmlComponent(25i32);
-pub const htmlComponentGHTopRight: htmlComponent = htmlComponent(26i32);
-pub const htmlComponentGHBottom: htmlComponent = htmlComponent(27i32);
-pub const htmlComponentGHRight: htmlComponent = htmlComponent(28i32);
-pub const htmlComponentGHBottomRight: htmlComponent = htmlComponent(29i32);
-pub const htmlComponent_Max: htmlComponent = htmlComponent(2147483647i32);
-impl ::core::marker::Copy for htmlComponent {}
-impl ::core::clone::Clone for htmlComponent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct htmlControlAlign(pub i32);
-pub const htmlControlAlignNotSet: htmlControlAlign = htmlControlAlign(0i32);
-pub const htmlControlAlignLeft: htmlControlAlign = htmlControlAlign(1i32);
-pub const htmlControlAlignCenter: htmlControlAlign = htmlControlAlign(2i32);
-pub const htmlControlAlignRight: htmlControlAlign = htmlControlAlign(3i32);
-pub const htmlControlAlignTextTop: htmlControlAlign = htmlControlAlign(4i32);
-pub const htmlControlAlignAbsMiddle: htmlControlAlign = htmlControlAlign(5i32);
-pub const htmlControlAlignBaseline: htmlControlAlign = htmlControlAlign(6i32);
-pub const htmlControlAlignAbsBottom: htmlControlAlign = htmlControlAlign(7i32);
-pub const htmlControlAlignBottom: htmlControlAlign = htmlControlAlign(8i32);
-pub const htmlControlAlignMiddle: htmlControlAlign = htmlControlAlign(9i32);
-pub const htmlControlAlignTop: htmlControlAlign = htmlControlAlign(10i32);
-pub const htmlControlAlign_Max: htmlControlAlign = htmlControlAlign(2147483647i32);
-impl ::core::marker::Copy for htmlControlAlign {}
-impl ::core::clone::Clone for htmlControlAlign {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct htmlDesignMode(pub i32);
-pub const htmlDesignModeInherit: htmlDesignMode = htmlDesignMode(-2i32);
-pub const htmlDesignModeOn: htmlDesignMode = htmlDesignMode(-1i32);
-pub const htmlDesignModeOff: htmlDesignMode = htmlDesignMode(0i32);
-pub const htmlDesignMode_Max: htmlDesignMode = htmlDesignMode(2147483647i32);
-impl ::core::marker::Copy for htmlDesignMode {}
-impl ::core::clone::Clone for htmlDesignMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct htmlDir(pub i32);
-pub const htmlDirNotSet: htmlDir = htmlDir(0i32);
-pub const htmlDirLeftToRight: htmlDir = htmlDir(1i32);
-pub const htmlDirRightToLeft: htmlDir = htmlDir(2i32);
-pub const htmlDir_Max: htmlDir = htmlDir(2147483647i32);
-impl ::core::marker::Copy for htmlDir {}
-impl ::core::clone::Clone for htmlDir {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct htmlDirection(pub i32);
-pub const htmlDirectionForward: htmlDirection = htmlDirection(99999i32);
-pub const htmlDirectionBackward: htmlDirection = htmlDirection(-99999i32);
-pub const htmlDirection_Max: htmlDirection = htmlDirection(2147483647i32);
-impl ::core::marker::Copy for htmlDirection {}
-impl ::core::clone::Clone for htmlDirection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct htmlDraggable(pub i32);
-pub const htmlDraggableAuto: htmlDraggable = htmlDraggable(0i32);
-pub const htmlDraggableTrue: htmlDraggable = htmlDraggable(1i32);
-pub const htmlDraggableFalse: htmlDraggable = htmlDraggable(2i32);
-pub const htmlDraggable_Max: htmlDraggable = htmlDraggable(2147483647i32);
-impl ::core::marker::Copy for htmlDraggable {}
-impl ::core::clone::Clone for htmlDraggable {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct htmlDropEffect(pub i32);
-pub const htmlDropEffectCopy: htmlDropEffect = htmlDropEffect(0i32);
-pub const htmlDropEffectLink: htmlDropEffect = htmlDropEffect(1i32);
-pub const htmlDropEffectMove: htmlDropEffect = htmlDropEffect(2i32);
-pub const htmlDropEffectNone: htmlDropEffect = htmlDropEffect(3i32);
-pub const htmlDropEffect_Max: htmlDropEffect = htmlDropEffect(2147483647i32);
-impl ::core::marker::Copy for htmlDropEffect {}
-impl ::core::clone::Clone for htmlDropEffect {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct htmlEditable(pub i32);
-pub const htmlEditableInherit: htmlEditable = htmlEditable(0i32);
-pub const htmlEditableTrue: htmlEditable = htmlEditable(1i32);
-pub const htmlEditableFalse: htmlEditable = htmlEditable(2i32);
-pub const htmlEditable_Max: htmlEditable = htmlEditable(2147483647i32);
-impl ::core::marker::Copy for htmlEditable {}
-impl ::core::clone::Clone for htmlEditable {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct htmlEffectAllowed(pub i32);
-pub const htmlEffectAllowedCopy: htmlEffectAllowed = htmlEffectAllowed(0i32);
-pub const htmlEffectAllowedLink: htmlEffectAllowed = htmlEffectAllowed(1i32);
-pub const htmlEffectAllowedMove: htmlEffectAllowed = htmlEffectAllowed(2i32);
-pub const htmlEffectAllowedCopyLink: htmlEffectAllowed = htmlEffectAllowed(3i32);
-pub const htmlEffectAllowedCopyMove: htmlEffectAllowed = htmlEffectAllowed(4i32);
-pub const htmlEffectAllowedLinkMove: htmlEffectAllowed = htmlEffectAllowed(5i32);
-pub const htmlEffectAllowedAll: htmlEffectAllowed = htmlEffectAllowed(6i32);
-pub const htmlEffectAllowedNone: htmlEffectAllowed = htmlEffectAllowed(7i32);
-pub const htmlEffectAllowedUninitialized: htmlEffectAllowed = htmlEffectAllowed(8i32);
-pub const htmlEffectAllowed_Max: htmlEffectAllowed = htmlEffectAllowed(2147483647i32);
-impl ::core::marker::Copy for htmlEffectAllowed {}
-impl ::core::clone::Clone for htmlEffectAllowed {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct htmlEncoding(pub i32);
-pub const htmlEncodingURL: htmlEncoding = htmlEncoding(0i32);
-pub const htmlEncodingMultipart: htmlEncoding = htmlEncoding(1i32);
-pub const htmlEncodingText: htmlEncoding = htmlEncoding(2i32);
-pub const htmlEncoding_Max: htmlEncoding = htmlEncoding(2147483647i32);
-impl ::core::marker::Copy for htmlEncoding {}
-impl ::core::clone::Clone for htmlEncoding {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct htmlEndPoints(pub i32);
-pub const htmlEndPointsStartToStart: htmlEndPoints = htmlEndPoints(1i32);
-pub const htmlEndPointsStartToEnd: htmlEndPoints = htmlEndPoints(2i32);
-pub const htmlEndPointsEndToStart: htmlEndPoints = htmlEndPoints(3i32);
-pub const htmlEndPointsEndToEnd: htmlEndPoints = htmlEndPoints(4i32);
-pub const htmlEndPoints_Max: htmlEndPoints = htmlEndPoints(2147483647i32);
-impl ::core::marker::Copy for htmlEndPoints {}
-impl ::core::clone::Clone for htmlEndPoints {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct htmlFrame(pub i32);
-pub const htmlFrameNotSet: htmlFrame = htmlFrame(0i32);
-pub const htmlFramevoid: htmlFrame = htmlFrame(1i32);
-pub const htmlFrameabove: htmlFrame = htmlFrame(2i32);
-pub const htmlFramebelow: htmlFrame = htmlFrame(3i32);
-pub const htmlFramehsides: htmlFrame = htmlFrame(4i32);
-pub const htmlFramelhs: htmlFrame = htmlFrame(5i32);
-pub const htmlFramerhs: htmlFrame = htmlFrame(6i32);
-pub const htmlFramevsides: htmlFrame = htmlFrame(7i32);
-pub const htmlFramebox: htmlFrame = htmlFrame(8i32);
-pub const htmlFrameborder: htmlFrame = htmlFrame(9i32);
-pub const htmlFrame_Max: htmlFrame = htmlFrame(2147483647i32);
-impl ::core::marker::Copy for htmlFrame {}
-impl ::core::clone::Clone for htmlFrame {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct htmlGlyphMode(pub i32);
-pub const htmlGlyphModeNone: htmlGlyphMode = htmlGlyphMode(0i32);
-pub const htmlGlyphModeBegin: htmlGlyphMode = htmlGlyphMode(1i32);
-pub const htmlGlyphModeEnd: htmlGlyphMode = htmlGlyphMode(2i32);
-pub const htmlGlyphModeBoth: htmlGlyphMode = htmlGlyphMode(3i32);
-pub const htmlGlyphMode_Max: htmlGlyphMode = htmlGlyphMode(2147483647i32);
-impl ::core::marker::Copy for htmlGlyphMode {}
-impl ::core::clone::Clone for htmlGlyphMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct htmlInput(pub i32);
-pub const htmlInputNotSet: htmlInput = htmlInput(0i32);
-pub const htmlInputButton: htmlInput = htmlInput(1i32);
-pub const htmlInputCheckbox: htmlInput = htmlInput(2i32);
-pub const htmlInputFile: htmlInput = htmlInput(3i32);
-pub const htmlInputHidden: htmlInput = htmlInput(4i32);
-pub const htmlInputImage: htmlInput = htmlInput(5i32);
-pub const htmlInputPassword: htmlInput = htmlInput(6i32);
-pub const htmlInputRadio: htmlInput = htmlInput(7i32);
-pub const htmlInputReset: htmlInput = htmlInput(8i32);
-pub const htmlInputSelectOne: htmlInput = htmlInput(9i32);
-pub const htmlInputSelectMultiple: htmlInput = htmlInput(10i32);
-pub const htmlInputSubmit: htmlInput = htmlInput(11i32);
-pub const htmlInputText: htmlInput = htmlInput(12i32);
-pub const htmlInputTextarea: htmlInput = htmlInput(13i32);
-pub const htmlInputRichtext: htmlInput = htmlInput(14i32);
-pub const htmlInputRange: htmlInput = htmlInput(15i32);
-pub const htmlInputUrl: htmlInput = htmlInput(16i32);
-pub const htmlInputEmail: htmlInput = htmlInput(17i32);
-pub const htmlInputNumber: htmlInput = htmlInput(18i32);
-pub const htmlInputTel: htmlInput = htmlInput(19i32);
-pub const htmlInputSearch: htmlInput = htmlInput(20i32);
-pub const htmlInput_Max: htmlInput = htmlInput(2147483647i32);
-impl ::core::marker::Copy for htmlInput {}
-impl ::core::clone::Clone for htmlInput {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct htmlListType(pub i32);
-pub const htmlListTypeNotSet: htmlListType = htmlListType(0i32);
-pub const htmlListTypeLargeAlpha: htmlListType = htmlListType(1i32);
-pub const htmlListTypeSmallAlpha: htmlListType = htmlListType(2i32);
-pub const htmlListTypeLargeRoman: htmlListType = htmlListType(3i32);
-pub const htmlListTypeSmallRoman: htmlListType = htmlListType(4i32);
-pub const htmlListTypeNumbers: htmlListType = htmlListType(5i32);
-pub const htmlListTypeDisc: htmlListType = htmlListType(6i32);
-pub const htmlListTypeCircle: htmlListType = htmlListType(7i32);
-pub const htmlListTypeSquare: htmlListType = htmlListType(8i32);
-pub const htmlListType_Max: htmlListType = htmlListType(2147483647i32);
-impl ::core::marker::Copy for htmlListType {}
-impl ::core::clone::Clone for htmlListType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct htmlLoop(pub i32);
-pub const htmlLoopLoopInfinite: htmlLoop = htmlLoop(-1i32);
-pub const htmlLoop_Max: htmlLoop = htmlLoop(2147483647i32);
-impl ::core::marker::Copy for htmlLoop {}
-impl ::core::clone::Clone for htmlLoop {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct htmlMarqueeBehavior(pub i32);
-pub const htmlMarqueeBehaviorscroll: htmlMarqueeBehavior = htmlMarqueeBehavior(1i32);
-pub const htmlMarqueeBehaviorslide: htmlMarqueeBehavior = htmlMarqueeBehavior(2i32);
-pub const htmlMarqueeBehavioralternate: htmlMarqueeBehavior = htmlMarqueeBehavior(3i32);
-pub const htmlMarqueeBehavior_Max: htmlMarqueeBehavior = htmlMarqueeBehavior(2147483647i32);
-impl ::core::marker::Copy for htmlMarqueeBehavior {}
-impl ::core::clone::Clone for htmlMarqueeBehavior {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct htmlMarqueeDirection(pub i32);
-pub const htmlMarqueeDirectionleft: htmlMarqueeDirection = htmlMarqueeDirection(1i32);
-pub const htmlMarqueeDirectionright: htmlMarqueeDirection = htmlMarqueeDirection(3i32);
-pub const htmlMarqueeDirectionup: htmlMarqueeDirection = htmlMarqueeDirection(5i32);
-pub const htmlMarqueeDirectiondown: htmlMarqueeDirection = htmlMarqueeDirection(7i32);
-pub const htmlMarqueeDirection_Max: htmlMarqueeDirection = htmlMarqueeDirection(2147483647i32);
-impl ::core::marker::Copy for htmlMarqueeDirection {}
-impl ::core::clone::Clone for htmlMarqueeDirection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct htmlMediaErr(pub i32);
-pub const htmlMediaErrAborted: htmlMediaErr = htmlMediaErr(0i32);
-pub const htmlMediaErrNetwork: htmlMediaErr = htmlMediaErr(1i32);
-pub const htmlMediaErrDecode: htmlMediaErr = htmlMediaErr(2i32);
-pub const htmlMediaErrSrcNotSupported: htmlMediaErr = htmlMediaErr(3i32);
-pub const htmlMediaErr_Max: htmlMediaErr = htmlMediaErr(2147483647i32);
-impl ::core::marker::Copy for htmlMediaErr {}
-impl ::core::clone::Clone for htmlMediaErr {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct htmlMediaNetworkState(pub i32);
-pub const htmlMediaNetworkStateEmpty: htmlMediaNetworkState = htmlMediaNetworkState(0i32);
-pub const htmlMediaNetworkStateIdle: htmlMediaNetworkState = htmlMediaNetworkState(1i32);
-pub const htmlMediaNetworkStateLoading: htmlMediaNetworkState = htmlMediaNetworkState(2i32);
-pub const htmlMediaNetworkStateNoSource: htmlMediaNetworkState = htmlMediaNetworkState(3i32);
-pub const htmlMediaNetworkState_Max: htmlMediaNetworkState = htmlMediaNetworkState(2147483647i32);
-impl ::core::marker::Copy for htmlMediaNetworkState {}
-impl ::core::clone::Clone for htmlMediaNetworkState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct htmlMediaReadyState(pub i32);
-pub const htmlMediaReadyStateHaveNothing: htmlMediaReadyState = htmlMediaReadyState(0i32);
-pub const htmlMediaReadyStateHaveMetadata: htmlMediaReadyState = htmlMediaReadyState(1i32);
-pub const htmlMediaReadyStateHaveCurrentData: htmlMediaReadyState = htmlMediaReadyState(2i32);
-pub const htmlMediaReadyStateHaveFutureData: htmlMediaReadyState = htmlMediaReadyState(3i32);
-pub const htmlMediaReadyStateHaveEnoughData: htmlMediaReadyState = htmlMediaReadyState(4i32);
-pub const htmlMediaReadyState_Max: htmlMediaReadyState = htmlMediaReadyState(2147483647i32);
-impl ::core::marker::Copy for htmlMediaReadyState {}
-impl ::core::clone::Clone for htmlMediaReadyState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct htmlMethod(pub i32);
-pub const htmlMethodNotSet: htmlMethod = htmlMethod(0i32);
-pub const htmlMethodGet: htmlMethod = htmlMethod(1i32);
-pub const htmlMethodPost: htmlMethod = htmlMethod(2i32);
-pub const htmlMethod_Max: htmlMethod = htmlMethod(2147483647i32);
-impl ::core::marker::Copy for htmlMethod {}
-impl ::core::clone::Clone for htmlMethod {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct htmlPersistState(pub i32);
-pub const htmlPersistStateNormal: htmlPersistState = htmlPersistState(0i32);
-pub const htmlPersistStateFavorite: htmlPersistState = htmlPersistState(1i32);
-pub const htmlPersistStateHistory: htmlPersistState = htmlPersistState(2i32);
-pub const htmlPersistStateSnapshot: htmlPersistState = htmlPersistState(3i32);
-pub const htmlPersistStateUserData: htmlPersistState = htmlPersistState(4i32);
-pub const htmlPersistState_Max: htmlPersistState = htmlPersistState(2147483647i32);
-impl ::core::marker::Copy for htmlPersistState {}
-impl ::core::clone::Clone for htmlPersistState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct htmlReadyState(pub i32);
-pub const htmlReadyStateuninitialized: htmlReadyState = htmlReadyState(0i32);
-pub const htmlReadyStateloading: htmlReadyState = htmlReadyState(1i32);
-pub const htmlReadyStateloaded: htmlReadyState = htmlReadyState(2i32);
-pub const htmlReadyStateinteractive: htmlReadyState = htmlReadyState(3i32);
-pub const htmlReadyStatecomplete: htmlReadyState = htmlReadyState(4i32);
-pub const htmlReadyState_Max: htmlReadyState = htmlReadyState(2147483647i32);
-impl ::core::marker::Copy for htmlReadyState {}
-impl ::core::clone::Clone for htmlReadyState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct htmlRules(pub i32);
-pub const htmlRulesNotSet: htmlRules = htmlRules(0i32);
-pub const htmlRulesnone: htmlRules = htmlRules(1i32);
-pub const htmlRulesgroups: htmlRules = htmlRules(2i32);
-pub const htmlRulesrows: htmlRules = htmlRules(3i32);
-pub const htmlRulescols: htmlRules = htmlRules(4i32);
-pub const htmlRulesall: htmlRules = htmlRules(5i32);
-pub const htmlRules_Max: htmlRules = htmlRules(2147483647i32);
-impl ::core::marker::Copy for htmlRules {}
-impl ::core::clone::Clone for htmlRules {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct htmlSelectExFlag(pub i32);
-pub const htmlSelectExFlagNone: htmlSelectExFlag = htmlSelectExFlag(0i32);
-pub const htmlSelectExFlagHideSelectionInDesign: htmlSelectExFlag = htmlSelectExFlag(1i32);
-pub const htmlSelectExFlag_Max: htmlSelectExFlag = htmlSelectExFlag(2147483647i32);
-impl ::core::marker::Copy for htmlSelectExFlag {}
-impl ::core::clone::Clone for htmlSelectExFlag {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct htmlSelectType(pub i32);
-pub const htmlSelectTypeSelectOne: htmlSelectType = htmlSelectType(1i32);
-pub const htmlSelectTypeSelectMultiple: htmlSelectType = htmlSelectType(2i32);
-pub const htmlSelectType_Max: htmlSelectType = htmlSelectType(2147483647i32);
-impl ::core::marker::Copy for htmlSelectType {}
-impl ::core::clone::Clone for htmlSelectType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct htmlSelection(pub i32);
-pub const htmlSelectionNone: htmlSelection = htmlSelection(0i32);
-pub const htmlSelectionText: htmlSelection = htmlSelection(1i32);
-pub const htmlSelectionControl: htmlSelection = htmlSelection(2i32);
-pub const htmlSelectionTable: htmlSelection = htmlSelection(3i32);
-pub const htmlSelection_Max: htmlSelection = htmlSelection(2147483647i32);
-impl ::core::marker::Copy for htmlSelection {}
-impl ::core::clone::Clone for htmlSelection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct htmlSpellCheck(pub i32);
-pub const htmlSpellCheckNotSet: htmlSpellCheck = htmlSpellCheck(0i32);
-pub const htmlSpellCheckTrue: htmlSpellCheck = htmlSpellCheck(1i32);
-pub const htmlSpellCheckFalse: htmlSpellCheck = htmlSpellCheck(2i32);
-pub const htmlSpellCheckDefault: htmlSpellCheck = htmlSpellCheck(3i32);
-pub const htmlSpellCheck_Max: htmlSpellCheck = htmlSpellCheck(2147483647i32);
-impl ::core::marker::Copy for htmlSpellCheck {}
-impl ::core::clone::Clone for htmlSpellCheck {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct htmlStart(pub i32);
-pub const htmlStartfileopen: htmlStart = htmlStart(0i32);
-pub const htmlStartmouseover: htmlStart = htmlStart(1i32);
-pub const htmlStart_Max: htmlStart = htmlStart(2147483647i32);
-impl ::core::marker::Copy for htmlStart {}
-impl ::core::clone::Clone for htmlStart {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct htmlTabIndex(pub i32);
-pub const htmlTabIndexNotSet: htmlTabIndex = htmlTabIndex(-32768i32);
-pub const htmlTabIndex_Max: htmlTabIndex = htmlTabIndex(2147483647i32);
-impl ::core::marker::Copy for htmlTabIndex {}
-impl ::core::clone::Clone for htmlTabIndex {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct htmlUnit(pub i32);
-pub const htmlUnitCharacter: htmlUnit = htmlUnit(1i32);
-pub const htmlUnitWord: htmlUnit = htmlUnit(2i32);
-pub const htmlUnitSentence: htmlUnit = htmlUnit(3i32);
-pub const htmlUnitTextEdit: htmlUnit = htmlUnit(6i32);
-pub const htmlUnit_Max: htmlUnit = htmlUnit(2147483647i32);
-impl ::core::marker::Copy for htmlUnit {}
-impl ::core::clone::Clone for htmlUnit {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct htmlWrap(pub i32);
-pub const htmlWrapOff: htmlWrap = htmlWrap(1i32);
-pub const htmlWrapSoft: htmlWrap = htmlWrap(2i32);
-pub const htmlWrapHard: htmlWrap = htmlWrap(3i32);
-pub const htmlWrap_Max: htmlWrap = htmlWrap(2147483647i32);
-impl ::core::marker::Copy for htmlWrap {}
-impl ::core::clone::Clone for htmlWrap {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct htmlZOrder(pub i32);
-pub const htmlZOrderFront: htmlZOrder = htmlZOrder(0i32);
-pub const htmlZOrderBack: htmlZOrder = htmlZOrder(1i32);
-pub const htmlZOrder_Max: htmlZOrder = htmlZOrder(2147483647i32);
-impl ::core::marker::Copy for htmlZOrder {}
-impl ::core::clone::Clone for htmlZOrder {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct lengthAdjust(pub i32);
-pub const LENGTHADJUST_UNKNOWN: lengthAdjust = lengthAdjust(0i32);
-pub const LENGTHADJUST_SPACING: lengthAdjust = lengthAdjust(1i32);
-pub const LENGTHADJUST_SPACINGANDGLYPHS: lengthAdjust = lengthAdjust(2i32);
-pub const lengthAdjust_Max: lengthAdjust = lengthAdjust(2147483647i32);
-impl ::core::marker::Copy for lengthAdjust {}
-impl ::core::clone::Clone for lengthAdjust {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct mediaType(pub i32);
-pub const mediaTypeNotSet: mediaType = mediaType(0i32);
-pub const mediaTypeAll: mediaType = mediaType(511i32);
-pub const mediaTypeAural: mediaType = mediaType(1i32);
-pub const mediaTypeBraille: mediaType = mediaType(2i32);
-pub const mediaTypeEmbossed: mediaType = mediaType(4i32);
-pub const mediaTypeHandheld: mediaType = mediaType(8i32);
-pub const mediaTypePrint: mediaType = mediaType(16i32);
-pub const mediaTypeProjection: mediaType = mediaType(32i32);
-pub const mediaTypeScreen: mediaType = mediaType(64i32);
-pub const mediaTypeTty: mediaType = mediaType(128i32);
-pub const mediaTypeTv: mediaType = mediaType(256i32);
-pub const mediaType_Max: mediaType = mediaType(2147483647i32);
-impl ::core::marker::Copy for mediaType {}
-impl ::core::clone::Clone for mediaType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct sandboxAllow(pub i32);
-pub const sandboxAllowScripts: sandboxAllow = sandboxAllow(0i32);
-pub const sandboxAllowSameOrigin: sandboxAllow = sandboxAllow(1i32);
-pub const sandboxAllowTopNavigation: sandboxAllow = sandboxAllow(2i32);
-pub const sandboxAllowForms: sandboxAllow = sandboxAllow(3i32);
-pub const sandboxAllowPopups: sandboxAllow = sandboxAllow(4i32);
-pub const sandboxAllow_Max: sandboxAllow = sandboxAllow(2147483647i32);
-impl ::core::marker::Copy for sandboxAllow {}
-impl ::core::clone::Clone for sandboxAllow {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleAccelerator(pub i32);
-pub const styleAcceleratorFalse: styleAccelerator = styleAccelerator(0i32);
-pub const styleAcceleratorTrue: styleAccelerator = styleAccelerator(1i32);
-pub const styleAccelerator_Max: styleAccelerator = styleAccelerator(2147483647i32);
-impl ::core::marker::Copy for styleAccelerator {}
-impl ::core::clone::Clone for styleAccelerator {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleAlignContent(pub i32);
-pub const styleAlignContentFlexStart: styleAlignContent = styleAlignContent(0i32);
-pub const styleAlignContentFlexEnd: styleAlignContent = styleAlignContent(1i32);
-pub const styleAlignContentCenter: styleAlignContent = styleAlignContent(2i32);
-pub const styleAlignContentSpaceBetween: styleAlignContent = styleAlignContent(3i32);
-pub const styleAlignContentSpaceAround: styleAlignContent = styleAlignContent(4i32);
-pub const styleAlignContentStretch: styleAlignContent = styleAlignContent(5i32);
-pub const styleAlignContentNotSet: styleAlignContent = styleAlignContent(6i32);
-pub const styleAlignContent_Max: styleAlignContent = styleAlignContent(2147483647i32);
-impl ::core::marker::Copy for styleAlignContent {}
-impl ::core::clone::Clone for styleAlignContent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleAlignItems(pub i32);
-pub const styleAlignItemsFlexStart: styleAlignItems = styleAlignItems(0i32);
-pub const styleAlignItemsFlexEnd: styleAlignItems = styleAlignItems(1i32);
-pub const styleAlignItemsCenter: styleAlignItems = styleAlignItems(2i32);
-pub const styleAlignItemsBaseline: styleAlignItems = styleAlignItems(3i32);
-pub const styleAlignItemsStretch: styleAlignItems = styleAlignItems(4i32);
-pub const styleAlignItemsNotSet: styleAlignItems = styleAlignItems(5i32);
-pub const styleAlignItems_Max: styleAlignItems = styleAlignItems(2147483647i32);
-impl ::core::marker::Copy for styleAlignItems {}
-impl ::core::clone::Clone for styleAlignItems {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleAlignSelf(pub i32);
-pub const styleAlignSelfFlexStart: styleAlignSelf = styleAlignSelf(0i32);
-pub const styleAlignSelfFlexEnd: styleAlignSelf = styleAlignSelf(1i32);
-pub const styleAlignSelfCenter: styleAlignSelf = styleAlignSelf(2i32);
-pub const styleAlignSelfBaseline: styleAlignSelf = styleAlignSelf(3i32);
-pub const styleAlignSelfStretch: styleAlignSelf = styleAlignSelf(4i32);
-pub const styleAlignSelfAuto: styleAlignSelf = styleAlignSelf(5i32);
-pub const styleAlignSelfNotSet: styleAlignSelf = styleAlignSelf(6i32);
-pub const styleAlignSelf_Max: styleAlignSelf = styleAlignSelf(2147483647i32);
-impl ::core::marker::Copy for styleAlignSelf {}
-impl ::core::clone::Clone for styleAlignSelf {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleAlignmentBaseline(pub i32);
-pub const styleAlignmentBaselineNotSet: styleAlignmentBaseline = styleAlignmentBaseline(0i32);
-pub const styleAlignmentBaselineAfterEdge: styleAlignmentBaseline = styleAlignmentBaseline(1i32);
-pub const styleAlignmentBaselineAlphabetic: styleAlignmentBaseline = styleAlignmentBaseline(2i32);
-pub const styleAlignmentBaselineAuto: styleAlignmentBaseline = styleAlignmentBaseline(3i32);
-pub const styleAlignmentBaselineBaseline: styleAlignmentBaseline = styleAlignmentBaseline(4i32);
-pub const styleAlignmentBaselineBeforeEdge: styleAlignmentBaseline = styleAlignmentBaseline(5i32);
-pub const styleAlignmentBaselineCentral: styleAlignmentBaseline = styleAlignmentBaseline(6i32);
-pub const styleAlignmentBaselineHanging: styleAlignmentBaseline = styleAlignmentBaseline(7i32);
-pub const styleAlignmentBaselineMathematical: styleAlignmentBaseline = styleAlignmentBaseline(8i32);
-pub const styleAlignmentBaselineMiddle: styleAlignmentBaseline = styleAlignmentBaseline(9i32);
-pub const styleAlignmentBaselineTextAfterEdge: styleAlignmentBaseline = styleAlignmentBaseline(10i32);
-pub const styleAlignmentBaselineTextBeforeEdge: styleAlignmentBaseline = styleAlignmentBaseline(11i32);
-pub const styleAlignmentBaselineIdeographic: styleAlignmentBaseline = styleAlignmentBaseline(12i32);
-pub const styleAlignmentBaseline_Max: styleAlignmentBaseline = styleAlignmentBaseline(2147483647i32);
-impl ::core::marker::Copy for styleAlignmentBaseline {}
-impl ::core::clone::Clone for styleAlignmentBaseline {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleAttrType(pub i32);
-pub const styleAttrTypeString: styleAttrType = styleAttrType(0i32);
-pub const styleAttrTypeColor: styleAttrType = styleAttrType(1i32);
-pub const styleAttrTypeUrl: styleAttrType = styleAttrType(2i32);
-pub const styleAttrTypeInteger: styleAttrType = styleAttrType(3i32);
-pub const styleAttrTypeNumber: styleAttrType = styleAttrType(4i32);
-pub const styleAttrTypeLength: styleAttrType = styleAttrType(5i32);
-pub const styleAttrTypePx: styleAttrType = styleAttrType(6i32);
-pub const styleAttrTypeEm: styleAttrType = styleAttrType(7i32);
-pub const styleAttrTypeEx: styleAttrType = styleAttrType(8i32);
-pub const styleAttrTypeIn: styleAttrType = styleAttrType(9i32);
-pub const styleAttrTypeCm: styleAttrType = styleAttrType(10i32);
-pub const styleAttrTypeMm: styleAttrType = styleAttrType(11i32);
-pub const styleAttrTypePt: styleAttrType = styleAttrType(12i32);
-pub const styleAttrTypePc: styleAttrType = styleAttrType(13i32);
-pub const styleAttrTypeRem: styleAttrType = styleAttrType(14i32);
-pub const styleAttrTypeCh: styleAttrType = styleAttrType(15i32);
-pub const styleAttrTypeVh: styleAttrType = styleAttrType(16i32);
-pub const styleAttrTypeVw: styleAttrType = styleAttrType(17i32);
-pub const styleAttrTypeVmin: styleAttrType = styleAttrType(18i32);
-pub const styleAttrTypePercentage: styleAttrType = styleAttrType(19i32);
-pub const styleAttrTypeAngle: styleAttrType = styleAttrType(20i32);
-pub const styleAttrTypeDeg: styleAttrType = styleAttrType(21i32);
-pub const styleAttrTypeRad: styleAttrType = styleAttrType(22i32);
-pub const styleAttrTypeGrad: styleAttrType = styleAttrType(23i32);
-pub const styleAttrTypeTime: styleAttrType = styleAttrType(24i32);
-pub const styleAttrTypeS: styleAttrType = styleAttrType(25i32);
-pub const styleAttrTypeMs: styleAttrType = styleAttrType(26i32);
-pub const styleAttrType_Max: styleAttrType = styleAttrType(2147483647i32);
-impl ::core::marker::Copy for styleAttrType {}
-impl ::core::clone::Clone for styleAttrType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleAuto(pub i32);
-pub const styleAutoAuto: styleAuto = styleAuto(0i32);
-pub const styleAuto_Max: styleAuto = styleAuto(2147483647i32);
-impl ::core::marker::Copy for styleAuto {}
-impl ::core::clone::Clone for styleAuto {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleBackfaceVisibility(pub i32);
-pub const styleBackfaceVisibilityVisible: styleBackfaceVisibility = styleBackfaceVisibility(0i32);
-pub const styleBackfaceVisibilityHidden: styleBackfaceVisibility = styleBackfaceVisibility(1i32);
-pub const styleBackfaceVisibilityNotSet: styleBackfaceVisibility = styleBackfaceVisibility(2i32);
-pub const styleBackfaceVisibility_Max: styleBackfaceVisibility = styleBackfaceVisibility(2147483647i32);
-impl ::core::marker::Copy for styleBackfaceVisibility {}
-impl ::core::clone::Clone for styleBackfaceVisibility {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleBackgroundAttachment(pub i32);
-pub const styleBackgroundAttachmentFixed: styleBackgroundAttachment = styleBackgroundAttachment(0i32);
-pub const styleBackgroundAttachmentScroll: styleBackgroundAttachment = styleBackgroundAttachment(1i32);
-pub const styleBackgroundAttachmentNotSet: styleBackgroundAttachment = styleBackgroundAttachment(2i32);
-pub const styleBackgroundAttachment_Max: styleBackgroundAttachment = styleBackgroundAttachment(2147483647i32);
-impl ::core::marker::Copy for styleBackgroundAttachment {}
-impl ::core::clone::Clone for styleBackgroundAttachment {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleBackgroundAttachment3(pub i32);
-pub const styleBackgroundAttachment3Fixed: styleBackgroundAttachment3 = styleBackgroundAttachment3(0i32);
-pub const styleBackgroundAttachment3Scroll: styleBackgroundAttachment3 = styleBackgroundAttachment3(1i32);
-pub const styleBackgroundAttachment3Local: styleBackgroundAttachment3 = styleBackgroundAttachment3(2i32);
-pub const styleBackgroundAttachment3NotSet: styleBackgroundAttachment3 = styleBackgroundAttachment3(3i32);
-pub const styleBackgroundAttachment3_Max: styleBackgroundAttachment3 = styleBackgroundAttachment3(2147483647i32);
-impl ::core::marker::Copy for styleBackgroundAttachment3 {}
-impl ::core::clone::Clone for styleBackgroundAttachment3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleBackgroundClip(pub i32);
-pub const styleBackgroundClipBorderBox: styleBackgroundClip = styleBackgroundClip(0i32);
-pub const styleBackgroundClipPaddingBox: styleBackgroundClip = styleBackgroundClip(1i32);
-pub const styleBackgroundClipContentBox: styleBackgroundClip = styleBackgroundClip(2i32);
-pub const styleBackgroundClipNotSet: styleBackgroundClip = styleBackgroundClip(3i32);
-pub const styleBackgroundClip_Max: styleBackgroundClip = styleBackgroundClip(2147483647i32);
-impl ::core::marker::Copy for styleBackgroundClip {}
-impl ::core::clone::Clone for styleBackgroundClip {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleBackgroundOrigin(pub i32);
-pub const styleBackgroundOriginBorderBox: styleBackgroundOrigin = styleBackgroundOrigin(0i32);
-pub const styleBackgroundOriginPaddingBox: styleBackgroundOrigin = styleBackgroundOrigin(1i32);
-pub const styleBackgroundOriginContentBox: styleBackgroundOrigin = styleBackgroundOrigin(2i32);
-pub const styleBackgroundOriginNotSet: styleBackgroundOrigin = styleBackgroundOrigin(3i32);
-pub const styleBackgroundOrigin_Max: styleBackgroundOrigin = styleBackgroundOrigin(2147483647i32);
-impl ::core::marker::Copy for styleBackgroundOrigin {}
-impl ::core::clone::Clone for styleBackgroundOrigin {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleBackgroundRepeat(pub i32);
-pub const styleBackgroundRepeatRepeat: styleBackgroundRepeat = styleBackgroundRepeat(0i32);
-pub const styleBackgroundRepeatRepeatX: styleBackgroundRepeat = styleBackgroundRepeat(1i32);
-pub const styleBackgroundRepeatRepeatY: styleBackgroundRepeat = styleBackgroundRepeat(2i32);
-pub const styleBackgroundRepeatNoRepeat: styleBackgroundRepeat = styleBackgroundRepeat(3i32);
-pub const styleBackgroundRepeatNotSet: styleBackgroundRepeat = styleBackgroundRepeat(4i32);
-pub const styleBackgroundRepeat_Max: styleBackgroundRepeat = styleBackgroundRepeat(2147483647i32);
-impl ::core::marker::Copy for styleBackgroundRepeat {}
-impl ::core::clone::Clone for styleBackgroundRepeat {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleBaselineShift(pub i32);
-pub const styleBaselineShiftBaseline: styleBaselineShift = styleBaselineShift(0i32);
-pub const styleBaselineShiftSub: styleBaselineShift = styleBaselineShift(1i32);
-pub const styleBaselineShiftSuper: styleBaselineShift = styleBaselineShift(2i32);
-pub const styleBaselineShift_Max: styleBaselineShift = styleBaselineShift(2147483647i32);
-impl ::core::marker::Copy for styleBaselineShift {}
-impl ::core::clone::Clone for styleBaselineShift {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleBidi(pub i32);
-pub const styleBidiNotSet: styleBidi = styleBidi(0i32);
-pub const styleBidiNormal: styleBidi = styleBidi(1i32);
-pub const styleBidiEmbed: styleBidi = styleBidi(2i32);
-pub const styleBidiOverride: styleBidi = styleBidi(3i32);
-pub const styleBidiInherit: styleBidi = styleBidi(4i32);
-pub const styleBidi_Max: styleBidi = styleBidi(2147483647i32);
-impl ::core::marker::Copy for styleBidi {}
-impl ::core::clone::Clone for styleBidi {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleBlockProgression(pub i32);
-pub const styleBlockProgressionTb: styleBlockProgression = styleBlockProgression(0i32);
-pub const styleBlockProgressionRl: styleBlockProgression = styleBlockProgression(1i32);
-pub const styleBlockProgressionBt: styleBlockProgression = styleBlockProgression(2i32);
-pub const styleBlockProgressionLr: styleBlockProgression = styleBlockProgression(3i32);
-pub const styleBlockProgressionNotSet: styleBlockProgression = styleBlockProgression(4i32);
-pub const styleBlockProgression_Max: styleBlockProgression = styleBlockProgression(2147483647i32);
-impl ::core::marker::Copy for styleBlockProgression {}
-impl ::core::clone::Clone for styleBlockProgression {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleBool(pub i32);
-pub const styleBoolFalse: styleBool = styleBool(0i32);
-pub const styleBoolTrue: styleBool = styleBool(1i32);
-pub const styleBool_Max: styleBool = styleBool(2147483647i32);
-impl ::core::marker::Copy for styleBool {}
-impl ::core::clone::Clone for styleBool {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleBorderCollapse(pub i32);
-pub const styleBorderCollapseNotSet: styleBorderCollapse = styleBorderCollapse(0i32);
-pub const styleBorderCollapseSeparate: styleBorderCollapse = styleBorderCollapse(1i32);
-pub const styleBorderCollapseCollapse: styleBorderCollapse = styleBorderCollapse(2i32);
-pub const styleBorderCollapse_Max: styleBorderCollapse = styleBorderCollapse(2147483647i32);
-impl ::core::marker::Copy for styleBorderCollapse {}
-impl ::core::clone::Clone for styleBorderCollapse {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleBorderImageRepeat(pub i32);
-pub const styleBorderImageRepeatStretch: styleBorderImageRepeat = styleBorderImageRepeat(0i32);
-pub const styleBorderImageRepeatRepeat: styleBorderImageRepeat = styleBorderImageRepeat(1i32);
-pub const styleBorderImageRepeatRound: styleBorderImageRepeat = styleBorderImageRepeat(2i32);
-pub const styleBorderImageRepeatSpace: styleBorderImageRepeat = styleBorderImageRepeat(3i32);
-pub const styleBorderImageRepeatNotSet: styleBorderImageRepeat = styleBorderImageRepeat(4i32);
-pub const styleBorderImageRepeat_Max: styleBorderImageRepeat = styleBorderImageRepeat(2147483647i32);
-impl ::core::marker::Copy for styleBorderImageRepeat {}
-impl ::core::clone::Clone for styleBorderImageRepeat {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleBorderImageSliceFill(pub i32);
-pub const styleBorderImageSliceFillNotSet: styleBorderImageSliceFill = styleBorderImageSliceFill(0i32);
-pub const styleBorderImageSliceFillFill: styleBorderImageSliceFill = styleBorderImageSliceFill(1i32);
-pub const styleBorderImageSliceFill_Max: styleBorderImageSliceFill = styleBorderImageSliceFill(2147483647i32);
-impl ::core::marker::Copy for styleBorderImageSliceFill {}
-impl ::core::clone::Clone for styleBorderImageSliceFill {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleBorderStyle(pub i32);
-pub const styleBorderStyleNotSet: styleBorderStyle = styleBorderStyle(0i32);
-pub const styleBorderStyleDotted: styleBorderStyle = styleBorderStyle(1i32);
-pub const styleBorderStyleDashed: styleBorderStyle = styleBorderStyle(2i32);
-pub const styleBorderStyleSolid: styleBorderStyle = styleBorderStyle(3i32);
-pub const styleBorderStyleDouble: styleBorderStyle = styleBorderStyle(4i32);
-pub const styleBorderStyleGroove: styleBorderStyle = styleBorderStyle(5i32);
-pub const styleBorderStyleRidge: styleBorderStyle = styleBorderStyle(6i32);
-pub const styleBorderStyleInset: styleBorderStyle = styleBorderStyle(7i32);
-pub const styleBorderStyleOutset: styleBorderStyle = styleBorderStyle(8i32);
-pub const styleBorderStyleWindowInset: styleBorderStyle = styleBorderStyle(9i32);
-pub const styleBorderStyleNone: styleBorderStyle = styleBorderStyle(10i32);
-pub const styleBorderStyleHidden: styleBorderStyle = styleBorderStyle(11i32);
-pub const styleBorderStyle_Max: styleBorderStyle = styleBorderStyle(2147483647i32);
-impl ::core::marker::Copy for styleBorderStyle {}
-impl ::core::clone::Clone for styleBorderStyle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleBorderWidth(pub i32);
-pub const styleBorderWidthThin: styleBorderWidth = styleBorderWidth(0i32);
-pub const styleBorderWidthMedium: styleBorderWidth = styleBorderWidth(1i32);
-pub const styleBorderWidthThick: styleBorderWidth = styleBorderWidth(2i32);
-pub const styleBorderWidth_Max: styleBorderWidth = styleBorderWidth(2147483647i32);
-impl ::core::marker::Copy for styleBorderWidth {}
-impl ::core::clone::Clone for styleBorderWidth {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleBoxSizing(pub i32);
-pub const styleBoxSizingNotSet: styleBoxSizing = styleBoxSizing(0i32);
-pub const styleBoxSizingContentBox: styleBoxSizing = styleBoxSizing(1i32);
-pub const styleBoxSizingBorderBox: styleBoxSizing = styleBoxSizing(2i32);
-pub const styleBoxSizing_Max: styleBoxSizing = styleBoxSizing(2147483647i32);
-impl ::core::marker::Copy for styleBoxSizing {}
-impl ::core::clone::Clone for styleBoxSizing {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleBreak(pub i32);
-pub const styleBreakNotSet: styleBreak = styleBreak(0i32);
-pub const styleBreakAuto: styleBreak = styleBreak(1i32);
-pub const styleBreakAlways: styleBreak = styleBreak(2i32);
-pub const styleBreakAvoid: styleBreak = styleBreak(3i32);
-pub const styleBreakLeft: styleBreak = styleBreak(4i32);
-pub const styleBreakRight: styleBreak = styleBreak(5i32);
-pub const styleBreakPage: styleBreak = styleBreak(6i32);
-pub const styleBreakColumn: styleBreak = styleBreak(7i32);
-pub const styleBreakAvoidPage: styleBreak = styleBreak(8i32);
-pub const styleBreakAvoidColumn: styleBreak = styleBreak(9i32);
-pub const styleBreak_Max: styleBreak = styleBreak(2147483647i32);
-impl ::core::marker::Copy for styleBreak {}
-impl ::core::clone::Clone for styleBreak {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleBreakInside(pub i32);
-pub const styleBreakInsideNotSet: styleBreakInside = styleBreakInside(0i32);
-pub const styleBreakInsideAuto: styleBreakInside = styleBreakInside(1i32);
-pub const styleBreakInsideAvoid: styleBreakInside = styleBreakInside(2i32);
-pub const styleBreakInsideAvoidPage: styleBreakInside = styleBreakInside(3i32);
-pub const styleBreakInsideAvoidColumn: styleBreakInside = styleBreakInside(4i32);
-pub const styleBreakInside_Max: styleBreakInside = styleBreakInside(2147483647i32);
-impl ::core::marker::Copy for styleBreakInside {}
-impl ::core::clone::Clone for styleBreakInside {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleCaptionSide(pub i32);
-pub const styleCaptionSideNotSet: styleCaptionSide = styleCaptionSide(0i32);
-pub const styleCaptionSideTop: styleCaptionSide = styleCaptionSide(1i32);
-pub const styleCaptionSideBottom: styleCaptionSide = styleCaptionSide(2i32);
-pub const styleCaptionSideLeft: styleCaptionSide = styleCaptionSide(3i32);
-pub const styleCaptionSideRight: styleCaptionSide = styleCaptionSide(4i32);
-pub const styleCaptionSide_Max: styleCaptionSide = styleCaptionSide(2147483647i32);
-impl ::core::marker::Copy for styleCaptionSide {}
-impl ::core::clone::Clone for styleCaptionSide {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleClipRule(pub i32);
-pub const styleClipRuleNotSet: styleClipRule = styleClipRule(0i32);
-pub const styleClipRuleNonZero: styleClipRule = styleClipRule(1i32);
-pub const styleClipRuleEvenOdd: styleClipRule = styleClipRule(2i32);
-pub const styleClipRule_Max: styleClipRule = styleClipRule(2147483647i32);
-impl ::core::marker::Copy for styleClipRule {}
-impl ::core::clone::Clone for styleClipRule {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleColorInterpolationFilters(pub i32);
-pub const styleColorInterpolationFiltersAuto: styleColorInterpolationFilters = styleColorInterpolationFilters(0i32);
-pub const styleColorInterpolationFiltersSRgb: styleColorInterpolationFilters = styleColorInterpolationFilters(1i32);
-pub const styleColorInterpolationFiltersLinearRgb: styleColorInterpolationFilters = styleColorInterpolationFilters(2i32);
-pub const styleColorInterpolationFiltersNotSet: styleColorInterpolationFilters = styleColorInterpolationFilters(3i32);
-pub const styleColorInterpolationFilters_Max: styleColorInterpolationFilters = styleColorInterpolationFilters(2147483647i32);
-impl ::core::marker::Copy for styleColorInterpolationFilters {}
-impl ::core::clone::Clone for styleColorInterpolationFilters {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleColumnFill(pub i32);
-pub const styleColumnFillAuto: styleColumnFill = styleColumnFill(0i32);
-pub const styleColumnFillBalance: styleColumnFill = styleColumnFill(1i32);
-pub const styleColumnFillNotSet: styleColumnFill = styleColumnFill(2i32);
-pub const styleColumnFill_Max: styleColumnFill = styleColumnFill(2147483647i32);
-impl ::core::marker::Copy for styleColumnFill {}
-impl ::core::clone::Clone for styleColumnFill {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleColumnSpan(pub i32);
-pub const styleColumnSpanNone: styleColumnSpan = styleColumnSpan(0i32);
-pub const styleColumnSpanAll: styleColumnSpan = styleColumnSpan(1i32);
-pub const styleColumnSpanOne: styleColumnSpan = styleColumnSpan(2i32);
-pub const styleColumnSpanNotSet: styleColumnSpan = styleColumnSpan(3i32);
-pub const styleColumnSpan_Max: styleColumnSpan = styleColumnSpan(2147483647i32);
-impl ::core::marker::Copy for styleColumnSpan {}
-impl ::core::clone::Clone for styleColumnSpan {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleCursor(pub i32);
-pub const styleCursorAuto: styleCursor = styleCursor(0i32);
-pub const styleCursorCrosshair: styleCursor = styleCursor(1i32);
-pub const styleCursorDefault: styleCursor = styleCursor(2i32);
-pub const styleCursorHand: styleCursor = styleCursor(3i32);
-pub const styleCursorMove: styleCursor = styleCursor(4i32);
-pub const styleCursorE_resize: styleCursor = styleCursor(5i32);
-pub const styleCursorNe_resize: styleCursor = styleCursor(6i32);
-pub const styleCursorNw_resize: styleCursor = styleCursor(7i32);
-pub const styleCursorN_resize: styleCursor = styleCursor(8i32);
-pub const styleCursorSe_resize: styleCursor = styleCursor(9i32);
-pub const styleCursorSw_resize: styleCursor = styleCursor(10i32);
-pub const styleCursorS_resize: styleCursor = styleCursor(11i32);
-pub const styleCursorW_resize: styleCursor = styleCursor(12i32);
-pub const styleCursorText: styleCursor = styleCursor(13i32);
-pub const styleCursorWait: styleCursor = styleCursor(14i32);
-pub const styleCursorHelp: styleCursor = styleCursor(15i32);
-pub const styleCursorPointer: styleCursor = styleCursor(16i32);
-pub const styleCursorProgress: styleCursor = styleCursor(17i32);
-pub const styleCursorNot_allowed: styleCursor = styleCursor(18i32);
-pub const styleCursorNo_drop: styleCursor = styleCursor(19i32);
-pub const styleCursorVertical_text: styleCursor = styleCursor(20i32);
-pub const styleCursorall_scroll: styleCursor = styleCursor(21i32);
-pub const styleCursorcol_resize: styleCursor = styleCursor(22i32);
-pub const styleCursorrow_resize: styleCursor = styleCursor(23i32);
-pub const styleCursorNone: styleCursor = styleCursor(24i32);
-pub const styleCursorContext_menu: styleCursor = styleCursor(25i32);
-pub const styleCursorEw_resize: styleCursor = styleCursor(26i32);
-pub const styleCursorNs_resize: styleCursor = styleCursor(27i32);
-pub const styleCursorNesw_resize: styleCursor = styleCursor(28i32);
-pub const styleCursorNwse_resize: styleCursor = styleCursor(29i32);
-pub const styleCursorCell: styleCursor = styleCursor(30i32);
-pub const styleCursorCopy: styleCursor = styleCursor(31i32);
-pub const styleCursorAlias: styleCursor = styleCursor(32i32);
-pub const styleCursorcustom: styleCursor = styleCursor(33i32);
-pub const styleCursorNotSet: styleCursor = styleCursor(34i32);
-pub const styleCursor_Max: styleCursor = styleCursor(2147483647i32);
-impl ::core::marker::Copy for styleCursor {}
-impl ::core::clone::Clone for styleCursor {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleDataRepeat(pub i32);
-pub const styleDataRepeatNone: styleDataRepeat = styleDataRepeat(0i32);
-pub const styleDataRepeatInner: styleDataRepeat = styleDataRepeat(1i32);
-pub const styleDataRepeat_Max: styleDataRepeat = styleDataRepeat(2147483647i32);
-impl ::core::marker::Copy for styleDataRepeat {}
-impl ::core::clone::Clone for styleDataRepeat {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleDefaultTextSelection(pub i32);
-pub const styleDefaultTextSelectionFalse: styleDefaultTextSelection = styleDefaultTextSelection(0i32);
-pub const styleDefaultTextSelectionTrue: styleDefaultTextSelection = styleDefaultTextSelection(1i32);
-pub const styleDefaultTextSelection_Max: styleDefaultTextSelection = styleDefaultTextSelection(2147483647i32);
-impl ::core::marker::Copy for styleDefaultTextSelection {}
-impl ::core::clone::Clone for styleDefaultTextSelection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleDir(pub i32);
-pub const styleDirNotSet: styleDir = styleDir(0i32);
-pub const styleDirLeftToRight: styleDir = styleDir(1i32);
-pub const styleDirRightToLeft: styleDir = styleDir(2i32);
-pub const styleDirInherit: styleDir = styleDir(3i32);
-pub const styleDir_Max: styleDir = styleDir(2147483647i32);
-impl ::core::marker::Copy for styleDir {}
-impl ::core::clone::Clone for styleDir {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleDisplay(pub i32);
-pub const styleDisplayNotSet: styleDisplay = styleDisplay(0i32);
-pub const styleDisplayBlock: styleDisplay = styleDisplay(1i32);
-pub const styleDisplayInline: styleDisplay = styleDisplay(2i32);
-pub const styleDisplayListItem: styleDisplay = styleDisplay(3i32);
-pub const styleDisplayNone: styleDisplay = styleDisplay(4i32);
-pub const styleDisplayTableHeaderGroup: styleDisplay = styleDisplay(5i32);
-pub const styleDisplayTableFooterGroup: styleDisplay = styleDisplay(6i32);
-pub const styleDisplayInlineBlock: styleDisplay = styleDisplay(7i32);
-pub const styleDisplayTable: styleDisplay = styleDisplay(8i32);
-pub const styleDisplayInlineTable: styleDisplay = styleDisplay(9i32);
-pub const styleDisplayTableRow: styleDisplay = styleDisplay(10i32);
-pub const styleDisplayTableRowGroup: styleDisplay = styleDisplay(11i32);
-pub const styleDisplayTableColumn: styleDisplay = styleDisplay(12i32);
-pub const styleDisplayTableColumnGroup: styleDisplay = styleDisplay(13i32);
-pub const styleDisplayTableCell: styleDisplay = styleDisplay(14i32);
-pub const styleDisplayTableCaption: styleDisplay = styleDisplay(15i32);
-pub const styleDisplayRunIn: styleDisplay = styleDisplay(16i32);
-pub const styleDisplayRuby: styleDisplay = styleDisplay(17i32);
-pub const styleDisplayRubyBase: styleDisplay = styleDisplay(18i32);
-pub const styleDisplayRubyText: styleDisplay = styleDisplay(19i32);
-pub const styleDisplayRubyBaseContainer: styleDisplay = styleDisplay(20i32);
-pub const styleDisplayRubyTextContainer: styleDisplay = styleDisplay(21i32);
-pub const styleDisplayMsFlexbox: styleDisplay = styleDisplay(22i32);
-pub const styleDisplayMsInlineFlexbox: styleDisplay = styleDisplay(23i32);
-pub const styleDisplayMsGrid: styleDisplay = styleDisplay(24i32);
-pub const styleDisplayMsInlineGrid: styleDisplay = styleDisplay(25i32);
-pub const styleDisplayFlex: styleDisplay = styleDisplay(26i32);
-pub const styleDisplayInlineFlex: styleDisplay = styleDisplay(27i32);
-pub const styleDisplayWebkitBox: styleDisplay = styleDisplay(28i32);
-pub const styleDisplayWebkitInlineBox: styleDisplay = styleDisplay(29i32);
-pub const styleDisplay_Max: styleDisplay = styleDisplay(2147483647i32);
-impl ::core::marker::Copy for styleDisplay {}
-impl ::core::clone::Clone for styleDisplay {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleDominantBaseline(pub i32);
-pub const styleDominantBaselineNotSet: styleDominantBaseline = styleDominantBaseline(0i32);
-pub const styleDominantBaselineAlphabetic: styleDominantBaseline = styleDominantBaseline(1i32);
-pub const styleDominantBaselineAuto: styleDominantBaseline = styleDominantBaseline(2i32);
-pub const styleDominantBaselineCentral: styleDominantBaseline = styleDominantBaseline(3i32);
-pub const styleDominantBaselineHanging: styleDominantBaseline = styleDominantBaseline(4i32);
-pub const styleDominantBaselineIdeographic: styleDominantBaseline = styleDominantBaseline(5i32);
-pub const styleDominantBaselineMathematical: styleDominantBaseline = styleDominantBaseline(6i32);
-pub const styleDominantBaselineMiddle: styleDominantBaseline = styleDominantBaseline(7i32);
-pub const styleDominantBaselineNoChange: styleDominantBaseline = styleDominantBaseline(8i32);
-pub const styleDominantBaselineResetSize: styleDominantBaseline = styleDominantBaseline(9i32);
-pub const styleDominantBaselineTextAfterEdge: styleDominantBaseline = styleDominantBaseline(10i32);
-pub const styleDominantBaselineTextBeforeEdge: styleDominantBaseline = styleDominantBaseline(11i32);
-pub const styleDominantBaselineUseScript: styleDominantBaseline = styleDominantBaseline(12i32);
-pub const styleDominantBaseline_Max: styleDominantBaseline = styleDominantBaseline(2147483647i32);
-impl ::core::marker::Copy for styleDominantBaseline {}
-impl ::core::clone::Clone for styleDominantBaseline {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleEmptyCells(pub i32);
-pub const styleEmptyCellsNotSet: styleEmptyCells = styleEmptyCells(0i32);
-pub const styleEmptyCellsShow: styleEmptyCells = styleEmptyCells(1i32);
-pub const styleEmptyCellsHide: styleEmptyCells = styleEmptyCells(2i32);
-pub const styleEmptyCells_Max: styleEmptyCells = styleEmptyCells(2147483647i32);
-impl ::core::marker::Copy for styleEmptyCells {}
-impl ::core::clone::Clone for styleEmptyCells {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleEnableBackground(pub i32);
-pub const styleEnableBackgroundNotSet: styleEnableBackground = styleEnableBackground(0i32);
-pub const styleEnableBackgroundAccumulate: styleEnableBackground = styleEnableBackground(1i32);
-pub const styleEnableBackgroundNew: styleEnableBackground = styleEnableBackground(2i32);
-pub const styleEnableBackgroundInherit: styleEnableBackground = styleEnableBackground(3i32);
-pub const styleEnableBackground_Max: styleEnableBackground = styleEnableBackground(2147483647i32);
-impl ::core::marker::Copy for styleEnableBackground {}
-impl ::core::clone::Clone for styleEnableBackground {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleFillRule(pub i32);
-pub const styleFillRuleNotSet: styleFillRule = styleFillRule(0i32);
-pub const styleFillRuleNonZero: styleFillRule = styleFillRule(1i32);
-pub const styleFillRuleEvenOdd: styleFillRule = styleFillRule(2i32);
-pub const styleFillRule_Max: styleFillRule = styleFillRule(2147483647i32);
-impl ::core::marker::Copy for styleFillRule {}
-impl ::core::clone::Clone for styleFillRule {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleFlex(pub i32);
-pub const styleFlexNone: styleFlex = styleFlex(0i32);
-pub const styleFlexNotSet: styleFlex = styleFlex(1i32);
-pub const styleFlex_Max: styleFlex = styleFlex(2147483647i32);
-impl ::core::marker::Copy for styleFlex {}
-impl ::core::clone::Clone for styleFlex {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleFlexBasis(pub i32);
-pub const styleFlexBasisAuto: styleFlexBasis = styleFlexBasis(0i32);
-pub const styleFlexBasisNotSet: styleFlexBasis = styleFlexBasis(1i32);
-pub const styleFlexBasis_Max: styleFlexBasis = styleFlexBasis(2147483647i32);
-impl ::core::marker::Copy for styleFlexBasis {}
-impl ::core::clone::Clone for styleFlexBasis {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleFlexDirection(pub i32);
-pub const styleFlexDirectionRow: styleFlexDirection = styleFlexDirection(0i32);
-pub const styleFlexDirectionRowReverse: styleFlexDirection = styleFlexDirection(1i32);
-pub const styleFlexDirectionColumn: styleFlexDirection = styleFlexDirection(2i32);
-pub const styleFlexDirectionColumnReverse: styleFlexDirection = styleFlexDirection(3i32);
-pub const styleFlexDirectionNotSet: styleFlexDirection = styleFlexDirection(4i32);
-pub const styleFlexDirection_Max: styleFlexDirection = styleFlexDirection(2147483647i32);
-impl ::core::marker::Copy for styleFlexDirection {}
-impl ::core::clone::Clone for styleFlexDirection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleFlexWrap(pub i32);
-pub const styleFlexWrapNowrap: styleFlexWrap = styleFlexWrap(0i32);
-pub const styleFlexWrapWrap: styleFlexWrap = styleFlexWrap(1i32);
-pub const styleFlexWrapWrapReverse: styleFlexWrap = styleFlexWrap(2i32);
-pub const styleFlexWrapNotSet: styleFlexWrap = styleFlexWrap(3i32);
-pub const styleFlexWrap_Max: styleFlexWrap = styleFlexWrap(2147483647i32);
-impl ::core::marker::Copy for styleFlexWrap {}
-impl ::core::clone::Clone for styleFlexWrap {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleFontSize(pub i32);
-pub const styleFontSizeXXSmall: styleFontSize = styleFontSize(0i32);
-pub const styleFontSizeXSmall: styleFontSize = styleFontSize(1i32);
-pub const styleFontSizeSmall: styleFontSize = styleFontSize(2i32);
-pub const styleFontSizeMedium: styleFontSize = styleFontSize(3i32);
-pub const styleFontSizeLarge: styleFontSize = styleFontSize(4i32);
-pub const styleFontSizeXLarge: styleFontSize = styleFontSize(5i32);
-pub const styleFontSizeXXLarge: styleFontSize = styleFontSize(6i32);
-pub const styleFontSizeSmaller: styleFontSize = styleFontSize(7i32);
-pub const styleFontSizeLarger: styleFontSize = styleFontSize(8i32);
-pub const styleFontSize_Max: styleFontSize = styleFontSize(2147483647i32);
-impl ::core::marker::Copy for styleFontSize {}
-impl ::core::clone::Clone for styleFontSize {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleFontStretch(pub i32);
-pub const styleFontStretchNotSet: styleFontStretch = styleFontStretch(0i32);
-pub const styleFontStretchWider: styleFontStretch = styleFontStretch(1i32);
-pub const styleFontStretchNarrower: styleFontStretch = styleFontStretch(2i32);
-pub const styleFontStretchUltraCondensed: styleFontStretch = styleFontStretch(3i32);
-pub const styleFontStretchExtraCondensed: styleFontStretch = styleFontStretch(4i32);
-pub const styleFontStretchCondensed: styleFontStretch = styleFontStretch(5i32);
-pub const styleFontStretchSemiCondensed: styleFontStretch = styleFontStretch(6i32);
-pub const styleFontStretchNormal: styleFontStretch = styleFontStretch(7i32);
-pub const styleFontStretchSemiExpanded: styleFontStretch = styleFontStretch(8i32);
-pub const styleFontStretchExpanded: styleFontStretch = styleFontStretch(9i32);
-pub const styleFontStretchExtraExpanded: styleFontStretch = styleFontStretch(10i32);
-pub const styleFontStretchUltraExpanded: styleFontStretch = styleFontStretch(11i32);
-pub const styleFontStretch_Max: styleFontStretch = styleFontStretch(2147483647i32);
-impl ::core::marker::Copy for styleFontStretch {}
-impl ::core::clone::Clone for styleFontStretch {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleFontStyle(pub i32);
-pub const styleFontStyleNotSet: styleFontStyle = styleFontStyle(0i32);
-pub const styleFontStyleItalic: styleFontStyle = styleFontStyle(1i32);
-pub const styleFontStyleOblique: styleFontStyle = styleFontStyle(2i32);
-pub const styleFontStyleNormal: styleFontStyle = styleFontStyle(3i32);
-pub const styleFontStyle_Max: styleFontStyle = styleFontStyle(2147483647i32);
-impl ::core::marker::Copy for styleFontStyle {}
-impl ::core::clone::Clone for styleFontStyle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleFontVariant(pub i32);
-pub const styleFontVariantNotSet: styleFontVariant = styleFontVariant(0i32);
-pub const styleFontVariantSmallCaps: styleFontVariant = styleFontVariant(1i32);
-pub const styleFontVariantNormal: styleFontVariant = styleFontVariant(2i32);
-pub const styleFontVariant_Max: styleFontVariant = styleFontVariant(2147483647i32);
-impl ::core::marker::Copy for styleFontVariant {}
-impl ::core::clone::Clone for styleFontVariant {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleFontWeight(pub i32);
-pub const styleFontWeightNotSet: styleFontWeight = styleFontWeight(0i32);
-pub const styleFontWeight100: styleFontWeight = styleFontWeight(1i32);
-pub const styleFontWeight200: styleFontWeight = styleFontWeight(2i32);
-pub const styleFontWeight300: styleFontWeight = styleFontWeight(3i32);
-pub const styleFontWeight400: styleFontWeight = styleFontWeight(4i32);
-pub const styleFontWeight500: styleFontWeight = styleFontWeight(5i32);
-pub const styleFontWeight600: styleFontWeight = styleFontWeight(6i32);
-pub const styleFontWeight700: styleFontWeight = styleFontWeight(7i32);
-pub const styleFontWeight800: styleFontWeight = styleFontWeight(8i32);
-pub const styleFontWeight900: styleFontWeight = styleFontWeight(9i32);
-pub const styleFontWeightNormal: styleFontWeight = styleFontWeight(10i32);
-pub const styleFontWeightBold: styleFontWeight = styleFontWeight(11i32);
-pub const styleFontWeightBolder: styleFontWeight = styleFontWeight(12i32);
-pub const styleFontWeightLighter: styleFontWeight = styleFontWeight(13i32);
-pub const styleFontWeight_Max: styleFontWeight = styleFontWeight(2147483647i32);
-impl ::core::marker::Copy for styleFontWeight {}
-impl ::core::clone::Clone for styleFontWeight {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleGridColumn(pub i32);
-pub const styleGridColumnNotSet: styleGridColumn = styleGridColumn(0i32);
-pub const styleGridColumn_Max: styleGridColumn = styleGridColumn(2147483647i32);
-impl ::core::marker::Copy for styleGridColumn {}
-impl ::core::clone::Clone for styleGridColumn {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleGridColumnAlign(pub i32);
-pub const styleGridColumnAlignCenter: styleGridColumnAlign = styleGridColumnAlign(0i32);
-pub const styleGridColumnAlignEnd: styleGridColumnAlign = styleGridColumnAlign(1i32);
-pub const styleGridColumnAlignStart: styleGridColumnAlign = styleGridColumnAlign(2i32);
-pub const styleGridColumnAlignStretch: styleGridColumnAlign = styleGridColumnAlign(3i32);
-pub const styleGridColumnAlignNotSet: styleGridColumnAlign = styleGridColumnAlign(4i32);
-pub const styleGridColumnAlign_Max: styleGridColumnAlign = styleGridColumnAlign(2147483647i32);
-impl ::core::marker::Copy for styleGridColumnAlign {}
-impl ::core::clone::Clone for styleGridColumnAlign {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleGridColumnSpan(pub i32);
-pub const styleGridColumnSpanNotSet: styleGridColumnSpan = styleGridColumnSpan(0i32);
-pub const styleGridColumnSpan_Max: styleGridColumnSpan = styleGridColumnSpan(2147483647i32);
-impl ::core::marker::Copy for styleGridColumnSpan {}
-impl ::core::clone::Clone for styleGridColumnSpan {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleGridRow(pub i32);
-pub const styleGridRowNotSet: styleGridRow = styleGridRow(0i32);
-pub const styleGridRow_Max: styleGridRow = styleGridRow(2147483647i32);
-impl ::core::marker::Copy for styleGridRow {}
-impl ::core::clone::Clone for styleGridRow {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleGridRowAlign(pub i32);
-pub const styleGridRowAlignCenter: styleGridRowAlign = styleGridRowAlign(0i32);
-pub const styleGridRowAlignEnd: styleGridRowAlign = styleGridRowAlign(1i32);
-pub const styleGridRowAlignStart: styleGridRowAlign = styleGridRowAlign(2i32);
-pub const styleGridRowAlignStretch: styleGridRowAlign = styleGridRowAlign(3i32);
-pub const styleGridRowAlignNotSet: styleGridRowAlign = styleGridRowAlign(4i32);
-pub const styleGridRowAlign_Max: styleGridRowAlign = styleGridRowAlign(2147483647i32);
-impl ::core::marker::Copy for styleGridRowAlign {}
-impl ::core::clone::Clone for styleGridRowAlign {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleGridRowSpan(pub i32);
-pub const styleGridRowSpanNotSet: styleGridRowSpan = styleGridRowSpan(0i32);
-pub const styleGridRowSpan_Max: styleGridRowSpan = styleGridRowSpan(2147483647i32);
-impl ::core::marker::Copy for styleGridRowSpan {}
-impl ::core::clone::Clone for styleGridRowSpan {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleHyphenateLimitLines(pub i32);
-pub const styleHyphenateLimitLinesNoLimit: styleHyphenateLimitLines = styleHyphenateLimitLines(0i32);
-pub const styleHyphenateLimitLines_Max: styleHyphenateLimitLines = styleHyphenateLimitLines(2147483647i32);
-impl ::core::marker::Copy for styleHyphenateLimitLines {}
-impl ::core::clone::Clone for styleHyphenateLimitLines {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleHyphens(pub i32);
-pub const styleHyphensNone: styleHyphens = styleHyphens(0i32);
-pub const styleHyphensManual: styleHyphens = styleHyphens(1i32);
-pub const styleHyphensAuto: styleHyphens = styleHyphens(2i32);
-pub const styleHyphensNotSet: styleHyphens = styleHyphens(3i32);
-pub const styleHyphens_Max: styleHyphens = styleHyphens(2147483647i32);
-impl ::core::marker::Copy for styleHyphens {}
-impl ::core::clone::Clone for styleHyphens {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleImeMode(pub i32);
-pub const styleImeModeAuto: styleImeMode = styleImeMode(0i32);
-pub const styleImeModeActive: styleImeMode = styleImeMode(1i32);
-pub const styleImeModeInactive: styleImeMode = styleImeMode(2i32);
-pub const styleImeModeDisabled: styleImeMode = styleImeMode(3i32);
-pub const styleImeModeNotSet: styleImeMode = styleImeMode(4i32);
-pub const styleImeMode_Max: styleImeMode = styleImeMode(2147483647i32);
-impl ::core::marker::Copy for styleImeMode {}
-impl ::core::clone::Clone for styleImeMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleInitialColor(pub i32);
-pub const styleInitialColorNoInitial: styleInitialColor = styleInitialColor(0i32);
-pub const styleInitialColorColorProperty: styleInitialColor = styleInitialColor(1i32);
-pub const styleInitialColorTransparent: styleInitialColor = styleInitialColor(2i32);
-pub const styleInitialColorInvert: styleInitialColor = styleInitialColor(3i32);
-pub const styleInitialColor_Max: styleInitialColor = styleInitialColor(2147483647i32);
-impl ::core::marker::Copy for styleInitialColor {}
-impl ::core::clone::Clone for styleInitialColor {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleInitialString(pub i32);
-pub const styleInitialStringNoInitial: styleInitialString = styleInitialString(0i32);
-pub const styleInitialStringNone: styleInitialString = styleInitialString(1i32);
-pub const styleInitialStringAuto: styleInitialString = styleInitialString(2i32);
-pub const styleInitialStringNormal: styleInitialString = styleInitialString(3i32);
-pub const styleInitialString_Max: styleInitialString = styleInitialString(2147483647i32);
-impl ::core::marker::Copy for styleInitialString {}
-impl ::core::clone::Clone for styleInitialString {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleInterpolation(pub i32);
-pub const styleInterpolationNotSet: styleInterpolation = styleInterpolation(0i32);
-pub const styleInterpolationNN: styleInterpolation = styleInterpolation(1i32);
-pub const styleInterpolationBCH: styleInterpolation = styleInterpolation(2i32);
-pub const styleInterpolation_Max: styleInterpolation = styleInterpolation(2147483647i32);
-impl ::core::marker::Copy for styleInterpolation {}
-impl ::core::clone::Clone for styleInterpolation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleJustifyContent(pub i32);
-pub const styleJustifyContentFlexStart: styleJustifyContent = styleJustifyContent(0i32);
-pub const styleJustifyContentFlexEnd: styleJustifyContent = styleJustifyContent(1i32);
-pub const styleJustifyContentCenter: styleJustifyContent = styleJustifyContent(2i32);
-pub const styleJustifyContentSpaceBetween: styleJustifyContent = styleJustifyContent(3i32);
-pub const styleJustifyContentSpaceAround: styleJustifyContent = styleJustifyContent(4i32);
-pub const styleJustifyContentNotSet: styleJustifyContent = styleJustifyContent(5i32);
-pub const styleJustifyContent_Max: styleJustifyContent = styleJustifyContent(2147483647i32);
-impl ::core::marker::Copy for styleJustifyContent {}
-impl ::core::clone::Clone for styleJustifyContent {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleLayoutFlow(pub i32);
-pub const styleLayoutFlowHorizontal: styleLayoutFlow = styleLayoutFlow(0i32);
-pub const styleLayoutFlowVerticalIdeographic: styleLayoutFlow = styleLayoutFlow(1i32);
-pub const styleLayoutFlowNotSet: styleLayoutFlow = styleLayoutFlow(2i32);
-pub const styleLayoutFlow_Max: styleLayoutFlow = styleLayoutFlow(2147483647i32);
-impl ::core::marker::Copy for styleLayoutFlow {}
-impl ::core::clone::Clone for styleLayoutFlow {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleLayoutGridChar(pub i32);
-pub const styleLayoutGridCharNotSet: styleLayoutGridChar = styleLayoutGridChar(0i32);
-pub const styleLayoutGridCharAuto: styleLayoutGridChar = styleLayoutGridChar(1i32);
-pub const styleLayoutGridCharNone: styleLayoutGridChar = styleLayoutGridChar(2i32);
-pub const styleLayoutGridChar_Max: styleLayoutGridChar = styleLayoutGridChar(2147483647i32);
-impl ::core::marker::Copy for styleLayoutGridChar {}
-impl ::core::clone::Clone for styleLayoutGridChar {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleLayoutGridLine(pub i32);
-pub const styleLayoutGridLineNotSet: styleLayoutGridLine = styleLayoutGridLine(0i32);
-pub const styleLayoutGridLineAuto: styleLayoutGridLine = styleLayoutGridLine(1i32);
-pub const styleLayoutGridLineNone: styleLayoutGridLine = styleLayoutGridLine(2i32);
-pub const styleLayoutGridLine_Max: styleLayoutGridLine = styleLayoutGridLine(2147483647i32);
-impl ::core::marker::Copy for styleLayoutGridLine {}
-impl ::core::clone::Clone for styleLayoutGridLine {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleLayoutGridMode(pub i32);
-pub const styleLayoutGridModeNotSet: styleLayoutGridMode = styleLayoutGridMode(0i32);
-pub const styleLayoutGridModeChar: styleLayoutGridMode = styleLayoutGridMode(1i32);
-pub const styleLayoutGridModeLine: styleLayoutGridMode = styleLayoutGridMode(2i32);
-pub const styleLayoutGridModeBoth: styleLayoutGridMode = styleLayoutGridMode(3i32);
-pub const styleLayoutGridModeNone: styleLayoutGridMode = styleLayoutGridMode(4i32);
-pub const styleLayoutGridMode_Max: styleLayoutGridMode = styleLayoutGridMode(2147483647i32);
-impl ::core::marker::Copy for styleLayoutGridMode {}
-impl ::core::clone::Clone for styleLayoutGridMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleLayoutGridType(pub i32);
-pub const styleLayoutGridTypeNotSet: styleLayoutGridType = styleLayoutGridType(0i32);
-pub const styleLayoutGridTypeLoose: styleLayoutGridType = styleLayoutGridType(1i32);
-pub const styleLayoutGridTypeStrict: styleLayoutGridType = styleLayoutGridType(2i32);
-pub const styleLayoutGridTypeFixed: styleLayoutGridType = styleLayoutGridType(3i32);
-pub const styleLayoutGridType_Max: styleLayoutGridType = styleLayoutGridType(2147483647i32);
-impl ::core::marker::Copy for styleLayoutGridType {}
-impl ::core::clone::Clone for styleLayoutGridType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleLineBreak(pub i32);
-pub const styleLineBreakNotSet: styleLineBreak = styleLineBreak(0i32);
-pub const styleLineBreakNormal: styleLineBreak = styleLineBreak(1i32);
-pub const styleLineBreakStrict: styleLineBreak = styleLineBreak(2i32);
-pub const styleLineBreak_Max: styleLineBreak = styleLineBreak(2147483647i32);
-impl ::core::marker::Copy for styleLineBreak {}
-impl ::core::clone::Clone for styleLineBreak {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleListStylePosition(pub i32);
-pub const styleListStylePositionNotSet: styleListStylePosition = styleListStylePosition(0i32);
-pub const styleListStylePositionInside: styleListStylePosition = styleListStylePosition(1i32);
-pub const styleListStylePositionOutSide: styleListStylePosition = styleListStylePosition(2i32);
-pub const styleListStylePosition_Max: styleListStylePosition = styleListStylePosition(2147483647i32);
-impl ::core::marker::Copy for styleListStylePosition {}
-impl ::core::clone::Clone for styleListStylePosition {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleListStyleType(pub i32);
-pub const styleListStyleTypeNotSet: styleListStyleType = styleListStyleType(0i32);
-pub const styleListStyleTypeDisc: styleListStyleType = styleListStyleType(1i32);
-pub const styleListStyleTypeCircle: styleListStyleType = styleListStyleType(2i32);
-pub const styleListStyleTypeSquare: styleListStyleType = styleListStyleType(3i32);
-pub const styleListStyleTypeDecimal: styleListStyleType = styleListStyleType(4i32);
-pub const styleListStyleTypeLowerRoman: styleListStyleType = styleListStyleType(5i32);
-pub const styleListStyleTypeUpperRoman: styleListStyleType = styleListStyleType(6i32);
-pub const styleListStyleTypeLowerAlpha: styleListStyleType = styleListStyleType(7i32);
-pub const styleListStyleTypeUpperAlpha: styleListStyleType = styleListStyleType(8i32);
-pub const styleListStyleTypeNone: styleListStyleType = styleListStyleType(9i32);
-pub const styleListStyleTypeDecimalLeadingZero: styleListStyleType = styleListStyleType(10i32);
-pub const styleListStyleTypeGeorgian: styleListStyleType = styleListStyleType(11i32);
-pub const styleListStyleTypeArmenian: styleListStyleType = styleListStyleType(12i32);
-pub const styleListStyleTypeUpperLatin: styleListStyleType = styleListStyleType(13i32);
-pub const styleListStyleTypeLowerLatin: styleListStyleType = styleListStyleType(14i32);
-pub const styleListStyleTypeUpperGreek: styleListStyleType = styleListStyleType(15i32);
-pub const styleListStyleTypeLowerGreek: styleListStyleType = styleListStyleType(16i32);
-pub const styleListStyleType_Max: styleListStyleType = styleListStyleType(2147483647i32);
-impl ::core::marker::Copy for styleListStyleType {}
-impl ::core::clone::Clone for styleListStyleType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleMsAnimationDirection(pub i32);
-pub const styleMsAnimationDirectionNormal: styleMsAnimationDirection = styleMsAnimationDirection(0i32);
-pub const styleMsAnimationDirectionAlternate: styleMsAnimationDirection = styleMsAnimationDirection(1i32);
-pub const styleMsAnimationDirectionReverse: styleMsAnimationDirection = styleMsAnimationDirection(2i32);
-pub const styleMsAnimationDirectionAlternateReverse: styleMsAnimationDirection = styleMsAnimationDirection(3i32);
-pub const styleMsAnimationDirectionNotSet: styleMsAnimationDirection = styleMsAnimationDirection(4i32);
-pub const styleMsAnimationDirection_Max: styleMsAnimationDirection = styleMsAnimationDirection(2147483647i32);
-impl ::core::marker::Copy for styleMsAnimationDirection {}
-impl ::core::clone::Clone for styleMsAnimationDirection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleMsAnimationFillMode(pub i32);
-pub const styleMsAnimationFillModeNone: styleMsAnimationFillMode = styleMsAnimationFillMode(0i32);
-pub const styleMsAnimationFillModeForwards: styleMsAnimationFillMode = styleMsAnimationFillMode(1i32);
-pub const styleMsAnimationFillModeBackwards: styleMsAnimationFillMode = styleMsAnimationFillMode(2i32);
-pub const styleMsAnimationFillModeBoth: styleMsAnimationFillMode = styleMsAnimationFillMode(3i32);
-pub const styleMsAnimationFillModeNotSet: styleMsAnimationFillMode = styleMsAnimationFillMode(4i32);
-pub const styleMsAnimationFillMode_Max: styleMsAnimationFillMode = styleMsAnimationFillMode(2147483647i32);
-impl ::core::marker::Copy for styleMsAnimationFillMode {}
-impl ::core::clone::Clone for styleMsAnimationFillMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleMsAnimationPlayState(pub i32);
-pub const styleMsAnimationPlayStateRunning: styleMsAnimationPlayState = styleMsAnimationPlayState(0i32);
-pub const styleMsAnimationPlayStatePaused: styleMsAnimationPlayState = styleMsAnimationPlayState(1i32);
-pub const styleMsAnimationPlayStateNotSet: styleMsAnimationPlayState = styleMsAnimationPlayState(2i32);
-pub const styleMsAnimationPlayState_Max: styleMsAnimationPlayState = styleMsAnimationPlayState(2147483647i32);
-impl ::core::marker::Copy for styleMsAnimationPlayState {}
-impl ::core::clone::Clone for styleMsAnimationPlayState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleMsContentZoomChaining(pub i32);
-pub const styleMsContentZoomChainingNotSet: styleMsContentZoomChaining = styleMsContentZoomChaining(0i32);
-pub const styleMsContentZoomChainingNone: styleMsContentZoomChaining = styleMsContentZoomChaining(1i32);
-pub const styleMsContentZoomChainingChained: styleMsContentZoomChaining = styleMsContentZoomChaining(2i32);
-pub const styleMsContentZoomChaining_Max: styleMsContentZoomChaining = styleMsContentZoomChaining(2147483647i32);
-impl ::core::marker::Copy for styleMsContentZoomChaining {}
-impl ::core::clone::Clone for styleMsContentZoomChaining {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleMsContentZoomSnapType(pub i32);
-pub const styleMsContentZoomSnapTypeNotSet: styleMsContentZoomSnapType = styleMsContentZoomSnapType(0i32);
-pub const styleMsContentZoomSnapTypeNone: styleMsContentZoomSnapType = styleMsContentZoomSnapType(1i32);
-pub const styleMsContentZoomSnapTypeMandatory: styleMsContentZoomSnapType = styleMsContentZoomSnapType(2i32);
-pub const styleMsContentZoomSnapTypeProximity: styleMsContentZoomSnapType = styleMsContentZoomSnapType(3i32);
-pub const styleMsContentZoomSnapType_Max: styleMsContentZoomSnapType = styleMsContentZoomSnapType(2147483647i32);
-impl ::core::marker::Copy for styleMsContentZoomSnapType {}
-impl ::core::clone::Clone for styleMsContentZoomSnapType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleMsContentZooming(pub i32);
-pub const styleMsContentZoomingNotSet: styleMsContentZooming = styleMsContentZooming(0i32);
-pub const styleMsContentZoomingNone: styleMsContentZooming = styleMsContentZooming(1i32);
-pub const styleMsContentZoomingZoom: styleMsContentZooming = styleMsContentZooming(2i32);
-pub const styleMsContentZooming_Max: styleMsContentZooming = styleMsContentZooming(2147483647i32);
-impl ::core::marker::Copy for styleMsContentZooming {}
-impl ::core::clone::Clone for styleMsContentZooming {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleMsFlexAlign(pub i32);
-pub const styleMsFlexAlignStart: styleMsFlexAlign = styleMsFlexAlign(0i32);
-pub const styleMsFlexAlignEnd: styleMsFlexAlign = styleMsFlexAlign(1i32);
-pub const styleMsFlexAlignCenter: styleMsFlexAlign = styleMsFlexAlign(2i32);
-pub const styleMsFlexAlignBaseline: styleMsFlexAlign = styleMsFlexAlign(3i32);
-pub const styleMsFlexAlignStretch: styleMsFlexAlign = styleMsFlexAlign(4i32);
-pub const styleMsFlexAlignNotSet: styleMsFlexAlign = styleMsFlexAlign(5i32);
-pub const styleMsFlexAlign_Max: styleMsFlexAlign = styleMsFlexAlign(2147483647i32);
-impl ::core::marker::Copy for styleMsFlexAlign {}
-impl ::core::clone::Clone for styleMsFlexAlign {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleMsFlexItemAlign(pub i32);
-pub const styleMsFlexItemAlignStart: styleMsFlexItemAlign = styleMsFlexItemAlign(0i32);
-pub const styleMsFlexItemAlignEnd: styleMsFlexItemAlign = styleMsFlexItemAlign(1i32);
-pub const styleMsFlexItemAlignCenter: styleMsFlexItemAlign = styleMsFlexItemAlign(2i32);
-pub const styleMsFlexItemAlignBaseline: styleMsFlexItemAlign = styleMsFlexItemAlign(3i32);
-pub const styleMsFlexItemAlignStretch: styleMsFlexItemAlign = styleMsFlexItemAlign(4i32);
-pub const styleMsFlexItemAlignAuto: styleMsFlexItemAlign = styleMsFlexItemAlign(5i32);
-pub const styleMsFlexItemAlignNotSet: styleMsFlexItemAlign = styleMsFlexItemAlign(6i32);
-pub const styleMsFlexItemAlign_Max: styleMsFlexItemAlign = styleMsFlexItemAlign(2147483647i32);
-impl ::core::marker::Copy for styleMsFlexItemAlign {}
-impl ::core::clone::Clone for styleMsFlexItemAlign {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleMsFlexLinePack(pub i32);
-pub const styleMsFlexLinePackStart: styleMsFlexLinePack = styleMsFlexLinePack(0i32);
-pub const styleMsFlexLinePackEnd: styleMsFlexLinePack = styleMsFlexLinePack(1i32);
-pub const styleMsFlexLinePackCenter: styleMsFlexLinePack = styleMsFlexLinePack(2i32);
-pub const styleMsFlexLinePackJustify: styleMsFlexLinePack = styleMsFlexLinePack(3i32);
-pub const styleMsFlexLinePackDistribute: styleMsFlexLinePack = styleMsFlexLinePack(4i32);
-pub const styleMsFlexLinePackStretch: styleMsFlexLinePack = styleMsFlexLinePack(5i32);
-pub const styleMsFlexLinePackNotSet: styleMsFlexLinePack = styleMsFlexLinePack(6i32);
-pub const styleMsFlexLinePack_Max: styleMsFlexLinePack = styleMsFlexLinePack(2147483647i32);
-impl ::core::marker::Copy for styleMsFlexLinePack {}
-impl ::core::clone::Clone for styleMsFlexLinePack {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleMsFlexPack(pub i32);
-pub const styleMsFlexPackStart: styleMsFlexPack = styleMsFlexPack(0i32);
-pub const styleMsFlexPackEnd: styleMsFlexPack = styleMsFlexPack(1i32);
-pub const styleMsFlexPackCenter: styleMsFlexPack = styleMsFlexPack(2i32);
-pub const styleMsFlexPackJustify: styleMsFlexPack = styleMsFlexPack(3i32);
-pub const styleMsFlexPackDistribute: styleMsFlexPack = styleMsFlexPack(4i32);
-pub const styleMsFlexPackNotSet: styleMsFlexPack = styleMsFlexPack(5i32);
-pub const styleMsFlexPack_Max: styleMsFlexPack = styleMsFlexPack(2147483647i32);
-impl ::core::marker::Copy for styleMsFlexPack {}
-impl ::core::clone::Clone for styleMsFlexPack {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleMsHighContrastAdjust(pub i32);
-pub const styleMsHighContrastAdjustNotSet: styleMsHighContrastAdjust = styleMsHighContrastAdjust(0i32);
-pub const styleMsHighContrastAdjustAuto: styleMsHighContrastAdjust = styleMsHighContrastAdjust(1i32);
-pub const styleMsHighContrastAdjustNone: styleMsHighContrastAdjust = styleMsHighContrastAdjust(2i32);
-pub const styleMsHighContrastAdjust_Max: styleMsHighContrastAdjust = styleMsHighContrastAdjust(2147483647i32);
-impl ::core::marker::Copy for styleMsHighContrastAdjust {}
-impl ::core::clone::Clone for styleMsHighContrastAdjust {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleMsImeAlign(pub i32);
-pub const styleMsImeAlignAuto: styleMsImeAlign = styleMsImeAlign(0i32);
-pub const styleMsImeAlignAfter: styleMsImeAlign = styleMsImeAlign(1i32);
-pub const styleMsImeAlignNotSet: styleMsImeAlign = styleMsImeAlign(2i32);
-pub const styleMsImeAlign_Max: styleMsImeAlign = styleMsImeAlign(2147483647i32);
-impl ::core::marker::Copy for styleMsImeAlign {}
-impl ::core::clone::Clone for styleMsImeAlign {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleMsOverflowStyle(pub i32);
-pub const styleMsOverflowStyleNotSet: styleMsOverflowStyle = styleMsOverflowStyle(0i32);
-pub const styleMsOverflowStyleAuto: styleMsOverflowStyle = styleMsOverflowStyle(1i32);
-pub const styleMsOverflowStyleNone: styleMsOverflowStyle = styleMsOverflowStyle(2i32);
-pub const styleMsOverflowStyleScrollbar: styleMsOverflowStyle = styleMsOverflowStyle(3i32);
-pub const styleMsOverflowStyleMsAutoHidingScrollbar: styleMsOverflowStyle = styleMsOverflowStyle(4i32);
-pub const styleMsOverflowStyle_Max: styleMsOverflowStyle = styleMsOverflowStyle(2147483647i32);
-impl ::core::marker::Copy for styleMsOverflowStyle {}
-impl ::core::clone::Clone for styleMsOverflowStyle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleMsScrollChaining(pub i32);
-pub const styleMsScrollChainingNotSet: styleMsScrollChaining = styleMsScrollChaining(0i32);
-pub const styleMsScrollChainingNone: styleMsScrollChaining = styleMsScrollChaining(1i32);
-pub const styleMsScrollChainingChained: styleMsScrollChaining = styleMsScrollChaining(2i32);
-pub const styleMsScrollChaining_Max: styleMsScrollChaining = styleMsScrollChaining(2147483647i32);
-impl ::core::marker::Copy for styleMsScrollChaining {}
-impl ::core::clone::Clone for styleMsScrollChaining {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleMsScrollRails(pub i32);
-pub const styleMsScrollRailsNotSet: styleMsScrollRails = styleMsScrollRails(0i32);
-pub const styleMsScrollRailsNone: styleMsScrollRails = styleMsScrollRails(1i32);
-pub const styleMsScrollRailsRailed: styleMsScrollRails = styleMsScrollRails(2i32);
-pub const styleMsScrollRails_Max: styleMsScrollRails = styleMsScrollRails(2147483647i32);
-impl ::core::marker::Copy for styleMsScrollRails {}
-impl ::core::clone::Clone for styleMsScrollRails {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleMsScrollSnapType(pub i32);
-pub const styleMsScrollSnapTypeNotSet: styleMsScrollSnapType = styleMsScrollSnapType(0i32);
-pub const styleMsScrollSnapTypeNone: styleMsScrollSnapType = styleMsScrollSnapType(1i32);
-pub const styleMsScrollSnapTypeMandatory: styleMsScrollSnapType = styleMsScrollSnapType(2i32);
-pub const styleMsScrollSnapTypeProximity: styleMsScrollSnapType = styleMsScrollSnapType(3i32);
-pub const styleMsScrollSnapType_Max: styleMsScrollSnapType = styleMsScrollSnapType(2147483647i32);
-impl ::core::marker::Copy for styleMsScrollSnapType {}
-impl ::core::clone::Clone for styleMsScrollSnapType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleMsScrollTranslation(pub i32);
-pub const styleMsScrollTranslationNotSet: styleMsScrollTranslation = styleMsScrollTranslation(0i32);
-pub const styleMsScrollTranslationNone: styleMsScrollTranslation = styleMsScrollTranslation(1i32);
-pub const styleMsScrollTranslationVtoH: styleMsScrollTranslation = styleMsScrollTranslation(2i32);
-pub const styleMsScrollTranslation_Max: styleMsScrollTranslation = styleMsScrollTranslation(2147483647i32);
-impl ::core::marker::Copy for styleMsScrollTranslation {}
-impl ::core::clone::Clone for styleMsScrollTranslation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleMsTextCombineHorizontal(pub i32);
-pub const styleMsTextCombineHorizontalNone: styleMsTextCombineHorizontal = styleMsTextCombineHorizontal(0i32);
-pub const styleMsTextCombineHorizontalAll: styleMsTextCombineHorizontal = styleMsTextCombineHorizontal(1i32);
-pub const styleMsTextCombineHorizontalDigits: styleMsTextCombineHorizontal = styleMsTextCombineHorizontal(2i32);
-pub const styleMsTextCombineHorizontalNotSet: styleMsTextCombineHorizontal = styleMsTextCombineHorizontal(3i32);
-pub const styleMsTextCombineHorizontal_Max: styleMsTextCombineHorizontal = styleMsTextCombineHorizontal(2147483647i32);
-impl ::core::marker::Copy for styleMsTextCombineHorizontal {}
-impl ::core::clone::Clone for styleMsTextCombineHorizontal {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleMsTouchAction(pub i32);
-pub const styleMsTouchActionNotSet: styleMsTouchAction = styleMsTouchAction(-1i32);
-pub const styleMsTouchActionNone: styleMsTouchAction = styleMsTouchAction(0i32);
-pub const styleMsTouchActionAuto: styleMsTouchAction = styleMsTouchAction(1i32);
-pub const styleMsTouchActionManipulation: styleMsTouchAction = styleMsTouchAction(2i32);
-pub const styleMsTouchActionDoubleTapZoom: styleMsTouchAction = styleMsTouchAction(4i32);
-pub const styleMsTouchActionPanX: styleMsTouchAction = styleMsTouchAction(8i32);
-pub const styleMsTouchActionPanY: styleMsTouchAction = styleMsTouchAction(16i32);
-pub const styleMsTouchActionPinchZoom: styleMsTouchAction = styleMsTouchAction(32i32);
-pub const styleMsTouchActionCrossSlideX: styleMsTouchAction = styleMsTouchAction(64i32);
-pub const styleMsTouchActionCrossSlideY: styleMsTouchAction = styleMsTouchAction(128i32);
-pub const styleMsTouchAction_Max: styleMsTouchAction = styleMsTouchAction(2147483647i32);
-impl ::core::marker::Copy for styleMsTouchAction {}
-impl ::core::clone::Clone for styleMsTouchAction {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleMsTouchSelect(pub i32);
-pub const styleMsTouchSelectGrippers: styleMsTouchSelect = styleMsTouchSelect(0i32);
-pub const styleMsTouchSelectNone: styleMsTouchSelect = styleMsTouchSelect(1i32);
-pub const styleMsTouchSelectNotSet: styleMsTouchSelect = styleMsTouchSelect(2i32);
-pub const styleMsTouchSelect_Max: styleMsTouchSelect = styleMsTouchSelect(2147483647i32);
-impl ::core::marker::Copy for styleMsTouchSelect {}
-impl ::core::clone::Clone for styleMsTouchSelect {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleMsUserSelect(pub i32);
-pub const styleMsUserSelectAuto: styleMsUserSelect = styleMsUserSelect(0i32);
-pub const styleMsUserSelectText: styleMsUserSelect = styleMsUserSelect(1i32);
-pub const styleMsUserSelectElement: styleMsUserSelect = styleMsUserSelect(2i32);
-pub const styleMsUserSelectNone: styleMsUserSelect = styleMsUserSelect(3i32);
-pub const styleMsUserSelectNotSet: styleMsUserSelect = styleMsUserSelect(4i32);
-pub const styleMsUserSelect_Max: styleMsUserSelect = styleMsUserSelect(2147483647i32);
-impl ::core::marker::Copy for styleMsUserSelect {}
-impl ::core::clone::Clone for styleMsUserSelect {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleNone(pub i32);
-pub const styleNoneNone: styleNone = styleNone(0i32);
-pub const styleNone_Max: styleNone = styleNone(2147483647i32);
-impl ::core::marker::Copy for styleNone {}
-impl ::core::clone::Clone for styleNone {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleNormal(pub i32);
-pub const styleNormalNormal: styleNormal = styleNormal(0i32);
-pub const styleNormal_Max: styleNormal = styleNormal(2147483647i32);
-impl ::core::marker::Copy for styleNormal {}
-impl ::core::clone::Clone for styleNormal {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleOutlineStyle(pub i32);
-pub const styleOutlineStyleNotSet: styleOutlineStyle = styleOutlineStyle(0i32);
-pub const styleOutlineStyleDotted: styleOutlineStyle = styleOutlineStyle(1i32);
-pub const styleOutlineStyleDashed: styleOutlineStyle = styleOutlineStyle(2i32);
-pub const styleOutlineStyleSolid: styleOutlineStyle = styleOutlineStyle(3i32);
-pub const styleOutlineStyleDouble: styleOutlineStyle = styleOutlineStyle(4i32);
-pub const styleOutlineStyleGroove: styleOutlineStyle = styleOutlineStyle(5i32);
-pub const styleOutlineStyleRidge: styleOutlineStyle = styleOutlineStyle(6i32);
-pub const styleOutlineStyleInset: styleOutlineStyle = styleOutlineStyle(7i32);
-pub const styleOutlineStyleOutset: styleOutlineStyle = styleOutlineStyle(8i32);
-pub const styleOutlineStyleWindowInset: styleOutlineStyle = styleOutlineStyle(9i32);
-pub const styleOutlineStyleNone: styleOutlineStyle = styleOutlineStyle(10i32);
-pub const styleOutlineStyle_Max: styleOutlineStyle = styleOutlineStyle(2147483647i32);
-impl ::core::marker::Copy for styleOutlineStyle {}
-impl ::core::clone::Clone for styleOutlineStyle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleOverflow(pub i32);
-pub const styleOverflowNotSet: styleOverflow = styleOverflow(0i32);
-pub const styleOverflowAuto: styleOverflow = styleOverflow(1i32);
-pub const styleOverflowHidden: styleOverflow = styleOverflow(2i32);
-pub const styleOverflowVisible: styleOverflow = styleOverflow(3i32);
-pub const styleOverflowScroll: styleOverflow = styleOverflow(4i32);
-pub const styleOverflow_Max: styleOverflow = styleOverflow(2147483647i32);
-impl ::core::marker::Copy for styleOverflow {}
-impl ::core::clone::Clone for styleOverflow {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct stylePageBreak(pub i32);
-pub const stylePageBreakNotSet: stylePageBreak = stylePageBreak(0i32);
-pub const stylePageBreakAuto: stylePageBreak = stylePageBreak(1i32);
-pub const stylePageBreakAlways: stylePageBreak = stylePageBreak(2i32);
-pub const stylePageBreakLeft: stylePageBreak = stylePageBreak(3i32);
-pub const stylePageBreakRight: stylePageBreak = stylePageBreak(4i32);
-pub const stylePageBreakAvoid: stylePageBreak = stylePageBreak(5i32);
-pub const stylePageBreak_Max: stylePageBreak = stylePageBreak(2147483647i32);
-impl ::core::marker::Copy for stylePageBreak {}
-impl ::core::clone::Clone for stylePageBreak {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct stylePageBreakInside(pub i32);
-pub const stylePageBreakInsideNotSet: stylePageBreakInside = stylePageBreakInside(0i32);
-pub const stylePageBreakInsideAuto: stylePageBreakInside = stylePageBreakInside(1i32);
-pub const stylePageBreakInsideAvoid: stylePageBreakInside = stylePageBreakInside(2i32);
-pub const stylePageBreakInside_Max: stylePageBreakInside = stylePageBreakInside(2147483647i32);
-impl ::core::marker::Copy for stylePageBreakInside {}
-impl ::core::clone::Clone for stylePageBreakInside {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct stylePerspectiveOriginX(pub i32);
-pub const stylePerspectiveOriginXNotSet: stylePerspectiveOriginX = stylePerspectiveOriginX(0i32);
-pub const stylePerspectiveOriginXLeft: stylePerspectiveOriginX = stylePerspectiveOriginX(1i32);
-pub const stylePerspectiveOriginXCenter: stylePerspectiveOriginX = stylePerspectiveOriginX(2i32);
-pub const stylePerspectiveOriginXRight: stylePerspectiveOriginX = stylePerspectiveOriginX(3i32);
-pub const stylePerspectiveOriginX_Max: stylePerspectiveOriginX = stylePerspectiveOriginX(2147483647i32);
-impl ::core::marker::Copy for stylePerspectiveOriginX {}
-impl ::core::clone::Clone for stylePerspectiveOriginX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct stylePerspectiveOriginY(pub i32);
-pub const stylePerspectiveOriginYNotSet: stylePerspectiveOriginY = stylePerspectiveOriginY(0i32);
-pub const stylePerspectiveOriginYTop: stylePerspectiveOriginY = stylePerspectiveOriginY(1i32);
-pub const stylePerspectiveOriginYCenter: stylePerspectiveOriginY = stylePerspectiveOriginY(2i32);
-pub const stylePerspectiveOriginYBottom: stylePerspectiveOriginY = stylePerspectiveOriginY(3i32);
-pub const stylePerspectiveOriginY_Max: stylePerspectiveOriginY = stylePerspectiveOriginY(2147483647i32);
-impl ::core::marker::Copy for stylePerspectiveOriginY {}
-impl ::core::clone::Clone for stylePerspectiveOriginY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct stylePointerEvents(pub i32);
-pub const stylePointerEventsNotSet: stylePointerEvents = stylePointerEvents(0i32);
-pub const stylePointerEventsVisiblePainted: stylePointerEvents = stylePointerEvents(1i32);
-pub const stylePointerEventsVisibleFill: stylePointerEvents = stylePointerEvents(2i32);
-pub const stylePointerEventsVisibleStroke: stylePointerEvents = stylePointerEvents(3i32);
-pub const stylePointerEventsVisible: stylePointerEvents = stylePointerEvents(4i32);
-pub const stylePointerEventsPainted: stylePointerEvents = stylePointerEvents(5i32);
-pub const stylePointerEventsFill: stylePointerEvents = stylePointerEvents(6i32);
-pub const stylePointerEventsStroke: stylePointerEvents = stylePointerEvents(7i32);
-pub const stylePointerEventsAll: stylePointerEvents = stylePointerEvents(8i32);
-pub const stylePointerEventsNone: stylePointerEvents = stylePointerEvents(9i32);
-pub const stylePointerEventsInitial: stylePointerEvents = stylePointerEvents(10i32);
-pub const stylePointerEventsAuto: stylePointerEvents = stylePointerEvents(11i32);
-pub const stylePointerEvents_Max: stylePointerEvents = stylePointerEvents(2147483647i32);
-impl ::core::marker::Copy for stylePointerEvents {}
-impl ::core::clone::Clone for stylePointerEvents {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct stylePosition(pub i32);
-pub const stylePositionNotSet: stylePosition = stylePosition(0i32);
-pub const stylePositionstatic: stylePosition = stylePosition(1i32);
-pub const stylePositionrelative: stylePosition = stylePosition(2i32);
-pub const stylePositionabsolute: stylePosition = stylePosition(3i32);
-pub const stylePositionfixed: stylePosition = stylePosition(4i32);
-pub const stylePositionMsPage: stylePosition = stylePosition(5i32);
-pub const stylePositionMsDeviceFixed: stylePosition = stylePosition(6i32);
-pub const stylePosition_Max: stylePosition = stylePosition(2147483647i32);
-impl ::core::marker::Copy for stylePosition {}
-impl ::core::clone::Clone for stylePosition {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleRubyAlign(pub i32);
-pub const styleRubyAlignNotSet: styleRubyAlign = styleRubyAlign(0i32);
-pub const styleRubyAlignAuto: styleRubyAlign = styleRubyAlign(1i32);
-pub const styleRubyAlignLeft: styleRubyAlign = styleRubyAlign(2i32);
-pub const styleRubyAlignCenter: styleRubyAlign = styleRubyAlign(3i32);
-pub const styleRubyAlignRight: styleRubyAlign = styleRubyAlign(4i32);
-pub const styleRubyAlignDistributeLetter: styleRubyAlign = styleRubyAlign(5i32);
-pub const styleRubyAlignDistributeSpace: styleRubyAlign = styleRubyAlign(6i32);
-pub const styleRubyAlignLineEdge: styleRubyAlign = styleRubyAlign(7i32);
-pub const styleRubyAlign_Max: styleRubyAlign = styleRubyAlign(2147483647i32);
-impl ::core::marker::Copy for styleRubyAlign {}
-impl ::core::clone::Clone for styleRubyAlign {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleRubyOverhang(pub i32);
-pub const styleRubyOverhangNotSet: styleRubyOverhang = styleRubyOverhang(0i32);
-pub const styleRubyOverhangAuto: styleRubyOverhang = styleRubyOverhang(1i32);
-pub const styleRubyOverhangWhitespace: styleRubyOverhang = styleRubyOverhang(2i32);
-pub const styleRubyOverhangNone: styleRubyOverhang = styleRubyOverhang(3i32);
-pub const styleRubyOverhang_Max: styleRubyOverhang = styleRubyOverhang(2147483647i32);
-impl ::core::marker::Copy for styleRubyOverhang {}
-impl ::core::clone::Clone for styleRubyOverhang {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleRubyPosition(pub i32);
-pub const styleRubyPositionNotSet: styleRubyPosition = styleRubyPosition(0i32);
-pub const styleRubyPositionAbove: styleRubyPosition = styleRubyPosition(1i32);
-pub const styleRubyPositionInline: styleRubyPosition = styleRubyPosition(2i32);
-pub const styleRubyPosition_Max: styleRubyPosition = styleRubyPosition(2147483647i32);
-impl ::core::marker::Copy for styleRubyPosition {}
-impl ::core::clone::Clone for styleRubyPosition {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleStrokeLinecap(pub i32);
-pub const styleStrokeLinecapNotSet: styleStrokeLinecap = styleStrokeLinecap(0i32);
-pub const styleStrokeLinecapButt: styleStrokeLinecap = styleStrokeLinecap(1i32);
-pub const styleStrokeLinecapRound: styleStrokeLinecap = styleStrokeLinecap(2i32);
-pub const styleStrokeLinecapSquare: styleStrokeLinecap = styleStrokeLinecap(3i32);
-pub const styleStrokeLinecap_Max: styleStrokeLinecap = styleStrokeLinecap(2147483647i32);
-impl ::core::marker::Copy for styleStrokeLinecap {}
-impl ::core::clone::Clone for styleStrokeLinecap {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleStrokeLinejoin(pub i32);
-pub const styleStrokeLinejoinNotSet: styleStrokeLinejoin = styleStrokeLinejoin(0i32);
-pub const styleStrokeLinejoinMiter: styleStrokeLinejoin = styleStrokeLinejoin(1i32);
-pub const styleStrokeLinejoinRound: styleStrokeLinejoin = styleStrokeLinejoin(2i32);
-pub const styleStrokeLinejoinBevel: styleStrokeLinejoin = styleStrokeLinejoin(3i32);
-pub const styleStrokeLinejoin_Max: styleStrokeLinejoin = styleStrokeLinejoin(2147483647i32);
-impl ::core::marker::Copy for styleStrokeLinejoin {}
-impl ::core::clone::Clone for styleStrokeLinejoin {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleStyleFloat(pub i32);
-pub const styleStyleFloatNotSet: styleStyleFloat = styleStyleFloat(0i32);
-pub const styleStyleFloatLeft: styleStyleFloat = styleStyleFloat(1i32);
-pub const styleStyleFloatRight: styleStyleFloat = styleStyleFloat(2i32);
-pub const styleStyleFloatNone: styleStyleFloat = styleStyleFloat(3i32);
-pub const styleStyleFloat_Max: styleStyleFloat = styleStyleFloat(2147483647i32);
-impl ::core::marker::Copy for styleStyleFloat {}
-impl ::core::clone::Clone for styleStyleFloat {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleTableLayout(pub i32);
-pub const styleTableLayoutNotSet: styleTableLayout = styleTableLayout(0i32);
-pub const styleTableLayoutAuto: styleTableLayout = styleTableLayout(1i32);
-pub const styleTableLayoutFixed: styleTableLayout = styleTableLayout(2i32);
-pub const styleTableLayout_Max: styleTableLayout = styleTableLayout(2147483647i32);
-impl ::core::marker::Copy for styleTableLayout {}
-impl ::core::clone::Clone for styleTableLayout {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleTextAlignLast(pub i32);
-pub const styleTextAlignLastNotSet: styleTextAlignLast = styleTextAlignLast(0i32);
-pub const styleTextAlignLastLeft: styleTextAlignLast = styleTextAlignLast(1i32);
-pub const styleTextAlignLastCenter: styleTextAlignLast = styleTextAlignLast(2i32);
-pub const styleTextAlignLastRight: styleTextAlignLast = styleTextAlignLast(3i32);
-pub const styleTextAlignLastJustify: styleTextAlignLast = styleTextAlignLast(4i32);
-pub const styleTextAlignLastAuto: styleTextAlignLast = styleTextAlignLast(5i32);
-pub const styleTextAlignLast_Max: styleTextAlignLast = styleTextAlignLast(2147483647i32);
-impl ::core::marker::Copy for styleTextAlignLast {}
-impl ::core::clone::Clone for styleTextAlignLast {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleTextAnchor(pub i32);
-pub const styleTextAnchorNotSet: styleTextAnchor = styleTextAnchor(0i32);
-pub const styleTextAnchorStart: styleTextAnchor = styleTextAnchor(1i32);
-pub const styleTextAnchorMiddle: styleTextAnchor = styleTextAnchor(2i32);
-pub const styleTextAnchorEnd: styleTextAnchor = styleTextAnchor(3i32);
-pub const styleTextAnchor_Max: styleTextAnchor = styleTextAnchor(2147483647i32);
-impl ::core::marker::Copy for styleTextAnchor {}
-impl ::core::clone::Clone for styleTextAnchor {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleTextDecoration(pub i32);
-pub const styleTextDecorationNone: styleTextDecoration = styleTextDecoration(0i32);
-pub const styleTextDecorationUnderline: styleTextDecoration = styleTextDecoration(1i32);
-pub const styleTextDecorationOverline: styleTextDecoration = styleTextDecoration(2i32);
-pub const styleTextDecorationLineThrough: styleTextDecoration = styleTextDecoration(3i32);
-pub const styleTextDecorationBlink: styleTextDecoration = styleTextDecoration(4i32);
-pub const styleTextDecoration_Max: styleTextDecoration = styleTextDecoration(2147483647i32);
-impl ::core::marker::Copy for styleTextDecoration {}
-impl ::core::clone::Clone for styleTextDecoration {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleTextEffect(pub i32);
-pub const styleTextEffectNone: styleTextEffect = styleTextEffect(0i32);
-pub const styleTextEffectEmboss: styleTextEffect = styleTextEffect(1i32);
-pub const styleTextEffectEngrave: styleTextEffect = styleTextEffect(2i32);
-pub const styleTextEffectOutline: styleTextEffect = styleTextEffect(3i32);
-pub const styleTextEffect_Max: styleTextEffect = styleTextEffect(2147483647i32);
-impl ::core::marker::Copy for styleTextEffect {}
-impl ::core::clone::Clone for styleTextEffect {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleTextJustify(pub i32);
-pub const styleTextJustifyNotSet: styleTextJustify = styleTextJustify(0i32);
-pub const styleTextJustifyInterWord: styleTextJustify = styleTextJustify(1i32);
-pub const styleTextJustifyNewspaper: styleTextJustify = styleTextJustify(2i32);
-pub const styleTextJustifyDistribute: styleTextJustify = styleTextJustify(3i32);
-pub const styleTextJustifyDistributeAllLines: styleTextJustify = styleTextJustify(4i32);
-pub const styleTextJustifyInterIdeograph: styleTextJustify = styleTextJustify(5i32);
-pub const styleTextJustifyInterCluster: styleTextJustify = styleTextJustify(6i32);
-pub const styleTextJustifyKashida: styleTextJustify = styleTextJustify(7i32);
-pub const styleTextJustifyAuto: styleTextJustify = styleTextJustify(8i32);
-pub const styleTextJustify_Max: styleTextJustify = styleTextJustify(2147483647i32);
-impl ::core::marker::Copy for styleTextJustify {}
-impl ::core::clone::Clone for styleTextJustify {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleTextJustifyTrim(pub i32);
-pub const styleTextJustifyTrimNotSet: styleTextJustifyTrim = styleTextJustifyTrim(0i32);
-pub const styleTextJustifyTrimNone: styleTextJustifyTrim = styleTextJustifyTrim(1i32);
-pub const styleTextJustifyTrimPunctuation: styleTextJustifyTrim = styleTextJustifyTrim(2i32);
-pub const styleTextJustifyTrimPunctAndKana: styleTextJustifyTrim = styleTextJustifyTrim(3i32);
-pub const styleTextJustifyTrim_Max: styleTextJustifyTrim = styleTextJustifyTrim(2147483647i32);
-impl ::core::marker::Copy for styleTextJustifyTrim {}
-impl ::core::clone::Clone for styleTextJustifyTrim {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleTextLineThroughStyle(pub i32);
-pub const styleTextLineThroughStyleUndefined: styleTextLineThroughStyle = styleTextLineThroughStyle(0i32);
-pub const styleTextLineThroughStyleSingle: styleTextLineThroughStyle = styleTextLineThroughStyle(1i32);
-pub const styleTextLineThroughStyleDouble: styleTextLineThroughStyle = styleTextLineThroughStyle(2i32);
-pub const styleTextLineThroughStyle_Max: styleTextLineThroughStyle = styleTextLineThroughStyle(2147483647i32);
-impl ::core::marker::Copy for styleTextLineThroughStyle {}
-impl ::core::clone::Clone for styleTextLineThroughStyle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleTextOverflow(pub i32);
-pub const styleTextOverflowClip: styleTextOverflow = styleTextOverflow(0i32);
-pub const styleTextOverflowEllipsis: styleTextOverflow = styleTextOverflow(1i32);
-pub const styleTextOverflowNotSet: styleTextOverflow = styleTextOverflow(2i32);
-pub const styleTextOverflow_Max: styleTextOverflow = styleTextOverflow(2147483647i32);
-impl ::core::marker::Copy for styleTextOverflow {}
-impl ::core::clone::Clone for styleTextOverflow {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleTextSizeAdjust(pub i32);
-pub const styleTextSizeAdjustNone: styleTextSizeAdjust = styleTextSizeAdjust(0i32);
-pub const styleTextSizeAdjustAuto: styleTextSizeAdjust = styleTextSizeAdjust(1i32);
-pub const styleTextSizeAdjust_Max: styleTextSizeAdjust = styleTextSizeAdjust(2147483647i32);
-impl ::core::marker::Copy for styleTextSizeAdjust {}
-impl ::core::clone::Clone for styleTextSizeAdjust {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleTextTransform(pub i32);
-pub const styleTextTransformNotSet: styleTextTransform = styleTextTransform(0i32);
-pub const styleTextTransformCapitalize: styleTextTransform = styleTextTransform(1i32);
-pub const styleTextTransformLowercase: styleTextTransform = styleTextTransform(2i32);
-pub const styleTextTransformUppercase: styleTextTransform = styleTextTransform(3i32);
-pub const styleTextTransformNone: styleTextTransform = styleTextTransform(4i32);
-pub const styleTextTransform_Max: styleTextTransform = styleTextTransform(2147483647i32);
-impl ::core::marker::Copy for styleTextTransform {}
-impl ::core::clone::Clone for styleTextTransform {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleTextUnderlinePosition(pub i32);
-pub const styleTextUnderlinePositionBelow: styleTextUnderlinePosition = styleTextUnderlinePosition(0i32);
-pub const styleTextUnderlinePositionAbove: styleTextUnderlinePosition = styleTextUnderlinePosition(1i32);
-pub const styleTextUnderlinePositionAuto: styleTextUnderlinePosition = styleTextUnderlinePosition(2i32);
-pub const styleTextUnderlinePositionNotSet: styleTextUnderlinePosition = styleTextUnderlinePosition(3i32);
-pub const styleTextUnderlinePosition_Max: styleTextUnderlinePosition = styleTextUnderlinePosition(2147483647i32);
-impl ::core::marker::Copy for styleTextUnderlinePosition {}
-impl ::core::clone::Clone for styleTextUnderlinePosition {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleTextUnderlineStyle(pub i32);
-pub const styleTextUnderlineStyleUndefined: styleTextUnderlineStyle = styleTextUnderlineStyle(0i32);
-pub const styleTextUnderlineStyleSingle: styleTextUnderlineStyle = styleTextUnderlineStyle(1i32);
-pub const styleTextUnderlineStyleDouble: styleTextUnderlineStyle = styleTextUnderlineStyle(2i32);
-pub const styleTextUnderlineStyleWords: styleTextUnderlineStyle = styleTextUnderlineStyle(3i32);
-pub const styleTextUnderlineStyleDotted: styleTextUnderlineStyle = styleTextUnderlineStyle(4i32);
-pub const styleTextUnderlineStyleThick: styleTextUnderlineStyle = styleTextUnderlineStyle(5i32);
-pub const styleTextUnderlineStyleDash: styleTextUnderlineStyle = styleTextUnderlineStyle(6i32);
-pub const styleTextUnderlineStyleDotDash: styleTextUnderlineStyle = styleTextUnderlineStyle(7i32);
-pub const styleTextUnderlineStyleDotDotDash: styleTextUnderlineStyle = styleTextUnderlineStyle(8i32);
-pub const styleTextUnderlineStyleWave: styleTextUnderlineStyle = styleTextUnderlineStyle(9i32);
-pub const styleTextUnderlineStyleSingleAccounting: styleTextUnderlineStyle = styleTextUnderlineStyle(10i32);
-pub const styleTextUnderlineStyleDoubleAccounting: styleTextUnderlineStyle = styleTextUnderlineStyle(11i32);
-pub const styleTextUnderlineStyleThickDash: styleTextUnderlineStyle = styleTextUnderlineStyle(12i32);
-pub const styleTextUnderlineStyle_Max: styleTextUnderlineStyle = styleTextUnderlineStyle(2147483647i32);
-impl ::core::marker::Copy for styleTextUnderlineStyle {}
-impl ::core::clone::Clone for styleTextUnderlineStyle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleTransformOriginX(pub i32);
-pub const styleTransformOriginXNotSet: styleTransformOriginX = styleTransformOriginX(0i32);
-pub const styleTransformOriginXLeft: styleTransformOriginX = styleTransformOriginX(1i32);
-pub const styleTransformOriginXCenter: styleTransformOriginX = styleTransformOriginX(2i32);
-pub const styleTransformOriginXRight: styleTransformOriginX = styleTransformOriginX(3i32);
-pub const styleTransformOriginX_Max: styleTransformOriginX = styleTransformOriginX(2147483647i32);
-impl ::core::marker::Copy for styleTransformOriginX {}
-impl ::core::clone::Clone for styleTransformOriginX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleTransformOriginY(pub i32);
-pub const styleTransformOriginYNotSet: styleTransformOriginY = styleTransformOriginY(0i32);
-pub const styleTransformOriginYTop: styleTransformOriginY = styleTransformOriginY(1i32);
-pub const styleTransformOriginYCenter: styleTransformOriginY = styleTransformOriginY(2i32);
-pub const styleTransformOriginYBottom: styleTransformOriginY = styleTransformOriginY(3i32);
-pub const styleTransformOriginY_Max: styleTransformOriginY = styleTransformOriginY(2147483647i32);
-impl ::core::marker::Copy for styleTransformOriginY {}
-impl ::core::clone::Clone for styleTransformOriginY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleTransformStyle(pub i32);
-pub const styleTransformStyleFlat: styleTransformStyle = styleTransformStyle(0i32);
-pub const styleTransformStylePreserve3D: styleTransformStyle = styleTransformStyle(1i32);
-pub const styleTransformStyleNotSet: styleTransformStyle = styleTransformStyle(2i32);
-pub const styleTransformStyle_Max: styleTransformStyle = styleTransformStyle(2147483647i32);
-impl ::core::marker::Copy for styleTransformStyle {}
-impl ::core::clone::Clone for styleTransformStyle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleUserZoom(pub i32);
-pub const styleUserZoomNotSet: styleUserZoom = styleUserZoom(0i32);
-pub const styleUserZoomZoom: styleUserZoom = styleUserZoom(1i32);
-pub const styleUserZoomFixed: styleUserZoom = styleUserZoom(2i32);
-pub const styleUserZoom_Max: styleUserZoom = styleUserZoom(2147483647i32);
-impl ::core::marker::Copy for styleUserZoom {}
-impl ::core::clone::Clone for styleUserZoom {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleVerticalAlign(pub i32);
-pub const styleVerticalAlignAuto: styleVerticalAlign = styleVerticalAlign(0i32);
-pub const styleVerticalAlignBaseline: styleVerticalAlign = styleVerticalAlign(1i32);
-pub const styleVerticalAlignSub: styleVerticalAlign = styleVerticalAlign(2i32);
-pub const styleVerticalAlignSuper: styleVerticalAlign = styleVerticalAlign(3i32);
-pub const styleVerticalAlignTop: styleVerticalAlign = styleVerticalAlign(4i32);
-pub const styleVerticalAlignTextTop: styleVerticalAlign = styleVerticalAlign(5i32);
-pub const styleVerticalAlignMiddle: styleVerticalAlign = styleVerticalAlign(6i32);
-pub const styleVerticalAlignBottom: styleVerticalAlign = styleVerticalAlign(7i32);
-pub const styleVerticalAlignTextBottom: styleVerticalAlign = styleVerticalAlign(8i32);
-pub const styleVerticalAlignInherit: styleVerticalAlign = styleVerticalAlign(9i32);
-pub const styleVerticalAlignNotSet: styleVerticalAlign = styleVerticalAlign(10i32);
-pub const styleVerticalAlign_Max: styleVerticalAlign = styleVerticalAlign(2147483647i32);
-impl ::core::marker::Copy for styleVerticalAlign {}
-impl ::core::clone::Clone for styleVerticalAlign {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleViewportSize(pub i32);
-pub const styleViewportSizeAuto: styleViewportSize = styleViewportSize(0i32);
-pub const styleViewportSizeDeviceWidth: styleViewportSize = styleViewportSize(1i32);
-pub const styleViewportSizeDeviceHeight: styleViewportSize = styleViewportSize(2i32);
-pub const styleViewportSize_Max: styleViewportSize = styleViewportSize(2147483647i32);
-impl ::core::marker::Copy for styleViewportSize {}
-impl ::core::clone::Clone for styleViewportSize {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleVisibility(pub i32);
-pub const styleVisibilityNotSet: styleVisibility = styleVisibility(0i32);
-pub const styleVisibilityInherit: styleVisibility = styleVisibility(1i32);
-pub const styleVisibilityVisible: styleVisibility = styleVisibility(2i32);
-pub const styleVisibilityHidden: styleVisibility = styleVisibility(3i32);
-pub const styleVisibilityCollapse: styleVisibility = styleVisibility(4i32);
-pub const styleVisibility_Max: styleVisibility = styleVisibility(2147483647i32);
-impl ::core::marker::Copy for styleVisibility {}
-impl ::core::clone::Clone for styleVisibility {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleWebkitAppearance(pub i32);
-pub const styleWebkitAppearanceNone: styleWebkitAppearance = styleWebkitAppearance(0i32);
-pub const styleWebkitAppearanceCapsLockIndicator: styleWebkitAppearance = styleWebkitAppearance(1i32);
-pub const styleWebkitAppearanceButton: styleWebkitAppearance = styleWebkitAppearance(2i32);
-pub const styleWebkitAppearanceButtonBevel: styleWebkitAppearance = styleWebkitAppearance(3i32);
-pub const styleWebkitAppearanceCaret: styleWebkitAppearance = styleWebkitAppearance(4i32);
-pub const styleWebkitAppearanceCheckbox: styleWebkitAppearance = styleWebkitAppearance(5i32);
-pub const styleWebkitAppearanceDefaultButton: styleWebkitAppearance = styleWebkitAppearance(6i32);
-pub const styleWebkitAppearanceListbox: styleWebkitAppearance = styleWebkitAppearance(7i32);
-pub const styleWebkitAppearanceListitem: styleWebkitAppearance = styleWebkitAppearance(8i32);
-pub const styleWebkitAppearanceMediaFullscreenButton: styleWebkitAppearance = styleWebkitAppearance(9i32);
-pub const styleWebkitAppearanceMediaMuteButton: styleWebkitAppearance = styleWebkitAppearance(10i32);
-pub const styleWebkitAppearanceMediaPlayButton: styleWebkitAppearance = styleWebkitAppearance(11i32);
-pub const styleWebkitAppearanceMediaSeekBackButton: styleWebkitAppearance = styleWebkitAppearance(12i32);
-pub const styleWebkitAppearanceMediaSeekForwardButton: styleWebkitAppearance = styleWebkitAppearance(13i32);
-pub const styleWebkitAppearanceMediaSlider: styleWebkitAppearance = styleWebkitAppearance(14i32);
-pub const styleWebkitAppearanceMediaSliderthumb: styleWebkitAppearance = styleWebkitAppearance(15i32);
-pub const styleWebkitAppearanceMenulist: styleWebkitAppearance = styleWebkitAppearance(16i32);
-pub const styleWebkitAppearanceMenulistButton: styleWebkitAppearance = styleWebkitAppearance(17i32);
-pub const styleWebkitAppearanceMenulistText: styleWebkitAppearance = styleWebkitAppearance(18i32);
-pub const styleWebkitAppearanceMenulistTextfield: styleWebkitAppearance = styleWebkitAppearance(19i32);
-pub const styleWebkitAppearancePushButton: styleWebkitAppearance = styleWebkitAppearance(20i32);
-pub const styleWebkitAppearanceRadio: styleWebkitAppearance = styleWebkitAppearance(21i32);
-pub const styleWebkitAppearanceSearchfield: styleWebkitAppearance = styleWebkitAppearance(22i32);
-pub const styleWebkitAppearanceSearchfieldCancelButton: styleWebkitAppearance = styleWebkitAppearance(23i32);
-pub const styleWebkitAppearanceSearchfieldDecoration: styleWebkitAppearance = styleWebkitAppearance(24i32);
-pub const styleWebkitAppearanceSearchfieldResultsButton: styleWebkitAppearance = styleWebkitAppearance(25i32);
-pub const styleWebkitAppearanceSearchfieldResultsDecoration: styleWebkitAppearance = styleWebkitAppearance(26i32);
-pub const styleWebkitAppearanceSliderHorizontal: styleWebkitAppearance = styleWebkitAppearance(27i32);
-pub const styleWebkitAppearanceSliderVertical: styleWebkitAppearance = styleWebkitAppearance(28i32);
-pub const styleWebkitAppearanceSliderthumbHorizontal: styleWebkitAppearance = styleWebkitAppearance(29i32);
-pub const styleWebkitAppearanceSliderthumbVertical: styleWebkitAppearance = styleWebkitAppearance(30i32);
-pub const styleWebkitAppearanceSquareButton: styleWebkitAppearance = styleWebkitAppearance(31i32);
-pub const styleWebkitAppearanceTextarea: styleWebkitAppearance = styleWebkitAppearance(32i32);
-pub const styleWebkitAppearanceTextfield: styleWebkitAppearance = styleWebkitAppearance(33i32);
-pub const styleWebkitAppearanceNotSet: styleWebkitAppearance = styleWebkitAppearance(34i32);
-pub const styleWebkitAppearance_Max: styleWebkitAppearance = styleWebkitAppearance(2147483647i32);
-impl ::core::marker::Copy for styleWebkitAppearance {}
-impl ::core::clone::Clone for styleWebkitAppearance {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleWebkitBoxDirection(pub i32);
-pub const styleWebkitBoxDirectionNormal: styleWebkitBoxDirection = styleWebkitBoxDirection(0i32);
-pub const styleWebkitBoxDirectionReverse: styleWebkitBoxDirection = styleWebkitBoxDirection(1i32);
-pub const styleWebkitBoxDirectionNotSet: styleWebkitBoxDirection = styleWebkitBoxDirection(2i32);
-pub const styleWebkitBoxDirection_Max: styleWebkitBoxDirection = styleWebkitBoxDirection(2147483647i32);
-impl ::core::marker::Copy for styleWebkitBoxDirection {}
-impl ::core::clone::Clone for styleWebkitBoxDirection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleWebkitBoxOrient(pub i32);
-pub const styleWebkitBoxOrientHorizontal: styleWebkitBoxOrient = styleWebkitBoxOrient(0i32);
-pub const styleWebkitBoxOrientInlineAxis: styleWebkitBoxOrient = styleWebkitBoxOrient(1i32);
-pub const styleWebkitBoxOrientVertical: styleWebkitBoxOrient = styleWebkitBoxOrient(2i32);
-pub const styleWebkitBoxOrientBlockAxis: styleWebkitBoxOrient = styleWebkitBoxOrient(3i32);
-pub const styleWebkitBoxOrientNotSet: styleWebkitBoxOrient = styleWebkitBoxOrient(4i32);
-pub const styleWebkitBoxOrient_Max: styleWebkitBoxOrient = styleWebkitBoxOrient(2147483647i32);
-impl ::core::marker::Copy for styleWebkitBoxOrient {}
-impl ::core::clone::Clone for styleWebkitBoxOrient {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleWebkitBoxPack(pub i32);
-pub const styleWebkitBoxPackStart: styleWebkitBoxPack = styleWebkitBoxPack(0i32);
-pub const styleWebkitBoxPackEnd: styleWebkitBoxPack = styleWebkitBoxPack(1i32);
-pub const styleWebkitBoxPackCenter: styleWebkitBoxPack = styleWebkitBoxPack(2i32);
-pub const styleWebkitBoxPackJustify: styleWebkitBoxPack = styleWebkitBoxPack(3i32);
-pub const styleWebkitBoxPackNotSet: styleWebkitBoxPack = styleWebkitBoxPack(5i32);
-pub const styleWebkitBoxPack_Max: styleWebkitBoxPack = styleWebkitBoxPack(2147483647i32);
-impl ::core::marker::Copy for styleWebkitBoxPack {}
-impl ::core::clone::Clone for styleWebkitBoxPack {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleWhiteSpace(pub i32);
-pub const styleWhiteSpaceNotSet: styleWhiteSpace = styleWhiteSpace(0i32);
-pub const styleWhiteSpaceNormal: styleWhiteSpace = styleWhiteSpace(1i32);
-pub const styleWhiteSpacePre: styleWhiteSpace = styleWhiteSpace(2i32);
-pub const styleWhiteSpaceNowrap: styleWhiteSpace = styleWhiteSpace(3i32);
-pub const styleWhiteSpacePreline: styleWhiteSpace = styleWhiteSpace(4i32);
-pub const styleWhiteSpacePrewrap: styleWhiteSpace = styleWhiteSpace(5i32);
-pub const styleWhiteSpace_Max: styleWhiteSpace = styleWhiteSpace(2147483647i32);
-impl ::core::marker::Copy for styleWhiteSpace {}
-impl ::core::clone::Clone for styleWhiteSpace {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleWidowsOrphans(pub i32);
-pub const styleWidowsOrphansNotSet: styleWidowsOrphans = styleWidowsOrphans(-2147483647i32);
-pub const styleWidowsOrphans_Max: styleWidowsOrphans = styleWidowsOrphans(2147483647i32);
-impl ::core::marker::Copy for styleWidowsOrphans {}
-impl ::core::clone::Clone for styleWidowsOrphans {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleWordBreak(pub i32);
-pub const styleWordBreakNotSet: styleWordBreak = styleWordBreak(0i32);
-pub const styleWordBreakNormal: styleWordBreak = styleWordBreak(1i32);
-pub const styleWordBreakBreakAll: styleWordBreak = styleWordBreak(2i32);
-pub const styleWordBreakKeepAll: styleWordBreak = styleWordBreak(3i32);
-pub const styleWordBreak_Max: styleWordBreak = styleWordBreak(2147483647i32);
-impl ::core::marker::Copy for styleWordBreak {}
-impl ::core::clone::Clone for styleWordBreak {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleWordWrap(pub i32);
-pub const styleWordWrapNotSet: styleWordWrap = styleWordWrap(0i32);
-pub const styleWordWrapOff: styleWordWrap = styleWordWrap(1i32);
-pub const styleWordWrapOn: styleWordWrap = styleWordWrap(2i32);
-pub const styleWordWrap_Max: styleWordWrap = styleWordWrap(2147483647i32);
-impl ::core::marker::Copy for styleWordWrap {}
-impl ::core::clone::Clone for styleWordWrap {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleWrapFlow(pub i32);
-pub const styleWrapFlowNotSet: styleWrapFlow = styleWrapFlow(0i32);
-pub const styleWrapFlowAuto: styleWrapFlow = styleWrapFlow(1i32);
-pub const styleWrapFlowBoth: styleWrapFlow = styleWrapFlow(2i32);
-pub const styleWrapFlowStart: styleWrapFlow = styleWrapFlow(3i32);
-pub const styleWrapFlowEnd: styleWrapFlow = styleWrapFlow(4i32);
-pub const styleWrapFlowClear: styleWrapFlow = styleWrapFlow(5i32);
-pub const styleWrapFlowMinimum: styleWrapFlow = styleWrapFlow(6i32);
-pub const styleWrapFlowMaximum: styleWrapFlow = styleWrapFlow(7i32);
-pub const styleWrapFlow_Max: styleWrapFlow = styleWrapFlow(2147483647i32);
-impl ::core::marker::Copy for styleWrapFlow {}
-impl ::core::clone::Clone for styleWrapFlow {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleWrapThrough(pub i32);
-pub const styleWrapThroughNotSet: styleWrapThrough = styleWrapThrough(0i32);
-pub const styleWrapThroughWrap: styleWrapThrough = styleWrapThrough(1i32);
-pub const styleWrapThroughNone: styleWrapThrough = styleWrapThrough(2i32);
-pub const styleWrapThrough_Max: styleWrapThrough = styleWrapThrough(2147483647i32);
-impl ::core::marker::Copy for styleWrapThrough {}
-impl ::core::clone::Clone for styleWrapThrough {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleWritingMode(pub i32);
-pub const styleWritingModeLrtb: styleWritingMode = styleWritingMode(0i32);
-pub const styleWritingModeTbrl: styleWritingMode = styleWritingMode(1i32);
-pub const styleWritingModeRltb: styleWritingMode = styleWritingMode(2i32);
-pub const styleWritingModeBtrl: styleWritingMode = styleWritingMode(3i32);
-pub const styleWritingModeNotSet: styleWritingMode = styleWritingMode(4i32);
-pub const styleWritingModeTblr: styleWritingMode = styleWritingMode(5i32);
-pub const styleWritingModeBtlr: styleWritingMode = styleWritingMode(6i32);
-pub const styleWritingModeLrbt: styleWritingMode = styleWritingMode(7i32);
-pub const styleWritingModeRlbt: styleWritingMode = styleWritingMode(8i32);
-pub const styleWritingModeLr: styleWritingMode = styleWritingMode(9i32);
-pub const styleWritingModeRl: styleWritingMode = styleWritingMode(10i32);
-pub const styleWritingModeTb: styleWritingMode = styleWritingMode(11i32);
-pub const styleWritingMode_Max: styleWritingMode = styleWritingMode(2147483647i32);
-impl ::core::marker::Copy for styleWritingMode {}
-impl ::core::clone::Clone for styleWritingMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct styleZIndex(pub i32);
-pub const styleZIndexAuto: styleZIndex = styleZIndex(-2147483647i32);
-pub const styleZIndex_Max: styleZIndex = styleZIndex(2147483647i32);
-impl ::core::marker::Copy for styleZIndex {}
-impl ::core::clone::Clone for styleZIndex {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct svgAngleType(pub i32);
-pub const SVG_ANGLETYPE_UNKNOWN: svgAngleType = svgAngleType(0i32);
-pub const SVG_ANGLETYPE_UNSPECIFIED: svgAngleType = svgAngleType(1i32);
-pub const SVG_ANGLETYPE_DEG: svgAngleType = svgAngleType(2i32);
-pub const SVG_ANGLETYPE_RAD: svgAngleType = svgAngleType(3i32);
-pub const SVG_ANGLETYPE_GRAD: svgAngleType = svgAngleType(4i32);
-pub const svgAngleType_Max: svgAngleType = svgAngleType(2147483647i32);
-impl ::core::marker::Copy for svgAngleType {}
-impl ::core::clone::Clone for svgAngleType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct svgChannel(pub i32);
-pub const SVG_CHANNEL_UNKNOWN: svgChannel = svgChannel(0i32);
-pub const SVG_CHANNEL_R: svgChannel = svgChannel(1i32);
-pub const SVG_CHANNEL_G: svgChannel = svgChannel(2i32);
-pub const SVG_CHANNEL_B: svgChannel = svgChannel(3i32);
-pub const SVG_CHANNEL_A: svgChannel = svgChannel(4i32);
-pub const svgChannel_Max: svgChannel = svgChannel(2147483647i32);
-impl ::core::marker::Copy for svgChannel {}
-impl ::core::clone::Clone for svgChannel {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct svgEdgemode(pub i32);
-pub const SVG_EDGEMODE_UNKNOWN: svgEdgemode = svgEdgemode(0i32);
-pub const SVG_EDGEMODE_DUPLICATE: svgEdgemode = svgEdgemode(1i32);
-pub const SVG_EDGEMODE_WRAP: svgEdgemode = svgEdgemode(2i32);
-pub const SVG_EDGEMODE_NONE: svgEdgemode = svgEdgemode(3i32);
-pub const svgEdgemode_Max: svgEdgemode = svgEdgemode(2147483647i32);
-impl ::core::marker::Copy for svgEdgemode {}
-impl ::core::clone::Clone for svgEdgemode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct svgExternalResourcesRequired(pub i32);
-pub const svgExternalResourcesRequiredFalse: svgExternalResourcesRequired = svgExternalResourcesRequired(0i32);
-pub const svgExternalResourcesRequiredTrue: svgExternalResourcesRequired = svgExternalResourcesRequired(1i32);
-pub const svgExternalResourcesRequired_Max: svgExternalResourcesRequired = svgExternalResourcesRequired(2147483647i32);
-impl ::core::marker::Copy for svgExternalResourcesRequired {}
-impl ::core::clone::Clone for svgExternalResourcesRequired {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct svgFeblendMode(pub i32);
-pub const SVG_FEBLEND_MODE_UNKNOWN: svgFeblendMode = svgFeblendMode(0i32);
-pub const SVG_FEBLEND_MODE_NORMAL: svgFeblendMode = svgFeblendMode(1i32);
-pub const SVG_FEBLEND_MODE_MULTIPLY: svgFeblendMode = svgFeblendMode(2i32);
-pub const SVG_FEBLEND_MODE_SCREEN: svgFeblendMode = svgFeblendMode(3i32);
-pub const SVG_FEBLEND_MODE_DARKEN: svgFeblendMode = svgFeblendMode(4i32);
-pub const SVG_FEBLEND_MODE_LIGHTEN: svgFeblendMode = svgFeblendMode(5i32);
-pub const svgFeblendMode_Max: svgFeblendMode = svgFeblendMode(2147483647i32);
-impl ::core::marker::Copy for svgFeblendMode {}
-impl ::core::clone::Clone for svgFeblendMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct svgFecolormatrixType(pub i32);
-pub const SVG_FECOLORMATRIX_TYPE_UNKNOWN: svgFecolormatrixType = svgFecolormatrixType(0i32);
-pub const SVG_FECOLORMATRIX_TYPE_MATRIX: svgFecolormatrixType = svgFecolormatrixType(1i32);
-pub const SVG_FECOLORMATRIX_TYPE_SATURATE: svgFecolormatrixType = svgFecolormatrixType(2i32);
-pub const SVG_FECOLORMATRIX_TYPE_HUEROTATE: svgFecolormatrixType = svgFecolormatrixType(3i32);
-pub const SVG_FECOLORMATRIX_TYPE_LUMINANCETOALPHA: svgFecolormatrixType = svgFecolormatrixType(4i32);
-pub const svgFecolormatrixType_Max: svgFecolormatrixType = svgFecolormatrixType(2147483647i32);
-impl ::core::marker::Copy for svgFecolormatrixType {}
-impl ::core::clone::Clone for svgFecolormatrixType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct svgFecomponenttransferType(pub i32);
-pub const SVG_FECOMPONENTTRANSFER_TYPE_UNKNOWN: svgFecomponenttransferType = svgFecomponenttransferType(0i32);
-pub const SVG_FECOMPONENTTRANSFER_TYPE_IDENTITY: svgFecomponenttransferType = svgFecomponenttransferType(1i32);
-pub const SVG_FECOMPONENTTRANSFER_TYPE_TABLE: svgFecomponenttransferType = svgFecomponenttransferType(2i32);
-pub const SVG_FECOMPONENTTRANSFER_TYPE_DISCRETE: svgFecomponenttransferType = svgFecomponenttransferType(3i32);
-pub const SVG_FECOMPONENTTRANSFER_TYPE_LINEAR: svgFecomponenttransferType = svgFecomponenttransferType(4i32);
-pub const SVG_FECOMPONENTTRANSFER_TYPE_GAMMA: svgFecomponenttransferType = svgFecomponenttransferType(5i32);
-pub const svgFecomponenttransferType_Max: svgFecomponenttransferType = svgFecomponenttransferType(2147483647i32);
-impl ::core::marker::Copy for svgFecomponenttransferType {}
-impl ::core::clone::Clone for svgFecomponenttransferType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct svgFecompositeOperator(pub i32);
-pub const SVG_FECOMPOSITE_OPERATOR_UNKNOWN: svgFecompositeOperator = svgFecompositeOperator(0i32);
-pub const SVG_FECOMPOSITE_OPERATOR_OVER: svgFecompositeOperator = svgFecompositeOperator(1i32);
-pub const SVG_FECOMPOSITE_OPERATOR_IN: svgFecompositeOperator = svgFecompositeOperator(2i32);
-pub const SVG_FECOMPOSITE_OPERATOR_OUT: svgFecompositeOperator = svgFecompositeOperator(3i32);
-pub const SVG_FECOMPOSITE_OPERATOR_ATOP: svgFecompositeOperator = svgFecompositeOperator(4i32);
-pub const SVG_FECOMPOSITE_OPERATOR_XOR: svgFecompositeOperator = svgFecompositeOperator(5i32);
-pub const SVG_FECOMPOSITE_OPERATOR_ARITHMETIC: svgFecompositeOperator = svgFecompositeOperator(6i32);
-pub const svgFecompositeOperator_Max: svgFecompositeOperator = svgFecompositeOperator(2147483647i32);
-impl ::core::marker::Copy for svgFecompositeOperator {}
-impl ::core::clone::Clone for svgFecompositeOperator {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct svgFocusable(pub i32);
-pub const svgFocusableNotSet: svgFocusable = svgFocusable(0i32);
-pub const svgFocusableAuto: svgFocusable = svgFocusable(1i32);
-pub const svgFocusableTrue: svgFocusable = svgFocusable(2i32);
-pub const svgFocusableFalse: svgFocusable = svgFocusable(3i32);
-pub const svgFocusable_Max: svgFocusable = svgFocusable(2147483647i32);
-impl ::core::marker::Copy for svgFocusable {}
-impl ::core::clone::Clone for svgFocusable {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct svgLengthType(pub i32);
-pub const SVG_LENGTHTYPE_UNKNOWN: svgLengthType = svgLengthType(0i32);
-pub const SVG_LENGTHTYPE_NUMBER: svgLengthType = svgLengthType(1i32);
-pub const SVG_LENGTHTYPE_PERCENTAGE: svgLengthType = svgLengthType(2i32);
-pub const SVG_LENGTHTYPE_EMS: svgLengthType = svgLengthType(3i32);
-pub const SVG_LENGTHTYPE_EXS: svgLengthType = svgLengthType(4i32);
-pub const SVG_LENGTHTYPE_PX: svgLengthType = svgLengthType(5i32);
-pub const SVG_LENGTHTYPE_CM: svgLengthType = svgLengthType(6i32);
-pub const SVG_LENGTHTYPE_MM: svgLengthType = svgLengthType(7i32);
-pub const SVG_LENGTHTYPE_IN: svgLengthType = svgLengthType(8i32);
-pub const SVG_LENGTHTYPE_PT: svgLengthType = svgLengthType(9i32);
-pub const SVG_LENGTHTYPE_PC: svgLengthType = svgLengthType(10i32);
-pub const svgLengthType_Max: svgLengthType = svgLengthType(2147483647i32);
-impl ::core::marker::Copy for svgLengthType {}
-impl ::core::clone::Clone for svgLengthType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct svgMarkerOrient(pub i32);
-pub const SVG_MARKER_ORIENT_UNKNOWN: svgMarkerOrient = svgMarkerOrient(0i32);
-pub const SVG_MARKER_ORIENT_AUTO: svgMarkerOrient = svgMarkerOrient(1i32);
-pub const SVG_MARKER_ORIENT_ANGLE: svgMarkerOrient = svgMarkerOrient(2i32);
-pub const svgMarkerOrient_Max: svgMarkerOrient = svgMarkerOrient(2147483647i32);
-impl ::core::marker::Copy for svgMarkerOrient {}
-impl ::core::clone::Clone for svgMarkerOrient {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct svgMarkerOrientAttribute(pub i32);
-pub const svgMarkerOrientAttributeAuto: svgMarkerOrientAttribute = svgMarkerOrientAttribute(0i32);
-pub const svgMarkerOrientAttribute_Max: svgMarkerOrientAttribute = svgMarkerOrientAttribute(2147483647i32);
-impl ::core::marker::Copy for svgMarkerOrientAttribute {}
-impl ::core::clone::Clone for svgMarkerOrientAttribute {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct svgMarkerUnits(pub i32);
-pub const SVG_MARKERUNITS_UNKNOWN: svgMarkerUnits = svgMarkerUnits(0i32);
-pub const SVG_MARKERUNITS_USERSPACEONUSE: svgMarkerUnits = svgMarkerUnits(1i32);
-pub const SVG_MARKERUNITS_STROKEWIDTH: svgMarkerUnits = svgMarkerUnits(2i32);
-pub const svgMarkerUnits_Max: svgMarkerUnits = svgMarkerUnits(2147483647i32);
-impl ::core::marker::Copy for svgMarkerUnits {}
-impl ::core::clone::Clone for svgMarkerUnits {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct svgMorphologyOperator(pub i32);
-pub const SVG_MORPHOLOGY_OPERATOR_UNKNOWN: svgMorphologyOperator = svgMorphologyOperator(0i32);
-pub const SVG_MORPHOLOGY_OPERATOR_ERODE: svgMorphologyOperator = svgMorphologyOperator(1i32);
-pub const SVG_MORPHOLOGY_OPERATOR_DILATE: svgMorphologyOperator = svgMorphologyOperator(2i32);
-pub const svgMorphologyOperator_Max: svgMorphologyOperator = svgMorphologyOperator(2147483647i32);
-impl ::core::marker::Copy for svgMorphologyOperator {}
-impl ::core::clone::Clone for svgMorphologyOperator {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct svgPathSegType(pub i32);
-pub const PATHSEG_UNKNOWN: svgPathSegType = svgPathSegType(0i32);
-pub const PATHSEG_CLOSEPATH: svgPathSegType = svgPathSegType(1i32);
-pub const PATHSEG_MOVETO_ABS: svgPathSegType = svgPathSegType(2i32);
-pub const PATHSEG_MOVETO_REL: svgPathSegType = svgPathSegType(3i32);
-pub const PATHSEG_LINETO_ABS: svgPathSegType = svgPathSegType(4i32);
-pub const PATHSEG_LINETO_REL: svgPathSegType = svgPathSegType(5i32);
-pub const PATHSEG_CURVETO_CUBIC_ABS: svgPathSegType = svgPathSegType(6i32);
-pub const PATHSEG_CURVETO_CUBIC_REL: svgPathSegType = svgPathSegType(7i32);
-pub const PATHSEG_CURVETO_QUADRATIC_ABS: svgPathSegType = svgPathSegType(8i32);
-pub const PATHSEG_CURVETO_QUADRATIC_REL: svgPathSegType = svgPathSegType(9i32);
-pub const PATHSEG_ARC_ABS: svgPathSegType = svgPathSegType(10i32);
-pub const PATHSEG_ARC_REL: svgPathSegType = svgPathSegType(11i32);
-pub const PATHSEG_LINETO_HORIZONTAL_ABS: svgPathSegType = svgPathSegType(12i32);
-pub const PATHSEG_LINETO_HORIZONTAL_REL: svgPathSegType = svgPathSegType(13i32);
-pub const PATHSEG_LINETO_VERTICAL_ABS: svgPathSegType = svgPathSegType(14i32);
-pub const PATHSEG_LINETO_VERTICAL_REL: svgPathSegType = svgPathSegType(15i32);
-pub const PATHSEG_CURVETO_CUBIC_SMOOTH_ABS: svgPathSegType = svgPathSegType(16i32);
-pub const PATHSEG_CURVETO_CUBIC_SMOOTH_REL: svgPathSegType = svgPathSegType(17i32);
-pub const PATHSEG_CURVETO_QUADRATIC_SMOOTH_ABS: svgPathSegType = svgPathSegType(18i32);
-pub const PATHSEG_CURVETO_QUADRATIC_SMOOTH_REL: svgPathSegType = svgPathSegType(19i32);
-pub const svgPathSegType_Max: svgPathSegType = svgPathSegType(2147483647i32);
-impl ::core::marker::Copy for svgPathSegType {}
-impl ::core::clone::Clone for svgPathSegType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct svgPreserveAlpha(pub i32);
-pub const SVG_PRESERVEALPHA_FALSE: svgPreserveAlpha = svgPreserveAlpha(0i32);
-pub const SVG_PRESERVEALPHA_TRUE: svgPreserveAlpha = svgPreserveAlpha(1i32);
-pub const svgPreserveAlpha_Max: svgPreserveAlpha = svgPreserveAlpha(2147483647i32);
-impl ::core::marker::Copy for svgPreserveAlpha {}
-impl ::core::clone::Clone for svgPreserveAlpha {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct svgPreserveAspectMeetOrSliceType(pub i32);
-pub const SVG_MEETORSLICE_UNKNOWN: svgPreserveAspectMeetOrSliceType = svgPreserveAspectMeetOrSliceType(0i32);
-pub const SVG_MEETORSLICE_MEET: svgPreserveAspectMeetOrSliceType = svgPreserveAspectMeetOrSliceType(1i32);
-pub const SVG_MEETORSLICE_SLICE: svgPreserveAspectMeetOrSliceType = svgPreserveAspectMeetOrSliceType(2i32);
-pub const svgPreserveAspectMeetOrSliceType_Max: svgPreserveAspectMeetOrSliceType = svgPreserveAspectMeetOrSliceType(2147483647i32);
-impl ::core::marker::Copy for svgPreserveAspectMeetOrSliceType {}
-impl ::core::clone::Clone for svgPreserveAspectMeetOrSliceType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct svgPreserveAspectRatioAlignType(pub i32);
-pub const SVG_PRESERVEASPECTRATIO_UNKNOWN: svgPreserveAspectRatioAlignType = svgPreserveAspectRatioAlignType(0i32);
-pub const SVG_PRESERVEASPECTRATIO_NONE: svgPreserveAspectRatioAlignType = svgPreserveAspectRatioAlignType(1i32);
-pub const SVG_PRESERVEASPECTRATIO_XMINYMIN: svgPreserveAspectRatioAlignType = svgPreserveAspectRatioAlignType(2i32);
-pub const SVG_PRESERVEASPECTRATIO_XMIDYMIN: svgPreserveAspectRatioAlignType = svgPreserveAspectRatioAlignType(3i32);
-pub const SVG_PRESERVEASPECTRATIO_XMAXYMIN: svgPreserveAspectRatioAlignType = svgPreserveAspectRatioAlignType(4i32);
-pub const SVG_PRESERVEASPECTRATIO_XMINYMID: svgPreserveAspectRatioAlignType = svgPreserveAspectRatioAlignType(5i32);
-pub const SVG_PRESERVEASPECTRATIO_XMIDYMID: svgPreserveAspectRatioAlignType = svgPreserveAspectRatioAlignType(6i32);
-pub const SVG_PRESERVEASPECTRATIO_XMAXYMID: svgPreserveAspectRatioAlignType = svgPreserveAspectRatioAlignType(7i32);
-pub const SVG_PRESERVEASPECTRATIO_XMINYMAX: svgPreserveAspectRatioAlignType = svgPreserveAspectRatioAlignType(8i32);
-pub const SVG_PRESERVEASPECTRATIO_XMIDYMAX: svgPreserveAspectRatioAlignType = svgPreserveAspectRatioAlignType(9i32);
-pub const SVG_PRESERVEASPECTRATIO_XMAXYMAX: svgPreserveAspectRatioAlignType = svgPreserveAspectRatioAlignType(10i32);
-pub const svgPreserveAspectRatioAlignType_Max: svgPreserveAspectRatioAlignType = svgPreserveAspectRatioAlignType(2147483647i32);
-impl ::core::marker::Copy for svgPreserveAspectRatioAlignType {}
-impl ::core::clone::Clone for svgPreserveAspectRatioAlignType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct svgSpreadMethod(pub i32);
-pub const SVG_SPREADMETHOD_UNKNOWN: svgSpreadMethod = svgSpreadMethod(0i32);
-pub const SVG_SPREADMETHOD_PAD: svgSpreadMethod = svgSpreadMethod(1i32);
-pub const SVG_SPREADMETHOD_REFLECT: svgSpreadMethod = svgSpreadMethod(2i32);
-pub const SVG_SPREADMETHOD_REPEAT: svgSpreadMethod = svgSpreadMethod(3i32);
-pub const svgSpreadMethod_Max: svgSpreadMethod = svgSpreadMethod(2147483647i32);
-impl ::core::marker::Copy for svgSpreadMethod {}
-impl ::core::clone::Clone for svgSpreadMethod {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct svgStitchtype(pub i32);
-pub const SVG_STITCHTYPE_UNKNOWN: svgStitchtype = svgStitchtype(0i32);
-pub const SVG_STITCHTYPE_STITCH: svgStitchtype = svgStitchtype(1i32);
-pub const SVG_STITCHTYPE_NOSTITCH: svgStitchtype = svgStitchtype(2i32);
-pub const svgStitchtype_Max: svgStitchtype = svgStitchtype(2147483647i32);
-impl ::core::marker::Copy for svgStitchtype {}
-impl ::core::clone::Clone for svgStitchtype {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct svgTransformType(pub i32);
-pub const SVG_TRANSFORM_UNKNOWN: svgTransformType = svgTransformType(0i32);
-pub const SVG_TRANSFORM_MATRIX: svgTransformType = svgTransformType(1i32);
-pub const SVG_TRANSFORM_TRANSLATE: svgTransformType = svgTransformType(2i32);
-pub const SVG_TRANSFORM_SCALE: svgTransformType = svgTransformType(3i32);
-pub const SVG_TRANSFORM_ROTATE: svgTransformType = svgTransformType(4i32);
-pub const SVG_TRANSFORM_SKEWX: svgTransformType = svgTransformType(5i32);
-pub const SVG_TRANSFORM_SKEWY: svgTransformType = svgTransformType(6i32);
-pub const svgTransformType_Max: svgTransformType = svgTransformType(2147483647i32);
-impl ::core::marker::Copy for svgTransformType {}
-impl ::core::clone::Clone for svgTransformType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct svgTurbulenceType(pub i32);
-pub const SVG_TURBULENCE_TYPE_UNKNOWN: svgTurbulenceType = svgTurbulenceType(0i32);
-pub const SVG_TURBULENCE_TYPE_FACTALNOISE: svgTurbulenceType = svgTurbulenceType(1i32);
-pub const SVG_TURBULENCE_TYPE_TURBULENCE: svgTurbulenceType = svgTurbulenceType(2i32);
-pub const svgTurbulenceType_Max: svgTurbulenceType = svgTurbulenceType(2147483647i32);
-impl ::core::marker::Copy for svgTurbulenceType {}
-impl ::core::clone::Clone for svgTurbulenceType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct svgUnitTypes(pub i32);
-pub const SVG_UNITTYPE_UNKNOWN: svgUnitTypes = svgUnitTypes(0i32);
-pub const SVG_UNITTYPE_USERSPACEONUSE: svgUnitTypes = svgUnitTypes(1i32);
-pub const SVG_UNITTYPE_OBJECTBOUNDINGBOX: svgUnitTypes = svgUnitTypes(2i32);
-pub const svgUnitTypes_Max: svgUnitTypes = svgUnitTypes(2147483647i32);
-impl ::core::marker::Copy for svgUnitTypes {}
-impl ::core::clone::Clone for svgUnitTypes {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const FINDFRAME_NONE: i32 = 0i32;
+pub const FINDFRAME_JUSTTESTEXISTENCE: i32 = 1i32;
+pub const FINDFRAME_INTERNAL: i32 = -2147483648i32;
+pub const FRAMEOPTIONS_SCROLL_YES: i32 = 1i32;
+pub const FRAMEOPTIONS_SCROLL_NO: i32 = 2i32;
+pub const FRAMEOPTIONS_SCROLL_AUTO: i32 = 4i32;
+pub const FRAMEOPTIONS_NORESIZE: i32 = 8i32;
+pub const FRAMEOPTIONS_NO3DBORDER: i32 = 16i32;
+pub const FRAMEOPTIONS_DESKTOP: i32 = 32i32;
+pub const FRAMEOPTIONS_BROWSERBAND: i32 = 64i32;
+pub const NAVIGATEFRAME_FL_RECORD: i32 = 1i32;
+pub const NAVIGATEFRAME_FL_POST: i32 = 2i32;
+pub const NAVIGATEFRAME_FL_NO_DOC_CACHE: i32 = 4i32;
+pub const NAVIGATEFRAME_FL_NO_IMAGE_CACHE: i32 = 8i32;
+pub const NAVIGATEFRAME_FL_AUTH_FAIL_CACHE_OK: i32 = 16i32;
+pub const NAVIGATEFRAME_FL_SENDING_FROM_FORM: i32 = 32i32;
+pub const NAVIGATEFRAME_FL_REALLY_SENDING_FROM_FORM: i32 = 64i32;
+pub const bodyScrollyes: i32 = 1i32;
+pub const bodyScrollno: i32 = 2i32;
+pub const bodyScrollauto: i32 = 4i32;
+pub const bodyScrolldefault: i32 = 3i32;
+pub const bodyScroll_Max: i32 = 2147483647i32;
+pub const frameScrollingyes: i32 = 1i32;
+pub const frameScrollingno: i32 = 2i32;
+pub const frameScrollingauto: i32 = 4i32;
+pub const frameScrolling_Max: i32 = 2147483647i32;
+pub const htmlAdjacencyBeforeBegin: i32 = 1i32;
+pub const htmlAdjacencyAfterBegin: i32 = 2i32;
+pub const htmlAdjacencyBeforeEnd: i32 = 3i32;
+pub const htmlAdjacencyAfterEnd: i32 = 4i32;
+pub const htmlAdjacency_Max: i32 = 2147483647i32;
+pub const htmlApplyLocationInside: i32 = 0i32;
+pub const htmlApplyLocationOutside: i32 = 1i32;
+pub const htmlApplyLocation_Max: i32 = 2147483647i32;
+pub const htmlBlockAlignNotSet: i32 = 0i32;
+pub const htmlBlockAlignLeft: i32 = 1i32;
+pub const htmlBlockAlignCenter: i32 = 2i32;
+pub const htmlBlockAlignRight: i32 = 3i32;
+pub const htmlBlockAlignJustify: i32 = 4i32;
+pub const htmlBlockAlign_Max: i32 = 2147483647i32;
+pub const htmlCaptionAlignNotSet: i32 = 0i32;
+pub const htmlCaptionAlignLeft: i32 = 1i32;
+pub const htmlCaptionAlignCenter: i32 = 2i32;
+pub const htmlCaptionAlignRight: i32 = 3i32;
+pub const htmlCaptionAlignJustify: i32 = 4i32;
+pub const htmlCaptionAlignTop: i32 = 5i32;
+pub const htmlCaptionAlignBottom: i32 = 6i32;
+pub const htmlCaptionAlign_Max: i32 = 2147483647i32;
+pub const htmlCaptionVAlignNotSet: i32 = 0i32;
+pub const htmlCaptionVAlignTop: i32 = 1i32;
+pub const htmlCaptionVAlignBottom: i32 = 2i32;
+pub const htmlCaptionVAlign_Max: i32 = 2147483647i32;
+pub const htmlCellAlignNotSet: i32 = 0i32;
+pub const htmlCellAlignLeft: i32 = 1i32;
+pub const htmlCellAlignCenter: i32 = 2i32;
+pub const htmlCellAlignRight: i32 = 3i32;
+pub const htmlCellAlignMiddle: i32 = 2i32;
+pub const htmlCellAlign_Max: i32 = 2147483647i32;
+pub const htmlCellVAlignNotSet: i32 = 0i32;
+pub const htmlCellVAlignTop: i32 = 1i32;
+pub const htmlCellVAlignMiddle: i32 = 2i32;
+pub const htmlCellVAlignBottom: i32 = 3i32;
+pub const htmlCellVAlignBaseline: i32 = 4i32;
+pub const htmlCellVAlignCenter: i32 = 2i32;
+pub const htmlCellVAlign_Max: i32 = 2147483647i32;
+pub const htmlClearNotSet: i32 = 0i32;
+pub const htmlClearAll: i32 = 1i32;
+pub const htmlClearLeft: i32 = 2i32;
+pub const htmlClearRight: i32 = 3i32;
+pub const htmlClearBoth: i32 = 4i32;
+pub const htmlClearNone: i32 = 5i32;
+pub const htmlClear_Max: i32 = 2147483647i32;
+pub const htmlCompatModeBackCompat: i32 = 0i32;
+pub const htmlCompatModeCSS1Compat: i32 = 1i32;
+pub const htmlCompatMode_Max: i32 = 2147483647i32;
+pub const htmlComponentClient: i32 = 0i32;
+pub const htmlComponentSbLeft: i32 = 1i32;
+pub const htmlComponentSbPageLeft: i32 = 2i32;
+pub const htmlComponentSbHThumb: i32 = 3i32;
+pub const htmlComponentSbPageRight: i32 = 4i32;
+pub const htmlComponentSbRight: i32 = 5i32;
+pub const htmlComponentSbUp: i32 = 6i32;
+pub const htmlComponentSbPageUp: i32 = 7i32;
+pub const htmlComponentSbVThumb: i32 = 8i32;
+pub const htmlComponentSbPageDown: i32 = 9i32;
+pub const htmlComponentSbDown: i32 = 10i32;
+pub const htmlComponentSbLeft2: i32 = 11i32;
+pub const htmlComponentSbPageLeft2: i32 = 12i32;
+pub const htmlComponentSbRight2: i32 = 13i32;
+pub const htmlComponentSbPageRight2: i32 = 14i32;
+pub const htmlComponentSbUp2: i32 = 15i32;
+pub const htmlComponentSbPageUp2: i32 = 16i32;
+pub const htmlComponentSbDown2: i32 = 17i32;
+pub const htmlComponentSbPageDown2: i32 = 18i32;
+pub const htmlComponentSbTop: i32 = 19i32;
+pub const htmlComponentSbBottom: i32 = 20i32;
+pub const htmlComponentOutside: i32 = 21i32;
+pub const htmlComponentGHTopLeft: i32 = 22i32;
+pub const htmlComponentGHLeft: i32 = 23i32;
+pub const htmlComponentGHTop: i32 = 24i32;
+pub const htmlComponentGHBottomLeft: i32 = 25i32;
+pub const htmlComponentGHTopRight: i32 = 26i32;
+pub const htmlComponentGHBottom: i32 = 27i32;
+pub const htmlComponentGHRight: i32 = 28i32;
+pub const htmlComponentGHBottomRight: i32 = 29i32;
+pub const htmlComponent_Max: i32 = 2147483647i32;
+pub const htmlControlAlignNotSet: i32 = 0i32;
+pub const htmlControlAlignLeft: i32 = 1i32;
+pub const htmlControlAlignCenter: i32 = 2i32;
+pub const htmlControlAlignRight: i32 = 3i32;
+pub const htmlControlAlignTextTop: i32 = 4i32;
+pub const htmlControlAlignAbsMiddle: i32 = 5i32;
+pub const htmlControlAlignBaseline: i32 = 6i32;
+pub const htmlControlAlignAbsBottom: i32 = 7i32;
+pub const htmlControlAlignBottom: i32 = 8i32;
+pub const htmlControlAlignMiddle: i32 = 9i32;
+pub const htmlControlAlignTop: i32 = 10i32;
+pub const htmlControlAlign_Max: i32 = 2147483647i32;
+pub const htmlDesignModeInherit: i32 = -2i32;
+pub const htmlDesignModeOn: i32 = -1i32;
+pub const htmlDesignModeOff: i32 = 0i32;
+pub const htmlDesignMode_Max: i32 = 2147483647i32;
+pub const htmlDirNotSet: i32 = 0i32;
+pub const htmlDirLeftToRight: i32 = 1i32;
+pub const htmlDirRightToLeft: i32 = 2i32;
+pub const htmlDir_Max: i32 = 2147483647i32;
+pub const htmlDirectionForward: i32 = 99999i32;
+pub const htmlDirectionBackward: i32 = -99999i32;
+pub const htmlDirection_Max: i32 = 2147483647i32;
+pub const htmlDraggableAuto: i32 = 0i32;
+pub const htmlDraggableTrue: i32 = 1i32;
+pub const htmlDraggableFalse: i32 = 2i32;
+pub const htmlDraggable_Max: i32 = 2147483647i32;
+pub const htmlDropEffectCopy: i32 = 0i32;
+pub const htmlDropEffectLink: i32 = 1i32;
+pub const htmlDropEffectMove: i32 = 2i32;
+pub const htmlDropEffectNone: i32 = 3i32;
+pub const htmlDropEffect_Max: i32 = 2147483647i32;
+pub const htmlEditableInherit: i32 = 0i32;
+pub const htmlEditableTrue: i32 = 1i32;
+pub const htmlEditableFalse: i32 = 2i32;
+pub const htmlEditable_Max: i32 = 2147483647i32;
+pub const htmlEffectAllowedCopy: i32 = 0i32;
+pub const htmlEffectAllowedLink: i32 = 1i32;
+pub const htmlEffectAllowedMove: i32 = 2i32;
+pub const htmlEffectAllowedCopyLink: i32 = 3i32;
+pub const htmlEffectAllowedCopyMove: i32 = 4i32;
+pub const htmlEffectAllowedLinkMove: i32 = 5i32;
+pub const htmlEffectAllowedAll: i32 = 6i32;
+pub const htmlEffectAllowedNone: i32 = 7i32;
+pub const htmlEffectAllowedUninitialized: i32 = 8i32;
+pub const htmlEffectAllowed_Max: i32 = 2147483647i32;
+pub const htmlEncodingURL: i32 = 0i32;
+pub const htmlEncodingMultipart: i32 = 1i32;
+pub const htmlEncodingText: i32 = 2i32;
+pub const htmlEncoding_Max: i32 = 2147483647i32;
+pub const htmlEndPointsStartToStart: i32 = 1i32;
+pub const htmlEndPointsStartToEnd: i32 = 2i32;
+pub const htmlEndPointsEndToStart: i32 = 3i32;
+pub const htmlEndPointsEndToEnd: i32 = 4i32;
+pub const htmlEndPoints_Max: i32 = 2147483647i32;
+pub const htmlFrameNotSet: i32 = 0i32;
+pub const htmlFramevoid: i32 = 1i32;
+pub const htmlFrameabove: i32 = 2i32;
+pub const htmlFramebelow: i32 = 3i32;
+pub const htmlFramehsides: i32 = 4i32;
+pub const htmlFramelhs: i32 = 5i32;
+pub const htmlFramerhs: i32 = 6i32;
+pub const htmlFramevsides: i32 = 7i32;
+pub const htmlFramebox: i32 = 8i32;
+pub const htmlFrameborder: i32 = 9i32;
+pub const htmlFrame_Max: i32 = 2147483647i32;
+pub const htmlGlyphModeNone: i32 = 0i32;
+pub const htmlGlyphModeBegin: i32 = 1i32;
+pub const htmlGlyphModeEnd: i32 = 2i32;
+pub const htmlGlyphModeBoth: i32 = 3i32;
+pub const htmlGlyphMode_Max: i32 = 2147483647i32;
+pub const htmlInputNotSet: i32 = 0i32;
+pub const htmlInputButton: i32 = 1i32;
+pub const htmlInputCheckbox: i32 = 2i32;
+pub const htmlInputFile: i32 = 3i32;
+pub const htmlInputHidden: i32 = 4i32;
+pub const htmlInputImage: i32 = 5i32;
+pub const htmlInputPassword: i32 = 6i32;
+pub const htmlInputRadio: i32 = 7i32;
+pub const htmlInputReset: i32 = 8i32;
+pub const htmlInputSelectOne: i32 = 9i32;
+pub const htmlInputSelectMultiple: i32 = 10i32;
+pub const htmlInputSubmit: i32 = 11i32;
+pub const htmlInputText: i32 = 12i32;
+pub const htmlInputTextarea: i32 = 13i32;
+pub const htmlInputRichtext: i32 = 14i32;
+pub const htmlInputRange: i32 = 15i32;
+pub const htmlInputUrl: i32 = 16i32;
+pub const htmlInputEmail: i32 = 17i32;
+pub const htmlInputNumber: i32 = 18i32;
+pub const htmlInputTel: i32 = 19i32;
+pub const htmlInputSearch: i32 = 20i32;
+pub const htmlInput_Max: i32 = 2147483647i32;
+pub const htmlListTypeNotSet: i32 = 0i32;
+pub const htmlListTypeLargeAlpha: i32 = 1i32;
+pub const htmlListTypeSmallAlpha: i32 = 2i32;
+pub const htmlListTypeLargeRoman: i32 = 3i32;
+pub const htmlListTypeSmallRoman: i32 = 4i32;
+pub const htmlListTypeNumbers: i32 = 5i32;
+pub const htmlListTypeDisc: i32 = 6i32;
+pub const htmlListTypeCircle: i32 = 7i32;
+pub const htmlListTypeSquare: i32 = 8i32;
+pub const htmlListType_Max: i32 = 2147483647i32;
+pub const htmlLoopLoopInfinite: i32 = -1i32;
+pub const htmlLoop_Max: i32 = 2147483647i32;
+pub const htmlMarqueeBehaviorscroll: i32 = 1i32;
+pub const htmlMarqueeBehaviorslide: i32 = 2i32;
+pub const htmlMarqueeBehavioralternate: i32 = 3i32;
+pub const htmlMarqueeBehavior_Max: i32 = 2147483647i32;
+pub const htmlMarqueeDirectionleft: i32 = 1i32;
+pub const htmlMarqueeDirectionright: i32 = 3i32;
+pub const htmlMarqueeDirectionup: i32 = 5i32;
+pub const htmlMarqueeDirectiondown: i32 = 7i32;
+pub const htmlMarqueeDirection_Max: i32 = 2147483647i32;
+pub const htmlMediaErrAborted: i32 = 0i32;
+pub const htmlMediaErrNetwork: i32 = 1i32;
+pub const htmlMediaErrDecode: i32 = 2i32;
+pub const htmlMediaErrSrcNotSupported: i32 = 3i32;
+pub const htmlMediaErr_Max: i32 = 2147483647i32;
+pub const htmlMediaNetworkStateEmpty: i32 = 0i32;
+pub const htmlMediaNetworkStateIdle: i32 = 1i32;
+pub const htmlMediaNetworkStateLoading: i32 = 2i32;
+pub const htmlMediaNetworkStateNoSource: i32 = 3i32;
+pub const htmlMediaNetworkState_Max: i32 = 2147483647i32;
+pub const htmlMediaReadyStateHaveNothing: i32 = 0i32;
+pub const htmlMediaReadyStateHaveMetadata: i32 = 1i32;
+pub const htmlMediaReadyStateHaveCurrentData: i32 = 2i32;
+pub const htmlMediaReadyStateHaveFutureData: i32 = 3i32;
+pub const htmlMediaReadyStateHaveEnoughData: i32 = 4i32;
+pub const htmlMediaReadyState_Max: i32 = 2147483647i32;
+pub const htmlMethodNotSet: i32 = 0i32;
+pub const htmlMethodGet: i32 = 1i32;
+pub const htmlMethodPost: i32 = 2i32;
+pub const htmlMethod_Max: i32 = 2147483647i32;
+pub const htmlPersistStateNormal: i32 = 0i32;
+pub const htmlPersistStateFavorite: i32 = 1i32;
+pub const htmlPersistStateHistory: i32 = 2i32;
+pub const htmlPersistStateSnapshot: i32 = 3i32;
+pub const htmlPersistStateUserData: i32 = 4i32;
+pub const htmlPersistState_Max: i32 = 2147483647i32;
+pub const htmlReadyStateuninitialized: i32 = 0i32;
+pub const htmlReadyStateloading: i32 = 1i32;
+pub const htmlReadyStateloaded: i32 = 2i32;
+pub const htmlReadyStateinteractive: i32 = 3i32;
+pub const htmlReadyStatecomplete: i32 = 4i32;
+pub const htmlReadyState_Max: i32 = 2147483647i32;
+pub const htmlRulesNotSet: i32 = 0i32;
+pub const htmlRulesnone: i32 = 1i32;
+pub const htmlRulesgroups: i32 = 2i32;
+pub const htmlRulesrows: i32 = 3i32;
+pub const htmlRulescols: i32 = 4i32;
+pub const htmlRulesall: i32 = 5i32;
+pub const htmlRules_Max: i32 = 2147483647i32;
+pub const htmlSelectExFlagNone: i32 = 0i32;
+pub const htmlSelectExFlagHideSelectionInDesign: i32 = 1i32;
+pub const htmlSelectExFlag_Max: i32 = 2147483647i32;
+pub const htmlSelectTypeSelectOne: i32 = 1i32;
+pub const htmlSelectTypeSelectMultiple: i32 = 2i32;
+pub const htmlSelectType_Max: i32 = 2147483647i32;
+pub const htmlSelectionNone: i32 = 0i32;
+pub const htmlSelectionText: i32 = 1i32;
+pub const htmlSelectionControl: i32 = 2i32;
+pub const htmlSelectionTable: i32 = 3i32;
+pub const htmlSelection_Max: i32 = 2147483647i32;
+pub const htmlSpellCheckNotSet: i32 = 0i32;
+pub const htmlSpellCheckTrue: i32 = 1i32;
+pub const htmlSpellCheckFalse: i32 = 2i32;
+pub const htmlSpellCheckDefault: i32 = 3i32;
+pub const htmlSpellCheck_Max: i32 = 2147483647i32;
+pub const htmlStartfileopen: i32 = 0i32;
+pub const htmlStartmouseover: i32 = 1i32;
+pub const htmlStart_Max: i32 = 2147483647i32;
+pub const htmlTabIndexNotSet: i32 = -32768i32;
+pub const htmlTabIndex_Max: i32 = 2147483647i32;
+pub const htmlUnitCharacter: i32 = 1i32;
+pub const htmlUnitWord: i32 = 2i32;
+pub const htmlUnitSentence: i32 = 3i32;
+pub const htmlUnitTextEdit: i32 = 6i32;
+pub const htmlUnit_Max: i32 = 2147483647i32;
+pub const htmlWrapOff: i32 = 1i32;
+pub const htmlWrapSoft: i32 = 2i32;
+pub const htmlWrapHard: i32 = 3i32;
+pub const htmlWrap_Max: i32 = 2147483647i32;
+pub const htmlZOrderFront: i32 = 0i32;
+pub const htmlZOrderBack: i32 = 1i32;
+pub const htmlZOrder_Max: i32 = 2147483647i32;
+pub const LENGTHADJUST_UNKNOWN: i32 = 0i32;
+pub const LENGTHADJUST_SPACING: i32 = 1i32;
+pub const LENGTHADJUST_SPACINGANDGLYPHS: i32 = 2i32;
+pub const lengthAdjust_Max: i32 = 2147483647i32;
+pub const mediaTypeNotSet: i32 = 0i32;
+pub const mediaTypeAll: i32 = 511i32;
+pub const mediaTypeAural: i32 = 1i32;
+pub const mediaTypeBraille: i32 = 2i32;
+pub const mediaTypeEmbossed: i32 = 4i32;
+pub const mediaTypeHandheld: i32 = 8i32;
+pub const mediaTypePrint: i32 = 16i32;
+pub const mediaTypeProjection: i32 = 32i32;
+pub const mediaTypeScreen: i32 = 64i32;
+pub const mediaTypeTty: i32 = 128i32;
+pub const mediaTypeTv: i32 = 256i32;
+pub const mediaType_Max: i32 = 2147483647i32;
+pub const sandboxAllowScripts: i32 = 0i32;
+pub const sandboxAllowSameOrigin: i32 = 1i32;
+pub const sandboxAllowTopNavigation: i32 = 2i32;
+pub const sandboxAllowForms: i32 = 3i32;
+pub const sandboxAllowPopups: i32 = 4i32;
+pub const sandboxAllow_Max: i32 = 2147483647i32;
+pub const styleAcceleratorFalse: i32 = 0i32;
+pub const styleAcceleratorTrue: i32 = 1i32;
+pub const styleAccelerator_Max: i32 = 2147483647i32;
+pub const styleAlignContentFlexStart: i32 = 0i32;
+pub const styleAlignContentFlexEnd: i32 = 1i32;
+pub const styleAlignContentCenter: i32 = 2i32;
+pub const styleAlignContentSpaceBetween: i32 = 3i32;
+pub const styleAlignContentSpaceAround: i32 = 4i32;
+pub const styleAlignContentStretch: i32 = 5i32;
+pub const styleAlignContentNotSet: i32 = 6i32;
+pub const styleAlignContent_Max: i32 = 2147483647i32;
+pub const styleAlignItemsFlexStart: i32 = 0i32;
+pub const styleAlignItemsFlexEnd: i32 = 1i32;
+pub const styleAlignItemsCenter: i32 = 2i32;
+pub const styleAlignItemsBaseline: i32 = 3i32;
+pub const styleAlignItemsStretch: i32 = 4i32;
+pub const styleAlignItemsNotSet: i32 = 5i32;
+pub const styleAlignItems_Max: i32 = 2147483647i32;
+pub const styleAlignSelfFlexStart: i32 = 0i32;
+pub const styleAlignSelfFlexEnd: i32 = 1i32;
+pub const styleAlignSelfCenter: i32 = 2i32;
+pub const styleAlignSelfBaseline: i32 = 3i32;
+pub const styleAlignSelfStretch: i32 = 4i32;
+pub const styleAlignSelfAuto: i32 = 5i32;
+pub const styleAlignSelfNotSet: i32 = 6i32;
+pub const styleAlignSelf_Max: i32 = 2147483647i32;
+pub const styleAlignmentBaselineNotSet: i32 = 0i32;
+pub const styleAlignmentBaselineAfterEdge: i32 = 1i32;
+pub const styleAlignmentBaselineAlphabetic: i32 = 2i32;
+pub const styleAlignmentBaselineAuto: i32 = 3i32;
+pub const styleAlignmentBaselineBaseline: i32 = 4i32;
+pub const styleAlignmentBaselineBeforeEdge: i32 = 5i32;
+pub const styleAlignmentBaselineCentral: i32 = 6i32;
+pub const styleAlignmentBaselineHanging: i32 = 7i32;
+pub const styleAlignmentBaselineMathematical: i32 = 8i32;
+pub const styleAlignmentBaselineMiddle: i32 = 9i32;
+pub const styleAlignmentBaselineTextAfterEdge: i32 = 10i32;
+pub const styleAlignmentBaselineTextBeforeEdge: i32 = 11i32;
+pub const styleAlignmentBaselineIdeographic: i32 = 12i32;
+pub const styleAlignmentBaseline_Max: i32 = 2147483647i32;
+pub const styleAttrTypeString: i32 = 0i32;
+pub const styleAttrTypeColor: i32 = 1i32;
+pub const styleAttrTypeUrl: i32 = 2i32;
+pub const styleAttrTypeInteger: i32 = 3i32;
+pub const styleAttrTypeNumber: i32 = 4i32;
+pub const styleAttrTypeLength: i32 = 5i32;
+pub const styleAttrTypePx: i32 = 6i32;
+pub const styleAttrTypeEm: i32 = 7i32;
+pub const styleAttrTypeEx: i32 = 8i32;
+pub const styleAttrTypeIn: i32 = 9i32;
+pub const styleAttrTypeCm: i32 = 10i32;
+pub const styleAttrTypeMm: i32 = 11i32;
+pub const styleAttrTypePt: i32 = 12i32;
+pub const styleAttrTypePc: i32 = 13i32;
+pub const styleAttrTypeRem: i32 = 14i32;
+pub const styleAttrTypeCh: i32 = 15i32;
+pub const styleAttrTypeVh: i32 = 16i32;
+pub const styleAttrTypeVw: i32 = 17i32;
+pub const styleAttrTypeVmin: i32 = 18i32;
+pub const styleAttrTypePercentage: i32 = 19i32;
+pub const styleAttrTypeAngle: i32 = 20i32;
+pub const styleAttrTypeDeg: i32 = 21i32;
+pub const styleAttrTypeRad: i32 = 22i32;
+pub const styleAttrTypeGrad: i32 = 23i32;
+pub const styleAttrTypeTime: i32 = 24i32;
+pub const styleAttrTypeS: i32 = 25i32;
+pub const styleAttrTypeMs: i32 = 26i32;
+pub const styleAttrType_Max: i32 = 2147483647i32;
+pub const styleAutoAuto: i32 = 0i32;
+pub const styleAuto_Max: i32 = 2147483647i32;
+pub const styleBackfaceVisibilityVisible: i32 = 0i32;
+pub const styleBackfaceVisibilityHidden: i32 = 1i32;
+pub const styleBackfaceVisibilityNotSet: i32 = 2i32;
+pub const styleBackfaceVisibility_Max: i32 = 2147483647i32;
+pub const styleBackgroundAttachmentFixed: i32 = 0i32;
+pub const styleBackgroundAttachmentScroll: i32 = 1i32;
+pub const styleBackgroundAttachmentNotSet: i32 = 2i32;
+pub const styleBackgroundAttachment_Max: i32 = 2147483647i32;
+pub const styleBackgroundAttachment3Fixed: i32 = 0i32;
+pub const styleBackgroundAttachment3Scroll: i32 = 1i32;
+pub const styleBackgroundAttachment3Local: i32 = 2i32;
+pub const styleBackgroundAttachment3NotSet: i32 = 3i32;
+pub const styleBackgroundAttachment3_Max: i32 = 2147483647i32;
+pub const styleBackgroundClipBorderBox: i32 = 0i32;
+pub const styleBackgroundClipPaddingBox: i32 = 1i32;
+pub const styleBackgroundClipContentBox: i32 = 2i32;
+pub const styleBackgroundClipNotSet: i32 = 3i32;
+pub const styleBackgroundClip_Max: i32 = 2147483647i32;
+pub const styleBackgroundOriginBorderBox: i32 = 0i32;
+pub const styleBackgroundOriginPaddingBox: i32 = 1i32;
+pub const styleBackgroundOriginContentBox: i32 = 2i32;
+pub const styleBackgroundOriginNotSet: i32 = 3i32;
+pub const styleBackgroundOrigin_Max: i32 = 2147483647i32;
+pub const styleBackgroundRepeatRepeat: i32 = 0i32;
+pub const styleBackgroundRepeatRepeatX: i32 = 1i32;
+pub const styleBackgroundRepeatRepeatY: i32 = 2i32;
+pub const styleBackgroundRepeatNoRepeat: i32 = 3i32;
+pub const styleBackgroundRepeatNotSet: i32 = 4i32;
+pub const styleBackgroundRepeat_Max: i32 = 2147483647i32;
+pub const styleBaselineShiftBaseline: i32 = 0i32;
+pub const styleBaselineShiftSub: i32 = 1i32;
+pub const styleBaselineShiftSuper: i32 = 2i32;
+pub const styleBaselineShift_Max: i32 = 2147483647i32;
+pub const styleBidiNotSet: i32 = 0i32;
+pub const styleBidiNormal: i32 = 1i32;
+pub const styleBidiEmbed: i32 = 2i32;
+pub const styleBidiOverride: i32 = 3i32;
+pub const styleBidiInherit: i32 = 4i32;
+pub const styleBidi_Max: i32 = 2147483647i32;
+pub const styleBlockProgressionTb: i32 = 0i32;
+pub const styleBlockProgressionRl: i32 = 1i32;
+pub const styleBlockProgressionBt: i32 = 2i32;
+pub const styleBlockProgressionLr: i32 = 3i32;
+pub const styleBlockProgressionNotSet: i32 = 4i32;
+pub const styleBlockProgression_Max: i32 = 2147483647i32;
+pub const styleBoolFalse: i32 = 0i32;
+pub const styleBoolTrue: i32 = 1i32;
+pub const styleBool_Max: i32 = 2147483647i32;
+pub const styleBorderCollapseNotSet: i32 = 0i32;
+pub const styleBorderCollapseSeparate: i32 = 1i32;
+pub const styleBorderCollapseCollapse: i32 = 2i32;
+pub const styleBorderCollapse_Max: i32 = 2147483647i32;
+pub const styleBorderImageRepeatStretch: i32 = 0i32;
+pub const styleBorderImageRepeatRepeat: i32 = 1i32;
+pub const styleBorderImageRepeatRound: i32 = 2i32;
+pub const styleBorderImageRepeatSpace: i32 = 3i32;
+pub const styleBorderImageRepeatNotSet: i32 = 4i32;
+pub const styleBorderImageRepeat_Max: i32 = 2147483647i32;
+pub const styleBorderImageSliceFillNotSet: i32 = 0i32;
+pub const styleBorderImageSliceFillFill: i32 = 1i32;
+pub const styleBorderImageSliceFill_Max: i32 = 2147483647i32;
+pub const styleBorderStyleNotSet: i32 = 0i32;
+pub const styleBorderStyleDotted: i32 = 1i32;
+pub const styleBorderStyleDashed: i32 = 2i32;
+pub const styleBorderStyleSolid: i32 = 3i32;
+pub const styleBorderStyleDouble: i32 = 4i32;
+pub const styleBorderStyleGroove: i32 = 5i32;
+pub const styleBorderStyleRidge: i32 = 6i32;
+pub const styleBorderStyleInset: i32 = 7i32;
+pub const styleBorderStyleOutset: i32 = 8i32;
+pub const styleBorderStyleWindowInset: i32 = 9i32;
+pub const styleBorderStyleNone: i32 = 10i32;
+pub const styleBorderStyleHidden: i32 = 11i32;
+pub const styleBorderStyle_Max: i32 = 2147483647i32;
+pub const styleBorderWidthThin: i32 = 0i32;
+pub const styleBorderWidthMedium: i32 = 1i32;
+pub const styleBorderWidthThick: i32 = 2i32;
+pub const styleBorderWidth_Max: i32 = 2147483647i32;
+pub const styleBoxSizingNotSet: i32 = 0i32;
+pub const styleBoxSizingContentBox: i32 = 1i32;
+pub const styleBoxSizingBorderBox: i32 = 2i32;
+pub const styleBoxSizing_Max: i32 = 2147483647i32;
+pub const styleBreakNotSet: i32 = 0i32;
+pub const styleBreakAuto: i32 = 1i32;
+pub const styleBreakAlways: i32 = 2i32;
+pub const styleBreakAvoid: i32 = 3i32;
+pub const styleBreakLeft: i32 = 4i32;
+pub const styleBreakRight: i32 = 5i32;
+pub const styleBreakPage: i32 = 6i32;
+pub const styleBreakColumn: i32 = 7i32;
+pub const styleBreakAvoidPage: i32 = 8i32;
+pub const styleBreakAvoidColumn: i32 = 9i32;
+pub const styleBreak_Max: i32 = 2147483647i32;
+pub const styleBreakInsideNotSet: i32 = 0i32;
+pub const styleBreakInsideAuto: i32 = 1i32;
+pub const styleBreakInsideAvoid: i32 = 2i32;
+pub const styleBreakInsideAvoidPage: i32 = 3i32;
+pub const styleBreakInsideAvoidColumn: i32 = 4i32;
+pub const styleBreakInside_Max: i32 = 2147483647i32;
+pub const styleCaptionSideNotSet: i32 = 0i32;
+pub const styleCaptionSideTop: i32 = 1i32;
+pub const styleCaptionSideBottom: i32 = 2i32;
+pub const styleCaptionSideLeft: i32 = 3i32;
+pub const styleCaptionSideRight: i32 = 4i32;
+pub const styleCaptionSide_Max: i32 = 2147483647i32;
+pub const styleClipRuleNotSet: i32 = 0i32;
+pub const styleClipRuleNonZero: i32 = 1i32;
+pub const styleClipRuleEvenOdd: i32 = 2i32;
+pub const styleClipRule_Max: i32 = 2147483647i32;
+pub const styleColorInterpolationFiltersAuto: i32 = 0i32;
+pub const styleColorInterpolationFiltersSRgb: i32 = 1i32;
+pub const styleColorInterpolationFiltersLinearRgb: i32 = 2i32;
+pub const styleColorInterpolationFiltersNotSet: i32 = 3i32;
+pub const styleColorInterpolationFilters_Max: i32 = 2147483647i32;
+pub const styleColumnFillAuto: i32 = 0i32;
+pub const styleColumnFillBalance: i32 = 1i32;
+pub const styleColumnFillNotSet: i32 = 2i32;
+pub const styleColumnFill_Max: i32 = 2147483647i32;
+pub const styleColumnSpanNone: i32 = 0i32;
+pub const styleColumnSpanAll: i32 = 1i32;
+pub const styleColumnSpanOne: i32 = 2i32;
+pub const styleColumnSpanNotSet: i32 = 3i32;
+pub const styleColumnSpan_Max: i32 = 2147483647i32;
+pub const styleCursorAuto: i32 = 0i32;
+pub const styleCursorCrosshair: i32 = 1i32;
+pub const styleCursorDefault: i32 = 2i32;
+pub const styleCursorHand: i32 = 3i32;
+pub const styleCursorMove: i32 = 4i32;
+pub const styleCursorE_resize: i32 = 5i32;
+pub const styleCursorNe_resize: i32 = 6i32;
+pub const styleCursorNw_resize: i32 = 7i32;
+pub const styleCursorN_resize: i32 = 8i32;
+pub const styleCursorSe_resize: i32 = 9i32;
+pub const styleCursorSw_resize: i32 = 10i32;
+pub const styleCursorS_resize: i32 = 11i32;
+pub const styleCursorW_resize: i32 = 12i32;
+pub const styleCursorText: i32 = 13i32;
+pub const styleCursorWait: i32 = 14i32;
+pub const styleCursorHelp: i32 = 15i32;
+pub const styleCursorPointer: i32 = 16i32;
+pub const styleCursorProgress: i32 = 17i32;
+pub const styleCursorNot_allowed: i32 = 18i32;
+pub const styleCursorNo_drop: i32 = 19i32;
+pub const styleCursorVertical_text: i32 = 20i32;
+pub const styleCursorall_scroll: i32 = 21i32;
+pub const styleCursorcol_resize: i32 = 22i32;
+pub const styleCursorrow_resize: i32 = 23i32;
+pub const styleCursorNone: i32 = 24i32;
+pub const styleCursorContext_menu: i32 = 25i32;
+pub const styleCursorEw_resize: i32 = 26i32;
+pub const styleCursorNs_resize: i32 = 27i32;
+pub const styleCursorNesw_resize: i32 = 28i32;
+pub const styleCursorNwse_resize: i32 = 29i32;
+pub const styleCursorCell: i32 = 30i32;
+pub const styleCursorCopy: i32 = 31i32;
+pub const styleCursorAlias: i32 = 32i32;
+pub const styleCursorcustom: i32 = 33i32;
+pub const styleCursorNotSet: i32 = 34i32;
+pub const styleCursor_Max: i32 = 2147483647i32;
+pub const styleDataRepeatNone: i32 = 0i32;
+pub const styleDataRepeatInner: i32 = 1i32;
+pub const styleDataRepeat_Max: i32 = 2147483647i32;
+pub const styleDefaultTextSelectionFalse: i32 = 0i32;
+pub const styleDefaultTextSelectionTrue: i32 = 1i32;
+pub const styleDefaultTextSelection_Max: i32 = 2147483647i32;
+pub const styleDirNotSet: i32 = 0i32;
+pub const styleDirLeftToRight: i32 = 1i32;
+pub const styleDirRightToLeft: i32 = 2i32;
+pub const styleDirInherit: i32 = 3i32;
+pub const styleDir_Max: i32 = 2147483647i32;
+pub const styleDisplayNotSet: i32 = 0i32;
+pub const styleDisplayBlock: i32 = 1i32;
+pub const styleDisplayInline: i32 = 2i32;
+pub const styleDisplayListItem: i32 = 3i32;
+pub const styleDisplayNone: i32 = 4i32;
+pub const styleDisplayTableHeaderGroup: i32 = 5i32;
+pub const styleDisplayTableFooterGroup: i32 = 6i32;
+pub const styleDisplayInlineBlock: i32 = 7i32;
+pub const styleDisplayTable: i32 = 8i32;
+pub const styleDisplayInlineTable: i32 = 9i32;
+pub const styleDisplayTableRow: i32 = 10i32;
+pub const styleDisplayTableRowGroup: i32 = 11i32;
+pub const styleDisplayTableColumn: i32 = 12i32;
+pub const styleDisplayTableColumnGroup: i32 = 13i32;
+pub const styleDisplayTableCell: i32 = 14i32;
+pub const styleDisplayTableCaption: i32 = 15i32;
+pub const styleDisplayRunIn: i32 = 16i32;
+pub const styleDisplayRuby: i32 = 17i32;
+pub const styleDisplayRubyBase: i32 = 18i32;
+pub const styleDisplayRubyText: i32 = 19i32;
+pub const styleDisplayRubyBaseContainer: i32 = 20i32;
+pub const styleDisplayRubyTextContainer: i32 = 21i32;
+pub const styleDisplayMsFlexbox: i32 = 22i32;
+pub const styleDisplayMsInlineFlexbox: i32 = 23i32;
+pub const styleDisplayMsGrid: i32 = 24i32;
+pub const styleDisplayMsInlineGrid: i32 = 25i32;
+pub const styleDisplayFlex: i32 = 26i32;
+pub const styleDisplayInlineFlex: i32 = 27i32;
+pub const styleDisplayWebkitBox: i32 = 28i32;
+pub const styleDisplayWebkitInlineBox: i32 = 29i32;
+pub const styleDisplay_Max: i32 = 2147483647i32;
+pub const styleDominantBaselineNotSet: i32 = 0i32;
+pub const styleDominantBaselineAlphabetic: i32 = 1i32;
+pub const styleDominantBaselineAuto: i32 = 2i32;
+pub const styleDominantBaselineCentral: i32 = 3i32;
+pub const styleDominantBaselineHanging: i32 = 4i32;
+pub const styleDominantBaselineIdeographic: i32 = 5i32;
+pub const styleDominantBaselineMathematical: i32 = 6i32;
+pub const styleDominantBaselineMiddle: i32 = 7i32;
+pub const styleDominantBaselineNoChange: i32 = 8i32;
+pub const styleDominantBaselineResetSize: i32 = 9i32;
+pub const styleDominantBaselineTextAfterEdge: i32 = 10i32;
+pub const styleDominantBaselineTextBeforeEdge: i32 = 11i32;
+pub const styleDominantBaselineUseScript: i32 = 12i32;
+pub const styleDominantBaseline_Max: i32 = 2147483647i32;
+pub const styleEmptyCellsNotSet: i32 = 0i32;
+pub const styleEmptyCellsShow: i32 = 1i32;
+pub const styleEmptyCellsHide: i32 = 2i32;
+pub const styleEmptyCells_Max: i32 = 2147483647i32;
+pub const styleEnableBackgroundNotSet: i32 = 0i32;
+pub const styleEnableBackgroundAccumulate: i32 = 1i32;
+pub const styleEnableBackgroundNew: i32 = 2i32;
+pub const styleEnableBackgroundInherit: i32 = 3i32;
+pub const styleEnableBackground_Max: i32 = 2147483647i32;
+pub const styleFillRuleNotSet: i32 = 0i32;
+pub const styleFillRuleNonZero: i32 = 1i32;
+pub const styleFillRuleEvenOdd: i32 = 2i32;
+pub const styleFillRule_Max: i32 = 2147483647i32;
+pub const styleFlexNone: i32 = 0i32;
+pub const styleFlexNotSet: i32 = 1i32;
+pub const styleFlex_Max: i32 = 2147483647i32;
+pub const styleFlexBasisAuto: i32 = 0i32;
+pub const styleFlexBasisNotSet: i32 = 1i32;
+pub const styleFlexBasis_Max: i32 = 2147483647i32;
+pub const styleFlexDirectionRow: i32 = 0i32;
+pub const styleFlexDirectionRowReverse: i32 = 1i32;
+pub const styleFlexDirectionColumn: i32 = 2i32;
+pub const styleFlexDirectionColumnReverse: i32 = 3i32;
+pub const styleFlexDirectionNotSet: i32 = 4i32;
+pub const styleFlexDirection_Max: i32 = 2147483647i32;
+pub const styleFlexWrapNowrap: i32 = 0i32;
+pub const styleFlexWrapWrap: i32 = 1i32;
+pub const styleFlexWrapWrapReverse: i32 = 2i32;
+pub const styleFlexWrapNotSet: i32 = 3i32;
+pub const styleFlexWrap_Max: i32 = 2147483647i32;
+pub const styleFontSizeXXSmall: i32 = 0i32;
+pub const styleFontSizeXSmall: i32 = 1i32;
+pub const styleFontSizeSmall: i32 = 2i32;
+pub const styleFontSizeMedium: i32 = 3i32;
+pub const styleFontSizeLarge: i32 = 4i32;
+pub const styleFontSizeXLarge: i32 = 5i32;
+pub const styleFontSizeXXLarge: i32 = 6i32;
+pub const styleFontSizeSmaller: i32 = 7i32;
+pub const styleFontSizeLarger: i32 = 8i32;
+pub const styleFontSize_Max: i32 = 2147483647i32;
+pub const styleFontStretchNotSet: i32 = 0i32;
+pub const styleFontStretchWider: i32 = 1i32;
+pub const styleFontStretchNarrower: i32 = 2i32;
+pub const styleFontStretchUltraCondensed: i32 = 3i32;
+pub const styleFontStretchExtraCondensed: i32 = 4i32;
+pub const styleFontStretchCondensed: i32 = 5i32;
+pub const styleFontStretchSemiCondensed: i32 = 6i32;
+pub const styleFontStretchNormal: i32 = 7i32;
+pub const styleFontStretchSemiExpanded: i32 = 8i32;
+pub const styleFontStretchExpanded: i32 = 9i32;
+pub const styleFontStretchExtraExpanded: i32 = 10i32;
+pub const styleFontStretchUltraExpanded: i32 = 11i32;
+pub const styleFontStretch_Max: i32 = 2147483647i32;
+pub const styleFontStyleNotSet: i32 = 0i32;
+pub const styleFontStyleItalic: i32 = 1i32;
+pub const styleFontStyleOblique: i32 = 2i32;
+pub const styleFontStyleNormal: i32 = 3i32;
+pub const styleFontStyle_Max: i32 = 2147483647i32;
+pub const styleFontVariantNotSet: i32 = 0i32;
+pub const styleFontVariantSmallCaps: i32 = 1i32;
+pub const styleFontVariantNormal: i32 = 2i32;
+pub const styleFontVariant_Max: i32 = 2147483647i32;
+pub const styleFontWeightNotSet: i32 = 0i32;
+pub const styleFontWeight100: i32 = 1i32;
+pub const styleFontWeight200: i32 = 2i32;
+pub const styleFontWeight300: i32 = 3i32;
+pub const styleFontWeight400: i32 = 4i32;
+pub const styleFontWeight500: i32 = 5i32;
+pub const styleFontWeight600: i32 = 6i32;
+pub const styleFontWeight700: i32 = 7i32;
+pub const styleFontWeight800: i32 = 8i32;
+pub const styleFontWeight900: i32 = 9i32;
+pub const styleFontWeightNormal: i32 = 10i32;
+pub const styleFontWeightBold: i32 = 11i32;
+pub const styleFontWeightBolder: i32 = 12i32;
+pub const styleFontWeightLighter: i32 = 13i32;
+pub const styleFontWeight_Max: i32 = 2147483647i32;
+pub const styleGridColumnNotSet: i32 = 0i32;
+pub const styleGridColumn_Max: i32 = 2147483647i32;
+pub const styleGridColumnAlignCenter: i32 = 0i32;
+pub const styleGridColumnAlignEnd: i32 = 1i32;
+pub const styleGridColumnAlignStart: i32 = 2i32;
+pub const styleGridColumnAlignStretch: i32 = 3i32;
+pub const styleGridColumnAlignNotSet: i32 = 4i32;
+pub const styleGridColumnAlign_Max: i32 = 2147483647i32;
+pub const styleGridColumnSpanNotSet: i32 = 0i32;
+pub const styleGridColumnSpan_Max: i32 = 2147483647i32;
+pub const styleGridRowNotSet: i32 = 0i32;
+pub const styleGridRow_Max: i32 = 2147483647i32;
+pub const styleGridRowAlignCenter: i32 = 0i32;
+pub const styleGridRowAlignEnd: i32 = 1i32;
+pub const styleGridRowAlignStart: i32 = 2i32;
+pub const styleGridRowAlignStretch: i32 = 3i32;
+pub const styleGridRowAlignNotSet: i32 = 4i32;
+pub const styleGridRowAlign_Max: i32 = 2147483647i32;
+pub const styleGridRowSpanNotSet: i32 = 0i32;
+pub const styleGridRowSpan_Max: i32 = 2147483647i32;
+pub const styleHyphenateLimitLinesNoLimit: i32 = 0i32;
+pub const styleHyphenateLimitLines_Max: i32 = 2147483647i32;
+pub const styleHyphensNone: i32 = 0i32;
+pub const styleHyphensManual: i32 = 1i32;
+pub const styleHyphensAuto: i32 = 2i32;
+pub const styleHyphensNotSet: i32 = 3i32;
+pub const styleHyphens_Max: i32 = 2147483647i32;
+pub const styleImeModeAuto: i32 = 0i32;
+pub const styleImeModeActive: i32 = 1i32;
+pub const styleImeModeInactive: i32 = 2i32;
+pub const styleImeModeDisabled: i32 = 3i32;
+pub const styleImeModeNotSet: i32 = 4i32;
+pub const styleImeMode_Max: i32 = 2147483647i32;
+pub const styleInitialColorNoInitial: i32 = 0i32;
+pub const styleInitialColorColorProperty: i32 = 1i32;
+pub const styleInitialColorTransparent: i32 = 2i32;
+pub const styleInitialColorInvert: i32 = 3i32;
+pub const styleInitialColor_Max: i32 = 2147483647i32;
+pub const styleInitialStringNoInitial: i32 = 0i32;
+pub const styleInitialStringNone: i32 = 1i32;
+pub const styleInitialStringAuto: i32 = 2i32;
+pub const styleInitialStringNormal: i32 = 3i32;
+pub const styleInitialString_Max: i32 = 2147483647i32;
+pub const styleInterpolationNotSet: i32 = 0i32;
+pub const styleInterpolationNN: i32 = 1i32;
+pub const styleInterpolationBCH: i32 = 2i32;
+pub const styleInterpolation_Max: i32 = 2147483647i32;
+pub const styleJustifyContentFlexStart: i32 = 0i32;
+pub const styleJustifyContentFlexEnd: i32 = 1i32;
+pub const styleJustifyContentCenter: i32 = 2i32;
+pub const styleJustifyContentSpaceBetween: i32 = 3i32;
+pub const styleJustifyContentSpaceAround: i32 = 4i32;
+pub const styleJustifyContentNotSet: i32 = 5i32;
+pub const styleJustifyContent_Max: i32 = 2147483647i32;
+pub const styleLayoutFlowHorizontal: i32 = 0i32;
+pub const styleLayoutFlowVerticalIdeographic: i32 = 1i32;
+pub const styleLayoutFlowNotSet: i32 = 2i32;
+pub const styleLayoutFlow_Max: i32 = 2147483647i32;
+pub const styleLayoutGridCharNotSet: i32 = 0i32;
+pub const styleLayoutGridCharAuto: i32 = 1i32;
+pub const styleLayoutGridCharNone: i32 = 2i32;
+pub const styleLayoutGridChar_Max: i32 = 2147483647i32;
+pub const styleLayoutGridLineNotSet: i32 = 0i32;
+pub const styleLayoutGridLineAuto: i32 = 1i32;
+pub const styleLayoutGridLineNone: i32 = 2i32;
+pub const styleLayoutGridLine_Max: i32 = 2147483647i32;
+pub const styleLayoutGridModeNotSet: i32 = 0i32;
+pub const styleLayoutGridModeChar: i32 = 1i32;
+pub const styleLayoutGridModeLine: i32 = 2i32;
+pub const styleLayoutGridModeBoth: i32 = 3i32;
+pub const styleLayoutGridModeNone: i32 = 4i32;
+pub const styleLayoutGridMode_Max: i32 = 2147483647i32;
+pub const styleLayoutGridTypeNotSet: i32 = 0i32;
+pub const styleLayoutGridTypeLoose: i32 = 1i32;
+pub const styleLayoutGridTypeStrict: i32 = 2i32;
+pub const styleLayoutGridTypeFixed: i32 = 3i32;
+pub const styleLayoutGridType_Max: i32 = 2147483647i32;
+pub const styleLineBreakNotSet: i32 = 0i32;
+pub const styleLineBreakNormal: i32 = 1i32;
+pub const styleLineBreakStrict: i32 = 2i32;
+pub const styleLineBreak_Max: i32 = 2147483647i32;
+pub const styleListStylePositionNotSet: i32 = 0i32;
+pub const styleListStylePositionInside: i32 = 1i32;
+pub const styleListStylePositionOutSide: i32 = 2i32;
+pub const styleListStylePosition_Max: i32 = 2147483647i32;
+pub const styleListStyleTypeNotSet: i32 = 0i32;
+pub const styleListStyleTypeDisc: i32 = 1i32;
+pub const styleListStyleTypeCircle: i32 = 2i32;
+pub const styleListStyleTypeSquare: i32 = 3i32;
+pub const styleListStyleTypeDecimal: i32 = 4i32;
+pub const styleListStyleTypeLowerRoman: i32 = 5i32;
+pub const styleListStyleTypeUpperRoman: i32 = 6i32;
+pub const styleListStyleTypeLowerAlpha: i32 = 7i32;
+pub const styleListStyleTypeUpperAlpha: i32 = 8i32;
+pub const styleListStyleTypeNone: i32 = 9i32;
+pub const styleListStyleTypeDecimalLeadingZero: i32 = 10i32;
+pub const styleListStyleTypeGeorgian: i32 = 11i32;
+pub const styleListStyleTypeArmenian: i32 = 12i32;
+pub const styleListStyleTypeUpperLatin: i32 = 13i32;
+pub const styleListStyleTypeLowerLatin: i32 = 14i32;
+pub const styleListStyleTypeUpperGreek: i32 = 15i32;
+pub const styleListStyleTypeLowerGreek: i32 = 16i32;
+pub const styleListStyleType_Max: i32 = 2147483647i32;
+pub const styleMsAnimationDirectionNormal: i32 = 0i32;
+pub const styleMsAnimationDirectionAlternate: i32 = 1i32;
+pub const styleMsAnimationDirectionReverse: i32 = 2i32;
+pub const styleMsAnimationDirectionAlternateReverse: i32 = 3i32;
+pub const styleMsAnimationDirectionNotSet: i32 = 4i32;
+pub const styleMsAnimationDirection_Max: i32 = 2147483647i32;
+pub const styleMsAnimationFillModeNone: i32 = 0i32;
+pub const styleMsAnimationFillModeForwards: i32 = 1i32;
+pub const styleMsAnimationFillModeBackwards: i32 = 2i32;
+pub const styleMsAnimationFillModeBoth: i32 = 3i32;
+pub const styleMsAnimationFillModeNotSet: i32 = 4i32;
+pub const styleMsAnimationFillMode_Max: i32 = 2147483647i32;
+pub const styleMsAnimationPlayStateRunning: i32 = 0i32;
+pub const styleMsAnimationPlayStatePaused: i32 = 1i32;
+pub const styleMsAnimationPlayStateNotSet: i32 = 2i32;
+pub const styleMsAnimationPlayState_Max: i32 = 2147483647i32;
+pub const styleMsContentZoomChainingNotSet: i32 = 0i32;
+pub const styleMsContentZoomChainingNone: i32 = 1i32;
+pub const styleMsContentZoomChainingChained: i32 = 2i32;
+pub const styleMsContentZoomChaining_Max: i32 = 2147483647i32;
+pub const styleMsContentZoomSnapTypeNotSet: i32 = 0i32;
+pub const styleMsContentZoomSnapTypeNone: i32 = 1i32;
+pub const styleMsContentZoomSnapTypeMandatory: i32 = 2i32;
+pub const styleMsContentZoomSnapTypeProximity: i32 = 3i32;
+pub const styleMsContentZoomSnapType_Max: i32 = 2147483647i32;
+pub const styleMsContentZoomingNotSet: i32 = 0i32;
+pub const styleMsContentZoomingNone: i32 = 1i32;
+pub const styleMsContentZoomingZoom: i32 = 2i32;
+pub const styleMsContentZooming_Max: i32 = 2147483647i32;
+pub const styleMsFlexAlignStart: i32 = 0i32;
+pub const styleMsFlexAlignEnd: i32 = 1i32;
+pub const styleMsFlexAlignCenter: i32 = 2i32;
+pub const styleMsFlexAlignBaseline: i32 = 3i32;
+pub const styleMsFlexAlignStretch: i32 = 4i32;
+pub const styleMsFlexAlignNotSet: i32 = 5i32;
+pub const styleMsFlexAlign_Max: i32 = 2147483647i32;
+pub const styleMsFlexItemAlignStart: i32 = 0i32;
+pub const styleMsFlexItemAlignEnd: i32 = 1i32;
+pub const styleMsFlexItemAlignCenter: i32 = 2i32;
+pub const styleMsFlexItemAlignBaseline: i32 = 3i32;
+pub const styleMsFlexItemAlignStretch: i32 = 4i32;
+pub const styleMsFlexItemAlignAuto: i32 = 5i32;
+pub const styleMsFlexItemAlignNotSet: i32 = 6i32;
+pub const styleMsFlexItemAlign_Max: i32 = 2147483647i32;
+pub const styleMsFlexLinePackStart: i32 = 0i32;
+pub const styleMsFlexLinePackEnd: i32 = 1i32;
+pub const styleMsFlexLinePackCenter: i32 = 2i32;
+pub const styleMsFlexLinePackJustify: i32 = 3i32;
+pub const styleMsFlexLinePackDistribute: i32 = 4i32;
+pub const styleMsFlexLinePackStretch: i32 = 5i32;
+pub const styleMsFlexLinePackNotSet: i32 = 6i32;
+pub const styleMsFlexLinePack_Max: i32 = 2147483647i32;
+pub const styleMsFlexPackStart: i32 = 0i32;
+pub const styleMsFlexPackEnd: i32 = 1i32;
+pub const styleMsFlexPackCenter: i32 = 2i32;
+pub const styleMsFlexPackJustify: i32 = 3i32;
+pub const styleMsFlexPackDistribute: i32 = 4i32;
+pub const styleMsFlexPackNotSet: i32 = 5i32;
+pub const styleMsFlexPack_Max: i32 = 2147483647i32;
+pub const styleMsHighContrastAdjustNotSet: i32 = 0i32;
+pub const styleMsHighContrastAdjustAuto: i32 = 1i32;
+pub const styleMsHighContrastAdjustNone: i32 = 2i32;
+pub const styleMsHighContrastAdjust_Max: i32 = 2147483647i32;
+pub const styleMsImeAlignAuto: i32 = 0i32;
+pub const styleMsImeAlignAfter: i32 = 1i32;
+pub const styleMsImeAlignNotSet: i32 = 2i32;
+pub const styleMsImeAlign_Max: i32 = 2147483647i32;
+pub const styleMsOverflowStyleNotSet: i32 = 0i32;
+pub const styleMsOverflowStyleAuto: i32 = 1i32;
+pub const styleMsOverflowStyleNone: i32 = 2i32;
+pub const styleMsOverflowStyleScrollbar: i32 = 3i32;
+pub const styleMsOverflowStyleMsAutoHidingScrollbar: i32 = 4i32;
+pub const styleMsOverflowStyle_Max: i32 = 2147483647i32;
+pub const styleMsScrollChainingNotSet: i32 = 0i32;
+pub const styleMsScrollChainingNone: i32 = 1i32;
+pub const styleMsScrollChainingChained: i32 = 2i32;
+pub const styleMsScrollChaining_Max: i32 = 2147483647i32;
+pub const styleMsScrollRailsNotSet: i32 = 0i32;
+pub const styleMsScrollRailsNone: i32 = 1i32;
+pub const styleMsScrollRailsRailed: i32 = 2i32;
+pub const styleMsScrollRails_Max: i32 = 2147483647i32;
+pub const styleMsScrollSnapTypeNotSet: i32 = 0i32;
+pub const styleMsScrollSnapTypeNone: i32 = 1i32;
+pub const styleMsScrollSnapTypeMandatory: i32 = 2i32;
+pub const styleMsScrollSnapTypeProximity: i32 = 3i32;
+pub const styleMsScrollSnapType_Max: i32 = 2147483647i32;
+pub const styleMsScrollTranslationNotSet: i32 = 0i32;
+pub const styleMsScrollTranslationNone: i32 = 1i32;
+pub const styleMsScrollTranslationVtoH: i32 = 2i32;
+pub const styleMsScrollTranslation_Max: i32 = 2147483647i32;
+pub const styleMsTextCombineHorizontalNone: i32 = 0i32;
+pub const styleMsTextCombineHorizontalAll: i32 = 1i32;
+pub const styleMsTextCombineHorizontalDigits: i32 = 2i32;
+pub const styleMsTextCombineHorizontalNotSet: i32 = 3i32;
+pub const styleMsTextCombineHorizontal_Max: i32 = 2147483647i32;
+pub const styleMsTouchActionNotSet: i32 = -1i32;
+pub const styleMsTouchActionNone: i32 = 0i32;
+pub const styleMsTouchActionAuto: i32 = 1i32;
+pub const styleMsTouchActionManipulation: i32 = 2i32;
+pub const styleMsTouchActionDoubleTapZoom: i32 = 4i32;
+pub const styleMsTouchActionPanX: i32 = 8i32;
+pub const styleMsTouchActionPanY: i32 = 16i32;
+pub const styleMsTouchActionPinchZoom: i32 = 32i32;
+pub const styleMsTouchActionCrossSlideX: i32 = 64i32;
+pub const styleMsTouchActionCrossSlideY: i32 = 128i32;
+pub const styleMsTouchAction_Max: i32 = 2147483647i32;
+pub const styleMsTouchSelectGrippers: i32 = 0i32;
+pub const styleMsTouchSelectNone: i32 = 1i32;
+pub const styleMsTouchSelectNotSet: i32 = 2i32;
+pub const styleMsTouchSelect_Max: i32 = 2147483647i32;
+pub const styleMsUserSelectAuto: i32 = 0i32;
+pub const styleMsUserSelectText: i32 = 1i32;
+pub const styleMsUserSelectElement: i32 = 2i32;
+pub const styleMsUserSelectNone: i32 = 3i32;
+pub const styleMsUserSelectNotSet: i32 = 4i32;
+pub const styleMsUserSelect_Max: i32 = 2147483647i32;
+pub const styleNoneNone: i32 = 0i32;
+pub const styleNone_Max: i32 = 2147483647i32;
+pub const styleNormalNormal: i32 = 0i32;
+pub const styleNormal_Max: i32 = 2147483647i32;
+pub const styleOutlineStyleNotSet: i32 = 0i32;
+pub const styleOutlineStyleDotted: i32 = 1i32;
+pub const styleOutlineStyleDashed: i32 = 2i32;
+pub const styleOutlineStyleSolid: i32 = 3i32;
+pub const styleOutlineStyleDouble: i32 = 4i32;
+pub const styleOutlineStyleGroove: i32 = 5i32;
+pub const styleOutlineStyleRidge: i32 = 6i32;
+pub const styleOutlineStyleInset: i32 = 7i32;
+pub const styleOutlineStyleOutset: i32 = 8i32;
+pub const styleOutlineStyleWindowInset: i32 = 9i32;
+pub const styleOutlineStyleNone: i32 = 10i32;
+pub const styleOutlineStyle_Max: i32 = 2147483647i32;
+pub const styleOverflowNotSet: i32 = 0i32;
+pub const styleOverflowAuto: i32 = 1i32;
+pub const styleOverflowHidden: i32 = 2i32;
+pub const styleOverflowVisible: i32 = 3i32;
+pub const styleOverflowScroll: i32 = 4i32;
+pub const styleOverflow_Max: i32 = 2147483647i32;
+pub const stylePageBreakNotSet: i32 = 0i32;
+pub const stylePageBreakAuto: i32 = 1i32;
+pub const stylePageBreakAlways: i32 = 2i32;
+pub const stylePageBreakLeft: i32 = 3i32;
+pub const stylePageBreakRight: i32 = 4i32;
+pub const stylePageBreakAvoid: i32 = 5i32;
+pub const stylePageBreak_Max: i32 = 2147483647i32;
+pub const stylePageBreakInsideNotSet: i32 = 0i32;
+pub const stylePageBreakInsideAuto: i32 = 1i32;
+pub const stylePageBreakInsideAvoid: i32 = 2i32;
+pub const stylePageBreakInside_Max: i32 = 2147483647i32;
+pub const stylePerspectiveOriginXNotSet: i32 = 0i32;
+pub const stylePerspectiveOriginXLeft: i32 = 1i32;
+pub const stylePerspectiveOriginXCenter: i32 = 2i32;
+pub const stylePerspectiveOriginXRight: i32 = 3i32;
+pub const stylePerspectiveOriginX_Max: i32 = 2147483647i32;
+pub const stylePerspectiveOriginYNotSet: i32 = 0i32;
+pub const stylePerspectiveOriginYTop: i32 = 1i32;
+pub const stylePerspectiveOriginYCenter: i32 = 2i32;
+pub const stylePerspectiveOriginYBottom: i32 = 3i32;
+pub const stylePerspectiveOriginY_Max: i32 = 2147483647i32;
+pub const stylePointerEventsNotSet: i32 = 0i32;
+pub const stylePointerEventsVisiblePainted: i32 = 1i32;
+pub const stylePointerEventsVisibleFill: i32 = 2i32;
+pub const stylePointerEventsVisibleStroke: i32 = 3i32;
+pub const stylePointerEventsVisible: i32 = 4i32;
+pub const stylePointerEventsPainted: i32 = 5i32;
+pub const stylePointerEventsFill: i32 = 6i32;
+pub const stylePointerEventsStroke: i32 = 7i32;
+pub const stylePointerEventsAll: i32 = 8i32;
+pub const stylePointerEventsNone: i32 = 9i32;
+pub const stylePointerEventsInitial: i32 = 10i32;
+pub const stylePointerEventsAuto: i32 = 11i32;
+pub const stylePointerEvents_Max: i32 = 2147483647i32;
+pub const stylePositionNotSet: i32 = 0i32;
+pub const stylePositionstatic: i32 = 1i32;
+pub const stylePositionrelative: i32 = 2i32;
+pub const stylePositionabsolute: i32 = 3i32;
+pub const stylePositionfixed: i32 = 4i32;
+pub const stylePositionMsPage: i32 = 5i32;
+pub const stylePositionMsDeviceFixed: i32 = 6i32;
+pub const stylePosition_Max: i32 = 2147483647i32;
+pub const styleRubyAlignNotSet: i32 = 0i32;
+pub const styleRubyAlignAuto: i32 = 1i32;
+pub const styleRubyAlignLeft: i32 = 2i32;
+pub const styleRubyAlignCenter: i32 = 3i32;
+pub const styleRubyAlignRight: i32 = 4i32;
+pub const styleRubyAlignDistributeLetter: i32 = 5i32;
+pub const styleRubyAlignDistributeSpace: i32 = 6i32;
+pub const styleRubyAlignLineEdge: i32 = 7i32;
+pub const styleRubyAlign_Max: i32 = 2147483647i32;
+pub const styleRubyOverhangNotSet: i32 = 0i32;
+pub const styleRubyOverhangAuto: i32 = 1i32;
+pub const styleRubyOverhangWhitespace: i32 = 2i32;
+pub const styleRubyOverhangNone: i32 = 3i32;
+pub const styleRubyOverhang_Max: i32 = 2147483647i32;
+pub const styleRubyPositionNotSet: i32 = 0i32;
+pub const styleRubyPositionAbove: i32 = 1i32;
+pub const styleRubyPositionInline: i32 = 2i32;
+pub const styleRubyPosition_Max: i32 = 2147483647i32;
+pub const styleStrokeLinecapNotSet: i32 = 0i32;
+pub const styleStrokeLinecapButt: i32 = 1i32;
+pub const styleStrokeLinecapRound: i32 = 2i32;
+pub const styleStrokeLinecapSquare: i32 = 3i32;
+pub const styleStrokeLinecap_Max: i32 = 2147483647i32;
+pub const styleStrokeLinejoinNotSet: i32 = 0i32;
+pub const styleStrokeLinejoinMiter: i32 = 1i32;
+pub const styleStrokeLinejoinRound: i32 = 2i32;
+pub const styleStrokeLinejoinBevel: i32 = 3i32;
+pub const styleStrokeLinejoin_Max: i32 = 2147483647i32;
+pub const styleStyleFloatNotSet: i32 = 0i32;
+pub const styleStyleFloatLeft: i32 = 1i32;
+pub const styleStyleFloatRight: i32 = 2i32;
+pub const styleStyleFloatNone: i32 = 3i32;
+pub const styleStyleFloat_Max: i32 = 2147483647i32;
+pub const styleTableLayoutNotSet: i32 = 0i32;
+pub const styleTableLayoutAuto: i32 = 1i32;
+pub const styleTableLayoutFixed: i32 = 2i32;
+pub const styleTableLayout_Max: i32 = 2147483647i32;
+pub const styleTextAlignLastNotSet: i32 = 0i32;
+pub const styleTextAlignLastLeft: i32 = 1i32;
+pub const styleTextAlignLastCenter: i32 = 2i32;
+pub const styleTextAlignLastRight: i32 = 3i32;
+pub const styleTextAlignLastJustify: i32 = 4i32;
+pub const styleTextAlignLastAuto: i32 = 5i32;
+pub const styleTextAlignLast_Max: i32 = 2147483647i32;
+pub const styleTextAnchorNotSet: i32 = 0i32;
+pub const styleTextAnchorStart: i32 = 1i32;
+pub const styleTextAnchorMiddle: i32 = 2i32;
+pub const styleTextAnchorEnd: i32 = 3i32;
+pub const styleTextAnchor_Max: i32 = 2147483647i32;
+pub const styleTextDecorationNone: i32 = 0i32;
+pub const styleTextDecorationUnderline: i32 = 1i32;
+pub const styleTextDecorationOverline: i32 = 2i32;
+pub const styleTextDecorationLineThrough: i32 = 3i32;
+pub const styleTextDecorationBlink: i32 = 4i32;
+pub const styleTextDecoration_Max: i32 = 2147483647i32;
+pub const styleTextEffectNone: i32 = 0i32;
+pub const styleTextEffectEmboss: i32 = 1i32;
+pub const styleTextEffectEngrave: i32 = 2i32;
+pub const styleTextEffectOutline: i32 = 3i32;
+pub const styleTextEffect_Max: i32 = 2147483647i32;
+pub const styleTextJustifyNotSet: i32 = 0i32;
+pub const styleTextJustifyInterWord: i32 = 1i32;
+pub const styleTextJustifyNewspaper: i32 = 2i32;
+pub const styleTextJustifyDistribute: i32 = 3i32;
+pub const styleTextJustifyDistributeAllLines: i32 = 4i32;
+pub const styleTextJustifyInterIdeograph: i32 = 5i32;
+pub const styleTextJustifyInterCluster: i32 = 6i32;
+pub const styleTextJustifyKashida: i32 = 7i32;
+pub const styleTextJustifyAuto: i32 = 8i32;
+pub const styleTextJustify_Max: i32 = 2147483647i32;
+pub const styleTextJustifyTrimNotSet: i32 = 0i32;
+pub const styleTextJustifyTrimNone: i32 = 1i32;
+pub const styleTextJustifyTrimPunctuation: i32 = 2i32;
+pub const styleTextJustifyTrimPunctAndKana: i32 = 3i32;
+pub const styleTextJustifyTrim_Max: i32 = 2147483647i32;
+pub const styleTextLineThroughStyleUndefined: i32 = 0i32;
+pub const styleTextLineThroughStyleSingle: i32 = 1i32;
+pub const styleTextLineThroughStyleDouble: i32 = 2i32;
+pub const styleTextLineThroughStyle_Max: i32 = 2147483647i32;
+pub const styleTextOverflowClip: i32 = 0i32;
+pub const styleTextOverflowEllipsis: i32 = 1i32;
+pub const styleTextOverflowNotSet: i32 = 2i32;
+pub const styleTextOverflow_Max: i32 = 2147483647i32;
+pub const styleTextSizeAdjustNone: i32 = 0i32;
+pub const styleTextSizeAdjustAuto: i32 = 1i32;
+pub const styleTextSizeAdjust_Max: i32 = 2147483647i32;
+pub const styleTextTransformNotSet: i32 = 0i32;
+pub const styleTextTransformCapitalize: i32 = 1i32;
+pub const styleTextTransformLowercase: i32 = 2i32;
+pub const styleTextTransformUppercase: i32 = 3i32;
+pub const styleTextTransformNone: i32 = 4i32;
+pub const styleTextTransform_Max: i32 = 2147483647i32;
+pub const styleTextUnderlinePositionBelow: i32 = 0i32;
+pub const styleTextUnderlinePositionAbove: i32 = 1i32;
+pub const styleTextUnderlinePositionAuto: i32 = 2i32;
+pub const styleTextUnderlinePositionNotSet: i32 = 3i32;
+pub const styleTextUnderlinePosition_Max: i32 = 2147483647i32;
+pub const styleTextUnderlineStyleUndefined: i32 = 0i32;
+pub const styleTextUnderlineStyleSingle: i32 = 1i32;
+pub const styleTextUnderlineStyleDouble: i32 = 2i32;
+pub const styleTextUnderlineStyleWords: i32 = 3i32;
+pub const styleTextUnderlineStyleDotted: i32 = 4i32;
+pub const styleTextUnderlineStyleThick: i32 = 5i32;
+pub const styleTextUnderlineStyleDash: i32 = 6i32;
+pub const styleTextUnderlineStyleDotDash: i32 = 7i32;
+pub const styleTextUnderlineStyleDotDotDash: i32 = 8i32;
+pub const styleTextUnderlineStyleWave: i32 = 9i32;
+pub const styleTextUnderlineStyleSingleAccounting: i32 = 10i32;
+pub const styleTextUnderlineStyleDoubleAccounting: i32 = 11i32;
+pub const styleTextUnderlineStyleThickDash: i32 = 12i32;
+pub const styleTextUnderlineStyle_Max: i32 = 2147483647i32;
+pub const styleTransformOriginXNotSet: i32 = 0i32;
+pub const styleTransformOriginXLeft: i32 = 1i32;
+pub const styleTransformOriginXCenter: i32 = 2i32;
+pub const styleTransformOriginXRight: i32 = 3i32;
+pub const styleTransformOriginX_Max: i32 = 2147483647i32;
+pub const styleTransformOriginYNotSet: i32 = 0i32;
+pub const styleTransformOriginYTop: i32 = 1i32;
+pub const styleTransformOriginYCenter: i32 = 2i32;
+pub const styleTransformOriginYBottom: i32 = 3i32;
+pub const styleTransformOriginY_Max: i32 = 2147483647i32;
+pub const styleTransformStyleFlat: i32 = 0i32;
+pub const styleTransformStylePreserve3D: i32 = 1i32;
+pub const styleTransformStyleNotSet: i32 = 2i32;
+pub const styleTransformStyle_Max: i32 = 2147483647i32;
+pub const styleUserZoomNotSet: i32 = 0i32;
+pub const styleUserZoomZoom: i32 = 1i32;
+pub const styleUserZoomFixed: i32 = 2i32;
+pub const styleUserZoom_Max: i32 = 2147483647i32;
+pub const styleVerticalAlignAuto: i32 = 0i32;
+pub const styleVerticalAlignBaseline: i32 = 1i32;
+pub const styleVerticalAlignSub: i32 = 2i32;
+pub const styleVerticalAlignSuper: i32 = 3i32;
+pub const styleVerticalAlignTop: i32 = 4i32;
+pub const styleVerticalAlignTextTop: i32 = 5i32;
+pub const styleVerticalAlignMiddle: i32 = 6i32;
+pub const styleVerticalAlignBottom: i32 = 7i32;
+pub const styleVerticalAlignTextBottom: i32 = 8i32;
+pub const styleVerticalAlignInherit: i32 = 9i32;
+pub const styleVerticalAlignNotSet: i32 = 10i32;
+pub const styleVerticalAlign_Max: i32 = 2147483647i32;
+pub const styleViewportSizeAuto: i32 = 0i32;
+pub const styleViewportSizeDeviceWidth: i32 = 1i32;
+pub const styleViewportSizeDeviceHeight: i32 = 2i32;
+pub const styleViewportSize_Max: i32 = 2147483647i32;
+pub const styleVisibilityNotSet: i32 = 0i32;
+pub const styleVisibilityInherit: i32 = 1i32;
+pub const styleVisibilityVisible: i32 = 2i32;
+pub const styleVisibilityHidden: i32 = 3i32;
+pub const styleVisibilityCollapse: i32 = 4i32;
+pub const styleVisibility_Max: i32 = 2147483647i32;
+pub const styleWebkitAppearanceNone: i32 = 0i32;
+pub const styleWebkitAppearanceCapsLockIndicator: i32 = 1i32;
+pub const styleWebkitAppearanceButton: i32 = 2i32;
+pub const styleWebkitAppearanceButtonBevel: i32 = 3i32;
+pub const styleWebkitAppearanceCaret: i32 = 4i32;
+pub const styleWebkitAppearanceCheckbox: i32 = 5i32;
+pub const styleWebkitAppearanceDefaultButton: i32 = 6i32;
+pub const styleWebkitAppearanceListbox: i32 = 7i32;
+pub const styleWebkitAppearanceListitem: i32 = 8i32;
+pub const styleWebkitAppearanceMediaFullscreenButton: i32 = 9i32;
+pub const styleWebkitAppearanceMediaMuteButton: i32 = 10i32;
+pub const styleWebkitAppearanceMediaPlayButton: i32 = 11i32;
+pub const styleWebkitAppearanceMediaSeekBackButton: i32 = 12i32;
+pub const styleWebkitAppearanceMediaSeekForwardButton: i32 = 13i32;
+pub const styleWebkitAppearanceMediaSlider: i32 = 14i32;
+pub const styleWebkitAppearanceMediaSliderthumb: i32 = 15i32;
+pub const styleWebkitAppearanceMenulist: i32 = 16i32;
+pub const styleWebkitAppearanceMenulistButton: i32 = 17i32;
+pub const styleWebkitAppearanceMenulistText: i32 = 18i32;
+pub const styleWebkitAppearanceMenulistTextfield: i32 = 19i32;
+pub const styleWebkitAppearancePushButton: i32 = 20i32;
+pub const styleWebkitAppearanceRadio: i32 = 21i32;
+pub const styleWebkitAppearanceSearchfield: i32 = 22i32;
+pub const styleWebkitAppearanceSearchfieldCancelButton: i32 = 23i32;
+pub const styleWebkitAppearanceSearchfieldDecoration: i32 = 24i32;
+pub const styleWebkitAppearanceSearchfieldResultsButton: i32 = 25i32;
+pub const styleWebkitAppearanceSearchfieldResultsDecoration: i32 = 26i32;
+pub const styleWebkitAppearanceSliderHorizontal: i32 = 27i32;
+pub const styleWebkitAppearanceSliderVertical: i32 = 28i32;
+pub const styleWebkitAppearanceSliderthumbHorizontal: i32 = 29i32;
+pub const styleWebkitAppearanceSliderthumbVertical: i32 = 30i32;
+pub const styleWebkitAppearanceSquareButton: i32 = 31i32;
+pub const styleWebkitAppearanceTextarea: i32 = 32i32;
+pub const styleWebkitAppearanceTextfield: i32 = 33i32;
+pub const styleWebkitAppearanceNotSet: i32 = 34i32;
+pub const styleWebkitAppearance_Max: i32 = 2147483647i32;
+pub const styleWebkitBoxDirectionNormal: i32 = 0i32;
+pub const styleWebkitBoxDirectionReverse: i32 = 1i32;
+pub const styleWebkitBoxDirectionNotSet: i32 = 2i32;
+pub const styleWebkitBoxDirection_Max: i32 = 2147483647i32;
+pub const styleWebkitBoxOrientHorizontal: i32 = 0i32;
+pub const styleWebkitBoxOrientInlineAxis: i32 = 1i32;
+pub const styleWebkitBoxOrientVertical: i32 = 2i32;
+pub const styleWebkitBoxOrientBlockAxis: i32 = 3i32;
+pub const styleWebkitBoxOrientNotSet: i32 = 4i32;
+pub const styleWebkitBoxOrient_Max: i32 = 2147483647i32;
+pub const styleWebkitBoxPackStart: i32 = 0i32;
+pub const styleWebkitBoxPackEnd: i32 = 1i32;
+pub const styleWebkitBoxPackCenter: i32 = 2i32;
+pub const styleWebkitBoxPackJustify: i32 = 3i32;
+pub const styleWebkitBoxPackNotSet: i32 = 5i32;
+pub const styleWebkitBoxPack_Max: i32 = 2147483647i32;
+pub const styleWhiteSpaceNotSet: i32 = 0i32;
+pub const styleWhiteSpaceNormal: i32 = 1i32;
+pub const styleWhiteSpacePre: i32 = 2i32;
+pub const styleWhiteSpaceNowrap: i32 = 3i32;
+pub const styleWhiteSpacePreline: i32 = 4i32;
+pub const styleWhiteSpacePrewrap: i32 = 5i32;
+pub const styleWhiteSpace_Max: i32 = 2147483647i32;
+pub const styleWidowsOrphansNotSet: i32 = -2147483647i32;
+pub const styleWidowsOrphans_Max: i32 = 2147483647i32;
+pub const styleWordBreakNotSet: i32 = 0i32;
+pub const styleWordBreakNormal: i32 = 1i32;
+pub const styleWordBreakBreakAll: i32 = 2i32;
+pub const styleWordBreakKeepAll: i32 = 3i32;
+pub const styleWordBreak_Max: i32 = 2147483647i32;
+pub const styleWordWrapNotSet: i32 = 0i32;
+pub const styleWordWrapOff: i32 = 1i32;
+pub const styleWordWrapOn: i32 = 2i32;
+pub const styleWordWrap_Max: i32 = 2147483647i32;
+pub const styleWrapFlowNotSet: i32 = 0i32;
+pub const styleWrapFlowAuto: i32 = 1i32;
+pub const styleWrapFlowBoth: i32 = 2i32;
+pub const styleWrapFlowStart: i32 = 3i32;
+pub const styleWrapFlowEnd: i32 = 4i32;
+pub const styleWrapFlowClear: i32 = 5i32;
+pub const styleWrapFlowMinimum: i32 = 6i32;
+pub const styleWrapFlowMaximum: i32 = 7i32;
+pub const styleWrapFlow_Max: i32 = 2147483647i32;
+pub const styleWrapThroughNotSet: i32 = 0i32;
+pub const styleWrapThroughWrap: i32 = 1i32;
+pub const styleWrapThroughNone: i32 = 2i32;
+pub const styleWrapThrough_Max: i32 = 2147483647i32;
+pub const styleWritingModeLrtb: i32 = 0i32;
+pub const styleWritingModeTbrl: i32 = 1i32;
+pub const styleWritingModeRltb: i32 = 2i32;
+pub const styleWritingModeBtrl: i32 = 3i32;
+pub const styleWritingModeNotSet: i32 = 4i32;
+pub const styleWritingModeTblr: i32 = 5i32;
+pub const styleWritingModeBtlr: i32 = 6i32;
+pub const styleWritingModeLrbt: i32 = 7i32;
+pub const styleWritingModeRlbt: i32 = 8i32;
+pub const styleWritingModeLr: i32 = 9i32;
+pub const styleWritingModeRl: i32 = 10i32;
+pub const styleWritingModeTb: i32 = 11i32;
+pub const styleWritingMode_Max: i32 = 2147483647i32;
+pub const styleZIndexAuto: i32 = -2147483647i32;
+pub const styleZIndex_Max: i32 = 2147483647i32;
+pub const SVG_ANGLETYPE_UNKNOWN: i32 = 0i32;
+pub const SVG_ANGLETYPE_UNSPECIFIED: i32 = 1i32;
+pub const SVG_ANGLETYPE_DEG: i32 = 2i32;
+pub const SVG_ANGLETYPE_RAD: i32 = 3i32;
+pub const SVG_ANGLETYPE_GRAD: i32 = 4i32;
+pub const svgAngleType_Max: i32 = 2147483647i32;
+pub const SVG_CHANNEL_UNKNOWN: i32 = 0i32;
+pub const SVG_CHANNEL_R: i32 = 1i32;
+pub const SVG_CHANNEL_G: i32 = 2i32;
+pub const SVG_CHANNEL_B: i32 = 3i32;
+pub const SVG_CHANNEL_A: i32 = 4i32;
+pub const svgChannel_Max: i32 = 2147483647i32;
+pub const SVG_EDGEMODE_UNKNOWN: i32 = 0i32;
+pub const SVG_EDGEMODE_DUPLICATE: i32 = 1i32;
+pub const SVG_EDGEMODE_WRAP: i32 = 2i32;
+pub const SVG_EDGEMODE_NONE: i32 = 3i32;
+pub const svgEdgemode_Max: i32 = 2147483647i32;
+pub const svgExternalResourcesRequiredFalse: i32 = 0i32;
+pub const svgExternalResourcesRequiredTrue: i32 = 1i32;
+pub const svgExternalResourcesRequired_Max: i32 = 2147483647i32;
+pub const SVG_FEBLEND_MODE_UNKNOWN: i32 = 0i32;
+pub const SVG_FEBLEND_MODE_NORMAL: i32 = 1i32;
+pub const SVG_FEBLEND_MODE_MULTIPLY: i32 = 2i32;
+pub const SVG_FEBLEND_MODE_SCREEN: i32 = 3i32;
+pub const SVG_FEBLEND_MODE_DARKEN: i32 = 4i32;
+pub const SVG_FEBLEND_MODE_LIGHTEN: i32 = 5i32;
+pub const svgFeblendMode_Max: i32 = 2147483647i32;
+pub const SVG_FECOLORMATRIX_TYPE_UNKNOWN: i32 = 0i32;
+pub const SVG_FECOLORMATRIX_TYPE_MATRIX: i32 = 1i32;
+pub const SVG_FECOLORMATRIX_TYPE_SATURATE: i32 = 2i32;
+pub const SVG_FECOLORMATRIX_TYPE_HUEROTATE: i32 = 3i32;
+pub const SVG_FECOLORMATRIX_TYPE_LUMINANCETOALPHA: i32 = 4i32;
+pub const svgFecolormatrixType_Max: i32 = 2147483647i32;
+pub const SVG_FECOMPONENTTRANSFER_TYPE_UNKNOWN: i32 = 0i32;
+pub const SVG_FECOMPONENTTRANSFER_TYPE_IDENTITY: i32 = 1i32;
+pub const SVG_FECOMPONENTTRANSFER_TYPE_TABLE: i32 = 2i32;
+pub const SVG_FECOMPONENTTRANSFER_TYPE_DISCRETE: i32 = 3i32;
+pub const SVG_FECOMPONENTTRANSFER_TYPE_LINEAR: i32 = 4i32;
+pub const SVG_FECOMPONENTTRANSFER_TYPE_GAMMA: i32 = 5i32;
+pub const svgFecomponenttransferType_Max: i32 = 2147483647i32;
+pub const SVG_FECOMPOSITE_OPERATOR_UNKNOWN: i32 = 0i32;
+pub const SVG_FECOMPOSITE_OPERATOR_OVER: i32 = 1i32;
+pub const SVG_FECOMPOSITE_OPERATOR_IN: i32 = 2i32;
+pub const SVG_FECOMPOSITE_OPERATOR_OUT: i32 = 3i32;
+pub const SVG_FECOMPOSITE_OPERATOR_ATOP: i32 = 4i32;
+pub const SVG_FECOMPOSITE_OPERATOR_XOR: i32 = 5i32;
+pub const SVG_FECOMPOSITE_OPERATOR_ARITHMETIC: i32 = 6i32;
+pub const svgFecompositeOperator_Max: i32 = 2147483647i32;
+pub const svgFocusableNotSet: i32 = 0i32;
+pub const svgFocusableAuto: i32 = 1i32;
+pub const svgFocusableTrue: i32 = 2i32;
+pub const svgFocusableFalse: i32 = 3i32;
+pub const svgFocusable_Max: i32 = 2147483647i32;
+pub const SVG_LENGTHTYPE_UNKNOWN: i32 = 0i32;
+pub const SVG_LENGTHTYPE_NUMBER: i32 = 1i32;
+pub const SVG_LENGTHTYPE_PERCENTAGE: i32 = 2i32;
+pub const SVG_LENGTHTYPE_EMS: i32 = 3i32;
+pub const SVG_LENGTHTYPE_EXS: i32 = 4i32;
+pub const SVG_LENGTHTYPE_PX: i32 = 5i32;
+pub const SVG_LENGTHTYPE_CM: i32 = 6i32;
+pub const SVG_LENGTHTYPE_MM: i32 = 7i32;
+pub const SVG_LENGTHTYPE_IN: i32 = 8i32;
+pub const SVG_LENGTHTYPE_PT: i32 = 9i32;
+pub const SVG_LENGTHTYPE_PC: i32 = 10i32;
+pub const svgLengthType_Max: i32 = 2147483647i32;
+pub const SVG_MARKER_ORIENT_UNKNOWN: i32 = 0i32;
+pub const SVG_MARKER_ORIENT_AUTO: i32 = 1i32;
+pub const SVG_MARKER_ORIENT_ANGLE: i32 = 2i32;
+pub const svgMarkerOrient_Max: i32 = 2147483647i32;
+pub const svgMarkerOrientAttributeAuto: i32 = 0i32;
+pub const svgMarkerOrientAttribute_Max: i32 = 2147483647i32;
+pub const SVG_MARKERUNITS_UNKNOWN: i32 = 0i32;
+pub const SVG_MARKERUNITS_USERSPACEONUSE: i32 = 1i32;
+pub const SVG_MARKERUNITS_STROKEWIDTH: i32 = 2i32;
+pub const svgMarkerUnits_Max: i32 = 2147483647i32;
+pub const SVG_MORPHOLOGY_OPERATOR_UNKNOWN: i32 = 0i32;
+pub const SVG_MORPHOLOGY_OPERATOR_ERODE: i32 = 1i32;
+pub const SVG_MORPHOLOGY_OPERATOR_DILATE: i32 = 2i32;
+pub const svgMorphologyOperator_Max: i32 = 2147483647i32;
+pub const PATHSEG_UNKNOWN: i32 = 0i32;
+pub const PATHSEG_CLOSEPATH: i32 = 1i32;
+pub const PATHSEG_MOVETO_ABS: i32 = 2i32;
+pub const PATHSEG_MOVETO_REL: i32 = 3i32;
+pub const PATHSEG_LINETO_ABS: i32 = 4i32;
+pub const PATHSEG_LINETO_REL: i32 = 5i32;
+pub const PATHSEG_CURVETO_CUBIC_ABS: i32 = 6i32;
+pub const PATHSEG_CURVETO_CUBIC_REL: i32 = 7i32;
+pub const PATHSEG_CURVETO_QUADRATIC_ABS: i32 = 8i32;
+pub const PATHSEG_CURVETO_QUADRATIC_REL: i32 = 9i32;
+pub const PATHSEG_ARC_ABS: i32 = 10i32;
+pub const PATHSEG_ARC_REL: i32 = 11i32;
+pub const PATHSEG_LINETO_HORIZONTAL_ABS: i32 = 12i32;
+pub const PATHSEG_LINETO_HORIZONTAL_REL: i32 = 13i32;
+pub const PATHSEG_LINETO_VERTICAL_ABS: i32 = 14i32;
+pub const PATHSEG_LINETO_VERTICAL_REL: i32 = 15i32;
+pub const PATHSEG_CURVETO_CUBIC_SMOOTH_ABS: i32 = 16i32;
+pub const PATHSEG_CURVETO_CUBIC_SMOOTH_REL: i32 = 17i32;
+pub const PATHSEG_CURVETO_QUADRATIC_SMOOTH_ABS: i32 = 18i32;
+pub const PATHSEG_CURVETO_QUADRATIC_SMOOTH_REL: i32 = 19i32;
+pub const svgPathSegType_Max: i32 = 2147483647i32;
+pub const SVG_PRESERVEALPHA_FALSE: i32 = 0i32;
+pub const SVG_PRESERVEALPHA_TRUE: i32 = 1i32;
+pub const svgPreserveAlpha_Max: i32 = 2147483647i32;
+pub const SVG_MEETORSLICE_UNKNOWN: i32 = 0i32;
+pub const SVG_MEETORSLICE_MEET: i32 = 1i32;
+pub const SVG_MEETORSLICE_SLICE: i32 = 2i32;
+pub const svgPreserveAspectMeetOrSliceType_Max: i32 = 2147483647i32;
+pub const SVG_PRESERVEASPECTRATIO_UNKNOWN: i32 = 0i32;
+pub const SVG_PRESERVEASPECTRATIO_NONE: i32 = 1i32;
+pub const SVG_PRESERVEASPECTRATIO_XMINYMIN: i32 = 2i32;
+pub const SVG_PRESERVEASPECTRATIO_XMIDYMIN: i32 = 3i32;
+pub const SVG_PRESERVEASPECTRATIO_XMAXYMIN: i32 = 4i32;
+pub const SVG_PRESERVEASPECTRATIO_XMINYMID: i32 = 5i32;
+pub const SVG_PRESERVEASPECTRATIO_XMIDYMID: i32 = 6i32;
+pub const SVG_PRESERVEASPECTRATIO_XMAXYMID: i32 = 7i32;
+pub const SVG_PRESERVEASPECTRATIO_XMINYMAX: i32 = 8i32;
+pub const SVG_PRESERVEASPECTRATIO_XMIDYMAX: i32 = 9i32;
+pub const SVG_PRESERVEASPECTRATIO_XMAXYMAX: i32 = 10i32;
+pub const svgPreserveAspectRatioAlignType_Max: i32 = 2147483647i32;
+pub const SVG_SPREADMETHOD_UNKNOWN: i32 = 0i32;
+pub const SVG_SPREADMETHOD_PAD: i32 = 1i32;
+pub const SVG_SPREADMETHOD_REFLECT: i32 = 2i32;
+pub const SVG_SPREADMETHOD_REPEAT: i32 = 3i32;
+pub const svgSpreadMethod_Max: i32 = 2147483647i32;
+pub const SVG_STITCHTYPE_UNKNOWN: i32 = 0i32;
+pub const SVG_STITCHTYPE_STITCH: i32 = 1i32;
+pub const SVG_STITCHTYPE_NOSTITCH: i32 = 2i32;
+pub const svgStitchtype_Max: i32 = 2147483647i32;
+pub const SVG_TRANSFORM_UNKNOWN: i32 = 0i32;
+pub const SVG_TRANSFORM_MATRIX: i32 = 1i32;
+pub const SVG_TRANSFORM_TRANSLATE: i32 = 2i32;
+pub const SVG_TRANSFORM_SCALE: i32 = 3i32;
+pub const SVG_TRANSFORM_ROTATE: i32 = 4i32;
+pub const SVG_TRANSFORM_SKEWX: i32 = 5i32;
+pub const SVG_TRANSFORM_SKEWY: i32 = 6i32;
+pub const svgTransformType_Max: i32 = 2147483647i32;
+pub const SVG_TURBULENCE_TYPE_UNKNOWN: i32 = 0i32;
+pub const SVG_TURBULENCE_TYPE_FACTALNOISE: i32 = 1i32;
+pub const SVG_TURBULENCE_TYPE_TURBULENCE: i32 = 2i32;
+pub const svgTurbulenceType_Max: i32 = 2147483647i32;
+pub const SVG_UNITTYPE_UNKNOWN: i32 = 0i32;
+pub const SVG_UNITTYPE_USERSPACEONUSE: i32 = 1i32;
+pub const SVG_UNITTYPE_OBJECTBOUNDINGBOX: i32 = 2i32;
+pub const svgUnitTypes_Max: i32 = 2147483647i32;
 #[repr(C)]
 pub struct tagNavigateData {
     pub ulTarget: u32,
@@ -19009,42 +16809,18 @@ impl ::core::clone::Clone for tagNavigateData {
         *self
     }
 }
-#[repr(transparent)]
-pub struct textDecoration(pub i32);
-pub const textDecorationNone: textDecoration = textDecoration(0i32);
-pub const textDecorationUnderline: textDecoration = textDecoration(1i32);
-pub const textDecorationOverline: textDecoration = textDecoration(2i32);
-pub const textDecorationLineThrough: textDecoration = textDecoration(3i32);
-pub const textDecorationBlink: textDecoration = textDecoration(4i32);
-pub const textDecoration_Max: textDecoration = textDecoration(2147483647i32);
-impl ::core::marker::Copy for textDecoration {}
-impl ::core::clone::Clone for textDecoration {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct textpathMethodtype(pub i32);
-pub const TEXTPATH_METHODTYPE_UNKNOWN: textpathMethodtype = textpathMethodtype(0i32);
-pub const TEXTPATH_METHODTYPE_ALIGN: textpathMethodtype = textpathMethodtype(1i32);
-pub const TEXTPATH_METHODTYPE_STRETCH: textpathMethodtype = textpathMethodtype(2i32);
-pub const textpathMethodtype_Max: textpathMethodtype = textpathMethodtype(2147483647i32);
-impl ::core::marker::Copy for textpathMethodtype {}
-impl ::core::clone::Clone for textpathMethodtype {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct textpathSpacingtype(pub i32);
-pub const TEXTPATH_SPACINGTYPE_UNKNOWN: textpathSpacingtype = textpathSpacingtype(0i32);
-pub const TEXTPATH_SPACINGTYPE_AUTO: textpathSpacingtype = textpathSpacingtype(1i32);
-pub const TEXTPATH_SPACINGTYPE_EXACT: textpathSpacingtype = textpathSpacingtype(2i32);
-pub const textpathSpacingtype_Max: textpathSpacingtype = textpathSpacingtype(2147483647i32);
-impl ::core::marker::Copy for textpathSpacingtype {}
-impl ::core::clone::Clone for textpathSpacingtype {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const textDecorationNone: i32 = 0i32;
+pub const textDecorationUnderline: i32 = 1i32;
+pub const textDecorationOverline: i32 = 2i32;
+pub const textDecorationLineThrough: i32 = 3i32;
+pub const textDecorationBlink: i32 = 4i32;
+pub const textDecoration_Max: i32 = 2147483647i32;
+pub const TEXTPATH_METHODTYPE_UNKNOWN: i32 = 0i32;
+pub const TEXTPATH_METHODTYPE_ALIGN: i32 = 1i32;
+pub const TEXTPATH_METHODTYPE_STRETCH: i32 = 2i32;
+pub const textpathMethodtype_Max: i32 = 2147483647i32;
+pub const TEXTPATH_SPACINGTYPE_UNKNOWN: i32 = 0i32;
+pub const TEXTPATH_SPACINGTYPE_AUTO: i32 = 1i32;
+pub const TEXTPATH_SPACINGTYPE_EXACT: i32 = 2i32;
+pub const textpathSpacingtype_Max: i32 = 2147483647i32;
 pub const wfolders: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3135446938, data2: 7041, data3: 4562, data4: [169, 122, 0, 192, 79, 142, 203, 2] };

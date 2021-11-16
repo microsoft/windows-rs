@@ -131,13 +131,5 @@ pub const MREGISTER_E_DEVICE_UNKNOWN_ERROR: ::windows_sys::core::HRESULT = ::win
 pub const MREGISTER_E_DISCOVERY_FAILED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2145845234i32 as _);
 pub const MREGISTER_E_DISCOVERY_REDIRECTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2145845236i32 as _);
 pub const MREGISTER_E_REGISTRATION_IN_PROGRESS: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2145845239i32 as _);
-#[repr(transparent)]
-pub struct REGISTRATION_INFORMATION_CLASS(pub i32);
-pub const DeviceRegistrationBasicInfo: REGISTRATION_INFORMATION_CLASS = REGISTRATION_INFORMATION_CLASS(1i32);
-pub const MaxDeviceInfoClass: REGISTRATION_INFORMATION_CLASS = REGISTRATION_INFORMATION_CLASS(2i32);
-impl ::core::marker::Copy for REGISTRATION_INFORMATION_CLASS {}
-impl ::core::clone::Clone for REGISTRATION_INFORMATION_CLASS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const DeviceRegistrationBasicInfo: i32 = 1i32;
+pub const MaxDeviceInfoClass: i32 = 2i32;

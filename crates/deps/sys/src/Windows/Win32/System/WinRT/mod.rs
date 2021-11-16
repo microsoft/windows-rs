@@ -118,93 +118,37 @@ extern "system" {
     pub fn WindowsTrimStringEnd(string: ::windows_sys::core::HSTRING, trimstring: ::windows_sys::core::HSTRING, newstring: *mut ::windows_sys::core::HSTRING) -> ::windows_sys::core::HRESULT;
     pub fn WindowsTrimStringStart(string: ::windows_sys::core::HSTRING, trimstring: ::windows_sys::core::HSTRING, newstring: *mut ::windows_sys::core::HSTRING) -> ::windows_sys::core::HRESULT;
 }
-#[repr(transparent)]
-pub struct ACTIVATIONTYPE(pub i32);
-pub const ACTIVATIONTYPE_UNCATEGORIZED: ACTIVATIONTYPE = ACTIVATIONTYPE(0i32);
-pub const ACTIVATIONTYPE_FROM_MONIKER: ACTIVATIONTYPE = ACTIVATIONTYPE(1i32);
-pub const ACTIVATIONTYPE_FROM_DATA: ACTIVATIONTYPE = ACTIVATIONTYPE(2i32);
-pub const ACTIVATIONTYPE_FROM_STORAGE: ACTIVATIONTYPE = ACTIVATIONTYPE(4i32);
-pub const ACTIVATIONTYPE_FROM_STREAM: ACTIVATIONTYPE = ACTIVATIONTYPE(8i32);
-pub const ACTIVATIONTYPE_FROM_FILE: ACTIVATIONTYPE = ACTIVATIONTYPE(16i32);
-impl ::core::marker::Copy for ACTIVATIONTYPE {}
-impl ::core::clone::Clone for ACTIVATIONTYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const ACTIVATIONTYPE_UNCATEGORIZED: i32 = 0i32;
+pub const ACTIVATIONTYPE_FROM_MONIKER: i32 = 1i32;
+pub const ACTIVATIONTYPE_FROM_DATA: i32 = 2i32;
+pub const ACTIVATIONTYPE_FROM_STORAGE: i32 = 4i32;
+pub const ACTIVATIONTYPE_FROM_STREAM: i32 = 8i32;
+pub const ACTIVATIONTYPE_FROM_FILE: i32 = 16i32;
 pub type APARTMENT_SHUTDOWN_REGISTRATION_COOKIE = isize;
-#[repr(transparent)]
-pub struct AgileReferenceOptions(pub i32);
-pub const AGILEREFERENCE_DEFAULT: AgileReferenceOptions = AgileReferenceOptions(0i32);
-pub const AGILEREFERENCE_DELAYEDMARSHAL: AgileReferenceOptions = AgileReferenceOptions(1i32);
-impl ::core::marker::Copy for AgileReferenceOptions {}
-impl ::core::clone::Clone for AgileReferenceOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct BSOS_OPTIONS(pub i32);
-pub const BSOS_DEFAULT: BSOS_OPTIONS = BSOS_OPTIONS(0i32);
-pub const BSOS_PREFERDESTINATIONSTREAM: BSOS_OPTIONS = BSOS_OPTIONS(1i32);
-impl ::core::marker::Copy for BSOS_OPTIONS {}
-impl ::core::clone::Clone for BSOS_OPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct CASTING_CONNECTION_ERROR_STATUS(pub i32);
-pub const CASTING_CONNECTION_ERROR_STATUS_SUCCEEDED: CASTING_CONNECTION_ERROR_STATUS = CASTING_CONNECTION_ERROR_STATUS(0i32);
-pub const CASTING_CONNECTION_ERROR_STATUS_DEVICE_DID_NOT_RESPOND: CASTING_CONNECTION_ERROR_STATUS = CASTING_CONNECTION_ERROR_STATUS(1i32);
-pub const CASTING_CONNECTION_ERROR_STATUS_DEVICE_ERROR: CASTING_CONNECTION_ERROR_STATUS = CASTING_CONNECTION_ERROR_STATUS(2i32);
-pub const CASTING_CONNECTION_ERROR_STATUS_DEVICE_LOCKED: CASTING_CONNECTION_ERROR_STATUS = CASTING_CONNECTION_ERROR_STATUS(3i32);
-pub const CASTING_CONNECTION_ERROR_STATUS_PROTECTED_PLAYBACK_FAILED: CASTING_CONNECTION_ERROR_STATUS = CASTING_CONNECTION_ERROR_STATUS(4i32);
-pub const CASTING_CONNECTION_ERROR_STATUS_INVALID_CASTING_SOURCE: CASTING_CONNECTION_ERROR_STATUS = CASTING_CONNECTION_ERROR_STATUS(5i32);
-pub const CASTING_CONNECTION_ERROR_STATUS_UNKNOWN: CASTING_CONNECTION_ERROR_STATUS = CASTING_CONNECTION_ERROR_STATUS(6i32);
-impl ::core::marker::Copy for CASTING_CONNECTION_ERROR_STATUS {}
-impl ::core::clone::Clone for CASTING_CONNECTION_ERROR_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct CASTING_CONNECTION_STATE(pub i32);
-pub const CASTING_CONNECTION_STATE_DISCONNECTED: CASTING_CONNECTION_STATE = CASTING_CONNECTION_STATE(0i32);
-pub const CASTING_CONNECTION_STATE_CONNECTED: CASTING_CONNECTION_STATE = CASTING_CONNECTION_STATE(1i32);
-pub const CASTING_CONNECTION_STATE_RENDERING: CASTING_CONNECTION_STATE = CASTING_CONNECTION_STATE(2i32);
-pub const CASTING_CONNECTION_STATE_DISCONNECTING: CASTING_CONNECTION_STATE = CASTING_CONNECTION_STATE(3i32);
-pub const CASTING_CONNECTION_STATE_CONNECTING: CASTING_CONNECTION_STATE = CASTING_CONNECTION_STATE(4i32);
-impl ::core::marker::Copy for CASTING_CONNECTION_STATE {}
-impl ::core::clone::Clone for CASTING_CONNECTION_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const AGILEREFERENCE_DEFAULT: i32 = 0i32;
+pub const AGILEREFERENCE_DELAYEDMARSHAL: i32 = 1i32;
+pub const BSOS_DEFAULT: i32 = 0i32;
+pub const BSOS_PREFERDESTINATIONSTREAM: i32 = 1i32;
+pub const CASTING_CONNECTION_ERROR_STATUS_SUCCEEDED: i32 = 0i32;
+pub const CASTING_CONNECTION_ERROR_STATUS_DEVICE_DID_NOT_RESPOND: i32 = 1i32;
+pub const CASTING_CONNECTION_ERROR_STATUS_DEVICE_ERROR: i32 = 2i32;
+pub const CASTING_CONNECTION_ERROR_STATUS_DEVICE_LOCKED: i32 = 3i32;
+pub const CASTING_CONNECTION_ERROR_STATUS_PROTECTED_PLAYBACK_FAILED: i32 = 4i32;
+pub const CASTING_CONNECTION_ERROR_STATUS_INVALID_CASTING_SOURCE: i32 = 5i32;
+pub const CASTING_CONNECTION_ERROR_STATUS_UNKNOWN: i32 = 6i32;
+pub const CASTING_CONNECTION_STATE_DISCONNECTED: i32 = 0i32;
+pub const CASTING_CONNECTION_STATE_CONNECTED: i32 = 1i32;
+pub const CASTING_CONNECTION_STATE_RENDERING: i32 = 2i32;
+pub const CASTING_CONNECTION_STATE_DISCONNECTING: i32 = 3i32;
+pub const CASTING_CONNECTION_STATE_CONNECTING: i32 = 4i32;
 pub const CastingSourceInfo_Property_CastingTypes: &'static str = "CastingTypes";
 pub const CastingSourceInfo_Property_PreferredSourceUriScheme: &'static str = "PreferredSourceUriScheme";
 pub const CastingSourceInfo_Property_ProtectedMedia: &'static str = "ProtectedMedia";
-#[repr(transparent)]
-pub struct DISPATCHERQUEUE_THREAD_APARTMENTTYPE(pub i32);
-pub const DQTAT_COM_NONE: DISPATCHERQUEUE_THREAD_APARTMENTTYPE = DISPATCHERQUEUE_THREAD_APARTMENTTYPE(0i32);
-pub const DQTAT_COM_ASTA: DISPATCHERQUEUE_THREAD_APARTMENTTYPE = DISPATCHERQUEUE_THREAD_APARTMENTTYPE(1i32);
-pub const DQTAT_COM_STA: DISPATCHERQUEUE_THREAD_APARTMENTTYPE = DISPATCHERQUEUE_THREAD_APARTMENTTYPE(2i32);
-impl ::core::marker::Copy for DISPATCHERQUEUE_THREAD_APARTMENTTYPE {}
-impl ::core::clone::Clone for DISPATCHERQUEUE_THREAD_APARTMENTTYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DISPATCHERQUEUE_THREAD_TYPE(pub i32);
-pub const DQTYPE_THREAD_DEDICATED: DISPATCHERQUEUE_THREAD_TYPE = DISPATCHERQUEUE_THREAD_TYPE(1i32);
-pub const DQTYPE_THREAD_CURRENT: DISPATCHERQUEUE_THREAD_TYPE = DISPATCHERQUEUE_THREAD_TYPE(2i32);
-impl ::core::marker::Copy for DISPATCHERQUEUE_THREAD_TYPE {}
-impl ::core::clone::Clone for DISPATCHERQUEUE_THREAD_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const DQTAT_COM_NONE: i32 = 0i32;
+pub const DQTAT_COM_ASTA: i32 = 1i32;
+pub const DQTAT_COM_STA: i32 = 2i32;
+pub const DQTYPE_THREAD_DEDICATED: i32 = 1i32;
+pub const DQTYPE_THREAD_CURRENT: i32 = 2i32;
 #[repr(C)]
 pub struct DispatcherQueueOptions {
     pub dwSize: u32,
@@ -548,29 +492,13 @@ pub type PINSPECT_HSTRING_CALLBACK = unsafe extern "system" fn(context: *const :
 pub type PINSPECT_HSTRING_CALLBACK2 = unsafe extern "system" fn(context: *const ::core::ffi::c_void, readaddress: u64, length: u32, buffer: *mut u8) -> ::windows_sys::core::HRESULT;
 pub type PINSPECT_MEMORY_CALLBACK = unsafe extern "system" fn(context: *const ::core::ffi::c_void, readaddress: usize, length: u32, buffer: *mut u8) -> ::windows_sys::core::HRESULT;
 pub type ROPARAMIIDHANDLE = isize;
-#[repr(transparent)]
-pub struct RO_ERROR_REPORTING_FLAGS(pub u32);
-pub const RO_ERROR_REPORTING_NONE: RO_ERROR_REPORTING_FLAGS = RO_ERROR_REPORTING_FLAGS(0u32);
-pub const RO_ERROR_REPORTING_SUPPRESSEXCEPTIONS: RO_ERROR_REPORTING_FLAGS = RO_ERROR_REPORTING_FLAGS(1u32);
-pub const RO_ERROR_REPORTING_FORCEEXCEPTIONS: RO_ERROR_REPORTING_FLAGS = RO_ERROR_REPORTING_FLAGS(2u32);
-pub const RO_ERROR_REPORTING_USESETERRORINFO: RO_ERROR_REPORTING_FLAGS = RO_ERROR_REPORTING_FLAGS(4u32);
-pub const RO_ERROR_REPORTING_SUPPRESSSETERRORINFO: RO_ERROR_REPORTING_FLAGS = RO_ERROR_REPORTING_FLAGS(8u32);
-impl ::core::marker::Copy for RO_ERROR_REPORTING_FLAGS {}
-impl ::core::clone::Clone for RO_ERROR_REPORTING_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct RO_INIT_TYPE(pub i32);
-pub const RO_INIT_SINGLETHREADED: RO_INIT_TYPE = RO_INIT_TYPE(0i32);
-pub const RO_INIT_MULTITHREADED: RO_INIT_TYPE = RO_INIT_TYPE(1i32);
-impl ::core::marker::Copy for RO_INIT_TYPE {}
-impl ::core::clone::Clone for RO_INIT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const RO_ERROR_REPORTING_NONE: u32 = 0u32;
+pub const RO_ERROR_REPORTING_SUPPRESSEXCEPTIONS: u32 = 1u32;
+pub const RO_ERROR_REPORTING_FORCEEXCEPTIONS: u32 = 2u32;
+pub const RO_ERROR_REPORTING_USESETERRORINFO: u32 = 4u32;
+pub const RO_ERROR_REPORTING_SUPPRESSSETERRORINFO: u32 = 8u32;
+pub const RO_INIT_SINGLETHREADED: i32 = 0i32;
+pub const RO_INIT_MULTITHREADED: i32 = 1i32;
 #[repr(C)]
 pub struct ServerInformation {
     pub dwServerPid: u32,
@@ -583,16 +511,8 @@ impl ::core::clone::Clone for ServerInformation {
         *self
     }
 }
-#[repr(transparent)]
-pub struct TrustLevel(pub i32);
-pub const BaseTrust: TrustLevel = TrustLevel(0i32);
-pub const PartialTrust: TrustLevel = TrustLevel(1i32);
-pub const FullTrust: TrustLevel = TrustLevel(2i32);
-impl ::core::marker::Copy for TrustLevel {}
-impl ::core::clone::Clone for TrustLevel {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const BaseTrust: i32 = 0i32;
+pub const PartialTrust: i32 = 1i32;
+pub const FullTrust: i32 = 2i32;
 #[repr(C)]
 pub struct _RO_REGISTRATION_COOKIE(pub u8);

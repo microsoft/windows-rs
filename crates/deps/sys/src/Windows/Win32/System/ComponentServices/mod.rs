@@ -101,40 +101,32 @@ impl ::core::clone::Clone for ApplicationSummary {
         *self
     }
 }
-#[repr(transparent)]
-pub struct AutoSvcs_Error_Constants(pub u32);
-pub const mtsErrCtxAborted: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2147803138u32);
-pub const mtsErrCtxAborting: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2147803139u32);
-pub const mtsErrCtxNoContext: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2147803140u32);
-pub const mtsErrCtxNotRegistered: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2147803141u32);
-pub const mtsErrCtxSynchTimeout: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2147803142u32);
-pub const mtsErrCtxOldReference: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2147803143u32);
-pub const mtsErrCtxRoleNotFound: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2147803148u32);
-pub const mtsErrCtxNoSecurity: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2147803149u32);
-pub const mtsErrCtxWrongThread: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2147803150u32);
-pub const mtsErrCtxTMNotAvailable: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2147803151u32);
-pub const comQCErrApplicationNotQueued: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2148599296u32);
-pub const comQCErrNoQueueableInterfaces: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2148599297u32);
-pub const comQCErrQueuingServiceNotAvailable: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2148599298u32);
-pub const comQCErrQueueTransactMismatch: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2148599299u32);
-pub const comqcErrRecorderMarshalled: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2148599300u32);
-pub const comqcErrOutParam: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2148599301u32);
-pub const comqcErrRecorderNotTrusted: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2148599302u32);
-pub const comqcErrPSLoad: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2148599303u32);
-pub const comqcErrMarshaledObjSameTxn: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2148599304u32);
-pub const comqcErrInvalidMessage: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2148599376u32);
-pub const comqcErrMsmqSidUnavailable: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2148599377u32);
-pub const comqcErrWrongMsgExtension: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2148599378u32);
-pub const comqcErrMsmqServiceUnavailable: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2148599379u32);
-pub const comqcErrMsgNotAuthenticated: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2148599380u32);
-pub const comqcErrMsmqConnectorUsed: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2148599381u32);
-pub const comqcErrBadMarshaledObject: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2148599382u32);
-impl ::core::marker::Copy for AutoSvcs_Error_Constants {}
-impl ::core::clone::Clone for AutoSvcs_Error_Constants {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const mtsErrCtxAborted: u32 = 2147803138u32;
+pub const mtsErrCtxAborting: u32 = 2147803139u32;
+pub const mtsErrCtxNoContext: u32 = 2147803140u32;
+pub const mtsErrCtxNotRegistered: u32 = 2147803141u32;
+pub const mtsErrCtxSynchTimeout: u32 = 2147803142u32;
+pub const mtsErrCtxOldReference: u32 = 2147803143u32;
+pub const mtsErrCtxRoleNotFound: u32 = 2147803148u32;
+pub const mtsErrCtxNoSecurity: u32 = 2147803149u32;
+pub const mtsErrCtxWrongThread: u32 = 2147803150u32;
+pub const mtsErrCtxTMNotAvailable: u32 = 2147803151u32;
+pub const comQCErrApplicationNotQueued: u32 = 2148599296u32;
+pub const comQCErrNoQueueableInterfaces: u32 = 2148599297u32;
+pub const comQCErrQueuingServiceNotAvailable: u32 = 2148599298u32;
+pub const comQCErrQueueTransactMismatch: u32 = 2148599299u32;
+pub const comqcErrRecorderMarshalled: u32 = 2148599300u32;
+pub const comqcErrOutParam: u32 = 2148599301u32;
+pub const comqcErrRecorderNotTrusted: u32 = 2148599302u32;
+pub const comqcErrPSLoad: u32 = 2148599303u32;
+pub const comqcErrMarshaledObjSameTxn: u32 = 2148599304u32;
+pub const comqcErrInvalidMessage: u32 = 2148599376u32;
+pub const comqcErrMsmqSidUnavailable: u32 = 2148599377u32;
+pub const comqcErrWrongMsgExtension: u32 = 2148599378u32;
+pub const comqcErrMsmqServiceUnavailable: u32 = 2148599379u32;
+pub const comqcErrMsgNotAuthenticated: u32 = 2148599380u32;
+pub const comqcErrMsmqConnectorUsed: u32 = 2148599381u32;
+pub const comqcErrBadMarshaledObject: u32 = 2148599382u32;
 pub const ByotServerEx: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3970674858, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
 #[repr(C)]
 pub struct CAppData {
@@ -204,400 +196,232 @@ impl ::core::clone::Clone for CCLSIDData2 {
         *self
     }
 }
-#[repr(transparent)]
-pub struct COMAdminAccessChecksLevelOptions(pub i32);
-pub const COMAdminAccessChecksApplicationLevel: COMAdminAccessChecksLevelOptions = COMAdminAccessChecksLevelOptions(0i32);
-pub const COMAdminAccessChecksApplicationComponentLevel: COMAdminAccessChecksLevelOptions = COMAdminAccessChecksLevelOptions(1i32);
-impl ::core::marker::Copy for COMAdminAccessChecksLevelOptions {}
-impl ::core::clone::Clone for COMAdminAccessChecksLevelOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct COMAdminActivationOptions(pub i32);
-pub const COMAdminActivationInproc: COMAdminActivationOptions = COMAdminActivationOptions(0i32);
-pub const COMAdminActivationLocal: COMAdminActivationOptions = COMAdminActivationOptions(1i32);
-impl ::core::marker::Copy for COMAdminActivationOptions {}
-impl ::core::clone::Clone for COMAdminActivationOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct COMAdminApplicationExportOptions(pub i32);
-pub const COMAdminExportNoUsers: COMAdminApplicationExportOptions = COMAdminApplicationExportOptions(0i32);
-pub const COMAdminExportUsers: COMAdminApplicationExportOptions = COMAdminApplicationExportOptions(1i32);
-pub const COMAdminExportApplicationProxy: COMAdminApplicationExportOptions = COMAdminApplicationExportOptions(2i32);
-pub const COMAdminExportForceOverwriteOfFiles: COMAdminApplicationExportOptions = COMAdminApplicationExportOptions(4i32);
-pub const COMAdminExportIn10Format: COMAdminApplicationExportOptions = COMAdminApplicationExportOptions(16i32);
-impl ::core::marker::Copy for COMAdminApplicationExportOptions {}
-impl ::core::clone::Clone for COMAdminApplicationExportOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct COMAdminApplicationInstallOptions(pub i32);
-pub const COMAdminInstallNoUsers: COMAdminApplicationInstallOptions = COMAdminApplicationInstallOptions(0i32);
-pub const COMAdminInstallUsers: COMAdminApplicationInstallOptions = COMAdminApplicationInstallOptions(1i32);
-pub const COMAdminInstallForceOverwriteOfFiles: COMAdminApplicationInstallOptions = COMAdminApplicationInstallOptions(2i32);
-impl ::core::marker::Copy for COMAdminApplicationInstallOptions {}
-impl ::core::clone::Clone for COMAdminApplicationInstallOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct COMAdminAuthenticationCapabilitiesOptions(pub i32);
-pub const COMAdminAuthenticationCapabilitiesNone: COMAdminAuthenticationCapabilitiesOptions = COMAdminAuthenticationCapabilitiesOptions(0i32);
-pub const COMAdminAuthenticationCapabilitiesSecureReference: COMAdminAuthenticationCapabilitiesOptions = COMAdminAuthenticationCapabilitiesOptions(2i32);
-pub const COMAdminAuthenticationCapabilitiesStaticCloaking: COMAdminAuthenticationCapabilitiesOptions = COMAdminAuthenticationCapabilitiesOptions(32i32);
-pub const COMAdminAuthenticationCapabilitiesDynamicCloaking: COMAdminAuthenticationCapabilitiesOptions = COMAdminAuthenticationCapabilitiesOptions(64i32);
-impl ::core::marker::Copy for COMAdminAuthenticationCapabilitiesOptions {}
-impl ::core::clone::Clone for COMAdminAuthenticationCapabilitiesOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct COMAdminAuthenticationLevelOptions(pub i32);
-pub const COMAdminAuthenticationDefault: COMAdminAuthenticationLevelOptions = COMAdminAuthenticationLevelOptions(0i32);
-pub const COMAdminAuthenticationNone: COMAdminAuthenticationLevelOptions = COMAdminAuthenticationLevelOptions(1i32);
-pub const COMAdminAuthenticationConnect: COMAdminAuthenticationLevelOptions = COMAdminAuthenticationLevelOptions(2i32);
-pub const COMAdminAuthenticationCall: COMAdminAuthenticationLevelOptions = COMAdminAuthenticationLevelOptions(3i32);
-pub const COMAdminAuthenticationPacket: COMAdminAuthenticationLevelOptions = COMAdminAuthenticationLevelOptions(4i32);
-pub const COMAdminAuthenticationIntegrity: COMAdminAuthenticationLevelOptions = COMAdminAuthenticationLevelOptions(5i32);
-pub const COMAdminAuthenticationPrivacy: COMAdminAuthenticationLevelOptions = COMAdminAuthenticationLevelOptions(6i32);
-impl ::core::marker::Copy for COMAdminAuthenticationLevelOptions {}
-impl ::core::clone::Clone for COMAdminAuthenticationLevelOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const COMAdminAccessChecksApplicationLevel: i32 = 0i32;
+pub const COMAdminAccessChecksApplicationComponentLevel: i32 = 1i32;
+pub const COMAdminActivationInproc: i32 = 0i32;
+pub const COMAdminActivationLocal: i32 = 1i32;
+pub const COMAdminExportNoUsers: i32 = 0i32;
+pub const COMAdminExportUsers: i32 = 1i32;
+pub const COMAdminExportApplicationProxy: i32 = 2i32;
+pub const COMAdminExportForceOverwriteOfFiles: i32 = 4i32;
+pub const COMAdminExportIn10Format: i32 = 16i32;
+pub const COMAdminInstallNoUsers: i32 = 0i32;
+pub const COMAdminInstallUsers: i32 = 1i32;
+pub const COMAdminInstallForceOverwriteOfFiles: i32 = 2i32;
+pub const COMAdminAuthenticationCapabilitiesNone: i32 = 0i32;
+pub const COMAdminAuthenticationCapabilitiesSecureReference: i32 = 2i32;
+pub const COMAdminAuthenticationCapabilitiesStaticCloaking: i32 = 32i32;
+pub const COMAdminAuthenticationCapabilitiesDynamicCloaking: i32 = 64i32;
+pub const COMAdminAuthenticationDefault: i32 = 0i32;
+pub const COMAdminAuthenticationNone: i32 = 1i32;
+pub const COMAdminAuthenticationConnect: i32 = 2i32;
+pub const COMAdminAuthenticationCall: i32 = 3i32;
+pub const COMAdminAuthenticationPacket: i32 = 4i32;
+pub const COMAdminAuthenticationIntegrity: i32 = 5i32;
+pub const COMAdminAuthenticationPrivacy: i32 = 6i32;
 pub const COMAdminCatalog: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4128818452, data2: 57272, data3: 4561, data4: [162, 207, 0, 128, 95, 199, 146, 53] };
 pub const COMAdminCatalogCollection: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4128818454, data2: 57272, data3: 4561, data4: [162, 207, 0, 128, 95, 199, 146, 53] };
 pub const COMAdminCatalogObject: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4128818453, data2: 57272, data3: 4561, data4: [162, 207, 0, 128, 95, 199, 146, 53] };
-#[repr(transparent)]
-pub struct COMAdminComponentFlags(pub i32);
-pub const COMAdminCompFlagTypeInfoFound: COMAdminComponentFlags = COMAdminComponentFlags(1i32);
-pub const COMAdminCompFlagCOMPlusPropertiesFound: COMAdminComponentFlags = COMAdminComponentFlags(2i32);
-pub const COMAdminCompFlagProxyFound: COMAdminComponentFlags = COMAdminComponentFlags(4i32);
-pub const COMAdminCompFlagInterfacesFound: COMAdminComponentFlags = COMAdminComponentFlags(8i32);
-pub const COMAdminCompFlagAlreadyInstalled: COMAdminComponentFlags = COMAdminComponentFlags(16i32);
-pub const COMAdminCompFlagNotInApplication: COMAdminComponentFlags = COMAdminComponentFlags(32i32);
-impl ::core::marker::Copy for COMAdminComponentFlags {}
-impl ::core::clone::Clone for COMAdminComponentFlags {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct COMAdminComponentType(pub i32);
-pub const COMAdmin32BitComponent: COMAdminComponentType = COMAdminComponentType(1i32);
-pub const COMAdmin64BitComponent: COMAdminComponentType = COMAdminComponentType(2i32);
-impl ::core::marker::Copy for COMAdminComponentType {}
-impl ::core::clone::Clone for COMAdminComponentType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct COMAdminErrorCodes(pub i32);
-pub const COMAdminErrObjectErrors: COMAdminErrorCodes = COMAdminErrorCodes(-2146368511i32);
-pub const COMAdminErrObjectInvalid: COMAdminErrorCodes = COMAdminErrorCodes(-2146368510i32);
-pub const COMAdminErrKeyMissing: COMAdminErrorCodes = COMAdminErrorCodes(-2146368509i32);
-pub const COMAdminErrAlreadyInstalled: COMAdminErrorCodes = COMAdminErrorCodes(-2146368508i32);
-pub const COMAdminErrAppFileWriteFail: COMAdminErrorCodes = COMAdminErrorCodes(-2146368505i32);
-pub const COMAdminErrAppFileReadFail: COMAdminErrorCodes = COMAdminErrorCodes(-2146368504i32);
-pub const COMAdminErrAppFileVersion: COMAdminErrorCodes = COMAdminErrorCodes(-2146368503i32);
-pub const COMAdminErrBadPath: COMAdminErrorCodes = COMAdminErrorCodes(-2146368502i32);
-pub const COMAdminErrApplicationExists: COMAdminErrorCodes = COMAdminErrorCodes(-2146368501i32);
-pub const COMAdminErrRoleExists: COMAdminErrorCodes = COMAdminErrorCodes(-2146368500i32);
-pub const COMAdminErrCantCopyFile: COMAdminErrorCodes = COMAdminErrorCodes(-2146368499i32);
-pub const COMAdminErrNoUser: COMAdminErrorCodes = COMAdminErrorCodes(-2146368497i32);
-pub const COMAdminErrInvalidUserids: COMAdminErrorCodes = COMAdminErrorCodes(-2146368496i32);
-pub const COMAdminErrNoRegistryCLSID: COMAdminErrorCodes = COMAdminErrorCodes(-2146368495i32);
-pub const COMAdminErrBadRegistryProgID: COMAdminErrorCodes = COMAdminErrorCodes(-2146368494i32);
-pub const COMAdminErrAuthenticationLevel: COMAdminErrorCodes = COMAdminErrorCodes(-2146368493i32);
-pub const COMAdminErrUserPasswdNotValid: COMAdminErrorCodes = COMAdminErrorCodes(-2146368492i32);
-pub const COMAdminErrCLSIDOrIIDMismatch: COMAdminErrorCodes = COMAdminErrorCodes(-2146368488i32);
-pub const COMAdminErrRemoteInterface: COMAdminErrorCodes = COMAdminErrorCodes(-2146368487i32);
-pub const COMAdminErrDllRegisterServer: COMAdminErrorCodes = COMAdminErrorCodes(-2146368486i32);
-pub const COMAdminErrNoServerShare: COMAdminErrorCodes = COMAdminErrorCodes(-2146368485i32);
-pub const COMAdminErrDllLoadFailed: COMAdminErrorCodes = COMAdminErrorCodes(-2146368483i32);
-pub const COMAdminErrBadRegistryLibID: COMAdminErrorCodes = COMAdminErrorCodes(-2146368482i32);
-pub const COMAdminErrAppDirNotFound: COMAdminErrorCodes = COMAdminErrorCodes(-2146368481i32);
-pub const COMAdminErrRegistrarFailed: COMAdminErrorCodes = COMAdminErrorCodes(-2146368477i32);
-pub const COMAdminErrCompFileDoesNotExist: COMAdminErrorCodes = COMAdminErrorCodes(-2146368476i32);
-pub const COMAdminErrCompFileLoadDLLFail: COMAdminErrorCodes = COMAdminErrorCodes(-2146368475i32);
-pub const COMAdminErrCompFileGetClassObj: COMAdminErrorCodes = COMAdminErrorCodes(-2146368474i32);
-pub const COMAdminErrCompFileClassNotAvail: COMAdminErrorCodes = COMAdminErrorCodes(-2146368473i32);
-pub const COMAdminErrCompFileBadTLB: COMAdminErrorCodes = COMAdminErrorCodes(-2146368472i32);
-pub const COMAdminErrCompFileNotInstallable: COMAdminErrorCodes = COMAdminErrorCodes(-2146368471i32);
-pub const COMAdminErrNotChangeable: COMAdminErrorCodes = COMAdminErrorCodes(-2146368470i32);
-pub const COMAdminErrNotDeletable: COMAdminErrorCodes = COMAdminErrorCodes(-2146368469i32);
-pub const COMAdminErrSession: COMAdminErrorCodes = COMAdminErrorCodes(-2146368468i32);
-pub const COMAdminErrCompMoveLocked: COMAdminErrorCodes = COMAdminErrorCodes(-2146368467i32);
-pub const COMAdminErrCompMoveBadDest: COMAdminErrorCodes = COMAdminErrorCodes(-2146368466i32);
-pub const COMAdminErrRegisterTLB: COMAdminErrorCodes = COMAdminErrorCodes(-2146368464i32);
-pub const COMAdminErrSystemApp: COMAdminErrorCodes = COMAdminErrorCodes(-2146368461i32);
-pub const COMAdminErrCompFileNoRegistrar: COMAdminErrorCodes = COMAdminErrorCodes(-2146368460i32);
-pub const COMAdminErrCoReqCompInstalled: COMAdminErrorCodes = COMAdminErrorCodes(-2146368459i32);
-pub const COMAdminErrServiceNotInstalled: COMAdminErrorCodes = COMAdminErrorCodes(-2146368458i32);
-pub const COMAdminErrPropertySaveFailed: COMAdminErrorCodes = COMAdminErrorCodes(-2146368457i32);
-pub const COMAdminErrObjectExists: COMAdminErrorCodes = COMAdminErrorCodes(-2146368456i32);
-pub const COMAdminErrComponentExists: COMAdminErrorCodes = COMAdminErrorCodes(-2146368455i32);
-pub const COMAdminErrRegFileCorrupt: COMAdminErrorCodes = COMAdminErrorCodes(-2146368453i32);
-pub const COMAdminErrPropertyOverflow: COMAdminErrorCodes = COMAdminErrorCodes(-2146368452i32);
-pub const COMAdminErrNotInRegistry: COMAdminErrorCodes = COMAdminErrorCodes(-2146368450i32);
-pub const COMAdminErrObjectNotPoolable: COMAdminErrorCodes = COMAdminErrorCodes(-2146368449i32);
-pub const COMAdminErrApplidMatchesClsid: COMAdminErrorCodes = COMAdminErrorCodes(-2146368442i32);
-pub const COMAdminErrRoleDoesNotExist: COMAdminErrorCodes = COMAdminErrorCodes(-2146368441i32);
-pub const COMAdminErrStartAppNeedsComponents: COMAdminErrorCodes = COMAdminErrorCodes(-2146368440i32);
-pub const COMAdminErrRequiresDifferentPlatform: COMAdminErrorCodes = COMAdminErrorCodes(-2146368439i32);
-pub const COMAdminErrQueuingServiceNotAvailable: COMAdminErrorCodes = COMAdminErrorCodes(-2146367998i32);
-pub const COMAdminErrObjectParentMissing: COMAdminErrorCodes = COMAdminErrorCodes(-2146367480i32);
-pub const COMAdminErrObjectDoesNotExist: COMAdminErrorCodes = COMAdminErrorCodes(-2146367479i32);
-pub const COMAdminErrCanNotExportAppProxy: COMAdminErrorCodes = COMAdminErrorCodes(-2146368438i32);
-pub const COMAdminErrCanNotStartApp: COMAdminErrorCodes = COMAdminErrorCodes(-2146368437i32);
-pub const COMAdminErrCanNotExportSystemApp: COMAdminErrorCodes = COMAdminErrorCodes(-2146368436i32);
-pub const COMAdminErrCanNotSubscribeToComponent: COMAdminErrorCodes = COMAdminErrorCodes(-2146368435i32);
-pub const COMAdminErrAppNotRunning: COMAdminErrorCodes = COMAdminErrorCodes(-2146367478i32);
-pub const COMAdminErrEventClassCannotBeSubscriber: COMAdminErrorCodes = COMAdminErrorCodes(-2146368434i32);
-pub const COMAdminErrLibAppProxyIncompatible: COMAdminErrorCodes = COMAdminErrorCodes(-2146368433i32);
-pub const COMAdminErrBasePartitionOnly: COMAdminErrorCodes = COMAdminErrorCodes(-2146368432i32);
-pub const COMAdminErrDuplicatePartitionName: COMAdminErrorCodes = COMAdminErrorCodes(-2146368425i32);
-pub const COMAdminErrPartitionInUse: COMAdminErrorCodes = COMAdminErrorCodes(-2146368423i32);
-pub const COMAdminErrImportedComponentsNotAllowed: COMAdminErrorCodes = COMAdminErrorCodes(-2146368421i32);
-pub const COMAdminErrRegdbNotInitialized: COMAdminErrorCodes = COMAdminErrorCodes(-2146368398i32);
-pub const COMAdminErrRegdbNotOpen: COMAdminErrorCodes = COMAdminErrorCodes(-2146368397i32);
-pub const COMAdminErrRegdbSystemErr: COMAdminErrorCodes = COMAdminErrorCodes(-2146368396i32);
-pub const COMAdminErrRegdbAlreadyRunning: COMAdminErrorCodes = COMAdminErrorCodes(-2146368395i32);
-pub const COMAdminErrMigVersionNotSupported: COMAdminErrorCodes = COMAdminErrorCodes(-2146368384i32);
-pub const COMAdminErrMigSchemaNotFound: COMAdminErrorCodes = COMAdminErrorCodes(-2146368383i32);
-pub const COMAdminErrCatBitnessMismatch: COMAdminErrorCodes = COMAdminErrorCodes(-2146368382i32);
-pub const COMAdminErrCatUnacceptableBitness: COMAdminErrorCodes = COMAdminErrorCodes(-2146368381i32);
-pub const COMAdminErrCatWrongAppBitnessBitness: COMAdminErrorCodes = COMAdminErrorCodes(-2146368380i32);
-pub const COMAdminErrCatPauseResumeNotSupported: COMAdminErrorCodes = COMAdminErrorCodes(-2146368379i32);
-pub const COMAdminErrCatServerFault: COMAdminErrorCodes = COMAdminErrorCodes(-2146368378i32);
-pub const COMAdminErrCantRecycleLibraryApps: COMAdminErrorCodes = COMAdminErrorCodes(-2146367473i32);
-pub const COMAdminErrCantRecycleServiceApps: COMAdminErrorCodes = COMAdminErrorCodes(-2146367471i32);
-pub const COMAdminErrProcessAlreadyRecycled: COMAdminErrorCodes = COMAdminErrorCodes(-2146367470i32);
-pub const COMAdminErrPausedProcessMayNotBeRecycled: COMAdminErrorCodes = COMAdminErrorCodes(-2146367469i32);
-pub const COMAdminErrInvalidPartition: COMAdminErrorCodes = COMAdminErrorCodes(-2146367477i32);
-pub const COMAdminErrPartitionMsiOnly: COMAdminErrorCodes = COMAdminErrorCodes(-2146367463i32);
-pub const COMAdminErrStartAppDisabled: COMAdminErrorCodes = COMAdminErrorCodes(-2146368431i32);
-pub const COMAdminErrCompMoveSource: COMAdminErrorCodes = COMAdminErrorCodes(-2146367460i32);
-pub const COMAdminErrCompMoveDest: COMAdminErrorCodes = COMAdminErrorCodes(-2146367459i32);
-pub const COMAdminErrCompMovePrivate: COMAdminErrorCodes = COMAdminErrorCodes(-2146367458i32);
-pub const COMAdminErrCannotCopyEventClass: COMAdminErrorCodes = COMAdminErrorCodes(-2146367456i32);
-impl ::core::marker::Copy for COMAdminErrorCodes {}
-impl ::core::clone::Clone for COMAdminErrorCodes {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct COMAdminFileFlags(pub i32);
-pub const COMAdminFileFlagLoadable: COMAdminFileFlags = COMAdminFileFlags(1i32);
-pub const COMAdminFileFlagCOM: COMAdminFileFlags = COMAdminFileFlags(2i32);
-pub const COMAdminFileFlagContainsPS: COMAdminFileFlags = COMAdminFileFlags(4i32);
-pub const COMAdminFileFlagContainsComp: COMAdminFileFlags = COMAdminFileFlags(8i32);
-pub const COMAdminFileFlagContainsTLB: COMAdminFileFlags = COMAdminFileFlags(16i32);
-pub const COMAdminFileFlagSelfReg: COMAdminFileFlags = COMAdminFileFlags(32i32);
-pub const COMAdminFileFlagSelfUnReg: COMAdminFileFlags = COMAdminFileFlags(64i32);
-pub const COMAdminFileFlagUnloadableDLL: COMAdminFileFlags = COMAdminFileFlags(128i32);
-pub const COMAdminFileFlagDoesNotExist: COMAdminFileFlags = COMAdminFileFlags(256i32);
-pub const COMAdminFileFlagAlreadyInstalled: COMAdminFileFlags = COMAdminFileFlags(512i32);
-pub const COMAdminFileFlagBadTLB: COMAdminFileFlags = COMAdminFileFlags(1024i32);
-pub const COMAdminFileFlagGetClassObjFailed: COMAdminFileFlags = COMAdminFileFlags(2048i32);
-pub const COMAdminFileFlagClassNotAvailable: COMAdminFileFlags = COMAdminFileFlags(4096i32);
-pub const COMAdminFileFlagRegistrar: COMAdminFileFlags = COMAdminFileFlags(8192i32);
-pub const COMAdminFileFlagNoRegistrar: COMAdminFileFlags = COMAdminFileFlags(16384i32);
-pub const COMAdminFileFlagDLLRegsvrFailed: COMAdminFileFlags = COMAdminFileFlags(32768i32);
-pub const COMAdminFileFlagRegTLBFailed: COMAdminFileFlags = COMAdminFileFlags(65536i32);
-pub const COMAdminFileFlagRegistrarFailed: COMAdminFileFlags = COMAdminFileFlags(131072i32);
-pub const COMAdminFileFlagError: COMAdminFileFlags = COMAdminFileFlags(262144i32);
-impl ::core::marker::Copy for COMAdminFileFlags {}
-impl ::core::clone::Clone for COMAdminFileFlags {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct COMAdminImpersonationLevelOptions(pub i32);
-pub const COMAdminImpersonationAnonymous: COMAdminImpersonationLevelOptions = COMAdminImpersonationLevelOptions(1i32);
-pub const COMAdminImpersonationIdentify: COMAdminImpersonationLevelOptions = COMAdminImpersonationLevelOptions(2i32);
-pub const COMAdminImpersonationImpersonate: COMAdminImpersonationLevelOptions = COMAdminImpersonationLevelOptions(3i32);
-pub const COMAdminImpersonationDelegate: COMAdminImpersonationLevelOptions = COMAdminImpersonationLevelOptions(4i32);
-impl ::core::marker::Copy for COMAdminImpersonationLevelOptions {}
-impl ::core::clone::Clone for COMAdminImpersonationLevelOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct COMAdminInUse(pub i32);
-pub const COMAdminNotInUse: COMAdminInUse = COMAdminInUse(0i32);
-pub const COMAdminInUseByCatalog: COMAdminInUse = COMAdminInUse(1i32);
-pub const COMAdminInUseByRegistryUnknown: COMAdminInUse = COMAdminInUse(2i32);
-pub const COMAdminInUseByRegistryProxyStub: COMAdminInUse = COMAdminInUse(3i32);
-pub const COMAdminInUseByRegistryTypeLib: COMAdminInUse = COMAdminInUse(4i32);
-pub const COMAdminInUseByRegistryClsid: COMAdminInUse = COMAdminInUse(5i32);
-impl ::core::marker::Copy for COMAdminInUse {}
-impl ::core::clone::Clone for COMAdminInUse {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct COMAdminOS(pub i32);
-pub const COMAdminOSNotInitialized: COMAdminOS = COMAdminOS(0i32);
-pub const COMAdminOSWindows3_1: COMAdminOS = COMAdminOS(1i32);
-pub const COMAdminOSWindows9x: COMAdminOS = COMAdminOS(2i32);
-pub const COMAdminOSWindows2000: COMAdminOS = COMAdminOS(3i32);
-pub const COMAdminOSWindows2000AdvancedServer: COMAdminOS = COMAdminOS(4i32);
-pub const COMAdminOSWindows2000Unknown: COMAdminOS = COMAdminOS(5i32);
-pub const COMAdminOSUnknown: COMAdminOS = COMAdminOS(6i32);
-pub const COMAdminOSWindowsXPPersonal: COMAdminOS = COMAdminOS(11i32);
-pub const COMAdminOSWindowsXPProfessional: COMAdminOS = COMAdminOS(12i32);
-pub const COMAdminOSWindowsNETStandardServer: COMAdminOS = COMAdminOS(13i32);
-pub const COMAdminOSWindowsNETEnterpriseServer: COMAdminOS = COMAdminOS(14i32);
-pub const COMAdminOSWindowsNETDatacenterServer: COMAdminOS = COMAdminOS(15i32);
-pub const COMAdminOSWindowsNETWebServer: COMAdminOS = COMAdminOS(16i32);
-pub const COMAdminOSWindowsLonghornPersonal: COMAdminOS = COMAdminOS(17i32);
-pub const COMAdminOSWindowsLonghornProfessional: COMAdminOS = COMAdminOS(18i32);
-pub const COMAdminOSWindowsLonghornStandardServer: COMAdminOS = COMAdminOS(19i32);
-pub const COMAdminOSWindowsLonghornEnterpriseServer: COMAdminOS = COMAdminOS(20i32);
-pub const COMAdminOSWindowsLonghornDatacenterServer: COMAdminOS = COMAdminOS(21i32);
-pub const COMAdminOSWindowsLonghornWebServer: COMAdminOS = COMAdminOS(22i32);
-pub const COMAdminOSWindows7Personal: COMAdminOS = COMAdminOS(23i32);
-pub const COMAdminOSWindows7Professional: COMAdminOS = COMAdminOS(24i32);
-pub const COMAdminOSWindows7StandardServer: COMAdminOS = COMAdminOS(25i32);
-pub const COMAdminOSWindows7EnterpriseServer: COMAdminOS = COMAdminOS(26i32);
-pub const COMAdminOSWindows7DatacenterServer: COMAdminOS = COMAdminOS(27i32);
-pub const COMAdminOSWindows7WebServer: COMAdminOS = COMAdminOS(28i32);
-pub const COMAdminOSWindows8Personal: COMAdminOS = COMAdminOS(29i32);
-pub const COMAdminOSWindows8Professional: COMAdminOS = COMAdminOS(30i32);
-pub const COMAdminOSWindows8StandardServer: COMAdminOS = COMAdminOS(31i32);
-pub const COMAdminOSWindows8EnterpriseServer: COMAdminOS = COMAdminOS(32i32);
-pub const COMAdminOSWindows8DatacenterServer: COMAdminOS = COMAdminOS(33i32);
-pub const COMAdminOSWindows8WebServer: COMAdminOS = COMAdminOS(34i32);
-pub const COMAdminOSWindowsBluePersonal: COMAdminOS = COMAdminOS(35i32);
-pub const COMAdminOSWindowsBlueProfessional: COMAdminOS = COMAdminOS(36i32);
-pub const COMAdminOSWindowsBlueStandardServer: COMAdminOS = COMAdminOS(37i32);
-pub const COMAdminOSWindowsBlueEnterpriseServer: COMAdminOS = COMAdminOS(38i32);
-pub const COMAdminOSWindowsBlueDatacenterServer: COMAdminOS = COMAdminOS(39i32);
-pub const COMAdminOSWindowsBlueWebServer: COMAdminOS = COMAdminOS(40i32);
-impl ::core::marker::Copy for COMAdminOS {}
-impl ::core::clone::Clone for COMAdminOS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct COMAdminQCMessageAuthenticateOptions(pub i32);
-pub const COMAdminQCMessageAuthenticateSecureApps: COMAdminQCMessageAuthenticateOptions = COMAdminQCMessageAuthenticateOptions(0i32);
-pub const COMAdminQCMessageAuthenticateOff: COMAdminQCMessageAuthenticateOptions = COMAdminQCMessageAuthenticateOptions(1i32);
-pub const COMAdminQCMessageAuthenticateOn: COMAdminQCMessageAuthenticateOptions = COMAdminQCMessageAuthenticateOptions(2i32);
-impl ::core::marker::Copy for COMAdminQCMessageAuthenticateOptions {}
-impl ::core::clone::Clone for COMAdminQCMessageAuthenticateOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct COMAdminServiceOptions(pub i32);
-pub const COMAdminServiceLoadBalanceRouter: COMAdminServiceOptions = COMAdminServiceOptions(1i32);
-impl ::core::marker::Copy for COMAdminServiceOptions {}
-impl ::core::clone::Clone for COMAdminServiceOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct COMAdminServiceStatusOptions(pub i32);
-pub const COMAdminServiceStopped: COMAdminServiceStatusOptions = COMAdminServiceStatusOptions(0i32);
-pub const COMAdminServiceStartPending: COMAdminServiceStatusOptions = COMAdminServiceStatusOptions(1i32);
-pub const COMAdminServiceStopPending: COMAdminServiceStatusOptions = COMAdminServiceStatusOptions(2i32);
-pub const COMAdminServiceRunning: COMAdminServiceStatusOptions = COMAdminServiceStatusOptions(3i32);
-pub const COMAdminServiceContinuePending: COMAdminServiceStatusOptions = COMAdminServiceStatusOptions(4i32);
-pub const COMAdminServicePausePending: COMAdminServiceStatusOptions = COMAdminServiceStatusOptions(5i32);
-pub const COMAdminServicePaused: COMAdminServiceStatusOptions = COMAdminServiceStatusOptions(6i32);
-pub const COMAdminServiceUnknownState: COMAdminServiceStatusOptions = COMAdminServiceStatusOptions(7i32);
-impl ::core::marker::Copy for COMAdminServiceStatusOptions {}
-impl ::core::clone::Clone for COMAdminServiceStatusOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct COMAdminSynchronizationOptions(pub i32);
-pub const COMAdminSynchronizationIgnored: COMAdminSynchronizationOptions = COMAdminSynchronizationOptions(0i32);
-pub const COMAdminSynchronizationNone: COMAdminSynchronizationOptions = COMAdminSynchronizationOptions(1i32);
-pub const COMAdminSynchronizationSupported: COMAdminSynchronizationOptions = COMAdminSynchronizationOptions(2i32);
-pub const COMAdminSynchronizationRequired: COMAdminSynchronizationOptions = COMAdminSynchronizationOptions(3i32);
-pub const COMAdminSynchronizationRequiresNew: COMAdminSynchronizationOptions = COMAdminSynchronizationOptions(4i32);
-impl ::core::marker::Copy for COMAdminSynchronizationOptions {}
-impl ::core::clone::Clone for COMAdminSynchronizationOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct COMAdminThreadingModels(pub i32);
-pub const COMAdminThreadingModelApartment: COMAdminThreadingModels = COMAdminThreadingModels(0i32);
-pub const COMAdminThreadingModelFree: COMAdminThreadingModels = COMAdminThreadingModels(1i32);
-pub const COMAdminThreadingModelMain: COMAdminThreadingModels = COMAdminThreadingModels(2i32);
-pub const COMAdminThreadingModelBoth: COMAdminThreadingModels = COMAdminThreadingModels(3i32);
-pub const COMAdminThreadingModelNeutral: COMAdminThreadingModels = COMAdminThreadingModels(4i32);
-pub const COMAdminThreadingModelNotSpecified: COMAdminThreadingModels = COMAdminThreadingModels(5i32);
-impl ::core::marker::Copy for COMAdminThreadingModels {}
-impl ::core::clone::Clone for COMAdminThreadingModels {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct COMAdminTransactionOptions(pub i32);
-pub const COMAdminTransactionIgnored: COMAdminTransactionOptions = COMAdminTransactionOptions(0i32);
-pub const COMAdminTransactionNone: COMAdminTransactionOptions = COMAdminTransactionOptions(1i32);
-pub const COMAdminTransactionSupported: COMAdminTransactionOptions = COMAdminTransactionOptions(2i32);
-pub const COMAdminTransactionRequired: COMAdminTransactionOptions = COMAdminTransactionOptions(3i32);
-pub const COMAdminTransactionRequiresNew: COMAdminTransactionOptions = COMAdminTransactionOptions(4i32);
-impl ::core::marker::Copy for COMAdminTransactionOptions {}
-impl ::core::clone::Clone for COMAdminTransactionOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct COMAdminTxIsolationLevelOptions(pub i32);
-pub const COMAdminTxIsolationLevelAny: COMAdminTxIsolationLevelOptions = COMAdminTxIsolationLevelOptions(0i32);
-pub const COMAdminTxIsolationLevelReadUnCommitted: COMAdminTxIsolationLevelOptions = COMAdminTxIsolationLevelOptions(1i32);
-pub const COMAdminTxIsolationLevelReadCommitted: COMAdminTxIsolationLevelOptions = COMAdminTxIsolationLevelOptions(2i32);
-pub const COMAdminTxIsolationLevelRepeatableRead: COMAdminTxIsolationLevelOptions = COMAdminTxIsolationLevelOptions(3i32);
-pub const COMAdminTxIsolationLevelSerializable: COMAdminTxIsolationLevelOptions = COMAdminTxIsolationLevelOptions(4i32);
-impl ::core::marker::Copy for COMAdminTxIsolationLevelOptions {}
-impl ::core::clone::Clone for COMAdminTxIsolationLevelOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const COMAdminCompFlagTypeInfoFound: i32 = 1i32;
+pub const COMAdminCompFlagCOMPlusPropertiesFound: i32 = 2i32;
+pub const COMAdminCompFlagProxyFound: i32 = 4i32;
+pub const COMAdminCompFlagInterfacesFound: i32 = 8i32;
+pub const COMAdminCompFlagAlreadyInstalled: i32 = 16i32;
+pub const COMAdminCompFlagNotInApplication: i32 = 32i32;
+pub const COMAdmin32BitComponent: i32 = 1i32;
+pub const COMAdmin64BitComponent: i32 = 2i32;
+pub const COMAdminErrObjectErrors: i32 = -2146368511i32;
+pub const COMAdminErrObjectInvalid: i32 = -2146368510i32;
+pub const COMAdminErrKeyMissing: i32 = -2146368509i32;
+pub const COMAdminErrAlreadyInstalled: i32 = -2146368508i32;
+pub const COMAdminErrAppFileWriteFail: i32 = -2146368505i32;
+pub const COMAdminErrAppFileReadFail: i32 = -2146368504i32;
+pub const COMAdminErrAppFileVersion: i32 = -2146368503i32;
+pub const COMAdminErrBadPath: i32 = -2146368502i32;
+pub const COMAdminErrApplicationExists: i32 = -2146368501i32;
+pub const COMAdminErrRoleExists: i32 = -2146368500i32;
+pub const COMAdminErrCantCopyFile: i32 = -2146368499i32;
+pub const COMAdminErrNoUser: i32 = -2146368497i32;
+pub const COMAdminErrInvalidUserids: i32 = -2146368496i32;
+pub const COMAdminErrNoRegistryCLSID: i32 = -2146368495i32;
+pub const COMAdminErrBadRegistryProgID: i32 = -2146368494i32;
+pub const COMAdminErrAuthenticationLevel: i32 = -2146368493i32;
+pub const COMAdminErrUserPasswdNotValid: i32 = -2146368492i32;
+pub const COMAdminErrCLSIDOrIIDMismatch: i32 = -2146368488i32;
+pub const COMAdminErrRemoteInterface: i32 = -2146368487i32;
+pub const COMAdminErrDllRegisterServer: i32 = -2146368486i32;
+pub const COMAdminErrNoServerShare: i32 = -2146368485i32;
+pub const COMAdminErrDllLoadFailed: i32 = -2146368483i32;
+pub const COMAdminErrBadRegistryLibID: i32 = -2146368482i32;
+pub const COMAdminErrAppDirNotFound: i32 = -2146368481i32;
+pub const COMAdminErrRegistrarFailed: i32 = -2146368477i32;
+pub const COMAdminErrCompFileDoesNotExist: i32 = -2146368476i32;
+pub const COMAdminErrCompFileLoadDLLFail: i32 = -2146368475i32;
+pub const COMAdminErrCompFileGetClassObj: i32 = -2146368474i32;
+pub const COMAdminErrCompFileClassNotAvail: i32 = -2146368473i32;
+pub const COMAdminErrCompFileBadTLB: i32 = -2146368472i32;
+pub const COMAdminErrCompFileNotInstallable: i32 = -2146368471i32;
+pub const COMAdminErrNotChangeable: i32 = -2146368470i32;
+pub const COMAdminErrNotDeletable: i32 = -2146368469i32;
+pub const COMAdminErrSession: i32 = -2146368468i32;
+pub const COMAdminErrCompMoveLocked: i32 = -2146368467i32;
+pub const COMAdminErrCompMoveBadDest: i32 = -2146368466i32;
+pub const COMAdminErrRegisterTLB: i32 = -2146368464i32;
+pub const COMAdminErrSystemApp: i32 = -2146368461i32;
+pub const COMAdminErrCompFileNoRegistrar: i32 = -2146368460i32;
+pub const COMAdminErrCoReqCompInstalled: i32 = -2146368459i32;
+pub const COMAdminErrServiceNotInstalled: i32 = -2146368458i32;
+pub const COMAdminErrPropertySaveFailed: i32 = -2146368457i32;
+pub const COMAdminErrObjectExists: i32 = -2146368456i32;
+pub const COMAdminErrComponentExists: i32 = -2146368455i32;
+pub const COMAdminErrRegFileCorrupt: i32 = -2146368453i32;
+pub const COMAdminErrPropertyOverflow: i32 = -2146368452i32;
+pub const COMAdminErrNotInRegistry: i32 = -2146368450i32;
+pub const COMAdminErrObjectNotPoolable: i32 = -2146368449i32;
+pub const COMAdminErrApplidMatchesClsid: i32 = -2146368442i32;
+pub const COMAdminErrRoleDoesNotExist: i32 = -2146368441i32;
+pub const COMAdminErrStartAppNeedsComponents: i32 = -2146368440i32;
+pub const COMAdminErrRequiresDifferentPlatform: i32 = -2146368439i32;
+pub const COMAdminErrQueuingServiceNotAvailable: i32 = -2146367998i32;
+pub const COMAdminErrObjectParentMissing: i32 = -2146367480i32;
+pub const COMAdminErrObjectDoesNotExist: i32 = -2146367479i32;
+pub const COMAdminErrCanNotExportAppProxy: i32 = -2146368438i32;
+pub const COMAdminErrCanNotStartApp: i32 = -2146368437i32;
+pub const COMAdminErrCanNotExportSystemApp: i32 = -2146368436i32;
+pub const COMAdminErrCanNotSubscribeToComponent: i32 = -2146368435i32;
+pub const COMAdminErrAppNotRunning: i32 = -2146367478i32;
+pub const COMAdminErrEventClassCannotBeSubscriber: i32 = -2146368434i32;
+pub const COMAdminErrLibAppProxyIncompatible: i32 = -2146368433i32;
+pub const COMAdminErrBasePartitionOnly: i32 = -2146368432i32;
+pub const COMAdminErrDuplicatePartitionName: i32 = -2146368425i32;
+pub const COMAdminErrPartitionInUse: i32 = -2146368423i32;
+pub const COMAdminErrImportedComponentsNotAllowed: i32 = -2146368421i32;
+pub const COMAdminErrRegdbNotInitialized: i32 = -2146368398i32;
+pub const COMAdminErrRegdbNotOpen: i32 = -2146368397i32;
+pub const COMAdminErrRegdbSystemErr: i32 = -2146368396i32;
+pub const COMAdminErrRegdbAlreadyRunning: i32 = -2146368395i32;
+pub const COMAdminErrMigVersionNotSupported: i32 = -2146368384i32;
+pub const COMAdminErrMigSchemaNotFound: i32 = -2146368383i32;
+pub const COMAdminErrCatBitnessMismatch: i32 = -2146368382i32;
+pub const COMAdminErrCatUnacceptableBitness: i32 = -2146368381i32;
+pub const COMAdminErrCatWrongAppBitnessBitness: i32 = -2146368380i32;
+pub const COMAdminErrCatPauseResumeNotSupported: i32 = -2146368379i32;
+pub const COMAdminErrCatServerFault: i32 = -2146368378i32;
+pub const COMAdminErrCantRecycleLibraryApps: i32 = -2146367473i32;
+pub const COMAdminErrCantRecycleServiceApps: i32 = -2146367471i32;
+pub const COMAdminErrProcessAlreadyRecycled: i32 = -2146367470i32;
+pub const COMAdminErrPausedProcessMayNotBeRecycled: i32 = -2146367469i32;
+pub const COMAdminErrInvalidPartition: i32 = -2146367477i32;
+pub const COMAdminErrPartitionMsiOnly: i32 = -2146367463i32;
+pub const COMAdminErrStartAppDisabled: i32 = -2146368431i32;
+pub const COMAdminErrCompMoveSource: i32 = -2146367460i32;
+pub const COMAdminErrCompMoveDest: i32 = -2146367459i32;
+pub const COMAdminErrCompMovePrivate: i32 = -2146367458i32;
+pub const COMAdminErrCannotCopyEventClass: i32 = -2146367456i32;
+pub const COMAdminFileFlagLoadable: i32 = 1i32;
+pub const COMAdminFileFlagCOM: i32 = 2i32;
+pub const COMAdminFileFlagContainsPS: i32 = 4i32;
+pub const COMAdminFileFlagContainsComp: i32 = 8i32;
+pub const COMAdminFileFlagContainsTLB: i32 = 16i32;
+pub const COMAdminFileFlagSelfReg: i32 = 32i32;
+pub const COMAdminFileFlagSelfUnReg: i32 = 64i32;
+pub const COMAdminFileFlagUnloadableDLL: i32 = 128i32;
+pub const COMAdminFileFlagDoesNotExist: i32 = 256i32;
+pub const COMAdminFileFlagAlreadyInstalled: i32 = 512i32;
+pub const COMAdminFileFlagBadTLB: i32 = 1024i32;
+pub const COMAdminFileFlagGetClassObjFailed: i32 = 2048i32;
+pub const COMAdminFileFlagClassNotAvailable: i32 = 4096i32;
+pub const COMAdminFileFlagRegistrar: i32 = 8192i32;
+pub const COMAdminFileFlagNoRegistrar: i32 = 16384i32;
+pub const COMAdminFileFlagDLLRegsvrFailed: i32 = 32768i32;
+pub const COMAdminFileFlagRegTLBFailed: i32 = 65536i32;
+pub const COMAdminFileFlagRegistrarFailed: i32 = 131072i32;
+pub const COMAdminFileFlagError: i32 = 262144i32;
+pub const COMAdminImpersonationAnonymous: i32 = 1i32;
+pub const COMAdminImpersonationIdentify: i32 = 2i32;
+pub const COMAdminImpersonationImpersonate: i32 = 3i32;
+pub const COMAdminImpersonationDelegate: i32 = 4i32;
+pub const COMAdminNotInUse: i32 = 0i32;
+pub const COMAdminInUseByCatalog: i32 = 1i32;
+pub const COMAdminInUseByRegistryUnknown: i32 = 2i32;
+pub const COMAdminInUseByRegistryProxyStub: i32 = 3i32;
+pub const COMAdminInUseByRegistryTypeLib: i32 = 4i32;
+pub const COMAdminInUseByRegistryClsid: i32 = 5i32;
+pub const COMAdminOSNotInitialized: i32 = 0i32;
+pub const COMAdminOSWindows3_1: i32 = 1i32;
+pub const COMAdminOSWindows9x: i32 = 2i32;
+pub const COMAdminOSWindows2000: i32 = 3i32;
+pub const COMAdminOSWindows2000AdvancedServer: i32 = 4i32;
+pub const COMAdminOSWindows2000Unknown: i32 = 5i32;
+pub const COMAdminOSUnknown: i32 = 6i32;
+pub const COMAdminOSWindowsXPPersonal: i32 = 11i32;
+pub const COMAdminOSWindowsXPProfessional: i32 = 12i32;
+pub const COMAdminOSWindowsNETStandardServer: i32 = 13i32;
+pub const COMAdminOSWindowsNETEnterpriseServer: i32 = 14i32;
+pub const COMAdminOSWindowsNETDatacenterServer: i32 = 15i32;
+pub const COMAdminOSWindowsNETWebServer: i32 = 16i32;
+pub const COMAdminOSWindowsLonghornPersonal: i32 = 17i32;
+pub const COMAdminOSWindowsLonghornProfessional: i32 = 18i32;
+pub const COMAdminOSWindowsLonghornStandardServer: i32 = 19i32;
+pub const COMAdminOSWindowsLonghornEnterpriseServer: i32 = 20i32;
+pub const COMAdminOSWindowsLonghornDatacenterServer: i32 = 21i32;
+pub const COMAdminOSWindowsLonghornWebServer: i32 = 22i32;
+pub const COMAdminOSWindows7Personal: i32 = 23i32;
+pub const COMAdminOSWindows7Professional: i32 = 24i32;
+pub const COMAdminOSWindows7StandardServer: i32 = 25i32;
+pub const COMAdminOSWindows7EnterpriseServer: i32 = 26i32;
+pub const COMAdminOSWindows7DatacenterServer: i32 = 27i32;
+pub const COMAdminOSWindows7WebServer: i32 = 28i32;
+pub const COMAdminOSWindows8Personal: i32 = 29i32;
+pub const COMAdminOSWindows8Professional: i32 = 30i32;
+pub const COMAdminOSWindows8StandardServer: i32 = 31i32;
+pub const COMAdminOSWindows8EnterpriseServer: i32 = 32i32;
+pub const COMAdminOSWindows8DatacenterServer: i32 = 33i32;
+pub const COMAdminOSWindows8WebServer: i32 = 34i32;
+pub const COMAdminOSWindowsBluePersonal: i32 = 35i32;
+pub const COMAdminOSWindowsBlueProfessional: i32 = 36i32;
+pub const COMAdminOSWindowsBlueStandardServer: i32 = 37i32;
+pub const COMAdminOSWindowsBlueEnterpriseServer: i32 = 38i32;
+pub const COMAdminOSWindowsBlueDatacenterServer: i32 = 39i32;
+pub const COMAdminOSWindowsBlueWebServer: i32 = 40i32;
+pub const COMAdminQCMessageAuthenticateSecureApps: i32 = 0i32;
+pub const COMAdminQCMessageAuthenticateOff: i32 = 1i32;
+pub const COMAdminQCMessageAuthenticateOn: i32 = 2i32;
+pub const COMAdminServiceLoadBalanceRouter: i32 = 1i32;
+pub const COMAdminServiceStopped: i32 = 0i32;
+pub const COMAdminServiceStartPending: i32 = 1i32;
+pub const COMAdminServiceStopPending: i32 = 2i32;
+pub const COMAdminServiceRunning: i32 = 3i32;
+pub const COMAdminServiceContinuePending: i32 = 4i32;
+pub const COMAdminServicePausePending: i32 = 5i32;
+pub const COMAdminServicePaused: i32 = 6i32;
+pub const COMAdminServiceUnknownState: i32 = 7i32;
+pub const COMAdminSynchronizationIgnored: i32 = 0i32;
+pub const COMAdminSynchronizationNone: i32 = 1i32;
+pub const COMAdminSynchronizationSupported: i32 = 2i32;
+pub const COMAdminSynchronizationRequired: i32 = 3i32;
+pub const COMAdminSynchronizationRequiresNew: i32 = 4i32;
+pub const COMAdminThreadingModelApartment: i32 = 0i32;
+pub const COMAdminThreadingModelFree: i32 = 1i32;
+pub const COMAdminThreadingModelMain: i32 = 2i32;
+pub const COMAdminThreadingModelBoth: i32 = 3i32;
+pub const COMAdminThreadingModelNeutral: i32 = 4i32;
+pub const COMAdminThreadingModelNotSpecified: i32 = 5i32;
+pub const COMAdminTransactionIgnored: i32 = 0i32;
+pub const COMAdminTransactionNone: i32 = 1i32;
+pub const COMAdminTransactionSupported: i32 = 2i32;
+pub const COMAdminTransactionRequired: i32 = 3i32;
+pub const COMAdminTransactionRequiresNew: i32 = 4i32;
+pub const COMAdminTxIsolationLevelAny: i32 = 0i32;
+pub const COMAdminTxIsolationLevelReadUnCommitted: i32 = 1i32;
+pub const COMAdminTxIsolationLevelReadCommitted: i32 = 2i32;
+pub const COMAdminTxIsolationLevelRepeatableRead: i32 = 3i32;
+pub const COMAdminTxIsolationLevelSerializable: i32 = 4i32;
 pub const COMEvents: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3970674859, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
-#[repr(transparent)]
-pub struct COMPLUS_APPTYPE(pub i32);
-pub const APPTYPE_UNKNOWN: COMPLUS_APPTYPE = COMPLUS_APPTYPE(-1i32);
-pub const APPTYPE_SERVER: COMPLUS_APPTYPE = COMPLUS_APPTYPE(1i32);
-pub const APPTYPE_LIBRARY: COMPLUS_APPTYPE = COMPLUS_APPTYPE(0i32);
-pub const APPTYPE_SWC: COMPLUS_APPTYPE = COMPLUS_APPTYPE(2i32);
-impl ::core::marker::Copy for COMPLUS_APPTYPE {}
-impl ::core::clone::Clone for COMPLUS_APPTYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const APPTYPE_UNKNOWN: i32 = -1i32;
+pub const APPTYPE_SERVER: i32 = 1i32;
+pub const APPTYPE_LIBRARY: i32 = 0i32;
+pub const APPTYPE_SWC: i32 = 2i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct COMSVCSEVENTINFO {
@@ -618,34 +442,18 @@ impl ::core::clone::Clone for COMSVCSEVENTINFO {
     }
 }
 pub const CRMClerk: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3970674877, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
-#[repr(transparent)]
-pub struct CRMFLAGS(pub i32);
-pub const CRMFLAG_FORGETTARGET: CRMFLAGS = CRMFLAGS(1i32);
-pub const CRMFLAG_WRITTENDURINGPREPARE: CRMFLAGS = CRMFLAGS(2i32);
-pub const CRMFLAG_WRITTENDURINGCOMMIT: CRMFLAGS = CRMFLAGS(4i32);
-pub const CRMFLAG_WRITTENDURINGABORT: CRMFLAGS = CRMFLAGS(8i32);
-pub const CRMFLAG_WRITTENDURINGRECOVERY: CRMFLAGS = CRMFLAGS(16i32);
-pub const CRMFLAG_WRITTENDURINGREPLAY: CRMFLAGS = CRMFLAGS(32i32);
-pub const CRMFLAG_REPLAYINPROGRESS: CRMFLAGS = CRMFLAGS(64i32);
-impl ::core::marker::Copy for CRMFLAGS {}
-impl ::core::clone::Clone for CRMFLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct CRMREGFLAGS(pub i32);
-pub const CRMREGFLAG_PREPAREPHASE: CRMREGFLAGS = CRMREGFLAGS(1i32);
-pub const CRMREGFLAG_COMMITPHASE: CRMREGFLAGS = CRMREGFLAGS(2i32);
-pub const CRMREGFLAG_ABORTPHASE: CRMREGFLAGS = CRMREGFLAGS(4i32);
-pub const CRMREGFLAG_ALLPHASES: CRMREGFLAGS = CRMREGFLAGS(7i32);
-pub const CRMREGFLAG_FAILIFINDOUBTSREMAIN: CRMREGFLAGS = CRMREGFLAGS(16i32);
-impl ::core::marker::Copy for CRMREGFLAGS {}
-impl ::core::clone::Clone for CRMREGFLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const CRMFLAG_FORGETTARGET: i32 = 1i32;
+pub const CRMFLAG_WRITTENDURINGPREPARE: i32 = 2i32;
+pub const CRMFLAG_WRITTENDURINGCOMMIT: i32 = 4i32;
+pub const CRMFLAG_WRITTENDURINGABORT: i32 = 8i32;
+pub const CRMFLAG_WRITTENDURINGRECOVERY: i32 = 16i32;
+pub const CRMFLAG_WRITTENDURINGREPLAY: i32 = 32i32;
+pub const CRMFLAG_REPLAYINPROGRESS: i32 = 64i32;
+pub const CRMREGFLAG_PREPAREPHASE: i32 = 1i32;
+pub const CRMREGFLAG_COMMITPHASE: i32 = 2i32;
+pub const CRMREGFLAG_ABORTPHASE: i32 = 4i32;
+pub const CRMREGFLAG_ALLPHASES: i32 = 7i32;
+pub const CRMREGFLAG_FAILIFINDOUBTSREMAIN: i32 = 16i32;
 pub const CRMRecoveryClerk: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3970674878, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
 pub const CRR_ACTIVATION_LIMIT: u32 = 4294967294u32;
 pub const CRR_CALL_LIMIT: u32 = 4294967293u32;
@@ -653,114 +461,34 @@ pub const CRR_LIFETIME_LIMIT: u32 = 4294967295u32;
 pub const CRR_MEMORY_LIMIT: u32 = 4294967292u32;
 pub const CRR_NO_REASON_SUPPLIED: u32 = 0u32;
 pub const CRR_RECYCLED_FROM_UI: u32 = 4294967291u32;
-#[repr(transparent)]
-pub struct CSC_Binding(pub i32);
-pub const CSC_NoBinding: CSC_Binding = CSC_Binding(0i32);
-pub const CSC_BindToPoolThread: CSC_Binding = CSC_Binding(1i32);
-impl ::core::marker::Copy for CSC_Binding {}
-impl ::core::clone::Clone for CSC_Binding {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct CSC_COMTIIntrinsicsConfig(pub i32);
-pub const CSC_NoCOMTIIntrinsics: CSC_COMTIIntrinsicsConfig = CSC_COMTIIntrinsicsConfig(0i32);
-pub const CSC_InheritCOMTIIntrinsics: CSC_COMTIIntrinsicsConfig = CSC_COMTIIntrinsicsConfig(1i32);
-impl ::core::marker::Copy for CSC_COMTIIntrinsicsConfig {}
-impl ::core::clone::Clone for CSC_COMTIIntrinsicsConfig {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct CSC_IISIntrinsicsConfig(pub i32);
-pub const CSC_NoIISIntrinsics: CSC_IISIntrinsicsConfig = CSC_IISIntrinsicsConfig(0i32);
-pub const CSC_InheritIISIntrinsics: CSC_IISIntrinsicsConfig = CSC_IISIntrinsicsConfig(1i32);
-impl ::core::marker::Copy for CSC_IISIntrinsicsConfig {}
-impl ::core::clone::Clone for CSC_IISIntrinsicsConfig {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct CSC_InheritanceConfig(pub i32);
-pub const CSC_Inherit: CSC_InheritanceConfig = CSC_InheritanceConfig(0i32);
-pub const CSC_Ignore: CSC_InheritanceConfig = CSC_InheritanceConfig(1i32);
-impl ::core::marker::Copy for CSC_InheritanceConfig {}
-impl ::core::clone::Clone for CSC_InheritanceConfig {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct CSC_PartitionConfig(pub i32);
-pub const CSC_NoPartition: CSC_PartitionConfig = CSC_PartitionConfig(0i32);
-pub const CSC_InheritPartition: CSC_PartitionConfig = CSC_PartitionConfig(1i32);
-pub const CSC_NewPartition: CSC_PartitionConfig = CSC_PartitionConfig(2i32);
-impl ::core::marker::Copy for CSC_PartitionConfig {}
-impl ::core::clone::Clone for CSC_PartitionConfig {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct CSC_SxsConfig(pub i32);
-pub const CSC_NoSxs: CSC_SxsConfig = CSC_SxsConfig(0i32);
-pub const CSC_InheritSxs: CSC_SxsConfig = CSC_SxsConfig(1i32);
-pub const CSC_NewSxs: CSC_SxsConfig = CSC_SxsConfig(2i32);
-impl ::core::marker::Copy for CSC_SxsConfig {}
-impl ::core::clone::Clone for CSC_SxsConfig {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct CSC_SynchronizationConfig(pub i32);
-pub const CSC_NoSynchronization: CSC_SynchronizationConfig = CSC_SynchronizationConfig(0i32);
-pub const CSC_IfContainerIsSynchronized: CSC_SynchronizationConfig = CSC_SynchronizationConfig(1i32);
-pub const CSC_NewSynchronizationIfNecessary: CSC_SynchronizationConfig = CSC_SynchronizationConfig(2i32);
-pub const CSC_NewSynchronization: CSC_SynchronizationConfig = CSC_SynchronizationConfig(3i32);
-impl ::core::marker::Copy for CSC_SynchronizationConfig {}
-impl ::core::clone::Clone for CSC_SynchronizationConfig {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct CSC_ThreadPool(pub i32);
-pub const CSC_ThreadPoolNone: CSC_ThreadPool = CSC_ThreadPool(0i32);
-pub const CSC_ThreadPoolInherit: CSC_ThreadPool = CSC_ThreadPool(1i32);
-pub const CSC_STAThreadPool: CSC_ThreadPool = CSC_ThreadPool(2i32);
-pub const CSC_MTAThreadPool: CSC_ThreadPool = CSC_ThreadPool(3i32);
-impl ::core::marker::Copy for CSC_ThreadPool {}
-impl ::core::clone::Clone for CSC_ThreadPool {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct CSC_TrackerConfig(pub i32);
-pub const CSC_DontUseTracker: CSC_TrackerConfig = CSC_TrackerConfig(0i32);
-pub const CSC_UseTracker: CSC_TrackerConfig = CSC_TrackerConfig(1i32);
-impl ::core::marker::Copy for CSC_TrackerConfig {}
-impl ::core::clone::Clone for CSC_TrackerConfig {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct CSC_TransactionConfig(pub i32);
-pub const CSC_NoTransaction: CSC_TransactionConfig = CSC_TransactionConfig(0i32);
-pub const CSC_IfContainerIsTransactional: CSC_TransactionConfig = CSC_TransactionConfig(1i32);
-pub const CSC_CreateTransactionIfNecessary: CSC_TransactionConfig = CSC_TransactionConfig(2i32);
-pub const CSC_NewTransaction: CSC_TransactionConfig = CSC_TransactionConfig(3i32);
-impl ::core::marker::Copy for CSC_TransactionConfig {}
-impl ::core::clone::Clone for CSC_TransactionConfig {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const CSC_NoBinding: i32 = 0i32;
+pub const CSC_BindToPoolThread: i32 = 1i32;
+pub const CSC_NoCOMTIIntrinsics: i32 = 0i32;
+pub const CSC_InheritCOMTIIntrinsics: i32 = 1i32;
+pub const CSC_NoIISIntrinsics: i32 = 0i32;
+pub const CSC_InheritIISIntrinsics: i32 = 1i32;
+pub const CSC_Inherit: i32 = 0i32;
+pub const CSC_Ignore: i32 = 1i32;
+pub const CSC_NoPartition: i32 = 0i32;
+pub const CSC_InheritPartition: i32 = 1i32;
+pub const CSC_NewPartition: i32 = 2i32;
+pub const CSC_NoSxs: i32 = 0i32;
+pub const CSC_InheritSxs: i32 = 1i32;
+pub const CSC_NewSxs: i32 = 2i32;
+pub const CSC_NoSynchronization: i32 = 0i32;
+pub const CSC_IfContainerIsSynchronized: i32 = 1i32;
+pub const CSC_NewSynchronizationIfNecessary: i32 = 2i32;
+pub const CSC_NewSynchronization: i32 = 3i32;
+pub const CSC_ThreadPoolNone: i32 = 0i32;
+pub const CSC_ThreadPoolInherit: i32 = 1i32;
+pub const CSC_STAThreadPool: i32 = 2i32;
+pub const CSC_MTAThreadPool: i32 = 3i32;
+pub const CSC_DontUseTracker: i32 = 0i32;
+pub const CSC_UseTracker: i32 = 1i32;
+pub const CSC_NoTransaction: i32 = 0i32;
+pub const CSC_IfContainerIsTransactional: i32 = 1i32;
+pub const CSC_CreateTransactionIfNecessary: i32 = 2i32;
+pub const CSC_NewTransaction: i32 = 3i32;
 pub const CServiceConfig: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3970674888, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
 pub const ClrAssemblyLocator: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1166713781, data2: 9818, data3: 19317, data4: [188, 5, 155, 234, 70, 48, 207, 24] };
 pub const CoMTSLocator: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3970674860, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
@@ -852,47 +580,23 @@ impl ::core::clone::Clone for CrmLogRecordRead {
         *self
     }
 }
-#[repr(transparent)]
-pub struct CrmTransactionState(pub i32);
-pub const TxState_Active: CrmTransactionState = CrmTransactionState(0i32);
-pub const TxState_Committed: CrmTransactionState = CrmTransactionState(1i32);
-pub const TxState_Aborted: CrmTransactionState = CrmTransactionState(2i32);
-pub const TxState_Indoubt: CrmTransactionState = CrmTransactionState(3i32);
-impl ::core::marker::Copy for CrmTransactionState {}
-impl ::core::clone::Clone for CrmTransactionState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const TxState_Active: i32 = 0i32;
+pub const TxState_Committed: i32 = 1i32;
+pub const TxState_Aborted: i32 = 2i32;
+pub const TxState_Indoubt: i32 = 3i32;
 pub const DATA_NOT_AVAILABLE: u32 = 4294967295u32;
-#[repr(transparent)]
-pub struct DUMPTYPE(pub i32);
-pub const DUMPTYPE_FULL: DUMPTYPE = DUMPTYPE(0i32);
-pub const DUMPTYPE_MINI: DUMPTYPE = DUMPTYPE(1i32);
-pub const DUMPTYPE_NONE: DUMPTYPE = DUMPTYPE(2i32);
-impl ::core::marker::Copy for DUMPTYPE {}
-impl ::core::clone::Clone for DUMPTYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const DUMPTYPE_FULL: i32 = 0i32;
+pub const DUMPTYPE_MINI: i32 = 1i32;
+pub const DUMPTYPE_NONE: i32 = 2i32;
 pub const DispenserManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3970674880, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
 pub const Dummy30040732: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3970674857, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
 pub const EventServer: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3970674620, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
 pub const GUID_STRING_SIZE: u32 = 40u32;
-#[repr(transparent)]
-pub struct GetAppTrackerDataFlags(pub i32);
-pub const GATD_INCLUDE_PROCESS_EXE_NAME: GetAppTrackerDataFlags = GetAppTrackerDataFlags(1i32);
-pub const GATD_INCLUDE_LIBRARY_APPS: GetAppTrackerDataFlags = GetAppTrackerDataFlags(2i32);
-pub const GATD_INCLUDE_SWC: GetAppTrackerDataFlags = GetAppTrackerDataFlags(4i32);
-pub const GATD_INCLUDE_CLASS_NAME: GetAppTrackerDataFlags = GetAppTrackerDataFlags(8i32);
-pub const GATD_INCLUDE_APPLICATION_NAME: GetAppTrackerDataFlags = GetAppTrackerDataFlags(16i32);
-impl ::core::marker::Copy for GetAppTrackerDataFlags {}
-impl ::core::clone::Clone for GetAppTrackerDataFlags {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const GATD_INCLUDE_PROCESS_EXE_NAME: i32 = 1i32;
+pub const GATD_INCLUDE_LIBRARY_APPS: i32 = 2i32;
+pub const GATD_INCLUDE_SWC: i32 = 4i32;
+pub const GATD_INCLUDE_CLASS_NAME: i32 = 8i32;
+pub const GATD_INCLUDE_APPLICATION_NAME: i32 = 16i32;
 pub const GetSecurityCallContextAppObject: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3970674856, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -1857,16 +1561,8 @@ impl ::core::clone::Clone for ITxProxyHolder {
     }
 }
 pub const LBEvents: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3970674881, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
-#[repr(transparent)]
-pub struct LockModes(pub i32);
-pub const LockSetGet: LockModes = LockModes(0i32);
-pub const LockMethod: LockModes = LockModes(1i32);
-impl ::core::marker::Copy for LockModes {}
-impl ::core::clone::Clone for LockModes {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const LockSetGet: i32 = 0i32;
+pub const LockMethod: i32 = 1i32;
 pub const MTXDM_E_ENLISTRESOURCEFAILED: u32 = 2147803392u32;
 pub const MessageMover: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3970674879, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
 pub const MtsGrp: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1261344141, data2: 915, data3: 4561, data4: [177, 171, 0, 170, 0, 186, 50, 88] };
@@ -1901,16 +1597,8 @@ impl ::core::clone::Clone for RECYCLE_INFO {
         *self
     }
 }
-#[repr(transparent)]
-pub struct ReleaseModes(pub i32);
-pub const Standard: ReleaseModes = ReleaseModes(0i32);
-pub const Process: ReleaseModes = ReleaseModes(1i32);
-impl ::core::marker::Copy for ReleaseModes {}
-impl ::core::clone::Clone for ReleaseModes {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const Standard: i32 = 0i32;
+pub const Process: i32 = 1i32;
 pub const SecurityCallContext: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3970674855, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
 pub const SecurityCallers: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3970674854, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
 pub const SecurityIdentity: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3970674853, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
@@ -1927,27 +1615,11 @@ pub const ServicePoolConfig: ::windows_sys::core::GUID = ::windows_sys::core::GU
 pub const SharedProperty: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 704666629, data2: 42462, data3: 4559, data4: [158, 102, 0, 170, 0, 163, 244, 100] };
 pub const SharedPropertyGroup: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 704666635, data2: 42462, data3: 4559, data4: [158, 102, 0, 170, 0, 163, 244, 100] };
 pub const SharedPropertyGroupManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 704666641, data2: 42462, data3: 4559, data4: [158, 102, 0, 170, 0, 163, 244, 100] };
-#[repr(transparent)]
-pub struct TRACKING_COLL_TYPE(pub i32);
-pub const TRKCOLL_PROCESSES: TRACKING_COLL_TYPE = TRACKING_COLL_TYPE(0i32);
-pub const TRKCOLL_APPLICATIONS: TRACKING_COLL_TYPE = TRACKING_COLL_TYPE(1i32);
-pub const TRKCOLL_COMPONENTS: TRACKING_COLL_TYPE = TRACKING_COLL_TYPE(2i32);
-impl ::core::marker::Copy for TRACKING_COLL_TYPE {}
-impl ::core::clone::Clone for TRACKING_COLL_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const TRKCOLL_PROCESSES: i32 = 0i32;
+pub const TRKCOLL_APPLICATIONS: i32 = 1i32;
+pub const TRKCOLL_COMPONENTS: i32 = 2i32;
 pub const TrackerServer: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3970674617, data2: 32537, data3: 4562, data4: [151, 142, 0, 0, 248, 117, 126, 42] };
 pub const TransactionContext: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2040134693, data2: 54214, data3: 4559, data4: [172, 171, 0, 160, 36, 165, 90, 239] };
 pub const TransactionContextEx: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1555457648, data2: 54228, data3: 4559, data4: [172, 171, 0, 160, 36, 165, 90, 239] };
-#[repr(transparent)]
-pub struct TransactionVote(pub i32);
-pub const TxCommit: TransactionVote = TransactionVote(0i32);
-pub const TxAbort: TransactionVote = TransactionVote(1i32);
-impl ::core::marker::Copy for TransactionVote {}
-impl ::core::clone::Clone for TransactionVote {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const TxCommit: i32 = 0i32;
+pub const TxAbort: i32 = 1i32;

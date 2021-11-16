@@ -994,27 +994,11 @@ impl ::core::clone::Clone for IWMWriterSink {
         *self
     }
 }
-#[repr(transparent)]
-pub struct NETSOURCE_URLCREDPOLICY_SETTINGS(pub i32);
-pub const NETSOURCE_URLCREDPOLICY_SETTING_SILENTLOGONOK: NETSOURCE_URLCREDPOLICY_SETTINGS = NETSOURCE_URLCREDPOLICY_SETTINGS(0i32);
-pub const NETSOURCE_URLCREDPOLICY_SETTING_MUSTPROMPTUSER: NETSOURCE_URLCREDPOLICY_SETTINGS = NETSOURCE_URLCREDPOLICY_SETTINGS(1i32);
-pub const NETSOURCE_URLCREDPOLICY_SETTING_ANONYMOUSONLY: NETSOURCE_URLCREDPOLICY_SETTINGS = NETSOURCE_URLCREDPOLICY_SETTINGS(2i32);
-impl ::core::marker::Copy for NETSOURCE_URLCREDPOLICY_SETTINGS {}
-impl ::core::clone::Clone for NETSOURCE_URLCREDPOLICY_SETTINGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WEBSTREAM_SAMPLE_TYPE(pub i32);
-pub const WEBSTREAM_SAMPLE_TYPE_FILE: WEBSTREAM_SAMPLE_TYPE = WEBSTREAM_SAMPLE_TYPE(1i32);
-pub const WEBSTREAM_SAMPLE_TYPE_RENDER: WEBSTREAM_SAMPLE_TYPE = WEBSTREAM_SAMPLE_TYPE(2i32);
-impl ::core::marker::Copy for WEBSTREAM_SAMPLE_TYPE {}
-impl ::core::clone::Clone for WEBSTREAM_SAMPLE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const NETSOURCE_URLCREDPOLICY_SETTING_SILENTLOGONOK: i32 = 0i32;
+pub const NETSOURCE_URLCREDPOLICY_SETTING_MUSTPROMPTUSER: i32 = 1i32;
+pub const NETSOURCE_URLCREDPOLICY_SETTING_ANONYMOUSONLY: i32 = 2i32;
+pub const WEBSTREAM_SAMPLE_TYPE_FILE: i32 = 1i32;
+pub const WEBSTREAM_SAMPLE_TYPE_RENDER: i32 = 2i32;
 #[repr(C)]
 pub struct WMDRM_IMPORT_INIT_STRUCT {
     pub dwVersion: u32,
@@ -1138,32 +1122,16 @@ impl ::core::clone::Clone for WMSCRIPTFORMAT {
     }
 }
 pub const WMSCRIPTTYPE_TwoStrings: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2196998768, data2: 49823, data3: 4561, data4: [151, 173, 0, 160, 201, 94, 168, 80] };
-#[repr(transparent)]
-pub struct WMT_ATTR_DATATYPE(pub i32);
-pub const WMT_TYPE_DWORD: WMT_ATTR_DATATYPE = WMT_ATTR_DATATYPE(0i32);
-pub const WMT_TYPE_STRING: WMT_ATTR_DATATYPE = WMT_ATTR_DATATYPE(1i32);
-pub const WMT_TYPE_BINARY: WMT_ATTR_DATATYPE = WMT_ATTR_DATATYPE(2i32);
-pub const WMT_TYPE_BOOL: WMT_ATTR_DATATYPE = WMT_ATTR_DATATYPE(3i32);
-pub const WMT_TYPE_QWORD: WMT_ATTR_DATATYPE = WMT_ATTR_DATATYPE(4i32);
-pub const WMT_TYPE_WORD: WMT_ATTR_DATATYPE = WMT_ATTR_DATATYPE(5i32);
-pub const WMT_TYPE_GUID: WMT_ATTR_DATATYPE = WMT_ATTR_DATATYPE(6i32);
-impl ::core::marker::Copy for WMT_ATTR_DATATYPE {}
-impl ::core::clone::Clone for WMT_ATTR_DATATYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WMT_ATTR_IMAGETYPE(pub i32);
-pub const WMT_IMAGETYPE_BITMAP: WMT_ATTR_IMAGETYPE = WMT_ATTR_IMAGETYPE(1i32);
-pub const WMT_IMAGETYPE_JPEG: WMT_ATTR_IMAGETYPE = WMT_ATTR_IMAGETYPE(2i32);
-pub const WMT_IMAGETYPE_GIF: WMT_ATTR_IMAGETYPE = WMT_ATTR_IMAGETYPE(3i32);
-impl ::core::marker::Copy for WMT_ATTR_IMAGETYPE {}
-impl ::core::clone::Clone for WMT_ATTR_IMAGETYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const WMT_TYPE_DWORD: i32 = 0i32;
+pub const WMT_TYPE_STRING: i32 = 1i32;
+pub const WMT_TYPE_BINARY: i32 = 2i32;
+pub const WMT_TYPE_BOOL: i32 = 3i32;
+pub const WMT_TYPE_QWORD: i32 = 4i32;
+pub const WMT_TYPE_WORD: i32 = 5i32;
+pub const WMT_TYPE_GUID: i32 = 6i32;
+pub const WMT_IMAGETYPE_BITMAP: i32 = 1i32;
+pub const WMT_IMAGETYPE_JPEG: i32 = 2i32;
+pub const WMT_IMAGETYPE_GIF: i32 = 3i32;
 #[repr(C)]
 pub struct WMT_BUFFER_SEGMENT {
     pub pBuffer: INSSBuffer,
@@ -1176,17 +1144,9 @@ impl ::core::clone::Clone for WMT_BUFFER_SEGMENT {
         *self
     }
 }
-#[repr(transparent)]
-pub struct WMT_CODEC_INFO_TYPE(pub i32);
-pub const WMT_CODECINFO_AUDIO: WMT_CODEC_INFO_TYPE = WMT_CODEC_INFO_TYPE(0i32);
-pub const WMT_CODECINFO_VIDEO: WMT_CODEC_INFO_TYPE = WMT_CODEC_INFO_TYPE(1i32);
-pub const WMT_CODECINFO_UNKNOWN: WMT_CODEC_INFO_TYPE = WMT_CODEC_INFO_TYPE(-1i32);
-impl ::core::marker::Copy for WMT_CODEC_INFO_TYPE {}
-impl ::core::clone::Clone for WMT_CODEC_INFO_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const WMT_CODECINFO_AUDIO: i32 = 0i32;
+pub const WMT_CODECINFO_VIDEO: i32 = 1i32;
+pub const WMT_CODECINFO_UNKNOWN: i32 = -1i32;
 #[repr(C)]
 pub struct WMT_COLORSPACEINFO_EXTENSION_DATA {
     pub ucColorPrimaries: u8,
@@ -1199,19 +1159,11 @@ impl ::core::clone::Clone for WMT_COLORSPACEINFO_EXTENSION_DATA {
         *self
     }
 }
-#[repr(transparent)]
-pub struct WMT_CREDENTIAL_FLAGS(pub i32);
-pub const WMT_CREDENTIAL_SAVE: WMT_CREDENTIAL_FLAGS = WMT_CREDENTIAL_FLAGS(1i32);
-pub const WMT_CREDENTIAL_DONT_CACHE: WMT_CREDENTIAL_FLAGS = WMT_CREDENTIAL_FLAGS(2i32);
-pub const WMT_CREDENTIAL_CLEAR_TEXT: WMT_CREDENTIAL_FLAGS = WMT_CREDENTIAL_FLAGS(4i32);
-pub const WMT_CREDENTIAL_PROXY: WMT_CREDENTIAL_FLAGS = WMT_CREDENTIAL_FLAGS(8i32);
-pub const WMT_CREDENTIAL_ENCRYPT: WMT_CREDENTIAL_FLAGS = WMT_CREDENTIAL_FLAGS(16i32);
-impl ::core::marker::Copy for WMT_CREDENTIAL_FLAGS {}
-impl ::core::clone::Clone for WMT_CREDENTIAL_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const WMT_CREDENTIAL_SAVE: i32 = 1i32;
+pub const WMT_CREDENTIAL_DONT_CACHE: i32 = 2i32;
+pub const WMT_CREDENTIAL_CLEAR_TEXT: i32 = 4i32;
+pub const WMT_CREDENTIAL_PROXY: i32 = 8i32;
+pub const WMT_CREDENTIAL_ENCRYPT: i32 = 16i32;
 pub const WMT_DMOCATEGORY_AUDIO_WATERMARK: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1696734298, data2: 64117, data3: 19257, data4: [181, 12, 6, 195, 54, 182, 163, 239] };
 pub const WMT_DMOCATEGORY_VIDEO_WATERMARK: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 410831138,
@@ -1219,17 +1171,9 @@ pub const WMT_DMOCATEGORY_VIDEO_WATERMARK: ::windows_sys::core::GUID = ::windows
     data3: 17412,
     data4: [157, 175, 99, 244, 131, 13, 241, 188],
 };
-#[repr(transparent)]
-pub struct WMT_DRMLA_TRUST(pub i32);
-pub const WMT_DRMLA_UNTRUSTED: WMT_DRMLA_TRUST = WMT_DRMLA_TRUST(0i32);
-pub const WMT_DRMLA_TRUSTED: WMT_DRMLA_TRUST = WMT_DRMLA_TRUST(1i32);
-pub const WMT_DRMLA_TAMPERED: WMT_DRMLA_TRUST = WMT_DRMLA_TRUST(2i32);
-impl ::core::marker::Copy for WMT_DRMLA_TRUST {}
-impl ::core::clone::Clone for WMT_DRMLA_TRUST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const WMT_DRMLA_UNTRUSTED: i32 = 0i32;
+pub const WMT_DRMLA_TRUSTED: i32 = 1i32;
+pub const WMT_DRMLA_TAMPERED: i32 = 2i32;
 #[repr(C)]
 pub struct WMT_FILESINK_DATA_UNIT {
     pub packetHeaderBuffer: WMT_BUFFER_SEGMENT,
@@ -1244,84 +1188,28 @@ impl ::core::clone::Clone for WMT_FILESINK_DATA_UNIT {
         *self
     }
 }
-#[repr(transparent)]
-pub struct WMT_FILESINK_MODE(pub i32);
-pub const WMT_FM_SINGLE_BUFFERS: WMT_FILESINK_MODE = WMT_FILESINK_MODE(1i32);
-pub const WMT_FM_FILESINK_DATA_UNITS: WMT_FILESINK_MODE = WMT_FILESINK_MODE(2i32);
-pub const WMT_FM_FILESINK_UNBUFFERED: WMT_FILESINK_MODE = WMT_FILESINK_MODE(4i32);
-impl ::core::marker::Copy for WMT_FILESINK_MODE {}
-impl ::core::clone::Clone for WMT_FILESINK_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WMT_IMAGE_TYPE(pub i32);
-pub const WMT_IT_NONE: WMT_IMAGE_TYPE = WMT_IMAGE_TYPE(0i32);
-pub const WMT_IT_BITMAP: WMT_IMAGE_TYPE = WMT_IMAGE_TYPE(1i32);
-pub const WMT_IT_JPEG: WMT_IMAGE_TYPE = WMT_IMAGE_TYPE(2i32);
-pub const WMT_IT_GIF: WMT_IMAGE_TYPE = WMT_IMAGE_TYPE(3i32);
-impl ::core::marker::Copy for WMT_IMAGE_TYPE {}
-impl ::core::clone::Clone for WMT_IMAGE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WMT_INDEXER_TYPE(pub i32);
-pub const WMT_IT_PRESENTATION_TIME: WMT_INDEXER_TYPE = WMT_INDEXER_TYPE(0i32);
-pub const WMT_IT_FRAME_NUMBERS: WMT_INDEXER_TYPE = WMT_INDEXER_TYPE(1i32);
-pub const WMT_IT_TIMECODE: WMT_INDEXER_TYPE = WMT_INDEXER_TYPE(2i32);
-impl ::core::marker::Copy for WMT_INDEXER_TYPE {}
-impl ::core::clone::Clone for WMT_INDEXER_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WMT_INDEX_TYPE(pub i32);
-pub const WMT_IT_NEAREST_DATA_UNIT: WMT_INDEX_TYPE = WMT_INDEX_TYPE(1i32);
-pub const WMT_IT_NEAREST_OBJECT: WMT_INDEX_TYPE = WMT_INDEX_TYPE(2i32);
-pub const WMT_IT_NEAREST_CLEAN_POINT: WMT_INDEX_TYPE = WMT_INDEX_TYPE(3i32);
-impl ::core::marker::Copy for WMT_INDEX_TYPE {}
-impl ::core::clone::Clone for WMT_INDEX_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WMT_MUSICSPEECH_CLASS_MODE(pub i32);
-pub const WMT_MS_CLASS_MUSIC: WMT_MUSICSPEECH_CLASS_MODE = WMT_MUSICSPEECH_CLASS_MODE(0i32);
-pub const WMT_MS_CLASS_SPEECH: WMT_MUSICSPEECH_CLASS_MODE = WMT_MUSICSPEECH_CLASS_MODE(1i32);
-pub const WMT_MS_CLASS_MIXED: WMT_MUSICSPEECH_CLASS_MODE = WMT_MUSICSPEECH_CLASS_MODE(2i32);
-impl ::core::marker::Copy for WMT_MUSICSPEECH_CLASS_MODE {}
-impl ::core::clone::Clone for WMT_MUSICSPEECH_CLASS_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WMT_NET_PROTOCOL(pub i32);
-pub const WMT_PROTOCOL_HTTP: WMT_NET_PROTOCOL = WMT_NET_PROTOCOL(0i32);
-impl ::core::marker::Copy for WMT_NET_PROTOCOL {}
-impl ::core::clone::Clone for WMT_NET_PROTOCOL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WMT_OFFSET_FORMAT(pub i32);
-pub const WMT_OFFSET_FORMAT_100NS: WMT_OFFSET_FORMAT = WMT_OFFSET_FORMAT(0i32);
-pub const WMT_OFFSET_FORMAT_FRAME_NUMBERS: WMT_OFFSET_FORMAT = WMT_OFFSET_FORMAT(1i32);
-pub const WMT_OFFSET_FORMAT_PLAYLIST_OFFSET: WMT_OFFSET_FORMAT = WMT_OFFSET_FORMAT(2i32);
-pub const WMT_OFFSET_FORMAT_TIMECODE: WMT_OFFSET_FORMAT = WMT_OFFSET_FORMAT(3i32);
-pub const WMT_OFFSET_FORMAT_100NS_APPROXIMATE: WMT_OFFSET_FORMAT = WMT_OFFSET_FORMAT(4i32);
-impl ::core::marker::Copy for WMT_OFFSET_FORMAT {}
-impl ::core::clone::Clone for WMT_OFFSET_FORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const WMT_FM_SINGLE_BUFFERS: i32 = 1i32;
+pub const WMT_FM_FILESINK_DATA_UNITS: i32 = 2i32;
+pub const WMT_FM_FILESINK_UNBUFFERED: i32 = 4i32;
+pub const WMT_IT_NONE: i32 = 0i32;
+pub const WMT_IT_BITMAP: i32 = 1i32;
+pub const WMT_IT_JPEG: i32 = 2i32;
+pub const WMT_IT_GIF: i32 = 3i32;
+pub const WMT_IT_PRESENTATION_TIME: i32 = 0i32;
+pub const WMT_IT_FRAME_NUMBERS: i32 = 1i32;
+pub const WMT_IT_TIMECODE: i32 = 2i32;
+pub const WMT_IT_NEAREST_DATA_UNIT: i32 = 1i32;
+pub const WMT_IT_NEAREST_OBJECT: i32 = 2i32;
+pub const WMT_IT_NEAREST_CLEAN_POINT: i32 = 3i32;
+pub const WMT_MS_CLASS_MUSIC: i32 = 0i32;
+pub const WMT_MS_CLASS_SPEECH: i32 = 1i32;
+pub const WMT_MS_CLASS_MIXED: i32 = 2i32;
+pub const WMT_PROTOCOL_HTTP: i32 = 0i32;
+pub const WMT_OFFSET_FORMAT_100NS: i32 = 0i32;
+pub const WMT_OFFSET_FORMAT_FRAME_NUMBERS: i32 = 1i32;
+pub const WMT_OFFSET_FORMAT_PLAYLIST_OFFSET: i32 = 2i32;
+pub const WMT_OFFSET_FORMAT_TIMECODE: i32 = 3i32;
+pub const WMT_OFFSET_FORMAT_100NS_APPROXIMATE: i32 = 4i32;
 #[repr(C)]
 pub struct WMT_PAYLOAD_FRAGMENT {
     pub dwPayloadIndex: u32,
@@ -1333,131 +1221,83 @@ impl ::core::clone::Clone for WMT_PAYLOAD_FRAGMENT {
         *self
     }
 }
-#[repr(transparent)]
-pub struct WMT_PLAY_MODE(pub i32);
-pub const WMT_PLAY_MODE_AUTOSELECT: WMT_PLAY_MODE = WMT_PLAY_MODE(0i32);
-pub const WMT_PLAY_MODE_LOCAL: WMT_PLAY_MODE = WMT_PLAY_MODE(1i32);
-pub const WMT_PLAY_MODE_DOWNLOAD: WMT_PLAY_MODE = WMT_PLAY_MODE(2i32);
-pub const WMT_PLAY_MODE_STREAMING: WMT_PLAY_MODE = WMT_PLAY_MODE(3i32);
-impl ::core::marker::Copy for WMT_PLAY_MODE {}
-impl ::core::clone::Clone for WMT_PLAY_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WMT_PROXY_SETTINGS(pub i32);
-pub const WMT_PROXY_SETTING_NONE: WMT_PROXY_SETTINGS = WMT_PROXY_SETTINGS(0i32);
-pub const WMT_PROXY_SETTING_MANUAL: WMT_PROXY_SETTINGS = WMT_PROXY_SETTINGS(1i32);
-pub const WMT_PROXY_SETTING_AUTO: WMT_PROXY_SETTINGS = WMT_PROXY_SETTINGS(2i32);
-pub const WMT_PROXY_SETTING_BROWSER: WMT_PROXY_SETTINGS = WMT_PROXY_SETTINGS(3i32);
-pub const WMT_PROXY_SETTING_MAX: WMT_PROXY_SETTINGS = WMT_PROXY_SETTINGS(4i32);
-impl ::core::marker::Copy for WMT_PROXY_SETTINGS {}
-impl ::core::clone::Clone for WMT_PROXY_SETTINGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WMT_RIGHTS(pub i32);
-pub const WMT_RIGHT_PLAYBACK: WMT_RIGHTS = WMT_RIGHTS(1i32);
-pub const WMT_RIGHT_COPY_TO_NON_SDMI_DEVICE: WMT_RIGHTS = WMT_RIGHTS(2i32);
-pub const WMT_RIGHT_COPY_TO_CD: WMT_RIGHTS = WMT_RIGHTS(8i32);
-pub const WMT_RIGHT_COPY_TO_SDMI_DEVICE: WMT_RIGHTS = WMT_RIGHTS(16i32);
-pub const WMT_RIGHT_ONE_TIME: WMT_RIGHTS = WMT_RIGHTS(32i32);
-pub const WMT_RIGHT_SAVE_STREAM_PROTECTED: WMT_RIGHTS = WMT_RIGHTS(64i32);
-pub const WMT_RIGHT_COPY: WMT_RIGHTS = WMT_RIGHTS(128i32);
-pub const WMT_RIGHT_COLLABORATIVE_PLAY: WMT_RIGHTS = WMT_RIGHTS(256i32);
-pub const WMT_RIGHT_SDMI_TRIGGER: WMT_RIGHTS = WMT_RIGHTS(65536i32);
-pub const WMT_RIGHT_SDMI_NOMORECOPIES: WMT_RIGHTS = WMT_RIGHTS(131072i32);
-impl ::core::marker::Copy for WMT_RIGHTS {}
-impl ::core::clone::Clone for WMT_RIGHTS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WMT_STATUS(pub i32);
-pub const WMT_ERROR: WMT_STATUS = WMT_STATUS(0i32);
-pub const WMT_OPENED: WMT_STATUS = WMT_STATUS(1i32);
-pub const WMT_BUFFERING_START: WMT_STATUS = WMT_STATUS(2i32);
-pub const WMT_BUFFERING_STOP: WMT_STATUS = WMT_STATUS(3i32);
-pub const WMT_EOF: WMT_STATUS = WMT_STATUS(4i32);
-pub const WMT_END_OF_FILE: WMT_STATUS = WMT_STATUS(4i32);
-pub const WMT_END_OF_SEGMENT: WMT_STATUS = WMT_STATUS(5i32);
-pub const WMT_END_OF_STREAMING: WMT_STATUS = WMT_STATUS(6i32);
-pub const WMT_LOCATING: WMT_STATUS = WMT_STATUS(7i32);
-pub const WMT_CONNECTING: WMT_STATUS = WMT_STATUS(8i32);
-pub const WMT_NO_RIGHTS: WMT_STATUS = WMT_STATUS(9i32);
-pub const WMT_MISSING_CODEC: WMT_STATUS = WMT_STATUS(10i32);
-pub const WMT_STARTED: WMT_STATUS = WMT_STATUS(11i32);
-pub const WMT_STOPPED: WMT_STATUS = WMT_STATUS(12i32);
-pub const WMT_CLOSED: WMT_STATUS = WMT_STATUS(13i32);
-pub const WMT_STRIDING: WMT_STATUS = WMT_STATUS(14i32);
-pub const WMT_TIMER: WMT_STATUS = WMT_STATUS(15i32);
-pub const WMT_INDEX_PROGRESS: WMT_STATUS = WMT_STATUS(16i32);
-pub const WMT_SAVEAS_START: WMT_STATUS = WMT_STATUS(17i32);
-pub const WMT_SAVEAS_STOP: WMT_STATUS = WMT_STATUS(18i32);
-pub const WMT_NEW_SOURCEFLAGS: WMT_STATUS = WMT_STATUS(19i32);
-pub const WMT_NEW_METADATA: WMT_STATUS = WMT_STATUS(20i32);
-pub const WMT_BACKUPRESTORE_BEGIN: WMT_STATUS = WMT_STATUS(21i32);
-pub const WMT_SOURCE_SWITCH: WMT_STATUS = WMT_STATUS(22i32);
-pub const WMT_ACQUIRE_LICENSE: WMT_STATUS = WMT_STATUS(23i32);
-pub const WMT_INDIVIDUALIZE: WMT_STATUS = WMT_STATUS(24i32);
-pub const WMT_NEEDS_INDIVIDUALIZATION: WMT_STATUS = WMT_STATUS(25i32);
-pub const WMT_NO_RIGHTS_EX: WMT_STATUS = WMT_STATUS(26i32);
-pub const WMT_BACKUPRESTORE_END: WMT_STATUS = WMT_STATUS(27i32);
-pub const WMT_BACKUPRESTORE_CONNECTING: WMT_STATUS = WMT_STATUS(28i32);
-pub const WMT_BACKUPRESTORE_DISCONNECTING: WMT_STATUS = WMT_STATUS(29i32);
-pub const WMT_ERROR_WITHURL: WMT_STATUS = WMT_STATUS(30i32);
-pub const WMT_RESTRICTED_LICENSE: WMT_STATUS = WMT_STATUS(31i32);
-pub const WMT_CLIENT_CONNECT: WMT_STATUS = WMT_STATUS(32i32);
-pub const WMT_CLIENT_DISCONNECT: WMT_STATUS = WMT_STATUS(33i32);
-pub const WMT_NATIVE_OUTPUT_PROPS_CHANGED: WMT_STATUS = WMT_STATUS(34i32);
-pub const WMT_RECONNECT_START: WMT_STATUS = WMT_STATUS(35i32);
-pub const WMT_RECONNECT_END: WMT_STATUS = WMT_STATUS(36i32);
-pub const WMT_CLIENT_CONNECT_EX: WMT_STATUS = WMT_STATUS(37i32);
-pub const WMT_CLIENT_DISCONNECT_EX: WMT_STATUS = WMT_STATUS(38i32);
-pub const WMT_SET_FEC_SPAN: WMT_STATUS = WMT_STATUS(39i32);
-pub const WMT_PREROLL_READY: WMT_STATUS = WMT_STATUS(40i32);
-pub const WMT_PREROLL_COMPLETE: WMT_STATUS = WMT_STATUS(41i32);
-pub const WMT_CLIENT_PROPERTIES: WMT_STATUS = WMT_STATUS(42i32);
-pub const WMT_LICENSEURL_SIGNATURE_STATE: WMT_STATUS = WMT_STATUS(43i32);
-pub const WMT_INIT_PLAYLIST_BURN: WMT_STATUS = WMT_STATUS(44i32);
-pub const WMT_TRANSCRYPTOR_INIT: WMT_STATUS = WMT_STATUS(45i32);
-pub const WMT_TRANSCRYPTOR_SEEKED: WMT_STATUS = WMT_STATUS(46i32);
-pub const WMT_TRANSCRYPTOR_READ: WMT_STATUS = WMT_STATUS(47i32);
-pub const WMT_TRANSCRYPTOR_CLOSED: WMT_STATUS = WMT_STATUS(48i32);
-pub const WMT_PROXIMITY_RESULT: WMT_STATUS = WMT_STATUS(49i32);
-pub const WMT_PROXIMITY_COMPLETED: WMT_STATUS = WMT_STATUS(50i32);
-pub const WMT_CONTENT_ENABLER: WMT_STATUS = WMT_STATUS(51i32);
-impl ::core::marker::Copy for WMT_STATUS {}
-impl ::core::clone::Clone for WMT_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WMT_STORAGE_FORMAT(pub i32);
-pub const WMT_Storage_Format_MP3: WMT_STORAGE_FORMAT = WMT_STORAGE_FORMAT(0i32);
-pub const WMT_Storage_Format_V1: WMT_STORAGE_FORMAT = WMT_STORAGE_FORMAT(1i32);
-impl ::core::marker::Copy for WMT_STORAGE_FORMAT {}
-impl ::core::clone::Clone for WMT_STORAGE_FORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WMT_STREAM_SELECTION(pub i32);
-pub const WMT_OFF: WMT_STREAM_SELECTION = WMT_STREAM_SELECTION(0i32);
-pub const WMT_CLEANPOINT_ONLY: WMT_STREAM_SELECTION = WMT_STREAM_SELECTION(1i32);
-pub const WMT_ON: WMT_STREAM_SELECTION = WMT_STREAM_SELECTION(2i32);
-impl ::core::marker::Copy for WMT_STREAM_SELECTION {}
-impl ::core::clone::Clone for WMT_STREAM_SELECTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const WMT_PLAY_MODE_AUTOSELECT: i32 = 0i32;
+pub const WMT_PLAY_MODE_LOCAL: i32 = 1i32;
+pub const WMT_PLAY_MODE_DOWNLOAD: i32 = 2i32;
+pub const WMT_PLAY_MODE_STREAMING: i32 = 3i32;
+pub const WMT_PROXY_SETTING_NONE: i32 = 0i32;
+pub const WMT_PROXY_SETTING_MANUAL: i32 = 1i32;
+pub const WMT_PROXY_SETTING_AUTO: i32 = 2i32;
+pub const WMT_PROXY_SETTING_BROWSER: i32 = 3i32;
+pub const WMT_PROXY_SETTING_MAX: i32 = 4i32;
+pub const WMT_RIGHT_PLAYBACK: i32 = 1i32;
+pub const WMT_RIGHT_COPY_TO_NON_SDMI_DEVICE: i32 = 2i32;
+pub const WMT_RIGHT_COPY_TO_CD: i32 = 8i32;
+pub const WMT_RIGHT_COPY_TO_SDMI_DEVICE: i32 = 16i32;
+pub const WMT_RIGHT_ONE_TIME: i32 = 32i32;
+pub const WMT_RIGHT_SAVE_STREAM_PROTECTED: i32 = 64i32;
+pub const WMT_RIGHT_COPY: i32 = 128i32;
+pub const WMT_RIGHT_COLLABORATIVE_PLAY: i32 = 256i32;
+pub const WMT_RIGHT_SDMI_TRIGGER: i32 = 65536i32;
+pub const WMT_RIGHT_SDMI_NOMORECOPIES: i32 = 131072i32;
+pub const WMT_ERROR: i32 = 0i32;
+pub const WMT_OPENED: i32 = 1i32;
+pub const WMT_BUFFERING_START: i32 = 2i32;
+pub const WMT_BUFFERING_STOP: i32 = 3i32;
+pub const WMT_EOF: i32 = 4i32;
+pub const WMT_END_OF_FILE: i32 = 4i32;
+pub const WMT_END_OF_SEGMENT: i32 = 5i32;
+pub const WMT_END_OF_STREAMING: i32 = 6i32;
+pub const WMT_LOCATING: i32 = 7i32;
+pub const WMT_CONNECTING: i32 = 8i32;
+pub const WMT_NO_RIGHTS: i32 = 9i32;
+pub const WMT_MISSING_CODEC: i32 = 10i32;
+pub const WMT_STARTED: i32 = 11i32;
+pub const WMT_STOPPED: i32 = 12i32;
+pub const WMT_CLOSED: i32 = 13i32;
+pub const WMT_STRIDING: i32 = 14i32;
+pub const WMT_TIMER: i32 = 15i32;
+pub const WMT_INDEX_PROGRESS: i32 = 16i32;
+pub const WMT_SAVEAS_START: i32 = 17i32;
+pub const WMT_SAVEAS_STOP: i32 = 18i32;
+pub const WMT_NEW_SOURCEFLAGS: i32 = 19i32;
+pub const WMT_NEW_METADATA: i32 = 20i32;
+pub const WMT_BACKUPRESTORE_BEGIN: i32 = 21i32;
+pub const WMT_SOURCE_SWITCH: i32 = 22i32;
+pub const WMT_ACQUIRE_LICENSE: i32 = 23i32;
+pub const WMT_INDIVIDUALIZE: i32 = 24i32;
+pub const WMT_NEEDS_INDIVIDUALIZATION: i32 = 25i32;
+pub const WMT_NO_RIGHTS_EX: i32 = 26i32;
+pub const WMT_BACKUPRESTORE_END: i32 = 27i32;
+pub const WMT_BACKUPRESTORE_CONNECTING: i32 = 28i32;
+pub const WMT_BACKUPRESTORE_DISCONNECTING: i32 = 29i32;
+pub const WMT_ERROR_WITHURL: i32 = 30i32;
+pub const WMT_RESTRICTED_LICENSE: i32 = 31i32;
+pub const WMT_CLIENT_CONNECT: i32 = 32i32;
+pub const WMT_CLIENT_DISCONNECT: i32 = 33i32;
+pub const WMT_NATIVE_OUTPUT_PROPS_CHANGED: i32 = 34i32;
+pub const WMT_RECONNECT_START: i32 = 35i32;
+pub const WMT_RECONNECT_END: i32 = 36i32;
+pub const WMT_CLIENT_CONNECT_EX: i32 = 37i32;
+pub const WMT_CLIENT_DISCONNECT_EX: i32 = 38i32;
+pub const WMT_SET_FEC_SPAN: i32 = 39i32;
+pub const WMT_PREROLL_READY: i32 = 40i32;
+pub const WMT_PREROLL_COMPLETE: i32 = 41i32;
+pub const WMT_CLIENT_PROPERTIES: i32 = 42i32;
+pub const WMT_LICENSEURL_SIGNATURE_STATE: i32 = 43i32;
+pub const WMT_INIT_PLAYLIST_BURN: i32 = 44i32;
+pub const WMT_TRANSCRYPTOR_INIT: i32 = 45i32;
+pub const WMT_TRANSCRYPTOR_SEEKED: i32 = 46i32;
+pub const WMT_TRANSCRYPTOR_READ: i32 = 47i32;
+pub const WMT_TRANSCRYPTOR_CLOSED: i32 = 48i32;
+pub const WMT_PROXIMITY_RESULT: i32 = 49i32;
+pub const WMT_PROXIMITY_COMPLETED: i32 = 50i32;
+pub const WMT_CONTENT_ENABLER: i32 = 51i32;
+pub const WMT_Storage_Format_MP3: i32 = 0i32;
+pub const WMT_Storage_Format_V1: i32 = 1i32;
+pub const WMT_OFF: i32 = 0i32;
+pub const WMT_CLEANPOINT_ONLY: i32 = 1i32;
+pub const WMT_ON: i32 = 2i32;
 #[repr(C, packed(2))]
 pub struct WMT_TIMECODE_EXTENSION_DATA {
     pub wRange: u16,
@@ -1471,40 +1311,16 @@ impl ::core::clone::Clone for WMT_TIMECODE_EXTENSION_DATA {
         *self
     }
 }
-#[repr(transparent)]
-pub struct WMT_TIMECODE_FRAMERATE(pub i32);
-pub const WMT_TIMECODE_FRAMERATE_30: WMT_TIMECODE_FRAMERATE = WMT_TIMECODE_FRAMERATE(0i32);
-pub const WMT_TIMECODE_FRAMERATE_30DROP: WMT_TIMECODE_FRAMERATE = WMT_TIMECODE_FRAMERATE(1i32);
-pub const WMT_TIMECODE_FRAMERATE_25: WMT_TIMECODE_FRAMERATE = WMT_TIMECODE_FRAMERATE(2i32);
-pub const WMT_TIMECODE_FRAMERATE_24: WMT_TIMECODE_FRAMERATE = WMT_TIMECODE_FRAMERATE(3i32);
-impl ::core::marker::Copy for WMT_TIMECODE_FRAMERATE {}
-impl ::core::clone::Clone for WMT_TIMECODE_FRAMERATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WMT_TRANSPORT_TYPE(pub i32);
-pub const WMT_Transport_Type_Unreliable: WMT_TRANSPORT_TYPE = WMT_TRANSPORT_TYPE(0i32);
-pub const WMT_Transport_Type_Reliable: WMT_TRANSPORT_TYPE = WMT_TRANSPORT_TYPE(1i32);
-impl ::core::marker::Copy for WMT_TRANSPORT_TYPE {}
-impl ::core::clone::Clone for WMT_TRANSPORT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WMT_VERSION(pub i32);
-pub const WMT_VER_4_0: WMT_VERSION = WMT_VERSION(262144i32);
-pub const WMT_VER_7_0: WMT_VERSION = WMT_VERSION(458752i32);
-pub const WMT_VER_8_0: WMT_VERSION = WMT_VERSION(524288i32);
-pub const WMT_VER_9_0: WMT_VERSION = WMT_VERSION(589824i32);
-impl ::core::marker::Copy for WMT_VERSION {}
-impl ::core::clone::Clone for WMT_VERSION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const WMT_TIMECODE_FRAMERATE_30: i32 = 0i32;
+pub const WMT_TIMECODE_FRAMERATE_30DROP: i32 = 1i32;
+pub const WMT_TIMECODE_FRAMERATE_25: i32 = 2i32;
+pub const WMT_TIMECODE_FRAMERATE_24: i32 = 3i32;
+pub const WMT_Transport_Type_Unreliable: i32 = 0i32;
+pub const WMT_Transport_Type_Reliable: i32 = 1i32;
+pub const WMT_VER_4_0: i32 = 262144i32;
+pub const WMT_VER_7_0: i32 = 458752i32;
+pub const WMT_VER_8_0: i32 = 524288i32;
+pub const WMT_VER_9_0: i32 = 589824i32;
 pub const WMT_VIDEOIMAGE_INTEGER_DENOMINATOR: i32 = 65536i32;
 pub const WMT_VIDEOIMAGE_MAGIC_NUMBER: u32 = 491406834u32;
 pub const WMT_VIDEOIMAGE_MAGIC_NUMBER_2: u32 = 491406835u32;
@@ -1618,16 +1434,8 @@ impl ::core::clone::Clone for WMT_WATERMARK_ENTRY {
         *self
     }
 }
-#[repr(transparent)]
-pub struct WMT_WATERMARK_ENTRY_TYPE(pub i32);
-pub const WMT_WMETYPE_AUDIO: WMT_WATERMARK_ENTRY_TYPE = WMT_WATERMARK_ENTRY_TYPE(1i32);
-pub const WMT_WMETYPE_VIDEO: WMT_WATERMARK_ENTRY_TYPE = WMT_WATERMARK_ENTRY_TYPE(2i32);
-impl ::core::marker::Copy for WMT_WATERMARK_ENTRY_TYPE {}
-impl ::core::clone::Clone for WMT_WATERMARK_ENTRY_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const WMT_WMETYPE_AUDIO: i32 = 1i32;
+pub const WMT_WMETYPE_VIDEO: i32 = 2i32;
 #[repr(C)]
 pub struct WMT_WEBSTREAM_FORMAT {
     pub cbSize: u16,
@@ -1708,16 +1516,8 @@ impl ::core::clone::Clone for WM_ADDRESS_ACCESSENTRY {
         *self
     }
 }
-#[repr(transparent)]
-pub struct WM_AETYPE(pub i32);
-pub const WM_AETYPE_INCLUDE: WM_AETYPE = WM_AETYPE(105i32);
-pub const WM_AETYPE_EXCLUDE: WM_AETYPE = WM_AETYPE(101i32);
-impl ::core::marker::Copy for WM_AETYPE {}
-impl ::core::clone::Clone for WM_AETYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const WM_AETYPE_INCLUDE: i32 = 105i32;
+pub const WM_AETYPE_EXCLUDE: i32 = 101i32;
 #[repr(C)]
 pub struct WM_CLIENT_PROPERTIES {
     pub dwIPAddress: u32,
@@ -1751,39 +1551,23 @@ pub const WM_CT_BOTTOM_FIELD_FIRST: u32 = 32u32;
 pub const WM_CT_INTERLACED: u32 = 128u32;
 pub const WM_CT_REPEAT_FIRST_FIELD: u32 = 16u32;
 pub const WM_CT_TOP_FIELD_FIRST: u32 = 64u32;
-#[repr(transparent)]
-pub struct WM_DM_INTERLACED_TYPE(pub i32);
-pub const WM_DM_NOTINTERLACED: WM_DM_INTERLACED_TYPE = WM_DM_INTERLACED_TYPE(0i32);
-pub const WM_DM_DEINTERLACE_NORMAL: WM_DM_INTERLACED_TYPE = WM_DM_INTERLACED_TYPE(1i32);
-pub const WM_DM_DEINTERLACE_HALFSIZE: WM_DM_INTERLACED_TYPE = WM_DM_INTERLACED_TYPE(2i32);
-pub const WM_DM_DEINTERLACE_HALFSIZEDOUBLERATE: WM_DM_INTERLACED_TYPE = WM_DM_INTERLACED_TYPE(3i32);
-pub const WM_DM_DEINTERLACE_INVERSETELECINE: WM_DM_INTERLACED_TYPE = WM_DM_INTERLACED_TYPE(4i32);
-pub const WM_DM_DEINTERLACE_VERTICALHALFSIZEDOUBLERATE: WM_DM_INTERLACED_TYPE = WM_DM_INTERLACED_TYPE(5i32);
-impl ::core::marker::Copy for WM_DM_INTERLACED_TYPE {}
-impl ::core::clone::Clone for WM_DM_INTERLACED_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WM_DM_IT_FIRST_FRAME_COHERENCY(pub i32);
-pub const WM_DM_IT_DISABLE_COHERENT_MODE: WM_DM_IT_FIRST_FRAME_COHERENCY = WM_DM_IT_FIRST_FRAME_COHERENCY(0i32);
-pub const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_AA_TOP: WM_DM_IT_FIRST_FRAME_COHERENCY = WM_DM_IT_FIRST_FRAME_COHERENCY(1i32);
-pub const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_BB_TOP: WM_DM_IT_FIRST_FRAME_COHERENCY = WM_DM_IT_FIRST_FRAME_COHERENCY(2i32);
-pub const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_BC_TOP: WM_DM_IT_FIRST_FRAME_COHERENCY = WM_DM_IT_FIRST_FRAME_COHERENCY(3i32);
-pub const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_CD_TOP: WM_DM_IT_FIRST_FRAME_COHERENCY = WM_DM_IT_FIRST_FRAME_COHERENCY(4i32);
-pub const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_DD_TOP: WM_DM_IT_FIRST_FRAME_COHERENCY = WM_DM_IT_FIRST_FRAME_COHERENCY(5i32);
-pub const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_AA_BOTTOM: WM_DM_IT_FIRST_FRAME_COHERENCY = WM_DM_IT_FIRST_FRAME_COHERENCY(6i32);
-pub const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_BB_BOTTOM: WM_DM_IT_FIRST_FRAME_COHERENCY = WM_DM_IT_FIRST_FRAME_COHERENCY(7i32);
-pub const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_BC_BOTTOM: WM_DM_IT_FIRST_FRAME_COHERENCY = WM_DM_IT_FIRST_FRAME_COHERENCY(8i32);
-pub const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_CD_BOTTOM: WM_DM_IT_FIRST_FRAME_COHERENCY = WM_DM_IT_FIRST_FRAME_COHERENCY(9i32);
-pub const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_DD_BOTTOM: WM_DM_IT_FIRST_FRAME_COHERENCY = WM_DM_IT_FIRST_FRAME_COHERENCY(10i32);
-impl ::core::marker::Copy for WM_DM_IT_FIRST_FRAME_COHERENCY {}
-impl ::core::clone::Clone for WM_DM_IT_FIRST_FRAME_COHERENCY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const WM_DM_NOTINTERLACED: i32 = 0i32;
+pub const WM_DM_DEINTERLACE_NORMAL: i32 = 1i32;
+pub const WM_DM_DEINTERLACE_HALFSIZE: i32 = 2i32;
+pub const WM_DM_DEINTERLACE_HALFSIZEDOUBLERATE: i32 = 3i32;
+pub const WM_DM_DEINTERLACE_INVERSETELECINE: i32 = 4i32;
+pub const WM_DM_DEINTERLACE_VERTICALHALFSIZEDOUBLERATE: i32 = 5i32;
+pub const WM_DM_IT_DISABLE_COHERENT_MODE: i32 = 0i32;
+pub const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_AA_TOP: i32 = 1i32;
+pub const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_BB_TOP: i32 = 2i32;
+pub const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_BC_TOP: i32 = 3i32;
+pub const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_CD_TOP: i32 = 4i32;
+pub const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_DD_TOP: i32 = 5i32;
+pub const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_AA_BOTTOM: i32 = 6i32;
+pub const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_BB_BOTTOM: i32 = 7i32;
+pub const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_BC_BOTTOM: i32 = 8i32;
+pub const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_CD_BOTTOM: i32 = 9i32;
+pub const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_DD_BOTTOM: i32 = 10i32;
 #[repr(C, packed(1))]
 pub struct WM_LEAKY_BUCKET_PAIR {
     pub dwBitrate: u32,
@@ -1835,17 +1619,9 @@ impl ::core::clone::Clone for WM_PICTURE {
         *self
     }
 }
-#[repr(transparent)]
-pub struct WM_PLAYBACK_DRC_LEVEL(pub i32);
-pub const WM_PLAYBACK_DRC_HIGH: WM_PLAYBACK_DRC_LEVEL = WM_PLAYBACK_DRC_LEVEL(0i32);
-pub const WM_PLAYBACK_DRC_MEDIUM: WM_PLAYBACK_DRC_LEVEL = WM_PLAYBACK_DRC_LEVEL(1i32);
-pub const WM_PLAYBACK_DRC_LOW: WM_PLAYBACK_DRC_LEVEL = WM_PLAYBACK_DRC_LEVEL(2i32);
-impl ::core::marker::Copy for WM_PLAYBACK_DRC_LEVEL {}
-impl ::core::clone::Clone for WM_PLAYBACK_DRC_LEVEL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const WM_PLAYBACK_DRC_HIGH: i32 = 0i32;
+pub const WM_PLAYBACK_DRC_MEDIUM: i32 = 1i32;
+pub const WM_PLAYBACK_DRC_LOW: i32 = 2i32;
 #[repr(C)]
 pub struct WM_PORT_NUMBER_RANGE {
     pub wPortBegin: u16,
@@ -1893,27 +1669,11 @@ impl ::core::clone::Clone for WM_READER_STATISTICS {
         *self
     }
 }
-#[repr(transparent)]
-pub struct WM_SFEX_TYPE(pub i32);
-pub const WM_SFEX_NOTASYNCPOINT: WM_SFEX_TYPE = WM_SFEX_TYPE(2i32);
-pub const WM_SFEX_DATALOSS: WM_SFEX_TYPE = WM_SFEX_TYPE(4i32);
-impl ::core::marker::Copy for WM_SFEX_TYPE {}
-impl ::core::clone::Clone for WM_SFEX_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WM_SF_TYPE(pub i32);
-pub const WM_SF_CLEANPOINT: WM_SF_TYPE = WM_SF_TYPE(1i32);
-pub const WM_SF_DISCONTINUITY: WM_SF_TYPE = WM_SF_TYPE(2i32);
-pub const WM_SF_DATALOSS: WM_SF_TYPE = WM_SF_TYPE(4i32);
-impl ::core::marker::Copy for WM_SF_TYPE {}
-impl ::core::clone::Clone for WM_SF_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const WM_SFEX_NOTASYNCPOINT: i32 = 2i32;
+pub const WM_SFEX_DATALOSS: i32 = 4i32;
+pub const WM_SF_CLEANPOINT: i32 = 1i32;
+pub const WM_SF_DISCONTINUITY: i32 = 2i32;
+pub const WM_SF_DATALOSS: i32 = 4i32;
 #[repr(C, packed(2))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WM_STREAM_PRIORITY_RECORD {
@@ -2065,17 +1825,9 @@ impl ::core::clone::Clone for WM_WRITER_STATISTICS_EX {
         *self
     }
 }
-#[repr(transparent)]
-pub struct _AM_ASFWRITERCONFIG_PARAM(pub i32);
-pub const AM_CONFIGASFWRITER_PARAM_AUTOINDEX: _AM_ASFWRITERCONFIG_PARAM = _AM_ASFWRITERCONFIG_PARAM(1i32);
-pub const AM_CONFIGASFWRITER_PARAM_MULTIPASS: _AM_ASFWRITERCONFIG_PARAM = _AM_ASFWRITERCONFIG_PARAM(2i32);
-pub const AM_CONFIGASFWRITER_PARAM_DONTCOMPRESS: _AM_ASFWRITERCONFIG_PARAM = _AM_ASFWRITERCONFIG_PARAM(3i32);
-impl ::core::marker::Copy for _AM_ASFWRITERCONFIG_PARAM {}
-impl ::core::clone::Clone for _AM_ASFWRITERCONFIG_PARAM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const AM_CONFIGASFWRITER_PARAM_AUTOINDEX: i32 = 1i32;
+pub const AM_CONFIGASFWRITER_PARAM_MULTIPASS: i32 = 2i32;
+pub const AM_CONFIGASFWRITER_PARAM_DONTCOMPRESS: i32 = 3i32;
 pub const g_dwWMContentAttributes: u32 = 5u32;
 pub const g_dwWMNSCAttributes: u32 = 5u32;
 pub const g_dwWMSpecialAttributes: u32 = 20u32;

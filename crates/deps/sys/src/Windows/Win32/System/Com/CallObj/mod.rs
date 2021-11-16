@@ -44,31 +44,15 @@ impl ::core::clone::Clone for CALLFRAMEPARAMINFO {
         *self
     }
 }
-#[repr(transparent)]
-pub struct CALLFRAME_COPY(pub i32);
-pub const CALLFRAME_COPY_NESTED: CALLFRAME_COPY = CALLFRAME_COPY(1i32);
-pub const CALLFRAME_COPY_INDEPENDENT: CALLFRAME_COPY = CALLFRAME_COPY(2i32);
-impl ::core::marker::Copy for CALLFRAME_COPY {}
-impl ::core::clone::Clone for CALLFRAME_COPY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct CALLFRAME_FREE(pub i32);
-pub const CALLFRAME_FREE_NONE: CALLFRAME_FREE = CALLFRAME_FREE(0i32);
-pub const CALLFRAME_FREE_IN: CALLFRAME_FREE = CALLFRAME_FREE(1i32);
-pub const CALLFRAME_FREE_INOUT: CALLFRAME_FREE = CALLFRAME_FREE(2i32);
-pub const CALLFRAME_FREE_OUT: CALLFRAME_FREE = CALLFRAME_FREE(4i32);
-pub const CALLFRAME_FREE_TOP_INOUT: CALLFRAME_FREE = CALLFRAME_FREE(8i32);
-pub const CALLFRAME_FREE_TOP_OUT: CALLFRAME_FREE = CALLFRAME_FREE(16i32);
-pub const CALLFRAME_FREE_ALL: CALLFRAME_FREE = CALLFRAME_FREE(31i32);
-impl ::core::marker::Copy for CALLFRAME_FREE {}
-impl ::core::clone::Clone for CALLFRAME_FREE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const CALLFRAME_COPY_NESTED: i32 = 1i32;
+pub const CALLFRAME_COPY_INDEPENDENT: i32 = 2i32;
+pub const CALLFRAME_FREE_NONE: i32 = 0i32;
+pub const CALLFRAME_FREE_IN: i32 = 1i32;
+pub const CALLFRAME_FREE_INOUT: i32 = 2i32;
+pub const CALLFRAME_FREE_OUT: i32 = 4i32;
+pub const CALLFRAME_FREE_TOP_INOUT: i32 = 8i32;
+pub const CALLFRAME_FREE_TOP_OUT: i32 = 16i32;
+pub const CALLFRAME_FREE_ALL: i32 = 31i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CALLFRAME_MARSHALCONTEXT {
@@ -86,29 +70,13 @@ impl ::core::clone::Clone for CALLFRAME_MARSHALCONTEXT {
         *self
     }
 }
-#[repr(transparent)]
-pub struct CALLFRAME_NULL(pub i32);
-pub const CALLFRAME_NULL_NONE: CALLFRAME_NULL = CALLFRAME_NULL(0i32);
-pub const CALLFRAME_NULL_INOUT: CALLFRAME_NULL = CALLFRAME_NULL(2i32);
-pub const CALLFRAME_NULL_OUT: CALLFRAME_NULL = CALLFRAME_NULL(4i32);
-pub const CALLFRAME_NULL_ALL: CALLFRAME_NULL = CALLFRAME_NULL(6i32);
-impl ::core::marker::Copy for CALLFRAME_NULL {}
-impl ::core::clone::Clone for CALLFRAME_NULL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct CALLFRAME_WALK(pub i32);
-pub const CALLFRAME_WALK_IN: CALLFRAME_WALK = CALLFRAME_WALK(1i32);
-pub const CALLFRAME_WALK_INOUT: CALLFRAME_WALK = CALLFRAME_WALK(2i32);
-pub const CALLFRAME_WALK_OUT: CALLFRAME_WALK = CALLFRAME_WALK(4i32);
-impl ::core::marker::Copy for CALLFRAME_WALK {}
-impl ::core::clone::Clone for CALLFRAME_WALK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const CALLFRAME_NULL_NONE: i32 = 0i32;
+pub const CALLFRAME_NULL_INOUT: i32 = 2i32;
+pub const CALLFRAME_NULL_OUT: i32 = 4i32;
+pub const CALLFRAME_NULL_ALL: i32 = 6i32;
+pub const CALLFRAME_WALK_IN: i32 = 1i32;
+pub const CALLFRAME_WALK_INOUT: i32 = 2i32;
+pub const CALLFRAME_WALK_OUT: i32 = 4i32;
 #[repr(transparent)]
 pub struct ICallFrame(pub *mut ::core::ffi::c_void);
 impl ::core::marker::Copy for ICallFrame {}

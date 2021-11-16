@@ -37,50 +37,18 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn TryCancelPendingGameUI() -> super::Foundation::BOOL;
 }
-#[repr(transparent)]
-pub struct GAMESTATS_OPEN_RESULT(pub i32);
-pub const GAMESTATS_OPEN_CREATED: GAMESTATS_OPEN_RESULT = GAMESTATS_OPEN_RESULT(0i32);
-pub const GAMESTATS_OPEN_OPENED: GAMESTATS_OPEN_RESULT = GAMESTATS_OPEN_RESULT(1i32);
-impl ::core::marker::Copy for GAMESTATS_OPEN_RESULT {}
-impl ::core::clone::Clone for GAMESTATS_OPEN_RESULT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct GAMESTATS_OPEN_TYPE(pub i32);
-pub const GAMESTATS_OPEN_OPENORCREATE: GAMESTATS_OPEN_TYPE = GAMESTATS_OPEN_TYPE(0i32);
-pub const GAMESTATS_OPEN_OPENONLY: GAMESTATS_OPEN_TYPE = GAMESTATS_OPEN_TYPE(1i32);
-impl ::core::marker::Copy for GAMESTATS_OPEN_TYPE {}
-impl ::core::clone::Clone for GAMESTATS_OPEN_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct GAME_INSTALL_SCOPE(pub i32);
-pub const GIS_NOT_INSTALLED: GAME_INSTALL_SCOPE = GAME_INSTALL_SCOPE(1i32);
-pub const GIS_CURRENT_USER: GAME_INSTALL_SCOPE = GAME_INSTALL_SCOPE(2i32);
-pub const GIS_ALL_USERS: GAME_INSTALL_SCOPE = GAME_INSTALL_SCOPE(3i32);
-impl ::core::marker::Copy for GAME_INSTALL_SCOPE {}
-impl ::core::clone::Clone for GAME_INSTALL_SCOPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct GAMING_DEVICE_DEVICE_ID(pub i32);
-pub const GAMING_DEVICE_DEVICE_ID_NONE: GAMING_DEVICE_DEVICE_ID = GAMING_DEVICE_DEVICE_ID(0i32);
-pub const GAMING_DEVICE_DEVICE_ID_XBOX_ONE: GAMING_DEVICE_DEVICE_ID = GAMING_DEVICE_DEVICE_ID(1988865574i32);
-pub const GAMING_DEVICE_DEVICE_ID_XBOX_ONE_S: GAMING_DEVICE_DEVICE_ID = GAMING_DEVICE_DEVICE_ID(712204761i32);
-pub const GAMING_DEVICE_DEVICE_ID_XBOX_ONE_X: GAMING_DEVICE_DEVICE_ID = GAMING_DEVICE_DEVICE_ID(1523980231i32);
-pub const GAMING_DEVICE_DEVICE_ID_XBOX_ONE_X_DEVKIT: GAMING_DEVICE_DEVICE_ID = GAMING_DEVICE_DEVICE_ID(284675555i32);
-impl ::core::marker::Copy for GAMING_DEVICE_DEVICE_ID {}
-impl ::core::clone::Clone for GAMING_DEVICE_DEVICE_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const GAMESTATS_OPEN_CREATED: i32 = 0i32;
+pub const GAMESTATS_OPEN_OPENED: i32 = 1i32;
+pub const GAMESTATS_OPEN_OPENORCREATE: i32 = 0i32;
+pub const GAMESTATS_OPEN_OPENONLY: i32 = 1i32;
+pub const GIS_NOT_INSTALLED: i32 = 1i32;
+pub const GIS_CURRENT_USER: i32 = 2i32;
+pub const GIS_ALL_USERS: i32 = 3i32;
+pub const GAMING_DEVICE_DEVICE_ID_NONE: i32 = 0i32;
+pub const GAMING_DEVICE_DEVICE_ID_XBOX_ONE: i32 = 1988865574i32;
+pub const GAMING_DEVICE_DEVICE_ID_XBOX_ONE_S: i32 = 712204761i32;
+pub const GAMING_DEVICE_DEVICE_ID_XBOX_ONE_X: i32 = 1523980231i32;
+pub const GAMING_DEVICE_DEVICE_ID_XBOX_ONE_X_DEVKIT: i32 = 284675555i32;
 #[repr(C)]
 pub struct GAMING_DEVICE_MODEL_INFORMATION {
     pub vendorId: GAMING_DEVICE_VENDOR_ID,
@@ -92,16 +60,8 @@ impl ::core::clone::Clone for GAMING_DEVICE_MODEL_INFORMATION {
         *self
     }
 }
-#[repr(transparent)]
-pub struct GAMING_DEVICE_VENDOR_ID(pub i32);
-pub const GAMING_DEVICE_VENDOR_ID_NONE: GAMING_DEVICE_VENDOR_ID = GAMING_DEVICE_VENDOR_ID(0i32);
-pub const GAMING_DEVICE_VENDOR_ID_MICROSOFT: GAMING_DEVICE_VENDOR_ID = GAMING_DEVICE_VENDOR_ID(-1024700366i32);
-impl ::core::marker::Copy for GAMING_DEVICE_VENDOR_ID {}
-impl ::core::clone::Clone for GAMING_DEVICE_VENDOR_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const GAMING_DEVICE_VENDOR_ID_NONE: i32 = 0i32;
+pub const GAMING_DEVICE_VENDOR_ID_MICROSOFT: i32 = -1024700366i32;
 pub const GameExplorer: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2589895056, data2: 12340, data3: 19823, data4: [145, 40, 1, 243, 198, 16, 34, 188] };
 pub const GameStatistics: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3687340588,
@@ -166,54 +126,38 @@ impl ::core::clone::Clone for IXblIdpAuthTokenResult2 {
         *self
     }
 }
-#[repr(transparent)]
-pub struct KnownGamingPrivileges(pub i32);
-pub const XPRIVILEGE_BROADCAST: KnownGamingPrivileges = KnownGamingPrivileges(190i32);
-pub const XPRIVILEGE_VIEW_FRIENDS_LIST: KnownGamingPrivileges = KnownGamingPrivileges(197i32);
-pub const XPRIVILEGE_GAME_DVR: KnownGamingPrivileges = KnownGamingPrivileges(198i32);
-pub const XPRIVILEGE_SHARE_KINECT_CONTENT: KnownGamingPrivileges = KnownGamingPrivileges(199i32);
-pub const XPRIVILEGE_MULTIPLAYER_PARTIES: KnownGamingPrivileges = KnownGamingPrivileges(203i32);
-pub const XPRIVILEGE_COMMUNICATION_VOICE_INGAME: KnownGamingPrivileges = KnownGamingPrivileges(205i32);
-pub const XPRIVILEGE_COMMUNICATION_VOICE_SKYPE: KnownGamingPrivileges = KnownGamingPrivileges(206i32);
-pub const XPRIVILEGE_CLOUD_GAMING_MANAGE_SESSION: KnownGamingPrivileges = KnownGamingPrivileges(207i32);
-pub const XPRIVILEGE_CLOUD_GAMING_JOIN_SESSION: KnownGamingPrivileges = KnownGamingPrivileges(208i32);
-pub const XPRIVILEGE_CLOUD_SAVED_GAMES: KnownGamingPrivileges = KnownGamingPrivileges(209i32);
-pub const XPRIVILEGE_SHARE_CONTENT: KnownGamingPrivileges = KnownGamingPrivileges(211i32);
-pub const XPRIVILEGE_PREMIUM_CONTENT: KnownGamingPrivileges = KnownGamingPrivileges(214i32);
-pub const XPRIVILEGE_SUBSCRIPTION_CONTENT: KnownGamingPrivileges = KnownGamingPrivileges(219i32);
-pub const XPRIVILEGE_SOCIAL_NETWORK_SHARING: KnownGamingPrivileges = KnownGamingPrivileges(220i32);
-pub const XPRIVILEGE_PREMIUM_VIDEO: KnownGamingPrivileges = KnownGamingPrivileges(224i32);
-pub const XPRIVILEGE_VIDEO_COMMUNICATIONS: KnownGamingPrivileges = KnownGamingPrivileges(235i32);
-pub const XPRIVILEGE_PURCHASE_CONTENT: KnownGamingPrivileges = KnownGamingPrivileges(245i32);
-pub const XPRIVILEGE_USER_CREATED_CONTENT: KnownGamingPrivileges = KnownGamingPrivileges(247i32);
-pub const XPRIVILEGE_PROFILE_VIEWING: KnownGamingPrivileges = KnownGamingPrivileges(249i32);
-pub const XPRIVILEGE_COMMUNICATIONS: KnownGamingPrivileges = KnownGamingPrivileges(252i32);
-pub const XPRIVILEGE_MULTIPLAYER_SESSIONS: KnownGamingPrivileges = KnownGamingPrivileges(254i32);
-pub const XPRIVILEGE_ADD_FRIEND: KnownGamingPrivileges = KnownGamingPrivileges(255i32);
-impl ::core::marker::Copy for KnownGamingPrivileges {}
-impl ::core::clone::Clone for KnownGamingPrivileges {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const XPRIVILEGE_BROADCAST: i32 = 190i32;
+pub const XPRIVILEGE_VIEW_FRIENDS_LIST: i32 = 197i32;
+pub const XPRIVILEGE_GAME_DVR: i32 = 198i32;
+pub const XPRIVILEGE_SHARE_KINECT_CONTENT: i32 = 199i32;
+pub const XPRIVILEGE_MULTIPLAYER_PARTIES: i32 = 203i32;
+pub const XPRIVILEGE_COMMUNICATION_VOICE_INGAME: i32 = 205i32;
+pub const XPRIVILEGE_COMMUNICATION_VOICE_SKYPE: i32 = 206i32;
+pub const XPRIVILEGE_CLOUD_GAMING_MANAGE_SESSION: i32 = 207i32;
+pub const XPRIVILEGE_CLOUD_GAMING_JOIN_SESSION: i32 = 208i32;
+pub const XPRIVILEGE_CLOUD_SAVED_GAMES: i32 = 209i32;
+pub const XPRIVILEGE_SHARE_CONTENT: i32 = 211i32;
+pub const XPRIVILEGE_PREMIUM_CONTENT: i32 = 214i32;
+pub const XPRIVILEGE_SUBSCRIPTION_CONTENT: i32 = 219i32;
+pub const XPRIVILEGE_SOCIAL_NETWORK_SHARING: i32 = 220i32;
+pub const XPRIVILEGE_PREMIUM_VIDEO: i32 = 224i32;
+pub const XPRIVILEGE_VIDEO_COMMUNICATIONS: i32 = 235i32;
+pub const XPRIVILEGE_PURCHASE_CONTENT: i32 = 245i32;
+pub const XPRIVILEGE_USER_CREATED_CONTENT: i32 = 247i32;
+pub const XPRIVILEGE_PROFILE_VIEWING: i32 = 249i32;
+pub const XPRIVILEGE_COMMUNICATIONS: i32 = 252i32;
+pub const XPRIVILEGE_MULTIPLAYER_SESSIONS: i32 = 254i32;
+pub const XPRIVILEGE_ADD_FRIEND: i32 = 255i32;
 pub type PlayerPickerUICompletionRoutine = unsafe extern "system" fn(returncode: ::windows_sys::core::HRESULT, context: *const ::core::ffi::c_void, selectedxuids: *const ::windows_sys::core::HSTRING, selectedxuidscount: usize);
-#[repr(transparent)]
-pub struct XBL_IDP_AUTH_TOKEN_STATUS(pub i32);
-pub const XBL_IDP_AUTH_TOKEN_STATUS_SUCCESS: XBL_IDP_AUTH_TOKEN_STATUS = XBL_IDP_AUTH_TOKEN_STATUS(0i32);
-pub const XBL_IDP_AUTH_TOKEN_STATUS_OFFLINE_SUCCESS: XBL_IDP_AUTH_TOKEN_STATUS = XBL_IDP_AUTH_TOKEN_STATUS(1i32);
-pub const XBL_IDP_AUTH_TOKEN_STATUS_NO_ACCOUNT_SET: XBL_IDP_AUTH_TOKEN_STATUS = XBL_IDP_AUTH_TOKEN_STATUS(2i32);
-pub const XBL_IDP_AUTH_TOKEN_STATUS_LOAD_MSA_ACCOUNT_FAILED: XBL_IDP_AUTH_TOKEN_STATUS = XBL_IDP_AUTH_TOKEN_STATUS(3i32);
-pub const XBL_IDP_AUTH_TOKEN_STATUS_XBOX_VETO: XBL_IDP_AUTH_TOKEN_STATUS = XBL_IDP_AUTH_TOKEN_STATUS(4i32);
-pub const XBL_IDP_AUTH_TOKEN_STATUS_MSA_INTERRUPT: XBL_IDP_AUTH_TOKEN_STATUS = XBL_IDP_AUTH_TOKEN_STATUS(5i32);
-pub const XBL_IDP_AUTH_TOKEN_STATUS_OFFLINE_NO_CONSENT: XBL_IDP_AUTH_TOKEN_STATUS = XBL_IDP_AUTH_TOKEN_STATUS(6i32);
-pub const XBL_IDP_AUTH_TOKEN_STATUS_VIEW_NOT_SET: XBL_IDP_AUTH_TOKEN_STATUS = XBL_IDP_AUTH_TOKEN_STATUS(7i32);
-pub const XBL_IDP_AUTH_TOKEN_STATUS_UNKNOWN: XBL_IDP_AUTH_TOKEN_STATUS = XBL_IDP_AUTH_TOKEN_STATUS(-1i32);
-impl ::core::marker::Copy for XBL_IDP_AUTH_TOKEN_STATUS {}
-impl ::core::clone::Clone for XBL_IDP_AUTH_TOKEN_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const XBL_IDP_AUTH_TOKEN_STATUS_SUCCESS: i32 = 0i32;
+pub const XBL_IDP_AUTH_TOKEN_STATUS_OFFLINE_SUCCESS: i32 = 1i32;
+pub const XBL_IDP_AUTH_TOKEN_STATUS_NO_ACCOUNT_SET: i32 = 2i32;
+pub const XBL_IDP_AUTH_TOKEN_STATUS_LOAD_MSA_ACCOUNT_FAILED: i32 = 3i32;
+pub const XBL_IDP_AUTH_TOKEN_STATUS_XBOX_VETO: i32 = 4i32;
+pub const XBL_IDP_AUTH_TOKEN_STATUS_MSA_INTERRUPT: i32 = 5i32;
+pub const XBL_IDP_AUTH_TOKEN_STATUS_OFFLINE_NO_CONSENT: i32 = 6i32;
+pub const XBL_IDP_AUTH_TOKEN_STATUS_VIEW_NOT_SET: i32 = 7i32;
+pub const XBL_IDP_AUTH_TOKEN_STATUS_UNKNOWN: i32 = -1i32;
 pub const XblIdpAuthManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3458421579,
     data2: 22232,

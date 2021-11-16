@@ -2,52 +2,20 @@
 #[link(name = "windows")]
 extern "system" {}
 pub const AdSyncTask: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 719734609, data2: 46888, data3: 19819, data4: [151, 160, 178, 218, 46, 125, 42, 59] };
-#[repr(transparent)]
-pub struct AdrClientDisplayFlags(pub i32);
-pub const AdrClientDisplayFlags_AllowEmailRequests: AdrClientDisplayFlags = AdrClientDisplayFlags(1i32);
-pub const AdrClientDisplayFlags_ShowDeviceTroubleshooting: AdrClientDisplayFlags = AdrClientDisplayFlags(2i32);
-impl ::core::marker::Copy for AdrClientDisplayFlags {}
-impl ::core::clone::Clone for AdrClientDisplayFlags {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct AdrClientErrorType(pub i32);
-pub const AdrClientErrorType_Unknown: AdrClientErrorType = AdrClientErrorType(0i32);
-pub const AdrClientErrorType_AccessDenied: AdrClientErrorType = AdrClientErrorType(1i32);
-pub const AdrClientErrorType_FileNotFound: AdrClientErrorType = AdrClientErrorType(2i32);
-impl ::core::marker::Copy for AdrClientErrorType {}
-impl ::core::clone::Clone for AdrClientErrorType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct AdrClientFlags(pub i32);
-pub const AdrClientFlags_None: AdrClientFlags = AdrClientFlags(0i32);
-pub const AdrClientFlags_FailForLocalPaths: AdrClientFlags = AdrClientFlags(1i32);
-pub const AdrClientFlags_FailIfNotSupportedByServer: AdrClientFlags = AdrClientFlags(2i32);
-pub const AdrClientFlags_FailIfNotDomainJoined: AdrClientFlags = AdrClientFlags(4i32);
-impl ::core::marker::Copy for AdrClientFlags {}
-impl ::core::clone::Clone for AdrClientFlags {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct AdrEmailFlags(pub i32);
-pub const AdrEmailFlags_PutDataOwnerOnToLine: AdrEmailFlags = AdrEmailFlags(1i32);
-pub const AdrEmailFlags_PutAdminOnToLine: AdrEmailFlags = AdrEmailFlags(2i32);
-pub const AdrEmailFlags_IncludeDeviceClaims: AdrEmailFlags = AdrEmailFlags(4i32);
-pub const AdrEmailFlags_IncludeUserInfo: AdrEmailFlags = AdrEmailFlags(8i32);
-pub const AdrEmailFlags_GenerateEventLog: AdrEmailFlags = AdrEmailFlags(16i32);
-impl ::core::marker::Copy for AdrEmailFlags {}
-impl ::core::clone::Clone for AdrEmailFlags {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const AdrClientDisplayFlags_AllowEmailRequests: i32 = 1i32;
+pub const AdrClientDisplayFlags_ShowDeviceTroubleshooting: i32 = 2i32;
+pub const AdrClientErrorType_Unknown: i32 = 0i32;
+pub const AdrClientErrorType_AccessDenied: i32 = 1i32;
+pub const AdrClientErrorType_FileNotFound: i32 = 2i32;
+pub const AdrClientFlags_None: i32 = 0i32;
+pub const AdrClientFlags_FailForLocalPaths: i32 = 1i32;
+pub const AdrClientFlags_FailIfNotSupportedByServer: i32 = 2i32;
+pub const AdrClientFlags_FailIfNotDomainJoined: i32 = 4i32;
+pub const AdrEmailFlags_PutDataOwnerOnToLine: i32 = 1i32;
+pub const AdrEmailFlags_PutAdminOnToLine: i32 = 2i32;
+pub const AdrEmailFlags_IncludeDeviceClaims: i32 = 4i32;
+pub const AdrEmailFlags_IncludeUserInfo: i32 = 8i32;
+pub const AdrEmailFlags_GenerateEventLog: i32 = 16i32;
 #[repr(transparent)]
 pub struct DIFsrmClassificationEvents(pub *mut ::core::ffi::c_void);
 impl ::core::marker::Copy for DIFsrmClassificationEvents {}
@@ -205,124 +173,52 @@ pub const FsrmAccessDeniedRemediationClient: ::windows_sys::core::GUID = ::windo
     data3: 18191,
     data4: [177, 183, 221, 123, 107, 174, 121, 189],
 };
-#[repr(transparent)]
-pub struct FsrmAccountType(pub i32);
-pub const FsrmAccountType_Unknown: FsrmAccountType = FsrmAccountType(0i32);
-pub const FsrmAccountType_NetworkService: FsrmAccountType = FsrmAccountType(1i32);
-pub const FsrmAccountType_LocalService: FsrmAccountType = FsrmAccountType(2i32);
-pub const FsrmAccountType_LocalSystem: FsrmAccountType = FsrmAccountType(3i32);
-pub const FsrmAccountType_InProc: FsrmAccountType = FsrmAccountType(4i32);
-pub const FsrmAccountType_External: FsrmAccountType = FsrmAccountType(5i32);
-pub const FsrmAccountType_Automatic: FsrmAccountType = FsrmAccountType(500i32);
-impl ::core::marker::Copy for FsrmAccountType {}
-impl ::core::clone::Clone for FsrmAccountType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct FsrmActionType(pub i32);
-pub const FsrmActionType_Unknown: FsrmActionType = FsrmActionType(0i32);
-pub const FsrmActionType_EventLog: FsrmActionType = FsrmActionType(1i32);
-pub const FsrmActionType_Email: FsrmActionType = FsrmActionType(2i32);
-pub const FsrmActionType_Command: FsrmActionType = FsrmActionType(3i32);
-pub const FsrmActionType_Report: FsrmActionType = FsrmActionType(4i32);
-impl ::core::marker::Copy for FsrmActionType {}
-impl ::core::clone::Clone for FsrmActionType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct FsrmClassificationLoggingFlags(pub i32);
-pub const FsrmClassificationLoggingFlags_None: FsrmClassificationLoggingFlags = FsrmClassificationLoggingFlags(0i32);
-pub const FsrmClassificationLoggingFlags_ClassificationsInLogFile: FsrmClassificationLoggingFlags = FsrmClassificationLoggingFlags(1i32);
-pub const FsrmClassificationLoggingFlags_ErrorsInLogFile: FsrmClassificationLoggingFlags = FsrmClassificationLoggingFlags(2i32);
-pub const FsrmClassificationLoggingFlags_ClassificationsInSystemLog: FsrmClassificationLoggingFlags = FsrmClassificationLoggingFlags(4i32);
-pub const FsrmClassificationLoggingFlags_ErrorsInSystemLog: FsrmClassificationLoggingFlags = FsrmClassificationLoggingFlags(8i32);
-impl ::core::marker::Copy for FsrmClassificationLoggingFlags {}
-impl ::core::clone::Clone for FsrmClassificationLoggingFlags {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const FsrmAccountType_Unknown: i32 = 0i32;
+pub const FsrmAccountType_NetworkService: i32 = 1i32;
+pub const FsrmAccountType_LocalService: i32 = 2i32;
+pub const FsrmAccountType_LocalSystem: i32 = 3i32;
+pub const FsrmAccountType_InProc: i32 = 4i32;
+pub const FsrmAccountType_External: i32 = 5i32;
+pub const FsrmAccountType_Automatic: i32 = 500i32;
+pub const FsrmActionType_Unknown: i32 = 0i32;
+pub const FsrmActionType_EventLog: i32 = 1i32;
+pub const FsrmActionType_Email: i32 = 2i32;
+pub const FsrmActionType_Command: i32 = 3i32;
+pub const FsrmActionType_Report: i32 = 4i32;
+pub const FsrmClassificationLoggingFlags_None: i32 = 0i32;
+pub const FsrmClassificationLoggingFlags_ClassificationsInLogFile: i32 = 1i32;
+pub const FsrmClassificationLoggingFlags_ErrorsInLogFile: i32 = 2i32;
+pub const FsrmClassificationLoggingFlags_ClassificationsInSystemLog: i32 = 4i32;
+pub const FsrmClassificationLoggingFlags_ErrorsInSystemLog: i32 = 8i32;
 pub const FsrmClassificationManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2975600199,
     data2: 50065,
     data3: 17849,
     data4: [149, 200, 235, 89, 108, 133, 63, 58],
 };
-#[repr(transparent)]
-pub struct FsrmCollectionState(pub i32);
-pub const FsrmCollectionState_Fetching: FsrmCollectionState = FsrmCollectionState(1i32);
-pub const FsrmCollectionState_Committing: FsrmCollectionState = FsrmCollectionState(2i32);
-pub const FsrmCollectionState_Complete: FsrmCollectionState = FsrmCollectionState(3i32);
-pub const FsrmCollectionState_Cancelled: FsrmCollectionState = FsrmCollectionState(4i32);
-impl ::core::marker::Copy for FsrmCollectionState {}
-impl ::core::clone::Clone for FsrmCollectionState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct FsrmCommitOptions(pub i32);
-pub const FsrmCommitOptions_None: FsrmCommitOptions = FsrmCommitOptions(0i32);
-pub const FsrmCommitOptions_Asynchronous: FsrmCommitOptions = FsrmCommitOptions(1i32);
-impl ::core::marker::Copy for FsrmCommitOptions {}
-impl ::core::clone::Clone for FsrmCommitOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const FsrmCollectionState_Fetching: i32 = 1i32;
+pub const FsrmCollectionState_Committing: i32 = 2i32;
+pub const FsrmCollectionState_Complete: i32 = 3i32;
+pub const FsrmCollectionState_Cancelled: i32 = 4i32;
+pub const FsrmCommitOptions_None: i32 = 0i32;
+pub const FsrmCommitOptions_Asynchronous: i32 = 1i32;
 pub const FsrmDaysNotSpecified: i32 = -1i32;
-#[repr(transparent)]
-pub struct FsrmEnumOptions(pub i32);
-pub const FsrmEnumOptions_None: FsrmEnumOptions = FsrmEnumOptions(0i32);
-pub const FsrmEnumOptions_Asynchronous: FsrmEnumOptions = FsrmEnumOptions(1i32);
-pub const FsrmEnumOptions_CheckRecycleBin: FsrmEnumOptions = FsrmEnumOptions(2i32);
-pub const FsrmEnumOptions_IncludeClusterNodes: FsrmEnumOptions = FsrmEnumOptions(4i32);
-pub const FsrmEnumOptions_IncludeDeprecatedObjects: FsrmEnumOptions = FsrmEnumOptions(8i32);
-impl ::core::marker::Copy for FsrmEnumOptions {}
-impl ::core::clone::Clone for FsrmEnumOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct FsrmEventType(pub i32);
-pub const FsrmEventType_Unknown: FsrmEventType = FsrmEventType(0i32);
-pub const FsrmEventType_Information: FsrmEventType = FsrmEventType(1i32);
-pub const FsrmEventType_Warning: FsrmEventType = FsrmEventType(2i32);
-pub const FsrmEventType_Error: FsrmEventType = FsrmEventType(3i32);
-impl ::core::marker::Copy for FsrmEventType {}
-impl ::core::clone::Clone for FsrmEventType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct FsrmExecutionOption(pub i32);
-pub const FsrmExecutionOption_Unknown: FsrmExecutionOption = FsrmExecutionOption(0i32);
-pub const FsrmExecutionOption_EvaluateUnset: FsrmExecutionOption = FsrmExecutionOption(1i32);
-pub const FsrmExecutionOption_ReEvaluate_ConsiderExistingValue: FsrmExecutionOption = FsrmExecutionOption(2i32);
-pub const FsrmExecutionOption_ReEvaluate_IgnoreExistingValue: FsrmExecutionOption = FsrmExecutionOption(3i32);
-impl ::core::marker::Copy for FsrmExecutionOption {}
-impl ::core::clone::Clone for FsrmExecutionOption {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const FsrmEnumOptions_None: i32 = 0i32;
+pub const FsrmEnumOptions_Asynchronous: i32 = 1i32;
+pub const FsrmEnumOptions_CheckRecycleBin: i32 = 2i32;
+pub const FsrmEnumOptions_IncludeClusterNodes: i32 = 4i32;
+pub const FsrmEnumOptions_IncludeDeprecatedObjects: i32 = 8i32;
+pub const FsrmEventType_Unknown: i32 = 0i32;
+pub const FsrmEventType_Information: i32 = 1i32;
+pub const FsrmEventType_Warning: i32 = 2i32;
+pub const FsrmEventType_Error: i32 = 3i32;
+pub const FsrmExecutionOption_Unknown: i32 = 0i32;
+pub const FsrmExecutionOption_EvaluateUnset: i32 = 1i32;
+pub const FsrmExecutionOption_ReEvaluate_ConsiderExistingValue: i32 = 2i32;
+pub const FsrmExecutionOption_ReEvaluate_IgnoreExistingValue: i32 = 3i32;
 pub const FsrmExportImport: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 344120375, data2: 64233, data3: 18311, data4: [144, 37, 140, 228, 224, 36, 171, 86] };
-#[repr(transparent)]
-pub struct FsrmFileConditionType(pub i32);
-pub const FsrmFileConditionType_Unknown: FsrmFileConditionType = FsrmFileConditionType(0i32);
-pub const FsrmFileConditionType_Property: FsrmFileConditionType = FsrmFileConditionType(1i32);
-impl ::core::marker::Copy for FsrmFileConditionType {}
-impl ::core::clone::Clone for FsrmFileConditionType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const FsrmFileConditionType_Unknown: i32 = 0i32;
+pub const FsrmFileConditionType_Property: i32 = 1i32;
 pub const FsrmFileGroupManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2400412662,
     data2: 25967,
@@ -330,39 +226,15 @@ pub const FsrmFileGroupManager: ::windows_sys::core::GUID = ::windows_sys::core:
     data4: [146, 38, 19, 174, 203, 215, 113, 143],
 };
 pub const FsrmFileManagementJobManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3944282546, data2: 19514, data3: 17185, data4: [178, 3, 32, 81, 32, 207, 246, 20] };
-#[repr(transparent)]
-pub struct FsrmFileManagementLoggingFlags(pub i32);
-pub const FsrmFileManagementLoggingFlags_None: FsrmFileManagementLoggingFlags = FsrmFileManagementLoggingFlags(0i32);
-pub const FsrmFileManagementLoggingFlags_Error: FsrmFileManagementLoggingFlags = FsrmFileManagementLoggingFlags(1i32);
-pub const FsrmFileManagementLoggingFlags_Information: FsrmFileManagementLoggingFlags = FsrmFileManagementLoggingFlags(2i32);
-pub const FsrmFileManagementLoggingFlags_Audit: FsrmFileManagementLoggingFlags = FsrmFileManagementLoggingFlags(4i32);
-impl ::core::marker::Copy for FsrmFileManagementLoggingFlags {}
-impl ::core::clone::Clone for FsrmFileManagementLoggingFlags {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct FsrmFileManagementType(pub i32);
-pub const FsrmFileManagementType_Unknown: FsrmFileManagementType = FsrmFileManagementType(0i32);
-pub const FsrmFileManagementType_Expiration: FsrmFileManagementType = FsrmFileManagementType(1i32);
-pub const FsrmFileManagementType_Custom: FsrmFileManagementType = FsrmFileManagementType(2i32);
-pub const FsrmFileManagementType_Rms: FsrmFileManagementType = FsrmFileManagementType(3i32);
-impl ::core::marker::Copy for FsrmFileManagementType {}
-impl ::core::clone::Clone for FsrmFileManagementType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct FsrmFileScreenFlags(pub i32);
-pub const FsrmFileScreenFlags_Enforce: FsrmFileScreenFlags = FsrmFileScreenFlags(1i32);
-impl ::core::marker::Copy for FsrmFileScreenFlags {}
-impl ::core::clone::Clone for FsrmFileScreenFlags {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const FsrmFileManagementLoggingFlags_None: i32 = 0i32;
+pub const FsrmFileManagementLoggingFlags_Error: i32 = 1i32;
+pub const FsrmFileManagementLoggingFlags_Information: i32 = 2i32;
+pub const FsrmFileManagementLoggingFlags_Audit: i32 = 4i32;
+pub const FsrmFileManagementType_Unknown: i32 = 0i32;
+pub const FsrmFileManagementType_Expiration: i32 = 1i32;
+pub const FsrmFileManagementType_Custom: i32 = 2i32;
+pub const FsrmFileManagementType_Rms: i32 = 3i32;
+pub const FsrmFileScreenFlags_Enforce: i32 = 1i32;
 pub const FsrmFileScreenManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2509508995,
     data2: 56147,
@@ -370,55 +242,23 @@ pub const FsrmFileScreenManager: ::windows_sys::core::GUID = ::windows_sys::core
     data4: [179, 123, 125, 9, 33, 207, 157, 199],
 };
 pub const FsrmFileScreenTemplateManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 607195615, data2: 58484, data3: 18090, data4: [160, 84, 234, 163, 62, 220, 41, 42] };
-#[repr(transparent)]
-pub struct FsrmFileStreamingInterfaceType(pub i32);
-pub const FsrmFileStreamingInterfaceType_Unknown: FsrmFileStreamingInterfaceType = FsrmFileStreamingInterfaceType(0i32);
-pub const FsrmFileStreamingInterfaceType_ILockBytes: FsrmFileStreamingInterfaceType = FsrmFileStreamingInterfaceType(1i32);
-pub const FsrmFileStreamingInterfaceType_IStream: FsrmFileStreamingInterfaceType = FsrmFileStreamingInterfaceType(2i32);
-impl ::core::marker::Copy for FsrmFileStreamingInterfaceType {}
-impl ::core::clone::Clone for FsrmFileStreamingInterfaceType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct FsrmFileStreamingMode(pub i32);
-pub const FsrmFileStreamingMode_Unknown: FsrmFileStreamingMode = FsrmFileStreamingMode(0i32);
-pub const FsrmFileStreamingMode_Read: FsrmFileStreamingMode = FsrmFileStreamingMode(1i32);
-pub const FsrmFileStreamingMode_Write: FsrmFileStreamingMode = FsrmFileStreamingMode(2i32);
-impl ::core::marker::Copy for FsrmFileStreamingMode {}
-impl ::core::clone::Clone for FsrmFileStreamingMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct FsrmFileSystemPropertyId(pub i32);
-pub const FsrmFileSystemPropertyId_Undefined: FsrmFileSystemPropertyId = FsrmFileSystemPropertyId(0i32);
-pub const FsrmFileSystemPropertyId_FileName: FsrmFileSystemPropertyId = FsrmFileSystemPropertyId(1i32);
-pub const FsrmFileSystemPropertyId_DateCreated: FsrmFileSystemPropertyId = FsrmFileSystemPropertyId(2i32);
-pub const FsrmFileSystemPropertyId_DateLastAccessed: FsrmFileSystemPropertyId = FsrmFileSystemPropertyId(3i32);
-pub const FsrmFileSystemPropertyId_DateLastModified: FsrmFileSystemPropertyId = FsrmFileSystemPropertyId(4i32);
-pub const FsrmFileSystemPropertyId_DateNow: FsrmFileSystemPropertyId = FsrmFileSystemPropertyId(5i32);
-impl ::core::marker::Copy for FsrmFileSystemPropertyId {}
-impl ::core::clone::Clone for FsrmFileSystemPropertyId {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct FsrmGetFilePropertyOptions(pub i32);
-pub const FsrmGetFilePropertyOptions_None: FsrmGetFilePropertyOptions = FsrmGetFilePropertyOptions(0i32);
-pub const FsrmGetFilePropertyOptions_NoRuleEvaluation: FsrmGetFilePropertyOptions = FsrmGetFilePropertyOptions(1i32);
-pub const FsrmGetFilePropertyOptions_Persistent: FsrmGetFilePropertyOptions = FsrmGetFilePropertyOptions(2i32);
-pub const FsrmGetFilePropertyOptions_FailOnPersistErrors: FsrmGetFilePropertyOptions = FsrmGetFilePropertyOptions(4i32);
-pub const FsrmGetFilePropertyOptions_SkipOrphaned: FsrmGetFilePropertyOptions = FsrmGetFilePropertyOptions(8i32);
-impl ::core::marker::Copy for FsrmGetFilePropertyOptions {}
-impl ::core::clone::Clone for FsrmGetFilePropertyOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const FsrmFileStreamingInterfaceType_Unknown: i32 = 0i32;
+pub const FsrmFileStreamingInterfaceType_ILockBytes: i32 = 1i32;
+pub const FsrmFileStreamingInterfaceType_IStream: i32 = 2i32;
+pub const FsrmFileStreamingMode_Unknown: i32 = 0i32;
+pub const FsrmFileStreamingMode_Read: i32 = 1i32;
+pub const FsrmFileStreamingMode_Write: i32 = 2i32;
+pub const FsrmFileSystemPropertyId_Undefined: i32 = 0i32;
+pub const FsrmFileSystemPropertyId_FileName: i32 = 1i32;
+pub const FsrmFileSystemPropertyId_DateCreated: i32 = 2i32;
+pub const FsrmFileSystemPropertyId_DateLastAccessed: i32 = 3i32;
+pub const FsrmFileSystemPropertyId_DateLastModified: i32 = 4i32;
+pub const FsrmFileSystemPropertyId_DateNow: i32 = 5i32;
+pub const FsrmGetFilePropertyOptions_None: i32 = 0i32;
+pub const FsrmGetFilePropertyOptions_NoRuleEvaluation: i32 = 1i32;
+pub const FsrmGetFilePropertyOptions_Persistent: i32 = 2i32;
+pub const FsrmGetFilePropertyOptions_FailOnPersistErrors: i32 = 4i32;
+pub const FsrmGetFilePropertyOptions_SkipOrphaned: i32 = 8i32;
 pub const FsrmMaxExcludeFolders: u32 = 32u32;
 pub const FsrmMaxNumberPropertyDefinitions: u32 = 100u32;
 pub const FsrmMaxNumberThresholds: u32 = 16u32;
@@ -432,315 +272,147 @@ pub const FsrmPathMapper: ::windows_sys::core::GUID = ::windows_sys::core::GUID 
     data4: [187, 216, 250, 249, 182, 180, 31, 235],
 };
 pub const FsrmPipelineModuleConnector: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3345232757, data2: 7861, data3: 17630, data4: [160, 98, 98, 53, 71, 217, 51, 188] };
-#[repr(transparent)]
-pub struct FsrmPipelineModuleType(pub i32);
-pub const FsrmPipelineModuleType_Unknown: FsrmPipelineModuleType = FsrmPipelineModuleType(0i32);
-pub const FsrmPipelineModuleType_Storage: FsrmPipelineModuleType = FsrmPipelineModuleType(1i32);
-pub const FsrmPipelineModuleType_Classifier: FsrmPipelineModuleType = FsrmPipelineModuleType(2i32);
-impl ::core::marker::Copy for FsrmPipelineModuleType {}
-impl ::core::clone::Clone for FsrmPipelineModuleType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct FsrmPropertyBagField(pub i32);
-pub const FsrmPropertyBagField_AccessVolume: FsrmPropertyBagField = FsrmPropertyBagField(0i32);
-pub const FsrmPropertyBagField_VolumeGuidName: FsrmPropertyBagField = FsrmPropertyBagField(1i32);
-impl ::core::marker::Copy for FsrmPropertyBagField {}
-impl ::core::clone::Clone for FsrmPropertyBagField {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct FsrmPropertyBagFlags(pub i32);
-pub const FsrmPropertyBagFlags_UpdatedByClassifier: FsrmPropertyBagFlags = FsrmPropertyBagFlags(1i32);
-pub const FsrmPropertyBagFlags_FailedLoadingProperties: FsrmPropertyBagFlags = FsrmPropertyBagFlags(2i32);
-pub const FsrmPropertyBagFlags_FailedSavingProperties: FsrmPropertyBagFlags = FsrmPropertyBagFlags(4i32);
-pub const FsrmPropertyBagFlags_FailedClassifyingProperties: FsrmPropertyBagFlags = FsrmPropertyBagFlags(8i32);
-impl ::core::marker::Copy for FsrmPropertyBagFlags {}
-impl ::core::clone::Clone for FsrmPropertyBagFlags {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct FsrmPropertyConditionType(pub i32);
-pub const FsrmPropertyConditionType_Unknown: FsrmPropertyConditionType = FsrmPropertyConditionType(0i32);
-pub const FsrmPropertyConditionType_Equal: FsrmPropertyConditionType = FsrmPropertyConditionType(1i32);
-pub const FsrmPropertyConditionType_NotEqual: FsrmPropertyConditionType = FsrmPropertyConditionType(2i32);
-pub const FsrmPropertyConditionType_GreaterThan: FsrmPropertyConditionType = FsrmPropertyConditionType(3i32);
-pub const FsrmPropertyConditionType_LessThan: FsrmPropertyConditionType = FsrmPropertyConditionType(4i32);
-pub const FsrmPropertyConditionType_Contain: FsrmPropertyConditionType = FsrmPropertyConditionType(5i32);
-pub const FsrmPropertyConditionType_Exist: FsrmPropertyConditionType = FsrmPropertyConditionType(6i32);
-pub const FsrmPropertyConditionType_NotExist: FsrmPropertyConditionType = FsrmPropertyConditionType(7i32);
-pub const FsrmPropertyConditionType_StartWith: FsrmPropertyConditionType = FsrmPropertyConditionType(8i32);
-pub const FsrmPropertyConditionType_EndWith: FsrmPropertyConditionType = FsrmPropertyConditionType(9i32);
-pub const FsrmPropertyConditionType_ContainedIn: FsrmPropertyConditionType = FsrmPropertyConditionType(10i32);
-pub const FsrmPropertyConditionType_PrefixOf: FsrmPropertyConditionType = FsrmPropertyConditionType(11i32);
-pub const FsrmPropertyConditionType_SuffixOf: FsrmPropertyConditionType = FsrmPropertyConditionType(12i32);
-pub const FsrmPropertyConditionType_MatchesPattern: FsrmPropertyConditionType = FsrmPropertyConditionType(13i32);
-impl ::core::marker::Copy for FsrmPropertyConditionType {}
-impl ::core::clone::Clone for FsrmPropertyConditionType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct FsrmPropertyDefinitionAppliesTo(pub i32);
-pub const FsrmPropertyDefinitionAppliesTo_Files: FsrmPropertyDefinitionAppliesTo = FsrmPropertyDefinitionAppliesTo(1i32);
-pub const FsrmPropertyDefinitionAppliesTo_Folders: FsrmPropertyDefinitionAppliesTo = FsrmPropertyDefinitionAppliesTo(2i32);
-impl ::core::marker::Copy for FsrmPropertyDefinitionAppliesTo {}
-impl ::core::clone::Clone for FsrmPropertyDefinitionAppliesTo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct FsrmPropertyDefinitionFlags(pub i32);
-pub const FsrmPropertyDefinitionFlags_Global: FsrmPropertyDefinitionFlags = FsrmPropertyDefinitionFlags(1i32);
-pub const FsrmPropertyDefinitionFlags_Deprecated: FsrmPropertyDefinitionFlags = FsrmPropertyDefinitionFlags(2i32);
-pub const FsrmPropertyDefinitionFlags_Secure: FsrmPropertyDefinitionFlags = FsrmPropertyDefinitionFlags(4i32);
-impl ::core::marker::Copy for FsrmPropertyDefinitionFlags {}
-impl ::core::clone::Clone for FsrmPropertyDefinitionFlags {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct FsrmPropertyDefinitionType(pub i32);
-pub const FsrmPropertyDefinitionType_Unknown: FsrmPropertyDefinitionType = FsrmPropertyDefinitionType(0i32);
-pub const FsrmPropertyDefinitionType_OrderedList: FsrmPropertyDefinitionType = FsrmPropertyDefinitionType(1i32);
-pub const FsrmPropertyDefinitionType_MultiChoiceList: FsrmPropertyDefinitionType = FsrmPropertyDefinitionType(2i32);
-pub const FsrmPropertyDefinitionType_SingleChoiceList: FsrmPropertyDefinitionType = FsrmPropertyDefinitionType(3i32);
-pub const FsrmPropertyDefinitionType_String: FsrmPropertyDefinitionType = FsrmPropertyDefinitionType(4i32);
-pub const FsrmPropertyDefinitionType_MultiString: FsrmPropertyDefinitionType = FsrmPropertyDefinitionType(5i32);
-pub const FsrmPropertyDefinitionType_Int: FsrmPropertyDefinitionType = FsrmPropertyDefinitionType(6i32);
-pub const FsrmPropertyDefinitionType_Bool: FsrmPropertyDefinitionType = FsrmPropertyDefinitionType(7i32);
-pub const FsrmPropertyDefinitionType_Date: FsrmPropertyDefinitionType = FsrmPropertyDefinitionType(8i32);
-impl ::core::marker::Copy for FsrmPropertyDefinitionType {}
-impl ::core::clone::Clone for FsrmPropertyDefinitionType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct FsrmPropertyFlags(pub i32);
-pub const FsrmPropertyFlags_None: FsrmPropertyFlags = FsrmPropertyFlags(0i32);
-pub const FsrmPropertyFlags_Orphaned: FsrmPropertyFlags = FsrmPropertyFlags(1i32);
-pub const FsrmPropertyFlags_RetrievedFromCache: FsrmPropertyFlags = FsrmPropertyFlags(2i32);
-pub const FsrmPropertyFlags_RetrievedFromStorage: FsrmPropertyFlags = FsrmPropertyFlags(4i32);
-pub const FsrmPropertyFlags_SetByClassifier: FsrmPropertyFlags = FsrmPropertyFlags(8i32);
-pub const FsrmPropertyFlags_Deleted: FsrmPropertyFlags = FsrmPropertyFlags(16i32);
-pub const FsrmPropertyFlags_Reclassified: FsrmPropertyFlags = FsrmPropertyFlags(32i32);
-pub const FsrmPropertyFlags_AggregationFailed: FsrmPropertyFlags = FsrmPropertyFlags(64i32);
-pub const FsrmPropertyFlags_Existing: FsrmPropertyFlags = FsrmPropertyFlags(128i32);
-pub const FsrmPropertyFlags_FailedLoadingProperties: FsrmPropertyFlags = FsrmPropertyFlags(256i32);
-pub const FsrmPropertyFlags_FailedClassifyingProperties: FsrmPropertyFlags = FsrmPropertyFlags(512i32);
-pub const FsrmPropertyFlags_FailedSavingProperties: FsrmPropertyFlags = FsrmPropertyFlags(1024i32);
-pub const FsrmPropertyFlags_Secure: FsrmPropertyFlags = FsrmPropertyFlags(2048i32);
-pub const FsrmPropertyFlags_PolicyDerived: FsrmPropertyFlags = FsrmPropertyFlags(4096i32);
-pub const FsrmPropertyFlags_Inherited: FsrmPropertyFlags = FsrmPropertyFlags(8192i32);
-pub const FsrmPropertyFlags_Manual: FsrmPropertyFlags = FsrmPropertyFlags(16384i32);
-pub const FsrmPropertyFlags_ExplicitValueDeleted: FsrmPropertyFlags = FsrmPropertyFlags(32768i32);
-pub const FsrmPropertyFlags_PropertyDeletedFromClear: FsrmPropertyFlags = FsrmPropertyFlags(65536i32);
-pub const FsrmPropertyFlags_PropertySourceMask: FsrmPropertyFlags = FsrmPropertyFlags(14i32);
-pub const FsrmPropertyFlags_PersistentMask: FsrmPropertyFlags = FsrmPropertyFlags(20480i32);
-impl ::core::marker::Copy for FsrmPropertyFlags {}
-impl ::core::clone::Clone for FsrmPropertyFlags {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct FsrmPropertyValueType(pub i32);
-pub const FsrmPropertyValueType_Undefined: FsrmPropertyValueType = FsrmPropertyValueType(0i32);
-pub const FsrmPropertyValueType_Literal: FsrmPropertyValueType = FsrmPropertyValueType(1i32);
-pub const FsrmPropertyValueType_DateOffset: FsrmPropertyValueType = FsrmPropertyValueType(2i32);
-impl ::core::marker::Copy for FsrmPropertyValueType {}
-impl ::core::clone::Clone for FsrmPropertyValueType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct FsrmQuotaFlags(pub i32);
-pub const FsrmQuotaFlags_Enforce: FsrmQuotaFlags = FsrmQuotaFlags(256i32);
-pub const FsrmQuotaFlags_Disable: FsrmQuotaFlags = FsrmQuotaFlags(512i32);
-pub const FsrmQuotaFlags_StatusIncomplete: FsrmQuotaFlags = FsrmQuotaFlags(65536i32);
-pub const FsrmQuotaFlags_StatusRebuilding: FsrmQuotaFlags = FsrmQuotaFlags(131072i32);
-impl ::core::marker::Copy for FsrmQuotaFlags {}
-impl ::core::clone::Clone for FsrmQuotaFlags {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const FsrmPipelineModuleType_Unknown: i32 = 0i32;
+pub const FsrmPipelineModuleType_Storage: i32 = 1i32;
+pub const FsrmPipelineModuleType_Classifier: i32 = 2i32;
+pub const FsrmPropertyBagField_AccessVolume: i32 = 0i32;
+pub const FsrmPropertyBagField_VolumeGuidName: i32 = 1i32;
+pub const FsrmPropertyBagFlags_UpdatedByClassifier: i32 = 1i32;
+pub const FsrmPropertyBagFlags_FailedLoadingProperties: i32 = 2i32;
+pub const FsrmPropertyBagFlags_FailedSavingProperties: i32 = 4i32;
+pub const FsrmPropertyBagFlags_FailedClassifyingProperties: i32 = 8i32;
+pub const FsrmPropertyConditionType_Unknown: i32 = 0i32;
+pub const FsrmPropertyConditionType_Equal: i32 = 1i32;
+pub const FsrmPropertyConditionType_NotEqual: i32 = 2i32;
+pub const FsrmPropertyConditionType_GreaterThan: i32 = 3i32;
+pub const FsrmPropertyConditionType_LessThan: i32 = 4i32;
+pub const FsrmPropertyConditionType_Contain: i32 = 5i32;
+pub const FsrmPropertyConditionType_Exist: i32 = 6i32;
+pub const FsrmPropertyConditionType_NotExist: i32 = 7i32;
+pub const FsrmPropertyConditionType_StartWith: i32 = 8i32;
+pub const FsrmPropertyConditionType_EndWith: i32 = 9i32;
+pub const FsrmPropertyConditionType_ContainedIn: i32 = 10i32;
+pub const FsrmPropertyConditionType_PrefixOf: i32 = 11i32;
+pub const FsrmPropertyConditionType_SuffixOf: i32 = 12i32;
+pub const FsrmPropertyConditionType_MatchesPattern: i32 = 13i32;
+pub const FsrmPropertyDefinitionAppliesTo_Files: i32 = 1i32;
+pub const FsrmPropertyDefinitionAppliesTo_Folders: i32 = 2i32;
+pub const FsrmPropertyDefinitionFlags_Global: i32 = 1i32;
+pub const FsrmPropertyDefinitionFlags_Deprecated: i32 = 2i32;
+pub const FsrmPropertyDefinitionFlags_Secure: i32 = 4i32;
+pub const FsrmPropertyDefinitionType_Unknown: i32 = 0i32;
+pub const FsrmPropertyDefinitionType_OrderedList: i32 = 1i32;
+pub const FsrmPropertyDefinitionType_MultiChoiceList: i32 = 2i32;
+pub const FsrmPropertyDefinitionType_SingleChoiceList: i32 = 3i32;
+pub const FsrmPropertyDefinitionType_String: i32 = 4i32;
+pub const FsrmPropertyDefinitionType_MultiString: i32 = 5i32;
+pub const FsrmPropertyDefinitionType_Int: i32 = 6i32;
+pub const FsrmPropertyDefinitionType_Bool: i32 = 7i32;
+pub const FsrmPropertyDefinitionType_Date: i32 = 8i32;
+pub const FsrmPropertyFlags_None: i32 = 0i32;
+pub const FsrmPropertyFlags_Orphaned: i32 = 1i32;
+pub const FsrmPropertyFlags_RetrievedFromCache: i32 = 2i32;
+pub const FsrmPropertyFlags_RetrievedFromStorage: i32 = 4i32;
+pub const FsrmPropertyFlags_SetByClassifier: i32 = 8i32;
+pub const FsrmPropertyFlags_Deleted: i32 = 16i32;
+pub const FsrmPropertyFlags_Reclassified: i32 = 32i32;
+pub const FsrmPropertyFlags_AggregationFailed: i32 = 64i32;
+pub const FsrmPropertyFlags_Existing: i32 = 128i32;
+pub const FsrmPropertyFlags_FailedLoadingProperties: i32 = 256i32;
+pub const FsrmPropertyFlags_FailedClassifyingProperties: i32 = 512i32;
+pub const FsrmPropertyFlags_FailedSavingProperties: i32 = 1024i32;
+pub const FsrmPropertyFlags_Secure: i32 = 2048i32;
+pub const FsrmPropertyFlags_PolicyDerived: i32 = 4096i32;
+pub const FsrmPropertyFlags_Inherited: i32 = 8192i32;
+pub const FsrmPropertyFlags_Manual: i32 = 16384i32;
+pub const FsrmPropertyFlags_ExplicitValueDeleted: i32 = 32768i32;
+pub const FsrmPropertyFlags_PropertyDeletedFromClear: i32 = 65536i32;
+pub const FsrmPropertyFlags_PropertySourceMask: i32 = 14i32;
+pub const FsrmPropertyFlags_PersistentMask: i32 = 20480i32;
+pub const FsrmPropertyValueType_Undefined: i32 = 0i32;
+pub const FsrmPropertyValueType_Literal: i32 = 1i32;
+pub const FsrmPropertyValueType_DateOffset: i32 = 2i32;
+pub const FsrmQuotaFlags_Enforce: i32 = 256i32;
+pub const FsrmQuotaFlags_Disable: i32 = 512i32;
+pub const FsrmQuotaFlags_StatusIncomplete: i32 = 65536i32;
+pub const FsrmQuotaFlags_StatusRebuilding: i32 = 131072i32;
 pub const FsrmQuotaManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2430380927, data2: 13436, data3: 19452, data4: [181, 67, 84, 3, 38, 48, 95, 190] };
 pub const FsrmQuotaTemplateManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2547242051, data2: 9500, data3: 17207, data4: [129, 231, 179, 46, 143, 78, 230, 94] };
-#[repr(transparent)]
-pub struct FsrmReportFilter(pub i32);
-pub const FsrmReportFilter_MinSize: FsrmReportFilter = FsrmReportFilter(1i32);
-pub const FsrmReportFilter_MinAgeDays: FsrmReportFilter = FsrmReportFilter(2i32);
-pub const FsrmReportFilter_MaxAgeDays: FsrmReportFilter = FsrmReportFilter(3i32);
-pub const FsrmReportFilter_MinQuotaUsage: FsrmReportFilter = FsrmReportFilter(4i32);
-pub const FsrmReportFilter_FileGroups: FsrmReportFilter = FsrmReportFilter(5i32);
-pub const FsrmReportFilter_Owners: FsrmReportFilter = FsrmReportFilter(6i32);
-pub const FsrmReportFilter_NamePattern: FsrmReportFilter = FsrmReportFilter(7i32);
-pub const FsrmReportFilter_Property: FsrmReportFilter = FsrmReportFilter(8i32);
-impl ::core::marker::Copy for FsrmReportFilter {}
-impl ::core::clone::Clone for FsrmReportFilter {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct FsrmReportFormat(pub i32);
-pub const FsrmReportFormat_Unknown: FsrmReportFormat = FsrmReportFormat(0i32);
-pub const FsrmReportFormat_DHtml: FsrmReportFormat = FsrmReportFormat(1i32);
-pub const FsrmReportFormat_Html: FsrmReportFormat = FsrmReportFormat(2i32);
-pub const FsrmReportFormat_Txt: FsrmReportFormat = FsrmReportFormat(3i32);
-pub const FsrmReportFormat_Csv: FsrmReportFormat = FsrmReportFormat(4i32);
-pub const FsrmReportFormat_Xml: FsrmReportFormat = FsrmReportFormat(5i32);
-impl ::core::marker::Copy for FsrmReportFormat {}
-impl ::core::clone::Clone for FsrmReportFormat {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct FsrmReportGenerationContext(pub i32);
-pub const FsrmReportGenerationContext_Undefined: FsrmReportGenerationContext = FsrmReportGenerationContext(1i32);
-pub const FsrmReportGenerationContext_ScheduledReport: FsrmReportGenerationContext = FsrmReportGenerationContext(2i32);
-pub const FsrmReportGenerationContext_InteractiveReport: FsrmReportGenerationContext = FsrmReportGenerationContext(3i32);
-pub const FsrmReportGenerationContext_IncidentReport: FsrmReportGenerationContext = FsrmReportGenerationContext(4i32);
-impl ::core::marker::Copy for FsrmReportGenerationContext {}
-impl ::core::clone::Clone for FsrmReportGenerationContext {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct FsrmReportLimit(pub i32);
-pub const FsrmReportLimit_MaxFiles: FsrmReportLimit = FsrmReportLimit(1i32);
-pub const FsrmReportLimit_MaxFileGroups: FsrmReportLimit = FsrmReportLimit(2i32);
-pub const FsrmReportLimit_MaxOwners: FsrmReportLimit = FsrmReportLimit(3i32);
-pub const FsrmReportLimit_MaxFilesPerFileGroup: FsrmReportLimit = FsrmReportLimit(4i32);
-pub const FsrmReportLimit_MaxFilesPerOwner: FsrmReportLimit = FsrmReportLimit(5i32);
-pub const FsrmReportLimit_MaxFilesPerDuplGroup: FsrmReportLimit = FsrmReportLimit(6i32);
-pub const FsrmReportLimit_MaxDuplicateGroups: FsrmReportLimit = FsrmReportLimit(7i32);
-pub const FsrmReportLimit_MaxQuotas: FsrmReportLimit = FsrmReportLimit(8i32);
-pub const FsrmReportLimit_MaxFileScreenEvents: FsrmReportLimit = FsrmReportLimit(9i32);
-pub const FsrmReportLimit_MaxPropertyValues: FsrmReportLimit = FsrmReportLimit(10i32);
-pub const FsrmReportLimit_MaxFilesPerPropertyValue: FsrmReportLimit = FsrmReportLimit(11i32);
-pub const FsrmReportLimit_MaxFolders: FsrmReportLimit = FsrmReportLimit(12i32);
-impl ::core::marker::Copy for FsrmReportLimit {}
-impl ::core::clone::Clone for FsrmReportLimit {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const FsrmReportFilter_MinSize: i32 = 1i32;
+pub const FsrmReportFilter_MinAgeDays: i32 = 2i32;
+pub const FsrmReportFilter_MaxAgeDays: i32 = 3i32;
+pub const FsrmReportFilter_MinQuotaUsage: i32 = 4i32;
+pub const FsrmReportFilter_FileGroups: i32 = 5i32;
+pub const FsrmReportFilter_Owners: i32 = 6i32;
+pub const FsrmReportFilter_NamePattern: i32 = 7i32;
+pub const FsrmReportFilter_Property: i32 = 8i32;
+pub const FsrmReportFormat_Unknown: i32 = 0i32;
+pub const FsrmReportFormat_DHtml: i32 = 1i32;
+pub const FsrmReportFormat_Html: i32 = 2i32;
+pub const FsrmReportFormat_Txt: i32 = 3i32;
+pub const FsrmReportFormat_Csv: i32 = 4i32;
+pub const FsrmReportFormat_Xml: i32 = 5i32;
+pub const FsrmReportGenerationContext_Undefined: i32 = 1i32;
+pub const FsrmReportGenerationContext_ScheduledReport: i32 = 2i32;
+pub const FsrmReportGenerationContext_InteractiveReport: i32 = 3i32;
+pub const FsrmReportGenerationContext_IncidentReport: i32 = 4i32;
+pub const FsrmReportLimit_MaxFiles: i32 = 1i32;
+pub const FsrmReportLimit_MaxFileGroups: i32 = 2i32;
+pub const FsrmReportLimit_MaxOwners: i32 = 3i32;
+pub const FsrmReportLimit_MaxFilesPerFileGroup: i32 = 4i32;
+pub const FsrmReportLimit_MaxFilesPerOwner: i32 = 5i32;
+pub const FsrmReportLimit_MaxFilesPerDuplGroup: i32 = 6i32;
+pub const FsrmReportLimit_MaxDuplicateGroups: i32 = 7i32;
+pub const FsrmReportLimit_MaxQuotas: i32 = 8i32;
+pub const FsrmReportLimit_MaxFileScreenEvents: i32 = 9i32;
+pub const FsrmReportLimit_MaxPropertyValues: i32 = 10i32;
+pub const FsrmReportLimit_MaxFilesPerPropertyValue: i32 = 11i32;
+pub const FsrmReportLimit_MaxFolders: i32 = 12i32;
 pub const FsrmReportManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 5828407, data2: 43622, data3: 19528, data4: [189, 91, 47, 206, 67, 42, 176, 200] };
-#[repr(transparent)]
-pub struct FsrmReportRunningStatus(pub i32);
-pub const FsrmReportRunningStatus_Unknown: FsrmReportRunningStatus = FsrmReportRunningStatus(0i32);
-pub const FsrmReportRunningStatus_NotRunning: FsrmReportRunningStatus = FsrmReportRunningStatus(1i32);
-pub const FsrmReportRunningStatus_Queued: FsrmReportRunningStatus = FsrmReportRunningStatus(2i32);
-pub const FsrmReportRunningStatus_Running: FsrmReportRunningStatus = FsrmReportRunningStatus(3i32);
-impl ::core::marker::Copy for FsrmReportRunningStatus {}
-impl ::core::clone::Clone for FsrmReportRunningStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const FsrmReportRunningStatus_Unknown: i32 = 0i32;
+pub const FsrmReportRunningStatus_NotRunning: i32 = 1i32;
+pub const FsrmReportRunningStatus_Queued: i32 = 2i32;
+pub const FsrmReportRunningStatus_Running: i32 = 3i32;
 pub const FsrmReportScheduler: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3928355256,
     data2: 7053,
     data3: 17040,
     data4: [142, 232, 225, 124, 18, 194, 254, 32],
 };
-#[repr(transparent)]
-pub struct FsrmReportType(pub i32);
-pub const FsrmReportType_Unknown: FsrmReportType = FsrmReportType(0i32);
-pub const FsrmReportType_LargeFiles: FsrmReportType = FsrmReportType(1i32);
-pub const FsrmReportType_FilesByType: FsrmReportType = FsrmReportType(2i32);
-pub const FsrmReportType_LeastRecentlyAccessed: FsrmReportType = FsrmReportType(3i32);
-pub const FsrmReportType_MostRecentlyAccessed: FsrmReportType = FsrmReportType(4i32);
-pub const FsrmReportType_QuotaUsage: FsrmReportType = FsrmReportType(5i32);
-pub const FsrmReportType_FilesByOwner: FsrmReportType = FsrmReportType(6i32);
-pub const FsrmReportType_ExportReport: FsrmReportType = FsrmReportType(7i32);
-pub const FsrmReportType_DuplicateFiles: FsrmReportType = FsrmReportType(8i32);
-pub const FsrmReportType_FileScreenAudit: FsrmReportType = FsrmReportType(9i32);
-pub const FsrmReportType_FilesByProperty: FsrmReportType = FsrmReportType(10i32);
-pub const FsrmReportType_AutomaticClassification: FsrmReportType = FsrmReportType(11i32);
-pub const FsrmReportType_Expiration: FsrmReportType = FsrmReportType(12i32);
-pub const FsrmReportType_FoldersByProperty: FsrmReportType = FsrmReportType(13i32);
-impl ::core::marker::Copy for FsrmReportType {}
-impl ::core::clone::Clone for FsrmReportType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct FsrmRuleFlags(pub i32);
-pub const FsrmRuleFlags_Disabled: FsrmRuleFlags = FsrmRuleFlags(256i32);
-pub const FsrmRuleFlags_ClearAutomaticallyClassifiedProperty: FsrmRuleFlags = FsrmRuleFlags(1024i32);
-pub const FsrmRuleFlags_ClearManuallyClassifiedProperty: FsrmRuleFlags = FsrmRuleFlags(2048i32);
-pub const FsrmRuleFlags_Invalid: FsrmRuleFlags = FsrmRuleFlags(4096i32);
-impl ::core::marker::Copy for FsrmRuleFlags {}
-impl ::core::clone::Clone for FsrmRuleFlags {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct FsrmRuleType(pub i32);
-pub const FsrmRuleType_Unknown: FsrmRuleType = FsrmRuleType(0i32);
-pub const FsrmRuleType_Classification: FsrmRuleType = FsrmRuleType(1i32);
-pub const FsrmRuleType_Generic: FsrmRuleType = FsrmRuleType(2i32);
-impl ::core::marker::Copy for FsrmRuleType {}
-impl ::core::clone::Clone for FsrmRuleType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const FsrmReportType_Unknown: i32 = 0i32;
+pub const FsrmReportType_LargeFiles: i32 = 1i32;
+pub const FsrmReportType_FilesByType: i32 = 2i32;
+pub const FsrmReportType_LeastRecentlyAccessed: i32 = 3i32;
+pub const FsrmReportType_MostRecentlyAccessed: i32 = 4i32;
+pub const FsrmReportType_QuotaUsage: i32 = 5i32;
+pub const FsrmReportType_FilesByOwner: i32 = 6i32;
+pub const FsrmReportType_ExportReport: i32 = 7i32;
+pub const FsrmReportType_DuplicateFiles: i32 = 8i32;
+pub const FsrmReportType_FileScreenAudit: i32 = 9i32;
+pub const FsrmReportType_FilesByProperty: i32 = 10i32;
+pub const FsrmReportType_AutomaticClassification: i32 = 11i32;
+pub const FsrmReportType_Expiration: i32 = 12i32;
+pub const FsrmReportType_FoldersByProperty: i32 = 13i32;
+pub const FsrmRuleFlags_Disabled: i32 = 256i32;
+pub const FsrmRuleFlags_ClearAutomaticallyClassifiedProperty: i32 = 1024i32;
+pub const FsrmRuleFlags_ClearManuallyClassifiedProperty: i32 = 2048i32;
+pub const FsrmRuleFlags_Invalid: i32 = 4096i32;
+pub const FsrmRuleType_Unknown: i32 = 0i32;
+pub const FsrmRuleType_Classification: i32 = 1i32;
+pub const FsrmRuleType_Generic: i32 = 2i32;
 pub const FsrmSetting: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4116109064, data2: 27981, data3: 17812, data4: [156, 97, 125, 187, 13, 174, 42, 70] };
-#[repr(transparent)]
-pub struct FsrmStorageModuleCaps(pub i32);
-pub const FsrmStorageModuleCaps_Unknown: FsrmStorageModuleCaps = FsrmStorageModuleCaps(0i32);
-pub const FsrmStorageModuleCaps_CanGet: FsrmStorageModuleCaps = FsrmStorageModuleCaps(1i32);
-pub const FsrmStorageModuleCaps_CanSet: FsrmStorageModuleCaps = FsrmStorageModuleCaps(2i32);
-pub const FsrmStorageModuleCaps_CanHandleDirectories: FsrmStorageModuleCaps = FsrmStorageModuleCaps(4i32);
-pub const FsrmStorageModuleCaps_CanHandleFiles: FsrmStorageModuleCaps = FsrmStorageModuleCaps(8i32);
-impl ::core::marker::Copy for FsrmStorageModuleCaps {}
-impl ::core::clone::Clone for FsrmStorageModuleCaps {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct FsrmStorageModuleType(pub i32);
-pub const FsrmStorageModuleType_Unknown: FsrmStorageModuleType = FsrmStorageModuleType(0i32);
-pub const FsrmStorageModuleType_Cache: FsrmStorageModuleType = FsrmStorageModuleType(1i32);
-pub const FsrmStorageModuleType_InFile: FsrmStorageModuleType = FsrmStorageModuleType(2i32);
-pub const FsrmStorageModuleType_Database: FsrmStorageModuleType = FsrmStorageModuleType(3i32);
-pub const FsrmStorageModuleType_System: FsrmStorageModuleType = FsrmStorageModuleType(100i32);
-impl ::core::marker::Copy for FsrmStorageModuleType {}
-impl ::core::clone::Clone for FsrmStorageModuleType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct FsrmTemplateApplyOptions(pub i32);
-pub const FsrmTemplateApplyOptions_ApplyToDerivedMatching: FsrmTemplateApplyOptions = FsrmTemplateApplyOptions(1i32);
-pub const FsrmTemplateApplyOptions_ApplyToDerivedAll: FsrmTemplateApplyOptions = FsrmTemplateApplyOptions(2i32);
-impl ::core::marker::Copy for FsrmTemplateApplyOptions {}
-impl ::core::clone::Clone for FsrmTemplateApplyOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const FsrmStorageModuleCaps_Unknown: i32 = 0i32;
+pub const FsrmStorageModuleCaps_CanGet: i32 = 1i32;
+pub const FsrmStorageModuleCaps_CanSet: i32 = 2i32;
+pub const FsrmStorageModuleCaps_CanHandleDirectories: i32 = 4i32;
+pub const FsrmStorageModuleCaps_CanHandleFiles: i32 = 8i32;
+pub const FsrmStorageModuleType_Unknown: i32 = 0i32;
+pub const FsrmStorageModuleType_Cache: i32 = 1i32;
+pub const FsrmStorageModuleType_InFile: i32 = 2i32;
+pub const FsrmStorageModuleType_Database: i32 = 3i32;
+pub const FsrmStorageModuleType_System: i32 = 100i32;
+pub const FsrmTemplateApplyOptions_ApplyToDerivedMatching: i32 = 1i32;
+pub const FsrmTemplateApplyOptions_ApplyToDerivedAll: i32 = 2i32;
 #[repr(transparent)]
 pub struct IFsrmAccessDeniedRemediationClient(pub *mut ::core::ffi::c_void);
 impl ::core::marker::Copy for IFsrmAccessDeniedRemediationClient {}

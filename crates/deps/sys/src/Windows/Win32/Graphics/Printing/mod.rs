@@ -635,22 +635,14 @@ impl ::core::clone::Clone for BIDI_RESPONSE_DATA {
         *self
     }
 }
-#[repr(transparent)]
-pub struct BIDI_TYPE(pub i32);
-pub const BIDI_NULL: BIDI_TYPE = BIDI_TYPE(0i32);
-pub const BIDI_INT: BIDI_TYPE = BIDI_TYPE(1i32);
-pub const BIDI_FLOAT: BIDI_TYPE = BIDI_TYPE(2i32);
-pub const BIDI_BOOL: BIDI_TYPE = BIDI_TYPE(3i32);
-pub const BIDI_STRING: BIDI_TYPE = BIDI_TYPE(4i32);
-pub const BIDI_TEXT: BIDI_TYPE = BIDI_TYPE(5i32);
-pub const BIDI_ENUM: BIDI_TYPE = BIDI_TYPE(6i32);
-pub const BIDI_BLOB: BIDI_TYPE = BIDI_TYPE(7i32);
-impl ::core::marker::Copy for BIDI_TYPE {}
-impl ::core::clone::Clone for BIDI_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const BIDI_NULL: i32 = 0i32;
+pub const BIDI_INT: i32 = 1i32;
+pub const BIDI_FLOAT: i32 = 2i32;
+pub const BIDI_BOOL: i32 = 3i32;
+pub const BIDI_STRING: i32 = 4i32;
+pub const BIDI_TEXT: i32 = 5i32;
+pub const BIDI_ENUM: i32 = 6i32;
+pub const BIDI_BLOB: i32 = 7i32;
 #[repr(C)]
 pub struct BINARY_CONTAINER {
     pub cbBuf: u32,
@@ -1934,39 +1926,23 @@ pub const DSPRINT_PUBLISH: u32 = 1u32;
 pub const DSPRINT_REPUBLISH: u32 = 8u32;
 pub const DSPRINT_UNPUBLISH: u32 = 4u32;
 pub const DSPRINT_UPDATE: u32 = 2u32;
-#[repr(transparent)]
-pub struct EATTRIBUTE_DATATYPE(pub i32);
-pub const kADT_UNKNOWN: EATTRIBUTE_DATATYPE = EATTRIBUTE_DATATYPE(0i32);
-pub const kADT_BOOL: EATTRIBUTE_DATATYPE = EATTRIBUTE_DATATYPE(1i32);
-pub const kADT_INT: EATTRIBUTE_DATATYPE = EATTRIBUTE_DATATYPE(2i32);
-pub const kADT_LONG: EATTRIBUTE_DATATYPE = EATTRIBUTE_DATATYPE(3i32);
-pub const kADT_DWORD: EATTRIBUTE_DATATYPE = EATTRIBUTE_DATATYPE(4i32);
-pub const kADT_ASCII: EATTRIBUTE_DATATYPE = EATTRIBUTE_DATATYPE(5i32);
-pub const kADT_UNICODE: EATTRIBUTE_DATATYPE = EATTRIBUTE_DATATYPE(6i32);
-pub const kADT_BINARY: EATTRIBUTE_DATATYPE = EATTRIBUTE_DATATYPE(7i32);
-pub const kADT_SIZE: EATTRIBUTE_DATATYPE = EATTRIBUTE_DATATYPE(8i32);
-pub const kADT_RECT: EATTRIBUTE_DATATYPE = EATTRIBUTE_DATATYPE(9i32);
-pub const kADT_CUSTOMSIZEPARAMS: EATTRIBUTE_DATATYPE = EATTRIBUTE_DATATYPE(10i32);
-impl ::core::marker::Copy for EATTRIBUTE_DATATYPE {}
-impl ::core::clone::Clone for EATTRIBUTE_DATATYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct EBranchOfficeJobEventType(pub i32);
-pub const kInvalidJobState: EBranchOfficeJobEventType = EBranchOfficeJobEventType(0i32);
-pub const kLogJobPrinted: EBranchOfficeJobEventType = EBranchOfficeJobEventType(1i32);
-pub const kLogJobRendered: EBranchOfficeJobEventType = EBranchOfficeJobEventType(2i32);
-pub const kLogJobError: EBranchOfficeJobEventType = EBranchOfficeJobEventType(3i32);
-pub const kLogJobPipelineError: EBranchOfficeJobEventType = EBranchOfficeJobEventType(4i32);
-pub const kLogOfflineFileFull: EBranchOfficeJobEventType = EBranchOfficeJobEventType(5i32);
-impl ::core::marker::Copy for EBranchOfficeJobEventType {}
-impl ::core::clone::Clone for EBranchOfficeJobEventType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const kADT_UNKNOWN: i32 = 0i32;
+pub const kADT_BOOL: i32 = 1i32;
+pub const kADT_INT: i32 = 2i32;
+pub const kADT_LONG: i32 = 3i32;
+pub const kADT_DWORD: i32 = 4i32;
+pub const kADT_ASCII: i32 = 5i32;
+pub const kADT_UNICODE: i32 = 6i32;
+pub const kADT_BINARY: i32 = 7i32;
+pub const kADT_SIZE: i32 = 8i32;
+pub const kADT_RECT: i32 = 9i32;
+pub const kADT_CUSTOMSIZEPARAMS: i32 = 10i32;
+pub const kInvalidJobState: i32 = 0i32;
+pub const kLogJobPrinted: i32 = 1i32;
+pub const kLogJobRendered: i32 = 2i32;
+pub const kLogJobError: i32 = 3i32;
+pub const kLogJobPipelineError: i32 = 4i32;
+pub const kLogOfflineFileFull: i32 = 5i32;
 pub const ECBF_CHECKNAME_AT_FRONT: u32 = 1u32;
 pub const ECBF_CHECKNAME_ONLY: u32 = 128u32;
 pub const ECBF_CHECKNAME_ONLY_ENABLED: u32 = 2u32;
@@ -1988,52 +1964,28 @@ pub const EPF_OVERLAY_STOP_ICON: u32 = 32u32;
 pub const EPF_OVERLAY_WARNING_ICON: u32 = 16u32;
 pub const EPF_PUSH_TYPE_DLGPROC: u32 = 1u32;
 pub const EPF_USE_HDLGTEMPLATE: u32 = 128u32;
-#[repr(transparent)]
-pub struct EPrintPropertyType(pub i32);
-pub const kPropertyTypeString: EPrintPropertyType = EPrintPropertyType(1i32);
-pub const kPropertyTypeInt32: EPrintPropertyType = EPrintPropertyType(2i32);
-pub const kPropertyTypeInt64: EPrintPropertyType = EPrintPropertyType(3i32);
-pub const kPropertyTypeByte: EPrintPropertyType = EPrintPropertyType(4i32);
-pub const kPropertyTypeTime: EPrintPropertyType = EPrintPropertyType(5i32);
-pub const kPropertyTypeDevMode: EPrintPropertyType = EPrintPropertyType(6i32);
-pub const kPropertyTypeSD: EPrintPropertyType = EPrintPropertyType(7i32);
-pub const kPropertyTypeNotificationReply: EPrintPropertyType = EPrintPropertyType(8i32);
-pub const kPropertyTypeNotificationOptions: EPrintPropertyType = EPrintPropertyType(9i32);
-pub const kPropertyTypeBuffer: EPrintPropertyType = EPrintPropertyType(10i32);
-impl ::core::marker::Copy for EPrintPropertyType {}
-impl ::core::clone::Clone for EPrintPropertyType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct EPrintXPSJobOperation(pub i32);
-pub const kJobProduction: EPrintXPSJobOperation = EPrintXPSJobOperation(1i32);
-pub const kJobConsumption: EPrintXPSJobOperation = EPrintXPSJobOperation(2i32);
-impl ::core::marker::Copy for EPrintXPSJobOperation {}
-impl ::core::clone::Clone for EPrintXPSJobOperation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct EPrintXPSJobProgress(pub i32);
-pub const kAddingDocumentSequence: EPrintXPSJobProgress = EPrintXPSJobProgress(0i32);
-pub const kDocumentSequenceAdded: EPrintXPSJobProgress = EPrintXPSJobProgress(1i32);
-pub const kAddingFixedDocument: EPrintXPSJobProgress = EPrintXPSJobProgress(2i32);
-pub const kFixedDocumentAdded: EPrintXPSJobProgress = EPrintXPSJobProgress(3i32);
-pub const kAddingFixedPage: EPrintXPSJobProgress = EPrintXPSJobProgress(4i32);
-pub const kFixedPageAdded: EPrintXPSJobProgress = EPrintXPSJobProgress(5i32);
-pub const kResourceAdded: EPrintXPSJobProgress = EPrintXPSJobProgress(6i32);
-pub const kFontAdded: EPrintXPSJobProgress = EPrintXPSJobProgress(7i32);
-pub const kImageAdded: EPrintXPSJobProgress = EPrintXPSJobProgress(8i32);
-pub const kXpsDocumentCommitted: EPrintXPSJobProgress = EPrintXPSJobProgress(9i32);
-impl ::core::marker::Copy for EPrintXPSJobProgress {}
-impl ::core::clone::Clone for EPrintXPSJobProgress {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const kPropertyTypeString: i32 = 1i32;
+pub const kPropertyTypeInt32: i32 = 2i32;
+pub const kPropertyTypeInt64: i32 = 3i32;
+pub const kPropertyTypeByte: i32 = 4i32;
+pub const kPropertyTypeTime: i32 = 5i32;
+pub const kPropertyTypeDevMode: i32 = 6i32;
+pub const kPropertyTypeSD: i32 = 7i32;
+pub const kPropertyTypeNotificationReply: i32 = 8i32;
+pub const kPropertyTypeNotificationOptions: i32 = 9i32;
+pub const kPropertyTypeBuffer: i32 = 10i32;
+pub const kJobProduction: i32 = 1i32;
+pub const kJobConsumption: i32 = 2i32;
+pub const kAddingDocumentSequence: i32 = 0i32;
+pub const kDocumentSequenceAdded: i32 = 1i32;
+pub const kAddingFixedDocument: i32 = 2i32;
+pub const kFixedDocumentAdded: i32 = 3i32;
+pub const kAddingFixedPage: i32 = 4i32;
+pub const kFixedPageAdded: i32 = 5i32;
+pub const kResourceAdded: i32 = 6i32;
+pub const kFontAdded: i32 = 7i32;
+pub const kImageAdded: i32 = 8i32;
+pub const kXpsDocumentCommitted: i32 = 9i32;
 pub const ERROR_BIDI_DEVICE_CONFIG_UNCHANGED: u32 = 13014u32;
 pub const ERROR_BIDI_DEVICE_OFFLINE: u32 = 13004u32;
 pub const ERROR_BIDI_ERROR_BASE: u32 = 13000u32;
@@ -2198,51 +2150,19 @@ impl ::core::clone::Clone for EXTTEXTMETRIC {
         *self
     }
 }
-#[repr(transparent)]
-pub struct EXpsCompressionOptions(pub i32);
-pub const Compression_NotCompressed: EXpsCompressionOptions = EXpsCompressionOptions(0i32);
-pub const Compression_Normal: EXpsCompressionOptions = EXpsCompressionOptions(1i32);
-pub const Compression_Small: EXpsCompressionOptions = EXpsCompressionOptions(2i32);
-pub const Compression_Fast: EXpsCompressionOptions = EXpsCompressionOptions(3i32);
-impl ::core::marker::Copy for EXpsCompressionOptions {}
-impl ::core::clone::Clone for EXpsCompressionOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct EXpsFontOptions(pub i32);
-pub const Font_Normal: EXpsFontOptions = EXpsFontOptions(0i32);
-pub const Font_Obfusticate: EXpsFontOptions = EXpsFontOptions(1i32);
-impl ::core::marker::Copy for EXpsFontOptions {}
-impl ::core::clone::Clone for EXpsFontOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct EXpsFontRestriction(pub i32);
-pub const Xps_Restricted_Font_Installable: EXpsFontRestriction = EXpsFontRestriction(0i32);
-pub const Xps_Restricted_Font_NoEmbedding: EXpsFontRestriction = EXpsFontRestriction(2i32);
-pub const Xps_Restricted_Font_PreviewPrint: EXpsFontRestriction = EXpsFontRestriction(4i32);
-pub const Xps_Restricted_Font_Editable: EXpsFontRestriction = EXpsFontRestriction(8i32);
-impl ::core::marker::Copy for EXpsFontRestriction {}
-impl ::core::clone::Clone for EXpsFontRestriction {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct EXpsJobConsumption(pub i32);
-pub const XpsJob_DocumentSequenceAdded: EXpsJobConsumption = EXpsJobConsumption(0i32);
-pub const XpsJob_FixedDocumentAdded: EXpsJobConsumption = EXpsJobConsumption(1i32);
-pub const XpsJob_FixedPageAdded: EXpsJobConsumption = EXpsJobConsumption(2i32);
-impl ::core::marker::Copy for EXpsJobConsumption {}
-impl ::core::clone::Clone for EXpsJobConsumption {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const Compression_NotCompressed: i32 = 0i32;
+pub const Compression_Normal: i32 = 1i32;
+pub const Compression_Small: i32 = 2i32;
+pub const Compression_Fast: i32 = 3i32;
+pub const Font_Normal: i32 = 0i32;
+pub const Font_Obfusticate: i32 = 1i32;
+pub const Xps_Restricted_Font_Installable: i32 = 0i32;
+pub const Xps_Restricted_Font_NoEmbedding: i32 = 2i32;
+pub const Xps_Restricted_Font_PreviewPrint: i32 = 4i32;
+pub const Xps_Restricted_Font_Editable: i32 = 8i32;
+pub const XpsJob_DocumentSequenceAdded: i32 = 0i32;
+pub const XpsJob_FixedDocumentAdded: i32 = 1i32;
+pub const XpsJob_FixedPageAdded: i32 = 2i32;
 pub const E_VERSION_NOT_SUPPORTED: u32 = 2147745793u32;
 pub const FG_CANCHANGE: u32 = 128u32;
 pub const FILL_WITH_DEFAULTS: u32 = 1u32;
@@ -4644,29 +4564,13 @@ impl ::core::clone::Clone for MxdcGetFileNameData {
         *self
     }
 }
-#[repr(transparent)]
-pub struct MxdcImageTypeEnums(pub i32);
-pub const MXDC_IMAGETYPE_JPEGHIGH_COMPRESSION: MxdcImageTypeEnums = MxdcImageTypeEnums(1i32);
-pub const MXDC_IMAGETYPE_JPEGMEDIUM_COMPRESSION: MxdcImageTypeEnums = MxdcImageTypeEnums(2i32);
-pub const MXDC_IMAGETYPE_JPEGLOW_COMPRESSION: MxdcImageTypeEnums = MxdcImageTypeEnums(3i32);
-pub const MXDC_IMAGETYPE_PNG: MxdcImageTypeEnums = MxdcImageTypeEnums(4i32);
-impl ::core::marker::Copy for MxdcImageTypeEnums {}
-impl ::core::clone::Clone for MxdcImageTypeEnums {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct MxdcLandscapeRotationEnums(pub i32);
-pub const MXDC_LANDSCAPE_ROTATE_COUNTERCLOCKWISE_90_DEGREES: MxdcLandscapeRotationEnums = MxdcLandscapeRotationEnums(90i32);
-pub const MXDC_LANDSCAPE_ROTATE_NONE: MxdcLandscapeRotationEnums = MxdcLandscapeRotationEnums(0i32);
-pub const MXDC_LANDSCAPE_ROTATE_COUNTERCLOCKWISE_270_DEGREES: MxdcLandscapeRotationEnums = MxdcLandscapeRotationEnums(-90i32);
-impl ::core::marker::Copy for MxdcLandscapeRotationEnums {}
-impl ::core::clone::Clone for MxdcLandscapeRotationEnums {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const MXDC_IMAGETYPE_JPEGHIGH_COMPRESSION: i32 = 1i32;
+pub const MXDC_IMAGETYPE_JPEGMEDIUM_COMPRESSION: i32 = 2i32;
+pub const MXDC_IMAGETYPE_JPEGLOW_COMPRESSION: i32 = 3i32;
+pub const MXDC_IMAGETYPE_PNG: i32 = 4i32;
+pub const MXDC_LANDSCAPE_ROTATE_COUNTERCLOCKWISE_90_DEGREES: i32 = 90i32;
+pub const MXDC_LANDSCAPE_ROTATE_NONE: i32 = 0i32;
+pub const MXDC_LANDSCAPE_ROTATE_COUNTERCLOCKWISE_270_DEGREES: i32 = -90i32;
 #[repr(C)]
 pub struct MxdcPrintTicketEscape {
     pub mxdcEscape: MxdcEscapeHeader,
@@ -4700,24 +4604,16 @@ impl ::core::clone::Clone for MxdcS0PageData {
         *self
     }
 }
-#[repr(transparent)]
-pub struct MxdcS0PageEnums(pub i32);
-pub const MXDC_RESOURCE_TTF: MxdcS0PageEnums = MxdcS0PageEnums(0i32);
-pub const MXDC_RESOURCE_JPEG: MxdcS0PageEnums = MxdcS0PageEnums(1i32);
-pub const MXDC_RESOURCE_PNG: MxdcS0PageEnums = MxdcS0PageEnums(2i32);
-pub const MXDC_RESOURCE_TIFF: MxdcS0PageEnums = MxdcS0PageEnums(3i32);
-pub const MXDC_RESOURCE_WDP: MxdcS0PageEnums = MxdcS0PageEnums(4i32);
-pub const MXDC_RESOURCE_DICTIONARY: MxdcS0PageEnums = MxdcS0PageEnums(5i32);
-pub const MXDC_RESOURCE_ICC_PROFILE: MxdcS0PageEnums = MxdcS0PageEnums(6i32);
-pub const MXDC_RESOURCE_JPEG_THUMBNAIL: MxdcS0PageEnums = MxdcS0PageEnums(7i32);
-pub const MXDC_RESOURCE_PNG_THUMBNAIL: MxdcS0PageEnums = MxdcS0PageEnums(8i32);
-pub const MXDC_RESOURCE_MAX: MxdcS0PageEnums = MxdcS0PageEnums(9i32);
-impl ::core::marker::Copy for MxdcS0PageEnums {}
-impl ::core::clone::Clone for MxdcS0PageEnums {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const MXDC_RESOURCE_TTF: i32 = 0i32;
+pub const MXDC_RESOURCE_JPEG: i32 = 1i32;
+pub const MXDC_RESOURCE_PNG: i32 = 2i32;
+pub const MXDC_RESOURCE_TIFF: i32 = 3i32;
+pub const MXDC_RESOURCE_WDP: i32 = 4i32;
+pub const MXDC_RESOURCE_DICTIONARY: i32 = 5i32;
+pub const MXDC_RESOURCE_ICC_PROFILE: i32 = 6i32;
+pub const MXDC_RESOURCE_JPEG_THUMBNAIL: i32 = 7i32;
+pub const MXDC_RESOURCE_PNG_THUMBNAIL: i32 = 8i32;
+pub const MXDC_RESOURCE_MAX: i32 = 9i32;
 #[repr(C)]
 pub struct MxdcS0PagePassthroughEscape {
     pub mxdcEscape: MxdcEscapeHeader,
@@ -4755,17 +4651,9 @@ impl ::core::clone::Clone for MxdcXpsS0PageResource {
     }
 }
 pub const NORMAL_PRINT: u32 = 0u32;
-#[repr(transparent)]
-pub struct NOTIFICATION_CALLBACK_COMMANDS(pub i32);
-pub const NOTIFICATION_COMMAND_NOTIFY: NOTIFICATION_CALLBACK_COMMANDS = NOTIFICATION_CALLBACK_COMMANDS(0i32);
-pub const NOTIFICATION_COMMAND_CONTEXT_ACQUIRE: NOTIFICATION_CALLBACK_COMMANDS = NOTIFICATION_CALLBACK_COMMANDS(1i32);
-pub const NOTIFICATION_COMMAND_CONTEXT_RELEASE: NOTIFICATION_CALLBACK_COMMANDS = NOTIFICATION_CALLBACK_COMMANDS(2i32);
-impl ::core::marker::Copy for NOTIFICATION_CALLBACK_COMMANDS {}
-impl ::core::clone::Clone for NOTIFICATION_CALLBACK_COMMANDS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const NOTIFICATION_COMMAND_NOTIFY: i32 = 0i32;
+pub const NOTIFICATION_COMMAND_CONTEXT_ACQUIRE: i32 = 1i32;
+pub const NOTIFICATION_COMMAND_CONTEXT_RELEASE: i32 = 2i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NOTIFICATION_CONFIG_1 {
@@ -4782,18 +4670,10 @@ impl ::core::clone::Clone for NOTIFICATION_CONFIG_1 {
         *self
     }
 }
-#[repr(transparent)]
-pub struct NOTIFICATION_CONFIG_FLAGS(pub i32);
-pub const NOTIFICATION_CONFIG_CREATE_EVENT: NOTIFICATION_CONFIG_FLAGS = NOTIFICATION_CONFIG_FLAGS(1i32);
-pub const NOTIFICATION_CONFIG_REGISTER_CALLBACK: NOTIFICATION_CONFIG_FLAGS = NOTIFICATION_CONFIG_FLAGS(2i32);
-pub const NOTIFICATION_CONFIG_EVENT_TRIGGER: NOTIFICATION_CONFIG_FLAGS = NOTIFICATION_CONFIG_FLAGS(4i32);
-pub const NOTIFICATION_CONFIG_ASYNC_CHANNEL: NOTIFICATION_CONFIG_FLAGS = NOTIFICATION_CONFIG_FLAGS(8i32);
-impl ::core::marker::Copy for NOTIFICATION_CONFIG_FLAGS {}
-impl ::core::clone::Clone for NOTIFICATION_CONFIG_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const NOTIFICATION_CONFIG_CREATE_EVENT: i32 = 1i32;
+pub const NOTIFICATION_CONFIG_REGISTER_CALLBACK: i32 = 2i32;
+pub const NOTIFICATION_CONFIG_EVENT_TRIGGER: i32 = 4i32;
+pub const NOTIFICATION_CONFIG_ASYNC_CHANNEL: i32 = 8i32;
 pub const NOTIFICATION_RELEASE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3130675239, data2: 42766, data3: 19175, data4: [155, 125, 235, 62, 6, 173, 65, 87] };
 pub const NO_BORDER_PRINT: u32 = 1u32;
 pub const NO_COLOR_OPTIMIZATION: u32 = 0u32;
@@ -5967,18 +5847,10 @@ impl ::core::clone::Clone for PRINTER_OPTIONSW {
         *self
     }
 }
-#[repr(transparent)]
-pub struct PRINTER_OPTION_FLAGS(pub i32);
-pub const PRINTER_OPTION_NO_CACHE: PRINTER_OPTION_FLAGS = PRINTER_OPTION_FLAGS(1i32);
-pub const PRINTER_OPTION_CACHE: PRINTER_OPTION_FLAGS = PRINTER_OPTION_FLAGS(2i32);
-pub const PRINTER_OPTION_CLIENT_CHANGE: PRINTER_OPTION_FLAGS = PRINTER_OPTION_FLAGS(4i32);
-pub const PRINTER_OPTION_NO_CLIENT_DATA: PRINTER_OPTION_FLAGS = PRINTER_OPTION_FLAGS(8i32);
-impl ::core::marker::Copy for PRINTER_OPTION_FLAGS {}
-impl ::core::clone::Clone for PRINTER_OPTION_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const PRINTER_OPTION_NO_CACHE: i32 = 1i32;
+pub const PRINTER_OPTION_CACHE: i32 = 2i32;
+pub const PRINTER_OPTION_CLIENT_CHANGE: i32 = 4i32;
+pub const PRINTER_OPTION_NO_CLIENT_DATA: i32 = 8i32;
 pub const PRINTER_STATUS_BUSY: u32 = 512u32;
 pub const PRINTER_STATUS_DOOR_OPEN: u32 = 4194304u32;
 pub const PRINTER_STATUS_DRIVER_UPDATE_NEEDED: u32 = 67108864u32;
@@ -6274,19 +6146,11 @@ pub const PRINT_APP_BIDI_NOTIFY_CHANNEL: ::windows_sys::core::GUID = ::windows_s
     data3: 19146,
     data4: [130, 252, 69, 113, 177, 181, 133, 172],
 };
-#[repr(transparent)]
-pub struct PRINT_EXECUTION_CONTEXT(pub i32);
-pub const PRINT_EXECUTION_CONTEXT_APPLICATION: PRINT_EXECUTION_CONTEXT = PRINT_EXECUTION_CONTEXT(0i32);
-pub const PRINT_EXECUTION_CONTEXT_SPOOLER_SERVICE: PRINT_EXECUTION_CONTEXT = PRINT_EXECUTION_CONTEXT(1i32);
-pub const PRINT_EXECUTION_CONTEXT_SPOOLER_ISOLATION_HOST: PRINT_EXECUTION_CONTEXT = PRINT_EXECUTION_CONTEXT(2i32);
-pub const PRINT_EXECUTION_CONTEXT_FILTER_PIPELINE: PRINT_EXECUTION_CONTEXT = PRINT_EXECUTION_CONTEXT(3i32);
-pub const PRINT_EXECUTION_CONTEXT_WOW64: PRINT_EXECUTION_CONTEXT = PRINT_EXECUTION_CONTEXT(4i32);
-impl ::core::marker::Copy for PRINT_EXECUTION_CONTEXT {}
-impl ::core::clone::Clone for PRINT_EXECUTION_CONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const PRINT_EXECUTION_CONTEXT_APPLICATION: i32 = 0i32;
+pub const PRINT_EXECUTION_CONTEXT_SPOOLER_SERVICE: i32 = 1i32;
+pub const PRINT_EXECUTION_CONTEXT_SPOOLER_ISOLATION_HOST: i32 = 2i32;
+pub const PRINT_EXECUTION_CONTEXT_FILTER_PIPELINE: i32 = 3i32;
+pub const PRINT_EXECUTION_CONTEXT_WOW64: i32 = 4i32;
 #[repr(C)]
 pub struct PRINT_EXECUTION_DATA {
     pub context: PRINT_EXECUTION_CONTEXT,
@@ -6511,90 +6375,50 @@ pub const PUSHBUTTON_TYPE_CALLBACK: u32 = 1u32;
 pub const PUSHBUTTON_TYPE_DLGPROC: u32 = 0u32;
 pub const PUSHBUTTON_TYPE_HTCLRADJ: u32 = 2u32;
 pub const PUSHBUTTON_TYPE_HTSETUP: u32 = 3u32;
-#[repr(transparent)]
-pub struct PageCountType(pub i32);
-pub const FinalPageCount: PageCountType = PageCountType(0i32);
-pub const IntermediatePageCount: PageCountType = PageCountType(1i32);
-impl ::core::marker::Copy for PageCountType {}
-impl ::core::clone::Clone for PageCountType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct PrintAsyncNotifyConversationStyle(pub i32);
-pub const kBiDirectional: PrintAsyncNotifyConversationStyle = PrintAsyncNotifyConversationStyle(0i32);
-pub const kUniDirectional: PrintAsyncNotifyConversationStyle = PrintAsyncNotifyConversationStyle(1i32);
-impl ::core::marker::Copy for PrintAsyncNotifyConversationStyle {}
-impl ::core::clone::Clone for PrintAsyncNotifyConversationStyle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct PrintAsyncNotifyError(pub i32);
-pub const CHANNEL_CLOSED_BY_SERVER: PrintAsyncNotifyError = PrintAsyncNotifyError(1i32);
-pub const CHANNEL_CLOSED_BY_ANOTHER_LISTENER: PrintAsyncNotifyError = PrintAsyncNotifyError(2i32);
-pub const CHANNEL_CLOSED_BY_SAME_LISTENER: PrintAsyncNotifyError = PrintAsyncNotifyError(3i32);
-pub const CHANNEL_RELEASED_BY_LISTENER: PrintAsyncNotifyError = PrintAsyncNotifyError(4i32);
-pub const UNIRECTIONAL_NOTIFICATION_LOST: PrintAsyncNotifyError = PrintAsyncNotifyError(5i32);
-pub const ASYNC_NOTIFICATION_FAILURE: PrintAsyncNotifyError = PrintAsyncNotifyError(6i32);
-pub const NO_LISTENERS: PrintAsyncNotifyError = PrintAsyncNotifyError(7i32);
-pub const CHANNEL_ALREADY_CLOSED: PrintAsyncNotifyError = PrintAsyncNotifyError(8i32);
-pub const CHANNEL_ALREADY_OPENED: PrintAsyncNotifyError = PrintAsyncNotifyError(9i32);
-pub const CHANNEL_WAITING_FOR_CLIENT_NOTIFICATION: PrintAsyncNotifyError = PrintAsyncNotifyError(10i32);
-pub const CHANNEL_NOT_OPENED: PrintAsyncNotifyError = PrintAsyncNotifyError(11i32);
-pub const ASYNC_CALL_ALREADY_PARKED: PrintAsyncNotifyError = PrintAsyncNotifyError(12i32);
-pub const NOT_REGISTERED: PrintAsyncNotifyError = PrintAsyncNotifyError(13i32);
-pub const ALREADY_UNREGISTERED: PrintAsyncNotifyError = PrintAsyncNotifyError(14i32);
-pub const ALREADY_REGISTERED: PrintAsyncNotifyError = PrintAsyncNotifyError(15i32);
-pub const CHANNEL_ACQUIRED: PrintAsyncNotifyError = PrintAsyncNotifyError(16i32);
-pub const ASYNC_CALL_IN_PROGRESS: PrintAsyncNotifyError = PrintAsyncNotifyError(17i32);
-pub const MAX_NOTIFICATION_SIZE_EXCEEDED: PrintAsyncNotifyError = PrintAsyncNotifyError(18i32);
-pub const INTERNAL_NOTIFICATION_QUEUE_IS_FULL: PrintAsyncNotifyError = PrintAsyncNotifyError(19i32);
-pub const INVALID_NOTIFICATION_TYPE: PrintAsyncNotifyError = PrintAsyncNotifyError(20i32);
-pub const MAX_REGISTRATION_COUNT_EXCEEDED: PrintAsyncNotifyError = PrintAsyncNotifyError(21i32);
-pub const MAX_CHANNEL_COUNT_EXCEEDED: PrintAsyncNotifyError = PrintAsyncNotifyError(22i32);
-pub const LOCAL_ONLY_REGISTRATION: PrintAsyncNotifyError = PrintAsyncNotifyError(23i32);
-pub const REMOTE_ONLY_REGISTRATION: PrintAsyncNotifyError = PrintAsyncNotifyError(24i32);
-impl ::core::marker::Copy for PrintAsyncNotifyError {}
-impl ::core::clone::Clone for PrintAsyncNotifyError {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct PrintAsyncNotifyUserFilter(pub i32);
-pub const kPerUser: PrintAsyncNotifyUserFilter = PrintAsyncNotifyUserFilter(0i32);
-pub const kAllUsers: PrintAsyncNotifyUserFilter = PrintAsyncNotifyUserFilter(1i32);
-impl ::core::marker::Copy for PrintAsyncNotifyUserFilter {}
-impl ::core::clone::Clone for PrintAsyncNotifyUserFilter {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct PrintJobStatus(pub i32);
-pub const PrintJobStatus_Paused: PrintJobStatus = PrintJobStatus(1i32);
-pub const PrintJobStatus_Error: PrintJobStatus = PrintJobStatus(2i32);
-pub const PrintJobStatus_Deleting: PrintJobStatus = PrintJobStatus(4i32);
-pub const PrintJobStatus_Spooling: PrintJobStatus = PrintJobStatus(8i32);
-pub const PrintJobStatus_Printing: PrintJobStatus = PrintJobStatus(16i32);
-pub const PrintJobStatus_Offline: PrintJobStatus = PrintJobStatus(32i32);
-pub const PrintJobStatus_PaperOut: PrintJobStatus = PrintJobStatus(64i32);
-pub const PrintJobStatus_Printed: PrintJobStatus = PrintJobStatus(128i32);
-pub const PrintJobStatus_Deleted: PrintJobStatus = PrintJobStatus(256i32);
-pub const PrintJobStatus_BlockedDeviceQueue: PrintJobStatus = PrintJobStatus(512i32);
-pub const PrintJobStatus_UserIntervention: PrintJobStatus = PrintJobStatus(1024i32);
-pub const PrintJobStatus_Restarted: PrintJobStatus = PrintJobStatus(2048i32);
-pub const PrintJobStatus_Complete: PrintJobStatus = PrintJobStatus(4096i32);
-pub const PrintJobStatus_Retained: PrintJobStatus = PrintJobStatus(8192i32);
-impl ::core::marker::Copy for PrintJobStatus {}
-impl ::core::clone::Clone for PrintJobStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const FinalPageCount: i32 = 0i32;
+pub const IntermediatePageCount: i32 = 1i32;
+pub const kBiDirectional: i32 = 0i32;
+pub const kUniDirectional: i32 = 1i32;
+pub const CHANNEL_CLOSED_BY_SERVER: i32 = 1i32;
+pub const CHANNEL_CLOSED_BY_ANOTHER_LISTENER: i32 = 2i32;
+pub const CHANNEL_CLOSED_BY_SAME_LISTENER: i32 = 3i32;
+pub const CHANNEL_RELEASED_BY_LISTENER: i32 = 4i32;
+pub const UNIRECTIONAL_NOTIFICATION_LOST: i32 = 5i32;
+pub const ASYNC_NOTIFICATION_FAILURE: i32 = 6i32;
+pub const NO_LISTENERS: i32 = 7i32;
+pub const CHANNEL_ALREADY_CLOSED: i32 = 8i32;
+pub const CHANNEL_ALREADY_OPENED: i32 = 9i32;
+pub const CHANNEL_WAITING_FOR_CLIENT_NOTIFICATION: i32 = 10i32;
+pub const CHANNEL_NOT_OPENED: i32 = 11i32;
+pub const ASYNC_CALL_ALREADY_PARKED: i32 = 12i32;
+pub const NOT_REGISTERED: i32 = 13i32;
+pub const ALREADY_UNREGISTERED: i32 = 14i32;
+pub const ALREADY_REGISTERED: i32 = 15i32;
+pub const CHANNEL_ACQUIRED: i32 = 16i32;
+pub const ASYNC_CALL_IN_PROGRESS: i32 = 17i32;
+pub const MAX_NOTIFICATION_SIZE_EXCEEDED: i32 = 18i32;
+pub const INTERNAL_NOTIFICATION_QUEUE_IS_FULL: i32 = 19i32;
+pub const INVALID_NOTIFICATION_TYPE: i32 = 20i32;
+pub const MAX_REGISTRATION_COUNT_EXCEEDED: i32 = 21i32;
+pub const MAX_CHANNEL_COUNT_EXCEEDED: i32 = 22i32;
+pub const LOCAL_ONLY_REGISTRATION: i32 = 23i32;
+pub const REMOTE_ONLY_REGISTRATION: i32 = 24i32;
+pub const kPerUser: i32 = 0i32;
+pub const kAllUsers: i32 = 1i32;
+pub const PrintJobStatus_Paused: i32 = 1i32;
+pub const PrintJobStatus_Error: i32 = 2i32;
+pub const PrintJobStatus_Deleting: i32 = 4i32;
+pub const PrintJobStatus_Spooling: i32 = 8i32;
+pub const PrintJobStatus_Printing: i32 = 16i32;
+pub const PrintJobStatus_Offline: i32 = 32i32;
+pub const PrintJobStatus_PaperOut: i32 = 64i32;
+pub const PrintJobStatus_Printed: i32 = 128i32;
+pub const PrintJobStatus_Deleted: i32 = 256i32;
+pub const PrintJobStatus_BlockedDeviceQueue: i32 = 512i32;
+pub const PrintJobStatus_UserIntervention: i32 = 1024i32;
+pub const PrintJobStatus_Restarted: i32 = 2048i32;
+pub const PrintJobStatus_Complete: i32 = 4096i32;
+pub const PrintJobStatus_Retained: i32 = 8192i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PrintNamedProperty {
@@ -6669,39 +6493,15 @@ impl ::core::clone::Clone for PrintPropertyValue_0_0 {
     }
 }
 pub const PrintSchemaAsyncOperation: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1135802429, data2: 4338, data3: 18603, data4: [131, 27, 85, 253, 189, 189, 52, 164] };
-#[repr(transparent)]
-pub struct PrintSchemaConstrainedSetting(pub i32);
-pub const PrintSchemaConstrainedSetting_None: PrintSchemaConstrainedSetting = PrintSchemaConstrainedSetting(0i32);
-pub const PrintSchemaConstrainedSetting_PrintTicket: PrintSchemaConstrainedSetting = PrintSchemaConstrainedSetting(1i32);
-pub const PrintSchemaConstrainedSetting_Admin: PrintSchemaConstrainedSetting = PrintSchemaConstrainedSetting(2i32);
-pub const PrintSchemaConstrainedSetting_Device: PrintSchemaConstrainedSetting = PrintSchemaConstrainedSetting(3i32);
-impl ::core::marker::Copy for PrintSchemaConstrainedSetting {}
-impl ::core::clone::Clone for PrintSchemaConstrainedSetting {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct PrintSchemaParameterDataType(pub i32);
-pub const PrintSchemaParameterDataType_Integer: PrintSchemaParameterDataType = PrintSchemaParameterDataType(0i32);
-pub const PrintSchemaParameterDataType_NumericString: PrintSchemaParameterDataType = PrintSchemaParameterDataType(1i32);
-pub const PrintSchemaParameterDataType_String: PrintSchemaParameterDataType = PrintSchemaParameterDataType(2i32);
-impl ::core::marker::Copy for PrintSchemaParameterDataType {}
-impl ::core::clone::Clone for PrintSchemaParameterDataType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct PrintSchemaSelectionType(pub i32);
-pub const PrintSchemaSelectionType_PickOne: PrintSchemaSelectionType = PrintSchemaSelectionType(0i32);
-pub const PrintSchemaSelectionType_PickMany: PrintSchemaSelectionType = PrintSchemaSelectionType(1i32);
-impl ::core::marker::Copy for PrintSchemaSelectionType {}
-impl ::core::clone::Clone for PrintSchemaSelectionType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const PrintSchemaConstrainedSetting_None: i32 = 0i32;
+pub const PrintSchemaConstrainedSetting_PrintTicket: i32 = 1i32;
+pub const PrintSchemaConstrainedSetting_Admin: i32 = 2i32;
+pub const PrintSchemaConstrainedSetting_Device: i32 = 3i32;
+pub const PrintSchemaParameterDataType_Integer: i32 = 0i32;
+pub const PrintSchemaParameterDataType_NumericString: i32 = 1i32;
+pub const PrintSchemaParameterDataType_String: i32 = 2i32;
+pub const PrintSchemaSelectionType_PickOne: i32 = 0i32;
+pub const PrintSchemaSelectionType_PickMany: i32 = 1i32;
 pub const PrinterExtensionManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 857432282,
     data2: 40592,
@@ -6748,16 +6548,8 @@ impl ::core::clone::Clone for SETRESULT_INFO {
         *self
     }
 }
-#[repr(transparent)]
-pub struct SHIMOPTS(pub i32);
-pub const PTSHIM_DEFAULT: SHIMOPTS = SHIMOPTS(0i32);
-pub const PTSHIM_NOSNAPSHOT: SHIMOPTS = SHIMOPTS(1i32);
-impl ::core::marker::Copy for SHIMOPTS {}
-impl ::core::clone::Clone for SHIMOPTS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const PTSHIM_DEFAULT: i32 = 0i32;
+pub const PTSHIM_NOSNAPSHOT: i32 = 1i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SHOWUIPARAMS {
@@ -6938,15 +6730,7 @@ pub const UFO_GETINFO_GLYPHSTRING: u32 = 2u32;
 pub const UFO_GETINFO_GLYPHWIDTH: u32 = 4u32;
 pub const UFO_GETINFO_MEMORY: u32 = 5u32;
 pub const UFO_GETINFO_STDVARIABLE: u32 = 6u32;
-#[repr(transparent)]
-pub struct UI_TYPE(pub i32);
-pub const kMessageBox: UI_TYPE = UI_TYPE(0i32);
-impl ::core::marker::Copy for UI_TYPE {}
-impl ::core::clone::Clone for UI_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const kMessageBox: i32 = 0i32;
 #[repr(C)]
 pub struct UNIDRVINFO {
     pub dwSize: u32,
@@ -7082,37 +6866,13 @@ impl ::core::clone::Clone for WIDTHTABLE {
     }
 }
 pub const WM_FI_FILENAME: u32 = 900u32;
-#[repr(transparent)]
-pub struct XPSRAS_BACKGROUND_COLOR(pub i32);
-pub const XPSRAS_BACKGROUND_COLOR_TRANSPARENT: XPSRAS_BACKGROUND_COLOR = XPSRAS_BACKGROUND_COLOR(0i32);
-pub const XPSRAS_BACKGROUND_COLOR_OPAQUE: XPSRAS_BACKGROUND_COLOR = XPSRAS_BACKGROUND_COLOR(1i32);
-impl ::core::marker::Copy for XPSRAS_BACKGROUND_COLOR {}
-impl ::core::clone::Clone for XPSRAS_BACKGROUND_COLOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct XPSRAS_PIXEL_FORMAT(pub i32);
-pub const XPSRAS_PIXEL_FORMAT_32BPP_PBGRA_UINT_SRGB: XPSRAS_PIXEL_FORMAT = XPSRAS_PIXEL_FORMAT(1i32);
-pub const XPSRAS_PIXEL_FORMAT_64BPP_PRGBA_HALF_SCRGB: XPSRAS_PIXEL_FORMAT = XPSRAS_PIXEL_FORMAT(2i32);
-pub const XPSRAS_PIXEL_FORMAT_128BPP_PRGBA_FLOAT_SCRGB: XPSRAS_PIXEL_FORMAT = XPSRAS_PIXEL_FORMAT(3i32);
-impl ::core::marker::Copy for XPSRAS_PIXEL_FORMAT {}
-impl ::core::clone::Clone for XPSRAS_PIXEL_FORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct XPSRAS_RENDERING_MODE(pub i32);
-pub const XPSRAS_RENDERING_MODE_ANTIALIASED: XPSRAS_RENDERING_MODE = XPSRAS_RENDERING_MODE(0i32);
-pub const XPSRAS_RENDERING_MODE_ALIASED: XPSRAS_RENDERING_MODE = XPSRAS_RENDERING_MODE(1i32);
-impl ::core::marker::Copy for XPSRAS_RENDERING_MODE {}
-impl ::core::clone::Clone for XPSRAS_RENDERING_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const XPSRAS_BACKGROUND_COLOR_TRANSPARENT: i32 = 0i32;
+pub const XPSRAS_BACKGROUND_COLOR_OPAQUE: i32 = 1i32;
+pub const XPSRAS_PIXEL_FORMAT_32BPP_PBGRA_UINT_SRGB: i32 = 1i32;
+pub const XPSRAS_PIXEL_FORMAT_64BPP_PRGBA_HALF_SCRGB: i32 = 2i32;
+pub const XPSRAS_PIXEL_FORMAT_128BPP_PRGBA_FLOAT_SCRGB: i32 = 3i32;
+pub const XPSRAS_RENDERING_MODE_ANTIALIASED: i32 = 0i32;
+pub const XPSRAS_RENDERING_MODE_ALIASED: i32 = 1i32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub type _CPSUICALLBACK = unsafe extern "system" fn(pcpsuicbparam: *mut CPSUICBPARAM) -> i32;
 #[repr(C)]

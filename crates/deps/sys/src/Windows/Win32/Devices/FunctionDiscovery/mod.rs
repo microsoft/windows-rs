@@ -2097,47 +2097,23 @@ pub const PNPX_INSTALLSTATE_FAILED: u32 = 3u32;
 pub const PNPX_INSTALLSTATE_INSTALLED: u32 = 1u32;
 pub const PNPX_INSTALLSTATE_INSTALLING: u32 = 2u32;
 pub const PNPX_INSTALLSTATE_NOTINSTALLED: u32 = 0u32;
-#[repr(transparent)]
-pub struct PropertyConstraint(pub i32);
-pub const QC_EQUALS: PropertyConstraint = PropertyConstraint(0i32);
-pub const QC_NOTEQUAL: PropertyConstraint = PropertyConstraint(1i32);
-pub const QC_LESSTHAN: PropertyConstraint = PropertyConstraint(2i32);
-pub const QC_LESSTHANOREQUAL: PropertyConstraint = PropertyConstraint(3i32);
-pub const QC_GREATERTHAN: PropertyConstraint = PropertyConstraint(4i32);
-pub const QC_GREATERTHANOREQUAL: PropertyConstraint = PropertyConstraint(5i32);
-pub const QC_STARTSWITH: PropertyConstraint = PropertyConstraint(6i32);
-pub const QC_EXISTS: PropertyConstraint = PropertyConstraint(7i32);
-pub const QC_DOESNOTEXIST: PropertyConstraint = PropertyConstraint(8i32);
-pub const QC_CONTAINS: PropertyConstraint = PropertyConstraint(9i32);
-impl ::core::marker::Copy for PropertyConstraint {}
-impl ::core::clone::Clone for PropertyConstraint {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const QC_EQUALS: i32 = 0i32;
+pub const QC_NOTEQUAL: i32 = 1i32;
+pub const QC_LESSTHAN: i32 = 2i32;
+pub const QC_LESSTHANOREQUAL: i32 = 3i32;
+pub const QC_GREATERTHAN: i32 = 4i32;
+pub const QC_GREATERTHANOREQUAL: i32 = 5i32;
+pub const QC_STARTSWITH: i32 = 6i32;
+pub const QC_EXISTS: i32 = 7i32;
+pub const QC_DOESNOTEXIST: i32 = 8i32;
+pub const QC_CONTAINS: i32 = 9i32;
 pub const PropertyStore: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3833161040, data2: 57185, data3: 17547, data4: [145, 147, 19, 252, 19, 65, 177, 99] };
 pub const PropertyStoreCollection: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3990052905, data2: 55123, data3: 18530, data4: [170, 91, 91, 204, 173, 42, 77, 41] };
-#[repr(transparent)]
-pub struct QueryCategoryType(pub i32);
-pub const QCT_PROVIDER: QueryCategoryType = QueryCategoryType(0i32);
-pub const QCT_LAYERED: QueryCategoryType = QueryCategoryType(1i32);
-impl ::core::marker::Copy for QueryCategoryType {}
-impl ::core::clone::Clone for QueryCategoryType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct QueryUpdateAction(pub i32);
-pub const QUA_ADD: QueryUpdateAction = QueryUpdateAction(0i32);
-pub const QUA_REMOVE: QueryUpdateAction = QueryUpdateAction(1i32);
-pub const QUA_CHANGE: QueryUpdateAction = QueryUpdateAction(2i32);
-impl ::core::marker::Copy for QueryUpdateAction {}
-impl ::core::clone::Clone for QueryUpdateAction {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const QCT_PROVIDER: i32 = 0i32;
+pub const QCT_LAYERED: i32 = 1i32;
+pub const QUA_ADD: i32 = 0i32;
+pub const QUA_REMOVE: i32 = 1i32;
+pub const QUA_CHANGE: i32 = 2i32;
 pub const SID_DeviceDisplayStatusManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4120552787, data2: 33545, data3: 18122, data4: [151, 54, 26, 195, 198, 45, 96, 49] };
 pub const SID_EnumDeviceFunction: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 333507042,
@@ -2180,13 +2156,5 @@ pub const SID_UninstallDeviceFunction: ::windows_sys::core::GUID = ::windows_sys
     data4: [128, 37, 191, 11, 137, 189, 68, 205],
 };
 pub const SID_UnpairProvider: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2309292796, data2: 34171, data3: 18072, data4: [160, 183, 2, 113, 146, 0, 47, 158] };
-#[repr(transparent)]
-pub struct SystemVisibilityFlags(pub i32);
-pub const SVF_SYSTEM: SystemVisibilityFlags = SystemVisibilityFlags(0i32);
-pub const SVF_USER: SystemVisibilityFlags = SystemVisibilityFlags(1i32);
-impl ::core::marker::Copy for SystemVisibilityFlags {}
-impl ::core::clone::Clone for SystemVisibilityFlags {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const SVF_SYSTEM: i32 = 0i32;
+pub const SVF_USER: i32 = 1i32;

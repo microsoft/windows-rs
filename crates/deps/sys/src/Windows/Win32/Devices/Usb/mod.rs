@@ -382,18 +382,10 @@ impl ::core::clone::Clone for PACKET_PARAMETERS {
     }
 }
 pub const PIPE_TRANSFER_TIMEOUT: u32 = 3u32;
-#[repr(transparent)]
-pub struct PIPE_TYPE(pub i32);
-pub const EVENT_PIPE: PIPE_TYPE = PIPE_TYPE(0i32);
-pub const READ_DATA_PIPE: PIPE_TYPE = PIPE_TYPE(1i32);
-pub const WRITE_DATA_PIPE: PIPE_TYPE = PIPE_TYPE(2i32);
-pub const ALL_PIPE: PIPE_TYPE = PIPE_TYPE(3i32);
-impl ::core::marker::Copy for PIPE_TYPE {}
-impl ::core::clone::Clone for PIPE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const EVENT_PIPE: i32 = 0i32;
+pub const READ_DATA_PIPE: i32 = 1i32;
+pub const WRITE_DATA_PIPE: i32 = 2i32;
+pub const ALL_PIPE: i32 = 3i32;
 pub const PORT_LINK_STATE_COMPLIANCE_MODE: u32 = 10u32;
 pub const PORT_LINK_STATE_DISABLED: u32 = 4u32;
 pub const PORT_LINK_STATE_HOT_RESET: u32 = 9u32;
@@ -408,18 +400,10 @@ pub const PORT_LINK_STATE_U1: u32 = 1u32;
 pub const PORT_LINK_STATE_U2: u32 = 2u32;
 pub const PORT_LINK_STATE_U3: u32 = 3u32;
 pub const RAW_IO: u32 = 7u32;
-#[repr(transparent)]
-pub struct RAW_PIPE_TYPE(pub i32);
-pub const USBSCAN_PIPE_CONTROL: RAW_PIPE_TYPE = RAW_PIPE_TYPE(0i32);
-pub const USBSCAN_PIPE_ISOCHRONOUS: RAW_PIPE_TYPE = RAW_PIPE_TYPE(1i32);
-pub const USBSCAN_PIPE_BULK: RAW_PIPE_TYPE = RAW_PIPE_TYPE(2i32);
-pub const USBSCAN_PIPE_INTERRUPT: RAW_PIPE_TYPE = RAW_PIPE_TYPE(3i32);
-impl ::core::marker::Copy for RAW_PIPE_TYPE {}
-impl ::core::clone::Clone for RAW_PIPE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const USBSCAN_PIPE_CONTROL: i32 = 0i32;
+pub const USBSCAN_PIPE_ISOCHRONOUS: i32 = 1i32;
+pub const USBSCAN_PIPE_BULK: i32 = 2i32;
+pub const USBSCAN_PIPE_INTERRUPT: i32 = 3i32;
 #[repr(C, packed(1))]
 pub struct RAW_RESET_PORT_PARAMETERS {
     pub PortNumber: u16,
@@ -596,17 +580,9 @@ impl ::core::clone::Clone for USBD_ENDPOINT_OFFLOAD_INFORMATION {
         *self
     }
 }
-#[repr(transparent)]
-pub struct USBD_ENDPOINT_OFFLOAD_MODE(pub i32);
-pub const UsbdEndpointOffloadModeNotSupported: USBD_ENDPOINT_OFFLOAD_MODE = USBD_ENDPOINT_OFFLOAD_MODE(0i32);
-pub const UsbdEndpointOffloadSoftwareAssisted: USBD_ENDPOINT_OFFLOAD_MODE = USBD_ENDPOINT_OFFLOAD_MODE(1i32);
-pub const UsbdEndpointOffloadHardwareAssisted: USBD_ENDPOINT_OFFLOAD_MODE = USBD_ENDPOINT_OFFLOAD_MODE(2i32);
-impl ::core::marker::Copy for USBD_ENDPOINT_OFFLOAD_MODE {}
-impl ::core::clone::Clone for USBD_ENDPOINT_OFFLOAD_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const UsbdEndpointOffloadModeNotSupported: i32 = 0i32;
+pub const UsbdEndpointOffloadSoftwareAssisted: i32 = 1i32;
+pub const UsbdEndpointOffloadHardwareAssisted: i32 = 2i32;
 #[repr(C)]
 pub struct USBD_INTERFACE_INFORMATION {
     pub Length: u16,
@@ -665,18 +641,10 @@ impl ::core::clone::Clone for USBD_PIPE_INFORMATION {
         *self
     }
 }
-#[repr(transparent)]
-pub struct USBD_PIPE_TYPE(pub i32);
-pub const UsbdPipeTypeControl: USBD_PIPE_TYPE = USBD_PIPE_TYPE(0i32);
-pub const UsbdPipeTypeIsochronous: USBD_PIPE_TYPE = USBD_PIPE_TYPE(1i32);
-pub const UsbdPipeTypeBulk: USBD_PIPE_TYPE = USBD_PIPE_TYPE(2i32);
-pub const UsbdPipeTypeInterrupt: USBD_PIPE_TYPE = USBD_PIPE_TYPE(3i32);
-impl ::core::marker::Copy for USBD_PIPE_TYPE {}
-impl ::core::clone::Clone for USBD_PIPE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const UsbdPipeTypeControl: i32 = 0i32;
+pub const UsbdPipeTypeIsochronous: i32 = 1i32;
+pub const UsbdPipeTypeBulk: i32 = 2i32;
+pub const UsbdPipeTypeInterrupt: i32 = 3i32;
 pub const USBD_PORT_CONNECTED: u32 = 2u32;
 pub const USBD_PORT_ENABLED: u32 = 1u32;
 pub const USBD_SHORT_TRANSFER_OK: u32 = 2u32;
@@ -723,19 +691,11 @@ impl ::core::clone::Clone for USBFN_BUS_CONFIGURATION_INFO {
         *self
     }
 }
-#[repr(transparent)]
-pub struct USBFN_BUS_SPEED(pub i32);
-pub const UsbfnBusSpeedLow: USBFN_BUS_SPEED = USBFN_BUS_SPEED(0i32);
-pub const UsbfnBusSpeedFull: USBFN_BUS_SPEED = USBFN_BUS_SPEED(1i32);
-pub const UsbfnBusSpeedHigh: USBFN_BUS_SPEED = USBFN_BUS_SPEED(2i32);
-pub const UsbfnBusSpeedSuper: USBFN_BUS_SPEED = USBFN_BUS_SPEED(3i32);
-pub const UsbfnBusSpeedMaximum: USBFN_BUS_SPEED = USBFN_BUS_SPEED(4i32);
-impl ::core::marker::Copy for USBFN_BUS_SPEED {}
-impl ::core::clone::Clone for USBFN_BUS_SPEED {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const UsbfnBusSpeedLow: i32 = 0i32;
+pub const UsbfnBusSpeedFull: i32 = 1i32;
+pub const UsbfnBusSpeedHigh: i32 = 2i32;
+pub const UsbfnBusSpeedSuper: i32 = 3i32;
+pub const UsbfnBusSpeedMaximum: i32 = 4i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct USBFN_CLASS_INFORMATION_PACKET {
@@ -797,57 +757,33 @@ impl ::core::clone::Clone for USBFN_CLASS_INTERFACE_EX {
         *self
     }
 }
-#[repr(transparent)]
-pub struct USBFN_DEVICE_STATE(pub i32);
-pub const UsbfnDeviceStateMinimum: USBFN_DEVICE_STATE = USBFN_DEVICE_STATE(0i32);
-pub const UsbfnDeviceStateAttached: USBFN_DEVICE_STATE = USBFN_DEVICE_STATE(1i32);
-pub const UsbfnDeviceStateDefault: USBFN_DEVICE_STATE = USBFN_DEVICE_STATE(2i32);
-pub const UsbfnDeviceStateDetached: USBFN_DEVICE_STATE = USBFN_DEVICE_STATE(3i32);
-pub const UsbfnDeviceStateAddressed: USBFN_DEVICE_STATE = USBFN_DEVICE_STATE(4i32);
-pub const UsbfnDeviceStateConfigured: USBFN_DEVICE_STATE = USBFN_DEVICE_STATE(5i32);
-pub const UsbfnDeviceStateSuspended: USBFN_DEVICE_STATE = USBFN_DEVICE_STATE(6i32);
-pub const UsbfnDeviceStateStateMaximum: USBFN_DEVICE_STATE = USBFN_DEVICE_STATE(7i32);
-impl ::core::marker::Copy for USBFN_DEVICE_STATE {}
-impl ::core::clone::Clone for USBFN_DEVICE_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct USBFN_DIRECTION(pub i32);
-pub const UsbfnDirectionMinimum: USBFN_DIRECTION = USBFN_DIRECTION(0i32);
-pub const UsbfnDirectionIn: USBFN_DIRECTION = USBFN_DIRECTION(1i32);
-pub const UsbfnDirectionOut: USBFN_DIRECTION = USBFN_DIRECTION(2i32);
-pub const UsbfnDirectionTx: USBFN_DIRECTION = USBFN_DIRECTION(1i32);
-pub const UsbfnDirectionRx: USBFN_DIRECTION = USBFN_DIRECTION(2i32);
-pub const UsbfnDirectionMaximum: USBFN_DIRECTION = USBFN_DIRECTION(3i32);
-impl ::core::marker::Copy for USBFN_DIRECTION {}
-impl ::core::clone::Clone for USBFN_DIRECTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct USBFN_EVENT(pub i32);
-pub const UsbfnEventMinimum: USBFN_EVENT = USBFN_EVENT(0i32);
-pub const UsbfnEventAttach: USBFN_EVENT = USBFN_EVENT(1i32);
-pub const UsbfnEventReset: USBFN_EVENT = USBFN_EVENT(2i32);
-pub const UsbfnEventDetach: USBFN_EVENT = USBFN_EVENT(3i32);
-pub const UsbfnEventSuspend: USBFN_EVENT = USBFN_EVENT(4i32);
-pub const UsbfnEventResume: USBFN_EVENT = USBFN_EVENT(5i32);
-pub const UsbfnEventSetupPacket: USBFN_EVENT = USBFN_EVENT(6i32);
-pub const UsbfnEventConfigured: USBFN_EVENT = USBFN_EVENT(7i32);
-pub const UsbfnEventUnConfigured: USBFN_EVENT = USBFN_EVENT(8i32);
-pub const UsbfnEventPortType: USBFN_EVENT = USBFN_EVENT(9i32);
-pub const UsbfnEventBusTearDown: USBFN_EVENT = USBFN_EVENT(10i32);
-pub const UsbfnEventSetInterface: USBFN_EVENT = USBFN_EVENT(11i32);
-pub const UsbfnEventMaximum: USBFN_EVENT = USBFN_EVENT(12i32);
-impl ::core::marker::Copy for USBFN_EVENT {}
-impl ::core::clone::Clone for USBFN_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const UsbfnDeviceStateMinimum: i32 = 0i32;
+pub const UsbfnDeviceStateAttached: i32 = 1i32;
+pub const UsbfnDeviceStateDefault: i32 = 2i32;
+pub const UsbfnDeviceStateDetached: i32 = 3i32;
+pub const UsbfnDeviceStateAddressed: i32 = 4i32;
+pub const UsbfnDeviceStateConfigured: i32 = 5i32;
+pub const UsbfnDeviceStateSuspended: i32 = 6i32;
+pub const UsbfnDeviceStateStateMaximum: i32 = 7i32;
+pub const UsbfnDirectionMinimum: i32 = 0i32;
+pub const UsbfnDirectionIn: i32 = 1i32;
+pub const UsbfnDirectionOut: i32 = 2i32;
+pub const UsbfnDirectionTx: i32 = 1i32;
+pub const UsbfnDirectionRx: i32 = 2i32;
+pub const UsbfnDirectionMaximum: i32 = 3i32;
+pub const UsbfnEventMinimum: i32 = 0i32;
+pub const UsbfnEventAttach: i32 = 1i32;
+pub const UsbfnEventReset: i32 = 2i32;
+pub const UsbfnEventDetach: i32 = 3i32;
+pub const UsbfnEventSuspend: i32 = 4i32;
+pub const UsbfnEventResume: i32 = 5i32;
+pub const UsbfnEventSetupPacket: i32 = 6i32;
+pub const UsbfnEventConfigured: i32 = 7i32;
+pub const UsbfnEventUnConfigured: i32 = 8i32;
+pub const UsbfnEventPortType: i32 = 9i32;
+pub const UsbfnEventBusTearDown: i32 = 10i32;
+pub const UsbfnEventSetInterface: i32 = 11i32;
+pub const UsbfnEventMaximum: i32 = 12i32;
 #[repr(C)]
 pub struct USBFN_INTERFACE_INFO {
     pub InterfaceNumber: u8,
@@ -898,21 +834,13 @@ impl ::core::clone::Clone for USBFN_PIPE_INFORMATION {
         *self
     }
 }
-#[repr(transparent)]
-pub struct USBFN_PORT_TYPE(pub i32);
-pub const UsbfnUnknownPort: USBFN_PORT_TYPE = USBFN_PORT_TYPE(0i32);
-pub const UsbfnStandardDownstreamPort: USBFN_PORT_TYPE = USBFN_PORT_TYPE(1i32);
-pub const UsbfnChargingDownstreamPort: USBFN_PORT_TYPE = USBFN_PORT_TYPE(2i32);
-pub const UsbfnDedicatedChargingPort: USBFN_PORT_TYPE = USBFN_PORT_TYPE(3i32);
-pub const UsbfnInvalidDedicatedChargingPort: USBFN_PORT_TYPE = USBFN_PORT_TYPE(4i32);
-pub const UsbfnProprietaryDedicatedChargingPort: USBFN_PORT_TYPE = USBFN_PORT_TYPE(5i32);
-pub const UsbfnPortTypeMaximum: USBFN_PORT_TYPE = USBFN_PORT_TYPE(6i32);
-impl ::core::marker::Copy for USBFN_PORT_TYPE {}
-impl ::core::clone::Clone for USBFN_PORT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const UsbfnUnknownPort: i32 = 0i32;
+pub const UsbfnStandardDownstreamPort: i32 = 1i32;
+pub const UsbfnChargingDownstreamPort: i32 = 2i32;
+pub const UsbfnDedicatedChargingPort: i32 = 3i32;
+pub const UsbfnInvalidDedicatedChargingPort: i32 = 4i32;
+pub const UsbfnProprietaryDedicatedChargingPort: i32 = 5i32;
+pub const UsbfnPortTypeMaximum: i32 = 6i32;
 #[repr(C)]
 pub struct USBFN_USB_STRING {
     pub StringIndex: u8,
@@ -1437,41 +1365,33 @@ pub const USB_CONFIG_POWER_DESCRIPTOR_TYPE: u32 = 7u32;
 pub const USB_CONFIG_REMOTE_WAKEUP: u32 = 32u32;
 pub const USB_CONFIG_RESERVED: u32 = 31u32;
 pub const USB_CONFIG_SELF_POWERED: u32 = 64u32;
-#[repr(transparent)]
-pub struct USB_CONTROLLER_FLAVOR(pub i32);
-pub const USB_HcGeneric: USB_CONTROLLER_FLAVOR = USB_CONTROLLER_FLAVOR(0i32);
-pub const OHCI_Generic: USB_CONTROLLER_FLAVOR = USB_CONTROLLER_FLAVOR(100i32);
-pub const OHCI_Hydra: USB_CONTROLLER_FLAVOR = USB_CONTROLLER_FLAVOR(101i32);
-pub const OHCI_NEC: USB_CONTROLLER_FLAVOR = USB_CONTROLLER_FLAVOR(102i32);
-pub const UHCI_Generic: USB_CONTROLLER_FLAVOR = USB_CONTROLLER_FLAVOR(200i32);
-pub const UHCI_Piix4: USB_CONTROLLER_FLAVOR = USB_CONTROLLER_FLAVOR(201i32);
-pub const UHCI_Piix3: USB_CONTROLLER_FLAVOR = USB_CONTROLLER_FLAVOR(202i32);
-pub const UHCI_Ich2: USB_CONTROLLER_FLAVOR = USB_CONTROLLER_FLAVOR(203i32);
-pub const UHCI_Reserved204: USB_CONTROLLER_FLAVOR = USB_CONTROLLER_FLAVOR(204i32);
-pub const UHCI_Ich1: USB_CONTROLLER_FLAVOR = USB_CONTROLLER_FLAVOR(205i32);
-pub const UHCI_Ich3m: USB_CONTROLLER_FLAVOR = USB_CONTROLLER_FLAVOR(206i32);
-pub const UHCI_Ich4: USB_CONTROLLER_FLAVOR = USB_CONTROLLER_FLAVOR(207i32);
-pub const UHCI_Ich5: USB_CONTROLLER_FLAVOR = USB_CONTROLLER_FLAVOR(208i32);
-pub const UHCI_Ich6: USB_CONTROLLER_FLAVOR = USB_CONTROLLER_FLAVOR(209i32);
-pub const UHCI_Intel: USB_CONTROLLER_FLAVOR = USB_CONTROLLER_FLAVOR(249i32);
-pub const UHCI_VIA: USB_CONTROLLER_FLAVOR = USB_CONTROLLER_FLAVOR(250i32);
-pub const UHCI_VIA_x01: USB_CONTROLLER_FLAVOR = USB_CONTROLLER_FLAVOR(251i32);
-pub const UHCI_VIA_x02: USB_CONTROLLER_FLAVOR = USB_CONTROLLER_FLAVOR(252i32);
-pub const UHCI_VIA_x03: USB_CONTROLLER_FLAVOR = USB_CONTROLLER_FLAVOR(253i32);
-pub const UHCI_VIA_x04: USB_CONTROLLER_FLAVOR = USB_CONTROLLER_FLAVOR(254i32);
-pub const UHCI_VIA_x0E_FIFO: USB_CONTROLLER_FLAVOR = USB_CONTROLLER_FLAVOR(264i32);
-pub const EHCI_Generic: USB_CONTROLLER_FLAVOR = USB_CONTROLLER_FLAVOR(1000i32);
-pub const EHCI_NEC: USB_CONTROLLER_FLAVOR = USB_CONTROLLER_FLAVOR(2000i32);
-pub const EHCI_Lucent: USB_CONTROLLER_FLAVOR = USB_CONTROLLER_FLAVOR(3000i32);
-pub const EHCI_NVIDIA_Tegra2: USB_CONTROLLER_FLAVOR = USB_CONTROLLER_FLAVOR(4000i32);
-pub const EHCI_NVIDIA_Tegra3: USB_CONTROLLER_FLAVOR = USB_CONTROLLER_FLAVOR(4001i32);
-pub const EHCI_Intel_Medfield: USB_CONTROLLER_FLAVOR = USB_CONTROLLER_FLAVOR(5001i32);
-impl ::core::marker::Copy for USB_CONTROLLER_FLAVOR {}
-impl ::core::clone::Clone for USB_CONTROLLER_FLAVOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const USB_HcGeneric: i32 = 0i32;
+pub const OHCI_Generic: i32 = 100i32;
+pub const OHCI_Hydra: i32 = 101i32;
+pub const OHCI_NEC: i32 = 102i32;
+pub const UHCI_Generic: i32 = 200i32;
+pub const UHCI_Piix4: i32 = 201i32;
+pub const UHCI_Piix3: i32 = 202i32;
+pub const UHCI_Ich2: i32 = 203i32;
+pub const UHCI_Reserved204: i32 = 204i32;
+pub const UHCI_Ich1: i32 = 205i32;
+pub const UHCI_Ich3m: i32 = 206i32;
+pub const UHCI_Ich4: i32 = 207i32;
+pub const UHCI_Ich5: i32 = 208i32;
+pub const UHCI_Ich6: i32 = 209i32;
+pub const UHCI_Intel: i32 = 249i32;
+pub const UHCI_VIA: i32 = 250i32;
+pub const UHCI_VIA_x01: i32 = 251i32;
+pub const UHCI_VIA_x02: i32 = 252i32;
+pub const UHCI_VIA_x03: i32 = 253i32;
+pub const UHCI_VIA_x04: i32 = 254i32;
+pub const UHCI_VIA_x0E_FIFO: i32 = 264i32;
+pub const EHCI_Generic: i32 = 1000i32;
+pub const EHCI_NEC: i32 = 2000i32;
+pub const EHCI_Lucent: i32 = 3000i32;
+pub const EHCI_NVIDIA_Tegra2: i32 = 4000i32;
+pub const EHCI_NVIDIA_Tegra3: i32 = 4001i32;
+pub const EHCI_Intel_Medfield: i32 = 5001i32;
 #[repr(C, packed(1))]
 pub struct USB_CONTROLLER_INFO_0 {
     pub PciVendorId: u32,
@@ -1995,18 +1915,10 @@ impl ::core::clone::Clone for USB_DEVICE_QUALIFIER_DESCRIPTOR {
     }
 }
 pub const USB_DEVICE_QUALIFIER_DESCRIPTOR_TYPE: u32 = 6u32;
-#[repr(transparent)]
-pub struct USB_DEVICE_SPEED(pub i32);
-pub const UsbLowSpeed: USB_DEVICE_SPEED = USB_DEVICE_SPEED(0i32);
-pub const UsbFullSpeed: USB_DEVICE_SPEED = USB_DEVICE_SPEED(1i32);
-pub const UsbHighSpeed: USB_DEVICE_SPEED = USB_DEVICE_SPEED(2i32);
-pub const UsbSuperSpeed: USB_DEVICE_SPEED = USB_DEVICE_SPEED(3i32);
-impl ::core::marker::Copy for USB_DEVICE_SPEED {}
-impl ::core::clone::Clone for USB_DEVICE_SPEED {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const UsbLowSpeed: i32 = 0i32;
+pub const UsbFullSpeed: i32 = 1i32;
+pub const UsbHighSpeed: i32 = 2i32;
+pub const UsbSuperSpeed: i32 = 3i32;
 #[repr(C, packed(1))]
 pub union USB_DEVICE_STATUS {
     pub AsUshort16: u16,
@@ -2028,16 +1940,8 @@ impl ::core::clone::Clone for USB_DEVICE_STATUS_0 {
         *self
     }
 }
-#[repr(transparent)]
-pub struct USB_DEVICE_TYPE(pub i32);
-pub const Usb11Device: USB_DEVICE_TYPE = USB_DEVICE_TYPE(0i32);
-pub const Usb20Device: USB_DEVICE_TYPE = USB_DEVICE_TYPE(1i32);
-impl ::core::marker::Copy for USB_DEVICE_TYPE {}
-impl ::core::clone::Clone for USB_DEVICE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const Usb11Device: i32 = 0i32;
+pub const Usb20Device: i32 = 1i32;
 pub const USB_DIAG_IGNORE_HUBS_OFF: u32 = 263u32;
 pub const USB_DIAG_IGNORE_HUBS_ON: u32 = 262u32;
 pub const USB_DISALLOW_FIRMWARE_UPDATE: u32 = 0u32;
@@ -2798,46 +2702,30 @@ impl ::core::clone::Clone for USB_USB2HW_VERSION_PARAMETERS {
         *self
     }
 }
-#[repr(transparent)]
-pub struct USB_USER_ERROR_CODE(pub i32);
-pub const UsbUserSuccess: USB_USER_ERROR_CODE = USB_USER_ERROR_CODE(0i32);
-pub const UsbUserNotSupported: USB_USER_ERROR_CODE = USB_USER_ERROR_CODE(1i32);
-pub const UsbUserInvalidRequestCode: USB_USER_ERROR_CODE = USB_USER_ERROR_CODE(2i32);
-pub const UsbUserFeatureDisabled: USB_USER_ERROR_CODE = USB_USER_ERROR_CODE(3i32);
-pub const UsbUserInvalidHeaderParameter: USB_USER_ERROR_CODE = USB_USER_ERROR_CODE(4i32);
-pub const UsbUserInvalidParameter: USB_USER_ERROR_CODE = USB_USER_ERROR_CODE(5i32);
-pub const UsbUserMiniportError: USB_USER_ERROR_CODE = USB_USER_ERROR_CODE(6i32);
-pub const UsbUserBufferTooSmall: USB_USER_ERROR_CODE = USB_USER_ERROR_CODE(7i32);
-pub const UsbUserErrorNotMapped: USB_USER_ERROR_CODE = USB_USER_ERROR_CODE(8i32);
-pub const UsbUserDeviceNotStarted: USB_USER_ERROR_CODE = USB_USER_ERROR_CODE(9i32);
-pub const UsbUserNoDeviceConnected: USB_USER_ERROR_CODE = USB_USER_ERROR_CODE(10i32);
-impl ::core::marker::Copy for USB_USER_ERROR_CODE {}
-impl ::core::clone::Clone for USB_USER_ERROR_CODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WDMUSB_POWER_STATE(pub i32);
-pub const WdmUsbPowerNotMapped: WDMUSB_POWER_STATE = WDMUSB_POWER_STATE(0i32);
-pub const WdmUsbPowerSystemUnspecified: WDMUSB_POWER_STATE = WDMUSB_POWER_STATE(100i32);
-pub const WdmUsbPowerSystemWorking: WDMUSB_POWER_STATE = WDMUSB_POWER_STATE(101i32);
-pub const WdmUsbPowerSystemSleeping1: WDMUSB_POWER_STATE = WDMUSB_POWER_STATE(102i32);
-pub const WdmUsbPowerSystemSleeping2: WDMUSB_POWER_STATE = WDMUSB_POWER_STATE(103i32);
-pub const WdmUsbPowerSystemSleeping3: WDMUSB_POWER_STATE = WDMUSB_POWER_STATE(104i32);
-pub const WdmUsbPowerSystemHibernate: WDMUSB_POWER_STATE = WDMUSB_POWER_STATE(105i32);
-pub const WdmUsbPowerSystemShutdown: WDMUSB_POWER_STATE = WDMUSB_POWER_STATE(106i32);
-pub const WdmUsbPowerDeviceUnspecified: WDMUSB_POWER_STATE = WDMUSB_POWER_STATE(200i32);
-pub const WdmUsbPowerDeviceD0: WDMUSB_POWER_STATE = WDMUSB_POWER_STATE(201i32);
-pub const WdmUsbPowerDeviceD1: WDMUSB_POWER_STATE = WDMUSB_POWER_STATE(202i32);
-pub const WdmUsbPowerDeviceD2: WDMUSB_POWER_STATE = WDMUSB_POWER_STATE(203i32);
-pub const WdmUsbPowerDeviceD3: WDMUSB_POWER_STATE = WDMUSB_POWER_STATE(204i32);
-impl ::core::marker::Copy for WDMUSB_POWER_STATE {}
-impl ::core::clone::Clone for WDMUSB_POWER_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const UsbUserSuccess: i32 = 0i32;
+pub const UsbUserNotSupported: i32 = 1i32;
+pub const UsbUserInvalidRequestCode: i32 = 2i32;
+pub const UsbUserFeatureDisabled: i32 = 3i32;
+pub const UsbUserInvalidHeaderParameter: i32 = 4i32;
+pub const UsbUserInvalidParameter: i32 = 5i32;
+pub const UsbUserMiniportError: i32 = 6i32;
+pub const UsbUserBufferTooSmall: i32 = 7i32;
+pub const UsbUserErrorNotMapped: i32 = 8i32;
+pub const UsbUserDeviceNotStarted: i32 = 9i32;
+pub const UsbUserNoDeviceConnected: i32 = 10i32;
+pub const WdmUsbPowerNotMapped: i32 = 0i32;
+pub const WdmUsbPowerSystemUnspecified: i32 = 100i32;
+pub const WdmUsbPowerSystemWorking: i32 = 101i32;
+pub const WdmUsbPowerSystemSleeping1: i32 = 102i32;
+pub const WdmUsbPowerSystemSleeping2: i32 = 103i32;
+pub const WdmUsbPowerSystemSleeping3: i32 = 104i32;
+pub const WdmUsbPowerSystemHibernate: i32 = 105i32;
+pub const WdmUsbPowerSystemShutdown: i32 = 106i32;
+pub const WdmUsbPowerDeviceUnspecified: i32 = 200i32;
+pub const WdmUsbPowerDeviceD0: i32 = 201i32;
+pub const WdmUsbPowerDeviceD1: i32 = 202i32;
+pub const WdmUsbPowerDeviceD2: i32 = 203i32;
+pub const WdmUsbPowerDeviceD3: i32 = 204i32;
 #[repr(C)]
 pub struct WINUSB_PIPE_INFORMATION {
     pub PipeType: USBD_PIPE_TYPE,

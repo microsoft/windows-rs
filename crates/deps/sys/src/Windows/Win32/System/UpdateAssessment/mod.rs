@@ -43,36 +43,20 @@ impl ::core::clone::Clone for UpdateAssessment {
         *self
     }
 }
-#[repr(transparent)]
-pub struct UpdateAssessmentStatus(pub i32);
-pub const UpdateAssessmentStatus_Latest: UpdateAssessmentStatus = UpdateAssessmentStatus(0i32);
-pub const UpdateAssessmentStatus_NotLatestSoftRestriction: UpdateAssessmentStatus = UpdateAssessmentStatus(1i32);
-pub const UpdateAssessmentStatus_NotLatestHardRestriction: UpdateAssessmentStatus = UpdateAssessmentStatus(2i32);
-pub const UpdateAssessmentStatus_NotLatestEndOfSupport: UpdateAssessmentStatus = UpdateAssessmentStatus(3i32);
-pub const UpdateAssessmentStatus_NotLatestServicingTrain: UpdateAssessmentStatus = UpdateAssessmentStatus(4i32);
-pub const UpdateAssessmentStatus_NotLatestDeferredFeature: UpdateAssessmentStatus = UpdateAssessmentStatus(5i32);
-pub const UpdateAssessmentStatus_NotLatestDeferredQuality: UpdateAssessmentStatus = UpdateAssessmentStatus(6i32);
-pub const UpdateAssessmentStatus_NotLatestPausedFeature: UpdateAssessmentStatus = UpdateAssessmentStatus(7i32);
-pub const UpdateAssessmentStatus_NotLatestPausedQuality: UpdateAssessmentStatus = UpdateAssessmentStatus(8i32);
-pub const UpdateAssessmentStatus_NotLatestManaged: UpdateAssessmentStatus = UpdateAssessmentStatus(9i32);
-pub const UpdateAssessmentStatus_NotLatestUnknown: UpdateAssessmentStatus = UpdateAssessmentStatus(10i32);
-pub const UpdateAssessmentStatus_NotLatestTargetedVersion: UpdateAssessmentStatus = UpdateAssessmentStatus(11i32);
-impl ::core::marker::Copy for UpdateAssessmentStatus {}
-impl ::core::clone::Clone for UpdateAssessmentStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct UpdateImpactLevel(pub i32);
-pub const UpdateImpactLevel_None: UpdateImpactLevel = UpdateImpactLevel(0i32);
-pub const UpdateImpactLevel_Low: UpdateImpactLevel = UpdateImpactLevel(1i32);
-pub const UpdateImpactLevel_Medium: UpdateImpactLevel = UpdateImpactLevel(2i32);
-pub const UpdateImpactLevel_High: UpdateImpactLevel = UpdateImpactLevel(3i32);
-impl ::core::marker::Copy for UpdateImpactLevel {}
-impl ::core::clone::Clone for UpdateImpactLevel {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const UpdateAssessmentStatus_Latest: i32 = 0i32;
+pub const UpdateAssessmentStatus_NotLatestSoftRestriction: i32 = 1i32;
+pub const UpdateAssessmentStatus_NotLatestHardRestriction: i32 = 2i32;
+pub const UpdateAssessmentStatus_NotLatestEndOfSupport: i32 = 3i32;
+pub const UpdateAssessmentStatus_NotLatestServicingTrain: i32 = 4i32;
+pub const UpdateAssessmentStatus_NotLatestDeferredFeature: i32 = 5i32;
+pub const UpdateAssessmentStatus_NotLatestDeferredQuality: i32 = 6i32;
+pub const UpdateAssessmentStatus_NotLatestPausedFeature: i32 = 7i32;
+pub const UpdateAssessmentStatus_NotLatestPausedQuality: i32 = 8i32;
+pub const UpdateAssessmentStatus_NotLatestManaged: i32 = 9i32;
+pub const UpdateAssessmentStatus_NotLatestUnknown: i32 = 10i32;
+pub const UpdateAssessmentStatus_NotLatestTargetedVersion: i32 = 11i32;
+pub const UpdateImpactLevel_None: i32 = 0i32;
+pub const UpdateImpactLevel_Low: i32 = 1i32;
+pub const UpdateImpactLevel_Medium: i32 = 2i32;
+pub const UpdateImpactLevel_High: i32 = 3i32;
 pub const WaaSAssessor: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 160364657, data2: 64159, data3: 18095, data4: [137, 88, 192, 131, 81, 93, 124, 156] };

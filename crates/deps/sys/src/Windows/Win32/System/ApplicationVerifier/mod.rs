@@ -53,68 +53,20 @@ impl ::core::clone::Clone for AVRF_HEAP_ALLOCATION {
 }
 pub const AVRF_MAX_TRACES: u32 = 32u32;
 pub type AVRF_RESOURCE_ENUMERATE_CALLBACK = unsafe extern "system" fn(resourcedescription: *mut ::core::ffi::c_void, enumerationcontext: *mut ::core::ffi::c_void, enumerationlevel: *mut u32) -> u32;
-#[repr(transparent)]
-pub struct VERIFIER_ENUM_RESOURCE_FLAGS(pub u32);
-pub const AVRF_ENUM_RESOURCES_FLAGS_DONT_RESOLVE_TRACES: VERIFIER_ENUM_RESOURCE_FLAGS = VERIFIER_ENUM_RESOURCE_FLAGS(2u32);
-pub const AVRF_ENUM_RESOURCES_FLAGS_SUSPEND: VERIFIER_ENUM_RESOURCE_FLAGS = VERIFIER_ENUM_RESOURCE_FLAGS(1u32);
-impl ::core::marker::Copy for VERIFIER_ENUM_RESOURCE_FLAGS {}
-impl ::core::clone::Clone for VERIFIER_ENUM_RESOURCE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct eAvrfResourceTypes(pub i32);
-pub const AvrfResourceHeapAllocation: eAvrfResourceTypes = eAvrfResourceTypes(0i32);
-pub const AvrfResourceHandleTrace: eAvrfResourceTypes = eAvrfResourceTypes(1i32);
-pub const AvrfResourceMax: eAvrfResourceTypes = eAvrfResourceTypes(2i32);
-impl ::core::marker::Copy for eAvrfResourceTypes {}
-impl ::core::clone::Clone for eAvrfResourceTypes {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct eHANDLE_TRACE_OPERATIONS(pub i32);
-pub const OperationDbUnused: eHANDLE_TRACE_OPERATIONS = eHANDLE_TRACE_OPERATIONS(0i32);
-pub const OperationDbOPEN: eHANDLE_TRACE_OPERATIONS = eHANDLE_TRACE_OPERATIONS(1i32);
-pub const OperationDbCLOSE: eHANDLE_TRACE_OPERATIONS = eHANDLE_TRACE_OPERATIONS(2i32);
-pub const OperationDbBADREF: eHANDLE_TRACE_OPERATIONS = eHANDLE_TRACE_OPERATIONS(3i32);
-impl ::core::marker::Copy for eHANDLE_TRACE_OPERATIONS {}
-impl ::core::clone::Clone for eHANDLE_TRACE_OPERATIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct eHeapAllocationState(pub i32);
-pub const HeapFullPageHeap: eHeapAllocationState = eHeapAllocationState(1073741824i32);
-pub const HeapMetadata: eHeapAllocationState = eHeapAllocationState(-2147483648i32);
-pub const HeapStateMask: eHeapAllocationState = eHeapAllocationState(-65536i32);
-impl ::core::marker::Copy for eHeapAllocationState {}
-impl ::core::clone::Clone for eHeapAllocationState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct eHeapEnumerationLevel(pub i32);
-pub const HeapEnumerationEverything: eHeapEnumerationLevel = eHeapEnumerationLevel(0i32);
-pub const HeapEnumerationStop: eHeapEnumerationLevel = eHeapEnumerationLevel(-1i32);
-impl ::core::marker::Copy for eHeapEnumerationLevel {}
-impl ::core::clone::Clone for eHeapEnumerationLevel {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct eUserAllocationState(pub i32);
-pub const AllocationStateUnknown: eUserAllocationState = eUserAllocationState(0i32);
-pub const AllocationStateBusy: eUserAllocationState = eUserAllocationState(1i32);
-pub const AllocationStateFree: eUserAllocationState = eUserAllocationState(2i32);
-impl ::core::marker::Copy for eUserAllocationState {}
-impl ::core::clone::Clone for eUserAllocationState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const AVRF_ENUM_RESOURCES_FLAGS_DONT_RESOLVE_TRACES: u32 = 2u32;
+pub const AVRF_ENUM_RESOURCES_FLAGS_SUSPEND: u32 = 1u32;
+pub const AvrfResourceHeapAllocation: i32 = 0i32;
+pub const AvrfResourceHandleTrace: i32 = 1i32;
+pub const AvrfResourceMax: i32 = 2i32;
+pub const OperationDbUnused: i32 = 0i32;
+pub const OperationDbOPEN: i32 = 1i32;
+pub const OperationDbCLOSE: i32 = 2i32;
+pub const OperationDbBADREF: i32 = 3i32;
+pub const HeapFullPageHeap: i32 = 1073741824i32;
+pub const HeapMetadata: i32 = -2147483648i32;
+pub const HeapStateMask: i32 = -65536i32;
+pub const HeapEnumerationEverything: i32 = 0i32;
+pub const HeapEnumerationStop: i32 = -1i32;
+pub const AllocationStateUnknown: i32 = 0i32;
+pub const AllocationStateBusy: i32 = 1i32;
+pub const AllocationStateFree: i32 = 2i32;

@@ -93,17 +93,9 @@ impl ::core::clone::Clone for DOT11EXT_APIS {
 pub type DOT11EXT_FREE_BUFFER = unsafe extern "system" fn(pvmemory: *const ::core::ffi::c_void);
 #[cfg(feature = "Win32_Foundation")]
 pub type DOT11EXT_GET_PROFILE_CUSTOM_USER_DATA = unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, hconnectsession: super::super::Foundation::HANDLE, dwsessionid: u32, pdwdatasize: *mut u32, ppvdata: *mut *mut ::core::ffi::c_void) -> u32;
-#[repr(transparent)]
-pub struct DOT11EXT_IHV_CONNECTION_PHASE(pub i32);
-pub const connection_phase_any: DOT11EXT_IHV_CONNECTION_PHASE = DOT11EXT_IHV_CONNECTION_PHASE(0i32);
-pub const connection_phase_initial_connection: DOT11EXT_IHV_CONNECTION_PHASE = DOT11EXT_IHV_CONNECTION_PHASE(1i32);
-pub const connection_phase_post_l3_connection: DOT11EXT_IHV_CONNECTION_PHASE = DOT11EXT_IHV_CONNECTION_PHASE(2i32);
-impl ::core::marker::Copy for DOT11EXT_IHV_CONNECTION_PHASE {}
-impl ::core::clone::Clone for DOT11EXT_IHV_CONNECTION_PHASE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const connection_phase_any: i32 = 0i32;
+pub const connection_phase_initial_connection: i32 = 1i32;
+pub const connection_phase_post_l3_connection: i32 = 2i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DOT11EXT_IHV_CONNECTIVITY_PROFILE {
@@ -176,19 +168,11 @@ impl ::core::clone::Clone for DOT11EXT_IHV_HANDLERS {
         *self
     }
 }
-#[repr(transparent)]
-pub struct DOT11EXT_IHV_INDICATION_TYPE(pub i32);
-pub const IndicationTypeNicSpecificNotification: DOT11EXT_IHV_INDICATION_TYPE = DOT11EXT_IHV_INDICATION_TYPE(0i32);
-pub const IndicationTypePmkidCandidateList: DOT11EXT_IHV_INDICATION_TYPE = DOT11EXT_IHV_INDICATION_TYPE(1i32);
-pub const IndicationTypeTkipMicFailure: DOT11EXT_IHV_INDICATION_TYPE = DOT11EXT_IHV_INDICATION_TYPE(2i32);
-pub const IndicationTypePhyStateChange: DOT11EXT_IHV_INDICATION_TYPE = DOT11EXT_IHV_INDICATION_TYPE(3i32);
-pub const IndicationTypeLinkQuality: DOT11EXT_IHV_INDICATION_TYPE = DOT11EXT_IHV_INDICATION_TYPE(4i32);
-impl ::core::marker::Copy for DOT11EXT_IHV_INDICATION_TYPE {}
-impl ::core::clone::Clone for DOT11EXT_IHV_INDICATION_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const IndicationTypeNicSpecificNotification: i32 = 0i32;
+pub const IndicationTypePmkidCandidateList: i32 = 1i32;
+pub const IndicationTypeTkipMicFailure: i32 = 2i32;
+pub const IndicationTypePhyStateChange: i32 = 3i32;
+pub const IndicationTypeLinkQuality: i32 = 4i32;
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
 pub struct DOT11EXT_IHV_PARAMS {
@@ -394,17 +378,9 @@ impl ::core::clone::Clone for DOT11_IHV_VERSION_INFO {
         *self
     }
 }
-#[repr(transparent)]
-pub struct DOT11_MSONEX_RESULT(pub i32);
-pub const DOT11_MSONEX_SUCCESS: DOT11_MSONEX_RESULT = DOT11_MSONEX_RESULT(0i32);
-pub const DOT11_MSONEX_FAILURE: DOT11_MSONEX_RESULT = DOT11_MSONEX_RESULT(1i32);
-pub const DOT11_MSONEX_IN_PROGRESS: DOT11_MSONEX_RESULT = DOT11_MSONEX_RESULT(2i32);
-impl ::core::marker::Copy for DOT11_MSONEX_RESULT {}
-impl ::core::clone::Clone for DOT11_MSONEX_RESULT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const DOT11_MSONEX_SUCCESS: i32 = 0i32;
+pub const DOT11_MSONEX_FAILURE: i32 = 1i32;
+pub const DOT11_MSONEX_IN_PROGRESS: i32 = 2i32;
 #[repr(C)]
 #[cfg(all(feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
 pub struct DOT11_MSONEX_RESULT_PARAMS {
@@ -1004,27 +980,19 @@ impl ::core::clone::Clone for NDIS_802_11_AUTHENTICATION_EVENT {
         *self
     }
 }
-#[repr(transparent)]
-pub struct NDIS_802_11_AUTHENTICATION_MODE(pub i32);
-pub const Ndis802_11AuthModeOpen: NDIS_802_11_AUTHENTICATION_MODE = NDIS_802_11_AUTHENTICATION_MODE(0i32);
-pub const Ndis802_11AuthModeShared: NDIS_802_11_AUTHENTICATION_MODE = NDIS_802_11_AUTHENTICATION_MODE(1i32);
-pub const Ndis802_11AuthModeAutoSwitch: NDIS_802_11_AUTHENTICATION_MODE = NDIS_802_11_AUTHENTICATION_MODE(2i32);
-pub const Ndis802_11AuthModeWPA: NDIS_802_11_AUTHENTICATION_MODE = NDIS_802_11_AUTHENTICATION_MODE(3i32);
-pub const Ndis802_11AuthModeWPAPSK: NDIS_802_11_AUTHENTICATION_MODE = NDIS_802_11_AUTHENTICATION_MODE(4i32);
-pub const Ndis802_11AuthModeWPANone: NDIS_802_11_AUTHENTICATION_MODE = NDIS_802_11_AUTHENTICATION_MODE(5i32);
-pub const Ndis802_11AuthModeWPA2: NDIS_802_11_AUTHENTICATION_MODE = NDIS_802_11_AUTHENTICATION_MODE(6i32);
-pub const Ndis802_11AuthModeWPA2PSK: NDIS_802_11_AUTHENTICATION_MODE = NDIS_802_11_AUTHENTICATION_MODE(7i32);
-pub const Ndis802_11AuthModeWPA3: NDIS_802_11_AUTHENTICATION_MODE = NDIS_802_11_AUTHENTICATION_MODE(8i32);
-pub const Ndis802_11AuthModeWPA3Ent192: NDIS_802_11_AUTHENTICATION_MODE = NDIS_802_11_AUTHENTICATION_MODE(8i32);
-pub const Ndis802_11AuthModeWPA3SAE: NDIS_802_11_AUTHENTICATION_MODE = NDIS_802_11_AUTHENTICATION_MODE(9i32);
-pub const Ndis802_11AuthModeWPA3Ent: NDIS_802_11_AUTHENTICATION_MODE = NDIS_802_11_AUTHENTICATION_MODE(10i32);
-pub const Ndis802_11AuthModeMax: NDIS_802_11_AUTHENTICATION_MODE = NDIS_802_11_AUTHENTICATION_MODE(11i32);
-impl ::core::marker::Copy for NDIS_802_11_AUTHENTICATION_MODE {}
-impl ::core::clone::Clone for NDIS_802_11_AUTHENTICATION_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const Ndis802_11AuthModeOpen: i32 = 0i32;
+pub const Ndis802_11AuthModeShared: i32 = 1i32;
+pub const Ndis802_11AuthModeAutoSwitch: i32 = 2i32;
+pub const Ndis802_11AuthModeWPA: i32 = 3i32;
+pub const Ndis802_11AuthModeWPAPSK: i32 = 4i32;
+pub const Ndis802_11AuthModeWPANone: i32 = 5i32;
+pub const Ndis802_11AuthModeWPA2: i32 = 6i32;
+pub const Ndis802_11AuthModeWPA2PSK: i32 = 7i32;
+pub const Ndis802_11AuthModeWPA3: i32 = 8i32;
+pub const Ndis802_11AuthModeWPA3Ent192: i32 = 8i32;
+pub const Ndis802_11AuthModeWPA3SAE: i32 = 9i32;
+pub const Ndis802_11AuthModeWPA3Ent: i32 = 10i32;
+pub const Ndis802_11AuthModeMax: i32 = 11i32;
 #[repr(C)]
 pub struct NDIS_802_11_AUTHENTICATION_REQUEST {
     pub Length: u32,
@@ -1135,42 +1103,18 @@ impl ::core::clone::Clone for NDIS_802_11_KEY {
 pub const NDIS_802_11_LENGTH_RATES: u32 = 8u32;
 pub const NDIS_802_11_LENGTH_RATES_EX: u32 = 16u32;
 pub const NDIS_802_11_LENGTH_SSID: u32 = 32u32;
-#[repr(transparent)]
-pub struct NDIS_802_11_MEDIA_STREAM_MODE(pub i32);
-pub const Ndis802_11MediaStreamOff: NDIS_802_11_MEDIA_STREAM_MODE = NDIS_802_11_MEDIA_STREAM_MODE(0i32);
-pub const Ndis802_11MediaStreamOn: NDIS_802_11_MEDIA_STREAM_MODE = NDIS_802_11_MEDIA_STREAM_MODE(1i32);
-impl ::core::marker::Copy for NDIS_802_11_MEDIA_STREAM_MODE {}
-impl ::core::clone::Clone for NDIS_802_11_MEDIA_STREAM_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct NDIS_802_11_NETWORK_INFRASTRUCTURE(pub i32);
-pub const Ndis802_11IBSS: NDIS_802_11_NETWORK_INFRASTRUCTURE = NDIS_802_11_NETWORK_INFRASTRUCTURE(0i32);
-pub const Ndis802_11Infrastructure: NDIS_802_11_NETWORK_INFRASTRUCTURE = NDIS_802_11_NETWORK_INFRASTRUCTURE(1i32);
-pub const Ndis802_11AutoUnknown: NDIS_802_11_NETWORK_INFRASTRUCTURE = NDIS_802_11_NETWORK_INFRASTRUCTURE(2i32);
-pub const Ndis802_11InfrastructureMax: NDIS_802_11_NETWORK_INFRASTRUCTURE = NDIS_802_11_NETWORK_INFRASTRUCTURE(3i32);
-impl ::core::marker::Copy for NDIS_802_11_NETWORK_INFRASTRUCTURE {}
-impl ::core::clone::Clone for NDIS_802_11_NETWORK_INFRASTRUCTURE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct NDIS_802_11_NETWORK_TYPE(pub i32);
-pub const Ndis802_11FH: NDIS_802_11_NETWORK_TYPE = NDIS_802_11_NETWORK_TYPE(0i32);
-pub const Ndis802_11DS: NDIS_802_11_NETWORK_TYPE = NDIS_802_11_NETWORK_TYPE(1i32);
-pub const Ndis802_11OFDM5: NDIS_802_11_NETWORK_TYPE = NDIS_802_11_NETWORK_TYPE(2i32);
-pub const Ndis802_11OFDM24: NDIS_802_11_NETWORK_TYPE = NDIS_802_11_NETWORK_TYPE(3i32);
-pub const Ndis802_11Automode: NDIS_802_11_NETWORK_TYPE = NDIS_802_11_NETWORK_TYPE(4i32);
-pub const Ndis802_11NetworkTypeMax: NDIS_802_11_NETWORK_TYPE = NDIS_802_11_NETWORK_TYPE(5i32);
-impl ::core::marker::Copy for NDIS_802_11_NETWORK_TYPE {}
-impl ::core::clone::Clone for NDIS_802_11_NETWORK_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const Ndis802_11MediaStreamOff: i32 = 0i32;
+pub const Ndis802_11MediaStreamOn: i32 = 1i32;
+pub const Ndis802_11IBSS: i32 = 0i32;
+pub const Ndis802_11Infrastructure: i32 = 1i32;
+pub const Ndis802_11AutoUnknown: i32 = 2i32;
+pub const Ndis802_11InfrastructureMax: i32 = 3i32;
+pub const Ndis802_11FH: i32 = 0i32;
+pub const Ndis802_11DS: i32 = 1i32;
+pub const Ndis802_11OFDM5: i32 = 2i32;
+pub const Ndis802_11OFDM24: i32 = 3i32;
+pub const Ndis802_11Automode: i32 = 4i32;
+pub const Ndis802_11NetworkTypeMax: i32 = 5i32;
 #[repr(C)]
 pub struct NDIS_802_11_NETWORK_TYPE_LIST {
     pub NumberOfItems: u32,
@@ -1218,50 +1162,18 @@ impl ::core::clone::Clone for NDIS_802_11_PMKID_CANDIDATE_LIST {
     }
 }
 pub const NDIS_802_11_PMKID_CANDIDATE_PREAUTH_ENABLED: u32 = 1u32;
-#[repr(transparent)]
-pub struct NDIS_802_11_POWER_MODE(pub i32);
-pub const Ndis802_11PowerModeCAM: NDIS_802_11_POWER_MODE = NDIS_802_11_POWER_MODE(0i32);
-pub const Ndis802_11PowerModeMAX_PSP: NDIS_802_11_POWER_MODE = NDIS_802_11_POWER_MODE(1i32);
-pub const Ndis802_11PowerModeFast_PSP: NDIS_802_11_POWER_MODE = NDIS_802_11_POWER_MODE(2i32);
-pub const Ndis802_11PowerModeMax: NDIS_802_11_POWER_MODE = NDIS_802_11_POWER_MODE(3i32);
-impl ::core::marker::Copy for NDIS_802_11_POWER_MODE {}
-impl ::core::clone::Clone for NDIS_802_11_POWER_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct NDIS_802_11_PRIVACY_FILTER(pub i32);
-pub const Ndis802_11PrivFilterAcceptAll: NDIS_802_11_PRIVACY_FILTER = NDIS_802_11_PRIVACY_FILTER(0i32);
-pub const Ndis802_11PrivFilter8021xWEP: NDIS_802_11_PRIVACY_FILTER = NDIS_802_11_PRIVACY_FILTER(1i32);
-impl ::core::marker::Copy for NDIS_802_11_PRIVACY_FILTER {}
-impl ::core::clone::Clone for NDIS_802_11_PRIVACY_FILTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct NDIS_802_11_RADIO_STATUS(pub i32);
-pub const Ndis802_11RadioStatusOn: NDIS_802_11_RADIO_STATUS = NDIS_802_11_RADIO_STATUS(0i32);
-pub const Ndis802_11RadioStatusHardwareOff: NDIS_802_11_RADIO_STATUS = NDIS_802_11_RADIO_STATUS(1i32);
-pub const Ndis802_11RadioStatusSoftwareOff: NDIS_802_11_RADIO_STATUS = NDIS_802_11_RADIO_STATUS(2i32);
-pub const Ndis802_11RadioStatusHardwareSoftwareOff: NDIS_802_11_RADIO_STATUS = NDIS_802_11_RADIO_STATUS(3i32);
-pub const Ndis802_11RadioStatusMax: NDIS_802_11_RADIO_STATUS = NDIS_802_11_RADIO_STATUS(4i32);
-impl ::core::marker::Copy for NDIS_802_11_RADIO_STATUS {}
-impl ::core::clone::Clone for NDIS_802_11_RADIO_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct NDIS_802_11_RELOAD_DEFAULTS(pub i32);
-pub const Ndis802_11ReloadWEPKeys: NDIS_802_11_RELOAD_DEFAULTS = NDIS_802_11_RELOAD_DEFAULTS(0i32);
-impl ::core::marker::Copy for NDIS_802_11_RELOAD_DEFAULTS {}
-impl ::core::clone::Clone for NDIS_802_11_RELOAD_DEFAULTS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const Ndis802_11PowerModeCAM: i32 = 0i32;
+pub const Ndis802_11PowerModeMAX_PSP: i32 = 1i32;
+pub const Ndis802_11PowerModeFast_PSP: i32 = 2i32;
+pub const Ndis802_11PowerModeMax: i32 = 3i32;
+pub const Ndis802_11PrivFilterAcceptAll: i32 = 0i32;
+pub const Ndis802_11PrivFilter8021xWEP: i32 = 1i32;
+pub const Ndis802_11RadioStatusOn: i32 = 0i32;
+pub const Ndis802_11RadioStatusHardwareOff: i32 = 1i32;
+pub const Ndis802_11RadioStatusSoftwareOff: i32 = 2i32;
+pub const Ndis802_11RadioStatusHardwareSoftwareOff: i32 = 3i32;
+pub const Ndis802_11RadioStatusMax: i32 = 4i32;
+pub const Ndis802_11ReloadWEPKeys: i32 = 0i32;
 #[repr(C)]
 pub struct NDIS_802_11_REMOVE_KEY {
     pub Length: u32,
@@ -1329,18 +1241,10 @@ impl ::core::clone::Clone for NDIS_802_11_STATUS_INDICATION {
         *self
     }
 }
-#[repr(transparent)]
-pub struct NDIS_802_11_STATUS_TYPE(pub i32);
-pub const Ndis802_11StatusType_Authentication: NDIS_802_11_STATUS_TYPE = NDIS_802_11_STATUS_TYPE(0i32);
-pub const Ndis802_11StatusType_MediaStreamMode: NDIS_802_11_STATUS_TYPE = NDIS_802_11_STATUS_TYPE(1i32);
-pub const Ndis802_11StatusType_PMKID_CandidateList: NDIS_802_11_STATUS_TYPE = NDIS_802_11_STATUS_TYPE(2i32);
-pub const Ndis802_11StatusTypeMax: NDIS_802_11_STATUS_TYPE = NDIS_802_11_STATUS_TYPE(3i32);
-impl ::core::marker::Copy for NDIS_802_11_STATUS_TYPE {}
-impl ::core::clone::Clone for NDIS_802_11_STATUS_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const Ndis802_11StatusType_Authentication: i32 = 0i32;
+pub const Ndis802_11StatusType_MediaStreamMode: i32 = 1i32;
+pub const Ndis802_11StatusType_PMKID_CandidateList: i32 = 2i32;
+pub const Ndis802_11StatusTypeMax: i32 = 3i32;
 #[repr(C)]
 pub struct NDIS_802_11_TEST {
     pub Length: u32,
@@ -1389,41 +1293,25 @@ impl ::core::clone::Clone for NDIS_802_11_WEP {
         *self
     }
 }
-#[repr(transparent)]
-pub struct NDIS_802_11_WEP_STATUS(pub i32);
-pub const Ndis802_11WEPEnabled: NDIS_802_11_WEP_STATUS = NDIS_802_11_WEP_STATUS(0i32);
-pub const Ndis802_11Encryption1Enabled: NDIS_802_11_WEP_STATUS = NDIS_802_11_WEP_STATUS(0i32);
-pub const Ndis802_11WEPDisabled: NDIS_802_11_WEP_STATUS = NDIS_802_11_WEP_STATUS(1i32);
-pub const Ndis802_11EncryptionDisabled: NDIS_802_11_WEP_STATUS = NDIS_802_11_WEP_STATUS(1i32);
-pub const Ndis802_11WEPKeyAbsent: NDIS_802_11_WEP_STATUS = NDIS_802_11_WEP_STATUS(2i32);
-pub const Ndis802_11Encryption1KeyAbsent: NDIS_802_11_WEP_STATUS = NDIS_802_11_WEP_STATUS(2i32);
-pub const Ndis802_11WEPNotSupported: NDIS_802_11_WEP_STATUS = NDIS_802_11_WEP_STATUS(3i32);
-pub const Ndis802_11EncryptionNotSupported: NDIS_802_11_WEP_STATUS = NDIS_802_11_WEP_STATUS(3i32);
-pub const Ndis802_11Encryption2Enabled: NDIS_802_11_WEP_STATUS = NDIS_802_11_WEP_STATUS(4i32);
-pub const Ndis802_11Encryption2KeyAbsent: NDIS_802_11_WEP_STATUS = NDIS_802_11_WEP_STATUS(5i32);
-pub const Ndis802_11Encryption3Enabled: NDIS_802_11_WEP_STATUS = NDIS_802_11_WEP_STATUS(6i32);
-pub const Ndis802_11Encryption3KeyAbsent: NDIS_802_11_WEP_STATUS = NDIS_802_11_WEP_STATUS(7i32);
-impl ::core::marker::Copy for NDIS_802_11_WEP_STATUS {}
-impl ::core::clone::Clone for NDIS_802_11_WEP_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const Ndis802_11WEPEnabled: i32 = 0i32;
+pub const Ndis802_11Encryption1Enabled: i32 = 0i32;
+pub const Ndis802_11WEPDisabled: i32 = 1i32;
+pub const Ndis802_11EncryptionDisabled: i32 = 1i32;
+pub const Ndis802_11WEPKeyAbsent: i32 = 2i32;
+pub const Ndis802_11Encryption1KeyAbsent: i32 = 2i32;
+pub const Ndis802_11WEPNotSupported: i32 = 3i32;
+pub const Ndis802_11EncryptionNotSupported: i32 = 3i32;
+pub const Ndis802_11Encryption2Enabled: i32 = 4i32;
+pub const Ndis802_11Encryption2KeyAbsent: i32 = 5i32;
+pub const Ndis802_11Encryption3Enabled: i32 = 6i32;
+pub const Ndis802_11Encryption3KeyAbsent: i32 = 7i32;
 pub const NDIS_802_3_MAC_OPTION_PRIORITY: u32 = 1u32;
-#[repr(transparent)]
-pub struct NDIS_802_5_RING_STATE(pub i32);
-pub const NdisRingStateOpened: NDIS_802_5_RING_STATE = NDIS_802_5_RING_STATE(1i32);
-pub const NdisRingStateClosed: NDIS_802_5_RING_STATE = NDIS_802_5_RING_STATE(2i32);
-pub const NdisRingStateOpening: NDIS_802_5_RING_STATE = NDIS_802_5_RING_STATE(3i32);
-pub const NdisRingStateClosing: NDIS_802_5_RING_STATE = NDIS_802_5_RING_STATE(4i32);
-pub const NdisRingStateOpenFailure: NDIS_802_5_RING_STATE = NDIS_802_5_RING_STATE(5i32);
-pub const NdisRingStateRingFailure: NDIS_802_5_RING_STATE = NDIS_802_5_RING_STATE(6i32);
-impl ::core::marker::Copy for NDIS_802_5_RING_STATE {}
-impl ::core::clone::Clone for NDIS_802_5_RING_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const NdisRingStateOpened: i32 = 1i32;
+pub const NdisRingStateClosed: i32 = 2i32;
+pub const NdisRingStateOpening: i32 = 3i32;
+pub const NdisRingStateClosing: i32 = 4i32;
+pub const NdisRingStateOpenFailure: i32 = 5i32;
+pub const NdisRingStateRingFailure: i32 = 6i32;
 #[repr(C)]
 pub struct NDIS_CO_DEVICE_PROFILE {
     pub DeviceDescription: NDIS_VAR_DATA_DESC,
@@ -1478,20 +1366,12 @@ pub const NDIS_DEFAULT_RECEIVE_QUEUE_GROUP_ID: u32 = 0u32;
 pub const NDIS_DEFAULT_RECEIVE_QUEUE_ID: u32 = 0u32;
 pub const NDIS_DEFAULT_SWITCH_ID: u32 = 0u32;
 pub const NDIS_DEFAULT_VPORT_ID: u32 = 0u32;
-#[repr(transparent)]
-pub struct NDIS_DEVICE_POWER_STATE(pub i32);
-pub const NdisDeviceStateUnspecified: NDIS_DEVICE_POWER_STATE = NDIS_DEVICE_POWER_STATE(0i32);
-pub const NdisDeviceStateD0: NDIS_DEVICE_POWER_STATE = NDIS_DEVICE_POWER_STATE(1i32);
-pub const NdisDeviceStateD1: NDIS_DEVICE_POWER_STATE = NDIS_DEVICE_POWER_STATE(2i32);
-pub const NdisDeviceStateD2: NDIS_DEVICE_POWER_STATE = NDIS_DEVICE_POWER_STATE(3i32);
-pub const NdisDeviceStateD3: NDIS_DEVICE_POWER_STATE = NDIS_DEVICE_POWER_STATE(4i32);
-pub const NdisDeviceStateMaximum: NDIS_DEVICE_POWER_STATE = NDIS_DEVICE_POWER_STATE(5i32);
-impl ::core::marker::Copy for NDIS_DEVICE_POWER_STATE {}
-impl ::core::clone::Clone for NDIS_DEVICE_POWER_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const NdisDeviceStateUnspecified: i32 = 0i32;
+pub const NdisDeviceStateD0: i32 = 1i32;
+pub const NdisDeviceStateD1: i32 = 2i32;
+pub const NdisDeviceStateD2: i32 = 3i32;
+pub const NdisDeviceStateD3: i32 = 4i32;
+pub const NdisDeviceStateMaximum: i32 = 5i32;
 pub const NDIS_DEVICE_TYPE_ENDPOINT: u32 = 1u32;
 pub const NDIS_DEVICE_WAKE_ON_MAGIC_PACKET_ENABLE: u32 = 4u32;
 pub const NDIS_DEVICE_WAKE_ON_PATTERN_MATCH_ENABLE: u32 = 2u32;
@@ -1515,61 +1395,37 @@ pub const NDIS_ETH_TYPE_ARP: u32 = 2054u32;
 pub const NDIS_ETH_TYPE_IPV4: u32 = 2048u32;
 pub const NDIS_ETH_TYPE_IPV6: u32 = 34525u32;
 pub const NDIS_ETH_TYPE_SLOW_PROTOCOL: u32 = 34825u32;
-#[repr(transparent)]
-pub struct NDIS_FDDI_ATTACHMENT_TYPE(pub i32);
-pub const NdisFddiTypeIsolated: NDIS_FDDI_ATTACHMENT_TYPE = NDIS_FDDI_ATTACHMENT_TYPE(1i32);
-pub const NdisFddiTypeLocalA: NDIS_FDDI_ATTACHMENT_TYPE = NDIS_FDDI_ATTACHMENT_TYPE(2i32);
-pub const NdisFddiTypeLocalB: NDIS_FDDI_ATTACHMENT_TYPE = NDIS_FDDI_ATTACHMENT_TYPE(3i32);
-pub const NdisFddiTypeLocalAB: NDIS_FDDI_ATTACHMENT_TYPE = NDIS_FDDI_ATTACHMENT_TYPE(4i32);
-pub const NdisFddiTypeLocalS: NDIS_FDDI_ATTACHMENT_TYPE = NDIS_FDDI_ATTACHMENT_TYPE(5i32);
-pub const NdisFddiTypeWrapA: NDIS_FDDI_ATTACHMENT_TYPE = NDIS_FDDI_ATTACHMENT_TYPE(6i32);
-pub const NdisFddiTypeWrapB: NDIS_FDDI_ATTACHMENT_TYPE = NDIS_FDDI_ATTACHMENT_TYPE(7i32);
-pub const NdisFddiTypeWrapAB: NDIS_FDDI_ATTACHMENT_TYPE = NDIS_FDDI_ATTACHMENT_TYPE(8i32);
-pub const NdisFddiTypeWrapS: NDIS_FDDI_ATTACHMENT_TYPE = NDIS_FDDI_ATTACHMENT_TYPE(9i32);
-pub const NdisFddiTypeCWrapA: NDIS_FDDI_ATTACHMENT_TYPE = NDIS_FDDI_ATTACHMENT_TYPE(10i32);
-pub const NdisFddiTypeCWrapB: NDIS_FDDI_ATTACHMENT_TYPE = NDIS_FDDI_ATTACHMENT_TYPE(11i32);
-pub const NdisFddiTypeCWrapS: NDIS_FDDI_ATTACHMENT_TYPE = NDIS_FDDI_ATTACHMENT_TYPE(12i32);
-pub const NdisFddiTypeThrough: NDIS_FDDI_ATTACHMENT_TYPE = NDIS_FDDI_ATTACHMENT_TYPE(13i32);
-impl ::core::marker::Copy for NDIS_FDDI_ATTACHMENT_TYPE {}
-impl ::core::clone::Clone for NDIS_FDDI_ATTACHMENT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct NDIS_FDDI_LCONNECTION_STATE(pub i32);
-pub const NdisFddiStateOff: NDIS_FDDI_LCONNECTION_STATE = NDIS_FDDI_LCONNECTION_STATE(1i32);
-pub const NdisFddiStateBreak: NDIS_FDDI_LCONNECTION_STATE = NDIS_FDDI_LCONNECTION_STATE(2i32);
-pub const NdisFddiStateTrace: NDIS_FDDI_LCONNECTION_STATE = NDIS_FDDI_LCONNECTION_STATE(3i32);
-pub const NdisFddiStateConnect: NDIS_FDDI_LCONNECTION_STATE = NDIS_FDDI_LCONNECTION_STATE(4i32);
-pub const NdisFddiStateNext: NDIS_FDDI_LCONNECTION_STATE = NDIS_FDDI_LCONNECTION_STATE(5i32);
-pub const NdisFddiStateSignal: NDIS_FDDI_LCONNECTION_STATE = NDIS_FDDI_LCONNECTION_STATE(6i32);
-pub const NdisFddiStateJoin: NDIS_FDDI_LCONNECTION_STATE = NDIS_FDDI_LCONNECTION_STATE(7i32);
-pub const NdisFddiStateVerify: NDIS_FDDI_LCONNECTION_STATE = NDIS_FDDI_LCONNECTION_STATE(8i32);
-pub const NdisFddiStateActive: NDIS_FDDI_LCONNECTION_STATE = NDIS_FDDI_LCONNECTION_STATE(9i32);
-pub const NdisFddiStateMaintenance: NDIS_FDDI_LCONNECTION_STATE = NDIS_FDDI_LCONNECTION_STATE(10i32);
-impl ::core::marker::Copy for NDIS_FDDI_LCONNECTION_STATE {}
-impl ::core::clone::Clone for NDIS_FDDI_LCONNECTION_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct NDIS_FDDI_RING_MGT_STATE(pub i32);
-pub const NdisFddiRingIsolated: NDIS_FDDI_RING_MGT_STATE = NDIS_FDDI_RING_MGT_STATE(1i32);
-pub const NdisFddiRingNonOperational: NDIS_FDDI_RING_MGT_STATE = NDIS_FDDI_RING_MGT_STATE(2i32);
-pub const NdisFddiRingOperational: NDIS_FDDI_RING_MGT_STATE = NDIS_FDDI_RING_MGT_STATE(3i32);
-pub const NdisFddiRingDetect: NDIS_FDDI_RING_MGT_STATE = NDIS_FDDI_RING_MGT_STATE(4i32);
-pub const NdisFddiRingNonOperationalDup: NDIS_FDDI_RING_MGT_STATE = NDIS_FDDI_RING_MGT_STATE(5i32);
-pub const NdisFddiRingOperationalDup: NDIS_FDDI_RING_MGT_STATE = NDIS_FDDI_RING_MGT_STATE(6i32);
-pub const NdisFddiRingDirected: NDIS_FDDI_RING_MGT_STATE = NDIS_FDDI_RING_MGT_STATE(7i32);
-pub const NdisFddiRingTrace: NDIS_FDDI_RING_MGT_STATE = NDIS_FDDI_RING_MGT_STATE(8i32);
-impl ::core::marker::Copy for NDIS_FDDI_RING_MGT_STATE {}
-impl ::core::clone::Clone for NDIS_FDDI_RING_MGT_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const NdisFddiTypeIsolated: i32 = 1i32;
+pub const NdisFddiTypeLocalA: i32 = 2i32;
+pub const NdisFddiTypeLocalB: i32 = 3i32;
+pub const NdisFddiTypeLocalAB: i32 = 4i32;
+pub const NdisFddiTypeLocalS: i32 = 5i32;
+pub const NdisFddiTypeWrapA: i32 = 6i32;
+pub const NdisFddiTypeWrapB: i32 = 7i32;
+pub const NdisFddiTypeWrapAB: i32 = 8i32;
+pub const NdisFddiTypeWrapS: i32 = 9i32;
+pub const NdisFddiTypeCWrapA: i32 = 10i32;
+pub const NdisFddiTypeCWrapB: i32 = 11i32;
+pub const NdisFddiTypeCWrapS: i32 = 12i32;
+pub const NdisFddiTypeThrough: i32 = 13i32;
+pub const NdisFddiStateOff: i32 = 1i32;
+pub const NdisFddiStateBreak: i32 = 2i32;
+pub const NdisFddiStateTrace: i32 = 3i32;
+pub const NdisFddiStateConnect: i32 = 4i32;
+pub const NdisFddiStateNext: i32 = 5i32;
+pub const NdisFddiStateSignal: i32 = 6i32;
+pub const NdisFddiStateJoin: i32 = 7i32;
+pub const NdisFddiStateVerify: i32 = 8i32;
+pub const NdisFddiStateActive: i32 = 9i32;
+pub const NdisFddiStateMaintenance: i32 = 10i32;
+pub const NdisFddiRingIsolated: i32 = 1i32;
+pub const NdisFddiRingNonOperational: i32 = 2i32;
+pub const NdisFddiRingOperational: i32 = 3i32;
+pub const NdisFddiRingDetect: i32 = 4i32;
+pub const NdisFddiRingNonOperationalDup: i32 = 5i32;
+pub const NdisFddiRingOperationalDup: i32 = 6i32;
+pub const NdisFddiRingDirected: i32 = 7i32;
+pub const NdisFddiRingTrace: i32 = 8i32;
 pub const NDIS_GFP_ENCAPSULATION_TYPE_IP_IN_GRE: u32 = 4u32;
 pub const NDIS_GFP_ENCAPSULATION_TYPE_IP_IN_IP: u32 = 2u32;
 pub const NDIS_GFP_ENCAPSULATION_TYPE_NOT_ENCAPSULATED: u32 = 1u32;
@@ -1783,19 +1639,11 @@ impl ::core::clone::Clone for NDIS_HARDWARE_CROSSTIMESTAMP {
     }
 }
 pub const NDIS_HARDWARE_CROSSTIMESTAMP_REVISION_1: u32 = 1u32;
-#[repr(transparent)]
-pub struct NDIS_HARDWARE_STATUS(pub i32);
-pub const NdisHardwareStatusReady: NDIS_HARDWARE_STATUS = NDIS_HARDWARE_STATUS(0i32);
-pub const NdisHardwareStatusInitializing: NDIS_HARDWARE_STATUS = NDIS_HARDWARE_STATUS(1i32);
-pub const NdisHardwareStatusReset: NDIS_HARDWARE_STATUS = NDIS_HARDWARE_STATUS(2i32);
-pub const NdisHardwareStatusClosing: NDIS_HARDWARE_STATUS = NDIS_HARDWARE_STATUS(3i32);
-pub const NdisHardwareStatusNotReady: NDIS_HARDWARE_STATUS = NDIS_HARDWARE_STATUS(4i32);
-impl ::core::marker::Copy for NDIS_HARDWARE_STATUS {}
-impl ::core::clone::Clone for NDIS_HARDWARE_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const NdisHardwareStatusReady: i32 = 0i32;
+pub const NdisHardwareStatusInitializing: i32 = 1i32;
+pub const NdisHardwareStatusReset: i32 = 2i32;
+pub const NdisHardwareStatusClosing: i32 = 3i32;
+pub const NdisHardwareStatusNotReady: i32 = 4i32;
 pub const NDIS_HASH_FUNCTION_MASK: u32 = 255u32;
 pub const NDIS_HASH_IPV4: u32 = 256u32;
 pub const NDIS_HASH_IPV6: u32 = 1024u32;
@@ -1818,18 +1666,10 @@ pub const NDIS_HD_SPLIT_PARAMETERS_REVISION_1: u32 = 1u32;
 pub const NDIS_HYPERVISOR_INFO_FLAG_HYPERVISOR_PRESENT: u32 = 1u32;
 pub const NDIS_HYPERVISOR_INFO_REVISION_1: u32 = 1u32;
 pub const NDIS_IF_MAX_STRING_SIZE: u32 = 256u32;
-#[repr(transparent)]
-pub struct NDIS_INTERRUPT_MODERATION(pub i32);
-pub const NdisInterruptModerationUnknown: NDIS_INTERRUPT_MODERATION = NDIS_INTERRUPT_MODERATION(0i32);
-pub const NdisInterruptModerationNotSupported: NDIS_INTERRUPT_MODERATION = NDIS_INTERRUPT_MODERATION(1i32);
-pub const NdisInterruptModerationEnabled: NDIS_INTERRUPT_MODERATION = NDIS_INTERRUPT_MODERATION(2i32);
-pub const NdisInterruptModerationDisabled: NDIS_INTERRUPT_MODERATION = NDIS_INTERRUPT_MODERATION(3i32);
-impl ::core::marker::Copy for NDIS_INTERRUPT_MODERATION {}
-impl ::core::clone::Clone for NDIS_INTERRUPT_MODERATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const NdisInterruptModerationUnknown: i32 = 0i32;
+pub const NdisInterruptModerationNotSupported: i32 = 1i32;
+pub const NdisInterruptModerationEnabled: i32 = 2i32;
+pub const NdisInterruptModerationDisabled: i32 = 3i32;
 pub const NDIS_INTERRUPT_MODERATION_CHANGE_NEEDS_REINITIALIZE: u32 = 2u32;
 pub const NDIS_INTERRUPT_MODERATION_CHANGE_NEEDS_RESET: u32 = 1u32;
 #[repr(C)]
@@ -2021,61 +1861,37 @@ pub const NDIS_MAXIMUM_PORTS: u32 = 16777216u32;
 pub const NDIS_MAX_PHYS_ADDRESS_LENGTH: u32 = 32u32;
 pub const NDIS_MEDIA_CAP_RECEIVE: u32 = 2u32;
 pub const NDIS_MEDIA_CAP_TRANSMIT: u32 = 1u32;
-#[repr(transparent)]
-pub struct NDIS_MEDIA_STATE(pub i32);
-pub const NdisMediaStateConnected: NDIS_MEDIA_STATE = NDIS_MEDIA_STATE(0i32);
-pub const NdisMediaStateDisconnected: NDIS_MEDIA_STATE = NDIS_MEDIA_STATE(1i32);
-impl ::core::marker::Copy for NDIS_MEDIA_STATE {}
-impl ::core::clone::Clone for NDIS_MEDIA_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct NDIS_MEDIUM(pub i32);
-pub const NdisMedium802_3: NDIS_MEDIUM = NDIS_MEDIUM(0i32);
-pub const NdisMedium802_5: NDIS_MEDIUM = NDIS_MEDIUM(1i32);
-pub const NdisMediumFddi: NDIS_MEDIUM = NDIS_MEDIUM(2i32);
-pub const NdisMediumWan: NDIS_MEDIUM = NDIS_MEDIUM(3i32);
-pub const NdisMediumLocalTalk: NDIS_MEDIUM = NDIS_MEDIUM(4i32);
-pub const NdisMediumDix: NDIS_MEDIUM = NDIS_MEDIUM(5i32);
-pub const NdisMediumArcnetRaw: NDIS_MEDIUM = NDIS_MEDIUM(6i32);
-pub const NdisMediumArcnet878_2: NDIS_MEDIUM = NDIS_MEDIUM(7i32);
-pub const NdisMediumAtm: NDIS_MEDIUM = NDIS_MEDIUM(8i32);
-pub const NdisMediumWirelessWan: NDIS_MEDIUM = NDIS_MEDIUM(9i32);
-pub const NdisMediumIrda: NDIS_MEDIUM = NDIS_MEDIUM(10i32);
-pub const NdisMediumBpc: NDIS_MEDIUM = NDIS_MEDIUM(11i32);
-pub const NdisMediumCoWan: NDIS_MEDIUM = NDIS_MEDIUM(12i32);
-pub const NdisMedium1394: NDIS_MEDIUM = NDIS_MEDIUM(13i32);
-pub const NdisMediumInfiniBand: NDIS_MEDIUM = NDIS_MEDIUM(14i32);
-pub const NdisMediumTunnel: NDIS_MEDIUM = NDIS_MEDIUM(15i32);
-pub const NdisMediumNative802_11: NDIS_MEDIUM = NDIS_MEDIUM(16i32);
-pub const NdisMediumLoopback: NDIS_MEDIUM = NDIS_MEDIUM(17i32);
-pub const NdisMediumWiMAX: NDIS_MEDIUM = NDIS_MEDIUM(18i32);
-pub const NdisMediumIP: NDIS_MEDIUM = NDIS_MEDIUM(19i32);
-pub const NdisMediumMax: NDIS_MEDIUM = NDIS_MEDIUM(20i32);
-impl ::core::marker::Copy for NDIS_MEDIUM {}
-impl ::core::clone::Clone for NDIS_MEDIUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const NdisMediaStateConnected: i32 = 0i32;
+pub const NdisMediaStateDisconnected: i32 = 1i32;
+pub const NdisMedium802_3: i32 = 0i32;
+pub const NdisMedium802_5: i32 = 1i32;
+pub const NdisMediumFddi: i32 = 2i32;
+pub const NdisMediumWan: i32 = 3i32;
+pub const NdisMediumLocalTalk: i32 = 4i32;
+pub const NdisMediumDix: i32 = 5i32;
+pub const NdisMediumArcnetRaw: i32 = 6i32;
+pub const NdisMediumArcnet878_2: i32 = 7i32;
+pub const NdisMediumAtm: i32 = 8i32;
+pub const NdisMediumWirelessWan: i32 = 9i32;
+pub const NdisMediumIrda: i32 = 10i32;
+pub const NdisMediumBpc: i32 = 11i32;
+pub const NdisMediumCoWan: i32 = 12i32;
+pub const NdisMedium1394: i32 = 13i32;
+pub const NdisMediumInfiniBand: i32 = 14i32;
+pub const NdisMediumTunnel: i32 = 15i32;
+pub const NdisMediumNative802_11: i32 = 16i32;
+pub const NdisMediumLoopback: i32 = 17i32;
+pub const NdisMediumWiMAX: i32 = 18i32;
+pub const NdisMediumIP: i32 = 19i32;
+pub const NdisMediumMax: i32 = 20i32;
 pub const NDIS_NDK_CAPABILITIES_REVISION_1: u32 = 1u32;
 pub const NDIS_NDK_CONNECTIONS_REVISION_1: u32 = 1u32;
 pub const NDIS_NDK_LOCAL_ENDPOINTS_REVISION_1: u32 = 1u32;
 pub const NDIS_NDK_STATISTICS_INFO_REVISION_1: u32 = 1u32;
-#[repr(transparent)]
-pub struct NDIS_NETWORK_CHANGE_TYPE(pub i32);
-pub const NdisPossibleNetworkChange: NDIS_NETWORK_CHANGE_TYPE = NDIS_NETWORK_CHANGE_TYPE(1i32);
-pub const NdisDefinitelyNetworkChange: NDIS_NETWORK_CHANGE_TYPE = NDIS_NETWORK_CHANGE_TYPE(2i32);
-pub const NdisNetworkChangeFromMediaConnect: NDIS_NETWORK_CHANGE_TYPE = NDIS_NETWORK_CHANGE_TYPE(3i32);
-pub const NdisNetworkChangeMax: NDIS_NETWORK_CHANGE_TYPE = NDIS_NETWORK_CHANGE_TYPE(4i32);
-impl ::core::marker::Copy for NDIS_NETWORK_CHANGE_TYPE {}
-impl ::core::clone::Clone for NDIS_NETWORK_CHANGE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const NdisPossibleNetworkChange: i32 = 1i32;
+pub const NdisDefinitelyNetworkChange: i32 = 2i32;
+pub const NdisNetworkChangeFromMediaConnect: i32 = 3i32;
+pub const NdisNetworkChangeMax: i32 = 4i32;
 pub const NDIS_NIC_SWITCH_CAPABILITIES_REVISION_1: u32 = 1u32;
 pub const NDIS_NIC_SWITCH_CAPABILITIES_REVISION_2: u32 = 2u32;
 pub const NDIS_NIC_SWITCH_CAPABILITIES_REVISION_3: u32 = 3u32;
@@ -2341,36 +2157,28 @@ pub const NDIS_PD_CAPS_NOTIFICATION_MODERATION_COUNT_SUPPORTED: u32 = 8u32;
 pub const NDIS_PD_CAPS_NOTIFICATION_MODERATION_INTERVAL_SUPPORTED: u32 = 4u32;
 pub const NDIS_PD_CAPS_RECEIVE_FILTER_COUNTERS_SUPPORTED: u32 = 1u32;
 pub const NDIS_PD_CONFIG_REVISION_1: u32 = 1u32;
-#[repr(transparent)]
-pub struct NDIS_PHYSICAL_MEDIUM(pub i32);
-pub const NdisPhysicalMediumUnspecified: NDIS_PHYSICAL_MEDIUM = NDIS_PHYSICAL_MEDIUM(0i32);
-pub const NdisPhysicalMediumWirelessLan: NDIS_PHYSICAL_MEDIUM = NDIS_PHYSICAL_MEDIUM(1i32);
-pub const NdisPhysicalMediumCableModem: NDIS_PHYSICAL_MEDIUM = NDIS_PHYSICAL_MEDIUM(2i32);
-pub const NdisPhysicalMediumPhoneLine: NDIS_PHYSICAL_MEDIUM = NDIS_PHYSICAL_MEDIUM(3i32);
-pub const NdisPhysicalMediumPowerLine: NDIS_PHYSICAL_MEDIUM = NDIS_PHYSICAL_MEDIUM(4i32);
-pub const NdisPhysicalMediumDSL: NDIS_PHYSICAL_MEDIUM = NDIS_PHYSICAL_MEDIUM(5i32);
-pub const NdisPhysicalMediumFibreChannel: NDIS_PHYSICAL_MEDIUM = NDIS_PHYSICAL_MEDIUM(6i32);
-pub const NdisPhysicalMedium1394: NDIS_PHYSICAL_MEDIUM = NDIS_PHYSICAL_MEDIUM(7i32);
-pub const NdisPhysicalMediumWirelessWan: NDIS_PHYSICAL_MEDIUM = NDIS_PHYSICAL_MEDIUM(8i32);
-pub const NdisPhysicalMediumNative802_11: NDIS_PHYSICAL_MEDIUM = NDIS_PHYSICAL_MEDIUM(9i32);
-pub const NdisPhysicalMediumBluetooth: NDIS_PHYSICAL_MEDIUM = NDIS_PHYSICAL_MEDIUM(10i32);
-pub const NdisPhysicalMediumInfiniband: NDIS_PHYSICAL_MEDIUM = NDIS_PHYSICAL_MEDIUM(11i32);
-pub const NdisPhysicalMediumWiMax: NDIS_PHYSICAL_MEDIUM = NDIS_PHYSICAL_MEDIUM(12i32);
-pub const NdisPhysicalMediumUWB: NDIS_PHYSICAL_MEDIUM = NDIS_PHYSICAL_MEDIUM(13i32);
-pub const NdisPhysicalMedium802_3: NDIS_PHYSICAL_MEDIUM = NDIS_PHYSICAL_MEDIUM(14i32);
-pub const NdisPhysicalMedium802_5: NDIS_PHYSICAL_MEDIUM = NDIS_PHYSICAL_MEDIUM(15i32);
-pub const NdisPhysicalMediumIrda: NDIS_PHYSICAL_MEDIUM = NDIS_PHYSICAL_MEDIUM(16i32);
-pub const NdisPhysicalMediumWiredWAN: NDIS_PHYSICAL_MEDIUM = NDIS_PHYSICAL_MEDIUM(17i32);
-pub const NdisPhysicalMediumWiredCoWan: NDIS_PHYSICAL_MEDIUM = NDIS_PHYSICAL_MEDIUM(18i32);
-pub const NdisPhysicalMediumOther: NDIS_PHYSICAL_MEDIUM = NDIS_PHYSICAL_MEDIUM(19i32);
-pub const NdisPhysicalMediumNative802_15_4: NDIS_PHYSICAL_MEDIUM = NDIS_PHYSICAL_MEDIUM(20i32);
-pub const NdisPhysicalMediumMax: NDIS_PHYSICAL_MEDIUM = NDIS_PHYSICAL_MEDIUM(21i32);
-impl ::core::marker::Copy for NDIS_PHYSICAL_MEDIUM {}
-impl ::core::clone::Clone for NDIS_PHYSICAL_MEDIUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const NdisPhysicalMediumUnspecified: i32 = 0i32;
+pub const NdisPhysicalMediumWirelessLan: i32 = 1i32;
+pub const NdisPhysicalMediumCableModem: i32 = 2i32;
+pub const NdisPhysicalMediumPhoneLine: i32 = 3i32;
+pub const NdisPhysicalMediumPowerLine: i32 = 4i32;
+pub const NdisPhysicalMediumDSL: i32 = 5i32;
+pub const NdisPhysicalMediumFibreChannel: i32 = 6i32;
+pub const NdisPhysicalMedium1394: i32 = 7i32;
+pub const NdisPhysicalMediumWirelessWan: i32 = 8i32;
+pub const NdisPhysicalMediumNative802_11: i32 = 9i32;
+pub const NdisPhysicalMediumBluetooth: i32 = 10i32;
+pub const NdisPhysicalMediumInfiniband: i32 = 11i32;
+pub const NdisPhysicalMediumWiMax: i32 = 12i32;
+pub const NdisPhysicalMediumUWB: i32 = 13i32;
+pub const NdisPhysicalMedium802_3: i32 = 14i32;
+pub const NdisPhysicalMedium802_5: i32 = 15i32;
+pub const NdisPhysicalMediumIrda: i32 = 16i32;
+pub const NdisPhysicalMediumWiredWAN: i32 = 17i32;
+pub const NdisPhysicalMediumWiredCoWan: i32 = 18i32;
+pub const NdisPhysicalMediumOther: i32 = 19i32;
+pub const NdisPhysicalMediumNative802_15_4: i32 = 20i32;
+pub const NdisPhysicalMediumMax: i32 = 21i32;
 pub const NDIS_PM_CAPABILITIES_REVISION_1: u32 = 1u32;
 pub const NDIS_PM_CAPABILITIES_REVISION_2: u32 = 2u32;
 pub const NDIS_PM_MAX_PATTERN_ID: u32 = 65535u32;
@@ -2508,18 +2316,10 @@ impl ::core::clone::Clone for NDIS_PORT_AUTHENTICATION_PARAMETERS {
     }
 }
 pub const NDIS_PORT_AUTHENTICATION_PARAMETERS_REVISION_1: u32 = 1u32;
-#[repr(transparent)]
-pub struct NDIS_PORT_AUTHORIZATION_STATE(pub i32);
-pub const NdisPortAuthorizationUnknown: NDIS_PORT_AUTHORIZATION_STATE = NDIS_PORT_AUTHORIZATION_STATE(0i32);
-pub const NdisPortAuthorized: NDIS_PORT_AUTHORIZATION_STATE = NDIS_PORT_AUTHORIZATION_STATE(1i32);
-pub const NdisPortUnauthorized: NDIS_PORT_AUTHORIZATION_STATE = NDIS_PORT_AUTHORIZATION_STATE(2i32);
-pub const NdisPortReauthorizing: NDIS_PORT_AUTHORIZATION_STATE = NDIS_PORT_AUTHORIZATION_STATE(3i32);
-impl ::core::marker::Copy for NDIS_PORT_AUTHORIZATION_STATE {}
-impl ::core::clone::Clone for NDIS_PORT_AUTHORIZATION_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const NdisPortAuthorizationUnknown: i32 = 0i32;
+pub const NdisPortAuthorized: i32 = 1i32;
+pub const NdisPortUnauthorized: i32 = 2i32;
+pub const NdisPortReauthorizing: i32 = 3i32;
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_IpHelper")]
 pub struct NDIS_PORT_CHARACTERISTICS {
@@ -2546,17 +2346,9 @@ impl ::core::clone::Clone for NDIS_PORT_CHARACTERISTICS {
 }
 pub const NDIS_PORT_CHARACTERISTICS_REVISION_1: u32 = 1u32;
 pub const NDIS_PORT_CHAR_USE_DEFAULT_AUTH_SETTINGS: u32 = 1u32;
-#[repr(transparent)]
-pub struct NDIS_PORT_CONTROL_STATE(pub i32);
-pub const NdisPortControlStateUnknown: NDIS_PORT_CONTROL_STATE = NDIS_PORT_CONTROL_STATE(0i32);
-pub const NdisPortControlStateControlled: NDIS_PORT_CONTROL_STATE = NDIS_PORT_CONTROL_STATE(1i32);
-pub const NdisPortControlStateUncontrolled: NDIS_PORT_CONTROL_STATE = NDIS_PORT_CONTROL_STATE(2i32);
-impl ::core::marker::Copy for NDIS_PORT_CONTROL_STATE {}
-impl ::core::clone::Clone for NDIS_PORT_CONTROL_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const NdisPortControlStateUnknown: i32 = 0i32;
+pub const NdisPortControlStateControlled: i32 = 1i32;
+pub const NdisPortControlStateUncontrolled: i32 = 2i32;
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_IpHelper")]
 pub struct NDIS_PORT_STATE {
@@ -2580,31 +2372,15 @@ impl ::core::clone::Clone for NDIS_PORT_STATE {
     }
 }
 pub const NDIS_PORT_STATE_REVISION_1: u32 = 1u32;
-#[repr(transparent)]
-pub struct NDIS_PORT_TYPE(pub i32);
-pub const NdisPortTypeUndefined: NDIS_PORT_TYPE = NDIS_PORT_TYPE(0i32);
-pub const NdisPortTypeBridge: NDIS_PORT_TYPE = NDIS_PORT_TYPE(1i32);
-pub const NdisPortTypeRasConnection: NDIS_PORT_TYPE = NDIS_PORT_TYPE(2i32);
-pub const NdisPortType8021xSupplicant: NDIS_PORT_TYPE = NDIS_PORT_TYPE(3i32);
-pub const NdisPortTypeMax: NDIS_PORT_TYPE = NDIS_PORT_TYPE(4i32);
-impl ::core::marker::Copy for NDIS_PORT_TYPE {}
-impl ::core::clone::Clone for NDIS_PORT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct NDIS_PROCESSOR_VENDOR(pub i32);
-pub const NdisProcessorVendorUnknown: NDIS_PROCESSOR_VENDOR = NDIS_PROCESSOR_VENDOR(0i32);
-pub const NdisProcessorVendorGenuinIntel: NDIS_PROCESSOR_VENDOR = NDIS_PROCESSOR_VENDOR(1i32);
-pub const NdisProcessorVendorGenuineIntel: NDIS_PROCESSOR_VENDOR = NDIS_PROCESSOR_VENDOR(1i32);
-pub const NdisProcessorVendorAuthenticAMD: NDIS_PROCESSOR_VENDOR = NDIS_PROCESSOR_VENDOR(2i32);
-impl ::core::marker::Copy for NDIS_PROCESSOR_VENDOR {}
-impl ::core::clone::Clone for NDIS_PROCESSOR_VENDOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const NdisPortTypeUndefined: i32 = 0i32;
+pub const NdisPortTypeBridge: i32 = 1i32;
+pub const NdisPortTypeRasConnection: i32 = 2i32;
+pub const NdisPortType8021xSupplicant: i32 = 3i32;
+pub const NdisPortTypeMax: i32 = 4i32;
+pub const NdisProcessorVendorUnknown: i32 = 0i32;
+pub const NdisProcessorVendorGenuinIntel: i32 = 1i32;
+pub const NdisProcessorVendorGenuineIntel: i32 = 1i32;
+pub const NdisProcessorVendorAuthenticAMD: i32 = 2i32;
 pub const NDIS_PROTOCOL_ID_DEFAULT: u32 = 0u32;
 pub const NDIS_PROTOCOL_ID_IP6: u32 = 3u32;
 pub const NDIS_PROTOCOL_ID_IPX: u32 = 6u32;
@@ -2790,26 +2566,18 @@ pub const NDIS_RECEIVE_SCALE_PARAM_HASH_INFO_CHANGED: u32 = 2u32;
 pub const NDIS_RECEIVE_SCALE_PARAM_HASH_KEY_CHANGED: u32 = 4u32;
 pub const NDIS_RECEIVE_SCALE_PARAM_NUMBER_OF_ENTRIES_CHANGED: u32 = 16u32;
 pub const NDIS_RECEIVE_SCALE_PARAM_NUMBER_OF_QUEUES_CHANGED: u32 = 8u32;
-#[repr(transparent)]
-pub struct NDIS_REQUEST_TYPE(pub i32);
-pub const NdisRequestQueryInformation: NDIS_REQUEST_TYPE = NDIS_REQUEST_TYPE(0i32);
-pub const NdisRequestSetInformation: NDIS_REQUEST_TYPE = NDIS_REQUEST_TYPE(1i32);
-pub const NdisRequestQueryStatistics: NDIS_REQUEST_TYPE = NDIS_REQUEST_TYPE(2i32);
-pub const NdisRequestOpen: NDIS_REQUEST_TYPE = NDIS_REQUEST_TYPE(3i32);
-pub const NdisRequestClose: NDIS_REQUEST_TYPE = NDIS_REQUEST_TYPE(4i32);
-pub const NdisRequestSend: NDIS_REQUEST_TYPE = NDIS_REQUEST_TYPE(5i32);
-pub const NdisRequestTransferData: NDIS_REQUEST_TYPE = NDIS_REQUEST_TYPE(6i32);
-pub const NdisRequestReset: NDIS_REQUEST_TYPE = NDIS_REQUEST_TYPE(7i32);
-pub const NdisRequestGeneric1: NDIS_REQUEST_TYPE = NDIS_REQUEST_TYPE(8i32);
-pub const NdisRequestGeneric2: NDIS_REQUEST_TYPE = NDIS_REQUEST_TYPE(9i32);
-pub const NdisRequestGeneric3: NDIS_REQUEST_TYPE = NDIS_REQUEST_TYPE(10i32);
-pub const NdisRequestGeneric4: NDIS_REQUEST_TYPE = NDIS_REQUEST_TYPE(11i32);
-impl ::core::marker::Copy for NDIS_REQUEST_TYPE {}
-impl ::core::clone::Clone for NDIS_REQUEST_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const NdisRequestQueryInformation: i32 = 0i32;
+pub const NdisRequestSetInformation: i32 = 1i32;
+pub const NdisRequestQueryStatistics: i32 = 2i32;
+pub const NdisRequestOpen: i32 = 3i32;
+pub const NdisRequestClose: i32 = 4i32;
+pub const NdisRequestSend: i32 = 5i32;
+pub const NdisRequestTransferData: i32 = 6i32;
+pub const NdisRequestReset: i32 = 7i32;
+pub const NdisRequestGeneric1: i32 = 8i32;
+pub const NdisRequestGeneric2: i32 = 9i32;
+pub const NdisRequestGeneric3: i32 = 10i32;
+pub const NdisRequestGeneric4: i32 = 11i32;
 pub const NDIS_RING_AUTO_REMOVAL_ERROR: u32 = 1024u32;
 pub const NDIS_RING_COUNTER_OVERFLOW: u32 = 256u32;
 pub const NDIS_RING_HARD_ERROR: u32 = 16384u32;
@@ -2945,19 +2713,11 @@ impl ::core::clone::Clone for NDIS_STATISTICS_VALUE_EX {
         *self
     }
 }
-#[repr(transparent)]
-pub struct NDIS_SUPPORTED_PAUSE_FUNCTIONS(pub i32);
-pub const NdisPauseFunctionsUnsupported: NDIS_SUPPORTED_PAUSE_FUNCTIONS = NDIS_SUPPORTED_PAUSE_FUNCTIONS(0i32);
-pub const NdisPauseFunctionsSendOnly: NDIS_SUPPORTED_PAUSE_FUNCTIONS = NDIS_SUPPORTED_PAUSE_FUNCTIONS(1i32);
-pub const NdisPauseFunctionsReceiveOnly: NDIS_SUPPORTED_PAUSE_FUNCTIONS = NDIS_SUPPORTED_PAUSE_FUNCTIONS(2i32);
-pub const NdisPauseFunctionsSendAndReceive: NDIS_SUPPORTED_PAUSE_FUNCTIONS = NDIS_SUPPORTED_PAUSE_FUNCTIONS(3i32);
-pub const NdisPauseFunctionsUnknown: NDIS_SUPPORTED_PAUSE_FUNCTIONS = NDIS_SUPPORTED_PAUSE_FUNCTIONS(4i32);
-impl ::core::marker::Copy for NDIS_SUPPORTED_PAUSE_FUNCTIONS {}
-impl ::core::clone::Clone for NDIS_SUPPORTED_PAUSE_FUNCTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const NdisPauseFunctionsUnsupported: i32 = 0i32;
+pub const NdisPauseFunctionsSendOnly: i32 = 1i32;
+pub const NdisPauseFunctionsReceiveOnly: i32 = 2i32;
+pub const NdisPauseFunctionsSendAndReceive: i32 = 3i32;
+pub const NdisPauseFunctionsUnknown: i32 = 4i32;
 pub const NDIS_SUPPORT_NDIS6: u32 = 1u32;
 pub const NDIS_SUPPORT_NDIS61: u32 = 1u32;
 pub const NDIS_SUPPORT_NDIS620: u32 = 1u32;
@@ -3215,41 +2975,25 @@ impl ::core::clone::Clone for NDIS_VAR_DATA_DESC {
         *self
     }
 }
-#[repr(transparent)]
-pub struct NDIS_WAN_HEADER_FORMAT(pub i32);
-pub const NdisWanHeaderNative: NDIS_WAN_HEADER_FORMAT = NDIS_WAN_HEADER_FORMAT(0i32);
-pub const NdisWanHeaderEthernet: NDIS_WAN_HEADER_FORMAT = NDIS_WAN_HEADER_FORMAT(1i32);
-impl ::core::marker::Copy for NDIS_WAN_HEADER_FORMAT {}
-impl ::core::clone::Clone for NDIS_WAN_HEADER_FORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct NDIS_WAN_MEDIUM_SUBTYPE(pub i32);
-pub const NdisWanMediumHub: NDIS_WAN_MEDIUM_SUBTYPE = NDIS_WAN_MEDIUM_SUBTYPE(0i32);
-pub const NdisWanMediumX_25: NDIS_WAN_MEDIUM_SUBTYPE = NDIS_WAN_MEDIUM_SUBTYPE(1i32);
-pub const NdisWanMediumIsdn: NDIS_WAN_MEDIUM_SUBTYPE = NDIS_WAN_MEDIUM_SUBTYPE(2i32);
-pub const NdisWanMediumSerial: NDIS_WAN_MEDIUM_SUBTYPE = NDIS_WAN_MEDIUM_SUBTYPE(3i32);
-pub const NdisWanMediumFrameRelay: NDIS_WAN_MEDIUM_SUBTYPE = NDIS_WAN_MEDIUM_SUBTYPE(4i32);
-pub const NdisWanMediumAtm: NDIS_WAN_MEDIUM_SUBTYPE = NDIS_WAN_MEDIUM_SUBTYPE(5i32);
-pub const NdisWanMediumSonet: NDIS_WAN_MEDIUM_SUBTYPE = NDIS_WAN_MEDIUM_SUBTYPE(6i32);
-pub const NdisWanMediumSW56K: NDIS_WAN_MEDIUM_SUBTYPE = NDIS_WAN_MEDIUM_SUBTYPE(7i32);
-pub const NdisWanMediumPPTP: NDIS_WAN_MEDIUM_SUBTYPE = NDIS_WAN_MEDIUM_SUBTYPE(8i32);
-pub const NdisWanMediumL2TP: NDIS_WAN_MEDIUM_SUBTYPE = NDIS_WAN_MEDIUM_SUBTYPE(9i32);
-pub const NdisWanMediumIrda: NDIS_WAN_MEDIUM_SUBTYPE = NDIS_WAN_MEDIUM_SUBTYPE(10i32);
-pub const NdisWanMediumParallel: NDIS_WAN_MEDIUM_SUBTYPE = NDIS_WAN_MEDIUM_SUBTYPE(11i32);
-pub const NdisWanMediumPppoe: NDIS_WAN_MEDIUM_SUBTYPE = NDIS_WAN_MEDIUM_SUBTYPE(12i32);
-pub const NdisWanMediumSSTP: NDIS_WAN_MEDIUM_SUBTYPE = NDIS_WAN_MEDIUM_SUBTYPE(13i32);
-pub const NdisWanMediumAgileVPN: NDIS_WAN_MEDIUM_SUBTYPE = NDIS_WAN_MEDIUM_SUBTYPE(14i32);
-pub const NdisWanMediumGre: NDIS_WAN_MEDIUM_SUBTYPE = NDIS_WAN_MEDIUM_SUBTYPE(15i32);
-pub const NdisWanMediumSubTypeMax: NDIS_WAN_MEDIUM_SUBTYPE = NDIS_WAN_MEDIUM_SUBTYPE(16i32);
-impl ::core::marker::Copy for NDIS_WAN_MEDIUM_SUBTYPE {}
-impl ::core::clone::Clone for NDIS_WAN_MEDIUM_SUBTYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const NdisWanHeaderNative: i32 = 0i32;
+pub const NdisWanHeaderEthernet: i32 = 1i32;
+pub const NdisWanMediumHub: i32 = 0i32;
+pub const NdisWanMediumX_25: i32 = 1i32;
+pub const NdisWanMediumIsdn: i32 = 2i32;
+pub const NdisWanMediumSerial: i32 = 3i32;
+pub const NdisWanMediumFrameRelay: i32 = 4i32;
+pub const NdisWanMediumAtm: i32 = 5i32;
+pub const NdisWanMediumSonet: i32 = 6i32;
+pub const NdisWanMediumSW56K: i32 = 7i32;
+pub const NdisWanMediumPPTP: i32 = 8i32;
+pub const NdisWanMediumL2TP: i32 = 9i32;
+pub const NdisWanMediumIrda: i32 = 10i32;
+pub const NdisWanMediumParallel: i32 = 11i32;
+pub const NdisWanMediumPppoe: i32 = 12i32;
+pub const NdisWanMediumSSTP: i32 = 13i32;
+pub const NdisWanMediumAgileVPN: i32 = 14i32;
+pub const NdisWanMediumGre: i32 = 15i32;
+pub const NdisWanMediumSubTypeMax: i32 = 16i32;
 #[repr(C)]
 pub struct NDIS_WAN_PROTOCOL_CAPS {
     pub Flags: u32,
@@ -3261,17 +3005,9 @@ impl ::core::clone::Clone for NDIS_WAN_PROTOCOL_CAPS {
         *self
     }
 }
-#[repr(transparent)]
-pub struct NDIS_WAN_QUALITY(pub i32);
-pub const NdisWanRaw: NDIS_WAN_QUALITY = NDIS_WAN_QUALITY(0i32);
-pub const NdisWanErrorControl: NDIS_WAN_QUALITY = NDIS_WAN_QUALITY(1i32);
-pub const NdisWanReliable: NDIS_WAN_QUALITY = NDIS_WAN_QUALITY(2i32);
-impl ::core::marker::Copy for NDIS_WAN_QUALITY {}
-impl ::core::clone::Clone for NDIS_WAN_QUALITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const NdisWanRaw: i32 = 0i32;
+pub const NdisWanErrorControl: i32 = 1i32;
+pub const NdisWanReliable: i32 = 2i32;
 #[repr(C)]
 pub struct NDIS_WLAN_BSSID {
     pub Length: u32,
@@ -3690,20 +3426,12 @@ impl ::core::clone::Clone for NDK_ADAPTER_INFO {
         *self
     }
 }
-#[repr(transparent)]
-pub struct NDK_RDMA_TECHNOLOGY(pub i32);
-pub const NdkUndefined: NDK_RDMA_TECHNOLOGY = NDK_RDMA_TECHNOLOGY(0i32);
-pub const NdkiWarp: NDK_RDMA_TECHNOLOGY = NDK_RDMA_TECHNOLOGY(1i32);
-pub const NdkInfiniBand: NDK_RDMA_TECHNOLOGY = NDK_RDMA_TECHNOLOGY(2i32);
-pub const NdkRoCE: NDK_RDMA_TECHNOLOGY = NDK_RDMA_TECHNOLOGY(3i32);
-pub const NdkRoCEv2: NDK_RDMA_TECHNOLOGY = NDK_RDMA_TECHNOLOGY(4i32);
-pub const NdkMaxTechnology: NDK_RDMA_TECHNOLOGY = NDK_RDMA_TECHNOLOGY(5i32);
-impl ::core::marker::Copy for NDK_RDMA_TECHNOLOGY {}
-impl ::core::clone::Clone for NDK_RDMA_TECHNOLOGY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const NdkUndefined: i32 = 0i32;
+pub const NdkiWarp: i32 = 1i32;
+pub const NdkInfiniBand: i32 = 2i32;
+pub const NdkRoCE: i32 = 3i32;
+pub const NdkRoCEv2: i32 = 4i32;
+pub const NdkMaxTechnology: i32 = 5i32;
 #[repr(C)]
 pub struct NDK_VERSION {
     pub Major: u16,
@@ -3792,32 +3520,16 @@ impl ::core::clone::Clone for OFFLOAD_ALGO_INFO {
         *self
     }
 }
-#[repr(transparent)]
-pub struct OFFLOAD_CONF_ALGO(pub i32);
-pub const OFFLOAD_IPSEC_CONF_NONE: OFFLOAD_CONF_ALGO = OFFLOAD_CONF_ALGO(0i32);
-pub const OFFLOAD_IPSEC_CONF_DES: OFFLOAD_CONF_ALGO = OFFLOAD_CONF_ALGO(1i32);
-pub const OFFLOAD_IPSEC_CONF_RESERVED: OFFLOAD_CONF_ALGO = OFFLOAD_CONF_ALGO(2i32);
-pub const OFFLOAD_IPSEC_CONF_3_DES: OFFLOAD_CONF_ALGO = OFFLOAD_CONF_ALGO(3i32);
-pub const OFFLOAD_IPSEC_CONF_MAX: OFFLOAD_CONF_ALGO = OFFLOAD_CONF_ALGO(4i32);
-impl ::core::marker::Copy for OFFLOAD_CONF_ALGO {}
-impl ::core::clone::Clone for OFFLOAD_CONF_ALGO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const OFFLOAD_IPSEC_CONF_NONE: i32 = 0i32;
+pub const OFFLOAD_IPSEC_CONF_DES: i32 = 1i32;
+pub const OFFLOAD_IPSEC_CONF_RESERVED: i32 = 2i32;
+pub const OFFLOAD_IPSEC_CONF_3_DES: i32 = 3i32;
+pub const OFFLOAD_IPSEC_CONF_MAX: i32 = 4i32;
 pub const OFFLOAD_INBOUND_SA: u32 = 1u32;
-#[repr(transparent)]
-pub struct OFFLOAD_INTEGRITY_ALGO(pub i32);
-pub const OFFLOAD_IPSEC_INTEGRITY_NONE: OFFLOAD_INTEGRITY_ALGO = OFFLOAD_INTEGRITY_ALGO(0i32);
-pub const OFFLOAD_IPSEC_INTEGRITY_MD5: OFFLOAD_INTEGRITY_ALGO = OFFLOAD_INTEGRITY_ALGO(1i32);
-pub const OFFLOAD_IPSEC_INTEGRITY_SHA: OFFLOAD_INTEGRITY_ALGO = OFFLOAD_INTEGRITY_ALGO(2i32);
-pub const OFFLOAD_IPSEC_INTEGRITY_MAX: OFFLOAD_INTEGRITY_ALGO = OFFLOAD_INTEGRITY_ALGO(3i32);
-impl ::core::marker::Copy for OFFLOAD_INTEGRITY_ALGO {}
-impl ::core::clone::Clone for OFFLOAD_INTEGRITY_ALGO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const OFFLOAD_IPSEC_INTEGRITY_NONE: i32 = 0i32;
+pub const OFFLOAD_IPSEC_INTEGRITY_MD5: i32 = 1i32;
+pub const OFFLOAD_IPSEC_INTEGRITY_SHA: i32 = 2i32;
+pub const OFFLOAD_IPSEC_INTEGRITY_MAX: i32 = 3i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct OFFLOAD_IPSEC_ADD_SA {
@@ -3913,16 +3625,8 @@ impl ::core::clone::Clone for OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_ENTRY {
     }
 }
 pub const OFFLOAD_MAX_SAS: u32 = 3u32;
-#[repr(transparent)]
-pub struct OFFLOAD_OPERATION_E(pub i32);
-pub const AUTHENTICATE: OFFLOAD_OPERATION_E = OFFLOAD_OPERATION_E(1i32);
-pub const ENCRYPT: OFFLOAD_OPERATION_E = OFFLOAD_OPERATION_E(2i32);
-impl ::core::marker::Copy for OFFLOAD_OPERATION_E {}
-impl ::core::clone::Clone for OFFLOAD_OPERATION_E {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const AUTHENTICATE: i32 = 1i32;
+pub const ENCRYPT: i32 = 2i32;
 pub const OFFLOAD_OUTBOUND_SA: u32 = 2u32;
 #[repr(C)]
 pub struct OFFLOAD_SECURITY_ASSOCIATION {
@@ -4734,16 +4438,8 @@ impl ::core::clone::Clone for TRANSPORT_HEADER_OFFSET {
         *self
     }
 }
-#[repr(transparent)]
-pub struct UDP_ENCAP_TYPE(pub i32);
-pub const OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_IKE: UDP_ENCAP_TYPE = UDP_ENCAP_TYPE(0i32);
-pub const OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_OTHER: UDP_ENCAP_TYPE = UDP_ENCAP_TYPE(1i32);
-impl ::core::marker::Copy for UDP_ENCAP_TYPE {}
-impl ::core::clone::Clone for UDP_ENCAP_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_IKE: i32 = 0i32;
+pub const OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_OTHER: i32 = 1i32;
 pub const UNSPECIFIED_NETWORK_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 314203102, data2: 5182, data3: 19469, data4: [182, 109, 35, 121, 187, 20, 25, 19] };
 pub const WAN_PROTOCOL_KEEPS_STATS: u32 = 1u32;
 #[repr(C)]

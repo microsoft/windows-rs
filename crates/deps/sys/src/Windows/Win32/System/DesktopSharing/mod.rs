@@ -1,67 +1,27 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {}
-#[repr(transparent)]
-pub struct ATTENDEE_DISCONNECT_REASON(pub i32);
-pub const ATTENDEE_DISCONNECT_REASON_MIN: ATTENDEE_DISCONNECT_REASON = ATTENDEE_DISCONNECT_REASON(0i32);
-pub const ATTENDEE_DISCONNECT_REASON_APP: ATTENDEE_DISCONNECT_REASON = ATTENDEE_DISCONNECT_REASON(0i32);
-pub const ATTENDEE_DISCONNECT_REASON_ERR: ATTENDEE_DISCONNECT_REASON = ATTENDEE_DISCONNECT_REASON(1i32);
-pub const ATTENDEE_DISCONNECT_REASON_CLI: ATTENDEE_DISCONNECT_REASON = ATTENDEE_DISCONNECT_REASON(2i32);
-pub const ATTENDEE_DISCONNECT_REASON_MAX: ATTENDEE_DISCONNECT_REASON = ATTENDEE_DISCONNECT_REASON(2i32);
-impl ::core::marker::Copy for ATTENDEE_DISCONNECT_REASON {}
-impl ::core::clone::Clone for ATTENDEE_DISCONNECT_REASON {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct CHANNEL_ACCESS_ENUM(pub i32);
-pub const CHANNEL_ACCESS_ENUM_NONE: CHANNEL_ACCESS_ENUM = CHANNEL_ACCESS_ENUM(0i32);
-pub const CHANNEL_ACCESS_ENUM_SENDRECEIVE: CHANNEL_ACCESS_ENUM = CHANNEL_ACCESS_ENUM(1i32);
-impl ::core::marker::Copy for CHANNEL_ACCESS_ENUM {}
-impl ::core::clone::Clone for CHANNEL_ACCESS_ENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct CHANNEL_FLAGS(pub i32);
-pub const CHANNEL_FLAGS_LEGACY: CHANNEL_FLAGS = CHANNEL_FLAGS(1i32);
-pub const CHANNEL_FLAGS_UNCOMPRESSED: CHANNEL_FLAGS = CHANNEL_FLAGS(2i32);
-pub const CHANNEL_FLAGS_DYNAMIC: CHANNEL_FLAGS = CHANNEL_FLAGS(4i32);
-impl ::core::marker::Copy for CHANNEL_FLAGS {}
-impl ::core::clone::Clone for CHANNEL_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct CHANNEL_PRIORITY(pub i32);
-pub const CHANNEL_PRIORITY_LO: CHANNEL_PRIORITY = CHANNEL_PRIORITY(0i32);
-pub const CHANNEL_PRIORITY_MED: CHANNEL_PRIORITY = CHANNEL_PRIORITY(1i32);
-pub const CHANNEL_PRIORITY_HI: CHANNEL_PRIORITY = CHANNEL_PRIORITY(2i32);
-impl ::core::marker::Copy for CHANNEL_PRIORITY {}
-impl ::core::clone::Clone for CHANNEL_PRIORITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct CTRL_LEVEL(pub i32);
-pub const CTRL_LEVEL_MIN: CTRL_LEVEL = CTRL_LEVEL(0i32);
-pub const CTRL_LEVEL_INVALID: CTRL_LEVEL = CTRL_LEVEL(0i32);
-pub const CTRL_LEVEL_NONE: CTRL_LEVEL = CTRL_LEVEL(1i32);
-pub const CTRL_LEVEL_VIEW: CTRL_LEVEL = CTRL_LEVEL(2i32);
-pub const CTRL_LEVEL_INTERACTIVE: CTRL_LEVEL = CTRL_LEVEL(3i32);
-pub const CTRL_LEVEL_REQCTRL_VIEW: CTRL_LEVEL = CTRL_LEVEL(4i32);
-pub const CTRL_LEVEL_REQCTRL_INTERACTIVE: CTRL_LEVEL = CTRL_LEVEL(5i32);
-pub const CTRL_LEVEL_MAX: CTRL_LEVEL = CTRL_LEVEL(5i32);
-impl ::core::marker::Copy for CTRL_LEVEL {}
-impl ::core::clone::Clone for CTRL_LEVEL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const ATTENDEE_DISCONNECT_REASON_MIN: i32 = 0i32;
+pub const ATTENDEE_DISCONNECT_REASON_APP: i32 = 0i32;
+pub const ATTENDEE_DISCONNECT_REASON_ERR: i32 = 1i32;
+pub const ATTENDEE_DISCONNECT_REASON_CLI: i32 = 2i32;
+pub const ATTENDEE_DISCONNECT_REASON_MAX: i32 = 2i32;
+pub const CHANNEL_ACCESS_ENUM_NONE: i32 = 0i32;
+pub const CHANNEL_ACCESS_ENUM_SENDRECEIVE: i32 = 1i32;
+pub const CHANNEL_FLAGS_LEGACY: i32 = 1i32;
+pub const CHANNEL_FLAGS_UNCOMPRESSED: i32 = 2i32;
+pub const CHANNEL_FLAGS_DYNAMIC: i32 = 4i32;
+pub const CHANNEL_PRIORITY_LO: i32 = 0i32;
+pub const CHANNEL_PRIORITY_MED: i32 = 1i32;
+pub const CHANNEL_PRIORITY_HI: i32 = 2i32;
+pub const CTRL_LEVEL_MIN: i32 = 0i32;
+pub const CTRL_LEVEL_INVALID: i32 = 0i32;
+pub const CTRL_LEVEL_NONE: i32 = 1i32;
+pub const CTRL_LEVEL_VIEW: i32 = 2i32;
+pub const CTRL_LEVEL_INTERACTIVE: i32 = 3i32;
+pub const CTRL_LEVEL_REQCTRL_VIEW: i32 = 4i32;
+pub const CTRL_LEVEL_REQCTRL_INTERACTIVE: i32 = 5i32;
+pub const CTRL_LEVEL_MAX: i32 = 5i32;
 pub const DISPID_RDPAPI_EVENT_ON_BOUNDING_RECT_CHANGED: u32 = 340u32;
 pub const DISPID_RDPSRAPI_EVENT_ON_APPFILTER_UPDATE: u32 = 322u32;
 pub const DISPID_RDPSRAPI_EVENT_ON_APPLICATION_CLOSE: u32 = 317u32;
@@ -402,15 +362,7 @@ impl ::core::clone::Clone for IRDPViewerInputSink {
         *self
     }
 }
-#[repr(transparent)]
-pub struct RDPENCOMAPI_ATTENDEE_FLAGS(pub i32);
-pub const ATTENDEE_FLAGS_LOCAL: RDPENCOMAPI_ATTENDEE_FLAGS = RDPENCOMAPI_ATTENDEE_FLAGS(1i32);
-impl ::core::marker::Copy for RDPENCOMAPI_ATTENDEE_FLAGS {}
-impl ::core::clone::Clone for RDPENCOMAPI_ATTENDEE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const ATTENDEE_FLAGS_LOCAL: i32 = 1i32;
 pub const RDPSRAPIApplication: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 3239486596,
     data2: 19237,
@@ -464,60 +416,20 @@ pub const RDPSRAPITcpConnectionInfo: ::windows_sys::core::GUID = ::windows_sys::
 };
 pub const RDPSRAPIWindow: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 63915739, data2: 52805, data3: 19766, data4: [134, 237, 237, 40, 183, 67, 152, 191] };
 pub const RDPSRAPIWindowList: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2619466424, data2: 24020, data3: 17100, data4: [129, 186, 28, 9, 152, 82, 230, 250] };
-#[repr(transparent)]
-pub struct RDPSRAPI_APP_FLAGS(pub i32);
-pub const APP_FLAG_PRIVILEGED: RDPSRAPI_APP_FLAGS = RDPSRAPI_APP_FLAGS(1i32);
-impl ::core::marker::Copy for RDPSRAPI_APP_FLAGS {}
-impl ::core::clone::Clone for RDPSRAPI_APP_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct RDPSRAPI_KBD_CODE_TYPE(pub i32);
-pub const RDPSRAPI_KBD_CODE_SCANCODE: RDPSRAPI_KBD_CODE_TYPE = RDPSRAPI_KBD_CODE_TYPE(0i32);
-pub const RDPSRAPI_KBD_CODE_UNICODE: RDPSRAPI_KBD_CODE_TYPE = RDPSRAPI_KBD_CODE_TYPE(1i32);
-impl ::core::marker::Copy for RDPSRAPI_KBD_CODE_TYPE {}
-impl ::core::clone::Clone for RDPSRAPI_KBD_CODE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct RDPSRAPI_KBD_SYNC_FLAG(pub i32);
-pub const RDPSRAPI_KBD_SYNC_FLAG_SCROLL_LOCK: RDPSRAPI_KBD_SYNC_FLAG = RDPSRAPI_KBD_SYNC_FLAG(1i32);
-pub const RDPSRAPI_KBD_SYNC_FLAG_NUM_LOCK: RDPSRAPI_KBD_SYNC_FLAG = RDPSRAPI_KBD_SYNC_FLAG(2i32);
-pub const RDPSRAPI_KBD_SYNC_FLAG_CAPS_LOCK: RDPSRAPI_KBD_SYNC_FLAG = RDPSRAPI_KBD_SYNC_FLAG(4i32);
-pub const RDPSRAPI_KBD_SYNC_FLAG_KANA_LOCK: RDPSRAPI_KBD_SYNC_FLAG = RDPSRAPI_KBD_SYNC_FLAG(8i32);
-impl ::core::marker::Copy for RDPSRAPI_KBD_SYNC_FLAG {}
-impl ::core::clone::Clone for RDPSRAPI_KBD_SYNC_FLAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct RDPSRAPI_MOUSE_BUTTON_TYPE(pub i32);
-pub const RDPSRAPI_MOUSE_BUTTON_BUTTON1: RDPSRAPI_MOUSE_BUTTON_TYPE = RDPSRAPI_MOUSE_BUTTON_TYPE(0i32);
-pub const RDPSRAPI_MOUSE_BUTTON_BUTTON2: RDPSRAPI_MOUSE_BUTTON_TYPE = RDPSRAPI_MOUSE_BUTTON_TYPE(1i32);
-pub const RDPSRAPI_MOUSE_BUTTON_BUTTON3: RDPSRAPI_MOUSE_BUTTON_TYPE = RDPSRAPI_MOUSE_BUTTON_TYPE(2i32);
-pub const RDPSRAPI_MOUSE_BUTTON_XBUTTON1: RDPSRAPI_MOUSE_BUTTON_TYPE = RDPSRAPI_MOUSE_BUTTON_TYPE(3i32);
-pub const RDPSRAPI_MOUSE_BUTTON_XBUTTON2: RDPSRAPI_MOUSE_BUTTON_TYPE = RDPSRAPI_MOUSE_BUTTON_TYPE(4i32);
-pub const RDPSRAPI_MOUSE_BUTTON_XBUTTON3: RDPSRAPI_MOUSE_BUTTON_TYPE = RDPSRAPI_MOUSE_BUTTON_TYPE(5i32);
-impl ::core::marker::Copy for RDPSRAPI_MOUSE_BUTTON_TYPE {}
-impl ::core::clone::Clone for RDPSRAPI_MOUSE_BUTTON_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct RDPSRAPI_WND_FLAGS(pub i32);
-pub const WND_FLAG_PRIVILEGED: RDPSRAPI_WND_FLAGS = RDPSRAPI_WND_FLAGS(1i32);
-impl ::core::marker::Copy for RDPSRAPI_WND_FLAGS {}
-impl ::core::clone::Clone for RDPSRAPI_WND_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const APP_FLAG_PRIVILEGED: i32 = 1i32;
+pub const RDPSRAPI_KBD_CODE_SCANCODE: i32 = 0i32;
+pub const RDPSRAPI_KBD_CODE_UNICODE: i32 = 1i32;
+pub const RDPSRAPI_KBD_SYNC_FLAG_SCROLL_LOCK: i32 = 1i32;
+pub const RDPSRAPI_KBD_SYNC_FLAG_NUM_LOCK: i32 = 2i32;
+pub const RDPSRAPI_KBD_SYNC_FLAG_CAPS_LOCK: i32 = 4i32;
+pub const RDPSRAPI_KBD_SYNC_FLAG_KANA_LOCK: i32 = 8i32;
+pub const RDPSRAPI_MOUSE_BUTTON_BUTTON1: i32 = 0i32;
+pub const RDPSRAPI_MOUSE_BUTTON_BUTTON2: i32 = 1i32;
+pub const RDPSRAPI_MOUSE_BUTTON_BUTTON3: i32 = 2i32;
+pub const RDPSRAPI_MOUSE_BUTTON_XBUTTON1: i32 = 3i32;
+pub const RDPSRAPI_MOUSE_BUTTON_XBUTTON2: i32 = 4i32;
+pub const RDPSRAPI_MOUSE_BUTTON_XBUTTON3: i32 = 5i32;
+pub const WND_FLAG_PRIVILEGED: i32 = 1i32;
 pub const RDPSession: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2608394470,
     data2: 15877,
@@ -545,21 +457,13 @@ impl ::core::clone::Clone for _IRDPSessionEvents {
         *self
     }
 }
-#[repr(transparent)]
-pub struct __MIDL___MIDL_itf_rdpencomapi_0000_0027_0001(pub i32);
-pub const CONST_MAX_CHANNEL_MESSAGE_SIZE: __MIDL___MIDL_itf_rdpencomapi_0000_0027_0001 = __MIDL___MIDL_itf_rdpencomapi_0000_0027_0001(1024i32);
-pub const CONST_MAX_CHANNEL_NAME_LEN: __MIDL___MIDL_itf_rdpencomapi_0000_0027_0001 = __MIDL___MIDL_itf_rdpencomapi_0000_0027_0001(8i32);
-pub const CONST_MAX_LEGACY_CHANNEL_MESSAGE_SIZE: __MIDL___MIDL_itf_rdpencomapi_0000_0027_0001 = __MIDL___MIDL_itf_rdpencomapi_0000_0027_0001(409600i32);
-pub const CONST_ATTENDEE_ID_EVERYONE: __MIDL___MIDL_itf_rdpencomapi_0000_0027_0001 = __MIDL___MIDL_itf_rdpencomapi_0000_0027_0001(-1i32);
-pub const CONST_ATTENDEE_ID_HOST: __MIDL___MIDL_itf_rdpencomapi_0000_0027_0001 = __MIDL___MIDL_itf_rdpencomapi_0000_0027_0001(0i32);
-pub const CONST_CONN_INTERVAL: __MIDL___MIDL_itf_rdpencomapi_0000_0027_0001 = __MIDL___MIDL_itf_rdpencomapi_0000_0027_0001(50i32);
-pub const CONST_ATTENDEE_ID_DEFAULT: __MIDL___MIDL_itf_rdpencomapi_0000_0027_0001 = __MIDL___MIDL_itf_rdpencomapi_0000_0027_0001(-1i32);
-impl ::core::marker::Copy for __MIDL___MIDL_itf_rdpencomapi_0000_0027_0001 {}
-impl ::core::clone::Clone for __MIDL___MIDL_itf_rdpencomapi_0000_0027_0001 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const CONST_MAX_CHANNEL_MESSAGE_SIZE: i32 = 1024i32;
+pub const CONST_MAX_CHANNEL_NAME_LEN: i32 = 8i32;
+pub const CONST_MAX_LEGACY_CHANNEL_MESSAGE_SIZE: i32 = 409600i32;
+pub const CONST_ATTENDEE_ID_EVERYONE: i32 = -1i32;
+pub const CONST_ATTENDEE_ID_HOST: i32 = 0i32;
+pub const CONST_CONN_INTERVAL: i32 = 50i32;
+pub const CONST_ATTENDEE_ID_DEFAULT: i32 = -1i32;
 #[repr(C)]
 pub struct __ReferenceRemainingTypes__ {
     pub __ctrlLevel__: CTRL_LEVEL,

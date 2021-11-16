@@ -40,50 +40,26 @@ impl ::core::clone::Clone for DXCoreAdapterMemoryBudgetNodeSegmentGroup {
         *self
     }
 }
-#[repr(transparent)]
-pub struct DXCoreAdapterPreference(pub u32);
-pub const Hardware: DXCoreAdapterPreference = DXCoreAdapterPreference(0u32);
-pub const MinimumPower: DXCoreAdapterPreference = DXCoreAdapterPreference(1u32);
-pub const HighPerformance: DXCoreAdapterPreference = DXCoreAdapterPreference(2u32);
-impl ::core::marker::Copy for DXCoreAdapterPreference {}
-impl ::core::clone::Clone for DXCoreAdapterPreference {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DXCoreAdapterProperty(pub u32);
-pub const InstanceLuid: DXCoreAdapterProperty = DXCoreAdapterProperty(0u32);
-pub const DriverVersion: DXCoreAdapterProperty = DXCoreAdapterProperty(1u32);
-pub const DriverDescription: DXCoreAdapterProperty = DXCoreAdapterProperty(2u32);
-pub const HardwareID: DXCoreAdapterProperty = DXCoreAdapterProperty(3u32);
-pub const KmdModelVersion: DXCoreAdapterProperty = DXCoreAdapterProperty(4u32);
-pub const ComputePreemptionGranularity: DXCoreAdapterProperty = DXCoreAdapterProperty(5u32);
-pub const GraphicsPreemptionGranularity: DXCoreAdapterProperty = DXCoreAdapterProperty(6u32);
-pub const DedicatedAdapterMemory: DXCoreAdapterProperty = DXCoreAdapterProperty(7u32);
-pub const DedicatedSystemMemory: DXCoreAdapterProperty = DXCoreAdapterProperty(8u32);
-pub const SharedSystemMemory: DXCoreAdapterProperty = DXCoreAdapterProperty(9u32);
-pub const AcgCompatible: DXCoreAdapterProperty = DXCoreAdapterProperty(10u32);
-pub const IsHardware: DXCoreAdapterProperty = DXCoreAdapterProperty(11u32);
-pub const IsIntegrated: DXCoreAdapterProperty = DXCoreAdapterProperty(12u32);
-pub const IsDetachable: DXCoreAdapterProperty = DXCoreAdapterProperty(13u32);
-pub const HardwareIDParts: DXCoreAdapterProperty = DXCoreAdapterProperty(14u32);
-impl ::core::marker::Copy for DXCoreAdapterProperty {}
-impl ::core::clone::Clone for DXCoreAdapterProperty {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DXCoreAdapterState(pub u32);
-pub const IsDriverUpdateInProgress: DXCoreAdapterState = DXCoreAdapterState(0u32);
-pub const AdapterMemoryBudget: DXCoreAdapterState = DXCoreAdapterState(1u32);
-impl ::core::marker::Copy for DXCoreAdapterState {}
-impl ::core::clone::Clone for DXCoreAdapterState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const Hardware: u32 = 0u32;
+pub const MinimumPower: u32 = 1u32;
+pub const HighPerformance: u32 = 2u32;
+pub const InstanceLuid: u32 = 0u32;
+pub const DriverVersion: u32 = 1u32;
+pub const DriverDescription: u32 = 2u32;
+pub const HardwareID: u32 = 3u32;
+pub const KmdModelVersion: u32 = 4u32;
+pub const ComputePreemptionGranularity: u32 = 5u32;
+pub const GraphicsPreemptionGranularity: u32 = 6u32;
+pub const DedicatedAdapterMemory: u32 = 7u32;
+pub const DedicatedSystemMemory: u32 = 8u32;
+pub const SharedSystemMemory: u32 = 9u32;
+pub const AcgCompatible: u32 = 10u32;
+pub const IsHardware: u32 = 11u32;
+pub const IsIntegrated: u32 = 12u32;
+pub const IsDetachable: u32 = 13u32;
+pub const HardwareIDParts: u32 = 14u32;
+pub const IsDriverUpdateInProgress: u32 = 0u32;
+pub const AdapterMemoryBudget: u32 = 1u32;
 #[repr(C)]
 pub struct DXCoreHardwareID {
     pub vendorID: u32,
@@ -111,28 +87,12 @@ impl ::core::clone::Clone for DXCoreHardwareIDParts {
         *self
     }
 }
-#[repr(transparent)]
-pub struct DXCoreNotificationType(pub u32);
-pub const AdapterListStale: DXCoreNotificationType = DXCoreNotificationType(0u32);
-pub const AdapterNoLongerValid: DXCoreNotificationType = DXCoreNotificationType(1u32);
-pub const AdapterBudgetChange: DXCoreNotificationType = DXCoreNotificationType(2u32);
-pub const AdapterHardwareContentProtectionTeardown: DXCoreNotificationType = DXCoreNotificationType(3u32);
-impl ::core::marker::Copy for DXCoreNotificationType {}
-impl ::core::clone::Clone for DXCoreNotificationType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct DXCoreSegmentGroup(pub u32);
-pub const Local: DXCoreSegmentGroup = DXCoreSegmentGroup(0u32);
-pub const NonLocal: DXCoreSegmentGroup = DXCoreSegmentGroup(1u32);
-impl ::core::marker::Copy for DXCoreSegmentGroup {}
-impl ::core::clone::Clone for DXCoreSegmentGroup {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const AdapterListStale: u32 = 0u32;
+pub const AdapterNoLongerValid: u32 = 1u32;
+pub const AdapterBudgetChange: u32 = 2u32;
+pub const AdapterHardwareContentProtectionTeardown: u32 = 3u32;
+pub const Local: u32 = 0u32;
+pub const NonLocal: u32 = 1u32;
 #[repr(transparent)]
 pub struct IDXCoreAdapter(pub *mut ::core::ffi::c_void);
 impl ::core::marker::Copy for IDXCoreAdapter {}

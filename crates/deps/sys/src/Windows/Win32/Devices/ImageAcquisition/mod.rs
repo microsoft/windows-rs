@@ -728,20 +728,12 @@ impl ::core::clone::Clone for WIAS_ENDORSER_VALUE {
         *self
     }
 }
-#[repr(transparent)]
-pub struct WIAVIDEO_STATE(pub i32);
-pub const WIAVIDEO_NO_VIDEO: WIAVIDEO_STATE = WIAVIDEO_STATE(1i32);
-pub const WIAVIDEO_CREATING_VIDEO: WIAVIDEO_STATE = WIAVIDEO_STATE(2i32);
-pub const WIAVIDEO_VIDEO_CREATED: WIAVIDEO_STATE = WIAVIDEO_STATE(3i32);
-pub const WIAVIDEO_VIDEO_PLAYING: WIAVIDEO_STATE = WIAVIDEO_STATE(4i32);
-pub const WIAVIDEO_VIDEO_PAUSED: WIAVIDEO_STATE = WIAVIDEO_STATE(5i32);
-pub const WIAVIDEO_DESTROYING_VIDEO: WIAVIDEO_STATE = WIAVIDEO_STATE(6i32);
-impl ::core::marker::Copy for WIAVIDEO_STATE {}
-impl ::core::clone::Clone for WIAVIDEO_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const WIAVIDEO_NO_VIDEO: i32 = 1i32;
+pub const WIAVIDEO_CREATING_VIDEO: i32 = 2i32;
+pub const WIAVIDEO_VIDEO_CREATED: i32 = 3i32;
+pub const WIAVIDEO_VIDEO_PLAYING: i32 = 4i32;
+pub const WIAVIDEO_VIDEO_PAUSED: i32 = 5i32;
+pub const WIAVIDEO_DESTROYING_VIDEO: i32 = 6i32;
 pub const WIA_ACTION_EVENT: u32 = 2u32;
 pub const WIA_ADVANCED_PREVIEW: u32 = 0u32;
 pub const WIA_ALARM_BEEP1: u32 = 1u32;

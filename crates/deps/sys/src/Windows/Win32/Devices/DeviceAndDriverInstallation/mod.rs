@@ -1300,25 +1300,17 @@ pub const CM_LOCATE_DEVNODE_NOVALIDATION: u32 = 4u32;
 pub const CM_LOCATE_DEVNODE_PHANTOM: u32 = 1u32;
 pub const CM_NAME_ATTRIBUTE_NAME_RETRIEVED_FROM_DEVICE: u32 = 1u32;
 pub const CM_NAME_ATTRIBUTE_USER_ASSIGNED_NAME: u32 = 2u32;
-#[repr(transparent)]
-pub struct CM_NOTIFY_ACTION(pub i32);
-pub const CM_NOTIFY_ACTION_DEVICEINTERFACEARRIVAL: CM_NOTIFY_ACTION = CM_NOTIFY_ACTION(0i32);
-pub const CM_NOTIFY_ACTION_DEVICEINTERFACEREMOVAL: CM_NOTIFY_ACTION = CM_NOTIFY_ACTION(1i32);
-pub const CM_NOTIFY_ACTION_DEVICEQUERYREMOVE: CM_NOTIFY_ACTION = CM_NOTIFY_ACTION(2i32);
-pub const CM_NOTIFY_ACTION_DEVICEQUERYREMOVEFAILED: CM_NOTIFY_ACTION = CM_NOTIFY_ACTION(3i32);
-pub const CM_NOTIFY_ACTION_DEVICEREMOVEPENDING: CM_NOTIFY_ACTION = CM_NOTIFY_ACTION(4i32);
-pub const CM_NOTIFY_ACTION_DEVICEREMOVECOMPLETE: CM_NOTIFY_ACTION = CM_NOTIFY_ACTION(5i32);
-pub const CM_NOTIFY_ACTION_DEVICECUSTOMEVENT: CM_NOTIFY_ACTION = CM_NOTIFY_ACTION(6i32);
-pub const CM_NOTIFY_ACTION_DEVICEINSTANCEENUMERATED: CM_NOTIFY_ACTION = CM_NOTIFY_ACTION(7i32);
-pub const CM_NOTIFY_ACTION_DEVICEINSTANCESTARTED: CM_NOTIFY_ACTION = CM_NOTIFY_ACTION(8i32);
-pub const CM_NOTIFY_ACTION_DEVICEINSTANCEREMOVED: CM_NOTIFY_ACTION = CM_NOTIFY_ACTION(9i32);
-pub const CM_NOTIFY_ACTION_MAX: CM_NOTIFY_ACTION = CM_NOTIFY_ACTION(10i32);
-impl ::core::marker::Copy for CM_NOTIFY_ACTION {}
-impl ::core::clone::Clone for CM_NOTIFY_ACTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const CM_NOTIFY_ACTION_DEVICEINTERFACEARRIVAL: i32 = 0i32;
+pub const CM_NOTIFY_ACTION_DEVICEINTERFACEREMOVAL: i32 = 1i32;
+pub const CM_NOTIFY_ACTION_DEVICEQUERYREMOVE: i32 = 2i32;
+pub const CM_NOTIFY_ACTION_DEVICEQUERYREMOVEFAILED: i32 = 3i32;
+pub const CM_NOTIFY_ACTION_DEVICEREMOVEPENDING: i32 = 4i32;
+pub const CM_NOTIFY_ACTION_DEVICEREMOVECOMPLETE: i32 = 5i32;
+pub const CM_NOTIFY_ACTION_DEVICECUSTOMEVENT: i32 = 6i32;
+pub const CM_NOTIFY_ACTION_DEVICEINSTANCEENUMERATED: i32 = 7i32;
+pub const CM_NOTIFY_ACTION_DEVICEINSTANCESTARTED: i32 = 8i32;
+pub const CM_NOTIFY_ACTION_DEVICEINSTANCEREMOVED: i32 = 9i32;
+pub const CM_NOTIFY_ACTION_MAX: i32 = 10i32;
 #[repr(C)]
 pub struct CM_NOTIFY_EVENT_DATA {
     pub FilterType: CM_NOTIFY_FILTER_TYPE,
@@ -1450,18 +1442,10 @@ impl ::core::clone::Clone for CM_NOTIFY_FILTER_0_2 {
 }
 pub const CM_NOTIFY_FILTER_FLAG_ALL_DEVICE_INSTANCES: u32 = 2u32;
 pub const CM_NOTIFY_FILTER_FLAG_ALL_INTERFACE_CLASSES: u32 = 1u32;
-#[repr(transparent)]
-pub struct CM_NOTIFY_FILTER_TYPE(pub i32);
-pub const CM_NOTIFY_FILTER_TYPE_DEVICEINTERFACE: CM_NOTIFY_FILTER_TYPE = CM_NOTIFY_FILTER_TYPE(0i32);
-pub const CM_NOTIFY_FILTER_TYPE_DEVICEHANDLE: CM_NOTIFY_FILTER_TYPE = CM_NOTIFY_FILTER_TYPE(1i32);
-pub const CM_NOTIFY_FILTER_TYPE_DEVICEINSTANCE: CM_NOTIFY_FILTER_TYPE = CM_NOTIFY_FILTER_TYPE(2i32);
-pub const CM_NOTIFY_FILTER_TYPE_MAX: CM_NOTIFY_FILTER_TYPE = CM_NOTIFY_FILTER_TYPE(3i32);
-impl ::core::marker::Copy for CM_NOTIFY_FILTER_TYPE {}
-impl ::core::clone::Clone for CM_NOTIFY_FILTER_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const CM_NOTIFY_FILTER_TYPE_DEVICEINTERFACE: i32 = 0i32;
+pub const CM_NOTIFY_FILTER_TYPE_DEVICEHANDLE: i32 = 1i32;
+pub const CM_NOTIFY_FILTER_TYPE_DEVICEINSTANCE: i32 = 2i32;
+pub const CM_NOTIFY_FILTER_TYPE_MAX: i32 = 3i32;
 pub const CM_OPEN_CLASS_KEY_BITS: u32 = 1u32;
 pub const CM_OPEN_CLASS_KEY_INSTALLER: u32 = 0u32;
 pub const CM_OPEN_CLASS_KEY_INTERFACE: u32 = 1u32;
@@ -1614,79 +1598,71 @@ impl ::core::clone::Clone for COINSTALLER_CONTEXT_DATA {
     }
 }
 pub const CONFIGMG_VERSION: u32 = 1024u32;
-#[repr(transparent)]
-pub struct CONFIGRET(pub u32);
-pub const CR_SUCCESS: CONFIGRET = CONFIGRET(0u32);
-pub const CR_DEFAULT: CONFIGRET = CONFIGRET(1u32);
-pub const CR_OUT_OF_MEMORY: CONFIGRET = CONFIGRET(2u32);
-pub const CR_INVALID_POINTER: CONFIGRET = CONFIGRET(3u32);
-pub const CR_INVALID_FLAG: CONFIGRET = CONFIGRET(4u32);
-pub const CR_INVALID_DEVNODE: CONFIGRET = CONFIGRET(5u32);
-pub const CR_INVALID_DEVINST: CONFIGRET = CONFIGRET(5u32);
-pub const CR_INVALID_RES_DES: CONFIGRET = CONFIGRET(6u32);
-pub const CR_INVALID_LOG_CONF: CONFIGRET = CONFIGRET(7u32);
-pub const CR_INVALID_ARBITRATOR: CONFIGRET = CONFIGRET(8u32);
-pub const CR_INVALID_NODELIST: CONFIGRET = CONFIGRET(9u32);
-pub const CR_DEVNODE_HAS_REQS: CONFIGRET = CONFIGRET(10u32);
-pub const CR_DEVINST_HAS_REQS: CONFIGRET = CONFIGRET(10u32);
-pub const CR_INVALID_RESOURCEID: CONFIGRET = CONFIGRET(11u32);
-pub const CR_DLVXD_NOT_FOUND: CONFIGRET = CONFIGRET(12u32);
-pub const CR_NO_SUCH_DEVNODE: CONFIGRET = CONFIGRET(13u32);
-pub const CR_NO_SUCH_DEVINST: CONFIGRET = CONFIGRET(13u32);
-pub const CR_NO_MORE_LOG_CONF: CONFIGRET = CONFIGRET(14u32);
-pub const CR_NO_MORE_RES_DES: CONFIGRET = CONFIGRET(15u32);
-pub const CR_ALREADY_SUCH_DEVNODE: CONFIGRET = CONFIGRET(16u32);
-pub const CR_ALREADY_SUCH_DEVINST: CONFIGRET = CONFIGRET(16u32);
-pub const CR_INVALID_RANGE_LIST: CONFIGRET = CONFIGRET(17u32);
-pub const CR_INVALID_RANGE: CONFIGRET = CONFIGRET(18u32);
-pub const CR_FAILURE: CONFIGRET = CONFIGRET(19u32);
-pub const CR_NO_SUCH_LOGICAL_DEV: CONFIGRET = CONFIGRET(20u32);
-pub const CR_CREATE_BLOCKED: CONFIGRET = CONFIGRET(21u32);
-pub const CR_NOT_SYSTEM_VM: CONFIGRET = CONFIGRET(22u32);
-pub const CR_REMOVE_VETOED: CONFIGRET = CONFIGRET(23u32);
-pub const CR_APM_VETOED: CONFIGRET = CONFIGRET(24u32);
-pub const CR_INVALID_LOAD_TYPE: CONFIGRET = CONFIGRET(25u32);
-pub const CR_BUFFER_SMALL: CONFIGRET = CONFIGRET(26u32);
-pub const CR_NO_ARBITRATOR: CONFIGRET = CONFIGRET(27u32);
-pub const CR_NO_REGISTRY_HANDLE: CONFIGRET = CONFIGRET(28u32);
-pub const CR_REGISTRY_ERROR: CONFIGRET = CONFIGRET(29u32);
-pub const CR_INVALID_DEVICE_ID: CONFIGRET = CONFIGRET(30u32);
-pub const CR_INVALID_DATA: CONFIGRET = CONFIGRET(31u32);
-pub const CR_INVALID_API: CONFIGRET = CONFIGRET(32u32);
-pub const CR_DEVLOADER_NOT_READY: CONFIGRET = CONFIGRET(33u32);
-pub const CR_NEED_RESTART: CONFIGRET = CONFIGRET(34u32);
-pub const CR_NO_MORE_HW_PROFILES: CONFIGRET = CONFIGRET(35u32);
-pub const CR_DEVICE_NOT_THERE: CONFIGRET = CONFIGRET(36u32);
-pub const CR_NO_SUCH_VALUE: CONFIGRET = CONFIGRET(37u32);
-pub const CR_WRONG_TYPE: CONFIGRET = CONFIGRET(38u32);
-pub const CR_INVALID_PRIORITY: CONFIGRET = CONFIGRET(39u32);
-pub const CR_NOT_DISABLEABLE: CONFIGRET = CONFIGRET(40u32);
-pub const CR_FREE_RESOURCES: CONFIGRET = CONFIGRET(41u32);
-pub const CR_QUERY_VETOED: CONFIGRET = CONFIGRET(42u32);
-pub const CR_CANT_SHARE_IRQ: CONFIGRET = CONFIGRET(43u32);
-pub const CR_NO_DEPENDENT: CONFIGRET = CONFIGRET(44u32);
-pub const CR_SAME_RESOURCES: CONFIGRET = CONFIGRET(45u32);
-pub const CR_NO_SUCH_REGISTRY_KEY: CONFIGRET = CONFIGRET(46u32);
-pub const CR_INVALID_MACHINENAME: CONFIGRET = CONFIGRET(47u32);
-pub const CR_REMOTE_COMM_FAILURE: CONFIGRET = CONFIGRET(48u32);
-pub const CR_MACHINE_UNAVAILABLE: CONFIGRET = CONFIGRET(49u32);
-pub const CR_NO_CM_SERVICES: CONFIGRET = CONFIGRET(50u32);
-pub const CR_ACCESS_DENIED: CONFIGRET = CONFIGRET(51u32);
-pub const CR_CALL_NOT_IMPLEMENTED: CONFIGRET = CONFIGRET(52u32);
-pub const CR_INVALID_PROPERTY: CONFIGRET = CONFIGRET(53u32);
-pub const CR_DEVICE_INTERFACE_ACTIVE: CONFIGRET = CONFIGRET(54u32);
-pub const CR_NO_SUCH_DEVICE_INTERFACE: CONFIGRET = CONFIGRET(55u32);
-pub const CR_INVALID_REFERENCE_STRING: CONFIGRET = CONFIGRET(56u32);
-pub const CR_INVALID_CONFLICT_LIST: CONFIGRET = CONFIGRET(57u32);
-pub const CR_INVALID_INDEX: CONFIGRET = CONFIGRET(58u32);
-pub const CR_INVALID_STRUCTURE_SIZE: CONFIGRET = CONFIGRET(59u32);
-pub const NUM_CR_RESULTS: CONFIGRET = CONFIGRET(60u32);
-impl ::core::marker::Copy for CONFIGRET {}
-impl ::core::clone::Clone for CONFIGRET {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const CR_SUCCESS: u32 = 0u32;
+pub const CR_DEFAULT: u32 = 1u32;
+pub const CR_OUT_OF_MEMORY: u32 = 2u32;
+pub const CR_INVALID_POINTER: u32 = 3u32;
+pub const CR_INVALID_FLAG: u32 = 4u32;
+pub const CR_INVALID_DEVNODE: u32 = 5u32;
+pub const CR_INVALID_DEVINST: u32 = 5u32;
+pub const CR_INVALID_RES_DES: u32 = 6u32;
+pub const CR_INVALID_LOG_CONF: u32 = 7u32;
+pub const CR_INVALID_ARBITRATOR: u32 = 8u32;
+pub const CR_INVALID_NODELIST: u32 = 9u32;
+pub const CR_DEVNODE_HAS_REQS: u32 = 10u32;
+pub const CR_DEVINST_HAS_REQS: u32 = 10u32;
+pub const CR_INVALID_RESOURCEID: u32 = 11u32;
+pub const CR_DLVXD_NOT_FOUND: u32 = 12u32;
+pub const CR_NO_SUCH_DEVNODE: u32 = 13u32;
+pub const CR_NO_SUCH_DEVINST: u32 = 13u32;
+pub const CR_NO_MORE_LOG_CONF: u32 = 14u32;
+pub const CR_NO_MORE_RES_DES: u32 = 15u32;
+pub const CR_ALREADY_SUCH_DEVNODE: u32 = 16u32;
+pub const CR_ALREADY_SUCH_DEVINST: u32 = 16u32;
+pub const CR_INVALID_RANGE_LIST: u32 = 17u32;
+pub const CR_INVALID_RANGE: u32 = 18u32;
+pub const CR_FAILURE: u32 = 19u32;
+pub const CR_NO_SUCH_LOGICAL_DEV: u32 = 20u32;
+pub const CR_CREATE_BLOCKED: u32 = 21u32;
+pub const CR_NOT_SYSTEM_VM: u32 = 22u32;
+pub const CR_REMOVE_VETOED: u32 = 23u32;
+pub const CR_APM_VETOED: u32 = 24u32;
+pub const CR_INVALID_LOAD_TYPE: u32 = 25u32;
+pub const CR_BUFFER_SMALL: u32 = 26u32;
+pub const CR_NO_ARBITRATOR: u32 = 27u32;
+pub const CR_NO_REGISTRY_HANDLE: u32 = 28u32;
+pub const CR_REGISTRY_ERROR: u32 = 29u32;
+pub const CR_INVALID_DEVICE_ID: u32 = 30u32;
+pub const CR_INVALID_DATA: u32 = 31u32;
+pub const CR_INVALID_API: u32 = 32u32;
+pub const CR_DEVLOADER_NOT_READY: u32 = 33u32;
+pub const CR_NEED_RESTART: u32 = 34u32;
+pub const CR_NO_MORE_HW_PROFILES: u32 = 35u32;
+pub const CR_DEVICE_NOT_THERE: u32 = 36u32;
+pub const CR_NO_SUCH_VALUE: u32 = 37u32;
+pub const CR_WRONG_TYPE: u32 = 38u32;
+pub const CR_INVALID_PRIORITY: u32 = 39u32;
+pub const CR_NOT_DISABLEABLE: u32 = 40u32;
+pub const CR_FREE_RESOURCES: u32 = 41u32;
+pub const CR_QUERY_VETOED: u32 = 42u32;
+pub const CR_CANT_SHARE_IRQ: u32 = 43u32;
+pub const CR_NO_DEPENDENT: u32 = 44u32;
+pub const CR_SAME_RESOURCES: u32 = 45u32;
+pub const CR_NO_SUCH_REGISTRY_KEY: u32 = 46u32;
+pub const CR_INVALID_MACHINENAME: u32 = 47u32;
+pub const CR_REMOTE_COMM_FAILURE: u32 = 48u32;
+pub const CR_MACHINE_UNAVAILABLE: u32 = 49u32;
+pub const CR_NO_CM_SERVICES: u32 = 50u32;
+pub const CR_ACCESS_DENIED: u32 = 51u32;
+pub const CR_CALL_NOT_IMPLEMENTED: u32 = 52u32;
+pub const CR_INVALID_PROPERTY: u32 = 53u32;
+pub const CR_DEVICE_INTERFACE_ACTIVE: u32 = 54u32;
+pub const CR_NO_SUCH_DEVICE_INTERFACE: u32 = 55u32;
+pub const CR_INVALID_REFERENCE_STRING: u32 = 56u32;
+pub const CR_INVALID_CONFLICT_LIST: u32 = 57u32;
+pub const CR_INVALID_INDEX: u32 = 58u32;
+pub const CR_INVALID_STRUCTURE_SIZE: u32 = 59u32;
+pub const NUM_CR_RESULTS: u32 = 60u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CONFLICT_DETAILS_A {
@@ -3303,17 +3279,9 @@ pub const NUM_CM_PROB_V7: u32 = 55u32;
 pub const NUM_CM_PROB_V8: u32 = 57u32;
 pub const NUM_CM_PROB_V9: u32 = 58u32;
 pub const NUM_LOG_CONF: u32 = 6u32;
-#[repr(transparent)]
-pub struct OEM_SOURCE_MEDIA_TYPE(pub u32);
-pub const SPOST_NONE: OEM_SOURCE_MEDIA_TYPE = OEM_SOURCE_MEDIA_TYPE(0u32);
-pub const SPOST_PATH: OEM_SOURCE_MEDIA_TYPE = OEM_SOURCE_MEDIA_TYPE(1u32);
-pub const SPOST_URL: OEM_SOURCE_MEDIA_TYPE = OEM_SOURCE_MEDIA_TYPE(2u32);
-impl ::core::marker::Copy for OEM_SOURCE_MEDIA_TYPE {}
-impl ::core::clone::Clone for OEM_SOURCE_MEDIA_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const SPOST_NONE: u32 = 0u32;
+pub const SPOST_PATH: u32 = 1u32;
+pub const SPOST_URL: u32 = 2u32;
 pub const OVERRIDE_LOG_CONF: u32 = 5u32;
 #[repr(C, packed(1))]
 pub struct PCCARD_DES {
@@ -3349,28 +3317,20 @@ pub const PCD_MAX_MEMORY: u32 = 2u32;
 pub type PCM_NOTIFY_CALLBACK = unsafe extern "system" fn(hnotify: HCMNOTIFICATION, context: *const ::core::ffi::c_void, action: CM_NOTIFY_ACTION, eventdata: *const CM_NOTIFY_EVENT_DATA, eventdatasize: u32) -> u32;
 #[cfg(feature = "Win32_Foundation")]
 pub type PDETECT_PROGRESS_NOTIFY = unsafe extern "system" fn(progressnotifyparam: *const ::core::ffi::c_void, detectcomplete: u32) -> super::super::Foundation::BOOL;
-#[repr(transparent)]
-pub struct PNP_VETO_TYPE(pub i32);
-pub const PNP_VetoTypeUnknown: PNP_VETO_TYPE = PNP_VETO_TYPE(0i32);
-pub const PNP_VetoLegacyDevice: PNP_VETO_TYPE = PNP_VETO_TYPE(1i32);
-pub const PNP_VetoPendingClose: PNP_VETO_TYPE = PNP_VETO_TYPE(2i32);
-pub const PNP_VetoWindowsApp: PNP_VETO_TYPE = PNP_VETO_TYPE(3i32);
-pub const PNP_VetoWindowsService: PNP_VETO_TYPE = PNP_VETO_TYPE(4i32);
-pub const PNP_VetoOutstandingOpen: PNP_VETO_TYPE = PNP_VETO_TYPE(5i32);
-pub const PNP_VetoDevice: PNP_VETO_TYPE = PNP_VETO_TYPE(6i32);
-pub const PNP_VetoDriver: PNP_VETO_TYPE = PNP_VETO_TYPE(7i32);
-pub const PNP_VetoIllegalDeviceRequest: PNP_VETO_TYPE = PNP_VETO_TYPE(8i32);
-pub const PNP_VetoInsufficientPower: PNP_VETO_TYPE = PNP_VETO_TYPE(9i32);
-pub const PNP_VetoNonDisableable: PNP_VETO_TYPE = PNP_VETO_TYPE(10i32);
-pub const PNP_VetoLegacyDriver: PNP_VETO_TYPE = PNP_VETO_TYPE(11i32);
-pub const PNP_VetoInsufficientRights: PNP_VETO_TYPE = PNP_VETO_TYPE(12i32);
-pub const PNP_VetoAlreadyRemoved: PNP_VETO_TYPE = PNP_VETO_TYPE(13i32);
-impl ::core::marker::Copy for PNP_VETO_TYPE {}
-impl ::core::clone::Clone for PNP_VETO_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const PNP_VetoTypeUnknown: i32 = 0i32;
+pub const PNP_VetoLegacyDevice: i32 = 1i32;
+pub const PNP_VetoPendingClose: i32 = 2i32;
+pub const PNP_VetoWindowsApp: i32 = 3i32;
+pub const PNP_VetoWindowsService: i32 = 4i32;
+pub const PNP_VetoOutstandingOpen: i32 = 5i32;
+pub const PNP_VetoDevice: i32 = 6i32;
+pub const PNP_VetoDriver: i32 = 7i32;
+pub const PNP_VetoIllegalDeviceRequest: i32 = 8i32;
+pub const PNP_VetoInsufficientPower: i32 = 9i32;
+pub const PNP_VetoNonDisableable: i32 = 10i32;
+pub const PNP_VetoLegacyDriver: i32 = 11i32;
+pub const PNP_VetoInsufficientRights: i32 = 12i32;
+pub const PNP_VetoAlreadyRemoved: i32 = 13i32;
 pub const PRIORITY_BIT: u32 = 8u32;
 pub const PRIORITY_EQUAL_FIRST: u32 = 8u32;
 pub const PRIORITY_EQUAL_LAST: u32 = 0u32;
@@ -3401,26 +3361,10 @@ pub const ResType_PcCardConfig: u32 = 32770u32;
 pub const ResType_Reserved: u32 = 32768u32;
 pub const SCWMI_CLOBBER_SECURITY: u32 = 1u32;
 pub const SETDIRID_NOT_FULL_PATH: u32 = 1u32;
-#[repr(transparent)]
-pub struct SETUP_DI_BUILD_DRIVER_DRIVER_TYPE(pub u32);
-pub const SPDIT_CLASSDRIVER: SETUP_DI_BUILD_DRIVER_DRIVER_TYPE = SETUP_DI_BUILD_DRIVER_DRIVER_TYPE(1u32);
-pub const SPDIT_COMPATDRIVER: SETUP_DI_BUILD_DRIVER_DRIVER_TYPE = SETUP_DI_BUILD_DRIVER_DRIVER_TYPE(2u32);
-impl ::core::marker::Copy for SETUP_DI_BUILD_DRIVER_DRIVER_TYPE {}
-impl ::core::clone::Clone for SETUP_DI_BUILD_DRIVER_DRIVER_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct SETUP_FILE_OPERATION(pub u32);
-pub const FILEOP_DELETE: SETUP_FILE_OPERATION = SETUP_FILE_OPERATION(2u32);
-pub const FILEOP_COPY: SETUP_FILE_OPERATION = SETUP_FILE_OPERATION(0u32);
-impl ::core::marker::Copy for SETUP_FILE_OPERATION {}
-impl ::core::clone::Clone for SETUP_FILE_OPERATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const SPDIT_CLASSDRIVER: u32 = 1u32;
+pub const SPDIT_COMPATDRIVER: u32 = 2u32;
+pub const FILEOP_DELETE: u32 = 2u32;
+pub const FILEOP_COPY: u32 = 0u32;
 pub const SIGNERSCORE_AUTHENTICODE: u32 = 251658240u32;
 pub const SIGNERSCORE_INBOX: u32 = 218103811u32;
 pub const SIGNERSCORE_LOGO_PREMIUM: u32 = 218103809u32;
@@ -4075,42 +4019,34 @@ impl ::core::clone::Clone for SP_CLASSINSTALL_HEADER {
         *self
     }
 }
-#[repr(transparent)]
-pub struct SP_COPY_STYLE(pub u32);
-pub const SP_COPY_DELETESOURCE: SP_COPY_STYLE = SP_COPY_STYLE(1u32);
-pub const SP_COPY_REPLACEONLY: SP_COPY_STYLE = SP_COPY_STYLE(2u32);
-pub const SP_COPY_NEWER_OR_SAME: SP_COPY_STYLE = SP_COPY_STYLE(4u32);
-pub const SP_COPY_NEWER_ONLY: SP_COPY_STYLE = SP_COPY_STYLE(65536u32);
-pub const SP_COPY_NOOVERWRITE: SP_COPY_STYLE = SP_COPY_STYLE(8u32);
-pub const SP_COPY_NODECOMP: SP_COPY_STYLE = SP_COPY_STYLE(16u32);
-pub const SP_COPY_LANGUAGEAWARE: SP_COPY_STYLE = SP_COPY_STYLE(32u32);
-pub const SP_COPY_SOURCE_ABSOLUTE: SP_COPY_STYLE = SP_COPY_STYLE(64u32);
-pub const SP_COPY_SOURCEPATH_ABSOLUTE: SP_COPY_STYLE = SP_COPY_STYLE(128u32);
-pub const SP_COPY_FORCE_IN_USE: SP_COPY_STYLE = SP_COPY_STYLE(512u32);
-pub const SP_COPY_IN_USE_NEEDS_REBOOT: SP_COPY_STYLE = SP_COPY_STYLE(256u32);
-pub const SP_COPY_NOSKIP: SP_COPY_STYLE = SP_COPY_STYLE(1024u32);
-pub const SP_COPY_FORCE_NOOVERWRITE: SP_COPY_STYLE = SP_COPY_STYLE(4096u32);
-pub const SP_COPY_FORCE_NEWER: SP_COPY_STYLE = SP_COPY_STYLE(8192u32);
-pub const SP_COPY_WARNIFSKIP: SP_COPY_STYLE = SP_COPY_STYLE(16384u32);
-pub const SP_COPY_NOBROWSE: SP_COPY_STYLE = SP_COPY_STYLE(32768u32);
-pub const SP_COPY_NEWER: SP_COPY_STYLE = SP_COPY_STYLE(4u32);
-pub const SP_COPY_RESERVED: SP_COPY_STYLE = SP_COPY_STYLE(131072u32);
-pub const SP_COPY_OEMINF_CATALOG_ONLY: SP_COPY_STYLE = SP_COPY_STYLE(262144u32);
-pub const SP_COPY_REPLACE_BOOT_FILE: SP_COPY_STYLE = SP_COPY_STYLE(524288u32);
-pub const SP_COPY_NOPRUNE: SP_COPY_STYLE = SP_COPY_STYLE(1048576u32);
-pub const SP_COPY_OEM_F6_INF: SP_COPY_STYLE = SP_COPY_STYLE(2097152u32);
-pub const SP_COPY_ALREADYDECOMP: SP_COPY_STYLE = SP_COPY_STYLE(4194304u32);
-pub const SP_COPY_WINDOWS_SIGNED: SP_COPY_STYLE = SP_COPY_STYLE(16777216u32);
-pub const SP_COPY_PNPLOCKED: SP_COPY_STYLE = SP_COPY_STYLE(33554432u32);
-pub const SP_COPY_IN_USE_TRY_RENAME: SP_COPY_STYLE = SP_COPY_STYLE(67108864u32);
-pub const SP_COPY_INBOX_INF: SP_COPY_STYLE = SP_COPY_STYLE(134217728u32);
-pub const SP_COPY_HARDLINK: SP_COPY_STYLE = SP_COPY_STYLE(268435456u32);
-impl ::core::marker::Copy for SP_COPY_STYLE {}
-impl ::core::clone::Clone for SP_COPY_STYLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const SP_COPY_DELETESOURCE: u32 = 1u32;
+pub const SP_COPY_REPLACEONLY: u32 = 2u32;
+pub const SP_COPY_NEWER_OR_SAME: u32 = 4u32;
+pub const SP_COPY_NEWER_ONLY: u32 = 65536u32;
+pub const SP_COPY_NOOVERWRITE: u32 = 8u32;
+pub const SP_COPY_NODECOMP: u32 = 16u32;
+pub const SP_COPY_LANGUAGEAWARE: u32 = 32u32;
+pub const SP_COPY_SOURCE_ABSOLUTE: u32 = 64u32;
+pub const SP_COPY_SOURCEPATH_ABSOLUTE: u32 = 128u32;
+pub const SP_COPY_FORCE_IN_USE: u32 = 512u32;
+pub const SP_COPY_IN_USE_NEEDS_REBOOT: u32 = 256u32;
+pub const SP_COPY_NOSKIP: u32 = 1024u32;
+pub const SP_COPY_FORCE_NOOVERWRITE: u32 = 4096u32;
+pub const SP_COPY_FORCE_NEWER: u32 = 8192u32;
+pub const SP_COPY_WARNIFSKIP: u32 = 16384u32;
+pub const SP_COPY_NOBROWSE: u32 = 32768u32;
+pub const SP_COPY_NEWER: u32 = 4u32;
+pub const SP_COPY_RESERVED: u32 = 131072u32;
+pub const SP_COPY_OEMINF_CATALOG_ONLY: u32 = 262144u32;
+pub const SP_COPY_REPLACE_BOOT_FILE: u32 = 524288u32;
+pub const SP_COPY_NOPRUNE: u32 = 1048576u32;
+pub const SP_COPY_OEM_F6_INF: u32 = 2097152u32;
+pub const SP_COPY_ALREADYDECOMP: u32 = 4194304u32;
+pub const SP_COPY_WINDOWS_SIGNED: u32 = 16777216u32;
+pub const SP_COPY_PNPLOCKED: u32 = 33554432u32;
+pub const SP_COPY_IN_USE_TRY_RENAME: u32 = 67108864u32;
+pub const SP_COPY_INBOX_INF: u32 = 134217728u32;
+pub const SP_COPY_HARDLINK: u32 = 268435456u32;
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -5062,17 +4998,9 @@ impl ::core::clone::Clone for SP_INF_SIGNER_INFO_V2_W {
         *self
     }
 }
-#[repr(transparent)]
-pub struct SP_INF_STYLE(pub u32);
-pub const INF_STYLE_NONE: SP_INF_STYLE = SP_INF_STYLE(0u32);
-pub const INF_STYLE_OLDNT: SP_INF_STYLE = SP_INF_STYLE(1u32);
-pub const INF_STYLE_WIN4: SP_INF_STYLE = SP_INF_STYLE(2u32);
-impl ::core::marker::Copy for SP_INF_STYLE {}
-impl ::core::clone::Clone for SP_INF_STYLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const INF_STYLE_NONE: u32 = 0u32;
+pub const INF_STYLE_OLDNT: u32 = 1u32;
+pub const INF_STYLE_WIN4: u32 = 2u32;
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
@@ -5581,17 +5509,9 @@ pub const SRCLIST_USER: u32 = 32u32;
 pub const SRC_FLAGS_CABFILE: u32 = 16u32;
 pub const SUOI_FORCEDELETE: u32 = 1u32;
 pub const SUOI_INTERNAL1: u32 = 2u32;
-#[repr(transparent)]
-pub struct SetupFileLogInfo(pub i32);
-pub const SetupFileLogSourceFilename: SetupFileLogInfo = SetupFileLogInfo(0i32);
-pub const SetupFileLogChecksum: SetupFileLogInfo = SetupFileLogInfo(1i32);
-pub const SetupFileLogDiskTagfile: SetupFileLogInfo = SetupFileLogInfo(2i32);
-pub const SetupFileLogDiskDescription: SetupFileLogInfo = SetupFileLogInfo(3i32);
-pub const SetupFileLogOtherInfo: SetupFileLogInfo = SetupFileLogInfo(4i32);
-pub const SetupFileLogMax: SetupFileLogInfo = SetupFileLogInfo(5i32);
-impl ::core::marker::Copy for SetupFileLogInfo {}
-impl ::core::clone::Clone for SetupFileLogInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const SetupFileLogSourceFilename: i32 = 0i32;
+pub const SetupFileLogChecksum: i32 = 1i32;
+pub const SetupFileLogDiskTagfile: i32 = 2i32;
+pub const SetupFileLogDiskDescription: i32 = 3i32;
+pub const SetupFileLogOtherInfo: i32 = 4i32;
+pub const SetupFileLogMax: i32 = 5i32;

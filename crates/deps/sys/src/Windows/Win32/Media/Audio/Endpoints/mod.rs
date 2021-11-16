@@ -40,19 +40,11 @@ pub const DEVPKEY_AudioEndpointPlugin_PnPInterface: super::super::super::UI::She
     fmtid: ::windows_sys::core::GUID { data1: 316160983, data2: 53010, data3: 18110, data4: [133, 64, 129, 39, 16, 211, 2, 28] },
     pid: 3u32,
 };
-#[repr(transparent)]
-pub struct EndpointConnectorType(pub i32);
-pub const eHostProcessConnector: EndpointConnectorType = EndpointConnectorType(0i32);
-pub const eOffloadConnector: EndpointConnectorType = EndpointConnectorType(1i32);
-pub const eLoopbackConnector: EndpointConnectorType = EndpointConnectorType(2i32);
-pub const eKeywordDetectorConnector: EndpointConnectorType = EndpointConnectorType(3i32);
-pub const eConnectorCount: EndpointConnectorType = EndpointConnectorType(4i32);
-impl ::core::marker::Copy for EndpointConnectorType {}
-impl ::core::clone::Clone for EndpointConnectorType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const eHostProcessConnector: i32 = 0i32;
+pub const eOffloadConnector: i32 = 1i32;
+pub const eLoopbackConnector: i32 = 2i32;
+pub const eKeywordDetectorConnector: i32 = 3i32;
+pub const eConnectorCount: i32 = 4i32;
 #[repr(transparent)]
 pub struct IAudioEndpointFormatControl(pub *mut ::core::ffi::c_void);
 impl ::core::marker::Copy for IAudioEndpointFormatControl {}

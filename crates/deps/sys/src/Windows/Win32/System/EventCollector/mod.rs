@@ -35,130 +35,66 @@ pub const EC_CREATE_NEW: u32 = 1u32;
 pub const EC_OPEN_ALWAYS: u32 = 0u32;
 pub const EC_OPEN_EXISTING: u32 = 2u32;
 pub const EC_READ_ACCESS: u32 = 1u32;
-#[repr(transparent)]
-pub struct EC_SUBSCRIPTION_CONFIGURATION_MODE(pub i32);
-pub const EcConfigurationModeNormal: EC_SUBSCRIPTION_CONFIGURATION_MODE = EC_SUBSCRIPTION_CONFIGURATION_MODE(0i32);
-pub const EcConfigurationModeCustom: EC_SUBSCRIPTION_CONFIGURATION_MODE = EC_SUBSCRIPTION_CONFIGURATION_MODE(1i32);
-pub const EcConfigurationModeMinLatency: EC_SUBSCRIPTION_CONFIGURATION_MODE = EC_SUBSCRIPTION_CONFIGURATION_MODE(2i32);
-pub const EcConfigurationModeMinBandwidth: EC_SUBSCRIPTION_CONFIGURATION_MODE = EC_SUBSCRIPTION_CONFIGURATION_MODE(3i32);
-impl ::core::marker::Copy for EC_SUBSCRIPTION_CONFIGURATION_MODE {}
-impl ::core::clone::Clone for EC_SUBSCRIPTION_CONFIGURATION_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct EC_SUBSCRIPTION_CONTENT_FORMAT(pub i32);
-pub const EcContentFormatEvents: EC_SUBSCRIPTION_CONTENT_FORMAT = EC_SUBSCRIPTION_CONTENT_FORMAT(1i32);
-pub const EcContentFormatRenderedText: EC_SUBSCRIPTION_CONTENT_FORMAT = EC_SUBSCRIPTION_CONTENT_FORMAT(2i32);
-impl ::core::marker::Copy for EC_SUBSCRIPTION_CONTENT_FORMAT {}
-impl ::core::clone::Clone for EC_SUBSCRIPTION_CONTENT_FORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct EC_SUBSCRIPTION_CREDENTIALS_TYPE(pub i32);
-pub const EcSubscriptionCredDefault: EC_SUBSCRIPTION_CREDENTIALS_TYPE = EC_SUBSCRIPTION_CREDENTIALS_TYPE(0i32);
-pub const EcSubscriptionCredNegotiate: EC_SUBSCRIPTION_CREDENTIALS_TYPE = EC_SUBSCRIPTION_CREDENTIALS_TYPE(1i32);
-pub const EcSubscriptionCredDigest: EC_SUBSCRIPTION_CREDENTIALS_TYPE = EC_SUBSCRIPTION_CREDENTIALS_TYPE(2i32);
-pub const EcSubscriptionCredBasic: EC_SUBSCRIPTION_CREDENTIALS_TYPE = EC_SUBSCRIPTION_CREDENTIALS_TYPE(3i32);
-pub const EcSubscriptionCredLocalMachine: EC_SUBSCRIPTION_CREDENTIALS_TYPE = EC_SUBSCRIPTION_CREDENTIALS_TYPE(4i32);
-impl ::core::marker::Copy for EC_SUBSCRIPTION_CREDENTIALS_TYPE {}
-impl ::core::clone::Clone for EC_SUBSCRIPTION_CREDENTIALS_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct EC_SUBSCRIPTION_DELIVERY_MODE(pub i32);
-pub const EcDeliveryModePull: EC_SUBSCRIPTION_DELIVERY_MODE = EC_SUBSCRIPTION_DELIVERY_MODE(1i32);
-pub const EcDeliveryModePush: EC_SUBSCRIPTION_DELIVERY_MODE = EC_SUBSCRIPTION_DELIVERY_MODE(2i32);
-impl ::core::marker::Copy for EC_SUBSCRIPTION_DELIVERY_MODE {}
-impl ::core::clone::Clone for EC_SUBSCRIPTION_DELIVERY_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct EC_SUBSCRIPTION_PROPERTY_ID(pub i32);
-pub const EcSubscriptionEnabled: EC_SUBSCRIPTION_PROPERTY_ID = EC_SUBSCRIPTION_PROPERTY_ID(0i32);
-pub const EcSubscriptionEventSources: EC_SUBSCRIPTION_PROPERTY_ID = EC_SUBSCRIPTION_PROPERTY_ID(1i32);
-pub const EcSubscriptionEventSourceAddress: EC_SUBSCRIPTION_PROPERTY_ID = EC_SUBSCRIPTION_PROPERTY_ID(2i32);
-pub const EcSubscriptionEventSourceEnabled: EC_SUBSCRIPTION_PROPERTY_ID = EC_SUBSCRIPTION_PROPERTY_ID(3i32);
-pub const EcSubscriptionEventSourceUserName: EC_SUBSCRIPTION_PROPERTY_ID = EC_SUBSCRIPTION_PROPERTY_ID(4i32);
-pub const EcSubscriptionEventSourcePassword: EC_SUBSCRIPTION_PROPERTY_ID = EC_SUBSCRIPTION_PROPERTY_ID(5i32);
-pub const EcSubscriptionDescription: EC_SUBSCRIPTION_PROPERTY_ID = EC_SUBSCRIPTION_PROPERTY_ID(6i32);
-pub const EcSubscriptionURI: EC_SUBSCRIPTION_PROPERTY_ID = EC_SUBSCRIPTION_PROPERTY_ID(7i32);
-pub const EcSubscriptionConfigurationMode: EC_SUBSCRIPTION_PROPERTY_ID = EC_SUBSCRIPTION_PROPERTY_ID(8i32);
-pub const EcSubscriptionExpires: EC_SUBSCRIPTION_PROPERTY_ID = EC_SUBSCRIPTION_PROPERTY_ID(9i32);
-pub const EcSubscriptionQuery: EC_SUBSCRIPTION_PROPERTY_ID = EC_SUBSCRIPTION_PROPERTY_ID(10i32);
-pub const EcSubscriptionTransportName: EC_SUBSCRIPTION_PROPERTY_ID = EC_SUBSCRIPTION_PROPERTY_ID(11i32);
-pub const EcSubscriptionTransportPort: EC_SUBSCRIPTION_PROPERTY_ID = EC_SUBSCRIPTION_PROPERTY_ID(12i32);
-pub const EcSubscriptionDeliveryMode: EC_SUBSCRIPTION_PROPERTY_ID = EC_SUBSCRIPTION_PROPERTY_ID(13i32);
-pub const EcSubscriptionDeliveryMaxItems: EC_SUBSCRIPTION_PROPERTY_ID = EC_SUBSCRIPTION_PROPERTY_ID(14i32);
-pub const EcSubscriptionDeliveryMaxLatencyTime: EC_SUBSCRIPTION_PROPERTY_ID = EC_SUBSCRIPTION_PROPERTY_ID(15i32);
-pub const EcSubscriptionHeartbeatInterval: EC_SUBSCRIPTION_PROPERTY_ID = EC_SUBSCRIPTION_PROPERTY_ID(16i32);
-pub const EcSubscriptionLocale: EC_SUBSCRIPTION_PROPERTY_ID = EC_SUBSCRIPTION_PROPERTY_ID(17i32);
-pub const EcSubscriptionContentFormat: EC_SUBSCRIPTION_PROPERTY_ID = EC_SUBSCRIPTION_PROPERTY_ID(18i32);
-pub const EcSubscriptionLogFile: EC_SUBSCRIPTION_PROPERTY_ID = EC_SUBSCRIPTION_PROPERTY_ID(19i32);
-pub const EcSubscriptionPublisherName: EC_SUBSCRIPTION_PROPERTY_ID = EC_SUBSCRIPTION_PROPERTY_ID(20i32);
-pub const EcSubscriptionCredentialsType: EC_SUBSCRIPTION_PROPERTY_ID = EC_SUBSCRIPTION_PROPERTY_ID(21i32);
-pub const EcSubscriptionCommonUserName: EC_SUBSCRIPTION_PROPERTY_ID = EC_SUBSCRIPTION_PROPERTY_ID(22i32);
-pub const EcSubscriptionCommonPassword: EC_SUBSCRIPTION_PROPERTY_ID = EC_SUBSCRIPTION_PROPERTY_ID(23i32);
-pub const EcSubscriptionHostName: EC_SUBSCRIPTION_PROPERTY_ID = EC_SUBSCRIPTION_PROPERTY_ID(24i32);
-pub const EcSubscriptionReadExistingEvents: EC_SUBSCRIPTION_PROPERTY_ID = EC_SUBSCRIPTION_PROPERTY_ID(25i32);
-pub const EcSubscriptionDialect: EC_SUBSCRIPTION_PROPERTY_ID = EC_SUBSCRIPTION_PROPERTY_ID(26i32);
-pub const EcSubscriptionType: EC_SUBSCRIPTION_PROPERTY_ID = EC_SUBSCRIPTION_PROPERTY_ID(27i32);
-pub const EcSubscriptionAllowedIssuerCAs: EC_SUBSCRIPTION_PROPERTY_ID = EC_SUBSCRIPTION_PROPERTY_ID(28i32);
-pub const EcSubscriptionAllowedSubjects: EC_SUBSCRIPTION_PROPERTY_ID = EC_SUBSCRIPTION_PROPERTY_ID(29i32);
-pub const EcSubscriptionDeniedSubjects: EC_SUBSCRIPTION_PROPERTY_ID = EC_SUBSCRIPTION_PROPERTY_ID(30i32);
-pub const EcSubscriptionAllowedSourceDomainComputers: EC_SUBSCRIPTION_PROPERTY_ID = EC_SUBSCRIPTION_PROPERTY_ID(31i32);
-pub const EcSubscriptionPropertyIdEND: EC_SUBSCRIPTION_PROPERTY_ID = EC_SUBSCRIPTION_PROPERTY_ID(32i32);
-impl ::core::marker::Copy for EC_SUBSCRIPTION_PROPERTY_ID {}
-impl ::core::clone::Clone for EC_SUBSCRIPTION_PROPERTY_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct EC_SUBSCRIPTION_RUNTIME_STATUS_ACTIVE_STATUS(pub i32);
-pub const EcRuntimeStatusActiveStatusDisabled: EC_SUBSCRIPTION_RUNTIME_STATUS_ACTIVE_STATUS = EC_SUBSCRIPTION_RUNTIME_STATUS_ACTIVE_STATUS(1i32);
-pub const EcRuntimeStatusActiveStatusActive: EC_SUBSCRIPTION_RUNTIME_STATUS_ACTIVE_STATUS = EC_SUBSCRIPTION_RUNTIME_STATUS_ACTIVE_STATUS(2i32);
-pub const EcRuntimeStatusActiveStatusInactive: EC_SUBSCRIPTION_RUNTIME_STATUS_ACTIVE_STATUS = EC_SUBSCRIPTION_RUNTIME_STATUS_ACTIVE_STATUS(3i32);
-pub const EcRuntimeStatusActiveStatusTrying: EC_SUBSCRIPTION_RUNTIME_STATUS_ACTIVE_STATUS = EC_SUBSCRIPTION_RUNTIME_STATUS_ACTIVE_STATUS(4i32);
-impl ::core::marker::Copy for EC_SUBSCRIPTION_RUNTIME_STATUS_ACTIVE_STATUS {}
-impl ::core::clone::Clone for EC_SUBSCRIPTION_RUNTIME_STATUS_ACTIVE_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct EC_SUBSCRIPTION_RUNTIME_STATUS_INFO_ID(pub i32);
-pub const EcSubscriptionRunTimeStatusActive: EC_SUBSCRIPTION_RUNTIME_STATUS_INFO_ID = EC_SUBSCRIPTION_RUNTIME_STATUS_INFO_ID(0i32);
-pub const EcSubscriptionRunTimeStatusLastError: EC_SUBSCRIPTION_RUNTIME_STATUS_INFO_ID = EC_SUBSCRIPTION_RUNTIME_STATUS_INFO_ID(1i32);
-pub const EcSubscriptionRunTimeStatusLastErrorMessage: EC_SUBSCRIPTION_RUNTIME_STATUS_INFO_ID = EC_SUBSCRIPTION_RUNTIME_STATUS_INFO_ID(2i32);
-pub const EcSubscriptionRunTimeStatusLastErrorTime: EC_SUBSCRIPTION_RUNTIME_STATUS_INFO_ID = EC_SUBSCRIPTION_RUNTIME_STATUS_INFO_ID(3i32);
-pub const EcSubscriptionRunTimeStatusNextRetryTime: EC_SUBSCRIPTION_RUNTIME_STATUS_INFO_ID = EC_SUBSCRIPTION_RUNTIME_STATUS_INFO_ID(4i32);
-pub const EcSubscriptionRunTimeStatusEventSources: EC_SUBSCRIPTION_RUNTIME_STATUS_INFO_ID = EC_SUBSCRIPTION_RUNTIME_STATUS_INFO_ID(5i32);
-pub const EcSubscriptionRunTimeStatusLastHeartbeatTime: EC_SUBSCRIPTION_RUNTIME_STATUS_INFO_ID = EC_SUBSCRIPTION_RUNTIME_STATUS_INFO_ID(6i32);
-pub const EcSubscriptionRunTimeStatusInfoIdEND: EC_SUBSCRIPTION_RUNTIME_STATUS_INFO_ID = EC_SUBSCRIPTION_RUNTIME_STATUS_INFO_ID(7i32);
-impl ::core::marker::Copy for EC_SUBSCRIPTION_RUNTIME_STATUS_INFO_ID {}
-impl ::core::clone::Clone for EC_SUBSCRIPTION_RUNTIME_STATUS_INFO_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct EC_SUBSCRIPTION_TYPE(pub i32);
-pub const EcSubscriptionTypeSourceInitiated: EC_SUBSCRIPTION_TYPE = EC_SUBSCRIPTION_TYPE(0i32);
-pub const EcSubscriptionTypeCollectorInitiated: EC_SUBSCRIPTION_TYPE = EC_SUBSCRIPTION_TYPE(1i32);
-impl ::core::marker::Copy for EC_SUBSCRIPTION_TYPE {}
-impl ::core::clone::Clone for EC_SUBSCRIPTION_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const EcConfigurationModeNormal: i32 = 0i32;
+pub const EcConfigurationModeCustom: i32 = 1i32;
+pub const EcConfigurationModeMinLatency: i32 = 2i32;
+pub const EcConfigurationModeMinBandwidth: i32 = 3i32;
+pub const EcContentFormatEvents: i32 = 1i32;
+pub const EcContentFormatRenderedText: i32 = 2i32;
+pub const EcSubscriptionCredDefault: i32 = 0i32;
+pub const EcSubscriptionCredNegotiate: i32 = 1i32;
+pub const EcSubscriptionCredDigest: i32 = 2i32;
+pub const EcSubscriptionCredBasic: i32 = 3i32;
+pub const EcSubscriptionCredLocalMachine: i32 = 4i32;
+pub const EcDeliveryModePull: i32 = 1i32;
+pub const EcDeliveryModePush: i32 = 2i32;
+pub const EcSubscriptionEnabled: i32 = 0i32;
+pub const EcSubscriptionEventSources: i32 = 1i32;
+pub const EcSubscriptionEventSourceAddress: i32 = 2i32;
+pub const EcSubscriptionEventSourceEnabled: i32 = 3i32;
+pub const EcSubscriptionEventSourceUserName: i32 = 4i32;
+pub const EcSubscriptionEventSourcePassword: i32 = 5i32;
+pub const EcSubscriptionDescription: i32 = 6i32;
+pub const EcSubscriptionURI: i32 = 7i32;
+pub const EcSubscriptionConfigurationMode: i32 = 8i32;
+pub const EcSubscriptionExpires: i32 = 9i32;
+pub const EcSubscriptionQuery: i32 = 10i32;
+pub const EcSubscriptionTransportName: i32 = 11i32;
+pub const EcSubscriptionTransportPort: i32 = 12i32;
+pub const EcSubscriptionDeliveryMode: i32 = 13i32;
+pub const EcSubscriptionDeliveryMaxItems: i32 = 14i32;
+pub const EcSubscriptionDeliveryMaxLatencyTime: i32 = 15i32;
+pub const EcSubscriptionHeartbeatInterval: i32 = 16i32;
+pub const EcSubscriptionLocale: i32 = 17i32;
+pub const EcSubscriptionContentFormat: i32 = 18i32;
+pub const EcSubscriptionLogFile: i32 = 19i32;
+pub const EcSubscriptionPublisherName: i32 = 20i32;
+pub const EcSubscriptionCredentialsType: i32 = 21i32;
+pub const EcSubscriptionCommonUserName: i32 = 22i32;
+pub const EcSubscriptionCommonPassword: i32 = 23i32;
+pub const EcSubscriptionHostName: i32 = 24i32;
+pub const EcSubscriptionReadExistingEvents: i32 = 25i32;
+pub const EcSubscriptionDialect: i32 = 26i32;
+pub const EcSubscriptionType: i32 = 27i32;
+pub const EcSubscriptionAllowedIssuerCAs: i32 = 28i32;
+pub const EcSubscriptionAllowedSubjects: i32 = 29i32;
+pub const EcSubscriptionDeniedSubjects: i32 = 30i32;
+pub const EcSubscriptionAllowedSourceDomainComputers: i32 = 31i32;
+pub const EcSubscriptionPropertyIdEND: i32 = 32i32;
+pub const EcRuntimeStatusActiveStatusDisabled: i32 = 1i32;
+pub const EcRuntimeStatusActiveStatusActive: i32 = 2i32;
+pub const EcRuntimeStatusActiveStatusInactive: i32 = 3i32;
+pub const EcRuntimeStatusActiveStatusTrying: i32 = 4i32;
+pub const EcSubscriptionRunTimeStatusActive: i32 = 0i32;
+pub const EcSubscriptionRunTimeStatusLastError: i32 = 1i32;
+pub const EcSubscriptionRunTimeStatusLastErrorMessage: i32 = 2i32;
+pub const EcSubscriptionRunTimeStatusLastErrorTime: i32 = 3i32;
+pub const EcSubscriptionRunTimeStatusNextRetryTime: i32 = 4i32;
+pub const EcSubscriptionRunTimeStatusEventSources: i32 = 5i32;
+pub const EcSubscriptionRunTimeStatusLastHeartbeatTime: i32 = 6i32;
+pub const EcSubscriptionRunTimeStatusInfoIdEND: i32 = 7i32;
+pub const EcSubscriptionTypeSourceInitiated: i32 = 0i32;
+pub const EcSubscriptionTypeCollectorInitiated: i32 = 1i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EC_VARIANT {
@@ -195,20 +131,12 @@ impl ::core::clone::Clone for EC_VARIANT_0 {
         *self
     }
 }
-#[repr(transparent)]
-pub struct EC_VARIANT_TYPE(pub i32);
-pub const EcVarTypeNull: EC_VARIANT_TYPE = EC_VARIANT_TYPE(0i32);
-pub const EcVarTypeBoolean: EC_VARIANT_TYPE = EC_VARIANT_TYPE(1i32);
-pub const EcVarTypeUInt32: EC_VARIANT_TYPE = EC_VARIANT_TYPE(2i32);
-pub const EcVarTypeDateTime: EC_VARIANT_TYPE = EC_VARIANT_TYPE(3i32);
-pub const EcVarTypeString: EC_VARIANT_TYPE = EC_VARIANT_TYPE(4i32);
-pub const EcVarObjectArrayPropertyHandle: EC_VARIANT_TYPE = EC_VARIANT_TYPE(5i32);
-impl ::core::marker::Copy for EC_VARIANT_TYPE {}
-impl ::core::clone::Clone for EC_VARIANT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const EcVarTypeNull: i32 = 0i32;
+pub const EcVarTypeBoolean: i32 = 1i32;
+pub const EcVarTypeUInt32: i32 = 2i32;
+pub const EcVarTypeDateTime: i32 = 3i32;
+pub const EcVarTypeString: i32 = 4i32;
+pub const EcVarObjectArrayPropertyHandle: i32 = 5i32;
 pub const EC_VARIANT_TYPE_ARRAY: u32 = 128u32;
 pub const EC_VARIANT_TYPE_MASK: u32 = 127u32;
 pub const EC_WRITE_ACCESS: u32 = 2u32;

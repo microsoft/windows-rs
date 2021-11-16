@@ -176,17 +176,9 @@ impl ::core::clone::Clone for HrtfDirectivityCone {
         *self
     }
 }
-#[repr(transparent)]
-pub struct HrtfDirectivityType(pub i32);
-pub const OmniDirectional: HrtfDirectivityType = HrtfDirectivityType(0i32);
-pub const Cardioid: HrtfDirectivityType = HrtfDirectivityType(1i32);
-pub const Cone: HrtfDirectivityType = HrtfDirectivityType(2i32);
-impl ::core::marker::Copy for HrtfDirectivityType {}
-impl ::core::clone::Clone for HrtfDirectivityType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const OmniDirectional: i32 = 0i32;
+pub const Cardioid: i32 = 1i32;
+pub const Cone: i32 = 2i32;
 #[repr(C)]
 pub struct HrtfDistanceDecay {
     pub r#type: HrtfDistanceDecayType,
@@ -201,28 +193,12 @@ impl ::core::clone::Clone for HrtfDistanceDecay {
         *self
     }
 }
-#[repr(transparent)]
-pub struct HrtfDistanceDecayType(pub i32);
-pub const NaturalDecay: HrtfDistanceDecayType = HrtfDistanceDecayType(0i32);
-pub const CustomDecay: HrtfDistanceDecayType = HrtfDistanceDecayType(1i32);
-impl ::core::marker::Copy for HrtfDistanceDecayType {}
-impl ::core::clone::Clone for HrtfDistanceDecayType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HrtfEnvironment(pub i32);
-pub const Small: HrtfEnvironment = HrtfEnvironment(0i32);
-pub const Medium: HrtfEnvironment = HrtfEnvironment(1i32);
-pub const Large: HrtfEnvironment = HrtfEnvironment(2i32);
-pub const Outdoors: HrtfEnvironment = HrtfEnvironment(3i32);
-impl ::core::marker::Copy for HrtfEnvironment {}
-impl ::core::clone::Clone for HrtfEnvironment {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const NaturalDecay: i32 = 0i32;
+pub const CustomDecay: i32 = 1i32;
+pub const Small: i32 = 0i32;
+pub const Medium: i32 = 1i32;
+pub const Large: i32 = 2i32;
+pub const Outdoors: i32 = 3i32;
 #[repr(C)]
 pub struct HrtfOrientation {
     pub element: [f32; 9],
@@ -379,16 +355,8 @@ pub const X3DAUDIO_CALCULATE_ZEROCENTER: u32 = 65536u32;
 pub const X3DAUDIO_HANDLE_BYTESIZE: u32 = 20u32;
 pub const X3DAUDIO_PI: f32 = 3.1415927f32;
 pub const X3DAUDIO_SPEED_OF_SOUND: f32 = 343.5f32;
-#[repr(transparent)]
-pub struct XAPO_BUFFER_FLAGS(pub i32);
-pub const XAPO_BUFFER_SILENT: XAPO_BUFFER_FLAGS = XAPO_BUFFER_FLAGS(0i32);
-pub const XAPO_BUFFER_VALID: XAPO_BUFFER_FLAGS = XAPO_BUFFER_FLAGS(1i32);
-impl ::core::marker::Copy for XAPO_BUFFER_FLAGS {}
-impl ::core::clone::Clone for XAPO_BUFFER_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const XAPO_BUFFER_SILENT: i32 = 0i32;
+pub const XAPO_BUFFER_VALID: i32 = 1i32;
 pub const XAPO_E_FORMAT_UNSUPPORTED: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2003369983i32 as _);
 pub const XAPO_FLAG_BITSPERSAMPLE_MUST_MATCH: u32 = 4u32;
 pub const XAPO_FLAG_BUFFERCOUNT_MUST_MATCH: u32 = 8u32;
@@ -681,20 +649,12 @@ impl ::core::clone::Clone for XAUDIO2_FILTER_PARAMETERS {
         *self
     }
 }
-#[repr(transparent)]
-pub struct XAUDIO2_FILTER_TYPE(pub i32);
-pub const LowPassFilter: XAUDIO2_FILTER_TYPE = XAUDIO2_FILTER_TYPE(0i32);
-pub const BandPassFilter: XAUDIO2_FILTER_TYPE = XAUDIO2_FILTER_TYPE(1i32);
-pub const HighPassFilter: XAUDIO2_FILTER_TYPE = XAUDIO2_FILTER_TYPE(2i32);
-pub const NotchFilter: XAUDIO2_FILTER_TYPE = XAUDIO2_FILTER_TYPE(3i32);
-pub const LowPassOnePoleFilter: XAUDIO2_FILTER_TYPE = XAUDIO2_FILTER_TYPE(4i32);
-pub const HighPassOnePoleFilter: XAUDIO2_FILTER_TYPE = XAUDIO2_FILTER_TYPE(5i32);
-impl ::core::marker::Copy for XAUDIO2_FILTER_TYPE {}
-impl ::core::clone::Clone for XAUDIO2_FILTER_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const LowPassFilter: i32 = 0i32;
+pub const BandPassFilter: i32 = 1i32;
+pub const HighPassFilter: i32 = 2i32;
+pub const NotchFilter: i32 = 3i32;
+pub const LowPassOnePoleFilter: i32 = 4i32;
+pub const HighPassOnePoleFilter: i32 = 5i32;
 pub const XAUDIO2_LOG_API_CALLS: u32 = 16u32;
 pub const XAUDIO2_LOG_DETAIL: u32 = 8u32;
 pub const XAUDIO2_LOG_ERRORS: u32 = 1u32;

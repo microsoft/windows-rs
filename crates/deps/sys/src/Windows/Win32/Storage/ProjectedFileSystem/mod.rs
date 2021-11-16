@@ -76,16 +76,8 @@ impl ::core::clone::Clone for PRJ_CALLBACK_DATA {
         *self
     }
 }
-#[repr(transparent)]
-pub struct PRJ_CALLBACK_DATA_FLAGS(pub i32);
-pub const PRJ_CB_DATA_FLAG_ENUM_RESTART_SCAN: PRJ_CALLBACK_DATA_FLAGS = PRJ_CALLBACK_DATA_FLAGS(1i32);
-pub const PRJ_CB_DATA_FLAG_ENUM_RETURN_SINGLE_ENTRY: PRJ_CALLBACK_DATA_FLAGS = PRJ_CALLBACK_DATA_FLAGS(2i32);
-impl ::core::marker::Copy for PRJ_CALLBACK_DATA_FLAGS {}
-impl ::core::clone::Clone for PRJ_CALLBACK_DATA_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const PRJ_CB_DATA_FLAG_ENUM_RESTART_SCAN: i32 = 1i32;
+pub const PRJ_CB_DATA_FLAG_ENUM_RETURN_SINGLE_ENTRY: i32 = 2i32;
 #[cfg(feature = "Win32_Foundation")]
 pub type PRJ_CANCEL_COMMAND_CB = unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA);
 #[repr(C)]
@@ -130,16 +122,8 @@ impl ::core::clone::Clone for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_1 {
         *self
     }
 }
-#[repr(transparent)]
-pub struct PRJ_COMPLETE_COMMAND_TYPE(pub i32);
-pub const PRJ_COMPLETE_COMMAND_TYPE_NOTIFICATION: PRJ_COMPLETE_COMMAND_TYPE = PRJ_COMPLETE_COMMAND_TYPE(1i32);
-pub const PRJ_COMPLETE_COMMAND_TYPE_ENUMERATION: PRJ_COMPLETE_COMMAND_TYPE = PRJ_COMPLETE_COMMAND_TYPE(2i32);
-impl ::core::marker::Copy for PRJ_COMPLETE_COMMAND_TYPE {}
-impl ::core::clone::Clone for PRJ_COMPLETE_COMMAND_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const PRJ_COMPLETE_COMMAND_TYPE_NOTIFICATION: i32 = 1i32;
+pub const PRJ_COMPLETE_COMMAND_TYPE_ENUMERATION: i32 = 2i32;
 pub type PRJ_DIR_ENTRY_BUFFER_HANDLE = isize;
 #[cfg(feature = "Win32_Foundation")]
 pub type PRJ_END_DIRECTORY_ENUMERATION_CB = unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA, enumerationid: *const ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
@@ -184,15 +168,7 @@ impl ::core::clone::Clone for PRJ_EXTENDED_INFO_0_0 {
         *self
     }
 }
-#[repr(transparent)]
-pub struct PRJ_EXT_INFO_TYPE(pub i32);
-pub const PRJ_EXT_INFO_TYPE_SYMLINK: PRJ_EXT_INFO_TYPE = PRJ_EXT_INFO_TYPE(1i32);
-impl ::core::marker::Copy for PRJ_EXT_INFO_TYPE {}
-impl ::core::clone::Clone for PRJ_EXT_INFO_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const PRJ_EXT_INFO_TYPE_SYMLINK: i32 = 1i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PRJ_FILE_BASIC_INFO {
@@ -212,19 +188,11 @@ impl ::core::clone::Clone for PRJ_FILE_BASIC_INFO {
         *self
     }
 }
-#[repr(transparent)]
-pub struct PRJ_FILE_STATE(pub u32);
-pub const PRJ_FILE_STATE_PLACEHOLDER: PRJ_FILE_STATE = PRJ_FILE_STATE(1u32);
-pub const PRJ_FILE_STATE_HYDRATED_PLACEHOLDER: PRJ_FILE_STATE = PRJ_FILE_STATE(2u32);
-pub const PRJ_FILE_STATE_DIRTY_PLACEHOLDER: PRJ_FILE_STATE = PRJ_FILE_STATE(4u32);
-pub const PRJ_FILE_STATE_FULL: PRJ_FILE_STATE = PRJ_FILE_STATE(8u32);
-pub const PRJ_FILE_STATE_TOMBSTONE: PRJ_FILE_STATE = PRJ_FILE_STATE(16u32);
-impl ::core::marker::Copy for PRJ_FILE_STATE {}
-impl ::core::clone::Clone for PRJ_FILE_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const PRJ_FILE_STATE_PLACEHOLDER: u32 = 1u32;
+pub const PRJ_FILE_STATE_HYDRATED_PLACEHOLDER: u32 = 2u32;
+pub const PRJ_FILE_STATE_DIRTY_PLACEHOLDER: u32 = 4u32;
+pub const PRJ_FILE_STATE_FULL: u32 = 8u32;
+pub const PRJ_FILE_STATE_TOMBSTONE: u32 = 16u32;
 #[cfg(feature = "Win32_Foundation")]
 pub type PRJ_GET_DIRECTORY_ENUMERATION_CB = unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA, enumerationid: *const ::windows_sys::core::GUID, searchexpression: super::super::Foundation::PWSTR, direntrybufferhandle: PRJ_DIR_ENTRY_BUFFER_HANDLE) -> ::windows_sys::core::HRESULT;
 #[cfg(feature = "Win32_Foundation")]
@@ -232,26 +200,18 @@ pub type PRJ_GET_FILE_DATA_CB = unsafe extern "system" fn(callbackdata: *const P
 #[cfg(feature = "Win32_Foundation")]
 pub type PRJ_GET_PLACEHOLDER_INFO_CB = unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA) -> ::windows_sys::core::HRESULT;
 pub type PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT = isize;
-#[repr(transparent)]
-pub struct PRJ_NOTIFICATION(pub i32);
-pub const PRJ_NOTIFICATION_FILE_OPENED: PRJ_NOTIFICATION = PRJ_NOTIFICATION(2i32);
-pub const PRJ_NOTIFICATION_NEW_FILE_CREATED: PRJ_NOTIFICATION = PRJ_NOTIFICATION(4i32);
-pub const PRJ_NOTIFICATION_FILE_OVERWRITTEN: PRJ_NOTIFICATION = PRJ_NOTIFICATION(8i32);
-pub const PRJ_NOTIFICATION_PRE_DELETE: PRJ_NOTIFICATION = PRJ_NOTIFICATION(16i32);
-pub const PRJ_NOTIFICATION_PRE_RENAME: PRJ_NOTIFICATION = PRJ_NOTIFICATION(32i32);
-pub const PRJ_NOTIFICATION_PRE_SET_HARDLINK: PRJ_NOTIFICATION = PRJ_NOTIFICATION(64i32);
-pub const PRJ_NOTIFICATION_FILE_RENAMED: PRJ_NOTIFICATION = PRJ_NOTIFICATION(128i32);
-pub const PRJ_NOTIFICATION_HARDLINK_CREATED: PRJ_NOTIFICATION = PRJ_NOTIFICATION(256i32);
-pub const PRJ_NOTIFICATION_FILE_HANDLE_CLOSED_NO_MODIFICATION: PRJ_NOTIFICATION = PRJ_NOTIFICATION(512i32);
-pub const PRJ_NOTIFICATION_FILE_HANDLE_CLOSED_FILE_MODIFIED: PRJ_NOTIFICATION = PRJ_NOTIFICATION(1024i32);
-pub const PRJ_NOTIFICATION_FILE_HANDLE_CLOSED_FILE_DELETED: PRJ_NOTIFICATION = PRJ_NOTIFICATION(2048i32);
-pub const PRJ_NOTIFICATION_FILE_PRE_CONVERT_TO_FULL: PRJ_NOTIFICATION = PRJ_NOTIFICATION(4096i32);
-impl ::core::marker::Copy for PRJ_NOTIFICATION {}
-impl ::core::clone::Clone for PRJ_NOTIFICATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const PRJ_NOTIFICATION_FILE_OPENED: i32 = 2i32;
+pub const PRJ_NOTIFICATION_NEW_FILE_CREATED: i32 = 4i32;
+pub const PRJ_NOTIFICATION_FILE_OVERWRITTEN: i32 = 8i32;
+pub const PRJ_NOTIFICATION_PRE_DELETE: i32 = 16i32;
+pub const PRJ_NOTIFICATION_PRE_RENAME: i32 = 32i32;
+pub const PRJ_NOTIFICATION_PRE_SET_HARDLINK: i32 = 64i32;
+pub const PRJ_NOTIFICATION_FILE_RENAMED: i32 = 128i32;
+pub const PRJ_NOTIFICATION_HARDLINK_CREATED: i32 = 256i32;
+pub const PRJ_NOTIFICATION_FILE_HANDLE_CLOSED_NO_MODIFICATION: i32 = 512i32;
+pub const PRJ_NOTIFICATION_FILE_HANDLE_CLOSED_FILE_MODIFIED: i32 = 1024i32;
+pub const PRJ_NOTIFICATION_FILE_HANDLE_CLOSED_FILE_DELETED: i32 = 2048i32;
+pub const PRJ_NOTIFICATION_FILE_PRE_CONVERT_TO_FULL: i32 = 4096i32;
 #[cfg(feature = "Win32_Foundation")]
 pub type PRJ_NOTIFICATION_CB = unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA, isdirectory: super::super::Foundation::BOOLEAN, notification: PRJ_NOTIFICATION, destinationfilename: super::super::Foundation::PWSTR, operationparameters: *mut PRJ_NOTIFICATION_PARAMETERS) -> ::windows_sys::core::HRESULT;
 #[repr(C)]
@@ -322,38 +282,22 @@ impl ::core::clone::Clone for PRJ_NOTIFICATION_PARAMETERS_2 {
         *self
     }
 }
-#[repr(transparent)]
-pub struct PRJ_NOTIFY_TYPES(pub u32);
-pub const PRJ_NOTIFY_NONE: PRJ_NOTIFY_TYPES = PRJ_NOTIFY_TYPES(0u32);
-pub const PRJ_NOTIFY_SUPPRESS_NOTIFICATIONS: PRJ_NOTIFY_TYPES = PRJ_NOTIFY_TYPES(1u32);
-pub const PRJ_NOTIFY_FILE_OPENED: PRJ_NOTIFY_TYPES = PRJ_NOTIFY_TYPES(2u32);
-pub const PRJ_NOTIFY_NEW_FILE_CREATED: PRJ_NOTIFY_TYPES = PRJ_NOTIFY_TYPES(4u32);
-pub const PRJ_NOTIFY_FILE_OVERWRITTEN: PRJ_NOTIFY_TYPES = PRJ_NOTIFY_TYPES(8u32);
-pub const PRJ_NOTIFY_PRE_DELETE: PRJ_NOTIFY_TYPES = PRJ_NOTIFY_TYPES(16u32);
-pub const PRJ_NOTIFY_PRE_RENAME: PRJ_NOTIFY_TYPES = PRJ_NOTIFY_TYPES(32u32);
-pub const PRJ_NOTIFY_PRE_SET_HARDLINK: PRJ_NOTIFY_TYPES = PRJ_NOTIFY_TYPES(64u32);
-pub const PRJ_NOTIFY_FILE_RENAMED: PRJ_NOTIFY_TYPES = PRJ_NOTIFY_TYPES(128u32);
-pub const PRJ_NOTIFY_HARDLINK_CREATED: PRJ_NOTIFY_TYPES = PRJ_NOTIFY_TYPES(256u32);
-pub const PRJ_NOTIFY_FILE_HANDLE_CLOSED_NO_MODIFICATION: PRJ_NOTIFY_TYPES = PRJ_NOTIFY_TYPES(512u32);
-pub const PRJ_NOTIFY_FILE_HANDLE_CLOSED_FILE_MODIFIED: PRJ_NOTIFY_TYPES = PRJ_NOTIFY_TYPES(1024u32);
-pub const PRJ_NOTIFY_FILE_HANDLE_CLOSED_FILE_DELETED: PRJ_NOTIFY_TYPES = PRJ_NOTIFY_TYPES(2048u32);
-pub const PRJ_NOTIFY_FILE_PRE_CONVERT_TO_FULL: PRJ_NOTIFY_TYPES = PRJ_NOTIFY_TYPES(4096u32);
-pub const PRJ_NOTIFY_USE_EXISTING_MASK: PRJ_NOTIFY_TYPES = PRJ_NOTIFY_TYPES(4294967295u32);
-impl ::core::marker::Copy for PRJ_NOTIFY_TYPES {}
-impl ::core::clone::Clone for PRJ_NOTIFY_TYPES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct PRJ_PLACEHOLDER_ID(pub i32);
-pub const PRJ_PLACEHOLDER_ID_LENGTH: PRJ_PLACEHOLDER_ID = PRJ_PLACEHOLDER_ID(128i32);
-impl ::core::marker::Copy for PRJ_PLACEHOLDER_ID {}
-impl ::core::clone::Clone for PRJ_PLACEHOLDER_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const PRJ_NOTIFY_NONE: u32 = 0u32;
+pub const PRJ_NOTIFY_SUPPRESS_NOTIFICATIONS: u32 = 1u32;
+pub const PRJ_NOTIFY_FILE_OPENED: u32 = 2u32;
+pub const PRJ_NOTIFY_NEW_FILE_CREATED: u32 = 4u32;
+pub const PRJ_NOTIFY_FILE_OVERWRITTEN: u32 = 8u32;
+pub const PRJ_NOTIFY_PRE_DELETE: u32 = 16u32;
+pub const PRJ_NOTIFY_PRE_RENAME: u32 = 32u32;
+pub const PRJ_NOTIFY_PRE_SET_HARDLINK: u32 = 64u32;
+pub const PRJ_NOTIFY_FILE_RENAMED: u32 = 128u32;
+pub const PRJ_NOTIFY_HARDLINK_CREATED: u32 = 256u32;
+pub const PRJ_NOTIFY_FILE_HANDLE_CLOSED_NO_MODIFICATION: u32 = 512u32;
+pub const PRJ_NOTIFY_FILE_HANDLE_CLOSED_FILE_MODIFIED: u32 = 1024u32;
+pub const PRJ_NOTIFY_FILE_HANDLE_CLOSED_FILE_DELETED: u32 = 2048u32;
+pub const PRJ_NOTIFY_FILE_PRE_CONVERT_TO_FULL: u32 = 4096u32;
+pub const PRJ_NOTIFY_USE_EXISTING_MASK: u32 = 4294967295u32;
+pub const PRJ_PLACEHOLDER_ID_LENGTH: i32 = 128i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PRJ_PLACEHOLDER_INFO {
@@ -427,16 +371,8 @@ impl ::core::clone::Clone for PRJ_PLACEHOLDER_VERSION_INFO {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub type PRJ_QUERY_FILE_NAME_CB = unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA) -> ::windows_sys::core::HRESULT;
-#[repr(transparent)]
-pub struct PRJ_STARTVIRTUALIZING_FLAGS(pub u32);
-pub const PRJ_FLAG_NONE: PRJ_STARTVIRTUALIZING_FLAGS = PRJ_STARTVIRTUALIZING_FLAGS(0u32);
-pub const PRJ_FLAG_USE_NEGATIVE_PATH_CACHE: PRJ_STARTVIRTUALIZING_FLAGS = PRJ_STARTVIRTUALIZING_FLAGS(1u32);
-impl ::core::marker::Copy for PRJ_STARTVIRTUALIZING_FLAGS {}
-impl ::core::clone::Clone for PRJ_STARTVIRTUALIZING_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const PRJ_FLAG_NONE: u32 = 0u32;
+pub const PRJ_FLAG_USE_NEGATIVE_PATH_CACHE: u32 = 1u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PRJ_STARTVIRTUALIZING_OPTIONS {
@@ -456,35 +392,19 @@ impl ::core::clone::Clone for PRJ_STARTVIRTUALIZING_OPTIONS {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub type PRJ_START_DIRECTORY_ENUMERATION_CB = unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA, enumerationid: *const ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
-#[repr(transparent)]
-pub struct PRJ_UPDATE_FAILURE_CAUSES(pub u32);
-pub const PRJ_UPDATE_FAILURE_CAUSE_NONE: PRJ_UPDATE_FAILURE_CAUSES = PRJ_UPDATE_FAILURE_CAUSES(0u32);
-pub const PRJ_UPDATE_FAILURE_CAUSE_DIRTY_METADATA: PRJ_UPDATE_FAILURE_CAUSES = PRJ_UPDATE_FAILURE_CAUSES(1u32);
-pub const PRJ_UPDATE_FAILURE_CAUSE_DIRTY_DATA: PRJ_UPDATE_FAILURE_CAUSES = PRJ_UPDATE_FAILURE_CAUSES(2u32);
-pub const PRJ_UPDATE_FAILURE_CAUSE_TOMBSTONE: PRJ_UPDATE_FAILURE_CAUSES = PRJ_UPDATE_FAILURE_CAUSES(4u32);
-pub const PRJ_UPDATE_FAILURE_CAUSE_READ_ONLY: PRJ_UPDATE_FAILURE_CAUSES = PRJ_UPDATE_FAILURE_CAUSES(8u32);
-impl ::core::marker::Copy for PRJ_UPDATE_FAILURE_CAUSES {}
-impl ::core::clone::Clone for PRJ_UPDATE_FAILURE_CAUSES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct PRJ_UPDATE_TYPES(pub u32);
-pub const PRJ_UPDATE_NONE: PRJ_UPDATE_TYPES = PRJ_UPDATE_TYPES(0u32);
-pub const PRJ_UPDATE_ALLOW_DIRTY_METADATA: PRJ_UPDATE_TYPES = PRJ_UPDATE_TYPES(1u32);
-pub const PRJ_UPDATE_ALLOW_DIRTY_DATA: PRJ_UPDATE_TYPES = PRJ_UPDATE_TYPES(2u32);
-pub const PRJ_UPDATE_ALLOW_TOMBSTONE: PRJ_UPDATE_TYPES = PRJ_UPDATE_TYPES(4u32);
-pub const PRJ_UPDATE_RESERVED1: PRJ_UPDATE_TYPES = PRJ_UPDATE_TYPES(8u32);
-pub const PRJ_UPDATE_RESERVED2: PRJ_UPDATE_TYPES = PRJ_UPDATE_TYPES(16u32);
-pub const PRJ_UPDATE_ALLOW_READ_ONLY: PRJ_UPDATE_TYPES = PRJ_UPDATE_TYPES(32u32);
-pub const PRJ_UPDATE_MAX_VAL: PRJ_UPDATE_TYPES = PRJ_UPDATE_TYPES(64u32);
-impl ::core::marker::Copy for PRJ_UPDATE_TYPES {}
-impl ::core::clone::Clone for PRJ_UPDATE_TYPES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const PRJ_UPDATE_FAILURE_CAUSE_NONE: u32 = 0u32;
+pub const PRJ_UPDATE_FAILURE_CAUSE_DIRTY_METADATA: u32 = 1u32;
+pub const PRJ_UPDATE_FAILURE_CAUSE_DIRTY_DATA: u32 = 2u32;
+pub const PRJ_UPDATE_FAILURE_CAUSE_TOMBSTONE: u32 = 4u32;
+pub const PRJ_UPDATE_FAILURE_CAUSE_READ_ONLY: u32 = 8u32;
+pub const PRJ_UPDATE_NONE: u32 = 0u32;
+pub const PRJ_UPDATE_ALLOW_DIRTY_METADATA: u32 = 1u32;
+pub const PRJ_UPDATE_ALLOW_DIRTY_DATA: u32 = 2u32;
+pub const PRJ_UPDATE_ALLOW_TOMBSTONE: u32 = 4u32;
+pub const PRJ_UPDATE_RESERVED1: u32 = 8u32;
+pub const PRJ_UPDATE_RESERVED2: u32 = 16u32;
+pub const PRJ_UPDATE_ALLOW_READ_ONLY: u32 = 32u32;
+pub const PRJ_UPDATE_MAX_VAL: u32 = 64u32;
 #[repr(C)]
 pub struct PRJ_VIRTUALIZATION_INSTANCE_INFO {
     pub InstanceID: ::windows_sys::core::GUID,

@@ -525,17 +525,9 @@ impl ::core::clone::Clone for FLATMTSIDLIST {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub type FNIDLE = unsafe extern "system" fn(param0: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
-#[repr(transparent)]
-pub struct Gender(pub i32);
-pub const genderUnspecified: Gender = Gender(0i32);
-pub const genderFemale: Gender = Gender(1i32);
-pub const genderMale: Gender = Gender(2i32);
-impl ::core::marker::Copy for Gender {}
-impl ::core::clone::Clone for Gender {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const genderUnspecified: i32 = 0i32;
+pub const genderFemale: i32 = 1i32;
+pub const genderMale: i32 = 2i32;
 #[repr(transparent)]
 pub struct IABContainer(pub *mut ::core::ffi::c_void);
 impl ::core::marker::Copy for IABContainer {}

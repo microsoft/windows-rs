@@ -116,15 +116,7 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn HcsWaitForProcessExit(computesystem: HCS_PROCESS, timeoutms: u32, result: *mut super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
 }
-#[repr(transparent)]
-pub struct HCS_CREATE_OPTIONS(pub i32);
-pub const HcsCreateOptions_1: HCS_CREATE_OPTIONS = HCS_CREATE_OPTIONS(65536i32);
-impl ::core::marker::Copy for HCS_CREATE_OPTIONS {}
-impl ::core::clone::Clone for HCS_CREATE_OPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const HcsCreateOptions_1: i32 = 65536i32;
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct HCS_CREATE_OPTIONS_1 {
@@ -160,102 +152,62 @@ impl ::core::clone::Clone for HCS_EVENT {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub type HCS_EVENT_CALLBACK = unsafe extern "system" fn(event: *const HCS_EVENT, context: *const ::core::ffi::c_void);
-#[repr(transparent)]
-pub struct HCS_EVENT_OPTIONS(pub u32);
-pub const HcsEventOptionNone: HCS_EVENT_OPTIONS = HCS_EVENT_OPTIONS(0u32);
-pub const HcsEventOptionEnableOperationCallbacks: HCS_EVENT_OPTIONS = HCS_EVENT_OPTIONS(1u32);
-impl ::core::marker::Copy for HCS_EVENT_OPTIONS {}
-impl ::core::clone::Clone for HCS_EVENT_OPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HCS_EVENT_TYPE(pub i32);
-pub const HcsEventInvalid: HCS_EVENT_TYPE = HCS_EVENT_TYPE(0i32);
-pub const HcsEventSystemExited: HCS_EVENT_TYPE = HCS_EVENT_TYPE(1i32);
-pub const HcsEventSystemCrashInitiated: HCS_EVENT_TYPE = HCS_EVENT_TYPE(2i32);
-pub const HcsEventSystemCrashReport: HCS_EVENT_TYPE = HCS_EVENT_TYPE(3i32);
-pub const HcsEventSystemRdpEnhancedModeStateChanged: HCS_EVENT_TYPE = HCS_EVENT_TYPE(4i32);
-pub const HcsEventSystemSiloJobCreated: HCS_EVENT_TYPE = HCS_EVENT_TYPE(5i32);
-pub const HcsEventSystemGuestConnectionClosed: HCS_EVENT_TYPE = HCS_EVENT_TYPE(6i32);
-pub const HcsEventProcessExited: HCS_EVENT_TYPE = HCS_EVENT_TYPE(65536i32);
-pub const HcsEventOperationCallback: HCS_EVENT_TYPE = HCS_EVENT_TYPE(16777216i32);
-pub const HcsEventServiceDisconnect: HCS_EVENT_TYPE = HCS_EVENT_TYPE(33554432i32);
-impl ::core::marker::Copy for HCS_EVENT_TYPE {}
-impl ::core::clone::Clone for HCS_EVENT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct HCS_NOTIFICATIONS(pub i32);
-pub const HcsNotificationInvalid: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(0i32);
-pub const HcsNotificationSystemExited: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(1i32);
-pub const HcsNotificationSystemCreateCompleted: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(2i32);
-pub const HcsNotificationSystemStartCompleted: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(3i32);
-pub const HcsNotificationSystemPauseCompleted: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(4i32);
-pub const HcsNotificationSystemResumeCompleted: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(5i32);
-pub const HcsNotificationSystemCrashReport: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(6i32);
-pub const HcsNotificationSystemSiloJobCreated: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(7i32);
-pub const HcsNotificationSystemSaveCompleted: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(8i32);
-pub const HcsNotificationSystemRdpEnhancedModeStateChanged: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(9i32);
-pub const HcsNotificationSystemShutdownFailed: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(10i32);
-pub const HcsNotificationSystemShutdownCompleted: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(10i32);
-pub const HcsNotificationSystemGetPropertiesCompleted: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(11i32);
-pub const HcsNotificationSystemModifyCompleted: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(12i32);
-pub const HcsNotificationSystemCrashInitiated: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(13i32);
-pub const HcsNotificationSystemGuestConnectionClosed: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(14i32);
-pub const HcsNotificationSystemOperationCompletion: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(15i32);
-pub const HcsNotificationSystemPassThru: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(16i32);
-pub const HcsNotificationProcessExited: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(65536i32);
-pub const HcsNotificationServiceDisconnect: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(16777216i32);
-pub const HcsNotificationFlagsReserved: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(-268435456i32);
-impl ::core::marker::Copy for HCS_NOTIFICATIONS {}
-impl ::core::clone::Clone for HCS_NOTIFICATIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const HcsEventOptionNone: u32 = 0u32;
+pub const HcsEventOptionEnableOperationCallbacks: u32 = 1u32;
+pub const HcsEventInvalid: i32 = 0i32;
+pub const HcsEventSystemExited: i32 = 1i32;
+pub const HcsEventSystemCrashInitiated: i32 = 2i32;
+pub const HcsEventSystemCrashReport: i32 = 3i32;
+pub const HcsEventSystemRdpEnhancedModeStateChanged: i32 = 4i32;
+pub const HcsEventSystemSiloJobCreated: i32 = 5i32;
+pub const HcsEventSystemGuestConnectionClosed: i32 = 6i32;
+pub const HcsEventProcessExited: i32 = 65536i32;
+pub const HcsEventOperationCallback: i32 = 16777216i32;
+pub const HcsEventServiceDisconnect: i32 = 33554432i32;
+pub const HcsNotificationInvalid: i32 = 0i32;
+pub const HcsNotificationSystemExited: i32 = 1i32;
+pub const HcsNotificationSystemCreateCompleted: i32 = 2i32;
+pub const HcsNotificationSystemStartCompleted: i32 = 3i32;
+pub const HcsNotificationSystemPauseCompleted: i32 = 4i32;
+pub const HcsNotificationSystemResumeCompleted: i32 = 5i32;
+pub const HcsNotificationSystemCrashReport: i32 = 6i32;
+pub const HcsNotificationSystemSiloJobCreated: i32 = 7i32;
+pub const HcsNotificationSystemSaveCompleted: i32 = 8i32;
+pub const HcsNotificationSystemRdpEnhancedModeStateChanged: i32 = 9i32;
+pub const HcsNotificationSystemShutdownFailed: i32 = 10i32;
+pub const HcsNotificationSystemShutdownCompleted: i32 = 10i32;
+pub const HcsNotificationSystemGetPropertiesCompleted: i32 = 11i32;
+pub const HcsNotificationSystemModifyCompleted: i32 = 12i32;
+pub const HcsNotificationSystemCrashInitiated: i32 = 13i32;
+pub const HcsNotificationSystemGuestConnectionClosed: i32 = 14i32;
+pub const HcsNotificationSystemOperationCompletion: i32 = 15i32;
+pub const HcsNotificationSystemPassThru: i32 = 16i32;
+pub const HcsNotificationProcessExited: i32 = 65536i32;
+pub const HcsNotificationServiceDisconnect: i32 = 16777216i32;
+pub const HcsNotificationFlagsReserved: i32 = -268435456i32;
 #[cfg(feature = "Win32_Foundation")]
 pub type HCS_NOTIFICATION_CALLBACK = unsafe extern "system" fn(notificationtype: u32, context: *const ::core::ffi::c_void, notificationstatus: ::windows_sys::core::HRESULT, notificationdata: super::super::Foundation::PWSTR);
-#[repr(transparent)]
-pub struct HCS_NOTIFICATION_FLAGS(pub i32);
-pub const HcsNotificationFlagSuccess: HCS_NOTIFICATION_FLAGS = HCS_NOTIFICATION_FLAGS(0i32);
-pub const HcsNotificationFlagFailure: HCS_NOTIFICATION_FLAGS = HCS_NOTIFICATION_FLAGS(-2147483648i32);
-impl ::core::marker::Copy for HCS_NOTIFICATION_FLAGS {}
-impl ::core::clone::Clone for HCS_NOTIFICATION_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const HcsNotificationFlagSuccess: i32 = 0i32;
+pub const HcsNotificationFlagFailure: i32 = -2147483648i32;
 pub type HCS_OPERATION = isize;
 pub type HCS_OPERATION_COMPLETION = unsafe extern "system" fn(operation: HCS_OPERATION, context: *const ::core::ffi::c_void);
-#[repr(transparent)]
-pub struct HCS_OPERATION_TYPE(pub i32);
-pub const HcsOperationTypeNone: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(-1i32);
-pub const HcsOperationTypeEnumerate: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(0i32);
-pub const HcsOperationTypeCreate: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(1i32);
-pub const HcsOperationTypeStart: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(2i32);
-pub const HcsOperationTypeShutdown: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(3i32);
-pub const HcsOperationTypePause: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(4i32);
-pub const HcsOperationTypeResume: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(5i32);
-pub const HcsOperationTypeSave: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(6i32);
-pub const HcsOperationTypeTerminate: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(7i32);
-pub const HcsOperationTypeModify: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(8i32);
-pub const HcsOperationTypeGetProperties: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(9i32);
-pub const HcsOperationTypeCreateProcess: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(10i32);
-pub const HcsOperationTypeSignalProcess: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(11i32);
-pub const HcsOperationTypeGetProcessInfo: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(12i32);
-pub const HcsOperationTypeGetProcessProperties: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(13i32);
-pub const HcsOperationTypeModifyProcess: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(14i32);
-pub const HcsOperationTypeCrash: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(15i32);
-impl ::core::marker::Copy for HCS_OPERATION_TYPE {}
-impl ::core::clone::Clone for HCS_OPERATION_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const HcsOperationTypeNone: i32 = -1i32;
+pub const HcsOperationTypeEnumerate: i32 = 0i32;
+pub const HcsOperationTypeCreate: i32 = 1i32;
+pub const HcsOperationTypeStart: i32 = 2i32;
+pub const HcsOperationTypeShutdown: i32 = 3i32;
+pub const HcsOperationTypePause: i32 = 4i32;
+pub const HcsOperationTypeResume: i32 = 5i32;
+pub const HcsOperationTypeSave: i32 = 6i32;
+pub const HcsOperationTypeTerminate: i32 = 7i32;
+pub const HcsOperationTypeModify: i32 = 8i32;
+pub const HcsOperationTypeGetProperties: i32 = 9i32;
+pub const HcsOperationTypeCreateProcess: i32 = 10i32;
+pub const HcsOperationTypeSignalProcess: i32 = 11i32;
+pub const HcsOperationTypeGetProcessInfo: i32 = 12i32;
+pub const HcsOperationTypeGetProcessProperties: i32 = 13i32;
+pub const HcsOperationTypeModifyProcess: i32 = 14i32;
+pub const HcsOperationTypeCrash: i32 = 15i32;
 pub type HCS_PROCESS = isize;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]

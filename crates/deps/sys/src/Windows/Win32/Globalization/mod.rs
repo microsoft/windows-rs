@@ -1783,36 +1783,20 @@ pub const CMultiLanguage: ::windows_sys::core::GUID = ::windows_sys::core::GUID 
 pub type CODEPAGE_ENUMPROCA = unsafe extern "system" fn(param0: super::Foundation::PSTR) -> super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
 pub type CODEPAGE_ENUMPROCW = unsafe extern "system" fn(param0: super::Foundation::PWSTR) -> super::Foundation::BOOL;
-#[repr(transparent)]
-pub struct COMPARE_STRING_FLAGS(pub u32);
-pub const LINGUISTIC_IGNORECASE: COMPARE_STRING_FLAGS = COMPARE_STRING_FLAGS(16u32);
-pub const LINGUISTIC_IGNOREDIACRITIC: COMPARE_STRING_FLAGS = COMPARE_STRING_FLAGS(32u32);
-pub const NORM_IGNORECASE: COMPARE_STRING_FLAGS = COMPARE_STRING_FLAGS(1u32);
-pub const NORM_IGNOREKANATYPE: COMPARE_STRING_FLAGS = COMPARE_STRING_FLAGS(65536u32);
-pub const NORM_IGNORENONSPACE: COMPARE_STRING_FLAGS = COMPARE_STRING_FLAGS(2u32);
-pub const NORM_IGNORESYMBOLS: COMPARE_STRING_FLAGS = COMPARE_STRING_FLAGS(4u32);
-pub const NORM_IGNOREWIDTH: COMPARE_STRING_FLAGS = COMPARE_STRING_FLAGS(131072u32);
-pub const NORM_LINGUISTIC_CASING: COMPARE_STRING_FLAGS = COMPARE_STRING_FLAGS(134217728u32);
-pub const SORT_DIGITSASNUMBERS: COMPARE_STRING_FLAGS = COMPARE_STRING_FLAGS(8u32);
-pub const SORT_STRINGSORT: COMPARE_STRING_FLAGS = COMPARE_STRING_FLAGS(4096u32);
-impl ::core::marker::Copy for COMPARE_STRING_FLAGS {}
-impl ::core::clone::Clone for COMPARE_STRING_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct CORRECTIVE_ACTION(pub i32);
-pub const CORRECTIVE_ACTION_NONE: CORRECTIVE_ACTION = CORRECTIVE_ACTION(0i32);
-pub const CORRECTIVE_ACTION_GET_SUGGESTIONS: CORRECTIVE_ACTION = CORRECTIVE_ACTION(1i32);
-pub const CORRECTIVE_ACTION_REPLACE: CORRECTIVE_ACTION = CORRECTIVE_ACTION(2i32);
-pub const CORRECTIVE_ACTION_DELETE: CORRECTIVE_ACTION = CORRECTIVE_ACTION(3i32);
-impl ::core::marker::Copy for CORRECTIVE_ACTION {}
-impl ::core::clone::Clone for CORRECTIVE_ACTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const LINGUISTIC_IGNORECASE: u32 = 16u32;
+pub const LINGUISTIC_IGNOREDIACRITIC: u32 = 32u32;
+pub const NORM_IGNORECASE: u32 = 1u32;
+pub const NORM_IGNOREKANATYPE: u32 = 65536u32;
+pub const NORM_IGNORENONSPACE: u32 = 2u32;
+pub const NORM_IGNORESYMBOLS: u32 = 4u32;
+pub const NORM_IGNOREWIDTH: u32 = 131072u32;
+pub const NORM_LINGUISTIC_CASING: u32 = 134217728u32;
+pub const SORT_DIGITSASNUMBERS: u32 = 8u32;
+pub const SORT_STRINGSORT: u32 = 4096u32;
+pub const CORRECTIVE_ACTION_NONE: i32 = 0i32;
+pub const CORRECTIVE_ACTION_GET_SUGGESTIONS: i32 = 1i32;
+pub const CORRECTIVE_ACTION_REPLACE: i32 = 2i32;
+pub const CORRECTIVE_ACTION_DELETE: i32 = 3i32;
 #[repr(C)]
 pub struct CPINFO {
     pub MaxCharSize: u32,
@@ -2106,42 +2090,18 @@ impl ::core::clone::Clone for ENUMTEXTMETRICW {
     }
 }
 pub const ENUM_ALL_CALENDARS: u32 = 4294967295u32;
-#[repr(transparent)]
-pub struct ENUM_DATE_FORMATS_FLAGS(pub u32);
-pub const DATE_SHORTDATE: ENUM_DATE_FORMATS_FLAGS = ENUM_DATE_FORMATS_FLAGS(1u32);
-pub const DATE_LONGDATE: ENUM_DATE_FORMATS_FLAGS = ENUM_DATE_FORMATS_FLAGS(2u32);
-pub const DATE_YEARMONTH: ENUM_DATE_FORMATS_FLAGS = ENUM_DATE_FORMATS_FLAGS(8u32);
-pub const DATE_MONTHDAY: ENUM_DATE_FORMATS_FLAGS = ENUM_DATE_FORMATS_FLAGS(128u32);
-pub const DATE_AUTOLAYOUT: ENUM_DATE_FORMATS_FLAGS = ENUM_DATE_FORMATS_FLAGS(64u32);
-pub const DATE_LTRREADING: ENUM_DATE_FORMATS_FLAGS = ENUM_DATE_FORMATS_FLAGS(16u32);
-pub const DATE_RTLREADING: ENUM_DATE_FORMATS_FLAGS = ENUM_DATE_FORMATS_FLAGS(32u32);
-pub const DATE_USE_ALT_CALENDAR: ENUM_DATE_FORMATS_FLAGS = ENUM_DATE_FORMATS_FLAGS(4u32);
-impl ::core::marker::Copy for ENUM_DATE_FORMATS_FLAGS {}
-impl ::core::clone::Clone for ENUM_DATE_FORMATS_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ENUM_SYSTEM_CODE_PAGES_FLAGS(pub u32);
-pub const CP_INSTALLED: ENUM_SYSTEM_CODE_PAGES_FLAGS = ENUM_SYSTEM_CODE_PAGES_FLAGS(1u32);
-pub const CP_SUPPORTED: ENUM_SYSTEM_CODE_PAGES_FLAGS = ENUM_SYSTEM_CODE_PAGES_FLAGS(2u32);
-impl ::core::marker::Copy for ENUM_SYSTEM_CODE_PAGES_FLAGS {}
-impl ::core::clone::Clone for ENUM_SYSTEM_CODE_PAGES_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ENUM_SYSTEM_LANGUAGE_GROUPS_FLAGS(pub u32);
-pub const LGRPID_INSTALLED: ENUM_SYSTEM_LANGUAGE_GROUPS_FLAGS = ENUM_SYSTEM_LANGUAGE_GROUPS_FLAGS(1u32);
-pub const LGRPID_SUPPORTED: ENUM_SYSTEM_LANGUAGE_GROUPS_FLAGS = ENUM_SYSTEM_LANGUAGE_GROUPS_FLAGS(2u32);
-impl ::core::marker::Copy for ENUM_SYSTEM_LANGUAGE_GROUPS_FLAGS {}
-impl ::core::clone::Clone for ENUM_SYSTEM_LANGUAGE_GROUPS_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const DATE_SHORTDATE: u32 = 1u32;
+pub const DATE_LONGDATE: u32 = 2u32;
+pub const DATE_YEARMONTH: u32 = 8u32;
+pub const DATE_MONTHDAY: u32 = 128u32;
+pub const DATE_AUTOLAYOUT: u32 = 64u32;
+pub const DATE_LTRREADING: u32 = 16u32;
+pub const DATE_RTLREADING: u32 = 32u32;
+pub const DATE_USE_ALT_CALENDAR: u32 = 4u32;
+pub const CP_INSTALLED: u32 = 1u32;
+pub const CP_SUPPORTED: u32 = 2u32;
+pub const LGRPID_INSTALLED: u32 = 1u32;
+pub const LGRPID_SUPPORTED: u32 = 2u32;
 #[repr(C)]
 pub struct FILEMUIINFO {
     pub dwSize: u32,
@@ -2168,19 +2128,11 @@ pub const FIND_ENDSWITH: u32 = 2097152u32;
 pub const FIND_FROMEND: u32 = 8388608u32;
 pub const FIND_FROMSTART: u32 = 4194304u32;
 pub const FIND_STARTSWITH: u32 = 1048576u32;
-#[repr(transparent)]
-pub struct FOLD_STRING_MAP_FLAGS(pub u32);
-pub const MAP_COMPOSITE: FOLD_STRING_MAP_FLAGS = FOLD_STRING_MAP_FLAGS(64u32);
-pub const MAP_EXPAND_LIGATURES: FOLD_STRING_MAP_FLAGS = FOLD_STRING_MAP_FLAGS(8192u32);
-pub const MAP_FOLDCZONE: FOLD_STRING_MAP_FLAGS = FOLD_STRING_MAP_FLAGS(16u32);
-pub const MAP_FOLDDIGITS: FOLD_STRING_MAP_FLAGS = FOLD_STRING_MAP_FLAGS(128u32);
-pub const MAP_PRECOMPOSED: FOLD_STRING_MAP_FLAGS = FOLD_STRING_MAP_FLAGS(32u32);
-impl ::core::marker::Copy for FOLD_STRING_MAP_FLAGS {}
-impl ::core::clone::Clone for FOLD_STRING_MAP_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const MAP_COMPOSITE: u32 = 64u32;
+pub const MAP_EXPAND_LIGATURES: u32 = 8192u32;
+pub const MAP_FOLDCZONE: u32 = 16u32;
+pub const MAP_FOLDDIGITS: u32 = 128u32;
+pub const MAP_PRECOMPOSED: u32 = 32u32;
 #[repr(C)]
 pub struct FONTSIGNATURE {
     pub fsUsb: [u32; 4],
@@ -2383,39 +2335,23 @@ impl ::core::clone::Clone for IOptionDescription {
         *self
     }
 }
-#[repr(transparent)]
-pub struct IS_TEXT_UNICODE_RESULT(pub u32);
-pub const IS_TEXT_UNICODE_ASCII16: IS_TEXT_UNICODE_RESULT = IS_TEXT_UNICODE_RESULT(1u32);
-pub const IS_TEXT_UNICODE_REVERSE_ASCII16: IS_TEXT_UNICODE_RESULT = IS_TEXT_UNICODE_RESULT(16u32);
-pub const IS_TEXT_UNICODE_STATISTICS: IS_TEXT_UNICODE_RESULT = IS_TEXT_UNICODE_RESULT(2u32);
-pub const IS_TEXT_UNICODE_REVERSE_STATISTICS: IS_TEXT_UNICODE_RESULT = IS_TEXT_UNICODE_RESULT(32u32);
-pub const IS_TEXT_UNICODE_CONTROLS: IS_TEXT_UNICODE_RESULT = IS_TEXT_UNICODE_RESULT(4u32);
-pub const IS_TEXT_UNICODE_REVERSE_CONTROLS: IS_TEXT_UNICODE_RESULT = IS_TEXT_UNICODE_RESULT(64u32);
-pub const IS_TEXT_UNICODE_SIGNATURE: IS_TEXT_UNICODE_RESULT = IS_TEXT_UNICODE_RESULT(8u32);
-pub const IS_TEXT_UNICODE_REVERSE_SIGNATURE: IS_TEXT_UNICODE_RESULT = IS_TEXT_UNICODE_RESULT(128u32);
-pub const IS_TEXT_UNICODE_ILLEGAL_CHARS: IS_TEXT_UNICODE_RESULT = IS_TEXT_UNICODE_RESULT(256u32);
-pub const IS_TEXT_UNICODE_ODD_LENGTH: IS_TEXT_UNICODE_RESULT = IS_TEXT_UNICODE_RESULT(512u32);
-pub const IS_TEXT_UNICODE_NULL_BYTES: IS_TEXT_UNICODE_RESULT = IS_TEXT_UNICODE_RESULT(4096u32);
-pub const IS_TEXT_UNICODE_UNICODE_MASK: IS_TEXT_UNICODE_RESULT = IS_TEXT_UNICODE_RESULT(15u32);
-pub const IS_TEXT_UNICODE_REVERSE_MASK: IS_TEXT_UNICODE_RESULT = IS_TEXT_UNICODE_RESULT(240u32);
-pub const IS_TEXT_UNICODE_NOT_UNICODE_MASK: IS_TEXT_UNICODE_RESULT = IS_TEXT_UNICODE_RESULT(3840u32);
-pub const IS_TEXT_UNICODE_NOT_ASCII_MASK: IS_TEXT_UNICODE_RESULT = IS_TEXT_UNICODE_RESULT(61440u32);
-impl ::core::marker::Copy for IS_TEXT_UNICODE_RESULT {}
-impl ::core::clone::Clone for IS_TEXT_UNICODE_RESULT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct IS_VALID_LOCALE_FLAGS(pub u32);
-pub const LCID_INSTALLED: IS_VALID_LOCALE_FLAGS = IS_VALID_LOCALE_FLAGS(1u32);
-pub const LCID_SUPPORTED: IS_VALID_LOCALE_FLAGS = IS_VALID_LOCALE_FLAGS(2u32);
-impl ::core::marker::Copy for IS_VALID_LOCALE_FLAGS {}
-impl ::core::clone::Clone for IS_VALID_LOCALE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const IS_TEXT_UNICODE_ASCII16: u32 = 1u32;
+pub const IS_TEXT_UNICODE_REVERSE_ASCII16: u32 = 16u32;
+pub const IS_TEXT_UNICODE_STATISTICS: u32 = 2u32;
+pub const IS_TEXT_UNICODE_REVERSE_STATISTICS: u32 = 32u32;
+pub const IS_TEXT_UNICODE_CONTROLS: u32 = 4u32;
+pub const IS_TEXT_UNICODE_REVERSE_CONTROLS: u32 = 64u32;
+pub const IS_TEXT_UNICODE_SIGNATURE: u32 = 8u32;
+pub const IS_TEXT_UNICODE_REVERSE_SIGNATURE: u32 = 128u32;
+pub const IS_TEXT_UNICODE_ILLEGAL_CHARS: u32 = 256u32;
+pub const IS_TEXT_UNICODE_ODD_LENGTH: u32 = 512u32;
+pub const IS_TEXT_UNICODE_NULL_BYTES: u32 = 4096u32;
+pub const IS_TEXT_UNICODE_UNICODE_MASK: u32 = 15u32;
+pub const IS_TEXT_UNICODE_REVERSE_MASK: u32 = 240u32;
+pub const IS_TEXT_UNICODE_NOT_UNICODE_MASK: u32 = 3840u32;
+pub const IS_TEXT_UNICODE_NOT_ASCII_MASK: u32 = 61440u32;
+pub const LCID_INSTALLED: u32 = 1u32;
+pub const LCID_SUPPORTED: u32 = 2u32;
 #[repr(transparent)]
 pub struct ISpellCheckProvider(pub *mut ::core::ffi::c_void);
 impl ::core::marker::Copy for ISpellCheckProvider {}
@@ -2849,27 +2785,19 @@ pub const MAX_MIMECSET_NAME: u32 = 50u32;
 pub const MAX_MIMEFACE_NAME: u32 = 32u32;
 pub const MAX_RFC1766_NAME: u32 = 6u32;
 pub const MAX_SCRIPT_NAME: u32 = 48u32;
-#[repr(transparent)]
-pub struct MIMECONTF(pub i32);
-pub const MIMECONTF_MAILNEWS: MIMECONTF = MIMECONTF(1i32);
-pub const MIMECONTF_BROWSER: MIMECONTF = MIMECONTF(2i32);
-pub const MIMECONTF_MINIMAL: MIMECONTF = MIMECONTF(4i32);
-pub const MIMECONTF_IMPORT: MIMECONTF = MIMECONTF(8i32);
-pub const MIMECONTF_SAVABLE_MAILNEWS: MIMECONTF = MIMECONTF(256i32);
-pub const MIMECONTF_SAVABLE_BROWSER: MIMECONTF = MIMECONTF(512i32);
-pub const MIMECONTF_EXPORT: MIMECONTF = MIMECONTF(1024i32);
-pub const MIMECONTF_PRIVCONVERTER: MIMECONTF = MIMECONTF(65536i32);
-pub const MIMECONTF_VALID: MIMECONTF = MIMECONTF(131072i32);
-pub const MIMECONTF_VALID_NLS: MIMECONTF = MIMECONTF(262144i32);
-pub const MIMECONTF_MIME_IE4: MIMECONTF = MIMECONTF(268435456i32);
-pub const MIMECONTF_MIME_LATEST: MIMECONTF = MIMECONTF(536870912i32);
-pub const MIMECONTF_MIME_REGISTRY: MIMECONTF = MIMECONTF(1073741824i32);
-impl ::core::marker::Copy for MIMECONTF {}
-impl ::core::clone::Clone for MIMECONTF {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const MIMECONTF_MAILNEWS: i32 = 1i32;
+pub const MIMECONTF_BROWSER: i32 = 2i32;
+pub const MIMECONTF_MINIMAL: i32 = 4i32;
+pub const MIMECONTF_IMPORT: i32 = 8i32;
+pub const MIMECONTF_SAVABLE_MAILNEWS: i32 = 256i32;
+pub const MIMECONTF_SAVABLE_BROWSER: i32 = 512i32;
+pub const MIMECONTF_EXPORT: i32 = 1024i32;
+pub const MIMECONTF_PRIVCONVERTER: i32 = 65536i32;
+pub const MIMECONTF_VALID: i32 = 131072i32;
+pub const MIMECONTF_VALID_NLS: i32 = 262144i32;
+pub const MIMECONTF_MIME_IE4: i32 = 268435456i32;
+pub const MIMECONTF_MIME_LATEST: i32 = 536870912i32;
+pub const MIMECONTF_MIME_REGISTRY: i32 = 1073741824i32;
 #[repr(C)]
 pub struct MIMECPINFO {
     pub dwFlags: u32,
@@ -2902,30 +2830,14 @@ impl ::core::clone::Clone for MIMECSETINFO {
     }
 }
 pub const MIN_SPELLING_NTDDI: u32 = 100794368u32;
-#[repr(transparent)]
-pub struct MLDETECTCP(pub i32);
-pub const MLDETECTCP_NONE: MLDETECTCP = MLDETECTCP(0i32);
-pub const MLDETECTCP_7BIT: MLDETECTCP = MLDETECTCP(1i32);
-pub const MLDETECTCP_8BIT: MLDETECTCP = MLDETECTCP(2i32);
-pub const MLDETECTCP_DBCS: MLDETECTCP = MLDETECTCP(4i32);
-pub const MLDETECTCP_HTML: MLDETECTCP = MLDETECTCP(8i32);
-pub const MLDETECTCP_NUMBER: MLDETECTCP = MLDETECTCP(16i32);
-impl ::core::marker::Copy for MLDETECTCP {}
-impl ::core::clone::Clone for MLDETECTCP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct MLSTR_FLAGS(pub i32);
-pub const MLSTR_READ: MLSTR_FLAGS = MLSTR_FLAGS(1i32);
-pub const MLSTR_WRITE: MLSTR_FLAGS = MLSTR_FLAGS(2i32);
-impl ::core::marker::Copy for MLSTR_FLAGS {}
-impl ::core::clone::Clone for MLSTR_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const MLDETECTCP_NONE: i32 = 0i32;
+pub const MLDETECTCP_7BIT: i32 = 1i32;
+pub const MLDETECTCP_8BIT: i32 = 2i32;
+pub const MLDETECTCP_DBCS: i32 = 4i32;
+pub const MLDETECTCP_HTML: i32 = 8i32;
+pub const MLDETECTCP_NUMBER: i32 = 16i32;
+pub const MLSTR_READ: i32 = 1i32;
+pub const MLSTR_WRITE: i32 = 2i32;
 pub const MUI_COMPLEX_SCRIPT_FILTER: u32 = 512u32;
 pub const MUI_CONSOLE_FILTER: u32 = 256u32;
 pub const MUI_FILEINFO_VERSION: u32 = 1u32;
@@ -2959,18 +2871,10 @@ pub const MUI_USER_PREFERRED_UI_LANGUAGES: u32 = 16u32;
 pub const MUI_USE_INSTALLED_LANGUAGES: u32 = 32u32;
 pub const MUI_USE_SEARCH_ALL_LANGUAGES: u32 = 64u32;
 pub const MUI_VERIFY_FILE_EXISTS: u32 = 4u32;
-#[repr(transparent)]
-pub struct MULTI_BYTE_TO_WIDE_CHAR_FLAGS(pub u32);
-pub const MB_COMPOSITE: MULTI_BYTE_TO_WIDE_CHAR_FLAGS = MULTI_BYTE_TO_WIDE_CHAR_FLAGS(2u32);
-pub const MB_ERR_INVALID_CHARS: MULTI_BYTE_TO_WIDE_CHAR_FLAGS = MULTI_BYTE_TO_WIDE_CHAR_FLAGS(8u32);
-pub const MB_PRECOMPOSED: MULTI_BYTE_TO_WIDE_CHAR_FLAGS = MULTI_BYTE_TO_WIDE_CHAR_FLAGS(1u32);
-pub const MB_USEGLYPHCHARS: MULTI_BYTE_TO_WIDE_CHAR_FLAGS = MULTI_BYTE_TO_WIDE_CHAR_FLAGS(4u32);
-impl ::core::marker::Copy for MULTI_BYTE_TO_WIDE_CHAR_FLAGS {}
-impl ::core::clone::Clone for MULTI_BYTE_TO_WIDE_CHAR_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const MB_COMPOSITE: u32 = 2u32;
+pub const MB_ERR_INVALID_CHARS: u32 = 8u32;
+pub const MB_PRECOMPOSED: u32 = 1u32;
+pub const MB_USEGLYPHCHARS: u32 = 4u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct NEWTEXTMETRICEXA {
@@ -3030,19 +2934,11 @@ impl ::core::clone::Clone for NLSVERSIONINFOEX {
 pub const NLS_CP_CPINFO: u32 = 268435456u32;
 pub const NLS_CP_MBTOWC: u32 = 1073741824u32;
 pub const NLS_CP_WCTOMB: u32 = 2147483648u32;
-#[repr(transparent)]
-pub struct NORM_FORM(pub i32);
-pub const NormalizationOther: NORM_FORM = NORM_FORM(0i32);
-pub const NormalizationC: NORM_FORM = NORM_FORM(1i32);
-pub const NormalizationD: NORM_FORM = NORM_FORM(2i32);
-pub const NormalizationKC: NORM_FORM = NORM_FORM(5i32);
-pub const NormalizationKD: NORM_FORM = NORM_FORM(6i32);
-impl ::core::marker::Copy for NORM_FORM {}
-impl ::core::clone::Clone for NORM_FORM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const NormalizationOther: i32 = 0i32;
+pub const NormalizationC: i32 = 1i32;
+pub const NormalizationD: i32 = 2i32;
+pub const NormalizationKC: i32 = 5i32;
+pub const NormalizationKD: i32 = 6i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NUMBERFMTA {
@@ -3096,71 +2992,55 @@ impl ::core::clone::Clone for RFC1766INFO {
         *self
     }
 }
-#[repr(transparent)]
-pub struct SCRIPTCONTF(pub i32);
-pub const sidDefault: SCRIPTCONTF = SCRIPTCONTF(0i32);
-pub const sidMerge: SCRIPTCONTF = SCRIPTCONTF(1i32);
-pub const sidAsciiSym: SCRIPTCONTF = SCRIPTCONTF(2i32);
-pub const sidAsciiLatin: SCRIPTCONTF = SCRIPTCONTF(3i32);
-pub const sidLatin: SCRIPTCONTF = SCRIPTCONTF(4i32);
-pub const sidGreek: SCRIPTCONTF = SCRIPTCONTF(5i32);
-pub const sidCyrillic: SCRIPTCONTF = SCRIPTCONTF(6i32);
-pub const sidArmenian: SCRIPTCONTF = SCRIPTCONTF(7i32);
-pub const sidHebrew: SCRIPTCONTF = SCRIPTCONTF(8i32);
-pub const sidArabic: SCRIPTCONTF = SCRIPTCONTF(9i32);
-pub const sidDevanagari: SCRIPTCONTF = SCRIPTCONTF(10i32);
-pub const sidBengali: SCRIPTCONTF = SCRIPTCONTF(11i32);
-pub const sidGurmukhi: SCRIPTCONTF = SCRIPTCONTF(12i32);
-pub const sidGujarati: SCRIPTCONTF = SCRIPTCONTF(13i32);
-pub const sidOriya: SCRIPTCONTF = SCRIPTCONTF(14i32);
-pub const sidTamil: SCRIPTCONTF = SCRIPTCONTF(15i32);
-pub const sidTelugu: SCRIPTCONTF = SCRIPTCONTF(16i32);
-pub const sidKannada: SCRIPTCONTF = SCRIPTCONTF(17i32);
-pub const sidMalayalam: SCRIPTCONTF = SCRIPTCONTF(18i32);
-pub const sidThai: SCRIPTCONTF = SCRIPTCONTF(19i32);
-pub const sidLao: SCRIPTCONTF = SCRIPTCONTF(20i32);
-pub const sidTibetan: SCRIPTCONTF = SCRIPTCONTF(21i32);
-pub const sidGeorgian: SCRIPTCONTF = SCRIPTCONTF(22i32);
-pub const sidHangul: SCRIPTCONTF = SCRIPTCONTF(23i32);
-pub const sidKana: SCRIPTCONTF = SCRIPTCONTF(24i32);
-pub const sidBopomofo: SCRIPTCONTF = SCRIPTCONTF(25i32);
-pub const sidHan: SCRIPTCONTF = SCRIPTCONTF(26i32);
-pub const sidEthiopic: SCRIPTCONTF = SCRIPTCONTF(27i32);
-pub const sidCanSyllabic: SCRIPTCONTF = SCRIPTCONTF(28i32);
-pub const sidCherokee: SCRIPTCONTF = SCRIPTCONTF(29i32);
-pub const sidYi: SCRIPTCONTF = SCRIPTCONTF(30i32);
-pub const sidBraille: SCRIPTCONTF = SCRIPTCONTF(31i32);
-pub const sidRunic: SCRIPTCONTF = SCRIPTCONTF(32i32);
-pub const sidOgham: SCRIPTCONTF = SCRIPTCONTF(33i32);
-pub const sidSinhala: SCRIPTCONTF = SCRIPTCONTF(34i32);
-pub const sidSyriac: SCRIPTCONTF = SCRIPTCONTF(35i32);
-pub const sidBurmese: SCRIPTCONTF = SCRIPTCONTF(36i32);
-pub const sidKhmer: SCRIPTCONTF = SCRIPTCONTF(37i32);
-pub const sidThaana: SCRIPTCONTF = SCRIPTCONTF(38i32);
-pub const sidMongolian: SCRIPTCONTF = SCRIPTCONTF(39i32);
-pub const sidUserDefined: SCRIPTCONTF = SCRIPTCONTF(40i32);
-pub const sidLim: SCRIPTCONTF = SCRIPTCONTF(41i32);
-pub const sidFEFirst: SCRIPTCONTF = SCRIPTCONTF(23i32);
-pub const sidFELast: SCRIPTCONTF = SCRIPTCONTF(26i32);
-impl ::core::marker::Copy for SCRIPTCONTF {}
-impl ::core::clone::Clone for SCRIPTCONTF {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct SCRIPTFONTCONTF(pub i32);
-pub const SCRIPTCONTF_FIXED_FONT: SCRIPTFONTCONTF = SCRIPTFONTCONTF(1i32);
-pub const SCRIPTCONTF_PROPORTIONAL_FONT: SCRIPTFONTCONTF = SCRIPTFONTCONTF(2i32);
-pub const SCRIPTCONTF_SCRIPT_USER: SCRIPTFONTCONTF = SCRIPTFONTCONTF(65536i32);
-pub const SCRIPTCONTF_SCRIPT_HIDE: SCRIPTFONTCONTF = SCRIPTFONTCONTF(131072i32);
-pub const SCRIPTCONTF_SCRIPT_SYSTEM: SCRIPTFONTCONTF = SCRIPTFONTCONTF(262144i32);
-impl ::core::marker::Copy for SCRIPTFONTCONTF {}
-impl ::core::clone::Clone for SCRIPTFONTCONTF {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const sidDefault: i32 = 0i32;
+pub const sidMerge: i32 = 1i32;
+pub const sidAsciiSym: i32 = 2i32;
+pub const sidAsciiLatin: i32 = 3i32;
+pub const sidLatin: i32 = 4i32;
+pub const sidGreek: i32 = 5i32;
+pub const sidCyrillic: i32 = 6i32;
+pub const sidArmenian: i32 = 7i32;
+pub const sidHebrew: i32 = 8i32;
+pub const sidArabic: i32 = 9i32;
+pub const sidDevanagari: i32 = 10i32;
+pub const sidBengali: i32 = 11i32;
+pub const sidGurmukhi: i32 = 12i32;
+pub const sidGujarati: i32 = 13i32;
+pub const sidOriya: i32 = 14i32;
+pub const sidTamil: i32 = 15i32;
+pub const sidTelugu: i32 = 16i32;
+pub const sidKannada: i32 = 17i32;
+pub const sidMalayalam: i32 = 18i32;
+pub const sidThai: i32 = 19i32;
+pub const sidLao: i32 = 20i32;
+pub const sidTibetan: i32 = 21i32;
+pub const sidGeorgian: i32 = 22i32;
+pub const sidHangul: i32 = 23i32;
+pub const sidKana: i32 = 24i32;
+pub const sidBopomofo: i32 = 25i32;
+pub const sidHan: i32 = 26i32;
+pub const sidEthiopic: i32 = 27i32;
+pub const sidCanSyllabic: i32 = 28i32;
+pub const sidCherokee: i32 = 29i32;
+pub const sidYi: i32 = 30i32;
+pub const sidBraille: i32 = 31i32;
+pub const sidRunic: i32 = 32i32;
+pub const sidOgham: i32 = 33i32;
+pub const sidSinhala: i32 = 34i32;
+pub const sidSyriac: i32 = 35i32;
+pub const sidBurmese: i32 = 36i32;
+pub const sidKhmer: i32 = 37i32;
+pub const sidThaana: i32 = 38i32;
+pub const sidMongolian: i32 = 39i32;
+pub const sidUserDefined: i32 = 40i32;
+pub const sidLim: i32 = 41i32;
+pub const sidFEFirst: i32 = 23i32;
+pub const sidFELast: i32 = 26i32;
+pub const SCRIPTCONTF_FIXED_FONT: i32 = 1i32;
+pub const SCRIPTCONTF_PROPORTIONAL_FONT: i32 = 2i32;
+pub const SCRIPTCONTF_SCRIPT_USER: i32 = 65536i32;
+pub const SCRIPTCONTF_SCRIPT_HIDE: i32 = 131072i32;
+pub const SCRIPTCONTF_SCRIPT_SYSTEM: i32 = 262144i32;
 #[repr(C)]
 pub struct SCRIPTINFO {
     pub ScriptId: u8,
@@ -3227,17 +3107,9 @@ impl ::core::clone::Clone for SCRIPT_FONTPROPERTIES {
         *self
     }
 }
-#[repr(transparent)]
-pub struct SCRIPT_IS_COMPLEX_FLAGS(pub u32);
-pub const SIC_ASCIIDIGIT: SCRIPT_IS_COMPLEX_FLAGS = SCRIPT_IS_COMPLEX_FLAGS(2u32);
-pub const SIC_COMPLEX: SCRIPT_IS_COMPLEX_FLAGS = SCRIPT_IS_COMPLEX_FLAGS(1u32);
-pub const SIC_NEUTRAL: SCRIPT_IS_COMPLEX_FLAGS = SCRIPT_IS_COMPLEX_FLAGS(4u32);
-impl ::core::marker::Copy for SCRIPT_IS_COMPLEX_FLAGS {}
-impl ::core::clone::Clone for SCRIPT_IS_COMPLEX_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const SIC_ASCIIDIGIT: u32 = 2u32;
+pub const SIC_COMPLEX: u32 = 1u32;
+pub const SIC_NEUTRAL: u32 = 4u32;
 #[repr(C)]
 pub struct SCRIPT_ITEM {
     pub iCharPos: i32,
@@ -3249,30 +3121,22 @@ impl ::core::clone::Clone for SCRIPT_ITEM {
         *self
     }
 }
-#[repr(transparent)]
-pub struct SCRIPT_JUSTIFY(pub i32);
-pub const SCRIPT_JUSTIFY_NONE: SCRIPT_JUSTIFY = SCRIPT_JUSTIFY(0i32);
-pub const SCRIPT_JUSTIFY_ARABIC_BLANK: SCRIPT_JUSTIFY = SCRIPT_JUSTIFY(1i32);
-pub const SCRIPT_JUSTIFY_CHARACTER: SCRIPT_JUSTIFY = SCRIPT_JUSTIFY(2i32);
-pub const SCRIPT_JUSTIFY_RESERVED1: SCRIPT_JUSTIFY = SCRIPT_JUSTIFY(3i32);
-pub const SCRIPT_JUSTIFY_BLANK: SCRIPT_JUSTIFY = SCRIPT_JUSTIFY(4i32);
-pub const SCRIPT_JUSTIFY_RESERVED2: SCRIPT_JUSTIFY = SCRIPT_JUSTIFY(5i32);
-pub const SCRIPT_JUSTIFY_RESERVED3: SCRIPT_JUSTIFY = SCRIPT_JUSTIFY(6i32);
-pub const SCRIPT_JUSTIFY_ARABIC_NORMAL: SCRIPT_JUSTIFY = SCRIPT_JUSTIFY(7i32);
-pub const SCRIPT_JUSTIFY_ARABIC_KASHIDA: SCRIPT_JUSTIFY = SCRIPT_JUSTIFY(8i32);
-pub const SCRIPT_JUSTIFY_ARABIC_ALEF: SCRIPT_JUSTIFY = SCRIPT_JUSTIFY(9i32);
-pub const SCRIPT_JUSTIFY_ARABIC_HA: SCRIPT_JUSTIFY = SCRIPT_JUSTIFY(10i32);
-pub const SCRIPT_JUSTIFY_ARABIC_RA: SCRIPT_JUSTIFY = SCRIPT_JUSTIFY(11i32);
-pub const SCRIPT_JUSTIFY_ARABIC_BA: SCRIPT_JUSTIFY = SCRIPT_JUSTIFY(12i32);
-pub const SCRIPT_JUSTIFY_ARABIC_BARA: SCRIPT_JUSTIFY = SCRIPT_JUSTIFY(13i32);
-pub const SCRIPT_JUSTIFY_ARABIC_SEEN: SCRIPT_JUSTIFY = SCRIPT_JUSTIFY(14i32);
-pub const SCRIPT_JUSTIFY_ARABIC_SEEN_M: SCRIPT_JUSTIFY = SCRIPT_JUSTIFY(15i32);
-impl ::core::marker::Copy for SCRIPT_JUSTIFY {}
-impl ::core::clone::Clone for SCRIPT_JUSTIFY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const SCRIPT_JUSTIFY_NONE: i32 = 0i32;
+pub const SCRIPT_JUSTIFY_ARABIC_BLANK: i32 = 1i32;
+pub const SCRIPT_JUSTIFY_CHARACTER: i32 = 2i32;
+pub const SCRIPT_JUSTIFY_RESERVED1: i32 = 3i32;
+pub const SCRIPT_JUSTIFY_BLANK: i32 = 4i32;
+pub const SCRIPT_JUSTIFY_RESERVED2: i32 = 5i32;
+pub const SCRIPT_JUSTIFY_RESERVED3: i32 = 6i32;
+pub const SCRIPT_JUSTIFY_ARABIC_NORMAL: i32 = 7i32;
+pub const SCRIPT_JUSTIFY_ARABIC_KASHIDA: i32 = 8i32;
+pub const SCRIPT_JUSTIFY_ARABIC_ALEF: i32 = 9i32;
+pub const SCRIPT_JUSTIFY_ARABIC_HA: i32 = 10i32;
+pub const SCRIPT_JUSTIFY_ARABIC_RA: i32 = 11i32;
+pub const SCRIPT_JUSTIFY_ARABIC_BA: i32 = 12i32;
+pub const SCRIPT_JUSTIFY_ARABIC_BARA: i32 = 13i32;
+pub const SCRIPT_JUSTIFY_ARABIC_SEEN: i32 = 14i32;
+pub const SCRIPT_JUSTIFY_ARABIC_SEEN_M: i32 = 15i32;
 #[repr(C)]
 pub struct SCRIPT_LOGATTR {
     pub _bitfield: u8,
@@ -3353,52 +3217,28 @@ pub const SSA_PASSWORD: u32 = 1u32;
 pub const SSA_PIDX: u32 = 268435456u32;
 pub const SSA_RTL: u32 = 256u32;
 pub const SSA_TAB: u32 = 2u32;
-#[repr(transparent)]
-pub struct SYSGEOCLASS(pub i32);
-pub const GEOCLASS_NATION: SYSGEOCLASS = SYSGEOCLASS(16i32);
-pub const GEOCLASS_REGION: SYSGEOCLASS = SYSGEOCLASS(14i32);
-pub const GEOCLASS_ALL: SYSGEOCLASS = SYSGEOCLASS(0i32);
-impl ::core::marker::Copy for SYSGEOCLASS {}
-impl ::core::clone::Clone for SYSGEOCLASS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct SYSGEOTYPE(pub i32);
-pub const GEO_NATION: SYSGEOTYPE = SYSGEOTYPE(1i32);
-pub const GEO_LATITUDE: SYSGEOTYPE = SYSGEOTYPE(2i32);
-pub const GEO_LONGITUDE: SYSGEOTYPE = SYSGEOTYPE(3i32);
-pub const GEO_ISO2: SYSGEOTYPE = SYSGEOTYPE(4i32);
-pub const GEO_ISO3: SYSGEOTYPE = SYSGEOTYPE(5i32);
-pub const GEO_RFC1766: SYSGEOTYPE = SYSGEOTYPE(6i32);
-pub const GEO_LCID: SYSGEOTYPE = SYSGEOTYPE(7i32);
-pub const GEO_FRIENDLYNAME: SYSGEOTYPE = SYSGEOTYPE(8i32);
-pub const GEO_OFFICIALNAME: SYSGEOTYPE = SYSGEOTYPE(9i32);
-pub const GEO_TIMEZONES: SYSGEOTYPE = SYSGEOTYPE(10i32);
-pub const GEO_OFFICIALLANGUAGES: SYSGEOTYPE = SYSGEOTYPE(11i32);
-pub const GEO_ISO_UN_NUMBER: SYSGEOTYPE = SYSGEOTYPE(12i32);
-pub const GEO_PARENT: SYSGEOTYPE = SYSGEOTYPE(13i32);
-pub const GEO_DIALINGCODE: SYSGEOTYPE = SYSGEOTYPE(14i32);
-pub const GEO_CURRENCYCODE: SYSGEOTYPE = SYSGEOTYPE(15i32);
-pub const GEO_CURRENCYSYMBOL: SYSGEOTYPE = SYSGEOTYPE(16i32);
-pub const GEO_NAME: SYSGEOTYPE = SYSGEOTYPE(17i32);
-pub const GEO_ID: SYSGEOTYPE = SYSGEOTYPE(18i32);
-impl ::core::marker::Copy for SYSGEOTYPE {}
-impl ::core::clone::Clone for SYSGEOTYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct SYSNLS_FUNCTION(pub i32);
-pub const COMPARE_STRING: SYSNLS_FUNCTION = SYSNLS_FUNCTION(1i32);
-impl ::core::marker::Copy for SYSNLS_FUNCTION {}
-impl ::core::clone::Clone for SYSNLS_FUNCTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const GEOCLASS_NATION: i32 = 16i32;
+pub const GEOCLASS_REGION: i32 = 14i32;
+pub const GEOCLASS_ALL: i32 = 0i32;
+pub const GEO_NATION: i32 = 1i32;
+pub const GEO_LATITUDE: i32 = 2i32;
+pub const GEO_LONGITUDE: i32 = 3i32;
+pub const GEO_ISO2: i32 = 4i32;
+pub const GEO_ISO3: i32 = 5i32;
+pub const GEO_RFC1766: i32 = 6i32;
+pub const GEO_LCID: i32 = 7i32;
+pub const GEO_FRIENDLYNAME: i32 = 8i32;
+pub const GEO_OFFICIALNAME: i32 = 9i32;
+pub const GEO_TIMEZONES: i32 = 10i32;
+pub const GEO_OFFICIALLANGUAGES: i32 = 11i32;
+pub const GEO_ISO_UN_NUMBER: i32 = 12i32;
+pub const GEO_PARENT: i32 = 13i32;
+pub const GEO_DIALINGCODE: i32 = 14i32;
+pub const GEO_CURRENCYCODE: i32 = 15i32;
+pub const GEO_CURRENCYSYMBOL: i32 = 16i32;
+pub const GEO_NAME: i32 = 17i32;
+pub const GEO_ID: i32 = 18i32;
+pub const COMPARE_STRING: i32 = 1i32;
 pub const SpellCheckerFactory: ::windows_sys::core::GUID = ::windows_sys::core::GUID {
     data1: 2058577491,
     data2: 6038,
@@ -3411,55 +3251,23 @@ pub type TIMEFMT_ENUMPROCA = unsafe extern "system" fn(param0: super::Foundation
 pub type TIMEFMT_ENUMPROCEX = unsafe extern "system" fn(param0: super::Foundation::PWSTR, param1: super::Foundation::LPARAM) -> super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
 pub type TIMEFMT_ENUMPROCW = unsafe extern "system" fn(param0: super::Foundation::PWSTR) -> super::Foundation::BOOL;
-#[repr(transparent)]
-pub struct TIME_FORMAT_FLAGS(pub u32);
-pub const TIME_NOMINUTESORSECONDS: TIME_FORMAT_FLAGS = TIME_FORMAT_FLAGS(1u32);
-pub const TIME_NOSECONDS: TIME_FORMAT_FLAGS = TIME_FORMAT_FLAGS(2u32);
-pub const TIME_NOTIMEMARKER: TIME_FORMAT_FLAGS = TIME_FORMAT_FLAGS(4u32);
-pub const TIME_FORCE24HOURFORMAT: TIME_FORMAT_FLAGS = TIME_FORMAT_FLAGS(8u32);
-impl ::core::marker::Copy for TIME_FORMAT_FLAGS {}
-impl ::core::clone::Clone for TIME_FORMAT_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct TRANSLATE_CHARSET_INFO_FLAGS(pub u32);
-pub const TCI_SRCCHARSET: TRANSLATE_CHARSET_INFO_FLAGS = TRANSLATE_CHARSET_INFO_FLAGS(1u32);
-pub const TCI_SRCCODEPAGE: TRANSLATE_CHARSET_INFO_FLAGS = TRANSLATE_CHARSET_INFO_FLAGS(2u32);
-pub const TCI_SRCFONTSIG: TRANSLATE_CHARSET_INFO_FLAGS = TRANSLATE_CHARSET_INFO_FLAGS(3u32);
-pub const TCI_SRCLOCALE: TRANSLATE_CHARSET_INFO_FLAGS = TRANSLATE_CHARSET_INFO_FLAGS(4096u32);
-impl ::core::marker::Copy for TRANSLATE_CHARSET_INFO_FLAGS {}
-impl ::core::clone::Clone for TRANSLATE_CHARSET_INFO_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const TIME_NOMINUTESORSECONDS: u32 = 1u32;
+pub const TIME_NOSECONDS: u32 = 2u32;
+pub const TIME_NOTIMEMARKER: u32 = 4u32;
+pub const TIME_FORCE24HOURFORMAT: u32 = 8u32;
+pub const TCI_SRCCHARSET: u32 = 1u32;
+pub const TCI_SRCCODEPAGE: u32 = 2u32;
+pub const TCI_SRCFONTSIG: u32 = 3u32;
+pub const TCI_SRCLOCALE: u32 = 4096u32;
 pub const U16_MAX_LENGTH: u32 = 2u32;
 pub const U8_MAX_LENGTH: u32 = 4u32;
-#[repr(transparent)]
-pub struct UAcceptResult(pub i32);
-pub const ULOC_ACCEPT_FAILED: UAcceptResult = UAcceptResult(0i32);
-pub const ULOC_ACCEPT_VALID: UAcceptResult = UAcceptResult(1i32);
-pub const ULOC_ACCEPT_FALLBACK: UAcceptResult = UAcceptResult(2i32);
-impl ::core::marker::Copy for UAcceptResult {}
-impl ::core::clone::Clone for UAcceptResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct UAlphabeticIndexLabelType(pub i32);
-pub const U_ALPHAINDEX_NORMAL: UAlphabeticIndexLabelType = UAlphabeticIndexLabelType(0i32);
-pub const U_ALPHAINDEX_UNDERFLOW: UAlphabeticIndexLabelType = UAlphabeticIndexLabelType(1i32);
-pub const U_ALPHAINDEX_INFLOW: UAlphabeticIndexLabelType = UAlphabeticIndexLabelType(2i32);
-pub const U_ALPHAINDEX_OVERFLOW: UAlphabeticIndexLabelType = UAlphabeticIndexLabelType(3i32);
-impl ::core::marker::Copy for UAlphabeticIndexLabelType {}
-impl ::core::clone::Clone for UAlphabeticIndexLabelType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const ULOC_ACCEPT_FAILED: i32 = 0i32;
+pub const ULOC_ACCEPT_VALID: i32 = 1i32;
+pub const ULOC_ACCEPT_FALLBACK: i32 = 2i32;
+pub const U_ALPHAINDEX_NORMAL: i32 = 0i32;
+pub const U_ALPHAINDEX_UNDERFLOW: i32 = 1i32;
+pub const U_ALPHAINDEX_INFLOW: i32 = 2i32;
+pub const U_ALPHAINDEX_OVERFLOW: i32 = 3i32;
 pub const UBIDI_DEFAULT_LTR: u32 = 254u32;
 pub const UBIDI_DEFAULT_RTL: u32 = 255u32;
 pub const UBIDI_DO_MIRRORING: u32 = 2u32;
@@ -3473,412 +3281,348 @@ pub const UBIDI_REMOVE_BIDI_CONTROLS: u32 = 8u32;
 #[repr(C)]
 pub struct UBiDi(pub u8);
 pub type UBiDiClassCallback = unsafe extern "system" fn(context: *const ::core::ffi::c_void, c: i32) -> UCharDirection;
-#[repr(transparent)]
-pub struct UBiDiDirection(pub i32);
-pub const UBIDI_LTR: UBiDiDirection = UBiDiDirection(0i32);
-pub const UBIDI_RTL: UBiDiDirection = UBiDiDirection(1i32);
-pub const UBIDI_MIXED: UBiDiDirection = UBiDiDirection(2i32);
-pub const UBIDI_NEUTRAL: UBiDiDirection = UBiDiDirection(3i32);
-impl ::core::marker::Copy for UBiDiDirection {}
-impl ::core::clone::Clone for UBiDiDirection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct UBiDiMirroring(pub i32);
-pub const UBIDI_MIRRORING_OFF: UBiDiMirroring = UBiDiMirroring(0i32);
-pub const UBIDI_MIRRORING_ON: UBiDiMirroring = UBiDiMirroring(1i32);
-impl ::core::marker::Copy for UBiDiMirroring {}
-impl ::core::clone::Clone for UBiDiMirroring {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct UBiDiOrder(pub i32);
-pub const UBIDI_LOGICAL: UBiDiOrder = UBiDiOrder(0i32);
-pub const UBIDI_VISUAL: UBiDiOrder = UBiDiOrder(1i32);
-impl ::core::marker::Copy for UBiDiOrder {}
-impl ::core::clone::Clone for UBiDiOrder {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct UBiDiReorderingMode(pub i32);
-pub const UBIDI_REORDER_DEFAULT: UBiDiReorderingMode = UBiDiReorderingMode(0i32);
-pub const UBIDI_REORDER_NUMBERS_SPECIAL: UBiDiReorderingMode = UBiDiReorderingMode(1i32);
-pub const UBIDI_REORDER_GROUP_NUMBERS_WITH_R: UBiDiReorderingMode = UBiDiReorderingMode(2i32);
-pub const UBIDI_REORDER_RUNS_ONLY: UBiDiReorderingMode = UBiDiReorderingMode(3i32);
-pub const UBIDI_REORDER_INVERSE_NUMBERS_AS_L: UBiDiReorderingMode = UBiDiReorderingMode(4i32);
-pub const UBIDI_REORDER_INVERSE_LIKE_DIRECT: UBiDiReorderingMode = UBiDiReorderingMode(5i32);
-pub const UBIDI_REORDER_INVERSE_FOR_NUMBERS_SPECIAL: UBiDiReorderingMode = UBiDiReorderingMode(6i32);
-impl ::core::marker::Copy for UBiDiReorderingMode {}
-impl ::core::clone::Clone for UBiDiReorderingMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct UBiDiReorderingOption(pub i32);
-pub const UBIDI_OPTION_DEFAULT: UBiDiReorderingOption = UBiDiReorderingOption(0i32);
-pub const UBIDI_OPTION_INSERT_MARKS: UBiDiReorderingOption = UBiDiReorderingOption(1i32);
-pub const UBIDI_OPTION_REMOVE_CONTROLS: UBiDiReorderingOption = UBiDiReorderingOption(2i32);
-pub const UBIDI_OPTION_STREAMING: UBiDiReorderingOption = UBiDiReorderingOption(4i32);
-impl ::core::marker::Copy for UBiDiReorderingOption {}
-impl ::core::clone::Clone for UBiDiReorderingOption {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const UBIDI_LTR: i32 = 0i32;
+pub const UBIDI_RTL: i32 = 1i32;
+pub const UBIDI_MIXED: i32 = 2i32;
+pub const UBIDI_NEUTRAL: i32 = 3i32;
+pub const UBIDI_MIRRORING_OFF: i32 = 0i32;
+pub const UBIDI_MIRRORING_ON: i32 = 1i32;
+pub const UBIDI_LOGICAL: i32 = 0i32;
+pub const UBIDI_VISUAL: i32 = 1i32;
+pub const UBIDI_REORDER_DEFAULT: i32 = 0i32;
+pub const UBIDI_REORDER_NUMBERS_SPECIAL: i32 = 1i32;
+pub const UBIDI_REORDER_GROUP_NUMBERS_WITH_R: i32 = 2i32;
+pub const UBIDI_REORDER_RUNS_ONLY: i32 = 3i32;
+pub const UBIDI_REORDER_INVERSE_NUMBERS_AS_L: i32 = 4i32;
+pub const UBIDI_REORDER_INVERSE_LIKE_DIRECT: i32 = 5i32;
+pub const UBIDI_REORDER_INVERSE_FOR_NUMBERS_SPECIAL: i32 = 6i32;
+pub const UBIDI_OPTION_DEFAULT: i32 = 0i32;
+pub const UBIDI_OPTION_INSERT_MARKS: i32 = 1i32;
+pub const UBIDI_OPTION_REMOVE_CONTROLS: i32 = 2i32;
+pub const UBIDI_OPTION_STREAMING: i32 = 4i32;
 #[repr(C)]
 pub struct UBiDiTransform(pub u8);
-#[repr(transparent)]
-pub struct UBidiPairedBracketType(pub i32);
-pub const U_BPT_NONE: UBidiPairedBracketType = UBidiPairedBracketType(0i32);
-pub const U_BPT_OPEN: UBidiPairedBracketType = UBidiPairedBracketType(1i32);
-pub const U_BPT_CLOSE: UBidiPairedBracketType = UBidiPairedBracketType(2i32);
-impl ::core::marker::Copy for UBidiPairedBracketType {}
-impl ::core::clone::Clone for UBidiPairedBracketType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct UBlockCode(pub i32);
-pub const UBLOCK_NO_BLOCK: UBlockCode = UBlockCode(0i32);
-pub const UBLOCK_BASIC_LATIN: UBlockCode = UBlockCode(1i32);
-pub const UBLOCK_LATIN_1_SUPPLEMENT: UBlockCode = UBlockCode(2i32);
-pub const UBLOCK_LATIN_EXTENDED_A: UBlockCode = UBlockCode(3i32);
-pub const UBLOCK_LATIN_EXTENDED_B: UBlockCode = UBlockCode(4i32);
-pub const UBLOCK_IPA_EXTENSIONS: UBlockCode = UBlockCode(5i32);
-pub const UBLOCK_SPACING_MODIFIER_LETTERS: UBlockCode = UBlockCode(6i32);
-pub const UBLOCK_COMBINING_DIACRITICAL_MARKS: UBlockCode = UBlockCode(7i32);
-pub const UBLOCK_GREEK: UBlockCode = UBlockCode(8i32);
-pub const UBLOCK_CYRILLIC: UBlockCode = UBlockCode(9i32);
-pub const UBLOCK_ARMENIAN: UBlockCode = UBlockCode(10i32);
-pub const UBLOCK_HEBREW: UBlockCode = UBlockCode(11i32);
-pub const UBLOCK_ARABIC: UBlockCode = UBlockCode(12i32);
-pub const UBLOCK_SYRIAC: UBlockCode = UBlockCode(13i32);
-pub const UBLOCK_THAANA: UBlockCode = UBlockCode(14i32);
-pub const UBLOCK_DEVANAGARI: UBlockCode = UBlockCode(15i32);
-pub const UBLOCK_BENGALI: UBlockCode = UBlockCode(16i32);
-pub const UBLOCK_GURMUKHI: UBlockCode = UBlockCode(17i32);
-pub const UBLOCK_GUJARATI: UBlockCode = UBlockCode(18i32);
-pub const UBLOCK_ORIYA: UBlockCode = UBlockCode(19i32);
-pub const UBLOCK_TAMIL: UBlockCode = UBlockCode(20i32);
-pub const UBLOCK_TELUGU: UBlockCode = UBlockCode(21i32);
-pub const UBLOCK_KANNADA: UBlockCode = UBlockCode(22i32);
-pub const UBLOCK_MALAYALAM: UBlockCode = UBlockCode(23i32);
-pub const UBLOCK_SINHALA: UBlockCode = UBlockCode(24i32);
-pub const UBLOCK_THAI: UBlockCode = UBlockCode(25i32);
-pub const UBLOCK_LAO: UBlockCode = UBlockCode(26i32);
-pub const UBLOCK_TIBETAN: UBlockCode = UBlockCode(27i32);
-pub const UBLOCK_MYANMAR: UBlockCode = UBlockCode(28i32);
-pub const UBLOCK_GEORGIAN: UBlockCode = UBlockCode(29i32);
-pub const UBLOCK_HANGUL_JAMO: UBlockCode = UBlockCode(30i32);
-pub const UBLOCK_ETHIOPIC: UBlockCode = UBlockCode(31i32);
-pub const UBLOCK_CHEROKEE: UBlockCode = UBlockCode(32i32);
-pub const UBLOCK_UNIFIED_CANADIAN_ABORIGINAL_SYLLABICS: UBlockCode = UBlockCode(33i32);
-pub const UBLOCK_OGHAM: UBlockCode = UBlockCode(34i32);
-pub const UBLOCK_RUNIC: UBlockCode = UBlockCode(35i32);
-pub const UBLOCK_KHMER: UBlockCode = UBlockCode(36i32);
-pub const UBLOCK_MONGOLIAN: UBlockCode = UBlockCode(37i32);
-pub const UBLOCK_LATIN_EXTENDED_ADDITIONAL: UBlockCode = UBlockCode(38i32);
-pub const UBLOCK_GREEK_EXTENDED: UBlockCode = UBlockCode(39i32);
-pub const UBLOCK_GENERAL_PUNCTUATION: UBlockCode = UBlockCode(40i32);
-pub const UBLOCK_SUPERSCRIPTS_AND_SUBSCRIPTS: UBlockCode = UBlockCode(41i32);
-pub const UBLOCK_CURRENCY_SYMBOLS: UBlockCode = UBlockCode(42i32);
-pub const UBLOCK_COMBINING_MARKS_FOR_SYMBOLS: UBlockCode = UBlockCode(43i32);
-pub const UBLOCK_LETTERLIKE_SYMBOLS: UBlockCode = UBlockCode(44i32);
-pub const UBLOCK_NUMBER_FORMS: UBlockCode = UBlockCode(45i32);
-pub const UBLOCK_ARROWS: UBlockCode = UBlockCode(46i32);
-pub const UBLOCK_MATHEMATICAL_OPERATORS: UBlockCode = UBlockCode(47i32);
-pub const UBLOCK_MISCELLANEOUS_TECHNICAL: UBlockCode = UBlockCode(48i32);
-pub const UBLOCK_CONTROL_PICTURES: UBlockCode = UBlockCode(49i32);
-pub const UBLOCK_OPTICAL_CHARACTER_RECOGNITION: UBlockCode = UBlockCode(50i32);
-pub const UBLOCK_ENCLOSED_ALPHANUMERICS: UBlockCode = UBlockCode(51i32);
-pub const UBLOCK_BOX_DRAWING: UBlockCode = UBlockCode(52i32);
-pub const UBLOCK_BLOCK_ELEMENTS: UBlockCode = UBlockCode(53i32);
-pub const UBLOCK_GEOMETRIC_SHAPES: UBlockCode = UBlockCode(54i32);
-pub const UBLOCK_MISCELLANEOUS_SYMBOLS: UBlockCode = UBlockCode(55i32);
-pub const UBLOCK_DINGBATS: UBlockCode = UBlockCode(56i32);
-pub const UBLOCK_BRAILLE_PATTERNS: UBlockCode = UBlockCode(57i32);
-pub const UBLOCK_CJK_RADICALS_SUPPLEMENT: UBlockCode = UBlockCode(58i32);
-pub const UBLOCK_KANGXI_RADICALS: UBlockCode = UBlockCode(59i32);
-pub const UBLOCK_IDEOGRAPHIC_DESCRIPTION_CHARACTERS: UBlockCode = UBlockCode(60i32);
-pub const UBLOCK_CJK_SYMBOLS_AND_PUNCTUATION: UBlockCode = UBlockCode(61i32);
-pub const UBLOCK_HIRAGANA: UBlockCode = UBlockCode(62i32);
-pub const UBLOCK_KATAKANA: UBlockCode = UBlockCode(63i32);
-pub const UBLOCK_BOPOMOFO: UBlockCode = UBlockCode(64i32);
-pub const UBLOCK_HANGUL_COMPATIBILITY_JAMO: UBlockCode = UBlockCode(65i32);
-pub const UBLOCK_KANBUN: UBlockCode = UBlockCode(66i32);
-pub const UBLOCK_BOPOMOFO_EXTENDED: UBlockCode = UBlockCode(67i32);
-pub const UBLOCK_ENCLOSED_CJK_LETTERS_AND_MONTHS: UBlockCode = UBlockCode(68i32);
-pub const UBLOCK_CJK_COMPATIBILITY: UBlockCode = UBlockCode(69i32);
-pub const UBLOCK_CJK_UNIFIED_IDEOGRAPHS_EXTENSION_A: UBlockCode = UBlockCode(70i32);
-pub const UBLOCK_CJK_UNIFIED_IDEOGRAPHS: UBlockCode = UBlockCode(71i32);
-pub const UBLOCK_YI_SYLLABLES: UBlockCode = UBlockCode(72i32);
-pub const UBLOCK_YI_RADICALS: UBlockCode = UBlockCode(73i32);
-pub const UBLOCK_HANGUL_SYLLABLES: UBlockCode = UBlockCode(74i32);
-pub const UBLOCK_HIGH_SURROGATES: UBlockCode = UBlockCode(75i32);
-pub const UBLOCK_HIGH_PRIVATE_USE_SURROGATES: UBlockCode = UBlockCode(76i32);
-pub const UBLOCK_LOW_SURROGATES: UBlockCode = UBlockCode(77i32);
-pub const UBLOCK_PRIVATE_USE_AREA: UBlockCode = UBlockCode(78i32);
-pub const UBLOCK_PRIVATE_USE: UBlockCode = UBlockCode(78i32);
-pub const UBLOCK_CJK_COMPATIBILITY_IDEOGRAPHS: UBlockCode = UBlockCode(79i32);
-pub const UBLOCK_ALPHABETIC_PRESENTATION_FORMS: UBlockCode = UBlockCode(80i32);
-pub const UBLOCK_ARABIC_PRESENTATION_FORMS_A: UBlockCode = UBlockCode(81i32);
-pub const UBLOCK_COMBINING_HALF_MARKS: UBlockCode = UBlockCode(82i32);
-pub const UBLOCK_CJK_COMPATIBILITY_FORMS: UBlockCode = UBlockCode(83i32);
-pub const UBLOCK_SMALL_FORM_VARIANTS: UBlockCode = UBlockCode(84i32);
-pub const UBLOCK_ARABIC_PRESENTATION_FORMS_B: UBlockCode = UBlockCode(85i32);
-pub const UBLOCK_SPECIALS: UBlockCode = UBlockCode(86i32);
-pub const UBLOCK_HALFWIDTH_AND_FULLWIDTH_FORMS: UBlockCode = UBlockCode(87i32);
-pub const UBLOCK_OLD_ITALIC: UBlockCode = UBlockCode(88i32);
-pub const UBLOCK_GOTHIC: UBlockCode = UBlockCode(89i32);
-pub const UBLOCK_DESERET: UBlockCode = UBlockCode(90i32);
-pub const UBLOCK_BYZANTINE_MUSICAL_SYMBOLS: UBlockCode = UBlockCode(91i32);
-pub const UBLOCK_MUSICAL_SYMBOLS: UBlockCode = UBlockCode(92i32);
-pub const UBLOCK_MATHEMATICAL_ALPHANUMERIC_SYMBOLS: UBlockCode = UBlockCode(93i32);
-pub const UBLOCK_CJK_UNIFIED_IDEOGRAPHS_EXTENSION_B: UBlockCode = UBlockCode(94i32);
-pub const UBLOCK_CJK_COMPATIBILITY_IDEOGRAPHS_SUPPLEMENT: UBlockCode = UBlockCode(95i32);
-pub const UBLOCK_TAGS: UBlockCode = UBlockCode(96i32);
-pub const UBLOCK_CYRILLIC_SUPPLEMENT: UBlockCode = UBlockCode(97i32);
-pub const UBLOCK_CYRILLIC_SUPPLEMENTARY: UBlockCode = UBlockCode(97i32);
-pub const UBLOCK_TAGALOG: UBlockCode = UBlockCode(98i32);
-pub const UBLOCK_HANUNOO: UBlockCode = UBlockCode(99i32);
-pub const UBLOCK_BUHID: UBlockCode = UBlockCode(100i32);
-pub const UBLOCK_TAGBANWA: UBlockCode = UBlockCode(101i32);
-pub const UBLOCK_MISCELLANEOUS_MATHEMATICAL_SYMBOLS_A: UBlockCode = UBlockCode(102i32);
-pub const UBLOCK_SUPPLEMENTAL_ARROWS_A: UBlockCode = UBlockCode(103i32);
-pub const UBLOCK_SUPPLEMENTAL_ARROWS_B: UBlockCode = UBlockCode(104i32);
-pub const UBLOCK_MISCELLANEOUS_MATHEMATICAL_SYMBOLS_B: UBlockCode = UBlockCode(105i32);
-pub const UBLOCK_SUPPLEMENTAL_MATHEMATICAL_OPERATORS: UBlockCode = UBlockCode(106i32);
-pub const UBLOCK_KATAKANA_PHONETIC_EXTENSIONS: UBlockCode = UBlockCode(107i32);
-pub const UBLOCK_VARIATION_SELECTORS: UBlockCode = UBlockCode(108i32);
-pub const UBLOCK_SUPPLEMENTARY_PRIVATE_USE_AREA_A: UBlockCode = UBlockCode(109i32);
-pub const UBLOCK_SUPPLEMENTARY_PRIVATE_USE_AREA_B: UBlockCode = UBlockCode(110i32);
-pub const UBLOCK_LIMBU: UBlockCode = UBlockCode(111i32);
-pub const UBLOCK_TAI_LE: UBlockCode = UBlockCode(112i32);
-pub const UBLOCK_KHMER_SYMBOLS: UBlockCode = UBlockCode(113i32);
-pub const UBLOCK_PHONETIC_EXTENSIONS: UBlockCode = UBlockCode(114i32);
-pub const UBLOCK_MISCELLANEOUS_SYMBOLS_AND_ARROWS: UBlockCode = UBlockCode(115i32);
-pub const UBLOCK_YIJING_HEXAGRAM_SYMBOLS: UBlockCode = UBlockCode(116i32);
-pub const UBLOCK_LINEAR_B_SYLLABARY: UBlockCode = UBlockCode(117i32);
-pub const UBLOCK_LINEAR_B_IDEOGRAMS: UBlockCode = UBlockCode(118i32);
-pub const UBLOCK_AEGEAN_NUMBERS: UBlockCode = UBlockCode(119i32);
-pub const UBLOCK_UGARITIC: UBlockCode = UBlockCode(120i32);
-pub const UBLOCK_SHAVIAN: UBlockCode = UBlockCode(121i32);
-pub const UBLOCK_OSMANYA: UBlockCode = UBlockCode(122i32);
-pub const UBLOCK_CYPRIOT_SYLLABARY: UBlockCode = UBlockCode(123i32);
-pub const UBLOCK_TAI_XUAN_JING_SYMBOLS: UBlockCode = UBlockCode(124i32);
-pub const UBLOCK_VARIATION_SELECTORS_SUPPLEMENT: UBlockCode = UBlockCode(125i32);
-pub const UBLOCK_ANCIENT_GREEK_MUSICAL_NOTATION: UBlockCode = UBlockCode(126i32);
-pub const UBLOCK_ANCIENT_GREEK_NUMBERS: UBlockCode = UBlockCode(127i32);
-pub const UBLOCK_ARABIC_SUPPLEMENT: UBlockCode = UBlockCode(128i32);
-pub const UBLOCK_BUGINESE: UBlockCode = UBlockCode(129i32);
-pub const UBLOCK_CJK_STROKES: UBlockCode = UBlockCode(130i32);
-pub const UBLOCK_COMBINING_DIACRITICAL_MARKS_SUPPLEMENT: UBlockCode = UBlockCode(131i32);
-pub const UBLOCK_COPTIC: UBlockCode = UBlockCode(132i32);
-pub const UBLOCK_ETHIOPIC_EXTENDED: UBlockCode = UBlockCode(133i32);
-pub const UBLOCK_ETHIOPIC_SUPPLEMENT: UBlockCode = UBlockCode(134i32);
-pub const UBLOCK_GEORGIAN_SUPPLEMENT: UBlockCode = UBlockCode(135i32);
-pub const UBLOCK_GLAGOLITIC: UBlockCode = UBlockCode(136i32);
-pub const UBLOCK_KHAROSHTHI: UBlockCode = UBlockCode(137i32);
-pub const UBLOCK_MODIFIER_TONE_LETTERS: UBlockCode = UBlockCode(138i32);
-pub const UBLOCK_NEW_TAI_LUE: UBlockCode = UBlockCode(139i32);
-pub const UBLOCK_OLD_PERSIAN: UBlockCode = UBlockCode(140i32);
-pub const UBLOCK_PHONETIC_EXTENSIONS_SUPPLEMENT: UBlockCode = UBlockCode(141i32);
-pub const UBLOCK_SUPPLEMENTAL_PUNCTUATION: UBlockCode = UBlockCode(142i32);
-pub const UBLOCK_SYLOTI_NAGRI: UBlockCode = UBlockCode(143i32);
-pub const UBLOCK_TIFINAGH: UBlockCode = UBlockCode(144i32);
-pub const UBLOCK_VERTICAL_FORMS: UBlockCode = UBlockCode(145i32);
-pub const UBLOCK_NKO: UBlockCode = UBlockCode(146i32);
-pub const UBLOCK_BALINESE: UBlockCode = UBlockCode(147i32);
-pub const UBLOCK_LATIN_EXTENDED_C: UBlockCode = UBlockCode(148i32);
-pub const UBLOCK_LATIN_EXTENDED_D: UBlockCode = UBlockCode(149i32);
-pub const UBLOCK_PHAGS_PA: UBlockCode = UBlockCode(150i32);
-pub const UBLOCK_PHOENICIAN: UBlockCode = UBlockCode(151i32);
-pub const UBLOCK_CUNEIFORM: UBlockCode = UBlockCode(152i32);
-pub const UBLOCK_CUNEIFORM_NUMBERS_AND_PUNCTUATION: UBlockCode = UBlockCode(153i32);
-pub const UBLOCK_COUNTING_ROD_NUMERALS: UBlockCode = UBlockCode(154i32);
-pub const UBLOCK_SUNDANESE: UBlockCode = UBlockCode(155i32);
-pub const UBLOCK_LEPCHA: UBlockCode = UBlockCode(156i32);
-pub const UBLOCK_OL_CHIKI: UBlockCode = UBlockCode(157i32);
-pub const UBLOCK_CYRILLIC_EXTENDED_A: UBlockCode = UBlockCode(158i32);
-pub const UBLOCK_VAI: UBlockCode = UBlockCode(159i32);
-pub const UBLOCK_CYRILLIC_EXTENDED_B: UBlockCode = UBlockCode(160i32);
-pub const UBLOCK_SAURASHTRA: UBlockCode = UBlockCode(161i32);
-pub const UBLOCK_KAYAH_LI: UBlockCode = UBlockCode(162i32);
-pub const UBLOCK_REJANG: UBlockCode = UBlockCode(163i32);
-pub const UBLOCK_CHAM: UBlockCode = UBlockCode(164i32);
-pub const UBLOCK_ANCIENT_SYMBOLS: UBlockCode = UBlockCode(165i32);
-pub const UBLOCK_PHAISTOS_DISC: UBlockCode = UBlockCode(166i32);
-pub const UBLOCK_LYCIAN: UBlockCode = UBlockCode(167i32);
-pub const UBLOCK_CARIAN: UBlockCode = UBlockCode(168i32);
-pub const UBLOCK_LYDIAN: UBlockCode = UBlockCode(169i32);
-pub const UBLOCK_MAHJONG_TILES: UBlockCode = UBlockCode(170i32);
-pub const UBLOCK_DOMINO_TILES: UBlockCode = UBlockCode(171i32);
-pub const UBLOCK_SAMARITAN: UBlockCode = UBlockCode(172i32);
-pub const UBLOCK_UNIFIED_CANADIAN_ABORIGINAL_SYLLABICS_EXTENDED: UBlockCode = UBlockCode(173i32);
-pub const UBLOCK_TAI_THAM: UBlockCode = UBlockCode(174i32);
-pub const UBLOCK_VEDIC_EXTENSIONS: UBlockCode = UBlockCode(175i32);
-pub const UBLOCK_LISU: UBlockCode = UBlockCode(176i32);
-pub const UBLOCK_BAMUM: UBlockCode = UBlockCode(177i32);
-pub const UBLOCK_COMMON_INDIC_NUMBER_FORMS: UBlockCode = UBlockCode(178i32);
-pub const UBLOCK_DEVANAGARI_EXTENDED: UBlockCode = UBlockCode(179i32);
-pub const UBLOCK_HANGUL_JAMO_EXTENDED_A: UBlockCode = UBlockCode(180i32);
-pub const UBLOCK_JAVANESE: UBlockCode = UBlockCode(181i32);
-pub const UBLOCK_MYANMAR_EXTENDED_A: UBlockCode = UBlockCode(182i32);
-pub const UBLOCK_TAI_VIET: UBlockCode = UBlockCode(183i32);
-pub const UBLOCK_MEETEI_MAYEK: UBlockCode = UBlockCode(184i32);
-pub const UBLOCK_HANGUL_JAMO_EXTENDED_B: UBlockCode = UBlockCode(185i32);
-pub const UBLOCK_IMPERIAL_ARAMAIC: UBlockCode = UBlockCode(186i32);
-pub const UBLOCK_OLD_SOUTH_ARABIAN: UBlockCode = UBlockCode(187i32);
-pub const UBLOCK_AVESTAN: UBlockCode = UBlockCode(188i32);
-pub const UBLOCK_INSCRIPTIONAL_PARTHIAN: UBlockCode = UBlockCode(189i32);
-pub const UBLOCK_INSCRIPTIONAL_PAHLAVI: UBlockCode = UBlockCode(190i32);
-pub const UBLOCK_OLD_TURKIC: UBlockCode = UBlockCode(191i32);
-pub const UBLOCK_RUMI_NUMERAL_SYMBOLS: UBlockCode = UBlockCode(192i32);
-pub const UBLOCK_KAITHI: UBlockCode = UBlockCode(193i32);
-pub const UBLOCK_EGYPTIAN_HIEROGLYPHS: UBlockCode = UBlockCode(194i32);
-pub const UBLOCK_ENCLOSED_ALPHANUMERIC_SUPPLEMENT: UBlockCode = UBlockCode(195i32);
-pub const UBLOCK_ENCLOSED_IDEOGRAPHIC_SUPPLEMENT: UBlockCode = UBlockCode(196i32);
-pub const UBLOCK_CJK_UNIFIED_IDEOGRAPHS_EXTENSION_C: UBlockCode = UBlockCode(197i32);
-pub const UBLOCK_MANDAIC: UBlockCode = UBlockCode(198i32);
-pub const UBLOCK_BATAK: UBlockCode = UBlockCode(199i32);
-pub const UBLOCK_ETHIOPIC_EXTENDED_A: UBlockCode = UBlockCode(200i32);
-pub const UBLOCK_BRAHMI: UBlockCode = UBlockCode(201i32);
-pub const UBLOCK_BAMUM_SUPPLEMENT: UBlockCode = UBlockCode(202i32);
-pub const UBLOCK_KANA_SUPPLEMENT: UBlockCode = UBlockCode(203i32);
-pub const UBLOCK_PLAYING_CARDS: UBlockCode = UBlockCode(204i32);
-pub const UBLOCK_MISCELLANEOUS_SYMBOLS_AND_PICTOGRAPHS: UBlockCode = UBlockCode(205i32);
-pub const UBLOCK_EMOTICONS: UBlockCode = UBlockCode(206i32);
-pub const UBLOCK_TRANSPORT_AND_MAP_SYMBOLS: UBlockCode = UBlockCode(207i32);
-pub const UBLOCK_ALCHEMICAL_SYMBOLS: UBlockCode = UBlockCode(208i32);
-pub const UBLOCK_CJK_UNIFIED_IDEOGRAPHS_EXTENSION_D: UBlockCode = UBlockCode(209i32);
-pub const UBLOCK_ARABIC_EXTENDED_A: UBlockCode = UBlockCode(210i32);
-pub const UBLOCK_ARABIC_MATHEMATICAL_ALPHABETIC_SYMBOLS: UBlockCode = UBlockCode(211i32);
-pub const UBLOCK_CHAKMA: UBlockCode = UBlockCode(212i32);
-pub const UBLOCK_MEETEI_MAYEK_EXTENSIONS: UBlockCode = UBlockCode(213i32);
-pub const UBLOCK_MEROITIC_CURSIVE: UBlockCode = UBlockCode(214i32);
-pub const UBLOCK_MEROITIC_HIEROGLYPHS: UBlockCode = UBlockCode(215i32);
-pub const UBLOCK_MIAO: UBlockCode = UBlockCode(216i32);
-pub const UBLOCK_SHARADA: UBlockCode = UBlockCode(217i32);
-pub const UBLOCK_SORA_SOMPENG: UBlockCode = UBlockCode(218i32);
-pub const UBLOCK_SUNDANESE_SUPPLEMENT: UBlockCode = UBlockCode(219i32);
-pub const UBLOCK_TAKRI: UBlockCode = UBlockCode(220i32);
-pub const UBLOCK_BASSA_VAH: UBlockCode = UBlockCode(221i32);
-pub const UBLOCK_CAUCASIAN_ALBANIAN: UBlockCode = UBlockCode(222i32);
-pub const UBLOCK_COPTIC_EPACT_NUMBERS: UBlockCode = UBlockCode(223i32);
-pub const UBLOCK_COMBINING_DIACRITICAL_MARKS_EXTENDED: UBlockCode = UBlockCode(224i32);
-pub const UBLOCK_DUPLOYAN: UBlockCode = UBlockCode(225i32);
-pub const UBLOCK_ELBASAN: UBlockCode = UBlockCode(226i32);
-pub const UBLOCK_GEOMETRIC_SHAPES_EXTENDED: UBlockCode = UBlockCode(227i32);
-pub const UBLOCK_GRANTHA: UBlockCode = UBlockCode(228i32);
-pub const UBLOCK_KHOJKI: UBlockCode = UBlockCode(229i32);
-pub const UBLOCK_KHUDAWADI: UBlockCode = UBlockCode(230i32);
-pub const UBLOCK_LATIN_EXTENDED_E: UBlockCode = UBlockCode(231i32);
-pub const UBLOCK_LINEAR_A: UBlockCode = UBlockCode(232i32);
-pub const UBLOCK_MAHAJANI: UBlockCode = UBlockCode(233i32);
-pub const UBLOCK_MANICHAEAN: UBlockCode = UBlockCode(234i32);
-pub const UBLOCK_MENDE_KIKAKUI: UBlockCode = UBlockCode(235i32);
-pub const UBLOCK_MODI: UBlockCode = UBlockCode(236i32);
-pub const UBLOCK_MRO: UBlockCode = UBlockCode(237i32);
-pub const UBLOCK_MYANMAR_EXTENDED_B: UBlockCode = UBlockCode(238i32);
-pub const UBLOCK_NABATAEAN: UBlockCode = UBlockCode(239i32);
-pub const UBLOCK_OLD_NORTH_ARABIAN: UBlockCode = UBlockCode(240i32);
-pub const UBLOCK_OLD_PERMIC: UBlockCode = UBlockCode(241i32);
-pub const UBLOCK_ORNAMENTAL_DINGBATS: UBlockCode = UBlockCode(242i32);
-pub const UBLOCK_PAHAWH_HMONG: UBlockCode = UBlockCode(243i32);
-pub const UBLOCK_PALMYRENE: UBlockCode = UBlockCode(244i32);
-pub const UBLOCK_PAU_CIN_HAU: UBlockCode = UBlockCode(245i32);
-pub const UBLOCK_PSALTER_PAHLAVI: UBlockCode = UBlockCode(246i32);
-pub const UBLOCK_SHORTHAND_FORMAT_CONTROLS: UBlockCode = UBlockCode(247i32);
-pub const UBLOCK_SIDDHAM: UBlockCode = UBlockCode(248i32);
-pub const UBLOCK_SINHALA_ARCHAIC_NUMBERS: UBlockCode = UBlockCode(249i32);
-pub const UBLOCK_SUPPLEMENTAL_ARROWS_C: UBlockCode = UBlockCode(250i32);
-pub const UBLOCK_TIRHUTA: UBlockCode = UBlockCode(251i32);
-pub const UBLOCK_WARANG_CITI: UBlockCode = UBlockCode(252i32);
-pub const UBLOCK_AHOM: UBlockCode = UBlockCode(253i32);
-pub const UBLOCK_ANATOLIAN_HIEROGLYPHS: UBlockCode = UBlockCode(254i32);
-pub const UBLOCK_CHEROKEE_SUPPLEMENT: UBlockCode = UBlockCode(255i32);
-pub const UBLOCK_CJK_UNIFIED_IDEOGRAPHS_EXTENSION_E: UBlockCode = UBlockCode(256i32);
-pub const UBLOCK_EARLY_DYNASTIC_CUNEIFORM: UBlockCode = UBlockCode(257i32);
-pub const UBLOCK_HATRAN: UBlockCode = UBlockCode(258i32);
-pub const UBLOCK_MULTANI: UBlockCode = UBlockCode(259i32);
-pub const UBLOCK_OLD_HUNGARIAN: UBlockCode = UBlockCode(260i32);
-pub const UBLOCK_SUPPLEMENTAL_SYMBOLS_AND_PICTOGRAPHS: UBlockCode = UBlockCode(261i32);
-pub const UBLOCK_SUTTON_SIGNWRITING: UBlockCode = UBlockCode(262i32);
-pub const UBLOCK_ADLAM: UBlockCode = UBlockCode(263i32);
-pub const UBLOCK_BHAIKSUKI: UBlockCode = UBlockCode(264i32);
-pub const UBLOCK_CYRILLIC_EXTENDED_C: UBlockCode = UBlockCode(265i32);
-pub const UBLOCK_GLAGOLITIC_SUPPLEMENT: UBlockCode = UBlockCode(266i32);
-pub const UBLOCK_IDEOGRAPHIC_SYMBOLS_AND_PUNCTUATION: UBlockCode = UBlockCode(267i32);
-pub const UBLOCK_MARCHEN: UBlockCode = UBlockCode(268i32);
-pub const UBLOCK_MONGOLIAN_SUPPLEMENT: UBlockCode = UBlockCode(269i32);
-pub const UBLOCK_NEWA: UBlockCode = UBlockCode(270i32);
-pub const UBLOCK_OSAGE: UBlockCode = UBlockCode(271i32);
-pub const UBLOCK_TANGUT: UBlockCode = UBlockCode(272i32);
-pub const UBLOCK_TANGUT_COMPONENTS: UBlockCode = UBlockCode(273i32);
-pub const UBLOCK_CJK_UNIFIED_IDEOGRAPHS_EXTENSION_F: UBlockCode = UBlockCode(274i32);
-pub const UBLOCK_KANA_EXTENDED_A: UBlockCode = UBlockCode(275i32);
-pub const UBLOCK_MASARAM_GONDI: UBlockCode = UBlockCode(276i32);
-pub const UBLOCK_NUSHU: UBlockCode = UBlockCode(277i32);
-pub const UBLOCK_SOYOMBO: UBlockCode = UBlockCode(278i32);
-pub const UBLOCK_SYRIAC_SUPPLEMENT: UBlockCode = UBlockCode(279i32);
-pub const UBLOCK_ZANABAZAR_SQUARE: UBlockCode = UBlockCode(280i32);
-pub const UBLOCK_CHESS_SYMBOLS: UBlockCode = UBlockCode(281i32);
-pub const UBLOCK_DOGRA: UBlockCode = UBlockCode(282i32);
-pub const UBLOCK_GEORGIAN_EXTENDED: UBlockCode = UBlockCode(283i32);
-pub const UBLOCK_GUNJALA_GONDI: UBlockCode = UBlockCode(284i32);
-pub const UBLOCK_HANIFI_ROHINGYA: UBlockCode = UBlockCode(285i32);
-pub const UBLOCK_INDIC_SIYAQ_NUMBERS: UBlockCode = UBlockCode(286i32);
-pub const UBLOCK_MAKASAR: UBlockCode = UBlockCode(287i32);
-pub const UBLOCK_MAYAN_NUMERALS: UBlockCode = UBlockCode(288i32);
-pub const UBLOCK_MEDEFAIDRIN: UBlockCode = UBlockCode(289i32);
-pub const UBLOCK_OLD_SOGDIAN: UBlockCode = UBlockCode(290i32);
-pub const UBLOCK_SOGDIAN: UBlockCode = UBlockCode(291i32);
-pub const UBLOCK_EGYPTIAN_HIEROGLYPH_FORMAT_CONTROLS: UBlockCode = UBlockCode(292i32);
-pub const UBLOCK_ELYMAIC: UBlockCode = UBlockCode(293i32);
-pub const UBLOCK_NANDINAGARI: UBlockCode = UBlockCode(294i32);
-pub const UBLOCK_NYIAKENG_PUACHUE_HMONG: UBlockCode = UBlockCode(295i32);
-pub const UBLOCK_OTTOMAN_SIYAQ_NUMBERS: UBlockCode = UBlockCode(296i32);
-pub const UBLOCK_SMALL_KANA_EXTENSION: UBlockCode = UBlockCode(297i32);
-pub const UBLOCK_SYMBOLS_AND_PICTOGRAPHS_EXTENDED_A: UBlockCode = UBlockCode(298i32);
-pub const UBLOCK_TAMIL_SUPPLEMENT: UBlockCode = UBlockCode(299i32);
-pub const UBLOCK_WANCHO: UBlockCode = UBlockCode(300i32);
-pub const UBLOCK_CHORASMIAN: UBlockCode = UBlockCode(301i32);
-pub const UBLOCK_CJK_UNIFIED_IDEOGRAPHS_EXTENSION_G: UBlockCode = UBlockCode(302i32);
-pub const UBLOCK_DIVES_AKURU: UBlockCode = UBlockCode(303i32);
-pub const UBLOCK_KHITAN_SMALL_SCRIPT: UBlockCode = UBlockCode(304i32);
-pub const UBLOCK_LISU_SUPPLEMENT: UBlockCode = UBlockCode(305i32);
-pub const UBLOCK_SYMBOLS_FOR_LEGACY_COMPUTING: UBlockCode = UBlockCode(306i32);
-pub const UBLOCK_TANGUT_SUPPLEMENT: UBlockCode = UBlockCode(307i32);
-pub const UBLOCK_YEZIDI: UBlockCode = UBlockCode(308i32);
-pub const UBLOCK_INVALID_CODE: UBlockCode = UBlockCode(-1i32);
-impl ::core::marker::Copy for UBlockCode {}
-impl ::core::clone::Clone for UBlockCode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const U_BPT_NONE: i32 = 0i32;
+pub const U_BPT_OPEN: i32 = 1i32;
+pub const U_BPT_CLOSE: i32 = 2i32;
+pub const UBLOCK_NO_BLOCK: i32 = 0i32;
+pub const UBLOCK_BASIC_LATIN: i32 = 1i32;
+pub const UBLOCK_LATIN_1_SUPPLEMENT: i32 = 2i32;
+pub const UBLOCK_LATIN_EXTENDED_A: i32 = 3i32;
+pub const UBLOCK_LATIN_EXTENDED_B: i32 = 4i32;
+pub const UBLOCK_IPA_EXTENSIONS: i32 = 5i32;
+pub const UBLOCK_SPACING_MODIFIER_LETTERS: i32 = 6i32;
+pub const UBLOCK_COMBINING_DIACRITICAL_MARKS: i32 = 7i32;
+pub const UBLOCK_GREEK: i32 = 8i32;
+pub const UBLOCK_CYRILLIC: i32 = 9i32;
+pub const UBLOCK_ARMENIAN: i32 = 10i32;
+pub const UBLOCK_HEBREW: i32 = 11i32;
+pub const UBLOCK_ARABIC: i32 = 12i32;
+pub const UBLOCK_SYRIAC: i32 = 13i32;
+pub const UBLOCK_THAANA: i32 = 14i32;
+pub const UBLOCK_DEVANAGARI: i32 = 15i32;
+pub const UBLOCK_BENGALI: i32 = 16i32;
+pub const UBLOCK_GURMUKHI: i32 = 17i32;
+pub const UBLOCK_GUJARATI: i32 = 18i32;
+pub const UBLOCK_ORIYA: i32 = 19i32;
+pub const UBLOCK_TAMIL: i32 = 20i32;
+pub const UBLOCK_TELUGU: i32 = 21i32;
+pub const UBLOCK_KANNADA: i32 = 22i32;
+pub const UBLOCK_MALAYALAM: i32 = 23i32;
+pub const UBLOCK_SINHALA: i32 = 24i32;
+pub const UBLOCK_THAI: i32 = 25i32;
+pub const UBLOCK_LAO: i32 = 26i32;
+pub const UBLOCK_TIBETAN: i32 = 27i32;
+pub const UBLOCK_MYANMAR: i32 = 28i32;
+pub const UBLOCK_GEORGIAN: i32 = 29i32;
+pub const UBLOCK_HANGUL_JAMO: i32 = 30i32;
+pub const UBLOCK_ETHIOPIC: i32 = 31i32;
+pub const UBLOCK_CHEROKEE: i32 = 32i32;
+pub const UBLOCK_UNIFIED_CANADIAN_ABORIGINAL_SYLLABICS: i32 = 33i32;
+pub const UBLOCK_OGHAM: i32 = 34i32;
+pub const UBLOCK_RUNIC: i32 = 35i32;
+pub const UBLOCK_KHMER: i32 = 36i32;
+pub const UBLOCK_MONGOLIAN: i32 = 37i32;
+pub const UBLOCK_LATIN_EXTENDED_ADDITIONAL: i32 = 38i32;
+pub const UBLOCK_GREEK_EXTENDED: i32 = 39i32;
+pub const UBLOCK_GENERAL_PUNCTUATION: i32 = 40i32;
+pub const UBLOCK_SUPERSCRIPTS_AND_SUBSCRIPTS: i32 = 41i32;
+pub const UBLOCK_CURRENCY_SYMBOLS: i32 = 42i32;
+pub const UBLOCK_COMBINING_MARKS_FOR_SYMBOLS: i32 = 43i32;
+pub const UBLOCK_LETTERLIKE_SYMBOLS: i32 = 44i32;
+pub const UBLOCK_NUMBER_FORMS: i32 = 45i32;
+pub const UBLOCK_ARROWS: i32 = 46i32;
+pub const UBLOCK_MATHEMATICAL_OPERATORS: i32 = 47i32;
+pub const UBLOCK_MISCELLANEOUS_TECHNICAL: i32 = 48i32;
+pub const UBLOCK_CONTROL_PICTURES: i32 = 49i32;
+pub const UBLOCK_OPTICAL_CHARACTER_RECOGNITION: i32 = 50i32;
+pub const UBLOCK_ENCLOSED_ALPHANUMERICS: i32 = 51i32;
+pub const UBLOCK_BOX_DRAWING: i32 = 52i32;
+pub const UBLOCK_BLOCK_ELEMENTS: i32 = 53i32;
+pub const UBLOCK_GEOMETRIC_SHAPES: i32 = 54i32;
+pub const UBLOCK_MISCELLANEOUS_SYMBOLS: i32 = 55i32;
+pub const UBLOCK_DINGBATS: i32 = 56i32;
+pub const UBLOCK_BRAILLE_PATTERNS: i32 = 57i32;
+pub const UBLOCK_CJK_RADICALS_SUPPLEMENT: i32 = 58i32;
+pub const UBLOCK_KANGXI_RADICALS: i32 = 59i32;
+pub const UBLOCK_IDEOGRAPHIC_DESCRIPTION_CHARACTERS: i32 = 60i32;
+pub const UBLOCK_CJK_SYMBOLS_AND_PUNCTUATION: i32 = 61i32;
+pub const UBLOCK_HIRAGANA: i32 = 62i32;
+pub const UBLOCK_KATAKANA: i32 = 63i32;
+pub const UBLOCK_BOPOMOFO: i32 = 64i32;
+pub const UBLOCK_HANGUL_COMPATIBILITY_JAMO: i32 = 65i32;
+pub const UBLOCK_KANBUN: i32 = 66i32;
+pub const UBLOCK_BOPOMOFO_EXTENDED: i32 = 67i32;
+pub const UBLOCK_ENCLOSED_CJK_LETTERS_AND_MONTHS: i32 = 68i32;
+pub const UBLOCK_CJK_COMPATIBILITY: i32 = 69i32;
+pub const UBLOCK_CJK_UNIFIED_IDEOGRAPHS_EXTENSION_A: i32 = 70i32;
+pub const UBLOCK_CJK_UNIFIED_IDEOGRAPHS: i32 = 71i32;
+pub const UBLOCK_YI_SYLLABLES: i32 = 72i32;
+pub const UBLOCK_YI_RADICALS: i32 = 73i32;
+pub const UBLOCK_HANGUL_SYLLABLES: i32 = 74i32;
+pub const UBLOCK_HIGH_SURROGATES: i32 = 75i32;
+pub const UBLOCK_HIGH_PRIVATE_USE_SURROGATES: i32 = 76i32;
+pub const UBLOCK_LOW_SURROGATES: i32 = 77i32;
+pub const UBLOCK_PRIVATE_USE_AREA: i32 = 78i32;
+pub const UBLOCK_PRIVATE_USE: i32 = 78i32;
+pub const UBLOCK_CJK_COMPATIBILITY_IDEOGRAPHS: i32 = 79i32;
+pub const UBLOCK_ALPHABETIC_PRESENTATION_FORMS: i32 = 80i32;
+pub const UBLOCK_ARABIC_PRESENTATION_FORMS_A: i32 = 81i32;
+pub const UBLOCK_COMBINING_HALF_MARKS: i32 = 82i32;
+pub const UBLOCK_CJK_COMPATIBILITY_FORMS: i32 = 83i32;
+pub const UBLOCK_SMALL_FORM_VARIANTS: i32 = 84i32;
+pub const UBLOCK_ARABIC_PRESENTATION_FORMS_B: i32 = 85i32;
+pub const UBLOCK_SPECIALS: i32 = 86i32;
+pub const UBLOCK_HALFWIDTH_AND_FULLWIDTH_FORMS: i32 = 87i32;
+pub const UBLOCK_OLD_ITALIC: i32 = 88i32;
+pub const UBLOCK_GOTHIC: i32 = 89i32;
+pub const UBLOCK_DESERET: i32 = 90i32;
+pub const UBLOCK_BYZANTINE_MUSICAL_SYMBOLS: i32 = 91i32;
+pub const UBLOCK_MUSICAL_SYMBOLS: i32 = 92i32;
+pub const UBLOCK_MATHEMATICAL_ALPHANUMERIC_SYMBOLS: i32 = 93i32;
+pub const UBLOCK_CJK_UNIFIED_IDEOGRAPHS_EXTENSION_B: i32 = 94i32;
+pub const UBLOCK_CJK_COMPATIBILITY_IDEOGRAPHS_SUPPLEMENT: i32 = 95i32;
+pub const UBLOCK_TAGS: i32 = 96i32;
+pub const UBLOCK_CYRILLIC_SUPPLEMENT: i32 = 97i32;
+pub const UBLOCK_CYRILLIC_SUPPLEMENTARY: i32 = 97i32;
+pub const UBLOCK_TAGALOG: i32 = 98i32;
+pub const UBLOCK_HANUNOO: i32 = 99i32;
+pub const UBLOCK_BUHID: i32 = 100i32;
+pub const UBLOCK_TAGBANWA: i32 = 101i32;
+pub const UBLOCK_MISCELLANEOUS_MATHEMATICAL_SYMBOLS_A: i32 = 102i32;
+pub const UBLOCK_SUPPLEMENTAL_ARROWS_A: i32 = 103i32;
+pub const UBLOCK_SUPPLEMENTAL_ARROWS_B: i32 = 104i32;
+pub const UBLOCK_MISCELLANEOUS_MATHEMATICAL_SYMBOLS_B: i32 = 105i32;
+pub const UBLOCK_SUPPLEMENTAL_MATHEMATICAL_OPERATORS: i32 = 106i32;
+pub const UBLOCK_KATAKANA_PHONETIC_EXTENSIONS: i32 = 107i32;
+pub const UBLOCK_VARIATION_SELECTORS: i32 = 108i32;
+pub const UBLOCK_SUPPLEMENTARY_PRIVATE_USE_AREA_A: i32 = 109i32;
+pub const UBLOCK_SUPPLEMENTARY_PRIVATE_USE_AREA_B: i32 = 110i32;
+pub const UBLOCK_LIMBU: i32 = 111i32;
+pub const UBLOCK_TAI_LE: i32 = 112i32;
+pub const UBLOCK_KHMER_SYMBOLS: i32 = 113i32;
+pub const UBLOCK_PHONETIC_EXTENSIONS: i32 = 114i32;
+pub const UBLOCK_MISCELLANEOUS_SYMBOLS_AND_ARROWS: i32 = 115i32;
+pub const UBLOCK_YIJING_HEXAGRAM_SYMBOLS: i32 = 116i32;
+pub const UBLOCK_LINEAR_B_SYLLABARY: i32 = 117i32;
+pub const UBLOCK_LINEAR_B_IDEOGRAMS: i32 = 118i32;
+pub const UBLOCK_AEGEAN_NUMBERS: i32 = 119i32;
+pub const UBLOCK_UGARITIC: i32 = 120i32;
+pub const UBLOCK_SHAVIAN: i32 = 121i32;
+pub const UBLOCK_OSMANYA: i32 = 122i32;
+pub const UBLOCK_CYPRIOT_SYLLABARY: i32 = 123i32;
+pub const UBLOCK_TAI_XUAN_JING_SYMBOLS: i32 = 124i32;
+pub const UBLOCK_VARIATION_SELECTORS_SUPPLEMENT: i32 = 125i32;
+pub const UBLOCK_ANCIENT_GREEK_MUSICAL_NOTATION: i32 = 126i32;
+pub const UBLOCK_ANCIENT_GREEK_NUMBERS: i32 = 127i32;
+pub const UBLOCK_ARABIC_SUPPLEMENT: i32 = 128i32;
+pub const UBLOCK_BUGINESE: i32 = 129i32;
+pub const UBLOCK_CJK_STROKES: i32 = 130i32;
+pub const UBLOCK_COMBINING_DIACRITICAL_MARKS_SUPPLEMENT: i32 = 131i32;
+pub const UBLOCK_COPTIC: i32 = 132i32;
+pub const UBLOCK_ETHIOPIC_EXTENDED: i32 = 133i32;
+pub const UBLOCK_ETHIOPIC_SUPPLEMENT: i32 = 134i32;
+pub const UBLOCK_GEORGIAN_SUPPLEMENT: i32 = 135i32;
+pub const UBLOCK_GLAGOLITIC: i32 = 136i32;
+pub const UBLOCK_KHAROSHTHI: i32 = 137i32;
+pub const UBLOCK_MODIFIER_TONE_LETTERS: i32 = 138i32;
+pub const UBLOCK_NEW_TAI_LUE: i32 = 139i32;
+pub const UBLOCK_OLD_PERSIAN: i32 = 140i32;
+pub const UBLOCK_PHONETIC_EXTENSIONS_SUPPLEMENT: i32 = 141i32;
+pub const UBLOCK_SUPPLEMENTAL_PUNCTUATION: i32 = 142i32;
+pub const UBLOCK_SYLOTI_NAGRI: i32 = 143i32;
+pub const UBLOCK_TIFINAGH: i32 = 144i32;
+pub const UBLOCK_VERTICAL_FORMS: i32 = 145i32;
+pub const UBLOCK_NKO: i32 = 146i32;
+pub const UBLOCK_BALINESE: i32 = 147i32;
+pub const UBLOCK_LATIN_EXTENDED_C: i32 = 148i32;
+pub const UBLOCK_LATIN_EXTENDED_D: i32 = 149i32;
+pub const UBLOCK_PHAGS_PA: i32 = 150i32;
+pub const UBLOCK_PHOENICIAN: i32 = 151i32;
+pub const UBLOCK_CUNEIFORM: i32 = 152i32;
+pub const UBLOCK_CUNEIFORM_NUMBERS_AND_PUNCTUATION: i32 = 153i32;
+pub const UBLOCK_COUNTING_ROD_NUMERALS: i32 = 154i32;
+pub const UBLOCK_SUNDANESE: i32 = 155i32;
+pub const UBLOCK_LEPCHA: i32 = 156i32;
+pub const UBLOCK_OL_CHIKI: i32 = 157i32;
+pub const UBLOCK_CYRILLIC_EXTENDED_A: i32 = 158i32;
+pub const UBLOCK_VAI: i32 = 159i32;
+pub const UBLOCK_CYRILLIC_EXTENDED_B: i32 = 160i32;
+pub const UBLOCK_SAURASHTRA: i32 = 161i32;
+pub const UBLOCK_KAYAH_LI: i32 = 162i32;
+pub const UBLOCK_REJANG: i32 = 163i32;
+pub const UBLOCK_CHAM: i32 = 164i32;
+pub const UBLOCK_ANCIENT_SYMBOLS: i32 = 165i32;
+pub const UBLOCK_PHAISTOS_DISC: i32 = 166i32;
+pub const UBLOCK_LYCIAN: i32 = 167i32;
+pub const UBLOCK_CARIAN: i32 = 168i32;
+pub const UBLOCK_LYDIAN: i32 = 169i32;
+pub const UBLOCK_MAHJONG_TILES: i32 = 170i32;
+pub const UBLOCK_DOMINO_TILES: i32 = 171i32;
+pub const UBLOCK_SAMARITAN: i32 = 172i32;
+pub const UBLOCK_UNIFIED_CANADIAN_ABORIGINAL_SYLLABICS_EXTENDED: i32 = 173i32;
+pub const UBLOCK_TAI_THAM: i32 = 174i32;
+pub const UBLOCK_VEDIC_EXTENSIONS: i32 = 175i32;
+pub const UBLOCK_LISU: i32 = 176i32;
+pub const UBLOCK_BAMUM: i32 = 177i32;
+pub const UBLOCK_COMMON_INDIC_NUMBER_FORMS: i32 = 178i32;
+pub const UBLOCK_DEVANAGARI_EXTENDED: i32 = 179i32;
+pub const UBLOCK_HANGUL_JAMO_EXTENDED_A: i32 = 180i32;
+pub const UBLOCK_JAVANESE: i32 = 181i32;
+pub const UBLOCK_MYANMAR_EXTENDED_A: i32 = 182i32;
+pub const UBLOCK_TAI_VIET: i32 = 183i32;
+pub const UBLOCK_MEETEI_MAYEK: i32 = 184i32;
+pub const UBLOCK_HANGUL_JAMO_EXTENDED_B: i32 = 185i32;
+pub const UBLOCK_IMPERIAL_ARAMAIC: i32 = 186i32;
+pub const UBLOCK_OLD_SOUTH_ARABIAN: i32 = 187i32;
+pub const UBLOCK_AVESTAN: i32 = 188i32;
+pub const UBLOCK_INSCRIPTIONAL_PARTHIAN: i32 = 189i32;
+pub const UBLOCK_INSCRIPTIONAL_PAHLAVI: i32 = 190i32;
+pub const UBLOCK_OLD_TURKIC: i32 = 191i32;
+pub const UBLOCK_RUMI_NUMERAL_SYMBOLS: i32 = 192i32;
+pub const UBLOCK_KAITHI: i32 = 193i32;
+pub const UBLOCK_EGYPTIAN_HIEROGLYPHS: i32 = 194i32;
+pub const UBLOCK_ENCLOSED_ALPHANUMERIC_SUPPLEMENT: i32 = 195i32;
+pub const UBLOCK_ENCLOSED_IDEOGRAPHIC_SUPPLEMENT: i32 = 196i32;
+pub const UBLOCK_CJK_UNIFIED_IDEOGRAPHS_EXTENSION_C: i32 = 197i32;
+pub const UBLOCK_MANDAIC: i32 = 198i32;
+pub const UBLOCK_BATAK: i32 = 199i32;
+pub const UBLOCK_ETHIOPIC_EXTENDED_A: i32 = 200i32;
+pub const UBLOCK_BRAHMI: i32 = 201i32;
+pub const UBLOCK_BAMUM_SUPPLEMENT: i32 = 202i32;
+pub const UBLOCK_KANA_SUPPLEMENT: i32 = 203i32;
+pub const UBLOCK_PLAYING_CARDS: i32 = 204i32;
+pub const UBLOCK_MISCELLANEOUS_SYMBOLS_AND_PICTOGRAPHS: i32 = 205i32;
+pub const UBLOCK_EMOTICONS: i32 = 206i32;
+pub const UBLOCK_TRANSPORT_AND_MAP_SYMBOLS: i32 = 207i32;
+pub const UBLOCK_ALCHEMICAL_SYMBOLS: i32 = 208i32;
+pub const UBLOCK_CJK_UNIFIED_IDEOGRAPHS_EXTENSION_D: i32 = 209i32;
+pub const UBLOCK_ARABIC_EXTENDED_A: i32 = 210i32;
+pub const UBLOCK_ARABIC_MATHEMATICAL_ALPHABETIC_SYMBOLS: i32 = 211i32;
+pub const UBLOCK_CHAKMA: i32 = 212i32;
+pub const UBLOCK_MEETEI_MAYEK_EXTENSIONS: i32 = 213i32;
+pub const UBLOCK_MEROITIC_CURSIVE: i32 = 214i32;
+pub const UBLOCK_MEROITIC_HIEROGLYPHS: i32 = 215i32;
+pub const UBLOCK_MIAO: i32 = 216i32;
+pub const UBLOCK_SHARADA: i32 = 217i32;
+pub const UBLOCK_SORA_SOMPENG: i32 = 218i32;
+pub const UBLOCK_SUNDANESE_SUPPLEMENT: i32 = 219i32;
+pub const UBLOCK_TAKRI: i32 = 220i32;
+pub const UBLOCK_BASSA_VAH: i32 = 221i32;
+pub const UBLOCK_CAUCASIAN_ALBANIAN: i32 = 222i32;
+pub const UBLOCK_COPTIC_EPACT_NUMBERS: i32 = 223i32;
+pub const UBLOCK_COMBINING_DIACRITICAL_MARKS_EXTENDED: i32 = 224i32;
+pub const UBLOCK_DUPLOYAN: i32 = 225i32;
+pub const UBLOCK_ELBASAN: i32 = 226i32;
+pub const UBLOCK_GEOMETRIC_SHAPES_EXTENDED: i32 = 227i32;
+pub const UBLOCK_GRANTHA: i32 = 228i32;
+pub const UBLOCK_KHOJKI: i32 = 229i32;
+pub const UBLOCK_KHUDAWADI: i32 = 230i32;
+pub const UBLOCK_LATIN_EXTENDED_E: i32 = 231i32;
+pub const UBLOCK_LINEAR_A: i32 = 232i32;
+pub const UBLOCK_MAHAJANI: i32 = 233i32;
+pub const UBLOCK_MANICHAEAN: i32 = 234i32;
+pub const UBLOCK_MENDE_KIKAKUI: i32 = 235i32;
+pub const UBLOCK_MODI: i32 = 236i32;
+pub const UBLOCK_MRO: i32 = 237i32;
+pub const UBLOCK_MYANMAR_EXTENDED_B: i32 = 238i32;
+pub const UBLOCK_NABATAEAN: i32 = 239i32;
+pub const UBLOCK_OLD_NORTH_ARABIAN: i32 = 240i32;
+pub const UBLOCK_OLD_PERMIC: i32 = 241i32;
+pub const UBLOCK_ORNAMENTAL_DINGBATS: i32 = 242i32;
+pub const UBLOCK_PAHAWH_HMONG: i32 = 243i32;
+pub const UBLOCK_PALMYRENE: i32 = 244i32;
+pub const UBLOCK_PAU_CIN_HAU: i32 = 245i32;
+pub const UBLOCK_PSALTER_PAHLAVI: i32 = 246i32;
+pub const UBLOCK_SHORTHAND_FORMAT_CONTROLS: i32 = 247i32;
+pub const UBLOCK_SIDDHAM: i32 = 248i32;
+pub const UBLOCK_SINHALA_ARCHAIC_NUMBERS: i32 = 249i32;
+pub const UBLOCK_SUPPLEMENTAL_ARROWS_C: i32 = 250i32;
+pub const UBLOCK_TIRHUTA: i32 = 251i32;
+pub const UBLOCK_WARANG_CITI: i32 = 252i32;
+pub const UBLOCK_AHOM: i32 = 253i32;
+pub const UBLOCK_ANATOLIAN_HIEROGLYPHS: i32 = 254i32;
+pub const UBLOCK_CHEROKEE_SUPPLEMENT: i32 = 255i32;
+pub const UBLOCK_CJK_UNIFIED_IDEOGRAPHS_EXTENSION_E: i32 = 256i32;
+pub const UBLOCK_EARLY_DYNASTIC_CUNEIFORM: i32 = 257i32;
+pub const UBLOCK_HATRAN: i32 = 258i32;
+pub const UBLOCK_MULTANI: i32 = 259i32;
+pub const UBLOCK_OLD_HUNGARIAN: i32 = 260i32;
+pub const UBLOCK_SUPPLEMENTAL_SYMBOLS_AND_PICTOGRAPHS: i32 = 261i32;
+pub const UBLOCK_SUTTON_SIGNWRITING: i32 = 262i32;
+pub const UBLOCK_ADLAM: i32 = 263i32;
+pub const UBLOCK_BHAIKSUKI: i32 = 264i32;
+pub const UBLOCK_CYRILLIC_EXTENDED_C: i32 = 265i32;
+pub const UBLOCK_GLAGOLITIC_SUPPLEMENT: i32 = 266i32;
+pub const UBLOCK_IDEOGRAPHIC_SYMBOLS_AND_PUNCTUATION: i32 = 267i32;
+pub const UBLOCK_MARCHEN: i32 = 268i32;
+pub const UBLOCK_MONGOLIAN_SUPPLEMENT: i32 = 269i32;
+pub const UBLOCK_NEWA: i32 = 270i32;
+pub const UBLOCK_OSAGE: i32 = 271i32;
+pub const UBLOCK_TANGUT: i32 = 272i32;
+pub const UBLOCK_TANGUT_COMPONENTS: i32 = 273i32;
+pub const UBLOCK_CJK_UNIFIED_IDEOGRAPHS_EXTENSION_F: i32 = 274i32;
+pub const UBLOCK_KANA_EXTENDED_A: i32 = 275i32;
+pub const UBLOCK_MASARAM_GONDI: i32 = 276i32;
+pub const UBLOCK_NUSHU: i32 = 277i32;
+pub const UBLOCK_SOYOMBO: i32 = 278i32;
+pub const UBLOCK_SYRIAC_SUPPLEMENT: i32 = 279i32;
+pub const UBLOCK_ZANABAZAR_SQUARE: i32 = 280i32;
+pub const UBLOCK_CHESS_SYMBOLS: i32 = 281i32;
+pub const UBLOCK_DOGRA: i32 = 282i32;
+pub const UBLOCK_GEORGIAN_EXTENDED: i32 = 283i32;
+pub const UBLOCK_GUNJALA_GONDI: i32 = 284i32;
+pub const UBLOCK_HANIFI_ROHINGYA: i32 = 285i32;
+pub const UBLOCK_INDIC_SIYAQ_NUMBERS: i32 = 286i32;
+pub const UBLOCK_MAKASAR: i32 = 287i32;
+pub const UBLOCK_MAYAN_NUMERALS: i32 = 288i32;
+pub const UBLOCK_MEDEFAIDRIN: i32 = 289i32;
+pub const UBLOCK_OLD_SOGDIAN: i32 = 290i32;
+pub const UBLOCK_SOGDIAN: i32 = 291i32;
+pub const UBLOCK_EGYPTIAN_HIEROGLYPH_FORMAT_CONTROLS: i32 = 292i32;
+pub const UBLOCK_ELYMAIC: i32 = 293i32;
+pub const UBLOCK_NANDINAGARI: i32 = 294i32;
+pub const UBLOCK_NYIAKENG_PUACHUE_HMONG: i32 = 295i32;
+pub const UBLOCK_OTTOMAN_SIYAQ_NUMBERS: i32 = 296i32;
+pub const UBLOCK_SMALL_KANA_EXTENSION: i32 = 297i32;
+pub const UBLOCK_SYMBOLS_AND_PICTOGRAPHS_EXTENDED_A: i32 = 298i32;
+pub const UBLOCK_TAMIL_SUPPLEMENT: i32 = 299i32;
+pub const UBLOCK_WANCHO: i32 = 300i32;
+pub const UBLOCK_CHORASMIAN: i32 = 301i32;
+pub const UBLOCK_CJK_UNIFIED_IDEOGRAPHS_EXTENSION_G: i32 = 302i32;
+pub const UBLOCK_DIVES_AKURU: i32 = 303i32;
+pub const UBLOCK_KHITAN_SMALL_SCRIPT: i32 = 304i32;
+pub const UBLOCK_LISU_SUPPLEMENT: i32 = 305i32;
+pub const UBLOCK_SYMBOLS_FOR_LEGACY_COMPUTING: i32 = 306i32;
+pub const UBLOCK_TANGUT_SUPPLEMENT: i32 = 307i32;
+pub const UBLOCK_YEZIDI: i32 = 308i32;
+pub const UBLOCK_INVALID_CODE: i32 = -1i32;
 #[repr(C)]
 pub struct UBreakIterator(pub u8);
-#[repr(transparent)]
-pub struct UBreakIteratorType(pub i32);
-pub const UBRK_CHARACTER: UBreakIteratorType = UBreakIteratorType(0i32);
-pub const UBRK_WORD: UBreakIteratorType = UBreakIteratorType(1i32);
-pub const UBRK_LINE: UBreakIteratorType = UBreakIteratorType(2i32);
-pub const UBRK_SENTENCE: UBreakIteratorType = UBreakIteratorType(3i32);
-impl ::core::marker::Copy for UBreakIteratorType {}
-impl ::core::clone::Clone for UBreakIteratorType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const UBRK_CHARACTER: i32 = 0i32;
+pub const UBRK_WORD: i32 = 1i32;
+pub const UBRK_LINE: i32 = 2i32;
+pub const UBRK_SENTENCE: i32 = 3i32;
 pub const UCHAR_MAX_VALUE: u32 = 1114111u32;
 pub const UCHAR_MIN_VALUE: u32 = 0u32;
 pub const UCLN_NO_AUTO_CLEANUP: u32 = 1u32;
@@ -3888,17 +3632,9 @@ pub const UCNV_SO: u32 = 14u32;
 pub const UCONFIG_ENABLE_PLUGINS: u32 = 0u32;
 #[repr(C)]
 pub struct UCPMap(pub u8);
-#[repr(transparent)]
-pub struct UCPMapRangeOption(pub i32);
-pub const UCPMAP_RANGE_NORMAL: UCPMapRangeOption = UCPMapRangeOption(0i32);
-pub const UCPMAP_RANGE_FIXED_LEAD_SURROGATES: UCPMapRangeOption = UCPMapRangeOption(1i32);
-pub const UCPMAP_RANGE_FIXED_ALL_SURROGATES: UCPMapRangeOption = UCPMapRangeOption(2i32);
-impl ::core::marker::Copy for UCPMapRangeOption {}
-impl ::core::clone::Clone for UCPMapRangeOption {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const UCPMAP_RANGE_NORMAL: i32 = 0i32;
+pub const UCPMAP_RANGE_FIXED_LEAD_SURROGATES: i32 = 1i32;
+pub const UCPMAP_RANGE_FIXED_ALL_SURROGATES: i32 = 2i32;
 pub type UCPMapValueFilter = unsafe extern "system" fn(context: *const ::core::ffi::c_void, value: u32) -> u32;
 pub const UCPTRIE_ERROR_VALUE_NEG_DATA_OFFSET: i32 = 1i32;
 pub const UCPTRIE_FAST_DATA_BLOCK_LENGTH: i32 = 64i32;
@@ -3941,254 +3677,142 @@ impl ::core::clone::Clone for UCPTrieData {
         *self
     }
 }
-#[repr(transparent)]
-pub struct UCPTrieType(pub i32);
-pub const UCPTRIE_TYPE_ANY: UCPTrieType = UCPTrieType(-1i32);
-pub const UCPTRIE_TYPE_FAST: UCPTrieType = UCPTrieType(0i32);
-pub const UCPTRIE_TYPE_SMALL: UCPTrieType = UCPTrieType(1i32);
-impl ::core::marker::Copy for UCPTrieType {}
-impl ::core::clone::Clone for UCPTrieType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct UCPTrieValueWidth(pub i32);
-pub const UCPTRIE_VALUE_BITS_ANY: UCPTrieValueWidth = UCPTrieValueWidth(-1i32);
-pub const UCPTRIE_VALUE_BITS_16: UCPTrieValueWidth = UCPTrieValueWidth(0i32);
-pub const UCPTRIE_VALUE_BITS_32: UCPTrieValueWidth = UCPTrieValueWidth(1i32);
-pub const UCPTRIE_VALUE_BITS_8: UCPTrieValueWidth = UCPTrieValueWidth(2i32);
-impl ::core::marker::Copy for UCPTrieValueWidth {}
-impl ::core::clone::Clone for UCPTrieValueWidth {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct UCalendarAMPMs(pub i32);
-pub const UCAL_AM: UCalendarAMPMs = UCalendarAMPMs(0i32);
-pub const UCAL_PM: UCalendarAMPMs = UCalendarAMPMs(1i32);
-impl ::core::marker::Copy for UCalendarAMPMs {}
-impl ::core::clone::Clone for UCalendarAMPMs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct UCalendarAttribute(pub i32);
-pub const UCAL_LENIENT: UCalendarAttribute = UCalendarAttribute(0i32);
-pub const UCAL_FIRST_DAY_OF_WEEK: UCalendarAttribute = UCalendarAttribute(1i32);
-pub const UCAL_MINIMAL_DAYS_IN_FIRST_WEEK: UCalendarAttribute = UCalendarAttribute(2i32);
-pub const UCAL_REPEATED_WALL_TIME: UCalendarAttribute = UCalendarAttribute(3i32);
-pub const UCAL_SKIPPED_WALL_TIME: UCalendarAttribute = UCalendarAttribute(4i32);
-impl ::core::marker::Copy for UCalendarAttribute {}
-impl ::core::clone::Clone for UCalendarAttribute {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct UCalendarDateFields(pub i32);
-pub const UCAL_ERA: UCalendarDateFields = UCalendarDateFields(0i32);
-pub const UCAL_YEAR: UCalendarDateFields = UCalendarDateFields(1i32);
-pub const UCAL_MONTH: UCalendarDateFields = UCalendarDateFields(2i32);
-pub const UCAL_WEEK_OF_YEAR: UCalendarDateFields = UCalendarDateFields(3i32);
-pub const UCAL_WEEK_OF_MONTH: UCalendarDateFields = UCalendarDateFields(4i32);
-pub const UCAL_DATE: UCalendarDateFields = UCalendarDateFields(5i32);
-pub const UCAL_DAY_OF_YEAR: UCalendarDateFields = UCalendarDateFields(6i32);
-pub const UCAL_DAY_OF_WEEK: UCalendarDateFields = UCalendarDateFields(7i32);
-pub const UCAL_DAY_OF_WEEK_IN_MONTH: UCalendarDateFields = UCalendarDateFields(8i32);
-pub const UCAL_AM_PM: UCalendarDateFields = UCalendarDateFields(9i32);
-pub const UCAL_HOUR: UCalendarDateFields = UCalendarDateFields(10i32);
-pub const UCAL_HOUR_OF_DAY: UCalendarDateFields = UCalendarDateFields(11i32);
-pub const UCAL_MINUTE: UCalendarDateFields = UCalendarDateFields(12i32);
-pub const UCAL_SECOND: UCalendarDateFields = UCalendarDateFields(13i32);
-pub const UCAL_MILLISECOND: UCalendarDateFields = UCalendarDateFields(14i32);
-pub const UCAL_ZONE_OFFSET: UCalendarDateFields = UCalendarDateFields(15i32);
-pub const UCAL_DST_OFFSET: UCalendarDateFields = UCalendarDateFields(16i32);
-pub const UCAL_YEAR_WOY: UCalendarDateFields = UCalendarDateFields(17i32);
-pub const UCAL_DOW_LOCAL: UCalendarDateFields = UCalendarDateFields(18i32);
-pub const UCAL_EXTENDED_YEAR: UCalendarDateFields = UCalendarDateFields(19i32);
-pub const UCAL_JULIAN_DAY: UCalendarDateFields = UCalendarDateFields(20i32);
-pub const UCAL_MILLISECONDS_IN_DAY: UCalendarDateFields = UCalendarDateFields(21i32);
-pub const UCAL_IS_LEAP_MONTH: UCalendarDateFields = UCalendarDateFields(22i32);
-pub const UCAL_FIELD_COUNT: UCalendarDateFields = UCalendarDateFields(23i32);
-pub const UCAL_DAY_OF_MONTH: UCalendarDateFields = UCalendarDateFields(5i32);
-impl ::core::marker::Copy for UCalendarDateFields {}
-impl ::core::clone::Clone for UCalendarDateFields {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct UCalendarDaysOfWeek(pub i32);
-pub const UCAL_SUNDAY: UCalendarDaysOfWeek = UCalendarDaysOfWeek(1i32);
-pub const UCAL_MONDAY: UCalendarDaysOfWeek = UCalendarDaysOfWeek(2i32);
-pub const UCAL_TUESDAY: UCalendarDaysOfWeek = UCalendarDaysOfWeek(3i32);
-pub const UCAL_WEDNESDAY: UCalendarDaysOfWeek = UCalendarDaysOfWeek(4i32);
-pub const UCAL_THURSDAY: UCalendarDaysOfWeek = UCalendarDaysOfWeek(5i32);
-pub const UCAL_FRIDAY: UCalendarDaysOfWeek = UCalendarDaysOfWeek(6i32);
-pub const UCAL_SATURDAY: UCalendarDaysOfWeek = UCalendarDaysOfWeek(7i32);
-impl ::core::marker::Copy for UCalendarDaysOfWeek {}
-impl ::core::clone::Clone for UCalendarDaysOfWeek {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct UCalendarDisplayNameType(pub i32);
-pub const UCAL_STANDARD: UCalendarDisplayNameType = UCalendarDisplayNameType(0i32);
-pub const UCAL_SHORT_STANDARD: UCalendarDisplayNameType = UCalendarDisplayNameType(1i32);
-pub const UCAL_DST: UCalendarDisplayNameType = UCalendarDisplayNameType(2i32);
-pub const UCAL_SHORT_DST: UCalendarDisplayNameType = UCalendarDisplayNameType(3i32);
-impl ::core::marker::Copy for UCalendarDisplayNameType {}
-impl ::core::clone::Clone for UCalendarDisplayNameType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct UCalendarLimitType(pub i32);
-pub const UCAL_MINIMUM: UCalendarLimitType = UCalendarLimitType(0i32);
-pub const UCAL_MAXIMUM: UCalendarLimitType = UCalendarLimitType(1i32);
-pub const UCAL_GREATEST_MINIMUM: UCalendarLimitType = UCalendarLimitType(2i32);
-pub const UCAL_LEAST_MAXIMUM: UCalendarLimitType = UCalendarLimitType(3i32);
-pub const UCAL_ACTUAL_MINIMUM: UCalendarLimitType = UCalendarLimitType(4i32);
-pub const UCAL_ACTUAL_MAXIMUM: UCalendarLimitType = UCalendarLimitType(5i32);
-impl ::core::marker::Copy for UCalendarLimitType {}
-impl ::core::clone::Clone for UCalendarLimitType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct UCalendarMonths(pub i32);
-pub const UCAL_JANUARY: UCalendarMonths = UCalendarMonths(0i32);
-pub const UCAL_FEBRUARY: UCalendarMonths = UCalendarMonths(1i32);
-pub const UCAL_MARCH: UCalendarMonths = UCalendarMonths(2i32);
-pub const UCAL_APRIL: UCalendarMonths = UCalendarMonths(3i32);
-pub const UCAL_MAY: UCalendarMonths = UCalendarMonths(4i32);
-pub const UCAL_JUNE: UCalendarMonths = UCalendarMonths(5i32);
-pub const UCAL_JULY: UCalendarMonths = UCalendarMonths(6i32);
-pub const UCAL_AUGUST: UCalendarMonths = UCalendarMonths(7i32);
-pub const UCAL_SEPTEMBER: UCalendarMonths = UCalendarMonths(8i32);
-pub const UCAL_OCTOBER: UCalendarMonths = UCalendarMonths(9i32);
-pub const UCAL_NOVEMBER: UCalendarMonths = UCalendarMonths(10i32);
-pub const UCAL_DECEMBER: UCalendarMonths = UCalendarMonths(11i32);
-pub const UCAL_UNDECIMBER: UCalendarMonths = UCalendarMonths(12i32);
-impl ::core::marker::Copy for UCalendarMonths {}
-impl ::core::clone::Clone for UCalendarMonths {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct UCalendarType(pub i32);
-pub const UCAL_TRADITIONAL: UCalendarType = UCalendarType(0i32);
-pub const UCAL_DEFAULT: UCalendarType = UCalendarType(0i32);
-pub const UCAL_GREGORIAN: UCalendarType = UCalendarType(1i32);
-impl ::core::marker::Copy for UCalendarType {}
-impl ::core::clone::Clone for UCalendarType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct UCalendarWallTimeOption(pub i32);
-pub const UCAL_WALLTIME_LAST: UCalendarWallTimeOption = UCalendarWallTimeOption(0i32);
-pub const UCAL_WALLTIME_FIRST: UCalendarWallTimeOption = UCalendarWallTimeOption(1i32);
-pub const UCAL_WALLTIME_NEXT_VALID: UCalendarWallTimeOption = UCalendarWallTimeOption(2i32);
-impl ::core::marker::Copy for UCalendarWallTimeOption {}
-impl ::core::clone::Clone for UCalendarWallTimeOption {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct UCalendarWeekdayType(pub i32);
-pub const UCAL_WEEKDAY: UCalendarWeekdayType = UCalendarWeekdayType(0i32);
-pub const UCAL_WEEKEND: UCalendarWeekdayType = UCalendarWeekdayType(1i32);
-pub const UCAL_WEEKEND_ONSET: UCalendarWeekdayType = UCalendarWeekdayType(2i32);
-pub const UCAL_WEEKEND_CEASE: UCalendarWeekdayType = UCalendarWeekdayType(3i32);
-impl ::core::marker::Copy for UCalendarWeekdayType {}
-impl ::core::clone::Clone for UCalendarWeekdayType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const UCPTRIE_TYPE_ANY: i32 = -1i32;
+pub const UCPTRIE_TYPE_FAST: i32 = 0i32;
+pub const UCPTRIE_TYPE_SMALL: i32 = 1i32;
+pub const UCPTRIE_VALUE_BITS_ANY: i32 = -1i32;
+pub const UCPTRIE_VALUE_BITS_16: i32 = 0i32;
+pub const UCPTRIE_VALUE_BITS_32: i32 = 1i32;
+pub const UCPTRIE_VALUE_BITS_8: i32 = 2i32;
+pub const UCAL_AM: i32 = 0i32;
+pub const UCAL_PM: i32 = 1i32;
+pub const UCAL_LENIENT: i32 = 0i32;
+pub const UCAL_FIRST_DAY_OF_WEEK: i32 = 1i32;
+pub const UCAL_MINIMAL_DAYS_IN_FIRST_WEEK: i32 = 2i32;
+pub const UCAL_REPEATED_WALL_TIME: i32 = 3i32;
+pub const UCAL_SKIPPED_WALL_TIME: i32 = 4i32;
+pub const UCAL_ERA: i32 = 0i32;
+pub const UCAL_YEAR: i32 = 1i32;
+pub const UCAL_MONTH: i32 = 2i32;
+pub const UCAL_WEEK_OF_YEAR: i32 = 3i32;
+pub const UCAL_WEEK_OF_MONTH: i32 = 4i32;
+pub const UCAL_DATE: i32 = 5i32;
+pub const UCAL_DAY_OF_YEAR: i32 = 6i32;
+pub const UCAL_DAY_OF_WEEK: i32 = 7i32;
+pub const UCAL_DAY_OF_WEEK_IN_MONTH: i32 = 8i32;
+pub const UCAL_AM_PM: i32 = 9i32;
+pub const UCAL_HOUR: i32 = 10i32;
+pub const UCAL_HOUR_OF_DAY: i32 = 11i32;
+pub const UCAL_MINUTE: i32 = 12i32;
+pub const UCAL_SECOND: i32 = 13i32;
+pub const UCAL_MILLISECOND: i32 = 14i32;
+pub const UCAL_ZONE_OFFSET: i32 = 15i32;
+pub const UCAL_DST_OFFSET: i32 = 16i32;
+pub const UCAL_YEAR_WOY: i32 = 17i32;
+pub const UCAL_DOW_LOCAL: i32 = 18i32;
+pub const UCAL_EXTENDED_YEAR: i32 = 19i32;
+pub const UCAL_JULIAN_DAY: i32 = 20i32;
+pub const UCAL_MILLISECONDS_IN_DAY: i32 = 21i32;
+pub const UCAL_IS_LEAP_MONTH: i32 = 22i32;
+pub const UCAL_FIELD_COUNT: i32 = 23i32;
+pub const UCAL_DAY_OF_MONTH: i32 = 5i32;
+pub const UCAL_SUNDAY: i32 = 1i32;
+pub const UCAL_MONDAY: i32 = 2i32;
+pub const UCAL_TUESDAY: i32 = 3i32;
+pub const UCAL_WEDNESDAY: i32 = 4i32;
+pub const UCAL_THURSDAY: i32 = 5i32;
+pub const UCAL_FRIDAY: i32 = 6i32;
+pub const UCAL_SATURDAY: i32 = 7i32;
+pub const UCAL_STANDARD: i32 = 0i32;
+pub const UCAL_SHORT_STANDARD: i32 = 1i32;
+pub const UCAL_DST: i32 = 2i32;
+pub const UCAL_SHORT_DST: i32 = 3i32;
+pub const UCAL_MINIMUM: i32 = 0i32;
+pub const UCAL_MAXIMUM: i32 = 1i32;
+pub const UCAL_GREATEST_MINIMUM: i32 = 2i32;
+pub const UCAL_LEAST_MAXIMUM: i32 = 3i32;
+pub const UCAL_ACTUAL_MINIMUM: i32 = 4i32;
+pub const UCAL_ACTUAL_MAXIMUM: i32 = 5i32;
+pub const UCAL_JANUARY: i32 = 0i32;
+pub const UCAL_FEBRUARY: i32 = 1i32;
+pub const UCAL_MARCH: i32 = 2i32;
+pub const UCAL_APRIL: i32 = 3i32;
+pub const UCAL_MAY: i32 = 4i32;
+pub const UCAL_JUNE: i32 = 5i32;
+pub const UCAL_JULY: i32 = 6i32;
+pub const UCAL_AUGUST: i32 = 7i32;
+pub const UCAL_SEPTEMBER: i32 = 8i32;
+pub const UCAL_OCTOBER: i32 = 9i32;
+pub const UCAL_NOVEMBER: i32 = 10i32;
+pub const UCAL_DECEMBER: i32 = 11i32;
+pub const UCAL_UNDECIMBER: i32 = 12i32;
+pub const UCAL_TRADITIONAL: i32 = 0i32;
+pub const UCAL_DEFAULT: i32 = 0i32;
+pub const UCAL_GREGORIAN: i32 = 1i32;
+pub const UCAL_WALLTIME_LAST: i32 = 0i32;
+pub const UCAL_WALLTIME_FIRST: i32 = 1i32;
+pub const UCAL_WALLTIME_NEXT_VALID: i32 = 2i32;
+pub const UCAL_WEEKDAY: i32 = 0i32;
+pub const UCAL_WEEKEND: i32 = 1i32;
+pub const UCAL_WEEKEND_ONSET: i32 = 2i32;
+pub const UCAL_WEEKEND_CEASE: i32 = 3i32;
 #[repr(C)]
 pub struct UCaseMap(pub u8);
-#[repr(transparent)]
-pub struct UCharCategory(pub i32);
-pub const U_UNASSIGNED: UCharCategory = UCharCategory(0i32);
-pub const U_GENERAL_OTHER_TYPES: UCharCategory = UCharCategory(0i32);
-pub const U_UPPERCASE_LETTER: UCharCategory = UCharCategory(1i32);
-pub const U_LOWERCASE_LETTER: UCharCategory = UCharCategory(2i32);
-pub const U_TITLECASE_LETTER: UCharCategory = UCharCategory(3i32);
-pub const U_MODIFIER_LETTER: UCharCategory = UCharCategory(4i32);
-pub const U_OTHER_LETTER: UCharCategory = UCharCategory(5i32);
-pub const U_NON_SPACING_MARK: UCharCategory = UCharCategory(6i32);
-pub const U_ENCLOSING_MARK: UCharCategory = UCharCategory(7i32);
-pub const U_COMBINING_SPACING_MARK: UCharCategory = UCharCategory(8i32);
-pub const U_DECIMAL_DIGIT_NUMBER: UCharCategory = UCharCategory(9i32);
-pub const U_LETTER_NUMBER: UCharCategory = UCharCategory(10i32);
-pub const U_OTHER_NUMBER: UCharCategory = UCharCategory(11i32);
-pub const U_SPACE_SEPARATOR: UCharCategory = UCharCategory(12i32);
-pub const U_LINE_SEPARATOR: UCharCategory = UCharCategory(13i32);
-pub const U_PARAGRAPH_SEPARATOR: UCharCategory = UCharCategory(14i32);
-pub const U_CONTROL_CHAR: UCharCategory = UCharCategory(15i32);
-pub const U_FORMAT_CHAR: UCharCategory = UCharCategory(16i32);
-pub const U_PRIVATE_USE_CHAR: UCharCategory = UCharCategory(17i32);
-pub const U_SURROGATE: UCharCategory = UCharCategory(18i32);
-pub const U_DASH_PUNCTUATION: UCharCategory = UCharCategory(19i32);
-pub const U_START_PUNCTUATION: UCharCategory = UCharCategory(20i32);
-pub const U_END_PUNCTUATION: UCharCategory = UCharCategory(21i32);
-pub const U_CONNECTOR_PUNCTUATION: UCharCategory = UCharCategory(22i32);
-pub const U_OTHER_PUNCTUATION: UCharCategory = UCharCategory(23i32);
-pub const U_MATH_SYMBOL: UCharCategory = UCharCategory(24i32);
-pub const U_CURRENCY_SYMBOL: UCharCategory = UCharCategory(25i32);
-pub const U_MODIFIER_SYMBOL: UCharCategory = UCharCategory(26i32);
-pub const U_OTHER_SYMBOL: UCharCategory = UCharCategory(27i32);
-pub const U_INITIAL_PUNCTUATION: UCharCategory = UCharCategory(28i32);
-pub const U_FINAL_PUNCTUATION: UCharCategory = UCharCategory(29i32);
-pub const U_CHAR_CATEGORY_COUNT: UCharCategory = UCharCategory(30i32);
-impl ::core::marker::Copy for UCharCategory {}
-impl ::core::clone::Clone for UCharCategory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct UCharDirection(pub i32);
-pub const U_LEFT_TO_RIGHT: UCharDirection = UCharDirection(0i32);
-pub const U_RIGHT_TO_LEFT: UCharDirection = UCharDirection(1i32);
-pub const U_EUROPEAN_NUMBER: UCharDirection = UCharDirection(2i32);
-pub const U_EUROPEAN_NUMBER_SEPARATOR: UCharDirection = UCharDirection(3i32);
-pub const U_EUROPEAN_NUMBER_TERMINATOR: UCharDirection = UCharDirection(4i32);
-pub const U_ARABIC_NUMBER: UCharDirection = UCharDirection(5i32);
-pub const U_COMMON_NUMBER_SEPARATOR: UCharDirection = UCharDirection(6i32);
-pub const U_BLOCK_SEPARATOR: UCharDirection = UCharDirection(7i32);
-pub const U_SEGMENT_SEPARATOR: UCharDirection = UCharDirection(8i32);
-pub const U_WHITE_SPACE_NEUTRAL: UCharDirection = UCharDirection(9i32);
-pub const U_OTHER_NEUTRAL: UCharDirection = UCharDirection(10i32);
-pub const U_LEFT_TO_RIGHT_EMBEDDING: UCharDirection = UCharDirection(11i32);
-pub const U_LEFT_TO_RIGHT_OVERRIDE: UCharDirection = UCharDirection(12i32);
-pub const U_RIGHT_TO_LEFT_ARABIC: UCharDirection = UCharDirection(13i32);
-pub const U_RIGHT_TO_LEFT_EMBEDDING: UCharDirection = UCharDirection(14i32);
-pub const U_RIGHT_TO_LEFT_OVERRIDE: UCharDirection = UCharDirection(15i32);
-pub const U_POP_DIRECTIONAL_FORMAT: UCharDirection = UCharDirection(16i32);
-pub const U_DIR_NON_SPACING_MARK: UCharDirection = UCharDirection(17i32);
-pub const U_BOUNDARY_NEUTRAL: UCharDirection = UCharDirection(18i32);
-pub const U_FIRST_STRONG_ISOLATE: UCharDirection = UCharDirection(19i32);
-pub const U_LEFT_TO_RIGHT_ISOLATE: UCharDirection = UCharDirection(20i32);
-pub const U_RIGHT_TO_LEFT_ISOLATE: UCharDirection = UCharDirection(21i32);
-pub const U_POP_DIRECTIONAL_ISOLATE: UCharDirection = UCharDirection(22i32);
-impl ::core::marker::Copy for UCharDirection {}
-impl ::core::clone::Clone for UCharDirection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const U_UNASSIGNED: i32 = 0i32;
+pub const U_GENERAL_OTHER_TYPES: i32 = 0i32;
+pub const U_UPPERCASE_LETTER: i32 = 1i32;
+pub const U_LOWERCASE_LETTER: i32 = 2i32;
+pub const U_TITLECASE_LETTER: i32 = 3i32;
+pub const U_MODIFIER_LETTER: i32 = 4i32;
+pub const U_OTHER_LETTER: i32 = 5i32;
+pub const U_NON_SPACING_MARK: i32 = 6i32;
+pub const U_ENCLOSING_MARK: i32 = 7i32;
+pub const U_COMBINING_SPACING_MARK: i32 = 8i32;
+pub const U_DECIMAL_DIGIT_NUMBER: i32 = 9i32;
+pub const U_LETTER_NUMBER: i32 = 10i32;
+pub const U_OTHER_NUMBER: i32 = 11i32;
+pub const U_SPACE_SEPARATOR: i32 = 12i32;
+pub const U_LINE_SEPARATOR: i32 = 13i32;
+pub const U_PARAGRAPH_SEPARATOR: i32 = 14i32;
+pub const U_CONTROL_CHAR: i32 = 15i32;
+pub const U_FORMAT_CHAR: i32 = 16i32;
+pub const U_PRIVATE_USE_CHAR: i32 = 17i32;
+pub const U_SURROGATE: i32 = 18i32;
+pub const U_DASH_PUNCTUATION: i32 = 19i32;
+pub const U_START_PUNCTUATION: i32 = 20i32;
+pub const U_END_PUNCTUATION: i32 = 21i32;
+pub const U_CONNECTOR_PUNCTUATION: i32 = 22i32;
+pub const U_OTHER_PUNCTUATION: i32 = 23i32;
+pub const U_MATH_SYMBOL: i32 = 24i32;
+pub const U_CURRENCY_SYMBOL: i32 = 25i32;
+pub const U_MODIFIER_SYMBOL: i32 = 26i32;
+pub const U_OTHER_SYMBOL: i32 = 27i32;
+pub const U_INITIAL_PUNCTUATION: i32 = 28i32;
+pub const U_FINAL_PUNCTUATION: i32 = 29i32;
+pub const U_CHAR_CATEGORY_COUNT: i32 = 30i32;
+pub const U_LEFT_TO_RIGHT: i32 = 0i32;
+pub const U_RIGHT_TO_LEFT: i32 = 1i32;
+pub const U_EUROPEAN_NUMBER: i32 = 2i32;
+pub const U_EUROPEAN_NUMBER_SEPARATOR: i32 = 3i32;
+pub const U_EUROPEAN_NUMBER_TERMINATOR: i32 = 4i32;
+pub const U_ARABIC_NUMBER: i32 = 5i32;
+pub const U_COMMON_NUMBER_SEPARATOR: i32 = 6i32;
+pub const U_BLOCK_SEPARATOR: i32 = 7i32;
+pub const U_SEGMENT_SEPARATOR: i32 = 8i32;
+pub const U_WHITE_SPACE_NEUTRAL: i32 = 9i32;
+pub const U_OTHER_NEUTRAL: i32 = 10i32;
+pub const U_LEFT_TO_RIGHT_EMBEDDING: i32 = 11i32;
+pub const U_LEFT_TO_RIGHT_OVERRIDE: i32 = 12i32;
+pub const U_RIGHT_TO_LEFT_ARABIC: i32 = 13i32;
+pub const U_RIGHT_TO_LEFT_EMBEDDING: i32 = 14i32;
+pub const U_RIGHT_TO_LEFT_OVERRIDE: i32 = 15i32;
+pub const U_POP_DIRECTIONAL_FORMAT: i32 = 16i32;
+pub const U_DIR_NON_SPACING_MARK: i32 = 17i32;
+pub const U_BOUNDARY_NEUTRAL: i32 = 18i32;
+pub const U_FIRST_STRONG_ISOLATE: i32 = 19i32;
+pub const U_LEFT_TO_RIGHT_ISOLATE: i32 = 20i32;
+pub const U_RIGHT_TO_LEFT_ISOLATE: i32 = 21i32;
+pub const U_POP_DIRECTIONAL_ISOLATE: i32 = 22i32;
 pub type UCharEnumTypeRange = unsafe extern "system" fn(context: *const ::core::ffi::c_void, start: i32, limit: i32, r#type: UCharCategory) -> i8;
 #[repr(C)]
 pub struct UCharIterator {
@@ -4222,148 +3846,76 @@ pub type UCharIteratorHasNext = unsafe extern "system" fn(iter: *mut UCharIterat
 pub type UCharIteratorHasPrevious = unsafe extern "system" fn(iter: *mut UCharIterator) -> i8;
 pub type UCharIteratorMove = unsafe extern "system" fn(iter: *mut UCharIterator, delta: i32, origin: UCharIteratorOrigin) -> i32;
 pub type UCharIteratorNext = unsafe extern "system" fn(iter: *mut UCharIterator) -> i32;
-#[repr(transparent)]
-pub struct UCharIteratorOrigin(pub i32);
-pub const UITER_START: UCharIteratorOrigin = UCharIteratorOrigin(0i32);
-pub const UITER_CURRENT: UCharIteratorOrigin = UCharIteratorOrigin(1i32);
-pub const UITER_LIMIT: UCharIteratorOrigin = UCharIteratorOrigin(2i32);
-pub const UITER_ZERO: UCharIteratorOrigin = UCharIteratorOrigin(3i32);
-pub const UITER_LENGTH: UCharIteratorOrigin = UCharIteratorOrigin(4i32);
-impl ::core::marker::Copy for UCharIteratorOrigin {}
-impl ::core::clone::Clone for UCharIteratorOrigin {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const UITER_START: i32 = 0i32;
+pub const UITER_CURRENT: i32 = 1i32;
+pub const UITER_LIMIT: i32 = 2i32;
+pub const UITER_ZERO: i32 = 3i32;
+pub const UITER_LENGTH: i32 = 4i32;
 pub type UCharIteratorPrevious = unsafe extern "system" fn(iter: *mut UCharIterator) -> i32;
 pub type UCharIteratorReserved = unsafe extern "system" fn(iter: *mut UCharIterator, something: i32) -> i32;
 pub type UCharIteratorSetState = unsafe extern "system" fn(iter: *mut UCharIterator, state: u32, perrorcode: *mut UErrorCode);
-#[repr(transparent)]
-pub struct UCharNameChoice(pub i32);
-pub const U_UNICODE_CHAR_NAME: UCharNameChoice = UCharNameChoice(0i32);
-pub const U_EXTENDED_CHAR_NAME: UCharNameChoice = UCharNameChoice(2i32);
-pub const U_CHAR_NAME_ALIAS: UCharNameChoice = UCharNameChoice(3i32);
-impl ::core::marker::Copy for UCharNameChoice {}
-impl ::core::clone::Clone for UCharNameChoice {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const U_UNICODE_CHAR_NAME: i32 = 0i32;
+pub const U_EXTENDED_CHAR_NAME: i32 = 2i32;
+pub const U_CHAR_NAME_ALIAS: i32 = 3i32;
 #[repr(C)]
 pub struct UCharsetDetector(pub u8);
 #[repr(C)]
 pub struct UCharsetMatch(pub u8);
-#[repr(transparent)]
-pub struct UColAttribute(pub i32);
-pub const UCOL_FRENCH_COLLATION: UColAttribute = UColAttribute(0i32);
-pub const UCOL_ALTERNATE_HANDLING: UColAttribute = UColAttribute(1i32);
-pub const UCOL_CASE_FIRST: UColAttribute = UColAttribute(2i32);
-pub const UCOL_CASE_LEVEL: UColAttribute = UColAttribute(3i32);
-pub const UCOL_NORMALIZATION_MODE: UColAttribute = UColAttribute(4i32);
-pub const UCOL_DECOMPOSITION_MODE: UColAttribute = UColAttribute(4i32);
-pub const UCOL_STRENGTH: UColAttribute = UColAttribute(5i32);
-pub const UCOL_NUMERIC_COLLATION: UColAttribute = UColAttribute(7i32);
-pub const UCOL_ATTRIBUTE_COUNT: UColAttribute = UColAttribute(8i32);
-impl ::core::marker::Copy for UColAttribute {}
-impl ::core::clone::Clone for UColAttribute {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct UColAttributeValue(pub i32);
-pub const UCOL_DEFAULT: UColAttributeValue = UColAttributeValue(-1i32);
-pub const UCOL_PRIMARY: UColAttributeValue = UColAttributeValue(0i32);
-pub const UCOL_SECONDARY: UColAttributeValue = UColAttributeValue(1i32);
-pub const UCOL_TERTIARY: UColAttributeValue = UColAttributeValue(2i32);
-pub const UCOL_DEFAULT_STRENGTH: UColAttributeValue = UColAttributeValue(2i32);
-pub const UCOL_CE_STRENGTH_LIMIT: UColAttributeValue = UColAttributeValue(3i32);
-pub const UCOL_QUATERNARY: UColAttributeValue = UColAttributeValue(3i32);
-pub const UCOL_IDENTICAL: UColAttributeValue = UColAttributeValue(15i32);
-pub const UCOL_STRENGTH_LIMIT: UColAttributeValue = UColAttributeValue(16i32);
-pub const UCOL_OFF: UColAttributeValue = UColAttributeValue(16i32);
-pub const UCOL_ON: UColAttributeValue = UColAttributeValue(17i32);
-pub const UCOL_SHIFTED: UColAttributeValue = UColAttributeValue(20i32);
-pub const UCOL_NON_IGNORABLE: UColAttributeValue = UColAttributeValue(21i32);
-pub const UCOL_LOWER_FIRST: UColAttributeValue = UColAttributeValue(24i32);
-pub const UCOL_UPPER_FIRST: UColAttributeValue = UColAttributeValue(25i32);
-impl ::core::marker::Copy for UColAttributeValue {}
-impl ::core::clone::Clone for UColAttributeValue {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct UColBoundMode(pub i32);
-pub const UCOL_BOUND_LOWER: UColBoundMode = UColBoundMode(0i32);
-pub const UCOL_BOUND_UPPER: UColBoundMode = UColBoundMode(1i32);
-pub const UCOL_BOUND_UPPER_LONG: UColBoundMode = UColBoundMode(2i32);
-impl ::core::marker::Copy for UColBoundMode {}
-impl ::core::clone::Clone for UColBoundMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct UColReorderCode(pub i32);
-pub const UCOL_REORDER_CODE_DEFAULT: UColReorderCode = UColReorderCode(-1i32);
-pub const UCOL_REORDER_CODE_NONE: UColReorderCode = UColReorderCode(103i32);
-pub const UCOL_REORDER_CODE_OTHERS: UColReorderCode = UColReorderCode(103i32);
-pub const UCOL_REORDER_CODE_SPACE: UColReorderCode = UColReorderCode(4096i32);
-pub const UCOL_REORDER_CODE_FIRST: UColReorderCode = UColReorderCode(4096i32);
-pub const UCOL_REORDER_CODE_PUNCTUATION: UColReorderCode = UColReorderCode(4097i32);
-pub const UCOL_REORDER_CODE_SYMBOL: UColReorderCode = UColReorderCode(4098i32);
-pub const UCOL_REORDER_CODE_CURRENCY: UColReorderCode = UColReorderCode(4099i32);
-pub const UCOL_REORDER_CODE_DIGIT: UColReorderCode = UColReorderCode(4100i32);
-impl ::core::marker::Copy for UColReorderCode {}
-impl ::core::clone::Clone for UColReorderCode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct UColRuleOption(pub i32);
-pub const UCOL_TAILORING_ONLY: UColRuleOption = UColRuleOption(0i32);
-pub const UCOL_FULL_RULES: UColRuleOption = UColRuleOption(1i32);
-impl ::core::marker::Copy for UColRuleOption {}
-impl ::core::clone::Clone for UColRuleOption {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const UCOL_FRENCH_COLLATION: i32 = 0i32;
+pub const UCOL_ALTERNATE_HANDLING: i32 = 1i32;
+pub const UCOL_CASE_FIRST: i32 = 2i32;
+pub const UCOL_CASE_LEVEL: i32 = 3i32;
+pub const UCOL_NORMALIZATION_MODE: i32 = 4i32;
+pub const UCOL_DECOMPOSITION_MODE: i32 = 4i32;
+pub const UCOL_STRENGTH: i32 = 5i32;
+pub const UCOL_NUMERIC_COLLATION: i32 = 7i32;
+pub const UCOL_ATTRIBUTE_COUNT: i32 = 8i32;
+pub const UCOL_DEFAULT: i32 = -1i32;
+pub const UCOL_PRIMARY: i32 = 0i32;
+pub const UCOL_SECONDARY: i32 = 1i32;
+pub const UCOL_TERTIARY: i32 = 2i32;
+pub const UCOL_DEFAULT_STRENGTH: i32 = 2i32;
+pub const UCOL_CE_STRENGTH_LIMIT: i32 = 3i32;
+pub const UCOL_QUATERNARY: i32 = 3i32;
+pub const UCOL_IDENTICAL: i32 = 15i32;
+pub const UCOL_STRENGTH_LIMIT: i32 = 16i32;
+pub const UCOL_OFF: i32 = 16i32;
+pub const UCOL_ON: i32 = 17i32;
+pub const UCOL_SHIFTED: i32 = 20i32;
+pub const UCOL_NON_IGNORABLE: i32 = 21i32;
+pub const UCOL_LOWER_FIRST: i32 = 24i32;
+pub const UCOL_UPPER_FIRST: i32 = 25i32;
+pub const UCOL_BOUND_LOWER: i32 = 0i32;
+pub const UCOL_BOUND_UPPER: i32 = 1i32;
+pub const UCOL_BOUND_UPPER_LONG: i32 = 2i32;
+pub const UCOL_REORDER_CODE_DEFAULT: i32 = -1i32;
+pub const UCOL_REORDER_CODE_NONE: i32 = 103i32;
+pub const UCOL_REORDER_CODE_OTHERS: i32 = 103i32;
+pub const UCOL_REORDER_CODE_SPACE: i32 = 4096i32;
+pub const UCOL_REORDER_CODE_FIRST: i32 = 4096i32;
+pub const UCOL_REORDER_CODE_PUNCTUATION: i32 = 4097i32;
+pub const UCOL_REORDER_CODE_SYMBOL: i32 = 4098i32;
+pub const UCOL_REORDER_CODE_CURRENCY: i32 = 4099i32;
+pub const UCOL_REORDER_CODE_DIGIT: i32 = 4100i32;
+pub const UCOL_TAILORING_ONLY: i32 = 0i32;
+pub const UCOL_FULL_RULES: i32 = 1i32;
 #[repr(C)]
 pub struct UCollationElements(pub u8);
-#[repr(transparent)]
-pub struct UCollationResult(pub i32);
-pub const UCOL_EQUAL: UCollationResult = UCollationResult(0i32);
-pub const UCOL_GREATER: UCollationResult = UCollationResult(1i32);
-pub const UCOL_LESS: UCollationResult = UCollationResult(-1i32);
-impl ::core::marker::Copy for UCollationResult {}
-impl ::core::clone::Clone for UCollationResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const UCOL_EQUAL: i32 = 0i32;
+pub const UCOL_GREATER: i32 = 1i32;
+pub const UCOL_LESS: i32 = -1i32;
 #[repr(C)]
 pub struct UCollator(pub u8);
 #[repr(C)]
 pub struct UConstrainedFieldPosition(pub u8);
 #[repr(C)]
 pub struct UConverter(pub u8);
-#[repr(transparent)]
-pub struct UConverterCallbackReason(pub i32);
-pub const UCNV_UNASSIGNED: UConverterCallbackReason = UConverterCallbackReason(0i32);
-pub const UCNV_ILLEGAL: UConverterCallbackReason = UConverterCallbackReason(1i32);
-pub const UCNV_IRREGULAR: UConverterCallbackReason = UConverterCallbackReason(2i32);
-pub const UCNV_RESET: UConverterCallbackReason = UConverterCallbackReason(3i32);
-pub const UCNV_CLOSE: UConverterCallbackReason = UConverterCallbackReason(4i32);
-pub const UCNV_CLONE: UConverterCallbackReason = UConverterCallbackReason(5i32);
-impl ::core::marker::Copy for UConverterCallbackReason {}
-impl ::core::clone::Clone for UConverterCallbackReason {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const UCNV_UNASSIGNED: i32 = 0i32;
+pub const UCNV_ILLEGAL: i32 = 1i32;
+pub const UCNV_IRREGULAR: i32 = 2i32;
+pub const UCNV_RESET: i32 = 3i32;
+pub const UCNV_CLOSE: i32 = 4i32;
+pub const UCNV_CLONE: i32 = 5i32;
 #[cfg(feature = "Win32_Foundation")]
 pub type UConverterFromUCallback = unsafe extern "system" fn(context: *const ::core::ffi::c_void, args: *mut UConverterFromUnicodeArgs, codeunits: *const u16, length: i32, codepoint: i32, reason: UConverterCallbackReason, perrorcode: *mut UErrorCode);
 #[repr(C)]
@@ -4386,16 +3938,8 @@ impl ::core::clone::Clone for UConverterFromUnicodeArgs {
         *self
     }
 }
-#[repr(transparent)]
-pub struct UConverterPlatform(pub i32);
-pub const UCNV_UNKNOWN: UConverterPlatform = UConverterPlatform(-1i32);
-pub const UCNV_IBM: UConverterPlatform = UConverterPlatform(0i32);
-impl ::core::marker::Copy for UConverterPlatform {}
-impl ::core::clone::Clone for UConverterPlatform {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const UCNV_UNKNOWN: i32 = -1i32;
+pub const UCNV_IBM: i32 = 0i32;
 #[repr(C)]
 pub struct UConverterSelector(pub u8);
 #[cfg(feature = "Win32_Foundation")]
@@ -4420,624 +3964,416 @@ impl ::core::clone::Clone for UConverterToUnicodeArgs {
         *self
     }
 }
-#[repr(transparent)]
-pub struct UConverterType(pub i32);
-pub const UCNV_UNSUPPORTED_CONVERTER: UConverterType = UConverterType(-1i32);
-pub const UCNV_SBCS: UConverterType = UConverterType(0i32);
-pub const UCNV_DBCS: UConverterType = UConverterType(1i32);
-pub const UCNV_MBCS: UConverterType = UConverterType(2i32);
-pub const UCNV_LATIN_1: UConverterType = UConverterType(3i32);
-pub const UCNV_UTF8: UConverterType = UConverterType(4i32);
-pub const UCNV_UTF16_BigEndian: UConverterType = UConverterType(5i32);
-pub const UCNV_UTF16_LittleEndian: UConverterType = UConverterType(6i32);
-pub const UCNV_UTF32_BigEndian: UConverterType = UConverterType(7i32);
-pub const UCNV_UTF32_LittleEndian: UConverterType = UConverterType(8i32);
-pub const UCNV_EBCDIC_STATEFUL: UConverterType = UConverterType(9i32);
-pub const UCNV_ISO_2022: UConverterType = UConverterType(10i32);
-pub const UCNV_LMBCS_1: UConverterType = UConverterType(11i32);
-pub const UCNV_LMBCS_2: UConverterType = UConverterType(12i32);
-pub const UCNV_LMBCS_3: UConverterType = UConverterType(13i32);
-pub const UCNV_LMBCS_4: UConverterType = UConverterType(14i32);
-pub const UCNV_LMBCS_5: UConverterType = UConverterType(15i32);
-pub const UCNV_LMBCS_6: UConverterType = UConverterType(16i32);
-pub const UCNV_LMBCS_8: UConverterType = UConverterType(17i32);
-pub const UCNV_LMBCS_11: UConverterType = UConverterType(18i32);
-pub const UCNV_LMBCS_16: UConverterType = UConverterType(19i32);
-pub const UCNV_LMBCS_17: UConverterType = UConverterType(20i32);
-pub const UCNV_LMBCS_18: UConverterType = UConverterType(21i32);
-pub const UCNV_LMBCS_19: UConverterType = UConverterType(22i32);
-pub const UCNV_LMBCS_LAST: UConverterType = UConverterType(22i32);
-pub const UCNV_HZ: UConverterType = UConverterType(23i32);
-pub const UCNV_SCSU: UConverterType = UConverterType(24i32);
-pub const UCNV_ISCII: UConverterType = UConverterType(25i32);
-pub const UCNV_US_ASCII: UConverterType = UConverterType(26i32);
-pub const UCNV_UTF7: UConverterType = UConverterType(27i32);
-pub const UCNV_BOCU1: UConverterType = UConverterType(28i32);
-pub const UCNV_UTF16: UConverterType = UConverterType(29i32);
-pub const UCNV_UTF32: UConverterType = UConverterType(30i32);
-pub const UCNV_CESU8: UConverterType = UConverterType(31i32);
-pub const UCNV_IMAP_MAILBOX: UConverterType = UConverterType(32i32);
-pub const UCNV_COMPOUND_TEXT: UConverterType = UConverterType(33i32);
-pub const UCNV_NUMBER_OF_SUPPORTED_CONVERTER_TYPES: UConverterType = UConverterType(34i32);
-impl ::core::marker::Copy for UConverterType {}
-impl ::core::clone::Clone for UConverterType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct UConverterUnicodeSet(pub i32);
-pub const UCNV_ROUNDTRIP_SET: UConverterUnicodeSet = UConverterUnicodeSet(0i32);
-pub const UCNV_ROUNDTRIP_AND_FALLBACK_SET: UConverterUnicodeSet = UConverterUnicodeSet(1i32);
-impl ::core::marker::Copy for UConverterUnicodeSet {}
-impl ::core::clone::Clone for UConverterUnicodeSet {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct UCurrCurrencyType(pub i32);
-pub const UCURR_ALL: UCurrCurrencyType = UCurrCurrencyType(2147483647i32);
-pub const UCURR_COMMON: UCurrCurrencyType = UCurrCurrencyType(1i32);
-pub const UCURR_UNCOMMON: UCurrCurrencyType = UCurrCurrencyType(2i32);
-pub const UCURR_DEPRECATED: UCurrCurrencyType = UCurrCurrencyType(4i32);
-pub const UCURR_NON_DEPRECATED: UCurrCurrencyType = UCurrCurrencyType(8i32);
-impl ::core::marker::Copy for UCurrCurrencyType {}
-impl ::core::clone::Clone for UCurrCurrencyType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct UCurrNameStyle(pub i32);
-pub const UCURR_SYMBOL_NAME: UCurrNameStyle = UCurrNameStyle(0i32);
-pub const UCURR_LONG_NAME: UCurrNameStyle = UCurrNameStyle(1i32);
-pub const UCURR_NARROW_SYMBOL_NAME: UCurrNameStyle = UCurrNameStyle(2i32);
-impl ::core::marker::Copy for UCurrNameStyle {}
-impl ::core::clone::Clone for UCurrNameStyle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct UCurrencySpacing(pub i32);
-pub const UNUM_CURRENCY_MATCH: UCurrencySpacing = UCurrencySpacing(0i32);
-pub const UNUM_CURRENCY_SURROUNDING_MATCH: UCurrencySpacing = UCurrencySpacing(1i32);
-pub const UNUM_CURRENCY_INSERT: UCurrencySpacing = UCurrencySpacing(2i32);
-pub const UNUM_CURRENCY_SPACING_COUNT: UCurrencySpacing = UCurrencySpacing(3i32);
-impl ::core::marker::Copy for UCurrencySpacing {}
-impl ::core::clone::Clone for UCurrencySpacing {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct UCurrencyUsage(pub i32);
-pub const UCURR_USAGE_STANDARD: UCurrencyUsage = UCurrencyUsage(0i32);
-pub const UCURR_USAGE_CASH: UCurrencyUsage = UCurrencyUsage(1i32);
-impl ::core::marker::Copy for UCurrencyUsage {}
-impl ::core::clone::Clone for UCurrencyUsage {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct UDateAbsoluteUnit(pub i32);
-pub const UDAT_ABSOLUTE_SUNDAY: UDateAbsoluteUnit = UDateAbsoluteUnit(0i32);
-pub const UDAT_ABSOLUTE_MONDAY: UDateAbsoluteUnit = UDateAbsoluteUnit(1i32);
-pub const UDAT_ABSOLUTE_TUESDAY: UDateAbsoluteUnit = UDateAbsoluteUnit(2i32);
-pub const UDAT_ABSOLUTE_WEDNESDAY: UDateAbsoluteUnit = UDateAbsoluteUnit(3i32);
-pub const UDAT_ABSOLUTE_THURSDAY: UDateAbsoluteUnit = UDateAbsoluteUnit(4i32);
-pub const UDAT_ABSOLUTE_FRIDAY: UDateAbsoluteUnit = UDateAbsoluteUnit(5i32);
-pub const UDAT_ABSOLUTE_SATURDAY: UDateAbsoluteUnit = UDateAbsoluteUnit(6i32);
-pub const UDAT_ABSOLUTE_DAY: UDateAbsoluteUnit = UDateAbsoluteUnit(7i32);
-pub const UDAT_ABSOLUTE_WEEK: UDateAbsoluteUnit = UDateAbsoluteUnit(8i32);
-pub const UDAT_ABSOLUTE_MONTH: UDateAbsoluteUnit = UDateAbsoluteUnit(9i32);
-pub const UDAT_ABSOLUTE_YEAR: UDateAbsoluteUnit = UDateAbsoluteUnit(10i32);
-pub const UDAT_ABSOLUTE_NOW: UDateAbsoluteUnit = UDateAbsoluteUnit(11i32);
-pub const UDAT_ABSOLUTE_UNIT_COUNT: UDateAbsoluteUnit = UDateAbsoluteUnit(12i32);
-impl ::core::marker::Copy for UDateAbsoluteUnit {}
-impl ::core::clone::Clone for UDateAbsoluteUnit {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct UDateDirection(pub i32);
-pub const UDAT_DIRECTION_LAST_2: UDateDirection = UDateDirection(0i32);
-pub const UDAT_DIRECTION_LAST: UDateDirection = UDateDirection(1i32);
-pub const UDAT_DIRECTION_THIS: UDateDirection = UDateDirection(2i32);
-pub const UDAT_DIRECTION_NEXT: UDateDirection = UDateDirection(3i32);
-pub const UDAT_DIRECTION_NEXT_2: UDateDirection = UDateDirection(4i32);
-pub const UDAT_DIRECTION_PLAIN: UDateDirection = UDateDirection(5i32);
-pub const UDAT_DIRECTION_COUNT: UDateDirection = UDateDirection(6i32);
-impl ::core::marker::Copy for UDateDirection {}
-impl ::core::clone::Clone for UDateDirection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct UDateFormatBooleanAttribute(pub i32);
-pub const UDAT_PARSE_ALLOW_WHITESPACE: UDateFormatBooleanAttribute = UDateFormatBooleanAttribute(0i32);
-pub const UDAT_PARSE_ALLOW_NUMERIC: UDateFormatBooleanAttribute = UDateFormatBooleanAttribute(1i32);
-pub const UDAT_PARSE_PARTIAL_LITERAL_MATCH: UDateFormatBooleanAttribute = UDateFormatBooleanAttribute(2i32);
-pub const UDAT_PARSE_MULTIPLE_PATTERNS_FOR_MATCH: UDateFormatBooleanAttribute = UDateFormatBooleanAttribute(3i32);
-pub const UDAT_BOOLEAN_ATTRIBUTE_COUNT: UDateFormatBooleanAttribute = UDateFormatBooleanAttribute(4i32);
-impl ::core::marker::Copy for UDateFormatBooleanAttribute {}
-impl ::core::clone::Clone for UDateFormatBooleanAttribute {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct UDateFormatField(pub i32);
-pub const UDAT_ERA_FIELD: UDateFormatField = UDateFormatField(0i32);
-pub const UDAT_YEAR_FIELD: UDateFormatField = UDateFormatField(1i32);
-pub const UDAT_MONTH_FIELD: UDateFormatField = UDateFormatField(2i32);
-pub const UDAT_DATE_FIELD: UDateFormatField = UDateFormatField(3i32);
-pub const UDAT_HOUR_OF_DAY1_FIELD: UDateFormatField = UDateFormatField(4i32);
-pub const UDAT_HOUR_OF_DAY0_FIELD: UDateFormatField = UDateFormatField(5i32);
-pub const UDAT_MINUTE_FIELD: UDateFormatField = UDateFormatField(6i32);
-pub const UDAT_SECOND_FIELD: UDateFormatField = UDateFormatField(7i32);
-pub const UDAT_FRACTIONAL_SECOND_FIELD: UDateFormatField = UDateFormatField(8i32);
-pub const UDAT_DAY_OF_WEEK_FIELD: UDateFormatField = UDateFormatField(9i32);
-pub const UDAT_DAY_OF_YEAR_FIELD: UDateFormatField = UDateFormatField(10i32);
-pub const UDAT_DAY_OF_WEEK_IN_MONTH_FIELD: UDateFormatField = UDateFormatField(11i32);
-pub const UDAT_WEEK_OF_YEAR_FIELD: UDateFormatField = UDateFormatField(12i32);
-pub const UDAT_WEEK_OF_MONTH_FIELD: UDateFormatField = UDateFormatField(13i32);
-pub const UDAT_AM_PM_FIELD: UDateFormatField = UDateFormatField(14i32);
-pub const UDAT_HOUR1_FIELD: UDateFormatField = UDateFormatField(15i32);
-pub const UDAT_HOUR0_FIELD: UDateFormatField = UDateFormatField(16i32);
-pub const UDAT_TIMEZONE_FIELD: UDateFormatField = UDateFormatField(17i32);
-pub const UDAT_YEAR_WOY_FIELD: UDateFormatField = UDateFormatField(18i32);
-pub const UDAT_DOW_LOCAL_FIELD: UDateFormatField = UDateFormatField(19i32);
-pub const UDAT_EXTENDED_YEAR_FIELD: UDateFormatField = UDateFormatField(20i32);
-pub const UDAT_JULIAN_DAY_FIELD: UDateFormatField = UDateFormatField(21i32);
-pub const UDAT_MILLISECONDS_IN_DAY_FIELD: UDateFormatField = UDateFormatField(22i32);
-pub const UDAT_TIMEZONE_RFC_FIELD: UDateFormatField = UDateFormatField(23i32);
-pub const UDAT_TIMEZONE_GENERIC_FIELD: UDateFormatField = UDateFormatField(24i32);
-pub const UDAT_STANDALONE_DAY_FIELD: UDateFormatField = UDateFormatField(25i32);
-pub const UDAT_STANDALONE_MONTH_FIELD: UDateFormatField = UDateFormatField(26i32);
-pub const UDAT_QUARTER_FIELD: UDateFormatField = UDateFormatField(27i32);
-pub const UDAT_STANDALONE_QUARTER_FIELD: UDateFormatField = UDateFormatField(28i32);
-pub const UDAT_TIMEZONE_SPECIAL_FIELD: UDateFormatField = UDateFormatField(29i32);
-pub const UDAT_YEAR_NAME_FIELD: UDateFormatField = UDateFormatField(30i32);
-pub const UDAT_TIMEZONE_LOCALIZED_GMT_OFFSET_FIELD: UDateFormatField = UDateFormatField(31i32);
-pub const UDAT_TIMEZONE_ISO_FIELD: UDateFormatField = UDateFormatField(32i32);
-pub const UDAT_TIMEZONE_ISO_LOCAL_FIELD: UDateFormatField = UDateFormatField(33i32);
-pub const UDAT_AM_PM_MIDNIGHT_NOON_FIELD: UDateFormatField = UDateFormatField(35i32);
-pub const UDAT_FLEXIBLE_DAY_PERIOD_FIELD: UDateFormatField = UDateFormatField(36i32);
-impl ::core::marker::Copy for UDateFormatField {}
-impl ::core::clone::Clone for UDateFormatField {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct UDateFormatStyle(pub i32);
-pub const UDAT_FULL: UDateFormatStyle = UDateFormatStyle(0i32);
-pub const UDAT_LONG: UDateFormatStyle = UDateFormatStyle(1i32);
-pub const UDAT_MEDIUM: UDateFormatStyle = UDateFormatStyle(2i32);
-pub const UDAT_SHORT: UDateFormatStyle = UDateFormatStyle(3i32);
-pub const UDAT_DEFAULT: UDateFormatStyle = UDateFormatStyle(2i32);
-pub const UDAT_RELATIVE: UDateFormatStyle = UDateFormatStyle(128i32);
-pub const UDAT_FULL_RELATIVE: UDateFormatStyle = UDateFormatStyle(128i32);
-pub const UDAT_LONG_RELATIVE: UDateFormatStyle = UDateFormatStyle(129i32);
-pub const UDAT_MEDIUM_RELATIVE: UDateFormatStyle = UDateFormatStyle(130i32);
-pub const UDAT_SHORT_RELATIVE: UDateFormatStyle = UDateFormatStyle(131i32);
-pub const UDAT_NONE: UDateFormatStyle = UDateFormatStyle(-1i32);
-pub const UDAT_PATTERN: UDateFormatStyle = UDateFormatStyle(-2i32);
-impl ::core::marker::Copy for UDateFormatStyle {}
-impl ::core::clone::Clone for UDateFormatStyle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct UDateFormatSymbolType(pub i32);
-pub const UDAT_ERAS: UDateFormatSymbolType = UDateFormatSymbolType(0i32);
-pub const UDAT_MONTHS: UDateFormatSymbolType = UDateFormatSymbolType(1i32);
-pub const UDAT_SHORT_MONTHS: UDateFormatSymbolType = UDateFormatSymbolType(2i32);
-pub const UDAT_WEEKDAYS: UDateFormatSymbolType = UDateFormatSymbolType(3i32);
-pub const UDAT_SHORT_WEEKDAYS: UDateFormatSymbolType = UDateFormatSymbolType(4i32);
-pub const UDAT_AM_PMS: UDateFormatSymbolType = UDateFormatSymbolType(5i32);
-pub const UDAT_LOCALIZED_CHARS: UDateFormatSymbolType = UDateFormatSymbolType(6i32);
-pub const UDAT_ERA_NAMES: UDateFormatSymbolType = UDateFormatSymbolType(7i32);
-pub const UDAT_NARROW_MONTHS: UDateFormatSymbolType = UDateFormatSymbolType(8i32);
-pub const UDAT_NARROW_WEEKDAYS: UDateFormatSymbolType = UDateFormatSymbolType(9i32);
-pub const UDAT_STANDALONE_MONTHS: UDateFormatSymbolType = UDateFormatSymbolType(10i32);
-pub const UDAT_STANDALONE_SHORT_MONTHS: UDateFormatSymbolType = UDateFormatSymbolType(11i32);
-pub const UDAT_STANDALONE_NARROW_MONTHS: UDateFormatSymbolType = UDateFormatSymbolType(12i32);
-pub const UDAT_STANDALONE_WEEKDAYS: UDateFormatSymbolType = UDateFormatSymbolType(13i32);
-pub const UDAT_STANDALONE_SHORT_WEEKDAYS: UDateFormatSymbolType = UDateFormatSymbolType(14i32);
-pub const UDAT_STANDALONE_NARROW_WEEKDAYS: UDateFormatSymbolType = UDateFormatSymbolType(15i32);
-pub const UDAT_QUARTERS: UDateFormatSymbolType = UDateFormatSymbolType(16i32);
-pub const UDAT_SHORT_QUARTERS: UDateFormatSymbolType = UDateFormatSymbolType(17i32);
-pub const UDAT_STANDALONE_QUARTERS: UDateFormatSymbolType = UDateFormatSymbolType(18i32);
-pub const UDAT_STANDALONE_SHORT_QUARTERS: UDateFormatSymbolType = UDateFormatSymbolType(19i32);
-pub const UDAT_SHORTER_WEEKDAYS: UDateFormatSymbolType = UDateFormatSymbolType(20i32);
-pub const UDAT_STANDALONE_SHORTER_WEEKDAYS: UDateFormatSymbolType = UDateFormatSymbolType(21i32);
-pub const UDAT_CYCLIC_YEARS_WIDE: UDateFormatSymbolType = UDateFormatSymbolType(22i32);
-pub const UDAT_CYCLIC_YEARS_ABBREVIATED: UDateFormatSymbolType = UDateFormatSymbolType(23i32);
-pub const UDAT_CYCLIC_YEARS_NARROW: UDateFormatSymbolType = UDateFormatSymbolType(24i32);
-pub const UDAT_ZODIAC_NAMES_WIDE: UDateFormatSymbolType = UDateFormatSymbolType(25i32);
-pub const UDAT_ZODIAC_NAMES_ABBREVIATED: UDateFormatSymbolType = UDateFormatSymbolType(26i32);
-pub const UDAT_ZODIAC_NAMES_NARROW: UDateFormatSymbolType = UDateFormatSymbolType(27i32);
-impl ::core::marker::Copy for UDateFormatSymbolType {}
-impl ::core::clone::Clone for UDateFormatSymbolType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const UCNV_UNSUPPORTED_CONVERTER: i32 = -1i32;
+pub const UCNV_SBCS: i32 = 0i32;
+pub const UCNV_DBCS: i32 = 1i32;
+pub const UCNV_MBCS: i32 = 2i32;
+pub const UCNV_LATIN_1: i32 = 3i32;
+pub const UCNV_UTF8: i32 = 4i32;
+pub const UCNV_UTF16_BigEndian: i32 = 5i32;
+pub const UCNV_UTF16_LittleEndian: i32 = 6i32;
+pub const UCNV_UTF32_BigEndian: i32 = 7i32;
+pub const UCNV_UTF32_LittleEndian: i32 = 8i32;
+pub const UCNV_EBCDIC_STATEFUL: i32 = 9i32;
+pub const UCNV_ISO_2022: i32 = 10i32;
+pub const UCNV_LMBCS_1: i32 = 11i32;
+pub const UCNV_LMBCS_2: i32 = 12i32;
+pub const UCNV_LMBCS_3: i32 = 13i32;
+pub const UCNV_LMBCS_4: i32 = 14i32;
+pub const UCNV_LMBCS_5: i32 = 15i32;
+pub const UCNV_LMBCS_6: i32 = 16i32;
+pub const UCNV_LMBCS_8: i32 = 17i32;
+pub const UCNV_LMBCS_11: i32 = 18i32;
+pub const UCNV_LMBCS_16: i32 = 19i32;
+pub const UCNV_LMBCS_17: i32 = 20i32;
+pub const UCNV_LMBCS_18: i32 = 21i32;
+pub const UCNV_LMBCS_19: i32 = 22i32;
+pub const UCNV_LMBCS_LAST: i32 = 22i32;
+pub const UCNV_HZ: i32 = 23i32;
+pub const UCNV_SCSU: i32 = 24i32;
+pub const UCNV_ISCII: i32 = 25i32;
+pub const UCNV_US_ASCII: i32 = 26i32;
+pub const UCNV_UTF7: i32 = 27i32;
+pub const UCNV_BOCU1: i32 = 28i32;
+pub const UCNV_UTF16: i32 = 29i32;
+pub const UCNV_UTF32: i32 = 30i32;
+pub const UCNV_CESU8: i32 = 31i32;
+pub const UCNV_IMAP_MAILBOX: i32 = 32i32;
+pub const UCNV_COMPOUND_TEXT: i32 = 33i32;
+pub const UCNV_NUMBER_OF_SUPPORTED_CONVERTER_TYPES: i32 = 34i32;
+pub const UCNV_ROUNDTRIP_SET: i32 = 0i32;
+pub const UCNV_ROUNDTRIP_AND_FALLBACK_SET: i32 = 1i32;
+pub const UCURR_ALL: i32 = 2147483647i32;
+pub const UCURR_COMMON: i32 = 1i32;
+pub const UCURR_UNCOMMON: i32 = 2i32;
+pub const UCURR_DEPRECATED: i32 = 4i32;
+pub const UCURR_NON_DEPRECATED: i32 = 8i32;
+pub const UCURR_SYMBOL_NAME: i32 = 0i32;
+pub const UCURR_LONG_NAME: i32 = 1i32;
+pub const UCURR_NARROW_SYMBOL_NAME: i32 = 2i32;
+pub const UNUM_CURRENCY_MATCH: i32 = 0i32;
+pub const UNUM_CURRENCY_SURROUNDING_MATCH: i32 = 1i32;
+pub const UNUM_CURRENCY_INSERT: i32 = 2i32;
+pub const UNUM_CURRENCY_SPACING_COUNT: i32 = 3i32;
+pub const UCURR_USAGE_STANDARD: i32 = 0i32;
+pub const UCURR_USAGE_CASH: i32 = 1i32;
+pub const UDAT_ABSOLUTE_SUNDAY: i32 = 0i32;
+pub const UDAT_ABSOLUTE_MONDAY: i32 = 1i32;
+pub const UDAT_ABSOLUTE_TUESDAY: i32 = 2i32;
+pub const UDAT_ABSOLUTE_WEDNESDAY: i32 = 3i32;
+pub const UDAT_ABSOLUTE_THURSDAY: i32 = 4i32;
+pub const UDAT_ABSOLUTE_FRIDAY: i32 = 5i32;
+pub const UDAT_ABSOLUTE_SATURDAY: i32 = 6i32;
+pub const UDAT_ABSOLUTE_DAY: i32 = 7i32;
+pub const UDAT_ABSOLUTE_WEEK: i32 = 8i32;
+pub const UDAT_ABSOLUTE_MONTH: i32 = 9i32;
+pub const UDAT_ABSOLUTE_YEAR: i32 = 10i32;
+pub const UDAT_ABSOLUTE_NOW: i32 = 11i32;
+pub const UDAT_ABSOLUTE_UNIT_COUNT: i32 = 12i32;
+pub const UDAT_DIRECTION_LAST_2: i32 = 0i32;
+pub const UDAT_DIRECTION_LAST: i32 = 1i32;
+pub const UDAT_DIRECTION_THIS: i32 = 2i32;
+pub const UDAT_DIRECTION_NEXT: i32 = 3i32;
+pub const UDAT_DIRECTION_NEXT_2: i32 = 4i32;
+pub const UDAT_DIRECTION_PLAIN: i32 = 5i32;
+pub const UDAT_DIRECTION_COUNT: i32 = 6i32;
+pub const UDAT_PARSE_ALLOW_WHITESPACE: i32 = 0i32;
+pub const UDAT_PARSE_ALLOW_NUMERIC: i32 = 1i32;
+pub const UDAT_PARSE_PARTIAL_LITERAL_MATCH: i32 = 2i32;
+pub const UDAT_PARSE_MULTIPLE_PATTERNS_FOR_MATCH: i32 = 3i32;
+pub const UDAT_BOOLEAN_ATTRIBUTE_COUNT: i32 = 4i32;
+pub const UDAT_ERA_FIELD: i32 = 0i32;
+pub const UDAT_YEAR_FIELD: i32 = 1i32;
+pub const UDAT_MONTH_FIELD: i32 = 2i32;
+pub const UDAT_DATE_FIELD: i32 = 3i32;
+pub const UDAT_HOUR_OF_DAY1_FIELD: i32 = 4i32;
+pub const UDAT_HOUR_OF_DAY0_FIELD: i32 = 5i32;
+pub const UDAT_MINUTE_FIELD: i32 = 6i32;
+pub const UDAT_SECOND_FIELD: i32 = 7i32;
+pub const UDAT_FRACTIONAL_SECOND_FIELD: i32 = 8i32;
+pub const UDAT_DAY_OF_WEEK_FIELD: i32 = 9i32;
+pub const UDAT_DAY_OF_YEAR_FIELD: i32 = 10i32;
+pub const UDAT_DAY_OF_WEEK_IN_MONTH_FIELD: i32 = 11i32;
+pub const UDAT_WEEK_OF_YEAR_FIELD: i32 = 12i32;
+pub const UDAT_WEEK_OF_MONTH_FIELD: i32 = 13i32;
+pub const UDAT_AM_PM_FIELD: i32 = 14i32;
+pub const UDAT_HOUR1_FIELD: i32 = 15i32;
+pub const UDAT_HOUR0_FIELD: i32 = 16i32;
+pub const UDAT_TIMEZONE_FIELD: i32 = 17i32;
+pub const UDAT_YEAR_WOY_FIELD: i32 = 18i32;
+pub const UDAT_DOW_LOCAL_FIELD: i32 = 19i32;
+pub const UDAT_EXTENDED_YEAR_FIELD: i32 = 20i32;
+pub const UDAT_JULIAN_DAY_FIELD: i32 = 21i32;
+pub const UDAT_MILLISECONDS_IN_DAY_FIELD: i32 = 22i32;
+pub const UDAT_TIMEZONE_RFC_FIELD: i32 = 23i32;
+pub const UDAT_TIMEZONE_GENERIC_FIELD: i32 = 24i32;
+pub const UDAT_STANDALONE_DAY_FIELD: i32 = 25i32;
+pub const UDAT_STANDALONE_MONTH_FIELD: i32 = 26i32;
+pub const UDAT_QUARTER_FIELD: i32 = 27i32;
+pub const UDAT_STANDALONE_QUARTER_FIELD: i32 = 28i32;
+pub const UDAT_TIMEZONE_SPECIAL_FIELD: i32 = 29i32;
+pub const UDAT_YEAR_NAME_FIELD: i32 = 30i32;
+pub const UDAT_TIMEZONE_LOCALIZED_GMT_OFFSET_FIELD: i32 = 31i32;
+pub const UDAT_TIMEZONE_ISO_FIELD: i32 = 32i32;
+pub const UDAT_TIMEZONE_ISO_LOCAL_FIELD: i32 = 33i32;
+pub const UDAT_AM_PM_MIDNIGHT_NOON_FIELD: i32 = 35i32;
+pub const UDAT_FLEXIBLE_DAY_PERIOD_FIELD: i32 = 36i32;
+pub const UDAT_FULL: i32 = 0i32;
+pub const UDAT_LONG: i32 = 1i32;
+pub const UDAT_MEDIUM: i32 = 2i32;
+pub const UDAT_SHORT: i32 = 3i32;
+pub const UDAT_DEFAULT: i32 = 2i32;
+pub const UDAT_RELATIVE: i32 = 128i32;
+pub const UDAT_FULL_RELATIVE: i32 = 128i32;
+pub const UDAT_LONG_RELATIVE: i32 = 129i32;
+pub const UDAT_MEDIUM_RELATIVE: i32 = 130i32;
+pub const UDAT_SHORT_RELATIVE: i32 = 131i32;
+pub const UDAT_NONE: i32 = -1i32;
+pub const UDAT_PATTERN: i32 = -2i32;
+pub const UDAT_ERAS: i32 = 0i32;
+pub const UDAT_MONTHS: i32 = 1i32;
+pub const UDAT_SHORT_MONTHS: i32 = 2i32;
+pub const UDAT_WEEKDAYS: i32 = 3i32;
+pub const UDAT_SHORT_WEEKDAYS: i32 = 4i32;
+pub const UDAT_AM_PMS: i32 = 5i32;
+pub const UDAT_LOCALIZED_CHARS: i32 = 6i32;
+pub const UDAT_ERA_NAMES: i32 = 7i32;
+pub const UDAT_NARROW_MONTHS: i32 = 8i32;
+pub const UDAT_NARROW_WEEKDAYS: i32 = 9i32;
+pub const UDAT_STANDALONE_MONTHS: i32 = 10i32;
+pub const UDAT_STANDALONE_SHORT_MONTHS: i32 = 11i32;
+pub const UDAT_STANDALONE_NARROW_MONTHS: i32 = 12i32;
+pub const UDAT_STANDALONE_WEEKDAYS: i32 = 13i32;
+pub const UDAT_STANDALONE_SHORT_WEEKDAYS: i32 = 14i32;
+pub const UDAT_STANDALONE_NARROW_WEEKDAYS: i32 = 15i32;
+pub const UDAT_QUARTERS: i32 = 16i32;
+pub const UDAT_SHORT_QUARTERS: i32 = 17i32;
+pub const UDAT_STANDALONE_QUARTERS: i32 = 18i32;
+pub const UDAT_STANDALONE_SHORT_QUARTERS: i32 = 19i32;
+pub const UDAT_SHORTER_WEEKDAYS: i32 = 20i32;
+pub const UDAT_STANDALONE_SHORTER_WEEKDAYS: i32 = 21i32;
+pub const UDAT_CYCLIC_YEARS_WIDE: i32 = 22i32;
+pub const UDAT_CYCLIC_YEARS_ABBREVIATED: i32 = 23i32;
+pub const UDAT_CYCLIC_YEARS_NARROW: i32 = 24i32;
+pub const UDAT_ZODIAC_NAMES_WIDE: i32 = 25i32;
+pub const UDAT_ZODIAC_NAMES_ABBREVIATED: i32 = 26i32;
+pub const UDAT_ZODIAC_NAMES_NARROW: i32 = 27i32;
 #[repr(C)]
 pub struct UDateFormatSymbols(pub u8);
 #[repr(C)]
 pub struct UDateIntervalFormat(pub u8);
-#[repr(transparent)]
-pub struct UDateRelativeDateTimeFormatterStyle(pub i32);
-pub const UDAT_STYLE_LONG: UDateRelativeDateTimeFormatterStyle = UDateRelativeDateTimeFormatterStyle(0i32);
-pub const UDAT_STYLE_SHORT: UDateRelativeDateTimeFormatterStyle = UDateRelativeDateTimeFormatterStyle(1i32);
-pub const UDAT_STYLE_NARROW: UDateRelativeDateTimeFormatterStyle = UDateRelativeDateTimeFormatterStyle(2i32);
-impl ::core::marker::Copy for UDateRelativeDateTimeFormatterStyle {}
-impl ::core::clone::Clone for UDateRelativeDateTimeFormatterStyle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct UDateRelativeUnit(pub i32);
-pub const UDAT_RELATIVE_SECONDS: UDateRelativeUnit = UDateRelativeUnit(0i32);
-pub const UDAT_RELATIVE_MINUTES: UDateRelativeUnit = UDateRelativeUnit(1i32);
-pub const UDAT_RELATIVE_HOURS: UDateRelativeUnit = UDateRelativeUnit(2i32);
-pub const UDAT_RELATIVE_DAYS: UDateRelativeUnit = UDateRelativeUnit(3i32);
-pub const UDAT_RELATIVE_WEEKS: UDateRelativeUnit = UDateRelativeUnit(4i32);
-pub const UDAT_RELATIVE_MONTHS: UDateRelativeUnit = UDateRelativeUnit(5i32);
-pub const UDAT_RELATIVE_YEARS: UDateRelativeUnit = UDateRelativeUnit(6i32);
-pub const UDAT_RELATIVE_UNIT_COUNT: UDateRelativeUnit = UDateRelativeUnit(7i32);
-impl ::core::marker::Copy for UDateRelativeUnit {}
-impl ::core::clone::Clone for UDateRelativeUnit {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct UDateTimePGDisplayWidth(pub i32);
-pub const UDATPG_WIDE: UDateTimePGDisplayWidth = UDateTimePGDisplayWidth(0i32);
-pub const UDATPG_ABBREVIATED: UDateTimePGDisplayWidth = UDateTimePGDisplayWidth(1i32);
-pub const UDATPG_NARROW: UDateTimePGDisplayWidth = UDateTimePGDisplayWidth(2i32);
-impl ::core::marker::Copy for UDateTimePGDisplayWidth {}
-impl ::core::clone::Clone for UDateTimePGDisplayWidth {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct UDateTimePatternConflict(pub i32);
-pub const UDATPG_NO_CONFLICT: UDateTimePatternConflict = UDateTimePatternConflict(0i32);
-pub const UDATPG_BASE_CONFLICT: UDateTimePatternConflict = UDateTimePatternConflict(1i32);
-pub const UDATPG_CONFLICT: UDateTimePatternConflict = UDateTimePatternConflict(2i32);
-impl ::core::marker::Copy for UDateTimePatternConflict {}
-impl ::core::clone::Clone for UDateTimePatternConflict {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct UDateTimePatternField(pub i32);
-pub const UDATPG_ERA_FIELD: UDateTimePatternField = UDateTimePatternField(0i32);
-pub const UDATPG_YEAR_FIELD: UDateTimePatternField = UDateTimePatternField(1i32);
-pub const UDATPG_QUARTER_FIELD: UDateTimePatternField = UDateTimePatternField(2i32);
-pub const UDATPG_MONTH_FIELD: UDateTimePatternField = UDateTimePatternField(3i32);
-pub const UDATPG_WEEK_OF_YEAR_FIELD: UDateTimePatternField = UDateTimePatternField(4i32);
-pub const UDATPG_WEEK_OF_MONTH_FIELD: UDateTimePatternField = UDateTimePatternField(5i32);
-pub const UDATPG_WEEKDAY_FIELD: UDateTimePatternField = UDateTimePatternField(6i32);
-pub const UDATPG_DAY_OF_YEAR_FIELD: UDateTimePatternField = UDateTimePatternField(7i32);
-pub const UDATPG_DAY_OF_WEEK_IN_MONTH_FIELD: UDateTimePatternField = UDateTimePatternField(8i32);
-pub const UDATPG_DAY_FIELD: UDateTimePatternField = UDateTimePatternField(9i32);
-pub const UDATPG_DAYPERIOD_FIELD: UDateTimePatternField = UDateTimePatternField(10i32);
-pub const UDATPG_HOUR_FIELD: UDateTimePatternField = UDateTimePatternField(11i32);
-pub const UDATPG_MINUTE_FIELD: UDateTimePatternField = UDateTimePatternField(12i32);
-pub const UDATPG_SECOND_FIELD: UDateTimePatternField = UDateTimePatternField(13i32);
-pub const UDATPG_FRACTIONAL_SECOND_FIELD: UDateTimePatternField = UDateTimePatternField(14i32);
-pub const UDATPG_ZONE_FIELD: UDateTimePatternField = UDateTimePatternField(15i32);
-pub const UDATPG_FIELD_COUNT: UDateTimePatternField = UDateTimePatternField(16i32);
-impl ::core::marker::Copy for UDateTimePatternField {}
-impl ::core::clone::Clone for UDateTimePatternField {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct UDateTimePatternMatchOptions(pub i32);
-pub const UDATPG_MATCH_NO_OPTIONS: UDateTimePatternMatchOptions = UDateTimePatternMatchOptions(0i32);
-pub const UDATPG_MATCH_HOUR_FIELD_LENGTH: UDateTimePatternMatchOptions = UDateTimePatternMatchOptions(2048i32);
-pub const UDATPG_MATCH_ALL_FIELDS_LENGTH: UDateTimePatternMatchOptions = UDateTimePatternMatchOptions(65535i32);
-impl ::core::marker::Copy for UDateTimePatternMatchOptions {}
-impl ::core::clone::Clone for UDateTimePatternMatchOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct UDateTimeScale(pub i32);
-pub const UDTS_JAVA_TIME: UDateTimeScale = UDateTimeScale(0i32);
-pub const UDTS_UNIX_TIME: UDateTimeScale = UDateTimeScale(1i32);
-pub const UDTS_ICU4C_TIME: UDateTimeScale = UDateTimeScale(2i32);
-pub const UDTS_WINDOWS_FILE_TIME: UDateTimeScale = UDateTimeScale(3i32);
-pub const UDTS_DOTNET_DATE_TIME: UDateTimeScale = UDateTimeScale(4i32);
-pub const UDTS_MAC_OLD_TIME: UDateTimeScale = UDateTimeScale(5i32);
-pub const UDTS_MAC_TIME: UDateTimeScale = UDateTimeScale(6i32);
-pub const UDTS_EXCEL_TIME: UDateTimeScale = UDateTimeScale(7i32);
-pub const UDTS_DB2_TIME: UDateTimeScale = UDateTimeScale(8i32);
-pub const UDTS_UNIX_MICROSECONDS_TIME: UDateTimeScale = UDateTimeScale(9i32);
-impl ::core::marker::Copy for UDateTimeScale {}
-impl ::core::clone::Clone for UDateTimeScale {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct UDecompositionType(pub i32);
-pub const U_DT_NONE: UDecompositionType = UDecompositionType(0i32);
-pub const U_DT_CANONICAL: UDecompositionType = UDecompositionType(1i32);
-pub const U_DT_COMPAT: UDecompositionType = UDecompositionType(2i32);
-pub const U_DT_CIRCLE: UDecompositionType = UDecompositionType(3i32);
-pub const U_DT_FINAL: UDecompositionType = UDecompositionType(4i32);
-pub const U_DT_FONT: UDecompositionType = UDecompositionType(5i32);
-pub const U_DT_FRACTION: UDecompositionType = UDecompositionType(6i32);
-pub const U_DT_INITIAL: UDecompositionType = UDecompositionType(7i32);
-pub const U_DT_ISOLATED: UDecompositionType = UDecompositionType(8i32);
-pub const U_DT_MEDIAL: UDecompositionType = UDecompositionType(9i32);
-pub const U_DT_NARROW: UDecompositionType = UDecompositionType(10i32);
-pub const U_DT_NOBREAK: UDecompositionType = UDecompositionType(11i32);
-pub const U_DT_SMALL: UDecompositionType = UDecompositionType(12i32);
-pub const U_DT_SQUARE: UDecompositionType = UDecompositionType(13i32);
-pub const U_DT_SUB: UDecompositionType = UDecompositionType(14i32);
-pub const U_DT_SUPER: UDecompositionType = UDecompositionType(15i32);
-pub const U_DT_VERTICAL: UDecompositionType = UDecompositionType(16i32);
-pub const U_DT_WIDE: UDecompositionType = UDecompositionType(17i32);
-impl ::core::marker::Copy for UDecompositionType {}
-impl ::core::clone::Clone for UDecompositionType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct UDialectHandling(pub i32);
-pub const ULDN_STANDARD_NAMES: UDialectHandling = UDialectHandling(0i32);
-pub const ULDN_DIALECT_NAMES: UDialectHandling = UDialectHandling(1i32);
-impl ::core::marker::Copy for UDialectHandling {}
-impl ::core::clone::Clone for UDialectHandling {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct UDisplayContext(pub i32);
-pub const UDISPCTX_STANDARD_NAMES: UDisplayContext = UDisplayContext(0i32);
-pub const UDISPCTX_DIALECT_NAMES: UDisplayContext = UDisplayContext(1i32);
-pub const UDISPCTX_CAPITALIZATION_NONE: UDisplayContext = UDisplayContext(256i32);
-pub const UDISPCTX_CAPITALIZATION_FOR_MIDDLE_OF_SENTENCE: UDisplayContext = UDisplayContext(257i32);
-pub const UDISPCTX_CAPITALIZATION_FOR_BEGINNING_OF_SENTENCE: UDisplayContext = UDisplayContext(258i32);
-pub const UDISPCTX_CAPITALIZATION_FOR_UI_LIST_OR_MENU: UDisplayContext = UDisplayContext(259i32);
-pub const UDISPCTX_CAPITALIZATION_FOR_STANDALONE: UDisplayContext = UDisplayContext(260i32);
-pub const UDISPCTX_LENGTH_FULL: UDisplayContext = UDisplayContext(512i32);
-pub const UDISPCTX_LENGTH_SHORT: UDisplayContext = UDisplayContext(513i32);
-pub const UDISPCTX_SUBSTITUTE: UDisplayContext = UDisplayContext(768i32);
-pub const UDISPCTX_NO_SUBSTITUTE: UDisplayContext = UDisplayContext(769i32);
-impl ::core::marker::Copy for UDisplayContext {}
-impl ::core::clone::Clone for UDisplayContext {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct UDisplayContextType(pub i32);
-pub const UDISPCTX_TYPE_DIALECT_HANDLING: UDisplayContextType = UDisplayContextType(0i32);
-pub const UDISPCTX_TYPE_CAPITALIZATION: UDisplayContextType = UDisplayContextType(1i32);
-pub const UDISPCTX_TYPE_DISPLAY_LENGTH: UDisplayContextType = UDisplayContextType(2i32);
-pub const UDISPCTX_TYPE_SUBSTITUTE_HANDLING: UDisplayContextType = UDisplayContextType(3i32);
-impl ::core::marker::Copy for UDisplayContextType {}
-impl ::core::clone::Clone for UDisplayContextType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct UEastAsianWidth(pub i32);
-pub const U_EA_NEUTRAL: UEastAsianWidth = UEastAsianWidth(0i32);
-pub const U_EA_AMBIGUOUS: UEastAsianWidth = UEastAsianWidth(1i32);
-pub const U_EA_HALFWIDTH: UEastAsianWidth = UEastAsianWidth(2i32);
-pub const U_EA_FULLWIDTH: UEastAsianWidth = UEastAsianWidth(3i32);
-pub const U_EA_NARROW: UEastAsianWidth = UEastAsianWidth(4i32);
-pub const U_EA_WIDE: UEastAsianWidth = UEastAsianWidth(5i32);
-impl ::core::marker::Copy for UEastAsianWidth {}
-impl ::core::clone::Clone for UEastAsianWidth {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const UDAT_STYLE_LONG: i32 = 0i32;
+pub const UDAT_STYLE_SHORT: i32 = 1i32;
+pub const UDAT_STYLE_NARROW: i32 = 2i32;
+pub const UDAT_RELATIVE_SECONDS: i32 = 0i32;
+pub const UDAT_RELATIVE_MINUTES: i32 = 1i32;
+pub const UDAT_RELATIVE_HOURS: i32 = 2i32;
+pub const UDAT_RELATIVE_DAYS: i32 = 3i32;
+pub const UDAT_RELATIVE_WEEKS: i32 = 4i32;
+pub const UDAT_RELATIVE_MONTHS: i32 = 5i32;
+pub const UDAT_RELATIVE_YEARS: i32 = 6i32;
+pub const UDAT_RELATIVE_UNIT_COUNT: i32 = 7i32;
+pub const UDATPG_WIDE: i32 = 0i32;
+pub const UDATPG_ABBREVIATED: i32 = 1i32;
+pub const UDATPG_NARROW: i32 = 2i32;
+pub const UDATPG_NO_CONFLICT: i32 = 0i32;
+pub const UDATPG_BASE_CONFLICT: i32 = 1i32;
+pub const UDATPG_CONFLICT: i32 = 2i32;
+pub const UDATPG_ERA_FIELD: i32 = 0i32;
+pub const UDATPG_YEAR_FIELD: i32 = 1i32;
+pub const UDATPG_QUARTER_FIELD: i32 = 2i32;
+pub const UDATPG_MONTH_FIELD: i32 = 3i32;
+pub const UDATPG_WEEK_OF_YEAR_FIELD: i32 = 4i32;
+pub const UDATPG_WEEK_OF_MONTH_FIELD: i32 = 5i32;
+pub const UDATPG_WEEKDAY_FIELD: i32 = 6i32;
+pub const UDATPG_DAY_OF_YEAR_FIELD: i32 = 7i32;
+pub const UDATPG_DAY_OF_WEEK_IN_MONTH_FIELD: i32 = 8i32;
+pub const UDATPG_DAY_FIELD: i32 = 9i32;
+pub const UDATPG_DAYPERIOD_FIELD: i32 = 10i32;
+pub const UDATPG_HOUR_FIELD: i32 = 11i32;
+pub const UDATPG_MINUTE_FIELD: i32 = 12i32;
+pub const UDATPG_SECOND_FIELD: i32 = 13i32;
+pub const UDATPG_FRACTIONAL_SECOND_FIELD: i32 = 14i32;
+pub const UDATPG_ZONE_FIELD: i32 = 15i32;
+pub const UDATPG_FIELD_COUNT: i32 = 16i32;
+pub const UDATPG_MATCH_NO_OPTIONS: i32 = 0i32;
+pub const UDATPG_MATCH_HOUR_FIELD_LENGTH: i32 = 2048i32;
+pub const UDATPG_MATCH_ALL_FIELDS_LENGTH: i32 = 65535i32;
+pub const UDTS_JAVA_TIME: i32 = 0i32;
+pub const UDTS_UNIX_TIME: i32 = 1i32;
+pub const UDTS_ICU4C_TIME: i32 = 2i32;
+pub const UDTS_WINDOWS_FILE_TIME: i32 = 3i32;
+pub const UDTS_DOTNET_DATE_TIME: i32 = 4i32;
+pub const UDTS_MAC_OLD_TIME: i32 = 5i32;
+pub const UDTS_MAC_TIME: i32 = 6i32;
+pub const UDTS_EXCEL_TIME: i32 = 7i32;
+pub const UDTS_DB2_TIME: i32 = 8i32;
+pub const UDTS_UNIX_MICROSECONDS_TIME: i32 = 9i32;
+pub const U_DT_NONE: i32 = 0i32;
+pub const U_DT_CANONICAL: i32 = 1i32;
+pub const U_DT_COMPAT: i32 = 2i32;
+pub const U_DT_CIRCLE: i32 = 3i32;
+pub const U_DT_FINAL: i32 = 4i32;
+pub const U_DT_FONT: i32 = 5i32;
+pub const U_DT_FRACTION: i32 = 6i32;
+pub const U_DT_INITIAL: i32 = 7i32;
+pub const U_DT_ISOLATED: i32 = 8i32;
+pub const U_DT_MEDIAL: i32 = 9i32;
+pub const U_DT_NARROW: i32 = 10i32;
+pub const U_DT_NOBREAK: i32 = 11i32;
+pub const U_DT_SMALL: i32 = 12i32;
+pub const U_DT_SQUARE: i32 = 13i32;
+pub const U_DT_SUB: i32 = 14i32;
+pub const U_DT_SUPER: i32 = 15i32;
+pub const U_DT_VERTICAL: i32 = 16i32;
+pub const U_DT_WIDE: i32 = 17i32;
+pub const ULDN_STANDARD_NAMES: i32 = 0i32;
+pub const ULDN_DIALECT_NAMES: i32 = 1i32;
+pub const UDISPCTX_STANDARD_NAMES: i32 = 0i32;
+pub const UDISPCTX_DIALECT_NAMES: i32 = 1i32;
+pub const UDISPCTX_CAPITALIZATION_NONE: i32 = 256i32;
+pub const UDISPCTX_CAPITALIZATION_FOR_MIDDLE_OF_SENTENCE: i32 = 257i32;
+pub const UDISPCTX_CAPITALIZATION_FOR_BEGINNING_OF_SENTENCE: i32 = 258i32;
+pub const UDISPCTX_CAPITALIZATION_FOR_UI_LIST_OR_MENU: i32 = 259i32;
+pub const UDISPCTX_CAPITALIZATION_FOR_STANDALONE: i32 = 260i32;
+pub const UDISPCTX_LENGTH_FULL: i32 = 512i32;
+pub const UDISPCTX_LENGTH_SHORT: i32 = 513i32;
+pub const UDISPCTX_SUBSTITUTE: i32 = 768i32;
+pub const UDISPCTX_NO_SUBSTITUTE: i32 = 769i32;
+pub const UDISPCTX_TYPE_DIALECT_HANDLING: i32 = 0i32;
+pub const UDISPCTX_TYPE_CAPITALIZATION: i32 = 1i32;
+pub const UDISPCTX_TYPE_DISPLAY_LENGTH: i32 = 2i32;
+pub const UDISPCTX_TYPE_SUBSTITUTE_HANDLING: i32 = 3i32;
+pub const U_EA_NEUTRAL: i32 = 0i32;
+pub const U_EA_AMBIGUOUS: i32 = 1i32;
+pub const U_EA_HALFWIDTH: i32 = 2i32;
+pub const U_EA_FULLWIDTH: i32 = 3i32;
+pub const U_EA_NARROW: i32 = 4i32;
+pub const U_EA_WIDE: i32 = 5i32;
 #[cfg(feature = "Win32_Foundation")]
 pub type UEnumCharNamesFn = unsafe extern "system" fn(context: *mut ::core::ffi::c_void, code: i32, namechoice: UCharNameChoice, name: super::Foundation::PSTR, length: i32) -> i8;
 #[repr(C)]
 pub struct UEnumeration(pub u8);
-#[repr(transparent)]
-pub struct UErrorCode(pub i32);
-pub const U_USING_FALLBACK_WARNING: UErrorCode = UErrorCode(-128i32);
-pub const U_ERROR_WARNING_START: UErrorCode = UErrorCode(-128i32);
-pub const U_USING_DEFAULT_WARNING: UErrorCode = UErrorCode(-127i32);
-pub const U_SAFECLONE_ALLOCATED_WARNING: UErrorCode = UErrorCode(-126i32);
-pub const U_STATE_OLD_WARNING: UErrorCode = UErrorCode(-125i32);
-pub const U_STRING_NOT_TERMINATED_WARNING: UErrorCode = UErrorCode(-124i32);
-pub const U_SORT_KEY_TOO_SHORT_WARNING: UErrorCode = UErrorCode(-123i32);
-pub const U_AMBIGUOUS_ALIAS_WARNING: UErrorCode = UErrorCode(-122i32);
-pub const U_DIFFERENT_UCA_VERSION: UErrorCode = UErrorCode(-121i32);
-pub const U_PLUGIN_CHANGED_LEVEL_WARNING: UErrorCode = UErrorCode(-120i32);
-pub const U_ZERO_ERROR: UErrorCode = UErrorCode(0i32);
-pub const U_ILLEGAL_ARGUMENT_ERROR: UErrorCode = UErrorCode(1i32);
-pub const U_MISSING_RESOURCE_ERROR: UErrorCode = UErrorCode(2i32);
-pub const U_INVALID_FORMAT_ERROR: UErrorCode = UErrorCode(3i32);
-pub const U_FILE_ACCESS_ERROR: UErrorCode = UErrorCode(4i32);
-pub const U_INTERNAL_PROGRAM_ERROR: UErrorCode = UErrorCode(5i32);
-pub const U_MESSAGE_PARSE_ERROR: UErrorCode = UErrorCode(6i32);
-pub const U_MEMORY_ALLOCATION_ERROR: UErrorCode = UErrorCode(7i32);
-pub const U_INDEX_OUTOFBOUNDS_ERROR: UErrorCode = UErrorCode(8i32);
-pub const U_PARSE_ERROR: UErrorCode = UErrorCode(9i32);
-pub const U_INVALID_CHAR_FOUND: UErrorCode = UErrorCode(10i32);
-pub const U_TRUNCATED_CHAR_FOUND: UErrorCode = UErrorCode(11i32);
-pub const U_ILLEGAL_CHAR_FOUND: UErrorCode = UErrorCode(12i32);
-pub const U_INVALID_TABLE_FORMAT: UErrorCode = UErrorCode(13i32);
-pub const U_INVALID_TABLE_FILE: UErrorCode = UErrorCode(14i32);
-pub const U_BUFFER_OVERFLOW_ERROR: UErrorCode = UErrorCode(15i32);
-pub const U_UNSUPPORTED_ERROR: UErrorCode = UErrorCode(16i32);
-pub const U_RESOURCE_TYPE_MISMATCH: UErrorCode = UErrorCode(17i32);
-pub const U_ILLEGAL_ESCAPE_SEQUENCE: UErrorCode = UErrorCode(18i32);
-pub const U_UNSUPPORTED_ESCAPE_SEQUENCE: UErrorCode = UErrorCode(19i32);
-pub const U_NO_SPACE_AVAILABLE: UErrorCode = UErrorCode(20i32);
-pub const U_CE_NOT_FOUND_ERROR: UErrorCode = UErrorCode(21i32);
-pub const U_PRIMARY_TOO_LONG_ERROR: UErrorCode = UErrorCode(22i32);
-pub const U_STATE_TOO_OLD_ERROR: UErrorCode = UErrorCode(23i32);
-pub const U_TOO_MANY_ALIASES_ERROR: UErrorCode = UErrorCode(24i32);
-pub const U_ENUM_OUT_OF_SYNC_ERROR: UErrorCode = UErrorCode(25i32);
-pub const U_INVARIANT_CONVERSION_ERROR: UErrorCode = UErrorCode(26i32);
-pub const U_INVALID_STATE_ERROR: UErrorCode = UErrorCode(27i32);
-pub const U_COLLATOR_VERSION_MISMATCH: UErrorCode = UErrorCode(28i32);
-pub const U_USELESS_COLLATOR_ERROR: UErrorCode = UErrorCode(29i32);
-pub const U_NO_WRITE_PERMISSION: UErrorCode = UErrorCode(30i32);
-pub const U_BAD_VARIABLE_DEFINITION: UErrorCode = UErrorCode(65536i32);
-pub const U_PARSE_ERROR_START: UErrorCode = UErrorCode(65536i32);
-pub const U_MALFORMED_RULE: UErrorCode = UErrorCode(65537i32);
-pub const U_MALFORMED_SET: UErrorCode = UErrorCode(65538i32);
-pub const U_MALFORMED_SYMBOL_REFERENCE: UErrorCode = UErrorCode(65539i32);
-pub const U_MALFORMED_UNICODE_ESCAPE: UErrorCode = UErrorCode(65540i32);
-pub const U_MALFORMED_VARIABLE_DEFINITION: UErrorCode = UErrorCode(65541i32);
-pub const U_MALFORMED_VARIABLE_REFERENCE: UErrorCode = UErrorCode(65542i32);
-pub const U_MISMATCHED_SEGMENT_DELIMITERS: UErrorCode = UErrorCode(65543i32);
-pub const U_MISPLACED_ANCHOR_START: UErrorCode = UErrorCode(65544i32);
-pub const U_MISPLACED_CURSOR_OFFSET: UErrorCode = UErrorCode(65545i32);
-pub const U_MISPLACED_QUANTIFIER: UErrorCode = UErrorCode(65546i32);
-pub const U_MISSING_OPERATOR: UErrorCode = UErrorCode(65547i32);
-pub const U_MISSING_SEGMENT_CLOSE: UErrorCode = UErrorCode(65548i32);
-pub const U_MULTIPLE_ANTE_CONTEXTS: UErrorCode = UErrorCode(65549i32);
-pub const U_MULTIPLE_CURSORS: UErrorCode = UErrorCode(65550i32);
-pub const U_MULTIPLE_POST_CONTEXTS: UErrorCode = UErrorCode(65551i32);
-pub const U_TRAILING_BACKSLASH: UErrorCode = UErrorCode(65552i32);
-pub const U_UNDEFINED_SEGMENT_REFERENCE: UErrorCode = UErrorCode(65553i32);
-pub const U_UNDEFINED_VARIABLE: UErrorCode = UErrorCode(65554i32);
-pub const U_UNQUOTED_SPECIAL: UErrorCode = UErrorCode(65555i32);
-pub const U_UNTERMINATED_QUOTE: UErrorCode = UErrorCode(65556i32);
-pub const U_RULE_MASK_ERROR: UErrorCode = UErrorCode(65557i32);
-pub const U_MISPLACED_COMPOUND_FILTER: UErrorCode = UErrorCode(65558i32);
-pub const U_MULTIPLE_COMPOUND_FILTERS: UErrorCode = UErrorCode(65559i32);
-pub const U_INVALID_RBT_SYNTAX: UErrorCode = UErrorCode(65560i32);
-pub const U_INVALID_PROPERTY_PATTERN: UErrorCode = UErrorCode(65561i32);
-pub const U_MALFORMED_PRAGMA: UErrorCode = UErrorCode(65562i32);
-pub const U_UNCLOSED_SEGMENT: UErrorCode = UErrorCode(65563i32);
-pub const U_ILLEGAL_CHAR_IN_SEGMENT: UErrorCode = UErrorCode(65564i32);
-pub const U_VARIABLE_RANGE_EXHAUSTED: UErrorCode = UErrorCode(65565i32);
-pub const U_VARIABLE_RANGE_OVERLAP: UErrorCode = UErrorCode(65566i32);
-pub const U_ILLEGAL_CHARACTER: UErrorCode = UErrorCode(65567i32);
-pub const U_INTERNAL_TRANSLITERATOR_ERROR: UErrorCode = UErrorCode(65568i32);
-pub const U_INVALID_ID: UErrorCode = UErrorCode(65569i32);
-pub const U_INVALID_FUNCTION: UErrorCode = UErrorCode(65570i32);
-pub const U_UNEXPECTED_TOKEN: UErrorCode = UErrorCode(65792i32);
-pub const U_FMT_PARSE_ERROR_START: UErrorCode = UErrorCode(65792i32);
-pub const U_MULTIPLE_DECIMAL_SEPARATORS: UErrorCode = UErrorCode(65793i32);
-pub const U_MULTIPLE_DECIMAL_SEPERATORS: UErrorCode = UErrorCode(65793i32);
-pub const U_MULTIPLE_EXPONENTIAL_SYMBOLS: UErrorCode = UErrorCode(65794i32);
-pub const U_MALFORMED_EXPONENTIAL_PATTERN: UErrorCode = UErrorCode(65795i32);
-pub const U_MULTIPLE_PERCENT_SYMBOLS: UErrorCode = UErrorCode(65796i32);
-pub const U_MULTIPLE_PERMILL_SYMBOLS: UErrorCode = UErrorCode(65797i32);
-pub const U_MULTIPLE_PAD_SPECIFIERS: UErrorCode = UErrorCode(65798i32);
-pub const U_PATTERN_SYNTAX_ERROR: UErrorCode = UErrorCode(65799i32);
-pub const U_ILLEGAL_PAD_POSITION: UErrorCode = UErrorCode(65800i32);
-pub const U_UNMATCHED_BRACES: UErrorCode = UErrorCode(65801i32);
-pub const U_UNSUPPORTED_PROPERTY: UErrorCode = UErrorCode(65802i32);
-pub const U_UNSUPPORTED_ATTRIBUTE: UErrorCode = UErrorCode(65803i32);
-pub const U_ARGUMENT_TYPE_MISMATCH: UErrorCode = UErrorCode(65804i32);
-pub const U_DUPLICATE_KEYWORD: UErrorCode = UErrorCode(65805i32);
-pub const U_UNDEFINED_KEYWORD: UErrorCode = UErrorCode(65806i32);
-pub const U_DEFAULT_KEYWORD_MISSING: UErrorCode = UErrorCode(65807i32);
-pub const U_DECIMAL_NUMBER_SYNTAX_ERROR: UErrorCode = UErrorCode(65808i32);
-pub const U_FORMAT_INEXACT_ERROR: UErrorCode = UErrorCode(65809i32);
-pub const U_NUMBER_ARG_OUTOFBOUNDS_ERROR: UErrorCode = UErrorCode(65810i32);
-pub const U_NUMBER_SKELETON_SYNTAX_ERROR: UErrorCode = UErrorCode(65811i32);
-pub const U_BRK_INTERNAL_ERROR: UErrorCode = UErrorCode(66048i32);
-pub const U_BRK_ERROR_START: UErrorCode = UErrorCode(66048i32);
-pub const U_BRK_HEX_DIGITS_EXPECTED: UErrorCode = UErrorCode(66049i32);
-pub const U_BRK_SEMICOLON_EXPECTED: UErrorCode = UErrorCode(66050i32);
-pub const U_BRK_RULE_SYNTAX: UErrorCode = UErrorCode(66051i32);
-pub const U_BRK_UNCLOSED_SET: UErrorCode = UErrorCode(66052i32);
-pub const U_BRK_ASSIGN_ERROR: UErrorCode = UErrorCode(66053i32);
-pub const U_BRK_VARIABLE_REDFINITION: UErrorCode = UErrorCode(66054i32);
-pub const U_BRK_MISMATCHED_PAREN: UErrorCode = UErrorCode(66055i32);
-pub const U_BRK_NEW_LINE_IN_QUOTED_STRING: UErrorCode = UErrorCode(66056i32);
-pub const U_BRK_UNDEFINED_VARIABLE: UErrorCode = UErrorCode(66057i32);
-pub const U_BRK_INIT_ERROR: UErrorCode = UErrorCode(66058i32);
-pub const U_BRK_RULE_EMPTY_SET: UErrorCode = UErrorCode(66059i32);
-pub const U_BRK_UNRECOGNIZED_OPTION: UErrorCode = UErrorCode(66060i32);
-pub const U_BRK_MALFORMED_RULE_TAG: UErrorCode = UErrorCode(66061i32);
-pub const U_REGEX_INTERNAL_ERROR: UErrorCode = UErrorCode(66304i32);
-pub const U_REGEX_ERROR_START: UErrorCode = UErrorCode(66304i32);
-pub const U_REGEX_RULE_SYNTAX: UErrorCode = UErrorCode(66305i32);
-pub const U_REGEX_INVALID_STATE: UErrorCode = UErrorCode(66306i32);
-pub const U_REGEX_BAD_ESCAPE_SEQUENCE: UErrorCode = UErrorCode(66307i32);
-pub const U_REGEX_PROPERTY_SYNTAX: UErrorCode = UErrorCode(66308i32);
-pub const U_REGEX_UNIMPLEMENTED: UErrorCode = UErrorCode(66309i32);
-pub const U_REGEX_MISMATCHED_PAREN: UErrorCode = UErrorCode(66310i32);
-pub const U_REGEX_NUMBER_TOO_BIG: UErrorCode = UErrorCode(66311i32);
-pub const U_REGEX_BAD_INTERVAL: UErrorCode = UErrorCode(66312i32);
-pub const U_REGEX_MAX_LT_MIN: UErrorCode = UErrorCode(66313i32);
-pub const U_REGEX_INVALID_BACK_REF: UErrorCode = UErrorCode(66314i32);
-pub const U_REGEX_INVALID_FLAG: UErrorCode = UErrorCode(66315i32);
-pub const U_REGEX_LOOK_BEHIND_LIMIT: UErrorCode = UErrorCode(66316i32);
-pub const U_REGEX_SET_CONTAINS_STRING: UErrorCode = UErrorCode(66317i32);
-pub const U_REGEX_MISSING_CLOSE_BRACKET: UErrorCode = UErrorCode(66319i32);
-pub const U_REGEX_INVALID_RANGE: UErrorCode = UErrorCode(66320i32);
-pub const U_REGEX_STACK_OVERFLOW: UErrorCode = UErrorCode(66321i32);
-pub const U_REGEX_TIME_OUT: UErrorCode = UErrorCode(66322i32);
-pub const U_REGEX_STOPPED_BY_CALLER: UErrorCode = UErrorCode(66323i32);
-pub const U_REGEX_PATTERN_TOO_BIG: UErrorCode = UErrorCode(66324i32);
-pub const U_REGEX_INVALID_CAPTURE_GROUP_NAME: UErrorCode = UErrorCode(66325i32);
-pub const U_IDNA_PROHIBITED_ERROR: UErrorCode = UErrorCode(66560i32);
-pub const U_IDNA_ERROR_START: UErrorCode = UErrorCode(66560i32);
-pub const U_IDNA_UNASSIGNED_ERROR: UErrorCode = UErrorCode(66561i32);
-pub const U_IDNA_CHECK_BIDI_ERROR: UErrorCode = UErrorCode(66562i32);
-pub const U_IDNA_STD3_ASCII_RULES_ERROR: UErrorCode = UErrorCode(66563i32);
-pub const U_IDNA_ACE_PREFIX_ERROR: UErrorCode = UErrorCode(66564i32);
-pub const U_IDNA_VERIFICATION_ERROR: UErrorCode = UErrorCode(66565i32);
-pub const U_IDNA_LABEL_TOO_LONG_ERROR: UErrorCode = UErrorCode(66566i32);
-pub const U_IDNA_ZERO_LENGTH_LABEL_ERROR: UErrorCode = UErrorCode(66567i32);
-pub const U_IDNA_DOMAIN_NAME_TOO_LONG_ERROR: UErrorCode = UErrorCode(66568i32);
-pub const U_STRINGPREP_PROHIBITED_ERROR: UErrorCode = UErrorCode(66560i32);
-pub const U_STRINGPREP_UNASSIGNED_ERROR: UErrorCode = UErrorCode(66561i32);
-pub const U_STRINGPREP_CHECK_BIDI_ERROR: UErrorCode = UErrorCode(66562i32);
-pub const U_PLUGIN_ERROR_START: UErrorCode = UErrorCode(66816i32);
-pub const U_PLUGIN_TOO_HIGH: UErrorCode = UErrorCode(66816i32);
-pub const U_PLUGIN_DIDNT_SET_LEVEL: UErrorCode = UErrorCode(66817i32);
-impl ::core::marker::Copy for UErrorCode {}
-impl ::core::clone::Clone for UErrorCode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct UFieldCategory(pub i32);
-pub const UFIELD_CATEGORY_UNDEFINED: UFieldCategory = UFieldCategory(0i32);
-pub const UFIELD_CATEGORY_DATE: UFieldCategory = UFieldCategory(1i32);
-pub const UFIELD_CATEGORY_NUMBER: UFieldCategory = UFieldCategory(2i32);
-pub const UFIELD_CATEGORY_LIST: UFieldCategory = UFieldCategory(3i32);
-pub const UFIELD_CATEGORY_RELATIVE_DATETIME: UFieldCategory = UFieldCategory(4i32);
-pub const UFIELD_CATEGORY_DATE_INTERVAL: UFieldCategory = UFieldCategory(5i32);
-pub const UFIELD_CATEGORY_LIST_SPAN: UFieldCategory = UFieldCategory(4099i32);
-pub const UFIELD_CATEGORY_DATE_INTERVAL_SPAN: UFieldCategory = UFieldCategory(4101i32);
-impl ::core::marker::Copy for UFieldCategory {}
-impl ::core::clone::Clone for UFieldCategory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const U_USING_FALLBACK_WARNING: i32 = -128i32;
+pub const U_ERROR_WARNING_START: i32 = -128i32;
+pub const U_USING_DEFAULT_WARNING: i32 = -127i32;
+pub const U_SAFECLONE_ALLOCATED_WARNING: i32 = -126i32;
+pub const U_STATE_OLD_WARNING: i32 = -125i32;
+pub const U_STRING_NOT_TERMINATED_WARNING: i32 = -124i32;
+pub const U_SORT_KEY_TOO_SHORT_WARNING: i32 = -123i32;
+pub const U_AMBIGUOUS_ALIAS_WARNING: i32 = -122i32;
+pub const U_DIFFERENT_UCA_VERSION: i32 = -121i32;
+pub const U_PLUGIN_CHANGED_LEVEL_WARNING: i32 = -120i32;
+pub const U_ZERO_ERROR: i32 = 0i32;
+pub const U_ILLEGAL_ARGUMENT_ERROR: i32 = 1i32;
+pub const U_MISSING_RESOURCE_ERROR: i32 = 2i32;
+pub const U_INVALID_FORMAT_ERROR: i32 = 3i32;
+pub const U_FILE_ACCESS_ERROR: i32 = 4i32;
+pub const U_INTERNAL_PROGRAM_ERROR: i32 = 5i32;
+pub const U_MESSAGE_PARSE_ERROR: i32 = 6i32;
+pub const U_MEMORY_ALLOCATION_ERROR: i32 = 7i32;
+pub const U_INDEX_OUTOFBOUNDS_ERROR: i32 = 8i32;
+pub const U_PARSE_ERROR: i32 = 9i32;
+pub const U_INVALID_CHAR_FOUND: i32 = 10i32;
+pub const U_TRUNCATED_CHAR_FOUND: i32 = 11i32;
+pub const U_ILLEGAL_CHAR_FOUND: i32 = 12i32;
+pub const U_INVALID_TABLE_FORMAT: i32 = 13i32;
+pub const U_INVALID_TABLE_FILE: i32 = 14i32;
+pub const U_BUFFER_OVERFLOW_ERROR: i32 = 15i32;
+pub const U_UNSUPPORTED_ERROR: i32 = 16i32;
+pub const U_RESOURCE_TYPE_MISMATCH: i32 = 17i32;
+pub const U_ILLEGAL_ESCAPE_SEQUENCE: i32 = 18i32;
+pub const U_UNSUPPORTED_ESCAPE_SEQUENCE: i32 = 19i32;
+pub const U_NO_SPACE_AVAILABLE: i32 = 20i32;
+pub const U_CE_NOT_FOUND_ERROR: i32 = 21i32;
+pub const U_PRIMARY_TOO_LONG_ERROR: i32 = 22i32;
+pub const U_STATE_TOO_OLD_ERROR: i32 = 23i32;
+pub const U_TOO_MANY_ALIASES_ERROR: i32 = 24i32;
+pub const U_ENUM_OUT_OF_SYNC_ERROR: i32 = 25i32;
+pub const U_INVARIANT_CONVERSION_ERROR: i32 = 26i32;
+pub const U_INVALID_STATE_ERROR: i32 = 27i32;
+pub const U_COLLATOR_VERSION_MISMATCH: i32 = 28i32;
+pub const U_USELESS_COLLATOR_ERROR: i32 = 29i32;
+pub const U_NO_WRITE_PERMISSION: i32 = 30i32;
+pub const U_BAD_VARIABLE_DEFINITION: i32 = 65536i32;
+pub const U_PARSE_ERROR_START: i32 = 65536i32;
+pub const U_MALFORMED_RULE: i32 = 65537i32;
+pub const U_MALFORMED_SET: i32 = 65538i32;
+pub const U_MALFORMED_SYMBOL_REFERENCE: i32 = 65539i32;
+pub const U_MALFORMED_UNICODE_ESCAPE: i32 = 65540i32;
+pub const U_MALFORMED_VARIABLE_DEFINITION: i32 = 65541i32;
+pub const U_MALFORMED_VARIABLE_REFERENCE: i32 = 65542i32;
+pub const U_MISMATCHED_SEGMENT_DELIMITERS: i32 = 65543i32;
+pub const U_MISPLACED_ANCHOR_START: i32 = 65544i32;
+pub const U_MISPLACED_CURSOR_OFFSET: i32 = 65545i32;
+pub const U_MISPLACED_QUANTIFIER: i32 = 65546i32;
+pub const U_MISSING_OPERATOR: i32 = 65547i32;
+pub const U_MISSING_SEGMENT_CLOSE: i32 = 65548i32;
+pub const U_MULTIPLE_ANTE_CONTEXTS: i32 = 65549i32;
+pub const U_MULTIPLE_CURSORS: i32 = 65550i32;
+pub const U_MULTIPLE_POST_CONTEXTS: i32 = 65551i32;
+pub const U_TRAILING_BACKSLASH: i32 = 65552i32;
+pub const U_UNDEFINED_SEGMENT_REFERENCE: i32 = 65553i32;
+pub const U_UNDEFINED_VARIABLE: i32 = 65554i32;
+pub const U_UNQUOTED_SPECIAL: i32 = 65555i32;
+pub const U_UNTERMINATED_QUOTE: i32 = 65556i32;
+pub const U_RULE_MASK_ERROR: i32 = 65557i32;
+pub const U_MISPLACED_COMPOUND_FILTER: i32 = 65558i32;
+pub const U_MULTIPLE_COMPOUND_FILTERS: i32 = 65559i32;
+pub const U_INVALID_RBT_SYNTAX: i32 = 65560i32;
+pub const U_INVALID_PROPERTY_PATTERN: i32 = 65561i32;
+pub const U_MALFORMED_PRAGMA: i32 = 65562i32;
+pub const U_UNCLOSED_SEGMENT: i32 = 65563i32;
+pub const U_ILLEGAL_CHAR_IN_SEGMENT: i32 = 65564i32;
+pub const U_VARIABLE_RANGE_EXHAUSTED: i32 = 65565i32;
+pub const U_VARIABLE_RANGE_OVERLAP: i32 = 65566i32;
+pub const U_ILLEGAL_CHARACTER: i32 = 65567i32;
+pub const U_INTERNAL_TRANSLITERATOR_ERROR: i32 = 65568i32;
+pub const U_INVALID_ID: i32 = 65569i32;
+pub const U_INVALID_FUNCTION: i32 = 65570i32;
+pub const U_UNEXPECTED_TOKEN: i32 = 65792i32;
+pub const U_FMT_PARSE_ERROR_START: i32 = 65792i32;
+pub const U_MULTIPLE_DECIMAL_SEPARATORS: i32 = 65793i32;
+pub const U_MULTIPLE_DECIMAL_SEPERATORS: i32 = 65793i32;
+pub const U_MULTIPLE_EXPONENTIAL_SYMBOLS: i32 = 65794i32;
+pub const U_MALFORMED_EXPONENTIAL_PATTERN: i32 = 65795i32;
+pub const U_MULTIPLE_PERCENT_SYMBOLS: i32 = 65796i32;
+pub const U_MULTIPLE_PERMILL_SYMBOLS: i32 = 65797i32;
+pub const U_MULTIPLE_PAD_SPECIFIERS: i32 = 65798i32;
+pub const U_PATTERN_SYNTAX_ERROR: i32 = 65799i32;
+pub const U_ILLEGAL_PAD_POSITION: i32 = 65800i32;
+pub const U_UNMATCHED_BRACES: i32 = 65801i32;
+pub const U_UNSUPPORTED_PROPERTY: i32 = 65802i32;
+pub const U_UNSUPPORTED_ATTRIBUTE: i32 = 65803i32;
+pub const U_ARGUMENT_TYPE_MISMATCH: i32 = 65804i32;
+pub const U_DUPLICATE_KEYWORD: i32 = 65805i32;
+pub const U_UNDEFINED_KEYWORD: i32 = 65806i32;
+pub const U_DEFAULT_KEYWORD_MISSING: i32 = 65807i32;
+pub const U_DECIMAL_NUMBER_SYNTAX_ERROR: i32 = 65808i32;
+pub const U_FORMAT_INEXACT_ERROR: i32 = 65809i32;
+pub const U_NUMBER_ARG_OUTOFBOUNDS_ERROR: i32 = 65810i32;
+pub const U_NUMBER_SKELETON_SYNTAX_ERROR: i32 = 65811i32;
+pub const U_BRK_INTERNAL_ERROR: i32 = 66048i32;
+pub const U_BRK_ERROR_START: i32 = 66048i32;
+pub const U_BRK_HEX_DIGITS_EXPECTED: i32 = 66049i32;
+pub const U_BRK_SEMICOLON_EXPECTED: i32 = 66050i32;
+pub const U_BRK_RULE_SYNTAX: i32 = 66051i32;
+pub const U_BRK_UNCLOSED_SET: i32 = 66052i32;
+pub const U_BRK_ASSIGN_ERROR: i32 = 66053i32;
+pub const U_BRK_VARIABLE_REDFINITION: i32 = 66054i32;
+pub const U_BRK_MISMATCHED_PAREN: i32 = 66055i32;
+pub const U_BRK_NEW_LINE_IN_QUOTED_STRING: i32 = 66056i32;
+pub const U_BRK_UNDEFINED_VARIABLE: i32 = 66057i32;
+pub const U_BRK_INIT_ERROR: i32 = 66058i32;
+pub const U_BRK_RULE_EMPTY_SET: i32 = 66059i32;
+pub const U_BRK_UNRECOGNIZED_OPTION: i32 = 66060i32;
+pub const U_BRK_MALFORMED_RULE_TAG: i32 = 66061i32;
+pub const U_REGEX_INTERNAL_ERROR: i32 = 66304i32;
+pub const U_REGEX_ERROR_START: i32 = 66304i32;
+pub const U_REGEX_RULE_SYNTAX: i32 = 66305i32;
+pub const U_REGEX_INVALID_STATE: i32 = 66306i32;
+pub const U_REGEX_BAD_ESCAPE_SEQUENCE: i32 = 66307i32;
+pub const U_REGEX_PROPERTY_SYNTAX: i32 = 66308i32;
+pub const U_REGEX_UNIMPLEMENTED: i32 = 66309i32;
+pub const U_REGEX_MISMATCHED_PAREN: i32 = 66310i32;
+pub const U_REGEX_NUMBER_TOO_BIG: i32 = 66311i32;
+pub const U_REGEX_BAD_INTERVAL: i32 = 66312i32;
+pub const U_REGEX_MAX_LT_MIN: i32 = 66313i32;
+pub const U_REGEX_INVALID_BACK_REF: i32 = 66314i32;
+pub const U_REGEX_INVALID_FLAG: i32 = 66315i32;
+pub const U_REGEX_LOOK_BEHIND_LIMIT: i32 = 66316i32;
+pub const U_REGEX_SET_CONTAINS_STRING: i32 = 66317i32;
+pub const U_REGEX_MISSING_CLOSE_BRACKET: i32 = 66319i32;
+pub const U_REGEX_INVALID_RANGE: i32 = 66320i32;
+pub const U_REGEX_STACK_OVERFLOW: i32 = 66321i32;
+pub const U_REGEX_TIME_OUT: i32 = 66322i32;
+pub const U_REGEX_STOPPED_BY_CALLER: i32 = 66323i32;
+pub const U_REGEX_PATTERN_TOO_BIG: i32 = 66324i32;
+pub const U_REGEX_INVALID_CAPTURE_GROUP_NAME: i32 = 66325i32;
+pub const U_IDNA_PROHIBITED_ERROR: i32 = 66560i32;
+pub const U_IDNA_ERROR_START: i32 = 66560i32;
+pub const U_IDNA_UNASSIGNED_ERROR: i32 = 66561i32;
+pub const U_IDNA_CHECK_BIDI_ERROR: i32 = 66562i32;
+pub const U_IDNA_STD3_ASCII_RULES_ERROR: i32 = 66563i32;
+pub const U_IDNA_ACE_PREFIX_ERROR: i32 = 66564i32;
+pub const U_IDNA_VERIFICATION_ERROR: i32 = 66565i32;
+pub const U_IDNA_LABEL_TOO_LONG_ERROR: i32 = 66566i32;
+pub const U_IDNA_ZERO_LENGTH_LABEL_ERROR: i32 = 66567i32;
+pub const U_IDNA_DOMAIN_NAME_TOO_LONG_ERROR: i32 = 66568i32;
+pub const U_STRINGPREP_PROHIBITED_ERROR: i32 = 66560i32;
+pub const U_STRINGPREP_UNASSIGNED_ERROR: i32 = 66561i32;
+pub const U_STRINGPREP_CHECK_BIDI_ERROR: i32 = 66562i32;
+pub const U_PLUGIN_ERROR_START: i32 = 66816i32;
+pub const U_PLUGIN_TOO_HIGH: i32 = 66816i32;
+pub const U_PLUGIN_DIDNT_SET_LEVEL: i32 = 66817i32;
+pub const UFIELD_CATEGORY_UNDEFINED: i32 = 0i32;
+pub const UFIELD_CATEGORY_DATE: i32 = 1i32;
+pub const UFIELD_CATEGORY_NUMBER: i32 = 2i32;
+pub const UFIELD_CATEGORY_LIST: i32 = 3i32;
+pub const UFIELD_CATEGORY_RELATIVE_DATETIME: i32 = 4i32;
+pub const UFIELD_CATEGORY_DATE_INTERVAL: i32 = 5i32;
+pub const UFIELD_CATEGORY_LIST_SPAN: i32 = 4099i32;
+pub const UFIELD_CATEGORY_DATE_INTERVAL_SPAN: i32 = 4101i32;
 #[repr(C)]
 pub struct UFieldPosition {
     pub field: i32,
@@ -5052,21 +4388,13 @@ impl ::core::clone::Clone for UFieldPosition {
 }
 #[repr(C)]
 pub struct UFieldPositionIterator(pub u8);
-#[repr(transparent)]
-pub struct UFormattableType(pub i32);
-pub const UFMT_DATE: UFormattableType = UFormattableType(0i32);
-pub const UFMT_DOUBLE: UFormattableType = UFormattableType(1i32);
-pub const UFMT_LONG: UFormattableType = UFormattableType(2i32);
-pub const UFMT_STRING: UFormattableType = UFormattableType(3i32);
-pub const UFMT_ARRAY: UFormattableType = UFormattableType(4i32);
-pub const UFMT_INT64: UFormattableType = UFormattableType(5i32);
-pub const UFMT_OBJECT: UFormattableType = UFormattableType(6i32);
-impl ::core::marker::Copy for UFormattableType {}
-impl ::core::clone::Clone for UFormattableType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const UFMT_DATE: i32 = 0i32;
+pub const UFMT_DOUBLE: i32 = 1i32;
+pub const UFMT_LONG: i32 = 2i32;
+pub const UFMT_STRING: i32 = 3i32;
+pub const UFMT_ARRAY: i32 = 4i32;
+pub const UFMT_INT64: i32 = 5i32;
+pub const UFMT_OBJECT: i32 = 6i32;
 #[repr(C)]
 pub struct UFormattedDateInterval(pub u8);
 #[repr(C)]
@@ -5079,59 +4407,35 @@ pub struct UFormattedNumberRange(pub u8);
 pub struct UFormattedRelativeDateTime(pub u8);
 #[repr(C)]
 pub struct UFormattedValue(pub u8);
-#[repr(transparent)]
-pub struct UGender(pub i32);
-pub const UGENDER_MALE: UGender = UGender(0i32);
-pub const UGENDER_FEMALE: UGender = UGender(1i32);
-pub const UGENDER_OTHER: UGender = UGender(2i32);
-impl ::core::marker::Copy for UGender {}
-impl ::core::clone::Clone for UGender {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const UGENDER_MALE: i32 = 0i32;
+pub const UGENDER_FEMALE: i32 = 1i32;
+pub const UGENDER_OTHER: i32 = 2i32;
 #[repr(C)]
 pub struct UGenderInfo(pub u8);
-#[repr(transparent)]
-pub struct UGraphemeClusterBreak(pub i32);
-pub const U_GCB_OTHER: UGraphemeClusterBreak = UGraphemeClusterBreak(0i32);
-pub const U_GCB_CONTROL: UGraphemeClusterBreak = UGraphemeClusterBreak(1i32);
-pub const U_GCB_CR: UGraphemeClusterBreak = UGraphemeClusterBreak(2i32);
-pub const U_GCB_EXTEND: UGraphemeClusterBreak = UGraphemeClusterBreak(3i32);
-pub const U_GCB_L: UGraphemeClusterBreak = UGraphemeClusterBreak(4i32);
-pub const U_GCB_LF: UGraphemeClusterBreak = UGraphemeClusterBreak(5i32);
-pub const U_GCB_LV: UGraphemeClusterBreak = UGraphemeClusterBreak(6i32);
-pub const U_GCB_LVT: UGraphemeClusterBreak = UGraphemeClusterBreak(7i32);
-pub const U_GCB_T: UGraphemeClusterBreak = UGraphemeClusterBreak(8i32);
-pub const U_GCB_V: UGraphemeClusterBreak = UGraphemeClusterBreak(9i32);
-pub const U_GCB_SPACING_MARK: UGraphemeClusterBreak = UGraphemeClusterBreak(10i32);
-pub const U_GCB_PREPEND: UGraphemeClusterBreak = UGraphemeClusterBreak(11i32);
-pub const U_GCB_REGIONAL_INDICATOR: UGraphemeClusterBreak = UGraphemeClusterBreak(12i32);
-pub const U_GCB_E_BASE: UGraphemeClusterBreak = UGraphemeClusterBreak(13i32);
-pub const U_GCB_E_BASE_GAZ: UGraphemeClusterBreak = UGraphemeClusterBreak(14i32);
-pub const U_GCB_E_MODIFIER: UGraphemeClusterBreak = UGraphemeClusterBreak(15i32);
-pub const U_GCB_GLUE_AFTER_ZWJ: UGraphemeClusterBreak = UGraphemeClusterBreak(16i32);
-pub const U_GCB_ZWJ: UGraphemeClusterBreak = UGraphemeClusterBreak(17i32);
-impl ::core::marker::Copy for UGraphemeClusterBreak {}
-impl ::core::clone::Clone for UGraphemeClusterBreak {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct UHangulSyllableType(pub i32);
-pub const U_HST_NOT_APPLICABLE: UHangulSyllableType = UHangulSyllableType(0i32);
-pub const U_HST_LEADING_JAMO: UHangulSyllableType = UHangulSyllableType(1i32);
-pub const U_HST_VOWEL_JAMO: UHangulSyllableType = UHangulSyllableType(2i32);
-pub const U_HST_TRAILING_JAMO: UHangulSyllableType = UHangulSyllableType(3i32);
-pub const U_HST_LV_SYLLABLE: UHangulSyllableType = UHangulSyllableType(4i32);
-pub const U_HST_LVT_SYLLABLE: UHangulSyllableType = UHangulSyllableType(5i32);
-impl ::core::marker::Copy for UHangulSyllableType {}
-impl ::core::clone::Clone for UHangulSyllableType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const U_GCB_OTHER: i32 = 0i32;
+pub const U_GCB_CONTROL: i32 = 1i32;
+pub const U_GCB_CR: i32 = 2i32;
+pub const U_GCB_EXTEND: i32 = 3i32;
+pub const U_GCB_L: i32 = 4i32;
+pub const U_GCB_LF: i32 = 5i32;
+pub const U_GCB_LV: i32 = 6i32;
+pub const U_GCB_LVT: i32 = 7i32;
+pub const U_GCB_T: i32 = 8i32;
+pub const U_GCB_V: i32 = 9i32;
+pub const U_GCB_SPACING_MARK: i32 = 10i32;
+pub const U_GCB_PREPEND: i32 = 11i32;
+pub const U_GCB_REGIONAL_INDICATOR: i32 = 12i32;
+pub const U_GCB_E_BASE: i32 = 13i32;
+pub const U_GCB_E_BASE_GAZ: i32 = 14i32;
+pub const U_GCB_E_MODIFIER: i32 = 15i32;
+pub const U_GCB_GLUE_AFTER_ZWJ: i32 = 16i32;
+pub const U_GCB_ZWJ: i32 = 17i32;
+pub const U_HST_NOT_APPLICABLE: i32 = 0i32;
+pub const U_HST_LEADING_JAMO: i32 = 1i32;
+pub const U_HST_VOWEL_JAMO: i32 = 2i32;
+pub const U_HST_TRAILING_JAMO: i32 = 3i32;
+pub const U_HST_LV_SYLLABLE: i32 = 4i32;
+pub const U_HST_LVT_SYLLABLE: i32 = 5i32;
 #[repr(C)]
 pub struct UHashtable(pub u8);
 #[repr(C)]
@@ -5178,199 +4482,167 @@ pub type UILANGUAGE_ENUMPROCA = unsafe extern "system" fn(param0: super::Foundat
 #[cfg(feature = "Win32_Foundation")]
 pub type UILANGUAGE_ENUMPROCW = unsafe extern "system" fn(param0: super::Foundation::PWSTR, param1: isize) -> super::Foundation::BOOL;
 pub const UITER_UNKNOWN_INDEX: i32 = -2i32;
-#[repr(transparent)]
-pub struct UIndicPositionalCategory(pub i32);
-pub const U_INPC_NA: UIndicPositionalCategory = UIndicPositionalCategory(0i32);
-pub const U_INPC_BOTTOM: UIndicPositionalCategory = UIndicPositionalCategory(1i32);
-pub const U_INPC_BOTTOM_AND_LEFT: UIndicPositionalCategory = UIndicPositionalCategory(2i32);
-pub const U_INPC_BOTTOM_AND_RIGHT: UIndicPositionalCategory = UIndicPositionalCategory(3i32);
-pub const U_INPC_LEFT: UIndicPositionalCategory = UIndicPositionalCategory(4i32);
-pub const U_INPC_LEFT_AND_RIGHT: UIndicPositionalCategory = UIndicPositionalCategory(5i32);
-pub const U_INPC_OVERSTRUCK: UIndicPositionalCategory = UIndicPositionalCategory(6i32);
-pub const U_INPC_RIGHT: UIndicPositionalCategory = UIndicPositionalCategory(7i32);
-pub const U_INPC_TOP: UIndicPositionalCategory = UIndicPositionalCategory(8i32);
-pub const U_INPC_TOP_AND_BOTTOM: UIndicPositionalCategory = UIndicPositionalCategory(9i32);
-pub const U_INPC_TOP_AND_BOTTOM_AND_RIGHT: UIndicPositionalCategory = UIndicPositionalCategory(10i32);
-pub const U_INPC_TOP_AND_LEFT: UIndicPositionalCategory = UIndicPositionalCategory(11i32);
-pub const U_INPC_TOP_AND_LEFT_AND_RIGHT: UIndicPositionalCategory = UIndicPositionalCategory(12i32);
-pub const U_INPC_TOP_AND_RIGHT: UIndicPositionalCategory = UIndicPositionalCategory(13i32);
-pub const U_INPC_VISUAL_ORDER_LEFT: UIndicPositionalCategory = UIndicPositionalCategory(14i32);
-pub const U_INPC_TOP_AND_BOTTOM_AND_LEFT: UIndicPositionalCategory = UIndicPositionalCategory(15i32);
-impl ::core::marker::Copy for UIndicPositionalCategory {}
-impl ::core::clone::Clone for UIndicPositionalCategory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct UIndicSyllabicCategory(pub i32);
-pub const U_INSC_OTHER: UIndicSyllabicCategory = UIndicSyllabicCategory(0i32);
-pub const U_INSC_AVAGRAHA: UIndicSyllabicCategory = UIndicSyllabicCategory(1i32);
-pub const U_INSC_BINDU: UIndicSyllabicCategory = UIndicSyllabicCategory(2i32);
-pub const U_INSC_BRAHMI_JOINING_NUMBER: UIndicSyllabicCategory = UIndicSyllabicCategory(3i32);
-pub const U_INSC_CANTILLATION_MARK: UIndicSyllabicCategory = UIndicSyllabicCategory(4i32);
-pub const U_INSC_CONSONANT: UIndicSyllabicCategory = UIndicSyllabicCategory(5i32);
-pub const U_INSC_CONSONANT_DEAD: UIndicSyllabicCategory = UIndicSyllabicCategory(6i32);
-pub const U_INSC_CONSONANT_FINAL: UIndicSyllabicCategory = UIndicSyllabicCategory(7i32);
-pub const U_INSC_CONSONANT_HEAD_LETTER: UIndicSyllabicCategory = UIndicSyllabicCategory(8i32);
-pub const U_INSC_CONSONANT_INITIAL_POSTFIXED: UIndicSyllabicCategory = UIndicSyllabicCategory(9i32);
-pub const U_INSC_CONSONANT_KILLER: UIndicSyllabicCategory = UIndicSyllabicCategory(10i32);
-pub const U_INSC_CONSONANT_MEDIAL: UIndicSyllabicCategory = UIndicSyllabicCategory(11i32);
-pub const U_INSC_CONSONANT_PLACEHOLDER: UIndicSyllabicCategory = UIndicSyllabicCategory(12i32);
-pub const U_INSC_CONSONANT_PRECEDING_REPHA: UIndicSyllabicCategory = UIndicSyllabicCategory(13i32);
-pub const U_INSC_CONSONANT_PREFIXED: UIndicSyllabicCategory = UIndicSyllabicCategory(14i32);
-pub const U_INSC_CONSONANT_SUBJOINED: UIndicSyllabicCategory = UIndicSyllabicCategory(15i32);
-pub const U_INSC_CONSONANT_SUCCEEDING_REPHA: UIndicSyllabicCategory = UIndicSyllabicCategory(16i32);
-pub const U_INSC_CONSONANT_WITH_STACKER: UIndicSyllabicCategory = UIndicSyllabicCategory(17i32);
-pub const U_INSC_GEMINATION_MARK: UIndicSyllabicCategory = UIndicSyllabicCategory(18i32);
-pub const U_INSC_INVISIBLE_STACKER: UIndicSyllabicCategory = UIndicSyllabicCategory(19i32);
-pub const U_INSC_JOINER: UIndicSyllabicCategory = UIndicSyllabicCategory(20i32);
-pub const U_INSC_MODIFYING_LETTER: UIndicSyllabicCategory = UIndicSyllabicCategory(21i32);
-pub const U_INSC_NON_JOINER: UIndicSyllabicCategory = UIndicSyllabicCategory(22i32);
-pub const U_INSC_NUKTA: UIndicSyllabicCategory = UIndicSyllabicCategory(23i32);
-pub const U_INSC_NUMBER: UIndicSyllabicCategory = UIndicSyllabicCategory(24i32);
-pub const U_INSC_NUMBER_JOINER: UIndicSyllabicCategory = UIndicSyllabicCategory(25i32);
-pub const U_INSC_PURE_KILLER: UIndicSyllabicCategory = UIndicSyllabicCategory(26i32);
-pub const U_INSC_REGISTER_SHIFTER: UIndicSyllabicCategory = UIndicSyllabicCategory(27i32);
-pub const U_INSC_SYLLABLE_MODIFIER: UIndicSyllabicCategory = UIndicSyllabicCategory(28i32);
-pub const U_INSC_TONE_LETTER: UIndicSyllabicCategory = UIndicSyllabicCategory(29i32);
-pub const U_INSC_TONE_MARK: UIndicSyllabicCategory = UIndicSyllabicCategory(30i32);
-pub const U_INSC_VIRAMA: UIndicSyllabicCategory = UIndicSyllabicCategory(31i32);
-pub const U_INSC_VISARGA: UIndicSyllabicCategory = UIndicSyllabicCategory(32i32);
-pub const U_INSC_VOWEL: UIndicSyllabicCategory = UIndicSyllabicCategory(33i32);
-pub const U_INSC_VOWEL_DEPENDENT: UIndicSyllabicCategory = UIndicSyllabicCategory(34i32);
-pub const U_INSC_VOWEL_INDEPENDENT: UIndicSyllabicCategory = UIndicSyllabicCategory(35i32);
-impl ::core::marker::Copy for UIndicSyllabicCategory {}
-impl ::core::clone::Clone for UIndicSyllabicCategory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct UJoiningGroup(pub i32);
-pub const U_JG_NO_JOINING_GROUP: UJoiningGroup = UJoiningGroup(0i32);
-pub const U_JG_AIN: UJoiningGroup = UJoiningGroup(1i32);
-pub const U_JG_ALAPH: UJoiningGroup = UJoiningGroup(2i32);
-pub const U_JG_ALEF: UJoiningGroup = UJoiningGroup(3i32);
-pub const U_JG_BEH: UJoiningGroup = UJoiningGroup(4i32);
-pub const U_JG_BETH: UJoiningGroup = UJoiningGroup(5i32);
-pub const U_JG_DAL: UJoiningGroup = UJoiningGroup(6i32);
-pub const U_JG_DALATH_RISH: UJoiningGroup = UJoiningGroup(7i32);
-pub const U_JG_E: UJoiningGroup = UJoiningGroup(8i32);
-pub const U_JG_FEH: UJoiningGroup = UJoiningGroup(9i32);
-pub const U_JG_FINAL_SEMKATH: UJoiningGroup = UJoiningGroup(10i32);
-pub const U_JG_GAF: UJoiningGroup = UJoiningGroup(11i32);
-pub const U_JG_GAMAL: UJoiningGroup = UJoiningGroup(12i32);
-pub const U_JG_HAH: UJoiningGroup = UJoiningGroup(13i32);
-pub const U_JG_TEH_MARBUTA_GOAL: UJoiningGroup = UJoiningGroup(14i32);
-pub const U_JG_HAMZA_ON_HEH_GOAL: UJoiningGroup = UJoiningGroup(14i32);
-pub const U_JG_HE: UJoiningGroup = UJoiningGroup(15i32);
-pub const U_JG_HEH: UJoiningGroup = UJoiningGroup(16i32);
-pub const U_JG_HEH_GOAL: UJoiningGroup = UJoiningGroup(17i32);
-pub const U_JG_HETH: UJoiningGroup = UJoiningGroup(18i32);
-pub const U_JG_KAF: UJoiningGroup = UJoiningGroup(19i32);
-pub const U_JG_KAPH: UJoiningGroup = UJoiningGroup(20i32);
-pub const U_JG_KNOTTED_HEH: UJoiningGroup = UJoiningGroup(21i32);
-pub const U_JG_LAM: UJoiningGroup = UJoiningGroup(22i32);
-pub const U_JG_LAMADH: UJoiningGroup = UJoiningGroup(23i32);
-pub const U_JG_MEEM: UJoiningGroup = UJoiningGroup(24i32);
-pub const U_JG_MIM: UJoiningGroup = UJoiningGroup(25i32);
-pub const U_JG_NOON: UJoiningGroup = UJoiningGroup(26i32);
-pub const U_JG_NUN: UJoiningGroup = UJoiningGroup(27i32);
-pub const U_JG_PE: UJoiningGroup = UJoiningGroup(28i32);
-pub const U_JG_QAF: UJoiningGroup = UJoiningGroup(29i32);
-pub const U_JG_QAPH: UJoiningGroup = UJoiningGroup(30i32);
-pub const U_JG_REH: UJoiningGroup = UJoiningGroup(31i32);
-pub const U_JG_REVERSED_PE: UJoiningGroup = UJoiningGroup(32i32);
-pub const U_JG_SAD: UJoiningGroup = UJoiningGroup(33i32);
-pub const U_JG_SADHE: UJoiningGroup = UJoiningGroup(34i32);
-pub const U_JG_SEEN: UJoiningGroup = UJoiningGroup(35i32);
-pub const U_JG_SEMKATH: UJoiningGroup = UJoiningGroup(36i32);
-pub const U_JG_SHIN: UJoiningGroup = UJoiningGroup(37i32);
-pub const U_JG_SWASH_KAF: UJoiningGroup = UJoiningGroup(38i32);
-pub const U_JG_SYRIAC_WAW: UJoiningGroup = UJoiningGroup(39i32);
-pub const U_JG_TAH: UJoiningGroup = UJoiningGroup(40i32);
-pub const U_JG_TAW: UJoiningGroup = UJoiningGroup(41i32);
-pub const U_JG_TEH_MARBUTA: UJoiningGroup = UJoiningGroup(42i32);
-pub const U_JG_TETH: UJoiningGroup = UJoiningGroup(43i32);
-pub const U_JG_WAW: UJoiningGroup = UJoiningGroup(44i32);
-pub const U_JG_YEH: UJoiningGroup = UJoiningGroup(45i32);
-pub const U_JG_YEH_BARREE: UJoiningGroup = UJoiningGroup(46i32);
-pub const U_JG_YEH_WITH_TAIL: UJoiningGroup = UJoiningGroup(47i32);
-pub const U_JG_YUDH: UJoiningGroup = UJoiningGroup(48i32);
-pub const U_JG_YUDH_HE: UJoiningGroup = UJoiningGroup(49i32);
-pub const U_JG_ZAIN: UJoiningGroup = UJoiningGroup(50i32);
-pub const U_JG_FE: UJoiningGroup = UJoiningGroup(51i32);
-pub const U_JG_KHAPH: UJoiningGroup = UJoiningGroup(52i32);
-pub const U_JG_ZHAIN: UJoiningGroup = UJoiningGroup(53i32);
-pub const U_JG_BURUSHASKI_YEH_BARREE: UJoiningGroup = UJoiningGroup(54i32);
-pub const U_JG_FARSI_YEH: UJoiningGroup = UJoiningGroup(55i32);
-pub const U_JG_NYA: UJoiningGroup = UJoiningGroup(56i32);
-pub const U_JG_ROHINGYA_YEH: UJoiningGroup = UJoiningGroup(57i32);
-pub const U_JG_MANICHAEAN_ALEPH: UJoiningGroup = UJoiningGroup(58i32);
-pub const U_JG_MANICHAEAN_AYIN: UJoiningGroup = UJoiningGroup(59i32);
-pub const U_JG_MANICHAEAN_BETH: UJoiningGroup = UJoiningGroup(60i32);
-pub const U_JG_MANICHAEAN_DALETH: UJoiningGroup = UJoiningGroup(61i32);
-pub const U_JG_MANICHAEAN_DHAMEDH: UJoiningGroup = UJoiningGroup(62i32);
-pub const U_JG_MANICHAEAN_FIVE: UJoiningGroup = UJoiningGroup(63i32);
-pub const U_JG_MANICHAEAN_GIMEL: UJoiningGroup = UJoiningGroup(64i32);
-pub const U_JG_MANICHAEAN_HETH: UJoiningGroup = UJoiningGroup(65i32);
-pub const U_JG_MANICHAEAN_HUNDRED: UJoiningGroup = UJoiningGroup(66i32);
-pub const U_JG_MANICHAEAN_KAPH: UJoiningGroup = UJoiningGroup(67i32);
-pub const U_JG_MANICHAEAN_LAMEDH: UJoiningGroup = UJoiningGroup(68i32);
-pub const U_JG_MANICHAEAN_MEM: UJoiningGroup = UJoiningGroup(69i32);
-pub const U_JG_MANICHAEAN_NUN: UJoiningGroup = UJoiningGroup(70i32);
-pub const U_JG_MANICHAEAN_ONE: UJoiningGroup = UJoiningGroup(71i32);
-pub const U_JG_MANICHAEAN_PE: UJoiningGroup = UJoiningGroup(72i32);
-pub const U_JG_MANICHAEAN_QOPH: UJoiningGroup = UJoiningGroup(73i32);
-pub const U_JG_MANICHAEAN_RESH: UJoiningGroup = UJoiningGroup(74i32);
-pub const U_JG_MANICHAEAN_SADHE: UJoiningGroup = UJoiningGroup(75i32);
-pub const U_JG_MANICHAEAN_SAMEKH: UJoiningGroup = UJoiningGroup(76i32);
-pub const U_JG_MANICHAEAN_TAW: UJoiningGroup = UJoiningGroup(77i32);
-pub const U_JG_MANICHAEAN_TEN: UJoiningGroup = UJoiningGroup(78i32);
-pub const U_JG_MANICHAEAN_TETH: UJoiningGroup = UJoiningGroup(79i32);
-pub const U_JG_MANICHAEAN_THAMEDH: UJoiningGroup = UJoiningGroup(80i32);
-pub const U_JG_MANICHAEAN_TWENTY: UJoiningGroup = UJoiningGroup(81i32);
-pub const U_JG_MANICHAEAN_WAW: UJoiningGroup = UJoiningGroup(82i32);
-pub const U_JG_MANICHAEAN_YODH: UJoiningGroup = UJoiningGroup(83i32);
-pub const U_JG_MANICHAEAN_ZAYIN: UJoiningGroup = UJoiningGroup(84i32);
-pub const U_JG_STRAIGHT_WAW: UJoiningGroup = UJoiningGroup(85i32);
-pub const U_JG_AFRICAN_FEH: UJoiningGroup = UJoiningGroup(86i32);
-pub const U_JG_AFRICAN_NOON: UJoiningGroup = UJoiningGroup(87i32);
-pub const U_JG_AFRICAN_QAF: UJoiningGroup = UJoiningGroup(88i32);
-pub const U_JG_MALAYALAM_BHA: UJoiningGroup = UJoiningGroup(89i32);
-pub const U_JG_MALAYALAM_JA: UJoiningGroup = UJoiningGroup(90i32);
-pub const U_JG_MALAYALAM_LLA: UJoiningGroup = UJoiningGroup(91i32);
-pub const U_JG_MALAYALAM_LLLA: UJoiningGroup = UJoiningGroup(92i32);
-pub const U_JG_MALAYALAM_NGA: UJoiningGroup = UJoiningGroup(93i32);
-pub const U_JG_MALAYALAM_NNA: UJoiningGroup = UJoiningGroup(94i32);
-pub const U_JG_MALAYALAM_NNNA: UJoiningGroup = UJoiningGroup(95i32);
-pub const U_JG_MALAYALAM_NYA: UJoiningGroup = UJoiningGroup(96i32);
-pub const U_JG_MALAYALAM_RA: UJoiningGroup = UJoiningGroup(97i32);
-pub const U_JG_MALAYALAM_SSA: UJoiningGroup = UJoiningGroup(98i32);
-pub const U_JG_MALAYALAM_TTA: UJoiningGroup = UJoiningGroup(99i32);
-pub const U_JG_HANIFI_ROHINGYA_KINNA_YA: UJoiningGroup = UJoiningGroup(100i32);
-pub const U_JG_HANIFI_ROHINGYA_PA: UJoiningGroup = UJoiningGroup(101i32);
-impl ::core::marker::Copy for UJoiningGroup {}
-impl ::core::clone::Clone for UJoiningGroup {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct UJoiningType(pub i32);
-pub const U_JT_NON_JOINING: UJoiningType = UJoiningType(0i32);
-pub const U_JT_JOIN_CAUSING: UJoiningType = UJoiningType(1i32);
-pub const U_JT_DUAL_JOINING: UJoiningType = UJoiningType(2i32);
-pub const U_JT_LEFT_JOINING: UJoiningType = UJoiningType(3i32);
-pub const U_JT_RIGHT_JOINING: UJoiningType = UJoiningType(4i32);
-pub const U_JT_TRANSPARENT: UJoiningType = UJoiningType(5i32);
-impl ::core::marker::Copy for UJoiningType {}
-impl ::core::clone::Clone for UJoiningType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const U_INPC_NA: i32 = 0i32;
+pub const U_INPC_BOTTOM: i32 = 1i32;
+pub const U_INPC_BOTTOM_AND_LEFT: i32 = 2i32;
+pub const U_INPC_BOTTOM_AND_RIGHT: i32 = 3i32;
+pub const U_INPC_LEFT: i32 = 4i32;
+pub const U_INPC_LEFT_AND_RIGHT: i32 = 5i32;
+pub const U_INPC_OVERSTRUCK: i32 = 6i32;
+pub const U_INPC_RIGHT: i32 = 7i32;
+pub const U_INPC_TOP: i32 = 8i32;
+pub const U_INPC_TOP_AND_BOTTOM: i32 = 9i32;
+pub const U_INPC_TOP_AND_BOTTOM_AND_RIGHT: i32 = 10i32;
+pub const U_INPC_TOP_AND_LEFT: i32 = 11i32;
+pub const U_INPC_TOP_AND_LEFT_AND_RIGHT: i32 = 12i32;
+pub const U_INPC_TOP_AND_RIGHT: i32 = 13i32;
+pub const U_INPC_VISUAL_ORDER_LEFT: i32 = 14i32;
+pub const U_INPC_TOP_AND_BOTTOM_AND_LEFT: i32 = 15i32;
+pub const U_INSC_OTHER: i32 = 0i32;
+pub const U_INSC_AVAGRAHA: i32 = 1i32;
+pub const U_INSC_BINDU: i32 = 2i32;
+pub const U_INSC_BRAHMI_JOINING_NUMBER: i32 = 3i32;
+pub const U_INSC_CANTILLATION_MARK: i32 = 4i32;
+pub const U_INSC_CONSONANT: i32 = 5i32;
+pub const U_INSC_CONSONANT_DEAD: i32 = 6i32;
+pub const U_INSC_CONSONANT_FINAL: i32 = 7i32;
+pub const U_INSC_CONSONANT_HEAD_LETTER: i32 = 8i32;
+pub const U_INSC_CONSONANT_INITIAL_POSTFIXED: i32 = 9i32;
+pub const U_INSC_CONSONANT_KILLER: i32 = 10i32;
+pub const U_INSC_CONSONANT_MEDIAL: i32 = 11i32;
+pub const U_INSC_CONSONANT_PLACEHOLDER: i32 = 12i32;
+pub const U_INSC_CONSONANT_PRECEDING_REPHA: i32 = 13i32;
+pub const U_INSC_CONSONANT_PREFIXED: i32 = 14i32;
+pub const U_INSC_CONSONANT_SUBJOINED: i32 = 15i32;
+pub const U_INSC_CONSONANT_SUCCEEDING_REPHA: i32 = 16i32;
+pub const U_INSC_CONSONANT_WITH_STACKER: i32 = 17i32;
+pub const U_INSC_GEMINATION_MARK: i32 = 18i32;
+pub const U_INSC_INVISIBLE_STACKER: i32 = 19i32;
+pub const U_INSC_JOINER: i32 = 20i32;
+pub const U_INSC_MODIFYING_LETTER: i32 = 21i32;
+pub const U_INSC_NON_JOINER: i32 = 22i32;
+pub const U_INSC_NUKTA: i32 = 23i32;
+pub const U_INSC_NUMBER: i32 = 24i32;
+pub const U_INSC_NUMBER_JOINER: i32 = 25i32;
+pub const U_INSC_PURE_KILLER: i32 = 26i32;
+pub const U_INSC_REGISTER_SHIFTER: i32 = 27i32;
+pub const U_INSC_SYLLABLE_MODIFIER: i32 = 28i32;
+pub const U_INSC_TONE_LETTER: i32 = 29i32;
+pub const U_INSC_TONE_MARK: i32 = 30i32;
+pub const U_INSC_VIRAMA: i32 = 31i32;
+pub const U_INSC_VISARGA: i32 = 32i32;
+pub const U_INSC_VOWEL: i32 = 33i32;
+pub const U_INSC_VOWEL_DEPENDENT: i32 = 34i32;
+pub const U_INSC_VOWEL_INDEPENDENT: i32 = 35i32;
+pub const U_JG_NO_JOINING_GROUP: i32 = 0i32;
+pub const U_JG_AIN: i32 = 1i32;
+pub const U_JG_ALAPH: i32 = 2i32;
+pub const U_JG_ALEF: i32 = 3i32;
+pub const U_JG_BEH: i32 = 4i32;
+pub const U_JG_BETH: i32 = 5i32;
+pub const U_JG_DAL: i32 = 6i32;
+pub const U_JG_DALATH_RISH: i32 = 7i32;
+pub const U_JG_E: i32 = 8i32;
+pub const U_JG_FEH: i32 = 9i32;
+pub const U_JG_FINAL_SEMKATH: i32 = 10i32;
+pub const U_JG_GAF: i32 = 11i32;
+pub const U_JG_GAMAL: i32 = 12i32;
+pub const U_JG_HAH: i32 = 13i32;
+pub const U_JG_TEH_MARBUTA_GOAL: i32 = 14i32;
+pub const U_JG_HAMZA_ON_HEH_GOAL: i32 = 14i32;
+pub const U_JG_HE: i32 = 15i32;
+pub const U_JG_HEH: i32 = 16i32;
+pub const U_JG_HEH_GOAL: i32 = 17i32;
+pub const U_JG_HETH: i32 = 18i32;
+pub const U_JG_KAF: i32 = 19i32;
+pub const U_JG_KAPH: i32 = 20i32;
+pub const U_JG_KNOTTED_HEH: i32 = 21i32;
+pub const U_JG_LAM: i32 = 22i32;
+pub const U_JG_LAMADH: i32 = 23i32;
+pub const U_JG_MEEM: i32 = 24i32;
+pub const U_JG_MIM: i32 = 25i32;
+pub const U_JG_NOON: i32 = 26i32;
+pub const U_JG_NUN: i32 = 27i32;
+pub const U_JG_PE: i32 = 28i32;
+pub const U_JG_QAF: i32 = 29i32;
+pub const U_JG_QAPH: i32 = 30i32;
+pub const U_JG_REH: i32 = 31i32;
+pub const U_JG_REVERSED_PE: i32 = 32i32;
+pub const U_JG_SAD: i32 = 33i32;
+pub const U_JG_SADHE: i32 = 34i32;
+pub const U_JG_SEEN: i32 = 35i32;
+pub const U_JG_SEMKATH: i32 = 36i32;
+pub const U_JG_SHIN: i32 = 37i32;
+pub const U_JG_SWASH_KAF: i32 = 38i32;
+pub const U_JG_SYRIAC_WAW: i32 = 39i32;
+pub const U_JG_TAH: i32 = 40i32;
+pub const U_JG_TAW: i32 = 41i32;
+pub const U_JG_TEH_MARBUTA: i32 = 42i32;
+pub const U_JG_TETH: i32 = 43i32;
+pub const U_JG_WAW: i32 = 44i32;
+pub const U_JG_YEH: i32 = 45i32;
+pub const U_JG_YEH_BARREE: i32 = 46i32;
+pub const U_JG_YEH_WITH_TAIL: i32 = 47i32;
+pub const U_JG_YUDH: i32 = 48i32;
+pub const U_JG_YUDH_HE: i32 = 49i32;
+pub const U_JG_ZAIN: i32 = 50i32;
+pub const U_JG_FE: i32 = 51i32;
+pub const U_JG_KHAPH: i32 = 52i32;
+pub const U_JG_ZHAIN: i32 = 53i32;
+pub const U_JG_BURUSHASKI_YEH_BARREE: i32 = 54i32;
+pub const U_JG_FARSI_YEH: i32 = 55i32;
+pub const U_JG_NYA: i32 = 56i32;
+pub const U_JG_ROHINGYA_YEH: i32 = 57i32;
+pub const U_JG_MANICHAEAN_ALEPH: i32 = 58i32;
+pub const U_JG_MANICHAEAN_AYIN: i32 = 59i32;
+pub const U_JG_MANICHAEAN_BETH: i32 = 60i32;
+pub const U_JG_MANICHAEAN_DALETH: i32 = 61i32;
+pub const U_JG_MANICHAEAN_DHAMEDH: i32 = 62i32;
+pub const U_JG_MANICHAEAN_FIVE: i32 = 63i32;
+pub const U_JG_MANICHAEAN_GIMEL: i32 = 64i32;
+pub const U_JG_MANICHAEAN_HETH: i32 = 65i32;
+pub const U_JG_MANICHAEAN_HUNDRED: i32 = 66i32;
+pub const U_JG_MANICHAEAN_KAPH: i32 = 67i32;
+pub const U_JG_MANICHAEAN_LAMEDH: i32 = 68i32;
+pub const U_JG_MANICHAEAN_MEM: i32 = 69i32;
+pub const U_JG_MANICHAEAN_NUN: i32 = 70i32;
+pub const U_JG_MANICHAEAN_ONE: i32 = 71i32;
+pub const U_JG_MANICHAEAN_PE: i32 = 72i32;
+pub const U_JG_MANICHAEAN_QOPH: i32 = 73i32;
+pub const U_JG_MANICHAEAN_RESH: i32 = 74i32;
+pub const U_JG_MANICHAEAN_SADHE: i32 = 75i32;
+pub const U_JG_MANICHAEAN_SAMEKH: i32 = 76i32;
+pub const U_JG_MANICHAEAN_TAW: i32 = 77i32;
+pub const U_JG_MANICHAEAN_TEN: i32 = 78i32;
+pub const U_JG_MANICHAEAN_TETH: i32 = 79i32;
+pub const U_JG_MANICHAEAN_THAMEDH: i32 = 80i32;
+pub const U_JG_MANICHAEAN_TWENTY: i32 = 81i32;
+pub const U_JG_MANICHAEAN_WAW: i32 = 82i32;
+pub const U_JG_MANICHAEAN_YODH: i32 = 83i32;
+pub const U_JG_MANICHAEAN_ZAYIN: i32 = 84i32;
+pub const U_JG_STRAIGHT_WAW: i32 = 85i32;
+pub const U_JG_AFRICAN_FEH: i32 = 86i32;
+pub const U_JG_AFRICAN_NOON: i32 = 87i32;
+pub const U_JG_AFRICAN_QAF: i32 = 88i32;
+pub const U_JG_MALAYALAM_BHA: i32 = 89i32;
+pub const U_JG_MALAYALAM_JA: i32 = 90i32;
+pub const U_JG_MALAYALAM_LLA: i32 = 91i32;
+pub const U_JG_MALAYALAM_LLLA: i32 = 92i32;
+pub const U_JG_MALAYALAM_NGA: i32 = 93i32;
+pub const U_JG_MALAYALAM_NNA: i32 = 94i32;
+pub const U_JG_MALAYALAM_NNNA: i32 = 95i32;
+pub const U_JG_MALAYALAM_NYA: i32 = 96i32;
+pub const U_JG_MALAYALAM_RA: i32 = 97i32;
+pub const U_JG_MALAYALAM_SSA: i32 = 98i32;
+pub const U_JG_MALAYALAM_TTA: i32 = 99i32;
+pub const U_JG_HANIFI_ROHINGYA_KINNA_YA: i32 = 100i32;
+pub const U_JG_HANIFI_ROHINGYA_PA: i32 = 101i32;
+pub const U_JT_NON_JOINING: i32 = 0i32;
+pub const U_JT_JOIN_CAUSING: i32 = 1i32;
+pub const U_JT_DUAL_JOINING: i32 = 2i32;
+pub const U_JT_LEFT_JOINING: i32 = 3i32;
+pub const U_JT_RIGHT_JOINING: i32 = 4i32;
+pub const U_JT_TRANSPARENT: i32 = 5i32;
 pub const ULOC_COUNTRY_CAPACITY: u32 = 4u32;
 pub const ULOC_FULLNAME_CAPACITY: u32 = 157u32;
 pub const ULOC_KEYWORDS_CAPACITY: u32 = 96u32;
@@ -5380,241 +4652,121 @@ pub const ULOC_KEYWORD_ITEM_SEPARATOR_UNICODE: u32 = 59u32;
 pub const ULOC_KEYWORD_SEPARATOR_UNICODE: u32 = 64u32;
 pub const ULOC_LANG_CAPACITY: u32 = 12u32;
 pub const ULOC_SCRIPT_CAPACITY: u32 = 6u32;
-#[repr(transparent)]
-pub struct ULayoutType(pub i32);
-pub const ULOC_LAYOUT_LTR: ULayoutType = ULayoutType(0i32);
-pub const ULOC_LAYOUT_RTL: ULayoutType = ULayoutType(1i32);
-pub const ULOC_LAYOUT_TTB: ULayoutType = ULayoutType(2i32);
-pub const ULOC_LAYOUT_BTT: ULayoutType = ULayoutType(3i32);
-pub const ULOC_LAYOUT_UNKNOWN: ULayoutType = ULayoutType(4i32);
-impl ::core::marker::Copy for ULayoutType {}
-impl ::core::clone::Clone for ULayoutType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ULineBreak(pub i32);
-pub const U_LB_UNKNOWN: ULineBreak = ULineBreak(0i32);
-pub const U_LB_AMBIGUOUS: ULineBreak = ULineBreak(1i32);
-pub const U_LB_ALPHABETIC: ULineBreak = ULineBreak(2i32);
-pub const U_LB_BREAK_BOTH: ULineBreak = ULineBreak(3i32);
-pub const U_LB_BREAK_AFTER: ULineBreak = ULineBreak(4i32);
-pub const U_LB_BREAK_BEFORE: ULineBreak = ULineBreak(5i32);
-pub const U_LB_MANDATORY_BREAK: ULineBreak = ULineBreak(6i32);
-pub const U_LB_CONTINGENT_BREAK: ULineBreak = ULineBreak(7i32);
-pub const U_LB_CLOSE_PUNCTUATION: ULineBreak = ULineBreak(8i32);
-pub const U_LB_COMBINING_MARK: ULineBreak = ULineBreak(9i32);
-pub const U_LB_CARRIAGE_RETURN: ULineBreak = ULineBreak(10i32);
-pub const U_LB_EXCLAMATION: ULineBreak = ULineBreak(11i32);
-pub const U_LB_GLUE: ULineBreak = ULineBreak(12i32);
-pub const U_LB_HYPHEN: ULineBreak = ULineBreak(13i32);
-pub const U_LB_IDEOGRAPHIC: ULineBreak = ULineBreak(14i32);
-pub const U_LB_INSEPARABLE: ULineBreak = ULineBreak(15i32);
-pub const U_LB_INSEPERABLE: ULineBreak = ULineBreak(15i32);
-pub const U_LB_INFIX_NUMERIC: ULineBreak = ULineBreak(16i32);
-pub const U_LB_LINE_FEED: ULineBreak = ULineBreak(17i32);
-pub const U_LB_NONSTARTER: ULineBreak = ULineBreak(18i32);
-pub const U_LB_NUMERIC: ULineBreak = ULineBreak(19i32);
-pub const U_LB_OPEN_PUNCTUATION: ULineBreak = ULineBreak(20i32);
-pub const U_LB_POSTFIX_NUMERIC: ULineBreak = ULineBreak(21i32);
-pub const U_LB_PREFIX_NUMERIC: ULineBreak = ULineBreak(22i32);
-pub const U_LB_QUOTATION: ULineBreak = ULineBreak(23i32);
-pub const U_LB_COMPLEX_CONTEXT: ULineBreak = ULineBreak(24i32);
-pub const U_LB_SURROGATE: ULineBreak = ULineBreak(25i32);
-pub const U_LB_SPACE: ULineBreak = ULineBreak(26i32);
-pub const U_LB_BREAK_SYMBOLS: ULineBreak = ULineBreak(27i32);
-pub const U_LB_ZWSPACE: ULineBreak = ULineBreak(28i32);
-pub const U_LB_NEXT_LINE: ULineBreak = ULineBreak(29i32);
-pub const U_LB_WORD_JOINER: ULineBreak = ULineBreak(30i32);
-pub const U_LB_H2: ULineBreak = ULineBreak(31i32);
-pub const U_LB_H3: ULineBreak = ULineBreak(32i32);
-pub const U_LB_JL: ULineBreak = ULineBreak(33i32);
-pub const U_LB_JT: ULineBreak = ULineBreak(34i32);
-pub const U_LB_JV: ULineBreak = ULineBreak(35i32);
-pub const U_LB_CLOSE_PARENTHESIS: ULineBreak = ULineBreak(36i32);
-pub const U_LB_CONDITIONAL_JAPANESE_STARTER: ULineBreak = ULineBreak(37i32);
-pub const U_LB_HEBREW_LETTER: ULineBreak = ULineBreak(38i32);
-pub const U_LB_REGIONAL_INDICATOR: ULineBreak = ULineBreak(39i32);
-pub const U_LB_E_BASE: ULineBreak = ULineBreak(40i32);
-pub const U_LB_E_MODIFIER: ULineBreak = ULineBreak(41i32);
-pub const U_LB_ZWJ: ULineBreak = ULineBreak(42i32);
-impl ::core::marker::Copy for ULineBreak {}
-impl ::core::clone::Clone for ULineBreak {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ULineBreakTag(pub i32);
-pub const UBRK_LINE_SOFT: ULineBreakTag = ULineBreakTag(0i32);
-pub const UBRK_LINE_SOFT_LIMIT: ULineBreakTag = ULineBreakTag(100i32);
-pub const UBRK_LINE_HARD: ULineBreakTag = ULineBreakTag(100i32);
-pub const UBRK_LINE_HARD_LIMIT: ULineBreakTag = ULineBreakTag(200i32);
-impl ::core::marker::Copy for ULineBreakTag {}
-impl ::core::clone::Clone for ULineBreakTag {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const ULOC_LAYOUT_LTR: i32 = 0i32;
+pub const ULOC_LAYOUT_RTL: i32 = 1i32;
+pub const ULOC_LAYOUT_TTB: i32 = 2i32;
+pub const ULOC_LAYOUT_BTT: i32 = 3i32;
+pub const ULOC_LAYOUT_UNKNOWN: i32 = 4i32;
+pub const U_LB_UNKNOWN: i32 = 0i32;
+pub const U_LB_AMBIGUOUS: i32 = 1i32;
+pub const U_LB_ALPHABETIC: i32 = 2i32;
+pub const U_LB_BREAK_BOTH: i32 = 3i32;
+pub const U_LB_BREAK_AFTER: i32 = 4i32;
+pub const U_LB_BREAK_BEFORE: i32 = 5i32;
+pub const U_LB_MANDATORY_BREAK: i32 = 6i32;
+pub const U_LB_CONTINGENT_BREAK: i32 = 7i32;
+pub const U_LB_CLOSE_PUNCTUATION: i32 = 8i32;
+pub const U_LB_COMBINING_MARK: i32 = 9i32;
+pub const U_LB_CARRIAGE_RETURN: i32 = 10i32;
+pub const U_LB_EXCLAMATION: i32 = 11i32;
+pub const U_LB_GLUE: i32 = 12i32;
+pub const U_LB_HYPHEN: i32 = 13i32;
+pub const U_LB_IDEOGRAPHIC: i32 = 14i32;
+pub const U_LB_INSEPARABLE: i32 = 15i32;
+pub const U_LB_INSEPERABLE: i32 = 15i32;
+pub const U_LB_INFIX_NUMERIC: i32 = 16i32;
+pub const U_LB_LINE_FEED: i32 = 17i32;
+pub const U_LB_NONSTARTER: i32 = 18i32;
+pub const U_LB_NUMERIC: i32 = 19i32;
+pub const U_LB_OPEN_PUNCTUATION: i32 = 20i32;
+pub const U_LB_POSTFIX_NUMERIC: i32 = 21i32;
+pub const U_LB_PREFIX_NUMERIC: i32 = 22i32;
+pub const U_LB_QUOTATION: i32 = 23i32;
+pub const U_LB_COMPLEX_CONTEXT: i32 = 24i32;
+pub const U_LB_SURROGATE: i32 = 25i32;
+pub const U_LB_SPACE: i32 = 26i32;
+pub const U_LB_BREAK_SYMBOLS: i32 = 27i32;
+pub const U_LB_ZWSPACE: i32 = 28i32;
+pub const U_LB_NEXT_LINE: i32 = 29i32;
+pub const U_LB_WORD_JOINER: i32 = 30i32;
+pub const U_LB_H2: i32 = 31i32;
+pub const U_LB_H3: i32 = 32i32;
+pub const U_LB_JL: i32 = 33i32;
+pub const U_LB_JT: i32 = 34i32;
+pub const U_LB_JV: i32 = 35i32;
+pub const U_LB_CLOSE_PARENTHESIS: i32 = 36i32;
+pub const U_LB_CONDITIONAL_JAPANESE_STARTER: i32 = 37i32;
+pub const U_LB_HEBREW_LETTER: i32 = 38i32;
+pub const U_LB_REGIONAL_INDICATOR: i32 = 39i32;
+pub const U_LB_E_BASE: i32 = 40i32;
+pub const U_LB_E_MODIFIER: i32 = 41i32;
+pub const U_LB_ZWJ: i32 = 42i32;
+pub const UBRK_LINE_SOFT: i32 = 0i32;
+pub const UBRK_LINE_SOFT_LIMIT: i32 = 100i32;
+pub const UBRK_LINE_HARD: i32 = 100i32;
+pub const UBRK_LINE_HARD_LIMIT: i32 = 200i32;
 #[repr(C)]
 pub struct UListFormatter(pub u8);
-#[repr(transparent)]
-pub struct UListFormatterField(pub i32);
-pub const ULISTFMT_LITERAL_FIELD: UListFormatterField = UListFormatterField(0i32);
-pub const ULISTFMT_ELEMENT_FIELD: UListFormatterField = UListFormatterField(1i32);
-impl ::core::marker::Copy for UListFormatterField {}
-impl ::core::clone::Clone for UListFormatterField {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct UListFormatterType(pub i32);
-pub const ULISTFMT_TYPE_AND: UListFormatterType = UListFormatterType(0i32);
-pub const ULISTFMT_TYPE_OR: UListFormatterType = UListFormatterType(1i32);
-pub const ULISTFMT_TYPE_UNITS: UListFormatterType = UListFormatterType(2i32);
-impl ::core::marker::Copy for UListFormatterType {}
-impl ::core::clone::Clone for UListFormatterType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct UListFormatterWidth(pub i32);
-pub const ULISTFMT_WIDTH_WIDE: UListFormatterWidth = UListFormatterWidth(0i32);
-pub const ULISTFMT_WIDTH_SHORT: UListFormatterWidth = UListFormatterWidth(1i32);
-pub const ULISTFMT_WIDTH_NARROW: UListFormatterWidth = UListFormatterWidth(2i32);
-impl ::core::marker::Copy for UListFormatterWidth {}
-impl ::core::clone::Clone for UListFormatterWidth {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ULocAvailableType(pub i32);
-pub const ULOC_AVAILABLE_DEFAULT: ULocAvailableType = ULocAvailableType(0i32);
-pub const ULOC_AVAILABLE_ONLY_LEGACY_ALIASES: ULocAvailableType = ULocAvailableType(1i32);
-pub const ULOC_AVAILABLE_WITH_LEGACY_ALIASES: ULocAvailableType = ULocAvailableType(2i32);
-impl ::core::marker::Copy for ULocAvailableType {}
-impl ::core::clone::Clone for ULocAvailableType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ULocDataLocaleType(pub i32);
-pub const ULOC_ACTUAL_LOCALE: ULocDataLocaleType = ULocDataLocaleType(0i32);
-pub const ULOC_VALID_LOCALE: ULocDataLocaleType = ULocDataLocaleType(1i32);
-impl ::core::marker::Copy for ULocDataLocaleType {}
-impl ::core::clone::Clone for ULocDataLocaleType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const ULISTFMT_LITERAL_FIELD: i32 = 0i32;
+pub const ULISTFMT_ELEMENT_FIELD: i32 = 1i32;
+pub const ULISTFMT_TYPE_AND: i32 = 0i32;
+pub const ULISTFMT_TYPE_OR: i32 = 1i32;
+pub const ULISTFMT_TYPE_UNITS: i32 = 2i32;
+pub const ULISTFMT_WIDTH_WIDE: i32 = 0i32;
+pub const ULISTFMT_WIDTH_SHORT: i32 = 1i32;
+pub const ULISTFMT_WIDTH_NARROW: i32 = 2i32;
+pub const ULOC_AVAILABLE_DEFAULT: i32 = 0i32;
+pub const ULOC_AVAILABLE_ONLY_LEGACY_ALIASES: i32 = 1i32;
+pub const ULOC_AVAILABLE_WITH_LEGACY_ALIASES: i32 = 2i32;
+pub const ULOC_ACTUAL_LOCALE: i32 = 0i32;
+pub const ULOC_VALID_LOCALE: i32 = 1i32;
 #[repr(C)]
 pub struct ULocaleData(pub u8);
-#[repr(transparent)]
-pub struct ULocaleDataDelimiterType(pub i32);
-pub const ULOCDATA_QUOTATION_START: ULocaleDataDelimiterType = ULocaleDataDelimiterType(0i32);
-pub const ULOCDATA_QUOTATION_END: ULocaleDataDelimiterType = ULocaleDataDelimiterType(1i32);
-pub const ULOCDATA_ALT_QUOTATION_START: ULocaleDataDelimiterType = ULocaleDataDelimiterType(2i32);
-pub const ULOCDATA_ALT_QUOTATION_END: ULocaleDataDelimiterType = ULocaleDataDelimiterType(3i32);
-impl ::core::marker::Copy for ULocaleDataDelimiterType {}
-impl ::core::clone::Clone for ULocaleDataDelimiterType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct ULocaleDataExemplarSetType(pub i32);
-pub const ULOCDATA_ES_STANDARD: ULocaleDataExemplarSetType = ULocaleDataExemplarSetType(0i32);
-pub const ULOCDATA_ES_AUXILIARY: ULocaleDataExemplarSetType = ULocaleDataExemplarSetType(1i32);
-pub const ULOCDATA_ES_INDEX: ULocaleDataExemplarSetType = ULocaleDataExemplarSetType(2i32);
-pub const ULOCDATA_ES_PUNCTUATION: ULocaleDataExemplarSetType = ULocaleDataExemplarSetType(3i32);
-impl ::core::marker::Copy for ULocaleDataExemplarSetType {}
-impl ::core::clone::Clone for ULocaleDataExemplarSetType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const ULOCDATA_QUOTATION_START: i32 = 0i32;
+pub const ULOCDATA_QUOTATION_END: i32 = 1i32;
+pub const ULOCDATA_ALT_QUOTATION_START: i32 = 2i32;
+pub const ULOCDATA_ALT_QUOTATION_END: i32 = 3i32;
+pub const ULOCDATA_ES_STANDARD: i32 = 0i32;
+pub const ULOCDATA_ES_AUXILIARY: i32 = 1i32;
+pub const ULOCDATA_ES_INDEX: i32 = 2i32;
+pub const ULOCDATA_ES_PUNCTUATION: i32 = 3i32;
 #[repr(C)]
 pub struct ULocaleDisplayNames(pub u8);
 pub const UMSGPAT_ARG_NAME_NOT_NUMBER: i32 = -1i32;
 pub const UMSGPAT_ARG_NAME_NOT_VALID: i32 = -2i32;
-#[repr(transparent)]
-pub struct UMeasureFormatWidth(pub i32);
-pub const UMEASFMT_WIDTH_WIDE: UMeasureFormatWidth = UMeasureFormatWidth(0i32);
-pub const UMEASFMT_WIDTH_SHORT: UMeasureFormatWidth = UMeasureFormatWidth(1i32);
-pub const UMEASFMT_WIDTH_NARROW: UMeasureFormatWidth = UMeasureFormatWidth(2i32);
-pub const UMEASFMT_WIDTH_NUMERIC: UMeasureFormatWidth = UMeasureFormatWidth(3i32);
-pub const UMEASFMT_WIDTH_COUNT: UMeasureFormatWidth = UMeasureFormatWidth(4i32);
-impl ::core::marker::Copy for UMeasureFormatWidth {}
-impl ::core::clone::Clone for UMeasureFormatWidth {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct UMeasurementSystem(pub i32);
-pub const UMS_SI: UMeasurementSystem = UMeasurementSystem(0i32);
-pub const UMS_US: UMeasurementSystem = UMeasurementSystem(1i32);
-pub const UMS_UK: UMeasurementSystem = UMeasurementSystem(2i32);
-impl ::core::marker::Copy for UMeasurementSystem {}
-impl ::core::clone::Clone for UMeasurementSystem {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const UMEASFMT_WIDTH_WIDE: i32 = 0i32;
+pub const UMEASFMT_WIDTH_SHORT: i32 = 1i32;
+pub const UMEASFMT_WIDTH_NARROW: i32 = 2i32;
+pub const UMEASFMT_WIDTH_NUMERIC: i32 = 3i32;
+pub const UMEASFMT_WIDTH_COUNT: i32 = 4i32;
+pub const UMS_SI: i32 = 0i32;
+pub const UMS_US: i32 = 1i32;
+pub const UMS_UK: i32 = 2i32;
 pub type UMemAllocFn = unsafe extern "system" fn(context: *const ::core::ffi::c_void, size: usize) -> *mut ::core::ffi::c_void;
 pub type UMemFreeFn = unsafe extern "system" fn(context: *const ::core::ffi::c_void, mem: *mut ::core::ffi::c_void);
 pub type UMemReallocFn = unsafe extern "system" fn(context: *const ::core::ffi::c_void, mem: *mut ::core::ffi::c_void, size: usize) -> *mut ::core::ffi::c_void;
-#[repr(transparent)]
-pub struct UMessagePatternApostropheMode(pub i32);
-pub const UMSGPAT_APOS_DOUBLE_OPTIONAL: UMessagePatternApostropheMode = UMessagePatternApostropheMode(0i32);
-pub const UMSGPAT_APOS_DOUBLE_REQUIRED: UMessagePatternApostropheMode = UMessagePatternApostropheMode(1i32);
-impl ::core::marker::Copy for UMessagePatternApostropheMode {}
-impl ::core::clone::Clone for UMessagePatternApostropheMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct UMessagePatternArgType(pub i32);
-pub const UMSGPAT_ARG_TYPE_NONE: UMessagePatternArgType = UMessagePatternArgType(0i32);
-pub const UMSGPAT_ARG_TYPE_SIMPLE: UMessagePatternArgType = UMessagePatternArgType(1i32);
-pub const UMSGPAT_ARG_TYPE_CHOICE: UMessagePatternArgType = UMessagePatternArgType(2i32);
-pub const UMSGPAT_ARG_TYPE_PLURAL: UMessagePatternArgType = UMessagePatternArgType(3i32);
-pub const UMSGPAT_ARG_TYPE_SELECT: UMessagePatternArgType = UMessagePatternArgType(4i32);
-pub const UMSGPAT_ARG_TYPE_SELECTORDINAL: UMessagePatternArgType = UMessagePatternArgType(5i32);
-impl ::core::marker::Copy for UMessagePatternArgType {}
-impl ::core::clone::Clone for UMessagePatternArgType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct UMessagePatternPartType(pub i32);
-pub const UMSGPAT_PART_TYPE_MSG_START: UMessagePatternPartType = UMessagePatternPartType(0i32);
-pub const UMSGPAT_PART_TYPE_MSG_LIMIT: UMessagePatternPartType = UMessagePatternPartType(1i32);
-pub const UMSGPAT_PART_TYPE_SKIP_SYNTAX: UMessagePatternPartType = UMessagePatternPartType(2i32);
-pub const UMSGPAT_PART_TYPE_INSERT_CHAR: UMessagePatternPartType = UMessagePatternPartType(3i32);
-pub const UMSGPAT_PART_TYPE_REPLACE_NUMBER: UMessagePatternPartType = UMessagePatternPartType(4i32);
-pub const UMSGPAT_PART_TYPE_ARG_START: UMessagePatternPartType = UMessagePatternPartType(5i32);
-pub const UMSGPAT_PART_TYPE_ARG_LIMIT: UMessagePatternPartType = UMessagePatternPartType(6i32);
-pub const UMSGPAT_PART_TYPE_ARG_NUMBER: UMessagePatternPartType = UMessagePatternPartType(7i32);
-pub const UMSGPAT_PART_TYPE_ARG_NAME: UMessagePatternPartType = UMessagePatternPartType(8i32);
-pub const UMSGPAT_PART_TYPE_ARG_TYPE: UMessagePatternPartType = UMessagePatternPartType(9i32);
-pub const UMSGPAT_PART_TYPE_ARG_STYLE: UMessagePatternPartType = UMessagePatternPartType(10i32);
-pub const UMSGPAT_PART_TYPE_ARG_SELECTOR: UMessagePatternPartType = UMessagePatternPartType(11i32);
-pub const UMSGPAT_PART_TYPE_ARG_INT: UMessagePatternPartType = UMessagePatternPartType(12i32);
-pub const UMSGPAT_PART_TYPE_ARG_DOUBLE: UMessagePatternPartType = UMessagePatternPartType(13i32);
-impl ::core::marker::Copy for UMessagePatternPartType {}
-impl ::core::clone::Clone for UMessagePatternPartType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const UMSGPAT_APOS_DOUBLE_OPTIONAL: i32 = 0i32;
+pub const UMSGPAT_APOS_DOUBLE_REQUIRED: i32 = 1i32;
+pub const UMSGPAT_ARG_TYPE_NONE: i32 = 0i32;
+pub const UMSGPAT_ARG_TYPE_SIMPLE: i32 = 1i32;
+pub const UMSGPAT_ARG_TYPE_CHOICE: i32 = 2i32;
+pub const UMSGPAT_ARG_TYPE_PLURAL: i32 = 3i32;
+pub const UMSGPAT_ARG_TYPE_SELECT: i32 = 4i32;
+pub const UMSGPAT_ARG_TYPE_SELECTORDINAL: i32 = 5i32;
+pub const UMSGPAT_PART_TYPE_MSG_START: i32 = 0i32;
+pub const UMSGPAT_PART_TYPE_MSG_LIMIT: i32 = 1i32;
+pub const UMSGPAT_PART_TYPE_SKIP_SYNTAX: i32 = 2i32;
+pub const UMSGPAT_PART_TYPE_INSERT_CHAR: i32 = 3i32;
+pub const UMSGPAT_PART_TYPE_REPLACE_NUMBER: i32 = 4i32;
+pub const UMSGPAT_PART_TYPE_ARG_START: i32 = 5i32;
+pub const UMSGPAT_PART_TYPE_ARG_LIMIT: i32 = 6i32;
+pub const UMSGPAT_PART_TYPE_ARG_NUMBER: i32 = 7i32;
+pub const UMSGPAT_PART_TYPE_ARG_NAME: i32 = 8i32;
+pub const UMSGPAT_PART_TYPE_ARG_TYPE: i32 = 9i32;
+pub const UMSGPAT_PART_TYPE_ARG_STYLE: i32 = 10i32;
+pub const UMSGPAT_PART_TYPE_ARG_SELECTOR: i32 = 11i32;
+pub const UMSGPAT_PART_TYPE_ARG_INT: i32 = 12i32;
+pub const UMSGPAT_PART_TYPE_ARG_DOUBLE: i32 = 13i32;
 #[repr(C)]
 pub struct UMutableCPTrie(pub u8);
 pub type UNESCAPE_CHAR_AT = unsafe extern "system" fn(offset: i32, context: *mut ::core::ffi::c_void) -> u16;
@@ -5631,336 +4783,176 @@ impl ::core::clone::Clone for UNICODERANGE {
 }
 pub const UNISCRIBE_OPENTYPE: u32 = 256u32;
 pub const UNORM_INPUT_IS_FCD: u32 = 131072u32;
-#[repr(transparent)]
-pub struct UNormalization2Mode(pub i32);
-pub const UNORM2_COMPOSE: UNormalization2Mode = UNormalization2Mode(0i32);
-pub const UNORM2_DECOMPOSE: UNormalization2Mode = UNormalization2Mode(1i32);
-pub const UNORM2_FCD: UNormalization2Mode = UNormalization2Mode(2i32);
-pub const UNORM2_COMPOSE_CONTIGUOUS: UNormalization2Mode = UNormalization2Mode(3i32);
-impl ::core::marker::Copy for UNormalization2Mode {}
-impl ::core::clone::Clone for UNormalization2Mode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct UNormalizationCheckResult(pub i32);
-pub const UNORM_NO: UNormalizationCheckResult = UNormalizationCheckResult(0i32);
-pub const UNORM_YES: UNormalizationCheckResult = UNormalizationCheckResult(1i32);
-pub const UNORM_MAYBE: UNormalizationCheckResult = UNormalizationCheckResult(2i32);
-impl ::core::marker::Copy for UNormalizationCheckResult {}
-impl ::core::clone::Clone for UNormalizationCheckResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct UNormalizationMode(pub i32);
-pub const UNORM_NONE: UNormalizationMode = UNormalizationMode(1i32);
-pub const UNORM_NFD: UNormalizationMode = UNormalizationMode(2i32);
-pub const UNORM_NFKD: UNormalizationMode = UNormalizationMode(3i32);
-pub const UNORM_NFC: UNormalizationMode = UNormalizationMode(4i32);
-pub const UNORM_DEFAULT: UNormalizationMode = UNormalizationMode(4i32);
-pub const UNORM_NFKC: UNormalizationMode = UNormalizationMode(5i32);
-pub const UNORM_FCD: UNormalizationMode = UNormalizationMode(6i32);
-pub const UNORM_MODE_COUNT: UNormalizationMode = UNormalizationMode(7i32);
-impl ::core::marker::Copy for UNormalizationMode {}
-impl ::core::clone::Clone for UNormalizationMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const UNORM2_COMPOSE: i32 = 0i32;
+pub const UNORM2_DECOMPOSE: i32 = 1i32;
+pub const UNORM2_FCD: i32 = 2i32;
+pub const UNORM2_COMPOSE_CONTIGUOUS: i32 = 3i32;
+pub const UNORM_NO: i32 = 0i32;
+pub const UNORM_YES: i32 = 1i32;
+pub const UNORM_MAYBE: i32 = 2i32;
+pub const UNORM_NONE: i32 = 1i32;
+pub const UNORM_NFD: i32 = 2i32;
+pub const UNORM_NFKD: i32 = 3i32;
+pub const UNORM_NFC: i32 = 4i32;
+pub const UNORM_DEFAULT: i32 = 4i32;
+pub const UNORM_NFKC: i32 = 5i32;
+pub const UNORM_FCD: i32 = 6i32;
+pub const UNORM_MODE_COUNT: i32 = 7i32;
 #[repr(C)]
 pub struct UNormalizer2(pub u8);
-#[repr(transparent)]
-pub struct UNumberCompactStyle(pub i32);
-pub const UNUM_SHORT: UNumberCompactStyle = UNumberCompactStyle(0i32);
-pub const UNUM_LONG: UNumberCompactStyle = UNumberCompactStyle(1i32);
-impl ::core::marker::Copy for UNumberCompactStyle {}
-impl ::core::clone::Clone for UNumberCompactStyle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct UNumberDecimalSeparatorDisplay(pub i32);
-pub const UNUM_DECIMAL_SEPARATOR_AUTO: UNumberDecimalSeparatorDisplay = UNumberDecimalSeparatorDisplay(0i32);
-pub const UNUM_DECIMAL_SEPARATOR_ALWAYS: UNumberDecimalSeparatorDisplay = UNumberDecimalSeparatorDisplay(1i32);
-pub const UNUM_DECIMAL_SEPARATOR_COUNT: UNumberDecimalSeparatorDisplay = UNumberDecimalSeparatorDisplay(2i32);
-impl ::core::marker::Copy for UNumberDecimalSeparatorDisplay {}
-impl ::core::clone::Clone for UNumberDecimalSeparatorDisplay {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct UNumberFormatAttribute(pub i32);
-pub const UNUM_PARSE_INT_ONLY: UNumberFormatAttribute = UNumberFormatAttribute(0i32);
-pub const UNUM_GROUPING_USED: UNumberFormatAttribute = UNumberFormatAttribute(1i32);
-pub const UNUM_DECIMAL_ALWAYS_SHOWN: UNumberFormatAttribute = UNumberFormatAttribute(2i32);
-pub const UNUM_MAX_INTEGER_DIGITS: UNumberFormatAttribute = UNumberFormatAttribute(3i32);
-pub const UNUM_MIN_INTEGER_DIGITS: UNumberFormatAttribute = UNumberFormatAttribute(4i32);
-pub const UNUM_INTEGER_DIGITS: UNumberFormatAttribute = UNumberFormatAttribute(5i32);
-pub const UNUM_MAX_FRACTION_DIGITS: UNumberFormatAttribute = UNumberFormatAttribute(6i32);
-pub const UNUM_MIN_FRACTION_DIGITS: UNumberFormatAttribute = UNumberFormatAttribute(7i32);
-pub const UNUM_FRACTION_DIGITS: UNumberFormatAttribute = UNumberFormatAttribute(8i32);
-pub const UNUM_MULTIPLIER: UNumberFormatAttribute = UNumberFormatAttribute(9i32);
-pub const UNUM_GROUPING_SIZE: UNumberFormatAttribute = UNumberFormatAttribute(10i32);
-pub const UNUM_ROUNDING_MODE: UNumberFormatAttribute = UNumberFormatAttribute(11i32);
-pub const UNUM_ROUNDING_INCREMENT: UNumberFormatAttribute = UNumberFormatAttribute(12i32);
-pub const UNUM_FORMAT_WIDTH: UNumberFormatAttribute = UNumberFormatAttribute(13i32);
-pub const UNUM_PADDING_POSITION: UNumberFormatAttribute = UNumberFormatAttribute(14i32);
-pub const UNUM_SECONDARY_GROUPING_SIZE: UNumberFormatAttribute = UNumberFormatAttribute(15i32);
-pub const UNUM_SIGNIFICANT_DIGITS_USED: UNumberFormatAttribute = UNumberFormatAttribute(16i32);
-pub const UNUM_MIN_SIGNIFICANT_DIGITS: UNumberFormatAttribute = UNumberFormatAttribute(17i32);
-pub const UNUM_MAX_SIGNIFICANT_DIGITS: UNumberFormatAttribute = UNumberFormatAttribute(18i32);
-pub const UNUM_LENIENT_PARSE: UNumberFormatAttribute = UNumberFormatAttribute(19i32);
-pub const UNUM_PARSE_ALL_INPUT: UNumberFormatAttribute = UNumberFormatAttribute(20i32);
-pub const UNUM_SCALE: UNumberFormatAttribute = UNumberFormatAttribute(21i32);
-pub const UNUM_MINIMUM_GROUPING_DIGITS: UNumberFormatAttribute = UNumberFormatAttribute(22i32);
-pub const UNUM_CURRENCY_USAGE: UNumberFormatAttribute = UNumberFormatAttribute(23i32);
-pub const UNUM_FORMAT_FAIL_IF_MORE_THAN_MAX_DIGITS: UNumberFormatAttribute = UNumberFormatAttribute(4096i32);
-pub const UNUM_PARSE_NO_EXPONENT: UNumberFormatAttribute = UNumberFormatAttribute(4097i32);
-pub const UNUM_PARSE_DECIMAL_MARK_REQUIRED: UNumberFormatAttribute = UNumberFormatAttribute(4098i32);
-pub const UNUM_PARSE_CASE_SENSITIVE: UNumberFormatAttribute = UNumberFormatAttribute(4099i32);
-pub const UNUM_SIGN_ALWAYS_SHOWN: UNumberFormatAttribute = UNumberFormatAttribute(4100i32);
-impl ::core::marker::Copy for UNumberFormatAttribute {}
-impl ::core::clone::Clone for UNumberFormatAttribute {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct UNumberFormatAttributeValue(pub i32);
-pub const UNUM_FORMAT_ATTRIBUTE_VALUE_HIDDEN: UNumberFormatAttributeValue = UNumberFormatAttributeValue(0i32);
-impl ::core::marker::Copy for UNumberFormatAttributeValue {}
-impl ::core::clone::Clone for UNumberFormatAttributeValue {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct UNumberFormatFields(pub i32);
-pub const UNUM_INTEGER_FIELD: UNumberFormatFields = UNumberFormatFields(0i32);
-pub const UNUM_FRACTION_FIELD: UNumberFormatFields = UNumberFormatFields(1i32);
-pub const UNUM_DECIMAL_SEPARATOR_FIELD: UNumberFormatFields = UNumberFormatFields(2i32);
-pub const UNUM_EXPONENT_SYMBOL_FIELD: UNumberFormatFields = UNumberFormatFields(3i32);
-pub const UNUM_EXPONENT_SIGN_FIELD: UNumberFormatFields = UNumberFormatFields(4i32);
-pub const UNUM_EXPONENT_FIELD: UNumberFormatFields = UNumberFormatFields(5i32);
-pub const UNUM_GROUPING_SEPARATOR_FIELD: UNumberFormatFields = UNumberFormatFields(6i32);
-pub const UNUM_CURRENCY_FIELD: UNumberFormatFields = UNumberFormatFields(7i32);
-pub const UNUM_PERCENT_FIELD: UNumberFormatFields = UNumberFormatFields(8i32);
-pub const UNUM_PERMILL_FIELD: UNumberFormatFields = UNumberFormatFields(9i32);
-pub const UNUM_SIGN_FIELD: UNumberFormatFields = UNumberFormatFields(10i32);
-pub const UNUM_MEASURE_UNIT_FIELD: UNumberFormatFields = UNumberFormatFields(11i32);
-pub const UNUM_COMPACT_FIELD: UNumberFormatFields = UNumberFormatFields(12i32);
-impl ::core::marker::Copy for UNumberFormatFields {}
-impl ::core::clone::Clone for UNumberFormatFields {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct UNumberFormatPadPosition(pub i32);
-pub const UNUM_PAD_BEFORE_PREFIX: UNumberFormatPadPosition = UNumberFormatPadPosition(0i32);
-pub const UNUM_PAD_AFTER_PREFIX: UNumberFormatPadPosition = UNumberFormatPadPosition(1i32);
-pub const UNUM_PAD_BEFORE_SUFFIX: UNumberFormatPadPosition = UNumberFormatPadPosition(2i32);
-pub const UNUM_PAD_AFTER_SUFFIX: UNumberFormatPadPosition = UNumberFormatPadPosition(3i32);
-impl ::core::marker::Copy for UNumberFormatPadPosition {}
-impl ::core::clone::Clone for UNumberFormatPadPosition {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct UNumberFormatRoundingMode(pub i32);
-pub const UNUM_ROUND_CEILING: UNumberFormatRoundingMode = UNumberFormatRoundingMode(0i32);
-pub const UNUM_ROUND_FLOOR: UNumberFormatRoundingMode = UNumberFormatRoundingMode(1i32);
-pub const UNUM_ROUND_DOWN: UNumberFormatRoundingMode = UNumberFormatRoundingMode(2i32);
-pub const UNUM_ROUND_UP: UNumberFormatRoundingMode = UNumberFormatRoundingMode(3i32);
-pub const UNUM_ROUND_HALFEVEN: UNumberFormatRoundingMode = UNumberFormatRoundingMode(4i32);
-pub const UNUM_ROUND_HALFDOWN: UNumberFormatRoundingMode = UNumberFormatRoundingMode(5i32);
-pub const UNUM_ROUND_HALFUP: UNumberFormatRoundingMode = UNumberFormatRoundingMode(6i32);
-pub const UNUM_ROUND_UNNECESSARY: UNumberFormatRoundingMode = UNumberFormatRoundingMode(7i32);
-impl ::core::marker::Copy for UNumberFormatRoundingMode {}
-impl ::core::clone::Clone for UNumberFormatRoundingMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct UNumberFormatStyle(pub i32);
-pub const UNUM_PATTERN_DECIMAL: UNumberFormatStyle = UNumberFormatStyle(0i32);
-pub const UNUM_DECIMAL: UNumberFormatStyle = UNumberFormatStyle(1i32);
-pub const UNUM_CURRENCY: UNumberFormatStyle = UNumberFormatStyle(2i32);
-pub const UNUM_PERCENT: UNumberFormatStyle = UNumberFormatStyle(3i32);
-pub const UNUM_SCIENTIFIC: UNumberFormatStyle = UNumberFormatStyle(4i32);
-pub const UNUM_SPELLOUT: UNumberFormatStyle = UNumberFormatStyle(5i32);
-pub const UNUM_ORDINAL: UNumberFormatStyle = UNumberFormatStyle(6i32);
-pub const UNUM_DURATION: UNumberFormatStyle = UNumberFormatStyle(7i32);
-pub const UNUM_NUMBERING_SYSTEM: UNumberFormatStyle = UNumberFormatStyle(8i32);
-pub const UNUM_PATTERN_RULEBASED: UNumberFormatStyle = UNumberFormatStyle(9i32);
-pub const UNUM_CURRENCY_ISO: UNumberFormatStyle = UNumberFormatStyle(10i32);
-pub const UNUM_CURRENCY_PLURAL: UNumberFormatStyle = UNumberFormatStyle(11i32);
-pub const UNUM_CURRENCY_ACCOUNTING: UNumberFormatStyle = UNumberFormatStyle(12i32);
-pub const UNUM_CASH_CURRENCY: UNumberFormatStyle = UNumberFormatStyle(13i32);
-pub const UNUM_DECIMAL_COMPACT_SHORT: UNumberFormatStyle = UNumberFormatStyle(14i32);
-pub const UNUM_DECIMAL_COMPACT_LONG: UNumberFormatStyle = UNumberFormatStyle(15i32);
-pub const UNUM_CURRENCY_STANDARD: UNumberFormatStyle = UNumberFormatStyle(16i32);
-pub const UNUM_DEFAULT: UNumberFormatStyle = UNumberFormatStyle(1i32);
-pub const UNUM_IGNORE: UNumberFormatStyle = UNumberFormatStyle(0i32);
-impl ::core::marker::Copy for UNumberFormatStyle {}
-impl ::core::clone::Clone for UNumberFormatStyle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct UNumberFormatSymbol(pub i32);
-pub const UNUM_DECIMAL_SEPARATOR_SYMBOL: UNumberFormatSymbol = UNumberFormatSymbol(0i32);
-pub const UNUM_GROUPING_SEPARATOR_SYMBOL: UNumberFormatSymbol = UNumberFormatSymbol(1i32);
-pub const UNUM_PATTERN_SEPARATOR_SYMBOL: UNumberFormatSymbol = UNumberFormatSymbol(2i32);
-pub const UNUM_PERCENT_SYMBOL: UNumberFormatSymbol = UNumberFormatSymbol(3i32);
-pub const UNUM_ZERO_DIGIT_SYMBOL: UNumberFormatSymbol = UNumberFormatSymbol(4i32);
-pub const UNUM_DIGIT_SYMBOL: UNumberFormatSymbol = UNumberFormatSymbol(5i32);
-pub const UNUM_MINUS_SIGN_SYMBOL: UNumberFormatSymbol = UNumberFormatSymbol(6i32);
-pub const UNUM_PLUS_SIGN_SYMBOL: UNumberFormatSymbol = UNumberFormatSymbol(7i32);
-pub const UNUM_CURRENCY_SYMBOL: UNumberFormatSymbol = UNumberFormatSymbol(8i32);
-pub const UNUM_INTL_CURRENCY_SYMBOL: UNumberFormatSymbol = UNumberFormatSymbol(9i32);
-pub const UNUM_MONETARY_SEPARATOR_SYMBOL: UNumberFormatSymbol = UNumberFormatSymbol(10i32);
-pub const UNUM_EXPONENTIAL_SYMBOL: UNumberFormatSymbol = UNumberFormatSymbol(11i32);
-pub const UNUM_PERMILL_SYMBOL: UNumberFormatSymbol = UNumberFormatSymbol(12i32);
-pub const UNUM_PAD_ESCAPE_SYMBOL: UNumberFormatSymbol = UNumberFormatSymbol(13i32);
-pub const UNUM_INFINITY_SYMBOL: UNumberFormatSymbol = UNumberFormatSymbol(14i32);
-pub const UNUM_NAN_SYMBOL: UNumberFormatSymbol = UNumberFormatSymbol(15i32);
-pub const UNUM_SIGNIFICANT_DIGIT_SYMBOL: UNumberFormatSymbol = UNumberFormatSymbol(16i32);
-pub const UNUM_MONETARY_GROUPING_SEPARATOR_SYMBOL: UNumberFormatSymbol = UNumberFormatSymbol(17i32);
-pub const UNUM_ONE_DIGIT_SYMBOL: UNumberFormatSymbol = UNumberFormatSymbol(18i32);
-pub const UNUM_TWO_DIGIT_SYMBOL: UNumberFormatSymbol = UNumberFormatSymbol(19i32);
-pub const UNUM_THREE_DIGIT_SYMBOL: UNumberFormatSymbol = UNumberFormatSymbol(20i32);
-pub const UNUM_FOUR_DIGIT_SYMBOL: UNumberFormatSymbol = UNumberFormatSymbol(21i32);
-pub const UNUM_FIVE_DIGIT_SYMBOL: UNumberFormatSymbol = UNumberFormatSymbol(22i32);
-pub const UNUM_SIX_DIGIT_SYMBOL: UNumberFormatSymbol = UNumberFormatSymbol(23i32);
-pub const UNUM_SEVEN_DIGIT_SYMBOL: UNumberFormatSymbol = UNumberFormatSymbol(24i32);
-pub const UNUM_EIGHT_DIGIT_SYMBOL: UNumberFormatSymbol = UNumberFormatSymbol(25i32);
-pub const UNUM_NINE_DIGIT_SYMBOL: UNumberFormatSymbol = UNumberFormatSymbol(26i32);
-pub const UNUM_EXPONENT_MULTIPLICATION_SYMBOL: UNumberFormatSymbol = UNumberFormatSymbol(27i32);
-impl ::core::marker::Copy for UNumberFormatSymbol {}
-impl ::core::clone::Clone for UNumberFormatSymbol {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct UNumberFormatTextAttribute(pub i32);
-pub const UNUM_POSITIVE_PREFIX: UNumberFormatTextAttribute = UNumberFormatTextAttribute(0i32);
-pub const UNUM_POSITIVE_SUFFIX: UNumberFormatTextAttribute = UNumberFormatTextAttribute(1i32);
-pub const UNUM_NEGATIVE_PREFIX: UNumberFormatTextAttribute = UNumberFormatTextAttribute(2i32);
-pub const UNUM_NEGATIVE_SUFFIX: UNumberFormatTextAttribute = UNumberFormatTextAttribute(3i32);
-pub const UNUM_PADDING_CHARACTER: UNumberFormatTextAttribute = UNumberFormatTextAttribute(4i32);
-pub const UNUM_CURRENCY_CODE: UNumberFormatTextAttribute = UNumberFormatTextAttribute(5i32);
-pub const UNUM_DEFAULT_RULESET: UNumberFormatTextAttribute = UNumberFormatTextAttribute(6i32);
-pub const UNUM_PUBLIC_RULESETS: UNumberFormatTextAttribute = UNumberFormatTextAttribute(7i32);
-impl ::core::marker::Copy for UNumberFormatTextAttribute {}
-impl ::core::clone::Clone for UNumberFormatTextAttribute {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const UNUM_SHORT: i32 = 0i32;
+pub const UNUM_LONG: i32 = 1i32;
+pub const UNUM_DECIMAL_SEPARATOR_AUTO: i32 = 0i32;
+pub const UNUM_DECIMAL_SEPARATOR_ALWAYS: i32 = 1i32;
+pub const UNUM_DECIMAL_SEPARATOR_COUNT: i32 = 2i32;
+pub const UNUM_PARSE_INT_ONLY: i32 = 0i32;
+pub const UNUM_GROUPING_USED: i32 = 1i32;
+pub const UNUM_DECIMAL_ALWAYS_SHOWN: i32 = 2i32;
+pub const UNUM_MAX_INTEGER_DIGITS: i32 = 3i32;
+pub const UNUM_MIN_INTEGER_DIGITS: i32 = 4i32;
+pub const UNUM_INTEGER_DIGITS: i32 = 5i32;
+pub const UNUM_MAX_FRACTION_DIGITS: i32 = 6i32;
+pub const UNUM_MIN_FRACTION_DIGITS: i32 = 7i32;
+pub const UNUM_FRACTION_DIGITS: i32 = 8i32;
+pub const UNUM_MULTIPLIER: i32 = 9i32;
+pub const UNUM_GROUPING_SIZE: i32 = 10i32;
+pub const UNUM_ROUNDING_MODE: i32 = 11i32;
+pub const UNUM_ROUNDING_INCREMENT: i32 = 12i32;
+pub const UNUM_FORMAT_WIDTH: i32 = 13i32;
+pub const UNUM_PADDING_POSITION: i32 = 14i32;
+pub const UNUM_SECONDARY_GROUPING_SIZE: i32 = 15i32;
+pub const UNUM_SIGNIFICANT_DIGITS_USED: i32 = 16i32;
+pub const UNUM_MIN_SIGNIFICANT_DIGITS: i32 = 17i32;
+pub const UNUM_MAX_SIGNIFICANT_DIGITS: i32 = 18i32;
+pub const UNUM_LENIENT_PARSE: i32 = 19i32;
+pub const UNUM_PARSE_ALL_INPUT: i32 = 20i32;
+pub const UNUM_SCALE: i32 = 21i32;
+pub const UNUM_MINIMUM_GROUPING_DIGITS: i32 = 22i32;
+pub const UNUM_CURRENCY_USAGE: i32 = 23i32;
+pub const UNUM_FORMAT_FAIL_IF_MORE_THAN_MAX_DIGITS: i32 = 4096i32;
+pub const UNUM_PARSE_NO_EXPONENT: i32 = 4097i32;
+pub const UNUM_PARSE_DECIMAL_MARK_REQUIRED: i32 = 4098i32;
+pub const UNUM_PARSE_CASE_SENSITIVE: i32 = 4099i32;
+pub const UNUM_SIGN_ALWAYS_SHOWN: i32 = 4100i32;
+pub const UNUM_FORMAT_ATTRIBUTE_VALUE_HIDDEN: i32 = 0i32;
+pub const UNUM_INTEGER_FIELD: i32 = 0i32;
+pub const UNUM_FRACTION_FIELD: i32 = 1i32;
+pub const UNUM_DECIMAL_SEPARATOR_FIELD: i32 = 2i32;
+pub const UNUM_EXPONENT_SYMBOL_FIELD: i32 = 3i32;
+pub const UNUM_EXPONENT_SIGN_FIELD: i32 = 4i32;
+pub const UNUM_EXPONENT_FIELD: i32 = 5i32;
+pub const UNUM_GROUPING_SEPARATOR_FIELD: i32 = 6i32;
+pub const UNUM_CURRENCY_FIELD: i32 = 7i32;
+pub const UNUM_PERCENT_FIELD: i32 = 8i32;
+pub const UNUM_PERMILL_FIELD: i32 = 9i32;
+pub const UNUM_SIGN_FIELD: i32 = 10i32;
+pub const UNUM_MEASURE_UNIT_FIELD: i32 = 11i32;
+pub const UNUM_COMPACT_FIELD: i32 = 12i32;
+pub const UNUM_PAD_BEFORE_PREFIX: i32 = 0i32;
+pub const UNUM_PAD_AFTER_PREFIX: i32 = 1i32;
+pub const UNUM_PAD_BEFORE_SUFFIX: i32 = 2i32;
+pub const UNUM_PAD_AFTER_SUFFIX: i32 = 3i32;
+pub const UNUM_ROUND_CEILING: i32 = 0i32;
+pub const UNUM_ROUND_FLOOR: i32 = 1i32;
+pub const UNUM_ROUND_DOWN: i32 = 2i32;
+pub const UNUM_ROUND_UP: i32 = 3i32;
+pub const UNUM_ROUND_HALFEVEN: i32 = 4i32;
+pub const UNUM_ROUND_HALFDOWN: i32 = 5i32;
+pub const UNUM_ROUND_HALFUP: i32 = 6i32;
+pub const UNUM_ROUND_UNNECESSARY: i32 = 7i32;
+pub const UNUM_PATTERN_DECIMAL: i32 = 0i32;
+pub const UNUM_DECIMAL: i32 = 1i32;
+pub const UNUM_CURRENCY: i32 = 2i32;
+pub const UNUM_PERCENT: i32 = 3i32;
+pub const UNUM_SCIENTIFIC: i32 = 4i32;
+pub const UNUM_SPELLOUT: i32 = 5i32;
+pub const UNUM_ORDINAL: i32 = 6i32;
+pub const UNUM_DURATION: i32 = 7i32;
+pub const UNUM_NUMBERING_SYSTEM: i32 = 8i32;
+pub const UNUM_PATTERN_RULEBASED: i32 = 9i32;
+pub const UNUM_CURRENCY_ISO: i32 = 10i32;
+pub const UNUM_CURRENCY_PLURAL: i32 = 11i32;
+pub const UNUM_CURRENCY_ACCOUNTING: i32 = 12i32;
+pub const UNUM_CASH_CURRENCY: i32 = 13i32;
+pub const UNUM_DECIMAL_COMPACT_SHORT: i32 = 14i32;
+pub const UNUM_DECIMAL_COMPACT_LONG: i32 = 15i32;
+pub const UNUM_CURRENCY_STANDARD: i32 = 16i32;
+pub const UNUM_DEFAULT: i32 = 1i32;
+pub const UNUM_IGNORE: i32 = 0i32;
+pub const UNUM_DECIMAL_SEPARATOR_SYMBOL: i32 = 0i32;
+pub const UNUM_GROUPING_SEPARATOR_SYMBOL: i32 = 1i32;
+pub const UNUM_PATTERN_SEPARATOR_SYMBOL: i32 = 2i32;
+pub const UNUM_PERCENT_SYMBOL: i32 = 3i32;
+pub const UNUM_ZERO_DIGIT_SYMBOL: i32 = 4i32;
+pub const UNUM_DIGIT_SYMBOL: i32 = 5i32;
+pub const UNUM_MINUS_SIGN_SYMBOL: i32 = 6i32;
+pub const UNUM_PLUS_SIGN_SYMBOL: i32 = 7i32;
+pub const UNUM_CURRENCY_SYMBOL: i32 = 8i32;
+pub const UNUM_INTL_CURRENCY_SYMBOL: i32 = 9i32;
+pub const UNUM_MONETARY_SEPARATOR_SYMBOL: i32 = 10i32;
+pub const UNUM_EXPONENTIAL_SYMBOL: i32 = 11i32;
+pub const UNUM_PERMILL_SYMBOL: i32 = 12i32;
+pub const UNUM_PAD_ESCAPE_SYMBOL: i32 = 13i32;
+pub const UNUM_INFINITY_SYMBOL: i32 = 14i32;
+pub const UNUM_NAN_SYMBOL: i32 = 15i32;
+pub const UNUM_SIGNIFICANT_DIGIT_SYMBOL: i32 = 16i32;
+pub const UNUM_MONETARY_GROUPING_SEPARATOR_SYMBOL: i32 = 17i32;
+pub const UNUM_ONE_DIGIT_SYMBOL: i32 = 18i32;
+pub const UNUM_TWO_DIGIT_SYMBOL: i32 = 19i32;
+pub const UNUM_THREE_DIGIT_SYMBOL: i32 = 20i32;
+pub const UNUM_FOUR_DIGIT_SYMBOL: i32 = 21i32;
+pub const UNUM_FIVE_DIGIT_SYMBOL: i32 = 22i32;
+pub const UNUM_SIX_DIGIT_SYMBOL: i32 = 23i32;
+pub const UNUM_SEVEN_DIGIT_SYMBOL: i32 = 24i32;
+pub const UNUM_EIGHT_DIGIT_SYMBOL: i32 = 25i32;
+pub const UNUM_NINE_DIGIT_SYMBOL: i32 = 26i32;
+pub const UNUM_EXPONENT_MULTIPLICATION_SYMBOL: i32 = 27i32;
+pub const UNUM_POSITIVE_PREFIX: i32 = 0i32;
+pub const UNUM_POSITIVE_SUFFIX: i32 = 1i32;
+pub const UNUM_NEGATIVE_PREFIX: i32 = 2i32;
+pub const UNUM_NEGATIVE_SUFFIX: i32 = 3i32;
+pub const UNUM_PADDING_CHARACTER: i32 = 4i32;
+pub const UNUM_CURRENCY_CODE: i32 = 5i32;
+pub const UNUM_DEFAULT_RULESET: i32 = 6i32;
+pub const UNUM_PUBLIC_RULESETS: i32 = 7i32;
 #[repr(C)]
 pub struct UNumberFormatter(pub u8);
-#[repr(transparent)]
-pub struct UNumberGroupingStrategy(pub i32);
-pub const UNUM_GROUPING_OFF: UNumberGroupingStrategy = UNumberGroupingStrategy(0i32);
-pub const UNUM_GROUPING_MIN2: UNumberGroupingStrategy = UNumberGroupingStrategy(1i32);
-pub const UNUM_GROUPING_AUTO: UNumberGroupingStrategy = UNumberGroupingStrategy(2i32);
-pub const UNUM_GROUPING_ON_ALIGNED: UNumberGroupingStrategy = UNumberGroupingStrategy(3i32);
-pub const UNUM_GROUPING_THOUSANDS: UNumberGroupingStrategy = UNumberGroupingStrategy(4i32);
-impl ::core::marker::Copy for UNumberGroupingStrategy {}
-impl ::core::clone::Clone for UNumberGroupingStrategy {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct UNumberRangeCollapse(pub i32);
-pub const UNUM_RANGE_COLLAPSE_AUTO: UNumberRangeCollapse = UNumberRangeCollapse(0i32);
-pub const UNUM_RANGE_COLLAPSE_NONE: UNumberRangeCollapse = UNumberRangeCollapse(1i32);
-pub const UNUM_RANGE_COLLAPSE_UNIT: UNumberRangeCollapse = UNumberRangeCollapse(2i32);
-pub const UNUM_RANGE_COLLAPSE_ALL: UNumberRangeCollapse = UNumberRangeCollapse(3i32);
-impl ::core::marker::Copy for UNumberRangeCollapse {}
-impl ::core::clone::Clone for UNumberRangeCollapse {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct UNumberRangeIdentityFallback(pub i32);
-pub const UNUM_IDENTITY_FALLBACK_SINGLE_VALUE: UNumberRangeIdentityFallback = UNumberRangeIdentityFallback(0i32);
-pub const UNUM_IDENTITY_FALLBACK_APPROXIMATELY_OR_SINGLE_VALUE: UNumberRangeIdentityFallback = UNumberRangeIdentityFallback(1i32);
-pub const UNUM_IDENTITY_FALLBACK_APPROXIMATELY: UNumberRangeIdentityFallback = UNumberRangeIdentityFallback(2i32);
-pub const UNUM_IDENTITY_FALLBACK_RANGE: UNumberRangeIdentityFallback = UNumberRangeIdentityFallback(3i32);
-impl ::core::marker::Copy for UNumberRangeIdentityFallback {}
-impl ::core::clone::Clone for UNumberRangeIdentityFallback {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct UNumberRangeIdentityResult(pub i32);
-pub const UNUM_IDENTITY_RESULT_EQUAL_BEFORE_ROUNDING: UNumberRangeIdentityResult = UNumberRangeIdentityResult(0i32);
-pub const UNUM_IDENTITY_RESULT_EQUAL_AFTER_ROUNDING: UNumberRangeIdentityResult = UNumberRangeIdentityResult(1i32);
-pub const UNUM_IDENTITY_RESULT_NOT_EQUAL: UNumberRangeIdentityResult = UNumberRangeIdentityResult(2i32);
-impl ::core::marker::Copy for UNumberRangeIdentityResult {}
-impl ::core::clone::Clone for UNumberRangeIdentityResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct UNumberSignDisplay(pub i32);
-pub const UNUM_SIGN_AUTO: UNumberSignDisplay = UNumberSignDisplay(0i32);
-pub const UNUM_SIGN_ALWAYS: UNumberSignDisplay = UNumberSignDisplay(1i32);
-pub const UNUM_SIGN_NEVER: UNumberSignDisplay = UNumberSignDisplay(2i32);
-pub const UNUM_SIGN_ACCOUNTING: UNumberSignDisplay = UNumberSignDisplay(3i32);
-pub const UNUM_SIGN_ACCOUNTING_ALWAYS: UNumberSignDisplay = UNumberSignDisplay(4i32);
-pub const UNUM_SIGN_EXCEPT_ZERO: UNumberSignDisplay = UNumberSignDisplay(5i32);
-pub const UNUM_SIGN_ACCOUNTING_EXCEPT_ZERO: UNumberSignDisplay = UNumberSignDisplay(6i32);
-pub const UNUM_SIGN_COUNT: UNumberSignDisplay = UNumberSignDisplay(7i32);
-impl ::core::marker::Copy for UNumberSignDisplay {}
-impl ::core::clone::Clone for UNumberSignDisplay {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct UNumberUnitWidth(pub i32);
-pub const UNUM_UNIT_WIDTH_NARROW: UNumberUnitWidth = UNumberUnitWidth(0i32);
-pub const UNUM_UNIT_WIDTH_SHORT: UNumberUnitWidth = UNumberUnitWidth(1i32);
-pub const UNUM_UNIT_WIDTH_FULL_NAME: UNumberUnitWidth = UNumberUnitWidth(2i32);
-pub const UNUM_UNIT_WIDTH_ISO_CODE: UNumberUnitWidth = UNumberUnitWidth(3i32);
-pub const UNUM_UNIT_WIDTH_HIDDEN: UNumberUnitWidth = UNumberUnitWidth(4i32);
-pub const UNUM_UNIT_WIDTH_COUNT: UNumberUnitWidth = UNumberUnitWidth(5i32);
-impl ::core::marker::Copy for UNumberUnitWidth {}
-impl ::core::clone::Clone for UNumberUnitWidth {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const UNUM_GROUPING_OFF: i32 = 0i32;
+pub const UNUM_GROUPING_MIN2: i32 = 1i32;
+pub const UNUM_GROUPING_AUTO: i32 = 2i32;
+pub const UNUM_GROUPING_ON_ALIGNED: i32 = 3i32;
+pub const UNUM_GROUPING_THOUSANDS: i32 = 4i32;
+pub const UNUM_RANGE_COLLAPSE_AUTO: i32 = 0i32;
+pub const UNUM_RANGE_COLLAPSE_NONE: i32 = 1i32;
+pub const UNUM_RANGE_COLLAPSE_UNIT: i32 = 2i32;
+pub const UNUM_RANGE_COLLAPSE_ALL: i32 = 3i32;
+pub const UNUM_IDENTITY_FALLBACK_SINGLE_VALUE: i32 = 0i32;
+pub const UNUM_IDENTITY_FALLBACK_APPROXIMATELY_OR_SINGLE_VALUE: i32 = 1i32;
+pub const UNUM_IDENTITY_FALLBACK_APPROXIMATELY: i32 = 2i32;
+pub const UNUM_IDENTITY_FALLBACK_RANGE: i32 = 3i32;
+pub const UNUM_IDENTITY_RESULT_EQUAL_BEFORE_ROUNDING: i32 = 0i32;
+pub const UNUM_IDENTITY_RESULT_EQUAL_AFTER_ROUNDING: i32 = 1i32;
+pub const UNUM_IDENTITY_RESULT_NOT_EQUAL: i32 = 2i32;
+pub const UNUM_SIGN_AUTO: i32 = 0i32;
+pub const UNUM_SIGN_ALWAYS: i32 = 1i32;
+pub const UNUM_SIGN_NEVER: i32 = 2i32;
+pub const UNUM_SIGN_ACCOUNTING: i32 = 3i32;
+pub const UNUM_SIGN_ACCOUNTING_ALWAYS: i32 = 4i32;
+pub const UNUM_SIGN_EXCEPT_ZERO: i32 = 5i32;
+pub const UNUM_SIGN_ACCOUNTING_EXCEPT_ZERO: i32 = 6i32;
+pub const UNUM_SIGN_COUNT: i32 = 7i32;
+pub const UNUM_UNIT_WIDTH_NARROW: i32 = 0i32;
+pub const UNUM_UNIT_WIDTH_SHORT: i32 = 1i32;
+pub const UNUM_UNIT_WIDTH_FULL_NAME: i32 = 2i32;
+pub const UNUM_UNIT_WIDTH_ISO_CODE: i32 = 3i32;
+pub const UNUM_UNIT_WIDTH_HIDDEN: i32 = 4i32;
+pub const UNUM_UNIT_WIDTH_COUNT: i32 = 5i32;
 #[repr(C)]
 pub struct UNumberingSystem(pub u8);
-#[repr(transparent)]
-pub struct UNumericType(pub i32);
-pub const U_NT_NONE: UNumericType = UNumericType(0i32);
-pub const U_NT_DECIMAL: UNumericType = UNumericType(1i32);
-pub const U_NT_DIGIT: UNumericType = UNumericType(2i32);
-pub const U_NT_NUMERIC: UNumericType = UNumericType(3i32);
-impl ::core::marker::Copy for UNumericType {}
-impl ::core::clone::Clone for UNumericType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const U_NT_NONE: i32 = 0i32;
+pub const U_NT_DECIMAL: i32 = 1i32;
+pub const U_NT_DIGIT: i32 = 2i32;
+pub const U_NT_NUMERIC: i32 = 3i32;
 #[repr(C)]
 pub struct UParseError {
     pub line: i32,
@@ -5976,218 +4968,162 @@ impl ::core::clone::Clone for UParseError {
 }
 #[repr(C)]
 pub struct UPluralRules(pub u8);
-#[repr(transparent)]
-pub struct UPluralType(pub i32);
-pub const UPLURAL_TYPE_CARDINAL: UPluralType = UPluralType(0i32);
-pub const UPLURAL_TYPE_ORDINAL: UPluralType = UPluralType(1i32);
-impl ::core::marker::Copy for UPluralType {}
-impl ::core::clone::Clone for UPluralType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct UProperty(pub i32);
-pub const UCHAR_ALPHABETIC: UProperty = UProperty(0i32);
-pub const UCHAR_BINARY_START: UProperty = UProperty(0i32);
-pub const UCHAR_ASCII_HEX_DIGIT: UProperty = UProperty(1i32);
-pub const UCHAR_BIDI_CONTROL: UProperty = UProperty(2i32);
-pub const UCHAR_BIDI_MIRRORED: UProperty = UProperty(3i32);
-pub const UCHAR_DASH: UProperty = UProperty(4i32);
-pub const UCHAR_DEFAULT_IGNORABLE_CODE_POINT: UProperty = UProperty(5i32);
-pub const UCHAR_DEPRECATED: UProperty = UProperty(6i32);
-pub const UCHAR_DIACRITIC: UProperty = UProperty(7i32);
-pub const UCHAR_EXTENDER: UProperty = UProperty(8i32);
-pub const UCHAR_FULL_COMPOSITION_EXCLUSION: UProperty = UProperty(9i32);
-pub const UCHAR_GRAPHEME_BASE: UProperty = UProperty(10i32);
-pub const UCHAR_GRAPHEME_EXTEND: UProperty = UProperty(11i32);
-pub const UCHAR_GRAPHEME_LINK: UProperty = UProperty(12i32);
-pub const UCHAR_HEX_DIGIT: UProperty = UProperty(13i32);
-pub const UCHAR_HYPHEN: UProperty = UProperty(14i32);
-pub const UCHAR_ID_CONTINUE: UProperty = UProperty(15i32);
-pub const UCHAR_ID_START: UProperty = UProperty(16i32);
-pub const UCHAR_IDEOGRAPHIC: UProperty = UProperty(17i32);
-pub const UCHAR_IDS_BINARY_OPERATOR: UProperty = UProperty(18i32);
-pub const UCHAR_IDS_TRINARY_OPERATOR: UProperty = UProperty(19i32);
-pub const UCHAR_JOIN_CONTROL: UProperty = UProperty(20i32);
-pub const UCHAR_LOGICAL_ORDER_EXCEPTION: UProperty = UProperty(21i32);
-pub const UCHAR_LOWERCASE: UProperty = UProperty(22i32);
-pub const UCHAR_MATH: UProperty = UProperty(23i32);
-pub const UCHAR_NONCHARACTER_CODE_POINT: UProperty = UProperty(24i32);
-pub const UCHAR_QUOTATION_MARK: UProperty = UProperty(25i32);
-pub const UCHAR_RADICAL: UProperty = UProperty(26i32);
-pub const UCHAR_SOFT_DOTTED: UProperty = UProperty(27i32);
-pub const UCHAR_TERMINAL_PUNCTUATION: UProperty = UProperty(28i32);
-pub const UCHAR_UNIFIED_IDEOGRAPH: UProperty = UProperty(29i32);
-pub const UCHAR_UPPERCASE: UProperty = UProperty(30i32);
-pub const UCHAR_WHITE_SPACE: UProperty = UProperty(31i32);
-pub const UCHAR_XID_CONTINUE: UProperty = UProperty(32i32);
-pub const UCHAR_XID_START: UProperty = UProperty(33i32);
-pub const UCHAR_CASE_SENSITIVE: UProperty = UProperty(34i32);
-pub const UCHAR_S_TERM: UProperty = UProperty(35i32);
-pub const UCHAR_VARIATION_SELECTOR: UProperty = UProperty(36i32);
-pub const UCHAR_NFD_INERT: UProperty = UProperty(37i32);
-pub const UCHAR_NFKD_INERT: UProperty = UProperty(38i32);
-pub const UCHAR_NFC_INERT: UProperty = UProperty(39i32);
-pub const UCHAR_NFKC_INERT: UProperty = UProperty(40i32);
-pub const UCHAR_SEGMENT_STARTER: UProperty = UProperty(41i32);
-pub const UCHAR_PATTERN_SYNTAX: UProperty = UProperty(42i32);
-pub const UCHAR_PATTERN_WHITE_SPACE: UProperty = UProperty(43i32);
-pub const UCHAR_POSIX_ALNUM: UProperty = UProperty(44i32);
-pub const UCHAR_POSIX_BLANK: UProperty = UProperty(45i32);
-pub const UCHAR_POSIX_GRAPH: UProperty = UProperty(46i32);
-pub const UCHAR_POSIX_PRINT: UProperty = UProperty(47i32);
-pub const UCHAR_POSIX_XDIGIT: UProperty = UProperty(48i32);
-pub const UCHAR_CASED: UProperty = UProperty(49i32);
-pub const UCHAR_CASE_IGNORABLE: UProperty = UProperty(50i32);
-pub const UCHAR_CHANGES_WHEN_LOWERCASED: UProperty = UProperty(51i32);
-pub const UCHAR_CHANGES_WHEN_UPPERCASED: UProperty = UProperty(52i32);
-pub const UCHAR_CHANGES_WHEN_TITLECASED: UProperty = UProperty(53i32);
-pub const UCHAR_CHANGES_WHEN_CASEFOLDED: UProperty = UProperty(54i32);
-pub const UCHAR_CHANGES_WHEN_CASEMAPPED: UProperty = UProperty(55i32);
-pub const UCHAR_CHANGES_WHEN_NFKC_CASEFOLDED: UProperty = UProperty(56i32);
-pub const UCHAR_EMOJI: UProperty = UProperty(57i32);
-pub const UCHAR_EMOJI_PRESENTATION: UProperty = UProperty(58i32);
-pub const UCHAR_EMOJI_MODIFIER: UProperty = UProperty(59i32);
-pub const UCHAR_EMOJI_MODIFIER_BASE: UProperty = UProperty(60i32);
-pub const UCHAR_EMOJI_COMPONENT: UProperty = UProperty(61i32);
-pub const UCHAR_REGIONAL_INDICATOR: UProperty = UProperty(62i32);
-pub const UCHAR_PREPENDED_CONCATENATION_MARK: UProperty = UProperty(63i32);
-pub const UCHAR_EXTENDED_PICTOGRAPHIC: UProperty = UProperty(64i32);
-pub const UCHAR_BIDI_CLASS: UProperty = UProperty(4096i32);
-pub const UCHAR_INT_START: UProperty = UProperty(4096i32);
-pub const UCHAR_BLOCK: UProperty = UProperty(4097i32);
-pub const UCHAR_CANONICAL_COMBINING_CLASS: UProperty = UProperty(4098i32);
-pub const UCHAR_DECOMPOSITION_TYPE: UProperty = UProperty(4099i32);
-pub const UCHAR_EAST_ASIAN_WIDTH: UProperty = UProperty(4100i32);
-pub const UCHAR_GENERAL_CATEGORY: UProperty = UProperty(4101i32);
-pub const UCHAR_JOINING_GROUP: UProperty = UProperty(4102i32);
-pub const UCHAR_JOINING_TYPE: UProperty = UProperty(4103i32);
-pub const UCHAR_LINE_BREAK: UProperty = UProperty(4104i32);
-pub const UCHAR_NUMERIC_TYPE: UProperty = UProperty(4105i32);
-pub const UCHAR_SCRIPT: UProperty = UProperty(4106i32);
-pub const UCHAR_HANGUL_SYLLABLE_TYPE: UProperty = UProperty(4107i32);
-pub const UCHAR_NFD_QUICK_CHECK: UProperty = UProperty(4108i32);
-pub const UCHAR_NFKD_QUICK_CHECK: UProperty = UProperty(4109i32);
-pub const UCHAR_NFC_QUICK_CHECK: UProperty = UProperty(4110i32);
-pub const UCHAR_NFKC_QUICK_CHECK: UProperty = UProperty(4111i32);
-pub const UCHAR_LEAD_CANONICAL_COMBINING_CLASS: UProperty = UProperty(4112i32);
-pub const UCHAR_TRAIL_CANONICAL_COMBINING_CLASS: UProperty = UProperty(4113i32);
-pub const UCHAR_GRAPHEME_CLUSTER_BREAK: UProperty = UProperty(4114i32);
-pub const UCHAR_SENTENCE_BREAK: UProperty = UProperty(4115i32);
-pub const UCHAR_WORD_BREAK: UProperty = UProperty(4116i32);
-pub const UCHAR_BIDI_PAIRED_BRACKET_TYPE: UProperty = UProperty(4117i32);
-pub const UCHAR_INDIC_POSITIONAL_CATEGORY: UProperty = UProperty(4118i32);
-pub const UCHAR_INDIC_SYLLABIC_CATEGORY: UProperty = UProperty(4119i32);
-pub const UCHAR_VERTICAL_ORIENTATION: UProperty = UProperty(4120i32);
-pub const UCHAR_GENERAL_CATEGORY_MASK: UProperty = UProperty(8192i32);
-pub const UCHAR_MASK_START: UProperty = UProperty(8192i32);
-pub const UCHAR_NUMERIC_VALUE: UProperty = UProperty(12288i32);
-pub const UCHAR_DOUBLE_START: UProperty = UProperty(12288i32);
-pub const UCHAR_AGE: UProperty = UProperty(16384i32);
-pub const UCHAR_STRING_START: UProperty = UProperty(16384i32);
-pub const UCHAR_BIDI_MIRRORING_GLYPH: UProperty = UProperty(16385i32);
-pub const UCHAR_CASE_FOLDING: UProperty = UProperty(16386i32);
-pub const UCHAR_LOWERCASE_MAPPING: UProperty = UProperty(16388i32);
-pub const UCHAR_NAME: UProperty = UProperty(16389i32);
-pub const UCHAR_SIMPLE_CASE_FOLDING: UProperty = UProperty(16390i32);
-pub const UCHAR_SIMPLE_LOWERCASE_MAPPING: UProperty = UProperty(16391i32);
-pub const UCHAR_SIMPLE_TITLECASE_MAPPING: UProperty = UProperty(16392i32);
-pub const UCHAR_SIMPLE_UPPERCASE_MAPPING: UProperty = UProperty(16393i32);
-pub const UCHAR_TITLECASE_MAPPING: UProperty = UProperty(16394i32);
-pub const UCHAR_UPPERCASE_MAPPING: UProperty = UProperty(16396i32);
-pub const UCHAR_BIDI_PAIRED_BRACKET: UProperty = UProperty(16397i32);
-pub const UCHAR_SCRIPT_EXTENSIONS: UProperty = UProperty(28672i32);
-pub const UCHAR_OTHER_PROPERTY_START: UProperty = UProperty(28672i32);
-pub const UCHAR_INVALID_CODE: UProperty = UProperty(-1i32);
-impl ::core::marker::Copy for UProperty {}
-impl ::core::clone::Clone for UProperty {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct UPropertyNameChoice(pub i32);
-pub const U_SHORT_PROPERTY_NAME: UPropertyNameChoice = UPropertyNameChoice(0i32);
-pub const U_LONG_PROPERTY_NAME: UPropertyNameChoice = UPropertyNameChoice(1i32);
-impl ::core::marker::Copy for UPropertyNameChoice {}
-impl ::core::clone::Clone for UPropertyNameChoice {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const UPLURAL_TYPE_CARDINAL: i32 = 0i32;
+pub const UPLURAL_TYPE_ORDINAL: i32 = 1i32;
+pub const UCHAR_ALPHABETIC: i32 = 0i32;
+pub const UCHAR_BINARY_START: i32 = 0i32;
+pub const UCHAR_ASCII_HEX_DIGIT: i32 = 1i32;
+pub const UCHAR_BIDI_CONTROL: i32 = 2i32;
+pub const UCHAR_BIDI_MIRRORED: i32 = 3i32;
+pub const UCHAR_DASH: i32 = 4i32;
+pub const UCHAR_DEFAULT_IGNORABLE_CODE_POINT: i32 = 5i32;
+pub const UCHAR_DEPRECATED: i32 = 6i32;
+pub const UCHAR_DIACRITIC: i32 = 7i32;
+pub const UCHAR_EXTENDER: i32 = 8i32;
+pub const UCHAR_FULL_COMPOSITION_EXCLUSION: i32 = 9i32;
+pub const UCHAR_GRAPHEME_BASE: i32 = 10i32;
+pub const UCHAR_GRAPHEME_EXTEND: i32 = 11i32;
+pub const UCHAR_GRAPHEME_LINK: i32 = 12i32;
+pub const UCHAR_HEX_DIGIT: i32 = 13i32;
+pub const UCHAR_HYPHEN: i32 = 14i32;
+pub const UCHAR_ID_CONTINUE: i32 = 15i32;
+pub const UCHAR_ID_START: i32 = 16i32;
+pub const UCHAR_IDEOGRAPHIC: i32 = 17i32;
+pub const UCHAR_IDS_BINARY_OPERATOR: i32 = 18i32;
+pub const UCHAR_IDS_TRINARY_OPERATOR: i32 = 19i32;
+pub const UCHAR_JOIN_CONTROL: i32 = 20i32;
+pub const UCHAR_LOGICAL_ORDER_EXCEPTION: i32 = 21i32;
+pub const UCHAR_LOWERCASE: i32 = 22i32;
+pub const UCHAR_MATH: i32 = 23i32;
+pub const UCHAR_NONCHARACTER_CODE_POINT: i32 = 24i32;
+pub const UCHAR_QUOTATION_MARK: i32 = 25i32;
+pub const UCHAR_RADICAL: i32 = 26i32;
+pub const UCHAR_SOFT_DOTTED: i32 = 27i32;
+pub const UCHAR_TERMINAL_PUNCTUATION: i32 = 28i32;
+pub const UCHAR_UNIFIED_IDEOGRAPH: i32 = 29i32;
+pub const UCHAR_UPPERCASE: i32 = 30i32;
+pub const UCHAR_WHITE_SPACE: i32 = 31i32;
+pub const UCHAR_XID_CONTINUE: i32 = 32i32;
+pub const UCHAR_XID_START: i32 = 33i32;
+pub const UCHAR_CASE_SENSITIVE: i32 = 34i32;
+pub const UCHAR_S_TERM: i32 = 35i32;
+pub const UCHAR_VARIATION_SELECTOR: i32 = 36i32;
+pub const UCHAR_NFD_INERT: i32 = 37i32;
+pub const UCHAR_NFKD_INERT: i32 = 38i32;
+pub const UCHAR_NFC_INERT: i32 = 39i32;
+pub const UCHAR_NFKC_INERT: i32 = 40i32;
+pub const UCHAR_SEGMENT_STARTER: i32 = 41i32;
+pub const UCHAR_PATTERN_SYNTAX: i32 = 42i32;
+pub const UCHAR_PATTERN_WHITE_SPACE: i32 = 43i32;
+pub const UCHAR_POSIX_ALNUM: i32 = 44i32;
+pub const UCHAR_POSIX_BLANK: i32 = 45i32;
+pub const UCHAR_POSIX_GRAPH: i32 = 46i32;
+pub const UCHAR_POSIX_PRINT: i32 = 47i32;
+pub const UCHAR_POSIX_XDIGIT: i32 = 48i32;
+pub const UCHAR_CASED: i32 = 49i32;
+pub const UCHAR_CASE_IGNORABLE: i32 = 50i32;
+pub const UCHAR_CHANGES_WHEN_LOWERCASED: i32 = 51i32;
+pub const UCHAR_CHANGES_WHEN_UPPERCASED: i32 = 52i32;
+pub const UCHAR_CHANGES_WHEN_TITLECASED: i32 = 53i32;
+pub const UCHAR_CHANGES_WHEN_CASEFOLDED: i32 = 54i32;
+pub const UCHAR_CHANGES_WHEN_CASEMAPPED: i32 = 55i32;
+pub const UCHAR_CHANGES_WHEN_NFKC_CASEFOLDED: i32 = 56i32;
+pub const UCHAR_EMOJI: i32 = 57i32;
+pub const UCHAR_EMOJI_PRESENTATION: i32 = 58i32;
+pub const UCHAR_EMOJI_MODIFIER: i32 = 59i32;
+pub const UCHAR_EMOJI_MODIFIER_BASE: i32 = 60i32;
+pub const UCHAR_EMOJI_COMPONENT: i32 = 61i32;
+pub const UCHAR_REGIONAL_INDICATOR: i32 = 62i32;
+pub const UCHAR_PREPENDED_CONCATENATION_MARK: i32 = 63i32;
+pub const UCHAR_EXTENDED_PICTOGRAPHIC: i32 = 64i32;
+pub const UCHAR_BIDI_CLASS: i32 = 4096i32;
+pub const UCHAR_INT_START: i32 = 4096i32;
+pub const UCHAR_BLOCK: i32 = 4097i32;
+pub const UCHAR_CANONICAL_COMBINING_CLASS: i32 = 4098i32;
+pub const UCHAR_DECOMPOSITION_TYPE: i32 = 4099i32;
+pub const UCHAR_EAST_ASIAN_WIDTH: i32 = 4100i32;
+pub const UCHAR_GENERAL_CATEGORY: i32 = 4101i32;
+pub const UCHAR_JOINING_GROUP: i32 = 4102i32;
+pub const UCHAR_JOINING_TYPE: i32 = 4103i32;
+pub const UCHAR_LINE_BREAK: i32 = 4104i32;
+pub const UCHAR_NUMERIC_TYPE: i32 = 4105i32;
+pub const UCHAR_SCRIPT: i32 = 4106i32;
+pub const UCHAR_HANGUL_SYLLABLE_TYPE: i32 = 4107i32;
+pub const UCHAR_NFD_QUICK_CHECK: i32 = 4108i32;
+pub const UCHAR_NFKD_QUICK_CHECK: i32 = 4109i32;
+pub const UCHAR_NFC_QUICK_CHECK: i32 = 4110i32;
+pub const UCHAR_NFKC_QUICK_CHECK: i32 = 4111i32;
+pub const UCHAR_LEAD_CANONICAL_COMBINING_CLASS: i32 = 4112i32;
+pub const UCHAR_TRAIL_CANONICAL_COMBINING_CLASS: i32 = 4113i32;
+pub const UCHAR_GRAPHEME_CLUSTER_BREAK: i32 = 4114i32;
+pub const UCHAR_SENTENCE_BREAK: i32 = 4115i32;
+pub const UCHAR_WORD_BREAK: i32 = 4116i32;
+pub const UCHAR_BIDI_PAIRED_BRACKET_TYPE: i32 = 4117i32;
+pub const UCHAR_INDIC_POSITIONAL_CATEGORY: i32 = 4118i32;
+pub const UCHAR_INDIC_SYLLABIC_CATEGORY: i32 = 4119i32;
+pub const UCHAR_VERTICAL_ORIENTATION: i32 = 4120i32;
+pub const UCHAR_GENERAL_CATEGORY_MASK: i32 = 8192i32;
+pub const UCHAR_MASK_START: i32 = 8192i32;
+pub const UCHAR_NUMERIC_VALUE: i32 = 12288i32;
+pub const UCHAR_DOUBLE_START: i32 = 12288i32;
+pub const UCHAR_AGE: i32 = 16384i32;
+pub const UCHAR_STRING_START: i32 = 16384i32;
+pub const UCHAR_BIDI_MIRRORING_GLYPH: i32 = 16385i32;
+pub const UCHAR_CASE_FOLDING: i32 = 16386i32;
+pub const UCHAR_LOWERCASE_MAPPING: i32 = 16388i32;
+pub const UCHAR_NAME: i32 = 16389i32;
+pub const UCHAR_SIMPLE_CASE_FOLDING: i32 = 16390i32;
+pub const UCHAR_SIMPLE_LOWERCASE_MAPPING: i32 = 16391i32;
+pub const UCHAR_SIMPLE_TITLECASE_MAPPING: i32 = 16392i32;
+pub const UCHAR_SIMPLE_UPPERCASE_MAPPING: i32 = 16393i32;
+pub const UCHAR_TITLECASE_MAPPING: i32 = 16394i32;
+pub const UCHAR_UPPERCASE_MAPPING: i32 = 16396i32;
+pub const UCHAR_BIDI_PAIRED_BRACKET: i32 = 16397i32;
+pub const UCHAR_SCRIPT_EXTENSIONS: i32 = 28672i32;
+pub const UCHAR_OTHER_PROPERTY_START: i32 = 28672i32;
+pub const UCHAR_INVALID_CODE: i32 = -1i32;
+pub const U_SHORT_PROPERTY_NAME: i32 = 0i32;
+pub const U_LONG_PROPERTY_NAME: i32 = 1i32;
 pub type URegexFindProgressCallback = unsafe extern "system" fn(context: *const ::core::ffi::c_void, matchindex: i64) -> i8;
 pub type URegexMatchCallback = unsafe extern "system" fn(context: *const ::core::ffi::c_void, steps: i32) -> i8;
-#[repr(transparent)]
-pub struct URegexpFlag(pub i32);
-pub const UREGEX_CASE_INSENSITIVE: URegexpFlag = URegexpFlag(2i32);
-pub const UREGEX_COMMENTS: URegexpFlag = URegexpFlag(4i32);
-pub const UREGEX_DOTALL: URegexpFlag = URegexpFlag(32i32);
-pub const UREGEX_LITERAL: URegexpFlag = URegexpFlag(16i32);
-pub const UREGEX_MULTILINE: URegexpFlag = URegexpFlag(8i32);
-pub const UREGEX_UNIX_LINES: URegexpFlag = URegexpFlag(1i32);
-pub const UREGEX_UWORD: URegexpFlag = URegexpFlag(256i32);
-pub const UREGEX_ERROR_ON_UNKNOWN_ESCAPES: URegexpFlag = URegexpFlag(512i32);
-impl ::core::marker::Copy for URegexpFlag {}
-impl ::core::clone::Clone for URegexpFlag {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const UREGEX_CASE_INSENSITIVE: i32 = 2i32;
+pub const UREGEX_COMMENTS: i32 = 4i32;
+pub const UREGEX_DOTALL: i32 = 32i32;
+pub const UREGEX_LITERAL: i32 = 16i32;
+pub const UREGEX_MULTILINE: i32 = 8i32;
+pub const UREGEX_UNIX_LINES: i32 = 1i32;
+pub const UREGEX_UWORD: i32 = 256i32;
+pub const UREGEX_ERROR_ON_UNKNOWN_ESCAPES: i32 = 512i32;
 #[repr(C)]
 pub struct URegion(pub u8);
-#[repr(transparent)]
-pub struct URegionType(pub i32);
-pub const URGN_UNKNOWN: URegionType = URegionType(0i32);
-pub const URGN_TERRITORY: URegionType = URegionType(1i32);
-pub const URGN_WORLD: URegionType = URegionType(2i32);
-pub const URGN_CONTINENT: URegionType = URegionType(3i32);
-pub const URGN_SUBCONTINENT: URegionType = URegionType(4i32);
-pub const URGN_GROUPING: URegionType = URegionType(5i32);
-pub const URGN_DEPRECATED: URegionType = URegionType(6i32);
-impl ::core::marker::Copy for URegionType {}
-impl ::core::clone::Clone for URegionType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const URGN_UNKNOWN: i32 = 0i32;
+pub const URGN_TERRITORY: i32 = 1i32;
+pub const URGN_WORLD: i32 = 2i32;
+pub const URGN_CONTINENT: i32 = 3i32;
+pub const URGN_SUBCONTINENT: i32 = 4i32;
+pub const URGN_GROUPING: i32 = 5i32;
+pub const URGN_DEPRECATED: i32 = 6i32;
 #[repr(C)]
 pub struct URegularExpression(pub u8);
 #[repr(C)]
 pub struct URelativeDateTimeFormatter(pub u8);
-#[repr(transparent)]
-pub struct URelativeDateTimeFormatterField(pub i32);
-pub const UDAT_REL_LITERAL_FIELD: URelativeDateTimeFormatterField = URelativeDateTimeFormatterField(0i32);
-pub const UDAT_REL_NUMERIC_FIELD: URelativeDateTimeFormatterField = URelativeDateTimeFormatterField(1i32);
-impl ::core::marker::Copy for URelativeDateTimeFormatterField {}
-impl ::core::clone::Clone for URelativeDateTimeFormatterField {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct URelativeDateTimeUnit(pub i32);
-pub const UDAT_REL_UNIT_YEAR: URelativeDateTimeUnit = URelativeDateTimeUnit(0i32);
-pub const UDAT_REL_UNIT_QUARTER: URelativeDateTimeUnit = URelativeDateTimeUnit(1i32);
-pub const UDAT_REL_UNIT_MONTH: URelativeDateTimeUnit = URelativeDateTimeUnit(2i32);
-pub const UDAT_REL_UNIT_WEEK: URelativeDateTimeUnit = URelativeDateTimeUnit(3i32);
-pub const UDAT_REL_UNIT_DAY: URelativeDateTimeUnit = URelativeDateTimeUnit(4i32);
-pub const UDAT_REL_UNIT_HOUR: URelativeDateTimeUnit = URelativeDateTimeUnit(5i32);
-pub const UDAT_REL_UNIT_MINUTE: URelativeDateTimeUnit = URelativeDateTimeUnit(6i32);
-pub const UDAT_REL_UNIT_SECOND: URelativeDateTimeUnit = URelativeDateTimeUnit(7i32);
-pub const UDAT_REL_UNIT_SUNDAY: URelativeDateTimeUnit = URelativeDateTimeUnit(8i32);
-pub const UDAT_REL_UNIT_MONDAY: URelativeDateTimeUnit = URelativeDateTimeUnit(9i32);
-pub const UDAT_REL_UNIT_TUESDAY: URelativeDateTimeUnit = URelativeDateTimeUnit(10i32);
-pub const UDAT_REL_UNIT_WEDNESDAY: URelativeDateTimeUnit = URelativeDateTimeUnit(11i32);
-pub const UDAT_REL_UNIT_THURSDAY: URelativeDateTimeUnit = URelativeDateTimeUnit(12i32);
-pub const UDAT_REL_UNIT_FRIDAY: URelativeDateTimeUnit = URelativeDateTimeUnit(13i32);
-pub const UDAT_REL_UNIT_SATURDAY: URelativeDateTimeUnit = URelativeDateTimeUnit(14i32);
-impl ::core::marker::Copy for URelativeDateTimeUnit {}
-impl ::core::clone::Clone for URelativeDateTimeUnit {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const UDAT_REL_LITERAL_FIELD: i32 = 0i32;
+pub const UDAT_REL_NUMERIC_FIELD: i32 = 1i32;
+pub const UDAT_REL_UNIT_YEAR: i32 = 0i32;
+pub const UDAT_REL_UNIT_QUARTER: i32 = 1i32;
+pub const UDAT_REL_UNIT_MONTH: i32 = 2i32;
+pub const UDAT_REL_UNIT_WEEK: i32 = 3i32;
+pub const UDAT_REL_UNIT_DAY: i32 = 4i32;
+pub const UDAT_REL_UNIT_HOUR: i32 = 5i32;
+pub const UDAT_REL_UNIT_MINUTE: i32 = 6i32;
+pub const UDAT_REL_UNIT_SECOND: i32 = 7i32;
+pub const UDAT_REL_UNIT_SUNDAY: i32 = 8i32;
+pub const UDAT_REL_UNIT_MONDAY: i32 = 9i32;
+pub const UDAT_REL_UNIT_TUESDAY: i32 = 10i32;
+pub const UDAT_REL_UNIT_WEDNESDAY: i32 = 11i32;
+pub const UDAT_REL_UNIT_THURSDAY: i32 = 12i32;
+pub const UDAT_REL_UNIT_FRIDAY: i32 = 13i32;
+pub const UDAT_REL_UNIT_SATURDAY: i32 = 14i32;
 #[repr(C)]
 pub struct UReplaceableCallbacks {
     pub length: isize,
@@ -6203,39 +5139,23 @@ impl ::core::clone::Clone for UReplaceableCallbacks {
         *self
     }
 }
-#[repr(transparent)]
-pub struct UResType(pub i32);
-pub const URES_NONE: UResType = UResType(-1i32);
-pub const URES_STRING: UResType = UResType(0i32);
-pub const URES_BINARY: UResType = UResType(1i32);
-pub const URES_TABLE: UResType = UResType(2i32);
-pub const URES_ALIAS: UResType = UResType(3i32);
-pub const URES_INT: UResType = UResType(7i32);
-pub const URES_ARRAY: UResType = UResType(8i32);
-pub const URES_INT_VECTOR: UResType = UResType(14i32);
-impl ::core::marker::Copy for UResType {}
-impl ::core::clone::Clone for UResType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const URES_NONE: i32 = -1i32;
+pub const URES_STRING: i32 = 0i32;
+pub const URES_BINARY: i32 = 1i32;
+pub const URES_TABLE: i32 = 2i32;
+pub const URES_ALIAS: i32 = 3i32;
+pub const URES_INT: i32 = 7i32;
+pub const URES_ARRAY: i32 = 8i32;
+pub const URES_INT_VECTOR: i32 = 14i32;
 #[repr(C)]
 pub struct UResourceBundle(pub u8);
-#[repr(transparent)]
-pub struct URestrictionLevel(pub i32);
-pub const USPOOF_ASCII: URestrictionLevel = URestrictionLevel(268435456i32);
-pub const USPOOF_SINGLE_SCRIPT_RESTRICTIVE: URestrictionLevel = URestrictionLevel(536870912i32);
-pub const USPOOF_HIGHLY_RESTRICTIVE: URestrictionLevel = URestrictionLevel(805306368i32);
-pub const USPOOF_MODERATELY_RESTRICTIVE: URestrictionLevel = URestrictionLevel(1073741824i32);
-pub const USPOOF_MINIMALLY_RESTRICTIVE: URestrictionLevel = URestrictionLevel(1342177280i32);
-pub const USPOOF_UNRESTRICTIVE: URestrictionLevel = URestrictionLevel(1610612736i32);
-pub const USPOOF_RESTRICTION_LEVEL_MASK: URestrictionLevel = URestrictionLevel(2130706432i32);
-impl ::core::marker::Copy for URestrictionLevel {}
-impl ::core::clone::Clone for URestrictionLevel {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const USPOOF_ASCII: i32 = 268435456i32;
+pub const USPOOF_SINGLE_SCRIPT_RESTRICTIVE: i32 = 536870912i32;
+pub const USPOOF_HIGHLY_RESTRICTIVE: i32 = 805306368i32;
+pub const USPOOF_MODERATELY_RESTRICTIVE: i32 = 1073741824i32;
+pub const USPOOF_MINIMALLY_RESTRICTIVE: i32 = 1342177280i32;
+pub const USPOOF_UNRESTRICTIVE: i32 = 1610612736i32;
+pub const USPOOF_RESTRICTION_LEVEL_MASK: i32 = 2130706432i32;
 pub const USEARCH_DONE: i32 = -1i32;
 pub const USET_ADD_CASE_MAPPINGS: i32 = 4i32;
 pub const USET_CASE_INSENSITIVE: i32 = 2i32;
@@ -6244,288 +5164,240 @@ pub const USET_SERIALIZED_STATIC_ARRAY_CAPACITY: i32 = 8i32;
 pub const USPREP_ALLOW_UNASSIGNED: u32 = 1u32;
 pub const USPREP_DEFAULT: u32 = 0u32;
 pub const USP_E_SCRIPT_NOT_IN_FONT: ::windows_sys::core::HRESULT = ::windows_sys::core::HRESULT(-2147220992i32 as _);
-#[repr(transparent)]
-pub struct UScriptCode(pub i32);
-pub const USCRIPT_INVALID_CODE: UScriptCode = UScriptCode(-1i32);
-pub const USCRIPT_COMMON: UScriptCode = UScriptCode(0i32);
-pub const USCRIPT_INHERITED: UScriptCode = UScriptCode(1i32);
-pub const USCRIPT_ARABIC: UScriptCode = UScriptCode(2i32);
-pub const USCRIPT_ARMENIAN: UScriptCode = UScriptCode(3i32);
-pub const USCRIPT_BENGALI: UScriptCode = UScriptCode(4i32);
-pub const USCRIPT_BOPOMOFO: UScriptCode = UScriptCode(5i32);
-pub const USCRIPT_CHEROKEE: UScriptCode = UScriptCode(6i32);
-pub const USCRIPT_COPTIC: UScriptCode = UScriptCode(7i32);
-pub const USCRIPT_CYRILLIC: UScriptCode = UScriptCode(8i32);
-pub const USCRIPT_DESERET: UScriptCode = UScriptCode(9i32);
-pub const USCRIPT_DEVANAGARI: UScriptCode = UScriptCode(10i32);
-pub const USCRIPT_ETHIOPIC: UScriptCode = UScriptCode(11i32);
-pub const USCRIPT_GEORGIAN: UScriptCode = UScriptCode(12i32);
-pub const USCRIPT_GOTHIC: UScriptCode = UScriptCode(13i32);
-pub const USCRIPT_GREEK: UScriptCode = UScriptCode(14i32);
-pub const USCRIPT_GUJARATI: UScriptCode = UScriptCode(15i32);
-pub const USCRIPT_GURMUKHI: UScriptCode = UScriptCode(16i32);
-pub const USCRIPT_HAN: UScriptCode = UScriptCode(17i32);
-pub const USCRIPT_HANGUL: UScriptCode = UScriptCode(18i32);
-pub const USCRIPT_HEBREW: UScriptCode = UScriptCode(19i32);
-pub const USCRIPT_HIRAGANA: UScriptCode = UScriptCode(20i32);
-pub const USCRIPT_KANNADA: UScriptCode = UScriptCode(21i32);
-pub const USCRIPT_KATAKANA: UScriptCode = UScriptCode(22i32);
-pub const USCRIPT_KHMER: UScriptCode = UScriptCode(23i32);
-pub const USCRIPT_LAO: UScriptCode = UScriptCode(24i32);
-pub const USCRIPT_LATIN: UScriptCode = UScriptCode(25i32);
-pub const USCRIPT_MALAYALAM: UScriptCode = UScriptCode(26i32);
-pub const USCRIPT_MONGOLIAN: UScriptCode = UScriptCode(27i32);
-pub const USCRIPT_MYANMAR: UScriptCode = UScriptCode(28i32);
-pub const USCRIPT_OGHAM: UScriptCode = UScriptCode(29i32);
-pub const USCRIPT_OLD_ITALIC: UScriptCode = UScriptCode(30i32);
-pub const USCRIPT_ORIYA: UScriptCode = UScriptCode(31i32);
-pub const USCRIPT_RUNIC: UScriptCode = UScriptCode(32i32);
-pub const USCRIPT_SINHALA: UScriptCode = UScriptCode(33i32);
-pub const USCRIPT_SYRIAC: UScriptCode = UScriptCode(34i32);
-pub const USCRIPT_TAMIL: UScriptCode = UScriptCode(35i32);
-pub const USCRIPT_TELUGU: UScriptCode = UScriptCode(36i32);
-pub const USCRIPT_THAANA: UScriptCode = UScriptCode(37i32);
-pub const USCRIPT_THAI: UScriptCode = UScriptCode(38i32);
-pub const USCRIPT_TIBETAN: UScriptCode = UScriptCode(39i32);
-pub const USCRIPT_CANADIAN_ABORIGINAL: UScriptCode = UScriptCode(40i32);
-pub const USCRIPT_UCAS: UScriptCode = UScriptCode(40i32);
-pub const USCRIPT_YI: UScriptCode = UScriptCode(41i32);
-pub const USCRIPT_TAGALOG: UScriptCode = UScriptCode(42i32);
-pub const USCRIPT_HANUNOO: UScriptCode = UScriptCode(43i32);
-pub const USCRIPT_BUHID: UScriptCode = UScriptCode(44i32);
-pub const USCRIPT_TAGBANWA: UScriptCode = UScriptCode(45i32);
-pub const USCRIPT_BRAILLE: UScriptCode = UScriptCode(46i32);
-pub const USCRIPT_CYPRIOT: UScriptCode = UScriptCode(47i32);
-pub const USCRIPT_LIMBU: UScriptCode = UScriptCode(48i32);
-pub const USCRIPT_LINEAR_B: UScriptCode = UScriptCode(49i32);
-pub const USCRIPT_OSMANYA: UScriptCode = UScriptCode(50i32);
-pub const USCRIPT_SHAVIAN: UScriptCode = UScriptCode(51i32);
-pub const USCRIPT_TAI_LE: UScriptCode = UScriptCode(52i32);
-pub const USCRIPT_UGARITIC: UScriptCode = UScriptCode(53i32);
-pub const USCRIPT_KATAKANA_OR_HIRAGANA: UScriptCode = UScriptCode(54i32);
-pub const USCRIPT_BUGINESE: UScriptCode = UScriptCode(55i32);
-pub const USCRIPT_GLAGOLITIC: UScriptCode = UScriptCode(56i32);
-pub const USCRIPT_KHAROSHTHI: UScriptCode = UScriptCode(57i32);
-pub const USCRIPT_SYLOTI_NAGRI: UScriptCode = UScriptCode(58i32);
-pub const USCRIPT_NEW_TAI_LUE: UScriptCode = UScriptCode(59i32);
-pub const USCRIPT_TIFINAGH: UScriptCode = UScriptCode(60i32);
-pub const USCRIPT_OLD_PERSIAN: UScriptCode = UScriptCode(61i32);
-pub const USCRIPT_BALINESE: UScriptCode = UScriptCode(62i32);
-pub const USCRIPT_BATAK: UScriptCode = UScriptCode(63i32);
-pub const USCRIPT_BLISSYMBOLS: UScriptCode = UScriptCode(64i32);
-pub const USCRIPT_BRAHMI: UScriptCode = UScriptCode(65i32);
-pub const USCRIPT_CHAM: UScriptCode = UScriptCode(66i32);
-pub const USCRIPT_CIRTH: UScriptCode = UScriptCode(67i32);
-pub const USCRIPT_OLD_CHURCH_SLAVONIC_CYRILLIC: UScriptCode = UScriptCode(68i32);
-pub const USCRIPT_DEMOTIC_EGYPTIAN: UScriptCode = UScriptCode(69i32);
-pub const USCRIPT_HIERATIC_EGYPTIAN: UScriptCode = UScriptCode(70i32);
-pub const USCRIPT_EGYPTIAN_HIEROGLYPHS: UScriptCode = UScriptCode(71i32);
-pub const USCRIPT_KHUTSURI: UScriptCode = UScriptCode(72i32);
-pub const USCRIPT_SIMPLIFIED_HAN: UScriptCode = UScriptCode(73i32);
-pub const USCRIPT_TRADITIONAL_HAN: UScriptCode = UScriptCode(74i32);
-pub const USCRIPT_PAHAWH_HMONG: UScriptCode = UScriptCode(75i32);
-pub const USCRIPT_OLD_HUNGARIAN: UScriptCode = UScriptCode(76i32);
-pub const USCRIPT_HARAPPAN_INDUS: UScriptCode = UScriptCode(77i32);
-pub const USCRIPT_JAVANESE: UScriptCode = UScriptCode(78i32);
-pub const USCRIPT_KAYAH_LI: UScriptCode = UScriptCode(79i32);
-pub const USCRIPT_LATIN_FRAKTUR: UScriptCode = UScriptCode(80i32);
-pub const USCRIPT_LATIN_GAELIC: UScriptCode = UScriptCode(81i32);
-pub const USCRIPT_LEPCHA: UScriptCode = UScriptCode(82i32);
-pub const USCRIPT_LINEAR_A: UScriptCode = UScriptCode(83i32);
-pub const USCRIPT_MANDAIC: UScriptCode = UScriptCode(84i32);
-pub const USCRIPT_MANDAEAN: UScriptCode = UScriptCode(84i32);
-pub const USCRIPT_MAYAN_HIEROGLYPHS: UScriptCode = UScriptCode(85i32);
-pub const USCRIPT_MEROITIC_HIEROGLYPHS: UScriptCode = UScriptCode(86i32);
-pub const USCRIPT_MEROITIC: UScriptCode = UScriptCode(86i32);
-pub const USCRIPT_NKO: UScriptCode = UScriptCode(87i32);
-pub const USCRIPT_ORKHON: UScriptCode = UScriptCode(88i32);
-pub const USCRIPT_OLD_PERMIC: UScriptCode = UScriptCode(89i32);
-pub const USCRIPT_PHAGS_PA: UScriptCode = UScriptCode(90i32);
-pub const USCRIPT_PHOENICIAN: UScriptCode = UScriptCode(91i32);
-pub const USCRIPT_MIAO: UScriptCode = UScriptCode(92i32);
-pub const USCRIPT_PHONETIC_POLLARD: UScriptCode = UScriptCode(92i32);
-pub const USCRIPT_RONGORONGO: UScriptCode = UScriptCode(93i32);
-pub const USCRIPT_SARATI: UScriptCode = UScriptCode(94i32);
-pub const USCRIPT_ESTRANGELO_SYRIAC: UScriptCode = UScriptCode(95i32);
-pub const USCRIPT_WESTERN_SYRIAC: UScriptCode = UScriptCode(96i32);
-pub const USCRIPT_EASTERN_SYRIAC: UScriptCode = UScriptCode(97i32);
-pub const USCRIPT_TENGWAR: UScriptCode = UScriptCode(98i32);
-pub const USCRIPT_VAI: UScriptCode = UScriptCode(99i32);
-pub const USCRIPT_VISIBLE_SPEECH: UScriptCode = UScriptCode(100i32);
-pub const USCRIPT_CUNEIFORM: UScriptCode = UScriptCode(101i32);
-pub const USCRIPT_UNWRITTEN_LANGUAGES: UScriptCode = UScriptCode(102i32);
-pub const USCRIPT_UNKNOWN: UScriptCode = UScriptCode(103i32);
-pub const USCRIPT_CARIAN: UScriptCode = UScriptCode(104i32);
-pub const USCRIPT_JAPANESE: UScriptCode = UScriptCode(105i32);
-pub const USCRIPT_LANNA: UScriptCode = UScriptCode(106i32);
-pub const USCRIPT_LYCIAN: UScriptCode = UScriptCode(107i32);
-pub const USCRIPT_LYDIAN: UScriptCode = UScriptCode(108i32);
-pub const USCRIPT_OL_CHIKI: UScriptCode = UScriptCode(109i32);
-pub const USCRIPT_REJANG: UScriptCode = UScriptCode(110i32);
-pub const USCRIPT_SAURASHTRA: UScriptCode = UScriptCode(111i32);
-pub const USCRIPT_SIGN_WRITING: UScriptCode = UScriptCode(112i32);
-pub const USCRIPT_SUNDANESE: UScriptCode = UScriptCode(113i32);
-pub const USCRIPT_MOON: UScriptCode = UScriptCode(114i32);
-pub const USCRIPT_MEITEI_MAYEK: UScriptCode = UScriptCode(115i32);
-pub const USCRIPT_IMPERIAL_ARAMAIC: UScriptCode = UScriptCode(116i32);
-pub const USCRIPT_AVESTAN: UScriptCode = UScriptCode(117i32);
-pub const USCRIPT_CHAKMA: UScriptCode = UScriptCode(118i32);
-pub const USCRIPT_KOREAN: UScriptCode = UScriptCode(119i32);
-pub const USCRIPT_KAITHI: UScriptCode = UScriptCode(120i32);
-pub const USCRIPT_MANICHAEAN: UScriptCode = UScriptCode(121i32);
-pub const USCRIPT_INSCRIPTIONAL_PAHLAVI: UScriptCode = UScriptCode(122i32);
-pub const USCRIPT_PSALTER_PAHLAVI: UScriptCode = UScriptCode(123i32);
-pub const USCRIPT_BOOK_PAHLAVI: UScriptCode = UScriptCode(124i32);
-pub const USCRIPT_INSCRIPTIONAL_PARTHIAN: UScriptCode = UScriptCode(125i32);
-pub const USCRIPT_SAMARITAN: UScriptCode = UScriptCode(126i32);
-pub const USCRIPT_TAI_VIET: UScriptCode = UScriptCode(127i32);
-pub const USCRIPT_MATHEMATICAL_NOTATION: UScriptCode = UScriptCode(128i32);
-pub const USCRIPT_SYMBOLS: UScriptCode = UScriptCode(129i32);
-pub const USCRIPT_BAMUM: UScriptCode = UScriptCode(130i32);
-pub const USCRIPT_LISU: UScriptCode = UScriptCode(131i32);
-pub const USCRIPT_NAKHI_GEBA: UScriptCode = UScriptCode(132i32);
-pub const USCRIPT_OLD_SOUTH_ARABIAN: UScriptCode = UScriptCode(133i32);
-pub const USCRIPT_BASSA_VAH: UScriptCode = UScriptCode(134i32);
-pub const USCRIPT_DUPLOYAN: UScriptCode = UScriptCode(135i32);
-pub const USCRIPT_ELBASAN: UScriptCode = UScriptCode(136i32);
-pub const USCRIPT_GRANTHA: UScriptCode = UScriptCode(137i32);
-pub const USCRIPT_KPELLE: UScriptCode = UScriptCode(138i32);
-pub const USCRIPT_LOMA: UScriptCode = UScriptCode(139i32);
-pub const USCRIPT_MENDE: UScriptCode = UScriptCode(140i32);
-pub const USCRIPT_MEROITIC_CURSIVE: UScriptCode = UScriptCode(141i32);
-pub const USCRIPT_OLD_NORTH_ARABIAN: UScriptCode = UScriptCode(142i32);
-pub const USCRIPT_NABATAEAN: UScriptCode = UScriptCode(143i32);
-pub const USCRIPT_PALMYRENE: UScriptCode = UScriptCode(144i32);
-pub const USCRIPT_KHUDAWADI: UScriptCode = UScriptCode(145i32);
-pub const USCRIPT_SINDHI: UScriptCode = UScriptCode(145i32);
-pub const USCRIPT_WARANG_CITI: UScriptCode = UScriptCode(146i32);
-pub const USCRIPT_AFAKA: UScriptCode = UScriptCode(147i32);
-pub const USCRIPT_JURCHEN: UScriptCode = UScriptCode(148i32);
-pub const USCRIPT_MRO: UScriptCode = UScriptCode(149i32);
-pub const USCRIPT_NUSHU: UScriptCode = UScriptCode(150i32);
-pub const USCRIPT_SHARADA: UScriptCode = UScriptCode(151i32);
-pub const USCRIPT_SORA_SOMPENG: UScriptCode = UScriptCode(152i32);
-pub const USCRIPT_TAKRI: UScriptCode = UScriptCode(153i32);
-pub const USCRIPT_TANGUT: UScriptCode = UScriptCode(154i32);
-pub const USCRIPT_WOLEAI: UScriptCode = UScriptCode(155i32);
-pub const USCRIPT_ANATOLIAN_HIEROGLYPHS: UScriptCode = UScriptCode(156i32);
-pub const USCRIPT_KHOJKI: UScriptCode = UScriptCode(157i32);
-pub const USCRIPT_TIRHUTA: UScriptCode = UScriptCode(158i32);
-pub const USCRIPT_CAUCASIAN_ALBANIAN: UScriptCode = UScriptCode(159i32);
-pub const USCRIPT_MAHAJANI: UScriptCode = UScriptCode(160i32);
-pub const USCRIPT_AHOM: UScriptCode = UScriptCode(161i32);
-pub const USCRIPT_HATRAN: UScriptCode = UScriptCode(162i32);
-pub const USCRIPT_MODI: UScriptCode = UScriptCode(163i32);
-pub const USCRIPT_MULTANI: UScriptCode = UScriptCode(164i32);
-pub const USCRIPT_PAU_CIN_HAU: UScriptCode = UScriptCode(165i32);
-pub const USCRIPT_SIDDHAM: UScriptCode = UScriptCode(166i32);
-pub const USCRIPT_ADLAM: UScriptCode = UScriptCode(167i32);
-pub const USCRIPT_BHAIKSUKI: UScriptCode = UScriptCode(168i32);
-pub const USCRIPT_MARCHEN: UScriptCode = UScriptCode(169i32);
-pub const USCRIPT_NEWA: UScriptCode = UScriptCode(170i32);
-pub const USCRIPT_OSAGE: UScriptCode = UScriptCode(171i32);
-pub const USCRIPT_HAN_WITH_BOPOMOFO: UScriptCode = UScriptCode(172i32);
-pub const USCRIPT_JAMO: UScriptCode = UScriptCode(173i32);
-pub const USCRIPT_SYMBOLS_EMOJI: UScriptCode = UScriptCode(174i32);
-pub const USCRIPT_MASARAM_GONDI: UScriptCode = UScriptCode(175i32);
-pub const USCRIPT_SOYOMBO: UScriptCode = UScriptCode(176i32);
-pub const USCRIPT_ZANABAZAR_SQUARE: UScriptCode = UScriptCode(177i32);
-pub const USCRIPT_DOGRA: UScriptCode = UScriptCode(178i32);
-pub const USCRIPT_GUNJALA_GONDI: UScriptCode = UScriptCode(179i32);
-pub const USCRIPT_MAKASAR: UScriptCode = UScriptCode(180i32);
-pub const USCRIPT_MEDEFAIDRIN: UScriptCode = UScriptCode(181i32);
-pub const USCRIPT_HANIFI_ROHINGYA: UScriptCode = UScriptCode(182i32);
-pub const USCRIPT_SOGDIAN: UScriptCode = UScriptCode(183i32);
-pub const USCRIPT_OLD_SOGDIAN: UScriptCode = UScriptCode(184i32);
-pub const USCRIPT_ELYMAIC: UScriptCode = UScriptCode(185i32);
-pub const USCRIPT_NYIAKENG_PUACHUE_HMONG: UScriptCode = UScriptCode(186i32);
-pub const USCRIPT_NANDINAGARI: UScriptCode = UScriptCode(187i32);
-pub const USCRIPT_WANCHO: UScriptCode = UScriptCode(188i32);
-pub const USCRIPT_CHORASMIAN: UScriptCode = UScriptCode(189i32);
-pub const USCRIPT_DIVES_AKURU: UScriptCode = UScriptCode(190i32);
-pub const USCRIPT_KHITAN_SMALL_SCRIPT: UScriptCode = UScriptCode(191i32);
-pub const USCRIPT_YEZIDI: UScriptCode = UScriptCode(192i32);
-impl ::core::marker::Copy for UScriptCode {}
-impl ::core::clone::Clone for UScriptCode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct UScriptUsage(pub i32);
-pub const USCRIPT_USAGE_NOT_ENCODED: UScriptUsage = UScriptUsage(0i32);
-pub const USCRIPT_USAGE_UNKNOWN: UScriptUsage = UScriptUsage(1i32);
-pub const USCRIPT_USAGE_EXCLUDED: UScriptUsage = UScriptUsage(2i32);
-pub const USCRIPT_USAGE_LIMITED_USE: UScriptUsage = UScriptUsage(3i32);
-pub const USCRIPT_USAGE_ASPIRATIONAL: UScriptUsage = UScriptUsage(4i32);
-pub const USCRIPT_USAGE_RECOMMENDED: UScriptUsage = UScriptUsage(5i32);
-impl ::core::marker::Copy for UScriptUsage {}
-impl ::core::clone::Clone for UScriptUsage {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const USCRIPT_INVALID_CODE: i32 = -1i32;
+pub const USCRIPT_COMMON: i32 = 0i32;
+pub const USCRIPT_INHERITED: i32 = 1i32;
+pub const USCRIPT_ARABIC: i32 = 2i32;
+pub const USCRIPT_ARMENIAN: i32 = 3i32;
+pub const USCRIPT_BENGALI: i32 = 4i32;
+pub const USCRIPT_BOPOMOFO: i32 = 5i32;
+pub const USCRIPT_CHEROKEE: i32 = 6i32;
+pub const USCRIPT_COPTIC: i32 = 7i32;
+pub const USCRIPT_CYRILLIC: i32 = 8i32;
+pub const USCRIPT_DESERET: i32 = 9i32;
+pub const USCRIPT_DEVANAGARI: i32 = 10i32;
+pub const USCRIPT_ETHIOPIC: i32 = 11i32;
+pub const USCRIPT_GEORGIAN: i32 = 12i32;
+pub const USCRIPT_GOTHIC: i32 = 13i32;
+pub const USCRIPT_GREEK: i32 = 14i32;
+pub const USCRIPT_GUJARATI: i32 = 15i32;
+pub const USCRIPT_GURMUKHI: i32 = 16i32;
+pub const USCRIPT_HAN: i32 = 17i32;
+pub const USCRIPT_HANGUL: i32 = 18i32;
+pub const USCRIPT_HEBREW: i32 = 19i32;
+pub const USCRIPT_HIRAGANA: i32 = 20i32;
+pub const USCRIPT_KANNADA: i32 = 21i32;
+pub const USCRIPT_KATAKANA: i32 = 22i32;
+pub const USCRIPT_KHMER: i32 = 23i32;
+pub const USCRIPT_LAO: i32 = 24i32;
+pub const USCRIPT_LATIN: i32 = 25i32;
+pub const USCRIPT_MALAYALAM: i32 = 26i32;
+pub const USCRIPT_MONGOLIAN: i32 = 27i32;
+pub const USCRIPT_MYANMAR: i32 = 28i32;
+pub const USCRIPT_OGHAM: i32 = 29i32;
+pub const USCRIPT_OLD_ITALIC: i32 = 30i32;
+pub const USCRIPT_ORIYA: i32 = 31i32;
+pub const USCRIPT_RUNIC: i32 = 32i32;
+pub const USCRIPT_SINHALA: i32 = 33i32;
+pub const USCRIPT_SYRIAC: i32 = 34i32;
+pub const USCRIPT_TAMIL: i32 = 35i32;
+pub const USCRIPT_TELUGU: i32 = 36i32;
+pub const USCRIPT_THAANA: i32 = 37i32;
+pub const USCRIPT_THAI: i32 = 38i32;
+pub const USCRIPT_TIBETAN: i32 = 39i32;
+pub const USCRIPT_CANADIAN_ABORIGINAL: i32 = 40i32;
+pub const USCRIPT_UCAS: i32 = 40i32;
+pub const USCRIPT_YI: i32 = 41i32;
+pub const USCRIPT_TAGALOG: i32 = 42i32;
+pub const USCRIPT_HANUNOO: i32 = 43i32;
+pub const USCRIPT_BUHID: i32 = 44i32;
+pub const USCRIPT_TAGBANWA: i32 = 45i32;
+pub const USCRIPT_BRAILLE: i32 = 46i32;
+pub const USCRIPT_CYPRIOT: i32 = 47i32;
+pub const USCRIPT_LIMBU: i32 = 48i32;
+pub const USCRIPT_LINEAR_B: i32 = 49i32;
+pub const USCRIPT_OSMANYA: i32 = 50i32;
+pub const USCRIPT_SHAVIAN: i32 = 51i32;
+pub const USCRIPT_TAI_LE: i32 = 52i32;
+pub const USCRIPT_UGARITIC: i32 = 53i32;
+pub const USCRIPT_KATAKANA_OR_HIRAGANA: i32 = 54i32;
+pub const USCRIPT_BUGINESE: i32 = 55i32;
+pub const USCRIPT_GLAGOLITIC: i32 = 56i32;
+pub const USCRIPT_KHAROSHTHI: i32 = 57i32;
+pub const USCRIPT_SYLOTI_NAGRI: i32 = 58i32;
+pub const USCRIPT_NEW_TAI_LUE: i32 = 59i32;
+pub const USCRIPT_TIFINAGH: i32 = 60i32;
+pub const USCRIPT_OLD_PERSIAN: i32 = 61i32;
+pub const USCRIPT_BALINESE: i32 = 62i32;
+pub const USCRIPT_BATAK: i32 = 63i32;
+pub const USCRIPT_BLISSYMBOLS: i32 = 64i32;
+pub const USCRIPT_BRAHMI: i32 = 65i32;
+pub const USCRIPT_CHAM: i32 = 66i32;
+pub const USCRIPT_CIRTH: i32 = 67i32;
+pub const USCRIPT_OLD_CHURCH_SLAVONIC_CYRILLIC: i32 = 68i32;
+pub const USCRIPT_DEMOTIC_EGYPTIAN: i32 = 69i32;
+pub const USCRIPT_HIERATIC_EGYPTIAN: i32 = 70i32;
+pub const USCRIPT_EGYPTIAN_HIEROGLYPHS: i32 = 71i32;
+pub const USCRIPT_KHUTSURI: i32 = 72i32;
+pub const USCRIPT_SIMPLIFIED_HAN: i32 = 73i32;
+pub const USCRIPT_TRADITIONAL_HAN: i32 = 74i32;
+pub const USCRIPT_PAHAWH_HMONG: i32 = 75i32;
+pub const USCRIPT_OLD_HUNGARIAN: i32 = 76i32;
+pub const USCRIPT_HARAPPAN_INDUS: i32 = 77i32;
+pub const USCRIPT_JAVANESE: i32 = 78i32;
+pub const USCRIPT_KAYAH_LI: i32 = 79i32;
+pub const USCRIPT_LATIN_FRAKTUR: i32 = 80i32;
+pub const USCRIPT_LATIN_GAELIC: i32 = 81i32;
+pub const USCRIPT_LEPCHA: i32 = 82i32;
+pub const USCRIPT_LINEAR_A: i32 = 83i32;
+pub const USCRIPT_MANDAIC: i32 = 84i32;
+pub const USCRIPT_MANDAEAN: i32 = 84i32;
+pub const USCRIPT_MAYAN_HIEROGLYPHS: i32 = 85i32;
+pub const USCRIPT_MEROITIC_HIEROGLYPHS: i32 = 86i32;
+pub const USCRIPT_MEROITIC: i32 = 86i32;
+pub const USCRIPT_NKO: i32 = 87i32;
+pub const USCRIPT_ORKHON: i32 = 88i32;
+pub const USCRIPT_OLD_PERMIC: i32 = 89i32;
+pub const USCRIPT_PHAGS_PA: i32 = 90i32;
+pub const USCRIPT_PHOENICIAN: i32 = 91i32;
+pub const USCRIPT_MIAO: i32 = 92i32;
+pub const USCRIPT_PHONETIC_POLLARD: i32 = 92i32;
+pub const USCRIPT_RONGORONGO: i32 = 93i32;
+pub const USCRIPT_SARATI: i32 = 94i32;
+pub const USCRIPT_ESTRANGELO_SYRIAC: i32 = 95i32;
+pub const USCRIPT_WESTERN_SYRIAC: i32 = 96i32;
+pub const USCRIPT_EASTERN_SYRIAC: i32 = 97i32;
+pub const USCRIPT_TENGWAR: i32 = 98i32;
+pub const USCRIPT_VAI: i32 = 99i32;
+pub const USCRIPT_VISIBLE_SPEECH: i32 = 100i32;
+pub const USCRIPT_CUNEIFORM: i32 = 101i32;
+pub const USCRIPT_UNWRITTEN_LANGUAGES: i32 = 102i32;
+pub const USCRIPT_UNKNOWN: i32 = 103i32;
+pub const USCRIPT_CARIAN: i32 = 104i32;
+pub const USCRIPT_JAPANESE: i32 = 105i32;
+pub const USCRIPT_LANNA: i32 = 106i32;
+pub const USCRIPT_LYCIAN: i32 = 107i32;
+pub const USCRIPT_LYDIAN: i32 = 108i32;
+pub const USCRIPT_OL_CHIKI: i32 = 109i32;
+pub const USCRIPT_REJANG: i32 = 110i32;
+pub const USCRIPT_SAURASHTRA: i32 = 111i32;
+pub const USCRIPT_SIGN_WRITING: i32 = 112i32;
+pub const USCRIPT_SUNDANESE: i32 = 113i32;
+pub const USCRIPT_MOON: i32 = 114i32;
+pub const USCRIPT_MEITEI_MAYEK: i32 = 115i32;
+pub const USCRIPT_IMPERIAL_ARAMAIC: i32 = 116i32;
+pub const USCRIPT_AVESTAN: i32 = 117i32;
+pub const USCRIPT_CHAKMA: i32 = 118i32;
+pub const USCRIPT_KOREAN: i32 = 119i32;
+pub const USCRIPT_KAITHI: i32 = 120i32;
+pub const USCRIPT_MANICHAEAN: i32 = 121i32;
+pub const USCRIPT_INSCRIPTIONAL_PAHLAVI: i32 = 122i32;
+pub const USCRIPT_PSALTER_PAHLAVI: i32 = 123i32;
+pub const USCRIPT_BOOK_PAHLAVI: i32 = 124i32;
+pub const USCRIPT_INSCRIPTIONAL_PARTHIAN: i32 = 125i32;
+pub const USCRIPT_SAMARITAN: i32 = 126i32;
+pub const USCRIPT_TAI_VIET: i32 = 127i32;
+pub const USCRIPT_MATHEMATICAL_NOTATION: i32 = 128i32;
+pub const USCRIPT_SYMBOLS: i32 = 129i32;
+pub const USCRIPT_BAMUM: i32 = 130i32;
+pub const USCRIPT_LISU: i32 = 131i32;
+pub const USCRIPT_NAKHI_GEBA: i32 = 132i32;
+pub const USCRIPT_OLD_SOUTH_ARABIAN: i32 = 133i32;
+pub const USCRIPT_BASSA_VAH: i32 = 134i32;
+pub const USCRIPT_DUPLOYAN: i32 = 135i32;
+pub const USCRIPT_ELBASAN: i32 = 136i32;
+pub const USCRIPT_GRANTHA: i32 = 137i32;
+pub const USCRIPT_KPELLE: i32 = 138i32;
+pub const USCRIPT_LOMA: i32 = 139i32;
+pub const USCRIPT_MENDE: i32 = 140i32;
+pub const USCRIPT_MEROITIC_CURSIVE: i32 = 141i32;
+pub const USCRIPT_OLD_NORTH_ARABIAN: i32 = 142i32;
+pub const USCRIPT_NABATAEAN: i32 = 143i32;
+pub const USCRIPT_PALMYRENE: i32 = 144i32;
+pub const USCRIPT_KHUDAWADI: i32 = 145i32;
+pub const USCRIPT_SINDHI: i32 = 145i32;
+pub const USCRIPT_WARANG_CITI: i32 = 146i32;
+pub const USCRIPT_AFAKA: i32 = 147i32;
+pub const USCRIPT_JURCHEN: i32 = 148i32;
+pub const USCRIPT_MRO: i32 = 149i32;
+pub const USCRIPT_NUSHU: i32 = 150i32;
+pub const USCRIPT_SHARADA: i32 = 151i32;
+pub const USCRIPT_SORA_SOMPENG: i32 = 152i32;
+pub const USCRIPT_TAKRI: i32 = 153i32;
+pub const USCRIPT_TANGUT: i32 = 154i32;
+pub const USCRIPT_WOLEAI: i32 = 155i32;
+pub const USCRIPT_ANATOLIAN_HIEROGLYPHS: i32 = 156i32;
+pub const USCRIPT_KHOJKI: i32 = 157i32;
+pub const USCRIPT_TIRHUTA: i32 = 158i32;
+pub const USCRIPT_CAUCASIAN_ALBANIAN: i32 = 159i32;
+pub const USCRIPT_MAHAJANI: i32 = 160i32;
+pub const USCRIPT_AHOM: i32 = 161i32;
+pub const USCRIPT_HATRAN: i32 = 162i32;
+pub const USCRIPT_MODI: i32 = 163i32;
+pub const USCRIPT_MULTANI: i32 = 164i32;
+pub const USCRIPT_PAU_CIN_HAU: i32 = 165i32;
+pub const USCRIPT_SIDDHAM: i32 = 166i32;
+pub const USCRIPT_ADLAM: i32 = 167i32;
+pub const USCRIPT_BHAIKSUKI: i32 = 168i32;
+pub const USCRIPT_MARCHEN: i32 = 169i32;
+pub const USCRIPT_NEWA: i32 = 170i32;
+pub const USCRIPT_OSAGE: i32 = 171i32;
+pub const USCRIPT_HAN_WITH_BOPOMOFO: i32 = 172i32;
+pub const USCRIPT_JAMO: i32 = 173i32;
+pub const USCRIPT_SYMBOLS_EMOJI: i32 = 174i32;
+pub const USCRIPT_MASARAM_GONDI: i32 = 175i32;
+pub const USCRIPT_SOYOMBO: i32 = 176i32;
+pub const USCRIPT_ZANABAZAR_SQUARE: i32 = 177i32;
+pub const USCRIPT_DOGRA: i32 = 178i32;
+pub const USCRIPT_GUNJALA_GONDI: i32 = 179i32;
+pub const USCRIPT_MAKASAR: i32 = 180i32;
+pub const USCRIPT_MEDEFAIDRIN: i32 = 181i32;
+pub const USCRIPT_HANIFI_ROHINGYA: i32 = 182i32;
+pub const USCRIPT_SOGDIAN: i32 = 183i32;
+pub const USCRIPT_OLD_SOGDIAN: i32 = 184i32;
+pub const USCRIPT_ELYMAIC: i32 = 185i32;
+pub const USCRIPT_NYIAKENG_PUACHUE_HMONG: i32 = 186i32;
+pub const USCRIPT_NANDINAGARI: i32 = 187i32;
+pub const USCRIPT_WANCHO: i32 = 188i32;
+pub const USCRIPT_CHORASMIAN: i32 = 189i32;
+pub const USCRIPT_DIVES_AKURU: i32 = 190i32;
+pub const USCRIPT_KHITAN_SMALL_SCRIPT: i32 = 191i32;
+pub const USCRIPT_YEZIDI: i32 = 192i32;
+pub const USCRIPT_USAGE_NOT_ENCODED: i32 = 0i32;
+pub const USCRIPT_USAGE_UNKNOWN: i32 = 1i32;
+pub const USCRIPT_USAGE_EXCLUDED: i32 = 2i32;
+pub const USCRIPT_USAGE_LIMITED_USE: i32 = 3i32;
+pub const USCRIPT_USAGE_ASPIRATIONAL: i32 = 4i32;
+pub const USCRIPT_USAGE_RECOMMENDED: i32 = 5i32;
 #[repr(C)]
 pub struct USearch(pub u8);
-#[repr(transparent)]
-pub struct USearchAttribute(pub i32);
-pub const USEARCH_OVERLAP: USearchAttribute = USearchAttribute(0i32);
-pub const USEARCH_ELEMENT_COMPARISON: USearchAttribute = USearchAttribute(2i32);
-impl ::core::marker::Copy for USearchAttribute {}
-impl ::core::clone::Clone for USearchAttribute {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct USearchAttributeValue(pub i32);
-pub const USEARCH_DEFAULT: USearchAttributeValue = USearchAttributeValue(-1i32);
-pub const USEARCH_OFF: USearchAttributeValue = USearchAttributeValue(0i32);
-pub const USEARCH_ON: USearchAttributeValue = USearchAttributeValue(1i32);
-pub const USEARCH_STANDARD_ELEMENT_COMPARISON: USearchAttributeValue = USearchAttributeValue(2i32);
-pub const USEARCH_PATTERN_BASE_WEIGHT_IS_WILDCARD: USearchAttributeValue = USearchAttributeValue(3i32);
-pub const USEARCH_ANY_BASE_WEIGHT_IS_WILDCARD: USearchAttributeValue = USearchAttributeValue(4i32);
-impl ::core::marker::Copy for USearchAttributeValue {}
-impl ::core::clone::Clone for USearchAttributeValue {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct USentenceBreak(pub i32);
-pub const U_SB_OTHER: USentenceBreak = USentenceBreak(0i32);
-pub const U_SB_ATERM: USentenceBreak = USentenceBreak(1i32);
-pub const U_SB_CLOSE: USentenceBreak = USentenceBreak(2i32);
-pub const U_SB_FORMAT: USentenceBreak = USentenceBreak(3i32);
-pub const U_SB_LOWER: USentenceBreak = USentenceBreak(4i32);
-pub const U_SB_NUMERIC: USentenceBreak = USentenceBreak(5i32);
-pub const U_SB_OLETTER: USentenceBreak = USentenceBreak(6i32);
-pub const U_SB_SEP: USentenceBreak = USentenceBreak(7i32);
-pub const U_SB_SP: USentenceBreak = USentenceBreak(8i32);
-pub const U_SB_STERM: USentenceBreak = USentenceBreak(9i32);
-pub const U_SB_UPPER: USentenceBreak = USentenceBreak(10i32);
-pub const U_SB_CR: USentenceBreak = USentenceBreak(11i32);
-pub const U_SB_EXTEND: USentenceBreak = USentenceBreak(12i32);
-pub const U_SB_LF: USentenceBreak = USentenceBreak(13i32);
-pub const U_SB_SCONTINUE: USentenceBreak = USentenceBreak(14i32);
-impl ::core::marker::Copy for USentenceBreak {}
-impl ::core::clone::Clone for USentenceBreak {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct USentenceBreakTag(pub i32);
-pub const UBRK_SENTENCE_TERM: USentenceBreakTag = USentenceBreakTag(0i32);
-pub const UBRK_SENTENCE_TERM_LIMIT: USentenceBreakTag = USentenceBreakTag(100i32);
-pub const UBRK_SENTENCE_SEP: USentenceBreakTag = USentenceBreakTag(100i32);
-pub const UBRK_SENTENCE_SEP_LIMIT: USentenceBreakTag = USentenceBreakTag(200i32);
-impl ::core::marker::Copy for USentenceBreakTag {}
-impl ::core::clone::Clone for USentenceBreakTag {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const USEARCH_OVERLAP: i32 = 0i32;
+pub const USEARCH_ELEMENT_COMPARISON: i32 = 2i32;
+pub const USEARCH_DEFAULT: i32 = -1i32;
+pub const USEARCH_OFF: i32 = 0i32;
+pub const USEARCH_ON: i32 = 1i32;
+pub const USEARCH_STANDARD_ELEMENT_COMPARISON: i32 = 2i32;
+pub const USEARCH_PATTERN_BASE_WEIGHT_IS_WILDCARD: i32 = 3i32;
+pub const USEARCH_ANY_BASE_WEIGHT_IS_WILDCARD: i32 = 4i32;
+pub const U_SB_OTHER: i32 = 0i32;
+pub const U_SB_ATERM: i32 = 1i32;
+pub const U_SB_CLOSE: i32 = 2i32;
+pub const U_SB_FORMAT: i32 = 3i32;
+pub const U_SB_LOWER: i32 = 4i32;
+pub const U_SB_NUMERIC: i32 = 5i32;
+pub const U_SB_OLETTER: i32 = 6i32;
+pub const U_SB_SEP: i32 = 7i32;
+pub const U_SB_SP: i32 = 8i32;
+pub const U_SB_STERM: i32 = 9i32;
+pub const U_SB_UPPER: i32 = 10i32;
+pub const U_SB_CR: i32 = 11i32;
+pub const U_SB_EXTEND: i32 = 12i32;
+pub const U_SB_LF: i32 = 13i32;
+pub const U_SB_SCONTINUE: i32 = 14i32;
+pub const UBRK_SENTENCE_TERM: i32 = 0i32;
+pub const UBRK_SENTENCE_TERM_LIMIT: i32 = 100i32;
+pub const UBRK_SENTENCE_SEP: i32 = 100i32;
+pub const UBRK_SENTENCE_SEP_LIMIT: i32 = 200i32;
 #[repr(C)]
 pub struct USerializedSet {
     pub array: *mut u16,
@@ -6541,100 +5413,52 @@ impl ::core::clone::Clone for USerializedSet {
 }
 #[repr(C)]
 pub struct USet(pub u8);
-#[repr(transparent)]
-pub struct USetSpanCondition(pub i32);
-pub const USET_SPAN_NOT_CONTAINED: USetSpanCondition = USetSpanCondition(0i32);
-pub const USET_SPAN_CONTAINED: USetSpanCondition = USetSpanCondition(1i32);
-pub const USET_SPAN_SIMPLE: USetSpanCondition = USetSpanCondition(2i32);
-impl ::core::marker::Copy for USetSpanCondition {}
-impl ::core::clone::Clone for USetSpanCondition {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const USET_SPAN_NOT_CONTAINED: i32 = 0i32;
+pub const USET_SPAN_CONTAINED: i32 = 1i32;
+pub const USET_SPAN_SIMPLE: i32 = 2i32;
 #[repr(C)]
 pub struct USpoofCheckResult(pub u8);
 #[repr(C)]
 pub struct USpoofChecker(pub u8);
-#[repr(transparent)]
-pub struct USpoofChecks(pub i32);
-pub const USPOOF_SINGLE_SCRIPT_CONFUSABLE: USpoofChecks = USpoofChecks(1i32);
-pub const USPOOF_MIXED_SCRIPT_CONFUSABLE: USpoofChecks = USpoofChecks(2i32);
-pub const USPOOF_WHOLE_SCRIPT_CONFUSABLE: USpoofChecks = USpoofChecks(4i32);
-pub const USPOOF_CONFUSABLE: USpoofChecks = USpoofChecks(7i32);
-pub const USPOOF_RESTRICTION_LEVEL: USpoofChecks = USpoofChecks(16i32);
-pub const USPOOF_INVISIBLE: USpoofChecks = USpoofChecks(32i32);
-pub const USPOOF_CHAR_LIMIT: USpoofChecks = USpoofChecks(64i32);
-pub const USPOOF_MIXED_NUMBERS: USpoofChecks = USpoofChecks(128i32);
-pub const USPOOF_HIDDEN_OVERLAY: USpoofChecks = USpoofChecks(256i32);
-pub const USPOOF_ALL_CHECKS: USpoofChecks = USpoofChecks(65535i32);
-pub const USPOOF_AUX_INFO: USpoofChecks = USpoofChecks(1073741824i32);
-impl ::core::marker::Copy for USpoofChecks {}
-impl ::core::clone::Clone for USpoofChecks {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const USPOOF_SINGLE_SCRIPT_CONFUSABLE: i32 = 1i32;
+pub const USPOOF_MIXED_SCRIPT_CONFUSABLE: i32 = 2i32;
+pub const USPOOF_WHOLE_SCRIPT_CONFUSABLE: i32 = 4i32;
+pub const USPOOF_CONFUSABLE: i32 = 7i32;
+pub const USPOOF_RESTRICTION_LEVEL: i32 = 16i32;
+pub const USPOOF_INVISIBLE: i32 = 32i32;
+pub const USPOOF_CHAR_LIMIT: i32 = 64i32;
+pub const USPOOF_MIXED_NUMBERS: i32 = 128i32;
+pub const USPOOF_HIDDEN_OVERLAY: i32 = 256i32;
+pub const USPOOF_ALL_CHECKS: i32 = 65535i32;
+pub const USPOOF_AUX_INFO: i32 = 1073741824i32;
 pub type UStringCaseMapper = unsafe extern "system" fn(csm: *const UCaseMap, dest: *mut u16, destcapacity: i32, src: *const u16, srclength: i32, perrorcode: *mut UErrorCode) -> i32;
 #[repr(C)]
 pub struct UStringPrepProfile(pub u8);
-#[repr(transparent)]
-pub struct UStringPrepProfileType(pub i32);
-pub const USPREP_RFC3491_NAMEPREP: UStringPrepProfileType = UStringPrepProfileType(0i32);
-pub const USPREP_RFC3530_NFS4_CS_PREP: UStringPrepProfileType = UStringPrepProfileType(1i32);
-pub const USPREP_RFC3530_NFS4_CS_PREP_CI: UStringPrepProfileType = UStringPrepProfileType(2i32);
-pub const USPREP_RFC3530_NFS4_CIS_PREP: UStringPrepProfileType = UStringPrepProfileType(3i32);
-pub const USPREP_RFC3530_NFS4_MIXED_PREP_PREFIX: UStringPrepProfileType = UStringPrepProfileType(4i32);
-pub const USPREP_RFC3530_NFS4_MIXED_PREP_SUFFIX: UStringPrepProfileType = UStringPrepProfileType(5i32);
-pub const USPREP_RFC3722_ISCSI: UStringPrepProfileType = UStringPrepProfileType(6i32);
-pub const USPREP_RFC3920_NODEPREP: UStringPrepProfileType = UStringPrepProfileType(7i32);
-pub const USPREP_RFC3920_RESOURCEPREP: UStringPrepProfileType = UStringPrepProfileType(8i32);
-pub const USPREP_RFC4011_MIB: UStringPrepProfileType = UStringPrepProfileType(9i32);
-pub const USPREP_RFC4013_SASLPREP: UStringPrepProfileType = UStringPrepProfileType(10i32);
-pub const USPREP_RFC4505_TRACE: UStringPrepProfileType = UStringPrepProfileType(11i32);
-pub const USPREP_RFC4518_LDAP: UStringPrepProfileType = UStringPrepProfileType(12i32);
-pub const USPREP_RFC4518_LDAP_CI: UStringPrepProfileType = UStringPrepProfileType(13i32);
-impl ::core::marker::Copy for UStringPrepProfileType {}
-impl ::core::clone::Clone for UStringPrepProfileType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const USPREP_RFC3491_NAMEPREP: i32 = 0i32;
+pub const USPREP_RFC3530_NFS4_CS_PREP: i32 = 1i32;
+pub const USPREP_RFC3530_NFS4_CS_PREP_CI: i32 = 2i32;
+pub const USPREP_RFC3530_NFS4_CIS_PREP: i32 = 3i32;
+pub const USPREP_RFC3530_NFS4_MIXED_PREP_PREFIX: i32 = 4i32;
+pub const USPREP_RFC3530_NFS4_MIXED_PREP_SUFFIX: i32 = 5i32;
+pub const USPREP_RFC3722_ISCSI: i32 = 6i32;
+pub const USPREP_RFC3920_NODEPREP: i32 = 7i32;
+pub const USPREP_RFC3920_RESOURCEPREP: i32 = 8i32;
+pub const USPREP_RFC4011_MIB: i32 = 9i32;
+pub const USPREP_RFC4013_SASLPREP: i32 = 10i32;
+pub const USPREP_RFC4505_TRACE: i32 = 11i32;
+pub const USPREP_RFC4518_LDAP: i32 = 12i32;
+pub const USPREP_RFC4518_LDAP_CI: i32 = 13i32;
 #[repr(C)]
 pub struct UStringSearch(pub u8);
-#[repr(transparent)]
-pub struct UStringTrieBuildOption(pub i32);
-pub const USTRINGTRIE_BUILD_FAST: UStringTrieBuildOption = UStringTrieBuildOption(0i32);
-pub const USTRINGTRIE_BUILD_SMALL: UStringTrieBuildOption = UStringTrieBuildOption(1i32);
-impl ::core::marker::Copy for UStringTrieBuildOption {}
-impl ::core::clone::Clone for UStringTrieBuildOption {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct UStringTrieResult(pub i32);
-pub const USTRINGTRIE_NO_MATCH: UStringTrieResult = UStringTrieResult(0i32);
-pub const USTRINGTRIE_NO_VALUE: UStringTrieResult = UStringTrieResult(1i32);
-pub const USTRINGTRIE_FINAL_VALUE: UStringTrieResult = UStringTrieResult(2i32);
-pub const USTRINGTRIE_INTERMEDIATE_VALUE: UStringTrieResult = UStringTrieResult(3i32);
-impl ::core::marker::Copy for UStringTrieResult {}
-impl ::core::clone::Clone for UStringTrieResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct USystemTimeZoneType(pub i32);
-pub const UCAL_ZONE_TYPE_ANY: USystemTimeZoneType = USystemTimeZoneType(0i32);
-pub const UCAL_ZONE_TYPE_CANONICAL: USystemTimeZoneType = USystemTimeZoneType(1i32);
-pub const UCAL_ZONE_TYPE_CANONICAL_LOCATION: USystemTimeZoneType = USystemTimeZoneType(2i32);
-impl ::core::marker::Copy for USystemTimeZoneType {}
-impl ::core::clone::Clone for USystemTimeZoneType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const USTRINGTRIE_BUILD_FAST: i32 = 0i32;
+pub const USTRINGTRIE_BUILD_SMALL: i32 = 1i32;
+pub const USTRINGTRIE_NO_MATCH: i32 = 0i32;
+pub const USTRINGTRIE_NO_VALUE: i32 = 1i32;
+pub const USTRINGTRIE_FINAL_VALUE: i32 = 2i32;
+pub const USTRINGTRIE_INTERMEDIATE_VALUE: i32 = 3i32;
+pub const UCAL_ZONE_TYPE_ANY: i32 = 0i32;
+pub const UCAL_ZONE_TYPE_CANONICAL: i32 = 1i32;
+pub const UCAL_ZONE_TYPE_CANONICAL_LOCATION: i32 = 2i32;
 pub const UTEXT_MAGIC: i32 = 878368812i32;
 pub const UTEXT_PROVIDER_HAS_META_DATA: i32 = 4i32;
 pub const UTEXT_PROVIDER_LENGTH_IS_EXPENSIVE: i32 = 1i32;
@@ -6716,177 +5540,97 @@ pub type UTextMapNativeIndexToUTF16 = unsafe extern "system" fn(ut: *const UText
 pub type UTextMapOffsetToNative = unsafe extern "system" fn(ut: *const UText) -> i64;
 pub type UTextNativeLength = unsafe extern "system" fn(ut: *mut UText) -> i64;
 pub type UTextReplace = unsafe extern "system" fn(ut: *mut UText, nativestart: i64, nativelimit: i64, replacementtext: *const u16, replacmentlength: i32, status: *mut UErrorCode) -> i32;
-#[repr(transparent)]
-pub struct UTimeScaleValue(pub i32);
-pub const UTSV_UNITS_VALUE: UTimeScaleValue = UTimeScaleValue(0i32);
-pub const UTSV_EPOCH_OFFSET_VALUE: UTimeScaleValue = UTimeScaleValue(1i32);
-pub const UTSV_FROM_MIN_VALUE: UTimeScaleValue = UTimeScaleValue(2i32);
-pub const UTSV_FROM_MAX_VALUE: UTimeScaleValue = UTimeScaleValue(3i32);
-pub const UTSV_TO_MIN_VALUE: UTimeScaleValue = UTimeScaleValue(4i32);
-pub const UTSV_TO_MAX_VALUE: UTimeScaleValue = UTimeScaleValue(5i32);
-impl ::core::marker::Copy for UTimeScaleValue {}
-impl ::core::clone::Clone for UTimeScaleValue {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct UTimeZoneFormatGMTOffsetPatternType(pub i32);
-pub const UTZFMT_PAT_POSITIVE_HM: UTimeZoneFormatGMTOffsetPatternType = UTimeZoneFormatGMTOffsetPatternType(0i32);
-pub const UTZFMT_PAT_POSITIVE_HMS: UTimeZoneFormatGMTOffsetPatternType = UTimeZoneFormatGMTOffsetPatternType(1i32);
-pub const UTZFMT_PAT_NEGATIVE_HM: UTimeZoneFormatGMTOffsetPatternType = UTimeZoneFormatGMTOffsetPatternType(2i32);
-pub const UTZFMT_PAT_NEGATIVE_HMS: UTimeZoneFormatGMTOffsetPatternType = UTimeZoneFormatGMTOffsetPatternType(3i32);
-pub const UTZFMT_PAT_POSITIVE_H: UTimeZoneFormatGMTOffsetPatternType = UTimeZoneFormatGMTOffsetPatternType(4i32);
-pub const UTZFMT_PAT_NEGATIVE_H: UTimeZoneFormatGMTOffsetPatternType = UTimeZoneFormatGMTOffsetPatternType(5i32);
-pub const UTZFMT_PAT_COUNT: UTimeZoneFormatGMTOffsetPatternType = UTimeZoneFormatGMTOffsetPatternType(6i32);
-impl ::core::marker::Copy for UTimeZoneFormatGMTOffsetPatternType {}
-impl ::core::clone::Clone for UTimeZoneFormatGMTOffsetPatternType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct UTimeZoneFormatParseOption(pub i32);
-pub const UTZFMT_PARSE_OPTION_NONE: UTimeZoneFormatParseOption = UTimeZoneFormatParseOption(0i32);
-pub const UTZFMT_PARSE_OPTION_ALL_STYLES: UTimeZoneFormatParseOption = UTimeZoneFormatParseOption(1i32);
-pub const UTZFMT_PARSE_OPTION_TZ_DATABASE_ABBREVIATIONS: UTimeZoneFormatParseOption = UTimeZoneFormatParseOption(2i32);
-impl ::core::marker::Copy for UTimeZoneFormatParseOption {}
-impl ::core::clone::Clone for UTimeZoneFormatParseOption {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct UTimeZoneFormatStyle(pub i32);
-pub const UTZFMT_STYLE_GENERIC_LOCATION: UTimeZoneFormatStyle = UTimeZoneFormatStyle(0i32);
-pub const UTZFMT_STYLE_GENERIC_LONG: UTimeZoneFormatStyle = UTimeZoneFormatStyle(1i32);
-pub const UTZFMT_STYLE_GENERIC_SHORT: UTimeZoneFormatStyle = UTimeZoneFormatStyle(2i32);
-pub const UTZFMT_STYLE_SPECIFIC_LONG: UTimeZoneFormatStyle = UTimeZoneFormatStyle(3i32);
-pub const UTZFMT_STYLE_SPECIFIC_SHORT: UTimeZoneFormatStyle = UTimeZoneFormatStyle(4i32);
-pub const UTZFMT_STYLE_LOCALIZED_GMT: UTimeZoneFormatStyle = UTimeZoneFormatStyle(5i32);
-pub const UTZFMT_STYLE_LOCALIZED_GMT_SHORT: UTimeZoneFormatStyle = UTimeZoneFormatStyle(6i32);
-pub const UTZFMT_STYLE_ISO_BASIC_SHORT: UTimeZoneFormatStyle = UTimeZoneFormatStyle(7i32);
-pub const UTZFMT_STYLE_ISO_BASIC_LOCAL_SHORT: UTimeZoneFormatStyle = UTimeZoneFormatStyle(8i32);
-pub const UTZFMT_STYLE_ISO_BASIC_FIXED: UTimeZoneFormatStyle = UTimeZoneFormatStyle(9i32);
-pub const UTZFMT_STYLE_ISO_BASIC_LOCAL_FIXED: UTimeZoneFormatStyle = UTimeZoneFormatStyle(10i32);
-pub const UTZFMT_STYLE_ISO_BASIC_FULL: UTimeZoneFormatStyle = UTimeZoneFormatStyle(11i32);
-pub const UTZFMT_STYLE_ISO_BASIC_LOCAL_FULL: UTimeZoneFormatStyle = UTimeZoneFormatStyle(12i32);
-pub const UTZFMT_STYLE_ISO_EXTENDED_FIXED: UTimeZoneFormatStyle = UTimeZoneFormatStyle(13i32);
-pub const UTZFMT_STYLE_ISO_EXTENDED_LOCAL_FIXED: UTimeZoneFormatStyle = UTimeZoneFormatStyle(14i32);
-pub const UTZFMT_STYLE_ISO_EXTENDED_FULL: UTimeZoneFormatStyle = UTimeZoneFormatStyle(15i32);
-pub const UTZFMT_STYLE_ISO_EXTENDED_LOCAL_FULL: UTimeZoneFormatStyle = UTimeZoneFormatStyle(16i32);
-pub const UTZFMT_STYLE_ZONE_ID: UTimeZoneFormatStyle = UTimeZoneFormatStyle(17i32);
-pub const UTZFMT_STYLE_ZONE_ID_SHORT: UTimeZoneFormatStyle = UTimeZoneFormatStyle(18i32);
-pub const UTZFMT_STYLE_EXEMPLAR_LOCATION: UTimeZoneFormatStyle = UTimeZoneFormatStyle(19i32);
-impl ::core::marker::Copy for UTimeZoneFormatStyle {}
-impl ::core::clone::Clone for UTimeZoneFormatStyle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct UTimeZoneFormatTimeType(pub i32);
-pub const UTZFMT_TIME_TYPE_UNKNOWN: UTimeZoneFormatTimeType = UTimeZoneFormatTimeType(0i32);
-pub const UTZFMT_TIME_TYPE_STANDARD: UTimeZoneFormatTimeType = UTimeZoneFormatTimeType(1i32);
-pub const UTZFMT_TIME_TYPE_DAYLIGHT: UTimeZoneFormatTimeType = UTimeZoneFormatTimeType(2i32);
-impl ::core::marker::Copy for UTimeZoneFormatTimeType {}
-impl ::core::clone::Clone for UTimeZoneFormatTimeType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct UTimeZoneNameType(pub i32);
-pub const UTZNM_UNKNOWN: UTimeZoneNameType = UTimeZoneNameType(0i32);
-pub const UTZNM_LONG_GENERIC: UTimeZoneNameType = UTimeZoneNameType(1i32);
-pub const UTZNM_LONG_STANDARD: UTimeZoneNameType = UTimeZoneNameType(2i32);
-pub const UTZNM_LONG_DAYLIGHT: UTimeZoneNameType = UTimeZoneNameType(4i32);
-pub const UTZNM_SHORT_GENERIC: UTimeZoneNameType = UTimeZoneNameType(8i32);
-pub const UTZNM_SHORT_STANDARD: UTimeZoneNameType = UTimeZoneNameType(16i32);
-pub const UTZNM_SHORT_DAYLIGHT: UTimeZoneNameType = UTimeZoneNameType(32i32);
-pub const UTZNM_EXEMPLAR_LOCATION: UTimeZoneNameType = UTimeZoneNameType(64i32);
-impl ::core::marker::Copy for UTimeZoneNameType {}
-impl ::core::clone::Clone for UTimeZoneNameType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct UTimeZoneTransitionType(pub i32);
-pub const UCAL_TZ_TRANSITION_NEXT: UTimeZoneTransitionType = UTimeZoneTransitionType(0i32);
-pub const UCAL_TZ_TRANSITION_NEXT_INCLUSIVE: UTimeZoneTransitionType = UTimeZoneTransitionType(1i32);
-pub const UCAL_TZ_TRANSITION_PREVIOUS: UTimeZoneTransitionType = UTimeZoneTransitionType(2i32);
-pub const UCAL_TZ_TRANSITION_PREVIOUS_INCLUSIVE: UTimeZoneTransitionType = UTimeZoneTransitionType(3i32);
-impl ::core::marker::Copy for UTimeZoneTransitionType {}
-impl ::core::clone::Clone for UTimeZoneTransitionType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const UTSV_UNITS_VALUE: i32 = 0i32;
+pub const UTSV_EPOCH_OFFSET_VALUE: i32 = 1i32;
+pub const UTSV_FROM_MIN_VALUE: i32 = 2i32;
+pub const UTSV_FROM_MAX_VALUE: i32 = 3i32;
+pub const UTSV_TO_MIN_VALUE: i32 = 4i32;
+pub const UTSV_TO_MAX_VALUE: i32 = 5i32;
+pub const UTZFMT_PAT_POSITIVE_HM: i32 = 0i32;
+pub const UTZFMT_PAT_POSITIVE_HMS: i32 = 1i32;
+pub const UTZFMT_PAT_NEGATIVE_HM: i32 = 2i32;
+pub const UTZFMT_PAT_NEGATIVE_HMS: i32 = 3i32;
+pub const UTZFMT_PAT_POSITIVE_H: i32 = 4i32;
+pub const UTZFMT_PAT_NEGATIVE_H: i32 = 5i32;
+pub const UTZFMT_PAT_COUNT: i32 = 6i32;
+pub const UTZFMT_PARSE_OPTION_NONE: i32 = 0i32;
+pub const UTZFMT_PARSE_OPTION_ALL_STYLES: i32 = 1i32;
+pub const UTZFMT_PARSE_OPTION_TZ_DATABASE_ABBREVIATIONS: i32 = 2i32;
+pub const UTZFMT_STYLE_GENERIC_LOCATION: i32 = 0i32;
+pub const UTZFMT_STYLE_GENERIC_LONG: i32 = 1i32;
+pub const UTZFMT_STYLE_GENERIC_SHORT: i32 = 2i32;
+pub const UTZFMT_STYLE_SPECIFIC_LONG: i32 = 3i32;
+pub const UTZFMT_STYLE_SPECIFIC_SHORT: i32 = 4i32;
+pub const UTZFMT_STYLE_LOCALIZED_GMT: i32 = 5i32;
+pub const UTZFMT_STYLE_LOCALIZED_GMT_SHORT: i32 = 6i32;
+pub const UTZFMT_STYLE_ISO_BASIC_SHORT: i32 = 7i32;
+pub const UTZFMT_STYLE_ISO_BASIC_LOCAL_SHORT: i32 = 8i32;
+pub const UTZFMT_STYLE_ISO_BASIC_FIXED: i32 = 9i32;
+pub const UTZFMT_STYLE_ISO_BASIC_LOCAL_FIXED: i32 = 10i32;
+pub const UTZFMT_STYLE_ISO_BASIC_FULL: i32 = 11i32;
+pub const UTZFMT_STYLE_ISO_BASIC_LOCAL_FULL: i32 = 12i32;
+pub const UTZFMT_STYLE_ISO_EXTENDED_FIXED: i32 = 13i32;
+pub const UTZFMT_STYLE_ISO_EXTENDED_LOCAL_FIXED: i32 = 14i32;
+pub const UTZFMT_STYLE_ISO_EXTENDED_FULL: i32 = 15i32;
+pub const UTZFMT_STYLE_ISO_EXTENDED_LOCAL_FULL: i32 = 16i32;
+pub const UTZFMT_STYLE_ZONE_ID: i32 = 17i32;
+pub const UTZFMT_STYLE_ZONE_ID_SHORT: i32 = 18i32;
+pub const UTZFMT_STYLE_EXEMPLAR_LOCATION: i32 = 19i32;
+pub const UTZFMT_TIME_TYPE_UNKNOWN: i32 = 0i32;
+pub const UTZFMT_TIME_TYPE_STANDARD: i32 = 1i32;
+pub const UTZFMT_TIME_TYPE_DAYLIGHT: i32 = 2i32;
+pub const UTZNM_UNKNOWN: i32 = 0i32;
+pub const UTZNM_LONG_GENERIC: i32 = 1i32;
+pub const UTZNM_LONG_STANDARD: i32 = 2i32;
+pub const UTZNM_LONG_DAYLIGHT: i32 = 4i32;
+pub const UTZNM_SHORT_GENERIC: i32 = 8i32;
+pub const UTZNM_SHORT_STANDARD: i32 = 16i32;
+pub const UTZNM_SHORT_DAYLIGHT: i32 = 32i32;
+pub const UTZNM_EXEMPLAR_LOCATION: i32 = 64i32;
+pub const UCAL_TZ_TRANSITION_NEXT: i32 = 0i32;
+pub const UCAL_TZ_TRANSITION_NEXT_INCLUSIVE: i32 = 1i32;
+pub const UCAL_TZ_TRANSITION_PREVIOUS: i32 = 2i32;
+pub const UCAL_TZ_TRANSITION_PREVIOUS_INCLUSIVE: i32 = 3i32;
 #[cfg(feature = "Win32_Foundation")]
 pub type UTraceData = unsafe extern "system" fn(context: *const ::core::ffi::c_void, fnnumber: i32, level: i32, fmt: super::Foundation::PSTR, args: *mut i8);
 pub type UTraceEntry = unsafe extern "system" fn(context: *const ::core::ffi::c_void, fnnumber: i32);
 #[cfg(feature = "Win32_Foundation")]
 pub type UTraceExit = unsafe extern "system" fn(context: *const ::core::ffi::c_void, fnnumber: i32, fmt: super::Foundation::PSTR, args: *mut i8);
-#[repr(transparent)]
-pub struct UTraceFunctionNumber(pub i32);
-pub const UTRACE_FUNCTION_START: UTraceFunctionNumber = UTraceFunctionNumber(0i32);
-pub const UTRACE_U_INIT: UTraceFunctionNumber = UTraceFunctionNumber(0i32);
-pub const UTRACE_U_CLEANUP: UTraceFunctionNumber = UTraceFunctionNumber(1i32);
-pub const UTRACE_CONVERSION_START: UTraceFunctionNumber = UTraceFunctionNumber(4096i32);
-pub const UTRACE_UCNV_OPEN: UTraceFunctionNumber = UTraceFunctionNumber(4096i32);
-pub const UTRACE_UCNV_OPEN_PACKAGE: UTraceFunctionNumber = UTraceFunctionNumber(4097i32);
-pub const UTRACE_UCNV_OPEN_ALGORITHMIC: UTraceFunctionNumber = UTraceFunctionNumber(4098i32);
-pub const UTRACE_UCNV_CLONE: UTraceFunctionNumber = UTraceFunctionNumber(4099i32);
-pub const UTRACE_UCNV_CLOSE: UTraceFunctionNumber = UTraceFunctionNumber(4100i32);
-pub const UTRACE_UCNV_FLUSH_CACHE: UTraceFunctionNumber = UTraceFunctionNumber(4101i32);
-pub const UTRACE_UCNV_LOAD: UTraceFunctionNumber = UTraceFunctionNumber(4102i32);
-pub const UTRACE_UCNV_UNLOAD: UTraceFunctionNumber = UTraceFunctionNumber(4103i32);
-pub const UTRACE_COLLATION_START: UTraceFunctionNumber = UTraceFunctionNumber(8192i32);
-pub const UTRACE_UCOL_OPEN: UTraceFunctionNumber = UTraceFunctionNumber(8192i32);
-pub const UTRACE_UCOL_CLOSE: UTraceFunctionNumber = UTraceFunctionNumber(8193i32);
-pub const UTRACE_UCOL_STRCOLL: UTraceFunctionNumber = UTraceFunctionNumber(8194i32);
-pub const UTRACE_UCOL_GET_SORTKEY: UTraceFunctionNumber = UTraceFunctionNumber(8195i32);
-pub const UTRACE_UCOL_GETLOCALE: UTraceFunctionNumber = UTraceFunctionNumber(8196i32);
-pub const UTRACE_UCOL_NEXTSORTKEYPART: UTraceFunctionNumber = UTraceFunctionNumber(8197i32);
-pub const UTRACE_UCOL_STRCOLLITER: UTraceFunctionNumber = UTraceFunctionNumber(8198i32);
-pub const UTRACE_UCOL_OPEN_FROM_SHORT_STRING: UTraceFunctionNumber = UTraceFunctionNumber(8199i32);
-pub const UTRACE_UCOL_STRCOLLUTF8: UTraceFunctionNumber = UTraceFunctionNumber(8200i32);
-pub const UTRACE_UDATA_START: UTraceFunctionNumber = UTraceFunctionNumber(12288i32);
-pub const UTRACE_UDATA_RESOURCE: UTraceFunctionNumber = UTraceFunctionNumber(12288i32);
-pub const UTRACE_UDATA_BUNDLE: UTraceFunctionNumber = UTraceFunctionNumber(12289i32);
-pub const UTRACE_UDATA_DATA_FILE: UTraceFunctionNumber = UTraceFunctionNumber(12290i32);
-pub const UTRACE_UDATA_RES_FILE: UTraceFunctionNumber = UTraceFunctionNumber(12291i32);
-impl ::core::marker::Copy for UTraceFunctionNumber {}
-impl ::core::clone::Clone for UTraceFunctionNumber {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct UTraceLevel(pub i32);
-pub const UTRACE_OFF: UTraceLevel = UTraceLevel(-1i32);
-pub const UTRACE_ERROR: UTraceLevel = UTraceLevel(0i32);
-pub const UTRACE_WARNING: UTraceLevel = UTraceLevel(3i32);
-pub const UTRACE_OPEN_CLOSE: UTraceLevel = UTraceLevel(5i32);
-pub const UTRACE_INFO: UTraceLevel = UTraceLevel(7i32);
-pub const UTRACE_VERBOSE: UTraceLevel = UTraceLevel(9i32);
-impl ::core::marker::Copy for UTraceLevel {}
-impl ::core::clone::Clone for UTraceLevel {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct UTransDirection(pub i32);
-pub const UTRANS_FORWARD: UTransDirection = UTransDirection(0i32);
-pub const UTRANS_REVERSE: UTransDirection = UTransDirection(1i32);
-impl ::core::marker::Copy for UTransDirection {}
-impl ::core::clone::Clone for UTransDirection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const UTRACE_FUNCTION_START: i32 = 0i32;
+pub const UTRACE_U_INIT: i32 = 0i32;
+pub const UTRACE_U_CLEANUP: i32 = 1i32;
+pub const UTRACE_CONVERSION_START: i32 = 4096i32;
+pub const UTRACE_UCNV_OPEN: i32 = 4096i32;
+pub const UTRACE_UCNV_OPEN_PACKAGE: i32 = 4097i32;
+pub const UTRACE_UCNV_OPEN_ALGORITHMIC: i32 = 4098i32;
+pub const UTRACE_UCNV_CLONE: i32 = 4099i32;
+pub const UTRACE_UCNV_CLOSE: i32 = 4100i32;
+pub const UTRACE_UCNV_FLUSH_CACHE: i32 = 4101i32;
+pub const UTRACE_UCNV_LOAD: i32 = 4102i32;
+pub const UTRACE_UCNV_UNLOAD: i32 = 4103i32;
+pub const UTRACE_COLLATION_START: i32 = 8192i32;
+pub const UTRACE_UCOL_OPEN: i32 = 8192i32;
+pub const UTRACE_UCOL_CLOSE: i32 = 8193i32;
+pub const UTRACE_UCOL_STRCOLL: i32 = 8194i32;
+pub const UTRACE_UCOL_GET_SORTKEY: i32 = 8195i32;
+pub const UTRACE_UCOL_GETLOCALE: i32 = 8196i32;
+pub const UTRACE_UCOL_NEXTSORTKEYPART: i32 = 8197i32;
+pub const UTRACE_UCOL_STRCOLLITER: i32 = 8198i32;
+pub const UTRACE_UCOL_OPEN_FROM_SHORT_STRING: i32 = 8199i32;
+pub const UTRACE_UCOL_STRCOLLUTF8: i32 = 8200i32;
+pub const UTRACE_UDATA_START: i32 = 12288i32;
+pub const UTRACE_UDATA_RESOURCE: i32 = 12288i32;
+pub const UTRACE_UDATA_BUNDLE: i32 = 12289i32;
+pub const UTRACE_UDATA_DATA_FILE: i32 = 12290i32;
+pub const UTRACE_UDATA_RES_FILE: i32 = 12291i32;
+pub const UTRACE_OFF: i32 = -1i32;
+pub const UTRACE_ERROR: i32 = 0i32;
+pub const UTRACE_WARNING: i32 = 3i32;
+pub const UTRACE_OPEN_CLOSE: i32 = 5i32;
+pub const UTRACE_INFO: i32 = 7i32;
+pub const UTRACE_VERBOSE: i32 = 9i32;
+pub const UTRANS_FORWARD: i32 = 0i32;
+pub const UTRANS_REVERSE: i32 = 1i32;
 #[repr(C)]
 pub struct UTransPosition {
     pub contextStart: i32,
@@ -6900,67 +5644,43 @@ impl ::core::clone::Clone for UTransPosition {
         *self
     }
 }
-#[repr(transparent)]
-pub struct UVerticalOrientation(pub i32);
-pub const U_VO_ROTATED: UVerticalOrientation = UVerticalOrientation(0i32);
-pub const U_VO_TRANSFORMED_ROTATED: UVerticalOrientation = UVerticalOrientation(1i32);
-pub const U_VO_TRANSFORMED_UPRIGHT: UVerticalOrientation = UVerticalOrientation(2i32);
-pub const U_VO_UPRIGHT: UVerticalOrientation = UVerticalOrientation(3i32);
-impl ::core::marker::Copy for UVerticalOrientation {}
-impl ::core::clone::Clone for UVerticalOrientation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct UWordBreak(pub i32);
-pub const UBRK_WORD_NONE: UWordBreak = UWordBreak(0i32);
-pub const UBRK_WORD_NONE_LIMIT: UWordBreak = UWordBreak(100i32);
-pub const UBRK_WORD_NUMBER: UWordBreak = UWordBreak(100i32);
-pub const UBRK_WORD_NUMBER_LIMIT: UWordBreak = UWordBreak(200i32);
-pub const UBRK_WORD_LETTER: UWordBreak = UWordBreak(200i32);
-pub const UBRK_WORD_LETTER_LIMIT: UWordBreak = UWordBreak(300i32);
-pub const UBRK_WORD_KANA: UWordBreak = UWordBreak(300i32);
-pub const UBRK_WORD_KANA_LIMIT: UWordBreak = UWordBreak(400i32);
-pub const UBRK_WORD_IDEO: UWordBreak = UWordBreak(400i32);
-pub const UBRK_WORD_IDEO_LIMIT: UWordBreak = UWordBreak(500i32);
-impl ::core::marker::Copy for UWordBreak {}
-impl ::core::clone::Clone for UWordBreak {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct UWordBreakValues(pub i32);
-pub const U_WB_OTHER: UWordBreakValues = UWordBreakValues(0i32);
-pub const U_WB_ALETTER: UWordBreakValues = UWordBreakValues(1i32);
-pub const U_WB_FORMAT: UWordBreakValues = UWordBreakValues(2i32);
-pub const U_WB_KATAKANA: UWordBreakValues = UWordBreakValues(3i32);
-pub const U_WB_MIDLETTER: UWordBreakValues = UWordBreakValues(4i32);
-pub const U_WB_MIDNUM: UWordBreakValues = UWordBreakValues(5i32);
-pub const U_WB_NUMERIC: UWordBreakValues = UWordBreakValues(6i32);
-pub const U_WB_EXTENDNUMLET: UWordBreakValues = UWordBreakValues(7i32);
-pub const U_WB_CR: UWordBreakValues = UWordBreakValues(8i32);
-pub const U_WB_EXTEND: UWordBreakValues = UWordBreakValues(9i32);
-pub const U_WB_LF: UWordBreakValues = UWordBreakValues(10i32);
-pub const U_WB_MIDNUMLET: UWordBreakValues = UWordBreakValues(11i32);
-pub const U_WB_NEWLINE: UWordBreakValues = UWordBreakValues(12i32);
-pub const U_WB_REGIONAL_INDICATOR: UWordBreakValues = UWordBreakValues(13i32);
-pub const U_WB_HEBREW_LETTER: UWordBreakValues = UWordBreakValues(14i32);
-pub const U_WB_SINGLE_QUOTE: UWordBreakValues = UWordBreakValues(15i32);
-pub const U_WB_DOUBLE_QUOTE: UWordBreakValues = UWordBreakValues(16i32);
-pub const U_WB_E_BASE: UWordBreakValues = UWordBreakValues(17i32);
-pub const U_WB_E_BASE_GAZ: UWordBreakValues = UWordBreakValues(18i32);
-pub const U_WB_E_MODIFIER: UWordBreakValues = UWordBreakValues(19i32);
-pub const U_WB_GLUE_AFTER_ZWJ: UWordBreakValues = UWordBreakValues(20i32);
-pub const U_WB_ZWJ: UWordBreakValues = UWordBreakValues(21i32);
-pub const U_WB_WSEGSPACE: UWordBreakValues = UWordBreakValues(22i32);
-impl ::core::marker::Copy for UWordBreakValues {}
-impl ::core::clone::Clone for UWordBreakValues {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const U_VO_ROTATED: i32 = 0i32;
+pub const U_VO_TRANSFORMED_ROTATED: i32 = 1i32;
+pub const U_VO_TRANSFORMED_UPRIGHT: i32 = 2i32;
+pub const U_VO_UPRIGHT: i32 = 3i32;
+pub const UBRK_WORD_NONE: i32 = 0i32;
+pub const UBRK_WORD_NONE_LIMIT: i32 = 100i32;
+pub const UBRK_WORD_NUMBER: i32 = 100i32;
+pub const UBRK_WORD_NUMBER_LIMIT: i32 = 200i32;
+pub const UBRK_WORD_LETTER: i32 = 200i32;
+pub const UBRK_WORD_LETTER_LIMIT: i32 = 300i32;
+pub const UBRK_WORD_KANA: i32 = 300i32;
+pub const UBRK_WORD_KANA_LIMIT: i32 = 400i32;
+pub const UBRK_WORD_IDEO: i32 = 400i32;
+pub const UBRK_WORD_IDEO_LIMIT: i32 = 500i32;
+pub const U_WB_OTHER: i32 = 0i32;
+pub const U_WB_ALETTER: i32 = 1i32;
+pub const U_WB_FORMAT: i32 = 2i32;
+pub const U_WB_KATAKANA: i32 = 3i32;
+pub const U_WB_MIDLETTER: i32 = 4i32;
+pub const U_WB_MIDNUM: i32 = 5i32;
+pub const U_WB_NUMERIC: i32 = 6i32;
+pub const U_WB_EXTENDNUMLET: i32 = 7i32;
+pub const U_WB_CR: i32 = 8i32;
+pub const U_WB_EXTEND: i32 = 9i32;
+pub const U_WB_LF: i32 = 10i32;
+pub const U_WB_MIDNUMLET: i32 = 11i32;
+pub const U_WB_NEWLINE: i32 = 12i32;
+pub const U_WB_REGIONAL_INDICATOR: i32 = 13i32;
+pub const U_WB_HEBREW_LETTER: i32 = 14i32;
+pub const U_WB_SINGLE_QUOTE: i32 = 15i32;
+pub const U_WB_DOUBLE_QUOTE: i32 = 16i32;
+pub const U_WB_E_BASE: i32 = 17i32;
+pub const U_WB_E_BASE_GAZ: i32 = 18i32;
+pub const U_WB_E_MODIFIER: i32 = 19i32;
+pub const U_WB_GLUE_AFTER_ZWJ: i32 = 20i32;
+pub const U_WB_ZWJ: i32 = 21i32;
+pub const U_WB_WSEGSPACE: i32 = 22i32;
 pub const U_ASCII_FAMILY: u32 = 0u32;
 pub const U_CHECK_DYLOAD: u32 = 1u32;
 pub const U_COMBINED_IMPLEMENTATION: u32 = 1u32;
@@ -7077,18 +5797,10 @@ pub const WC_DISCARDNS: u32 = 16u32;
 pub const WC_ERR_INVALID_CHARS: u32 = 128u32;
 pub const WC_NO_BEST_FIT_CHARS: u32 = 1024u32;
 pub const WC_SEPCHARS: u32 = 32u32;
-#[repr(transparent)]
-pub struct WORDLIST_TYPE(pub i32);
-pub const WORDLIST_TYPE_IGNORE: WORDLIST_TYPE = WORDLIST_TYPE(0i32);
-pub const WORDLIST_TYPE_ADD: WORDLIST_TYPE = WORDLIST_TYPE(1i32);
-pub const WORDLIST_TYPE_EXCLUDE: WORDLIST_TYPE = WORDLIST_TYPE(2i32);
-pub const WORDLIST_TYPE_AUTOCORRECT: WORDLIST_TYPE = WORDLIST_TYPE(3i32);
-impl ::core::marker::Copy for WORDLIST_TYPE {}
-impl ::core::clone::Clone for WORDLIST_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const WORDLIST_TYPE_IGNORE: i32 = 0i32;
+pub const WORDLIST_TYPE_ADD: i32 = 1i32;
+pub const WORDLIST_TYPE_EXCLUDE: i32 = 2i32;
+pub const WORDLIST_TYPE_AUTOCORRECT: i32 = 3i32;
 #[repr(C)]
 pub struct opentype_feature_record {
     pub tagFeature: u32,
@@ -7121,37 +5833,21 @@ impl ::core::clone::Clone for script_glyphprop {
         *self
     }
 }
-#[repr(transparent)]
-pub struct tagMLCONVCHARF(pub i32);
-pub const MLCONVCHARF_AUTODETECT: tagMLCONVCHARF = tagMLCONVCHARF(1i32);
-pub const MLCONVCHARF_ENTITIZE: tagMLCONVCHARF = tagMLCONVCHARF(2i32);
-pub const MLCONVCHARF_NCR_ENTITIZE: tagMLCONVCHARF = tagMLCONVCHARF(2i32);
-pub const MLCONVCHARF_NAME_ENTITIZE: tagMLCONVCHARF = tagMLCONVCHARF(4i32);
-pub const MLCONVCHARF_USEDEFCHAR: tagMLCONVCHARF = tagMLCONVCHARF(8i32);
-pub const MLCONVCHARF_NOBESTFITCHARS: tagMLCONVCHARF = tagMLCONVCHARF(16i32);
-pub const MLCONVCHARF_DETECTJPN: tagMLCONVCHARF = tagMLCONVCHARF(32i32);
-impl ::core::marker::Copy for tagMLCONVCHARF {}
-impl ::core::clone::Clone for tagMLCONVCHARF {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct tagMLCPF(pub i32);
-pub const MLDETECTF_MAILNEWS: tagMLCPF = tagMLCPF(1i32);
-pub const MLDETECTF_BROWSER: tagMLCPF = tagMLCPF(2i32);
-pub const MLDETECTF_VALID: tagMLCPF = tagMLCPF(4i32);
-pub const MLDETECTF_VALID_NLS: tagMLCPF = tagMLCPF(8i32);
-pub const MLDETECTF_PRESERVE_ORDER: tagMLCPF = tagMLCPF(16i32);
-pub const MLDETECTF_PREFERRED_ONLY: tagMLCPF = tagMLCPF(32i32);
-pub const MLDETECTF_FILTER_SPECIALCHAR: tagMLCPF = tagMLCPF(64i32);
-pub const MLDETECTF_EURO_UTF8: tagMLCPF = tagMLCPF(128i32);
-impl ::core::marker::Copy for tagMLCPF {}
-impl ::core::clone::Clone for tagMLCPF {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const MLCONVCHARF_AUTODETECT: i32 = 1i32;
+pub const MLCONVCHARF_ENTITIZE: i32 = 2i32;
+pub const MLCONVCHARF_NCR_ENTITIZE: i32 = 2i32;
+pub const MLCONVCHARF_NAME_ENTITIZE: i32 = 4i32;
+pub const MLCONVCHARF_USEDEFCHAR: i32 = 8i32;
+pub const MLCONVCHARF_NOBESTFITCHARS: i32 = 16i32;
+pub const MLCONVCHARF_DETECTJPN: i32 = 32i32;
+pub const MLDETECTF_MAILNEWS: i32 = 1i32;
+pub const MLDETECTF_BROWSER: i32 = 2i32;
+pub const MLDETECTF_VALID: i32 = 4i32;
+pub const MLDETECTF_VALID_NLS: i32 = 8i32;
+pub const MLDETECTF_PRESERVE_ORDER: i32 = 16i32;
+pub const MLDETECTF_PREFERRED_ONLY: i32 = 32i32;
+pub const MLDETECTF_FILTER_SPECIALCHAR: i32 = 64i32;
+pub const MLDETECTF_EURO_UTF8: i32 = 128i32;
 #[repr(C)]
 pub struct tagSCRIPFONTINFO {
     pub scripts: i64,

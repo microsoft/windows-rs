@@ -238,55 +238,47 @@ extern "system" {
 pub const ATTRIB_MATTE: u32 = 2u32;
 pub const ATTRIB_TRANSPARENCY: u32 = 1u32;
 pub const BEST_MODE: u32 = 3u32;
-#[repr(transparent)]
-pub struct BMFORMAT(pub i32);
-pub const BM_x555RGB: BMFORMAT = BMFORMAT(0i32);
-pub const BM_x555XYZ: BMFORMAT = BMFORMAT(257i32);
-pub const BM_x555Yxy: BMFORMAT = BMFORMAT(258i32);
-pub const BM_x555Lab: BMFORMAT = BMFORMAT(259i32);
-pub const BM_x555G3CH: BMFORMAT = BMFORMAT(260i32);
-pub const BM_RGBTRIPLETS: BMFORMAT = BMFORMAT(2i32);
-pub const BM_BGRTRIPLETS: BMFORMAT = BMFORMAT(4i32);
-pub const BM_XYZTRIPLETS: BMFORMAT = BMFORMAT(513i32);
-pub const BM_YxyTRIPLETS: BMFORMAT = BMFORMAT(514i32);
-pub const BM_LabTRIPLETS: BMFORMAT = BMFORMAT(515i32);
-pub const BM_G3CHTRIPLETS: BMFORMAT = BMFORMAT(516i32);
-pub const BM_5CHANNEL: BMFORMAT = BMFORMAT(517i32);
-pub const BM_6CHANNEL: BMFORMAT = BMFORMAT(518i32);
-pub const BM_7CHANNEL: BMFORMAT = BMFORMAT(519i32);
-pub const BM_8CHANNEL: BMFORMAT = BMFORMAT(520i32);
-pub const BM_GRAY: BMFORMAT = BMFORMAT(521i32);
-pub const BM_xRGBQUADS: BMFORMAT = BMFORMAT(8i32);
-pub const BM_xBGRQUADS: BMFORMAT = BMFORMAT(16i32);
-pub const BM_xG3CHQUADS: BMFORMAT = BMFORMAT(772i32);
-pub const BM_KYMCQUADS: BMFORMAT = BMFORMAT(773i32);
-pub const BM_CMYKQUADS: BMFORMAT = BMFORMAT(32i32);
-pub const BM_10b_RGB: BMFORMAT = BMFORMAT(9i32);
-pub const BM_10b_XYZ: BMFORMAT = BMFORMAT(1025i32);
-pub const BM_10b_Yxy: BMFORMAT = BMFORMAT(1026i32);
-pub const BM_10b_Lab: BMFORMAT = BMFORMAT(1027i32);
-pub const BM_10b_G3CH: BMFORMAT = BMFORMAT(1028i32);
-pub const BM_NAMED_INDEX: BMFORMAT = BMFORMAT(1029i32);
-pub const BM_16b_RGB: BMFORMAT = BMFORMAT(10i32);
-pub const BM_16b_XYZ: BMFORMAT = BMFORMAT(1281i32);
-pub const BM_16b_Yxy: BMFORMAT = BMFORMAT(1282i32);
-pub const BM_16b_Lab: BMFORMAT = BMFORMAT(1283i32);
-pub const BM_16b_G3CH: BMFORMAT = BMFORMAT(1284i32);
-pub const BM_16b_GRAY: BMFORMAT = BMFORMAT(1285i32);
-pub const BM_565RGB: BMFORMAT = BMFORMAT(1i32);
-pub const BM_32b_scRGB: BMFORMAT = BMFORMAT(1537i32);
-pub const BM_32b_scARGB: BMFORMAT = BMFORMAT(1538i32);
-pub const BM_S2DOT13FIXED_scRGB: BMFORMAT = BMFORMAT(1539i32);
-pub const BM_S2DOT13FIXED_scARGB: BMFORMAT = BMFORMAT(1540i32);
-pub const BM_R10G10B10A2: BMFORMAT = BMFORMAT(1793i32);
-pub const BM_R10G10B10A2_XR: BMFORMAT = BMFORMAT(1794i32);
-pub const BM_R16G16B16A16_FLOAT: BMFORMAT = BMFORMAT(1795i32);
-impl ::core::marker::Copy for BMFORMAT {}
-impl ::core::clone::Clone for BMFORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const BM_x555RGB: i32 = 0i32;
+pub const BM_x555XYZ: i32 = 257i32;
+pub const BM_x555Yxy: i32 = 258i32;
+pub const BM_x555Lab: i32 = 259i32;
+pub const BM_x555G3CH: i32 = 260i32;
+pub const BM_RGBTRIPLETS: i32 = 2i32;
+pub const BM_BGRTRIPLETS: i32 = 4i32;
+pub const BM_XYZTRIPLETS: i32 = 513i32;
+pub const BM_YxyTRIPLETS: i32 = 514i32;
+pub const BM_LabTRIPLETS: i32 = 515i32;
+pub const BM_G3CHTRIPLETS: i32 = 516i32;
+pub const BM_5CHANNEL: i32 = 517i32;
+pub const BM_6CHANNEL: i32 = 518i32;
+pub const BM_7CHANNEL: i32 = 519i32;
+pub const BM_8CHANNEL: i32 = 520i32;
+pub const BM_GRAY: i32 = 521i32;
+pub const BM_xRGBQUADS: i32 = 8i32;
+pub const BM_xBGRQUADS: i32 = 16i32;
+pub const BM_xG3CHQUADS: i32 = 772i32;
+pub const BM_KYMCQUADS: i32 = 773i32;
+pub const BM_CMYKQUADS: i32 = 32i32;
+pub const BM_10b_RGB: i32 = 9i32;
+pub const BM_10b_XYZ: i32 = 1025i32;
+pub const BM_10b_Yxy: i32 = 1026i32;
+pub const BM_10b_Lab: i32 = 1027i32;
+pub const BM_10b_G3CH: i32 = 1028i32;
+pub const BM_NAMED_INDEX: i32 = 1029i32;
+pub const BM_16b_RGB: i32 = 10i32;
+pub const BM_16b_XYZ: i32 = 1281i32;
+pub const BM_16b_Yxy: i32 = 1282i32;
+pub const BM_16b_Lab: i32 = 1283i32;
+pub const BM_16b_G3CH: i32 = 1284i32;
+pub const BM_16b_GRAY: i32 = 1285i32;
+pub const BM_565RGB: i32 = 1i32;
+pub const BM_32b_scRGB: i32 = 1537i32;
+pub const BM_32b_scARGB: i32 = 1538i32;
+pub const BM_S2DOT13FIXED_scRGB: i32 = 1539i32;
+pub const BM_S2DOT13FIXED_scARGB: i32 = 1540i32;
+pub const BM_R10G10B10A2: i32 = 1793i32;
+pub const BM_R10G10B10A2_XR: i32 = 1794i32;
+pub const BM_R16G16B16A16_FLOAT: i32 = 1795i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct BlackInformation {
@@ -375,21 +367,13 @@ impl ::core::clone::Clone for COLOR_0 {
         *self
     }
 }
-#[repr(transparent)]
-pub struct COLORDATATYPE(pub i32);
-pub const COLOR_BYTE: COLORDATATYPE = COLORDATATYPE(1i32);
-pub const COLOR_WORD: COLORDATATYPE = COLORDATATYPE(2i32);
-pub const COLOR_FLOAT: COLORDATATYPE = COLORDATATYPE(3i32);
-pub const COLOR_S2DOT13FIXED: COLORDATATYPE = COLORDATATYPE(4i32);
-pub const COLOR_10b_R10G10B10A2: COLORDATATYPE = COLORDATATYPE(5i32);
-pub const COLOR_10b_R10G10B10A2_XR: COLORDATATYPE = COLORDATATYPE(6i32);
-pub const COLOR_FLOAT16: COLORDATATYPE = COLORDATATYPE(7i32);
-impl ::core::marker::Copy for COLORDATATYPE {}
-impl ::core::clone::Clone for COLORDATATYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const COLOR_BYTE: i32 = 1i32;
+pub const COLOR_WORD: i32 = 2i32;
+pub const COLOR_FLOAT: i32 = 3i32;
+pub const COLOR_S2DOT13FIXED: i32 = 4i32;
+pub const COLOR_10b_R10G10B10A2: i32 = 5i32;
+pub const COLOR_10b_R10G10B10A2_XR: i32 = 6i32;
+pub const COLOR_FLOAT16: i32 = 7i32;
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct COLORMATCHSETUPA {
@@ -452,66 +436,34 @@ impl ::core::clone::Clone for COLORMATCHSETUPW {
         *self
     }
 }
-#[repr(transparent)]
-pub struct COLORPROFILESUBTYPE(pub i32);
-pub const CPST_PERCEPTUAL: COLORPROFILESUBTYPE = COLORPROFILESUBTYPE(0i32);
-pub const CPST_RELATIVE_COLORIMETRIC: COLORPROFILESUBTYPE = COLORPROFILESUBTYPE(1i32);
-pub const CPST_SATURATION: COLORPROFILESUBTYPE = COLORPROFILESUBTYPE(2i32);
-pub const CPST_ABSOLUTE_COLORIMETRIC: COLORPROFILESUBTYPE = COLORPROFILESUBTYPE(3i32);
-pub const CPST_NONE: COLORPROFILESUBTYPE = COLORPROFILESUBTYPE(4i32);
-pub const CPST_RGB_WORKING_SPACE: COLORPROFILESUBTYPE = COLORPROFILESUBTYPE(5i32);
-pub const CPST_CUSTOM_WORKING_SPACE: COLORPROFILESUBTYPE = COLORPROFILESUBTYPE(6i32);
-pub const CPST_STANDARD_DISPLAY_COLOR_MODE: COLORPROFILESUBTYPE = COLORPROFILESUBTYPE(7i32);
-pub const CPST_EXTENDED_DISPLAY_COLOR_MODE: COLORPROFILESUBTYPE = COLORPROFILESUBTYPE(8i32);
-impl ::core::marker::Copy for COLORPROFILESUBTYPE {}
-impl ::core::clone::Clone for COLORPROFILESUBTYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct COLORPROFILETYPE(pub i32);
-pub const CPT_ICC: COLORPROFILETYPE = COLORPROFILETYPE(0i32);
-pub const CPT_DMP: COLORPROFILETYPE = COLORPROFILETYPE(1i32);
-pub const CPT_CAMP: COLORPROFILETYPE = COLORPROFILETYPE(2i32);
-pub const CPT_GMMP: COLORPROFILETYPE = COLORPROFILETYPE(3i32);
-impl ::core::marker::Copy for COLORPROFILETYPE {}
-impl ::core::clone::Clone for COLORPROFILETYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct COLORTYPE(pub i32);
-pub const COLOR_GRAY: COLORTYPE = COLORTYPE(1i32);
-pub const COLOR_RGB: COLORTYPE = COLORTYPE(2i32);
-pub const COLOR_XYZ: COLORTYPE = COLORTYPE(3i32);
-pub const COLOR_Yxy: COLORTYPE = COLORTYPE(4i32);
-pub const COLOR_Lab: COLORTYPE = COLORTYPE(5i32);
-pub const COLOR_3_CHANNEL: COLORTYPE = COLORTYPE(6i32);
-pub const COLOR_CMYK: COLORTYPE = COLORTYPE(7i32);
-pub const COLOR_5_CHANNEL: COLORTYPE = COLORTYPE(8i32);
-pub const COLOR_6_CHANNEL: COLORTYPE = COLORTYPE(9i32);
-pub const COLOR_7_CHANNEL: COLORTYPE = COLORTYPE(10i32);
-pub const COLOR_8_CHANNEL: COLORTYPE = COLORTYPE(11i32);
-pub const COLOR_NAMED: COLORTYPE = COLORTYPE(12i32);
-impl ::core::marker::Copy for COLORTYPE {}
-impl ::core::clone::Clone for COLORTYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct COLOR_MATCH_TO_TARGET_ACTION(pub i32);
-pub const CS_ENABLE: COLOR_MATCH_TO_TARGET_ACTION = COLOR_MATCH_TO_TARGET_ACTION(1i32);
-pub const CS_DISABLE: COLOR_MATCH_TO_TARGET_ACTION = COLOR_MATCH_TO_TARGET_ACTION(2i32);
-pub const CS_DELETE_TRANSFORM: COLOR_MATCH_TO_TARGET_ACTION = COLOR_MATCH_TO_TARGET_ACTION(3i32);
-impl ::core::marker::Copy for COLOR_MATCH_TO_TARGET_ACTION {}
-impl ::core::clone::Clone for COLOR_MATCH_TO_TARGET_ACTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const CPST_PERCEPTUAL: i32 = 0i32;
+pub const CPST_RELATIVE_COLORIMETRIC: i32 = 1i32;
+pub const CPST_SATURATION: i32 = 2i32;
+pub const CPST_ABSOLUTE_COLORIMETRIC: i32 = 3i32;
+pub const CPST_NONE: i32 = 4i32;
+pub const CPST_RGB_WORKING_SPACE: i32 = 5i32;
+pub const CPST_CUSTOM_WORKING_SPACE: i32 = 6i32;
+pub const CPST_STANDARD_DISPLAY_COLOR_MODE: i32 = 7i32;
+pub const CPST_EXTENDED_DISPLAY_COLOR_MODE: i32 = 8i32;
+pub const CPT_ICC: i32 = 0i32;
+pub const CPT_DMP: i32 = 1i32;
+pub const CPT_CAMP: i32 = 2i32;
+pub const CPT_GMMP: i32 = 3i32;
+pub const COLOR_GRAY: i32 = 1i32;
+pub const COLOR_RGB: i32 = 2i32;
+pub const COLOR_XYZ: i32 = 3i32;
+pub const COLOR_Yxy: i32 = 4i32;
+pub const COLOR_Lab: i32 = 5i32;
+pub const COLOR_3_CHANNEL: i32 = 6i32;
+pub const COLOR_CMYK: i32 = 7i32;
+pub const COLOR_5_CHANNEL: i32 = 8i32;
+pub const COLOR_6_CHANNEL: i32 = 9i32;
+pub const COLOR_7_CHANNEL: i32 = 10i32;
+pub const COLOR_8_CHANNEL: i32 = 11i32;
+pub const COLOR_NAMED: i32 = 12i32;
+pub const CS_ENABLE: i32 = 1i32;
+pub const CS_DISABLE: i32 = 2i32;
+pub const CS_DELETE_TRANSFORM: i32 = 3i32;
 pub const COLOR_MATCH_VERSION: u32 = 512u32;
 pub const CSA_A: u32 = 1u32;
 pub const CSA_ABC: u32 = 2u32;
@@ -721,21 +673,13 @@ impl ::core::clone::Clone for HiFiCOLOR {
 pub type ICMENUMPROCA = unsafe extern "system" fn(param0: super::super::Foundation::PSTR, param1: super::super::Foundation::LPARAM) -> i32;
 #[cfg(feature = "Win32_Foundation")]
 pub type ICMENUMPROCW = unsafe extern "system" fn(param0: super::super::Foundation::PWSTR, param1: super::super::Foundation::LPARAM) -> i32;
-#[repr(transparent)]
-pub struct ICM_COMMAND(pub u32);
-pub const ICM_ADDPROFILE: ICM_COMMAND = ICM_COMMAND(1u32);
-pub const ICM_DELETEPROFILE: ICM_COMMAND = ICM_COMMAND(2u32);
-pub const ICM_QUERYPROFILE: ICM_COMMAND = ICM_COMMAND(3u32);
-pub const ICM_SETDEFAULTPROFILE: ICM_COMMAND = ICM_COMMAND(4u32);
-pub const ICM_REGISTERICMATCHER: ICM_COMMAND = ICM_COMMAND(5u32);
-pub const ICM_UNREGISTERICMATCHER: ICM_COMMAND = ICM_COMMAND(6u32);
-pub const ICM_QUERYMATCH: ICM_COMMAND = ICM_COMMAND(7u32);
-impl ::core::marker::Copy for ICM_COMMAND {}
-impl ::core::clone::Clone for ICM_COMMAND {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const ICM_ADDPROFILE: u32 = 1u32;
+pub const ICM_DELETEPROFILE: u32 = 2u32;
+pub const ICM_QUERYPROFILE: u32 = 3u32;
+pub const ICM_SETDEFAULTPROFILE: u32 = 4u32;
+pub const ICM_REGISTERICMATCHER: u32 = 5u32;
+pub const ICM_UNREGISTERICMATCHER: u32 = 6u32;
+pub const ICM_QUERYMATCH: u32 = 7u32;
 #[repr(transparent)]
 pub struct IDeviceModelPlugIn(pub *mut ::core::ffi::c_void);
 impl ::core::marker::Copy for IDeviceModelPlugIn {}
@@ -967,16 +911,8 @@ pub const SEQUENTIAL_TRANSFORM: u32 = 2155872256u32;
 pub const USE_RELATIVE_COLORIMETRIC: u32 = 131072u32;
 pub const WCS_ALWAYS: u32 = 2097152u32;
 pub const WCS_DEFAULT: i32 = 0i32;
-#[repr(transparent)]
-pub struct WCS_DEVICE_CAPABILITIES_TYPE(pub i32);
-pub const VideoCardGammaTable: WCS_DEVICE_CAPABILITIES_TYPE = WCS_DEVICE_CAPABILITIES_TYPE(1i32);
-pub const MicrosoftHardwareColorV2: WCS_DEVICE_CAPABILITIES_TYPE = WCS_DEVICE_CAPABILITIES_TYPE(2i32);
-impl ::core::marker::Copy for WCS_DEVICE_CAPABILITIES_TYPE {}
-impl ::core::clone::Clone for WCS_DEVICE_CAPABILITIES_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const VideoCardGammaTable: i32 = 1i32;
+pub const MicrosoftHardwareColorV2: i32 = 2i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WCS_DEVICE_MHC2_CAPABILITIES {
@@ -1009,16 +945,8 @@ impl ::core::clone::Clone for WCS_DEVICE_VCGT_CAPABILITIES {
     }
 }
 pub const WCS_ICCONLY: i32 = 65536i32;
-#[repr(transparent)]
-pub struct WCS_PROFILE_MANAGEMENT_SCOPE(pub i32);
-pub const WCS_PROFILE_MANAGEMENT_SCOPE_SYSTEM_WIDE: WCS_PROFILE_MANAGEMENT_SCOPE = WCS_PROFILE_MANAGEMENT_SCOPE(0i32);
-pub const WCS_PROFILE_MANAGEMENT_SCOPE_CURRENT_USER: WCS_PROFILE_MANAGEMENT_SCOPE = WCS_PROFILE_MANAGEMENT_SCOPE(1i32);
-impl ::core::marker::Copy for WCS_PROFILE_MANAGEMENT_SCOPE {}
-impl ::core::clone::Clone for WCS_PROFILE_MANAGEMENT_SCOPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const WCS_PROFILE_MANAGEMENT_SCOPE_SYSTEM_WIDE: i32 = 0i32;
+pub const WCS_PROFILE_MANAGEMENT_SCOPE_CURRENT_USER: i32 = 1i32;
 #[repr(C)]
 pub struct XYZCOLOR {
     pub X: u16,

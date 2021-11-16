@@ -836,23 +836,15 @@ impl ::core::clone::Clone for ALTTABINFO {
         *self
     }
 }
-#[repr(transparent)]
-pub struct ANIMATE_WINDOW_FLAGS(pub u32);
-pub const AW_ACTIVATE: ANIMATE_WINDOW_FLAGS = ANIMATE_WINDOW_FLAGS(131072u32);
-pub const AW_BLEND: ANIMATE_WINDOW_FLAGS = ANIMATE_WINDOW_FLAGS(524288u32);
-pub const AW_CENTER: ANIMATE_WINDOW_FLAGS = ANIMATE_WINDOW_FLAGS(16u32);
-pub const AW_HIDE: ANIMATE_WINDOW_FLAGS = ANIMATE_WINDOW_FLAGS(65536u32);
-pub const AW_HOR_POSITIVE: ANIMATE_WINDOW_FLAGS = ANIMATE_WINDOW_FLAGS(1u32);
-pub const AW_HOR_NEGATIVE: ANIMATE_WINDOW_FLAGS = ANIMATE_WINDOW_FLAGS(2u32);
-pub const AW_SLIDE: ANIMATE_WINDOW_FLAGS = ANIMATE_WINDOW_FLAGS(262144u32);
-pub const AW_VER_POSITIVE: ANIMATE_WINDOW_FLAGS = ANIMATE_WINDOW_FLAGS(4u32);
-pub const AW_VER_NEGATIVE: ANIMATE_WINDOW_FLAGS = ANIMATE_WINDOW_FLAGS(8u32);
-impl ::core::marker::Copy for ANIMATE_WINDOW_FLAGS {}
-impl ::core::clone::Clone for ANIMATE_WINDOW_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const AW_ACTIVATE: u32 = 131072u32;
+pub const AW_BLEND: u32 = 524288u32;
+pub const AW_CENTER: u32 = 16u32;
+pub const AW_HIDE: u32 = 65536u32;
+pub const AW_HOR_POSITIVE: u32 = 1u32;
+pub const AW_HOR_NEGATIVE: u32 = 2u32;
+pub const AW_SLIDE: u32 = 262144u32;
+pub const AW_VER_POSITIVE: u32 = 4u32;
+pub const AW_VER_NEGATIVE: u32 = 8u32;
 #[repr(C)]
 pub struct ANIMATIONINFO {
     pub cbSize: u32,
@@ -943,16 +935,8 @@ pub const BS_TYPEMASK: i32 = 15i32;
 pub const BS_USERBUTTON: i32 = 8i32;
 pub const BS_VCENTER: i32 = 3072i32;
 pub const CALERT_SYSTEM: u32 = 6u32;
-#[repr(transparent)]
-pub struct CASCADE_WINDOWS_HOW(pub u32);
-pub const MDITILE_SKIPDISABLED: CASCADE_WINDOWS_HOW = CASCADE_WINDOWS_HOW(2u32);
-pub const MDITILE_ZORDER: CASCADE_WINDOWS_HOW = CASCADE_WINDOWS_HOW(4u32);
-impl ::core::marker::Copy for CASCADE_WINDOWS_HOW {}
-impl ::core::clone::Clone for CASCADE_WINDOWS_HOW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const MDITILE_SKIPDISABLED: u32 = 2u32;
+pub const MDITILE_ZORDER: u32 = 4u32;
 pub const CBN_CLOSEUP: u32 = 8u32;
 pub const CBN_DBLCLK: u32 = 2u32;
 pub const CBN_DROPDOWN: u32 = 7u32;
@@ -1072,16 +1056,8 @@ impl ::core::clone::Clone for CHANGEFILTERSTRUCT {
         *self
     }
 }
-#[repr(transparent)]
-pub struct CHANGE_WINDOW_MESSAGE_FILTER_FLAGS(pub u32);
-pub const MSGFLT_ADD: CHANGE_WINDOW_MESSAGE_FILTER_FLAGS = CHANGE_WINDOW_MESSAGE_FILTER_FLAGS(1u32);
-pub const MSGFLT_REMOVE: CHANGE_WINDOW_MESSAGE_FILTER_FLAGS = CHANGE_WINDOW_MESSAGE_FILTER_FLAGS(2u32);
-impl ::core::marker::Copy for CHANGE_WINDOW_MESSAGE_FILTER_FLAGS {}
-impl ::core::clone::Clone for CHANGE_WINDOW_MESSAGE_FILTER_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const MSGFLT_ADD: u32 = 1u32;
+pub const MSGFLT_REMOVE: u32 = 2u32;
 pub const CHILDID_SELF: u32 = 0u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -1179,16 +1155,8 @@ impl ::core::clone::Clone for CURSORINFO {
         *self
     }
 }
-#[repr(transparent)]
-pub struct CURSORINFO_FLAGS(pub u32);
-pub const CURSOR_SHOWING: CURSORINFO_FLAGS = CURSORINFO_FLAGS(1u32);
-pub const CURSOR_SUPPRESSED: CURSORINFO_FLAGS = CURSORINFO_FLAGS(2u32);
-impl ::core::marker::Copy for CURSORINFO_FLAGS {}
-impl ::core::clone::Clone for CURSORINFO_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const CURSOR_SHOWING: u32 = 1u32;
+pub const CURSOR_SUPPRESSED: u32 = 2u32;
 #[repr(C)]
 pub struct CURSORSHAPE {
     pub xHotSpot: i32,
@@ -1241,18 +1209,10 @@ impl ::core::clone::Clone for CWPSTRUCT {
         *self
     }
 }
-#[repr(transparent)]
-pub struct CWP_FLAGS(pub u32);
-pub const CWP_ALL: CWP_FLAGS = CWP_FLAGS(0u32);
-pub const CWP_SKIPINVISIBLE: CWP_FLAGS = CWP_FLAGS(1u32);
-pub const CWP_SKIPDISABLED: CWP_FLAGS = CWP_FLAGS(2u32);
-pub const CWP_SKIPTRANSPARENT: CWP_FLAGS = CWP_FLAGS(4u32);
-impl ::core::marker::Copy for CWP_FLAGS {}
-impl ::core::clone::Clone for CWP_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const CWP_ALL: u32 = 0u32;
+pub const CWP_SKIPINVISIBLE: u32 = 1u32;
+pub const CWP_SKIPDISABLED: u32 = 2u32;
+pub const CWP_SKIPTRANSPARENT: u32 = 4u32;
 pub const CW_USEDEFAULT: i32 = -2147483648i32;
 pub const DCX_EXCLUDEUPDATE: i32 = 256i32;
 pub const DC_HASDEFID: u32 = 21323u32;
@@ -1285,20 +1245,12 @@ pub const DESKTOP_WRITEOBJECTS: i32 = 128i32;
 pub const DEVICE_NOTIFY_ALL_INTERFACE_CLASSES: u32 = 4u32;
 pub const DF_ALLOWOTHERACCOUNTHOOK: i32 = 1i32;
 pub const DIFFERENCE: u32 = 11u32;
-#[repr(transparent)]
-pub struct DI_FLAGS(pub u32);
-pub const DI_MASK: DI_FLAGS = DI_FLAGS(1u32);
-pub const DI_IMAGE: DI_FLAGS = DI_FLAGS(2u32);
-pub const DI_NORMAL: DI_FLAGS = DI_FLAGS(3u32);
-pub const DI_COMPAT: DI_FLAGS = DI_FLAGS(4u32);
-pub const DI_DEFAULTSIZE: DI_FLAGS = DI_FLAGS(8u32);
-pub const DI_NOMIRROR: DI_FLAGS = DI_FLAGS(16u32);
-impl ::core::marker::Copy for DI_FLAGS {}
-impl ::core::clone::Clone for DI_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const DI_MASK: u32 = 1u32;
+pub const DI_IMAGE: u32 = 2u32;
+pub const DI_NORMAL: u32 = 3u32;
+pub const DI_COMPAT: u32 = 4u32;
+pub const DI_DEFAULTSIZE: u32 = 8u32;
+pub const DI_NOMIRROR: u32 = 16u32;
 pub const DLGC_BUTTON: u32 = 8192u32;
 pub const DLGC_DEFPUSHBUTTON: u32 = 16u32;
 pub const DLGC_HASSETSEL: u32 = 8u32;
@@ -1398,16 +1350,8 @@ pub const EC_LEFTMARGIN: u32 = 1u32;
 pub const EC_RIGHTMARGIN: u32 = 2u32;
 pub const EC_USEFONTINFO: u32 = 65535u32;
 pub const EDD_GET_DEVICE_INTERFACE_NAME: u32 = 1u32;
-#[repr(transparent)]
-pub struct EDIT_CONTROL_FEATURE(pub i32);
-pub const EDIT_CONTROL_FEATURE_ENTERPRISE_DATA_PROTECTION_PASTE_SUPPORT: EDIT_CONTROL_FEATURE = EDIT_CONTROL_FEATURE(0i32);
-pub const EDIT_CONTROL_FEATURE_PASTE_NOTIFICATIONS: EDIT_CONTROL_FEATURE = EDIT_CONTROL_FEATURE(1i32);
-impl ::core::marker::Copy for EDIT_CONTROL_FEATURE {}
-impl ::core::clone::Clone for EDIT_CONTROL_FEATURE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const EDIT_CONTROL_FEATURE_ENTERPRISE_DATA_PROTECTION_PASTE_SUPPORT: i32 = 0i32;
+pub const EDIT_CONTROL_FEATURE_PASTE_NOTIFICATIONS: i32 = 1i32;
 pub const EDS_RAWMODE: u32 = 2u32;
 pub const EDS_ROTATEDMODE: u32 = 4u32;
 pub const EIMES_CANCELCOMPSTRINFOCUS: u32 = 2u32;
@@ -1587,45 +1531,21 @@ impl ::core::clone::Clone for FLASHWINFO {
         *self
     }
 }
-#[repr(transparent)]
-pub struct FLASHWINFO_FLAGS(pub u32);
-pub const FLASHW_ALL: FLASHWINFO_FLAGS = FLASHWINFO_FLAGS(3u32);
-pub const FLASHW_CAPTION: FLASHWINFO_FLAGS = FLASHWINFO_FLAGS(1u32);
-pub const FLASHW_STOP: FLASHWINFO_FLAGS = FLASHWINFO_FLAGS(0u32);
-pub const FLASHW_TIMER: FLASHWINFO_FLAGS = FLASHWINFO_FLAGS(4u32);
-pub const FLASHW_TIMERNOFG: FLASHWINFO_FLAGS = FLASHWINFO_FLAGS(12u32);
-pub const FLASHW_TRAY: FLASHWINFO_FLAGS = FLASHWINFO_FLAGS(2u32);
-impl ::core::marker::Copy for FLASHWINFO_FLAGS {}
-impl ::core::clone::Clone for FLASHWINFO_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const FLASHW_ALL: u32 = 3u32;
+pub const FLASHW_CAPTION: u32 = 1u32;
+pub const FLASHW_STOP: u32 = 0u32;
+pub const FLASHW_TIMER: u32 = 4u32;
+pub const FLASHW_TIMERNOFG: u32 = 12u32;
+pub const FLASHW_TRAY: u32 = 2u32;
 pub const FNOINVERT: u32 = 2u32;
-#[repr(transparent)]
-pub struct FOREGROUND_WINDOW_LOCK_CODE(pub u32);
-pub const LSFW_LOCK: FOREGROUND_WINDOW_LOCK_CODE = FOREGROUND_WINDOW_LOCK_CODE(1u32);
-pub const LSFW_UNLOCK: FOREGROUND_WINDOW_LOCK_CODE = FOREGROUND_WINDOW_LOCK_CODE(2u32);
-impl ::core::marker::Copy for FOREGROUND_WINDOW_LOCK_CODE {}
-impl ::core::clone::Clone for FOREGROUND_WINDOW_LOCK_CODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const LSFW_LOCK: u32 = 1u32;
+pub const LSFW_UNLOCK: u32 = 2u32;
 pub const FSHIFT: u32 = 4u32;
 pub const FVIRTKEY: u32 = 1u32;
 pub const GCF_INCLUDE_ANCESTORS: u32 = 1u32;
-#[repr(transparent)]
-pub struct GDI_IMAGE_TYPE(pub u32);
-pub const IMAGE_BITMAP: GDI_IMAGE_TYPE = GDI_IMAGE_TYPE(0u32);
-pub const IMAGE_CURSOR: GDI_IMAGE_TYPE = GDI_IMAGE_TYPE(2u32);
-pub const IMAGE_ICON: GDI_IMAGE_TYPE = GDI_IMAGE_TYPE(1u32);
-impl ::core::marker::Copy for GDI_IMAGE_TYPE {}
-impl ::core::clone::Clone for GDI_IMAGE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const IMAGE_BITMAP: u32 = 0u32;
+pub const IMAGE_CURSOR: u32 = 2u32;
+pub const IMAGE_ICON: u32 = 1u32;
 pub const GESTURECONFIGMAXCOUNT: u32 = 256u32;
 pub const GESTUREVISUALIZATION_DOUBLETAP: u32 = 2u32;
 pub const GESTUREVISUALIZATION_OFF: u32 = 0u32;
@@ -1634,68 +1554,36 @@ pub const GESTUREVISUALIZATION_PRESSANDHOLD: u32 = 8u32;
 pub const GESTUREVISUALIZATION_PRESSANDTAP: u32 = 4u32;
 pub const GESTUREVISUALIZATION_RIGHTTAP: u32 = 16u32;
 pub const GESTUREVISUALIZATION_TAP: u32 = 1u32;
-#[repr(transparent)]
-pub struct GET_ANCESTOR_FLAGS(pub u32);
-pub const GA_PARENT: GET_ANCESTOR_FLAGS = GET_ANCESTOR_FLAGS(1u32);
-pub const GA_ROOT: GET_ANCESTOR_FLAGS = GET_ANCESTOR_FLAGS(2u32);
-pub const GA_ROOTOWNER: GET_ANCESTOR_FLAGS = GET_ANCESTOR_FLAGS(3u32);
-impl ::core::marker::Copy for GET_ANCESTOR_FLAGS {}
-impl ::core::clone::Clone for GET_ANCESTOR_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct GET_CLASS_LONG_INDEX(pub i32);
-pub const GCW_ATOM: GET_CLASS_LONG_INDEX = GET_CLASS_LONG_INDEX(-32i32);
-pub const GCL_CBCLSEXTRA: GET_CLASS_LONG_INDEX = GET_CLASS_LONG_INDEX(-20i32);
-pub const GCL_CBWNDEXTRA: GET_CLASS_LONG_INDEX = GET_CLASS_LONG_INDEX(-18i32);
-pub const GCL_HBRBACKGROUND: GET_CLASS_LONG_INDEX = GET_CLASS_LONG_INDEX(-10i32);
-pub const GCL_HCURSOR: GET_CLASS_LONG_INDEX = GET_CLASS_LONG_INDEX(-12i32);
-pub const GCL_HICON: GET_CLASS_LONG_INDEX = GET_CLASS_LONG_INDEX(-14i32);
-pub const GCL_HICONSM: GET_CLASS_LONG_INDEX = GET_CLASS_LONG_INDEX(-34i32);
-pub const GCL_HMODULE: GET_CLASS_LONG_INDEX = GET_CLASS_LONG_INDEX(-16i32);
-pub const GCL_MENUNAME: GET_CLASS_LONG_INDEX = GET_CLASS_LONG_INDEX(-8i32);
-pub const GCL_STYLE: GET_CLASS_LONG_INDEX = GET_CLASS_LONG_INDEX(-26i32);
-pub const GCL_WNDPROC: GET_CLASS_LONG_INDEX = GET_CLASS_LONG_INDEX(-24i32);
-pub const GCLP_HBRBACKGROUND: GET_CLASS_LONG_INDEX = GET_CLASS_LONG_INDEX(-10i32);
-pub const GCLP_HCURSOR: GET_CLASS_LONG_INDEX = GET_CLASS_LONG_INDEX(-12i32);
-pub const GCLP_HICON: GET_CLASS_LONG_INDEX = GET_CLASS_LONG_INDEX(-14i32);
-pub const GCLP_HICONSM: GET_CLASS_LONG_INDEX = GET_CLASS_LONG_INDEX(-34i32);
-pub const GCLP_HMODULE: GET_CLASS_LONG_INDEX = GET_CLASS_LONG_INDEX(-16i32);
-pub const GCLP_MENUNAME: GET_CLASS_LONG_INDEX = GET_CLASS_LONG_INDEX(-8i32);
-pub const GCLP_WNDPROC: GET_CLASS_LONG_INDEX = GET_CLASS_LONG_INDEX(-24i32);
-impl ::core::marker::Copy for GET_CLASS_LONG_INDEX {}
-impl ::core::clone::Clone for GET_CLASS_LONG_INDEX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct GET_MENU_DEFAULT_ITEM_FLAGS(pub u32);
-pub const GMDI_GOINTOPOPUPS: GET_MENU_DEFAULT_ITEM_FLAGS = GET_MENU_DEFAULT_ITEM_FLAGS(2u32);
-pub const GMDI_USEDISABLED: GET_MENU_DEFAULT_ITEM_FLAGS = GET_MENU_DEFAULT_ITEM_FLAGS(1u32);
-impl ::core::marker::Copy for GET_MENU_DEFAULT_ITEM_FLAGS {}
-impl ::core::clone::Clone for GET_MENU_DEFAULT_ITEM_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct GET_WINDOW_CMD(pub u32);
-pub const GW_CHILD: GET_WINDOW_CMD = GET_WINDOW_CMD(5u32);
-pub const GW_ENABLEDPOPUP: GET_WINDOW_CMD = GET_WINDOW_CMD(6u32);
-pub const GW_HWNDFIRST: GET_WINDOW_CMD = GET_WINDOW_CMD(0u32);
-pub const GW_HWNDLAST: GET_WINDOW_CMD = GET_WINDOW_CMD(1u32);
-pub const GW_HWNDNEXT: GET_WINDOW_CMD = GET_WINDOW_CMD(2u32);
-pub const GW_HWNDPREV: GET_WINDOW_CMD = GET_WINDOW_CMD(3u32);
-pub const GW_OWNER: GET_WINDOW_CMD = GET_WINDOW_CMD(4u32);
-impl ::core::marker::Copy for GET_WINDOW_CMD {}
-impl ::core::clone::Clone for GET_WINDOW_CMD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const GA_PARENT: u32 = 1u32;
+pub const GA_ROOT: u32 = 2u32;
+pub const GA_ROOTOWNER: u32 = 3u32;
+pub const GCW_ATOM: i32 = -32i32;
+pub const GCL_CBCLSEXTRA: i32 = -20i32;
+pub const GCL_CBWNDEXTRA: i32 = -18i32;
+pub const GCL_HBRBACKGROUND: i32 = -10i32;
+pub const GCL_HCURSOR: i32 = -12i32;
+pub const GCL_HICON: i32 = -14i32;
+pub const GCL_HICONSM: i32 = -34i32;
+pub const GCL_HMODULE: i32 = -16i32;
+pub const GCL_MENUNAME: i32 = -8i32;
+pub const GCL_STYLE: i32 = -26i32;
+pub const GCL_WNDPROC: i32 = -24i32;
+pub const GCLP_HBRBACKGROUND: i32 = -10i32;
+pub const GCLP_HCURSOR: i32 = -12i32;
+pub const GCLP_HICON: i32 = -14i32;
+pub const GCLP_HICONSM: i32 = -34i32;
+pub const GCLP_HMODULE: i32 = -16i32;
+pub const GCLP_MENUNAME: i32 = -8i32;
+pub const GCLP_WNDPROC: i32 = -24i32;
+pub const GMDI_GOINTOPOPUPS: u32 = 2u32;
+pub const GMDI_USEDISABLED: u32 = 1u32;
+pub const GW_CHILD: u32 = 5u32;
+pub const GW_ENABLEDPOPUP: u32 = 6u32;
+pub const GW_HWNDFIRST: u32 = 0u32;
+pub const GW_HWNDLAST: u32 = 1u32;
+pub const GW_HWNDNEXT: u32 = 2u32;
+pub const GW_HWNDPREV: u32 = 3u32;
+pub const GW_OWNER: u32 = 4u32;
 pub const GF_BEGIN: u32 = 1u32;
 pub const GF_END: u32 = 4u32;
 pub const GF_INERTIA: u32 = 2u32;
@@ -1722,33 +1610,17 @@ impl ::core::clone::Clone for GUITHREADINFO {
         *self
     }
 }
-#[repr(transparent)]
-pub struct GUITHREADINFO_FLAGS(pub u32);
-pub const GUI_CARETBLINKING: GUITHREADINFO_FLAGS = GUITHREADINFO_FLAGS(1u32);
-pub const GUI_INMENUMODE: GUITHREADINFO_FLAGS = GUITHREADINFO_FLAGS(4u32);
-pub const GUI_INMOVESIZE: GUITHREADINFO_FLAGS = GUITHREADINFO_FLAGS(2u32);
-pub const GUI_POPUPMENUMODE: GUITHREADINFO_FLAGS = GUITHREADINFO_FLAGS(16u32);
-pub const GUI_SYSTEMMENUMODE: GUITHREADINFO_FLAGS = GUITHREADINFO_FLAGS(8u32);
-impl ::core::marker::Copy for GUITHREADINFO_FLAGS {}
-impl ::core::clone::Clone for GUITHREADINFO_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const GUI_CARETBLINKING: u32 = 1u32;
+pub const GUI_INMENUMODE: u32 = 4u32;
+pub const GUI_INMOVESIZE: u32 = 2u32;
+pub const GUI_POPUPMENUMODE: u32 = 16u32;
+pub const GUI_SYSTEMMENUMODE: u32 = 8u32;
 pub const GUI_16BITTASK: u32 = 0u32;
 pub const GWFS_INCLUDE_ANCESTORS: u32 = 1u32;
 pub const GW_MAX: u32 = 5u32;
 pub type HACCEL = isize;
-#[repr(transparent)]
-pub struct HANDEDNESS(pub i32);
-pub const HANDEDNESS_LEFT: HANDEDNESS = HANDEDNESS(0i32);
-pub const HANDEDNESS_RIGHT: HANDEDNESS = HANDEDNESS(1i32);
-impl ::core::marker::Copy for HANDEDNESS {}
-impl ::core::clone::Clone for HANDEDNESS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const HANDEDNESS_LEFT: i32 = 0i32;
+pub const HANDEDNESS_RIGHT: i32 = 1i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HARDWAREHOOKSTRUCT {
@@ -2055,26 +1927,18 @@ pub const IDI_WARNING: u32 = 32515u32;
 #[cfg(feature = "Win32_Foundation")]
 pub const IDI_WINLOGO: super::super::Foundation::PWSTR = super::super::Foundation::PWSTR(32517u32 as _);
 pub const IMAGE_ENHMETAFILE: u32 = 3u32;
-#[repr(transparent)]
-pub struct IMAGE_FLAGS(pub u32);
-pub const LR_CREATEDIBSECTION: IMAGE_FLAGS = IMAGE_FLAGS(8192u32);
-pub const LR_DEFAULTCOLOR: IMAGE_FLAGS = IMAGE_FLAGS(0u32);
-pub const LR_DEFAULTSIZE: IMAGE_FLAGS = IMAGE_FLAGS(64u32);
-pub const LR_LOADFROMFILE: IMAGE_FLAGS = IMAGE_FLAGS(16u32);
-pub const LR_LOADMAP3DCOLORS: IMAGE_FLAGS = IMAGE_FLAGS(4096u32);
-pub const LR_LOADTRANSPARENT: IMAGE_FLAGS = IMAGE_FLAGS(32u32);
-pub const LR_MONOCHROME: IMAGE_FLAGS = IMAGE_FLAGS(1u32);
-pub const LR_SHARED: IMAGE_FLAGS = IMAGE_FLAGS(32768u32);
-pub const LR_VGACOLOR: IMAGE_FLAGS = IMAGE_FLAGS(128u32);
-pub const LR_COPYDELETEORG: IMAGE_FLAGS = IMAGE_FLAGS(8u32);
-pub const LR_COPYFROMRESOURCE: IMAGE_FLAGS = IMAGE_FLAGS(16384u32);
-pub const LR_COPYRETURNORG: IMAGE_FLAGS = IMAGE_FLAGS(4u32);
-impl ::core::marker::Copy for IMAGE_FLAGS {}
-impl ::core::clone::Clone for IMAGE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const LR_CREATEDIBSECTION: u32 = 8192u32;
+pub const LR_DEFAULTCOLOR: u32 = 0u32;
+pub const LR_DEFAULTSIZE: u32 = 64u32;
+pub const LR_LOADFROMFILE: u32 = 16u32;
+pub const LR_LOADMAP3DCOLORS: u32 = 4096u32;
+pub const LR_LOADTRANSPARENT: u32 = 32u32;
+pub const LR_MONOCHROME: u32 = 1u32;
+pub const LR_SHARED: u32 = 32768u32;
+pub const LR_VGACOLOR: u32 = 128u32;
+pub const LR_COPYDELETEORG: u32 = 8u32;
+pub const LR_COPYFROMRESOURCE: u32 = 16384u32;
+pub const LR_COPYRETURNORG: u32 = 4u32;
 pub const INDEXID_CONTAINER: u32 = 0u32;
 pub const INDEXID_OBJECT: u32 = 0u32;
 pub const INPUTLANGCHANGE_BACKWARD: u32 = 4u32;
@@ -2117,19 +1981,11 @@ impl ::core::clone::Clone for KBDLLHOOKSTRUCT {
         *self
     }
 }
-#[repr(transparent)]
-pub struct KBDLLHOOKSTRUCT_FLAGS(pub u32);
-pub const LLKHF_EXTENDED: KBDLLHOOKSTRUCT_FLAGS = KBDLLHOOKSTRUCT_FLAGS(1u32);
-pub const LLKHF_ALTDOWN: KBDLLHOOKSTRUCT_FLAGS = KBDLLHOOKSTRUCT_FLAGS(32u32);
-pub const LLKHF_UP: KBDLLHOOKSTRUCT_FLAGS = KBDLLHOOKSTRUCT_FLAGS(128u32);
-pub const LLKHF_INJECTED: KBDLLHOOKSTRUCT_FLAGS = KBDLLHOOKSTRUCT_FLAGS(16u32);
-pub const LLKHF_LOWER_IL_INJECTED: KBDLLHOOKSTRUCT_FLAGS = KBDLLHOOKSTRUCT_FLAGS(2u32);
-impl ::core::marker::Copy for KBDLLHOOKSTRUCT_FLAGS {}
-impl ::core::clone::Clone for KBDLLHOOKSTRUCT_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const LLKHF_EXTENDED: u32 = 1u32;
+pub const LLKHF_ALTDOWN: u32 = 32u32;
+pub const LLKHF_UP: u32 = 128u32;
+pub const LLKHF_INJECTED: u32 = 16u32;
+pub const LLKHF_LOWER_IL_INJECTED: u32 = 2u32;
 pub const KF_ALTDOWN: u32 = 8192u32;
 pub const KF_DLGMODE: u32 = 2048u32;
 pub const KF_EXTENDED: u32 = 256u32;
@@ -2137,16 +1993,8 @@ pub const KF_MENUMODE: u32 = 4096u32;
 pub const KF_REPEAT: u32 = 16384u32;
 pub const KF_UP: u32 = 32768u32;
 pub const KL_NAMELENGTH: u32 = 9u32;
-#[repr(transparent)]
-pub struct LAYERED_WINDOW_ATTRIBUTES_FLAGS(pub u32);
-pub const LWA_ALPHA: LAYERED_WINDOW_ATTRIBUTES_FLAGS = LAYERED_WINDOW_ATTRIBUTES_FLAGS(2u32);
-pub const LWA_COLORKEY: LAYERED_WINDOW_ATTRIBUTES_FLAGS = LAYERED_WINDOW_ATTRIBUTES_FLAGS(1u32);
-impl ::core::marker::Copy for LAYERED_WINDOW_ATTRIBUTES_FLAGS {}
-impl ::core::clone::Clone for LAYERED_WINDOW_ATTRIBUTES_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const LWA_ALPHA: u32 = 2u32;
+pub const LWA_COLORKEY: u32 = 1u32;
 pub const LBN_DBLCLK: u32 = 2u32;
 pub const LBN_ERRSPACE: i32 = -2i32;
 pub const LBN_KILLFOCUS: u32 = 5u32;
@@ -2323,16 +2171,8 @@ impl ::core::clone::Clone for MENUGETOBJECTINFO {
         *self
     }
 }
-#[repr(transparent)]
-pub struct MENUGETOBJECTINFO_FLAGS(pub u32);
-pub const MNGOF_BOTTOMGAP: MENUGETOBJECTINFO_FLAGS = MENUGETOBJECTINFO_FLAGS(2u32);
-pub const MNGOF_TOPGAP: MENUGETOBJECTINFO_FLAGS = MENUGETOBJECTINFO_FLAGS(1u32);
-impl ::core::marker::Copy for MENUGETOBJECTINFO_FLAGS {}
-impl ::core::clone::Clone for MENUGETOBJECTINFO_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const MNGOF_BOTTOMGAP: u32 = 2u32;
+pub const MNGOF_TOPGAP: u32 = 1u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct MENUINFO {
@@ -2352,34 +2192,18 @@ impl ::core::clone::Clone for MENUINFO {
         *self
     }
 }
-#[repr(transparent)]
-pub struct MENUINFO_MASK(pub u32);
-pub const MIM_APPLYTOSUBMENUS: MENUINFO_MASK = MENUINFO_MASK(2147483648u32);
-pub const MIM_BACKGROUND: MENUINFO_MASK = MENUINFO_MASK(2u32);
-pub const MIM_HELPID: MENUINFO_MASK = MENUINFO_MASK(4u32);
-pub const MIM_MAXHEIGHT: MENUINFO_MASK = MENUINFO_MASK(1u32);
-pub const MIM_MENUDATA: MENUINFO_MASK = MENUINFO_MASK(8u32);
-pub const MIM_STYLE: MENUINFO_MASK = MENUINFO_MASK(16u32);
-impl ::core::marker::Copy for MENUINFO_MASK {}
-impl ::core::clone::Clone for MENUINFO_MASK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct MENUINFO_STYLE(pub u32);
-pub const MNS_AUTODISMISS: MENUINFO_STYLE = MENUINFO_STYLE(268435456u32);
-pub const MNS_CHECKORBMP: MENUINFO_STYLE = MENUINFO_STYLE(67108864u32);
-pub const MNS_DRAGDROP: MENUINFO_STYLE = MENUINFO_STYLE(536870912u32);
-pub const MNS_MODELESS: MENUINFO_STYLE = MENUINFO_STYLE(1073741824u32);
-pub const MNS_NOCHECK: MENUINFO_STYLE = MENUINFO_STYLE(2147483648u32);
-pub const MNS_NOTIFYBYPOS: MENUINFO_STYLE = MENUINFO_STYLE(134217728u32);
-impl ::core::marker::Copy for MENUINFO_STYLE {}
-impl ::core::clone::Clone for MENUINFO_STYLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const MIM_APPLYTOSUBMENUS: u32 = 2147483648u32;
+pub const MIM_BACKGROUND: u32 = 2u32;
+pub const MIM_HELPID: u32 = 4u32;
+pub const MIM_MAXHEIGHT: u32 = 1u32;
+pub const MIM_MENUDATA: u32 = 8u32;
+pub const MIM_STYLE: u32 = 16u32;
+pub const MNS_AUTODISMISS: u32 = 268435456u32;
+pub const MNS_CHECKORBMP: u32 = 67108864u32;
+pub const MNS_DRAGDROP: u32 = 536870912u32;
+pub const MNS_MODELESS: u32 = 1073741824u32;
+pub const MNS_NOCHECK: u32 = 2147483648u32;
+pub const MNS_NOTIFYBYPOS: u32 = 134217728u32;
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct MENUITEMINFOA {
@@ -2451,158 +2275,110 @@ impl ::core::clone::Clone for MENUITEMTEMPLATEHEADER {
         *self
     }
 }
-#[repr(transparent)]
-pub struct MENU_ITEM_FLAGS(pub u32);
-pub const MF_BYCOMMAND: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(0u32);
-pub const MF_BYPOSITION: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(1024u32);
-pub const MF_BITMAP: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(4u32);
-pub const MF_CHECKED: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(8u32);
-pub const MF_DISABLED: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(2u32);
-pub const MF_ENABLED: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(0u32);
-pub const MF_GRAYED: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(1u32);
-pub const MF_MENUBARBREAK: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(32u32);
-pub const MF_MENUBREAK: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(64u32);
-pub const MF_OWNERDRAW: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(256u32);
-pub const MF_POPUP: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(16u32);
-pub const MF_SEPARATOR: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(2048u32);
-pub const MF_STRING: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(0u32);
-pub const MF_UNCHECKED: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(0u32);
-pub const MF_INSERT: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(0u32);
-pub const MF_CHANGE: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(128u32);
-pub const MF_APPEND: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(256u32);
-pub const MF_DELETE: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(512u32);
-pub const MF_REMOVE: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(4096u32);
-pub const MF_USECHECKBITMAPS: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(512u32);
-pub const MF_UNHILITE: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(0u32);
-pub const MF_HILITE: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(128u32);
-pub const MF_DEFAULT: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(4096u32);
-pub const MF_SYSMENU: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(8192u32);
-pub const MF_HELP: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(16384u32);
-pub const MF_RIGHTJUSTIFY: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(16384u32);
-pub const MF_MOUSESELECT: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(32768u32);
-pub const MF_END: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(128u32);
-impl ::core::marker::Copy for MENU_ITEM_FLAGS {}
-impl ::core::clone::Clone for MENU_ITEM_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct MENU_ITEM_MASK(pub u32);
-pub const MIIM_BITMAP: MENU_ITEM_MASK = MENU_ITEM_MASK(128u32);
-pub const MIIM_CHECKMARKS: MENU_ITEM_MASK = MENU_ITEM_MASK(8u32);
-pub const MIIM_DATA: MENU_ITEM_MASK = MENU_ITEM_MASK(32u32);
-pub const MIIM_FTYPE: MENU_ITEM_MASK = MENU_ITEM_MASK(256u32);
-pub const MIIM_ID: MENU_ITEM_MASK = MENU_ITEM_MASK(2u32);
-pub const MIIM_STATE: MENU_ITEM_MASK = MENU_ITEM_MASK(1u32);
-pub const MIIM_STRING: MENU_ITEM_MASK = MENU_ITEM_MASK(64u32);
-pub const MIIM_SUBMENU: MENU_ITEM_MASK = MENU_ITEM_MASK(4u32);
-pub const MIIM_TYPE: MENU_ITEM_MASK = MENU_ITEM_MASK(16u32);
-impl ::core::marker::Copy for MENU_ITEM_MASK {}
-impl ::core::clone::Clone for MENU_ITEM_MASK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct MENU_ITEM_STATE(pub u32);
-pub const MFS_GRAYED: MENU_ITEM_STATE = MENU_ITEM_STATE(3u32);
-pub const MFS_DISABLED: MENU_ITEM_STATE = MENU_ITEM_STATE(3u32);
-pub const MFS_CHECKED: MENU_ITEM_STATE = MENU_ITEM_STATE(8u32);
-pub const MFS_HILITE: MENU_ITEM_STATE = MENU_ITEM_STATE(128u32);
-pub const MFS_ENABLED: MENU_ITEM_STATE = MENU_ITEM_STATE(0u32);
-pub const MFS_UNCHECKED: MENU_ITEM_STATE = MENU_ITEM_STATE(0u32);
-pub const MFS_UNHILITE: MENU_ITEM_STATE = MENU_ITEM_STATE(0u32);
-pub const MFS_DEFAULT: MENU_ITEM_STATE = MENU_ITEM_STATE(4096u32);
-impl ::core::marker::Copy for MENU_ITEM_STATE {}
-impl ::core::clone::Clone for MENU_ITEM_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct MENU_ITEM_TYPE(pub u32);
-pub const MFT_BITMAP: MENU_ITEM_TYPE = MENU_ITEM_TYPE(4u32);
-pub const MFT_MENUBARBREAK: MENU_ITEM_TYPE = MENU_ITEM_TYPE(32u32);
-pub const MFT_MENUBREAK: MENU_ITEM_TYPE = MENU_ITEM_TYPE(64u32);
-pub const MFT_OWNERDRAW: MENU_ITEM_TYPE = MENU_ITEM_TYPE(256u32);
-pub const MFT_RADIOCHECK: MENU_ITEM_TYPE = MENU_ITEM_TYPE(512u32);
-pub const MFT_RIGHTJUSTIFY: MENU_ITEM_TYPE = MENU_ITEM_TYPE(16384u32);
-pub const MFT_RIGHTORDER: MENU_ITEM_TYPE = MENU_ITEM_TYPE(8192u32);
-pub const MFT_SEPARATOR: MENU_ITEM_TYPE = MENU_ITEM_TYPE(2048u32);
-pub const MFT_STRING: MENU_ITEM_TYPE = MENU_ITEM_TYPE(0u32);
-impl ::core::marker::Copy for MENU_ITEM_TYPE {}
-impl ::core::clone::Clone for MENU_ITEM_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct MESSAGEBOX_RESULT(pub i32);
-pub const IDOK: MESSAGEBOX_RESULT = MESSAGEBOX_RESULT(1i32);
-pub const IDCANCEL: MESSAGEBOX_RESULT = MESSAGEBOX_RESULT(2i32);
-pub const IDABORT: MESSAGEBOX_RESULT = MESSAGEBOX_RESULT(3i32);
-pub const IDRETRY: MESSAGEBOX_RESULT = MESSAGEBOX_RESULT(4i32);
-pub const IDIGNORE: MESSAGEBOX_RESULT = MESSAGEBOX_RESULT(5i32);
-pub const IDYES: MESSAGEBOX_RESULT = MESSAGEBOX_RESULT(6i32);
-pub const IDNO: MESSAGEBOX_RESULT = MESSAGEBOX_RESULT(7i32);
-pub const IDCLOSE: MESSAGEBOX_RESULT = MESSAGEBOX_RESULT(8i32);
-pub const IDHELP: MESSAGEBOX_RESULT = MESSAGEBOX_RESULT(9i32);
-pub const IDTRYAGAIN: MESSAGEBOX_RESULT = MESSAGEBOX_RESULT(10i32);
-pub const IDCONTINUE: MESSAGEBOX_RESULT = MESSAGEBOX_RESULT(11i32);
-pub const IDASYNC: MESSAGEBOX_RESULT = MESSAGEBOX_RESULT(32001i32);
-pub const IDTIMEOUT: MESSAGEBOX_RESULT = MESSAGEBOX_RESULT(32000i32);
-impl ::core::marker::Copy for MESSAGEBOX_RESULT {}
-impl ::core::clone::Clone for MESSAGEBOX_RESULT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct MESSAGEBOX_STYLE(pub u32);
-pub const MB_ABORTRETRYIGNORE: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(2u32);
-pub const MB_CANCELTRYCONTINUE: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(6u32);
-pub const MB_HELP: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(16384u32);
-pub const MB_OK: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(0u32);
-pub const MB_OKCANCEL: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(1u32);
-pub const MB_RETRYCANCEL: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(5u32);
-pub const MB_YESNO: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(4u32);
-pub const MB_YESNOCANCEL: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(3u32);
-pub const MB_ICONHAND: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(16u32);
-pub const MB_ICONQUESTION: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(32u32);
-pub const MB_ICONEXCLAMATION: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(48u32);
-pub const MB_ICONASTERISK: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(64u32);
-pub const MB_USERICON: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(128u32);
-pub const MB_ICONWARNING: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(48u32);
-pub const MB_ICONERROR: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(16u32);
-pub const MB_ICONINFORMATION: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(64u32);
-pub const MB_ICONSTOP: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(16u32);
-pub const MB_DEFBUTTON1: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(0u32);
-pub const MB_DEFBUTTON2: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(256u32);
-pub const MB_DEFBUTTON3: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(512u32);
-pub const MB_DEFBUTTON4: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(768u32);
-pub const MB_APPLMODAL: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(0u32);
-pub const MB_SYSTEMMODAL: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(4096u32);
-pub const MB_TASKMODAL: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(8192u32);
-pub const MB_NOFOCUS: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(32768u32);
-pub const MB_SETFOREGROUND: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(65536u32);
-pub const MB_DEFAULT_DESKTOP_ONLY: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(131072u32);
-pub const MB_TOPMOST: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(262144u32);
-pub const MB_RIGHT: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(524288u32);
-pub const MB_RTLREADING: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(1048576u32);
-pub const MB_SERVICE_NOTIFICATION: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(2097152u32);
-pub const MB_SERVICE_NOTIFICATION_NT3X: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(262144u32);
-pub const MB_TYPEMASK: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(15u32);
-pub const MB_ICONMASK: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(240u32);
-pub const MB_DEFMASK: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(3840u32);
-pub const MB_MODEMASK: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(12288u32);
-pub const MB_MISCMASK: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(49152u32);
-impl ::core::marker::Copy for MESSAGEBOX_STYLE {}
-impl ::core::clone::Clone for MESSAGEBOX_STYLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const MF_BYCOMMAND: u32 = 0u32;
+pub const MF_BYPOSITION: u32 = 1024u32;
+pub const MF_BITMAP: u32 = 4u32;
+pub const MF_CHECKED: u32 = 8u32;
+pub const MF_DISABLED: u32 = 2u32;
+pub const MF_ENABLED: u32 = 0u32;
+pub const MF_GRAYED: u32 = 1u32;
+pub const MF_MENUBARBREAK: u32 = 32u32;
+pub const MF_MENUBREAK: u32 = 64u32;
+pub const MF_OWNERDRAW: u32 = 256u32;
+pub const MF_POPUP: u32 = 16u32;
+pub const MF_SEPARATOR: u32 = 2048u32;
+pub const MF_STRING: u32 = 0u32;
+pub const MF_UNCHECKED: u32 = 0u32;
+pub const MF_INSERT: u32 = 0u32;
+pub const MF_CHANGE: u32 = 128u32;
+pub const MF_APPEND: u32 = 256u32;
+pub const MF_DELETE: u32 = 512u32;
+pub const MF_REMOVE: u32 = 4096u32;
+pub const MF_USECHECKBITMAPS: u32 = 512u32;
+pub const MF_UNHILITE: u32 = 0u32;
+pub const MF_HILITE: u32 = 128u32;
+pub const MF_DEFAULT: u32 = 4096u32;
+pub const MF_SYSMENU: u32 = 8192u32;
+pub const MF_HELP: u32 = 16384u32;
+pub const MF_RIGHTJUSTIFY: u32 = 16384u32;
+pub const MF_MOUSESELECT: u32 = 32768u32;
+pub const MF_END: u32 = 128u32;
+pub const MIIM_BITMAP: u32 = 128u32;
+pub const MIIM_CHECKMARKS: u32 = 8u32;
+pub const MIIM_DATA: u32 = 32u32;
+pub const MIIM_FTYPE: u32 = 256u32;
+pub const MIIM_ID: u32 = 2u32;
+pub const MIIM_STATE: u32 = 1u32;
+pub const MIIM_STRING: u32 = 64u32;
+pub const MIIM_SUBMENU: u32 = 4u32;
+pub const MIIM_TYPE: u32 = 16u32;
+pub const MFS_GRAYED: u32 = 3u32;
+pub const MFS_DISABLED: u32 = 3u32;
+pub const MFS_CHECKED: u32 = 8u32;
+pub const MFS_HILITE: u32 = 128u32;
+pub const MFS_ENABLED: u32 = 0u32;
+pub const MFS_UNCHECKED: u32 = 0u32;
+pub const MFS_UNHILITE: u32 = 0u32;
+pub const MFS_DEFAULT: u32 = 4096u32;
+pub const MFT_BITMAP: u32 = 4u32;
+pub const MFT_MENUBARBREAK: u32 = 32u32;
+pub const MFT_MENUBREAK: u32 = 64u32;
+pub const MFT_OWNERDRAW: u32 = 256u32;
+pub const MFT_RADIOCHECK: u32 = 512u32;
+pub const MFT_RIGHTJUSTIFY: u32 = 16384u32;
+pub const MFT_RIGHTORDER: u32 = 8192u32;
+pub const MFT_SEPARATOR: u32 = 2048u32;
+pub const MFT_STRING: u32 = 0u32;
+pub const IDOK: i32 = 1i32;
+pub const IDCANCEL: i32 = 2i32;
+pub const IDABORT: i32 = 3i32;
+pub const IDRETRY: i32 = 4i32;
+pub const IDIGNORE: i32 = 5i32;
+pub const IDYES: i32 = 6i32;
+pub const IDNO: i32 = 7i32;
+pub const IDCLOSE: i32 = 8i32;
+pub const IDHELP: i32 = 9i32;
+pub const IDTRYAGAIN: i32 = 10i32;
+pub const IDCONTINUE: i32 = 11i32;
+pub const IDASYNC: i32 = 32001i32;
+pub const IDTIMEOUT: i32 = 32000i32;
+pub const MB_ABORTRETRYIGNORE: u32 = 2u32;
+pub const MB_CANCELTRYCONTINUE: u32 = 6u32;
+pub const MB_HELP: u32 = 16384u32;
+pub const MB_OK: u32 = 0u32;
+pub const MB_OKCANCEL: u32 = 1u32;
+pub const MB_RETRYCANCEL: u32 = 5u32;
+pub const MB_YESNO: u32 = 4u32;
+pub const MB_YESNOCANCEL: u32 = 3u32;
+pub const MB_ICONHAND: u32 = 16u32;
+pub const MB_ICONQUESTION: u32 = 32u32;
+pub const MB_ICONEXCLAMATION: u32 = 48u32;
+pub const MB_ICONASTERISK: u32 = 64u32;
+pub const MB_USERICON: u32 = 128u32;
+pub const MB_ICONWARNING: u32 = 48u32;
+pub const MB_ICONERROR: u32 = 16u32;
+pub const MB_ICONINFORMATION: u32 = 64u32;
+pub const MB_ICONSTOP: u32 = 16u32;
+pub const MB_DEFBUTTON1: u32 = 0u32;
+pub const MB_DEFBUTTON2: u32 = 256u32;
+pub const MB_DEFBUTTON3: u32 = 512u32;
+pub const MB_DEFBUTTON4: u32 = 768u32;
+pub const MB_APPLMODAL: u32 = 0u32;
+pub const MB_SYSTEMMODAL: u32 = 4096u32;
+pub const MB_TASKMODAL: u32 = 8192u32;
+pub const MB_NOFOCUS: u32 = 32768u32;
+pub const MB_SETFOREGROUND: u32 = 65536u32;
+pub const MB_DEFAULT_DESKTOP_ONLY: u32 = 131072u32;
+pub const MB_TOPMOST: u32 = 262144u32;
+pub const MB_RIGHT: u32 = 524288u32;
+pub const MB_RTLREADING: u32 = 1048576u32;
+pub const MB_SERVICE_NOTIFICATION: u32 = 2097152u32;
+pub const MB_SERVICE_NOTIFICATION_NT3X: u32 = 262144u32;
+pub const MB_TYPEMASK: u32 = 15u32;
+pub const MB_ICONMASK: u32 = 240u32;
+pub const MB_DEFMASK: u32 = 3840u32;
+pub const MB_MODEMASK: u32 = 12288u32;
+pub const MB_MISCMASK: u32 = 49152u32;
 #[repr(C)]
 pub struct MESSAGE_RESOURCE_BLOCK {
     pub LowId: u32,
@@ -2653,18 +2429,10 @@ impl ::core::clone::Clone for MINIMIZEDMETRICS {
         *self
     }
 }
-#[repr(transparent)]
-pub struct MINIMIZEDMETRICS_ARRANGE(pub i32);
-pub const ARW_BOTTOMLEFT: MINIMIZEDMETRICS_ARRANGE = MINIMIZEDMETRICS_ARRANGE(0i32);
-pub const ARW_BOTTOMRIGHT: MINIMIZEDMETRICS_ARRANGE = MINIMIZEDMETRICS_ARRANGE(1i32);
-pub const ARW_TOPLEFT: MINIMIZEDMETRICS_ARRANGE = MINIMIZEDMETRICS_ARRANGE(2i32);
-pub const ARW_TOPRIGHT: MINIMIZEDMETRICS_ARRANGE = MINIMIZEDMETRICS_ARRANGE(3i32);
-impl ::core::marker::Copy for MINIMIZEDMETRICS_ARRANGE {}
-impl ::core::clone::Clone for MINIMIZEDMETRICS_ARRANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const ARW_BOTTOMLEFT: i32 = 0i32;
+pub const ARW_BOTTOMRIGHT: i32 = 1i32;
+pub const ARW_TOPLEFT: i32 = 2i32;
+pub const ARW_TOPRIGHT: i32 = 3i32;
 pub const MINIMUM_RESERVED_MANIFEST_RESOURCE_ID: u32 = 1u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -2744,16 +2512,8 @@ impl ::core::clone::Clone for MOUSEHOOKSTRUCTEX {
         *self
     }
 }
-#[repr(transparent)]
-pub struct MOUSEHOOKSTRUCTEX_MOUSE_DATA(pub u32);
-pub const XBUTTON1: MOUSEHOOKSTRUCTEX_MOUSE_DATA = MOUSEHOOKSTRUCTEX_MOUSE_DATA(1u32);
-pub const XBUTTON2: MOUSEHOOKSTRUCTEX_MOUSE_DATA = MOUSEHOOKSTRUCTEX_MOUSE_DATA(2u32);
-impl ::core::marker::Copy for MOUSEHOOKSTRUCTEX_MOUSE_DATA {}
-impl ::core::clone::Clone for MOUSEHOOKSTRUCTEX_MOUSE_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const XBUTTON1: u32 = 1u32;
+pub const XBUTTON2: u32 = 2u32;
 pub const MOUSEWHEEL_ROUTING_FOCUS: u32 = 0u32;
 pub const MOUSEWHEEL_ROUTING_HYBRID: u32 = 1u32;
 pub const MOUSEWHEEL_ROUTING_MOUSE_POS: u32 = 2u32;
@@ -2821,18 +2581,10 @@ impl ::core::clone::Clone for MSGBOXPARAMSW {
         *self
     }
 }
-#[repr(transparent)]
-pub struct MSGFLTINFO_STATUS(pub u32);
-pub const MSGFLTINFO_NONE: MSGFLTINFO_STATUS = MSGFLTINFO_STATUS(0u32);
-pub const MSGFLTINFO_ALLOWED_HIGHER: MSGFLTINFO_STATUS = MSGFLTINFO_STATUS(3u32);
-pub const MSGFLTINFO_ALREADYALLOWED_FORWND: MSGFLTINFO_STATUS = MSGFLTINFO_STATUS(1u32);
-pub const MSGFLTINFO_ALREADYDISALLOWED_FORWND: MSGFLTINFO_STATUS = MSGFLTINFO_STATUS(2u32);
-impl ::core::marker::Copy for MSGFLTINFO_STATUS {}
-impl ::core::clone::Clone for MSGFLTINFO_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const MSGFLTINFO_NONE: u32 = 0u32;
+pub const MSGFLTINFO_ALLOWED_HIGHER: u32 = 3u32;
+pub const MSGFLTINFO_ALREADYALLOWED_FORWND: u32 = 1u32;
+pub const MSGFLTINFO_ALREADYDISALLOWED_FORWND: u32 = 2u32;
 pub const MSGF_DIALOGBOX: u32 = 0u32;
 pub const MSGF_MAX: u32 = 8u32;
 pub const MSGF_MENU: u32 = 2u32;
@@ -2840,18 +2592,10 @@ pub const MSGF_MESSAGEBOX: u32 = 1u32;
 pub const MSGF_NEXTWINDOW: u32 = 6u32;
 pub const MSGF_SCROLLBAR: u32 = 5u32;
 pub const MSGF_USER: u32 = 4096u32;
-#[repr(transparent)]
-pub struct MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS(pub u32);
-pub const MWMO_NONE: MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS = MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS(0u32);
-pub const MWMO_ALERTABLE: MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS = MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS(2u32);
-pub const MWMO_INPUTAVAILABLE: MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS = MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS(4u32);
-pub const MWMO_WAITALL: MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS = MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS(1u32);
-impl ::core::marker::Copy for MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS {}
-impl ::core::clone::Clone for MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const MWMO_NONE: u32 = 0u32;
+pub const MWMO_ALERTABLE: u32 = 2u32;
+pub const MWMO_INPUTAVAILABLE: u32 = 4u32;
+pub const MWMO_WAITALL: u32 = 1u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MSLLHOOKSTRUCT {
@@ -2869,61 +2613,21 @@ impl ::core::clone::Clone for MSLLHOOKSTRUCT {
         *self
     }
 }
-#[repr(transparent)]
-pub struct MrmDumpType(pub i32);
-pub const MrmDumpType_Basic: MrmDumpType = MrmDumpType(0i32);
-pub const MrmDumpType_Detailed: MrmDumpType = MrmDumpType(1i32);
-pub const MrmDumpType_Schema: MrmDumpType = MrmDumpType(2i32);
-impl ::core::marker::Copy for MrmDumpType {}
-impl ::core::clone::Clone for MrmDumpType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct MrmIndexerFlags(pub i32);
-pub const MrmIndexerFlagsNone: MrmIndexerFlags = MrmIndexerFlags(0i32);
-pub const MrmIndexerFlagsAutoMerge: MrmIndexerFlags = MrmIndexerFlags(1i32);
-pub const MrmIndexerFlagsCreateContentChecksum: MrmIndexerFlags = MrmIndexerFlags(2i32);
-impl ::core::marker::Copy for MrmIndexerFlags {}
-impl ::core::clone::Clone for MrmIndexerFlags {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct MrmPackagingMode(pub i32);
-pub const MrmPackagingModeStandaloneFile: MrmPackagingMode = MrmPackagingMode(0i32);
-pub const MrmPackagingModeAutoSplit: MrmPackagingMode = MrmPackagingMode(1i32);
-pub const MrmPackagingModeResourcePack: MrmPackagingMode = MrmPackagingMode(2i32);
-impl ::core::marker::Copy for MrmPackagingMode {}
-impl ::core::clone::Clone for MrmPackagingMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct MrmPackagingOptions(pub i32);
-pub const MrmPackagingOptionsNone: MrmPackagingOptions = MrmPackagingOptions(0i32);
-pub const MrmPackagingOptionsOmitSchemaFromResourcePacks: MrmPackagingOptions = MrmPackagingOptions(1i32);
-pub const MrmPackagingOptionsSplitLanguageVariants: MrmPackagingOptions = MrmPackagingOptions(2i32);
-impl ::core::marker::Copy for MrmPackagingOptions {}
-impl ::core::clone::Clone for MrmPackagingOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct MrmPlatformVersion(pub i32);
-pub const MrmPlatformVersion_Default: MrmPlatformVersion = MrmPlatformVersion(0i32);
-pub const MrmPlatformVersion_Windows10_0_0_0: MrmPlatformVersion = MrmPlatformVersion(17432576i32);
-pub const MrmPlatformVersion_Windows10_0_0_5: MrmPlatformVersion = MrmPlatformVersion(17432581i32);
-impl ::core::marker::Copy for MrmPlatformVersion {}
-impl ::core::clone::Clone for MrmPlatformVersion {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const MrmDumpType_Basic: i32 = 0i32;
+pub const MrmDumpType_Detailed: i32 = 1i32;
+pub const MrmDumpType_Schema: i32 = 2i32;
+pub const MrmIndexerFlagsNone: i32 = 0i32;
+pub const MrmIndexerFlagsAutoMerge: i32 = 1i32;
+pub const MrmIndexerFlagsCreateContentChecksum: i32 = 2i32;
+pub const MrmPackagingModeStandaloneFile: i32 = 0i32;
+pub const MrmPackagingModeAutoSplit: i32 = 1i32;
+pub const MrmPackagingModeResourcePack: i32 = 2i32;
+pub const MrmPackagingOptionsNone: i32 = 0i32;
+pub const MrmPackagingOptionsOmitSchemaFromResourcePacks: i32 = 1i32;
+pub const MrmPackagingOptionsSplitLanguageVariants: i32 = 2i32;
+pub const MrmPlatformVersion_Default: i32 = 0i32;
+pub const MrmPlatformVersion_Windows10_0_0_0: i32 = 17432576i32;
+pub const MrmPlatformVersion_Windows10_0_0_5: i32 = 17432581i32;
 #[repr(C)]
 pub struct MrmResourceIndexerHandle {
     pub handle: *mut ::core::ffi::c_void,
@@ -2949,18 +2653,10 @@ impl ::core::clone::Clone for MrmResourceIndexerMessage {
         *self
     }
 }
-#[repr(transparent)]
-pub struct MrmResourceIndexerMessageSeverity(pub i32);
-pub const MrmResourceIndexerMessageSeverityVerbose: MrmResourceIndexerMessageSeverity = MrmResourceIndexerMessageSeverity(0i32);
-pub const MrmResourceIndexerMessageSeverityInfo: MrmResourceIndexerMessageSeverity = MrmResourceIndexerMessageSeverity(1i32);
-pub const MrmResourceIndexerMessageSeverityWarning: MrmResourceIndexerMessageSeverity = MrmResourceIndexerMessageSeverity(2i32);
-pub const MrmResourceIndexerMessageSeverityError: MrmResourceIndexerMessageSeverity = MrmResourceIndexerMessageSeverity(3i32);
-impl ::core::marker::Copy for MrmResourceIndexerMessageSeverity {}
-impl ::core::clone::Clone for MrmResourceIndexerMessageSeverity {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const MrmResourceIndexerMessageSeverityVerbose: i32 = 0i32;
+pub const MrmResourceIndexerMessageSeverityInfo: i32 = 1i32;
+pub const MrmResourceIndexerMessageSeverityWarning: i32 = 2i32;
+pub const MrmResourceIndexerMessageSeverityError: i32 = 3i32;
 #[cfg(feature = "Win32_Foundation")]
 pub type NAMEENUMPROCA = unsafe extern "system" fn(param0: super::super::Foundation::PSTR, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
@@ -3045,28 +2741,20 @@ impl ::core::clone::Clone for NONCLIENTMETRICSW {
         *self
     }
 }
-#[repr(transparent)]
-pub struct OBJECT_IDENTIFIER(pub i32);
-pub const OBJID_WINDOW: OBJECT_IDENTIFIER = OBJECT_IDENTIFIER(0i32);
-pub const OBJID_SYSMENU: OBJECT_IDENTIFIER = OBJECT_IDENTIFIER(-1i32);
-pub const OBJID_TITLEBAR: OBJECT_IDENTIFIER = OBJECT_IDENTIFIER(-2i32);
-pub const OBJID_MENU: OBJECT_IDENTIFIER = OBJECT_IDENTIFIER(-3i32);
-pub const OBJID_CLIENT: OBJECT_IDENTIFIER = OBJECT_IDENTIFIER(-4i32);
-pub const OBJID_VSCROLL: OBJECT_IDENTIFIER = OBJECT_IDENTIFIER(-5i32);
-pub const OBJID_HSCROLL: OBJECT_IDENTIFIER = OBJECT_IDENTIFIER(-6i32);
-pub const OBJID_SIZEGRIP: OBJECT_IDENTIFIER = OBJECT_IDENTIFIER(-7i32);
-pub const OBJID_CARET: OBJECT_IDENTIFIER = OBJECT_IDENTIFIER(-8i32);
-pub const OBJID_CURSOR: OBJECT_IDENTIFIER = OBJECT_IDENTIFIER(-9i32);
-pub const OBJID_ALERT: OBJECT_IDENTIFIER = OBJECT_IDENTIFIER(-10i32);
-pub const OBJID_SOUND: OBJECT_IDENTIFIER = OBJECT_IDENTIFIER(-11i32);
-pub const OBJID_QUERYCLASSNAMEIDX: OBJECT_IDENTIFIER = OBJECT_IDENTIFIER(-12i32);
-pub const OBJID_NATIVEOM: OBJECT_IDENTIFIER = OBJECT_IDENTIFIER(-16i32);
-impl ::core::marker::Copy for OBJECT_IDENTIFIER {}
-impl ::core::clone::Clone for OBJECT_IDENTIFIER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const OBJID_WINDOW: i32 = 0i32;
+pub const OBJID_SYSMENU: i32 = -1i32;
+pub const OBJID_TITLEBAR: i32 = -2i32;
+pub const OBJID_MENU: i32 = -3i32;
+pub const OBJID_CLIENT: i32 = -4i32;
+pub const OBJID_VSCROLL: i32 = -5i32;
+pub const OBJID_HSCROLL: i32 = -6i32;
+pub const OBJID_SIZEGRIP: i32 = -7i32;
+pub const OBJID_CARET: i32 = -8i32;
+pub const OBJID_CURSOR: i32 = -9i32;
+pub const OBJID_ALERT: i32 = -10i32;
+pub const OBJID_SOUND: i32 = -11i32;
+pub const OBJID_QUERYCLASSNAMEIDX: i32 = -12i32;
+pub const OBJID_NATIVEOM: i32 = -16i32;
 pub const OBM_BTNCORNERS: u32 = 32758u32;
 pub const OBM_BTSIZE: u32 = 32761u32;
 pub const OBM_CHECK: u32 = 32760u32;
@@ -3158,21 +2846,13 @@ pub const PDC_ORIENTATION_90: u32 = 8u32;
 pub const PDC_ORIGIN: u32 = 1024u32;
 pub const PDC_REMOVAL: u32 = 2u32;
 pub const PDC_RESOLUTION: u32 = 512u32;
-#[repr(transparent)]
-pub struct PEEK_MESSAGE_REMOVE_TYPE(pub u32);
-pub const PM_NOREMOVE: PEEK_MESSAGE_REMOVE_TYPE = PEEK_MESSAGE_REMOVE_TYPE(0u32);
-pub const PM_REMOVE: PEEK_MESSAGE_REMOVE_TYPE = PEEK_MESSAGE_REMOVE_TYPE(1u32);
-pub const PM_NOYIELD: PEEK_MESSAGE_REMOVE_TYPE = PEEK_MESSAGE_REMOVE_TYPE(2u32);
-pub const PM_QS_INPUT: PEEK_MESSAGE_REMOVE_TYPE = PEEK_MESSAGE_REMOVE_TYPE(67567616u32);
-pub const PM_QS_POSTMESSAGE: PEEK_MESSAGE_REMOVE_TYPE = PEEK_MESSAGE_REMOVE_TYPE(9961472u32);
-pub const PM_QS_PAINT: PEEK_MESSAGE_REMOVE_TYPE = PEEK_MESSAGE_REMOVE_TYPE(2097152u32);
-pub const PM_QS_SENDMESSAGE: PEEK_MESSAGE_REMOVE_TYPE = PEEK_MESSAGE_REMOVE_TYPE(4194304u32);
-impl ::core::marker::Copy for PEEK_MESSAGE_REMOVE_TYPE {}
-impl ::core::clone::Clone for PEEK_MESSAGE_REMOVE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const PM_NOREMOVE: u32 = 0u32;
+pub const PM_REMOVE: u32 = 1u32;
+pub const PM_NOYIELD: u32 = 2u32;
+pub const PM_QS_INPUT: u32 = 67567616u32;
+pub const PM_QS_POSTMESSAGE: u32 = 9961472u32;
+pub const PM_QS_PAINT: u32 = 2097152u32;
+pub const PM_QS_SENDMESSAGE: u32 = 4194304u32;
 pub const PENARBITRATIONTYPE_FIS: u32 = 2u32;
 pub const PENARBITRATIONTYPE_MAX: u32 = 4u32;
 pub const PENARBITRATIONTYPE_NONE: u32 = 0u32;
@@ -3194,19 +2874,11 @@ pub const PEN_MASK_TILT_X: u32 = 4u32;
 pub const PEN_MASK_TILT_Y: u32 = 8u32;
 pub const PMB_ACTIVE: u32 = 1u32;
 pub const POINTER_DEVICE_PRODUCT_STRING_MAX: u32 = 520u32;
-#[repr(transparent)]
-pub struct POINTER_INPUT_TYPE(pub i32);
-pub const PT_POINTER: POINTER_INPUT_TYPE = POINTER_INPUT_TYPE(1i32);
-pub const PT_TOUCH: POINTER_INPUT_TYPE = POINTER_INPUT_TYPE(2i32);
-pub const PT_PEN: POINTER_INPUT_TYPE = POINTER_INPUT_TYPE(3i32);
-pub const PT_MOUSE: POINTER_INPUT_TYPE = POINTER_INPUT_TYPE(4i32);
-pub const PT_TOUCHPAD: POINTER_INPUT_TYPE = POINTER_INPUT_TYPE(5i32);
-impl ::core::marker::Copy for POINTER_INPUT_TYPE {}
-impl ::core::clone::Clone for POINTER_INPUT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const PT_POINTER: i32 = 1i32;
+pub const PT_TOUCH: i32 = 2i32;
+pub const PT_PEN: i32 = 3i32;
+pub const PT_MOUSE: i32 = 4i32;
+pub const PT_TOUCHPAD: i32 = 5i32;
 pub const POINTER_MESSAGE_FLAG_CANCELED: u32 = 32768u32;
 pub const POINTER_MESSAGE_FLAG_CONFIDENCE: u32 = 16384u32;
 pub const POINTER_MESSAGE_FLAG_FIFTHBUTTON: u32 = 256u32;
@@ -3244,28 +2916,20 @@ pub const PWR_SUSPENDRESUME: u32 = 2u32;
 pub const PW_RENDERFULLCONTENT: u32 = 2u32;
 pub const QS_POINTER: u32 = 4096u32;
 pub const QS_TOUCH: u32 = 2048u32;
-#[repr(transparent)]
-pub struct QUEUE_STATUS_FLAGS(pub u32);
-pub const QS_ALLEVENTS: QUEUE_STATUS_FLAGS = QUEUE_STATUS_FLAGS(1215u32);
-pub const QS_ALLINPUT: QUEUE_STATUS_FLAGS = QUEUE_STATUS_FLAGS(1279u32);
-pub const QS_ALLPOSTMESSAGE: QUEUE_STATUS_FLAGS = QUEUE_STATUS_FLAGS(256u32);
-pub const QS_HOTKEY: QUEUE_STATUS_FLAGS = QUEUE_STATUS_FLAGS(128u32);
-pub const QS_INPUT: QUEUE_STATUS_FLAGS = QUEUE_STATUS_FLAGS(1031u32);
-pub const QS_KEY: QUEUE_STATUS_FLAGS = QUEUE_STATUS_FLAGS(1u32);
-pub const QS_MOUSE: QUEUE_STATUS_FLAGS = QUEUE_STATUS_FLAGS(6u32);
-pub const QS_MOUSEBUTTON: QUEUE_STATUS_FLAGS = QUEUE_STATUS_FLAGS(4u32);
-pub const QS_MOUSEMOVE: QUEUE_STATUS_FLAGS = QUEUE_STATUS_FLAGS(2u32);
-pub const QS_PAINT: QUEUE_STATUS_FLAGS = QUEUE_STATUS_FLAGS(32u32);
-pub const QS_POSTMESSAGE: QUEUE_STATUS_FLAGS = QUEUE_STATUS_FLAGS(8u32);
-pub const QS_RAWINPUT: QUEUE_STATUS_FLAGS = QUEUE_STATUS_FLAGS(1024u32);
-pub const QS_SENDMESSAGE: QUEUE_STATUS_FLAGS = QUEUE_STATUS_FLAGS(64u32);
-pub const QS_TIMER: QUEUE_STATUS_FLAGS = QUEUE_STATUS_FLAGS(16u32);
-impl ::core::marker::Copy for QUEUE_STATUS_FLAGS {}
-impl ::core::clone::Clone for QUEUE_STATUS_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const QS_ALLEVENTS: u32 = 1215u32;
+pub const QS_ALLINPUT: u32 = 1279u32;
+pub const QS_ALLPOSTMESSAGE: u32 = 256u32;
+pub const QS_HOTKEY: u32 = 128u32;
+pub const QS_INPUT: u32 = 1031u32;
+pub const QS_KEY: u32 = 1u32;
+pub const QS_MOUSE: u32 = 6u32;
+pub const QS_MOUSEBUTTON: u32 = 4u32;
+pub const QS_MOUSEMOVE: u32 = 2u32;
+pub const QS_PAINT: u32 = 32u32;
+pub const QS_POSTMESSAGE: u32 = 8u32;
+pub const QS_RAWINPUT: u32 = 1024u32;
+pub const QS_SENDMESSAGE: u32 = 64u32;
+pub const QS_TIMER: u32 = 16u32;
 pub const RES_CURSOR: u32 = 2u32;
 pub const RES_ICON: u32 = 1u32;
 pub const RIDEV_EXMODEMASK: u32 = 240u32;
@@ -3383,18 +3047,10 @@ impl ::core::clone::Clone for SCROLLBARINFO {
         *self
     }
 }
-#[repr(transparent)]
-pub struct SCROLLBAR_CONSTANTS(pub u32);
-pub const SB_CTL: SCROLLBAR_CONSTANTS = SCROLLBAR_CONSTANTS(2u32);
-pub const SB_HORZ: SCROLLBAR_CONSTANTS = SCROLLBAR_CONSTANTS(0u32);
-pub const SB_VERT: SCROLLBAR_CONSTANTS = SCROLLBAR_CONSTANTS(1u32);
-pub const SB_BOTH: SCROLLBAR_CONSTANTS = SCROLLBAR_CONSTANTS(3u32);
-impl ::core::marker::Copy for SCROLLBAR_CONSTANTS {}
-impl ::core::clone::Clone for SCROLLBAR_CONSTANTS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const SB_CTL: u32 = 2u32;
+pub const SB_HORZ: u32 = 0u32;
+pub const SB_VERT: u32 = 1u32;
+pub const SB_BOTH: u32 = 3u32;
 #[repr(C)]
 pub struct SCROLLINFO {
     pub cbSize: u32,
@@ -3411,20 +3067,12 @@ impl ::core::clone::Clone for SCROLLINFO {
         *self
     }
 }
-#[repr(transparent)]
-pub struct SCROLLINFO_MASK(pub u32);
-pub const SIF_ALL: SCROLLINFO_MASK = SCROLLINFO_MASK(23u32);
-pub const SIF_DISABLENOSCROLL: SCROLLINFO_MASK = SCROLLINFO_MASK(8u32);
-pub const SIF_PAGE: SCROLLINFO_MASK = SCROLLINFO_MASK(2u32);
-pub const SIF_POS: SCROLLINFO_MASK = SCROLLINFO_MASK(4u32);
-pub const SIF_RANGE: SCROLLINFO_MASK = SCROLLINFO_MASK(1u32);
-pub const SIF_TRACKPOS: SCROLLINFO_MASK = SCROLLINFO_MASK(16u32);
-impl ::core::marker::Copy for SCROLLINFO_MASK {}
-impl ::core::clone::Clone for SCROLLINFO_MASK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const SIF_ALL: u32 = 23u32;
+pub const SIF_DISABLENOSCROLL: u32 = 8u32;
+pub const SIF_PAGE: u32 = 2u32;
+pub const SIF_POS: u32 = 4u32;
+pub const SIF_RANGE: u32 = 1u32;
+pub const SIF_TRACKPOS: u32 = 16u32;
 pub const SC_ARRANGE: u32 = 61712u32;
 pub const SC_CLOSE: u32 = 61536u32;
 pub const SC_CONTEXTHELP: u32 = 61824u32;
@@ -3448,43 +3096,27 @@ pub const SC_VSCROLL: u32 = 61552u32;
 pub const SC_ZOOM: u32 = 61488u32;
 #[cfg(feature = "Win32_Foundation")]
 pub type SENDASYNCPROC = unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: u32, param2: usize, param3: super::super::Foundation::LRESULT);
-#[repr(transparent)]
-pub struct SEND_MESSAGE_TIMEOUT_FLAGS(pub u32);
-pub const SMTO_ABORTIFHUNG: SEND_MESSAGE_TIMEOUT_FLAGS = SEND_MESSAGE_TIMEOUT_FLAGS(2u32);
-pub const SMTO_BLOCK: SEND_MESSAGE_TIMEOUT_FLAGS = SEND_MESSAGE_TIMEOUT_FLAGS(1u32);
-pub const SMTO_NORMAL: SEND_MESSAGE_TIMEOUT_FLAGS = SEND_MESSAGE_TIMEOUT_FLAGS(0u32);
-pub const SMTO_NOTIMEOUTIFNOTHUNG: SEND_MESSAGE_TIMEOUT_FLAGS = SEND_MESSAGE_TIMEOUT_FLAGS(8u32);
-pub const SMTO_ERRORONEXIT: SEND_MESSAGE_TIMEOUT_FLAGS = SEND_MESSAGE_TIMEOUT_FLAGS(32u32);
-impl ::core::marker::Copy for SEND_MESSAGE_TIMEOUT_FLAGS {}
-impl ::core::clone::Clone for SEND_MESSAGE_TIMEOUT_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct SET_WINDOW_POS_FLAGS(pub u32);
-pub const SWP_ASYNCWINDOWPOS: SET_WINDOW_POS_FLAGS = SET_WINDOW_POS_FLAGS(16384u32);
-pub const SWP_DEFERERASE: SET_WINDOW_POS_FLAGS = SET_WINDOW_POS_FLAGS(8192u32);
-pub const SWP_DRAWFRAME: SET_WINDOW_POS_FLAGS = SET_WINDOW_POS_FLAGS(32u32);
-pub const SWP_FRAMECHANGED: SET_WINDOW_POS_FLAGS = SET_WINDOW_POS_FLAGS(32u32);
-pub const SWP_HIDEWINDOW: SET_WINDOW_POS_FLAGS = SET_WINDOW_POS_FLAGS(128u32);
-pub const SWP_NOACTIVATE: SET_WINDOW_POS_FLAGS = SET_WINDOW_POS_FLAGS(16u32);
-pub const SWP_NOCOPYBITS: SET_WINDOW_POS_FLAGS = SET_WINDOW_POS_FLAGS(256u32);
-pub const SWP_NOMOVE: SET_WINDOW_POS_FLAGS = SET_WINDOW_POS_FLAGS(2u32);
-pub const SWP_NOOWNERZORDER: SET_WINDOW_POS_FLAGS = SET_WINDOW_POS_FLAGS(512u32);
-pub const SWP_NOREDRAW: SET_WINDOW_POS_FLAGS = SET_WINDOW_POS_FLAGS(8u32);
-pub const SWP_NOREPOSITION: SET_WINDOW_POS_FLAGS = SET_WINDOW_POS_FLAGS(512u32);
-pub const SWP_NOSENDCHANGING: SET_WINDOW_POS_FLAGS = SET_WINDOW_POS_FLAGS(1024u32);
-pub const SWP_NOSIZE: SET_WINDOW_POS_FLAGS = SET_WINDOW_POS_FLAGS(1u32);
-pub const SWP_NOZORDER: SET_WINDOW_POS_FLAGS = SET_WINDOW_POS_FLAGS(4u32);
-pub const SWP_SHOWWINDOW: SET_WINDOW_POS_FLAGS = SET_WINDOW_POS_FLAGS(64u32);
-pub const SWP__NOOWNERZORDER: SET_WINDOW_POS_FLAGS = SET_WINDOW_POS_FLAGS(512u32);
-impl ::core::marker::Copy for SET_WINDOW_POS_FLAGS {}
-impl ::core::clone::Clone for SET_WINDOW_POS_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const SMTO_ABORTIFHUNG: u32 = 2u32;
+pub const SMTO_BLOCK: u32 = 1u32;
+pub const SMTO_NORMAL: u32 = 0u32;
+pub const SMTO_NOTIMEOUTIFNOTHUNG: u32 = 8u32;
+pub const SMTO_ERRORONEXIT: u32 = 32u32;
+pub const SWP_ASYNCWINDOWPOS: u32 = 16384u32;
+pub const SWP_DEFERERASE: u32 = 8192u32;
+pub const SWP_DRAWFRAME: u32 = 32u32;
+pub const SWP_FRAMECHANGED: u32 = 32u32;
+pub const SWP_HIDEWINDOW: u32 = 128u32;
+pub const SWP_NOACTIVATE: u32 = 16u32;
+pub const SWP_NOCOPYBITS: u32 = 256u32;
+pub const SWP_NOMOVE: u32 = 2u32;
+pub const SWP_NOOWNERZORDER: u32 = 512u32;
+pub const SWP_NOREDRAW: u32 = 8u32;
+pub const SWP_NOREPOSITION: u32 = 512u32;
+pub const SWP_NOSENDCHANGING: u32 = 1024u32;
+pub const SWP_NOSIZE: u32 = 1u32;
+pub const SWP_NOZORDER: u32 = 4u32;
+pub const SWP_SHOWWINDOW: u32 = 64u32;
+pub const SWP__NOOWNERZORDER: u32 = 512u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SHELLHOOKINFO {
@@ -3503,37 +3135,29 @@ pub const SHOW_FULLSCREEN: u32 = 3u32;
 pub const SHOW_ICONWINDOW: u32 = 2u32;
 pub const SHOW_OPENNOACTIVATE: u32 = 4u32;
 pub const SHOW_OPENWINDOW: u32 = 1u32;
-#[repr(transparent)]
-pub struct SHOW_WINDOW_CMD(pub u32);
-pub const SW_FORCEMINIMIZE: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(11u32);
-pub const SW_HIDE: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(0u32);
-pub const SW_MAXIMIZE: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(3u32);
-pub const SW_MINIMIZE: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(6u32);
-pub const SW_RESTORE: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(9u32);
-pub const SW_SHOW: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(5u32);
-pub const SW_SHOWDEFAULT: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(10u32);
-pub const SW_SHOWMAXIMIZED: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(3u32);
-pub const SW_SHOWMINIMIZED: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(2u32);
-pub const SW_SHOWMINNOACTIVE: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(7u32);
-pub const SW_SHOWNA: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(8u32);
-pub const SW_SHOWNOACTIVATE: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(4u32);
-pub const SW_SHOWNORMAL: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(1u32);
-pub const SW_NORMAL: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(1u32);
-pub const SW_MAX: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(11u32);
-pub const SW_PARENTCLOSING: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(1u32);
-pub const SW_OTHERZOOM: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(2u32);
-pub const SW_PARENTOPENING: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(3u32);
-pub const SW_OTHERUNZOOM: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(4u32);
-pub const SW_SCROLLCHILDREN: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(1u32);
-pub const SW_INVALIDATE: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(2u32);
-pub const SW_ERASE: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(4u32);
-pub const SW_SMOOTHSCROLL: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(16u32);
-impl ::core::marker::Copy for SHOW_WINDOW_CMD {}
-impl ::core::clone::Clone for SHOW_WINDOW_CMD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const SW_FORCEMINIMIZE: u32 = 11u32;
+pub const SW_HIDE: u32 = 0u32;
+pub const SW_MAXIMIZE: u32 = 3u32;
+pub const SW_MINIMIZE: u32 = 6u32;
+pub const SW_RESTORE: u32 = 9u32;
+pub const SW_SHOW: u32 = 5u32;
+pub const SW_SHOWDEFAULT: u32 = 10u32;
+pub const SW_SHOWMAXIMIZED: u32 = 3u32;
+pub const SW_SHOWMINIMIZED: u32 = 2u32;
+pub const SW_SHOWMINNOACTIVE: u32 = 7u32;
+pub const SW_SHOWNA: u32 = 8u32;
+pub const SW_SHOWNOACTIVATE: u32 = 4u32;
+pub const SW_SHOWNORMAL: u32 = 1u32;
+pub const SW_NORMAL: u32 = 1u32;
+pub const SW_MAX: u32 = 11u32;
+pub const SW_PARENTCLOSING: u32 = 1u32;
+pub const SW_OTHERZOOM: u32 = 2u32;
+pub const SW_PARENTOPENING: u32 = 3u32;
+pub const SW_OTHERUNZOOM: u32 = 4u32;
+pub const SW_SCROLLCHILDREN: u32 = 1u32;
+pub const SW_INVALIDATE: u32 = 2u32;
+pub const SW_ERASE: u32 = 4u32;
+pub const SW_SMOOTHSCROLL: u32 = 16u32;
 pub const SIZEFULLSCREEN: u32 = 2u32;
 pub const SIZEICONIC: u32 = 1u32;
 pub const SIZENORMAL: u32 = 0u32;
@@ -3656,445 +3280,397 @@ impl ::core::clone::Clone for STYLESTRUCT {
         *self
     }
 }
-#[repr(transparent)]
-pub struct SYSTEM_CURSOR_ID(pub u32);
-pub const OCR_APPSTARTING: SYSTEM_CURSOR_ID = SYSTEM_CURSOR_ID(32650u32);
-pub const OCR_NORMAL: SYSTEM_CURSOR_ID = SYSTEM_CURSOR_ID(32512u32);
-pub const OCR_CROSS: SYSTEM_CURSOR_ID = SYSTEM_CURSOR_ID(32515u32);
-pub const OCR_HAND: SYSTEM_CURSOR_ID = SYSTEM_CURSOR_ID(32649u32);
-pub const OCR_HELP: SYSTEM_CURSOR_ID = SYSTEM_CURSOR_ID(32651u32);
-pub const OCR_IBEAM: SYSTEM_CURSOR_ID = SYSTEM_CURSOR_ID(32513u32);
-pub const OCR_NO: SYSTEM_CURSOR_ID = SYSTEM_CURSOR_ID(32648u32);
-pub const OCR_SIZEALL: SYSTEM_CURSOR_ID = SYSTEM_CURSOR_ID(32646u32);
-pub const OCR_SIZENESW: SYSTEM_CURSOR_ID = SYSTEM_CURSOR_ID(32643u32);
-pub const OCR_SIZENS: SYSTEM_CURSOR_ID = SYSTEM_CURSOR_ID(32645u32);
-pub const OCR_SIZENWSE: SYSTEM_CURSOR_ID = SYSTEM_CURSOR_ID(32642u32);
-pub const OCR_SIZEWE: SYSTEM_CURSOR_ID = SYSTEM_CURSOR_ID(32644u32);
-pub const OCR_UP: SYSTEM_CURSOR_ID = SYSTEM_CURSOR_ID(32516u32);
-pub const OCR_WAIT: SYSTEM_CURSOR_ID = SYSTEM_CURSOR_ID(32514u32);
-impl ::core::marker::Copy for SYSTEM_CURSOR_ID {}
-impl ::core::clone::Clone for SYSTEM_CURSOR_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct SYSTEM_METRICS_INDEX(pub u32);
-pub const SM_ARRANGE: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(56u32);
-pub const SM_CLEANBOOT: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(67u32);
-pub const SM_CMONITORS: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(80u32);
-pub const SM_CMOUSEBUTTONS: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(43u32);
-pub const SM_CONVERTIBLESLATEMODE: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(8195u32);
-pub const SM_CXBORDER: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(5u32);
-pub const SM_CXCURSOR: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(13u32);
-pub const SM_CXDLGFRAME: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(7u32);
-pub const SM_CXDOUBLECLK: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(36u32);
-pub const SM_CXDRAG: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(68u32);
-pub const SM_CXEDGE: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(45u32);
-pub const SM_CXFIXEDFRAME: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(7u32);
-pub const SM_CXFOCUSBORDER: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(83u32);
-pub const SM_CXFRAME: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(32u32);
-pub const SM_CXFULLSCREEN: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(16u32);
-pub const SM_CXHSCROLL: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(21u32);
-pub const SM_CXHTHUMB: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(10u32);
-pub const SM_CXICON: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(11u32);
-pub const SM_CXICONSPACING: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(38u32);
-pub const SM_CXMAXIMIZED: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(61u32);
-pub const SM_CXMAXTRACK: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(59u32);
-pub const SM_CXMENUCHECK: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(71u32);
-pub const SM_CXMENUSIZE: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(54u32);
-pub const SM_CXMIN: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(28u32);
-pub const SM_CXMINIMIZED: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(57u32);
-pub const SM_CXMINSPACING: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(47u32);
-pub const SM_CXMINTRACK: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(34u32);
-pub const SM_CXPADDEDBORDER: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(92u32);
-pub const SM_CXSCREEN: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(0u32);
-pub const SM_CXSIZE: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(30u32);
-pub const SM_CXSIZEFRAME: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(32u32);
-pub const SM_CXSMICON: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(49u32);
-pub const SM_CXSMSIZE: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(52u32);
-pub const SM_CXVIRTUALSCREEN: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(78u32);
-pub const SM_CXVSCROLL: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(2u32);
-pub const SM_CYBORDER: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(6u32);
-pub const SM_CYCAPTION: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(4u32);
-pub const SM_CYCURSOR: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(14u32);
-pub const SM_CYDLGFRAME: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(8u32);
-pub const SM_CYDOUBLECLK: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(37u32);
-pub const SM_CYDRAG: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(69u32);
-pub const SM_CYEDGE: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(46u32);
-pub const SM_CYFIXEDFRAME: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(8u32);
-pub const SM_CYFOCUSBORDER: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(84u32);
-pub const SM_CYFRAME: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(33u32);
-pub const SM_CYFULLSCREEN: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(17u32);
-pub const SM_CYHSCROLL: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(3u32);
-pub const SM_CYICON: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(12u32);
-pub const SM_CYICONSPACING: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(39u32);
-pub const SM_CYKANJIWINDOW: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(18u32);
-pub const SM_CYMAXIMIZED: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(62u32);
-pub const SM_CYMAXTRACK: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(60u32);
-pub const SM_CYMENU: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(15u32);
-pub const SM_CYMENUCHECK: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(72u32);
-pub const SM_CYMENUSIZE: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(55u32);
-pub const SM_CYMIN: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(29u32);
-pub const SM_CYMINIMIZED: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(58u32);
-pub const SM_CYMINSPACING: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(48u32);
-pub const SM_CYMINTRACK: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(35u32);
-pub const SM_CYSCREEN: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(1u32);
-pub const SM_CYSIZE: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(31u32);
-pub const SM_CYSIZEFRAME: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(33u32);
-pub const SM_CYSMCAPTION: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(51u32);
-pub const SM_CYSMICON: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(50u32);
-pub const SM_CYSMSIZE: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(53u32);
-pub const SM_CYVIRTUALSCREEN: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(79u32);
-pub const SM_CYVSCROLL: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(20u32);
-pub const SM_CYVTHUMB: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(9u32);
-pub const SM_DBCSENABLED: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(42u32);
-pub const SM_DEBUG: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(22u32);
-pub const SM_DIGITIZER: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(94u32);
-pub const SM_IMMENABLED: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(82u32);
-pub const SM_MAXIMUMTOUCHES: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(95u32);
-pub const SM_MEDIACENTER: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(87u32);
-pub const SM_MENUDROPALIGNMENT: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(40u32);
-pub const SM_MIDEASTENABLED: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(74u32);
-pub const SM_MOUSEPRESENT: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(19u32);
-pub const SM_MOUSEHORIZONTALWHEELPRESENT: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(91u32);
-pub const SM_MOUSEWHEELPRESENT: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(75u32);
-pub const SM_NETWORK: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(63u32);
-pub const SM_PENWINDOWS: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(41u32);
-pub const SM_REMOTECONTROL: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(8193u32);
-pub const SM_REMOTESESSION: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(4096u32);
-pub const SM_SAMEDISPLAYFORMAT: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(81u32);
-pub const SM_SECURE: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(44u32);
-pub const SM_SERVERR2: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(89u32);
-pub const SM_SHOWSOUNDS: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(70u32);
-pub const SM_SHUTTINGDOWN: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(8192u32);
-pub const SM_SLOWMACHINE: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(73u32);
-pub const SM_STARTER: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(88u32);
-pub const SM_SWAPBUTTON: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(23u32);
-pub const SM_SYSTEMDOCKED_: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(8196u32);
-pub const SM_TABLETPC: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(86u32);
-pub const SM_XVIRTUALSCREEN: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(76u32);
-pub const SM_YVIRTUALSCREEN: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(77u32);
-impl ::core::marker::Copy for SYSTEM_METRICS_INDEX {}
-impl ::core::clone::Clone for SYSTEM_METRICS_INDEX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct SYSTEM_PARAMETERS_INFO_ACTION(pub u32);
-pub const SPI_GETBEEP: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(1u32);
-pub const SPI_SETBEEP: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(2u32);
-pub const SPI_GETMOUSE: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(3u32);
-pub const SPI_SETMOUSE: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4u32);
-pub const SPI_GETBORDER: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(5u32);
-pub const SPI_SETBORDER: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(6u32);
-pub const SPI_GETKEYBOARDSPEED: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(10u32);
-pub const SPI_SETKEYBOARDSPEED: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(11u32);
-pub const SPI_LANGDRIVER: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(12u32);
-pub const SPI_ICONHORIZONTALSPACING: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(13u32);
-pub const SPI_GETSCREENSAVETIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(14u32);
-pub const SPI_SETSCREENSAVETIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(15u32);
-pub const SPI_GETSCREENSAVEACTIVE: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(16u32);
-pub const SPI_SETSCREENSAVEACTIVE: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(17u32);
-pub const SPI_GETGRIDGRANULARITY: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(18u32);
-pub const SPI_SETGRIDGRANULARITY: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(19u32);
-pub const SPI_SETDESKWALLPAPER: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(20u32);
-pub const SPI_SETDESKPATTERN: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(21u32);
-pub const SPI_GETKEYBOARDDELAY: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(22u32);
-pub const SPI_SETKEYBOARDDELAY: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(23u32);
-pub const SPI_ICONVERTICALSPACING: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(24u32);
-pub const SPI_GETICONTITLEWRAP: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(25u32);
-pub const SPI_SETICONTITLEWRAP: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(26u32);
-pub const SPI_GETMENUDROPALIGNMENT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(27u32);
-pub const SPI_SETMENUDROPALIGNMENT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(28u32);
-pub const SPI_SETDOUBLECLKWIDTH: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(29u32);
-pub const SPI_SETDOUBLECLKHEIGHT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(30u32);
-pub const SPI_GETICONTITLELOGFONT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(31u32);
-pub const SPI_SETDOUBLECLICKTIME: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(32u32);
-pub const SPI_SETMOUSEBUTTONSWAP: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(33u32);
-pub const SPI_SETICONTITLELOGFONT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(34u32);
-pub const SPI_GETFASTTASKSWITCH: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(35u32);
-pub const SPI_SETFASTTASKSWITCH: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(36u32);
-pub const SPI_SETDRAGFULLWINDOWS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(37u32);
-pub const SPI_GETDRAGFULLWINDOWS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(38u32);
-pub const SPI_GETNONCLIENTMETRICS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(41u32);
-pub const SPI_SETNONCLIENTMETRICS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(42u32);
-pub const SPI_GETMINIMIZEDMETRICS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(43u32);
-pub const SPI_SETMINIMIZEDMETRICS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(44u32);
-pub const SPI_GETICONMETRICS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(45u32);
-pub const SPI_SETICONMETRICS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(46u32);
-pub const SPI_SETWORKAREA: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(47u32);
-pub const SPI_GETWORKAREA: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(48u32);
-pub const SPI_SETPENWINDOWS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(49u32);
-pub const SPI_GETHIGHCONTRAST: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(66u32);
-pub const SPI_SETHIGHCONTRAST: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(67u32);
-pub const SPI_GETKEYBOARDPREF: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(68u32);
-pub const SPI_SETKEYBOARDPREF: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(69u32);
-pub const SPI_GETSCREENREADER: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(70u32);
-pub const SPI_SETSCREENREADER: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(71u32);
-pub const SPI_GETANIMATION: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(72u32);
-pub const SPI_SETANIMATION: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(73u32);
-pub const SPI_GETFONTSMOOTHING: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(74u32);
-pub const SPI_SETFONTSMOOTHING: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(75u32);
-pub const SPI_SETDRAGWIDTH: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(76u32);
-pub const SPI_SETDRAGHEIGHT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(77u32);
-pub const SPI_SETHANDHELD: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(78u32);
-pub const SPI_GETLOWPOWERTIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(79u32);
-pub const SPI_GETPOWEROFFTIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(80u32);
-pub const SPI_SETLOWPOWERTIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(81u32);
-pub const SPI_SETPOWEROFFTIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(82u32);
-pub const SPI_GETLOWPOWERACTIVE: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(83u32);
-pub const SPI_GETPOWEROFFACTIVE: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(84u32);
-pub const SPI_SETLOWPOWERACTIVE: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(85u32);
-pub const SPI_SETPOWEROFFACTIVE: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(86u32);
-pub const SPI_SETCURSORS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(87u32);
-pub const SPI_SETICONS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(88u32);
-pub const SPI_GETDEFAULTINPUTLANG: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(89u32);
-pub const SPI_SETDEFAULTINPUTLANG: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(90u32);
-pub const SPI_SETLANGTOGGLE: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(91u32);
-pub const SPI_GETWINDOWSEXTENSION: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(92u32);
-pub const SPI_SETMOUSETRAILS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(93u32);
-pub const SPI_GETMOUSETRAILS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(94u32);
-pub const SPI_SETSCREENSAVERRUNNING: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(97u32);
-pub const SPI_SCREENSAVERRUNNING: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(97u32);
-pub const SPI_GETFILTERKEYS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(50u32);
-pub const SPI_SETFILTERKEYS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(51u32);
-pub const SPI_GETTOGGLEKEYS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(52u32);
-pub const SPI_SETTOGGLEKEYS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(53u32);
-pub const SPI_GETMOUSEKEYS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(54u32);
-pub const SPI_SETMOUSEKEYS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(55u32);
-pub const SPI_GETSHOWSOUNDS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(56u32);
-pub const SPI_SETSHOWSOUNDS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(57u32);
-pub const SPI_GETSTICKYKEYS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(58u32);
-pub const SPI_SETSTICKYKEYS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(59u32);
-pub const SPI_GETACCESSTIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(60u32);
-pub const SPI_SETACCESSTIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(61u32);
-pub const SPI_GETSERIALKEYS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(62u32);
-pub const SPI_SETSERIALKEYS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(63u32);
-pub const SPI_GETSOUNDSENTRY: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(64u32);
-pub const SPI_SETSOUNDSENTRY: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(65u32);
-pub const SPI_GETSNAPTODEFBUTTON: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(95u32);
-pub const SPI_SETSNAPTODEFBUTTON: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(96u32);
-pub const SPI_GETMOUSEHOVERWIDTH: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(98u32);
-pub const SPI_SETMOUSEHOVERWIDTH: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(99u32);
-pub const SPI_GETMOUSEHOVERHEIGHT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(100u32);
-pub const SPI_SETMOUSEHOVERHEIGHT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(101u32);
-pub const SPI_GETMOUSEHOVERTIME: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(102u32);
-pub const SPI_SETMOUSEHOVERTIME: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(103u32);
-pub const SPI_GETWHEELSCROLLLINES: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(104u32);
-pub const SPI_SETWHEELSCROLLLINES: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(105u32);
-pub const SPI_GETMENUSHOWDELAY: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(106u32);
-pub const SPI_SETMENUSHOWDELAY: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(107u32);
-pub const SPI_GETWHEELSCROLLCHARS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(108u32);
-pub const SPI_SETWHEELSCROLLCHARS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(109u32);
-pub const SPI_GETSHOWIMEUI: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(110u32);
-pub const SPI_SETSHOWIMEUI: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(111u32);
-pub const SPI_GETMOUSESPEED: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(112u32);
-pub const SPI_SETMOUSESPEED: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(113u32);
-pub const SPI_GETSCREENSAVERRUNNING: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(114u32);
-pub const SPI_GETDESKWALLPAPER: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(115u32);
-pub const SPI_GETAUDIODESCRIPTION: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(116u32);
-pub const SPI_SETAUDIODESCRIPTION: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(117u32);
-pub const SPI_GETSCREENSAVESECURE: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(118u32);
-pub const SPI_SETSCREENSAVESECURE: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(119u32);
-pub const SPI_GETHUNGAPPTIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(120u32);
-pub const SPI_SETHUNGAPPTIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(121u32);
-pub const SPI_GETWAITTOKILLTIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(122u32);
-pub const SPI_SETWAITTOKILLTIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(123u32);
-pub const SPI_GETWAITTOKILLSERVICETIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(124u32);
-pub const SPI_SETWAITTOKILLSERVICETIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(125u32);
-pub const SPI_GETMOUSEDOCKTHRESHOLD: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(126u32);
-pub const SPI_SETMOUSEDOCKTHRESHOLD: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(127u32);
-pub const SPI_GETPENDOCKTHRESHOLD: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(128u32);
-pub const SPI_SETPENDOCKTHRESHOLD: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(129u32);
-pub const SPI_GETWINARRANGING: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(130u32);
-pub const SPI_SETWINARRANGING: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(131u32);
-pub const SPI_GETMOUSEDRAGOUTTHRESHOLD: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(132u32);
-pub const SPI_SETMOUSEDRAGOUTTHRESHOLD: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(133u32);
-pub const SPI_GETPENDRAGOUTTHRESHOLD: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(134u32);
-pub const SPI_SETPENDRAGOUTTHRESHOLD: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(135u32);
-pub const SPI_GETMOUSESIDEMOVETHRESHOLD: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(136u32);
-pub const SPI_SETMOUSESIDEMOVETHRESHOLD: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(137u32);
-pub const SPI_GETPENSIDEMOVETHRESHOLD: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(138u32);
-pub const SPI_SETPENSIDEMOVETHRESHOLD: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(139u32);
-pub const SPI_GETDRAGFROMMAXIMIZE: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(140u32);
-pub const SPI_SETDRAGFROMMAXIMIZE: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(141u32);
-pub const SPI_GETSNAPSIZING: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(142u32);
-pub const SPI_SETSNAPSIZING: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(143u32);
-pub const SPI_GETDOCKMOVING: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(144u32);
-pub const SPI_SETDOCKMOVING: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(145u32);
-pub const SPI_GETTOUCHPREDICTIONPARAMETERS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(156u32);
-pub const SPI_SETTOUCHPREDICTIONPARAMETERS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(157u32);
-pub const SPI_GETLOGICALDPIOVERRIDE: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(158u32);
-pub const SPI_SETLOGICALDPIOVERRIDE: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(159u32);
-pub const SPI_GETMENURECT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(162u32);
-pub const SPI_SETMENURECT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(163u32);
-pub const SPI_GETACTIVEWINDOWTRACKING: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4096u32);
-pub const SPI_SETACTIVEWINDOWTRACKING: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4097u32);
-pub const SPI_GETMENUANIMATION: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4098u32);
-pub const SPI_SETMENUANIMATION: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4099u32);
-pub const SPI_GETCOMBOBOXANIMATION: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4100u32);
-pub const SPI_SETCOMBOBOXANIMATION: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4101u32);
-pub const SPI_GETLISTBOXSMOOTHSCROLLING: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4102u32);
-pub const SPI_SETLISTBOXSMOOTHSCROLLING: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4103u32);
-pub const SPI_GETGRADIENTCAPTIONS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4104u32);
-pub const SPI_SETGRADIENTCAPTIONS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4105u32);
-pub const SPI_GETKEYBOARDCUES: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4106u32);
-pub const SPI_SETKEYBOARDCUES: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4107u32);
-pub const SPI_GETMENUUNDERLINES: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4106u32);
-pub const SPI_SETMENUUNDERLINES: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4107u32);
-pub const SPI_GETACTIVEWNDTRKZORDER: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4108u32);
-pub const SPI_SETACTIVEWNDTRKZORDER: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4109u32);
-pub const SPI_GETHOTTRACKING: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4110u32);
-pub const SPI_SETHOTTRACKING: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4111u32);
-pub const SPI_GETMENUFADE: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4114u32);
-pub const SPI_SETMENUFADE: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4115u32);
-pub const SPI_GETSELECTIONFADE: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4116u32);
-pub const SPI_SETSELECTIONFADE: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4117u32);
-pub const SPI_GETTOOLTIPANIMATION: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4118u32);
-pub const SPI_SETTOOLTIPANIMATION: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4119u32);
-pub const SPI_GETTOOLTIPFADE: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4120u32);
-pub const SPI_SETTOOLTIPFADE: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4121u32);
-pub const SPI_GETCURSORSHADOW: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4122u32);
-pub const SPI_SETCURSORSHADOW: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4123u32);
-pub const SPI_GETMOUSESONAR: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4124u32);
-pub const SPI_SETMOUSESONAR: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4125u32);
-pub const SPI_GETMOUSECLICKLOCK: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4126u32);
-pub const SPI_SETMOUSECLICKLOCK: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4127u32);
-pub const SPI_GETMOUSEVANISH: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4128u32);
-pub const SPI_SETMOUSEVANISH: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4129u32);
-pub const SPI_GETFLATMENU: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4130u32);
-pub const SPI_SETFLATMENU: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4131u32);
-pub const SPI_GETDROPSHADOW: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4132u32);
-pub const SPI_SETDROPSHADOW: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4133u32);
-pub const SPI_GETBLOCKSENDINPUTRESETS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4134u32);
-pub const SPI_SETBLOCKSENDINPUTRESETS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4135u32);
-pub const SPI_GETUIEFFECTS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4158u32);
-pub const SPI_SETUIEFFECTS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4159u32);
-pub const SPI_GETDISABLEOVERLAPPEDCONTENT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4160u32);
-pub const SPI_SETDISABLEOVERLAPPEDCONTENT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4161u32);
-pub const SPI_GETCLIENTAREAANIMATION: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4162u32);
-pub const SPI_SETCLIENTAREAANIMATION: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4163u32);
-pub const SPI_GETCLEARTYPE: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4168u32);
-pub const SPI_SETCLEARTYPE: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4169u32);
-pub const SPI_GETSPEECHRECOGNITION: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4170u32);
-pub const SPI_SETSPEECHRECOGNITION: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4171u32);
-pub const SPI_GETCARETBROWSING: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4172u32);
-pub const SPI_SETCARETBROWSING: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4173u32);
-pub const SPI_GETTHREADLOCALINPUTSETTINGS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4174u32);
-pub const SPI_SETTHREADLOCALINPUTSETTINGS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4175u32);
-pub const SPI_GETSYSTEMLANGUAGEBAR: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4176u32);
-pub const SPI_SETSYSTEMLANGUAGEBAR: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4177u32);
-pub const SPI_GETFOREGROUNDLOCKTIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8192u32);
-pub const SPI_SETFOREGROUNDLOCKTIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8193u32);
-pub const SPI_GETACTIVEWNDTRKTIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8194u32);
-pub const SPI_SETACTIVEWNDTRKTIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8195u32);
-pub const SPI_GETFOREGROUNDFLASHCOUNT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8196u32);
-pub const SPI_SETFOREGROUNDFLASHCOUNT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8197u32);
-pub const SPI_GETCARETWIDTH: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8198u32);
-pub const SPI_SETCARETWIDTH: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8199u32);
-pub const SPI_GETMOUSECLICKLOCKTIME: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8200u32);
-pub const SPI_SETMOUSECLICKLOCKTIME: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8201u32);
-pub const SPI_GETFONTSMOOTHINGTYPE: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8202u32);
-pub const SPI_SETFONTSMOOTHINGTYPE: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8203u32);
-pub const SPI_GETFONTSMOOTHINGCONTRAST: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8204u32);
-pub const SPI_SETFONTSMOOTHINGCONTRAST: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8205u32);
-pub const SPI_GETFOCUSBORDERWIDTH: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8206u32);
-pub const SPI_SETFOCUSBORDERWIDTH: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8207u32);
-pub const SPI_GETFOCUSBORDERHEIGHT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8208u32);
-pub const SPI_SETFOCUSBORDERHEIGHT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8209u32);
-pub const SPI_GETFONTSMOOTHINGORIENTATION: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8210u32);
-pub const SPI_SETFONTSMOOTHINGORIENTATION: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8211u32);
-pub const SPI_GETMINIMUMHITRADIUS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8212u32);
-pub const SPI_SETMINIMUMHITRADIUS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8213u32);
-pub const SPI_GETMESSAGEDURATION: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8214u32);
-pub const SPI_SETMESSAGEDURATION: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8215u32);
-pub const SPI_GETCONTACTVISUALIZATION: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8216u32);
-pub const SPI_SETCONTACTVISUALIZATION: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8217u32);
-pub const SPI_GETGESTUREVISUALIZATION: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8218u32);
-pub const SPI_SETGESTUREVISUALIZATION: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8219u32);
-pub const SPI_GETMOUSEWHEELROUTING: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8220u32);
-pub const SPI_SETMOUSEWHEELROUTING: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8221u32);
-pub const SPI_GETPENVISUALIZATION: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8222u32);
-pub const SPI_SETPENVISUALIZATION: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8223u32);
-pub const SPI_GETPENARBITRATIONTYPE: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8224u32);
-pub const SPI_SETPENARBITRATIONTYPE: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8225u32);
-pub const SPI_GETCARETTIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8226u32);
-pub const SPI_SETCARETTIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8227u32);
-pub const SPI_GETHANDEDNESS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8228u32);
-pub const SPI_SETHANDEDNESS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8229u32);
-impl ::core::marker::Copy for SYSTEM_PARAMETERS_INFO_ACTION {}
-impl ::core::clone::Clone for SYSTEM_PARAMETERS_INFO_ACTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS(pub u32);
-pub const SPIF_UPDATEINIFILE: SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS = SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS(1u32);
-pub const SPIF_SENDCHANGE: SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS = SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS(2u32);
-pub const SPIF_SENDWININICHANGE: SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS = SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS(2u32);
-impl ::core::marker::Copy for SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS {}
-impl ::core::clone::Clone for SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct SYS_COLOR_INDEX(pub u32);
-pub const COLOR_3DDKSHADOW: SYS_COLOR_INDEX = SYS_COLOR_INDEX(21u32);
-pub const COLOR_3DFACE: SYS_COLOR_INDEX = SYS_COLOR_INDEX(15u32);
-pub const COLOR_3DHIGHLIGHT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(20u32);
-pub const COLOR_3DHILIGHT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(20u32);
-pub const COLOR_3DLIGHT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(22u32);
-pub const COLOR_3DSHADOW: SYS_COLOR_INDEX = SYS_COLOR_INDEX(16u32);
-pub const COLOR_ACTIVEBORDER: SYS_COLOR_INDEX = SYS_COLOR_INDEX(10u32);
-pub const COLOR_ACTIVECAPTION: SYS_COLOR_INDEX = SYS_COLOR_INDEX(2u32);
-pub const COLOR_APPWORKSPACE: SYS_COLOR_INDEX = SYS_COLOR_INDEX(12u32);
-pub const COLOR_BACKGROUND: SYS_COLOR_INDEX = SYS_COLOR_INDEX(1u32);
-pub const COLOR_BTNFACE: SYS_COLOR_INDEX = SYS_COLOR_INDEX(15u32);
-pub const _COLOR_BTNHIGHLIGHT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(20u32);
-pub const _COLOR_BTNHILIGHT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(20u32);
-pub const COLOR_BTNSHADOW: SYS_COLOR_INDEX = SYS_COLOR_INDEX(16u32);
-pub const COLOR_BTNTEXT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(18u32);
-pub const COLOR_CAPTIONTEXT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(9u32);
-pub const COLOR_DESKTOP: SYS_COLOR_INDEX = SYS_COLOR_INDEX(1u32);
-pub const COLOR_GRADIENTACTIVECAPTION: SYS_COLOR_INDEX = SYS_COLOR_INDEX(27u32);
-pub const COLOR_GRADIENTINACTIVECAPTION: SYS_COLOR_INDEX = SYS_COLOR_INDEX(28u32);
-pub const COLOR_GRAYTEXT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(17u32);
-pub const COLOR_HIGHLIGHT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(13u32);
-pub const COLOR_HIGHLIGHTTEXT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(14u32);
-pub const COLOR_HOTLIGHT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(26u32);
-pub const COLOR_INACTIVEBORDER: SYS_COLOR_INDEX = SYS_COLOR_INDEX(11u32);
-pub const COLOR_INACTIVECAPTION: SYS_COLOR_INDEX = SYS_COLOR_INDEX(3u32);
-pub const COLOR_INACTIVECAPTIONTEXT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(19u32);
-pub const COLOR_INFOBK: SYS_COLOR_INDEX = SYS_COLOR_INDEX(24u32);
-pub const COLOR_INFOTEXT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(23u32);
-pub const COLOR_MENU: SYS_COLOR_INDEX = SYS_COLOR_INDEX(4u32);
-pub const COLOR_MENUHILIGHT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(29u32);
-pub const COLOR_MENUBAR: SYS_COLOR_INDEX = SYS_COLOR_INDEX(30u32);
-pub const COLOR_MENUTEXT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(7u32);
-pub const COLOR_SCROLLBAR: SYS_COLOR_INDEX = SYS_COLOR_INDEX(0u32);
-pub const COLOR_WINDOW: SYS_COLOR_INDEX = SYS_COLOR_INDEX(5u32);
-pub const COLOR_WINDOWFRAME: SYS_COLOR_INDEX = SYS_COLOR_INDEX(6u32);
-pub const COLOR_WINDOWTEXT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(8u32);
-impl ::core::marker::Copy for SYS_COLOR_INDEX {}
-impl ::core::clone::Clone for SYS_COLOR_INDEX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct TILE_WINDOWS_HOW(pub u32);
-pub const MDITILE_HORIZONTAL: TILE_WINDOWS_HOW = TILE_WINDOWS_HOW(1u32);
-pub const MDITILE_VERTICAL: TILE_WINDOWS_HOW = TILE_WINDOWS_HOW(0u32);
-impl ::core::marker::Copy for TILE_WINDOWS_HOW {}
-impl ::core::clone::Clone for TILE_WINDOWS_HOW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const OCR_APPSTARTING: u32 = 32650u32;
+pub const OCR_NORMAL: u32 = 32512u32;
+pub const OCR_CROSS: u32 = 32515u32;
+pub const OCR_HAND: u32 = 32649u32;
+pub const OCR_HELP: u32 = 32651u32;
+pub const OCR_IBEAM: u32 = 32513u32;
+pub const OCR_NO: u32 = 32648u32;
+pub const OCR_SIZEALL: u32 = 32646u32;
+pub const OCR_SIZENESW: u32 = 32643u32;
+pub const OCR_SIZENS: u32 = 32645u32;
+pub const OCR_SIZENWSE: u32 = 32642u32;
+pub const OCR_SIZEWE: u32 = 32644u32;
+pub const OCR_UP: u32 = 32516u32;
+pub const OCR_WAIT: u32 = 32514u32;
+pub const SM_ARRANGE: u32 = 56u32;
+pub const SM_CLEANBOOT: u32 = 67u32;
+pub const SM_CMONITORS: u32 = 80u32;
+pub const SM_CMOUSEBUTTONS: u32 = 43u32;
+pub const SM_CONVERTIBLESLATEMODE: u32 = 8195u32;
+pub const SM_CXBORDER: u32 = 5u32;
+pub const SM_CXCURSOR: u32 = 13u32;
+pub const SM_CXDLGFRAME: u32 = 7u32;
+pub const SM_CXDOUBLECLK: u32 = 36u32;
+pub const SM_CXDRAG: u32 = 68u32;
+pub const SM_CXEDGE: u32 = 45u32;
+pub const SM_CXFIXEDFRAME: u32 = 7u32;
+pub const SM_CXFOCUSBORDER: u32 = 83u32;
+pub const SM_CXFRAME: u32 = 32u32;
+pub const SM_CXFULLSCREEN: u32 = 16u32;
+pub const SM_CXHSCROLL: u32 = 21u32;
+pub const SM_CXHTHUMB: u32 = 10u32;
+pub const SM_CXICON: u32 = 11u32;
+pub const SM_CXICONSPACING: u32 = 38u32;
+pub const SM_CXMAXIMIZED: u32 = 61u32;
+pub const SM_CXMAXTRACK: u32 = 59u32;
+pub const SM_CXMENUCHECK: u32 = 71u32;
+pub const SM_CXMENUSIZE: u32 = 54u32;
+pub const SM_CXMIN: u32 = 28u32;
+pub const SM_CXMINIMIZED: u32 = 57u32;
+pub const SM_CXMINSPACING: u32 = 47u32;
+pub const SM_CXMINTRACK: u32 = 34u32;
+pub const SM_CXPADDEDBORDER: u32 = 92u32;
+pub const SM_CXSCREEN: u32 = 0u32;
+pub const SM_CXSIZE: u32 = 30u32;
+pub const SM_CXSIZEFRAME: u32 = 32u32;
+pub const SM_CXSMICON: u32 = 49u32;
+pub const SM_CXSMSIZE: u32 = 52u32;
+pub const SM_CXVIRTUALSCREEN: u32 = 78u32;
+pub const SM_CXVSCROLL: u32 = 2u32;
+pub const SM_CYBORDER: u32 = 6u32;
+pub const SM_CYCAPTION: u32 = 4u32;
+pub const SM_CYCURSOR: u32 = 14u32;
+pub const SM_CYDLGFRAME: u32 = 8u32;
+pub const SM_CYDOUBLECLK: u32 = 37u32;
+pub const SM_CYDRAG: u32 = 69u32;
+pub const SM_CYEDGE: u32 = 46u32;
+pub const SM_CYFIXEDFRAME: u32 = 8u32;
+pub const SM_CYFOCUSBORDER: u32 = 84u32;
+pub const SM_CYFRAME: u32 = 33u32;
+pub const SM_CYFULLSCREEN: u32 = 17u32;
+pub const SM_CYHSCROLL: u32 = 3u32;
+pub const SM_CYICON: u32 = 12u32;
+pub const SM_CYICONSPACING: u32 = 39u32;
+pub const SM_CYKANJIWINDOW: u32 = 18u32;
+pub const SM_CYMAXIMIZED: u32 = 62u32;
+pub const SM_CYMAXTRACK: u32 = 60u32;
+pub const SM_CYMENU: u32 = 15u32;
+pub const SM_CYMENUCHECK: u32 = 72u32;
+pub const SM_CYMENUSIZE: u32 = 55u32;
+pub const SM_CYMIN: u32 = 29u32;
+pub const SM_CYMINIMIZED: u32 = 58u32;
+pub const SM_CYMINSPACING: u32 = 48u32;
+pub const SM_CYMINTRACK: u32 = 35u32;
+pub const SM_CYSCREEN: u32 = 1u32;
+pub const SM_CYSIZE: u32 = 31u32;
+pub const SM_CYSIZEFRAME: u32 = 33u32;
+pub const SM_CYSMCAPTION: u32 = 51u32;
+pub const SM_CYSMICON: u32 = 50u32;
+pub const SM_CYSMSIZE: u32 = 53u32;
+pub const SM_CYVIRTUALSCREEN: u32 = 79u32;
+pub const SM_CYVSCROLL: u32 = 20u32;
+pub const SM_CYVTHUMB: u32 = 9u32;
+pub const SM_DBCSENABLED: u32 = 42u32;
+pub const SM_DEBUG: u32 = 22u32;
+pub const SM_DIGITIZER: u32 = 94u32;
+pub const SM_IMMENABLED: u32 = 82u32;
+pub const SM_MAXIMUMTOUCHES: u32 = 95u32;
+pub const SM_MEDIACENTER: u32 = 87u32;
+pub const SM_MENUDROPALIGNMENT: u32 = 40u32;
+pub const SM_MIDEASTENABLED: u32 = 74u32;
+pub const SM_MOUSEPRESENT: u32 = 19u32;
+pub const SM_MOUSEHORIZONTALWHEELPRESENT: u32 = 91u32;
+pub const SM_MOUSEWHEELPRESENT: u32 = 75u32;
+pub const SM_NETWORK: u32 = 63u32;
+pub const SM_PENWINDOWS: u32 = 41u32;
+pub const SM_REMOTECONTROL: u32 = 8193u32;
+pub const SM_REMOTESESSION: u32 = 4096u32;
+pub const SM_SAMEDISPLAYFORMAT: u32 = 81u32;
+pub const SM_SECURE: u32 = 44u32;
+pub const SM_SERVERR2: u32 = 89u32;
+pub const SM_SHOWSOUNDS: u32 = 70u32;
+pub const SM_SHUTTINGDOWN: u32 = 8192u32;
+pub const SM_SLOWMACHINE: u32 = 73u32;
+pub const SM_STARTER: u32 = 88u32;
+pub const SM_SWAPBUTTON: u32 = 23u32;
+pub const SM_SYSTEMDOCKED_: u32 = 8196u32;
+pub const SM_TABLETPC: u32 = 86u32;
+pub const SM_XVIRTUALSCREEN: u32 = 76u32;
+pub const SM_YVIRTUALSCREEN: u32 = 77u32;
+pub const SPI_GETBEEP: u32 = 1u32;
+pub const SPI_SETBEEP: u32 = 2u32;
+pub const SPI_GETMOUSE: u32 = 3u32;
+pub const SPI_SETMOUSE: u32 = 4u32;
+pub const SPI_GETBORDER: u32 = 5u32;
+pub const SPI_SETBORDER: u32 = 6u32;
+pub const SPI_GETKEYBOARDSPEED: u32 = 10u32;
+pub const SPI_SETKEYBOARDSPEED: u32 = 11u32;
+pub const SPI_LANGDRIVER: u32 = 12u32;
+pub const SPI_ICONHORIZONTALSPACING: u32 = 13u32;
+pub const SPI_GETSCREENSAVETIMEOUT: u32 = 14u32;
+pub const SPI_SETSCREENSAVETIMEOUT: u32 = 15u32;
+pub const SPI_GETSCREENSAVEACTIVE: u32 = 16u32;
+pub const SPI_SETSCREENSAVEACTIVE: u32 = 17u32;
+pub const SPI_GETGRIDGRANULARITY: u32 = 18u32;
+pub const SPI_SETGRIDGRANULARITY: u32 = 19u32;
+pub const SPI_SETDESKWALLPAPER: u32 = 20u32;
+pub const SPI_SETDESKPATTERN: u32 = 21u32;
+pub const SPI_GETKEYBOARDDELAY: u32 = 22u32;
+pub const SPI_SETKEYBOARDDELAY: u32 = 23u32;
+pub const SPI_ICONVERTICALSPACING: u32 = 24u32;
+pub const SPI_GETICONTITLEWRAP: u32 = 25u32;
+pub const SPI_SETICONTITLEWRAP: u32 = 26u32;
+pub const SPI_GETMENUDROPALIGNMENT: u32 = 27u32;
+pub const SPI_SETMENUDROPALIGNMENT: u32 = 28u32;
+pub const SPI_SETDOUBLECLKWIDTH: u32 = 29u32;
+pub const SPI_SETDOUBLECLKHEIGHT: u32 = 30u32;
+pub const SPI_GETICONTITLELOGFONT: u32 = 31u32;
+pub const SPI_SETDOUBLECLICKTIME: u32 = 32u32;
+pub const SPI_SETMOUSEBUTTONSWAP: u32 = 33u32;
+pub const SPI_SETICONTITLELOGFONT: u32 = 34u32;
+pub const SPI_GETFASTTASKSWITCH: u32 = 35u32;
+pub const SPI_SETFASTTASKSWITCH: u32 = 36u32;
+pub const SPI_SETDRAGFULLWINDOWS: u32 = 37u32;
+pub const SPI_GETDRAGFULLWINDOWS: u32 = 38u32;
+pub const SPI_GETNONCLIENTMETRICS: u32 = 41u32;
+pub const SPI_SETNONCLIENTMETRICS: u32 = 42u32;
+pub const SPI_GETMINIMIZEDMETRICS: u32 = 43u32;
+pub const SPI_SETMINIMIZEDMETRICS: u32 = 44u32;
+pub const SPI_GETICONMETRICS: u32 = 45u32;
+pub const SPI_SETICONMETRICS: u32 = 46u32;
+pub const SPI_SETWORKAREA: u32 = 47u32;
+pub const SPI_GETWORKAREA: u32 = 48u32;
+pub const SPI_SETPENWINDOWS: u32 = 49u32;
+pub const SPI_GETHIGHCONTRAST: u32 = 66u32;
+pub const SPI_SETHIGHCONTRAST: u32 = 67u32;
+pub const SPI_GETKEYBOARDPREF: u32 = 68u32;
+pub const SPI_SETKEYBOARDPREF: u32 = 69u32;
+pub const SPI_GETSCREENREADER: u32 = 70u32;
+pub const SPI_SETSCREENREADER: u32 = 71u32;
+pub const SPI_GETANIMATION: u32 = 72u32;
+pub const SPI_SETANIMATION: u32 = 73u32;
+pub const SPI_GETFONTSMOOTHING: u32 = 74u32;
+pub const SPI_SETFONTSMOOTHING: u32 = 75u32;
+pub const SPI_SETDRAGWIDTH: u32 = 76u32;
+pub const SPI_SETDRAGHEIGHT: u32 = 77u32;
+pub const SPI_SETHANDHELD: u32 = 78u32;
+pub const SPI_GETLOWPOWERTIMEOUT: u32 = 79u32;
+pub const SPI_GETPOWEROFFTIMEOUT: u32 = 80u32;
+pub const SPI_SETLOWPOWERTIMEOUT: u32 = 81u32;
+pub const SPI_SETPOWEROFFTIMEOUT: u32 = 82u32;
+pub const SPI_GETLOWPOWERACTIVE: u32 = 83u32;
+pub const SPI_GETPOWEROFFACTIVE: u32 = 84u32;
+pub const SPI_SETLOWPOWERACTIVE: u32 = 85u32;
+pub const SPI_SETPOWEROFFACTIVE: u32 = 86u32;
+pub const SPI_SETCURSORS: u32 = 87u32;
+pub const SPI_SETICONS: u32 = 88u32;
+pub const SPI_GETDEFAULTINPUTLANG: u32 = 89u32;
+pub const SPI_SETDEFAULTINPUTLANG: u32 = 90u32;
+pub const SPI_SETLANGTOGGLE: u32 = 91u32;
+pub const SPI_GETWINDOWSEXTENSION: u32 = 92u32;
+pub const SPI_SETMOUSETRAILS: u32 = 93u32;
+pub const SPI_GETMOUSETRAILS: u32 = 94u32;
+pub const SPI_SETSCREENSAVERRUNNING: u32 = 97u32;
+pub const SPI_SCREENSAVERRUNNING: u32 = 97u32;
+pub const SPI_GETFILTERKEYS: u32 = 50u32;
+pub const SPI_SETFILTERKEYS: u32 = 51u32;
+pub const SPI_GETTOGGLEKEYS: u32 = 52u32;
+pub const SPI_SETTOGGLEKEYS: u32 = 53u32;
+pub const SPI_GETMOUSEKEYS: u32 = 54u32;
+pub const SPI_SETMOUSEKEYS: u32 = 55u32;
+pub const SPI_GETSHOWSOUNDS: u32 = 56u32;
+pub const SPI_SETSHOWSOUNDS: u32 = 57u32;
+pub const SPI_GETSTICKYKEYS: u32 = 58u32;
+pub const SPI_SETSTICKYKEYS: u32 = 59u32;
+pub const SPI_GETACCESSTIMEOUT: u32 = 60u32;
+pub const SPI_SETACCESSTIMEOUT: u32 = 61u32;
+pub const SPI_GETSERIALKEYS: u32 = 62u32;
+pub const SPI_SETSERIALKEYS: u32 = 63u32;
+pub const SPI_GETSOUNDSENTRY: u32 = 64u32;
+pub const SPI_SETSOUNDSENTRY: u32 = 65u32;
+pub const SPI_GETSNAPTODEFBUTTON: u32 = 95u32;
+pub const SPI_SETSNAPTODEFBUTTON: u32 = 96u32;
+pub const SPI_GETMOUSEHOVERWIDTH: u32 = 98u32;
+pub const SPI_SETMOUSEHOVERWIDTH: u32 = 99u32;
+pub const SPI_GETMOUSEHOVERHEIGHT: u32 = 100u32;
+pub const SPI_SETMOUSEHOVERHEIGHT: u32 = 101u32;
+pub const SPI_GETMOUSEHOVERTIME: u32 = 102u32;
+pub const SPI_SETMOUSEHOVERTIME: u32 = 103u32;
+pub const SPI_GETWHEELSCROLLLINES: u32 = 104u32;
+pub const SPI_SETWHEELSCROLLLINES: u32 = 105u32;
+pub const SPI_GETMENUSHOWDELAY: u32 = 106u32;
+pub const SPI_SETMENUSHOWDELAY: u32 = 107u32;
+pub const SPI_GETWHEELSCROLLCHARS: u32 = 108u32;
+pub const SPI_SETWHEELSCROLLCHARS: u32 = 109u32;
+pub const SPI_GETSHOWIMEUI: u32 = 110u32;
+pub const SPI_SETSHOWIMEUI: u32 = 111u32;
+pub const SPI_GETMOUSESPEED: u32 = 112u32;
+pub const SPI_SETMOUSESPEED: u32 = 113u32;
+pub const SPI_GETSCREENSAVERRUNNING: u32 = 114u32;
+pub const SPI_GETDESKWALLPAPER: u32 = 115u32;
+pub const SPI_GETAUDIODESCRIPTION: u32 = 116u32;
+pub const SPI_SETAUDIODESCRIPTION: u32 = 117u32;
+pub const SPI_GETSCREENSAVESECURE: u32 = 118u32;
+pub const SPI_SETSCREENSAVESECURE: u32 = 119u32;
+pub const SPI_GETHUNGAPPTIMEOUT: u32 = 120u32;
+pub const SPI_SETHUNGAPPTIMEOUT: u32 = 121u32;
+pub const SPI_GETWAITTOKILLTIMEOUT: u32 = 122u32;
+pub const SPI_SETWAITTOKILLTIMEOUT: u32 = 123u32;
+pub const SPI_GETWAITTOKILLSERVICETIMEOUT: u32 = 124u32;
+pub const SPI_SETWAITTOKILLSERVICETIMEOUT: u32 = 125u32;
+pub const SPI_GETMOUSEDOCKTHRESHOLD: u32 = 126u32;
+pub const SPI_SETMOUSEDOCKTHRESHOLD: u32 = 127u32;
+pub const SPI_GETPENDOCKTHRESHOLD: u32 = 128u32;
+pub const SPI_SETPENDOCKTHRESHOLD: u32 = 129u32;
+pub const SPI_GETWINARRANGING: u32 = 130u32;
+pub const SPI_SETWINARRANGING: u32 = 131u32;
+pub const SPI_GETMOUSEDRAGOUTTHRESHOLD: u32 = 132u32;
+pub const SPI_SETMOUSEDRAGOUTTHRESHOLD: u32 = 133u32;
+pub const SPI_GETPENDRAGOUTTHRESHOLD: u32 = 134u32;
+pub const SPI_SETPENDRAGOUTTHRESHOLD: u32 = 135u32;
+pub const SPI_GETMOUSESIDEMOVETHRESHOLD: u32 = 136u32;
+pub const SPI_SETMOUSESIDEMOVETHRESHOLD: u32 = 137u32;
+pub const SPI_GETPENSIDEMOVETHRESHOLD: u32 = 138u32;
+pub const SPI_SETPENSIDEMOVETHRESHOLD: u32 = 139u32;
+pub const SPI_GETDRAGFROMMAXIMIZE: u32 = 140u32;
+pub const SPI_SETDRAGFROMMAXIMIZE: u32 = 141u32;
+pub const SPI_GETSNAPSIZING: u32 = 142u32;
+pub const SPI_SETSNAPSIZING: u32 = 143u32;
+pub const SPI_GETDOCKMOVING: u32 = 144u32;
+pub const SPI_SETDOCKMOVING: u32 = 145u32;
+pub const SPI_GETTOUCHPREDICTIONPARAMETERS: u32 = 156u32;
+pub const SPI_SETTOUCHPREDICTIONPARAMETERS: u32 = 157u32;
+pub const SPI_GETLOGICALDPIOVERRIDE: u32 = 158u32;
+pub const SPI_SETLOGICALDPIOVERRIDE: u32 = 159u32;
+pub const SPI_GETMENURECT: u32 = 162u32;
+pub const SPI_SETMENURECT: u32 = 163u32;
+pub const SPI_GETACTIVEWINDOWTRACKING: u32 = 4096u32;
+pub const SPI_SETACTIVEWINDOWTRACKING: u32 = 4097u32;
+pub const SPI_GETMENUANIMATION: u32 = 4098u32;
+pub const SPI_SETMENUANIMATION: u32 = 4099u32;
+pub const SPI_GETCOMBOBOXANIMATION: u32 = 4100u32;
+pub const SPI_SETCOMBOBOXANIMATION: u32 = 4101u32;
+pub const SPI_GETLISTBOXSMOOTHSCROLLING: u32 = 4102u32;
+pub const SPI_SETLISTBOXSMOOTHSCROLLING: u32 = 4103u32;
+pub const SPI_GETGRADIENTCAPTIONS: u32 = 4104u32;
+pub const SPI_SETGRADIENTCAPTIONS: u32 = 4105u32;
+pub const SPI_GETKEYBOARDCUES: u32 = 4106u32;
+pub const SPI_SETKEYBOARDCUES: u32 = 4107u32;
+pub const SPI_GETMENUUNDERLINES: u32 = 4106u32;
+pub const SPI_SETMENUUNDERLINES: u32 = 4107u32;
+pub const SPI_GETACTIVEWNDTRKZORDER: u32 = 4108u32;
+pub const SPI_SETACTIVEWNDTRKZORDER: u32 = 4109u32;
+pub const SPI_GETHOTTRACKING: u32 = 4110u32;
+pub const SPI_SETHOTTRACKING: u32 = 4111u32;
+pub const SPI_GETMENUFADE: u32 = 4114u32;
+pub const SPI_SETMENUFADE: u32 = 4115u32;
+pub const SPI_GETSELECTIONFADE: u32 = 4116u32;
+pub const SPI_SETSELECTIONFADE: u32 = 4117u32;
+pub const SPI_GETTOOLTIPANIMATION: u32 = 4118u32;
+pub const SPI_SETTOOLTIPANIMATION: u32 = 4119u32;
+pub const SPI_GETTOOLTIPFADE: u32 = 4120u32;
+pub const SPI_SETTOOLTIPFADE: u32 = 4121u32;
+pub const SPI_GETCURSORSHADOW: u32 = 4122u32;
+pub const SPI_SETCURSORSHADOW: u32 = 4123u32;
+pub const SPI_GETMOUSESONAR: u32 = 4124u32;
+pub const SPI_SETMOUSESONAR: u32 = 4125u32;
+pub const SPI_GETMOUSECLICKLOCK: u32 = 4126u32;
+pub const SPI_SETMOUSECLICKLOCK: u32 = 4127u32;
+pub const SPI_GETMOUSEVANISH: u32 = 4128u32;
+pub const SPI_SETMOUSEVANISH: u32 = 4129u32;
+pub const SPI_GETFLATMENU: u32 = 4130u32;
+pub const SPI_SETFLATMENU: u32 = 4131u32;
+pub const SPI_GETDROPSHADOW: u32 = 4132u32;
+pub const SPI_SETDROPSHADOW: u32 = 4133u32;
+pub const SPI_GETBLOCKSENDINPUTRESETS: u32 = 4134u32;
+pub const SPI_SETBLOCKSENDINPUTRESETS: u32 = 4135u32;
+pub const SPI_GETUIEFFECTS: u32 = 4158u32;
+pub const SPI_SETUIEFFECTS: u32 = 4159u32;
+pub const SPI_GETDISABLEOVERLAPPEDCONTENT: u32 = 4160u32;
+pub const SPI_SETDISABLEOVERLAPPEDCONTENT: u32 = 4161u32;
+pub const SPI_GETCLIENTAREAANIMATION: u32 = 4162u32;
+pub const SPI_SETCLIENTAREAANIMATION: u32 = 4163u32;
+pub const SPI_GETCLEARTYPE: u32 = 4168u32;
+pub const SPI_SETCLEARTYPE: u32 = 4169u32;
+pub const SPI_GETSPEECHRECOGNITION: u32 = 4170u32;
+pub const SPI_SETSPEECHRECOGNITION: u32 = 4171u32;
+pub const SPI_GETCARETBROWSING: u32 = 4172u32;
+pub const SPI_SETCARETBROWSING: u32 = 4173u32;
+pub const SPI_GETTHREADLOCALINPUTSETTINGS: u32 = 4174u32;
+pub const SPI_SETTHREADLOCALINPUTSETTINGS: u32 = 4175u32;
+pub const SPI_GETSYSTEMLANGUAGEBAR: u32 = 4176u32;
+pub const SPI_SETSYSTEMLANGUAGEBAR: u32 = 4177u32;
+pub const SPI_GETFOREGROUNDLOCKTIMEOUT: u32 = 8192u32;
+pub const SPI_SETFOREGROUNDLOCKTIMEOUT: u32 = 8193u32;
+pub const SPI_GETACTIVEWNDTRKTIMEOUT: u32 = 8194u32;
+pub const SPI_SETACTIVEWNDTRKTIMEOUT: u32 = 8195u32;
+pub const SPI_GETFOREGROUNDFLASHCOUNT: u32 = 8196u32;
+pub const SPI_SETFOREGROUNDFLASHCOUNT: u32 = 8197u32;
+pub const SPI_GETCARETWIDTH: u32 = 8198u32;
+pub const SPI_SETCARETWIDTH: u32 = 8199u32;
+pub const SPI_GETMOUSECLICKLOCKTIME: u32 = 8200u32;
+pub const SPI_SETMOUSECLICKLOCKTIME: u32 = 8201u32;
+pub const SPI_GETFONTSMOOTHINGTYPE: u32 = 8202u32;
+pub const SPI_SETFONTSMOOTHINGTYPE: u32 = 8203u32;
+pub const SPI_GETFONTSMOOTHINGCONTRAST: u32 = 8204u32;
+pub const SPI_SETFONTSMOOTHINGCONTRAST: u32 = 8205u32;
+pub const SPI_GETFOCUSBORDERWIDTH: u32 = 8206u32;
+pub const SPI_SETFOCUSBORDERWIDTH: u32 = 8207u32;
+pub const SPI_GETFOCUSBORDERHEIGHT: u32 = 8208u32;
+pub const SPI_SETFOCUSBORDERHEIGHT: u32 = 8209u32;
+pub const SPI_GETFONTSMOOTHINGORIENTATION: u32 = 8210u32;
+pub const SPI_SETFONTSMOOTHINGORIENTATION: u32 = 8211u32;
+pub const SPI_GETMINIMUMHITRADIUS: u32 = 8212u32;
+pub const SPI_SETMINIMUMHITRADIUS: u32 = 8213u32;
+pub const SPI_GETMESSAGEDURATION: u32 = 8214u32;
+pub const SPI_SETMESSAGEDURATION: u32 = 8215u32;
+pub const SPI_GETCONTACTVISUALIZATION: u32 = 8216u32;
+pub const SPI_SETCONTACTVISUALIZATION: u32 = 8217u32;
+pub const SPI_GETGESTUREVISUALIZATION: u32 = 8218u32;
+pub const SPI_SETGESTUREVISUALIZATION: u32 = 8219u32;
+pub const SPI_GETMOUSEWHEELROUTING: u32 = 8220u32;
+pub const SPI_SETMOUSEWHEELROUTING: u32 = 8221u32;
+pub const SPI_GETPENVISUALIZATION: u32 = 8222u32;
+pub const SPI_SETPENVISUALIZATION: u32 = 8223u32;
+pub const SPI_GETPENARBITRATIONTYPE: u32 = 8224u32;
+pub const SPI_SETPENARBITRATIONTYPE: u32 = 8225u32;
+pub const SPI_GETCARETTIMEOUT: u32 = 8226u32;
+pub const SPI_SETCARETTIMEOUT: u32 = 8227u32;
+pub const SPI_GETHANDEDNESS: u32 = 8228u32;
+pub const SPI_SETHANDEDNESS: u32 = 8229u32;
+pub const SPIF_UPDATEINIFILE: u32 = 1u32;
+pub const SPIF_SENDCHANGE: u32 = 2u32;
+pub const SPIF_SENDWININICHANGE: u32 = 2u32;
+pub const COLOR_3DDKSHADOW: u32 = 21u32;
+pub const COLOR_3DFACE: u32 = 15u32;
+pub const COLOR_3DHIGHLIGHT: u32 = 20u32;
+pub const COLOR_3DHILIGHT: u32 = 20u32;
+pub const COLOR_3DLIGHT: u32 = 22u32;
+pub const COLOR_3DSHADOW: u32 = 16u32;
+pub const COLOR_ACTIVEBORDER: u32 = 10u32;
+pub const COLOR_ACTIVECAPTION: u32 = 2u32;
+pub const COLOR_APPWORKSPACE: u32 = 12u32;
+pub const COLOR_BACKGROUND: u32 = 1u32;
+pub const COLOR_BTNFACE: u32 = 15u32;
+pub const _COLOR_BTNHIGHLIGHT: u32 = 20u32;
+pub const _COLOR_BTNHILIGHT: u32 = 20u32;
+pub const COLOR_BTNSHADOW: u32 = 16u32;
+pub const COLOR_BTNTEXT: u32 = 18u32;
+pub const COLOR_CAPTIONTEXT: u32 = 9u32;
+pub const COLOR_DESKTOP: u32 = 1u32;
+pub const COLOR_GRADIENTACTIVECAPTION: u32 = 27u32;
+pub const COLOR_GRADIENTINACTIVECAPTION: u32 = 28u32;
+pub const COLOR_GRAYTEXT: u32 = 17u32;
+pub const COLOR_HIGHLIGHT: u32 = 13u32;
+pub const COLOR_HIGHLIGHTTEXT: u32 = 14u32;
+pub const COLOR_HOTLIGHT: u32 = 26u32;
+pub const COLOR_INACTIVEBORDER: u32 = 11u32;
+pub const COLOR_INACTIVECAPTION: u32 = 3u32;
+pub const COLOR_INACTIVECAPTIONTEXT: u32 = 19u32;
+pub const COLOR_INFOBK: u32 = 24u32;
+pub const COLOR_INFOTEXT: u32 = 23u32;
+pub const COLOR_MENU: u32 = 4u32;
+pub const COLOR_MENUHILIGHT: u32 = 29u32;
+pub const COLOR_MENUBAR: u32 = 30u32;
+pub const COLOR_MENUTEXT: u32 = 7u32;
+pub const COLOR_SCROLLBAR: u32 = 0u32;
+pub const COLOR_WINDOW: u32 = 5u32;
+pub const COLOR_WINDOWFRAME: u32 = 6u32;
+pub const COLOR_WINDOWTEXT: u32 = 8u32;
+pub const MDITILE_HORIZONTAL: u32 = 1u32;
+pub const MDITILE_VERTICAL: u32 = 0u32;
 #[cfg(feature = "Win32_Foundation")]
 pub type TIMERPROC = unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: u32, param2: usize, param3: u32);
 pub const TIMERV_COALESCING_MAX: u32 = 2147483637u32;
@@ -4170,34 +3746,26 @@ impl ::core::clone::Clone for TPMPARAMS {
         *self
     }
 }
-#[repr(transparent)]
-pub struct TRACK_POPUP_MENU_FLAGS(pub u32);
-pub const TPM_LEFTBUTTON: TRACK_POPUP_MENU_FLAGS = TRACK_POPUP_MENU_FLAGS(0u32);
-pub const TPM_RIGHTBUTTON: TRACK_POPUP_MENU_FLAGS = TRACK_POPUP_MENU_FLAGS(2u32);
-pub const TPM_LEFTALIGN: TRACK_POPUP_MENU_FLAGS = TRACK_POPUP_MENU_FLAGS(0u32);
-pub const TPM_CENTERALIGN: TRACK_POPUP_MENU_FLAGS = TRACK_POPUP_MENU_FLAGS(4u32);
-pub const TPM_RIGHTALIGN: TRACK_POPUP_MENU_FLAGS = TRACK_POPUP_MENU_FLAGS(8u32);
-pub const TPM_TOPALIGN: TRACK_POPUP_MENU_FLAGS = TRACK_POPUP_MENU_FLAGS(0u32);
-pub const TPM_VCENTERALIGN: TRACK_POPUP_MENU_FLAGS = TRACK_POPUP_MENU_FLAGS(16u32);
-pub const TPM_BOTTOMALIGN: TRACK_POPUP_MENU_FLAGS = TRACK_POPUP_MENU_FLAGS(32u32);
-pub const TPM_HORIZONTAL: TRACK_POPUP_MENU_FLAGS = TRACK_POPUP_MENU_FLAGS(0u32);
-pub const TPM_VERTICAL: TRACK_POPUP_MENU_FLAGS = TRACK_POPUP_MENU_FLAGS(64u32);
-pub const TPM_NONOTIFY: TRACK_POPUP_MENU_FLAGS = TRACK_POPUP_MENU_FLAGS(128u32);
-pub const TPM_RETURNCMD: TRACK_POPUP_MENU_FLAGS = TRACK_POPUP_MENU_FLAGS(256u32);
-pub const TPM_RECURSE: TRACK_POPUP_MENU_FLAGS = TRACK_POPUP_MENU_FLAGS(1u32);
-pub const TPM_HORPOSANIMATION: TRACK_POPUP_MENU_FLAGS = TRACK_POPUP_MENU_FLAGS(1024u32);
-pub const TPM_HORNEGANIMATION: TRACK_POPUP_MENU_FLAGS = TRACK_POPUP_MENU_FLAGS(2048u32);
-pub const TPM_VERPOSANIMATION: TRACK_POPUP_MENU_FLAGS = TRACK_POPUP_MENU_FLAGS(4096u32);
-pub const TPM_VERNEGANIMATION: TRACK_POPUP_MENU_FLAGS = TRACK_POPUP_MENU_FLAGS(8192u32);
-pub const TPM_NOANIMATION: TRACK_POPUP_MENU_FLAGS = TRACK_POPUP_MENU_FLAGS(16384u32);
-pub const TPM_LAYOUTRTL: TRACK_POPUP_MENU_FLAGS = TRACK_POPUP_MENU_FLAGS(32768u32);
-pub const TPM_WORKAREA: TRACK_POPUP_MENU_FLAGS = TRACK_POPUP_MENU_FLAGS(65536u32);
-impl ::core::marker::Copy for TRACK_POPUP_MENU_FLAGS {}
-impl ::core::clone::Clone for TRACK_POPUP_MENU_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const TPM_LEFTBUTTON: u32 = 0u32;
+pub const TPM_RIGHTBUTTON: u32 = 2u32;
+pub const TPM_LEFTALIGN: u32 = 0u32;
+pub const TPM_CENTERALIGN: u32 = 4u32;
+pub const TPM_RIGHTALIGN: u32 = 8u32;
+pub const TPM_TOPALIGN: u32 = 0u32;
+pub const TPM_VCENTERALIGN: u32 = 16u32;
+pub const TPM_BOTTOMALIGN: u32 = 32u32;
+pub const TPM_HORIZONTAL: u32 = 0u32;
+pub const TPM_VERTICAL: u32 = 64u32;
+pub const TPM_NONOTIFY: u32 = 128u32;
+pub const TPM_RETURNCMD: u32 = 256u32;
+pub const TPM_RECURSE: u32 = 1u32;
+pub const TPM_HORPOSANIMATION: u32 = 1024u32;
+pub const TPM_HORNEGANIMATION: u32 = 2048u32;
+pub const TPM_VERPOSANIMATION: u32 = 4096u32;
+pub const TPM_VERNEGANIMATION: u32 = 8192u32;
+pub const TPM_NOANIMATION: u32 = 16384u32;
+pub const TPM_LAYOUTRTL: u32 = 32768u32;
+pub const TPM_WORKAREA: u32 = 65536u32;
 #[repr(C)]
 pub struct TouchPredictionParameters {
     pub cbSize: u32,
@@ -4241,18 +3809,10 @@ impl ::core::clone::Clone for UPDATELAYEREDWINDOWINFO {
         *self
     }
 }
-#[repr(transparent)]
-pub struct UPDATE_LAYERED_WINDOW_FLAGS(pub u32);
-pub const ULW_ALPHA: UPDATE_LAYERED_WINDOW_FLAGS = UPDATE_LAYERED_WINDOW_FLAGS(2u32);
-pub const ULW_COLORKEY: UPDATE_LAYERED_WINDOW_FLAGS = UPDATE_LAYERED_WINDOW_FLAGS(1u32);
-pub const ULW_OPAQUE: UPDATE_LAYERED_WINDOW_FLAGS = UPDATE_LAYERED_WINDOW_FLAGS(4u32);
-pub const ULW_EX_NORESIZE: UPDATE_LAYERED_WINDOW_FLAGS = UPDATE_LAYERED_WINDOW_FLAGS(8u32);
-impl ::core::marker::Copy for UPDATE_LAYERED_WINDOW_FLAGS {}
-impl ::core::clone::Clone for UPDATE_LAYERED_WINDOW_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const ULW_ALPHA: u32 = 2u32;
+pub const ULW_COLORKEY: u32 = 1u32;
+pub const ULW_OPAQUE: u32 = 4u32;
+pub const ULW_EX_NORESIZE: u32 = 8u32;
 pub const USER_DEFAULT_SCREEN_DPI: u32 = 96u32;
 pub const USER_TIMER_MAXIMUM: u32 = 2147483647u32;
 pub const USER_TIMER_MINIMUM: u32 = 10u32;
@@ -4305,17 +3865,9 @@ impl ::core::clone::Clone for WINDOWPLACEMENT {
         *self
     }
 }
-#[repr(transparent)]
-pub struct WINDOWPLACEMENT_FLAGS(pub u32);
-pub const WPF_ASYNCWINDOWPLACEMENT: WINDOWPLACEMENT_FLAGS = WINDOWPLACEMENT_FLAGS(4u32);
-pub const WPF_RESTORETOMAXIMIZED: WINDOWPLACEMENT_FLAGS = WINDOWPLACEMENT_FLAGS(2u32);
-pub const WPF_SETMINPOSITION: WINDOWPLACEMENT_FLAGS = WINDOWPLACEMENT_FLAGS(1u32);
-impl ::core::marker::Copy for WINDOWPLACEMENT_FLAGS {}
-impl ::core::clone::Clone for WINDOWPLACEMENT_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const WPF_ASYNCWINDOWPLACEMENT: u32 = 4u32;
+pub const WPF_RESTORETOMAXIMIZED: u32 = 2u32;
+pub const WPF_SETMINPOSITION: u32 = 1u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINDOWPOS {
@@ -4335,142 +3887,94 @@ impl ::core::clone::Clone for WINDOWPOS {
         *self
     }
 }
-#[repr(transparent)]
-pub struct WINDOWS_HOOK_ID(pub i32);
-pub const WH_CALLWNDPROC: WINDOWS_HOOK_ID = WINDOWS_HOOK_ID(4i32);
-pub const WH_CALLWNDPROCRET: WINDOWS_HOOK_ID = WINDOWS_HOOK_ID(12i32);
-pub const WH_CBT: WINDOWS_HOOK_ID = WINDOWS_HOOK_ID(5i32);
-pub const WH_DEBUG: WINDOWS_HOOK_ID = WINDOWS_HOOK_ID(9i32);
-pub const WH_FOREGROUNDIDLE: WINDOWS_HOOK_ID = WINDOWS_HOOK_ID(11i32);
-pub const WH_GETMESSAGE: WINDOWS_HOOK_ID = WINDOWS_HOOK_ID(3i32);
-pub const WH_JOURNALPLAYBACK: WINDOWS_HOOK_ID = WINDOWS_HOOK_ID(1i32);
-pub const WH_JOURNALRECORD: WINDOWS_HOOK_ID = WINDOWS_HOOK_ID(0i32);
-pub const WH_KEYBOARD: WINDOWS_HOOK_ID = WINDOWS_HOOK_ID(2i32);
-pub const WH_KEYBOARD_LL: WINDOWS_HOOK_ID = WINDOWS_HOOK_ID(13i32);
-pub const WH_MOUSE: WINDOWS_HOOK_ID = WINDOWS_HOOK_ID(7i32);
-pub const WH_MOUSE_LL: WINDOWS_HOOK_ID = WINDOWS_HOOK_ID(14i32);
-pub const WH_MSGFILTER: WINDOWS_HOOK_ID = WINDOWS_HOOK_ID(-1i32);
-pub const WH_SHELL: WINDOWS_HOOK_ID = WINDOWS_HOOK_ID(10i32);
-pub const WH_SYSMSGFILTER: WINDOWS_HOOK_ID = WINDOWS_HOOK_ID(6i32);
-impl ::core::marker::Copy for WINDOWS_HOOK_ID {}
-impl ::core::clone::Clone for WINDOWS_HOOK_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WINDOW_DISPLAY_AFFINITY(pub u32);
-pub const WDA_NONE: WINDOW_DISPLAY_AFFINITY = WINDOW_DISPLAY_AFFINITY(0u32);
-pub const WDA_MONITOR: WINDOW_DISPLAY_AFFINITY = WINDOW_DISPLAY_AFFINITY(1u32);
-pub const WDA_EXCLUDEFROMCAPTURE: WINDOW_DISPLAY_AFFINITY = WINDOW_DISPLAY_AFFINITY(17u32);
-impl ::core::marker::Copy for WINDOW_DISPLAY_AFFINITY {}
-impl ::core::clone::Clone for WINDOW_DISPLAY_AFFINITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WINDOW_EX_STYLE(pub u32);
-pub const WS_EX_DLGMODALFRAME: WINDOW_EX_STYLE = WINDOW_EX_STYLE(1u32);
-pub const WS_EX_NOPARENTNOTIFY: WINDOW_EX_STYLE = WINDOW_EX_STYLE(4u32);
-pub const WS_EX_TOPMOST: WINDOW_EX_STYLE = WINDOW_EX_STYLE(8u32);
-pub const WS_EX_ACCEPTFILES: WINDOW_EX_STYLE = WINDOW_EX_STYLE(16u32);
-pub const WS_EX_TRANSPARENT: WINDOW_EX_STYLE = WINDOW_EX_STYLE(32u32);
-pub const WS_EX_MDICHILD: WINDOW_EX_STYLE = WINDOW_EX_STYLE(64u32);
-pub const WS_EX_TOOLWINDOW: WINDOW_EX_STYLE = WINDOW_EX_STYLE(128u32);
-pub const WS_EX_WINDOWEDGE: WINDOW_EX_STYLE = WINDOW_EX_STYLE(256u32);
-pub const WS_EX_CLIENTEDGE: WINDOW_EX_STYLE = WINDOW_EX_STYLE(512u32);
-pub const WS_EX_CONTEXTHELP: WINDOW_EX_STYLE = WINDOW_EX_STYLE(1024u32);
-pub const WS_EX_RIGHT: WINDOW_EX_STYLE = WINDOW_EX_STYLE(4096u32);
-pub const WS_EX_LEFT: WINDOW_EX_STYLE = WINDOW_EX_STYLE(0u32);
-pub const WS_EX_RTLREADING: WINDOW_EX_STYLE = WINDOW_EX_STYLE(8192u32);
-pub const WS_EX_LTRREADING: WINDOW_EX_STYLE = WINDOW_EX_STYLE(0u32);
-pub const WS_EX_LEFTSCROLLBAR: WINDOW_EX_STYLE = WINDOW_EX_STYLE(16384u32);
-pub const WS_EX_RIGHTSCROLLBAR: WINDOW_EX_STYLE = WINDOW_EX_STYLE(0u32);
-pub const WS_EX_CONTROLPARENT: WINDOW_EX_STYLE = WINDOW_EX_STYLE(65536u32);
-pub const WS_EX_STATICEDGE: WINDOW_EX_STYLE = WINDOW_EX_STYLE(131072u32);
-pub const WS_EX_APPWINDOW: WINDOW_EX_STYLE = WINDOW_EX_STYLE(262144u32);
-pub const WS_EX_OVERLAPPEDWINDOW: WINDOW_EX_STYLE = WINDOW_EX_STYLE(768u32);
-pub const WS_EX_PALETTEWINDOW: WINDOW_EX_STYLE = WINDOW_EX_STYLE(392u32);
-pub const WS_EX_LAYERED: WINDOW_EX_STYLE = WINDOW_EX_STYLE(524288u32);
-pub const WS_EX_NOINHERITLAYOUT: WINDOW_EX_STYLE = WINDOW_EX_STYLE(1048576u32);
-pub const WS_EX_NOREDIRECTIONBITMAP: WINDOW_EX_STYLE = WINDOW_EX_STYLE(2097152u32);
-pub const WS_EX_LAYOUTRTL: WINDOW_EX_STYLE = WINDOW_EX_STYLE(4194304u32);
-pub const WS_EX_COMPOSITED: WINDOW_EX_STYLE = WINDOW_EX_STYLE(33554432u32);
-pub const WS_EX_NOACTIVATE: WINDOW_EX_STYLE = WINDOW_EX_STYLE(134217728u32);
-impl ::core::marker::Copy for WINDOW_EX_STYLE {}
-impl ::core::clone::Clone for WINDOW_EX_STYLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WINDOW_LONG_PTR_INDEX(pub i32);
-pub const GWL_EXSTYLE: WINDOW_LONG_PTR_INDEX = WINDOW_LONG_PTR_INDEX(-20i32);
-pub const GWLP_HINSTANCE: WINDOW_LONG_PTR_INDEX = WINDOW_LONG_PTR_INDEX(-6i32);
-pub const GWLP_HWNDPARENT: WINDOW_LONG_PTR_INDEX = WINDOW_LONG_PTR_INDEX(-8i32);
-pub const GWLP_ID: WINDOW_LONG_PTR_INDEX = WINDOW_LONG_PTR_INDEX(-12i32);
-pub const GWL_STYLE: WINDOW_LONG_PTR_INDEX = WINDOW_LONG_PTR_INDEX(-16i32);
-pub const GWLP_USERDATA: WINDOW_LONG_PTR_INDEX = WINDOW_LONG_PTR_INDEX(-21i32);
-pub const GWLP_WNDPROC: WINDOW_LONG_PTR_INDEX = WINDOW_LONG_PTR_INDEX(-4i32);
-pub const GWL_HINSTANCE: WINDOW_LONG_PTR_INDEX = WINDOW_LONG_PTR_INDEX(-6i32);
-pub const GWL_ID: WINDOW_LONG_PTR_INDEX = WINDOW_LONG_PTR_INDEX(-12i32);
-pub const GWL_USERDATA: WINDOW_LONG_PTR_INDEX = WINDOW_LONG_PTR_INDEX(-21i32);
-pub const GWL_WNDPROC: WINDOW_LONG_PTR_INDEX = WINDOW_LONG_PTR_INDEX(-4i32);
-pub const GWL_HWNDPARENT: WINDOW_LONG_PTR_INDEX = WINDOW_LONG_PTR_INDEX(-8i32);
-impl ::core::marker::Copy for WINDOW_LONG_PTR_INDEX {}
-impl ::core::clone::Clone for WINDOW_LONG_PTR_INDEX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WINDOW_MESSAGE_FILTER_ACTION(pub u32);
-pub const MSGFLT_ALLOW: WINDOW_MESSAGE_FILTER_ACTION = WINDOW_MESSAGE_FILTER_ACTION(1u32);
-pub const MSGFLT_DISALLOW: WINDOW_MESSAGE_FILTER_ACTION = WINDOW_MESSAGE_FILTER_ACTION(2u32);
-pub const MSGFLT_RESET: WINDOW_MESSAGE_FILTER_ACTION = WINDOW_MESSAGE_FILTER_ACTION(0u32);
-impl ::core::marker::Copy for WINDOW_MESSAGE_FILTER_ACTION {}
-impl ::core::clone::Clone for WINDOW_MESSAGE_FILTER_ACTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct WINDOW_STYLE(pub u32);
-pub const WS_OVERLAPPED: WINDOW_STYLE = WINDOW_STYLE(0u32);
-pub const WS_POPUP: WINDOW_STYLE = WINDOW_STYLE(2147483648u32);
-pub const WS_CHILD: WINDOW_STYLE = WINDOW_STYLE(1073741824u32);
-pub const WS_MINIMIZE: WINDOW_STYLE = WINDOW_STYLE(536870912u32);
-pub const WS_VISIBLE: WINDOW_STYLE = WINDOW_STYLE(268435456u32);
-pub const WS_DISABLED: WINDOW_STYLE = WINDOW_STYLE(134217728u32);
-pub const WS_CLIPSIBLINGS: WINDOW_STYLE = WINDOW_STYLE(67108864u32);
-pub const WS_CLIPCHILDREN: WINDOW_STYLE = WINDOW_STYLE(33554432u32);
-pub const WS_MAXIMIZE: WINDOW_STYLE = WINDOW_STYLE(16777216u32);
-pub const WS_CAPTION: WINDOW_STYLE = WINDOW_STYLE(12582912u32);
-pub const WS_BORDER: WINDOW_STYLE = WINDOW_STYLE(8388608u32);
-pub const WS_DLGFRAME: WINDOW_STYLE = WINDOW_STYLE(4194304u32);
-pub const WS_VSCROLL: WINDOW_STYLE = WINDOW_STYLE(2097152u32);
-pub const WS_HSCROLL: WINDOW_STYLE = WINDOW_STYLE(1048576u32);
-pub const WS_SYSMENU: WINDOW_STYLE = WINDOW_STYLE(524288u32);
-pub const WS_THICKFRAME: WINDOW_STYLE = WINDOW_STYLE(262144u32);
-pub const WS_GROUP: WINDOW_STYLE = WINDOW_STYLE(131072u32);
-pub const WS_TABSTOP: WINDOW_STYLE = WINDOW_STYLE(65536u32);
-pub const WS_MINIMIZEBOX: WINDOW_STYLE = WINDOW_STYLE(131072u32);
-pub const WS_MAXIMIZEBOX: WINDOW_STYLE = WINDOW_STYLE(65536u32);
-pub const WS_TILED: WINDOW_STYLE = WINDOW_STYLE(0u32);
-pub const WS_ICONIC: WINDOW_STYLE = WINDOW_STYLE(536870912u32);
-pub const WS_SIZEBOX: WINDOW_STYLE = WINDOW_STYLE(262144u32);
-pub const WS_TILEDWINDOW: WINDOW_STYLE = WINDOW_STYLE(13565952u32);
-pub const WS_OVERLAPPEDWINDOW: WINDOW_STYLE = WINDOW_STYLE(13565952u32);
-pub const WS_POPUPWINDOW: WINDOW_STYLE = WINDOW_STYLE(2156396544u32);
-pub const WS_CHILDWINDOW: WINDOW_STYLE = WINDOW_STYLE(1073741824u32);
-pub const WS_ACTIVECAPTION: WINDOW_STYLE = WINDOW_STYLE(1u32);
-impl ::core::marker::Copy for WINDOW_STYLE {}
-impl ::core::clone::Clone for WINDOW_STYLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const WH_CALLWNDPROC: i32 = 4i32;
+pub const WH_CALLWNDPROCRET: i32 = 12i32;
+pub const WH_CBT: i32 = 5i32;
+pub const WH_DEBUG: i32 = 9i32;
+pub const WH_FOREGROUNDIDLE: i32 = 11i32;
+pub const WH_GETMESSAGE: i32 = 3i32;
+pub const WH_JOURNALPLAYBACK: i32 = 1i32;
+pub const WH_JOURNALRECORD: i32 = 0i32;
+pub const WH_KEYBOARD: i32 = 2i32;
+pub const WH_KEYBOARD_LL: i32 = 13i32;
+pub const WH_MOUSE: i32 = 7i32;
+pub const WH_MOUSE_LL: i32 = 14i32;
+pub const WH_MSGFILTER: i32 = -1i32;
+pub const WH_SHELL: i32 = 10i32;
+pub const WH_SYSMSGFILTER: i32 = 6i32;
+pub const WDA_NONE: u32 = 0u32;
+pub const WDA_MONITOR: u32 = 1u32;
+pub const WDA_EXCLUDEFROMCAPTURE: u32 = 17u32;
+pub const WS_EX_DLGMODALFRAME: u32 = 1u32;
+pub const WS_EX_NOPARENTNOTIFY: u32 = 4u32;
+pub const WS_EX_TOPMOST: u32 = 8u32;
+pub const WS_EX_ACCEPTFILES: u32 = 16u32;
+pub const WS_EX_TRANSPARENT: u32 = 32u32;
+pub const WS_EX_MDICHILD: u32 = 64u32;
+pub const WS_EX_TOOLWINDOW: u32 = 128u32;
+pub const WS_EX_WINDOWEDGE: u32 = 256u32;
+pub const WS_EX_CLIENTEDGE: u32 = 512u32;
+pub const WS_EX_CONTEXTHELP: u32 = 1024u32;
+pub const WS_EX_RIGHT: u32 = 4096u32;
+pub const WS_EX_LEFT: u32 = 0u32;
+pub const WS_EX_RTLREADING: u32 = 8192u32;
+pub const WS_EX_LTRREADING: u32 = 0u32;
+pub const WS_EX_LEFTSCROLLBAR: u32 = 16384u32;
+pub const WS_EX_RIGHTSCROLLBAR: u32 = 0u32;
+pub const WS_EX_CONTROLPARENT: u32 = 65536u32;
+pub const WS_EX_STATICEDGE: u32 = 131072u32;
+pub const WS_EX_APPWINDOW: u32 = 262144u32;
+pub const WS_EX_OVERLAPPEDWINDOW: u32 = 768u32;
+pub const WS_EX_PALETTEWINDOW: u32 = 392u32;
+pub const WS_EX_LAYERED: u32 = 524288u32;
+pub const WS_EX_NOINHERITLAYOUT: u32 = 1048576u32;
+pub const WS_EX_NOREDIRECTIONBITMAP: u32 = 2097152u32;
+pub const WS_EX_LAYOUTRTL: u32 = 4194304u32;
+pub const WS_EX_COMPOSITED: u32 = 33554432u32;
+pub const WS_EX_NOACTIVATE: u32 = 134217728u32;
+pub const GWL_EXSTYLE: i32 = -20i32;
+pub const GWLP_HINSTANCE: i32 = -6i32;
+pub const GWLP_HWNDPARENT: i32 = -8i32;
+pub const GWLP_ID: i32 = -12i32;
+pub const GWL_STYLE: i32 = -16i32;
+pub const GWLP_USERDATA: i32 = -21i32;
+pub const GWLP_WNDPROC: i32 = -4i32;
+pub const GWL_HINSTANCE: i32 = -6i32;
+pub const GWL_ID: i32 = -12i32;
+pub const GWL_USERDATA: i32 = -21i32;
+pub const GWL_WNDPROC: i32 = -4i32;
+pub const GWL_HWNDPARENT: i32 = -8i32;
+pub const MSGFLT_ALLOW: u32 = 1u32;
+pub const MSGFLT_DISALLOW: u32 = 2u32;
+pub const MSGFLT_RESET: u32 = 0u32;
+pub const WS_OVERLAPPED: u32 = 0u32;
+pub const WS_POPUP: u32 = 2147483648u32;
+pub const WS_CHILD: u32 = 1073741824u32;
+pub const WS_MINIMIZE: u32 = 536870912u32;
+pub const WS_VISIBLE: u32 = 268435456u32;
+pub const WS_DISABLED: u32 = 134217728u32;
+pub const WS_CLIPSIBLINGS: u32 = 67108864u32;
+pub const WS_CLIPCHILDREN: u32 = 33554432u32;
+pub const WS_MAXIMIZE: u32 = 16777216u32;
+pub const WS_CAPTION: u32 = 12582912u32;
+pub const WS_BORDER: u32 = 8388608u32;
+pub const WS_DLGFRAME: u32 = 4194304u32;
+pub const WS_VSCROLL: u32 = 2097152u32;
+pub const WS_HSCROLL: u32 = 1048576u32;
+pub const WS_SYSMENU: u32 = 524288u32;
+pub const WS_THICKFRAME: u32 = 262144u32;
+pub const WS_GROUP: u32 = 131072u32;
+pub const WS_TABSTOP: u32 = 65536u32;
+pub const WS_MINIMIZEBOX: u32 = 131072u32;
+pub const WS_MAXIMIZEBOX: u32 = 65536u32;
+pub const WS_TILED: u32 = 0u32;
+pub const WS_ICONIC: u32 = 536870912u32;
+pub const WS_SIZEBOX: u32 = 262144u32;
+pub const WS_TILEDWINDOW: u32 = 13565952u32;
+pub const WS_OVERLAPPEDWINDOW: u32 = 13565952u32;
+pub const WS_POPUPWINDOW: u32 = 2156396544u32;
+pub const WS_CHILDWINDOW: u32 = 1073741824u32;
+pub const WS_ACTIVECAPTION: u32 = 1u32;
 pub const WINEVENT_INCONTEXT: u32 = 4u32;
 pub const WINEVENT_OUTOFCONTEXT: u32 = 0u32;
 pub const WINEVENT_SKIPOWNPROCESS: u32 = 2u32;
@@ -4834,27 +4338,19 @@ impl ::core::clone::Clone for WNDCLASSW {
         *self
     }
 }
-#[repr(transparent)]
-pub struct WNDCLASS_STYLES(pub u32);
-pub const CS_VREDRAW: WNDCLASS_STYLES = WNDCLASS_STYLES(1u32);
-pub const CS_HREDRAW: WNDCLASS_STYLES = WNDCLASS_STYLES(2u32);
-pub const CS_DBLCLKS: WNDCLASS_STYLES = WNDCLASS_STYLES(8u32);
-pub const CS_OWNDC: WNDCLASS_STYLES = WNDCLASS_STYLES(32u32);
-pub const CS_CLASSDC: WNDCLASS_STYLES = WNDCLASS_STYLES(64u32);
-pub const CS_PARENTDC: WNDCLASS_STYLES = WNDCLASS_STYLES(128u32);
-pub const CS_NOCLOSE: WNDCLASS_STYLES = WNDCLASS_STYLES(512u32);
-pub const CS_SAVEBITS: WNDCLASS_STYLES = WNDCLASS_STYLES(2048u32);
-pub const CS_BYTEALIGNCLIENT: WNDCLASS_STYLES = WNDCLASS_STYLES(4096u32);
-pub const CS_BYTEALIGNWINDOW: WNDCLASS_STYLES = WNDCLASS_STYLES(8192u32);
-pub const CS_GLOBALCLASS: WNDCLASS_STYLES = WNDCLASS_STYLES(16384u32);
-pub const CS_IME: WNDCLASS_STYLES = WNDCLASS_STYLES(65536u32);
-pub const CS_DROPSHADOW: WNDCLASS_STYLES = WNDCLASS_STYLES(131072u32);
-impl ::core::marker::Copy for WNDCLASS_STYLES {}
-impl ::core::clone::Clone for WNDCLASS_STYLES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const CS_VREDRAW: u32 = 1u32;
+pub const CS_HREDRAW: u32 = 2u32;
+pub const CS_DBLCLKS: u32 = 8u32;
+pub const CS_OWNDC: u32 = 32u32;
+pub const CS_CLASSDC: u32 = 64u32;
+pub const CS_PARENTDC: u32 = 128u32;
+pub const CS_NOCLOSE: u32 = 512u32;
+pub const CS_SAVEBITS: u32 = 2048u32;
+pub const CS_BYTEALIGNCLIENT: u32 = 4096u32;
+pub const CS_BYTEALIGNWINDOW: u32 = 8192u32;
+pub const CS_GLOBALCLASS: u32 = 16384u32;
+pub const CS_IME: u32 = 65536u32;
+pub const CS_DROPSHADOW: u32 = 131072u32;
 #[cfg(feature = "Win32_Foundation")]
 pub type WNDENUMPROC = unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]

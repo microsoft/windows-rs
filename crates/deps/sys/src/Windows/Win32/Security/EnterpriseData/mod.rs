@@ -25,18 +25,10 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn UnprotectFile(fileorfolderpath: super::super::Foundation::PWSTR, options: *const FILE_UNPROTECT_OPTIONS) -> ::windows_sys::core::HRESULT;
 }
-#[repr(transparent)]
-pub struct ENTERPRISE_DATA_POLICIES(pub u32);
-pub const ENTERPRISE_POLICY_NONE: ENTERPRISE_DATA_POLICIES = ENTERPRISE_DATA_POLICIES(0u32);
-pub const ENTERPRISE_POLICY_ALLOWED: ENTERPRISE_DATA_POLICIES = ENTERPRISE_DATA_POLICIES(1u32);
-pub const ENTERPRISE_POLICY_ENLIGHTENED: ENTERPRISE_DATA_POLICIES = ENTERPRISE_DATA_POLICIES(2u32);
-pub const ENTERPRISE_POLICY_EXEMPT: ENTERPRISE_DATA_POLICIES = ENTERPRISE_DATA_POLICIES(4u32);
-impl ::core::marker::Copy for ENTERPRISE_DATA_POLICIES {}
-impl ::core::clone::Clone for ENTERPRISE_DATA_POLICIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const ENTERPRISE_POLICY_NONE: u32 = 0u32;
+pub const ENTERPRISE_POLICY_ALLOWED: u32 = 1u32;
+pub const ENTERPRISE_POLICY_ENLIGHTENED: u32 = 2u32;
+pub const ENTERPRISE_POLICY_EXEMPT: u32 = 4u32;
 #[repr(C)]
 pub struct FILE_UNPROTECT_OPTIONS {
     pub audit: bool,
@@ -85,23 +77,7 @@ impl ::core::clone::Clone for IProtectionPolicyManagerInterop3 {
         *self
     }
 }
-#[repr(transparent)]
-pub struct SRPHOSTING_TYPE(pub i32);
-pub const SRPHOSTING_TYPE_NONE: SRPHOSTING_TYPE = SRPHOSTING_TYPE(0i32);
-pub const SRPHOSTING_TYPE_WINHTTP: SRPHOSTING_TYPE = SRPHOSTING_TYPE(1i32);
-pub const SRPHOSTING_TYPE_WININET: SRPHOSTING_TYPE = SRPHOSTING_TYPE(2i32);
-impl ::core::marker::Copy for SRPHOSTING_TYPE {}
-impl ::core::clone::Clone for SRPHOSTING_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(transparent)]
-pub struct SRPHOSTING_VERSION(pub i32);
-pub const SRPHOSTING_VERSION1: SRPHOSTING_VERSION = SRPHOSTING_VERSION(1i32);
-impl ::core::marker::Copy for SRPHOSTING_VERSION {}
-impl ::core::clone::Clone for SRPHOSTING_VERSION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const SRPHOSTING_TYPE_NONE: i32 = 0i32;
+pub const SRPHOSTING_TYPE_WINHTTP: i32 = 1i32;
+pub const SRPHOSTING_TYPE_WININET: i32 = 2i32;
+pub const SRPHOSTING_VERSION1: i32 = 1i32;

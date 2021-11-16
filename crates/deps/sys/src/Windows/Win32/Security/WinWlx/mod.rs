@@ -444,17 +444,9 @@ impl ::core::clone::Clone for WLX_SC_NOTIFICATION_INFO {
         *self
     }
 }
-#[repr(transparent)]
-pub struct WLX_SHUTDOWN_TYPE(pub u32);
-pub const WLX_SAS_ACTION_SHUTDOWN: WLX_SHUTDOWN_TYPE = WLX_SHUTDOWN_TYPE(5u32);
-pub const WLX_SAS_ACTION_SHUTDOWN_REBOOT: WLX_SHUTDOWN_TYPE = WLX_SHUTDOWN_TYPE(11u32);
-pub const WLX_SAS_ACTION_SHUTDOWN_POWER_OFF: WLX_SHUTDOWN_TYPE = WLX_SHUTDOWN_TYPE(10u32);
-impl ::core::marker::Copy for WLX_SHUTDOWN_TYPE {}
-impl ::core::clone::Clone for WLX_SHUTDOWN_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub const WLX_SAS_ACTION_SHUTDOWN: u32 = 5u32;
+pub const WLX_SAS_ACTION_SHUTDOWN_REBOOT: u32 = 11u32;
+pub const WLX_SAS_ACTION_SHUTDOWN_POWER_OFF: u32 = 10u32;
 #[repr(C)]
 pub struct WLX_TERMINAL_SERVICES_DATA {
     pub ProfilePath: [u16; 257],
